@@ -172,7 +172,7 @@ function BotThink:AddMoney(hHero)
   local GameTime = GameRules:GetDOTATime(false, false)
   local totalGold = PlayerResource:GetTotalEarnedGold(hHero:GetPlayerID())
   local goldPerSec = totalGold/GameTime
-  local multiplier = AIGameMode.fBotGoldXPMultiplier
+  local multiplier = AIGameMode.fBotGoldXpMultiplier
 
   if goldPerSec > 20 then
     return false
