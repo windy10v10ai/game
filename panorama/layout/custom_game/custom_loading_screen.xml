@@ -15,18 +15,17 @@
 						<Label id="RadiantGoldXPMultiplierTitle" class="GameOptionsLabel" text="#player_gold_xp_multiplier" />
 						<DropDown id="player_gold_xp_multiplier_dropdown" class="GameOptionsDropdown">
 							<Label text="#radiant_gold_xp_multiplier_1" id="1"/>
-							<Label text="1.1" id="1.1"/>
+							<Label text="#radiant_gold_xp_multiplier_1_1" id="1.1"/>
 							<Label text="#radiant_gold_xp_multiplier_1_25" id="1.25"/>
 							<Label text="#radiant_gold_xp_multiplier_1_5" id="1.5"/>
 							<Label text="#radiant_gold_xp_multiplier_2" id="2"/>
+							<Label text="#radiant_gold_xp_multiplier_5" id="5"/>
 						</DropDown>
 					</Panel>
 					<Panel id="DireGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="DireGoldXPMultiplierTitle" class="GameOptionsLabel" text="#bot_gold_xp_multiplier" />
 						<DropDown id="bot_gold_xp_multiplier_dropdown" class="GameOptionsDropdown">
 							<Label text="#bots_multiplier_1" id="1"/>
-							<Label text="#bots_multiplier_1_25" id="1.25"/>
-							<Label text="#bots_multiplier_1_5" id="1.5"/>
 							<Label text="#bots_multiplier_2" id="2"/>
 							<Label text="#bots_multiplier_3" id="3"/>
 							<Label text="#bots_multiplier_4" id="4"/>
