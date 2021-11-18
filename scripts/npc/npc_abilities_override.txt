@@ -1640,11 +1640,11 @@
 	}
 	"magnataur_reverse_polarity"
 	{
-		"AbilityCooldown"				"60"
+		"AbilityCooldown"				"100"
 	}
 	"mars_arena_of_blood"
 	{
-		"AbilityCooldown"				"60 50 40"
+		"AbilityCooldown"				"60 55 50"
 	}
 	"night_stalker_darkness"
 	{
@@ -2381,13 +2381,13 @@
 	}
 	"nevermore_dark_lord"
 	{
-		"MaxLevel" "6"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"presence_armor_reduction"		"-4 -5 -6 -7 -8 -9"
+				"presence_armor_reduction"		"-4 -5 -6 -7 -8 -9 -10"
 				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_5"
 			}
 		}
@@ -2406,6 +2406,23 @@
 				"var_type"						"FIELD_INTEGER"
 				"bonus_attack_range"			"50 100 150 200"
 				"LinkedSpecialBonus"			"special_bonus_unique_sniper_6"
+			}
+		}
+	}
+	"sniper_assassinate"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"30 25 20 15 10"
+		"AbilityDamage"					"320 485 650 820 1000"
+		"AbilityManaCost"				"175 225 275 325 375"
+
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"scepter_stun_duration"			"1 1.25 1.5 1.75 2.0"
+				"RequiresScepter"		"1"
 			}
 		}
 	}

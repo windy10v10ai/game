@@ -297,15 +297,23 @@ function modifier_sniper_assassinate_thinker:OnIntervalThink()
 	local hParent = self:GetParent()
 
 	if hParent:HasScepter() and hParent:HasAbility("sniper_assassinate") then
-		local iLevel = hParent:FindAbilityByName("sniper_assassinate"):GetLevel()
-		hParent:RemoveAbility("sniper_assassinate")
-		hParent:AddAbility("sniper_assassinate_upgrade"):SetLevel(iLevel)
+
+		if not hParent:HasAbility("sniper_assassinate_upgrade") then
+			local iLevel = hParent:FindAbilityByName("sniper_assassinate"):GetLevel()
+			hParent:AddAbility("sniper_assassinate_upgrade"):SetLevel(iLevel)
+		else
+			local iLevel = hParent:FindAbilityByName("sniper_assassinate"):GetLevel()
+			local iUpgradeLevel = hParent:FindAbilityByName("sniper_assassinate_upgrade"):GetLevel()
+			if iUpgradeLevel < iLevel then
+				hParent:FindAbilityByName("sniper_assassinate_upgrade"):SetLevel(iLevel)
+			elseif iUpgradeLevel > iLevel then
+				hParent:FindAbilityByName("sniper_assassinate"):SetLevel(iUpgradeLevel)
+			end
+		end
 	end
 
 	if not hParent:HasScepter() and hParent:HasAbility("sniper_assassinate_upgrade") then
-		local iLevel = hParent:FindAbilityByName("sniper_assassinate_upgrade"):GetLevel()
 		hParent:RemoveAbility("sniper_assassinate_upgrade")
-		hParent:AddAbility("sniper_assassinate"):SetLevel(iLevel)
 	end
 end
 
