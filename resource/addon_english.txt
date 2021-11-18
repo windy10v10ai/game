@@ -52,12 +52,11 @@
 		"bots_multiplier_20"	"20  (Inferno)"
 
 		"radiant_gold_xp_multiplier_1"               "1"
+		"radiant_gold_xp_multiplier_1_1"             "1.1"
 		"radiant_gold_xp_multiplier_1_25"            "1.25"
 		"radiant_gold_xp_multiplier_1_5"             "1.5"
 		"radiant_gold_xp_multiplier_2"               "2"
 		"radiant_gold_xp_multiplier_5"               "5"
-		"radiant_gold_xp_multiplier_10"              "10"
-		"radiant_gold_xp_multiplier_20"              "20"
 
 		"respawn_time_percentage_200"        "200%"
 		"respawn_time_percentage_100"        "100%"
