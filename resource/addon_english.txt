@@ -18,8 +18,8 @@
 		"radiant_xp_multiplier"	"Radiant XP Multiplier"
 		"dire_xp_multiplier"	"Dire XP Multiplier"
 
-		"radiant_gold_xp_multiplier"	"Radiant Gold&XP Multiplier"
-		"dire_gold_xp_multiplier"	"Dire Gold&XP Multiplier"
+		"player_gold_xp_multiplier"	"Player Gold&XP Multiplier"
+		"bot_gold_xp_multiplier"	"Bot Gold&XP Multiplier"
 
 		"radiant_player_number"	"Radiant Player Number"
 		"dire_player_number"	"Dire Player Number"
