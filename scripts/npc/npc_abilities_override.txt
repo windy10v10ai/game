@@ -378,6 +378,10 @@
 			}
 		}
 	}
+	"item_third_eye"
+	{
+		"ItemInitialCharges"			"50"
+	}
 	// level 4
 	"item_timeless_relic"{
 		"AbilitySpecial"
@@ -422,7 +426,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"			"3.5"
+				"duration"			"5"
 			}
 		}
 	}
@@ -4270,7 +4274,7 @@
 	}
 	"skeleton_king_reincarnation"
 	{
-		"AbilityCooldown"				"200 120 40"
+		"AbilityCooldown"				"120 80 40"
 
 		"AbilitySpecial"
 		{
@@ -4287,7 +4291,7 @@
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_radius_tooltip_scepter"	"2000"
+				"aura_radius_tooltip_scepter"	"1500"
 				"RequiresScepter"			"1"
 			}
 		}
