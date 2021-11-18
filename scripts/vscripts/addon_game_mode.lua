@@ -70,8 +70,8 @@ function AIGameMode:PreGameOptions()
 	self.iDesiredRadiant = self.iDesiredRadiant or RADIANT_PLAYER_COUNT
 	self.iDesiredDire = self.iDesiredDire or DIRE_PLAYER_COUNT
 
-	self.fPlayerGoldXPMultiplier = self.fPlayerGoldXPMultiplier or PLAYER_GOLD_XP_MULTIPLIER
-	self.fBotGoldXPMultiplier = self.fBotGoldXPMultiplier or BOT_GOLD_XP_MULTIPLIER
+	self.fPlayerGoldXpMultiplier = self.fPlayerGoldXpMultiplier or PLAYER_GOLD_XP_MULTIPLIER
+	self.fBotGoldXpMultiplier = self.fBotGoldXpMultiplier or BOT_GOLD_XP_MULTIPLIER
 
 	self.iGoldPerTick = self.iGoldPerTick or GOLD_PER_TICK
 	self.iGoldTickTime = self.iGoldTickTime or GOLD_TICK_TIME
@@ -270,9 +270,9 @@ function AIGameMode:FilterGold(tGoldFilter)
 	end
 
 	if self.tHumanPlayerList[iPlayerID] then
-		tGoldFilter["gold"] = math.floor(iGold*multiplierGoldWithGameTime(self.fPlayerGoldXPMultiplier))
+		tGoldFilter["gold"] = math.floor(iGold*multiplierGoldWithGameTime(self.fPlayerGoldXpMultiplier))
 	else
-		tGoldFilter["gold"] = math.floor(iGold*multiplierGoldWithGameTime(self.fBotGoldXPMultiplier))
+		tGoldFilter["gold"] = math.floor(iGold*multiplierGoldWithGameTime(self.fBotGoldXpMultiplier))
 	end
 	return true
 end
@@ -284,9 +284,9 @@ function AIGameMode:FilterXP(tXPFilter)
 	local iReason = tXPFilter["reason_const"]
 
 	if self.tHumanPlayerList[iPlayerID] then
-		tXPFilter["experience"] = math.floor(iXP*multiplierXPWithGameTime(self.fPlayerGoldXPMultiplier))
+		tXPFilter["experience"] = math.floor(iXP*multiplierXPWithGameTime(self.fPlayerGoldXpMultiplier))
 	else
-		tXPFilter["experience"] = math.floor(iXP*multiplierXPWithGameTime(self.fBotGoldXPMultiplier))
+		tXPFilter["experience"] = math.floor(iXP*multiplierXPWithGameTime(self.fBotGoldXpMultiplier))
 	end
 	return true
 end
