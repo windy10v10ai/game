@@ -18,8 +18,8 @@
 		"radiant_xp_multiplier"	"天辉经验倍率"
 		"dire_xp_multiplier"	"夜魇经验倍率"
 
-		"radiant_gold_xp_multiplier"	"天辉金钱/经验倍率"
-		"dire_gold_xp_multiplier"	"夜魇金钱/经验倍率"
+		"player_gold_xp_multiplier"	"玩家金钱/经验倍率"
+		"bot_gold_xp_multiplier"	"电脑金钱/经验倍率"
 
 		"radiant_player_number"	"天辉玩家人数"
 		"dire_player_number"	"夜魇玩家人数"

@@ -12,23 +12,18 @@
 				<Panel id = "GameOptionsPanel">
 					<Label id="GameOptionsPanelTitle" text="#addon_option_title" />
 					<Panel id="RadiantGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
-						<Label id="RadiantGoldXPMultiplierTitle" class="GameOptionsLabel" text="#radiant_gold_xp_multiplier" />
-						<DropDown id="radiant_gold_xp_multiplier_dropdown" class="GameOptionsDropdown">
+						<Label id="RadiantGoldXPMultiplierTitle" class="GameOptionsLabel" text="#player_gold_xp_multiplier" />
+						<DropDown id="player_gold_xp_multiplier_dropdown" class="GameOptionsDropdown">
 							<Label text="#radiant_gold_xp_multiplier_1" id="1"/>
+							<Label text="1.1" id="1.1"/>
 							<Label text="#radiant_gold_xp_multiplier_1_25" id="1.25"/>
 							<Label text="#radiant_gold_xp_multiplier_1_5" id="1.5"/>
 							<Label text="#radiant_gold_xp_multiplier_2" id="2"/>
-							<Label text="3" id="3"/>
-							<Label text="4" id="4"/>
-							<Label text="#radiant_gold_xp_multiplier_5" id="5"/>
-							<Label text="#radiant_gold_xp_multiplier_10" id="10"/>
-							<Label text="15" id="15"/>
-							<Label text="#radiant_gold_xp_multiplier_20" id="20"/>
 						</DropDown>
 					</Panel>
 					<Panel id="DireGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
-						<Label id="DireGoldXPMultiplierTitle" class="GameOptionsLabel" text="#dire_gold_xp_multiplier" />
-						<DropDown id="dire_gold_xp_multiplier_dropdown" class="GameOptionsDropdown">
+						<Label id="DireGoldXPMultiplierTitle" class="GameOptionsLabel" text="#bot_gold_xp_multiplier" />
+						<DropDown id="bot_gold_xp_multiplier_dropdown" class="GameOptionsDropdown">
 							<Label text="#bots_multiplier_1" id="1"/>
 							<Label text="#bots_multiplier_1_25" id="1.25"/>
 							<Label text="#bots_multiplier_1_5" id="1.5"/>
