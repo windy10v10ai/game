@@ -3624,7 +3624,7 @@
 		"FightRecapLevel"						"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8000"	
+		"ItemCost"						"9600"	
 		"ItemShopTags"					""
 
 		
@@ -3634,7 +3634,7 @@
 		"ItemResult"					"item_abyssal_blade_v2"
 		"ItemRequirements"
 		{
-			"01"						"item_abyssal_blade;item_abyssal_blade;item_blink"
+			"01"						"item_abyssal_blade;item_overwhelming_blink"
 		}
 	}
 	
@@ -3744,7 +3744,6 @@
 			}
 		}
 	}
-
 }
 
 
