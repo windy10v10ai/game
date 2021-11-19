@@ -18,7 +18,6 @@ end
 if BotThink == nil then
   print("Bot Think initialize!")
 	_G.BotThink = class({}) -- put in the global scope
-  BotThink.itemPrice = LoadKeyValues("scripts/kv/item_price.kv")
 
   local allPurchaseTable = tBotItemData.purchaseItemList
   table.foreach(allPurchaseTable, addTome)
@@ -49,14 +48,18 @@ local function FindItemByNameIncludeStash(hHero, sName)
 end
 
 local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
+  if not iPurchaseTable then
+    -- hero not has purchase table
+    return false
+  end
   if ( #iPurchaseTable == 0 ) then
       -- no items to buy
-      return;
+      return false
   end
   local iItemName = iPurchaseTable[1]
   if not iItemName then
     -- no items to buy
-    return
+    return false
   end
   local iCost = GetItemCost(iItemName)
   
@@ -72,8 +75,10 @@ local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
       if hHero:AddItem(item) then
         PlayerResource:SpendGold(hHero:GetPlayerID(), iCost, DOTA_ModifyGold_PurchaseItem)
         table.remove(iPurchaseTable,1)
+        return true
       else
         print("Warn! Think purchase "..hHero:GetName().." add "..iItemName.." fail with item count "..hHero:GetNumItemsInInventory())
+        return false
       end
     end
   end
@@ -101,12 +106,20 @@ function BotThink:ThinkPurchase(hHero)
   local iHeroName = hHero:GetName()
   
   local iPurchaseTable = tBotItemData.purchaseItemList[iHeroName]
-  if not iPurchaseTable then
-    -- hero not has purchase table
-    return
-  end
-
   BuyItemIfGoldEnough(hHero, iPurchaseTable)
+end
+
+function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
+  local iHeroName = hHero:GetName()
+
+  local multiIndex = "x"..AIGameMode.fBotGoldXpMultiplier
+  addNeutralItemTime = tBotItemData.addNeutralItemMultiTimeMap[multiIndex] or tBotItemData.addNeutralItemMultiTimeMap["x1"]
+
+  if (GameTime > addNeutralItemTime[1]) then
+    local iPurchaseTable = tBotItemData.addNeutralItemList[iHeroName]
+    BuyItemIfGoldEnough(hHero, iPurchaseTable)
+    return true
+  end
 end
 
 function BotThink:ThinkSell(hero)
