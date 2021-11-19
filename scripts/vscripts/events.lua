@@ -252,11 +252,12 @@ function AIGameMode:OnEntityKilled(keys)
 
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
-	local tDOTARespawnTime = {5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 26, 30, 32, 34, 36, 38, 40, 45, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60}
+	local tDOTARespawnTime = {5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 26, 30, 32, 34, 36, 38, 40, 45, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 6
+, 65, 66, 67 ,68, 69, 70}
 	if iLevel <= 30 then
 		fRespawnTime = math.ceil(tDOTARespawnTime[iLevel]*self.iRespawnTimePercentage/100.0)
 	else
-		fRespawnTime = math.ceil((iLevel/4 + 55)*self.iRespawnTimePercentage/100.0)
+		fRespawnTime = math.ceil((iLevel/4 + 60)*self.iRespawnTimePercentage/100.0)
 	end
 
 	if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
@@ -393,8 +394,16 @@ end
 
 function AIGameMode:OnPlayerLevelUp(keys)
 	local iEntIndex=PlayerResource:GetPlayer(keys.player-1):GetAssignedHero():entindex()
+	local iLevel=keys.level
+	-- Set DeathXP 击杀经验
 	Timers:CreateTimer(0.5, function ()
-		EntIndexToHScript(iEntIndex):SetCustomDeathXP(40 + EntIndexToHScript(iEntIndex):GetCurrentXP()*0.08)
+		if iLevel <= 30 then
+			print("iLevel <= 30 "..iLevel)
+			EntIndexToHScript(iEntIndex):SetCustomDeathXP(40 + EntIndexToHScript(iEntIndex):GetCurrentXP()*0.09)
+		else
+			print("iLevel > 30 "..iLevel)
+			EntIndexToHScript(iEntIndex):SetCustomDeathXP(3000 + EntIndexToHScript(iEntIndex):GetCurrentXP()*0.04)
+		end
 	end)
 
 
@@ -425,10 +434,9 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
 	if tonumber(args.host_privilege) ~= 1 then return end
 	self.iDesiredRadiant = tonumber(args.game_options.radiant_player_number)
 	self.iDesiredDire = tonumber(args.game_options.dire_player_number)
-	self.fRadiantGoldMultiplier = tonumber(args.game_options.radiant_gold_xp_multiplier)
-	self.fRadiantXPMultiplier = tonumber(args.game_options.radiant_gold_xp_multiplier)
-	self.fDireXPMultiplier = tonumber(args.game_options.dire_gold_xp_multiplier)
-	self.fDireGoldMultiplier = tonumber(args.game_options.dire_gold_xp_multiplier)
+	self.fPlayerGoldXpMultiplier = tonumber(args.game_options.player_gold_xp_multiplier)
+	self.fBotGoldXpMultiplier = tonumber(args.game_options.bot_gold_xp_multiplier)
+
 	self.iRespawnTimePercentage = tonumber(args.game_options.respawn_time_percentage)
 	self.iMaxLevel = tonumber(args.game_options.max_level)
 	self.iRadiantTowerPower = tonumber(args.game_options.radiant_tower_power)

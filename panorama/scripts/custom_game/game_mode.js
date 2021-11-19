@@ -55,8 +55,8 @@ function ShowChatTeamActivate() {
 	GameEvents.SendCustomGameEventToAllClients("LoadingScreenTeamShow", {iPlayerID:Players.GetLocalPlayer()});
 }
 
-$("#radiant_gold_xp_multiplier_dropdown").SetSelected("1");
-$("#dire_gold_xp_multiplier_dropdown").SetSelected("5");
+$("#player_gold_xp_multiplier_dropdown").SetSelected("1");
+$("#bot_gold_xp_multiplier_dropdown").SetSelected("5");
 $("#radiant_player_number_dropdown").SetSelected("10");
 $("#dire_player_number_dropdown").SetSelected("10");
 
@@ -66,7 +66,7 @@ $("#radiant_tower_power_dropdown").SetSelected("5");
 $("#dire_tower_power_dropdown").SetSelected("5");
 $("#radiant_tower_heal_dropdown").SetSelected("5");
 $("#dire_tower_heal_dropdown").SetSelected("5");
-$("#starting_gold_player_dropdown").SetSelected("2000");
+$("#starting_gold_player_dropdown").SetSelected("5000");
 $("#starting_gold_bot_dropdown").SetSelected("600");
 $("#same_hero_selection").checked=true;
 $("#fast_courier").checked=true;
@@ -76,8 +76,8 @@ function StateChange() {
 		GameEvents.SendCustomGameEventToServer("loading_set_options",{
 			"host_privilege": CheckForHostPrivileges(),
 			"game_options":{
-				"radiant_gold_xp_multiplier": $("#radiant_gold_xp_multiplier_dropdown").GetSelected().id,
-				"dire_gold_xp_multiplier": $("#dire_gold_xp_multiplier_dropdown").GetSelected().id,
+				"player_gold_xp_multiplier": $("#player_gold_xp_multiplier_dropdown").GetSelected().id,
+				"bot_gold_xp_multiplier": $("#bot_gold_xp_multiplier_dropdown").GetSelected().id,
 				"radiant_player_number": $("#radiant_player_number_dropdown").GetSelected().id,
 				"dire_player_number": $("#dire_player_number_dropdown").GetSelected().id,
 				"respawn_time_percentage": $("#respawn_time_percentage_dropdown").GetSelected().id,

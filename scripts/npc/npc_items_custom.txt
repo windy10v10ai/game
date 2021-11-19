@@ -3394,7 +3394,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3333"
+		"ItemCost"						"3000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3466,7 +3466,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movement_speed_percent_bonus"				"11"
+				"movement_speed_percent_bonus"				"12"
 			}
 			"08"
 			{
@@ -3476,17 +3476,17 @@
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_amp"				"30"
+				"spell_amp"				"20"
 			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_lifesteal_amp"	"30"
+				"spell_lifesteal_amp"	"20"
 			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen_multiplier"	"60"
+				"mana_regen_multiplier"	"46"
 			}
 			"12"
 			{
@@ -3510,7 +3510,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6666"
+		"ItemCost"						""
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3574,37 +3574,37 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"status_resistance"		"40"
+				"status_resistance"		"36"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movement_speed_percent_bonus"				"22"
+				"movement_speed_percent_bonus"				"20"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp_regen_amp"			"60"
+				"hp_regen_amp"			"46"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_amp"				"60"
+				"spell_amp"				"46"
 			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_lifesteal_amp"	"60"
+				"spell_lifesteal_amp"	"46"
 			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen_multiplier"	"90"
+				"mana_regen_multiplier"	"46"
 			}
 			"12"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_resist"			"40"
+				"spell_resist"			"36"
 			}
 		}
 	}

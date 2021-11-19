@@ -1,12 +1,13 @@
 "AddonInfo"
 {
 	"maps"					"dota"
+	"PenaltiesEnabled"		"0"
 	"IsPlayable"			"1"
 	"HeroGuidesSupported"	"1"
 	"ForceDefaultGuide"		"0"
 
 	"dota"
 	{
-		"MaxPlayers"	"20"
+		"MaxPlayers"	"10"
 	}
 }

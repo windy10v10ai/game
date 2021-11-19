@@ -378,6 +378,10 @@
 			}
 		}
 	}
+	"item_third_eye"
+	{
+		"ItemInitialCharges"			"50"
+	}
 	// level 4
 	"item_timeless_relic"{
 		"AbilitySpecial"
@@ -422,7 +426,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"			"3.5"
+				"duration"			"5"
 			}
 		}
 	}
@@ -1636,11 +1640,11 @@
 	}
 	"magnataur_reverse_polarity"
 	{
-		"AbilityCooldown"				"60"
+		"AbilityCooldown"				"100"
 	}
 	"mars_arena_of_blood"
 	{
-		"AbilityCooldown"				"60 50 40"
+		"AbilityCooldown"				"60 55 50"
 	}
 	"night_stalker_darkness"
 	{
@@ -1875,10 +1879,6 @@
 	"treant_overgrowth"
 	{
 		"AbilityCooldown"				"100 80 60"
-	}
-	"skeleton_king_reincarnation"
-	{
-		"AbilityCooldown"				"120 80 40"
 	}
 	"wisp_relocate"
 	{
@@ -2381,13 +2381,13 @@
 	}
 	"nevermore_dark_lord"
 	{
-		"MaxLevel" "6"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"presence_armor_reduction"		"-4 -5 -6 -7 -8 -9"
+				"presence_armor_reduction"		"-4 -5 -6 -7 -8 -9 -10"
 				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_5"
 			}
 		}
@@ -2406,6 +2406,23 @@
 				"var_type"						"FIELD_INTEGER"
 				"bonus_attack_range"			"50 100 150 200"
 				"LinkedSpecialBonus"			"special_bonus_unique_sniper_6"
+			}
+		}
+	}
+	"sniper_assassinate"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"30 25 20 15 10"
+		"AbilityDamage"					"320 485 650 820 1000"
+		"AbilityManaCost"				"175 225 275 325 375"
+
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"scepter_stun_duration"			"1 1.25 1.5 1.75 2.0"
+				"RequiresScepter"		"1"
 			}
 		}
 	}
@@ -3686,29 +3703,22 @@
 	{
 		"MaxLevel" "7"
 
-		"AbilityCooldown"				"5"
-
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"whirling_radius"			"600"
+				"whirling_radius"			"450"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"whirling_damage"			"60 120 180 240 300 360 420"
 			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tree_damage_scale"			"11 18 25 32 39 46 53 60"
-			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"stat_loss_pct"				"14 15 16 17 18 19 20"
+				"stat_loss_pct"				"10 11 12 13 14 15 16"
 				"LinkedSpecialBonus"		"special_bonus_unique_timbersaw"
 			}
 			"06"
@@ -3724,8 +3734,6 @@
 		"MaxLevel" "7"
 
 		"AbilityCastRange"				"800 950 1100 1250 1400 1550 1700"
-		
-		"AbilityCooldown"				"3"
 		
 		"AbilityManaCost"				"60 70 80 90 100 110 120"
 		
@@ -3753,24 +3761,22 @@
 
 	"shredder_reactive_armor"
 	{
-		"MaxLevel" "5"
-
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"bonus_armor"						"3 4 5 6 7"
+				"bonus_armor"						"3 4 5 6"
 			}
 			"02"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"bonus_hp_regen"							"3 4 5 6 7"
+				"bonus_hp_regen"							"3 4 5 6"
 			}
 			"03"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"stack_limit"						"2 3 4 5 6"
+				"stack_limit"						"2 3 4 5"
 				"LinkedSpecialBonus"				"special_bonus_unique_timbersaw_2"
 			}
 			"04"
@@ -3784,8 +3790,6 @@
 
 	"shredder_chakram"
 	{
-		"AbilityCastRange"				"1200 1200 1200"
-	
 		"AbilitySpecial"
 		{
 			"01"
@@ -3817,14 +3821,12 @@
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"break_distance"		"3000.0"
+				"break_distance"		"2500.0"
 			}		
 		}
 	}
 	"shredder_chakram_2"
 	{
-		"AbilityCastRange"				"1200 1200 1200"
-		
 		"AbilitySpecial"
 		{
 			"01"
@@ -3887,12 +3889,12 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"550"
+				"radius"					"500"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"blast_damage"				"200 250 300 350 400 450 500"
+				"blast_damage"				"100 150 200 250 300 350 400"
 				"LinkedSpecialBonus"		"special_bonus_unique_pugna_2"
 			}
 		}
@@ -3906,7 +3908,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"2500"
+				"radius"					"2000"
 			}
 			"02"
 			{
@@ -3919,11 +3921,17 @@
 				"mana_multiplier"			"2.50 2.75 3.00 3.25"
 				"LinkedSpecialBonus"		"special_bonus_unique_pugna_3"
 			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attacks_to_destroy_tooltip"				"8 8 8 8"
+				"LinkedSpecialBonus"		"special_bonus_unique_pugna_6"
+			}
 		}
 	}
 	"pugna_life_drain"
 	{
-		"AbilityCastRange"				"1400"
+		"AbilityCastRange"				"1200"
 		
 		"AbilitySpecial"
 		{
@@ -3938,6 +3946,468 @@
 				"var_type"					"FIELD_INTEGER"
 				"scepter_health_drain"			"300 400 500"
 				"RequiresScepter"		"1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Rattletrap: Overclocking (scepter ability)              发条地精
+	//=================================================================================================================
+	"rattletrap_overclocking"
+	{
+		"AbilityCooldown"				"30"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"buff_duration"				"10"
+				"RequiresScepter"			"1"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_movement_speed"		"50"
+				"RequiresScepter"			"1"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"debuff_duration"		"1"
+				"RequiresScepter"			"1"
+			}
+		}
+	}
+	"rattletrap_battery_assault"
+	{
+		"MaxLevel"						"7"
+
+		"AbilityCooldown"				"25 23 21 19 17 15 13"
+
+		"AbilityManaCost"				"100"
+		
+		"AbilityDamage"					"20 45 70 95 120 145 170"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"325 325 325 325"
+			}
+			"03"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"interval"			"0.5 0.5 0.5 0.5"
+				"LinkedSpecialBonus"		"special_bonus_unique_clockwerk"
+			}
+			"04"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"20 45 70 95 120 145 170"
+				"LinkedSpecialBonus"		"special_bonus_unique_clockwerk_3"
+			}
+		}
+	}
+	"rattletrap_power_cogs"
+	{
+		"AbilityCooldown"				"15"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"7.0 8.0 9.0 10.0"
+			}
+			"02"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"damage"		"100 175 250 325"
+			}
+			"03"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"mana_burn"		"100 130 160 190"
+				"LinkedSpecialBonus"		"special_bonus_unique_clockwerk_8"
+			}
+		}
+	}
+	"rattletrap_rocket_flare"
+	{
+		"MaxLevel"						"7"
+
+		"AbilityCooldown"				"20.0 18.0 16.0 14.0 12.0 10.0 8.0"
+		
+		"AbilityManaCost"				"35 40 45 50 55 60 65"
+		
+		"AbilityDamage"					"100 140 180 220 260 300 340"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"800"
+			}
+			"02"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"12.0"
+			}
+			"03"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"3250"
+			}
+			"04"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"vision_radius"		"1500"
+			}
+			"05"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"100 140 180 220 260 300 340"
+				"LinkedSpecialBonus"	"special_bonus_unique_clockwerk_2"
+			}	
+		}
+	}
+	"rattletrap_hookshot"
+	{
+		"MaxLevel"						"4"
+		
+		"AbilityCastRange"				"2000 2500 3000 3500"
+		
+		"AbilityCooldown"				"60.0 45.0 30.0 15.0"
+		
+		"AbilitySpecial"
+		{
+			"03"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"1.5 2.0 2.5 3.0"
+			}
+			
+			"04"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"4000 5000 6000 7000"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"100 200 300 400"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Lina Dragon Slave      火女
+	//=================================================================================================================
+	"lina_dragon_slave"
+	{
+		"MaxLevel"						"6"
+
+		"AbilityDamage"					"85 160 235 310 360 400"
+
+		"AbilityManaCost"				"100 115 130 145 160 175 190"
+
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"dragon_slave_distance"			"1200"
+			}
+		}
+	}
+	"lina_light_strike_array"
+	{
+		"MaxLevel"						"6"
+
+		"AbilityCastRange"				"700"
+		
+		"AbilityCooldown"				"13 11 9 7 6 5"
+
+		"AbilityManaCost"				"100 105 110 115 120 125"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"light_strike_array_aoe"	"350"
+			}		
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"light_strike_array_stun_duration"	"1.6 1.9 2.2 2.5 2.8 3.1"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"light_strike_array_damage"	"80 130 180 230 250 280"
+				"LinkedSpecialBonus"		"special_bonus_unique_lina_3"
+			}
+		}
+	}
+	"lina_fiery_soul"
+	{
+		"MaxLevel"						"5"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"fiery_soul_attack_speed_bonus"	"30 50 70 90 110"
+				"LinkedSpecialBonus"			"special_bonus_unique_lina_2"				
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"fiery_soul_move_speed_bonus"	"4 5 6 7 8"
+				"LinkedSpecialBonus"			"special_bonus_unique_lina_2"
+				"LinkedSpecialBonusField"		"value2"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"fiery_soul_stack_duration"			"15"
+			}
+		}
+	}
+	"lina_laguna_blade"
+	{
+		"MaxLevel"						"4"
+		
+		"AbilityCooldown"				"70 60 50 40"
+
+		"AbilityManaCost"				"250 400 550 650"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"500 700 900 1100"
+				"LinkedSpecialBonus"		"special_bonus_unique_lina_5"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Skeleton King                骷髅王
+	//=================================================================================================================
+	"skeleton_king_hellfire_blast"
+	{
+		"MaxLevel"						"6"
+
+		"AbilityCooldown"				"17 14 11 8 6 4"
+
+		"AbilityDamage"					"60 80 100 120 140 160"
+
+		"AbilityManaCost"				"95 110 125 140 155 170"
+
+		"AbilitySpecial"
+		{			
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"blast_stun_duration"	"1.1 1.4 1.7 2.0 2.3 2.6"
+				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_11"
+			}			
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"blast_dot_duration"	"3.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_7"
+			}			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blast_slow"			"-20"
+			}			
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blast_dot_damage"		"20 40 60 80 100 120"
+				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_3"
+			}			
+		}
+	}
+	"skeleton_king_vampiric_aura"
+	{
+		"MaxLevel"						"6"
+
+		"AbilityManaCost"				"70 80 90 100 110 120"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vampiric_aura"			"10 18 26 34 42 50"
+				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_2"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_skeleton_charges"		"2 4 6 8 9 10"
+				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_5"
+			}
+		}
+	}
+	"skeleton_king_mortal_strike"
+	{
+		"MaxLevel"						"5"
+
+		"AbilityCooldown"				"5.5 5 4.5 4 3.5"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_mult"					"150 190 230 270 310"
+			}
+		}
+	}
+	"skeleton_king_reincarnation"
+	{
+		"AbilityCooldown"				"120 80 40"
+
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_radius"			"1200"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"	"1200"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius_tooltip_scepter"	"1500"
+				"RequiresScepter"			"1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Vengeful Spirit Magic Missle          复仇之魂
+	//=================================================================================================================
+	"vengefulspirit_magic_missile"
+	{
+		"MaxLevel"						"6"
+
+		"AbilityCastRange"				"575 600 625 650 675 700"
+		
+		"AbilityCooldown"				"12 11 10 9 8 7"
+
+		"AbilityManaCost"				"100 110 120 130 140 150"
+
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"magic_missile_stun"	"1.4 1.5 1.6 1.7 1.8 1.9"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_missile_damage"	"90 180 270 360 400 450"
+				"LinkedSpecialBonus"	"special_bonus_unique_vengeful_spirit_1"
+			}
+		}
+	}
+	"vengefulspirit_command_aura"
+	{
+		"MaxLevel"						"6"
+
+		"AbilityCastRange"				"1500"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_base_damage"	"11 18 25 32 39 46"
+				"LinkedSpecialBonus"	"special_bonus_unique_vengeful_spirit_2"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_radius"		"1500"
+			}			
+		}
+	}
+	"vengefulspirit_wave_of_terror"
+	{
+		"MaxLevel"						"6"
+
+		"AbilityCastRange"				"1800"
+
+		"AbilityCooldown"				"16 14 12 10 9 8"
+
+		"AbilityDamage"					"70 90 110 130 150 160"
+
+		"AbilityManaCost"				"25 30 35 40 45 50"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"wave_speed"		"2500.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"wave_width"		"425"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_reduction"	"-3 -4 -5 -6 -7 -8"
+				"LinkedSpecialBonus"	"special_bonus_unique_vengeful_spirit_4"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"vision_aoe"		"425"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"vision_duration"	"8"
+			}
+		}
+	}
+	"vengefulspirit_nether_swap"
+	{
+		"MaxLevel"						"4"
+
+		"AbilityCastRange"				"800 1000 1200 1400"
+		
+		"AbilityCooldown"				"50 40 30 25"
+		
+		"AbilityManaCost"				"100 150 200 250"
+		
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_reduction"	"30 40 50 60"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"	"100"
 			}
 		}
 	}

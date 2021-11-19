@@ -18,8 +18,8 @@
 		"radiant_xp_multiplier"	"天辉经验倍率"
 		"dire_xp_multiplier"	"夜魇经验倍率"
 
-		"radiant_gold_xp_multiplier"	"天辉金钱/经验倍率"
-		"dire_gold_xp_multiplier"	"夜魇金钱/经验倍率"
+		"player_gold_xp_multiplier"	"玩家金钱/经验倍率"
+		"bot_gold_xp_multiplier"	"电脑金钱/经验倍率"
 
 		"radiant_player_number"	"天辉玩家人数"
 		"dire_player_number"	"夜魇玩家人数"
@@ -51,13 +51,12 @@
 		"bots_multiplier_15"	"15  (地狱)"
 		"bots_multiplier_20"	"20  (炼狱) 谨慎选择"
 
-		"radiant_gold_xp_multiplier_1"               "1"
-		"radiant_gold_xp_multiplier_1_25"            "1.25"
-		"radiant_gold_xp_multiplier_1_5"             "1.5"
-		"radiant_gold_xp_multiplier_2"               "2    (不推荐)"
-		"radiant_gold_xp_multiplier_5"               "5    (我要虐电脑)"
-		"radiant_gold_xp_multiplier_10"              "10  (加大力度)"
-		"radiant_gold_xp_multiplier_20"              "20  (你是来欺负人的?)"
+		"radiant_gold_xp_multiplier_1"               "1    (传说)"
+		"radiant_gold_xp_multiplier_1_1"             "1.1 (困难)"
+		"radiant_gold_xp_multiplier_1_25"            "1.25(普通)"
+		"radiant_gold_xp_multiplier_1_5"             "1.5 (简单)"
+		"radiant_gold_xp_multiplier_2"               "2    (新手)"
+		"radiant_gold_xp_multiplier_5"               "5    (我要打10个)"
 
 		"respawn_time_percentage_200"        "200% (跟Dota一样慢)"
 		"respawn_time_percentage_100"        "100% (普通)"
@@ -345,17 +344,17 @@
 		"DOTA_Tooltip_modifier_glaives_of_wisdom_status"								"Glaives of Wisdom"
 		"DOTA_Tooltip_modifier_glaives_of_wisdom_status_Description"				"Temporarily increasing Intelligence"
 
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"Assassinate"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"暗杀（旧版）"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"RANGE:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"SCEPTER RADIUS:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%SCEPTER CRITICAL DAMAGE:"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"Assassinate"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"施法距离:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"神杖升级暗杀范围:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%神杖升级致命一击:"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"暗杀（旧版）"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
 		//            茶神

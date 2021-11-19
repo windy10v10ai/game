@@ -13,10 +13,12 @@ DIRE_PLAYER_COUNT = 10
 -- Default value for pregame options
 GOLD_PER_TICK = 3                     -- How much gold should players get per tick?
 GOLD_TICK_TIME = 2                      -- How long should we wait in seconds between gold ticks?
-RADIANT_XP_MULTIPLIER = 1
-RADIANT_GOLD_MULTIPLIER = 1
-DIRE_XP_MULTIPLIER = 1
-DIRE_GOLD_MULTIPLIER = 1
+-- RADIANT_XP_MULTIPLIER = 1
+-- RADIANT_GOLD_MULTIPLIER = 1
+-- DIRE_XP_MULTIPLIER = 1
+-- DIRE_GOLD_MULTIPLIER = 1
+PLAYER_GOLD_XP_MULTIPLIER = 1
+BOT_GOLD_XP_MULTIPLIER = 1
 --RESPAWN_TIME_PERCENTAGE = 100
 MAX_LEVEL = 30                         -- What level should we let heroes get to?
 

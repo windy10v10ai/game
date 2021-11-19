@@ -181,7 +181,7 @@
 				"21"		"nevermore_dark_lord"
 				"22"		"nevermore_dark_lord"
 				"23"		"nevermore_dark_lord"
-				"24"		""
+				"24"		"nevermore_dark_lord"
 				"25"		"special_bonus_unique_nevermore_4"
 				"26"		""
 				"27"		"special_bonus_attack_speed_25"
@@ -642,6 +642,12 @@
 				"28"		"special_bonus_hp_350"
 				"29"		"special_bonus_unique_lina_2"
 				"30"		"special_bonus_attack_range_125"
+				"31"		"lina_dragon_slave"
+				"32"		"lina_light_strike_array"
+				"33"		"lina_fiery_soul"
+				"34"		"lina_dragon_slave"
+				"35"		"lina_light_strike_array"
+				"36"		"lina_laguna_blade"
 			}
 		}
 	}
@@ -890,6 +896,8 @@
 				"28"		"special_bonus_attack_speed_30"
 				"29"		"special_bonus_unique_sniper_1"
 				"30"		"special_bonus_attack_range_100"
+				"31"		"sniper_assassinate"
+				"32"		"sniper_assassinate"
 			}
 		}
 	}
@@ -932,6 +940,13 @@
 				"28"		"special_bonus_unique_vengeful_spirit_9"
 				"29"		"special_bonus_unique_vengeful_spirit_2"
 				"30"		"special_bonus_unique_vengeful_spirit_3"
+				"31"		"vengefulspirit_magic_missile"
+				"32"		"vengefulspirit_command_aura"
+				"33"		"vengefulspirit_wave_of_terror"
+				"34"		"vengefulspirit_magic_missile"
+				"35"		"vengefulspirit_command_aura"
+				"36"		"vengefulspirit_wave_of_terror"
+				"37"		"vengefulspirit_nether_swap"
 			}
 		}
 	}
@@ -996,6 +1011,11 @@
 				"28"		"special_bonus_unique_wraith_king_11"
 				"29"		"special_bonus_cleave_25"
 				"30"		"special_bonus_unique_wraith_king_10"
+				"31"		"skeleton_king_hellfire_blast"
+				"32"		"skeleton_king_vampiric_aura"
+				"33"		"skeleton_king_mortal_strike"
+				"34"		"skeleton_king_hellfire_blast"
+				"35"		"skeleton_king_vampiric_aura"
 			}
 		}
 	}
