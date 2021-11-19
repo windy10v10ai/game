@@ -499,7 +499,7 @@
 
 		// item yishan
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"一闪"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>主动：一闪</h1>瞬移到目标面前，并将其击晕%stun_m%秒，造成英雄当前力量乘%dam%的真实伤害。\n<h1>被动：圣嘉然之力</h1>攻击目标时，近战有%ch_m%% ，远程有%ch_r%% 概率将其击晕%stun%秒，并额外造成%dam2%点物理伤害。\n<h1>被动：萧瑟</h1>受到物理攻击时，有%block_chance%% 概率格挡伤害，近战减免%block_damage_melee%伤害，远程减免%block_damage_ranged%伤害。"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>主动：一闪</h1>瞬移到目标面前，并将其击晕%stun_m%秒，造成英雄当前力量乘%dam%的真实伤害。\n<h1>被动：<font color='#F19B8F'>圣嘉然之力</font></h1>攻击目标时，近战有%ch_m%% ，远程有%ch_r%% 概率将其击晕%stun%秒，并额外造成%dam2%点物理伤害。\n<h1>被动：<font color='#f15b47'>萧瑟</font></h1>受到物理攻击时，有%block_chance%% 概率格挡伤害，近战减免%block_damage_melee%伤害，远程减免%block_damage_ranged%伤害。"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_Lore"                   "天空一声巨响，老子闪亮登场"
 		"DOTA_Tooltip_modifier_item_abyssal_blade_v2_debuff"				"眩晕"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_damage"			"+$damage"

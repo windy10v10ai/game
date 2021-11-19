@@ -294,57 +294,7 @@
 			"01"					""
 		}
 	}
-	//=================================================================================================================
-	// Boots of Travel
-	//=================================================================================================================
-	"item_boots_of_travel"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"9006"
-		"BaseClass"					"item_lua"
-		"AbilityTextureName" 		"item_travel_boots"
-		"Effect"					"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"				"items/item_boots_of_travel.lua"
 
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityCooldown"			"10.0"
-		"AbilityChannelTime"		"3.0"
-		"AbilityCastPoint"			"0.0"
-		"AbilityManaCost"			"75"
-		"precache"
-		{
-			"particle"				"particles/items2_fx/teleport_start.vpcf"
-			"particle"				"particles/items2_fx/teleport_end.vpcf"
-		}
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"2500"
-		"ItemShopTags"				"teleport;move_speed"
-		"ItemQuality"				"common"
-		"ItemAliases"				"bot;boots of travel;tp"
-		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"			"2"
-		"ItemBaseLevel"				"1"
-		"ShouldBeSuggested"			"1"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"		"110"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_radius"				"200"
-			}
-		}
-	}
 	//=================================================================================================================
 	// Recipe: Boots of Travel 2
 	//=================================================================================================================
