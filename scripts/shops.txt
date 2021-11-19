@@ -105,7 +105,7 @@
  		"item"		"item_mask_of_madness"
 		"item"		"item_hand_of_midas"
  		"item"		"item_helm_of_the_dominator"
-		//"item"		"item_travel_boots"
+		"item"		"item_travel_boots"
 		//"item"		"item_boots_of_travel"
 		//"item"		"item_moon_shard"
 		"item"		"item_moon_shard_datadriven"

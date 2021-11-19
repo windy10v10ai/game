@@ -4,8 +4,8 @@
 	// - ITEMS YOU DON'T WANT TO APPEAR IN THE SHOP -
 	// -----------------------------------------------------------
 
-	"item_recipe_travel_boots"		"REMOVE"
-	"item_travel_boots"				"REMOVE"
+	// "item_recipe_travel_boots"		"REMOVE"
+	// "item_travel_boots"				"REMOVE"
 	"item_recipe_travel_boots_2"	"REMOVE"
 	"item_travel_boots_2"			"REMOVE"
 	"item_recipe_moon_shard"		"REMOVE"
