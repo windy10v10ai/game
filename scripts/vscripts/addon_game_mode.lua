@@ -69,10 +69,10 @@ end
 function AIGameMode:PreGameOptions()
 	self.iDesiredRadiant = self.iDesiredRadiant or RADIANT_PLAYER_COUNT
 	self.iDesiredDire = self.iDesiredDire or DIRE_PLAYER_COUNT
-	self.fRadiantGoldMultiplier = self.fRadiantGoldMultiplier or RADIANT_GOLD_MULTIPLIER
-	self.fRadiantXPMultiplier = self.fRadiantXPMultiplier or RADIANT_XP_MULTIPLIER
-	self.fDireXPMultiplier = self.fDireXPMultiplier or DIRE_XP_MULTIPLIER
-	self.fDireGoldMultiplier = self.fDireGoldMultiplier or DIRE_GOLD_MULTIPLIER
+
+	self.fPlayerGoldXpMultiplier = self.fPlayerGoldXpMultiplier or PLAYER_GOLD_XP_MULTIPLIER
+	self.fBotGoldXpMultiplier = self.fBotGoldXpMultiplier or BOT_GOLD_XP_MULTIPLIER
+
 	self.iGoldPerTick = self.iGoldPerTick or GOLD_PER_TICK
 	self.iGoldTickTime = self.iGoldTickTime or GOLD_TICK_TIME
 	self.iRespawnTimePercentage = self.iRespawnTimePercentage or 1
@@ -269,10 +269,10 @@ function AIGameMode:FilterGold(tGoldFilter)
 			end
 	end
 
-	if PlayerResource:GetTeam(iPlayerID) == DOTA_TEAM_GOODGUYS then
-		tGoldFilter["gold"] = math.floor(iGold*multiplierGoldWithGameTime(self.fRadiantGoldMultiplier))
+	if self.tHumanPlayerList[iPlayerID] then
+		tGoldFilter["gold"] = math.floor(iGold*multiplierGoldWithGameTime(self.fPlayerGoldXpMultiplier))
 	else
-		tGoldFilter["gold"] = math.floor(iGold*multiplierGoldWithGameTime(self.fDireGoldMultiplier))
+		tGoldFilter["gold"] = math.floor(iGold*multiplierGoldWithGameTime(self.fBotGoldXpMultiplier))
 	end
 	return true
 end
@@ -283,10 +283,10 @@ function AIGameMode:FilterXP(tXPFilter)
 	local iPlayerID = tXPFilter["player_id_const"]
 	local iReason = tXPFilter["reason_const"]
 
-	if PlayerResource:GetTeam(iPlayerID) == DOTA_TEAM_GOODGUYS then
-		tXPFilter["experience"] = math.floor(iXP*multiplierXPWithGameTime(self.fRadiantXPMultiplier))
+	if self.tHumanPlayerList[iPlayerID] then
+		tXPFilter["experience"] = math.floor(iXP*multiplierXPWithGameTime(self.fPlayerGoldXpMultiplier))
 	else
-		tXPFilter["experience"] = math.floor(iXP*multiplierXPWithGameTime(self.fDireXPMultiplier))
+		tXPFilter["experience"] = math.floor(iXP*multiplierXPWithGameTime(self.fBotGoldXpMultiplier))
 	end
 	return true
 end
