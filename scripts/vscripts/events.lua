@@ -337,6 +337,7 @@ function RollDrops(hHero)
 														hHero:RemoveItem(hItem)
 														-- Create the item
 														local item = CreateItem(item_name, nil, nil)
+														item:SetPurchaseTime(-100)
 														local pos = hHero:GetAbsOrigin()
 														local drop = CreateItemOnPositionSync( pos, item )
 														local pos_launch = pos+RandomVector(RandomFloat(150,200))
