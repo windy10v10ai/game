@@ -997,6 +997,9 @@
 				"28"		"special_bonus_hp_300"
 				"29"		"special_bonus_unique_witch_doctor_7"
 				"30"		"special_bonus_unique_witch_doctor_2"
+				"31"		"witch_doctor_maledict"
+				"32"		"witch_doctor_maledict"
+				"33"		"witch_doctor_maledict"
 			}
 		}
 	}

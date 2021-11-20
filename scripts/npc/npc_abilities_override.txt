@@ -2731,6 +2731,14 @@
 			}
 		}
 	}
+	
+	"witch_doctor_maledict"
+	{
+		"MaxLevel" "7"
+		"AbilityDamage"					"10 20 30 40 50 65 80"
+		"AbilityManaCost"				"105 110 115 120 130 140 150"
+	}
+
 	"dark_willow_shadow_realm"
 	{
 		"MaxLevel" "7"
