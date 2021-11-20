@@ -4,9 +4,9 @@
 ================================================================================================================= ]]
 tBotItemData = {}
 
+-- purchase item in order
 tBotItemData.purchaseItemList = {
 	npc_dota_hero_axe = {
-		'item_mirror_shield',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_bracer',
@@ -29,10 +29,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
-		'item_mirror_shield',
 	},
 	npc_dota_hero_nevermore = {
-		'item_ballista',
 		'item_magic_wand',
 		'item_wraith_band',
 		'item_power_treads',
@@ -52,32 +50,30 @@ tBotItemData.purchaseItemList = {
 		'item_monkey_king_bar_2',
 		'item_skadi_2',
 		'item_wasp',
-		'item_ballista',
 	},
 	npc_dota_hero_bane = {
-		'item_seer_stone',
 		'item_magic_wand',
+		'item_null_talisman',
 		'item_arcane_boots',
 		'item_glimmer_cape',
 		'item_force_staff',
+		'item_aether_lens_3',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_ultimate_scepter',
 		'item_ultimate_orb',
 		'item_ultimate_orb',
-		'item_blink',
-		'item_mystic_staff',
-		'item_recipe_arcane_blink', 
+		'item_soul_booster',
+		'item_veil_of_discord',
+		'item_recipe_arcane_octarine_core',
 		'item_aeon_disk',
 		'item_recipe_aeon_pendant',
-		'item_arcane_octarine_core',
 		'item_dagon_5',
 		'item_hallowed_scepter',
+		'item_sphere_2',
 		'item_sheepstick',
-		'item_seer_stone',
 	},
 	npc_dota_hero_bounty_hunter = {
-		'item_apex',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_wraith_band',
@@ -97,10 +93,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
-		'item_apex',
 	},
 	npc_dota_hero_bloodseeker = {
-		'item_apex',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_wraith_band',
@@ -122,10 +116,8 @@ tBotItemData.purchaseItemList = {
 		'item_wasp',
 		'item_infernal_desolator',
 		'item_sacred_six_vein',
-		'item_apex',
 	},
 	npc_dota_hero_bristleback = {
-		'item_mirror_shield',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_vanguard',
@@ -144,10 +136,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
-		'item_mirror_shield',
 	},
 	npc_dota_hero_chaos_knight = {
-		'item_pirate_hat',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_bracer',
@@ -165,10 +155,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
-		'item_pirate_hat',
 	},
 	npc_dota_hero_crystal_maiden = {
-		'item_demonicon',
 		'item_magic_wand',
 		'item_arcane_boots',
 		'item_null_talisman',
@@ -192,10 +180,8 @@ tBotItemData.purchaseItemList = {
 		'item_mystic_staff',
 		'item_recipe_arcane_blink',
 		'item_sheepstick',
-		'item_demonicon',
 	},
 	npc_dota_hero_dazzle = {
-		'item_demonicon',
 		'item_magic_wand',
 		'item_headdress',
 		'item_fluffy_hat',
@@ -219,10 +205,8 @@ tBotItemData.purchaseItemList = {
 		'item_insight_armor',
 		'item_sheepstick',
 		'item_hallowed_scepter',
-		'item_demonicon',
 	},
 	npc_dota_hero_death_prophet = {
-		'item_demonicon',
 		'item_magic_wand',
 		'item_arcane_boots',
 		'item_null_talisman',
@@ -244,10 +228,8 @@ tBotItemData.purchaseItemList = {
 		'item_sheepstick',
 		'item_hallowed_scepter',
 		'item_sacred_six_vein',
-		'item_demonicon',
 	},
 	npc_dota_hero_dragon_knight = {
-		'item_giants_ring',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_bracer',
@@ -271,10 +253,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
-		'item_giants_ring',
 	},
 	npc_dota_hero_drow_ranger = {
-		'item_ballista',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_dragon_lance',
@@ -295,10 +275,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
 		'item_excalibur',
-		'item_ballista',
 	},
 	npc_dota_hero_earthshaker = {
-		'item_demonicon',
 		'item_magic_wand',
 		'item_arcane_boots',
 		'item_bracer',
@@ -317,10 +295,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
-		'item_demonicon',
 	},
 	npc_dota_hero_jakiro = {
-		'item_demonicon',
 		'item_magic_wand',
 		'item_arcane_boots',
 		'item_null_talisman',
@@ -343,10 +319,8 @@ tBotItemData.purchaseItemList = {
 		'item_wind_waker',
 		'item_dagon_5',
 		'item_hallowed_scepter',
-		'item_demonicon',
 	},
 	npc_dota_hero_juggernaut = {
-		'item_apex',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_mask_of_madness',
@@ -365,10 +339,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
-		'item_apex',
 	},
 	npc_dota_hero_kunkka = {
-		'item_apex',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_bracer',
@@ -391,10 +363,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
 		'item_excalibur',
-		'item_apex',
 	},
 	npc_dota_hero_lich = {
-		'item_demonicon',
 		'item_magic_wand',
 		'item_arcane_boots',
 		'item_null_talisman',
@@ -417,10 +387,8 @@ tBotItemData.purchaseItemList = {
 		'item_sphere_2',
 		'item_dagon_5',
 		'item_hallowed_scepter',
-		'item_demonicon',	
 	},
 	npc_dota_hero_lina = {
-		'item_ballista',
 		'item_magic_wand',
 		'item_arcane_boots',
 		'item_null_talisman',
@@ -445,10 +413,8 @@ tBotItemData.purchaseItemList = {
 		'item_sheepstick',
 		'item_dagon_5',
 		'item_hallowed_scepter',
-		'item_ballista',
 	},
 	npc_dota_hero_lion = {
-		'item_timeless_relic',
 		'item_magic_wand',
 		'item_arcane_boots',
 		'item_null_talisman',
@@ -473,10 +439,8 @@ tBotItemData.purchaseItemList = {
 		'item_dagon_5',
 		'item_hallowed_scepter',
 		'item_sheepstick',
-		'item_timeless_relic',
 	},
 	npc_dota_hero_luna = {
-		'item_ballista',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_wraith_band',
@@ -497,10 +461,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
 	    'item_sacred_six_vein',
-		'item_ballista',
 	},
 	npc_dota_hero_necrolyte = {
-		'item_third_eye',
 		'item_magic_wand',
 		'item_headdress',
 		'item_fluffy_hat',
@@ -523,10 +485,8 @@ tBotItemData.purchaseItemList = {
 		'item_insight_armor',
 		'item_sheepstick',
 		'item_sacred_six_vein',
-		'item_third_eye',
 	},
 	npc_dota_hero_omniknight = {
-		'item_third_eye',
 		'item_magic_wand',
 		'item_headdress',
 		'item_fluffy_hat',
@@ -551,10 +511,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
-		'item_third_eye',
 	},
 	npc_dota_hero_oracle = {
-		'item_demonicon',
 		'item_magic_wand',
 		'item_headdress',
 		'item_fluffy_hat',
@@ -573,10 +531,8 @@ tBotItemData.purchaseItemList = {
 		'item_arcane_octarine_core',
 		'item_wind_waker',
 		'item_hallowed_scepter',
-		'item_demonicon',
 	},
 	npc_dota_hero_phantom_assassin = {
-		'item_minotaur_horn',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_wraith_band',
@@ -596,10 +552,8 @@ tBotItemData.purchaseItemList = {
 		'item_wasp',
 		'item_sacred_six_vein',
 		'item_excalibur',
-		'item_minotaur_horn',
 	},
 	npc_dota_hero_pudge = {
-		'item_giants_ring',
 		'item_magic_wand',
 		'item_arcane_boots',
 		'item_bracer',
@@ -625,10 +579,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
-		'item_giants_ring',
 	},
 	npc_dota_hero_sand_king = {
-		'item_seer_stone',
 		'item_magic_wand',
 		'item_arcane_boots',
 		'item_aether_lens_3',
@@ -650,10 +602,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
-		'item_seer_stone',
 	},
 	npc_dota_hero_skywrath_mage = {
-		'item_third_eye',
 		'item_tango',
 		'item_clarity',
 		'item_enchanted_mango',
@@ -675,10 +625,8 @@ tBotItemData.purchaseItemList = {
 		'item_aeon_disk',
 		'item_recipe_aeon_pendant',
 		'item_wind_waker',
-		'item_third_eye',
 	},
 	npc_dota_hero_sniper = {
-		'item_ballista',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_dragon_lance',
@@ -699,10 +647,8 @@ tBotItemData.purchaseItemList = {
 		'item_skadi_2',
 		'item_wasp',
 		'item_excalibur',
-		'item_ballista',
 	},
 	npc_dota_hero_sven = {
-		'item_minotaur_horn',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_vanguard',
@@ -724,10 +670,8 @@ tBotItemData.purchaseItemList = {
 		'item_undying_heart',
 		'item_infernal_desolator',
 		'item_sacred_six_vein',
-		'item_minotaur_horn',
 	},
 	npc_dota_hero_tiny = {
-		'item_pirate_hat',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_vanguard',
@@ -751,10 +695,8 @@ tBotItemData.purchaseItemList = {
 		'item_undying_heart',
 		'item_wasp',
 		'item_sacred_six_vein',
-		'item_pirate_hat',
 	},
 	npc_dota_hero_vengefulspirit = {
-		'item_seer_stone',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_vanguard',
@@ -775,10 +717,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_vladmir_2',
 		'item_wasp',
-		'item_seer_stone',
 	},
 	npc_dota_hero_viper = {
-		'item_ballista',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_vanguard',
@@ -799,10 +739,8 @@ tBotItemData.purchaseItemList = {
 		'item_undying_heart',
 		'item_insight_armor',
 		'item_wasp',
-		'item_ballista',
 	},
 	npc_dota_hero_windrunner = {
-		'item_ballista',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_maelstrom',
@@ -824,10 +762,8 @@ tBotItemData.purchaseItemList = {
 		'item_skadi_2',
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
-		'item_ballista',
 	},
 	npc_dota_hero_witch_doctor = {
-		'item_demonicon',
 		'item_magic_wand',
 		'item_arcane_boots',
 		'item_null_talisman',
@@ -850,10 +786,8 @@ tBotItemData.purchaseItemList = {
 		'item_dagon_5',
 		'item_hallowed_scepter',
 		'item_sheepstick',
-		'item_demonicon',
 	},
 	npc_dota_hero_skeleton_king = {
-		'item_pirate_hat',
 		'item_magic_wand',
 		'item_power_treads',
 		'item_bracer',
@@ -874,10 +808,8 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
 		'item_sacred_six_vein',
-		'item_pirate_hat',
 	},
 	npc_dota_hero_zuus = {
-		'item_timeless_relic',
 		'item_magic_wand',
 		'item_null_talisman',
 		'item_arcane_boots',
@@ -901,12 +833,12 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_orb',
 		'item_hallowed_scepter',
 		'item_wind_waker',
-		'item_timeless_relic',
 	},
 }
 
 
-
+-- sell item if has more than 8 item
+-- same item only need set once
 tBotItemData.sellItemList = {
 	npc_dota_hero_axe = {
 		'item_magic_wand',
@@ -1159,7 +1091,7 @@ tBotItemData.sellItemList = {
 }
 
 
-
+-- consts
 tBotItemData.itemConsumableList = {
 	'item_tango_single',
 	'item_tango',
@@ -1179,5 +1111,137 @@ tBotItemData.itemConsumeNoTargetList = {
 	'item_tome_of_agility',
 	'item_tome_of_strength',
 	'item_tome_of_intelligence',
+}
+
+
+-- purchase neutral item in order
+tBotItemData.addNeutralItemList = {
+	npc_dota_hero_axe = {
+		'item_mirror_shield',
+	},
+	npc_dota_hero_nevermore = {
+		'item_spell_prism',
+	},
+	npc_dota_hero_bane = {
+		'item_seer_stone',
+	},
+	npc_dota_hero_bounty_hunter = {
+		'item_pirate_hat',
+	},
+	npc_dota_hero_bloodseeker = {
+		'item_pirate_hat',
+	},
+	npc_dota_hero_bristleback = {
+		'item_mirror_shield',
+	},
+	npc_dota_hero_chaos_knight = {
+		'item_minotaur_horn',
+	},
+	npc_dota_hero_crystal_maiden = {
+		'item_demonicon',
+	},
+	npc_dota_hero_dazzle = {
+		'item_force_field',
+	},
+	npc_dota_hero_death_prophet = {
+		'item_force_field',
+	},
+	npc_dota_hero_dragon_knight = {
+		'item_giants_ring',
+	},
+	npc_dota_hero_drow_ranger = {
+		'item_ballista',
+	},
+	npc_dota_hero_earthshaker = {
+		'item_third_eye',
+	},
+	npc_dota_hero_jakiro = {
+		'item_demonicon',
+	},
+	npc_dota_hero_juggernaut = {
+		'item_spell_prism',
+	},
+	npc_dota_hero_kunkka = {
+		'item_pirate_hat',
+	},
+	npc_dota_hero_lich = {
+		'item_demonicon',
+	},
+	npc_dota_hero_lina = {
+		'item_demonicon',
+	},
+	npc_dota_hero_lion = {
+		'item_seer_stone',
+	},
+	npc_dota_hero_luna = {
+		'item_ballista',
+	},
+	npc_dota_hero_necrolyte = {
+		'item_force_field',
+	},
+	npc_dota_hero_omniknight = {
+		'item_third_eye',
+	},
+	npc_dota_hero_oracle = {
+		'item_third_eye',
+	},
+	npc_dota_hero_phantom_assassin = {
+		'item_minotaur_horn',
+	},
+	npc_dota_hero_pudge = {
+		'item_third_eye',
+	},
+	npc_dota_hero_sand_king = {
+		'item_seer_stone',
+	},
+	npc_dota_hero_skywrath_mage = {
+		'item_seer_stone',
+	},
+	npc_dota_hero_sniper = {
+		'item_ballista',
+	},
+	npc_dota_hero_sven = {
+		'item_minotaur_horn',
+	},
+	npc_dota_hero_tiny = {
+		'item_pirate_hat',
+	},
+	npc_dota_hero_vengefulspirit = {
+		'item_demonicon',
+	},
+	npc_dota_hero_viper = {
+		'item_ballista',
+	},
+	npc_dota_hero_windrunner = {
+		'item_minotaur_horn',
+	},
+	npc_dota_hero_witch_doctor = {
+		'item_seer_stone',
+	},
+	npc_dota_hero_skeleton_king = {
+		'item_minotaur_horn',
+	},
+	npc_dota_hero_zuus = {
+		'item_seer_stone',
+	},
+}
+
+-- default x1
+tBotItemData.addNeutralItemMultiTimeMap = {
+	x1 = {
+		1800,
+	},
+	x5 = {
+		1500,
+	},
+	x10 = {
+		1200,
+	},
+	x15 = {
+		900,
+	},
+	x20 = {
+		600,
+	},
 }
 

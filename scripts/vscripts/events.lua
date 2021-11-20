@@ -254,7 +254,7 @@ function AIGameMode:OnEntityKilled(keys)
 	local iLevel = hHero:GetLevel()
 	local tDOTARespawnTime = {5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 26, 30, 32, 34, 36, 38, 40, 45, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 6
 , 65, 66, 67 ,68, 69, 70}
-	if iLevel <= 30 then
+	if iLevel <= 40 then
 		fRespawnTime = math.ceil(tDOTARespawnTime[iLevel]*self.iRespawnTimePercentage/100.0)
 	else
 		fRespawnTime = math.ceil((iLevel/4 + 60)*self.iRespawnTimePercentage/100.0)
@@ -398,10 +398,8 @@ function AIGameMode:OnPlayerLevelUp(keys)
 	-- Set DeathXP 击杀经验
 	Timers:CreateTimer(0.5, function ()
 		if iLevel <= 30 then
-			print("iLevel <= 30 "..iLevel)
 			EntIndexToHScript(iEntIndex):SetCustomDeathXP(40 + EntIndexToHScript(iEntIndex):GetCurrentXP()*0.09)
 		else
-			print("iLevel > 30 "..iLevel)
 			EntIndexToHScript(iEntIndex):SetCustomDeathXP(3000 + EntIndexToHScript(iEntIndex):GetCurrentXP()*0.04)
 		end
 	end)
