@@ -1535,7 +1535,15 @@
 	{
 		"MaxLevel" "7"
 		"AbilityDuration"				"0.6 0.9 1.2 1.5 1.6 1.7 1.8"
-		"AbilityDamage"					"75 100 125 150 175 200 225"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aftershock_damage"			"75 100 125 150 175 200 225"
+				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_6"
+			}
+		}
 	}
 	"earthshaker_echo_slam"
 	{
@@ -2161,6 +2169,45 @@
 	"naga_siren_song_of_the_siren"
 	{
 		"AbilityCooldown"				"100 80 60"
+	}
+	
+	"nyx_assassin_impale"
+	{
+		"MaxLevel"						"7"
+		"AbilityManaCost"				"105 120 135 150 170 190 210"
+		
+		"AbilitySpecial"
+		{
+			"02"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"1.4 1.6 1.8 2.0 2.2 2.4 2.6"
+				"LinkedSpecialBonus"	"special_bonus_unique_nyx_4"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impale_damage"			"100 160 220 280 320 360 400"
+				"LinkedSpecialBonus"	"special_bonus_unique_nyx_2"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Nyx Assassin: Mana Burn
+	//=================================================================================================================
+	"nyx_assassin_mana_burn"
+	{
+		"AbilityCooldown"				"28.0 20.0 12.0 8.0"
+		"AbilityManaCost"				"100 200 300 400"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"float_multiplier"		"2.4 2.8 3.2 3.6"
+			}
+		}
 	}
 	"spectre_haunt"
 	{
