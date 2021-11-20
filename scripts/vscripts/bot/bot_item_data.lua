@@ -455,11 +455,10 @@ tBotItemData.purchaseItemList = {
 		'item_monkey_king_bar_2',
 		'item_ultimate_scepter_2',
 		'item_infernal_desolator',
+		'item_moon_shard_datadriven',
 		'item_skadi_2',
 		'item_satanic',
 		'item_wasp',
-		'item_moon_shard_datadriven',
-		'item_moon_shard_datadriven',
 	    'item_sacred_six_vein',
 	},
 	npc_dota_hero_necrolyte = {
