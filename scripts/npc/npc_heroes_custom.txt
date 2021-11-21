@@ -423,9 +423,9 @@
 				"18"		"dazzle_bad_juju"
 				"19"		""
 				"20"		"special_bonus_unique_dazzle_3"
-				"21"		""
-				"22"		""
-				"23"		""
+				"21"		"dazzle_shadow_wave"
+				"22"		"dazzle_shadow_wave"
+				"23"		"dazzle_shadow_wave"
 				"24"		""
 				"25"		"special_bonus_unique_dazzle_4"
 				"26"		""
@@ -887,6 +887,7 @@
 
 	"npc_dota_hero_sniper"
 	{
+		"Ability5"		"sniper_assassinate_upgrade"
 		"Bot"
 		{
 			"Build"
@@ -997,6 +998,9 @@
 				"28"		"special_bonus_hp_300"
 				"29"		"special_bonus_unique_witch_doctor_7"
 				"30"		"special_bonus_unique_witch_doctor_2"
+				"31"		"witch_doctor_maledict"
+				"32"		"witch_doctor_maledict"
+				"33"		"witch_doctor_maledict"
 			}
 		}
 	}

@@ -247,17 +247,36 @@ end
 
 
 function AIGameMode:OnEntityKilled(keys)
-	local hHero = EntIndexToHScript(keys.entindex_killed)
-	if not hHero:IsRealHero() or hHero:IsReincarnating() == true then return end
+	local hEntity = EntIndexToHScript(keys.entindex_killed)
+	-- on hero killed
+	if hEntity:IsRealHero() and hEntity:IsReincarnating() == false then
+		heroKilled(keys)
+	end
+	-- on barrack killed
+	if hEntity:GetClassname() == "npc_dota_barracks" then
+		barrackKilled(keys)
+	end
 
+end
+
+function barrackKilled(keys)
+	if AIGameMode.barrackKilledCount == nil then
+		AIGameMode.barrackKilledCount = 0
+	end
+	AIGameMode.barrackKilledCount = AIGameMode.barrackKilledCount + 1
+	print("barrack killed count", AIGameMode.barrackKilledCount)
+end
+
+function heroKilled(keys)
+	local hHero = EntIndexToHScript(keys.entindex_killed)
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
 	local tDOTARespawnTime = {5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 26, 30, 32, 34, 36, 38, 40, 45, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 6
 , 65, 66, 67 ,68, 69, 70}
 	if iLevel <= 40 then
-		fRespawnTime = math.ceil(tDOTARespawnTime[iLevel]*self.iRespawnTimePercentage/100.0)
+		fRespawnTime = math.ceil(tDOTARespawnTime[iLevel]*AIGameMode.iRespawnTimePercentage/100.0)
 	else
-		fRespawnTime = math.ceil((iLevel/4 + 60)*self.iRespawnTimePercentage/100.0)
+		fRespawnTime = math.ceil((iLevel/4 + 60)*AIGameMode.iRespawnTimePercentage/100.0)
 	end
 
 	if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
@@ -291,7 +310,6 @@ function AIGameMode:OnEntityKilled(keys)
 	if attckerUnit:IsControllableByAnyPlayer() then
 		KillBounty(hHero, attckerUnit)
 	end
-
 end
 
 function KillBounty(hHero, attckerUnit)
@@ -337,6 +355,7 @@ function RollDrops(hHero)
 														hHero:RemoveItem(hItem)
 														-- Create the item
 														local item = CreateItem(item_name, nil, nil)
+														item:SetPurchaseTime(-100)
 														local pos = hHero:GetAbsOrigin()
 														local drop = CreateItemOnPositionSync( pos, item )
 														local pos_launch = pos+RandomVector(RandomFloat(150,200))

@@ -106,14 +106,16 @@ function modifier_bot_attack_tower_pick_rune:OnIntervalThink()
 	if IsClient() then return end
 
 	local GameTime = GameRules:GetDOTATime(false, false)	-- LATEGAME
-	if (GameTime >= (25 * 60)) then
-		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
-		GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
-	elseif (GameTime >= (22 * 60)) then						-- LATEGAME
-		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
-		GameRules:GetGameModeEntity():SetBotsMaxPushTier(5)
+	if (GameTime >= (20 * 60)) then
+		if AIGameMode.barrackKilledCount and AIGameMode.barrackKilledCount > 2 then
+			GameRules:GetGameModeEntity():SetBotsInLateGame(true)
+			GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
+			if AIGameMode.barrackKilledCount > 5 then
+				GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
+			else
+				GameRules:GetGameModeEntity():SetBotsMaxPushTier(5)
+			end
+		end
 	elseif (GameTime >= (16 * 60)) then						-- MIDGAME
 		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
 		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
@@ -297,25 +299,25 @@ end
 function modifier_sniper_assassinate_thinker:OnIntervalThink()
 	if IsClient() then return end
 	local hParent = self:GetParent()
+	local hAssassinate = hParent:FindAbilityByName("sniper_assassinate")
+	local hAssassinateUpgrade = hParent:FindAbilityByName("sniper_assassinate_upgrade")
+	local iLevel = hAssassinate:GetLevel()
+	local iUpgradeLevel = hAssassinateUpgrade:GetLevel()
 
-	if hParent:HasScepter() and hParent:HasAbility("sniper_assassinate") then
-
-		if not hParent:HasAbility("sniper_assassinate_upgrade") then
-			local iLevel = hParent:FindAbilityByName("sniper_assassinate"):GetLevel()
-			hParent:AddAbility("sniper_assassinate_upgrade"):SetLevel(iLevel)
-		else
-			local iLevel = hParent:FindAbilityByName("sniper_assassinate"):GetLevel()
-			local iUpgradeLevel = hParent:FindAbilityByName("sniper_assassinate_upgrade"):GetLevel()
-			if iUpgradeLevel < iLevel then
-				hParent:FindAbilityByName("sniper_assassinate_upgrade"):SetLevel(iLevel)
-			elseif iUpgradeLevel > iLevel then
-				hParent:FindAbilityByName("sniper_assassinate"):SetLevel(iUpgradeLevel)
-			end
+	if hParent:HasScepter() then
+		if hAssassinateUpgrade:IsHidden() then
+			hAssassinateUpgrade:SetHidden(false)
+		end
+		
+		if iUpgradeLevel < iLevel then
+			hAssassinateUpgrade:SetLevel(iLevel)
+		elseif iUpgradeLevel > iLevel then
+			hAssassinate:SetLevel(iUpgradeLevel)
 		end
 	end
 
-	if not hParent:HasScepter() and hParent:HasAbility("sniper_assassinate_upgrade") then
-		hParent:RemoveAbility("sniper_assassinate_upgrade")
+	if not hParent:HasScepter() and not hAssassinateUpgrade:IsHidden() then
+		hAssassinateUpgrade:SetHidden(true)
 	end
 end
 

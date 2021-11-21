@@ -355,6 +355,9 @@ function AIGameMode:FilterItemAdd(tItemFilter)
 	local item = EntIndexToHScript(tItemFilter.item_entindex_const)
 	if item then
 		print(item:GetAbilityName())
+		if item:GetAbilityName() == "item_rapier" then
+			return true
+		end
 		local itemPurchaseName = item:GetPurchaseTime()
 		print("item PurchaseTime "..itemPurchaseName)
 		if itemPurchaseName == -100 then
