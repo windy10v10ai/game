@@ -3694,6 +3694,107 @@
 			}
 		}
 	}
+
+	//=================================================================================================================
+	// recipe heavens halberd v2
+	//=================================================================================================================
+	"item_recipe_heavens_halberd_v2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"									"3044"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"									"models/props_gameplay/recipe.vmdl"
+		"BaseClass"								"item_datadriven"
+		"AbilityTextureName"					"item_recipe_heavens_halberd_v2"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"								"3000"	
+		"ItemShopTags"							""
+
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"							"1"
+		"ItemResult"							"item_heavens_halberd_v2"
+		"ItemRequirements"
+		{
+			"01"								"item_heavens_halberd;item_heavens_halberd"
+		}
+	}
+
+	//=================================================================================================================
+	// heavens halberd v2
+	//=================================================================================================================
+	"item_heavens_halberd_v2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3045"		
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"item_heavens_halberd_v2"
+		"ScriptFile"					"items/item_heavens_halberd_v2.lua"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40"
+		"AbilityManaCost"				"240"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"10100"
+		"ItemShopTags"					"armor;boost_armor"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"jinkela"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		"precache"
+		{
+			"particle"	"particles/neutral_fx/roshan_slam.vpcf"
+		}	
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_evasion"			"30"
+			}	
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"50"
+			}		
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"disarm_con"			"5"
+			}							
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_regen_amp"			"30"
+			}	
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attch"					"100"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"disarm"				"1"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"status_resistance"		"26"
+			}
+		}
+	}
 }
 
 
