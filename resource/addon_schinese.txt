@@ -481,7 +481,6 @@
 		"DOTA_Tooltip_Ability_item_sacred_trident_spell_amp"							"%+技能增强（同类物品不可叠加）"
 		"DOTA_Tooltip_Ability_item_sacred_trident_mana_regen_multiplier"				"%+魔法恢复增强"
 		"DOTA_Tooltip_Ability_item_sacred_trident_spell_lifesteal_amp"					"%+技能吸血增强"
-		"DOTA_Tooltip_Ability_item_sacred_trident_spell_resist"							"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									"传说是古希腊神话中海神波塞冬的象征物和武器，目前广泛用于渔民捕鱼。"
 
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"六脉神剑"
@@ -494,7 +493,6 @@
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_amp"							"%+技能增强（同类物品不可叠加）"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_mana_regen_multiplier"				"%+魔法恢复增强"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_lifesteal_amp"					"%+技能吸血增强"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_resist"						"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"凌波微步（移速）以及北冥神功（抗性），都是大理皇室段誉的武门绝学。本质上也不过是两把鱼叉而已。"
 
 		// item yishan

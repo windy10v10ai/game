@@ -25,7 +25,6 @@ function modifier_item_sacred_trident:OnCreated()
 	self.spell_amp = self:GetAbility():GetSpecialValueFor("spell_amp")
 	self.spell_lifesteal_amp = self:GetAbility():GetSpecialValueFor("spell_lifesteal_amp")
 	self.mana_regen_multiplier = self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
-	self.spell_resist = self:GetAbility():GetSpecialValueFor("spell_resist")
 
 	if not IsServer() then return end
 
@@ -54,7 +53,6 @@ function modifier_item_sacred_trident:DeclareFunctions()
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE_UNIQUE,
 		MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
-		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 	}
 end
 
@@ -96,8 +94,4 @@ end
 
 function modifier_item_sacred_trident:GetModifierMPRegenAmplify_Percentage()
 	return self.mana_regen_multiplier
-end
-
-function modifier_item_sacred_trident:GetModifierMagicalResistanceBonus()
-	return self.spell_resist
 end

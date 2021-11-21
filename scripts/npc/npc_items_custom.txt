@@ -3353,9 +3353,9 @@
 		"ItemResult"					"item_sacred_trident"
 		"ItemRequirements"
 		{
-			"01"						"item_kaya_and_sange;item_yasha"
-			"02"						"item_yasha_and_kaya;item_sange"
-			"03"						"item_sange_and_yasha;item_kaya"
+			"01"						"item_sange_and_yasha;item_kaya"
+			"02"						"item_kaya_and_sange;item_yasha"
+			"03"						"item_yasha_and_kaya;item_sange"
 			"04"						"item_yasha;item_sange;item_kaya"
 		}
 	}
@@ -3437,11 +3437,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"mana_regen_multiplier"	"46"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_resist"			"20"
 			}
 		}
 	}
@@ -3550,11 +3545,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"mana_regen_multiplier"	"46"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_resist"			"36"
 			}
 		}
 	}
