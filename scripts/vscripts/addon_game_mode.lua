@@ -22,9 +22,18 @@ function AIGameMode:InitGameMode()
 	AIGameMode:InitGameOptions()
 	AIGameMode:InitEvents()
 	AIGameMode:LinkLuaModifiers()
+	if IsInToolsMode() then
+		self:EnterDebugMode()
+	end
 	print("DOTA 2 AI Wars Loaded.")
 end
 
+
+function AIGameMode:EnterDebugMode()
+	print("========Enter Debug Mode========")
+	self.DebugMode = true
+	print("DOTA 2 AI Wars Loaded.")
+end
 
 function AIGameMode:InitGameOptions()
 	GameRules:SetCustomGameSetupAutoLaunchDelay( AUTO_LAUNCH_DELAY )
@@ -94,15 +103,19 @@ function AIGameMode:PreGameOptions()
 	self.fGameStartTime = 0
 	GameRules:SetGoldPerTick(self.iGoldPerTick)
 	GameRules:SetGoldTickTime(self.iGoldTickTime)
+	GameRules:SetUseUniversalShopMode( true )
 	GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( AIGameMode, "FilterGold" ), self )
 	GameRules:GetGameModeEntity():SetModifyExperienceFilter( Dynamic_Wrap( AIGameMode, "FilterXP" ), self )
 	GameRules:GetGameModeEntity():SetRuneSpawnFilter( Dynamic_Wrap( AIGameMode, "FilterRune" ), self )
-	GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter( Dynamic_Wrap( AIGameMode, "FilterItemAdd" ), self )
 	GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled( true )
 	GameRules:GetGameModeEntity():SetMaximumAttackSpeed( 1000 )
-	GameRules:SetUseUniversalShopMode( true )
+	-- 每点敏捷提供护甲
+	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.15)
 
-	-------------------------
+	if self.DebugMode then
+		GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter( Dynamic_Wrap( AIGameMode, "FilterItemAdd" ), self )
+	end
+	-- loop functions
 	AIGameMode:SpawnNeutralCreeps30sec()
 	AIGameMode:AddCreepsSkill()
 
@@ -354,6 +367,7 @@ function AIGameMode:FilterRune(tRuneFilter)
 	end
 end
 
+-- only run in tool debug mode
 function AIGameMode:FilterItemAdd(tItemFilter)
 	print("========================ItemFilter========================")
 	local item = EntIndexToHScript(tItemFilter.item_entindex_const)
@@ -371,14 +385,13 @@ function AIGameMode:FilterItemAdd(tItemFilter)
 		if purchaser then
 			print(purchaser:GetName())
 			if purchaser:IsControllableByAnyPlayer() then
-				print("ControllableByAnyPlayer")
 				return true
 			else
 				print("!!!!!!STOP BUY ITEM!!!!!!")
 				return false
 			end
 		end
-	end	
+	end
 
 	return true
 end
