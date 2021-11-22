@@ -3699,7 +3699,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"3000"	
+		"ItemCost"								"6000"	
 		"ItemShopTags"							""
 
 		
@@ -3709,7 +3709,7 @@
 		"ItemResult"							"item_heavens_halberd_v2"
 		"ItemRequirements"
 		{
-			"01"								"item_heavens_halberd;item_heavens_halberd"
+			"01"								"item_heavens_halberd;item_eternal_shroud"
 		}
 	}
 
@@ -3729,8 +3729,8 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40"
-		"AbilityManaCost"				"240"
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"250"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3762,26 +3762,41 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"disarm_con"			"1"
-			}							
+			}
 			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"disarm_con_per_str"	"500"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"disarm_con_max"		"3"
+			}							
+			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"hp_regen_amp"			"30"
 			}	
-			"05"
+			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"attch"					"20"
 			}
-			"06"
+			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"disarm"				"1"
 			}
-			"07"
+			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"status_resistance"		"20"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"spell_resist"			"30"
 			}
 		}
 	}
