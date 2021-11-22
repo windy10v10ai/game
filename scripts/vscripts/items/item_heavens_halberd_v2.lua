@@ -18,10 +18,10 @@ function item_heavens_halberd_v2:OnSpellStart()
     caster:StartGesture(ACT_DOTA_TELEPORT_END)
 
     local dur1 = self:GetSpecialValueFor("disarm_con")
-    local dur2 = math.min(caster:GetStrength()/100,5)
+    local dur2 = math.min(caster:GetStrength()/1000, 1)
     local dur = dur1+dur2
 
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	for _, enemy in pairs(enemies) do 
         local Knockback ={
             should_stun = 0.01, --打断
@@ -117,6 +117,9 @@ end
 
 function modifier_item_heavens_halberd_v2:OnAttackLanded(tg)
     if not IsServer() then
+        return
+    end
+    if self.disarmed==false then
         return
     end
     if tg.attacker==self:GetParent() and not tg.attacker:IsIllusion() and not tg.target:IsBuilding() and not tg.target:IsMagicImmune() then

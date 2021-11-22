@@ -3761,7 +3761,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"disarm_con"			"5"
+				"disarm_con"			"1"
 			}							
 			"04"
 			{
@@ -3771,7 +3771,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attch"					"100"
+				"attch"					"20"
 			}
 			"06"
 			{
@@ -3781,7 +3781,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"status_resistance"		"26"
+				"status_resistance"		"20"
 			}
 		}
 	}
