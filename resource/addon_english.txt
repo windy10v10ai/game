@@ -493,5 +493,13 @@
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_strength"			"+$str"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_health"			"+$health"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_health_regen"		"+$hp_regen"
+
+		// item heavens halberd v2
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"heavens halberd v2"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within 600 with self as the center，And produce a repulsion effect，Disarm duration：%disarm_con% ＋Hero's current str/100  seconds,Up to 10 seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% probability of disarming the target ,It can be triggered every 5 seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+Status Resistance"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_hp_regen_amp"							"%+Self HP Regen and Lifesteal Amp"
 	}
 }
