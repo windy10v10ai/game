@@ -1,5 +1,11 @@
 "use strict";
 
+/** 下拉框事件 */
+function OnDropDownChanged(option) {
+	let optionValue = $("#"+option).GetSelected().id;
+	GameEvents.SendCustomGameEventToServer('game_options_change', {optionName: option, optionValue: optionValue})
+}
+
 function CheckForHostPrivileges() {
 	var player_info = Game.GetLocalPlayerInfo();
 	if ( !player_info ) {
@@ -17,9 +23,11 @@ function InitializeUI(keys) {
 		return;
 	} else if (is_host) {
 		$("#game_options_container").style.visibility='visible';
+		$("#DisplayOptionsPanel").style.visibility='visible';
 		$("#ChatHideButtonHide").visible=true;
 	} else {
 		$("#ChatHideButtonHide").visible=true;
+		$("#DisplayOptionsPanel").style.visibility='visible';
 	}
 	// Hides battlecuck crap
 	var hit_test_blocker = $.GetContextPanel().GetParent().FindChild("SidebarAndBattleCupLayoutContainer");
@@ -94,6 +102,23 @@ function StateChange() {
 		});
 	}
 }
+
+/**
+ * 非主机玩家显示游戏选项内容设定
+ */
+function OnGameOptionsChange() {	
+	var gameOptions = CustomNetTables.GetTableValue('game_options_table', 'game_option');
+	// $.Msg("++++++++++++++OnGameOptionsChange");
+	// $.Msg(gameOptions);
+	$("#DisplayOptionsPlayerGoldXp").text = gameOptions.player_gold_xp_multiplier_dropdown;
+	$("#DisplayOptionsBotGoldXp").text = gameOptions.bot_gold_xp_multiplier_dropdown;
+
+}
+
+(function() {
+	// 游戏选择项目table监听
+	CustomNetTables.SubscribeNetTableListener("game_options_table", OnGameOptionsChange)
+})();
 
 GameEvents.Subscribe( "player_connect_full", InitializeUI);
 GameEvents.Subscribe( "game_rules_state_change", StateChange);
