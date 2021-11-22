@@ -39,7 +39,8 @@ function AIGameMode:InitGameOptions()
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 
 	GameRules.DropTable = LoadKeyValues("scripts/kv/item_drops.kv")
-	-- GameRules:SetUseBaseGoldBountyOnHeroes( true )
+	-- 游戏选择项目初期化
+	GameRules.GameOption = LoadKeyValues("scripts/kv/game_option.kv")
 end
 
 
@@ -50,6 +51,9 @@ function AIGameMode:InitEvents()
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(AIGameMode, "OnEntityKilled"), self)
 	--JS events
 	CustomGameEventManager:RegisterListener("loading_set_options", function (eventSourceIndex, args) return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args) end)
+	-- 游戏选项改变事件
+	CustomGameEventManager:RegisterListener("game_options_change", function(_, keys) return AIGameMode:OnGameOptionChange(keys) end)
+
 end
 
 

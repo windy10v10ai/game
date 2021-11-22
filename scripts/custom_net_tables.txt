@@ -2,6 +2,7 @@
 {
   custom_net_tables =
   [
-    "player_table"
+    "player_table",
+    "game_options_table",
   ]
 }
