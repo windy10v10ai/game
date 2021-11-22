@@ -6,3 +6,4 @@ panorama/scripts/custom_game/*.vjs_c
 /panorama/images/items/*.vtex_c
 /panorama/images/items/*.vxml_c
 /tool/reference
+panorama_debugger.cfg
