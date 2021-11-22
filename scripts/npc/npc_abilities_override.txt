@@ -1882,10 +1882,6 @@
 	{
 		"AbilityCooldown"				"80"
 	}
-	"tidehunter_ravage"
-	{
-		"AbilityCooldown"				"80.0 70.0 60.0"
-	}
 	"undying_flesh_golem"
 	{
 		"AbilityCooldown"				"80"
@@ -2096,7 +2092,9 @@
 	}
 	"juggernaut_omni_slash"
 	{
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"90 75 60"
+
+		"AbilityManaCost"				"200 250 300"
 
 		"AbilitySpecial"
 		{
@@ -2106,39 +2104,37 @@
 				"bonus_damage"				"40 60 80"
 				"CalculateSpellDamageTooltip"	"0"
 			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_attack_speed"				"50"
+				"CalculateSpellDamageTooltip"	"0"
+			}
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"2.5 2.75 3"
+				"duration"					"3 3.5 4.0"
 				"LinkedSpecialBonus"		"special_bonus_unique_juggernaut_2"
 			}
 		}
 	}
 	"juggernaut_swift_slash"
 	{
+		"AbilityCooldown"				"15"
+
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"duration"			"0.6"
+				"duration"			"1"
 				"RequiresScepter"	"1"
 			}
 		}
 	}
 	"lone_druid_spirit_bear"
 	{
-		"AbilityCooldown"				"90.0"
-
-		"AbilitySpecial"
-		{
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"90.0"
-				"RequiresScepter"			"1"
-			}
-		}
+		"AbilityCooldown"				"10.0"
 	}
 	"medusa_split_shot"
 	{
@@ -3804,11 +3800,6 @@
 		"AbilityManaCost"				"80 90 100 110 120 130 140 150"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"whirling_radius"			"450"
-			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
@@ -3827,7 +3818,6 @@
 			}
 		}
 	}
-
 	"special_bonus_unique_timbersaw"
 	{
 		"AbilitySpecial"
@@ -3908,11 +3898,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"speed"					"1200.0"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"400"
-			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -3928,12 +3913,7 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"damage_interval"		"0.5"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"break_distance"		"2500.0"
-			}		
+			}	
 		}
 	}
 	"shredder_chakram_2"
@@ -3944,12 +3924,6 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"speed"					"1200.0"
-				"RequiresScepter"	"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"400"
 				"RequiresScepter"	"1"
 			}
 			"03"
@@ -3964,12 +3938,6 @@
 				"damage_per_second"		"50 100 150"
 				"RequiresScepter"	"1"
 			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"break_distance"		"3000.0"
-				"RequiresScepter"	"1"
-			}
 		}
 	}
 	//=================================================================================================================
@@ -3978,8 +3946,6 @@
 	"pugna_nether_blast"
 	{
 		"MaxLevel"						"7"
-
-		"AbilityCastRange"				"700"
 
 		"AbilityCooldown"				"5"
 
@@ -3996,11 +3962,6 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"delay"						"0.8"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"500"
 			}
 			"04"
 			{
@@ -4041,9 +4002,7 @@
 		}
 	}
 	"pugna_life_drain"
-	{
-		"AbilityCastRange"				"1200"
-		
+	{	
 		"AbilitySpecial"
 		{
 			"01"
@@ -4222,21 +4181,10 @@
 		"AbilityDamage"					"85 160 235 310 360 400"
 
 		"AbilityManaCost"				"100 115 130 145 160 175 190"
-
-		"AbilitySpecial"
-		{
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"dragon_slave_distance"			"1200"
-			}
-		}
 	}
 	"lina_light_strike_array"
 	{
 		"MaxLevel"						"6"
-
-		"AbilityCastRange"				"700"
 		
 		"AbilityCooldown"				"13 11 9 7 6 5"
 
@@ -4618,9 +4566,244 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"30 45 60 75"
+				"damage"				"30 60 90 120"
 				"LinkedSpecialBonus"	"special_bonus_unique_doom_5"				
 			}
 		}
 	}
+	//=================================================================================================================
+	// Tidehunter: Gush           潮汐猎人
+	//=================================================================================================================
+	"tidehunter_gush"
+	{
+		"MaxLevel"						"6"
+
+		"AbilityCooldown"				"10"
+
+		"AbilityManaCost"				"100 105 110 115 120 125"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"gush_damage"		"110 160 210 260 310 360"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_2"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movement_speed"	"-40 -45 -50 -55 -60 -65"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_5"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"negative_armor"		"3 4 5 6 7 8"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter"
+			}
+		}
+	}
+	"tidehunter_kraken_shell"
+	{
+		"MaxLevel"						"6"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_reduction"		"20 40 60 80 100 120"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_4"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+		}
+	}
+	"tidehunter_anchor_smash"
+	{
+		"MaxLevel"						"6"
+		
+		"AbilityCooldown"				"7.0 6.0 5.0 4.0 3.0 2.0"
+
+		"AbilityManaCost"				"40 50 60 70 80 90"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage"			"40 85 130 175 220 265"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_reduction"		"-30 -40 -50 -60 -65 -70"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_3"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+		}
+	}
+	"tidehunter_ravage"
+	{
+		"MaxLevel"						"4"
+		
+		"AbilityCooldown"				"80 70 60 50"
+
+		"AbilityDamage"					"300 400 500 600"
+
+		"AbilityManaCost"				"150 200 250 300"
+
+		"AbilitySpecial"
+		{
+			"03"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"2.5 3.0 3.5 4.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_7"
+			}
+		}
+	}
+//=================================================================================================================
+	// Centaur Warchief: Hoof Stomp           半人马战行者
+	//=================================================================================================================
+	"centaur_hoof_stomp"
+	{
+		"MaxLevel"						"5"
+	
+		"AbilityCooldown"				"18 16 14 12 10"
+
+		"AbilityManaCost"				"100 105 110 115 120"
+		
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"stun_duration"					"1.6 1.9 2.2 2.5 2.8"
+				"LinkedSpecialBonus"			"special_bonus_unique_centaur_2"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"stomp_damage"					"100 150 200 250 300"
+			}
+		}
+	}
+	"centaur_double_edge"
+	{
+		"MaxLevel"						"6"
+
+		"AbilitySpecial"
+		{			
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"edge_damage"					"120 180 240 300 360 420"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"strength_damage"				"60 80 100 120 140 160"
+				"LinkedSpecialBonus"			"special_bonus_unique_centaur_4"
+			}
+		}
+	}
+	"centaur_return"
+	{
+		"MaxLevel"						"6"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"return_damage"				"30 45 60 75 90 105"
+				"LinkedSpecialBonus"			"special_bonus_unique_centaur_3"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"return_damage_str"			"20 30 40 50 60 70"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aura_radius"				"1200"
+			}
+		}
+	}
+	"centaur_stampede"
+	{
+		"MaxLevel"						"4"
+
+		"AbilityCooldown"				"80 70 60 50"
+
+		"AbilityManaCost"				"100 150 200 250"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"3.5 4 4.5 5.0"
+				"LinkedSpecialBonus"			"special_bonus_unique_centaur_7"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"strength_damage"	"2.5 3.0 3.5 4.0"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Invoker: Cold Snap             祈求者/卡尔
+	//=================================================================================================================
+	"invoker_cold_snap"
+	{
+		"AbilityCooldown"				"18"
+	}	
+	"invoker_ghost_walk"
+	{
+		"AbilityCooldown"				"40"
+	}
+	"invoker_tornado"
+	{
+		"AbilityCooldown"				"25"
+	}
+	"invoker_emp"
+	{
+		"AbilityCooldown"				"15"
+	}
+	"invoker_alacrity"
+	{
+		"AbilityCooldown"				"10"
+	}
+	"invoker_chaos_meteor"
+	{
+		"AbilityCooldown"				"35"
+	}
+	"invoker_sun_strike"
+	{
+		"AbilityCooldown"				"15"
+
+		"AbilitySpecial"
+		{
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cataclysm_cooldown"		"60"
+			}
+		}
+	}
+	"invoker_ice_wall"
+	{
+		"AbilityCooldown"				"15"
+	}
+	"invoker_deafening_blast"
+	{
+		"AbilityCooldown"				"30"
+	}	
 }
