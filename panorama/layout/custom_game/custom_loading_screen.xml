@@ -4,7 +4,7 @@
 		<include src="s2r://panorama/styles/custom_game/custom_loading_screen.vcss_c" />
 	</styles>
 	<scripts>
-	<include src="s2r://panorama/scripts/custom_game/game_mode.js"/>
+	<include src="s2r://panorama/scripts/custom_game/game_mode.vjs_c"/>
 	</scripts>
 	<Panel class="AddonLoadingRoot">
 		<Panel id="CustomBg" >
@@ -13,7 +13,7 @@
 					<Label id="GameOptionsPanelTitle" text="#addon_option_title" />
 					<Panel id="RadiantGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantGoldXPMultiplierTitle" class="GameOptionsLabel" text="#player_gold_xp_multiplier" />
-						<DropDown id="player_gold_xp_multiplier_dropdown" class="GameOptionsDropdown">
+						<DropDown id="player_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('player_gold_xp_multiplier_dropdown')">
 							<Label text="#radiant_gold_xp_multiplier_1" id="1"/>
 							<Label text="#radiant_gold_xp_multiplier_1_1" id="1.1"/>
 							<Label text="#radiant_gold_xp_multiplier_1_25" id="1.25"/>
@@ -24,7 +24,7 @@
 					</Panel>
 					<Panel id="DireGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="DireGoldXPMultiplierTitle" class="GameOptionsLabel" text="#bot_gold_xp_multiplier" />
-						<DropDown id="bot_gold_xp_multiplier_dropdown" class="GameOptionsDropdown">
+						<DropDown id="bot_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('bot_gold_xp_multiplier_dropdown')">
 							<Label text="#bots_multiplier_1" id="1"/>
 							<Label text="#bots_multiplier_2" id="2"/>
 							<Label text="#bots_multiplier_3" id="3"/>
@@ -172,6 +172,18 @@
 					</Panel>
 				</Panel>
 			</Panel>
+			<!-- 游戏选项显示 START-->
+			<Panel id="DisplayOptionsPanel">
+				<Panel id="PlayerGoldXpPanel" class="DisplayOptionsSubPanel">
+					<Label id="DisplayOptionsPlayerGoldXpTitle" class="DisplayOptionsLableTitle" text="#player_gold_xp_multiplier" />
+					<Label id="DisplayOptionsPlayerGoldXp" class="DisplayOptionsLable" text="" />
+				</Panel>
+				<Panel id="BotGoldXpPanel" class="DisplayOptionsSubPanel">
+					<Label id="DisplayOptionsBotGoldXpTitle" class="DisplayOptionsLableTitle" text="#bot_gold_xp_multiplier" />
+					<Label id="DisplayOptionsBotGoldXp" class="DisplayOptionsLable" text="" />
+				</Panel>
+			</Panel>
+			<!-- 游戏选项显示 END-->
 			<Panel id="ChatHideButtonContainer" hittest="false">
 				<Button id="ChatHideButtonHide" class="ChatHideButton" onactivate="HideChatTeamActivate()">
 					<Label id="ChatHideButtonLabelHide" class="ChatHideButtonLabel" text="#hide_chat_team" />

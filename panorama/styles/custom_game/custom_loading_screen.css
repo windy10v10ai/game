@@ -137,3 +137,32 @@
 	color: #ffffff;
 	vertical-align:middle;
 }
+
+#DisplayOptionsPanel
+{
+	margin-top: 60px;
+	margin-left: 560px;
+	width: 400px;
+	height: 100%;
+	flow-children: down;
+	visibility: collapse;
+}
+.DisplayOptionsSubPanel
+{
+	flow-children: right;
+	margin-top: 12px;
+	width: 100%;
+}
+.DisplayOptionsLableTitle
+{
+	text-align: left;
+	horizontal-align: middle;
+	vertical-align:center;
+	color: #ffffff;
+}
+.DisplayOptionsLable
+{
+	margin-left: 10px;
+	width: 200px;
+	horizontal-align:right;
+}
