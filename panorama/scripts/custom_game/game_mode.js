@@ -2,8 +2,19 @@
 
 /** 下拉框事件 */
 function OnDropDownChanged(option) {
-	let optionValue = $("#"+option).GetSelected().id;
-	GameEvents.SendCustomGameEventToServer('game_options_change', {optionName: option, optionValue: optionValue})
+	let optionValue = $("#"+option).GetSelected().text;
+	let optionId = $("#"+option).GetSelected().id;
+	GameEvents.SendCustomGameEventToServer('game_options_change', { optionName: option, optionValue: optionValue, optionId: optionId })
+}
+
+/** 事件初期化 */
+function GameEventsIniti(){	
+	OnDropDownChanged("player_gold_xp_multiplier_dropdown");
+	OnDropDownChanged("bot_gold_xp_multiplier_dropdown");
+	OnDropDownChanged("respawn_time_percentage_dropdown");
+	OnDropDownChanged("max_level_dropdown");
+	OnDropDownChanged("radiant_tower_power_dropdown");
+	OnDropDownChanged("dire_tower_power_dropdown");
 }
 
 function CheckForHostPrivileges() {
@@ -23,11 +34,12 @@ function InitializeUI(keys) {
 		return;
 	} else if (is_host) {
 		$("#game_options_container").style.visibility='visible';
-		$("#DisplayOptionsPanel").style.visibility='visible';
+		$("#display_options_container").style.visibility='visible';
 		$("#ChatHideButtonHide").visible=true;
+		GameEventsIniti();
 	} else {
 		$("#ChatHideButtonHide").visible=true;
-		$("#DisplayOptionsPanel").style.visibility='visible';
+		$("#display_options_container").style.visibility='visible';
 	}
 	// Hides battlecuck crap
 	var hit_test_blocker = $.GetContextPanel().GetParent().FindChild("SidebarAndBattleCupLayoutContainer");
@@ -112,6 +124,10 @@ function OnGameOptionsChange() {
 	// $.Msg(gameOptions);
 	$("#DisplayOptionsPlayerGoldXp").text = gameOptions.player_gold_xp_multiplier_dropdown;
 	$("#DisplayOptionsBotGoldXp").text = gameOptions.bot_gold_xp_multiplier_dropdown;
+	$("#DisplayOptionsRadiantTower").text = gameOptions.radiant_tower_power_dropdown;
+	$("#DisplayOptionsDireTower").text = gameOptions.dire_tower_power_dropdown;
+	$("#DisplayOptionsRespawnTime").text = gameOptions.respawn_time_percentage_dropdown;
+	$("#DisplayOptionsMaxLevel").text = gameOptions.max_level_dropdown;
 
 }
 
