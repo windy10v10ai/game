@@ -18,10 +18,12 @@ function item_heavens_halberd_v2:OnSpellStart()
     caster:StartGesture(ACT_DOTA_TELEPORT_END)
 
     local dur1 = self:GetSpecialValueFor("disarm_con")
-    local dur2 = math.min(caster:GetStrength()/1000, 1)
-    local dur = dur1+dur2
+    local dur2PerStr = self:GetSpecialValueFor("disarm_con_per_str")
+    local durMax = self:GetSpecialValueFor("disarm_con_max")
+    local dur2 = caster:GetStrength()/dur2PerStr
+    local dur = math.min(dur1+dur2, durMax)
 
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	for _, enemy in pairs(enemies) do 
         local Knockback ={
             should_stun = 0.01, --打断
@@ -70,6 +72,7 @@ function modifier_item_heavens_halberd_v2:DeclareFunctions()
         MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
         MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
         MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
         MODIFIER_EVENT_ON_ATTACK_LANDED,
    }
 end
@@ -87,6 +90,7 @@ function modifier_item_heavens_halberd_v2:OnCreated()
     self.attch=self.ability:GetSpecialValueFor("attch")
     self.disarm=self.ability:GetSpecialValueFor("disarm")
     self.status_resistance=self.ability:GetSpecialValueFor("status_resistance")
+	self.spell_resist = self:GetAbility():GetSpecialValueFor("spell_resist")
     end
 end
 
@@ -113,6 +117,10 @@ end
 
 function modifier_item_heavens_halberd_v2:GetModifierStatusResistanceStacking()
 	return self.status_resistance
+end
+
+function modifier_item_heavens_halberd_v2:GetModifierMagicalResistanceBonus()
+	return self.spell_resist
 end
 
 function modifier_item_heavens_halberd_v2:OnAttackLanded(tg)

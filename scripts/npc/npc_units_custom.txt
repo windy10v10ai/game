@@ -526,7 +526,7 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
+		"ArmorPhysical"				"20"		// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
@@ -548,7 +548,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2000"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 	}
 	"npc_dota_goodguys_range_rax_mid"
@@ -559,7 +559,7 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
+		"ArmorPhysical"				"20"		// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
@@ -581,7 +581,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2000"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 	}
 	"npc_dota_goodguys_range_rax_bot"
@@ -592,7 +592,7 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
+		"ArmorPhysical"				"20"		// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
@@ -614,7 +614,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2000"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 	}
 	
@@ -627,7 +627,7 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
+		"ArmorPhysical"				"20"		// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
@@ -649,7 +649,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2000"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 	}
 	"npc_dota_badguys_range_rax_mid"
@@ -660,7 +660,7 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
+		"ArmorPhysical"				"20"		// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
@@ -682,7 +682,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2000"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 	}
 	"npc_dota_badguys_range_rax_bot"
@@ -693,7 +693,7 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
+		"ArmorPhysical"				"20"		// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
@@ -715,7 +715,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2000"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 	}
 	//=========================================================
