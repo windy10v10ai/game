@@ -22,9 +22,18 @@ function AIGameMode:InitGameMode()
 	AIGameMode:InitGameOptions()
 	AIGameMode:InitEvents()
 	AIGameMode:LinkLuaModifiers()
+	if IsInToolsMode() then
+		self:EnterDebugMode()
+	end
 	print("DOTA 2 AI Wars Loaded.")
 end
 
+
+function AIGameMode:EnterDebugMode()
+	print("========Enter Debug Mode========")
+	self.DebugMode = true
+	print("DOTA 2 AI Wars Loaded.")
+end
 
 function AIGameMode:InitGameOptions()
 	GameRules:SetCustomGameSetupAutoLaunchDelay( AUTO_LAUNCH_DELAY )
@@ -39,7 +48,8 @@ function AIGameMode:InitGameOptions()
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 
 	GameRules.DropTable = LoadKeyValues("scripts/kv/item_drops.kv")
-	-- GameRules:SetUseBaseGoldBountyOnHeroes( true )
+	-- 游戏选择项目初期化
+	GameRules.GameOption = LoadKeyValues("scripts/kv/game_option.kv")
 end
 
 
@@ -50,6 +60,9 @@ function AIGameMode:InitEvents()
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(AIGameMode, "OnEntityKilled"), self)
 	--JS events
 	CustomGameEventManager:RegisterListener("loading_set_options", function (eventSourceIndex, args) return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args) end)
+	-- 游戏选项改变事件
+	CustomGameEventManager:RegisterListener("game_options_change", function(_, keys) return AIGameMode:OnGameOptionChange(keys) end)
+
 end
 
 
@@ -90,15 +103,19 @@ function AIGameMode:PreGameOptions()
 	self.fGameStartTime = 0
 	GameRules:SetGoldPerTick(self.iGoldPerTick)
 	GameRules:SetGoldTickTime(self.iGoldTickTime)
+	GameRules:SetUseUniversalShopMode( true )
 	GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( AIGameMode, "FilterGold" ), self )
 	GameRules:GetGameModeEntity():SetModifyExperienceFilter( Dynamic_Wrap( AIGameMode, "FilterXP" ), self )
 	GameRules:GetGameModeEntity():SetRuneSpawnFilter( Dynamic_Wrap( AIGameMode, "FilterRune" ), self )
-	GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter( Dynamic_Wrap( AIGameMode, "FilterItemAdd" ), self )
 	GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled( true )
 	GameRules:GetGameModeEntity():SetMaximumAttackSpeed( 1000 )
-	GameRules:SetUseUniversalShopMode( true )
+	-- 每点敏捷提供护甲
+	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.15)
 
-	-------------------------
+	if self.DebugMode then
+		GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter( Dynamic_Wrap( AIGameMode, "FilterItemAdd" ), self )
+	end
+	-- loop functions
 	AIGameMode:SpawnNeutralCreeps30sec()
 	AIGameMode:AddCreepsSkill()
 
@@ -218,37 +235,39 @@ end
 ------------------------------------------------------------------
 
 local function multiplierGoldWithGameTime(multiplier)
-	local time = GameRules:GetDOTATime(false, false)
-	if time < (60 * 3) then
-		if multiplier < 3 then
-			return multiplier
-		elseif multiplier <= 5 then
-			return 3
-		elseif multiplier <= 10 then
-			return 6
-		else
-			return 9
-		end
-	else
-		return multiplier
-	end
+	return multiplier
+	-- local time = GameRules:GetDOTATime(false, false)
+	-- if time < (60 * 2) then
+	-- 	if multiplier < 3 then
+	-- 		return multiplier
+	-- 	elseif multiplier <= 5 then
+	-- 		return 3
+	-- 	elseif multiplier <= 10 then
+	-- 		return 6
+	-- 	else
+	-- 		return 9
+	-- 	end
+	-- else
+	-- 	return multiplier
+	-- end
 end
 
 local function multiplierXPWithGameTime(multiplier)
-	local time = GameRules:GetDOTATime(false, false)
-	if time < (60 * 3) then
-		if multiplier < 3 then
-			return multiplier
-		elseif multiplier <= 5 then
-			return 4
-		elseif multiplier <= 10 then
-			return 8
-		else
-			return 12
-		end
-	else
-		return multiplier
-	end
+	return multiplier
+	-- local time = GameRules:GetDOTATime(false, false)
+	-- if time < (60 * 2) then
+	-- 	if multiplier < 3 then
+	-- 		return multiplier
+	-- 	elseif multiplier <= 5 then
+	-- 		return 4
+	-- 	elseif multiplier <= 10 then
+	-- 		return 8
+	-- 	else
+	-- 		return 12
+	-- 	end
+	-- else
+	-- 	return multiplier
+	-- end
 end
 
 function AIGameMode:FilterGold(tGoldFilter)
@@ -350,6 +369,7 @@ function AIGameMode:FilterRune(tRuneFilter)
 	end
 end
 
+-- only run in tool debug mode
 function AIGameMode:FilterItemAdd(tItemFilter)
 	print("========================ItemFilter========================")
 	local item = EntIndexToHScript(tItemFilter.item_entindex_const)
@@ -367,14 +387,13 @@ function AIGameMode:FilterItemAdd(tItemFilter)
 		if purchaser then
 			print(purchaser:GetName())
 			if purchaser:IsControllableByAnyPlayer() then
-				print("ControllableByAnyPlayer")
 				return true
 			else
 				print("!!!!!!STOP BUY ITEM!!!!!!")
 				return false
 			end
 		end
-	end	
+	end
 
 	return true
 end

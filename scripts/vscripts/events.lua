@@ -468,3 +468,11 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
 	self.bFastCourier = args.game_options.fast_courier
 	self:PreGameOptions()
 end
+
+function AIGameMode:OnGameOptionChange(keys)
+	local optionName = keys.optionName
+	local optionValue = keys.optionValue
+	-- 对应的游戏选择项目设定
+	GameRules.GameOption[optionName]=optionValue
+	CustomNetTables:SetTableValue('game_options_table', 'game_option', GameRules.GameOption)
+end
