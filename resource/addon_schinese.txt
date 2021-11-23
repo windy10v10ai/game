@@ -27,8 +27,8 @@
 		"show_game_options"  "Show Game Options"
 		"respawn_time_percentage"	"复活时间百分比"
 		"max_level"	"等级上限"
-		"radiant_tower_power"	"天辉建筑攻击/防御加成等级"
-		"dire_tower_power"	"夜魇建筑攻击/防御加成等级"
+		"radiant_tower_power"	"天辉建筑攻击/防御加成"
+		"dire_tower_power"	"夜魇建筑攻击/防御加成"
 		"radiant_tower_endure"	"天辉建筑防御加成等级"
 		"dire_tower_endure"	"夜魇建筑防御加成等级"
 		"radiant_tower_heal"	"天辉建筑生命恢复加成"
@@ -481,7 +481,6 @@
 		"DOTA_Tooltip_Ability_item_sacred_trident_spell_amp"							"%+技能增强（同类物品不可叠加）"
 		"DOTA_Tooltip_Ability_item_sacred_trident_mana_regen_multiplier"				"%+魔法恢复增强"
 		"DOTA_Tooltip_Ability_item_sacred_trident_spell_lifesteal_amp"					"%+技能吸血增强"
-		"DOTA_Tooltip_Ability_item_sacred_trident_spell_resist"							"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									"传说是古希腊神话中海神波塞冬的象征物和武器，目前广泛用于渔民捕鱼。"
 
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"六脉神剑"
@@ -494,17 +493,25 @@
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_amp"							"%+技能增强（同类物品不可叠加）"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_mana_regen_multiplier"				"%+魔法恢复增强"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_lifesteal_amp"					"%+技能吸血增强"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_resist"						"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"凌波微步（移速）以及北冥神功（抗性），都是大理皇室段誉的武门绝学。本质上也不过是两把鱼叉而已。"
 
 		// item yishan
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"一闪"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>主动：一闪</h1>瞬移到目标面前，并将其击晕%stun_m%秒，造成英雄当前力量乘%dam%的纯粹伤害。\n<h1>被动：<font color='#F19B8F'>圣嘉然之力</font></h1>攻击目标时，近战有%ch_m%% ，远程有%ch_r%% 概率将其击晕%stun%秒，并额外造成%damatt%点物理伤害。\n<h1>被动：<font color='#f15b47'>萧瑟</font></h1>受到物理攻击时，有%block_chance%% 概率格挡伤害，近战减免%block_damage_melee%伤害，远程减免%block_damage_ranged%伤害。"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_Lore"                   "天空一声巨响，老子闪亮登场"
-		"DOTA_Tooltip_modifier_item_abyssal_blade_v2_debuff"				"眩晕"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_damage"			"+$damage"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_strength"			"+$str"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_health"			"+$health"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_health_regen"		"+$hp_regen"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2"									"一闪"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"						"<h1>主动：一闪</h1>瞬移到目标面前，并将其击晕%stun_m%秒，造成英雄当前力量乘%dam%的纯粹伤害。\n<h1>被动：<font color='#F19B8F'>圣嘉然之力</font></h1>攻击目标时，近战有%ch_m%% ，远程有%ch_r%% 概率将其击晕%stun%秒，并额外造成%damatt%点物理伤害。\n<h1>被动：<font color='#f15b47'>萧瑟</font></h1>受到物理攻击时，有%block_chance%% 概率格挡伤害，近战减免%block_damage_melee%伤害，远程减免%block_damage_ranged%伤害。"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_Lore"                  				"天空一声巨响，老子闪亮登场"
+		"DOTA_Tooltip_modifier_item_abyssal_blade_v2_debuff"							"眩晕"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_health_regen"					"+$hp_regen"
+
+		// item heavens halberd v2
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"无锋战戟"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1><font color='#FFFF00'>主动：天堂冲击</font></h1>以自身为中心对300范围内单位进行缴械，并产生击退效果，击退300码，缴械持续时间：%disarm_con%+英雄当前力量/%disarm_con_per_str%秒,最长为%disarm_con_max%秒。\n<h1><font color='#FFFF00'>被动：以战止战</font></h1>普攻有%attch%%%概率对目标缴械%disarm%秒，每5秒可以触发一次。"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+状态抗性"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_hp_regen_amp"							"%+自身生命恢复和吸血增强"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_resist"							"%+$spell_resist"
 	}
 }

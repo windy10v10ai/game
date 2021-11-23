@@ -4,7 +4,7 @@
 		<include src="s2r://panorama/styles/custom_game/custom_loading_screen.vcss_c" />
 	</styles>
 	<scripts>
-	<include src="s2r://panorama/scripts/custom_game/game_mode.js"/>
+	<include src="s2r://panorama/scripts/custom_game/game_mode.vjs_c"/>
 	</scripts>
 	<Panel class="AddonLoadingRoot">
 		<Panel id="CustomBg" >
@@ -13,7 +13,7 @@
 					<Label id="GameOptionsPanelTitle" text="#addon_option_title" />
 					<Panel id="RadiantGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantGoldXPMultiplierTitle" class="GameOptionsLabel" text="#player_gold_xp_multiplier" />
-						<DropDown id="player_gold_xp_multiplier_dropdown" class="GameOptionsDropdown">
+						<DropDown id="player_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('player_gold_xp_multiplier_dropdown')">
 							<Label text="#radiant_gold_xp_multiplier_1" id="1"/>
 							<Label text="#radiant_gold_xp_multiplier_1_1" id="1.1"/>
 							<Label text="#radiant_gold_xp_multiplier_1_25" id="1.25"/>
@@ -24,7 +24,7 @@
 					</Panel>
 					<Panel id="DireGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="DireGoldXPMultiplierTitle" class="GameOptionsLabel" text="#bot_gold_xp_multiplier" />
-						<DropDown id="bot_gold_xp_multiplier_dropdown" class="GameOptionsDropdown">
+						<DropDown id="bot_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('bot_gold_xp_multiplier_dropdown')">
 							<Label text="#bots_multiplier_1" id="1"/>
 							<Label text="#bots_multiplier_2" id="2"/>
 							<Label text="#bots_multiplier_3" id="3"/>
@@ -68,7 +68,7 @@
 					<Label id="GameOptionsPanelBr" text="#addon_option_title_br" />
 					<Panel id="RespawnTimePercentagePanel"	class="GameOptionsSubPanel">
 						<Label id="RespawnTimePercentagePanelTitle" class="GameOptionsLabel" text="#respawn_time_percentage" />
-						<DropDown id="respawn_time_percentage_dropdown" class="GameOptionsDropdown">
+						<DropDown id="respawn_time_percentage_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('respawn_time_percentage_dropdown')">
 							<Label text="#respawn_time_percentage_200" id="200"/>
 							<Label text="#respawn_time_percentage_100" id="100"/>
 							<Label text="#respawn_time_percentage_75" id="75"/>
@@ -78,7 +78,7 @@
 					</Panel>
 					<Panel id="MaxLevelPanel"	class="GameOptionsSubPanel">
 						<Label id="MaxLevelTitle" class="GameOptionsLabel" text="#max_level" />
-						<DropDown id="max_level_dropdown" class="GameOptionsDropdown">
+						<DropDown id="max_level_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('max_level_dropdown')">
 							<Label text="30" id="30"/>
 							<Label text="50" id="50"/>
 							<Label text="75" id="75"/>
@@ -90,7 +90,7 @@
 					</Panel>
 					<Panel id="RadiantTowerPowerPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantTowerPowerTitle" class="GameOptionsLabel" text="#radiant_tower_power" />
-						<DropDown id="radiant_tower_power_dropdown" class="GameOptionsDropdown">
+						<DropDown id="radiant_tower_power_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('radiant_tower_power_dropdown')">
 							<Label text="50%" id="1"/>
 							<Label text="75%" id="2"/>
 							<Label text="100%" id="3"/>
@@ -105,7 +105,7 @@
 					</Panel>
 					<Panel id="DireTowerPowerPanel"	class="GameOptionsSubPanel">
 						<Label id="DireTowerPowerTitle" class="GameOptionsLabel" text="#dire_tower_power" />
-						<DropDown id="dire_tower_power_dropdown" class="GameOptionsDropdown">
+						<DropDown id="dire_tower_power_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('dire_tower_power_dropdown')">
 							<Label text="50%" id="1"/>
 							<Label text="75%" id="2"/>
 							<Label text="100%" id="3"/>
@@ -172,6 +172,36 @@
 					</Panel>
 				</Panel>
 			</Panel>
+			<!-- 游戏选项显示 START-->
+			<Panel id="display_options_container" >
+				<Panel id="DisplayOptionsPanel">
+					<Panel id="PlayerGoldXpPanel" class="DisplayOptionsSubPanel">
+						<Label id="DisplayOptionsPlayerGoldXpTitle" class="DisplayOptionsLableTitle" text="#player_gold_xp_multiplier" />
+						<Label id="DisplayOptionsPlayerGoldXp" class="DisplayOptionsLable" text="" />
+					</Panel>
+					<Panel id="BotGoldXpPanel" class="DisplayOptionsSubPanel">
+						<Label id="DisplayOptionsBotGoldXpTitle" class="DisplayOptionsLableTitle" text="#bot_gold_xp_multiplier" />
+						<Label id="DisplayOptionsBotGoldXp" class="DisplayOptionsLable" text="" />
+					</Panel>
+					<Panel id="RadiantTowerPanel" class="DisplayOptionsSubPanel">
+						<Label id="DisplayOptionsRadiantTowerTitle" class="DisplayOptionsLableTitle" text="#radiant_tower_power" />
+						<Label id="DisplayOptionsRadiantTower" class="DisplayOptionsLable" text="" />
+					</Panel>
+					<Panel id="DireTowerPanel" class="DisplayOptionsSubPanel">
+						<Label id="DisplayOptionsDireTowerTitle" class="DisplayOptionsLableTitle" text="#dire_tower_power" />
+						<Label id="DisplayOptionsDireTower" class="DisplayOptionsLable" text="" />
+					</Panel>
+					<Panel id="RespawnTimePanel" class="DisplayOptionsSubPanel">
+						<Label id="DisplayOptionsRespawnTimeTitle" class="DisplayOptionsLableTitle" text="#respawn_time_percentage" />
+						<Label id="DisplayOptionsRespawnTime" class="DisplayOptionsLable" text="" />
+					</Panel>
+					<Panel id="DMaxLevelPanel" class="DisplayOptionsSubPanel">
+						<Label id="DisplayOptionsMaxLevelTitle" class="DisplayOptionsLableTitle" text="#max_level" />
+						<Label id="DisplayOptionsMaxLevel" class="DisplayOptionsLable" text="" />
+					</Panel>
+				</Panel>
+			</Panel>
+			<!-- 游戏选项显示 END-->
 			<Panel id="ChatHideButtonContainer" hittest="false">
 				<Button id="ChatHideButtonHide" class="ChatHideButton" onactivate="HideChatTeamActivate()">
 					<Label id="ChatHideButtonLabelHide" class="ChatHideButtonLabel" text="#hide_chat_team" />

@@ -187,7 +187,7 @@ function BotThink:AddMoney(hHero)
   local goldPerSec = totalGold/GameTime
   local multiplier = AIGameMode.fBotGoldXpMultiplier
 
-  if goldPerSec > 20 then
+  if goldPerSec > (10 + multiplier*3) then
     return false
   end
 
