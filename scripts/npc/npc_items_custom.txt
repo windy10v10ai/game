@@ -794,7 +794,7 @@
 
 			// Item Info
 			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"						"6000"
+			"ItemCost"						"8125"
 			"ItemShopTags"					""
 
 			// Recipe
@@ -841,7 +841,7 @@
 					"01"
 					{
 							"var_type"						"FIELD_INTEGER"
-							"bonus_agility"					"35"
+							"bonus_agility"					"45"
 					}
 					"02"
 					{
@@ -856,7 +856,7 @@
 					"04"
 					{
 							"var_type"						"FIELD_INTEGER"
-							"bonus_attack_speed"			"35"
+							"bonus_attack_speed"			"45"
 					}
 					"05"
 					{
@@ -3273,7 +3273,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6600"	
+		"ItemCost"						"6000"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3320,7 +3320,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-26"
+				"corruption_armor"		"-24"
 			}
 			"03"
 			{

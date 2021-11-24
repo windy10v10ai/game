@@ -3679,39 +3679,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"90 100 110 120"
 	}
-	"storm_spirit_ball_lightning"
-	{
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"8 12 16"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"										"FIELD_INTEGER"
-				"ball_lightning_initial_mana_percentage"		"8"
-			}
-			"02"
-			{
-				"var_type"										"FIELD_INTEGER"
-				"ball_lightning_initial_mana_base"				"30 60 90"
-			}
-			"05"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"ball_lightning_travel_cost_base"	"10 15 20"
-			}
-			"06"
-			{
-				"var_type"								"FIELD_FLOAT"
-				"ball_lightning_travel_cost_percent"	"0.7"
-			}
-		}
-	}
-
 
 	//=================================================================================================================
 	// Roshan: Slam
