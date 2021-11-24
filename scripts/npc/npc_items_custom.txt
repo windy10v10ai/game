@@ -3564,7 +3564,7 @@
 		"FightRecapLevel"						"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6600"	
+		"ItemCost"						"9600"	
 		"ItemShopTags"					""
 
 		
@@ -3574,7 +3574,7 @@
 		"ItemResult"					"item_abyssal_blade_v2"
 		"ItemRequirements"
 		{
-			"01"						"item_abyssal_blade;item_overwhelming_blink"
+			"01"						"item_abyssal_blade"
 		}
 	}
 	
@@ -3645,7 +3645,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dam"					"3"
+				"dam"					"2"
 			}
 			"07"
 			{
@@ -3655,17 +3655,17 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"block_chance"			"100"
+				"block_chance"			"90"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"block_damage_melee"	"200"
+				"block_damage_melee"	"240"
 			}
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"block_damage_ranged"	"100"
+				"block_damage_ranged"	"120"
 			}
 			"11"
 			{
