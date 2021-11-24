@@ -1112,7 +1112,7 @@
 
 			// Item Info
 			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"						"5600"
+			"ItemCost"						"5300"
 			"ItemShopTags"					""
 
 			// Recipe
@@ -1300,7 +1300,7 @@
 							"Aura" 					"modifier_item_vladmir_2_enemy_aura"
 							"Aura_Radius" 			"%aura_radius"
 							"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+							"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 							"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 							"Aura_ApplyToCaster" 	"0"
 					}
@@ -3320,7 +3320,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-24"
+				"corruption_armor"		"-25"
 			}
 			"03"
 			{
@@ -3564,7 +3564,7 @@
 		"FightRecapLevel"						"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"9600"	
+		"ItemCost"						"6600"	
 		"ItemShopTags"					""
 
 		
@@ -3644,8 +3644,8 @@
 			}	
 			"06"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"dam"					"2"
+				"var_type"				"FIELD_FLOAT"
+				"dam"					"2.5"
 			}
 			"07"
 			{
@@ -3660,12 +3660,12 @@
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"block_damage_melee"	"240"
+				"block_damage_melee"	"200"
 			}
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"block_damage_ranged"	"120"
+				"block_damage_ranged"	"100"
 			}
 			"11"
 			{
