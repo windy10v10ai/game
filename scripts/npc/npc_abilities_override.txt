@@ -4256,7 +4256,7 @@
 	"skeleton_king_reincarnation"
 	{
 		"MaxLevel"						"4"
-		"AbilityCooldown"				"100 70 40 30"
+		"AbilityCooldown"				"100 80 60 40"
 		"AbilitySpecial"
 		{
 			"02"
