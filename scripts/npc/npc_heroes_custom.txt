@@ -349,6 +349,16 @@
 				"28"		"special_bonus_attack_speed_20"
 				"29"		"special_bonus_unique_bristleback_2"
 				"30"		"special_bonus_spell_lifesteal_13"
+				"31"		"bristleback_warpath"
+				"32"		"bristleback_bristleback"
+				"33"		"bristleback_quill_spray"
+				"34"		"bristleback_viscous_nasal_goo"
+				"35"		"bristleback_bristleback"
+				"36"		"bristleback_quill_spray"
+				"37"		"bristleback_viscous_nasal_goo"
+				"38"		"bristleback_bristleback"
+				"39"		"bristleback_quill_spray"
+				"40"		"bristleback_viscous_nasal_goo"
 			}
 		}
 	}
@@ -642,12 +652,14 @@
 				"28"		"special_bonus_hp_350"
 				"29"		"special_bonus_unique_lina_2"
 				"30"		"special_bonus_attack_range_125"
-				"31"		"lina_dragon_slave"
-				"32"		"lina_light_strike_array"
-				"33"		"lina_fiery_soul"
+				"31"		"lina_laguna_blade"
+				"32"		"lina_fiery_soul"
+				"33"		"lina_light_strike_array"
 				"34"		"lina_dragon_slave"
 				"35"		"lina_light_strike_array"
-				"36"		"lina_laguna_blade"
+				"36"		"lina_dragon_slave"
+				"37"		"lina_light_strike_array"
+				"38"		"lina_dragon_slave"
 			}
 		}
 	}
@@ -941,13 +953,16 @@
 				"28"		"special_bonus_unique_vengeful_spirit_9"
 				"29"		"special_bonus_unique_vengeful_spirit_2"
 				"30"		"special_bonus_unique_vengeful_spirit_3"
-				"31"		"vengefulspirit_magic_missile"
+				"31"		"vengefulspirit_nether_swap"
 				"32"		"vengefulspirit_command_aura"
 				"33"		"vengefulspirit_wave_of_terror"
 				"34"		"vengefulspirit_magic_missile"
 				"35"		"vengefulspirit_command_aura"
 				"36"		"vengefulspirit_wave_of_terror"
-				"37"		"vengefulspirit_nether_swap"
+				"37"		"vengefulspirit_magic_missile"
+				"38"		"vengefulspirit_command_aura"
+				"39"		"vengefulspirit_wave_of_terror"
+				"40"		"vengefulspirit_magic_missile"
 			}
 		}
 	}
@@ -1015,11 +1030,16 @@
 				"28"		"special_bonus_unique_wraith_king_11"
 				"29"		"special_bonus_cleave_25"
 				"30"		"special_bonus_unique_wraith_king_10"
-				"31"		"skeleton_king_hellfire_blast"
+				"31"		"skeleton_king_reincarnation"
 				"32"		"skeleton_king_vampiric_aura"
 				"33"		"skeleton_king_mortal_strike"
 				"34"		"skeleton_king_hellfire_blast"
 				"35"		"skeleton_king_vampiric_aura"
+				"36"		"skeleton_king_mortal_strike"
+				"37"		"skeleton_king_hellfire_blast"
+				"38"		"skeleton_king_vampiric_aura"
+				"39"		"skeleton_king_mortal_strike"
+				"40"		"skeleton_king_hellfire_blast"
 			}
 		}
 	}
