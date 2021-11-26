@@ -100,6 +100,8 @@
 		"item"		"item_falcon_blade"
 		"item"		"item_power_treads"
 		"item"		"item_phase_boots"
+		"item"		"item_adi_king"
+		"item"		"item_adi_king_plus"
 		"item"		"item_oblivion_staff"
 		"item"		"item_pers"
  		"item"		"item_mask_of_madness"
