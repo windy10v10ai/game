@@ -1526,7 +1526,11 @@
 		"BaseClass"						"item_lua"
 		"ID"							"9051"
 		"AbilityTextureName"			"item_undying_heart"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"200"
+		"AbilitySharedCooldown"			"undying"
 
 		"ItemShopTags"					"str;regen_health;health_pool"
 		"ItemQuality"					"epic"
@@ -1563,6 +1567,21 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"status_resistance"		"12"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dur"		            "5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp"					"1000"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"active_hpregen"		"1000"
 			}
 		}
 	}
