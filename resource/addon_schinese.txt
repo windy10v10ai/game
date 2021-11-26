@@ -224,13 +224,14 @@
 		"DOTA_Tooltip_ability_item_quelling_blade_2_datadriven_Note0"						"多个毒瘤之刃效果不会叠加。"
 
 		"DOTA_Tooltip_Ability_item_undying_heart"				"不朽之心"
-		"DOTA_Tooltip_ability_item_undying_heart_Description"							""
+		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>主动：巨龙复苏</font></h1>使用后会立刻回复 %hp%+自身最大生命值10% 的血量，并获得持续 %dur% 秒的额外回血buff，buff每秒回复 %active_hpregen%+自身最大生命值10% 的血量，技能使用时并附带弱驱散效果，血量低于30%使用会产生强驱散效果。\n<h1><font color='#FFFF00'>被动：生命检测仪</h1>持有者血量低于20%时，主动技能处于可释放状态会自动释放。"
 		"DOTA_Tooltip_ability_item_undying_heart_Lore"									"保存完好的心脏，来自早已绝种的怪兽，能提升携带者的耐久力。"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_health"							"+$health"
 		"DOTA_Tooltip_ability_item_undying_heart_health_regen_pct"						"%+最大生命恢复（无法叠加）"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_evasion"							"%+$evasion"
 		"DOTA_Tooltip_ability_item_undying_heart_status_resistance"						"%+状态抗性"
+		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"buff：巨龙复苏"
 
 		"DOTA_Tooltip_Ability_item_force_staff_2"			"风力法杖"
 		"DOTA_Tooltip_Ability_item_force_staff_2_Description"						"<h1>主动：风力</h1>将任何目标单位向其面对方向推进%push_length%距离。<br><br>施法距离：%abilitycastrange%"
