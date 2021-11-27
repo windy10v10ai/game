@@ -502,5 +502,28 @@
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+Status Resistance"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_hp_regen_amp"							"%+Self HP Regen and Lifesteal Amp"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_resist"							"%+$spell_resist"
+
+		// item adi king
+		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Shoes"
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain."
+		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"faster speed"
+		"DOTA_Tooltip_ability_item_adi_king_sp"												"+$move_speed"
+		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
+		"DOTA_Tooltip_ability_item_adi_king_ar"												"+$armor"
+		"DOTA_Tooltip_ability_item_adi_king_rate"											"%+turn rate"
+		"DOTA_Tooltip_modifier_item_adi_king_aura"							        		"speed aura"
+		"DOTA_Tooltip_modifier_item_adi_king_buff"											"speed buff"
+
+		// item adi king plus
+		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Shoes plus"
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain."
+		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"faster speed"
+		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
+		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
+		"DOTA_Tooltip_ability_item_adi_king_plus_ar"											"+$armor"
+		"DOTA_Tooltip_ability_item_adi_king_plus_bonus_evasion"									"%+$evasion"
+		"DOTA_Tooltip_ability_item_adi_king_plus_rate"											"%+turn rate"
+		"DOTA_Tooltip_modifier_item_adi_king_plus_aura"							        		"speed aura"
+		"DOTA_Tooltip_modifier_item_adi_king_plus_buff"											"speed buff"
 	}
 }
