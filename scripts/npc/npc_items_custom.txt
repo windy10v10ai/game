@@ -1526,7 +1526,11 @@
 		"BaseClass"						"item_lua"
 		"ID"							"9051"
 		"AbilityTextureName"			"item_undying_heart"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"200"
+		"AbilitySharedCooldown"			"undying"
 
 		"ItemShopTags"					"str;regen_health;health_pool"
 		"ItemQuality"					"epic"
@@ -1563,6 +1567,21 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"status_resistance"		"12"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dur"		            "5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp"					"1000"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"active_hpregen"		"1000"
 			}
 		}
 	}
@@ -3800,6 +3819,229 @@
 			}
 		}
 	}
+
+	//=================================================================================================================
+	// recipe adi king
+	//=================================================================================================================
+	"item_recipe_adi_king"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"									"3046"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"									"models/props_gameplay/recipe.vmdl"
+		"BaseClass"								"item_datadriven"
+		"AbilityTextureName"					"item_recipe_adi_king"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"								"0"	
+		"ItemShopTags"							""
+
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"							"1"
+		"ItemResult"							"item_adi_king"
+		"ItemRequirements"
+		{
+			"01"								"item_phase_boots;item_platemail;item_talisman_of_evasion"
+		}
+	}
+
+	//=================================================================================================================
+	// adi king
+	//=================================================================================================================
+	"item_adi_king"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"									"3047"
+		"BaseClass"								"item_lua"
+		"AbilityTextureName"					"item_adi_king"
+		"ScriptFile"							"items/item_adi_king.lua"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"						"8"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"								"4100"
+		"ItemShopTags"							"damage;move_speed;hard_to_tag"
+		"ItemQuality"							"common"
+		"ItemAliases"							"super phase boots"
+		"ItemDeclarations"						"DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"						"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"sp"					"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"att"					"30"
+			}			
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ar"					"10"
+			}			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rate"					"35"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"active_sp"				"50"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dur"					"3"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"active_evasion"		"20"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bones_evasion"		    "10"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_sp"		   		"10"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_rd"		   		"600"
+			}		
+		}
+	}
+
+	//=================================================================================================================
+	// recipe adi king plus
+	//=================================================================================================================
+	"item_recipe_adi_king_plus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"									"3048"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"									"models/props_gameplay/recipe.vmdl"
+		"BaseClass"								"item_datadriven"
+		"AbilityTextureName"					"item_recipe_adi_king_plus"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"								"5000"	
+		"ItemShopTags"							""
+
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"							"1"
+		"ItemResult"							"item_adi_king_plus"
+		"ItemRequirements"
+		{
+			"01"								"item_adi_king"
+		}
+	}
+
+	//=================================================================================================================
+	// adi king plus
+	//=================================================================================================================
+	"item_adi_king_plus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"									"3049"
+		"BaseClass"								"item_lua"
+		"AbilityTextureName"					"item_adi_king_plus"
+		"ScriptFile"							"items/item_adi_king_plus.lua"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"						"8"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"								"9200"
+		"ItemShopTags"							"damage;move_speed;hard_to_tag"
+		"ItemQuality"							"common"
+		"ItemAliases"							"super phase boots"
+		"ItemDeclarations"						"DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"						"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"sp"					"100"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"att"					"50"
+			}			
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ar"					"15"
+			}			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rate"					"40"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"active_sp"				"100"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dur"					"3"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"active_evasion"		"50"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bones_evasion"		    "20"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_sp"		   		"15"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_rd"		   		"600"
+			}		
+		}
+	}
+
 }
 
 
