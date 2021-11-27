@@ -269,118 +269,6 @@
 		}
 	}
 	//=================================================================================================================
-	// Recipe: Boots of Travel
-	//=================================================================================================================
-	"item_recipe_boots_of_travel"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"9005"
-		"BaseClass"					"item_datadriven"
-		"AbilityTextureName" 		"item_recipe"
-		"Model"						"models/props_gameplay/recipe.mdl"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"2000"
-		"ItemShopTags"				""
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"				"1"
-		"ItemResult"				""
-		"ItemRequirements"
-		{
-			"01"					""
-		}
-	}
-
-	//=================================================================================================================
-	// Recipe: Boots of Travel 2
-	//=================================================================================================================
-	"item_recipe_boots_of_travel_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"9007"
-		"BaseClass"					"item_datadriven"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"0"
-		"ItemShopTags"				""
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"				"1"
-		"ItemResult"				""
-		"ItemRequirements"
-		{
-			"01"					""
-		}
-	}
-	//=================================================================================================================
-	// Boots of Travel 2
-	//=================================================================================================================
-	"item_boots_of_travel_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"9008"
-		"BaseClass"					"item_lua"
-		"AbilityTextureName" 		"item_travel_boots_2"
-		"Effect"					"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"				"items/item_boots_of_travel_2.lua"
-
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityCooldown"			"10.0"
-		"AbilityChannelTime"		"3.0"
-		"AbilityCastPoint"			"0.0"
-		"AbilityManaCost"			"75"
-		"precache"
-		{
-			"particle"				"particles/items2_fx/teleport_start.vpcf"
-			"particle"				"particles/items2_fx/teleport_end.vpcf"
-		}
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"4500"
-		"ItemShopTags"				"teleport;move_speed"
-		"ItemQuality"				"common"
-		"ItemAliases"				"bot;boots of travel;tp"
-		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"			"2"
-		"ItemBaseLevel"				"2"
-		"ShouldBeSuggested"			"1"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"		"130"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_radius"				"400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_duration"				"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_move_speed"			"30"
-			}
-		}
-	}
-	//=================================================================================================================
 	// Recipe: Wings of Haste
 	//=================================================================================================================
 	"item_recipe_wings_of_haste"
@@ -1503,7 +1391,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4800"
+		"ItemCost"						"6800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1571,17 +1459,27 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dur"		            "5"
+				"dur"		            "3"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp"					"1000"
+				"active_hp_regen"		"1000"
 			}
 			"08"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"active_hp_regen_pct"	"6"
+			}
+			"09"
+			{
 				"var_type"				"FIELD_INTEGER"
-				"active_hpregen"		"1000"
+				"buff_hp_regen"			"500"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"buff_hp_regen_pct"		"3"
 			}
 		}
 	}
@@ -2727,7 +2625,7 @@
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"65.0"
-		"AbilityManaCost"			"1300"
+		"AbilityManaCost"				"1500"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3292,7 +3190,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6000"	
+		"ItemCost"						"6800"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3834,7 +3732,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"0"	
+		"ItemCost"								"1000"	
 		"ItemShopTags"							""
 
 		
@@ -3860,10 +3758,11 @@
 		"AbilityTextureName"					"item_adi_king"
 		"ScriptFile"							"items/item_adi_king.lua"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilitySharedCooldown"					"adiking"
 		
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"						"8"
+		"AbilityCooldown"						"12"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3881,7 +3780,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"sp"					"50"
+				"sp"					"60"
 			}
 			"02"
 			{
@@ -3901,7 +3800,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_sp"				"50"
+				"active_sp"				"40"
 			}
 			"06"
 			{
@@ -3916,12 +3815,12 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bones_evasion"		    "10"
+				"bonus_evasion"		    "10"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_sp"		   		"10"
+				"aura_sp"		   		"5"
 			}
 			"10"
 			{
@@ -3945,7 +3844,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"5000"	
+		"ItemCost"								"2000"	
 		"ItemShopTags"							""
 
 		
@@ -3955,7 +3854,7 @@
 		"ItemResult"							"item_adi_king_plus"
 		"ItemRequirements"
 		{
-			"01"								"item_adi_king"
+			"01"								"item_adi_king;item_platemail;item_talisman_of_evasion"
 		}
 	}
 
@@ -3971,10 +3870,11 @@
 		"AbilityTextureName"					"item_adi_king_plus"
 		"ScriptFile"							"items/item_adi_king_plus.lua"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilitySharedCooldown"					"adiking"
 		
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"						"8"
+		"AbilityCooldown"						"12"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3992,7 +3892,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"sp"					"100"
+				"sp"					"80"
 			}
 			"02"
 			{
@@ -4002,7 +3902,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ar"					"15"
+				"ar"					"20"
 			}			
 			"04"
 			{
@@ -4012,7 +3912,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_sp"				"100"
+				"active_sp"				"60"
 			}
 			"06"
 			{
@@ -4027,12 +3927,12 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bones_evasion"		    "20"
+				"bonus_evasion"		    "20"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_sp"		   		"15"
+				"aura_sp"		   		"8"
 			}
 			"10"
 			{

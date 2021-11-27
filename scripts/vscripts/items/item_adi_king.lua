@@ -13,6 +13,8 @@ function item_adi_king:OnSpellStart()
     local dur = self:GetSpecialValueFor("dur")
     caster:EmitSound( "DOTA_Item.PhaseBoots.Activate" ) 
     caster:AddNewModifier( caster, self, "modifier_item_adi_king_buff", {duration=dur} )
+	-- remove debuff
+	caster:Purge(false, true, false, false, false)
 end
 
 modifier_item_adi_king=class({})
@@ -91,7 +93,7 @@ function modifier_item_adi_king:OnCreated()
     self.att=self:GetAbility():GetSpecialValueFor("att")
     self.ar=self:GetAbility():GetSpecialValueFor("ar")
     self.rate=self:GetAbility():GetSpecialValueFor("rate")
-    self.bones_evasion=self:GetAbility():GetSpecialValueFor("bones_evasion")
+    self.bonus_evasion=self:GetAbility():GetSpecialValueFor("bonus_evasion")
 end
 
 function modifier_item_adi_king:GetModifierMoveSpeedBonus_Constant() 
@@ -111,7 +113,7 @@ function modifier_item_adi_king:GetModifierTurnRate_Percentage()
 end
 
 function modifier_item_adi_king:GetModifierEvasion_Constant()
-	return  self.bones_evasion
+	return  self.bonus_evasion
 end
 
 modifier_item_adi_king_buff=class({})

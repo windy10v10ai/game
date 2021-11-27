@@ -17,19 +17,16 @@ function item_undying_heart:OnSpellStart()
 	local dur = self:GetSpecialValueFor("dur")
     caster:AddNewModifier( caster, self, "modifier_item_undying_heart_buff", {duration=dur} )
 
-	local hp = self:GetSpecialValueFor("hp")
-	local hp2=hp+caster:GetMaxHealth()*0.1
-	caster:Heal(hp2, caster)
-	SendOverheadEventMessage(caster, OVERHEAD_ALERT_HEAL, caster,hp2, nil)
+	local active_hp_regen = self:GetSpecialValueFor("active_hp_regen")
+	local active_hp_regen_pct = self:GetSpecialValueFor("active_hp_regen_pct")
+	local sumHpRegen = active_hp_regen + caster:GetMaxHealth()*active_hp_regen_pct/100
+	caster:Heal(sumHpRegen, caster)
+	SendOverheadEventMessage(caster, OVERHEAD_ALERT_HEAL, caster, sumHpRegen, nil)
 	local fx2 = ParticleManager:CreateParticle("particles/items3_fx/warmage_recipient.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
     ParticleManager:ReleaseParticleIndex(fx2)
 
-	local health_c = math.min(1.3 - caster:GetHealth()/caster:GetMaxHealth(),1)
-	if health_c<1 then 
-		caster:Purge(false, true, false, false, false)
-	else 
-		caster:Purge(false, true, false, true, true)
-	end
+	-- remove debuff
+	caster:Purge(false, true, false, false, false)
 end
 
 
@@ -63,22 +60,7 @@ function modifier_item_undying_heart:DeclareFunctions()
 		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE,
 		MODIFIER_PROPERTY_EVASION_CONSTANT,
 		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
-		MODIFIER_EVENT_ON_TAKEDAMAGE,
 	}
-end
-
-function modifier_item_undying_heart:OnTakeDamage(tg)
-	if not IsServer() then
-		return
-	end
-    if tg.unit == self.parent then
-        local hpjc=self.parent:GetMaxHealth()*0.15
-        if self.parent:GetHealth() <= hpjc and self.ability:IsCooldownReady() and self.ability:IsOwnersManaEnough() and not self.parent:IsIllusion() and not self.parent:IsSilenced() and not self.parent:IsMuted() then
-            self.ability:UseResources(true, true, true)
-            self.ability:OnSpellStart()
-            self.parent:Purge(false, true, false, true, true)
-        end
-	end
 end
 
 function modifier_item_undying_heart:GetModifierBonusStats_Strength()
@@ -141,8 +123,10 @@ function modifier_item_undying_heart_buff:OnCreated()
 		return
 	end
 	self.parent = self:GetParent()
-	local hpr1 = self.parent:GetMaxHealth()*0.1
-    self.active_hpregen=hpr1+self:GetAbility():GetSpecialValueFor("active_hpregen")
+	
+	local buff_hp_regen = self:GetAbility():GetSpecialValueFor("buff_hp_regen")
+	local buff_hp_regen_pct = self:GetAbility():GetSpecialValueFor("buff_hp_regen_pct")
+    self.active_hpregen= buff_hp_regen + self.parent:GetMaxHealth()*buff_hp_regen_pct/100
 end
 
 function modifier_item_undying_heart_buff:GetModifierConstantHealthRegen() 
