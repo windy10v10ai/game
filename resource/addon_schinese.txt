@@ -190,7 +190,7 @@
 		"DOTA_Tooltip_ability_item_aether_lens_3_bonus_mana_regen"                "+$mana_regen"
 
 		"DOTA_Tooltip_ability_item_vladmir_2"                               "强袭祭品"
-		"DOTA_Tooltip_ability_item_vladmir_2_Description"							"<h1>被动：强袭祭品光环</h1>向周围队友提供%vampiric_aura%%%吸血，%damage_aura%%%攻击力加成，%mana_regen_aura%点/秒魔法恢复。<br>附近友军单位和建筑提升%aura_attack_speed%攻击速度和%aura_positive_armor%点护甲，削弱附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_vladmir_2_Description"							"<h1>被动：强袭祭品光环</h1>向周围队友提供%vampiric_aura%%%吸血，%damage_aura%%%攻击力加成，%mana_regen_aura%点/秒魔法恢复。<br>附近友军单位和建筑提升%aura_attack_speed%攻击速度和%aura_positive_armor%点护甲。<br>削弱附近敌军%aura_negative_armor%点护甲（不包含建筑物）。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_vladmir_2_Lore"								"在幽冥地带的深渊锻造，这件地狱盔甲提高整支军队的护甲和攻击速度。"
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_all_stats"					"+$all"
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_attack_speed"					"+$attack"
@@ -224,7 +224,7 @@
 		"DOTA_Tooltip_ability_item_quelling_blade_2_datadriven_Note0"						"多个毒瘤之刃效果不会叠加。"
 
 		"DOTA_Tooltip_Ability_item_undying_heart"				"不朽之心"
-		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>主动：巨龙复苏</font></h1>使用后会立刻回复 %hp%+自身最大生命值10% 的血量，并获得持续 %dur% 秒的额外回血buff，buff每秒回复 %active_hpregen%+自身最大生命值10% 的血量，技能使用时并附带弱驱散效果，血量低于30%使用会产生强驱散效果。\n<h1><font color='#FFFF00'>被动：生命检测仪</h1>持有者血量低于20%时，主动技能处于可释放状态会自动释放。"
+		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>主动：巨龙复苏</font></h1>立刻回复 %active_hp_regen%+%active_hp_regen_pct%%%最大生命值 的血量，对自身施加弱驱散效果。<br>获得持续 %dur% 秒的额外回血buff，每秒恢复 %buff_hp_regen%+%buff_hp_regen_pct%%%最大生命值 的血量。"
 		"DOTA_Tooltip_ability_item_undying_heart_Lore"									"保存完好的心脏，来自早已绝种的怪兽，能提升携带者的耐久力。"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_health"							"+$health"
@@ -517,18 +517,19 @@
 
 		// item adi king
 		"DOTA_Tooltip_ability_item_adi_king"										"阿迪王"
-		"DOTA_Tooltip_ability_item_adi_king_description"							"<h1><font color='#FFFF00'>主动：尼给路大有</font></h1>使用后会获得 %active_sp%% 的移动速度加成和 %active_evasion%% 的闪避加成，并突破速度限制，零碰撞体积，可跨越地形。\n<h1><font color='#FFFF00'>被动：魔鬼的步伐</font></h1>产生光环效果，以自身为中心%aura_rd%范围内的友方单位得到 %aura_sp%% 的速度提升。"
+		"DOTA_Tooltip_ability_item_adi_king_description"							"<h1><font color='#FFFF00'>主动：尼给路大有</font></h1>对自身施加弱驱散效果，%dur%秒内会获得 %active_sp%% 的移动速度加成和 %active_evasion%% 的闪避加成，并突破速度限制，零碰撞体积，可跨越地形。\n<h1><font color='#FFFF00'>被动：魔鬼的步伐</font></h1>产生光环效果，以自身为中心%aura_rd%范围内的友方单位得到 %aura_sp%% 的速度提升。"
 		"DOTA_Tooltip_ability_item_adi_king_Lore"									"我的阿迪王，时尚时尚最时尚"
 		"DOTA_Tooltip_ability_item_adi_king_sp"										"+移动速度（可与其他鞋类叠加）"
 		"DOTA_Tooltip_ability_item_adi_king_att"									"+攻击力"
 		"DOTA_Tooltip_ability_item_adi_king_ar"										"+护甲"
+		"DOTA_Tooltip_ability_item_adi_king_bonus_evasion"							"%+$evasion"
 		"DOTA_Tooltip_ability_item_adi_king_rate"                        			"%+转身速率"
 		"DOTA_Tooltip_modifier_item_adi_king_aura"							        "光环：魔鬼的步伐"
 		"DOTA_Tooltip_modifier_item_adi_king_buff"									"buff：尼给路大有"
 
 		// item adi king plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"										"阿迪王plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"							"<h1><font color='#FFFF00'>主动：尼给路大有</font></h1>使用后会获得 %active_sp%% 的移动速度加成和 %active_evasion%% 的闪避加成，并突破速度限制，零碰撞体积，可跨越地形。\n<h1><font color='#FFFF00'>被动：魔鬼的步伐</font></h1>产生光环效果，以自身为中心%aura_rd%范围内的友方单位得到 %aura_sp%% 的速度提升。"
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"							"<h1><font color='#FFFF00'>主动：尼给路大有</font></h1>对自身施加弱驱散效果，%dur%秒内会获得 %active_sp%% 的移动速度加成和 %active_evasion%% 的闪避加成，并突破速度限制，零碰撞体积，可跨越地形。\n<h1><font color='#FFFF00'>被动：魔鬼的步伐</font></h1>产生光环效果，以自身为中心%aura_rd%范围内的友方单位得到 %aura_sp%% 的速度提升。"
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore"									"你跟得上我的思必得吗"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"									"+移动速度（可与其他鞋类叠加）"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"									"+攻击力"

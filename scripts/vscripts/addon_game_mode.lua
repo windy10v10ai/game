@@ -371,7 +371,6 @@ end
 
 -- only run in tool debug mode
 function AIGameMode:FilterItemAdd(tItemFilter)
-	print("========================ItemFilter========================")
 	local item = EntIndexToHScript(tItemFilter.item_entindex_const)
 	if item then
 		print(item:GetAbilityName())
@@ -379,7 +378,6 @@ function AIGameMode:FilterItemAdd(tItemFilter)
 			return true
 		end
 		local itemPurchaseName = item:GetPurchaseTime()
-		print("item PurchaseTime "..itemPurchaseName)
 		if itemPurchaseName == -100 then
 			return true
 		end
@@ -389,7 +387,6 @@ function AIGameMode:FilterItemAdd(tItemFilter)
 			if purchaser:IsControllableByAnyPlayer() then
 				return true
 			else
-				print("!!!!!!STOP BUY ITEM!!!!!!")
 				return false
 			end
 		end
