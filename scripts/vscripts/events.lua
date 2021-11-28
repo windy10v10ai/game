@@ -104,22 +104,42 @@ function AIGameMode:BotCourierTransfer()
 	end
 end
 
+function AIGameMode:InitHumanPlayerListAndSetHumanStartGold()
+	if self.PreGameOptionsSet then
+		print("[AIGameMode] InitSettings")
+		self.tHumanPlayerList = {}
+		for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
+			if PlayerResource:IsValidPlayer(i) then
+				-- set human player list
+				self.tHumanPlayerList[i] = true
+				-- set start gold
+				PlayerResource:SetGold(i, (self.iStartingGoldPlayer-600),true)
+			end
+		end
+	else
+		Timers:CreateTimer(0.5, function ()
+			print("[AIGameMode] Try InitSettings in 0.5s")
+			AIGameMode:InitHumanPlayerListAndSetHumanStartGold()
+		end)
+	end
+end
 
 function AIGameMode:OnGameStateChanged(keys)
 	local state = GameRules:State_Get()
 
-	if state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+	if state == DOTA_GAMERULES_STATE_HERO_SELECTION then
+		if IsServer() == true then
+			self:InitHumanPlayerListAndSetHumanStartGold()
+		end
+	elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 		if not self.PreGameOptionsSet then
+			print("[AIGameMode] Setting pre-game options STRATEGY_TIME")
 			self:PreGameOptions()
 		end
-		self.tHumanPlayerList = {}
 		for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
 			if PlayerResource:IsValidPlayer(i) then
 				if PlayerResource:GetPlayer(i) and not PlayerResource:HasSelectedHero(i) then
 					PlayerResource:GetPlayer(i):MakeRandomHeroSelection()
-				end
-				if PlayerResource:GetSelectedHeroName(i) then
-					self.tHumanPlayerList[i] = true
 				end
 			end
 		end
@@ -132,38 +152,27 @@ function AIGameMode:OnGameStateChanged(keys)
 			-- 随机英雄列表
 			self:ArrayShuffle(tBotNameList)
 			local sDifficulty = "unfair"
-			--Timers:CreateTimer(function()
-			--		Tutorial:AddBot(self:GetFreeHeroName(), "", sDifficulty, false)
-			--		return 1.0
-			--	end
-			--)
 			if self.iDesiredRadiant > iPlayerNumRadiant then
 				for i = 1, self.iDesiredRadiant - iPlayerNumRadiant do
 					Tutorial:AddBot(self:GetFreeHeroName(), "", sDifficulty, true)
-					--print("-----------------TIME-----------------", GameRules:GetGameTime())
 				end
 			end
 			if self.iDesiredDire > iPlayerNumDire then
 				for i = 1, self.iDesiredDire - iPlayerNumDire do
 					Tutorial:AddBot(self:GetFreeHeroName(), "", sDifficulty, false)
-					--sleep(1)
 				end
 			end
 			GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
 			Tutorial:StartTutorialMode()
 
-			-- set start gold
-				for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
-					if PlayerResource:IsValidPlayer(i) then
-						if self.tHumanPlayerList[i] then
-							print("Set start gold player")
-							PlayerResource:SetGold(i, (self.iStartingGoldPlayer-600),true)
-						else
-							print("Set start gold bot")
-							PlayerResource:SetGold(i, (self.iStartingGoldBot-600),true)
-						end
+			-- set bot start gold
+			for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
+				if PlayerResource:IsValidPlayer(i) then
+					if not self.tHumanPlayerList[i] then
+						PlayerResource:SetGold(i, (self.iStartingGoldBot-600),true)
 					end
 				end
+			end
 		end
 
 	elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
