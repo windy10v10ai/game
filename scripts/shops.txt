@@ -143,7 +143,7 @@
 		"item"		"item_necronomicon"
 		"item"		"item_witch_blade"
 		"item"		"item_rod_of_atos"
-		"item"		"item_dagon"
+		"item"		"item_dagon_5"
 		"item"		"item_orchid"
 		//"item"		"item_ultimate_scepter"
 		"item"		"item_refresher"
