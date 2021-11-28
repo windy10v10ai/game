@@ -20,7 +20,9 @@ if BotThink == nil then
 	_G.BotThink = class({}) -- put in the global scope
 
   local allPurchaseTable = tBotItemData.purchaseItemList
-  table.foreach(allPurchaseTable, addTome)
+  for k,v in pairs(allPurchaseTable) do
+    addTome(k,v)
+  end
 end
 
 --------------------
@@ -69,10 +71,16 @@ local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
       print("Warn! Think purchase "..hHero:GetName().." add "..iItemName.." stop with item count "..hHero:GetNumItemsInInventory())
     else
       print("Think purchase "..hHero:GetName().." try to buy "..iItemName.." cost "..iCost)
-      local item = CreateItem(iItemName, hHero, hHero)
-      -- SetPurchaseTime -100 in order to judge is item add by bot think script
-      item:SetPurchaseTime(-100)
-      if hHero:AddItem(item) then
+      local addedItem = nil
+      if AIGameMode.DebugMode then
+        -- SetPurchaseTime -100 in order to judge is item add by bot think script
+        local item = CreateItem(iItemName, hHero, hHero)
+        item:SetPurchaseTime(-100)
+        addedItem = hHero:AddItem(item)
+      else
+        addedItem = hHero:AddItemByName(iItemName)
+      end
+      if addedItem then
         PlayerResource:SpendGold(hHero:GetPlayerID(), iCost, DOTA_ModifyGold_PurchaseItem)
         table.remove(iPurchaseTable,1)
         return true
@@ -113,7 +121,7 @@ function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
   local iHeroName = hHero:GetName()
 
   local multiIndex = "x"..AIGameMode.fBotGoldXpMultiplier
-  addNeutralItemTime = tBotItemData.addNeutralItemMultiTimeMap[multiIndex] or tBotItemData.addNeutralItemMultiTimeMap["x1"]
+  local addNeutralItemTime = tBotItemData.addNeutralItemMultiTimeMap[multiIndex] or tBotItemData.addNeutralItemMultiTimeMap["x1"]
 
   if (GameTime > addNeutralItemTime[1]) then
     local iPurchaseTable = tBotItemData.addNeutralItemList[iHeroName]
@@ -126,7 +134,7 @@ function BotThink:ThinkSell(hero)
   local iHeroName = hero:GetName()
   local iPlayerId = hero:GetPlayerID()
   local iItemCount = hero:GetNumItemsInInventory()
-  if iItemCount <= 8 then
+  if iItemCount <= 7 then
     return
   end
 
