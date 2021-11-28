@@ -250,16 +250,19 @@ function AIGameMode:OnEntityKilled(keys)
 	local hEntity = EntIndexToHScript(keys.entindex_killed)
 	-- on hero killed
 	if hEntity:IsRealHero() and hEntity:IsReincarnating() == false then
-		heroKilled(keys)
+		HeroKilled(keys)
+		-- drop items only when killed by hero
+		if EntIndexToHScript(keys.entindex_attacker):GetPlayerOwner() then
+			AIGameMode:RollDrops(EntIndexToHScript(keys.entindex_killed))
+		end
 	end
 	-- on barrack killed
 	if hEntity:GetClassname() == "npc_dota_barracks" then
-		barrackKilled(keys)
+		RecordBarrackKilled(keys)
 	end
-
 end
 
-function barrackKilled(keys)
+function RecordBarrackKilled(keys)
 	if AIGameMode.barrackKilledCount == nil then
 		AIGameMode.barrackKilledCount = 0
 	end
@@ -267,7 +270,7 @@ function barrackKilled(keys)
 	print("barrack killed count", AIGameMode.barrackKilledCount)
 end
 
-function heroKilled(keys)
+function HeroKilled(keys)
 	local hHero = EntIndexToHScript(keys.entindex_killed)
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
@@ -302,68 +305,67 @@ function heroKilled(keys)
 	end
 	hHero:SetTimeUntilRespawn(fRespawnTime)
 
-	-- drop items
-	RollDrops(hHero)
-
 	-- set streak end bounty
-	local attckerUnit = EntIndexToHScript( keys.entindex_attacker )
-	if attckerUnit:IsControllableByAnyPlayer() then
-		KillBounty(hHero, attckerUnit)
-	end
+	-- local attckerUnit = EntIndexToHScript( keys.entindex_attacker )
+	-- if attckerUnit:IsControllableByAnyPlayer() then
+	-- 	KillBounty(hHero, attckerUnit)
+	-- end
 end
 
-function KillBounty(hHero, attckerUnit)
+-- function KillBounty(hHero, attckerUnit)
 
-	local streak = hHero:GetStreak()
-	local killedPlayerId = hHero:GetPlayerID()
-	local killedName = PlayerResource:GetPlayerName(killedPlayerId)
+-- 	local streak = hHero:GetStreak()
+-- 	local killedPlayerId = hHero:GetPlayerID()
+-- 	local killedName = PlayerResource:GetPlayerName(killedPlayerId)
 
-	local attackerPlayer = attckerUnit
-	if not attckerUnit:IsRealHero() then
-		print("event not realhero")
-		attackerPlayer = attckerUnit:GetOwner()
-	end
-	local attackerPlayerId = attackerPlayer:GetPlayerID()
-	local attackName = PlayerResource:GetPlayerName(attackerPlayerId)
+-- 	local attackerPlayer = attckerUnit
+-- 	if not attckerUnit:IsRealHero() then
+-- 		print("event not realhero")
+-- 		attackerPlayer = attckerUnit:GetOwner()
+-- 	end
+-- 	local attackerPlayerId = attackerPlayer:GetPlayerID()
+-- 	local attackName = PlayerResource:GetPlayerName(attackerPlayerId)
 
-	-- bounty
-	local hLevel = hHero:GetLevel()
-	local killBounty = hLevel * 5 + 150
-	local msgKill = "<font color='#045ceb'> "..attackName.." </font>击杀了 "..killedName.." 获得赏金(bounty)<font color='#fef02e'>"..killBounty.."</font>！"
-	--PlayerResource:ModifyGold(attackerPlayerId, killBounty, true, 0)
-	--GameRules:SendCustomMessage(msgKill, attackerPlayer:GetTeamNumber(), 1)
+-- 	-- bounty
+-- 	local hLevel = hHero:GetLevel()
+-- 	local killBounty = hLevel * 5 + 150
+-- 	local msgKill = "<font color='#045ceb'> "..attackName.." </font>击杀了 "..killedName.." 获得赏金(bounty)<font color='#fef02e'>"..killBounty.."</font>！"
+-- 	--PlayerResource:ModifyGold(attackerPlayerId, killBounty, true, 0)
+-- 	--GameRules:SendCustomMessage(msgKill, attackerPlayer:GetTeamNumber(), 1)
 
-	if streak > 4 then
-		local streakBounty = 10 * streak * streak + 400
-		local msgStreak = "<font color='#045ceb'> "..attackName.." </font>终结了 "..killedName.." 的 <font color='#cc0000'>"..streak.."</font> 连杀。获得额外赏金(bounty)<font color='#fef02e'>"..streakBounty.."</font>！"
-		--attackerPlayer:ModifyGold(streakBounty, true, 0)
-		--GameRules:SendCustomMessage(msgStreak, attackerPlayer:GetTeamNumber(), 1)
-	end
-end
+-- 	if streak > 4 then
+-- 		local streakBounty = 10 * streak * streak + 400
+-- 		local msgStreak = "<font color='#045ceb'> "..attackName.." </font>终结了 "..killedName.." 的 <font color='#cc0000'>"..streak.."</font> 连杀。获得额外赏金(bounty)<font color='#fef02e'>"..streakBounty.."</font>！"
+-- 		--attackerPlayer:ModifyGold(streakBounty, true, 0)
+-- 		--GameRules:SendCustomMessage(msgStreak, attackerPlayer:GetTeamNumber(), 1)
+-- 	end
+-- end
 
-function RollDrops(hHero)
+function AIGameMode:RollDrops(hHero)
     local DropInfo = GameRules.DropTable
     if DropInfo then
         for item_name,chance in pairs(DropInfo) do
-						for i = 0, 8 do
-								local hItem = hHero:GetItemInSlot(i)
-								if hItem then
-										local hItem_name = hItem:GetName()
-										if item_name == hItem_name then
-												if RollPercentage(chance) then
-														-- Remove the item
-														hHero:RemoveItem(hItem)
-														-- Create the item
-														local item = CreateItem(item_name, nil, nil)
-														item:SetPurchaseTime(-100)
-														local pos = hHero:GetAbsOrigin()
-														local drop = CreateItemOnPositionSync( pos, item )
-														local pos_launch = pos+RandomVector(RandomFloat(150,200))
-														item:LaunchLoot(false, 200, 0.75, pos_launch)
-												end
-										end
-								end
+			for i = 0, 8 do
+				local hItem = hHero:GetItemInSlot(i)
+				if hItem then
+					local hItem_name = hItem:GetName()
+					if item_name == hItem_name then
+						if RollPercentage(chance) then
+							-- Remove the item
+							hHero:RemoveItem(hItem)
+							-- Create the item
+							local item = CreateItem(item_name, nil, nil)
+							if AIGameMode.DebugMode then
+								item:SetPurchaseTime(-100)
+							end
+							local pos = hHero:GetAbsOrigin()
+							local drop = CreateItemOnPositionSync( pos, item )
+							local pos_launch = pos+RandomVector(RandomFloat(150,200))
+							item:LaunchLoot(false, 200, 0.75, pos_launch)
 						end
+					end
+				end
+			end
         end
     end
 end
