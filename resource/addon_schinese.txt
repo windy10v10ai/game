@@ -49,7 +49,7 @@
 		"bots_multiplier_5"		"5    (疯狂)"
 		"bots_multiplier_10"	"10  (传说)"
 		"bots_multiplier_15"	"15  (地狱)"
-		"bots_multiplier_20"	"20  (炼狱) 谨慎选择"
+		"bots_multiplier_20"	"20  (坐牢)"
 
 		"radiant_gold_xp_multiplier_1"               "1    (传说)"
 		"radiant_gold_xp_multiplier_1_1"             "1.1 (困难)"
