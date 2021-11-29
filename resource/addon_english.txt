@@ -192,7 +192,7 @@
 		"DOTA_Tooltip_ability_item_aether_lens_3_bonus_mana_regen"                "+$mana_regen"
 
 		"DOTA_Tooltip_ability_item_vladmir_2"                               "Assault Vladimir"
-		"DOTA_Tooltip_ability_item_vladmir_2_Description"							"<h1>Passive: Vladmir's Aura</h1>Grants %vampiric_aura%%% lifesteal, %damage_aura%%% bonus damage, and %mana_regen_aura% mana regeneration to nearby allies.<br>Grants %aura_attack_speed% attack speed and %aura_positive_armor% armor to nearby allied units and structures, and decreases nearby enemy unit and structure armor by %aura_negative_armor%. <br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_vladmir_2_Description"							"<h1>Passive: Vladmir's Aura</h1>Grants %vampiric_aura%%% lifesteal, %damage_aura%%% bonus damage, and %mana_regen_aura% mana regeneration to nearby allies.<br>Grants %aura_attack_speed% attack speed and %aura_positive_armor% armor to nearby allied units and structures, and decreases nearby enemy unit armor by %aura_negative_armor%. <br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_vladmir_2_Lore"								"Forged in the depths of the nether reaches, this hellish mail provides an army with increased armor and attack speed."
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_all_stats"					"+$all"
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_attack_speed"					"+$attack"
@@ -226,7 +226,7 @@
 		"DOTA_Tooltip_ability_item_quelling_blade_2_datadriven_Note0"						"Effects of multiple Toxic blades do not stack."
 
 		"DOTA_Tooltip_Ability_item_undying_heart"				"Undying Heart"
-		"DOTA_Tooltip_ability_item_undying_heart_Description"							""
+		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>Active: Dragon Recovery</font></h1>Immediately regen %active_hp_regen% + %active_hp_regen_pct%%% max health, and remove debuff.<br>Get hp regen buff for %dur% seconds that provides %buff_hp_regen% + %buff_hp_regen_pct%%% max health regen."
 		"DOTA_Tooltip_ability_item_undying_heart_Lore"									"The powerful headpiece of a dead necromancer."
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_health"							"+$health"
@@ -502,5 +502,29 @@
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+Status Resistance"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_hp_regen_amp"							"%+Self HP Regen and Lifesteal Amp"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_resist"							"%+$spell_resist"
+
+		// item adi king
+		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Shoes"
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Remove debuff when used."
+		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"faster speed"
+		"DOTA_Tooltip_ability_item_adi_king_sp"												"+$move_speed"
+		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
+		"DOTA_Tooltip_ability_item_adi_king_ar"												"+$armor"
+		"DOTA_Tooltip_ability_item_adi_king_bonus_evasion"									"%+$evasion"
+		"DOTA_Tooltip_ability_item_adi_king_rate"											"%+turn rate"
+		"DOTA_Tooltip_modifier_item_adi_king_aura"							        		"speed aura"
+		"DOTA_Tooltip_modifier_item_adi_king_buff"											"speed buff"
+
+		// item adi king plus
+		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Shoes plus"
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds.  Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Remove debuff when used."
+		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"faster speed"
+		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
+		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
+		"DOTA_Tooltip_ability_item_adi_king_plus_ar"											"+$armor"
+		"DOTA_Tooltip_ability_item_adi_king_plus_bonus_evasion"									"%+$evasion"
+		"DOTA_Tooltip_ability_item_adi_king_plus_rate"											"%+turn rate"
+		"DOTA_Tooltip_modifier_item_adi_king_plus_aura"							        		"speed aura"
+		"DOTA_Tooltip_modifier_item_adi_king_plus_buff"											"speed buff"
 	}
 }

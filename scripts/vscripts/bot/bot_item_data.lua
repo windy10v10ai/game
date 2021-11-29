@@ -28,7 +28,7 @@ tBotItemData.purchaseItemList = {
 		'item_arcane_octarine_core',
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
-		'item_sacred_six_vein',
+		'item_heavens_halberd_v2',
 	},
 	npc_dota_hero_nevermore = {
 		'item_magic_wand',
@@ -212,9 +212,7 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_shivas_guard',
 		'item_aghanims_shard',
-		'item_aether_lens',
-		'item_recipe_aether_lens',
-		'item_recipe_aether_lens',
+		'item_aether_lens_3',
 		'item_soul_booster',
 		'item_veil_of_discord',
 		'item_recipe_arcane_octarine_core',
@@ -270,7 +268,6 @@ tBotItemData.purchaseItemList = {
 		'item_satanic',
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
-		'item_sacred_six_vein',
 		'item_excalibur',
 	},
 	npc_dota_hero_earthshaker = {
@@ -291,7 +288,7 @@ tBotItemData.purchaseItemList = {
 		'item_aeon_pendant',
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
-		'item_sacred_six_vein',
+		'item_abyssal_blade_v2',
 	},
 	npc_dota_hero_jakiro = {
 		'item_magic_wand',
@@ -504,7 +501,7 @@ tBotItemData.purchaseItemList = {
 		'item_vladmir_2',
 		'item_moon_shard_datadriven',
 		'item_moon_shard_datadriven',
-		'item_sacred_six_vein',
+		'item_heavens_halberd_v2',
 	},
 	npc_dota_hero_oracle = {
 		'item_magic_wand',
@@ -685,7 +682,7 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_undying_heart',
 		'item_wasp',
-		'item_sacred_six_vein',
+		'item_heavens_halberd_v2',
 	},
 	npc_dota_hero_vengefulspirit = {
 		'item_magic_wand',

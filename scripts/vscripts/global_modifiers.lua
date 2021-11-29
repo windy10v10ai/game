@@ -105,7 +105,7 @@ end
 function modifier_bot_attack_tower_pick_rune:OnIntervalThink()
 	if IsClient() then return end
 
-	local GameTime = GameRules:GetDOTATime(false, false)	
+	local GameTime = GameRules:GetDOTATime(false, false)
 	if (GameTime >= (50 * 60)) then						-- LATEGAME
 		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
 		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
@@ -312,7 +312,7 @@ function modifier_sniper_assassinate_thinker:OnIntervalThink()
 		if hAssassinateUpgrade:IsHidden() then
 			hAssassinateUpgrade:SetHidden(false)
 		end
-		
+
 		if iUpgradeLevel < iLevel then
 			hAssassinateUpgrade:SetLevel(iLevel)
 		elseif iUpgradeLevel > iLevel then

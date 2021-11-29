@@ -231,7 +231,7 @@ function AIGameMode:AddCreepsSkill()
 end
 
 ------------------------------------------------------------------
---                          Gold Filter                         --
+--                        Gold/XP Filter                        --
 ------------------------------------------------------------------
 
 local function multiplierGoldWithGameTime(multiplier)
@@ -274,9 +274,9 @@ function AIGameMode:FilterGold(tGoldFilter)
 	local iGold = tGoldFilter["gold"]
 	local iPlayerID = tGoldFilter["player_id_const"]
 	local iReason = tGoldFilter["reason_const"]
-	local bReliable = tGoldFilter["reliable"] == 1
 
 	if iReason == DOTA_ModifyGold_HeroKill then
+
 			if iGold > 2000 then
 				iGold = 1000
 			elseif iGold > 1000 then
@@ -293,6 +293,7 @@ function AIGameMode:FilterGold(tGoldFilter)
 	else
 		tGoldFilter["gold"] = math.floor(iGold*multiplierGoldWithGameTime(self.fBotGoldXpMultiplier))
 	end
+	print("Filter gold end: "..tostring(tGoldFilter["gold"]))
 	return true
 end
 
@@ -371,25 +372,20 @@ end
 
 -- only run in tool debug mode
 function AIGameMode:FilterItemAdd(tItemFilter)
-	print("========================ItemFilter========================")
 	local item = EntIndexToHScript(tItemFilter.item_entindex_const)
 	if item then
-		print(item:GetAbilityName())
 		if item:GetAbilityName() == "item_rapier" then
 			return true
 		end
 		local itemPurchaseName = item:GetPurchaseTime()
-		print("item PurchaseTime "..itemPurchaseName)
 		if itemPurchaseName == -100 then
 			return true
 		end
 		local purchaser = item:GetPurchaser()
 		if purchaser then
-			print(purchaser:GetName())
 			if purchaser:IsControllableByAnyPlayer() then
 				return true
 			else
-				print("!!!!!!STOP BUY ITEM!!!!!!")
 				return false
 			end
 		end
