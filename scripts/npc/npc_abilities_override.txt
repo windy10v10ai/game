@@ -4093,12 +4093,6 @@
 				"vampiric_aura"			"10 20 30 40 45 50 55"
 				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_2"
 			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"max_skeleton_charges"		"2 4 6 8 10"
-				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_5"
-			}
 		}
 	}
 	"skeleton_king_mortal_strike"
@@ -4110,7 +4104,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_mult"					"150 190 230 270 310 350 390"
+				"crit_mult"					"150 190 230 270 300 330 360"
 			}
 		}
 	}
@@ -4726,11 +4720,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"illusion_proc_chance_pct"		"15"
 			}			
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_duration"			"10"
-			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
@@ -4749,11 +4738,6 @@
 				"var_type"					"FIELD_INTEGER"
 				"tooltip_total_illusion_damage_in_pct"	"350"
 				"CalculateSpellDamageTooltip"	"0"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_from_illusion_duration"	"6"
 			}
 		}
 	}
