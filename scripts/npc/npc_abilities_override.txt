@@ -5018,19 +5018,6 @@
 			}
 		}
 	}
-	"spectre_dispersion"
-	{
-		"MaxLevel"						"5"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_reflection_pct"	"10 15 20 25 30"
-				"LinkedSpecialBonus"		"special_bonus_unique_spectre_5"
-			}		
-		}
-	}
 	"spectre_haunt"
 	{
 		"MaxLevel"						"4"
@@ -5159,15 +5146,15 @@
 	"naga_siren_song_of_the_siren"
 	{
 		"MaxLevel"						"4"
-		"AbilityCastRange"				"1000 1200 1400 1600"
-		"AbilityCooldown"				"120.0 100.0 80.0 60.0"
+		"AbilityCastRange"				"1000 1100 1200 1300"
+		"AbilityCooldown"				"120.0 110.0 100.0 90.0"
 		"AbilityManaCost"				"125 150 175 200"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"1000 1200 1400 1600"
+				"radius"					"1000 1100 1200 1300"
 			}
 		}
 	}
@@ -5177,7 +5164,7 @@
 	"tiny_avalanche"
 	{
 		"MaxLevel"						"7"
-		"AbilityCooldown"				"22 20 18 16 14"
+		"AbilityCooldown"				"26 24 22 20 18 16 14"
 		"AbilitySpecial"
 		{
 			"01"
