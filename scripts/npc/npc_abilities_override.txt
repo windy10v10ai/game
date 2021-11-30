@@ -2106,7 +2106,16 @@
 	}
 	"lone_druid_spirit_bear"
 	{
-		"AbilityCooldown"				"10.0"
+		"AbilityCooldown"				"30.0"
+		"AbilitySpecial"
+		{
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cooldown_scepter"			"30.0"
+				"RequiresScepter"			"1"
+			}
+		}
 	}
 	"medusa_split_shot"
 	{
