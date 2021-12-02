@@ -5323,4 +5323,75 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Monkey King: Boundless Strike               齐天大圣
+	//=================================================================================================================
+	"monkey_king_boundless_strike"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"28 26 24 22 20 18 16"
+		"AbilityManaCost"				"100"		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1 1.2 1.4 1.6 1.8 2.0 2.2"
+				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king_9"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"strike_crit_mult"			"135 165 195 225 255 280 300"				
+			}
+		}
+	}
+	"monkey_king_mischief"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed"					"400"
+			}
+		}
+	}
+	"monkey_king_wukongs_command"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"110 100 90 80 70"
+		"AbilitySpecial"
+		{
+			"06"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_armor"						"12 18 24 30 36"
+				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king_4"
+			}
+		}
+	}
+	"monkey_king_jingu_mastery"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"counter_duration"			"7 8 9 10 11 12 13"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"40 70 100 130 160 180 200"
+				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king_2"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"lifesteal"					"30 40 50 60 70 80 90"
+			}
+		}
+	}
 }
