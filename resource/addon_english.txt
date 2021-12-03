@@ -25,14 +25,14 @@
 		"dire_player_number"	"Dire Player Number"
 		"confirm_game_options"	"Confirm and Hide Game Options"
 		"show_game_options"  "Show Game Options"
-		"respawn_time_percentage"	"Respawn Time Percentage"
+		"respawn_time_percentage"	"Respawn Time"
 		"max_level"	"Max Level"
-		"radiant_tower_power"	"Radiant Tower Power/Endurance Level"
-		"dire_tower_power"	"Dire Tower Power/Endurance Level"
+		"radiant_tower_power"	"Radiant Tower Level"
+		"dire_tower_power"	"Dire Tower Level"
 		"radiant_tower_endure"	"Radiant Buildings Endurance Level"
 		"dire_tower_endure"	"Dire Buildings Endurance Level"
-		"radiant_tower_heal"	"Radiant Building Health Regen"
-		"dire_tower_heal"	"Dire Building Health Regen"
+		"radiant_tower_heal"	"Radiant Building HP Regen"
+		"dire_tower_heal"	"Dire Building HP Regen"
 		"starting_gold_player"	"Player Starting Gold"
 		"starting_gold_bot"	"Bot Starting Gold"
 		"same_hero_selection"  "Allow Same Hero Selection"
@@ -346,7 +346,7 @@
 		"DOTA_Tooltip_modifier_glaives_of_wisdom_status"								"Glaives of Wisdom"
 		"DOTA_Tooltip_modifier_glaives_of_wisdom_status_Description"				"Temporarily increasing Intelligence"
 
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"Assassinate"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"Assassinate (old)"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
@@ -452,7 +452,7 @@
 
 		// item infernal desolator
 		"DOTA_Tooltip_Ability_item_infernal_desolator"				"Infernal Desolator"
-		"DOTA_Tooltip_ability_item_infernal_desolator_Description"						"<h1>Passive:Super Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds."
+		"DOTA_Tooltip_ability_item_infernal_desolator_Description"						"<h1>Passive: Super Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds."
 		"DOTA_Tooltip_ability_item_infernal_desolator_Lore"							"SUPER Desolator"
 		"DOTA_Tooltip_ability_item_infernal_desolator_Note0"								"Armor reduction works on buildings."
 		//"DOTA_Tooltip_ability_item_infernal_desolator_corruption_armor"					"ARMOR REDUCTION:"
@@ -485,8 +485,8 @@
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_lifesteal_amp"					"%+Spell Lifesteal Amplification"
 
 		// item yishan
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"yishan"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"like abyssal_blade_v2"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"Flash"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>Active: Flash</h1>Teleport to a target enemy unit and stun it for %stun_m% seconds. Inflict pure damage equal to %dam% * your strength.\n<h1>Passive: <font color='#F19B8F'>Power of Sacred Diana</font></h1>Grants melee heroes a %ch_m%% chance on hit to stun the target for %stun% seconds and deal %damatt% bonus physical damage. Bash chance for ranged heroes is %ch_r%%.\n<h1>Passive: <font color='#f15b47'>Bleak</font></h1>Grants a %block_chance%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_Lore"                   "abyssal_blade_v2"
 		"DOTA_Tooltip_modifier_item_abyssal_blade_v2_debuff"				"stun"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_damage"			"+$damage"
@@ -496,7 +496,7 @@
 
 		// item heavens halberd v2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"heavens halberd v2"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within 300 with self as the center，And produce a repulsion effect，Disarm duration：%disarm_con% ＋Hero's current str/%disarm_con_per_str% seconds,Up to %disarm_con_max% seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% probability of disarming the target ,It can be triggered every 5 seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within 300 with self as the center，And produce a repulsion effect，Disarm duration：%disarm_con%s +Hero's current str/%disarm_con_per_str% seconds,Up to %disarm_con_max% seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% probability of disarming the target ,It can be triggered every 5 seconds."
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+Status Resistance"
