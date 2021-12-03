@@ -1,0 +1,10 @@
+<root> 
+  <styles>
+    <include src="s2r://panorama/styles/custom_loading_screen.vcss_c" />
+  </styles>
+  <Panel class="AddonLoadingRoot">
+    <Panel id="CustomBg">
+      <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/gamemode.png" />
+    </Panel>
+</Panel>
+</root>
