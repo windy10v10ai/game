@@ -2528,11 +2528,6 @@
 			}
 		}
 	}
-
-	"bane_fiends_grip"
-	{
-		"AbilityCooldown"				"80 70 60"
-	}
 	"batrider_firefly"
 	{
 		"AbilitySpecial"
@@ -5243,6 +5238,159 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"attack_speed_reduction"	"20 25 30 35 40"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Bane Enfeeble                       痛苦之源       
+	//=================================================================================================================
+	"bane_enfeeble"
+	{
+		"MaxLevel"						"7"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"22 20 18 16 14 12 10"
+		"AbilityManaCost"				"40 50 60 70 80 90 100"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_reduction"	"45 50 55 60 65 70 75"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"heal_reduction"	"45 50 55 60 65 70 75"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"cast_reduction"	"40"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"	"8 9 10 11 12 13 14"
+			}
+		}
+	}
+	"bane_brain_sap"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"15 14 13 12 11 10 9"
+		"AbilityManaCost"				"100 120 140 160 180 200 220"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"brain_sap_damage"				"75 150 225 300 375 425 475"
+				"LinkedSpecialBonus"			"special_bonus_unique_bane_2"
+			}
+		}
+	}
+	"bane_fiends_grip"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"120 110 100 90 80"
+		"AbilityManaCost"				"200 250 300 350 400"		
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"fiend_grip_damage"				"90 110 130 150 170"
+			}
+		}
+	}
+	"bane_nightmare"
+	{
+		"MaxLevel"						"5"
+		"AbilityCastRange"				"425 500 575 650 700"
+		"AbilityCooldown"				"24 22 20 18 16"
+		"AbilityDuration"				"4.0 5.0 6.0 7.0 8.0"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"4.0 5.0 6.0 7.0 8.0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"nightmare_tick_damage"		"10 20 30 40 50"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Monkey King: Boundless Strike               齐天大圣
+	//=================================================================================================================
+	"monkey_king_boundless_strike"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"28 26 24 22 20 18 16"
+		"AbilityManaCost"				"100"		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1 1.2 1.4 1.6 1.8 2.0 2.2"
+				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king_9"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"strike_crit_mult"			"135 165 195 225 255 280 300"				
+			}
+		}
+	}
+	"monkey_king_mischief"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed"					"400"
+			}
+		}
+	}
+	"monkey_king_wukongs_command"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"110 100 90 80 70"
+		"AbilitySpecial"
+		{
+			"06"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_armor"						"12 18 24 30 36"
+				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king_4"
+			}
+		}
+	}
+	"monkey_king_jingu_mastery"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"counter_duration"			"7 8 9 10 11 12 13"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"40 70 100 130 160 180 200"
+				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king_2"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"lifesteal"					"30 40 50 60 70 80 90"
 			}
 		}
 	}
