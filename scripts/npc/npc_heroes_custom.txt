@@ -227,6 +227,15 @@
 				"28"		"special_bonus_unique_bane_9"
 				"29"		"special_bonus_unique_bane_5"
 				"30"		"special_bonus_unique_bane_2"
+				"31"		"bane_fiends_grip"
+				"32"		"bane_fiends_grip"
+				"33"		"bane_nightmare"
+				"34"		"bane_brain_sap"
+				"35"		"bane_enfeeble"
+				"36"		"bane_brain_sap"
+				"37"		"bane_enfeeble"
+				"38"		"bane_brain_sap"
+				"39"		"bane_enfeeble"
 			}
 		}
 	}
