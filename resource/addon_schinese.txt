@@ -126,9 +126,9 @@
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_spell_amp"					"%+$spell_amp"
 
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"急速之翼"
-		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% 移动速度, %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% 攻击速度, %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% 全属性, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复, %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% 魔法恢复, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲。"
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% 移动速度, %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% 攻击速度, %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% 全属性, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复, %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% 魔法恢复。"
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"急速之翼"
-		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"使用: 消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_damage% 攻击力, %bonus_attack_speed% 攻击速度, %bonus_all_stats% 全属性, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复, %bonus_armor% 护甲。"
+		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"使用: 消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_damage% 攻击力, %bonus_attack_speed% 攻击速度, %bonus_all_stats% 全属性, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_damage"						"+$damage"
@@ -136,7 +136,6 @@
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_all_stats"					"+$all"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_health_regen"					"+$hp_regen"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_mana_regen"					"+$mana_regen"
-		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_armor"							"+$armor"
 
 		"DOTA_Tooltip_Ability_item_royal_jelly_custom"									"蜂王浆"
 		"DOTA_Tooltip_Ability_item_royal_jelly_custom_Description"					"<h1>使用: 消耗</h1> 使目标英雄获得一个永久的Buff， +%health_regen% 生命恢复 和 +%mana_regen% 魔法恢复。<br><br>无法重复作用于相同单位"
