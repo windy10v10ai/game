@@ -289,7 +289,7 @@
 		"ItemResult"				"item_wings_of_haste"
 		"ItemRequirements"
 		{
-			"01"					"item_phase_boots;item_power_treads;item_arcane_boots;item_tranquil_boots"
+			"01"					"item_power_treads;item_arcane_boots;item_tranquil_boots;item_travel_boots"
 		}
 	}
 	//=================================================================================================================
@@ -310,7 +310,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"5225"
+		"ItemCost"					"6225"
 		"ItemShopTags"				"move_speed"
 		"ItemQuality"				"common"
 		"ItemAliases"				"wings of haste"
@@ -323,17 +323,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"		"110"
+				"bonus_movement_speed"		"100"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"45"
+				"bonus_damage"			"50"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"45"
+				"bonus_attack_speed"	"50"
 			}
 			"04"
 			{
@@ -349,11 +349,6 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"bonus_mana_regen"		"6"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"5"
 			}
 		}
 
@@ -387,7 +382,6 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"				"%bonus_all_stats"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"				"%bonus_health_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"%bonus_mana_regen"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"				"%bonus_armor"
 				}
 			}
 			"modifier_item_wings_of_haste_consumed"
@@ -410,7 +404,6 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"				"%bonus_all_stats"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"				"%bonus_health_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"%bonus_mana_regen"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"				"%bonus_armor"
 				}
 			}
 		}
@@ -3190,7 +3183,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6800"	
+		"ItemCost"						"6000"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3237,7 +3230,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-25"
+				"corruption_armor"		"-23"
 			}
 			"03"
 			{
@@ -3481,7 +3474,7 @@
 		"FightRecapLevel"						"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6600"	
+		"ItemCost"						"8600"	
 		"ItemShopTags"					""
 
 		
@@ -3562,12 +3555,12 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"dam"					"2.5"
+				"dam"					"3"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_m"				"2.2"
+				"stun_m"				"2.5"
 			}
 			"08"
 			{
@@ -3587,7 +3580,7 @@
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damatt"				"200"
+				"damatt"				"240"
 			}
 			"12"
 			{
