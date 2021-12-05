@@ -1483,56 +1483,6 @@
 	{
 		"AbilityCooldown"				"80"
 	}
-
-	"earthshaker_enchant_totem"
-	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"35 40 45 50 60 70 80"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"totem_damage_percentage"	"100 200 300 400 500 600 700"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-		}
-	}
-	"earthshaker_aftershock"
-	{
-		"MaxLevel" "7"
-		"AbilityDuration"				"0.6 0.9 1.2 1.5 1.6 1.7 1.8"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aftershock_damage"			"75 100 125 150 175 200 225"
-				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_6"
-			}
-		}
-	}
-	"earthshaker_echo_slam"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"100.0 90.0 80.0 70.0 60.0"
-		"AbilityManaCost"				"145 205 265 325 385"
-		"AbilitySpecial"
-		{
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"echo_slam_echo_damage"		"50 70 90 110 130"
-				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_2"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"echo_slam_initial_damage"		"160 200 240 280 320"
-			}
-		}
-	}
 	//=================================================================================================================
 	// Ability: 大牛
 	//=================================================================================================================
@@ -2466,26 +2416,6 @@
 				"ad_linked_ability"			"ancient_apparition_chilling_touch"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
-	}
-	"batrider_firefly"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"15 40 70 100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_speed"		"10 15 20 25"
-			}
-		}
-	}
-	"batrider_flaming_lasso"
-	{
-		"AbilityCooldown"				"80 70 60"
 	}
 	"chen_hand_of_god"
 	{
@@ -5499,6 +5429,303 @@
 				"var_type"					"FIELD_FLOAT"
 				"cooldown_scepter"			"30 27 24 21 18"
 				"RequiresScepter"			"1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Batrider: Sticky Napalm                  蝙蝠骑士
+	//=================================================================================================================
+	"batrider_sticky_napalm"
+	{
+		"MaxLevel"						"7"
+		"AbilityCastRange"				"550 600 650 700 750 800 850"
+		"AbilityCooldown"				"3.0 3.0 3.0 3.0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"7 14 21 28 35 42 49"
+				"LinkedSpecialBonus"	"special_bonus_unique_batrider_4"
+				"CalculateSpellDamageTooltip"		"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"400 425 450 475 500 525 550"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed_pct"	"-2 -4 -6 -8 -10 -12 -14"
+				"LinkedSpecialBonus"	"special_bonus_unique_batrider_7"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"turn_rate_pct"			"-30 -40 -50 -60 -70 -80 -90"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_stacks"			"10 10 10 10"
+			}
+		}
+	}
+	"batrider_flamebreak"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"18 17 16 15 14 13 12"
+		"AbilityManaCost"				"100 110 120 130 140 150 160"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_impact"		"30 60 90 120 150 180 210"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"15"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_duration"		"2 4 6 8 10 12 14"
+				"CalculateSpellDamageTooltip"	"0"
+				"LinkedSpecialBonus"	"special_bonus_unique_batrider_3"
+			}					
+		}
+	}
+	"batrider_firefly"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"52 46 40 34 28 24 20"
+		"AbilityManaCost"				"125"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"20 40 60 80 100 120 140"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed"		"10 15 20 25 30 35 40"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_vision"			"100 200 300 400 500 550 600"
+			}
+		}
+	}
+	"batrider_flaming_lasso"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"90 80 70 60 50"
+		"AbilityManaCost"				"200 225 250 275 300"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3.0 3.5 4.0 4.5 5.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"		"50 100 150 200 250"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Chen: Penitence                陈
+	//=================================================================================================================
+	"chen_penitence"
+	{
+		
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"14.0 13.0 12.0 11.0 10.0 9.0 8.0"
+		"AbilityManaCost"				"70 75 80 85 90 95 100"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5 6 7 8 9 10 11"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"-18 -24 -30 -36 -40 -44 -48"
+				"LinkedSpecialBonus"	"special_bonus_unique_chen_8"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"30 60 90 120 150 180 210"
+			}
+		}
+	}
+	"chen_divine_favor"
+	{
+		"MaxLevel"						"7"		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor"					"2 3 4 5 6 7 8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"heal_rate"					"3 4 5 6 7 8 9"
+			}
+		}
+	}
+	"chen_holy_persuasion"
+	{
+		"MaxLevel"						"5"
+		"AbilityManaCost"				"90 110 130 150 170"
+		"AbilityCooldown"				"10"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_units"				"1 2 3 4 5"
+				"LinkedSpecialBonus"	"special_bonus_unique_chen_1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"level_req"				"6 6 6 6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_min"			"800 900 1000 1100 1200"
+				"LinkedSpecialBonus"	"special_bonus_unique_chen_4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed_bonus"	"15 20 25 30 35"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"	"10 20 30 40 50"
+				"LinkedSpecialBonus"	"special_bonus_unique_chen_5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"teleport_delay"	"3"
+			}
+		}
+	}
+	"chen_hand_of_god"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"90 80 70 60 50"
+		"AbilityManaCost"				"200 300 400 500 600"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal_amount"			"300 450 600 750 900"
+				"LinkedSpecialBonus"	"special_bonus_unique_chen_2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ancient_creeps_scepter"		"1 2 3 4 5"
+				"RequiresShard"			"1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Earthshaker Fissure            撼地神牛
+	//=================================================================================================================
+	"earthshaker_fissure"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"20 18 16 14 12"
+		"AbilityManaCost"				"120 130 140 150 160"		
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fissure_duration"			"7 7.5 8.0 8.5 9.0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"fissure_damage"				"110 160 210 260 310"
+				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_4"
+
+			}
+		}
+	}
+	"earthshaker_enchant_totem"
+	{
+		"MaxLevel" "7"
+		"AbilityManaCost"				"35 40 45 50 60 70 80"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"totem_damage_percentage"	"100 200 300 400 500 600 700"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+		}
+	}
+	"earthshaker_aftershock"
+	{
+		"MaxLevel" "7"
+		"AbilityDuration"				"0.6 0.9 1.2 1.5 1.6 1.7 1.8"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aftershock_damage"			"75 100 125 150 175 200 225"
+				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_6"
+			}
+		}
+	}
+	"earthshaker_echo_slam"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"100.0 90.0 80.0 70.0 60.0"
+		"AbilityManaCost"				"145 205 265 325 385"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"echo_slam_echo_damage"		"50 70 90 110 130"
+				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_2"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"echo_slam_initial_damage"		"160 200 240 280 320"
 			}
 		}
 	}
