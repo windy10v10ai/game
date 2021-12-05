@@ -1334,11 +1334,11 @@
 		"Modifiers"
 		{
 
-			"modifier_item_force_staff_passive"
+			"modifier_item_excalibur"
 			{
-				"Passive"  "1"
-				"IsHidden" "1"
-				"Attributes" "MODIFIER_ATTRIBUTE_NONE"
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
@@ -1640,7 +1640,7 @@
 						"Passive"  "1"
 						"IsHidden" "1"
 
-						"Attributes" "MODIFIER_ATTRIBUTE_NONE"
+						"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
 						"Properties"
 						{
 								"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
@@ -1840,7 +1840,7 @@
 						"Passive"  "1"
 						"IsHidden" "1"
 
-						"Attributes" "MODIFIER_ATTRIBUTE_NONE"
+						"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
 						"Properties"
 						{
 								"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
