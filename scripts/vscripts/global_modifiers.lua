@@ -59,19 +59,8 @@ function modifier_melee_resistance:RemoveOnDeath() return false end
 function modifier_melee_resistance:GetTexture() return "bulldozer" end
 
 function modifier_melee_resistance:OnCreated()
-	self.iStatusResist = 25
+	self.iStatusResist = 20
 	self.iMagicalResist = 20
-	if self:GetParent():GetName() == "npc_dota_hero_troll_warlord" or self:GetParent():GetName() == "npc_dota_hero_lone_druid" or self:GetParent():GetName() == "npc_dota_hero_dragon_knight" or self:GetParent():GetName() == "npc_dota_hero_terrorblade" then
-		self:StartIntervalThink(0.1)
-	end
-end
-
-function modifier_melee_resistance:OnIntervalThink()
-	if self:GetParent():IsRangedAttacker() then
-		self.iStatusResist = 0
-	else
-		self.iStatusResist = 25
-	end
 end
 
 function modifier_melee_resistance:DeclareFunctions()
