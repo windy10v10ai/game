@@ -2195,7 +2195,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySharedCooldown"			"aeon"
 
-		"AbilityCooldown"				"60.0"
+		"AbilityCooldown"				"60.0 65.0 70.0 75.0 80.0"
 
 		"ItemCost"						"3100"
 		"ItemShopTags"					"str;regen_health;health_pool"
@@ -2232,6 +2232,16 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"buff_duration"		"3"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_level"		"5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cooldown_duration"		"60.0 65.0 70.0 75.0 80.0"
 			}
 		}
 	}

@@ -278,10 +278,11 @@
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_Lore"						"At the core of spellcraft are spectrums only the very gifted can sense."
 
 		"DOTA_Tooltip_Ability_item_aeon_pendant"				"Aeon Pendant"
-		"DOTA_Tooltip_ability_item_aeon_pendant_Description"					"<h1>Passive: Combo Breaker</h1> When you take damage and your health falls below %health_threshold_pct%%, a strong dispel is applied and you gain a %buff_duration% second buff that provides +%status_resistance%%% Status Resistance and causes all damage you deal and are dealt to be reduced to zero. Only triggers on player based damage."
+		"DOTA_Tooltip_ability_item_aeon_pendant_Description"					"<h1>Passive: Combo Breaker</h1> When you take damage and your health falls below %health_threshold_pct%%, a strong dispel is applied and you gain a %buff_duration% second buff that provides +%status_resistance%%% Status Resistance and causes all damage you deal and are dealt to be reduced to zero. Only triggers on player based damage. Cooldown increases every time it triggers."
 		"DOTA_Tooltip_ability_item_aeon_pendant_lore"					"A powerful artifact long ago smuggled out of the Ivory Incubarium. Or so many believe."
 		"DOTA_Tooltip_ability_item_aeon_pendant_bonus_health"					"+$health"
 		"DOTA_Tooltip_ability_item_aeon_pendant_bonus_mana"					"+$mana"
+		"DOTA_Tooltip_ability_item_aeon_pendant_cooldown_duration"					"COOLDOWN:"	
 
 		"DOTA_Tooltip_Ability_item_monkey_king_bar_2"			"Re: Monkey King Bar"
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_Description"					"<h1>Passive: Pierce</h1>Grants each attack a %bonus_chance%%% chance to pierce through evasion and deal %bonus_chance_damage% bonus magical damage."

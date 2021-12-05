@@ -5369,6 +5369,11 @@
 				"bonus_armor"						"12 18 24 30 36"
 				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king_4"
 			}
+			"07"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"attack_speed"						"1.2 1.15 1.1 1.05 1.0"
+			}
 		}
 	}
 	"monkey_king_jingu_mastery"
