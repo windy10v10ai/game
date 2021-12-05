@@ -10,6 +10,7 @@
 		"ID"						"9001"
 		"BaseClass"					"item_datadriven"
 		"Model"						"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"		"item_recipe_moon_shard_datadriven"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -134,6 +135,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
 		"ID"							"9003"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_ultimate_scepter_2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -277,6 +280,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"					"item_datadriven"
 		"ID"						"9009"
+		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_wings_of_haste"
 
 		// Item Info
@@ -496,9 +500,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"9031"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"					"item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_blade_mail_2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -588,27 +592,27 @@
 	//=================================================================================================================
 	"item_recipe_radiance_2"
 	{
-			// General
-			//-------------------------------------------------------------------------------------------------------------
-			"BaseClass"						"item_datadriven"
-			"ID"							"9033"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-			"Model"							"models/props_gameplay/recipe.mdl"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"9033"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe_radiance_2"
 
-			// Item Info
-			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"						""
-			"ItemShopTags"					""
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1250"
+		"ItemShopTags"					""
 
-			// Recipe
-			//-------------------------------------------------------------------------------------------------------------
-			"ItemRecipe"					"1"
-			"ItemResult"					"item_radiance_2"
-			"ItemRequirements"
-			{
-					"01"						"item_radiance;item_demon_edge;item_recipe_radiance"
-			}
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_radiance_2"
+		"ItemRequirements"
+		{
+			"01"						"item_radiance;item_relic"
+		}
 	}
-
 
 	//=================================================================================================================
 	// Radiance2
@@ -637,17 +641,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"100"
+				"bonus_damage"			"120"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_damage"			"100"
+				"aura_damage"			"120"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_damage_illusions"	"70"
+				"aura_damage_illusions"	"80"
 			}
 			"04"
 			{
@@ -667,26 +671,26 @@
 	//=================================================================================================================
 	"item_recipe_wasp"
 	{
-			// General
-			//-------------------------------------------------------------------------------------------------------------
-			"BaseClass"						"item_datadriven"
-			"ID"							"9035"  //Valve's version of this item uses the ID "138".
-			"Model"							"models/props_gameplay/recipe.mdl"
-			"AbilityTextureName"			"item_recipe"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"9035"  //Valve's version of this item uses the ID "138".
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe_wasp"
 
-			// Item Info
-			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"						"8125"
-			"ItemShopTags"					""
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"8125"
+		"ItemShopTags"					""
 
-			// Recipe
-			//-------------------------------------------------------------------------------------------------------------
-			"ItemRecipe"					"1"
-			"ItemResult"					"item_wasp"
-			"ItemRequirements"
-			{
-					"01"						"item_butterfly;item_greater_crit"
-			}
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_wasp"
+		"ItemRequirements"
+		{
+				"01"						"item_butterfly;item_greater_crit"
+		}
 	}
 	"item_wasp"
 	{
@@ -864,7 +868,7 @@
 		"BaseClass"						"item_datadriven"
 		"ID"							"9037"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_aether_lens_2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -887,7 +891,7 @@
 			"ID"                            "9038"
 			"BaseClass"                     "item_aether_lens"
 			"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-			"AbilityTextureName"			      "item_aether_lens_2"
+			"AbilityTextureName"			"item_aether_lens_2"
 
 			// Item Info
 			//-------------------------------------------------------------------------------------------------------------
@@ -927,7 +931,7 @@
 		"BaseClass"						"item_datadriven"
 		"ID"							"9039"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_aether_lens_3"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -990,11 +994,11 @@
 			"BaseClass"						"item_datadriven"
 			"ID"							"9043"  //Valve's version of this item uses the ID "118".
 			"Model"							"models/props_gameplay/recipe.mdl"
-			"AbilityTextureName"			"item_recipe"
+			"AbilityTextureName"			"item_recipe_vladmir_2"
 
 			// Item Info
 			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"						"5300"
+			"ItemCost"						"5225"
 			"ItemShopTags"					""
 
 			// Recipe
@@ -1045,7 +1049,7 @@
 					"04"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"bonus_armor"			"15"
+							"bonus_armor"			"20"
 					}
 					"05"
 					{
@@ -1210,10 +1214,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_recipe_sphere"
 		"ID"							"9045"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_sphere_2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1800"
+		"ItemCost"						"1600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1277,8 +1283,8 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"ID"							"9047"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_excalibur"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3261,7 +3267,7 @@
 		"ID"							"3038"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_sacred_trident"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
