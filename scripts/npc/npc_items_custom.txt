@@ -277,10 +277,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"					"item_datadriven"
 		"ID"						"9009"
+		"AbilityTextureName"		"item_recipe_wings_of_haste"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"0"
+		"ItemCost"					"875"
 		"ItemShopTags"				""
 
 		// Recipe
@@ -289,7 +290,7 @@
 		"ItemResult"				"item_wings_of_haste"
 		"ItemRequirements"
 		{
-			"01"					"item_power_treads;item_arcane_boots;item_tranquil_boots;item_travel_boots"
+			"01"					"item_power_treads;item_arcane_boots;item_tranquil_boots"
 		}
 	}
 	//=================================================================================================================
@@ -328,17 +329,17 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"50"
+				"bonus_damage"			"40"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"50"
+				"bonus_attack_speed"	"40"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"20"
+				"bonus_all_stats"		"16"
 			}
 			"05"
 			{
@@ -348,7 +349,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"6"
+				"bonus_mana_regen"		"5"
 			}
 		}
 
@@ -501,7 +502,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1675"
+		"ItemCost"						"2675"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -532,8 +533,8 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"1"
-		"ItemCost"						"3000"
+		"AbilityManaCost"				"100"
+		"ItemCost"						"5000"
 		"ItemShopTags"					"damage;armor;int;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bm;blade mail;blademail"
@@ -547,12 +548,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"40"
+				"bonus_damage"			"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"10"
+				"bonus_armor"			"20"
 			}
 			"03"
 			{
@@ -567,7 +568,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"passive_reflection_constant"			"50"
+				"passive_reflection_constant"			"65"
 			}
 			"06"
 			{
@@ -577,7 +578,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_reflection_pct"			"80"
+				"active_reflection_pct"			"85"
 			}
 		}
 	}
@@ -3193,7 +3194,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6000"	
+		"ItemCost"						"5650"	
 		"ItemShopTags"					""
 		
 		// Recipe
