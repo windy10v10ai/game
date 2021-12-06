@@ -291,7 +291,7 @@
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_attack_speed"					"+$attack"
 
 		"DOTA_Tooltip_Ability_item_magic_scepter"								"Magic Scepter"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>Active: Spell Boost</h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int% Spell Amplification for each point of Intelligence."
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>Active: <font color='#a74abd'>Spell Boost</font></h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int% Spell Amplification for each point of Intelligence."
 		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, mildly deteriorated.."
 		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_magic_scepter"						"Magic Scepter Recipe"
@@ -301,7 +301,7 @@
 
 		//Hallowed
 		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"Hallowed Scepter"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>Active: Hallowed Spell Boost</h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int% Spell Amplification for each point of Intelligence.\n\n<h1>Passive: <font color='#a74abd'>Hallowed</font></h1>Blessed by the ancient spirits of light and dark. Cannot be sold nor destroyed."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>Active: <font color='#a74abd'>Hallowed Spell Boost</font></h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int% Spell Amplification for each point of Intelligence."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_hallowed_scepter"						"Hallowed Scepter Recipe"
@@ -322,7 +322,7 @@
 		"DOTA_Tooltip_modifier_item_dragon_lance_plus_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
 
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max"						"Dragon Lance Pro Max"
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Description"			"<h1>Active: Quick draw</h1> Grants %active_boost% attack speed for  %active_boost_duration% seconds.\n<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by dragon. Cannot be sold or destroyed."
+		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Description"			"<h1>Active: Quick draw</h1> Grants %active_boost% attack speed for  %active_boost_duration% seconds."
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Lore"					"（Attack range）become more longer and（bonus）become more strengther is the eternal pursuit of all people"
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_agility"		    "+$agi"
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_strength"		    "+$str"
