@@ -116,9 +116,9 @@
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"Said to be a tear from the lunar goddess Selemene."
 
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"						"真·阿哈利姆神杖"
-		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"永久获得阿哈利姆神杖加成, +%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% 全属性, +%dMODIFIER_PROPERTY_HEALTH_BONUS% 生命, +%dMODIFIER_PROPERTY_MANA_BONUS% 魔法, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%技能伤害。"
+		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"永久获得阿哈利姆神杖加成, +%dMODIFIER_PROPERTY_HEALTH_BONUS% 生命, +%dMODIFIER_PROPERTY_MANA_BONUS% 魔法, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%技能伤害。"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2"									"真·阿哈利姆神杖"
-		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"<h1>使用</h1>消耗阿哈利姆神杖永久获得神杖加成, +%bonus_all_stats% 全属性, +%bonus_health% 生命, +%bonus_mana% 魔法, +%spell_amp%%%技能伤害。\n<h1>被动：技能升级</h1>提升所有英雄的终极技能或基础技能效果。"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"<h1>使用</h1>消耗阿哈利姆神杖永久获得神杖加成, +%bonus_health% 生命, +%bonus_mana% 魔法, +%spell_amp%%%技能伤害。\n<h1>被动：技能升级</h1>提升所有英雄的终极技能或基础技能效果。"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Lore"							"The regalia of a wizard with demigod-like powers."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_all_stats"				"+$all"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_health"					"+$health"
@@ -126,9 +126,9 @@
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_spell_amp"					"%+$spell_amp"
 
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"急速之翼"
-		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% 移动速度, %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% 攻击速度, %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% 全属性, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复, %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% 魔法恢复。"
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% 移动速度, %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% 攻击速度, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复, %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% 魔法恢复。"
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"急速之翼"
-		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"使用: 消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_damage% 攻击力, %bonus_attack_speed% 攻击速度, %bonus_all_stats% 全属性, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。"
+		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"使用: 消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_damage% 攻击力, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_damage"						"+$damage"
