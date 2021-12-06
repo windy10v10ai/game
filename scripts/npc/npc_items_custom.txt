@@ -1895,7 +1895,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"                      "900"
+		"ItemCost"                      "2300"
 		"ItemShopTags"                  ""
 
 		// Recipe
@@ -1922,7 +1922,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"                      "8500"
+		"ItemCost"                      "10500"
 		"ItemShopTags"                  "armor;resist"
 		"ItemQuality"                   "epic"
 		"ItemAliases"                   "armor of insight"
@@ -1947,18 +1947,18 @@
 			}
 			"03"
 			{
-				"var_type"              "FIELD_INTEGER"
-				"bonus_all_stats"       "10"
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"1200"
 			}
 			"04"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"damage_reduction"      "-5"
+				"magical_resis"			"30"
 			}
 			"05"
 			{
-				"var_type"                      "FIELD_INTEGER"
-				"radius"                        "1200"
+				"var_type"              "FIELD_INTEGER"
+				"damage_reduction"      "-5"
 			}
 			"06"
 			{
@@ -2029,13 +2029,11 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"             "%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"            "%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"           "%bonus_all_stats"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"%magical_resis"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"                    "%bonus_health"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"           "%bonus_health_regen"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"      "%damage_reduction"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"						"%bonus_armor"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
 				}
 			}
 
