@@ -158,6 +158,9 @@ end
 function BotThink:ThinkConsumeItem(hHero)
   local hHeroName = hHero:GetName()
   local hPlayerId = hHero:GetPlayerID()
+  if iItemCount <= 7 then
+    return
+  end
 
   local itemConsumeList = tBotItemData.itemConsumeList
   for i,vItemUseName in ipairs(itemConsumeList) do
