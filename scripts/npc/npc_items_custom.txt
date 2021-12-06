@@ -2759,6 +2759,7 @@
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"				"1"
 		"IsTempestDoubleClonable"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilitySpecial"
 		{			
 			"01"
@@ -2788,6 +2789,7 @@
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"				"1"
 		"IsTempestDoubleClonable"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilitySpecial"
 		{			
 			"01"
@@ -2817,6 +2819,7 @@
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"				"1"
 		"IsTempestDoubleClonable"			"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilitySpecial"
 		{			
 			"01"
