@@ -817,6 +817,12 @@
 				"29"		"special_bonus_unique_omniknight_3"
 				"30"		"special_bonus_unique_omniknight_7"
 				"31"		"omniknight_guardian_angel"
+				"32"		"omniknight_repel"
+				"33"		"omniknight_degen_aura"
+				"34"		"omniknight_repel"
+				"35"		"omniknight_degen_aura"
+				"36"		"omniknight_repel"
+				"37"		"omniknight_degen_aura"
 			}
 		}
 	}
