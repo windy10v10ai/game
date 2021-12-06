@@ -140,7 +140,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
+		"ItemCost"						"3800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -149,7 +149,7 @@
 		"ItemResult"					"item_ultimate_scepter_2"
 		"ItemRequirements"
 		{
-			"01"						"item_ultimate_scepter;item_ultimate_orb;item_ultimate_orb"
+			"01"						"item_ultimate_scepter"
 		}
 	}
 	//=================================================================================================================
@@ -171,7 +171,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"8500"
+		"ItemCost"					"8000"
 		"ItemShopTags"				"int;str;agi;mana_pool;health_pool;hard_to_tag"
 		"ItemQuality"				"epic"
 		"ItemAliases"				"ultimate;aghanim's scepter"
@@ -185,22 +185,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"20"
+				"bonus_all_stats"		"10"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"350"
+				"bonus_health"			"500"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"350"
+				"bonus_mana"			"500"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_amp"			"20"
+				"spell_amp"				"20"
 			}
 		}
 
@@ -261,9 +261,6 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%bonus_health"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%bonus_mana"
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%spell_amp"
@@ -343,7 +340,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"16"
+				"bonus_all_stats"		"15"
 			}
 			"05"
 			{
@@ -404,9 +401,6 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"%bonus_movement_speed"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"				"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"					"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"				"%bonus_all_stats"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"				"%bonus_health_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"%bonus_mana_regen"
 				}
@@ -2793,8 +2787,6 @@
 	//=================================================================================================================
 	// Item: Tome of Intelligence
 	//=================================================================================================================
-
-
 	"item_tome_of_intelligence"
 	{
 		"ID"						"3028"
@@ -2824,8 +2816,6 @@
 	//=================================================================================================================
 	// Item: Tome of Strength
 	//=================================================================================================================
-
-
 	"item_tome_of_strength"
 	{
 		"ID"						"3029"
