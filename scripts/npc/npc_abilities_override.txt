@@ -3016,14 +3016,14 @@
 		"MaxLevel" "7"
 		"AbilityCastRange"				"750" // 875
 		"AbilityCooldown"				"5.0 4.5 4.0 3.5 3.0 2.5 2.0"
-		"AbilityManaCost"				"60 80 100 150 200 250 300"
+		"AbilityManaCost"				"60 80 100 120 160 200 240"
 
 		"AbilitySpecial"
 		{
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bolt_damage"			"100 120 140 160 180 210 240"
+				"bolt_damage"			"100 130 160 190 220 250 280"
 			}
 			"04"
 			{
@@ -3059,9 +3059,17 @@
 	//=================================================================================================================
 	"zuus_arc_lightning"
 	{
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60 70 80 90"
+		"MaxLevel" "7"
+		"AbilityManaCost"				"60 70 80 90 105 120 140"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"arc_damage"			"75 100 125 150 175 200 225"
+				"LinkedSpecialBonus"	"special_bonus_unique_zeus_2"
+			}
+		}
 	}
 
 	"zuus_lightning_bolt"
@@ -3072,12 +3080,13 @@
 	}
 	"zuus_static_field"
 	{
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_health_pct"			"4 5 6 7"
+				"damage_health_pct"			"4 5 6 7 8"
 				"LinkedSpecialBonus"		"special_bonus_unique_zeus"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -6044,7 +6053,7 @@
 	"omniknight_guardian_angel"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"100"
+		"AbilityCooldown"				"100 95 90 85 80"
 		"AbilityManaCost"				"150 200 250 300 350"
 		"AbilitySpecial"
 		{
@@ -6064,6 +6073,18 @@
 				"var_type"					"FIELD_INTEGER"
 				"scepter_regen"					"40 50 60 70 80"
 				"RequiresScepter"		"1"
+			}
+		}
+	}
+	"special_bonus_unique_omniknight_7"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"20"
+				"ad_linked_ability"			"omniknight_guardian_angel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
