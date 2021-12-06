@@ -611,6 +611,7 @@
 				"29"		"special_bonus_unique_earthshaker_3"
 				"30"		"special_bonus_unique_earthshaker_5"
 				"31"		"earthshaker_echo_slam"
+				"32"		"earthshaker_fissure"
 			}
 		}
 	}
@@ -744,6 +745,15 @@
 				"28"		"special_bonus_unique_luna_6"
 				"29"		"special_bonus_unique_luna_1"
 				"30"		"special_bonus_unique_luna_3"
+				"31"		"luna_lucent_beam"
+				"32"		"luna_eclipse"
+				"33"		"luna_eclipse"
+				"34"		"luna_moon_glaive"
+				"35"		"luna_lunar_blessing"
+				"36"		"luna_moon_glaive"
+				"37"		"luna_lunar_blessing"
+				"38"		"luna_moon_glaive"
+				"39"		"luna_lunar_blessing"
 			}
 		}
 	}
@@ -1071,6 +1081,10 @@
 				"33"		"viper_poison_attack"
 				"34"		"viper_poison_attack"
 				"35"		"viper_viper_strike"
+				"36"		"viper_corrosive_skin"
+				"37"		"viper_corrosive_skin"
+				"38"		"viper_corrosive_skin"
+				"39"		"viper_nethertoxin"
 			}
 		}
 	}
