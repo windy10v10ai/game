@@ -373,7 +373,7 @@
 		// Tomes
 
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"Tome of Strength"
-		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>Use: Bulk</h1> Permanently increases your strength by %bonus%."
+		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>Use: Bulk</h1> Permanently increases your strength by %bonus%.\n Shareable with teammate."
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Lore"				"Is it strength that you desire...?"
 
 		"DOTA_Tooltip_modifier_str_tome"								"Strength Tomes Consumed"
@@ -381,7 +381,7 @@
 
 
 		"DOTA_Tooltip_Ability_item_tome_of_agility"						"Tome of Agility"
-		"DOTA_Tooltip_Ability_item_tome_of_agility_Description"			"<h1>Use: Lighten</h1> Permanently increases your agility by %bonus%."
+		"DOTA_Tooltip_Ability_item_tome_of_agility_Description"			"<h1>Use: Lighten</h1> Permanently increases your agility by %bonus%.\n Shareable with teammate."
 		"DOTA_Tooltip_Ability_item_tome_of_agility_Lore"				"Is it swiftness that you seek...?"
 
 		"DOTA_Tooltip_modifier_agi_tome"								"Agility Tomes Consumed"
@@ -389,7 +389,7 @@
 
 
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence"				"Tome of Intelligence"
-		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Description"	"<h1>Use: Learn</h1> Permanently increases your intelligence by %bonus%."
+		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Description"	"<h1>Use: Learn</h1> Permanently increases your intelligence by %bonus%.\n Shareable with teammate."
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Lore"			"Is it enlightenment that you aspire to...?"
 
 		"DOTA_Tooltip_modifier_int_tome"								"Intelligence Tomes Consumed"
