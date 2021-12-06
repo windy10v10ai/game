@@ -283,8 +283,7 @@ function HeroKilled(keys)
 	local hHero = EntIndexToHScript(keys.entindex_killed)
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
-	local tDOTARespawnTime = {5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 26, 30, 32, 34, 36, 38, 40, 45, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 6
-, 65, 66, 67 ,68, 69, 70}
+	local tDOTARespawnTime = {5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 26, 30, 32, 34, 36, 38, 40, 45, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67 ,68, 69, 70}
 	if iLevel <= 40 then
 		fRespawnTime = math.ceil(tDOTARespawnTime[iLevel]*AIGameMode.iRespawnTimePercentage/100.0)
 	else
