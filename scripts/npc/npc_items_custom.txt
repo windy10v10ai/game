@@ -2569,7 +2569,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"spell_amp_per_int"			"0.08"
+				"spell_amp_per_int"			"0.1"
 			}
 			"03"
 			{
@@ -2644,9 +2644,6 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 
-
-
-
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -2659,7 +2656,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"spell_amp_per_int"			"0.16"
+				"spell_amp_per_int"			"0.2"
 			}
 			"03"
 			{
