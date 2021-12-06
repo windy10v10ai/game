@@ -32,6 +32,9 @@ end
 function AIGameMode:EnterDebugMode()
 	print("========Enter Debug Mode========")
 	self.DebugMode = true
+	GameRules:SetCustomGameSetupAutoLaunchDelay( 10 )
+	GameRules:SetPreGameTime( 10 )
+	GameRules:SetStrategyTime( 10 )
 	print("DOTA 2 AI Wars Loaded.")
 end
 
@@ -43,7 +46,7 @@ function AIGameMode:InitGameOptions()
 	GameRules:SetPreGameTime( PRE_GAME_TIME )
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, RADIANT_PLAYER_COUNT)
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, DIRE_PLAYER_COUNT)
-	GameRules:SetStrategyTime(20)
+	GameRules:SetStrategyTime( STRATEGY_TIME )
 	GameRules:SetShowcaseTime(0)
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 
