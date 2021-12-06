@@ -156,10 +156,6 @@ end
 
 function BotThink:ThinkConsumeItem(hHero)
   local hHeroName = hHero:GetName()
-  local iItemCount = hHero:GetNumItemsInInventory()
-  if iItemCount <= 7 then
-    return
-  end
 
   local itemConsumeList = tBotItemData.itemConsumeList
   for i,vItemUseName in ipairs(itemConsumeList) do

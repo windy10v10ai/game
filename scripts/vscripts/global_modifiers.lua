@@ -130,11 +130,10 @@ function modifier_bot_attack_tower_pick_rune:OnIntervalThink()
 	local hParent = self:GetParent()
 
 	BotThink:ThinkSell(hParent)
-	BotThink:ThinkConsumeItem(hParent)
-
 	BotThink:ThinkPurchase(hParent)
 	BotThink:ThinkPurchaseNeutral(hParent, GameTime)
 
+	BotThink:ThinkConsumeItem(hParent)
 	BotThink:AddMoney(hParent)
 end
 
