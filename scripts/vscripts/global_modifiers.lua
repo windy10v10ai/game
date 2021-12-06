@@ -60,7 +60,7 @@ function modifier_melee_resistance:GetTexture() return "bulldozer" end
 
 function modifier_melee_resistance:OnCreated()
 	self.iStatusResist = 20
-	self.iMagicalResist = 20
+	self.iMagicalResist = 12
 end
 
 function modifier_melee_resistance:DeclareFunctions()
@@ -229,7 +229,7 @@ function modifier_axe_thinker:IsHidden() return true end
 function modifier_axe_thinker:RemoveOnDeath() return false end
 function modifier_axe_thinker:OnCreated()
 	if IsClient() then return end
-	self:StartIntervalThink(0.06)
+	self:StartIntervalThink(0.1)
 end
 
 function modifier_axe_thinker:DeclareFunctions() return {MODIFIER_EVENT_ON_ABILITY_EXECUTED} end
@@ -253,7 +253,6 @@ local function ThinkForAxeAbilities(hAxe)
 		end
 	end
 	if hAbility1:IsFullyCastable() then
-
 		local tAllHeroes = FindUnitsInRadius(hAxe:GetTeam(), hAxe:GetOrigin(), nil, hAbility1:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 		local iCount = #tAllHeroes
 		for i = 1, iCount do

@@ -101,7 +101,7 @@
 		"DOTA_Tooltip_modifier_tower_endure_Description"		"建筑物的护甲增加 %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, 最大生命值设为 %dMODIFIER_PROPERTY_TOOLTIP%%%."
 
 		"DOTA_Tooltip_modifier_melee_resistance"					"威压"
-		"DOTA_Tooltip_modifier_melee_resistance_Description"	"近战英雄拥有 %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 基础状态抗性（可与装备叠加），40%% 基础魔法抗性"
+		"DOTA_Tooltip_modifier_melee_resistance_Description"	"近战英雄拥有 %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 基础状态抗性（可与装备叠加），34%% 基础魔法抗性"
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items

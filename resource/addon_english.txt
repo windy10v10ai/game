@@ -101,7 +101,7 @@
 		"DOTA_Tooltip_modifier_tower_endure_Description"		"The building's armor is changed by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, max health is set to %dMODIFIER_PROPERTY_TOOLTIP%%%."
 
 		"DOTA_Tooltip_modifier_melee_resistance"					"Bulldozer"
-		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% stackable base status resist, 40%% base magical resistance."
+		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% stackable base status resist, 34%% base magical resistance."
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
