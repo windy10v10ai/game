@@ -2613,7 +2613,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3024"
 		"BaseClass"						"item_lua"
-		"AbilityTextureName" 			"arcane_scepter"
+		"AbilityTextureName" 			"hallowed_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
 		"ScriptFile"                    "items/item_hallowed_scepter.lua"
@@ -2697,7 +2697,7 @@
 		"ID"							"3026"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_skadi"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"skadi_datadriven"
+		"AbilityTextureName"			"skadi_2"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
