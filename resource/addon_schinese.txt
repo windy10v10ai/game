@@ -290,7 +290,7 @@
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_attack_speed"					"+$attack"
 
 		"DOTA_Tooltip_Ability_item_magic_scepter"								"魔渊法杖"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>主动: 魔力爆发</h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续 %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int% 法术增强."
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>主动: <font color='#a74abd'>魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续 %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int% 法术增强."
 		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, mildly deteriorated.."
 		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_magic_scepter"						"魔渊法杖卷轴"
@@ -300,7 +300,7 @@
 
 		//Hallowed
 		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"神聖法杖"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>主动: 神聖爆发</h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续  %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int% 法术增强.\n\n<h1>被动: <font color='#a74abd'>Hallowed</font></h1>受到古老的光明与黑暗精神的祝福。不能出售或销毁."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>主动: <font color='#a74abd'>神聖爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续  %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int% 法术增强。"
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_hallowed_scepter"						"神聖法杖卷轴"
@@ -321,7 +321,7 @@
 		"DOTA_Tooltip_modifier_item_dragon_lance_plus_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
 
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max"						"魔龙枪 Pro Max"
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Description"			"<h1>主动: 快速拔枪</h1> 关键时刻天赋涌现, 获得 %active_boost% 攻击速度 持续  %active_boost_duration% 秒.\n<h1>被动: <font color='#a74abd'>永恒</font></h1>受到来自龙族的神秘力量庇护，不能出售或销毁。"
+		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Description"			"<h1>主动: 快速拔枪</h1> 关键时刻天赋涌现, 获得 %active_boost% 攻击速度 持续  %active_boost_duration% 秒。"
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Lore"					"（攻击距离）变长和（自身属性）变强是所有人亘古不变的追求"
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_agility"		   "+$agi"
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_strength"		   "+$str"

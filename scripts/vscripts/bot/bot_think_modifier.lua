@@ -132,7 +132,6 @@ end
 
 function BotThink:ThinkSell(hero)
   local iHeroName = hero:GetName()
-  local iPlayerId = hero:GetPlayerID()
   local iItemCount = hero:GetNumItemsInInventory()
   if iItemCount <= 7 then
     return
@@ -157,7 +156,7 @@ end
 
 function BotThink:ThinkConsumeItem(hHero)
   local hHeroName = hHero:GetName()
-  local hPlayerId = hHero:GetPlayerID()
+  local iItemCount = hHero:GetNumItemsInInventory()
   if iItemCount <= 7 then
     return
   end

@@ -2365,15 +2365,12 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-
 		"ItemCost"						"7100"
 		"ItemShopTags"					"damage;attack_speed"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"dragon lance plus"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequiresCharges"			"0"
-		"ItemKillable"					"1"
-		"ItemSellable"					"1"
 
 
 		// Special
@@ -2463,9 +2460,6 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
 		"ItemRequiresCharges"			"0"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemKillable"					"0"
-		"ItemSellable"					"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -2553,8 +2547,6 @@
 		"ItemAliases"					"magic scepter"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequiresCharges"			"0"
-		"ItemKillable"					"1"
-		"ItemSellable"					"1"
 
 
 		// Special
@@ -2640,9 +2632,6 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
 		"ItemRequiresCharges"			"0"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemKillable"					"0"
-		"ItemSellable"					"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
