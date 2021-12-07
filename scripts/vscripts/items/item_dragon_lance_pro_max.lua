@@ -89,7 +89,7 @@ function modifier_item_dragon_lance_pro_max_active:GetTexture()
 end
 
 function modifier_item_dragon_lance_pro_max_active:GetEffectName()
-	return "particles/items4_fx/arcane_scepter.vpcf" 
+	return "particles/items4_fx/arcane_scepter.vpcf"
 end
 
 function modifier_item_dragon_lance_pro_max_active:GetEffectAttachType()
