@@ -1,5 +1,7 @@
 {
     "recommendations": [
-        "sumneko.lua"
+        "sumneko.lua",
+        "xavierchn.dota-reborn-code",
+        "github.vscode-pull-request-github"
     ]
 }
