@@ -5,7 +5,7 @@ panorama/scripts/custom_game/*.vjs_c
 /scripts/vscripts/bots
 /panorama/images/items/*.vtex_c
 /panorama/images/items/*.vxml_c
-/tool/reference
+/.tool/reference
 panorama_debugger.cfg
 panorama/styles/custom_game/custom_loading_screen.vcss_c
 panorama/images/custom_game/gamemode_png.vtex_c
