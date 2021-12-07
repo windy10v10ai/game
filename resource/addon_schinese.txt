@@ -299,13 +299,13 @@
 		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"	        "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification"
 
 		//Hallowed
-		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"神聖法杖"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>主动: <font color='#a74abd'>神聖爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续  %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int% 法术增强。"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"仙云法杖"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>主动: <font color='#a74abd'>仙力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续  %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int% 法术增强。"
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
-		"DOTA_Tooltip_Ability_item_recipe_hallowed_scepter"						"神聖法杖卷轴"
+		"DOTA_Tooltip_Ability_item_recipe_hallowed_scepter"						"仙云法杖卷轴"
 
-		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"	                "神聖爆发"
+		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"	                "仙力爆发"
 		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification"
 
 		// dragon lance
