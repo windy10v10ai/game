@@ -331,6 +331,26 @@
 		"DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active"	                "快速拔枪"
 		"DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
 
+        //  hurricane_pike
+		"DOTA_Tooltip_Ability_item_hurricane_pike"						"黄金魔龙枪 Ultimate"
+		"DOTA_Tooltip_Ability_item_hurricane_pike_Description"                    "<h1>主动：黄金龙之力</h1> 将自己和敌方目标朝相反方向各推开%enemy_length%距离，并且接下来的攻击不受英雄攻击距离的限制，持续%max_attacks%次攻击或%range_duration%秒，并且获得%bonus_attack_speed%攻击速度加成。<br><br>对自身或友军使用时效果等同于黄金法杖。<br><br>对友军施法距离：%abilitycastrange%<br>对敌军施法距离：%cast_range_enemy%\n<h1>被动：永恒魔龙之力</h1> 远程英雄的攻击距离增加%base_attack_range%，受到来自龙族的神秘力量庇护，不能出售或销毁。"
+		"DOTA_Tooltip_Ability_item_hurricane_pike_Lore"                           "一柄传奇长枪，曾是远古飞龙骑士氪重金打造的终极兵器。What's up，你这枪柄是金子做的还是枪头的金子做的？"
+		"DOTA_Tooltip_Ability_item_hurricane_pike_Note0"                          "对自身施法会对自己使用黄金魔龙枪。"
+		"DOTA_Tooltip_Ability_item_hurricane_pike_Note1"                          "黄金魔龙枪不会打断目标的动作。"
+		"DOTA_Tooltip_Ability_item_hurricane_pike_Note2"                          "对时间结界，决斗或黑洞内的单位无效。"
+		"DOTA_Tooltip_Ability_item_hurricane_pike_bonus_intellect"                "+$int"
+		"DOTA_Tooltip_Ability_item_hurricane_pike_bonus_health"					"+$health"
+		"DOTA_Tooltip_Ability_item_hurricane_pike_bonus_agility"                  "+$agi"
+		"DOTA_Tooltip_Ability_item_hurricane_pike_bonus_strength"                 "+$str"
+
+		"DOTA_Tooltip_modifier_item_hurricane_pike_active"			"黄金魔龙枪 Ultimate推进效果"
+		"DOTA_Tooltip_modifier_item_hurricane_pike_active_Description"	"被黄金魔龙枪 Ultimate推进。"
+		"DOTA_Tooltip_modifier_item_hurricane_pike_active_alternate"			"黄金魔龙枪 Ultimate推进效果"
+		"DOTA_Tooltip_modifier_item_hurricane_pike_active_alternate_Description"	"被黄金魔龙枪 Ultimate推进中。"
+		"DOTA_Tooltip_modifier_item_hurricane_pike_range"			"黄金魔龙枪 Ultimate射程"
+		"DOTA_Tooltip_modifier_item_hurricane_pike_range_Description"	"可以无视射程限制攻击目标。"
+		"DOTA_Tooltip_Ability_item_recipe_item_hurricane_pike"					"黄金魔龙枪 Ultimate卷轴"
+
 		///////////////////////////////////////////////////
 		//
 		//            Heroes
