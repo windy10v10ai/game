@@ -448,7 +448,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"10"
+				"bonus_armor"			"15"
 			}
 			"02"
 			{

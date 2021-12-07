@@ -6,7 +6,7 @@ require('bot/bot_item_data')
 
 
 local function addTome(k, v)
-  for i = 0, 7 do
+  for i = 0, 9 do
     table.insert(v,"item_tome_of_agility")
     table.insert(v,"item_tome_of_strength")
     table.insert(v,"item_tome_of_intelligence")
@@ -132,7 +132,6 @@ end
 
 function BotThink:ThinkSell(hero)
   local iHeroName = hero:GetName()
-  local iPlayerId = hero:GetPlayerID()
   local iItemCount = hero:GetNumItemsInInventory()
   if iItemCount <= 7 then
     return
@@ -157,7 +156,6 @@ end
 
 function BotThink:ThinkConsumeItem(hHero)
   local hHeroName = hHero:GetName()
-  local hPlayerId = hHero:GetPlayerID()
 
   local itemConsumeList = tBotItemData.itemConsumeList
   for i,vItemUseName in ipairs(itemConsumeList) do

@@ -25,14 +25,14 @@
 		"dire_player_number"	"Dire Player Number"
 		"confirm_game_options"	"Confirm and Hide Game Options"
 		"show_game_options"  "Show Game Options"
-		"respawn_time_percentage"	"Respawn Time Percentage"
+		"respawn_time_percentage"	"Respawn Time"
 		"max_level"	"Max Level"
-		"radiant_tower_power"	"Radiant Tower Power/Endurance Level"
-		"dire_tower_power"	"Dire Tower Power/Endurance Level"
+		"radiant_tower_power"	"Radiant Tower Level"
+		"dire_tower_power"	"Dire Tower Level"
 		"radiant_tower_endure"	"Radiant Buildings Endurance Level"
 		"dire_tower_endure"	"Dire Buildings Endurance Level"
-		"radiant_tower_heal"	"Radiant Building Health Regen"
-		"dire_tower_heal"	"Dire Building Health Regen"
+		"radiant_tower_heal"	"Radiant Building HP Regen"
+		"dire_tower_heal"	"Dire Building HP Regen"
 		"starting_gold_player"	"Player Starting Gold"
 		"starting_gold_bot"	"Bot Starting Gold"
 		"same_hero_selection"  "Allow Same Hero Selection"
@@ -101,7 +101,7 @@
 		"DOTA_Tooltip_modifier_tower_endure_Description"		"The building's armor is changed by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, max health is set to %dMODIFIER_PROPERTY_TOOLTIP%%%."
 
 		"DOTA_Tooltip_modifier_melee_resistance"					"Bulldozer"
-		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% stackable base status resist, 40%% base magical resistance."
+		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% stackable base status resist, 34%% base magical resistance."
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
@@ -116,9 +116,9 @@
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"Said to be a tear from the lunar goddess Selemene."
 
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"						"Aghanim's Regalia Synth"
-		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted all benefits from Aghanim's Regalia: Ultimate Upgrade, +%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% to all attributes, +%dMODIFIER_PROPERTY_HEALTH_BONUS% health, +%dMODIFIER_PROPERTY_MANA_BONUS% mana, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage."
+		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted all benefits from Aghanim's Regalia: Ultimate Upgrade, +%dMODIFIER_PROPERTY_HEALTH_BONUS% health, +%dMODIFIER_PROPERTY_MANA_BONUS% mana, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2"									"Aghanim's Regalia"
-		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"Use: Consume the Aghanim's Regalia to permanently gain Ultimate Upgrade, +%bonus_all_stats% to all attributes, +%bonus_health% health, +%bonus_mana% mana, +%spell_amp%%% spell damage.\nPassive: Ultimate Upgrade - Upgrades the ultimate, and some abilities, of certain heroes."
+		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"Use: Consume the Aghanim's Regalia to permanently gain Ultimate Upgrade, +%bonus_health% health, +%bonus_mana% mana, +%spell_amp%%% spell damage.\nPassive: Ultimate Upgrade - Upgrades the ultimate, and some abilities, of certain heroes."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Lore"							"The regalia of a wizard with demigod-like powers."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_all_stats"				"+$all"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_health"					"+$health"
@@ -126,9 +126,9 @@
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_spell_amp"					"%+$spell_amp"
 
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Wings of Haste"
-		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% movement speed, %MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% damage, %MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %MODIFIER_PROPERTY_STATS_INTELLECT_BONUS% all stats, %MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regen, %MODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor."
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% movement speed, %MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% damage, %MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regen, %MODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen."
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"Wings of Haste"
-		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"Use: Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_damage% damage, %bonus_attack_speed% attack speed, %bonus_all_stats% all stats, %bonus_health_regen% health regen, %bonus_mana_regen% mana regen, %bonus_armor% armor."
+		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"Use: Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_damage% damage, %bonus_attack_speed% attack speed, %bonus_health_regen% health regen, %bonus_mana_regen% mana regen."
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_damage"						"+$damage"
@@ -136,7 +136,6 @@
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_all_stats"					"+$all"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_health_regen"					"+$hp_regen"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_mana_regen"					"+$mana_regen"
-		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_armor"							"+$armor"
 
 		"DOTA_Tooltip_Ability_item_royal_jelly_custom"									"Royal Jelly"
 		"DOTA_Tooltip_Ability_item_royal_jelly_custom_Description"					"<h1>Use: Consume</h1> Grants a target allied unit a permanent buff that provides +%health_regen% Health Regen and +%mana_regen% Mana Regen.<br><br>Does not stack on the same unit."
@@ -257,7 +256,7 @@
 		"DOTA_Tooltip_ability_item_insight_armor"                               "Armor of Insight"
 		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>Active: A Stroke of Insight</h1>Significantly boosts the strength of the Aura of Insight for %duration% seconds.<br><br>Additional HP Regen: %aura_regen_buff%<br>Additional Damage Reduction: %aura_damage_reduction_buff%%%<br><br>Radius: %radius%\n<h1>Passive: Aura of Insight</h1>Gives allied units %aura_regen_base% health regeneration and %aura_damage_reduction_base%%% incoming damage reduction.<br><br>Radius: %radius%"
 		"DOTA_Tooltip_ability_item_insight_armor_Lore"							"An exquisitely crafted suit of armor that bestows secret wisdom upon the wearer."
-		"DOTA_Tooltip_ability_item_insight_armor_bonus_all_stats"				"+$all"
+		"DOTA_Tooltip_ability_item_insight_magical_resis"						"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_health"					"+$health"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_health_regen"			"+$hp_regen"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_armor"							"+$armor"
@@ -279,10 +278,11 @@
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_Lore"						"At the core of spellcraft are spectrums only the very gifted can sense."
 
 		"DOTA_Tooltip_Ability_item_aeon_pendant"				"Aeon Pendant"
-		"DOTA_Tooltip_ability_item_aeon_pendant_Description"					"<h1>Passive: Combo Breaker</h1> When you take damage and your health falls below %health_threshold_pct%%, a strong dispel is applied and you gain a %buff_duration% second buff that provides +%status_resistance%%% Status Resistance and causes all damage you deal and are dealt to be reduced to zero. Only triggers on player based damage."
+		"DOTA_Tooltip_ability_item_aeon_pendant_Description"					"<h1>Passive: Combo Breaker</h1> When you take damage and your health falls below %health_threshold_pct%%, a strong dispel is applied and you gain a %buff_duration% second buff that provides +%status_resistance%%% Status Resistance and causes all damage you deal and are dealt to be reduced to zero. Only triggers on player based damage. Cooldown increases every time it triggers."
 		"DOTA_Tooltip_ability_item_aeon_pendant_lore"					"A powerful artifact long ago smuggled out of the Ivory Incubarium. Or so many believe."
 		"DOTA_Tooltip_ability_item_aeon_pendant_bonus_health"					"+$health"
 		"DOTA_Tooltip_ability_item_aeon_pendant_bonus_mana"					"+$mana"
+		"DOTA_Tooltip_ability_item_aeon_pendant_cooldown_duration"					"COOLDOWN:"	
 
 		"DOTA_Tooltip_Ability_item_monkey_king_bar_2"			"Re: Monkey King Bar"
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_Description"					"<h1>Passive: Pierce</h1>Grants each attack a %bonus_chance%%% chance to pierce through evasion and deal %bonus_chance_damage% bonus magical damage."
@@ -291,7 +291,7 @@
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_attack_speed"					"+$attack"
 
 		"DOTA_Tooltip_Ability_item_magic_scepter"								"Magic Scepter"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>Active: Spell Boost</h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int% Spell Amplification for each point of Intelligence."
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>Active: <font color='#a74abd'>Spell Boost</font></h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int% Spell Amplification for each point of Intelligence."
 		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, mildly deteriorated.."
 		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_magic_scepter"						"Magic Scepter Recipe"
@@ -301,7 +301,7 @@
 
 		//Hallowed
 		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"Hallowed Scepter"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>Active: Hallowed Spell Boost</h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int% Spell Amplification for each point of Intelligence.\n\n<h1>Passive: <font color='#a74abd'>Hallowed</font></h1>Blessed by the ancient spirits of light and dark. Cannot be sold nor destroyed."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>Active: <font color='#a74abd'>Hallowed Spell Boost</font></h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int% Spell Amplification for each point of Intelligence."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_hallowed_scepter"						"Hallowed Scepter Recipe"
@@ -322,7 +322,7 @@
 		"DOTA_Tooltip_modifier_item_dragon_lance_plus_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
 
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max"						"Dragon Lance Pro Max"
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Description"			"<h1>Active: Quick draw</h1> Grants %active_boost% attack speed for  %active_boost_duration% seconds.\n<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by dragon. Cannot be sold or destroyed."
+		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Description"			"<h1>Active: Quick draw</h1> Grants %active_boost% attack speed for  %active_boost_duration% seconds."
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Lore"					"（Attack range）become more longer and（bonus）become more strengther is the eternal pursuit of all people"
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_agility"		    "+$agi"
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_strength"		    "+$str"
@@ -346,7 +346,7 @@
 		"DOTA_Tooltip_modifier_glaives_of_wisdom_status"								"Glaives of Wisdom"
 		"DOTA_Tooltip_modifier_glaives_of_wisdom_status_Description"				"Temporarily increasing Intelligence"
 
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"Assassinate"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"Assassinate (old)"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
@@ -373,7 +373,7 @@
 		// Tomes
 
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"Tome of Strength"
-		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>Use: Bulk</h1> Permanently increases your strength by %bonus%."
+		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>Use: Bulk</h1> Permanently increases your strength by %bonus%.\n Shareable with teammate."
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Lore"				"Is it strength that you desire...?"
 
 		"DOTA_Tooltip_modifier_str_tome"								"Strength Tomes Consumed"
@@ -381,7 +381,7 @@
 
 
 		"DOTA_Tooltip_Ability_item_tome_of_agility"						"Tome of Agility"
-		"DOTA_Tooltip_Ability_item_tome_of_agility_Description"			"<h1>Use: Lighten</h1> Permanently increases your agility by %bonus%."
+		"DOTA_Tooltip_Ability_item_tome_of_agility_Description"			"<h1>Use: Lighten</h1> Permanently increases your agility by %bonus%.\n Shareable with teammate."
 		"DOTA_Tooltip_Ability_item_tome_of_agility_Lore"				"Is it swiftness that you seek...?"
 
 		"DOTA_Tooltip_modifier_agi_tome"								"Agility Tomes Consumed"
@@ -389,7 +389,7 @@
 
 
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence"				"Tome of Intelligence"
-		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Description"	"<h1>Use: Learn</h1> Permanently increases your intelligence by %bonus%."
+		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Description"	"<h1>Use: Learn</h1> Permanently increases your intelligence by %bonus%.\n Shareable with teammate."
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Lore"			"Is it enlightenment that you aspire to...?"
 
 		"DOTA_Tooltip_modifier_int_tome"								"Intelligence Tomes Consumed"
@@ -452,7 +452,7 @@
 
 		// item infernal desolator
 		"DOTA_Tooltip_Ability_item_infernal_desolator"				"Infernal Desolator"
-		"DOTA_Tooltip_ability_item_infernal_desolator_Description"						"<h1>Passive:Super Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds."
+		"DOTA_Tooltip_ability_item_infernal_desolator_Description"						"<h1>Passive: Super Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds."
 		"DOTA_Tooltip_ability_item_infernal_desolator_Lore"							"SUPER Desolator"
 		"DOTA_Tooltip_ability_item_infernal_desolator_Note0"								"Armor reduction works on buildings."
 		//"DOTA_Tooltip_ability_item_infernal_desolator_corruption_armor"					"ARMOR REDUCTION:"
@@ -485,8 +485,8 @@
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_lifesteal_amp"					"%+Spell Lifesteal Amplification"
 
 		// item yishan
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"yishan"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"like abyssal_blade_v2"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"Flash"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>Active: Flash</h1>Teleport to a target enemy unit and stun it for %stun_m% seconds. Inflict pure damage equal to %dam% * your strength.\n<h1>Passive: <font color='#F19B8F'>Power of Sacred Diana</font></h1>Grants melee heroes a %ch_m%% chance on hit to stun the target for %stun% seconds and deal %damatt% bonus physical damage. Bash chance for ranged heroes is %ch_r%%.\n<h1>Passive: <font color='#f15b47'>Bleak</font></h1>Grants a %block_chance%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_Lore"                   "abyssal_blade_v2"
 		"DOTA_Tooltip_modifier_item_abyssal_blade_v2_debuff"				"stun"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_damage"			"+$damage"
@@ -496,7 +496,7 @@
 
 		// item heavens halberd v2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"heavens halberd v2"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within 300 with self as the center，And produce a repulsion effect，Disarm duration：%disarm_con% ＋Hero's current str/%disarm_con_per_str% seconds,Up to %disarm_con_max% seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% probability of disarming the target ,It can be triggered every 5 seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within 300 with self as the center，And produce a repulsion effect，Disarm duration：%disarm_con%s +Hero's current str/%disarm_con_per_str% seconds,Up to %disarm_con_max% seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% probability of disarming the target ,It can be triggered every 5 seconds."
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+Status Resistance"

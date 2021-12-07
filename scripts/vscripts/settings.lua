@@ -6,6 +6,7 @@ AUTO_LAUNCH_DELAY = 60                -- How long should the default team select
 LOCK_TEAM_SETUP = false                 -- Should we lock the teams initially?  Note that the host can still unlock the teams
 HERO_SELECTION_TIME = 60.0              -- How long should we let people select their hero?
 PRE_GAME_TIME = 60.0                     -- How long after people select their heroes should the horn blow and the game start?
+STRATEGY_TIME = 30.0
 
 RADIANT_PLAYER_COUNT = 10
 DIRE_PLAYER_COUNT = 10
