@@ -49,7 +49,6 @@
 		"bots_multiplier_5"		"5   (Unfair)"
 		"bots_multiplier_7_5"	"7.5 (Legendary)"
 		"bots_multiplier_10"	"10  (Hell)"
-		"bots_multiplier_15"	"15  (Inferno)"
 
 		"player_gold_xp_multiplier_1"               "1"
 		"player_gold_xp_multiplier_1_1"             "1.1"

@@ -33,7 +33,6 @@
 							<Label text="#bots_multiplier_5" id="5"/>
 							<Label text="#bots_multiplier_7_5" id="7.5"/>
 							<Label text="#bots_multiplier_10" id="10"/>
-							<Label text="#bots_multiplier_15" id="15"/>
 						</DropDown>
 					</Panel>
 					<Panel id="RadiantPlayerNumberMultiplierPanel"	class="GameOptionsSubPanel">
