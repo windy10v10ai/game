@@ -227,6 +227,15 @@
 				"28"		"special_bonus_unique_bane_9"
 				"29"		"special_bonus_unique_bane_5"
 				"30"		"special_bonus_unique_bane_2"
+				"31"		"bane_fiends_grip"
+				"32"		"bane_fiends_grip"
+				"33"		"bane_nightmare"
+				"34"		"bane_brain_sap"
+				"35"		"bane_enfeeble"
+				"36"		"bane_brain_sap"
+				"37"		"bane_enfeeble"
+				"38"		"bane_brain_sap"
+				"39"		"bane_enfeeble"
 			}
 		}
 	}
@@ -602,6 +611,7 @@
 				"29"		"special_bonus_unique_earthshaker_3"
 				"30"		"special_bonus_unique_earthshaker_5"
 				"31"		"earthshaker_echo_slam"
+				"32"		"earthshaker_fissure"
 			}
 		}
 	}
@@ -639,11 +649,43 @@
 		{
 			"Build"
 			{
+				"1"		"kunkka_tidebringer"
+				"2"		"kunkka_torrent"
+				"3"		"kunkka_tidebringer"
+				"4"		"kunkka_torrent"
+				"5"		"kunkka_tidebringer"
+				"6"		"kunkka_ghostship"
+				"7"		"kunkka_tidebringer"
+				"8"		"kunkka_tidebringer"
+				"9"		"kunkka_tidebringer"
+				"10"		"special_bonus_attack_damage_30"
+				"11"		"kunkka_tidebringer"
+				"12"		"kunkka_ghostship"
+				"13"		"kunkka_x_marks_the_spot"
+				"14"		"kunkka_x_marks_the_spot"
+				"15"		"special_bonus_strength_16"
+				"16"		"kunkka_x_marks_the_spot"
+				"17"		""
+				"18"		"kunkka_ghostship"
+				"19"		""
+				"20"		"special_bonus_unique_kunkka"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_kunkka_3"
 				"26"		""
 				"27"		"special_bonus_unique_kunkka_7"
 				"28"		"special_bonus_unique_kunkka_2"
 				"29"		"special_bonus_unique_kunkka_4"
 				"30"		"special_bonus_unique_kunkka_5"
+				"31"		"kunkka_ghostship"
+				"32"		"kunkka_ghostship"
+				"33"		"kunkka_torrent"
+				"34"		"kunkka_torrent"
+				"35"		"kunkka_torrent"
+				"36"		"kunkka_x_marks_the_spot"
+				"37"		"kunkka_x_marks_the_spot"
 			}
 		}
 	}
@@ -735,6 +777,15 @@
 				"28"		"special_bonus_unique_luna_6"
 				"29"		"special_bonus_unique_luna_1"
 				"30"		"special_bonus_unique_luna_3"
+				"31"		"luna_lucent_beam"
+				"32"		"luna_eclipse"
+				"33"		"luna_eclipse"
+				"34"		"luna_moon_glaive"
+				"35"		"luna_lunar_blessing"
+				"36"		"luna_moon_glaive"
+				"37"		"luna_lunar_blessing"
+				"38"		"luna_moon_glaive"
+				"39"		"luna_lunar_blessing"
 			}
 		}
 	}
@@ -798,6 +849,12 @@
 				"29"		"special_bonus_unique_omniknight_3"
 				"30"		"special_bonus_unique_omniknight_7"
 				"31"		"omniknight_guardian_angel"
+				"32"		"omniknight_repel"
+				"33"		"omniknight_degen_aura"
+				"34"		"omniknight_repel"
+				"35"		"omniknight_degen_aura"
+				"36"		"omniknight_repel"
+				"37"		"omniknight_degen_aura"
 			}
 		}
 	}
@@ -1011,14 +1068,14 @@
 				"29"		"special_bonus_status_resistance_15"
 				"30"		"special_bonus_unique_tiny_2"
 				"31"		"tiny_grow"
-				"32"		"tiny_avalanche"
+				"32"		"tiny_grow"
 				"33"		"tiny_toss"
 				"34"		"tiny_avalanche"
 				"35"		"tiny_toss"
 				"36"		"tiny_avalanche"
 				"37"		"tiny_toss"
 				"38"		"tiny_tree_grab"
-				"39"		"tiny_grow"
+				"39"		"tiny_avalanche"
 			}
 		}
 	}
@@ -1062,6 +1119,10 @@
 				"33"		"viper_poison_attack"
 				"34"		"viper_poison_attack"
 				"35"		"viper_viper_strike"
+				"36"		"viper_corrosive_skin"
+				"37"		"viper_corrosive_skin"
+				"38"		"viper_corrosive_skin"
+				"39"		"viper_nethertoxin"
 			}
 		}
 	}
@@ -1205,6 +1266,10 @@
 				"33"		"zuus_lightning_bolt"
 				"34"		"zuus_lightning_bolt"
 				"35"		"zuus_thundergods_wrath"
+				"36"		"zuus_arc_lightning"
+				"37"		"zuus_arc_lightning"
+				"38"		"zuus_arc_lightning"
+				"39"		"zuus_static_field"
 			}
 		}
 	}

@@ -82,7 +82,7 @@ function modifier_item_hallowed_scepter_active:GetModifierSpellAmplify_Percentag
 end
 
 function modifier_item_hallowed_scepter_active:GetTexture()
-    return "item_arcane_scepter"
+    return "item_hallowed_scepter"
 end
 
 function modifier_item_hallowed_scepter_active:GetEffectName()
