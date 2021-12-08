@@ -120,10 +120,13 @@
 	//=========================================================
 	"npc_dota_goodguys_tower2_top"
 	{
-		"AttackDamageMin"		"152" // 142
-		"AttackDamageMax"		"172" // 162
+		// Ability
+		"Ability2"					"tower_split_shot"
+
+		"AttackDamageMin"			"142" // 142
+		"AttackDamageMax"			"162" // 162
 		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 16
+		"ArmorPhysical"				"25" // 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -134,10 +137,13 @@
 	}
 	"npc_dota_badguys_tower2_top"
 	{
-		"AttackDamageMin"		"152" // 142
-		"AttackDamageMax"		"172" // 162
+		// Ability
+		"Ability2"					"tower_split_shot"
+
+		"AttackDamageMin"			"142" // 142
+		"AttackDamageMax"			"162" // 162
 		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 16
+		"ArmorPhysical"				"25" // 16
 		"AttackAcquisitionRange"	"1100"		// Range within a target can be acquired.
 		"AttackRange"				"1100"		// Range within a target can be attacked.
 
@@ -148,10 +154,13 @@
 	}
 	"npc_dota_goodguys_tower2_bot"
 	{
-		"AttackDamageMin"		"152" // 142
-		"AttackDamageMax"		"172" // 162
+		// Ability
+		"Ability2"					"tower_split_shot"
+
+		"AttackDamageMin"			"142" // 142
+		"AttackDamageMax"			"162" // 162
 		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 16
+		"ArmorPhysical"				"25" // 16
 		"AttackAcquisitionRange"	"1100"		// Range within a target can be acquired.
 		"AttackRange"				"1100"		// Range within a target can be attacked.
 
@@ -162,10 +171,13 @@
 	}
 	"npc_dota_badguys_tower2_bot"
 	{
-		"AttackDamageMin"		"152" // 142
-		"AttackDamageMax"		"172" // 162
+		// Ability
+		"Ability2"					"tower_split_shot"
+
+		"AttackDamageMin"			"142" // 142
+		"AttackDamageMax"			"162" // 162
 		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 16
+		"ArmorPhysical"				"25" // 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -176,10 +188,13 @@
 	}
 	"npc_dota_goodguys_tower2_mid"
 	{
-		"AttackDamageMin"		"162" // 142
-		"AttackDamageMax"		"172" // 162
+		// Ability
+		"Ability2"					"tower_split_shot"
+
+		"AttackDamageMin"			"142" // 142
+		"AttackDamageMax"			"162" // 162
 		"AttackRate"				"0.8" // 0.95
-		"ArmorPhysical"			"25" // 16
+		"ArmorPhysical"				"25" // 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -190,10 +205,13 @@
 	}
 	"npc_dota_badguys_tower2_mid"
 	{
-		"AttackDamageMin"		"162" // 142
-		"AttackDamageMax"		"172" // 162
+		// Ability
+		"Ability2"					"tower_split_shot"
+
+		"AttackDamageMin"			"142" // 142
+		"AttackDamageMax"			"162" // 162
 		"AttackRate"				"0.8" // 0.95
-		"ArmorPhysical"			"25" // 16
+		"ArmorPhysical"				"25" // 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -728,9 +746,9 @@
 
 		"AttackDamageMin"		"232" // 142
 		"AttackDamageMax"		"252" // 162
-		"AttackRate"				"0.7" // 0.95
-		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
-		"AttackRange"				"900"		// Range within a target can be attacked.
+		"AttackRate"				"0.8" // 0.95
+		"AttackAcquisitionRange"	"800"		// 700
+		"AttackRange"				"800"		// 700
 
 		// Status
 		//----------------------------------------------------------------
@@ -746,9 +764,9 @@
 
 		"AttackDamageMin"		"232" // 142
 		"AttackDamageMax"		"252" // 162
-		"AttackRate"				"0.7" // 0.95
-		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
-		"AttackRange"				"900"		// Range within a target can be attacked.
+		"AttackRate"				"0.8" // 0.95
+		"AttackAcquisitionRange"	"800"		// 700
+		"AttackRange"				"800"		// 700
 
 		// Status
 		//----------------------------------------------------------------
@@ -821,11 +839,14 @@
 	}
 	"dota_fountain"
 	{
+		// Abilities
+		"Ability1"					"tower_headshot"			// none
+
 		"AttackDamageMin"			"390"		// 290
 		"AttackDamageMax"			"410"		// 310
-		"AttackRate"				"0.03"
-		"AttackAcquisitionRange"	"1600"		// Range within a target can be acquired.
-		"AttackRange"				"1600"		// Range within a target can be attacked. (was 690)
+		"AttackRate"				"0.03"		// 0.15
+		"AttackAcquisitionRange"	"1400"		// 1200
+		"AttackRange"				"1400"		// 1200
 		"ProjectileSpeed"			"1800"		// 1400
 	}
 

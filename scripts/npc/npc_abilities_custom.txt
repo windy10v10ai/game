@@ -520,7 +520,7 @@
 			"03"
 			{	
 				"var_type"					"FIELD_INTEGER"
-				"arrow_count"				"2 3 4 5"
+				"arrow_count"				"1 2 3 4"
 				"LinkedSpecialBonus"			"special_bonus_unique_medusa_2"
 			}
 			"04"
@@ -528,6 +528,35 @@
 				"var_type"						"FIELD_INTEGER"
 				"split_shot_bonus_range"		"150"
 			}
+		}
+	}
+
+	"tower_headshot"
+	{
+		"BaseClass"						"sniper_headshot"
+		"AbilityDamage"					"0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"slow_duration"					"0.1"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"proc_chance"					"100"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"knockback_distance"			"100"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow"						"-100"
+			}	
 		}
 	}
 }
