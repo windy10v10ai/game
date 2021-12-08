@@ -4961,13 +4961,13 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage_buildings"		"70 100 130 160 180"
+				"bonus_damage_buildings"		"90 120 150 180 210"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"splash_pct"				"40 60 80 100 120"
+				"splash_pct"				"60 90 120 150 180"
 			}
 		}
 	}
@@ -4983,12 +4983,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_armor"				"12 18 24 30 36"
+				"bonus_armor"				"20 25 30 35 40"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"40 80 120 160 200"
+				"bonus_damage"				"50 100 150 200 250"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"03"
@@ -6086,6 +6086,95 @@
 				"var_type"					"FIELD_FLOAT"
 				"value"						"20"
 				"ad_linked_ability"			"omniknight_guardian_angel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}	
+	//=================================================================================================================
+	// Kunkka: Torrent                       船长
+	//=================================================================================================================
+	"kunkka_torrent"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityManaCost"				"90 100 110 120 130"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed_bonus"			"-25 -30 -35 -40 -45"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration"				"1 2 3 4 5"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"torrent_damage"			"75 150 225 300 375"
+				"LinkedSpecialBonus"		"special_bonus_unique_kunkka_2"
+			}
+		}		
+	}
+	"kunkka_torrent_storm"
+	{
+		"AbilityCooldown"				"50"
+	}
+	"kunkka_tidebringer"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"15.0 13.0 11.0 9.0 7.0 5.0 3.0"
+		"AbilitySpecial"
+		{					
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cleave_ending_width"			"500 550 600 650 700 750 800"
+			}			
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cleave_distance"			"700 800 900 1000 1100 1200 1300"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_bonus"				"30 60 90 120 150 180 210"
+				"LinkedSpecialBonus"		"special_bonus_unique_kunkka_6"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"cleave_damage"				"200"
+				"LinkedSpecialBonus"		"special_bonus_unique_kunkka_4"
+			}
+		}
+	}
+	"kunkka_x_marks_the_spot"
+	{
+		"MaxLevel" "5"
+		"AbilityCastRange"				"400 600 800 1000 1200"
+		"AbilityCooldown"				"24 20 16 12 8"
+	}
+	"kunkka_ghostship"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"90 80 70 60 50"
+		"AbilityDamage"					"400 500 600 700 800"
+		"AbilityManaCost"				"100 150 200 250 300"
+		"AbilitySpecial"
+		{		
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed_bonus"			"15"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"ghostship_absorb"			"40 45 50 55 60"
 			}
 		}
 	}
