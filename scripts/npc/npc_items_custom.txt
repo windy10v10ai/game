@@ -3962,7 +3962,7 @@
 		"ItemResult"					"item_hurricane_pike_2"
 		"ItemRequirements"
 		{
-			"01"						"item_force_staff_3;item_dragon_lance_pro_max"
+			"01"						"item_hurricane_pike;item_dragon_lance_pro_max"
 		}
 	}
 	
@@ -4000,7 +4000,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"45"
+				"bonus_intellect"		"20"
 			}
 			"02"
 			{
@@ -4010,17 +4010,17 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"75"
+				"bonus_agility"			"80"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"30"
+				"bonus_strength"		"40"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_attack_range"		"220"
+				"base_attack_range"		"240"
 			}
 			"06"
 			{
@@ -4040,7 +4040,7 @@
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range_enemy"		"600"
+				"cast_range_enemy"		"800"
 			}
 			"10"
 			{
