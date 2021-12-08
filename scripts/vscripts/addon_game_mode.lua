@@ -32,6 +32,9 @@ end
 function AIGameMode:EnterDebugMode()
 	print("========Enter Debug Mode========")
 	self.DebugMode = true
+	GameRules:SetCustomGameSetupAutoLaunchDelay( 10 )
+	GameRules:SetPreGameTime( 10 )
+	GameRules:SetStrategyTime( 10 )
 	print("DOTA 2 AI Wars Loaded.")
 end
 
@@ -43,7 +46,7 @@ function AIGameMode:InitGameOptions()
 	GameRules:SetPreGameTime( PRE_GAME_TIME )
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, RADIANT_PLAYER_COUNT)
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, DIRE_PLAYER_COUNT)
-	GameRules:SetStrategyTime(20)
+	GameRules:SetStrategyTime( STRATEGY_TIME )
 	GameRules:SetShowcaseTime(0)
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 
@@ -233,43 +236,6 @@ end
 ------------------------------------------------------------------
 --                        Gold/XP Filter                        --
 ------------------------------------------------------------------
-
-local function multiplierGoldWithGameTime(multiplier)
-	return multiplier
-	-- local time = GameRules:GetDOTATime(false, false)
-	-- if time < (60 * 2) then
-	-- 	if multiplier < 3 then
-	-- 		return multiplier
-	-- 	elseif multiplier <= 5 then
-	-- 		return 3
-	-- 	elseif multiplier <= 10 then
-	-- 		return 6
-	-- 	else
-	-- 		return 9
-	-- 	end
-	-- else
-	-- 	return multiplier
-	-- end
-end
-
-local function multiplierXPWithGameTime(multiplier)
-	return multiplier
-	-- local time = GameRules:GetDOTATime(false, false)
-	-- if time < (60 * 2) then
-	-- 	if multiplier < 3 then
-	-- 		return multiplier
-	-- 	elseif multiplier <= 5 then
-	-- 		return 4
-	-- 	elseif multiplier <= 10 then
-	-- 		return 8
-	-- 	else
-	-- 		return 12
-	-- 	end
-	-- else
-	-- 	return multiplier
-	-- end
-end
-
 function AIGameMode:FilterGold(tGoldFilter)
 	local iGold = tGoldFilter["gold"]
 	local iPlayerID = tGoldFilter["player_id_const"]
@@ -289,9 +255,9 @@ function AIGameMode:FilterGold(tGoldFilter)
 	end
 
 	if self.tHumanPlayerList[iPlayerID] then
-		tGoldFilter["gold"] = math.floor(iGold*multiplierGoldWithGameTime(self.fPlayerGoldXpMultiplier))
+		tGoldFilter["gold"] = math.floor(iGold*self.fPlayerGoldXpMultiplier)
 	else
-		tGoldFilter["gold"] = math.floor(iGold*multiplierGoldWithGameTime(self.fBotGoldXpMultiplier))
+		tGoldFilter["gold"] = math.floor(iGold*self.fBotGoldXpMultiplier)
 	end
 	print("Filter gold end: "..tostring(tGoldFilter["gold"]))
 	return true
@@ -304,9 +270,9 @@ function AIGameMode:FilterXP(tXPFilter)
 	local iReason = tXPFilter["reason_const"]
 
 	if self.tHumanPlayerList[iPlayerID] then
-		tXPFilter["experience"] = math.floor(iXP*multiplierXPWithGameTime(self.fPlayerGoldXpMultiplier))
+		tXPFilter["experience"] = math.floor(iXP*self.fPlayerGoldXpMultiplier)
 	else
-		tXPFilter["experience"] = math.floor(iXP*multiplierXPWithGameTime(self.fBotGoldXpMultiplier))
+		tXPFilter["experience"] = math.floor(iXP*self.fBotGoldXpMultiplier)
 	end
 	return true
 end
