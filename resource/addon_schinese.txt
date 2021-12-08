@@ -333,8 +333,8 @@
 
         //  hurricane_pike_2
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2"						"黄金魔龙枪 Ultimate"
-		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Description"                    "<h1>主动：黄金龙之力</h1> 将自己和敌方目标朝相反方向各推开%enemy_length%距离，并且接下来的攻击不受英雄攻击距离的限制，持续%max_attacks%次攻击或%range_duration%秒。"
-		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Lore"                           "一柄传奇长枪，曾是远古飞龙骑士氪重金打造的终极兵器。What's up，你这枪柄是金子做的还是枪头的金子做的？"
+		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Description"                    "<h1>主动：黄金龙之力</h1> 将自己和敌方目标朝相反方向各推开%enemy_length%距离，并且接下来的攻击不受英雄攻击距离的限制，持续%max_attacks%次攻击或%range_duration%秒，并且获得%bonus_attack_speed%攻击速度加成。<br><br>对自身或友军使用时效果等同于黄金法杖。<br><br>对友军施法距离：%abilitycastrange%<br>对敌军施法距离：%cast_range_enemy%\n<h1>被动：永恒魔龙之力</h1> 远程英雄的攻击距离增加%base_attack_range%。"
+		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Lore"                           "一柄传奇长枪，曾是远古飞龙骑士氪重金打造的终极兵器。What's up，你这枪柄是金子做的还是枪头是金子做的？"
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Note0"                          "对自身施法会对自己使用黄金魔龙枪。"
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Note1"                          "黄金魔龙枪不会打断目标的动作。"
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Note2"                          "对时间结界，决斗或黑洞内的单位无效。"
