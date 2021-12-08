@@ -49,7 +49,6 @@
 		"bots_multiplier_5"		"5    (疯狂)"
 		"bots_multiplier_7_5"	"7.5 (传说)"
 		"bots_multiplier_10"	"10  (地狱)"
-		"bots_multiplier_15"	"15  (坐牢)"
 
 		"player_gold_xp_multiplier_1"               "1    (传说)"
 		"player_gold_xp_multiplier_1_1"             "1.1 (疯狂)"
