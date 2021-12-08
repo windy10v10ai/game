@@ -540,7 +540,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"slow_duration"					"0.1"
+				"slow_duration"					"0.2"
 			}
 			"02"
 			{
@@ -550,7 +550,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"knockback_distance"			"100"
+				"knockback_distance"			"80"
 			}
 			"04"
 			{
