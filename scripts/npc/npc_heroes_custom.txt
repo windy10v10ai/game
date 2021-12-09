@@ -151,46 +151,6 @@
 			}
 		}
 	}
-
-	"npc_dota_hero_nevermore"
-	{
-		"Bot"
-		{
-			"Build"
-			{
-				"1"		"nevermore_necromastery"
-				"2"		"nevermore_shadowraze1"
-				"3"		"nevermore_shadowraze1"
-				"4"		"nevermore_necromastery"
-				"5"		"nevermore_shadowraze1"
-				"6"		"nevermore_necromastery"
-				"7"		"nevermore_shadowraze1"
-				"8"		"nevermore_necromastery"
-				"9"		"nevermore_requiem"
-				"10"		"special_bonus_spell_amplify_8"
-				"11"		"nevermore_dark_lord"
-				"12"		"nevermore_requiem"
-				"13"		"nevermore_shadowraze1"
-				"14"		"nevermore_shadowraze1"
-				"15"		"special_bonus_unique_nevermore_2"
-				"16"		"nevermore_necromastery"
-				"17"		"nevermore_necromastery"
-				"18"		"nevermore_requiem"
-				"19"		"nevermore_dark_lord"
-				"20"		"special_bonus_unique_nevermore_6"
-				"21"		"nevermore_dark_lord"
-				"22"		"nevermore_dark_lord"
-				"23"		"nevermore_dark_lord"
-				"24"		"nevermore_dark_lord"
-				"25"		"special_bonus_unique_nevermore_4"
-				"26"		"nevermore_dark_lord"
-				"27"		"special_bonus_attack_speed_25"
-				"28"		"special_bonus_unique_nevermore_3"
-				"29"		"special_bonus_unique_nevermore_1"
-				"30"		"special_bonus_unique_nevermore_5"
-			}
-		}
-	}
 	"npc_dota_hero_bane"
 	{
 		"Bot"
@@ -786,6 +746,95 @@
 				"37"		"luna_lunar_blessing"
 				"38"		"luna_moon_glaive"
 				"39"		"luna_lunar_blessing"
+				"40"		"luna_lucent_beam"
+				"41"		"luna_lucent_beam"
+			}
+		}
+	}
+	"npc_dota_hero_ogre_magi"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"ogre_magi_ignite"
+				"2"		"ogre_magi_fireblast"
+				"3"		"ogre_magi_ignite"
+				"4"		"ogre_magi_fireblast"
+				"5"		"ogre_magi_bloodlust"
+				"6"		"ogre_magi_multicast"
+				"7"		"ogre_magi_fireblast"
+				"8"		"ogre_magi_bloodlust"
+				"9"		"ogre_magi_fireblast"
+				"10"		"special_bonus_unique_ogre_magi_5"
+				"11"		"ogre_magi_fireblast"
+				"12"		"ogre_magi_multicast"
+				"13"		"ogre_magi_fireblast"
+				"14"		"ogre_magi_bloodlust"
+				"15"		"special_bonus_hp_275"
+				"16"		"ogre_magi_fireblast"
+				"17"		""
+				"18"		"ogre_magi_multicast"
+				"19"		""
+				"20"		"special_bonus_strength_25"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_ogre_magi_2"
+				"26"		""
+				"27"		"special_bonus_unique_ogre_magi_4"
+				"28"		"special_bonus_attack_damage_80"
+				"29"		"special_bonus_unique_ogre_magi"
+				"30"		"special_bonus_20_bash_2"
+				"31"		"ogre_magi_multicast"
+				"32"		"ogre_magi_multicast"
+				"33"		"ogre_magi_ignite"
+				"34"		"ogre_magi_ignite"
+				"35"		"ogre_magi_ignite"
+				"36"		"ogre_magi_bloodlust"
+				"37"		"ogre_magi_bloodlust"
+				"38"		"ogre_magi_bloodlust"
+				"39"		"ogre_magi_bloodlust"
+			}
+		}
+	}
+	"npc_dota_hero_nevermore"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"nevermore_necromastery"
+				"2"		"nevermore_shadowraze1"
+				"3"		"nevermore_shadowraze1"
+				"4"		"nevermore_necromastery"
+				"5"		"nevermore_shadowraze1"
+				"6"		"nevermore_necromastery"
+				"7"		"nevermore_shadowraze1"
+				"8"		"nevermore_necromastery"
+				"9"		"nevermore_requiem"
+				"10"		"special_bonus_spell_amplify_8"
+				"11"		"nevermore_dark_lord"
+				"12"		"nevermore_requiem"
+				"13"		"nevermore_shadowraze1"
+				"14"		"nevermore_shadowraze1"
+				"15"		"special_bonus_unique_nevermore_2"
+				"16"		"nevermore_necromastery"
+				"17"		"nevermore_necromastery"
+				"18"		"nevermore_requiem"
+				"19"		"nevermore_dark_lord"
+				"20"		"special_bonus_unique_nevermore_6"
+				"21"		"nevermore_dark_lord"
+				"22"		"nevermore_dark_lord"
+				"23"		"nevermore_dark_lord"
+				"24"		"nevermore_dark_lord"
+				"25"		"special_bonus_unique_nevermore_4"
+				"26"		"nevermore_dark_lord"
+				"27"		"special_bonus_attack_speed_25"
+				"28"		"special_bonus_unique_nevermore_3"
+				"29"		"special_bonus_unique_nevermore_1"
+				"30"		"special_bonus_unique_nevermore_5"
 			}
 		}
 	}

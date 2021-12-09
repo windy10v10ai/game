@@ -1,6 +1,5 @@
 local tBotNameList = {
 	"npc_dota_hero_axe",
-	"npc_dota_hero_nevermore",
 	"npc_dota_hero_bane",
 	"npc_dota_hero_bounty_hunter",
 	"npc_dota_hero_bloodseeker",
@@ -19,6 +18,8 @@ local tBotNameList = {
 	"npc_dota_hero_lina",
 	"npc_dota_hero_lion",
 	"npc_dota_hero_luna",
+	-- "npc_dota_hero_ogre_magi",
+	"npc_dota_hero_nevermore",
 	"npc_dota_hero_necrolyte",
 	"npc_dota_hero_omniknight",
 	"npc_dota_hero_oracle",
