@@ -18,20 +18,26 @@ local tBotNameList = {
 	"npc_dota_hero_lina",
 	"npc_dota_hero_lion",
 	"npc_dota_hero_luna",
-	-- "npc_dota_hero_ogre_magi",
+	-- "npc_dota_hero_mirana", // 不会放技能，只会物品和A人
 	"npc_dota_hero_nevermore",
 	"npc_dota_hero_necrolyte",
+	-- "npc_dota_hero_ogre_magi", // 不会放技能，只会物品和A人
 	"npc_dota_hero_omniknight",
 	"npc_dota_hero_oracle",
 	"npc_dota_hero_phantom_assassin",
 	"npc_dota_hero_pudge",
+	-- "npc_dota_hero_riki", // 会正常行动，可以加入AI池
+	-- "npc_dota_hero_razor", // 在泉水站着完全不动
+	-- "npc_dota_hero_shadow_shaman", // 不会放技能，只会物品和A人
 	"npc_dota_hero_sand_king",
 	"npc_dota_hero_skywrath_mage",
 	"npc_dota_hero_sniper",
 	"npc_dota_hero_sven",
+	-- "npc_dota_hero_tidehunter", // 在泉水站着完全不动
 	"npc_dota_hero_tiny",
 	"npc_dota_hero_vengefulspirit",
 	"npc_dota_hero_viper",
+	-- "npc_dota_hero_warlock", // 会正常行动，可以加入AI池
 	"npc_dota_hero_windrunner",
 	"npc_dota_hero_witch_doctor",
 	"npc_dota_hero_skeleton_king",
