@@ -254,13 +254,12 @@
 		"DOTA_Tooltip_Ability_item_force_staff_3_spell_amp"			"%+$spell_amp"
 
 		"DOTA_Tooltip_ability_item_insight_armor"                               "Armor of Insight"
-		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>Active: A Stroke of Insight</h1>Significantly boosts the strength of the Aura of Insight for %duration% seconds.<br><br>Additional HP Regen: %aura_regen_buff%<br>Additional Damage Reduction: %aura_damage_reduction_buff%%%<br><br>Radius: %radius%\n<h1>Passive: Aura of Insight</h1>Gives allied units %aura_regen_base% health regeneration and %aura_damage_reduction_base%%% incoming damage reduction.<br><br>Radius: %radius%"
+		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>Active: A Stroke of Insight</h1>Significantly boosts the strength of the Aura of Insight for %duration% seconds.<br><br>Additional HP Regen: %aura_regen_buff%<br>Additional Damage Reduction: %aura_damage_reduction_buff%%%<br>Additional Magical Resistance: %aura_magical_resis_buff%%%<br><br>Radius: %radius%\n<h1>Passive: Aura of Insight</h1>Gives allied units %aura_regen_base% health regeneration and %aura_damage_reduction_base%%% incoming damage reduction.<br><br>Radius: %radius%"
 		"DOTA_Tooltip_ability_item_insight_armor_Lore"							"An exquisitely crafted suit of armor that bestows secret wisdom upon the wearer."
-		"DOTA_Tooltip_ability_item_insight_magical_resis"						"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_insight_armor_magical_resis"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_health"					"+$health"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_health_regen"			"+$hp_regen"
-		"DOTA_Tooltip_ability_item_insight_armor_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_ability_item_insight_armor_damage_reduction"				"%+Damage Reduction"
+		"DOTA_Tooltip_ability_item_insight_armor_bonus_armor"					"+$armor"
 		"DOTA_Tooltip_Ability_item_recipe_insight_armor"						"Armor of Insight Recipe"
 
 		"DOTA_Tooltip_modifier_insight_armor_aura"								"Aura of Insight"
