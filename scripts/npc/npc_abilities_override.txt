@@ -30,22 +30,6 @@
 	{
 		"AbilityCooldown"				"90.0"
 	}
-	"item_cloak"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_magical_armor"	"20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_resist"	"20"
-			}
-		}
-	}
 	"item_glimmer_cape"
 	{
 		"AbilityCastRange"				"700"
@@ -67,96 +51,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"active_magical_armor"	"60"
-			}
-		}
-	}
-	"item_hood_of_defiance"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_spell_resist"	"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_resist"	"30"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_block"			"600"
-			}
-		}
-	}
-	"item_eternal_shroud"
-	{
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_spell_resist"	"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"8.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_block"			"600"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_duration"		"12.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hero_lifesteal"		"20"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"creep_lifesteal"		"8"
-			}
-		}
-	}
-	"item_pipe"
-	{
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resistance"		"35"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_resist"			"35"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resistance_aura"		"15"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_block"			"800"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_block_creep"	"800"
 			}
 		}
 	}
@@ -1301,7 +1195,7 @@
 	{
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2400"
+		"ItemCost"						"2200"
 		"ItemShopTags"					""
 	}
 	"item_dagon"
@@ -4285,7 +4179,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"back_damage_reduction"			"16 24 30 35 40 45 50"
+				"back_damage_reduction"			"15 20 25 30 35 40 45"
 			}
 		}
 	}

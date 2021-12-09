@@ -9,3 +9,4 @@ panorama/scripts/custom_game/*.vjs_c
 panorama_debugger.cfg
 panorama/styles/custom_game/custom_loading_screen.vcss_c
 panorama/images/custom_game/gamemode_png.vtex_c
+panorama/images/custom_game/gamemode_png.vxml_c
