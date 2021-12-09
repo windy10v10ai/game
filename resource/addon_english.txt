@@ -204,7 +204,6 @@
 		"DOTA_Tooltip_ability_item_vladmir_2"                               "Assault Vladimir"
 		"DOTA_Tooltip_ability_item_vladmir_2_Description"							"<h1>Passive: Vladmir's Aura</h1>Grants %vampiric_aura%%% lifesteal, %damage_aura%%% bonus damage, and %mana_regen_aura% mana regeneration to nearby allies.<br>Grants %aura_attack_speed% attack speed and %aura_positive_armor% armor to nearby allied units and structures, and decreases nearby enemy unit armor by %aura_negative_armor%. <br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_vladmir_2_Lore"								"Forged in the depths of the nether reaches, this hellish mail provides an army with increased armor and attack speed."
-		"DOTA_Tooltip_ability_item_vladmir_2_bonus_all_stats"					"+$all"
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_armor"							"+$armor"
 

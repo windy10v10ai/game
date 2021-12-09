@@ -202,7 +202,6 @@
 		"DOTA_Tooltip_ability_item_vladmir_2"                               "强袭祭品"
 		"DOTA_Tooltip_ability_item_vladmir_2_Description"							"<h1>被动：强袭祭品光环</h1>向周围队友提供%vampiric_aura%%%吸血，%damage_aura%%%攻击力加成，%mana_regen_aura%点/秒魔法恢复。<br>附近友军单位和建筑提升%aura_attack_speed%攻击速度和%aura_positive_armor%点护甲。<br>削弱附近敌军%aura_negative_armor%点护甲（不包含建筑物）。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_vladmir_2_Lore"								"在幽冥地带的深渊锻造，这件地狱盔甲提高整支军队的护甲和攻击速度。"
-		"DOTA_Tooltip_ability_item_vladmir_2_bonus_all_stats"					"+$all"
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_armor"							"+$armor"
 

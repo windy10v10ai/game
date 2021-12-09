@@ -57,7 +57,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_attack_speed"			"240"
+				"bonus_attack_speed"			"200"
 			}
 			"02"
 			{
@@ -67,7 +67,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"consumed_bonus"				"130"
+				"consumed_bonus"				"100"
 			}
 			"04"
 			{
@@ -282,7 +282,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"875"
+		"ItemCost"					"575"
 		"ItemShopTags"				""
 
 		// Recipe
@@ -312,7 +312,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"6225"
+		"ItemCost"					"4200"
 		"ItemShopTags"				"move_speed"
 		"ItemQuality"				"common"
 		"ItemAliases"				"wings of haste"
@@ -330,12 +330,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"40"
+				"bonus_damage"			"30"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"40"
+				"bonus_attack_speed"	"30"
 			}
 			"04"
 			{
@@ -500,7 +500,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2675"
+		"ItemCost"						"1475"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -509,7 +509,7 @@
 		"ItemResult"					"item_blade_mail_2"
 		"ItemRequirements"
 		{
-			"01"						"item_blade_mail"
+			"01"						"item_blade_mail;item_platemail"
 		}
 	}
 
@@ -1185,26 +1185,26 @@
 	//=================================================================================================================
 	"item_recipe_vladmir_2"
 	{
-			// General
-			//-------------------------------------------------------------------------------------------------------------
-			"BaseClass"						"item_datadriven"
-			"ID"							"9043"  //Valve's version of this item uses the ID "118".
-			"Model"							"models/props_gameplay/recipe.mdl"
-			"AbilityTextureName"			"item_recipe_vladmir_2"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"9043"  //Valve's version of this item uses the ID "118".
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe_vladmir_2"
 
-			// Item Info
-			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"						"5225"
-			"ItemShopTags"					""
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"3475"
+		"ItemShopTags"					""
 
-			// Recipe
-			//-------------------------------------------------------------------------------------------------------------
-			"ItemRecipe"					"1"
-			"ItemResult"					"item_vladmir_2"
-			"ItemRequirements"
-			{
-					"01"						"item_vladmir;item_assault;item_ultimate_orb"
-			}
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_vladmir_2"
+		"ItemRequirements"
+		{
+			"01"						"item_vladmir;item_assault"
+		}
 	}
 
 	//=================================================================================================================
@@ -1235,7 +1235,7 @@
 					"01"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"bonus_all_stats"		"10"
+							"bonus_all_stats"		"10"			// unuse
 					}
 					"03"
 					{
@@ -1270,17 +1270,17 @@
 					"09"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"aura_positive_armor"	"15"
+							"aura_positive_armor"	"10"
 					}
 					"10"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"aura_attack_speed"		"60"
+							"aura_attack_speed"		"40"
 					}
 					"11"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"aura_negative_armor"	"-15"
+							"aura_negative_armor"	"-10"
 					}
 			}
 
@@ -1294,9 +1294,6 @@
 
 							"Properties"
 							{
-									"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"				"%bonus_all_stats"
-									"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"					"%bonus_all_stats"
-									"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"				"%bonus_all_stats"
 									"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"			"%bonus_attack_speed"
 									"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"				"%bonus_armor"
 							}
@@ -1484,7 +1481,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"20150"
+		"ItemCost"						"18150"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1587,7 +1584,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6800"
+		"ItemCost"						"5900"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1616,6 +1613,7 @@
 		"AbilityManaCost"				"200"
 		"AbilitySharedCooldown"			"undying"
 
+		"ItemCost"						"15000"
 		"ItemShopTags"					"str;regen_health;health_pool"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"hot;heart of tarrasque"
@@ -1660,7 +1658,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_hp_regen"		"1000"
+				"active_hp_regen"		"800"
 			}
 			"08"
 			{
@@ -1670,7 +1668,7 @@
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"buff_hp_regen"			"500"
+				"buff_hp_regen"			"400"
 			}
 			"10"
 			{
@@ -2289,7 +2287,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4300"
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2369,7 +2367,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1100"
+		"ItemCost"						"1650"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2534,7 +2532,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2100"
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2567,7 +2565,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"7100"
+		"ItemCost"						"3400"
 		"ItemShopTags"					"damage;attack_speed"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"dragon lance plus"
@@ -2582,17 +2580,17 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_agility"		        "35"
+				"bonus_agility"		        "25"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_strength"		    "25"
+				"bonus_strength"		    "20"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_range"		"180"
+				"bonus_attack_range"		"170"
 			}
 			"04"
 			{
@@ -2621,7 +2619,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1200"
+		"ItemCost"						"600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2655,7 +2653,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 
-		"ItemCost"						"8000"
+		"ItemCost"						"6800"
 		"ItemShopTags"					"damage;attack_speed"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"dragon lance pro max"
@@ -2670,7 +2668,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_agility"	        	"60"
+				"bonus_agility"	        	"50"
 			}
 			"02"
 			{
@@ -2680,7 +2678,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_range"		"220"
+				"bonus_attack_range"		"200"
 			}
 			"04"
 			{
@@ -3049,7 +3047,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4300"	
+		"ItemCost"						"3300"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3310,7 +3308,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4550"	
+		"ItemCost"						"3750"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3334,7 +3332,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
 		"BaseClass"						"item_black_king_bar"
-		"AbilityTextureName"			"exalted_bkb"
+		"AbilityTextureName"			"item_black_king_bar_2"
 		"AbilitySharedCooldown"			"bkb"
 
 		// Stats		
@@ -3392,7 +3390,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5650"	
+		"ItemCost"						"5850"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3401,7 +3399,7 @@
 		"ItemResult"					"item_infernal_desolator"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator;item_desolator;item_rapier"
+			"01"						"item_desolator;item_desolator;item_relic"
 		}
 	}
 
@@ -3419,7 +3417,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"17950"
+		"ItemCost"						"16600"
 		"ItemShopTags"					"damage;unique"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"super desolator"
@@ -3434,12 +3432,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"380"
+				"bonus_damage"			"320"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-23"
+				"corruption_armor"		"-22"
 			}
 			"03"
 			{
@@ -3683,7 +3681,7 @@
 		"FightRecapLevel"						"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8600"	
+		"ItemCost"						"6550"	
 		"ItemShopTags"					""
 
 		
@@ -3769,12 +3767,12 @@
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_m"				"2.5"
+				"stun_m"				"2.4"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"block_chance"			"90"
+				"block_chance"			"85"
 			}
 			"09"
 			{
@@ -3818,7 +3816,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"6000"	
+		"ItemCost"								"3000"	
 		"ItemShopTags"							""
 
 		
@@ -3870,12 +3868,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_evasion"			"30"
+				"bonus_evasion"			"25"
 			}	
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"50"
+				"bonus_strength"		"40"
 			}		
 			"03"
 			{
@@ -3915,7 +3913,7 @@
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"spell_resist"			"30"
+				"spell_resist"			"20"
 			}
 		}
 	}
@@ -3934,7 +3932,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"1000"	
+		"ItemCost"								"800"	
 		"ItemShopTags"							""
 
 		
@@ -3968,7 +3966,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"4100"
+		"ItemCost"								"5000"
 		"ItemShopTags"							"damage;move_speed;hard_to_tag"
 		"ItemQuality"							"common"
 		"ItemAliases"							"super phase boots"
@@ -3997,7 +3995,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"rate"					"35"
+				"rate"					"30"
 			}
 			"05"
 			{
@@ -4046,7 +4044,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"2000"	
+		"ItemCost"								"1900"	
 		"ItemShopTags"							""
 
 		
@@ -4080,7 +4078,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"9200"
+		"ItemCost"								"9600"
 		"ItemShopTags"							"damage;move_speed;hard_to_tag"
 		"ItemQuality"							"common"
 		"ItemAliases"							"super phase boots"
@@ -4099,7 +4097,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"att"					"50"
+				"att"					"40"
 			}			
 			"03"
 			{
@@ -4124,7 +4122,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_evasion"		"50"
+				"active_evasion"		"40"
 			}
 			"08"
 			{
@@ -4157,7 +4155,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2500"	
+		"ItemCost"						"1500"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -4214,7 +4212,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"80"
+				"bonus_agility"			"70"
 			}
 			"04"
 			{
