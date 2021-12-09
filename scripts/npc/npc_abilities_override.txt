@@ -4342,7 +4342,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"max_damage"			"650.0"
+				"max_damage"			"600.0"
 			}
 		}
 	}
@@ -5794,16 +5794,28 @@
 	//=================================================================================================================
 	"luna_lucent_beam"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"9.0 8.0 7.0 6.0 5.0"
-		"AbilityManaCost"				"90 100 110 120 130"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"9.0 8.0 7.0 6.0 5.0 4.0 3.0"
+		"AbilityManaCost"				"90 100 110 120 130 140 150"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"beam_damage"			"75 150 225 300 375"
+				"beam_damage"			"75 150 225 300 375 450 500"
 				"LinkedSpecialBonus"	"special_bonus_unique_luna_1"
+			}
+		}
+	}
+	"special_bonus_unique_luna_2"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"1.5"
+				"ad_linked_ability"			"luna_lucent_beam"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -5815,7 +5827,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bounces"					"2 3 4 5 6 7 8"
+				"bounces"					"3 4 5 6 7 8 9"
 			}
 			"03"
 			{
@@ -5835,8 +5847,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"bonus_damage"			"15 20 25 30 35 40 45"
-				"LinkedSpecialBonus"		"special_bonus_unique_luna_3"
-				
+				"LinkedSpecialBonus"		"special_bonus_unique_luna_3"				
 			}
 			"03"
 			{
@@ -5857,18 +5868,17 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"beams"						"6 9 12 14 16"
-			}
-				
+			}				
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"beams_scepter"				"6 12 18 21 24"
+				"beams_scepter"				"9 12 18 21 24"
 				"RequiresScepter"		"1"
 			}
 			"08"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"hit_count_scepter"			"6 12 18 21 24"
+				"hit_count_scepter"			"9 12 18 21 24"
 				"RequiresScepter"		"1"
 			}
 			"09"
@@ -6175,6 +6185,120 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"ghostship_absorb"			"40 45 50 55 60"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ogre Magi: Fireblast            蓝胖子
+	//=================================================================================================================
+	"ogre_magi_fireblast"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"11 10 9 8 7 6 5"
+		"AbilityManaCost"				"70 80 90 100 110 120 130"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fireblast_damage"		"70 130 190 250 310 370 430"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi_2"
+			}
+		}
+	}
+	"ogre_magi_unrefined_fireblast"
+	{
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"scepter_mana"		"25"
+				"RequiresScepter"	"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fireblast_damage"		"450"
+				"RequiresScepter"	"1"
+			}
+		}	
+	}
+	"ogre_magi_ignite"
+	{
+		"MaxLevel" "5"
+		"AbilityCastRange"				"700 800 900 1000 1100"
+		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"5 6 7 8 9"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_damage"		"20 30 40 50 60"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi_4"
+			}		
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"slow_movement_speed_pct"		"-20 -24 -28 -32 -36"
+			}	
+		}
+	}
+	"ogre_magi_bloodlust"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"20 18 16 14 12 10 8"
+		"AbilityManaCost"				"50 55 60 65 70 75 80"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"modelscale"		"30"
+			}	
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"		"8 10 12 14 16 18 20"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"30 40 50 60 70 80 90"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"self_bonus"	"30 50 70 90 110 130 150"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
+			}
+		}
+	}
+	"ogre_magi_multicast"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"multicast_2_times"		"70 75 80 85 90"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"multicast_3_times"		"15 25 35 45 55"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"multicast_4_times"		"5 10 15 20 25"
 			}
 		}
 	}
