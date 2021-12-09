@@ -4359,7 +4359,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"back_damage_reduction"			"16 24 30 35 40 45 50"
+				"back_damage_reduction"			"15 20 25 30 35 40 45"
 			}
 		}
 	}
