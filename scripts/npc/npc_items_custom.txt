@@ -1889,7 +1889,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"                      "2300"
+		"ItemCost"                      "2325"
 		"ItemShopTags"                  ""
 
 		// Recipe
@@ -1942,22 +1942,22 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"1200"
+				"radius"				"900"
 			}
 			"04"
 			{
-				"var_type"              "FIELD_INTEGER"
-				"magical_resis"			"30"
+				"var_type"                      "FIELD_INTEGER"
+				"bonus_armor"                   "20"
 			}
 			"05"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"damage_reduction"      "-5"
+				"magical_resis"      	"20"
 			}
 			"06"
 			{
 				"var_type"                      "FIELD_INTEGER"
-				"aura_regen_base"               "10"
+				"aura_regen_base"               "20"
 			}
 			"07"
 			{
@@ -1966,23 +1966,23 @@
 			}
 			"08"
 			{
-				"var_type"                      "FIELD_INTEGER"
-				"aura_regen_buff"               "20"
+				"var_type"              "FIELD_INTEGER"
+				"aura_magical_resis_buff"		"10"
 			}
-			"11"
+			"09"
+			{
+				"var_type"                      "FIELD_INTEGER"
+				"aura_regen_buff"               "30"
+			}
+			"10"
 			{
 				"var_type"                      "FIELD_INTEGER"
 				"aura_damage_reduction_buff"    "-9"
 			}
-			"13"
+			"11"
 			{
 				"var_type"                      "FIELD_INTEGER"
-				"duration"                      "12"
-			}
-			"14"
-			{
-				"var_type"                      "FIELD_INTEGER"
-				"bonus_armor"                      "20"
+				"duration"                      "9"
 			}
 		}
 
@@ -2026,7 +2026,6 @@
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"%magical_resis"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"                    "%bonus_health"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"           "%bonus_health_regen"
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"      "%damage_reduction"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
 				}
 			}
@@ -2068,8 +2067,9 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"        "%aura_regen_buff"
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"   "%aura_damage_reduction_buff"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"			"%aura_regen_buff"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%aura_damage_reduction_buff"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"%aura_magical_resis_buff"
 				}
 			}
 		}
