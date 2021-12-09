@@ -176,6 +176,7 @@
 		"item"		"item_undying_heart"
 		"item"		"item_vladmir_2"
 		"item"		"item_radiance_2"
+		"item"		"item_heavens_halberd_v2"
 	}
 
 	"weapons"
