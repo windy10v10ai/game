@@ -209,6 +209,7 @@
  		"item"		"item_kaya"
  		"item"		"item_maelstrom"
  		"item"		"item_diffusal_blade"
+		"item"		"item_blue_fantasy" 
  		"item"		"item_mage_slayer"
  		//"item"		"item_heavens_halberd"
  		"item"		"item_satanic"
