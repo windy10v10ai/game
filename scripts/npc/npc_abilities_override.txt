@@ -6162,9 +6162,7 @@
 	}	
 	"warlock_rain_of_chaos"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"120 110 100 90 80"
-		"AbilityManaCost"				"300 350 400 450 500"		
+		"AbilityCooldown"				"120 100 80"
 		"AbilitySpecial"
 		{
 			"01"
@@ -6175,45 +6173,33 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"1.0 1.2 1.4 1.6 1.8"
+				"stun_duration"				"1.0 1.2 1.4"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"golem_hp_tooltip"			"2000 2500 3000 3500 4000"
+				"golem_hp_tooltip"			"1000 2000 3000"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"golem_dmg_tooltip"			"150 250 350 450 550"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"golem_armor_tooltip"		"10 15 20 25 30"
-				"LinkedSpecialBonus"		"special_bonus_unique_warlock_2"
+				"golem_dmg_tooltip"			"100 150 200"
 			}
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"golem_regen_tooltip"		"25 50 75 100 125"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"number_of_golems_scepter"	"2"
-				"RequiresScepter"		"1"
+				"golem_regen_tooltip"		"25 50 75"
 			}
 			"09"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"golem_hp_tooltip_scepter"	"1500 2000 2500 3000 3500"
+				"golem_hp_tooltip_scepter"	"1000 2000 3000"
 				"RequiresScepter"		"1"
 			}
 			"10"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"golem_dmg_tooltip_scepter"	"100 200 300 400 500"
+				"golem_dmg_tooltip_scepter"	"100 150 200"
 				"RequiresScepter"		"1"
 			}
 		}
