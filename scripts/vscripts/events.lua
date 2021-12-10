@@ -37,7 +37,7 @@ local tBotNameList = {
 	"npc_dota_hero_tiny",
 	"npc_dota_hero_vengefulspirit",
 	"npc_dota_hero_viper",
-	-- "npc_dota_hero_warlock", // 会正常行动，可以加入AI池
+	"npc_dota_hero_warlock",
 	"npc_dota_hero_windrunner",
 	"npc_dota_hero_witch_doctor",
 	"npc_dota_hero_skeleton_king",

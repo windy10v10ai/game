@@ -1400,14 +1400,11 @@ tBotItemData.addNeutralItemMultiTimeMap = {
 	x5 = {
 		1500,
 	},
-	x10 = {
+	x7_5 = {
 		1200,
 	},
-	x15 = {
+	x10 = {
 		900,
-	},
-	x20 = {
-		600,
 	},
 }
 
