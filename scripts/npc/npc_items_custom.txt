@@ -1194,7 +1194,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3475"
+		"ItemCost"						"2075"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1584,7 +1584,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5900"
+		"ItemCost"						"5500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1613,7 +1613,7 @@
 		"AbilityManaCost"				"200"
 		"AbilitySharedCooldown"			"undying"
 
-		"ItemCost"						"15000"
+		"ItemCost"						"14600"
 		"ItemShopTags"					"str;regen_health;health_pool"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"hot;heart of tarrasque"
@@ -2132,12 +2132,12 @@
 			"01"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"bonus_health"          "450"
+				"bonus_health"          "600"
 			}
 			"02"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"bonus_health_regen"    "20"
+				"bonus_health_regen"    "20"			// unuse
 			}
 			"03"
 			{
@@ -2225,7 +2225,6 @@
 				{
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"%magical_resis"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"                    "%bonus_health"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"           "%bonus_health_regen"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
 				}
 			}
@@ -2876,7 +2875,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2600"	
+		"ItemCost"						"1800"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3047,7 +3046,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3300"	
+		"ItemCost"						"2000"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3093,7 +3092,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"60"
+				"bonus_agility"			"45"
 			}
 			"03"
 			{

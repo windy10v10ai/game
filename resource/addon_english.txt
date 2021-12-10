@@ -268,7 +268,6 @@
 		"DOTA_Tooltip_ability_item_insight_armor_Lore"							"An exquisitely crafted suit of armor that bestows secret wisdom upon the wearer."
 		"DOTA_Tooltip_ability_item_insight_armor_magical_resis"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_health"					"+$health"
-		"DOTA_Tooltip_ability_item_insight_armor_bonus_health_regen"			"+$hp_regen"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_armor"					"+$armor"
 		"DOTA_Tooltip_Ability_item_recipe_insight_armor"						"Armor of Insight Recipe"
 

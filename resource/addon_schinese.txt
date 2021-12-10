@@ -267,7 +267,6 @@
 		"DOTA_Tooltip_ability_item_insight_armor_Lore"							"精心制作的盔甲，可为穿戴者带来神秘的智慧。"
 		"DOTA_Tooltip_ability_item_insight_armor_magical_resis"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_health"					"+$health"
-		"DOTA_Tooltip_ability_item_insight_armor_bonus_health_regen"			"+$hp_regen"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_armor"					"+$armor"
 		"DOTA_Tooltip_Ability_item_recipe_insight_armor"						"洞察盔甲卷轴"
 
