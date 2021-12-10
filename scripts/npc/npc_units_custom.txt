@@ -120,10 +120,13 @@
 	//=========================================================
 	"npc_dota_goodguys_tower2_top"
 	{
-		"AttackDamageMin"		"152" // 142
-		"AttackDamageMax"		"172" // 162
+		// Ability
+		"Ability2"					"tower_split_shot"
+
+		"AttackDamageMin"			"142" // 142
+		"AttackDamageMax"			"162" // 162
 		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 16
+		"ArmorPhysical"				"25" // 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -134,10 +137,13 @@
 	}
 	"npc_dota_badguys_tower2_top"
 	{
-		"AttackDamageMin"		"152" // 142
-		"AttackDamageMax"		"172" // 162
+		// Ability
+		"Ability2"					"tower_split_shot"
+
+		"AttackDamageMin"			"142" // 142
+		"AttackDamageMax"			"162" // 162
 		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 16
+		"ArmorPhysical"				"25" // 16
 		"AttackAcquisitionRange"	"1100"		// Range within a target can be acquired.
 		"AttackRange"				"1100"		// Range within a target can be attacked.
 
@@ -148,10 +154,13 @@
 	}
 	"npc_dota_goodguys_tower2_bot"
 	{
-		"AttackDamageMin"		"152" // 142
-		"AttackDamageMax"		"172" // 162
+		// Ability
+		"Ability2"					"tower_split_shot"
+
+		"AttackDamageMin"			"142" // 142
+		"AttackDamageMax"			"162" // 162
 		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 16
+		"ArmorPhysical"				"25" // 16
 		"AttackAcquisitionRange"	"1100"		// Range within a target can be acquired.
 		"AttackRange"				"1100"		// Range within a target can be attacked.
 
@@ -162,10 +171,13 @@
 	}
 	"npc_dota_badguys_tower2_bot"
 	{
-		"AttackDamageMin"		"152" // 142
-		"AttackDamageMax"		"172" // 162
+		// Ability
+		"Ability2"					"tower_split_shot"
+
+		"AttackDamageMin"			"142" // 142
+		"AttackDamageMax"			"162" // 162
 		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 16
+		"ArmorPhysical"				"25" // 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -176,10 +188,13 @@
 	}
 	"npc_dota_goodguys_tower2_mid"
 	{
-		"AttackDamageMin"		"162" // 142
-		"AttackDamageMax"		"172" // 162
+		// Ability
+		"Ability2"					"tower_split_shot"
+
+		"AttackDamageMin"			"142" // 142
+		"AttackDamageMax"			"162" // 162
 		"AttackRate"				"0.8" // 0.95
-		"ArmorPhysical"			"25" // 16
+		"ArmorPhysical"				"25" // 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -190,10 +205,13 @@
 	}
 	"npc_dota_badguys_tower2_mid"
 	{
-		"AttackDamageMin"		"162" // 142
-		"AttackDamageMax"		"172" // 162
+		// Ability
+		"Ability2"					"tower_split_shot"
+
+		"AttackDamageMin"			"142" // 142
+		"AttackDamageMax"			"162" // 162
 		"AttackRate"				"0.8" // 0.95
-		"ArmorPhysical"			"25" // 16
+		"ArmorPhysical"				"25" // 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -728,9 +746,9 @@
 
 		"AttackDamageMin"		"232" // 142
 		"AttackDamageMax"		"252" // 162
-		"AttackRate"				"0.7" // 0.95
-		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
-		"AttackRange"				"900"		// Range within a target can be attacked.
+		"AttackRate"				"0.8" // 0.95
+		"AttackAcquisitionRange"	"800"		// 700
+		"AttackRange"				"800"		// 700
 
 		// Status
 		//----------------------------------------------------------------
@@ -746,9 +764,9 @@
 
 		"AttackDamageMin"		"232" // 142
 		"AttackDamageMax"		"252" // 162
-		"AttackRate"				"0.7" // 0.95
-		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
-		"AttackRange"				"900"		// Range within a target can be attacked.
+		"AttackRate"				"0.8" // 0.95
+		"AttackAcquisitionRange"	"800"		// 700
+		"AttackRange"				"800"		// 700
 
 		// Status
 		//----------------------------------------------------------------
@@ -821,17 +839,47 @@
 	}
 	"dota_fountain"
 	{
+		// Abilities
+		"Ability1"					"tower_headshot"			// none
+
 		"AttackDamageMin"			"390"		// 290
 		"AttackDamageMax"			"410"		// 310
-		"AttackRate"				"0.03"
-		"AttackAcquisitionRange"	"1600"		// Range within a target can be acquired.
-		"AttackRange"				"1600"		// Range within a target can be attacked. (was 690)
+		"AttackRate"				"0.03"		// 0.15
+		"AttackAcquisitionRange"	"1400"		// 1200
+		"AttackRange"				"1400"		// 1200
 		"ProjectileSpeed"			"1800"		// 1400
 	}
 
 
 	//=================================================================================
-	// Creeps: 小兵 远程
+	// Creeps: 小兵 普通
+	//=================================================================================
+	"npc_dota_creep_badguys_ranged"
+	{
+		"BountyXP"					"90"		// 69
+		"BountyGoldMin"				"60"		// 43
+		"BountyGoldMax"				"70"		// 52
+	}
+	"npc_dota_creep_goodguys_ranged"
+	{
+		"BountyXP"					"90"		// 69
+		"BountyGoldMin"				"60"		// 43
+		"BountyGoldMax"				"70"		// 52
+	}
+	"npc_dota_creep_badguys_melee"
+	{
+		"BountyXP"					"70"		// 57
+		"BountyGoldMin"				"45"		// 34
+		"BountyGoldMax"				"55"		// 39
+	}
+	"npc_dota_creep_goodguys_melee"
+	{
+		"BountyXP"					"70"		// 57
+		"BountyGoldMin"				"45"		// 34
+		"BountyGoldMax"				"55"		// 39
+	}
+	//=================================================================================
+	// Creeps: 小兵 高级
 	//=================================================================================
 	"npc_dota_creep_badguys_ranged_upgraded"
 	{
@@ -864,41 +912,6 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"1000"		// 475
-		"StatusHealthRegen"			"5"			// 2
-	}
-
-	"npc_dota_creep_badguys_ranged_upgraded_mega"
-	{
-		// General
-		"ModelScale"				"1.5" // 1.12
-
-		// Abilitys
-		"Ability1"	"creep_buff_mega"
-
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 1
-		"MagicalResistance"				"10"			// 0
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackDamageMin"			"140"		// 41
-		"AttackDamageMax"			"180"		// 46
-		"AttackRate"				"0.9"			// 1
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"					"32"		// 22
-		"BountyGoldMin"				"29"		// 19
-		"BountyGoldMax"				"35"		// 25
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementSpeed"				"375"		// 325
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"1600"		// 475
 		"StatusHealthRegen"			"5"			// 2
 	}
 
@@ -936,6 +949,170 @@
 		"StatusHealthRegen"			"5"			// 2
 	}
 
+	"npc_dota_creep_badguys_melee_upgraded"
+	{
+		// General
+		"ModelScale"				"1.2" // 1.12
+
+		// Abilitys
+		"Ability1"	"creep_buff"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// 3
+		"MagicalResistance"				"5"			// 0
+
+		// Attack
+		"AttackDamageMin"			"46"		// 36
+		"AttackDamageMax"			"54"		// 44
+		"AttackRate"				"1"			// 1
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"45"		// 25
+		"BountyGoldMin"				"39"		// 20
+		"BountyGoldMax"				"45"		// 26
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"355"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1200"		// 700
+		"StatusHealthRegen"			"5"			// 0.5
+	}
+	"npc_dota_creep_goodguys_melee_upgraded"
+	{
+		// General
+		"ModelScale"				"1.2" // 1.12
+
+		// Abilitys
+		"Ability1"	"creep_buff"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// 3
+		"MagicalResistance"				"5"			// 0
+
+		// Attack
+		"AttackDamageMin"			"46"		// 36
+		"AttackDamageMax"			"54"		// 44
+		"AttackRate"				"1"			// 1
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"45"		// 25
+		"BountyGoldMin"				"39"		// 20
+		"BountyGoldMax"				"45"		// 26
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"355"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1200"		// 700
+		"StatusHealthRegen"			"5"			// 0.5
+	}
+	
+	//=================================================================================
+	// Creeps: 小兵 投石车
+	//=================================================================================
+	"npc_dota_goodguys_siege_upgraded"
+	{
+		// General
+		"ModelScale"				"0.85" // .65
+
+		// Abilitys
+		"Ability1"					"creep_buff"
+
+		// Attack
+		"AttackDamageMin"			"100"		// 51
+		"AttackDamageMax"			"120"		// 62
+		"AttackRate"				"2.5"			// 1
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"160"		// 88
+		"BountyGoldMin"				"120"		// 59
+		"BountyGoldMax"				"140"		// 72
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"355"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1800"		// 935
+		"StatusHealthRegen"			"5"			// 0
+	}
+	"npc_dota_badguys_siege_upgraded"
+	{
+		// General
+		"ModelScale"				"0.85" // .65
+
+		// Abilitys
+		"Ability1"					"creep_buff"
+
+		// Attack
+		"AttackDamageMin"			"100"		// 51
+		"AttackDamageMax"			"120"		// 62
+		"AttackRate"				"2.5"			// 1
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"160"		// 88
+		"BountyGoldMin"				"120"		// 59
+		"BountyGoldMax"				"140"		// 72
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"355"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1800"		// 935
+		"StatusHealthRegen"			"5"			// 0
+	}
+
+	//=================================================================================
+	// Creeps: 小兵 超级兵
+	//=================================================================================
+	"npc_dota_creep_badguys_ranged_upgraded_mega"
+	{
+		// General
+		"ModelScale"				"1.5" // 1.12
+
+		// Abilitys
+		"Ability1"	"creep_buff_mega"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// 1
+		"MagicalResistance"				"10"			// 0
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"140"		// 41
+		"AttackDamageMax"			"180"		// 46
+		"AttackRate"				"0.9"			// 1
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"32"		// 22
+		"BountyGoldMin"				"29"		// 19
+		"BountyGoldMax"				"35"		// 25
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"375"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1600"		// 475
+		"StatusHealthRegen"			"5"			// 2
+	}
 	"npc_dota_creep_goodguys_ranged_upgraded_mega"
 	{
 		// General
@@ -971,44 +1148,6 @@
 		"StatusHealthRegen"			"5"			// 2
 	}
 
-
-	//=================================================================================
-	// Creeps: 小兵 近战
-	//=================================================================================
-	"npc_dota_creep_badguys_melee_upgraded"
-	{
-		// General
-		"ModelScale"				"1.2" // 1.12
-
-		// Abilitys
-		"Ability1"	"creep_buff"
-
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 3
-		"MagicalResistance"				"5"			// 0
-
-		// Attack
-		"AttackDamageMin"			"46"		// 36
-		"AttackDamageMax"			"54"		// 44
-		"AttackRate"				"1"			// 1
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"					"45"		// 25
-		"BountyGoldMin"				"39"		// 20
-		"BountyGoldMax"				"45"		// 26
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementSpeed"				"355"		// 325
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"1200"		// 700
-		"StatusHealthRegen"			"5"			// 0.5
-	}
-
 	"npc_dota_creep_badguys_melee_upgraded_mega"
 	{
 		// General
@@ -1042,41 +1181,6 @@
 		"StatusHealth"				"2000"		// 700
 		"StatusHealthRegen"			"5"			// 0.5
 	}
-
-	"npc_dota_creep_goodguys_melee_upgraded"
-	{
-		// General
-		"ModelScale"				"1.2" // 1.12
-
-		// Abilitys
-		"Ability1"	"creep_buff"
-
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 3
-		"MagicalResistance"				"5"			// 0
-
-		// Attack
-		"AttackDamageMin"			"46"		// 36
-		"AttackDamageMax"			"54"		// 44
-		"AttackRate"				"1"			// 1
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"					"45"		// 25
-		"BountyGoldMin"				"39"		// 20
-		"BountyGoldMax"				"45"		// 26
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementSpeed"				"355"		// 325
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"1200"		// 700
-		"StatusHealthRegen"			"5"			// 0.5
-	}
-
 	"npc_dota_creep_goodguys_melee_upgraded_mega"
 	{
 		// General
@@ -1110,32 +1214,9 @@
 		"StatusHealth"				"2000"		// 700
 		"StatusHealthRegen"			"5"			// 0.5
 	}
-
 	//=================================================================================
 	// Creeps: 小兵 投石车
 	//=================================================================================
-	"npc_dota_goodguys_siege_upgraded"
-	{
-		// General
-		"ModelScale"				"0.85" // .65
-
-		// Abilitys
-		"Ability1"					"creep_buff"
-
-		// Attack
-		"AttackDamageMin"			"100"		// 51
-		"AttackDamageMax"			"120"		// 62
-		"AttackRate"				"2.5"			// 1
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementSpeed"				"355"		// 325
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"1800"		// 935
-		"StatusHealthRegen"			"5"			// 0
-	}
 	"npc_dota_goodguys_siege_upgraded_mega"
 	{
 		// General
@@ -1157,29 +1238,6 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"3000"		// 935
 		"StatusHealthRegen"			"10"		// 0
-	}
-
-	"npc_dota_badguys_siege_upgraded"
-	{
-		// General
-		"ModelScale"				"0.85" // .65
-
-		// Abilitys
-		"Ability1"					"creep_buff"
-
-		// Attack
-		"AttackDamageMin"			"100"		// 51
-		"AttackDamageMax"			"120"		// 62
-		"AttackRate"				"2.5"			// 1
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementSpeed"				"355"		// 325
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"1800"		// 935
-		"StatusHealthRegen"			"5"			// 0
 	}
 	"npc_dota_badguys_siege_upgraded_mega"
 	{

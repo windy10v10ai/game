@@ -137,7 +137,9 @@ function modifier_bot_attack_tower_pick_rune:OnIntervalThink()
 	BotThink:AddMoney(hParent)
 end
 
-
+--------------------------------------------------------------------------------
+-- Tower modifier
+--------------------------------------------------------------------------------
 modifier_tower_heal = class({})
 
 function modifier_tower_heal:IsPurgable() return false end
@@ -182,11 +184,11 @@ function modifier_tower_endure:OnCreated()
 end
 
 function modifier_tower_endure:GetModifierPhysicalArmorBonus()
-	local sName = self:GetParent():GetName()
 	local sArmor = self:GetParent():GetPhysicalArmorBaseValue()
 	local fPercent = StackToPercentage(self:GetStackCount())
 
-	return math.floor(sArmor*(fPercent-1))
+	local iArmor = math.floor(sArmor/2*(fPercent-1))
+	return iArmor
 end
 
 function modifier_tower_endure:OnTooltip()
@@ -204,15 +206,13 @@ function modifier_tower_power:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-		MODIFIER_EVENT_ON_ATTACK_LANDED,
 	}
 end
 
 
 function modifier_tower_power:GetModifierAttackSpeedBonus_Constant()
 	local fPower = StackToPercentage(self:GetStackCount())
-	if fPower <= 1.0 then return 0 end
-	return math.floor(500/9*(fPower-1))
+	return math.floor(20*(fPower))
 end
 
 function modifier_tower_power:GetModifierBaseDamageOutgoing_Percentage()

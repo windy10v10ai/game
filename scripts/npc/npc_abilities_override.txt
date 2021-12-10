@@ -30,22 +30,6 @@
 	{
 		"AbilityCooldown"				"90.0"
 	}
-	"item_cloak"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_magical_armor"	"20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_resist"	"20"
-			}
-		}
-	}
 	"item_glimmer_cape"
 	{
 		"AbilityCastRange"				"700"
@@ -67,96 +51,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"active_magical_armor"	"60"
-			}
-		}
-	}
-	"item_hood_of_defiance"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_spell_resist"	"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_resist"	"30"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_block"			"600"
-			}
-		}
-	}
-	"item_eternal_shroud"
-	{
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_spell_resist"	"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"8.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_block"			"600"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_duration"		"12.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hero_lifesteal"		"20"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"creep_lifesteal"		"8"
-			}
-		}
-	}
-	"item_pipe"
-	{
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resistance"		"35"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_resist"			"35"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resistance_aura"		"15"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_block"			"800"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_block_creep"	"800"
 			}
 		}
 	}
@@ -1301,7 +1195,7 @@
 	{
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2400"
+		"ItemCost"						"2200"
 		"ItemShopTags"					""
 	}
 	"item_dagon"
@@ -2922,80 +2816,6 @@
 			}
 		}
 	}
-	"warlock_fatal_bonds"
-	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"100 110 120 130 140 150 160"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"count"						"5 6 7 8 9 10 11"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_share_percentage"	"12 14 16 18 20 22 24"
-				"LinkedSpecialBonus"		"special_bonus_unique_warlock_5"
-			}
-		}
-	}
-	"warlock_golem_permanent_immolation"
-	{
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_damage"			"10 30 50 70 90"
-			}
-		}
-	}
-	"warlock_rain_of_chaos"
-	{
-		"AbilityCooldown"				"120 100 80"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"golem_duration"			"60"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"1.0 1.2 1.4"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"golem_hp_tooltip"			"1000 2000 3000"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"golem_dmg_tooltip"			"100 150 200"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"golem_regen_tooltip"		"25 50 75"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"golem_hp_tooltip_scepter"	"1000 2000 3000"
-				"RequiresScepter"		"1"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"golem_dmg_tooltip_scepter"	"100 150 200"
-				"RequiresScepter"		"1"
-			}
-		}
-	}
 	"winter_wyvern_arctic_burn"
 	{
 		"AbilitySpecial"
@@ -4342,7 +4162,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"max_damage"			"650.0"
+				"max_damage"			"600.0"
 			}
 		}
 	}
@@ -4359,7 +4179,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"back_damage_reduction"			"16 24 30 35 40 45 50"
+				"back_damage_reduction"			"15 20 25 30 35 40 45"
 			}
 		}
 	}
@@ -5794,16 +5614,28 @@
 	//=================================================================================================================
 	"luna_lucent_beam"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"9.0 8.0 7.0 6.0 5.0"
-		"AbilityManaCost"				"90 100 110 120 130"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"9.0 8.0 7.0 6.0 5.0 4.0 3.0"
+		"AbilityManaCost"				"90 100 110 120 130 140 150"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"beam_damage"			"75 150 225 300 375"
+				"beam_damage"			"75 150 225 300 375 450 500"
 				"LinkedSpecialBonus"	"special_bonus_unique_luna_1"
+			}
+		}
+	}
+	"special_bonus_unique_luna_2"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"1.5"
+				"ad_linked_ability"			"luna_lucent_beam"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -5815,7 +5647,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bounces"					"2 3 4 5 6 7 8"
+				"bounces"					"3 4 5 6 7 8 9"
 			}
 			"03"
 			{
@@ -5835,8 +5667,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"bonus_damage"			"15 20 25 30 35 40 45"
-				"LinkedSpecialBonus"		"special_bonus_unique_luna_3"
-				
+				"LinkedSpecialBonus"		"special_bonus_unique_luna_3"				
 			}
 			"03"
 			{
@@ -5857,18 +5688,17 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"beams"						"6 9 12 14 16"
-			}
-				
+			}				
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"beams_scepter"				"6 12 18 21 24"
+				"beams_scepter"				"9 12 18 21 24"
 				"RequiresScepter"		"1"
 			}
 			"08"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"hit_count_scepter"			"6 12 18 21 24"
+				"hit_count_scepter"			"9 12 18 21 24"
 				"RequiresScepter"		"1"
 			}
 			"09"
@@ -6175,6 +6005,202 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"ghostship_absorb"			"40 45 50 55 60"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ogre Magi: Fireblast            蓝胖子
+	//=================================================================================================================
+	"ogre_magi_fireblast"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"11 10 9 8 7 6 5"
+		"AbilityManaCost"				"70 80 90 100 110 120 130"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fireblast_damage"		"70 130 190 250 310 370 430"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi_2"
+			}
+		}
+	}
+	"ogre_magi_unrefined_fireblast"
+	{
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"scepter_mana"		"25"
+				"RequiresScepter"	"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fireblast_damage"		"450"
+				"RequiresScepter"	"1"
+			}
+		}	
+	}
+	"ogre_magi_ignite"
+	{
+		"MaxLevel" "5"
+		"AbilityCastRange"				"700 800 900 1000 1100"
+		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"5 6 7 8 9"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_damage"		"20 30 40 50 60"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi_4"
+			}		
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"slow_movement_speed_pct"		"-20 -24 -28 -32 -36"
+			}	
+		}
+	}
+	"ogre_magi_bloodlust"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"20 18 16 14 12 10 8"
+		"AbilityManaCost"				"50 55 60 65 70 75 80"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"modelscale"		"30"
+			}	
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"		"8 10 12 14 16 18 20"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"30 40 50 60 70 80 90"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"self_bonus"	"30 50 70 90 110 130 150"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
+			}
+		}
+	}
+	"ogre_magi_multicast"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"multicast_2_times"		"70 75 80 85 90"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"multicast_3_times"		"15 25 35 45 55"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"multicast_4_times"		"5 10 15 20 25"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Warlock's Fatal Bonds            术士
+	//=================================================================================================================
+	"warlock_fatal_bonds"
+	{
+		"MaxLevel" "7"
+		"AbilityManaCost"				"100 110 120 130 140 150 160"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"count"						"5 6 7 8 9 10 11"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_share_percentage"	"12 14 16 18 20 22 24"
+				"LinkedSpecialBonus"		"special_bonus_unique_warlock_5"
+			}
+		}
+	}
+	"warlock_shadow_word"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"14"
+		"AbilityManaCost"				"120 130 140 150 160 170 180"		
+		"AbilityCastRange"				"600 700 800 900 1000 1100 1200"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"20 30 40 50 60 70 80"
+				"LinkedSpecialBonus"		"special_bonus_unique_warlock_7"
+			}
+		}
+	}	
+	"warlock_rain_of_chaos"
+	{
+		"AbilityCooldown"				"120 100 80"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"golem_duration"			"60"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1.0 1.2 1.4"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"golem_hp_tooltip"			"1000 2000 3000"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"golem_dmg_tooltip"			"100 150 200"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"golem_regen_tooltip"		"25 50 75"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"golem_hp_tooltip_scepter"	"1000 2000 3000"
+				"RequiresScepter"		"1"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"golem_dmg_tooltip_scepter"	"100 150 200"
+				"RequiresScepter"		"1"
 			}
 		}
 	}

@@ -1,17 +1,6 @@
 "DOTAHeroes"
 {
-	"npc_dota_hero_razor"
-	{
-		"override_hero"		"npc_dota_hero_razor"
-		"BotImplemented"	"0"
-	}
-
-	"npc_dota_hero_tidehunter"
-	{
-		"override_hero"		"npc_dota_hero_tidehunter"
-		"BotImplemented"	"0"
-	}
-
+	
 	"npc_dota_hero_silencer"
 	{
 		"override_hero"		"npc_dota_hero_silencer"
@@ -148,46 +137,6 @@
 				"28"		"special_bonus_movement_speed_25"
 				"29"		"special_bonus_hp_regen_20"
 				"30"		"special_bonus_unique_axe"
-			}
-		}
-	}
-
-	"npc_dota_hero_nevermore"
-	{
-		"Bot"
-		{
-			"Build"
-			{
-				"1"		"nevermore_necromastery"
-				"2"		"nevermore_shadowraze1"
-				"3"		"nevermore_shadowraze1"
-				"4"		"nevermore_necromastery"
-				"5"		"nevermore_shadowraze1"
-				"6"		"nevermore_necromastery"
-				"7"		"nevermore_shadowraze1"
-				"8"		"nevermore_necromastery"
-				"9"		"nevermore_requiem"
-				"10"		"special_bonus_spell_amplify_8"
-				"11"		"nevermore_dark_lord"
-				"12"		"nevermore_requiem"
-				"13"		"nevermore_shadowraze1"
-				"14"		"nevermore_shadowraze1"
-				"15"		"special_bonus_unique_nevermore_2"
-				"16"		"nevermore_necromastery"
-				"17"		"nevermore_necromastery"
-				"18"		"nevermore_requiem"
-				"19"		"nevermore_dark_lord"
-				"20"		"special_bonus_unique_nevermore_6"
-				"21"		"nevermore_dark_lord"
-				"22"		"nevermore_dark_lord"
-				"23"		"nevermore_dark_lord"
-				"24"		"nevermore_dark_lord"
-				"25"		"special_bonus_unique_nevermore_4"
-				"26"		"nevermore_dark_lord"
-				"27"		"special_bonus_attack_speed_25"
-				"28"		"special_bonus_unique_nevermore_3"
-				"29"		"special_bonus_unique_nevermore_1"
-				"30"		"special_bonus_unique_nevermore_5"
 			}
 		}
 	}
@@ -777,15 +726,104 @@
 				"28"		"special_bonus_unique_luna_6"
 				"29"		"special_bonus_unique_luna_1"
 				"30"		"special_bonus_unique_luna_3"
-				"31"		"luna_lucent_beam"
-				"32"		"luna_eclipse"
-				"33"		"luna_eclipse"
-				"34"		"luna_moon_glaive"
-				"35"		"luna_lunar_blessing"
+				"31"		"luna_eclipse"
+				"32"		"luna_lucent_beam"
+				"33"		"luna_lucent_beam"
+				"34"		"luna_lucent_beam"
+				"35"		"luna_eclipse"
 				"36"		"luna_moon_glaive"
 				"37"		"luna_lunar_blessing"
 				"38"		"luna_moon_glaive"
 				"39"		"luna_lunar_blessing"
+				"40"		"luna_moon_glaive"
+				"41"		"luna_lunar_blessing"
+			}
+		}
+	}
+	"npc_dota_hero_mirana"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"mirana_arrow"
+				"2"		"mirana_leap"
+				"3"		"mirana_starfall"
+				"4"		"mirana_starfall"
+				"5"		"mirana_starfall"
+				"6"		"mirana_invis"
+				"7"		"mirana_starfall"
+				"8"		"mirana_starfall"
+				"9"		"mirana_starfall"
+				"10"		"special_bonus_unique_mirana_3"
+				"11"		"mirana_starfall"
+				"12"		"mirana_invis"
+				"13"		"mirana_arrow"
+				"14"		"mirana_arrow"
+				"15"		"special_bonus_unique_mirana_1"
+				"16"		"mirana_arrow"
+				"17"		""
+				"18"		"mirana_invis"
+				"19"		""
+				"20"		"special_bonus_mana_break_20"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_mirana_2"
+				"26"		""
+				"27"		"special_bonus_unique_mirana_6"
+				"28"		"special_bonus_unique_mirana_5"
+				"29"		"special_bonus_unique_mirana_4"
+				"30"		"special_bonus_unique_mirana_7"
+				"31"		"mirana_invis"
+				"32"		"mirana_invis"
+				"33"		"mirana_arrow"
+				"34"		"mirana_arrow"
+				"35"		"mirana_arrow"
+				"36"		"mirana_leap"
+				"37"		"mirana_leap"
+				"38"		"mirana_leap"
+				"39"		"mirana_leap"
+			}
+		}
+	}
+	"npc_dota_hero_nevermore"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"nevermore_necromastery"
+				"2"		"nevermore_shadowraze1"
+				"3"		"nevermore_shadowraze1"
+				"4"		"nevermore_necromastery"
+				"5"		"nevermore_shadowraze1"
+				"6"		"nevermore_necromastery"
+				"7"		"nevermore_shadowraze1"
+				"8"		"nevermore_necromastery"
+				"9"		"nevermore_requiem"
+				"10"		"special_bonus_spell_amplify_8"
+				"11"		"nevermore_dark_lord"
+				"12"		"nevermore_requiem"
+				"13"		"nevermore_shadowraze1"
+				"14"		"nevermore_shadowraze1"
+				"15"		"special_bonus_unique_nevermore_2"
+				"16"		"nevermore_necromastery"
+				"17"		"nevermore_necromastery"
+				"18"		"nevermore_requiem"
+				"19"		"nevermore_dark_lord"
+				"20"		"special_bonus_unique_nevermore_6"
+				"21"		"nevermore_dark_lord"
+				"22"		"nevermore_dark_lord"
+				"23"		"nevermore_dark_lord"
+				"24"		"nevermore_dark_lord"
+				"25"		"special_bonus_unique_nevermore_4"
+				"26"		"nevermore_dark_lord"
+				"27"		"special_bonus_attack_speed_25"
+				"28"		"special_bonus_unique_nevermore_3"
+				"29"		"special_bonus_unique_nevermore_1"
+				"30"		"special_bonus_unique_nevermore_5"
 			}
 		}
 	}
@@ -811,7 +849,54 @@
 			}
 		}
 	}
-	
+	"npc_dota_hero_ogre_magi"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"ogre_magi_ignite"
+				"2"		"ogre_magi_fireblast"
+				"3"		"ogre_magi_ignite"
+				"4"		"ogre_magi_fireblast"
+				"5"		"ogre_magi_bloodlust"
+				"6"		"ogre_magi_multicast"
+				"7"		"ogre_magi_fireblast"
+				"8"		"ogre_magi_bloodlust"
+				"9"		"ogre_magi_fireblast"
+				"10"		"special_bonus_unique_ogre_magi_5"
+				"11"		"ogre_magi_fireblast"
+				"12"		"ogre_magi_multicast"
+				"13"		"ogre_magi_fireblast"
+				"14"		"ogre_magi_bloodlust"
+				"15"		"special_bonus_hp_275"
+				"16"		"ogre_magi_fireblast"
+				"17"		""
+				"18"		"ogre_magi_multicast"
+				"19"		""
+				"20"		"special_bonus_strength_25"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_ogre_magi_2"
+				"26"		""
+				"27"		"special_bonus_unique_ogre_magi_4"
+				"28"		"special_bonus_attack_damage_80"
+				"29"		"special_bonus_unique_ogre_magi"
+				"30"		"special_bonus_20_bash_2"
+				"31"		"ogre_magi_multicast"
+				"32"		"ogre_magi_multicast"
+				"33"		"ogre_magi_ignite"
+				"34"		"ogre_magi_ignite"
+				"35"		"ogre_magi_ignite"
+				"36"		"ogre_magi_bloodlust"
+				"37"		"ogre_magi_bloodlust"
+				"38"		"ogre_magi_bloodlust"
+				"39"		"ogre_magi_bloodlust"
+			}
+		}
+	}
 	"npc_dota_hero_omniknight"
 	{
 		"Bot"
@@ -934,6 +1019,123 @@
 			}
 		}
 	}
+	"npc_dota_hero_razor"
+	{
+		"Bot"
+		{
+			"Build"
+			{   
+				"1"		"razor_static_link"
+				"2"		"razor_plasma_field"
+				"3"		"razor_static_link"
+				"4"		"razor_plasma_field"
+				"5"		"razor_plasma_field"
+				"6"		"razor_unstable_current"
+				"7"		"razor_plasma_field"
+				"8"		"razor_eye_of_the_storm"
+				"9"		"razor_static_link"
+				"10"		"special_bonus_agility_9"
+				"11"		"razor_static_link"
+				"12"		"razor_eye_of_the_storm"
+				"13"		"razor_unstable_current"
+				"14"		"razor_unstable_current"
+				"15"		"special_bonus_unique_razor"
+				"16"		"razor_unstable_current"
+				"17"		""
+				"18"		"razor_eye_of_the_storm"
+				"19"		""
+				"20"		"special_bonus_unique_razor_2"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_attack_speed_80"
+				"26"		""
+				"27"		"special_bonus_unique_razor_4"
+				"28"		"special_bonus_strength_14"
+				"29"		"special_bonus_unique_razor_3"
+				"30"		"special_bonus_unique_razor_6"
+			}
+		}
+	}
+	"npc_dota_hero_riki"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"riki_tricks_of_the_trade"
+				"2"		"riki_blink_strike"
+				"3"		"riki_tricks_of_the_trade"
+				"4"		"riki_smoke_screen"
+				"5"		"riki_tricks_of_the_trade"
+				"6"		"riki_backstab"
+				"7"		"riki_tricks_of_the_trade"
+				"8"		"riki_blink_strike"
+				"9"		"riki_blink_strike"
+				"10"		"special_bonus_attack_speed_20"
+				"11"		"riki_blink_strike"
+				"12"		"riki_backstab"
+				"13"		"riki_smoke_screen"
+				"14"		"riki_smoke_screen"
+				"15"		"special_bonus_unique_riki_2"
+				"16"		"riki_smoke_screen"
+				"17"		""
+				"18"		"riki_backstab"
+				"19"		""
+				"20"		"special_bonus_unique_riki_1"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_riki_7"
+				"26"		""
+				"27"		"special_bonus_strength_8"
+				"28"		"special_bonus_unique_riki_8"
+				"29"		"special_bonus_unique_riki_9"
+				"30"		"special_bonus_unique_riki_6"
+			}
+		}
+	}
+	"npc_dota_hero_shadow_shaman"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"shadow_shaman_shackles"
+				"2"		"shadow_shaman_voodoo"
+				"3"		"shadow_shaman_shackles"
+				"4"		"shadow_shaman_voodoo"
+				"5"		"shadow_shaman_shackles"
+				"6"		"shadow_shaman_mass_serpent_ward"
+				"7"		"shadow_shaman_shackles"
+				"8"		"shadow_shaman_voodoo"
+				"9"		"shadow_shaman_voodoo"
+				"10"		"special_bonus_unique_shadow_shaman_6"
+				"11"		"shadow_shaman_ether_shock"
+				"12"		"shadow_shaman_mass_serpent_ward"
+				"13"		"shadow_shaman_ether_shock"
+				"14"		"shadow_shaman_ether_shock"
+				"15"		"special_bonus_unique_shadow_shaman_8"
+				"16"		"shadow_shaman_ether_shock"
+				"17"		""
+				"18"		"shadow_shaman_mass_serpent_ward"
+				"19"		""
+				"20"		"special_bonus_unique_shadow_shaman_7"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_shadow_shaman_4"
+				"26"		""
+				"27"		"special_bonus_unique_shadow_shaman_5"
+				"28"		"special_bonus_unique_shadow_shaman_2"
+				"29"		"special_bonus_unique_shadow_shaman_1"
+				"30"		"special_bonus_unique_shadow_shaman_3"
+			}
+		}
+	}
 	"npc_dota_hero_sand_king"
 	{
 		"Bot"
@@ -1031,6 +1233,30 @@
 			}
 		}
 	}
+	"npc_dota_hero_skeleton_king"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"26"		""
+				"27"		"special_bonus_movement_speed_20"
+				"28"		"special_bonus_unique_wraith_king_11"
+				"29"		"special_bonus_cleave_25"
+				"30"		"special_bonus_unique_wraith_king_10"
+				"31"		"skeleton_king_reincarnation"
+				"32"		"skeleton_king_vampiric_aura"
+				"33"		"skeleton_king_mortal_strike"
+				"34"		"skeleton_king_hellfire_blast"
+				"35"		"skeleton_king_vampiric_aura"
+				"36"		"skeleton_king_mortal_strike"
+				"37"		"skeleton_king_hellfire_blast"
+				"38"		"skeleton_king_vampiric_aura"
+				"39"		"skeleton_king_mortal_strike"
+				"40"		"skeleton_king_hellfire_blast"
+			}
+		}
+	}
 	"npc_dota_hero_tiny"
 	{
 		"Bot"
@@ -1076,6 +1302,53 @@
 				"37"		"tiny_toss"
 				"38"		"tiny_tree_grab"
 				"39"		"tiny_avalanche"
+			}
+		}
+	}
+	"npc_dota_hero_tidehunter"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"tidehunter_gush"
+				"2"		"tidehunter_kraken_shell"
+				"3"		"tidehunter_anchor_smash"
+				"4"		"tidehunter_kraken_shell"
+				"5"		"tidehunter_anchor_smash"
+				"6"		"tidehunter_ravage"
+				"7"		"tidehunter_anchor_smash"
+				"8"		"tidehunter_kraken_shell"
+				"9"		"tidehunter_kraken_shell"
+				"10"		"special_bonus_unique_tidehunter_5"
+				"11"		"tidehunter_anchor_smash"
+				"12"		"tidehunter_ravage"
+				"13"		"tidehunter_gush"
+				"14"		"tidehunter_gush"
+				"15"		"special_bonus_unique_tidehunter_3"
+				"16"		"tidehunter_gush"
+				"17"		""
+				"18"		"tidehunter_ravage"
+				"19"		""
+				"20"		"special_bonus_unique_tidehunter_4"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_tidehunter_7"
+				"26"		""
+				"27"		"special_bonus_unique_tidehunter_6"
+				"28"		"special_bonus_unique_tidehunter_2"
+				"29"		"special_bonus_unique_tidehunter_3"
+				"30"		"special_bonus_unique_tidehunter_8"
+				"31"		"tidehunter_ravage"
+				"32"		"tidehunter_gush"
+				"33"		"tidehunter_gush"
+				"34"		"tidehunter_gush"
+				"35"		"tidehunter_kraken_shell"
+				"36"		"tidehunter_kraken_shell"
+				"37"		"tidehunter_kraken_shell"
+				"38"		"tidehunter_anchor_smash"
 			}
 		}
 	}
@@ -1157,30 +1430,6 @@
 				"31"		"witch_doctor_maledict"
 				"32"		"witch_doctor_maledict"
 				"33"		"witch_doctor_maledict"
-			}
-		}
-	}
-	"npc_dota_hero_skeleton_king"
-	{
-		"Bot"
-		{
-			"Build"
-			{
-				"26"		""
-				"27"		"special_bonus_movement_speed_20"
-				"28"		"special_bonus_unique_wraith_king_11"
-				"29"		"special_bonus_cleave_25"
-				"30"		"special_bonus_unique_wraith_king_10"
-				"31"		"skeleton_king_reincarnation"
-				"32"		"skeleton_king_vampiric_aura"
-				"33"		"skeleton_king_mortal_strike"
-				"34"		"skeleton_king_hellfire_blast"
-				"35"		"skeleton_king_vampiric_aura"
-				"36"		"skeleton_king_mortal_strike"
-				"37"		"skeleton_king_hellfire_blast"
-				"38"		"skeleton_king_vampiric_aura"
-				"39"		"skeleton_king_mortal_strike"
-				"40"		"skeleton_king_hellfire_blast"
 			}
 		}
 	}

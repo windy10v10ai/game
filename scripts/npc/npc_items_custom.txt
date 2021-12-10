@@ -57,7 +57,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_attack_speed"			"240"
+				"bonus_attack_speed"			"200"
 			}
 			"02"
 			{
@@ -67,7 +67,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"consumed_bonus"				"130"
+				"consumed_bonus"				"100"
 			}
 			"04"
 			{
@@ -282,7 +282,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"875"
+		"ItemCost"					"575"
 		"ItemShopTags"				""
 
 		// Recipe
@@ -312,7 +312,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"6225"
+		"ItemCost"					"4200"
 		"ItemShopTags"				"move_speed"
 		"ItemQuality"				"common"
 		"ItemAliases"				"wings of haste"
@@ -330,12 +330,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"40"
+				"bonus_damage"			"30"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"40"
+				"bonus_attack_speed"	"30"
 			}
 			"04"
 			{
@@ -500,7 +500,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2675"
+		"ItemCost"						"1475"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -509,7 +509,7 @@
 		"ItemResult"					"item_blade_mail_2"
 		"ItemRequirements"
 		{
-			"01"						"item_blade_mail"
+			"01"						"item_blade_mail;item_platemail"
 		}
 	}
 
@@ -674,7 +674,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8125"
+		"ItemCost"						"2675"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -683,173 +683,375 @@
 		"ItemResult"					"item_wasp"
 		"ItemRequirements"
 		{
-				"01"						"item_butterfly;item_greater_crit"
+			"01"						"item_butterfly;item_greater_crit"
 		}
 	}
 	"item_wasp"
 	{
-			// General
-			//-------------------------------------------------------------------------------------------------------------
-			"BaseClass"						"item_datadriven"
-			"ID"							"9036"  //Valve's version of this item uses the ID "139".
-			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-			"Model"							"models/props_gameplay/red_box.vmdl"
-			"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-			"AbilityTextureName"			"item_wasp"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"9036"  //Valve's version of this item uses the ID "139".
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"item_wasp"
 
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 
-			// Stats
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityCooldown"				"20.0"
-			"AbilityCastPoint"				"0.0"
-			"AbilityManaCost"				"0"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20.0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"0"
 
-			// Item Info
-			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"						"8895"
-			"ItemShopTags"					"agi;damage;evasion;attack_speed;crit"
-			"ItemQuality"					"artifact"
-			"ItemAliases"					"wasp"
-			"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"8895"
+		"ItemShopTags"					"agi;damage;evasion;attack_speed;crit"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"wasp"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-			// Special
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilitySpecial"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
 			{
-					"01"
-					{
-							"var_type"						"FIELD_INTEGER"
-							"bonus_agility"					"45"
-					}
-					"02"
-					{
-							"var_type"						"FIELD_INTEGER"
-							"bonus_damage"					"100"
-					}
-					"03"
-					{
-							"var_type"						"FIELD_INTEGER"
-							"bonus_evasion"					"35"
-					}
-					"04"
-					{
-							"var_type"						"FIELD_INTEGER"
-							"bonus_attack_speed"			"45"
-					}
-					"05"
-					{
-							"var_type"						"FIELD_FLOAT"
-							"duration"						"4"
-					}
-					"06"
-					{
-							"var_type"						"FIELD_INTEGER"
-							"bonus_move_speed"		"20"
-					}
-					"07"
-					{
-							"var_type"				"FIELD_INTEGER"
-							"crit_chance"			"30"
-					}
-					"08"
-					{
-							"var_type"				"FIELD_INTEGER"
-							"crit_multiplier"		"280"
-					}
+					"var_type"						"FIELD_INTEGER"
+					"bonus_agility"					"45"
 			}
-
-			"OnSpellStart"
+			"02"
 			{
-				"ApplyModifier"
-							{
-									"Target"					"CASTER"
-									"ModifierName"				"modifier_item_butterfly_datadriven_movespeed"
-									"Duration"					"%duration"
-							}
-				"FireSound"
+					"var_type"						"FIELD_INTEGER"
+					"bonus_damage"					"100"
+			}
+			"03"
+			{
+					"var_type"						"FIELD_INTEGER"
+					"bonus_evasion"					"35"
+			}
+			"04"
+			{
+					"var_type"						"FIELD_INTEGER"
+					"bonus_attack_speed"			"30"
+			}
+			"05"
+			{
+					"var_type"						"FIELD_INTEGER"
+					"bonus_move_speed"				"20"
+			}
+			"06"
+			{
+					"var_type"				"FIELD_INTEGER"
+					"crit_chance"			"30"
+			}
+			"07"
+			{
+					"var_type"				"FIELD_INTEGER"
+					"crit_multiplier"		"250"
+			}
+			"08"
+			{
+					"var_type"						"FIELD_INTEGER"
+					"bonus_move_speed_pct"			"15"
+			}
+			"09"
+			{
+					"var_type"						"FIELD_FLOAT"
+					"duration"						"4"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+						{
+								"Target"					"CASTER"
+								"ModifierName"				"modifier_item_butterfly_datadriven_movespeed"
+								"Duration"					"%duration"
+						}
+			"FireSound"
+			{
+				"EffectName"				"DOTA_Item.Armlet.Activate"
+				"Target"					"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_butterfly_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
 				{
-					"EffectName"				"DOTA_Item.Armlet.Activate"
-					"Target"					"CASTER"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agility"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%bonus_evasion"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"		"%bonus_move_speed"
+				}
+
+				"OnAttackStart"
+				{
+					"RemoveModifier"
+					{
+							"ModifierName" 	"modifier_wasp_crit"
+							"Target" 		"CASTER"
+					}
+
+					"Random"
+					{
+						"Chance" "%crit_chance"
+						"OnSuccess"
+						{
+							"ApplyModifier"
+							{
+								"ModifierName" 	"modifier_wasp_crit"
+								"Target"    	"CASTER"
+							}
+						}
+					}
 				}
 			}
 
-			"Modifiers"
+			"modifier_item_butterfly_datadriven_movespeed"
 			{
-					"modifier_item_butterfly_datadriven"
-					{
-							"Passive"			"1"
-							"IsHidden"			"1"
-							"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"			"0"
+				"IsHidden"			"0"
 
-							"Properties"
-							{
-									"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agility"
-									"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
-									"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
-									"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%bonus_evasion"
-									"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"		"%bonus_move_speed"
-							}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%bonus_move_speed_pct"
+				}
 
-							"OnAttackStart"
-							{
-									"RemoveModifier"
-									{
-											"ModifierName" 	"modifier_wasp_crit"
-											"Target" 		"CASTER"
-									}
-
-									"Random"
-									{
-											"Chance" "%crit_chance"
-											"OnSuccess"
-											{
-													"ApplyModifier"
-													{
-															"ModifierName" 	"modifier_wasp_crit"
-															"Target"    	"CASTER"
-													}
-											}
-									}
-							}
-					}
-
-					"modifier_item_butterfly_datadriven_movespeed"
-					{
-							"Passive"			"0"
-							"IsHidden"			"0"
-
-							"Properties"
-							{
-									"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%bonus_move_speed"
-							}
-
-							"States"
-							{
-									"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
-									"MODIFIER_STATE_FLYING"							"MODIFIER_STATE_VALUE_ENABLED"
-							}
-					}
-
-					"modifier_wasp_crit"
-					{
-							"IsHidden"  "1"
-							"Properties"
-							{
-									"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_multiplier"
-							}
-
-							"OnAttackLanded"
-							{
-									"RemoveModifier"
-									{
-											"ModifierName"  "modifier_wasp_crit"
-											"Target"   		"CASTER"
-									}
-							}
-					}
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING"							"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
+
+			"modifier_wasp_crit"
+			{
+				"IsHidden"  "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_multiplier"
+				}
+
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"  "modifier_wasp_crit"
+						"Target"   		"CASTER"
+					}
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// 大核荣耀2 wasp2
+	//=================================================================================================================
+	"item_recipe_wasp_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"9068"  //Valve's version of this item uses the ID "138".
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe_wasp_2"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						""
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_wasp_2"
+		"ItemRequirements"
+		{
+			"01"						"item_wasp;item_wasp"
+		}
+	}
+	"item_wasp_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"9069"  //Valve's version of this item uses the ID "139".
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"item_wasp_2"
+
+		"ItemKillable"					"0"
+		"ItemSellable"					"0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20.0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"8895"
+		"ItemShopTags"					"agi;damage;evasion;attack_speed;crit"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"wasp2"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"						"FIELD_INTEGER"
+					"bonus_agility"					"90"
+			}
+			"02"
+			{
+					"var_type"						"FIELD_INTEGER"
+					"bonus_damage"					"200"
+			}
+			"03"
+			{
+					"var_type"						"FIELD_INTEGER"
+					"bonus_evasion"					"50"
+			}
+			"04"
+			{
+					"var_type"						"FIELD_INTEGER"
+					"bonus_attack_speed"			"60"
+			}
+			"05"
+			{
+					"var_type"						"FIELD_INTEGER"
+					"bonus_move_speed"				"30"
+			}
+			"06"
+			{
+					"var_type"				"FIELD_INTEGER"
+					"crit_chance"			"30"
+			}
+			"07"
+			{
+					"var_type"				"FIELD_INTEGER"
+					"crit_multiplier"		"380"
+			}
+			"08"
+			{
+					"var_type"						"FIELD_INTEGER"
+					"bonus_move_speed_pct"			"30"
+			}
+			"09"
+			{
+					"var_type"						"FIELD_FLOAT"
+					"duration"						"4"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+					"Target"					"CASTER"
+					"ModifierName"				"modifier_item_butterfly_datadriven_movespeed"
+					"Duration"					"%duration"
+			}
+			"FireSound"
+			{
+				"EffectName"				"DOTA_Item.Armlet.Activate"
+				"Target"					"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_butterfly_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agility"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%bonus_evasion"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"		"%bonus_move_speed"
+				}
+
+				"OnAttackStart"
+				{
+					"RemoveModifier"
+					{
+							"ModifierName" 	"modifier_wasp_2_crit"
+							"Target" 		"CASTER"
+					}
+
+					"Random"
+					{
+						"Chance" "%crit_chance"
+						"OnSuccess"
+						{
+							"ApplyModifier"
+							{
+								"ModifierName" 	"modifier_wasp_2_crit"
+								"Target"    	"CASTER"
+							}
+						}
+					}
+				}
+			}
+
+			"modifier_item_butterfly_datadriven_movespeed"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%bonus_move_speed_pct"
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING"							"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+
+			"modifier_wasp_2_crit"
+			{
+				"IsHidden"  "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_multiplier"
+				}
+
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"  "modifier_wasp_2_crit"
+						"Target"   		"CASTER"
+					}
+				}
+			}
+		}
 	}
 
 	//=================================================================================================================
@@ -983,26 +1185,26 @@
 	//=================================================================================================================
 	"item_recipe_vladmir_2"
 	{
-			// General
-			//-------------------------------------------------------------------------------------------------------------
-			"BaseClass"						"item_datadriven"
-			"ID"							"9043"  //Valve's version of this item uses the ID "118".
-			"Model"							"models/props_gameplay/recipe.mdl"
-			"AbilityTextureName"			"item_recipe_vladmir_2"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"9043"  //Valve's version of this item uses the ID "118".
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe_vladmir_2"
 
-			// Item Info
-			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"						"5225"
-			"ItemShopTags"					""
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2075"
+		"ItemShopTags"					""
 
-			// Recipe
-			//-------------------------------------------------------------------------------------------------------------
-			"ItemRecipe"					"1"
-			"ItemResult"					"item_vladmir_2"
-			"ItemRequirements"
-			{
-					"01"						"item_vladmir;item_assault;item_ultimate_orb"
-			}
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_vladmir_2"
+		"ItemRequirements"
+		{
+			"01"						"item_vladmir;item_assault"
+		}
 	}
 
 	//=================================================================================================================
@@ -1033,7 +1235,7 @@
 					"01"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"bonus_all_stats"		"10"
+							"bonus_all_stats"		"10"			// unuse
 					}
 					"03"
 					{
@@ -1068,17 +1270,17 @@
 					"09"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"aura_positive_armor"	"15"
+							"aura_positive_armor"	"10"
 					}
 					"10"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"aura_attack_speed"		"60"
+							"aura_attack_speed"		"40"
 					}
 					"11"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"aura_negative_armor"	"-15"
+							"aura_negative_armor"	"-10"
 					}
 			}
 
@@ -1092,9 +1294,6 @@
 
 							"Properties"
 							{
-									"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"				"%bonus_all_stats"
-									"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"					"%bonus_all_stats"
-									"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"				"%bonus_all_stats"
 									"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"			"%bonus_attack_speed"
 									"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"				"%bonus_armor"
 							}
@@ -1282,7 +1481,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"20150"
+		"ItemCost"						"18150"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1385,7 +1584,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6800"
+		"ItemCost"						"5500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1414,6 +1613,7 @@
 		"AbilityManaCost"				"200"
 		"AbilitySharedCooldown"			"undying"
 
+		"ItemCost"						"14600"
 		"ItemShopTags"					"str;regen_health;health_pool"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"hot;heart of tarrasque"
@@ -1458,7 +1658,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_hp_regen"		"1000"
+				"active_hp_regen"		"800"
 			}
 			"08"
 			{
@@ -1468,7 +1668,7 @@
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"buff_hp_regen"			"500"
+				"buff_hp_regen"			"400"
 			}
 			"10"
 			{
@@ -1889,7 +2089,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"                      "2300"
+		"ItemCost"                      "2325"
 		"ItemShopTags"                  ""
 
 		// Recipe
@@ -1932,32 +2132,32 @@
 			"01"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"bonus_health"          "450"
+				"bonus_health"          "600"
 			}
 			"02"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"bonus_health_regen"    "20"
+				"bonus_health_regen"    "20"			// unuse
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"1200"
+				"radius"				"900"
 			}
 			"04"
 			{
-				"var_type"              "FIELD_INTEGER"
-				"magical_resis"			"30"
+				"var_type"                      "FIELD_INTEGER"
+				"bonus_armor"                   "20"
 			}
 			"05"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"damage_reduction"      "-5"
+				"magical_resis"      	"20"
 			}
 			"06"
 			{
 				"var_type"                      "FIELD_INTEGER"
-				"aura_regen_base"               "10"
+				"aura_regen_base"               "20"
 			}
 			"07"
 			{
@@ -1966,23 +2166,23 @@
 			}
 			"08"
 			{
-				"var_type"                      "FIELD_INTEGER"
-				"aura_regen_buff"               "20"
+				"var_type"              "FIELD_INTEGER"
+				"aura_magical_resis_buff"		"10"
 			}
-			"11"
+			"09"
+			{
+				"var_type"                      "FIELD_INTEGER"
+				"aura_regen_buff"               "30"
+			}
+			"10"
 			{
 				"var_type"                      "FIELD_INTEGER"
 				"aura_damage_reduction_buff"    "-9"
 			}
-			"13"
+			"11"
 			{
 				"var_type"                      "FIELD_INTEGER"
-				"duration"                      "12"
-			}
-			"14"
-			{
-				"var_type"                      "FIELD_INTEGER"
-				"bonus_armor"                      "20"
+				"duration"                      "9"
 			}
 		}
 
@@ -2025,8 +2225,6 @@
 				{
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"%magical_resis"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"                    "%bonus_health"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"           "%bonus_health_regen"
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"      "%damage_reduction"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
 				}
 			}
@@ -2068,8 +2266,9 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"        "%aura_regen_buff"
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"   "%aura_damage_reduction_buff"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"			"%aura_regen_buff"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%aura_damage_reduction_buff"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"%aura_magical_resis_buff"
 				}
 			}
 		}
@@ -2087,7 +2286,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4300"
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2167,7 +2366,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1100"
+		"ItemCost"						"1650"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2332,7 +2531,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2100"
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2365,7 +2564,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"7100"
+		"ItemCost"						"3400"
 		"ItemShopTags"					"damage;attack_speed"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"dragon lance plus"
@@ -2380,17 +2579,17 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_agility"		        "35"
+				"bonus_agility"		        "25"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_strength"		    "25"
+				"bonus_strength"		    "20"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_range"		"180"
+				"bonus_attack_range"		"170"
 			}
 			"04"
 			{
@@ -2419,7 +2618,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1200"
+		"ItemCost"						"600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2453,7 +2652,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 
-		"ItemCost"						"8000"
+		"ItemCost"						"6800"
 		"ItemShopTags"					"damage;attack_speed"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"dragon lance pro max"
@@ -2468,7 +2667,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_agility"	        	"60"
+				"bonus_agility"	        	"50"
 			}
 			"02"
 			{
@@ -2478,7 +2677,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_range"		"220"
+				"bonus_attack_range"		"200"
 			}
 			"04"
 			{
@@ -2492,6 +2691,8 @@
 			}
 		}
 	}
+
+	// "ID"	"9068"	"9069" used by wasp2
 
 	//=================================================================================================================
 	// Recipe: Magic Scepter
@@ -2674,7 +2875,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2600"	
+		"ItemCost"						"1800"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -2845,7 +3046,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4300"	
+		"ItemCost"						"2000"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -2891,7 +3092,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"60"
+				"bonus_agility"			"45"
 			}
 			"03"
 			{
@@ -3106,7 +3307,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4550"	
+		"ItemCost"						"3750"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3130,7 +3331,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
 		"BaseClass"						"item_black_king_bar"
-		"AbilityTextureName"			"exalted_bkb"
+		"AbilityTextureName"			"item_black_king_bar_2"
 		"AbilitySharedCooldown"			"bkb"
 
 		// Stats		
@@ -3188,7 +3389,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5650"	
+		"ItemCost"						"5850"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3197,7 +3398,7 @@
 		"ItemResult"					"item_infernal_desolator"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator;item_desolator;item_rapier"
+			"01"						"item_desolator;item_desolator;item_relic"
 		}
 	}
 
@@ -3215,7 +3416,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"17950"
+		"ItemCost"						"16600"
 		"ItemShopTags"					"damage;unique"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"super desolator"
@@ -3230,12 +3431,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"380"
+				"bonus_damage"			"320"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-23"
+				"corruption_armor"		"-22"
 			}
 			"03"
 			{
@@ -3479,7 +3680,7 @@
 		"FightRecapLevel"						"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8600"	
+		"ItemCost"						"6550"	
 		"ItemShopTags"					""
 
 		
@@ -3565,12 +3766,12 @@
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_m"				"2.5"
+				"stun_m"				"2.4"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"block_chance"			"90"
+				"block_chance"			"85"
 			}
 			"09"
 			{
@@ -3614,7 +3815,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"6000"	
+		"ItemCost"								"3000"	
 		"ItemShopTags"							""
 
 		
@@ -3666,12 +3867,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_evasion"			"30"
+				"bonus_evasion"			"25"
 			}	
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"50"
+				"bonus_strength"		"40"
 			}		
 			"03"
 			{
@@ -3711,7 +3912,7 @@
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"spell_resist"			"30"
+				"spell_resist"			"20"
 			}
 		}
 	}
@@ -3730,7 +3931,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"1000"	
+		"ItemCost"								"800"	
 		"ItemShopTags"							""
 
 		
@@ -3764,7 +3965,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"4100"
+		"ItemCost"								"5000"
 		"ItemShopTags"							"damage;move_speed;hard_to_tag"
 		"ItemQuality"							"common"
 		"ItemAliases"							"super phase boots"
@@ -3793,7 +3994,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"rate"					"35"
+				"rate"					"30"
 			}
 			"05"
 			{
@@ -3842,7 +4043,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"2000"	
+		"ItemCost"								"1900"	
 		"ItemShopTags"							""
 
 		
@@ -3876,7 +4077,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"9200"
+		"ItemCost"								"9600"
 		"ItemShopTags"							"damage;move_speed;hard_to_tag"
 		"ItemQuality"							"common"
 		"ItemAliases"							"super phase boots"
@@ -3895,7 +4096,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"att"					"50"
+				"att"					"40"
 			}			
 			"03"
 			{
@@ -3920,7 +4121,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_evasion"		"50"
+				"active_evasion"		"40"
 			}
 			"08"
 			{
@@ -3953,7 +4154,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2500"	
+		"ItemCost"						"1500"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3962,7 +4163,7 @@
 		"ItemResult"					"item_hurricane_pike_2"
 		"ItemRequirements"
 		{
-			"01"						"item_force_staff_3;item_dragon_lance_pro_max"
+			"01"						"item_hurricane_pike;item_dragon_lance_pro_max"
 		}
 	}
 	
@@ -4000,7 +4201,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"45"
+				"bonus_intellect"		"20"
 			}
 			"02"
 			{
@@ -4010,17 +4211,17 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"75"
+				"bonus_agility"			"70"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"30"
+				"bonus_strength"		"40"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_attack_range"		"220"
+				"base_attack_range"		"240"
 			}
 			"06"
 			{
@@ -4040,7 +4241,7 @@
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range_enemy"		"600"
+				"cast_range_enemy"		"800"
 			}
 			"10"
 			{
