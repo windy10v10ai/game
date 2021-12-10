@@ -552,5 +552,14 @@
 		"DOTA_Tooltip_ability_item_adi_king_plus_rate"											"%+turn rate"
 		"DOTA_Tooltip_modifier_item_adi_king_plus_aura"							        		"speed aura"
 		"DOTA_Tooltip_modifier_item_adi_king_plus_buff"											"speed buff"
+
+		// item blue fantasy
+		"DOTA_Tooltip_ability_item_blue_fantasy"									"blue fantasy"
+		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1><font color='#FFFF00'>Active：Destruction song</font></h1>Dispel the gain effect of a target。<br><br>During the duration, passive>disabled, items>disabled, hp regeneration & heal >disabled , evasion>disabled, movement speed is reduced by %slow_pct%%%, attack speed by %attsp% is reduced (for %mute_duration% seconds)。<br><br>Deals %dmg%%% of maximum health magic damage to the target every second.\n<h1><font color='#FFFF00'>Passive：mana remove</font></h1>Each attack burns %mana_base% magic points and causes the same amount of physical damage to the target"
+		"DOTA_Tooltip_ability_item_blue_fantasy_int"								"+$int"
+		"DOTA_Tooltip_ability_item_blue_fantasy_agi"								"+$agi"
+		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_regen"						"+$hp_regen"
 	}
 }
