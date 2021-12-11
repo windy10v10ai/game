@@ -423,7 +423,7 @@
 	}
 	"item_fallen_sky"
 	{
-		"AbilityCooldown"				"12.0"
+		"AbilityCooldown"				"15.0"
 		"AbilitySpecial"
 		{
 			"01"
@@ -439,12 +439,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"30.0"
+				"bonus_health_regen"	"25.0"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"15.0"
+				"bonus_mana_regen"		"12.0"
 			}
 			"05"
 			{
@@ -6201,6 +6201,114 @@
 				"var_type"					"FIELD_INTEGER"
 				"golem_dmg_tooltip_scepter"	"100 150 200"
 				"RequiresScepter"		"1"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Visage          维萨吉
+	//=================================================================================================================
+	"visage_grave_chill"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"16 15 14 13 12 11 10"
+		"AbilityManaCost"				"60 70 80 90 100 110 120"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed_bonus"				"15 20 25 30 35 40 45"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attackspeed_bonus"				"34 46 58 70 82 94 106"
+			}
+		}
+	}
+	
+	"visage_soul_assumption"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"4 3.5 3 2.5 2 1.5 1"
+		"AbilityManaCost"				"90 100 110 120 130 140 150"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"soul_base_damage"			"40 80 120 160 200 240 280"
+			}
+		}
+	}
+	"visage_gravekeepers_cloak"
+	{
+		"MaxLevel" "7"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"recovery_time"						"7 6 5 4 3 2 1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Earth Spirit       大地之灵 土猫
+	//=================================================================================================================
+	"earth_spirit_boulder_smash"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"22.0 20.0 18.0 16.0 14.0 12.0 10.0"
+		"AbilityManaCost"				"80 90 100 110 120 130 140"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rock_damage"			"105 170 235 300 365 430 495"
+			}
+		}
+	}
+	"earth_spirit_rolling_boulder"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"16.0 14.0 12.0 10.0 8.0 6.0 4.0"
+		"AbilityManaCost"				"30 40 50 60 70 80 90"
+		"AbilitySpecial"
+		{
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"120 150 180 210 240 270 300"
+				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.7 0.8 0.9 1.0 1.1 1.2 1.3"
+				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_3"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"rock_bonus_duration"	"0.7 0.8 0.9 1.0 1.1 1.2 1.3"
+			}
+		}
+	}
+
+	"earth_spirit_magnetize"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"100 90 80 70 60"
+		"AbilityManaCost"				"100.0 150.0 200.0 250.0 300.0"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"			"40 80 120 160 200"
 			}
 		}
 	}

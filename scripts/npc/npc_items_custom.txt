@@ -576,7 +576,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_reflection_pct"			"85"
+				"active_reflection_pct"			"80"
 			}
 		}
 	}
@@ -3389,7 +3389,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5850"	
+		"ItemCost"						"4850"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3411,15 +3411,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3037"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"item_desolator_2"
+		"BaseClass"						"item_desolator"
 		"AbilityTextureName"			"item_infernal_desolator"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"16600"
+		"ItemCost"						"15600"
 		"ItemShopTags"					"damage;unique"
 		"ItemQuality"					"artifact"
-		"ItemAliases"					"super desolator"
+		"ItemAliases"					"infernal Desolator"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"ShouldBeSuggested"				"1"
@@ -3431,12 +3431,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"320"
+				"bonus_damage"			"300"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-22"
+				"corruption_armor"		"-21"
 			}
 			"03"
 			{
