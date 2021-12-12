@@ -2719,10 +2719,6 @@
 			}
 		}
 	}
-	"shadow_shaman_mass_serpent_ward"
-	{
-		"AbilityCooldown"				"60"
-	}
 	"silencer_glaives_of_wisdom"
 	{
 		"MaxLevel" "7"
@@ -6309,6 +6305,90 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"damage_per_second"			"40 80 120 160 200"
+			}
+		}
+	}
+	
+	//=================================================================================================================
+	// Ability: Shadow Shaman      暗影萨满
+	//=================================================================================================================
+	"shadow_shaman_ether_shock"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"14 13 12 11 10 9 8"
+		"AbilityManaCost"				"100 120 140 160 180 200 220"
+		"AbilitySpecial"
+		{
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"140 200 260 320 380 440 500"
+				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_3"
+			}
+		}
+	}
+	"shadow_shaman_shackles"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"16 15 14 13 12 11 10"
+		"AbilityManaCost"				"140 150 160 170 180 190 200"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"total_damage"		"60 160 260 360 460 560 660"
+				"LinkedSpecialBonus"	"special_bonus_unique_shadow_shaman_6"
+			}
+		}
+	}
+	"shadow_shaman_mass_serpent_ward"
+	{
+		"AbilityCooldown"				"80 70 60"
+	}
+	//=================================================================================================================
+	// Ability: Broodmother      蜘蛛
+	//=================================================================================================================
+	"broodmother_silken_bola"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"24 22 20 18 16 14 12"
+		"AbilityManaCost"				"70 75 80 85 90 95 100"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed"		"25 35 45 55 60 65 70"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impact_damage"			"100 120 140 160 200 240 280"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage"			"6 7 8 9 10 12 14"
+			}
+		}
+	}
+	"broodmother_spawn_spiderlings"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"9 8 7 6 5"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"260 340 420 500 580"
+				"LinkedSpecialBonus"	"special_bonus_unique_broodmother_3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"count"					"4 5 6 7 8"
 			}
 		}
 	}
