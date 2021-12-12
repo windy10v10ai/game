@@ -58,11 +58,10 @@
 		"player_gold_xp_multiplier_2"            	"2    (新手)"
 		"player_gold_xp_multiplier_5"               "5    (我要打10个)"
 
-		"respawn_time_percentage_200"        "200% (跟Dota一样慢)"
-		"respawn_time_percentage_100"        "100% (普通)"
-		"respawn_time_percentage_75"         "75%   (快速)"
-		"respawn_time_percentage_50"         "50%   (极快)"
-		"respawn_time_percentage_0"          "0% (秒活 可能卡顿，不推荐)"
+		"respawn_time_percentage_125"        "较慢"
+		"respawn_time_percentage_100"        "普通"
+		"respawn_time_percentage_75"         "快速"
+		"respawn_time_percentage_0"          "秒活 (可能卡顿)"
 
 		"max_level_100"                   "100"
 		"max_level_150"                   "150"
