@@ -25,7 +25,7 @@
 		"dire_player_number"	"夜魇玩家人数"
 		"confirm_game_options"	"Confirm and Hide Game Options"
 		"show_game_options"  "Show Game Options"
-		"respawn_time_percentage"	"复活时间百分比"
+		"respawn_time_percentage"	"复活时间"
 		"max_level"	"等级上限"
 		"radiant_tower_power"	"天辉建筑攻击/防御加成"
 		"dire_tower_power"	"夜魇建筑攻击/防御加成"
