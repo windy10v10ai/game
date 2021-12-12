@@ -143,7 +143,7 @@
 {
 	margin-top: 20px;
 	margin-left: 400px;
-	padding-left: 35px;
+	padding-left: 20px;
 	width: 350px;
 	height: 200px;
 	flow-children: down;
@@ -154,11 +154,13 @@
 	width: 100%;
 	height: 100%;
 	flow-children: down;
+	background-color: #eeffff44;
+	padding: 10px;
 }
 .DisplayOptionsSubPanel
 {
 	flow-children: right;
-	margin-top: 12px;
+	margin-top: 8px;
 	width: 100%;
 }
 .DisplayOptionsLableTitle
