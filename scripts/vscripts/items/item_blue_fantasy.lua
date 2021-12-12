@@ -174,16 +174,13 @@ function modifier_item_blue_fantasy_debuff:CheckState()
     {
         [MODIFIER_STATE_MUTED] = true,                          --闭锁
         [MODIFIER_STATE_PASSIVES_DISABLED] = true,              --被动失效
-        [MODIFIER_STATE_EVADE_DISABLED] = true,                 --闪避失效
+        -- [MODIFIER_STATE_EVADE_DISABLED] = true,                 --闪避失效
     }
 end
 
 function modifier_item_blue_fantasy_debuff:DeclareFunctions()
     return
     {
-        MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,       --自身hp回复增强百分比
-        MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,          --自身hp回复百分比
-        MODIFIER_PROPERTY_DISABLE_HEALING,                      --其他回复效果禁止
         MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,           --移速百分比
         MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT            --攻速点数
    }
@@ -193,7 +190,7 @@ end
 function modifier_item_blue_fantasy_debuff:OnCreated()
     self.slow_pct=self:GetAbility():GetSpecialValueFor("slow_pct")
     self.attsp=self:GetAbility():GetSpecialValueFor("attsp")
-    self.dmg=self:GetAbility():GetSpecialValueFor("dmg")*0.01
+    self.max_hp_dmg_pct=self:GetAbility():GetSpecialValueFor("max_hp_dmg_pct")*0.01
     if not IsServer() then
         return
     end
@@ -214,20 +211,8 @@ function modifier_item_blue_fantasy_debuff:OnIntervalThink()
     if not IsServer() then
         return
     end
-    self.damageTable.damage = self:GetParent():GetMaxHealth()*self.dmg     --一秒造成一次最大生命百分比伤害
+    self.damageTable.damage = self:GetParent():GetMaxHealth()*self.max_hp_dmg_pct     --一秒造成一次最大生命百分比伤害
     ApplyDamage(self.damageTable)
-end
-
-function modifier_item_blue_fantasy_debuff:GetDisableHealing()
-    return   1
- end
-
-function modifier_item_blue_fantasy_debuff:GetModifierHealAmplify_PercentageTarget()
-    return -100
-end
-
-function modifier_item_blue_fantasy_debuff:GetModifierHPRegenAmplify_Percentage()
-    return -100
 end
 
 function modifier_item_blue_fantasy_debuff:GetModifierMoveSpeedBonus_Percentage()
