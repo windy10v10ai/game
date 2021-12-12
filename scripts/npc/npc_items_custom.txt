@@ -4300,7 +4300,7 @@
 		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		"FightRecapLevel"						"1"
 		
-		"AbilityCooldown"						"20.0"
+		"AbilityCooldown"						"30.0"
 		"AbilityCastRange"						"900"
 		"AbilityManaCost"						"250"
 		"AbilitySharedCooldown"			        "bluefantasy"
@@ -4328,52 +4328,52 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"60"
+				"bonus_damage"			"80"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"5"
+				"var_type"				"FIELD_FLOAT"
+				"agi"					"50"
 			}
 			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_regen"			"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mute_duration"			"5.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"		"2000"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_pct"				"-50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"attsp"					"-200"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dmg"					"5"
-			}
-			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"int"					"20"
 			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_regen"			"10"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mute_duration"			"5.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"2000"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_pct"				"-50"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attsp"					"-200"
+			}
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"agi"					"50"
+				"max_hp_dmg_pct"		"5"
 			}
 			"11"
 			{
