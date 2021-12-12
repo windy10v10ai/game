@@ -4373,7 +4373,7 @@
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"max_hp_dmg_pct"		"5"
+				"max_hp_dmg_pct"		"4"
 			}
 			"11"
 			{

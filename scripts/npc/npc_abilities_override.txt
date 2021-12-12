@@ -498,12 +498,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"knockback_distance"			"25"
+				"knockback_distance"			"10"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"knockback_duration"		"0.1"
+				"knockback_duration"		"0.05"
 			}
 		}
 	}
@@ -1712,7 +1712,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"chance"	"15 18 21"
+				"chance"	"16 18 20"
 				"LinkedSpecialBonus"		"special_bonus_unique_drow_ranger_3"
 			}
 			"02"
@@ -1735,8 +1735,15 @@
 			"06"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"scepter_range"					"300"
+				"scepter_range"					"300"	// 375
 				"RequiresScepter"		"1"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_reduction_scepter"		"60"
+				"RequiresScepter"				"1"
+				"CalculateSpellDamageTooltip"	"0"
 			}
 		}
 	}
@@ -1747,7 +1754,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"6"
+				"value"				"5"
 				"ad_linked_ability"			"drow_ranger_marksmanship"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -2101,6 +2108,19 @@
 		"AbilityCooldown"				"100 95 90"
 		"AbilityManaCost"				"150 250 350"
 	}
+	
+	"sniper_headshot"
+	{
+		"AbilityDamage"					"20 50 80 110"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"slow_duration"					"0.2"
+			}
+		}
+	}
 	"sniper_take_aim"
 	{
 		"AbilitySpecial"
@@ -2241,7 +2261,7 @@
 	"tinker_laser"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"20 18 16 14"
+		"AbilityCooldown"				"20 19 18 17 16 15 14"
 		"AbilityManaCost"				"110 130 150 170 200 230 260"
 		"AbilitySpecial"
 		{
@@ -2260,16 +2280,15 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius_explosion"				"200"
+				"radius_explosion"	"200"	// 250
 			}
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"splash_pct"		"80"
+				"splash_pct"		"60"	// 100
 			}
 		}
 	}
-
 	"tinker_heat_seeking_missile"
 	{
 		"MaxLevel" "7"
@@ -2294,6 +2313,11 @@
 			}
 		}
 	}
+	"tinker_rearm"
+	{
+		"AbilityManaCost"				"150 300 450"
+	}
+
 	"witch_doctor_voodoo_restoration"
 	{
 		"MaxLevel" "7"
@@ -2483,7 +2507,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_per_kill"			"25"
+				"damage_per_kill"			"20"
 				"LinkedSpecialBonus"			"special_bonus_unique_lion_8"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -2502,7 +2526,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"15"
+				"value"				"10"
 				"ad_linked_ability"			"lion_finger_of_death"
 			}
 		}
