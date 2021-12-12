@@ -58,11 +58,10 @@
 		"player_gold_xp_multiplier_2"               "2"
 		"player_gold_xp_multiplier_5"               "5"
 
-		"respawn_time_percentage_200"        "200%"
-		"respawn_time_percentage_100"        "100%"
-		"respawn_time_percentage_75"         "75%"
-		"respawn_time_percentage_50"         "50%"
-		"respawn_time_percentage_0"          "0%"
+		"respawn_time_percentage_125"        "Slow"
+		"respawn_time_percentage_100"        "Normal"
+		"respawn_time_percentage_75"         "Fast"
+		"respawn_time_percentage_0"          "Zero"
 
 		"max_level_100"                   "100"
 		"max_level_150"                   "150"
