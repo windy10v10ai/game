@@ -611,6 +611,7 @@ tBotItemData.purchaseItemList = {
 		'item_undying_heart',
 		'item_insight_armor',
 		'item_wasp',
+		'item_wasp',
 	},
 	npc_dota_hero_riki = {
 		'item_magic_wand',
@@ -627,6 +628,7 @@ tBotItemData.purchaseItemList = {
 		'item_satanic',
 		'item_moon_shard_datadriven',
 		'item_skadi_2',
+		'item_wasp',
 		'item_wasp',
 		'item_abyssal_blade_v2',
 	},
