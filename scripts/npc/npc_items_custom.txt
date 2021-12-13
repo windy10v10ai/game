@@ -3436,7 +3436,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-21"
+				"corruption_armor"		"-22"
 			}
 			"03"
 			{
@@ -4353,7 +4353,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"mute_duration"			"5.0"
+				"mute_duration"			"4.0"
 			}
 			"07"
 			{

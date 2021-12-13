@@ -101,6 +101,40 @@
 
 		"DOTA_Tooltip_modifier_melee_resistance"					"威压"
 		"DOTA_Tooltip_modifier_melee_resistance_Description"	"近战英雄拥有 %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 基础状态抗性（可与装备叠加），34%% 基础魔法抗性"
+
+		///////////////////////////////////////////////////
+		//
+		//            Heroes
+		//
+		///////////////////////////////////////////////////
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven"					"Glaives of Wisdom"
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Lore"			"Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Description"	"Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence. Silencer temporarily increases his Intelligence with each hit."
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_intellect_damage_pct"	"%INT TO DAMAGE:"
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal"				"INT INCREASE:"
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal_duration"		"INT INCREASE DURATION:"
+		"DOTA_Tooltip_modifier_glaives_of_wisdom_status"								"Glaives of Wisdom"
+		"DOTA_Tooltip_modifier_glaives_of_wisdom_status_Description"				"Temporarily increasing Intelligence"
+
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"暗杀（旧版）"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"施法距离:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"神杖升级暗杀范围:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%神杖升级致命一击:"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"暗杀（旧版）"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
+
+		// 茶神
+		"npc_dota_hero_techies"					"茶神"
+
+		// 双头龙
+        "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"烈焰焚身的距离+400，持续时间+5秒，并且变为纯粹伤害，无视技能免疫。"
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
@@ -239,7 +273,7 @@
 		"DOTA_Tooltip_ability_item_undying_heart_health_regen_pct"						"%+最大生命恢复（无法叠加）"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_evasion"							"%+$evasion"
 		"DOTA_Tooltip_ability_item_undying_heart_status_resistance"						"%+状态抗性"
-		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"buff：巨龙复苏"
+		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"Buff：巨龙复苏"
 
 		"DOTA_Tooltip_Ability_item_force_staff_2"			"风力法杖"
 		"DOTA_Tooltip_Ability_item_force_staff_2_Description"						"<h1>主动：风力</h1>将任何目标单位向其面对方向推进%push_length%距离。<br><br>施法距离：%abilitycastrange%"
@@ -357,44 +391,6 @@
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range"			"黄金魔龙枪 Ultimate射程"
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range_Description"	"可以无视射程限制攻击目标。"
 
-		///////////////////////////////////////////////////
-		//
-		//            Heroes
-		//
-		///////////////////////////////////////////////////
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven"					"Glaives of Wisdom"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Lore"			"Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Description"	"Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence. Silencer temporarily increases his Intelligence with each hit."
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_intellect_damage_pct"	"%INT TO DAMAGE:"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal"				"INT INCREASE:"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal_duration"		"INT INCREASE DURATION:"
-		"DOTA_Tooltip_modifier_glaives_of_wisdom_status"								"Glaives of Wisdom"
-		"DOTA_Tooltip_modifier_glaives_of_wisdom_status_Description"				"Temporarily increasing Intelligence"
-
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"暗杀（旧版）"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"施法距离:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"神杖升级暗杀范围:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%神杖升级致命一击:"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"暗杀（旧版）"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
-
-		//            茶神
-		"npc_dota_hero_techies"					"茶神(hecha)"
-		"npc_dota_techies_land_mine"					"杰哥地雷"
-		"npc_dota_techies_stasis_trap"					"杰哥の陷♂阱"
-		"npc_dota_techies_remote_mine"				"肛王炸弹"
-
-		"DOTA_Tooltip_ability_techies_land_mines"						"杰哥地雷"
-		"DOTA_Tooltip_ability_techies_stasis_trap"						"杰哥の陷♂阱"
-		"DOTA_Tooltip_ability_techies_suicide"							"飞翔吧！杰杰"
-		"DOTA_Tooltip_ability_techies_remote_mines"						"肛王炸弹"
-
 		"DOTA_Tooltip_Ability_item_skadi_2"				"粘妈之眼"
 		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>被动：霜冻攻击</h1>攻击附带霜冻效果，可以降低敌人的移动速度和攻击速度，并且他们的治疗、生命恢复、吸血和技能吸血效果降低%heal_reduction%%%，持续%cold_duration%秒。对敌方远程目标将减缓%cold_slow_ranged%%%移动速度，降低%cold_slow_ranged%攻击速度。对敌方近战目标将减缓%cold_slow_melee%%%移动速度，降低%cold_slow_melee%攻击速度。"
 		"DOTA_Tooltip_ability_item_skadi_2_Lore"									"极度罕见的古物，可以粘住网络喷子的妈妈。"
@@ -407,7 +403,6 @@
 		"DOTA_Tooltip_ability_bloodseeker_rupture_charge_restore_time_scepter"					""
 
 		// Tomes
-
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"力量之书"
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>使用: 力量之书</h1> 永久增加力量 %bonus% 点。\n可以分享给队友"
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Lore"				"Is it strength that you desire...?"
@@ -463,13 +458,6 @@
 		"DOTA_Tooltip_ability_item_silver_edge_2_Description"						"<h1>主动：暗影步</h1>进入隐身直到%windwalk_duration%秒持续时间结束、攻击或施法。隐身时，移动速度将提升%windwalk_movement_speed%%%，而且可以穿越单位。<br><br>破隐一击将额外造成%windwalk_bonus_damage%点物理伤害，并且必定对目标造成%crit_multiplier%%%致命一击伤害，同时%backstab_duration%秒内目标的被动技能无效。\n<h1>被动：致命一击</h1>每次攻击时有%crit_chance%%%概率造成%crit_multiplier%%%伤害。"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_mana_regen"              "+$mana_regen"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_bonus_strength"                "+$str"
-		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_intellect"                "+$int"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_windwalk_duration"					"SHADOW WALK DURATION:"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_windwalk_bonus_damage"		"BONUS ATTACK DAMAGE:"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_backstab_reduction"		"%ENEMY DAMAGE REDUCTION:"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_backstab_duration"		"REDUCTION DURATION:"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Lore"						"众所周知，隐身等于无敌。"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Note0"					"暗影步无法闪避。"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Note1"					"暗影步并不能无视技能免疫。"
