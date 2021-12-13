@@ -101,6 +101,40 @@
 
 		"DOTA_Tooltip_modifier_melee_resistance"					"Bulldozer"
 		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% stackable base status resist, 34%% base magical resistance."
+
+		///////////////////////////////////////////////////
+		//
+		//            Heroes
+		//
+		///////////////////////////////////////////////////
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven"					"Glaives of Wisdom"
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Lore"			"Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Description"	"Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence. Silencer temporarily increases his Intelligence with each hit."
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_intellect_damage_pct"	"%INT TO DAMAGE:"
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal"				"INT INCREASE:"
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal_duration"		"INT INCREASE DURATION:"
+		"DOTA_Tooltip_modifier_glaives_of_wisdom_status"								"Glaives of Wisdom"
+		"DOTA_Tooltip_modifier_glaives_of_wisdom_status_Description"				"Temporarily increasing Intelligence"
+
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"Assassinate (old)"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"RANGE:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"SCEPTER RADIUS:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%SCEPTER CRITICAL DAMAGE:"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"Assassinate"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
+
+		// 茶神
+		"npc_dota_hero_techies"					"hechahecha"
+
+		// 双头龙
+        "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"Increases Macropyre distance by +400 range, duration by +5 seconds and causes it to become Pure damage and pierce Spell Immunity."
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
@@ -144,8 +178,6 @@
 		"DOTA_Tooltip_Ability_item_pirate_hat_custom_Description"					"<h1>Passive: Agile Thief</h1> Reduces your Base Attack Time by %bat_reduction%."
 		"DOTA_Tooltip_Ability_item_pirate_hat_custom_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_Ability_item_pirate_hat_custom_Note0"							"Does not stack with other BAT reducing modifiers."
-
-
 
 		"DOTA_Tooltip_Ability_item_blade_mail_2"	"Blade Mail 2"
 		"DOTA_Tooltip_Ability_item_recipe_blade_mail_2"				"Blade Mail 2 Recipe"
@@ -241,6 +273,7 @@
 		"DOTA_Tooltip_ability_item_undying_heart_health_regen_pct"						"%+Max Health Regen (cannot repetitive)"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_evasion"							"%+$evasion"
 		"DOTA_Tooltip_ability_item_undying_heart_status_resistance"						"%+Status Resistance"
+		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"Buff：Dragon Recovery"
 
 		"DOTA_Tooltip_Ability_item_force_staff_2"			"Wind Force Staff"
 		"DOTA_Tooltip_Ability_item_force_staff_2_Description"						"<h1>Active: Wind Force</h1>Pushes any target unit %push_length% units in the direction it is facing.<br><br>Range: %abilitycastrange%"
@@ -357,32 +390,6 @@
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_active_alternate_Description"	"Being pushed by Golden Hurricane Pike."
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range"			"Golden Hurricane Pike Range"
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range_Description"	"Can attack the target without range restrictions."
-		///////////////////////////////////////////////////
-		//
-		//            Heroes
-		//
-		///////////////////////////////////////////////////
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven"					"Glaives of Wisdom"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Lore"			"Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Description"	"Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence. Silencer temporarily increases his Intelligence with each hit."
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_intellect_damage_pct"	"%INT TO DAMAGE:"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal"				"INT INCREASE:"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal_duration"		"INT INCREASE DURATION:"
-		"DOTA_Tooltip_modifier_glaives_of_wisdom_status"								"Glaives of Wisdom"
-		"DOTA_Tooltip_modifier_glaives_of_wisdom_status_Description"				"Temporarily increasing Intelligence"
-
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"Assassinate (old)"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"RANGE:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"SCEPTER RADIUS:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%SCEPTER CRITICAL DAMAGE:"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"Assassinate"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
 		"DOTA_Tooltip_Ability_item_skadi_2"				"Eye of Skadi 2"
 		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>Passive: Cold Attack</h1> Attacks lower enemy movement and attack speed and reduces heals, health regeneration, lifesteal and spell lifesteal by %heal_reduction%%% for %cold_duration% seconds. Slows enemy ranged units by %cold_slow_ranged%%% movement speed and by %cold_slow_ranged% attack speed. Slows enemy melee units by %cold_slow_melee%%% movement speed and by %cold_slow_melee% attack speed. "
@@ -396,7 +403,6 @@
 		"DOTA_Tooltip_ability_bloodseeker_rupture_charge_restore_time_scepter"					""
 
 		// Tomes
-
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"Tome of Strength"
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>Use: Bulk</h1> Permanently increases your strength by %bonus%.\n Shareable with teammate."
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Lore"				"Is it strength that you desire...?"
@@ -452,13 +458,6 @@
 		"DOTA_Tooltip_ability_item_silver_edge_2_Description"						"<h1>Active: Shadow Walk</h1>Makes you invisible for %windwalk_duration% seconds, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  <br><br>Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus physical damage and a guaranteed %crit_multiplier%%% critical strike to the target, and disable their passive abilities for %backstab_duration% seconds.\n<h1>Passive: Echo Strike</h1> Causes melee attacks to attack twice in quick succession. The double attacks apply a %movement_slow%%% movement slow for %slow_duration% seconds on each strike."
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_mana_regen"              "+$mana_regen"
-		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_strength"                "+$str"
-		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_intellect"                "+$int"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_windwalk_duration"					"SHADOW WALK DURATION:"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_windwalk_bonus_damage"		"BONUS ATTACK DAMAGE:"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_backstab_reduction"		"%ENEMY DAMAGE REDUCTION:"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_backstab_duration"		"REDUCTION DURATION:"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Lore"						"Once used to slay an unjust king, only to have the kingdom erupt into civil war in the aftermath."
 		"DOTA_Tooltip_ability_item_silver_edge_2_Note0"					"Backstab cannot miss."
 		"DOTA_Tooltip_ability_item_silver_edge_2_Note1"					"Backstab does not pierce spell immunity."
@@ -497,6 +496,7 @@
 		"DOTA_Tooltip_Ability_item_sacred_trident_spell_amp"							"%+Spell Amplification (Cannot stack)"
 		"DOTA_Tooltip_Ability_item_sacred_trident_mana_regen_multiplier"				"%+Mana Regen Amplification"	
 		"DOTA_Tooltip_Ability_item_sacred_trident_spell_lifesteal_amp"					"%+Spell Lifesteal Amplification"
+		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									""
 
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"Sacred Six Vein"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_strength"						"+$str"
@@ -508,6 +508,7 @@
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_amp"							"%+Spell Amplification (Cannot stack)"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Mana Regen Amplification"	
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_lifesteal_amp"					"%+Spell Lifesteal Amplification"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								""
 
 		// item yishan
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"Flash"
@@ -560,5 +561,7 @@
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_armor"						"+$armor"
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_regen"						"+$hp_regen"
+		"DOTA_Tooltip_ability_item_blue_fantasy_Lore" 								"The voice of Hades, the one who hears it will be dead soon."
+		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff"  							"Reverberation"
 	}
 }

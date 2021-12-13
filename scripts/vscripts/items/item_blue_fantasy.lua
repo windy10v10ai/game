@@ -32,11 +32,11 @@ end
 
 function item_blue_fantasy:OnProjectileHit(target, location)
     local caster = self:GetCaster()
-	if  target==nil then
+	if target==nil then
 		return
     end
 
-    if  target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
+    if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
         return
     end
         target:EmitSound("DOTA_Item.Nullifier.Target")
@@ -211,6 +211,8 @@ function modifier_item_blue_fantasy_debuff:OnIntervalThink()
     if not IsServer() then
         return
     end
+
+    self:GetParent():Purge(true, false, false, false, false)              --驱散正面buff
     self.damageTable.damage = self:GetParent():GetMaxHealth()*self.max_hp_dmg_pct     --一秒造成一次最大生命百分比伤害
     ApplyDamage(self.damageTable)
 end
