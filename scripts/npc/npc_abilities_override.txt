@@ -1478,30 +1478,6 @@
 			}
 		}
 	}
-	"legion_commander_duel"
-	{
-		"AbilitySpecial"
-		{
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"reward_damage"			"10 15 20"
-				"LinkedSpecialBonus"	"special_bonus_unique_legion_commander"
-			}
-		}
-	}
-	"special_bonus_unique_legion_commander"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"5"
-				"ad_linked_ability"			"legion_commander_duel"
-			}
-		}
-	}
 	"lycan_shapeshift"
 	{
 		"AbilityCooldown"				"60 50 40"
@@ -1702,39 +1678,69 @@
 	// --------------------------------
 	// -------- Agility Heroes 敏捷英雄--------
 	// --------------------------------
-	"bloodseeker_rupture"
+	//=================================================================================================================
+	// Ability: Bloodseeker's Bloodrage                     血魔
+	//=================================================================================================================
+	"bloodseeker_bloodrage"
 	{
-		// cannot remove Scepter effect due to cause game crash
-		"HasScepterUpgrade"			"1"
-
-		"MaxLevel"						"5"
-		"AbilityCooldown"				"70 65 60 55 50"
-		"AbilityManaCost"				"100 150 200 300 400"		
+		"MaxLevel" "7"
+		"AbilityCooldown"				"14 12 10 8"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed"				"60 90 120 150 180 210 240"
+				"LinkedSpecialBonus"		"special_bonus_unique_bloodseeker_5"
+			}
+		}
+	}
+	"bloodseeker_blood_bath"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"15 14 13 12 11"
+		"AbilityManaCost"				"90 100 110 120 130"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"silence_duration"			"3 4 5 6 7"
+			}			
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"120 160 200 240 280"
+				"LinkedSpecialBonus"		"special_bonus_unique_bloodseeker_2"
+			}
+		}
+	}
+	"bloodseeker_thirst"
+	{
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"10 11 12 13 14"
-			}
+				"var_type"					"FIELD_INTEGER"
+				"min_bonus_pct"				"80"
+			}			
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movement_damage_pct"		"33 44 55 70 90"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"06"
+				"bonus_movement_speed"		"14 24 34 44 54"
+				"LinkedSpecialBonus"		"special_bonus_unique_bloodseeker_4"
+			}			
+			"03"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"max_charges_scepter"		"1"
-				"RequiresScepter"		"1"
-			}
-			"07"
+				"var_type"					"FIELD_INTEGER"
+				"hero_kill_heal"		"10 15 20 25 30"
+			}		
+			"04"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"charge_restore_time_scepter"		"50"
-				"RequiresScepter"		"1"
-			}
+				"var_type"					"FIELD_INTEGER"
+				"creep_kill_heal"		"11 14 17 20 23"
+			}		
 		}
 	}
 
@@ -6446,4 +6452,393 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Legion Commander: Overwhelming Odds              军团指挥官
+	//=================================================================================================================
+	"legion_commander_overwhelming_odds"
+	{
+		"MaxLevel" "7"
+		"AbilityCastRange"				"1000"
+		"AbilityManaCost"				"100 110 120 130 140 150 160"
+		"AbilitySpecial"
+		{			
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"40 60 80 100 120 140 160"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_unit"		"14 16 18 20 22 24 26"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_hero"		"30 60 90 120 140 160 180"
+				"LinkedSpecialBonus"	"special_bonus_unique_legion_commander_4"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_speed_creeps"		"4"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_speed_heroes"		"10"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"330 340 350 360 370 380 390"
+				"LinkedSpecialBonus"	"special_bonus_unique_legion_commander_2"
+
+			}
+		}
+	}
+	"legion_commander_press_the_attack"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"16.0 15.0 14.0 13.0 12.0 11.0 10.0"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed"			"65 90 115 140 160 180 200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_regen"				"30 40 50 60 70 80 90"
+			}
+		}
+	}
+	"legion_commander_moment_of_courage"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"2.3 1.8 1.3 0.8 0.5"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hp_leech_percent"			"55 65 75 85 95"
+			}			
+		}
+	}
+	"legion_commander_duel"
+	{
+		"MaxLevel" "4"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.5 5 5.5 6.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration_scepter"		"6 7 8 9"
+				"RequiresScepter"	"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"reward_damage"			"10 15 20 25"
+				"LinkedSpecialBonus"	"special_bonus_unique_legion_commander"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Furion: Sprout                        先知
+	//=================================================================================================================
+	"furion_sprout"
+	{
+		"MaxLevel" "5"
+		"AbilityCastRange"				"625 700 775 850 925"
+		"AbilityCooldown"				"11 10 9 8 7"
+		"AbilityManaCost"				"70 90 110 130 150"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3 4 5 6 7"
+			}
+		}
+	}
+	"furion_teleportation"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"65 50 35 20 10"
+	}
+	"furion_force_of_nature"
+	{
+		"AbilityCastRange"				"750"
+		"AbilityManaCost"				"130 140 150 160"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"area_of_effect"		"150 225 300 375"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_treants"			"2 3 4 5"
+				"LinkedSpecialBonus"	"special_bonus_unique_furion_2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"treant_health_tooltip"				"550"
+				"LinkedSpecialBonus"	"special_bonus_unique_furion"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"treant_dmg_tooltip"				"18 26 34 42"
+				"LinkedSpecialBonus"	"special_bonus_unique_furion"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"	
+			}
+		}
+	}
+	"furion_wrath_of_nature"
+	{
+		"MaxLevel" "5"
+		"AbilityManaCost"				"175 225 275 325 375"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"115 150 185 220 255"
+				"LinkedSpecialBonus"			"special_bonus_unique_furion_5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_percent_add"	"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"jump_delay"			"0.25"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"kill_damage"			"6"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"kill_damage_duration"			"50"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Keeper of the Light: Illuminate               光之守卫
+	//=================================================================================================================
+	"keeper_of_the_light_illuminate"
+	{
+		"MaxLevel" "7"
+		"AbilityManaCost"				"100 125 150 175 200 225 250"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_damage"				"200 300 400 500 600 650 700"
+				"LinkedSpecialBonus"		"special_bonus_unique_keeper_of_the_light"
+			}
+		}
+	}
+	"keeper_of_the_light_radiant_bind"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"23 20 17 14 11"
+		"AbilityManaCost"				"60 80 100 120 140"		
+		"AbilityCastRange"				"700 750 800 850 900"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow"				"4 5.5 7 8.5 10.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"magic_resistance"			"16 22 28 34 40"
+			}
+		}
+	}	
+	"keeper_of_the_light_chakra_magic"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_restore"			"100 180 260 340 420"
+				"LinkedSpecialBonus"	"special_bonus_unique_keeper_of_the_light_2"
+			}						
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cooldown_reduction"	"3 4 5 6 7"
+			}
+		}
+	}
+	"keeper_of_the_light_spirit_form"
+	{
+		"MaxLevel" "5"
+		"AbilityManaCost"				"75 125 175 225 275"		
+		"AbilitySpecial"
+		{
+			"02"
+			{ 
+				"var_type"					"FIELD_INTEGER"
+				"movement_speed"			"15 20 25 30 35" 
+			}
+			"03"
+			{ 
+				"var_type"					"FIELD_INTEGER"
+				"cast_range"			"125 250 375 425 500" 
+			}
+			"04"
+			{ 
+				"var_type"					"FIELD_INTEGER"
+				"illuminate_heal"			"40 50 60 70 80" 
+			}
+		}
+	}
+	"keeper_of_the_light_spirit_form_illuminate"
+	{
+		"MaxLevel" "7"
+		"AbilityManaCost"				"100 125 150 175 225 250"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_damage"				"200 300 400 500 600 650 700"
+				"LinkedSpecialBonus"		"special_bonus_unique_keeper_of_the_light"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Bounty Hunter: Shuriken Toss            赏金猎人
+	//=================================================================================================================
+	"bounty_hunter_shuriken_toss"
+	{
+		"MaxLevel" "7"
+		"AbilityCastRange"				"375 425 475 525 575 625 675"
+		"AbilityManaCost"				"50 60 70 80 90 100 110"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"80 120 160 200 240 270 300"
+				"LinkedSpecialBonus"	"special_bonus_unique_bounty_hunter_2"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_cast_range"			"900"
+				"RequiresScepter"	"1"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_range"			"375 425 475 525 575 625 675"
+			}
+		}
+	}
+	"bounty_hunter_jinada"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"12 9 6 4 2"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"60 100 140 180 220"
+				"LinkedSpecialBonus"	"special_bonus_unique_bounty_hunter_4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"gold_steal"			"12 20 28 36 44"
+				"LinkedSpecialBonus"		"special_bonus_unique_bounty_hunter"
+			}
+		}
+	}	
+	"bounty_hunter_wind_walk"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"20.0 25.0 30.0 35.0 40.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fade_time"					"1.0 0.75 0.5 0.25 0.10"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow"				"16 24 32 40 48"
+			}
+		}
+	}
+	"bounty_hunter_track"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"target_crit_multiplier"	"140 170 200 230 250"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold_self"		"130 225 320 400 480"
+				"LinkedSpecialBonus"	"special_bonus_unique_bounty_hunter_3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold"			"40 80 120 160 200"
+				"LinkedSpecialBonus"	"special_bonus_unique_bounty_hunter_3"
+			}		
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_move_speed_pct"	"16 20 24 28 32"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"toss_crit_multiplier"	"140 170 200 230 250"
+			}
+		}
+	}
+
 }
