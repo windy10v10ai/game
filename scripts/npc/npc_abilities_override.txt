@@ -1743,7 +1743,46 @@
 			}		
 		}
 	}
-
+	//=================================================================================================================
+	// Ability: Drow Ranger	Frost Arrows           黑暗游侠
+	//=================================================================================================================
+	"drow_ranger_frost_arrows"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"frost_arrows_movement_speed"	"-10 -25 -40 -55 -70"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage"	"5 10 15 20 25"
+			}
+		}
+	}
+	"drow_ranger_multishot"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"26 24 22 20 18"
+		"AbilityManaCost"				"50 70 90 110 130"
+		"AbilitySpecial"
+		{			
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"arrow_damage_pct"			"85 110 135 160 185"
+				"LinkedSpecialBonus"		"special_bonus_unique_drow_ranger_1"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"arrow_slow_duration"		"1.25 2 2.75 3.5 4.25"
+			}
+		}
+	}
 	"drow_ranger_marksmanship"
 	{
 		"AbilitySpecial"
@@ -1892,10 +1931,6 @@
 				"LinkedSpecialBonus"			"special_bonus_unique_medusa_2"
 			}
 		}
-	}
-	"monkey_king_wukongs_command"
-	{
-		"AbilityCooldown"				"100 90 80"
 	}
 	"nyx_assassin_impale"
 	{
