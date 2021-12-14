@@ -1369,6 +1369,39 @@
 	// ---------------------------------
 	// -------- Strength Heroes --------
 	// ---------------------------------
+	// 炼金
+	"alchemist_goblins_greed"
+	{
+		"MaxLevel" "7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"36 38 40 42 44 46 48"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold"			"3 4 5 6 7 8 9"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_bonus_gold"		"3 4 5 6 7 8 9"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold_cap"		"15 18 21 24 27 30 33 36"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bounty_multiplier"		"5.0"
+			}
+		}
+	}
 	"alchemist_chemical_rage"
 	{
 		"AbilityCooldown"				"55.0 50.0 45.0"
