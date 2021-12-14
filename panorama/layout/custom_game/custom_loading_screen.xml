@@ -123,8 +123,8 @@
 							<Label text="0" id="0"/>
 							<Label text="1" id="1"/>
 							<Label text="5" id="5"/>
-							<Label text="#radiant_tower_heal_10" id="10"/>
-							<Label text="#radiant_tower_heal_20" id="20"/>
+							<Label text="10" id="10"/>
+							<Label text="20" id="20"/>
 							<Label text="40" id="40"/>
 						</DropDown>
 					</Panel>
@@ -134,8 +134,8 @@
 							<Label text="0" id="0"/>
 							<Label text="1" id="1"/>
 							<Label text="5" id="5"/>
-							<Label text="#dire_tower_heal_10" id="10"/>
-							<Label text="#dire_tower_heal_20" id="20"/>
+							<Label text="10" id="10"/>
+							<Label text="20" id="20"/>
 							<Label text="40" id="40"/>
 						</DropDown>
 					</Panel>
