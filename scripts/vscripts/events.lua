@@ -25,7 +25,7 @@ local tBotNameList = {
 	"npc_dota_hero_omniknight",
 	"npc_dota_hero_oracle",
 	"npc_dota_hero_phantom_assassin",
-	"npc_dota_hero_pudge",
+	-- "npc_dota_hero_pudge", -- 疑似卡顿
 	"npc_dota_hero_riki", -- 会正常行动，可以加入AI池
 	-- "npc_dota_hero_razor", // 在泉水站着完全不动
 	-- "npc_dota_hero_shadow_shaman", // 不会放技能，只会物品和A人
