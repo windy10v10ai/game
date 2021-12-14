@@ -550,12 +550,12 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"knockback_distance"			"80"
+				"knockback_distance"			"100"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"slow"						"-100"
+				"slow"						"-80"
 			}	
 		}
 	}
