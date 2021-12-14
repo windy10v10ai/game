@@ -4255,6 +4255,658 @@
 			}
 		}
 	}
-}
 
+
+	//=================================================================================================================
+	// Recipe: Decrescent Moon Despotic  残月：暴虐 合成图
+	//=================================================================================================================
+	"item_recipe_decrescent_moon_despotic"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3054"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"item_recipe_decrescent_moon_despotic"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1190"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_decrescent_moon_despotic"
+		"ItemRequirements"
+		{
+			"01"						"item_greater_crit;item_talisman_of_evasion"
+		}
+	}
+
+	//=================================================================================================================
+	// Decrescent Moon Despotic  残月：暴虐
+	//=================================================================================================================
+	"item_decrescent_moon_despotic"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3055"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"item_decrescent_moon_despotic"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilitySharedCooldown"         "moon"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20.0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"8000"
+		"ItemShopTags"					"damage"
+		"ItemQuality"					"arcane"
+		"ItemAliases"					"DMD"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequiresCharges"			"0"
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"		        "100"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"dodge_chance"		   		"20"
+			}
+			"03"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"crit_chance"				"30"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_multiplier"			"240"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"active_boost_duration"		"5"
+			}
+			"06"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"active_crit_chance"		"100"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"active_crit_multiplier"	"270"
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+					"Target"				"CASTER"
+					"ModifierName"			"modifier_item_despotic_active"
+					"Duration"				"%active_boost_duration"
+			}
+			"FireSound"
+			{
+				"EffectName"				"DOTA_Item.Armlet.Activate"
+				"Target"					"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_despotic_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%dodge_chance"
+				}
+
+				"OnAttackStart"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName" 	"modifier_despotic_crit"
+						"Target" 		"CASTER"
+					}
+
+					"Random"
+					{
+						"Chance" "%crit_chance"
+						"OnSuccess"
+						{
+							"ApplyModifier"
+							{
+								"ModifierName" 	"modifier_despotic_crit"
+								"Target"    	"CASTER"
+							}
+						}
+					}
+				}
+			}
+
+			"modifier_item_despotic_active"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+
+				"OnAttackStart"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName" 	"modifier_despotic_crit_active"
+						"Target" 		"CASTER"
+					}
+
+					"Random"
+					{
+						"Chance" "%active_crit_chance"
+						"OnSuccess"
+						{
+							"ApplyModifier"
+							{
+								"ModifierName" 	"modifier_despotic_crit_active"
+								"Target"    	"CASTER"
+							}
+						}
+					}
+				}
+			}
+
+			"modifier_despotic_crit"
+			{
+				"IsHidden"  "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" 		"%crit_multiplier"
+				}
+
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"  "modifier_despotic_crit"
+						"Target"   		"CASTER"
+					}
+				}
+			}
+			"modifier_despotic_crit_active"
+			{
+				"IsHidden"  "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" 		"%active_crit_multiplier"
+				}
+
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"  "modifier_despotic_crit_active"
+						"Target"   		"CASTER"
+					}
+				}
+			}
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Decrescent Moon Callous  残月：冷酷合成图
+	//=================================================================================================================
+	"item_recipe_decrescent_moon_callous"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3056"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"item_recipe_decrescent_moon_agile"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1075"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_decrescent_moon_callous"
+		"ItemRequirements"
+		{
+			"01"						"item_butterfly;item_lesser_crit"
+		}
+	}
+
+	//=================================================================================================================
+	// Decrescent Moon Callous  残月：冷酷
+	//=================================================================================================================
+	"item_decrescent_moon_callous"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3057"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"item_decrescent_moon_callous"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		//"ScriptFile"                    "items/item_dragon_lance_plus.lua"
+		"AbilitySharedCooldown"         "moon"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20.0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"0"
+
+		//-------------------------------------------------------------------------------------------------------------
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"8000"
+		"ItemShopTags"					"speed"
+		"ItemQuality"					"arcane"
+		"ItemAliases"					"DMC"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequiresCharges"			"0"
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"		        "60"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"dodge_chance"		   		"40"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_agile"		   		"40"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed"		   		"40"
+			}
+			"05"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"crit_chance"				"30"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_multiplier"			"240"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"active_boost_duration"		"5"
+			}
+			"08"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"active_dodge_chance"		"100"
+			}
+			"09"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"move_speed"				"20"
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+					"Target"				"CASTER"
+					"ModifierName"			"modifier_item_callous_active"
+					"Duration"				"%active_boost_duration"
+			}
+			"FireSound"
+			{
+				"EffectName"				"DOTA_Item.Armlet.Activate"
+				"Target"					"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_callous_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%dodge_chance"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agile"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%attack_speed"
+
+				}
+
+				"OnAttackStart"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName" 	"modifier_callous_crit"
+						"Target" 		"CASTER"
+					}
+
+					"Random"
+					{
+						"Chance" "%crit_chance"
+						"OnSuccess"
+						{
+							"ApplyModifier"
+							{
+								"ModifierName" 	"modifier_callous_crit"
+								"Target"    	"CASTER"
+							}
+						}
+					}
+				}
+			}
+
+			"modifier_item_callous_active"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%active_dodge_chance"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%move_speed"
+				}
+
+			}
+
+			"modifier_callous_crit"
+			{
+				"IsHidden"  "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" 		"%crit_multiplier"
+				}
+
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"  "modifier_callous_crit"
+						"Target"   		"CASTER"
+					}
+				}
+			}
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Ancient Moon Soul  古之月魄合成图
+	//=================================================================================================================
+	"item_recipe_ancient_moon_soul"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3068"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"item_recipe_ancient_moon_soul"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2000"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_ancient_moon_soul"
+		"ItemRequirements"
+		{
+			"01"						"item_decrescent_moon_callous;item_decrescent_moon_despotic"
+		}
+	}
+
+	//=================================================================================================================
+	// Ancient Moon Soul  古之月魄
+	//=================================================================================================================
+	"item_ancient_moon_soul"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3059"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"item_ancient_moon_soul"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilitySharedCooldown"         "moon"
+
+				// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20.0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"0"
+
+		//-------------------------------------------------------------------------------------------------------------
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"19000"
+		"ItemShopTags"					"speed"
+		"ItemQuality"					"arcane"
+		"ItemAliases"					"DMC"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequiresCharges"			"0"
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"		        "180"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"dodge_chance"		   		"50"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_agile"		   		"50"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed"		   		"50"
+			}
+			"05"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"crit_chance"				"40"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_multiplier"			"260"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"active_boost_duration"		"8"
+			}
+			"08"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"active_dodge_chance"		"100"
+			}
+			"09"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"move_speed"				"30"
+			}
+			"10"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"active_crit_multiplier"	"300"
+			}
+			"11"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"active_crit_chance"		"100"
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+					"Target"				"CASTER"
+					"ModifierName"			"modifier_item_soul_active"
+					"Duration"				"%active_boost_duration"
+			}
+			"FireSound"
+			{
+				"EffectName"				"DOTA_Item.Armlet.Activate"
+				"Target"					"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_soul_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%dodge_chance"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agile"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%attack_speed"
+				}
+
+				"OnAttackStart"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName" 	"modifier_soul_crit"
+						"Target" 		"CASTER"
+					}
+
+					"Random"
+					{
+						"Chance" 		"%crit_chance"
+						"OnSuccess"
+						{
+							"ApplyModifier"
+							{
+								"ModifierName" 	"modifier_soul_crit"
+								"Target"    	"CASTER"
+							}
+						}
+					}
+				}
+			}
+
+			"modifier_item_soul_active"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%active_dodge_chance"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%move_speed"
+				}
+				"RemoveModifier"
+				{
+					"ModifierName" 	"modifier_soul_crit_active"
+					"Target" 		"CASTER"
+				}
+
+				"Random"
+				{
+					"Chance" "%active_crit_chance"
+					"OnSuccess"
+					{
+						"ApplyModifier"
+						{
+								"ModifierName" 	"modifier_soul_crit_active"
+								"Target"    	"CASTER"
+						}
+					}
+				}
+
+
+			}
+
+			"modifier_soul_crit"
+			{
+				"IsHidden"  "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" 		"%crit_multiplier"
+
+				}
+
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"  "modifier_soul_crit"
+						"Target"   		"CASTER"
+					}
+				}
+			}
+			"modifier_soul_crit_active"
+			{
+				"IsHidden"  "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" 		"%active_crit_multiplier"
+
+				}
+
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"  "modifier_soul_crit_active"
+						"Target"   		"CASTER"
+					}
+				}
+			}
+		}
+	}
+}
 
