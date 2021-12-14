@@ -125,8 +125,7 @@
 							<Label text="5" id="5"/>
 							<Label text="#radiant_tower_heal_10" id="10"/>
 							<Label text="#radiant_tower_heal_20" id="20"/>
-							<Label text="#radiant_tower_heal_50" id="50"/>
-							<Label text="#radiant_tower_heal_100" id="100"/>
+							<Label text="40" id="40"/>
 						</DropDown>
 					</Panel>
 					<Panel id="DireTowerHealPanel"	class="GameOptionsSubPanel">
@@ -137,16 +136,14 @@
 							<Label text="5" id="5"/>
 							<Label text="#dire_tower_heal_10" id="10"/>
 							<Label text="#dire_tower_heal_20" id="20"/>
-							<Label text="#dire_tower_heal_50" id="50"/>
-							<Label text="#dire_tower_heal_100" id="100"/>
+							<Label text="40" id="40"/>
 						</DropDown>
 					</Panel>
 					<Panel id="StartingGoldPlayerPanel"	class="GameOptionsSubPanel">
 						<Label id="StartingGoldPlayerTitle" class="GameOptionsLabel" text="#starting_gold_player" />
 						<DropDown id="starting_gold_player_dropdown" class="GameOptionsDropdown">
 							<Label text="600" id="600"/>
-							<Label text="999" id="999"/>
-							<Label text="1500" id="1500"/>
+							<Label text="1000" id="1000"/>
 							<Label text="#starting_gold_player_2000" id="2000"/>
 							<Label text="#starting_gold_player_5000" id="5000"/>
 						</DropDown>
@@ -155,8 +152,7 @@
 						<Label id="StartingGoldBotTitle" class="GameOptionsLabel" text="#starting_gold_bot" />
 						<DropDown id="starting_gold_bot_dropdown" class="GameOptionsDropdown">
 							<Label text="600" id="600"/>
-							<Label text="999" id="999"/>
-							<Label text="1500" id="1500"/>
+							<Label text="1000" id="1000"/>
 							<Label text="#starting_gold_bot_2000" id="2000"/>
 							<Label text="#starting_gold_bot_5000" id="5000"/>
 						</DropDown>
