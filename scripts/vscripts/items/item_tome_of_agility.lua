@@ -9,7 +9,8 @@ if IsServer() then
         local agi = self:GetSpecialValueFor("bonus")
         local tome_table = CustomNetTables:GetTableValue("player_table", "agi_tome_" .. caster:GetUnitName())
         caster:ModifyAgility(agi)
-        caster:EmitSound("Item.TomeOfKnowledge")
+        EmitSoundOnClient("Item.TomeOfKnowledge", caster)
+
 
         if caster:HasModifier("modifier_agi_tome") then
             local modifier = caster:FindModifierByName("modifier_agi_tome")
