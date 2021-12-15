@@ -342,12 +342,12 @@
 		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification"
 
 		// dragon lance
-		"DOTA_Tooltip_Ability_item_dragon_lance_plus"						"魔龙枪 Plus"
-		"DOTA_Tooltip_Ability_item_dragon_lance_plus_Description"			"<h1>主动: 快速拔枪</h1> 关键时刻天赋涌现, 获得 %active_boost% 攻击速度 持续  %active_boost_duration% 秒."
-		"DOTA_Tooltip_Ability_item_dragon_lance_plus_Lore"					   "（攻击距离）变长和（自身属性）变强是所有人亘古不变的追求"
-		"DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_agility"		       "+$agi"
-		"DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_strength"		   "+$str"
-		"DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_attack_range"	   "+$attack_range"
+		"DOTA_Tooltip_Ability_item_dragon_lance_plus"							"魔龙枪 Plus"
+		"DOTA_Tooltip_Ability_item_dragon_lance_plus_Description"				"<h1>主动: 快速拔枪</h1> 关键时刻天赋涌现, 获得 %active_boost% 攻击速度 持续  %active_boost_duration% 秒."
+		"DOTA_Tooltip_Ability_item_dragon_lance_plus_Lore"					    "（攻击距离）变长和（自身属性）变强是所有人亘古不变的追求"
+		"DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_agility"		        "+$agi"
+		"DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_strength"		    "+$str"
+		"DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_attack_range"	    "+$attack_range"
 		"DOTA_Tooltip_Ability_item_recipe_dragon_lance_plus"					"魔龙枪 Plus卷轴"
 
 		"DOTA_Tooltip_modifier_item_dragon_lance_plus_active"	                "快速拔枪"
@@ -355,14 +355,14 @@
 
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max"						"魔龙枪 Pro Max"
 		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Description"			"<h1>主动: 快速拔枪</h1> 关键时刻天赋涌现, 获得 %active_boost% 攻击速度 持续  %active_boost_duration% 秒。"
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Lore"					"（攻击距离）变长和（自身属性）变强是所有人亘古不变的追求"
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_agility"		   "+$agi"
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_strength"		   "+$str"
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_attack_range"	   "+$attack_range"
-		"DOTA_Tooltip_Ability_item_recipe_dragon_lance_pro_max"					"魔龙枪 Pro Max卷轴"
+		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Lore"				 	"（攻击距离）变长和（自身属性）变强是所有人亘古不变的追求"
+		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_agility"		    "+$agi"
+		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_strength"		    "+$str"
+		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_attack_range"	    "+$attack_range"
+		"DOTA_Tooltip_Ability_item_recipe_dragon_lance_pro_max"				 	"魔龙枪 Pro Max卷轴"
 
-		"DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active"	                "快速拔枪"
-		"DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
+		"DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active"	            "快速拔枪"
+		"DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active_Description"	"Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
 
         //  hurricane_pike_2
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2"						"黄金魔龙枪 Ultimate"
@@ -555,5 +555,37 @@
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_regen"						"+生命恢复"
 		"DOTA_Tooltip_ability_item_blue_fantasy_Lore" 								"黄泉之音，闻者命不久矣"
 		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff"  							"残响震荡"
+
+		// 古之月魄 ancient moon soul
+		"DOTA_Tooltip_ability_item_decrescent_moon_despotic"					"残月：暴虐"
+		"DOTA_Tooltip_ability_item_decrescent_moon_despotic_Lore"				"古之月魄被拆分后的产物，代表暴虐的一面。"
+		"DOTA_Tooltip_ability_item_decrescent_moon_despotic_Description"		"<h1>主动：暴虐</h1>%active_boost_duration%秒内致命一击概率为%active_crit_chance%%%，致命一击伤害为%active_crit_multiplier%%%。"
+		"DOTA_Tooltip_ability_item_decrescent_moon_despotic_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_decrescent_moon_despotic_dodge_chance"		"%+$evasion"
+		"DOTA_Tooltip_ability_item_decrescent_moon_despotic_crit_chance"		"%致命一击概率:"
+		"DOTA_Tooltip_ability_item_decrescent_moon_despotic_crit_multiplier"	"%致命一击伤害:"
+		"DOTA_Tooltip_Ability_item_recipe_decrescent_moon_despotic"				 "残月：暴虐卷轴"
+		
+		"DOTA_Tooltip_ability_item_decrescent_moon_callous"						"残月：冷酷"
+		"DOTA_Tooltip_ability_item_decrescent_moon_callous_Lore"				"古之月魄被拆分后的产物，代表冷酷的一面。"
+		"DOTA_Tooltip_ability_item_decrescent_moon_callous_Description"			"<h1>主动：冷酷</h1>%active_boost_duration%秒内闪避概率为%active_dodge_chance%%%，移动速度提升%move_speed%%%。"
+		"DOTA_Tooltip_ability_item_decrescent_moon_callous_bonus_agile"			"+$agi"
+		"DOTA_Tooltip_ability_item_decrescent_moon_callous_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_decrescent_moon_callous_dodge_chance"		"%+$evasion"
+		"DOTA_Tooltip_ability_item_decrescent_moon_callous_attack_speed"		"+$attack"
+		"DOTA_Tooltip_ability_item_decrescent_moon_callous_crit_chance"			"%致命一击概率:"
+		"DOTA_Tooltip_ability_item_decrescent_moon_callous_crit_multiplier"		"%致命一击伤害:"
+		"DOTA_Tooltip_Ability_item_recipe_decrescent_moon_callous"				"残月：冷酷卷轴"
+
+		"DOTA_Tooltip_ability_item_ancient_moon_soul"							"古之月魄"
+		"DOTA_Tooltip_ability_item_ancient_moon_soul_Lore"						"似乎有人在你的耳边低语：“你想拥有绝对的力量吗。”"
+		"DOTA_Tooltip_ability_item_ancient_moon_soul_Description"				"<h1>主动：月魄</h1>%active_boost_duration%秒内致命一击概率为%active_crit_chance%%%，致命一击伤害为%active_crit_multiplier%%%；闪避概率为%active_dodge_chance%%%，移动速度提升%move_speed%%%。"
+		"DOTA_Tooltip_ability_item_ancient_moon_soul_bonus_agile"				"+$agi"
+		"DOTA_Tooltip_ability_item_ancient_moon_soul_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_ancient_moon_soul_dodge_chance"				"%+$evasion"
+		"DOTA_Tooltip_ability_item_ancient_moon_soul_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_ancient_moon_soul_crit_chance"				"%致命一击概率:"
+		"DOTA_Tooltip_ability_item_ancient_moon_soul_crit_multiplier"			"%致命一击伤害:"
+		"DOTA_Tooltip_Ability_item_recipe_ancient_moon_soul"				 	"古之月魄卷轴"
 	}
 }
