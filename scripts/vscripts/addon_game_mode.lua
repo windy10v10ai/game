@@ -33,7 +33,7 @@ function AIGameMode:EnterDebugMode()
 	print("========Enter Debug Mode========")
 	self.DebugMode = true
 	GameRules:SetCustomGameSetupAutoLaunchDelay( 10 )
-	GameRules:SetPreGameTime( 10 )
+	GameRules:SetPreGameTime( 30 )
 	GameRules:SetStrategyTime( 10 )
 	print("DOTA 2 AI Wars Loaded.")
 end
