@@ -215,7 +215,7 @@
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"scepter_crit_bonus"	"260 280 300 320 340"
+				"scepter_crit_bonus"	"300 320 340 360 380"
 			}
 		}
 		
@@ -550,12 +550,12 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"knockback_distance"			"80"
+				"knockback_distance"			"100"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"slow"						"-100"
+				"slow"						"-80"
 			}	
 		}
 	}

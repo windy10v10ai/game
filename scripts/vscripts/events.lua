@@ -25,8 +25,8 @@ local tBotNameList = {
 	"npc_dota_hero_omniknight",
 	"npc_dota_hero_oracle",
 	"npc_dota_hero_phantom_assassin",
-	"npc_dota_hero_pudge",
-	-- "npc_dota_hero_riki", // 会正常行动，可以加入AI池
+	-- "npc_dota_hero_pudge", -- 疑似卡顿
+	"npc_dota_hero_riki", -- 会正常行动，可以加入AI池
 	-- "npc_dota_hero_razor", // 在泉水站着完全不动
 	-- "npc_dota_hero_shadow_shaman", // 不会放技能，只会物品和A人
 	"npc_dota_hero_sand_king",
@@ -37,7 +37,7 @@ local tBotNameList = {
 	"npc_dota_hero_tiny",
 	"npc_dota_hero_vengefulspirit",
 	"npc_dota_hero_viper",
-	"npc_dota_hero_warlock",
+	"npc_dota_hero_warlock", -- 会正常行动，可以加入AI池
 	"npc_dota_hero_windrunner",
 	"npc_dota_hero_witch_doctor",
 	"npc_dota_hero_skeleton_king",
@@ -239,10 +239,15 @@ function AIGameMode:OnGameStateChanged(keys)
 				v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iRadiantTowerPower)
 				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iRadiantTowerEndure)
 				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iRadiantTowerHeal)
+
+				v:AddNewModifier(v, nil, "modifier_multi", {}):SetStackCount(math.floor(self.fPlayerGoldXpMultiplier*10))
+
 			elseif v:GetTeamNumber() == DOTA_TEAM_BADGUYS then
 				v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iDireTowerPower)
 				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iDireTowerEndure)
-				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iDireTowerHeal)
+				v:AddNewModifier(v, nil, "modifier_multi", {}):SetStackCount(self.iDireTowerHeal)
+
+				v:AddNewModifier(v, nil, "modifier_multi", {}):SetStackCount(math.floor(self.fBotGoldXpMultiplier*10))
 			end
 
 			-- set fort split
@@ -292,11 +297,12 @@ function HeroKilled(keys)
 	local hHero = EntIndexToHScript(keys.entindex_killed)
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
-	local tDOTARespawnTime = {5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 26, 30, 32, 34, 36, 38, 40, 45, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67 ,68, 69, 70}
-	if iLevel <= 40 then
+	local tDOTARespawnTime = {4, 5, 6, 7, 8, 10, 12, 13, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47
+}
+	if iLevel <= 30 then
 		fRespawnTime = math.ceil(tDOTARespawnTime[iLevel]*AIGameMode.iRespawnTimePercentage/100.0)
 	else
-		fRespawnTime = math.ceil((iLevel/4 + 60)*AIGameMode.iRespawnTimePercentage/100.0)
+		fRespawnTime = math.ceil((iLevel/4 + 40)*AIGameMode.iRespawnTimePercentage/100.0)
 	end
 
 	if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
