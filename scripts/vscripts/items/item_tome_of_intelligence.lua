@@ -11,7 +11,7 @@ if IsServer() then
         local int = self:GetSpecialValueFor("bonus")
         local tome_table = CustomNetTables:GetTableValue("player_table", "int_tome_" .. caster:GetUnitName())
         caster:ModifyIntellect(int)
-        caster:EmitSound("Item.TomeOfKnowledge")
+        EmitSoundOnClient("Item.TomeOfKnowledge", caster)
 
         if caster:HasModifier("modifier_int_tome") then
             local modifier = caster:FindModifierByName("modifier_int_tome")

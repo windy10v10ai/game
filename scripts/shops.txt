@@ -199,6 +199,7 @@
 		"item"		"item_hurricane_pike_2"
 		"item"		"item_wasp_2"
 		"item"		"item_excalibur"
+		"item"      "item_ancient_moon_soul"
 	}
 
 	// Level 4 - Orange / Orb / Artifacts
