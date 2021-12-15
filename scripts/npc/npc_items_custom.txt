@@ -4384,15 +4384,15 @@
 	}
 
 	//=================================================================================================================
-	// Recipe: Decrescent Moon Despotic  残月：暴虐 合成图
+	// Recipe: Decrescent Moon Despotic  大核荣耀暴虐 合成图
 	//=================================================================================================================
-	"item_recipe_decrescent_moon_despotic"
+	"item_recipe_wasp_despotic"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3054"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName" 			"item_recipe_decrescent_moon_despotic"
+		"AbilityTextureName" 			"item_recipe_wasp_despotic"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 
 		// Item Info
@@ -4403,7 +4403,7 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_decrescent_moon_despotic"
+		"ItemResult"					"item_wasp_despotic"
 		"ItemRequirements"
 		{
 			"01"						"item_greater_crit;item_talisman_of_evasion"
@@ -4411,15 +4411,15 @@
 	}
 
 	//=================================================================================================================
-	// Decrescent Moon Despotic  残月：暴虐
+	// Decrescent Moon Despotic  大核荣耀暴虐
 	//=================================================================================================================
-	"item_decrescent_moon_despotic"
+	"item_wasp_despotic"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3055"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName" 			"item_decrescent_moon_despotic"
+		"AbilityTextureName" 			"item_wasp_despotic"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
 		"AbilitySharedCooldown"         "moon"
@@ -4597,15 +4597,15 @@
 		}
 	}
 	//=================================================================================================================
-	// Recipe: Decrescent Moon Callous  残月：冷酷合成图
+	// Recipe: Decrescent Moon Callous  大核荣耀冷酷合成图
 	//=================================================================================================================
-	"item_recipe_decrescent_moon_callous"
+	"item_recipe_wasp_callous"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3056"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName" 			"item_recipe_decrescent_moon_agile"
+		"AbilityTextureName" 			"item_recipe_wasp_agile"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 
 		// Item Info
@@ -4616,7 +4616,7 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_decrescent_moon_callous"
+		"ItemResult"					"item_wasp_callous"
 		"ItemRequirements"
 		{
 			"01"						"item_butterfly;item_lesser_crit"
@@ -4624,15 +4624,15 @@
 	}
 
 	//=================================================================================================================
-	// Decrescent Moon Callous  残月：冷酷
+	// Decrescent Moon Callous  大核荣耀冷酷
 	//=================================================================================================================
-	"item_decrescent_moon_callous"
+	"item_wasp_callous"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3057"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName" 			"item_decrescent_moon_callous"
+		"AbilityTextureName" 			"item_wasp_callous"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
 		//"ScriptFile"                    "items/item_dragon_lance_plus.lua"
@@ -4793,15 +4793,15 @@
 		}
 	}
 	//=================================================================================================================
-	// Recipe: Ancient Moon Soul  古之月魄合成图
+	// Recipe: Ancient Moon Soul  黄金大核荣耀合成图
 	//=================================================================================================================
-	"item_recipe_ancient_moon_soul"
+	"item_recipe_wasp_golden"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3068"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName" 			"item_recipe_ancient_moon_soul"
+		"AbilityTextureName" 			"item_recipe_wasp_golden"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 
 		// Item Info
@@ -4812,23 +4812,23 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_ancient_moon_soul"
+		"ItemResult"					"item_wasp_golden"
 		"ItemRequirements"
 		{
-			"01"						"item_decrescent_moon_callous;item_decrescent_moon_despotic"
+			"01"						"item_wasp_callous;item_wasp_despotic"
 		}
 	}
 
 	//=================================================================================================================
-	// Ancient Moon Soul  古之月魄
+	// Ancient Moon Soul  黄金大核荣耀
 	//=================================================================================================================
-	"item_ancient_moon_soul"
+	"item_wasp_golden"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3059"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName" 			"item_ancient_moon_soul"
+		"AbilityTextureName" 			"item_wasp_golden"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
 		"AbilitySharedCooldown"         "moon"

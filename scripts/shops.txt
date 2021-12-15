@@ -197,9 +197,8 @@
 		"item"		"item_abyssal_blade_v2"
 		"item"		"item_dragon_lance_pro_max"
 		"item"		"item_hurricane_pike_2"
-		"item"		"item_wasp_2"
+		"item"      "item_wasp_golden"
 		"item"		"item_excalibur"
-		"item"      "item_ancient_moon_soul"
 	}
 
 	// Level 4 - Orange / Orb / Artifacts
