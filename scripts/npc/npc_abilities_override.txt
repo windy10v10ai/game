@@ -423,7 +423,7 @@
 	}
 	"item_fallen_sky"
 	{
-		"AbilityCooldown"				"12.0"
+		"AbilityCooldown"				"15.0"
 		"AbilitySpecial"
 		{
 			"01"
@@ -439,12 +439,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"30.0"
+				"bonus_health_regen"	"25.0"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"15.0"
+				"bonus_mana_regen"		"12.0"
 			}
 			"05"
 			{
@@ -498,12 +498,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"knockback_distance"			"25"
+				"knockback_distance"			"10"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"knockback_duration"		"0.1"
+				"knockback_duration"		"0.05"
 			}
 		}
 	}
@@ -1369,6 +1369,39 @@
 	// ---------------------------------
 	// -------- Strength Heroes --------
 	// ---------------------------------
+	// 炼金
+	"alchemist_goblins_greed"
+	{
+		"MaxLevel" "7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"36 38 40 42 44 46 48"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold"			"3 4 5 6 7 8 9"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_bonus_gold"		"3 4 5 6 7 8 9"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold_cap"		"15 18 21 24 27 30 33 36"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bounty_multiplier"		"5.0"
+			}
+		}
+	}
 	"alchemist_chemical_rage"
 	{
 		"AbilityCooldown"				"55.0 50.0 45.0"
@@ -1712,7 +1745,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"chance"	"15 18 21"
+				"chance"	"16 18 20"
 				"LinkedSpecialBonus"		"special_bonus_unique_drow_ranger_3"
 			}
 			"02"
@@ -1735,8 +1768,15 @@
 			"06"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"scepter_range"					"300"
+				"scepter_range"					"300"	// 375
 				"RequiresScepter"		"1"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_reduction_scepter"		"60"
+				"RequiresScepter"				"1"
+				"CalculateSpellDamageTooltip"	"0"
 			}
 		}
 	}
@@ -1747,7 +1787,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"6"
+				"value"				"5"
 				"ad_linked_ability"			"drow_ranger_marksmanship"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -2101,6 +2141,19 @@
 		"AbilityCooldown"				"100 95 90"
 		"AbilityManaCost"				"150 250 350"
 	}
+	
+	"sniper_headshot"
+	{
+		"AbilityDamage"					"20 50 80 110"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"slow_duration"					"0.2"
+			}
+		}
+	}
 	"sniper_take_aim"
 	{
 		"AbilitySpecial"
@@ -2241,7 +2294,7 @@
 	"tinker_laser"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"20 18 16 14"
+		"AbilityCooldown"				"20 19 18 17 16 15 14"
 		"AbilityManaCost"				"110 130 150 170 200 230 260"
 		"AbilitySpecial"
 		{
@@ -2260,16 +2313,15 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius_explosion"				"200"
+				"radius_explosion"	"200"	// 250
 			}
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"splash_pct"		"80"
+				"splash_pct"		"60"	// 100
 			}
 		}
 	}
-
 	"tinker_heat_seeking_missile"
 	{
 		"MaxLevel" "7"
@@ -2294,6 +2346,11 @@
 			}
 		}
 	}
+	"tinker_rearm"
+	{
+		"AbilityManaCost"				"150 300 450"
+	}
+
 	"witch_doctor_voodoo_restoration"
 	{
 		"MaxLevel" "7"
@@ -2483,7 +2540,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_per_kill"			"25"
+				"damage_per_kill"			"20"
 				"LinkedSpecialBonus"			"special_bonus_unique_lion_8"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -2502,7 +2559,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"15"
+				"value"				"10"
 				"ad_linked_ability"			"lion_finger_of_death"
 			}
 		}
@@ -2718,10 +2775,6 @@
 				"RequiresScepter"		"1"
 			}
 		}
-	}
-	"shadow_shaman_mass_serpent_ward"
-	{
-		"AbilityCooldown"				"60"
 	}
 	"silencer_glaives_of_wisdom"
 	{
@@ -3552,7 +3605,7 @@
 	"lina_dragon_slave"
 	{
 		"MaxLevel"						"7"
-		"AbilityDamage"					"85 160 235 310 360 400 430"
+		"AbilityDamage"					"85 160 235 310 380 430 480"
 		"AbilityManaCost"				"100 110 120 130 140 150 160"
 	}
 	"lina_light_strike_array"
@@ -3570,7 +3623,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"light_strike_array_damage"	"80 130 180 230 250 270 290"
+				"light_strike_array_damage"	"80 130 180 230 280 330 380"
 				"LinkedSpecialBonus"		"special_bonus_unique_lina_3"
 			}
 		}
@@ -3610,7 +3663,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"500 700 900 1100"
+				"damage"					"500 800 1100 1300"
 				"LinkedSpecialBonus"		"special_bonus_unique_lina_5"
 			}
 		}
@@ -3791,7 +3844,7 @@
 	{
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"800 1000 1200 1400"
-		"AbilityCooldown"				"50 40 30 25"
+		"AbilityCooldown"				"60 50 40 30"
 		"AbilityManaCost"				"100 150 200 250"	
 		"AbilitySpecial"
 		{
@@ -3971,7 +4024,7 @@
 	"tidehunter_ravage"
 	{
 		"MaxLevel"						"4"	
-		"AbilityCooldown"				"80 70 60 50"
+		"AbilityCooldown"				"100 90 80 70"
 		"AbilityDamage"					"300 400 500 600"
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilitySpecial"
@@ -4051,7 +4104,7 @@
 	"centaur_stampede"
 	{
 		"MaxLevel"						"4"
-		"AbilityCooldown"				"100 80 60 40"
+		"AbilityCooldown"				"120 100 80 60"
 		"AbilityManaCost"				"100 150 200 250"
 		"AbilitySpecial"
 		{
@@ -4105,7 +4158,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cataclysm_cooldown"		"60"
+				"cataclysm_cooldown"		"80"
 			}
 		}
 	}
@@ -4120,10 +4173,6 @@
     //=================================================================================================================
 	// Bristleback: Hairball (Shard)    钢背兽
 	//=================================================================================================================
-	"bristleback_hairball"
-	{
-		"AbilityCooldown"				"15"
-	}
 	"bristleback_viscous_nasal_goo"
 	{
 		"MaxLevel"						"7"
@@ -4139,7 +4188,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"move_slow_per_stack"	"3 6 9 12 15 18 21"
+				"move_slow_per_stack"	"3 6 9 12 14 16 18"
 			}
 		}
 	}
@@ -4180,6 +4229,11 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"back_damage_reduction"			"15 20 25 30 35 40 45"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"quill_release_threshold"		"240"
 			}
 		}
 	}
@@ -4428,7 +4482,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"images_count"				"2"
+				"images_count"				"3"
 			}
 			"02"
 			{
@@ -4529,10 +4583,6 @@
 			}
 		}
 	}
-	"terrorblade_terror_wave"
-	{
-		"AbilityCooldown"				"45"	
-	}
 	"terrorblade_sunder"
 	{
 		"MaxLevel"						"4"
@@ -4543,7 +4593,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"hit_point_minimum_pct"		"30 25 20 15"
+				"hit_point_minimum_pct"		"35 30 25 20"
 			}
 		}
 	}
@@ -5244,7 +5294,7 @@
 	"batrider_flaming_lasso"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"90 80 70 60 50"
+		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityManaCost"				"200 225 250 275 300"
 		"AbilitySpecial"
 		{
@@ -5454,7 +5504,7 @@
 	"mirana_invis"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"100.0 90.0 80.0 70.0 60.0"
+		"AbilityCooldown"				"120.0 110.0 100.0 90.0 80.0"
 		"AbilitySpecial"
 		{
 			"03"
@@ -6201,6 +6251,198 @@
 				"var_type"					"FIELD_INTEGER"
 				"golem_dmg_tooltip_scepter"	"100 150 200"
 				"RequiresScepter"		"1"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Visage          维萨吉
+	//=================================================================================================================
+	"visage_grave_chill"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"16 15 14 13 12 11 10"
+		"AbilityManaCost"				"60 70 80 90 100 110 120"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed_bonus"				"15 20 25 30 35 40 45"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attackspeed_bonus"				"34 46 58 70 82 94 106"
+			}
+		}
+	}
+	
+	"visage_soul_assumption"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"4 3.5 3 2.5 2 1.5 1"
+		"AbilityManaCost"				"90 100 110 120 130 140 150"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"soul_base_damage"			"40 80 120 160 200 240 280"
+			}
+		}
+	}
+	"visage_gravekeepers_cloak"
+	{
+		"MaxLevel" "7"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"recovery_time"						"7 6 5 4 3 2 1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Earth Spirit       大地之灵 土猫
+	//=================================================================================================================
+	"earth_spirit_boulder_smash"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"22.0 20.0 18.0 16.0 14.0 12.0 10.0"
+		"AbilityManaCost"				"80 90 100 110 120 130 140"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rock_damage"			"105 170 235 300 365 430 495"
+			}
+		}
+	}
+	"earth_spirit_rolling_boulder"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"16.0 14.0 12.0 10.0 8.0 6.0 4.0"
+		"AbilityManaCost"				"30 40 50 60 70 80 90"
+		"AbilitySpecial"
+		{
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"120 150 180 210 240 270 300"
+				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.7 0.8 0.9 1.0 1.1 1.2 1.3"
+				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_3"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"rock_bonus_duration"	"0.7 0.8 0.9 1.0 1.1 1.2 1.3"
+			}
+		}
+	}
+
+	"earth_spirit_magnetize"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"100 90 80 70 60"
+		"AbilityManaCost"				"100.0 150.0 200.0 250.0 300.0"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"			"40 80 120 160 200"
+			}
+		}
+	}
+	
+	//=================================================================================================================
+	// Ability: Shadow Shaman      暗影萨满
+	//=================================================================================================================
+	"shadow_shaman_ether_shock"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"14 13 12 11 10 9 8"
+		"AbilityManaCost"				"100 120 140 160 180 200 220"
+		"AbilitySpecial"
+		{
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"140 200 260 320 380 440 500"
+				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_3"
+			}
+		}
+	}
+	"shadow_shaman_shackles"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"16 15 14 13 12 11 10"
+		"AbilityManaCost"				"140 150 160 170 180 190 200"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"total_damage"		"60 160 260 360 460 560 660"
+				"LinkedSpecialBonus"	"special_bonus_unique_shadow_shaman_6"
+			}
+		}
+	}
+	"shadow_shaman_mass_serpent_ward"
+	{
+		"AbilityCooldown"				"80 70 60"
+	}
+	//=================================================================================================================
+	// Ability: Broodmother      蜘蛛
+	//=================================================================================================================
+	"broodmother_silken_bola"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"24 22 20 18 16 14 12"
+		"AbilityManaCost"				"70 75 80 85 90 95 100"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed"		"25 35 45 55 60 65 70"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impact_damage"			"100 120 140 160 200 240 280"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage"			"6 7 8 9 10 12 14"
+			}
+		}
+	}
+	"broodmother_spawn_spiderlings"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"9 8 7 6 5"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"260 340 420 500 580"
+				"LinkedSpecialBonus"	"special_bonus_unique_broodmother_3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"count"					"4 5 6 7 8"
 			}
 		}
 	}

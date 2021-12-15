@@ -69,10 +69,9 @@
 					<Panel id="RespawnTimePercentagePanel"	class="GameOptionsSubPanel">
 						<Label id="RespawnTimePercentagePanelTitle" class="GameOptionsLabel" text="#respawn_time_percentage" />
 						<DropDown id="respawn_time_percentage_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('respawn_time_percentage_dropdown')">
-							<Label text="#respawn_time_percentage_200" id="200"/>
+							<Label text="#respawn_time_percentage_125" id="125"/>
 							<Label text="#respawn_time_percentage_100" id="100"/>
 							<Label text="#respawn_time_percentage_75" id="75"/>
-							<Label text="#respawn_time_percentage_50" id="50"/>
 							<Label text="#respawn_time_percentage_0" id="0"/>
 						</DropDown>
 					</Panel>
@@ -124,10 +123,9 @@
 							<Label text="0" id="0"/>
 							<Label text="1" id="1"/>
 							<Label text="5" id="5"/>
-							<Label text="#radiant_tower_heal_10" id="10"/>
-							<Label text="#radiant_tower_heal_20" id="20"/>
-							<Label text="#radiant_tower_heal_50" id="50"/>
-							<Label text="#radiant_tower_heal_100" id="100"/>
+							<Label text="10" id="10"/>
+							<Label text="20" id="20"/>
+							<Label text="40" id="40"/>
 						</DropDown>
 					</Panel>
 					<Panel id="DireTowerHealPanel"	class="GameOptionsSubPanel">
@@ -136,18 +134,16 @@
 							<Label text="0" id="0"/>
 							<Label text="1" id="1"/>
 							<Label text="5" id="5"/>
-							<Label text="#dire_tower_heal_10" id="10"/>
-							<Label text="#dire_tower_heal_20" id="20"/>
-							<Label text="#dire_tower_heal_50" id="50"/>
-							<Label text="#dire_tower_heal_100" id="100"/>
+							<Label text="10" id="10"/>
+							<Label text="20" id="20"/>
+							<Label text="40" id="40"/>
 						</DropDown>
 					</Panel>
 					<Panel id="StartingGoldPlayerPanel"	class="GameOptionsSubPanel">
 						<Label id="StartingGoldPlayerTitle" class="GameOptionsLabel" text="#starting_gold_player" />
 						<DropDown id="starting_gold_player_dropdown" class="GameOptionsDropdown">
 							<Label text="600" id="600"/>
-							<Label text="999" id="999"/>
-							<Label text="1500" id="1500"/>
+							<Label text="1000" id="1000"/>
 							<Label text="#starting_gold_player_2000" id="2000"/>
 							<Label text="#starting_gold_player_5000" id="5000"/>
 						</DropDown>
@@ -156,8 +152,7 @@
 						<Label id="StartingGoldBotTitle" class="GameOptionsLabel" text="#starting_gold_bot" />
 						<DropDown id="starting_gold_bot_dropdown" class="GameOptionsDropdown">
 							<Label text="600" id="600"/>
-							<Label text="999" id="999"/>
-							<Label text="1500" id="1500"/>
+							<Label text="1000" id="1000"/>
 							<Label text="#starting_gold_bot_2000" id="2000"/>
 							<Label text="#starting_gold_bot_5000" id="5000"/>
 						</DropDown>

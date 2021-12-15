@@ -576,7 +576,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_reflection_pct"			"85"
+				"active_reflection_pct"			"80"
 			}
 		}
 	}
@@ -3389,7 +3389,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5850"	
+		"ItemCost"						"4850"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3411,15 +3411,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3037"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"item_desolator_2"
+		"BaseClass"						"item_desolator"
 		"AbilityTextureName"			"item_infernal_desolator"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"16600"
+		"ItemCost"						"15600"
 		"ItemShopTags"					"damage;unique"
 		"ItemQuality"					"artifact"
-		"ItemAliases"					"super desolator"
+		"ItemAliases"					"infernal Desolator"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"ShouldBeSuggested"				"1"
@@ -3431,7 +3431,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"320"
+				"bonus_damage"			"300"
 			}
 			"02"
 			{
@@ -4255,6 +4255,134 @@
 			}
 		}
 	}
+
+	//=================================================================================================================
+	// Recipe: blue fantasy
+	//=================================================================================================================
+	"item_recipe_blue_fantasy"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"								"3052"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"							"item_datadriven"
+		"AbilityTextureName"				"item_recipe_blue_fantasy"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"							"5000"	
+		"ItemShopTags"						""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_blue_fantasy"
+		"ItemRequirements"
+		{
+			"01"							"item_nullifier;item_diffusal_blade;item_diffusal_blade"
+		}
+	}
+
+	//=================================================================================================================
+	// blue fantasy 大否决
+	//=================================================================================================================
+	"item_blue_fantasy"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"									"3053"
+		"BaseClass"								"item_lua"
+		"AbilityTextureName"					"item_blue_fantasy"
+		"ScriptFile"							"items/item_blue_fantasy.lua"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"FightRecapLevel"						"1"
+		
+		"AbilityCooldown"						"30.0"
+		"AbilityCastRange"						"900"
+		"AbilityManaCost"						"250"
+		"AbilitySharedCooldown"			        "bluefantasy"
+		
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"16025"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"bluefantasy"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		"precache"
+		{
+			"particle"					"particles/items4_fx/nullifier_slow.vpcf"
+			"particle"					"particles/items4_fx/nullifier_mute_debuff.vpcf"
+			"particle"					"particles/status_fx/status_effect_nullifier.vpcf"
+			"particle"					"particles/items4_fx/nullifier_mute.vpcf"
+			"particle"					"particles/items4_fx/nullifier_proj.vpcf"
+		}
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"80"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"agi"					"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"int"					"25"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"10"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_regen"			"10"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mute_duration"			"4.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"2000"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_pct"				"-50"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attsp"					"-200"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"max_hp_dmg_pct"		"4"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_base"				"100"
+			}
+		}
+	}
+
 }
 
 

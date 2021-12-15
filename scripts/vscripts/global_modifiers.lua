@@ -212,15 +212,26 @@ end
 
 function modifier_tower_power:GetModifierAttackSpeedBonus_Constant()
 	local fPower = StackToPercentage(self:GetStackCount())
-	return math.floor(20*(fPower))
+	return math.floor(20*(fPower)+20)
 end
 
 function modifier_tower_power:GetModifierBaseDamageOutgoing_Percentage()
 	return 100*StackToPercentage(self:GetStackCount())-100
 end
 
+modifier_multi = class({})
 
+function modifier_multi:IsPurgable() return false end
+function modifier_multi:IsDebuff() return false end
+function modifier_multi:GetTexture() return "multi" end
 
+function modifier_multi:DeclareFunctions()
+	return {
+	}
+end
+-------------------------------------------------
+-- NPC Think
+-------------------------------------------------
 modifier_axe_thinker = class({})
 
 function modifier_axe_thinker:IsPurgable() return false end

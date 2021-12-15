@@ -25,7 +25,7 @@
 		"dire_player_number"	"夜魇玩家人数"
 		"confirm_game_options"	"Confirm and Hide Game Options"
 		"show_game_options"  "Show Game Options"
-		"respawn_time_percentage"	"复活时间百分比"
+		"respawn_time_percentage"	"复活时间"
 		"max_level"	"等级上限"
 		"radiant_tower_power"	"天辉建筑攻击/防御加成"
 		"dire_tower_power"	"夜魇建筑攻击/防御加成"
@@ -58,11 +58,10 @@
 		"player_gold_xp_multiplier_2"            	"2    (新手)"
 		"player_gold_xp_multiplier_5"               "5    (我要打10个)"
 
-		"respawn_time_percentage_200"        "200% (跟Dota一样慢)"
-		"respawn_time_percentage_100"        "100% (普通)"
-		"respawn_time_percentage_75"         "75%   (快速)"
-		"respawn_time_percentage_50"         "50%   (极快)"
-		"respawn_time_percentage_0"          "0% (秒活 可能卡顿，不推荐)"
+		"respawn_time_percentage_125"        "较慢"
+		"respawn_time_percentage_100"        "普通"
+		"respawn_time_percentage_75"         "快速"
+		"respawn_time_percentage_0"          "秒活 (可能卡顿)"
 
 		"max_level_100"                   "100"
 		"max_level_150"                   "150"
@@ -78,16 +77,6 @@
 		"dire_tower_power_200"           "200% (推荐)"
 		"dire_tower_power_500"           "500% (不推荐)"
 
-		"radiant_tower_heal_10"        "10"
-		"radiant_tower_heal_20"        "20"
-		"radiant_tower_heal_50"        "50      (不推荐)"
-		"radiant_tower_heal_100"       "100    (不推荐)"
-
-		"dire_tower_heal_10"        "10"
-		"dire_tower_heal_20"        "20"
-		"dire_tower_heal_50"        "50      (不推荐)"
-		"dire_tower_heal_100"       "100    (不推荐)"
-
 		"starting_gold_player_2000"    "2000"
 		"starting_gold_player_5000"    "5000"
 
@@ -100,8 +89,44 @@
 		"DOTA_Tooltip_modifier_tower_endure"						"建筑防御加成"
 		"DOTA_Tooltip_modifier_tower_endure_Description"		"建筑物的护甲增加 %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, 最大生命值设为 %dMODIFIER_PROPERTY_TOOLTIP%%%."
 
+		"DOTA_Tooltip_modifier_multi"							"/10 金钱经验倍数"
+
 		"DOTA_Tooltip_modifier_melee_resistance"					"威压"
 		"DOTA_Tooltip_modifier_melee_resistance_Description"	"近战英雄拥有 %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 基础状态抗性（可与装备叠加），34%% 基础魔法抗性"
+
+		///////////////////////////////////////////////////
+		//
+		//            Heroes
+		//
+		///////////////////////////////////////////////////
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven"					"Glaives of Wisdom"
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Lore"			"Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Description"	"Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence. Silencer temporarily increases his Intelligence with each hit."
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_intellect_damage_pct"	"%INT TO DAMAGE:"
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal"				"INT INCREASE:"
+		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal_duration"		"INT INCREASE DURATION:"
+		"DOTA_Tooltip_modifier_glaives_of_wisdom_status"								"Glaives of Wisdom"
+		"DOTA_Tooltip_modifier_glaives_of_wisdom_status_Description"				"Temporarily increasing Intelligence"
+
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"暗杀（旧版）"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"施法距离:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"神杖升级暗杀范围:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%神杖升级致命一击:"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"暗杀（旧版）"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
+
+		// 茶神
+		"npc_dota_hero_techies"					"茶神"
+
+		// 双头龙
+        "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"烈焰焚身的距离+400，持续时间+5秒，并且变为纯粹伤害，无视技能免疫。"
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
@@ -240,7 +265,7 @@
 		"DOTA_Tooltip_ability_item_undying_heart_health_regen_pct"						"%+最大生命恢复（无法叠加）"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_evasion"							"%+$evasion"
 		"DOTA_Tooltip_ability_item_undying_heart_status_resistance"						"%+状态抗性"
-		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"buff：巨龙复苏"
+		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"Buff：巨龙复苏"
 
 		"DOTA_Tooltip_Ability_item_force_staff_2"			"风力法杖"
 		"DOTA_Tooltip_Ability_item_force_staff_2_Description"						"<h1>主动：风力</h1>将任何目标单位向其面对方向推进%push_length%距离。<br><br>施法距离：%abilitycastrange%"
@@ -358,44 +383,6 @@
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range"			"黄金魔龙枪 Ultimate射程"
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range_Description"	"可以无视射程限制攻击目标。"
 
-		///////////////////////////////////////////////////
-		//
-		//            Heroes
-		//
-		///////////////////////////////////////////////////
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven"					"Glaives of Wisdom"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Lore"			"Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Description"	"Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence. Silencer temporarily increases his Intelligence with each hit."
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_intellect_damage_pct"	"%INT TO DAMAGE:"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal"				"INT INCREASE:"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal_duration"		"INT INCREASE DURATION:"
-		"DOTA_Tooltip_modifier_glaives_of_wisdom_status"								"Glaives of Wisdom"
-		"DOTA_Tooltip_modifier_glaives_of_wisdom_status_Description"				"Temporarily increasing Intelligence"
-
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"暗杀（旧版）"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"施法距离:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"神杖升级暗杀范围:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%神杖升级致命一击:"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"暗杀（旧版）"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
-
-		//            茶神
-		"npc_dota_hero_techies"					"茶神(hecha)"
-		"npc_dota_techies_land_mine"					"杰哥地雷"
-		"npc_dota_techies_stasis_trap"					"杰哥の陷♂阱"
-		"npc_dota_techies_remote_mine"				"肛王炸弹"
-
-		"DOTA_Tooltip_ability_techies_land_mines"						"杰哥地雷"
-		"DOTA_Tooltip_ability_techies_stasis_trap"						"杰哥の陷♂阱"
-		"DOTA_Tooltip_ability_techies_suicide"							"飞翔吧！杰杰"
-		"DOTA_Tooltip_ability_techies_remote_mines"						"肛王炸弹"
-
 		"DOTA_Tooltip_Ability_item_skadi_2"				"粘妈之眼"
 		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>被动：霜冻攻击</h1>攻击附带霜冻效果，可以降低敌人的移动速度和攻击速度，并且他们的治疗、生命恢复、吸血和技能吸血效果降低%heal_reduction%%%，持续%cold_duration%秒。对敌方远程目标将减缓%cold_slow_ranged%%%移动速度，降低%cold_slow_ranged%攻击速度。对敌方近战目标将减缓%cold_slow_melee%%%移动速度，降低%cold_slow_melee%攻击速度。"
 		"DOTA_Tooltip_ability_item_skadi_2_Lore"									"极度罕见的古物，可以粘住网络喷子的妈妈。"
@@ -408,7 +395,6 @@
 		"DOTA_Tooltip_ability_bloodseeker_rupture_charge_restore_time_scepter"					""
 
 		// Tomes
-
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"力量之书"
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>使用: 力量之书</h1> 永久增加力量 %bonus% 点。\n可以分享给队友"
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Lore"				"Is it strength that you desire...?"
@@ -464,13 +450,6 @@
 		"DOTA_Tooltip_ability_item_silver_edge_2_Description"						"<h1>主动：暗影步</h1>进入隐身直到%windwalk_duration%秒持续时间结束、攻击或施法。隐身时，移动速度将提升%windwalk_movement_speed%%%，而且可以穿越单位。<br><br>破隐一击将额外造成%windwalk_bonus_damage%点物理伤害，并且必定对目标造成%crit_multiplier%%%致命一击伤害，同时%backstab_duration%秒内目标的被动技能无效。\n<h1>被动：致命一击</h1>每次攻击时有%crit_chance%%%概率造成%crit_multiplier%%%伤害。"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_mana_regen"              "+$mana_regen"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_bonus_strength"                "+$str"
-		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_intellect"                "+$int"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_windwalk_duration"					"SHADOW WALK DURATION:"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_windwalk_bonus_damage"		"BONUS ATTACK DAMAGE:"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_backstab_reduction"		"%ENEMY DAMAGE REDUCTION:"
-		//"DOTA_Tooltip_ability_item_silver_edge_2_backstab_duration"		"REDUCTION DURATION:"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Lore"						"众所周知，隐身等于无敌。"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Note0"					"暗影步无法闪避。"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Note1"					"暗影步并不能无视技能免疫。"
@@ -565,5 +544,16 @@
 		"DOTA_Tooltip_ability_item_adi_king_plus_rate"                        			"%+转身速率"
 		"DOTA_Tooltip_modifier_item_adi_king_plus_aura"							        "光环：魔鬼的步伐"
 		"DOTA_Tooltip_modifier_item_adi_king_plus_buff"									"buff：尼给路大有"
+
+		// item blue fantasy
+		"DOTA_Tooltip_ability_item_blue_fantasy"									"苍蓝幻想"
+		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1><font color='#FFFF00'>主动：毁灭终曲</font></h1>驱散目标身上的增益效果，并且施加持续%mute_duration%秒的负面效果。<br><br>持续时间内，破坏其被动，禁用他的装备，降低%slow_pct%%%移速，%attsp%攻速。<br><br>同时目标每秒受到自身%max_hp_dmg_pct%%%的最大生命值魔法伤害。\n<h1><font color='#FFFF00'>被动：蚕食进行曲</font></h1>每次攻击燃烧目标 %mana_base% 点魔法并造成等量的物理伤害。"
+		"DOTA_Tooltip_ability_item_blue_fantasy_int"								"+智力"
+		"DOTA_Tooltip_ability_item_blue_fantasy_agi"								"+敏捷"
+		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_damage"						"+攻击力"
+		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_armor"						"+护甲"
+		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_regen"						"+生命恢复"
+		"DOTA_Tooltip_ability_item_blue_fantasy_Lore" 								"黄泉之音，闻者命不久矣"
+		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff"  							"残响震荡"
 	}
 }
