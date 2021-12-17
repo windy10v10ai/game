@@ -4198,7 +4198,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1190"
+		"ItemCost"						"1200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4248,12 +4248,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"		        "100"
+				"bonus_damage"		        "160"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"dodge_chance"		   		"20"
+				"dodge_chance"		   		"15"
 			}
 			"03"
 			{
@@ -4263,12 +4263,12 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"240"
+				"crit_multiplier"			"250"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost_duration"		"5"
+				"active_boost_duration"		"4"
 			}
 			"06"
 			{
@@ -4278,7 +4278,7 @@
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_crit_multiplier"	"270"
+				"active_crit_multiplier"	"250"
 			}
 		}
 		"OnSpellStart"
@@ -4463,7 +4463,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"		        "60"
+				"bonus_damage"		        "80"
 			}
 			"02"
 			{
@@ -4488,12 +4488,12 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"240"
+				"crit_multiplier"			"250"
 			}
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost_duration"		"5"
+				"active_boost_duration"		"4"
 			}
 			"08"
 			{
@@ -4658,7 +4658,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"		        "180"
+				"bonus_damage"		        "240"
 			}
 			"02"
 			{
@@ -4678,17 +4678,17 @@
 			"05"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"crit_chance"				"40"
+				"crit_chance"				"30"
 			}
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"260"
+				"crit_multiplier"			"380"
 			}
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost_duration"		"8"
+				"active_boost_duration"		"4"
 			}
 			"08"
 			{
