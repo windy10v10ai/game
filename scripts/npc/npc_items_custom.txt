@@ -2310,12 +2310,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_chance"			"85"
+				"bonus_chance"			"80"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_chance_damage"			"280"
+				"bonus_chance_damage"			"300"
 			}
 		}
 	}
