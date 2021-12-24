@@ -661,203 +661,6 @@
 	}
 
 	//=================================================================================================================
-	// 大核荣耀
-	//=================================================================================================================
-	"item_recipe_wasp"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
-		"ID"							"9035"  //Valve's version of this item uses the ID "138".
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe_wasp"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2675"
-		"ItemShopTags"					""
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_wasp"
-		"ItemRequirements"
-		{
-			"01"						"item_butterfly;item_greater_crit"
-		}
-	}
-	"item_wasp"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
-		"ID"							"9036"  //Valve's version of this item uses the ID "139".
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"Model"							"models/props_gameplay/red_box.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"AbilityTextureName"			"item_wasp"
-
-		"ItemKillable"					"0"
-		"ItemSellable"					"0"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0"
-		"AbilityCastPoint"				"0.0"
-		"AbilityManaCost"				"0"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8895"
-		"ItemShopTags"					"agi;damage;evasion;attack_speed;crit"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"wasp"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-					"var_type"						"FIELD_INTEGER"
-					"bonus_agility"					"45"
-			}
-			"02"
-			{
-					"var_type"						"FIELD_INTEGER"
-					"bonus_damage"					"100"
-			}
-			"03"
-			{
-					"var_type"						"FIELD_INTEGER"
-					"bonus_evasion"					"35"
-			}
-			"04"
-			{
-					"var_type"						"FIELD_INTEGER"
-					"bonus_attack_speed"			"30"
-			}
-			"05"
-			{
-					"var_type"						"FIELD_INTEGER"
-					"bonus_move_speed"				"20"
-			}
-			"06"
-			{
-					"var_type"				"FIELD_INTEGER"
-					"crit_chance"			"30"
-			}
-			"07"
-			{
-					"var_type"				"FIELD_INTEGER"
-					"crit_multiplier"		"250"
-			}
-			"08"
-			{
-					"var_type"						"FIELD_INTEGER"
-					"bonus_move_speed_pct"			"15"
-			}
-			"09"
-			{
-					"var_type"						"FIELD_FLOAT"
-					"duration"						"4"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-						{
-								"Target"					"CASTER"
-								"ModifierName"				"modifier_item_butterfly_datadriven_movespeed"
-								"Duration"					"%duration"
-						}
-			"FireSound"
-			{
-				"EffectName"				"DOTA_Item.Armlet.Activate"
-				"Target"					"CASTER"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_item_butterfly_datadriven"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agility"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%bonus_evasion"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"		"%bonus_move_speed"
-				}
-
-				"OnAttackStart"
-				{
-					"RemoveModifier"
-					{
-							"ModifierName" 	"modifier_wasp_crit"
-							"Target" 		"CASTER"
-					}
-
-					"Random"
-					{
-						"Chance" "%crit_chance"
-						"OnSuccess"
-						{
-							"ApplyModifier"
-							{
-								"ModifierName" 	"modifier_wasp_crit"
-								"Target"    	"CASTER"
-							}
-						}
-					}
-				}
-			}
-
-			"modifier_item_butterfly_datadriven_movespeed"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%bonus_move_speed_pct"
-				}
-
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_FLYING"							"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-
-			"modifier_wasp_crit"
-			{
-				"IsHidden"  "1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_multiplier"
-				}
-
-				"OnAttackLanded"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"  "modifier_wasp_crit"
-						"Target"   		"CASTER"
-					}
-				}
-			}
-		}
-	}
-
-	//=================================================================================================================
 	// 以太2
 	//=================================================================================================================
 	"item_recipe_aether_lens_2"
@@ -4227,9 +4030,9 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0"
+		"AbilityCooldown"				"30.0"
 		"AbilityCastPoint"				"0.0"
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"100"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4411,7 +4214,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1075"
+		"ItemCost"						"3075"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4420,7 +4223,7 @@
 		"ItemResult"					"item_wasp_callous"
 		"ItemRequirements"
 		{
-			"01"						"item_butterfly;item_greater_crit"
+			"01"						"item_butterfly;item_lesser_crit"
 		}
 	}
 
@@ -4441,9 +4244,9 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0"
+		"AbilityCooldown"				"30.0"
 		"AbilityCastPoint"				"0.0"
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"100"
 
 		//-------------------------------------------------------------------------------------------------------------
 		// Item Info
@@ -4488,7 +4291,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"250"
+				"crit_multiplier"			"200"
 			}
 			"07"
 			{
@@ -4636,9 +4439,9 @@
 
 				// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0"
+		"AbilityCooldown"				"30.0"
 		"AbilityCastPoint"				"0.0"
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"200"
 
 		//-------------------------------------------------------------------------------------------------------------
 		// Item Info
