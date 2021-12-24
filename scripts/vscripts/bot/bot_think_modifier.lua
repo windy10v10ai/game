@@ -6,7 +6,7 @@ require('bot/bot_item_data')
 
 
 local function addTome(k, v)
-  for i = 0, 9 do
+  for i = 0, 5 do
     table.insert(v,"item_tome_of_agility")
     table.insert(v,"item_tome_of_strength")
     table.insert(v,"item_tome_of_intelligence")
