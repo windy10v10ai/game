@@ -1705,7 +1705,7 @@
 	"bloodseeker_bloodrage"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"14 12 10 8"
+		"AbilityCooldown"				"14 13 12 11 10 9 8"
 		"AbilitySpecial"
 		{
 			"02"
@@ -1713,6 +1713,12 @@
 				"var_type"					"FIELD_INTEGER"
 				"attack_speed"				"60 90 120 150 180 210 240"
 				"LinkedSpecialBonus"		"special_bonus_unique_bloodseeker_5"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"spell_amp"				"15 20 25 30 35 40 45"
+				"LinkedSpecialBonus"		"special_bonus_unique_bloodseeker_6"
 			}
 		}
 	}

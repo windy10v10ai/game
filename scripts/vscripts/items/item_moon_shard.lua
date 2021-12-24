@@ -9,7 +9,7 @@ function MoonShardOnSpell( keys )
 
 	if (caster:IsRealHero() or caster:GetName() == "npc_dota_lone_druid_bear") and (target:IsRealHero() or target:GetName() == "npc_dota_lone_druid_bear") and not caster:HasModifier("modifier_arc_warden_tempest_double") and not target:HasModifier("modifier_arc_warden_tempest_double") then
 		AddStacks(ability, caster, target, modifier, 1, true)
-		target:EmitSound("Item.MoonShard.Consume")
+		EmitSoundOnClient("Item.MoonShard.Consume", target)
 		caster:RemoveItem(ability)
 	end
 end
