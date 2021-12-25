@@ -74,6 +74,10 @@
 	{
 		"AbilitySharedCooldown"			"manta"
 	}
+	"item_nullifier"
+	{
+		"AbilitySharedCooldown"			"bluefantasy"
+	}
 	// level 1
 	"item_philosophers_stone"
 	{
