@@ -3904,7 +3904,7 @@
 		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		"FightRecapLevel"						"1"
 		
-		"AbilityCooldown"						"30.0"
+		"AbilityCooldown"						"20.0"
 		"AbilityCastRange"						"900"
 		"AbilityManaCost"						"250"
 		"AbilitySharedCooldown"			        "bluefantasy"
