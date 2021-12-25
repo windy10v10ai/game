@@ -20,7 +20,6 @@ tBotItemData.purchaseItemList = {
 		'item_reaver',
 		'item_recipe_overwhelming_blink',
 		'item_shivas_guard',
-		'item_manta',
 		'item_black_king_bar',
 		'item_ultimate_scepter_2',
 		'item_undying_heart',
