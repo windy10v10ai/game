@@ -754,7 +754,7 @@
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// Physical protection.
 		"MagicalResistance"			"40"			// Magical protection.
-		"StatusHealth"				"10000"		// Base health.
+		"StatusHealth"				"8000"		// Base health.
 		"StatusHealthRegen"			"10"			// Health regeneration rate.
 	}
 	"npc_dota_badguys_tower4"
@@ -772,7 +772,7 @@
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// Physical protection.
 		"MagicalResistance"			"40"			// Magical protection.
-		"StatusHealth"				"10000"		// Base health.
+		"StatusHealth"				"8000"		// Base health.
 		"StatusHealthRegen"			"10"			// Health regeneration rate.
 	}
 	//=================================================================================
@@ -803,7 +803,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"30000"		// Base health.
+		"StatusHealth"				"24000"		// Base health.
 		"StatusHealthRegen"			"20"			// Health regeneration rate.
 	}
 	//=================================================================================
@@ -834,7 +834,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"30000"		// Base health.
+		"StatusHealth"				"24000"		// Base health.
 		"StatusHealthRegen"			"20"			// Health regeneration rate.
 	}
 	"dota_fountain"
