@@ -11,7 +11,7 @@ require('timers')
 require('settings')
 require('events')
 require('util')
-require('bot/bot_think_modifier')
+require('bot/bot_think_item_build')
 
 function Activate()
 	AIGameMode:InitGameMode()

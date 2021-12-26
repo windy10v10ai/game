@@ -38,7 +38,6 @@ function UseItemOnTarget(hHero, sItemName, hTarget)
     local hItem = FindItemByNameNotIncludeBackpack(hHero, sItemName)
     if hItem then
         if hItem:GetCooldownTimeRemaining() > 0 then
-            print("Warn! Think use item in cooldown"..hHero:GetName().." item "..sItemName)
             return false
         else
             print("Think use "..hHero:GetName().." try to use item "..sItemName)
@@ -56,7 +55,6 @@ function UseItem(hHero, sItemName)
     local hItem = FindItemByNameNotIncludeBackpack(hHero, sItemName)
     if hItem then
         if hItem:GetCooldownTimeRemaining() > 0 then
-            print("Warn! Think use item in cooldown"..hHero:GetName().." item "..sItemName)
             return false
         else
             print("Think use "..hHero:GetName().." try to use item "..sItemName)
@@ -68,6 +66,8 @@ function UseItem(hHero, sItemName)
 end
 
 function UseActiveItem(hHero)
+    if hHero:IsStunned() then return end
+
     local itemUseCastRange = 900
 	local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, itemUseCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 	if #tAllHeroes == 0 then
@@ -94,13 +94,43 @@ function UseActiveItem(hHero)
         end
     else
         -- item_abyssal_blade_v2 一闪
-        if UseItemOnTarget(hHero, "item_abyssal_blade_v2") then
+        if UseItemOnTarget(hHero, "item_abyssal_blade_v2", hTarget) then
             return true
         end
     end
 
-    -- item_heavens_halberd_v2 大天堂
-    if UseItemOnTarget(hHero, "item_heavens_halberd_v2") then
+    -- item_blue_fantasy 大否决
+    if UseItemOnTarget(hHero, "item_blue_fantasy", hTarget) then
         return true
     end
+
+    -- item_wasp_despotic
+    if UseItem(hHero, "item_wasp_despotic") then
+        return true
+    end
+    -- item_wasp_callous
+    if UseItem(hHero, "item_wasp_callous") then
+        return true
+    end
+    -- item_wasp_golden
+    if UseItem(hHero, "item_wasp_golden") then
+        return true
+    end
+
+
+    if hHero:HasItemInInventory("item_heavens_halberd_v2") then
+        itemUseCastRange = 300
+        tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, itemUseCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+        if #tAllHeroes == 0 then
+            return false
+        end
+        hTarget = tAllHeroes[1]
+
+        -- item_heavens_halberd_v2 大天堂
+        if UseItem(hHero, "item_heavens_halberd_v2") then
+            return true
+        end
+    end
+
+    return false
 end
