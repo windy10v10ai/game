@@ -126,6 +126,24 @@ function UseActiveItem(hHero)
         return true
     end
 
+    -- item_adi_king
+    if UseItem(hHero, "item_adi_king") then
+        return true
+    end
+    -- item_adi_king_plus
+    if UseItem(hHero, "item_adi_king_plus") then
+        return true
+    end
+
+    -- refresh 刷新
+    if hHero:HasItemInInventory("item_refresher") then
+        local hAbility6 = hHero:GetAbilityByIndex(5)
+        if hAbility6 and hAbility6:GetCooldownTimeRemaining() > 0 then
+            if UseItem(hHero, "item_refresher") then
+                return true
+            end
+        end
+    end
 
     if hHero:HasItemInInventory("item_hurricane_pike_2") then
         itemUseCastRange = 600
@@ -153,6 +171,11 @@ function UseActiveItem(hHero)
         if UseItem(hHero, "item_heavens_halberd_v2") then
             return true
         end
+    end
+
+    -- item_silver_edge_2 无敌之刃
+    if UseItem(hHero, "item_silver_edge_2") then
+        return true
     end
 
     return false
