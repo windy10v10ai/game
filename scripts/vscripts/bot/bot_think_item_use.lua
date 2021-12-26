@@ -104,6 +104,15 @@ function UseActiveItem(hHero)
         return true
     end
 
+    -- item_magic_scepter
+    if UseItem(hHero, "item_magic_scepter") then
+        return true
+    end
+    -- item_hallowed_scepter 仙云法杖
+    if UseItem(hHero, "item_hallowed_scepter") then
+        return true
+    end
+
     -- item_wasp_despotic
     if UseItem(hHero, "item_wasp_despotic") then
         return true
@@ -117,6 +126,20 @@ function UseActiveItem(hHero)
         return true
     end
 
+
+    if hHero:HasItemInInventory("item_hurricane_pike_2") then
+        itemUseCastRange = 600
+        tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, itemUseCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+        if #tAllHeroes == 0 then
+            return false
+        end
+        hTarget = tAllHeroes[1]
+
+        -- item_hurricane_pike_2 黄金魔龙枪
+        if UseItemOnTarget(hHero, "item_hurricane_pike_2", hTarget) then
+            return true
+        end
+    end
 
     if hHero:HasItemInInventory("item_heavens_halberd_v2") then
         itemUseCastRange = 300

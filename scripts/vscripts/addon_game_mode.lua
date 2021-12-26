@@ -12,6 +12,7 @@ require('settings')
 require('events')
 require('util')
 require('bot/bot_think_item_build')
+require('bot/bot_think_modifier')
 
 function Activate()
 	AIGameMode:InitGameMode()
@@ -80,6 +81,8 @@ function AIGameMode:LinkLuaModifiers()
 	LinkLuaModifier("modifier_axe_thinker", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_sniper_assassinate_thinker", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_out_of_world", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
+
+	LinkLuaModifier("modifier_bot_think_item_use", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 
@@ -260,7 +263,6 @@ function AIGameMode:FilterGold(tGoldFilter)
 	else
 		tGoldFilter["gold"] = math.floor(iGold*self.fBotGoldXpMultiplier)
 	end
-	print("Filter gold end: "..tostring(tGoldFilter["gold"]))
 	return true
 end
 

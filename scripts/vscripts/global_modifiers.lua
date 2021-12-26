@@ -242,8 +242,6 @@ function modifier_axe_thinker:OnCreated()
 	self:StartIntervalThink(0.1)
 end
 
-function modifier_axe_thinker:DeclareFunctions() return {MODIFIER_EVENT_ON_ABILITY_EXECUTED} end
-
 local function ThinkForAxeAbilities(hAxe)
 	local hAbility1 = hAxe:GetAbilityByIndex(0)
 	local hAbility2 = hAxe:GetAbilityByIndex(1)
@@ -281,8 +279,6 @@ local function ThinkForAxeAbilities(hAxe)
 			return
 		end
 	end
-	-- TEST use active item
-	UseActiveItem(hAxe)
 end
 
 function modifier_axe_thinker:OnIntervalThink()
