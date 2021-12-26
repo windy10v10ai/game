@@ -3,6 +3,7 @@
 	Date: September 14, 2021
 ================================================================================================================= ]]
 require('bot/bot_item_data')
+require('bot/bot_think_item_use')
 
 
 local function addTome(k, v)
@@ -25,29 +26,6 @@ if BotThink == nil then
   end
 end
 
---------------------
--- local function
---------------------
-local function FindItemByNameNotIncludeBackpack(hHero, sName)
-	for i = 0, 5 do
-		if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
-	end
-	return nil
-end
-
-local function FindItemByName(hHero, sName)
-	for i = 0, 8 do
-		if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
-	end
-	return nil
-end
-
-local function FindItemByNameIncludeStash(hHero, sName)
-	for i = 0, 15 do
-		if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
-	end
-	return nil
-end
 
 local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
   if not iPurchaseTable then
@@ -156,34 +134,14 @@ end
 
 
 function BotThink:ThinkConsumeItem(hHero)
-  local hHeroName = hHero:GetName()
-
   local itemConsumeList = tBotItemData.itemConsumeList
   for i,vItemUseName in ipairs(itemConsumeList) do
-    local hItem = FindItemByNameNotIncludeBackpack(hHero, vItemUseName)
-    if hItem then
-      if hItem:GetCooldownTimeRemaining() > 0 then
-        print("Warn! Think use item in cooldown"..hHeroName.." item "..vItemUseName)
-      else
-        print("Think use "..hHeroName.." try to use item "..vItemUseName)
-        hHero:CastAbilityOnTarget(hHero, hItem, hHero:GetPlayerOwnerID())
-        return true
-      end
-		end
+    UseItemOnTarget(hHero, vItemUseName, hHero)
   end
 
   local itemConsumeNoTargetList = tBotItemData.itemConsumeNoTargetList
   for i,vItemUseName in ipairs(itemConsumeNoTargetList) do
-    local hItem = FindItemByNameNotIncludeBackpack(hHero, vItemUseName)
-    if hItem then
-      if hItem:GetCooldownTimeRemaining() > 0 then
-        print("Warn! Think use item in cooldown"..hHeroName.." item "..vItemUseName)
-      else
-        print("Think use "..hHeroName.." try to use item "..vItemUseName)
-        hHero:CastAbilityNoTarget(hItem, hHero:GetPlayerOwnerID())
-        return true
-      end
-		end
+    UseItem(hHero, vItemUseName)
   end
 end
 
