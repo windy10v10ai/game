@@ -747,14 +747,14 @@
 		"AttackDamageMin"		"232" // 142
 		"AttackDamageMax"		"252" // 162
 		"AttackRate"				"0.8" // 0.95
-		"AttackAcquisitionRange"	"800"		// 700
-		"AttackRange"				"800"		// 700
+		"AttackAcquisitionRange"	"700"		// 700
+		"AttackRange"				"700"		// 700
 
 		// Status
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// Physical protection.
 		"MagicalResistance"			"40"			// Magical protection.
-		"StatusHealth"				"8000"		// Base health.
+		"StatusHealth"				"10000"		// Base health.
 		"StatusHealthRegen"			"10"			// Health regeneration rate.
 	}
 	"npc_dota_badguys_tower4"
@@ -765,14 +765,14 @@
 		"AttackDamageMin"		"232" // 142
 		"AttackDamageMax"		"252" // 162
 		"AttackRate"				"0.8" // 0.95
-		"AttackAcquisitionRange"	"800"		// 700
-		"AttackRange"				"800"		// 700
+		"AttackAcquisitionRange"	"700"		// 700
+		"AttackRange"				"700"		// 700
 
 		// Status
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// Physical protection.
 		"MagicalResistance"			"40"			// Magical protection.
-		"StatusHealth"				"8000"		// Base health.
+		"StatusHealth"				"10000"		// Base health.
 		"StatusHealthRegen"			"10"			// Health regeneration rate.
 	}
 	//=================================================================================
@@ -803,7 +803,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"24000"		// Base health.
+		"StatusHealth"				"30000"		// Base health.
 		"StatusHealthRegen"			"20"			// Health regeneration rate.
 	}
 	//=================================================================================
@@ -834,7 +834,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"24000"		// Base health.
+		"StatusHealth"				"30000"		// Base health.
 		"StatusHealthRegen"			"20"			// Health regeneration rate.
 	}
 	"dota_fountain"
@@ -891,13 +891,13 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"3"			// 1
-		"MagicalResistance"				"5"			// 0
+		"ArmorPhysical"				"5"			// 1
+		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"61"		// 41
-		"AttackDamageMax"			"66"		// 46
-		"AttackRate"				"1"			// 1
+		"AttackDamageMin"			"70"		// 41
+		"AttackDamageMax"			"90"		// 46
+		"AttackRate"				"0.9"		// 1
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -925,13 +925,13 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"3"			// 1
-		"MagicalResistance"				"5"			// 0
+		"ArmorPhysical"				"5"			// 1
+		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"61"		// 41
-		"AttackDamageMax"			"66"		// 46
-		"AttackRate"				"1"			// 1
+		"AttackDamageMin"			"70"		// 41
+		"AttackDamageMax"			"90"		// 46
+		"AttackRate"				"0.9"		// 1
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -960,12 +960,12 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"5"			// 3
-		"MagicalResistance"				"5"			// 0
+		"MagicalResistance"			"25"		// 0
 
 		// Attack
 		"AttackDamageMin"			"46"		// 36
 		"AttackDamageMax"			"54"		// 44
-		"AttackRate"				"1"			// 1
+		"AttackRate"				"0.9"		// 1
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -993,12 +993,12 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"5"			// 3
-		"MagicalResistance"				"5"			// 0
+		"MagicalResistance"			"25"		// 0
 
 		// Attack
 		"AttackDamageMin"			"46"		// 36
 		"AttackDamageMax"			"54"		// 44
-		"AttackRate"				"1"			// 1
+		"AttackRate"				"0.9"		// 1
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1027,10 +1027,15 @@
 		// Abilitys
 		"Ability1"					"creep_buff"
 
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"		// 0
+		"MagicalResistance"			"85"		// 80
+
 		// Attack
 		"AttackDamageMin"			"100"		// 51
 		"AttackDamageMax"			"120"		// 62
-		"AttackRate"				"2.5"			// 1
+		"AttackRate"				"2.0"		// 3.0
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1055,10 +1060,15 @@
 		// Abilitys
 		"Ability1"					"creep_buff"
 
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"		// 0
+		"MagicalResistance"			"85"		// 80
+
 		// Attack
 		"AttackDamageMin"			"100"		// 51
 		"AttackDamageMax"			"120"		// 62
-		"AttackRate"				"2.5"			// 1
+		"AttackRate"				"2.0"		// 3.0
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1089,20 +1099,20 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 1
-		"MagicalResistance"				"10"			// 0
+		"ArmorPhysical"				"10"		// 1
+		"MagicalResistance"			"50"		// 0
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackDamageMin"			"140"		// 41
 		"AttackDamageMax"			"180"		// 46
-		"AttackRate"				"0.9"			// 1
+		"AttackRate"				"0.8"		// 1
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"32"		// 22
-		"BountyGoldMin"				"29"		// 19
-		"BountyGoldMax"				"35"		// 25
+		"BountyXP"					"45"		// 22
+		"BountyGoldMin"				"39"		// 19
+		"BountyGoldMax"				"45"		// 25
 
 		// Movement
 		//----------------------------------------------------------------
@@ -1123,20 +1133,20 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 1
-		"MagicalResistance"				"10"			// 0
+		"ArmorPhysical"				"10"		// 1
+		"MagicalResistance"			"50"		// 0
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackDamageMin"			"140"		// 41
 		"AttackDamageMax"			"180"		// 46
-		"AttackRate"				"0.9"			// 1
+		"AttackRate"				"0.8"		// 1
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"32"		// 22
-		"BountyGoldMin"				"29"		// 19
-		"BountyGoldMax"				"35"		// 25
+		"BountyXP"					"45"		// 22
+		"BountyGoldMin"				"39"		// 19
+		"BountyGoldMax"				"45"		// 25
 
 		// Movement
 		//----------------------------------------------------------------
@@ -1158,19 +1168,19 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 3
-		"MagicalResistance"				"5"			// 0
+		"ArmorPhysical"				"10"		// 1
+		"MagicalResistance"			"50"		// 0
 
 		// Attack
-		"AttackDamageMin"			"56"		// 36
-		"AttackDamageMax"			"64"		// 44
-		"AttackRate"				"0.9"			// 1
+		"AttackDamageMin"			"90"		// 36
+		"AttackDamageMax"			"110"		// 44
+		"AttackRate"				"0.8"		// 1
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"22"		// 25
-		"BountyGoldMin"				"19"		// 20
-		"BountyGoldMax"				"25"		// 26
+		"BountyXP"					"45"		// 25
+		"BountyGoldMin"				"39"		// 20
+		"BountyGoldMax"				"45"		// 26
 
 		// Movement
 		//----------------------------------------------------------------
@@ -1191,19 +1201,19 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 3
-		"MagicalResistance"				"5"			// 0
+		"ArmorPhysical"				"10"		// 1
+		"MagicalResistance"			"50"		// 0
 
 		// Attack
-		"AttackDamageMin"			"56"		// 36
-		"AttackDamageMax"			"64"		// 44
-		"AttackRate"				"0.9"			// 1
+		"AttackDamageMin"			"90"		// 36
+		"AttackDamageMax"			"110"		// 44
+		"AttackRate"				"0.8"		// 1
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"22"		// 25
-		"BountyGoldMin"				"19"		// 20
-		"BountyGoldMax"				"25"		// 26
+		"BountyXP"					"45"		// 25
+		"BountyGoldMin"				"39"		// 20
+		"BountyGoldMax"				"45"		// 26
 
 		// Movement
 		//----------------------------------------------------------------
@@ -1225,10 +1235,21 @@
 		// Abilitys
 		"Ability1"					"creep_buff_mega"
 
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"		// 0
+		"MagicalResistance"			"90"		// 80
+
 		// Attack
 		"AttackDamageMin"			"150"		// 51
 		"AttackDamageMax"			"180"		// 62
-		"AttackRate"				"2.0"			// 1
+		"AttackRate"				"1.5"		// 3.0
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"160"		// 88
+		"BountyGoldMin"				"120"		// 59
+		"BountyGoldMax"				"140"		// 72
 
 		// Movement
 		//----------------------------------------------------------------
@@ -1247,10 +1268,21 @@
 		// Abilitys
 		"Ability1"					"creep_buff_mega"
 
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"		// 0
+		"MagicalResistance"			"90"		// 80
+
 		// Attack
 		"AttackDamageMin"			"150"		// 51
 		"AttackDamageMax"			"180"		// 62
-		"AttackRate"				"2.0"			// 1
+		"AttackRate"				"1.5"		// 3.0
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"160"		// 88
+		"BountyGoldMin"				"120"		// 59
+		"BountyGoldMax"				"140"		// 72
 
 		// Movement
 		//----------------------------------------------------------------

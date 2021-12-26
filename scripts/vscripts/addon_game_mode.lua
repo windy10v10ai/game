@@ -196,12 +196,8 @@ function AIGameMode:AddCreepsSkill()
 		skillLevel = 4
 	elseif sumTowerPower <= 16 then
 		skillLevel = 5
-	elseif sumTowerPower <= 18 then
-		skillLevel = 6
-	elseif sumTowerPower <= 20 then
-		skillLevel = 7
 	else
-		skillLevel = 8
+		skillLevel = 6
 	end
 
 	local npc_dota_creep_lane = Entities:FindAllByClassname("npc_dota_creep_lane")
@@ -229,7 +225,6 @@ function AIGameMode:AddCreepsSkill()
 			creepBuffMega:SetLevel(skillLevel)
 		end
 	end
-	
 
 	-- loop in 10s
 	Timers:CreateTimer(10, function ()
