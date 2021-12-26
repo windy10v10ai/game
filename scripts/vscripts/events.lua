@@ -393,6 +393,9 @@ function AIGameMode:OnNPCSpawned(keys)
 			if not hHero:FindModifierByName("modifier_bot_attack_tower_pick_rune") then
 				hHero:AddNewModifier(hHero, nil, "modifier_bot_attack_tower_pick_rune", {})
 			end
+			if not hHero:FindModifierByName("modifier_bot_think_item_use") then
+				hHero:AddNewModifier(hHero, nil, "modifier_bot_think_item_use", {})
+			end
 			if hHero:GetName() == "npc_dota_hero_axe" and not hHero:FindModifierByName("modifier_axe_thinker") then
 				hHero:AddNewModifier(hHero, nil, "modifier_axe_thinker", {})
 			end
