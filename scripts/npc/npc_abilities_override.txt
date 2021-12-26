@@ -1928,19 +1928,6 @@
 			}
 		}
 	}
-	"lone_druid_spirit_bear"
-	{
-		"AbilityCooldown"				"30.0"
-		"AbilitySpecial"
-		{
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"30.0"
-				"RequiresScepter"			"1"
-			}
-		}
-	}
 	"medusa_split_shot"
 	{
 		"AbilitySpecial"
@@ -2259,10 +2246,6 @@
 	{
 		"AbilityCooldown"				"100 90 80"
 	}
-	"hoodwink_sharpshooter"
-	{
-		"AbilityCooldown"				"30"
-	}
 	// -------------------------------------
 	// ---- Intelligence Heroes 智力英雄 ----
 	// -------------------------------------
@@ -2449,33 +2432,6 @@
 		"AbilityManaCost"				"105 110 115 120 130 140 150"
 	}
 
-	"dark_willow_shadow_realm"
-	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"26 24 22 20 18 16 14"
-		"AbilityManaCost"				"70 80 90 105 120 140 160"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage"						"90 120 150 180 210 240 270"
-				"LinkedSpecialBonus"			"special_bonus_unique_dark_willow_1"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"attack_range_bonus"			"300"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"max_damage_duration"			"3.5"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-		}
-	}
-
 	"dazzle_shadow_wave"
 	{
 		"MaxLevel" "7"
@@ -2546,31 +2502,6 @@
 				"LinkedSpecialBonus"	"special_bonus_unique_enchantress_4"
 			}
 		}
-	}
-	"enigma_midnight_pulse"
-	{
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"2.6 2.9 3.2 3.5"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"9 10 11 12"
-				"LinkedSpecialBonus"	"special_bonus_unique_enigma_8"
-			}
-		}
-	}
-	"enigma_black_hole"
-	{
-		"AbilityCooldown"				"100.0 95.0 90.0"
-	}
-	"grimstroke_soul_chain"
-	{
-		"AbilityCooldown"				"60 45 30"
 	}
 	"jakiro_macropyre"
 	{
@@ -2772,10 +2703,6 @@
 	{
 		"AbilityCooldown"				"120 110 100"
 	}
-	"puck_dream_coil"
-	{
-		"AbilityCooldown"				"60 50 40"
-	}
 	"queenofpain_shadow_strike"
 	{
 		"MaxLevel" "7"
@@ -2940,21 +2867,6 @@
 				"pop_damage"			"175 250 350"
 			}
 		}
-	}
-	"winter_wyvern_arctic_burn"
-	{
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_range_bonus"	"250 300 325 350"
-			}
-		}
-	}
-	"winter_wyvern_winters_curse"
-	{
-		"AbilityCooldown"				"60 55 50"
 	}
 	"skywrath_mage_arcane_bolt"
 	{
@@ -3294,7 +3206,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Shredder: Flamethrower ( shard ability )  伐木机
+	// Shredder               伐木机
 	//=================================================================================================================
 	"shredder_flamethrower"
 	{
@@ -3461,7 +3373,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Pugna: Nether Blast 帕格纳
+	// Pugna               帕格纳
 	//=================================================================================================================
 	"pugna_nether_blast"
 	{
@@ -3537,7 +3449,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Rattletrap: Overclocking (scepter ability)              发条地精
+	// Rattletrap             发条地精
 	//=================================================================================================================
 	"rattletrap_overclocking"
 	{
@@ -3672,7 +3584,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Lina Dragon Slave      火女
+	// Ability: Lina     火女
 	//=================================================================================================================
 	"lina_dragon_slave"
 	{
@@ -3834,7 +3746,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Vengeful Spirit Magic Missle          复仇之魂
+	// Ability: Vengeful Spirit          复仇之魂
 	//=================================================================================================================
 	"vengefulspirit_magic_missile"
 	{
@@ -3933,7 +3845,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Doom Bringer: Devour          末日使者
+	// Doom Bringer          末日使者
 	//=================================================================================================================
 	"doom_bringer_devour"
 	{
@@ -4026,7 +3938,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Tidehunter: Gush           潮汐猎人
+	// Tidehunter          潮汐猎人
 	//=================================================================================================================
 	"tidehunter_gush"
 	{
@@ -4110,7 +4022,7 @@
 		}
 	}
     //=================================================================================================================
-	// Centaur Warchief: Hoof Stomp           半人马战行者
+	// Centaur Warchief           半人马战行者
 	//=================================================================================================================
 	"centaur_hoof_stomp"
 	{
@@ -4195,7 +4107,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Invoker: Cold Snap             祈求者/卡尔
+	// Invoker            祈求者/卡尔
 	//=================================================================================================================
 	"invoker_cold_snap"
 	{
@@ -4243,7 +4155,7 @@
 		"AbilityCooldown"				"30"
 	}	
     //=================================================================================================================
-	// Bristleback: Hairball (Shard)    钢背兽
+	// Bristleback    钢背兽
 	//=================================================================================================================
 	"bristleback_viscous_nasal_goo"
 	{
@@ -4272,18 +4184,13 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"quill_base_damage"		"25 45 65 85 105 125 145"
+				"quill_base_damage"		"25 45 65 85 105 115 125"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"quill_stack_damage"	"28 30 32 34 36 38 40"
 				"LinkedSpecialBonus"	"special_bonus_unique_bristleback_2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_damage"			"600.0"
 			}
 		}
 	}
@@ -4338,7 +4245,7 @@
 		}
 	}
     //=================================================================================================================
-	// Ability: Phantom Lancer's Spirit Lance         幻影长矛手
+	// Ability: Phantom Lancer        幻影长矛手
 	//=================================================================================================================
 	"phantom_lancer_spirit_lance"
 	{
@@ -4462,7 +4369,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Chaos Knight: Chaos Bolt                             混沌骑士
+	// Chaos Knight                             混沌骑士
 	//=================================================================================================================
 	"chaos_knight_chaos_bolt"
 	{
@@ -4581,7 +4488,7 @@
 		}
 	}
     //=================================================================================================================
-	// Terrorblade: Reflection        恐怖利刃
+	// Terrorblade        恐怖利刃
 	//=================================================================================================================
 	"terrorblade_reflection"
 	{
@@ -4670,7 +4577,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Spectre: Spectral Dagger              幽鬼
+	// Spectre             幽鬼
 	//=================================================================================================================
 	"spectre_spectral_dagger"
 	{
@@ -4765,7 +4672,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Naga Siren: Mirror Image                      娜迦海妖
+	// Naga Siren                     娜迦海妖
 	//=================================================================================================================
 	"naga_siren_mirror_image"
 	{
@@ -4853,7 +4760,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Tiny: Avalanche                         小小
+	// Tiny                        小小
 	//=================================================================================================================
 	"tiny_avalanche"
 	{
@@ -4941,7 +4848,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Bane Enfeeble                       痛苦之源       
+	// Ability: Bane                      痛苦之源       
 	//=================================================================================================================
 	"bane_enfeeble"
 	{
@@ -5023,7 +4930,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Monkey King: Boundless Strike               齐天大圣
+	// Monkey King              齐天大圣
 	//=================================================================================================================
 	"monkey_king_boundless_strike"
 	{
@@ -5099,7 +5006,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Spirit Breaker: Charge of Darkness              裂魂人
+	// Spirit Breaker              裂魂人
 	//=================================================================================================================
 	"spirit_breaker_charge_of_darkness"
 	{
@@ -5184,7 +5091,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ursa: Earthshock         熊战士
+	// Ursa         熊战士
 	//=================================================================================================================
 	"ursa_earthshock"
 	{
@@ -5268,7 +5175,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Batrider: Sticky Napalm                  蝙蝠骑士
+	// Batrider                 蝙蝠骑士
 	//=================================================================================================================
 	"batrider_sticky_napalm"
 	{
@@ -5383,7 +5290,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Chen: Penitence                陈
+	// Chen               陈
 	//=================================================================================================================
 	"chen_penitence"
 	{
@@ -5493,7 +5400,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Earthshaker Fissure            撼地神牛
+	// Ability: Earthshaker            撼地神牛
 	//=================================================================================================================
 	"earthshaker_fissure"
 	{
@@ -5565,7 +5472,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Mirana Arrow (sacred arrow)             米拉娜
+	// Ability: Mirana             米拉娜
 	//=================================================================================================================
 	"mirana_arrow"
 	{
@@ -5625,7 +5532,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Viper: Poison Attack                 毒龙
+	// Viper                 毒龙
 	//=================================================================================================================
 	"viper_poison_attack"
 	{
@@ -5732,7 +5639,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Luna: Lucent Beam                露娜
+	// Luna               露娜
 	//=================================================================================================================
 	"luna_lucent_beam"
 	{
@@ -5832,7 +5739,7 @@
 		}
 	}
 	//=================================================================================================================
-	//  Treant Protector: Nature's Grasp                   大树
+	//  Treant Protector                  大树
 	//=================================================================================================================
 	"treant_natures_grasp"
 	{
@@ -5947,7 +5854,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Omniknight: Purification                全能骑士
+	// Omniknight               全能骑士
 	//=================================================================================================================
 	"omniknight_purification"
 	{
@@ -6042,7 +5949,7 @@
 		}
 	}	
 	//=================================================================================================================
-	// Kunkka: Torrent                       船长
+	// Kunkka                      船长
 	//=================================================================================================================
 	"kunkka_torrent"
 	{
@@ -6131,7 +6038,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ogre Magi: Fireblast            蓝胖子
+	// Ogre Magi            蓝胖子
 	//=================================================================================================================
 	"ogre_magi_fireblast"
 	{
@@ -6245,7 +6152,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Warlock's Fatal Bonds            术士
+	// Ability: Warlock           术士
 	//=================================================================================================================
 	"warlock_fatal_bonds"
 	{
@@ -6419,7 +6326,6 @@
 			}
 		}
 	}
-
 	"earth_spirit_magnetize"
 	{
 		"MaxLevel" "5"
@@ -6434,7 +6340,6 @@
 			}
 		}
 	}
-	
 	//=================================================================================================================
 	// Ability: Shadow Shaman      暗影萨满
 	//=================================================================================================================
@@ -6519,7 +6424,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Legion Commander: Overwhelming Odds              军团指挥官
+	// Legion Commander              军团指挥官
 	//=================================================================================================================
 	"legion_commander_overwhelming_odds"
 	{
@@ -6559,7 +6464,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"radius"				"330 340 350 360 370 380 390"
 				"LinkedSpecialBonus"	"special_bonus_unique_legion_commander_2"
-
 			}
 		}
 	}
@@ -6619,7 +6523,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Furion: Sprout                        先知
+	// Furion                       先知
 	//=================================================================================================================
 	"furion_sprout"
 	{
@@ -6709,7 +6613,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Keeper of the Light: Illuminate               光之守卫
+	// Keeper of the Light               光之守卫
 	//=================================================================================================================
 	"keeper_of_the_light_illuminate"
 	{
@@ -6802,7 +6706,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Bounty Hunter: Shuriken Toss            赏金猎人
+	// Bounty Hunter           赏金猎人
 	//=================================================================================================================
 	"bounty_hunter_shuriken_toss"
 	{
@@ -6906,5 +6810,512 @@
 			}
 		}
 	}
-
+    //=================================================================================================================
+	// Lone Druid            德鲁伊
+	//=================================================================================================================
+	"lone_druid_spirit_bear"
+	{
+		"AbilityCooldown"				"30.0"	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bear_hp"					"1500 2000 2500 3000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bear_regen_tooltip"	"7 8 9 10"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bear_armor"				"5 6 7 8"
+				"LinkedSpecialBonus"	"special_bonus_unique_lone_druid_2"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cooldown_scepter"			"30.0"
+				"RequiresScepter"			"1"
+			}
+		}
+	}
+	"lone_druid_spirit_link"
+	{
+		"MaxLevel" "7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_attack_speed"		"20 35 50 65 80 95 110"		
+				"LinkedSpecialBonus"	"special_bonus_unique_lone_druid_6"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"lifesteal_percent"			"20 35 50 65 75 85 95"
+			}
+		}
+	}
+	"lone_druid_savage_roar"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"38 32 26 20 14"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1.4 1.8 2.2 2.6 3.0"
+			}
+		}
+	}
+	"lone_druid_true_form"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"100"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_armor"				"10 12 14 16 18"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_hp"					"500 1000 1500 2000 2500"
+				"LinkedSpecialBonus"	"special_bonus_unique_lone_druid_7"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"100"
+			}
+		}
+	}
+	"lone_druid_spirit_bear_demolish"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spell_resistance"		"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_building_damage"		"20 40 60 80"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"true_form_bonus_building_damage"		"30 50 70 90"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Grimstroke              天涯墨客
+	//=================================================================================================================
+	"grimstroke_soul_chain"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"70 60 50 40 30"
+		"AbilityCastRange"				"700 800 900 1000 1100"
+		"AbilityManaCost"				"150 200 250 300 350"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"chain_duration"		"6.0 7.0 8.0 9.0 10.0"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Winter Wyvern                   寒冬飞龙
+	//=================================================================================================================
+	"winter_wyvern_arctic_burn"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"38 32 26 20 14"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_range_bonus"	"200 250 300 350 400"
+			}			
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"percent_damage"		"6 7 8 9 10"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"move_slow"				"16 24 32 40 48"
+				"LinkedSpecialBonus"	"special_bonus_unique_winter_wyvern_1"
+			}
+		}
+	}
+	"winter_wyvern_splinter_blast"
+	{
+		"MaxLevel" "7"
+		"AbilityDamage"					"100 180 260 340 400 450 500"
+		"AbilityManaCost"				"105 120 135 150 165 180 195"
+	}
+	"winter_wyvern_cold_embrace"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"24 21 18 15 12 10 8"
+		"AbilityManaCost"				"50 60 70 80 90 100 110"
+		"AbilitySpecial"
+		{
+			"02"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"heal_additive"		"30 35 40 45 50 55 60"
+				"LinkedSpecialBonus"	"special_bonus_unique_winter_wyvern_5"
+			}
+			"03"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"heal_percentage"	"1.75 2.5 3.25 4 4.75 5.5 6"
+			}
+		}
+	}
+	"winter_wyvern_winters_curse"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"90 80 70 60"
+		"AbilitySpecial"
+		{
+			"05"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"4.5 5 5.5 6"
+				"LinkedSpecialBonus"	"special_bonus_unique_winter_wyvern_3"
+			}
+		}
+	}
+    //=================================================================================================================
+	// Enigma                 谜团
+	//=================================================================================================================
+	"enigma_malefice"
+	{
+		"MaxLevel" "5"
+		"AbilityManaCost"				"100 120 140 160 180"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.4 0.6 0.8 1.0 1.2"
+				"LinkedSpecialBonus"	"special_bonus_unique_enigma_6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"40 60 80 100 120"
+				"LinkedSpecialBonus"	"special_bonus_unique_enigma_5"
+			}
+		}
+	}
+	"enigma_midnight_pulse"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"50 45 40 35 30"
+		"AbilityManaCost"				"50 80 110 140 170"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage_percent"			"2.6 2.8 3.0 3.2 3.4"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"8 9 10 11 12"
+				"LinkedSpecialBonus"	"special_bonus_unique_enigma_8"
+			}
+		}
+	}
+	"enigma_black_hole"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"140.0 130.0 120.0 110.0 100.0"
+		"AbilityManaCost"				"300 400 500 600 700"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"			"100 150 200 250 300"
+			}			
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"scepter_pct_damage"	"2.5"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Puck                    帕克/仙女龙
+	//=================================================================================================================
+	"puck_illusory_orb"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"12 11 10 9 8"
+		"AbilityDamage"					"75 150 225 300 375"
+		"AbilityManaCost"				"80 100 120 140 160"
+	}
+	"puck_waning_rift"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"19 17 15 13 11"
+		"AbilityManaCost"				"100 110 120 130 140"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"silence_duration"		"2.0 2.5 3.0 3.5 4.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_puck_7"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"70 130 190 250 310"
+				"LinkedSpecialBonus"	"special_bonus_unique_puck_4"
+			}
+		}
+	}
+	"puck_phase_shift"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"8 7.5 7 6.5 6"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"0.75 1.50 2.25 3.25 3.5"
+			}
+		}
+	}
+	"puck_dream_coil"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"80 70 60 50"
+		"AbilityManaCost"				"100 150 200 250"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"coil_initial_damage"		"125 200 275 350"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"coil_stun_duration"		"1.8 2.4 3.0 3.5"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"coil_break_damage"			"200 300 400 500"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"coil_break_damage_scepter"	"300 450 600 750"
+				"RequiresScepter"			"1"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"coil_stun_duration_scepter"		"2 3 4 5"
+				"RequiresScepter"			"1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Hoodwink                 森海飞霞/小松鼠
+	//=================================================================================================================
+	"hoodwink_acorn_shot"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"16 14 12 10 8 6 4"
+		"AbilityManaCost"				"75 85 95 105 115 125 135"
+		"AbilitySpecial"
+		{		
+			"01"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"bonus_range"			"125 200 275 350 400 450 500"
+			}
+			"02"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"acorn_shot_damage"		"50 75 100 125 150 175 200"
+			}
+			"04"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"bounce_count"			"2 3 4 5 6 7 8"
+				"LinkedSpecialBonus"		"special_bonus_unique_hoodwink_sharpshooter_speed"
+			}
+		}
+	}
+	"hoodwink_bushwhack"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"14"
+		"AbilityManaCost"				"90 100 110 120 130"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"debuff_duration"		"1.5 1.8 2.1 2.4 2.7"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"total_damage"		"75 150 225 300 375"
+			}
+		}
+	}
+	"hoodwink_scurry"
+	{
+		"MaxLevel" "5"
+		"AbilityChargeRestoreTime"		"30 24 18 12 8"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"movement_speed_pct"			"20 25 30 35 40"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"evasion"						"8 16 24 32 40"
+			}
+		}
+	}
+	"hoodwink_sharpshooter"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"45 40 35 30"
+		"AbilityManaCost"				"125 175 225 275"
+		"AbilitySpecial"
+		{		
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_damage"				"550 900 1250 1600"
+			}			
+			"12"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow_move_pct"				"30 40 50 60"
+			}
+		}
+	}
+	"hoodwink_sharpshooter_release"	
+	{
+ 		"MaxLevel"						"4"
+	}
+	//=================================================================================================================
+	// Dark Willow                 邪影芳灵/花仙子
+	//=================================================================================================================
+	"dark_willow_bramble_maze"
+	{
+		"MaxLevel"						"5"
+		"AbilityManaCost"				"100 120 140 160 180"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"latch_duration"		"1.0 1.5 2.0 2.5 3.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"latch_damage"		"120 160 200 240 280"
+			}
+		}
+	}
+	"dark_willow_bedlam"
+	{
+		"MaxLevel"						"5"	
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"100 150 200 250 300"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage"			"75 125 175 225 275"
+				"LinkedSpecialBonus"		"special_bonus_unique_dark_willow_4"
+			}
+		}
+	}
+	"dark_willow_terrorize"
+	{
+		"MaxLevel"						"5"	
+		"AbilityCooldown"				"80 70 60 50 40"
+		"AbilityManaCost"				"150"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"destination_status_duration"	"3.5 3.75 4 4.25 4.5"
+				"LinkedSpecialBonus"		"special_bonus_unique_dark_willow_2"
+			}	
+		}
+	}
+	"dark_willow_shadow_realm"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"26 24 22 20 18 16 14"
+		"AbilityManaCost"				"70 80 90 100 110 120 130"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage"						"90 120 150 180 210 240 270"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"attack_range_bonus"			"400"
+			}
+		}
+	}
+	"dark_willow_cursed_crown"
+	{
+		"MaxLevel"						"5"	
+		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityManaCost"				"80 100 120 140 160"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.5 2.0 2.5 3.0 3.5"
+				"LinkedSpecialBonus"			"special_bonus_unique_dark_willow_6"
+			}
+		}
+	}
 }
