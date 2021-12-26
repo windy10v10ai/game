@@ -157,7 +157,10 @@ function AIGameMode:OnGameStateChanged(keys)
 			local iPlayerNumDire = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
 			math.randomseed(math.floor(Time()*1000000))
 			-- 随机英雄列表
-			self:ArrayShuffle(tBotNameList)
+			if not self.DebugMode then
+				print("[AIGameMode] Random hero list")
+				self:ArrayShuffle(tBotNameList)
+			end
 			local sDifficulty = "unfair"
 			if self.iDesiredRadiant > iPlayerNumRadiant then
 				for i = 1, self.iDesiredRadiant - iPlayerNumRadiant do

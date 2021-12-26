@@ -281,6 +281,8 @@ local function ThinkForAxeAbilities(hAxe)
 			return
 		end
 	end
+	-- TEST use active item
+	UseActiveItem(hAxe)
 end
 
 function modifier_axe_thinker:OnIntervalThink()

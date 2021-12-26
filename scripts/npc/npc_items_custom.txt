@@ -2831,7 +2831,7 @@
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15.0"
+		"AbilityCooldown"				"16.0"
 		"AbilitySharedCooldown"			"shadow_blade"
 
 		// Item Info
@@ -2856,7 +2856,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"windwalk_duration"		"15.0"
+				"windwalk_duration"		"14.0"
 			}
 			"07"
 			{
