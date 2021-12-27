@@ -224,11 +224,19 @@
 				"28"		"special_bonus_unique_bounty_hunter_2"
 				"29"		"special_bonus_unique_bounty_hunter_8"
 				"30"		"special_bonus_unique_bounty_hunter_7"
+				"31"		"bounty_hunter_jinada"
+				"32"		"bounty_hunter_track"
+				"33"		"bounty_hunter_track"
+				"34"		"bounty_hunter_wind_walk"
+				"35"		"bounty_hunter_shuriken_toss"
+				"36"		"bounty_hunter_shuriken_toss"
+				"37"		"bounty_hunter_shuriken_toss"
 			}
 		}
 	}
 	"npc_dota_hero_bloodseeker"
 	{
+		"Ability6"		"sven_great_cleave"
 		"Bot"
 		{
 			"Build"
@@ -264,10 +272,12 @@
 				"29"		"special_bonus_unique_bloodseeker_3"
 				"30"		"special_bonus_unique_bloodseeker_4"
 				"31"		"bloodseeker_rupture"
-				"32"		""
-				"33"		""
-				"34"		""
-				"35"		"bloodseeker_rupture"
+				"32"		"bloodseeker_thirst"
+				"33"		"bloodseeker_blood_bath"
+				"34"		"bloodseeker_bloodrage"
+				"35"		"bloodseeker_bloodrage"
+				"36"		"bloodseeker_bloodrage"
+				"37"		"bloodseeker_rupture"
 			}
 		}
 	}
@@ -519,6 +529,8 @@
 				"28"		"special_bonus_unique_drow_ranger_6"
 				"29"		"special_bonus_unique_drow_ranger_7"
 				"30"		"special_bonus_unique_drow_ranger_3"
+				"31"		"drow_ranger_frost_arrows"
+				"32"		"drow_ranger_multishot"
 			}
 		}
 	}

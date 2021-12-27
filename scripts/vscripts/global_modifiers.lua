@@ -12,11 +12,9 @@ local StackToPercentage = function (iStackCount)
 	elseif iStackCount == 7 then
 		return 2.0
 	elseif iStackCount == 8 then
-		return 3.0
+		return 2.5
 	elseif iStackCount == 9 then
-		return 4.0
-	elseif iStackCount == 10 then
-		return 5.0
+		return 3.0
 	else
 		return 1.0
 	end
@@ -212,7 +210,7 @@ end
 
 function modifier_tower_power:GetModifierAttackSpeedBonus_Constant()
 	local fPower = StackToPercentage(self:GetStackCount())
-	return math.floor(20*(fPower)+20)
+	return math.floor(20*(fPower))
 end
 
 function modifier_tower_power:GetModifierBaseDamageOutgoing_Percentage()
@@ -241,8 +239,6 @@ function modifier_axe_thinker:OnCreated()
 	if IsClient() then return end
 	self:StartIntervalThink(0.1)
 end
-
-function modifier_axe_thinker:DeclareFunctions() return {MODIFIER_EVENT_ON_ABILITY_EXECUTED} end
 
 local function ThinkForAxeAbilities(hAxe)
 	local hAbility1 = hAxe:GetAbilityByIndex(0)

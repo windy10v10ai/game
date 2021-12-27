@@ -157,7 +157,10 @@ function AIGameMode:OnGameStateChanged(keys)
 			local iPlayerNumDire = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
 			math.randomseed(math.floor(Time()*1000000))
 			-- 随机英雄列表
-			self:ArrayShuffle(tBotNameList)
+			if not self.DebugMode then
+				print("[AIGameMode] Random hero list")
+				self:ArrayShuffle(tBotNameList)
+			end
 			local sDifficulty = "unfair"
 			if self.iDesiredRadiant > iPlayerNumRadiant then
 				for i = 1, self.iDesiredRadiant - iPlayerNumRadiant do
@@ -389,6 +392,9 @@ function AIGameMode:OnNPCSpawned(keys)
 		if not self.tHumanPlayerList[hHero:GetPlayerOwnerID()] then
 			if not hHero:FindModifierByName("modifier_bot_attack_tower_pick_rune") then
 				hHero:AddNewModifier(hHero, nil, "modifier_bot_attack_tower_pick_rune", {})
+			end
+			if not hHero:FindModifierByName("modifier_bot_think_item_use") then
+				hHero:AddNewModifier(hHero, nil, "modifier_bot_think_item_use", {})
 			end
 			if hHero:GetName() == "npc_dota_hero_axe" and not hHero:FindModifierByName("modifier_axe_thinker") then
 				hHero:AddNewModifier(hHero, nil, "modifier_axe_thinker", {})

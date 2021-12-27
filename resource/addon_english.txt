@@ -70,12 +70,10 @@
 		"radiant_tower_power_150"         "150%"
 		"radiant_tower_power_175"         "175%"
 		"radiant_tower_power_200"         "200%"
-		"radiant_tower_power_500"         "500%"
 
 		"dire_tower_power_150"           "150%"
 		"dire_tower_power_175"           "175%"
 		"dire_tower_power_200"           "200%"
-		"dire_tower_power_500"           "500%"
 
 		"starting_gold_player_2000"    "2000"
 		"starting_gold_player_5000"    "5000"
@@ -400,14 +398,10 @@
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_bonus_armor"						"+$armor"
-		"DOTA_Tooltip_ability_creep_buff_bonus_attack_speed"				"+$attack"
-		"DOTA_Tooltip_ability_creep_buff_bonus_move_speed"					"+$move_speed"
 
 		"DOTA_Tooltip_ability_creep_buff_mega"								"Mega Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"						"+$armor"
-		"DOTA_Tooltip_ability_creep_buff_mega_bonus_attack_speed"				"+$attack"
-		"DOTA_Tooltip_ability_creep_buff_mega_bonus_move_speed"					"+$move_speed"
 
 		// manta 1
 		"DOTA_Tooltip_Ability_item_manta_1"										"Manta Style 2"

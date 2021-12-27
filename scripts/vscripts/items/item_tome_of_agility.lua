@@ -11,7 +11,6 @@ if IsServer() then
         caster:ModifyAgility(agi)
         EmitSoundOnClient("Item.TomeOfKnowledge", caster)
 
-
         if caster:HasModifier("modifier_agi_tome") then
             local modifier = caster:FindModifierByName("modifier_agi_tome")
             modifier:SetStackCount(modifier:GetStackCount() + 1) -- + agi
