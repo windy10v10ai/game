@@ -2831,7 +2831,7 @@
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15.0"
+		"AbilityCooldown"				"16.0"
 		"AbilitySharedCooldown"			"shadow_blade"
 
 		// Item Info
@@ -2856,7 +2856,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"windwalk_duration"		"15.0"
+				"windwalk_duration"		"14.0"
 			}
 			"07"
 			{
@@ -3064,7 +3064,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3000"
+		"ItemCost"						"2150"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3445,8 +3445,7 @@
 		"AbilityTextureName"			"item_heavens_halberd_v2"
 		"ScriptFile"					"items/item_heavens_halberd_v2.lua"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60"
@@ -3904,7 +3903,7 @@
 		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		"FightRecapLevel"						"1"
 		
-		"AbilityCooldown"						"30.0"
+		"AbilityCooldown"						"20.0"
 		"AbilityCastRange"						"900"
 		"AbilityManaCost"						"250"
 		"AbilitySharedCooldown"			        "bluefantasy"
@@ -4001,7 +4000,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1200"
+		"ItemCost"						"2200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4036,7 +4035,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8000"
+		"ItemCost"						"13800"
 		"ItemShopTags"					"damage"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"DMD"
@@ -4251,7 +4250,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8000"
+		"ItemCost"						"10000"
 		"ItemShopTags"					"speed"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"DMC"
@@ -4410,7 +4409,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2000"
+		"ItemCost"						"0"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4641,4 +4640,5 @@
 		}
 	}
 }
+
 
