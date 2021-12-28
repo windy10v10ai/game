@@ -124,7 +124,6 @@ function AIGameMode:PreGameOptions()
 	end
 	-- loop functions
 	AIGameMode:SpawnNeutralCreeps30sec()
-	AIGameMode:AddCreepsSkill()
 
 
 	if self.bSameHeroSelection == 1 then
@@ -173,6 +172,26 @@ function AIGameMode:PreGameOptions()
 		GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(self.iMaxLevel)
 		GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(tLevelRequire)
 	end
+
+
+	self.sumTowerPower = (AIGameMode.iRadiantTowerPower + AIGameMode.iDireTowerPower)
+	self.creepBuffLevel = 1
+	if self.sumTowerPower <= 6 then
+		self.creepBuffLevel = 1
+	elseif self.sumTowerPower <= 10 then
+		self.creepBuffLevel = 2
+	elseif self.sumTowerPower <= 12 then
+		self.creepBuffLevel = 3
+	elseif self.sumTowerPower <= 14 then
+		self.creepBuffLevel = 4
+	elseif self.sumTowerPower <= 16 then
+		self.creepBuffLevel = 5
+	else
+		self.creepBuffLevel = 6
+	end
+
+	self.barrackKilledGood = 0
+	self.barrackKilledBad = 0
 	self.PreGameOptionsSet = true
 end
 
@@ -180,55 +199,6 @@ function AIGameMode:SpawnNeutralCreeps30sec()
 	GameRules:SpawnNeutralCreeps()
 	Timers:CreateTimer(30, function ()
 		AIGameMode:SpawnNeutralCreeps30sec()
-	end)
-end
-
-function AIGameMode:AddCreepsSkill()
-	local sumTowerPower = (AIGameMode.iRadiantTowerPower + AIGameMode.iDireTowerPower)
-	local skillLevel = 1
-	if sumTowerPower <= 6 then
-		skillLevel = 1
-	elseif sumTowerPower <= 10 then
-		skillLevel = 2
-	elseif sumTowerPower <= 12 then
-		skillLevel = 3
-	elseif sumTowerPower <= 14 then
-		skillLevel = 4
-	elseif sumTowerPower <= 16 then
-		skillLevel = 5
-	else
-		skillLevel = 6
-	end
-
-	local npc_dota_creep_lane = Entities:FindAllByClassname("npc_dota_creep_lane")
-	for _,creep in ipairs(npc_dota_creep_lane) do
-		local creepBuff = creep:FindAbilityByName("creep_buff")
-		if creepBuff and (creepBuff:GetLevel() == 0) then
-			creepBuff:SetLevel(skillLevel)
-		end
-
-		local creepBuffMega = creep:FindAbilityByName("creep_buff_mega")
-		if creepBuffMega and (creepBuffMega:GetLevel() == 0) then
-			creepBuffMega:SetLevel(skillLevel)
-		end
-	end
-
-	local npc_dota_creep_siege = Entities:FindAllByClassname("npc_dota_creep_siege")
-	for _,creep in ipairs(npc_dota_creep_siege) do
-		local creepBuff = creep:FindAbilityByName("creep_buff")
-		if creepBuff and (creepBuff:GetLevel() == 0) then
-			creepBuff:SetLevel(skillLevel)
-		end
-
-		local creepBuffMega = creep:FindAbilityByName("creep_buff_mega")
-		if creepBuffMega and (creepBuffMega:GetLevel() == 0) then
-			creepBuffMega:SetLevel(skillLevel)
-		end
-	end
-
-	-- loop in 10s
-	Timers:CreateTimer(10, function ()
-		AIGameMode:AddCreepsSkill()
 	end)
 end
 
