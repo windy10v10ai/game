@@ -90,7 +90,7 @@
 		"DOTA_Tooltip_modifier_multi"							"/10 金钱经验倍数"
 
 		"DOTA_Tooltip_modifier_melee_resistance"					"威压"
-		"DOTA_Tooltip_modifier_melee_resistance_Description"	"近战英雄拥有 %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 基础状态抗性（可与装备叠加），34%% 基础魔法抗性"
+		"DOTA_Tooltip_modifier_melee_resistance_Description"	"近战英雄额外获得 %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 状态抗性，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性"
 
 		///////////////////////////////////////////////////
 		//
