@@ -98,14 +98,18 @@ function modifier_bot_attack_tower_pick_rune:OnIntervalThink()
 		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
 		GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
 	elseif (GameTime >= (18 * 60)) then					-- LATEGAME
-		if AIGameMode.barrackKilledCount and AIGameMode.barrackKilledCount > 2 then
-			GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-			GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
-			if AIGameMode.barrackKilledCount > 5 then
-				GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
-			else
-				GameRules:GetGameModeEntity():SetBotsMaxPushTier(5)
-			end
+		local team = self:GetParent():GetTeam()
+		local barrackKilledCount = 0
+		if DOTA_TEAM_GOODGUYS == team then
+			barrackKilledCount = AIGameMode.barrackKilledGood
+		elseif DOTA_TEAM_BADGUYS == team then
+			barrackKilledCount = AIGameMode.barrackKilledBad
+		end
+
+		if barrackKilledCount > 5 then
+			GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
+		else
+			GameRules:GetGameModeEntity():SetBotsMaxPushTier(5)
 		end
 	elseif (GameTime >= (16 * 60)) then						-- MIDGAME
 		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
