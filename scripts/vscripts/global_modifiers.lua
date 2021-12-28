@@ -58,7 +58,7 @@ function modifier_melee_resistance:GetTexture() return "bulldozer" end
 
 function modifier_melee_resistance:OnCreated()
 	self.iStatusResist = 20
-	self.iMagicalResist = 12
+	self.iMagicalResist = 10
 end
 
 function modifier_melee_resistance:DeclareFunctions()
