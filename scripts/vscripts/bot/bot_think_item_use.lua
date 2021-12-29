@@ -30,6 +30,16 @@ function FindItemByNameIncludeStash(hHero, sName)
 	return nil
 end
 
+function IsItemCanUse(hHero, sName)
+    if hHero:HasItemInInventory(sName) then
+        local item = FindItemByNameNotIncludeBackpack(hHero, sName)
+        if item and item:IsCooldownReady() then
+            return true
+        end
+    end
+    return false
+end
+
 -- use item
 function UseItemOnTarget(hHero, sItemName, hTarget)
 	if not hHero:HasItemInInventory(sItemName) then
@@ -37,9 +47,7 @@ function UseItemOnTarget(hHero, sItemName, hTarget)
 	end
     local hItem = FindItemByNameNotIncludeBackpack(hHero, sItemName)
     if hItem then
-        if hItem:GetCooldownTimeRemaining() > 0 then
-            return false
-        else
+        if hItem:IsCooldownReady() then
             print("Think use "..hHero:GetName().." try to use item "..sItemName)
             hHero:CastAbilityOnTarget(hTarget, hItem, hHero:GetPlayerOwnerID())
             return true
@@ -54,9 +62,7 @@ function UseItem(hHero, sItemName)
 	end
     local hItem = FindItemByNameNotIncludeBackpack(hHero, sItemName)
     if hItem then
-        if hItem:GetCooldownTimeRemaining() > 0 then
-            return false
-        else
+        if hItem:IsCooldownReady() then
             print("Think use "..hHero:GetName().." try to use item "..sItemName)
             hHero:CastAbilityNoTarget(hItem, hHero:GetPlayerOwnerID())
             return true
@@ -92,10 +98,10 @@ function UseActiveItem(hHero)
             return true
         end
     else
-        if hHero:HasItemInInventory("item_abyssal_blade_v2") then
+        if IsItemCanUse(hHero, "item_abyssal_blade_v2") then
             local iRange600 = 600
             local tAllHeroesRange600 = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-            if not #tAllHeroesRange600 == 0 then
+            if #tAllHeroesRange600 > 0 then
                 local hTargetRange600 = tAllHeroesRange600[1]
 
                 -- item_abyssal_blade_v2 一闪
@@ -143,7 +149,7 @@ function UseActiveItem(hHero)
     end
 
     -- refresh 刷新
-    if hHero:HasItemInInventory("item_refresher") then
+    if IsItemCanUse(hHero, "item_refresher") then
         local hAbility6 = hHero:GetAbilityByIndex(5)
         if hAbility6 and hAbility6:GetCooldownTimeRemaining() > 10 then
             if UseItem(hHero, "item_refresher") then
@@ -152,31 +158,26 @@ function UseActiveItem(hHero)
         end
     end
 
-    if hHero:HasItemInInventory("item_hurricane_pike_2") then
+    if IsItemCanUse(hHero, "item_hurricane_pike_2") then
         itemUseCastRange = 600
         tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, itemUseCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-        if #tAllHeroes == 0 then
-            return false
+        if #tAllHeroes > 0 then
+            -- item_hurricane_pike_2 黄金魔龙枪
+            if UseItemOnTarget(hHero, "item_hurricane_pike_2", tAllHeroes[1]) then
+                return true
+            end
         end
-        hTarget = tAllHeroes[1]
 
-        -- item_hurricane_pike_2 黄金魔龙枪
-        if UseItemOnTarget(hHero, "item_hurricane_pike_2", hTarget) then
-            return true
-        end
     end
 
-    if hHero:HasItemInInventory("item_heavens_halberd_v2") then
+    if IsItemCanUse(hHero, "item_heavens_halberd_v2") then
         itemUseCastRange = 300
         tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, itemUseCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-        if #tAllHeroes == 0 then
-            return false
-        end
-        hTarget = tAllHeroes[1]
-
-        -- item_heavens_halberd_v2 大天堂
-        if UseItem(hHero, "item_heavens_halberd_v2") then
-            return true
+        if #tAllHeroes > 0 then
+            -- item_heavens_halberd_v2 大天堂
+            if UseItem(hHero, "item_heavens_halberd_v2") then
+                return true
+            end
         end
     end
 

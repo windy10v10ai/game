@@ -441,7 +441,7 @@ function AIGameMode:OnNPCSpawned(keys)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_melee_resistance", {})
 	end
 
-	if hEntity:IsHero() and not hEntity.bInitialized then
+	if hEntity:IsRealHero() and not hEntity.bInitialized then
 		if hEntity:GetAttackCapability() == DOTA_UNIT_CAP_MELEE_ATTACK or sName == "npc_dota_hero_troll_warlord" or sName == "npc_dota_hero_lone_druid" then
 			hEntity:AddNewModifier(hEntity, nil, "modifier_melee_resistance", {})
 		end

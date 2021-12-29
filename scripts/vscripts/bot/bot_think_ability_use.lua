@@ -78,13 +78,5 @@ function BotAbilityThink:ThinkUseAbility_EarthShaker(hHero)
             end
             return true
         end
-
-		if hHero:HasModifier("modifier_item_ultimate_scepter") and (hHero:GetHealth() > hHero:GetMaxHealth() * 0.4) then
-			iRange = 900
-            tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-            if #tAllHeroes > 0 then
-                hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility, hHero:GetPlayerOwnerID())
-            end
-		end
 	end
 end
