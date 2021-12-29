@@ -286,19 +286,36 @@ function AIGameMode:OnEntityKilled(keys)
 	if hEntity:GetClassname() == "npc_dota_barracks" then
 		RecordBarrackKilled(hEntity)
 	end
+	-- on tower killed
+	if hEntity:GetClassname() == "npc_dota_tower" then
+		RecordTowerKilled(hEntity)
+	end
 end
 
 function RecordBarrackKilled(hEntity)
 	local team = hEntity:GetTeamNumber()
 	if DOTA_TEAM_GOODGUYS == team then
-		AIGameMode.barrackKilledGood = AIGameMode.barrackKilledGood + 1
-		print("barrack killed Good", AIGameMode.barrackKilledGood)
+		AIGameMode.barrackPushedBad = AIGameMode.barrackPushedBad + 1
+		print("barrackPushedBad ", AIGameMode.barrackPushedBad)
 	elseif DOTA_TEAM_BADGUYS == team then
-		AIGameMode.barrackKilledBad = AIGameMode.barrackKilledBad + 1
-		print("barrack killed Bad", AIGameMode.barrackKilledBad)
+		AIGameMode.barrackPushedGood = AIGameMode.barrackPushedGood + 1
+		print("barrackPushedGood ", AIGameMode.barrackPushedGood)
 	end
 end
 
+function RecordTowerKilled(hEntity)
+	local team = hEntity:GetTeamNumber()
+	local sName = hEntity:GetUnitName()
+	if string.find(sName, "tower4") then
+		if DOTA_TEAM_GOODGUYS == team then
+			AIGameMode.tower4PushedBad = AIGameMode.tower4PushedBad + 1
+			print("tower4PushedBad ", AIGameMode.tower4PushedBad)
+		elseif DOTA_TEAM_BADGUYS == team then
+			AIGameMode.tower4PushedGood = AIGameMode.tower4PushedGood + 1
+			print("tower4PushedGood ", AIGameMode.tower4PushedGood)
+		end
+	end
+end
 function HeroKilled(keys)
 	local hHero = EntIndexToHScript(keys.entindex_killed)
 	local fRespawnTime = 0
@@ -370,63 +387,81 @@ function AIGameMode:OnNPCSpawned(keys)
 		end)
 		return
 	end
-	local hHero = EntIndexToHScript(keys.entindex)
-	if hHero:IsNull() then return end
+	local hEntity = EntIndexToHScript(keys.entindex)
+	if hEntity:IsNull() then return end
 
-	if hHero:IsCourier() and self.bFastCourier == 1 then
-		hHero:AddNewModifier(hHero, nil, "modifier_courier_speed", {})
+	if hEntity:IsCourier() and self.bFastCourier == 1 then
+		hEntity:AddNewModifier(hEntity, nil, "modifier_courier_speed", {})
+		return
 	end
 
-	local sName = hHero:GetName()
+	local sName = hEntity:GetName()
 	if sName == "npc_dota_creep_lane" or sName == "npc_dota_creep_siege" then
-		local sUnitName = hHero:GetUnitName()
-		print("creep spawned sUnitName "..sUnitName)
-		local creepBuff = hHero:FindAbilityByName("creep_buff")
-		if creepBuff and (creepBuff:GetLevel() == 0) then
-			creepBuff:SetLevel(self.creepBuffLevel)
+		local sUnitName = hEntity:GetUnitName()
+		if self.creepBuffLevel > 1 then
+			if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
+				local ability = hEntity:AddAbility("creep_buff")
+				ability:SetLevel(self.creepBuffLevel)
+			elseif not string.find(sUnitName, "upgraded") and string.find(sUnitName, "mega") then
+				local ability = hEntity:AddAbility("creep_buff_mega")
+				ability:SetLevel(self.creepBuffLevel)
+			end
 		end
 
-		local creepBuffMega = hHero:FindAbilityByName("creep_buff_mega")
-		if creepBuffMega and (creepBuffMega:GetLevel() == 0) then
-			creepBuffMega:SetLevel(self.creepBuffLevel)
+		-- normal line creep
+		local team = hEntity:GetTeamNumber()
+		local tower4PushedNumber = 0
+		if DOTA_TEAM_GOODGUYS == team then
+			tower4PushedNumber = AIGameMode.tower4PushedGood
+		elseif DOTA_TEAM_BADGUYS == team then
+			tower4PushedNumber = AIGameMode.tower4PushedBad
 		end
-	end
-
-	if hHero:IsCreep() then
-		if sName == "npc_dota_roshan" then
-			-- TODO roshan
-			print("roshan spawned")
+		if tower4PushedNumber > 0 and not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
+			local ability = hEntity:AddAbility("creep_buff")
+			ability:SetLevel(tower4PushedNumber)
 			return
 		end
 	end
 
-	if hHero:GetName() == "npc_dota_lone_druid_bear" then
-		hHero:AddNewModifier(hHero, nil, "modifier_melee_resistance", {})
+	if hEntity:IsCreep() then
+		if sName == "npc_dota_roshan" then
+			-- TODO roshan
+			print("roshan spawned")
+			self.roshanNumber = self.roshanNumber + 1
+			if self.roshanNumber > 5 then
+				self.roshanNumber = 5
+			end
+			local ability = hEntity:AddAbility("creep_buff_mega")
+			ability:SetLevel(self.roshanNumber)
+			return
+		end
 	end
 
-	if hHero:IsHero() and not hHero.bInitialized then
-		if hHero:GetAttackCapability() == DOTA_UNIT_CAP_MELEE_ATTACK or hHero:GetName() == "npc_dota_hero_troll_warlord" or hHero:GetName() == "npc_dota_hero_lone_druid" then
-			hHero:AddNewModifier(hHero, nil, "modifier_melee_resistance", {})
+	if sName == "npc_dota_lone_druid_bear" then
+		hEntity:AddNewModifier(hEntity, nil, "modifier_melee_resistance", {})
+	end
+
+	if hEntity:IsHero() and not hEntity.bInitialized then
+		if hEntity:GetAttackCapability() == DOTA_UNIT_CAP_MELEE_ATTACK or sName == "npc_dota_hero_troll_warlord" or sName == "npc_dota_hero_lone_druid" then
+			hEntity:AddNewModifier(hEntity, nil, "modifier_melee_resistance", {})
 		end
 
-		if hHero:GetName() == "npc_dota_hero_sniper" and self.tHumanPlayerList[hHero:GetPlayerOwnerID()] and not self.bSniperScepterThinkerApplierSet then
+		if sName == "npc_dota_hero_sniper" and self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.bSniperScepterThinkerApplierSet then
 			require('heroes/hero_sniper/sniper_init')
-			SniperInit(hHero, self)
+			SniperInit(hEntity, self)
 		end
 
-		if not self.tHumanPlayerList[hHero:GetPlayerOwnerID()] then
-			if not hHero:FindModifierByName("modifier_bot_attack_tower_pick_rune") then
-				hHero:AddNewModifier(hHero, nil, "modifier_bot_attack_tower_pick_rune", {})
+		if not self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
+			if not hEntity:FindModifierByName("modifier_bot_think_strategy") then
+				hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_strategy", {})
+				print("modifier_bot_think_strategy added "..sName)
 			end
-			if not hHero:FindModifierByName("modifier_bot_think_item_use") then
-				hHero:AddNewModifier(hHero, nil, "modifier_bot_think_item_use", {})
-			end
-			if hHero:GetName() == "npc_dota_hero_axe" and not hHero:FindModifierByName("modifier_axe_thinker") then
-				hHero:AddNewModifier(hHero, nil, "modifier_axe_thinker", {})
+			if not hEntity:FindModifierByName("modifier_bot_think_item_use") then
+				hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_item_use", {})
 			end
 		end
 
-		hHero.bInitialized = true
+		hEntity.bInitialized = true
 	end
 end
 

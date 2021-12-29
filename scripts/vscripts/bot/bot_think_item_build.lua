@@ -90,7 +90,7 @@ end
 --------------------
 function BotThink:ThinkPurchase(hHero)
   local iHeroName = hHero:GetName()
-  
+
   local iPurchaseTable = tBotItemData.purchaseItemList[iHeroName]
   BuyItemIfGoldEnough(hHero, iPurchaseTable)
 end
@@ -146,7 +146,7 @@ function BotThink:ThinkConsumeItem(hHero)
 end
 
 function BotThink:AddMoney(hHero)
-  local iAddMoney = 3
+  local iAddMoney = 5
   if AIGameMode.DebugMode then
     iAddMoney = 20
   end
