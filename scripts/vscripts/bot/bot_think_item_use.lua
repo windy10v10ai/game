@@ -65,9 +65,8 @@ function UseItem(hHero, sItemName)
     return false
 end
 
+--------------------
 function UseActiveItem(hHero)
-    if hHero:IsStunned() then return end
-
     local itemUseCastRange = 900
 	local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, itemUseCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 	if #tAllHeroes == 0 then
@@ -93,9 +92,17 @@ function UseActiveItem(hHero)
             return true
         end
     else
-        -- item_abyssal_blade_v2 一闪
-        if UseItemOnTarget(hHero, "item_abyssal_blade_v2", hTarget) then
-            return true
+        if hHero:HasItemInInventory("item_abyssal_blade_v2") then
+            local iRange600 = 600
+            local tAllHeroesRange600 = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+            if not #tAllHeroesRange600 == 0 then
+                local hTargetRange600 = tAllHeroesRange600[1]
+
+                -- item_abyssal_blade_v2 一闪
+                if UseItemOnTarget(hHero, "item_abyssal_blade_v2", hTargetRange600) then
+                    return true
+                end
+            end
         end
     end
 
