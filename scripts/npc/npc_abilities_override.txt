@@ -5766,6 +5766,18 @@
 			}
 		}
 	}
+	"special_bonus_unique_treant_12"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"4"
+				"ad_linked_ability"			"treant_natures_grasp"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
 	"treant_leech_seed"
 	{
 		"MaxLevel" "7"
@@ -5842,6 +5854,7 @@
 	}
 	"treant_eyes_in_the_forest"
 	{
+		"AbilityChargeRestoreTime"		"45.0"
 		"AbilitySpecial"
 		{
 			"02"
@@ -6519,6 +6532,18 @@
 				"var_type"				"FIELD_INTEGER"
 				"reward_damage"			"10 15 20 25"
 				"LinkedSpecialBonus"	"special_bonus_unique_legion_commander"
+			}
+		}
+	}
+	"special_bonus_unique_legion_commander"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"10"
+				"ad_linked_ability"			"legion_commander_duel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
