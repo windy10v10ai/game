@@ -97,6 +97,10 @@ function UseActiveItem(hHero)
         if UseItem(hHero, "item_undying_heart") then
             return true
         end
+        -- item_silver_edge_2 无敌之刃
+        if UseItem(hHero, "item_silver_edge_2") then
+            return true
+        end
     else
         if IsItemCanUse(hHero, "item_abyssal_blade_v2") then
             local iRange600 = 600
@@ -158,7 +162,7 @@ function UseActiveItem(hHero)
         end
     end
 
-    if IsItemCanUse(hHero, "item_hurricane_pike_2") then
+    if IsItemCanUse(hHero, "item_hurricane_pike_2") or IsItemCanUse(hHero, "item_silver_edge_2") then
         itemUseCastRange = 600
         tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, itemUseCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
         if #tAllHeroes > 0 then
@@ -166,8 +170,11 @@ function UseActiveItem(hHero)
             if UseItemOnTarget(hHero, "item_hurricane_pike_2", tAllHeroes[1]) then
                 return true
             end
+            -- item_silver_edge_2 无敌之刃
+            if UseItem(hHero, "item_silver_edge_2") then
+                return true
+            end
         end
-
     end
 
     if IsItemCanUse(hHero, "item_heavens_halberd_v2") then
@@ -181,10 +188,6 @@ function UseActiveItem(hHero)
         end
     end
 
-    -- item_silver_edge_2 无敌之刃
-    if UseItem(hHero, "item_silver_edge_2") then
-        return true
-    end
 
     return false
 end

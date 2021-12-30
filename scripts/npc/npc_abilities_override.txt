@@ -6204,7 +6204,7 @@
 	}	
 	"warlock_rain_of_chaos"
 	{
-		"AbilityCooldown"				"120 100 80"
+		"AbilityCooldown"				"100 80 60"
 		"AbilitySpecial"
 		{
 			"01"
