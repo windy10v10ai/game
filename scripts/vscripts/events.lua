@@ -284,27 +284,30 @@ function AIGameMode:OnEntityKilled(keys)
 	end
 	-- on barrack killed
 	if hEntity:GetClassname() == "npc_dota_barracks" then
-		RecordBarrackKilled(keys)
+		RecordBarrackKilled(hEntity)
 	end
 end
 
-function RecordBarrackKilled(keys)
-	if AIGameMode.barrackKilledCount == nil then
-		AIGameMode.barrackKilledCount = 0
+function RecordBarrackKilled(hEntity)
+	local team = hEntity:GetTeamNumber()
+	if DOTA_TEAM_GOODGUYS == team then
+		AIGameMode.barrackKilledGood = AIGameMode.barrackKilledGood + 1
+		print("barrack killed Good", AIGameMode.barrackKilledGood)
+	elseif DOTA_TEAM_BADGUYS == team then
+		AIGameMode.barrackKilledBad = AIGameMode.barrackKilledBad + 1
+		print("barrack killed Bad", AIGameMode.barrackKilledBad)
 	end
-	AIGameMode.barrackKilledCount = AIGameMode.barrackKilledCount + 1
-	print("barrack killed count", AIGameMode.barrackKilledCount)
 end
 
 function HeroKilled(keys)
 	local hHero = EntIndexToHScript(keys.entindex_killed)
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
-	local tDOTARespawnTime = {4, 5, 6, 7, 8, 10, 12, 13, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 55}
+	local tDOTARespawnTime = {4, 5, 6, 7, 8, 10, 12, 13, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57}
 	if iLevel <= 40 then
 		fRespawnTime = math.ceil(tDOTARespawnTime[iLevel]*AIGameMode.iRespawnTimePercentage/100.0)
 	else
-		fRespawnTime = math.ceil((iLevel/4 + 40)*AIGameMode.iRespawnTimePercentage/100.0)
+		fRespawnTime = math.ceil((iLevel/4 + 47)*AIGameMode.iRespawnTimePercentage/100.0)
 	end
 
 	if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
@@ -332,9 +335,8 @@ function HeroKilled(keys)
 end
 
 function AIGameMode:RollDrops(hHero)
-    local DropInfo = GameRules.DropTable
-    if DropInfo then
-        for item_name,chance in pairs(DropInfo) do
+    if GameRules.DropTable then
+        for item_name,chance in pairs(GameRules.DropTable) do
 			for i = 0, 8 do
 				local hItem = hHero:GetItemInSlot(i)
 				if hItem then
@@ -375,6 +377,29 @@ function AIGameMode:OnNPCSpawned(keys)
 		hHero:AddNewModifier(hHero, nil, "modifier_courier_speed", {})
 	end
 
+	local sName = hHero:GetName()
+	if sName == "npc_dota_creep_lane" or sName == "npc_dota_creep_siege" then
+		local sUnitName = hHero:GetUnitName()
+		print("creep spawned sUnitName "..sUnitName)
+		local creepBuff = hHero:FindAbilityByName("creep_buff")
+		if creepBuff and (creepBuff:GetLevel() == 0) then
+			creepBuff:SetLevel(self.creepBuffLevel)
+		end
+
+		local creepBuffMega = hHero:FindAbilityByName("creep_buff_mega")
+		if creepBuffMega and (creepBuffMega:GetLevel() == 0) then
+			creepBuffMega:SetLevel(self.creepBuffLevel)
+		end
+	end
+
+	if hHero:IsCreep() then
+		if sName == "npc_dota_roshan" then
+			-- TODO roshan
+			print("roshan spawned")
+			return
+		end
+	end
+
 	if hHero:GetName() == "npc_dota_lone_druid_bear" then
 		hHero:AddNewModifier(hHero, nil, "modifier_melee_resistance", {})
 	end
@@ -401,7 +426,7 @@ function AIGameMode:OnNPCSpawned(keys)
 			end
 		end
 
-		hHero.bInitialized = true;
+		hHero.bInitialized = true
 	end
 end
 
