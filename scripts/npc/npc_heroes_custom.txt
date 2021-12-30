@@ -236,7 +236,6 @@
 	}
 	"npc_dota_hero_bloodseeker"
 	{
-		"Ability6"		"sven_great_cleave"
 		"Bot"
 		{
 			"Build"
