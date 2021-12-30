@@ -500,7 +500,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1475"
+		"ItemCost"						"1275"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -546,7 +546,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"50"
+				"bonus_damage"			"40"
 			}
 			"02"
 			{
@@ -1190,7 +1190,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5500"
+		"ItemCost"						"4700"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1219,7 +1219,7 @@
 		"AbilityManaCost"				"200"
 		"AbilitySharedCooldown"			"undying"
 
-		"ItemCost"						"14600"
+		"ItemCost"						"13800"
 		"ItemShopTags"					"str;regen_health;health_pool"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"hot;heart of tarrasque"
@@ -1244,7 +1244,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"health_regen_pct"		"2.3"
+				"health_regen_pct"		"2.2"
 			}
 			"04"
 			{
@@ -1259,7 +1259,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dur"		            "3"
+				"dur"		            "5"
 			}
 			"07"
 			{
@@ -1269,17 +1269,17 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"active_hp_regen_pct"	"6"
+				"active_hp_regen_pct"	"5"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"buff_hp_regen"			"400"
+				"buff_hp_regen"			"200"
 			}
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"buff_hp_regen_pct"		"3"
+				"buff_hp_regen_pct"		"2"
 			}
 		}
 	}
@@ -2312,7 +2312,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3400"
+		"ItemCost"						"2050"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2340,8 +2340,8 @@
 		"ScriptFile"                    "items/item_magic_scepter.lua"
 		"AbilitySharedCooldown"			"magic_scepter"
 
-		"AbilityCooldown"				"65.0"
-		"AbilityManaCost"				"800"
+		"AbilityCooldown"				"60.0"
+		"AbilityManaCost"				"650"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2361,7 +2361,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_intelligence"		"60"
+				"bonus_intelligence"		"50"
 			}
 			"02"
 			{
@@ -2371,7 +2371,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost"				"45"
+				"active_boost"				"40"
 			}
 			"04"
 			{
@@ -2395,7 +2395,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3000"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2424,8 +2424,8 @@
 		"ScriptFile"                    "items/item_hallowed_scepter.lua"
 		"AbilitySharedCooldown"			"magic_scepter"
 
-		"AbilityCooldown"				"65.0"
-		"AbilityManaCost"				"1500"
+		"AbilityCooldown"				"60.0"
+		"AbilityManaCost"				"1300"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2445,7 +2445,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_intelligence"		"120"
+				"bonus_intelligence"		"100"
 			}
 			"02"
 			{
@@ -2455,7 +2455,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost"				"90"
+				"active_boost"				"80"
 			}
 			"04"
 			{
@@ -2993,7 +2993,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4850"	
+		"ItemCost"						"7050"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3002,7 +3002,7 @@
 		"ItemResult"					"item_infernal_desolator"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator;item_desolator;item_relic"
+			"01"						"item_desolator;item_relic"
 		}
 	}
 
@@ -3020,7 +3020,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"15600"
+		"ItemCost"						"14300"
 		"ItemShopTags"					"damage;unique"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"infernal Desolator"
@@ -3035,12 +3035,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"300"
+				"bonus_damage"			"260"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-22"
+				"corruption_armor"		"-20"
 			}
 			"03"
 			{
@@ -4000,7 +4000,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2200"
+		"ItemCost"						"1200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4080,7 +4080,7 @@
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_crit_multiplier"	"250"
+				"active_crit_multiplier"	"200"
 			}
 		}
 		"OnSpellStart"
@@ -4445,7 +4445,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"19000"
+		"ItemCost"						"22800"
 		"ItemShopTags"					"speed"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"DMC"
@@ -4485,7 +4485,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"380"
+				"crit_multiplier"			"360"
 			}
 			"07"
 			{

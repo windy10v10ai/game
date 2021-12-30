@@ -90,7 +90,7 @@
 		"DOTA_Tooltip_modifier_multi"							"/10 Gold XP Multiplier"
 
 		"DOTA_Tooltip_modifier_melee_resistance"					"Bulldozer"
-		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% stackable base status resist, 34%% base magical resistance."
+		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% extra status resistance, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magical resistance."
 
 		///////////////////////////////////////////////////
 		//

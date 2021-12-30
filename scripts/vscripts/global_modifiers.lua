@@ -58,7 +58,7 @@ function modifier_melee_resistance:GetTexture() return "bulldozer" end
 
 function modifier_melee_resistance:OnCreated()
 	self.iStatusResist = 20
-	self.iMagicalResist = 12
+	self.iMagicalResist = 10
 end
 
 function modifier_melee_resistance:DeclareFunctions()
@@ -74,65 +74,6 @@ end
 
 function modifier_melee_resistance:GetModifierMagicalResistanceBonus()
 	return self.iMagicalResist
-end
-
-modifier_bot_attack_tower_pick_rune = class({})
-
-function modifier_bot_attack_tower_pick_rune:IsPurgable() return false end
-function modifier_bot_attack_tower_pick_rune:IsHidden() return true end
-function modifier_bot_attack_tower_pick_rune:RemoveOnDeath() return false end
-
-function modifier_bot_attack_tower_pick_rune:OnCreated()
-	if IsClient() then return end
-	self:StartIntervalThink(2)
-end
-
--- bot strategy
--- 机器人策略
-function modifier_bot_attack_tower_pick_rune:OnIntervalThink()
-	if IsClient() then return end
-
-	local GameTime = GameRules:GetDOTATime(false, false)
-	if (GameTime >= (50 * 60)) then						-- LATEGAME
-		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
-		GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
-	elseif (GameTime >= (18 * 60)) then					-- LATEGAME
-		if AIGameMode.barrackKilledCount and AIGameMode.barrackKilledCount > 2 then
-			GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-			GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
-			if AIGameMode.barrackKilledCount > 5 then
-				GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
-			else
-				GameRules:GetGameModeEntity():SetBotsMaxPushTier(5)
-			end
-		end
-	elseif (GameTime >= (16 * 60)) then						-- MIDGAME
-		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
-		GameRules:GetGameModeEntity():SetBotsMaxPushTier(4)
-	elseif (GameTime >= (14 * 60)) then						-- MIDGAME
-		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(true)
-		GameRules:GetGameModeEntity():SetBotsMaxPushTier(3)
-	elseif (GameTime >= (10 * 60)) then						-- MIDGAME
-		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(true)
-		GameRules:GetGameModeEntity():SetBotsMaxPushTier(2)
-	else													-- EARLYGAME
-		GameRules:GetGameModeEntity():SetBotsInLateGame(false)
-		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(true)
-		GameRules:GetGameModeEntity():SetBotsMaxPushTier(1)
-	end
-
-	local hParent = self:GetParent()
-
-	BotThink:ThinkSell(hParent)
-	BotThink:ThinkPurchase(hParent)
-	BotThink:ThinkPurchaseNeutral(hParent, GameTime)
-
-	BotThink:ThinkConsumeItem(hParent)
-	BotThink:AddMoney(hParent)
 end
 
 --------------------------------------------------------------------------------
@@ -230,61 +171,6 @@ end
 -------------------------------------------------
 -- NPC Think
 -------------------------------------------------
-modifier_axe_thinker = class({})
-
-function modifier_axe_thinker:IsPurgable() return false end
-function modifier_axe_thinker:IsHidden() return true end
-function modifier_axe_thinker:RemoveOnDeath() return false end
-function modifier_axe_thinker:OnCreated()
-	if IsClient() then return end
-	self:StartIntervalThink(0.1)
-end
-
-local function ThinkForAxeAbilities(hAxe)
-	local hAbility1 = hAxe:GetAbilityByIndex(0)
-	local hAbility2 = hAxe:GetAbilityByIndex(1)
-	local hAbility6 = hAxe:GetAbilityByIndex(5)
-	if hAxe:IsSilenced() or hAxe:IsStunned() or hAbility1:IsInAbilityPhase() or hAbility2:IsInAbilityPhase() or hAbility6:IsInAbilityPhase() then return end
-	local iRange2 = hAbility2:GetCastRange()
-	local iThreshold = hAbility6:GetSpecialValueFor("kill_threshold")
-	if hAbility6:IsFullyCastable() then
-		local tAllHeroes = FindUnitsInRadius(hAxe:GetTeam(), hAxe:GetOrigin(), nil, hAbility6:GetCastRange()+150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-
-		for i, v in ipairs(tAllHeroes) do
-			if v:GetHealth() < iThreshold then
-				hAxe:CastAbilityOnTarget(v, hAbility6, hAxe:GetPlayerOwnerID())
-				hAxe.IsCasting = true
-				return
-			end
-		end
-	end
-	if hAbility1:IsFullyCastable() then
-		local tAllHeroes = FindUnitsInRadius(hAxe:GetTeam(), hAxe:GetOrigin(), nil, hAbility1:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-		local iCount = #tAllHeroes
-		for i = 1, iCount do
-			if tAllHeroes[iCount+1-i]:IsStunned() or tAllHeroes[iCount+1-i]:IsHexed() or tAllHeroes[iCount+1-i]:IsInvisible() then table.remove(tAllHeroes, iCount+1-i) end
-		end
-
-		if #tAllHeroes > 0 then
-			hAxe:CastAbilityNoTarget(hAbility1, hAxe:GetPlayerOwnerID())
-			return
-		end
-	end
-	if hAbility2:IsFullyCastable() then
-		local tAllHeroes = FindUnitsInRadius(hAxe:GetTeam(), hAxe:GetOrigin(), nil, hAbility2:GetCastRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-		for i, v in ipairs(tAllHeroes) do
-			hAxe:CastAbilityOnTarget(v, hAbility2, hAxe:GetPlayerOwnerID())
-			return
-		end
-	end
-end
-
-function modifier_axe_thinker:OnIntervalThink()
-	if IsClient() then return end
-	ThinkForAxeAbilities(self:GetParent())
-end
-
-
 modifier_sniper_assassinate_thinker = class({})
 
 function modifier_sniper_assassinate_thinker:IsHidden() return true end
