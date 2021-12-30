@@ -2993,7 +2993,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4850"	
+		"ItemCost"						"7050"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -3002,7 +3002,7 @@
 		"ItemResult"					"item_infernal_desolator"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator;item_desolator;item_relic"
+			"01"						"item_desolator;item_relic"
 		}
 	}
 
@@ -3020,7 +3020,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"15600"
+		"ItemCost"						"14300"
 		"ItemShopTags"					"damage;unique"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"infernal Desolator"
@@ -3035,12 +3035,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"300"
+				"bonus_damage"			"260"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-22"
+				"corruption_armor"		"-20"
 			}
 			"03"
 			{
@@ -4000,7 +4000,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2200"
+		"ItemCost"						"1200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4080,7 +4080,7 @@
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_crit_multiplier"	"250"
+				"active_crit_multiplier"	"200"
 			}
 		}
 		"OnSpellStart"
@@ -4445,7 +4445,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"19000"
+		"ItemCost"						"22800"
 		"ItemShopTags"					"speed"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"DMC"
@@ -4485,7 +4485,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"380"
+				"crit_multiplier"			"360"
 			}
 			"07"
 			{

@@ -554,8 +554,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"650"			// Range within a target can be acquired.
-		"AttackRange"				"650"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"600"			// Range within a target can be acquired.
+		"AttackRange"				"600"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -587,8 +587,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"650"			// Range within a target can be acquired.
-		"AttackRange"				"650"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"600"			// Range within a target can be acquired.
+		"AttackRange"				"600"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -620,8 +620,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"650"			// Range within a target can be acquired.
-		"AttackRange"				"650"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"600"			// Range within a target can be acquired.
+		"AttackRange"				"600"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -655,8 +655,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"650"			// Range within a target can be acquired.
-		"AttackRange"				"650"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"600"			// Range within a target can be acquired.
+		"AttackRange"				"600"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -688,8 +688,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"650"			// Range within a target can be acquired.
-		"AttackRange"				"650"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"600"			// Range within a target can be acquired.
+		"AttackRange"				"600"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -721,8 +721,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"650"			// Range within a target can be acquired.
-		"AttackRange"				"650"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"600"			// Range within a target can be acquired.
+		"AttackRange"				"600"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -886,17 +886,14 @@
 		// General
 		"ModelScale"				"1.2" // 1.12
 
-		// Abilitys
-		"Ability1"	"creep_buff"
-
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"5"			// 1
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"70"		// 41
-		"AttackDamageMax"			"90"		// 46
+		"AttackDamageMin"			"80"		// 41
+		"AttackDamageMax"			"100"		// 46
 		"AttackRate"				"0.9"		// 1
 
 		// Bounty
@@ -920,17 +917,14 @@
 		// General
 		"ModelScale"				"1.2" // 1.12
 
-		// Abilitys
-		"Ability1"	"creep_buff"
-
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"5"			// 1
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"70"		// 41
-		"AttackDamageMax"			"90"		// 46
+		"AttackDamageMin"			"80"		// 41
+		"AttackDamageMax"			"100"		// 46
 		"AttackRate"				"0.9"		// 1
 
 		// Bounty
@@ -954,17 +948,14 @@
 		// General
 		"ModelScale"				"1.2" // 1.12
 
-		// Abilitys
-		"Ability1"	"creep_buff"
-
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 3
+		"ArmorPhysical"				"10"		// 3
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"46"		// 36
-		"AttackDamageMax"			"54"		// 44
+		"AttackDamageMin"			"60"		// 36
+		"AttackDamageMax"			"80"		// 44
 		"AttackRate"				"0.9"		// 1
 
 		// Bounty
@@ -987,17 +978,14 @@
 		// General
 		"ModelScale"				"1.2" // 1.12
 
-		// Abilitys
-		"Ability1"	"creep_buff"
-
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 3
+		"ArmorPhysical"				"10"		// 3
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"46"		// 36
-		"AttackDamageMax"			"54"		// 44
+		"AttackDamageMin"			"60"		// 36
+		"AttackDamageMax"			"80"		// 44
 		"AttackRate"				"0.9"		// 1
 
 		// Bounty
@@ -1024,12 +1012,9 @@
 		// General
 		"ModelScale"				"0.85" // .65
 
-		// Abilitys
-		"Ability1"					"creep_buff"
-
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// 0
+		"ArmorPhysical"				"20"		// 0
 		"MagicalResistance"			"85"		// 80
 
 		// Attack
@@ -1049,7 +1034,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"		// 935
+		"StatusHealth"				"2000"		// 935
 		"StatusHealthRegen"			"5"			// 0
 	}
 	"npc_dota_badguys_siege_upgraded"
@@ -1057,12 +1042,9 @@
 		// General
 		"ModelScale"				"0.85" // .65
 
-		// Abilitys
-		"Ability1"					"creep_buff"
-
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// 0
+		"ArmorPhysical"				"20"		// 0
 		"MagicalResistance"			"85"		// 80
 
 		// Attack
@@ -1082,7 +1064,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"		// 935
+		"StatusHealth"				"2000"		// 935
 		"StatusHealthRegen"			"5"			// 0
 	}
 
@@ -1094,9 +1076,6 @@
 		// General
 		"ModelScale"				"1.5" // 1.12
 
-		// Abilitys
-		"Ability1"	"creep_buff_mega"
-
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"10"		// 1
@@ -1104,8 +1083,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"140"		// 41
-		"AttackDamageMax"			"180"		// 46
+		"AttackDamageMin"			"180"		// 41
+		"AttackDamageMax"			"200"		// 46
 		"AttackRate"				"0.8"		// 1
 
 		// Bounty
@@ -1128,9 +1107,6 @@
 		// General
 		"ModelScale"				"1.5" // 1.12
 
-		// Abilitys
-		"Ability1"	"creep_buff_mega"
-
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"10"		// 1
@@ -1138,8 +1114,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"140"		// 41
-		"AttackDamageMax"			"180"		// 46
+		"AttackDamageMin"			"180"		// 41
+		"AttackDamageMax"			"200"		// 46
 		"AttackRate"				"0.8"		// 1
 
 		// Bounty
@@ -1163,17 +1139,14 @@
 		// General
 		"ModelScale"				"1.5" // 1.12
 
-		// Abilitys
-		"Ability1"	"creep_buff_mega"
-
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// 1
+		"ArmorPhysical"				"20"		// 1
 		"MagicalResistance"			"50"		// 0
 
 		// Attack
-		"AttackDamageMin"			"90"		// 36
-		"AttackDamageMax"			"110"		// 44
+		"AttackDamageMin"			"140"		// 36
+		"AttackDamageMax"			"160"		// 44
 		"AttackRate"				"0.8"		// 1
 
 		// Bounty
@@ -1196,17 +1169,14 @@
 		// General
 		"ModelScale"				"1.5" // 1.12
 
-		// Abilitys
-		"Ability1"	"creep_buff_mega"
-
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// 1
+		"ArmorPhysical"				"20"		// 1
 		"MagicalResistance"			"50"		// 0
 
 		// Attack
-		"AttackDamageMin"			"90"		// 36
-		"AttackDamageMax"			"110"		// 44
+		"AttackDamageMin"			"140"		// 36
+		"AttackDamageMax"			"160"		// 44
 		"AttackRate"				"0.8"		// 1
 
 		// Bounty
@@ -1232,17 +1202,14 @@
 		// General
 		"ModelScale"				"1.1" // .65
 
-		// Abilitys
-		"Ability1"					"creep_buff_mega"
-
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"		// 0
+		"ArmorPhysical"				"40"		// 0
 		"MagicalResistance"			"90"		// 80
 
 		// Attack
-		"AttackDamageMin"			"150"		// 51
-		"AttackDamageMax"			"180"		// 62
+		"AttackDamageMin"			"200"		// 51
+		"AttackDamageMax"			"240"		// 62
 		"AttackRate"				"1.5"		// 3.0
 
 		// Bounty
@@ -1265,17 +1232,14 @@
 		// General
 		"ModelScale"				"1.1" // .65
 
-		// Abilitys
-		"Ability1"					"creep_buff_mega"
-
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"		// 0
+		"ArmorPhysical"				"40"		// 0
 		"MagicalResistance"			"90"		// 80
 
 		// Attack
-		"AttackDamageMin"			"150"		// 51
-		"AttackDamageMax"			"180"		// 62
+		"AttackDamageMin"			"200"		// 51
+		"AttackDamageMax"			"240"		// 62
 		"AttackRate"				"1.5"		// 3.0
 
 		// Bounty

@@ -73,15 +73,14 @@ end
 function AIGameMode:LinkLuaModifiers()
 	LinkLuaModifier("modifier_courier_speed", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_melee_resistance", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier("modifier_bot_attack_tower_pick_rune", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_tower_power", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_tower_endure", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_tower_heal", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_multi", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier("modifier_axe_thinker", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_sniper_assassinate_thinker", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_out_of_world", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 
+	LinkLuaModifier("modifier_bot_think_strategy", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_bot_think_item_use", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
@@ -176,22 +175,31 @@ function AIGameMode:PreGameOptions()
 
 	self.sumTowerPower = (AIGameMode.iRadiantTowerPower + AIGameMode.iDireTowerPower)
 	self.creepBuffLevel = 1
-	if self.sumTowerPower <= 6 then
+	if self.sumTowerPower <= 10 then
+		-- 150%
 		self.creepBuffLevel = 1
-	elseif self.sumTowerPower <= 10 then
-		self.creepBuffLevel = 2
 	elseif self.sumTowerPower <= 12 then
-		self.creepBuffLevel = 3
+		-- 175%
+		self.creepBuffLevel = 1
 	elseif self.sumTowerPower <= 14 then
-		self.creepBuffLevel = 4
+		-- 200%
+		self.creepBuffLevel = 2
 	elseif self.sumTowerPower <= 16 then
-		self.creepBuffLevel = 5
+		-- 250%
+		self.creepBuffLevel = 3
 	else
-		self.creepBuffLevel = 6
+		-- 300%
+		self.creepBuffLevel = 4
 	end
 
-	self.barrackKilledGood = 0
-	self.barrackKilledBad = 0
+	self.barrackPushedBad = 0
+	self.barrackPushedGood = 0
+
+	self.tower4PushedBad = 0
+	self.tower4PushedGood = 0
+
+	self.roshanNumber = 0
+
 	self.PreGameOptionsSet = true
 end
 

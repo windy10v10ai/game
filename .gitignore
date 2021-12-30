@@ -8,5 +8,3 @@ panorama/scripts/custom_game/*.vjs_c
 /panorama/images/items/*.vxml_c
 /.tool/reference
 panorama_debugger.cfg
-panorama/images/custom_game/gamemode_png.vtex_c
-panorama/images/custom_game/gamemode_png.vxml_c
