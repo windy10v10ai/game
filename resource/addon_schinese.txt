@@ -63,17 +63,13 @@
 		"respawn_time_percentage_75"         "快速"
 		"respawn_time_percentage_0"          "秒活 (可能卡顿)"
 
-		"max_level_100"                   "100"
-		"max_level_150"                   "150"
-		"max_level_500"                   "500    (不推荐)"
+		"radiant_tower_power_150"         "150%"
+		"radiant_tower_power_175"         "175%"
+		"radiant_tower_power_200"         "200%"
 
-		"radiant_tower_power_150"         "150% (推荐)"
-		"radiant_tower_power_175"         "175% (推荐)"
-		"radiant_tower_power_200"         "200% (推荐)"
-
-		"dire_tower_power_150"           "150% (推荐)"
-		"dire_tower_power_175"           "175% (推荐)"
-		"dire_tower_power_200"           "200% (推荐)"
+		"dire_tower_power_150"           "150%"
+		"dire_tower_power_175"           "175%"
+		"dire_tower_power_200"           "200%"
 
 		"starting_gold_player_2000"    "2000"
 		"starting_gold_player_5000"    "5000"

@@ -63,10 +63,6 @@
 		"respawn_time_percentage_75"         "Fast"
 		"respawn_time_percentage_0"          "Zero"
 
-		"max_level_100"                   "100"
-		"max_level_150"                   "150"
-		"max_level_500"                   "500"
-
 		"radiant_tower_power_150"         "150%"
 		"radiant_tower_power_175"         "175%"
 		"radiant_tower_power_200"         "200%"

@@ -398,11 +398,11 @@ function AIGameMode:OnNPCSpawned(keys)
 	local sName = hEntity:GetName()
 	if sName == "npc_dota_creep_lane" or sName == "npc_dota_creep_siege" then
 		local sUnitName = hEntity:GetUnitName()
-		if self.creepBuffLevel > 1 then
+		if self.creepBuffLevel > 0 then
 			if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
 				local ability = hEntity:AddAbility("creep_buff")
 				ability:SetLevel(self.creepBuffLevel)
-			elseif not string.find(sUnitName, "upgraded") and string.find(sUnitName, "mega") then
+			elseif string.find(sUnitName, "mega") then
 				local ability = hEntity:AddAbility("creep_buff_mega")
 				ability:SetLevel(self.creepBuffLevel)
 			end
