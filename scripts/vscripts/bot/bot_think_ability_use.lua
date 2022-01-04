@@ -110,12 +110,13 @@ end
 
 function BotAbilityThink:ThinkUseAbility_Zuus(hHero)
 	local hAbility4 = hHero:GetAbilityByIndex(3)
-	if hAbility4:IsInAbilityPhase() then return end
+	local hAbility6 = hHero:GetAbilityByIndex(5)
+	if hAbility4:IsInAbilityPhase() or hAbility6:IsInAbilityPhase() then return end
 
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
 		if hAbility4:IsFullyCastable() then
 			local iRange = 3000
-			-- TODO: Find flag DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE 
+			-- TODO: Find flag DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE
 			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_FARTHEST, false)
 			if #tAllHeroes > 0 then
 				hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility4, hHero:GetPlayerOwnerID())

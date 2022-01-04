@@ -231,9 +231,9 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_silver_edge_2',
 		'item_infernal_desolator',
+		'item_black_king_bar_2',
 		'item_wasp_callous',
 		'item_satanic',
-		'item_excalibur',
 		'item_wasp_despotic',
 	},
 	npc_dota_hero_earthshaker = {
@@ -550,7 +550,6 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_black_king_bar_2',
-		'item_monkey_king_bar_2',
 		'item_infernal_desolator',
 		'item_ultimate_scepter_2',
 		'item_abyssal_blade_v2',
@@ -1156,6 +1155,7 @@ tBotItemData.sellItemList = {
 		'item_power_treads',
 		'item_mask_of_madness',
 		'item_sange_and_yasha',
+		'item_maelstrom',
 	},
 	npc_dota_hero_sven = {
 		'item_magic_wand',

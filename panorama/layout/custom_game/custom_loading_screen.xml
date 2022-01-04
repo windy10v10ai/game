@@ -81,10 +81,9 @@
 							<Label text="30" id="30"/>
 							<Label text="50" id="50"/>
 							<Label text="75" id="75"/>
-							<Label text="#max_level_100" id="100"/>
-							<Label text="#max_level_150" id="150"/>
+							<Label text="100" id="100"/>
 							<Label text="200" id="200"/>
-							<Label text="#max_level_500" id="500"/>
+							<Label text="500" id="500"/>
 						</DropDown>
 					</Panel>
 					<Panel id="RadiantTowerPowerPanel"	class="GameOptionsSubPanel">
@@ -123,7 +122,6 @@
 							<Label text="5" id="5"/>
 							<Label text="10" id="10"/>
 							<Label text="20" id="20"/>
-							<Label text="40" id="40"/>
 						</DropDown>
 					</Panel>
 					<Panel id="DireTowerHealPanel"	class="GameOptionsSubPanel">
@@ -134,7 +132,6 @@
 							<Label text="5" id="5"/>
 							<Label text="10" id="10"/>
 							<Label text="20" id="20"/>
-							<Label text="40" id="40"/>
 						</DropDown>
 					</Panel>
 					<Panel id="StartingGoldPlayerPanel"	class="GameOptionsSubPanel">
