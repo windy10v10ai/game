@@ -4402,7 +4402,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3068"
+		"ID"							"3058"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_recipe_wasp_golden"
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -4636,6 +4636,272 @@
 						"Target"   		"CASTER"
 					}
 				}
+			}
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Echo Sabre 2        音速战刃
+	//=================================================================================================================
+	"item_recipe_echo_sabre_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3060"
+		"BaseClass"						"item_recipe_echo_sabre"
+		"AbilityTextureName" 			"item_recipe_echo_sabre_2"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_echo_sabre_2"
+		"ItemRequirements"
+		{
+			"01"						"item_echo_sabre;item_falcon_blade;item_falcon_blade"
+		}
+	}
+	
+	//=================================================================================================================
+	// Echo Sabre 2               音速战刃
+	//=================================================================================================================
+	"item_echo_sabre_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3061"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_echo_sabre"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"6.0"
+		"AbilitySharedCooldown"			"echo_sabre"
+		"AbilityTextureName"			"item_echo_sabre_2"
+		"AbilityManaCost"				"0"
+		"ItemCost"						"4750"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"25"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"			"20"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"			"20"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"4.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_slow"			"100"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed_slow"			"0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"1.2"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Shiva's Guard          雅典娜的守护
+	//=================================================================================================================
+	"item_recipe_shivas_guard_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3062"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"						"item_recipe_shivas_guard"
+		"AbilityTextureName" 			"item_recipe_shivas_guard_2"
+		"ItemCost"						"800"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_shivas_guard_2"
+		"ItemRequirements"
+		{
+			"01"						"item_shivas_guard;item_platemail;item_mystic_staff"
+		}
+	}
+	
+	//=================================================================================================================
+	// Shiva's Guard                 雅典娜的守护
+	//=================================================================================================================
+	"item_shivas_guard_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3063"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_shivas_guard"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityCooldown"				"27"
+		"AbilityCastRange"				"900"
+		"AbilityManaCost"				"200"
+		"ItemCost"						"9850"
+		"AbilitySharedCooldown"			"shivas_guard"
+		"AbilityTextureName"			"item_shivas_guard_2"	
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"60"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"1500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_attack_speed"		"-65"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blast_damage"			"400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blast_movement_speed"	"-60"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"blast_debuff_duration"	"6.0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blast_radius"			"1200"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blast_speed"			"500"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_regen_degen_aura"	"40"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Veil of Discord                赫拉的神秘面纱
+	//=================================================================================================================
+	"item_recipe_veil_of_discord_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3064"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"						"item_recipe_veil_of_discord"
+		"AbilityTextureName" 			"item_recipe_veil_of_discord_2"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1575"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_veil_of_discord_2"
+		"ItemRequirements"
+		{
+			"01"						"item_veil_of_discord;item_ultimate_orb;item_ultimate_orb"
+		}
+	}
+	
+	//=================================================================================================================
+	// Veil of discord                        赫拉的神秘面纱
+	//=================================================================================================================
+	"item_veil_of_discord_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3065"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityCooldown"				"22"
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"200"
+		"ItemCost"						"7200"
+		"ItemShopTags"					"int;armor;regen_health;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"vod;veil of discord"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		"AbilitySharedCooldown"			"veil_of_discord"
+		"BaseClass"						"item_veil_of_discord"
+		"AbilityTextureName"			"item_veil_of_discord_2"	
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"aura_mana_regen"		"3.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"1500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spell_amp"			"30"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"debuff_radius"			"800"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"resist_debuff_duration"	"20.0"
 			}
 		}
 	}
