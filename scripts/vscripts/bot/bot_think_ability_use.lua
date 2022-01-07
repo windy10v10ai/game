@@ -24,6 +24,8 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_PhantomAssassin(hHero)
 	elseif sHeroName == "npc_dota_hero_zuus" then
 		self:ThinkUseAbility_Zuus(hHero)
+	elseif sHeroName == "npc_dota_hero_viper" then
+		self:ThinkUseAbility_Viper(hHero)
 	end
 end
 
@@ -109,19 +111,34 @@ function BotAbilityThink:ThinkUseAbility_PhantomAssassin(hHero)
 end
 
 function BotAbilityThink:ThinkUseAbility_Zuus(hHero)
+	local hAbility2 = hHero:GetAbilityByIndex(1)
 	local hAbility4 = hHero:GetAbilityByIndex(3)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
-	if hAbility4:IsInAbilityPhase() or hAbility6:IsInAbilityPhase() then return end
+	if hAbility2:IsInAbilityPhase() or hAbility4:IsInAbilityPhase() or hAbility6:IsInAbilityPhase() then return end
 
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
 		if hAbility4:IsFullyCastable() then
 			local iRange = 3000
-			-- TODO: Find flag DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE
-			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_FARTHEST, false)
+			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_FARTHEST, false)
 			if #tAllHeroes > 0 then
 				hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility4, hHero:GetPlayerOwnerID())
 				return true
 			end
 		end
+	end
+end
+
+function BotAbilityThink:ThinkUseAbility_Viper(hHero)
+	local hAbility2 = hHero:GetAbilityByIndex(1)
+	local hAbility6 = hHero:GetAbilityByIndex(5)
+	if hAbility2:IsInAbilityPhase() or hAbility6:IsInAbilityPhase() then return end
+
+	if hAbility2:IsFullyCastable() then
+        local iRange = hAbility2:GetCastRange()
+        local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+        if #tAllHeroes > 0 then
+			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility2, hHero:GetPlayerOwnerID())
+            return true
+        end
 	end
 end
