@@ -355,6 +355,7 @@
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range"			"黄金魔龙枪 Ultimate射程"
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range_Description"	"可以无视射程限制攻击目标。"
 
+		//  skadi_2
 		"DOTA_Tooltip_Ability_item_skadi_2"				"粘妈之眼"
 		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>被动：霜冻攻击</h1>攻击附带霜冻效果，可以降低敌人的移动速度和攻击速度，并且他们的治疗、生命恢复、吸血和技能吸血效果降低%heal_reduction%%%，持续%cold_duration%秒。对敌方远程目标将减缓%cold_slow_ranged%%%移动速度，降低%cold_slow_ranged%攻击速度。对敌方近战目标将减缓%cold_slow_melee%%%移动速度，降低%cold_slow_melee%攻击速度。"
 		"DOTA_Tooltip_ability_item_skadi_2_Lore"									"极度罕见的古物，可以粘住网络喷子的妈妈。"
@@ -365,6 +366,39 @@
 		"DOTA_Tooltip_ability_bloodseeker_rupture_scepter_description"				"<font color='#e03e2e'>【注意】</font>千万不要给血魔购买神杖！神杖血魔会导致游戏卡顿崩溃！"
 		"DOTA_Tooltip_ability_bloodseeker_rupture_max_charges_scepter"					        ""
 		"DOTA_Tooltip_ability_bloodseeker_rupture_charge_restore_time_scepter"					""
+
+		//  echo_sabre_2
+		"DOTA_Tooltip_Ability_item_echo_sabre_2"				"音速战刃"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_Description"			        "<h1>被动：音速连击</h1>近战攻击可以快速攻击两次。两次攻击都将减缓%movement_slow%%%移动速度，每次持续%slow_duration%秒。"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_Lore"			                "只要我出手够快，你就捕捉不到我的动作。"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_strength"                "+$str"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_intellect"                 "+$int"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_attack_speed"                  "+$attack"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_damage"                  "+$damage"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_mana_regen"              "+$mana_regen"
+
+		//  shivas_guard_2
+		"DOTA_Tooltip_Ability_item_shivas_guard_2"				"雅典娜的守护"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。<br><br>作用范围：%blast_radius%\n<h1>被动：霜冷光环</h1>降低敌人%aura_attack_speed%攻击速度，和%hp_regen_degen_aura%%%所有治疗、恢复和吸血效果。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Lore"							"据说曾经属于某位女神希瓦，但是被宙斯送给雅典娜当玩具的后保留至今。"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Note0"							"极寒冲击的扩张速度为%blast_speed%，最大半径为%blast_radius%。"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Note1"							"极寒冲击将以施放者为中心。"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Note2" 							"多个霜冷光环效果不会叠加。"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_armor"					"+$armor"
+
+		//  veil_of_discord_2
+		"DOTA_Tooltip_Ability_item_veil_of_discord_2"				"赫拉的神秘面纱"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>主动：魔法虚弱</h1>发出一波弱化冲击，使%debuff_radius%范围内敌方英雄受到的技能伤害增加%spell_amp%%%。<br><br>施法距离：%abilitycastrange%<br>持续时间：%resist_debuff_duration%秒。\n\n <h1>被动：王者光环</h1>向友军提供%aura_mana_regen%点/秒魔法恢复。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"据说曾经属于古希腊传说中女神赫拉的面纱，主神宙斯看到它总会感到血脉喷张。"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_all_stats"			"+$all"
+
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana"				"赫拉的神秘面纱"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana_Description"	"向友军提供魔法恢复。"
+		
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"				"魔法虚弱"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"受到的魔法伤害增加%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
+
 
 		// Tomes
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"力量之书"
