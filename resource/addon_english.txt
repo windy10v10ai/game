@@ -366,6 +366,38 @@
 		"DOTA_Tooltip_ability_bloodseeker_rupture_max_charges_scepter"					        ""
 		"DOTA_Tooltip_ability_bloodseeker_rupture_charge_restore_time_scepter"					""
 
+		//  echo_sabre_2
+		"DOTA_Tooltip_Ability_item_echo_sabre_2"				"Echo Sabre 2"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_Description"			        "<h1>Passive: Echo Strike</h1> Causes melee attacks to attack twice in quick succession. The double attacks apply a %movement_slow%%% movement slow for %slow_duration% seconds on each strike."
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_Lore"			                "A deceptively swift blade imbued with resonant magic."
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_strength"                "+$str"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_intellect"                 "+$int"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_attack_speed"                  "+$attack"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_damage"                  "+$damage"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_mana_regen"              "+$mana_regen"
+
+		//  shivas_guard_2
+		"DOTA_Tooltip_Ability_item_shivas_guard_2"				"Athena's Guard"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>Active: Arctic Blast</h1> Emits a freezing wave that deals %blast_damage% magical damage to enemies and slows their movement by %blast_movement_speed%%% for %blast_debuff_duration% seconds.<br><br>Radius: %blast_radius%\n<h1>Passive: Freezing Aura</h1> Reduces the attack speed of all enemies by %aura_attack_speed% and all heals, regeneration and lifesteal by %hp_regen_degen_aura%%%. <br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Lore"							"Said to have belonged to a goddess, today it retains much of its former power."
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Note0"							"The wave extends at a speed of %blast_speed% to a max size of %blast_radius%."
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Note1"							"The Arctic Blast follows its caster."
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Note2" 							"Multiple instances of Freezing Aura do not stack."
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_armor"					"+$armor"
+
+		//  veil_of_discord_2
+		"DOTA_Tooltip_Ability_item_veil_of_discord_2"				"Veil of Discord 2"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>Active: Magic Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes to take %spell_amp%%% increased damage from spells.<br><br>Range: %abilitycastrange%<br>Duration: %resist_debuff_duration% seconds. \n\n<h1>Passive: Basilius Aura</h1>Grants %aura_mana_regen% mana regeneration to allies.  <br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"The headwear of corrupt magi."
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_all_stats"			"+$all"
+
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana"				"Veil of Discord"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana_Description"	"Granting mana regeneration to allies."
+		
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"				"Magic Weakness"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"Magic damage increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+
 		// Tomes
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"Tome of Strength"
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>Use: Bulk</h1> Permanently increases your strength by %bonus%.\n Shareable with teammate."

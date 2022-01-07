@@ -108,7 +108,7 @@
 		"item"		"item_travel_boots"
 		//"item"		"item_moon_shard"
 		"item"		"item_armlet"
-		"item"		"item_echo_sabre"
+		"item"		"item_echo_sabre_2"
 		"item"		"item_moon_shard_datadriven"
 	}
 
@@ -137,7 +137,7 @@
 
 	"magics"
 	{
-		"item"		"item_veil_of_discord"
+		"item"		"item_veil_of_discord_2"
 		"item"		"item_glimmer_cape"
 		"item"		"item_force_staff_3"
 		"item"		"item_aether_lens_3"
@@ -170,7 +170,7 @@
 		"item"		"item_black_king_bar_2"
 		// "item"		"item_hurricane_pike"
 		"item"		"item_manta_1"
-		"item"		"item_shivas_guard"
+		"item"		"item_shivas_guard_2"
 		"item"		"item_solar_crest"
 		"item"		"item_sphere_2"
 		"item"		"item_undying_heart"
