@@ -2164,8 +2164,8 @@
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
 		"ScriptFile"                    "items/item_dragon_lance_plus.lua"
 
-		"AbilityCooldown"				"30.0"
-		"AbilityManaCost"				"150"
+		"AbilityCooldown"				"20.0"
+		"AbilityManaCost"				"100"
 		"AbilitySharedCooldown"			"dragonlance"
 
 		// Item Info
@@ -2251,8 +2251,8 @@
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
 		"ScriptFile"                    "items/item_dragon_lance_pro_max.lua"
 
-		"AbilityCooldown"				"30.0"
-		"AbilityManaCost"			    "250"
+		"AbilityCooldown"				"20.0"
+		"AbilityManaCost"			    "200"
 		"AbilitySharedCooldown"			"dragonlance"
 
 		// Item Info
@@ -3789,7 +3789,7 @@
 		"AbilityCooldown"				"20.0"
 		"AbilitySharedCooldown"			"force"
 
-		"AbilityManaCost"				"200"
+		"AbilityManaCost"				"250"
 		"ItemCost"						"4450"
 		"ItemShopTags"					"int;damage;attack_speed;hard_to_tag"
 		"ItemQuality"					"epic"
@@ -4025,7 +4025,7 @@
 		"AbilityTextureName" 			"item_wasp_despotic"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"AbilitySharedCooldown"         "moon"
+		"AbilitySharedCooldown"         "wasp"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4238,8 +4238,7 @@
 		"AbilityTextureName" 			"item_wasp_callous"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		//"ScriptFile"                    "items/item_dragon_lance_plus.lua"
-		"AbilitySharedCooldown"         "moon"
+		"AbilitySharedCooldown"         "wasp"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4434,7 +4433,7 @@
 		"AbilityTextureName" 			"item_wasp_golden"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"AbilitySharedCooldown"         "moon"
+		"AbilitySharedCooldown"         "wasp"
 
 				// Stats
 		//-------------------------------------------------------------------------------------------------------------
