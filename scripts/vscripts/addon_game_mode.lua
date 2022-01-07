@@ -174,10 +174,10 @@ function AIGameMode:PreGameOptions()
 
 
 	self.sumTowerPower = (AIGameMode.iRadiantTowerPower + AIGameMode.iDireTowerPower)
-	self.creepBuffLevel = 1
+	self.creepBuffLevel = 0
 	if self.sumTowerPower <= 10 then
 		-- 150%
-		self.creepBuffLevel = 1
+		self.creepBuffLevel = 0
 	elseif self.sumTowerPower <= 12 then
 		-- 175%
 		self.creepBuffLevel = 1

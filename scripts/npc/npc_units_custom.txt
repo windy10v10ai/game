@@ -232,8 +232,8 @@
 		"AttackDamageMax"		"212" // 162
 		"AttackRate"				"0.8" // 0.95
 		"ArmorPhysical"			"30" // 19
-		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
-		"AttackRange"				"900"		// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"800"		// 700
+		"AttackRange"				"800"		// 700
 
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
@@ -249,8 +249,8 @@
 		"AttackDamageMax"		"212" // 162
 		"AttackRate"				"0.8" // 0.95
 		"ArmorPhysical"			"30" // 19
-		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
-		"AttackRange"				"900"		// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"800"		// 700
+		"AttackRange"				"800"		// 700
 
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
@@ -266,8 +266,8 @@
 		"AttackDamageMax"		"212" // 162
 		"AttackRate"				"0.8" // 0.95
 		"ArmorPhysical"			"30" // 19
-		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
-		"AttackRange"				"900"		// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"800"		// 700
+		"AttackRange"				"800"		// 700
 
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
@@ -283,8 +283,8 @@
 		"AttackDamageMax"		"212" // 162
 		"AttackRate"				"0.8" // 0.95
 		"ArmorPhysical"			"30" // 19
-		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
-		"AttackRange"				"900"		// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"800"		// 700
+		"AttackRange"				"800"		// 700
 
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
@@ -300,8 +300,8 @@
 		"AttackDamageMax"		"212" // 162
 		"AttackRate"				"0.8" // 0.95
 		"ArmorPhysical"			"30" // 19
-		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
-		"AttackRange"				"900"		// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"800"		// 700
+		"AttackRange"				"800"		// 700
 
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
@@ -317,8 +317,8 @@
 		"AttackDamageMax"		"212" // 162
 		"AttackRate"				"0.8" // 0.95
 		"ArmorPhysical"			"30" // 19
-		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
-		"AttackRange"				"900"		// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"800"		// 700
+		"AttackRange"				"800"		// 700
 
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
