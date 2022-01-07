@@ -4670,7 +4670,7 @@
 		"BaseClass"						"item_echo_sabre"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"6.0"
+		"AbilityCooldown"				"2.0"
 		"AbilitySharedCooldown"			"echo_sabre"
 		"AbilityTextureName"			"item_echo_sabre_2"
 		"AbilityManaCost"				"0"
@@ -4783,7 +4783,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-65"
+				"aura_attack_speed"		"-90"
 			}
 			"05"
 			{
