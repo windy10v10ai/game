@@ -600,6 +600,15 @@
 				"28"		"special_bonus_attack_speed_20"
 				"29"		"special_bonus_armor_8"
 				"30"		"special_bonus_unique_juggernaut_2"
+				"31"		"juggernaut_omni_slash"
+				"32"		"juggernaut_omni_slash"
+				"33"		"juggernaut_healing_ward"
+				"34"		"juggernaut_blade_dance"
+				"35"		"juggernaut_blade_dance"
+				"36"		"juggernaut_blade_dance"
+				"37"		"juggernaut_blade_fury"
+				"38"		"juggernaut_blade_fury"
+				"39"		"juggernaut_blade_fury"
 			}
 		}
 	}
