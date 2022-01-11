@@ -7607,19 +7607,19 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"40 50 60 70 80"
+				"bonus_damage"				"60 70 80 90 100"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_speed"				"60"
+				"bonus_attack_speed"				"60 70 80 90 100"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"3.0 3.5 4.0 4.5 5.0"
+				"duration"					"3.0 3.25 3.5 3.75 4.0"
 				"LinkedSpecialBonus"		"special_bonus_unique_juggernaut_2"
 			}
 		}
