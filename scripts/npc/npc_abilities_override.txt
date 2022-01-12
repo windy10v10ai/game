@@ -7625,7 +7625,7 @@
 	"slardar_slithereen_crush"
 	{
 		"MaxLevel"						"7"
-		"AbilityManaCost"				"90 100 110 120 130 140 450"
+		"AbilityManaCost"				"90 100 110 120 130 140 150"
 		"AbilitySpecial"
 		{
 			"02"
