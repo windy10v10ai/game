@@ -2161,40 +2161,102 @@
 		"AbilityCooldown"				"100 95 90"
 		"AbilityManaCost"				"150 250 350"
 	}
-	
+	//=================================================================================================================
+	// Sniper                                火枪
+	//=================================================================================================================
+	"sniper_shrapnel"
+	{
+		"MaxLevel"						"7"		
+		"AbilityCharges"				"5"
+		"AbilityChargeRestoreTime"		"35"
+		"AbilityManaCost"				"50"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_movement_speed"	"-12 -18 -24 -30 -35 -40 -45"
+				"LinkedSpecialBonus"	"special_bonus_unique_sniper_5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shrapnel_damage"		"25 40 55 70 85 100 115"
+				"LinkedSpecialBonus"	"special_bonus_unique_sniper_1"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"AbilityCharges"		""
+				"LinkedSpecialBonus"	"special_bonus_unique_sniper_2"
+			}
+		}
+	}
+	"special_bonus_unique_sniper_2"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"5"
+				"ad_linked_ability"			"sniper_shrapnel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
 	"sniper_headshot"
 	{
-		"AbilityDamage"					"20 50 80 110"
+		"MaxLevel"						"7"
+		"AbilityDamage"					"20 50 80 100 120 140 160"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"slow_duration"					"0.2"
+				"slow_duration"					"0.5"
 			}
 		}
 	}
 	"sniper_take_aim"
 	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"20 18 16 14 12"
+		"AbilityManaCost"				"25"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_attack_range"			"50 100 150 200"
+				"bonus_attack_range"			"100 150 200 250 300"
 				"LinkedSpecialBonus"			"special_bonus_unique_sniper_6"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"slow"			"45 40 35 30 25"
 			}
 		}
 	}
 	"sniper_assassinate"
 	{
-		"MaxLevel" "5"
+		"MaxLevel"						"5"
 		"AbilityCooldown"				"30 25 20 15 10"
-		"AbilityDamage"					"320 485 650 820 1000"
+		"AbilityDamage"					"350 500 650 800 950"
 		"AbilityManaCost"				"175 225 275 325 375"
-
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"projectile_speed"			"2500 2500 2500"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"abilitycastpoint"				""
+				"LinkedSpecialBonus"	"special_bonus_unique_sniper_4"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
@@ -2202,7 +2264,7 @@
 				"RequiresScepter"		"1"
 			}
 		}
-	}
+	}	
 	"venomancer_poison_nova"
 	{
 		"AbilityCooldown"				"100 90 80"
@@ -7635,6 +7697,95 @@
 				"var_type"			"FIELD_FLOAT"
 				"duration"		"1.0"
 				"RequiresScepter"				"1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Enchantress                         魅惑魔女/小鹿
+	//=================================================================================================================
+	"enchantress_untouchable"
+	{
+		"MaxLevel"						"5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_attack_speed"		"-120 -160 -200 -240 -280"
+				"LinkedSpecialBonus"	"special_bonus_unique_enchantress_3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_duration"			"4"
+			}
+		}
+	}
+	"enchantress_enchant"
+	{
+		"MaxLevel"						"5"
+		"AbilityCastRange"				"500 550 600 650 700"
+		"AbilityCooldown"				"28 24 20 16 12"
+		"AbilityDuration"				"4 4.5 5 5.5 6"
+		"AbilityManaCost"				"40 50 60 70 80"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"dominate_duration"		"60 90 120 150 180"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"enchant_health"	"300 400 500 600 700"
+			}	
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"enchant_armor"			"4 6 8 10 12"
+			}	
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"enchant_damage"	"30 50 70 90 110"
+			}			
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_movement_speed"	"-55"
+			}	
+		}
+	}
+	"enchantress_natures_attendants"
+	{
+		"MaxLevel"						"7"
+		"AbilityManaCost"				"170 160 150 140 130 120 110"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"heal"					"5 10 15 20 25 30 35"
+				"LinkedSpecialBonus"	"special_bonus_unique_enchantress_5"
+			}
+		}
+	}
+	"enchantress_impetus"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"distance_damage_pct"	"8 12 16 20 24 28 32"
+				"LinkedSpecialBonus"	"special_bonus_unique_enchantress_4"			
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"distance_cap"			"1750"
 			}
 		}
 	}	
