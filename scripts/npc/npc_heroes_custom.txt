@@ -1226,6 +1226,7 @@
 	"npc_dota_hero_sniper"
 	{
 		"Ability5"		"sniper_assassinate_upgrade"
+		"Ability16"		"special_bonus_attack_range_50"
 		"Bot"
 		{
 			"Build"
@@ -1234,9 +1235,16 @@
 				"27"		"special_bonus_unique_sniper_4"
 				"28"		"special_bonus_attack_speed_30"
 				"29"		"special_bonus_unique_sniper_1"
-				"30"		"special_bonus_attack_range_100"
+				"30"		"special_bonus_attack_range_50"
 				"31"		"sniper_assassinate"
 				"32"		"sniper_assassinate"
+				"33"		"sniper_take_aim"
+				"34"		"sniper_headshot"
+				"35"		"sniper_headshot"
+				"36"		"sniper_headshot"
+				"37"		"sniper_shrapnel"
+				"38"		"sniper_shrapnel"
+				"39"		"sniper_shrapnel"
 			}
 		}
 	}
