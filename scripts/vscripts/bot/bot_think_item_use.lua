@@ -129,6 +129,10 @@ function UseActiveItem(hHero)
     if UseItem(hHero, "item_hallowed_scepter") then
         return true
     end
+    -- item_shivas_guard_2 雅典娜的守护
+    if UseItem(hHero, "item_shivas_guard_2") then
+        return true
+    end
 
     -- item_wasp_despotic
     if UseItem(hHero, "item_wasp_despotic") then

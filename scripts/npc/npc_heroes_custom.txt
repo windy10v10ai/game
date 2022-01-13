@@ -1546,7 +1546,6 @@
 				"36"		"zuus_arc_lightning"
 				"37"		"zuus_arc_lightning"
 				"38"		"zuus_arc_lightning"
-				"39"		"zuus_static_field"
 			}
 		}
 	}

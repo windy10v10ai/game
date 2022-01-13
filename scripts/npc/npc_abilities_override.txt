@@ -327,12 +327,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"			"40"
+				"bonus_strength"			"35"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"			"5"
+				"duration"			"4.0"
 			}
 		}
 	}
@@ -3209,13 +3209,12 @@
 	}
 	"zuus_static_field"
 	{
-		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_health_pct"			"4 5 6 7 8"
+				"damage_health_pct"			"4 5 6 7"
 				"LinkedSpecialBonus"		"special_bonus_unique_zeus"
 				"CalculateSpellDamageTooltip"	"0"
 			}
