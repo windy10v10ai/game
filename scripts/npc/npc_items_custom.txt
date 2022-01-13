@@ -1892,7 +1892,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
+		"ItemCost"						"3425"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1901,7 +1901,7 @@
 		"ItemResult"					"item_arcane_octarine_core"
 		"ItemRequirements"
 		{
-			"01"						"item_octarine_core;item_veil_of_discord"
+			"01"						"item_octarine_core"
 		}
 	}
 
@@ -1939,7 +1939,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range_bonus"			"350"
+				"cast_range_bonus"			"300"
 			}
 			"03"
 			{

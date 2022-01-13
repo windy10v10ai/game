@@ -591,6 +591,7 @@
 	}
 	"npc_dota_hero_juggernaut"
 	{
+		"DisableWearables" 			"1"
 		"Bot"
 		{
 			"Build"
@@ -600,6 +601,15 @@
 				"28"		"special_bonus_attack_speed_20"
 				"29"		"special_bonus_armor_8"
 				"30"		"special_bonus_unique_juggernaut_2"
+				"31"		"juggernaut_omni_slash"
+				"32"		"juggernaut_omni_slash"
+				"33"		"juggernaut_healing_ward"
+				"34"		"juggernaut_blade_dance"
+				"35"		"juggernaut_blade_dance"
+				"36"		"juggernaut_blade_dance"
+				"37"		"juggernaut_blade_fury"
+				"38"		"juggernaut_blade_fury"
+				"39"		"juggernaut_blade_fury"
 			}
 		}
 	}
@@ -1227,6 +1237,13 @@
 				"30"		"special_bonus_attack_range_100"
 				"31"		"sniper_assassinate"
 				"32"		"sniper_assassinate"
+				"33"		"sniper_take_aim"
+				"34"		"sniper_headshot"
+				"35"		"sniper_headshot"
+				"36"		"sniper_headshot"
+				"37"		"sniper_shrapnel"
+				"38"		"sniper_shrapnel"
+				"39"		"sniper_shrapnel"
 			}
 		}
 	}
@@ -1529,7 +1546,6 @@
 				"36"		"zuus_arc_lightning"
 				"37"		"zuus_arc_lightning"
 				"38"		"zuus_arc_lightning"
-				"39"		"zuus_static_field"
 			}
 		}
 	}
