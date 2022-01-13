@@ -50,7 +50,7 @@ function modifier_bot_think_strategy:OnIntervalThink()
 	if IsClient() then return end
 
 	local GameTime = GameRules:GetDOTATime(false, false)
-	if (GameTime >= (50 * 60)) then						-- LATEGAME
+	if (GameTime >= (40 * 60)) then						-- LATEGAME
 		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
 		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
 		GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
