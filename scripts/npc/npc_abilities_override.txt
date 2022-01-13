@@ -7631,19 +7631,19 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"crush_extra_slow"				"-20 -25 -30 -35 -45 -50 -55"
+				"crush_extra_slow"				"-20 -25 -30 -35 -40 -45 -50"
 				"LinkedSpecialBonus"	"special_bonus_unique_slardar_8"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
 			}
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"crush_attack_slow_tooltip"		"-20 -25 -30 -35 -45 -50 -55"
+				"crush_attack_slow_tooltip"		"-20 -25 -30 -35 -40 -45 -50"
 			}
 			"04"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"crush_extra_slow_duration"		"3 4 5 6 7 7.5 8"
+				"crush_extra_slow_duration"		"2 3 4 5 6 7 8"
 			}
 			"08"
 			{
