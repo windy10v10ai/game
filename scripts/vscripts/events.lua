@@ -415,7 +415,7 @@ function AIGameMode:OnNPCSpawned(keys)
 		end
 
 		if buffLevel > 0 then
-			buffLevel = max.min(buffLevel, 5)
+			buffLevel = math.min(buffLevel, 5)
 			if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
 				local ability = hEntity:AddAbility("creep_buff")
 				ability:SetLevel(buffLevel)
@@ -433,7 +433,7 @@ function AIGameMode:OnNPCSpawned(keys)
 			buffLevel = AIGameMode.tower4PushedBad + AIGameMode.tower3PushedBad
 		end
 		if buffLevel > 0 and not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
-			buffLevel = max.min(buffLevel, 5)
+			buffLevel = math.min(buffLevel, 5)
 			local ability = hEntity:AddAbility("creep_buff")
 			ability:SetLevel(buffLevel)
 			return
