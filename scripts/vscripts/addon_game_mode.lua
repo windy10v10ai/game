@@ -195,6 +195,8 @@ function AIGameMode:PreGameOptions()
 	self.barrackPushedBad = 0
 	self.barrackPushedGood = 0
 
+	self.tower3PushedBad = 0
+	self.tower3PushedGood = 0
 	self.tower4PushedBad = 0
 	self.tower4PushedGood = 0
 
