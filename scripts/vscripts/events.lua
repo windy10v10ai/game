@@ -207,7 +207,7 @@ function AIGameMode:OnGameStateChanged(keys)
 				if string.find(towerName, "tower2") then
 					towerSplitShot:SetLevel(1)
 				elseif string.find(towerName, "tower3") then
-					towerSplitShot:SetLevel(2)
+					towerSplitShot:SetLevel(1)
 				elseif string.find(towerName, "tower4") then
 					towerSplitShot:SetLevel(1)
 				end
@@ -256,7 +256,7 @@ function AIGameMode:OnGameStateChanged(keys)
 			-- set fort split
 			local towerSplitShot = v:FindAbilityByName("tower_split_shot")
 			if towerSplitShot then
-				towerSplitShot:SetLevel(4)
+				towerSplitShot:SetLevel(3)
 				towerSplitShot:ToggleAbility()
 			end
 		end
@@ -306,7 +306,15 @@ end
 function RecordTowerKilled(hEntity)
 	local team = hEntity:GetTeamNumber()
 	local sName = hEntity:GetUnitName()
-	if string.find(sName, "tower4") then
+	if string.find(sName, "tower3") then
+		if DOTA_TEAM_GOODGUYS == team then
+			AIGameMode.tower3PushedBad = AIGameMode.tower3PushedBad + 1
+			print("tower3PushedBad ", AIGameMode.tower3PushedBad)
+		elseif DOTA_TEAM_BADGUYS == team then
+			AIGameMode.tower3PushedGood = AIGameMode.tower3PushedGood + 1
+			print("tower3PushedGood ", AIGameMode.tower3PushedGood)
+		end
+	elseif string.find(sName, "tower4") then
 		if DOTA_TEAM_GOODGUYS == team then
 			AIGameMode.tower4PushedBad = AIGameMode.tower4PushedBad + 1
 			print("tower4PushedBad ", AIGameMode.tower4PushedBad)
@@ -398,27 +406,36 @@ function AIGameMode:OnNPCSpawned(keys)
 	local sName = hEntity:GetName()
 	if sName == "npc_dota_creep_lane" or sName == "npc_dota_creep_siege" then
 		local sUnitName = hEntity:GetUnitName()
-		if self.creepBuffLevel > 0 then
+		local team = hEntity:GetTeamNumber()
+		local buffLevel = self.creepBuffLevel
+		if DOTA_TEAM_GOODGUYS == team then
+			buffLevel = buffLevel + AIGameMode.tower4PushedGood
+		elseif DOTA_TEAM_BADGUYS == team then
+			buffLevel = buffLevel + AIGameMode.tower4PushedBad
+		end
+
+		if buffLevel > 0 then
+			buffLevel = max.min(buffLevel, 5)
 			if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
 				local ability = hEntity:AddAbility("creep_buff")
-				ability:SetLevel(self.creepBuffLevel)
+				ability:SetLevel(buffLevel)
 			elseif string.find(sUnitName, "mega") then
 				local ability = hEntity:AddAbility("creep_buff_mega")
-				ability:SetLevel(self.creepBuffLevel)
+				ability:SetLevel(buffLevel)
 			end
 		end
 
 		-- normal line creep
-		local team = hEntity:GetTeamNumber()
-		local tower4PushedNumber = 0
+		buffLevel = 0
 		if DOTA_TEAM_GOODGUYS == team then
-			tower4PushedNumber = AIGameMode.tower4PushedGood
+			buffLevel = AIGameMode.tower4PushedGood + AIGameMode.tower3PushedGood
 		elseif DOTA_TEAM_BADGUYS == team then
-			tower4PushedNumber = AIGameMode.tower4PushedBad
+			buffLevel = AIGameMode.tower4PushedBad + AIGameMode.tower3PushedBad
 		end
-		if tower4PushedNumber > 0 and not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
+		if buffLevel > 0 and not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
+			buffLevel = max.min(buffLevel, 5)
 			local ability = hEntity:AddAbility("creep_buff")
-			ability:SetLevel(tower4PushedNumber)
+			ability:SetLevel(buffLevel)
 			return
 		end
 	end

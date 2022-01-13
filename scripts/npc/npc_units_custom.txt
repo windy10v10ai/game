@@ -232,8 +232,8 @@
 		"AttackDamageMax"		"212" // 162
 		"AttackRate"				"0.8" // 0.95
 		"ArmorPhysical"			"30" // 19
-		"AttackAcquisitionRange"	"800"		// 700
-		"AttackRange"				"800"		// 700
+		"AttackAcquisitionRange"	"700"		// 700
+		"AttackRange"				"700"		// 700
 
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
@@ -249,8 +249,8 @@
 		"AttackDamageMax"		"212" // 162
 		"AttackRate"				"0.8" // 0.95
 		"ArmorPhysical"			"30" // 19
-		"AttackAcquisitionRange"	"800"		// 700
-		"AttackRange"				"800"		// 700
+		"AttackAcquisitionRange"	"700"		// 700
+		"AttackRange"				"700"		// 700
 
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
@@ -266,8 +266,8 @@
 		"AttackDamageMax"		"212" // 162
 		"AttackRate"				"0.8" // 0.95
 		"ArmorPhysical"			"30" // 19
-		"AttackAcquisitionRange"	"800"		// 700
-		"AttackRange"				"800"		// 700
+		"AttackAcquisitionRange"	"700"		// 700
+		"AttackRange"				"700"		// 700
 
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
@@ -283,8 +283,8 @@
 		"AttackDamageMax"		"212" // 162
 		"AttackRate"				"0.8" // 0.95
 		"ArmorPhysical"			"30" // 19
-		"AttackAcquisitionRange"	"800"		// 700
-		"AttackRange"				"800"		// 700
+		"AttackAcquisitionRange"	"700"		// 700
+		"AttackRange"				"700"		// 700
 
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
@@ -300,8 +300,8 @@
 		"AttackDamageMax"		"212" // 162
 		"AttackRate"				"0.8" // 0.95
 		"ArmorPhysical"			"30" // 19
-		"AttackAcquisitionRange"	"800"		// 700
-		"AttackRange"				"800"		// 700
+		"AttackAcquisitionRange"	"700"		// 700
+		"AttackRange"				"700"		// 700
 
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
@@ -317,8 +317,8 @@
 		"AttackDamageMax"		"212" // 162
 		"AttackRate"				"0.8" // 0.95
 		"ArmorPhysical"			"30" // 19
-		"AttackAcquisitionRange"	"800"		// 700
-		"AttackRange"				"800"		// 700
+		"AttackAcquisitionRange"	"700"		// 700
+		"AttackRange"				"700"		// 700
 
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
@@ -892,8 +892,8 @@
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"80"		// 41
-		"AttackDamageMax"			"100"		// 46
+		"AttackDamageMin"			"100"		// 41
+		"AttackDamageMax"			"120"		// 46
 		"AttackRate"				"0.9"		// 1
 
 		// Bounty
@@ -923,8 +923,8 @@
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"80"		// 41
-		"AttackDamageMax"			"100"		// 46
+		"AttackDamageMin"			"100"		// 41
+		"AttackDamageMax"			"120"		// 46
 		"AttackRate"				"0.9"		// 1
 
 		// Bounty
@@ -954,8 +954,8 @@
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"60"		// 36
-		"AttackDamageMax"			"80"		// 44
+		"AttackDamageMin"			"80"		// 36
+		"AttackDamageMax"			"100"		// 44
 		"AttackRate"				"0.9"		// 1
 
 		// Bounty
@@ -984,8 +984,8 @@
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"60"		// 36
-		"AttackDamageMax"			"80"		// 44
+		"AttackDamageMin"			"80"		// 36
+		"AttackDamageMax"			"100"		// 44
 		"AttackRate"				"0.9"		// 1
 
 		// Bounty
@@ -1018,8 +1018,8 @@
 		"MagicalResistance"			"85"		// 80
 
 		// Attack
-		"AttackDamageMin"			"100"		// 51
-		"AttackDamageMax"			"120"		// 62
+		"AttackDamageMin"			"120"		// 51
+		"AttackDamageMax"			"140"		// 62
 		"AttackRate"				"2.0"		// 3.0
 
 		// Bounty
@@ -1048,8 +1048,8 @@
 		"MagicalResistance"			"85"		// 80
 
 		// Attack
-		"AttackDamageMin"			"100"		// 51
-		"AttackDamageMax"			"120"		// 62
+		"AttackDamageMin"			"120"		// 51
+		"AttackDamageMax"			"140"		// 62
 		"AttackRate"				"2.0"		// 3.0
 
 		// Bounty

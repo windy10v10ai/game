@@ -24,7 +24,7 @@ function modifier_bot_think_item_use:OnIntervalThink()
 	if hHero:IsAlive() == false then return end
 
 	-- item use
-	if hHero:IsStunned() then return end
+	if hHero:IsStunned() or hHero:IsHexed() then return end
 	UseActiveItem(hHero)
 
 	-- ability use
