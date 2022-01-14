@@ -2123,7 +2123,7 @@
 	"phantom_assassin_stifling_dagger"
 	{
 		"MaxLevel" "7"
-		"AbilityManaCost"				"20 30 40 50 60 70 80"
+		"AbilityManaCost"				"30 40 50 60 70 80 90"
 		"AbilitySpecial"
 		{
 			"04"
@@ -2134,12 +2134,12 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_factor"			"-75 -60 -45 -30 -15 -0 15"
+				"attack_factor"			"-75 -60 -45 -30 -20 -10 0"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_factor_tooltip"	"25 40 55 70 85 100 115"
+				"attack_factor_tooltip"	"25 40 55 70 80 90 100"
 			}
 		}
 	}
@@ -2599,8 +2599,20 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.5 2.0 2.5 3.0 3.5 4.0 4.5"
+				"duration"				"1.5 2.0 2.5 3.0 3.25 3.5 3.75"
 				"LinkedSpecialBonus"	"special_bonus_unique_crystal_maiden_1"
+			}
+		}
+	}
+	"special_bonus_unique_crystal_maiden_1"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"1.0"
+				"ad_linked_ability"			"crystal_maiden_frostbite"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -3918,7 +3930,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"500 800 1100 1300"
+				"damage"					"500 700 900 1100"
 				"LinkedSpecialBonus"		"special_bonus_unique_lina_5"
 			}
 		}
