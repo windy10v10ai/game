@@ -388,12 +388,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed_bonus"			"50"
+				"speed_bonus"			"40"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"accuracy"			 "60"
+				"accuracy"			 "50"
 			}
 			"03"
 			{
@@ -414,7 +414,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"15"
+				"bonus_armor"			"10"
 			}
 			"02"
 			{
@@ -457,7 +457,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"bonus_hp"			"20"
+				"bonus_hp"			"10"
 			}
 			"02"
 			{
