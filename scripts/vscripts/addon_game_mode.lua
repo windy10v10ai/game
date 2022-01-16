@@ -202,6 +202,8 @@ function AIGameMode:PreGameOptions()
 
 	self.roshanNumber = 0
 
+	self.botPushMin = RandomInt(9, 11)
+
 	self.PreGameOptionsSet = true
 end
 
