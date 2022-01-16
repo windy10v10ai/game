@@ -328,11 +328,11 @@ function HeroKilled(keys)
 	local hHero = EntIndexToHScript(keys.entindex_killed)
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
-	local tDOTARespawnTime = {4, 5, 6, 7, 8, 10, 12, 13, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57}
+	local tDOTARespawnTime = {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 60}
 	if iLevel <= 40 then
 		fRespawnTime = math.ceil(tDOTARespawnTime[iLevel]*AIGameMode.iRespawnTimePercentage/100.0)
 	else
-		fRespawnTime = math.ceil((iLevel/4 + 47)*AIGameMode.iRespawnTimePercentage/100.0)
+		fRespawnTime = math.ceil((iLevel/4 + 50)*AIGameMode.iRespawnTimePercentage/100.0)
 	end
 
 	if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
@@ -491,7 +491,7 @@ function AIGameMode:OnPlayerLevelUp(keys)
 		if iLevel <= 30 then
 			EntIndexToHScript(iEntIndex):SetCustomDeathXP(40 + EntIndexToHScript(iEntIndex):GetCurrentXP()*0.09)
 		else
-			EntIndexToHScript(iEntIndex):SetCustomDeathXP(3000 + EntIndexToHScript(iEntIndex):GetCurrentXP()*0.04)
+			EntIndexToHScript(iEntIndex):SetCustomDeathXP(3500 + EntIndexToHScript(iEntIndex):GetCurrentXP()*0.03)
 		end
 	end)
 
