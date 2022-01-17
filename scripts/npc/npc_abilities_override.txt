@@ -1418,9 +1418,110 @@
 	{
 		"AbilityCooldown"				"60.0 55.0 50.0"
 	}
+	//=================================================================================================================
+	// Dragon Knight                       龙骑士
+	//=================================================================================================================
+	"dragon_knight_breathe_fire"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"14 13 12 11 10"
+		"AbilityDamage"					"90 170 240 300 350 400 450"
+		"AbilityManaCost"				"90 100 110 120 130 140 150"
+	}
+	"dragon_knight_dragon_tail"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityDamage"					"70 100 130 160 190"
+		"AbilityManaCost"				"70 80 90 100 110"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"2.0 2.25 2.5 2.75 3.0"
+				"LinkedSpecialBonus"		"special_bonus_unique_dragon_knight_2"
+			}
+		}
+	}
+	"dragon_knight_dragon_blood"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_health_regen"			"3 6 9 12 14 16 18"
+				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_armor"					"3 6 9 12 14 16 18"
+				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight"
+			}
+		}
+	}
 	"dragon_knight_elder_dragon_form"
 	{
-		"AbilityCooldown"				"80"
+		"AbilityCooldown"				"100 90 80"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"60"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_movement_speed"		"25"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_attack_range"		"350 350 350 350"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_attack_damage"		"50 100 150 200"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"corrosive_breath_damage"	"20 30 40 50"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"splash_damage_percent"		"75 85 95 100"
+				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight_6"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"frost_bonus_movement_speed"	"-40 -50 -60 -70"
+				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight_5"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"frost_bonus_attack_speed"		"-40 -50 -60 -70"
+				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight_5"
+			}
+			"13"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"magic_resistance"			"10 15 20 25"
+			}
+			"14"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"model_scale"				"0 10 20 30"
+			}	
+		}
 	}
 	//=================================================================================================================
 	// Ability: 大牛
@@ -4480,7 +4581,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"back_damage_reduction"			"16 20 24 28 32 36 38 40"
+				"back_damage_reduction"			"16 20 24 28 32 36 38"
 			}
 			"05"
 			{
@@ -8036,5 +8137,78 @@
 			}
 		}
 	}
-	
+	//=================================================================================================================
+	// Riki                  力丸
+	//=================================================================================================================
+	"riki_smoke_screen"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"24 21 18 15 12"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"300 325 350 375 400"
+				"LinkedSpecialBonus"		"special_bonus_unique_riki_7"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"6"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"miss_rate"					"30 45 60 75 85"
+			}
+		}
+	}
+	"riki_blink_strike"
+	{
+		"MaxLevel"						"5"
+		"AbilityCastRange"				"600 700 800 900 1000"
+		"AbilityChargeRestoreTime"		"30 25 20 15 10"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"50 70 90 110 130"
+			}
+		}
+	}
+	"riki_backstab"
+	{
+		"MaxLevel"						"4"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"damage_multiplier"				"1.4 1.8 2.2 2.5"
+				"LinkedSpecialBonus"		"special_bonus_unique_riki_1"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fade_delay"					"4 3 2 1"
+			}
+		}
+	}
+	"riki_tricks_of_the_trade"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"21 18 15 12 10"
+		"AbilityManaCost"				"50"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"agility_pct"	"55 70 85 100 110"
+			}
+		}
+	}	
 }
