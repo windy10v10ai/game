@@ -1519,7 +1519,7 @@
 			"14"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"model_scale"				"0 10 20 30"
+				"model_scale"				"0 15 30 45"
 			}	
 		}
 	}
