@@ -488,6 +488,13 @@
 				"28"		"special_bonus_unique_dragon_knight_2"
 				"29"		"special_bonus_strength_20"
 				"30"		"special_bonus_unique_dragon_knight_8"
+				"31"		"dragon_knight_dragon_tail"
+				"32"		"dragon_knight_breathe_fire"
+				"33"		"dragon_knight_dragon_blood"
+				"34"		"dragon_knight_breathe_fire"
+				"35"		"dragon_knight_dragon_blood"
+				"36"		"dragon_knight_breathe_fire"
+				"37"		"dragon_knight_dragon_blood"
 			}
 		}
 	}
@@ -1115,6 +1122,10 @@
 				"28"		"special_bonus_unique_riki_8"
 				"29"		"special_bonus_unique_riki_9"
 				"30"		"special_bonus_unique_riki_6"
+				"31"		"riki_blink_strike"
+				"32"		"riki_backstab"
+				"33"		"riki_smoke_screen"
+				"34"		"riki_tricks_of_the_trade"
 			}
 		}
 	}
