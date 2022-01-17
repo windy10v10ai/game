@@ -2,7 +2,7 @@
 {
 	"npc_dota_courier"
 	{
-		"MovementTurnRate"			"2.0" // 0.5
+		"MovementTurnRate"			"1.0" // 0.5
 		"VisionDaytimeRange"		"50" // 350
 		"VisionNighttimeRange"		"50" // 350
 	}
@@ -97,7 +97,7 @@
 	{
 		"AttackDamageMin"		"90" // 100
 		"AttackDamageMax"		"100" // 120
-		"AttackRate"				"0.9" // 1
+		"AttackRate"				"1" // 1
 		"ArmorPhysical"			"15" // 12
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
@@ -108,7 +108,7 @@
 	{
 		"AttackDamageMin"		"90" // 100
 		"AttackDamageMax"		"100" // 120
-		"AttackRate"				"0.9" // 1
+		"AttackRate"				"1" // 1
 		"ArmorPhysical"			"15" // 12
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
@@ -193,7 +193,7 @@
 
 		"AttackDamageMin"			"142" // 142
 		"AttackDamageMax"			"162" // 162
-		"AttackRate"				"0.8" // 0.95
+		"AttackRate"				"0.85" // 0.95
 		"ArmorPhysical"				"20" // 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
@@ -210,7 +210,7 @@
 
 		"AttackDamageMin"			"142" // 142
 		"AttackDamageMax"			"162" // 162
-		"AttackRate"				"0.8" // 0.95
+		"AttackRate"				"0.85" // 0.95
 		"ArmorPhysical"				"20" // 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
@@ -230,7 +230,7 @@
 
 		"AttackDamageMin"		"192" // 142
 		"AttackDamageMax"		"212" // 162
-		"AttackRate"				"0.8" // 0.95
+		"AttackRate"				"0.85" // 0.95
 		"ArmorPhysical"			"25" // 19
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -247,7 +247,7 @@
 
 		"AttackDamageMin"		"192" // 142
 		"AttackDamageMax"		"212" // 162
-		"AttackRate"				"0.8" // 0.95
+		"AttackRate"				"0.85" // 0.95
 		"ArmorPhysical"			"25" // 19
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -264,7 +264,7 @@
 
 		"AttackDamageMin"		"192" // 142
 		"AttackDamageMax"		"212" // 162
-		"AttackRate"				"0.8" // 0.95
+		"AttackRate"				"0.85" // 0.95
 		"ArmorPhysical"			"25" // 19
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -281,7 +281,7 @@
 
 		"AttackDamageMin"		"192" // 142
 		"AttackDamageMax"		"212" // 162
-		"AttackRate"				"0.8" // 0.95
+		"AttackRate"				"0.85" // 0.95
 		"ArmorPhysical"			"25" // 19
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -298,7 +298,7 @@
 
 		"AttackDamageMin"		"192" // 142
 		"AttackDamageMax"		"212" // 162
-		"AttackRate"				"0.8" // 0.95
+		"AttackRate"				"0.85" // 0.95
 		"ArmorPhysical"			"25" // 19
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -315,7 +315,7 @@
 
 		"AttackDamageMin"		"192" // 142
 		"AttackDamageMax"		"212" // 162
-		"AttackRate"				"0.8" // 0.95
+		"AttackRate"				"0.85" // 0.95
 		"ArmorPhysical"			"25" // 19
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -342,8 +342,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"200"			// Damage range min.
-		"AttackDamageMax"			"200"			// Damage range max.
+		"AttackDamageMin"			"160"			// Damage range min.
+		"AttackDamageMax"			"180"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
@@ -376,8 +376,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"200"			// Damage range min.
-		"AttackDamageMax"			"200"			// Damage range max.
+		"AttackDamageMin"			"160"			// Damage range min.
+		"AttackDamageMax"			"180"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
@@ -410,8 +410,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"200"			// Damage range min.
-		"AttackDamageMax"			"200"			// Damage range max.
+		"AttackDamageMin"			"160"			// Damage range min.
+		"AttackDamageMax"			"180"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
@@ -445,8 +445,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"200"			// Damage range min.
-		"AttackDamageMax"			"200"			// Damage range max.
+		"AttackDamageMin"			"160"			// Damage range min.
+		"AttackDamageMax"			"180"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
@@ -479,8 +479,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"200"			// Damage range min.
-		"AttackDamageMax"			"200"			// Damage range max.
+		"AttackDamageMin"			"160"			// Damage range min.
+		"AttackDamageMax"			"180"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
@@ -513,8 +513,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"200"			// Damage range min.
-		"AttackDamageMax"			"200"			// Damage range max.
+		"AttackDamageMin"			"160"			// Damage range min.
+		"AttackDamageMax"			"180"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
@@ -549,8 +549,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"140"			// Damage range min.
-		"AttackDamageMax"			"160"			// Damage range max.
+		"AttackDamageMin"			"120"			// Damage range min.
+		"AttackDamageMax"			"140"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
@@ -582,8 +582,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"140"			// Damage range min.
-		"AttackDamageMax"			"160"			// Damage range max.
+		"AttackDamageMin"			"120"			// Damage range min.
+		"AttackDamageMax"			"140"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
@@ -615,8 +615,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"140"			// Damage range min.
-		"AttackDamageMax"			"160"			// Damage range max.
+		"AttackDamageMin"			"120"			// Damage range min.
+		"AttackDamageMax"			"140"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
@@ -650,8 +650,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"140"			// Damage range min.
-		"AttackDamageMax"			"160"			// Damage range max.
+		"AttackDamageMin"			"120"			// Damage range min.
+		"AttackDamageMax"			"140"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
@@ -683,8 +683,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"140"			// Damage range min.
-		"AttackDamageMax"			"160"			// Damage range max.
+		"AttackDamageMin"			"120"			// Damage range min.
+		"AttackDamageMax"			"140"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
@@ -716,8 +716,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"140"			// Damage range min.
-		"AttackDamageMax"			"160"			// Damage range max.
+		"AttackDamageMin"			"120"			// Damage range min.
+		"AttackDamageMax"			"140"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
@@ -746,7 +746,7 @@
 
 		"AttackDamageMin"		"232" // 142
 		"AttackDamageMax"		"252" // 162
-		"AttackRate"				"0.8" // 0.95
+		"AttackRate"				"0.85" // 0.95
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
@@ -764,7 +764,7 @@
 
 		"AttackDamageMin"		"232" // 142
 		"AttackDamageMax"		"252" // 162
-		"AttackRate"				"0.8" // 0.95
+		"AttackRate"				"0.85" // 0.95
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
@@ -794,8 +794,8 @@
 		"AttackDamageMin"			"380"			// Damage range min.
 		"AttackDamageMax"			"390"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"0.5"			// Speed of attack.
-		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
+		"AttackRate"				"0.6"			// Speed of attack.
+		"AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"			// Range within a target can be acquired.
 		"AttackRange"				"700"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"			// Particle system model for projectile.
@@ -825,8 +825,8 @@
 		"AttackDamageMin"			"380"			// Damage range min.
 		"AttackDamageMax"			"390"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"0.5"			// Speed of attack.
-		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
+		"AttackRate"				"0.6"			// Speed of attack.
+		"AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"			// Range within a target can be acquired.
 		"AttackRange"				"700"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"			// Particle system model for projectile.
@@ -894,7 +894,8 @@
 		// Attack
 		"AttackDamageMin"			"100"		// 41
 		"AttackDamageMax"			"120"		// 46
-		"AttackRate"				"0.9"		// 1
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"150"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -925,7 +926,8 @@
 		// Attack
 		"AttackDamageMin"			"100"		// 41
 		"AttackDamageMax"			"120"		// 46
-		"AttackRate"				"0.9"		// 1
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"150"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -956,7 +958,8 @@
 		// Attack
 		"AttackDamageMin"			"80"		// 36
 		"AttackDamageMax"			"100"		// 44
-		"AttackRate"				"0.9"		// 1
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"150"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -986,7 +989,8 @@
 		// Attack
 		"AttackDamageMin"			"80"		// 36
 		"AttackDamageMax"			"100"		// 44
-		"AttackRate"				"0.9"		// 1
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"150"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1020,7 +1024,8 @@
 		// Attack
 		"AttackDamageMin"			"120"		// 51
 		"AttackDamageMax"			"140"		// 62
-		"AttackRate"				"2.0"		// 3.0
+		"AttackRate"				"3.0"		// 3.0
+		"BaseAttackSpeed"			"150"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1050,7 +1055,8 @@
 		// Attack
 		"AttackDamageMin"			"120"		// 51
 		"AttackDamageMax"			"140"		// 62
-		"AttackRate"				"2.0"		// 3.0
+		"AttackRate"				"3.0"		// 3.0
+		"BaseAttackSpeed"			"150"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1085,7 +1091,8 @@
 		//----------------------------------------------------------------
 		"AttackDamageMin"			"180"		// 41
 		"AttackDamageMax"			"200"		// 46
-		"AttackRate"				"0.8"		// 1
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"200"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1116,7 +1123,8 @@
 		//----------------------------------------------------------------
 		"AttackDamageMin"			"180"		// 41
 		"AttackDamageMax"			"200"		// 46
-		"AttackRate"				"0.8"		// 1
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"200"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1147,7 +1155,8 @@
 		// Attack
 		"AttackDamageMin"			"140"		// 36
 		"AttackDamageMax"			"160"		// 44
-		"AttackRate"				"0.8"		// 1
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"200"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1177,7 +1186,8 @@
 		// Attack
 		"AttackDamageMin"			"140"		// 36
 		"AttackDamageMax"			"160"		// 44
-		"AttackRate"				"0.8"		// 1
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"200"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1210,7 +1220,8 @@
 		// Attack
 		"AttackDamageMin"			"200"		// 51
 		"AttackDamageMax"			"240"		// 62
-		"AttackRate"				"1.5"		// 3.0
+		"AttackRate"				"3.0"		// 3.0
+		"BaseAttackSpeed"			"200"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1240,7 +1251,8 @@
 		// Attack
 		"AttackDamageMin"			"200"		// 51
 		"AttackDamageMax"			"240"		// 62
-		"AttackRate"				"1.5"		// 3.0
+		"AttackRate"				"3.0"		// 3.0
+		"BaseAttackSpeed"			"200"
 
 		// Bounty
 		//----------------------------------------------------------------

@@ -151,7 +151,7 @@ end
 
 function modifier_tower_power:GetModifierAttackSpeedBonus_Constant()
 	local fPower = StackToPercentage(self:GetStackCount())
-	return math.floor(10*(fPower)+10)
+	return math.floor(20*(fPower)+10)
 end
 
 function modifier_tower_power:GetModifierBaseDamageOutgoing_Percentage()
