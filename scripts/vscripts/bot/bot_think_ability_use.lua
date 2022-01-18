@@ -33,7 +33,6 @@ function BotAbilityThink:ThinkUseAbility_Axe(hHero)
 	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
-	if hAbility1:IsInAbilityPhase() or hAbility2:IsInAbilityPhase() or hAbility6:IsInAbilityPhase() then return end
 
 	local iThreshold = hAbility6:GetSpecialValueFor("kill_threshold")
 	if hAbility6:IsFullyCastable() then
@@ -69,9 +68,7 @@ function BotAbilityThink:ThinkUseAbility_Axe(hHero)
 end
 
 function BotAbilityThink:ThinkUseAbility_EarthShaker(hHero)
-	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
-	if hAbility1:IsInAbilityPhase() or hAbility2:IsInAbilityPhase() then return end
 
 	if hAbility2:IsFullyCastable() then
 
@@ -89,12 +86,10 @@ function BotAbilityThink:ThinkUseAbility_EarthShaker(hHero)
 end
 
 function BotAbilityThink:ThinkUseAbility_PhantomAssassin(hHero)
-	local hAbility1 = hHero:GetAbilityByIndex(0)
-	local hAbility2 = hHero:GetAbilityByIndex(1)
 	local hAbility3 = hHero:GetAbilityByIndex(2)
 	local hAbility4 = hHero:GetAbilityByIndex(3)
 
-	if hAbility1:IsInAbilityPhase() or hAbility2:IsInAbilityPhase() or hAbility3:IsInAbilityPhase() or hAbility4:IsInAbilityPhase() then return end
+	if hAbility4:IsInAbilityPhase() then return end
 
 	if hAbility3:IsFullyCastable() then
 		hHero:CastAbilityNoTarget(hAbility3, hHero:GetPlayerOwnerID())
@@ -114,10 +109,9 @@ function BotAbilityThink:ThinkUseAbility_PhantomAssassin(hHero)
 end
 
 function BotAbilityThink:ThinkUseAbility_Zuus(hHero)
-	local hAbility2 = hHero:GetAbilityByIndex(1)
 	local hAbility4 = hHero:GetAbilityByIndex(3)
-	local hAbility6 = hHero:GetAbilityByIndex(5)
-	if hAbility2:IsInAbilityPhase() or hAbility4:IsInAbilityPhase() or hAbility6:IsInAbilityPhase() then return end
+
+	if hAbility4:IsInAbilityPhase() then return end
 
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
 		if hAbility4:IsFullyCastable() then
@@ -133,8 +127,6 @@ end
 
 function BotAbilityThink:ThinkUseAbility_Viper(hHero)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
-	local hAbility6 = hHero:GetAbilityByIndex(5)
-	if hAbility2:IsInAbilityPhase() or hAbility6:IsInAbilityPhase() then return end
 
 	if hAbility2:IsFullyCastable() then
         local iRange = hAbility2:GetCastRange()

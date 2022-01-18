@@ -192,6 +192,5 @@ function UseActiveItem(hHero)
         end
     end
 
-
     return false
 end
