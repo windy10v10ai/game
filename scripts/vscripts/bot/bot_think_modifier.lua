@@ -23,13 +23,20 @@ function modifier_bot_think_item_use:OnIntervalThink()
 	-- if hero is dead, do nothing
 	if hHero:IsAlive() == false then return end
 
+	-- if ability is , do nothing
+	local hAbility1 = hHero:GetAbilityByIndex(0)
+	local hAbility2 = hHero:GetAbilityByIndex(1)
+	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility6 = hHero:GetAbilityByIndex(5)
+	if hAbility1:IsInAbilityPhase() or hAbility2:IsInAbilityPhase() or hAbility3:IsInAbilityPhase() or hAbility6:IsInAbilityPhase() then return end
+
 	-- item use
 	if hHero:IsStunned() or hHero:IsHexed() then return end
-	UseActiveItem(hHero)
+	if UseActiveItem(hHero) then return end
 
 	-- ability use
 	if hHero:IsSilenced() then return end
-	BotAbilityThink:ThinkUseAbility(hHero)
+	if BotAbilityThink:ThinkUseAbility(hHero) then return end
 end
 
 --------------------------------------------------------------------------------
