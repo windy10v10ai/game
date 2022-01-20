@@ -8500,5 +8500,194 @@
 				"bonus_regen_pct"			"5 6 7 8"
 			}
 		}
+	}
+	//=================================================================================================================
+	// Ability: Pudge                            屠夫
+	//=================================================================================================================
+	"pudge_flesh_heap"
+	{
+		"MaxLevel"						"5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"magic_resistance"				"12 14 16 18 20"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"flesh_heap_strength_buff_amount"	"1.5 2 2.5 3.0 3.5"
+				"LinkedSpecialBonus"			"special_bonus_unique_pudge_1"
+			}
+		}
+	}
+	"pudge_meat_hook"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"			"150 220 290 360 430"
+				"LinkedSpecialBonus"			"special_bonus_unique_pudge_7"
+			}
+		}
+	}
+	"pudge_rot"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rot_slow"				"-14 -20 -26 -32 -36 -40 -44"
+				"LinkedSpecialBonus"			"special_bonus_unique_pudge_4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rot_damage"			"30 60 90 120 150 180 210"
+				"LinkedSpecialBonus"	"special_bonus_unique_pudge_2"
+			}
+		}
+	}
+	"pudge_dismember"
+	{
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"30 25 20 15"
+		"AbilityManaCost"				"100 130 170 210"	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dismember_damage"		"60 90 120 150"
+				"LinkedSpecialBonus"		"special_bonus_unique_pudge_3"
+				"LinkedSpecialBonusField"		"value"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"strength_damage"		"0.3 0.6 0.9 1.2"
+				"LinkedSpecialBonus"		"special_bonus_unique_pudge_3"
+				"LinkedSpecialBonusField"		"value"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Windrunner                          风行者
+	//=================================================================================================================
+	"windrunner_gale_force"
+	{
+		"AbilityCooldown"				"30"
+	}
+	"windrunner_shackleshot"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityManaCost"				"70 80 90 100 110"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"2.0 2.6 3.2 3.8 4.2"
+				"LinkedSpecialBonus"	"special_bonus_unique_windranger_6"
+			}
+		}
+	}
+	"windrunner_powershot"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"12 11 10 9 8 7 6"
+		"AbilityManaCost"				"90 100 110 120 130 140 150"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"powershot_damage"		"150 250 350 450 550 600 650"
+				"LinkedSpecialBonus"	"special_bonus_unique_windranger_3"
+			}
+		}
+	}
+	"windrunner_windrun"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"15 14 13 12 11"
+		"AbilityDuration"				"3 4 5 6 7"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"enemy_movespeed_bonus_pct"	"-15 -20 -25 -30 -35"
+				"LinkedSpecialBonus"		"special_bonus_unique_windranger_2"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"3 4 5 6 7"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"charge_restore_time"	"15 14 13 12 11"
+				"RequiresScepter"			"1"
+			}
+		}
+	}
+	"windrunner_focusfire"
+	{
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"60 50 40 30"
+		"AbilityDuration"				"20.0"
+		"AbilityManaCost"				"75 100 125 150"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_attack_speed"			"475"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"focusfire_damage_reduction"	"-40 -30 -20 -10"
+				"LinkedSpecialBonus"		"special_bonus_unique_windranger_8"
+			}						
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"focusfire_fire_on_the_move"	"1"
+			}
+		}
+	}
+	"special_bonus_unique_windranger_8"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"7889"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"10"
+				"ad_linked_ability"			"windrunner_focusfire"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
 	}	
 }

@@ -1044,6 +1044,12 @@
 				"28"		"special_bonus_unique_pudge_7"
 				"29"		"special_bonus_unique_pudge_6"
 				"30"		"special_bonus_unique_pudge_3"
+				"31"		"pudge_dismember"
+				"32"		"pudge_flesh_heap"
+				"33"		"pudge_rot"
+				"34"		"pudge_rot"
+				"35"		"pudge_rot"
+				"36"		"pudge_meat_hook"
 			}
 		}
 	}
@@ -1452,6 +1458,12 @@
 				"28"		"special_bonus_unique_windranger"
 				"29"		"special_bonus_unique_windranger_6"
 				"30"		"special_bonus_unique_windranger_7"
+				"31"		"windrunner_focusfire"
+				"32"		"windrunner_powershot"
+				"33"		"windrunner_powershot"
+				"34"		"windrunner_powershot"
+				"35"		"windrunner_windrun"
+				"36"		"windrunner_shackleshot"
 			}
 		}
 	}
