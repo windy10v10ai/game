@@ -2998,61 +2998,6 @@
 			}
 		}
 	}
-	"lion_finger_of_death"
-	{
-		"AbilityCooldown"				"80.0 60.0 40.0"
-		"AbilitySpecial"
-		{
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_per_kill"			"20"
-				"LinkedSpecialBonus"			"special_bonus_unique_lion_8"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"60.0 40.0 20.0"
-				"RequiresScepter"			"1"
-			}
-		}
-	}
-	"special_bonus_unique_lion_8"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"10"
-				"ad_linked_ability"			"lion_finger_of_death"
-			}
-		}
-	}
-
-	"lich_chain_frost"
-	{
-		"AbilityCooldown"				"80 70 60"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"jumps"					"10 15 20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"jump_range"			"450"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-65 -100 -135"
-			}
-		}			
-	}
 	//=================================================================================================================
 	// Necrolyte                        瘟疫法师
 	//=================================================================================================================
@@ -4191,15 +4136,15 @@
 	}
 	"lina_laguna_blade"
 	{
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"70 60 50 40"
-		"AbilityManaCost"				"250 400 550 650"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"70 60 50 40 30"
+		"AbilityManaCost"				"250 400 550 650 750"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"500 700 900 1100"
+				"damage"					"600 700 800 900 1000"
 				"LinkedSpecialBonus"		"special_bonus_unique_lina_5"
 			}
 		}
@@ -8858,5 +8803,186 @@
 				"damage"					"150 250 300 350 400"
 			}
 		}
-	}		
+	}
+	//=================================================================================================================
+	// Lion                              莱恩
+	//=================================================================================================================
+	"lion_impale"
+	{
+		"MaxLevel"						"7"
+		"AbilityManaCost"				"85 110 135 160 185 210 230"
+		"AbilityDamage"					"80 140 200 260 320 360 400"
+		"AbilitySpecial"
+		{
+			"02"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"1.4 1.8 2.2 2.6 2.8 3.0 3.2"
+			}
+		}
+	}
+	"lion_mana_drain"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"16 13 10 8 6"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_per_second"			"20 40 60 120 180"
+				"LinkedSpecialBonus"			"special_bonus_unique_lion_5"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed"			"20 25 30 35 40"
+				"LinkedSpecialBonus"			"special_bonus_unique_lion_6"
+			}
+		}
+	}
+	"lion_finger_of_death"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"70.0 60.0 50.0 40.0 30.0"
+		"AbilityManaCost"				"200 400 600 800 1000"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"600 725 850 975 1100"
+				"LinkedSpecialBonus"			"special_bonus_unique_lion_3"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_scepter"			"700 825 950 1075 1200"
+				"LinkedSpecialBonus"			"special_bonus_unique_lion_3"
+				"RequiresScepter"			"1"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_per_kill"			"30"
+				"LinkedSpecialBonus"			"special_bonus_unique_lion_8"
+				"CalculateSpellDamageTooltip"	"0"
+			}			
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cooldown_scepter"			"60.0 50.0 40.0 30.0 20.0"
+				"RequiresScepter"			"1"
+			}
+		}
+    }
+	"special_bonus_unique_lion_8"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"10"
+				"ad_linked_ability"			"lion_finger_of_death"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Lich                    巫妖
+	//=================================================================================================================
+	"lich_frost_nova"
+	{
+		"MaxLevel"						"7"
+		"AbilityDamage"					"80 120 160 200 240 280 320"
+		"AbilityManaCost"				"110 130 150 170 180 190 200"
+		"AbilitySpecial"
+		{			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_movement_speed"	"-40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_attack_speed"		"-40"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aoe_damage"			"80 120 160 200 240 280 320"
+				"LinkedSpecialBonus"		"special_bonus_unique_lich_6"
+			}
+		}
+	}
+	"lich_sinister_gaze"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"24 22 20 18 16"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"1.4 1.7 2.0 2.3 2.5"
+				"LinkedSpecialBonus"		"special_bonus_unique_lich_2"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"destination"		"32 38 44 50 56"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_drain"		"10 15 20 25 30"
+			}
+		}
+	}
+	"lich_chain_frost"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"100.0 90.0 80.0 70.0 60.0"
+		"AbilityManaCost"				"200 350 500 600 700"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"250 400 550 700 850"
+				"LinkedSpecialBonus"		"special_bonus_unique_lich_7"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"jumps"					"10 15 20 25 30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"jump_range"			"450"
+			}			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_movement_speed"	"-60 -70 -80 -90 -100"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_attack_speed"		"-65 -85 -105 -125 -145"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"3.5"
+			}			
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_jump_damage"		"15 20 25 30 35"
+			}
+		}			
+	}	
 }
