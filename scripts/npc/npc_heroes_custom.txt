@@ -685,6 +685,12 @@
 				"28"		"special_bonus_unique_lich_2"
 				"29"		"special_bonus_unique_lich_4"
 				"30"		"special_bonus_unique_lich_1"
+				"31"		"lich_chain_frost"
+				"32"		"lich_chain_frost"
+				"33"		"lich_frost_nova"
+				"34"		"lich_frost_nova"
+				"35"		"lich_frost_nova"
+				"36"		"lich_sinister_gaze"
 			}
 		}
 	}
@@ -725,13 +731,14 @@
 				"29"		"special_bonus_unique_lina_2"
 				"30"		"special_bonus_attack_range_125"
 				"31"		"lina_laguna_blade"
-				"32"		"lina_fiery_soul"
-				"33"		"lina_light_strike_array"
-				"34"		"lina_dragon_slave"
-				"35"		"lina_light_strike_array"
-				"36"		"lina_dragon_slave"
-				"37"		"lina_light_strike_array"
-				"38"		"lina_dragon_slave"
+				"32"		"lina_laguna_blade"
+				"33"		"lina_fiery_soul"
+				"34"		"lina_light_strike_array"
+				"35"		"lina_dragon_slave"
+				"36"		"lina_light_strike_array"
+				"37"		"lina_dragon_slave"
+				"38"		"lina_light_strike_array"
+				"39"		"lina_dragon_slave"
 			}
 		}
 	}
@@ -747,6 +754,12 @@
 				"28"		"special_bonus_unique_lion_11"
 				"29"		"special_bonus_unique_lion_10"
 				"30"		"special_bonus_unique_lion_4"
+				"31"		"lion_finger_of_death"
+				"32"		"lion_finger_of_death"
+				"33"		"lion_mana_drain"
+				"34"		"lion_impale"
+				"35"		"lion_impale"
+				"36"		"lion_impale"
 			}
 		}
 	}
