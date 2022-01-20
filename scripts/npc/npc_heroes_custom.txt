@@ -690,7 +690,8 @@
 				"33"		"lich_frost_nova"
 				"34"		"lich_frost_nova"
 				"35"		"lich_frost_nova"
-				"36"		"lich_sinister_gaze"
+				"36"		"lich_frost_shield"
+				"37"		"lich_sinister_gaze"
 			}
 		}
 	}
