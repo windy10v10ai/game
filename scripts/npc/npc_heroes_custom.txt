@@ -137,6 +137,13 @@
 				"28"		"special_bonus_movement_speed_25"
 				"29"		"special_bonus_hp_regen_20"
 				"30"		"special_bonus_unique_axe"
+				"31"		"axe_culling_blade"
+				"32"		"axe_culling_blade"
+				"33"		"axe_berserkers_call"
+				"34"		"axe_battle_hunger"
+				"35"		"axe_counter_helix"
+				"36"		"axe_counter_helix"
+				"37"		"axe_counter_helix"
 			}
 		}
 	}
