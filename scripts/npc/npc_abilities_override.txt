@@ -8689,5 +8689,174 @@
 				"ad_linked_ability"			"windrunner_focusfire"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
-	}	
+	}
+	//=================================================================================================================
+	// Abaddon                             亚巴顿
+	//=================================================================================================================
+	"abaddon_death_coil"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"target_damage"			"110 160 210 260 310 360 400"
+				"LinkedSpecialBonus"	"special_bonus_unique_abaddon_2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal_amount"			"110 160 210 260 310 360 400"
+				"LinkedSpecialBonus"	"special_bonus_unique_abaddon_2"
+			}
+		}
+	}
+	"abaddon_aphotic_shield"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
+		"AbilityManaCost"				"100 110 120 130 140"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_absorb"			"110 140 170 200 230"
+				"LinkedSpecialBonus"	"special_bonus_unique_abaddon"
+			}
+		}
+	}
+	"abaddon_frostmourne"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_speed"				"10 15 20 25 30 35 40"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"curse_slow"				"15 30 45 60 70 80 90"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"curse_attack_speed"			"40 50 60 70 80 90 100"				
+			}
+		}
+	}
+	"abaddon_borrowed_time"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"50.0 45.0 40.0 35.0 30.0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hp_threshold"				"400 500 600 700 800"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"4.0 5.0 6.0 7.0 8.0 9.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration_scepter"			"7 8 9 10 11"
+				"RequiresScepter"	"1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Axe                             斧王
+	//=================================================================================================================
+	"axe_berserkers_call"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"17 15 13 11 9"
+		"AbilityManaCost"				"80 90 100 110 120"	
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.0 2.4 2.8 3.2 3.5"
+			}	
+		}
+	}
+	"axe_battle_hunger"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"20 16 12 8 4"
+		"AbilityManaCost"				"50 60 70 80 90"		
+		"AbilityCastRange"				"700 775 850 925 1000"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow"						"-12 -13 -14 -15 -16"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed_bonus"						"12 13 14 15 16"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_per_second"			"16 24 32 40 48"
+				"LinkedSpecialBonus"		"special_bonus_unique_axe"
+			}
+		}		
+	}
+	"axe_counter_helix"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"60 100 140 180 220 260 300"
+				"LinkedSpecialBonus"		"special_bonus_unique_axe_4"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"trigger_chance"			"17 18 19 20 21 22 23"
+			}
+		}
+	}
+	"axe_culling_blade"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"75.0 65.0 55.0 45.0 35.0"
+		"AbilityManaCost"				"60 120 180 210 240"		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"kill_threshold"			"250 350 450 550 650"
+				"LinkedSpecialBonus"		"special_bonus_unique_axe_5"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"150 250 300 350 400"
+			}
+		}
+	}		
 }
