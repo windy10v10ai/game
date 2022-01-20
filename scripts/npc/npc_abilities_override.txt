@@ -8710,7 +8710,7 @@
 			"06"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"curse_attack_speed"			"40 60 80 100 120 140"				
+				"curse_attack_speed"			"40 60 80 100 120 140 160"				
 			}
 		}
 	}
@@ -8728,12 +8728,18 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.0 5.0 6.0 7.0 8.0 9.0"
+				"duration"					"4.0 5.0 6.0 7.0 8.0"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
 				"duration_scepter"			"7 8 9 10 11"
+				"RequiresScepter"	"1"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"ally_threshold_scepter"	"600 700 800 900 1000"
 				"RequiresScepter"	"1"
 			}
 		}
@@ -8921,18 +8927,55 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-40"
+				"slow_movement_speed"	"-30 35 40 45 50 55 60"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-40"
+				"slow_attack_speed"		"-30 35 40 45 50 55 60"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aoe_damage"			"80 120 160 200 240 280 320"
 				"LinkedSpecialBonus"		"special_bonus_unique_lich_6"
+			}
+		}
+	}
+	"lich_frost_shield"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"30 25 20 15 10"
+		"AbilityManaCost"				"100 110 120 130 140"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_reduction"		"30 40 50 60 70"
+				"CalculateSpellDamageTooltip"	"0"
+				"LinkedSpecialBonus"		"special_bonus_unique_lich_8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_slow"			"20 25 30 35 40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"0.5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"20 30 40 50 60"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"6"
+				"LinkedSpecialBonus"		"special_bonus_unique_lich_4"
 			}
 		}
 	}
