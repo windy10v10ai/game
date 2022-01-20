@@ -4138,13 +4138,13 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"70 60 50 40 30"
-		"AbilityManaCost"				"250 400 550 650 700"
+		"AbilityManaCost"				"250 400 550 650 750"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"650 750 850 900 950"
+				"damage"					"600 700 800 900 1000"
 				"LinkedSpecialBonus"		"special_bonus_unique_lina_5"
 			}
 		}
