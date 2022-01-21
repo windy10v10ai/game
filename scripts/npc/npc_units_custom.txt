@@ -892,8 +892,8 @@
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"100"		// 41
-		"AttackDamageMax"			"120"		// 46
+		"AttackDamageMin"			"120"		// 41
+		"AttackDamageMax"			"140"		// 46
 		"AttackRate"				"1"			// 1
 		"BaseAttackSpeed"			"150"
 
@@ -924,8 +924,8 @@
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"100"		// 41
-		"AttackDamageMax"			"120"		// 46
+		"AttackDamageMin"			"120"		// 41
+		"AttackDamageMax"			"140"		// 46
 		"AttackRate"				"1"			// 1
 		"BaseAttackSpeed"			"150"
 
@@ -956,8 +956,8 @@
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"80"		// 36
-		"AttackDamageMax"			"100"		// 44
+		"AttackDamageMin"			"100"		// 36
+		"AttackDamageMax"			"120"		// 44
 		"AttackRate"				"1"			// 1
 		"BaseAttackSpeed"			"150"
 
@@ -987,8 +987,8 @@
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
-		"AttackDamageMin"			"80"		// 36
-		"AttackDamageMax"			"100"		// 44
+		"AttackDamageMin"			"100"		// 36
+		"AttackDamageMax"			"120"		// 44
 		"AttackRate"				"1"			// 1
 		"BaseAttackSpeed"			"150"
 
@@ -1022,8 +1022,8 @@
 		"MagicalResistance"			"85"		// 80
 
 		// Attack
-		"AttackDamageMin"			"120"		// 51
-		"AttackDamageMax"			"140"		// 62
+		"AttackDamageMin"			"140"		// 51
+		"AttackDamageMax"			"160"		// 62
 		"AttackRate"				"3.0"		// 3.0
 		"BaseAttackSpeed"			"150"
 
@@ -1053,8 +1053,8 @@
 		"MagicalResistance"			"85"		// 80
 
 		// Attack
-		"AttackDamageMin"			"120"		// 51
-		"AttackDamageMax"			"140"		// 62
+		"AttackDamageMin"			"140"		// 51
+		"AttackDamageMax"			"160"		// 62
 		"AttackRate"				"3.0"		// 3.0
 		"BaseAttackSpeed"			"150"
 
@@ -1106,7 +1106,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1600"		// 475
+		"StatusHealth"				"2000"		// 475
 		"StatusHealthRegen"			"5"			// 2
 	}
 	"npc_dota_creep_goodguys_ranged_upgraded_mega"
@@ -1138,7 +1138,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1600"		// 475
+		"StatusHealth"				"2000"		// 475
 		"StatusHealthRegen"			"5"			// 2
 	}
 
@@ -1170,7 +1170,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// 700
+		"StatusHealth"				"2400"		// 700
 		"StatusHealthRegen"			"5"			// 0.5
 	}
 	"npc_dota_creep_goodguys_melee_upgraded_mega"
@@ -1201,7 +1201,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// 700
+		"StatusHealth"				"2400"		// 700
 		"StatusHealthRegen"			"5"			// 0.5
 	}
 	//=================================================================================
