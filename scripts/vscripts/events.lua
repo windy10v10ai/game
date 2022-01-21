@@ -463,7 +463,7 @@ function AIGameMode:OnNPCSpawned(keys)
 			hEntity:AddNewModifier(hEntity, nil, "modifier_melee_resistance", {})
 		end
 
-		if sName == "npc_dota_hero_sniper" and self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.bSniperScepterThinkerApplierSet then
+		if sName == "npc_dota_hero_sniper" and not self.bSniperScepterThinkerApplierSet then
 			require('heroes/hero_sniper/sniper_init')
 			SniperInit(hEntity, self)
 		end

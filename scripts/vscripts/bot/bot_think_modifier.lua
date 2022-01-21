@@ -27,8 +27,12 @@ function modifier_bot_think_item_use:OnIntervalThink()
 	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
 	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
+	local hAbility5 = hHero:GetAbilityByIndex(4)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
 	if hAbility1:IsInAbilityPhase() or hAbility2:IsInAbilityPhase() or hAbility3:IsInAbilityPhase() or hAbility6:IsInAbilityPhase() then return end
+	if hAbility4 and hAbility4:IsInAbilityPhase() then return end
+	if hAbility5 and hAbility5:IsInAbilityPhase() then return end
 
 	-- item use
 	if hHero:IsStunned() or hHero:IsHexed() then return end
