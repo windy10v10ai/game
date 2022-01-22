@@ -62,6 +62,7 @@ function AIGameMode:InitEvents()
 	ListenToGameEvent("dota_player_gained_level", Dynamic_Wrap(AIGameMode, "OnPlayerLevelUp"), self)
 	ListenToGameEvent("npc_spawned", Dynamic_Wrap(AIGameMode, "OnNPCSpawned"), self)
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(AIGameMode, "OnEntityKilled"), self)
+	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( AIGameMode, "OnItemPickedUp" ), self )
 	--JS events
 	CustomGameEventManager:RegisterListener("loading_set_options", function (eventSourceIndex, args) return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args) end)
 	-- 游戏选项改变事件
@@ -267,7 +268,7 @@ end
 function AIGameMode:FilterItemAdd(tItemFilter)
 	local item = EntIndexToHScript(tItemFilter.item_entindex_const)
 	if item then
-		if item:GetAbilityName() == "item_rapier" then
+		if item:GetAbilityName() == "item_rapier" or item:GetAbilityName() == "item_bag_of_gold" then
 			return true
 		end
 		local itemPurchaseName = item:GetPurchaseTime()

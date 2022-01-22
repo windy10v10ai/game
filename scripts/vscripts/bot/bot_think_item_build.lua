@@ -162,7 +162,7 @@ function BotThink:AddMoney(hHero)
 	iAddMoney = math.floor(iAddMoney*multiplier)
 
   if iAddMoney > 0 then
-    PlayerResource:ModifyGold(hHero:GetPlayerID(), iAddMoney, true, DOTA_ModifyGold_GameTick)
+    hHero:ModifyGold(iAddMoney, true, DOTA_ModifyGold_GameTick)
     return true
   end
 	return false

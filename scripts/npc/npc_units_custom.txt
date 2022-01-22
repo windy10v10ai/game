@@ -16,7 +16,7 @@
 		"Ability4"					"roshan_inherent_buffs"	// Ability 4.
 		"Ability5"					"roshan_devotion"		// Ability 5.
 		"Ability6"					"giant_wolf_critical_strike"						// Ability 6 - Extra.
-		"Ability7"					""						// Ability 7 - Extra.
+		"Ability7"					"generic_gold_bag_fountain"						// Ability 7 - Extra.
 		"Ability8"					""						// Ability 8 - Extra.
 
 		// Armor
