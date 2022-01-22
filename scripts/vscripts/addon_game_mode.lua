@@ -62,6 +62,7 @@ function AIGameMode:InitEvents()
 	ListenToGameEvent("dota_player_gained_level", Dynamic_Wrap(AIGameMode, "OnPlayerLevelUp"), self)
 	ListenToGameEvent("npc_spawned", Dynamic_Wrap(AIGameMode, "OnNPCSpawned"), self)
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(AIGameMode, "OnEntityKilled"), self)
+	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( AIGameMode, "OnItemPickedUp" ), self )
 	--JS events
 	CustomGameEventManager:RegisterListener("loading_set_options", function (eventSourceIndex, args) return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args) end)
 	-- 游戏选项改变事件
@@ -110,16 +111,22 @@ function AIGameMode:PreGameOptions()
 	GameRules:SetGoldPerTick(self.iGoldPerTick)
 	GameRules:SetGoldTickTime(self.iGoldTickTime)
 	GameRules:SetUseUniversalShopMode( true )
-	GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( AIGameMode, "FilterGold" ), self )
+
+	local gameMode = GameRules:GetGameModeEntity()
+	gameMode:SetModifyGoldFilter( Dynamic_Wrap( AIGameMode, "FilterGold" ), self )
 	GameRules:GetGameModeEntity():SetModifyExperienceFilter( Dynamic_Wrap( AIGameMode, "FilterXP" ), self )
-	GameRules:GetGameModeEntity():SetRuneSpawnFilter( Dynamic_Wrap( AIGameMode, "FilterRune" ), self )
-	GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled( true )
-	GameRules:GetGameModeEntity():SetMaximumAttackSpeed( 1000 )
+
+	-- 神符
+	gameMode:SetUseDefaultDOTARuneSpawnLogic( true )
+
+	gameMode:SetTowerBackdoorProtectionEnabled( true )
+	gameMode:SetMaximumAttackSpeed( MAXIMUM_ATTACK_SPEED )
+	gameMode:SetMinimumAttackSpeed( MINIMUM_ATTACK_SPEED )
 	-- 每点敏捷提供护甲
-	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.143)
+	gameMode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.143)
 
 	if self.DebugMode then
-		GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter( Dynamic_Wrap( AIGameMode, "FilterItemAdd" ), self )
+		gameMode:SetItemAddedToInventoryFilter( Dynamic_Wrap( AIGameMode, "FilterItemAdd" ), self )
 	end
 	-- loop functions
 	AIGameMode:SpawnNeutralCreeps30sec()
@@ -202,6 +209,8 @@ function AIGameMode:PreGameOptions()
 
 	self.roshanNumber = 0
 
+	self.botPushMin = RandomInt(9, 11)
+
 	self.PreGameOptionsSet = true
 end
 
@@ -255,70 +264,11 @@ function AIGameMode:FilterXP(tXPFilter)
 	return true
 end
 
-
-local bFirstRuneShouldSpawned = false
-local bFirstRuneActuallySpawned = false
-local tPossibleRunes = {
-	DOTA_RUNE_ILLUSION,
-	DOTA_RUNE_REGENERATION,
-	DOTA_RUNE_HASTE,
-	DOTA_RUNE_INVISIBILITY,
-	DOTA_RUNE_DOUBLEDAMAGE,
-	DOTA_RUNE_ARCANE
-}
-
-local tLastRunes = {}
-
-function AIGameMode:FilterRune(tRuneFilter)
-	if GameRules:GetGameTime() < 300+self.fGameStartTime then
-		return true
-	elseif GameRules:GetGameTime() > 2395+self.fGameStartTime then
-		tRuneFilter.rune_type = tPossibleRunes[RandomInt(1, 6)]
-		while tRuneFilter.rune_type == tLastRunes[tRuneFilter.spawner_entindex_const] do
-			tRuneFilter.rune_type = tPossibleRunes[RandomInt(1, 6)]
-		end
-		tLastRunes[tRuneFilter.spawner_entindex_const] = tRuneFilter.rune_type
-		return true
-	else
-		if bFirstRuneShouldSpawned then
-			if bFirstRuneActuallySpawned then
-				tLastRunes[tRuneFilter.spawner_entindex_const] = nil
-				bFirstRuneShouldSpawned = false
-				return false
-			else
-				tRuneFilter.rune_type = tPossibleRunes[RandomInt(1, 6)]
-				while tRuneFilter.rune_type == tLastRunes[tRuneFilter.spawner_entindex_const] do
-					tRuneFilter.rune_type = tPossibleRunes[RandomInt(1, 6)]
-				end
-				tLastRunes[tRuneFilter.spawner_entindex_const] = tRuneFilter.rune_type
-				bFirstRuneShouldSpawned = false
-				return true
-			end
-		else
-			if RandomInt(0,1) > 0 then
-				bFirstRuneActuallySpawned = true
-				bFirstRuneShouldSpawned = true
-				tRuneFilter.rune_type = tPossibleRunes[RandomInt(1, 6)]
-				while tRuneFilter.rune_type == tLastRunes[tRuneFilter.spawner_entindex_const] do
-					tRuneFilter.rune_type = tPossibleRunes[RandomInt(1, 6)]
-				end
-				tLastRunes[tRuneFilter.spawner_entindex_const] = tRuneFilter.rune_type
-				return true
-			else
-				bFirstRuneActuallySpawned = false
-				bFirstRuneShouldSpawned = true
-				tLastRunes[tRuneFilter.spawner_entindex_const] = nil
-				return false
-			end
-		end
-	end
-end
-
 -- only run in tool debug mode
 function AIGameMode:FilterItemAdd(tItemFilter)
 	local item = EntIndexToHScript(tItemFilter.item_entindex_const)
 	if item then
-		if item:GetAbilityName() == "item_rapier" then
+		if item:GetAbilityName() == "item_rapier" or item:GetAbilityName() == "item_bag_of_gold" then
 			return true
 		end
 		local itemPurchaseName = item:GetPurchaseTime()

@@ -388,12 +388,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed_bonus"			"50"
+				"speed_bonus"			"40"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"accuracy"			 "60"
+				"accuracy"			 "50"
 			}
 			"03"
 			{
@@ -414,7 +414,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"15"
+				"bonus_armor"			"10"
 			}
 			"02"
 			{
@@ -457,7 +457,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"bonus_hp"			"20"
+				"bonus_hp"			"10"
 			}
 			"02"
 			{
@@ -525,4 +525,79 @@
 			}	
 		}
 	}
+	
+    "generic_gold_bag_fountain"
+    {
+		"MaxLevel"						"5"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+        "BaseClass"                     "ability_datadriven"
+        "AbilityTextureName"            "item_hand_of_midas"
+
+        "IsOnCastBar"                   "0"
+
+        "OnOwnerDied"
+        {
+            "CreateThinker"
+            {
+                "ModifierName"          "gold_bag_thinker"
+                "Target"
+                {
+                    "Center"    "CASTER"
+                    "Flags"     "DOTA_UNIT_TARGET_FLAG_DEAD"
+                }  
+            }
+            
+        }
+
+        "Modifiers"
+        {
+            "gold_bag_thinker"
+            {
+                "Duration"              "%duration"
+                "ThinkInterval"         "%think_interval"
+                "OnIntervalThink"
+                {
+                     "CreateItem"
+                    {
+                        "Target"
+                        {
+                            "Center"    "TARGET"
+                        }           
+                        "ItemName"          "item_bag_of_gold"
+                        "ItemCount"         "1"
+                        "SpawnRadius"       "25"
+                        "ItemChargeCount"   "%gold_value"
+                        "AutoUse"           "1"
+                        "LaunchHeight"      "300"
+                        "LaunchDistance"    "?50 250"
+                        "LaunchDuration"    "0.75"
+                    }
+                }
+            }
+        }
+       
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "gold_value"            "0"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "0.75 1.00 1.25 1.50 1.75"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "think_interval"        "0.075"
+            }
+        }
+    }
 }

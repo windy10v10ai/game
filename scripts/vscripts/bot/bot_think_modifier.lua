@@ -23,13 +23,24 @@ function modifier_bot_think_item_use:OnIntervalThink()
 	-- if hero is dead, do nothing
 	if hHero:IsAlive() == false then return end
 
+	-- if ability is , do nothing
+	local hAbility1 = hHero:GetAbilityByIndex(0)
+	local hAbility2 = hHero:GetAbilityByIndex(1)
+	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
+	local hAbility5 = hHero:GetAbilityByIndex(4)
+	local hAbility6 = hHero:GetAbilityByIndex(5)
+	if hAbility1:IsInAbilityPhase() or hAbility2:IsInAbilityPhase() or hAbility3:IsInAbilityPhase() or hAbility6:IsInAbilityPhase() then return end
+	if hAbility4 and hAbility4:IsInAbilityPhase() then return end
+	if hAbility5 and hAbility5:IsInAbilityPhase() then return end
+
 	-- item use
 	if hHero:IsStunned() or hHero:IsHexed() then return end
-	UseActiveItem(hHero)
+	if UseActiveItem(hHero) then return end
 
 	-- ability use
 	if hHero:IsSilenced() then return end
-	BotAbilityThink:ThinkUseAbility(hHero)
+	if BotAbilityThink:ThinkUseAbility(hHero) then return end
 end
 
 --------------------------------------------------------------------------------
@@ -51,8 +62,7 @@ function modifier_bot_think_strategy:OnIntervalThink()
 
 	local GameTime = GameRules:GetDOTATime(false, false)
 	if (GameTime >= (40 * 60)) then						-- LATEGAME
-		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
+		-- GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
 		GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
 	elseif (GameTime >= (18 * 60)) then					-- LATEGAME
 		if AIGameMode.barrackPushedGood > 5 or AIGameMode.barrackPushedBad > 5 then
@@ -61,17 +71,11 @@ function modifier_bot_think_strategy:OnIntervalThink()
 			GameRules:GetGameModeEntity():SetBotsMaxPushTier(5)
 		end
 	elseif (GameTime >= (16 * 60)) then						-- MIDGAME
-		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
 		GameRules:GetGameModeEntity():SetBotsMaxPushTier(4)
-	elseif (GameTime >= (14 * 60)) then						-- MIDGAME
+	elseif (GameTime >= (AIGameMode.botPushMin * 60)) then						-- MIDGAME
 		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
 		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(true)
 		GameRules:GetGameModeEntity():SetBotsMaxPushTier(3)
-	elseif (GameTime >= (10 * 60)) then						-- MIDGAME
-		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(true)
-		GameRules:GetGameModeEntity():SetBotsMaxPushTier(2)
 	else													-- EARLYGAME
 		GameRules:GetGameModeEntity():SetBotsInLateGame(false)
 		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(true)
