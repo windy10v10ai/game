@@ -371,14 +371,7 @@ function AIGameMode:RollDrops(hHero)
 							-- Remove the item
 							hHero:RemoveItem(hItem)
 							-- Create the item
-							local item = CreateItem(item_name, nil, nil)
-							if AIGameMode.DebugMode then
-								item:SetPurchaseTime(-100)
-							end
-							local pos = hHero:GetAbsOrigin()
-							local drop = CreateItemOnPositionSync( pos, item )
-							local pos_launch = pos+RandomVector(RandomFloat(150,200))
-							item:LaunchLoot(false, 200, 0.75, pos_launch)
+							AIGameMode:CreateItem(item_name, hHero)
 						end
 					end
 				end
@@ -387,6 +380,16 @@ function AIGameMode:RollDrops(hHero)
     end
 end
 
+function AIGameMode:CreateItem(sItemName, hEntity)
+	local item = CreateItem(sItemName, nil, nil)
+	if AIGameMode.DebugMode then
+		item:SetPurchaseTime(-100)
+	end
+	local pos = hEntity:GetAbsOrigin()
+	local drop = CreateItemOnPositionSync( pos, item )
+	local pos_launch = pos+RandomVector(RandomFloat(150,200))
+	item:LaunchLoot(false, 200, 0.75, pos_launch)
+end
 
 function AIGameMode:OnNPCSpawned(keys)
 	if GameRules:State_Get() < DOTA_GAMERULES_STATE_PRE_GAME then
@@ -442,14 +445,16 @@ function AIGameMode:OnNPCSpawned(keys)
 
 	if hEntity:IsCreep() then
 		if sName == "npc_dota_roshan" then
-			-- TODO roshan
-			print("roshan spawned")
-			self.roshanNumber = self.roshanNumber + 1
-			if self.roshanNumber > 5 then
-				self.roshanNumber = 5
-			end
 			local ability = hEntity:AddAbility("creep_buff_mega")
 			ability:SetLevel(self.roshanNumber)
+			-- find ability generic_gold_bag_fountain
+			local ability_gold_bag = hEntity:FindAbilityByName("generic_gold_bag_fountain")
+			ability_gold_bag:SetLevel(self.roshanNumber)
+
+			self.roshanNumber = self.roshanNumber + 1
+			if self.roshanNumber > 4 then
+				self.roshanNumber = 4
+			end
 			return
 		end
 	end
@@ -463,7 +468,7 @@ function AIGameMode:OnNPCSpawned(keys)
 			hEntity:AddNewModifier(hEntity, nil, "modifier_melee_resistance", {})
 		end
 
-		if sName == "npc_dota_hero_sniper" and self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.bSniperScepterThinkerApplierSet then
+		if sName == "npc_dota_hero_sniper" and not self.bSniperScepterThinkerApplierSet then
 			require('heroes/hero_sniper/sniper_init')
 			SniperInit(hEntity, self)
 		end
@@ -517,6 +522,19 @@ function AIGameMode:OnPlayerLevelUp(keys)
 	end
 end
 
+function AIGameMode:OnItemPickedUp( event )
+	-- if not courier
+	if not event.HeroEntityIndex then return end
+
+	local item = EntIndexToHScript( event.ItemEntityIndex )
+	local hHero = EntIndexToHScript( event.HeroEntityIndex )
+	if event.PlayerID ~= nil and item ~= nil and hHero ~= nil and item:GetAbilityName() == "item_bag_of_gold" then
+		local iGold = item:GetSpecialValueFor("bonus_gold")
+		print("-----------------debug-----------------", hHero:GetName().." Pick item:"..item:GetAbilityName().." gold:"..iGold)
+		hHero:ModifyGoldFiltered(iGold, true, DOTA_ModifyGold_RoshanKill)
+		SendOverheadEventMessage(hHero, OVERHEAD_ALERT_GOLD, hHero, iGold, nil)
+	end
+end
 
 function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
 	if tonumber(args.host_privilege) ~= 1 then return end
