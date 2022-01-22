@@ -24,9 +24,9 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_insight_armor',
 		'item_undying_heart',
+		'item_moon_shard_datadriven',
 		'item_heavens_halberd_v2',
 		'item_abyssal_blade_v2',
-		'item_moon_shard_datadriven',
 		'item_vladmir_2',
 	},
 	npc_dota_hero_bane = {
@@ -1276,7 +1276,7 @@ tBotItemData.addNeutralItemList = {
 		'item_mirror_shield',
 	},
 	npc_dota_hero_chaos_knight = {
-		'item_desolator_2',
+		'item_minotaur_horn',
 	},
 	npc_dota_hero_crystal_maiden = {
 		'item_demonicon',
@@ -1303,7 +1303,7 @@ tBotItemData.addNeutralItemList = {
 		'item_spell_prism',
 	},
 	npc_dota_hero_kunkka = {
-		'item_desolator_2',
+		'item_minotaur_horn',
 	},
 	npc_dota_hero_lich = {
 		'item_demonicon',
@@ -1360,7 +1360,7 @@ tBotItemData.addNeutralItemList = {
 		'item_ballista',
 	},
 	npc_dota_hero_sven = {
-		'item_desolator_2',
+		'item_minotaur_horn',
 	},
 	npc_dota_hero_tidehunter = {
 		'item_mirror_shield',
