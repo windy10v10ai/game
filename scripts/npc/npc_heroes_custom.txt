@@ -137,6 +137,13 @@
 				"28"		"special_bonus_movement_speed_25"
 				"29"		"special_bonus_hp_regen_20"
 				"30"		"special_bonus_unique_axe"
+				"31"		"axe_culling_blade"
+				"32"		"axe_culling_blade"
+				"33"		"axe_berserkers_call"
+				"34"		"axe_battle_hunger"
+				"35"		"axe_counter_helix"
+				"36"		"axe_counter_helix"
+				"37"		"axe_counter_helix"
 			}
 		}
 	}
@@ -488,6 +495,13 @@
 				"28"		"special_bonus_unique_dragon_knight_2"
 				"29"		"special_bonus_strength_20"
 				"30"		"special_bonus_unique_dragon_knight_8"
+				"31"		"dragon_knight_dragon_tail"
+				"32"		"dragon_knight_breathe_fire"
+				"33"		"dragon_knight_dragon_blood"
+				"34"		"dragon_knight_breathe_fire"
+				"35"		"dragon_knight_dragon_blood"
+				"36"		"dragon_knight_breathe_fire"
+				"37"		"dragon_knight_dragon_blood"
 			}
 		}
 	}
@@ -671,6 +685,13 @@
 				"28"		"special_bonus_unique_lich_2"
 				"29"		"special_bonus_unique_lich_4"
 				"30"		"special_bonus_unique_lich_1"
+				"31"		"lich_chain_frost"
+				"32"		"lich_chain_frost"
+				"33"		"lich_frost_nova"
+				"34"		"lich_frost_nova"
+				"35"		"lich_frost_nova"
+				"36"		"lich_frost_shield"
+				"37"		"lich_sinister_gaze"
 			}
 		}
 	}
@@ -711,13 +732,14 @@
 				"29"		"special_bonus_unique_lina_2"
 				"30"		"special_bonus_attack_range_125"
 				"31"		"lina_laguna_blade"
-				"32"		"lina_fiery_soul"
-				"33"		"lina_light_strike_array"
-				"34"		"lina_dragon_slave"
-				"35"		"lina_light_strike_array"
-				"36"		"lina_dragon_slave"
-				"37"		"lina_light_strike_array"
-				"38"		"lina_dragon_slave"
+				"32"		"lina_laguna_blade"
+				"33"		"lina_fiery_soul"
+				"34"		"lina_light_strike_array"
+				"35"		"lina_dragon_slave"
+				"36"		"lina_light_strike_array"
+				"37"		"lina_dragon_slave"
+				"38"		"lina_light_strike_array"
+				"39"		"lina_dragon_slave"
 			}
 		}
 	}
@@ -733,6 +755,12 @@
 				"28"		"special_bonus_unique_lion_11"
 				"29"		"special_bonus_unique_lion_10"
 				"30"		"special_bonus_unique_lion_4"
+				"31"		"lion_finger_of_death"
+				"32"		"lion_finger_of_death"
+				"33"		"lion_mana_drain"
+				"34"		"lion_impale"
+				"35"		"lion_impale"
+				"36"		"lion_impale"
 			}
 		}
 	}
@@ -1037,6 +1065,12 @@
 				"28"		"special_bonus_unique_pudge_7"
 				"29"		"special_bonus_unique_pudge_6"
 				"30"		"special_bonus_unique_pudge_3"
+				"31"		"pudge_dismember"
+				"32"		"pudge_flesh_heap"
+				"33"		"pudge_rot"
+				"34"		"pudge_rot"
+				"35"		"pudge_rot"
+				"36"		"pudge_meat_hook"
 			}
 		}
 	}
@@ -1115,6 +1149,10 @@
 				"28"		"special_bonus_unique_riki_8"
 				"29"		"special_bonus_unique_riki_9"
 				"30"		"special_bonus_unique_riki_6"
+				"31"		"riki_blink_strike"
+				"32"		"riki_backstab"
+				"33"		"riki_smoke_screen"
+				"34"		"riki_tricks_of_the_trade"
 			}
 		}
 	}
@@ -1441,6 +1479,12 @@
 				"28"		"special_bonus_unique_windranger"
 				"29"		"special_bonus_unique_windranger_6"
 				"30"		"special_bonus_unique_windranger_7"
+				"31"		"windrunner_focusfire"
+				"32"		"windrunner_powershot"
+				"33"		"windrunner_powershot"
+				"34"		"windrunner_powershot"
+				"35"		"windrunner_windrun"
+				"36"		"windrunner_shackleshot"
 			}
 		}
 	}
