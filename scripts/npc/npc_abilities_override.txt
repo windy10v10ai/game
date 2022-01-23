@@ -4189,7 +4189,7 @@
 	"lina_laguna_blade"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"70 60 50 40 30"
+		"AbilityCooldown"				"70 65 60 65 50"
 		"AbilityManaCost"				"250 400 550 650 750"
 		"AbilitySpecial"
 		{
