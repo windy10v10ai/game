@@ -146,20 +146,22 @@ function BotThink:ThinkConsumeItem(hHero)
 end
 
 function BotThink:AddMoney(hHero)
-  local iAddMoney = 5
+  local iAddBase = 5
   if AIGameMode.DebugMode then
-    iAddMoney = 20
+    iAddBase = 50
   end
   local GameTime = GameRules:GetDOTATime(false, false)
   local totalGold = PlayerResource:GetTotalEarnedGold(hHero:GetPlayerID())
+  if totalGold > 99999 then
+    return false
+  end
   local goldPerSec = totalGold/GameTime
   local multiplier = AIGameMode.fBotGoldXpMultiplier
-
-  if goldPerSec > (10 + multiplier*3) then
+  if goldPerSec > (10 + multiplier*iAddBase) then
     return false
   end
 
-	iAddMoney = math.floor(iAddMoney*multiplier)
+	local iAddMoney = math.floor(10 + multiplier*iAddBase)
 
   if iAddMoney > 0 then
     hHero:ModifyGold(iAddMoney, true, DOTA_ModifyGold_GameTick)
