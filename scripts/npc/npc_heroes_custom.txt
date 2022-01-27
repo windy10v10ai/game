@@ -96,7 +96,10 @@
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 		"VisionDaytimeRange"		"1800"
 	}
-
+	"npc_dota_hero_undying"
+	{
+		"Ability16"		"special_bonus_reincarnation_200"
+    }
 
 	//=================================================================================================================
 	// HERO: Axe

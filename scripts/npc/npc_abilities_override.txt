@@ -1410,14 +1410,6 @@
 	{
 		"AbilityCooldown"				"55.0 50.0 45.0"
 	}
-	"brewmaster_primal_split"
-	{
-		"AbilityCooldown"				"100.0 90.0 80.0"
-	}
-	"beastmaster_primal_roar"
-	{
-		"AbilityCooldown"				"60.0 55.0 50.0"
-	}
 	//=================================================================================================================
 	// Dragon Knight                       龙骑士
 	//=================================================================================================================
@@ -1715,10 +1707,6 @@
 		}
 	}
 	"sven_gods_strength"
-	{
-		"AbilityCooldown"				"80"
-	}
-	"undying_flesh_golem"
 	{
 		"AbilityCooldown"				"80"
 	}
@@ -9099,5 +9087,201 @@
 				"bonus_jump_damage"		"15 20 25 30 35"
 			}
 		}			
+	}
+	//=================================================================================================================
+	// Undying                        不朽尸王
+	//=================================================================================================================
+	"undying_decay"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"9.0 8.0 7.0 6.0 5.0 4.0 3.0"
+		"AbilityDuration"				"21.0 24.0 27.0 30.0 32.0 34.0 36.0"
+		"AbilityManaCost"				"70 75 80 85 90 95 100"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"decay_damage"					"20 50 80 110 130 150 170"
+				"LinkedSpecialBonus"			"special_bonus_unique_undying_8"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"str_steal"						"4"
+			}	
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"decay_duration"				"45"
+				"LinkedSpecialBonus"			"special_bonus_unique_undying_4"
+			}				
+		}
+	}
+	"undying_soul_rip"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"24.0 20.0 16.0 12.0 8.0 6.0 4.0"
+		"AbilityManaCost"				"85 100 115 130 140 150 160"		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_per_unit"			"30 35 40 45 50 55 60"
+				"LinkedSpecialBonus"			"special_bonus_unique_undying_6"
+			}			
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_units"					"8 9 10 11 12 13 14"
+			}
+		}
+	}
+	"undying_flesh_golem"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"100"
+		"AbilityManaCost"				"100 125 150 175 200"		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow"						"40 45 50 55 60"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_amp"				"25 30 35 40 45"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"str_percentage"			"40 50 60 70 80"
+			}	
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_bonus"			"30 40 50 60 70"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Beastmaster                        兽王
+	//=================================================================================================================
+	"beastmaster_wild_axes"
+	{
+		"MaxLevel"						"7"	
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"axe_damage"				"40 70 100 130 160 190 220"
+				"LinkedSpecialBonus"		"special_bonus_unique_beastmaster"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_amp"				"6 8 10 12 14 16 18"
+				"LinkedSpecialBonus"		"special_bonus_unique_beastmaster_9"
+			}
+		}
+	}
+	"beastmaster_call_of_the_wild_boar"
+	{
+		"AbilityCooldown"				"35 30 25 20"
+	}
+	"beastmaster_call_of_the_wild_hawk"
+	{
+		"AbilityCooldown"				"50 40 30 20"
+	}
+	"special_bonus_unique_beastmaster_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6517"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"70"
+				"ad_linked_ability"			"beastmaster_call_of_the_wild_boar"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"special_bonus_unique_beastmaster_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"613"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_hp"				"500"
+				"ad_linked_ability"			"beastmaster_call_of_the_wild_boar"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"beastmaster_inner_beast"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"15 25 35 45 55 65 75"
+				"LinkedSpecialBonus"		"special_bonus_unique_beastmaster_4"
+			}
+		}
+	}
+	"beastmaster_primal_roar"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"60.0 55.0 50.0 45.0 40.0"
+		"AbilityManaCost"				"150 175 200 225 250"		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"3.0 3.5 4.0 4.5 5.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"150 225 300 375 450"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"side_damage"				"150 225 300 375 450"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration"				"3 3.5 4 4.5 5"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"movement_speed_duration"			"3.0 3.5 4.0 4.5 5.0"
+			}
+		}
 	}	
 }
