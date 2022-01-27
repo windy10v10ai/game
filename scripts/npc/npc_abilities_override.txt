@@ -9593,6 +9593,7 @@
 	}
 	"morphling_morph_agi"
 	{
+		"MaxLevel"						"7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -9619,6 +9620,7 @@
 	}
 	"morphling_morph_str"
 	{
+		"MaxLevel"						"7"
 		"AbilitySpecial"
 		{
 			"01"
