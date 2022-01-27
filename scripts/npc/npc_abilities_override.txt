@@ -9283,5 +9283,234 @@
 				"movement_speed_duration"			"3.0 3.5 4.0 4.5 5.0"
 			}
 		}
+	}
+	//=================================================================================================================
+	// Brewmaster                      熊猫酒仙
+	//=================================================================================================================
+	"brewmaster_thunder_clap"
+	{
+		"MaxLevel"						"7"
+		"AbilityManaCost"				"90 100 110 120 130 140 150"		
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"90 160 230 300 370 440 500"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_slow"				"25 35 45 55 65 70 75"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed_slow"			"25 35 45 55 65 70 75"
+			}				
+		}
+	}
+	"brewmaster_cinder_brew"
+	{
+	    "MaxLevel"						"7"
+		"AbilityCooldown"				"18 16 14 12 10 8 6"
+		"AbilityManaCost"				"50 60 70 80 90 100 110"		
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"total_damage"				"75 150 225 300 375 450 500"
+				"LinkedSpecialBonus"		"special_bonus_unique_brewmaster_5"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_slow"				"24 28 32 36 40 44 48"
+			}
+		}
+	}
+	"brewmaster_drunken_brawler"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"29 25 21 17 14 12 10"
+		"AbilityManaCost"				"35 40 45 50 55 60 65"		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"dodge_chance"				"15 20 25 30 35 40 45"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_multiplier"			"145 160 175 190 205 220 235"
+				"LinkedSpecialBonus"		"special_bonus_unique_brewmaster_4"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"active_multiplier"			"5"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_movement"			"80"
+			}
+		}
+	}
+	"brewmaster_primal_split"
+	{
+		"AbilityCooldown"				"80 70 60"
+	}
+	"special_bonus_unique_brewmaster"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6082"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"3000"
+				"ad_linked_ability"			"brewmaster_primal_split"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	//=================================================================================================================
+	// Huskar                                     哈斯卡
+	//=================================================================================================================
+	"huskar_inner_fire"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"14 13 12 11 10"
+		"AbilityManaCost"				"75 100 125 150 175"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 170 240 310 380"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"disarm_duration"		"1.75 2.5 3.25 4 4.5"
+				"LinkedSpecialBonus"			"special_bonus_unique_huskar_3"
+			}
+		}
 	}	
+	"huskar_burning_spear"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"health_cost"					"3"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"burn_damage"					"5 10 15 20 25 30 35"
+				"LinkedSpecialBonus"			"special_bonus_unique_huskar_2"
+			}			
+		}
+	}
+	"special_bonus_unique_huskar_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6380"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"10"
+				"ad_linked_ability"			"huskar_burning_spear"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"huskar_berserkers_blood"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"maximum_attack_speed"			"160 210 260 310 360 410 460"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"maximum_health_regen"			"40 50 60 70 80 90 100"
+				"LinkedSpecialBonus"			"special_bonus_unique_huskar_6"
+			}
+		}
+	}
+	"huskar_life_break"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityDuration"				"3 4 5 6 7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"health_cost_percent"		"0.32 0.34 0.36 0.38 0.40"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"health_damage"				"0.32 0.38 0.44 0.50 0.56"
+				"LinkedSpecialBonus"		"special_bonus_unique_huskar"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"charge_speed"				"1500"
+			}
+			"04"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"tooltip_health_damage"				"32 38 44 50 56"
+				"LinkedSpecialBonus"		"special_bonus_unique_huskar"
+				"LinkedSpecialBonusField"		"value2"
+
+			}
+			"05"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"tooltip_health_cost_percent"		"32 34 36 38 40"
+				"CalculateSpellDamageTooltip"		"1"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed"					"-60 -65 -70 -75 -80"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_durtion_tooltip"		"3 4 5 6 7"
+			}
+		}
+	}
 }
