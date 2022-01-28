@@ -2901,6 +2901,27 @@
 		"AbilityManaCost"				"150 300 450"
 	}
 
+	//=================================================================================================================
+	// witch docker                              巫医
+	//=================================================================================================================
+	"witch_doctor_paralyzing_cask"
+	{
+		"MaxLevel" "7"
+		"AbilityManaCost"				"80 100 120 140 160 180 200"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hero_damage"			"40 80 120 160 200 240 280"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bounce_bonus_damage"			"10 15 20 25 30 35 40"
+			}
+		}
+	}
 	"witch_doctor_voodoo_restoration"
 	{
 		"MaxLevel" "7"
@@ -2910,7 +2931,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_per_second"			"8 12 16 20 25 30 40"
+				"mana_per_second"			"8 12 16 20 24 28 32"
 			}
 			"03"
 			{
@@ -2926,6 +2947,21 @@
 		"AbilityDamage"					"10 20 30 40 50 65 80"
 		"AbilityManaCost"				"105 110 115 120 130 140 150"
 	}
+	"witch_doctor_death_ward"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"85 140 195 260 315"
+				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_5"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+		}
+	}
+		
 
 	"dazzle_shadow_wave"
 	{
@@ -10159,6 +10195,45 @@
 				"var_type"					"FIELD_INTEGER"
 				"value"				"70"
 				"ad_linked_ability"			"sven_gods_strength"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	//=================================================================================================================
+	// Oracle                          神谕者
+	//=================================================================================================================
+	"oracle_fortunes_end"
+	{
+		"MaxLevel"						"7"
+		"AbilityManaCost"				"80 100 120 140 160 180 200"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"100 160 220 280 340 400 460"
+			}
+		}
+	}
+	"oracle_purifying_flames"
+	{
+		"MaxLevel"						"7"
+		"AbilityManaCost"				"80 85 90 95 100 105 110"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"90 180 270 360 450 540 630"
+			}			
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"heal_per_second"		"11.0 22.0 33.0 44.0 55.0 66.0 77.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_heal_tooltip"	"99 198 297 396 495 594 693"
 			}
 		}
 	}
