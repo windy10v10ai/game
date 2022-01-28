@@ -2312,7 +2312,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2050"
+		"ItemCost"						"1950"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2366,7 +2366,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"spell_amp_per_int"			"0.1"
+				"spell_amp_per_int"			"0.09"
 			}
 			"03"
 			{
@@ -2395,7 +2395,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2000"
+		"ItemCost"						"1800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2450,7 +2450,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"spell_amp_per_int"			"0.2"
+				"spell_amp_per_int"			"0.18"
 			}
 			"03"
 			{
@@ -4000,7 +4000,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1200"
+		"ItemCost"						"200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4075,7 +4075,7 @@
 			"06"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"active_crit_chance"		"100"
+				"active_crit_chance"		"80"
 			}
 			"07"
 			{
@@ -4213,7 +4213,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3075"
+		"ItemCost"						"2075"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4249,7 +4249,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"10000"
+		"ItemCost"						"9000"
 		"ItemShopTags"					"speed"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"DMC"
@@ -4269,7 +4269,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"dodge_chance"		   		"40"
+				"dodge_chance"		   		"35"
 			}
 			"03"
 			{
@@ -4289,7 +4289,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"200"
+				"crit_multiplier"			"180"
 			}
 			"07"
 			{
@@ -4299,7 +4299,7 @@
 			"08"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"active_dodge_chance"		"100"
+				"active_dodge_chance"		"80"
 			}
 			"09"
 			{
@@ -4494,7 +4494,7 @@
 			"08"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"active_dodge_chance"		"100"
+				"active_dodge_chance"		"80"
 			}
 			"09"
 			{
@@ -4509,7 +4509,7 @@
 			"11"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"active_crit_chance"		"100"
+				"active_crit_chance"		"80"
 			}
 		}
 		"OnSpellStart"
@@ -4783,7 +4783,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-90"
+				"aura_attack_speed"		"-80"
 			}
 			"05"
 			{
