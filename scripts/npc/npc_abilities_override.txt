@@ -9604,7 +9604,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"morph_cooldown"		"0.333 0.166 0.083 0.0416"
+				"morph_cooldown"		"0.333 0.166 0.083 0.0416 0.0333 0.0277 0.0238"
 			}
 			"03"
 			{
@@ -9614,7 +9614,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"morph_rate_tooltip"	"3 6 12 24 30 35 40"
+				"morph_rate_tooltip"	"3 6 12 24 30 36 42"
 			}
 		}
 	}
@@ -9631,7 +9631,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"morph_cooldown"		"0.333 0.166 0.083 0.0416"
+				"morph_cooldown"		"0.333 0.166 0.083 0.0416 0.0333 0.0277 0.0238"
 			}
 			"03"
 			{
@@ -9641,7 +9641,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"morph_rate_tooltip"	"3 6 12 24 30 35 40"
+				"morph_rate_tooltip"	"3 6 12 24 30 36 42"
 			}
 		}
 	}
