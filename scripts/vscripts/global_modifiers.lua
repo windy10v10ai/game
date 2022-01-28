@@ -126,7 +126,7 @@ function modifier_tower_endure:GetModifierPhysicalArmorBonus()
 	local sArmor = self:GetParent():GetPhysicalArmorBaseValue()
 	local fPercent = StackToPercentage(self:GetStackCount())
 
-	local iArmor = math.floor(sArmor/2*(fPercent-1))
+	local iArmor = math.floor(sArmor/4*(fPercent-1))
 	return iArmor
 end
 
@@ -151,7 +151,7 @@ end
 
 function modifier_tower_power:GetModifierAttackSpeedBonus_Constant()
 	local fPower = StackToPercentage(self:GetStackCount())
-	return math.floor(20*(fPower)+10)
+	return math.floor(10*(fPower)+10)
 end
 
 function modifier_tower_power:GetModifierBaseDamageOutgoing_Percentage()
