@@ -1014,6 +1014,12 @@
 				"28"		"special_bonus_unique_oracle_9"
 				"29"		"special_bonus_unique_oracle_8"
 				"30"		"special_bonus_unique_oracle_7"
+				"31"		"oracle_fortunes_end"
+				"32"		"oracle_purifying_flames"
+				"33"		"oracle_fortunes_end"
+				"34"		"oracle_purifying_flames"
+				"35"		"oracle_fortunes_end"
+				"36"		"oracle_purifying_flames"
 			}
 		}
 	}
@@ -1515,9 +1521,14 @@
 				"28"		"special_bonus_hp_300"
 				"29"		"special_bonus_unique_witch_doctor_7"
 				"30"		"special_bonus_unique_witch_doctor_2"
-				"31"		"witch_doctor_maledict"
-				"32"		"witch_doctor_maledict"
+				"31"		"witch_doctor_death_ward"
+				"32"		"witch_doctor_paralyzing_cask"
 				"33"		"witch_doctor_maledict"
+				"34"		"witch_doctor_paralyzing_cask"
+				"35"		"witch_doctor_maledict"
+				"36"		"witch_doctor_paralyzing_cask"
+				"37"		"witch_doctor_maledict"
+				"38"		"witch_doctor_death_ward"
 			}
 		}
 	}
