@@ -1702,10 +1702,6 @@
 			}
 		}
 	}
-	"sven_gods_strength"
-	{
-		"AbilityCooldown"				"80"
-	}
 	"wisp_relocate"
 	{
 		"AbilityCooldown"				"80 70 60"
@@ -10055,6 +10051,114 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_per_second"				"15 35 55 75 95 105 115"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_3"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Sven                            斯文
+	//=================================================================================================================
+	"sven_storm_bolt"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityDamage"					"95 170 245 320 395"
+		"AbilityManaCost"				"110 120 130 140 150"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bolt_stun_duration"	"1.25 1.5 1.75 2.0 2.25"
+				"LinkedSpecialBonus"		"special_bonus_unique_sven_4"
+			}
+		}
+	}
+	"sven_great_cleave"
+	{
+		"MaxLevel"						"5"
+		"AbilitySpecial"
+		{						
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"great_cleave_damage"	"25 50 75 100 125"
+				"LinkedSpecialBonus"		"special_bonus_unique_sven_8"
+			}
+		}
+	}
+	"special_bonus_unique_sven_8"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"763"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"50"
+				"ad_linked_ability"			"sven_great_cleave"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"sven_warcry"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"32 28 24 20 16"
+		"AbilityManaCost"				"30 40 50 60 70"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movespeed"			"8 12 16 20 24"
+				"LinkedSpecialBonus"		"special_bonus_unique_sven_6"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_armor"		"6 9 12 15 18"		
+				"LinkedSpecialBonus"		"special_bonus_unique_sven_7"
+			}
+		}
+	}
+	"sven_gods_strength"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"80"
+		"AbilityManaCost"				"100 150 200 225 250"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"gods_strength_damage"		"120 160 200 240 280"	
+				"LinkedSpecialBonus"		"special_bonus_unique_sven_2"	
+			}
+		}	
+	}
+	"special_bonus_unique_sven_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6910"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"70"
+				"ad_linked_ability"			"sven_gods_strength"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
