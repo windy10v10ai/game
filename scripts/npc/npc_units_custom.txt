@@ -130,7 +130,7 @@
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2600"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"BountyGoldMin"				"300"		// Gold earned min.
 		"BountyGoldMax"				"450"		// Gold earned max.
@@ -147,7 +147,7 @@
 		"AttackAcquisitionRange"	"1100"		// Range within a target can be acquired.
 		"AttackRange"				"1100"		// Range within a target can be attacked.
 
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2600"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"BountyGoldMin"				"300"		// Gold earned min.
 		"BountyGoldMax"				"450"		// Gold earned max.
@@ -164,7 +164,7 @@
 		"AttackAcquisitionRange"	"1100"		// Range within a target can be acquired.
 		"AttackRange"				"1100"		// Range within a target can be attacked.
 
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2600"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"BountyGoldMin"				"300"		// Gold earned min.
 		"BountyGoldMax"				"450"		// Gold earned max.
@@ -181,7 +181,7 @@
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2600"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"BountyGoldMin"				"300"		// Gold earned min.
 		"BountyGoldMax"				"450"		// Gold earned max.
@@ -198,7 +198,7 @@
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2600"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"BountyGoldMin"				"300"		// Gold earned min.
 		"BountyGoldMax"				"450"		// Gold earned max.
@@ -215,7 +215,7 @@
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2600"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"BountyGoldMin"				"300"		// Gold earned min.
 		"BountyGoldMax"				"450"		// Gold earned max.
@@ -752,8 +752,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"40"		// Physical protection.
-		"MagicalResistance"			"40"			// Magical protection.
+		"ArmorPhysical"				"30"		// 21
+		"MagicalResistance"			"30"		// 0
 		"StatusHealth"				"8000"		// Base health.
 		"StatusHealthRegen"			"10"			// Health regeneration rate.
 	}
@@ -770,8 +770,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"40"		// Physical protection.
-		"MagicalResistance"			"40"			// Magical protection.
+		"ArmorPhysical"				"30"		// 21
+		"MagicalResistance"			"30"		// 0
 		"StatusHealth"				"8000"		// Base health.
 		"StatusHealthRegen"			"10"			// Health regeneration rate.
 	}
@@ -782,8 +782,8 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"50"		// Physical protection.
-		"MagicalResistance"			"50"		// Magical protection.
+		"ArmorPhysical"				"40"		// 13
+		"MagicalResistance"			"40"		// 0
 
 		// Ability
 		"Ability2"					"tower_split_shot"
@@ -813,8 +813,8 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"50"		// Physical protection.
-		"MagicalResistance"			"50"		// Magical protection.
+		"ArmorPhysical"				"40"		// 13
+		"MagicalResistance"			"40"		// 0
 
 		// Ability
 		"Ability2"					"tower_split_shot"
