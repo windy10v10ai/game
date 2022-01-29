@@ -5992,7 +5992,7 @@
 	{
 		"MaxLevel" "7"
 		"AbilityCooldown"				"20 18 16 14"
-		"AbilityManaCost"				"120 130 140 150 160 170 180""		
+		"AbilityManaCost"				"120 130 140 150 160 170 180"	
 		"AbilitySpecial"
 		{
 			"02"
