@@ -3612,7 +3612,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_evasion"		"20"
+				"active_evasion"		"10"
 			}
 			"08"
 			{
@@ -3699,7 +3699,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"att"					"40"
+				"att"					"50"
 			}			
 			"03"
 			{
@@ -3724,7 +3724,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_evasion"		"40"
+				"active_evasion"		"20"
 			}
 			"08"
 			{
