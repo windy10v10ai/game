@@ -96,7 +96,18 @@
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 		"VisionDaytimeRange"		"1800"
 	}
-
+	"npc_dota_hero_undying"
+	{
+		"Ability16"		"special_bonus_reincarnation_200"
+    }
+	"npc_dota_hero_morphling"
+	{
+		"Ability15"		"special_bonus_magic_resistance_30"
+    }
+	"npc_dota_hero_enchantress"
+	{
+		"Ability10"		"special_bonus_magic_resistance_30"
+    }
 
 	//=================================================================================================================
 	// HERO: Axe
@@ -1003,6 +1014,12 @@
 				"28"		"special_bonus_unique_oracle_9"
 				"29"		"special_bonus_unique_oracle_8"
 				"30"		"special_bonus_unique_oracle_7"
+				"31"		"oracle_fortunes_end"
+				"32"		"oracle_purifying_flames"
+				"33"		"oracle_fortunes_end"
+				"34"		"oracle_purifying_flames"
+				"35"		"oracle_fortunes_end"
+				"36"		"oracle_purifying_flames"
 			}
 		}
 	}
@@ -1296,6 +1313,11 @@
 				"28"		"special_bonus_unique_sven_8"
 				"29"		"special_bonus_movement_speed_25"
 				"30"		"special_bonus_unique_sven_4"
+				"31"		"sven_gods_strength"
+				"32"		"sven_gods_strength"
+				"33"		"sven_great_cleave"
+				"34"		"sven_storm_bolt"
+				"35"		"sven_warcry"
 			}
 		}
 	}
@@ -1499,9 +1521,14 @@
 				"28"		"special_bonus_hp_300"
 				"29"		"special_bonus_unique_witch_doctor_7"
 				"30"		"special_bonus_unique_witch_doctor_2"
-				"31"		"witch_doctor_maledict"
-				"32"		"witch_doctor_maledict"
+				"31"		"witch_doctor_death_ward"
+				"32"		"witch_doctor_paralyzing_cask"
 				"33"		"witch_doctor_maledict"
+				"34"		"witch_doctor_paralyzing_cask"
+				"35"		"witch_doctor_maledict"
+				"36"		"witch_doctor_paralyzing_cask"
+				"37"		"witch_doctor_maledict"
+				"38"		"witch_doctor_death_ward"
 			}
 		}
 	}
