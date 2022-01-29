@@ -5990,20 +5990,20 @@
 	//=================================================================================================================
 	"earthshaker_fissure"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"20 18 16 14 12"
-		"AbilityManaCost"				"120 130 140 150 160"		
+		"MaxLevel" "7"
+		"AbilityCooldown"				"20 18 16 14"
+		"AbilityManaCost"				"120 130 140 150 160 170 180""		
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"fissure_duration"			"7 7.5 8.0 8.5 9.0"
+				"fissure_duration"			"7 7.5 8.0 8.5"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"fissure_damage"				"110 160 210 260 310"
+				"fissure_damage"				"110 160 210 260 310 360 410"
 				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_4"
 
 			}
