@@ -4961,7 +4961,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1800"
+		"ItemCost"						"1400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4970,7 +4970,7 @@
 		"ItemResult"					"item_shotgun"
 		"ItemRequirements"
 		{
-			"01"						"item_mithril_hammer;item_mithril_hammer;item_blitz_knuckles;item_blitz_knuckles;"
+			"01"						"item_mithril_hammer;item_blitz_knuckles;item_blitz_knuckles"
 		}
 	}
 	//=================================================================================================================
@@ -5003,12 +5003,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"40"
+				"bonus_damage"			"25"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"60"
+				"attack_speed"			"70"
 			}
 			"03"
 			{
@@ -5037,7 +5037,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2200"
+		"ItemCost"						"2300"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5046,7 +5046,7 @@
 		"ItemResult"					"item_shotgun_v2"
 		"ItemRequirements"
 		{
-			"01"						"item_shotgun;item_mystic_staff;"
+			"01"						"item_shotgun;item_maelstrom"
 		}
 	}
 	//=================================================================================================================
@@ -5079,12 +5079,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"70"
+				"bonus_damage"			"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"90"
+				"attack_speed"			"70"
 			}
 			"03"
 			{
