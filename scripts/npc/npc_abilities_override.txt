@@ -2253,6 +2253,9 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// PA
+	//=================================================================================================================
 	"phantom_assassin_stifling_dagger"
 	{
 		"MaxLevel" "7"
@@ -2316,6 +2319,17 @@
 				"var_type"					"FIELD_INTEGER"
 				"crit_bonus"				"200 325 450 500 550"
 				"LinkedSpecialBonus"		"special_bonus_unique_phantom_assassin_4"
+			}
+		}
+	}
+	"phantom_assassin_fan_of_knives"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pct_health_damage_initial"			"12"
 			}
 		}
 	}
