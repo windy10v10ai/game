@@ -590,5 +590,21 @@
 		"DOTA_Tooltip_Ability_item_recipe_wasp_golden"				 	"黄金大核荣耀卷轴"
 
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"金袋"
+
+ 		"DOTA_Tooltip_ability_item_shotgun"                     "双管霰弹枪"
+        "DOTA_Tooltip_ability_item_shotgun_Description"         "<h1>被动: 霰弹</h1>仅限远程：在%attack_radius%半径内造成%attack_percent%%%溅射伤害（物理）。"
+        "DOTA_Tooltip_ability_item_shotgun_attack_speed"           "+$attack"
+        "DOTA_Tooltip_ability_item_shotgun_bonus_damage"           "+$damage"
+        "DOTA_Tooltip_ability_item_shotgun_lore"                "嗵！嗵！"
+		"DOTA_Tooltip_Ability_item_recipe_shotgun"				"双管散弹枪合成卷轴"
+        
+        "DOTA_Tooltip_ability_item_shotgun_v2"                  "三管霰弹枪"
+        "DOTA_Tooltip_ability_item_shotgun_v2_Description"      "<h1>被动: 霰弹</h1>仅限远程：在%attack_radius%半径内造成%attack_percent%%%溅射伤害（魔法）。"
+        "DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"           "+$attack"
+        "DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"           "+$damage"
+        "DOTA_Tooltip_ability_item_shotgun_v2_lore"             "嗵！嗵！嗵！"
+		"DOTA_Tooltip_Ability_item_recipe_shotgun_v2"			"三管散弹枪合成卷轴"
+
+
 	}
 }

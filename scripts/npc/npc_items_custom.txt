@@ -4946,6 +4946,160 @@
 			}
 		}
 	}
+
+	//=================================================================================================================
+	// Recipe: Shotgun 霰弹枪合成图
+	//=================================================================================================================
+	"item_recipe_shotgun"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3066"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"item_recipe_shotgun"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1800"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_shotgun"
+		"ItemRequirements"
+		{
+			"01"						"item_mithril_hammer;item_mithril_hammer;item_blitz_knuckles;item_blitz_knuckles;"
+		}
+	}
+	//=================================================================================================================
+	// Shotgun 霰弹枪
+	//=================================================================================================================
+	"item_shotgun"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3067"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_lua"
+		"AbilityTextureName" 			"shotgun"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"ScriptFile"                    "items/item_shotgun.lua"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"7000"
+		"ItemShopTags"					"damage;attack_speed"
+		"ItemQuality"					"arcane"
+		"ItemAliases"					"shotgun"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequiresCharges"			"0"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed"			"70"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_radius"			"350"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_percent"		"50"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Recipe: Shotgun v2 三管霰弹枪合成图
+	//=================================================================================================================
+	"item_recipe_shotgun_v2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3068"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"item_recipe_shotgun_v2"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2200"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_shotgun_v2"
+		"ItemRequirements"
+		{
+			"01"						"item_shotgun;item_mystic_staff;"
+		}
+	}
+	//=================================================================================================================
+	// Shotgun v2 三管霰弹枪
+	//=================================================================================================================
+	"item_shotgun_v2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3069"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_lua"
+		"AbilityTextureName" 			"shotgun_v2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"ScriptFile"                    "items/item_shotgun_v2.lua"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"12000"
+		"ItemShopTags"					"damage;attack_speed"
+		"ItemQuality"					"arcane"
+		"ItemAliases"					"shotgun"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequiresCharges"			"0"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"70"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed"			"90"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_radius"			"400"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_percent"		"70"
+			}
+		}
+	}
+
+
 }
 
 
