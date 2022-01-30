@@ -589,5 +589,19 @@
 		"DOTA_Tooltip_Ability_item_recipe_wasp_golden"				 	"Golden WASP Recipe"
 
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"Bag of Gold"
+
+
+		"DOTA_Tooltip_ability_item_shotgun"                                  "Double-barreled Shotgun"
+    	"DOTA_Tooltip_ability_item_shotgun_Description"                      "<h1>Passive: Scatterblast</h1>RANGED ONLY: grants %attack_radius%%% splash damage (Physical) in %attack_percent% radius."
+        "DOTA_Tooltip_ability_item_shotgun_attack_speed"           "+$attack"
+        "DOTA_Tooltip_ability_item_shotgun_bonus_damage"           "+$damage"
+		"DOTA_Tooltip_ability_item_shotgun_lore"                             "Bang!Bang!"
+
+		"DOTA_Tooltip_ability_item_shotgun_v2"                                "Three Tube Shotguns"
+		"DOTA_Tooltip_ability_item_shotgun_v2_Description"                    "<h1>Passive: Greater Scatterblast</h1>RANGED ONLY: grants %attack_radius%%% splash damage (Magical) in %attack_percent% radius."
+        "DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"           "+$attack"
+        "DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"           "+$damage"
+		"DOTA_Tooltip_ability_item_shotgun_v2_lore"                           "Bang!Bang!Bang!"
+
 	}
 }

@@ -192,6 +192,7 @@
 		"item"		"item_bloodthorn"
 		"item"		"item_infernal_desolator"
 		"item"		"item_monkey_king_bar_2"
+		"item"		"item_shotgun_v2"
 		//"item"		"item_abyssal_blade"
 		"item"		"item_silver_edge_2"
 		"item"		"item_abyssal_blade_v2"
