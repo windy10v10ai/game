@@ -27,7 +27,6 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_heavens_halberd_v2',
 		'item_abyssal_blade_v2',
-		'item_vladmir_2',
 	},
 	npc_dota_hero_bane = {
 		'item_magic_wand',
@@ -210,7 +209,6 @@ tBotItemData.purchaseItemList = {
 		'item_vladmir_2',
 		'item_aghanims_shard',
 		'item_ultimate_scepter_2',
-		'item_insight_armor',
 		'item_undying_heart',
 		'item_wasp_despotic',
 		'item_moon_shard_datadriven',
