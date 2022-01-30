@@ -4756,20 +4756,20 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"armor_per_stack"		"1.5 2.0 2.5 3.0 3.2 3.4 3.6"
+				"armor_per_stack"		"1.6 2.0 2.4 2.8 3.0 3.2 3.4"
 				"LinkedSpecialBonus"	"special_bonus_unique_bristleback_4"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"move_slow_per_stack"	"3 6 9 12 14 15 16"
+				"move_slow_per_stack"	"3 6 9 12 13 14 15"
 			}
 		}
 	}
 	"bristleback_quill_spray"
 	{
 		"MaxLevel"						"7"
-		"AbilityManaCost"				"15 20 25 30 35 40 45"
+		"AbilityManaCost"				"25 30 35 40 45 50 55"
 		"AbilitySpecial"
 		{
 			"02"
@@ -4803,7 +4803,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"back_damage_reduction"			"16 20 24 30 36 38 40"
+				"back_damage_reduction"			"16 20 24 28 32 36 40"
 			}
 			"05"
 			{
