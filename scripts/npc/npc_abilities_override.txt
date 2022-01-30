@@ -9739,21 +9739,16 @@
 				"var_type"				"FIELD_INTEGER"
 				"bonus_armor"			"4 5 6 7 8 9 10"
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_attack_time"		"1.25"
 			}	
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ensnare_chance"			"14 16 18 20 22 24 26"
+				"ensnare_chance"			"16 17 18 19 20 21 22"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"ensnare_duration"			"0.8 1.2 1.6 2.0 2.2 2.4 2.6"
+				"ensnare_duration"			"0.8 1.2 1.6 2.0 2.2 2.3 2.4"
 			}
 		}
 	}
