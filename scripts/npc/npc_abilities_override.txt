@@ -4786,7 +4786,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"max_damage"			"400.0"
+				"max_damage"			"450.0"
 			}
 		}
 	}
@@ -4808,7 +4808,7 @@
 			"05"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"quill_release_threshold"		"300"
+				"quill_release_threshold"		"350"
 			}
 		}
 	}
