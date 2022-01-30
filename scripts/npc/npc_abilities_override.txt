@@ -4775,13 +4775,18 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"quill_base_damage"		"25 45 65 75 85 95 105"
+				"quill_base_damage"		"35 45 55 65 75 85 95"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"quill_stack_damage"	"28 30 32 34 36 38 40"
 				"LinkedSpecialBonus"	"special_bonus_unique_bristleback_2"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"max_damage"			"400.0"
 			}
 		}
 	}
@@ -4798,7 +4803,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"back_damage_reduction"			"16 20 24 28 32 36 38"
+				"back_damage_reduction"			"16 20 24 30 36 38 40"
 			}
 			"05"
 			{
