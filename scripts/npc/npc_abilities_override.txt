@@ -605,12 +605,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"lifetime"				"600"
+				"lifetime"				"480"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration_minutes_tooltip"				"10"
+				"duration_minutes_tooltip"				"8"
 			}
 		}
 	}
@@ -2908,12 +2908,25 @@
 	{
 		"MaxLevel" "7"
 		"AbilityManaCost"				"80 100 120 140 160 180 200"
+		"AbilityCooldown"				"20.0 19.0 18.0 17.0 16.0 15.0 14.0"
+
 		"AbilitySpecial"
 		{
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"hero_damage"			"40 80 120 160 200 240 280"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bounces"				"3 5 7 9 11 13 15"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bounces_tooltip"				"2 4 6 8 10 12 14"
+				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_3"
 			}
 			"09"
 			{
@@ -2955,7 +2968,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"85 140 195 260 315"
+				"damage"					"85 140 195 250 305"
 				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_5"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -3692,32 +3705,10 @@
 			"06"
 			{
 				"var_type"								"FIELD_FLOAT"
-				"ball_lightning_travel_cost_percent"	"0.5"		
+				"ball_lightning_travel_cost_percent"	"0.6"		
 			}
 		}
 	}
-	"special_bonus_unique_storm_spirit_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6908"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"value"				"350"
-				"ad_linked_ability"			"multi_linked_ability"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-				"linked_ad_abilities"				"storm_spirit_ball_lightning storm_spirit_static_remnant"
-			}
-		}
-	}
-
 	//=================================================================================================================
 	// Roshan: Slam
 	//=================================================================================================================
@@ -5991,19 +5982,14 @@
 	"earthshaker_fissure"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"20 18 16 14"
-		"AbilityManaCost"				"120 130 140 150 160 170 180"	
+		"AbilityCooldown"				"20 19 18 17 16 15 14"
+		"AbilityManaCost"				"110 125 140 155 170 185 200"	
 		"AbilitySpecial"
 		{
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fissure_duration"			"7 7.5 8.0 8.5"
-			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"fissure_damage"				"110 160 210 260 310 360 410"
+				"fissure_damage"			"110 160 210 260 310 360 410"
 				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_4"
 
 			}
@@ -8747,15 +8733,15 @@
 	}
 	"abaddon_aphotic_shield"
 	{
-		"MaxLevel"						"5"
-		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
-		"AbilityManaCost"				"100 110 120 130 140"
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"12.0 11.0 10.0 9.0 8.0 7.0 6.0"
+		"AbilityManaCost"				"100 110 120 130 140 150 160"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_absorb"			"110 140 170 200 230"
+				"damage_absorb"			"110 140 170 200 230 260 290"
 				"LinkedSpecialBonus"	"special_bonus_unique_abaddon"
 			}
 		}
@@ -8773,7 +8759,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"curse_slow"				"15 30 45 60 70 80 90"
+				"curse_slow"				"15 25 35 45 55 65 75"
 			}
 			"06"
 			{
@@ -8785,7 +8771,7 @@
 	"abaddon_borrowed_time"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"50.0 45.0 40.0 35.0 30.0"
+		"AbilityCooldown"				"60.0 55.0 50.0 45.0 40.0"
 		"AbilitySpecial"
 		{
 			"01"
@@ -8796,18 +8782,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.0 5.0 6.0 7.0 8.0"
+				"duration"					"4.0 4.5 5.0 5.5 6.0"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration_scepter"			"7 8 9 10 11"
-				"RequiresScepter"	"1"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"ally_threshold_scepter"	"600 700 800 900 1000"
+				"duration_scepter"			"7.0 7.5 8.0 8.5 9.0"
 				"RequiresScepter"	"1"
 			}
 		}
@@ -9699,8 +9679,7 @@
 	//=================================================================================================================
 	"troll_warlord_rampage"
 	{
-		"AbilityCooldown"				"40"
-		"AbilityManaCost"				"50"
+		"AbilityCooldown"				"60"
 		"AbilitySpecial"
 		{
 			"01"
@@ -9755,7 +9734,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"ensnare_duration"			"0.8 1.2 1.6 2.0 2.2 2.4 2.5"
+				"ensnare_duration"			"0.8 1.2 1.6 2.0 2.2 2.4 2.6"
 			}
 		}
 	}
@@ -9825,25 +9804,25 @@
 	"troll_warlord_battle_trance"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"80 70 60 50 40"
+		"AbilityCooldown"				"90 80 70 60 50"
 		"AbilityManaCost"				"150"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"trance_duration"		"6 7 8 9 10"		
+				"trance_duration"		"6.0"	
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_7"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"lifesteal"			"50 60 70 80 90"
+				"lifesteal"			"40 50 60 70 80"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_speed"			"140 170 200 230 250"
+				"attack_speed"			"140 170 200 230 260"
 			}
 			"04"
 			{
