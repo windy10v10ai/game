@@ -63,6 +63,7 @@ function AIGameMode:InitEvents()
 	ListenToGameEvent("npc_spawned", Dynamic_Wrap(AIGameMode, "OnNPCSpawned"), self)
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(AIGameMode, "OnEntityKilled"), self)
 	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( AIGameMode, "OnItemPickedUp" ), self )
+	ListenToGameEvent( "player_chat", Dynamic_Wrap( AIGameMode, "OnPlayerChat" ), self )
 	--JS events
 	CustomGameEventManager:RegisterListener("loading_set_options", function (eventSourceIndex, args) return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args) end)
 	-- 游戏选项改变事件
