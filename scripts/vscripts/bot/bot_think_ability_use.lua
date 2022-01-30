@@ -1,6 +1,7 @@
 --------------------
 -- Initial
 --------------------
+require('bot/bot_think_item_use')
 if BotAbilityThink == nil then
 	_G.BotAbilityThink = class({}) -- put in the global scope
 end
@@ -42,7 +43,7 @@ function BotAbilityThink:ThinkUseAbility_Axe(hHero)
 
 	local iThreshold = hAbility6:GetSpecialValueFor("kill_threshold")
 	if hAbility6:IsFullyCastable() then
-		local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, hAbility6:GetCastRange()+150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+		local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, hAbility6:GetCastRange()+150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 
 		for i, v in ipairs(tAllHeroes) do
 			if v:GetHealth() < iThreshold then
@@ -53,7 +54,7 @@ function BotAbilityThink:ThinkUseAbility_Axe(hHero)
 		end
 	end
 	if hAbility1:IsFullyCastable() then
-		local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, hAbility1:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+		local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, hAbility1:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 		local iCount = #tAllHeroes
 		for i = 1, iCount do
 			if tAllHeroes[iCount+1-i]:IsStunned() or tAllHeroes[iCount+1-i]:IsHexed() or tAllHeroes[iCount+1-i]:IsInvisible() then table.remove(tAllHeroes, iCount+1-i) end
@@ -65,7 +66,8 @@ function BotAbilityThink:ThinkUseAbility_Axe(hHero)
 		end
 	end
 	if hAbility2:IsFullyCastable() then
-		local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, hAbility2:GetCastRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+		local iRange = hAbility2:GetCastRange()
+		local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 		for i, v in ipairs(tAllHeroes) do
 			hHero:CastAbilityOnTarget(v, hAbility2, hHero:GetPlayerOwnerID())
 			return
@@ -79,7 +81,7 @@ function BotAbilityThink:ThinkUseAbility_EarthShaker(hHero)
 	if hAbility2:IsFullyCastable() then
 
         local iRange = 300
-        local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+        local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
         if #tAllHeroes > 0 then
             if hHero:HasModifier("modifier_item_ultimate_scepter") then
                 hHero:CastAbilityOnTarget(hHero, hAbility2, hHero:GetPlayerOwnerID())
@@ -103,7 +105,7 @@ function BotAbilityThink:ThinkUseAbility_PhantomAssassin(hHero)
 		-- TODO check modifier
 		if hAbility4:IsFullyCastable() then
 			local iRange = hAbility4:GetSpecialValueFor("radius")
-			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+			local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 			if #tAllHeroes > 0 then
 				hHero:CastAbilityNoTarget(hAbility4, hHero:GetPlayerOwnerID())
 				return true
@@ -132,7 +134,7 @@ function BotAbilityThink:ThinkUseAbility_Viper(hHero)
 
 	if hAbility2:IsFullyCastable() then
         local iRange = hAbility2:GetCastRange()
-        local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+        local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
         if #tAllHeroes > 0 then
 			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility2, hHero:GetPlayerOwnerID())
             return true
@@ -146,7 +148,7 @@ function BotAbilityThink:ThinkUseAbility_Juggernaut(hHero)
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
 		if hAbility4:IsFullyCastable() then
 			local iRange = hAbility4:GetCastRange()
-			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)
+			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)
 			if #tAllHeroes > 0 then
 				hHero:CastAbilityOnTarget(tAllHeroes[1], hAbility4, hHero:GetPlayerOwnerID())
 				return
@@ -161,7 +163,7 @@ function BotAbilityThink:ThinkUseAbility_Sniper(hHero)
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
 		if hAbility5:IsFullyCastable() then
 			local iRange = hAbility5:GetCastRange()
-			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_FARTHEST, false)
+			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_FARTHEST, false)
 			if #tAllHeroes > 0 then
 				hHero:CastAbilityOnTarget(tAllHeroes[1], hAbility5, hHero:GetPlayerOwnerID())
 				return
@@ -177,7 +179,7 @@ function BotAbilityThink:ThinkUseAbility_Kunkka(hHero)
 	-- kunkka_torrent_storm
 	if hAbility4:IsFullyCastable() then
         local iRange = 900
-        local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+        local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 		-- 范围内有两人以上时释放
         if #tAllHeroes > 1 then
 			hHero:CastAbilityNoTarget(hAbility4, hHero:GetPlayerOwnerID())
@@ -186,7 +188,7 @@ function BotAbilityThink:ThinkUseAbility_Kunkka(hHero)
 	end
 	if hAbility5:IsFullyCastable() then
         local iRange = 900
-        local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+        local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
         if #tAllHeroes > 0 then
 			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility5, hHero:GetPlayerOwnerID())
             return true

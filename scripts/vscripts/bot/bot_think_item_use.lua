@@ -39,6 +39,11 @@ function IsItemCanUse(hHero, sName)
     end
     return false
 end
+-- find unit
+function FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+    local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+    return tAllHeroes
+end
 
 -- use item
 function UseItemOnTarget(hHero, sItemName, hTarget)
@@ -74,7 +79,7 @@ end
 --------------------
 function UseActiveItem(hHero)
     local itemUseCastRange = 900
-	local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, itemUseCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+	local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, itemUseCastRange)
 	if #tAllHeroes == 0 then
         return false
 	end
@@ -103,8 +108,8 @@ function UseActiveItem(hHero)
         end
     else
         if IsItemCanUse(hHero, "item_abyssal_blade_v2") then
-            local iRange600 = 600
-            local tAllHeroesRange600 = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+            itemUseCastRange = 600
+            local tAllHeroesRange600 = FindEnemyHeroesInRangeAndVisible(hHero, itemUseCastRange)
             if #tAllHeroesRange600 > 0 then
                 local hTargetRange600 = tAllHeroesRange600[1]
 
@@ -168,7 +173,7 @@ function UseActiveItem(hHero)
 
     if IsItemCanUse(hHero, "item_hurricane_pike_2") or IsItemCanUse(hHero, "item_silver_edge_2") then
         itemUseCastRange = 600
-        tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, itemUseCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+        tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, itemUseCastRange)
         if #tAllHeroes > 0 then
             -- item_hurricane_pike_2 黄金魔龙枪
             if UseItemOnTarget(hHero, "item_hurricane_pike_2", tAllHeroes[1]) then
@@ -183,7 +188,7 @@ function UseActiveItem(hHero)
 
     if IsItemCanUse(hHero, "item_heavens_halberd_v2") then
         itemUseCastRange = 300
-        tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, itemUseCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+        tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, itemUseCastRange)
         if #tAllHeroes > 0 then
             -- item_heavens_halberd_v2 大天堂
             if UseItem(hHero, "item_heavens_halberd_v2") then
