@@ -19,7 +19,6 @@ fix custom item icon shown on end screen
 强袭祭品
 		'item_vladmir',
 		'item_assault',
-		'item_ultimate_orb',
 		'item_recipe_vladmir_2',
 
 		'item_vladmir_2',
@@ -115,8 +114,13 @@ A杖
 大核荣耀
 
 		'item_butterfly',
-		'item_greater_crit',
-		'item_recipe_wasp',
+		'item_lesser_crit',
+		'item_recipe_wasp_callous',
+
+		'item_wasp_callous',
+
+		'item_wasp_despotic',
+
 冰眼
 		'item_skadi',
 冰眼2

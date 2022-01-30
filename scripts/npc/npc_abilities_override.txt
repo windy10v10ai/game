@@ -1871,7 +1871,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movement_damage_pct"		"33 44 55 60 65"
+				"movement_damage_pct"		"33 44 55 66 77"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"03"
