@@ -219,9 +219,10 @@
  		"item"		"item_yasha_and_kaya"
 		"item"		"item_sacred_six_vein"
  		"item"		"item_satanic"
- 		"item"		"item_overwhelming_blink"
- 		"item"		"item_swift_blink"
- 		"item"		"item_arcane_blink"
+		"item"		"item_jump_jump_jump"
+ 		//"item"		"item_overwhelming_blink"
+ 		//"item"		"item_swift_blink"
+ 		//"item"		"item_arcane_blink"
  		"item"		"item_skadi_2"
 	}
 
