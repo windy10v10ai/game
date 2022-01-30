@@ -8,3 +8,4 @@ panorama/scripts/custom_game/*.vjs_c
 /panorama/images/items/*.vxml_c
 /.tool/reference
 panorama_debugger.cfg
+resource/custom_game_whitelist.txt

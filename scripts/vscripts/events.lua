@@ -565,3 +565,34 @@ function AIGameMode:OnGameOptionChange(keys)
 	GameRules.GameOption[optionName]=optionValue
 	CustomNetTables:SetTableValue('game_options_table', 'game_option', GameRules.GameOption)
 end
+
+-- 测试密码
+local developerSteamId = {}
+developerSteamId[136407523]="windy"
+developerSteamId[1194383041]="咸鱼"
+developerSteamId[143575444]="茶神"
+developerSteamId[314757913]="孤尘"
+
+function AIGameMode:OnPlayerChat( event )
+	local nPlayerID = event.playerid
+	local sChatMsg = event.text
+	if not nPlayerID or not sChatMsg then return end
+	local steamId = PlayerResource:GetSteamAccountID(nPlayerID)
+
+	if developerSteamId[steamId] then
+		if sChatMsg:find( '^-greedisgood$' ) then
+			-- give money to the player
+			-- get hero
+			local hHero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
+			local iGold = 10000
+			hHero:ModifyGold(iGold, true, DOTA_ModifyGold_Unspecified)
+			-- get player name
+			local sPlayerName = PlayerResource:GetPlayerName(nPlayerID)
+			GameRules:SendCustomMessage(
+				"号外号外！开发者:"..developerSteamId[steamId].." 用自己的菊花交换了增加10000金币",
+				DOTA_TEAM_GOODGUYS,
+				0
+			)
+		end
+	end
+end

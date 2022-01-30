@@ -597,6 +597,8 @@
 				"30"		"special_bonus_unique_earthshaker_5"
 				"31"		"earthshaker_echo_slam"
 				"32"		"earthshaker_fissure"
+				"33"		"earthshaker_fissure"
+				"34"		"earthshaker_fissure"
 			}
 		}
 	}
