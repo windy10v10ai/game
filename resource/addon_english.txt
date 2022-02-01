@@ -131,7 +131,10 @@
 		// 双头龙
         "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"Increases Macropyre distance by +400 range, duration by +5 seconds and causes it to become Pure damage and pierce Spell Immunity."
 
-        // 血魔
+        // 美杜莎
+		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "When Medusa is targeted with a spell, a single-target Mystic Snake is sent back towards the enemy. Cooldown: 4."
+		
+		// 血魔
         "DOTA_Tooltip_ability_bloodseeker_rupture_scepter_description"				"<font color='#e03e2e'>CAUTION!!!</font> Dont buy Aghanim's Scepter for Bloodseeker! It will cause the game go crash!"
 		"DOTA_Tooltip_ability_bloodseeker_rupture_max_charges_scepter"					        ""
 		"DOTA_Tooltip_ability_bloodseeker_rupture_charge_restore_time_scepter"					""
