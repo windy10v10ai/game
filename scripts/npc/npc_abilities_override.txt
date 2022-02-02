@@ -1902,13 +1902,6 @@
 				"RequiresScepter"		"0"
 			}
 		}
-		"Modifiers"
-	    {
-		    "modifier_bloodseeker_rupture"
-			{
-				"Isstealable"  "0"
-			}
-		}
 	}
 	//=================================================================================================================
 	// Ability: Drow Ranger	Frost Arrows           黑暗游侠
