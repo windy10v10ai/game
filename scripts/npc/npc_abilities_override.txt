@@ -1579,10 +1579,6 @@
 	{
 		"AbilityCooldown"				"60 50 40"
 	}
-	"magnataur_reverse_polarity"
-	{
-		"AbilityCooldown"				"100"
-	}
 	"mars_bulwark"
 	{
 		"MaxLevel"						"7"
@@ -3020,10 +3016,6 @@
 	{
 		"AbilityCooldown"				"70.0"
 	}
-	"disruptor_static_storm"
-	{
-		"AbilityCooldown"				"60 50 40"
-	}
 
 	"dark_seer_wall_of_replica"
 	{
@@ -3778,32 +3770,6 @@
 	//=================================================================================================================
 	// Shredder               伐木机
 	//=================================================================================================================
-	"shredder_flamethrower"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_second"		"180"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"		"10"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"width"		"400"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"length"		"800"
-			}
-		}
-	}
 	"shredder_whirling_death"
 	{
 		"MaxLevel" "7"
@@ -3843,14 +3809,14 @@
 	"shredder_timber_chain"
 	{
 		"MaxLevel" "7"
-		"AbilityCastRange"				"800 950 1100 1250 1400 1550 1700"
+		"AbilityCastRange"				"800 950 1100 1250 1350 1450 1550"
 		"AbilityManaCost"				"60 70 80 90 100 110 120"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"range"				"800 950 1100 1250 1400 1550 1700"
+				"range"				"800 950 1100 1250 1350 1450 1550"
 				"LinkedSpecialBonus"	"special_bonus_unique_timbersaw_3"
 			}
 			
@@ -3884,13 +3850,13 @@
 			"03"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"stack_limit"						"2 3 4 5"
+				"stack_limit"						"3 4 5 6"
 				"LinkedSpecialBonus"				"special_bonus_unique_timbersaw_2"
 			}
 			"04"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"stack_duration"					"12 14 16 18 20"
+				"stack_duration"					"12 14 16 18"
 				"LinkedSpecialBonus"				"special_bonus_unique_timbersaw_2"
 			}
 		}
@@ -8109,16 +8075,35 @@
 				"wave_count"					"3 4 5 6 7 8 9"
 				"LinkedSpecialBonus"		"special_bonus_unique_clinkz_12"
 			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_speed_bonus_pct"	"90 120 150 180"
-				"LinkedSpecialBonus"			"special_bonus_unique_clinkz_7"
-			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"range"	"750 800 850 900 950 1000"				
+				"range"	"750 800 850 900"				
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_pct"	"60"				
+			}
+		}
+	}
+	"special_bonus_unique_clinkz_12"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"617"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"2"
+				"ad_linked_ability"			"clinkz_strafe"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -10227,6 +10212,310 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"total_heal_tooltip"	"99 198 297 396 495 594 693"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Antimage                      敌法师
+	//=================================================================================================================
+	"antimage_mana_break"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"percent_damage_per_burn"		"100"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_per_hit"			"28 40 52 64 76 88 100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_per_hit_pct"		"1 1.8 2.6 3.4 4.0 4.5 5.0"
+				"LinkedSpecialBonus"		"special_bonus_unique_antimage_7"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"illusion_percentage"		"50"
+			}
+		}
+	}
+	"antimage_blink"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"15 12 9 6 4"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blink_range"			"925 1000 1075 1150 1200"
+				"LinkedSpecialBonus"		"special_bonus_unique_antimage_3"
+			}
+		}
+	}
+	"antimage_counterspell"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"magic_resistance"			"15 25 35 45 55 60 65"
+				"LinkedSpecialBonus"		"special_bonus_unique_antimage_4"
+			}
+		}	
+	}
+	"special_bonus_unique_antimage_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6607"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"15"
+				"ad_linked_ability"			"antimage_counterspell"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"antimage_mana_void"
+	{
+		"MaxLevel"						"5"
+		"AbilityManaCost"				"100 150 200 250 300"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"mana_void_damage_per_mana"		"0.8 0.9 1.0 1.1 1.2"
+				"LinkedSpecialBonus"		"special_bonus_unique_antimage_6"
+			}						
+		}
+	}
+	//=================================================================================================================
+	// Magnataur                     猛犸
+	//=================================================================================================================
+	"magnataur_shockwave"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"13 12 11 10 9 8 7"
+		"AbilityManaCost"				"80 90 100 110 120 130 140"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shock_damage"				"75 150 225 300 375 450 500"				
+			}
+		}
+	}
+	"magnataur_empower"
+	{
+		"MaxLevel"						"7"
+		"AbilityManaCost"				"45 55 65 75 85 95 105"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"empower_duration"		"35"
+				"LinkedSpecialBonus"	"special_bonus_unique_magnus_4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage_pct"		"12 20 28 36 44 52 60"
+				"LinkedSpecialBonus"	"special_bonus_unique_magnus_2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cleave_damage_pct"		"10 20 30 40 50 60 70"
+				"LinkedSpecialBonus"	"special_bonus_unique_magnus_2"
+			}			
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"self_multiplier"		"100"
+			}	
+		}
+	}
+	"magnataur_skewer"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"22 20 18 16 14"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"900 975 1050 1125 1200"
+				"LinkedSpecialBonus"	"special_bonus_unique_magnus_3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_pct"				"10 20 30 40 50"
+			}		
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_damage"			"80 170 260 350 440"
+			}						
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tool_attack_slow"				"10 20 30 40 50"
+			}	
+		}
+	}
+	"magnataur_reverse_polarity"
+	{
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"80"
+		"AbilityManaCost"				"150 200 250 300"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"polarity_damage"		"75 150 225 300"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hero_stun_duration"	"2.75 3.25 3.75 4.25"
+				"LinkedSpecialBonus"	"special_bonus_unique_magnus_5"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Disruptor                             干扰者/萨尔
+	//=================================================================================================================
+	"disruptor_thunder_strike"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"18 16 14 12 10 8 6"
+		"AbilityManaCost"				"100 110 120 130 140 150 160"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"strike_interval"			"1.5 1.5 1.5 1.5"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"strike_damage"				"45 70 95 120 140 160 180"
+				"LinkedSpecialBonus"		"special_bonus_unique_disruptor_3"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration"			"0.1 0.2 0.3 0.4 0.5 0.6 0.7"
+			}
+		}
+	}
+	"disruptor_glimpse"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"48 38 28 18 10"
+		"AbilityCastRange"				"600 1000 1400 1800 2000"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"cast_range"				"600 1000 1400 1800 2000"
+			}
+		}
+	}
+	"special_bonus_unique_disruptor_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6630"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"5"
+				"ad_linked_ability"			"disruptor_glimpse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}	
+	"disruptor_kinetic_field"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"19 16 13 10 8"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"2.6 3.2 3.8 4.4 5.0"
+				"LinkedSpecialBonus"		"special_bonus_unique_disruptor_5"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage_per_second"			"0"
+			}
+		}
+	}
+	"special_bonus_unique_disruptor_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6368"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"
+				"ad_linked_ability"			"disruptor_kinetic_field"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}	
+	"disruptor_static_storm"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"80 70 60 50 40"
+		"AbilityManaCost"				"125 175 225 275 325"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_max"				"200 275 350 425 500"
 			}
 		}
 	}
