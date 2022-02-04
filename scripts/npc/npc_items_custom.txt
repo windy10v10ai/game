@@ -5013,12 +5013,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_radius"			"350"
+				"attack_radius"			"200"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_percent"		"40"
+				"attack_percent"		"30"
 			}
 		}
 	}
@@ -5089,15 +5089,169 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_radius"			"400"
+				"attack_radius"			"300"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_percent"		"60"
+				"attack_percent"		"50"
 			}
 		}
 	}
+
+	//=================================================================================================================
+	// Recipe: Jump!Jump!Jump! 跳！跳！跳！刀合成图
+	//=================================================================================================================
+	"item_recipe_jump_jump_jump"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3070"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"item_recipe_jump_jump_jump"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"600"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_jump_jump_jump"
+		"ItemRequirements"
+		{
+			"01"						"item_overwhelming_blink;item_swift_blink;item_arcane_blink"
+		}
+	}
+
+	//=================================================================================================================
+	// Jump!Jump!Jump! 跳！跳！跳！刀合成图
+	//=================================================================================================================
+
+	"item_jump_jump_jump"
+	{
+		"ID"							"3071"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_jump_jump_jump.lua"
+		"AbilityTextureName"			"jump_jump_jump"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"0"
+		"AbilitySharedCooldown"			"blink"
+
+		"ItemCost"						"21000"
+		//"ItemSellable"					"1"
+		//"ItemPurchasable"				"0"
+		//"ItemIsNeutralDrop"				"1"
+		//"Model"							"models/props_gameplay/neutral_box.vmdl"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"blink_damage_cooldown"	"3.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"meteor_fall_time"		"0.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"meteor_land_radius"	"450"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"35"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"buff_duration"			"6"
+			}
+			// Below are the overwhelming, swift, and arcane modifier values, dont touch them unless you know what you're doing
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement"		"40"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"50"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_damage"	"50"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_cooldown"			"25"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ultimate_cooldown"		"25"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_pct_improvement"	"50"
+			}
+			"13"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_slow"			"50"
+			}
+			"14"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_slow"			"50"
+			}
+			// End of vanilla buffs
+			"15"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"			"100"
+			}
+			"16"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"str_damage"			"150"
+			}
+			"17"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"meteor_stun_duration"	"1.5"
+			}
+			"18"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"6.0"
+			}
+			"19"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"meteor_burn_duration"	"6.0"
+			}
+			"20"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"meteor_burn_dps"		"100"
+			}
+		}
+	}
+
 }
 
 

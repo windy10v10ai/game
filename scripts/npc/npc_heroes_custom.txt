@@ -1622,4 +1622,52 @@
 			}
 		}
 	}
+	"npc_dota_hero_antimage"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"antimage_mana_break"
+				"2"		"antimage_blink"
+				"3"		"antimage_mana_break"
+				"4"		"antimage_counterspell"
+				"5"		"antimage_blink"
+				"6"		"antimage_mana_void"
+				"7"		"antimage_mana_break"
+				"8"		"antimage_blink"
+				"9"		"antimage_mana_break"
+				"10"		"special_bonus_strength_9"
+				"11"		"antimage_blink"
+				"12"		"antimage_mana_void"
+				"13"		"antimage_counterspell"
+				"14"		"antimage_counterspell"
+				"15"		"special_bonus_unique_antimage_7"
+				"16"		"antimage_counterspell"
+				"17"		""
+				"18"		"antimage_mana_void"
+				"19"		""
+				"20"		"special_bonus_unique_antimage_6"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_antimage_4"
+				"26"		""
+				"27"		"special_bonus_unique_antimage"
+				"28"		"special_bonus_unique_antimage_8"
+				"29"		"special_bonus_unique_antimage_3"
+				"30"		"special_bonus_unique_antimage_2"
+				"31"		"antimage_mana_break"
+				"32"		"antimage_mana_break"
+				"33"		"antimage_mana_break"
+				"34"		"antimage_blink"
+				"35"		"antimage_mana_void"
+				"36"		"antimage_mana_void"
+				"37"		"antimage_counterspell"
+				"38"		"antimage_counterspell"
+				"39"		"antimage_counterspell"
+			}
+		}
+	}
 }
