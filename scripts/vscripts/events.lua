@@ -1,4 +1,8 @@
 local tBotNameList = {
+	--"npc_dota_hero_abaddon",// 不会放技能，只会物品和A人
+	--"npc_dota_hero_antimage",// 不会放技能，只会物品和A人
+	--"npc_dota_hero_spirit_breaker",// 不会放技能，只会物品和A人
+	--"npc_dota_hero_silencer",// 不会放技能，只会物品和A人
 	"npc_dota_hero_axe",
 	"npc_dota_hero_bane",
 	"npc_dota_hero_bounty_hunter",
