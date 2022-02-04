@@ -5013,12 +5013,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_radius"			"350"
+				"attack_radius"			"200"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_percent"		"40"
+				"attack_percent"		"30"
 			}
 		}
 	}
@@ -5089,12 +5089,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_radius"			"400"
+				"attack_radius"			"300"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_percent"		"60"
+				"attack_percent"		"50"
 			}
 		}
 	}
@@ -5138,9 +5138,9 @@
 		"AbilityTextureName"			"jump_jump_jump"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"AbilityCastRange"				"1600"
+		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"13"
+		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"0"
 		"AbilitySharedCooldown"			"blink"
 
@@ -5165,7 +5165,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"meteor_land_radius"	"800"
+				"meteor_land_radius"	"450"
 			}
 			"04"
 			{
@@ -5232,7 +5232,7 @@
 			"17"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"meteor_stun_duration"	"2.0"
+				"meteor_stun_duration"	"1.5"
 			}
 			"18"
 			{
