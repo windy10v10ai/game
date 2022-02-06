@@ -4,6 +4,7 @@ LinkLuaModifier("modifier_item_jump_jump_jump", "items/item_jump_jump_jump.lua",
 LinkLuaModifier("modifier_item_jump_jump_jump_meteor_form", "items/item_jump_jump_jump.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_jump_jump_jump_meteor_burn", "items/item_jump_jump_jump.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_jump_jump_jump_meteor_stun", "items/item_jump_jump_jump.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_arcane_blink_buff", "items/item_jump_jump_jump.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Item Passive
 function item_jump_jump_jump:GetIntrinsicModifierName()
@@ -245,3 +246,42 @@ end
 function modifier_item_jump_jump_jump_meteor_burn:GetEffectName()
 	return "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
 end
+
+
+
+modifier_item_arcane_blink_buff = class({})
+
+function modifier_item_arcane_blink_buff:IsHidden() return false end
+function modifier_item_arcane_blink_buff:IsPurgable() return true end
+function modifier_item_arcane_blink_buff:IsDebuff() return false end
+function modifier_item_arcane_blink_buff:GetAbilityTextureName() return "item_arcane_blink" end
+
+function modifier_item_arcane_blink_buff:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_TOOLTIP,
+	}
+	return funcs
+end
+
+function modifier_item_arcane_blink_buff:OnCreated()
+	local ability = self:GetAbility()
+	if not ability or ability:IsNull() then self:Destroy() return end
+	self.cast_pct_improvement = ability:GetSpecialValueFor("cast_pct_improvement") or 0
+	self.base_cooldown = ability:GetSpecialValueFor("base_cooldown") or 0
+end
+
+-- fake cast time modifier, all calculations are done in modifier_casttime_handler
+function modifier_item_arcane_blink_buff:_GetModifierPercentageCasttime()
+	return self.cast_pct_improvement
+end
+
+function modifier_item_arcane_blink_buff:GetModifierPercentageCooldown()
+	return self.base_cooldown
+end
+
+function modifier_item_arcane_blink_buff:OnTooltip()
+	return self.cast_pct_improvement
+end
+
