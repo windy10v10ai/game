@@ -449,7 +449,7 @@ function AIGameMode:OnNPCSpawned(keys)
 
 	if hEntity:IsCreep() then
 		if sName == "npc_dota_roshan" then
-			local ability = hEntity:AddAbility("creep_buff_mega")
+			local ability = hEntity:AddAbility("roshan_buff")
 			ability:SetLevel(self.roshanNumber)
 			-- find ability generic_gold_bag_fountain
 			local ability_gold_bag = hEntity:FindAbilityByName("generic_gold_bag_fountain")
