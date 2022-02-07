@@ -62,6 +62,19 @@
 			"02"						"item_broadsword;item_claymore;item_pers;item_quelling_blade*"
 		}
 	}
+	"item_recipe_overwhelming_blink"
+	{
+		"ItemCost"						"250"	
+	}
+	"item_recipe_swift_blink"
+	{
+		"ItemCost"						"250"	
+	}
+	"item_recipe_arcane_blink"
+	{
+		"ItemCost"						"250"	
+	}
+
 	"item_black_king_bar"
 	{
 		"AbilitySharedCooldown"			"bkb"
@@ -78,6 +91,7 @@
 	{
 		"AbilitySharedCooldown"			"bluefantasy"
 	}
+	
 	// level 1
 	"item_philosophers_stone"
 	{
