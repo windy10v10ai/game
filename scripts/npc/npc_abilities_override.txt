@@ -5433,14 +5433,14 @@
 	"bane_brain_sap"
 	{
 		"MaxLevel"						"7"
-		"AbilityCooldown"				"15 14 13 12 11 10 9"
+		"AbilityCooldown"				"17 15 13 11 9 7 5"
 		"AbilityManaCost"				"100 120 140 160 180 200 220"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"brain_sap_damage"				"75 150 225 300 375 425 475"
+				"brain_sap_damage"				"75 150 225 300 375 450 525"
 				"LinkedSpecialBonus"			"special_bonus_unique_bane_2"
 			}
 		}
@@ -5448,14 +5448,14 @@
 	"bane_fiends_grip"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"120 110 100 90 80"
+		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityManaCost"				"200 250 300 350 400"		
 		"AbilitySpecial"
 		{
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"fiend_grip_damage"				"90 110 130 150 170"
+				"fiend_grip_damage"				"80 120 160 200 240"
 			}
 		}
 	}
