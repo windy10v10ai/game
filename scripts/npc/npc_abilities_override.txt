@@ -2477,14 +2477,13 @@
 	{
 		"MaxLevel"						"7"		
 		"AbilityCharges"				"5"
-		"AbilityChargeRestoreTime"		"35"
-		"AbilityManaCost"				"50"
+		"AbilityManaCost"				"30 40 50 60 70 80 90"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-15 -20 -25 -30 -35 -40 -45"
+				"slow_movement_speed"	"-12 -16 -20 -24 -28 -32 -36"
 				"LinkedSpecialBonus"	"special_bonus_unique_sniper_5"
 			}
 			"03"
@@ -2492,12 +2491,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"shrapnel_damage"		"40 60 80 100 120 140 160"
 				"LinkedSpecialBonus"	"special_bonus_unique_sniper_1"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"AbilityCharges"		""
-				"LinkedSpecialBonus"	"special_bonus_unique_sniper_2"
 			}
 		}
 	}
@@ -6728,13 +6721,18 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"count"						"5 6 7 8 9 10 11"
+				"count"						"5 6 6 7 7 8 8"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"damage_share_percentage"	"14 15 16 17 18 19 20"
 				"LinkedSpecialBonus"		"special_bonus_unique_warlock_5"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"20.0"
 			}
 		}
 	}
