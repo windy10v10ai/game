@@ -255,9 +255,9 @@
 	"npc_dota_hero_bloodseeker"
 	{
 		"Ability6"		"rupture_datadriven"
+		"Ability12"		"special_bonus_magic_resistance_15"
 		"Bot"
 		{
-			"Ability12"		"special_bonus_magic_resistance_15"
 			"Build"
 			{
 				"1"		"bloodseeker_bloodrage"
