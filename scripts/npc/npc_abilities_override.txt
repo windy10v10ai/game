@@ -8344,7 +8344,7 @@
 	{
 	    "MaxLevel"						"7"
 		"AbilityCooldown"				"29 27 25 23 22 21 20"
-		"AbilityCastRange"				"550 575 600 625 650 675 700"
+		"AbilityCastRange"				"550 575 600 625 650"
 		"AbilitySpecial"
 		{
 			"01"
