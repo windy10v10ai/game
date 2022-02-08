@@ -61,6 +61,22 @@ function UseItemOnTarget(hHero, sItemName, hTarget)
     return false
 end
 
+
+function UseItemOnPostion(hHero, sItemName, hTarget)
+	if not hHero:HasItemInInventory(sItemName) then
+		return false
+	end
+    local hItem = FindItemByNameNotIncludeBackpack(hHero, sItemName)
+    if hItem then
+        if hItem:IsCooldownReady() then
+            print("Think use "..hHero:GetName().." try to use item on postion "..sItemName)
+            hHero:CastAbilityOnPosition(hTarget:GetOrigin(), hItem, hHero:GetPlayerOwnerID())
+            return true
+        end
+	end
+    return false
+end
+
 function UseItem(hHero, sItemName)
 	if not hHero:HasItemInInventory(sItemName) then
 		return false
@@ -107,6 +123,11 @@ function UseActiveItem(hHero)
             return true
         end
     else
+        -- item_jump_jump_jump 大跳刀
+        if UseItemOnPostion(hHero, "item_jump_jump_jump", hTarget) then
+            return true
+        end
+
         if IsItemCanUse(hHero, "item_abyssal_blade_v2") then
             itemUseCastRange = 600
             local tAllHeroesRange600 = FindEnemyHeroesInRangeAndVisible(hHero, itemUseCastRange)
