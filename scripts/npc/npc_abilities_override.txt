@@ -1387,10 +1387,81 @@
 	// ---------------------------------
 	// -------- Strength Heroes --------
 	// ---------------------------------
-	// 炼金
+
+	//=================================================================================================================
+	// Ability: Alchemist                炼金术士
+	//=================================================================================================================
+	"alchemist_berserk_potion"
+	{
+		"AbilityCooldown"				"25"
+	}
+	"alchemist_acid_spray"
+	{
+		"MaxLevel"						"7"
+		"AbilityManaCost"				"130 135 140 145 150 155 160"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"475 525 575 625 650 675 700"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"20 25 30 35 40 45 50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"4 5 6 7 8 9 10"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_5"
+			}
+		}
+	}
+	"alchemist_unstable_concoction"
+	{
+		"MaxLevel"						"5"
+		"AbilityManaCost"				"100"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"max_stun"					"1.75 2.5 3.25 4.0 4.5"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_damage"				"150 220 290 360 430"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_2"
+			}
+		}
+	}
+	"alchemist_unstable_concoction_throw"
+	{
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"max_stun"					"1.75 2.5 3.25 4.0 4.5"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"min_damage"				"0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_damage"				"150 220 290 360 430"
+			}
+		}
+	}
 	"alchemist_goblins_greed"
 	{
-		"MaxLevel" "7"
+		"MaxLevel"						"7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -1411,7 +1482,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_gold_cap"		"15 18 21 24 27 30 33 36"
+				"bonus_gold_cap"		"15 18 21 24 27 30 33"
 			}
 			"05"
 			{
@@ -1422,7 +1493,62 @@
 	}
 	"alchemist_chemical_rage"
 	{
-		"AbilityCooldown"				"55.0 50.0 45.0"
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"55.0 50.0 45.0 40.0"
+		"AbilityManaCost"				"50 75 100 125"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"25.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"transformation_time"	"0.35"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_attack_time"		"1.2 1.1 1.0 0.9"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"500 1000 1500 2000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"50 75 100 125"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_4"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"10 15 20 25"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed"		"40 50 60 70"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_6"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_bonus_damage"		"40"
+				"RequiresScepter"			"1"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_spell_amp"		"10"
+				"RequiresScepter"			"1"
+			}
+		}
 	}
 	//=================================================================================================================
 	// Ability: Dragon Knight                       龙骑士
@@ -1530,7 +1656,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: 大牛
+	// Ability: Elder Titan                      上古巨神/大牛
 	//=================================================================================================================
 	"elder_titan_echo_stomp_spirit"
 	{
@@ -1543,7 +1669,6 @@
 			}
 		}
 	}
-
 	"elder_titan_ancestral_spirit"
 	{
 		"AbilitySpecial"
@@ -1589,13 +1714,247 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Ability: Lycan                       狼人
+	//=================================================================================================================
+	"lycan_summon_wolves"
+	{
+		"AbilitySpecial"
+		{
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_wolf_count"			"2 3 4 5"
+				"LinkedSpecialBonus"	"special_bonus_unique_lycan_2"
+			}
+		}
+	}
+	"special_bonus_unique_lycan_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"621"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"26"
+				"ad_linked_ability"			"lycan_summon_wolves"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"special_bonus_unique_lycan_7"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"794"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"400"
+				"ad_linked_ability"			"lycan_summon_wolves"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"special_bonus_unique_lycan_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6140"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"3"
+				"ad_linked_ability"			"lycan_summon_wolves"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"lycan_wolf_bite"
+	{
+		"AbilityCooldown"				"70 65 60 55 50"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"lifesteal_percent"		"40"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"lifesteal_range"		"1500"		
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_range"		"150"		
+			}
+		}
+	}
+	"lycan_howl"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"22 20 18 16 14"
+		"AbilityManaCost"				"35 40 45 50 55"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"howl_duration"		"8"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_damage_reduction"		"25 30 35 40 45"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor"			"4 5 6 7 8"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"			"2000"
+			}
+		}
+	}
+	"lycan_feral_impulse"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"15 25 35 45 55 65 75"
+				"LinkedSpecialBonus"	"special_bonus_unique_lycan_4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_hp_regen"		"2 4 6 8 10 12 14"
+				"LinkedSpecialBonus"	"special_bonus_unique_lycan_3"
+			}
+		}
+	}
 	"lycan_shapeshift"
 	{
-		"AbilityCooldown"				"60 50 40"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"70 65 60 55 50"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"28"
+				"LinkedSpecialBonus"		"special_bonus_unique_lycan_1"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed"				"550"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_night_vision"		"1000"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"transformation_time"		"0.5"
+			}		
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_chance"			"40"
+				"LinkedSpecialBonus"		"special_bonus_unique_lycan_5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_multiplier"		"150 175 200 225 250"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_bonus"		"300 600 900 1200 1500"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Mars                          玛尔斯
+	//=================================================================================================================
+	"mars_spear"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"14.0 13.0 12.0 11.0 10.0 9.0 8.0"
+		"AbilityManaCost"				"110 120 130 140 150 160 170"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 175 250 325 400 450 500"
+				"LinkedSpecialBonus"	"special_bonus_unique_mars_spear_bonus_damage"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spear_range"		"900 1000 1100 1200 1300"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"1.6 2.0 2.4 2.8 3.0 3.2 3.4"
+				"LinkedSpecialBonus"	"special_bonus_unique_mars_spear_stun_duration"
+			}
+		}
+	}
+	"mars_gods_rebuke"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_mult"					"150 190 230 270 310"
+				"LinkedSpecialBonus"		"special_bonus_unique_mars_gods_rebuke_extra_crit"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage_vs_heroes"	"20 25 30 35 40"
+			}
+		}
 	}
 	"mars_bulwark"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel"						"5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -1603,8 +1962,8 @@
 				"var_type"						"FIELD_INTEGER"
 				"physical_damage_reduction"		"10 20 30 40 50 60 70"
 				"LinkedSpecialBonus"		"special_bonus_unique_mars_bulwark_damage_reduction"
-
 			}
+			
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
@@ -1612,11 +1971,38 @@
 				"LinkedSpecialBonus"		"special_bonus_unique_mars_bulwark_damage_reduction"
 				"LinkedSpecialBonusField"		"value2"
 			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"redirect_chance"				"70"
+			}
+
+			// Scepter here
+            "08"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "soldier_count"                  "10"
+            }
 		}
 	}
 	"mars_arena_of_blood"
 	{
-		"AbilityCooldown"				"60 55 50"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"150 175 200 225 250"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5 6 7 8 9"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spear_damage"		"100 160 220 280 340"
+			}
+		}
 	}
 	"night_stalker_darkness"
 	{
