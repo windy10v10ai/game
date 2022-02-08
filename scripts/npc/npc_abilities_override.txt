@@ -10561,4 +10561,145 @@
 			}		
 		}
 	}
+	//=================================================================================================================
+	// Razor                    剃刀/电棍
+	//=================================================================================================================
+	"razor_plasma_field"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"13 12 11 10 9 8 7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_min"				"35 40 45 50 55 60 65"
+				"LinkedSpecialBonus"	"special_bonus_unique_razor_4"								
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_max"				"80 115 150 185 220 255 290"
+				"LinkedSpecialBonus"	"special_bonus_unique_razor_4"								
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow_min"				"10"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow_max"				"25 30 35 40 45 50 55"
+			}
+		}
+	}
+	"razor_static_link"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"40 35 30 25 20"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"drain_length"			"5 6 7 8 9"
+				"LinkedSpecialBonus"	"special_bonus_unique_razor_3"				
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"drain_duration"		"15 16 17 18 19"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"drain_rate"			"7 12 17 22 27"
+				"LinkedSpecialBonus"	"special_bonus_unique_razor"
+			}
+		}
+	}
+	"special_bonus_unique_razor"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6028"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"10"
+				"ad_linked_ability"			"razor_static_link"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"razor_unstable_current"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"self_movement_speed_pct"	"12 16 20 24 28 32 36"
+				"LinkedSpecialBonus"	"special_bonus_unique_razor_5"
+			}
+		}
+	}
+	"razor_eye_of_the_storm"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"80 70 60 50 40"
+		"AbilityManaCost"				"100 150 200 250 300"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"30.0"		
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"strike_interval"		"0.7 0.6 0.5 0.4 0.3"	
+				"LinkedSpecialBonus"	"special_bonus_unique_razor_2"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_reduction"	"2 2 2 2 2"		
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"60 75 90 105 120"		
+			}
+		}
+	}
+	"special_bonus_unique_razor_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"586"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"
+				"ad_linked_ability"			"razor_eye_of_the_storm"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
 }
