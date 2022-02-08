@@ -2455,7 +2455,7 @@
 	}
 	"medusa_split_shot"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel"						"4"
 		"AbilitySpecial"
 		{
 			"01"
@@ -2467,6 +2467,12 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"damage_modifier_tooltip"		"50 55 60 65"
+			}
+			"03"
+			{	
+				"var_type"					"FIELD_INTEGER"
+				"arrow_count"				"5"
+				"LinkedSpecialBonus"			"special_bonus_unique_medusa_2"
 			}
 		}
 	}
