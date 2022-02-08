@@ -1724,7 +1724,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_wolf_count"			"2 3 4 5"
+				"tooltip_wolf_count"			"2 2 2 2"
 				"LinkedSpecialBonus"	"special_bonus_unique_lycan_2"
 			}
 		}
@@ -1784,13 +1784,14 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"3"
+				"value"				"4"
 				"ad_linked_ability"			"lycan_summon_wolves"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
 	"lycan_wolf_bite"
 	{
+		"MaxLevel"						"5"
 		"AbilityCooldown"				"70 65 60 55 50"
 		"AbilitySpecial"
 		{
@@ -1954,7 +1955,7 @@
 	}
 	"mars_bulwark"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel"						"7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -1976,13 +1977,6 @@
 				"var_type"						"FIELD_INTEGER"
 				"redirect_chance"				"70"
 			}
-
-			// Scepter here
-            "08"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "soldier_count"                  "10"
-            }
 		}
 	}
 	"mars_arena_of_blood"
