@@ -411,45 +411,45 @@ function AIGameMode:OnNPCSpawned(keys)
 	end
 
 	local sName = hEntity:GetName()
-	if sName == "npc_dota_creep_lane" or sName == "npc_dota_creep_siege" then
-		local sUnitName = hEntity:GetUnitName()
-		local team = hEntity:GetTeamNumber()
-		local buffLevel = self.creepBuffLevel
-		if DOTA_TEAM_GOODGUYS == team then
-			buffLevel = buffLevel + AIGameMode.tower4PushedGood
-		elseif DOTA_TEAM_BADGUYS == team then
-			buffLevel = buffLevel + AIGameMode.tower4PushedBad
-		end
+	-- if sName == "npc_dota_creep_lane" or sName == "npc_dota_creep_siege" then
+	-- 	local sUnitName = hEntity:GetUnitName()
+	-- 	local team = hEntity:GetTeamNumber()
+	-- 	local buffLevel = self.creepBuffLevel
+	-- 	if DOTA_TEAM_GOODGUYS == team then
+	-- 		buffLevel = buffLevel + AIGameMode.tower4PushedGood
+	-- 	elseif DOTA_TEAM_BADGUYS == team then
+	-- 		buffLevel = buffLevel + AIGameMode.tower4PushedBad
+	-- 	end
 
-		if buffLevel > 0 then
-			buffLevel = math.min(buffLevel, 5)
-			if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
-				local ability = hEntity:AddAbility("creep_buff")
-				ability:SetLevel(buffLevel)
-			elseif string.find(sUnitName, "mega") then
-				local ability = hEntity:AddAbility("creep_buff_mega")
-				ability:SetLevel(buffLevel)
-			end
-		end
+	-- 	if buffLevel > 0 then
+	-- 		buffLevel = math.min(buffLevel, 5)
+	-- 		if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
+	-- 			local ability = hEntity:AddAbility("creep_buff")
+	-- 			ability:SetLevel(buffLevel)
+	-- 		elseif string.find(sUnitName, "mega") then
+	-- 			local ability = hEntity:AddAbility("creep_buff_mega")
+	-- 			ability:SetLevel(buffLevel)
+	-- 		end
+	-- 	end
 
-		-- normal line creep
-		buffLevel = 0
-		if DOTA_TEAM_GOODGUYS == team then
-			buffLevel = AIGameMode.tower4PushedGood + AIGameMode.tower3PushedGood
-		elseif DOTA_TEAM_BADGUYS == team then
-			buffLevel = AIGameMode.tower4PushedBad + AIGameMode.tower3PushedBad
-		end
-		if buffLevel > 0 and not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
-			buffLevel = math.min(buffLevel, 5)
-			local ability = hEntity:AddAbility("creep_buff")
-			ability:SetLevel(buffLevel)
-			return
-		end
-	end
+	-- 	-- normal line creep
+	-- 	buffLevel = 0
+	-- 	if DOTA_TEAM_GOODGUYS == team then
+	-- 		buffLevel = AIGameMode.tower4PushedGood + AIGameMode.tower3PushedGood
+	-- 	elseif DOTA_TEAM_BADGUYS == team then
+	-- 		buffLevel = AIGameMode.tower4PushedBad + AIGameMode.tower3PushedBad
+	-- 	end
+	-- 	if buffLevel > 0 and not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
+	-- 		buffLevel = math.min(buffLevel, 5)
+	-- 		local ability = hEntity:AddAbility("creep_buff")
+	-- 		ability:SetLevel(buffLevel)
+	-- 		return
+	-- 	end
+	-- end
 
 	if hEntity:IsCreep() then
 		if sName == "npc_dota_roshan" then
-			local ability = hEntity:AddAbility("creep_buff_mega")
+			local ability = hEntity:AddAbility("roshan_buff")
 			ability:SetLevel(self.roshanNumber)
 			-- find ability generic_gold_bag_fountain
 			local ability_gold_bag = hEntity:FindAbilityByName("generic_gold_bag_fountain")
