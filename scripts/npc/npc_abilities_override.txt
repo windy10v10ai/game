@@ -1409,7 +1409,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"20 25 30 35 40 45 50"
+				"damage"				"30 50 70 90 110 130 150"
 			}
 			"04"
 			{
@@ -1535,18 +1535,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"bonus_movespeed"		"40 50 60 70"
 				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_6"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"scepter_bonus_damage"		"40"
-				"RequiresScepter"			"1"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"scepter_spell_amp"		"10"
-				"RequiresScepter"			"1"
 			}
 		}
 	}
