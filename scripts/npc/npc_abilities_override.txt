@@ -2455,18 +2455,18 @@
 	}
 	"medusa_split_shot"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel"						"5"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_modifier"		"-50 -45 -40 -35"
+				"damage_modifier"		"-50 -45 -40 -35 -30"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_modifier_tooltip"		"50 55 60 65"
+				"damage_modifier_tooltip"		"50 55 60 65 70"
 			}
 			"03"
 			{	
