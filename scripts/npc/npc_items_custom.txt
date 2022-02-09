@@ -282,7 +282,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"575"
+		"ItemCost"					"0"
 		"ItemShopTags"				""
 
 		// Recipe
@@ -312,7 +312,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"4200"
+		"ItemCost"					"3625"
 		"ItemShopTags"				"move_speed"
 		"ItemQuality"				"common"
 		"ItemAliases"				"wings of haste"
@@ -330,7 +330,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"30"
+				"bonus_damage"			"30"	// not used
 			}
 			"03"
 			{
@@ -377,7 +377,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"%bonus_movement_speed"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"				"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"					"%bonus_all_stats"
@@ -399,7 +398,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"%bonus_movement_speed"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"				"%bonus_health_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"%bonus_mana_regen"
@@ -1239,7 +1237,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"600"
+				"bonus_health"			"800"
 			}
 			"03"
 			{
@@ -1738,7 +1736,7 @@
 			"01"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"bonus_health"          "600"
+				"bonus_health"          "800"
 			}
 			"02"
 			{
@@ -4000,7 +3998,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"200"
+		"ItemCost"						"6050"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4035,7 +4033,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"13800"
+		"ItemCost"						"11000"
 		"ItemShopTags"					"damage"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"DMD"
@@ -4050,7 +4048,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"		        "160"
+				"bonus_damage"		        "120"
 			}
 			"02"
 			{
@@ -4075,7 +4073,7 @@
 			"06"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"active_crit_chance"		"80"
+				"active_crit_chance"		"75"
 			}
 			"07"
 			{
@@ -4299,7 +4297,7 @@
 			"08"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"active_dodge_chance"		"80"
+				"active_dodge_chance"		"75"
 			}
 			"09"
 			{
@@ -4444,7 +4442,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"22800"
+		"ItemCost"						"20000"
 		"ItemShopTags"					"speed"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"DMC"
@@ -4459,12 +4457,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"		        "240"
+				"bonus_damage"		        "200"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"dodge_chance"		   		"50"
+				"dodge_chance"		   		"40"
 			}
 			"03"
 			{
@@ -4484,7 +4482,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"360"
+				"crit_multiplier"			"340"
 			}
 			"07"
 			{
@@ -4494,7 +4492,7 @@
 			"08"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"active_dodge_chance"		"80"
+				"active_dodge_chance"		"75"
 			}
 			"09"
 			{
@@ -4688,7 +4686,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"20"
+				"bonus_strength"		"25"
 			}
 			"03"
 			{
@@ -5297,7 +5295,7 @@
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"18"
 		"AbilityCastRange"				"1100"
 		"AbilityCastPoint"				"0.0"
 
