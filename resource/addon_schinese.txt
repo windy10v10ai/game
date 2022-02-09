@@ -96,12 +96,12 @@
 		"DOTA_Tooltip_ability_creep_buff_upgraded"						"大兵Buff"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%伤害降低："
+		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%伤害降低："
 
 		"DOTA_Tooltip_ability_creep_buff_mega"							"超级兵Buff"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"+$armor"
-		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%伤害降低："
+		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%伤害降低："
 
 		///////////////////////////////////////////////////
 		//
