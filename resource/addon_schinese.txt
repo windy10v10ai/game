@@ -656,6 +656,17 @@
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Lore"					"你问我闪现是什么？唔…我是铁血刀斯林，震怒！"
 		"DOTA_Tooltip_Ability_item_recipe_jump_jump_jump"				"跳！跳！跳！刀合成卷轴"
 
+        // item_gungir_2
+		"DOTA_Tooltip_ability_item_gungir_2"						"风暴之锤"
+		"DOTA_Tooltip_ability_item_gungir_2_Description"						"<h1>主动：闪电风暴</h1>缠绕目标%radius%范围内所有敌人，持续%duration%秒，并造成%active_damage%点伤害。<br><br>施法距离：%abilitycastrange%\n\n<h1>被动：连环闪电</h1>攻击有%chain_chance%%%几率释放一道连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避。"
+		"DOTA_Tooltip_ability_item_gungir_2_Lore"								"警告：侦测到天气控制机。闪电风暴准备就绪。"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_strength"					"+$str"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_agility"					"+$agi"
 
+		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"闪电风暴"
+		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"被缠绕时无法移动。"
+		"DOTA_Tooltip_Ability_item_recipe_gungir_2"					"风暴之锤合成卷轴"
 	}
 }
