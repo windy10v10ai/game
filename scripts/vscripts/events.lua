@@ -415,30 +415,39 @@ function AIGameMode:OnNPCSpawned(keys)
 		local sUnitName = hEntity:GetUnitName()
 		local team = hEntity:GetTeamNumber()
 		local buffLevel = self.creepBuffLevel
+		local iTower4Pushed = 0
 		if DOTA_TEAM_GOODGUYS == team then
-			buffLevel = buffLevel + AIGameMode.tower4PushedGood
+			iTower4Pushed = AIGameMode.tower4PushedGood
 		elseif DOTA_TEAM_BADGUYS == team then
-			buffLevel = buffLevel + AIGameMode.tower4PushedBad
+			iTower4Pushed = AIGameMode.tower4PushedBad
 		end
 
+		buffLevel = buffLevel + iTower4Pushed
 		if buffLevel > 0 then
 			buffLevel = math.min(buffLevel, 5)
 			if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
-				local ability = hEntity:AddAbility("creep_buff")
+				local ability = hEntity:AddAbility("creep_buff_upgraded")
 				ability:SetLevel(buffLevel)
+				return
 			elseif string.find(sUnitName, "mega") then
 				local ability = hEntity:AddAbility("creep_buff_mega")
 				ability:SetLevel(buffLevel)
+				return
 			end
 		end
 
 		-- normal line creep
 		buffLevel = 0
-		if DOTA_TEAM_GOODGUYS == team then
-			buffLevel = AIGameMode.tower4PushedGood + AIGameMode.tower3PushedGood
-		elseif DOTA_TEAM_BADGUYS == team then
-			buffLevel = AIGameMode.tower4PushedBad + AIGameMode.tower3PushedBad
+		local GameTime = GameRules:GetDOTATime(false, false)
+		if (GameTime >= (45 * 60)) then
+			buffLevel = 3
+		elseif (GameTime >= (30 * 60)) then
+			buffLevel = 2
+		elseif (GameTime >= (15 * 60)) then
+			buffLevel = 1
 		end
+
+		buffLevel = buffLevel + iTower4Pushed
 		if buffLevel > 0 and not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
 			buffLevel = math.min(buffLevel, 5)
 			local ability = hEntity:AddAbility("creep_buff")
@@ -449,9 +458,8 @@ function AIGameMode:OnNPCSpawned(keys)
 
 	if hEntity:IsCreep() then
 		if sName == "npc_dota_roshan" then
-			local ability = hEntity:AddAbility("roshan_buff")
-			ability:SetLevel(self.roshanNumber)
-			-- find ability generic_gold_bag_fountain
+			local ability_roshan_buff = hEntity:FindAbilityByName("roshan_buff")
+			ability_roshan_buff:SetLevel(self.roshanNumber)
 			local ability_gold_bag = hEntity:FindAbilityByName("generic_gold_bag_fountain")
 			ability_gold_bag:SetLevel(self.roshanNumber)
 

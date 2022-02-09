@@ -90,12 +90,18 @@
 
         // creep buff
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_creep_buff_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
+		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%Damage Reduction:"
 
-		"DOTA_Tooltip_ability_creep_buff_mega"								"Mega Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_ability_creep_buff_upgraded"						"Upgraded Creep Buff"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%Damage Reduction:"
+
+		"DOTA_Tooltip_ability_creep_buff_mega"							"Mega Creep Buff"
+		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"+$armor"
+		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%Damage Reduction:"
 
 		///////////////////////////////////////////////////
 		//
