@@ -656,6 +656,16 @@
 		"DOTA_Tooltip_Ability_item_jump_jump_jump_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Lore"					"You say Flash？No No No I am a Dotaer not LOLer.It is Blink man."
 
+        // item_gungir_2
+		"DOTA_Tooltip_ability_item_gungir_2"							"Advanced Gleipnir"
+		"DOTA_Tooltip_ability_item_gungir_2_Description"						"<h1>Active: Lightning Storm</h1>Roots all enemies in a target %radius% radius for %duration% seconds and deals %active_damage% damage.<br><br>Range: %abilitycastrange% \n\n<h1>Passive: Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion."
+		"DOTA_Tooltip_ability_item_gungir_2_Lore"								"Warning:Weather control device detected. Lightning Storm Ready."
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_strength"					"+$str"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_agility"					"+$agi"
 
+		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"Lightning Storm"
+		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"Cannot move while rooted."
 	}
 }
