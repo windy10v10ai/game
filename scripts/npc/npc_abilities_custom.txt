@@ -215,7 +215,7 @@
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"scepter_crit_bonus"	"300 320 340 360 380"
+				"scepter_crit_bonus"	"240 270 300 330 360"
 			}
 		}
 		
