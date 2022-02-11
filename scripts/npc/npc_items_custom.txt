@@ -3998,7 +3998,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6050"
+		"ItemCost"						"3050"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4007,7 +4007,7 @@
 		"ItemResult"					"item_wasp_despotic"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_crit;item_greater_crit;item_talisman_of_evasion"
+			"01"						"item_greater_crit;item_eagle"
 		}
 	}
 
@@ -4053,7 +4053,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"dodge_chance"		   		"15"
+				"bonus_agile"		   		"30"
 			}
 			"03"
 			{
@@ -4107,7 +4107,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%dodge_chance"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agile"
 				}
 
 				"OnAttackStart"
@@ -4334,7 +4334,6 @@
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%dodge_chance"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agile"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%attack_speed"
-
 				}
 
 				"OnAttackStart"
@@ -4462,17 +4461,17 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"dodge_chance"		   		"40"
+				"dodge_chance"		   		"35"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_agile"		   		"50"
+				"bonus_agile"		   		"70"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_speed"		   		"50"
+				"attack_speed"		   		"40"
 			}
 			"05"
 			{
@@ -4507,7 +4506,7 @@
 			"11"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"active_crit_chance"		"80"
+				"active_crit_chance"		"75"
 			}
 		}
 		"OnSpellStart"
@@ -5035,7 +5034,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2300"
+		"ItemCost"						"1700"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5087,7 +5086,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_radius"			"300"
+				"attack_radius"			"260"
 			}
 			"04"
 			{
