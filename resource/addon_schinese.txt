@@ -471,6 +471,7 @@
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"据说曾经属于古希腊传说中女神赫拉的面纱，主神宙斯看到它总会感到血脉喷张。"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_all_stats"			"+$all"
 
+        // item_veil_of_discord_2
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana"				"赫拉的神秘面纱"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana_Description"	"向友军提供魔法恢复。"
 		
@@ -609,7 +610,7 @@
 		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"黄金大核荣耀被拆分后的产物，代表暴虐的一面。"
 		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>主动：暴虐</h1>%active_boost_duration%秒内致命一击概率为%active_crit_chance%%%，致命一击伤害为%active_crit_multiplier%%%。"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_damage"		"+$damage"
-		"DOTA_Tooltip_ability_item_wasp_despotic_dodge_chance"		"%+$evasion"
+		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_chance"		"%致命一击概率:"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_multiplier"	"%致命一击伤害:"
 		"DOTA_Tooltip_Ability_item_recipe_wasp_despotic"				 "大核荣耀暴虐卷轴"
@@ -644,7 +645,6 @@
         "DOTA_Tooltip_ability_item_shotgun_attack_speed"           "+$attack"
         "DOTA_Tooltip_ability_item_shotgun_bonus_damage"           "+$damage"
         "DOTA_Tooltip_ability_item_shotgun_lore"                "嗵！嗵！"
-		"DOTA_Tooltip_Ability_item_recipe_shotgun"				"双管散弹枪合成卷轴"
         
 		// item_shotgun_v2
         "DOTA_Tooltip_ability_item_shotgun_v2"                  "三管霰弹枪"
@@ -652,7 +652,6 @@
         "DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"           "+$attack"
         "DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"           "+$damage"
         "DOTA_Tooltip_ability_item_shotgun_v2_lore"             "嗵！嗵！嗵！"
-		"DOTA_Tooltip_Ability_item_recipe_shotgun_v2"			"三管散弹枪合成卷轴"
 
         // item_jump_jump_jump
 		"DOTA_Tooltip_ability_item_jump_jump_jump"						"跳！跳！跳！刀"
@@ -672,6 +671,5 @@
 
 		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"闪电风暴"
 		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"被缠绕时无法移动。"
-		"DOTA_Tooltip_Ability_item_recipe_gungir_2"					"风暴之锤合成卷轴"
 	}
 }

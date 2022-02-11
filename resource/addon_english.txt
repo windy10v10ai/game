@@ -108,7 +108,6 @@
 		//            Heroes
 		//
 		///////////////////////////////////////////////////
-
 		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven"					"Glaives of Wisdom"
 		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Lore"			"Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
 		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Description"	"Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence. Silencer temporarily increases his Intelligence with each hit."
@@ -222,7 +221,6 @@
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_health_regen"					"+$hp_regen"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_mana_regen"					"+$mana_regen"
 
-        // item_blade_mail_2
 		"DOTA_Tooltip_Ability_item_royal_jelly_custom"									"Royal Jelly"
 		"DOTA_Tooltip_Ability_item_royal_jelly_custom_Description"					"<h1>Use: Consume</h1> Grants a target allied unit a permanent buff that provides +%health_regen% Health Regen and +%mana_regen% Mana Regen.<br><br>Does not stack on the same unit."
 		"DOTA_Tooltip_modifier_royal_jelly_custom"										"Royal Jelly"
@@ -612,7 +610,7 @@
 		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"It is the product of the ancient moon soul,It represents callousness."
 		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active：Despotic</h1>Critical chance is %crit_chance%%% for %active_boost_duration% second，Critical damage is %active_crit_multiplier%%%。"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_damage"		"+$damage"
-		"DOTA_Tooltip_ability_item_wasp_despotic_dodge_chance"		"%+$evasion"
+		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_chance"		"%Critical Chance:"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_multiplier"	"%Critical Damage:"
 		"DOTA_Tooltip_Ability_item_recipe_wasp_despotic"				"WASP Despotic Recipe"

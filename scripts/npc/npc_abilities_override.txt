@@ -298,10 +298,6 @@
 			}
 		}
 	}
-	"item_third_eye"
-	{
-		"ItemInitialCharges"			"50"
-	}
 	// level 4
 	"item_timeless_relic"{
 		"AbilitySpecial"
@@ -6733,25 +6729,19 @@
 	"treant_overgrowth"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"80"
+		"AbilityCooldown"				"100"
 		"AbilityManaCost"				"200 250 300 350 400"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"duration"						"3.0 4.0 5.0 6.0 7.0"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"eyes_radius"					"0"
-				"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
+				"duration"						"3.0 3.5 4.0 4.5 5.0"
 			}
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage"			"100"
+				"damage"			"75 100 125 150 175"
 				"LinkedSpecialBonus"		"special_bonus_unique_treant_11"
 			}
 		}
@@ -10533,6 +10523,30 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"total_heal_tooltip"	"99 198 297 396 495 594 693"
+			}
+		}
+	}
+	"oracle_false_promise"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6 7 8"
+				"LinkedSpecialBonus"	"special_bonus_unique_oracle"
+			}
+		}
+	}
+	"special_bonus_unique_oracle"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"1"
+				"ad_linked_ability"			"oracle_false_promise"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
