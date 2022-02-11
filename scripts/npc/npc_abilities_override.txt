@@ -28,7 +28,7 @@
 	}
 	"item_refresher"
 	{
-		"AbilityCooldown"				"90.0"
+		"AbilityCooldown"				"100.0"
 	}
 	"item_glimmer_cape"
 	{
@@ -6758,17 +6758,7 @@
 	}
 	"treant_eyes_in_the_forest"
 	{
-		"AbilityChargeRestoreTime"		"45.0"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"overgrowth_aoe"		"0"
-				"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
-				"RequiresScepter"				"1"
-			}
-		}
+		"AbilityChargeRestoreTime"		"100.0"
 	}
 	//=================================================================================================================
 	// Ability: Omniknight               全能骑士
