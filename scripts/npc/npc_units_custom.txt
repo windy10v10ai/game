@@ -554,8 +554,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"600"			// Range within a target can be acquired.
-		"AttackRange"				"600"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"450"			// Range within a target can be acquired.
+		"AttackRange"				"450"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -587,8 +587,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"600"			// Range within a target can be acquired.
-		"AttackRange"				"600"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"450"			// Range within a target can be acquired.
+		"AttackRange"				"450"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -620,8 +620,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"600"			// Range within a target can be acquired.
-		"AttackRange"				"600"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"450"			// Range within a target can be acquired.
+		"AttackRange"				"450"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -655,8 +655,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"600"			// Range within a target can be acquired.
-		"AttackRange"				"600"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"450"			// Range within a target can be acquired.
+		"AttackRange"				"450"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -688,8 +688,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"600"			// Range within a target can be acquired.
-		"AttackRange"				"600"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"450"			// Range within a target can be acquired.
+		"AttackRange"				"450"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -721,8 +721,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
 		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"600"			// Range within a target can be acquired.
-		"AttackRange"				"600"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"450"			// Range within a target can be acquired.
+		"AttackRange"				"450"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -842,8 +842,8 @@
 		// Abilities
 		"Ability1"					"tower_headshot"			// none
 
-		"AttackDamageMin"			"490"		// 290
-		"AttackDamageMax"			"510"		// 310
+		"AttackDamageMin"			"390"		// 290
+		"AttackDamageMax"			"410"		// 310
 		"AttackRate"				"0.04"		// 0.15
 		"AttackAcquisitionRange"	"1400"		// 1200
 		"AttackRange"				"1400"		// 1200

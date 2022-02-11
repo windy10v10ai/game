@@ -221,11 +221,9 @@ function AIGameMode:OnGameStateChanged(keys)
 		local barracks = Entities:FindAllByClassname("npc_dota_barracks")
 		for k, v in pairs(barracks) do
 			if v:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-				v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iRadiantTowerPower)
 				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iRadiantTowerEndure)
 				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iRadiantTowerHeal)
 			elseif v:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-				v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iDireTowerPower)
 				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iDireTowerEndure)
 				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iDireTowerHeal)
 			end
