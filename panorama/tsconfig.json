@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "target": "es2021",
+        "lib": ["es2021"],
+        "types": ["panorama-types"],
+        "strict": true
+    }
+}
