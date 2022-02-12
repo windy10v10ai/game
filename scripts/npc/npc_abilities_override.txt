@@ -8826,7 +8826,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"stat_loss"				"1 1 1 1 1 1 2"
+				"stat_loss"				"1 1 1 1 1 1 1"
 			}
 			"03"
 			{
@@ -11040,11 +11040,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"strike_interval"		"0.7 0.6 0.5 0.4 0.3"	
 				"LinkedSpecialBonus"	"special_bonus_unique_razor_2"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_reduction"	"2 2 2 2 2"		
 			}
 			"05"
 			{
