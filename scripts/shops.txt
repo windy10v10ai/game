@@ -150,7 +150,7 @@
 		//"item"		"item_ultimate_scepter"
 		"item"		"item_refresher"
 		"item"		"item_sheepstick"
-		"item"		"item_gungir"
+		"item"		"item_gungir_2"
 		"item"		"item_wind_waker"
 		"item"		"item_bloodstone"
 		"item"		"item_ultimate_scepter_2"
