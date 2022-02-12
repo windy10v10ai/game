@@ -89,13 +89,19 @@
 		"DOTA_Tooltip_modifier_melee_resistance_Description"	"近战英雄额外获得 %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 状态抗性，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性"
 
         // creep buff
-		"DOTA_Tooltip_ability_creep_buff"								"大兵Buff"
-		"DOTA_Tooltip_ability_creep_buff_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_creep_buff_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_ability_creep_buff"								"小兵Buff"
+		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
+		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%伤害降低："
 
-		"DOTA_Tooltip_ability_creep_buff_mega"								"超级兵Buff"
-		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_ability_creep_buff_upgraded"						"大兵Buff"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%伤害降低："
+
+		"DOTA_Tooltip_ability_creep_buff_mega"							"超级兵Buff"
+		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"+$armor"
+		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%伤害降低："
 
 		///////////////////////////////////////////////////
 		//
@@ -205,12 +211,11 @@
 
         // wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"急速之翼"
-		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% 移动速度, %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% 攻击速度, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复, %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% 魔法恢复。"
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% 移动速度, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% 攻击速度, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复, %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% 魔法恢复。"
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"急速之翼"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"使用: 消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_damage% 攻击力, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_movement_speed"				"+$move_speed"
-		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_all_stats"					"+$all"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_health_regen"					"+$hp_regen"
@@ -466,6 +471,7 @@
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"据说曾经属于古希腊传说中女神赫拉的面纱，主神宙斯看到它总会感到血脉喷张。"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_all_stats"			"+$all"
 
+        // item_veil_of_discord_2
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana"				"赫拉的神秘面纱"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana_Description"	"向友军提供魔法恢复。"
 		
@@ -604,7 +610,7 @@
 		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"黄金大核荣耀被拆分后的产物，代表暴虐的一面。"
 		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>主动：暴虐</h1>%active_boost_duration%秒内致命一击概率为%active_crit_chance%%%，致命一击伤害为%active_crit_multiplier%%%。"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_damage"		"+$damage"
-		"DOTA_Tooltip_ability_item_wasp_despotic_dodge_chance"		"%+$evasion"
+		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_chance"		"%致命一击概率:"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_multiplier"	"%致命一击伤害:"
 		"DOTA_Tooltip_Ability_item_recipe_wasp_despotic"				 "大核荣耀暴虐卷轴"
@@ -639,7 +645,6 @@
         "DOTA_Tooltip_ability_item_shotgun_attack_speed"           "+$attack"
         "DOTA_Tooltip_ability_item_shotgun_bonus_damage"           "+$damage"
         "DOTA_Tooltip_ability_item_shotgun_lore"                "嗵！嗵！"
-		"DOTA_Tooltip_Ability_item_recipe_shotgun"				"双管散弹枪合成卷轴"
         
 		// item_shotgun_v2
         "DOTA_Tooltip_ability_item_shotgun_v2"                  "三管霰弹枪"
@@ -647,7 +652,6 @@
         "DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"           "+$attack"
         "DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"           "+$damage"
         "DOTA_Tooltip_ability_item_shotgun_v2_lore"             "嗵！嗵！嗵！"
-		"DOTA_Tooltip_Ability_item_recipe_shotgun_v2"			"三管散弹枪合成卷轴"
 
         // item_jump_jump_jump
 		"DOTA_Tooltip_ability_item_jump_jump_jump"						"跳！跳！跳！刀"
@@ -656,6 +660,16 @@
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Lore"					"你问我闪现是什么？唔…我是铁血刀斯林，震怒！"
 		"DOTA_Tooltip_Ability_item_recipe_jump_jump_jump"				"跳！跳！跳！刀合成卷轴"
 
+        // item_gungir_2
+		"DOTA_Tooltip_ability_item_gungir_2"						"风暴之锤"
+		"DOTA_Tooltip_ability_item_gungir_2_Description"						"<h1>主动：闪电风暴</h1>缠绕目标%radius%范围内所有敌人，持续%duration%秒，并造成%active_damage%点伤害。<br><br>施法距离：%abilitycastrange%\n\n<h1>被动：连环闪电</h1>攻击有%chain_chance%%%几率释放一道连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避。"
+		"DOTA_Tooltip_ability_item_gungir_2_Lore"								"警告：侦测到天气控制机。闪电风暴准备就绪。"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_strength"					"+$str"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_agility"					"+$agi"
 
+		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"闪电风暴"
+		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"被缠绕时无法移动。"
 	}
 }

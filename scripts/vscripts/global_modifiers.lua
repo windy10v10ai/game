@@ -150,14 +150,14 @@ end
 
 
 function modifier_tower_power:GetModifierAttackSpeedBonus_Constant()
-	local fPower = StackToPercentage(self:GetStackCount())
-	return math.floor(10*(fPower)+10)
+	return 20
 end
 
 function modifier_tower_power:GetModifierBaseDamageOutgoing_Percentage()
 	return 100*StackToPercentage(self:GetStackCount())-100
 end
 
+-- show xp/gold multiplier
 modifier_multi = class({})
 
 function modifier_multi:IsPurgable() return false end

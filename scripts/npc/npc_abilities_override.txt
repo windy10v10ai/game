@@ -28,7 +28,7 @@
 	}
 	"item_refresher"
 	{
-		"AbilityCooldown"				"90.0"
+		"AbilityCooldown"				"100.0"
 	}
 	"item_glimmer_cape"
 	{
@@ -297,10 +297,6 @@
 				"status_resistance"			"20"
 			}
 		}
-	}
-	"item_third_eye"
-	{
-		"ItemInitialCharges"			"50"
 	}
 	// level 4
 	"item_timeless_relic"{
@@ -1387,10 +1383,81 @@
 	// ---------------------------------
 	// -------- Strength Heroes --------
 	// ---------------------------------
-	// 炼金
+
+	//=================================================================================================================
+	// Ability: Alchemist                炼金术士
+	//=================================================================================================================
+	"alchemist_berserk_potion"
+	{
+		"AbilityCooldown"				"25"
+	}
+	"alchemist_acid_spray"
+	{
+		"MaxLevel"						"7"
+		"AbilityManaCost"				"130 135 140 145 150 155 160"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"475 525 575 625 650 675 700"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"30 50 70 90 110 130 150"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"4 5 6 7 8 9 10"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_5"
+			}
+		}
+	}
+	"alchemist_unstable_concoction"
+	{
+		"MaxLevel"						"5"
+		"AbilityManaCost"				"100"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"max_stun"					"1.75 2.5 3.25 4.0 4.5"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_damage"				"150 220 290 360 430"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_2"
+			}
+		}
+	}
+	"alchemist_unstable_concoction_throw"
+	{
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"max_stun"					"1.75 2.5 3.25 4.0 4.5"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"min_damage"				"0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_damage"				"150 220 290 360 430"
+			}
+		}
+	}
 	"alchemist_goblins_greed"
 	{
-		"MaxLevel" "7"
+		"MaxLevel"						"7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -1411,7 +1478,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_gold_cap"		"15 18 21 24 27 30 33 36"
+				"bonus_gold_cap"		"15 18 21 24 27 30 33"
 			}
 			"05"
 			{
@@ -1422,10 +1489,53 @@
 	}
 	"alchemist_chemical_rage"
 	{
-		"AbilityCooldown"				"55.0 50.0 45.0"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"55.0 50.0 45.0 40.0 35.0"
+		"AbilityManaCost"				"50 75 100 125 150"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"25.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"transformation_time"	"0.15"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_attack_time"		"1.2 1.1 1.0 0.9 0.8"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"500 1000 1500 2000 2500"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"50 100 150 200 250"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_4"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"10 20 30 40 50"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed"		"40 50 60 70 80"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_6"
+			}
+		}
 	}
 	//=================================================================================================================
-	// Dragon Knight                       龙骑士
+	// Ability: Dragon Knight                       龙骑士
 	//=================================================================================================================
 	"dragon_knight_breathe_fire"
 	{
@@ -1530,7 +1640,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: 大牛
+	// Ability: Elder Titan                      上古巨神/大牛
 	//=================================================================================================================
 	"elder_titan_echo_stomp_spirit"
 	{
@@ -1543,7 +1653,6 @@
 			}
 		}
 	}
-
 	"elder_titan_ancestral_spirit"
 	{
 		"AbilitySpecial"
@@ -1589,9 +1698,244 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Ability: Lycan                       狼人
+	//=================================================================================================================
+	"lycan_summon_wolves"
+	{
+		"AbilitySpecial"
+		{
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_wolf_count"			"2 2 2 2"
+				"LinkedSpecialBonus"	"special_bonus_unique_lycan_2"
+			}
+		}
+	}
+	"special_bonus_unique_lycan_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"621"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"26"
+				"ad_linked_ability"			"lycan_summon_wolves"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"special_bonus_unique_lycan_7"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"794"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"400"
+				"ad_linked_ability"			"lycan_summon_wolves"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"special_bonus_unique_lycan_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6140"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"4"
+				"ad_linked_ability"			"lycan_summon_wolves"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"lycan_wolf_bite"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"70 65 60 55 50"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"lifesteal_percent"		"40"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"lifesteal_range"		"1500"		
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_range"		"150"		
+			}
+		}
+	}
+	"lycan_howl"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"22 20 18 16 14"
+		"AbilityManaCost"				"35 40 45 50 55"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"howl_duration"		"8"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_damage_reduction"		"25 30 35 40 45"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor"			"4 5 6 7 8"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"			"2000"
+			}
+		}
+	}
+	"lycan_feral_impulse"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"15 25 35 45 55 65 75"
+				"LinkedSpecialBonus"	"special_bonus_unique_lycan_4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_hp_regen"		"2 4 6 8 10 12 14"
+				"LinkedSpecialBonus"	"special_bonus_unique_lycan_3"
+			}
+		}
+	}
 	"lycan_shapeshift"
 	{
-		"AbilityCooldown"				"60 50 40"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"70 65 60 55 50"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"28"
+				"LinkedSpecialBonus"		"special_bonus_unique_lycan_1"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed"				"550"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_night_vision"		"1000"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"transformation_time"		"0.5"
+			}		
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_chance"			"40"
+				"LinkedSpecialBonus"		"special_bonus_unique_lycan_5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_multiplier"		"150 175 200 225 250"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_bonus"		"300 600 900 1200 1500"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Mars                          玛尔斯
+	//=================================================================================================================
+	"mars_spear"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"14.0 13.0 12.0 11.0 10.0 9.0 8.0"
+		"AbilityManaCost"				"110 120 130 140 150 160 170"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 175 250 325 400 450 500"
+				"LinkedSpecialBonus"	"special_bonus_unique_mars_spear_bonus_damage"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spear_range"		"900 1000 1100 1200 1300"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"1.6 2.0 2.4 2.8 3.0 3.2 3.4"
+				"LinkedSpecialBonus"	"special_bonus_unique_mars_spear_stun_duration"
+			}
+		}
+	}
+	"mars_gods_rebuke"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_mult"					"150 190 230 270 310"
+				"LinkedSpecialBonus"		"special_bonus_unique_mars_gods_rebuke_extra_crit"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage_vs_heroes"	"20 25 30 35 40"
+			}
+		}
 	}
 	"mars_bulwark"
 	{
@@ -1603,8 +1947,8 @@
 				"var_type"						"FIELD_INTEGER"
 				"physical_damage_reduction"		"10 20 30 40 50 60 70"
 				"LinkedSpecialBonus"		"special_bonus_unique_mars_bulwark_damage_reduction"
-
 			}
+			
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
@@ -1612,11 +1956,31 @@
 				"LinkedSpecialBonus"		"special_bonus_unique_mars_bulwark_damage_reduction"
 				"LinkedSpecialBonusField"		"value2"
 			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"redirect_chance"				"70"
+			}
 		}
 	}
 	"mars_arena_of_blood"
 	{
-		"AbilityCooldown"				"60 55 50"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"150 175 200 225 250"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5 6 7 8 9"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spear_damage"		"100 160 220 280 340"
+			}
+		}
 	}
 	"night_stalker_darkness"
 	{
@@ -1670,34 +2034,7 @@
 	{
 		"AbilityCooldown"				"80 70 60"
 	}
-	"abyssal_underlord_firestorm"
-	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"14.0"
 
-		"AbilityManaCost"				"110 120 130 140 160 180 200"
-		"AbilitySpecial"
-		{
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"wave_damage"					"25 40 55 70 85 100 115"
-				"LinkedSpecialBonus"			"special_bonus_unique_underlord_2"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"burn_damage"					"0.4 0.6 0.8 1 1.2 1.4 1.6"
-				"LinkedSpecialBonus"			"special_bonus_unique_underlord_4"
-				"CalculateSpellDamageTooltip"			"0"
-			}
-		}
-	}
-
-	"abyssal_underlord_dark_rift"
-	{
-		"AbilityCooldown"				"90 75 60"
-	}
 	"snapfire_gobble_up"
 	{
 		"AbilityCooldown"				"15"
@@ -2102,18 +2439,24 @@
 	}
 	"medusa_split_shot"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel"						"5"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_modifier"		"-50 -45 -40 -35"
+				"damage_modifier"		"-50 -45 -40 -35 -30"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_modifier_tooltip"		"50 55 60 65"
+				"damage_modifier_tooltip"		"50 55 60 65 70"
+			}
+			"03"
+			{	
+				"var_type"					"FIELD_INTEGER"
+				"arrow_count"				"5"
+				"LinkedSpecialBonus"			"special_bonus_unique_medusa_2"
 			}
 		}
 	}
@@ -2503,7 +2846,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shrapnel_damage"		"40 60 80 100 120 140 160"
+				"shrapnel_damage"		"25 45 65 85 105 125 145"
 				"LinkedSpecialBonus"	"special_bonus_unique_sniper_1"
 			}
 		}
@@ -4019,7 +4362,6 @@
 		"MaxLevel"						"7"
 		"AbilityCooldown"				"25 23 21 19 17 15 13"
 		"AbilityManaCost"				"100"
-		"AbilityDamage"					"20 45 70 95 120 145 170"
 		"AbilitySpecial"
 		{
 			"01"
@@ -4070,7 +4412,6 @@
 		"MaxLevel"						"7"
 		"AbilityCooldown"				"20.0 18.0 16.0 14.0 12.0 10.0 8.0"
 		"AbilityManaCost"				"30 45 40 45 50 55 60"
-		"AbilityDamage"					"110 160 210 260 310 360 400"
 		"AbilitySpecial"
 		{
 			"01"
@@ -4403,7 +4744,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Doom Bringer          末日使者
+	// Ability: Doom Bringer          末日使者
 	//=================================================================================================================
 	"doom_bringer_devour"
 	{
@@ -4496,7 +4837,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Tidehunter          潮汐猎人
+	// Ability: Tidehunter          潮汐猎人
 	//=================================================================================================================
 	"tidehunter_gush"
 	{
@@ -4580,7 +4921,7 @@
 		}
 	}
     //=================================================================================================================
-	// Centaur Warchief           半人马战行者
+	// Ability: Centaur Warchief           半人马战行者
 	//=================================================================================================================
 	"centaur_hoof_stomp"
 	{
@@ -4665,7 +5006,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Invoker            祈求者/卡尔
+	// Ability: Invoker            祈求者/卡尔
 	//=================================================================================================================
 	"invoker_cold_snap"
 	{
@@ -4713,7 +5054,7 @@
 		"AbilityCooldown"				"30"
 	}	
     //=================================================================================================================
-	// Bristleback    钢背兽
+	// Ability: Bristleback    钢背兽
 	//=================================================================================================================
 	"bristleback_viscous_nasal_goo"
 	{
@@ -4933,7 +5274,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Chaos Knight                             混沌骑士
+	// Ability: Chaos Knight                             混沌骑士
 	//=================================================================================================================
 	"chaos_knight_chaos_bolt"
 	{
@@ -5052,7 +5393,7 @@
 		}
 	}
     //=================================================================================================================
-	// Terrorblade        恐怖利刃
+	// Ability: Terrorblade        恐怖利刃
 	//=================================================================================================================
 	"terrorblade_reflection"
 	{
@@ -5141,7 +5482,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Spectre             幽鬼
+	// Ability: Spectre             幽鬼
 	//=================================================================================================================
 	"spectre_spectral_dagger"
 	{
@@ -5236,7 +5577,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Naga Siren                     娜迦海妖
+	// Ability: Naga Siren                     娜迦海妖
 	//=================================================================================================================
 	"naga_siren_mirror_image"
 	{
@@ -5324,7 +5665,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Tiny                        小小
+	// Ability: Tiny                        小小
 	//=================================================================================================================
 	"tiny_avalanche"
 	{
@@ -5447,14 +5788,14 @@
 	"bane_brain_sap"
 	{
 		"MaxLevel"						"7"
-		"AbilityCooldown"				"15 14 13 12 11 10 9"
+		"AbilityCooldown"				"17 15 13 11 9 7 5"
 		"AbilityManaCost"				"100 120 140 160 180 200 220"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"brain_sap_damage"				"75 150 225 300 375 425 475"
+				"brain_sap_damage"				"75 150 225 300 375 450 525"
 				"LinkedSpecialBonus"			"special_bonus_unique_bane_2"
 			}
 		}
@@ -5462,14 +5803,14 @@
 	"bane_fiends_grip"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"120 110 100 90 80"
+		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityManaCost"				"200 250 300 350 400"		
 		"AbilitySpecial"
 		{
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"fiend_grip_damage"				"90 110 130 150 170"
+				"fiend_grip_damage"				"80 120 160 200 240"
 			}
 		}
 	}
@@ -5494,7 +5835,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Monkey King              齐天大圣
+	// Ability: Monkey King              齐天大圣
 	//=================================================================================================================
 	"monkey_king_boundless_strike"
 	{
@@ -5570,7 +5911,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Spirit Breaker              裂魂人
+	// Ability: Spirit Breaker              裂魂人
 	//=================================================================================================================
 	"spirit_breaker_charge_of_darkness"
 	{
@@ -5655,7 +5996,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ursa         熊战士
+	// Ability: Ursa         熊战士
 	//=================================================================================================================
 	"ursa_earthshock"
 	{
@@ -5739,7 +6080,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Batrider                 蝙蝠骑士
+	// Ability: Batrider                 蝙蝠骑士
 	//=================================================================================================================
 	"batrider_sticky_napalm"
 	{
@@ -5854,7 +6195,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Chen               陈
+	// Ability: Chen               陈
 	//=================================================================================================================
 	"chen_penitence"
 	{
@@ -6091,7 +6432,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Viper                 毒龙
+	// Ability: Viper                 毒龙
 	//=================================================================================================================
 	"viper_poison_attack"
 	{
@@ -6198,7 +6539,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Luna               露娜
+	// Ability: Luna               露娜
 	//=================================================================================================================
 	"luna_lucent_beam"
 	{
@@ -6298,7 +6639,7 @@
 		}
 	}
 	//=================================================================================================================
-	//  Treant Protector                  大树
+	// Ability: Treant Protector                  大树
 	//=================================================================================================================
 	"treant_natures_grasp"
 	{
@@ -6388,45 +6729,29 @@
 	"treant_overgrowth"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"80"
+		"AbilityCooldown"				"100"
 		"AbilityManaCost"				"200 250 300 350 400"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"duration"						"3.0 4.0 5.0 6.0 7.0"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"eyes_radius"					"0"
-				"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
+				"duration"						"3.0 3.5 4.0 4.5 5.0"
 			}
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage"			"100"
+				"damage"			"75 100 125 150 175"
 				"LinkedSpecialBonus"		"special_bonus_unique_treant_11"
 			}
 		}
 	}
 	"treant_eyes_in_the_forest"
 	{
-		"AbilityChargeRestoreTime"		"45.0"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"overgrowth_aoe"		"0"
-				"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
-				"RequiresScepter"				"1"
-			}
-		}
+		"AbilityChargeRestoreTime"		"100.0"
 	}
 	//=================================================================================================================
-	// Omniknight               全能骑士
+	// Ability: Omniknight               全能骑士
 	//=================================================================================================================
 	"omniknight_purification"
 	{
@@ -6521,7 +6846,7 @@
 		}
 	}	
 	//=================================================================================================================
-	// Kunkka                      船长
+	// Ability: Kunkka                      船长
 	//=================================================================================================================
 	"kunkka_torrent"
 	{
@@ -6610,7 +6935,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ogre Magi            蓝胖子
+	// Ability: Ogre Magi            蓝胖子
 	//=================================================================================================================
 	"ogre_magi_fireblast"
 	{
@@ -7005,7 +7330,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Legion Commander              军团指挥官
+	// Ability: Legion Commander              军团指挥官
 	//=================================================================================================================
 	"legion_commander_overwhelming_odds"
 	{
@@ -7116,7 +7441,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Furion                       先知
+	// Ability: Furion                       先知
 	//=================================================================================================================
 	"furion_sprout"
 	{
@@ -7207,7 +7532,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Keeper of the Light               光之守卫
+	// Ability: Keeper of the Light               光之守卫
 	//=================================================================================================================
 	"keeper_of_the_light_illuminate"
 	{
@@ -7300,7 +7625,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Bounty Hunter           赏金猎人
+	// Ability: Bounty Hunter           赏金猎人
 	//=================================================================================================================
 	"bounty_hunter_shuriken_toss"
 	{
@@ -7405,7 +7730,7 @@
 		}
 	}
     //=================================================================================================================
-	// Lone Druid            德鲁伊
+	// Ability: Lone Druid            德鲁伊
 	//=================================================================================================================
 	"lone_druid_spirit_bear"
 	{
@@ -7497,7 +7822,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Grimstroke              天涯墨客
+	// Ability: Grimstroke              天涯墨客
 	//=================================================================================================================
 	"grimstroke_soul_chain"
 	{
@@ -7515,7 +7840,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Winter Wyvern                   寒冬飞龙
+	// Ability: Winter Wyvern                   寒冬飞龙
 	//=================================================================================================================
 	"winter_wyvern_arctic_burn"
 	{
@@ -7582,7 +7907,7 @@
 		}
 	}
     //=================================================================================================================
-	// Enigma                 谜团
+	// Ability: Enigma                 谜团
 	//=================================================================================================================
 	"enigma_malefice"
 	{
@@ -7644,7 +7969,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Puck                    帕克/仙女龙
+	// Ability: Puck                    帕克/仙女龙
 	//=================================================================================================================
 	"puck_illusory_orb"
 	{
@@ -7736,7 +8061,7 @@
 			"01"
 			{	
 				"var_type"				"FIELD_INTEGER"
-				"bonus_range"			"125 200 275 350 400 450 500"
+				"bonus_range"			"125 200 275 350 400"
 			}
 			"02"
 			{	
@@ -7812,7 +8137,7 @@
  		"MaxLevel"						"4"
 	}
 	//=================================================================================================================
-	// Dark Willow                 邪影芳灵/花仙子
+	// Ability: Dark Willow                 邪影芳灵/花仙子
 	//=================================================================================================================
 	"dark_willow_bramble_maze"
 	{
@@ -7981,13 +8306,13 @@
 		}
 	}
 	//=================================================================================================================
-	// Rubick                    拉比克
+	// Ability: Rubick                    拉比克
 	//=================================================================================================================
 	"rubick_telekinesis"
 	{
 	    "MaxLevel"						"7"
 		"AbilityCooldown"				"29 27 25 23 22 21 20"
-		"AbilityCastRange"				"550 575 600 625 650 675 700"
+		"AbilityCastRange"				"550 575 600 625 650"
 		"AbilitySpecial"
 		{
 			"01"
@@ -8066,7 +8391,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Clinkz                    骨弓/克林克兹
+	// Ability: Clinkz                    骨弓/克林克兹
 	//=================================================================================================================
 	"clinkz_strafe"
 	{
@@ -8262,7 +8587,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Enchantress                         魅惑魔女/小鹿
+	// Ability: Enchantress                         魅惑魔女/小鹿
 	//=================================================================================================================
 	"enchantress_untouchable"
 	{
@@ -8351,7 +8676,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Riki                  力丸
+	// Ability: Riki                  力丸
 	//=================================================================================================================
 	"riki_smoke_screen"
 	{
@@ -8425,7 +8750,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Slark                   斯拉克/小鱼人
+	// Ability: Slark                   斯拉克/小鱼人
 	//=================================================================================================================
 	"slark_depth_shroud"
 	{
@@ -8477,7 +8802,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"agi_gain"				"2 2 3 3 4 4 5"
 				"LinkedSpecialBonus"	"special_bonus_unique_slark_5"
-
 			}
 			"02"
 			{
@@ -8612,7 +8936,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Windrunner                          风行者
+	// Ability: Windrunner                          风行者
 	//=================================================================================================================
 	"windrunner_gale_force"
 	{
@@ -8798,7 +9122,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration_scepter"			"7.0 7.5 8.0 8.5 9.0"
+				"duration_scepter"			"6.0 6.5 7.0 7.5 8.0"
 				"RequiresScepter"	"1"
 			}
 		}
@@ -8890,7 +9214,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Lion                              莱恩
+	// Ability: Lion                              莱恩
 	//=================================================================================================================
 	"lion_impale"
 	{
@@ -8974,7 +9298,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Lich                    巫妖
+	// Ability: Lich                    巫妖
 	//=================================================================================================================
 	"lich_frost_nova"
 	{
@@ -9088,7 +9412,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-60 -70 -80 -90 -100"
+				"slow_movement_speed"	"-65"
 			}
 			"05"
 			{
@@ -9103,12 +9427,12 @@
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_jump_damage"		"15 20 25 30 35"
+				"bonus_jump_damage"		"20"
 			}
 		}			
 	}
 	//=================================================================================================================
-	// Undying                        不朽尸王
+	// Ability: Undying                        不朽尸王
 	//=================================================================================================================
 	"undying_decay"
 	{
@@ -9187,7 +9511,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Beastmaster                        兽王
+	// Ability: Beastmaster                        兽王
 	//=================================================================================================================
 	"beastmaster_wild_axes"
 	{
@@ -9304,7 +9628,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Brewmaster                      熊猫酒仙
+	// Ability: Brewmaster                      熊猫酒仙
 	//=================================================================================================================
 	"brewmaster_thunder_clap"
 	{
@@ -9405,7 +9729,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Huskar                                     哈斯卡
+	// Ability: Huskar                                     哈斯卡
 	//=================================================================================================================
 	"huskar_inner_fire"
 	{
@@ -9533,7 +9857,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Morphling                     变体精灵/水人
+	// Ability: Morphling                     变体精灵/水人
 	//=================================================================================================================
 	"morphling_waveform"
 	{
@@ -9686,7 +10010,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Troll Warlord                                  巨魔战将
+	// Ability: Troll Warlord                                  巨魔战将
 	//=================================================================================================================
 	"troll_warlord_rampage"
 	{
@@ -9838,7 +10162,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Lifestealer                     噬魂鬼/小狗
+	// Ability: Lifestealer                     噬魂鬼/小狗
 	//=================================================================================================================
 	"life_stealer_rage"
 	{
@@ -9933,7 +10257,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Phoenix                            凤凰
+	// Ability: Phoenix                            凤凰
 	//=================================================================================================================
 	"phoenix_icarus_dive"
 	{
@@ -10076,7 +10400,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Sven                            斯文
+	// Ability: Sven                            斯文
 	//=================================================================================================================
 	"sven_storm_bolt"
 	{
@@ -10164,7 +10488,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Oracle                          神谕者
+	// Ability: Oracle                          神谕者
 	//=================================================================================================================
 	"oracle_fortunes_end"
 	{
@@ -10199,6 +10523,30 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"total_heal_tooltip"	"99 198 297 396 495 594 693"
+			}
+		}
+	}
+	"oracle_false_promise"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6 7 8"
+				"LinkedSpecialBonus"	"special_bonus_unique_oracle"
+			}
+		}
+	}
+	"special_bonus_unique_oracle"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"1"
+				"ad_linked_ability"			"oracle_false_promise"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -10295,7 +10643,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Magnataur                     猛犸
+	// Ability: Magnataur                     猛犸
 	//=================================================================================================================
 	"magnataur_shockwave"
 	{
@@ -10392,7 +10740,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Disruptor                             干扰者/萨尔
+	// Ability: Disruptor                             干扰者/萨尔
 	//=================================================================================================================
 	"disruptor_thunder_strike"
 	{
@@ -10503,6 +10851,351 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"damage_max"				"200 275 350 425 500"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Abyssal Underlord                    孽主/大屁股
+	//=================================================================================================================
+	"abyssal_underlord_firestorm"
+	{
+		"MaxLevel"						"7"
+		"AbilityManaCost"				"110 120 130 140 150 160 170"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"wave_damage"					"25 40 55 70 85 100 115"
+				"LinkedSpecialBonus"			"special_bonus_unique_underlord_2"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"burn_damage"					"1 1.2 1.4 1.6 1.8 2.0 2.2"
+				"LinkedSpecialBonus"			"special_bonus_unique_underlord_4"
+				"CalculateSpellDamageTooltip"			"0"
+			}
+		}
+	}
+	"abyssal_underlord_pit_of_malice"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"21 19 17 15 13 11 9"
+		"AbilityManaCost"				"80 90 100 110 120 130 140"
+		"AbilitySpecial"
+		{
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"ensnare_duration"				"1.2 1.4 1.6 1.8 2.0 2.1 2.2"
+				"LinkedSpecialBonus"			"special_bonus_unique_underlord"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	"abyssal_underlord_atrophy_aura"
+	{
+		"MaxLevel"						"5"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_reduction_pct"			"5 15 25 35 45"
+				"LinkedSpecialBonus"			"special_bonus_unique_underlord_3"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage_from_creep"		"2 4 6 8 10"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage_from_hero"		"30 35 40 45 50"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_damage_duration"			"30 45 60 75 90"
+			}
+		}
+	}
+	"abyssal_underlord_dark_rift"
+	{
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"90 75 60 45"
+		"AbilityManaCost"				"100 150 200 250"		
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"teleport_delay"				"5.0 4.0 3.0 2.0"
+			}		
+		}
+	}
+	//=================================================================================================================
+	// Ability: Razor                    剃刀/电棍
+	//=================================================================================================================
+	"razor_plasma_field"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"13 12 11 10 9 8 7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_min"				"35 40 45 50 55 60 65"
+				"LinkedSpecialBonus"	"special_bonus_unique_razor_4"								
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_max"				"80 115 150 185 220 255 290"
+				"LinkedSpecialBonus"	"special_bonus_unique_razor_4"								
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow_min"				"10"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow_max"				"25 30 35 40 45 50 55"
+			}
+		}
+	}
+	"razor_static_link"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"40 35 30 25 20"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"drain_length"			"5 6 7 8 9"
+				"LinkedSpecialBonus"	"special_bonus_unique_razor_3"				
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"drain_duration"		"15 16 17 18 19"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"drain_rate"			"7 12 17 22 27"
+				"LinkedSpecialBonus"	"special_bonus_unique_razor"
+			}
+		}
+	}
+	"special_bonus_unique_razor"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6028"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"10"
+				"ad_linked_ability"			"razor_static_link"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"razor_unstable_current"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"self_movement_speed_pct"	"12 16 20 24 28 32 36"
+				"LinkedSpecialBonus"	"special_bonus_unique_razor_5"
+			}
+		}
+	}
+	"razor_eye_of_the_storm"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"80 70 60 50 40"
+		"AbilityManaCost"				"100 150 200 250 300"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"30.0"		
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"strike_interval"		"0.7 0.6 0.5 0.4 0.3"	
+				"LinkedSpecialBonus"	"special_bonus_unique_razor_2"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_reduction"	"2 2 2 2 2"		
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"60 75 90 105 120"		
+			}
+		}
+	}
+	"special_bonus_unique_razor_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"586"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"
+				"ad_linked_ability"			"razor_eye_of_the_storm"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Void Spirit                             虚无之灵
+	//=================================================================================================================
+	"void_spirit_aether_remnant"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"17.0 15.0 13.0 11.0 9.0"
+		"AbilityManaCost"				"75 80 85 90 95"
+		"AbilitySpecial"
+		{
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impact_damage"			"80 130 180 230 280"
+				"LinkedSpecialBonus"	"special_bonus_unique_void_spirit_2"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pull_duration"			"1.4 1.6 1.8 2.0 2.2"
+			}
+		}
+	}
+	"special_bonus_unique_void_spirit_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"7707"	// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"100"
+				"ad_linked_ability"			"void_spirit_aether_remnant"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"void_spirit_dissimilate"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"20 17 14 11 9"
+		"AbilityDamage"					"100 180 260 340 320 400 480"
+		"AbilityManaCost"				"100 110 120 130 140 150 160"
+	}
+	"void_spirit_astral_step"
+	{
+		"MaxLevel"						"5"
+		"AbilityChargeRestoreTime"		"28 24 20 16 12"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"min_travel_distance"	"200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_travel_distance"	"700 850 1000 1100 1200"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pop_damage"			"150 250 350 450 550"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_slow_pct"		"40 60 80 100"
+			}
+		}
+	}
+	"special_bonus_unique_void_spirit_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"7706"	// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"value"					"-2.0" // (Astral Step Charge Restore Time)
+				"ad_linked_ability"			"void_spirit_astral_step"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"void_spirit_resonant_pulse"
+	{
+		"MaxLevel"						"7"
+		"AbilityManaCost"				"115 120 125 130 135 140 145"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"70 120 170 220 270 320 370"
+				"LinkedSpecialBonus"	"special_bonus_unique_void_spirit_4"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_absorb_amount"	"40 80 120 160 200 240 280"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"absorb_per_hero_hit"	"30 45 60 75 90 105 120"
 			}
 		}
 	}
