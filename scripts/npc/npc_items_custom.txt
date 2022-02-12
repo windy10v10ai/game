@@ -282,7 +282,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"575"
+		"ItemCost"					"0"
 		"ItemShopTags"				""
 
 		// Recipe
@@ -312,7 +312,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"4200"
+		"ItemCost"					"3625"
 		"ItemShopTags"				"move_speed"
 		"ItemQuality"				"common"
 		"ItemAliases"				"wings of haste"
@@ -330,7 +330,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"30"
+				"bonus_damage"			"30"	// not used
 			}
 			"03"
 			{
@@ -377,7 +377,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"%bonus_movement_speed"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"				"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"					"%bonus_all_stats"
@@ -399,7 +398,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"%bonus_movement_speed"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"				"%bonus_health_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"%bonus_mana_regen"
@@ -1239,7 +1237,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"600"
+				"bonus_health"			"800"
 			}
 			"03"
 			{
@@ -1738,7 +1736,7 @@
 			"01"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"bonus_health"          "600"
+				"bonus_health"          "800"
 			}
 			"02"
 			{
@@ -3320,7 +3318,7 @@
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"20"
-		"AbilityCastRange"				"1000"
+		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.0"
 
 
@@ -4000,7 +3998,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"200"
+		"ItemCost"						"3050"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4009,7 +4007,7 @@
 		"ItemResult"					"item_wasp_despotic"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_crit;item_greater_crit;item_talisman_of_evasion"
+			"01"						"item_greater_crit;item_eagle"
 		}
 	}
 
@@ -4035,7 +4033,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"13800"
+		"ItemCost"						"11000"
 		"ItemShopTags"					"damage"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"DMD"
@@ -4050,12 +4048,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"		        "160"
+				"bonus_damage"		        "120"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"dodge_chance"		   		"15"
+				"bonus_agile"		   		"30"
 			}
 			"03"
 			{
@@ -4075,7 +4073,7 @@
 			"06"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"active_crit_chance"		"80"
+				"active_crit_chance"		"75"
 			}
 			"07"
 			{
@@ -4109,7 +4107,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%dodge_chance"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agile"
 				}
 
 				"OnAttackStart"
@@ -4299,7 +4297,7 @@
 			"08"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"active_dodge_chance"		"80"
+				"active_dodge_chance"		"75"
 			}
 			"09"
 			{
@@ -4336,7 +4334,6 @@
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%dodge_chance"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agile"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%attack_speed"
-
 				}
 
 				"OnAttackStart"
@@ -4444,7 +4441,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"22800"
+		"ItemCost"						"20000"
 		"ItemShopTags"					"speed"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"DMC"
@@ -4459,22 +4456,22 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"		        "240"
+				"bonus_damage"		        "200"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"dodge_chance"		   		"50"
+				"dodge_chance"		   		"35"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_agile"		   		"50"
+				"bonus_agile"		   		"70"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_speed"		   		"50"
+				"attack_speed"		   		"40"
 			}
 			"05"
 			{
@@ -4484,7 +4481,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"360"
+				"crit_multiplier"			"340"
 			}
 			"07"
 			{
@@ -4494,7 +4491,7 @@
 			"08"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"active_dodge_chance"		"80"
+				"active_dodge_chance"		"75"
 			}
 			"09"
 			{
@@ -4509,7 +4506,7 @@
 			"11"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"active_crit_chance"		"80"
+				"active_crit_chance"		"75"
 			}
 		}
 		"OnSpellStart"
@@ -4688,7 +4685,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"20"
+				"bonus_strength"		"25"
 			}
 			"03"
 			{
@@ -4961,7 +4958,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1400"
+		"ItemCost"						"1000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5037,7 +5034,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2300"
+		"ItemCost"						"1700"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5089,7 +5086,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_radius"			"300"
+				"attack_radius"			"200"
 			}
 			"04"
 			{
@@ -5251,7 +5248,138 @@
 			}
 		}
 	}
+    //=================================================================================================================
+	// Recipe: gungir_2               风暴之锤卷轴
+	//=================================================================================================================
+	"item_recipe_gungir_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3072"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_recipe_gungir"
+		"AbilityTextureName" 			"item_recipe_gungir_2"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"250"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_gungir_2"
+		"ItemRequirements"
+		{
+			"01"						"item_gungir;item_mjollnir"
+		}
+	}
+	
+	//=================================================================================================================
+	// gungir_2                     风暴之锤
+	//=================================================================================================================
+	"item_gungir_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3073"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySharedCooldown"			"gungir"
+		"BaseClass"						"item_gungir"
+		"AbilityTextureName"			"item_gungir_2"
 
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18"
+		"AbilityCastRange"				"1100"
+		"AbilityCastPoint"				"0.0"
+
+		"AbilityManaCost"				"200"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"11600"
+		"ItemShopTags"					"damage;attack_speed;unique"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"gleipnir;gliepnir;glaypnir"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"60"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_chance"			"40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_damage"			"240"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_strikes"			"15"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_radius"			"750"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"chain_delay"			"0.15"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"chain_cooldown"		"0.1"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"40"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"40"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agility"			"50"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3.0"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"			"600"
+			}
+			"13"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"active_damage"			"450"
+			}
+		}
+	}
 }
 
 
