@@ -90,6 +90,7 @@ $("#starting_gold_player_dropdown").SetSelected("5000");
 $("#starting_gold_bot_dropdown").SetSelected("600");
 $("#same_hero_selection").checked=true;
 $("#fast_courier").checked=true;
+$("#radiant_bot_same_multi").checked=true;
 
 function StateChange() {
 	if ( Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION) ) {
@@ -109,7 +110,8 @@ function StateChange() {
 				"starting_gold_bot": $("#starting_gold_bot_dropdown").GetSelected().id,
 				"max_level": $("#max_level_dropdown").GetSelected().id,
 				"same_hero_selection": $("#same_hero_selection").checked,
-				"fast_courier": $("#fast_courier").checked
+				"fast_courier": $("#fast_courier").checked,
+				"radiant_bot_same_multi": $("#radiant_bot_same_multi").checked
 			}
 		});
 	}
