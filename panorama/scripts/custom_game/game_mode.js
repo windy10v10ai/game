@@ -58,6 +58,8 @@ function InitializeUI(keys) {
 	else {
 		$("#ChatHideButtonContainer").SetHasClass("ChatHideButtonContainerPos16_9", true);
 	}
+	// default join radiant team
+	Game.PlayerJoinTeam(2);
 }
 
 function HideChatTeamActivate() {
