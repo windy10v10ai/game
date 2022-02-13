@@ -31,6 +31,6 @@
 		<!-- <CustomUIElement type="HudTopBar"			layoutfile="file://{resources}/layout/custom_game/multiteam_top_scoreboard.xml" /> -->
 		<CustomUIElement type="FlyoutScoreboard"	layoutfile="file://{resources}/layout/custom_game/multiteam_flyout_scoreboard.xml" />
 		<CustomUIElement type="EndScreen" 			layoutfile="file://{resources}/layout/custom_game/multiteam_end_screen.xml" />
-		<CustomUIElement type="Hud" 				layoutfile="file://{resources}/layout/custom_game/quest.xml" />
+		<!-- <CustomUIElement type="Hud" 				layoutfile="file://{resources}/layout/custom_game/quest.xml" /> -->
 	</Panel>
 </root>
