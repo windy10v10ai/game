@@ -58,8 +58,6 @@ function InitializeUI(keys) {
 	else {
 		$("#ChatHideButtonContainer").SetHasClass("ChatHideButtonContainerPos16_9", true);
 	}
-	// default join radiant team
-	Game.PlayerJoinTeam(2);
 }
 
 function HideChatTeamActivate() {
@@ -119,13 +117,20 @@ function StateChange() {
 	}
 }
 
+// default join radiant team
+var isJoinRadiant = true;
+function JoinRadiantDefault() {	
+	$.Msg("++++++++++++++join radiant team");
+	Game.PlayerJoinTeam(2);
+	isJoinRadiant = false;
+}
+
 /**
  * 非主机玩家显示游戏选项内容设定
  */
 function OnGameOptionsChange() {	
 	var gameOptions = CustomNetTables.GetTableValue('game_options_table', 'game_option');
 	// $.Msg("++++++++++++++OnGameOptionsChange");
-	// $.Msg(gameOptions);
 	$("#DisplayOptionsPlayerGoldXp").text = gameOptions.player_gold_xp_multiplier_dropdown;
 	$("#DisplayOptionsBotGoldXp").text = gameOptions.bot_gold_xp_multiplier_dropdown;
 	$("#DisplayOptionsRadiantTower").text = gameOptions.radiant_tower_power_dropdown;
@@ -133,6 +138,10 @@ function OnGameOptionsChange() {
 	$("#DisplayOptionsRespawnTime").text = gameOptions.respawn_time_percentage_dropdown;
 	$("#DisplayOptionsMaxLevel").text = gameOptions.max_level_dropdown;
 
+	// join radiant team only 1st time
+	if ( isJoinRadiant ) {
+		JoinRadiantDefault();
+	}
 }
 
 (function() {
