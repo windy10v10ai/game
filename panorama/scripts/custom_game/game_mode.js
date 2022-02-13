@@ -92,6 +92,22 @@ $("#same_hero_selection").checked=true;
 $("#fast_courier").checked=true;
 $("#radiant_bot_same_multi").checked=true;
 
+// Test Code for Development
+var isDevelopMode = false;
+function RunDevelopSetting() {	
+	if ( !isDevelopMode ) {
+		return;
+	}
+	$.Msg("====DEBUG====Test GameOptions");
+	$("#radiant_player_number_dropdown").SetSelected("3");
+	$("#dire_player_number_dropdown").SetSelected("3");
+	$("#radiant_bot_same_multi").checked=false;
+	$("#player_gold_xp_multiplier_dropdown").SetSelected("1");
+	$("#bot_gold_xp_multiplier_dropdown").SetSelected("10");
+}
+RunDevelopSetting();
+// Test Code for Development
+
 function StateChange() {
 	if ( Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION) ) {
 		GameEvents.SendCustomGameEventToServer("loading_set_options",{
@@ -120,7 +136,6 @@ function StateChange() {
 // default join radiant team
 var isJoinRadiant = true;
 function JoinRadiantDefault() {	
-	$.Msg("++++++++++++++join radiant team");
 	Game.PlayerJoinTeam(2);
 	isJoinRadiant = false;
 }
