@@ -246,7 +246,11 @@ function AIGameMode:FilterGold(tGoldFilter)
 	if self.tHumanPlayerList[iPlayerID] then
 		tGoldFilter["gold"] = math.floor(iGold*self.fPlayerGoldXpMultiplier)
 	else
-		tGoldFilter["gold"] = math.floor(iGold*self.fBotGoldXpMultiplier)
+		if self.bRadiantBotSameMulti and PlayerResource:GetTeam(iPlayerID) == DOTA_TEAM_GOODGUYS then
+			tGoldFilter["gold"] = math.floor(iGold*self.fPlayerGoldXpMultiplier)
+		else
+			tGoldFilter["gold"] = math.floor(iGold*self.fBotGoldXpMultiplier)
+		end
 	end
 	return true
 end
@@ -260,7 +264,11 @@ function AIGameMode:FilterXP(tXPFilter)
 	if self.tHumanPlayerList[iPlayerID] then
 		tXPFilter["experience"] = math.floor(iXP*self.fPlayerGoldXpMultiplier)
 	else
-		tXPFilter["experience"] = math.floor(iXP*self.fBotGoldXpMultiplier)
+		if self.bRadiantBotSameMulti and PlayerResource:GetTeam(iPlayerID) == DOTA_TEAM_GOODGUYS then
+			tXPFilter["experience"] = math.floor(iXP*self.fPlayerGoldXpMultiplier)
+		else
+			tXPFilter["experience"] = math.floor(iXP*self.fBotGoldXpMultiplier)
+		end
 	end
 	return true
 end
