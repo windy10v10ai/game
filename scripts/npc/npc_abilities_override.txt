@@ -1518,13 +1518,13 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"50 100 150 200 250"
+				"bonus_health_regen"	"75 100 125 150 175"
 				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_4"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"10 20 30 40 50"
+				"bonus_mana_regen"		"15 20 25 30 35"
 			}
 			"07"
 			{
