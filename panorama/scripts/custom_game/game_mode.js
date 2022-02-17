@@ -90,6 +90,23 @@ $("#starting_gold_player_dropdown").SetSelected("5000");
 $("#starting_gold_bot_dropdown").SetSelected("600");
 $("#same_hero_selection").checked=true;
 $("#fast_courier").checked=true;
+$("#radiant_bot_same_multi").checked=true;
+
+// Test Code for Development
+var isDevelopMode = false;
+function RunDevelopSetting() {	
+	if ( !isDevelopMode ) {
+		return;
+	}
+	$.Msg("====DEBUG====Test GameOptions");
+	$("#radiant_player_number_dropdown").SetSelected("3");
+	$("#dire_player_number_dropdown").SetSelected("3");
+	$("#radiant_bot_same_multi").checked=false;
+	$("#player_gold_xp_multiplier_dropdown").SetSelected("1");
+	$("#bot_gold_xp_multiplier_dropdown").SetSelected("10");
+}
+RunDevelopSetting();
+// Test Code for Development
 
 function StateChange() {
 	if ( Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION) ) {
@@ -109,10 +126,18 @@ function StateChange() {
 				"starting_gold_bot": $("#starting_gold_bot_dropdown").GetSelected().id,
 				"max_level": $("#max_level_dropdown").GetSelected().id,
 				"same_hero_selection": $("#same_hero_selection").checked,
-				"fast_courier": $("#fast_courier").checked
+				"fast_courier": $("#fast_courier").checked,
+				"radiant_bot_same_multi": $("#radiant_bot_same_multi").checked
 			}
 		});
 	}
+}
+
+// default join radiant team
+var isJoinRadiant = true;
+function JoinRadiantDefault() {	
+	Game.PlayerJoinTeam(2);
+	isJoinRadiant = false;
 }
 
 /**
@@ -121,7 +146,6 @@ function StateChange() {
 function OnGameOptionsChange() {	
 	var gameOptions = CustomNetTables.GetTableValue('game_options_table', 'game_option');
 	// $.Msg("++++++++++++++OnGameOptionsChange");
-	// $.Msg(gameOptions);
 	$("#DisplayOptionsPlayerGoldXp").text = gameOptions.player_gold_xp_multiplier_dropdown;
 	$("#DisplayOptionsBotGoldXp").text = gameOptions.bot_gold_xp_multiplier_dropdown;
 	$("#DisplayOptionsRadiantTower").text = gameOptions.radiant_tower_power_dropdown;
@@ -129,6 +153,10 @@ function OnGameOptionsChange() {
 	$("#DisplayOptionsRespawnTime").text = gameOptions.respawn_time_percentage_dropdown;
 	$("#DisplayOptionsMaxLevel").text = gameOptions.max_level_dropdown;
 
+	// join radiant team only 1st time
+	if ( isJoinRadiant ) {
+		JoinRadiantDefault();
+	}
 }
 
 (function() {

@@ -37,6 +37,7 @@
 		"starting_gold_bot"	"Bot Starting Gold"
 		"same_hero_selection"  "Allow Same Hero Selection"
 		"fast_courier"  "Fast Invulnerable Courier"
+		"radiant_bot_same_multi"  "Radiant Bot same multiplier with player"
 		"hide_chat_team"  "Hide Chat and Team"
 		"show_chat_team"  "Show Chat and Team"
 
