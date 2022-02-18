@@ -11573,7 +11573,7 @@
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"miss_rate"				"60"
+				"miss_rate"				"80"
 				"RequiresScepter"			"1"
 			}
 		}
