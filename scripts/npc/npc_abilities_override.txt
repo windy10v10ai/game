@@ -8391,22 +8391,22 @@
 	//=================================================================================================================
 	"clinkz_strafe"
 	{
-		"MaxLevel"						"7"
-		"AbilityChannelTime"			"1.5 1.9 2.3 2.7 3.0 3.3 3.5"
-		"AbilityCooldown"				"28 26 24 22 18 16 14"
-		"AbilityManaCost"				"40 55 70 85 100 115 130"
+		"MaxLevel"						"5"
+		"AbilityChannelTime"			"1.5 1.9 2.3 2.7 3.1"
+		"AbilityCooldown"				"28 26 24 22 18"
+		"AbilityManaCost"				"40 55 70 85 100"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"wave_count"					"3 4 5 6 7 8 9"
+				"wave_count"					"3 4 5 6 7"
 				"LinkedSpecialBonus"		"special_bonus_unique_clinkz_12"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"range"	"750 800 850 900"				
+				"range"	"700 750 800 850 900"				
 			}
 			"04"
 			{
