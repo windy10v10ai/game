@@ -26,6 +26,10 @@ function CheckForHostPrivileges() {
 	}
 }
 
+function JoinRadiant() {
+	Game.PlayerJoinTeam(2);
+}
+
 function InitializeUI(keys) {
 	if (keys.PlayerID != Game.GetLocalPlayerID()) {return}
 	var is_host = CheckForHostPrivileges();
@@ -34,12 +38,10 @@ function InitializeUI(keys) {
 		return;
 	} else if (is_host) {
 		$("#game_options_container").style.visibility='visible';
-		$("#display_options_container").style.visibility='visible';
 		$("#ChatHideButtonHide").visible=true;
 		GameEventsIniti();
 	} else {
 		$("#ChatHideButtonHide").visible=true;
-		$("#display_options_container").style.visibility='visible';
 	}
 	// Hides battlecuck crap
 	var hit_test_blocker = $.GetContextPanel().GetParent().FindChild("SidebarAndBattleCupLayoutContainer");
@@ -109,7 +111,11 @@ RunDevelopSetting();
 // Test Code for Development
 
 function StateChange() {
-	if ( Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION) ) {
+	if ( Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) ) {
+		$("#display_options_container").style.visibility='visible';
+		// join radiant team
+		$.Schedule(1, JoinRadiant);
+	} else if ( Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION) ) {
 		GameEvents.SendCustomGameEventToServer("loading_set_options",{
 			"host_privilege": CheckForHostPrivileges(),
 			"game_options":{
@@ -133,13 +139,6 @@ function StateChange() {
 	}
 }
 
-// default join radiant team
-var isJoinRadiant = true;
-function JoinRadiantDefault() {	
-	Game.PlayerJoinTeam(2);
-	isJoinRadiant = false;
-}
-
 /**
  * 非主机玩家显示游戏选项内容设定
  */
@@ -153,10 +152,6 @@ function OnGameOptionsChange() {
 	$("#DisplayOptionsRespawnTime").text = gameOptions.respawn_time_percentage_dropdown;
 	$("#DisplayOptionsMaxLevel").text = gameOptions.max_level_dropdown;
 
-	// join radiant team only 1st time
-	if ( isJoinRadiant ) {
-		JoinRadiantDefault();
-	}
 }
 
 (function() {
