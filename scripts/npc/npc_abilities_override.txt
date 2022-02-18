@@ -11538,7 +11538,7 @@
 	}
 	"dawnbreaker_solar_guardian"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel"						"5"
 		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityManaCost"				"100 150 200 250 300"
 		"AbilitySpecial"
