@@ -156,7 +156,12 @@ function BotThink:AddMoney(hHero)
     return false
   end
   local goldPerSec = totalGold/GameTime
+
   local multiplier = AIGameMode.fBotGoldXpMultiplier
+  if AIGameMode.bRadiantBotSameMulti and hHero:GetTeam() == DOTA_TEAM_GOODGUYS then
+    multiplier = AIGameMode.fPlayerGoldXpMultiplier
+  end
+
   if goldPerSec > (10 + multiplier*iAddBase) then
     return false
   end
