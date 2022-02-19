@@ -1,5 +1,6 @@
 {
     "Lua.diagnostics.disable": [
         "undefined-global"
-    ]
+    ],
+    "css.lint.unknownProperties": "ignore"
 }

@@ -1518,13 +1518,13 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"50 100 150 200 250"
+				"bonus_health_regen"	"75 100 125 150 175"
 				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_4"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"10 20 30 40 50"
+				"bonus_mana_regen"		"15 20 25 30 35"
 			}
 			"07"
 			{
@@ -1982,10 +1982,6 @@
 			}
 		}
 	}
-	"night_stalker_darkness"
-	{
-		"AbilityCooldown"				"110"
-	}
 	"sandking_caustic_finale"
 	{
 		"MaxLevel" "7"
@@ -2055,7 +2051,7 @@
 	}
 
 	//=================================================================================================================
-	// Marci 玛西
+	// Ability: Marci 玛西
 	//=================================================================================================================
 	"marci_grapple"
 	{
@@ -2132,7 +2128,7 @@
 	// -------- Agility Heroes 敏捷英雄--------
 	// --------------------------------
 	//=================================================================================================================
-	// Ability: Bloodseeker's Bloodrage                     血魔
+	// Ability: Bloodseeker                    血魔
 	//=================================================================================================================
 	"bloodseeker_bloodrage"
 	{
@@ -2255,7 +2251,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Drow Ranger	Frost Arrows           黑暗游侠
+	// Ability: Drow Ranger                 黑暗游侠
 	//=================================================================================================================
 	"drow_ranger_frost_arrows"
 	{
@@ -2366,7 +2362,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Faceless Void                      虚空假面
+	// Ability: Faceless Void                      虚空假面
 	//=================================================================================================================
 	"faceless_void_time_walk"
 	{
@@ -2431,7 +2427,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Medusa                              美杜莎/大娜迦
+	// Ability: Medusa                              美杜莎/大娜迦
 	//=================================================================================================================
 	"medusa_cold_blooded"
 	{
@@ -2586,7 +2582,7 @@
 	}
 
 	//=================================================================================================================
-	// Nyx Assassin: Mana Burn
+	// Ability: Nyx Assassin                     小强
 	//=================================================================================================================
 	"nyx_assassin_mana_burn"
 	{
@@ -2602,7 +2598,7 @@
 		}
 	}
 	//=================================================================================================================
-	// PA
+	// Ability: Phantom_Assassin              幻影刺客/PA
 	//=================================================================================================================
 	"phantom_assassin_stifling_dagger"
 	{
@@ -2828,7 +2824,7 @@
 		"AbilityManaCost"				"150 250 350"
 	}
 	//=================================================================================================================
-	// Sniper                                火枪
+	// Ability: Sniper                                火枪
 	//=================================================================================================================
 	"sniper_shrapnel"
 	{
@@ -2925,7 +2921,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Venomancer                          剧毒术士
+	// Ability: Venomancer                          剧毒术士
 	//=================================================================================================================
 	"venomancer_venomous_gale"
 	{
@@ -3008,7 +3004,7 @@
 	// ---- Intelligence Heroes 智力英雄 ----
 	// -------------------------------------
 	//=================================================================================================================
-	// Ancient Apparition                     远古冰魂
+	// Ability: Ancient Apparition                     远古冰魂
 	//=================================================================================================================
 	"ancient_apparition_cold_feet"
 	{
@@ -3124,7 +3120,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Crystal Maiden                       冰女
+	// Ability: Crystal Maiden                       冰女
 	//=================================================================================================================
 	"crystal_maiden_freezing_field"
 	{
@@ -3194,7 +3190,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Tinker                              修补匠
+	// Ability: Tinker                              修补匠
 	//=================================================================================================================
 	"tinker_laser"
 	{
@@ -3257,7 +3253,7 @@
 	}
 
 	//=================================================================================================================
-	// witch docker                              巫医
+	// Ability: witch docker                              巫医
 	//=================================================================================================================
 	"witch_doctor_paralyzing_cask"
 	{
@@ -3308,7 +3304,6 @@
 			}
 		}
 	}
-	
 	"witch_doctor_maledict"
 	{
 		"MaxLevel" "7"
@@ -3386,18 +3381,7 @@
 			}
 		}
 	}
-	"enchantress_impetus"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"distance_damage_pct"	"8 10 12 14"
-				"LinkedSpecialBonus"	"special_bonus_unique_enchantress_4"
-			}
-		}
-	}
+
 	"jakiro_macropyre"
 	{
 		"AbilitySpecial"
@@ -3409,10 +3393,6 @@
 				"RequiresScepter"		"1"
 			}
 		}
-	}
-	"keeper_of_the_light_will_o_wisp"
-	{
-		"AbilityCooldown"				"60"
 	}
 	"leshrac_diabolic_edict"
 	{
@@ -3431,7 +3411,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Necrolyte                        瘟疫法师
+	// Ability: Necrolyte                        瘟疫法师
 	//=================================================================================================================
 	"necrolyte_death_pulse"
 	{
@@ -3492,7 +3472,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Obsidian Destroyer          黑鸟
+	// Ability: Obsidian Destroyer          黑鸟
 	//=================================================================================================================
 	"obsidian_destroyer_arcane_orb"
 	{
@@ -3572,7 +3552,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Queen of Pain: Blink                     痛苦女王
+	// Ability: Queen of Pain                     痛苦女王
 	//=================================================================================================================
 	"queenofpain_blink"
 	{
@@ -3643,7 +3623,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Silencer                        沉默术士
+	// Ability: Silencer                        沉默术士
 	//=================================================================================================================
 	"silencer_glaives_of_wisdom"
 	{
@@ -3734,7 +3714,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Skywrath Mage                   天怒法师
+	// Ability: Skywrath Mage                   天怒法师
 	//=================================================================================================================
 	"skywrath_mage_arcane_bolt"
 	{
@@ -3780,7 +3760,7 @@
 	//=================================================================================================================
 
 	//=================================================================================================================
-	// Zuus: Arc Lightning               宙斯
+	// Ability: Zuus               宙斯
 	//=================================================================================================================
 	"zuus_arc_lightning"
 	{
@@ -3844,7 +3824,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Techies                         炸弹人
+	// Ability: Techies                         炸弹人
 	//=================================================================================================================
 	"techies_land_mines"
 	{
@@ -3987,7 +3967,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Storm Spirit                     风暴之灵/蓝猫
+	// Ability: Storm Spirit                     风暴之灵/蓝猫
 	//=================================================================================================================
 	"storm_spirit_electric_rave"
 	{
@@ -4113,7 +4093,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Shredder               伐木机
+	// Ability: Shredder               伐木机
 	//=================================================================================================================
 	"shredder_whirling_death"
 	{
@@ -4177,7 +4157,6 @@
 			}
 		}
 	}
-
 	"shredder_reactive_armor"
 	{
 		"AbilitySpecial"
@@ -4206,7 +4185,6 @@
 			}
 		}
 	}
-
 	"shredder_chakram"
 	{
 		"MaxLevel" "4"
@@ -4254,7 +4232,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Pugna               帕格纳
+	// Ability: Pugna               帕格纳
 	//=================================================================================================================
 	"pugna_nether_blast"
 	{
@@ -4330,7 +4308,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Rattletrap             发条地精
+	// Ability: Rattletrap             发条地精
 	//=================================================================================================================
 	"rattletrap_overclocking"
 	{
@@ -5052,6 +5030,26 @@
 	"invoker_deafening_blast"
 	{
 		"AbilityCooldown"				"30"
+	}
+	"special_bonus_unique_invoker_13"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"724"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"3.5"
+				"ad_linked_ability"			"invoker_exort"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
 	}	
     //=================================================================================================================
 	// Ability: Bristleback    钢背兽
@@ -5397,8 +5395,8 @@
 	//=================================================================================================================
 	"terrorblade_reflection"
 	{
-		"AbilityCooldown"				"20 18 16 14"
-		"AbilityManaCost"				"30 35 40 45"
+		"AbilityCooldown"				"28 24 20 16"
+		"AbilityManaCost"				"35 40 45 50"
 		"AbilitySpecial"
 		{
 			"04"
@@ -6043,8 +6041,28 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_per_stack"				"10 19 28 37 46 54 60"
+				"damage_per_stack"				"10 20 30 40 50 60 70"
 				"LinkedSpecialBonus"			"special_bonus_unique_ursa"
+			}
+		}
+	}
+	"special_bonus_unique_ursa"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6132"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"20"
+				"ad_linked_ability"			"ursa_fury_swipes"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}		
@@ -6074,7 +6092,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"30 27 24 21 18"
+				"cooldown_scepter"			"28 24 20 17 14"
 				"RequiresScepter"			"1"
 			}
 		}
@@ -6377,7 +6395,7 @@
 	"mirana_arrow"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"18 17 16 15 14 13 12"
+		"AbilityCooldown"				"16 15 14 13 12 11 10"
 		"AbilityDamage"					"60 150 240 330 400 450 500"
 	}
 	"mirana_invis"
@@ -6697,7 +6715,6 @@
 				"movement_slow"					"-10 -15 -20 -25 30 35 40"
 				"LinkedSpecialBonus"			"special_bonus_unique_treant_3"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
-
 			}	
 			"05"
 			{
@@ -6935,7 +6952,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Ogre Magi            蓝胖子
+	// Ability: Ogre Magi            食人魔魔法师/蓝胖子
 	//=================================================================================================================
 	"ogre_magi_fireblast"
 	{
@@ -7137,7 +7154,7 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Visage          维萨吉
+	// Ability: Visage                 维萨吉/死灵龙
 	//=================================================================================================================
 	"visage_grave_chill"
 	{
@@ -7190,7 +7207,7 @@
 		"AbilityCooldown"				"20"
 	}
 	//=================================================================================================================
-	// Ability: Earth Spirit       大地之灵 土猫
+	// Ability: Earth Spirit                    大地之灵/土猫
 	//=================================================================================================================
 	"earth_spirit_boulder_smash"
 	{
@@ -7623,6 +7640,10 @@
 				"LinkedSpecialBonus"		"special_bonus_unique_keeper_of_the_light"
 			}
 		}
+	}
+	"keeper_of_the_light_will_o_wisp"
+	{
+		"AbilityCooldown"				"60"
 	}
 	//=================================================================================================================
 	// Ability: Bounty Hunter           赏金猎人
@@ -8395,22 +8416,22 @@
 	//=================================================================================================================
 	"clinkz_strafe"
 	{
-		"MaxLevel"						"7"
-		"AbilityChannelTime"			"1.5 1.9 2.3 2.7 3.0 3.3 3.5"
-		"AbilityCooldown"				"28 26 24 22 18 16 14"
-		"AbilityManaCost"				"40 55 70 85 100 115 130"
+		"MaxLevel"						"5"
+		"AbilityChannelTime"			"1.5 1.9 2.3 2.7 3.1"
+		"AbilityCooldown"				"28 26 24 22 18"
+		"AbilityManaCost"				"40 55 70 85 100"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"wave_count"					"3 4 5 6 7 8 9"
+				"wave_count"					"3 4 5 6 7"
 				"LinkedSpecialBonus"		"special_bonus_unique_clinkz_12"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"range"	"750 800 850 900"				
+				"range"	"700 750 800 850 900"				
 			}
 			"04"
 			{
@@ -8806,7 +8827,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"stat_loss"				"1 1 1 1 1 1 2"
+				"stat_loss"				"1 1 1 1 1 1 1"
 			}
 			"03"
 			{
@@ -9328,7 +9349,7 @@
 	"lich_frost_shield"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"30 25 20 15 10"
+		"AbilityCooldown"				"35 30 25 20 15"
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilitySpecial"
 		{
@@ -11045,11 +11066,6 @@
 				"strike_interval"		"0.7 0.6 0.5 0.4 0.3"	
 				"LinkedSpecialBonus"	"special_bonus_unique_razor_2"
 			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_reduction"	"2 2 2 2 2"		
-			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
@@ -11196,6 +11212,394 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"absorb_per_hero_hit"	"30 45 60 75 90 105 120"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Night Stalker                   夜魔
+	//=================================================================================================================
+	"night_stalker_void"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"11 10 9 8 7"
+		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"			"80 160 240 320 400"
+				"LinkedSpecialBonus"		"special_bonus_unique_night_stalker_4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration_night"		"2.5 3 3.5 4 4.5"
+			}
+		}
+	}
+	"night_stalker_crippling_fear"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"30 27 24 21 18"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration_night"		"4.0 5.0 6.0 7.0 8.0"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"radius"	"375"
+			}
+		}	
+	}
+	"special_bonus_unique_night_stalker_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"799"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"4"
+				"ad_linked_ability"			"night_stalker_crippling_fear"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"night_stalker_hunter_in_the_night"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_movement_speed_pct_night"	"25 30 35 40 45 50 55"
+				"LinkedSpecialBonus"		"special_bonus_unique_night_stalker_5"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_attack_speed_night"			"20 40 60 80 100 120 140"
+				"LinkedSpecialBonus"		"special_bonus_unique_night_stalker_2"
+			}
+		}
+	}
+	"special_bonus_unique_night_stalker_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6704"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"60"
+				"ad_linked_ability"			"night_stalker_hunter_in_the_night"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"night_stalker_darkness"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"110"
+		"AbilityManaCost"				"125 175 225 275 325"
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"30.0"
+				"LinkedSpecialBonus"		"special_bonus_unique_night_stalker_7"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"50 100 150 200 250"
+				"LinkedSpecialBonus"		"special_bonus_unique_night_stalker_3"
+			}
+		}
+	}
+	"special_bonus_unique_night_stalker"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6129"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"30"
+				"ad_linked_ability"			"night_stalker_darkness"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Dawnbreaker                     破晓星辰/黄大锤
+	//=================================================================================================================
+	"dawnbreaker_fire_wreath"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"17 15 13 11 9"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"swipe_damage"				"20 30 40 50 60"
+				"LinkedSpecialBonus"		"special_bonus_unique_dawnbreaker_fire_wreath_swipe"
+			}	
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"smash_damage"				"30 60 90 120 150"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"smash_stun_duration"			"0.8 1.0 1.2 1.4 1.6"
+			}			
+		}	
+	}
+	"special_bonus_unique_dawnbreaker_fire_wreath_swipe"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"7941"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"60"
+			}
+		}
+	}
+	"dawnbreaker_celestial_hammer"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"18 16 14 12 10 8 6"
+		"AbilityManaCost"				"100 110 120 130 140 150 160"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hammer_damage"			"60 90 120 150 180 210 240"
+				"LinkedSpecialBonus"		"special_bonus_unique_dawnbreaker_celestial_blade"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_radius"			"300"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"				"1500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"flare_debuff_duration"				"5"
+			}
+			"05"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"flare_radius"					"300"
+			}
+			"06"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"move_slow"							"24 28 32 36 40 45 50"
+				"LinkedSpecialBonus"		"special_bonus_unique_dawnbreaker_celestial_hammer_slow"
+			}	
+			"07"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"burn_damage"						"40 50 60 70 80 90 100"
+			}		
+			"09"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"pause_duration"						"4"
+			}	
+			"10"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"hammer_aoe_radius"						"500"
+			}	
+			"13"	
+			{
+				"var_type"								"FIELD_INTEGER"
+				"range"								"1000 1100 1200 1300 1400 1500 1600"
+			}
+		}
+	}
+	"special_bonus_unique_dawnbreaker_celestial_hammer_cast_range"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"7934"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"800"
+				"ad_linked_ability"				"dawnbreaker_celestial_hammer"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"dawnbreaker_luminosity"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"heal_radius"				"800"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"heal_pct"					"60 70 80 90 100 110 120"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"120 140 160 180 200 220 240"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_count"				"3"
+				"LinkedSpecialBonus"		"special_bonus_unique_dawnbreaker_luminosity_attack_count"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"				  
+			}	
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"heal_from_creeps"			"80"
+			}	
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"allied_healing_pct"		"100"
+			}				
+		}
+	}
+	"special_bonus_unique_dawnbreaker_luminosity_crit"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"7937"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"60"
+				"ad_linked_ability"				"dawnbreaker_luminosity"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"dawnbreaker_solar_guardian"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"100 90 80 70 60"
+		"AbilityManaCost"				"100 150 200 250 300"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"airtime_duration"				"0.8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"600"
+				"LinkedSpecialBonus"	"special_bonus_unique_dawnbreaker_solar_guardian_radius"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"			"40 60 80 100 120"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_heal"				"60 80 100 120 140"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pulse_interval"				"0.5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"land_damage"			"130 160 190 220 250"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"land_stun_duration"			"1.5 1.75 2 2.25 2.5"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_offset_distance"			"350"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"airtime_scepter_bonus"	"3.5"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_heal"				"90 120 150 180 210"
+				"RequiresScepter"			"1"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"miss_rate"				"80"
+				"RequiresScepter"			"1"
 			}
 		}
 	}

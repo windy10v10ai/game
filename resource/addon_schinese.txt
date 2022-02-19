@@ -37,6 +37,7 @@
 		"starting_gold_bot"	"机器人初始金钱"
 		"same_hero_selection"  "允许选择相同英雄"
 		"fast_courier"  "快速信使"
+		"radiant_bot_same_multi"  "天辉机器人使用玩家金钱倍率"
 		"hide_chat_team"  "隐藏聊天框"
 		"show_chat_team"  "显示聊天框"
 
