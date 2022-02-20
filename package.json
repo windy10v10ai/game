@@ -1,6 +1,23 @@
 {
+  "name": "windy10v10ai",
+  "private": true,
+  "scripts": {
+      "postinstall": "node src/scripts/install.js",
+      "launch": "node src/scripts/launch.js",
+      "build": "run-p build:*",
+      "build:panorama": "tsc --project src/panorama/tsconfig.json",
+      "build:vscripts": "tstl --project src/vscripts/tsconfig.json",
+      "dev": "run-p dev:*",
+      "dev:panorama": "tsc --project src/panorama/tsconfig.json --watch",
+      "dev:vscripts": "tstl --project src/vscripts/tsconfig.json --watch"
+  },
   "devDependencies": {
-    "panorama-types": "^1.6.1",
-    "typescript": "^4.5.5"
+      "@moddota/dota-lua-types": "^4.13.0",
+      "@moddota/find-steam-app": "^1.1.0",
+      "@moddota/panorama-types": "^1.12.0",
+      "fs-extra": "^9.0.0",
+      "npm-run-all": "^4.1.5",
+      "typescript": "^4.2.3",
+      "typescript-to-lua": "^1.0.0"
   }
 }
