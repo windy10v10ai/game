@@ -22,10 +22,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"				
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
 		}
-		
-		// Time		
+
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityDuration"				"0.0"
 		"AbilityCastRange"				"600"
@@ -113,7 +113,7 @@
 						"Target"		"CASTER"
 						"ModifierName"	"modifier_glaives_of_wisdom_int_steal_datadriven"
 					}
-				}	
+				}
 			}
 			"modifier_glaives_of_wisdom_int_steal_datadriven"
 			{
@@ -218,7 +218,7 @@
 				"scepter_crit_bonus"	"240 270 300 330 360"
 			}
 		}
-		
+
 		// Data driven
 		// -------------------------------------------------------------------------------------------------------------
 		"precache"
@@ -318,10 +318,10 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"			"bloodseeker_rupture"
-		
+
 		"precache"
 		{
 			"particle"			"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
@@ -333,18 +333,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.6"
 
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 200 250 300 350"		
-		
+		"AbilityManaCost"				"150 200 250 300 350"
+
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
-			
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"0.0"	// Only does damage
@@ -379,7 +379,7 @@
 				"cast_range_tooltip"		"1000"
 			}
 		}
-		
+
 		"OnSpellStart"
 		{
 			"ApplyModifier"
@@ -387,24 +387,24 @@
 				"ModifierName"	"modifier_rupture_datadriven"
 				"Target"	"TARGET"
 			}
-			
+
 			"FireSound"
 			{
 				"EffectName"	"Hero_Bloodseeker.Rupture"
 				"Target"		"TARGET"
 			}
 		}
-		
+
 		"Modifiers"
 		{
 			"modifier_rupture_datadriven"
 			{
 				"Duration"	"%duration"
 				"IsDebuff"	"1"
-				
+
 				"EffectName"	"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
 				"EffectAttachType"	"attach_origin"
-				
+
 				"OnCreated"
 				{
 					"RunScript"
@@ -413,7 +413,7 @@
 						"Function"		"DistanceCheck"
 					}
 				}
-				
+
 				"ThinkInterval"	"%damage_cap_interval"
 				"OnIntervalThink"
 				{
@@ -459,7 +459,7 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
@@ -493,7 +493,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"-10 -20 -30 -40 -50"
+				"damage_reduction"		"-20 -30 -40 -50 -60"
 			}
 		}
 		"Modifiers"
@@ -503,7 +503,7 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
@@ -538,7 +538,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"-10 -20 -30 -40 -50"
+				"damage_reduction"		"-20 -30 -40 -50 -60"
 			}
 		}
 		"Modifiers"
@@ -548,7 +548,7 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
@@ -568,7 +568,7 @@
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
-		{			
+		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -594,7 +594,7 @@
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
-		{			
+		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -610,14 +610,14 @@
 	"tower_magical_armor_aura"
 	{
 		"BaseClass"						"mudgolem_cloak_aura"
-		
+
 		"AbilitySpecial"
-		{			
+		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_magical_armor"	"20"
-			}	
+			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -633,7 +633,7 @@
 	"tower_hp_aura"
 	{
 		"BaseClass"						"granite_golem_hp_aura"
-		
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -668,7 +668,7 @@
 				"damage_modifier_tooltip"		"100 100 100 100"
 			}
 			"03"
-			{	
+			{
 				"var_type"					"FIELD_INTEGER"
 				"arrow_count"				"1 2 3 4"
 				"LinkedSpecialBonus"			"special_bonus_unique_medusa_2"
@@ -706,7 +706,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"slow"						"-80"
-			}	
+			}
 		}
 	}
 
@@ -727,7 +727,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"0 200 400 600 800"
+				"bonus_damage"			"50 200 350 500 650"
 			}
 			"02"
 			{
@@ -752,7 +752,7 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
@@ -783,9 +783,9 @@
                 {
                     "Center"    "CASTER"
                     "Flags"     "DOTA_UNIT_TARGET_FLAG_DEAD"
-                }  
+                }
             }
-            
+
         }
 
         "Modifiers"
@@ -801,7 +801,7 @@
                         "Target"
                         {
                             "Center"    "TARGET"
-                        }           
+                        }
                         "ItemName"          "item_bag_of_gold"
                         "ItemCount"         "1"
                         "SpawnRadius"       "25"
@@ -814,8 +814,8 @@
                 }
             }
         }
-       
-        
+
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
