@@ -10,3 +10,5 @@ panorama/scripts/custom_game/*.vjs_c
 panorama_debugger.cfg
 resource/custom_game_whitelist.txt
 /node_modules
+src/content/
+src/game/
