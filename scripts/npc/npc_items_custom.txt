@@ -827,7 +827,7 @@
 
 			// Item Info
 			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"						"12050"
+			"ItemCost"						"9800"
 			"ItemShopTags"					"lifesteal;damage;armor;regen_mana;attack_speed;hard_to_tag"
 			"ItemQuality"					"artifact"
 			"ItemAliases"					"vladmir's offering;vlads"
@@ -859,7 +859,7 @@
 					"06"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"vampiric_aura"			"15"
+							"vampiric_aura"			"20"
 					}
 					"07"
 					{
@@ -869,7 +869,7 @@
 					"08"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"bonus_attack_speed"	"40"
+							"bonus_attack_speed"	"50"
 					}
 					"09"
 					{
@@ -879,7 +879,7 @@
 					"10"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"aura_attack_speed"		"40"
+							"aura_attack_speed"		"50"
 					}
 					"11"
 					{
@@ -4770,7 +4770,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"30"
+				"bonus_armor"			"25"
 			}
 			"03"
 			{
@@ -4780,7 +4780,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-80"
+				"aura_attack_speed"		"-70"
 			}
 			"05"
 			{
@@ -4795,7 +4795,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"blast_debuff_duration"	"6.0"
+				"blast_debuff_duration"	"4.0"
 			}
 			"08"
 			{
