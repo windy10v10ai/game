@@ -123,6 +123,7 @@
 			"item_apex"						  "1"
 			"item_demonicon"				  "1"
 			"item_timeless_relic"			  "1"
+			"item_carapace_of_qaldin"       "1"
 		}
 	}
 	"6"

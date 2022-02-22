@@ -139,7 +139,7 @@
 
         // 美杜莎
 		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "每次美杜莎受到指向性技能作用时都会朝该敌人放出一条单体的秘术异蛇。冷却时间：4。"
-        
+
 		// 血魔
         "DOTA_Tooltip_ability_rupture_datadriven_scepter_description"				"<font color='#e03e2e'>【注意】</font>千万不要给血魔购买神杖！神杖血魔会导致游戏卡顿崩溃！"
 		"DOTA_Tooltip_ability_rupture_datadriven_max_charges_scepter"					        ""
@@ -155,7 +155,7 @@
 		"DOTA_Tooltip_ability_rupture_datadriven_abilitycastrange"					"施法距离："
 
 		"DOTA_Tooltip_modifier_rupture_datadriven"						"割裂"
-		"DOTA_Tooltip_modifier_rupture_datadriven_Description"			"造成与移动距离成正比的伤害。"		
+		"DOTA_Tooltip_modifier_rupture_datadriven_Description"			"造成与移动距离成正比的伤害。"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -375,7 +375,7 @@
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_Lore"					"当年孙悟空从东海龙王敖广的海底宝库中偷出来的趁手的兵器。"
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_damage"					"+$damage"
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_attack_speed"					"+$attack"
-        
+
 		// item_magic_scepter
 		"DOTA_Tooltip_Ability_item_magic_scepter"								"魔渊法杖"
 		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>主动: <font color='#a74abd'>魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续 %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int% 法术增强."
@@ -475,7 +475,7 @@
         // item_veil_of_discord_2
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana"				"赫拉的神秘面纱"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana_Description"	"向友军提供魔法恢复。"
-		
+
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"				"魔法虚弱"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"受到的魔法伤害增加%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
 
@@ -504,7 +504,7 @@
 
 		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk"	"暗影步"
 		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk_Description"	"隐身，移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，而且可以穿过单位。破隐一击将造成%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT%点额外伤害，同时禁用被动技能。"
-		
+
 		// item_black_king_bar_2
 		"DOTA_Tooltip_Ability_item_black_king_bar_2"			"天神杖"
 		"DOTA_Tooltip_Ability_item_recipe_black_king_bar_2"			"图纸（天神杖）"
@@ -521,7 +521,7 @@
 		"DOTA_Tooltip_ability_item_infernal_desolator_Lore"							"上百护甲，一秒打穿。"
 		"DOTA_Tooltip_ability_item_infernal_desolator_Note0"								"护甲降低效果对建筑有效。"
 		//"DOTA_Tooltip_ability_item_infernal_desolator_corruption_armor"					"ARMOR REDUCTION:"
-		"DOTA_Tooltip_ability_item_infernal_desolator_bonus_damage"						"+$damage"		
+		"DOTA_Tooltip_ability_item_infernal_desolator_bonus_damage"						"+$damage"
 
 		"DOTA_Tooltip_modifier_infernal_desolator_buff"					"绝对破防之刃"
 		"DOTA_Tooltip_modifier_infernal_desolator_buff_Description"		"绝对破防之刃使你的护甲被削弱%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。"
@@ -615,7 +615,7 @@
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_chance"		"%致命一击概率:"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_multiplier"	"%致命一击伤害:"
 		"DOTA_Tooltip_Ability_item_recipe_wasp_despotic"				 "大核荣耀暴虐卷轴"
-		
+
 		// item_wasp_callous
 		"DOTA_Tooltip_ability_item_wasp_callous"						"大核荣耀冷酷"
 		"DOTA_Tooltip_ability_item_wasp_callous_Lore"				"黄金大核荣耀被拆分后的产物，代表冷酷的一面。"
@@ -646,7 +646,7 @@
         "DOTA_Tooltip_ability_item_shotgun_attack_speed"           "+$attack"
         "DOTA_Tooltip_ability_item_shotgun_bonus_damage"           "+$damage"
         "DOTA_Tooltip_ability_item_shotgun_lore"                "嗵！嗵！"
-        
+
 		// item_shotgun_v2
         "DOTA_Tooltip_ability_item_shotgun_v2"                  "三管霰弹枪"
         "DOTA_Tooltip_ability_item_shotgun_v2_Description"      "<h1>被动: 霰弹</h1>仅限远程：在%attack_radius%半径内造成%attack_percent%%%溅射伤害（魔法）。"
@@ -672,5 +672,7 @@
 
 		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"闪电风暴"
 		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"被缠绕时无法移动。"
+
+		"DOTA_Tooltip_ability_item_carapace_of_qaldin_bonus_armor"			"+$armor"
 	}
 }
