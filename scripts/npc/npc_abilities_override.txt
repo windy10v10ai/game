@@ -11518,7 +11518,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"heal_from_creeps"			"80"
+				"heal_from_creeps"			"20"
 			}
 			"07"
 			{
