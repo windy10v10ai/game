@@ -139,12 +139,12 @@
 
         // 美杜莎
 		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "When Medusa is targeted with a spell, a single-target Mystic Snake is sent back towards the enemy. Cooldown: 4."
-		
+
 		// 血魔
         "DOTA_Tooltip_ability_rupture_datadriven_scepter_description"				"<font color='#e03e2e'>CAUTION!!!</font> Dont buy Aghanim's Scepter for Bloodseeker! It will cause the game go crash!"
 		"DOTA_Tooltip_ability_rupture_datadriven_max_charges_scepter"					        ""
 		"DOTA_Tooltip_ability_rupture_datadriven_charge_restore_time_scepter"					""
-		
+
 		"DOTA_Tooltip_ability_rupture_datadriven"										"Rupture"
 		"DOTA_Tooltip_ability_rupture_datadriven_Description"							"Causes an enemy unit's skin to rupture, dealing initial damage based on its current health. If the unit moves, it takes damage based on the distance moved.  The damage is dealt through spell immunity."
 		"DOTA_Tooltip_ability_rupture_datadriven_scepter_description"				"Grants Bloodseeker two charges of Rupture and reduces Rupture's Cooldown to 40s"
@@ -155,7 +155,7 @@
 		"DOTA_Tooltip_ability_rupture_datadriven_abilitycastrange"					"CAST RANGE:"
 
 		"DOTA_Tooltip_modifier_rupture_datadriven"						"Rupture"
-		"DOTA_Tooltip_modifier_rupture_datadriven_Description"			"Deals a percentage of the distance you move as damage"		
+		"DOTA_Tooltip_modifier_rupture_datadriven_Description"			"Deals a percentage of the distance you move as damage"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -247,7 +247,7 @@
 
         // item_radiance_2
 		"DOTA_Tooltip_Ability_item_radiance_2"				"RADIANCE 2"
-		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second, and causes them to miss %blind_pct%%% of their attacks. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"	
+		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second, and causes them to miss %blind_pct%%% of their attacks. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_radiance_2_Lore"								"A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
 		"DOTA_Tooltip_ability_item_radiance_2_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_modifier_item_radiance_2_debuff"				"Burn Damage"
@@ -367,7 +367,7 @@
 		"DOTA_Tooltip_ability_item_aeon_pendant_lore"					"A powerful artifact long ago smuggled out of the Ivory Incubarium. Or so many believe."
 		"DOTA_Tooltip_ability_item_aeon_pendant_bonus_health"					"+$health"
 		"DOTA_Tooltip_ability_item_aeon_pendant_bonus_mana"					"+$mana"
-		"DOTA_Tooltip_ability_item_aeon_pendant_cooldown_duration"					"COOLDOWN:"	
+		"DOTA_Tooltip_ability_item_aeon_pendant_cooldown_duration"					"COOLDOWN:"
 
         // item_monkey_king_bar_2
 		"DOTA_Tooltip_Ability_item_monkey_king_bar_2"			"Re: Monkey King Bar"
@@ -475,7 +475,7 @@
         // item_veil_of_discord_2
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana"				"Veil of Discord 2"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana_Description"	"Granting mana regeneration to allies."
-		
+
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"				"Magic Weakness"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"Magic damage increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 
@@ -521,8 +521,8 @@
 		"DOTA_Tooltip_ability_item_infernal_desolator_Lore"							"SUPER Desolator"
 		"DOTA_Tooltip_ability_item_infernal_desolator_Note0"								"Armor reduction works on buildings."
 		//"DOTA_Tooltip_ability_item_infernal_desolator_corruption_armor"					"ARMOR REDUCTION:"
-		"DOTA_Tooltip_ability_item_infernal_desolator_bonus_damage"						"+$damage"		
-		
+		"DOTA_Tooltip_ability_item_infernal_desolator_bonus_damage"						"+$damage"
+
 		"DOTA_Tooltip_modifier_infernal_desolator_buff"					"Desolator S"
 		"DOTA_Tooltip_modifier_infernal_desolator_buff_Description"		"Desolator S attacks reduced your armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
@@ -533,9 +533,9 @@
 		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_intellect"						"+$int"
 		"DOTA_Tooltip_Ability_item_sacred_trident_status_resistance"					"%+Status Resistance (Cannot stack)"
 		"DOTA_Tooltip_Ability_item_sacred_trident_hp_regen_amp"							"%+Self HP Regen and Lifesteal Amp"
-		"DOTA_Tooltip_Ability_item_sacred_trident_movement_speed_percent_bonus"			"%+$move_speed"	
+		"DOTA_Tooltip_Ability_item_sacred_trident_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_Ability_item_sacred_trident_spell_amp"							"%+Spell Amplification (Cannot stack)"
-		"DOTA_Tooltip_Ability_item_sacred_trident_mana_regen_multiplier"				"%+Mana Regen Amplification"	
+		"DOTA_Tooltip_Ability_item_sacred_trident_mana_regen_multiplier"				"%+Mana Regen Amplification"
 		"DOTA_Tooltip_Ability_item_sacred_trident_spell_lifesteal_amp"					"%+Spell Lifesteal Amplification"
 		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									""
 
@@ -546,9 +546,9 @@
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_intellect"						"+$int"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_status_resistance"					"%+Status Resistance (Cannot stack)"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_hp_regen_amp"						"%+Self HP Regen and Lifesteal Amp"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_movement_speed_percent_bonus"		"%+$move_speed"	
+		"DOTA_Tooltip_Ability_item_sacred_six_vein_movement_speed_percent_bonus"		"%+$move_speed"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_amp"							"%+Spell Amplification (Cannot stack)"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Mana Regen Amplification"	
+		"DOTA_Tooltip_Ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Mana Regen Amplification"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_lifesteal_amp"					"%+Spell Lifesteal Amplification"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								""
 
@@ -615,7 +615,7 @@
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_chance"		"%Critical Chance:"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_multiplier"	"%Critical Damage:"
 		"DOTA_Tooltip_Ability_item_recipe_wasp_despotic"				"WASP Despotic Recipe"
-		
+
 		// item_wasp_callous
 		"DOTA_Tooltip_ability_item_wasp_callous"						"WASP Callous"
 		"DOTA_Tooltip_ability_item_wasp_callous_Lore"				"It is the product of the ancient moon soul,It represents callousness."
@@ -671,5 +671,7 @@
 
 		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"Lightning Storm"
 		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"Cannot move while rooted."
+
+		"DOTA_Tooltip_ability_item_carapace_of_qaldin_bonus_armor"			"+$armor"
 	}
 }

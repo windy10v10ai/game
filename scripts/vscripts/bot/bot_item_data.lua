@@ -100,7 +100,6 @@ tBotItemData.purchaseItemList = {
 		'item_echo_sabre',
 		'item_wings_of_haste',
 		'item_eternal_shroud',
-		'item_shivas_guard_2',
 		'item_aghanims_shard',
 		'item_insight_armor',
 		'item_ultimate_scepter_2',
