@@ -5403,19 +5403,15 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"5500"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"			    "0"
 		"ItemQuality"					""
 		"ItemStackable"					"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"
-		"CustomShop"					"1"
 		"ItemIsNeutralDrop"				"1"
 
-		"CustomShop"					"1"
-		"RequiresCustomShop"			"1"
-		"RequiredCustomShopName"		"boss_shop"
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"999999.0"
