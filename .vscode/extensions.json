@@ -2,6 +2,8 @@
     "recommendations": [
         "sumneko.lua",
         "xavierchn.dota-reborn-code",
-        "github.vscode-pull-request-github"
+        "github.vscode-pull-request-github",
+        "editorconfig.editorconfig",
+        "mhutchie.git-graph"
     ]
 }
