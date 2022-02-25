@@ -420,7 +420,7 @@
 				"30"		"special_bonus_unique_death_prophet_5"
 				"31"		"death_prophet_exorcism"
 				"32"		"death_prophet_exorcism"
-				"33"		"death_prophet_spirit_siphon""
+				"33"		"death_prophet_spirit_siphon"
 				"34"		"death_prophet_carrion_swarm"
 			}
 		}
