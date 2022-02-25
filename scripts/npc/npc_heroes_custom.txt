@@ -265,7 +265,7 @@
 				"12"		"chaos_knight_phantasm"
 				"13"		"chaos_knight_chaos_strike"
 				"14"		"chaos_knight_chaos_strike"
-				"15"		"special_bonus_strength_12"
+				"15"		"special_bonus_unique_chaos_knight_8"
 				"16"		"chaos_knight_chaos_strike"
 				"17"		""
 				"18"		"chaos_knight_phantasm"
