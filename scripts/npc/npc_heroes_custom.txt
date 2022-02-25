@@ -157,6 +157,7 @@
 	}
 	"npc_dota_hero_bloodseeker"
 	{
+		"Ability16"		"special_bonus_cleave_100"
 		"Bot"
 		{
 			"Build"
@@ -185,7 +186,7 @@
 				"22"		""
 				"23"		""
 				"24"		""
-				"25"		"special_bonus_unique_bloodseeker_rupture_charges"
+				"25"		"special_bonus_cleave_100"
 				"26"		""
 				"27"		"special_bonus_unique_bloodseeker_6"
 				"28"		"special_bonus_unique_bloodseeker_2"
