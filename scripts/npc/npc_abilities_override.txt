@@ -103,7 +103,7 @@
 	}
 	"item_aghanims_shard"
 	{
-		"ItemInitialStockTime"			"660.0"
+		"ItemInitialStockTime"			"360.0"
 	}
 	"item_refresher"
 	{
