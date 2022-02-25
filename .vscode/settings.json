@@ -2,5 +2,19 @@
     "Lua.diagnostics.disable": [
         "undefined-global"
     ],
-    "css.lint.unknownProperties": "ignore"
+    "css.lint.unknownProperties": "ignore",
+    "search.exclude": {
+        "materials": true,
+        "models": true,
+        "particules": true
+    },
+    "files.watcherExclude": {
+        "materials": true,
+        "models": true,
+        "particules": true
+    },
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true
 }
