@@ -233,6 +233,7 @@
 		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害，并且物理攻击有%blind_pct%%%几率不会命中。幻象每秒造成%aura_damage_illusions%点魔法伤害。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_radiance_2_Lore"								"一把神圣的武器，剑身的耀眼光芒能将敌人化为灰烬。"
 		"DOTA_Tooltip_ability_item_radiance_2_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_radiance_2_evasion"							"%+$evasion"
 		"DOTA_Tooltip_modifier_item_radiance_2_debuff"				"灼烧伤害"
 		"DOTA_Tooltip_modifier_item_radiance_2_debuff_Description"	"每秒受到120点伤害，而且攻击有%dMODIFIER_PROPERTY_MISS_PERCENTAGE%%%几率不会命中。"
 
