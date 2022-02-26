@@ -139,8 +139,8 @@
 						<DropDown id="starting_gold_player_dropdown" class="GameOptionsDropdown">
 							<Label text="600" id="600"/>
 							<Label text="1000" id="1000"/>
-							<Label text="#starting_gold_player_2000" id="2000"/>
-							<Label text="#starting_gold_player_5000" id="5000"/>
+							<Label text="2000" id="2000"/>
+							<Label text="3000" id="3000"/>
 						</DropDown>
 					</Panel>
 					<Panel id="StartingGoldBotPanel"	class="GameOptionsSubPanel">
@@ -148,8 +148,8 @@
 						<DropDown id="starting_gold_bot_dropdown" class="GameOptionsDropdown">
 							<Label text="600" id="600"/>
 							<Label text="1000" id="1000"/>
-							<Label text="#starting_gold_bot_2000" id="2000"/>
-							<Label text="#starting_gold_bot_5000" id="5000"/>
+							<Label text="2000" id="2000"/>
+							<Label text="3000" id="3000"/>
 						</DropDown>
 					</Panel>
 					<Panel id="SameHeroSelectionPanel"	class="GameOptionsSubPanel">
