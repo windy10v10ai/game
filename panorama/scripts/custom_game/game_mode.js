@@ -8,7 +8,7 @@ function OnDropDownChanged(option) {
 }
 
 /** 事件初期化 */
-function GameEventsIniti(){	
+function GameEventsIniti(){
 	OnDropDownChanged("player_gold_xp_multiplier_dropdown");
 	OnDropDownChanged("bot_gold_xp_multiplier_dropdown");
 	OnDropDownChanged("respawn_time_percentage_dropdown");
@@ -88,15 +88,15 @@ $("#radiant_tower_power_dropdown").SetSelected("5");
 $("#dire_tower_power_dropdown").SetSelected("5");
 $("#radiant_tower_heal_dropdown").SetSelected("5");
 $("#dire_tower_heal_dropdown").SetSelected("5");
-$("#starting_gold_player_dropdown").SetSelected("5000");
-$("#starting_gold_bot_dropdown").SetSelected("600");
+$("#starting_gold_player_dropdown").SetSelected("2000");
+$("#starting_gold_bot_dropdown").SetSelected("1000");
 $("#same_hero_selection").checked=true;
 $("#fast_courier").checked=true;
 $("#radiant_bot_same_multi").checked=true;
 
 // Test Code for Development
 var isDevelopMode = false;
-function RunDevelopSetting() {	
+function RunDevelopSetting() {
 	if ( !isDevelopMode ) {
 		return;
 	}
@@ -142,7 +142,7 @@ function StateChange() {
 /**
  * 非主机玩家显示游戏选项内容设定
  */
-function OnGameOptionsChange() {	
+function OnGameOptionsChange() {
 	var gameOptions = CustomNetTables.GetTableValue('game_options_table', 'game_option');
 	// $.Msg("++++++++++++++OnGameOptionsChange");
 	$("#DisplayOptionsPlayerGoldXp").text = gameOptions.player_gold_xp_multiplier_dropdown;

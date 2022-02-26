@@ -72,12 +72,6 @@
 		"dire_tower_power_175"           "175%"
 		"dire_tower_power_200"           "200%"
 
-		"starting_gold_player_2000"    "2000"
-		"starting_gold_player_5000"    "5000"
-
-		"starting_gold_bot_2000"       "2000"
-		"starting_gold_bot_5000"       "5000"
-
 		"DOTA_Tooltip_modifier_tower_power"							"建筑攻击加成"
 		"DOTA_Tooltip_modifier_tower_power_Description"			"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%, 攻速增加 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
@@ -139,23 +133,6 @@
 
         // 美杜莎
 		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "每次美杜莎受到指向性技能作用时都会朝该敌人放出一条单体的秘术异蛇。冷却时间：4。"
-
-		// 血魔
-        "DOTA_Tooltip_ability_rupture_datadriven_scepter_description"				"<font color='#e03e2e'>【注意】</font>千万不要给血魔购买神杖！神杖血魔会导致游戏卡顿崩溃！"
-		"DOTA_Tooltip_ability_rupture_datadriven_max_charges_scepter"					        ""
-		"DOTA_Tooltip_ability_rupture_datadriven_charge_restore_time_scepter"					""
-
-		"DOTA_Tooltip_ability_rupture_datadriven"										"割裂"
-		"DOTA_Tooltip_ability_rupture_datadriven_Description"							"让一个敌方单位皮开肉绽，根据其当前生命值造成初始伤害。单位移动后会根据移动的距离受到伤害。伤害效果无视技能免疫。"
-		"DOTA_Tooltip_ability_rupture_datadriven_scepter_description"				"血魔获得2点割裂能量点数，并且割裂的充能时间降低至40秒"
-		"DOTA_Tooltip_ability_rupture_datadriven_Lore"									"当血魔猎杀你时，受伤就意味着死亡。"
-		"DOTA_Tooltip_ability_rupture_datadriven_duration"								"持续时间："
-		"DOTA_Tooltip_ability_rupture_datadriven_movement_damage_pct"					"%移动伤害："
-		"DOTA_Tooltip_ability_rupture_datadriven_hp_pct"					"%生命值伤害："
-		"DOTA_Tooltip_ability_rupture_datadriven_abilitycastrange"					"施法距离："
-
-		"DOTA_Tooltip_modifier_rupture_datadriven"						"割裂"
-		"DOTA_Tooltip_modifier_rupture_datadriven_Description"			"造成与移动距离成正比的伤害。"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -250,6 +227,7 @@
 		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害，并且物理攻击有%blind_pct%%%几率不会命中。幻象每秒造成%aura_damage_illusions%点魔法伤害。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_radiance_2_Lore"								"一把神圣的武器，剑身的耀眼光芒能将敌人化为灰烬。"
 		"DOTA_Tooltip_ability_item_radiance_2_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_radiance_2_evasion"							"%+$evasion"
 		"DOTA_Tooltip_modifier_item_radiance_2_debuff"				"灼烧伤害"
 		"DOTA_Tooltip_modifier_item_radiance_2_debuff_Description"	"每秒受到120点伤害，而且攻击有%dMODIFIER_PROPERTY_MISS_PERCENTAGE%%%几率不会命中。"
 
@@ -275,7 +253,7 @@
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_armor"							"+$armor"
 
 		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura"				"强袭祭品"
-		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura_Description"	"获得15%%吸血效果，%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%攻击力加成，%fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点/秒魔法恢复，%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点护甲，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度。"
+		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura_Description"	"获得20%%吸血效果，%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%攻击力加成，%fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点/秒魔法恢复，%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点护甲，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度。"
 
 		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura"				"强袭祭品"
 		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura_Description"	"获得%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点护甲，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度。"
@@ -517,7 +495,7 @@
 
 		// item_infernal_desolator
 		"DOTA_Tooltip_Ability_item_infernal_desolator"				"绝对破防之刃"
-		"DOTA_Tooltip_ability_item_infernal_desolator_Description"						"<h1>被动：绝对腐蚀</h1> 物理攻击将降低目标%corruption_armor%点护甲，持续%corruption_duration%秒。"
+		"DOTA_Tooltip_ability_item_infernal_desolator_Description"						"<h1>被动：绝对腐蚀</h1>物理攻击将降低目标%corruption_armor%点护甲，持续%corruption_duration%秒。\n<h1>被动：灵魂窃取</h1>黯灭在装备后每次击杀英雄获得+%bonus_damage_per_kill%点攻击力，每次助攻获得+%bonus_damage_per_assist%点攻击力，最多获得%max_damage%点。"
 		"DOTA_Tooltip_ability_item_infernal_desolator_Lore"							"上百护甲，一秒打穿。"
 		"DOTA_Tooltip_ability_item_infernal_desolator_Note0"								"护甲降低效果对建筑有效。"
 		//"DOTA_Tooltip_ability_item_infernal_desolator_corruption_armor"					"ARMOR REDUCTION:"

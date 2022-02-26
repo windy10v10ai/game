@@ -15,6 +15,23 @@
 	// Creep
 	//=================================================================================================================
 
+	"neutral_upgrade"
+	{
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"max_level"				"60"	// 30
+			"increase_time"			"120"	// 450
+			"increase_damage"		"6"		// 3
+			"increase_aspd"			"6"		// 5
+			"increase_health"		"50"	// 30
+			"increase_armor"		"1"		// 0.5
+			"increase_gold"			"4"		// 1
+			"increase_xp"			"8"		// 5
+		}
+	}
+
 	//=================================================================================================================
 	// Roshan: Slam
 	//=================================================================================================================
@@ -944,7 +961,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"250"
+		"ItemCost"						"255"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -976,35 +993,14 @@
 		"ShouldBeInitiallySuggested"	"1"
 		"ShouldBeSuggested"				"1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"1.75"
-			}
+			"bonus_strength"		"9"
+			"bonus_agility"			"3"
+			"bonus_intellect"		"3"
+			"bonus_damage"			"9"
+			"bonus_health_regen"	"3"
+			"clock_time"			"10"
 		}
 	}
 
@@ -1020,7 +1016,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"250"
+		"ItemCost"						"255"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1054,33 +1050,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"			"9"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_armor"			"2.5"
-			}
+			"bonus_agility"			"9"
+			"bonus_strength"		"3"
+			"bonus_intellect"		"3"
+			"bonus_attack_speed"	"9"
+			"bonus_armor"			"3"
+			"clock_time"			"10"
 		}
 	}
 
@@ -1095,7 +1072,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"250"
+		"ItemCost"						"255"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1129,33 +1106,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_spell_amp"		"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"1.8"
-			}
+			"bonus_intellect"		"9"
+			"bonus_strength"		"3"
+			"bonus_agility"			"3"
+			"bonus_mana_reduction"	"5"
+			"bonus_mana_regen"		"1.5"
+			"clock_time"			"10"
 		}
 	}
 	//=================================================================================================================
@@ -1190,97 +1148,6 @@
 		}
 	}
 
-	"item_bloodstone"
-	{
-		"AbilityCooldown"				"45.0"
-		"ItemInitialCharges"			"20"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"425"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"425"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"			"20"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_regen_multiplier"		"100"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_amp"			"12"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_lifesteal_amp"			"36"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hero_lifesteal"		"15"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"creep_lifesteal"		"5"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"regen_per_charge"		"0.21"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"amp_per_charge"		"0.35"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"death_charges"				"6"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"kill_charges"			"1"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"charge_range"			"1800"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"initial_charges_tooltip" "20"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"restore_duration" "2.0"
-			}
-			"16"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_cost_percentage" "30"
-			}
-		}
-	}
 	//=================================================================================================================
 	// Recipe: Dagon
 	//=================================================================================================================
@@ -2103,7 +1970,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"5"
-				"ad_linked_ability"			"drow_ranger_marksmanship"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"drow_ranger_marksmanship"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -2508,7 +2375,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"5"
-				"ad_linked_ability"			"sniper_shrapnel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"sniper_shrapnel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -2668,7 +2535,7 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"value"				"1.0"
-				"ad_linked_ability"			"crystal_maiden_frostbite"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"crystal_maiden_frostbite"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -3960,7 +3827,7 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"value"				"1"
-				"ad_linked_ability"			"skeleton_king_mortal_strike"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"skeleton_king_mortal_strike"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -4179,7 +4046,7 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"value"				"4"
-				"ad_linked_ability"			"invoker_exort"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"invoker_exort"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -5190,7 +5057,7 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"value"				"1.5"
-				"ad_linked_ability"			"luna_lucent_beam"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"luna_lucent_beam"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -5320,7 +5187,7 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"value"				"4"
-				"ad_linked_ability"			"treant_natures_grasp"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"treant_natures_grasp"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -5544,18 +5411,6 @@
 				}
 		}
 	}
-	"special_bonus_unique_omniknight_7"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"value"						"30"
-				"ad_linked_ability"			"omniknight_guardian_angel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
 	//=================================================================================================================
 	// Ability: Kunkka                      船长
 	//=================================================================================================================
@@ -5675,6 +5530,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"count"						"6 7 8 9 10"
+				"LinkedSpecialBonus"		"special_bonus_unique_warlock_9"
 			}
 			"02"
 			{
@@ -5892,7 +5748,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"10"
-				"ad_linked_ability"			"legion_commander_duel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"legion_commander_duel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -6581,7 +6437,7 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"value"				"2"
-				"ad_linked_ability"			"clinkz_strafe"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"clinkz_strafe"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -7033,7 +6889,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"35"
-				"ad_linked_ability"			"slark_essence_shift"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"slark_essence_shift"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -7269,7 +7125,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"20"
-				"ad_linked_ability"			"windrunner_focusfire"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"windrunner_focusfire"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -7552,7 +7408,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"10"
-				"ad_linked_ability"			"lion_finger_of_death"
+				"ad_linked_abilities"			"lion_finger_of_death"
 			}
 		}
 	}
@@ -7816,7 +7672,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"70"
-				"ad_linked_ability"			"beastmaster_call_of_the_wild_boar"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"beastmaster_call_of_the_wild_boar"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -7836,7 +7692,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"bonus_hp"				"500"
-				"ad_linked_ability"			"beastmaster_call_of_the_wild_boar"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"beastmaster_call_of_the_wild_boar"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -7948,7 +7804,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"10"
-				"ad_linked_ability"			"huskar_burning_spear"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"huskar_burning_spear"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -8314,7 +8170,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"10"
-				"ad_linked_ability"			"troll_warlord_fervor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"troll_warlord_fervor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -8682,7 +8538,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"70"
-				"ad_linked_ability"			"sven_gods_strength"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"sven_gods_strength"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -8775,7 +8631,7 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"value"						"1"
-				"ad_linked_ability"			"oracle_false_promise"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"oracle_false_promise"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -8871,7 +8727,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"15"
-				"ad_linked_ability"			"antimage_counterspell"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"antimage_counterspell"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -9062,7 +8918,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"10"
-				"ad_linked_ability"			"disruptor_glimpse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"disruptor_glimpse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -9101,7 +8957,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"2"
-				"ad_linked_ability"			"disruptor_kinetic_field"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"disruptor_kinetic_field"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -9264,7 +9120,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"10"
-				"ad_linked_ability"			"razor_static_link"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"razor_static_link"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -9345,7 +9201,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"value"					"100"
-				"ad_linked_ability"			"void_spirit_aether_remnant"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"void_spirit_aether_remnant"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -9400,7 +9256,7 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"value"					"-2.0" // (Astral Step Charge Restore Time)
-				"ad_linked_ability"			"void_spirit_astral_step"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"void_spirit_astral_step"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -9485,7 +9341,7 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"value"				"4"
-				"ad_linked_ability"			"night_stalker_crippling_fear"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"night_stalker_crippling_fear"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -9524,7 +9380,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"100"
-				"ad_linked_ability"			"night_stalker_hunter_in_the_night"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"night_stalker_hunter_in_the_night"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -9568,7 +9424,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"30"
-				"ad_linked_ability"			"night_stalker_darkness"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"night_stalker_darkness"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -9612,6 +9468,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"value"					"60"
+				"ad_linked_abilities"				"dawnbreaker_fire_wreath"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -9689,7 +9546,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"value"					"800"
-				"ad_linked_ability"				"dawnbreaker_celestial_hammer"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"				"dawnbreaker_celestial_hammer"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -9745,7 +9602,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"value"					"60"
-				"ad_linked_ability"				"dawnbreaker_luminosity"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"				"dawnbreaker_luminosity"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
