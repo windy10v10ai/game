@@ -944,7 +944,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"250"
+		"ItemCost"						"255"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -976,35 +976,14 @@
 		"ShouldBeInitiallySuggested"	"1"
 		"ShouldBeSuggested"				"1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"1.75"
-			}
+			"bonus_strength"		"9"
+			"bonus_agility"			"3"
+			"bonus_intellect"		"3"
+			"bonus_damage"			"9"
+			"bonus_health_regen"	"3"
+			"clock_time"			"10"
 		}
 	}
 
@@ -1020,7 +999,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"250"
+		"ItemCost"						"255"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1054,33 +1033,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"			"9"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_armor"			"2.5"
-			}
+			"bonus_agility"			"9"
+			"bonus_strength"		"3"
+			"bonus_intellect"		"3"
+			"bonus_attack_speed"	"9"
+			"bonus_armor"			"3"
+			"clock_time"			"10"
 		}
 	}
 
@@ -1095,7 +1055,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"250"
+		"ItemCost"						"255"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1129,33 +1089,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_spell_amp"		"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"1.8"
-			}
+			"bonus_intellect"		"9"
+			"bonus_strength"		"3"
+			"bonus_agility"			"3"
+			"bonus_mana_reduction"	"5"
+			"bonus_mana_regen"		"1.5"
+			"clock_time"			"10"
 		}
 	}
 	//=================================================================================================================
