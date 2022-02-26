@@ -72,12 +72,6 @@
 		"dire_tower_power_175"           "175%"
 		"dire_tower_power_200"           "200%"
 
-		"starting_gold_player_2000"    "2000"
-		"starting_gold_player_5000"    "5000"
-
-		"starting_gold_bot_2000"       "2000"
-		"starting_gold_bot_5000"       "5000"
-
 		"DOTA_Tooltip_modifier_tower_power"							"建筑攻击加成"
 		"DOTA_Tooltip_modifier_tower_power_Description"			"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%, 攻速增加 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
