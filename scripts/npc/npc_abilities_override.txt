@@ -2103,7 +2103,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"5"
-				"ad_linked_ability"			"drow_ranger_marksmanship"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"drow_ranger_marksmanship"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -2508,7 +2508,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"5"
-				"ad_linked_ability"			"sniper_shrapnel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"sniper_shrapnel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -2668,7 +2668,7 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"value"				"1.0"
-				"ad_linked_ability"			"crystal_maiden_frostbite"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"crystal_maiden_frostbite"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -3960,7 +3960,7 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"value"				"1"
-				"ad_linked_ability"			"skeleton_king_mortal_strike"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"skeleton_king_mortal_strike"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -4179,7 +4179,7 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"value"				"4"
-				"ad_linked_ability"			"invoker_exort"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"invoker_exort"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
