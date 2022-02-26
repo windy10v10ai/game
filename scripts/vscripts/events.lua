@@ -204,18 +204,13 @@ function AIGameMode:OnGameStateChanged(keys)
 			end
 
 			-- set tower split
-			local towerSplitShot = v:FindAbilityByName("tower_split_shot")
-			if towerSplitShot then
-				print("tower_split_shot name", v:GetName())
-				local towerName = v:GetName()
-				if string.find(towerName, "tower2") then
+			local towerName = v:GetName()
+			if string.find(towerName, "tower4") then
+				local towerSplitShot = v:AddAbility("tower_split_shot")
+				if towerSplitShot then
 					towerSplitShot:SetLevel(1)
-				elseif string.find(towerName, "tower3") then
-					towerSplitShot:SetLevel(1)
-				elseif string.find(towerName, "tower4") then
-					towerSplitShot:SetLevel(1)
+					towerSplitShot:ToggleAbility()
 				end
-				towerSplitShot:ToggleAbility()
 			end
 		end
 		local barracks = Entities:FindAllByClassname("npc_dota_barracks")
@@ -256,9 +251,9 @@ function AIGameMode:OnGameStateChanged(keys)
 			end
 
 			-- set fort split
-			local towerSplitShot = v:FindAbilityByName("tower_split_shot")
+			local towerSplitShot = v:AddAbility("tower_split_shot")
 			if towerSplitShot then
-				towerSplitShot:SetLevel(3)
+				towerSplitShot:SetLevel(2)
 				towerSplitShot:ToggleAbility()
 			end
 		end
