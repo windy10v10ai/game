@@ -5544,18 +5544,6 @@
 				}
 		}
 	}
-	"special_bonus_unique_omniknight_7"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"value"						"30"
-				"ad_linked_ability"			"omniknight_guardian_angel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
 	//=================================================================================================================
 	// Ability: Kunkka                      船长
 	//=================================================================================================================
