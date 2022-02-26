@@ -5663,6 +5663,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"count"						"6 7 8 9 10"
+				"LinkedSpecialBonus"		"special_bonus_unique_warlock_9"
 			}
 			"02"
 			{
