@@ -140,23 +140,6 @@
         // 美杜莎
 		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "每次美杜莎受到指向性技能作用时都会朝该敌人放出一条单体的秘术异蛇。冷却时间：4。"
 
-		// 血魔
-        "DOTA_Tooltip_ability_rupture_datadriven_scepter_description"				"<font color='#e03e2e'>【注意】</font>千万不要给血魔购买神杖！神杖血魔会导致游戏卡顿崩溃！"
-		"DOTA_Tooltip_ability_rupture_datadriven_max_charges_scepter"					        ""
-		"DOTA_Tooltip_ability_rupture_datadriven_charge_restore_time_scepter"					""
-
-		"DOTA_Tooltip_ability_rupture_datadriven"										"割裂"
-		"DOTA_Tooltip_ability_rupture_datadriven_Description"							"让一个敌方单位皮开肉绽，根据其当前生命值造成初始伤害。单位移动后会根据移动的距离受到伤害。伤害效果无视技能免疫。"
-		"DOTA_Tooltip_ability_rupture_datadriven_scepter_description"				"血魔获得2点割裂能量点数，并且割裂的充能时间降低至40秒"
-		"DOTA_Tooltip_ability_rupture_datadriven_Lore"									"当血魔猎杀你时，受伤就意味着死亡。"
-		"DOTA_Tooltip_ability_rupture_datadriven_duration"								"持续时间："
-		"DOTA_Tooltip_ability_rupture_datadriven_movement_damage_pct"					"%移动伤害："
-		"DOTA_Tooltip_ability_rupture_datadriven_hp_pct"					"%生命值伤害："
-		"DOTA_Tooltip_ability_rupture_datadriven_abilitycastrange"					"施法距离："
-
-		"DOTA_Tooltip_modifier_rupture_datadriven"						"割裂"
-		"DOTA_Tooltip_modifier_rupture_datadriven_Description"			"造成与移动距离成正比的伤害。"
-
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
