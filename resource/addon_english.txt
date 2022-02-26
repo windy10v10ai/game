@@ -275,7 +275,7 @@
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_armor"							"+$armor"
 
 		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura"				"Assault Vladimir's Aura"
-		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura_Description"	"Gaining 15%% lifesteal, %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% damage, and %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen. Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%. Attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura_Description"	"Gaining 20%% lifesteal, %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% damage, and %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen. Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%. Attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura"				"Assault Vladimir's Aura"
 		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura_Description"	"Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
