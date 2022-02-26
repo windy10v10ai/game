@@ -593,7 +593,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"750"
+		"ItemCost"						"800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -628,33 +628,15 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"120"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"aura_damage"			"120"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"aura_damage_illusions"	"80"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blind_pct"				"20"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"upgrade_day_vision"	"250"
+				"evasion"				"20"
+				"blind_pct"				"15"
 				"aura_radius"			"700"
-			}
 		}
 	}
 
@@ -953,19 +935,6 @@
 							}
 
 							"OnAttackLanded"
-							{
-									"RunScript"
-									{
-											"ScriptFile"            "items/item_vladmir_2.lua"
-											"Function"              "modifier_item_vladmir_2_lifesteal_aura_on_attack_landed"
-									}
-							}
-					}
-					"modifier_item_vladmir_2_lifesteal_aura_lifesteal"
-					{
-							"Passive"            "0"
-							"IsHidden"            "1"
-							"OnDealDamage"
 							{
 									"Lifesteal"
 									{
@@ -3028,23 +2997,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"260"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"corruption_armor"		"-20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"corruption_duration"	"4.0"
-			}
+				"corruption_duration"	"5.0"
+				"bonus_damage_per_kill"	"5"
+				"bonus_damage_per_assist"	"2"
+				"max_damage"			"50"
 		}
 	}
 

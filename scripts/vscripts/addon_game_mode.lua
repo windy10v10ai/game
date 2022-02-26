@@ -36,6 +36,7 @@ function AIGameMode:EnterDebugMode()
 	GameRules:SetCustomGameSetupAutoLaunchDelay( 10 )
 	GameRules:SetPreGameTime( 30 )
 	GameRules:SetStrategyTime( 10 )
+	GameRules:SetHeroSelectionTime( 300 )
 	print("DOTA 2 AI Wars Loaded.")
 end
 

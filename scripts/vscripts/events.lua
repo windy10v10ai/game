@@ -336,19 +336,6 @@ function HeroKilled(keys)
 		fRespawnTime = fRespawnTime+hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel()*10
 	end
 
-	-- 血精石复活时间
-	if hHero:HasItemInInventory('item_bloodstone') then
-		for i = 0, 5 do
-			local item = hHero:GetItemInSlot(i)
-			if item then
-				local item_name = item:GetName()
-				if item_name == 'item_bloodstone' then
-					fRespawnTime = fRespawnTime - item:GetCurrentCharges()
-					break
-				end
-			end
-		end
-	end
 	-- 复活时间至少1s
 	if fRespawnTime < 1 then
 		fRespawnTime = 1

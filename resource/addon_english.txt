@@ -72,12 +72,6 @@
 		"dire_tower_power_175"           "175%"
 		"dire_tower_power_200"           "200%"
 
-		"starting_gold_player_2000"    "2000"
-		"starting_gold_player_5000"    "5000"
-
-		"starting_gold_bot_2000"       "2000"
-		"starting_gold_bot_5000"       "5000"
-
 		"DOTA_Tooltip_modifier_tower_power"							"Tower power"
 		"DOTA_Tooltip_modifier_tower_power_Description"			"The tower's attack damage is changed by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%, bonus attack speed is %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
@@ -139,23 +133,6 @@
 
         // 美杜莎
 		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "When Medusa is targeted with a spell, a single-target Mystic Snake is sent back towards the enemy. Cooldown: 4."
-
-		// 血魔
-        "DOTA_Tooltip_ability_rupture_datadriven_scepter_description"				"<font color='#e03e2e'>CAUTION!!!</font> Dont buy Aghanim's Scepter for Bloodseeker! It will cause the game go crash!"
-		"DOTA_Tooltip_ability_rupture_datadriven_max_charges_scepter"					        ""
-		"DOTA_Tooltip_ability_rupture_datadriven_charge_restore_time_scepter"					""
-
-		"DOTA_Tooltip_ability_rupture_datadriven"										"Rupture"
-		"DOTA_Tooltip_ability_rupture_datadriven_Description"							"Causes an enemy unit's skin to rupture, dealing initial damage based on its current health. If the unit moves, it takes damage based on the distance moved.  The damage is dealt through spell immunity."
-		"DOTA_Tooltip_ability_rupture_datadriven_scepter_description"				"Grants Bloodseeker two charges of Rupture and reduces Rupture's Cooldown to 40s"
-		"DOTA_Tooltip_ability_rupture_datadriven_Lore"									"When the Bloodseeker hunts you, injuries become fatalities."
-		"DOTA_Tooltip_ability_rupture_datadriven_duration"								"DURATION:"
-		"DOTA_Tooltip_ability_rupture_datadriven_movement_damage_pct"					"%MOVE DAMAGE:"
-		"DOTA_Tooltip_ability_rupture_datadriven_hp_pct"					"%HEALTH DAMAGE:"
-		"DOTA_Tooltip_ability_rupture_datadriven_abilitycastrange"					"CAST RANGE:"
-
-		"DOTA_Tooltip_modifier_rupture_datadriven"						"Rupture"
-		"DOTA_Tooltip_modifier_rupture_datadriven_Description"			"Deals a percentage of the distance you move as damage"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -250,6 +227,7 @@
 		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second, and causes them to miss %blind_pct%%% of their attacks. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_radiance_2_Lore"								"A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
 		"DOTA_Tooltip_ability_item_radiance_2_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_radiance_2_evasion"							"%+$evasion"
 		"DOTA_Tooltip_modifier_item_radiance_2_debuff"				"Burn Damage"
 		"DOTA_Tooltip_modifier_item_radiance_2_debuff_Description"	"Taking 120 damage per second, and missing %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% of attacks."
 
@@ -275,7 +253,7 @@
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_armor"							"+$armor"
 
 		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura"				"Assault Vladimir's Aura"
-		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura_Description"	"Gaining 15%% lifesteal, %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% damage, and %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen. Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%. Attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura_Description"	"Gaining 20%% lifesteal, %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% damage, and %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen. Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%. Attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura"				"Assault Vladimir's Aura"
 		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura_Description"	"Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
@@ -517,7 +495,7 @@
 
 		// item_infernal_desolator
 		"DOTA_Tooltip_Ability_item_infernal_desolator"				"Infernal Desolator"
-		"DOTA_Tooltip_ability_item_infernal_desolator_Description"						"<h1>Passive: Super Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds."
+		"DOTA_Tooltip_ability_item_infernal_desolator_Description"						"<h1>Passive: Super Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds.\n<h1>Passive: Soul Stealer</h1> Desolator gains +%bonus_damage_per_kill% damage per hero kill and +%bonus_damage_per_assist% damage per assist while equipped up to a maximum of %max_damage%."
 		"DOTA_Tooltip_ability_item_infernal_desolator_Lore"							"SUPER Desolator"
 		"DOTA_Tooltip_ability_item_infernal_desolator_Note0"								"Armor reduction works on buildings."
 		//"DOTA_Tooltip_ability_item_infernal_desolator_corruption_armor"					"ARMOR REDUCTION:"
