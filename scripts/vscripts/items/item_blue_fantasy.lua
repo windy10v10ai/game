@@ -97,6 +97,7 @@ function modifier_item_blue_fantasy:OnAttackLanded(tg)
        local mana = tg.target:GetMana()
        if mana then
             self.dam=self.mana_base
+            tg.target:ReduceMana(self.dam)
             local damageTablep = {
                     victim = tg.target,
                     attacker = self.parent,
@@ -105,7 +106,6 @@ function modifier_item_blue_fantasy:OnAttackLanded(tg)
                     ability = self.ability,
                     }
             ApplyDamage(damageTablep)
-            tg.target:ReduceMana(self.dam)
         end
     end
 end

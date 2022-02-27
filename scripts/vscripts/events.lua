@@ -86,34 +86,34 @@ function AIGameMode:GetFreeHeroName()
 end
 
 
-function AIGameMode:BotCourierTransfer()
-	local hCourier = Entities:FindByClassname(nil, "npc_dota_courier")
+-- function AIGameMode:BotCourierTransfer()
+-- 	local hCourier = Entities:FindByClassname(nil, "npc_dota_courier")
 
-	while hCourier do
-		if not self.tHumanPlayerList[hCourier:GetPlayerOwnerID()] then
-			local hHero = PlayerResource:GetSelectedHeroEntity(hCourier:GetPlayerOwnerID())
-			local hFountain = Entities:FindByClassnameWithin(nil, "ent_dota_fountain", hCourier:GetOrigin(), 1000)
+-- 	while hCourier do
+-- 		if not self.tHumanPlayerList[hCourier:GetPlayerOwnerID()] then
+-- 			local hHero = PlayerResource:GetSelectedHeroEntity(hCourier:GetPlayerOwnerID())
+-- 			local hFountain = Entities:FindByClassnameWithin(nil, "ent_dota_fountain", hCourier:GetOrigin(), 1000)
 
-			if hHero:GetNumItemsInStash() > 0 and not hHero.sTransferTimer and hFountain then
-				hHero.sTransferTimer = Timers:CreateTimer({
-					endTime = 2,
-					hCourier = hCourier,
-					hHero = hHero,
-					callback = function (args)
-						if args.hHero:GetNumItemsInStash() > 0 then
-							local hAbility = args.hCourier:FindAbilityByName("courier_take_stash_and_transfer_items")
-							args.hCourier:CastAbilityNoTarget(hAbility, args.hCourier:GetPlayerOwnerID())
-						end
+-- 			if hHero:GetNumItemsInStash() > 0 and not hHero.sTransferTimer and hFountain then
+-- 				hHero.sTransferTimer = Timers:CreateTimer({
+-- 					endTime = 2,
+-- 					hCourier = hCourier,
+-- 					hHero = hHero,
+-- 					callback = function (args)
+-- 						if args.hHero:GetNumItemsInStash() > 0 then
+-- 							local hAbility = args.hCourier:FindAbilityByName("courier_take_stash_and_transfer_items")
+-- 							args.hCourier:CastAbilityNoTarget(hAbility, args.hCourier:GetPlayerOwnerID())
+-- 						end
 
-						args.hHero.sTransferTimer = nil
-					end
-				})
-			end
-		end
+-- 						args.hHero.sTransferTimer = nil
+-- 					end
+-- 				})
+-- 			end
+-- 		end
 
-		hCourier = Entities:FindByClassname(hCourier, "npc_dota_courier")
-	end
-end
+-- 		hCourier = Entities:FindByClassname(hCourier, "npc_dota_courier")
+-- 	end
+-- end
 
 function AIGameMode:InitHumanPlayerListAndSetHumanStartGold()
 	if self.PreGameOptionsSet then
@@ -258,10 +258,10 @@ function AIGameMode:OnGameStateChanged(keys)
 			end
 		end
 
-		Timers:CreateTimer(function ()
-			AIGameMode:BotCourierTransfer()
-			return 1.0
-		end)
+		-- Timers:CreateTimer(function ()
+		-- 	AIGameMode:BotCourierTransfer()
+		-- 	return 1.0
+		-- end)
 
 	elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		self.fGameStartTime = GameRules:GetGameTime()
@@ -470,9 +470,9 @@ function AIGameMode:OnNPCSpawned(keys)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_strategy", {})
 				print("modifier_bot_think_strategy added "..sName)
 			end
-			if not hEntity:FindModifierByName("modifier_bot_think_item_use") then
-				hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_item_use", {})
-			end
+			-- if not hEntity:FindModifierByName("modifier_bot_think_item_use") then
+			-- 	hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_item_use", {})
+			-- end
 		end
 
 		hEntity.bInitialized = true
@@ -485,10 +485,12 @@ function AIGameMode:OnPlayerLevelUp(keys)
 	local iLevel=keys.level
 	-- Set DeathXP 击杀经验
 	Timers:CreateTimer(0.5, function ()
+		local hEntity = EntIndexToHScript(iEntIndex)
+		if hEntity:IsNull() then return end
 		if iLevel <= 30 then
-			EntIndexToHScript(iEntIndex):SetCustomDeathXP(40 + EntIndexToHScript(iEntIndex):GetCurrentXP()*0.09)
+			hEntity:SetCustomDeathXP(40 + hEntity:GetCurrentXP()*0.09)
 		else
-			EntIndexToHScript(iEntIndex):SetCustomDeathXP(3500 + EntIndexToHScript(iEntIndex):GetCurrentXP()*0.03)
+			hEntity:SetCustomDeathXP(3500 + hEntity:GetCurrentXP()*0.03)
 		end
 	end)
 

@@ -13,13 +13,16 @@ function modifier_bot_think_item_use:RemoveOnDeath() return false end
 
 function modifier_bot_think_item_use:OnCreated()
 	if IsClient() then return end
+	if not self then return end
 	self:StartIntervalThink(0.2)
 end
 
 function modifier_bot_think_item_use:OnIntervalThink()
 	if IsClient() then return end
+	if not self then return end
 
 	local hHero = self:GetParent()
+	if hHero:IsNull() then return end
 	-- if hero is dead, do nothing
 	if hHero:IsAlive() == false then return end
 
@@ -30,9 +33,12 @@ function modifier_bot_think_item_use:OnIntervalThink()
 	local hAbility4 = hHero:GetAbilityByIndex(3)
 	local hAbility5 = hHero:GetAbilityByIndex(4)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
-	if hAbility1:IsInAbilityPhase() or hAbility2:IsInAbilityPhase() or hAbility3:IsInAbilityPhase() or hAbility6:IsInAbilityPhase() then return end
+	if hAbility1 and hAbility1:IsInAbilityPhase() then return end
+	if hAbility2 and hAbility2:IsInAbilityPhase() then return end
+	if hAbility3 and hAbility3:IsInAbilityPhase() then return end
 	if hAbility4 and hAbility4:IsInAbilityPhase() then return end
 	if hAbility5 and hAbility5:IsInAbilityPhase() then return end
+	if hAbility6 and hAbility6:IsInAbilityPhase() then return end
 
 	-- item use
 	if hHero:IsStunned() or hHero:IsHexed() then return end
@@ -54,11 +60,13 @@ function modifier_bot_think_strategy:RemoveOnDeath() return false end
 
 function modifier_bot_think_strategy:OnCreated()
 	if IsClient() then return end
+	if not self then return end
 	self:StartIntervalThink(2)
 end
 
 function modifier_bot_think_strategy:OnIntervalThink()
 	if IsClient() then return end
+	if not self then return end
 
 	local GameTime = GameRules:GetDOTATime(false, false)
 	if (GameTime >= (40 * 60)) then						-- LATEGAME
@@ -82,12 +90,16 @@ function modifier_bot_think_strategy:OnIntervalThink()
 		GameRules:GetGameModeEntity():SetBotsMaxPushTier(1)
 	end
 
-	local hParent = self:GetParent()
+	local hHero = self:GetParent()
+	if hHero:IsNull() then return end
 
-	BotThink:ThinkSell(hParent)
-	BotThink:ThinkPurchase(hParent)
-	BotThink:ThinkPurchaseNeutral(hParent, GameTime)
 
-	BotThink:ThinkConsumeItem(hParent)
-	BotThink:AddMoney(hParent)
+	BotThink:AddMoney(hHero)
+
+	if hHero:IsAlive() == false then return end
+	if hHero:IsStunned() or hHero:IsHexed() then return end
+	BotThink:ThinkSell(hHero)
+	BotThink:ThinkPurchase(hHero)
+	BotThink:ThinkPurchaseNeutral(hHero, GameTime)
+	BotThink:ThinkConsumeItem(hHero)
 end
