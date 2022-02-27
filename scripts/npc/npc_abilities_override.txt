@@ -101,9 +101,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_building_damage"		"150"
-				"incoming_hero_damage_penalty"		"-20"
-				"incoming_basic_damage_penalty"		"-10"
+				"bonus_building_damage"		"150"			// -150
+				"incoming_hero_damage_penalty"		"-30"	// -50
+				"incoming_basic_damage_penalty"		"10"	// -30
 		}
 	}
 

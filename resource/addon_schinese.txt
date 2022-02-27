@@ -98,6 +98,8 @@
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"+$armor"
 		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%伤害降低："
 
+		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%非英雄攻击额外伤害："
+
 		///////////////////////////////////////////////////
 		//
 		//            Heroes
