@@ -86,34 +86,34 @@ function AIGameMode:GetFreeHeroName()
 end
 
 
-function AIGameMode:BotCourierTransfer()
-	local hCourier = Entities:FindByClassname(nil, "npc_dota_courier")
+-- function AIGameMode:BotCourierTransfer()
+-- 	local hCourier = Entities:FindByClassname(nil, "npc_dota_courier")
 
-	while hCourier do
-		if not self.tHumanPlayerList[hCourier:GetPlayerOwnerID()] then
-			local hHero = PlayerResource:GetSelectedHeroEntity(hCourier:GetPlayerOwnerID())
-			local hFountain = Entities:FindByClassnameWithin(nil, "ent_dota_fountain", hCourier:GetOrigin(), 1000)
+-- 	while hCourier do
+-- 		if not self.tHumanPlayerList[hCourier:GetPlayerOwnerID()] then
+-- 			local hHero = PlayerResource:GetSelectedHeroEntity(hCourier:GetPlayerOwnerID())
+-- 			local hFountain = Entities:FindByClassnameWithin(nil, "ent_dota_fountain", hCourier:GetOrigin(), 1000)
 
-			if hHero:GetNumItemsInStash() > 0 and not hHero.sTransferTimer and hFountain then
-				hHero.sTransferTimer = Timers:CreateTimer({
-					endTime = 2,
-					hCourier = hCourier,
-					hHero = hHero,
-					callback = function (args)
-						if args.hHero:GetNumItemsInStash() > 0 then
-							local hAbility = args.hCourier:FindAbilityByName("courier_take_stash_and_transfer_items")
-							args.hCourier:CastAbilityNoTarget(hAbility, args.hCourier:GetPlayerOwnerID())
-						end
+-- 			if hHero:GetNumItemsInStash() > 0 and not hHero.sTransferTimer and hFountain then
+-- 				hHero.sTransferTimer = Timers:CreateTimer({
+-- 					endTime = 2,
+-- 					hCourier = hCourier,
+-- 					hHero = hHero,
+-- 					callback = function (args)
+-- 						if args.hHero:GetNumItemsInStash() > 0 then
+-- 							local hAbility = args.hCourier:FindAbilityByName("courier_take_stash_and_transfer_items")
+-- 							args.hCourier:CastAbilityNoTarget(hAbility, args.hCourier:GetPlayerOwnerID())
+-- 						end
 
-						args.hHero.sTransferTimer = nil
-					end
-				})
-			end
-		end
+-- 						args.hHero.sTransferTimer = nil
+-- 					end
+-- 				})
+-- 			end
+-- 		end
 
-		hCourier = Entities:FindByClassname(hCourier, "npc_dota_courier")
-	end
-end
+-- 		hCourier = Entities:FindByClassname(hCourier, "npc_dota_courier")
+-- 	end
+-- end
 
 function AIGameMode:InitHumanPlayerListAndSetHumanStartGold()
 	if self.PreGameOptionsSet then
@@ -258,10 +258,10 @@ function AIGameMode:OnGameStateChanged(keys)
 			end
 		end
 
-		Timers:CreateTimer(function ()
-			AIGameMode:BotCourierTransfer()
-			return 1.0
-		end)
+		-- Timers:CreateTimer(function ()
+		-- 	AIGameMode:BotCourierTransfer()
+		-- 	return 1.0
+		-- end)
 
 	elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		self.fGameStartTime = GameRules:GetGameTime()
