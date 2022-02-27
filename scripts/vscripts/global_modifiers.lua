@@ -116,6 +116,7 @@ function modifier_tower_endure:OnCreated()
 		newHealth = math.floor(StackToPercentage(AIGameMode.iDireTowerEndure)*iHealth)
 	end
 	Timers:CreateTimer(0.04, function ()
+		if hParent:IsNull() then return end
 		hParent:SetMaxHealth( newHealth )
 		hParent:SetBaseMaxHealth( newHealth )
 		hParent:SetHealth( newHealth )
