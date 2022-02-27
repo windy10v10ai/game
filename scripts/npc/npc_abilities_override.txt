@@ -124,7 +124,7 @@
 	}
 	"item_refresher"
 	{
-		"AbilityCooldown"				"100.0"
+		"AbilityCooldown"				"110.0"
 	}
 	"item_glimmer_cape"
 	{
@@ -3103,15 +3103,12 @@
 	}
 	"jakiro_macropyre"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"80 70 60 50"
-		"AbilityManaCost"				"220 330 440 550"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"110 150 190 230"
+				"damage"					"110 150 190"
 				"LinkedSpecialBonus"	"special_bonus_unique_jakiro_7"
 			}
 			"04"
@@ -3127,12 +3124,12 @@
 			"06"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"linger_duration"			"2"
+				"linger_duration"			"1"
 			}
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"scepter_bonus_range"			"400"
+				"scepter_bonus_range"			"200"
 				"RequiresScepter"		"1"
 			}
 			"08"
@@ -6215,6 +6212,17 @@
     //=================================================================================================================
 	// Ability: Enigma                 谜团
 	//=================================================================================================================
+	//=================================================================================================================
+	// Enigma: Black Hole
+	//=================================================================================================================
+	"enigma_black_hole"
+	{
+		"AbilityCooldown"				"160.0"
+		"AbilityValues"
+		{
+			"scepter_pct_damage"	"3"
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Puck                    帕克/仙女龙
