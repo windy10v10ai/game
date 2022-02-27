@@ -485,10 +485,12 @@ function AIGameMode:OnPlayerLevelUp(keys)
 	local iLevel=keys.level
 	-- Set DeathXP 击杀经验
 	Timers:CreateTimer(0.5, function ()
+		local hEntity = EntIndexToHScript(iEntIndex)
+		if hEntity:IsNull() then return end
 		if iLevel <= 30 then
-			EntIndexToHScript(iEntIndex):SetCustomDeathXP(40 + EntIndexToHScript(iEntIndex):GetCurrentXP()*0.09)
+			hEntity:SetCustomDeathXP(40 + hEntity:GetCurrentXP()*0.09)
 		else
-			EntIndexToHScript(iEntIndex):SetCustomDeathXP(3500 + EntIndexToHScript(iEntIndex):GetCurrentXP()*0.03)
+			hEntity:SetCustomDeathXP(3500 + hEntity:GetCurrentXP()*0.03)
 		end
 	end)
 
