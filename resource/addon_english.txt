@@ -129,10 +129,13 @@
 		"npc_dota_hero_techies"					"hechahecha"
 
 		// 双头龙
-        "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"Increases Macropyre distance by +400 range, duration by +5 seconds and causes it to become Pure damage and pierce Spell Immunity."
+        "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"Increases Macropyre distance by +200 range, duration by +5 seconds and causes it to become Pure damage and pierce Spell Immunity."
 
         // 美杜莎
 		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "When Medusa is targeted with a spell, a single-target Mystic Snake is sent back towards the enemy. Cooldown: 4."
+
+		// 谜团
+		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"					"Black Hole deals additional damage equivalent to 3% of the unit's Max Health per second."
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
