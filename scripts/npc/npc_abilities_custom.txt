@@ -712,7 +712,7 @@
 
 		"AbilityCastPoint"						"0.3"
 		"AbilityCooldown"						"40 35 30 25 20"
-		"AbilityManaCost"						"100 130 160"
+		"AbilityManaCost"						"100 110 120 130 140"
 		"AbilityCastRange"						"1000"
 
 		"HasScepterUpgrade"						"0"
@@ -859,12 +859,12 @@
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"damage"              "300"
+				"damage"              "200"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"hp"	                        "1500"
+				"hp"	                        "2000"
 
 			}
 			"03"
