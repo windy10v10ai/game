@@ -130,6 +130,9 @@
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"
 
+		// 初音未来
+		"npc_dota_hero_meepo"					"Miku"
+
 		// 双头龙
         "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"Increases Macropyre distance by +200 range, duration by +5 seconds and causes it to become Pure damage and pierce Spell Immunity."
 
