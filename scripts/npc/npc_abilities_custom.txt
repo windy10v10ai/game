@@ -845,7 +845,7 @@
 		"HasScepterUpgrade"						"0"
 
 		"MaxLevel"								"1"
-		"RequiredLevel"							"30"
+		"RequiredLevel"							"20"
 		"LevelsBetweenUpgrades"					"1"
 
 
@@ -979,7 +979,7 @@
     	"AbilityTextureName"			"miku_6"
     	"FightRecapLevel"				"1"
     	"MaxLevel"						"1"
-		"RequiredLevel"                 "1"
+		"RequiredLevel"                 "15"
 		"HasScepterUpgrade" "1"
     	"precache"
     	{
