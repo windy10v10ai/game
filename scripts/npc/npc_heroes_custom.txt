@@ -1,6 +1,55 @@
 "DOTAHeroes"
 {
-	
+	"Miku"
+	{
+	    "override_hero"                       "npc_dota_hero_meepo"
+	    "Model"                               "models/hatsune_miku/small/s2.vmdl"
+	    "ModelScale"				"0.55000"
+		"LoadoutScale"				"0.55000"
+		"SpectatorLoadoutScale" 	"0.55000"
+		"VersusScale"				"0.55000"
+
+		"SoundSet"		"Hero_Miku"
+		"VoiceFile"		"soundevents/voscripts/game_sounds_vo_miku.vsndevts"
+
+		"DisableWearables" 			"1"
+		"Ability1"         "miku_hadouken"
+		"Ability2"         "pantsushot"
+		"Ability3"         "liu_kick"
+		"Ability4"         "miku_dance"
+		"Ability6"         "chibi_monster"
+		"Ability22"        "chibi_hit"
+		"Ability5"         "get_down"
+
+		"Ability10"                 "special_bonus_mana_reduction_9"
+		"Ability11"					"special_bonus_hp_150"
+		"Ability12"					"special_bonus_attack_speed_20"
+		"Ability13"					"special_bonus_mp_200"
+		"Ability14"					"special_bonus_all_stats_8"
+		"Ability15"					"special_bonus_attack_damage_250"
+		"Ability16"					"special_bonus_lifesteal_15"
+		"Ability17"					"special_bonus_cleave_100"
+
+
+		"ItemSlots"
+  		{ }
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"35"
+		"MagicalResistance"			"30"
+		"AttributeStrengthGain"		"2.2"
+		"AttributeBaseIntelligence"	"20"
+		"AttributeIntelligenceGain"	"2.0"
+		"AttributeBaseAgility"		"30"
+		"AttributeAgilityGain"		"3.0"
+		"ArmorPhysical"				"5"
+		"MovementSpeed"				"330"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"35"
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1000"
+	}
+
 	"npc_dota_hero_silencer"
 	{
 		"override_hero"		"npc_dota_hero_silencer"
@@ -84,7 +133,7 @@
 				"12"		"bane_fiends_grip"
 				"13"		"bane_enfeeble"
 				"14"		"bane_enfeeble"
-				"15"		"special_bonus_unique_bane_8"		   
+				"15"		"special_bonus_unique_bane_8"
 				"16"		"bane_enfeeble"
 				"17"		""
 				"18"		"bane_fiends_grip"
@@ -1256,7 +1305,7 @@
 		"Bot"
 		{
 			"Build"
-			{   
+			{
 				"1"		"razor_static_link"
 				"2"		"razor_plasma_field"
 				"3"		"razor_static_link"
@@ -1929,7 +1978,7 @@
 		{
 			"Build"
 			{
-				"1"		"zuus_arc_lightning" 
+				"1"		"zuus_arc_lightning"
 				"2"		"zuus_lightning_bolt"
 				"3"		"zuus_arc_lightning"
 				"4"		"zuus_lightning_bolt"
