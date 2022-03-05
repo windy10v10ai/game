@@ -556,4 +556,483 @@
             }
         }
     }
+	//==============================================================================
+    //Hatsune_Miku
+    //==============================================================================
+    "miku_hadouken"
+	{
+
+		// Ability Technical Aspect
+	    // base script folder	: scripts/vscripts
+	    // base texture folder	: resource/flash3/images/spellicons
+	    //-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/miku_hadouken"
+		"AbilityTextureName"			"hatsune_1"
+		"FightRecapLevel"				"1"
+
+		"precache"
+		{
+			"soundfile"	"soundevents/Hatsune_miku.vsndevts"
+		    "particle"	"particles/hadouken1.vpcf"
+		    "particle"	"particles/hadouken2.vpcf"
+		    "particle"	"particles/hadouken3.vpcf"
+		    "particle"	"particles/hadouken4.vpcf"
+		}
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT "
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_1"
+		"MaxLevel"                      "5"
+
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1075"
+		"AbilityCastPoint"				"0.2"
+		"AbilityDuration"				"0.6875 0.6875 0.6875 0.6875"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15 13 11 9 7"
+		"AbilityManaCost"				"70 90 110 130 150"
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+		    {
+				"var_type"					"FIELD_INTEGER"
+			    "dragon_slave_speed"		"1000"
+		    }
+
+		    "02"
+		    {
+		    	"var_type"					"FIELD_INTEGER"
+		    	"dragon_slave_width_initial"	"200"
+		    }
+		    "03"
+		    {
+		    	"var_type"					"FIELD_INTEGER"
+		    	"dragon_slave_width_end"		"150"
+		    }
+
+		    "04"
+		    {
+		    	"var_type"					"FIELD_INTEGER"
+		    	"dragon_slave_distance"			"900"
+		    }
+		    "05"
+		    {
+		    	"var_type"					"FIELD_INTEGER"
+		    	"fixed_duration"			"1"
+		    }
+		    "06"
+		    {
+		    	"var_type"					"FIELD_INTEGER"
+		    	"damage"			"150 210 270 330 390"
+		    }
+		}
+	}
+	"pantsushot"
+	{
+		"MaxLevel"                      "5"
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+		// base texture folder	: resource/flash3/images/spellicons
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/pantsushot.lua"
+		"AbilityTextureName"			"hatsune_2"
+		"FightRecapLevel"				"1"
+		"AbilityCooldown"				"5 4 3 2 1"
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_chance"				"20"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_bonus"				"120 140 160 180 200"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"cooldown"					"5 4 3 2 1"
+			}
+		}
+	}
+	"liu_kick"
+	{
+		"MaxLevel"                      "5"
+		"BaseClass"								"ability_lua"
+		"ScriptFile"							"heroes/liu_kick"
+		"AbilityTextureName" 					"hatsune_3"
+		"AbilityType"							"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
+
+		"AbilityCastPoint"						"0.3"
+		"AbilityCooldown"						"40 35 30 25 20"
+		"AbilityManaCost"						"100 110 120 130 140"
+		"AbilityCastRange"						"1000"
+
+		"HasScepterUpgrade"						"0"
+
+
+
+		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_3"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"radius"						"300"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"damage"						"100 200 300 400 500"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"range"							"900"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"range_knockback"				"600"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"speed"							"1600"
+			}
+		}
+	}
+	"miku_dance"
+	{
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+    	// base texture folder	: resource/flash3/images/spellicons
+    	//-------------------------------------------------------------------------------------------------------------
+    	"BaseClass"						"ability_lua"
+    	"ScriptFile"					"heroes/miku_dance"
+    	"AbilityTextureName"			"hatsune_4"
+    	"FightRecapLevel"				"1"
+    	"MaxLevel"						"1"
+		"RequiredLevel"                 "11"
+
+    	"precache"
+    	{
+    		"particle"	"particles/naga_siren_song_aura1.vpcf"
+    	}
+
+    	// Ability General
+    	//-------------------------------------------------------------------------------------------------------------
+     	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+    	"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+    	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+	    // Ability Casting
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCastRange"				"700"
+    	"AbilityCastPoint"				"0.3"
+    	"AbilityChannelTime"			"120"
+    	"AbilityCastAnimation"          "ACT_DOTA_CHANNEL_ABILITY_4"
+
+    	// Ability Resource
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCooldown"				"60"
+    	"AbilityManaCost"				"200"
+
+    	// Damage
+    	//-------------------------------------------------------------------------------------------------------------
+
+    	// Special
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilitySpecial"
+    	{
+    		"01"
+	    	{
+	    		"var_type"				"FIELD_FLOAT"
+		    	"sand_storm_invis_delay"	"0.9 1.1 1.3 1.5"
+		    }
+		    "02"
+		    {
+		    	"var_type"				"FIELD_INTEGER"
+		    	"sand_storm_radius"		"650"
+		    }
+		    "03"
+		    {
+		    	"var_type"				"FIELD_FLOAT"
+		    	"AbilityDuration"		"120"
+		    }
+		    "04"
+	 	    {
+		    	"var_type"				"FIELD_INTEGER"
+		    	"sand_storm_damage"		"1000"
+		    }
+	    }
+    }
+	"chibi_monster"
+	{
+		"BaseClass"								"ability_lua"
+		"ScriptFile"							"heroes/chibi_monster"
+		"AbilityTextureName" 					"hatsune_5"
+		"AbilityType"							"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		//"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"					"SPELL_DISPELLABLE_NO"
+
+		"AbilityCastPoint"						"0.3"
+		//"AbilityChannelTime"					"5.0"
+		"AbilityCooldown"						"60"
+		"AbilityManaCost"						"250"
+		//"AbilityCastRange"						"1200"
+
+		"HasScepterUpgrade"						"0"
+
+		"MaxLevel"								"1"
+		"RequiredLevel"							"20"
+		"LevelsBetweenUpgrades"					"1"
+
+
+		"AbilityCastAnimation"          "ACT_DOTA_IDLE"
+		//"AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
+
+
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"damage"              "200"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"hp"	                        "2000"
+
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"agility"	"100"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"radius"	"800"
+			}
+			"05"
+			{
+				"var_type"								"FIELD_FLOAT"
+				"as"	"150"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"proc"				"400"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"projectile_avoid_chance"		"40"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"turn_rate"						"1"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"awake_mana"					"0"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"fixed_duration"				"30"
+			}
+		}
+	}
+	"chibi_hit"
+	{
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+		// base texture folder	: resource/flash3/images/spellicons
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/chibi_hit"
+		"AbilityTextureName"			"hatsune_5_5"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"1"
+
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0.2"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"300"
+		"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_5"
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"1000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"2.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dragon_cast_range"			"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"			"1600"
+			}
+		}
+	}
+	"get_down"
+    {
+    	// Ability Technical Aspect
+    	// base script folder	: scripts/vscripts
+    	// base texture folder	: resource/flash3/images/spellicons
+    	//-------------------------------------------------------------------------------------------------------------
+    	"BaseClass"						"ability_lua"
+    	"ScriptFile"					"heroes/get_down"
+    	"AbilityTextureName"			"miku_6"
+    	"FightRecapLevel"				"1"
+    	"MaxLevel"						"1"
+		"RequiredLevel"                 "15"
+		"HasScepterUpgrade" "1"
+    	"precache"
+    	{
+    		"particle"	"particles/naga_siren_song_aura1.vpcf"
+    	}
+
+    	// Ability General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+    	"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+    	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+    	// Ability Casting
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCastRange"				"550"
+    	"AbilityCastPoint"				"0"
+    	"AbilityChannelTime"			"33"
+    	"AbilityCastAnimation"          "ACT_DOTA_CHANNEL_ABILITY_5"
+
+    	// Ability Resource
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCooldown"				"30"
+    	"AbilityManaCost"				"100"
+
+    	// Damage
+    	//-------------------------------------------------------------------------------------------------------------
+
+    	// Special
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilitySpecial"
+    	{
+	    	"01"
+	    	{
+	    		"var_type"				"FIELD_FLOAT"
+		    	"sand_storm_invis_delay"	"0.9 1.1 1.3 1.5"
+		    }
+		    "02"
+		    {
+		    	"var_type"				"FIELD_INTEGER"
+		    	"sand_storm_radius"		"600"
+		    }
+		    "03"
+		    {
+		    	"var_type"				"FIELD_FLOAT"
+		    	"AbilityDuration"		"120"
+		    }
+		    "04"
+		    {
+		    	"var_type"				"FIELD_INTEGER"
+		    	"sand_storm_damage"		"150"
+		    }
+	    }
+	}
 }
