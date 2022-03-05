@@ -63,7 +63,7 @@
 	horizontal-align: middle;
 	vertical-align:center;
 	color: #ffffff;
-	
+
 }
 
 .GameOptionsSubPanel .GameOptionsDropdown
@@ -141,7 +141,7 @@
 
 #display_options_container
 {
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-left: 400px;
 	padding-left: 20px;
 	width: 350px;
@@ -154,7 +154,6 @@
 	width: 100%;
 	height: 100%;
 	flow-children: down;
-	background-color: #eeffff44;
 	padding: 10px;
 }
 .DisplayOptionsSubPanel
@@ -168,13 +167,13 @@
 	text-align: left;
 	horizontal-align: middle;
 	vertical-align:center;
-	color: #555555;
+	color: #ffffff;
 	font-weight: bold;
 }
 .DisplayOptionsLable
 {
 	margin-left: 10px;
 	horizontal-align:right;
-	color: #555555;
+	color: #ffffff;
 	font-weight: bold;
 }
