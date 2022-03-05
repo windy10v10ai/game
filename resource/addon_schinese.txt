@@ -98,6 +98,8 @@
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"+$armor"
 		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%伤害降低："
 
+		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%非英雄攻击额外伤害："
+
 		///////////////////////////////////////////////////
 		//
 		//            Heroes
@@ -127,6 +129,44 @@
 
 		// 茶神
 		"npc_dota_hero_techies"					"茶神"
+
+		// 初音未来
+		"npc_dota_hero_meepo"					"初音未来"
+		"npc_dota_hero_meepo_npedesc1"		"世界第一的公主殿下"
+		"DOTA_Tooltip_ability_get_down" "GET DOWN!!!"
+        "DOTA_Tooltip_ability_get_down_Description" "使用初音未来自己的秘密舞蹈，在整个舞蹈过程中，每半秒对周围敌人造成一次伤害不无视魔免"
+        "DOTA_Tooltip_ability_get_down_sand_storm_radius" "范围:"
+        "DOTA_Tooltip_ability_get_down_sand_storm_dmage" "每次命中增加魔法伤害:"
+		"DOTA_Tooltip_ability_get_down_Lore"  "这样一来就满足了吗？"
+        "DOTA_Tooltip_ability_chibi_hit" "葱击"
+        "DOTA_Tooltip_ability_chibi_hit_Description" "对目标敌人造成毁灭性打击，对他们造成巨大伤害。如果他们活下来，会被击晕2.5秒"
+        "DOTA_Tooltip_ability_chibi_hit_AbilityDamage" "伤害:"
+        "DOTA_Tooltip_ability_chibi_monster" "甩葱形态"
+        "DOTA_Tooltip_ability_chibi_monster_Description" "初音变身成甩葱形态，获得额外的属性和技能"
+        "DOTA_Tooltip_ability_chibi_monster_damage" "获得伤害:"
+        "DOTA_Tooltip_ability_chibi_monster_agility" "获得敏捷:"
+        "DOTA_Tooltip_ability_chibi_monster_hp" "获得血量:"
+        "DOTA_Tooltip_ability_chibi_monster_fixed_duration" "持续时间:"
+		"DOTA_Tooltip_ability_chibi_monster_Lore" "你一定听过甩葱歌吧！"
+        "DOTA_Tooltip_ability_miku_dance" "跳舞"
+        "DOTA_Tooltip_ability_miku_dance_Description" "开始唱歌跳舞，对周围所有敌人造成伤害，每1.5秒眩晕周围敌人一秒"
+        "DOTA_Tooltip_ability_miku_dance_sand_storm_radius" "范围:"
+        "DOTA_Tooltip_ability_miku_dance_sand_storm_damage" "每次攻击伤害:"
+		"DOTA_Tooltip_ability_miku_dance_Lore"  "我是世界第一的公主殿下，唱、跳、Rap都不在话下"
+        "DOTA_Tooltip_ability_liu_kick" "初音飞踢"
+        "DOTA_Tooltip_ability_liu_kick_Description" "踢向目标，造成一定的魔法伤害和击退"
+        "DOTA_Tooltip_ability_liu_kick_damage" "伤害:"
+		"DOTA_Tooltip_ability_liu_kick_Lore" "把你mikumiku掉！"
+        "DOTA_Tooltip_ability_pantsushot" "脑浆炸裂女孩"
+        "DOTA_Tooltip_ability_pantsushot_Description" "有几率造成致命一击,使敌人晕眩0.3秒"
+        "DOTA_Tooltip_ability_pantsushot_crit_chance" "几率:"
+        "DOTA_Tooltip_ability_pantsushot_crit_bonus" "%暴击."
+		"DOTA_Tooltip_ability_pantsushot_Lore" "Nyanyanyanyanyanyanya!"
+		"DOTA_Tooltip_ability_miku_hadouken"           "蔬菜汁Popipo"
+		"DOTA_Tooltip_ability_miku_hadouken_Description" "产生一个指向指定方向的Popipo音乐波，伤害其路径上的所有敌人"
+        "DOTA_Tooltip_ability_miku_hadouken_damage"         "伤害:"
+		"DOTA_Tooltip_ability_miku_hadouken_Lore"           "香醇浓厚的蔬菜果汁！香软绵柔的蔬菜果汁！"
+		"DOTA_Tooltip_ability_get_down_scepter_description"    "初音未来的秘密舞蹈，很鬼畜"
 
 		// 双头龙
         "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"烈焰焚身的距离+200，持续时间+5秒，并且变为纯粹伤害，无视技能免疫。"
@@ -495,6 +535,14 @@
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Note1"						"使用黑皇杖将使部分有益状态消失。"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_bonus_damage"					"+$damage"
+
+        // item_dodo_desolator
+		"DOTA_Tooltip_Ability_item_dodo_desolator"				"黯灭头"
+		"DOTA_Tooltip_ability_item_dodo_desolator_Description"						"<h1>被动：dodo的爱</h1>物理攻击将降低目标%corruption_armor%点护甲，持续%corruption_duration%秒。\n<h1>被动：灵魂窃取</h1>黯灭在装备后每次击杀英雄获得+%bonus_damage_per_kill%点攻击力，每次助攻获得+%bonus_damage_per_assist%点攻击力，最多获得%max_damage%点。"
+		"DOTA_Tooltip_ability_item_dodo_desolator_Lore"							"是某个女人的头发。"
+		"DOTA_Tooltip_ability_item_dodo_desolator_Note0"								"护甲降低效果对建筑有效。"
+		//"DOTA_Tooltip_ability_item_dodo_desolator_corruption_armor"					"ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_item_dodo_desolator_bonus_damage"						"+$damage"
 
 		// item_infernal_desolator
 		"DOTA_Tooltip_Ability_item_infernal_desolator"				"绝对破防之刃"

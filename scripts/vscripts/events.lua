@@ -470,9 +470,9 @@ function AIGameMode:OnNPCSpawned(keys)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_strategy", {})
 				print("modifier_bot_think_strategy added "..sName)
 			end
-			-- if not hEntity:FindModifierByName("modifier_bot_think_item_use") then
-			-- 	hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_item_use", {})
-			-- end
+			if not hEntity:FindModifierByName("modifier_bot_think_item_use") then
+				hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_item_use", {})
+			end
 		end
 
 		hEntity.bInitialized = true
@@ -549,7 +549,11 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
 	self.iStartingGoldBot = tonumber(args.game_options.starting_gold_bot)
 	self.bSameHeroSelection = args.game_options.same_hero_selection
 	self.bFastCourier = args.game_options.fast_courier
-	self.bRadiantBotSameMulti = args.game_options.radiant_bot_same_multi
+	if args.game_options.radiant_bot_same_multi == "1" then
+		self.bRadiantBotSameMulti = true
+	else
+		self.bRadiantBotSameMulti = false
+	end
 	self:PreGameOptions()
 end
 
