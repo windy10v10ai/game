@@ -15,6 +15,8 @@ local StackToPercentage = function (iStackCount)
 		return 2.5
 	elseif iStackCount == 9 then
 		return 3.0
+	elseif iStackCount == 10 then
+		return 5.0
 	else
 		return 1.0
 	end
