@@ -11,7 +11,7 @@ function modifier_pantsushot:IsPurgable()
 	return false
 end
 function modifier_pantsushot:AllowIllusionDuplicate()
- return false 
+ return false
  end
 
 --------------------------------------------------------------------------------
@@ -89,7 +89,7 @@ local caster = self:GetParent()
 	else
 	self.particle_cast = "particles/miku_huya.vpcf"
 	end
-	local sound_cast = "miku.2"
+	-- local sound_cast = "miku.2"
 
 	-- if target:IsMechanical() then
 	-- 	particle_cast = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact_mechanical.vpcf"
@@ -110,5 +110,5 @@ local caster = self:GetParent()
 	ParticleManager:SetParticleControlForward( effect_cast, 1, (self:GetParent():GetOrigin()-target:GetOrigin()):Normalized() )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
-	EmitSoundOn( sound_cast, target )
+	-- EmitSoundOn( sound_cast, target )
 end

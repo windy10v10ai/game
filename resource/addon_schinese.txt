@@ -142,7 +142,7 @@
         "DOTA_Tooltip_ability_chibi_hit_Description" "对目标敌人造成毁灭性打击，对他们造成巨大伤害。如果他们活下来，会被击晕2.5秒"
         "DOTA_Tooltip_ability_chibi_hit_AbilityDamage" "伤害:"
         "DOTA_Tooltip_ability_chibi_monster" "甩葱形态"
-        "DOTA_Tooltip_ability_chibi_monster_Description" "初音变身成甩葱形态，获得额外的属性和技能"
+        "DOTA_Tooltip_ability_chibi_monster_Description" "初音变身成甩葱形态，获得额外的属性和技能。<br/>变身时增加技能蔬菜汁Popipo的伤害。"
         "DOTA_Tooltip_ability_chibi_monster_damage" "获得伤害:"
         "DOTA_Tooltip_ability_chibi_monster_agility" "获得敏捷:"
         "DOTA_Tooltip_ability_chibi_monster_hp" "获得血量:"
@@ -165,6 +165,7 @@
 		"DOTA_Tooltip_ability_miku_hadouken"           "蔬菜汁Popipo"
 		"DOTA_Tooltip_ability_miku_hadouken_Description" "产生一个指向指定方向的Popipo音乐波，伤害其路径上的所有敌人"
         "DOTA_Tooltip_ability_miku_hadouken_damage"         "伤害:"
+        "DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "变身时伤害:"
 		"DOTA_Tooltip_ability_miku_hadouken_Lore"           "香醇浓厚的蔬菜果汁！香软绵柔的蔬菜果汁！"
 		"DOTA_Tooltip_ability_get_down_scepter_description"    "初音未来的秘密舞蹈，很鬼畜"
 

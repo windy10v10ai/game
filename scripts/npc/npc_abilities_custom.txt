@@ -567,13 +567,14 @@
 	    // base texture folder	: resource/flash3/images/spellicons
 	    //-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/miku_hadouken"
+		"ScriptFile"					"heroes/hero_miku/miku_hadouken"
 		"AbilityTextureName"			"hatsune_1"
 		"FightRecapLevel"				"1"
 
 		"precache"
 		{
 			"soundfile"	"soundevents/Hatsune_miku.vsndevts"
+			"soundfile"	"soundevents/Hatsune_miku_1.vsndevts"
 		    "particle"	"particles/hadouken1.vpcf"
 		    "particle"	"particles/hadouken2.vpcf"
 		    "particle"	"particles/hadouken3.vpcf"
@@ -616,7 +617,6 @@
 				"var_type"					"FIELD_INTEGER"
 			    "dragon_slave_speed"		"1000"
 		    }
-
 		    "02"
 		    {
 		    	"var_type"					"FIELD_INTEGER"
@@ -627,11 +627,10 @@
 		    	"var_type"					"FIELD_INTEGER"
 		    	"dragon_slave_width_end"		"150"
 		    }
-
 		    "04"
 		    {
 		    	"var_type"					"FIELD_INTEGER"
-		    	"dragon_slave_distance"			"900"
+		    	"dragon_slave_distance"			"1075"
 		    }
 		    "05"
 		    {
@@ -643,6 +642,11 @@
 		    	"var_type"					"FIELD_INTEGER"
 		    	"damage"			"150 210 270 330 390"
 		    }
+		    "07"
+		    {
+		    	"var_type"					"FIELD_INTEGER"
+		    	"damage_calne"			"320 400 480 560 640"
+		    }
 		}
 	}
 	"pantsushot"
@@ -653,10 +657,10 @@
 		// base texture folder	: resource/flash3/images/spellicons
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/pantsushot.lua"
+		"ScriptFile"					"heroes/hero_miku/pantsushot.lua"
 		"AbilityTextureName"			"hatsune_2"
 		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"5 4 3 2 1"
+		"AbilityCooldown"				"1"
 
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
@@ -680,17 +684,17 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_chance"				"20"
+				"crit_chance"				"20 25 30 35 40"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"crit_bonus"				"120 140 160 180 200"
 			}
-			"05"
+			"03"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"cooldown"					"5 4 3 2 1"
+				"var_type"					"FIELD_INTEGER"
+				"cooldown"					"1"
 			}
 		}
 	}
@@ -698,9 +702,9 @@
 	{
 		"MaxLevel"                      "5"
 		"BaseClass"								"ability_lua"
-		"ScriptFile"							"heroes/liu_kick"
+		"ScriptFile"							"heroes/hero_miku/liu_kick"
 		"AbilityTextureName" 					"hatsune_3"
-		"AbilityType"							"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -711,9 +715,9 @@
 		"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
 
 		"AbilityCastPoint"						"0.3"
-		"AbilityCooldown"						"40 35 30 25 20"
+		"AbilityCooldown"						"20 18 16 14 12"
 		"AbilityManaCost"						"100 110 120 130 140"
-		"AbilityCastRange"						"1000"
+		"AbilityCastRange"						"800"
 
 		"HasScepterUpgrade"						"0"
 
@@ -745,7 +749,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"range_knockback"				"600"
+				"range_knockback"				"450"
 			}
 			"05"
 			{
@@ -761,7 +765,7 @@
     	// base texture folder	: resource/flash3/images/spellicons
     	//-------------------------------------------------------------------------------------------------------------
     	"BaseClass"						"ability_lua"
-    	"ScriptFile"					"heroes/miku_dance"
+    	"ScriptFile"					"heroes/hero_miku/miku_dance"
     	"AbilityTextureName"			"hatsune_4"
     	"FightRecapLevel"				"1"
     	"MaxLevel"						"1"
@@ -824,7 +828,7 @@
 	"chibi_monster"
 	{
 		"BaseClass"								"ability_lua"
-		"ScriptFile"							"heroes/chibi_monster"
+		"ScriptFile"							"heroes/hero_miku/chibi_monster"
 		"AbilityTextureName" 					"hatsune_5"
 		"AbilityType"							"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -838,39 +842,34 @@
 
 		"AbilityCastPoint"						"0.3"
 		//"AbilityChannelTime"					"5.0"
-		"AbilityCooldown"						"60"
-		"AbilityManaCost"						"250"
-		//"AbilityCastRange"						"1200"
+		"AbilityCooldown"						"80 70 60"
+		"AbilityManaCost"						"250 500 750"
 
 		"HasScepterUpgrade"						"0"
 
-		"MaxLevel"								"1"
-		"RequiredLevel"							"20"
-		"LevelsBetweenUpgrades"					"1"
+		"MaxLevel"								"3"
+		"RequiredLevel"							"8"
+		"LevelsBetweenUpgrades"					"8"
 
 
 		"AbilityCastAnimation"          "ACT_DOTA_IDLE"
-		//"AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
-
-
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"damage"              "200"
+				"damage"						"100 150 200"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"hp"	                        "2000"
-
+				"hp"	                        "2000 3000 4000"
 			}
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"agility"	"100"
+				"agility"						"40 60 80"
 			}
 			"04"
 			{
@@ -887,21 +886,6 @@
 				"var_type"						"FIELD_FLOAT"
 				"proc"				"400"
 			}
-			"07"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"projectile_avoid_chance"		"40"
-			}
-			"08"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"turn_rate"						"1"
-			}
-			"09"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"awake_mana"					"0"
-			}
 			"10"
 			{
 				"var_type"						"FIELD_FLOAT"
@@ -916,7 +900,7 @@
 		// base texture folder	: resource/flash3/images/spellicons
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/chibi_hit"
+		"ScriptFile"					"heroes/hero_miku/chibi_hit"
 		"AbilityTextureName"			"hatsune_5_5"
 		"FightRecapLevel"				"1"
 		"MaxLevel"						"1"
@@ -975,7 +959,7 @@
     	// base texture folder	: resource/flash3/images/spellicons
     	//-------------------------------------------------------------------------------------------------------------
     	"BaseClass"						"ability_lua"
-    	"ScriptFile"					"heroes/get_down"
+    	"ScriptFile"					"heroes/hero_miku/get_down"
     	"AbilityTextureName"			"miku_6"
     	"FightRecapLevel"				"1"
     	"MaxLevel"						"1"
