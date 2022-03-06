@@ -22,12 +22,12 @@
 		"AbilityValues"
 		{
 			"max_level"				"60"	// 30
-			"increase_time"			"120"	// 450
+			"increase_time"			"150"	// 450
 			"increase_damage"		"6"		// 3
 			"increase_aspd"			"6"		// 5
 			"increase_health"		"50"	// 30
 			"increase_armor"		"1"		// 0.5
-			"increase_gold"			"4"		// 1
+			"increase_gold"			"3"		// 1
 			"increase_xp"			"8"		// 5
 		}
 	}
@@ -1332,20 +1332,172 @@
 	//=================================================================================================================
 	// Ability: Alchemist                炼金术士
 	//=================================================================================================================
+	"alchemist_berserk_potion"
+	{
+		"AbilityCooldown"				"25"
+	}
+	"alchemist_acid_spray"
+	{
+		"MaxLevel" "5"
+		"AbilityManaCost"				"130 140 150 160 170"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"475 525 575 625 650"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"20 25 30 35 40"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"4 5 6 7 8"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_5"
+			}
+		}
+	}
+	"alchemist_unstable_concoction"
+	{
+		"MaxLevel" "5"
+		"AbilityManaCost"				"100"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"max_stun"					"1.75 2.5 3.25 4.0 4.5"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_damage"				"150 220 290 360 430"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_2"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"move_speed"				"5 10 15 20 25"
+			}
+		}
+	}
+	"alchemist_unstable_concoction_throw"
+	{
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"max_stun"					"1.75 2.5 3.25 4.0 4.5"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"min_damage"				"0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_damage"				"150 220 290 360 430"
+			}
+		}
+	}
+	"alchemist_goblins_greed"
+	{
+		"MaxLevel" "7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"36 38 40 42 44 46 48"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold"			"3 4 5 6 7 8 9"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_bonus_gold"		"3 4 5 6 7 8 9"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold_cap"		"15 18 21 24 27 30 33"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bounty_multiplier"		"5.0"
+			}
+		}
+	}
+	"alchemist_chemical_rage"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"45.0"
+		"AbilityManaCost"				"50 75 100 125 150"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"25.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"transformation_time"	"0.25"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_attack_time"		"1.2 1.1 1.0 0.9 0.8"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"500 1000 1500 2000 2500"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"50 75 100 125 150"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_4"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"15 20 25 30 35"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed"		"40 50 60 70 80"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_6"
+			}
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Dragon Knight                       龙骑士
 	//=================================================================================================================
 	"dragon_knight_breathe_fire"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"14 13 12 11 10"
 		"AbilityDamage"					"80 160 240 320 400"
 		"AbilityManaCost"				"90 100 110 120 130"
 	}
 	"dragon_knight_dragon_tail"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"16 14 12 10 8"
 		"AbilityDamage"					"70 100 130 160 190"
 		"AbilityManaCost"				"70 80 90 100 110"
@@ -1361,7 +1513,7 @@
 	}
 	"dragon_knight_dragon_blood"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -1441,14 +1593,402 @@
 	//=================================================================================================================
 	// Ability: Elder Titan                      上古巨神/大牛
 	//=================================================================================================================
+	"elder_titan_echo_stomp"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"14 13 12 11 10"
+		"AbilityManaCost"				"100"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"cast_time"						"1.7"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"radius"						"500"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"sleep_duration"				"2 2.5 3 3.5 4"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"stomp_damage"					"70 90 110 130 150"
+				"LinkedSpecialBonus"			"special_bonus_unique_elder_titan_2"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"wake_damage_limit"				"50 100 150 200 250"
+				"LinkedSpecialBonus"			"special_bonus_unique_elder_titan_4"
+			}
+		}
+	}
+	"elder_titan_echo_stomp_spirit"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"cast_time"						"1.7"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"radius"						"500"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"sleep_duration"				"2 2.5 3 3.5 4"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"stomp_damage"					"70 90 110 130 150"
+			}
+		}
+	}
+	"elder_titan_ancestral_spirit"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"23 21 19 17 15"
+		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilityValues"
+		{
+			"radius"						"275"
+			"pass_damage"					"100"
+			"spirit_duration"				"10.0"
+			"buff_duration"					"10.0"
+			"speed"							"900"
+			"move_pct_creeps"				"1"
+			"move_pct_heroes"
+			{
+				"value"		"5 6 7 8 9"
+				"special_bonus_unique_elder_titan_bonus_spirit_speed"	"+2"
+			}
+			"damage_creeps"
+			{
+				"value"	"5 10 15 20 25"
+				"CalculateSpellDamageTooltip"				"0"
+			}
+			"damage_heroes"
+			{
+				"value"		"20 40 60 80 100"
+				"special_bonus_unique_elder_titan"	"+25"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"armor_creeps"					"0.5"
+			"armor_heroes"					"1.5 3 4.5 6"
+			"move_pct_cap"					"40"
+			"scepter_magic_immune_per_hero"
+			{
+				"value"				"2"
+				"RequiresScepter"				"1"
+			}
+		}
+	}
+	"elder_titan_natural_order"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"250"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"armor_reduction_pct"	    "40 50 60 70 80"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"magic_resistance_pct"		"40 50 60 70 80"
+			}
+		}
+	}
+	"elder_titan_natural_order_spirit"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"250"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"armor_reduction_pct"	    "40 50 60 70 80"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"magic_resistance_pct"		"40 50 60 70 80"
+			}
+		}
+	}
+	"elder_titan_earth_splitter"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"100 90 80 70"
+		"AbilityManaCost"				"125 175 225 275"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow_pct"					"30 40 50 60"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration"				"3.0 4.0 5.0 6.0"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_pct"				"15 20 25 30"
+			}
+			"13"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration_scepter"		"4.0 5.0 6.0 7.0"
+			}
+		}
+	}
+	"special_bonus_unique_elder_titan_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6720"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"20"
+				"ad_linked_abilities"			"elder_titan_earth_splitter"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Lycan                       狼人
 	//=================================================================================================================
+	"lycan_summon_wolves"
+	{
+		"AbilityCooldown"				"20.0"
+		"AbilityValues"
+		{
+			"wolf_index"				"1 2 3 4"
+			"wolf_duration"				"50"
+			"wolf_bat"					"1.2 1.1 1.0 0.9"
+			"wolf_damage"				"18 24 30 36"
+			"wolf_hp"
+			{
+				"value"	"325 375 425 475"
+				"special_bonus_unique_lycan_7"	"+500"
+			}
+			"bonus_health"
+			{
+				"value"			"0"
+				"special_bonus_unique_lycan_7"	"+500"
+			}
+			"bonus_damage"
+			{
+				"value"			"0"
+				"special_bonus_unique_lycan_3"	"+36"
+			}
+			"bash_chance"				"15"
+			"bash_duration"				"1.0"
+			"tooltip_wolf_count"
+			{
+				"value"			"2 2 2 2"
+				"special_bonus_unique_lycan_2" "+4"
+			}
+		}
+	}
+	"lycan_wolf_bite"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"70 65 60 55 50"
+		"AbilityValues"
+		{
+			"lifesteal_percent"		"40"
+			"lifesteal_range"		"1200"
+			"attack_range"		"150"
+		}
+	}
+	"lycan_howl"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"22 20 18 16 14"
+		"AbilityManaCost"				"35 40 45 50 55"
+		"AbilityValues"
+		{
+			"howl_duration"		"8"
+			"attack_damage_reduction"
+			{
+				"value"		"25 30 35 40 45"
+				"special_bonus_unique_lycan_6"	"+20"
+			}
+			"armor"			"4 5 6 7 8"
+			"radius"			"2000"
+		}
+	}
+	"lycan_feral_impulse"
+	{
+		"MaxLevel" "7"
+		"AbilityValues"
+		{
+			"bonus_damage"
+			{
+				"value"			"10 20 30 40 50 60 70"
+				"special_bonus_unique_lycan_4"	"+30"
+			}
+			"bonus_hp_regen"
+			{
+				"value"			"4 5 6 7 8 9 10"
+			}
+		}
+	}
+	"lycan_shapeshift"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"70 65 60 55 50"
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value"				"25"
+				"special_bonus_unique_lycan_1"	"+10"
+			}
+			"speed"				"550"
+			"bonus_night_vision"		"1000"
+			"transformation_time"		"1.1"
+			"crit_chance"
+			{
+				"value"			"40"
+				"special_bonus_unique_lycan_5"	"+30"
+			}
+			"crit_multiplier"		"150 175 200 225 250"
+			"health_bonus"		"400 500 600 700 800"
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Mars                          玛尔斯
 	//=================================================================================================================
+	"mars_spear"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"15.0 14.0 13.0 12.0 11.0"
+		"AbilityManaCost"				"110 120 130 140 150"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 175 250 325 400"
+				"LinkedSpecialBonus"	"special_bonus_unique_mars_spear_bonus_damage"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spear_range"		"900 1000 1100 1200 1300"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"1.6 2.0 2.4 2.8 3.2"
+				"LinkedSpecialBonus"	"special_bonus_unique_mars_spear_stun_duration"
+			}
+		}
+	}
+	"mars_gods_rebuke"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_mult"					"150 190 230 270 310"
+				"LinkedSpecialBonus"		"special_bonus_unique_mars_gods_rebuke_extra_crit"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage_vs_heroes"	"20 25 30 35 40"
+			}
+		}
+	}
+	"mars_bulwark"
+	{
+		"MaxLevel" "7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"physical_damage_reduction"		"10 20 30 40 50 60 70"
+				"LinkedSpecialBonus"		"special_bonus_unique_mars_bulwark_damage_reduction"
+			}
+
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"physical_damage_reduction_side"	"5 10 15 20 25 30 35"
+				"LinkedSpecialBonus"		"special_bonus_unique_mars_bulwark_damage_reduction"
+				"LinkedSpecialBonusField"		"value2"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"redirect_chance"				"70"
+			}
+		}
+	}
+	"mars_arena_of_blood"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"70"
+		"AbilityManaCost"				"150 175 200 225"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5 6 7 8"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spear_damage"		"100 160 220 280"
+			}
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Sand King                       沙王
@@ -1582,6 +2122,110 @@
 	//=================================================================================================================
 	// Ability: Snapfire                      电炎绝手/老奶奶
 	//=================================================================================================================
+	"snapfire_scatterblast"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityManaCost"				"85 90 95 100 105"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"100 160 220 280 340"
+				"LinkedSpecialBonus"		"special_bonus_unique_snapfire_7"
+			}
+		}
+	}
+	"snapfire_mortimer_kisses"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"90 80 70 60"
+		"AbilityManaCost"				"125 150 175 200"
+		"AbilitySpecial"
+		{
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_impact"		"160 240 320 400"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"burn_damage"			"60 80 100 120"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"move_slow_pct"			"15 20 25 30"
+				"LinkedSpecialBonus"	"special_bonus_unique_snapfire_4"
+			}
+		}
+	}
+	"snapfire_gobble_up"
+	{
+		"AbilityCooldown"				"30"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"max_time_in_belly"		"4.0"
+				"RequiresScepter"		"1"
+			}
+		}
+	}
+	"snapfire_firesnap_cookie"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"21 19 17 15 13"
+		"AbilityValues"
+		{
+				"projectile_speed"		"1000"
+				"pre_hop_duration"		"0.0"
+				"jump_duration"			"0.484" //"0.431 0.484 0.538 0.592" // proportional to horizontal distance
+				"jump_height"			"257" //"228 257 285 314" // proportional to horizontal distance
+				"jump_horizontal_distance"	"425" //"400 450 500 550"
+				"pre_land_anim_time"	"0.14"
+				"landing_gesture_duration"	"0.6"
+				"impact_radius"			"300"
+				"impact_damage"			"70 140 210 280 350"
+				"impact_stun_duration"
+				{
+					"value"		"1.3 1.6 1.9 2.2 2.5"
+					"special_bonus_unique_snapfire_3"	"+0.3"
+
+				}
+				"self_cast_delay"		"0.3"
+				"target_heal"
+				{
+					"value"			"125"
+					"special_bonus_unique_snapfire_5"	"+125"
+				}
+		}
+	}
+	"snapfire_lil_shredder"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"24 20 16 12 8"
+		"AbilityDuration"				"6"
+		"AbilityManaCost"				"50 65 80 95 110"
+		"AbilityValues"
+		{
+				"damage"					"20 45 70 95 120"
+				"buffed_attacks"
+				{
+					"value"		"6"
+					"special_bonus_unique_snapfire_2"	"+3"
+				}
+				"attack_speed_bonus"		"300"
+				"attack_range_bonus"		"75 150 225 300 375"
+				"buff_duration_tooltip"		"6"
+				"base_attack_time"			"1.0"
+				"armor_reduction_per_attack"	"0.5"
+				"armor_duration"				"5.0"
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Marci 玛西
@@ -1975,33 +2619,275 @@
 		}
 	}
 
-	"ember_spirit_sleight_of_fist"
+	//=================================================================================================================
+	// Ability: Faceless Void                      虚空假面
+	//=================================================================================================================
+	"faceless_void_time_walk"
 	{
-		"MaxLevel"						"7"
-		"AbilityCooldown"				"16 14 12 10 8 6 4"
-
+		"MaxLevel" "5"
+		"AbilityCooldown"				"25 20 15 10 5"
+	}
+	"faceless_void_time_lock"
+	{
+		"MaxLevel" "7"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chance_pct"			"12 16 20 24 28 32 36"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"15 20 25 30 35 40 45"
+				"LinkedSpecialBonus"	"special_bonus_unique_faceless_void_3"
+			}
+		}
+	}
+	"faceless_void_time_dilation"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"28 24 20 16 12"
+		"AbilityManaCost"				"60 70 80 90 100"
 		"AbilitySpecial"
 		{
 			"02"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_hero_damage"			"40 80 120 160 200 240 280"
-				"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_6"
-				"CalculateSpellDamageTooltip"	"0"
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"8 9 10 11 12"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_stack"	"10 11 12 13 14"
+				"LinkedSpecialBonus" "special_bonus_unique_faceless_void_6"
 			}
 		}
 	}
-	//=================================================================================================================
-	// Ability: Faceless Void                      虚空假面
-	//=================================================================================================================
+	"faceless_void_chronosphere"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"110 100 90 80"
+		"AbilityManaCost"				"150 200 250 300"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.0 4.5 5.0 5.5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"60"
+				"LinkedSpecialBonus"	"special_bonus_unique_faceless_void"
+			}
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Medusa                              美杜莎/大娜迦
 	//=================================================================================================================
+	"medusa_cold_blooded"
+	{
+		"AbilityCooldown"				"4"
+	}
+	"medusa_split_shot"
+	{
+		"MaxLevel" "5"
+		"AbilityValues"
+		{
+				"damage_modifier"
+				{
+					"value"		"-50 -45 -40 -35 -30"
+					"special_bonus_unique_medusa_2"	"+10"
+				}
+				"damage_modifier_tooltip"
+				{
+					"value"			"50 55 60 65 70"
+					"special_bonus_unique_medusa_2"	"+10"
+				}
+				"arrow_count"				"5"
+				"split_shot_bonus_range"		"150"
+		}
+	}
+	"medusa_mystic_snake"
+	{
+		"MaxLevel" "7"
+		"AbilityManaCost"				"140"
+		"AbilityValues"
+		{
+			"radius"				"450"
+			"snake_jumps"
+			{
+				"value"				"3 4 5 6 7 8 9"
+				"special_bonus_unique_medusa_3"	"+2"
+			}
+			"jump_delay"			"0.25 0.25 0.25 0.25"
+			"snake_damage"			"80 120 160 200 240 280 320"
+			"snake_mana_steal"		"12 15 18 21 24 27 30"
+			"snake_scale"			"35"
+			"initial_speed"			"800"
+			"return_speed"			"800"
+			"stone_form_scepter_base"
+			{
+				"value"				"1.5"
+				"RequiresScepter"	"1"
+			}
+			"stone_form_scepter_increment"
+			{
+				"value"				"0.3"
+				"RequiresScepter"	"1"
+			}
+			"movement_slow"			"30"
+			"turn_slow"			"50"
+			"slow_duration"		"3"
+		}
+	}
+	"medusa_mana_shield"
+	{
+		"MaxLevel" "7"
+		"AbilityValues"
+		{
+				"damage_per_mana"
+				{
+					"value"				"1.5 2.0 2.5 3.0 3.5 4.0 4.5"
+					"special_bonus_unique_medusa_6"		"+1.5"
+				}
+				"absorption_pct"			"80"
+				"bonus_mana"			"200 250 300 350 400 450 500"
+		}
+	}
+	"medusa_stone_gaze"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"70"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"5 5.5 6 6.5"
+				"LinkedSpecialBonus"		"special_bonus_unique_medusa"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow"						"50"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stone_duration"			"3.0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"face_duration"				"1.0"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_physical_damage"		"40 45 50 55"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed_boost"		"60"
+			}
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Nyx Assassin                     小强
 	//=================================================================================================================
+	"nyx_assassin_impale"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"17 16 15 14 13"
+		"AbilityManaCost"				"105 120 135 150 165"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"1.5 1.8 2.1 2.4 2.7"
+				"LinkedSpecialBonus"	"special_bonus_unique_nyx_4"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impale_damage"			"100 160 220 280 340"
+				"LinkedSpecialBonus"	"special_bonus_unique_nyx_2"
+			}
+		}
+	}
+	"nyx_assassin_mana_burn"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"25 20 15 10 5"
+		"AbilityManaCost"				"60 70 80 90 100"
+		"AbilityValues"
+		{
+			"float_multiplier"
+			{
+				"value"		"2.5 3.0 3.5 4.0 4.5"
+				"special_bonus_unique_nyx_5"			"+0.5"
+			}
+			"aoe"
+			{
+				"value"		"0"
+				"special_bonus_unique_nyx"		"+300"
+			}
+		}
+	}
+	"nyx_assassin_spiked_carapace"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"30 25 20 15 10"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"reflect_duration"			"2.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"0.5 1.0 1.5 2.0 2.5"
+				"LinkedSpecialBonus"	"special_bonus_unique_nyx_6"
+			}
+		}
+	}
+	"nyx_assassin_vendetta"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"80 70 60 50"
+		"AbilityManaCost"				"150 200 250 300"
+		"AbilityValues"
+		{
+
+			"duration"				"40 50 60 70"
+			"fade_time"				"0.0"
+			"movement_speed"		"16 18 20 22"
+			"bonus_damage"			"300 450 600 750"
+			"health_regen_rate_scepter"		"3"
+			"mana_regen_rate_scepter"		"3"
+			"break_duration"		"4.0"
+			"shard_magic_resist_reduction"	"17"
+		}
+	}
+	"nyx_assassin_burrow"
+	{
+		"AbilityCooldown"				"20"
+		"AbilityCastPoint"				"2.0"
+	}
+	"nyx_assassin_unburrow"
+	{
+		"AbilityCooldown"				"10.0"
+	}
 
 	//=================================================================================================================
 	// Ability: Phantom_Assassin              幻影刺客/PA
@@ -2348,7 +3234,7 @@
 	//=================================================================================================================
 	"sniper_shrapnel"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCharges"				"5"
 		"AbilityManaCost"				"30 40 50 60 70 80 90"
 		"AbilitySpecial"
@@ -2381,7 +3267,7 @@
 	}
 	"sniper_headshot"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityDamage"					"20 50 80 100 120 140 160"
 		"AbilitySpecial"
 		{
@@ -2394,7 +3280,7 @@
 	}
 	"sniper_take_aim"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityManaCost"				"50"
 		"AbilitySpecial"
@@ -2414,7 +3300,7 @@
 	}
 	"sniper_assassinate"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"30 25 20 15 10"
 		"AbilityDamage"					"350 500 650 800 950"
 		"AbilityManaCost"				"175 225 275 325 375"
@@ -2443,7 +3329,86 @@
 	//=================================================================================================================
 	// Ability: Venomancer                          剧毒术士
 	//=================================================================================================================
-
+	"venomancer_venomous_gale"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"21 20 19 18 17 16 15"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"strike_damage"			"50 75 100 125 150 175 200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tick_damage"			"15 45 75 105 135 165 195"
+			}
+		}
+	}
+	"venomancer_poison_sting"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6.0 9.0 12.0 15.0 18.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"8 16 24 32 40"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_speed"			"-8 -10 -12 -14 -16"
+				"LinkedSpecialBonus"		"special_bonus_unique_venomancer_2"
+			}
+		}
+	}
+	"venomancer_plague_ward"
+	{
+		"AbilityCooldown"				"4.0"
+		"AbilityManaCost"				"10 15 20 25"
+	}
+	"venomancer_poison_nova"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"100.0 90.0 80.0 70.0"
+		"AbilityManaCost"				"200 300 400 500"
+		"AbilityValues"
+		{
+				"radius"					"850 900 950 1000"
+				"start_radius"				"255 255 255"
+				"duration"
+				{
+					"value"			"20"
+					"LinkedSpecialBonus"		"special_bonus_unique_venomancer_4"
+				}
+				"damage"					"1.5 2.0 2.5 3.0"
+				"cooldown_scepter"
+				{
+					"value"				"80.0 70.0 60.0 50.0"
+					"RequiresScepter"		"1"
+				}
+				"damage_scepter"
+				{
+					"value"				"3 3.75 4.5"
+					"RequiresScepter"		"1"
+				}
+				"speed"						"550"
+				"base_damage"					"20 30 40 50"
+				"aspd_slow"
+				{
+					"value"					"50"
+					"special_bonus_unique_venomancer_5"	"+100"
+				}
+		}
+	}
 
 	// -------------------------------------
 	// ---- Intelligence Heroes 智力英雄 ----
@@ -2451,6 +3416,114 @@
 	//=================================================================================================================
 	// Ability: Ancient Apparition                     远古冰魂
 	//=================================================================================================================
+	"ancient_apparition_cold_feet"
+	{
+		"MaxLevel" "5"
+		"AbilityCastRange"				"700 800 900 1000 1100"
+		"AbilityCooldown"				"12 11 10 9 8"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"30 50 70 90 110"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"2.0 2.5 3.0 3.5 4.0"
+			}
+		}
+	}
+	"ancient_apparition_ice_vortex"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"7 6 5 4 3"
+		"AbilityManaCost"				"40 50 60 70 80"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"drag_speed"	"40 50 60 70 80"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed_pct"	"-16 -19 -22 -25 -28"
+				"LinkedSpecialBonus"	"special_bonus_unique_ancient_apparition_4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spell_resist_pct"		"-16 -19 -22 -25 -28"
+				"LinkedSpecialBonus"	"special_bonus_unique_ancient_apparition_4"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vortex_shard_dps"		"80"
+			}
+		}
+	}
+	"ancient_apparition_chilling_touch"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"15 12 9 6 3"
+		"AbilityManaCost"				"30 45 60 75 90"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"40 80 120 160 200"
+				"LinkedSpecialBonus"		"special_bonus_unique_ancient_apparition_2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_range_bonus"	"60 90 120 150 180"
+			}
+		}
+	}
+	"special_bonus_unique_ancient_apparition_7"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"150"
+				"ad_linked_ability"			"ancient_apparition_chilling_touch"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"ancient_apparition_ice_blast"
+	{
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"50 45 40 35"
+		"AbilityManaCost"				"175"
+		"AbilityDamage"					"250 325 400 475"
+		"AbilitySpecial"
+		{
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"frostbite_duration"	"10 11 12 13"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"dot_damage"			"20.0 25.0 30.0 35.0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"kill_pct"				"12 13 14 15"
+				"LinkedSpecialBonus"	"special_bonus_unique_ancient_apparition_5"
+			}
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Crystal Maiden                   水晶室女/冰女
@@ -2573,6 +3646,110 @@
 	//=================================================================================================================
 	// Ability: Tinker                              修补匠
 	//=================================================================================================================
+	"tinker_defense_matrix"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"70 80 90 100 110"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_absorb"		"100 180 240 320 400"
+				"LinkedSpecialBonus"	"special_bonus_unique_tinker_7"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"status_resistance"		"10 20 30 40 50"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"barrier_duration"		"15"
+			}
+		}
+	}
+	"tinker_laser"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"20 18 16 14 12"
+		"AbilityManaCost"				"110 130 150 170 190"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration_hero"			"3 3.5 4 4.5 5.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_tinker_4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"laser_damage"			"75 150 225 300 375"
+				"LinkedSpecialBonus"	"special_bonus_unique_tinker"
+			}
+		}
+	}
+	"tinker_heat_seeking_missile"
+	{
+		"MaxLevel" "7"
+		"AbilityManaCost"				"95 105 115 125 135 145 155"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"110 180 250 320 390 450 500"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"targets"			"2 3 4 5 6 7 8"
+				"LinkedSpecialBonus"	"special_bonus_unique_tinker_6"
+			}
+		}
+	}
+	"special_bonus_unique_tinker_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"765"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"value"				"2"
+				"ad_linked_abilities"			"tinker_heat_seeking_missile"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"tinker_rearm"
+	{
+		"AbilityChannelTime"			"3.0 2.0 1.0"
+		"AbilityManaCost"				"150 225 300"
+		"AbilitySpecial"
+		{
+		}
+	}
+	"tinker_warp_grenade"
+	{
+		"AbilityCooldown"				"15"
+		"AbilityValues"
+		{
+				"damage"					"100"
+				"knockback_distance"		"600"
+				"range_reduction"		"40"
+				"debuff_duration"		"3"
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: witch docker                              巫医
@@ -3339,6 +4516,128 @@
 	//=================================================================================================================
 	// Ability: Silencer                        沉默术士
 	//=================================================================================================================
+	"silencer_curse_of_the_silent"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"20 18 16 14 12"
+		"AbilityManaCost"				"120 130 140 150 160"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"16 24 32 40 48"
+				"LinkedSpecialBonus"	"special_bonus_unique_silencer"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movespeed"			"-9 -12 -15 -18 -21"
+				"LinkedSpecialBonus"	"special_bonus_unique_silencer_6"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"penalty_multiplier"			"1.7"
+			}
+		}
+	}
+	"silencer_glaives_of_wisdom"
+	{
+		"MaxLevel" "5"
+		"AbilityManaCost"				"15"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"intellect_damage_pct"	"15 25 35 45 55"
+				"LinkedSpecialBonus"	"special_bonus_unique_silencer_3"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"int_steal"		"2"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"int_steal_duration"		"15 20 25 30 35"
+			}
+		}
+	}
+	"special_bonus_unique_silencer_3"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"25"
+				"ad_linked_ability"			"silencer_glaives_of_wisdom"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"silencer_last_word"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"22 18 14 10 8"
+		"AbilityManaCost"				"100 105 110 115 120"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"120 160 200 240 300"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"int_multiplier"	"1.6 1.8 2.0 2.2 2.4"
+				"LinkedSpecialBonus"	"special_bonus_unique_silencer_4"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"	"3 4 5 6 7"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"scepter_radius"		"500"
+				"RequiresScepter"			"1"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"scepter_bonus_damage"		"200"
+				"RequiresScepter"			"1"
+			}
+		}
+	}
+	"special_bonus_unique_silencer_4"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"0.6"
+				"ad_linked_ability"			"silencer_last_word"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"silencer_global_silence"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"110 100 90 80"
+		"AbilityDuration"				"4.5 5.0 5.5 6.0"
+		"AbilityManaCost"				"200 300 400 500"
+		"AbilitySpecial"
+		{
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Skywrath Mage                   天怒法师
@@ -3415,10 +4714,6 @@
 			}
 		}
 	}
-
-	//=================================================================================================================
-	// Custom hero 英雄
-	//=================================================================================================================
 
 	//=================================================================================================================
 	// Ability: Zuus               宙斯
@@ -3616,6 +4911,170 @@
 	//=================================================================================================================
 	// Ability: Shredder               伐木机
 	//=================================================================================================================
+	"shredder_whirling_death"
+	{
+		"MaxLevel" "7"
+		"AbilityManaCost"				"80 90 100 110 120 130 140 150"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"whirling_damage"			"80 120 160 200 240 280 320"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"tree_damage_scale"			"10 15 20 25 30 35 40"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"stat_loss_pct"				"10"
+				"LinkedSpecialBonus"		"special_bonus_unique_timbersaw"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"15"
+			}
+		}
+	}
+	"special_bonus_unique_timbersaw"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"5"
+				"ad_linked_ability"			"shredder_whirling_death"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"shredder_timber_chain"
+	{
+		"MaxLevel" "5"
+		"AbilityCastRange"				"800 950 1100 1250 1400"
+		"AbilityManaCost"				"60 70 80 90 100"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"				"800 950 1100 1250 1400"
+				"LinkedSpecialBonus"	"special_bonus_unique_timbersaw_3"
+			}
+
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"2200 2400 2600 2800 3000"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"70 120 170 220 270"
+			}
+		}
+	}
+	"shredder_reactive_armor"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"bonus_armor"						"1.8 2.0 2.2 2.4 2.6"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"bonus_hp_regen"							"1.4 1.8 2.2 2.6 3.0"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"stack_limit"						"3 6 9 12 15"
+				"LinkedSpecialBonus"				"special_bonus_unique_timbersaw_2"
+			}
+			"04"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"stack_duration"					"10 12 14 16 18"
+				"LinkedSpecialBonus"				"special_bonus_unique_timbersaw_2"
+			}
+		}
+	}
+	"special_bonus_unique_timbersaw_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6948"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"3"
+				"ad_linked_abilities"			"shredder_reactive_armor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"shredder_chakram"
+	{
+		"MaxLevel" "4"
+		"AbilityManaCost"				"80 140 200 260"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pass_damage"			"110 155 200 245"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"50 75 100 125"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_per_second"		"15 20 25 30"
+			}
+		}
+	}
+	"shredder_chakram_2"
+	{
+		"AbilityManaCost"				"80 140 200 260"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pass_damage"			"110 155 200 245"
+				"RequiresScepter"	"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"50 75 100 125"
+				"RequiresScepter"	"1"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_per_second"		"15 20 25 30"
+				"RequiresScepter"	"1"
+			}
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Pugna               帕格纳
@@ -3974,10 +5433,234 @@
 	//=================================================================================================================
 	// Ability: Tidehunter          潮汐猎人
 	//=================================================================================================================
+	"tidehunter_gush"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"100 105 110 115 120 125 130"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"gush_damage"		"110 160 210 260 310 360 400"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_2"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movement_speed"	"-50"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_5"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"negative_armor"		"3 4 5 6 7 8 9"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter"
+			}
+		}
+	}
+	"special_bonus_unique_tidehunter"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6151"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"
+				"ad_linked_abilities"			"tidehunter_gush"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"tidehunter_kraken_shell"
+	{
+		"MaxLevel"						"5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_reduction"		"30 60 90 120 150"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_4"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_cleanse"		"600 550 500 450 400"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_6"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+		}
+	}
+	"special_bonus_unique_tidehunter_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6947"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"90"
+				"ad_linked_abilities"			"tidehunter_kraken_shell"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"tidehunter_anchor_smash"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"7.0 6.0 5.0 4.0 3.0"
+		"AbilityManaCost"				"40 45 50 55 60"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage"			"50 100 150 200 250"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_reduction"		"-30 -40 -50 -60 -70"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_3"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+		}
+	}
+	"special_bonus_unique_tidehunter_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6946"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"-10"
+				"ad_linked_abilities"			"tidehunter_anchor_smash"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"tidehunter_ravage"
+	{
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"100"
+		"AbilityDamage"					"200 300 400 500"
+		"AbilityManaCost"				"150 200 250 300"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"2.4 2.6 2.8 3.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_7"
+			}
+		}
+	}
 
     //=================================================================================================================
 	// Ability: Centaur Warchief           半人马战行者
 	//=================================================================================================================
+	"centaur_hoof_stomp"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityManaCost"				"90 100 110 120 130"
+		"AbilityValues"
+		{
+			"radius"						"350"
+			"stomp_damage"					"120 180 240 300 360"
+			"stun_duration"
+			{
+				"value"						"1.6 1.9 2.2 2.5 2.8"
+				"LinkedSpecialBonus"		"special_bonus_unique_centaur_2"
+			}
+		}
+	}
+	"centaur_double_edge"
+	{
+		"MaxLevel"						"7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"edge_damage"					"120 180 240 300 360 420 480"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"strength_damage"				"60 80 100 120 140 160 180"
+				"LinkedSpecialBonus"			"special_bonus_unique_centaur_4"
+			}
+		}
+	}
+	"centaur_return"
+	{
+		"MaxLevel"						"7"
+		"AbilityValues"
+		{
+				"return_damage"
+				{
+					"value"	"30 45 60 75 90 105 120"
+					"special_bonus_unique_centaur_3"	"+60"
+				}
+				"return_damage_str"			"20 26 32 38 44 50 56"
+				"aura_radius"				"1200"
+		}
+	}
+	"centaur_stampede"
+	{
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"70"
+		"AbilityManaCost"				"100 150 200 250"
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value"						"3.5 4 4.5 5.0"
+				"LinkedSpecialBonus"		"special_bonus_unique_centaur_7"
+			}
+			"base_damage"		"200"
+			"strength_damage"
+			{
+				"value"							"1.75 2.5 3.25 4.0"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"slow_duration"		"2.5"
+			"radius"			"105"
+			"slow_movement_speed"			"100"
+			"damage_reduction"
+			{
+				"value"				"20 25 30 35"
+				"RequiresScepter"	"1"
+			}
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Invoker            祈求者/卡尔
@@ -6571,20 +8254,20 @@
 	"juggernaut_omni_slash"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"90 80 70 60 50"
+		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityManaCost"				"200 250 300 350 400"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"60 70 80 90 100"
+				"bonus_damage"				"40 50 60 70 80"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_speed"				"60 70 80 90 100"
+				"bonus_attack_speed"				"40 50 60 70 80"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"04"
@@ -6597,7 +8280,7 @@
 	}
 	"juggernaut_swift_slash"
 	{
-		"AbilityCooldown"				"15"
+		"AbilityCooldown"				"20"
 		"AbilitySpecial"
 		{
 			"01"
