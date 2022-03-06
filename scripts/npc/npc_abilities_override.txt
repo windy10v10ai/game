@@ -3494,7 +3494,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"150"
-				"ad_linked_ability"			"ancient_apparition_chilling_touch"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"ancient_apparition_chilling_touch"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -4575,7 +4575,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"25"
-				"ad_linked_ability"			"silencer_glaives_of_wisdom"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"silencer_glaives_of_wisdom"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -4624,7 +4624,7 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"value"				"0.6"
-				"ad_linked_ability"			"silencer_last_word"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"silencer_last_word"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -4948,7 +4948,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"5"
-				"ad_linked_ability"			"shredder_whirling_death"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"ad_linked_abilities"			"shredder_whirling_death"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
