@@ -3733,9 +3733,8 @@
 	}
 	"tinker_rearm"
 	{
-		"MaxLevel" "4"
-		"AbilityChannelTime"			"4.0 3.0 2.0 1.0"
-		"AbilityManaCost"				"150 200 250 300"
+		"AbilityChannelTime"			"3.0 2.0 1.0"
+		"AbilityManaCost"				"150 225 300"
 		"AbilitySpecial"
 		{
 		}
