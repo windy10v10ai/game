@@ -11187,36 +11187,46 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ward_count"		"10 15 20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"45.0 45.0 45.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"scepter_range"			"225"
-				"RequiresScepter"			"1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spawn_radius"			"150"
+				"ward_count"		"15"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip"			"4"
+				"hits_to_destroy_tooltip"			"3"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_1"
 				"LinkedSpecialBonusField"		"value2"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip_creeps"		"8"
+				"hits_to_destroy_tooltip_creeps"		"6"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_1"
+			}
+		}
+	}
+	"special_bonus_unique_shadow_shaman_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6052"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"
+				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value2"				"2"
+				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
