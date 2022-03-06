@@ -1,5 +1,5 @@
 miku_hadouken = class({})
-LinkLuaModifier( "modifier_miku_miku", "heroes/miku_hadouken.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_miku_miku", "heroes/hero_miku/miku_hadouken.lua", LUA_MODIFIER_MOTION_NONE )
 
 
 --------------------------------------------------------------------------------
@@ -23,12 +23,13 @@ function miku_hadouken:OnSpellStart()
 		point = target:GetOrigin()
 	end
 
-	if caster:HasModifier("modifier_miku_arcana") then
-	self.projectile_name = "particles/miku_hadouken_calne.vpcf"
-		 self.sound_cast = "miku.1_calne"
+	-- if caster:HasModifier("modifier_miku_arcana") then
+	if caster:HasModifier("modifier_chibi_monster") then
+		self.projectile_name = "particles/miku_hadouken_calne.vpcf"
+		 self.sound_cast = "miku.1_calne.3d"
 	else
-	self.projectile_name = "particles/miku_hadouken.vpcf"
-		self.sound_cast = "miku.1"
+		self.projectile_name = "particles/miku_hadouken.vpcf"
+		self.sound_cast = "miku.1.3d"
 	end
 	local projectile_distance = self:GetSpecialValueFor( "dragon_slave_distance" )
 	local projectile_speed = self:GetSpecialValueFor( "dragon_slave_speed" )
@@ -75,11 +76,16 @@ end
 function miku_hadouken:OnProjectileHitHandle( target, location, projectile )
 	if not target then return end
 
+	local damage = self:GetSpecialValueFor("damage")
+	if self:GetCaster():HasModifier("modifier_chibi_monster") then
+		damage = self:GetSpecialValueFor("damage_calne")
+	end
+
 	-- apply damage
 	local damageTable = {
 		victim = target,
 		attacker = self:GetCaster(),
-		damage = self:GetSpecialValueFor("damage"),
+		damage = damage,
 		damage_type = self:GetAbilityDamageType(),
 		ability = self, --Optional.
 	}

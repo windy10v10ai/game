@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_liu_kick", "heroes/liu_kick", LUA_MODIFIER_MOTION_HORIZONTAL)
+LinkLuaModifier("modifier_liu_kick", "heroes/hero_miku/liu_kick", LUA_MODIFIER_MOTION_HORIZONTAL)
 
 liu_kick = class({})
 
@@ -20,14 +20,9 @@ function liu_kick:OnSpellStart()
         return nil
     end
 
-
-
-
-caster:AddNewModifier(caster, self, "modifier_liu_kick", {damage = damage})
-    EmitSoundOn("miku.3_"..RandomInt(1, 3), self:GetCaster())
-
-
-        end
+    caster:AddNewModifier(caster, self, "modifier_liu_kick", {damage = damage})
+    -- EmitSoundOn("miku.3_"..RandomInt(1, 3), self:GetCaster())
+end
 
 
 
@@ -229,7 +224,7 @@ else
 	)
     end
 
-    EmitSoundOnLocationWithCaster(position, "miku.2", self.parent)
+    -- EmitSoundOnLocationWithCaster(position, "miku.2", self.parent)
 end
 function modifier_liu_kick:Charge(me, dt)
     if self.parent:IsStunned() then
