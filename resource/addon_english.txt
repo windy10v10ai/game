@@ -140,7 +140,7 @@
         "DOTA_Tooltip_ability_chibi_hit_Description" "Deals a devastating blow to the target enemy, dealing a colossal amount of damage to them. If they survive, they are stunned for 2.5 seconds"
         "DOTA_Tooltip_ability_chibi_hit_AbilityDamage" "Damage:"
         "DOTA_Tooltip_ability_chibi_monster" "Chibi Miku"
-        "DOTA_Tooltip_ability_chibi_monster_Description" "Transforms into a large Chibi version of herself, gaining additional stats and a new ability"
+        "DOTA_Tooltip_ability_chibi_monster_Description" "Transforms into a large Chibi version of herself, gaining additional stats and a new ability.<br/>Increases the damage of Popipo's abilities."
         "DOTA_Tooltip_ability_chibi_monster_damage" "BonusDamage:"
         "DOTA_Tooltip_ability_chibi_monster_agility" "BonusAgi:"
         "DOTA_Tooltip_ability_chibi_monster_hp" "BonusHp:"
@@ -159,6 +159,7 @@
         "DOTA_Tooltip_ability_miku_hadouken" "Popipo"
         "DOTA_Tooltip_ability_miku_hadouken_Description" "Creates a musical wave directed in the specified direction, damaging all enemies in its path"
         "DOTA_Tooltip_ability_miku_hadouken_damage" "Damage:"
+        "DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "Damage in Chibi status:"
 
 		// 双头龙
         "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"Increases Macropyre distance by +200 range, duration by +5 seconds and causes it to become Pure damage and pierce Spell Immunity."

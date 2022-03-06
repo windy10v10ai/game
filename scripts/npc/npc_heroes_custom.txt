@@ -17,9 +17,9 @@
 		"Ability2"         "pantsushot"
 		"Ability3"         "liu_kick"
 		"Ability4"         "miku_dance"
+		"Ability5"         "get_down"
 		"Ability6"         "chibi_monster"
 		"Ability22"        "chibi_hit"
-		"Ability5"         "get_down"
 
 		"Ability10"                 "special_bonus_mana_reduction_9"
 		"Ability11"					"special_bonus_hp_150"

@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_chibi_monster", "heroes/chibi_monster", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_chibi_monster", "heroes/hero_miku/chibi_monster", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_anime_boombox", "items/item_anime_boombox", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_star_tier1", "modifiers/modifier_star_tier1", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_star_tier2", "modifiers/modifier_star_tier2", LUA_MODIFIER_MOTION_NONE)
@@ -18,8 +18,6 @@ end
 function chibi_monster:OnSpellStart()
     local caster = self:GetCaster()
     local fixed_duration = self:GetSpecialValueFor("fixed_duration")
-	
-
 
     caster:AddNewModifier(caster, self, "modifier_chibi_monster", {duration = fixed_duration})
 	caster:AddNewModifier(caster, self, "modifier_star_tier2", {duration = fixed_duration})
@@ -42,7 +40,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------
 modifier_chibi_monster = class({})
 function modifier_chibi_monster:IsHidden() return false end
-function modifier_chibi_monster:IsDebuff() return true end
+function modifier_chibi_monster:IsDebuff() return false end
 function modifier_chibi_monster:IsPurgable() return false end
 function modifier_chibi_monster:IsPurgeException() return false end
 function modifier_chibi_monster:RemoveOnDeath() return true end
@@ -66,20 +64,20 @@ else
 	end
 end
 function modifier_chibi_monster:GetModifierModelScale()
-if self.caster:HasModifier("modifier_miku_arcana") then
-return 1
-else
-	return 120
+    if self.caster:HasModifier("modifier_miku_arcana") then
+        return 1
+    else
+	    return 120
 	end
 end
 function modifier_chibi_monster:GetModifierHealthBonus()
-    return 1500
+    return self.hp
 end
 function modifier_chibi_monster:GetModifierPreAttack_BonusDamage()
-    return 300
+    return self.damage
 end
 function modifier_chibi_monster:GetModifierBonusStats_Agility()
-    return 100
+    return self.agility
 end
 
 
@@ -90,14 +88,13 @@ function modifier_chibi_monster:OnCreated(table)
 
     self.ability_level = self.ability:GetLevel()
 
-    self.bonus_movespeed = self.ability:GetSpecialValueFor("bonus_movespeed")
-    self.projectile_avoid_chance = self.ability:GetSpecialValueFor("projectile_avoid_chance")
-    self.turn_rate = self.ability:GetSpecialValueFor("turn_rate")
-    self.awake_mana = self.ability:GetSpecialValueFor("awake_mana")
+    self.damage = self.ability:GetSpecialValueFor("damage")
+    self.hp = self.ability:GetSpecialValueFor("hp")
+    self.agility = self.ability:GetSpecialValueFor("agility")
 
     self.skills_table = {
                             ["chibi_monster"] = "chibi_hit",
-                            
+
                         }
 
 
@@ -118,19 +115,19 @@ function modifier_chibi_monster:OnCreated(table)
           if self.caster:HasModifier("modifier_miku_arcana") then
 		     if not self.particle_time then
             self.particle_time =    ParticleManager:CreateParticle("particles/chibi_monster_calne.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
-                                    
+
         end
 		  else
        if not self.particle_time then
             self.particle_time =    ParticleManager:CreateParticle("particles/chibi_monster.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
-                                    
+
         end
 		end
 
-        
-		
-        
-        
+
+
+
+
 
         self.parent:Purge(false, true, false, true, true)
     end
@@ -151,9 +148,9 @@ function modifier_chibi_monster:OnDestroy()
 
            ParticleManager:DestroyParticle(self.particle_time, false)
         ParticleManager:ReleaseParticleIndex(self.particle_time)
-		
-        
-			
+
+
+
 
             if self.parent:IsRealHero() then
                 self.ability:StartCooldown(self.ability:GetCooldown(-1) * self.parent:GetCooldownReduction())
@@ -189,7 +186,7 @@ function zenitsu_awake:OnSpellStart()
 
     caster:Purge(true, true, false, true, true)
 
-    
+
 
     local ability = caster:FindAbilityByName("chibi_monster")
     if ability and ability:IsTrained() and ability:GetCooldown(-1) > 0 then
@@ -202,7 +199,7 @@ function zenitsu_awake:OnSpellStart()
             ability:StartCooldown(ability:GetCooldown(-1) * caster:GetCooldownReduction())
         end
     end
-    
+
     self.zenitsu_awake_skills_used = nil
 
     StopSoundOn("Zenitsu.Hear.Upgrade.Cast.1", caster)
