@@ -67,7 +67,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"consumed_bonus"				"100"
+				"consumed_bonus_attack_speed"	"100"
 			}
 			"04"
 			{
@@ -106,22 +106,6 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"%bonus_night_vision"
-				}
-			}
-			"modifier_item_moon_shard_datadriven_consumed"
-			{
-				"IsBuff"			"1"
-				"IsPurgable"		"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"TextureName"		"item_moon_shard_datadriven"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%consumed_bonus"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"%consumed_bonus_night_vision"
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION"				"%consumed_bonus_day_vision"
 				}
 			}
 		}
@@ -220,8 +204,9 @@
 		{
 			"modifier_item_ultimate_scepter_2"
 			{
-				"Passive"				"1"
+				"Passive"			"1"
 				"IsHidden"			"1"
+				"RemoveOnDeath"		"0"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
 
 				"Properties"
@@ -248,22 +233,6 @@
 						"ScriptFile"		"items/item_ultimate_scepter_2.lua"
 						"Function"			"Scepter2OnDestroy"
 					}
-				}
-			}
-			"modifier_item_ultimate_scepter_2_consumed"
-			{
-				"IsBuff"			"1"
-				"IsPurgable"		"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"TextureName"		"item_ultimate_regalia"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%bonus_health"
-					"MODIFIER_PROPERTY_MANA_BONUS"					"%bonus_mana"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%spell_amp"
 				}
 			}
 		}
@@ -381,24 +350,6 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"				"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"					"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"				"%bonus_all_stats"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"				"%bonus_health_regen"
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"%bonus_mana_regen"
-				}
-			}
-			"modifier_item_wings_of_haste_consumed"
-			{
-				"IsBuff"			"1"
-				"IsPurgable"		"0"
-				// "AllowIllusionDuplicate"	"1"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"TextureName"		"item_wings_of_haste"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"%bonus_movement_speed"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"				"%bonus_health_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"%bonus_mana_regen"
 				}
