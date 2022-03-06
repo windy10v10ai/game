@@ -1,6 +1,3 @@
---[[ 	Author: Hewdraw
-		Date: 17.05.2015	]]
-
 function MoonShardOnSpell( keys )
 	local caster = keys.caster
 	local target = keys.target
@@ -12,4 +9,48 @@ function MoonShardOnSpell( keys )
 		EmitSoundOnClient("Item.MoonShard.Consume", target)
 		caster:RemoveItem(ability)
 	end
+end
+
+LinkLuaModifier("modifier_item_moon_shard_datadriven_consumed", "items/item_moon_shard.lua", LUA_MODIFIER_MOTION_NONE)
+
+if modifier_item_moon_shard_datadriven_consumed == nil then modifier_item_moon_shard_datadriven_consumed = class({}) end
+
+function modifier_item_moon_shard_datadriven_consumed:RemoveOnDeath() return false end
+function modifier_item_moon_shard_datadriven_consumed:IsPurgable() return false end
+function modifier_item_moon_shard_datadriven_consumed:IsPermanent() return true end
+
+function modifier_item_moon_shard_datadriven_consumed:OnCreated()
+	if self:GetAbility() then
+		self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("consumed_bonus_attack_speed")
+		self.bonus_night_vision = self:GetAbility():GetSpecialValueFor("consumed_bonus_night_vision")
+		self.bonus_day_vision = self:GetAbility():GetSpecialValueFor("consumed_bonus_day_vision")
+	end
+end
+
+function modifier_item_moon_shard_datadriven_consumed:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+		MODIFIER_PROPERTY_BONUS_DAY_VISION,
+		MODIFIER_PROPERTY_BONUS_NIGHT_VISION
+	}
+end
+
+function modifier_item_moon_shard_datadriven_consumed:GetModifierAttackSpeedBonus_Constant()
+	return self.bonus_attack_speed
+end
+
+function modifier_item_moon_shard_datadriven_consumed:GetBonusDayVision()
+	return self.bonus_day_vision
+end
+
+function modifier_item_moon_shard_datadriven_consumed:GetBonusNightVision()
+	return self.bonus_night_vision
+end
+
+function modifier_item_moon_shard_datadriven_consumed:AllowIllusionDuplicate()
+	return false
+end
+
+function modifier_item_moon_shard_datadriven_consumed:GetTexture()
+	return "item_moon_shard_datadriven"
 end
