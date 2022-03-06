@@ -6571,20 +6571,20 @@
 	"juggernaut_omni_slash"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"90 80 70 60 50"
+		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityManaCost"				"200 250 300 350 400"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"60 70 80 90 100"
+				"bonus_damage"				"40 50 60 70 80"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_speed"				"60 70 80 90 100"
+				"bonus_attack_speed"				"40 50 60 70 80"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"04"
@@ -6597,7 +6597,7 @@
 	}
 	"juggernaut_swift_slash"
 	{
-		"AbilityCooldown"				"15"
+		"AbilityCooldown"				"20"
 		"AbilitySpecial"
 		{
 			"01"
