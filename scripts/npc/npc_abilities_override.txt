@@ -9402,7 +9402,136 @@
 	//=================================================================================================================
 	// Ability: Dark Willow 邪影芳灵/小仙女
 	//=================================================================================================================
+	"dark_willow_bramble_maze"
+	{
+		"MaxLevel" "5"
+		"AbilityManaCost"				"80 100 120 140 160"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"latch_duration"		"1.0 1.5 2.0 2.5 3.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_tick"		"100"
+			}
+		}
+	}
+	"dark_willow_bedlam"
+	{
+		"MaxLevel" "4"
+		"AbilityManaCost"				"100 150 200 250"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage"			"70 120 170 220"
+				"LinkedSpecialBonus"		"special_bonus_unique_dark_willow_4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_targets"			"1 2 3 4"
+			}
+		}
+	}
+	"special_bonus_unique_dark_willow_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"7655"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"value"				"100"
+				"ad_linked_abilities"			"dark_willow_bedlam"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"dark_willow_terrorize"
+	{
+		"MaxLevel" "4"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"destination_status_duration"	"3 3.5 4 4.5"
+				"LinkedSpecialBonus"		"special_bonus_unique_dark_willow_2"
+			}
+		}
+	}
+	"special_bonus_unique_dark_willow_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6465"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"value"				"1.0"
+				"ad_linked_abilities"			"dark_willow_terrorize"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"dark_willow_shadow_realm"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"26 24 22 20 18 16 14"
+		"AbilityManaCost"				"70 80 90 100 110 120 130"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"5"
+				"LinkedSpecialBonus"			"special_bonus_unique_dark_willow_1"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage"						"90 120 150 180 210 240 270"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"attack_range_bonus"			"400"
+			}
+		}
+	}
+	"dark_willow_cursed_crown"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityManaCost"				"80 100 120 140 160"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.5 2.0 2.5 3.0 3.5"
+				"LinkedSpecialBonus"			"special_bonus_unique_dark_willow_6"
+			}
+		}
+	}
 	//=================================================================================================================
 	// Ability: Dazzle 戴泽/暗牧
 	//=================================================================================================================
@@ -9860,12 +9989,69 @@
 	//=================================================================================================================
 	// Ability: Enigma 谜团
 	//=================================================================================================================
+	"enigma_malefice"
+	{
+		"MaxLevel"						"5"
+		"AbilityManaCost"				"100 120 140 160 180"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.4 0.6 0.8 1.0 1.2"
+				"LinkedSpecialBonus"	"special_bonus_unique_enigma_6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"40 60 80 100 120"
+				"LinkedSpecialBonus"	"special_bonus_unique_enigma_5"
+			}
+		}
+	}
+	"enigma_demonic_conversion"
+	{
+		"AbilityCooldown"				"40 35 30 25"
+	}
+	"enigma_midnight_pulse"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"60 55 50 45 40"
+		"AbilityManaCost"				"50 80 110 140 170"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage_percent"			"2 3 4 5 6"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"10"
+				"LinkedSpecialBonus"	"special_bonus_unique_enigma_8"
+			}
+		}
+	}
 	"enigma_black_hole"
 	{
+		"MaxLevel"						"4"
 		"AbilityCooldown"				"160.0"
+		"AbilityManaCost"				"300 400 500 600"
 		"AbilityValues"
 		{
-			"scepter_pct_damage"	"3"
+				"damage"			"100 150 200 250"
+				"radius"			"420"
+				"pull_speed"			"30"
+				"tick_rate"				"0.1 0.1 0.1"
+				"duration"				"4.0 4.0 4.0"
+				"vision_radius"			"800 800 800"
+				"pull_rotate_speed"		"0.25"
+				"animation_rate"		"0.2"
+				"scepter_pct_damage"	"3"
+				"scepter_radius"	"1000"
+				"scepter_drag_speed"	"175"
+				"scepter_pull_rotate_speed"	"0.1"
 		}
 	}
 	//=================================================================================================================
