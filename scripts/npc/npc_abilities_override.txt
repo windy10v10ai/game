@@ -1481,7 +1481,7 @@
 	"abyssal_underlord_dark_portal"
 	{
 		"MaxLevel"						"4"
-		"AbilityCooldown"				"140 120 100 80"
+		"AbilityCooldown"				"200"
 		"AbilityManaCost"				"100"
 		"AbilityValues"
 		{
