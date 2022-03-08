@@ -9146,8 +9146,8 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"700 800 900 1000 1100"
-		"AbilityCooldown"				"36 30 24 18 12"
-		"AbilityManaCost"				"120 130 140 150 160"
+		"AbilityCooldown"				"40 35 30 25 20"
+		"AbilityManaCost"				"110 120 130 140 150"
 		"AbilitySpecial"
 		{
 			"01"

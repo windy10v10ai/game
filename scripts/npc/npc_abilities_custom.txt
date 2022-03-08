@@ -684,7 +684,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_chance"				"20 25 30 35 40"
+				"crit_chance"				"10 15 20 25 30"
 			}
 			"02"
 			{
@@ -793,7 +793,7 @@
 
     	// Ability Resource
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilityCooldown"				"60"
+    	"AbilityCooldown"				"80"
     	"AbilityManaCost"				"200"
 
     	// Damage
@@ -987,7 +987,7 @@
 
     	// Ability Resource
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilityCooldown"				"30"
+    	"AbilityCooldown"				"60"
     	"AbilityManaCost"				"100"
 
     	// Damage
