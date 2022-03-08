@@ -9375,10 +9375,68 @@
 	//=================================================================================================================
 	// Ability: Dark Seer 黑暗贤者/兔子
 	//=================================================================================================================
+	"dark_seer_vacuum"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"40 35 30 25 20"
+		"AbilityManaCost"				"60 90 120 150 180"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"400 450 500 550 600"
+				"LinkedSpecialBonus"	"special_bonus_unique_dark_seer_2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"0.3 0.4 0.5 0.6 0.7"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"40 110 180 250 220"
+			}
+		}
+	}
+	"dark_seer_ion_shell"
+	{
+		"MaxLevel" "7"
+		"AbilityManaCost"				"110 120 130 140 150 160 170"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"30 50 70 90 110 130 150"
+				"LinkedSpecialBonus"	"special_bonus_unique_dark_seer"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"20 22 24 26 28 30 32"
+			}
+		}
+	}
+	"dark_seer_surge"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"21 18 15 12 9"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3 4 5 6 7"
+			}
+		}
+	}
 	"dark_seer_wall_of_replica"
 	{
-		"AbilityCooldown"				"130.0 125.0 120.0"
-
+		"MaxLevel" "4"
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"150 200 250 300"
 		"AbilitySpecial"
 		{
 			"01"
@@ -9386,16 +9444,41 @@
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"10.0"
 			}
-			"04"
+			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"replica_damage_incoming"	"300"
+				"replica_damage_outgoing"	"-30 -20 -10 0"
 			}
-			"05"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_replica_total_damage_incoming"	"400"
-				"CalculateSpellDamageTooltip"	"0"
+				"tooltip_outgoing"	"70 80 90 100"
+				"LinkedSpecialBonus"	"special_bonus_unique_dark_seer_7"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_slow"					"50 60 70 80"
+			}
+		}
+	}
+	"special_bonus_unique_dark_seer_13"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"736"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"20"
+				"ad_linked_abilities"			"dark_seer_wall_of_replica"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
