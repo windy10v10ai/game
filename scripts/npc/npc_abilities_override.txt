@@ -5936,7 +5936,147 @@
 	//=================================================================================================================
 	// Ability: Arc Warden 天穹守望者/电狗
 	//=================================================================================================================
+	"arc_warden_flux"
+	{
+		"MaxLevel"						"5"
+		"AbilityValues"
+		{
+				"duration"
+				{
+					"value"			"6.0"
+					"special_bonus_unique_arc_warden_4"	"+2"
+				}
+				"damage_per_second"
+				{
+					"value"		"15 30 45 60 75"
+					"LinkedSpecialBonus"		"special_bonus_unique_arc_warden_2"
+				}
+				"search_radius"					"225"
+				"think_interval"				"0.5"
+				"move_speed_slow_pct"				"20 30 40 50 60"
+				"abilitycastrange"
+				{
+					"value"				"500 600 700 800 900"
+					"special_bonus_unique_arc_warden_5"	"+100"
+				}
+		}
+	}
+	"arc_warden_magnetic_field"
+	{
+		"MaxLevel"						"5"
+		"AbilityManaCost"				"50 70 90 110 130"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"300"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"4 4.5 5 5.5 6"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed_bonus"		"50 60 70 80 90"
+				"LinkedSpecialBonus"		"special_bonus_unique_arc_warden_3"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"evasion_chance"			"100"
+			}
+		}
+	}
+	"special_bonus_unique_arc_warden_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"7104"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"50"
+				"ad_linked_abilities"			"arc_warden_magnetic_field"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"arc_warden_spark_wraith"
+	{
+		"MaxLevel"						"5"
+		"AbilitySpecial"
+		{
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"spark_damage"					"100 180 260 340 420"
+				"LinkedSpecialBonus"			"special_bonus_unique_arc_warden"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"ministun_duration"				"0.4 0.5 0.6 0.7 0.8"
+			}
+			"12"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"scepter_activation_delay"				"2.0"
+			}
+		}
+	}
+	"arc_warden_tempest_double"
+	{
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"60 50 40 30"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"20"
+				"LinkedSpecialBonus"		"special_bonus_unique_arc_warden_6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bounty"				"180 240 300 360"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage_penalty"				"50"
+			}
+		}
+	}
+	"special_bonus_unique_arc_warden_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"685"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"10"
+				"ad_linked_abilities"			"arc_warden_tempest_double"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
 	//=================================================================================================================
 	// Ability: Bloodseeker 血魔
 	//=================================================================================================================
