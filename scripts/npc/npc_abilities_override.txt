@@ -5767,6 +5767,89 @@
 	//=================================================================================================================
 	// Ability: Wisp 艾欧/小精灵
 	//=================================================================================================================
+	"wisp_tether"
+	{
+		"MaxLevel"						"5"
+		"AbilityValues"
+		{
+				"radius"					"1000"
+				"movespeed"
+				{
+					"value"				"6 8 10 12 14"
+					"special_bonus_unique_wisp_3"	"+6"
+				}
+				"latch_distance"			"700 700 700 700"
+				"latch_speed"				"1000 1000 1000 1000"
+				"tether_heal_amp"			"0.7 0.9 1.1 1.3 1.5"
+				"self_bonus"				"0"
+				"slow"				"15 25 35 45 55"
+				"slow_duration"				"0.2"
+				"spell_lifesteal"			"10"
+		}
+	}
+	"wisp_spirits"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"28.0 26.0 24.0 22.0 20.0"
+		"AbilityManaCost"				"110 120 130 140 150"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"creep_damage"				"10 15 20 25 30"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hero_damage"				"30 50 70 90 110"
+				"LinkedSpecialBonus"		"special_bonus_unique_wisp"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spirit_amount"			"5"
+			}
+		}
+	}
+	"wisp_overcharge"
+	{
+		"MaxLevel"						"7"
+		"AbilityCooldown"				"24 22 20 18 16 14 12"
+		"AbilityManaCost"				"40 50 60 70 80 90 100"
+		"AbilityValues"
+		{
+				"bonus_attack_speed"		"50 70 90 110 130 150 170"
+				"bonus_spell_amp"		"8 10 12 14 16 18 20"
+				"hp_regen"
+				{
+					"value"			"0.5 0.6 0.7 0.8 0.9 1.0 1.1"
+					"special_bonus_unique_wisp_10"	"+0.2"
+				}
+				"duration"			"8"
+		}
+	}
+	"wisp_relocate"
+	{
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"80 70 60 50"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cast_delay"				"3.5 3.25 3.0 2.75"
+			}
+		}
+	}
+	"wisp_spirits_in"
+	{
+		"MaxLevel"						"5"
+	}
+	"wisp_spirits_out"
+	{
+		"MaxLevel"						"5"
+	}
 
 
 
