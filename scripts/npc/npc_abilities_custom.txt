@@ -821,7 +821,7 @@
 		    "04"
 	 	    {
 		    	"var_type"				"FIELD_INTEGER"
-		    	"sand_storm_damage"		"1000"
+		    	"sand_storm_damage"		"600"
 		    }
 	    }
     }
@@ -1015,7 +1015,7 @@
 		    "04"
 		    {
 		    	"var_type"				"FIELD_INTEGER"
-		    	"sand_storm_damage"		"150"
+		    	"sand_storm_damage"		"200"
 		    }
 	    }
 	}

@@ -1354,15 +1354,15 @@
 	}
 	"abaddon_aphotic_shield"
 	{
-		"MaxLevel"						"7"
-		"AbilityCooldown"				"12.0 11.0 10.0 9.0 8.0 7.0 6.0"
-		"AbilityManaCost"				"100 110 120 130 140 150 160"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
+		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_absorb"			"110 140 170 200 230 260 290"
+				"damage_absorb"			"110 140 170 200 230"
 				"LinkedSpecialBonus"	"special_bonus_unique_abaddon"
 			}
 		}
@@ -1386,24 +1386,24 @@
 	}
 	"abaddon_borrowed_time"
 	{
-		"MaxLevel"						"5"
-		"AbilityCooldown"				"60.0 55.0 50.0 45.0 40.0"
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"55.0 50.0 45.0 40.0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"hp_threshold"				"400 500 600 700 800"
+				"hp_threshold"				"600 800 1000 1200"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.0 4.5 5.0 5.5 6.0"
+				"duration"					"4.0 5.0 6.0 7.0"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration_scepter"			"6.0 6.5 7.0 7.5 8.0"
+				"duration_scepter"			"5.0 6.0 7.0 8.0"
 				"RequiresScepter"	"1"
 			}
 		}
@@ -1579,7 +1579,7 @@
 		{
 			"damage"
 			{
-				"value"			"250 350 450 550 650"
+				"value"			"450 550 650 750 850"
 				"special_bonus_unique_axe_5"	"+150"
 			}
 			"speed_bonus"				"20 25 30 35 40"
