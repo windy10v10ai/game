@@ -12152,8 +12152,8 @@
 	}
 	"storm_spirit_ball_lightning"
 	{
-		"MaxLevel" "4"
-		"AbilityDamage"					"8 12 16 24"
+		"MaxLevel" "5"
+		"AbilityDamage"					"8 12 16 24 32"
 		"AbilitySpecial"
 		{
 			"01"
@@ -12164,7 +12164,7 @@
 			"03"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"ball_lightning_move_speed"			"1400 1850 2300 2750"
+				"ball_lightning_move_speed"			"1400 1850 2300 2750 3200"
 			}
 			"06"
 			{
