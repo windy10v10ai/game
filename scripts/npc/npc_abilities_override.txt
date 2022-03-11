@@ -9404,7 +9404,130 @@
 	//=================================================================================================================
 	// Ability: Weaver 编织者/蚂蚁
 	//=================================================================================================================
+	"weaver_the_swarm"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"40 35 30 25 20"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"18 20 22 24 26"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"attack_rate"		"1.15 1.0 0.85 0.7 0.55"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"destroy_attacks"	"8"
+				"LinkedSpecialBonus"	"special_bonus_unique_weaver_4"
+			}
+		}
+	}
+	"weaver_shukuchi"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"14 12 10 8 6"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 125 150 175 200"
+				"LinkedSpecialBonus"	"special_bonus_unique_weaver_1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"				"200 230 260 290 320"
+			}
+		}
+	}
+	"weaver_geminate_attack"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"10 8 6 4 2"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_attack"			"1"
+				"LinkedSpecialBonus"	"special_bonus_unique_weaver_5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"10 25 40 55 70"
+				"LinkedSpecialBonus"	"special_bonus_unique_weaver_2"
+			}
+		}
+	}
+	"special_bonus_unique_weaver_5"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6990"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"
+				"ad_linked_abilities"			"weaver_geminate_attack"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"special_bonus_unique_weaver_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6131"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"120"
+				"ad_linked_abilities"			"weaver_geminate_attack"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"weaver_time_lapse"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"60 50 40 30"
+		"AbilityManaCost"				"150 100 50 0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cooldown_scepter"		"30"
+				"RequiresScepter"		"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range_tooltip_scepter"		"500"
+				"RequiresScepter"		"1"
+			}
+		}
+	}
 
 
 	// -------------------------------------
