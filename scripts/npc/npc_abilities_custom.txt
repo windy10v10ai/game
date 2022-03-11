@@ -684,7 +684,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_chance"				"20 25 30 35 40"
+				"crit_chance"				"10 15 20 25 30"
 			}
 			"02"
 			{
@@ -793,7 +793,7 @@
 
     	// Ability Resource
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilityCooldown"				"60"
+    	"AbilityCooldown"				"80"
     	"AbilityManaCost"				"200"
 
     	// Damage
@@ -821,7 +821,7 @@
 		    "04"
 	 	    {
 		    	"var_type"				"FIELD_INTEGER"
-		    	"sand_storm_damage"		"1000"
+		    	"sand_storm_damage"		"600"
 		    }
 	    }
     }
@@ -987,7 +987,7 @@
 
     	// Ability Resource
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilityCooldown"				"30"
+    	"AbilityCooldown"				"60"
     	"AbilityManaCost"				"100"
 
     	// Damage
@@ -1015,7 +1015,7 @@
 		    "04"
 		    {
 		    	"var_type"				"FIELD_INTEGER"
-		    	"sand_storm_damage"		"150"
+		    	"sand_storm_damage"		"200"
 		    }
 	    }
 	}

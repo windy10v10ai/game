@@ -5418,6 +5418,74 @@
 				"max_damage"			"30"
 		}
 	}
+
+	//=================================================================================================================
+	// the leveller 平世剑
+	//=================================================================================================================
+	"item_the_leveller"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"379"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"0"
+
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_attack_speed"			"50"
+				"bonus_armor"			"10"
+				"demolish"			"30"
+		}
+	}
+	//=================================================================================================================
+	// Philosopher's Stone 贤者石
+	//=================================================================================================================
+	"item_philosophers_stone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"290"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"DisplayOverheadAlertOnReceived" "0"
+		"ItemPurchasable"				"0"
+
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gpm"			"150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_mana"		"300"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_damage"		"-10"
+			}
+		}
+	}
 }
 
 
