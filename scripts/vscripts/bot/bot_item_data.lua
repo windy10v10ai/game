@@ -1263,7 +1263,7 @@ tBotItemData.itemConsumeNoTargetList = {
 -- purchase neutral item in order
 tBotItemData.addNeutralItemList = {
 	npc_dota_hero_axe = {
-		'item_carapace_of_qaldin',
+		'item_mirror_shield',
 	},
 	npc_dota_hero_bane = {
 		'item_seer_stone',
@@ -1275,7 +1275,7 @@ tBotItemData.addNeutralItemList = {
 		'item_desolator_2',
 	},
 	npc_dota_hero_bristleback = {
-		'item_carapace_of_qaldin',
+		'item_mirror_shield',
 	},
 	npc_dota_hero_chaos_knight = {
 		'item_minotaur_horn',
@@ -1290,13 +1290,13 @@ tBotItemData.addNeutralItemList = {
 		'item_demonicon',
 	},
 	npc_dota_hero_dragon_knight = {
-		'item_carapace_of_qaldin',
+		'item_giants_ring',
 	},
 	npc_dota_hero_drow_ranger = {
 		'item_ballista',
 	},
 	npc_dota_hero_earthshaker = {
-		'item_carapace_of_qaldin',
+		'item_giants_ring',
 	},
 	npc_dota_hero_jakiro = {
 		'item_demonicon',
@@ -1326,13 +1326,13 @@ tBotItemData.addNeutralItemList = {
 		'item_desolator_2',
 	},
 	npc_dota_hero_necrolyte = {
-		'item_carapace_of_qaldin',
+		'item_mirror_shield',
 	},
 	npc_dota_hero_ogre_magi = {
 		'item_seer_stone',
 	},
 	npc_dota_hero_omniknight = {
-		'item_carapace_of_qaldin',
+		'item_mirror_shield',
 	},
 	npc_dota_hero_oracle = {
 		'item_seer_stone',
@@ -1341,7 +1341,7 @@ tBotItemData.addNeutralItemList = {
 		'item_desolator_2',
 	},
 	npc_dota_hero_pudge = {
-		'item_carapace_of_qaldin',
+		'item_giants_ring',
 	},
 	npc_dota_hero_razor = {
 		'item_spell_prism',
