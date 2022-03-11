@@ -356,15 +356,17 @@ tBotItemData.purchaseItemList = {
 		'item_aether_lens',
 		'item_recipe_aether_lens',
 		'item_recipe_aether_lens',
+		'item_kaya_and_sange',
+		'item_yasha',
 		'item_soul_booster',
 		'item_recipe_arcane_octarine_core',
 		'item_aeon_disk',
 		'item_recipe_aeon_pendant',
+		'item_sacred_trident',
 		'item_sheepstick',
 		'item_dagon_5',
 		'item_hallowed_scepter',
 		'item_silver_edge_2',
-		'item_shotgun_v2',
 	},
 	npc_dota_hero_lion = {
 		'item_magic_wand',
@@ -1064,7 +1066,8 @@ tBotItemData.sellItemList = {
 	npc_dota_hero_lion = {
 		'item_magic_wand',
 		'item_arcane_boots',
-		'item_null_talisman',	},
+		'item_null_talisman',
+	},
 	npc_dota_hero_luna = {
 		'item_magic_wand',
 		'item_wraith_band',
