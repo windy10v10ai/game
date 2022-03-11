@@ -8609,7 +8609,7 @@
 	"spectre_haunt"
 	{
 		"MaxLevel"						"4"
-		"AbilityCooldown"				"110 100 90 80"
+		"AbilityCooldown"				"150 140 130 120"
 		"AbilityManaCost"				"125 150 175 200"
 		"AbilitySpecial"
 		{
@@ -8634,8 +8634,6 @@
 	"spectre_haunt_single"
 	{
 		"MaxLevel"						"4"
-		"AbilityCooldown"				"30"
-		"AbilityManaCost"				"150"
 		"AbilitySpecial"
 		{
 			"01"
