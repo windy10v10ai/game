@@ -21,9 +21,24 @@ function modifier_item_moon_shard_datadriven_consumed:IsPermanent() return true 
 
 function modifier_item_moon_shard_datadriven_consumed:OnCreated()
 	if self:GetAbility() then
-		self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("consumed_bonus_attack_speed")
-		self.bonus_night_vision = self:GetAbility():GetSpecialValueFor("consumed_bonus_night_vision")
-		self.bonus_day_vision = self:GetAbility():GetSpecialValueFor("consumed_bonus_day_vision")
+		-- get stack count
+		local stack_count = self:GetStackCount()
+		-- set ability properties
+		self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("consumed_bonus_attack_speed") * stack_count
+		self.bonus_night_vision = self:GetAbility():GetSpecialValueFor("consumed_bonus_night_vision") * stack_count
+		self.bonus_day_vision = self:GetAbility():GetSpecialValueFor("consumed_bonus_day_vision") * stack_count
+	end
+end
+
+-- on stack count change
+function modifier_item_moon_shard_datadriven_consumed:OnStackCountChanged(old_stack_count)
+	if self:GetAbility() then
+		-- get stack count
+		local stack_count = self:GetStackCount()
+		-- set ability properties
+		self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("consumed_bonus_attack_speed") * stack_count
+		self.bonus_night_vision = self:GetAbility():GetSpecialValueFor("consumed_bonus_night_vision") * stack_count
+		self.bonus_day_vision = self:GetAbility():GetSpecialValueFor("consumed_bonus_day_vision") * stack_count
 	end
 end
 
