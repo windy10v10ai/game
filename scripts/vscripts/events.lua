@@ -265,9 +265,132 @@ function AIGameMode:OnGameStateChanged(keys)
 
 	elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		self.fGameStartTime = GameRules:GetGameTime()
+
+		GameRules:SpawnNeutralCreeps()
+		-- start loop in 30 seconds
+		if IsClient() then return end
+		Timers:CreateTimer(30, function ()
+			AIGameMode:SpawnNeutralCreeps30sec()
+		end)
 	end
 end
 
+
+function AIGameMode:SpawnNeutralCreeps30sec()
+	local GameTime = GameRules:GetDOTATime(false, false)
+	print("SpawnNeutral at GetDOTATime " .. GameTime)
+	GameRules:SpawnNeutralCreeps()
+
+	-- set global state
+	if (GameTime >= ((AIGameMode.botPushMin * 4) * 60)) then						-- LATEGAME
+		GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
+	elseif (GameTime >= ((AIGameMode.botPushMin + 4) * 60)) then						-- MIDGAME
+		if AIGameMode.tower3PushedGood >= 2 or AIGameMode.tower3PushedBad >= 2 then
+			GameRules:GetGameModeEntity():SetBotsMaxPushTier(4)
+		end
+
+		if AIGameMode.barrackPushedGood > 5 or AIGameMode.barrackPushedBad > 5 then
+			GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
+		elseif AIGameMode.barrackPushedGood > 2 or AIGameMode.barrackPushedBad > 2 then
+			GameRules:GetGameModeEntity():SetBotsMaxPushTier(5)
+		end
+	elseif (GameTime >= (AIGameMode.botPushMin * 60)) then						-- MIDGAME
+		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
+		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(true)
+		GameRules:GetGameModeEntity():SetBotsMaxPushTier(3)
+	else													-- EARLYGAME
+		GameRules:GetGameModeEntity():SetBotsInLateGame(false)
+		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
+		GameRules:GetGameModeEntity():SetBotsMaxPushTier(1)
+	end
+
+	-- set creep buff level
+	local buffLevelGood = 0
+	local buffLevelBad = 0
+	local buffLevelMegaGood = 0
+	local buffLevelMegaBad = 0
+
+	if AIGameMode.tower1PushedGood > 0 then
+		buffLevelGood = buffLevelGood + 1
+	end
+	if AIGameMode.tower1PushedBad > 0 then
+		buffLevelBad = buffLevelBad + 1
+	end
+
+	if AIGameMode.tower2PushedGood > 0 then
+		buffLevelGood = buffLevelGood + 1
+	end
+	if AIGameMode.tower2PushedBad > 0 then
+		buffLevelBad = buffLevelBad + 1
+	end
+
+	if AIGameMode.tower3PushedGood > 0 then
+		buffLevelGood = buffLevelGood + 1
+	end
+	if AIGameMode.tower3PushedBad > 0 then
+		buffLevelBad = buffLevelBad + 1
+	end
+
+	if AIGameMode.tower4PushedGood > 1 then
+		buffLevelGood = buffLevelGood + 1
+		buffLevelMegaGood = buffLevelMegaGood + 1
+	end
+	if AIGameMode.tower4PushedBad > 1 then
+		buffLevelBad = buffLevelBad + 1
+		buffLevelMegaBad = buffLevelMegaBad + 1
+	end
+
+	buffLevelMegaGood = buffLevelMegaGood + AIGameMode.creepBuffLevel
+	buffLevelMegaBad = buffLevelMegaBad + AIGameMode.creepBuffLevel
+
+	if (GameTime >= (15 * 60)) then
+		buffLevelGood = buffLevelGood + 1
+		buffLevelBad = buffLevelBad + 1
+		buffLevelMegaGood = buffLevelMegaGood + 1
+		buffLevelMegaBad = buffLevelMegaBad + 1
+	end
+
+	if (GameTime >= (30 * 60)) then
+		buffLevelGood = buffLevelGood + 1
+		buffLevelBad = buffLevelBad + 1
+		buffLevelMegaGood = buffLevelMegaGood + 1
+		buffLevelMegaBad = buffLevelMegaBad + 1
+	end
+
+	if (GameTime >= (45 * 60)) then
+		buffLevelGood = buffLevelGood + 1
+		buffLevelBad = buffLevelBad + 1
+		buffLevelMegaGood = buffLevelMegaGood + 1
+		buffLevelMegaBad = buffLevelMegaBad + 1
+	end
+
+	if (GameTime >= (60 * 60)) then
+		buffLevelGood = buffLevelGood + 1
+		buffLevelBad = buffLevelBad + 1
+		buffLevelMegaGood = buffLevelMegaGood + 1
+		buffLevelMegaBad = buffLevelMegaBad + 1
+	end
+
+	buffLevelGood = math.min(buffLevelGood, 8)
+	buffLevelBad = math.min(buffLevelBad, 8)
+	buffLevelMegaGood = math.min(buffLevelMegaGood, 8)
+	buffLevelMegaBad = math.min(buffLevelMegaBad, 8)
+
+	AIGameMode.creepBuffLevelGood = buffLevelGood
+	AIGameMode.creepBuffLevelBad = buffLevelBad
+	AIGameMode.creepBuffLevelMegaGood = buffLevelMegaGood
+	AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
+
+	print("creep buff level good " .. buffLevelGood)
+	print("creep buff level bad " .. buffLevelBad)
+	print("creep buff level mega good " .. buffLevelMegaGood)
+	print("creep buff level mega bad " .. buffLevelMegaBad)
+
+	-- callback every minute
+	Timers:CreateTimer(60, function ()
+		AIGameMode:SpawnNeutralCreeps30sec()
+	end)
+end
 
 function AIGameMode:OnEntityKilled(keys)
 	local hEntity = EntIndexToHScript(keys.entindex_killed)
@@ -303,7 +426,23 @@ end
 function RecordTowerKilled(hEntity)
 	local team = hEntity:GetTeamNumber()
 	local sName = hEntity:GetUnitName()
-	if string.find(sName, "tower3") then
+	if string.find(sName, "tower1") then
+		if DOTA_TEAM_GOODGUYS == team then
+			AIGameMode.tower1PushedBad = AIGameMode.tower1PushedBad + 1
+			print("tower1PushedBad ", AIGameMode.tower1PushedBad)
+		elseif DOTA_TEAM_BADGUYS == team then
+			AIGameMode.tower1PushedGood = AIGameMode.tower1PushedGood + 1
+			print("tower1PushedGood ", AIGameMode.tower1PushedGood)
+		end
+	elseif string.find(sName, "tower2") then
+		if DOTA_TEAM_GOODGUYS == team then
+			AIGameMode.tower2PushedBad = AIGameMode.tower2PushedBad + 1
+			print("tower2PushedBad ", AIGameMode.tower2PushedBad)
+		elseif DOTA_TEAM_BADGUYS == team then
+			AIGameMode.tower2PushedGood = AIGameMode.tower2PushedGood + 1
+			print("tower2PushedGood ", AIGameMode.tower2PushedGood)
+		end
+	elseif string.find(sName, "tower3") then
 		if DOTA_TEAM_GOODGUYS == team then
 			AIGameMode.tower3PushedBad = AIGameMode.tower3PushedBad + 1
 			print("tower3PushedBad ", AIGameMode.tower3PushedBad)
@@ -394,45 +533,37 @@ function AIGameMode:OnNPCSpawned(keys)
 	if sName == "npc_dota_creep_lane" or sName == "npc_dota_creep_siege" then
 		local sUnitName = hEntity:GetUnitName()
 		local team = hEntity:GetTeamNumber()
-		local buffLevel = self.creepBuffLevel
-		local iTower4Pushed = 0
+		local buffLevel = 0
+		local buffLevelMega = 0
 		if DOTA_TEAM_GOODGUYS == team then
-			iTower4Pushed = AIGameMode.tower4PushedGood
+			buffLevel = AIGameMode.creepBuffLevelGood
+			buffLevelMega = AIGameMode.creepBuffLevelMegaGood
 		elseif DOTA_TEAM_BADGUYS == team then
-			iTower4Pushed = AIGameMode.tower4PushedBad
+			buffLevel = AIGameMode.creepBuffLevelBad
+			buffLevelMega = AIGameMode.creepBuffLevelMegaBad
 		end
 
-		buffLevel = buffLevel + iTower4Pushed
 		if buffLevel > 0 then
-			buffLevel = math.min(buffLevel, 5)
-			if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
-				local ability = hEntity:AddAbility("creep_buff_upgraded")
-				ability:SetLevel(buffLevel)
-				return
-			elseif string.find(sUnitName, "mega") then
-				local ability = hEntity:AddAbility("creep_buff_mega")
+			if not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
+				-- normal creep
+				local ability = hEntity:AddAbility("creep_buff")
 				ability:SetLevel(buffLevel)
 				return
 			end
 		end
 
-		-- normal line creep
-		buffLevel = 0
-		local GameTime = GameRules:GetDOTATime(false, false)
-		if (GameTime >= (45 * 60)) then
-			buffLevel = 3
-		elseif (GameTime >= (30 * 60)) then
-			buffLevel = 2
-		elseif (GameTime >= (15 * 60)) then
-			buffLevel = 1
-		end
-
-		buffLevel = buffLevel + iTower4Pushed
-		if buffLevel > 0 and not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
-			buffLevel = math.min(buffLevel, 5)
-			local ability = hEntity:AddAbility("creep_buff")
-			ability:SetLevel(buffLevel)
-			return
+		if buffLevelMega > 0 then
+			if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
+				-- upgrade creep
+				local ability = hEntity:AddAbility("creep_buff_upgraded")
+				ability:SetLevel(buffLevel)
+				return
+			elseif string.find(sUnitName, "mega") then
+				-- mega creep
+				local ability = hEntity:AddAbility("creep_buff_mega")
+				ability:SetLevel(buffLevel)
+				return
+			end
 		end
 	end
 
@@ -549,7 +680,7 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
 	self.iStartingGoldBot = tonumber(args.game_options.starting_gold_bot)
 	self.bSameHeroSelection = args.game_options.same_hero_selection
 	self.bFastCourier = args.game_options.fast_courier
-	if args.game_options.radiant_bot_same_multi == "1" then
+	if args.game_options.radiant_bot_same_multi == 1 or args.game_options.radiant_bot_same_multi == "1" then
 		self.bRadiantBotSameMulti = true
 	else
 		self.bRadiantBotSameMulti = false
