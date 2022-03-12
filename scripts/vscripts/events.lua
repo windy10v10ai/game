@@ -287,10 +287,12 @@ function AIGameMode:SpawnNeutralCreeps30sec()
 	elseif (GameTime >= ((AIGameMode.botPushMin + 4) * 60)) then						-- MIDGAME
 		if AIGameMode.tower3PushedGood >= 2 or AIGameMode.tower3PushedBad >= 2 then
 			GameRules:GetGameModeEntity():SetBotsMaxPushTier(4)
+		end
+
+		if AIGameMode.barrackPushedGood > 5 or AIGameMode.barrackPushedBad > 5 then
+			GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
 		elseif AIGameMode.barrackPushedGood > 2 or AIGameMode.barrackPushedBad > 2 then
 			GameRules:GetGameModeEntity():SetBotsMaxPushTier(5)
-		elseif AIGameMode.barrackPushedGood > 5 or AIGameMode.barrackPushedBad > 5 then
-			GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
 		end
 	elseif (GameTime >= (AIGameMode.botPushMin * 60)) then						-- MIDGAME
 		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
@@ -604,7 +606,7 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
 	self.iStartingGoldBot = tonumber(args.game_options.starting_gold_bot)
 	self.bSameHeroSelection = args.game_options.same_hero_selection
 	self.bFastCourier = args.game_options.fast_courier
-	if args.game_options.radiant_bot_same_multi == "1" then
+	if args.game_options.radiant_bot_same_multi == 1 or args.game_options.radiant_bot_same_multi == "1" then
 		self.bRadiantBotSameMulti = true
 	else
 		self.bRadiantBotSameMulti = false
