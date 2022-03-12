@@ -50,13 +50,10 @@ function modifier_item_ultimate_scepter_2_consumed:IsPurgable() return false end
 function modifier_item_ultimate_scepter_2_consumed:IsPermanent() return true end
 
 function modifier_item_ultimate_scepter_2_consumed:OnCreated()
-	print("modifier_item_ultimate_scepter_2_consumed:OnCreated")
 	if self:GetAbility() then
-		print("modifier_item_ultimate_scepter_2_consumed:OnCreated:GetAbility")
 		self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
 		self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
 		self.spell_amp = self:GetAbility():GetSpecialValueFor("spell_amp")
-		print("modifier_item_ultimate_scepter_2_consumed:bonus_health", self.bonus_health)
 	end
 end
 
@@ -69,7 +66,6 @@ function modifier_item_ultimate_scepter_2_consumed:DeclareFunctions()
 end
 
 function modifier_item_ultimate_scepter_2_consumed:GetModifierHealthBonus()
-	print("modifier_item_ultimate_scepter_2_consumed:bonus_health get", self.bonus_health)
 	return self.bonus_health
 end
 
