@@ -102,7 +102,7 @@
 		"AbilityValues"
 		{
 				"bonus_building_damage"		"150"			// -150
-				"incoming_hero_damage_penalty"		"-30"	// -50
+				"incoming_hero_damage_penalty"		"-40"	// -50
 				"incoming_basic_damage_penalty"		"20"	// -30
 		}
 	}
@@ -1428,7 +1428,7 @@
 				"wave_interval"					"1.0"
 				"burn_damage"
 				{
-					"value"					"1 1.5 2 2.5 3 3.5 4"
+					"value"					"1 1.2 1.4 1.6 1.8 2.0 2.2"
 					"LinkedSpecialBonus"			"special_bonus_unique_underlord_4"
 				}
 				"burn_interval"					"1.0"
