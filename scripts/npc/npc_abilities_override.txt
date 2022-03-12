@@ -7359,6 +7359,8 @@
 	// Ability: Meepo 米波/地卜师
 	//=================================================================================================================
 
+	//已替换为新英雄初音未来
+
 	//=================================================================================================================
 	// Ability: Mirana 米拉娜/白虎POM
 	//=================================================================================================================
@@ -8880,7 +8882,7 @@
 	}
 	"troll_warlord_berserkers_rage"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel"	"7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -8914,7 +8916,7 @@
 	}
 	"troll_warlord_whirling_axes_ranged"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel"	"5"
 		"AbilitySpecial"
 		{
 			"05"
@@ -8926,7 +8928,7 @@
 	}
 	"troll_warlord_whirling_axes_melee"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel"	"5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -8939,7 +8941,7 @@
 	}
 	"troll_warlord_fervor"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel"	"7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -8977,7 +8979,7 @@
 	}
 	"troll_warlord_battle_trance"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel"	"5"
 		"AbilityCooldown"				"90 80 70 60 50"
 		"AbilityManaCost"				"150"
 		"AbilitySpecial"
@@ -9008,7 +9010,104 @@
     //=================================================================================================================
 	// Ability: Ursa 熊战士/拍拍
 	//=================================================================================================================
+	"ursa_earthshock"
+	{
+		"MaxLevel"	"5"
+		"AbilityCooldown"				"14 12 10 8 6"
+		"AbilityDamage"					"75 125 175 225 275"
+		"AbilityValues"
+		{
+			"shock_radius"				"385"
+			"movement_slow"				"-16 -24 -32 -40 -48"
+			"hop_distance"				"250"
+			"hop_duration"				"0.25"
+			"hop_height"				"83"
+		}
+	}
+	"ursa_overpower"
+	{
+		"MaxLevel"	"7"
+		"AbilityCooldown"				"12 11 10 9 8 7 6"
+		"AbilityManaCost"				"30 35 40 45 50 55 60"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_attacks"				"3 4 5 6 7 8 9"
+				"LinkedSpecialBonus"		"special_bonus_unique_ursa_7"
+			}
+		}
+	}
+	"ursa_fury_swipes"
+	{
+		"MaxLevel"	"7"
+		"AbilityValues"
+		{
+				"bonus_reset_time"
+				{
+					"value"						"30"
+					"special_bonus_unique_ursa_4" "+20"
+				}
+				"bonus_reset_time_roshan"		"20"
+				"damage_per_stack"
+				{
+					"value"					"10 20 30 40 50 60 70"
+					"LinkedSpecialBonus"			"special_bonus_unique_ursa"
+				}
+		}
+	}
+	"special_bonus_unique_ursa"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6132"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"30"
+				"ad_linked_abilities"			"ursa_fury_swipes"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"ursa_enrage"
+	{
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"50 40 30 20"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_reduction"			"80"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"status_resistance"			"50"
+				"LinkedSpecialBonus"			"special_bonus_unique_ursa_8"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"4 4.5 5 5.5"
+				"LinkedSpecialBonus"	"special_bonus_unique_ursa_3"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cooldown_scepter"			"30 24 18 12"
+				"RequiresScepter"			"1"
+			}
+		}
+	}
 	//=================================================================================================================
 	// Ability: Vengeful Spirit 复仇之魂/VS
 	//=================================================================================================================
@@ -11842,7 +11941,113 @@
 	//=================================================================================================================
 	// Ability: Obsidian Destroyer 殁境神蚀者/黑鸟
 	//=================================================================================================================
-
+	"obsidian_destroyer_arcane_orb"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"6 5 4 3 2 1 0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_pool_damage_pct"	"6 7 8 9 10 11 12"
+				"LinkedSpecialBonus"	"special_bonus_unique_outworld_devourer"
+			}
+		}
+	}
+	"obsidian_destroyer_astral_imprisonment"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"24 20 16 12 8"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"prison_duration"		"2 2.5 3 3.5 4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"		"120 200 280 360 440"
+				"LinkedSpecialBonus"	"special_bonus_unique_outworld_devourer_3"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_charges_scepter"		"2"
+				"RequiresScepter"			"1"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"charge_restore_time_scepter"		"8"
+				"RequiresScepter"			"1"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_capacity_steal"	"12 14 16 18 20"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mana_capacity_duration"	"30 35 40 45 50"
+			}
+		}
+	}
+	"obsidian_destroyer_equilibrium"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"proc_chance"		"30"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_restore"	"20 30 40 50 60"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mana_capacity_steal"	"5"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mana_capacity_duration"	"30 35 40 45 50"
+			}
+		}
+	}
+	"obsidian_destroyer_sanity_eclipse"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"130 120 110 100"
+		"AbilityManaCost"				"250 350 450 550"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"base_damage"				"200 300 400 500"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"400 500 600 700"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_multiplier"	"0.3"
+				"LinkedSpecialBonus"	"special_bonus_unique_outworld_devourer_4"
+			}
+		}
+	}
 	//=================================================================================================================
 	// Ability: Ogre Magi 食人魔魔法师/蓝胖
 	//=================================================================================================================
