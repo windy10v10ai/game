@@ -4,7 +4,7 @@
 		<include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
 	</styles>
 	<scripts>
-	<include src="file://{resources}/scripts/custom_game/game_mode.js"/>
+		<include src="file://{resources}/scripts/custom_game/game_mode.js"/>
 	</scripts>
 	<Panel class="AddonLoadingRoot">
 		<Panel id="CustomBg" >

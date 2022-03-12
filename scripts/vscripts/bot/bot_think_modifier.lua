@@ -69,27 +69,6 @@ function modifier_bot_think_strategy:OnIntervalThink()
 	if not self then return end
 
 	local GameTime = GameRules:GetDOTATime(false, false)
-	if (GameTime >= (40 * 60)) then						-- LATEGAME
-		-- GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
-		GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
-	elseif (GameTime >= (18 * 60)) then					-- LATEGAME
-		if AIGameMode.barrackPushedGood > 5 or AIGameMode.barrackPushedBad > 5 then
-			GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
-		else
-			GameRules:GetGameModeEntity():SetBotsMaxPushTier(5)
-		end
-	elseif (GameTime >= (16 * 60)) then						-- MIDGAME
-		GameRules:GetGameModeEntity():SetBotsMaxPushTier(4)
-	elseif (GameTime >= (AIGameMode.botPushMin * 60)) then						-- MIDGAME
-		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(true)
-		GameRules:GetGameModeEntity():SetBotsMaxPushTier(3)
-	else													-- EARLYGAME
-		GameRules:GetGameModeEntity():SetBotsInLateGame(false)
-		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(true)
-		GameRules:GetGameModeEntity():SetBotsMaxPushTier(1)
-	end
-
 	local hHero = self:GetParent()
 	if hHero:IsNull() then return end
 

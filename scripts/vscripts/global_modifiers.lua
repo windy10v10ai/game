@@ -117,7 +117,7 @@ function modifier_tower_endure:OnCreated()
 	elseif hParent:GetTeamNumber() == DOTA_TEAM_BADGUYS then
 		newHealth = math.floor(StackToPercentage(AIGameMode.iDireTowerEndure)*iHealth)
 	end
-	Timers:CreateTimer(0.04, function ()
+	Timers:CreateTimer(0.1, function ()
 		if hParent:IsNull() then return end
 		hParent:SetMaxHealth( newHealth )
 		hParent:SetBaseMaxHealth( newHealth )

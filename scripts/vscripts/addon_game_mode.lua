@@ -130,8 +130,6 @@ function AIGameMode:PreGameOptions()
 	if self.DebugMode then
 		gameMode:SetItemAddedToInventoryFilter( Dynamic_Wrap( AIGameMode, "FilterItemAdd" ), self )
 	end
-	-- loop functions
-	AIGameMode:SpawnNeutralCreeps30sec()
 
 
 	if self.bSameHeroSelection == 1 then
@@ -184,6 +182,10 @@ function AIGameMode:PreGameOptions()
 
 	self.sumTowerPower = (AIGameMode.iRadiantTowerPower + AIGameMode.iDireTowerPower)
 	self.creepBuffLevel = 0
+	self.creepBuffLevelGood = 0
+	self.creepBuffLevelBad = 0
+	self.creepBuffLevelMegaGood = 0
+	self.creepBuffLevelMegaBad = 0
 	if self.sumTowerPower <= 10 then
 		-- 150%
 		self.creepBuffLevel = 0
@@ -204,6 +206,10 @@ function AIGameMode:PreGameOptions()
 	self.barrackPushedBad = 0
 	self.barrackPushedGood = 0
 
+	self.tower1PushedBad = 0
+	self.tower1PushedGood = 0
+	self.tower2PushedBad = 0
+	self.tower2PushedGood = 0
 	self.tower3PushedBad = 0
 	self.tower3PushedGood = 0
 	self.tower4PushedBad = 0
@@ -211,16 +217,19 @@ function AIGameMode:PreGameOptions()
 
 	self.roshanNumber = 0
 
-	self.botPushMin = RandomInt(9, 11)
+	if self.fBotGoldXpMultiplier < 5 then
+		self.botPushMin = RandomInt(12, 14)
+	elseif self.fBotGoldXpMultiplier <= 5 then
+		self.botPushMin = RandomInt(10, 12)
+	elseif self.fBotGoldXpMultiplier <= 8 then
+		self.botPushMin = RandomInt(8, 10)
+	else
+		self.botPushMin = RandomInt(6, 8)
+	end
+
+	print("botPushMin: "..self.botPushMin)
 
 	self.PreGameOptionsSet = true
-end
-
-function AIGameMode:SpawnNeutralCreeps30sec()
-	GameRules:SpawnNeutralCreeps()
-	Timers:CreateTimer(30, function ()
-		AIGameMode:SpawnNeutralCreeps30sec()
-	end)
 end
 
 ------------------------------------------------------------------
