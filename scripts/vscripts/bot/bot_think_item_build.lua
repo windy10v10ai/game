@@ -42,7 +42,7 @@ local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
     return false
   end
   local iCost = GetItemCost(iItemName)
-  
+
   if(hHero:GetGold() > iCost) then
     if hHero:GetNumItemsInInventory() > 8 then
       -- TODO print
@@ -99,7 +99,7 @@ function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
   local iHeroName = hHero:GetName()
 
   local multiIndex = "x"..AIGameMode.fBotGoldXpMultiplier
-  local multiIndex = multiIndex:gsub("%.", "%_")
+  multiIndex = multiIndex:gsub("%.", "%_")
   local addNeutralItemTime = tBotItemData.addNeutralItemMultiTimeMap[multiIndex] or tBotItemData.addNeutralItemMultiTimeMap["x1"]
 
   if (GameTime > addNeutralItemTime[1]) then

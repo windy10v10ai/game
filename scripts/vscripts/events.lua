@@ -265,9 +265,48 @@ function AIGameMode:OnGameStateChanged(keys)
 
 	elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		self.fGameStartTime = GameRules:GetGameTime()
+
+		GameRules:SpawnNeutralCreeps()
+		-- start loop in 30 seconds
+		if IsClient() then return end
+		Timers:CreateTimer(30, function ()
+			AIGameMode:SpawnNeutralCreeps30sec()
+		end)
 	end
 end
 
+
+function AIGameMode:SpawnNeutralCreeps30sec()
+	local GameTime = GameRules:GetDOTATime(false, false)
+	print("SpawnNeutral at GetDOTATime " .. GameTime)
+	GameRules:SpawnNeutralCreeps()
+
+	-- set global state
+	if (GameTime >= ((AIGameMode.botPushMin * 4) * 60)) then						-- LATEGAME
+		GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
+	elseif (GameTime >= ((AIGameMode.botPushMin + 4) * 60)) then						-- MIDGAME
+		if AIGameMode.tower3PushedGood >= 2 or AIGameMode.tower3PushedBad >= 2 then
+			GameRules:GetGameModeEntity():SetBotsMaxPushTier(4)
+		elseif AIGameMode.barrackPushedGood > 2 or AIGameMode.barrackPushedBad > 2 then
+			GameRules:GetGameModeEntity():SetBotsMaxPushTier(5)
+		elseif AIGameMode.barrackPushedGood > 5 or AIGameMode.barrackPushedBad > 5 then
+			GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
+		end
+	elseif (GameTime >= (AIGameMode.botPushMin * 60)) then						-- MIDGAME
+		GameRules:GetGameModeEntity():SetBotsInLateGame(true)
+		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(true)
+		GameRules:GetGameModeEntity():SetBotsMaxPushTier(3)
+	else													-- EARLYGAME
+		GameRules:GetGameModeEntity():SetBotsInLateGame(false)
+		GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
+		GameRules:GetGameModeEntity():SetBotsMaxPushTier(1)
+	end
+
+	-- callback every minute
+	Timers:CreateTimer(60, function ()
+		AIGameMode:SpawnNeutralCreeps30sec()
+	end)
+end
 
 function AIGameMode:OnEntityKilled(keys)
 	local hEntity = EntIndexToHScript(keys.entindex_killed)
@@ -303,7 +342,23 @@ end
 function RecordTowerKilled(hEntity)
 	local team = hEntity:GetTeamNumber()
 	local sName = hEntity:GetUnitName()
-	if string.find(sName, "tower3") then
+	if string.find(sName, "tower1") then
+		if DOTA_TEAM_GOODGUYS == team then
+			AIGameMode.tower1PushedBad = AIGameMode.tower1PushedBad + 1
+			print("tower1PushedBad ", AIGameMode.tower1PushedBad)
+		elseif DOTA_TEAM_BADGUYS == team then
+			AIGameMode.tower1PushedGood = AIGameMode.tower1PushedGood + 1
+			print("tower1PushedGood ", AIGameMode.tower1PushedGood)
+		end
+	elseif string.find(sName, "tower2") then
+		if DOTA_TEAM_GOODGUYS == team then
+			AIGameMode.tower2PushedBad = AIGameMode.tower2PushedBad + 1
+			print("tower2PushedBad ", AIGameMode.tower2PushedBad)
+		elseif DOTA_TEAM_BADGUYS == team then
+			AIGameMode.tower2PushedGood = AIGameMode.tower2PushedGood + 1
+			print("tower2PushedGood ", AIGameMode.tower2PushedGood)
+		end
+	elseif string.find(sName, "tower3") then
 		if DOTA_TEAM_GOODGUYS == team then
 			AIGameMode.tower3PushedBad = AIGameMode.tower3PushedBad + 1
 			print("tower3PushedBad ", AIGameMode.tower3PushedBad)
