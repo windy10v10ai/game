@@ -304,6 +304,88 @@ function AIGameMode:SpawnNeutralCreeps30sec()
 		GameRules:GetGameModeEntity():SetBotsMaxPushTier(1)
 	end
 
+	-- set creep buff level
+	local buffLevelGood = 0
+	local buffLevelBad = 0
+	local buffLevelMegaGood = 0
+	local buffLevelMegaBad = 0
+
+	if AIGameMode.tower1PushedGood > 0 then
+		buffLevelGood = buffLevelGood + 1
+	end
+	if AIGameMode.tower1PushedBad > 0 then
+		buffLevelBad = buffLevelBad + 1
+	end
+
+	if AIGameMode.tower2PushedGood > 0 then
+		buffLevelGood = buffLevelGood + 1
+	end
+	if AIGameMode.tower2PushedBad > 0 then
+		buffLevelBad = buffLevelBad + 1
+	end
+
+	if AIGameMode.tower3PushedGood > 0 then
+		buffLevelGood = buffLevelGood + 1
+	end
+	if AIGameMode.tower3PushedBad > 0 then
+		buffLevelBad = buffLevelBad + 1
+	end
+
+	if AIGameMode.tower4PushedGood > 1 then
+		buffLevelGood = buffLevelGood + 1
+		buffLevelMegaGood = buffLevelMegaGood + 1
+	end
+	if AIGameMode.tower4PushedBad > 1 then
+		buffLevelBad = buffLevelBad + 1
+		buffLevelMegaBad = buffLevelMegaBad + 1
+	end
+
+	buffLevelMegaGood = buffLevelMegaGood + AIGameMode.creepBuffLevel
+	buffLevelMegaBad = buffLevelMegaBad + AIGameMode.creepBuffLevel
+
+	if (GameTime >= (15 * 60)) then
+		buffLevelGood = buffLevelGood + 1
+		buffLevelBad = buffLevelBad + 1
+		buffLevelMegaGood = buffLevelMegaGood + 1
+		buffLevelMegaBad = buffLevelMegaBad + 1
+	end
+
+	if (GameTime >= (30 * 60)) then
+		buffLevelGood = buffLevelGood + 1
+		buffLevelBad = buffLevelBad + 1
+		buffLevelMegaGood = buffLevelMegaGood + 1
+		buffLevelMegaBad = buffLevelMegaBad + 1
+	end
+
+	if (GameTime >= (45 * 60)) then
+		buffLevelGood = buffLevelGood + 1
+		buffLevelBad = buffLevelBad + 1
+		buffLevelMegaGood = buffLevelMegaGood + 1
+		buffLevelMegaBad = buffLevelMegaBad + 1
+	end
+
+	if (GameTime >= (60 * 60)) then
+		buffLevelGood = buffLevelGood + 1
+		buffLevelBad = buffLevelBad + 1
+		buffLevelMegaGood = buffLevelMegaGood + 1
+		buffLevelMegaBad = buffLevelMegaBad + 1
+	end
+
+	buffLevelGood = math.min(buffLevelGood, 8)
+	buffLevelBad = math.min(buffLevelBad, 8)
+	buffLevelMegaGood = math.min(buffLevelMegaGood, 8)
+	buffLevelMegaBad = math.min(buffLevelMegaBad, 8)
+
+	AIGameMode.creepBuffLevelGood = buffLevelGood
+	AIGameMode.creepBuffLevelBad = buffLevelBad
+	AIGameMode.creepBuffLevelMegaGood = buffLevelMegaGood
+	AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
+
+	print("creep buff level good " .. buffLevelGood)
+	print("creep buff level bad " .. buffLevelBad)
+	print("creep buff level mega good " .. buffLevelMegaGood)
+	print("creep buff level mega bad " .. buffLevelMegaBad)
+
 	-- callback every minute
 	Timers:CreateTimer(60, function ()
 		AIGameMode:SpawnNeutralCreeps30sec()
@@ -451,45 +533,37 @@ function AIGameMode:OnNPCSpawned(keys)
 	if sName == "npc_dota_creep_lane" or sName == "npc_dota_creep_siege" then
 		local sUnitName = hEntity:GetUnitName()
 		local team = hEntity:GetTeamNumber()
-		local buffLevel = self.creepBuffLevel
-		local iTower4Pushed = 0
+		local buffLevel = 0
+		local buffLevelMega = 0
 		if DOTA_TEAM_GOODGUYS == team then
-			iTower4Pushed = AIGameMode.tower4PushedGood
+			buffLevel = AIGameMode.creepBuffLevelGood
+			buffLevelMega = AIGameMode.creepBuffLevelMegaGood
 		elseif DOTA_TEAM_BADGUYS == team then
-			iTower4Pushed = AIGameMode.tower4PushedBad
+			buffLevel = AIGameMode.creepBuffLevelBad
+			buffLevelMega = AIGameMode.creepBuffLevelMegaBad
 		end
 
-		buffLevel = buffLevel + iTower4Pushed
 		if buffLevel > 0 then
-			buffLevel = math.min(buffLevel, 5)
-			if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
-				local ability = hEntity:AddAbility("creep_buff_upgraded")
-				ability:SetLevel(buffLevel)
-				return
-			elseif string.find(sUnitName, "mega") then
-				local ability = hEntity:AddAbility("creep_buff_mega")
+			if not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
+				-- normal creep
+				local ability = hEntity:AddAbility("creep_buff")
 				ability:SetLevel(buffLevel)
 				return
 			end
 		end
 
-		-- normal line creep
-		buffLevel = 0
-		local GameTime = GameRules:GetDOTATime(false, false)
-		if (GameTime >= (45 * 60)) then
-			buffLevel = 3
-		elseif (GameTime >= (30 * 60)) then
-			buffLevel = 2
-		elseif (GameTime >= (15 * 60)) then
-			buffLevel = 1
-		end
-
-		buffLevel = buffLevel + iTower4Pushed
-		if buffLevel > 0 and not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
-			buffLevel = math.min(buffLevel, 5)
-			local ability = hEntity:AddAbility("creep_buff")
-			ability:SetLevel(buffLevel)
-			return
+		if buffLevelMega > 0 then
+			if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
+				-- upgrade creep
+				local ability = hEntity:AddAbility("creep_buff_upgraded")
+				ability:SetLevel(buffLevel)
+				return
+			elseif string.find(sUnitName, "mega") then
+				-- mega creep
+				local ability = hEntity:AddAbility("creep_buff_mega")
+				ability:SetLevel(buffLevel)
+				return
+			end
 		end
 	end
 
