@@ -4,5 +4,6 @@
   [
     "player_table",
     "game_options_table",
+		"ending_stats_2",
   ]
 }

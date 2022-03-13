@@ -72,6 +72,15 @@
 		"dire_tower_power_175"           "175%"
 		"dire_tower_power_200"           "200%"
 
+		// /////////////////////////////////////////////////////////////////////////////
+		//
+		//            Ending Screen
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+		"custom_end_screen_victory_message"	"天辉获胜"
+		"custom_end_screen_lose_message"	"夜魇获胜"
+
+
 		"DOTA_Tooltip_modifier_tower_power"							"建筑攻击加成"
 		"DOTA_Tooltip_modifier_tower_power_Description"			"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%, 攻速增加 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
