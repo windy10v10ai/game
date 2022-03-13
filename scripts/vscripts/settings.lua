@@ -23,7 +23,7 @@ BOT_GOLD_XP_MULTIPLIER = 1
 --RESPAWN_TIME_PERCENTAGE = 100
 MAX_LEVEL = 50                         -- What level should we let heroes get to?
 
-MAXIMUM_ATTACK_SPEED = 1000              -- What should we use for the maximum attack speed?
+MAXIMUM_ATTACK_SPEED = 700              -- What should we use for the maximum attack speed?
 MINIMUM_ATTACK_SPEED = 20               -- What should we use for the minimum attack speed?
 
 -- The above are enabled ones

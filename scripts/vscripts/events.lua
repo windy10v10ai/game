@@ -272,11 +272,24 @@ function AIGameMode:OnGameStateChanged(keys)
 		Timers:CreateTimer(30, function ()
 			AIGameMode:SpawnNeutralCreeps30sec()
 		end)
+
+		-- test end info
+		if self.DebugMode then
+			self:EndScreenStats(true, true)
+		end
+
+	elseif state == DOTA_GAMERULES_STATE_POST_GAME then
+		self:EndScreenStats(true, true)
 	end
 end
 
 
 function AIGameMode:SpawnNeutralCreeps30sec()
+	-- test end info
+	if self.DebugMode then
+		self:EndScreenStats(true, true)
+	end
+
 	local GameTime = GameRules:GetDOTATime(false, false)
 	print("SpawnNeutral at GetDOTATime " .. GameTime)
 	GameRules:SpawnNeutralCreeps()
@@ -725,4 +738,85 @@ function AIGameMode:OnPlayerChat( event )
 			)
 		end
 	end
+end
+
+
+function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
+    local time = GameRules:GetDOTATime(false, true)
+    --local matchID = tostring(GameRules:GetMatchID())
+
+    local data = {
+        version = "1.18",
+        --matchID = matchID,
+        mapName = GetMapName(),
+        players = {},
+        isWinner = isWinner,
+        duration = math.floor(time),
+        flags = {}
+    }
+
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+        if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and PlayerResource:GetSelectedHeroEntity(playerID) then
+            local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+            if hero and IsValidEntity(hero) and not hero:IsNull() then
+                -- local tip_points = WebServer.TipCounter[playerID] or 0
+                local pointsEarned = 0
+                local damage = PlayerResource:GetRawPlayerDamage(playerID)
+                local damagereceived = 0
+
+                print(" : " .. hero:GetUnitName() .. " GetHeroDamageTaken : " .. PlayerResource:GetHeroDamageTaken(playerID, true))
+                for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+					if PlayerResource:IsValidPlayerID(victimID) and PlayerResource:IsValidPlayer(victimID) and PlayerResource:GetSelectedHeroEntity(victimID) then
+						if PlayerResource:GetTeam(victimID) ~= PlayerResource:GetTeam(playerID) then
+							print(" : " .. hero:GetUnitName() .. " GetDamageDoneFromHero "..victimID..": " .. PlayerResource:GetDamageDoneToHero(victimID, playerID))
+							damagereceived = damagereceived + PlayerResource:GetDamageDoneToHero(victimID, playerID)
+						end
+					end
+				end
+
+                local playerInfo = {
+                    steamid = tostring(PlayerResource:GetSteamID(playerID)),
+                    kills = PlayerResource:GetKills(playerID) or 0,
+                    deaths = PlayerResource:GetDeaths(playerID) or 0,
+                    assists = PlayerResource:GetAssists(playerID) or 0,
+					-- TODO
+                    damage = damage,
+                    damagereceived = damagereceived or 0,
+					-- TODO
+                    heroName = hero:GetUnitName() or "Haachama",
+                    lasthits = PlayerResource:GetLastHits(playerID) or 0,
+                    heroHealing = PlayerResource:GetHealing(playerID) or 0,
+                    str = hero:GetStrength() or 0,
+                    agi = hero:GetAgility() or 0,
+                    int = hero:GetIntellect() or 0,
+                    items = {},
+                    points = pointsEarned
+                }
+
+                for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
+                    local item = hero:GetItemInSlot(item_slot)
+                    if item then
+                        playerInfo.items[item_slot] = item:GetAbilityName()
+                    end
+                end
+
+                local hNeutralItem = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+                if hNeutralItem then
+                    playerInfo.items[DOTA_ITEM_NEUTRAL_SLOT] = hNeutralItem:GetAbilityName()
+                end
+
+                data.players[playerID] = playerInfo
+            end
+        end
+    end
+
+    local sTable = "ending_stats"
+
+    if bTrueEnd then
+        sTable = "ending_stats_2"
+    end
+	print("[AIGameMode:EndScreenStats]")
+	PrintTable(data)
+
+    CustomNetTables:SetTableValue(sTable, "player_data", data)
 end
