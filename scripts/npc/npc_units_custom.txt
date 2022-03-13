@@ -1231,7 +1231,7 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"0"			// Physical protection.
+		"ArmorPhysical"				"3"			// 2
 
 		// Attack
 		//----------------------------------------------------------------
@@ -1355,7 +1355,7 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"3"			// Physical protection.
+		"ArmorPhysical"				"5"			// 3
 		"MagicalResistance"				"70"		// Magical protection.
 
 		// Attack
@@ -1367,7 +1367,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"400"		// Experience earn.
+		"BountyXP"					"300"		// Experience earn.
 		"BountyGoldMin"				"200"		// Gold earned min.
 		"BountyGoldMax"				"210"		// Gold earned max.
 
@@ -1391,7 +1391,7 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"3"			// Physical protection.
+		"ArmorPhysical"				"5"			// 3
 		"MagicalResistance"				"70"		// Magical protection.
 
 		// Attack
@@ -1403,7 +1403,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"300"		// Experience earn.
+		"BountyXP"					"200"		// Experience earn.
 		"BountyGoldMin"				"90"		// Gold earned min.
 		"BountyGoldMax"				"100"		// Gold earned max.
 
@@ -1418,5 +1418,58 @@
 		"StatusHealthRegen"			"5"		// Health regeneration rate.
 		"StatusMana"				"800"		// Base mana.
 		"StatusManaRegen"			"3"		// Mana regeneration rate.
+	}
+
+	//=================================================================================
+// Neutral: Pine Cone
+//=================================================================================
+	"npc_dota_neutral_ice_shaman"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// 3
+		"MagicalResistance"				"50"		// 30
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"115"		// Damage range min.
+		"AttackDamageMax"			"125"		// Damage range max.
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"250"		// Experience earn.
+		"BountyGoldMin"				"150"		// Gold earned min.
+		"BountyGoldMax"				"160"		// Gold earned max.
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"3000"		// Base health.
+		"StatusHealthRegen"			"5"		// Health regeneration rate.
+		"StatusMana"				"800"		// Base mana.
+		"StatusManaRegen"			"2"		// Mana regeneration rate.
+	}
+
+//=================================================================================
+// Neutral: Ancient - Rock Golem
+//=================================================================================
+	"npc_dota_neutral_frostbitten_golem"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"			// 7
+		"MagicalResistance"				"50"		// 30
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"60"		// Damage range min.
+		"AttackDamageMax"			"64"		// Damage range max.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"190"		// Experience earn.
+		"BountyGoldMin"				"80"		// Gold earned min.
+		"BountyGoldMax"				"90"		// Gold earned max.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1800"		// Base health.
+		"StatusHealthRegen"			"10"		// Health regeneration rate.
 	}
 }
