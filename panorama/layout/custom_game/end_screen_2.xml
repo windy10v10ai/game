@@ -1,0 +1,96 @@
+<!-- xml reconstructed by ValveResourceFormat: https://vrf.steamdb.info/ -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/profile_badge.css" />
+		<include src="file://{resources}/styles/custom_game/end_screen.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/utils.js" />
+		<include src="file://{resources}/scripts/custom_game/end_screen_2.js" />
+	</scripts>
+	<snippets>
+		<snippet name="Team">
+			<Panel class="Team">
+				<Panel id="TeamInfo">
+					<Panel id="TeamDataPanel" class="LegendPanel HeaderColumn" />
+					<Label class="LegendPanel KdaColumn" text="#dota_page_match_details_legend_kills" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_kills_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+					<Label class="LegendPanel KdaColumn" text="#dota_page_match_details_legend_deaths" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_deaths_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+					<Label class="LegendPanel KdaColumn" text="#dota_page_match_details_legend_assists" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_assists_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+					<Label class="LegendPanel LastHitColumn" text="#dota_page_match_details_legend_last_hits" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_last_hits_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+
+					<Panel class="LegendPanel TotalMoneyColumn">
+						<Image class="DdColumnImg" src="s2r://panorama/images/hud/icon_gold_psd.vtex" onmouseover="UIShowTextTooltipStyled( #custom_end_screen_legend_gold, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+					</Panel>
+					<Panel class="LegendPanel TotalDamageColumn">
+						<Image class="DdColumnImg" src="s2r://panorama/images/custom_game/icon_damage_png.vtex" onmouseover="UIShowTextTooltipStyled( #dota_page_post_game_damage_dealt, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+					</Panel>
+					<Panel class="LegendPanel TotalDamageReceivedColumn">
+						<Image class="DrColumnImg" src="s2r://panorama/images/custom_game/icon_armor_png.vtex" onmouseover="UIShowTextTooltipStyled( #dota_page_post_game_damage_received, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+					</Panel>
+					<Label class="LegendPanel HeroHealingColumn" text="#dota_page_match_details_legend_hero_healing" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_hero_healing_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+					<!-- <Panel class="LegendPanel PtsColumn">
+						<Image class="PtsColumnImg" src="s2r://panorama/images/custom_game/pts_earned_png.vtex" onmouseover="UIShowTextTooltipStyled( #DOTA_BattlePass_AchievementsTooltip_BattlePointsEarned, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+					</Panel> -->
+					<Label class="LegendPanel ItemsColumn" text="#dota_page_match_details_legend_items" />
+					<Label class="LegendPanel NeutralColumn" text="#DOTA_Location_Name_Neutral" />
+					<!-- <Label class="LegendPanel BackpackColumn" text="#dota_page_match_details_legend_backpack_items" /> -->
+					<Image class="LegendPanel StrColumn" src="s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex" onmouseover="UIShowTextTooltipStyled( #DOTA_SHOP_TAG_STR, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+					<Image class="LegendPanel AgiColumn" src="s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex" onmouseover="UIShowTextTooltipStyled( #DOTA_SHOP_TAG_AGI, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+					<Image class="LegendPanel IntColumn" src="s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex" onmouseover="UIShowTextTooltipStyled( #DOTA_SHOP_TAG_INT, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="Player">
+			<Panel class="Player">
+				<Panel class="HeaderColumn">
+					<Panel id="PlayerColor" />
+					<DOTAAvatarImage id="PlayerAvatar"/>
+					<Image id="HeroIcon" />
+					<Label id="HeroLevelLabel" class="MonoNumbersFont" text="{d:hero_level}" />
+					<Panel id="NameAndHero" class="FullWidthHeight TopBottomFlow">
+						<DOTAUserName id="PlayerNameScoreboard" />
+						<Label id="BotNameScoreboard" class="BotNameScoreboard" text="#dota_post_game_bot"/>
+						<Label id="LevelAndHero" text="{s:hero_name}" />
+					</Panel>
+				</Panel>
+				<Label class="KdaColumn" text="{d:kills}" />
+				<Label class="KdaColumn" text="{d:deaths}" />
+				<Label class="KdaColumn" text="{d:assists}" />
+				<Label class="LastHitColumn" text="{d:lasthits}" />
+				<Label class="TotalMoneyColumn" text="{d:money}" />
+				<Label class="TotalDamageColumn" text="{d:damage}" />
+				<Label class="TotalDamageReceivedColumn" text="{d:damagereceived}" />
+				<Label class="HeroHealingColumn" text="{s:heroHealing}" />
+				<!-- <Label class="PtsColumn" text="{d:points}" /> -->
+				<Panel id="ItemsContainer" class="ItemsColumn LeftRightFlow" />
+				<Panel id="NeutralItemContainer" class="NeutralColumn" />
+				<!-- <Panel id="BackpackItemsContainer" class="BackpackColumn LeftRightFlow" /> -->
+				<Label class="StrColumn" text="{d:strength}" />
+				<Label class="AgiColumn" text="{d:agility}" />
+				<Label class="IntColumn" text="{d:intellect}" />
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="EndScreenBase">
+		<Panel id="LoadingPanel">
+			<Label id="LoadingText" text="LOADING" />
+			<Panel class="Spinner" />
+			<Label id="LoadingMessage" text="Waiting for data..." />
+		</Panel>
+		<Panel id="ErrorPanel">
+			<Label id="ErrorText" text="ERROR" />
+			<Image id="ErrorIcon" />
+			<Label id="ErrorMessage" />
+			<TextButton id="CloseButton" class="ButtonBevel" onactivate="FinishGame()" text="#CustomEndScreenClose" />
+		</Panel>
+		<Panel id="EndScreenWindow">
+			<Panel id="MatchResultBlock">
+				<Label id="EndScreenVictory" text="" />
+				<Label id="GameTime" text="#DOTA_Lobby_Settings_Scenario_GameTime" />
+				<TextButton id="CloseButton" class="ButtonBevel" onactivate="FinishGame()" text="#CustomEndScreenClose" />
+			</Panel>
+			<Panel id="TeamsContainer" />
+		</Panel>
+	</Panel>
+</root>
