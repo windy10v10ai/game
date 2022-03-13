@@ -1,0 +1,692 @@
+.EndScreenBase{
+     width: 100%;
+     height: 100%;
+}
+
+ #LoadingPanel{
+     width: 500px;
+     margin-top: -20px;
+     align: center center;
+     flow-children: down;
+ }
+
+ #LoadingPanel > Label{
+     width: 100%;
+     text-align: center;
+ }
+
+ #LoadingPanel #LoadingText{
+     margin-bottom: -12px;
+     font-size: 72px;
+     font-weight: bold;
+     color: #fff;
+ }
+
+ #LoadingPanel .Spinner{
+     width: 80px;
+     height: 80px;
+     horizontal-align: center;
+ }
+
+ #LoadingPanel #LoadingMessage{
+     margin-top: 8px;
+     font-size: 30px;
+ }
+
+ #ErrorPanel{
+     width: 500px;
+     visibility: collapse;
+     align: center center;
+     flow-children: down;
+ }
+
+ #ErrorPanel > Label{
+     width: 100%;
+     text-align: center;
+ }
+
+ #ErrorPanel #ErrorText{
+     margin-bottom: -15px;
+     font-size: 72px;
+     font-weight: bold;
+     color: #f22;
+ }
+
+ #ErrorPanel #ErrorIcon{
+     width: 70px;
+     height: 70px;
+     margin-bottom: 20px;
+     background-image: url("s2r://panorama/images/status_icons/exclamation_psd.vtex");
+     background-position: 50% 50%;
+     background-repeat: no-repeat;
+     background-size: contain;
+     horizontal-align: center;
+     wash-color: #f99;
+ }
+
+ #ErrorPanel #ErrorMessage{
+     max-height: 300px;
+     font-size: 30px;
+     color: #fff;
+     text-overflow: shrink;
+ }
+
+ #ErrorPanel #CloseButton{
+     width: 50%;
+     margin-top: 20px;
+     horizontal-align: center;
+ }
+
+ #EndScreenWindow{
+     width: 100%;
+     height: 1000px;
+     margin-top: 32px;
+     visibility: collapse;
+     align: center center;
+     flow-children: down;
+ }
+
+ .AspectRatio4x3 #EndScreenWindow{
+     margin-top: 100px;
+ }
+
+ #EndScreenWindow #MatchResultBlock{
+     width: 1600px;
+     background-color: rgba(20, 20, 20, 0.5);
+     background-color: gradient( linear, 0% 100%, 0% 10%, from( #1c112ecc ), color-stop( 0.3, #1c112e55 ), color-stop( 0.6, #000000bb ),to( #000000ee) );
+     box-shadow: rgba(20, 20, 20, 0.5) -0px -0px 50px -1px;
+     horizontal-align: center;
+     flow-children: right;
+ }
+
+ .AspectRatio4x3 #EndScreenWindow #MatchResultBlock{
+     width: 1350px;
+     height: 15%;
+ }
+
+
+ #EndScreenWindow #MatchResultBlock #EndScreenVictory{
+     margin-left: 12px;
+     margin-top: 10px;
+     font-size: 50px;
+     font-weight: bold;
+     color: #fff;
+     text-shadow: 3px 3px 10px black;
+     horizontal-align: left;
+     letter-spacing: 1.5px;
+     width: 300px;
+ }
+#GameTime{
+    margin-left: 12px;
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #00a2ff;
+    text-shadow: 3px 3px 10px black;
+    letter-spacing: 1.5px;
+    width: 50%;
+    text-align: center;
+}
+
+ .AspectRatio4x3 #EndScreenWindow #MatchResultBlock #EndScreenVictory{
+     margin-top: 85px;
+     font-size: 40px;
+ }
+
+ #EndScreenWindow #MatchResultBlock #CloseButton{
+     width: 20%;
+     height: 38px;
+     margin: 12px;
+     align: right bottom;
+     background-color: #0d1c22ff, gradient( radial, 100% -10%, 100px -40px, 250% 330%, from( #3a464bff ), color-stop( 0.23, #d14343 ), to( #212121 ) );
+     transition: background-color .35s ease-in-out 0s;
+ }
+
+ #EndScreenWindow #MatchResultBlock #CloseButton:hover{
+     background-color: #0d1c22ff, gradient( radial, 100% -0%, 100px -40px, 500% 800%, from( #3a464bff ), color-stop( 0.23, #d14343 ), to( #0d1c22ff ) );
+     transition: background-color .35s ease-in-out 0.1s;
+ }
+
+ #EndScreenWindow #MatchResultBlock #MatchResultPlayer{
+     margin-bottom: 5px;
+     margin-left: 4px;
+     align: left bottom;
+     flow-children: down;
+ }
+
+ #EndScreenWindow #MatchResultBlock #MatchResultPlayer #ProfileBadge{
+     width: 120px;
+     height: 120px;
+     horizontal-align: center;
+ }
+
+ #EndScreenWindow #MatchResultBlock #MatchResultPlayer #ProfileBadge > #ProfileLevel > Label{
+     margin-bottom: 4px;
+     font-size: 28px;
+ }
+
+ #EndScreenWindow #MatchResultBlock #MatchResultPlayer #LevelProgress{
+     height: 32px;
+     padding: 4px;
+     background-color: #464748;
+     border: 1px solid #3d4746;
+     box-shadow: inset #1f2020 2px 2px 4px 4px;
+ }
+
+ #EndScreenWindow #MatchResultBlock #MatchResultPlayer #LevelProgress #LevelProgress_Left{
+     background-color: dotalevelgradient;
+     border-radius: 2px;
+     box-shadow: rgba(97, 120, 156, 0.666) -2px -2px 4px 4px;
+     transition-duration: .7s;
+     transition-property: width;
+     transition-timing-function: linear;
+ }
+
+ #EndScreenWindow #MatchResultBlock #MatchResultPlayer #LevelProgress #LevelProgressValue{
+     margin-top: 2px;
+     font-size: 16px;
+     font-weight: bold;
+     color: #000;
+     text-shadow: 0 0 8px 1 rgba(193, 206, 234, 0.533);
+     align: center center;
+ }
+
+ #EndScreenWindow #MatchResultBlock #MatchResultPlayer #LevelProgress #LevelProgressChange{
+     color: #ddd;
+     text-shadow: 0 0 8px 1 rgba(202, 226, 234, 0.533);
+     opacity: 0;
+     transition-duration: .4s;
+     transition-property: opacity;
+     align: right center;
+ }
+
+ #EndScreenWindow #TeamsContainer{
+     width: 100%;
+     overflow: squish scroll;
+     flow-children: down;
+ }
+
+ .HeaderColumn{
+     width: 360px;
+ }
+
+ .AspectRatio4x3 .HeaderColumn{
+     width: 360px;
+ }
+
+
+ .SavesColumn{
+     width: 40px;
+ }
+
+ .GoldBagsColumn{
+     width: 40px;
+ }
+
+ .KdaColumn{
+     width: 50px;
+ }
+
+ .AspectRatio4x3 .DeathsColumn{
+     width: 25px;
+ }
+
+ .LastHitColumn{
+     width: 80px;
+     wash-color: white;
+ }
+
+ .AspectRatio4x3 .LastHitColumn{
+     width: 60px;
+ }
+
+
+ .TotalMoneyColumn, .TotalDamageColumn, .TotalDamageReceivedColumn{
+     width: 100px;
+     margin-right: 5px;
+     margin-left: 5px;
+ }
+
+ .TotalMoneyColumn > Image, .TotalDamageColumn > Image, .TotalDamageReceivedColumn > Image{
+     width: 26px;
+     height: 26px;
+ }
+
+
+ .AspectRatio4x3 .TotalDamageColumn, .AspectRatio4x3 .TotalDamageReceivedColumn{
+     width: 80px;
+     margin-right: 3px;
+     margin-left: 3px;
+ }
+
+ .AspectRatio4x3 .TotalDamageColumn > Image, .AspectRatio4x3 .TotalDamageReceivedColumn > Image{
+     width: 25px;
+     height: 25px;
+ }
+
+
+ .ItemsColumn{
+     margin-left: 10px;
+     width: 300px;
+ }
+
+ .AspectRatio4x3 .ItemsColumn{
+     width: 255px;
+ }
+
+ .NeutralColumn{
+     margin-left: 10px;
+     width: 50px;
+ }
+
+ .BackpackColumn{
+     width: 150px;
+     margin-left: 10px;
+     margin-right: 20px;
+ }
+
+ .AspectRatio4x3 .BackpackColumn{
+     width: 130px;
+ }
+
+ .DamageTakenColumn{
+     width: 100px;
+     margin-left: 16px;
+ }
+
+ .BossDamageColumn{
+     width: 100px;
+     margin-left: 16px;
+ }
+
+ .HeroHealingColumn{
+     width: 80px;
+     margin-left: 12px;
+ }
+
+ .AspectRatio4x3 .HeroHealingColumn{
+     width: 50px;
+ }
+
+ .PtsColumn{
+     width: 80px;
+     margin-left: 12px;
+     margin-right: 12px;
+ }
+
+ .AspectRatio4x3 .PtsColumn{
+     width: 45px;
+ }
+
+ .AspectRatio4x3 .PtsColumn > Image{
+     width: 30px;
+     height: 35px;
+     margin-bottom: -7px;
+ }
+
+ .AspectRatio16x10 .PtsColumn > Image{
+     width: 38px;
+     height: 43px;
+     margin-bottom: -7px;
+ }
+
+.StrColumn,
+.AgiColumn,
+.IntColumn{
+     width: 48px;
+     margin: 0 2px;
+ }
+
+
+ .PtsColumnImg, .DdColumnImg, .DrColumnImg{
+     horizontal-align: center;
+     vertical-align: center;
+ }
+
+
+
+ .Team{
+     width: 100%;
+     animation-duration: .7s;
+     animation-name: EndPlayerFadeLeft;
+     animation-timing-function: ease-in-out;
+     flow-children: down;
+ }
+
+ .Team.IsWinner #TeamInfo > .HeaderColumn > #WinnerPanel{
+     visibility: visible;
+ }
+
+ .Team #TeamInfo{
+     width: 1600px;
+     height: 50px;
+     padding-top: 1px;
+     padding-bottom: 6px;
+     background-color: gradient(linear, 0% 0%, 0% 100%, from(#222424), to(#121a1f));
+     flow-children: right;
+     horizontal-align: center;
+ }
+
+ .AspectRatio4x3 .Team #TeamInfo{
+     width: 1350px;
+     height: 60px;
+ }
+
+ .Team #TeamInfo > .HeaderColumn #TeamFlowBlock{
+     height: 54px;
+     margin-left: 7px;
+     flow-children: down;
+ }
+
+ .Team #TeamInfo > .HeaderColumn #TeamFlowBlock #TeamName{
+     height: 36px;
+     margin-top: 6px;
+     margin-left: 10px;
+     font-size: 26px;
+     font-weight: thin;
+     letter-spacing: 1px;
+     color: #fff;
+     text-shadow: 2px 2px 2px #000;
+     vertical-align: center;
+ }
+
+ .Team #TeamInfo > .HeaderColumn #TeamFlowBlock #TeamScorePanel{
+     margin-top: -8px;
+     flow-children: right;
+ }
+
+ .Team #TeamInfo > .HeaderColumn #TeamFlowBlock #TeamScorePanel > Label{
+     font-size: 18px;
+     font-weight: thin;
+     color: #fff;
+     text-transform: uppercase;
+ }
+
+ .Team #TeamInfo > .HeaderColumn #TeamFlowBlock #TeamScorePanel #TeamScoreValue{
+     font-weight: bold;
+ }
+
+ .Team #TeamInfo > .HeaderColumn #WinnerPanel{
+     height: 32px;
+     padding-left: 2px;
+     margin-top: 1px;
+     visibility: collapse;
+     transition-duration: .4s;
+     transition-property: transform;
+     align: right center;
+ }
+
+ .Team #TeamInfo > .HeaderColumn #WinnerPanel #WinnerSides{
+     z-index: 0;
+     width: 14px;
+     height: 14px;
+     margin-right: -7px;
+     background-color: #cad3e7;
+     transform: rotateZ(45deg) translateY(3px);
+ }
+
+ .Team #TeamInfo > .HeaderColumn #WinnerPanel #WinnerTag{
+     z-index: 1;
+     width: 80px;
+     height: 20px;
+     padding-top: 2px;
+     font-size: 14px;
+     font-weight: bold;
+     letter-spacing: 2px;
+     color: #000;
+     text-align: center;
+     text-overflow: shrink;
+     text-shadow: 0 0 8px 1 #000;
+     text-transform: uppercase;
+     background-color: #cad3e7;
+ }
+
+ .Team #TeamInfo > Label,
+.Team #TeamInfo > .NetWorthColumn{
+
+     max-height: 27px;
+     font-size: 20px;
+     color: #95adac;
+     text-overflow: shrink;
+
+     text-align: center;
+     text-transform: uppercase;
+ }
+
+ .AspectRatio4x3 .Team #TeamInfo > Label,
+.AspectRatio4x3 .Team #TeamInfo > .NetWorthColumn{
+
+     font-size: 18px;
+ }
+
+ .Team #TeamInfo > Label,
+.Team #TeamInfo > Panel,
+.Team #TeamInfo > Image,
+.Team #TeamInfo > .NetWorthColumn{
+
+
+
+     tooltip-position: top;
+     tooltip-body-position: 75%;
+ }
+
+ .Team #TeamInfo .StrColumn,
+.Team #TeamInfo .AgiColumn,
+.Team #TeamInfo .IntColumn{
+
+
+     height: 32px;
+     padding: 0 8px;
+ }
+
+ .Team #TeamInfo .LegendPanel{
+     vertical-align: bottom;
+ }
+
+ .Player{
+     width: 1600px;
+     height: 40px;
+     padding-bottom: 0px;
+     background-color: rgba(0, 0, 0, 0.9);
+     border-top: 1px solid #000;
+     border-bottom: 2px solid #000;
+     opacity: .0001;
+     animation-duration: .4s;
+     animation-name: EndPlayerFadeLeft;
+     animation-timing-function: ease-in-out;
+     flow-children: right;
+     horizontal-align: center;
+ }
+
+ .AspectRatio4x3 .Player{
+     width: 1350px;
+ }
+
+ .Player.IsLocalPlayer{
+     background-color: rgba(75, 75, 75, 0.7);
+ }
+
+ .IsRight .Player{
+     animation-name: EndPlayerFadeRight;
+ }
+
+ .Player.AnimationEnd{
+     opacity: 1;
+ }
+
+ .Player > .HeaderColumn{
+     height: 100%;
+     flow-children: right;
+ }
+
+ .Player > .HeaderColumn #PlayerAvatar{
+     width: 42px;
+     height: 42px;
+     margin-left: 6px;
+     vertical-align: center;
+     border: 4px solid #2b2b2b;
+     margin-right: 5px;
+ }
+
+ .Player > .HeaderColumn #HeroIcon{
+     width: 72px;
+     height: 42px;
+     vertical-align: center;
+     background-color: rgba(0, 0, 0, 0.87);
+     border: 1px solid #000;
+ }
+
+ .Player > .HeaderColumn #NameAndHero #PlayerNameScoreboard, .BotNameScoreboard{
+     width: 100%;
+     height: 20px;
+     white-space: nowrap;
+     wash-color: #b9d3d3;
+ }
+
+ .Player > .HeaderColumn #NameAndHero #PlayerNameScoreboard > Label, .BotNameScoreboard{
+     padding-right: 12px;
+     padding-left: 12px;
+     font-size: 16px;
+     font-weight: thin;
+     letter-spacing: 1px;
+     text-overflow: shrink;
+     white-space: nowrap;
+ }
+
+ .Player > .HeaderColumn #HeroLevelLabel{
+     width: 27px;
+     height: 27px;
+     padding-top: 4px;
+     padding-right: 1px;
+     margin-top: -3px;
+     margin-bottom: -3px;
+     margin-left: 6px;
+     font-size: 14px;
+     letter-spacing: 1px;
+     color: #e7d291;
+     text-align: center;
+     text-overflow: shrink;
+     vertical-align: bottom;
+     border: 1px solid rgba(231, 210, 145, 0.533);
+     border-radius: 50%;
+     box-shadow: fill 0 0 12px #000;
+ }
+
+
+ .Player > .HeaderColumn #NameAndHero #LevelAndHero{
+     margin-left: 10px;
+     font-size: 14px;
+     color: #ccc;
+     text-overflow: shrink;
+     text-transform: uppercase;
+     vertical-align: center;
+ }
+
+ .BotNameScoreboard{
+	visibility: collapse;
+ }
+
+ .Player > Label{
+     margin-top: 3px;
+     margin-bottom: 3px;
+     font-size: 20px;
+     color: #fff;
+     text-align: center;
+     text-overflow: shrink;
+     text-shadow: 1px 1px 3px 3 #000;
+     vertical-align: center;
+     brightness: 2;
+ }
+
+ .AspectRatio4x3 .Player > Label{
+     font-size: 17px;
+     text-shadow: 1px 1px 5px 3 rgba(0, 0, 0, 0.5);
+     brightness: 1.2;
+     color: rgba(255, 255, 255, 0.8);
+ }
+
+ .Player > .NetWorthColumn{
+     font-size: 17px;
+     color: #e7ba01;
+     text-align: right;
+     text-overflow: shrink;
+ }
+
+ .Player #ItemsContainer,
+.Player #BackpackItemsContainer,
+.Player #NeutralItemContainer{
+
+
+     height: 100%;
+ }
+
+ .Player #ItemsContainer DOTAItemImage,
+.Player #BackpackItemsContainer DOTAItemImage,
+.Player #NeutralItemContainer DOTAItemImage{
+
+
+     width: 47px;
+     height: width-percentage(72.7%);
+     margin: 0 1px;
+     vertical-align: center;
+     border: 1px solid #000;
+     tooltip-position: right;
+     tooltip-body-position: 3%;
+ }
+
+.AspectRatio4x3 .Player #ItemsContainer DOTAItemImage,
+.AspectRatio4x3 .Player #BackpackItemsContainer DOTAItemImage,
+.AspectRatio4x3 .Player #NeutralItemContainer DOTAItemImage{
+
+
+     width: 40px;
+     horizontal-align: center;
+ }
+
+
+ .FadeOut .Player{
+     animation-direction: reverse;
+ }
+
+
+.Player > Label.TotalMoneyColumn {
+    color: #dbcd01;
+}
+
+
+ @keyframes 'EndPlayerFadeLeft'{
+     0%{
+         opacity: 0;
+         transform: translateX(-1500px);
+     }
+     60%{
+         opacity: 1;
+         transform: translateX(30px);
+     }
+     80%{
+         transform: translateX(-10px);
+     }
+     100%{
+         opacity: 1;
+         transform: translateX(0);
+     }
+ }
+
+
+ @keyframes 'EndPlayerFadeRight'{
+     0%{
+         opacity: 0;
+         transform: translateX(1500px);
+     }
+     60%{
+         opacity: 1;
+         transform: translateX(-30px);
+     }
+     80%{
+         transform: translateX(10px);
+     }
+     100%{
+         opacity: 1;
+         transform: translateX(0);
+     }
+}
