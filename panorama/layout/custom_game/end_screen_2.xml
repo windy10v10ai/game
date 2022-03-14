@@ -13,14 +13,17 @@
 		<snippet name="Team">
 			<Panel class="Team">
 				<Panel id="TeamInfo">
-					<Panel id="TeamDataPanel" class="LegendPanel HeaderColumn" />
+					<Panel id="TeamDataPanel" class="LegendPanel HeaderColumn">
+						<Label id="GoldXpMultiplier" class="GameOptions" text="#player_gold_xp_multiplier" />
+						<Label id="TowerPower" class="GameOptions" text="#radiant_tower_power" />
+					</Panel>
 					<Label class="LegendPanel KdaColumn" text="#dota_page_match_details_legend_kills" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_kills_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					<Label class="LegendPanel KdaColumn" text="#dota_page_match_details_legend_deaths" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_deaths_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					<Label class="LegendPanel KdaColumn" text="#dota_page_match_details_legend_assists" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_assists_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					<Label class="LegendPanel LastHitColumn" text="#dota_page_match_details_legend_last_hits" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_last_hits_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 
 					<Panel class="LegendPanel TotalMoneyColumn">
-						<Image class="DdColumnImg" src="s2r://panorama/images/hud/icon_gold_psd.vtex" onmouseover="UIShowTextTooltipStyled( #custom_end_screen_legend_gold, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+						<Image class="DdColumnImg" src="s2r://panorama/images/hud/icon_gold_psd.vtex" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_net_worth, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					</Panel>
 					<Panel class="LegendPanel TotalDamageColumn">
 						<Image class="DdColumnImg" src="s2r://panorama/images/custom_game/icon_damage_png.vtex" onmouseover="UIShowTextTooltipStyled( #dota_page_post_game_damage_dealt, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />

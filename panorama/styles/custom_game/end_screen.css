@@ -128,6 +128,21 @@
     text-align: center;
 }
 
+#TeamDataPanel{
+    horizontal-align: center;
+	flow-children: down;
+}
+
+.GameOptions{
+    margin-left: 12px;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 3px 3px 10px black;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
  .AspectRatio4x3 #EndScreenWindow #MatchResultBlock #EndScreenVictory{
      margin-top: 85px;
      font-size: 40px;
