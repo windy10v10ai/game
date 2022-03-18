@@ -2,7 +2,7 @@
 
 var imageMap = {
 	'meepo': 'meepo_custom',
-	'juggernaut': 'juggernaut_custom.',
+	'juggernaut': 'juggernaut_custom',
 	'techies': 'techies_custom',
 }
 
