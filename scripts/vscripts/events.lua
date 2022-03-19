@@ -159,6 +159,9 @@ function AIGameMode:OnGameStateChanged(keys)
 				end
 			end
 		end
+		Timers:CreateTimer(1, function ()
+			self:EndScreenStats(true, false)
+		end)
 
 	elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
 		-- modifier towers
@@ -229,10 +232,9 @@ function AIGameMode:OnGameStateChanged(keys)
 			end
 		end
 
-		-- Timers:CreateTimer(function ()
-		-- 	AIGameMode:BotCourierTransfer()
-		-- 	return 1.0
-		-- end)
+		Timers:CreateTimer(1, function ()
+			self:EndScreenStats(true, false)
+		end)
 
 	elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		self.fGameStartTime = GameRules:GetGameTime()
@@ -243,11 +245,6 @@ function AIGameMode:OnGameStateChanged(keys)
 		Timers:CreateTimer(30, function ()
 			AIGameMode:SpawnNeutralCreeps30sec()
 		end)
-
-		-- test end info
-		if self.DebugMode then
-			self:EndScreenStats(true, true)
-		end
 
 	elseif state == DOTA_GAMERULES_STATE_POST_GAME then
 		self:EndScreenStats(true, true)
@@ -639,7 +636,6 @@ function AIGameMode:OnItemPickedUp( event )
 	local hHero = EntIndexToHScript( event.HeroEntityIndex )
 	if event.PlayerID ~= nil and item ~= nil and hHero ~= nil and item:GetAbilityName() == "item_bag_of_gold" then
 		local iGold = item:GetSpecialValueFor("bonus_gold")
-		print("-----------------debug-----------------", hHero:GetName().." Pick item:"..item:GetAbilityName().." gold:"..iGold)
 		hHero:ModifyGoldFiltered(iGold, true, DOTA_ModifyGold_RoshanKill)
 		SendOverheadEventMessage(hHero, OVERHEAD_ALERT_GOLD, hHero, iGold, nil)
 	end
