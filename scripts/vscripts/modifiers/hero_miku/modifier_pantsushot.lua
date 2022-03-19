@@ -4,7 +4,7 @@ modifier_pantsushot = class({})
 -- Classifications
 function modifier_pantsushot:IsHidden()
 	-- actual true
-	return false
+	return true
 end
 
 function modifier_pantsushot:IsPurgable()
@@ -20,12 +20,14 @@ function modifier_pantsushot:OnCreated( kv )
 	-- references
 	self.crit_chance = self:GetAbility():GetSpecialValueFor( "crit_chance" )
 	self.crit_bonus = self:GetAbility():GetSpecialValueFor( "crit_bonus" )
+	self.stunDuration = self:GetAbility():GetSpecialValueFor( "stun_duration" )
 end
 
 function modifier_pantsushot:OnRefresh( kv )
 	-- references
 	self.crit_chance = self:GetAbility():GetSpecialValueFor( "crit_chance" )
 	self.crit_bonus = self:GetAbility():GetSpecialValueFor( "crit_bonus" )
+	self.stunDuration = self:GetAbility():GetSpecialValueFor( "stun_duration" )
 end
 
 function modifier_pantsushot:OnDestroy( kv )
@@ -55,7 +57,15 @@ function modifier_pantsushot:GetModifierPreAttack_CriticalStrike( params )
 			self.record = params.record
 			local target = params.target
 			self:GetAbility():StartCooldown(self:GetAbility():GetSpecialValueFor( "cooldown" ))
-			params.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_generic_stunned_lua", {duration = 0.3})
+
+            -- stun the enemy
+            target:AddNewModifier(
+                self:GetCaster(), -- player source
+                self:GetAbility(), -- ability source
+                "modifier_stunned", -- modifier name
+                { duration = self.stunDuration } -- kv
+            )
+
 			return self.crit_bonus
 		end
 	end

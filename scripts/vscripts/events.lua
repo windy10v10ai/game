@@ -86,35 +86,6 @@ function AIGameMode:GetFreeHeroName()
 end
 
 
--- function AIGameMode:BotCourierTransfer()
--- 	local hCourier = Entities:FindByClassname(nil, "npc_dota_courier")
-
--- 	while hCourier do
--- 		if not self.tHumanPlayerList[hCourier:GetPlayerOwnerID()] then
--- 			local hHero = PlayerResource:GetSelectedHeroEntity(hCourier:GetPlayerOwnerID())
--- 			local hFountain = Entities:FindByClassnameWithin(nil, "ent_dota_fountain", hCourier:GetOrigin(), 1000)
-
--- 			if hHero:GetNumItemsInStash() > 0 and not hHero.sTransferTimer and hFountain then
--- 				hHero.sTransferTimer = Timers:CreateTimer({
--- 					endTime = 2,
--- 					hCourier = hCourier,
--- 					hHero = hHero,
--- 					callback = function (args)
--- 						if args.hHero:GetNumItemsInStash() > 0 then
--- 							local hAbility = args.hCourier:FindAbilityByName("courier_take_stash_and_transfer_items")
--- 							args.hCourier:CastAbilityNoTarget(hAbility, args.hCourier:GetPlayerOwnerID())
--- 						end
-
--- 						args.hHero.sTransferTimer = nil
--- 					end
--- 				})
--- 			end
--- 		end
-
--- 		hCourier = Entities:FindByClassname(hCourier, "npc_dota_courier")
--- 	end
--- end
-
 function AIGameMode:InitHumanPlayerListAndSetHumanStartGold()
 	if self.PreGameOptionsSet then
 		print("[AIGameMode] InitSettings")
@@ -188,6 +159,9 @@ function AIGameMode:OnGameStateChanged(keys)
 				end
 			end
 		end
+		Timers:CreateTimer(1, function ()
+			self:EndScreenStats(true, false)
+		end)
 
 	elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
 		-- modifier towers
@@ -258,10 +232,9 @@ function AIGameMode:OnGameStateChanged(keys)
 			end
 		end
 
-		-- Timers:CreateTimer(function ()
-		-- 	AIGameMode:BotCourierTransfer()
-		-- 	return 1.0
-		-- end)
+		Timers:CreateTimer(1, function ()
+			self:EndScreenStats(true, false)
+		end)
 
 	elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		self.fGameStartTime = GameRules:GetGameTime()
@@ -272,11 +245,6 @@ function AIGameMode:OnGameStateChanged(keys)
 		Timers:CreateTimer(30, function ()
 			AIGameMode:SpawnNeutralCreeps30sec()
 		end)
-
-		-- test end info
-		if self.DebugMode then
-			self:EndScreenStats(true, true)
-		end
 
 	elseif state == DOTA_GAMERULES_STATE_POST_GAME then
 		self:EndScreenStats(true, true)
@@ -668,7 +636,6 @@ function AIGameMode:OnItemPickedUp( event )
 	local hHero = EntIndexToHScript( event.HeroEntityIndex )
 	if event.PlayerID ~= nil and item ~= nil and hHero ~= nil and item:GetAbilityName() == "item_bag_of_gold" then
 		local iGold = item:GetSpecialValueFor("bonus_gold")
-		print("-----------------debug-----------------", hHero:GetName().." Pick item:"..item:GetAbilityName().." gold:"..iGold)
 		hHero:ModifyGoldFiltered(iGold, true, DOTA_ModifyGold_RoshanKill)
 		SendOverheadEventMessage(hHero, OVERHEAD_ALERT_GOLD, hHero, iGold, nil)
 	end
@@ -750,10 +717,18 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
         --matchID = matchID,
         mapName = GetMapName(),
         players = {},
+        options = {},
         isWinner = isWinner,
         duration = math.floor(time),
         flags = {}
     }
+
+	data.options = {
+		playerGoldXpMultiplier = self.fPlayerGoldXpMultiplier,
+		botGoldXpMultiplier = self.fBotGoldXpMultiplier,
+		radiantTowerPower = AIGameMode:StackToPercentage(self.iRadiantTowerPower),
+		direTowerPower = AIGameMode:StackToPercentage(self.iDireTowerPower),
+	}
 
     for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and PlayerResource:GetSelectedHeroEntity(playerID) then
@@ -764,11 +739,9 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
 
-                print(" : " .. hero:GetUnitName() .. " GetHeroDamageTaken : " .. PlayerResource:GetHeroDamageTaken(playerID, true))
                 for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
 					if PlayerResource:IsValidPlayerID(victimID) and PlayerResource:IsValidPlayer(victimID) and PlayerResource:GetSelectedHeroEntity(victimID) then
 						if PlayerResource:GetTeam(victimID) ~= PlayerResource:GetTeam(playerID) then
-							print(" : " .. hero:GetUnitName() .. " GetDamageDoneFromHero "..victimID..": " .. PlayerResource:GetDamageDoneToHero(victimID, playerID))
 							damagereceived = damagereceived + PlayerResource:GetDamageDoneToHero(victimID, playerID)
 						end
 					end
@@ -779,10 +752,8 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
                     kills = PlayerResource:GetKills(playerID) or 0,
                     deaths = PlayerResource:GetDeaths(playerID) or 0,
                     assists = PlayerResource:GetAssists(playerID) or 0,
-					-- TODO
-                    damage = damage,
+                    damage = damage or 0,
                     damagereceived = damagereceived or 0,
-					-- TODO
                     heroName = hero:GetUnitName() or "Haachama",
                     lasthits = PlayerResource:GetLastHits(playerID) or 0,
                     heroHealing = PlayerResource:GetHealing(playerID) or 0,
@@ -819,4 +790,30 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
 	PrintTable(data)
 
     CustomNetTables:SetTableValue(sTable, "player_data", data)
+end
+
+function AIGameMode:StackToPercentage(iStackCount)
+	if iStackCount == 1 then
+		return "50%"
+	elseif iStackCount == 2 then
+		return "75%"
+	elseif iStackCount == 3 then
+		return "100%"
+	elseif iStackCount == 4 then
+		return "125%"
+	elseif iStackCount == 5 then
+		return "150%"
+	elseif iStackCount == 6 then
+		return "175%"
+	elseif iStackCount == 7 then
+		return "200%"
+	elseif iStackCount == 8 then
+		return "250%"
+	elseif iStackCount == 9 then
+		return "300%"
+	elseif iStackCount == 10 then
+		return "500%"
+	else
+		return "100%"
+	end
 end

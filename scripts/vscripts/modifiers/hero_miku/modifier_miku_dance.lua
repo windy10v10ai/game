@@ -1,26 +1,28 @@
-modifier_get_down = class({})
+modifier_miku_dance = class({})
 
 --------------------------------------------------------------------------------
 -- Classifications
-function modifier_get_down:IsHidden()
+function modifier_miku_dance:IsHidden()
+	return true
+end
+
+function modifier_miku_dance:IsDebuff()
 	return false
 end
 
-function modifier_get_down:IsDebuff()
-	return false
-end
-
-function modifier_get_down:IsPurgable()
+function modifier_miku_dance:IsPurgable()
 	return false
 end
 
 --------------------------------------------------------------------------------
 -- Initializations
-function modifier_get_down:OnCreated( kv )
+function modifier_miku_dance:OnCreated( kv )
 	-- references
-	self.damage = self:GetAbility():GetSpecialValueFor( "sand_storm_damage" ) -- special value
-	self.radius = self:GetAbility():GetSpecialValueFor( "sand_storm_radius" ) -- special value
-	self.interval = 0.3
+	self.damage = self:GetAbility():GetSpecialValueFor( "dance_damage" ) -- special value
+	self.radius = self:GetAbility():GetSpecialValueFor( "dance_radius" ) -- special value
+	self.interval = self:GetAbility():GetSpecialValueFor( "attack_interval" )
+	self.damageReduction = self:GetAbility():GetSpecialValueFor( "damage_reduction" )
+	self.stunDuration = self:GetAbility():GetSpecialValueFor( "stun_duration" )
 
 	if IsServer() then
 		-- initialize
@@ -28,9 +30,10 @@ function modifier_get_down:OnCreated( kv )
 		self.damageTable = {
 			-- victim = target,
 			attacker = self:GetParent(),
-			damage = self.damage * self.interval,
+			damage = self.damage ,
 			damage_type = DAMAGE_TYPE_MAGICAL,
-			ability = self:GetAbility(), --Optional.
+			ability = self:GetAbility(),
+		--Optional.
 		}
 
 		-- Start interval
@@ -42,20 +45,20 @@ function modifier_get_down:OnCreated( kv )
 	end
 end
 
-function modifier_get_down:OnRefresh( kv )
+function modifier_miku_dance:OnRefresh( kv )
 	-- references
-	self.damage = self:GetAbility():GetSpecialValueFor( "sand_storm_damage" ) -- special value
-	self.radius = self:GetAbility():GetSpecialValueFor( "sand_storm_radius" ) -- special value
+	self.damage = self:GetAbility():GetSpecialValueFor( "dance_damage" ) -- special value
+	self.radius = self:GetAbility():GetSpecialValueFor( "dance_radius" ) -- special value
 
 	if IsServer() then
 		-- initialize
-		self.damageTable.damage = self.damage * self.interval
+		self.damageTable.damage = self.damage
 		self.active = kv.start
 		self:SetDuration( kv.duration, true )
 	end
 end
 
-function modifier_get_down:OnDestroy( kv )
+function modifier_miku_dance:OnDestroy( kv )
 	if IsServer() then
 		-- stop effects
 		self:StopEffects()
@@ -68,11 +71,25 @@ end
 
 --------------------------------------------------------------------------------
 -- Status Effects
+function modifier_miku_dance:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+	}
 
+	return funcs
+end
+
+function modifier_miku_dance:GetModifierIncomingDamage_Percentage( params )
+	if IsServer() then
+		if self.active then
+			return self.damageReduction
+		end
+	end
+end
 
 --------------------------------------------------------------------------------
 -- Interval Effects
-function modifier_get_down:OnIntervalThink()
+function modifier_miku_dance:OnIntervalThink()
 	if self.active==0 then return end
 
 	-- find enemies
@@ -92,17 +109,22 @@ function modifier_get_down:OnIntervalThink()
 	for _,enemy in pairs(enemies) do
 		self.damageTable.victim = enemy
 		ApplyDamage( self.damageTable )
-		self:GetCaster():PerformAttack (
-		enemy,
-		true,
-		true,
-		true,
-		false,
-		false,
-		false,
-		true
-	)
-		
+		enemy:AddNewModifier(
+			caster, -- player source
+			self, -- ability source
+			"modifier_stunned", -- modifier name
+			{ duration = self.stunDuration } -- kv
+		)
+		self:GetCaster():PerformAttack(
+			enemy,
+			true,
+			true,
+			true,
+			false,
+			true,
+			false,
+			true)
+
 	end
 
 	-- effects: reposition cloud
@@ -113,19 +135,14 @@ end
 
 --------------------------------------------------------------------------------
 -- Graphics & Animations
-function modifier_get_down:PlayEffects( radius )
-	local caster = self:GetCaster()
-	if caster:HasModifier("modifier_miku_arcana") then
-		if caster:HasModifier("modifier_chibi_monster") then
-		self.sound_cast = "miku.6_calne_ult"
-		else
-		self.sound_cast = "miku.6_calne_base"
-		end
-	self.particle_cast = "particles/get_down_calne.vpcf"
-	
+function modifier_miku_dance:PlayEffects( radius )
+self.caster = self:GetCaster()
+	if self.caster:HasModifier("modifier_miku_arcana") then
+		self.particle_cast = "particles/miku_song_aura_calne.vpcf"
+	self.sound_cast = "miku.4_calne_"..RandomInt(1,2)
 	else
-	self.particle_cast = "particles/get_down.vpcf"
-	self.sound_cast = "miku.6"
+	self.particle_cast = "particles/miku_song_aura.vpcf"
+	self.sound_cast = "miku.song_"..RandomInt(1,3)
 	end
 
 	-- Create Particle
@@ -137,15 +154,16 @@ function modifier_get_down:PlayEffects( radius )
 	EmitSoundOn( self.sound_cast, self:GetParent() )
 end
 
-function modifier_get_down:StopEffects()
+function modifier_miku_dance:StopEffects()
 	-- Stop particles
 	ParticleManager:DestroyParticle( self.effect_cast, false )
 	ParticleManager:ReleaseParticleIndex( self.effect_cast )
 
 	-- Stop sound
 	local sound_cast = ""
-	StopSoundOn( "miku.6", self:GetParent() )
-	StopSoundOn( "miku.6_calne_base", self:GetParent() )
-	StopSoundOn( "miku.6_calne_ult", self:GetParent() )
-
+	StopSoundOn( "miku.song_1", self:GetParent() )
+	StopSoundOn( "miku.song_2", self:GetParent() )
+	StopSoundOn( "miku.song_3", self:GetParent() )
+	StopSoundOn( "miku.4_calne_1", self:GetParent() )
+	StopSoundOn( "miku.4_calne_2", self:GetParent() )
 end

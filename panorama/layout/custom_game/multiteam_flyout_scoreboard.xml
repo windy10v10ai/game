@@ -13,13 +13,17 @@
   <Panel hittest="false" class="FlyoutScoreboardRoot">
 		<Panel id="TeamsContainer">
 			<Panel id="RadiantHeader" class="Legend">
-					<Panel class="LegendPanel ScoreCol_TeamInfoAndHero">
-						<Label id="RadiantLabel" class="TeamLabel" text="#DOTA_GoodGuys"/>
+					<Panel class="LegendPanel ScoreCol_TeamInfoAndHero FlowRightPanel">
+						<Label id="RadiantLabel" class="TeamLabel" text="#DOTA_GoodGuysShort"/>
+						<Label id="TeamScoreSmall" class="TeamScoreSmall" text="999"/>
+						<Panel id="OptionValue" class="FlowDownPanel">
+							<Label id="GoldXpMultiplier" class="GameOptionValue" text="#player_multiplier" />
+							<Label id="TowerPower" class="GameOptionValue" text="#tower_power" />
+						</Panel>
 					</Panel>
-				<Label class="LegendPanel ScoreCol_TeamScore" text="#custom_end_screen_legend_team_score" />
-				<Label class="LegendPanel ScoreCol_Kills" text="#custom_end_screen_legend_kills" />
-				<Label class="LegendPanel ScoreCol_Deaths" text="#custom_end_screen_legend_deaths" />
-				<Label class="LegendPanel ScoreCol_Assists" text="#custom_end_screen_legend_assists" />
+				<Label class="LegendPanel ScoreCol_Kills" text="#custom_end_screen_legend_kills" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_kills_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+				<Label class="LegendPanel ScoreCol_Deaths" text="#custom_end_screen_legend_deaths" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_deaths_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+				<Label class="LegendPanel ScoreCol_Assists" text="#custom_end_screen_legend_assists" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_assists_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 			</Panel>
 			<Panel hittest="false" id="_dynamic_team_2" class="FlyoutTeam">
 				<Panel class="FlyoutTeamData">
@@ -29,15 +33,16 @@
 					</Panel>
 					<Panel id="PlayersContainer" />
 				</Panel>
-				<Panel id="TeamScorePanel" class="ScoreCol_TeamScore">
-					<Label id="TeamScore" text="$" />
-				</Panel>
 			</Panel>
 			<Panel id="DireHeader" class="Legend">
-					<Panel class="LegendPanel ScoreCol_TeamInfoAndHero">
-						<Label id="DireLabel" class="TeamLabel" text="#DOTA_BadGuys"/>
+					<Panel class="LegendPanel ScoreCol_TeamInfoAndHero FlowRightPanel">
+						<Label id="DireLabel" class="TeamLabel" text="#DOTA_BadGuysShort"/>
+						<Label id="TeamScoreSmall" class="TeamScoreSmall" text="999"/>
+						<Panel id="OptionValue" class="FlowDownPanel">
+							<Label id="GoldXpMultiplier" class="GameOptionValue" text="#bot_multiplier" />
+							<Label id="TowerPower" class="GameOptionValue" text="#tower_power" />
+						</Panel>
 					</Panel>
-				<Label class="LegendPanel ScoreCol_TeamScore" text="#custom_end_screen_legend_team_score" />
 				<Label class="LegendPanel ScoreCol_Kills" text="#custom_end_screen_legend_kills" />
 				<Label class="LegendPanel ScoreCol_Deaths" text="#custom_end_screen_legend_deaths" />
 				<Label class="LegendPanel ScoreCol_Assists" text="#custom_end_screen_legend_assists" />
@@ -49,9 +54,6 @@
 						<Panel id="TeamLogo" />
 					</Panel>
 					<Panel id="PlayersContainer" />
-				</Panel>
-				<Panel id="TeamScorePanel" class="ScoreCol_TeamScore">
-					<Label id="TeamScore" text="$" />
 				</Panel>
 			</Panel>
 		</Panel>
