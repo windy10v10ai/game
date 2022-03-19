@@ -1,16 +1,23 @@
+LinkLuaModifier("modifier_miku_scepter", "modifiers/hero_miku/modifier_miku_scepter", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_chibi_monster", "heroes/hero_miku/chibi_monster", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_anime_boombox", "items/item_anime_boombox", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_star_tier1", "modifiers/modifier_star_tier1", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_star_tier2", "modifiers/modifier_star_tier2", LUA_MODIFIER_MOTION_NONE)
 chibi_monster = class({})
 
 function chibi_monster:IsStealable() return true end
 function chibi_monster:IsHiddenWhenStolen() return false end
 
+function chibi_monster:GetIntrinsicModifierName()
+    return "modifier_miku_scepter"
+end
+
 function chibi_monster:OnUpgrade()
-    local ability = self:GetCaster():FindAbilityByName("chibi_hit")
-    if ability and ability:GetLevel() < self:GetLevel() then
-        ability:SetLevel(self:GetLevel())
+    local abilityChibiHit = self:GetCaster():FindAbilityByName("chibi_hit")
+    if abilityChibiHit and abilityChibiHit:GetLevel() < self:GetLevel() then
+        abilityChibiHit:SetLevel(self:GetLevel())
+    end
+    local abilityGetDown = self:GetCaster():FindAbilityByName("get_down")
+    if abilityGetDown and abilityGetDown:GetLevel() < self:GetLevel() then
+        abilityGetDown:SetLevel(self:GetLevel())
     end
 end
 
@@ -20,7 +27,6 @@ function chibi_monster:OnSpellStart()
     local fixed_duration = self:GetSpecialValueFor("fixed_duration")
 
     caster:AddNewModifier(caster, self, "modifier_chibi_monster", {duration = fixed_duration})
-	caster:AddNewModifier(caster, self, "modifier_star_tier2", {duration = fixed_duration})
 
     self:EndCooldown()
 
@@ -226,3 +232,4 @@ function SetZenitsuAwakeLongCd(parent, ability)
         zenitsu_awake.zenitsu_awake_skills_used = true
     end
 end
+

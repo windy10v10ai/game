@@ -57,9 +57,9 @@ function modifier_liu_kick:OnCreated(hTable)
     self.caster = self:GetCaster()
     self.parent = self:GetParent()
     self.ability = self:GetAbility()
-	if self.caster:HasModifier("modifier_miku_arcana") then
-	self:PlayEffects2()
-	else
+	self.stunDuration = self:GetAbility():GetSpecialValueFor( "stun_duration" )
+	if self.caster:HasModifier("modifier_chibi_monster") then
+        self:PlayEffects2()
 	end
 
     if IsServer() then
@@ -80,12 +80,9 @@ function modifier_liu_kick:OnCreated(hTable)
 end
 function modifier_liu_kick:PlayEffects2( )
 self.parent = self:GetParent()
-	 if not self.particle_time2 then
-            self.particle_time2 =    ParticleManager:CreateParticle("particles/calne_kick_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
-
-        end
-
-
+	if not self.particle_time2 then
+        self.particle_time2 = ParticleManager:CreateParticle("particles/calne_kick_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+    end
 end
 function modifier_liu_kick:OnRefresh(hTable)
     self:OnCreated(hTable)
@@ -125,45 +122,34 @@ end
 function modifier_liu_kick:PlayEffects()
     local position = self.target:GetAbsOrigin()
     local damage = self.damage
-     if self.particle_time2 then
+    if self.particle_time2 then
 		ParticleManager:DestroyParticle(self.particle_time2, false)
         ParticleManager:ReleaseParticleIndex(self.particle_time2)
-end
-    --[[local beam_fx = ParticleManager:CreateParticle("particles/heroes/anime_hero_kizaru/liu_kick.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.parent)
-                    ParticleManager:SetParticleControl(beam_fx, 0, self.parent:GetAbsOrigin())
-                    ParticleManager:SetParticleControl(beam_fx, 1, position)
-                    ParticleManager:SetParticleControlEnt(  beam_fx,
-                                                            9,
-                                                            self.parent,
-                                                            PATTACH_POINT_FOLLOW,
-                                                            "attach_foot2",
-                                                            Vector(0,0,0),
-                                                            true)
+    end
 
-                    ParticleManager:ReleaseParticleIndex(beam_fx)]]
-if self.caster:HasModifier("modifier_miku_arcana") then
-    local hit_fx =  ParticleManager:CreateParticle("particles/miku_3_calne_exp.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
-                    ParticleManager:SetParticleControlEnt(  hit_fx,
-                                                            0,
-                                                            self.target,
-                                                            PATTACH_ABSORIGIN_FOLLOW,
-                                                            "attach_hitloc",
-                                                            self.target:GetAbsOrigin(),
-                                                            true)
+    if self.caster:HasModifier("modifier_miku_arcana") then
+        local hit_fx =  ParticleManager:CreateParticle("particles/miku_3_calne_exp.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+                        ParticleManager:SetParticleControlEnt(  hit_fx,
+                                                                0,
+                                                                self.target,
+                                                                PATTACH_ABSORIGIN_FOLLOW,
+                                                                "attach_hitloc",
+                                                                self.target:GetAbsOrigin(),
+                                                                true)
 
-                    ParticleManager:ReleaseParticleIndex(hit_fx)
-else
-    local hit_fx =  ParticleManager:CreateParticle("particles/miku_3_exp.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
-                    ParticleManager:SetParticleControlEnt(  hit_fx,
-                                                            0,
-                                                            self.target,
-                                                            PATTACH_ABSORIGIN_FOLLOW,
-                                                            "attach_hitloc",
-                                                            self.target:GetAbsOrigin(),
-                                                            true)
+                        ParticleManager:ReleaseParticleIndex(hit_fx)
+    else
+        local hit_fx =  ParticleManager:CreateParticle("particles/miku_3_exp.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+                        ParticleManager:SetParticleControlEnt(  hit_fx,
+                                                                0,
+                                                                self.target,
+                                                                PATTACH_ABSORIGIN_FOLLOW,
+                                                                "attach_hitloc",
+                                                                self.target:GetAbsOrigin(),
+                                                                true)
 
-                    ParticleManager:ReleaseParticleIndex(hit_fx)
-					end
+                        ParticleManager:ReleaseParticleIndex(hit_fx)
+    end
 
     local knockback = { should_stun = 0,
                         knockback_duration = 0.5,
@@ -200,9 +186,6 @@ else
 
     for _, enemy in pairs(enemies) do
         if enemy and not enemy:IsNull() and IsValidEntity(enemy) then
-
-            --enemy:AddNewModifier(caster, self, "modifier_liu_kick_disarm", {duration = self:GetSpecialValueFor("duration")})
-
             local damage_table = {  victim = enemy,
                                     attacker = self.parent,
                                     damage = damage,
@@ -211,17 +194,28 @@ else
 									}
 
             ApplyDamage(damage_table)
+            -- normal attck
+            self:GetCaster():PerformAttack (
+            enemy,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true)
+
+
+            if self:GetCaster():HasModifier("modifier_chibi_monster") then
+                -- stun the enemy
+                enemy:AddNewModifier(
+                    self:GetCaster(), -- player source
+                    self, -- ability source
+                    "modifier_stunned", -- modifier name
+                    { duration = self.stunDuration } -- kv
+                )
+            end
         end
-		self:GetCaster():PerformAttack (
-		enemy,
-		true,
-		true,
-		true,
-		false,
-		false,
-		false,
-		true
-	)
     end
 
     -- EmitSoundOnLocationWithCaster(position, "miku.2", self.parent)

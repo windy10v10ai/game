@@ -1,5 +1,5 @@
 get_down = class({})
-LinkLuaModifier( "modifier_get_down", "modifiers/modifier_get_down", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_get_down", "modifiers/hero_miku/modifier_get_down", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_stunned_lua", "modifiers/modifier_generic_stunned_lua", LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------
 -- Ability Start
@@ -32,7 +32,7 @@ end
 -- end
 
 function get_down:OnChannelFinish( bInterrupted )
-	local delay = self:GetSpecialValueFor("sand_storm_invis_delay")
+	local delay = self:GetSpecialValueFor("attack_interval")
 	self:GetCaster():AddNewModifier(
 		self:GetCaster(), -- player source
 		self, -- ability source
