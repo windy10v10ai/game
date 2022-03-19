@@ -61,7 +61,7 @@ function Snippet_Player(playerId, rootPanel, index) {
 	panel.SetDialogVariableInt("deaths", Players.GetDeaths(playerId));
 	panel.SetDialogVariableInt("assists", Players.GetAssists(playerId));
 	panel.SetDialogVariableInt("lasthits", Players.GetLastHits(playerId));
-	panel.SetDialogVariableInt("money", Players.GetGoldPerMin(playerId));
+	panel.SetDialogVariableInt("money", Players.GetTotalEarnedGold(playerId));
 	panel.SetDialogVariableInt("damage", playerData.damage);
 	panel.SetDialogVariableInt("damagereceived", playerData.damagereceived);
 	panel.SetDialogVariable("heroHealing", playerData.heroHealing);
@@ -100,6 +100,16 @@ function Snippet_Team(team) {
 	panel.SetHasClass("IsRight", true);
 	panel.SetHasClass("IsWinner", GAME_RESULT.isWinner);
 
+	if (team === 2) {
+		panel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#player_multiplier") + ": x" + GAME_RESULT.options.playerGoldXpMultiplier;
+		panel.FindChildTraverse("TowerPower").text = $.Localize("#tower_power") + ": " + GAME_RESULT.options.radiantTowerPower;
+	} else {
+		panel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#bot_multiplier") + ": x" + GAME_RESULT.options.botGoldXpMultiplier;
+		panel.FindChildTraverse("TowerPower").text = $.Localize("#tower_power") + ": " + GAME_RESULT.options.direTowerPower;
+	}
+	const teamDetails = Game.GetTeamDetails( team );
+	panel.FindChildTraverse("TeamScore").text = teamDetails.team_score;
+
 	var ids = Game.GetPlayerIDsOnTeam(team)
 
 	for(var i = 0; i < ids.length; i++) {
@@ -122,7 +132,6 @@ function OnGameResult(table, key, gameResult) {
 	} else {
 		gameResult.isWinner = false;
 	}
-	$.Msg("[EndScreen2] Game result: ", gameResult);
 
 	$("#LoadingPanel").visible = false;
 	$("#EndScreenWindow").visible = true;

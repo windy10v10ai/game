@@ -108,6 +108,75 @@
 	}
 
 	//=================================================================================================================
+	// Backdoor Protection 偷塔保护
+	//=================================================================================================================
+	"backdoor_protection"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5350"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"900"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"activation_time"		"10.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"regen_rate"			"500"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+
+	//=================================================================================================================
+	// Backdoor Protection In Base
+	//=================================================================================================================
+	"backdoor_protection_in_base"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5351"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"activation_time"		"10.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"regen_rate"			"1000"
+			}
+			// this is only used for event games
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"900"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+
+	//=================================================================================================================
 	// ITEMS
 	//=================================================================================================================
 	"item_tpscroll"
@@ -1545,6 +1614,7 @@
 	"axe_counter_helix"
 	{
 		"MaxLevel"						"7"
+		"AbilityCooldown"				"0.2"
 		"AbilitySpecial"
 		{
 			"01"
@@ -7842,6 +7912,18 @@
 				"value"			"40"
 				"RequiresScepter"			"1"
 				"CalculateSpellDamageTooltip"	"0"
+			}
+		}
+	}
+	"special_bonus_unique_nevermore_4"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"30"
+				"ad_linked_abilities"			"nevermore_requiem"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}

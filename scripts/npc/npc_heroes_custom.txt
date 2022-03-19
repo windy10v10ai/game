@@ -21,13 +21,13 @@
 		"Ability6"         "chibi_monster"
 		"Ability22"        "chibi_hit"
 
-		"Ability10"                 "special_bonus_mana_reduction_9"
-		"Ability11"					"special_bonus_hp_150"
-		"Ability12"					"special_bonus_attack_speed_20"
-		"Ability13"					"special_bonus_mp_200"
-		"Ability14"					"special_bonus_all_stats_8"
-		"Ability15"					"special_bonus_attack_damage_250"
-		"Ability16"					"special_bonus_lifesteal_15"
+		"Ability10"                 "special_bonus_hp_275"
+		"Ability11"					"special_bonus_attack_speed_20"
+		"Ability12"					"special_bonus_mana_reduction_9"
+		"Ability13"					"special_bonus_lifesteal_15"
+		"Ability14"					"special_bonus_cooldown_reduction_10"
+		"Ability15"					"special_bonus_all_stats_12"
+		"Ability16"					"special_bonus_attack_damage_250"
 		"Ability17"					"special_bonus_cleave_100"
 
 
@@ -35,15 +35,15 @@
   		{ }
 
 		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
-		"AttributeBaseStrength"		"35"
 		"MagicalResistance"			"30"
+		"AttributeBaseStrength"		"35"
 		"AttributeStrengthGain"		"2.2"
 		"AttributeBaseIntelligence"	"20"
 		"AttributeIntelligenceGain"	"2.0"
 		"AttributeBaseAgility"		"30"
 		"AttributeAgilityGain"		"3.0"
 		"ArmorPhysical"				"5"
-		"MovementSpeed"				"330"
+		"MovementSpeed"				"320"
 		"AttackDamageMin"			"30"
 		"AttackDamageMax"			"35"
 		"VisionDaytimeRange"		"1800"
