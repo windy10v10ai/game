@@ -601,7 +601,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15 13 11 9 7"
+		"AbilityCooldown"				"15 14 13 12 11"
 		"AbilityManaCost"				"70 90 110 130 150"
 
 		// Damage
@@ -684,17 +684,22 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_chance"				"10 15 20 25 30"
+				"crit_chance"				"30"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_bonus"				"120 140 160 180 200"
+				"crit_bonus"				"160 180 200 220 240"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"cooldown"					"1"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"0.4"
 			}
 		}
 	}
@@ -716,12 +721,10 @@
 
 		"AbilityCastPoint"						"0.3"
 		"AbilityCooldown"						"20 18 16 14 12"
-		"AbilityManaCost"						"100 110 120 130 140"
-		"AbilityCastRange"						"800"
+		"AbilityManaCost"						"80 100 120 140 160"
+		"AbilityCastRange"						"600 700 800 900 1000"
 
 		"HasScepterUpgrade"						"0"
-
-
 
 		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_3"
 
@@ -739,22 +742,27 @@
 			"02"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"damage"						"100 200 300 400 500"
+				"damage"						"180 260 330 400 480"
 			}
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"range"							"900"
+				"range"							"600 700 800 900 1000"
 			}
 			"04"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"range_knockback"				"450"
+				"range_knockback"				"300"
 			}
 			"05"
 			{
 				"var_type"						"FIELD_FLOAT"
 				"speed"							"1600"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"stun_duration"					"0.6 0.8 1.0 1.2 1.4"
 			}
 		}
 	}
@@ -793,7 +801,7 @@
 
     	// Ability Resource
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilityCooldown"				"80"
+    	"AbilityCooldown"				"90"
     	"AbilityManaCost"				"200"
 
     	// Damage
@@ -806,12 +814,12 @@
     		"01"
 	    	{
 	    		"var_type"				"FIELD_FLOAT"
-		    	"sand_storm_invis_delay"	"0.9 1.1 1.3 1.5"
+		    	"attack_interval"		"2"
 		    }
 		    "02"
 		    {
 		    	"var_type"				"FIELD_INTEGER"
-		    	"sand_storm_radius"		"650"
+		    	"dance_radius"			"700"
 		    }
 		    "03"
 		    {
@@ -821,7 +829,17 @@
 		    "04"
 	 	    {
 		    	"var_type"				"FIELD_INTEGER"
-		    	"sand_storm_damage"		"600"
+		    	"dance_damage"			"600"
+		    }
+    		"05"
+	    	{
+	    		"var_type"				"FIELD_FLOAT"
+		    	"stun_duration"			"1"
+		    }
+    		"06"
+	    	{
+	    		"var_type"				"FIELD_FLOAT"
+		    	"damage_reduction"		"-40"
 		    }
 	    }
     }
@@ -903,7 +921,8 @@
 		"ScriptFile"					"heroes/hero_miku/chibi_hit"
 		"AbilityTextureName"			"hatsune_5_5"
 		"FightRecapLevel"				"1"
-		"MaxLevel"						"1"
+		"MaxLevel"						"3"
+		"LevelsBetweenUpgrades"			"99"
 
 
 		// Ability General
@@ -924,12 +943,12 @@
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60"
-		"AbilityManaCost"				"300"
+		"AbilityManaCost"				"300 400 500"
 		"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_5"
 
 		// Damage
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000"
+		"AbilityDamage"					"1000 1500 2000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -938,17 +957,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"2.5"
+				"stun_duration"			"1.5 2.0 2.5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dragon_cast_range"			"400"
+				"dragon_cast_range"		"400"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"			"1600"
+				"projectile_speed"		"1600"
 			}
 		}
 	}
@@ -962,9 +981,9 @@
     	"ScriptFile"					"heroes/hero_miku/get_down"
     	"AbilityTextureName"			"miku_6"
     	"FightRecapLevel"				"1"
-    	"MaxLevel"						"1"
-		"RequiredLevel"                 "15"
-		"HasScepterUpgrade" "1"
+    	"MaxLevel"						"3"
+		"LevelsBetweenUpgrades"			"99"
+		"HasScepterUpgrade"				"1"
     	"precache"
     	{
     		"particle"	"particles/naga_siren_song_aura1.vpcf"
@@ -988,7 +1007,7 @@
     	// Ability Resource
     	//-------------------------------------------------------------------------------------------------------------
     	"AbilityCooldown"				"60"
-    	"AbilityManaCost"				"100"
+    	"AbilityManaCost"				"200 300 400"
 
     	// Damage
     	//-------------------------------------------------------------------------------------------------------------
@@ -1000,22 +1019,22 @@
 	    	"01"
 	    	{
 	    		"var_type"				"FIELD_FLOAT"
-		    	"sand_storm_invis_delay"	"0.9 1.1 1.3 1.5"
+		    	"attack_interval"		"1.0 0.8 0.6"
 		    }
 		    "02"
 		    {
 		    	"var_type"				"FIELD_INTEGER"
-		    	"sand_storm_radius"		"600"
+		    	"dance_radius"			"600"
 		    }
 		    "03"
 		    {
 		    	"var_type"				"FIELD_FLOAT"
-		    	"AbilityDuration"		"120"
+		    	"AbilityDuration"		"33"
 		    }
 		    "04"
 		    {
 		    	"var_type"				"FIELD_INTEGER"
-		    	"sand_storm_damage"		"200"
+		    	"dance_damage"			"200 300 400"
 		    }
 	    }
 	}

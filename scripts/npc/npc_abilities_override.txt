@@ -1614,6 +1614,7 @@
 	"axe_counter_helix"
 	{
 		"MaxLevel"						"7"
+		"AbilityCooldown"				"0.2"
 		"AbilitySpecial"
 		{
 			"01"

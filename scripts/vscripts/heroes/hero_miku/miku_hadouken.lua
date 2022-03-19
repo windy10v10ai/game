@@ -1,18 +1,8 @@
 miku_hadouken = class({})
-LinkLuaModifier( "modifier_miku_miku", "heroes/hero_miku/miku_hadouken.lua", LUA_MODIFIER_MOTION_NONE )
 
 
 --------------------------------------------------------------------------------
 -- Ability Start
-function miku_hadouken:OnUpgrade()
-    local ability = self:GetCaster():FindAbilityByName("get_down")
-    if ability and ability:GetLevel() < self:GetLevel() then
-        ability:SetLevel(self:GetLevel())
-    end
-end
-function miku_hadouken:GetIntrinsicModifierName()
-    return "modifier_miku_miku"
-end
 function miku_hadouken:OnSpellStart()
 	-- unit identifier
 	local caster = self:GetCaster()
@@ -109,41 +99,4 @@ function miku_hadouken:PlayEffects( target, direction )
 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
 	ParticleManager:SetParticleControlForward( effect_cast, 1, direction )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
-end
-
-modifier_miku_miku = class ({})
-function modifier_miku_miku:IsHidden() return true end
-function modifier_miku_miku:IsDebuff() return false end
-function modifier_miku_miku:IsPurgable() return false end
-function modifier_miku_miku:IsPurgeException() return false end
-function modifier_miku_miku:RemoveOnDeath() return false end
-
-function modifier_miku_miku:OnCreated()
-    if IsServer() then
-
-
-        self:StartIntervalThink(FrameTime())
-    end
-end
-function modifier_miku_miku:OnRefresh()
-    if IsServer() then
-
-    end
-end
-
-function modifier_miku_miku:OnIntervalThink()
-    if IsServer() then
-        local blue_hair = self:GetParent():FindAbilityByName("get_down")
-        if blue_hair and not blue_hair:IsNull() then
-            if self:GetParent():HasScepter() then
-                if blue_hair:IsHidden() then
-                    blue_hair:SetHidden(false)
-                end
-            else
-                if not blue_hair:IsHidden() then
-                    blue_hair:SetHidden(true)
-                end
-            end
-        end
-    end
 end

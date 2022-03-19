@@ -1,7 +1,5 @@
 miku_dance = class({})
-LinkLuaModifier( "modifier_miku_dance", "modifiers/modifier_miku_dance", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_axe_berserkers_call_lua_debuff", "modifiers/modifier_axe_berserkers_call_lua_debuff", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_generic_disarmed", "modifiers/modifier_generic_disarmed", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_miku_dance", "modifiers/hero_miku/modifier_miku_dance", LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------
 -- Ability Start
 function miku_dance:OnSpellStart()
@@ -33,7 +31,7 @@ end
 -- end
 
 function miku_dance:OnChannelFinish( bInterrupted )
-	local delay = self:GetSpecialValueFor("sand_storm_invis_delay")
+	local delay = self:GetSpecialValueFor("attack_interval")
 	self:GetCaster():AddNewModifier(
 		self:GetCaster(), -- player source
 		self, -- ability source
