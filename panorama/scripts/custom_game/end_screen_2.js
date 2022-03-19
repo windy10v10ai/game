@@ -101,12 +101,14 @@ function Snippet_Team(team) {
 	panel.SetHasClass("IsWinner", GAME_RESULT.isWinner);
 
 	if (team === 2) {
-		panel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#player_gold_xp_multiplier") + ": x" + GAME_RESULT.options.playerGoldXpMultiplier;
-		panel.FindChildTraverse("TowerPower").text = $.Localize("#radiant_tower_power") + ": " + GAME_RESULT.options.radiantTowerPower;
+		panel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#player_multiplier") + ": x" + GAME_RESULT.options.playerGoldXpMultiplier;
+		panel.FindChildTraverse("TowerPower").text = $.Localize("#tower_power") + ": " + GAME_RESULT.options.radiantTowerPower;
 	} else {
-		panel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#bot_gold_xp_multiplier") + ": x" + GAME_RESULT.options.botGoldXpMultiplier;
-		panel.FindChildTraverse("TowerPower").text = $.Localize("#dire_tower_power") + ": " + GAME_RESULT.options.direTowerPower;
+		panel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#bot_multiplier") + ": x" + GAME_RESULT.options.botGoldXpMultiplier;
+		panel.FindChildTraverse("TowerPower").text = $.Localize("#tower_power") + ": " + GAME_RESULT.options.direTowerPower;
 	}
+	const teamDetails = Game.GetTeamDetails( team );
+	panel.FindChildTraverse("TeamScore").text = teamDetails.team_score;
 
 	var ids = Game.GetPlayerIDsOnTeam(team)
 
@@ -130,7 +132,6 @@ function OnGameResult(table, key, gameResult) {
 	} else {
 		gameResult.isWinner = false;
 	}
-	$.Msg("[EndScreen2] Game result: ", gameResult);
 
 	$("#LoadingPanel").visible = false;
 	$("#EndScreenWindow").visible = true;

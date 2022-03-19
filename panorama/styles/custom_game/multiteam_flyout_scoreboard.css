@@ -5,12 +5,12 @@
 {
 	horizontal-align: left;
 	vertical-align: top;
-	margin-top: 95px;
+	margin-top: 110px;
 	margin-left: 30px;
     flow-children: down;
     padding: 0px;
-	background-color: #666666CC;
-	
+	/* background-color: #666666CC; */
+
     transform: translatex( -600px );
     transition-property: transform;
     transition-duration: 0.1s;
@@ -31,9 +31,10 @@
 .Legend
 {
 	width: 100%;
-    background-color: BACKGROUND_COLOR;
-	margin-top: 1px;
+	background-color: rgba(20, 20, 20, 0.5);
+	background-color: gradient(linear, 0% 0%, 0% 100%, from(#222424), to(#121a1f));
 	margin-bottom: -1px;
+	height: 40px;
 }
 
 #RadiantHeader
@@ -50,9 +51,12 @@
 {
 	margin-top: 3px;
 	margin-left: 4px;
-	letter-spacing: 3px;
-	font-size: 18px;
+	letter-spacing: -3px;
+	font-size: 20px;
 	text-transform: uppercase;
+	text-align: center;
+	vertical-align: middle;
+	min-width: 55px;
 }
 
 #RadiantLabel
@@ -105,7 +109,7 @@
 }
 
 .FlyoutPlayer
-{ 
+{
     flow-children: right;
 }
 
@@ -120,7 +124,7 @@
 
 .local_player_team #PlayersContainer
 {
-    box-shadow: fill #ffffff40 -3px -3px 3px 6px;
+    /* box-shadow: fill #ffffff40 -3px -3px 3px 6px; */
 }
 
 .TeamId
@@ -150,6 +154,20 @@
 	text-overflow: clip;
 }
 
+#TeamScoreSmall
+{
+	margin-top: 2px;
+	min-width: 50px;
+	vertical-align: center;
+	horizontal-align: center;
+	color: #cccccc;
+	font-size: 24px;
+	text-shadow: 2px 2px 2px black;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+
 #TeamScorePanel
 {
 	margin-top: 1px;
@@ -169,8 +187,8 @@
 	vertical-align: bottom;
 	text-shadow: 2px 2px 2px black;
 	text-transform: uppercase;
-	font-size: 12px;
-	color: white;
+	font-size: 14px;
+	color: #bdc1c4;
 }
 
 .PlayerRow
@@ -187,7 +205,6 @@
 #HeroIcon
 {
     vertical-align: middle;
-	border: 1px solid black;
 }
 
 #LevelContainer,
@@ -200,9 +217,8 @@
 
 .ScoreboardPanel
 {
-    background-color: BACKGROUND_COLOR;
-	margin-top: 1px;
-	margin-left: 1px;
+	background-color: rgba(0, 0, 0, 0.9);
+	border: 1px solid #000;
 }
 
 .LegendPanel
@@ -344,7 +360,7 @@
 
 .ScoreCol_TeamInfoAndHero
 {
-	width: 225px;
+	width: 285px;
 }
 
 .ScoreCol_TeamInfo
@@ -354,12 +370,12 @@
 
 .ScoreCol_PlayerDetails
 {
-	width: 170px;
+	width: 230px;
 }
 
 .ScoreCol_Hero
 {
-	width: 53px;
+	width: 55px;
 }
 
 .ScoreCol_TeamScore
@@ -376,3 +392,21 @@
 	text-align: center;
 }
 
+#TeamInfo{
+	min-width: 55px;
+}
+.FlowRightPanel{
+    horizontal-align: left;
+	flow-children: right;
+}
+
+.FlowDownPanel{
+    horizontal-align: left;
+	flow-children: down;
+}
+
+.GameOptionValue
+{
+	margin-top: 2px;
+	margin-left: 2px;
+}

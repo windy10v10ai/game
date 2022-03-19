@@ -144,7 +144,6 @@ function StateChange() {
  */
 function OnGameOptionsChange() {
 	var gameOptions = CustomNetTables.GetTableValue('game_options_table', 'game_option');
-	// $.Msg("++++++++++++++OnGameOptionsChange");
 	$("#DisplayOptionsPlayerGoldXp").text = gameOptions.player_gold_xp_multiplier_dropdown;
 	$("#DisplayOptionsBotGoldXp").text = gameOptions.bot_gold_xp_multiplier_dropdown;
 	$("#DisplayOptionsRadiantTower").text = gameOptions.radiant_tower_power_dropdown;
