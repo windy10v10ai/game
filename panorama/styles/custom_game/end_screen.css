@@ -130,13 +130,32 @@
 
 #TeamDataPanel{
     horizontal-align: center;
-	flow-children: down;
+    flow-children: right;
+}
+
+#TeamScore{
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 60px;
+    border: 2px solid rgba(231, 210, 145, 0.533);
+    border-radius: 10%;
+    background-color: rgb(20, 20, 20);
+    font-size: 30px;
+    color: #ffffff;
+    text-shadow: 3px 3px 10px black;
+    text-align: center;
 }
 
 .GameOptions{
-    margin-left: 12px;
-    margin-top: 5px;
-    font-size: 14px;
+    margin-left: 5px;
+    horizontal-align: left;
+	flow-children: down;
+}
+
+.GameOptionValue{
+    margin-left: 5px;
+    margin-top: 3px;
+    font-size: 16px;
     font-weight: bold;
     color: #ffffff;
     text-shadow: 3px 3px 10px black;
@@ -502,7 +521,7 @@
      width: 1600px;
      height: 40px;
      padding-bottom: 0px;
-     background-color: rgba(0, 0, 0, 0.9);
+     background-color: rgba(0, 0, 0, 0.95);
      border-top: 1px solid #000;
      border-bottom: 2px solid #000;
      opacity: .0001;

@@ -14,8 +14,11 @@
 			<Panel class="Team">
 				<Panel id="TeamInfo">
 					<Panel id="TeamDataPanel" class="LegendPanel HeaderColumn">
-						<Label id="GoldXpMultiplier" class="GameOptions" text="#player_gold_xp_multiplier" />
-						<Label id="TowerPower" class="GameOptions" text="#radiant_tower_power" />
+						<Label id="TeamScore" class="TeamScore"/>
+						<Panel id="OptionValue" class="GameOptions">
+							<Label id="GoldXpMultiplier" class="GameOptionValue" text="#player_multiplier" />
+							<Label id="TowerPower" class="GameOptionValue" text="#tower_power" />
+						</Panel>
 					</Panel>
 					<Label class="LegendPanel KdaColumn" text="#dota_page_match_details_legend_kills" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_kills_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					<Label class="LegendPanel KdaColumn" text="#dota_page_match_details_legend_deaths" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_deaths_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />

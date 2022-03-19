@@ -1,5 +1,10 @@
 "use strict";
 
+var imageMap = {
+	'meepo': 'meepo_custom',
+	'juggernaut': 'juggernaut_custom',
+	'techies': 'techies_custom',
+}
 //=============================================================================
 //=============================================================================
 function _ScoreboardUpdater_SetTextSafe( panel, childName, textValue )
@@ -59,7 +64,12 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 		{
 			if ( playerInfo.player_selected_hero !== "" )
 			{
-				playerPortrait.SetImage( "file://{images}/heroes/" + playerInfo.player_selected_hero + ".png" );
+				let heroImageCustom = imageMap[playerInfo.possible_hero_selection];
+				if (heroImageCustom && heroImageCustom !== "") {
+					playerPortrait.SetImage( "file://{images}/heroes/npc_dota_hero_" + heroImageCustom + ".png" );
+				} else {
+					playerPortrait.SetImage( "file://{images}/heroes/" + playerInfo.player_selected_hero + ".png" );
+				}
 			}
 			else
 			{
@@ -199,6 +209,20 @@ function _ScoreboardUpdater_UpdateTeamPanel( scoreboardConfig, containerPanel, t
 				teamLogoPanel.BLoadLayout( logo_xml, false, false );
 			}
 		}
+	}
+
+	const GAME_RESULT = CustomNetTables.GetTableValue("ending_stats", "player_data")
+	$.Msg( "GAME_RESULT = ", GAME_RESULT )
+	if (teamId === 2 && GAME_RESULT) {
+		let radiantPanel = containerPanel.FindChildInLayoutFile( "RadiantHeader" );
+		radiantPanel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#player_multiplier") + ": x" + GAME_RESULT.options.playerGoldXpMultiplier;
+		radiantPanel.FindChildTraverse("TowerPower").text = $.Localize("#tower_power") + ": " + GAME_RESULT.options.radiantTowerPower;
+		radiantPanel.FindChildTraverse("TeamScoreSmall").text = teamDetails.team_score;
+	} else {
+		let direPanel = containerPanel.FindChildInLayoutFile( "DireHeader" );
+		direPanel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#bot_multiplier") + ": x" + GAME_RESULT.options.botGoldXpMultiplier;
+		direPanel.FindChildTraverse("TowerPower").text = $.Localize("#tower_power") + ": " + GAME_RESULT.options.direTowerPower;
+		direPanel.FindChildTraverse("TeamScoreSmall").text = teamDetails.team_score;
 	}
 
 	var localPlayerTeamId = -1;
