@@ -233,7 +233,7 @@ function AIGameMode:OnGameStateChanged(keys)
 		end
 
 		Timers:CreateTimer(1, function ()
-			self:EndScreenStats(true, false)
+			AIGameMode:RefreshGameStatus10sec()
 		end)
 
 	elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
@@ -262,7 +262,20 @@ function AIGameMode:SpawnNeutralCreeps30sec()
 	print("SpawnNeutral at GetDOTATime " .. GameTime)
 	GameRules:SpawnNeutralCreeps()
 
+	-- callback every minute
+	Timers:CreateTimer(60, function ()
+		AIGameMode:SpawnNeutralCreeps30sec()
+	end)
+end
+
+
+function AIGameMode:RefreshGameStatus10sec()
+
+	-- save player info
+	self:EndScreenStats(true, false)
+
 	-- set global state
+	local GameTime = GameRules:GetDOTATime(false, false)
 	if (GameTime >= ((AIGameMode.botPushMin * 4) * 60)) then						-- LATEGAME
 		GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
 	elseif (GameTime >= ((AIGameMode.botPushMin + 4) * 60)) then						-- MIDGAME
@@ -367,9 +380,9 @@ function AIGameMode:SpawnNeutralCreeps30sec()
 	print("creep buff level mega good " .. buffLevelMegaGood)
 	print("creep buff level mega bad " .. buffLevelMegaBad)
 
-	-- callback every minute
-	Timers:CreateTimer(60, function ()
-		AIGameMode:SpawnNeutralCreeps30sec()
+	-- callback every 10 seconds
+	Timers:CreateTimer(10, function ()
+		AIGameMode:RefreshGameStatus10sec()
 	end)
 end
 
@@ -677,29 +690,28 @@ function AIGameMode:OnGameOptionChange(keys)
 end
 
 -- 测试密码
-local developerSteamId = {}
-developerSteamId[136407523]="windy"
-developerSteamId[1194383041]="咸鱼"
-developerSteamId[143575444]="茶神"
-developerSteamId[314757913]="孤尘"
+local developerSteamAccountID = {}
+developerSteamAccountID[136407523]="windy"
+developerSteamAccountID[1194383041]="咸鱼"
+developerSteamAccountID[143575444]="茶神"
+developerSteamAccountID[314757913]="孤尘"
+developerSteamAccountID[916506173]="Arararara"
 
 function AIGameMode:OnPlayerChat( event )
 	local nPlayerID = event.playerid
 	local sChatMsg = event.text
 	if not nPlayerID or not sChatMsg then return end
-	local steamId = PlayerResource:GetSteamAccountID(nPlayerID)
+	local steamAccountID = PlayerResource:GetSteamAccountID(nPlayerID)
 
-	if developerSteamId[steamId] then
+	if developerSteamAccountID[steamAccountID] then
 		if sChatMsg:find( '^-greedisgood$' ) then
 			-- give money to the player
 			-- get hero
 			local hHero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
 			local iGold = 10000
 			hHero:ModifyGold(iGold, true, DOTA_ModifyGold_Unspecified)
-			-- get player name
-			local sPlayerName = PlayerResource:GetPlayerName(nPlayerID)
 			GameRules:SendCustomMessage(
-				"号外号外！开发者:"..developerSteamId[steamId].." 用自己的菊花交换了增加10000金币",
+				"号外号外！开发者:"..developerSteamAccountID[steamAccountID].." 用自己的菊花交换了增加10000金币",
 				DOTA_TEAM_GOODGUYS,
 				0
 			)
@@ -707,6 +719,18 @@ function AIGameMode:OnPlayerChat( event )
 	end
 end
 
+
+-- 会员
+local memberSteamAccountID = Set {
+	-- 开发贡献者
+	136407523,1194383041,143575444,314757913,
+	-- 初始会员
+	136668998,
+	128984820,
+	108208968,
+	-- 测试
+	-- 916506173,
+}
 
 function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
     local time = GameRules:GetDOTATime(false, true)
@@ -735,7 +759,10 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 -- local tip_points = WebServer.TipCounter[playerID] or 0
-                local pointsEarned = 0
+				local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
+                local membership = memberSteamAccountID[steamAccountID] and true or false
+				print("steamId",steamAccountID)
+				print("membership",membership)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
 
@@ -749,6 +776,8 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
 
                 local playerInfo = {
                     steamid = tostring(PlayerResource:GetSteamID(playerID)),
+                    steamAccountID = steamAccountID,
+                    membership = membership,
                     kills = PlayerResource:GetKills(playerID) or 0,
                     deaths = PlayerResource:GetDeaths(playerID) or 0,
                     assists = PlayerResource:GetAssists(playerID) or 0,
@@ -761,20 +790,22 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
                     agi = hero:GetAgility() or 0,
                     int = hero:GetIntellect() or 0,
                     items = {},
-                    points = pointsEarned
                 }
 
-                for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
-                    local item = hero:GetItemInSlot(item_slot)
-                    if item then
-                        playerInfo.items[item_slot] = item:GetAbilityName()
-                    end
-                end
 
-                local hNeutralItem = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-                if hNeutralItem then
-                    playerInfo.items[DOTA_ITEM_NEUTRAL_SLOT] = hNeutralItem:GetAbilityName()
-                end
+				if bTrueEnd then
+					for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
+						local item = hero:GetItemInSlot(item_slot)
+						if item then
+							playerInfo.items[item_slot] = item:GetAbilityName()
+						end
+					end
+
+					local hNeutralItem = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+					if hNeutralItem then
+						playerInfo.items[DOTA_ITEM_NEUTRAL_SLOT] = hNeutralItem:GetAbilityName()
+					end
+				end
 
                 data.players[playerID] = playerInfo
             end
