@@ -198,6 +198,8 @@
 
 #PlayerRowContainer
 {
+	background-color: rgba(0, 0, 0, 0.9);
+	border: 1px solid rgb(32, 32, 32);
 	flow-children: right;
 	height: 32px;
 }
@@ -217,8 +219,6 @@
 
 .ScoreboardPanel
 {
-	background-color: rgba(0, 0, 0, 0.9);
-	border: 1px solid #000;
 }
 
 .LegendPanel
@@ -227,7 +227,7 @@
 	margin-left: 1px;
 }
 
-.is_local_player .ScoreboardPanel
+.is_local_player #PlayerRowContainer
 {
     background-color: #666666;
 }
@@ -358,9 +358,10 @@
 	color: white;
 }
 
-.ScoreCol_TeamInfoAndHero
+.ScoreCol_TeamInfoAndHero,
+.PlayerHeader
 {
-	width: 285px;
+	width: 300px;
 }
 
 .ScoreCol_TeamInfo
@@ -370,7 +371,7 @@
 
 .ScoreCol_PlayerDetails
 {
-	width: 230px;
+	width: 185px;
 }
 
 .ScoreCol_Hero
@@ -409,4 +410,24 @@
 {
 	margin-top: 2px;
 	margin-left: 2px;
+}
+
+#PlayerAvatar{
+	width: 32px;
+	height: 32px;
+	vertical-align: center;
+}
+
+
+#PlayerMemberShip{
+   width: 24px;
+   height: 24px;
+   margin: 2px;
+   vertical-align: center;
+}
+.IsMemberShip #PlayerMemberShip{
+   background-image: url('s2r://panorama/images/custom_game/end/golden_crown_png.vtex');
+   background-repeat: no-repeat;
+   background-position: 5% 5%;
+   background-size: 100% 100%;
 }

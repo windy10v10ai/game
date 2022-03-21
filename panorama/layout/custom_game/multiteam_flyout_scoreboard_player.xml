@@ -24,17 +24,22 @@
 	</script>
 	<Panel class="PlayerRow">
 		<Panel id="PlayerRowContainer">
-			<Panel id="Hero" class="ScoreCol_Hero ScoreboardPanel">
-				<Image id="HeroIcon" heroimagestyle="landscape" scaling="stretch-to-fit-preserve-aspect" />
-			</Panel>
-			<Panel id="PlayerDetailsContainer" class="ScoreCol_PlayerDetails ScoreboardPanel">
-				<Panel id="PlayerAndHeroName">
-					<Label id="PlayerName" text="xxxxx" />
-					<Label id="HeroNameAndDescription" text="#custom_scoreboard_hero_name_and_desc" />
+			<Panel class="PlayerHeader">
+				<Panel id="PlayerMemberShip"/>
+				<DOTAAvatarImage id="PlayerAvatar"/>
+				<Panel id="Hero" class="ScoreCol_Hero ScoreboardPanel">
+					<Image id="HeroIcon" heroimagestyle="landscape" scaling="stretch-to-fit-preserve-aspect" />
 				</Panel>
-				<Label id="TeammateGoldAmount" text="999" />
-				<Button id="MuteButton" onactivate="ToggleMute();" />
+				<Panel id="PlayerDetailsContainer" class=".ScoreCol_PlayerDetails ScoreboardPanel">
+					<Panel id="PlayerAndHeroName">
+						<Label id="PlayerName" text="xxxxx" />
+						<Label id="HeroNameAndDescription" text="#custom_scoreboard_hero_name_and_desc" />
+					</Panel>
+					<Label id="TeammateGoldAmount" text="999" />
+					<Button id="MuteButton" onactivate="ToggleMute();" />
+				</Panel>
 			</Panel>
+
 			<Panel id="KillsContainer" class="ScoreCol_Kills ScoreboardPanel">
 				<Label id="Kills" text="999" />
 			</Panel>
@@ -45,8 +50,6 @@
 				<Label id="Assists" text="999" />
 			</Panel>
 		</Panel>
-		<Panel id="UltimateIndicatorBG" class="UltimateIndicatorShared" />
-		<Panel id="UltimateIndicator" class="UltimateIndicatorShared" />
 	</Panel>
 </root>
 
