@@ -11714,7 +11714,7 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"70 60 50 40 30"
-		"AbilityManaCost"				"250 350 450 550 650"
+		"AbilityManaCost"				"150 250 350 450 550"
 		"AbilitySpecial"
 		{
 			"01"
@@ -11740,7 +11740,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"value"				"10"
+				"value"				"15"
 				"ad_linked_abilities"			"lina_laguna_blade"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -12612,11 +12612,219 @@
 	//=================================================================================================================
 	// Ability: Rubick 拉比克
 	//=================================================================================================================
-
+	"rubick_telekinesis"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"28 26 24 22 20"
+		"AbilityCastRange"				"550 575 600 625 650"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"lift_duration"				"1.2 1.5 1.8 2.1 2.4"
+				"LinkedSpecialBonus"		"special_bonus_unique_rubick_7"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1.2 1.4 1.6 1.8 2.0"
+			}
+		}
+	}
+	"rubick_fade_bolt"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityManaCost"				"120 130 140 150 160"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"100 175 250 325 400"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"attack_damage_reduction"	"14 21 28 35 42"
+				"LinkedSpecialBonus"		"special_bonus_unique_rubick_2"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"8.0"
+			}
+		}
+	}
+	"rubick_arcane_supremacy"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"cast_range"				"100 150 200 250 300"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"spell_amp"			"14 18 22 26 30"
+			}
+		}
+	}
+	"rubick_spell_steal"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"16 12 8 4"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"150.0 200.0 250.0 300.0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"stolen_debuff_amp"			"10 20 30 40"
+			}
+		}
+	}
     //=================================================================================================================
 	// Ability: Shadow Demon 暗影恶魔/毒狗
 	//=================================================================================================================
-
+	"shadow_demon_disruption"
+	{
+		"MaxLevel" "5"
+		"AbilityDuration"				"2.75"
+		"AbilityCooldown"				"29.0 26.0 23.0 20.0 17.0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"disruption_duration"		"2.75"
+				"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_5"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"illusion_duration"			"11 12 13 14 15"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"illusion_outgoing_damage"	"-60.0 -50.0 -40.0 -30.0 -20.0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"illusion_outgoing_tooltip"	"40.0 50.0 60.0 70.0 80.0"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"illusion_bounty_base"		"0"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"illusion_bounty_growth"	"3"
+			}
+		}
+	}
+	"shadow_demon_soul_catcher"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"26 24 22 20 18"
+		"AbilityManaCost"				"80 100 120 140 160"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_lost"			"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"175 200 225 250 275"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_spell_amp"		"4 6 8 10 12"
+			}
+		}
+	}
+	"shadow_demon_shadow_poison"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stack_damage"			"24 36 48 60 72"
+				"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_4"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_multiply_stacks"	"5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_stack_damage"	"50"
+				"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_4"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
+			}
+			"06" //Damage that is applied every time shadow poison is applied.
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hit_damage"			"26 34 42 50 58"
+				"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_4"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
+			}
+		}
+	}
+	"shadow_demon_demonic_cleanse"
+	{
+		"MaxLevel" "4"
+		"AbilityDuration"				"7.0"
+		"AbilityCooldown"				"50"
+		"AbilityManaCost"				"150 175 200 225"
+		"AbilityValues"
+		{
+				"purge_damage"
+				{
+					"value"	"300 400 500 600"
+					"LinkedSpecialBonus"	"special_bonus_unique_shadow_demon_1"
+				}
+				"max_charges"
+				{
+					"value"					"3"
+					"RequiresScepter"			"1"
+				}
+				"charge_restore_time"
+				{
+					"value"				"50"
+					"RequiresScepter"			"1"
+				}
+				"charge_restore_time_tooltip_scepter"
+				{
+					"value"				"50"
+					"RequiresScepter"			"1"
+				}
+				"max_slow"			"100.0"
+				"min_slow"			"20.0"
+		}
+	}
 	//=================================================================================================================
 	// Ability: Shadow Shaman 暗影萨满/小y
 	//=================================================================================================================
