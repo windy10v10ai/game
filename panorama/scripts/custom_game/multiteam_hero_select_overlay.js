@@ -1,9 +1,9 @@
 "use strict";
 
-var imageMap = {
-	'meepo': 'meepo_custom',
-	'juggernaut': 'juggernaut_custom',
-	'techies': 'techies_custom',
+var imagefile = {
+	'npc_dota_hero_meepo': 'file://{resources}/images/heroes/npc_dota_hero_meepo_custom.png',
+	'npc_dota_hero_juggernaut': 'file://{resources}/images/heroes/npc_dota_hero_juggernaut_custom.png',
+	'npc_dota_hero_techies': 'file://{resources}/images/heroes/npc_dota_hero_techies_custom.png',
 }
 
 function OnUpdateHeroSelection()
@@ -56,16 +56,21 @@ function UpdatePlayer( teamPanel, playerId )
 
 	if ( playerInfo.player_selected_hero !== "" )
 	{
-		playerPortrait.SetImage( "file://{images}/heroes/" + playerInfo.player_selected_hero + ".png" );
+		let heroImageCustom = imagefile[playerInfo.player_selected_hero];
+		if (heroImageCustom) {
+			playerPortrait.SetImage( heroImageCustom );
+		} else {
+			playerPortrait.SetImage( "file://{images}/heroes/" + playerInfo.player_selected_hero + ".png" );
+		}
 		playerPanel.SetHasClass( "hero_selected", true );
 		playerPanel.SetHasClass( "hero_highlighted", false );
 	}
 	else if ( playerInfo.possible_hero_selection !== "" && ( playerInfo.player_team_id == localPlayerTeamId ) )
 	{
 
-		let heroImageCustom = imageMap[playerInfo.possible_hero_selection];
+		let heroImageCustom = imagefile["npc_dota_hero_" + playerInfo.possible_hero_selection];
 		if (heroImageCustom) {
-			playerPortrait.SetImage( "file://{images}/heroes/npc_dota_hero_" + heroImageCustom+ ".png" );
+			playerPortrait.SetImage( heroImageCustom );
 		} else {
 			playerPortrait.SetImage( "file://{images}/heroes/npc_dota_hero_" + playerInfo.possible_hero_selection + ".png" );
 		}

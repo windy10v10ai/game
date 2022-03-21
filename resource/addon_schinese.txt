@@ -84,6 +84,14 @@
 		"bot_multiplier"	"电脑倍率"
 		"tower_power"		"建筑倍率"
 
+		"player_member_ship"		"会员"
+		"player_member_ship_url"		"https://afdian.net/@windy10v10"
+
+		///////////////////////////////////////////////////
+		//
+		//            Creep / Tower
+		//
+		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_tower_power"							"建筑攻击加成"
 		"DOTA_Tooltip_modifier_tower_power_Description"			"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%, 攻速增加 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
@@ -95,7 +103,6 @@
 		"DOTA_Tooltip_modifier_melee_resistance"					"威压"
 		"DOTA_Tooltip_modifier_melee_resistance_Description"	"近战英雄额外获得 %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 状态抗性，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性"
 
-        // creep buff
 		"DOTA_Tooltip_ability_creep_buff"								"小兵Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%伤害降低："
