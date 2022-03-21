@@ -14009,14 +14009,14 @@
 	//=================================================================================================================
 	"storm_spirit_static_remnant"
 	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"70 80 90 100 110 120 130"
+		"MaxLevel" "5"
+		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilitySpecial"
 		{
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"static_remnant_damage"			"120 180 240 300 360 420 480"
+				"static_remnant_damage"			"120 180 240 300 360"
 				"LinkedSpecialBonus"	"special_bonus_unique_storm_spirit_5"
 			}
 		}
@@ -14051,24 +14051,14 @@
 	}
 	"storm_spirit_ball_lightning"
 	{
-		"MaxLevel" "5"
-		"AbilityDamage"					"8 12 16 24 32"
+		"MaxLevel" "4"
+		"AbilityDamage"					"8 12 16 24"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"										"FIELD_FLOAT"
-				"ball_lightning_initial_mana_percentage"		"6.5"
-			}
 			"03"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"ball_lightning_move_speed"			"1400 1850 2300 2750 3200"
-			}
-			"06"
-			{
-				"var_type"								"FIELD_FLOAT"
-				"ball_lightning_travel_cost_percent"	"0.60"
+				"ball_lightning_move_speed"			"1400 1850 2300 2750"
 			}
 		}
 	}
