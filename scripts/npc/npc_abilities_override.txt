@@ -8706,6 +8706,12 @@
 				"tooltip_illusion_damage"	"40"
 				"CalculateSpellDamageTooltip"	"0"
 			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"tooltip_illusion_total_damage_in_pct"	"300"
+				"CalculateSpellDamageTooltip"	"0"
+			}
 		}
 	}
 	"phantom_lancer_doppelwalk"
@@ -8761,10 +8767,10 @@
 				"LinkedSpecialBonus"		"special_bonus_unique_phantom_lancer_6"
 				"CalculateSpellDamageTooltip"	"0"
 			}
-			"07"
+			"08"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_in_pct"	"350"
+				"tooltip_total_illusion_damage_in_pct"	"450"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 		}
