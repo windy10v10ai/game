@@ -1404,7 +1404,7 @@
 	//=================================================================================================================
 	"abaddon_death_coil"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"02"
@@ -1423,7 +1423,7 @@
 	}
 	"abaddon_aphotic_shield"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilitySpecial"
@@ -1438,7 +1438,7 @@
 	}
 	"abaddon_frostmourne"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityValues"
 		{
 			"slow_duration"				"5"
@@ -1455,7 +1455,7 @@
 	}
 	"abaddon_borrowed_time"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"55.0 50.0 45.0 40.0"
 		"AbilitySpecial"
 		{
@@ -1482,7 +1482,7 @@
 	//=================================================================================================================
 	"abyssal_underlord_firestorm"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityManaCost"				"110 120 130 140 150 160 170"
 		"AbilityValues"
 		{
@@ -1506,7 +1506,7 @@
 	}
 	"abyssal_underlord_pit_of_malice"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"21 19 17 15 13"
 		"AbilityManaCost"				"80 100 120 140 160"
 		"AbilitySpecial"
@@ -1521,7 +1521,7 @@
 	}
 	"abyssal_underlord_atrophy_aura"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"02"
@@ -1549,7 +1549,7 @@
 	}
 	"abyssal_underlord_dark_portal"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"200"
 		"AbilityManaCost"				"100"
 		"AbilityValues"
@@ -1566,7 +1566,7 @@
 	//=================================================================================================================
 	"axe_berserkers_call"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"17 15 13 11 9"
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilitySpecial"
@@ -1591,7 +1591,7 @@
 	}
 	"axe_battle_hunger"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"20 16 12 8 4"
 		"AbilityManaCost"				"50 60 70 80 90"
 		"AbilityCastRange"				"700 775 850 925 1000"
@@ -1613,7 +1613,7 @@
 	}
 	"axe_counter_helix"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"0.2"
 		"AbilitySpecial"
 		{
@@ -1642,7 +1642,7 @@
 	}
 	"axe_culling_blade"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"80 70 60 50 40"
 		"AbilityManaCost"				"100 125 150 175 200"
 		"AbilityValues"
@@ -1824,7 +1824,7 @@
 	//=================================================================================================================
 	"beastmaster_wild_axes"
 	{
-		"MaxLevel"	"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"04"
@@ -1891,7 +1891,7 @@
 	}
 	"beastmaster_inner_beast"
 	{
-		"MaxLevel"	"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"02"
@@ -1904,7 +1904,7 @@
 	}
 	"beastmaster_primal_roar"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"60.0 55.0 50.0 45.0 40.0"
 		"AbilityManaCost"				"150 175 200 225 250"
 		"AbilitySpecial"
@@ -1941,7 +1941,7 @@
 	//=================================================================================================================
 	"brewmaster_thunder_clap"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityManaCost"				"90 100 110 120 130"
 		"AbilitySpecial"
 		{
@@ -1970,7 +1970,7 @@
 	}
 	"brewmaster_cinder_brew"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"20 17 14 11 8"
 		"AbilityManaCost"				"50 60 70 80 90"
 		"AbilitySpecial"
@@ -1998,7 +1998,7 @@
 	}
 	"brewmaster_drunken_brawler"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
 		"AbilityValues"
@@ -2044,7 +2044,7 @@
 	//=================================================================================================================
 	"bristleback_viscous_nasal_goo"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityManaCost"				"12 16 20 24 28"
 		"AbilitySpecial"
 		{
@@ -2063,7 +2063,7 @@
 	}
 	"bristleback_quill_spray"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"02"
@@ -2086,7 +2086,7 @@
 	}
 	"bristleback_bristleback"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -2108,7 +2108,7 @@
 	}
 	"bristleback_warpath"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilitySpecial"
 		{
 			"01"
@@ -2139,7 +2139,7 @@
 	//=================================================================================================================
 	"centaur_hoof_stomp"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityManaCost"				"90 100 110 120 130"
 		"AbilityValues"
@@ -2155,7 +2155,7 @@
 	}
 	"centaur_double_edge"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -2173,7 +2173,7 @@
 	}
 	"centaur_return"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityValues"
 		{
 				"return_damage"
@@ -2187,7 +2187,7 @@
 	}
 	"centaur_stampede"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"70"
 		"AbilityManaCost"				"100 150 200 250"
 		"AbilityValues"
@@ -2218,7 +2218,7 @@
 	//=================================================================================================================
 	"chaos_knight_chaos_bolt"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"13 12 11 10 9"
 		"AbilityManaCost"				"100 105 110 115 120"
 		"AbilitySpecial"
@@ -2249,7 +2249,7 @@
 	}
 	"chaos_knight_reality_rift"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCastRange"				"550 600 650 700 750"
 		"AbilityCooldown"				"18 14 10 6 4"
 		"AbilityManaCost"				"50"
@@ -2275,7 +2275,7 @@
 	}
 	"chaos_knight_chaos_strike"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"02"
@@ -2298,7 +2298,7 @@
 	}
 	"chaos_knight_phantasm"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"60"
 		"AbilityManaCost"				"200"
 		"AbilitySpecial"
@@ -2331,7 +2331,7 @@
 	//=================================================================================================================
 	"dawnbreaker_fire_wreath"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"17 15 13 11 9"
 		"AbilitySpecial"
 		{
@@ -2372,7 +2372,7 @@
 	}
 	"dawnbreaker_celestial_hammer"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"18 16 14 12 10 8 6"
 		"AbilityManaCost"				"100 110 120 130 140 150 160"
 		"AbilitySpecial"
@@ -2450,7 +2450,7 @@
 	}
 	"dawnbreaker_luminosity"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -2506,7 +2506,7 @@
 	}
 	"dawnbreaker_solar_guardian"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityManaCost"				"100 150 200 250 300"
 		"AbilitySpecial"
@@ -2576,7 +2576,7 @@
 	//=================================================================================================================
 	"doom_bringer_devour"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"60 55 50 45 40"
 		"AbilitySpecial"
 		{
@@ -2595,7 +2595,7 @@
 	}
 	"doom_bringer_scorched_earth"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"35 33 31 29 27"
 		"AbilityManaCost"				"60 70 80 90 100"
 		"AbilitySpecial"
@@ -2626,7 +2626,7 @@
 	}
 	"doom_bringer_infernal_blade"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"16 12 8 4 2"
 		"AbilitySpecial"
 		{
@@ -2645,7 +2645,7 @@
 	}
 	"doom_bringer_doom"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilitySpecial"
@@ -3239,7 +3239,7 @@
 	//=================================================================================================================
 	"huskar_inner_fire"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"14 13 12 11 10"
 		"AbilityManaCost"				"75 100 125 150 175"
 		"AbilitySpecial"
@@ -3259,7 +3259,7 @@
 	}
 	"huskar_burning_spear"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -3297,7 +3297,7 @@
 	}
 	"huskar_berserkers_blood"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -3321,7 +3321,7 @@
 	}
 	"huskar_life_break"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"16 14 12 10 8"
 		"AbilityDuration"				"3 4 5 6 7"
 		"AbilitySpecial"
@@ -3598,7 +3598,7 @@
 	//=================================================================================================================
 	"life_stealer_rage"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"21 20 19 18 17"
 		"AbilityManaCost"				"75 100 125 150 175"
 		"AbilityDuration"				"3 4 5 6 7"
@@ -3620,7 +3620,7 @@
 	}
 	"life_stealer_feast"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -3638,7 +3638,7 @@
 	}
 	"life_stealer_ghoul_frenzy"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -3662,7 +3662,7 @@
 	}
 	"life_stealer_infest"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"80 70 60 50 40"
 		"AbilityManaCost"				"100 125 150 175 200"
 		"AbilitySpecial"
@@ -3797,7 +3797,7 @@
 	//=================================================================================================================
 	"magnataur_shockwave"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"13 12 11 10 9 8 7"
 		"AbilityManaCost"				"80 90 100 110 120 130 140"
 		"AbilityValues"
@@ -3828,7 +3828,7 @@
 	}
 	"magnataur_empower"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityManaCost"				"45 55 65 75 85 95 105"
 		"AbilitySpecial"
 		{
@@ -3859,7 +3859,7 @@
 	}
 	"magnataur_skewer"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"22 20 18 16 14"
 		"AbilitySpecial"
 		{
@@ -3888,7 +3888,7 @@
 	}
 	"magnataur_reverse_polarity"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"80"
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilitySpecial"
@@ -4130,7 +4130,7 @@
 	//=================================================================================================================
 	"night_stalker_void"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"11 10 9 8 7"
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilitySpecial"
@@ -4150,7 +4150,7 @@
 	}
 	"night_stalker_crippling_fear"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"35 30 25 20 15"
 		"AbilityValues"
 		{
@@ -4181,7 +4181,7 @@
 	}
 	"night_stalker_hunter_in_the_night"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityValues"
 		{
 			"bonus_movement_speed_pct_night"
@@ -4198,7 +4198,7 @@
 	}
 	"night_stalker_darkness"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"110"
 		"AbilityManaCost"				"125 175 225 275 325"
 		"AbilityValues"
@@ -4384,7 +4384,7 @@
 	//=================================================================================================================
 	"phoenix_icarus_dive"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"36 34 32 30 28"
 		"AbilitySpecial"
 		{
@@ -4409,7 +4409,7 @@
 	}
 	"phoenix_fire_spirits"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"50 40 30 20 10"
 		"AbilitySpecial"
 		{
@@ -4433,7 +4433,7 @@
 	}
 	"phoenix_sun_ray"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityManaCost"				"100 110 120 130 140 150 160"
 		"AbilitySpecial"
 		{
@@ -4467,7 +4467,7 @@
 	}
 	"phoenix_supernova"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityManaCost"				"150 200 250 300 350"
 		"AbilitySpecial"
@@ -4501,7 +4501,7 @@
 	}
 	"phoenix_launch_fire_spirit"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -4527,7 +4527,7 @@
 	//=================================================================================================================
 	"primal_beast_onslaught"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"25 22 19 16 13"
 		"AbilityManaCost"				"120"
 		"AbilityValues"
@@ -4554,7 +4554,7 @@
 	}
 	"primal_beast_trample"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"30 27 24 21 18 15 12"
 		"AbilityManaCost"				"90 85 80 75 70 65 60"
 		"AbilityValues"
@@ -4572,7 +4572,7 @@
 	}
 	"primal_beast_uproar"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 			"bonus_damage"				"10 15 20 25 30"
@@ -4601,7 +4601,7 @@
 	}
 	"primal_beast_pulverize"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCastRange"				"200"
 		"AbilityCooldown"				"32 28 24 20 16"
 		"AbilityDamage"					"150 210 270 330 390"
@@ -4748,7 +4748,7 @@
 	}
 	"rattletrap_battery_assault"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"25 23 21 19 17 15 13"
 		"AbilityManaCost"				"100"
 		"AbilitySpecial"
@@ -4774,7 +4774,7 @@
 	}
 	"rattletrap_power_cogs"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 				"duration"			"5.0 6.0 7.0 8.0 9.0"
@@ -4804,7 +4804,7 @@
 	}
 	"rattletrap_rocket_flare"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"20.0 18.0 16.0 14.0 12.0 10.0 8.0"
 		"AbilityManaCost"				"30 45 40 45 50 55 60"
 		"AbilityValues"
@@ -4818,7 +4818,7 @@
 	}
 	"rattletrap_hookshot"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCastRange"				"2000 2500 3000 3500"
 		"AbilityCooldown"				"50.0 40.0 30.0 20.0"
 		"AbilitySpecial"
@@ -4845,7 +4845,7 @@
 	//=================================================================================================================
 	"sandking_burrowstrike"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCastRange"				"425 500 575 650 725"
 		"AbilityCooldown"				"15 14 13 12 11"
 		"AbilityManaCost"				"110 120 130 140 150"
@@ -4861,7 +4861,7 @@
 	}
 	"sandking_sand_storm"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityDuration"				"20 25 30 35 40"
 		"AbilityCooldown"				"40 34 28 22 16"
 		"AbilityManaCost"				"70 75 80 85 90"
@@ -5121,7 +5121,7 @@
 	//=================================================================================================================
 	"skeleton_king_hellfire_blast"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"17 14 11 8 5"
 		"AbilityDamage"					"60 90 120 150 180"
 		"AbilityManaCost"				"90 100 110 120 130"
@@ -5154,7 +5154,7 @@
 	}
 	"skeleton_king_vampiric_aura"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityManaCost"				"60 70 80 90 100"
 		"AbilitySpecial"
 		{
@@ -5194,7 +5194,7 @@
 	}
 	"skeleton_king_mortal_strike"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"5.5 5.0 4.5 4.0 3.5 3.0 2.5"
 		"AbilitySpecial"
 		{
@@ -5227,7 +5227,7 @@
 	}
 	"skeleton_king_reincarnation"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"100 80 60 40"
 		"AbilitySpecial"
 		{
@@ -5255,7 +5255,7 @@
 	//=================================================================================================================
 	"slardar_sprint"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"29 25 21 17 13"
 		"AbilitySpecial"
 		{
@@ -5273,7 +5273,7 @@
 	}
 	"slardar_slithereen_crush"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityManaCost"				"90 100 110 120 130 140 150"
 		"AbilitySpecial"
 		{
@@ -5304,7 +5304,7 @@
 	}
 	"slardar_bash"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -5322,7 +5322,7 @@
 	}
 	"slardar_amplify_damage"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCastRange"				"700 800 900 1000 1100"
 		"AbilitySpecial"
 		{
@@ -5517,11 +5517,11 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Sven 斯文
+	// Ability: Sven 斯温
 	//=================================================================================================================
 	"sven_storm_bolt"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityDamage"					"95 170 245 320 395"
 		"AbilityManaCost"				"110 120 130 140 150"
@@ -5537,7 +5537,7 @@
 	}
 	"sven_great_cleave"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"04"
@@ -5550,7 +5550,7 @@
 	}
 	"sven_warcry"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"28 26 24 22 20 18 16"
 		"AbilityManaCost"				"30 35 40 45 50 55 60"
 		"AbilitySpecial"
@@ -5582,7 +5582,7 @@
 	}
 	"sven_gods_strength"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"80"
 		"AbilityManaCost"				"100 150 200 225 250"
 		"AbilitySpecial"
@@ -5620,7 +5620,7 @@
 	//=================================================================================================================
 	"tusk_ice_shards"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"23.0 20.0 17.0 14.0 11.0"
 		"AbilitySpecial"
 		{
@@ -5638,7 +5638,7 @@
 	}
 	"tusk_snowball"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"21 19 17 15 13"
 		"AbilitySpecial"
 		{
@@ -5667,7 +5667,7 @@
 	}
 	"tusk_tag_team"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"24 21 18 15 12"
 		"AbilitySpecial"
 		{
@@ -5681,7 +5681,7 @@
 	}
 	"tusk_walrus_punch"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"14 12 10 8"
 		"AbilitySpecial"
 		{
@@ -5703,7 +5703,7 @@
 	//=================================================================================================================
 	"tidehunter_gush"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"100 105 110 115 120 125 130"
 		"AbilitySpecial"
@@ -5752,7 +5752,7 @@
 	}
 	"tidehunter_kraken_shell"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -5794,7 +5794,7 @@
 	}
 	"tidehunter_anchor_smash"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"7.0 6.0 5.0 4.0 3.0"
 		"AbilityManaCost"				"40 45 50 55 60"
 		"AbilitySpecial"
@@ -5835,7 +5835,7 @@
 	}
 	"tidehunter_ravage"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"100"
 		"AbilityDamage"					"200 300 400 500"
 		"AbilityManaCost"				"150 200 250 300"
@@ -5854,7 +5854,7 @@
 	//=================================================================================================================
 	"tiny_avalanche"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"26 23 20 17 14 11 8"
 		"AbilityValues"
 		{
@@ -5894,7 +5894,7 @@
 	}
 	"tiny_toss"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCastRange"				"900 1000 1100 1200 1300 1400 1500"
 		"AbilityCooldown"				"18 16 14 12 10 8 6"
 		"AbilityManaCost"				"90 100 110 120 130 140 150"
@@ -5914,7 +5914,7 @@
 	}
 	"tiny_tree_grab"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilitySpecial"
 		{
@@ -5937,7 +5937,7 @@
 	}
 	"tiny_grow"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 			"bonus_armor"				"12 18 24 30 36"
@@ -6076,7 +6076,7 @@
 	//=================================================================================================================
 	"undying_decay"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"9.0 8.0 7.0 6.0 5.0 4.0 3.0"
 		"AbilityDuration"				"21.0 24.0 27.0 30.0 32.0 34.0 36.0"
 		"AbilityManaCost"				"70 75 80 85 90 95 100"
@@ -6103,7 +6103,7 @@
 	}
 	"undying_soul_rip"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"24.0 20.0 16.0 12.0 8.0 6.0 4.0"
 		"AbilityManaCost"				"85 100 115 130 140 150 160"
 		"AbilitySpecial"
@@ -6128,7 +6128,7 @@
 	}
 	"undying_flesh_golem"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"100"
 		"AbilityManaCost"				"100 125 150 175 200"
 		"AbilitySpecial"
@@ -6160,7 +6160,7 @@
 	//=================================================================================================================
 	"wisp_tether"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 				"radius"					"1000"
@@ -6180,7 +6180,7 @@
 	}
 	"wisp_spirits"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"28.0 26.0 24.0 22.0 20.0"
 		"AbilityManaCost"				"110 120 130 140 150"
 		"AbilitySpecial"
@@ -6205,7 +6205,7 @@
 	}
 	"wisp_overcharge"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"24 22 20 18 16 14 12"
 		"AbilityManaCost"				"40 50 60 70 80 90 100"
 		"AbilityValues"
@@ -6222,7 +6222,7 @@
 	}
 	"wisp_relocate"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"80 70 60 50"
 		"AbilitySpecial"
 		{
@@ -6235,11 +6235,11 @@
 	}
 	"wisp_spirits_in"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 	}
 	"wisp_spirits_out"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 	}
 
 
@@ -6253,7 +6253,7 @@
 	//=================================================================================================================
 	"antimage_mana_break"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -6281,7 +6281,7 @@
 	}
 	"antimage_blink"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"14 12 10 8 6"
 		"AbilitySpecial"
 		{
@@ -6295,7 +6295,7 @@
 	}
 	"antimage_counterspell"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -6328,7 +6328,7 @@
 	}
 	"antimage_mana_void"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityManaCost"				"100 150 200 250"
 		"AbilitySpecial"
 		{
@@ -6345,7 +6345,7 @@
 	//=================================================================================================================
 	"arc_warden_flux"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 				"duration"
@@ -6370,7 +6370,7 @@
 	}
 	"arc_warden_magnetic_field"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityManaCost"				"50 70 90 110 130"
 		"AbilitySpecial"
 		{
@@ -6419,7 +6419,7 @@
 	}
 	"arc_warden_spark_wraith"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"05"
@@ -6442,7 +6442,7 @@
 	}
 	"arc_warden_tempest_double"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"60 50 40 30"
 		"AbilitySpecial"
 		{
@@ -6801,7 +6801,7 @@
 	//=================================================================================================================
 	"clinkz_strafe"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityChannelTime"			"1.2 1.6 2.0 2.4 2.7"
 		"AbilityCooldown"				"28 26 24 22 18"
 		"AbilityManaCost"				"40 55 70 85 100"
@@ -6843,7 +6843,7 @@
 	}
 	"clinkz_searing_arrows"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -6856,7 +6856,7 @@
 	}
 	"clinkz_wind_walk"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
         "HasShardUpgrade"               "1"
 		"AbilityCooldown"				"20 19 18 17 16"
 		"AbilitySpecial"
@@ -6879,7 +6879,7 @@
 	}
 	"clinkz_death_pact"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"60 50 40 30"
 		"AbilitySpecial"
 		{
@@ -7498,7 +7498,7 @@
 	//=================================================================================================================
 	"juggernaut_blade_dance"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityValues"
 		{
 				"blade_dance_crit_chance"	"20 25 30 35 40 45 50"
@@ -7512,7 +7512,7 @@
 	}
 	"juggernaut_blade_fury"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"40 33 26 20 14"
 		"AbilityManaCost"				"120 110 100 90 80"
 		"AbilityValues"
@@ -7541,7 +7541,7 @@
 	}
 	"juggernaut_healing_ward"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"60.0 55.0 50.0 45.0 40.0"
 		"AbilityManaCost"				"140 130 120 110 100"
 		"AbilityDuration"				"25.0"
@@ -7557,7 +7557,7 @@
 	}
 	"juggernaut_omni_slash"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityManaCost"				"200 250 300 350 400"
 		"AbilitySpecial"
@@ -7986,7 +7986,7 @@
 	//=================================================================================================================
 	"monkey_king_boundless_strike"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"28 26 24 22 20 18 16"
 		"AbilityManaCost"				"100"
 		"AbilitySpecial"
@@ -8017,7 +8017,7 @@
 	}
 	"monkey_king_wukongs_command"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"110 100 90 80 70"
 		"AbilitySpecial"
 		{
@@ -8036,7 +8036,7 @@
 	}
 	"monkey_king_jingu_mastery"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"02"
@@ -8062,33 +8062,33 @@
 	//=================================================================================================================
 	"morphling_waveform"
 	{
-		"MaxLevel"						"7"
-		"AbilityCastRange"				"700 800 900 1000 1050 1100 1150"
-		"AbilityCooldown"				"18 16 14 12 10 8 6"
-		"AbilityDamage"					"75 150 225 300 375 450 500"
+		"MaxLevel" "5"
+		"AbilityCastRange"				"700 800 900 1000 1100"
+		"AbilityCooldown"				"20 17 14 11 8"
+		"AbilityDamage"					"75 150 225 300 375"
 	}
 	"morphling_adaptive_strike_agi"
 	{
-		"MaxLevel"						"7"
-		"AbilityCastRange"				"600 700 800 900 1000 1100 1200"
-		"AbilityManaCost"				"50 60 70 80 90 100 110"
+		"MaxLevel" "5"
+		"AbilityCastRange"				"600 700 800 900 1000"
+		"AbilityManaCost"				"50 60 70 80 90"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"damage_base"					"40 50 60 70 80 90 100"
+				"damage_base"					"40 50 60 70 80"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"damage_min"					"0.5 0.7 0.9 1.1 1.3 1.4 1.5"
+				"damage_min"					"0.5 0.7 0.9 1.1 1.3"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"damage_max"					"1.0 1.5 2.0 2.5 3.0 3.5 4.0"
+				"damage_max"					"1.5 2.0 2.5 3.0 3.5"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"05"
@@ -8100,21 +8100,21 @@
 	}
 	"morphling_adaptive_strike_str"
 	{
-		"MaxLevel"						"7"
-		"AbilityCastRange"				"600 700 800 900 1000 1100 1200"
+		"MaxLevel" "5"
+		"AbilityCastRange"				"600 700 800 900 1000"
 		"AbilityCooldown"				"10"
-		"AbilityManaCost"				"50 60 70 80 90 100 110"
+		"AbilityManaCost"				"50 60 70 80 90"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"stun_min"						"0.5 0.7 0.9 1.1 1.3 1.4 1.5"
+				"stun_min"						"0.5 0.7 0.9 1.1 1.3"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"stun_max"						"1.5 2.0 2.5 3.0 3.5 4.0 4.5"
+				"stun_max"						"2.0 2.5 3.0 3.5 4.0"
 			}
 			"06"
 			{
@@ -8125,7 +8125,7 @@
 	}
 	"morphling_morph"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -8137,7 +8137,7 @@
 	}
 	"morphling_morph_agi"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -8164,7 +8164,7 @@
 	}
 	"morphling_morph_str"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -8191,7 +8191,7 @@
 	}
 	"morphling_replicate"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCastRange"				"700 800 900 1000 1100"
 		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityValues"
@@ -8685,7 +8685,7 @@
 	//=================================================================================================================
 	"razor_plasma_field"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"13 12 11 10 9 8 7"
 		"AbilitySpecial"
 		{
@@ -8715,7 +8715,7 @@
 	}
 	"razor_static_link"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"40 35 30 25 20"
 		"AbilitySpecial"
 		{
@@ -8760,7 +8760,7 @@
 	}
 	"razor_unstable_current"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -8773,7 +8773,7 @@
 	}
 	"razor_eye_of_the_storm"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"80 70 60 50 40"
 		"AbilityManaCost"				"100 150 200 250 300"
 		"AbilitySpecial"
@@ -8801,7 +8801,7 @@
 	//=================================================================================================================
 	"riki_smoke_screen"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityManaCost"				"65 70 75 80 85"
 		"AbilityValues"
@@ -8818,7 +8818,7 @@
 	}
 	"riki_blink_strike"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCastRange"				"600 700 800 900 1000"
 		"AbilityChargeRestoreTime"		"30 25 20 15 10"
 		// Special
@@ -8845,7 +8845,7 @@
 	}
 	"riki_backstab"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityValues"
 		{
 			"damage_multiplier"
@@ -8861,7 +8861,7 @@
 	}
 	"riki_tricks_of_the_trade"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"21 18 15 12 10"
 		"AbilityManaCost"				"55"
 		"AbilityValues"
@@ -8913,7 +8913,7 @@
 	}
 	"slark_dark_pact"
 	{
-		"MaxLevel"  "5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"10.0 9.0 8.0 7.0 6.0"
 		"AbilitySpecial"
 		{
@@ -8927,7 +8927,7 @@
 	}
 	"slark_pounce"
 	{
-		"MaxLevel"  "5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"20.0 16.0 12.0 10.0 8.0"
 		"AbilityValues"
 		{
@@ -8961,7 +8961,7 @@
 	}
 	"slark_essence_shift"
 	{
-		"MaxLevel"  "5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -9000,7 +9000,7 @@
 	}
 	"slark_shadow_dance"
 	{
-		"MaxLevel"  "4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"75 60 45 30"
 		"AbilityValues"
 		{
@@ -9026,7 +9026,7 @@
 	//=================================================================================================================
 	"sniper_shrapnel"
 	{
-		"MaxLevel"  "7"
+		"MaxLevel" "7"
 		"AbilityCharges"				"5"
 		"AbilityManaCost"				"30 40 50 60 70 80 90"
 		"AbilitySpecial"
@@ -9059,7 +9059,7 @@
 	}
 	"sniper_headshot"
 	{
-		"MaxLevel"  "7"
+		"MaxLevel" "7"
 		"AbilityDamage"					"20 50 80 100 120 140 160"
 		"AbilitySpecial"
 		{
@@ -9072,7 +9072,7 @@
 	}
 	"sniper_take_aim"
 	{
-		"MaxLevel"  "5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityManaCost"				"50"
 		"AbilitySpecial"
@@ -9123,7 +9123,7 @@
 	//=================================================================================================================
 	"spectre_spectral_dagger"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"22 20 18 16 14"
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilitySpecial"
@@ -9144,7 +9144,7 @@
 	}
 	"spectre_desolate"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -9162,7 +9162,7 @@
 	}
 	"spectre_haunt"
 	{
-		"MaxLevel"	"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"150 140 130 120"
 		"AbilityManaCost"				"125 150 175 200"
 		"AbilitySpecial"
@@ -9187,7 +9187,7 @@
 	}
 	"spectre_haunt_single"
 	{
-		"MaxLevel"	"4"
+		"MaxLevel" "4"
 		"AbilitySpecial"
 		{
 			"01"
@@ -9216,7 +9216,7 @@
 	//=================================================================================================================
 	"templar_assassin_refraction"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 			"instances"
@@ -9231,7 +9231,7 @@
 	}
 	"templar_assassin_meld"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"12 10 8 6 4"
 		"AbilityManaCost"				"30 35 40 45 50"
 		"AbilitySpecial"
@@ -9251,7 +9251,7 @@
 	}
 	"templar_assassin_psi_blades"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 				"bonus_attack_range"
@@ -9271,7 +9271,7 @@
 	}
 	"templar_assassin_psionic_trap"
 	{
-		"MaxLevel"  "4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"9.0 7.0 5.0 3.0"
 		"AbilitySpecial"
 		{
@@ -9294,7 +9294,7 @@
 	//=================================================================================================================
 	"terrorblade_reflection"
 	{
-		"MaxLevel"  "5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"26 24 22 20 18"
 		"AbilityManaCost"				"35 40 45 50 55"
 		"AbilityValues"
@@ -9316,7 +9316,7 @@
 	}
 	"terrorblade_conjure_image"
 	{
-		"MaxLevel"  "7"
+		"MaxLevel" "7"
 		"AbilityManaCost"				"55 60 65 70 75 80 85"
 		"AbilityValues"
 		{
@@ -9342,7 +9342,7 @@
 	}
 	"terrorblade_metamorphosis"
 	{
-		"MaxLevel"  "5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"110.0"
 		"AbilitySpecial"
 		{
@@ -9399,7 +9399,7 @@
 	}
 	"terrorblade_sunder"
 	{
-		"MaxLevel"  "4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"60.0 50.0 40.0 30.0"
 		"AbilityManaCost"				"200 150 100 50"
 		"AbilityValues"
@@ -9454,7 +9454,7 @@
 	}
 	"troll_warlord_berserkers_rage"
 	{
-		"MaxLevel"	"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -9488,7 +9488,7 @@
 	}
 	"troll_warlord_whirling_axes_ranged"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"05"
@@ -9513,7 +9513,7 @@
 	}
 	"troll_warlord_fervor"
 	{
-		"MaxLevel"	"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -9551,7 +9551,7 @@
 	}
 	"troll_warlord_battle_trance"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"90 80 70 60 50"
 		"AbilityManaCost"				"150"
 		"AbilitySpecial"
@@ -9584,7 +9584,7 @@
 	//=================================================================================================================
 	"ursa_earthshock"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"14 12 10 8 6"
 		"AbilityDamage"					"75 125 175 225 275"
 		"AbilityValues"
@@ -9598,7 +9598,7 @@
 	}
 	"ursa_overpower"
 	{
-		"MaxLevel"	"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"12 11 10 9 8 7 6"
 		"AbilityManaCost"				"30 35 40 45 50 55 60"
 		"AbilitySpecial"
@@ -9613,7 +9613,7 @@
 	}
 	"ursa_fury_swipes"
 	{
-		"MaxLevel"	"7"
+		"MaxLevel" "7"
 		"AbilityValues"
 		{
 				"bonus_reset_time"
@@ -9651,7 +9651,7 @@
 	}
 	"ursa_enrage"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"50 40 30 20"
 		"AbilitySpecial"
 		{
@@ -9685,7 +9685,7 @@
 	//=================================================================================================================
 	"vengefulspirit_magic_missile"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCastRange"				"575 600 625 650 675"
 		"AbilityCooldown"				"12 11 10 9 8"
 		"AbilityManaCost"				"100 110 120 130 140"
@@ -9706,7 +9706,7 @@
 	}
 	"vengefulspirit_command_aura"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCastRange"				"1500"
 		"AbilitySpecial"
 		{
@@ -9740,7 +9740,7 @@
 	}
 	"vengefulspirit_wave_of_terror"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"16 14 12 10 8"
 		"AbilityDamage"					"70 90 110 130 150"
 		"AbilityManaCost"				"25 30 35 40 45"
@@ -9776,7 +9776,7 @@
 	}
 	"vengefulspirit_nether_swap"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCastRange"				"800 950 1100 1250"
 		"AbilityCooldown"				"60 50 40 30"
 		"AbilityManaCost"				"100 150 200 250"
@@ -10208,7 +10208,7 @@
 	}
 	"ancient_apparition_ice_vortex"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"7 6 5 4 3"
 		"AbilityManaCost"				"40 50 60 70 80"
 		"AbilitySpecial"
@@ -10239,7 +10239,7 @@
 	}
 	"ancient_apparition_chilling_touch"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"15 12 9 6 3"
 		"AbilityManaCost"				"30 45 60 75 90"
 		"AbilitySpecial"
@@ -10271,7 +10271,7 @@
 	}
 	"ancient_apparition_ice_blast"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"50 45 40 35"
 		"AbilityManaCost"				"175"
 		"AbilityDamage"					"250 325 400 475"
@@ -10300,7 +10300,7 @@
 	//=================================================================================================================
 	"bane_enfeeble"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"26 21 16 11 6"
 		"AbilityManaCost"				"40 50 60 70 80"
 		"AbilitySpecial"
@@ -10329,7 +10329,7 @@
 	}
 	"bane_brain_sap"
 	{
-		"MaxLevel"	"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"17 15 13 11 9 7 5"
 		"AbilityManaCost"				"80 100 120 140 160 180 200"
 		"AbilitySpecial"
@@ -10344,7 +10344,7 @@
 	}
 	"bane_fiends_grip"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityManaCost"				"200 250 300 350 400"
 		"AbilitySpecial"
@@ -10358,7 +10358,7 @@
 	}
 	"bane_nightmare"
 	{
-		"MaxLevel"	"4"
+		"MaxLevel" "4"
 		"AbilityCastRange"				"425 500 575 650"
 		"AbilityCooldown"				"22 20 18 16 14"
 		"AbilityDuration"				"4.0 5.0 6.0 7.0"
@@ -10385,7 +10385,7 @@
 	//=================================================================================================================
 	"chen_penitence"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"14.0 13.0 12.0 11.0 10.0"
 		"AbilityManaCost"				"70 75 80 85 90"
 		"AbilitySpecial"
@@ -10411,7 +10411,7 @@
 	}
 	"chen_divine_favor"
 	{
-		"MaxLevel"	"7"
+		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
 			"01"
@@ -10428,7 +10428,7 @@
 	}
 	"chen_holy_persuasion"
 	{
-		"MaxLevel"	"5"
+		"MaxLevel" "5"
 		"AbilityManaCost"				"90 110 130 150 170"
 		"AbilitySpecial"
 		{
@@ -10484,7 +10484,7 @@
 	}
 	"chen_hand_of_god"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"80 70 60 50"
 		"AbilityManaCost"				"200 300 400 500"
 		"AbilityValues"
@@ -11120,7 +11120,7 @@
 	//=================================================================================================================
 	"disruptor_thunder_strike"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityCooldown"				"18 16 14 12 10 8 6"
 		"AbilityManaCost"				"100 110 120 130 140 150 160"
 		"AbilitySpecial"
@@ -11145,7 +11145,7 @@
 	}
 	"disruptor_glimpse"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityManaCost"				"55 70 85 100 115"
 		"AbilityCooldown"				"24 22 20 18 16"
 		"AbilityCastRange"				"600 1000 1400 1800 2000"
@@ -11180,7 +11180,7 @@
 	}
 	"disruptor_kinetic_field"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"19 16 13 10 8"
 		"AbilitySpecial"
 		{
@@ -11219,7 +11219,7 @@
 	}
 	"disruptor_static_storm"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"80 70 60 50 40"
 		"AbilityManaCost"				"125 175 225 275 325"
 		"AbilitySpecial"
@@ -11236,7 +11236,7 @@
 	//=================================================================================================================
 	"enchantress_untouchable"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -11254,7 +11254,7 @@
 	}
 	"enchantress_enchant"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCastRange"				"500 550 600 650 700"
 		"AbilityCooldown"				"28 24 20 16 12"
 		"AbilityDuration"				"4 4.5 5 5.5 6"
@@ -11290,7 +11290,7 @@
 	}
 	"enchantress_natures_attendants"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityManaCost"				"140"
 		"AbilityValues"
 		{
@@ -11310,7 +11310,7 @@
 	}
 	"enchantress_impetus"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityValues"
 		{
 			"distance_damage_pct"
@@ -11327,7 +11327,7 @@
 	//=================================================================================================================
 	"enigma_malefice"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityManaCost"				"100 120 140 160 180"
 		"AbilitySpecial"
 		{
@@ -11351,7 +11351,7 @@
 	}
 	"enigma_midnight_pulse"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"60 55 50 45 40"
 		"AbilityManaCost"				"50 80 110 140 170"
 		"AbilitySpecial"
@@ -11371,7 +11371,7 @@
 	}
 	"enigma_black_hole"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"160.0"
 		"AbilityManaCost"				"300 400 500 600"
 		"AbilityValues"
@@ -11384,7 +11384,7 @@
 				"vision_radius"			"800 800 800"
 				"pull_rotate_speed"		"0.25"
 				"animation_rate"		"0.2"
-				"scepter_pct_damage"	"3"
+				"scepter_pct_damage"	"5"
 				"scepter_radius"	"1000"
 				"scepter_drag_speed"	"175"
 				"scepter_pull_rotate_speed"	"0.1"
@@ -12036,7 +12036,7 @@
 	//=================================================================================================================
 	"lich_frost_nova"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityDamage"					"80 120 160 200 240 280 320"
 		"AbilityManaCost"				"110 130 150 170 180 190 200"
 		"AbilityValues"
@@ -12057,7 +12057,7 @@
 	}
 	"lich_frost_shield"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"35 30 25 20 15"
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilitySpecial"
@@ -12094,7 +12094,7 @@
 	}
 	"lich_sinister_gaze"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"24 22 20 18 16"
 		"AbilitySpecial"
 		{
@@ -12118,7 +12118,7 @@
 	}
 	"lich_chain_frost"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"100.0 90.0 80.0 70.0 60.0"
 		"AbilityManaCost"				"180 300 420 540 660"
 		"AbilitySpecial"
@@ -12166,13 +12166,13 @@
 	//=================================================================================================================
 	"lina_dragon_slave"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityDamage"					"85 160 235 310 380 440 500"
 		"AbilityManaCost"				"100 110 120 130 140 150 160"
 	}
 	"lina_light_strike_array"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"13 11 9 7 5"
 		"AbilityManaCost"				"100 105 110 115 120"
 		"AbilitySpecial"
@@ -12192,7 +12192,7 @@
 	}
 	"lina_fiery_soul"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -12222,7 +12222,7 @@
 	}
 	"lina_laguna_blade"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"70 60 50 40 30"
 		"AbilityManaCost"				"150 250 350 450 550"
 		"AbilitySpecial"
@@ -12260,7 +12260,7 @@
 	//=================================================================================================================
 	"lion_impale"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityManaCost"				"85 110 135 160 185"
 		"AbilityDamage"					"80 140 200 260 320"
 		"AbilitySpecial"
@@ -12274,7 +12274,7 @@
 	}
 	"lion_voodoo"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"30.0 25.0 20.0 15.0 10.0"
 		"AbilityManaCost"				"125 150 175 200 225"
 		"AbilitySpecial"
@@ -12293,7 +12293,7 @@
 	}
 	"lion_mana_drain"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"13 11 9 7 5"
 		"AbilitySpecial"
 		{
@@ -12313,7 +12313,7 @@
 	}
 	"lion_finger_of_death"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"100.0 80.0 60.0 40.0"
 		"AbilityManaCost"				"200 400 600 800 1000"
 		"AbilitySpecial"
@@ -12739,7 +12739,7 @@
 	//=================================================================================================================
 	"oracle_fortunes_end"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"14 12 9 7 5"
 		"AbilityManaCost"				"100"
 		"AbilitySpecial"
@@ -12753,7 +12753,7 @@
 	}
 	"oracle_fates_edict"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCastRange"				"500 600 700 800 900"
 		"AbilityCooldown"				"15 13 11 9 7"
 		"AbilityManaCost"				"50"
@@ -12773,7 +12773,7 @@
 	}
 	"oracle_purifying_flames"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityManaCost"				"80"
 		"AbilitySpecial"
 		{
@@ -12796,7 +12796,7 @@
 	}
 	"oracle_false_promise"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"90 80 70 60"
 		"AbilityCastRange"				"700 800 900 1000"
 		"AbilityManaCost"				"100 150 200 250"
@@ -12931,7 +12931,7 @@
 	//=================================================================================================================
 	"pugna_nether_blast"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityManaCost"				"95 105 115 125 135 145 165"
 		"AbilitySpecial"
 		{
@@ -12945,7 +12945,7 @@
 	}
 	"pugna_decrepify"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCastRange"				"400 500 600 700 800"
 		"AbilityCooldown"				"14.0 12.0 10.0 8.0 6.0"
 		"AbilityDuration"				"3.5"
@@ -13010,7 +13010,7 @@
 	}
 	"pugna_life_drain"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityManaCost"				"125 150 175 200 225"
 		"AbilitySpecial"
 		{
@@ -14116,7 +14116,7 @@
 	//=================================================================================================================
 	"void_spirit_aether_remnant"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"17.0 15.0 13.0 11.0 9.0"
 		"AbilityManaCost"				"75 80 85 90 95"
 		"AbilitySpecial"
@@ -14156,14 +14156,14 @@
 	}
 	"void_spirit_dissimilate"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"20 17 14 11 9"
-		"AbilityDamage"					"100 180 260 340 320 400 480"
-		"AbilityManaCost"				"100 110 120 130 140 150 160"
+		"AbilityDamage"					"100 180 260 340 400"
+		"AbilityManaCost"				"100 110 120 130 140"
 	}
 	"void_spirit_astral_step"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityChargeRestoreTime"		"28 24 20 16 12"
 		"AbilitySpecial"
 		{
@@ -14211,7 +14211,7 @@
 	}
 	"void_spirit_resonant_pulse"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel" "7"
 		"AbilityManaCost"				"115 120 125 130 135 140 145"
 		"AbilitySpecial"
 		{
@@ -14362,7 +14362,7 @@
 	}
 	"windrunner_shackleshot"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"16 14 12 10 8"
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilitySpecial"
@@ -14397,7 +14397,7 @@
 	}
 	"windrunner_powershot"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"12 11 10 9 8"
 		"AbilityManaCost"				"90 100 110 120 130"
 		"AbilityValues"
@@ -14419,7 +14419,7 @@
 	}
 	"windrunner_windrun"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"15 14 13 12 11"
 		"AbilityDuration"				"3 4 5 6 7"
 		"AbilityValues"
@@ -14446,7 +14446,7 @@
 	}
 	"windrunner_focusfire"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"60 50 40 30"
 		"AbilityDuration"				"20.0"
 		"AbilityManaCost"				"75 100 125 150"
