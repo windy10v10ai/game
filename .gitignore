@@ -8,6 +8,8 @@ panorama/scripts/custom_game/*.vjs_c
 /panorama/images/items/*.vxml_c
 /panorama/images/heroes/*.vtex_c
 /panorama/images/heroes/*.vxml_c
+panorama/images/custom_game/end/*.vtex_c
+panorama/images/custom_game/end/*.vxml_c
 /.tool/reference
 panorama_debugger.cfg
 resource/custom_game_whitelist.txt
