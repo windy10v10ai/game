@@ -21,7 +21,7 @@ function _ScoreboardUpdater_SetTextSafe( panel, childName, textValue )
 
 //=============================================================================
 //=============================================================================
-function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContainer, playerId, localPlayerTeamId )
+function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContainer, playerId, localPlayerTeamId, GAME_RESULT )
 {
 	var playerPanelName = "_dynamic_player_" + playerId;
 //	$.Msg( playerPanelName );
@@ -104,12 +104,6 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 		playerPanel.SetHasClass( "player_connection_failed", playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_FAILED );
 		playerPanel.SetHasClass( "player_connection_disconnected", playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_DISCONNECTED );
 
-		var playerAvatar = playerPanel.FindChildInLayoutFile( "AvatarImage" );
-		if ( playerAvatar )
-		{
-			playerAvatar.steamid = playerInfo.player_steamid;
-		}
-
 		var playerColorBar = playerPanel.FindChildInLayoutFile( "PlayerColorBar" );
 		if ( playerColorBar !== null )
 		{
@@ -126,6 +120,34 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 				var playerColor = "#000000";
 				playerColorBar.style.backgroundColor = playerColor;
 			}
+		}
+
+		// set avatar
+		if (playerInfo.player_steamid && playerInfo.player_steamid !== "0") {
+			playerPanel.FindChildTraverse("PlayerAvatar").steamid = playerInfo.player_steamid;
+		} else {
+			playerPanel.FindChildTraverse("PlayerAvatar").steamid = playerInfo.player_steamid;
+		}
+
+		// set member info
+		const playerData = GAME_RESULT.players[playerId];
+		if (playerData.membership) {
+			playerPanel.AddClass("IsMemberShip");
+			let membershipString = $.Localize('#player_member_ship');
+			let membershipUrl = $.Localize('#player_member_ship_url');
+
+			let membershipIcon = playerPanel.FindChildTraverse("PlayerMemberShip");
+
+			membershipIcon.SetPanelEvent('onmouseover',() => {
+				$.DispatchEvent("DOTAShowTextTooltip", membershipIcon, membershipString);
+			})
+			membershipIcon.SetPanelEvent('onmouseout',() => {
+				$.DispatchEvent("DOTAHideTextTooltip");
+			})
+
+			membershipIcon.SetPanelEvent('onactivate',() => {
+				$.DispatchEvent('ExternalBrowserGoToURL', membershipUrl)
+			})
 		}
 	}
 
@@ -241,7 +263,7 @@ function _ScoreboardUpdater_UpdateTeamPanel( scoreboardConfig, containerPanel, t
 	{
 		for ( var playerId of teamPlayers )
 		{
-			_ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContainer, playerId, localPlayerTeamId )
+			_ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContainer, playerId, localPlayerTeamId, GAME_RESULT )
 		}
 	}
 

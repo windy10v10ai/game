@@ -50,7 +50,7 @@
 		<snippet name="Player">
 			<Panel class="Player">
 				<Panel class="HeaderColumn">
-					<Panel id="PlayerColor" />
+					<Panel id="PlayerMemberShip"/>
 					<DOTAAvatarImage id="PlayerAvatar"/>
 					<Image id="HeroIcon" />
 					<Label id="HeroLevelLabel" class="MonoNumbersFont" text="{d:hero_level}" />
