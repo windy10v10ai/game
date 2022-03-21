@@ -7035,7 +7035,188 @@
 	//=================================================================================================================
 	// Ability: Ember Spirit 灰烬之灵/火猫
 	//=================================================================================================================
+	"ember_spirit_searing_chains"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"13 12 11 10 9"
+		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"1.5 2.0 2.5 3.0 3.5"
+				"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_2"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_per_second"				"50 70 90 110 130"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"unit_count"					"3"
+				"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_7"
+			}
+		}
+	}
+	"special_bonus_unique_ember_spirit_7"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"810"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"
+				"ad_linked_abilities"			"ember_spirit_searing_chains"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"ember_spirit_sleight_of_fist"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"14 12 10 8 6"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"250 350 450 550 650"
+			}
+
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_hero_damage"			"60 90 120 150 180"
+				"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_6"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+		}
+	}
+	"special_bonus_unique_ember_spirit_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"353"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"90"
+				"ad_linked_abilities"			"ember_spirit_sleight_of_fist"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"ember_spirit_flame_guard"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"35.0"
+		"AbilityManaCost"				"80 90 100 110 120 130 140"
+		"AbilityValues"
+		{
+				"duration"						"11 14 17 20 23 26 29"
+				"radius"						"400"
+				"absorb_amount"
+				{
+					"value"					"100 200 300 400 500 600 700"
+					"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_1"
+				}
+				"tick_interval"					"0.2"
+				"damage_per_second"
+				{
+					"value"			"25 35 45 55 65 75 85"
+					"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_3"
+				}
+				"blind_pct"				"50"
+				"shield_pct_absorb"		"70"
+		}
+	}
+	"special_bonus_unique_ember_spirit_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6172"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"300"
+				"ad_linked_abilities"			"ember_spirit_flame_guard"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"special_bonus_unique_ember_spirit_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6647"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"60"
+				"ad_linked_abilities"			"ember_spirit_flame_guard"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"ember_spirit_fire_remnant"
+	{
+		"MaxLevel" "5"
+		"AbilityChargeRestoreTime"		"28.0"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"AbilityChargeRestoreTime"		"28.0"
+				"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_5"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 200 300 400 500"
+			}
+		}
+	}
+	"ember_spirit_activate_fire_remnant"
+	{
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 200 300 400 500"
+			}
+		}
+	}
 	//=================================================================================================================
 	// Ability: Faceless Void 虚空假面/几把脸
 	//=================================================================================================================
@@ -7105,7 +7286,129 @@
 	//=================================================================================================================
 	// Ability: Gyrocopter 矮人直升机/飞机
 	//=================================================================================================================
+	"gyrocopter_rocket_barrage"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"7 6.5 6 5.5 5"
+		"AbilityDuration"				"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"rockets_per_second"		"10"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"rocket_damage"				"10 15 20 25 30"
+				"LinkedSpecialBonus"		"special_bonus_unique_gyrocopter_3"
+			}
+		}
+	}
+	"special_bonus_unique_gyrocopter_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6652"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"20"
+				"ad_linked_abilities"			"gyrocopter_rocket_barrage"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"gyrocopter_homing_missile"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"21 18 15 12 9"
+		"AbilityManaCost"				"110 120 130 140 150"
+		"AbilityDamage"					"90 180 270 360 450"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hits_to_kill_tooltip"		"3"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"tower_hits_to_kill_tooltip"		"6"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1.8 2.2 2.6 3.0 3.4"
+				"LinkedSpecialBonus"		"special_bonus_unique_gyrocopter_6"
+			}
+		}
+	}
+	"gyrocopter_flak_cannon"
+	{
+		"MaxLevel" "5"
+		"AbilityManaCost"				"50 60 70 80 90"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"max_attacks"					"3 4 5 6 7"
+				"LinkedSpecialBonus"			"special_bonus_unique_gyrocopter_2"
+			}
+		}
+	}
+	"special_bonus_unique_gyrocopter_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6312"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"3"
+				"ad_linked_abilities"			"gyrocopter_flak_cannon"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"gyrocopter_call_down"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"70 60 50 40"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_first"				"150 250 350 450"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_second"				"200 300 400 500"
+			}
+		}
+	}
 	//=================================================================================================================
 	// Ability: Hoodwink 森海飞霞/小松鼠
 	//=================================================================================================================
