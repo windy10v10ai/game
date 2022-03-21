@@ -5734,7 +5734,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage_buildings"		"55 70 85 100 115"
+				"bonus_damage_buildings"		"60"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"07"
