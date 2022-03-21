@@ -4698,7 +4698,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"caustic_finale_damage_pct"		"10"
+				"caustic_finale_damage_pct"		"5"
 			}
 			"05"
 			{
@@ -4706,26 +4706,6 @@
 				"caustic_finale_slow"		"-10 -15 -20 -25 -30 -35 -40"
 				"LinkedSpecialBonus"	"special_bonus_unique_sand_king_6"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
-			}
-		}
-	}
-	"special_bonus_unique_sand_king_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"890"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"value"				"150"
-				"ad_linked_abilities"			"sandking_caustic_finale"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
