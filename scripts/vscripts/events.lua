@@ -761,8 +761,6 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
                 -- local tip_points = WebServer.TipCounter[playerID] or 0
 				local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
                 local membership = memberSteamAccountID[steamAccountID] and true or false
-				print("steamId",steamAccountID)
-				print("membership",membership)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
 
@@ -817,8 +815,8 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
     if bTrueEnd then
         sTable = "ending_stats_2"
     end
-	print("[AIGameMode:EndScreenStats]")
-	PrintTable(data)
+	-- print("[AIGameMode:EndScreenStats]")
+	-- PrintTable(data)
 
     CustomNetTables:SetTableValue(sTable, "player_data", data)
 end
