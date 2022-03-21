@@ -9,9 +9,6 @@
 		"SpectatorLoadoutScale" 	"0.55000"
 		"VersusScale"				"0.55000"
 
-		"SoundSet"		"Hero_Miku"
-		"VoiceFile"		"soundevents/voscripts/game_sounds_vo_miku.vsndevts"
-
 		"DisableWearables" 			"1"
 		"Ability1"         "miku_hadouken"
 		"Ability2"         "pantsushot"
