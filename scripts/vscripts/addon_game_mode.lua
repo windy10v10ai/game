@@ -8,9 +8,9 @@ if AIGameMode == nil then
 end
 
 require('timers')
+require('util')
 require('settings')
 require('events')
-require('util')
 require('bot/bot_think_item_build')
 require('bot/bot_think_modifier')
 

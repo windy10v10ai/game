@@ -108,4 +108,10 @@ function ProcsAroundMagicStick(hUnit)
 	end
 end
 
+function Set (list)
+	local set = {}
+	for _, l in ipairs(list) do set[l] = true end
+	return set
+end
+
 print("Util loaded.")

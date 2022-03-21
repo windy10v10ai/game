@@ -660,7 +660,7 @@
 		"ScriptFile"					"heroes/hero_miku/pantsushot.lua"
 		"AbilityTextureName"			"hatsune_2"
 		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"1"
+		"AbilityCooldown"				"2.0 1.6 1.2 1.0 0.8"
 
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
@@ -693,8 +693,8 @@
 			}
 			"03"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"cooldown"					"1"
+				"var_type"					"FIELD_FLOAT"
+				"cooldown"					"2.0 1.6 1.2 1.0 0.8"
 			}
 			"04"
 			{
@@ -762,7 +762,7 @@
 			"06"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"stun_duration"					"0.6 0.8 1.0 1.2 1.4"
+				"stun_duration"					"1.2 1.4 1.6 1.8 2.0"
 			}
 		}
 	}
@@ -860,8 +860,8 @@
 
 		"AbilityCastPoint"						"0.3"
 		//"AbilityChannelTime"					"5.0"
-		"AbilityCooldown"						"80 70 60"
-		"AbilityManaCost"						"250 500 750"
+		"AbilityCooldown"						"60"
+		"AbilityManaCost"						"250 400 550"
 
 		"HasScepterUpgrade"						"0"
 
@@ -877,7 +877,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"damage"						"100 150 200"
+				"damage"						"80 120 160"
 			}
 			"02"
 			{
@@ -942,7 +942,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60"
+		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"300 400 500"
 		"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_5"
 
@@ -957,7 +957,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.5 2.0 2.5"
+				"stun_duration"			"2.0 2.5 3.0"
 			}
 			"02"
 			{
@@ -1006,7 +1006,7 @@
 
     	// Ability Resource
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilityCooldown"				"60"
+    	"AbilityCooldown"				"90"
     	"AbilityManaCost"				"200 300 400"
 
     	// Damage
