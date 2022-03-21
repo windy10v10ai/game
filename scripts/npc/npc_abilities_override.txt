@@ -1824,7 +1824,7 @@
 	//=================================================================================================================
 	"beastmaster_wild_axes"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel"	"7"
 		"AbilitySpecial"
 		{
 			"04"
@@ -1891,7 +1891,7 @@
 	}
 	"beastmaster_inner_beast"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel"	"7"
 		"AbilitySpecial"
 		{
 			"02"
@@ -1904,7 +1904,7 @@
 	}
 	"beastmaster_primal_roar"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel"	"5"
 		"AbilityCooldown"				"60.0 55.0 50.0 45.0 40.0"
 		"AbilityManaCost"				"150 175 200 225 250"
 		"AbilitySpecial"
@@ -1939,7 +1939,106 @@
 	//=================================================================================================================
 	// Ability: Brewmaster 熊猫酒仙
 	//=================================================================================================================
+	"brewmaster_thunder_clap"
+	{
+		"MaxLevel"	"5"
+		"AbilityManaCost"				"90 100 110 120 130"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"90 160 230 300 370"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_slow"				"25 35 45 55 65"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed_slow"			"25 35 45 55 65"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"4.0"
+				"LinkedSpecialBonus"		"special_bonus_unique_brewmaster_3"
+			}
+		}
+	}
+	"brewmaster_cinder_brew"
+	{
+		"MaxLevel"	"5"
+		"AbilityCooldown"				"20 17 14 11 8"
+		"AbilityManaCost"				"50 60 70 80 90"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"5"
+				"LinkedSpecialBonus"		"special_bonus_unique_brewmaster_5"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"total_damage"				"75 150 225 300 375"
+				"LinkedSpecialBonus"		"special_bonus_unique_brewmaster_5"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_slow"				"24 28 32 36 40"
+			}
+		}
+	}
+	"brewmaster_drunken_brawler"
+	{
+		"MaxLevel"	"5"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityValues"
+		{
+			"dodge_chance"		"15 20 25 30 35"
+			"crit_chance"				"24"
+			"active_multiplier"			"3"
+			"crit_multiplier"			"145 160 175 190 205"
+			"magic_resist"	"5 10 15 20 25"
+			"armor"		"1 3 5 7 9"
+			"movespeed"				"-25"
+			"slow_duration"				"2"
+			"bonus_move_speed"		"5 7 9 11 13"
+			"bonus_status_resist"	"20"
+		}
+	}
+	"brewmaster_primal_split"
+	{
+		"AbilityCooldown"				"80 70 60"
+	}
+	"special_bonus_unique_brewmaster"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6082"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"3000"
+				"ad_linked_abilities"			"brewmaster_primal_split"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
 	//=================================================================================================================
 	// Ability: Bristleback 钢背兽
 	//=================================================================================================================
@@ -2825,7 +2924,115 @@
 	//=================================================================================================================
 	// Ability: Earth Spirit 大地之灵/土猫
 	//=================================================================================================================
+	"earth_spirit_boulder_smash"
+	{
+		"MaxLevel" "7"
+		"AbilityCooldown"				"20.0 18.0 16.0 14.0 12.0 10.0 8.0"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rock_damage"			"120 180 240 300 360 420 480"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"			"1.5 2 2.5 3 3.5 4 4.5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"unit_distance"			"800.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_7"
+			}
+		}
+	}
+	"earth_spirit_rolling_boulder"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
+		"AbilitySpecial"
+		{
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"60"
+				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.4 0.6 0.8 1.0 1.2"
+				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_3"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"rock_bonus_duration"	"0.4 0.6 0.8 1.0 1.2"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_str"			"100"
+			}
+		}
+	}
+	"earth_spirit_geomagnetic_grip"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rock_damage"			"50 100 150 200 250"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"			"2 2.5 3 3.5 4"
+				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_5"
+			}
+		}
+	}
+	"special_bonus_unique_earth_spirit_5"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"7657"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"2"
+				"ad_linked_abilities"			"earth_spirit_geomagnetic_grip"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"earth_spirit_stone_caller"
+	{
+		"AbilityChargeRestoreTime"		"15"
+	}
+	"earth_spirit_magnetize"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"80 70 60 50 40"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"			"40 80 120 160 200"
+			}
+		}
+	}
 	//=================================================================================================================
 	// Ability: Elder Titan 上古巨神/大牛
 	//=================================================================================================================
