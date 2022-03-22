@@ -41,6 +41,25 @@ function Snippet_Player(playerId, rootPanel, index) {
 		panel.FindChildTraverse("BotNameScoreboard").visible = true;
 	}
 
+	if (playerData.membership) {
+		panel.AddClass("IsMemberShip");
+		let membershipString = $.Localize('#player_member_ship');
+		let membershipUrl = $.Localize('#player_member_ship_url');
+
+		let membershipIcon = panel.FindChildTraverse("PlayerMemberShip");
+
+        membershipIcon.SetPanelEvent('onmouseover',() => {
+            $.DispatchEvent("DOTAShowTextTooltip", membershipIcon, membershipString);
+        })
+        membershipIcon.SetPanelEvent('onmouseout',() => {
+            $.DispatchEvent("DOTAHideTextTooltip");
+        })
+
+        membershipIcon.SetPanelEvent('onactivate',() => {
+            $.DispatchEvent('ExternalBrowserGoToURL', membershipUrl)
+        })
+	}
+
 	panel.index = index; // For backwards compatibility
 	panel.style.animationDelay = index * 0.3 + "s";
 	$.Schedule(index * 0.3, function() {
@@ -65,8 +84,6 @@ function Snippet_Player(playerId, rootPanel, index) {
 	panel.SetDialogVariableInt("damage", playerData.damage);
 	panel.SetDialogVariableInt("damagereceived", playerData.damagereceived);
 	panel.SetDialogVariable("heroHealing", playerData.heroHealing);
-
-	panel.SetDialogVariableInt("points", playerData.points);
 
 	panel.SetDialogVariableInt("strength", playerData.str);
 	panel.SetDialogVariableInt("agility", playerData.agi);
