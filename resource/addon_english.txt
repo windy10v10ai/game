@@ -84,6 +84,14 @@
 		"bot_multiplier"	"Bot Multi"
 		"tower_power"		"Tower Level"
 
+		"player_member_ship"		"Sponsor"
+		"player_member_ship_url"		"https://www.patreon.com/windy10v10"
+
+		///////////////////////////////////////////////////
+		//
+		//            Creep / Tower
+		//
+		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_tower_power"							"Tower power"
 		"DOTA_Tooltip_modifier_tower_power_Description"			"The tower's attack damage is changed by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%, bonus attack speed is %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
@@ -95,7 +103,6 @@
 		"DOTA_Tooltip_modifier_melee_resistance"					"Bulldozer"
 		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% extra status resistance, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magical resistance."
 
-        // creep buff
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%Damage Reduction:"
