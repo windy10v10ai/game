@@ -1547,18 +1547,23 @@
 			}
 		}
 	}
-	"abyssal_underlord_dark_portal"
+	"abyssal_underlord_dark_rift"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"200"
-		"AbilityManaCost"				"100"
-		"AbilityValues"
+		"AbilityCooldown"				"100 90 80 70"
+		"AbilityManaCost"				"100 200 300 400"
+		"AbilitySpecial"
 		{
-				"duration"				"20.0"
-				"damage_reduction"		"10 20 30 40"
-				"bonus_ms"				"10 20 30 40"
-				"buff_duration"			"5.0 6.0 7.0 8.0"
-				"minimum_distance"		"2000"
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"radius"						"600"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"teleport_delay"				"5.0 4.0 3.0 2.0"
+			}
 		}
 	}
 	//=================================================================================================================
