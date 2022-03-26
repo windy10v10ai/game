@@ -80,4 +80,117 @@
 
 		}
 	}
+
+	// saber
+	"models/artoria/artoria_arcade.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"195.90 -45.63 85.55"
+				"PortraitAngles"		"352.41 167.17 0.00"
+				"PortraitFOV"		"11.5"
+			}
+		}
+	}
+
+	"models/artoria/artoria_arcade_crown.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"195.90 -45.63 85.55"
+				"PortraitAngles"		"352.41 167.17 0.00"
+				"PortraitFOV"		"11.5"
+			}
+		}
+	}
+
+	"models/artoria/artoria_arcade_long_hair.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"195.90 -45.63 85.55"
+				"PortraitAngles"		"352.41 167.17 0.00"
+				"PortraitFOV"		"11.5"
+			}
+		}
+	}
+
+	"models/artoria/artoria_arcade_long_hair_crown.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"195.90 -45.63 85.55"
+				"PortraitAngles"		"352.41 167.17 0.00"
+				"PortraitFOV"		"11.5"
+			}
+		}
+	}
 }
