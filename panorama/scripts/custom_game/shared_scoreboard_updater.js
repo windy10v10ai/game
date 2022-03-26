@@ -131,7 +131,7 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 
 		// set member info
 		const playerData = GAME_RESULT.players[playerId];
-		if (playerData.membership) {
+		if (playerData && playerData.membership) {
 			playerPanel.AddClass("IsMemberShip");
 			let membershipString = $.Localize('#player_member_ship');
 			let membershipUrl = $.Localize('#player_member_ship_url');
@@ -234,7 +234,6 @@ function _ScoreboardUpdater_UpdateTeamPanel( scoreboardConfig, containerPanel, t
 	}
 
 	const GAME_RESULT = CustomNetTables.GetTableValue("ending_stats", "player_data")
-	$.Msg( "GAME_RESULT = ", GAME_RESULT )
 	if (teamId === 2 && GAME_RESULT) {
 		let radiantPanel = containerPanel.FindChildInLayoutFile( "RadiantHeader" );
 		radiantPanel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#player_multiplier") + ": x" + GAME_RESULT.options.playerGoldXpMultiplier;

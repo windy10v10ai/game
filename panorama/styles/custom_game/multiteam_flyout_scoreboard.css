@@ -431,3 +431,7 @@
    background-position: 5% 5%;
    background-size: 100% 100%;
 }
+
+.PlayerHeader {
+	flow-children: right;
+}
