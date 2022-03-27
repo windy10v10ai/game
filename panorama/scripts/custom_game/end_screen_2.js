@@ -199,6 +199,6 @@ function OnGameResult(table, key, gameResult) {
 	$("#LoadingPanel").visible = false;
 	$("#EndScreenWindow").visible = false;
 
-	CustomNetTables.SubscribeNetTableListener("ending_stats_2", OnGameResult);
-	OnGameResult(null, "player_data", CustomNetTables.GetTableValue("ending_stats_2", "player_data"));
+	CustomNetTables.SubscribeNetTableListener("ending_stats", OnGameResult);
+	OnGameResult(null, "player_data", CustomNetTables.GetTableValue("ending_stats", "player_data"));
 })();
