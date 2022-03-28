@@ -10483,6 +10483,13 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"vortex_shard_dps"		"80"
+				"RequiresShard"			"1"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shard_attack_speed_reduction"		"40"
+				"RequiresShard"			"1"
 			}
 		}
 	}
