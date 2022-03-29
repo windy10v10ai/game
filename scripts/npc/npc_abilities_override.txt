@@ -4077,6 +4077,7 @@
 				"var_type"					"FIELD_INTEGER"
 				"crit_mult"					"150 190 230 270 310"
 				"LinkedSpecialBonus"		"special_bonus_unique_mars_gods_rebuke_extra_crit"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
 			}
 			"09"
 			{
@@ -10089,7 +10090,7 @@
 	}
 	"venomancer_plague_ward"
 	{
-		"AbilityCooldown"				"4.0"
+		"AbilityCooldown"				"5.0"
 		"AbilityManaCost"				"10 15 20 25"
 	}
 	"venomancer_poison_nova"
