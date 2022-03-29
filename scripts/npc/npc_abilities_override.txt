@@ -4392,9 +4392,6 @@
 		"MaxLevel" "4"
 		"AbilityCooldown"				"120 110 100 90"
 		"AbilityManaCost"				"100 150 200 250"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 				"duration"					"5.0 6.0 7.0 8.0"
@@ -4482,7 +4479,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hp_perc_damage"		"1.5 2 2.5 3 3.5 4 4.5"
+				"hp_perc_damage"		"0.5 1 1.5 2 2.5 3 3.5"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_5"
 			}
 			"04"
@@ -4677,18 +4674,22 @@
 	"pudge_flesh_heap"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"30 25 20 15 10"
-		"AbilityManaCost"				"50"
+		"AbilityCooldown"				"20 18 16 14 12"
+		"AbilityManaCost"				"35 40 45 50 55"
 		"AbilityValues"
 		{
-			"damage_block"					"10 15 20 25 30"
+			"damage_block"
+			{
+				"value"			"10 15 20 25 30"
+				"special_bonus_unique_pudge_1"	"x1.6"
+			}
 			"flesh_heap_strength_buff_amount"
 			{
 				"value"	"1.1 1.4 1.7 2 2.3"
-				"LinkedSpecialBonus"			"special_bonus_unique_pudge_1"
+				"special_bonus_unique_pudge_1"	"x1.6"
 			}
 			"flesh_heap_range"		"450"
-			"duration"	"7"
+			"duration"	"5 6 7 8 9"
 		}
 	}
 	"pudge_meat_hook"
@@ -4756,27 +4757,6 @@
 	"rattletrap_overclocking"
 	{
 		"AbilityCooldown"				"30"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"buff_duration"				"10"
-				"RequiresScepter"			"1"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_movement_speed"		"50"
-				"RequiresScepter"			"1"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"debuff_duration"		"1"
-				"RequiresScepter"			"1"
-			}
-		}
 	}
 	"rattletrap_battery_assault"
 	{
@@ -4899,11 +4879,6 @@
 		"AbilityManaCost"				"70 75 80 85 90"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_tick_rate"	"0.2"
-			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -4915,11 +4890,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"sand_storm_damage"		"20 45 70 95 120"
 				"LinkedSpecialBonus"	"special_bonus_unique_sand_king_2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fade_delay"			"0.7"
 			}
 		}
 	}
@@ -4978,6 +4948,22 @@
 			"epicenter_slow_as"
 			{
 				"value"			"-30"
+			}
+			"shard_radius"
+			{
+				"value"		"425"
+				"special_bonus_unique_sand_king_5"	"+100"
+				"RequiresShard"	"1"
+			}
+			"shard_move_distance"
+			{
+				"value"				"700.0"
+				"RequiresShard"		"1"
+			}
+			"shard_epicenter_pulse_damage_bonus"
+			{
+				"value"			"20"
+				"RequiresShard"	"1"
 			}
 		}
 	}
