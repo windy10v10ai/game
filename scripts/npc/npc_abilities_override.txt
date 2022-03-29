@@ -2992,6 +2992,26 @@
 	"earth_spirit_stone_caller"
 	{
 		"AbilityChargeRestoreTime"		"15"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"60.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shard_bonus_charges"	"5"
+				"RequiresShard"			"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shard_vision_radius"	"500"
+				"RequiresShard"			"1"
+			}
+		}
 	}
 	"earth_spirit_magnetize"
 	{
@@ -3014,21 +3034,8 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"14 13 12 11 10"
 		"AbilityManaCost"				"100"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"cast_time"						"1.7"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"500"
-			}
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
@@ -3053,16 +3060,6 @@
 		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"cast_time"						"1.7"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"500"
-			}
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
@@ -3105,7 +3102,7 @@
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"armor_creeps"					"0.5"
-			"armor_heroes"					"1.5 3 4.5 6"
+			"armor_heroes"					"2 3 4 5 6"
 			"move_pct_cap"					"40"
 			"scepter_magic_immune_per_hero"
 			{
@@ -3179,6 +3176,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"damage_pct"				"15 20 25 30"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
 			"13"
 			{
@@ -3235,11 +3233,6 @@
 		"MaxLevel" "7"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"health_cost"					"3"
-			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
@@ -3263,7 +3256,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"10"
+				"value"				"15"
 				"ad_linked_abilities"			"huskar_burning_spear"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -3471,9 +3464,21 @@
 					"value"		"330 340 350 360 370 380 390"
 					"LinkedSpecialBonus"	"special_bonus_unique_legion_commander_2"
 				}
-				"armor_per_creep"	"0.5"
-				"armor_per_hero"	"4"
-				"shard_duration"	"15"
+				"armor_per_creep"
+				{
+					"value" 				"0.5"
+					"RequiresShard"				"1"
+				}
+				"armor_per_hero"
+				{
+					"value" 				"4"
+					"RequiresShard"  		"1"
+				}
+				"shard_duration"
+				{
+					"value" 				"15"
+					"RequiresShard"		"1"
+				}
 		}
 	}
 	"legion_commander_press_the_attack"
@@ -3507,7 +3512,6 @@
 			}
 			"buff_duration"				"1.0"
 			"hp_leech_percent"			"60 65 70 75 80 85 90"
-			"bonus_damage_heroes"	"75"
 		}
 	}
 	"special_bonus_unique_legion_commander_3"
@@ -3533,6 +3537,7 @@
 	"legion_commander_duel"
 	{
 		"MaxLevel" "4"
+		"AbilityCooldown"				"40.0"
 		"AbilitySpecial"
 		{
 			"01"
@@ -3551,6 +3556,18 @@
 				"var_type"				"FIELD_INTEGER"
 				"reward_damage"			"10 15 20 25"
 				"LinkedSpecialBonus"	"special_bonus_unique_legion_commander"
+			}
+			"05"
+			{
+				"var_type"								"FIELD_INTEGER"
+				"scepter_damage_reduction_pct"			"60"
+				"RequiresScepter"						"1"
+			}
+			"06"
+			{
+				"var_type"								"FIELD_FLOAT"
+				"scepter_cooldown_reduction"			"20.0"
+				"RequiresScepter"						"1"
 			}
 		}
 	}
@@ -11703,7 +11720,7 @@
 				"vision_radius"			"800 800 800"
 				"pull_rotate_speed"		"0.25"
 				"animation_rate"		"0.2"
-				"scepter_pct_damage"	"5"
+				"scepter_pct_damage"	"3"
 				"scepter_radius"	"1000"
 				"scepter_drag_speed"	"175"
 				"scepter_pull_rotate_speed"	"0.1"
