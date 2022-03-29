@@ -11992,6 +11992,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"cataclysm_cooldown"		"80"
+				"RequiresScepter"			"1"
 			}
 		}
 	}
@@ -12784,6 +12785,7 @@
 				"var_type"			"FIELD_FLOAT"
 				"aura_damage"		"1.2 1.5 1.8 2.1 2.4 2.7 3.0"
 				"LinkedSpecialBonus"		"special_bonus_unique_necrophos_2"
+				"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
 			}
 			"03"
 			{

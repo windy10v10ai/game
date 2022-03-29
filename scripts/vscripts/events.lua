@@ -253,10 +253,6 @@ end
 
 
 function AIGameMode:SpawnNeutralCreeps30sec()
-	-- test end info
-	if self.DebugMode then
-		self:EndScreenStats(true, true)
-	end
 
 	local GameTime = GameRules:GetDOTATime(false, false)
 	print("SpawnNeutral at GetDOTATime " .. GameTime)
@@ -598,6 +594,7 @@ function AIGameMode:OnNPCSpawned(keys)
 			if not hEntity:FindModifierByName("modifier_bot_think_item_use") then
 				hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_item_use", {})
 			end
+			hEntity:SetControllableByPlayer(-1, true)
 		end
 
 		hEntity.bInitialized = true
@@ -697,28 +694,6 @@ developerSteamAccountID[143575444]="茶神"
 developerSteamAccountID[314757913]="孤尘"
 developerSteamAccountID[916506173]="Arararara"
 
-function AIGameMode:OnPlayerChat( event )
-	local nPlayerID = event.playerid
-	local sChatMsg = event.text
-	if not nPlayerID or not sChatMsg then return end
-	local steamAccountID = PlayerResource:GetSteamAccountID(nPlayerID)
-
-	if developerSteamAccountID[steamAccountID] then
-		if sChatMsg:find( '^-greedisgood$' ) then
-			-- give money to the player
-			-- get hero
-			local hHero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
-			local iGold = 10000
-			hHero:ModifyGold(iGold, true, DOTA_ModifyGold_Unspecified)
-			GameRules:SendCustomMessage(
-				"号外号外！开发者:"..developerSteamAccountID[steamAccountID].." 用自己的菊花交换了增加10000金币",
-				DOTA_TEAM_GOODGUYS,
-				0
-			)
-		end
-	end
-end
-
 
 -- 会员
 local memberSteamAccountID = Set {
@@ -731,6 +706,50 @@ local memberSteamAccountID = Set {
 	-- 测试
 	-- 916506173,
 }
+
+-- saber
+local saberSteamAccountID = Set {
+	-- windy
+	136407523,
+	-- 洛书
+	136668998,
+	-- 测试
+	916506173,
+}
+
+function AIGameMode:OnPlayerChat( event )
+	local iPlayerID = event.playerid
+	local sChatMsg = event.text
+	if not iPlayerID or not sChatMsg then return end
+	local steamAccountID = PlayerResource:GetSteamAccountID(iPlayerID)
+
+	if developerSteamAccountID[steamAccountID] then
+		if sChatMsg:find( '^-greedisgood$' ) then
+			-- give money to the player
+			-- get hero
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			local iGold = 10000
+			hHero:ModifyGold(iGold, true, DOTA_ModifyGold_Unspecified)
+			GameRules:SendCustomMessage(
+				"号外号外！开发者:"..developerSteamAccountID[steamAccountID].." 用自己的菊花交换了增加10000金币",
+				DOTA_TEAM_GOODGUYS,
+				0
+			)
+			return
+		end
+	end
+
+	if saberSteamAccountID[steamAccountID] then
+		if sChatMsg:find( '^圣剑.*解放.*$' ) then
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			local pszHeroClass = "npc_dota_hero_broodmother"
+			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
+			saberSteamAccountID[steamAccountID] = false
+			return
+		end
+	end
+end
+
 
 function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
     local time = GameRules:GetDOTATime(false, true)
@@ -761,8 +780,6 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
                 -- local tip_points = WebServer.TipCounter[playerID] or 0
 				local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
                 local membership = memberSteamAccountID[steamAccountID] and true or false
-				print("steamId",steamAccountID)
-				print("membership",membership)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
 
@@ -793,18 +810,16 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
                 }
 
 
-				if bTrueEnd then
-					for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
-						local item = hero:GetItemInSlot(item_slot)
-						if item then
-							playerInfo.items[item_slot] = item:GetAbilityName()
-						end
+				for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
+					local item = hero:GetItemInSlot(item_slot)
+					if item then
+						playerInfo.items[item_slot] = item:GetAbilityName()
 					end
+				end
 
-					local hNeutralItem = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-					if hNeutralItem then
-						playerInfo.items[DOTA_ITEM_NEUTRAL_SLOT] = hNeutralItem:GetAbilityName()
-					end
+				local hNeutralItem = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+				if hNeutralItem then
+					playerInfo.items[DOTA_ITEM_NEUTRAL_SLOT] = hNeutralItem:GetAbilityName()
 				end
 
                 data.players[playerID] = playerInfo
@@ -813,12 +828,6 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
     end
 
     local sTable = "ending_stats"
-
-    if bTrueEnd then
-        sTable = "ending_stats_2"
-    end
-	print("[AIGameMode:EndScreenStats]")
-	PrintTable(data)
 
     CustomNetTables:SetTableValue(sTable, "player_data", data)
 end
