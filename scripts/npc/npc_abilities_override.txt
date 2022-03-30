@@ -5255,17 +5255,6 @@
 				"scepter_duration"		"5"
 				"RequiresScepter"			"1"
 			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"	"1200"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius_tooltip_scepter"	"1200"
-				"RequiresScepter"			"1"
-			}
 		}
 	}
 	//=================================================================================================================
@@ -5342,13 +5331,29 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"700 800 900 1000 1100"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"armor_reduction"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"		"-10 -15 -20 -25 -30"
-				"LinkedSpecialBonus"	"special_bonus_unique_slardar_5"
+				"value"				"-10 -15 -20 -25 -30"
+				"special_bonus_unique_slardar_5"	"-4"
+			}
+			"duration"
+			{
+				"value"			"20"
+			}
+			"undispellable"
+			{
+				"value"			"0"
+				"special_bonus_unique_slardar_3"	"+1"
+			}
+			"puddle_radius"
+			{
+				"value"			"100"
+			}
+			"puddle_duration"
+			{
+				"value"			"8"
 			}
 		}
 	}
