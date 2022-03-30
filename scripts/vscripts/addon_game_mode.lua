@@ -232,6 +232,8 @@ function AIGameMode:PreGameOptions()
 
 	print("botPushMin: "..self.botPushMin)
 
+	BotThink:SetTome()
+
 	self.PreGameOptionsSet = true
 end
 
