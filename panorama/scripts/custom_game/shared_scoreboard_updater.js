@@ -1,9 +1,10 @@
 "use strict";
 
 var imageMap = {
-	'meepo': 'meepo_custom',
-	'juggernaut': 'juggernaut_custom',
-	'techies': 'techies_custom',
+	'npc_dota_hero_meepo': 'npc_dota_hero_meepo_custom',
+	'npc_dota_hero_juggernaut': 'npc_dota_hero_juggernaut_custom',
+	'npc_dota_hero_techies': 'npc_dota_hero_techies_custom',
+	'npc_dota_hero_broodmother': 'npc_dota_hero_broodmother_custom',
 }
 //=============================================================================
 //=============================================================================
@@ -64,9 +65,9 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 		{
 			if ( playerInfo.player_selected_hero !== "" )
 			{
-				let heroImageCustom = imageMap[playerInfo.possible_hero_selection];
+				let heroImageCustom = imageMap[playerInfo.player_selected_hero];
 				if (heroImageCustom && heroImageCustom !== "") {
-					playerPortrait.SetImage( "file://{images}/heroes/npc_dota_hero_" + heroImageCustom + ".png" );
+					playerPortrait.SetImage( "file://{images}/heroes/" + heroImageCustom + ".png" );
 				} else {
 					playerPortrait.SetImage( "file://{images}/heroes/" + playerInfo.player_selected_hero + ".png" );
 				}
