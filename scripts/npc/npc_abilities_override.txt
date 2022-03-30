@@ -6227,7 +6227,11 @@
 				"self_bonus"				"0"
 				"slow"				"15 25 35 45 55"
 				"slow_duration"				"0.2"
-				"spell_lifesteal"			"10"
+				"shard_bonus_spell_lifesteal"
+				{
+					"value"			"10"
+					"RequiresShard"	"1"
+				}
 		}
 	}
 	"wisp_spirits"
@@ -6270,6 +6274,16 @@
 					"special_bonus_unique_wisp_10"	"+0.2"
 				}
 				"duration"			"8"
+				"shard_bonus_spell_amp"
+				{
+					"value"			"10"
+					"RequiresShard"	"1"
+				}
+				"shard_bonus_spell_lifesteal"
+				{
+					"value"			"10"
+					"RequiresShard"	"1"
+				}
 		}
 	}
 	"wisp_relocate"
@@ -6335,14 +6349,14 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"14 12 10 8 6"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blink_range"			"925 1000 1075 1150 1200"
-				"LinkedSpecialBonus"		"special_bonus_unique_antimage_3"
-			}
+				"blink_range"
+				{
+					"value"					"925 1000 1075 1150 1225"
+					"LinkedSpecialBonus"		"special_bonus_unique_antimage_3"
+				}
+				"min_blink_range"		"200"
 		}
 	}
 	"antimage_counterspell"
@@ -6381,13 +6395,14 @@
 	"antimage_mana_void"
 	{
 		"MaxLevel" "4"
-		"AbilityManaCost"				"100 150 200 250"
+		"AbilityCooldown"				"60.0"
+		"AbilityManaCost"				"100 200 300 400"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_void_damage_per_mana"		"0.8 0.9 1.0 1.1"
+				"mana_void_damage_per_mana"		"0.9 1.0 1.1 1.2"
 				"LinkedSpecialBonus"		"special_bonus_unique_antimage_6"
 			}
 		}
@@ -6426,11 +6441,6 @@
 		"AbilityManaCost"				"50 70 90 110 130"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"300"
-			}
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
@@ -6445,7 +6455,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"evasion_chance"			"100"
+				"evasion_chance"			"90"
 			}
 		}
 	}
@@ -6485,11 +6495,6 @@
 				"var_type"						"FIELD_FLOAT"
 				"ministun_duration"				"0.4 0.5 0.6 0.7 0.8"
 			}
-			"12"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"scepter_activation_delay"				"2.0"
-			}
 		}
 	}
 	"arc_warden_tempest_double"
@@ -6508,11 +6513,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bounty"				"180 240 300 360"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_damage_penalty"				"50"
 			}
 		}
 	}
@@ -6619,25 +6619,6 @@
 				"var_type"					"FIELD_INTEGER"
 				"movement_damage_pct"		"33 44 55 66 77"
 				"CalculateSpellDamageTooltip"	"0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"hp_pct"		"10"
-				"CalculateSpellDamageTooltip"	"0"
-				"LinkedSpecialBonus"		"special_bonus_unique_bloodseeker_7"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_cap_amount"			"200"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"abilitycastrange"			"800"
-				"LinkedSpecialBonus"		"special_bonus_unique_bloodseeker_3"
 			}
 		}
 	}
