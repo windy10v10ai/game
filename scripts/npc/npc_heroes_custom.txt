@@ -10,6 +10,7 @@
 		"VersusScale"				"0.55000"
 
 		"DisableWearables" 			"1"
+		"AbilityLayout"				"6"
 		"Ability1"         "miku_hadouken"
 		"Ability2"         "pantsushot"
 		"Ability3"         "liu_kick"
@@ -45,6 +46,64 @@
 		"AttackDamageMax"			"35"
 		"VisionDaytimeRange"		"1800"
 		"VisionNighttimeRange"		"1000"
+	}
+
+	// saber
+	"npc_dota_hero_artoria"
+	{
+		"override_hero"				"npc_dota_hero_broodmother"
+		"Model"						"models/artoria/artoria_arcade.vmdl"
+		"DrawParticlesWhileHidden"	"1"
+		"DisableWearables" 			"1"
+		"ModelScale"				"1.24"
+
+		"AbilityLayout"				"6"
+
+		"Ability1"					"artoria_strike_air"
+		"Ability2"					"artoria_instinct"
+		"Ability3"					"artoria_mana_burst"
+		"Ability4"					"generic_hidden"
+		"Ability5"					"artoria_ultimate_excalibur"
+		"Ability6"					"artoria_excalibur"
+
+		"Ability10"                 "special_bonus_hp_250"
+		"Ability11"					"special_bonus_movement_speed_20"
+		"Ability12"					"special_bonus_all_stats_8"
+		"Ability13"					"special_bonus_mana_reduction_11"
+		"Ability14"					"special_bonus_hp_regen_25"
+		"Ability15"					"special_bonus_attack_speed_40"
+		"Ability16"					"special_bonus_strength_40"
+		"Ability17"					"special_bonus_attack_damage_100"
+
+		"StatusHealth"					"300"
+		"StatusHealthRegen"				"1.5"
+		"StatusMana"					"200"
+		"StatusManaRegen"				"0.5"
+
+		"ArmorPhysical"					"4"
+		"MagicalResistance"				"25"
+
+		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"				"47"
+		"AttackDamageMax"				"57"
+		"AttackRate"					"1.7"
+		"AttackAcquisitionRange"		"550"
+		"AttackRange"					"250"
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_Strength"
+		"AttributeBaseStrength"			"25"
+		"AttributeStrengthGain"			"3.0"
+		"AttributeBaseAgility"			"22"
+		"AttributeAgilityGain"			"2.2"
+		"AttributeBaseIntelligence"		"20"
+		"AttributeIntelligenceGain"		"2.0"
+
+		"MovementCapabilities"			"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"					"315"
+		"MovementTurnRate"				"0.8"
+
+		"VisionDaytimeRange"			"1000"
+		"VisionNighttimeRange"			"1000"
 	}
 
 	"npc_dota_hero_silencer"
