@@ -7788,7 +7788,7 @@
 				}
 				"bonus_night_vision"
 				{
-					"value"			"250 500 750 1000 1200"
+					"value"			"250 500 750 1000 1250"
 					"special_bonus_unique_luna_8"	"+200"
 				}
 		}
@@ -7841,7 +7841,7 @@
 			"09"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration_tooltip_scepter"	"1 2 3 4 5"
+				"duration_tooltip_scepter"	"2 3 4 5 6"
 				"RequiresScepter"		"1"
 			}
 		}
@@ -7950,6 +7950,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"bonus_physical_damage"		"40 45 50 55"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
 			}
 			"08"
 			{
@@ -7975,14 +7976,19 @@
 	}
 	"mirana_invis"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"120.0 110.0 100.0 90.0 80.0"
+		"MaxLevel" "4"
+		"AbilityCooldown"				"120.0 100.0 80.0 60.0"
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fade_delay"			"2.5 2.0 1.5 1.0"
+			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"		"10 15 20 25 30"
+				"bonus_movement_speed"		"15 20 25 30"
 			}
 		}
 	}
@@ -7990,18 +7996,46 @@
 	{
 		"MaxLevel" "5"
 		"AbilityChargeRestoreTime"		"45 40 35 30 25"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"04"
+			"leap_distance"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"leap_speedbonus"	"10 20 30 40 50"
+				"value"							"575"
+				"special_bonus_unique_mirana_6"	"+100"
 			}
-			"05"
+			"leap_speed"			"1300.0"
+			"leap_acceleration"		"6000.0"
+			"leap_speedbonus"	"15 20 25 30 35"
+			"leap_speedbonus_as"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"leap_speedbonus_as"	"30 60 90 120 150"
-				"LinkedSpecialBonus"	"special_bonus_unique_mirana_1"
+				"value"				"25 50 75 100 125"
+				"special_bonus_unique_mirana_1"	"+80"
+			}
+			"leap_bonus_duration"	"2.5"
+			"shard_radius"
+			{
+				"value"				"300"
+				"RequiresShard"		"1"
+			}
+			"shard_damage"
+			{
+				"value"				"150"
+				"RequiresShard"		"1"
+			}
+			"shard_slow_pct"
+			{
+				"value"				"30"
+				"RequiresShard"		"1"
+			}
+			"shard_slow_duration"
+			{
+				"value"				"2.5"
+				"RequiresShard"		"1"
+			}
+			"shard_bonus_charges"
+			{
+				"value"				"1"
+				"RequiresShard"		"1"
 			}
 		}
 	}
@@ -8009,18 +8043,15 @@
 	{
 		"MaxLevel" "7"
 		"AbilityManaCost"				"80 95 110 125 140 155 170"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"03"
+			"starfall_radius"	"650"
+			"starfall_secondary_radius"	"425"
+			"secondary_starfall_damage_percent"	 "75"
+			"damage"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"secondary_starfall_damage_percent"	 "100"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"	 "75 150 225 300 350 400 450"
-				"LinkedSpecialBonus"	"special_bonus_unique_mirana_7"
+				"value"			"75 150 225 300 375 450 525"
+				"special_bonus_unique_mirana_7"	"+200"
 			}
 		}
 	}
@@ -8043,7 +8074,8 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"strike_crit_mult"			"135 165 195 225 255 280 300"
+				"strike_crit_mult"			"135 165 195 225 255 285 315"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
 			}
 		}
 	}
@@ -8090,7 +8122,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"40 70 100 130 160 180 200"
+				"bonus_damage"				"40 70 100 130 160 190 220"
 				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king_2"
 			}
 			"05"
