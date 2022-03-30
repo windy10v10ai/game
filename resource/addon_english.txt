@@ -184,10 +184,12 @@
         "DOTA_Tooltip_ability_pantsushot_crit_chance" "%Chance:"
         "DOTA_Tooltip_ability_pantsushot_crit_bonus" "%Crit:"
         "DOTA_Tooltip_ability_pantsushot_stun_duration" "Stun duration:"
+		"DOTA_Tooltip_ability_pantsushot_Lore" "Nyanyanyanyanyanyanya!"
         "DOTA_Tooltip_ability_miku_hadouken" "Popipo"
         "DOTA_Tooltip_ability_miku_hadouken_Description" "Creates a musical wave directed in the specified direction, damaging all enemies in its path"
         "DOTA_Tooltip_ability_miku_hadouken_damage" "Damage:"
         "DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "Damage in Chibi status:"
+		"DOTA_Tooltip_ability_miku_hadouken_Lore"           "Rich and fragrant vegetable juice! Fragrant and soft vegetable juice!"
 
 		// 双头龙
         "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"Increases Macropyre distance by +200 range, duration by +5 seconds and causes it to become Pure damage and pierce Spell Immunity."
@@ -197,6 +199,50 @@
 
 		// 谜团
 		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"					"Black Hole deals additional damage equivalent to 3% of the unit's Max Health per second."
+
+		// Saber
+		"npc_dota_hero_broodmother"						"Artoria Pendragon"
+
+		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>Strike Air</font>"
+		"DOTA_Tooltip_ability_artoria_strike_air_description"	"Saber unleashes a destructive gale from her sword, dealing <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>reduce armor</font> and <font color='#FF3399'>stun</font> of all enemies in the path.<br/>Saber gains <font color='#ffd700'>Spell Immunity</font> in few seconds."
+		"DOTA_Tooltip_ability_artoria_strike_air_Lore"		"The air so condensed that it twists the look of sword. What if what packs it is released?"
+		"DOTA_Tooltip_ability_artoria_strike_air_cast_range"		"RANGE:"
+		"DOTA_Tooltip_ability_artoria_strike_air_damage"	" DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_strike_air_stun_duration"			"STUN DURATION:"
+		"DOTA_Tooltip_ability_artoria_strike_air_corruption_armor"		"REDUCE ARMOR:"
+		"DOTA_Tooltip_ability_artoria_strike_air_immunity_duration"		"IMMUNITY DURATION:"
+
+		"DOTA_Tooltip_Ability_artoria_instinct"					"<font color='#FFE56E'>Instinct</font>"
+		"DOTA_Tooltip_ability_artoria_instinct_Description"		"Saber's gifted instinct allows her gains extra <font color='#FF3399'>magical resistance</font> and <font color='#C24401'>status resistance</font>."
+		"DOTA_Tooltip_ability_artoria_instinct_magic_res"		"%Magical Resistance "
+		"DOTA_Tooltip_ability_artoria_instinct_status_res"		"%Status Resistance "
+
+		"DOTA_Tooltip_Ability_artoria_mana_burst"					"<font color='#FFE56E'>Mana Burst</font>"
+		"DOTA_Tooltip_ability_artoria_mana_burst_description"		"Strikes Nearby enemies with a single powerful blow, dealing <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>slow</font>.Purge all buffs on the enemy. \nPassively increase self magic potency."
+		"DOTA_Tooltip_ability_artoria_mana_burst_Lore"		""
+		"DOTA_Tooltip_ability_artoria_mana_burst_amp_pct"		"%Spell Damage Amplification:"
+		"DOTA_Tooltip_ability_artoria_mana_burst_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_mana_burst_radius"	"AOE RADIUS:"
+		"DOTA_Tooltip_ability_artoria_mana_burst_slow_amount"	"%SLOW AMOUNT:"
+		"DOTA_Tooltip_ability_artoria_mana_burst_duration"		"SLOW DURATION:"
+
+		"DOTA_Tooltip_Ability_artoria_excalibur"				"<font color='#FFE56E'>Excalibur</font>"
+		"DOTA_Tooltip_ability_artoria_excalibur_description"	"Saber supercharges Excalibur with her prana and swings it to unleash a wave of light.Dealing <font color='#05CAFF'>magical damage</font> to every enemy in the path of light.\n\n<font color='#FF3399'>Upgradable with item Excalibur</font>"
+		"DOTA_Tooltip_ability_artoria_excalibur_Lore"	"The lone King's ideal shines the brightest in the starry night."
+		"DOTA_Tooltip_ability_artoria_excalibur_cast_delay"		"CAST DELAY:"
+		"DOTA_Tooltip_ability_artoria_excalibur_range"		"RANGE:"
+		"DOTA_Tooltip_ability_artoria_excalibur_width"		"WIDTH:"
+		"DOTA_Tooltip_ability_artoria_excalibur_duration"	"DURATION:"
+		"DOTA_Tooltip_ability_artoria_excalibur_damage"		"DAMAGE Per Second:"
+
+		"DOTA_Tooltip_Ability_artoria_ultimate_excalibur"				"<font color='#FFE56E'>Hidden Treasure: Excalibur - The Sword of Promised Victory</font>"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Description"	"Saber unleashes the true radiance of Excalibur forward.\nEngulfing everything in the path in ardent light to deal significant <font color='#05CAFF'>magical damage</font>."
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Lore"	"The lone King's ideal shines the brightest in the starry night."
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_cast_delay"	"CAST DELAY:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_range"		"RANGE:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_width"		"WIDTH:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_duration"	"DURATION:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_damage"	"DAMAGE Per Second:"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
