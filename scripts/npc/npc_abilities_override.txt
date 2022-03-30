@@ -5537,6 +5537,21 @@
 		{
 			"damage"				"125 200 275 350"
 			"fade_time"				"1.0 1.0 1.0"
+			"shard_bonus_damage"
+			{
+				"value"				"200"
+				"RequiresShard"		"1"
+			}
+			"shard_break_duration"
+			{
+				"value"				"4.0"
+				"RequiresShard"		"1"
+			}
+			"shard_spell_immune_duration"
+			{
+				"value"				"2.0"
+				"RequiresShard"		"1"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -5563,6 +5578,16 @@
 		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cleave_ending_width"			"540"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cleave_distance"			"900"
+			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -5593,12 +5618,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius"		"700"
+				"radius"		"900"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"duration"		"8"
+				"duration"		"10"
 				"LinkedSpecialBonus"		"special_bonus_unique_sven_5"
 			}
 		}
@@ -5633,7 +5658,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"70"
+				"value"				"80"
 				"ad_linked_abilities"			"sven_gods_strength"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -5833,6 +5858,7 @@
 				"damage_reduction"		"-30 -40 -50 -60 -70"
 				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_3"
 				"CalculateSpellDamageTooltip"	"0"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
 		}
 	}
@@ -5954,16 +5980,12 @@
 			}
 		}
 	}
-	"tiny_tree_channel"
-	{
-		"AbilityManaCost"				"100"
-	}
 	"tiny_grow"
 	{
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"bonus_armor"				"12 18 24 30 36"
+			"bonus_armor"				"10 15 20 25 30"
 			"bonus_damage"
 			{
 				"value"					"50 100 150 200 250"
@@ -5985,7 +6007,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"20 19 18 17 16"
-		"AbilityManaCost"				"75 80 85 90 100"
+		"AbilityManaCost"				"75 80 85 90 95"
 		"AbilitySpecial"
 		{
 			"01"
@@ -6114,13 +6136,19 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"str_steal"						"4"
+				"str_steal"						"6"
 			}
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
 				"decay_duration"				"45"
 				"LinkedSpecialBonus"			"special_bonus_unique_undying_4"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"str_steal_scepter"				"15"
+				"RequiresScepter"	"1"
 			}
 		}
 	}
@@ -6165,6 +6193,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"damage_amp"				"25 30 35 40 45"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}
 			"04"
 			{
