@@ -7,6 +7,12 @@ require('bot/bot_think_item_use')
 
 
 local function addTome(k, v)
+  local amount = 5
+  if AIGameMode.fBotGoldXpMultiplier > 10 then
+    amount = 10
+  elseif AIGameMode.fBotGoldXpMultiplier > 5 then
+    amount = 7
+  end
   for i = 0, 5 do
     table.insert(v,"item_tome_of_agility")
     table.insert(v,"item_tome_of_strength")
@@ -19,13 +25,14 @@ end
 if BotThink == nil then
   print("Bot Think initialize!")
 	_G.BotThink = class({}) -- put in the global scope
+end
 
+function BotThink:SetTome()
   local allPurchaseTable = tBotItemData.purchaseItemList
   for k,v in pairs(allPurchaseTable) do
     addTome(k,v)
   end
 end
-
 
 local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
   if not iPurchaseTable then
