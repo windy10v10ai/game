@@ -8521,6 +8521,7 @@
 				"necromastery_damage_per_soul"	"1 2 3 4 5"
 				"CalculateSpellDamageTooltip"	"0"
 				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_1"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
 			"02"
 			{
@@ -8537,11 +8538,6 @@
 				"var_type"						"FIELD_INTEGER"
 				"necromastery_max_souls_scepter" "40"
 				"RequiresScepter"			"1"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"attack_range_bonus" "100"
 			}
 		}
 	}
@@ -8739,6 +8735,32 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"4 5 6 7 8 9 10"
+			}
+		}
+	}
+	"pangolier_lucky_shot"
+	{
+		"MaxLevel" "5"
+		"AbilityValues"
+		{
+				"chance_pct"			"17"
+				"duration"				"2.5 3 3.5 4 4.5"
+				"slow"			"15"
+				"armor"			"2 4 6 8 10"
+		}
+	}
+	"pangolier_gyroshell"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"60 55 50 45"
+		"AbilityManaCost"				"100 150 200 250"
+		"AbilityDamage"					"180 260 340 420"
+		"AbilitySpecial"
+		{
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.0 1.25 1.5"
 			}
 		}
 	}
