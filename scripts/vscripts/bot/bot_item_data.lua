@@ -203,6 +203,8 @@ tBotItemData.purchaseItemList = {
 		'item_maelstrom',
 		'item_hyperstone',
         'item_recipe_mjollnir',
+		'item_gungir',
+		'item_recipe_gungir_2',
 		'item_black_king_bar_2',
 		'item_vladmir_2',
 		'item_aghanims_shard',
