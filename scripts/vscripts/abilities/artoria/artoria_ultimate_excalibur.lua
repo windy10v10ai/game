@@ -10,27 +10,25 @@ function artoria_ultimate_excalibur:OnSpellStart()
 	local caster = self:GetCaster()
 	local targetPoint = self:GetCursorPosition()
 	local ability = self
+	local cast_delay = self:GetSpecialValueFor("cast_delay")
 	self.interval = self:GetSpecialValueFor("interval")
 	self.duration = self:GetSpecialValueFor("duration")
 
 	local artoria_excalibur = caster:FindAbilityByName("artoria_excalibur")
 	if artoria_excalibur and not artoria_excalibur:IsNull() then
-		artoria_excalibur:StartCooldown(60.0)
+		artoria_excalibur:StartCooldown(30.0)
 	end
 	EmitGlobalSound("artoria_excalibur")
 
 	local chargeFxIndex = ParticleManager:CreateParticle( "particles/custom/artoria/artoria_ultimate_excalibur_charge.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
 
-
 	-- caster:AddNewModifier(caster, self, "modifier_artoria_ultimate_excalibur", { Duration = 5.01 })
 	local range = self:GetSpecialValueFor("range") - self:GetSpecialValueFor("width") -- We need this to take end radius of projectile into account
 
-	caster:ForcePlayActivityOnce(ACT_DOTA_CAST_ABILITY_6)
 	local excal =
 	{
 		Ability = self,
         EffectName = "",
-        -- EffectName = "particles/custom/saber/excalibur/shockwave.vpcf",
         iMoveSpeed = self:GetSpecialValueFor("speed"),
         vSpawnOrigin = caster:GetAbsOrigin(),
         fDistance = range,
@@ -42,7 +40,7 @@ function artoria_ultimate_excalibur:OnSpellStart()
         iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
         iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
         iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        fExpireTime = GameRules:GetGameTime() + self.duration,
+        fExpireTime = GameRules:GetGameTime() + 5,
 		bDeleteOnHit = false,
 		vVelocity = caster:GetForwardVector() * self:GetSpecialValueFor("speed")
 	}
@@ -61,7 +59,8 @@ function artoria_ultimate_excalibur:OnSpellStart()
 
 	self.timeCounter = 0
 
-	Timers:CreateTimer(1.0, function()
+	Timers:CreateTimer(cast_delay, function()
+		caster:ForcePlayActivityOnce(ACT_DOTA_CAST_ABILITY_6)
 		Timers:CreateTimer( function()
 			print("artoria_ultimate_excalibur Time: " .. self.timeCounter)
 				if self.timeCounter > self.duration then

@@ -1203,7 +1203,7 @@
 		"MaxLevel"						"3"
 		"RequiredLevel"					"6"
 		"LevelsBetweenUpgrades"			"6"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -1216,7 +1216,7 @@
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.6"
-    	"AbilityChannelTime"			"2.5"
+    	"AbilityChannelTime"			"2.0"
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"400 500 600"
 
@@ -1238,12 +1238,12 @@
 		// Ability Values		//------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"cast_delay"			"1.0"
+			"cast_delay"			"0.5"
 			"duration"				"1.5"
 			"range"					"2000"
 			"width"					"400"
 			"speed"					"2000.0"
-			"damage"				"600 800 1000"
+			"damage"				"600 900 1200"
 			"interval"				"0.25"
 		}
 	}
@@ -1255,7 +1255,7 @@
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -1295,8 +1295,8 @@
 		// Ability Values		//------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"cast_delay"			"1.0"
-			"duration"				"2.0"
+			"cast_delay"			"1.5"
+			"duration"				"1.5"
 			"range"					"6000"
 			"width"					"600"
 			"speed"					"6000.0"
