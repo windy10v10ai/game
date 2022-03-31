@@ -208,7 +208,7 @@
 		"DOTA_Tooltip_ability_artoria_strike_air_Lore"		"空气的凝聚扭曲了作为剑身原本的模样，如若那障目谜团揭晓之时？"
 		"DOTA_Tooltip_ability_artoria_strike_air_cast_range"		"距离："
 		"DOTA_Tooltip_ability_artoria_strike_air_damage"	" 伤害："
-		"DOTA_Tooltip_ability_artoria_strike_air_corruption_armor"		"降低护甲:"
+		// "DOTA_Tooltip_ability_artoria_strike_air_corruption_armor"		"降低护甲:"
 		"DOTA_Tooltip_ability_artoria_strike_air_stun_duration"			"晕眩时间："
 		"DOTA_Tooltip_ability_artoria_strike_air_immunity_duration"		"魔免时间："
 
