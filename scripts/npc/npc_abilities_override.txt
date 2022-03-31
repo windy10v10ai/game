@@ -6739,111 +6739,9 @@
 	//=================================================================================================================
 	// Ability: Broodmother 育母蜘蛛
 	//=================================================================================================================
-	"broodmother_spawn_spiderlings"
-	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"9 8 7 6"
-		"AbilityManaCost"				"120"
-		"AbilityValues"
-		{
-				"buff_duration"			"20"
-				"spiderling_duration"	"40 45 50 55"
-				"damage"
-				{
-					"value"				"260 340 420 500"
-					"special_bonus_unique_broodmother_3" "+80"
-				}
-				"damage_bonus"	"0 3 6 9"
-				"hp_bonus"
-				{
-					"value"				"200"
-					"special_bonus_unique_broodmother_2"	"+400"
-				}
-				"count"					"4 5 6 7"
-				"projectile_speed"	"1200"
-		}
-	}
-	"broodmother_poison_sting"
-	{
-		"MaxLevel" "4"
-		"AbilityValues"
-		{
-			"movement_speed"		"-6 -8 -10 -12"
-			"duration_hero"			"2.0"
-			"duration"				"6.0"
-		}
-	}
-	"broodmother_spin_web"
-	{
-		"MaxLevel" "5"
-		"AbilityCharges"				"4 6 8 10 12"
-		"AbilityValues"
-		{
-			"radius"				"900"
-			"count"
-			{
-				"value"				"3 5 7 9 11"
-				"special_bonus_unique_broodmother_6" "+3"
-			}
-			"heath_regen"			"3 5 7 9 11"
-			"bonus_movespeed"		"18 30 42 54 66"
-			"AbilityChargeRestoreTime"
-			{
-				"value"				"30"
-				"special_bonus_unique_broodmother_5" "-15"
-			}
-		}
-	}
-	"broodmother_silken_bola"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"24 20 16 12 8"
-		"AbilityManaCost"				"70 75 80 85 90"
-		"AbilityValues"
-		{
-			"movement_speed"
-			{
-					"value"		"25 35 45 55 65"
-					"special_bonus_unique_broodmother_4"	"+15"
-			}
-			"duration"				"4"
-			"projectile_speed"	"1200"
-			"impact_damage"			"100 120 140 160 180"
-			"attack_damage"			"6 7 8 9 10"
-			"miss_chance"			"40"
-		}
-	}
-	"broodmother_insatiable_hunger"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"45 40 35 30 25"
-		"AbilityManaCost"				"50 60 70 80 90"
-		"AbilityValues"
-		{
-			"bonus_damage"
-			{
-				"value"					"35 45 55 65 75"
-				"special_bonus_unique_broodmother_1"	"+50"
-			}
-			"lifesteal_pct"
-			{
-				"value"				"40 60 80 100 120"
-				"special_bonus_unique_broodmother_1"	"+50"
-			}
-			"duration"				"8 10 12 14 16"
-		}
-	}
-	"broodmother_sticky_snare"
-	{
-		"AbilityValues"
-		{
-			"root_duration"			"3"
-			"damage_per_second"		"100"
-			"count"			"5"
-			"width"		"900"
 
-		}
-	}
+	//已替换为新英雄Saber
+
 	//=================================================================================================================
 	// Ability: Clinkz 克林克兹/骨弓/小骷髅
 	//=================================================================================================================
@@ -7788,7 +7686,7 @@
 				}
 				"bonus_night_vision"
 				{
-					"value"			"250 500 750 1000 1200"
+					"value"			"250 500 750 1000 1250"
 					"special_bonus_unique_luna_8"	"+200"
 				}
 		}
@@ -7841,7 +7739,7 @@
 			"09"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration_tooltip_scepter"	"1 2 3 4 5"
+				"duration_tooltip_scepter"	"2 3 4 5 6"
 				"RequiresScepter"		"1"
 			}
 		}
@@ -7950,6 +7848,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"bonus_physical_damage"		"40 45 50 55"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
 			}
 			"08"
 			{
@@ -7975,14 +7874,19 @@
 	}
 	"mirana_invis"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"120.0 110.0 100.0 90.0 80.0"
+		"MaxLevel" "4"
+		"AbilityCooldown"				"120.0 100.0 80.0 60.0"
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fade_delay"			"2.5 2.0 1.5 1.0"
+			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"		"10 15 20 25 30"
+				"bonus_movement_speed"		"15 20 25 30"
 			}
 		}
 	}
@@ -7990,18 +7894,46 @@
 	{
 		"MaxLevel" "5"
 		"AbilityChargeRestoreTime"		"45 40 35 30 25"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"04"
+			"leap_distance"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"leap_speedbonus"	"10 20 30 40 50"
+				"value"							"575"
+				"special_bonus_unique_mirana_6"	"+100"
 			}
-			"05"
+			"leap_speed"			"1300.0"
+			"leap_acceleration"		"6000.0"
+			"leap_speedbonus"	"15 20 25 30 35"
+			"leap_speedbonus_as"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"leap_speedbonus_as"	"30 60 90 120 150"
-				"LinkedSpecialBonus"	"special_bonus_unique_mirana_1"
+				"value"				"25 50 75 100 125"
+				"special_bonus_unique_mirana_1"	"+80"
+			}
+			"leap_bonus_duration"	"2.5"
+			"shard_radius"
+			{
+				"value"				"300"
+				"RequiresShard"		"1"
+			}
+			"shard_damage"
+			{
+				"value"				"150"
+				"RequiresShard"		"1"
+			}
+			"shard_slow_pct"
+			{
+				"value"				"30"
+				"RequiresShard"		"1"
+			}
+			"shard_slow_duration"
+			{
+				"value"				"2.5"
+				"RequiresShard"		"1"
+			}
+			"shard_bonus_charges"
+			{
+				"value"				"1"
+				"RequiresShard"		"1"
 			}
 		}
 	}
@@ -8009,18 +7941,15 @@
 	{
 		"MaxLevel" "7"
 		"AbilityManaCost"				"80 95 110 125 140 155 170"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"03"
+			"starfall_radius"	"650"
+			"starfall_secondary_radius"	"425"
+			"secondary_starfall_damage_percent"	 "75"
+			"damage"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"secondary_starfall_damage_percent"	 "100"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"	 "75 150 225 300 350 400 450"
-				"LinkedSpecialBonus"	"special_bonus_unique_mirana_7"
+				"value"			"75 150 225 300 375 450 525"
+				"special_bonus_unique_mirana_7"	"+200"
 			}
 		}
 	}
@@ -8043,7 +7972,8 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"strike_crit_mult"			"135 165 195 225 255 280 300"
+				"strike_crit_mult"			"135 165 195 225 255 285 315"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
 			}
 		}
 	}
@@ -8090,7 +8020,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"40 70 100 130 160 180 200"
+				"bonus_damage"				"40 70 100 130 160 190 220"
 				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king_2"
 			}
 			"05"
@@ -8489,6 +8419,7 @@
 				"necromastery_damage_per_soul"	"1 2 3 4 5"
 				"CalculateSpellDamageTooltip"	"0"
 				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_1"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
 			"02"
 			{
@@ -8505,11 +8436,6 @@
 				"var_type"						"FIELD_INTEGER"
 				"necromastery_max_souls_scepter" "40"
 				"RequiresScepter"			"1"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"attack_range_bonus" "100"
 			}
 		}
 	}
@@ -8710,6 +8636,32 @@
 			}
 		}
 	}
+	"pangolier_lucky_shot"
+	{
+		"MaxLevel" "5"
+		"AbilityValues"
+		{
+				"chance_pct"			"17"
+				"duration"				"2.5 3 3.5 4 4.5"
+				"slow"			"15"
+				"armor"			"2 4 6 8 10"
+		}
+	}
+	"pangolier_gyroshell"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"60 55 50 45"
+		"AbilityManaCost"				"100 150 200 250"
+		"AbilityDamage"					"180 260 340 420"
+		"AbilitySpecial"
+		{
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.0 1.25 1.5"
+			}
+		}
+	}
     //=================================================================================================================
 	// Ability: Phantom Lancer 幻影长矛手/猴子
 	//=================================================================================================================
@@ -8876,6 +8828,7 @@
 			{
 				"value"				"30 40 50 60 70 80 90"
 				"special_bonus_unique_phantom_assassin_5"	"+20"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
 			}
 		}
 	}
@@ -9140,6 +9093,7 @@
 				"value"		"1.4 1.8 2.2 2.5"
 				"LinkedSpecialBonus"		"special_bonus_unique_riki_1"
 				"CalculateSpellDamageTooltip"	"0"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}
 
 			"backstab_angle"				"105 105 105"
@@ -9383,26 +9337,25 @@
 		"AbilityCooldown"				"30 25 20 15 10"
 		"AbilityDamage"					"350 500 650 800 950"
 		"AbilityManaCost"				"175 225 275 325 375"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"projectile_speed"			"2500 2500 2500"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"abilitycastpoint"				""
-				"LinkedSpecialBonus"	"special_bonus_unique_sniper_4"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"scepter_stun_duration"			"1 1.25 1.5 1.75 2.0"
-				"RequiresScepter"		"1"
-			}
+				"abilitycastpoint"
+				{
+					"value"					""
+					"LinkedSpecialBonus"	"special_bonus_unique_sniper_4"
+					"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+				}
+				"scepter_stun_duration"
+				{
+					"value" "1 1.25 1.5 1.75 2.0"
+					"RequiresScepter"		"1"
+				}
+				"scepter_cast_point"
+				{
+					"value" "0.5"
+					"RequiresScepter"		"1"
+				}
 		}
 	}
 	//=================================================================================================================
@@ -9688,7 +9641,7 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCooldown"				"60.0 50.0 40.0 30.0"
-		"AbilityManaCost"				"200 150 100 50"
+		"AbilityManaCost"				"150 100 50 0"
 		"AbilityValues"
 		{
 				"hit_point_minimum_pct"		"30 25 20 15"
@@ -10073,6 +10026,11 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"damage_reduction"	"30 40 50 60"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_reduction_duration"	"4"
 			}
 			"05"
 			{
