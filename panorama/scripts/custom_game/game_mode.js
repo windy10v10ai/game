@@ -5,6 +5,49 @@ function OnDropDownChanged(option) {
 	let optionValue = $("#"+option).GetSelected().text;
 	let optionId = $("#"+option).GetSelected().id;
 	GameEvents.SendCustomGameEventToServer('game_options_change', { optionName: option, optionValue: optionValue, optionId: optionId })
+
+	if (option == "bot_gold_xp_multiplier_dropdown") {
+		if (optionId == "20") {
+			// set April Fools
+			$("#player_gold_xp_multiplier_dropdown").SetSelected("2");
+			$("#radiant_tower_power_dropdown").SetSelected("10");
+			$("#dire_tower_power_dropdown").SetSelected("10");
+			$("#radiant_tower_heal_dropdown").SetSelected("5");
+			$("#dire_tower_heal_dropdown").SetSelected("5");
+			// disable dropdown
+			$("#player_gold_xp_multiplier_dropdown").enabled=false;
+			$("#radiant_tower_power_dropdown").enabled=false;
+			$("#dire_tower_power_dropdown").enabled=false;
+			$("#radiant_tower_heal_dropdown").enabled=false;
+			$("#dire_tower_heal_dropdown").enabled=false;
+			// disable option
+
+		} else {
+			// un set April Fools
+			$("#player_gold_xp_multiplier_dropdown").enabled=true;
+			$("#radiant_tower_power_dropdown").enabled=true;
+			$("#dire_tower_power_dropdown").enabled=true;
+			$("#radiant_tower_heal_dropdown").enabled=true;
+			$("#dire_tower_heal_dropdown").enabled=true;
+			if ($("#radiant_tower_power_dropdown").GetSelected().id == "10") {
+				$("#radiant_tower_power_dropdown").SetSelected("5");
+			}
+			if ($("#dire_tower_power_dropdown").GetSelected().id == "10") {
+				$("#dire_tower_power_dropdown").SetSelected("5");
+			}
+		}
+	}
+
+	if (option == "radiant_tower_power_dropdown" && optionId == "10") {
+		if ($("#bot_gold_xp_multiplier_dropdown").GetSelected().id !== "20") {
+			$("#radiant_tower_power_dropdown").SetSelected("9");
+		}
+	}
+	if (option == "dire_tower_power_dropdown" && optionId == "10") {
+		if ($("#bot_gold_xp_multiplier_dropdown").GetSelected().id !== "20") {
+			$("#dire_tower_power_dropdown").SetSelected("9");
+		}
+	}
 }
 
 /** 事件初期化 */
@@ -77,22 +120,26 @@ function ShowChatTeamActivate() {
 	GameEvents.SendCustomGameEventToAllClients("LoadingScreenTeamShow", {iPlayerID:Players.GetLocalPlayer()});
 }
 
-$("#player_gold_xp_multiplier_dropdown").SetSelected("1");
-$("#bot_gold_xp_multiplier_dropdown").SetSelected("5");
-$("#radiant_player_number_dropdown").SetSelected("10");
-$("#dire_player_number_dropdown").SetSelected("10");
+function InitSetting() {
+	$("#player_gold_xp_multiplier_dropdown").SetSelected("1");
+	$("#bot_gold_xp_multiplier_dropdown").SetSelected("5");
+	$("#radiant_player_number_dropdown").SetSelected("10");
+	$("#dire_player_number_dropdown").SetSelected("10");
 
-$("#respawn_time_percentage_dropdown").SetSelected("100");
-$("#max_level_dropdown").SetSelected("50");
-$("#radiant_tower_power_dropdown").SetSelected("5");
-$("#dire_tower_power_dropdown").SetSelected("5");
-$("#radiant_tower_heal_dropdown").SetSelected("5");
-$("#dire_tower_heal_dropdown").SetSelected("5");
-$("#starting_gold_player_dropdown").SetSelected("2000");
-$("#starting_gold_bot_dropdown").SetSelected("1000");
-$("#same_hero_selection").checked=true;
-$("#fast_courier").checked=true;
-$("#radiant_bot_same_multi").checked=true;
+	$("#respawn_time_percentage_dropdown").SetSelected("100");
+	$("#max_level_dropdown").SetSelected("50");
+	$("#radiant_tower_power_dropdown").SetSelected("5");
+	$("#dire_tower_power_dropdown").SetSelected("5");
+	$("#radiant_tower_heal_dropdown").SetSelected("5");
+	$("#dire_tower_heal_dropdown").SetSelected("5");
+	$("#starting_gold_player_dropdown").SetSelected("2000");
+	$("#starting_gold_bot_dropdown").SetSelected("1000");
+	$("#same_hero_selection").checked=true;
+	$("#fast_courier").checked=true;
+	$("#radiant_bot_same_multi").checked=true;
+}
+InitSetting();
+
 
 // Test Code for Development
 var isDevelopMode = false;
