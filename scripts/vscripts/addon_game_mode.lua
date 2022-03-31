@@ -18,6 +18,9 @@ function Activate()
 	AIGameMode:InitGameMode()
 end
 
+function Precache( context )
+    PrecacheResource("soundfile", "soundevents/hero_artoria.vsndevts", context)
+end
 
 function AIGameMode:InitGameMode()
 	AIGameMode:InitGameOptions()
@@ -34,9 +37,9 @@ function AIGameMode:EnterDebugMode()
 	print("========Enter Debug Mode========")
 	self.DebugMode = true
 	GameRules:SetCustomGameSetupAutoLaunchDelay( 30 )
-	GameRules:SetPreGameTime( 30 )
+	GameRules:SetPreGameTime( 10 )
 	GameRules:SetStrategyTime( 10 )
-	GameRules:SetHeroSelectionTime( 300 )
+	GameRules:SetHeroSelectionTime( 10 )
 	print("DOTA 2 AI Wars Loaded.")
 end
 
@@ -228,6 +231,8 @@ function AIGameMode:PreGameOptions()
 	end
 
 	print("botPushMin: "..self.botPushMin)
+
+	BotThink:SetTome()
 
 	self.PreGameOptionsSet = true
 end
