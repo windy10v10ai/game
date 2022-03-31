@@ -72,14 +72,14 @@ function artoria_strike_air:OnProjectileHit_ExtraData(target, vLocation, tData)
 
 	if target == nil then return end
 
+	if target:IsMagicImmune() then
+		return
+	end
+
 	local caster = self:GetCaster()
 	local damage = self:GetSpecialValueFor( "damage" )
 	local stunDuration = self:GetSpecialValueFor( "stun_duration" )
 	local immunity_duration = self:GetSpecialValueFor("immunity_duration")
-
-	if target:IsMagicImmune() then
-		return
-	end
 
 	local dmgtable = {
 		attacker = caster,
@@ -91,7 +91,6 @@ function artoria_strike_air:OnProjectileHit_ExtraData(target, vLocation, tData)
 	}
 	ApplyDamage(dmgtable)
 
-	target:Interrupt()
 	target:AddNewModifier( caster, self, "modifier_stunned", {Duration = stunDuration} )
-	target:AddNewModifier( caster, self, "modifier_desolator_buff", {Duration = immunity_duration} )
+	-- target:AddNewModifier( caster, self, "modifier_desolator_buff", {Duration = immunity_duration} )
 end
