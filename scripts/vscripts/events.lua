@@ -168,11 +168,19 @@ function AIGameMode:OnGameStateChanged(keys)
 		local tTowers = Entities:FindAllByClassname("npc_dota_tower")
 		for k, v in pairs(tTowers) do
 			if v:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-				v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iRadiantTowerPower)
+				if self.iRadiantTowerPower >= 10 then
+					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(5)
+				else
+					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iRadiantTowerPower)
+				end
 				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iRadiantTowerEndure)
 				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iRadiantTowerHeal)
 			elseif v:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-				v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iDireTowerPower)
+				if self.iDireTowerPower >= 10 then
+					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(5)
+				else
+					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iDireTowerPower)
+				end
 				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iDireTowerEndure)
 				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iDireTowerHeal)
 			end
@@ -210,14 +218,22 @@ function AIGameMode:OnGameStateChanged(keys)
 		local fort = Entities:FindAllByClassname("npc_dota_fort")
 		for k, v in pairs(fort) do
 			if v:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-				v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iRadiantTowerPower)
+				if self.iRadiantTowerPower >= 10 then
+					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(5)
+				else
+					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iRadiantTowerPower)
+				end
 				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iRadiantTowerEndure)
 				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iRadiantTowerHeal)
 
 				v:AddNewModifier(v, nil, "modifier_multi", {}):SetStackCount(math.floor(self.fPlayerGoldXpMultiplier*10))
 
 			elseif v:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-				v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iDireTowerPower)
+				if self.iDireTowerPower >= 10 then
+					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(5)
+				else
+					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iDireTowerPower)
+				end
 				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iDireTowerEndure)
 				v:AddNewModifier(v, nil, "modifier_multi", {}):SetStackCount(self.iDireTowerHeal)
 
@@ -693,12 +709,13 @@ developerSteamAccountID[1194383041]="咸鱼"
 developerSteamAccountID[143575444]="茶神"
 developerSteamAccountID[314757913]="孤尘"
 developerSteamAccountID[916506173]="Arararara"
+developerSteamAccountID[385130282]="米米花"
 
 
 -- 会员
 local memberSteamAccountID = Set {
 	-- 开发贡献者
-	136407523,1194383041,143575444,314757913,
+	136407523,1194383041,143575444,314757913,385130282,
 	-- 初始会员
 	136668998,
 	128984820,
@@ -709,8 +726,8 @@ local memberSteamAccountID = Set {
 
 -- saber
 local saberSteamAccountID = Set {
-	-- windy
-	136407523,
+	-- 开发贡献者
+	136407523,1194383041,143575444,314757913,385130282,
 	-- 洛书
 	136668998,
 	-- 测试
@@ -767,8 +784,8 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
     }
 
 	data.options = {
-		playerGoldXpMultiplier = self.fPlayerGoldXpMultiplier,
-		botGoldXpMultiplier = self.fBotGoldXpMultiplier,
+		playerGoldXpMultiplier = tostring(self.fPlayerGoldXpMultiplier),
+		botGoldXpMultiplier = self.fBotGoldXpMultiplier > 10 and "??" or self.fBotGoldXpMultiplier,
 		radiantTowerPower = AIGameMode:StackToPercentage(self.iRadiantTowerPower),
 		direTowerPower = AIGameMode:StackToPercentage(self.iDireTowerPower),
 	}
@@ -852,7 +869,7 @@ function AIGameMode:StackToPercentage(iStackCount)
 	elseif iStackCount == 9 then
 		return "300%"
 	elseif iStackCount == 10 then
-		return "500%"
+		return "??"
 	else
 		return "100%"
 	end

@@ -168,13 +168,11 @@
         "DOTA_Tooltip_ability_chibi_monster_agility" "获得敏捷:"
         "DOTA_Tooltip_ability_chibi_monster_hp" "获得血量:"
         "DOTA_Tooltip_ability_chibi_monster_fixed_duration" "持续时间:"
-		"DOTA_Tooltip_ability_chibi_monster_Lore" "你一定听过甩葱歌吧！"
         "DOTA_Tooltip_ability_miku_dance" "跳舞"
         "DOTA_Tooltip_ability_miku_dance_Description" "开始唱歌跳舞，每%attack_interval%秒对周围敌人进行一次普通攻击，并眩晕周围敌人%stun_duration%秒，附加额外魔法伤害。<br/>跳舞时初音收到的伤害减少。"
         "DOTA_Tooltip_ability_miku_dance_dance_radius" "范围:"
         "DOTA_Tooltip_ability_miku_dance_dance_damage" "每次攻击伤害:"
         "DOTA_Tooltip_ability_miku_dance_damage_reduction" "%伤害减免:"
-		"DOTA_Tooltip_ability_miku_dance_Lore"  "我是世界第一的公主殿下，唱、跳、Rap都不在话下"
         "DOTA_Tooltip_ability_liu_kick" "初音飞踢"
         "DOTA_Tooltip_ability_liu_kick_Description" "踢向目标将其击退，对其与周围敌人造成一定的魔法伤害，并附加一次普通攻击。<br/>变身时对敌人造成眩晕。"
         "DOTA_Tooltip_ability_liu_kick_damage" "伤害:"
@@ -201,6 +199,50 @@
 
 		// 谜团
 		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"					"黑洞每秒造成额外伤害，数值为单位最大生命值的3%。"
+
+		// Saber
+		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"
+
+		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>风王铁锤</font>"
+		"DOTA_Tooltip_ability_artoria_strike_air_description"	"阿尔托莉雅从剑中释放出破坏性的风场，造成<font color='#05CAFF'>魔法伤害</font>，<font color='#FF3399'>降低护甲</font>并<font color='#FF3399'>击晕</font>路径上的所有敌人。<br/>阿尔托莉雅自身获得短暂的<font color='#ffd700'>魔法免疫</font>。"
+		"DOTA_Tooltip_ability_artoria_strike_air_Lore"		"空气的凝聚扭曲了作为剑身原本的模样，如若那障目谜团揭晓之时？"
+		"DOTA_Tooltip_ability_artoria_strike_air_cast_range"		"距离："
+		"DOTA_Tooltip_ability_artoria_strike_air_damage"	" 伤害："
+		// "DOTA_Tooltip_ability_artoria_strike_air_corruption_armor"		"降低护甲:"
+		"DOTA_Tooltip_ability_artoria_strike_air_stun_duration"			"晕眩时间："
+		"DOTA_Tooltip_ability_artoria_strike_air_immunity_duration"		"魔免时间："
+
+		"DOTA_Tooltip_Ability_artoria_instinct"					"<font color='#FFE56E'>直感</font>"
+		"DOTA_Tooltip_ability_artoria_instinct_Description"		"阿尔托莉雅的本能让她获得额外的 <font color='#FF3399'>状态抗性</font> 和 <font color='#C24401'>魔法抗性</font>。抵挡并反弹指向性技能给敌人。"
+		"DOTA_Tooltip_ability_artoria_instinct_magic_res"		"%魔法抗性： "
+		"DOTA_Tooltip_ability_artoria_instinct_status_res"		"%状态抗性： "
+
+		"DOTA_Tooltip_Ability_artoria_mana_burst"					"<font color='#FFE56E'>魔力放出</font>"
+		"DOTA_Tooltip_ability_artoria_mana_burst_description"		"用一次强力攻击打击附近的敌人，造成<font color='#05CAFF'>魔法伤害</font>并<font color='#FF3399'>减速</font>敌人，驱散敌人身上所有BUFF。\n被动提升自身魔法伤害。"
+		"DOTA_Tooltip_ability_artoria_mana_burst_Lore"		""
+		"DOTA_Tooltip_ability_artoria_mana_burst_amp_pct"		"%技能增强:"
+		"DOTA_Tooltip_ability_artoria_mana_burst_damage"		"伤害："
+		"DOTA_Tooltip_ability_artoria_mana_burst_radius"	"作用范围："
+		"DOTA_Tooltip_ability_artoria_mana_burst_slow_amount"	"%减速："
+		"DOTA_Tooltip_ability_artoria_mana_burst_duration"		"减速持续时间："
+
+		"DOTA_Tooltip_Ability_artoria_excalibur"				"<font color='#FFE56E'>誓约胜利之剑</font>"
+		"DOTA_Tooltip_ability_artoria_excalibur_description"	"阿尔托莉雅将魔力转化为'光'，通过压缩、加速增加运动能量，使神灵级魔术的行使成为可能。对剑光路径上的每个敌人造成<font color='#05CAFF'>魔法伤害</font>。\n\n<font color='#FF3399' >道具EX咖喱棒强化：誓约胜利之剑。</font>"
+		"DOTA_Tooltip_ability_artoria_excalibur_Lore"	"孤傲之王的念想灼耀星夜。"
+		"DOTA_Tooltip_ability_artoria_excalibur_cast_delay"		"施法延迟："
+		"DOTA_Tooltip_ability_artoria_excalibur_range"		"射程："
+		"DOTA_Tooltip_ability_artoria_excalibur_width"		"宽度："
+		"DOTA_Tooltip_ability_artoria_excalibur_duration"	"持续时间："
+		"DOTA_Tooltip_ability_artoria_excalibur_damage"		"每秒伤害："
+
+		"DOTA_Tooltip_Ability_artoria_ultimate_excalibur"				"<font color='#FFE56E'>隐藏宝具：誓约胜利之剑-宣誓胜利</font>"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Description"	"阿尔托莉雅解放誓约胜利之剑真正的光芒，以激烈的剑光吞噬前方路径上的一切。对剑光路径上的每个敌人造成造成显著的<font color='#05CAFF'>魔法伤害</font>。"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Lore"	"孤傲之王的念想灼耀星夜。"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_cast_delay"	"施法延迟："
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_range"		"射程："
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_width"		"宽度："
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_duration"	"持续时间："
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_damage"	"每秒伤害："
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
