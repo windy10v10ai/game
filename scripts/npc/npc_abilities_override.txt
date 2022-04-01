@@ -1648,6 +1648,13 @@
 				"var_type"					"FIELD_FLOAT"
 				"cooldown"					"0.2"
 			}
+
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shard_damage_reduction"		"16"
+				"RequiresShard"				"1"
+			}
 		}
 	}
 	"axe_culling_blade"
@@ -8812,7 +8819,7 @@
 		"MaxLevel" "7"
 		"AbilityCastRange"				"550 650 750 850 950 1050 1150"
 		"AbilityCooldown"				"6"
-		"AbilityManaCost"				"30"
+		"AbilityManaCost"				"20 25 30 35 40 45 50"
 		"AbilityValues"
 		{
 			"move_slow"					"-50"
