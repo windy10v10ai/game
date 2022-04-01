@@ -1411,11 +1411,7 @@ tBotItemData.addNeutralItemMultiTimeMap = {
 		900,
 	},
 	x20 = {
-<<<<<<< HEAD
-		300,
-=======
-		600,
->>>>>>> parent of e314d0f (中立物品和时间调整)
+		0,
 	},
 }
 
