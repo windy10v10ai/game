@@ -208,8 +208,8 @@
 		"DOTA_Tooltip_ability_artoria_strike_air_Lore"		"The air so condensed that it twists the look of sword. What if what packs it is released?"
 		"DOTA_Tooltip_ability_artoria_strike_air_cast_range"		"RANGE:"
 		"DOTA_Tooltip_ability_artoria_strike_air_damage"	" DAMAGE:"
+		// "DOTA_Tooltip_ability_artoria_strike_air_corruption_armor"		"REDUCE ARMOR:"
 		"DOTA_Tooltip_ability_artoria_strike_air_stun_duration"			"STUN DURATION:"
-		"DOTA_Tooltip_ability_artoria_strike_air_corruption_armor"		"REDUCE ARMOR:"
 		"DOTA_Tooltip_ability_artoria_strike_air_immunity_duration"		"IMMUNITY DURATION:"
 
 		"DOTA_Tooltip_Ability_artoria_instinct"					"<font color='#FFE56E'>Instinct</font>"

@@ -709,12 +709,13 @@ developerSteamAccountID[1194383041]="咸鱼"
 developerSteamAccountID[143575444]="茶神"
 developerSteamAccountID[314757913]="孤尘"
 developerSteamAccountID[916506173]="Arararara"
+developerSteamAccountID[385130282]="米米花"
 
 
 -- 会员
 local memberSteamAccountID = Set {
 	-- 开发贡献者
-	136407523,1194383041,143575444,314757913,
+	136407523,1194383041,143575444,314757913,385130282,
 	-- 初始会员
 	136668998,
 	128984820,
@@ -725,8 +726,8 @@ local memberSteamAccountID = Set {
 
 -- saber
 local saberSteamAccountID = Set {
-	-- windy
-	136407523,
+	-- 开发贡献者
+	136407523,1194383041,143575444,314757913,385130282,
 	-- 洛书
 	136668998,
 	-- 测试
