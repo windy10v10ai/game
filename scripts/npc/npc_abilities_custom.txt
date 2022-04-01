@@ -1086,6 +1086,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/artoria/artoria_strike_air"
 
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
@@ -1114,10 +1115,21 @@
 			"end_radius"			"300"
 			"speed"					"1500.0"
 			"cast_range"			"650"
-			"damage"				"120 180 240 300 360"
+			// "damage"				"120 180 240 300 360"
 			"stun_duration"			"1.2 1.4 1.6 1.8 2.0"
 			"corruption_armor"		"-4 -6 -8 -10 -12"
 			"immunity_duration"		"2.0 2.5 3.0 3.5 4.0"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+		    {
+		    	"var_type"			"FIELD_INTEGER"
+		    	"damage"			"120 180 240 300 360"
+		    }
 		}
 	}
 
@@ -1158,6 +1170,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/artoria/artoria_mana_burst"
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
@@ -1186,9 +1199,20 @@
 		{
 			"amp_pct"					"8 12 16 20 24"
 			"radius"					"400"
-			"damage"					"160 240 320 400 480"
+			// "damage"					"160 240 320 400 480"
 			"slow_amount"				"-30 -35 -40 -45 -50"
 			"duration"					"3"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+		    {
+		    	"var_type"			"FIELD_INTEGER"
+		    	"damage"			"160 240 320 400 480"
+		    }
 		}
 	}
 
@@ -1206,6 +1230,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3_END"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/artoria/artoria_excalibur"
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -1240,8 +1265,19 @@
 			"range"					"2000"
 			"width"					"400"
 			"speed"					"2000.0"
-			"damage"				"600 900 1200"
+			// "damage"				"600 900 1200"
 			"interval"				"0.25"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+		    {
+		    	"var_type"			"FIELD_INTEGER"
+		    	"damage"				"600 900 1200"
+		    }
 		}
 	}
 	"artoria_ultimate_excalibur"
@@ -1257,6 +1293,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3_END"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/artoria/artoria_ultimate_excalibur"
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -1296,8 +1333,18 @@
 			"range"					"6000"
 			"width"					"600"
 			"speed"					"6000.0"
-			"damage"				"2000"
+			// "damage"				"2000"
 			"interval"				"0.25"
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+		    {
+		    	"var_type"			"FIELD_INTEGER"
+		    	"damage"				"2000"
+		    }
 		}
 	}
 }
