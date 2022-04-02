@@ -1176,7 +1176,7 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"450"
 		"AbilityCastRangeBuffer"		"75"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"7.5"
@@ -1198,7 +1198,7 @@
 		"AbilityValues"
 		{
 			"amp_pct"					"8 12 16 20 24"
-			"radius"					"400"
+			"radius"					"450"
 			// "damage"					"160 240 320 400 480"
 			"slow_amount"				"-30 -35 -40 -45 -50"
 			"duration"					"3"
@@ -1239,7 +1239,7 @@
 		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"2.0"
-		"AbilityCooldown"				"60.0"
+		"AbilityCooldown"				"80.0 70.0 60.0"
 		"AbilityManaCost"				"300 450 600"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1265,7 +1265,7 @@
 			"range"					"2000"
 			"width"					"400"
 			"speed"					"2000.0"
-			// "damage"				"600 900 1200"
+			// "damage"				"800 1000 1200"
 			"interval"				"0.25"
 		}
 
@@ -1276,7 +1276,7 @@
 			"01"
 		    {
 		    	"var_type"			"FIELD_INTEGER"
-		    	"damage"				"600 900 1200"
+		    	"damage"			"800 1000 1200"
 		    }
 		}
 	}

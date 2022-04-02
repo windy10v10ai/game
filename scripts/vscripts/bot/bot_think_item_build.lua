@@ -10,10 +10,12 @@ local function addTome(k, v)
   local amount = 5
   if AIGameMode.fBotGoldXpMultiplier > 10 then
     amount = 10
-  elseif AIGameMode.fBotGoldXpMultiplier > 5 then
-    amount = 7
+  elseif AIGameMode.fBotGoldXpMultiplier > 8 then
+    amount = 8
+  elseif AIGameMode.fBotGoldXpMultiplier > 6 then
+    amount = 6
   end
-  for i = 0, 5 do
+  for i = 1, amount do
     table.insert(v,"item_tome_of_agility")
     table.insert(v,"item_tome_of_strength")
     table.insert(v,"item_tome_of_intelligence")
@@ -138,8 +140,8 @@ function BotThink:ThinkSell(hero)
     return
   end
 
-  local itemConsumableList = tBotItemData.itemConsumableList
-  if SellItemFromTable(hero, itemConsumableList) then
+  local sellItemCommonList = tBotItemData.sellItemCommonList
+  if SellItemFromTable(hero, sellItemCommonList) then
     return
   end
 
