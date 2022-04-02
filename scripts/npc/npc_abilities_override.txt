@@ -8817,7 +8817,7 @@
 	"phantom_assassin_stifling_dagger"
 	{
 		"MaxLevel" "7"
-		"AbilityCastRange"				"550 650 750 850 950 1050 1150"
+		"AbilityCastRange"				"550 600 650 700 750 800 850"
 		"AbilityCooldown"				"6"
 		"AbilityManaCost"				"20 25 30 35 40 45 50"
 		"AbilityValues"
@@ -14082,6 +14082,11 @@
 			{
 				"var_type"							"FIELD_INTEGER"
 				"ball_lightning_move_speed"			"1400 1850 2300 2750"
+			}
+			"05"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"ball_lightning_travel_cost_base"	"10 20 30 40"
 			}
 		}
 	}
