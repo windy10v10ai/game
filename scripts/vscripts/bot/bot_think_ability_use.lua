@@ -97,12 +97,12 @@ function BotAbilityThink:ThinkUseAbility_PhantomAssassin(hHero)
 	local hAbility3 = hHero:GetAbilityByIndex(2)
 	local hAbility4 = hHero:GetAbilityByIndex(3)
 
-	if hAbility3:IsFullyCastable() then
-		hHero:CastAbilityNoTarget(hAbility3, hHero:GetPlayerOwnerID())
-		return true
-	end
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
-		-- TODO check modifier
+		if hAbility3:IsFullyCastable() and (not hHero:HasModifier("modifier_phantom_assassin_blur_active")) then
+			hHero:CastAbilityNoTarget(hAbility3, hHero:GetPlayerOwnerID())
+			return true
+		end
+
 		if hAbility4:IsFullyCastable() then
 			local iRange = hAbility4:GetSpecialValueFor("radius")
 			local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
