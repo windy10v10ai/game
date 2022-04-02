@@ -768,7 +768,5 @@
 
 		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"闪电风暴"
 		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"被缠绕时无法移动。"
-
-		"DOTA_Tooltip_ability_item_carapace_of_qaldin_bonus_armor"			"+$armor"
 	}
 }
