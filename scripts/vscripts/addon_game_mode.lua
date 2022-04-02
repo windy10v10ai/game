@@ -130,11 +130,6 @@ function AIGameMode:PreGameOptions()
 	-- 每点敏捷提供护甲
 	gameMode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.143)
 
-	if self.DebugMode then
-		gameMode:SetItemAddedToInventoryFilter( Dynamic_Wrap( AIGameMode, "FilterItemAdd" ), self )
-	end
-
-
 	if self.bSameHeroSelection == 1 then
 		GameRules:SetSameHeroSelectionEnabled( true )
 	end
@@ -285,29 +280,5 @@ function AIGameMode:FilterXP(tXPFilter)
 			tXPFilter["experience"] = math.floor(iXP*self.fBotGoldXpMultiplier)
 		end
 	end
-	return true
-end
-
--- only run in tool debug mode
-function AIGameMode:FilterItemAdd(tItemFilter)
-	local item = EntIndexToHScript(tItemFilter.item_entindex_const)
-	if item then
-		if item:GetAbilityName() == "item_rapier" or item:GetAbilityName() == "item_bag_of_gold" then
-			return true
-		end
-		local itemPurchaseName = item:GetPurchaseTime()
-		if itemPurchaseName == -100 then
-			return true
-		end
-		local purchaser = item:GetPurchaser()
-		if purchaser then
-			if purchaser:IsControllableByAnyPlayer() then
-				return true
-			else
-				return false
-			end
-		end
-	end
-
 	return true
 end

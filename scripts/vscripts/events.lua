@@ -511,9 +511,6 @@ end
 
 function AIGameMode:CreateItem(sItemName, hEntity)
 	local item = CreateItem(sItemName, nil, nil)
-	if AIGameMode.DebugMode then
-		item:SetPurchaseTime(-100)
-	end
 	local pos = hEntity:GetAbsOrigin()
 	local drop = CreateItemOnPositionSync( pos, item )
 	local pos_launch = pos+RandomVector(RandomFloat(150,200))
