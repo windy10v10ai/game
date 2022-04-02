@@ -95,6 +95,9 @@ end
 --------------------
 function UseActiveItem(hHero)
     local itemUseCastRange = 900
+    if hHero:HasItemInInventory("arcane_octarine_core") or hHero:HasItemInInventory("item_octarine_core") then
+        itemUseCastRange = itemUseCastRange + 300
+    end
 	local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, itemUseCastRange)
 	if #tAllHeroes == 0 then
         return false
@@ -144,6 +147,10 @@ function UseActiveItem(hHero)
 
     -- item_blue_fantasy 大否决
     if UseItemOnTarget(hHero, "item_blue_fantasy", hTarget) then
+        return true
+    end
+    -- 风暴之锤
+    if UseItemOnPostion(hHero, "item_gungir_2", hTarget) then
         return true
     end
 
