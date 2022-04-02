@@ -5429,12 +5429,12 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"unholy_lifesteal_percent"	"200"
+				"unholy_lifesteal_percent"	"250"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"unholy_lifesteal_total_tooltip"	"250"
+				"unholy_lifesteal_total_tooltip"	"300"
 			}
 			"07"
 			{
