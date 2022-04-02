@@ -801,6 +801,11 @@
 	{
 		"AbilitySharedCooldown"			"bluefantasy"
 	}
+	"item_gungir"
+	{
+		"AbilitySharedCooldown"			"gungir"
+	}
+
 	"item_smoke_of_deceit"
 	{
 		"ItemStockTime"					"180.0"
