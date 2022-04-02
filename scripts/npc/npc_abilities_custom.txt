@@ -1240,7 +1240,7 @@
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"2.0"
 		"AbilityCooldown"				"60.0"
-		"AbilityManaCost"				"400 500 600"
+		"AbilityManaCost"				"300 450 600"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
 		"precache"
@@ -1302,7 +1302,7 @@
 		"AbilityCastRange"				"6000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"3.0"
-		"AbilityCooldown"				"120.0"
+		"AbilityCooldown"				"150.0"
 		"AbilityManaCost"				"1200"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
