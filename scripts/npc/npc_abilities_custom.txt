@@ -1076,7 +1076,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/artoria/artoria_strike_air"
+		"ScriptFile"					"heroes/artoria/artoria_strike_air"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 
@@ -1137,7 +1137,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/artoria/artoria_instinct"
+		"ScriptFile"					"heroes/artoria/artoria_instinct"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1162,7 +1162,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/artoria/artoria_mana_burst"
+		"ScriptFile"					"heroes/artoria/artoria_mana_burst"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -1221,7 +1221,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/artoria/artoria_excalibur"
+		"ScriptFile"					"heroes/artoria/artoria_excalibur"
 		"MaxLevel"						"3"
 		"RequiredLevel"					"6"
 		"LevelsBetweenUpgrades"			"6"
@@ -1284,7 +1284,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/artoria/artoria_ultimate_excalibur"
+		"ScriptFile"					"heroes/artoria/artoria_ultimate_excalibur"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
