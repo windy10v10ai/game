@@ -121,6 +121,10 @@ function UseActiveItem(hHero)
         if UseItem(hHero, "item_undying_heart") then
             return true
         end
+        -- 大撒旦
+        if UseItem(hHero, "item_satanic") then
+            return true
+        end
         -- item_silver_edge_2 无敌之刃
         if UseItem(hHero, "item_silver_edge_2") then
             return true

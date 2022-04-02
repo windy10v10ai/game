@@ -236,13 +236,14 @@ tBotItemData.purchaseItemList = {
 		'item_recipe_hurricane_pike_2',
 		'item_ultimate_scepter_2',
 		'item_butterfly',
-		'item_shotgun_v2',
+		'item_satanic',
 		'item_silver_edge_2',
 		'item_infernal_desolator',
 		'item_black_king_bar_2',
 		'item_lesser_crit',
 		'item_recipe_wasp_callous',
 		'item_wasp_despotic',
+		'item_satanic',
 	},
 	npc_dota_hero_earthshaker = {
 		'item_magic_wand',
@@ -421,6 +422,7 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_callous',
 		'item_skadi_2',
 		'item_wasp_despotic',
+		'item_satanic',
 	},
 	npc_dota_hero_mirana = {
 		'item_magic_wand',
@@ -459,6 +461,7 @@ tBotItemData.purchaseItemList = {
 		'item_monkey_king_bar_2',
 		'item_skadi_2',
 		'item_wasp_despotic',
+		'item_satanic',
 		'item_jump_jump_jump',
 	},
 	npc_dota_hero_necrolyte = {
@@ -568,6 +571,7 @@ tBotItemData.purchaseItemList = {
 		'item_satanic',
 		'item_wasp_despotic',
 		'item_excalibur',
+		'item_satanic',
 	},
 	npc_dota_hero_pudge = {
 		'item_magic_wand',
@@ -634,6 +638,7 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_callous',
 		'item_wasp_despotic',
 		'item_abyssal_blade_v2',
+		'item_satanic',
 	},
 	npc_dota_hero_shadow_shaman = {
 		'item_magic_wand',
@@ -725,6 +730,7 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_despotic',
 		'item_shotgun_v2',
 		'item_excalibur',
+		'item_satanic',
 	},
 	npc_dota_hero_sven = {
 		'item_magic_wand',
