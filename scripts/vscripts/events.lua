@@ -600,11 +600,11 @@ function AIGameMode:OnNPCSpawned(keys)
 		end
 
 		if not self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
-			if not hEntity:FindModifierByName("modifier_bot_think_strategy") then
+			if not hEntity:HasModifier("modifier_bot_think_strategy") then
 				hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_strategy", {})
 				print("modifier_bot_think_strategy added "..sName)
 			end
-			if not hEntity:FindModifierByName("modifier_bot_think_item_use") then
+			if not hEntity:HasModifier("modifier_bot_think_item_use") then
 				hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_item_use", {})
 			end
 			hEntity:SetControllableByPlayer(-1, true)

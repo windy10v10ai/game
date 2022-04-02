@@ -22,9 +22,7 @@ function modifier_bot_think_item_use:OnIntervalThink()
 	if not self then return end
 
 	local hHero = self:GetParent()
-	if hHero:IsNull() then return end
-	-- if hero is dead, do nothing
-	if hHero:IsAlive() == false then return end
+	if BotThink:IsControllable(hHero) then return end
 
 	-- if ability is , do nothing
 	local hAbility1 = hHero:GetAbilityByIndex(0)
@@ -41,7 +39,6 @@ function modifier_bot_think_item_use:OnIntervalThink()
 	if hAbility6 and hAbility6:IsInAbilityPhase() then return end
 
 	-- item use
-	if hHero:IsStunned() or hHero:IsHexed() then return end
 	if UseActiveItem(hHero) then return end
 
 	-- ability use
@@ -72,11 +69,10 @@ function modifier_bot_think_strategy:OnIntervalThink()
 	local hHero = self:GetParent()
 	if hHero:IsNull() then return end
 
-
 	BotThink:AddMoney(hHero)
 
-	if hHero:IsAlive() == false then return end
-	if hHero:IsStunned() or hHero:IsHexed() then return end
+	if BotThink:IsControllable(hHero) then return end
+
 	BotThink:ThinkSell(hHero)
 	BotThink:ThinkPurchase(hHero)
 	BotThink:ThinkPurchaseNeutral(hHero, GameTime)

@@ -55,7 +55,6 @@ local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
       -- TODO print
       print("Warn! Think purchase "..hHero:GetName().." add "..iItemName.." stop with item count "..hHero:GetNumItemsInInventory())
     else
-      print("Think purchase "..hHero:GetName().." try to buy "..iItemName.." cost "..iCost)
       local addedItem = hHero:AddItemByName(iItemName)
       if addedItem then
         PlayerResource:SpendGold(hHero:GetPlayerID(), iCost, DOTA_ModifyGold_PurchaseItem)
@@ -75,7 +74,6 @@ local function SellItemFromTable(hHero, iPurchaseTable)
     local iCost = math.floor(GetItemCost(vName)/2)
     local sellItem = FindItemByNameIncludeStash(hHero, vName)
     if sellItem then
-      print("Think sell "..hHero:GetName().." try to sell "..vName.." with gold "..iCost)
       hHero:RemoveItem(sellItem)
       PlayerResource:ModifyGold(hHero:GetPlayerID(), iCost, true, DOTA_ModifyGold_SellItem)
       return true
@@ -87,6 +85,17 @@ end
 --------------------
 -- Item Think
 --------------------
+function BotThink:IsControllable(hHero)
+	if hHero:IsNull() then return true end
+	-- if hero is dead, do nothing
+	if hHero:IsAlive() == false then return true end
+	if hHero:IsStunned() or hHero:IsHexed() then return true end
+	-- if hero has modifier_teleporting , do nothing
+	if hHero:HasModifier("modifier_teleporting") then return true end
+
+  return false
+end
+
 function BotThink:ThinkPurchase(hHero)
   local iHeroName = hHero:GetName()
 
