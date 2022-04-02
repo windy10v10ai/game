@@ -22,7 +22,7 @@ function artoria_excalibur:OnSpellStart()
 	if artoria_ultimate_excalibur and not artoria_ultimate_excalibur:IsNull() then
 		artoria_ultimate_excalibur:StartCooldown(30.0)
 	end
-	EmitGlobalSound("artoria_excalibur")
+	caster:EmitSound("artoria_excalibur")
 
 	local chargeFxIndex = ParticleManager:CreateParticle( "particles/custom/artoria/artoria_excalibur_charge.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
 

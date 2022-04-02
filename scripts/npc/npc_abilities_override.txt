@@ -738,7 +738,7 @@
 	}
 	"item_refresher"
 	{
-		"AbilityCooldown"				"110.0"
+		"AbilityCooldown"				"120.0"
 	}
 	"item_glimmer_cape"
 	{
@@ -7263,8 +7263,8 @@
 	"faceless_void_chronosphere"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"110 100 90 80"
-		"AbilityManaCost"				"150 200 250 300"
+		"AbilityCooldown"				"120 110 100 90"
+		"AbilityManaCost"				"150 225 300 375"
 		"AbilitySpecial"
 		{
 			"02"
