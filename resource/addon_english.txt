@@ -767,7 +767,5 @@
 
 		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"Lightning Storm"
 		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"Cannot move while rooted."
-
-		"DOTA_Tooltip_ability_item_carapace_of_qaldin_bonus_armor"			"+$armor"
 	}
 }
