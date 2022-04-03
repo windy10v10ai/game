@@ -5035,9 +5035,8 @@
 	}
 
 	//=================================================================================================================
-	// Jump!Jump!Jump! 跳！跳！跳！刀合成图
+	// Jump!Jump!Jump! 跳！跳！跳！刀
 	//=================================================================================================================
-
 	"item_jump_jump_jump"
 	{
 		"ID"							"3071"
@@ -5073,7 +5072,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"meteor_land_radius"	"450"
+				"meteor_land_radius"	"350"
 			}
 			"04"
 			{
@@ -5293,71 +5292,6 @@
 	}
 
     //=================================================================================================================
-	// Carapace of Qaldin 卡尔丁甲壳
-	//=================================================================================================================
-	"item_carapace_of_qaldin"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3074"
-		"BaseClass"						"item_lua"
-		"AbilityTextureName"			"carapace_of_qaldin"
-		"ScriptFile"					"items/item_carapace_of_qaldin"
-
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5500"
-		"ItemPurchasable"			    "0"
-		"ItemQuality"					""
-		"ItemStackable"					"0"
-		"ItemSellable"					"0"
-		"ItemShareability"				"ITEM_NOT_SHAREABLE"
-		"ItemPermanent"					"0"
-		"ItemKillable"					"0"
-		"ItemIsNeutralDrop"				"1"
-
-		"ItemStockInitial"				"1"
-		"ItemStockMax"					"1"
-		"ItemStockTime"					"999999.0"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"required_level"		"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_hp"				"800"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_armor"			"15"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_restore_pct"		"25"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_return_pct"				"25"
-			}
-		}
-	}
-    //=================================================================================================================
 	// Recipe: dodo desolator   黯灭头
 	//=================================================================================================================
 	"item_recipe_dodo_desolator"
@@ -5420,50 +5354,58 @@
 	}
 
 	//=================================================================================================================
-	// the leveller 平世剑
+	// 撒旦2
 	//=================================================================================================================
-	"item_the_leveller"
+	"item_recipe_satanic_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"379"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ID"							"3077"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_satanic_2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"
-		"ItemIsNeutralDrop"				"1"
-		"ItemPurchasable"				"0"
+		"ItemShopTags"					""
 
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
-
-		// Special
+		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_satanic_2"
+		"ItemRequirements"
 		{
-				"bonus_attack_speed"			"50"
-				"bonus_armor"			"10"
-				"demolish"			"30"
+			"01"						"item_satanic;item_satanic"
 		}
 	}
+
 	//=================================================================================================================
-	// Philosopher's Stone 贤者石
+	// Satanic
 	//=================================================================================================================
-	"item_philosophers_stone"
+	"item_satanic_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"290"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ID"							"3078"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"FightRecapLevel"				"2"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"BaseClass"						"item_satanic"
+		"AbilityTextureName"			"item_satanic_2"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30.0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemIsNeutralDrop"				"1"
-		"DisplayOverheadAlertOnReceived" "0"
-		"ItemPurchasable"				"0"
-
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"ItemCost"						"10100"
+		"ItemShopTags"					"damage;str;armor;unique;hard_to_tag"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"satanic"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -5472,42 +5414,32 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_gpm"			"150"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_mana"		"300"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_damage"		"-10"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Demonicon 死灵书
-	//=================================================================================================================
-	"item_demonicon"
-	{
-		"AbilityCooldown"				"60.0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"			"30"
+				"bonus_strength"		"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"30"
+				"bonus_damage"			"90"
 			}
-			"03"
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"lifesteal_percent"		"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"unholy_lifesteal_percent"	"250"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"unholy_lifesteal_total_tooltip"	"300"
+			}
+			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"summon_duration"				"55"
+				"unholy_duration"		"6.0"
 			}
 		}
 	}
