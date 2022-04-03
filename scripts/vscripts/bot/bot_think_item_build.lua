@@ -75,6 +75,11 @@ function BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
     local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
     return tAllHeroes
 end
+-- find unit
+function BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
+    local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
+    return tAllHeroes
+end
 
 -- use item
 function BotThink:UseItemOnTarget(hHero, sItemName, hTarget)
@@ -293,7 +298,6 @@ function BotThink:AddWardItem(hHero)
 
   local itemIndex = RandomInt(1, 6)
   local sItemName = wardItemTable[itemIndex]
-  print("Think add ward "..hHero:GetName().." try to add ward ".. sItemName)
   local addedItem = hHero:AddItemByName(sItemName)
 end
 
@@ -317,21 +321,27 @@ end
 
 function BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassName)
   -- if in range of wardPostionList, put ward
-  local iRange = 500
+  local iCastRange = 500
+  local iFindRange = 900
+  if sWardItemName == "item_ward_observer" then
+    iFindRange = 1200
+  end
   local wardItem = BotThink:FindItemByNameIncludeStash(hHero, sWardItemName)
+  local vHeroPos = hHero:GetAbsOrigin()
   for i,vWardPos in ipairs(wardPostionList) do
     if wardItem then
-      local wardPosVector = vWardPos + Vector(RandomInt(-5, 5),RandomInt(-5, 5),0)
-      local wardPosDistance = (wardPosVector - hHero:GetAbsOrigin()):Length()
-      if wardPosDistance < iRange then
+      -- local wardPosVector = vWardPos + Vector(RandomInt(-5, 5),RandomInt(-5, 5),0)
+      local wardPosVector = vWardPos
+      local wardPosDistance = (wardPosVector - vHeroPos):Length()
+      if wardPosDistance < iCastRange then
         -- find wards in wardPosVector
-        local wards = Entities:FindAllByClassnameWithin(sUnitClassName, wardPosVector, iRange)
+        local wards = Entities:FindAllByClassnameWithin(sUnitClassName, wardPosVector, iFindRange)
         -- if no wards, put ward
         if #wards == 0 then
-          print("Think put ward "..hHero:GetName().." try to put ward at "..vWardPos[1]..","..vWardPos[2])
+          print("Think put ward "..hHero:GetName().." try to put "..sWardItemName.." at ["..vWardPos[1]..","..vWardPos[2].."]")
           hHero:CastAbilityOnPosition(wardPosVector, wardItem, hHero:GetPlayerOwnerID())
         else
-          print("Think put ward "..hHero:GetName().." Stop to put ward at "..vWardPos[1]..","..vWardPos[2])
+          -- print("Think put ward "..hHero:GetName().." !Stop to put ward at "..vWardPos[1]..","..vWardPos[2])
         end
         return
       end
