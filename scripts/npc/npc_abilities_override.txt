@@ -130,7 +130,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"activation_time"		"10.0"
+				"activation_time"		"5.0"
 			}
 			"03"
 			{
@@ -142,7 +142,7 @@
 	}
 
 	//=================================================================================================================
-	// Backdoor Protection In Base
+	// Backdoor Protection In Base 偷塔保护在基地
 	//=================================================================================================================
 	"backdoor_protection_in_base"
 	{
@@ -159,7 +159,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"activation_time"		"10.0"
+				"activation_time"		"5.0"
 			}
 			"02"
 			{
@@ -176,88 +176,14 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 
-	//=================================================================================================================
-	// ITEMS
-	//=================================================================================================================
-	"item_tpscroll"
-	{
-		"AbilityCooldown"		"30.0"
-		"ItemPermanent"			"1"
-		"ItemPurchasable"		"1"
-		"ItemStockMax"			"1"
-		"ItemCost"				"0"
-	}
-	"item_aghanims_shard"
-	{
-		"ItemInitialStockTime"			"360.0"
-	}
-	"item_refresher"
-	{
-		"AbilityCooldown"				"110.0"
-	}
-	"item_glimmer_cape"
-	{
-		"AbilityCastRange"				"700"
-		"AbilityCooldown"				"16.0"
-		"AbilityManaCost"				"50"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_magical_armor"	"20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fade_delay"				"0.4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_magical_armor"	"60"
-			}
-		}
-	}
-	"item_recipe_bfury"
-	{
-		"ItemRequirements"
-		{
-			"01"						"item_broadsword;item_claymore;item_pers;item_quelling_blade_2_datadriven*"
-			"02"						"item_broadsword;item_claymore;item_pers;item_quelling_blade*"
-		}
-	}
-	"item_recipe_overwhelming_blink"
-	{
-		"ItemCost"						"250"
-	}
-	"item_recipe_swift_blink"
-	{
-		"ItemCost"						"250"
-	}
-	"item_recipe_arcane_blink"
-	{
-		"ItemCost"						"250"
-	}
 
-	"item_black_king_bar"
-	{
-		"AbilitySharedCooldown"			"bkb"
-	}
-	"item_aeon_disk"
-	{
-		"AbilitySharedCooldown"			"aeon"
-	}
-	"item_manta"
-	{
-		"AbilitySharedCooldown"			"manta"
-	}
-	"item_nullifier"
-	{
-		"AbilitySharedCooldown"			"bluefantasy"
-	}
-
+	//=================================================================================================================
+	// Custom item Override 中立物品
+	//=================================================================================================================
 	// level 1
+	//=================================================================================================================
+	// Philosopher's Stone 贤者石
+	//=================================================================================================================
 	"item_philosophers_stone"
 	{
 		"AbilitySpecial"
@@ -265,12 +191,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bonus_gpm"			"120"
+				"bonus_gpm"			"150"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"bonus_mana"		"350"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_damage"		"-10"
 			}
 		}
 	}
@@ -686,6 +617,29 @@
 			}
 		}
 	}
+	// Demonicon 死灵书
+	"item_demonicon"
+	{
+		"AbilityCooldown"				"60.0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"summon_duration"				"55"
+			}
+		}
+	}
 	// level 6
 	"item_seer_stone"
 	{
@@ -752,11 +706,106 @@
 			}
 		}
 	}
+	// the leveller 平世剑
+	"item_the_leveller"
+	{
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_attack_speed"			"50"
+				"bonus_armor"			"10"
+				"demolish"			"30"
+		}
+	}
+
 
 
 	//=================================================================================================================
-	// Custom item Override 物品
+	// Custom item Override 通用物品
 	//=================================================================================================================
+	"item_tpscroll"
+	{
+		"AbilityCooldown"		"30.0"
+		"ItemPermanent"			"1"
+		"ItemPurchasable"		"1"
+		"ItemStockMax"			"1"
+		"ItemCost"				"0"
+	}
+	"item_aghanims_shard"
+	{
+		"ItemInitialStockTime"			"360.0"
+	}
+	"item_refresher"
+	{
+		"AbilityCooldown"				"120.0"
+	}
+	"item_glimmer_cape"
+	{
+		"AbilityCastRange"				"700"
+		"AbilityCooldown"				"16.0"
+		"AbilityManaCost"				"50"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_magical_armor"	"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fade_delay"				"0.4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"active_magical_armor"	"60"
+			}
+		}
+	}
+	"item_recipe_bfury"
+	{
+		"ItemRequirements"
+		{
+			"01"						"item_broadsword;item_claymore;item_pers;item_quelling_blade_2_datadriven*"
+			"02"						"item_broadsword;item_claymore;item_pers;item_quelling_blade*"
+		}
+	}
+	"item_recipe_overwhelming_blink"
+	{
+		"ItemCost"						"250"
+	}
+	"item_recipe_swift_blink"
+	{
+		"ItemCost"						"250"
+	}
+	"item_recipe_arcane_blink"
+	{
+		"ItemCost"						"250"
+	}
+
+	"item_black_king_bar"
+	{
+		"AbilitySharedCooldown"			"bkb"
+	}
+	"item_aeon_disk"
+	{
+		"AbilitySharedCooldown"			"aeon"
+	}
+	"item_manta"
+	{
+		"AbilitySharedCooldown"			"manta"
+	}
+	"item_nullifier"
+	{
+		"AbilitySharedCooldown"			"bluefantasy"
+	}
+	"item_gungir"
+	{
+		"AbilitySharedCooldown"			"gungir"
+	}
+
 	"item_smoke_of_deceit"
 	{
 		"ItemStockTime"					"180.0"
@@ -770,7 +819,6 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
-
 		"ItemStockTime"					"60.0"
 
 		// Special
@@ -1647,6 +1695,13 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"cooldown"					"0.2"
+			}
+
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shard_damage_reduction"		"16"
+				"RequiresShard"				"1"
 			}
 		}
 	}
@@ -7213,8 +7268,8 @@
 	"faceless_void_chronosphere"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"110 100 90 80"
-		"AbilityManaCost"				"150 200 250 300"
+		"AbilityCooldown"				"120 110 100 90"
+		"AbilityManaCost"				"150 225 300 375"
 		"AbilitySpecial"
 		{
 			"02"
@@ -8810,9 +8865,9 @@
 	"phantom_assassin_stifling_dagger"
 	{
 		"MaxLevel" "7"
-		"AbilityCastRange"				"550 650 750 850 950 1050 1150"
+		"AbilityCastRange"				"550 600 650 700 750 800 850"
 		"AbilityCooldown"				"6"
-		"AbilityManaCost"				"30"
+		"AbilityManaCost"				"20 25 30 35 40 45 50"
 		"AbilityValues"
 		{
 			"move_slow"					"-50"
@@ -14075,6 +14130,11 @@
 			{
 				"var_type"							"FIELD_INTEGER"
 				"ball_lightning_move_speed"			"1400 1850 2300 2750"
+			}
+			"05"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"ball_lightning_travel_cost_base"	"10 20 30 40"
 			}
 		}
 	}
