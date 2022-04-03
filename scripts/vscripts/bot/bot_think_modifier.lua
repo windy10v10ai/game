@@ -77,4 +77,33 @@ function modifier_bot_think_strategy:OnIntervalThink()
 	BotThink:ThinkPurchase(hHero)
 	BotThink:ThinkPurchaseNeutral(hHero, GameTime)
 	BotThink:ThinkConsumeItem(hHero)
+
+	BotThink:PutWardObserver(hHero)
+	BotThink:PutWardSentry(hHero)
+end
+
+--------------------------------------------------------------------------------
+-- Bot ward modifier 机器人做眼
+--------------------------------------------------------------------------------
+modifier_bot_think_ward = class({})
+
+function modifier_bot_think_ward:IsPurgable() return false end
+function modifier_bot_think_ward:IsHidden() return true end
+function modifier_bot_think_ward:RemoveOnDeath() return false end
+
+function modifier_bot_think_ward:OnCreated()
+	if IsClient() then return end
+	if not self then return end
+	self:StartIntervalThink(10)
+end
+
+function modifier_bot_think_ward:OnIntervalThink()
+	if IsClient() then return end
+	if not self then return end
+
+	local hHero = self:GetParent()
+	if hHero:IsNull() then return end
+	if BotThink:IsControllable(hHero) then return end
+
+	BotThink:AddWardItem(hHero)
 end

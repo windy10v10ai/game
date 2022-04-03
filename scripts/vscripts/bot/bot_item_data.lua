@@ -1046,6 +1046,9 @@ tBotItemData.sellItemList = {
 		'item_force_staff',
 	},
 	npc_dota_hero_lion = {
+
+		-- local
+		'item_recipe_dagon',
 	},
 	npc_dota_hero_luna = {
 		'item_wraith_band',
@@ -1178,10 +1181,13 @@ tBotItemData.sellItemCommonList = {
 	'item_recipe_magic_wand',
 	'item_magic_wand',
 
+	'item_quelling_blade',
 	'item_circlet',
 	'item_mantle',
 	'item_sobi_mask',
 	'item_ring_of_protection',
+	'item_recipe_ring_of_basilius',
+	'item_ring_of_basilius',
 
 	-- 王冠
 	'item_crown',
@@ -1220,8 +1226,95 @@ tBotItemData.itemConsumeNoTargetList = {
 	'item_tome_of_strength',
 	'item_tome_of_intelligence',
 }
+-- ward setting
+tBotItemData.wardHeroList = Set {
+	'npc_dota_hero_bane',
+	'npc_dota_hero_bounty_hunter',
+	'npc_dota_hero_crystal_maiden',
+	'npc_dota_hero_dazzle',
+	'npc_dota_hero_pudge',
+	'npc_dota_hero_sand_king',
+	'npc_dota_hero_sven',
+	'npc_dota_hero_lina',
+	'npc_dota_hero_lich',
+	'npc_dota_hero_lion',
+	'npc_dota_hero_witch_doctor',
+	'npc_dota_hero_riki',
+	'npc_dota_hero_necrolyte',
+}
+
+tBotItemData.wardObserverPostionList = {
+	-- 天辉
+
+	-- 上路
+	-- 上野区
+	Vector(-5187, -1619, 0),
+	Vector(-4574, 476, 0),
+	Vector(-4096, 1525, 0),
+	-- 中路
+	-- 下野区
+	Vector(303, -2584, 0),
+	Vector(-510, -3334, 0),
+	Vector(1556, -3169, 0),
+	Vector(-1233, -5087, 0),
+	-- 下路
+
+	-- 中路河道
+	Vector(-1625, -200, 0),
+	Vector(74, -1320, 0),
+	Vector(-519, 605, 0),
+	-- roshan
+	Vector(-2142, 1776, 0),
+
+	-- 夜魇
+
+	-- 上路
+	-- 上野区
+	-- 中路
+	-- 下野区
+	-- 下路
+}
+tBotItemData.wardSentryPostionList = {
+
+	-- deward
+
+	-- 天辉
+
+	-- 上路
+	Vector(-6586, -2440, 0),
+	-- 上野区
+	Vector(-4347, -1028, 0),
+	-- 中路
+	Vector(-3971, -3468, 0),
+	-- 下野区
+	Vector(303, -2584, 0),
+	Vector(-510, -3334, 0),
+	Vector(2800, -3087, 0),
+	Vector(1279, -5118, 0),
+	Vector(-1233, -5087, 0),
+	-- 下路
+	Vector(-2945, -6087, 0),
+
+	-- 中路河道
+	Vector(-1625, -200, 0),
+	Vector(74, -1320, 0),
+	Vector(-519, 605, 0),
+	-- roshan
+	Vector(-2142, 1776, 0),
+	Vector(-2273, 2628, 0),
 
 
+
+	-- 夜魇
+
+	-- 上路
+	-- 上野区
+	-- 中路
+	Vector(-3462, 2923, 0),
+	Vector(-1611, 1155, 0),
+	-- 下野区
+	-- 下路
+}
 -- purchase neutral item in order
 tBotItemData.addNeutralItemList = {
 	npc_dota_hero_axe = {
