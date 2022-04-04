@@ -13020,6 +13020,7 @@
 				"var_type"			"FIELD_FLOAT"
 				"damage_multiplier"	"0.3"
 				"LinkedSpecialBonus"	"special_bonus_unique_outworld_devourer_4"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
 		}
 	}
