@@ -1,9 +1,35 @@
 --------------------
 -- Initial
 --------------------
-require('bot/bot_think_item_use')
 if BotAbilityThink == nil then
 	_G.BotAbilityThink = class({}) -- put in the global scope
+end
+
+--------------------
+-- Ability Common
+--------------------
+function BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility)
+	if hAbility:IsFullyCastable() then
+		local iRange = hAbility:GetCastRange()
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		if #tAllHeroes > 0 then
+			hHero:CastAbilityOnTarget(tAllHeroes[1], hAbility, hHero:GetPlayerOwnerID())
+			return true
+		end
+	end
+	return false
+end
+
+function BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility)
+	if hAbility:IsFullyCastable() then
+		local iRange = hAbility:GetCastRange()
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		if #tAllHeroes > 0 then
+			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility, hHero:GetPlayerOwnerID())
+			return true
+		end
+	end
+	return false
 end
 
 --------------------
@@ -33,6 +59,8 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_Sniper(hHero)
 	elseif sHeroName == "npc_dota_hero_kunkka" then
 		self:ThinkUseAbility_Kunkka(hHero)
+	elseif sHeroName == "npc_dota_hero_ogre_magi" then
+		self:ThinkUseAbility_OgreMagi(hHero)
 	end
 end
 
@@ -67,7 +95,7 @@ function BotAbilityThink:ThinkUseAbility_Axe(hHero)
 	end
 	if hAbility2:IsFullyCastable() then
 		local iRange = hAbility2:GetCastRange()
-		local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 		for i, v in ipairs(tAllHeroes) do
 			hHero:CastAbilityOnTarget(v, hAbility2, hHero:GetPlayerOwnerID())
 			return
@@ -81,7 +109,7 @@ function BotAbilityThink:ThinkUseAbility_EarthShaker(hHero)
 	if hAbility2:IsFullyCastable() then
 
         local iRange = 300
-        local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
         if #tAllHeroes > 0 then
             if hHero:HasModifier("modifier_item_ultimate_scepter") then
                 hHero:CastAbilityOnTarget(hHero, hAbility2, hHero:GetPlayerOwnerID())
@@ -97,15 +125,15 @@ function BotAbilityThink:ThinkUseAbility_PhantomAssassin(hHero)
 	local hAbility3 = hHero:GetAbilityByIndex(2)
 	local hAbility4 = hHero:GetAbilityByIndex(3)
 
-	if hAbility3:IsFullyCastable() then
-		hHero:CastAbilityNoTarget(hAbility3, hHero:GetPlayerOwnerID())
-		return true
-	end
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
-		-- TODO check modifier
+		if hAbility3:IsFullyCastable() and (not hHero:HasModifier("modifier_phantom_assassin_blur_active")) then
+			hHero:CastAbilityNoTarget(hAbility3, hHero:GetPlayerOwnerID())
+			return true
+		end
+
 		if hAbility4:IsFullyCastable() then
 			local iRange = hAbility4:GetSpecialValueFor("radius")
-			local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+			local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 			if #tAllHeroes > 0 then
 				hHero:CastAbilityNoTarget(hAbility4, hHero:GetPlayerOwnerID())
 				return true
@@ -134,7 +162,7 @@ function BotAbilityThink:ThinkUseAbility_Viper(hHero)
 
 	if hAbility2:IsFullyCastable() then
         local iRange = hAbility2:GetCastRange()
-        local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
         if #tAllHeroes > 0 then
 			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility2, hHero:GetPlayerOwnerID())
             return true
@@ -179,7 +207,7 @@ function BotAbilityThink:ThinkUseAbility_Kunkka(hHero)
 	-- kunkka_torrent_storm
 	if hAbility4:IsFullyCastable() then
         local iRange = 900
-        local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 		-- 范围内有两人以上时释放
         if #tAllHeroes > 1 then
 			hHero:CastAbilityNoTarget(hAbility4, hHero:GetPlayerOwnerID())
@@ -188,7 +216,38 @@ function BotAbilityThink:ThinkUseAbility_Kunkka(hHero)
 	end
 	if hAbility5:IsFullyCastable() then
         local iRange = 900
-        local tAllHeroes = FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+        if #tAllHeroes > 0 then
+			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility5, hHero:GetPlayerOwnerID())
+            return true
+        end
+	end
+end
+
+function BotAbilityThink:ThinkUseAbility_OgreMagi(hHero)
+	local hAbility1 = hHero:GetAbilityByIndex(0)
+	local hAbility2 = hHero:GetAbilityByIndex(1)
+	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
+	local hAbility5 = hHero:GetAbilityByIndex(4)
+	self:CastAbilityOnEnemyTarget(hHero, hAbility1)
+	self:CastAbilityOnEnemyTarget(hHero, hAbility2)
+	-- set hAbility3 auto cast
+	if hAbility3:IsFullyCastable() then
+		if hAbility3:GetAutoCastState() == false then
+			hAbility3:ToggleAutoCast()
+		end
+	end
+	self:CastAbilityOnEnemyTarget(hHero, hAbility4)
+
+	-- cast on teammate
+	if hAbility5:IsFullyCastable() then
+        local iRange = 900
+        local tAllHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
+		local iCount = #tAllHeroes
+		for i = 1, iCount do
+			if tAllHeroes[iCount+1-i]:HasModifier("modifier_ogre_magi_smash_buff") then table.remove(tAllHeroes, iCount+1-i) end
+		end
         if #tAllHeroes > 0 then
 			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility5, hHero:GetPlayerOwnerID())
             return true

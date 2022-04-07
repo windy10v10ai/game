@@ -319,8 +319,8 @@
 		"DOTA_Tooltip_Ability_item_pirate_hat_custom_Note0"							"Does not stack with other BAT reducing modifiers."
 
         // item_blade_mail_2
-		"DOTA_Tooltip_Ability_item_blade_mail_2"	"Blade Mail 2"
-		"DOTA_Tooltip_Ability_item_recipe_blade_mail_2"				"Blade Mail 2 Recipe"
+		"DOTA_Tooltip_Ability_item_blade_mail_2"	"Blade Mail Upgrade"
+		"DOTA_Tooltip_Ability_item_recipe_blade_mail_2"				"Blade Mail Upgrade Recipe"
 		"DOTA_Tooltip_ability_item_blade_mail_2_Description"						"<h1>Active: Damage Return</h1>For %duration% seconds, the damage returned from all sources is increased by %active_reflection_pct%%%.\n<h1>Passive: Damage Return</h1>Everytime you are attacked, you return %passive_reflection_constant% damage plus %passive_reflection_pct%%% of the attack damage dealt to you."
 		"DOTA_Tooltip_ability_item_blade_mail_2_Lore"								"A razor-sharp coat of mail, it is the choice of selfless martyrs in combat."
 		"DOTA_Tooltip_ability_item_blade_mail_2_Note0"							"Damage Return is calculated before any kind of reduction."
@@ -329,11 +329,11 @@
 		"DOTA_Tooltip_ability_item_blade_mail_2_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_blade_mail_2_bonus_armor"						"+$armor"
 
-		"DOTA_Tooltip_modifier_item_blade_mail_2_reflect"					"Blade Mail 2 Reflection"
+		"DOTA_Tooltip_modifier_item_blade_mail_2_reflect"					"Blade Mail Upgrade Reflection"
 		"DOTA_Tooltip_modifier_item_blade_mail_2_reflect_Description"		"Returning damage to attacking units."
 
         // item_radiance_2
-		"DOTA_Tooltip_Ability_item_radiance_2"				"RADIANCE 2"
+		"DOTA_Tooltip_Ability_item_radiance_2"				"RADIANCE Upgrade"
 		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second, and causes them to miss %blind_pct%%% of their attacks. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_radiance_2_Lore"								"A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
 		"DOTA_Tooltip_ability_item_radiance_2_bonus_damage"						"+$damage"
@@ -372,7 +372,7 @@
 		"DOTA_Tooltip_modifier_item_vladmir_2_enemy_aura_Description"	"Armor decreased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
 
         // item_sphere_2
-		"DOTA_Tooltip_Ability_item_sphere_2"				"Linken's Sphere 2"
+		"DOTA_Tooltip_Ability_item_sphere_2"				"Linken's Sphere Upgrade"
 		"DOTA_Tooltip_ability_item_sphere_2_Description"							"<h1>Passive: Spellblock</h1>Blocks most targeted spells once every %block_cooldown% seconds.\n<h1>Active: Transfer Spellblock</h1>Temporarily removes Spellblock from the item's owner and transfers it to an allied unit for %block_cooldown% seconds.<br><br>Range: %abilitycastrange%"
 		"DOTA_Tooltip_ability_item_sphere_2_Lore"									"This magical sphere once protected one of the most famous heroes in history."
 		"DOTA_Tooltip_ability_item_sphere_2_bonus_all_stats"						"+$all"
@@ -527,7 +527,7 @@
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range_Description"	"Can attack the target without range restrictions."
 
         // item_skadi_2
-		"DOTA_Tooltip_Ability_item_skadi_2"				"Eye of Skadi 2"
+		"DOTA_Tooltip_Ability_item_skadi_2"				"Eye of Skadi Upgrade"
 		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>Passive: Cold Attack</h1> Attacks lower enemy movement and attack speed and reduces heals, health regeneration, lifesteal and spell lifesteal by %heal_reduction%%% for %cold_duration% seconds. Slows enemy ranged units by %cold_slow_ranged%%% movement speed and by %cold_slow_ranged% attack speed. Slows enemy melee units by %cold_slow_melee%%% movement speed and by %cold_slow_melee% attack speed. "
 		"DOTA_Tooltip_ability_item_skadi_2_Lore"									"Extremely rare artifact, guarded by the azure dragons."
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_all_stats"						"+$all"
@@ -535,7 +535,7 @@
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_mana"							"+$mana"
 
 		// item_echo_sabre_2
-		"DOTA_Tooltip_Ability_item_echo_sabre_2"				"Echo Sabre 2"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2"				"Echo Sabre Upgrade"
 		"DOTA_Tooltip_Ability_item_echo_sabre_2_Description"			        "<h1>Passive: Echo Strike</h1> Causes melee attacks to attack twice in quick succession. The double attacks apply a %movement_slow%%% movement slow for %slow_duration% seconds on each strike."
 		"DOTA_Tooltip_Ability_item_echo_sabre_2_Lore"			                "A deceptively swift blade imbued with resonant magic."
 		"DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_strength"                "+$str"
@@ -555,23 +555,23 @@
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_armor"					"+$armor"
 
 		//  veil_of_discord_2
-		"DOTA_Tooltip_Ability_item_veil_of_discord_2"				"Veil of Discord 2"
+		"DOTA_Tooltip_Ability_item_veil_of_discord_2"				"Veil of Discord Upgrade"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>Active: Magic Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes to take %spell_amp%%% increased damage from spells.<br><br>Range: %abilitycastrange%<br>Duration: %resist_debuff_duration% seconds. \n\n<h1>Passive: Basilius Aura</h1>Grants %aura_mana_regen% mana regeneration to allies.  <br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"The headwear of corrupt magi."
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_all_stats"			"+$all"
 
         // item_veil_of_discord_2
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana"				"Veil of Discord 2"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana"				"Veil of Discord Upgrade"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana_Description"	"Granting mana regeneration to allies."
 
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"				"Magic Weakness"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"Magic damage increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 
 		// item_manta_1
-		"DOTA_Tooltip_Ability_item_manta_1"										"Manta Style 2"
-		"DOTA_Tooltip_Ability_item_recipe_manta_1"								"Manta Style 2 Recipe"
+		"DOTA_Tooltip_Ability_item_manta_1"										"Manta Style Upgrade"
+		"DOTA_Tooltip_Ability_item_recipe_manta_1"								"Manta Style Upgrade Recipe"
 		"DOTA_Tooltip_ability_item_manta_1_Description"							"<h1>Active: Mirror Image</h1>Creates %images_count% images of your hero that last %tooltip_illusion_duration% seconds. <br><br>Melee images deal %tooltip_damage_outgoing_melee%%% damage and take %tooltip_damage_incoming_melee_total_pct%%% damage, while Ranged images deal %tooltip_damage_outgoing_ranged%%% and take %tooltip_damage_incoming_ranged_total_pct%%% damage.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
-		"DOTA_Tooltip_ability_item_manta_1_Lore"									"Manta Style 2"
+		"DOTA_Tooltip_ability_item_manta_1_Lore"									"Manta Style Upgrade"
 		"DOTA_Tooltip_ability_item_manta_1_Note0"									"Has a %invuln_duration% second cast time during which you are invulnerable."
 		"DOTA_Tooltip_ability_item_manta_1_Note1"									"Many effects are removed upon using Manta."
 		"DOTA_Tooltip_ability_item_manta_1_Note2"									"Yasha based movement speed bonuses from multiple items do not stack."
@@ -582,7 +582,7 @@
 		"DOTA_Tooltip_ability_item_manta_1_bonus_movement_speed"					"%+$move_speed"
 
 		// item_silver_edge_2
-		"DOTA_Tooltip_Ability_item_silver_edge_2"			"Silver Edge 2"
+		"DOTA_Tooltip_Ability_item_silver_edge_2"			"Silver Edge Upgrade"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Description"						"<h1>Active: Shadow Walk</h1>Makes you invisible for %windwalk_duration% seconds, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  <br><br>Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus physical damage and a guaranteed %crit_multiplier%%% critical strike to the target, and disable their passive abilities for %backstab_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_attack_speed"			"+$attack"
@@ -594,8 +594,8 @@
 		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk_Description"	"Invisible. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and you can move through units. Attacking to break invisibility will deal %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT% bonus damage, slow the target and disable their passives."
 
         // item_black_king_bar_2
-		"DOTA_Tooltip_Ability_item_black_king_bar_2"			"Black King Bar 2"
-		"DOTA_Tooltip_Ability_item_recipe_black_king_bar"			"Black King Bar 2 Recipe"
+		"DOTA_Tooltip_Ability_item_black_king_bar_2"			"Black King Bar Upgrade"
+		"DOTA_Tooltip_Ability_item_recipe_black_king_bar"			"Black King Bar Upgrade Recipe"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>Active: Avatar</h1> Grants Spell Immunity.  Duration decreases with each use. <br><br>Duration: %duration% <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Lore"							"A powerful staff imbued with the strength of giants."
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Note0"						"Purchasing another Black King Bar will not reset its immunity duration."
@@ -768,6 +768,10 @@
 		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"Lightning Storm"
 		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"Cannot move while rooted."
 
-		"DOTA_Tooltip_ability_item_carapace_of_qaldin_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_Ability_item_satanic_2"				"Satanic Upgrade"
+		"DOTA_Tooltip_ability_item_satanic_2_Description"							"<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %unholy_lifesteal_total_tooltip%%% for %unholy_duration% seconds. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_percent%%% of attack damage dealt."
+		"DOTA_Tooltip_ability_item_satanic_2_Lore"								"Immense power at the cost of your soul."
+		"DOTA_Tooltip_ability_item_satanic_2_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_satanic_2_bonus_damage"						"+$damage"
 	}
 }

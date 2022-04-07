@@ -4,8 +4,8 @@
 
 artoria_mana_burst = class({})
 
-LinkLuaModifier( "modifier_artoria_mana_burst_slow", "abilities/artoria/modifiers/modifier_artoria_mana_burst_slow", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_artoria_mana_burst", "abilities/artoria/modifiers/modifier_artoria_mana_burst", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_artoria_mana_burst_slow", "heroes/artoria/modifiers/modifier_artoria_mana_burst_slow", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_artoria_mana_burst", "heroes/artoria/modifiers/modifier_artoria_mana_burst", LUA_MODIFIER_MOTION_NONE )
 
 function artoria_mana_burst:OnSpellStart()
 	local caster = self:GetCaster()
