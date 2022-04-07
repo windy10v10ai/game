@@ -216,6 +216,7 @@
 				"34"		"bane_brain_sap"
 				"35"		"bane_brain_sap"
 				"36"		"bane_enfeeble"
+				"37"		"bane_nightmare"
 			}
 		}
 	}
