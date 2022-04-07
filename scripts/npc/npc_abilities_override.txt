@@ -14593,7 +14593,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"search_aoe"				"600"
+				"search_aoe"				"800"
 			}
 		}
 	}
@@ -14615,13 +14615,22 @@
 					"special_bonus_unique_warlock_8"	"+2"
 				}
 				"tick_interval"				"1.0"
+				"shard_aoe"
+				{
+					"value"					"550"
+					"RequiresShard"			"1"
+				}
+				"shard_movement_speed_pct"
+				{
+					"value"					"15"
+					"RequiresShard"			"1"
+				}
 		}
 	}
 	"warlock_upheaval"
 	{
 		"MaxLevel" "5"
 		"AbilityChannelTime"			"10"
-		"AbilityCooldown"				"35"
 		"AbilityDamage"					"100"
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilitySpecial"
@@ -14683,11 +14692,11 @@
 	"windrunner_gale_force"
 	{
 		"AbilityCooldown"				"20"
-		"AbilityManaCost"				"150"
 		"AbilityValues"
 		{
-			"duration"			"3"
+			"duration"			"4"
 			"wind_strength"		"250"
+			"radius"			"1000"
 		}
 	}
 	"windrunner_shackleshot"
@@ -14735,9 +14744,10 @@
 				"powershot_damage"		"150 250 350 450 550"
 				"damage_reduction"
 				{
-					"value"				"20"
+					"value"				"10"
 					"special_bonus_unique_windranger_3"		"-10"
 					"CalculateSpellDamageTooltip"	"0"
+					"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
 				}
 				"arrow_width"			"125 125 125 125"
 				"arrow_range"			"2600"
@@ -14770,7 +14780,11 @@
 				"RequiresScepter" "1"
 				"value"			"-35 -40 -45 -50 -55"
 			}
-			"scepter_blind"				"40"
+			"scepter_blind"
+			{
+				"value"		"60"
+				"RequiresScepter"		"1"
+			}
 			"duration"					"3 4 5 6 7"
 		}
 	}
@@ -14785,7 +14799,7 @@
 				"bonus_attack_speed"			"300 400 500 600"
 				"focusfire_damage_reduction"
 				{
-					"value"						"-30"
+					"value"						"-20"
 					"LinkedSpecialBonus"		"special_bonus_unique_windranger_8"
 				}
 				"focusfire_fire_on_the_move"	"1"
@@ -14868,9 +14882,14 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCastRange"				"700 750 800 850"
-		"AbilityCooldown"				"100 90 80 70"
+		"AbilityCooldown"				"90 80 70 60"
 		"AbilitySpecial"
 		{
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_attack_speed"	"130"
+			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
@@ -15034,6 +15053,7 @@
 		"AbilityCooldown"					"25 20 15 10"
 		"AbilityValues"
 		{
+			"damage"					"25 50 75 100"
 			"hop_distance"				"450"
 			"hop_duration"		"0.5"
 			"hop_height"		"250"
@@ -15090,7 +15110,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"120 110 100 90 80"
-		"AbilityManaCost"				"300 450 600 750 900"
+		"AbilityManaCost"				"300 400 500 600 700"
 		"AbilitySpecial"
 		{
 			"04"
