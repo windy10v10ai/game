@@ -1,16 +1,12 @@
 -----------------------------
---    Excalibur    --
+--    Ultimate Excalibur    --
 -----------------------------
-LinkLuaModifier("modifier_artoria_check", "abilities/artoria/modifiers/modifier_artoria_check", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_saber_excalibur", "abilities/artoria/modifiers/modifier_saber_excalibur", LUA_MODIFIER_MOTION_NONE )
 
-artoria_excalibur = class({})
+artoria_ultimate_excalibur = class({})
 
-function artoria_excalibur:GetIntrinsicModifierName()
-    return "modifier_artoria_check"
-end
+LinkLuaModifier("modifier_artoria_ultimate_excalibur", "heroes/artoria/modifiers/modifier_artoria_ultimate_excalibur", LUA_MODIFIER_MOTION_NONE)
 
-function artoria_excalibur:OnSpellStart()
+function artoria_ultimate_excalibur:OnSpellStart()
 	local caster = self:GetCaster()
 	local targetPoint = self:GetCursorPosition()
 	local ability = self
@@ -18,20 +14,21 @@ function artoria_excalibur:OnSpellStart()
 	self.interval = self:GetSpecialValueFor("interval")
 	self.duration = self:GetSpecialValueFor("duration")
 
-	local artoria_ultimate_excalibur = caster:FindAbilityByName("artoria_ultimate_excalibur")
-	if artoria_ultimate_excalibur and not artoria_ultimate_excalibur:IsNull() then
-		artoria_ultimate_excalibur:StartCooldown(30.0)
+	local artoria_excalibur = caster:FindAbilityByName("artoria_excalibur")
+	if artoria_excalibur and not artoria_excalibur:IsNull() then
+		artoria_excalibur:StartCooldown(30.0)
 	end
 	EmitGlobalSound("artoria_excalibur")
 
-	local chargeFxIndex = ParticleManager:CreateParticle( "particles/custom/artoria/artoria_excalibur_charge.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
+	local chargeFxIndex = ParticleManager:CreateParticle( "particles/custom/artoria/artoria_ultimate_excalibur_charge.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
 
+	-- caster:AddNewModifier(caster, self, "modifier_artoria_ultimate_excalibur", { Duration = 5.01 })
 	local range = self:GetSpecialValueFor("range") - self:GetSpecialValueFor("width") -- We need this to take end radius of projectile into account
 
 	local excal =
 	{
 		Ability = self,
-        EffectName = "particles/custom/saber/excalibur/shockwave.vpcf",
+        EffectName = "",
         iMoveSpeed = self:GetSpecialValueFor("speed"),
         vSpawnOrigin = caster:GetAbsOrigin(),
         fDistance = range,
@@ -48,20 +45,24 @@ function artoria_excalibur:OnSpellStart()
 		vVelocity = caster:GetForwardVector() * self:GetSpecialValueFor("speed")
 	}
 
-	--Removes Super Saiyan
-	Timers:CreateTimer(3.0, function()
-		if caster:IsAlive() then
+	-- Charge particles
+	local excalibur_Charge = ParticleManager:CreateParticle("particles/custom/saber/max_excalibur/charge.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+
+	Timers:CreateTimer(2.50, function()
+		if not caster:IsAlive() then
 			ParticleManager:DestroyParticle( chargeFxIndex, false )
 			ParticleManager:ReleaseParticleIndex( chargeFxIndex )
+
 			StopGlobalSound("artoria_excalibur")
 		end
 	end)
 
 	self.timeCounter = 0
+
 	Timers:CreateTimer(cast_delay, function()
 		caster:ForcePlayActivityOnce(ACT_DOTA_CAST_ABILITY_6)
 		Timers:CreateTimer( function()
-			print("artoria_excalibur Time: " .. self.timeCounter)
+			print("artoria_ultimate_excalibur Time: " .. self.timeCounter)
 				if self.timeCounter > self.duration then
 					ParticleManager:DestroyParticle( chargeFxIndex, false )
 					ParticleManager:ReleaseParticleIndex( chargeFxIndex )
@@ -73,7 +74,7 @@ function artoria_excalibur:OnSpellStart()
 					excal.vVelocity = caster:GetForwardVector() * self:GetSpecialValueFor("speed")
 					local projectile = ProjectileManager:CreateLinearProjectile(excal)
 					self:FireSingleMaxParticle()
-					ScreenShake(caster:GetOrigin(), 5, 0.1, 1, 10000, 0, true)
+					ScreenShake(caster:GetOrigin(), 7, 2.0, 1, 10000, 0, true)
 				end
 
 				self.timeCounter = self.timeCounter + self.interval
@@ -83,7 +84,7 @@ function artoria_excalibur:OnSpellStart()
 	end)
 end
 
-function artoria_excalibur:FireSingleMaxParticle()
+function artoria_ultimate_excalibur:FireSingleMaxParticle()
 	local caster = self:GetCaster()
 	local casterFacing = caster:GetForwardVector()
 	local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin() + 100 * casterFacing, false, caster, caster, caster:GetTeamNumber())
@@ -100,12 +101,13 @@ function artoria_excalibur:FireSingleMaxParticle()
 		end
 	)
 
-	local excalFxIndex = ParticleManager:CreateParticle("particles/custom/saber/max_excalibur/shockwave.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, dummy)
+	local excalFxIndex = ParticleManager:CreateParticle("particles/custom/saber/excalibur/shockwave.vpcf", PATTACH_ABSORIGIN_FOLLOW, dummy)
+	ParticleManager:SetParticleControl(excalFxIndex, 4, Vector(self:GetSpecialValueFor("width"),0,0))
 
-	Timers:CreateTimer( 1.20, function()
+	Timers:CreateTimer(1.2, function()
 		ParticleManager:DestroyParticle( excalFxIndex, false )
 		ParticleManager:ReleaseParticleIndex( excalFxIndex )
-		Timers:CreateTimer( 0.5, function()
+		Timers:CreateTimer( 0.1, function()
 				dummy:RemoveSelf()
 				return nil
 			end
@@ -114,7 +116,7 @@ function artoria_excalibur:FireSingleMaxParticle()
 	end)
 end
 
-function artoria_excalibur:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
+function artoria_ultimate_excalibur:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	if hTarget == nil then return end
 
 	if hTarget:IsMagicImmune() then
@@ -137,6 +139,6 @@ function artoria_excalibur:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 end
 
 -- Ability Channeling
-function artoria_excalibur:OnChannelFinish( bInterrupted )
+function artoria_ultimate_excalibur:OnChannelFinish( bInterrupted )
 	self.timeCounter = 10.0
 end

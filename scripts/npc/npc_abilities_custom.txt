@@ -1076,7 +1076,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/artoria/artoria_strike_air"
+		"ScriptFile"					"heroes/artoria/artoria_strike_air"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 
@@ -1086,6 +1086,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/artoria/artoria_strike_air"
 
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
@@ -1114,10 +1115,21 @@
 			"end_radius"			"300"
 			"speed"					"1500.0"
 			"cast_range"			"650"
-			"damage"				"120 180 240 300 360"
+			// "damage"				"120 180 240 300 360"
 			"stun_duration"			"1.2 1.4 1.6 1.8 2.0"
 			"corruption_armor"		"-4 -6 -8 -10 -12"
 			"immunity_duration"		"2.0 2.5 3.0 3.5 4.0"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+		    {
+		    	"var_type"			"FIELD_INTEGER"
+		    	"damage"			"120 180 240 300 360"
+		    }
 		}
 	}
 
@@ -1125,7 +1137,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/artoria/artoria_instinct"
+		"ScriptFile"					"heroes/artoria/artoria_instinct"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1150,7 +1162,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/artoria/artoria_mana_burst"
+		"ScriptFile"					"heroes/artoria/artoria_mana_burst"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -1158,12 +1170,13 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/artoria/artoria_mana_burst"
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"450"
 		"AbilityCastRangeBuffer"		"75"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"7.5"
@@ -1185,10 +1198,21 @@
 		"AbilityValues"
 		{
 			"amp_pct"					"8 12 16 20 24"
-			"radius"					"400"
-			"damage"					"160 240 320 400 480"
+			"radius"					"450"
+			// "damage"					"160 240 320 400 480"
 			"slow_amount"				"-30 -35 -40 -45 -50"
 			"duration"					"3"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+		    {
+		    	"var_type"			"FIELD_INTEGER"
+		    	"damage"			"160 240 320 400 480"
+		    }
 		}
 	}
 
@@ -1197,7 +1221,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/artoria/artoria_excalibur"
+		"ScriptFile"					"heroes/artoria/artoria_excalibur"
 		"MaxLevel"						"3"
 		"RequiredLevel"					"6"
 		"LevelsBetweenUpgrades"			"6"
@@ -1206,6 +1230,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3_END"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/artoria/artoria_excalibur"
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -1214,8 +1239,8 @@
 		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"2.0"
-		"AbilityCooldown"				"60.0"
-		"AbilityManaCost"				"400 500 600"
+		"AbilityCooldown"				"80.0 70.0 60.0"
+		"AbilityManaCost"				"300 450 600"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
 		"precache"
@@ -1240,15 +1265,26 @@
 			"range"					"2000"
 			"width"					"400"
 			"speed"					"2000.0"
-			"damage"				"600 900 1200"
+			// "damage"				"800 1000 1200"
 			"interval"				"0.25"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+		    {
+		    	"var_type"			"FIELD_INTEGER"
+		    	"damage"			"800 1000 1200"
+		    }
 		}
 	}
 	"artoria_ultimate_excalibur"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/artoria/artoria_ultimate_excalibur"
+		"ScriptFile"					"heroes/artoria/artoria_ultimate_excalibur"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -1257,6 +1293,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3_END"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/artoria/artoria_ultimate_excalibur"
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -1265,7 +1302,7 @@
 		"AbilityCastRange"				"6000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"3.0"
-		"AbilityCooldown"				"120.0"
+		"AbilityCooldown"				"150.0"
 		"AbilityManaCost"				"1200"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1296,8 +1333,18 @@
 			"range"					"6000"
 			"width"					"600"
 			"speed"					"6000.0"
-			"damage"				"2000"
+			// "damage"				"2000"
 			"interval"				"0.25"
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+		    {
+		    	"var_type"			"FIELD_INTEGER"
+		    	"damage"				"2000"
+		    }
 		}
 	}
 }
