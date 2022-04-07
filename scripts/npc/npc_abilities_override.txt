@@ -10683,6 +10683,11 @@
 			"turn_rate_pct"			"-30 -40 -50 -60 -70"
 			"max_stacks"			"10 10 10 10"
 			"creep_damage_pct"			"50"
+			"shard_napalm_on_attack_chance_pct"
+			{
+				"value"			"50"
+				"RequiresShard"			"1"
+			}
 		}
 	}
 	"batrider_flamebreak"
@@ -10748,6 +10753,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"3.0 3.5 4.0 4.5 5.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"break_distance"		"1000"
 			}
 			"06"
 			{
@@ -10947,15 +10957,9 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"creep_duration"	"6"
+				"creep_duration"	"8"
 				"LinkedSpecialBonus"	"special_bonus_unique_crystal_maiden_1"
 			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"tick_interval"		"0.25"
-			}
-
 		}
 	}
 	"special_bonus_unique_crystal_maiden_1"
@@ -10989,14 +10993,13 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"90 80 70 60 50"
-		"AbilityDuration"				"10.0"
 		"AbilityManaCost"				"200 300 400 500 600"
 		"AbilitySpecial"
 		{
 			"10"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"150 200 250 300 350"
+				"damage"			"150 250 350 450 550"
 				"LinkedSpecialBonus"	"special_bonus_unique_crystal_maiden_3"
 			}
 		}
@@ -11227,6 +11230,13 @@
 				"var_type"						"FIELD_INTEGER"
 				"attack_range_bonus"			"400"
 			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"max_damage_duration"			"3.0"
+				"CalculateSpellDamageTooltip"	"0"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
+			}
 		}
 	}
 	"dark_willow_cursed_crown"
@@ -11424,8 +11434,6 @@
 	"death_prophet_silence"
 	{
 		"AbilityCooldown"				"14 13 12 11"
-		"AbilityDuration"				"3 4 5 6"
-		"AbilityManaCost"				"80 90 100 110"
 	}
 	"death_prophet_spirit_siphon"
 	{
@@ -11446,27 +11454,10 @@
 				"damage_pct"					"1.0 2.0 3.0 4.0 5.0"
 				"LinkedSpecialBonus"	"special_bonus_unique_death_prophet_3"
 			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"haunt_duration"				"6"
-			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"movement_steal"			"10"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"siphon_buffer"			"250"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"AbilityChargeRestoreTime"		""
-				"LinkedSpecialBonus"			"special_bonus_unique_death_prophet_5"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
 			}
 		}
 	}
@@ -11624,7 +11615,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_duration"			"4"
+				"slow_duration"			"5"
 			}
 		}
 	}
@@ -11657,17 +11648,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"enchant_damage"	"30 50 70 90 110"
 			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-55"
-			}
 		}
 	}
 	"enchantress_natures_attendants"
 	{
 		"MaxLevel" "7"
-		"AbilityManaCost"				"140"
 		"AbilityValues"
 		{
 			"heal_interval"			"0.5"
@@ -11681,6 +11666,11 @@
 			{
 				"value"				"8"
 				"LinkedSpecialBonus"	"special_bonus_unique_enchantress_2"
+			}
+			"shard_permanent_wisp_count"
+			{
+				"value"				"5"
+				"RequiresShard"		"1"
 			}
 		}
 	}
@@ -11752,18 +11742,34 @@
 		"AbilityManaCost"				"300 400 500 600"
 		"AbilityValues"
 		{
-				"damage"			"100 150 200 250"
-				"radius"			"420"
-				"pull_speed"			"30"
-				"tick_rate"				"0.1 0.1 0.1"
-				"duration"				"4.0 4.0 4.0"
-				"vision_radius"			"800 800 800"
-				"pull_rotate_speed"		"0.25"
-				"animation_rate"		"0.2"
-				"scepter_pct_damage"	"3"
-				"scepter_radius"	"1000"
-				"scepter_drag_speed"	"175"
-				"scepter_pull_rotate_speed"	"0.1"
+			"damage"			"100 150 200 250"
+			"radius"			"420"
+			"pull_speed"			"30"
+			"tick_rate"				"0.1 0.1 0.1"
+			"duration"				"4.0 4.0 4.0"
+			"vision_radius"			"800 800 800"
+			"pull_rotate_speed"		"0.25"
+			"animation_rate"		"0.2"
+			"scepter_pct_damage"
+			{
+				"value"					"3"
+				"RequiresScepter"		"1"
+			}
+			"shard_radius"
+			{
+				"value"					"1000"
+				"RequiresShard"			"1"
+			}
+			"shard_drag_speed"
+			{
+				"value"					"175"
+				"RequiresShard"			"1"
+			}
+			"shard_pull_rotate_speed"
+			{
+				"value"					"0.1"
+				"RequiresShard"			"1"
+			}
 		}
 	}
 	//=================================================================================================================
