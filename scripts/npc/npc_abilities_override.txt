@@ -1433,6 +1433,7 @@
 				"var_type"				"FIELD_FLOAT"
 				"damage_absorb"			"110 140 170 200 230"
 				"LinkedSpecialBonus"	"special_bonus_unique_abaddon"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
 		}
 	}
