@@ -10423,12 +10423,6 @@
 				"cooldown_scepter"		"30"
 				"RequiresScepter"		"1"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip_scepter"		"500"
-				"RequiresScepter"		"1"
-			}
 		}
 	}
 
@@ -10481,6 +10475,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"spell_resist_pct"		"-16 -19 -22 -25 -28"
 				"LinkedSpecialBonus"	"special_bonus_unique_ancient_apparition_4"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 			}
 			"07"
 			{
@@ -10568,16 +10563,12 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"damage_reduction"	"45 50 55 60 65"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
 				"heal_reduction"	"45 50 55 60 65"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"cast_reduction"	"30"
 			}
 			"04"
 			{
@@ -10590,48 +10581,80 @@
 	{
 		"MaxLevel" "7"
 		"AbilityCooldown"				"17 15 13 11 9 7 5"
-		"AbilityManaCost"				"80 100 120 140 160 180 200"
-		"AbilitySpecial"
+		"AbilityManaCost"				"100 120 140 160 180 200 220"
+		"AbilityValues"
 		{
-			"01"
+			"brain_sap_damage"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"brain_sap_damage"				"75 150 225 300 375 450 525"
-				"LinkedSpecialBonus"			"special_bonus_unique_bane_2"
+				"value"									"75 150 225 300 375 450 525"
+				"special_bonus_unique_bane_2"			"+275"
+			}
+			"bonus_abilitycooldown"
+			{
+				"value"									"0"
+				"special_bonus_unique_bane_8"			"3"
+			}
+			"shard_radius"
+			{
+				"value"				"550"
+				"RequiresShard"		"1"
+			}
+			"shard_secondary_target_heal_pct"
+			{
+				"value"				"25"
+				"RequiresShard"		"1"
 			}
 		}
 	}
 	"bane_fiends_grip"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"100 90 80 70 60"
-		"AbilityManaCost"				"200 250 300 350 400"
-		"AbilitySpecial"
+		"AbilityCooldown"				"60 50 40 30 20"
+		"AbilityManaCost"				"200 300 400 500 600"
+		"AbilityValues"
 		{
-			"04"
+			"fiend_grip_tick_interval"		"0.5"
+			"fiend_grip_mana_drain"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"fiend_grip_damage"				"70 110 150 190 230"
+				"value"						"5"
+				"special_bonus_unique_bane_9"			"+5"
+			}
+			"abilitychanneltime"
+			{
+				"value"					"6.0 6.0 6.0"
+				"special_bonus_unique_bane_3"		"+5"
+			}
+			"fiend_grip_damage"				"70 110 150 190 230"
+			"scepter_cooldown"
+			{
+				"value"				"5"
+				"RequiresScepter"	"1"
+			}
+			"scepter_incoming_illusion_damage"
+			{
+				"value"				"200"
+				"RequiresScepter"	"1"
 			}
 		}
 	}
 	"bane_nightmare"
 	{
-		"MaxLevel" "4"
-		"AbilityCastRange"				"425 500 575 650"
-		"AbilityCooldown"				"22 20 18 16 14"
-		"AbilityDuration"				"4.0 5.0 6.0 7.0"
+		"MaxLevel" "5"
+		"AbilityCastRange"				"425 500 575 650 725"
+		"AbilityCooldown"				"24 21 18 15 12"
+		"AbilityDuration"				"4.0 5.0 6.0 7.0 8.0"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.0 5.0 6.0 7.0"
+				"duration"					"4.0 5.0 6.0 7.0 8.0"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"nightmare_tick_damage"		"10 20 30 40"
+				"nightmare_tick_damage"		"20 30 40 50 60"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_PURE"
 			}
 		}
 	}
