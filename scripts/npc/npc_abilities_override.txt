@@ -13628,18 +13628,6 @@
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_4"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_multiply_stacks"	"5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_stack_damage"	"50"
-				"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_4"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
-			}
 			"06" //Damage that is applied every time shadow poison is applied.
 			{
 				"var_type"				"FIELD_FLOAT"
@@ -13652,7 +13640,6 @@
 	"shadow_demon_demonic_cleanse"
 	{
 		"MaxLevel" "4"
-		"AbilityDuration"				"7.0"
 		"AbilityCooldown"				"50"
 		"AbilityManaCost"				"150 175 200 225"
 		"AbilityValues"
@@ -13677,8 +13664,6 @@
 					"value"				"50"
 					"RequiresScepter"			"1"
 				}
-				"max_slow"			"100.0"
-				"min_slow"			"20.0"
 		}
 	}
 	//=================================================================================================================
@@ -13711,11 +13696,6 @@
 		"AbilityManaCost"				"80 100 120 140 160"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed"					"100"
-			}
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
@@ -13994,6 +13974,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"resist_debuff"			"-20 -25 -30 -35 -40"
 				"LinkedSpecialBonus"	"special_bonus_unique_skywrath_3"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 			}
 			"02"
 			{
@@ -14153,20 +14134,6 @@
 			}
 		}
 	}
-	"techies_reactive_tazer"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"28 24 20 16 12"
-		"AbilityManaCost"				"60"
-		"AbilityValues"
-		{
-				"duration"				"6"
-				"disarm_duration"		"3"
-				"bonus_ms"				"15 20 25 30 35"
-				"stun_radius"			"400"
-				"scepter_damage"		"300"
-		}
-	}
 	"techies_sticky_bomb"
 	{
 		"MaxLevel" "7"
@@ -14176,17 +14143,44 @@
 		{
 				"duration"				"1.2"
 				"countdown"				"2"
-				"radius"				"250"
+				"radius"
+				{
+					"value"			"250"
+					"special_bonus_unique_techies_2"	"+125"
+				}
 				"damage"
 				{
 					"value"	"90 180 270 360 450 530 600"
-					"special_bonus_unique_techies_2"	"+100"
 				}
 				"slow"					"25 35 45 55 65 75 85"
-				"explosion_radius"		"300"
+				"secondary_slow"		"15 25 35 45 55 65 75"
+				"secondary_slow_duration"		"2"
+				"explosion_radius"
+				{
+					"value"				"300"
+					"special_bonus_unique_techies_2"	"+125"
+				}
 				"speed"					"500.0"
 				"acceleration"			"2000"
 				"pre_chase_time"		"0.1"
+		}
+	}
+	"techies_reactive_tazer"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"28 24 20 16 12"
+		"AbilityManaCost"				"60"
+		"AbilityValues"
+		{
+			"duration"				"6"
+			"disarm_duration"		"3"
+			"bonus_ms"				"15 20 25 30 35"
+			"stun_radius"			"400"
+			"scepter_damage"
+			{
+				"value"					"300"
+				"RequiresScepter"		"1"
+			}
 		}
 	}
 	//=================================================================================================================
