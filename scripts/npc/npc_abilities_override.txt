@@ -10143,6 +10143,21 @@
 				}
 				"max_stacks"			"5"
 				"bonus_range"			"25 65 105 145 185"
+				"shard_armor_reduction"
+				{
+					"value"				"1"
+					"RequiresShard"		"1"
+				}
+				"shard_building_dmg_pct"
+				{
+					"value"				"40"
+					"RequiresShard"		"1"
+				}
+				"shard_bonus_max_stacks"
+				{
+					"value"				"3"
+					"RequiresShard"		"1"
+				}
 		}
 	}
 	"viper_nethertoxin"
@@ -10155,6 +10170,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"min_damage"			"15 20 25 30 35 40 45"
+				"LinkedSpecialBonus"	"special_bonus_unique_viper_3"
 			}
 			"02"
 			{
@@ -10209,11 +10225,6 @@
 				"damage"					"8 16 24 32 40"
 				"LinkedSpecialBonus"	"special_bonus_unique_viper_1"
 			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"max_range_tooltip"					"1400"
-			}
 		}
 	}
 	"special_bonus_unique_viper_1"
@@ -10243,11 +10254,6 @@
 		"AbilityManaCost"				"100 150 200 250"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5"
-			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
