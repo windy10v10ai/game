@@ -12932,6 +12932,7 @@
 				"var_type"			"FIELD_FLOAT"
 				"damage_multiplier"	"0.3"
 				"LinkedSpecialBonus"	"special_bonus_unique_outworld_devourer_4"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
 		}
 	}
@@ -12961,13 +12962,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"scepter_mana"		"25"
-				"RequiresScepter"	"1"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"fireblast_damage"		"450"
-				"RequiresScepter"	"1"
 			}
 		}
 	}
@@ -13123,11 +13122,6 @@
 				"duration"				"6 7 8 9"
 				"LinkedSpecialBonus"	"special_bonus_unique_oracle"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"				"400"
-			}
 		}
 	}
 	"special_bonus_unique_oracle"
@@ -13144,8 +13138,7 @@
 	}
 	"oracle_rain_of_destiny"
 	{
-		"AbilityCooldown"				"40"
-		"AbilityManaCost"				"150"
+		"AbilityCooldown"				"30"
 		"AbilityValues"
 		{
 				"radius"				"650"
@@ -13207,6 +13200,16 @@
 					"RequiresScepter"		"1"
 					"value"			"400"
 				}
+				"scepter_pushback_duration"
+				{
+					"RequiresScepter"		"1"
+					"value"			"0.5"
+				}
+				"scepter_vision_duration"
+				{
+					"RequiresScepter"		"1"
+					"value"			"5"
+				}
 		}
 	}
 	"puck_phase_shift"
@@ -13216,6 +13219,11 @@
 		"AbilityValues"
 		{
 				"duration"					"1 1.75 2.5 3.25"
+				"shard_attack_range_bonus"
+				{
+					"RequiresShard"				"1"
+					"value"						"300"
+				}
 		}
 	}
 	"puck_dream_coil"
@@ -13263,14 +13271,13 @@
 		"MaxLevel" "5"
 		"AbilityCastRange"				"400 500 600 700 800"
 		"AbilityCooldown"				"14.0 12.0 10.0 8.0 6.0"
-		"AbilityDuration"				"3.5"
-		"AbilityManaCost"				"80"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"bonus_spell_damage_pct_allies"	"-25"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
 			}
 			"02"
 			{
@@ -13281,6 +13288,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"bonus_spell_damage_pct"	"-30 -40 -50 -60 -70"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
 			}
 			"04"
 			{
@@ -13320,6 +13328,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"spell_damage_reduction"	"10 15 20 25"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}
 		}
 	}
@@ -13340,6 +13349,12 @@
 				"var_type"					"FIELD_INTEGER"
 				"scepter_health_drain"			"350 450 550 650 750"
 				"RequiresScepter"		"1"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shard_damage_pct_from_ward"			"80"
+				"RequiresShard"		"1"
 			}
 		}
 	}
@@ -13374,12 +13389,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"duration_heal"		"10 20 30 40 50 60 70"
 			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"		"15"
-				"LinkedSpecialBonus"		"special_bonus_unique_queen_of_pain_4"
-			}
 		}
 	}
 	"queenofpain_blink"
@@ -13390,8 +13399,22 @@
 		{
 				"blink_range"			"1075 1150 1225 1300 1375"
 				"min_blink_range"		"200"
-				"shard_damage"			"125"
-				"shard_duration"	"1.75"
+				"shard_damage"
+				{
+					"RequiresShard"				"1"
+					"value"						"125"
+				}
+
+				"shard_duration"
+				{
+					"RequiresShard"				"1"
+					"value"						"1.75"
+				}
+				"shard_aoe"
+				{
+					"RequiresShard"				"1"
+					"value"						"300"
+				}
 		}
 	}
 	"queenofpain_scream_of_pain"
@@ -13469,12 +13492,20 @@
 				"var_type"					"FIELD_INTEGER"
 				"damage"					"100 175 250 325 400"
 			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"jump_damage_reduction_pct"	"7"
+				"CalculateSpellDamageTooltip"	"0"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
+			}
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
 				"attack_damage_reduction"	"14 21 28 35 42"
 				"LinkedSpecialBonus"		"special_bonus_unique_rubick_2"
 				"CalculateSpellDamageTooltip"	"0"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}
 			"04"
 			{
