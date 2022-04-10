@@ -37,8 +37,9 @@ function modifier_artoria_instinct:GetModifierStatusResistanceStacking()
 end
 
 function modifier_artoria_instinct:GetAbsorbSpell( params )
-	print("[modifier_artoria_instinct:GetAbsorbSpell]")
 	if IsServer() then
+		-- if caster is teammate, do nothing
+		if params.ability:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
 		if self:GetAbility():IsFullyCastable() then
 			-- use resources
 			self:GetAbility():UseResources( false, false, true )
@@ -52,6 +53,8 @@ end
 modifier_artoria_instinct.reflected_spell = nil
 function modifier_artoria_instinct:GetReflectSpell( params )
 	if IsServer() then
+		-- if caster is teammate, do nothing
+		if params.ability:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
 		-- If unable to reflect due to the source ability
 		if params.ability==nil or self.reflect_exceptions[params.ability:GetAbilityName()] then
 			return 0

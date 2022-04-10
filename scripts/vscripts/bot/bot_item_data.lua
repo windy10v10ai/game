@@ -510,9 +510,9 @@ tBotItemData.purchaseItemList = {
 		'item_soul_booster',
 		'item_recipe_arcane_octarine_core',
 		'item_dagon_5',
-		'item_hallowed_scepter',
 		'item_sheepstick',
-		'item_jump_jump_jump',
+		'item_gungir_2',
+		'item_hallowed_scepter',
 	},
 	npc_dota_hero_omniknight = {
 		'item_magic_wand',
@@ -1234,34 +1234,41 @@ tBotItemData.wardHeroList = Set {
 	'npc_dota_hero_dazzle',
 	'npc_dota_hero_pudge',
 	'npc_dota_hero_sand_king',
-	'npc_dota_hero_sven',
 	'npc_dota_hero_lina',
 	'npc_dota_hero_lich',
 	'npc_dota_hero_lion',
 	'npc_dota_hero_witch_doctor',
 	'npc_dota_hero_necrolyte',
+	'npc_dota_hero_warlock',
+	'npc_dota_hero_ogre_magi',
+	'npc_dota_hero_oracle',
 }
 
 tBotItemData.wardObserverPostionList = {
 	-- 天辉
 
 	-- 上路
+	Vector(-5856, 827, 0),
 	-- 上野区
 	Vector(-5187, -1619, 0),
 	Vector(-4574, 476, 0),
 	Vector(-4096, 1525, 0),
 	-- 中路
 	-- 下野区
+	Vector(2800, -3087, 0),
 	Vector(303, -2584, 0),
 	Vector(-510, -3334, 0),
 	Vector(1556, -3169, 0),
 	Vector(-1233, -5087, 0),
+	Vector(187, -4970, 0),
 	-- 下路
+	Vector(3443, -5779, 0),
 
 	-- 中路河道
 	Vector(-1625, -200, 0),
 	Vector(74, -1320, 0),
 	Vector(-519, 605, 0),
+	Vector(-820, -1921, 0),
 	-- roshan
 	Vector(-2142, 1776, 0),
 
@@ -1269,8 +1276,17 @@ tBotItemData.wardObserverPostionList = {
 
 	-- 上路
 	-- 上野区
+	Vector(-758, 2033, 0),
+	Vector(-512, 4094, 0),
+	Vector(-2813, 3593, 0),
+	Vector(-844, 3131, 0),
 	-- 中路
 	-- 下野区
+	Vector(2050, -761, 0),
+	Vector(2781, -1575, 0),
+	Vector(4612, 768, 0),
+	Vector(4024, -1056, 0),
+	Vector(3923, -3441, 0),
 	-- 下路
 }
 tBotItemData.wardSentryPostionList = {
@@ -1284,15 +1300,20 @@ tBotItemData.wardSentryPostionList = {
 	-- 上野区
 	Vector(-4347, -1028, 0),
 	-- 中路
-	Vector(-3971, -3468, 0),
+	Vector(-4511, -2582, 0),
+	Vector(-3345, -4005, 0),
 	-- 下野区
 	Vector(303, -2584, 0),
 	Vector(-510, -3334, 0),
-	Vector(2800, -3087, 0),
 	Vector(1279, -5118, 0),
 	Vector(-1233, -5087, 0),
+	Vector(3239, -4273, 0),
+	Vector(4540, -4320, 0),
+	Vector(2671, -3418, 0),
 	-- 下路
 	Vector(-2945, -6087, 0),
+	Vector(5664, -4000, 0),
+	Vector(6435, -5472, 0),
 
 	-- 中路河道
 	Vector(-1625, -200, 0),
@@ -1301,18 +1322,29 @@ tBotItemData.wardSentryPostionList = {
 	-- roshan
 	Vector(-2142, 1776, 0),
 	Vector(-2273, 2628, 0),
+	Vector(-3308, 3020, 0),
 
 
 
 	-- 夜魇
+	Vector(5251, 2947, 0),
+	Vector(3493, 4632, 0),
 
 	-- 上路
+	Vector(-3300, 5608, 0),
+	Vector(-5735, 4089, 0),
 	-- 上野区
+	Vector(-396, 2521, 0),
+	Vector(512, 4094, 0),
 	-- 中路
-	Vector(-3462, 2923, 0),
 	Vector(-1611, 1155, 0),
 	-- 下野区
+	Vector(4490, -1907, 0),
+	Vector(2686, -828, 0),
+	Vector(4612, 768, 0),
+	Vector(4359, -426, 0),
 	-- 下路
+	Vector(6342, 1735, 0),
 }
 -- purchase neutral item in order
 tBotItemData.addNeutralItemList = {

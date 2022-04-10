@@ -16,6 +16,12 @@ function artoria_mana_burst:OnSpellStart()
 	EmitSoundOn("Hero_ElderTitan.EarthSplitter.Destroy", caster)
 
 	caster:EmitSound("artoria_mana_burst")
+	-- special bonus purge
+	local special_bonus_ability_1 = caster:FindAbilityByName("special_bonus_artoria_mana_burst_1")
+	if special_bonus_ability_1 and special_bonus_ability_1:GetLevel() > 0 then
+		-- purge debuff
+		caster:Purge(false, true, false, false, false)
+	end
 
 	local blastFx = ParticleManager:CreateParticle("particles/custom/artoria/artoria_mana_burst.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl( blastFx, 0, caster:GetAbsOrigin())

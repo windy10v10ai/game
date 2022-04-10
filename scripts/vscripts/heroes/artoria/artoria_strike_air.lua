@@ -15,6 +15,15 @@ function artoria_strike_air:OnSpellStart()
 
 	caster:EmitSound("artoria_strike_air")
 
+	-- if has special_bonus_artoria_strike_air_2 then reduce cool down
+	local special_bonus_ability_2 = caster:FindAbilityByName("special_bonus_artoria_strike_air_2")
+	if special_bonus_ability_2 and special_bonus_ability_2:GetLevel() > 0 then
+		self:EndCooldown()
+		local cooldown = self:GetCooldown(self:GetLevel()) - special_bonus_ability_2:GetSpecialValueFor("value")
+		cooldown = caster:GetCooldownReduction() * cooldown
+		self:StartCooldown(cooldown)
+	end
+
 	self.bRetracting = false
 	self.hVictim = nil
 	self.bDiedInInvisibleAir = false
@@ -47,8 +56,8 @@ function artoria_strike_air:OnSpellStart()
 	    bDeleteOnHit = false,
 
 	    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-	    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
 	    iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+	    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 
 	    EffectName = particleNameInvi,
 	    fDistance = projectile_distance,
@@ -72,14 +81,33 @@ function artoria_strike_air:OnProjectileHit_ExtraData(target, vLocation, tData)
 
 	if target == nil then return end
 
+	local caster = self:GetCaster()
+	local damage = self:GetSpecialValueFor( "damage" )
+	local stunDuration = self:GetSpecialValueFor( "stun_duration" )
+
+	if caster:HasModifier("modifier_item_aghanims_shard") then
+		-- perform attack target
+		self:GetCaster():PerformAttack (
+            target,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            true)
+	end
+
 	if target:IsMagicImmune() then
 		return
 	end
 
-	local caster = self:GetCaster()
-	local damage = self:GetSpecialValueFor( "damage" )
-	local stunDuration = self:GetSpecialValueFor( "stun_duration" )
-	local immunity_duration = self:GetSpecialValueFor("immunity_duration")
+
+	local special_bonus_ability_1 = caster:FindAbilityByName("special_bonus_artoria_strike_air_1")
+	if special_bonus_ability_1 and special_bonus_ability_1:GetLevel() > 0 then
+		-- add damage
+		damage = damage + special_bonus_ability_1:GetSpecialValueFor("value")
+	end
 
 	local dmgtable = {
 		attacker = caster,
@@ -92,5 +120,4 @@ function artoria_strike_air:OnProjectileHit_ExtraData(target, vLocation, tData)
 	ApplyDamage(dmgtable)
 
 	target:AddNewModifier( caster, self, "modifier_stunned", {Duration = stunDuration} )
-	-- target:AddNewModifier( caster, self, "modifier_desolator_buff", {Duration = immunity_duration} )
 end
