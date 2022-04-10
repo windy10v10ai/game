@@ -234,6 +234,8 @@
 		"DOTA_Tooltip_ability_artoria_excalibur_width"		"WIDTH:"
 		"DOTA_Tooltip_ability_artoria_excalibur_duration"	"DURATION:"
 		"DOTA_Tooltip_ability_artoria_excalibur_damage"		"DAMAGE Per Second:"
+		"DOTA_Tooltip_ability_artoria_excalibur_damage_scepter"		"DAMAGE Per Second:"
+		"DOTA_Tooltip_ability_artoria_excalibur_slow_amount"		"%SLOW AMOUNT:"
 
 		"DOTA_Tooltip_Ability_artoria_ultimate_excalibur"				"<font color='#FFE56E'>Hidden Treasure: Excalibur - The Sword of Promised Victory</font>"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Description"	"Saber unleashes the true radiance of Excalibur forward.\nEngulfing everything in the path in ardent light to deal significant <font color='#05CAFF'>magical damage</font>."
@@ -243,6 +245,11 @@
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_width"		"WIDTH:"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_duration"	"DURATION:"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_damage"	"DAMAGE Per Second:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_damage_scepter"		"DAMAGE Per Second:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_slow_amount"			"%SLOW AMOUNT:"
+
+        "DOTA_Tooltip_ability_artoria_excalibur_scepter_description"			"Increase the damage of Excalibur, and add a slow effect."
+        "DOTA_Tooltip_ability_artoria_ultimate_excalibur_scepter_description"			"Increase the damage of Excalibur - The Sword of Promised Victory, and add a slow effect."
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//

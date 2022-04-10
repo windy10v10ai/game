@@ -234,6 +234,8 @@
 		"DOTA_Tooltip_ability_artoria_excalibur_width"		"宽度："
 		"DOTA_Tooltip_ability_artoria_excalibur_duration"	"持续时间："
 		"DOTA_Tooltip_ability_artoria_excalibur_damage"		"每秒伤害："
+		"DOTA_Tooltip_ability_artoria_excalibur_damage_scepter"		"每秒伤害："
+		"DOTA_Tooltip_ability_artoria_excalibur_slow_amount"		"%减速："
 
 		"DOTA_Tooltip_Ability_artoria_ultimate_excalibur"				"<font color='#FFE56E'>隐藏宝具：誓约胜利之剑-宣誓胜利</font>"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Description"	"阿尔托莉雅解放誓约胜利之剑真正的光芒，以激烈的剑光吞噬前方路径上的一切。对剑光路径上的每个敌人造成造成显著的<font color='#05CAFF'>魔法伤害</font>。"
@@ -243,6 +245,11 @@
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_width"		"宽度："
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_duration"	"持续时间："
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_damage"	"每秒伤害："
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_damage_scepter"		"每秒伤害："
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_slow_amount"		"%减速："
+
+        "DOTA_Tooltip_ability_artoria_excalibur_scepter_description"			"增加誓约胜利之剑的伤害，并附带减速效果。"
+        "DOTA_Tooltip_ability_artoria_ultimate_excalibur_scepter_description"			"增加誓约胜利之剑-宣誓胜利的伤害，并附带减速效果。"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//

@@ -5,6 +5,7 @@
 artoria_ultimate_excalibur = class({})
 
 LinkLuaModifier("modifier_artoria_ultimate_excalibur", "heroes/artoria/modifiers/modifier_artoria_ultimate_excalibur", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_artoria_excalibur_debuff", "heroes/artoria/modifiers/modifier_artoria_excalibur_debuff", LUA_MODIFIER_MOTION_NONE )
 
 function artoria_ultimate_excalibur:OnSpellStart()
 	local caster = self:GetCaster()
@@ -126,6 +127,11 @@ function artoria_ultimate_excalibur:OnProjectileHit_ExtraData(hTarget, vLocation
 	local caster = self:GetCaster()
 	local target = hTarget
 	local damage = self:GetSpecialValueFor("damage") * self.interval
+
+	if caster:HasModifier("modifier_item_ultimate_scepter") then
+		damage = self:GetSpecialValueFor("damage_scepter") * self.interval
+		target:AddNewModifier(caster, self, "modifier_artoria_excalibur_debuff", {duration = self.interval})
+	end
 
 	local dmgtable = {
 		attacker = caster,
