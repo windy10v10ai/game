@@ -47,8 +47,8 @@ function artoria_strike_air:OnSpellStart()
 	    bDeleteOnHit = false,
 
 	    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-	    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
 	    iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+	    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 
 	    EffectName = particleNameInvi,
 	    fDistance = projectile_distance,
@@ -72,14 +72,27 @@ function artoria_strike_air:OnProjectileHit_ExtraData(target, vLocation, tData)
 
 	if target == nil then return end
 
+	local caster = self:GetCaster()
+	local damage = self:GetSpecialValueFor( "damage" )
+	local stunDuration = self:GetSpecialValueFor( "stun_duration" )
+
+	if caster:HasModifier("modifier_item_aghanims_shard") then
+		-- perform attack target
+		self:GetCaster():PerformAttack (
+            target,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            true)
+	end
+
 	if target:IsMagicImmune() then
 		return
 	end
 
-	local caster = self:GetCaster()
-	local damage = self:GetSpecialValueFor( "damage" )
-	local stunDuration = self:GetSpecialValueFor( "stun_duration" )
-	local immunity_duration = self:GetSpecialValueFor("immunity_duration")
 
 	local dmgtable = {
 		attacker = caster,
@@ -92,5 +105,4 @@ function artoria_strike_air:OnProjectileHit_ExtraData(target, vLocation, tData)
 	ApplyDamage(dmgtable)
 
 	target:AddNewModifier( caster, self, "modifier_stunned", {Duration = stunDuration} )
-	-- target:AddNewModifier( caster, self, "modifier_desolator_buff", {Duration = immunity_duration} )
 end

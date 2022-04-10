@@ -212,6 +212,8 @@
 		"DOTA_Tooltip_ability_artoria_strike_air_stun_duration"			"晕眩时间："
 		"DOTA_Tooltip_ability_artoria_strike_air_immunity_duration"		"魔免时间："
 
+		"DOTA_Tooltip_ability_artoria_strike_air_shard_description"		"风王铁锤附带一次普攻攻击。(对魔免单位有效)"
+
 		"DOTA_Tooltip_Ability_artoria_instinct"					"<font color='#FFE56E'>直感</font>"
 		"DOTA_Tooltip_ability_artoria_instinct_Description"		"阿尔托莉雅的本能让她获得额外的 <font color='#FF3399'>状态抗性</font> 和 <font color='#C24401'>魔法抗性</font>。抵挡并反弹指向性技能给敌人。"
 		"DOTA_Tooltip_ability_artoria_instinct_magic_res"		"%魔法抗性： "
