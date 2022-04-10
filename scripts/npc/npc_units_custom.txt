@@ -805,7 +805,7 @@
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"30"		// 21
 		"MagicalResistance"			"30"		// 0
-		"StatusHealth"				"8000"		// Base health.
+		"StatusHealth"				"10000"		// Base health.
 		"StatusHealthRegen"			"10"			// Health regeneration rate.
 	}
 	"npc_dota_badguys_tower4"
@@ -819,7 +819,7 @@
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"30"		// 21
 		"MagicalResistance"			"30"		// 0
-		"StatusHealth"				"8000"		// Base health.
+		"StatusHealth"				"10000"		// Base health.
 		"StatusHealthRegen"			"10"			// Health regeneration rate.
 	}
 	//=================================================================================
