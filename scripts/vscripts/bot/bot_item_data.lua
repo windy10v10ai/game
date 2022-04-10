@@ -1332,6 +1332,7 @@ tBotItemData.wardSentryPostionList = {
 
 	-- 上路
 	Vector(-3300, 5608, 0),
+	Vector(-5735, 4089, 0),
 	-- 上野区
 	Vector(-396, 2521, 0),
 	Vector(512, 4094, 0),
