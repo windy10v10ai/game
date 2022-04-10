@@ -772,6 +772,17 @@ function AIGameMode:OnPlayerChat( event )
 			print("开发者:"..developerSteamAccountID[steamAccountID].." 的位置是:"..pos.x..","..pos.y..","..pos.z)
 			return
 		end
+
+		if sChatMsg:find( '^modifier$' ) then
+			-- get position
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			-- print all modifiers
+			local modifiers = hHero:FindAllModifiers()
+			for _,modifier in pairs(modifiers) do
+				print("Get here modifiers: ", modifier:GetName())
+			end
+			return
+		end
 	end
 
 	if saberSteamAccountID[steamAccountID] then

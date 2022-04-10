@@ -204,7 +204,7 @@
 		"npc_dota_hero_broodmother"						"Artoria Pendragon"
 
 		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>Strike Air</font>"
-		"DOTA_Tooltip_ability_artoria_strike_air_description"	"Saber unleashes a destructive gale from her sword, dealing <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>reduce armor</font> and <font color='#FF3399'>stun</font> of all enemies in the path.<br/>Saber gains <font color='#ffd700'>Spell Immunity</font> in few seconds."
+		"DOTA_Tooltip_ability_artoria_strike_air_description"	"Saber unleashes a destructive gale from her sword, dealing <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>stun</font> of all enemies in the path.<br/>Saber gains <font color='#ffd700'>Spell Immunity</font> in few seconds."
 		"DOTA_Tooltip_ability_artoria_strike_air_Lore"		"The air so condensed that it twists the look of sword. What if what packs it is released?"
 		"DOTA_Tooltip_ability_artoria_strike_air_cast_range"		"RANGE:"
 		"DOTA_Tooltip_ability_artoria_strike_air_damage"	" DAMAGE:"
@@ -252,6 +252,11 @@
 
         "DOTA_Tooltip_ability_artoria_excalibur_scepter_description"			"Increase the damage of Excalibur, and add a slow effect."
         "DOTA_Tooltip_ability_artoria_ultimate_excalibur_scepter_description"			"Increase the damage of Excalibur - The Sword of Promised Victory, and add a slow effect."
+
+        "DOTA_Tooltip_ability_special_bonus_artoria_strike_air_1"			"+{s:value} damage of Strike Air"
+        "DOTA_Tooltip_ability_special_bonus_artoria_strike_air_2"			"-{s:value}s cooldown of Strike Air"
+        "DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1"			"Mana Burst purges self debuffs"
+        "DOTA_Tooltip_ability_special_bonus_excalibur_1"					"-{s:value}s cooldown of Excalibur"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//

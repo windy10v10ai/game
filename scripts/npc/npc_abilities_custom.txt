@@ -1117,7 +1117,6 @@
 			"end_radius"			"300"
 			"speed"					"1500.0"
 			"cast_range"			"650"
-			// "damage"				"120 180 240 300 360"
 			"stun_duration"			"1.2 1.4 1.6 1.8 2.0"
 			"corruption_armor"		"-4 -6 -8 -10 -12"
 		}
@@ -1130,7 +1129,37 @@
 		    {
 		    	"var_type"			"FIELD_INTEGER"
 		    	"damage"			"120 180 240 300 360"
+				"LinkedSpecialBonus"	"special_bonus_artoria_strike_air_1"
 		    }
+		}
+	}
+
+	"special_bonus_artoria_strike_air_1"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"value"				"100"
+			}
+		}
+	}
+	"special_bonus_artoria_strike_air_2"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"value"				"2"
+			}
 		}
 	}
 
@@ -1147,7 +1176,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1_END"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"16.0 14.0 12.0 10.0 8.0"
+		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
 		"AbilityManaCost"				"0"
 
 
@@ -1200,7 +1229,6 @@
 		{
 			"amp_pct"					"8 12 16 20 24"
 			"radius"					"450"
-			// "damage"					"160 240 320 400 480"
 			"slow_amount"				"-30 -35 -40 -45 -50"
 			"duration"					"3"
 		}
@@ -1217,6 +1245,20 @@
 		}
 	}
 
+	"special_bonus_artoria_mana_burst_1"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"value"				"1"
+			}
+		}
+	}
 
 	"artoria_excalibur"
 	{
@@ -1242,7 +1284,7 @@
 		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"2.0"
-		"AbilityCooldown"				"60.0"
+		"AbilityCooldown"				"75.0"
 		"AbilityManaCost"				"300 450 600"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1369,6 +1411,21 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_scepter"	"2200"
 				"RequiresScepter"	"1"
+			}
+		}
+	}
+
+	"special_bonus_excalibur_1"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"value"				"30"
 			}
 		}
 	}

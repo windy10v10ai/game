@@ -19,11 +19,19 @@ function artoria_excalibur:OnSpellStart()
 	self.interval = self:GetSpecialValueFor("interval")
 	self.duration = self:GetSpecialValueFor("duration")
 
+	caster:EmitSound("artoria_excalibur")
+	-- special bonus reduce cool down
+	local special_bonus_ability_1 = caster:FindAbilityByName("special_bonus_excalibur_1")
+	if special_bonus_ability_1 and special_bonus_ability_1:GetLevel() > 0 then
+		self:EndCooldown()
+		local cooldown = self:GetCooldown(self:GetLevel()) - special_bonus_ability_1:GetSpecialValueFor("value")
+		cooldown = caster:GetCooldownReduction() * cooldown
+		self:StartCooldown(cooldown)
+	end
 	local artoria_ultimate_excalibur = caster:FindAbilityByName("artoria_ultimate_excalibur")
 	if artoria_ultimate_excalibur and not artoria_ultimate_excalibur:IsNull() then
-		artoria_ultimate_excalibur:StartCooldown(30.0)
+		artoria_ultimate_excalibur:StartCooldown(self:GetCooldownTimeRemaining())
 	end
-	caster:EmitSound("artoria_excalibur")
 
 	local chargeFxIndex = ParticleManager:CreateParticle( "particles/custom/artoria/artoria_excalibur_charge.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
 
