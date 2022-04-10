@@ -3,6 +3,7 @@
 -----------------------------
 LinkLuaModifier("modifier_artoria_check", "heroes/artoria/modifiers/modifier_artoria_check", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_saber_excalibur", "heroes/artoria/modifiers/modifier_saber_excalibur", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_artoria_excalibur_debuff", "heroes/artoria/modifiers/modifier_artoria_excalibur_debuff", LUA_MODIFIER_MOTION_NONE )
 
 artoria_excalibur = class({})
 
@@ -124,6 +125,11 @@ function artoria_excalibur:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local caster = self:GetCaster()
 	local target = hTarget
 	local damage = self:GetSpecialValueFor("damage") * self.interval
+
+	if caster:HasModifier("modifier_item_ultimate_scepter") then
+		damage = self:GetSpecialValueFor("damage_scepter") * self.interval
+		target:AddNewModifier(caster, self, "modifier_artoria_excalibur_debuff", {duration = self.interval})
+	end
 
 	local dmgtable = {
 		attacker = caster,

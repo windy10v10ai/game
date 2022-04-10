@@ -1235,11 +1235,13 @@
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 
+		"HasScepterUpgrade"				"1"
+
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"2.0"
-		"AbilityCooldown"				"80.0 70.0 60.0"
+		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"300 450 600"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1265,8 +1267,12 @@
 			"range"					"2000"
 			"width"					"400"
 			"speed"					"2000.0"
-			// "damage"				"800 1000 1200"
 			"interval"				"0.25"
+			"slow_amount"
+			{
+				"value"				"-60"
+				"RequiresScepter"	"1"
+			}
 		}
 
 		// Special
@@ -1276,8 +1282,14 @@
 			"01"
 		    {
 		    	"var_type"			"FIELD_INTEGER"
-		    	"damage"			"800 1000 1200"
+		    	"damage"			"600 900 1200"
 		    }
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_scepter"	"900 1200 1500"
+				"RequiresScepter"	"1"
+			}
 		}
 	}
 	"artoria_ultimate_excalibur"
@@ -1298,11 +1310,13 @@
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 
+		"HasScepterUpgrade"				"1"
+
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"6000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"3.0"
-		"AbilityCooldown"				"150.0"
+		"AbilityCooldown"				"120.0"
 		"AbilityManaCost"				"1200"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1331,10 +1345,14 @@
 			"cast_delay"			"1.5"
 			"duration"				"1.5"
 			"range"					"6000"
-			"width"					"600"
+			"width"					"500"
 			"speed"					"6000.0"
-			// "damage"				"2000"
 			"interval"				"0.25"
+			"slow_amount"
+			{
+				"value"				"-60"
+				"RequiresScepter"	"1"
+			}
 		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1343,8 +1361,14 @@
 			"01"
 		    {
 		    	"var_type"			"FIELD_INTEGER"
-		    	"damage"				"2000"
+		    	"damage"			"2000"
 		    }
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_scepter"	"2200"
+				"RequiresScepter"	"1"
+			}
 		}
 	}
 }
