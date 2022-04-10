@@ -15,6 +15,15 @@ function artoria_strike_air:OnSpellStart()
 
 	caster:EmitSound("artoria_strike_air")
 
+	-- if has special_bonus_artoria_strike_air_2 then reduce cool down
+	local special_bonus_ability_2 = caster:FindAbilityByName("special_bonus_artoria_strike_air_2")
+	if special_bonus_ability_2 and special_bonus_ability_2:GetLevel() > 0 then
+		self:EndCooldown()
+		local cooldown = self:GetCooldown(self:GetLevel()) - special_bonus_ability_2:GetSpecialValueFor("value")
+		cooldown = caster:GetCooldownReduction() * cooldown
+		self:StartCooldown(cooldown)
+	end
+
 	self.bRetracting = false
 	self.hVictim = nil
 	self.bDiedInInvisibleAir = false
@@ -93,6 +102,12 @@ function artoria_strike_air:OnProjectileHit_ExtraData(target, vLocation, tData)
 		return
 	end
 
+
+	local special_bonus_ability_1 = caster:FindAbilityByName("special_bonus_artoria_strike_air_1")
+	if special_bonus_ability_1 and special_bonus_ability_1:GetLevel() > 0 then
+		-- add damage
+		damage = damage + special_bonus_ability_1:GetSpecialValueFor("value")
+	end
 
 	local dmgtable = {
 		attacker = caster,

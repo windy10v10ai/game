@@ -204,7 +204,7 @@
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"
 
 		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>风王铁锤</font>"
-		"DOTA_Tooltip_ability_artoria_strike_air_description"	"阿尔托莉雅从剑中释放出破坏性的风场，造成<font color='#05CAFF'>魔法伤害</font>，<font color='#FF3399'>降低护甲</font>并<font color='#FF3399'>击晕</font>路径上的所有敌人。<br/>阿尔托莉雅自身获得短暂的<font color='#ffd700'>魔法免疫</font>。"
+		"DOTA_Tooltip_ability_artoria_strike_air_description"	"阿尔托莉雅从剑中释放出破坏性的风场，造成<font color='#05CAFF'>魔法伤害</font>，<font color='#FF3399'>击晕</font>路径上的所有敌人。<br/>阿尔托莉雅自身获得短暂的<font color='#ffd700'>魔法免疫</font>。"
 		"DOTA_Tooltip_ability_artoria_strike_air_Lore"		"空气的凝聚扭曲了作为剑身原本的模样，如若那障目谜团揭晓之时？"
 		"DOTA_Tooltip_ability_artoria_strike_air_cast_range"		"距离："
 		"DOTA_Tooltip_ability_artoria_strike_air_damage"	" 伤害："
@@ -252,6 +252,11 @@
 
         "DOTA_Tooltip_ability_artoria_excalibur_scepter_description"			"增加誓约胜利之剑的伤害，并附带减速效果。"
         "DOTA_Tooltip_ability_artoria_ultimate_excalibur_scepter_description"			"增加誓约胜利之剑-宣誓胜利的伤害，并附带减速效果。"
+
+        "DOTA_Tooltip_ability_special_bonus_artoria_strike_air_1"			"+{s:value} 风王铁锤伤害"
+        "DOTA_Tooltip_ability_special_bonus_artoria_strike_air_2"			"-{s:value}秒 风王铁锤冷却"
+        "DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1"			"魔力放出驱散自身负面效果"
+        "DOTA_Tooltip_ability_special_bonus_excalibur_1"					"-{s:value}秒 誓约胜利之剑冷却"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
