@@ -67,19 +67,25 @@ function miku_hadouken:OnProjectileHitHandle( target, location, projectile )
 	if not target then return end
 
 	local damage = self:GetSpecialValueFor("damage")
-	if self:GetCaster():HasModifier("modifier_chibi_monster") then
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_chibi_monster") then
 		damage = self:GetSpecialValueFor("damage_calne")
 	end
 
 	-- apply damage
 	local damageTable = {
 		victim = target,
-		attacker = self:GetCaster(),
+		attacker = caster,
 		damage = damage,
 		damage_type = self:GetAbilityDamageType(),
 		ability = self, --Optional.
 	}
 	ApplyDamage( damageTable )
+
+	-- 魔晶眩晕
+	if caster:HasModifier("modifier_item_aghanims_shard") then
+		target:AddNewModifier( caster, self, "modifier_stunned", {Duration = 2.0} )
+	end
 
 	-- get direction
 	local direction = ProjectileManager:GetLinearProjectileVelocity( projectile )
