@@ -601,6 +601,8 @@
 		"AbilityTextureName"			"hatsune_1"
 		"FightRecapLevel"				"1"
 
+		"HasShardUpgrade"				"1"
+
 		"precache"
 		{
 			"soundfile"	"soundevents/Hatsune_miku.vsndevts"
