@@ -336,6 +336,12 @@ function BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassN
       if wardPosDistance < iCastRange then
         -- find wards in wardPosVector
         local wards = Entities:FindAllByClassnameWithin(sUnitClassName, wardPosVector, iFindRange)
+        -- for each wards, if not same team remove from list
+        for i=#wards,1,-1 do
+          if wards[i]:GetTeamNumber() ~= hHero:GetTeamNumber() then
+            table.remove(wards, i)
+          end
+        end
         -- if no wards, put ward
         if #wards == 0 then
           print("Think put ward "..hHero:GetName().." try to put "..sWardItemName.." at ["..vWardPos[1]..","..vWardPos[2].."]")
