@@ -212,6 +212,8 @@
 		"DOTA_Tooltip_ability_artoria_strike_air_stun_duration"			"STUN DURATION:"
 		"DOTA_Tooltip_ability_artoria_strike_air_immunity_duration"		"IMMUNITY DURATION:"
 
+		"DOTA_Tooltip_ability_artoria_strike_air_shard_description"		"Strike Air inflicts a Normal Attack to the enemy. (Includes immune enemies)"
+
 		"DOTA_Tooltip_Ability_artoria_instinct"					"<font color='#FFE56E'>Instinct</font>"
 		"DOTA_Tooltip_ability_artoria_instinct_Description"		"Saber's gifted instinct allows her gains extra <font color='#FF3399'>magical resistance</font> and <font color='#C24401'>status resistance</font>."
 		"DOTA_Tooltip_ability_artoria_instinct_magic_res"		"%Magical Resistance "
