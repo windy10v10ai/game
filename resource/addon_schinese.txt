@@ -191,6 +191,8 @@
         "DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "变身时伤害:"
 		"DOTA_Tooltip_ability_miku_hadouken_Lore"           "香醇浓厚的蔬菜果汁！香软绵柔的蔬菜果汁！"
 
+		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"蔬菜汁Popipo击中的敌人将眩晕2秒。"
+
 		// 双头龙
         "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"烈焰焚身的距离+200，持续时间+5秒，并且变为纯粹伤害，无视技能免疫。"
 
@@ -204,13 +206,15 @@
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"
 
 		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>风王铁锤</font>"
-		"DOTA_Tooltip_ability_artoria_strike_air_description"	"阿尔托莉雅从剑中释放出破坏性的风场，造成<font color='#05CAFF'>魔法伤害</font>，<font color='#FF3399'>降低护甲</font>并<font color='#FF3399'>击晕</font>路径上的所有敌人。<br/>阿尔托莉雅自身获得短暂的<font color='#ffd700'>魔法免疫</font>。"
+		"DOTA_Tooltip_ability_artoria_strike_air_description"	"阿尔托莉雅从剑中释放出破坏性的风场，造成<font color='#05CAFF'>魔法伤害</font>，<font color='#FF3399'>击晕</font>路径上的所有敌人。<br/>阿尔托莉雅自身获得短暂的<font color='#ffd700'>魔法免疫</font>。"
 		"DOTA_Tooltip_ability_artoria_strike_air_Lore"		"空气的凝聚扭曲了作为剑身原本的模样，如若那障目谜团揭晓之时？"
 		"DOTA_Tooltip_ability_artoria_strike_air_cast_range"		"距离："
 		"DOTA_Tooltip_ability_artoria_strike_air_damage"	" 伤害："
 		// "DOTA_Tooltip_ability_artoria_strike_air_corruption_armor"		"降低护甲:"
 		"DOTA_Tooltip_ability_artoria_strike_air_stun_duration"			"晕眩时间："
 		"DOTA_Tooltip_ability_artoria_strike_air_immunity_duration"		"魔免时间："
+
+		"DOTA_Tooltip_ability_artoria_strike_air_shard_description"		"风王铁锤附带一次普攻攻击。(对魔免单位有效)"
 
 		"DOTA_Tooltip_Ability_artoria_instinct"					"<font color='#FFE56E'>直感</font>"
 		"DOTA_Tooltip_ability_artoria_instinct_Description"		"阿尔托莉雅的本能让她获得额外的 <font color='#FF3399'>状态抗性</font> 和 <font color='#C24401'>魔法抗性</font>。抵挡并反弹指向性技能给敌人。"
@@ -234,6 +238,8 @@
 		"DOTA_Tooltip_ability_artoria_excalibur_width"		"宽度："
 		"DOTA_Tooltip_ability_artoria_excalibur_duration"	"持续时间："
 		"DOTA_Tooltip_ability_artoria_excalibur_damage"		"每秒伤害："
+		"DOTA_Tooltip_ability_artoria_excalibur_damage_scepter"		"每秒伤害："
+		"DOTA_Tooltip_ability_artoria_excalibur_slow_amount"		"%减速："
 
 		"DOTA_Tooltip_Ability_artoria_ultimate_excalibur"				"<font color='#FFE56E'>隐藏宝具：誓约胜利之剑-宣誓胜利</font>"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Description"	"阿尔托莉雅解放誓约胜利之剑真正的光芒，以激烈的剑光吞噬前方路径上的一切。对剑光路径上的每个敌人造成造成显著的<font color='#05CAFF'>魔法伤害</font>。"
@@ -243,6 +249,16 @@
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_width"		"宽度："
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_duration"	"持续时间："
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_damage"	"每秒伤害："
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_damage_scepter"		"每秒伤害："
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_slow_amount"		"%减速："
+
+        "DOTA_Tooltip_ability_artoria_excalibur_scepter_description"			"增加誓约胜利之剑的伤害，并附带减速效果。"
+        "DOTA_Tooltip_ability_artoria_ultimate_excalibur_scepter_description"			"增加誓约胜利之剑-宣誓胜利的伤害，并附带减速效果。"
+
+        "DOTA_Tooltip_ability_special_bonus_artoria_strike_air_1"			"+{s:value} 风王铁锤伤害"
+        "DOTA_Tooltip_ability_special_bonus_artoria_strike_air_2"			"-{s:value}秒 风王铁锤冷却"
+        "DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1"			"魔力放出驱散自身负面效果"
+        "DOTA_Tooltip_ability_special_bonus_excalibur_1"					"-{s:value}秒 誓约胜利之剑冷却"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//

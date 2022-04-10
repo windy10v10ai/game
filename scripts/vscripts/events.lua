@@ -25,7 +25,7 @@ local tBotNameList = {
 	-- "npc_dota_hero_mirana", // 不会放技能，只会物品和A人
 	"npc_dota_hero_nevermore",
 	"npc_dota_hero_necrolyte",
-	-- "npc_dota_hero_ogre_magi", // 不会放技能，只会物品和A人
+	"npc_dota_hero_ogre_magi",
 	"npc_dota_hero_omniknight",
 	"npc_dota_hero_oracle",
 	"npc_dota_hero_phantom_assassin",
@@ -719,9 +719,12 @@ local memberSteamAccountID = Set {
 	-- 开发贡献者
 	136407523,1194383041,143575444,314757913,385130282,
 	-- 初始会员
-	136668998,
-	128984820,
 	108208968,
+	128984820,
+	136668998,
+	107451500,
+	141315077,
+	303743871,
 	-- 测试
 	-- 916506173,
 }
@@ -767,6 +770,17 @@ function AIGameMode:OnPlayerChat( event )
 				0
 			)
 			print("开发者:"..developerSteamAccountID[steamAccountID].." 的位置是:"..pos.x..","..pos.y..","..pos.z)
+			return
+		end
+
+		if sChatMsg:find( '^modifier$' ) then
+			-- get position
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			-- print all modifiers
+			local modifiers = hHero:FindAllModifiers()
+			for _,modifier in pairs(modifiers) do
+				print("Get here modifiers: ", modifier:GetName())
+			end
 			return
 		end
 	end

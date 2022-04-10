@@ -601,6 +601,8 @@
 		"AbilityTextureName"			"hatsune_1"
 		"FightRecapLevel"				"1"
 
+		"HasShardUpgrade"				"1"
+
 		"precache"
 		{
 			"soundfile"	"soundevents/Hatsune_miku.vsndevts"
@@ -1089,6 +1091,8 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/artoria/artoria_strike_air"
 
+		"HasShardUpgrade"				"1"
+
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"650"
 		"AbilityCastRangeBuffer"		"100"
@@ -1115,10 +1119,8 @@
 			"end_radius"			"300"
 			"speed"					"1500.0"
 			"cast_range"			"650"
-			// "damage"				"120 180 240 300 360"
 			"stun_duration"			"1.2 1.4 1.6 1.8 2.0"
 			"corruption_armor"		"-4 -6 -8 -10 -12"
-			"immunity_duration"		"2.0 2.5 3.0 3.5 4.0"
 		}
 
 		// Special
@@ -1129,7 +1131,37 @@
 		    {
 		    	"var_type"			"FIELD_INTEGER"
 		    	"damage"			"120 180 240 300 360"
+				"LinkedSpecialBonus"	"special_bonus_artoria_strike_air_1"
 		    }
+		}
+	}
+
+	"special_bonus_artoria_strike_air_1"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"value"				"100"
+			}
+		}
+	}
+	"special_bonus_artoria_strike_air_2"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"value"				"2"
+			}
 		}
 	}
 
@@ -1146,7 +1178,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1_END"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"16.0 14.0 12.0 10.0 8.0"
+		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
 		"AbilityManaCost"				"0"
 
 
@@ -1199,7 +1231,6 @@
 		{
 			"amp_pct"					"8 12 16 20 24"
 			"radius"					"450"
-			// "damage"					"160 240 320 400 480"
 			"slow_amount"				"-30 -35 -40 -45 -50"
 			"duration"					"3"
 		}
@@ -1216,6 +1247,20 @@
 		}
 	}
 
+	"special_bonus_artoria_mana_burst_1"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"value"				"1"
+			}
+		}
+	}
 
 	"artoria_excalibur"
 	{
@@ -1235,11 +1280,13 @@
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 
+		"HasScepterUpgrade"				"1"
+
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"2.0"
-		"AbilityCooldown"				"80.0 70.0 60.0"
+		"AbilityCooldown"				"75.0"
 		"AbilityManaCost"				"300 450 600"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1265,8 +1312,12 @@
 			"range"					"2000"
 			"width"					"400"
 			"speed"					"2000.0"
-			// "damage"				"800 1000 1200"
 			"interval"				"0.25"
+			"slow_amount"
+			{
+				"value"				"-60"
+				"RequiresScepter"	"1"
+			}
 		}
 
 		// Special
@@ -1276,8 +1327,14 @@
 			"01"
 		    {
 		    	"var_type"			"FIELD_INTEGER"
-		    	"damage"			"800 1000 1200"
+		    	"damage"			"600 900 1200"
 		    }
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_scepter"	"900 1200 1500"
+				"RequiresScepter"	"1"
+			}
 		}
 	}
 	"artoria_ultimate_excalibur"
@@ -1298,11 +1355,13 @@
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 
+		"HasScepterUpgrade"				"1"
+
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"6000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"3.0"
-		"AbilityCooldown"				"150.0"
+		"AbilityCooldown"				"120.0"
 		"AbilityManaCost"				"1200"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1331,10 +1390,14 @@
 			"cast_delay"			"1.5"
 			"duration"				"1.5"
 			"range"					"6000"
-			"width"					"600"
+			"width"					"500"
 			"speed"					"6000.0"
-			// "damage"				"2000"
 			"interval"				"0.25"
+			"slow_amount"
+			{
+				"value"				"-60"
+				"RequiresScepter"	"1"
+			}
 		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1343,8 +1406,29 @@
 			"01"
 		    {
 		    	"var_type"			"FIELD_INTEGER"
-		    	"damage"				"2000"
+		    	"damage"			"2000"
 		    }
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_scepter"	"2200"
+				"RequiresScepter"	"1"
+			}
+		}
+	}
+
+	"special_bonus_excalibur_1"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"value"				"30"
+			}
 		}
 	}
 }
