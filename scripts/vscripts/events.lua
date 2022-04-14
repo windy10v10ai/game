@@ -66,6 +66,57 @@ local tAPLevelList = {
 	26,
 }
 
+-- 测试密码
+local developerSteamAccountID = {}
+developerSteamAccountID[136407523]="windy"
+developerSteamAccountID[1194383041]="咸鱼"
+developerSteamAccountID[143575444]="茶神"
+developerSteamAccountID[314757913]="孤尘"
+developerSteamAccountID[916506173]="Arararara"
+developerSteamAccountID[385130282]="米米花"
+
+
+-- 会员
+local memberSteamAccountID = Set {
+	-- 开发贡献者
+	136407523,1194383041,143575444,314757913,385130282,
+	-- 初始会员
+	108208968,
+	128984820,
+	136668998,
+	107451500,
+	141315077,
+	303743871,
+	117417953,
+	-- 测试
+	-- 916506173,
+}
+
+-- saber
+local saberSteamAccountID = Set {
+	-- 开发贡献者
+	136407523,1194383041,143575444,314757913,385130282,
+	-- 初始会员
+	108208968,
+	128984820,
+	136668998,
+	107451500,
+	141315077,
+	303743871,
+	117417953,
+	-- 测试
+	916506173,
+}
+
+-- 称号属性
+local lumaoSteamAccountID = Set {
+	-- 成神
+	128984820,
+	-- 测试
+	916506173,
+}
+
+
 function AIGameMode:ArrayShuffle(array)
 	local size = #array
 	for i = size, 1, -1 do
@@ -615,6 +666,15 @@ function AIGameMode:OnNPCSpawned(keys)
 			hEntity:SetControllableByPlayer(-1, true)
 		end
 
+		-- Player Buff
+		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
+			local steamAccountID = PlayerResource:GetSteamAccountID(hEntity:GetPlayerOwnerID())
+			if lumaoSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_lumao", "modifiers/player/modifier_lumao", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_lumao", {})
+			end
+		end
+
 		hEntity.bInitialized = true
 	end
 end
@@ -704,47 +764,6 @@ function AIGameMode:OnGameOptionChange(keys)
 	CustomNetTables:SetTableValue('game_options_table', 'game_option', GameRules.GameOption)
 end
 
--- 测试密码
-local developerSteamAccountID = {}
-developerSteamAccountID[136407523]="windy"
-developerSteamAccountID[1194383041]="咸鱼"
-developerSteamAccountID[143575444]="茶神"
-developerSteamAccountID[314757913]="孤尘"
-developerSteamAccountID[916506173]="Arararara"
-developerSteamAccountID[385130282]="米米花"
-
-
--- 会员
-local memberSteamAccountID = Set {
-	-- 开发贡献者
-	136407523,1194383041,143575444,314757913,385130282,
-	-- 初始会员
-	108208968,
-	128984820,
-	136668998,
-	107451500,
-	141315077,
-	303743871,
-	117417953,
-	-- 测试
-	-- 916506173,
-}
-
--- saber
-local saberSteamAccountID = Set {
-	-- 开发贡献者
-	136407523,1194383041,143575444,314757913,385130282,
-	-- 初始会员
-	108208968,
-	128984820,
-	136668998,
-	107451500,
-	141315077,
-	303743871,
-	117417953,
-	-- 测试
-	916506173,
-}
 
 function AIGameMode:OnPlayerChat( event )
 	local iPlayerID = event.playerid

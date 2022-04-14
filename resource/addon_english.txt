@@ -149,6 +149,8 @@
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"
 
+		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ Unique Lumao Buff ★</font>"
+
 		// 初音未来
 		"npc_dota_hero_meepo"					"Miku"
 		"npc_dota_hero_meepo_npedesc1"		"Hatsune Miku Princess"
