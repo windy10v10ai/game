@@ -42,19 +42,14 @@ end
 -- life steal on attack landed
 function modifier_lumao:OnAttackLanded(params)
 	if IsServer() then
-		print("lumao attack landed")
 		local attacker = params.attacker
-		print("lumao attacker ", attacker:GetName())
-		print("lumao GetParent ", self:GetParent())
 		if attacker == self:GetParent() then
 			local hTarget = params.target
 			local iDamage = params.damage
 			local iLifeSteal = self.iLifeSteal
-			print("lumao target ", hTarget:GetName())
 			if not self:GetParent():IsRealHero() then
 				return
 			end
-			print("lumao damage ", iDamage)
 			if hTarget:IsBuilding() or hTarget:IsIllusion() or (hTarget:GetTeam() == attacker:GetTeam()) then
 				return
 			end
