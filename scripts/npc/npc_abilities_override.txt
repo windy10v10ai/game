@@ -1516,12 +1516,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.0 5.0 6.0 7.0"
+				"duration"					"4.5 5.0 5.5 6.0"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration_scepter"			"5.0 6.0 7.0 8.0"
+				"duration_scepter"			"5.5 6.0 6.5 7.0"
 				"RequiresScepter"	"1"
 			}
 		}
@@ -4447,7 +4447,7 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCooldown"				"120 110 100 90"
-		"AbilityManaCost"				"100 150 200 250"
+		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
 				"duration"					"5.0 6.0 7.0 8.0"
@@ -4462,6 +4462,18 @@
 					"value"			"40 50 60 70"
 					"RequiresScepter"		"1"
 				}
+		}
+	}
+	"special_bonus_unique_omniknight_7"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"20"
+				"ad_linked_abilities"			"omniknight_guardian_angel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
 		}
 	}
 	//=================================================================================================================

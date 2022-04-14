@@ -358,12 +358,10 @@ end
 -- 加钱
 function BotThink:AddMoney(hHero)
   local iAddBase = 5
-  if AIGameMode.DebugMode then
-    iAddBase = 50
-  end
   local GameTime = GameRules:GetDOTATime(false, false)
   local totalGold = PlayerResource:GetTotalEarnedGold(hHero:GetPlayerID())
-  if totalGold > 99999 then
+  local ownGold = PlayerResource:GetGold(hHero:GetPlayerID())
+  if ownGold > 90000 then
     return false
   end
   local goldPerSec = totalGold/GameTime
