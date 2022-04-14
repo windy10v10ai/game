@@ -765,7 +765,7 @@
 			"ItemQuality"					"artifact"
 			"ItemAliases"					"vladmir's offering;vlads"
 			"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-			"AbilityCastRange"              "1200"
+			"AbilityCastRange"              "900"
 
 			"AbilitySpecial"
 			{
@@ -797,7 +797,7 @@
 					"07"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"aura_radius"			"1200"
+							"aura_radius"			"900"
 					}
 					"08"
 					{

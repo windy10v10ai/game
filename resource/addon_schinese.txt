@@ -149,6 +149,8 @@
 		// 茶神
 		"npc_dota_hero_techies"					"茶神"
 
+		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
+
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"
 		"npc_dota_hero_meepo_npedesc1"		"世界第一的公主殿下"
