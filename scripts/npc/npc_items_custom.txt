@@ -5562,6 +5562,74 @@
 			}
 		}
 	}
+
+
+	//=================================================================================================================
+	// 苍蓝魔珠
+	//=================================================================================================================
+	"item_orb_of_the_brine"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3081"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"orb_of_the_brine"
+		"ScriptFile"					"items/item_orb_of_the_brine"
+
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"25.0"
+		"AbilityManaCost"				"100"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"8000"
+		"ItemPurchasable"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"required_level"		"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intelligence"	"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana_regen"		"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bubble_duration"		"3.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bubble_heal_per_tick"	"300"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"heal_tick_interval"	"0.5"
+			}
+		}
+	}
 }
 
 

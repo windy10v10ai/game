@@ -270,6 +270,7 @@
 		"item"		"item_reaver"
 		"item"		"item_eagle"
 		"item"		"item_relic"
+		"item"		"item_orb_of_the_brine"
 	}
 
 	"pregame"
