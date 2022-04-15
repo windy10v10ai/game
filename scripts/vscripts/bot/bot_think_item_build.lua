@@ -336,6 +336,12 @@ function BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassN
       if wardPosDistance < iCastRange then
         -- find wards in wardPosVector
         local wards = Entities:FindAllByClassnameWithin(sUnitClassName, wardPosVector, iFindRange)
+        -- for each wards, if not same team remove from list
+        for i=#wards,1,-1 do
+          if wards[i]:GetTeamNumber() ~= hHero:GetTeamNumber() then
+            table.remove(wards, i)
+          end
+        end
         -- if no wards, put ward
         if #wards == 0 then
           print("Think put ward "..hHero:GetName().." try to put "..sWardItemName.." at ["..vWardPos[1]..","..vWardPos[2].."]")
@@ -352,12 +358,10 @@ end
 -- 加钱
 function BotThink:AddMoney(hHero)
   local iAddBase = 5
-  if AIGameMode.DebugMode then
-    iAddBase = 50
-  end
   local GameTime = GameRules:GetDOTATime(false, false)
   local totalGold = PlayerResource:GetTotalEarnedGold(hHero:GetPlayerID())
-  if totalGold > 99999 then
+  local ownGold = PlayerResource:GetGold(hHero:GetPlayerID())
+  if ownGold > 90000 then
     return false
   end
   local goldPerSec = totalGold/GameTime

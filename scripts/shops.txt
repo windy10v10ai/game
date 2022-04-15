@@ -186,7 +186,7 @@
 		"item"		"item_basher"
 		// "item"		"item_invis_sword"
  		// "item"		"item_desolator"
-		"item"		"item_bfury"
+		"item"		"item_bfury_2"
 		"item"		"item_ethereal_blade"
 		"item"		"item_nullifier"
 		"item"		"item_bloodthorn"
@@ -270,6 +270,7 @@
 		"item"		"item_reaver"
 		"item"		"item_eagle"
 		"item"		"item_relic"
+		"item"		"item_orb_of_the_brine"
 	}
 
 	"pregame"
