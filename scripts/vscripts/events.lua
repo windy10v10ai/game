@@ -88,22 +88,8 @@ local memberSteamAccountID = Set {
 	141315077,
 	303743871,
 	117417953,
-	-- 测试
-	-- 916506173,
-}
-
--- saber
-local saberSteamAccountID = Set {
-	-- 开发贡献者
-	136407523,1194383041,143575444,314757913,385130282,
-	-- 初始会员
-	108208968,
-	128984820,
-	136668998,
-	107451500,
-	141315077,
-	303743871,
-	117417953,
+	319701690,
+	142964279,
 	-- 测试
 	916506173,
 }
@@ -113,7 +99,7 @@ local lumaoSteamAccountID = Set {
 	-- 成神
 	128984820,
 	-- 测试
-	916506173,
+	-- 916506173,
 }
 
 
@@ -811,12 +797,11 @@ function AIGameMode:OnPlayerChat( event )
 		end
 	end
 
-	if saberSteamAccountID[steamAccountID] then
+	if memberSteamAccountID[steamAccountID] then
 		if sChatMsg:find( '^圣剑.*解放.*$' ) then
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			local pszHeroClass = "npc_dota_hero_broodmother"
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
-			saberSteamAccountID[steamAccountID] = false
 			return
 		end
 	end
