@@ -14,7 +14,7 @@ end
 
 
 function WebServer:Initial()
-  self.hostname = "https://asia-northeast1-windy10v10ai.cloudfunctions.net"
+  self.hostname = "https://windy10v10ai.web.app/api"
 
   -- 会员
   WebServer.memberSteamAccountID = Set {
@@ -31,58 +31,61 @@ function WebServer:Initial()
     319701690,
     142964279,
     125049949,
+    353885092,
     -- 测试
     -- 916506173,
   }
 
-  PrintTable(WebServer.memberSteamAccountID)
+  -- 会员有效期
+  WebServer.memberExpireSteamAccountID = {}
+  WebServer.memberExpireSteamAccountID[136407523]={enable=true,expireDate="2099-12-31"}
+
 
   WebServer:GetMember()
-  WebServer:helloGET()
+  WebServer:RootAPI()
 end
 
 --------------------
 -- Web functions
 --------------------
-function WebServer:helloGET()
-  local path = "/helloGET"
-  local url = self.hostname .. path
-  local key = GetDedicatedServerKeyV2("helloGET")
-  print("helloGET url: " .. url)
-  print("helloGET key: " .. key)
-  local request = CreateHTTPRequest( "POST", url )
+function WebServer:RootAPI()
+  local path = ""
+  local key = GetDedicatedServerKeyV2("windy10v10ai")
+  local url = self.hostname .. path .. "?key="..key
+  print("[WEB]helloGET url: " .. url)
+  local request = CreateHTTPRequest( "GET", url )
   -- request:SetHTTPRequestHeaderValue("apiKey", key)
-  request:SetHTTPRequestRawPostBody("application/json", json.encode({name=key}))
   request:Send( function( result )
     if result.StatusCode == 200 then
-      print( "helloGET result: " .. result.Body )
+      print( "[WEB]helloGET result: " .. result.Body )
       local data = json.decode(result.Body)
+      PrintTable(data)
     else
-      print( "helloGET failed with error " .. result.StatusCode )
+      print( "[WEB]helloGET failed with error " .. result.StatusCode )
     end
   end )
 end
 
 function WebServer:GetMember()
-  local path = "/getMember"
+  local path = "/members"
   local url = self.hostname .. path
-  local key = GetDedicatedServerKeyV2("helloGET")
-  print("getMember url: " .. url)
-  local request = CreateHTTPRequest( "POST", url )
-  -- request:SetHTTPRequestHeaderValue("apiKey", key)
-  request:SetHTTPRequestRawPostBody("application/json", json.encode({name=key}))
+  local key = GetDedicatedServerKeyV2("windy10v10ai")
+  print("[WEB]members url: " .. url)
+  local request = CreateHTTPRequest( "GET", url )
   request:Send( function( result )
     if result.StatusCode == 200 then
       if string.find(result.Body, "136407523") then
         local data = json.decode(result.Body)
+        print("[WEB]members table: ")
+        PrintTable(data)
         WebServer.memberSteamAccountID = Set(data)
-        print("memberSteamAccountID: ")
+        print("[WEB]memberSteamAccountID: ")
         PrintTable(WebServer.memberSteamAccountID)
       else
-        print( "getMember failed with error " .. result.StatusCode )
+        print( "[WEB]getMember failed with error " .. result.StatusCode )
       end
     else
-      print( "getMember failed with error " .. result.StatusCode )
+      print( "[WEB]getMember failed with error " .. result.StatusCode )
     end
   end )
 end
