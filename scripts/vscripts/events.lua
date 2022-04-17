@@ -84,6 +84,13 @@ local lumaoSteamAccountID = Set {
 	-- 916506173,
 }
 
+local luoshuSteamAccountID = Set {
+	-- 洛书
+	136668998,
+	-- 测试
+	-- 136407523,
+}
+
 
 function AIGameMode:ArrayShuffle(array)
 	local size = #array
@@ -641,6 +648,10 @@ function AIGameMode:OnNPCSpawned(keys)
 			if lumaoSteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_lumao", "modifiers/player/modifier_lumao", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_lumao", {})
+			end
+			if luoshuSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_saber", "modifiers/player/modifier_saber", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_saber", {})
 			end
 			if WebServer.memberSteamAccountID[steamAccountID] then
 				hEntity:AddNewModifier(hEntity, nil, "modifier_member", {})

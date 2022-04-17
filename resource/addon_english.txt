@@ -152,6 +152,7 @@
 		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ Unique Lumao Buff ★</font>"
 		"DOTA_Tooltip_modifier_member"					"<font color='#FFCC66'>★ Member Ship Buff ★</font>"
 		"DOTA_Tooltip_modifier_member_Description"	"Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
+		"DOTA_Tooltip_modifier_saber"					"<font color='#FFCC66'>★ Saber's Master ★</font>"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"Miku"
@@ -208,6 +209,7 @@
 
 		// Saber
 		"npc_dota_hero_broodmother"						"Artoria Pendragon"
+		"npc_dota_hero_broodmother_npedesc1"		"Are you my Master?"
 
 		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>Strike Air</font>"
 		"DOTA_Tooltip_ability_artoria_strike_air_description"	"Saber unleashes a destructive gale from her sword, dealing <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>stun</font> of all enemies in the path.<br/>Saber gains <font color='#ffd700'>Spell Immunity</font> in few seconds."
