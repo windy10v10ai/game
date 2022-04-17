@@ -150,6 +150,8 @@
 		"npc_dota_hero_techies"					"hechahecha"
 
 		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ Unique Lumao Buff ★</font>"
+		"DOTA_Tooltip_modifier_member"					"<font color='#FFCC66'>★ Member Ship Buff ★</font>"
+		"DOTA_Tooltip_modifier_member_Description"	"Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"Miku"

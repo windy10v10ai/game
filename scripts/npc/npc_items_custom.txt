@@ -5489,7 +5489,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"9000"
+		"ItemCost"						"9950"
 		"ItemShopTags"					"damage;health_regen;mana_regen;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bf;battle fury"
@@ -5518,7 +5518,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent"	"100"
+				"cleave_damage_percent"	"90"
 			}
 			"05"
 			{

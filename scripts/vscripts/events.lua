@@ -76,24 +76,6 @@ developerSteamAccountID[916506173]="Arararara"
 developerSteamAccountID[385130282]="米米花"
 
 
--- 会员
-local memberSteamAccountID = Set {
-	-- 开发贡献者
-	136407523,1194383041,143575444,314757913,385130282,
-	-- 初始会员
-	108208968,
-	128984820,
-	136668998,
-	107451500,
-	141315077,
-	303743871,
-	117417953,
-	319701690,
-	142964279,
-	-- 测试
-	916506173,
-}
-
 -- 称号属性
 local lumaoSteamAccountID = Set {
 	-- 成神
@@ -149,6 +131,7 @@ function AIGameMode:OnGameStateChanged(keys)
 	if state == DOTA_GAMERULES_STATE_HERO_SELECTION then
 		if IsServer() == true then
 			self:InitHumanPlayerListAndSetHumanStartGold()
+			WebServer:Initial()
 		end
 	elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 		if not self.PreGameOptionsSet then
@@ -659,6 +642,9 @@ function AIGameMode:OnNPCSpawned(keys)
 				LinkLuaModifier("modifier_lumao", "modifiers/player/modifier_lumao", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_lumao", {})
 			end
+			if WebServer.memberSteamAccountID[steamAccountID] then
+				hEntity:AddNewModifier(hEntity, nil, "modifier_member", {})
+			end
 		end
 
 		hEntity.bInitialized = true
@@ -797,7 +783,7 @@ function AIGameMode:OnPlayerChat( event )
 		end
 	end
 
-	if memberSteamAccountID[steamAccountID] then
+	if WebServer.memberSteamAccountID[steamAccountID] then
 		if sChatMsg:find( '^圣剑.*解放.*$' ) then
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			local pszHeroClass = "npc_dota_hero_broodmother"
@@ -836,7 +822,7 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 -- local tip_points = WebServer.TipCounter[playerID] or 0
 				local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
-                local membership = memberSteamAccountID[steamAccountID] and true or false
+                local membership = WebServer.memberSteamAccountID[steamAccountID] and true or false
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
 
