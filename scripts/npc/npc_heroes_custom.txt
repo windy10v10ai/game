@@ -1,5 +1,75 @@
 "DOTAHeroes"
 {
+	//剑灵
+	"npc_dota_hero_abyss_sword"
+	{
+		"override_hero"             "npc_dota_hero_visage"
+		"DisableWearables" 			"1"
+		"Model"						"models/heroes/sword_spirit/npc_dota_hero_sword_spirit.vmdl"
+		"IdleExpression"			"scenes/void_spirit/void_spirit_exp_idle_01.vcd"
+		"Complexity"				"2"
+		"ModelScale"				"0.8500"
+		"LoadoutScale"				"0.820000"
+		"HeroSelectSoundEffect"		"Hero_Abyss_Sword.Pick"
+		"Ability1"					"abyss_sword_rush_night_sword_qi"
+		"Ability2"					"abyss_sword_out_of_sheath"
+		"Ability3"					"abyss_sword_hidden_sharp"
+		"Ability4"					"generic_hidden"
+		"Ability5"					"generic_hidden"
+		"Ability6"					"abyss_sword_rush_night_sally"
+		"Ability10"					"special_bonus_unique_abyss_sword_1"
+		"Ability11"					"special_bonus_movement_speed_20"
+		"Ability12"					"special_bonus_unique_abyss_sword_2"
+		"Ability13"					"special_bonus_unique_abyss_sword_3"
+		"Ability14"					"special_bonus_unique_abyss_sword_6"
+		"Ability15"					"special_bonus_unique_abyss_sword_4"
+		"Ability16"					"special_bonus_spell_block_15"
+		"Ability17"					"special_bonus_unique_abyss_sword_5"
+		"Ability32"					"Hero_vo_player"
+		"ArmorPhysical"				"-1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"34"
+		"AttackRate"				"1.700000"
+		"AttackAnimationPoint"		"0.350000"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"180"
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"22"
+		"AttributeStrengthGain"		"2.600000"
+		"AttributeBaseAgility"		"28"
+		"AttributeAgilityGain"		"3.100000"
+		"AttributeBaseIntelligence"	"19"
+		"AttributeIntelligenceGain"	"2.100000"
+		"StatusManaRegen"			"0.6"
+		"MovementSpeed"				"300"
+		"MovementTurnRate"			"0.700000"
+		"HasAggressiveStance"		"1"
+		"particle_folder"			"particles/units/heroes/hero_void_spirit"
+		"SoundSet"					"Hero_Abyss_Sword"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_abyss_sword.vsndevts"
+		"VoiceFile"					"soundevents/voscripts/game_sounds_vo_juggernaut.vsndevts"
+		"RenderablePortrait"
+		{
+			"Particles"
+			{
+				"particles/units/heroes/hero_void_spirit/void_spirit_loadout.vpcf"
+				{
+					"0"
+					{
+						"type"		"follow_origin"
+						"location"	"attach_hitloc"
+					}
+				}
+			}
+		}
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"800"
+		"ItemSlots"
+		{ }
+	}
+
+
 	"Miku"
 	{
 	    "override_hero"                       "npc_dota_hero_meepo"

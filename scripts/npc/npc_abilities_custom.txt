@@ -1431,4 +1431,213 @@
 			}
 		}
 	}
+
+	"abyss_sword_rush_night_sword_qi"
+	{
+		"MaxLevel"                      "5"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_rush_night_sword_qi"
+		"AbilityTextureName"			"custom/abyss_sword/abyss_sword_rush_night_sword_qi"
+		"FightRecapLevel"				"1"
+		"AbilityCooldown"				"26.0 22.0 18.0 14.0 10.0"
+		"AbilityManaCost"				"100 110 120 130 140"
+
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
+		"AbilityCastPoint"				"0.4"
+
+		"AbilityValues"
+		{
+			"length"					"850"
+			"width"						"150"
+			"speed"						"1600"
+			"damage"
+			{
+				"value"				"40 60 80 100 120"
+				"special_bonus_unique_abyss_sword_1"	"+40"
+			}
+		}
+	}
+
+	"abyss_sword_out_of_sheath"
+	{
+		"MaxLevel"                      "5"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_out_of_sheath"
+		"AbilityTextureName"			"custom/abyss_sword/abyss_sword_out_of_sheath"
+		"FightRecapLevel"				"1"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastPoint"				"0.2"
+		"HasShardUpgrade"			"1"
+
+		"AbilityValues"
+		{
+			"chance"					"35"
+			"percentage"
+			{
+				"value"				"180 220 260 300 340"
+				"special_bonus_unique_abyss_sword_2"	"+60"
+			}
+			"lifesteal" 			"50"
+			"shard_cooldown"
+			{
+				"value"				"15"
+				"RequiresShard"		"1"
+			}
+			"shard_range"
+			{
+				"value"				"1200"
+				"RequiresShard"		"1"
+			}
+			"shard_manacost"
+			{
+				"value"				"90"
+				"RequiresShard"		"1"
+			}
+			"shard_duration"
+			{
+				"value"				"6"
+				"RequiresShard"		"1"
+			}
+		}
+	}
+
+	"abyss_sword_hidden_sharp"
+	{
+		"MaxLevel"                      "5"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_hidden_sharp"
+		"AbilityTextureName"			"custom/abyss_sword/abyss_sword_hidden_sharp"
+		"FightRecapLevel"				"1"
+
+		"AbilityCooldown"				"32 28 24 20 16"
+		"AbilityManaCost"				"80"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		"HasScepterUpgrade"			"1"
+
+		"AbilityValues"
+		{
+			"channel"					"1 2 3 4 5"
+			"attack_bounts"
+			{
+				"value"					"10"
+				"special_bonus_unique_abyss_sword_3"	"+10"
+			}
+			"duration"					"10"
+			"attack_times"				"3"
+			"scepter_movespeed"
+			{
+				"value"					"550"
+				"RequiresScepter"		"1"
+			}
+		}
+	}
+
+	"abyss_sword_rush_night_sally"
+	{
+		"MaxLevel"                      "3"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_rush_night_sally"
+		"AbilityTextureName"			"custom/abyss_sword/abyss_sword_rush_night_sally"
+		"FightRecapLevel"				"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+
+		"AbilityValues"
+		{
+			"chance"
+			{
+				"value"					"15 25 35"
+				"special_bonus_unique_abyss_sword_4"	"+10"
+			}
+			"count"
+			{
+				"value"					"3"
+				"special_bonus_unique_abyss_sword_5"	"+2"
+			}
+			"angle"				"80"
+			"attackspeed"				"20 40 60"
+			"movespeed"				"20 40 60"
+		}
+	}
+
+	"Hero_vo_player"
+	{
+		"BaseClass"	"ability_lua"
+		"ScriptFile"	"heroes/hero_abyss_sword/Hero_vo_player"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"CoolDown"	"15"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"AttackProbability"	"20"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"MoveProbability"	"10"
+			}
+		}
+	}
+
+	"special_bonus_unique_abyss_sword_1"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_abyss_sword_2"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_abyss_sword_3"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_abyss_sword_4"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_abyss_sword_5"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_abyss_sword_6"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
 }
