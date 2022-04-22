@@ -87,6 +87,8 @@ function modifier_abyss_sword_out_of_sheath:OnAttackLanded(keys)
             local lifesteal = ability:GetSpecialValueFor("lifesteal")
             parent:HealWithParams(lifesteal/100 * keys.damage,ability,true,true,parent,false)
             self.critProc = false
+            local crit_pfx = ParticleManager:CreateParticle("particles/custom/sword_spirit/abyss_sword_out_of_sheath_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.target)
+            ParticleManager:ReleaseParticleIndex(crit_pfx)
         end
     end
 end
@@ -107,9 +109,6 @@ function modifier_abyss_sword_out_of_sheath:GetModifierPreAttack_CriticalStrike(
         if RollPseudoRandomPercentage(chance,DOTA_PSEUDO_RANDOM_NONE, parent) or (HasTalent and parent:HasModifier("modifier_abyss_sword_rush_night_sword_qi")) then
 
             -- parent:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK, parent:GetSecondsPerAttack())
-
-            local crit_pfx = ParticleManager:CreateParticle("particles/custom/sword_spirit/abyss_sword_out_of_sheath_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.target)
-            ParticleManager:ReleaseParticleIndex(crit_pfx)
 
             parent:EmitSound("Hero_Juggernaut.BladeDance")
             self.critProc = true
