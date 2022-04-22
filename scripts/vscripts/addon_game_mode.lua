@@ -14,6 +14,7 @@ require('bot/bot_item_data')
 require('events')
 require('bot/bot_think_item_build')
 require('bot/bot_think_modifier')
+require('web/web_server')
 
 function Activate()
 	AIGameMode:InitGameMode()
@@ -92,6 +93,7 @@ function AIGameMode:LinkLuaModifiers()
 	LinkLuaModifier("modifier_bot_think_strategy", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_bot_think_item_use", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_bot_think_ward", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier("modifier_member", "modifiers/player/modifier_member", LUA_MODIFIER_MOTION_NONE)
 end
 
 

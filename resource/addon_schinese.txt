@@ -150,6 +150,9 @@
 		"npc_dota_hero_techies"					"茶神"
 
 		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
+		"DOTA_Tooltip_modifier_member"					"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
+		"DOTA_Tooltip_modifier_member_Description"	"额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
+		"DOTA_Tooltip_modifier_saber"					"<font color='#FFCC66'>★ SaberのMaster ★</font>"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"
@@ -206,6 +209,7 @@
 
 		// Saber
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"
+		"npc_dota_hero_broodmother_npedesc1"		"遵从召唤而来，我问你，你是我的Master吗?"
 
 		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>风王铁锤</font>"
 		"DOTA_Tooltip_ability_artoria_strike_air_description"	"阿尔托莉雅从剑中释放出破坏性的风场，造成<font color='#05CAFF'>魔法伤害</font>，<font color='#FF3399'>击晕</font>路径上的所有敌人。<br/>阿尔托莉雅自身获得短暂的<font color='#ffd700'>魔法免疫</font>。"
@@ -873,7 +877,7 @@
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"苍洋魔珠"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"						"要不是这颗尊崇的魔珠，教团在石鱼门一役就全军覆没。"
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有防护效果的疗伤泡泡，持续%bubble_duration%秒，每%heal_tick_interval%秒治疗%bubble_heal_per_tick%点生命。"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有无敌效果的疗伤泡泡，可以缓慢移动但是无法攻击释放技能和道具，持续%bubble_duration%秒，每%heal_tick_interval%秒治疗%bubble_heal_per_tick%点生命。"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_intelligence"	"+$int"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana_regen"	"+$mana_regen"
 
