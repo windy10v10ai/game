@@ -41,9 +41,17 @@ function WebServer:Initial()
     -- 916506173,
   }
 
+  -- 会员
+  WebServer.memberAbyssAccountID = Set {
+    136668998,
+    -- 测试
+    916506173,
+  }
+
   -- 会员有效期
   WebServer.memberExpireSteamAccountID = {}
   WebServer.memberExpireSteamAccountID[136407523]={enable=true,expireDate="2099-12-31"}
+  WebServer.memberExpireSteamAccountID[916506173]={enable=false,expireDate="2022-04-22"}
 
 
   WebServer:GetMember()
