@@ -149,6 +149,8 @@
 		// 茶神
 		"npc_dota_hero_techies"					"茶神"
 
+		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
+
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"
 		"npc_dota_hero_meepo_npedesc1"		"世界第一的公主殿下"
@@ -163,9 +165,9 @@
         "DOTA_Tooltip_ability_chibi_hit_AbilityDamage" "伤害:"
         "DOTA_Tooltip_ability_chibi_hit_stun_duration" "眩晕时间:"
         "DOTA_Tooltip_ability_chibi_monster" "甩葱形态"
-        "DOTA_Tooltip_ability_chibi_monster_Description" "初音变身成甩葱形态，获得额外的属性和技能。<br/>变身时增加技能蔬菜汁Popipo的伤害。"
-        "DOTA_Tooltip_ability_chibi_monster_damage" "获得伤害:"
-        "DOTA_Tooltip_ability_chibi_monster_agility" "获得敏捷:"
+        "DOTA_Tooltip_ability_chibi_monster_Description" 	"初音变身成甩葱形态，获得额外的属性和技能。<br/>变身时增加技能蔬菜汁Popipo的伤害。"
+        "DOTA_Tooltip_ability_chibi_monster_damage"			"增加攻击力:"
+        "DOTA_Tooltip_ability_chibi_monster_agility"		"获得敏捷:"
         "DOTA_Tooltip_ability_chibi_monster_hp" "获得血量:"
         "DOTA_Tooltip_ability_chibi_monster_fixed_duration" "持续时间:"
         "DOTA_Tooltip_ability_miku_dance" "跳舞"
@@ -857,5 +859,25 @@
 		"DOTA_Tooltip_ability_item_satanic_2_Lore"								"无穷的力量，需要你付出灵魂作为代价。"
 		"DOTA_Tooltip_ability_item_satanic_2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_satanic_2_bonus_damage"						"+$damage"
+
+		// 大狂战
+		"DOTA_Tooltip_Ability_item_bfury_2"				"进阶狂战斧"
+		"DOTA_Tooltip_ability_item_bfury_2_Description"							"<h1>主动：砍伐</h1>砍伐一根指定树木。<br><br>砍伐施法距离：%abilitycastrange%\n<h1>被动：压制</h1>对非英雄单位进行物理攻击会造成额外伤害，近战英雄为%quelling_bonus%点，远程英雄为%quelling_bonus_ranged%点。\n<h1>被动：分裂</h1>普通攻击时对目标周围最远%cleave_distance%距离的锥形区域内敌人造成%cleave_damage_percent%%%物理伤害。对非英雄单位造成%cleave_damage_percent_creep%%%物理伤害。（仅近战有效）"
+		"DOTA_Tooltip_ability_item_bfury_2_Lore"									"持有这把强大斧头的人可以一次砍倒一片敌人。"
+		"DOTA_Tooltip_ability_item_bfury_2_Note0"									"分裂伤害无视技能免疫。"
+		"DOTA_Tooltip_ability_item_bfury_2_Note1"									"如果存在多个分裂效果，每个分裂的伤害都会单独计算。"
+		"DOTA_Tooltip_ability_item_bfury_2_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_bfury_2_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_bfury_2_bonus_mana_regen"						"+$mana_regen"
+
+		// 苍洋魔珠
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"苍洋魔珠"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"						"要不是这颗尊崇的魔珠，教团在石鱼门一役就全军覆没。"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有防护效果的疗伤泡泡，持续%bubble_duration%秒，每%heal_tick_interval%秒治疗%bubble_heal_per_tick%点生命。"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_intelligence"	"+$int"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana_regen"	"+$mana_regen"
+
+		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble"				"苍洋泡沫"
+		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble_Description"	"这个单位正受到苍洋泡沫的保护。每秒恢复600点生命。"
 	}
 }
