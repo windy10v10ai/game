@@ -1,0 +1,6 @@
+<!-- xml reconstructed by ValveResourceFormat: https://vrf.steamdb.info/ -->
+<root>
+	<Panel class="AddonLoadingRoot">
+		<Image id="gamemode" class="SeqImg" src="file://{images}/heroes/icons/npc_dota_hero_visage.png" />
+	</Panel>
+</root>

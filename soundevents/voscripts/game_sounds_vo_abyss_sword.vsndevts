@@ -1,0 +1,148 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	npc_dota_hero_visage.vo.SwordQi.Cast =
+	{
+		type = "dota_src1_2d"
+		volume = 10.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/abyss_sword/ability_rush_night_sword_qi1.vsnd",
+			"sounds/vo/abyss_sword/ability_rush_night_sword_qi2.vsnd",
+			"sounds/vo/abyss_sword/ability_rush_night_sword_qi3.vsnd",
+		]
+	}
+	npc_dota_hero_visage.vo.HiddenSharp.Cast =
+	{
+		type = "dota_src1_2d"
+		volume = 10.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/abyss_sword/ability_hidden_sharp1.vsnd",
+			"sounds/vo/abyss_sword/ability_hidden_sharp2.vsnd",
+			"sounds/vo/abyss_sword/ability_hidden_sharp3.vsnd",
+			"sounds/vo/abyss_sword/ability_hidden_sharp4.vsnd",
+		]
+	}
+	npc_dota_hero_visage.vo.Sally.Cast =
+	{
+		type = "dota_src1_2d"
+		volume = 10.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/abyss_sword/ability_rush_night_sally1.vsnd",
+			"sounds/vo/abyss_sword/ability_rush_night_sally2.vsnd",
+		]
+	}
+	npc_dota_hero_visage.vo.item_ultimate_scepter =
+	{
+		type = "dota_src1_2d"
+		volume = 10.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/abyss_sword/item_scepter1.vsnd",
+		]
+	}
+	npc_dota_hero_visage.vo.item_aghanims_shard =
+	{
+		type = "dota_src1_2d"
+		volume = 10.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/abyss_sword/item_shard1.vsnd",
+			"sounds/vo/abyss_sword/item_shard2.vsnd",
+		]
+	}
+	npc_dota_hero_visage.vo.Attack =
+	{
+		type = "dota_src1_2d"
+		volume = 10.00000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/abyss_sword/attack1.vsnd",
+			"sounds/vo/abyss_sword/attack2.vsnd",
+			"sounds/vo/abyss_sword/attack3.vsnd",
+		]
+	}
+	npc_dota_hero_visage.vo.Move =
+	{
+		type = "dota_src1_2d"
+		volume = 7.00000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/abyss_sword/move1.vsnd",
+			"sounds/vo/abyss_sword/move2.vsnd",
+			"sounds/vo/abyss_sword/move3.vsnd",
+		]
+	}
+	npc_dota_hero_visage.vo.Upgrade =
+	{
+		type = "dota_src1_2d"
+		volume = 10.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/abyss_sword/upgrade1.vsnd",
+		]
+	}
+	npc_dota_hero_visage.vo.Respawn =
+	{
+		type = "dota_src1_2d"
+		volume = 10.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/abyss_sword/respawn1.vsnd",
+			"sounds/vo/abyss_sword/respawn2.vsnd",
+			"sounds/vo/abyss_sword/respawn3.vsnd",
+		]
+	}
+	npc_dota_hero_visage.vo.Death =
+	{
+		type = "dota_src1_3d"
+		volume = 20.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		distance_max = 900.000000
+		vsnd_files =
+		[
+			"sounds/vo/abyss_sword/death1.vsnd",
+			"sounds/vo/abyss_sword/death2.vsnd",
+		]
+	}
+}
