@@ -150,6 +150,9 @@
 		"npc_dota_hero_techies"					"茶神"
 
 		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
+		"DOTA_Tooltip_modifier_member"					"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
+		"DOTA_Tooltip_modifier_member_Description"	"额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
+		"DOTA_Tooltip_modifier_saber"					"<font color='#FFCC66'>★ SaberのMaster ★</font>"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"
@@ -206,6 +209,7 @@
 
 		// Saber
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"
+		"npc_dota_hero_broodmother_npedesc1"		"遵从召唤而来，我问你，你是我的Master吗?"
 
 		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>风王铁锤</font>"
 		"DOTA_Tooltip_ability_artoria_strike_air_description"	"阿尔托莉雅从剑中释放出破坏性的风场，造成<font color='#05CAFF'>魔法伤害</font>，<font color='#FF3399'>击晕</font>路径上的所有敌人。<br/>阿尔托莉雅自身获得短暂的<font color='#ffd700'>魔法免疫</font>。"
@@ -261,6 +265,74 @@
         "DOTA_Tooltip_ability_special_bonus_artoria_strike_air_2"			"-{s:value}秒 风王铁锤冷却"
         "DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1"			"魔力放出驱散自身负面效果"
         "DOTA_Tooltip_ability_special_bonus_excalibur_1"					"-{s:value}秒 誓约胜利之剑冷却"
+
+		//沉渊之剑
+		"npc_dota_hero_visage"									"沉渊之剑"
+
+		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sword_qi"				"冲宵剑气"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_description"	"沉渊之剑向前方劈出一道剑气，对触碰到的敌方单位造成一次附带额外伤害的普通攻击"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_Lore"		"来自沉渊之剑师门的基础剑法"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_length"		"距离："
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_width"			"宽度："
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_damage"			"额外伤害："
+
+
+		"DOTA_Tooltip_Ability_abyss_sword_out_of_sheath"				"出鞘"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_description"	"沉渊之剑的攻击有几率造成暴击，触发暴击时拥有吸血效果"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_Lore"		"堕入地狱之后获得的掠夺者之力"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_chance"		"%触发几率："
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_percentage"			"%暴击伤害："
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_lifesteal"			"%生命窃取："
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_range"			"魔晶升级施法范围："
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_duration"			"魔晶升级破坏持续时间："
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_description"		"获得主动效果，能够对敌方单位使用，闪烁至敌方单位位置,进行一次攻击并造成破坏效果"
+
+
+		"DOTA_Tooltip_Ability_abyss_sword_hidden_sharp"				"藏锋"
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_description"	"沉渊之剑进入蓄力状态，持续施法，施法期间持续提升自身攻击力并技能免疫，攻击力加成效果在进行一定次数的攻击后消失"
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_Note0"		"冲宵剑气不会消耗藏锋的攻击次数"
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_Lore"		"剑意的精髓在于藏拙"
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_channel"		"持续施法时间："
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_attack_bounts"			"%每秒攻击加成："
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_duration"			"攻击加成最大持续时间："
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_attack_times"			"攻击次数："
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_scepter_description"		"藏锋不再需要持续施法，且不再有攻击次数限制，原持续施法期间获得极速效果"
+
+		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sally"				"冲宵破军"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description"	"沉渊之剑获得攻击速度和移动速度加成，并使沉渊之剑的攻击有几率发射多道冲宵剑气"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Note0"		"冲宵剑气的攻击不会触发此技能的效果"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Lore"		"真正的剑道大师能够将基础剑法使用的出神入化"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_attackspeed"		"攻击速度加成："
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_movespeed"			"%移动速度加成："
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_chance"			"%触发几率："
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_count"			"剑气数量："
+
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_1"				"+{s:bonus_damage} 冲宵剑气攻击力加成"
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_2"				"+{s:bonus_percentage} 出鞘暴击伤害"
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_3"				"+{s:bonus_attack_bounts}% 藏锋每秒攻击力加成"
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_4"				"+{s:bonus_chance}% 冲宵破军触发几率"
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_5"				"+{s:bonus_count} 冲宵破军剑气数量"
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_6"				"冲宵剑气必定触发出鞘"
+
+
+		// /////////////////////////////////////////////////////////////////////////////
+		//
+		// 					              Modifiers
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+
+		//沉渊之剑
+		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp"	"藏锋"
+		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_Description"	"获得%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%攻击力加成"
+		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_interval"	"藏锋:蓄力"
+		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_interval_Description"	"持续为沉渊之剑增加攻击力，并提供技能免疫"
+		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath"	"出鞘"
+		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath_Description"	"沉渊之剑的攻击有几率造成暴击并吸取生命"
+		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath_shard"	"出鞘:破坏"
+		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath_shard_Description"	"受到出鞘的影响，被动技能失效"
+		"DOTA_Tooltip_modifier_abyss_sword_rush_night_sally"	"冲宵破军"
+		"DOTA_Tooltip_modifier_abyss_sword_rush_night_sally_Description"	"沉渊之剑获得%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度加成和%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%移动速度加成，攻击时有几率发出数道冲宵剑气"
+
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -805,7 +877,7 @@
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"苍洋魔珠"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"						"要不是这颗尊崇的魔珠，教团在石鱼门一役就全军覆没。"
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有防护效果的疗伤泡泡，持续%bubble_duration%秒，每%heal_tick_interval%秒治疗%bubble_heal_per_tick%点生命。"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有无敌效果的疗伤泡泡，可以缓慢移动但是无法攻击释放技能和道具，持续%bubble_duration%秒，每%heal_tick_interval%秒治疗%bubble_heal_per_tick%点生命。"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_intelligence"	"+$int"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana_regen"	"+$mana_regen"
 

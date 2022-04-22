@@ -150,6 +150,9 @@
 		"npc_dota_hero_techies"					"hechahecha"
 
 		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ Unique Lumao Buff ★</font>"
+		"DOTA_Tooltip_modifier_member"					"<font color='#FFCC66'>★ Member Ship Buff ★</font>"
+		"DOTA_Tooltip_modifier_member_Description"	"Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
+		"DOTA_Tooltip_modifier_saber"					"<font color='#FFCC66'>★ Saber's Master ★</font>"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"Miku"
@@ -206,6 +209,7 @@
 
 		// Saber
 		"npc_dota_hero_broodmother"						"Artoria Pendragon"
+		"npc_dota_hero_broodmother_npedesc1"		"Are you my Master?"
 
 		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>Strike Air</font>"
 		"DOTA_Tooltip_ability_artoria_strike_air_description"	"Saber unleashes a destructive gale from her sword, dealing <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>stun</font> of all enemies in the path.<br/>Saber gains <font color='#ffd700'>Spell Immunity</font> in few seconds."
@@ -262,6 +266,73 @@
         "DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1"			"Mana Burst purges self debuffs"
         "DOTA_Tooltip_ability_special_bonus_excalibur_1"					"-{s:value}s cooldown of Excalibur"
 
+		//沉渊之剑
+		"npc_dota_hero_visage" 									 "Abyss Sword"
+		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sword_qi" 				 "Rush night sword Qo"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_description" 	 "Abyss Sword splits a sword Qi forward and causes an ordinary attack with additional damage to the enemy units it touches"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_Lore" 		 "Basic sword technique from Abyss Sword sword school"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_length" 		 "Distance:"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_width" 			 "Width:"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_damage" 			 "Additional damage:"
+
+
+		"DOTA_Tooltip_Ability_abyss_sword_out_of_sheath" 				 "Out of sheath"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_description" 	 "The attack of abyss sword has a chance to cause critical hit. It has blood sucking effect when triggering critical hit"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_Lore" 		 "The power of predators gained after falling into hell"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_chance" 		 "%trigger probability:"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_percentage" 			 "%critical damage:"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_lifesteal" 			 "%life theft:"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_range" 			 "Magic crystal upgrade casting range:"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_duration" 			 "Duration of magic crystal upgrade damage:"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_description" 		 "Gain active effect, be able to use it against enemy units, flash to the position of enemy units, make an attack and cause destructive effect"
+
+
+		"DOTA_Tooltip_Ability_abyss_sword_hidden_sharp" 				 "Hidden Sharp"
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_description" 	 "The sword of the abyss enters the power storage state and continues to cast spells. During the casting period, it continuously improves its attack power and skill immunity. The attack power bonus effect disappears after a certain number of attacks."
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_Note0" 		 "Rush night sword Qi will not consume the attack times of Hidden Sharp"
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_Lore" 		 "The essence of sword meaning lies in concealment"
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_channel" 		 "Duration:"
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_attack_bounts" 			 "%attack bonus per second:"
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_duration" 			 "Maximum duration of attack bonus:"
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_attack_times" 			 "Number of attacks:"
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_scepter_description" 		 "Tibetan Feng no longer needs to cast continuously, and there is no limit on the number of attacks. You can obtain speed effect during the original continuous casting period"
+
+
+		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sally" 				 "Rush Night Sally"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description" 	 "Abyss Sword gains a bonus to attack speed and movement speed, and gives the attack of Abyss Sword a chance to emit multiple night rush sword Qi"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Note0" 		 "The attack of rushing night sword Qi will not trigger the effect of this skill"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Lore" 		 "A real master of Kendo can use the basic sword technique to perfection"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_attackspeed" 		 "Attack speed bonus:"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_movespeed" 			 "%movement speed bonus:"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_chance" 			 "%trigger probability:"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_count" 			 "Sword Qi quantity:"
+
+
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_1" 				 "+ {s:bonus_damage} night sword attack bonus"
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_2" 				 "+ {s:bonus_percentage} out of sheath critical hit probability"
+		"Dota\tooltip\ability\special\bonus\unique\abyss\sword\u 3" 				 "+ {s:bonus_attack_bounces}% attack power bonus of hidden front per second"
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_4" 				 "+ {s:bonus_chance}% trigger chance of breaking the army at night"
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_5" 				 "+ {s:bonus_count} number of sword Qi to break the army at night"
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_6" 				 "Rush night sword Qi will trigger scabbard removal"
+
+
+		// /////////////////////////////////////////////////////////////////////////////
+		//
+		// 					              Modifiers
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+
+		//Abyss sword
+		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp" 	 "Hidden Sharp"
+		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_Description" 	 "Gain% dmodifier_property_basedamageoutgoing_percentage%%% attack power bonus"
+		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_interval" 	 "Hidden Sharp: accumulating strength"
+		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_interval_Description" 	 "Continuously increase the attack power of the abyss sword and provide skill immunity"
+		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath" 	 "Out of sheath"
+		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath_Description" 	 "The attack of abyss sword has a chance to cause critical hit and absorb life"
+		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath_shard" 	 "Descabbard: destroy"
+		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath_shard_Description" 	 "Passive skill is invalid due to the influence of sheath removal"
+		"DOTA_Tooltip_modifier_abyss_sword_rush_night_sally" 	 "Break the army at night"
+		"DOTA_Tooltip_modifier_abyss_sword_rush_night_sally_Description" 	 "The sword of the abyss gains a% dmodifier_property_attackspeed_bonus_constant% attack speed bonus and a% dmodifier_property_movespeed_bonus_percentage%%% movement speed bonus. You have a chance to emit several night rush sword Qi when attacking"
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
@@ -805,7 +876,7 @@
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"Orb of the Brine"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"						"Were it not for this revered orb, there would have been no Conclave survivors at the Battle of Stonefish Gate."
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>Active: Brinefoam</h1> Puts a friendly unit in a protective healing bubble for %bubble_duration% seconds, healing it for %bubble_heal_per_tick% every %heal_tick_interval% second."
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>Active: Brinefoam</h1> Puts a friendly unit in a protective healing bubble for %bubble_duration% seconds, target unit can move slowly but cannot attack or use abilities and items, healing it for %bubble_heal_per_tick% every %heal_tick_interval% second."
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_intelligence"	"+$int"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana_regen"	"+$mana_regen"
 
