@@ -109,19 +109,29 @@ end
 function modifier_item_orb_of_the_brine_bubble:CheckState()
 	local state = {}
 	if IsServer()  then
-		state[ MODIFIER_STATE_STUNNED]  = true
-		state[ MODIFIER_STATE_ROOTED ] = true
+		state[ MODIFIER_STATE_SILENCED ]  = true
+		state[ MODIFIER_STATE_MUTED ] = true
 		state[ MODIFIER_STATE_DISARMED] = true
 		state[ MODIFIER_STATE_OUT_OF_GAME ] = true
 		state[ MODIFIER_STATE_MAGIC_IMMUNE ] = true
 		state[ MODIFIER_STATE_INVULNERABLE ] = true
-		state[ MODIFIER_STATE_OUT_OF_GAME ] = true
 		state[ MODIFIER_STATE_UNSELECTABLE ] = true
 	end
 
 	return state
 end
 
+function modifier_item_orb_of_the_brine_bubble:DeclareFunctions()
+	local funcs =
+	{
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+	}
+	return funcs
+end
+
+function modifier_item_orb_of_the_brine_bubble:GetModifierMoveSpeedBonus_Percentage( params )
+	return -50
+end
 --------------------------------------------------------------------------------
 
 function modifier_item_orb_of_the_brine_bubble:OnDestroy()
