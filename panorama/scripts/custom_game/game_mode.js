@@ -14,12 +14,18 @@ function OnDropDownChanged(option) {
 			$("#dire_tower_power_dropdown").SetSelected("10");
 			$("#radiant_tower_heal_dropdown").SetSelected("5");
 			$("#dire_tower_heal_dropdown").SetSelected("5");
+			$("#respawn_time_percentage_dropdown").SetSelected("100");
+			$("#starting_gold_player_dropdown").SetSelected("2000");
+			$("#starting_gold_bot_dropdown").SetSelected("2000");
 			// disable dropdown
 			$("#player_gold_xp_multiplier_dropdown").enabled=false;
 			$("#radiant_tower_power_dropdown").enabled=false;
 			$("#dire_tower_power_dropdown").enabled=false;
 			$("#radiant_tower_heal_dropdown").enabled=false;
 			$("#dire_tower_heal_dropdown").enabled=false;
+			$("#respawn_time_percentage_dropdown").enabled=false;
+			$("#starting_gold_player_dropdown").enabled=false;
+			$("#starting_gold_bot_dropdown").enabled=false;
 			// disable option
 
 		} else {
@@ -29,6 +35,9 @@ function OnDropDownChanged(option) {
 			$("#dire_tower_power_dropdown").enabled=true;
 			$("#radiant_tower_heal_dropdown").enabled=true;
 			$("#dire_tower_heal_dropdown").enabled=true;
+			$("#respawn_time_percentage_dropdown").enabled=true;
+			$("#starting_gold_player_dropdown").enabled=true;
+			$("#starting_gold_bot_dropdown").enabled=true;
 			if ($("#radiant_tower_power_dropdown").GetSelected().id == "10") {
 				$("#radiant_tower_power_dropdown").SetSelected("5");
 			}

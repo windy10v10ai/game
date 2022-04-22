@@ -764,14 +764,6 @@
 			}
 		}
 	}
-	"item_recipe_bfury"
-	{
-		"ItemRequirements"
-		{
-			"01"						"item_broadsword;item_claymore;item_pers;item_quelling_blade_2_datadriven*"
-			"02"						"item_broadsword;item_claymore;item_pers;item_quelling_blade*"
-		}
-	}
 	"item_recipe_overwhelming_blink"
 	{
 		"ItemCost"						"250"
@@ -1516,12 +1508,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.0 5.0 6.0 7.0"
+				"duration"					"4.5 5.0 5.5 6.0"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration_scepter"			"5.0 6.0 7.0 8.0"
+				"duration_scepter"			"5.5 6.0 6.5 7.0"
 				"RequiresScepter"	"1"
 			}
 		}
@@ -4447,7 +4439,7 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCooldown"				"120 110 100 90"
-		"AbilityManaCost"				"100 150 200 250"
+		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
 				"duration"					"5.0 6.0 7.0 8.0"
@@ -4462,6 +4454,18 @@
 					"value"			"40 50 60 70"
 					"RequiresScepter"		"1"
 				}
+		}
+	}
+	"special_bonus_unique_omniknight_7"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"20"
+				"ad_linked_abilities"			"omniknight_guardian_angel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
 		}
 	}
 	//=================================================================================================================
@@ -13886,7 +13890,7 @@
 	"silencer_glaives_of_wisdom"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"15"
+		"AbilityManaCost"				"15 20 25 30 35"
 		"AbilitySpecial"
 		{
 			"01"
@@ -13914,7 +13918,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"25"
+				"value"				"15"
 				"ad_linked_abilities"			"silencer_glaives_of_wisdom"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -13986,18 +13990,18 @@
 		"MaxLevel" "5"
 		"AbilityCastRange"				"875" // 875
 		"AbilityCooldown"				"6.0 5.0 4.0 3.0 2.0"
-		"AbilityManaCost"				"90"
+		"AbilityManaCost"				"90 100 110 120 130"
 		"AbilitySpecial"
 		{
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bolt_damage"			"95 115 135 155 175"
+				"bolt_damage"			"100 125 150 175 200"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"int_multiplier"		"1.5"
+				"int_multiplier"		"1.2"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 		}
