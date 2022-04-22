@@ -812,12 +812,16 @@ function AIGameMode:OnPlayerChat( event )
 	end
 
 	if saberSteamAccountID[steamAccountID] then
+		local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+		local pszHeroClass
 		if sChatMsg:find( '^圣剑.*解放.*$' ) then
-			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-			local pszHeroClass = "npc_dota_hero_broodmother"
+			pszHeroClass = "npc_dota_hero_broodmother"
+		elseif sChatMsg:find( '沉渊之剑' ) then
+			pszHeroClass = "npc_dota_hero_visage"
+		end
+		if pszHeroClass ~= nil then
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			saberSteamAccountID[steamAccountID] = false
-			return
 		end
 	end
 end
