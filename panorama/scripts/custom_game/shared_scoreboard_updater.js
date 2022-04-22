@@ -5,6 +5,7 @@ var imageMap = {
 	'npc_dota_hero_juggernaut': 'npc_dota_hero_juggernaut_custom',
 	'npc_dota_hero_techies': 'npc_dota_hero_techies_custom',
 	'npc_dota_hero_broodmother': 'npc_dota_hero_broodmother_custom',
+	'npc_dota_hero_visage': 'npc_dota_hero_visage_custom',
 }
 //=============================================================================
 //=============================================================================
