@@ -6237,6 +6237,34 @@
 			}
 		}
 	}
+	// 墓碑
+	"undying_tombstone"
+	{
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"120 130 140 150"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"20.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"600"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"zombie_interval"		"4.0"
+			}
+		}
+	}
+
 	"undying_flesh_golem"
 	{
 		"MaxLevel" "5"
@@ -13918,7 +13946,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"15"
+				"value"				"10"
 				"ad_linked_abilities"			"silencer_glaives_of_wisdom"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -13933,12 +13961,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"120 160 200 240 300"
+				"damage"			"120 180 240 300 360"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_multiplier"	"1.6 1.8 2.0 2.2 2.4"
+				"int_multiplier"	"1.2 1.4 1.6 1.8 2.0"
 				"LinkedSpecialBonus"	"special_bonus_unique_silencer_4"
 			}
 			"04"
@@ -13949,7 +13977,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"scepter_radius"		"500"
+				"scepter_radius"		"400"
 				"RequiresScepter"			"1"
 			}
 			"06"
@@ -13967,7 +13995,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"value"				"0.6"
+				"value"				"0.4"
 				"ad_linked_abilities"			"silencer_last_word"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}

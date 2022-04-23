@@ -268,7 +268,6 @@
 
 		//沉渊之剑
 		"npc_dota_hero_visage"									"沉渊之剑"
-
 		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sword_qi"				"冲宵剑气"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_description"	"沉渊之剑向前方劈出一道剑气，对触碰到的敌方单位造成一次附带额外伤害的普通攻击"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_Lore"		"来自沉渊之剑师门的基础剑法"
@@ -297,6 +296,7 @@
 		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_duration"			"攻击加成最大持续时间："
 		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_attack_times"			"攻击次数："
 		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_scepter_description"		"藏锋不再需要持续施法，且不再有攻击次数限制，原持续施法期间获得极速效果"
+
 
 		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sally"				"冲宵破军"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description"	"沉渊之剑获得攻击速度和移动速度加成，并使沉渊之剑的攻击有几率发射多道冲宵剑气"
@@ -865,7 +865,7 @@
 		"DOTA_Tooltip_ability_item_satanic_2_bonus_damage"						"+$damage"
 
 		// 大狂战
-		"DOTA_Tooltip_Ability_item_bfury_2"				"进阶狂战斧"
+		"DOTA_Tooltip_Ability_item_bfury_2"				"超级狂战斧"
 		"DOTA_Tooltip_ability_item_bfury_2_Description"							"<h1>主动：砍伐</h1>砍伐一根指定树木。<br><br>砍伐施法距离：%abilitycastrange%\n<h1>被动：压制</h1>对非英雄单位进行物理攻击会造成额外伤害，近战英雄为%quelling_bonus%点，远程英雄为%quelling_bonus_ranged%点。\n<h1>被动：分裂</h1>普通攻击时对目标周围最远%cleave_distance%距离的锥形区域内敌人造成%cleave_damage_percent%%%物理伤害。对非英雄单位造成%cleave_damage_percent_creep%%%物理伤害。（仅近战有效）"
 		"DOTA_Tooltip_ability_item_bfury_2_Lore"									"持有这把强大斧头的人可以一次砍倒一片敌人。"
 		"DOTA_Tooltip_ability_item_bfury_2_Note0"									"分裂伤害无视技能免疫。"

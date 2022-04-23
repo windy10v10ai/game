@@ -1485,8 +1485,8 @@
 			"chance"					"35"
 			"percentage"
 			{
-				"value"				"180 220 260 300 340"
-				"special_bonus_unique_abyss_sword_2"	"+60"
+				"value"				"180 210 240 270 300"
+				"special_bonus_unique_abyss_sword_2"	"+40"
 			}
 			"lifesteal" 			"50"
 			"shard_cooldown"
@@ -1521,7 +1521,7 @@
 		"FightRecapLevel"				"1"
 
 		"AbilityCooldown"				"32 28 24 20 16"
-		"AbilityManaCost"				"80"
+		"AbilityManaCost"				"80 90 100 110 120"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1532,7 +1532,7 @@
 
 		"AbilityValues"
 		{
-			"channel"					"1 2 3 4 5"
+			"channel"					"2.0 2.5 3.0 3.5 4.0"
 			"attack_bounts"
 			{
 				"value"					"10"
@@ -1556,6 +1556,7 @@
 		"AbilityTextureName"			"custom/abyss_sword/abyss_sword_rush_night_sally"
 		"FightRecapLevel"				"1"
 
+		"AbilityCooldown"				"0.5"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
@@ -1565,7 +1566,7 @@
 		{
 			"chance"
 			{
-				"value"					"15 25 35"
+				"value"					"15 20 25"
 				"special_bonus_unique_abyss_sword_4"	"+10"
 			}
 			"count"

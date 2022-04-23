@@ -15,6 +15,9 @@ end
 
 function WebServer:Initial()
   self.hostname = "https://windy10v10ai.web.app/api"
+  if AIGameMode.DebugMode then
+    self.hostname = "http://localhost:5000/api"
+  end
 
   -- 会员
   WebServer.memberSteamAccountID = Set {
@@ -37,6 +40,11 @@ function WebServer:Initial()
     355472172,
     445801587,
     308320923,
+    176061240,
+    190540884,
+    1009673688,
+    342865365,
+    379664769,
     -- 测试
     -- 916506173,
   }
@@ -85,6 +93,27 @@ function WebServer:GetMember()
   local key = GetDedicatedServerKeyV2("windy10v10ai")
   print("[WEB]members url: " .. url)
   local request = CreateHTTPRequest( "GET", url )
+  request:Send( function( result )
+    if result.StatusCode == 200 then
+      if string.find(result.Body, "136407523") then
+        local data = json.decode(result.Body)
+        print("[WEB]members table: ")
+        PrintTable(data)
+        WebServer.memberSteamAccountID = Set(data)
+        print("[WEB]memberSteamAccountID: ")
+        PrintTable(WebServer.memberSteamAccountID)
+      else
+        print( "[WEB]getMember failed with error " .. result.StatusCode )
+      end
+    else
+      print( "[WEB]getMember failed with error " .. result.StatusCode )
+    end
+  end )
+end
+
+function WebServer:Send(request, callback, retryTimes)
+  local retryTimes = retryTimes or 0
+
   request:Send( function( result )
     if result.StatusCode == 200 then
       if string.find(result.Body, "136407523") then
