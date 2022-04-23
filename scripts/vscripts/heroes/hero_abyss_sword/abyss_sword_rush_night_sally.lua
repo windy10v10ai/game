@@ -26,6 +26,7 @@ function modifier_abyss_sword_rush_night_sally:OnAttackLanded(keys)
     local parent = self:GetParent()
     local ability = self:GetAbility()
     if keys.attacker == parent and not parent:PassivesDisabled() then
+        if not ability:IsCooldownReady() then return end
         if not parent:HasModifier("modifier_abyss_sword_rush_night_sword_qi") and parent:IsAlive() then
             local chance = ability:GetSpecialValueFor("chance")
             if RollPseudoRandomPercentage(chance,DOTA_PSEUDO_RANDOM_NONE, parent) then
@@ -34,6 +35,8 @@ function modifier_abyss_sword_rush_night_sally:OnAttackLanded(keys)
                 local ablity_sword_qi = parent:FindAbilityByName("abyss_sword_rush_night_sword_qi")
                 if ablity_sword_qi then
                     ablity_sword_qi:CreateProjectiles(parent:GetAbsOrigin(),keys.target:GetAbsOrigin(),angle,count)
+                    -- ability start cool down
+                    ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
                     if not self.voplaying then
                         self.voplaying = true
                         EmitAnnouncerSoundForPlayer("npc_dota_hero_visage.vo.Sally.Cast", parent:GetPlayerOwnerID())

@@ -2921,7 +2921,7 @@
 		"ItemResult"					"item_infernal_desolator"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator;item_dodo_desolator"
+			"01"						"item_dodo_desolator;item_relic"
 		}
 	}
 
@@ -5306,7 +5306,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"750"
+		"ItemCost"						"3750"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5315,7 +5315,7 @@
 		"ItemResult"					"item_dodo_desolator"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator;item_relic"
+			"01"						"item_desolator"
 		}
 	}
 

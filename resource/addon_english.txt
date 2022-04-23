@@ -307,7 +307,6 @@
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_chance" 			 "%trigger probability:"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_count" 			 "Sword Qi quantity:"
 
-
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_1" 				 "+ {s:bonus_damage} night sword attack bonus"
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_2" 				 "+ {s:bonus_percentage} out of sheath critical hit probability"
 		"Dota\tooltip\ability\special\bonus\unique\abyss\sword\u 3" 				 "+ {s:bonus_attack_bounces}% attack power bonus of hidden front per second"
