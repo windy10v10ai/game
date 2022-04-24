@@ -56,6 +56,58 @@ function LoadAfdianButton() {
     }
 }
 
+function LoadMemberButton(table, key, gameResult) {
+    if (!gameResult || key !== "player_data") {
+		return;
+	}
+    const player = gameResult.players[Game.GetLocalPlayerID()];
+    $.Msg(player);
+    if (!player.memberInfo) {
+        return;
+    }
+    $.Msg("button.js LoadMemberButton");
+
+
+    const hContainer = FindDotaHudElement('ButtonBar');
+    let sString = '感谢您的支持！';
+
+    if (hContainer){
+        let hAfdianButton = hContainer.FindChild('JoinAfdian')
+        let hPatreonButton = hContainer.FindChild('JoinPatreon')
+        // remove hAfidianButton if hPatreonButton is found
+        if (hPatreonButton) {
+            hAfdianButton.DeleteAsync(0)
+        }
+        if (hPatreonButton) {
+            hPatreonButton.DeleteAsync(0)
+        }
+
+        let hMemberButton = hContainer.FindChild('memberButton') || $.CreatePanel('Button', hContainer, 'memberButton')
+
+        hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown.png')`
+        if (player.memberInfo.enable) {
+            sString = sString + "<br/> - 打字输入“圣剑解放”即可召唤saber";
+            sString = sString + "<br/>会员有效期：" + player.memberInfo.expireDateString;
+        } else {
+            sString = sString + "<br/>会员已到期：" + player.memberInfo.expireDateString;
+            hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown_grey.png')`
+        }
+        hMemberButton.style.backgroundSize = "100% 100%";
+
+        hMemberButton.SetPanelEvent('onactivate',() => {
+            $.DispatchEvent('ExternalBrowserGoToURL', 'https://afdian.net/@windy10v10')
+        })
+
+        hMemberButton.SetPanelEvent('onmouseover',() => {
+            $.DispatchEvent("DOTAShowTextTooltip", hMemberButton, sString);
+        })
+
+        hMemberButton.SetPanelEvent('onmouseout',() => {
+            $.DispatchEvent("DOTAHideTextTooltip");
+        })
+    }
+}
+
 function LoadDiscordButton() {
 	$.Msg("button.js LoadDiscordButton");
     const hContainer = FindDotaHudElement('ButtonBar');
@@ -87,7 +139,8 @@ function LoadDiscordButton() {
     $.Schedule(1, () => {
         LoadPatreonButton();
 		LoadAfdianButton();
-        // LoadDiscordButton();
+        CustomNetTables.SubscribeNetTableListener("ending_stats", LoadMemberButton);
+        LoadMemberButton(null, "player_data", CustomNetTables.GetTableValue("ending_stats", "player_data"));
     });
 
 })();
