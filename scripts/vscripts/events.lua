@@ -653,7 +653,7 @@ function AIGameMode:OnNPCSpawned(keys)
 				LinkLuaModifier("modifier_saber", "modifiers/player/modifier_saber", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_saber", {})
 			end
-			if WebServer.memberSteamAccountID[steamAccountID] then
+			if WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
 				hEntity:AddNewModifier(hEntity, nil, "modifier_member", {})
 			end
 		end
@@ -794,7 +794,7 @@ function AIGameMode:OnPlayerChat( event )
 		end
 	end
 
-	if WebServer.memberSteamAccountID[steamAccountID] then
+	if WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
 		local pszHeroClass
 		if sChatMsg:find( '^圣剑.*解放.*$' ) then
 			pszHeroClass = "npc_dota_hero_broodmother"
@@ -847,7 +847,8 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 -- local tip_points = WebServer.TipCounter[playerID] or 0
 				local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
-                local membership = WebServer.memberSteamAccountID[steamAccountID] and true or false
+                local membership = WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable or false
+				local memberInfo = WebServer.memberSteamAccountID[steamAccountID]
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
 
@@ -863,6 +864,7 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
                     steamid = tostring(PlayerResource:GetSteamID(playerID)),
                     steamAccountID = steamAccountID,
                     membership = membership,
+					memberInfo = memberInfo,
                     kills = PlayerResource:GetKills(playerID) or 0,
                     deaths = PlayerResource:GetDeaths(playerID) or 0,
                     assists = PlayerResource:GetAssists(playerID) or 0,
