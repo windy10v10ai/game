@@ -1485,10 +1485,10 @@
 			"chance"					"35"
 			"percentage"
 			{
-				"value"				"180 210 240 270 300"
-				"special_bonus_unique_abyss_sword_2"	"+40"
+				"value"				"120 140 160 180 200"
+				"special_bonus_unique_abyss_sword_2"	"+50"
 			}
-			"lifesteal" 			"50"
+			"lifesteal" 			"40"
 			"shard_cooldown"
 			{
 				"value"				"15"

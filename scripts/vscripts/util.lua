@@ -114,4 +114,10 @@ function Set (list)
 	return set
 end
 
+function SetMember (list)
+	local set = {}
+	for _, l in ipairs(list) do set[l] = {enable=1, expireDateString="获取失败"} end
+	return set
+end
+
 print("Util loaded.")
