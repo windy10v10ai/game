@@ -120,4 +120,27 @@ function SetMember (list)
 	return set
 end
 
+function LifeStealOnAttackLanded (params, iLifeSteal, hHero, hAbility)
+	if IsServer() then
+		local attacker = params.attacker
+		if attacker == hHero then
+			local hTarget = params.target
+			local iDamage = params.damage
+			if not hHero:IsRealHero() then
+				return
+			end
+			if hTarget:IsBuilding() or hTarget:IsIllusion() or (hTarget:GetTeam() == attacker:GetTeam()) then
+				return
+			end
+			local iHeal = iDamage * iLifeSteal * 0.01
+            attacker:HealWithParams(iHeal,hAbility,true,true,attacker,false)
+
+			-- effect
+			local lifesteal_pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+			ParticleManager:SetParticleControl(lifesteal_pfx, 0, attacker:GetAbsOrigin())
+			ParticleManager:ReleaseParticleIndex(lifesteal_pfx)
+		end
+	end
+end
+
 print("Util loaded.")
