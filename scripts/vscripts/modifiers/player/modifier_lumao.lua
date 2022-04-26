@@ -2,7 +2,7 @@ modifier_lumao = class({})
 
 function modifier_lumao:IsPurgable() return false end
 function modifier_lumao:RemoveOnDeath() return false end
-function modifier_lumao:GetTexture() return "lumao" end
+function modifier_lumao:GetTexture() return "member/lumao" end
 
 function modifier_lumao:OnCreated()
 	self.iCooldownReduction = 40

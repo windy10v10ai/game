@@ -76,9 +76,9 @@ developerSteamAccountID[916506173]="Arararara"
 developerSteamAccountID[385130282]="米米花"
 
 
--- 称号属性
+-- 称号属性 START
 local lumaoSteamAccountID = Set {
-	-- 成神
+	-- 撸猫
 	128984820,
 	-- 测试
 	-- 916506173,
@@ -86,11 +86,12 @@ local lumaoSteamAccountID = Set {
 
 local luoshuSteamAccountID = Set {
 	-- 洛书
-	136668998,
+    136668998,
+    138837968,
 	-- 测试
-	-- 136407523,
+	-- 916506173,
 }
-
+-- 称号属性 END
 
 function AIGameMode:ArrayShuffle(array)
 	local size = #array
@@ -135,10 +136,13 @@ end
 function AIGameMode:OnGameStateChanged(keys)
 	local state = GameRules:State_Get()
 
-	if state == DOTA_GAMERULES_STATE_HERO_SELECTION then
-		if IsServer() == true then
-			self:InitHumanPlayerListAndSetHumanStartGold()
+	if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+		if IsServer() then
 			WebServer:Initial()
+		end
+	elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
+		if IsServer() then
+			self:InitHumanPlayerListAndSetHumanStartGold()
 		end
 	elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 		if not self.PreGameOptionsSet then
@@ -652,7 +656,10 @@ function AIGameMode:OnNPCSpawned(keys)
 			if luoshuSteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_saber", "modifiers/player/modifier_saber", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_saber", {})
+				LinkLuaModifier("modifier_abyss", "modifiers/player/modifier_abyss", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_abyss", {})
 			end
+
 			if WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
 				hEntity:AddNewModifier(hEntity, nil, "modifier_member", {})
 			end
@@ -805,8 +812,11 @@ function AIGameMode:OnPlayerChat( event )
 			return
 		end
 	end
-	if WebServer.memberAbyssAccountID[steamAccountID] then
+	if luoshuSteamAccountID[steamAccountID] then
 		local pszHeroClass
+		if sChatMsg:find( '^圣剑.*解放.*$' ) then
+			pszHeroClass = "npc_dota_hero_broodmother"
+		end
 		if sChatMsg:find( '沉渊之剑' ) then
 			pszHeroClass = "npc_dota_hero_visage"
 		end
