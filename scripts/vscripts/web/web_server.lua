@@ -16,7 +16,7 @@ end
 function WebServer:Initial()
   self.hostname = "https://windy10v10ai.web.app/api"
   if AIGameMode.DebugMode then
-    self.hostname = "http://localhost:5000/api"
+    -- self.hostname = "http://localhost:5000/api"
   end
 
   -- 会员
@@ -45,13 +45,12 @@ function WebServer:Initial()
     1009673688,
     342865365,
     379664769,
-    -- 测试
-    916506173,
-  }
-
-  -- 沉渊之剑
-  WebServer.memberAbyssAccountID = Set {
-    136668998,
+    153272663,
+    444831658,
+    882465781,
+    342049002,
+    360222290,
+    86802334,
     -- 测试
     916506173,
   }

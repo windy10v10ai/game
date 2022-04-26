@@ -3329,7 +3329,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"3000"
+		"ItemCost"								"3200"
 		"ItemShopTags"							""
 
 
@@ -3385,12 +3385,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"40"
+				"bonus_strength"		"45"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"disarm_con"			"1"
+				"disarm_con"			"2"
 			}
 			"04"
 			{
@@ -3427,6 +3427,13 @@
 				"var_type"				"FIELD_FLOAT"
 				"spell_resist"			"20"
 			}
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"knockback_range"			"350"
+			"knockback_distance"		"150"
 		}
 	}
 

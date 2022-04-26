@@ -13,7 +13,7 @@ function item_heavens_halberd_v2:OnSpellStart()
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 2, caster:GetAbsOrigin())
-	ParticleManager:SetParticleControl(particle, 3, caster:GetAbsOrigin())    
+	ParticleManager:SetParticleControl(particle, 3, caster:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(particle)
     caster:StartGesture(ACT_DOTA_TELEPORT_END)
 
@@ -22,21 +22,23 @@ function item_heavens_halberd_v2:OnSpellStart()
     local durMax = self:GetSpecialValueFor("disarm_con_max")
     local dur2 = caster:GetStrength()/dur2PerStr
     local dur = math.min(dur1+dur2, durMax)
+    local knockback_range = self:GetSpecialValueFor("knockback_range")
+    local knockback_distance = self:GetSpecialValueFor("knockback_distance")
 
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-	for _, enemy in pairs(enemies) do 
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, knockback_range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+	for _, enemy in pairs(enemies) do
         local Knockback ={
             should_stun = 0.01, --打断
             knockback_duration = 0.5, --击退时间 减去不能动的时间就是太空步的时间
             duration = 0.5, --不能动的时间
-            knockback_distance = 300, --击退距离
+            knockback_distance = knockback_distance, --击退距离
             knockback_height = 100,	--击退高度
             center_x =  caster:GetAbsOrigin().x,	--施法者为中心
             center_y =  caster:GetAbsOrigin().y,
             center_z =  caster:GetAbsOrigin().z,
          }
-        enemy:AddNewModifier(enemy, self, "modifier_knockback", Knockback) 
-		enemy:AddNewModifier(enemy, self, "modifier_item_heavens_halberd_v2_debuff", {duration=dur}) 
+        enemy:AddNewModifier(enemy, self, "modifier_knockback", Knockback)
+		enemy:AddNewModifier(enemy, self, "modifier_item_heavens_halberd_v2_debuff", {duration=dur})
 	end
 end
 
@@ -96,7 +98,7 @@ end
 
 function modifier_item_heavens_halberd_v2:OnIntervalThink()
     self.disarmed=true
-    self:StartIntervalThink(-1)   
+    self:StartIntervalThink(-1)
 end
 
 function modifier_item_heavens_halberd_v2:GetModifierEvasion_Constant()
