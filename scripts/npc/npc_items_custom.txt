@@ -863,7 +863,7 @@
 					{
 							"Passive"				"1"
 							"IsHidden"				"1"
-							"Attributes"				"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+							"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 							"Aura" 					"modifier_item_vladmir_2_general_aura"
 							"Aura_Radius" 			"%aura_radius"
@@ -887,11 +887,12 @@
 
 							"OnAttackLanded"
 							{
-									"Lifesteal"
-									{
-											"Target"            "ATTACKER"
-											"LifestealPercent"  "%vampiric_aura"
-									}
+								"RunScript"
+								{
+									"ScriptFile"	"items/item_vladmir_2.lua"
+									"Function"		"VampiricAuraApply"
+									"attack_damage"	"%attack_damage"
+								}
 							}
 					}
 
