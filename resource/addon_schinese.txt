@@ -149,9 +149,10 @@
 		// 茶神
 		"npc_dota_hero_techies"					"茶神"
 
-		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_member"					"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
 		"DOTA_Tooltip_modifier_member_Description"	"额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
+		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
+		"DOTA_Tooltip_modifier_bulangya"				"<font color='#5534A5'>★ 迷城骇兔 ★</font>"
 		"DOTA_Tooltip_modifier_saber"					"<font color='#FFCC66'>★ SaberのMaster ★</font>"
 		"DOTA_Tooltip_modifier_saber_Description"		"<font color='#FFCC66'>使用氪金令咒使SABER降临战场的御主。</font>"
 		"DOTA_Tooltip_modifier_abyss"					"<font color='#55D8C1'>★ 沉渊之剑 ★</font>"

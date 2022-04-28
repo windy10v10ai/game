@@ -84,10 +84,23 @@ local lumaoSteamAccountID = Set {
 	-- 916506173,
 }
 
-local luoshuSteamAccountID = Set {
+local bulangyaSteamAccountID = Set {
+	-- 布狼牙
+	117417953,
+	-- 测试
+	-- 916506173,
+}
+
+local luoshuBuffSteamAccountID = Set {
 	-- 洛书
-    136668998,
-    138837968,
+	136668998,
+	-- 测试
+	-- 916506173,
+}
+
+local luoshuHeroSteamAccountID = Set {
+	136668998,
+	138837968,
 	-- 测试
 	-- 916506173,
 }
@@ -653,7 +666,11 @@ function AIGameMode:OnNPCSpawned(keys)
 				LinkLuaModifier("modifier_lumao", "modifiers/player/modifier_lumao", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_lumao", {})
 			end
-			if luoshuSteamAccountID[steamAccountID] then
+			if bulangyaSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_bulangya", "modifiers/player/modifier_bulangya", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_bulangya", {})
+			end
+			if luoshuBuffSteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_saber", "modifiers/player/modifier_saber", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_saber", {})
 				LinkLuaModifier("modifier_abyss", "modifiers/player/modifier_abyss", LUA_MODIFIER_MOTION_NONE)
@@ -812,7 +829,7 @@ function AIGameMode:OnPlayerChat( event )
 			return
 		end
 	end
-	if luoshuSteamAccountID[steamAccountID] then
+	if luoshuHeroSteamAccountID[steamAccountID] then
 		local pszHeroClass
 		if sChatMsg:find( '^圣剑.*解放.*$' ) then
 			pszHeroClass = "npc_dota_hero_broodmother"
