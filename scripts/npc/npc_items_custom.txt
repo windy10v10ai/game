@@ -2172,7 +2172,7 @@
 		"ScriptFile"                    "items/item_dragon_lance_pro_max.lua"
 
 		"AbilityCooldown"				"20.0"
-		"AbilityManaCost"			    "200"
+		"AbilityManaCost"			    "150"
 		"AbilitySharedCooldown"			"dragonlance"
 
 		// Item Info
@@ -3707,7 +3707,7 @@
 		"AbilityCooldown"				"20.0"
 		"AbilitySharedCooldown"			"force"
 
-		"AbilityManaCost"				"250"
+		"AbilityManaCost"				"200"
 		"ItemCost"						"4450"
 		"ItemShopTags"					"int;damage;attack_speed;hard_to_tag"
 		"ItemQuality"					"epic"
