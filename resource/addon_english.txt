@@ -84,8 +84,16 @@
 		"bot_multiplier"	"Bot Multi"
 		"tower_power"		"Tower Level"
 
-		"player_member_ship"		"Sponsor"
+		///////////////////////////////////////////////////
+		//
+		//            Member
+		//
+		///////////////////////////////////////////////////
+		"player_member_ship"		"Sponsor. Click to view more."
 		"player_member_ship_url"		"https://www.patreon.com/windy10v10"
+
+		"player_member_button"		"Thank you for your sponsorship!<br/> - Type 'AbyssSword' to swap the new hero.<br/>Membership is valid until {expireDate}."
+		"player_member_button_expire"		"Thank you for your sponsorship!<br/>Membership is valid until {expireDate}, Click the button to renew."
 
 		///////////////////////////////////////////////////
 		//
