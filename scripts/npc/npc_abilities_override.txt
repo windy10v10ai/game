@@ -10695,6 +10695,7 @@
 	}
 	"bane_fiends_grip"
 	{
+		"HasScepterUpgrade"			"0"
 		"MaxLevel" "5"
 		"AbilityCooldown"				"60 50 40 30 20"
 		"AbilityManaCost"				"200 300 400 500 600"
@@ -10714,7 +10715,7 @@
 			"fiend_grip_damage"				"70 110 150 190 230"
 			"scepter_cooldown"
 			{
-				"value"				"5"
+				"value"				"-50"
 				"RequiresScepter"	"1"
 			}
 			"scepter_incoming_illusion_damage"
