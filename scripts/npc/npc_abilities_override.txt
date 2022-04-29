@@ -5312,7 +5312,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"scepter_duration"		"5"
+				"scepter_duration"		"4"
 				"RequiresScepter"			"1"
 			}
 		}
@@ -6836,7 +6836,7 @@
 	"clinkz_strafe"
 	{
 		"MaxLevel" "5"
-		"AbilityChannelTime"			"1.2 1.6 2.0 2.4 2.7"
+		"AbilityChannelTime"			"1.2 1.6 2.0 2.4 2.8"
 		"AbilityCooldown"				"28 26 24 22 18"
 		"AbilityManaCost"				"40 55 70 85 100"
 		"AbilityValues"
@@ -6846,11 +6846,11 @@
 					"value"			"3 4 5 6 7"
 					"LinkedSpecialBonus"		"special_bonus_unique_clinkz_12"
 				}
-				"range"	"750 800 850 900 950"
+				"range"	"700 750 800 850 900"
 				"damage_pct"
 				{
 					"value"		"55"
-					"special_bonus_unique_clinkz_4"	"+25"
+					"special_bonus_unique_clinkz_4"	"+15"
 				}
 
 		}
