@@ -9,6 +9,7 @@ function LoadPatreonButton() {
 	$.Msg("button.js LoadPatreonButton");
     const hContainer = FindDotaHudElement('ButtonBar');
     let sString = 'Support the game on Patreon!';
+    sString = sString + "<br/>Unlock new heroes, and more benefit!";
     // let sString = bSupporter ? 'Support the game and enjoy Patreon\'s perks!' : '<font color="#ffa1f4">Thank you for your support ♥!</font><br><br>&#9;&#160;&#160;&#160;&#160;&#160;Status: <font color="'+tiers[hStats.donator][1]+'">'+hStats.donator+'</font>';
 
     if (hContainer){
@@ -35,6 +36,7 @@ function LoadAfdianButton() {
 	$.Msg("button.js LoadAfdianButton");
     const hContainer = FindDotaHudElement('ButtonBar');
     let sString = '通过爱发电支持我们的游戏！';
+    sString = sString + "<br/>订阅会员可解锁新英雄，点击查看更多福利！";
 
     if (hContainer){
         let hAfdianButton = hContainer.FindChild('JoinAfdian') || $.CreatePanel('Button', hContainer, 'JoinAfdian')
@@ -69,7 +71,6 @@ function LoadMemberButton(table, key, gameResult) {
 
 
     const hContainer = FindDotaHudElement('ButtonBar');
-    let sString = '感谢您的支持！';
 
     if (hContainer){
         let hAfdianButton = hContainer.FindChild('JoinAfdian')
@@ -84,14 +85,15 @@ function LoadMemberButton(table, key, gameResult) {
 
         let hMemberButton = hContainer.FindChild('memberButton') || $.CreatePanel('Button', hContainer, 'memberButton')
 
-        hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown.png')`
+        let sString = $.Localize('#player_member_button');
         if (player.memberInfo.enable) {
-            sString = sString + "<br/> - 打字输入“圣剑解放”即可召唤saber";
-            sString = sString + "<br/>会员有效期：" + player.memberInfo.expireDateString;
+            hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown.png')`
         } else {
-            sString = sString + "<br/>会员已到期：" + player.memberInfo.expireDateString;
+            sString = $.Localize('#player_member_button_expire');
             hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown_grey.png')`
         }
+    	sString = sString.replace("{expireDate}", player.memberInfo.expireDateString);
+
         hMemberButton.style.backgroundSize = "100% 100%";
 
         hMemberButton.SetPanelEvent('onactivate',() => {
