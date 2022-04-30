@@ -84,8 +84,16 @@
 		"bot_multiplier"	"Bot Multi"
 		"tower_power"		"Tower Level"
 
-		"player_member_ship"		"Sponsor"
+		///////////////////////////////////////////////////
+		//
+		//            Member
+		//
+		///////////////////////////////////////////////////
+		"player_member_ship"		"Sponsor. Click to view more."
 		"player_member_ship_url"		"https://www.patreon.com/windy10v10"
+
+		"player_member_button"		"Thank you for your sponsorship!<br/> - Type 'AbyssSword' to swap the new hero.<br/>Membership is valid until {expireDate}."
+		"player_member_button_expire"		"Thank you for your sponsorship!<br/>Membership is valid until {expireDate}, Click the button to renew."
 
 		///////////////////////////////////////////////////
 		//
@@ -306,7 +314,6 @@
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_movespeed" 			 "%movement speed bonus:"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_chance" 			 "%trigger probability:"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_count" 			 "Sword Qi quantity:"
-
 
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_1" 				 "+ {s:bonus_damage} night sword attack bonus"
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_2" 				 "+ {s:bonus_percentage} out of sheath critical hit probability"
@@ -749,7 +756,7 @@
 
 		// item_heavens_halberd_v2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"heavens halberd v2"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within 300 with self as the center，And produce a repulsion effect，Disarm duration：%disarm_con%s +Hero's current str/%disarm_con_per_str% seconds,Up to %disarm_con_max% seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% probability of disarming the target ,It can be triggered every 5 seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within %knockback_range% with self as the center，And produce a repulsion effect，Disarm duration：%disarm_con%s +Hero's current str/%disarm_con_per_str% seconds,Up to %disarm_con_max% seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% probability of disarming the target ,It can be triggered every 5 seconds."
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+Status Resistance"

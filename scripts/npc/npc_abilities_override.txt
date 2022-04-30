@@ -1508,12 +1508,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.5 5.0 5.5 6.0"
+				"duration"					"3.5 4.0 4.5 5.0"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration_scepter"			"5.5 6.0 6.5 7.0"
+				"duration_scepter"			"4.5 5.0 5.5 6.0"
 				"RequiresScepter"	"1"
 			}
 		}
@@ -2360,8 +2360,9 @@
 	"chaos_knight_phantasm"
 	{
 		"MaxLevel" "5"
+		"HasScepterUpgrade"				"0"
 		"AbilityCooldown"				"60"
-		"AbilityManaCost"				"200"
+		"AbilityManaCost"				"75 125 175 225 275"
 		"AbilitySpecial"
 		{
 			"01"
@@ -2372,13 +2373,13 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"illusion_duration"			"30"
+				"illusion_duration"			"20"
 				"LinkedSpecialBonus"		"special_bonus_unique_chaos_knight_4"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"outgoing_damage"			"0"
+				"outgoing_damage"			"-30 -10 10 30 50"
 			}
 			"04"
 			{
@@ -5312,7 +5313,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"scepter_duration"		"5"
+				"scepter_duration"		"4"
 				"RequiresScepter"			"1"
 			}
 		}
@@ -6237,6 +6238,34 @@
 			}
 		}
 	}
+	// 墓碑
+	"undying_tombstone"
+	{
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"120 130 140 150"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"20.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"600"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"zombie_interval"		"4.0"
+			}
+		}
+	}
+
 	"undying_flesh_golem"
 	{
 		"MaxLevel" "5"
@@ -6808,7 +6837,7 @@
 	"clinkz_strafe"
 	{
 		"MaxLevel" "5"
-		"AbilityChannelTime"			"1.2 1.6 2.0 2.4 2.7"
+		"AbilityChannelTime"			"1.2 1.6 2.0 2.4 2.8"
 		"AbilityCooldown"				"28 26 24 22 18"
 		"AbilityManaCost"				"40 55 70 85 100"
 		"AbilityValues"
@@ -6818,11 +6847,11 @@
 					"value"			"3 4 5 6 7"
 					"LinkedSpecialBonus"		"special_bonus_unique_clinkz_12"
 				}
-				"range"	"750 800 850 900 950"
+				"range"	"700 750 800 850 900"
 				"damage_pct"
 				{
 					"value"		"55"
-					"special_bonus_unique_clinkz_4"	"+25"
+					"special_bonus_unique_clinkz_4"	"+15"
 				}
 
 		}
@@ -10667,6 +10696,7 @@
 	}
 	"bane_fiends_grip"
 	{
+		"HasScepterUpgrade"			"0"
 		"MaxLevel" "5"
 		"AbilityCooldown"				"60 50 40 30 20"
 		"AbilityManaCost"				"200 300 400 500 600"
@@ -10686,7 +10716,7 @@
 			"fiend_grip_damage"				"70 110 150 190 230"
 			"scepter_cooldown"
 			{
-				"value"				"5"
+				"value"				"-50"
 				"RequiresScepter"	"1"
 			}
 			"scepter_incoming_illusion_damage"
@@ -13918,7 +13948,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"15"
+				"value"				"10"
 				"ad_linked_abilities"			"silencer_glaives_of_wisdom"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -13933,12 +13963,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"120 160 200 240 300"
+				"damage"			"120 180 240 300 360"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_multiplier"	"1.6 1.8 2.0 2.2 2.4"
+				"int_multiplier"	"1.2 1.4 1.6 1.8 2.0"
 				"LinkedSpecialBonus"	"special_bonus_unique_silencer_4"
 			}
 			"04"
@@ -13949,7 +13979,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"scepter_radius"		"500"
+				"scepter_radius"		"400"
 				"RequiresScepter"			"1"
 			}
 			"06"
@@ -13967,7 +13997,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"value"				"0.6"
+				"value"				"0.4"
 				"ad_linked_abilities"			"silencer_last_word"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}

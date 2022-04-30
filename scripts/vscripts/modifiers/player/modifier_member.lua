@@ -2,7 +2,7 @@ modifier_member = class({})
 
 function modifier_member:IsPurgable() return false end
 function modifier_member:RemoveOnDeath() return false end
-function modifier_member:GetTexture() return "member" end
+function modifier_member:GetTexture() return "player/member" end
 
 function modifier_member:OnCreated()
 	self.iBonusDamage = 10

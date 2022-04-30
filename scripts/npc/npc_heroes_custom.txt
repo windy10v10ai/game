@@ -95,8 +95,8 @@
 		"Ability13"					"special_bonus_lifesteal_15"
 		"Ability14"					"special_bonus_cooldown_reduction_10"
 		"Ability15"					"special_bonus_all_stats_12"
-		"Ability16"					"special_bonus_attack_damage_250"
-		"Ability17"					"special_bonus_cleave_100"
+		"Ability16"					"special_bonus_attack_damage_160"
+		"Ability17"					"special_bonus_cleave_60"
 
 
 		"ItemSlots"
@@ -160,13 +160,13 @@
 		"AttackAcquisitionRange"		"550"
 		"AttackRange"					"250"
 
-		"AttributePrimary"				"DOTA_ATTRIBUTE_Strength"
-		"AttributeBaseStrength"			"25"
-		"AttributeStrengthGain"			"3.0"
+		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			"28"
+		"AttributeStrengthGain"			"3.3"
 		"AttributeBaseAgility"			"22"
 		"AttributeAgilityGain"			"2.2"
 		"AttributeBaseIntelligence"		"20"
-		"AttributeIntelligenceGain"		"2.0"
+		"AttributeIntelligenceGain"		"1.4"
 
 		"MovementCapabilities"			"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"					"315"
@@ -174,6 +174,8 @@
 
 		"VisionDaytimeRange"			"1000"
 		"VisionNighttimeRange"			"1000"
+
+		"VoiceFile"					"soundevents/voscripts/game_sounds_vo_juggernaut.vsndevts"
 	}
 
 	"npc_dota_hero_silencer"

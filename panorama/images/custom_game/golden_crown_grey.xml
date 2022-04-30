@@ -1,0 +1,5 @@
+<root>
+	<Panel class="AddonLoadingRoot">
+		<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/golden_crown_grey.png" />
+	</Panel>
+</root>
