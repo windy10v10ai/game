@@ -1508,12 +1508,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.5 5.0 5.5 6.0"
+				"duration"					"3.5 4.0 4.5 5.0"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration_scepter"			"5.5 6.0 6.5 7.0"
+				"duration_scepter"			"4.5 5.0 5.5 6.0"
 				"RequiresScepter"	"1"
 			}
 		}
@@ -2360,8 +2360,9 @@
 	"chaos_knight_phantasm"
 	{
 		"MaxLevel" "5"
+		"HasScepterUpgrade"				"0"
 		"AbilityCooldown"				"60"
-		"AbilityManaCost"				"200"
+		"AbilityManaCost"				"75 125 175 225 275"
 		"AbilitySpecial"
 		{
 			"01"
@@ -2372,13 +2373,13 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"illusion_duration"			"30"
+				"illusion_duration"			"20"
 				"LinkedSpecialBonus"		"special_bonus_unique_chaos_knight_4"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"outgoing_damage"			"0"
+				"outgoing_damage"			"-30 -10 10 30 50"
 			}
 			"04"
 			{
