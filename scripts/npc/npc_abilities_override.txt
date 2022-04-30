@@ -13442,7 +13442,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shard_damage_pct_from_ward"			"80"
+				"shard_damage_pct_from_ward"			"60"
 				"RequiresShard"		"1"
 			}
 		}
