@@ -1812,7 +1812,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4625"
+		"ItemCost"						"5225"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1839,7 +1839,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"11200"
+		"ItemCost"						"11800"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mana;mb;octarine core"
@@ -5290,7 +5290,7 @@
 			"12"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"			"600"
+				"radius"				"450"
 			}
 			"13"
 			{

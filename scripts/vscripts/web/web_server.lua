@@ -16,7 +16,7 @@ end
 function WebServer:Initial()
   self.hostname = "https://windy10v10ai.web.app/api"
   if AIGameMode.DebugMode then
-    -- self.hostname = "http://localhost:5000/api"
+    self.hostname = "http://localhost:5000/api"
   end
 
   -- 会员
