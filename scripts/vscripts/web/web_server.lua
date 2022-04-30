@@ -15,9 +15,12 @@ end
 
 function WebServer:Initial()
   self.hostname = "https://windy10v10ai.web.app/api"
+  if AIGameMode.DebugMode then
+    self.hostname = "http://localhost:5000/api"
+  end
 
   -- 会员
-  WebServer.memberSteamAccountID = Set {
+  WebServer.memberSteamAccountID = SetMember {
     -- 开发贡献者
     136407523,1194383041,143575444,314757913,385130282,
     -- 初始会员
@@ -37,25 +40,26 @@ function WebServer:Initial()
     355472172,
     445801587,
     308320923,
-    -- 测试
-    -- 916506173,
-  }
-
-  -- 会员
-  WebServer.memberAbyssAccountID = Set {
-    136668998,
+    176061240,
+    190540884,
+    1009673688,
+    342865365,
+    379664769,
+    153272663,
+    444831658,
+    882465781,
+    342049002,
+    360222290,
+    86802334,
+    185047994,
+    231445049,
+    180838006,
     -- 测试
     916506173,
   }
 
-  -- 会员有效期
-  WebServer.memberExpireSteamAccountID = {}
-  WebServer.memberExpireSteamAccountID[136407523]={enable=true,expireDate="2099-12-31"}
-  WebServer.memberExpireSteamAccountID[916506173]={enable=false,expireDate="2022-04-22"}
-
-
-  WebServer:GetMember()
-  WebServer:RootAPI()
+  WebServer.getMemberInfoSuccess = false
+  WebServer:GetMemberAll(0)
 end
 
 --------------------
@@ -101,4 +105,51 @@ function WebServer:GetMember()
       print( "[WEB]getMember failed with error " .. result.StatusCode )
     end
   end )
+end
+
+
+function WebServer:GetMemberAll(retryTime)
+  if WebServer.getMemberInfoSuccess then
+    return
+  end
+  local path = "/members/all"
+  local url = self.hostname .. path .. "?retryTime="..retryTime
+  local key = GetDedicatedServerKeyV2("windy10v10ai")
+  print("[WEB]members url: " .. url)
+  local request = CreateHTTPRequest( "GET", url )
+  -- send request
+  request:Send( function( result )
+    -- response
+    if WebServer.getMemberInfoSuccess then
+      return
+    end
+
+    if result.StatusCode == 200 then
+      if string.find(result.Body, "136407523") then
+        local data = json.decode(result.Body)
+        print("[WEB]members table: ")
+        PrintTable(data)
+        for k,v in pairs(data) do
+          WebServer.memberSteamAccountID[v.steamId] = v
+        end
+        print("[WEB]memberSteamAccountID: ")
+        PrintTable(WebServer.memberSteamAccountID)
+        WebServer.getMemberInfoSuccess = true
+      else
+        print( "[WEB]getMember failed with error " .. result.StatusCode )
+      end
+    else
+      print( "[WEB]getMember failed with error " .. result.StatusCode )
+    end
+  end )
+
+  -- retry after 5 seconds
+  Timers:CreateTimer(5,function()
+    if WebServer.getMemberInfoSuccess then
+      return
+    end
+    if retryTime < 10 then
+      WebServer:GetMemberAll(retryTime+1)
+    end
+  end)
 end

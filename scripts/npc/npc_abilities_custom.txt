@@ -1097,7 +1097,7 @@
 		"AbilityCastRange"				"650"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"10.0 9.5 9.0 8.5 8.0"
+		"AbilityCooldown"				"12.0 11.5 11.0 10.5 10.0"
 		"AbilityManaCost"				"80 100 120 140 160"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1390,9 +1390,9 @@
 		{
 			"cast_delay"			"1.5"
 			"duration"				"1.5"
-			"range"					"6000"
-			"width"					"500"
-			"speed"					"6000.0"
+			"range"					"4000"
+			"width"					"450"
+			"speed"					"4000.0"
 			"interval"				"0.25"
 			"slow_amount"
 			{
@@ -1407,12 +1407,12 @@
 			"01"
 		    {
 		    	"var_type"			"FIELD_INTEGER"
-		    	"damage"			"2000"
+		    	"damage"			"1800"
 		    }
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_scepter"	"2200"
+				"damage_scepter"	"2000"
 				"RequiresScepter"	"1"
 			}
 		}
@@ -1450,7 +1450,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.3"
 
 		"AbilityValues"
 		{
@@ -1459,7 +1459,7 @@
 			"speed"						"1600"
 			"damage"
 			{
-				"value"				"40 60 80 100 120"
+				"value"				"60 90 120 150 180"
 				"special_bonus_unique_abyss_sword_1"	"+40"
 			}
 		}
@@ -1485,10 +1485,10 @@
 			"chance"					"35"
 			"percentage"
 			{
-				"value"				"180 220 260 300 340"
-				"special_bonus_unique_abyss_sword_2"	"+60"
+				"value"				"130 160 190 220 250"
+				"special_bonus_unique_abyss_sword_2"	"+50"
 			}
-			"lifesteal" 			"50"
+			"lifesteal" 			"40"
 			"shard_cooldown"
 			{
 				"value"				"15"
@@ -1521,7 +1521,7 @@
 		"FightRecapLevel"				"1"
 
 		"AbilityCooldown"				"32 28 24 20 16"
-		"AbilityManaCost"				"80"
+		"AbilityManaCost"				"80 90 100 110 120"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1532,14 +1532,14 @@
 
 		"AbilityValues"
 		{
-			"channel"					"1 2 3 4 5"
+			"channel"					"2.0 2.5 3.0 3.5 4.0"
 			"attack_bounts"
 			{
 				"value"					"10"
-				"special_bonus_unique_abyss_sword_3"	"+10"
+				"special_bonus_unique_abyss_sword_3"	"+5"
 			}
-			"duration"					"10"
-			"attack_times"				"3"
+			"duration"					"8"
+			"attack_times"				"3 4 5 6 7"
 			"scepter_movespeed"
 			{
 				"value"					"550"
@@ -1556,6 +1556,7 @@
 		"AbilityTextureName"			"custom/abyss_sword/abyss_sword_rush_night_sally"
 		"FightRecapLevel"				"1"
 
+		"AbilityCooldown"				"1.0"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
@@ -1565,8 +1566,8 @@
 		{
 			"chance"
 			{
-				"value"					"15 25 35"
-				"special_bonus_unique_abyss_sword_4"	"+10"
+				"value"					"15 20 25"
+				"special_bonus_unique_abyss_sword_4"	"+5"
 			}
 			"count"
 			{
@@ -1575,7 +1576,7 @@
 			}
 			"angle"				"80"
 			"attackspeed"				"20 40 60"
-			"movespeed"				"20 40 60"
+			"movespeed"					"20 30 40"
 		}
 	}
 

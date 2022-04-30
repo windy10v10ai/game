@@ -51,8 +51,6 @@ function artoria_mana_burst:OnSpellStart()
 			local explodeFxIndex = ParticleManager:CreateParticle( explodeParticleName, PATTACH_ABSORIGIN, mana_burst_target )
 
 			mana_burst_target:AddNewModifier(caster, self, "modifier_artoria_mana_burst_slow", { Duration = duration })
-			-- remove Positive buff
-			caster:Purge(true, false, false, false, false)
 
 			Timers:CreateTimer(2.50, function()
 				ParticleManager:DestroyParticle( slashFxIndex, false )

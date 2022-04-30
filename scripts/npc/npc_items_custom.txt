@@ -863,7 +863,7 @@
 					{
 							"Passive"				"1"
 							"IsHidden"				"1"
-							"Attributes"				"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+							"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 							"Aura" 					"modifier_item_vladmir_2_general_aura"
 							"Aura_Radius" 			"%aura_radius"
@@ -887,11 +887,12 @@
 
 							"OnAttackLanded"
 							{
-									"Lifesteal"
-									{
-											"Target"            "ATTACKER"
-											"LifestealPercent"  "%vampiric_aura"
-									}
+								"RunScript"
+								{
+									"ScriptFile"	"items/item_vladmir_2.lua"
+									"Function"		"VampiricAuraApply"
+									"attack_damage"	"%attack_damage"
+								}
 							}
 					}
 
@@ -1811,7 +1812,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4625"
+		"ItemCost"						"5225"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1838,7 +1839,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"11200"
+		"ItemCost"						"11800"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mana;mb;octarine core"
@@ -2171,7 +2172,7 @@
 		"ScriptFile"                    "items/item_dragon_lance_pro_max.lua"
 
 		"AbilityCooldown"				"20.0"
-		"AbilityManaCost"			    "200"
+		"AbilityManaCost"			    "150"
 		"AbilitySharedCooldown"			"dragonlance"
 
 		// Item Info
@@ -2921,7 +2922,7 @@
 		"ItemResult"					"item_infernal_desolator"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator;item_dodo_desolator"
+			"01"						"item_dodo_desolator;item_relic"
 		}
 	}
 
@@ -3329,7 +3330,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"3000"
+		"ItemCost"								"3200"
 		"ItemShopTags"							""
 
 
@@ -3385,12 +3386,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"40"
+				"bonus_strength"		"45"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"disarm_con"			"1"
+				"disarm_con"			"2"
 			}
 			"04"
 			{
@@ -3427,6 +3428,13 @@
 				"var_type"				"FIELD_FLOAT"
 				"spell_resist"			"20"
 			}
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"knockback_range"			"350"
+			"knockback_distance"		"150"
 		}
 	}
 
@@ -3699,7 +3707,7 @@
 		"AbilityCooldown"				"20.0"
 		"AbilitySharedCooldown"			"force"
 
-		"AbilityManaCost"				"250"
+		"AbilityManaCost"				"200"
 		"ItemCost"						"4450"
 		"ItemShopTags"					"int;damage;attack_speed;hard_to_tag"
 		"ItemQuality"					"epic"
@@ -5282,7 +5290,7 @@
 			"12"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"			"600"
+				"radius"				"450"
 			}
 			"13"
 			{
@@ -5306,7 +5314,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"750"
+		"ItemCost"						"3750"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5315,7 +5323,7 @@
 		"ItemResult"					"item_dodo_desolator"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator;item_relic"
+			"01"						"item_desolator"
 		}
 	}
 

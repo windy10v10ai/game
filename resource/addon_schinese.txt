@@ -84,8 +84,16 @@
 		"bot_multiplier"	"电脑倍率"
 		"tower_power"		"建筑倍率"
 
-		"player_member_ship"		"会员"
+		///////////////////////////////////////////////////
+		//
+		//            Member
+		//
+		///////////////////////////////////////////////////
+		"player_member_ship"		"点击查看会员详情"
 		"player_member_ship_url"		"https://afdian.net/@windy10v10"
+
+		"player_member_button"		"感谢您的支持！<br/> - 打字输入“沉渊之剑”即可召唤新英雄<br/>会员有效期：{expireDate}"
+		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 
 		///////////////////////////////////////////////////
 		//
@@ -149,10 +157,14 @@
 		// 茶神
 		"npc_dota_hero_techies"					"茶神"
 
-		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_member"					"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
 		"DOTA_Tooltip_modifier_member_Description"	"额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
+		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
+		"DOTA_Tooltip_modifier_bulangya"				"<font color='#5534A5'>★ 迷城骇兔 ★</font>"
 		"DOTA_Tooltip_modifier_saber"					"<font color='#FFCC66'>★ SaberのMaster ★</font>"
+		"DOTA_Tooltip_modifier_saber_Description"		"<font color='#FFCC66'>使用氪金令咒使SABER降临战场的御主。</font>"
+		"DOTA_Tooltip_modifier_abyss"					"<font color='#55D8C1'>★ 沉渊之剑 ★</font>"
+		"DOTA_Tooltip_modifier_abyss_Description"		"<font color='#55D8C1'>唤醒沉渊魔剑的旅行者，是幸运？还是不幸？</font>"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"
@@ -268,7 +280,6 @@
 
 		//沉渊之剑
 		"npc_dota_hero_visage"									"沉渊之剑"
-
 		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sword_qi"				"冲宵剑气"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_description"	"沉渊之剑向前方劈出一道剑气，对触碰到的敌方单位造成一次附带额外伤害的普通攻击"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_Lore"		"来自沉渊之剑师门的基础剑法"
@@ -297,6 +308,7 @@
 		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_duration"			"攻击加成最大持续时间："
 		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_attack_times"			"攻击次数："
 		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_scepter_description"		"藏锋不再需要持续施法，且不再有攻击次数限制，原持续施法期间获得极速效果"
+
 
 		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sally"				"冲宵破军"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description"	"沉渊之剑获得攻击速度和移动速度加成，并使沉渊之剑的攻击有几率发射多道冲宵剑气"
@@ -750,7 +762,7 @@
 
 		// item_heavens_halberd_v2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"无锋战戟"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1><font color='#FFFF00'>主动：天堂冲击</font></h1>以自身为中心对300范围内单位进行缴械，并产生击退效果，击退300码，缴械持续时间：%disarm_con%+英雄当前力量/%disarm_con_per_str%秒,最长为%disarm_con_max%秒。\n<h1><font color='#FFFF00'>被动：以战止战</font></h1>普攻有%attch%%%概率对目标缴械%disarm%秒，每5秒可以触发一次。"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1><font color='#FFFF00'>主动：天堂冲击</font></h1>以自身为中心对%knockback_range%范围内单位进行缴械，并产生击退效果，击退%knockback_distance%码，缴械持续时间：%disarm_con%+英雄当前力量/%disarm_con_per_str%秒,最长为%disarm_con_max%秒。\n<h1><font color='#FFFF00'>被动：以战止战</font></h1>普攻有%attch%%%概率对目标缴械%disarm%秒，每5秒可以触发一次。"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+状态抗性"
@@ -865,7 +877,7 @@
 		"DOTA_Tooltip_ability_item_satanic_2_bonus_damage"						"+$damage"
 
 		// 大狂战
-		"DOTA_Tooltip_Ability_item_bfury_2"				"进阶狂战斧"
+		"DOTA_Tooltip_Ability_item_bfury_2"				"超级狂战斧"
 		"DOTA_Tooltip_ability_item_bfury_2_Description"							"<h1>主动：砍伐</h1>砍伐一根指定树木。<br><br>砍伐施法距离：%abilitycastrange%\n<h1>被动：压制</h1>对非英雄单位进行物理攻击会造成额外伤害，近战英雄为%quelling_bonus%点，远程英雄为%quelling_bonus_ranged%点。\n<h1>被动：分裂</h1>普通攻击时对目标周围最远%cleave_distance%距离的锥形区域内敌人造成%cleave_damage_percent%%%物理伤害。对非英雄单位造成%cleave_damage_percent_creep%%%物理伤害。（仅近战有效）"
 		"DOTA_Tooltip_ability_item_bfury_2_Lore"									"持有这把强大斧头的人可以一次砍倒一片敌人。"
 		"DOTA_Tooltip_ability_item_bfury_2_Note0"									"分裂伤害无视技能免疫。"

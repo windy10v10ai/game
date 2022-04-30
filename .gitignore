@@ -18,3 +18,7 @@ src/content/
 src/game/
 panorama/images/custom_game/afdian.vxml_c
 soundevents/hero_artoria.vsndevts_c
+panorama/images/custom_game/golden_crown_png.vtex_c
+panorama/images/custom_game/golden_crown.vxml_c
+panorama/images/custom_game/golden_crown_grey_png.vtex_c
+panorama/images/custom_game/golden_crown_grey.vxml_c
