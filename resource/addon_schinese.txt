@@ -167,6 +167,9 @@
 		"DOTA_Tooltip_modifier_abyss_Description"		"<font color='#55D8C1'>唤醒沉渊魔剑的旅行者，是幸运？还是不幸？</font>"
 		"DOTA_Tooltip_modifier_76"						"<font color='#F66B0E'>★ 克林克兹之馈赠 ★</font>"
 		"DOTA_Tooltip_modifier_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
+		"DOTA_Tooltip_modifier_hunzhuo"					"<font color='#A85CF9'>★ 我的口袋只剩玫瑰一片，此行又山高路远 ★</font>"
+		"DOTA_Tooltip_modifier_hunzhuo_Description"		"<font color='#A85CF9'>蹉跎错，消磨过，最是光阴化浮沫。</font>"
+		"DOTA_Tooltip_modifier_chashaobao"				"<font color='#E8C07D'>★ 叉烧包之王 ★</font>"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"

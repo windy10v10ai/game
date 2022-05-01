@@ -77,6 +77,13 @@ developerSteamAccountID[385130282]="米米花"
 
 
 -- 称号属性 START
+local windySteamAccountID = Set {
+	-- windy
+	136407523,
+	-- 测试
+	916506173,
+}
+
 local lumaoSteamAccountID = Set {
 	-- 撸猫
 	128984820,
@@ -95,17 +102,17 @@ local qiliuSteamAccountID = Set {
 }
 
 local hunzhuoSteamAccountID = Set {
-	--
-	-- TODO,
+	-- 浑浊
+	251171524,
 	-- 测试
 	-- 136407523,
 }
 
-local windySteamAccountID = Set {
-	-- windy
-	136407523,
+local chashaobaoSteamAccountID = Set {
+	-- 叉烧包
+	882465781,
 	-- 测试
-	916506173,
+	-- 136407523,
 }
 
 local luoshuBuffSteamAccountID = Set {
@@ -679,6 +686,10 @@ function AIGameMode:OnNPCSpawned(keys)
 		-- Player Buff
 		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
 			local steamAccountID = PlayerResource:GetSteamAccountID(hEntity:GetPlayerOwnerID())
+			if windySteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_windy", "modifiers/player/modifier_windy", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_windy", {})
+			end
 			if lumaoSteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_lumao", "modifiers/player/modifier_lumao", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_lumao", {})
@@ -691,13 +702,13 @@ function AIGameMode:OnNPCSpawned(keys)
 				LinkLuaModifier("modifier_76", "modifiers/player/modifier_76", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_76", {})
 			end
-			if windySteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_windy", "modifiers/player/modifier_windy", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_windy", {})
-			end
 			if hunzhuoSteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_hunzhuo", "modifiers/player/modifier_hunzhuo", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_hunzhuo", {})
+			end
+			if chashaobaoSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_chashaobao", "modifiers/player/modifier_chashaobao", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_chashaobao", {})
 			end
 
 			if luoshuBuffSteamAccountID[steamAccountID] then
