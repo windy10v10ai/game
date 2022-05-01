@@ -165,6 +165,8 @@
 		"DOTA_Tooltip_modifier_saber_Description"		"<font color='#FFCC66'>使用氪金令咒使SABER降临战场的御主。</font>"
 		"DOTA_Tooltip_modifier_abyss"					"<font color='#55D8C1'>★ 沉渊之剑 ★</font>"
 		"DOTA_Tooltip_modifier_abyss_Description"		"<font color='#55D8C1'>唤醒沉渊魔剑的旅行者，是幸运？还是不幸？</font>"
+		"DOTA_Tooltip_modifier_76"						"<font color='#F66B0E'>★ 克林克兹之馈赠 ★</font>"
+		"DOTA_Tooltip_modifier_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"
@@ -312,7 +314,7 @@
 
 		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sally"				"冲宵破军"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description"	"沉渊之剑获得攻击速度和移动速度加成，并使沉渊之剑的攻击有几率发射多道冲宵剑气"
-		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Note0"		"冲宵剑气的攻击不会触发此技能的效果"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Note0"		"冲宵剑气或者幻象的攻击不会触发此技能的效果。"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Lore"		"真正的剑道大师能够将基础剑法使用的出神入化"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_attackspeed"		"攻击速度加成："
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_movespeed"			"%移动速度加成："

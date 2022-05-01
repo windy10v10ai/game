@@ -1161,7 +1161,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"value"				"2"
+				"value"				"1"
 			}
 		}
 	}
@@ -1230,7 +1230,7 @@
 		// Ability Values		//------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"amp_pct"					"8 12 16 20 24"
+			"amp_pct"					"8 10 12 14 16"
 			"radius"					"450"
 			"slow_amount"				"-30 -35 -40 -45 -50"
 			"duration"					"3"
@@ -1311,7 +1311,7 @@
 			"cast_delay"			"0.5"
 			"duration"				"1.5"
 			"range"					"2000"
-			"width"					"400"
+			"width"					"350"
 			"speed"					"2000.0"
 			"interval"				"0.25"
 			"slow_amount"
@@ -1328,12 +1328,12 @@
 			"01"
 		    {
 		    	"var_type"			"FIELD_INTEGER"
-		    	"damage"			"600 900 1200"
+		    	"damage"			"600 800 1000"
 		    }
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_scepter"	"900 1200 1500"
+				"damage_scepter"	"800 1000 1200"
 				"RequiresScepter"	"1"
 			}
 		}
@@ -1407,12 +1407,12 @@
 			"01"
 		    {
 		    	"var_type"			"FIELD_INTEGER"
-		    	"damage"			"1800"
+		    	"damage"			"1600"
 		    }
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_scepter"	"2000"
+				"damage_scepter"	"1800"
 				"RequiresScepter"	"1"
 			}
 		}
@@ -1459,7 +1459,7 @@
 			"speed"						"1600"
 			"damage"
 			{
-				"value"				"60 90 120 150 180"
+				"value"				"90 120 150 180 210"
 				"special_bonus_unique_abyss_sword_1"	"+40"
 			}
 		}
@@ -1485,8 +1485,8 @@
 			"chance"					"35"
 			"percentage"
 			{
-				"value"				"130 160 190 220 250"
-				"special_bonus_unique_abyss_sword_2"	"+50"
+				"value"				"160 180 200 220 240"
+				"special_bonus_unique_abyss_sword_2"	"+60"
 			}
 			"lifesteal" 			"40"
 			"shard_cooldown"
@@ -1566,13 +1566,13 @@
 		{
 			"chance"
 			{
-				"value"					"15 20 25"
+				"value"					"25"
 				"special_bonus_unique_abyss_sword_4"	"+5"
 			}
 			"count"
 			{
-				"value"					"3"
-				"special_bonus_unique_abyss_sword_5"	"+2"
+				"value"					"1 2 3"
+				"special_bonus_unique_abyss_sword_5"	"+1"
 			}
 			"angle"				"80"
 			"attackspeed"				"20 40 60"
