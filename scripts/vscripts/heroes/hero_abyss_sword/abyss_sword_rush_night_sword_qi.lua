@@ -29,6 +29,9 @@ function abyss_sword_rush_night_sword_qi:CreateProjectiles(origin,target,angle,c
     local vector = (target - origin):Normalized()
     local startangle = angle / 2
     local step = angle/count
+    if count == 1 then
+        step = startangle
+    end
     for i = 1, count, 1 do
         ProjectileManager:CreateLinearProjectile({
             Ability				= self,

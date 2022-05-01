@@ -27,6 +27,7 @@ function modifier_abyss_sword_rush_night_sally:OnAttackLanded(keys)
     local ability = self:GetAbility()
     if keys.attacker == parent and not parent:PassivesDisabled() then
         if not ability:IsCooldownReady() then return end
+        if not parent:IsRealHero() then return end
         if not parent:HasModifier("modifier_abyss_sword_rush_night_sword_qi") and parent:IsAlive() then
             local chance = ability:GetSpecialValueFor("chance")
             if RollPseudoRandomPercentage(chance,DOTA_PSEUDO_RANDOM_NONE, parent) then
