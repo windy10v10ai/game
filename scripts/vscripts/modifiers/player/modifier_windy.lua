@@ -5,9 +5,9 @@ function modifier_windy:RemoveOnDeath() return false end
 function modifier_windy:GetTexture() return "player/windy" end
 
 function modifier_windy:OnCreated()
-	-- self.iCooldownReduction = 40
+	self.iCooldownReduction = 40
 	self.iStatusResist = 40
-	self.iCastRange = 400
+	self.iCastRange = 200
 end
 
 function modifier_windy:CheckState()
@@ -18,21 +18,21 @@ end
 
 function modifier_windy:DeclareFunctions()
 	return {
-		-- MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
 		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
-		MODIFIER_PROPERTY_CAST_RANGE_BONUS,
+		MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
 	}
 end
 
 
--- function modifier_windy:GetModifierPercentageCooldown()
--- 	return self.iCooldownReduction
--- end
+function modifier_windy:GetModifierPercentageCooldown()
+	return self.iCooldownReduction
+end
 
 function modifier_windy:GetModifierStatusResistanceStacking()
 	return self.iStatusResist
 end
 
-function modifier_windy:GetModifierCastRangeBonus()
+function modifier_windy:GetModifierCastRangeBonusStacking()
 	return self.iCastRange
 end

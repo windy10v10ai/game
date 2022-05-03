@@ -5526,7 +5526,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent"	"90"
+				"cleave_damage_percent"	"80"
 			}
 			"05"
 			{
@@ -5635,6 +5635,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"heal_tick_interval"	"0.5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bubble_move_speed"		"300"
 			}
 		}
 	}

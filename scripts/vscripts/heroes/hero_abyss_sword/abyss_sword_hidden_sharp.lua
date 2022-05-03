@@ -50,24 +50,28 @@ end
 -- end
 
 function modifier_abyss_sword_hidden_sharp_interval:OnCreated(keys)
-    self:GetCaster():AddActivityModifier("ability3")
     self.time = 0
     self.tick = 0.1
     self.bonus = keys.bonus
     self.buff_duration = keys.buff_duration
     self.times = keys.times
     self.movespeed = self:GetAbility():GetSpecialValueFor("scepter_movespeed")
-    self:GetCaster():EmitSound("Hero_Abyss_Sword.HiddenSharp.Cast")
-    self:StartIntervalThink(self.tick)
+    if IsServer() then
+        self:GetCaster():AddActivityModifier("ability3")
+        self:GetCaster():EmitSound("Hero_Abyss_Sword.HiddenSharp.Cast")
+        self:StartIntervalThink(self.tick)
+    end
 end
 
 function modifier_abyss_sword_hidden_sharp_interval:OnRefresh(keys)
-   self:OnCreated(keys)
+    self:OnCreated(keys)
 end
 
 function modifier_abyss_sword_hidden_sharp_interval:OnDestroy()
-    self:OnIntervalThink()
-    self:GetCaster():ClearActivityModifiers()
+    if IsServer() then
+        self:OnIntervalThink()
+        self:GetCaster():ClearActivityModifiers()
+    end
 end
 
 function modifier_abyss_sword_hidden_sharp_interval:OnIntervalThink()

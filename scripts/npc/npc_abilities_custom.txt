@@ -1097,7 +1097,7 @@
 		"AbilityCastRange"				"650"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"12.0 11.5 11.0 10.5 10.0"
+		"AbilityCooldown"				"12.0"
 		"AbilityManaCost"				"80 100 120 140 160"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1120,7 +1120,6 @@
 			"speed"					"1500.0"
 			"cast_range"			"650"
 			"stun_duration"			"1.2 1.4 1.6 1.8 2.0"
-			// "corruption_armor"		"-4 -6 -8 -10 -12"
 			"immunity_duration"		"3.0"
 		}
 
@@ -1161,7 +1160,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"value"				"1"
+				"value"				"2"
 			}
 		}
 	}
@@ -1179,15 +1178,15 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1_END"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
+		"AbilityCooldown"				"14.0 12.0 10.0 8.0 6.0"
 		"AbilityManaCost"				"0"
 
 
 		// Ability Values		//------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"magic_res"					"12 16 20 24 28"
-			"status_res"				"12 16 20 24 28"
+			"magic_res"					"8 12 16 20 24"
+			"status_res"				"8 12 16 20 24"
 		}
 	}
 
@@ -1287,7 +1286,7 @@
 		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"2.0"
-		"AbilityCooldown"				"75.0"
+		"AbilityCooldown"				"70.0 75.0 80.0"
 		"AbilityManaCost"				"300 450 600"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1362,7 +1361,7 @@
 		"AbilityCastRange"				"6000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"3.0"
-		"AbilityCooldown"				"120.0"
+		"AbilityCooldown"				"90.0"
 		"AbilityManaCost"				"1200"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1440,7 +1439,7 @@
 		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_rush_night_sword_qi"
 		"AbilityTextureName"			"custom/abyss_sword/abyss_sword_rush_night_sword_qi"
 		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"26.0 22.0 18.0 14.0 10.0"
+		"AbilityCooldown"				"18.0 16.0 14.0 12.0 10.0"
 		"AbilityManaCost"				"100 110 120 130 140"
 
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
@@ -1572,11 +1571,11 @@
 			"count"
 			{
 				"value"					"1 2 3"
-				"special_bonus_unique_abyss_sword_5"	"+1"
+				"special_bonus_unique_abyss_sword_5"	"+2"
 			}
 			"angle"				"80"
 			"attackspeed"				"20 40 60"
-			"movespeed"					"20 30 40"
+			"movespeed"					"10 20 30"
 		}
 	}
 
