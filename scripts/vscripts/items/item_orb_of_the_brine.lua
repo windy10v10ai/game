@@ -87,6 +87,7 @@ function modifier_item_orb_of_the_brine_bubble:OnCreated( kv )
 	if IsServer() then
 		self.bubble_heal_per_tick = self:GetAbility():GetSpecialValueFor( "bubble_heal_per_tick" )
 		self.heal_tick_interval = self:GetAbility():GetSpecialValueFor( "heal_tick_interval" )
+		self.bubble_move_speed = self:GetAbility():GetSpecialValueFor( "bubble_move_speed" )
 
 		self.nFXIndex = ParticleManager:CreateParticle( "particles/act_2/wand_of_the_brine_bubble.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControlEnt( self.nFXIndex, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetOrigin(), true )
@@ -124,13 +125,13 @@ end
 function modifier_item_orb_of_the_brine_bubble:DeclareFunctions()
 	local funcs =
 	{
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
 	}
 	return funcs
 end
 
-function modifier_item_orb_of_the_brine_bubble:GetModifierMoveSpeedBonus_Percentage( params )
-	return -50
+function modifier_item_orb_of_the_brine_bubble:GetModifierMoveSpeed_Absolute( params )
+	return self.bubble_move_speed
 end
 --------------------------------------------------------------------------------
 
