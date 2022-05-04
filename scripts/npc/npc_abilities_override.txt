@@ -1542,7 +1542,7 @@
 					"LinkedSpecialBonus"			"special_bonus_unique_underlord_4"
 				}
 				"burn_interval"					"1.0"
-				"burn_duration"					"2.0"
+				"burn_duration"					"1.0"
 		}
 	}
 	"abyssal_underlord_pit_of_malice"
@@ -5246,8 +5246,20 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"max_skeleton_charges"		"2 4 6 8 10"
+				"max_skeleton_charges"		"2 3 4 5 6"
 				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_5"
+			}
+		}
+	}
+	"special_bonus_unique_wraith_king_5"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"
+				"ad_linked_abilities"			"skeleton_king_vampiric_aura"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -6175,7 +6187,8 @@
 	}
 	"treant_eyes_in_the_forest"
 	{
-		"AbilityChargeRestoreTime"		"100.0"
+		"AbilityCharges"				"5"
+		"AbilityChargeRestoreTime"		"120.0"
 	}
 	//=================================================================================================================
 	// Ability: Undying 不朽尸王
@@ -9892,7 +9905,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"trance_duration"		"6.5"
+				"trance_duration"		"5.0"
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_7"
 			}
 			"02"
@@ -13941,6 +13954,12 @@
 				"var_type"			"FIELD_FLOAT"
 				"int_steal_duration"		"15 20 25 30 35"
 			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"shard_permanent_int_steal_amount_bonus"		"1"
+				"RequiresShard"		"1"
+			}
 		}
 	}
 	"special_bonus_unique_silencer_3"
@@ -14019,21 +14038,20 @@
 	//=================================================================================================================
 	"skywrath_mage_arcane_bolt"
 	{
-		"MaxLevel" "5"
-		"AbilityCastRange"				"875" // 875
-		"AbilityCooldown"				"6.0 5.0 4.0 3.0 2.0"
-		"AbilityManaCost"				"90 100 110 120 130"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"5.0 4.5 4.0 3.5 3.0 2.5 2.0"
+		"AbilityManaCost"				"90 105 120 135 150 165 180"
 		"AbilitySpecial"
 		{
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bolt_damage"			"100 125 150 175 200"
+				"bolt_damage"			"90 120 150 180 210 240 270"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"int_multiplier"		"1.2"
+				"int_multiplier"		"1.0"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 		}

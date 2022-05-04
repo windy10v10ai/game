@@ -5575,11 +5575,33 @@
 	//=================================================================================================================
 	// 苍蓝魔珠
 	//=================================================================================================================
+	"item_recipe_orb_of_the_brine"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3081"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_orb_of_the_brine"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2550"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_orb_of_the_brine"
+		"ItemRequirements"
+		{
+			"01"						"item_glimmer_cape;item_holy_locket"
+		}
+	}
 	"item_orb_of_the_brine"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3081"
+		"ID"							"3082"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"orb_of_the_brine"
 		"ScriptFile"					"items/item_orb_of_the_brine"
@@ -5604,43 +5626,72 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"required_level"		"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intelligence"	"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bubble_duration"		"3.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bubble_heal_per_tick"	"300"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_tick_interval"	"0.5"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bubble_move_speed"		"300"
-			}
+			"bonus_all_stats"		"15"
+			"bonus_health"			"500"
+			"bonus_mana"			"500"
+			"heal_increase"			"50"
+
+			"bubble_duration"		"3.0"
+			"bubble_move_speed"		"300"
+			"bubble_heal_per_tick"	"300"
+			"heal_tick_interval"	"0.5"
+		}
+	}
+
+	//=================================================================================================================
+	// 洛书
+	//=================================================================================================================
+	"item_recipe_tome_of_luoshu"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3083"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_orb_of_the_brine"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"28891"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_tome_of_luoshu"
+		"ItemRequirements"
+		{
+			"01"						"item_tome_of_strength;item_tome_of_agility;item_tome_of_intelligence"
+		}
+	}
+	"item_tome_of_luoshu"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3084"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"tome_of_luoshu"
+		"ScriptFile"                    "items/item_tome_of_luoshu"
+
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"ItemAliases"					"tome;luoshu"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"IsTempestDoubleClonable"		"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AbilityValues"
+		{
+			"bonus_all_stats"			"50"
+			"status_resistance"			"30"
+			"spell_amp"					"30"
+			"bonus_base_damage_percent"	"30"
+			"bonus_cast_range"			"200"
 		}
 	}
 }
