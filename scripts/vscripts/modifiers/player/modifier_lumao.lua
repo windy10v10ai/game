@@ -6,8 +6,8 @@ function modifier_lumao:GetTexture() return "player/lumao" end
 
 function modifier_lumao:OnCreated()
 	self.iCooldownReduction = 40
-	self.iStatusResist = 50
-	self.iLifeSteal = 50
+	self.iStatusResist = 40
+	self.iLifeSteal = 40
 	self.iCastRange = 400
 end
 

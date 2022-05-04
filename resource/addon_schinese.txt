@@ -165,6 +165,11 @@
 		"DOTA_Tooltip_modifier_saber_Description"		"<font color='#FFCC66'>使用氪金令咒使SABER降临战场的御主。</font>"
 		"DOTA_Tooltip_modifier_abyss"					"<font color='#55D8C1'>★ 沉渊之剑 ★</font>"
 		"DOTA_Tooltip_modifier_abyss_Description"		"<font color='#55D8C1'>唤醒沉渊魔剑的旅行者，是幸运？还是不幸？</font>"
+		"DOTA_Tooltip_modifier_76"						"<font color='#F66B0E'>★ 克林克兹之馈赠 ★</font>"
+		"DOTA_Tooltip_modifier_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
+		"DOTA_Tooltip_modifier_hunzhuo"					"<font color='#A85CF9'>★ 我的口袋只剩玫瑰一片，此行又山高路远 ★</font>"
+		"DOTA_Tooltip_modifier_hunzhuo_Description"		"<font color='#A85CF9'>蹉跎错，消磨过，最是光阴化浮沫。</font>"
+		"DOTA_Tooltip_modifier_chashaobao"				"<font color='#E8C07D'>★ 叉烧包之王 ★</font>"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"
@@ -311,8 +316,8 @@
 
 
 		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sally"				"冲宵破军"
-		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description"	"沉渊之剑获得攻击速度和移动速度加成，并使沉渊之剑的攻击有几率发射多道冲宵剑气"
-		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Note0"		"冲宵剑气的攻击不会触发此技能的效果"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description"	"沉渊之剑获得攻击速度和移动速度加成，并使沉渊之剑的攻击有几率发射多道冲宵剑气。<br><br>不触发法球和攻击特效。"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Note0"		"冲宵剑气或者幻象的攻击不会触发此技能的效果。"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Lore"		"真正的剑道大师能够将基础剑法使用的出神入化"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_attackspeed"		"攻击速度加成："
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_movespeed"			"%移动速度加成："
@@ -378,6 +383,13 @@
 
 		"DOTA_Tooltip_modifier_int_tome"								"智力之书加成"
 		"DOTA_Tooltip_modifier_int_tome_Description"					"智力增加 <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
+
+		"DOTA_Tooltip_Ability_item_tome_of_luoshu"						"洛书"
+		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>使用: 洛书祝福</h1> 永久增加全属性 %bonus_all_stats% 点，%status_resistance%%%状态抗性，%spell_amp%%%技能增强，%bonus_base_damage_percent%%%基础攻击力，%bonus_cast_range%施法距离。\n只可使用一次\n可以分享给队友"
+		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Lore"					"Is it enlightenment that you aspire to...?"
+
+		"DOTA_Tooltip_modifier_luoshu_tome"								"洛书看好你！"
+		"DOTA_Tooltip_modifier_luoshu_tome_Description"					"哥哥你为我花了这么多钱，你女朋友不会生气吧？"
 
 		// item_moon_shard_datadriven
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"真·银月之晶"
@@ -889,9 +901,10 @@
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"苍洋魔珠"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"						"要不是这颗尊崇的魔珠，教团在石鱼门一役就全军覆没。"
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有无敌效果的疗伤泡泡，可以缓慢移动但是无法攻击释放技能和道具，持续%bubble_duration%秒，每%heal_tick_interval%秒治疗%bubble_heal_per_tick%点生命。"
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_intelligence"	"+$int"
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana_regen"	"+$mana_regen"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有无敌效果的疗伤泡泡，移动速度降低至%bubble_move_speed%，无法攻击释放技能和道具持续%bubble_duration%秒，每%heal_tick_interval%秒治疗%bubble_heal_per_tick%点生命。\n\n<h1>被动：苍洋福佑</h1>自身提供的治疗效果提升%heal_increase%%%。"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana"				"+$mana"
 
 		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble"				"苍洋泡沫"
 		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble_Description"	"这个单位正受到苍洋泡沫的保护。每秒恢复600点生命。"
