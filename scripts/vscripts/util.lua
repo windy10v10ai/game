@@ -126,7 +126,7 @@ function LifeStealOnAttackLanded (params, iLifeSteal, hHero, hAbility)
 		if attacker == hHero then
 			local hTarget = params.target
 			local iDamage = params.damage
-			if not hHero:IsRealHero() then
+			if attacker:IsBuilding() or attacker:IsIllusion() then
 				return
 			end
 			if hTarget:IsBuilding() or hTarget:IsIllusion() or (hTarget:GetTeam() == attacker:GetTeam()) then

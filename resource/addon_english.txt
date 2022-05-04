@@ -307,8 +307,8 @@
 
 
 		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sally" 				 "Rush Night Sally"
-		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description" 	 "Abyss Sword gains a bonus to attack speed and movement speed, and gives the attack of Abyss Sword a chance to emit multiple night rush sword Qi"
-		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Note0" 		 "The attack of rushing night sword Qi will not trigger the effect of this skill"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description" 	 "Abyss Sword gains a bonus to attack speed and movement speed, and gives the attack of Abyss Sword a chance to emit multiple night rush sword Qi without attack orb or procs."
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Note0" 		 "The attack of illusion or rushing night sword Qi will not trigger the effect of this skill"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Lore" 		 "A real master of Kendo can use the basic sword technique to perfection"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_attackspeed" 		 "Attack speed bonus:"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_movespeed" 			 "%movement speed bonus:"
@@ -372,6 +372,13 @@
 
 		"DOTA_Tooltip_modifier_int_tome"								"Intelligence Tomes Consumed"
 		"DOTA_Tooltip_modifier_int_tome_Description"					"Intelligence increased by <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
+
+		"DOTA_Tooltip_Ability_item_tome_of_luoshu"						"Tome of Luoshu"
+		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>Use: Luoshu</h1> Permanently increases your all stats by %bonus_all_stats%, %status_resistance%%% status resistance, %spell_amp%%% spell amplify, %bonus_base_damage_percent%%% base damage, %bonus_cast_range% cast range.\n Can only use once.\n Shareable with teammate."
+		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Lore"					"Is it enlightenment that you aspire to...?"
+
+		"DOTA_Tooltip_modifier_luoshu_tome"								"Luoshu's Tomes Consumed"
+		"DOTA_Tooltip_modifier_luoshu_tome_Description"					""
 
         // item_moon_shard_datadriven
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"Moon Shard"
@@ -883,9 +890,10 @@
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"Orb of the Brine"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"						"Were it not for this revered orb, there would have been no Conclave survivors at the Battle of Stonefish Gate."
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>Active: Brinefoam</h1> Puts a friendly unit in a protective healing bubble for %bubble_duration% seconds, target unit can move slowly but cannot attack or use abilities and items, healing it for %bubble_heal_per_tick% every %heal_tick_interval% second."
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_intelligence"	"+$int"
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana_regen"	"+$mana_regen"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>Active: Brinefoam</h1> Puts a friendly unit in a protective healing bubble for %bubble_duration% seconds, target unit has move speed %bubble_move_speed%, cannot attack or use abilities and items, healing it for %bubble_heal_per_tick% every %heal_tick_interval% second.\n\n<h1>Passive: Brine Blessing</h1>Amplifies heals you provide by %heal_increase%%%."
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana"				"+$mana"
 
 		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble"				"Brinefoam"
 		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble_Description"	"This unit is protected by Brinefoam.  Healing 600 hp/sec."

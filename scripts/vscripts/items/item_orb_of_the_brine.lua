@@ -47,8 +47,10 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_item_orb_of_the_brine:OnCreated( kv )
-	self.bonus_intelligence = self:GetAbility():GetSpecialValueFor( "bonus_intelligence" )
-	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor( "bonus_mana_regen" )
+	self.bonus_all_stats = self:GetAbility():GetSpecialValueFor( "bonus_all_stats" )
+	self.bonus_health = self:GetAbility():GetSpecialValueFor( "bonus_health" )
+	self.bonus_mana = self:GetAbility():GetSpecialValueFor( "bonus_mana" )
+	self.heal_increase = self:GetAbility():GetSpecialValueFor( "heal_increase" )
 end
 
 --------------------------------------------------------------------------------
@@ -56,8 +58,12 @@ end
 function modifier_item_orb_of_the_brine:DeclareFunctions()
 	local funcs =
 	{
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+		MODIFIER_PROPERTY_HEALTH_BONUS,
+		MODIFIER_PROPERTY_MANA_BONUS,
+		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
 	}
 	return funcs
 end
@@ -65,11 +71,27 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_item_orb_of_the_brine:GetModifierBonusStats_Intellect( params )
-	return self.bonus_intelligence
+	return self.bonus_all_stats
 end
 
-function modifier_item_orb_of_the_brine:GetModifierConstantManaRegen( params )
-	return self.bonus_mana_regen
+function modifier_item_orb_of_the_brine:GetModifierBonusStats_Agility( params )
+	return self.bonus_all_stats
+end
+
+function modifier_item_orb_of_the_brine:GetModifierBonusStats_Strength( params )
+	return self.bonus_all_stats
+end
+
+function modifier_item_orb_of_the_brine:GetModifierHealthBonus( params )
+	return self.bonus_health
+end
+
+function modifier_item_orb_of_the_brine:GetModifierManaBonus( params )
+	return self.bonus_mana
+end
+
+function modifier_item_orb_of_the_brine:GetModifierHealAmplify_PercentageSource( params )
+	return self.heal_increase
 end
 
 --------------------------------------------------------------------------------
@@ -87,6 +109,7 @@ function modifier_item_orb_of_the_brine_bubble:OnCreated( kv )
 	if IsServer() then
 		self.bubble_heal_per_tick = self:GetAbility():GetSpecialValueFor( "bubble_heal_per_tick" )
 		self.heal_tick_interval = self:GetAbility():GetSpecialValueFor( "heal_tick_interval" )
+		self.bubble_move_speed = self:GetAbility():GetSpecialValueFor( "bubble_move_speed" )
 
 		self.nFXIndex = ParticleManager:CreateParticle( "particles/act_2/wand_of_the_brine_bubble.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControlEnt( self.nFXIndex, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetOrigin(), true )
@@ -124,13 +147,13 @@ end
 function modifier_item_orb_of_the_brine_bubble:DeclareFunctions()
 	local funcs =
 	{
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
 	}
 	return funcs
 end
 
-function modifier_item_orb_of_the_brine_bubble:GetModifierMoveSpeedBonus_Percentage( params )
-	return -50
+function modifier_item_orb_of_the_brine_bubble:GetModifierMoveSpeed_Absolute( params )
+	return self.bubble_move_speed
 end
 --------------------------------------------------------------------------------
 

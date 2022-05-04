@@ -15,9 +15,6 @@
 		"item"		"item_bottle"
 		"item"		"item_aghanims_shard"
 		"item"		"item_tome_of_knowledge"
-		"item"		"item_tome_of_agility"
-		"item"		"item_tome_of_strength"
-		"item"		"item_tome_of_intelligence"
 	}
 
 	"attributes"
@@ -46,6 +43,10 @@
 		"item"		"item_river_painter3"
 		"item"		"item_river_painter2"
 		"item"		"item_river_painter"
+		"item"		"item_tome_of_agility"
+		"item"		"item_tome_of_strength"
+		"item"		"item_tome_of_intelligence"
+		"item"		"item_tome_of_luoshu"
 	}
 
 	"weapons_armor"
@@ -224,6 +225,7 @@
  		//"item"		"item_swift_blink"
  		//"item"		"item_arcane_blink"
  		"item"		"item_skadi_2"
+		"item"		"item_orb_of_the_brine"
 	}
 
 	"sideshop1"
@@ -270,7 +272,6 @@
 		"item"		"item_reaver"
 		"item"		"item_eagle"
 		"item"		"item_relic"
-		"item"		"item_orb_of_the_brine"
 	}
 
 	"pregame"
