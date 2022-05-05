@@ -14,7 +14,7 @@ function abyss_sword_rush_night_sword_qi:OnProjectileHit(target,location)
     if caster:HasModifier("modifier_abyss_sword_rush_night_sword_qi_spell") then
         caster:PerformAttack(target, true, true, true, true, false, false, true)
     else
-        local dmg = caster:GetAverageTrueAttackDamage(targettarget)
+        local dmg = caster:GetAverageTrueAttackDamage(target)
         local dmgtable = {
             attacker = caster,
             victim = target,
@@ -86,6 +86,6 @@ function modifier_abyss_sword_rush_night_sword_qi:GetModifierBaseAttack_BonusDam
     return damage
 end
 
-function modifier_abyss_sword_rush_night_sword_qi_spell:RemoveOnDeath() return false end
+function modifier_abyss_sword_rush_night_sword_qi_spell:RemoveOnDeath() return true end
 function modifier_abyss_sword_rush_night_sword_qi_spell:IsHidden() return true end
 function modifier_abyss_sword_rush_night_sword_qi_spell:IsPurgable() return false end

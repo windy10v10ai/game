@@ -1439,7 +1439,7 @@
 		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_rush_night_sword_qi"
 		"AbilityTextureName"			"custom/abyss_sword/abyss_sword_rush_night_sword_qi"
 		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"18.0 16.0 14.0 12.0 10.0"
+		"AbilityCooldown"				"22.0 20.0 18.0 16.0 14.0"
 		"AbilityManaCost"				"100 110 120 130 140"
 
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
@@ -1454,11 +1454,11 @@
 		"AbilityValues"
 		{
 			"length"					"850"
-			"width"						"150"
+			"width"						"100"
 			"speed"						"1600"
 			"damage"
 			{
-				"value"				"90 120 150 180 210"
+				"value"				"60 90 120 150 180"
 				"special_bonus_unique_abyss_sword_1"	"+40"
 			}
 		}
@@ -1487,10 +1487,10 @@
 				"value"				"160 180 200 220 240"
 				"special_bonus_unique_abyss_sword_2"	"+60"
 			}
-			"lifesteal" 			"40"
+			"lifesteal" 			"30"
 			"shard_cooldown"
 			{
-				"value"				"15"
+				"value"				"20"
 				"RequiresShard"		"1"
 			}
 			"shard_range"
@@ -1500,7 +1500,7 @@
 			}
 			"shard_manacost"
 			{
-				"value"				"90"
+				"value"				"120"
 				"RequiresShard"		"1"
 			}
 			"shard_duration"
@@ -1519,8 +1519,8 @@
 		"AbilityTextureName"			"custom/abyss_sword/abyss_sword_hidden_sharp"
 		"FightRecapLevel"				"1"
 
-		"AbilityCooldown"				"32 28 24 20 16"
-		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilityCooldown"				"30 28 26 24 22"
+		"AbilityManaCost"				"80 100 120 140 160"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"

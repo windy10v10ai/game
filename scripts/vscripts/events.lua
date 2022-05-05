@@ -97,22 +97,23 @@ local bulangyaSteamAccountID = Set {
 local qiliuSteamAccountID = Set {
 	-- 76
 	353885092,
-	-- 测试
-	-- 136407523,
 }
 
 local hunzhuoSteamAccountID = Set {
 	-- 浑浊
 	251171524,
-	-- 测试
-	-- 136407523,
 }
 
 local chashaobaoSteamAccountID = Set {
 	-- 叉烧包
 	882465781,
+}
+
+local menglihuaSteamAccountID = Set {
+	-- 梦璃花
+	907056028,
 	-- 测试
-	-- 136407523,
+	-- 916506173,
 }
 
 local luoshuBuffSteamAccountID = Set {
@@ -709,6 +710,10 @@ function AIGameMode:OnNPCSpawned(keys)
 			if chashaobaoSteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_chashaobao", "modifiers/player/modifier_chashaobao", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_chashaobao", {})
+			end
+			if menglihuaSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_menglihua", "modifiers/player/modifier_menglihua", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_menglihua", {})
 			end
 
 			if luoshuBuffSteamAccountID[steamAccountID] then
