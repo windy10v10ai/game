@@ -1453,13 +1453,13 @@
 
 		"AbilityValues"
 		{
-			"length"					"800"
-			"width"						"100"
+			"length"					"850"
+			"width"						"120"
 			"speed"						"1600"
 			"damage"
 			{
-				"value"				"60 90 120 150 180"
-				"special_bonus_unique_abyss_sword_1"	"+40"
+				"value"				"80 120 160 200 240"
+				"special_bonus_unique_abyss_sword_1"	"+60"
 			}
 		}
 	}
