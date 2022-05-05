@@ -631,7 +631,7 @@
 
         // item_skadi_2
 		"DOTA_Tooltip_Ability_item_skadi_2"				"Eye of Skadi Upgrade"
-		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>Passive: Cold Attack</h1> Attacks lower enemy movement and attack speed and reduces heals, health regeneration, lifesteal and spell lifesteal by %heal_reduction%%% for %cold_duration% seconds. Slows enemy ranged units by %cold_slow_ranged%%% movement speed and by %cold_slow_ranged% attack speed. Slows enemy melee units by %cold_slow_melee%%% movement speed and by %cold_slow_melee% attack speed. "
+		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>Passive: Cold Attack</h1> Attacks lower enemy movement and attack speed and reduces heals, health regeneration, lifesteal and spell lifesteal by %heal_reduction%%% for %cold_duration% seconds. Slows enemy ranged units by %cold_slow_ranged%%% movement speed and by %cold_attack_slow_ranged% attack speed. Slows enemy melee units by %cold_slow_melee%%% movement speed and by %cold_attack_slow_melee% attack speed. "
 		"DOTA_Tooltip_ability_item_skadi_2_Lore"									"Extremely rare artifact, guarded by the azure dragons."
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_all_stats"						"+$all"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_health"							"+$health"

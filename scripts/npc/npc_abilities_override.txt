@@ -5246,7 +5246,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"max_skeleton_charges"		"2 3 4 5 6"
+				"max_skeleton_charges"		"1 2 3 4 5"
 				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_5"
 			}
 		}
@@ -5326,6 +5326,12 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"scepter_duration"		"4"
+				"RequiresScepter"			"1"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shard_skeleton_count"	"1"
 				"RequiresScepter"			"1"
 			}
 		}
@@ -6264,7 +6270,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"20.0"
+				"duration"				"10.0"
 			}
 			"04"
 			{
@@ -14798,7 +14804,51 @@
 	}
 	"warlock_rain_of_chaos"
 	{
+		"MaxLevel" "5"
 		"AbilityCooldown"				"80"
+		"AbilityManaCost"				"250 375 500 625 750"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"golem_hp_tooltip"			"1500 2500 3500 4500 6000"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"golem_dmg_tooltip"			"100 150 200 250 300"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"golem_armor_tooltip"		"6 9 12 15 18"
+				"LinkedSpecialBonus"		"special_bonus_unique_warlock_2"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"golem_regen_tooltip"		"25 50 75 100 125"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"number_of_golems_scepter"	"2"
+				"RequiresScepter"		"1"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"golem_hp_tooltip_scepter"	"1500 2500 3500 4500 6000"
+				"RequiresScepter"		"1"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"golem_dmg_tooltip_scepter"	"100 150 200 250 300"
+				"RequiresScepter"		"1"
+			}
+		}
 	}
 	//=================================================================================================================
 	// Ability: Windrunner 风行者
