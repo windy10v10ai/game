@@ -1,8 +1,10 @@
 LinkLuaModifier("modifier_abyss_sword_rush_night_sword_qi", "heroes/hero_abyss_sword/abyss_sword_rush_night_sword_qi", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_abyss_sword_rush_night_sword_qi_spell", "heroes/hero_abyss_sword/abyss_sword_rush_night_sword_qi", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_abyss_sword_rush_night_sword_qi_enemy", "heroes/hero_abyss_sword/abyss_sword_rush_night_sword_qi", LUA_MODIFIER_MOTION_NONE)
 abyss_sword_rush_night_sword_qi = abyss_sword_rush_night_sword_qi or class({})
 modifier_abyss_sword_rush_night_sword_qi = modifier_abyss_sword_rush_night_sword_qi or class({})
 modifier_abyss_sword_rush_night_sword_qi_spell = modifier_abyss_sword_rush_night_sword_qi_spell or class({})
+modifier_abyss_sword_rush_night_sword_qi_enemy = modifier_abyss_sword_rush_night_sword_qi_spell or class({})
 
 function abyss_sword_rush_night_sword_qi:GetCastRange()
     return self:GetSpecialValueFor("length")
@@ -10,10 +12,13 @@ end
 
 function abyss_sword_rush_night_sword_qi:OnProjectileHit(target,location)
     local caster = self:GetCaster()
-    caster:AddNewModifier(caster, self, "modifier_abyss_sword_rush_night_sword_qi", {})
     if caster:HasModifier("modifier_abyss_sword_rush_night_sword_qi_spell") then
+        caster:AddNewModifier(caster, self, "modifier_abyss_sword_rush_night_sword_qi", {})
         caster:PerformAttack(target, true, true, true, true, false, false, true)
+        caster:RemoveModifierByName("modifier_abyss_sword_rush_night_sword_qi")
     else
+        if not target then return end
+        if target:HasModifier("modifier_abyss_sword_rush_night_sword_qi_enemy") then return end
         local dmg = caster:GetAverageTrueAttackDamage(target)
         local dmgtable = {
             attacker = caster,
@@ -24,8 +29,8 @@ function abyss_sword_rush_night_sword_qi:OnProjectileHit(target,location)
             ability = self
         }
         ApplyDamage(dmgtable)
+        target:AddNewModifier(caster, self, "modifier_abyss_sword_rush_night_sword_qi_enemy", {duration = 0.5})
     end
-    caster:RemoveModifierByName("modifier_abyss_sword_rush_night_sword_qi")
 end
 
 
@@ -62,7 +67,7 @@ function abyss_sword_rush_night_sword_qi:CreateProjectiles(origin,target,angle,c
             iUnitTargetTeam		= DOTA_UNIT_TARGET_TEAM_ENEMY,
             iUnitTargetFlags	= DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
             iUnitTargetType		= DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-            fExpireTime 		= GameRules:GetGameTime() + 10.0,
+            fExpireTime 		= GameRules:GetGameTime() + 5.0,
             bDeleteOnHit		= false,
             vVelocity			= RotatePosition(Vector(0,0,0), QAngle(0,startangle - i*step, 0), vector) * speed,
             bProvidesVision		= true,
@@ -89,3 +94,7 @@ end
 function modifier_abyss_sword_rush_night_sword_qi_spell:RemoveOnDeath() return true end
 function modifier_abyss_sword_rush_night_sword_qi_spell:IsHidden() return true end
 function modifier_abyss_sword_rush_night_sword_qi_spell:IsPurgable() return false end
+
+function modifier_abyss_sword_rush_night_sword_qi_enemy:RemoveOnDeath() return true end
+function modifier_abyss_sword_rush_night_sword_qi_enemy:IsHidden() return true end
+function modifier_abyss_sword_rush_night_sword_qi_enemy:IsPurgable() return false end
