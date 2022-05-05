@@ -856,7 +856,7 @@
 		    "03"
 		    {
 		    	"var_type"				"FIELD_FLOAT"
-		    	"AbilityDuration"		"120"
+		    	"ability_duration"		"120"
 		    }
 		    "04"
 	 	    {
@@ -1061,7 +1061,7 @@
 		    "03"
 		    {
 		    	"var_type"				"FIELD_FLOAT"
-		    	"AbilityDuration"		"33"
+		    	"ability_duration"		"33"
 		    }
 		    "04"
 		    {
@@ -1453,7 +1453,7 @@
 
 		"AbilityValues"
 		{
-			"length"					"850"
+			"length"					"800"
 			"width"						"100"
 			"speed"						"1600"
 			"damage"

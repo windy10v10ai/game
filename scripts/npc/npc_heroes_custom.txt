@@ -2052,9 +2052,11 @@
 				"28"		"special_bonus_unique_warlock_10"
 				"29"		"special_bonus_unique_warlock_7"
 				"30"		"special_bonus_unique_warlock_2"
-				"31"		"warlock_fatal_bonds"
-				"32"		"warlock_shadow_word"
-				"33"		"warlock_upheaval"
+				"31"		"warlock_rain_of_chaos"
+				"32"		"warlock_fatal_bonds"
+				"33"		"warlock_shadow_word"
+				"34"		"warlock_upheaval"
+				"35"		"warlock_rain_of_chaos"
 			}
 		}
 	}
