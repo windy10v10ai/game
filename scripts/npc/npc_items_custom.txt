@@ -2424,45 +2424,17 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"skadi_2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_all_stats"		"50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_health"			"600"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_mana"			"600"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cold_slow_melee"	"-50"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"cold_slow_melee"		"-40"
+				"cold_attack_slow_melee"	"-80"
 				"cold_slow_ranged"	"-60"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cold_duration"	"4.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"cold_attack_slow_ranged"	"-120"
+				"cold_duration"	"3.0"
 				"heal_reduction"	"65"
-			}
 		}
 	}
 
