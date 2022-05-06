@@ -318,7 +318,7 @@
 
 
 		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sally"				"冲宵破军"
-		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description"	"沉渊之剑获得攻击速度和移动速度加成，并使沉渊之剑的攻击有几率发射多道冲宵剑气。<br><br>不触发法球和攻击特效。<br>多道剑气不作用于同一敌人。"
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description"	"沉渊之剑获得攻击速度和移动速度加成，并使沉渊之剑的攻击有几率发射多道冲宵剑气。<br><br>不触发法球和攻击特效。<br>剑气伤害翻倍，多道剑气不作用于同一敌人。"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Note0"		"冲宵剑气或者幻象的攻击不会触发此技能的效果。"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Lore"		"真正的剑道大师能够将基础剑法使用的出神入化"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_attackspeed"		"攻击速度加成："

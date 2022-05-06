@@ -20,6 +20,8 @@ function abyss_sword_rush_night_sword_qi:OnProjectileHit(target,location)
         if not target then return end
         if target:HasModifier("modifier_abyss_sword_rush_night_sword_qi_enemy") then return end
         local dmg = caster:GetAverageTrueAttackDamage(target)
+        local damage = self:GetSpecialValueFor("damage")
+        dmg = dmg + damage
         local dmgtable = {
             attacker = caster,
             victim = target,

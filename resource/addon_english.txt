@@ -307,7 +307,7 @@
 
 
 		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sally" 				 "Rush Night Sally"
-		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description" 	 "Abyss Sword gains a bonus to attack speed and movement speed, and gives the attack of Abyss Sword a chance to emit multiple night rush sword Qi without attack orb or procs.<br>Multiple night rush won't affect the same enemy."
+		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_description" 	 "Abyss Sword gains a bonus to attack speed and movement speed, and gives the attack of Abyss Sword a chance to emit multiple night rush sword Qi without attack orb or procs.<br>Night rush has double damage, multiple night rush won't affect the same enemy."
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Note0" 		 "The attack of illusion or rushing night sword Qi will not trigger the effect of this skill"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_Lore" 		 "A real master of Kendo can use the basic sword technique to perfection"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_attackspeed" 		 "Attack speed bonus:"
