@@ -120,7 +120,7 @@ local luoshuBuffSteamAccountID = Set {
 	-- 洛书
 	136668998,
 	-- 测试
-	-- 916506173,
+	916506173,
 }
 
 local luoshuHeroSteamAccountID = Set {
@@ -721,6 +721,8 @@ function AIGameMode:OnNPCSpawned(keys)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_saber", {})
 				LinkLuaModifier("modifier_abyss", "modifiers/player/modifier_abyss", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_abyss", {})
+				LinkLuaModifier("modifier_goku", "modifiers/player/modifier_goku", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_goku", {})
 			end
 
 			if WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then

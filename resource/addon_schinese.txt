@@ -165,6 +165,7 @@
 		"DOTA_Tooltip_modifier_saber_Description"		"<font color='#FFCC66'>使用氪金令咒使SABER降临战场的御主。</font>"
 		"DOTA_Tooltip_modifier_abyss"					"<font color='#55D8C1'>★ 沉渊之剑 ★</font>"
 		"DOTA_Tooltip_modifier_abyss_Description"		"<font color='#55D8C1'>唤醒沉渊魔剑的旅行者，是幸运？还是不幸？</font>"
+		"DOTA_Tooltip_modifier_goku"					"<font color='#FFCC66'>★ 集齐七颗龙珠召唤神龙！ ★</font>"
 		"DOTA_Tooltip_modifier_76"						"<font color='#F66B0E'>★ 克林克兹之馈赠 ★</font>"
 		"DOTA_Tooltip_modifier_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
 		"DOTA_Tooltip_modifier_hunzhuo"					"<font color='#A85CF9'>★ 我的口袋只剩玫瑰一片，此行又山高路远 ★</font>"
@@ -337,7 +338,7 @@
 		"npc_dota_hero_chen"									"孙悟空"
 
 		"DOTA_Tooltip_Ability_goku_kamehameha"								"龟派气功"
-		"DOTA_Tooltip_ability_goku_kamehameha_description"					"孙悟空将全身所有能量聚集一点浓缩后一起释放出来，射出一道光波，在持续时间内对直线上的敌人造成伤害\n<h1>超级赛亚人模式：</h1>光波距离变为无限，且伤害变为%super_saiyan_damage_multiple%倍"
+		"DOTA_Tooltip_ability_goku_kamehameha_description"					"孙悟空将全身所有能量聚集一点浓缩后一起释放出来，射出一道光波，在持续时间内对直线上的敌人造成伤害\n<h1>超级赛亚人模式：</h1>光波距离变为无限，且耗蓝和伤害变为%super_saiyan_damage_multiple%倍"
 		"DOTA_Tooltip_ability_goku_kamehameha_Lore"							"由龟仙人所创的绝技"
 		"DOTA_Tooltip_ability_goku_kamehameha_channel"						"持续时间："
 		"DOTA_Tooltip_ability_goku_kamehameha_length"						"光波长度："
@@ -384,7 +385,7 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4"					"龟派气功强驱散"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4_description"		"龟派气功会对其中的敌人持续造成强驱散"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_5"					"+{s:bonus_regen}% 超级赛亚人恢复"
-		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6"					"龟派气功无限持续时间"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6"					"+{s:bonus_channel} 龟派气功持续时间"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7"					"超级赛亚人变为被动技能"
 
 		// /////////////////////////////////////////////////////////////////////////////

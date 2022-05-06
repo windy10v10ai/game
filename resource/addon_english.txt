@@ -324,7 +324,7 @@
 
 		"npc_dota_hero_chen" 									 			"Goku"
 		"DOTA_Tooltip_Ability_goku_kamehameha" 								"Turtle school qigong"
-		"DOTA_Tooltip_ability_goku_kamehameha_description" 					"The Goku concentrates all the energy in his body and releases it together. He emits a light wave and causes damage to the enemy on the straight line within the duration \ n < H1 > super Saiya mode: < / H1 > the light wave distance becomes infinite and the damage becomes% super_saiyan_damage_multiple% times"
+		"DOTA_Tooltip_ability_goku_kamehameha_description" 					"The Goku concentrates all the energy in his body and releases it together. He emits a light wave and causes damage to the enemy on the straight line within the duration \ n < H1 > super Saiya mode: < / H1 > the light wave distance becomes infinite, mana cost and the damage becomes% super_saiyan_damage_multiple% times"
 		"DOTA_Tooltip_ability_goku_kamehameha_Lore" 						"A unique skill created by the tortoise Fairy"
 		"DOTA_Tooltip_ability_goku_kamehameha_channel" 						"Duration:"
 		"DOTA_Tooltip_ability_goku_kamehameha_length" 						"Light wave length:"
@@ -366,7 +366,7 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4" 					"Tortoise sect Qigong dispels strong"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4_description" 		"Turtle sect Qigong will continuously cause strong dispersion to the enemies"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_5" 					"+{s:bonus_regen}% Super Saiyan recovery"
-		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6" 					"Turtle sect Qigong unlimited duration"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6" 					"+{s:bonus_channel} Turtle sect Qigong duration"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7" 					"Super Saiya becomes a passive skill"
 
 		// /////////////////////////////////////////////////////////////////////////////
