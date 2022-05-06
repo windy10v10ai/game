@@ -1666,11 +1666,11 @@
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"2"
-		"AbilityChannelTime"			"1.0"
+		"AbilityChannelTime"			"2.0"
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 18 16 14 12"
+		"AbilityCooldown"				"20"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1680,17 +1680,17 @@
 
 			"channel"
 			{
-				"value"					"1"
-				"special_bonus_unique_goku_6"	"+99999"
+				"value"					"2"
+				"special_bonus_unique_goku_6"	"+2"
 			}
 			"length"			"1200"
 			"width"				"200"
 			"speed"			"2400"
-			"manacost_pre_second"	"90 100 110 120 130"
+			"manacost_pre_second"	"80 100 120 140 160"
 			"damage_pre_second"
 			{
-				"value"					"250 350 450 550 650"
-				"special_bonus_unique_goku_1"	"+100"
+				"value"					"100 150 200 250 300"
+				"special_bonus_unique_goku_1"	"+80"
 			}
 			"dmg_tick"				"0.1"
 			"super_saiyan_damage_multiple"		"2"
@@ -1718,7 +1718,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"22 18 14 10 6"
+		"AbilityCooldown"				"22 20 18 16 14"
 		"AbilityManaCost"				"80"
 
 		// Special
@@ -1730,7 +1730,7 @@
 				"value"					"5"
 				"special_bonus_unique_goku_2"	"+1"
 			}
-			"bonus_movespeed"				"50"
+			"bonus_movespeed"				"30 35 40 45 50"
 		}
 	}
 
@@ -1788,7 +1788,7 @@
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"160 140 120"
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"100 150 200"
 
 		// Damage
 		//-------------------------------------------------------------------------------------------------------------
@@ -1801,7 +1801,7 @@
 			"bonus_status_resistance"		"15 30 45"
 			"regen"
 			{
-				"value"						"3 6 9"
+				"value"						"3 5 7"
 				"special_bonus_unique_goku_5"	"+2"
 			}
 			"duration"						"30"
@@ -1838,7 +1838,7 @@
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60"
-		"AbilityManaCost"				"200"
+		"AbilityManaCost"				"300"
 
 		// Damage
 		//-------------------------------------------------------------------------------------------------------------

@@ -13,7 +13,7 @@ end
 
 function goku_kamehameha:GetCastRange()
 	if self:GetCaster():HasModifier("modifier_goku_super_saiyan") then
-		return 30000
+		return 15000
 	else
 		return self:GetSpecialValueFor("length") + self:GetCaster():GetCastRangeBonus()
 	end
@@ -87,9 +87,10 @@ function goku_kamehameha:OnSpellStart()
 	ParticleManager:SetParticleControlEnt(self.particle, 9, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	if caster:HasModifier("modifier_goku_super_saiyan") then
 		local damage_multiple = self:GetSpecialValueFor("super_saiyan_damage_multiple")
-		length = 30000
+		length = 15000
 		speed = length
 		damage = damage * damage_multiple
+		self.manacost = self.manacost * damage_multiple
 
 		ParticleManager:SetParticleControl(self.particle,60,Vector(255,255,0))
 	else
