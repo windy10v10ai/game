@@ -333,6 +333,59 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_5"				"+{s:bonus_count} 冲宵破军剑气数量"
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_6"				"冲宵剑气必定触发出鞘"
 
+		//龙珠-孙悟空
+		"npc_dota_hero_chen"									"孙悟空"
+
+		"DOTA_Tooltip_Ability_goku_kamehameha"								"龟派气功"
+		"DOTA_Tooltip_ability_goku_kamehameha_description"					"孙悟空将全身所有能量聚集一点浓缩后一起释放出来，射出一道光波，在持续时间内对直线上的敌人造成伤害\n<h1>超级赛亚人模式：</h1>光波距离变为无限，且伤害变为%super_saiyan_damage_multiple%倍"
+		"DOTA_Tooltip_ability_goku_kamehameha_Lore"							"由龟仙人所创的绝技"
+		"DOTA_Tooltip_ability_goku_kamehameha_channel"						"持续时间："
+		"DOTA_Tooltip_ability_goku_kamehameha_length"						"光波长度："
+		"DOTA_Tooltip_ability_goku_kamehameha_width"						"光波宽度："
+		"DOTA_Tooltip_ability_goku_kamehameha_manacost_pre_second"			"每秒耗蓝："
+		"DOTA_Tooltip_ability_goku_kamehameha_damage_pre_second"			"每秒伤害："
+		"DOTA_Tooltip_ability_goku_kamehameha_scepter_description"			"龟派气功无视技能免疫，并变为纯粹伤害"
+
+		"DOTA_Tooltip_Ability_goku_tp"										"高速移动"
+		"DOTA_Tooltip_ability_goku_tp_description"							"孙悟空爆发出腿部的力量，用极快的速度贴地飞行，增加移动速度并无法被选中\n<h1>超级赛亚人模式：</h1>高速移动可以突破移速上限"
+		"DOTA_Tooltip_ability_goku_tp_Lore"									"急速运动是躲避攻击的最好办法"
+		"DOTA_Tooltip_ability_goku_tp_duration"								"持续时间："
+		"DOTA_Tooltip_ability_goku_tp_bonus_movespeed"						"%移动速度加成："
+
+		"DOTA_Tooltip_Ability_goku_kaioken"									"界王拳"
+		"DOTA_Tooltip_ability_goku_kaioken_description"						"孙悟空使用超过自身极限的力量，获得攻击速度加成，且攻击时有几率击晕敌人并召唤幻影再次进行攻击\n<h1>超级赛亚人模式：</h1>界王拳可以主动使用。对目标范围的所有敌人发起一次攻击并返回原位"
+		"DOTA_Tooltip_ability_goku_kaioken_Lore"							"孙悟空在北界王处修炼时学会的招数"
+		"DOTA_Tooltip_ability_goku_kaioken_chance"							"%触发几率："
+		"DOTA_Tooltip_ability_goku_kaioken_stun_duration"					"眩晕时间："
+		"DOTA_Tooltip_ability_goku_kaioken_bonus_attackspeed"				"攻击速度加成："
+		"DOTA_Tooltip_ability_goku_kaioken_super_saiyan_tick"				"主动效果攻击间隔："
+		"DOTA_Tooltip_ability_goku_kaioken_super_saiyan_radius"				"主动效果范围："
+
+		"DOTA_Tooltip_Ability_goku_super_saiyan"							"超级赛亚人"
+		"DOTA_Tooltip_ability_goku_super_saiyan_description"				"<h1>被动：</h1>超级赛亚人的力量隐藏在孙悟空的体内，使孙悟空被动获得全属性加成\n<h1>主动：</h1>孙悟空进入超级赛亚人模式，每秒恢复一定百分比自身最大生命魔法值，获得状态抗性加成，并强化自己的所有技能"
+		"DOTA_Tooltip_ability_goku_super_saiyan_Lore"						"传说中每一千年才会出现一个的超级战士"
+		"DOTA_Tooltip_Ability_goku_super_saiyan_bonus_attribute"			"全属性增强："
+		"DOTA_Tooltip_Ability_goku_super_saiyan_bonus_status_resistance"	"%状态抗性："
+		"DOTA_Tooltip_Ability_goku_super_saiyan_regen"						"%生命魔法恢复："
+		"DOTA_Tooltip_Ability_goku_super_saiyan_duration"					"持续时间："
+
+		"DOTA_Tooltip_Ability_goku_spirit_bomb"								"元气弹"
+		"DOTA_Tooltip_ability_goku_spirit_bomb_description"					"孙悟空双手举高持续施法，将能量凝聚成一个巨大的蓝白色能量球，并获得高空视野，持续施法时间越久，能量球越大，高空视野和伤害范围越大，伤害越高，抛出后造成范围伤害\n<h1>超级赛亚人模式：</h1>元气弹无论持续施法多久，始终为最大伤害"
+		"DOTA_Tooltip_ability_goku_spirit_bomb_Lore"						"由北界王开发出来，孙悟空与拉蒂兹一战中死后从界王星所学到的招式"
+		"DOTA_Tooltip_ability_goku_spirit_bomb_channel"						"最大施法时间："
+		"DOTA_Tooltip_ability_goku_spirit_bomb_visionRange_max"				"最大高空视野："
+		"DOTA_Tooltip_ability_goku_spirit_bomb_damage_max"					"最大伤害："
+		"DOTA_Tooltip_ability_goku_spirit_bomb_radius_max"					"最大范围："
+		"DOTA_Tooltip_ability_goku_spirit_bomb_speed"						"飞行速度："
+
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_1"					"+{s:bonus_damage_pre_second} 龟派气功每秒伤害"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_2"					"+{s:bonus_duration}秒 高速移动持续时间"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_3"					"+{s:bonus_stun_duration}秒 界王拳击晕时间"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4"					"龟派气功强驱散"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4_description"		"龟派气功会对其中的敌人持续造成强驱散"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_5"					"+{s:bonus_regen}% 超级赛亚人恢复"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6"					"龟派气功无限持续时间"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7"					"超级赛亚人变为被动技能"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -352,6 +405,15 @@
 		"DOTA_Tooltip_modifier_abyss_sword_rush_night_sally"	"冲宵破军"
 		"DOTA_Tooltip_modifier_abyss_sword_rush_night_sally_Description"	"沉渊之剑获得%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度加成和%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%移动速度加成，攻击时有几率发出数道冲宵剑气"
 
+		//龙珠-孙悟空
+		"DOTA_Tooltip_modifier_goku_tp"	"高速移动"
+		"DOTA_Tooltip_modifier_goku_tp_Description"	"获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%移动速度加成"
+		"DOTA_Tooltip_modifier_goku_kaioken"	"界王拳"
+		"DOTA_Tooltip_modifier_goku_kaioken_Description"	"获得%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度加成，攻击有几率击晕目标并召唤幻影再次攻击"
+		"DOTA_Tooltip_modifier_goku_super_saiyan_passive"	"超级赛亚人：潜在"
+		"DOTA_Tooltip_modifier_goku_super_saiyan_passive_Description"	"获得%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%力量加成，%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%敏捷加成，%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS%智力加成"
+		"DOTA_Tooltip_modifier_goku_super_saiyan"	"超级赛亚人:激活"
+		"DOTA_Tooltip_modifier_goku_super_saiyan_Description"	"强化自身所有的技能，获得%dMODIFIER_PROPERTY_STATUS_RESISTANCE%%%状态抗性加成，每秒恢复%dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%%魔法和%dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%%生命"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//

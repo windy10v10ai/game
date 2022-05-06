@@ -127,7 +127,7 @@ local luoshuHeroSteamAccountID = Set {
 	136668998,
 	138837968,
 	-- 测试
-	-- 916506173,
+	916506173,
 }
 -- 称号属性 END
 
@@ -882,6 +882,9 @@ function AIGameMode:OnPlayerChat( event )
 		local pszHeroClass
 		if sChatMsg:find( '沉渊之剑' ) then
 			pszHeroClass = "npc_dota_hero_visage"
+		end
+		if sChatMsg:find( '孙悟空' ) then
+			pszHeroClass = "npc_dota_hero_chen"
 		end
 		if pszHeroClass ~= nil then
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
