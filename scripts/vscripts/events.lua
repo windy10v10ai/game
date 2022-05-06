@@ -120,7 +120,7 @@ local luoshuBuffSteamAccountID = Set {
 	-- 洛书
 	136668998,
 	-- 测试
-	916506173,
+	-- 916506173,
 }
 
 local luoshuHeroSteamAccountID = Set {
