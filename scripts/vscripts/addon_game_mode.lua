@@ -24,6 +24,7 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/hero_artoria.vsndevts", context)
 	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_abyss_sword.vsndevts", context)
 	PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_abyss_sword.vsndevts", context)
+	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_goku.vsndevts", context)
 end
 
 function AIGameMode:InitGameMode()

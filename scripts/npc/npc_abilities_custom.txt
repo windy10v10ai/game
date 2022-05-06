@@ -30,6 +30,14 @@
 		}
 	}
 
+	"dummy_unit_passive2"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" 					"ability_lua"
+		"ScriptFile"					"units/dummy_unit_passive"
+		"AbilityTextureName"            "rubick_empty1"
+		"MaxLevel"                      "1"
+	}
 	//=================================================================================================================
 	// Sniper Scepter Assassinate
 	//=================================================================================================================
@@ -1585,23 +1593,11 @@
 		"ScriptFile"	"heroes/hero_abyss_sword/Hero_vo_player"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"	"1"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"CoolDown"	"15"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"AttackProbability"	"20"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"MoveProbability"	"10"
-			}
+			"CoolDown"			"15"
+			"AttackProbability"	"20"
+			"MoveProbability"	"10"
 		}
 	}
 
@@ -1636,6 +1632,267 @@
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_abyss_sword_6"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+	//龙珠-孙悟空
+	"goku_kamehameha"
+	{
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+		// base texture folder	: resource/flash3/images/spellicons
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_goku/goku_kamehameha"
+		"AbilityTextureName"			"custom/goku/goku_kamehameha"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"5"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"			"0.1"
+		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_1"
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"HasScepterUpgrade"				"1"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"2"
+		"AbilityChannelTime"			"1.0"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 18 16 14 12"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+		{
+
+			"channel"
+			{
+				"value"					"1"
+				"special_bonus_unique_goku_6"	"+99999"
+			}
+			"length"			"1200"
+			"width"				"200"
+			"speed"			"2400"
+			"manacost_pre_second"	"90 100 110 120 130"
+			"damage_pre_second"
+			{
+				"value"					"250 350 450 550 650"
+				"special_bonus_unique_goku_1"	"+100"
+			}
+			"dmg_tick"				"0.1"
+			"super_saiyan_damage_multiple"		"2"
+		}
+	}
+
+	"goku_tp"
+	{
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+		// base texture folder	: resource/flash3/images/spellicons
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_goku/goku_tp"
+		"AbilityTextureName" 			"custom/goku/goku_tp"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"5"
+
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"22 18 14 10 6"
+		"AbilityManaCost"				"80"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value"					"5"
+				"special_bonus_unique_goku_2"	"+1"
+			}
+			"bonus_movespeed"				"50"
+		}
+	}
+
+	"goku_kaioken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"heroes/hero_goku/goku_kaioken.lua"
+		"AbilityTextureName"        "custom/goku/goku_kaioken"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"5"
+
+		"SpellDispellableType"		"SPELL_DISPELLABLE_NO"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilityValues"
+		{
+			"chance"						"8 16 24 32 40"
+			"stun_duration"
+			{
+				"value"						"0.25"
+				"special_bonus_unique_goku_3"	"+0.25"
+			}
+			"bonus_attackspeed"				"30 60 90 120 150"
+			"super_saiyan_tick"				"0.2"
+			"super_saiyan_range"			"1200"
+			"super_saiyan_radius"			"400"
+			"super_saiyan_cooldown"			"8"
+		}
+	}
+
+	"goku_super_saiyan"
+	{
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+		// base texture folder	: resource/flash3/images/spellicons
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_goku/goku_super_saiyan"
+		"AbilityTextureName"			"custom/goku/super_saiyan"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"3"
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"160 140 120"
+		"AbilityManaCost"				"100"
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_attribute"				"10 20 30"
+			"bonus_status_resistance"		"15 30 45"
+			"regen"
+			{
+				"value"						"3 6 9"
+				"special_bonus_unique_goku_5"	"+2"
+			}
+			"duration"						"30"
+		}
+	}
+
+	"goku_spirit_bomb"
+	{
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+		// base texture folder	: resource/flash3/images/spellicons
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_goku/goku_spirit_bomb"
+		"AbilityTextureName"			"custom/goku/goku_spirit_bomb"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_2"
+
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"1"
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"IsGrantedByShard"			"1"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1500"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"200"
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"channel"					"2"
+			"visionRange_max"			"2500"
+			"damage_max"				"1500"
+			"radius_max"				"400"
+			"speed"						"1000"
+		}
+
+	}
+
+	"special_bonus_unique_goku_1"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_goku_2"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_goku_3"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_goku_4"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_goku_5"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_goku_6"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_goku_7"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"

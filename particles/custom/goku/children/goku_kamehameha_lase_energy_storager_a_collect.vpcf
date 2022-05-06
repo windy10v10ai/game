@@ -1,0 +1,144 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf36:version{d15c9157-10e0-47bc-9333-1ac81da07b8d} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 32
+	m_flConstantRadius = 20.0
+	m_ConstantColor = [ 255, 245, 216, 255 ]
+	m_nBehaviorVersion = 4
+	m_nFirstMultipleOverride_BackwardCompat = 7
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 4.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMax = 3.0
+			m_fLifetimeMin = 3.0
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMax = 200.0
+			m_flRadiusMin = 180.0
+		},
+		{
+			_class = "C_INIT_RandomRotationSpeed"
+			m_bDisableOperator = true
+			m_flDegreesMax = 10.0
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMax = [ 137, 255, 131, 255 ]
+			m_ColorMin = [ 155, 221, 134, 255 ]
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMax = 10
+			m_nAlphaMin = 10
+		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
+		},
+		{
+			_class = "C_INIT_RemapScalar"
+			m_flOutputMax = 0.5
+			m_flOutputMin = 1.0
+			m_nFieldOutput = 7
+			m_flInputMax = 90.0
+			m_flInputMin = 70.0
+			m_nFieldInput = 3
+			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
+		},
+		{
+			_class = "C_INIT_RemapCPtoVector"
+			m_nCPInput = 60
+			m_nFieldOutput = 6
+			m_vInputMax = [ 1.0, 1.0, 1.0 ]
+			m_vOutputMax = [ 255.0, 255.0, 255.0 ]
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_SpinUpdate"
+		},
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndScale = 3.0
+			m_flStartScale = 0.0
+			m_flBias = 0.3
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_flEndTime = 100000000376832.0
+			m_Rate = 0.5
+			m_nField = 7
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+			m_bDisableOperator = true
+			m_flFadeInTime = 1.0
+		},
+		{
+			_class = "C_OP_ClampScalar"
+			m_nFieldOutput = 7
+		},
+		{
+			_class = "C_OP_PositionLock"
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_Rate = -10.0
+			m_flEndTime = 10.0
+			m_nField = 16
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			VisibilityInputs = 
+			{
+				m_flCameraBias = 10.0
+			}
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/particle_flares/aircraft_white_v3.vtex"
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
+		},
+	]
+}
