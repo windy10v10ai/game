@@ -89,7 +89,9 @@ function goku_kamehameha:OnSpellStart()
 		local damage_multiple = self:GetSpecialValueFor("super_saiyan_damage_multiple")
 		length = 15000
 		speed = length
-		damage = damage * damage_multiple
+		-- damage = damage * damage_multiple
+		-- Test
+		damage = damage * 1.8
 		self.manacost = self.manacost * damage_multiple
 
 		ParticleManager:SetParticleControl(self.particle,60,Vector(255,255,0))
