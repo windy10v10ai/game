@@ -127,6 +127,7 @@ local luoshuHeroSteamAccountID = Set {
 	136668998,
 	138837968,
 	-- 测试
+	136407523,
 	916506173,
 }
 -- 称号属性 END
@@ -885,7 +886,7 @@ function AIGameMode:OnPlayerChat( event )
 		if sChatMsg:find( '沉渊之剑' ) then
 			pszHeroClass = "npc_dota_hero_visage"
 		end
-		if sChatMsg:find( '孙悟空' ) then
+		if sChatMsg:find( '超级赛亚人' ) then
 			pszHeroClass = "npc_dota_hero_chen"
 		end
 		if pszHeroClass ~= nil then
