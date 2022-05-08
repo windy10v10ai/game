@@ -97,22 +97,23 @@ local bulangyaSteamAccountID = Set {
 local qiliuSteamAccountID = Set {
 	-- 76
 	353885092,
-	-- 测试
-	-- 136407523,
 }
 
 local hunzhuoSteamAccountID = Set {
 	-- 浑浊
 	251171524,
-	-- 测试
-	-- 136407523,
 }
 
 local chashaobaoSteamAccountID = Set {
 	-- 叉烧包
 	882465781,
+}
+
+local menglihuaSteamAccountID = Set {
+	-- 梦璃花
+	907056028,
 	-- 测试
-	-- 136407523,
+	-- 916506173,
 }
 
 local luoshuBuffSteamAccountID = Set {
@@ -126,7 +127,8 @@ local luoshuHeroSteamAccountID = Set {
 	136668998,
 	138837968,
 	-- 测试
-	-- 916506173,
+	136407523,
+	916506173,
 }
 -- 称号属性 END
 
@@ -710,12 +712,18 @@ function AIGameMode:OnNPCSpawned(keys)
 				LinkLuaModifier("modifier_chashaobao", "modifiers/player/modifier_chashaobao", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_chashaobao", {})
 			end
+			if menglihuaSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_menglihua", "modifiers/player/modifier_menglihua", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_menglihua", {})
+			end
 
 			if luoshuBuffSteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_saber", "modifiers/player/modifier_saber", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_saber", {})
 				LinkLuaModifier("modifier_abyss", "modifiers/player/modifier_abyss", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_abyss", {})
+				LinkLuaModifier("modifier_goku", "modifiers/player/modifier_goku", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_goku", {})
 			end
 
 			if WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
@@ -877,6 +885,9 @@ function AIGameMode:OnPlayerChat( event )
 		local pszHeroClass
 		if sChatMsg:find( '沉渊之剑' ) then
 			pszHeroClass = "npc_dota_hero_visage"
+		end
+		if sChatMsg:find( '超级赛亚人' ) then
+			pszHeroClass = "npc_dota_hero_chen"
 		end
 		if pszHeroClass ~= nil then
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)

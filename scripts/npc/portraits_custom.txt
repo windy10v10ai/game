@@ -236,4 +236,92 @@
 			}
 		}
 	}
+
+	"models/heroes/goku/npc_dota_hero_goku.vmdl"
+	{
+		"PortraitLightPosition"		"332.146545 431.045258 654.003418"
+		"PortraitLightAngles"		"49.262711 -140.835724 79.547318"
+		"PortraitLightFOV"		"60.000000"
+		"PortraitLightDistance"		"1126.390015"
+		"PortraitLightColor"		"255 246 241"
+		"PortraitLightScale"		"1.500000"
+		"PortraitShadowColor"		"36 32 34"
+		"PortraitShadowScale"		"1.000000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"0.765 -0.576 0.288"
+		"PortraitAmbientColor"		"72 81 126"
+		"PortraitAmbientScale"		"1.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitSpecularDirection"		"0.000000 0.000000 -1.000000"
+		"PortraitSpecularPower"		"16.000000"
+		"PortraitBackgroundColor1"		"0.317647 0.000000 0.505882"
+		"PortraitBackgroundColor2"		"0.980392 0.878431 1.000000"
+		"PortraitBackgroundColor3"		"0.556863 0.521569 1.000000"
+		"PortraitBackgroundColor4"		"0.317647 0.000000 0.529412"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_bluesky.vmat"
+		"PortraitAnimationActivity"		"ACT_DOTA_CAPTURE"
+		"PortraitAnimationCycle"		"0.000000"
+		"PortraitAnimationRate"		"1.000000"
+		"PortraitHideHero"		"0"
+		"PortraitHideParticles"		"0"
+		"PortraitHideDropShadow"		"0"
+		"PortraitDesaturateParticles"		"0"
+		"PortraitDesaturateHero"		"1"
+		"SummonPosition"		"0.000000 0.000000 -23.223389"
+		"PortraitPlayIdleExpression"		"0"
+		"cameras"
+		{
+			"Default"
+			{
+				"PortraitPosition"		"189.072800 72.298660 215.693390"
+				"PortraitAngles"		"0.226480 202.119019 3.000000"
+				"PortraitFOV"		"20.000000"
+				"PortraitFar"		"1467.079956"
+			}
+		}
+	}
+
+	"models/heroes/goku/npc_dota_hero_goku_super_saiyan.vmdl"
+	{
+		"PortraitLightPosition"		"332.146545 431.045258 654.003418"
+		"PortraitLightAngles"		"49.262711 -140.835724 79.547318"
+		"PortraitLightFOV"		"60.000000"
+		"PortraitLightDistance"		"1126.390015"
+		"PortraitLightColor"		"255 246 241"
+		"PortraitLightScale"		"1.500000"
+		"PortraitShadowColor"		"36 32 34"
+		"PortraitShadowScale"		"1.000000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"0.765 -0.576 0.288"
+		"PortraitAmbientColor"		"72 81 126"
+		"PortraitAmbientScale"		"1.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitSpecularDirection"		"0.000000 0.000000 -1.000000"
+		"PortraitSpecularPower"		"16.000000"
+		"PortraitBackgroundColor1"		"0.317647 0.000000 0.505882"
+		"PortraitBackgroundColor2"		"0.980392 0.878431 1.000000"
+		"PortraitBackgroundColor3"		"0.556863 0.521569 1.000000"
+		"PortraitBackgroundColor4"		"0.317647 0.000000 0.529412"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_wraith_king_arcana.vmat"
+		"PortraitAnimationActivity"		"ACT_DOTA_CAPTURE"
+		"PortraitAnimationCycle"		"0.000000"
+		"PortraitAnimationRate"		"1.000000"
+		"PortraitHideHero"		"0"
+		"PortraitHideParticles"		"0"
+		"PortraitHideDropShadow"		"0"
+		"PortraitDesaturateParticles"		"0"
+		"PortraitDesaturateHero"		"1"
+		"SummonPosition"		"0.000000 0.000000 -23.223389"
+		"PortraitPlayIdleExpression"		"0"
+		"cameras"
+		{
+			"Default"
+			{
+				"PortraitPosition"		"189.072800 72.298660 215.693390"
+				"PortraitAngles"		"0.226480 202.119019 3.000000"
+				"PortraitFOV"		"20.000000"
+				"PortraitFar"		"1467.079956"
+			}
+		}
+	}
 }

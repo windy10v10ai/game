@@ -1,5 +1,59 @@
 "DOTAHeroes"
 {
+	//孙悟空
+	"npc_dota_hero_Goku"
+	{
+		"override_hero"                       "npc_dota_hero_chen"
+		"Model"                               "models/heroes/goku/npc_dota_hero_goku.vmdl"
+		"ModelScale"				"0.75000"
+		"LoadoutScale"				"0.75000"
+		"SpectatorLoadoutScale" 	"0.75000"
+		"VersusScale"				"0.75000"
+
+		"DisableWearables" 			"1"
+		"Ability1"                   "goku_kamehameha"
+		"Ability2"                   "goku_tp"
+		"Ability3"                   "goku_kaioken"
+		"Ability4"                   "goku_spirit_bomb"
+		"Ability6"                   "goku_super_saiyan"
+		"Ability10"					 "special_bonus_unique_goku_1"
+		"Ability11"					 "special_bonus_unique_goku_2"
+
+		"Ability12"					 "special_bonus_spell_amplify_10"
+		"Ability13"					 "special_bonus_unique_goku_3"
+
+		"Ability14"					 "special_bonus_unique_goku_4"
+		"Ability15"					 "special_bonus_unique_goku_5"
+
+		"Ability16"					 "special_bonus_unique_goku_6"
+		"Ability17"					 "special_bonus_unique_goku_7"
+
+		"ItemSlots"
+  		{ }
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"35"
+		"MagicalResistance"			"45"
+		"AttributeStrengthGain"		"3"
+		"AttributeBaseIntelligence"	"10"
+		"AttributeIntelligenceGain"	"1.5"
+		"BaseAttackSpeed"			"120"
+		"AttackAnimationPoint"		"0.300000"
+		"AttributeBaseAgility"		"30"
+		"AttributeAgilityGain"		"2.0"
+		"MovementSpeed"				"300"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"HasAggressiveStance"		"1"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"160"
+		"AttackDamageMin"			"45"
+		"AttackDamageMax"			"50"
+		"VisionDaytimeRange"		"1600"
+		"VisionNighttimeRange"		"1000"
+		"SoundSet"					"Hero_Marci"
+		"VoiceFile"					""
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_marci.vsndevts"
+	}
 	//剑灵
 	"npc_dota_hero_abyss_sword"
 	{
@@ -2052,9 +2106,11 @@
 				"28"		"special_bonus_unique_warlock_10"
 				"29"		"special_bonus_unique_warlock_7"
 				"30"		"special_bonus_unique_warlock_2"
-				"31"		"warlock_fatal_bonds"
-				"32"		"warlock_shadow_word"
-				"33"		"warlock_upheaval"
+				"31"		"warlock_rain_of_chaos"
+				"32"		"warlock_fatal_bonds"
+				"33"		"warlock_shadow_word"
+				"34"		"warlock_upheaval"
+				"35"		"warlock_rain_of_chaos"
 			}
 		}
 	}

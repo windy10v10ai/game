@@ -1,8 +1,8 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	m_meshList = 
+	m_meshList =
 	{
-		m_meshList = 
+		m_meshList =
 		[
 			{
 				m_meshName = "npc_dota_hero_sword_spirit"
@@ -21,7 +21,7 @@
 			},
 		]
 	}
-	m_clothProxyMeshList = 
+	m_clothProxyMeshList =
 	{
 		_class = "CVClothProxyMeshList"
 		m_flClothEnableThreshold = 0.05
@@ -38,25 +38,25 @@
 		m_bReservedBool4 = false
 		m_clothProxyMeshList = [  ]
 	}
-	m_physicsMeshList = 
+	m_physicsMeshList =
 	{
 		m_meshList = [  ]
 	}
 	m_pModelInfo = null
-	m_pBoneFlagList = 
+	m_pBoneFlagList =
 	{
 		m_pObject = null
 	}
-	m_pHitBoxSetLists = 
+	m_pHitBoxSetLists =
 	[
 		{
-			m_pObject = 
+			m_pObject =
 			{
-				m_HitBoxSets = 
+				m_HitBoxSets =
 				[
 					{
 						m_name = "default"
-						m_HitBoxes = 
+						m_HitBoxes =
 						[
 							{
 								m_name = "vs_pelvis"
@@ -446,7 +446,7 @@
 					},
 					{
 						m_name = "head"
-						m_HitBoxes = 
+						m_HitBoxes =
 						[
 							{
 								m_name = "head_child"
@@ -464,7 +464,7 @@
 					},
 					{
 						m_name = "hands"
-						m_HitBoxes = 
+						m_HitBoxes =
 						[
 							{
 								m_name = "hand_L"
@@ -494,7 +494,7 @@
 					},
 					{
 						m_name = "feet"
-						m_HitBoxes = 
+						m_HitBoxes =
 						[
 							{
 								m_name = "ankle_L"
@@ -524,7 +524,7 @@
 					},
 					{
 						m_name = "select_low"
-						m_HitBoxes = 
+						m_HitBoxes =
 						[
 							{
 								m_name = "vs_pelvis"
@@ -541,8 +541,8 @@
 						]
 					},
 					{
-						m_name = "select_hgh"
-						m_HitBoxes = 
+						m_name = "select_high"
+						m_HitBoxes =
 						[
 							{
 								m_name = "vs_pelvis"
@@ -575,17 +575,17 @@
 			}
 		},
 	]
-	m_pAttachmentLists = 
+	m_pAttachmentLists =
 	[
 		{
-			m_pObject = 
+			m_pObject =
 			{
 				m_name = ""
-				m_attachments = 
+				m_attachments =
 				[
 					{
 						m_name = "attach_hand_r"
-						m_influences = 
+						m_influences =
 						[
 							{
 								m_influenceName = "hand_R"
@@ -598,7 +598,7 @@
 					},
 					{
 						m_name = "attach_weapon_top"
-						m_influences = 
+						m_influences =
 						[
 							{
 								m_influenceName = "weapon_top"
@@ -611,7 +611,7 @@
 					},
 					{
 						m_name = "attach_weapon_bot"
-						m_influences = 
+						m_influences =
 						[
 							{
 								m_influenceName = "weapon_bot"
@@ -624,7 +624,7 @@
 					},
 					{
 						m_name = "attach_weapon"
-						m_influences = 
+						m_influences =
 						[
 							{
 								m_influenceName = "weapon_0"
@@ -637,7 +637,7 @@
 					},
 					{
 						m_name = "attach_hitloc"
-						m_influences = 
+						m_influences =
 						[
 							{
 								m_influenceName = "vs_spine_1"
@@ -650,7 +650,7 @@
 					},
 					{
 						m_name = "attach_attack1"
-						m_influences = 
+						m_influences =
 						[
 							{
 								m_influenceName = "weapon_bot"
@@ -663,7 +663,7 @@
 					},
 					{
 						m_name = "attach_attack2"
-						m_influences = 
+						m_influences =
 						[
 							{
 								m_influenceName = "hand_L"
@@ -678,21 +678,21 @@
 			}
 		},
 	]
-	m_pAnimGroup = 
+	m_pAnimGroup =
 	{
-		m_pObject = 
+		m_pObject =
 		{
 			m_Name = ""
-			m_pBoneFlagList = 
+			m_pBoneFlagList =
 			{
 				m_pObject = null
 			}
-			m_pSeqGroup = 
+			m_pSeqGroup =
 			{
 				m_pObject = null
 			}
 			m_pAnimGroups = [  ]
-			m_Vanim = 
+			m_Vanim =
 			[
 				{
 					m_Animationname = "@turns"
@@ -700,13 +700,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 1
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -720,13 +720,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -740,13 +740,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 1
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -760,13 +760,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -780,13 +780,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 1
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -800,13 +800,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -820,13 +820,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 1
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -840,13 +840,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -860,13 +860,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 10
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -880,13 +880,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -900,13 +900,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 13
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -920,13 +920,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -940,13 +940,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 10
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -960,13 +960,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -980,13 +980,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1000,13 +1000,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1020,13 +1020,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 14
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1040,13 +1040,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1060,13 +1060,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1080,13 +1080,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1100,13 +1100,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1120,13 +1120,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1140,13 +1140,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 448
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1160,13 +1160,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1180,13 +1180,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 448
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1200,13 +1200,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1220,13 +1220,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 211
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1240,13 +1240,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1260,13 +1260,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 140
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1280,13 +1280,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1300,13 +1300,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 18
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1320,13 +1320,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1340,13 +1340,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 18
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1360,13 +1360,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1380,13 +1380,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 18
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1400,13 +1400,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1420,13 +1420,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 141
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1440,13 +1440,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1460,13 +1460,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 211
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1480,13 +1480,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1500,13 +1500,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 448
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1520,13 +1520,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1540,13 +1540,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 144
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1557,7 +1557,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -1577,13 +1577,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1597,13 +1597,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 144
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1614,7 +1614,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -1634,13 +1634,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1654,13 +1654,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 144
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1671,7 +1671,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -1691,13 +1691,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1711,13 +1711,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 144
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1728,7 +1728,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -1748,13 +1748,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1768,13 +1768,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 14
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1785,7 +1785,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -1805,13 +1805,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1825,13 +1825,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 15
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1842,7 +1842,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -1862,13 +1862,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1882,13 +1882,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 15
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1899,7 +1899,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -1919,13 +1919,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1939,13 +1939,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 144
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -1956,7 +1956,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -1976,13 +1976,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -1996,13 +1996,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 130
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2013,7 +2013,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -2033,13 +2033,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2053,13 +2053,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 130
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2070,7 +2070,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -2090,13 +2090,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2110,13 +2110,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 130
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2127,7 +2127,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -2147,13 +2147,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2167,13 +2167,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 14
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2184,7 +2184,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -2204,13 +2204,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2224,13 +2224,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 15
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2241,7 +2241,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -2261,13 +2261,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2281,13 +2281,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 14
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2298,7 +2298,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -2318,13 +2318,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2338,13 +2338,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 15
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2355,7 +2355,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -2375,13 +2375,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2395,13 +2395,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 144
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2412,7 +2412,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -2432,13 +2432,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2452,13 +2452,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 328
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2472,13 +2472,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2492,13 +2492,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 1
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2512,13 +2512,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2532,13 +2532,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 1
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2552,13 +2552,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2572,13 +2572,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 75
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2587,7 +2587,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_TAUNT"
@@ -2598,13 +2598,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2618,13 +2618,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 75
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2633,7 +2633,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_TAUNT_STATUE"
@@ -2644,13 +2644,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2664,13 +2664,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 74
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2684,13 +2684,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2704,13 +2704,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2719,7 +2719,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -2727,7 +2727,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -2747,13 +2747,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2767,13 +2767,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2782,7 +2782,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -2790,7 +2790,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -2810,13 +2810,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2830,13 +2830,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2845,7 +2845,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK_STATUE"
@@ -2853,7 +2853,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -2873,13 +2873,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2893,13 +2893,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2908,7 +2908,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -2920,7 +2920,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -2940,13 +2940,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -2960,13 +2960,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 29
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -2975,7 +2975,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -2987,7 +2987,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3007,13 +3007,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3027,13 +3027,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3042,7 +3042,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -3054,7 +3054,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3074,13 +3074,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3094,13 +3094,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3109,7 +3109,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -3125,7 +3125,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3145,13 +3145,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3165,13 +3165,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 29
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3180,7 +3180,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -3196,7 +3196,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3216,13 +3216,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3236,13 +3236,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3251,7 +3251,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -3259,7 +3259,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3279,13 +3279,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3299,13 +3299,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3314,7 +3314,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -3326,7 +3326,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3346,13 +3346,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3366,13 +3366,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3381,7 +3381,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -3393,7 +3393,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3413,13 +3413,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3433,13 +3433,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3448,7 +3448,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -3464,7 +3464,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3484,13 +3484,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3504,13 +3504,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3519,7 +3519,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -3531,7 +3531,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3551,13 +3551,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3571,13 +3571,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 30
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3586,7 +3586,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -3598,7 +3598,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3618,13 +3618,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3638,13 +3638,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3653,7 +3653,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -3665,7 +3665,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3685,13 +3685,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3705,13 +3705,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3720,7 +3720,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -3736,7 +3736,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3756,13 +3756,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3776,13 +3776,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 29
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3791,7 +3791,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_ATTACK"
@@ -3807,7 +3807,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3827,13 +3827,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3847,13 +3847,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3864,7 +3864,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3884,13 +3884,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3904,13 +3904,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3921,7 +3921,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3941,13 +3941,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -3961,13 +3961,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 35
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -3978,7 +3978,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -3998,13 +3998,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4018,13 +4018,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4035,7 +4035,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -4055,13 +4055,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4075,13 +4075,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 27
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4092,7 +4092,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -4112,13 +4112,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4132,13 +4132,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 35
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4149,7 +4149,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -4169,13 +4169,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4189,13 +4189,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4206,7 +4206,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -4226,13 +4226,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4246,13 +4246,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 512
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4261,7 +4261,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAPTURE"
@@ -4272,13 +4272,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4292,13 +4292,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 63
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4307,7 +4307,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAPTURE_CARD"
@@ -4318,13 +4318,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4338,13 +4338,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 8
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4353,7 +4353,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST_ABILITY_3"
@@ -4364,13 +4364,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4384,13 +4384,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 10
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4399,7 +4399,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST_ABILITY_3"
@@ -4414,13 +4414,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4434,13 +4434,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 16
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4449,7 +4449,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST_ABILITY_3_END"
@@ -4460,13 +4460,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4480,13 +4480,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 16
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4495,7 +4495,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST_ABILITY_3_END"
@@ -4510,13 +4510,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4530,13 +4530,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 16
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4545,7 +4545,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST_ABILITY_4"
@@ -4556,13 +4556,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4576,13 +4576,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 16
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4591,7 +4591,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST_ABILITY_4"
@@ -4606,13 +4606,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4626,13 +4626,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 14
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4641,7 +4641,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST3_STATUE"
@@ -4652,13 +4652,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4672,13 +4672,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 41
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4687,7 +4687,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DIE"
@@ -4695,7 +4695,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -4715,13 +4715,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4735,13 +4735,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 37
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4752,7 +4752,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -4772,13 +4772,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4792,13 +4792,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 37
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4809,7 +4809,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -4829,13 +4829,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4849,13 +4849,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 65
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4864,7 +4864,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DIE"
@@ -4872,7 +4872,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -4892,13 +4892,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4912,13 +4912,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 65
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4927,7 +4927,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DIE"
@@ -4935,7 +4935,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -4955,13 +4955,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -4975,13 +4975,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 65
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -4990,7 +4990,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DIE"
@@ -4998,7 +4998,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -5018,13 +5018,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5038,13 +5038,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 65
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5053,7 +5053,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DIE"
@@ -5061,7 +5061,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -5081,13 +5081,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5101,13 +5101,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 50
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5116,7 +5116,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DIE"
@@ -5124,7 +5124,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -5144,13 +5144,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5164,13 +5164,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 63
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5179,7 +5179,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DIE"
@@ -5187,7 +5187,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -5207,13 +5207,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5227,13 +5227,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 63
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5242,7 +5242,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DIE"
@@ -5250,7 +5250,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -5270,13 +5270,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5290,13 +5290,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 37
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5307,7 +5307,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -5327,13 +5327,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5347,13 +5347,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 37
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5364,7 +5364,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -5384,13 +5384,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5404,13 +5404,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 37
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5421,7 +5421,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -5441,13 +5441,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5461,13 +5461,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 448
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5476,7 +5476,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_LOADOUT"
@@ -5491,13 +5491,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5511,13 +5511,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 559
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5526,7 +5526,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_SPAWN"
@@ -5545,13 +5545,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5565,13 +5565,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 119
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5580,7 +5580,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DEFEAT"
@@ -5591,13 +5591,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5611,13 +5611,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 72
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5626,7 +5626,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DEFEAT_STATUE"
@@ -5637,13 +5637,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5657,13 +5657,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 72
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5672,7 +5672,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DEFEAT_START"
@@ -5683,13 +5683,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5703,13 +5703,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5718,7 +5718,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DISABLED"
@@ -5729,13 +5729,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5749,13 +5749,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5764,7 +5764,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_STUN_STATUE"
@@ -5775,13 +5775,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5795,13 +5795,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 14
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5810,7 +5810,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_FLAIL"
@@ -5821,13 +5821,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5841,13 +5841,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 14
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5856,7 +5856,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_FLAIL_STATUE"
@@ -5867,13 +5867,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5887,13 +5887,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 23
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5902,7 +5902,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_FLAIL"
@@ -5917,13 +5917,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5937,13 +5937,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 23
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5952,7 +5952,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_FORCESTAFF_STATUE"
@@ -5963,13 +5963,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -5983,13 +5983,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 12
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -5998,7 +5998,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_FORCESTAFF_END"
@@ -6009,13 +6009,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6029,13 +6029,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 12
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6044,7 +6044,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_FORCESTAFF_END"
@@ -6059,13 +6059,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6079,13 +6079,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 12
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6094,7 +6094,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_FORCESTAFF_END"
@@ -6109,13 +6109,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6129,13 +6129,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 12
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6144,7 +6144,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_FORCESTAFF_END"
@@ -6163,13 +6163,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6183,13 +6183,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 70
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6198,7 +6198,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_GENERIC_CHANNEL_1"
@@ -6209,13 +6209,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6229,13 +6229,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 70
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6244,7 +6244,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CHANNEL_STATUE"
@@ -6255,13 +6255,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6275,13 +6275,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6290,7 +6290,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE"
@@ -6305,13 +6305,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6325,13 +6325,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6340,7 +6340,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE_RARE"
@@ -6355,13 +6355,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6375,13 +6375,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6390,7 +6390,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE"
@@ -6405,13 +6405,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6425,13 +6425,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6440,7 +6440,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE"
@@ -6459,13 +6459,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6479,13 +6479,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6494,7 +6494,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE_RARE"
@@ -6513,13 +6513,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6533,13 +6533,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6548,7 +6548,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE_RARE"
@@ -6563,13 +6563,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6583,13 +6583,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 448
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6598,7 +6598,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE"
@@ -6609,13 +6609,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6629,13 +6629,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 129
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6644,7 +6644,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE_RARE"
@@ -6655,13 +6655,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6675,13 +6675,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 448
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6690,7 +6690,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_LOADOUT"
@@ -6705,13 +6705,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6725,13 +6725,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 62
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6745,13 +6745,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6765,13 +6765,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 62
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6780,7 +6780,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CHANNEL_STATUE"
@@ -6791,13 +6791,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6811,13 +6811,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6831,13 +6831,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6851,13 +6851,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6866,7 +6866,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE_STATUE"
@@ -6877,13 +6877,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6897,13 +6897,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 1
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6917,13 +6917,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6937,13 +6937,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 8
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6957,13 +6957,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -6977,13 +6977,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 144
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -6994,7 +6994,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -7014,13 +7014,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7034,13 +7034,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 58
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7051,7 +7051,7 @@
 					m_bDisable = false
 					m_Activities = [  ]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -7071,13 +7071,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7091,13 +7091,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 18
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7106,7 +7106,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_SPAWN"
@@ -7117,13 +7117,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7137,13 +7137,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 196
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7152,7 +7152,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_SPAWN_STATUE"
@@ -7163,13 +7163,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7183,13 +7183,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 40
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7198,7 +7198,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_TELEPORT"
@@ -7209,13 +7209,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7229,13 +7229,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 31
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7244,7 +7244,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_TELEPORT_STATUE"
@@ -7255,13 +7255,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7275,13 +7275,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 18
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7290,7 +7290,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_TELEPORT_END"
@@ -7305,13 +7305,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7325,13 +7325,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 18
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7340,7 +7340,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_TELEPORT_END"
@@ -7359,13 +7359,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7379,13 +7379,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 63
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7394,7 +7394,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAPTURE"
@@ -7409,13 +7409,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7429,13 +7429,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 13
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7444,7 +7444,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST_ABILITY_2_END"
@@ -7455,13 +7455,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7475,13 +7475,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 6
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7490,7 +7490,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST_ABILITY_2"
@@ -7501,13 +7501,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7521,13 +7521,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 128
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7536,7 +7536,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_VICTORY_STATUE"
@@ -7547,13 +7547,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7567,13 +7567,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 128
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7582,7 +7582,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_VICTORY"
@@ -7593,13 +7593,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7613,13 +7613,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 110
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7628,7 +7628,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_VICTORY_START"
@@ -7639,13 +7639,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7659,13 +7659,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 10
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7674,7 +7674,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST_ABILITY_1"
@@ -7685,13 +7685,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7705,13 +7705,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 13
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7720,7 +7720,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST_ABILITY_1"
@@ -7735,13 +7735,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7755,13 +7755,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 10
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7770,7 +7770,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST_ABILITY_1"
@@ -7785,13 +7785,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7805,13 +7805,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7820,7 +7820,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_DISABLED"
@@ -7835,13 +7835,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7855,13 +7855,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 14
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7870,7 +7870,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_FLAIL"
@@ -7885,13 +7885,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7905,13 +7905,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7920,7 +7920,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE"
@@ -7943,13 +7943,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -7963,13 +7963,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 47
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -7978,7 +7978,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE"
@@ -7997,13 +7997,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8017,13 +8017,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 448
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8032,7 +8032,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE"
@@ -8047,13 +8047,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8067,13 +8067,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 448
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8082,7 +8082,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_IDLE"
@@ -8101,13 +8101,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8121,13 +8121,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 211
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8136,7 +8136,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_RUN"
@@ -8144,7 +8144,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -8164,13 +8164,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8184,13 +8184,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 140
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8199,7 +8199,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_RUN"
@@ -8211,7 +8211,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -8231,13 +8231,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8251,13 +8251,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 18
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8266,7 +8266,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_RUN"
@@ -8278,7 +8278,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -8298,13 +8298,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8318,13 +8318,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 18
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8333,7 +8333,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_RUN"
@@ -8349,7 +8349,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -8369,13 +8369,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8389,13 +8389,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 18
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8404,7 +8404,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_RUN"
@@ -8424,7 +8424,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -8444,13 +8444,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8464,13 +8464,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 18
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8479,7 +8479,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_RUN"
@@ -8495,7 +8495,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -8515,13 +8515,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8535,13 +8535,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 211
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8550,7 +8550,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_RUN"
@@ -8562,7 +8562,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -8582,13 +8582,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8602,13 +8602,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 448
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8617,7 +8617,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_LOADOUT"
@@ -8628,13 +8628,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8648,13 +8648,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 328
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8663,7 +8663,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_SPAWN"
@@ -8678,13 +8678,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8698,13 +8698,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 18
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8713,7 +8713,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_TELEPORT_END_REACT"
@@ -8724,13 +8724,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8744,13 +8744,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 22
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8759,7 +8759,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CAST_ABILITY_5"
@@ -8770,13 +8770,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8790,13 +8790,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 139
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8805,7 +8805,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_CHANNEL_ABILITY_1"
@@ -8816,13 +8816,13 @@
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8836,13 +8836,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 130
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8851,7 +8851,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_RUN"
@@ -8863,7 +8863,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -8883,13 +8883,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8903,13 +8903,13 @@
 					m_nStartframe = 0
 					m_nEndframe = 130
 					m_flFps = 24.0
-					m_Loop = 
+					m_Loop =
 					{
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
+						m_StartLoop =
 						{
 							_class = "CVAnimCmdStartLoop"
 							m_bEnabled = false
@@ -8918,7 +8918,7 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = 
+					m_Activities =
 					[
 						{
 							m_Name = "ACT_DOTA_RUN"
@@ -8934,7 +8934,7 @@
 						},
 					]
 					m_AnimationEvents = [  ]
-					m_MotionFrames = 
+					m_MotionFrames =
 					[
 						{
 							m_nFrame = 0
@@ -8954,13 +8954,13 @@
 					]
 					m_pIkRules = [  ]
 					m_pAlignAnimation = null
-					m_adjustAnimation = 
+					m_adjustAnimation =
 					{
 						m_translation = [ 0.0, 0.0, 0.0 ]
 						m_rotation = [ 0.0, 0.0, 0.0 ]
 					}
 					m_Keywords = [  ]
-					m_sequenceParams = 
+					m_sequenceParams =
 					{
 						m_flFadeInTime = 0.2
 						m_flFadeOutTime = 0.2
@@ -8972,29 +8972,29 @@
 			m_sScripts = [  ]
 			m_folderNames = [  ]
 			m_sCompileScripts = [  ]
-			m_pActivityWhiteList = 
+			m_pActivityWhiteList =
 			{
 				m_pObject = null
 			}
 		}
 	}
-	m_pMaterialGroupList = 
+	m_pMaterialGroupList =
 	{
 		m_pObject = null
 	}
-	m_pMeshGroupList = 
+	m_pMeshGroupList =
 	{
 		m_pObject = null
 	}
-	m_pLodGroupList = 
+	m_pLodGroupList =
 	{
 		m_pObject = null
 	}
-	m_pPropBreakableList = 
+	m_pPropBreakableList =
 	{
 		m_pObject = null
 	}
-	m_pPropDataList = 
+	m_pPropDataList =
 	{
 		m_pObject = null
 	}
@@ -9005,9 +9005,9 @@
 	m_sOffsetHitboxSets = [  ]
 	m_vHitboxSetOffset = [ 0.0, 0.0, 0.0 ]
 	m_scriptFiles = [  ]
-	m_pMaterialRemapList = 
+	m_pMaterialRemapList =
 	{
-		m_vMaterialRemapList = 
+		m_vMaterialRemapList =
 		[
 			{
 				m_sSearchMaterial = "avarice_weapon.vmat"

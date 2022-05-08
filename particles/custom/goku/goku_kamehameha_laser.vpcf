@@ -1,0 +1,175 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf36:version{d15c9157-10e0-47bc-9333-1ac81da07b8d} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1
+	m_flConstantRadius = 50.0
+	m_nBehaviorVersion = 4
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 2
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 4
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 1.0, 0.0, 0.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 9
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMax = 1.0
+			m_fLifetimeMin = 1.0
+		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_nControlPointNumber = 1
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_BasicMovement"
+			m_fDrag = 0.05
+		},
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		{
+			_class = "C_OP_SetChildControlPoints"
+			m_nFirstControlPoint = 3
+		},
+		{
+			_class = "C_OP_RemapCPVisibilityToScalar"
+			m_nControlPoint = 1
+			m_flInputMax = 0.01
+			m_nFieldOutput = 16
+		},
+		{
+			_class = "C_OP_SetToCP"
+			m_nControlPointNumber = 1
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_DampenToCP"
+			m_nControlPointNumber = 1
+			m_flRange = 75.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_PositionLock"
+			m_nControlPointNumber = 1
+		},
+		{
+			_class = "C_OP_RemapCPtoVector"
+			m_nCPInput = 60
+			m_nFieldOutput = 6
+			m_vInputMax = [ 1.0, 1.0, 1.0 ]
+			m_vOutputMax = [ 255.0, 255.0, 255.0 ]
+		},
+	]
+	m_ForceGenerators = 
+	[
+		{
+			_class = "C_OP_AttractToControlPoint"
+			m_fForceAmount = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 2000.0
+			}
+			m_fFalloffPower = 0.0
+			m_nControlPointNumber = 1
+			m_bDisableOperator = true
+		},
+	]
+	m_Constraints = 
+	[
+		{
+			_class = "C_OP_ConstrainDistance"
+			m_nControlPointNumber = 1
+			m_bDisableOperator = true
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_bDisableOperator = true
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/particle_whitebox.vtex"
+				},
+			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_phoenix/phoenix_sunray_ground.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_kamehameha_laser_beam.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_kamehameha_laser_energy.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_phoenix/phoenix_sunray_bird_trail.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_kamehameha_laser_tgt.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_phoenix/phoenix_sunray_mane.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_phoenix/phoenix_sunray_flare.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_phoenix/phoenix_sunray_ripple.vpcf"
+		},
+	]
+}

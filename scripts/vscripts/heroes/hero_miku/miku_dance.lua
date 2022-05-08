@@ -7,7 +7,7 @@ function miku_dance:OnSpellStart()
 	local caster = self:GetCaster()
 
 	-- load data
-	local duration = self:GetSpecialValueFor("AbilityDuration")
+	local duration = self:GetSpecialValueFor("ability_duration")
 
 	caster:AddNewModifier(
 		caster, -- player source

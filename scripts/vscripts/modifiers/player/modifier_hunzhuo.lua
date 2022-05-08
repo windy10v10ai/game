@@ -6,17 +6,23 @@ function modifier_hunzhuo:GetTexture() return "player/hunzhuo" end
 
 function modifier_hunzhuo:OnCreated()
 	self.iCooldownReduction = 15
+	self.iMoveSpeed = 80
 	self.iLifeSteal = 25
 end
 function modifier_hunzhuo:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 	}
 end
 
 function modifier_hunzhuo:GetModifierPercentageCooldown()
 	return self.iCooldownReduction
+end
+
+function modifier_hunzhuo:GetModifierMoveSpeedBonus_Constant()
+	return self.iMoveSpeed
 end
 
 function modifier_hunzhuo:OnAttackLanded(params)
