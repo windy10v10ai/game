@@ -11,6 +11,7 @@ var imagefile = {
 	'npc_dota_hero_techies': 'file://{resources}/images/heroes/npc_dota_hero_techies_custom.png',
 	'npc_dota_hero_broodmother': 'file://{resources}/images/heroes/npc_dota_hero_broodmother_custom.png',
 	'npc_dota_hero_visage': 'file://{resources}/images/heroes/npc_dota_hero_visage_custom.png',
+	'npc_dota_hero_chen': 'file://{resources}/images/heroes/npc_dota_hero_chen_custom.png',
 }
 
 var GAME_RESULT = {};

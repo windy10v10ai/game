@@ -1,0 +1,109 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf36:version{d15c9157-10e0-47bc-9333-1ac81da07b8d} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 80
+	m_flNoDrawTimeToGoToSleep = 12.0
+	m_bShouldSort = false
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 500.0, 2.0, 1000.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 60
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 8.0, 229.0, 96.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 62
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_HSVShiftToCP"
+			m_DefaultHSVColor = [ 18, 188, 255, 255 ]
+			m_bDisableOperator = true
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/econ/items/dark_willow/dark_willow_immortal_2021/dw_2021_willow_wisp_spell_impact_ground_proj.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_distort.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_crack.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_decal.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_sphere_erode.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_light.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/econ/items/dark_willow/dark_willow_immortal_2021/dw_2021_willow_wisp_spell_impact_petals.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_blast_ground.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_ring.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_ring_smoke.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/econ/items/dark_willow/dark_willow_immortal_2021/dw_2021_willow_wisp_spell_impact_dust_ring.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_debris.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_swirl.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/econ/items/dark_willow/dark_willow_immortal_2021/dw_2021_willow_wisp_spell_impact_rays_dark.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_flash.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_glow.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/goku/children/goku_spirit_bomb_impact_filler_smoke.vpcf"
+			m_bDisableChild = true
+		},
+	]
+}
