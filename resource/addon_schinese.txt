@@ -173,6 +173,8 @@
 		"DOTA_Tooltip_modifier_chashaobao"				"<font color='#E8C07D'>★ 叉烧包之王 ★</font>"
 		"DOTA_Tooltip_modifier_menglihua"				"<font color='#A85CF9'>★ 我不做人了！！！！！ ★</font>"
 		"DOTA_Tooltip_modifier_menglihua_Description"	"<font color='#A85CF9'>人类是有极限的！所以我不做人了！JOJO！！！</font>"
+		"DOTA_Tooltip_modifier_dabuguo"					"<font color='#FFCC66'>★ 天龙人 ★</font>"
+		"DOTA_Tooltip_modifier_dabuguo_Description"		"<font color='#FFCC66'>天龙人咸鱼为了廉价的赏金！献祭出了自己的珍宝皮燕子！（请勿模仿不值得啊）</font>"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"
