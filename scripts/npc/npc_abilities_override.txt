@@ -14198,7 +14198,6 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"0"
 		"AbilityCharges"				"3"
-		"AbilityChargeRestoreTime"		"19 17 15 13 11"
 		"AbilityManaCost"				"110 140 170 200 230"
 		"AbilityValues"
 		{
@@ -14209,21 +14208,11 @@
 					"value"			"400 575 750 925 1100"
 					"LinkedSpecialBonus"		"special_bonus_unique_techies_2"
 				}
-				"building_damage_pct"		"30"
-				"activation_delay"
-				{
-					"value"		"1"
-					"special_bonus_unique_techies_4"	"-0.8"
-				}
-				"cast_range_scepter_bonus"
-				{
-					"value"		"300"
-					"RequiresScepter"			"1"
-				}
+				"building_damage_pct"		"25"
 				"AbilityChargeRestoreTime"
 				{
-					"value"		""
-					"LinkedSpecialBonus"		"special_bonus_unique_techies_3"
+					"value"		"19 17 15 13 11"
+					"special_bonus_unique_techies_3"	"-3"
 				}
 				"outer_damage"				"50"
 				"min_distance"				"150"
