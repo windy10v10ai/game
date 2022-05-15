@@ -1447,7 +1447,7 @@
 		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_rush_night_sword_qi"
 		"AbilityTextureName"			"custom/abyss_sword/abyss_sword_rush_night_sword_qi"
 		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"22.0 20.0 18.0 16.0 14.0"
+		"AbilityCooldown"				"16.0"
 		"AbilityManaCost"				"100 110 120 130 140"
 
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
@@ -1466,8 +1466,8 @@
 			"speed"						"1600"
 			"damage"
 			{
-				"value"				"80 120 160 200 240"
-				"special_bonus_unique_abyss_sword_1"	"+60"
+				"value"				"100 140 180 220 260"
+				"special_bonus_unique_abyss_sword_1"	"+40"
 			}
 		}
 	}
@@ -1546,7 +1546,7 @@
 				"special_bonus_unique_abyss_sword_3"	"+5"
 			}
 			"duration"					"8"
-			"attack_times"				"3 4 5 6 7"
+			"attack_times"				"4 5 6 7 8"
 			"scepter_movespeed"
 			{
 				"value"					"550"

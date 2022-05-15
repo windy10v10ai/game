@@ -134,9 +134,15 @@ local menglihuaSteamAccountID = Set {
 local dabuguoSteamAccountID = Set {
 	-- 打不过？没关系！去让咸鱼卖屁股啊！
 	342049002,
-	-- 测试
-	-- 916506173,
 }
+
+local shapuSteamAccountID = Set {
+	-- 傻蒲
+	208461180,
+	-- 测试
+	136407523,
+}
+
 -- 称号属性 END
 
 function AIGameMode:ArrayShuffle(array)
@@ -726,6 +732,10 @@ function AIGameMode:OnNPCSpawned(keys)
 			if dabuguoSteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_dabuguo", "modifiers/player/modifier_dabuguo", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_dabuguo", {})
+			end
+			if shapuSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_shapu", "modifiers/player/modifier_shapu", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_shapu", {})
 			end
 
 			if luoshuBuffSteamAccountID[steamAccountID] then
