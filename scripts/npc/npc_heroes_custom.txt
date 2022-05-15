@@ -50,9 +50,9 @@
 		"AttackDamageMax"			"50"
 		"VisionDaytimeRange"		"1600"
 		"VisionNighttimeRange"		"1000"
-		"SoundSet"					"Hero_Marci"
+		"SoundSet"					"Hero_Goku"
 		"VoiceFile"					""
-		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_marci.vsndevts"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_goku.vsndevts"
 	}
 	//剑灵
 	"npc_dota_hero_abyss_sword"
@@ -228,7 +228,9 @@
 
 		"VisionDaytimeRange"			"1000"
 		"VisionNighttimeRange"			"1000"
-		"VoiceFile"					"soundevents/voscripts/game_sounds_vo_juggernaut.vsndevts"
+		"SoundSet"						"Hero_Saber"
+		"VoiceFile"						""
+		"GameSoundsFile"				"soundevents/game_sounds_heroes/game_sounds_saber.vsndevts"
 	}
 
 	"npc_dota_hero_silencer"

@@ -1,138 +1,226 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	goku.1 = 
+	Hero_Goku.PreAttack =
 	{
-		type = "src1_2d"
-		vsnd_files = 
+		type = "dota_src1_3d"
+		volume = 0.599609
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 78.000000
+		distance_max = 1500.000000
+		event_type = 1.000000
+		vsnd_files =
+		[
+			"sounds/weapons/hero/axe/preattack01.vsnd",
+			"sounds/weapons/hero/axe/preattack02.vsnd",
+			"sounds/weapons/hero/axe/preattack03.vsnd",
+		]
+	}
+	Hero_Goku.Attack =
+	{
+		type = "dota_src1_3d"
+		volume = 1.000000
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 78.000000
+		mixgroup = "Weapons"
+		distance_max = 2500.000000
+		soundevent_layer2 = "Hero_Axe.Attack.Impact"
+		soundevent_layer2_on = 1.000000
+		soundevent_layer3 = "Hero_Axe.Attack.Post"
+		soundevent_layer3_on = 1.000000
+		vsnd_files =
+		[
+			"sounds/weapons/hero/axe/attack01.vsnd",
+			"sounds/weapons/hero/axe/attack02.vsnd",
+			"sounds/weapons/hero/axe/attack03.vsnd",
+		]
+	}
+	Hero_Goku.Attack.Rip =
+	{
+		type = "dota_src1_3d"
+		volume_rand_min = -0.250000
+		volume_rand_max = 0.250000
+		volume = 0.750000
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 75.000000
+		distance_max = 2500.000000
+		rand_delay_min = 0.050000
+		rand_delay_max = 0.120000
+		soundevent_layer2 = "Damage_Melee.Gore"
+		soundevent_layer2_on = 1.000000
+		limiter_on = 0.000000
+		vsnd_files =
+		[
+			"sounds/physics/damage/npc/rip01.vsnd",
+			"sounds/physics/damage/npc/rip02.vsnd",
+			"sounds/physics/damage/npc/rip03.vsnd",
+			"sounds/physics/damage/npc/rip04.vsnd",
+		]
+		vsnd_duration = 0.244626
+	}
+	Hero_Goku.Attack.Ring =
+	{
+		type = "dota_src1_3d"
+		volume_rand_min = -0.449951
+		volume_rand_max = 0.449951
+		volume = 0.449951
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 0.950000
+		soundlevel = 78.000000
+		mixgroup = "BaseAttacks"
+		distance_max = 2500.000000
+		rand_delay_min = 0.100000
+		rand_delay_max = 0.150000
+		event_type = 1.000000
+		vsnd_files =
+		[
+			"sounds/weapons/hero/shared/small_blade/ring01.vsnd",
+			"sounds/weapons/hero/shared/small_blade/ring02.vsnd",
+			"sounds/weapons/hero/shared/small_blade/ring03.vsnd",
+			"sounds/null.vsnd",
+			"sounds/null.vsnd",
+		]
+		vsnd_duration = 0.596961
+	}
+	goku.1 =
+	{
+		type = "dota_src1_3d"
+		vsnd_files =
 		[
 			"sounds/goku/goku_1.vsnd",
 		]
-		volume_min = "1.000000"
-		volume_max = "1.000000"
-		pitch_min = "1.000000"
-		pitch_max = "1.000000"
-		chan_type = "0"
-		memory_type = "0"
-		vsnd_duration = 0.000000
+		volume = "1.000000"
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 120.000000
+		distance_max = 1800.000000
+		event_type = 1.000000
 	}
-	goku.1_1 = 
+	goku.1_1 =
 	{
-		type = "src1_2d"
-		vsnd_files = 
+		type = "dota_src1_3d"
+		vsnd_files =
 		[
 			"sounds/goku/goku_1_1.vsnd",
 		]
-		volume_min = "1.000000"
-		volume_max = "1.000000"
-		pitch_min = "1.000000"
-		pitch_max = "1.000000"
-		chan_type = "0"
-		memory_type = "0"
-		vsnd_duration = 0.000000
+		volume = "1.000000"
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 120.000000
+		distance_max = 1800.000000
+		event_type = 1.000000
 	}
-	goku.2 = 
+	goku.2 =
 	{
-		type = "src1_2d"
-		vsnd_files = 
+		type = "dota_src1_3d"
+		vsnd_files =
 		[
 			"sounds/goku/goku_2.vsnd",
 		]
-		volume_min = "1.000000"
-		volume_max = "1.000000"
-		pitch_min = "1.000000"
-		pitch_max = "1.000000"
-		chan_type = "0"
-		memory_type = "0"
-		vsnd_duration = 0.000000
+		volume = "1.000000"
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		distance_max = 1500.000000
+		event_type = 1.000000
 	}
-	goku.3 = 
+	goku.3 =
 	{
-		type = "src1_2d"
-		vsnd_files = 
+		type = "dota_src1_3d"
+		vsnd_files =
 		[
 			"sounds/goku/goku_3.vsnd",
 		]
-		volume_min = "1.000000"
-		volume_max = "1.000000"
-		pitch_min = "1.000000"
-		pitch_max = "1.000000"
-		chan_type = "0"
-		memory_type = "0"
-		vsnd_duration = 0.000000
+		volume = "1.000000"
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		distance_max = 1500.000000
+		event_type = 1.000000
 	}
-	goku.4 = 
+	goku.4 =
 	{
-		type = "src1_2d"
-		vsnd_files = 
+		type = "dota_src1_3d"
+		vsnd_files =
 		[
 			"sounds/goku/goku_4.vsnd",
 		]
-		volume_min = "1.000000"
-		volume_max = "1.000000"
-		pitch_min = "1.000000"
-		pitch_max = "1.000000"
-		chan_type = "0"
-		memory_type = "0"
-		vsnd_duration = 0.000000
+		volume = "1.000000"
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		distance_max = 1500.000000
+		event_type = 1.000000
 	}
-	goku.4_1 = 
+	goku.4_1 =
 	{
-		type = "src1_2d"
-		vsnd_files = 
+		type = "dota_src1_3d"
+		vsnd_files =
 		[
 			"sounds/goku/goku_4_1.vsnd",
 		]
-		volume_min = "1.000000"
-		volume_max = "1.000000"
-		pitch_min = "1.000000"
-		pitch_max = "1.000000"
-		chan_type = "0"
-		memory_type = "0"
-		vsnd_duration = 0.000000
+		volume = "1.000000"
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		distance_max = 1500.000000
+		event_type = 1.000000
 	}
-	goku.5 = 
+	goku.5 =
 	{
-		type = "src1_2d"
-		vsnd_files = 
+		type = "dota_src1_3d"
+		vsnd_files =
 		[
 			"sounds/goku/ultra_instinct.vsnd",
 		]
-		volume_min = "1.000000"
-		volume_max = "1.000000"
-		pitch_min = "1.000000"
-		pitch_max = "1.000000"
-		chan_type = "0"
-		memory_type = "0"
-		vsnd_duration = 132.983994
+		volume = "1.000000"
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		distance_max = 1500.000000
+		event_type = 1.000000
 	}
-	goku.6 = 
+	goku.6 =
 	{
-		type = "src1_2d"
-		vsnd_files = 
+		type = "dota_src1_3d"
+		vsnd_files =
 		[
 			"sounds/goku/goku_6.vsnd",
 		]
-		volume_min = "1.000000"
-		volume_max = "1.000000"
-		pitch_min = "1.000000"
-		pitch_max = "1.000000"
-		chan_type = "0"
-		memory_type = "0"
-		vsnd_duration = 0.000000
+		volume = "1.000000"
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		distance_max = 1500.000000
+		event_type = 1.000000
 	}
-	goku.5_1 = 
+	goku.5_1 =
 	{
-		type = "src1_2d"
-		vsnd_files = 
+		type = "dota_src1_3d"
+		vsnd_files =
 		[
 			"sounds/goku/goku_5_1.vsnd",
 		]
-		volume_min = "1.000000"
-		volume_max = "1.000000"
-		pitch_min = "1.000000"
-		pitch_max = "1.000000"
-		chan_type = "0"
-		memory_type = "0"
-		vsnd_duration = 0.000000
+		volume = "1.000000"
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		distance_max = 1500.000000
+		event_type = 1.000000
 	}
 }
