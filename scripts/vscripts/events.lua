@@ -140,7 +140,7 @@ local shapuSteamAccountID = Set {
 	-- 傻蒲
 	208461180,
 	-- 测试
-	136407523,
+	-- 136407523,
 }
 
 -- 称号属性 END
