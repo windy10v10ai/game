@@ -890,10 +890,10 @@ function AIGameMode:OnPlayerChat( event )
 
 	if WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
 		local pszHeroClass
-		if sChatMsg:find( '沉渊之剑' ) then
+		if sChatMsg:find( '-沉渊之剑' ) then
 			pszHeroClass = "npc_dota_hero_visage"
 		end
-		if sChatMsg:find( 'AbyssSword' ) then
+		if sChatMsg:find( '-AbyssSword' ) then
 			pszHeroClass = "npc_dota_hero_visage"
 		end
 		if pszHeroClass ~= nil then
@@ -904,10 +904,10 @@ function AIGameMode:OnPlayerChat( event )
 	end
 	if luoshuHeroSteamAccountID[steamAccountID] then
 		local pszHeroClass
-		if sChatMsg:find( '沉渊之剑' ) then
+		if sChatMsg:find( '-沉渊之剑' ) then
 			pszHeroClass = "npc_dota_hero_visage"
 		end
-		if sChatMsg:find( '超级赛亚人' ) then
+		if sChatMsg:find( '-超级赛亚人' ) then
 			pszHeroClass = "npc_dota_hero_chen"
 		end
 		if pszHeroClass ~= nil then

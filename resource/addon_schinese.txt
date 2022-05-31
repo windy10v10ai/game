@@ -92,7 +92,7 @@
 		"player_member_ship"		"点击查看会员详情"
 		"player_member_ship_url"		"https://afdian.net/@windy10v10"
 
-		"player_member_button"		"感谢您的支持！<br/> - 打字输入“沉渊之剑”即可召唤新英雄<br/>会员有效期：{expireDate}"
+		"player_member_button"		"感谢您的支持！<br/> - 打字输入“-沉渊之剑”即可召唤新英雄<br/>会员有效期：{expireDate}"
 		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 
 		///////////////////////////////////////////////////
