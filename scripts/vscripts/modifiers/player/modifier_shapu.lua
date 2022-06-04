@@ -2,10 +2,9 @@ modifier_shapu = class({})
 
 function modifier_shapu:IsPurgable() return false end
 function modifier_shapu:RemoveOnDeath() return false end
-function modifier_shapu:GetTexture() return "player/shapu" end
+function modifier_shapu:GetTexture() return "player/plusIcon" end
 
 function modifier_shapu:OnCreated()
-	if not IsServer() then return end
 	local primaryAttributeBouns = 20
 	self.strength = 0
 	self.agility = 0
