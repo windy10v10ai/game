@@ -106,11 +106,10 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_item_orb_of_the_brine_bubble:OnCreated( kv )
+	self.bubble_heal_per_tick = self:GetAbility():GetSpecialValueFor( "bubble_heal_per_tick" )
+	self.heal_tick_interval = self:GetAbility():GetSpecialValueFor( "heal_tick_interval" )
+	self.bubble_move_speed = self:GetAbility():GetSpecialValueFor( "bubble_move_speed" )
 	if IsServer() then
-		self.bubble_heal_per_tick = self:GetAbility():GetSpecialValueFor( "bubble_heal_per_tick" )
-		self.heal_tick_interval = self:GetAbility():GetSpecialValueFor( "heal_tick_interval" )
-		self.bubble_move_speed = self:GetAbility():GetSpecialValueFor( "bubble_move_speed" )
-
 		self.nFXIndex = ParticleManager:CreateParticle( "particles/act_2/wand_of_the_brine_bubble.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControlEnt( self.nFXIndex, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetOrigin(), true )
 		ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector( 2.5, 2.5, 2.5 ) ) -- target model scale

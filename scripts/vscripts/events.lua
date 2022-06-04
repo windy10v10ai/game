@@ -94,9 +94,6 @@ local luoshuBuffSteamAccountID = Set {
 local luoshuHeroSteamAccountID = Set {
 	136668998,
 	138837968,
-	-- 测试
-	136407523,
-	916506173,
 }
 
 local lumaoSteamAccountID = Set {
@@ -127,15 +124,21 @@ local chashaobaoSteamAccountID = Set {
 local menglihuaSteamAccountID = Set {
 	-- 梦璃花
 	907056028,
-	-- 测试
-	-- 916506173,
 }
 
 local dabuguoSteamAccountID = Set {
 	-- 打不过？没关系！去让咸鱼卖屁股啊！
 	342049002,
-	-- 测试
-	-- 916506173,
+}
+
+local shapuSteamAccountID = Set {
+	-- 傻蒲
+	208461180,
+}
+
+local kfw6SteamAccountID = Set {
+	-- 爱发电用户_Kfw6
+	322271699,
 }
 -- 称号属性 END
 
@@ -727,6 +730,14 @@ function AIGameMode:OnNPCSpawned(keys)
 				LinkLuaModifier("modifier_dabuguo", "modifiers/player/modifier_dabuguo", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_dabuguo", {})
 			end
+			if shapuSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_shapu", "modifiers/player/modifier_shapu", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_shapu", {})
+			end
+			if kfw6SteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_kfw6", "modifiers/player/modifier_kfw6", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_kfw6", {})
+			end
 
 			if luoshuBuffSteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_saber", "modifiers/player/modifier_saber", LUA_MODIFIER_MOTION_NONE)
@@ -880,11 +891,18 @@ function AIGameMode:OnPlayerChat( event )
 
 	if WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
 		local pszHeroClass
-		if sChatMsg:find( '沉渊之剑' ) then
+		if sChatMsg:find( '-沉渊之剑' ) then
 			pszHeroClass = "npc_dota_hero_visage"
 		end
-		if sChatMsg:find( 'AbyssSword' ) then
+		if sChatMsg:find( '-AbyssSword' ) then
 			pszHeroClass = "npc_dota_hero_visage"
+		end
+
+		if sChatMsg:find( '-超级赛亚人' ) then
+			pszHeroClass = "npc_dota_hero_chen"
+		end
+		if sChatMsg:find( '-Goku' ) then
+			pszHeroClass = "npc_dota_hero_chen"
 		end
 		if pszHeroClass ~= nil then
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
@@ -894,10 +912,10 @@ function AIGameMode:OnPlayerChat( event )
 	end
 	if luoshuHeroSteamAccountID[steamAccountID] then
 		local pszHeroClass
-		if sChatMsg:find( '沉渊之剑' ) then
+		if sChatMsg:find( '-沉渊之剑' ) then
 			pszHeroClass = "npc_dota_hero_visage"
 		end
-		if sChatMsg:find( '超级赛亚人' ) then
+		if sChatMsg:find( '-超级赛亚人' ) then
 			pszHeroClass = "npc_dota_hero_chen"
 		end
 		if pszHeroClass ~= nil then
