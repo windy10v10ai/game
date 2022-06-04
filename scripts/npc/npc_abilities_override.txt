@@ -1538,11 +1538,23 @@
 				"wave_interval"					"1.0"
 				"burn_damage"
 				{
-					"value"					"1 1.2 1.4 1.6 1.8 2.0 2.2"
-					"LinkedSpecialBonus"			"special_bonus_unique_underlord_4"
+					"value"					"0.9 1 1.1 1.2 1.3 1.4 1.5"
+					"special_bonus_unique_underlord_4"	"+0.5"
 				}
 				"burn_interval"					"1.0"
 				"burn_duration"					"1.0"
+				"can_target_units"
+				{
+					"special_bonus_shard"	"+1"
+				}
+				"shard_wave_count_bonus"
+				{
+					"special_bonus_shard"	"+3"
+				}
+				"shard_wave_interval_reduction"
+				{
+					"special_bonus_shard"	"+25"
+				}
 		}
 	}
 	"abyssal_underlord_pit_of_malice"
@@ -7742,46 +7754,37 @@
 	"luna_lucent_beam"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"9.0 8.0 7.0 6.0 5.0 4.0 3.0"
-		"AbilityManaCost"				"90 100 110 120 130 140 150"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
+			"AbilityCooldown"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_damage"			"75 150 225 300 375 450 500"
-				"LinkedSpecialBonus"	"special_bonus_unique_luna_1"
+				"value"					"9.0 8.0 7.0 6.0 5.0 4.0 3.0"
+				"special_bonus_unique_luna_2" "-1.5"
 			}
-		}
-	}
-	"special_bonus_unique_luna_2"
-	{
-		"AbilitySpecial"
-		{
-			"01"
+			"AbilityManaCost"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"value"				"1.5"
-				"ad_linked_abilities"			"luna_lucent_beam"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"value"					"90 100 110 120 130 140 150"
+				"special_bonus_shard"	"-50"
+			}
+			"beam_damage"
+			{
+				"value"					"75 150 225 300 375 450 500"
+				"special_bonus_unique_luna_1"	"+100"
 			}
 		}
 	}
 	"luna_moon_glaive"
 	{
 		"MaxLevel" "7"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
+
+			"range"								"500"
+			"bounces"							"3 4 5 6 7 8 9"
+			"damage_reduction_percent"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"bounces"					"3 4 5 6 7 8 9"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_reduction_percent"	"60 55 50 45 40 35 30"
-				"LinkedSpecialBonus"	"special_bonus_unique_luna_7"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+				"value"							"60 55 50 45 40 35 30"
+				"special_bonus_unique_luna_7"	"-8"
 			}
 		}
 	}
@@ -7794,7 +7797,7 @@
 				"bonus_damage"
 				{
 					"value"			"10 20 30 40 50"
-					"LinkedSpecialBonus"		"special_bonus_unique_luna_3"
+					"special_bonus_unique_luna_3"	"+50"
 				}
 				"bonus_night_vision"
 				{
@@ -7803,56 +7806,31 @@
 				}
 		}
 	}
-	"special_bonus_unique_luna_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6682"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"50"
-				"ad_linked_abilities"			"luna_lunar_blessing"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
 	"luna_eclipse"
 	{
 		"MaxLevel" "5"
-		"AbilityDuration"				"3.0 4.0 5.0 6.0 7.0"
-		"AbilityCooldown"				"120 110 100 90 80"
-		"AbilityManaCost"				"100 150 200 250 300"
-		"AbilitySpecial"
+		"AbilityManaCost"				"150 200 250 350 500"
+		"AbilityValues"
 		{
-			"01"
+			"beams"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"beams"						"6 9 12 14 16"
+				"value"					"6 9 12 15 18"
+				"special_bonus_scepter"	"+0 +3 +6 +9 +12"
 			}
-			"07"
+			"hit_count"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"beams_scepter"				"9 12 18 21 24"
-				"RequiresScepter"		"1"
+				"value"					"5"
+				"special_bonus_scepter"	"+1 +7 +13 +19 +25"
 			}
-			"08"
+			"AbilityDuration"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"hit_count_scepter"			"9 12 18 21 24"
-				"RequiresScepter"		"1"
+				"value"					"2.4 4.2 6.0 7.8 9.6"
+				"special_bonus_scepter"	"-0.6"
 			}
-			"09"
+			"AbilityCooldown"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"duration_tooltip_scepter"	"2 3 4 5 6"
-				"RequiresScepter"		"1"
+				"value"							"120 110 100 90 80"
+				"special_bonus_unique_luna_6"	"-25.0"
 			}
 		}
 	}
@@ -9467,21 +9445,21 @@
 	//=================================================================================================================
 	"spectre_spectral_dagger"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"22 20 18 16 14"
-		"AbilityManaCost"				"100 110 120 130 140"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"22 20 18 16 14 12 10"
+		"AbilityManaCost"				"120 130 140 150 160 170 180"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"75 130 185 240 295"
+				"damage"				"100 150 200 250 300 350 400"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed"		"10 14 18 22 26"
+				"bonus_movespeed"		"10 14 18 22 26 30 34"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_3"
 			}
 		}
@@ -9494,13 +9472,33 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"20 35 50 65 80"
+				"bonus_damage"			"30 40 50 60 70"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_2"
 			}
-			"02"
+		}
+	}
+	"spectre_dispersion"
+	{
+		"MaxLevel" "5"
+		"AbilitySpecial"
+		{
+			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"275"
+				"damage_reflection_pct"	"8 11 14 17 20"
+				"LinkedSpecialBonus"		"special_bonus_unique_spectre_5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shard_dagger_damage"			"300"
+				"RequiresShard"			"1"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shard_dagger_cooldown"			"4.0"
+				"RequiresShard"					"1"
 			}
 		}
 	}

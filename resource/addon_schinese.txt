@@ -92,7 +92,7 @@
 		"player_member_ship"		"点击查看会员详情"
 		"player_member_ship_url"		"https://afdian.net/@windy10v10"
 
-		"player_member_button"		"感谢您的支持！<br/> - 打字输入“沉渊之剑”即可召唤新英雄<br/>会员有效期：{expireDate}"
+		"player_member_button"		"感谢您的支持！<br/> - 打字输入“-沉渊之剑”即可召唤新英雄沉渊之剑<br/> - 打字输入“-超级赛亚人”即可召唤新英雄孙悟空<br/>会员有效期：{expireDate}"
 		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 
 		///////////////////////////////////////////////////
@@ -175,6 +175,8 @@
 		"DOTA_Tooltip_modifier_menglihua_Description"	"<font color='#A85CF9'>人类是有极限的！所以我不做人了！JOJO！！！</font>"
 		"DOTA_Tooltip_modifier_dabuguo"					"<font color='#FFCC66'>★ 天龙人 ★</font>"
 		"DOTA_Tooltip_modifier_dabuguo_Description"		"<font color='#FFCC66'>天龙人咸鱼为了廉价的赏金！献祭出了自己的珍宝皮燕子！（请勿模仿不值得啊）</font>"
+		"DOTA_Tooltip_modifier_shapu"					"<font color='#FFCC66'>★ 定制专属称号 ★</font>"
+		"DOTA_Tooltip_modifier_kfw6"					"<font color='#FFCC66'>★ 定制专属称号 ★</font>"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"
@@ -340,7 +342,7 @@
 		"npc_dota_hero_chen"									"孙悟空"
 
 		"DOTA_Tooltip_Ability_goku_kamehameha"								"龟派气功"
-		"DOTA_Tooltip_ability_goku_kamehameha_description"					"孙悟空将全身所有能量聚集一点浓缩后一起释放出来，射出一道光波，在持续时间内对直线上的敌人造成伤害\n<h1>超级赛亚人模式：</h1>光波距离变为无限，且耗蓝和伤害变为%super_saiyan_damage_multiple%倍"
+		"DOTA_Tooltip_ability_goku_kamehameha_description"					"孙悟空将全身所有能量聚集一点浓缩后一起释放出来，射出一道光波，在持续时间内对直线上的敌人造成伤害\n<h1>超级赛亚人模式：</h1>光波距离变为%super_saiyan_length%，且伤害变为%super_saiyan_damage_multiple%倍。<br/>每秒额外消耗%super_saiyan_mana_percent%%%最大魔法值的蓝量。"
 		"DOTA_Tooltip_ability_goku_kamehameha_Lore"							"由龟仙人所创的绝技"
 		"DOTA_Tooltip_ability_goku_kamehameha_channel"						"持续时间："
 		"DOTA_Tooltip_ability_goku_kamehameha_length"						"光波长度："
@@ -388,7 +390,7 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4_description"		"龟派气功会对其中的敌人持续造成强驱散"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_5"					"+{s:bonus_regen}% 超级赛亚人恢复"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6"					"+{s:bonus_channel} 龟派气功持续时间"
-		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7"					"超级赛亚人变为被动技能"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7"					"+{s:bonus_duration}秒 超级赛亚人持续时间"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//

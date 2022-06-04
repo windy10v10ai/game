@@ -8,28 +8,28 @@ modifier_goku_super_saiyan_passive = modifier_goku_super_saiyan_passive or class
 --------------------------------------------------------------------------------
 -- Ability Start
 
-function goku_super_saiyan:OnUpgrade()
-	local caster = self:GetCaster()
-	local talent = caster:FindAbilityByName("special_bonus_unique_goku_7")
-    if talent and talent:GetLevel() == 1 then
-		if IsServer() then
-			caster:AddNewModifier(caster,self,"modifier_goku_super_saiyan",{})
-		end
-	end
-end
+-- function goku_super_saiyan:OnUpgrade()
+-- 	local caster = self:GetCaster()
+-- 	local talent = caster:FindAbilityByName("special_bonus_unique_goku_7")
+--     if talent and talent:GetLevel() == 1 then
+-- 		if IsServer() then
+-- 			caster:AddNewModifier(caster,self,"modifier_goku_super_saiyan",{})
+-- 		end
+-- 	end
+-- end
 
-function goku_super_saiyan:GetBehavior()
-	local caster = self:GetCaster()
-	local talent = caster:FindAbilityByName("special_bonus_unique_goku_7")
-    if talent and talent:GetLevel() == 1 then
-		if IsServer() then
-			caster:AddNewModifier(caster,self,"modifier_goku_super_saiyan",{})
-		end
-		return DOTA_ABILITY_BEHAVIOR_PASSIVE
-	else
-		return self.BaseClass.GetBehavior(self)
-	end
-end
+-- function goku_super_saiyan:GetBehavior()
+-- 	local caster = self:GetCaster()
+-- 	local talent = caster:FindAbilityByName("special_bonus_unique_goku_7")
+--     if talent and talent:GetLevel() == 1 then
+-- 		if IsServer() then
+-- 			caster:AddNewModifier(caster,self,"modifier_goku_super_saiyan",{})
+-- 		end
+-- 		return DOTA_ABILITY_BEHAVIOR_PASSIVE
+-- 	else
+-- 		return self.BaseClass.GetBehavior(self)
+-- 	end
+-- end
 
 function goku_super_saiyan:GetIntrinsicModifierName()
 	return "modifier_goku_super_saiyan_passive"

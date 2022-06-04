@@ -1294,7 +1294,7 @@
 		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"2.0"
-		"AbilityCooldown"				"70.0 75.0 80.0"
+		"AbilityCooldown"				"75.0"
 		"AbilityManaCost"				"300 450 600"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1447,7 +1447,7 @@
 		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_rush_night_sword_qi"
 		"AbilityTextureName"			"custom/abyss_sword/abyss_sword_rush_night_sword_qi"
 		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"22.0 20.0 18.0 16.0 14.0"
+		"AbilityCooldown"				"16.0"
 		"AbilityManaCost"				"100 110 120 130 140"
 
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
@@ -1466,8 +1466,8 @@
 			"speed"						"1600"
 			"damage"
 			{
-				"value"				"80 120 160 200 240"
-				"special_bonus_unique_abyss_sword_1"	"+60"
+				"value"				"100 140 180 220 260"
+				"special_bonus_unique_abyss_sword_1"	"+40"
 			}
 		}
 	}
@@ -1546,7 +1546,7 @@
 				"special_bonus_unique_abyss_sword_3"	"+5"
 			}
 			"duration"					"8"
-			"attack_times"				"3 4 5 6 7"
+			"attack_times"				"4 5 6 7 8"
 			"scepter_movespeed"
 			{
 				"value"					"550"
@@ -1670,7 +1670,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16"
+		"AbilityCooldown"				"14"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1681,19 +1681,21 @@
 			"channel"
 			{
 				"value"					"2"
-				"special_bonus_unique_goku_6"	"+2"
+				"special_bonus_unique_goku_6"	"+1"
 			}
 			"length"			"1500"
-			"width"				"300"
+			"width"				"200"
 			"speed"			"2400"
-			"manacost_pre_second"	"80 100 120 140 160"
+			"manacost_pre_second"	"60 75 90 105 120"
 			"damage_pre_second"
 			{
-				"value"					"160 200 240 280 320"
-				"special_bonus_unique_goku_1"	"+80"
+				"value"					"120 160 200 240 280"
+				"special_bonus_unique_goku_1"	"+60"
 			}
 			"dmg_tick"				"0.1"
 			"super_saiyan_damage_multiple"		"2"
+			"super_saiyan_mana_percent"		"8"
+			"super_saiyan_length"			"15000"
 		}
 	}
 
@@ -1718,8 +1720,8 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"19 17 15 13 11"
-		"AbilityManaCost"				"80"
+		"AbilityCooldown"				"19 18 17 16 15"
+		"AbilityManaCost"				"80 100 120 140 160"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1727,10 +1729,10 @@
 		{
 			"duration"
 			{
-				"value"					"5"
+				"value"					"3"
 				"special_bonus_unique_goku_2"	"+1"
 			}
-			"bonus_movespeed"				"30 35 40 45 50"
+			"bonus_movespeed"				"20 25 30 35 40"
 		}
 	}
 
@@ -1750,17 +1752,17 @@
 
 		"AbilityValues"
 		{
-			"chance"						"8 16 24 32 40"
+			"chance"						"12 16 20 24 28"
 			"stun_duration"
 			{
 				"value"						"0.25"
 				"special_bonus_unique_goku_3"	"+0.25"
 			}
-			"bonus_attackspeed"				"30 60 90 120 150"
+			"bonus_attackspeed"				"30 45 60 75 90"
 			"super_saiyan_tick"				"0.2"
-			"super_saiyan_range"			"1200"
+			"super_saiyan_range"			"900"
 			"super_saiyan_radius"			"400"
-			"super_saiyan_cooldown"			"8"
+			"super_saiyan_cooldown"			"12"
 		}
 	}
 
@@ -1787,8 +1789,8 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"120 110 100"
-		"AbilityManaCost"				"100 150 200"
+		"AbilityCooldown"				"100"
+		"AbilityManaCost"				"100 200 300"
 
 		// Damage
 		//-------------------------------------------------------------------------------------------------------------
@@ -1798,13 +1800,17 @@
 		"AbilityValues"
 		{
 			"bonus_attribute"				"10 20 30"
-			"bonus_status_resistance"		"15 30 45"
+			"bonus_status_resistance"		"15 20 25"
 			"regen"
 			{
-				"value"						"3 5 7"
-				"special_bonus_unique_goku_5"	"+2"
+				"value"						"2 2.5 3"
+				"special_bonus_unique_goku_5"	"+1"
 			}
-			"duration"						"30"
+			"duration"
+			{
+				"value"						"30"
+				"special_bonus_unique_goku_7"	"+10"
+			}
 		}
 	}
 
