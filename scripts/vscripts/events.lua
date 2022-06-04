@@ -94,9 +94,6 @@ local luoshuBuffSteamAccountID = Set {
 local luoshuHeroSteamAccountID = Set {
 	136668998,
 	138837968,
-	-- 测试
-	136407523,
-	916506173,
 }
 
 local lumaoSteamAccountID = Set {
@@ -127,8 +124,6 @@ local chashaobaoSteamAccountID = Set {
 local menglihuaSteamAccountID = Set {
 	-- 梦璃花
 	907056028,
-	-- 测试
-	-- 916506173,
 }
 
 local dabuguoSteamAccountID = Set {
@@ -139,10 +134,12 @@ local dabuguoSteamAccountID = Set {
 local shapuSteamAccountID = Set {
 	-- 傻蒲
 	208461180,
-	-- 测试
-	-- 136407523,
 }
 
+local kfw6SteamAccountID = Set {
+	-- 爱发电用户_Kfw6
+	322271699,
+}
 -- 称号属性 END
 
 function AIGameMode:ArrayShuffle(array)
@@ -737,6 +734,10 @@ function AIGameMode:OnNPCSpawned(keys)
 				LinkLuaModifier("modifier_shapu", "modifiers/player/modifier_shapu", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_shapu", {})
 			end
+			if kfw6SteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_kfw6", "modifiers/player/modifier_kfw6", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_kfw6", {})
+			end
 
 			if luoshuBuffSteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_saber", "modifiers/player/modifier_saber", LUA_MODIFIER_MOTION_NONE)
@@ -895,6 +896,13 @@ function AIGameMode:OnPlayerChat( event )
 		end
 		if sChatMsg:find( '-AbyssSword' ) then
 			pszHeroClass = "npc_dota_hero_visage"
+		end
+
+		if sChatMsg:find( '-超级赛亚人' ) then
+			pszHeroClass = "npc_dota_hero_chen"
+		end
+		if sChatMsg:find( '-Goku' ) then
+			pszHeroClass = "npc_dota_hero_chen"
 		end
 		if pszHeroClass ~= nil then
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
