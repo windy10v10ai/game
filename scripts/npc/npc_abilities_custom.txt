@@ -494,7 +494,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"50 100 150 200 250"
+				"bonus_attack_speed"	"60 100 140 180 220"
 			}
 			"04"
 			{
