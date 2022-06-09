@@ -7,6 +7,10 @@ artoria_ultimate_excalibur = class({})
 LinkLuaModifier("modifier_artoria_ultimate_excalibur", "heroes/artoria/modifiers/modifier_artoria_ultimate_excalibur", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_artoria_excalibur_debuff", "heroes/artoria/modifiers/modifier_artoria_excalibur_debuff", LUA_MODIFIER_MOTION_NONE )
 
+function artoria_ultimate_excalibur:GetCooldown()
+	return self:GetSpecialValueFor("AbilityCooldown")
+end
+
 function artoria_ultimate_excalibur:OnSpellStart()
 	local caster = self:GetCaster()
 	local targetPoint = self:GetCursorPosition()
@@ -17,13 +21,6 @@ function artoria_ultimate_excalibur:OnSpellStart()
 
 	EmitGlobalSound("artoria_excalibur")
 	-- special bonus reduce cool down
-	local special_bonus_ability_1 = caster:FindAbilityByName("special_bonus_excalibur_1")
-	if special_bonus_ability_1 and special_bonus_ability_1:GetLevel() > 0 then
-		self:EndCooldown()
-		local cooldown = self:GetCooldown(self:GetLevel()) - special_bonus_ability_1:GetSpecialValueFor("value")
-		cooldown = caster:GetCooldownReduction() * cooldown
-		self:StartCooldown(cooldown)
-	end
 	local artoria_excalibur = caster:FindAbilityByName("artoria_excalibur")
 	if artoria_excalibur and not artoria_excalibur:IsNull() then
 		artoria_excalibur:StartCooldown(self:GetCooldownTimeRemaining())

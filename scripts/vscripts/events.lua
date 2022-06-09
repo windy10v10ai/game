@@ -331,7 +331,7 @@ function AIGameMode:OnGameStateChanged(keys)
 			end
 		end
 
-		Timers:CreateTimer(1, function ()
+		Timers:CreateTimer(2, function ()
 			AIGameMode:RefreshGameStatus10sec()
 		end)
 
@@ -470,13 +470,8 @@ function AIGameMode:RefreshGameStatus10sec()
 	AIGameMode.creepBuffLevelMegaGood = buffLevelMegaGood
 	AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
 
-	print("creep buff level good " .. buffLevelGood)
-	print("creep buff level bad " .. buffLevelBad)
-	print("creep buff level mega good " .. buffLevelMegaGood)
-	print("creep buff level mega bad " .. buffLevelMegaBad)
-
-	-- callback every 10 seconds
-	Timers:CreateTimer(10, function ()
+	-- callback every 15 seconds
+	Timers:CreateTimer(15, function ()
 		AIGameMode:RefreshGameStatus10sec()
 	end)
 end
@@ -608,7 +603,7 @@ function AIGameMode:OnNPCSpawned(keys)
 		return
 	end
 	local hEntity = EntIndexToHScript(keys.entindex)
-	if hEntity:IsNull() then return end
+	if not hEntity or hEntity:IsNull() then return end
 
 	if hEntity:IsCourier() and self.bFastCourier == 1 then
 		hEntity:AddNewModifier(hEntity, nil, "modifier_courier_speed", {})
