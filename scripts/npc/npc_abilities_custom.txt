@@ -1686,15 +1686,15 @@
 			"length"			"1500"
 			"width"				"200"
 			"speed"			"2400"
-			"manacost_pre_second"	"60 75 90 105 120"
+			"manacost_pre_second"	"60 80 100 120 140"
 			"damage_pre_second"
 			{
-				"value"					"120 160 200 240 280"
+				"value"					"100 160 220 280 340"
 				"special_bonus_unique_goku_1"	"+60"
 			}
 			"dmg_tick"				"0.1"
 			"super_saiyan_damage_multiple"		"2"
-			"super_saiyan_mana_percent"		"8"
+			"super_saiyan_mana_percent"		"12"
 			"super_saiyan_length"			"15000"
 		}
 	}
@@ -1720,7 +1720,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"19 18 17 16 15"
+		"AbilityCooldown"				"20 19 18 17 16"
 		"AbilityManaCost"				"80 100 120 140 160"
 
 		// Special
@@ -1752,7 +1752,7 @@
 
 		"AbilityValues"
 		{
-			"chance"						"12 16 20 24 28"
+			"chance"						"12 15 18 21 24"
 			"stun_duration"
 			{
 				"value"						"0.25"
@@ -1762,7 +1762,7 @@
 			"super_saiyan_tick"				"0.2"
 			"super_saiyan_range"			"900"
 			"super_saiyan_radius"			"400"
-			"super_saiyan_cooldown"			"12"
+			"super_saiyan_cooldown"			"14"
 		}
 	}
 
@@ -1803,8 +1803,8 @@
 			"bonus_status_resistance"		"15 20 25"
 			"regen"
 			{
-				"value"						"2 2.5 3"
-				"special_bonus_unique_goku_5"	"+1"
+				"value"						"2.5 3 3.5"
+				"special_bonus_unique_goku_5"	"+0.5"
 			}
 			"duration"
 			{

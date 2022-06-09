@@ -131,9 +131,12 @@ local dabuguoSteamAccountID = Set {
 	342049002,
 }
 
+-- 加主属性
 local shapuSteamAccountID = Set {
 	-- 傻蒲
 	208461180,
+	-- 爱发电用户_b6xN
+	445619710,
 }
 
 local kfw6SteamAccountID = Set {

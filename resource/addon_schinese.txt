@@ -387,7 +387,7 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_2"					"+{s:bonus_duration}秒 高速移动持续时间"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_3"					"+{s:bonus_stun_duration}秒 界王拳击晕时间"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4"					"龟派气功强驱散"
-		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4_description"		"龟派气功会对其中的敌人持续造成强驱散"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4_description"		"龟派气功会对其中的敌人持续造成强驱散，不会驱散眩晕等Debuff。"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_5"					"+{s:bonus_regen}% 超级赛亚人恢复"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6"					"+{s:bonus_channel} 龟派气功持续时间"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7"					"+{s:bonus_duration}秒 超级赛亚人持续时间"
