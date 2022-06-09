@@ -1812,7 +1812,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5225"
+		"ItemCost"						"5425"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5498,7 +5498,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent"	"80"
+				"cleave_damage_percent"	"70"
 			}
 			"05"
 			{
