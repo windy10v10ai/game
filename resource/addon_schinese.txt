@@ -285,10 +285,10 @@
         "DOTA_Tooltip_ability_artoria_excalibur_scepter_description"			"增加誓约胜利之剑的伤害，并附带减速效果。"
         "DOTA_Tooltip_ability_artoria_ultimate_excalibur_scepter_description"			"增加誓约胜利之剑-宣誓胜利的伤害，并附带减速效果。"
 
-        "DOTA_Tooltip_ability_special_bonus_artoria_strike_air_1"			"+{s:value} 风王铁锤伤害"
-        "DOTA_Tooltip_ability_special_bonus_artoria_strike_air_2"			"-{s:value}秒 风王铁锤冷却"
+        "DOTA_Tooltip_ability_special_bonus_unique_artoria_strike_air_1"			"+{s:bonus_damage} 风王铁锤伤害"
+        "DOTA_Tooltip_ability_special_bonus_unique_artoria_strike_air_2"			"-{s:bonus_AbilityCooldown}秒 风王铁锤冷却"
         "DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1"			"魔力放出驱散自身负面效果"
-        "DOTA_Tooltip_ability_special_bonus_excalibur_1"					"-{s:value}秒 誓约胜利之剑冷却"
+        "DOTA_Tooltip_ability_special_bonus_unique_excalibur_1"					"-{s:bonus_AbilityCooldown}秒 誓约胜利之剑冷却"
 
 		//沉渊之剑
 		"npc_dota_hero_visage"									"沉渊之剑"

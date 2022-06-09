@@ -14,7 +14,7 @@ function modifier_bot_think_item_use:RemoveOnDeath() return false end
 function modifier_bot_think_item_use:OnCreated()
 	if IsClient() then return end
 	if not self then return end
-	self:StartIntervalThink(0.2)
+	self:StartIntervalThink(0.3)
 end
 
 function modifier_bot_think_item_use:OnIntervalThink()
