@@ -285,10 +285,10 @@
         "DOTA_Tooltip_ability_artoria_excalibur_scepter_description"			"增加誓约胜利之剑的伤害，并附带减速效果。"
         "DOTA_Tooltip_ability_artoria_ultimate_excalibur_scepter_description"			"增加誓约胜利之剑-宣誓胜利的伤害，并附带减速效果。"
 
-        "DOTA_Tooltip_ability_special_bonus_artoria_strike_air_1"			"+{s:value} 风王铁锤伤害"
-        "DOTA_Tooltip_ability_special_bonus_artoria_strike_air_2"			"-{s:value}秒 风王铁锤冷却"
+        "DOTA_Tooltip_ability_special_bonus_unique_artoria_strike_air_1"			"+{s:bonus_damage} 风王铁锤伤害"
+        "DOTA_Tooltip_ability_special_bonus_unique_artoria_strike_air_2"			"-{s:bonus_AbilityCooldown}秒 风王铁锤冷却"
         "DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1"			"魔力放出驱散自身负面效果"
-        "DOTA_Tooltip_ability_special_bonus_excalibur_1"					"-{s:value}秒 誓约胜利之剑冷却"
+        "DOTA_Tooltip_ability_special_bonus_unique_excalibur_1"					"-{s:bonus_AbilityCooldown}秒 誓约胜利之剑冷却"
 
 		//沉渊之剑
 		"npc_dota_hero_visage"									"沉渊之剑"
@@ -387,7 +387,7 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_2"					"+{s:bonus_duration}秒 高速移动持续时间"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_3"					"+{s:bonus_stun_duration}秒 界王拳击晕时间"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4"					"龟派气功强驱散"
-		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4_description"		"龟派气功会对其中的敌人持续造成强驱散"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4_description"		"龟派气功会对其中的敌人持续造成强驱散，不会驱散眩晕等Debuff。"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_5"					"+{s:bonus_regen}% 超级赛亚人恢复"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6"					"+{s:bonus_channel} 龟派气功持续时间"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7"					"+{s:bonus_duration}秒 超级赛亚人持续时间"

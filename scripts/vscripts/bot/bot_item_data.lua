@@ -726,7 +726,6 @@ tBotItemData.purchaseItemList = {
 		'item_hurricane_pike',
 		'item_recipe_hurricane_pike_2',
 		'item_ultimate_scepter_2',
-		'item_monkey_king_bar_2',
 		'item_infernal_desolator',
 		'item_wasp_callous',
 		'item_satanic',
