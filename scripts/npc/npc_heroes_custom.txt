@@ -17,12 +17,12 @@
 		"Ability4"                   "goku_spirit_bomb"
 		"Ability6"                   "goku_super_saiyan"
 		"Ability10"					 "special_bonus_unique_goku_1"
-		"Ability11"					 "special_bonus_unique_goku_2"
+		"Ability11"					 "special_bonus_unique_goku_4"
 
 		"Ability12"					 "special_bonus_spell_amplify_10"
 		"Ability13"					 "special_bonus_unique_goku_3"
 
-		"Ability14"					 "special_bonus_unique_goku_4"
+		"Ability14"					 "special_bonus_unique_goku_2"
 		"Ability15"					 "special_bonus_unique_goku_5"
 
 		"Ability16"					 "special_bonus_unique_goku_6"
@@ -45,8 +45,8 @@
 		"HasAggressiveStance"		"1"
 		"AttackAcquisitionRange"	"600"
 		"AttackRange"				"160"
-		"AttackDamageMin"			"45"
-		"AttackDamageMax"			"50"
+		"AttackDamageMin"			"40"
+		"AttackDamageMax"			"45"
 		"VisionDaytimeRange"		"1600"
 		"VisionNighttimeRange"		"1000"
 		"SoundSet"					"Hero_Goku"
@@ -189,13 +189,13 @@
 		"Ability5"					"artoria_ultimate_excalibur"
 		"Ability6"					"artoria_excalibur"
 
-		"Ability10"                 "special_bonus_artoria_strike_air_1"
+		"Ability10"                 "special_bonus_unique_artoria_strike_air_1"
 		"Ability11"					"special_bonus_attack_speed_20"
 		"Ability12"					"special_bonus_artoria_mana_burst_1"
 		"Ability13"					"special_bonus_attack_damage_40"
-		"Ability14"					"special_bonus_artoria_strike_air_2"
+		"Ability14"					"special_bonus_unique_artoria_strike_air_2"
 		"Ability15"					"special_bonus_all_stats_20"
-		"Ability16"					"special_bonus_excalibur_1"
+		"Ability16"					"special_bonus_unique_excalibur_1"
 		"Ability17"					"special_bonus_cleave_100"
 
 		"StatusHealth"					"300"
@@ -207,8 +207,8 @@
 		"MagicalResistance"				"25"
 
 		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"				"47"
-		"AttackDamageMax"				"57"
+		"AttackDamageMin"				"42"
+		"AttackDamageMax"				"52"
 		"AttackRate"					"1.7"
 		"AttackAcquisitionRange"		"550"
 		"AttackRange"					"250"

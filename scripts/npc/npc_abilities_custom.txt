@@ -494,7 +494,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"50 100 150 200 250"
+				"bonus_attack_speed"	"60 100 140 180 220"
 			}
 			"04"
 			{
@@ -1129,48 +1129,30 @@
 			"cast_range"			"650"
 			"stun_duration"			"1.2 1.4 1.6 1.8 2.0"
 			"immunity_duration"		"3.0"
-		}
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-		    {
-		    	"var_type"			"FIELD_INTEGER"
-		    	"damage"			"120 180 240 300 360"
-				"LinkedSpecialBonus"	"special_bonus_artoria_strike_air_1"
-		    }
+			"AbilityCooldown"
+			{
+				"value"				"12"
+				"special_bonus_unique_artoria_strike_air_2"	"-2"
+			}
+			"damage"
+			{
+				"value"				"120 180 240 300 360"
+				"special_bonus_unique_artoria_strike_air_1"	"+100"
+			}
 		}
 	}
 
-	"special_bonus_artoria_strike_air_1"
+	"special_bonus_unique_artoria_strike_air_1"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"value"				"100"
-			}
-		}
 	}
-	"special_bonus_artoria_strike_air_2"
+	"special_bonus_unique_artoria_strike_air_2"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"value"				"2"
-			}
-		}
 	}
 
 	"artoria_instinct"
@@ -1241,17 +1223,10 @@
 			"radius"					"450"
 			"slow_amount"				"-30 -35 -40 -45 -50"
 			"duration"					"3"
-		}
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-		    {
-		    	"var_type"			"FIELD_INTEGER"
-		    	"damage"			"160 240 320 400 480"
-		    }
+			"damage"
+			{
+				"value"					"160 240 320 400 480"
+			}
 		}
 	}
 
@@ -1321,27 +1296,24 @@
 			"width"					"350"
 			"speed"					"2000.0"
 			"interval"				"0.25"
+			"AbilityCooldown"
+			{
+				"value"				"75"
+				"special_bonus_unique_excalibur_1"	"-15"
+			}
+			"damage"
+			{
+				"value"					"600 800 1000"
+			}
 			"slow_amount"
 			{
 				"value"				"-60"
 				"RequiresScepter"	"1"
 			}
-		}
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-		    {
-		    	"var_type"			"FIELD_INTEGER"
-		    	"damage"			"600 800 1000"
-		    }
-			"02"
+			"damage_scepter"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_scepter"	"800 1000 1200"
-				"RequiresScepter"	"1"
+				"value"					"800 1000 1200"
+				"RequiresScepter"		"1"
 			}
 		}
 	}
@@ -1369,7 +1341,7 @@
 		"AbilityCastRange"				"6000"
 		"AbilityCastPoint"				"0.6"
     	"AbilityChannelTime"			"3.0"
-		"AbilityCooldown"				"90.0"
+		"AbilityCooldown"				"75.0"
 		"AbilityManaCost"				"1200"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1401,43 +1373,33 @@
 			"width"					"450"
 			"speed"					"4000.0"
 			"interval"				"0.25"
+			"AbilityCooldown"
+			{
+				"value"				"75"
+				"special_bonus_unique_excalibur_1"	"-15"
+			}
+			"damage"
+			{
+				"value"				"1500"
+			}
 			"slow_amount"
 			{
 				"value"				"-60"
 				"RequiresScepter"	"1"
 			}
-		}
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-		    {
-		    	"var_type"			"FIELD_INTEGER"
-		    	"damage"			"1600"
-		    }
-			"02"
+			"damage_scepter"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_scepter"	"1800"
+				"value"				"1800"
 				"RequiresScepter"	"1"
 			}
 		}
 	}
 
-	"special_bonus_excalibur_1"
+	"special_bonus_unique_excalibur_1"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"value"				"15"
-			}
-		}
 	}
 
 	"abyss_sword_rush_night_sword_qi"
@@ -1495,7 +1457,7 @@
 				"value"				"160 180 200 220 240"
 				"special_bonus_unique_abyss_sword_2"	"+60"
 			}
-			"lifesteal" 			"30"
+			"lifesteal" 			"20"
 			"shard_cooldown"
 			{
 				"value"				"20"
@@ -1686,15 +1648,15 @@
 			"length"			"1500"
 			"width"				"200"
 			"speed"			"2400"
-			"manacost_pre_second"	"60 75 90 105 120"
+			"manacost_pre_second"	"60 80 100 120 140"
 			"damage_pre_second"
 			{
-				"value"					"120 160 200 240 280"
+				"value"					"100 160 220 280 340"
 				"special_bonus_unique_goku_1"	"+60"
 			}
 			"dmg_tick"				"0.1"
 			"super_saiyan_damage_multiple"		"2"
-			"super_saiyan_mana_percent"		"8"
+			"super_saiyan_mana_percent"		"12"
 			"super_saiyan_length"			"15000"
 		}
 	}
@@ -1720,7 +1682,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"19 18 17 16 15"
+		"AbilityCooldown"				"20 19 18 17 16"
 		"AbilityManaCost"				"80 100 120 140 160"
 
 		// Special
@@ -1752,7 +1714,7 @@
 
 		"AbilityValues"
 		{
-			"chance"						"12 16 20 24 28"
+			"chance"						"12 15 18 21 24"
 			"stun_duration"
 			{
 				"value"						"0.25"
@@ -1762,7 +1724,7 @@
 			"super_saiyan_tick"				"0.2"
 			"super_saiyan_range"			"900"
 			"super_saiyan_radius"			"400"
-			"super_saiyan_cooldown"			"12"
+			"super_saiyan_cooldown"			"14"
 		}
 	}
 
@@ -1803,8 +1765,8 @@
 			"bonus_status_resistance"		"15 20 25"
 			"regen"
 			{
-				"value"						"2 2.5 3"
-				"special_bonus_unique_goku_5"	"+1"
+				"value"						"2.5 3 3.5"
+				"special_bonus_unique_goku_5"	"+0.5"
 			}
 			"duration"
 			{

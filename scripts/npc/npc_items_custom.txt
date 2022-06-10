@@ -1812,7 +1812,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5225"
+		"ItemCost"						"5425"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2399,7 +2399,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1800"
+		"ItemCost"						"600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3346,65 +3346,19 @@
 		{
 			"particle"	"particles/neutral_fx/roshan_slam.vpcf"
 		}
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_evasion"			"25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"45"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"disarm_con"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"disarm_con_per_str"	"500"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"disarm_con_max"		"3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_regen_amp"			"30"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attch"					"20"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"disarm"				"1"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"status_resistance"		"20"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"spell_resist"			"20"
-			}
-		}
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
+
 		"AbilityValues"
 		{
+			"bonus_evasion"			"25"
+			"bonus_strength"		"45"
+			"disarm_con"			"2"
+			"disarm_con_per_str"	"500"
+			"disarm_con_max"		"3"
+			"hp_regen_amp"			"30"
+			"attch"					"20"
+			"disarm"				"1"
+			"status_resistance"		"20"
+			"spell_resist"			"20"
 			"knockback_range"			"350"
 			"knockback_distance"		"150"
 		}
@@ -5498,7 +5452,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent"	"80"
+				"cleave_damage_percent"	"70"
 			}
 			"05"
 			{

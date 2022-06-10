@@ -11,6 +11,10 @@ function artoria_excalibur:GetIntrinsicModifierName()
     return "modifier_artoria_check"
 end
 
+function artoria_excalibur:GetCooldown()
+	return self:GetSpecialValueFor("AbilityCooldown")
+end
+
 function artoria_excalibur:OnSpellStart()
 	local caster = self:GetCaster()
 	local targetPoint = self:GetCursorPosition()
@@ -20,14 +24,6 @@ function artoria_excalibur:OnSpellStart()
 	self.duration = self:GetSpecialValueFor("duration")
 
 	caster:EmitSound("artoria_excalibur")
-	-- special bonus reduce cool down
-	local special_bonus_ability_1 = caster:FindAbilityByName("special_bonus_excalibur_1")
-	if special_bonus_ability_1 and special_bonus_ability_1:GetLevel() > 0 then
-		self:EndCooldown()
-		local cooldown = self:GetCooldown(self:GetLevel()) - special_bonus_ability_1:GetSpecialValueFor("value")
-		cooldown = caster:GetCooldownReduction() * cooldown
-		self:StartCooldown(cooldown)
-	end
 	local artoria_ultimate_excalibur = caster:FindAbilityByName("artoria_ultimate_excalibur")
 	if artoria_ultimate_excalibur and not artoria_ultimate_excalibur:IsNull() then
 		artoria_ultimate_excalibur:StartCooldown(self:GetCooldownTimeRemaining())
