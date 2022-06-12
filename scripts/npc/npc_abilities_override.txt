@@ -7792,34 +7792,33 @@
 	"medusa_mystic_snake"
 	{
 		"MaxLevel" "7"
-		"AbilityManaCost"				"140"
 		"AbilityValues"
 		{
-			"radius"				"450"
+			"radius"							"450"
 			"snake_jumps"
 			{
-				"value"				"3 4 5 6 7 8 9"
+				"value"							"3 4 5 6 7 8 9"
 				"special_bonus_unique_medusa_3"	"+2"
 			}
-			"jump_delay"			"0.25 0.25 0.25 0.25"
-			"snake_damage"			"80 120 160 200 240 280 320"
-			"snake_mana_steal"		"12 15 18 21 24 27 30"
-			"snake_scale"			"35"
-			"initial_speed"			"800"
-			"return_speed"			"800"
+			"jump_delay"						"0.25 0.25 0.25 0.25"
+			"snake_damage"						"80 120 160 200 240 280 320"
+			"snake_mana_steal"					"12 15 18 21 24 27 30"
+			"snake_scale"						"35"
+			"initial_speed"						"800"
+			"return_speed"						"800"
 			"stone_form_scepter_base"
 			{
-				"value"				"1.5"
-				"RequiresScepter"	"1"
+				"value"							"0"
+				"special_bonus_scepter"			"+1.5"
 			}
 			"stone_form_scepter_increment"
 			{
-				"value"				"0.3"
-				"RequiresScepter"	"1"
+				"value"							"0"
+				"special_bonus_scepter"			"+0.5"
 			}
-			"movement_slow"			"30"
-			"turn_slow"			"50"
-			"slow_duration"		"3"
+			"movement_slow"						"30"
+			"turn_slow"							"50"
+			"slow_duration"						"3"
 		}
 	}
 	"medusa_mana_shield"
@@ -7839,41 +7838,27 @@
 	"medusa_stone_gaze"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"70"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
+			"AbilityCastRange"					"1200"
+			"AbilityCooldown"					"70"
+			"AbilityManaCost"					"150"
+			"radius"							"1200"
+			"duration"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"5 5.5 6 6.5"
-				"LinkedSpecialBonus"		"special_bonus_unique_medusa"
+				"value"							"5 5.5 6 6.5"
+				"special_bonus_unique_medusa"	"+1.5"
 			}
-			"03"
+			"slow"								"50"
+			"stone_duration"					"3.0"
+			"face_duration"						"2.0"
+			"vision_cone"						"0.08715"		// 85 degree cone
+			"bonus_physical_damage"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"slow"						"50"
+				"value"							"40 45 50 55"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_PHYSICAL"
 			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stone_duration"			"3.0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"face_duration"				"1.0"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_physical_damage"		"40 45 50 55"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed_boost"		"60"
-			}
+			"speed_boost"						"60"
 		}
 	}
 	//=================================================================================================================
@@ -10148,7 +10133,7 @@
 					"value"			"15"
 					"LinkedSpecialBonus"		"special_bonus_unique_venomancer_4"
 				}
-				"damage"					"1.75 2.0 2.75 2.5"
+				"damage"					"1.75 2.0 2.25 2.5"
 				"cooldown_scepter"
 				{
 					"value"				"90.0 80.0 70.0 60.0"
@@ -10633,7 +10618,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"	"17 15 13 11 9 7 5"
+				"value"	"16 15 14 13 12 11 10"
 				"special_bonus_unique_bane_8"			"-2"
 			}
 			"shard_radius"
