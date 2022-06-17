@@ -1402,20 +1402,29 @@
 	"abaddon_death_coil"
 	{
 		"MaxLevel" "7"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
+			"self_damage"			"50"
+			"missile_speed"			"1300"
+			"target_damage"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"target_damage"			"110 160 210 260 310 360 400"
-				"LinkedSpecialBonus"	"special_bonus_unique_abaddon_2"
+				"value"			"110 160 210 260 310 360 410"
+				"special_bonus_unique_abaddon_2"	"+100"
 			}
-			"03"
+			"heal_amount"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_amount"			"110 160 210 260 310 360 400"
-				"LinkedSpecialBonus"	"special_bonus_unique_abaddon_2"
+				"value"			"110 160 210 260 310 360 410"
+				"special_bonus_unique_abaddon_2"	"+100"
 			}
+
+			"effect_radius"
+			{
+				"value"				"0"
+				"special_bonus_unique_abaddon_4"	"+600"
+			}
+
+
+
 		}
 	}
 	"abaddon_aphotic_shield"
@@ -1423,13 +1432,14 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
 		"AbilityManaCost"				"100 110 120 130 140"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
+			"duration"				"15.0"
+			"radius"				"675"
+			"damage_absorb"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_absorb"			"110 140 170 200 230"
-				"LinkedSpecialBonus"	"special_bonus_unique_abaddon"
+				"value"			"110 140 170 200 230"
+				"special_bonus_unique_abaddon"		"+200"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
 		}
@@ -1440,7 +1450,11 @@
 		"AbilityValues"
 		{
 			"slow_duration"				"5"
-			"movement_speed"			"10 15 20 25 30 35 40"
+			"movement_speed"
+			{
+				"value"						"10 15 20 25 30 35 40"
+				"special_bonus_shard" 		"+20"
+			}
 			"hit_count"
 			{
 				"value"					"4"
@@ -1454,24 +1468,29 @@
 	"abaddon_borrowed_time"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"55.0 50.0 45.0 40.0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"AbilityCooldown"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"hp_threshold"				"600 800 1000 1200"
+				"value"								"55.0 50.0 45.0 40.0"
+				"special_bonus_unique_abaddon_5"	"-5"
 			}
-			"02"
+			"hp_threshold"							"600 800 1000 1200"
+			"duration"								"4.0 5.0 6.0 7.0"
+			"duration_scepter"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"3.5 4.0 4.5 5.0"
+				"value"								"5 6 7 8"
+				"RequiresScepter"					"1"
 			}
-			"03"
+			"ally_threshold_scepter"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"duration_scepter"			"4.5 5.0 5.5 6.0"
-				"RequiresScepter"	"1"
+				"value"								"525"
+				"RequiresScepter"					"1"
+			}
+			"redirect_range_scepter"
+			{
+				"value"								"1600"
+				"RequiresScepter"					"1"
 			}
 		}
 	}
