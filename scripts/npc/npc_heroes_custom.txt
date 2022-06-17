@@ -233,15 +233,6 @@
 		"GameSoundsFile"				"soundevents/game_sounds_heroes/game_sounds_saber.vsndevts"
 	}
 
-	"npc_dota_hero_silencer"
-	{
-		"override_hero"		"npc_dota_hero_silencer"
-		"AttackRange"		"600"					// 600
-		"AttributeStrengthGain"		"2.000000"		// 2.4
-		"AttributeAgilityGain"		"2.000000"		// 2.4
-		"AttributeIntelligenceGain"		"2.500000"	// 2.9
-	}
-
 	"npc_dota_hero_techies"
 	{
 		"DisableWearables" 			"1"
@@ -1890,6 +1881,53 @@
 			}
 		}
 	}
+	"npc_dota_hero_silencer"
+	{
+		"override_hero"		"npc_dota_hero_silencer"
+		"AttackRange"		"600"					// 600
+		"AttributeStrengthGain"		"2.000000"		// 2.4
+		"AttributeAgilityGain"		"2.000000"		// 2.4
+		"AttributeIntelligenceGain"		"2.500000"	// 2.9
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"silencer_curse_of_the_silent"
+				"2"		"silencer_glaives_of_wisdom"
+				"3"		"silencer_last_word"
+				"4"		"silencer_curse_of_the_silent"
+				"5"		"silencer_last_word"
+				"6"		"silencer_global_silence"
+				"7"		"silencer_curse_of_the_silent"
+				"8"		"silencer_last_word"
+				"9"		"silencer_curse_of_the_silent"
+				"10"		"special_bonus_unique_silencer"
+				"11"		"silencer_last_word"
+				"12"		"silencer_global_silence"
+				"13"		"silencer_curse_of_the_silent"
+				"14"		"silencer_last_word"
+				"15"		"special_bonus_unique_silencer_6"
+				"16"		"silencer_glaives_of_wisdom"
+				"17"		""
+				"18"		"silencer_global_silence"
+				"19"		""
+				"20"		"special_bonus_unique_silencer_4"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_silencer_2"
+				"26"		""
+				"27"		"special_bonus_attack_speed_20"
+				"28"		"special_bonus_attack_range_100"
+				"29"		"special_bonus_unique_silencer_7"
+				"30"		"special_bonus_unique_silencer_3"
+				"31"		"silencer_global_silence"
+				"32"		"silencer_glaives_of_wisdom"
+				"33"		"silencer_glaives_of_wisdom"
+				"34"		"silencer_glaives_of_wisdom"
+			}
+	}
 	"npc_dota_hero_skeleton_king"
 	{
 		"Bot"
@@ -2029,6 +2067,51 @@
 				"37"		"sniper_shrapnel"
 				"38"		"sniper_shrapnel"
 				"39"		"sniper_shrapnel"
+			}
+		}
+	}
+	"npc_dota_hero_spirit_breaker"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"spirit_breaker_charge_of_darkness"
+				"2"		"spirit_breaker_greater_bash"
+				"3"		"spirit_breaker_bulldoze"
+				"4"		"spirit_breaker_charge_of_darkness"
+				"5"		"spirit_breaker_greater_bash"
+				"6"		"spirit_breaker_nether_strike"
+				"7"		"spirit_breaker_charge_of_darkness"
+				"8"		"spirit_breaker_bulldoze"
+				"9"		"spirit_breaker_charge_of_darkness"
+				"10"		"special_bonus_armor_4"
+				"11"		"spirit_breaker_greater_bash"
+				"12"		"spirit_breaker_nether_strike"
+				"13"		"spirit_breaker_charge_of_darkness"
+				"14"		"spirit_breaker_bulldoze"
+				"15"		"special_bonus_unique_spirit_breaker_2"
+				"16"		"spirit_breaker_bulldoze"
+				"17"		""
+				"18"		"spirit_breaker_nether_strike"
+				"19"		""
+				"20"		"special_bonus_unique_spirit_breaker_4"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_spirit_breaker_3"
+				"26"		""
+				"27"		"special_bonus_night_vision_500"
+				"28"		"special_bonus_attack_damage_40"
+				"29"		"special_bonus_unique_spirit_breaker_1"
+				"30"		"special_bonus_hp_800"
+				"31"		"spirit_breaker_nether_strike"
+				"32"		"spirit_breaker_bulldoze"
+				"33"		"spirit_breaker_greater_bash"
+				"34"		"spirit_breaker_greater_bash"
+				"35"		"spirit_breaker_greater_bash"
+				"36"		"spirit_breaker_greater_bash"
 			}
 		}
 	}
