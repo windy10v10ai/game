@@ -1884,6 +1884,9 @@
 				"28"		"special_bonus_unique_shadow_shaman_2"
 				"29"		"special_bonus_unique_shadow_shaman_1"
 				"30"		"special_bonus_unique_shadow_shaman_3"
+				"31"		"shadow_shaman_ether_shock"
+				"32"		"shadow_shaman_voodoo"
+				"33"		"shadow_shaman_shackles"
 			}
 		}
 	}
