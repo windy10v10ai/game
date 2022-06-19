@@ -5,9 +5,11 @@ function modifier_windy:RemoveOnDeath() return false end
 function modifier_windy:GetTexture() return "player/windy" end
 
 function modifier_windy:OnCreated()
-	self.iCooldownReduction = 40
-	self.iStatusResist = 40
-	self.iCastRange = 200
+	if IsServer() then
+		self.iCooldownReduction = 30
+		self.iStatusResist = 30
+		self.iCastRange = 200
+	end
 end
 
 function modifier_windy:CheckState()

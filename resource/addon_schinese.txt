@@ -177,6 +177,11 @@
 		"DOTA_Tooltip_modifier_dabuguo_Description"		"<font color='#FFCC66'>天龙人咸鱼为了廉价的赏金！献祭出了自己的珍宝皮燕子！（请勿模仿不值得啊）</font>"
 		"DOTA_Tooltip_modifier_shapu"					"<font color='#FFCC66'>★ 定制专属称号 ★</font>"
 		"DOTA_Tooltip_modifier_kfw6"					"<font color='#FFCC66'>★ 定制专属称号 ★</font>"
+		"DOTA_Tooltip_modifier_dalaogongji"				"<font color='#FFCC66'>★ 大佬，请问攻击是哪个按键呀？ ★</font>"
+		"DOTA_Tooltip_modifier_dalaogongji_Description"	"<font color='#FFCC66'> 当你拉氪金大佬入坑游戏时... </font>"
+		"DOTA_Tooltip_modifier_jiangcai"				"<font color='#FFCC66'>★ 意面神教葱油拌面分教教主 ★</font>"
+		"DOTA_Tooltip_modifier_rwby"					"<font color='#5FD068'>★ Rwby伤害王！ ★</font>"
+		"DOTA_Tooltip_modifier_rwby_Description"		"<font color='#5FD068'> 被我指到的人都要好运！ </font>"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"

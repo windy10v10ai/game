@@ -84,14 +84,12 @@ local windySteamAccountID = Set {
 	-- windy
 	136407523,
 	-- 测试
-	-- 916506173,
+	916506173,
 }
 
 local luoshuBuffSteamAccountID = Set {
 	-- 洛书
 	136668998,
-	-- 测试
-	-- 916506173,
 }
 
 local luoshuHeroSteamAccountID = Set {
@@ -145,6 +143,21 @@ local shapuSteamAccountID = Set {
 local kfw6SteamAccountID = Set {
 	-- 爱发电用户_Kfw6
 	322271699,
+}
+
+local dalaogongjiSteamAccountID = Set {
+	-- 大佬，请问攻击按哪个按键呀？
+	1166147496,
+}
+
+local jiangcaiSteamAccountID = Set {
+	-- 酱菜
+	108208968,
+}
+
+local rwbySteamAccountID = Set {
+	-- 爱发电用户_HjPS Rwby
+	156694017,
 }
 -- 称号属性 END
 
@@ -738,6 +751,18 @@ function AIGameMode:OnNPCSpawned(keys)
 			if kfw6SteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_kfw6", "modifiers/player/modifier_kfw6", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_kfw6", {})
+			end
+			if dalaogongjiSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_dalaogongji", "modifiers/player/modifier_dalaogongji", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_dalaogongji", {})
+			end
+			if jiangcaiSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_jiangcai", "modifiers/player/modifier_jiangcai", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_jiangcai", {})
+			end
+			if rwbySteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_rwby", "modifiers/player/modifier_rwby", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_rwby", {})
 			end
 
 			if luoshuBuffSteamAccountID[steamAccountID] then
