@@ -6416,13 +6416,17 @@
 	"antimage_blink"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"14 12 10 8 6"
 		"AbilityValues"
 		{
-				"blink_range"
+				"AbilityCooldown"
+				{
+					"value"			"14 12 10 8 6"
+					"special_bonus_unique_antimage"	"-1"
+				}
+				"AbilityCastRange"
 				{
 					"value"					"925 1000 1075 1150 1225"
-					"LinkedSpecialBonus"		"special_bonus_unique_antimage_3"
+					"special_bonus_unique_antimage_3"	"+250"
 				}
 				"min_blink_range"		"200"
 		}
@@ -13795,7 +13799,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ward_count"		"15"
+				"ward_count"		"12"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"30.0"
 			}
 			"06"
 			{
