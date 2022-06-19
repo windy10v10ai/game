@@ -1927,6 +1927,7 @@
 				"33"		"silencer_glaives_of_wisdom"
 				"34"		"silencer_glaives_of_wisdom"
 			}
+		}
 	}
 	"npc_dota_hero_skeleton_king"
 	{
