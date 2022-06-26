@@ -4964,7 +4964,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"meteor_land_radius"	"350"
+				"meteor_land_radius"	"300"
 			}
 			"04"
 			{
@@ -5026,7 +5026,7 @@
 			"16"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"str_damage"			"150"
+				"str_damage"			"120"
 			}
 			"17"
 			{
