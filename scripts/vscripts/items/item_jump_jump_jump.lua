@@ -19,7 +19,7 @@ end
 function item_jump_jump_jump:OnSpellStart()
 	local caster = self:GetCaster()
 	local target_loc = self:GetCursorPosition()
-	
+
 	-- Play start point effects
 	caster:EmitSound("DOTA_Item.BlinkDagger.Activate")
 
@@ -41,7 +41,7 @@ function item_jump_jump_jump:OnSpellStart()
 	-- Meteor drop
 	local meteor_land_time = self:GetSpecialValueFor("meteor_fall_time")
 	local buff_duration = self:GetSpecialValueFor("buff_duration") + meteor_land_time -- Duration is wasted while caster is in meteor
-	
+
 	local meteor_pfx = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_WORLDORIGIN, caster)
 	ParticleManager:SetParticleControl(meteor_pfx, 0, target_loc + Vector(0, 0, 1000)) -- 1000 feels kinda arbitrary but it also feels correct
 	ParticleManager:SetParticleControl(meteor_pfx, 1, target_loc)
@@ -150,7 +150,7 @@ end
 
 function modifier_item_jump_jump_jump_meteor_form:OnDestroy()
 	if IsClient() then return end
-	
+
 	local caster = self:GetCaster()
 	if (not caster) or caster:IsNull() then return end
 
@@ -161,8 +161,8 @@ function modifier_item_jump_jump_jump_meteor_form:OnDestroy()
 
 	-- Numbers
 	local effect_radius = ability:GetSpecialValueFor("meteor_land_radius")
-	local base_damage = ability:GetSpecialValueFor("overwhelming_blink_damage_base")
-	local str_damage = 0.01 * ability:GetSpecialValueFor("overwhelming_blink_damage_str_multiplier")
+	local base_damage = ability:GetSpecialValueFor("base_damage")
+	local str_damage = 0.01 * ability:GetSpecialValueFor("str_damage")
 	local burn_duration = ability:GetSpecialValueFor("meteor_burn_duration")
 	local stun_duration = ability:GetSpecialValueFor("meteor_stun_duration")
 	local slow_duration = stun_duration + ability:GetSpecialValueFor("slow_duration")
@@ -184,14 +184,14 @@ function modifier_item_jump_jump_jump_meteor_form:OnDestroy()
 	ParticleManager:ReleaseParticleIndex(overwhelming_pfx)
 
 	-- Impact
-	local enemies = FindUnitsInRadius(caster:GetTeam(), 
-		caster:GetAbsOrigin(), 
-		nil, 
-		effect_radius, 
-		DOTA_UNIT_TARGET_TEAM_ENEMY, 
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING, 
-		DOTA_UNIT_TARGET_FLAG_NONE, 
-		FIND_ANY_ORDER, 
+	local enemies = FindUnitsInRadius(caster:GetTeam(),
+		caster:GetAbsOrigin(),
+		nil,
+		effect_radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING,
+		DOTA_UNIT_TARGET_FLAG_NONE,
+		FIND_ANY_ORDER,
 		false)
 
 	for _, enemy in pairs(enemies) do
