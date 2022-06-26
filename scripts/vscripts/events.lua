@@ -159,6 +159,11 @@ local rwbySteamAccountID = Set {
 	-- 爱发电用户_HjPS Rwby
 	156694017,
 }
+
+local sunSteamAccountID = Set {
+	-- 爱发电用户_qHkC/sun
+	138652140,
+}
 -- 称号属性 END
 
 function AIGameMode:ArrayShuffle(array)
@@ -763,6 +768,10 @@ function AIGameMode:OnNPCSpawned(keys)
 			if rwbySteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_rwby", "modifiers/player/modifier_rwby", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_rwby", {})
+			end
+			if sunSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_sun", "modifiers/player/modifier_sun", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_sun", {})
 			end
 
 			if luoshuBuffSteamAccountID[steamAccountID] then
