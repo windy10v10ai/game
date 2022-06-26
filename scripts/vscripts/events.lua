@@ -1,8 +1,13 @@
 local tBotNameList = {
-	--"npc_dota_hero_abaddon",// 不会放技能，只会物品和A人
-	--"npc_dota_hero_antimage",// 不会放技能，只会物品和A人
-	--"npc_dota_hero_spirit_breaker",// 不会放技能，只会物品和A人
-	--"npc_dota_hero_silencer",// 不会放技能，只会物品和A人
+	--"npc_dota_hero_abaddon", // 不会放技能，只会物品和A人
+	--"npc_dota_hero_antimage", // 不会放技能，只会物品和A人
+	--"npc_dota_hero_spirit_breaker", // 不会放技能，只会物品和A人
+	--"npc_dota_hero_silencer", // 不会放技能，只会物品和A人
+	--"npc_dota_hero_mirana", // 不会放技能，只会物品和A人
+	--"npc_dota_hero_medusa", // 不会放技能，只会物品和A人
+	--"npc_dota_hero_furion", // 不会放技能，只会物品和A人
+	--"npc_dota_hero_shadow_shaman", // 不会放技能，只会物品和A人
+	--"npc_dota_hero_huskar", // 不会放技能，只会物品和A人
 	"npc_dota_hero_axe",
 	"npc_dota_hero_bane",
 	"npc_dota_hero_bounty_hunter",
@@ -22,7 +27,6 @@ local tBotNameList = {
 	"npc_dota_hero_lina",
 	"npc_dota_hero_lion",
 	"npc_dota_hero_luna",
-	-- "npc_dota_hero_mirana", // 不会放技能，只会物品和A人
 	"npc_dota_hero_nevermore",
 	"npc_dota_hero_necrolyte",
 	"npc_dota_hero_ogre_magi",
@@ -31,13 +35,12 @@ local tBotNameList = {
 	"npc_dota_hero_phantom_assassin",
 	"npc_dota_hero_pudge",
 	"npc_dota_hero_riki",
-	-- "npc_dota_hero_razor", // 在泉水站着完全不动
-	-- "npc_dota_hero_shadow_shaman", // 不会放技能，只会物品和A人
+	--"npc_dota_hero_razor", // 在泉水站着完全不动
 	"npc_dota_hero_sand_king",
 	"npc_dota_hero_skywrath_mage",
 	"npc_dota_hero_sniper",
 	"npc_dota_hero_sven",
-	-- "npc_dota_hero_tidehunter", // 在泉水站着完全不动
+	--"npc_dota_hero_tidehunter", // 在泉水站着完全不动
 	"npc_dota_hero_tiny",
 	"npc_dota_hero_vengefulspirit",
 	"npc_dota_hero_viper",
@@ -81,14 +84,12 @@ local windySteamAccountID = Set {
 	-- windy
 	136407523,
 	-- 测试
-	-- 916506173,
+	916506173,
 }
 
 local luoshuBuffSteamAccountID = Set {
 	-- 洛书
 	136668998,
-	-- 测试
-	-- 916506173,
 }
 
 local luoshuHeroSteamAccountID = Set {
@@ -142,6 +143,26 @@ local shapuSteamAccountID = Set {
 local kfw6SteamAccountID = Set {
 	-- 爱发电用户_Kfw6
 	322271699,
+}
+
+local dalaogongjiSteamAccountID = Set {
+	-- 大佬，请问攻击按哪个按键呀？
+	1166147496,
+}
+
+local jiangcaiSteamAccountID = Set {
+	-- 酱菜
+	108208968,
+}
+
+local rwbySteamAccountID = Set {
+	-- 爱发电用户_HjPS Rwby
+	156694017,
+}
+
+local sunSteamAccountID = Set {
+	-- 爱发电用户_qHkC/sun
+	138652140,
 }
 -- 称号属性 END
 
@@ -735,6 +756,22 @@ function AIGameMode:OnNPCSpawned(keys)
 			if kfw6SteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_kfw6", "modifiers/player/modifier_kfw6", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_kfw6", {})
+			end
+			if dalaogongjiSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_dalaogongji", "modifiers/player/modifier_dalaogongji", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_dalaogongji", {})
+			end
+			if jiangcaiSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_jiangcai", "modifiers/player/modifier_jiangcai", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_jiangcai", {})
+			end
+			if rwbySteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_rwby", "modifiers/player/modifier_rwby", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_rwby", {})
+			end
+			if sunSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_sun", "modifiers/player/modifier_sun", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_sun", {})
 			end
 
 			if luoshuBuffSteamAccountID[steamAccountID] then

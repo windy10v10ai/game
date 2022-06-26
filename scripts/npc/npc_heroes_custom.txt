@@ -53,6 +53,7 @@
 		"VoiceFile"					""
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_goku.vsndevts"
 	}
+
 	//剑灵
 	"npc_dota_hero_abyss_sword"
 	{
@@ -122,7 +123,7 @@
 		{ }
 	}
 
-
+	//初音未来
 	"Miku"
 	{
 	    "override_hero"                       "npc_dota_hero_meepo"
@@ -232,15 +233,6 @@
 		"GameSoundsFile"				"soundevents/game_sounds_heroes/game_sounds_saber.vsndevts"
 	}
 
-	"npc_dota_hero_silencer"
-	{
-		"override_hero"		"npc_dota_hero_silencer"
-		"AttackRange"		"600"					// 600
-		"AttributeStrengthGain"		"2.000000"		// 2.4
-		"AttributeAgilityGain"		"2.000000"		// 2.4
-		"AttributeIntelligenceGain"		"2.500000"	// 2.9
-	}
-
 	"npc_dota_hero_techies"
 	{
 		"DisableWearables" 			"1"
@@ -252,8 +244,103 @@
 	}
 
 	//=================================================================================================================
-	// HERO: Axe
+	// HERO BOT BUILD
 	//=================================================================================================================
+	"npc_dota_hero_abaddon"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"abaddon_aphotic_shield"
+				"2"		"abaddon_frostmourne"
+				"3"		"abaddon_death_coil"
+				"4"		"abaddon_aphotic_shield"
+				"5"		"abaddon_frostmourne"
+				"6"		"abaddon_borrowed_time"
+				"7"		"abaddon_aphotic_shield"
+				"8"		"abaddon_frostmourne"
+				"9"		"abaddon_aphotic_shield"
+				"10"		"special_bonus_movement_speed_15"
+				"11"		"abaddon_borrowed_time"
+				"12"		"abaddon_death_coil"
+				"13"		"abaddon_aphotic_shield"
+				"14"		"abaddon_death_coil"
+				"15"		"special_bonus_attack_damage_65"
+				"16"		"abaddon_frostmourne"
+				"17"		""
+				"18"		"abaddon_borrowed_time"
+				"19"		""
+				"20"		"special_bonus_unique_abaddon"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_abaddon_3"
+				"26"		""
+				"27"		"special_bonus_strength_8"
+				"28"		"special_bonus_unique_abaddon_2"
+				"29"		"special_bonus_unique_abaddon_5"
+				"30"		"special_bonus_unique_abaddon_4"
+				"31"		"abaddon_borrowed_time"
+				"32"		"abaddon_frostmourne"
+				"33"		"abaddon_death_coil"
+				"34"		"abaddon_frostmourne"
+				"35"		"abaddon_death_coil"
+				"36"		"abaddon_frostmourne"
+				"37"		"abaddon_death_coil"
+				"38"		"abaddon_death_coil"
+			}
+		}
+	}
+    "npc_dota_hero_antimage"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"antimage_mana_break"
+				"2"		"antimage_blink"
+				"3"		"antimage_mana_break"
+				"4"		"antimage_counterspell"
+				"5"		"antimage_blink"
+				"6"		"antimage_mana_void"
+				"7"		"antimage_mana_break"
+				"8"		"antimage_blink"
+				"9"		"antimage_mana_break"
+				"10"		"special_bonus_strength_9"
+				"11"		"antimage_blink"
+				"12"		"antimage_mana_void"
+				"13"		"antimage_counterspell"
+				"14"		"antimage_counterspell"
+				"15"		"special_bonus_unique_antimage_7"
+				"16"		"antimage_counterspell"
+				"17"		""
+				"18"		"antimage_mana_void"
+				"19"		""
+				"20"		"special_bonus_unique_antimage_6"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_antimage_4"
+				"26"		""
+				"27"		"special_bonus_unique_antimage"
+				"28"		"special_bonus_unique_antimage_8"
+				"29"		"special_bonus_unique_antimage_3"
+				"30"		"special_bonus_unique_antimage_2"
+				"31"		"antimage_mana_break"
+				"32"		"antimage_mana_break"
+				"33"		"antimage_mana_break"
+				"34"		"antimage_blink"
+				"35"		"antimage_mana_void"
+				"36"		"antimage_mana_void"
+				"37"		"antimage_counterspell"
+				"38"		"antimage_counterspell"
+				"39"		"antimage_counterspell"
+			}
+		}
+	}
 	"npc_dota_hero_axe"
 	{
 		"Bot"
@@ -797,6 +884,95 @@
 			}
 		}
 	}
+	"npc_dota_hero_furion"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+                "1"			"furion_sprout"
+				"2"			"furion_force_of_nature"
+				"3"			"furion_sprout"
+				"4"			"furion_force_of_nature"
+				"5"			"furion_teleportation"
+				"6"			"furion_wrath_of_nature"
+				"7"			"furion_force_of_nature"
+				"8"			"furion_sprout"
+				"9"			"furion_force_of_nature"
+				"10"		"special_bonus_unique_furion_6"
+				"11"		"furion_wrath_of_nature"
+				"12"		"furion_sprout"
+				"13"		"furion_teleportation"
+				"14"		"furion_sprout"
+				"15"		"special_bonus_unique_furion_2"
+				"16"		"furion_wrath_of_nature"
+				"17"		""
+				"18"		"furion_teleportation"
+				"19"		""
+				"20"		"special_bonus_unique_furion_7"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_furion"
+				"26"		""
+				"27"		"special_bonus_unique_furion_5"
+				"28"		"special_bonus_attack_speed_25"
+				"29"		"special_bonus_unique_furion_4"
+				"30"		"special_bonus_unique_furion_3"
+                "31"		"furion_wrath_of_nature"
+				"32"		"furion_wrath_of_nature"
+				"33"		"furion_teleportation"
+				"34"		"furion_teleportation"
+			}
+		}
+	}
+	"npc_dota_hero_huskar"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+                "1"			"huskar_inner_fire"
+				"2"			"huskar_burning_spear"
+				"3"			"huskar_berserkers_blood"
+				"4"			"huskar_inner_fire"
+				"5"			"huskar_burning_spear"
+				"6"			"huskar_life_break"
+				"7"			"axe_counter_helix"
+				"8"			"axe_berserkers_call"
+				"9"			"axe_berserkers_call"
+				"10"		"special_bonus_movement_speed_20"
+				"11"		"axe_battle_hunger"
+				"12"		"axe_culling_blade"
+				"13"		"axe_battle_hunger"
+				"14"		"axe_battle_hunger"
+				"15"		"special_bonus_unique_axe_4"
+				"16"		"axe_battle_hunger"
+				"17"		""
+				"18"		"axe_culling_blade"
+				"19"		""
+				"20"		"special_bonus_unique_axe_3"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_axe"
+				"26"		""
+				"27"		"special_bonus_mp_regen_150"
+				"28"		"special_bonus_unique_axe_6"
+				"29"		"special_bonus_unique_axe_5"
+				"30"		"special_bonus_unique_axe_2"
+                "31"		"axe_culling_blade"
+				"32"		"axe_culling_blade"
+				"33"		"axe_berserkers_call"
+				"34"		"axe_counter_helix"
+				"35"		"axe_counter_helix"
+				"36"		"axe_counter_helix"
+				"37"		"axe_battle_hunger"
+			}
+		}
+	}
 	"npc_dota_hero_jakiro"
 	{
 		"Bot"
@@ -1115,6 +1291,53 @@
 				"37"		"luna_moon_glaive"
 				"38"		"luna_moon_glaive"
 				"39"		"luna_moon_glaive"
+			}
+		}
+	}
+	"npc_dota_hero_medusa"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+                "1"			"medusa_mystic_snake"
+				"2"			"medusa_mana_shield"
+				"3"			"medusa_mystic_snake"
+				"4"			"medusa_mana_shield"
+				"5"			"medusa_split_shot"
+				"6"			"medusa_mystic_snake"
+				"7"			"medusa_split_shot"
+				"8"			"medusa_mystic_snake"
+				"9"			"medusa_stone_gaze"
+				"10"		"special_bonus_movement_speed_20"
+				"11"		"medusa_split_shot"
+				"12"		"medusa_mystic_snake"
+				"13"		"medusa_split_shot"
+				"14"		"medusa_mystic_snake"
+				"15"		"special_bonus_unique_medusa_2"
+				"16"		"medusa_split_shot"
+				"17"		""
+				"18"		"medusa_stone_gaze"
+				"19"		""
+				"20"		"special_bonus_unique_medusa"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_medusa_4"
+				"26"		""
+				"27"		"special_bonus_unique_medusa_6"
+				"28"		"special_bonus_unique_medusa_5"
+				"29"		"special_bonus_unique_medusa_3"
+				"30"		"special_bonus_intelligence_75"
+                "31"		"medusa_stone_gaze"
+				"32"		"medusa_stone_gaze"
+				"33"		"medusa_mystic_snake"
+				"34"		"medusa_mana_shield"
+				"35"		"medusa_mana_shield"
+				"36"		"medusa_mana_shield"
+				"37"		"medusa_mana_shield"
+				"38"		"medusa_mana_shield"
 			}
 		}
 	}
@@ -1570,45 +1793,6 @@
 			}
 		}
 	}
-	"npc_dota_hero_shadow_shaman"
-	{
-		"Bot"
-		{
-			"Build"
-			{
-				"1"		"shadow_shaman_shackles"
-				"2"		"shadow_shaman_voodoo"
-				"3"		"shadow_shaman_shackles"
-				"4"		"shadow_shaman_voodoo"
-				"5"		"shadow_shaman_shackles"
-				"6"		"shadow_shaman_mass_serpent_ward"
-				"7"		"shadow_shaman_shackles"
-				"8"		"shadow_shaman_voodoo"
-				"9"		"shadow_shaman_voodoo"
-				"10"		"special_bonus_unique_shadow_shaman_6"
-				"11"		"shadow_shaman_ether_shock"
-				"12"		"shadow_shaman_mass_serpent_ward"
-				"13"		"shadow_shaman_ether_shock"
-				"14"		"shadow_shaman_ether_shock"
-				"15"		"special_bonus_unique_shadow_shaman_8"
-				"16"		"shadow_shaman_ether_shock"
-				"17"		""
-				"18"		"shadow_shaman_mass_serpent_ward"
-				"19"		""
-				"20"		"special_bonus_unique_shadow_shaman_7"
-				"21"		""
-				"22"		""
-				"23"		""
-				"24"		""
-				"25"		"special_bonus_unique_shadow_shaman_4"
-				"26"		""
-				"27"		"special_bonus_unique_shadow_shaman_5"
-				"28"		"special_bonus_unique_shadow_shaman_2"
-				"29"		"special_bonus_unique_shadow_shaman_1"
-				"30"		"special_bonus_unique_shadow_shaman_3"
-			}
-		}
-	}
 	"npc_dota_hero_sand_king"
 	{
 		"Bot"
@@ -1652,6 +1836,141 @@
 				"35"		"sandking_caustic_finale"
 				"36"		"sandking_caustic_finale"
 				"37"		"sandking_caustic_finale"
+			}
+		}
+	}
+	"npc_dota_hero_shadow_shaman"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"shadow_shaman_shackles"
+				"2"		"shadow_shaman_voodoo"
+				"3"		"shadow_shaman_shackles"
+				"4"		"shadow_shaman_voodoo"
+				"5"		"shadow_shaman_shackles"
+				"6"		"shadow_shaman_mass_serpent_ward"
+				"7"		"shadow_shaman_shackles"
+				"8"		"shadow_shaman_voodoo"
+				"9"		"shadow_shaman_voodoo"
+				"10"		"special_bonus_unique_shadow_shaman_6"
+				"11"		"shadow_shaman_ether_shock"
+				"12"		"shadow_shaman_mass_serpent_ward"
+				"13"		"shadow_shaman_ether_shock"
+				"14"		"shadow_shaman_ether_shock"
+				"15"		"special_bonus_unique_shadow_shaman_8"
+				"16"		"shadow_shaman_ether_shock"
+				"17"		""
+				"18"		"shadow_shaman_mass_serpent_ward"
+				"19"		""
+				"20"		"special_bonus_unique_shadow_shaman_7"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_shadow_shaman_4"
+				"26"		""
+				"27"		"special_bonus_unique_shadow_shaman_5"
+				"28"		"special_bonus_unique_shadow_shaman_2"
+				"29"		"special_bonus_unique_shadow_shaman_1"
+				"30"		"special_bonus_unique_shadow_shaman_3"
+				"31"		"shadow_shaman_ether_shock"
+				"32"		"shadow_shaman_voodoo"
+				"33"		"shadow_shaman_shackles"
+			}
+		}
+	}
+	"npc_dota_hero_silencer"
+	{
+		"override_hero"		"npc_dota_hero_silencer"
+		"AttackRange"		"600"					// 600
+		"AttributeStrengthGain"		"2.000000"		// 2.4
+		"AttributeAgilityGain"		"2.000000"		// 2.4
+		"AttributeIntelligenceGain"		"2.500000"	// 2.9
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"silencer_curse_of_the_silent"
+				"2"		"silencer_glaives_of_wisdom"
+				"3"		"silencer_last_word"
+				"4"		"silencer_curse_of_the_silent"
+				"5"		"silencer_last_word"
+				"6"		"silencer_global_silence"
+				"7"		"silencer_curse_of_the_silent"
+				"8"		"silencer_last_word"
+				"9"		"silencer_curse_of_the_silent"
+				"10"		"special_bonus_unique_silencer"
+				"11"		"silencer_last_word"
+				"12"		"silencer_global_silence"
+				"13"		"silencer_curse_of_the_silent"
+				"14"		"silencer_last_word"
+				"15"		"special_bonus_unique_silencer_6"
+				"16"		"silencer_glaives_of_wisdom"
+				"17"		""
+				"18"		"silencer_global_silence"
+				"19"		""
+				"20"		"special_bonus_unique_silencer_4"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_silencer_2"
+				"26"		""
+				"27"		"special_bonus_attack_speed_20"
+				"28"		"special_bonus_attack_range_100"
+				"29"		"special_bonus_unique_silencer_7"
+				"30"		"special_bonus_unique_silencer_3"
+				"31"		"silencer_global_silence"
+				"32"		"silencer_glaives_of_wisdom"
+				"33"		"silencer_glaives_of_wisdom"
+				"34"		"silencer_glaives_of_wisdom"
+			}
+		}
+	}
+	"npc_dota_hero_skeleton_king"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"skeleton_king_hellfire_blast"
+				"2"		"skeleton_king_vampiric_aura"
+				"3"		"skeleton_king_hellfire_blast"
+				"4"		"skeleton_king_mortal_strike"
+				"5"		"skeleton_king_hellfire_blast"
+				"6"		"skeleton_king_reincarnation"
+				"7"		"skeleton_king_hellfire_blast"
+				"8"		"skeleton_king_mortal_strike"
+				"9"		"skeleton_king_mortal_strike"
+				"10"		"special_bonus_attack_speed_15"
+				"11"		"skeleton_king_mortal_strike"
+				"12"		"skeleton_king_reincarnation"
+				"13"		"skeleton_king_vampiric_aura"
+				"14"		"skeleton_king_vampiric_aura"
+				"15"		"special_bonus_unique_wraith_king_6"
+				"16"		"skeleton_king_vampiric_aura"
+				"17"		""
+				"18"		"skeleton_king_reincarnation"
+				"19"		""
+				"20"		"special_bonus_unique_wraith_king_5"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_wraith_king_4"
+				"26"		""
+				"27"		"special_bonus_movement_speed_20"
+				"28"		"special_bonus_unique_wraith_king_11"
+				"29"		"special_bonus_cleave_25"
+				"30"		"special_bonus_unique_wraith_king_10"
+				"31"		"skeleton_king_reincarnation"
+				"32"		"skeleton_king_vampiric_aura"
+				"33"		"skeleton_king_hellfire_blast"
+				"34"		"skeleton_king_mortal_strike"
+				"35"		"skeleton_king_mortal_strike"
+				"36"		"skeleton_king_mortal_strike"
 			}
 		}
 	}
@@ -1752,6 +2071,51 @@
 			}
 		}
 	}
+	"npc_dota_hero_spirit_breaker"
+	{
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"spirit_breaker_charge_of_darkness"
+				"2"		"spirit_breaker_greater_bash"
+				"3"		"spirit_breaker_bulldoze"
+				"4"		"spirit_breaker_charge_of_darkness"
+				"5"		"spirit_breaker_greater_bash"
+				"6"		"spirit_breaker_nether_strike"
+				"7"		"spirit_breaker_charge_of_darkness"
+				"8"		"spirit_breaker_bulldoze"
+				"9"		"spirit_breaker_charge_of_darkness"
+				"10"		"special_bonus_armor_4"
+				"11"		"spirit_breaker_greater_bash"
+				"12"		"spirit_breaker_nether_strike"
+				"13"		"spirit_breaker_charge_of_darkness"
+				"14"		"spirit_breaker_bulldoze"
+				"15"		"special_bonus_unique_spirit_breaker_2"
+				"16"		"spirit_breaker_bulldoze"
+				"17"		""
+				"18"		"spirit_breaker_nether_strike"
+				"19"		""
+				"20"		"special_bonus_unique_spirit_breaker_4"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_unique_spirit_breaker_3"
+				"26"		""
+				"27"		"special_bonus_night_vision_500"
+				"28"		"special_bonus_attack_damage_40"
+				"29"		"special_bonus_unique_spirit_breaker_1"
+				"30"		"special_bonus_hp_800"
+				"31"		"spirit_breaker_nether_strike"
+				"32"		"spirit_breaker_bulldoze"
+				"33"		"spirit_breaker_greater_bash"
+				"34"		"spirit_breaker_greater_bash"
+				"35"		"spirit_breaker_greater_bash"
+				"36"		"spirit_breaker_greater_bash"
+			}
+		}
+	}
 	"npc_dota_hero_sven"
 	{
 		"Bot"
@@ -1795,51 +2159,6 @@
 				"35"		"sven_warcry"
 				"36"		"sven_warcry"
 				"37"		"sven_warcry"
-			}
-		}
-	}
-	"npc_dota_hero_skeleton_king"
-	{
-		"Bot"
-		{
-			"Build"
-			{
-				"1"		"skeleton_king_hellfire_blast"
-				"2"		"skeleton_king_vampiric_aura"
-				"3"		"skeleton_king_hellfire_blast"
-				"4"		"skeleton_king_mortal_strike"
-				"5"		"skeleton_king_hellfire_blast"
-				"6"		"skeleton_king_reincarnation"
-				"7"		"skeleton_king_hellfire_blast"
-				"8"		"skeleton_king_mortal_strike"
-				"9"		"skeleton_king_mortal_strike"
-				"10"		"special_bonus_attack_speed_15"
-				"11"		"skeleton_king_mortal_strike"
-				"12"		"skeleton_king_reincarnation"
-				"13"		"skeleton_king_vampiric_aura"
-				"14"		"skeleton_king_vampiric_aura"
-				"15"		"special_bonus_unique_wraith_king_6"
-				"16"		"skeleton_king_vampiric_aura"
-				"17"		""
-				"18"		"skeleton_king_reincarnation"
-				"19"		""
-				"20"		"special_bonus_unique_wraith_king_5"
-				"21"		""
-				"22"		""
-				"23"		""
-				"24"		""
-				"25"		"special_bonus_unique_wraith_king_4"
-				"26"		""
-				"27"		"special_bonus_movement_speed_20"
-				"28"		"special_bonus_unique_wraith_king_11"
-				"29"		"special_bonus_cleave_25"
-				"30"		"special_bonus_unique_wraith_king_10"
-				"31"		"skeleton_king_reincarnation"
-				"32"		"skeleton_king_vampiric_aura"
-				"33"		"skeleton_king_hellfire_blast"
-				"34"		"skeleton_king_mortal_strike"
-				"35"		"skeleton_king_mortal_strike"
-				"36"		"skeleton_king_mortal_strike"
 			}
 		}
 	}
@@ -2206,54 +2525,6 @@
 				"36"		"zuus_arc_lightning"
 				"37"		"zuus_lightning_bolt"
 				"38"		"zuus_arc_lightning"
-			}
-		}
-	}
-	"npc_dota_hero_antimage"
-	{
-		"Bot"
-		{
-			"Build"
-			{
-				"1"		"antimage_mana_break"
-				"2"		"antimage_blink"
-				"3"		"antimage_mana_break"
-				"4"		"antimage_counterspell"
-				"5"		"antimage_blink"
-				"6"		"antimage_mana_void"
-				"7"		"antimage_mana_break"
-				"8"		"antimage_blink"
-				"9"		"antimage_mana_break"
-				"10"		"special_bonus_strength_9"
-				"11"		"antimage_blink"
-				"12"		"antimage_mana_void"
-				"13"		"antimage_counterspell"
-				"14"		"antimage_counterspell"
-				"15"		"special_bonus_unique_antimage_7"
-				"16"		"antimage_counterspell"
-				"17"		""
-				"18"		"antimage_mana_void"
-				"19"		""
-				"20"		"special_bonus_unique_antimage_6"
-				"21"		""
-				"22"		""
-				"23"		""
-				"24"		""
-				"25"		"special_bonus_unique_antimage_4"
-				"26"		""
-				"27"		"special_bonus_unique_antimage"
-				"28"		"special_bonus_unique_antimage_8"
-				"29"		"special_bonus_unique_antimage_3"
-				"30"		"special_bonus_unique_antimage_2"
-				"31"		"antimage_mana_break"
-				"32"		"antimage_mana_break"
-				"33"		"antimage_mana_break"
-				"34"		"antimage_blink"
-				"35"		"antimage_mana_void"
-				"36"		"antimage_mana_void"
-				"37"		"antimage_counterspell"
-				"38"		"antimage_counterspell"
-				"39"		"antimage_counterspell"
 			}
 		}
 	}
