@@ -13,21 +13,20 @@ const readline = require('readline');
     }
 
     for (const directoryName of ["game", "content"]) {
-        const sourcePath = path.join(dotaPath, directoryName, "dota_addons", getAddonName());
-        const targetPath = path.resolve(__dirname, "../..", directoryName);
-        console.log(`sourcePath '${sourcePath}'`);
+        const sourcePath = path.resolve(__dirname, "../..", directoryName);
+        const targetPath = path.join(dotaPath, directoryName, "dota_addons", getAddonName());
 
-        if (fs.existsSync(sourcePath)) {
+        if (fs.existsSync(targetPath)) {
             const isCorrect = fs.lstatSync(sourcePath).isSymbolicLink() && fs.realpathSync(sourcePath) === targetPath;
             if (isCorrect) {
                 console.log(`Skipping '${sourcePath}' since it is already linked`);
                 continue;
             } else {
-                fs.removeSync(sourcePath);
-                console.log(`Removed existing directory '${sourcePath}'`);
+                throw new Error(`'${targetPath}' is already linked to another directory`);
             }
         }
 
+        fs.moveSync(sourcePath, targetPath);
         fs.symlinkSync(targetPath, sourcePath, "junction");
         console.log(`Linked ${sourcePath} <==> ${targetPath}`);
     }
