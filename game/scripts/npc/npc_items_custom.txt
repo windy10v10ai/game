@@ -4940,7 +4940,7 @@
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"15"
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"250"
 		"AbilitySharedCooldown"			"blink"
 
 		"ItemCost"						"21000"
@@ -4949,105 +4949,32 @@
 		//"ItemIsNeutralDrop"				"1"
 		//"Model"							"models/props_gameplay/neutral_box.vmdl"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blink_damage_cooldown"	"3.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"meteor_fall_time"		"0.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"meteor_land_radius"	"300"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"35"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_duration"			"6"
-			}
+			"blink_damage_cooldown"	"3.0"
+			"meteor_fall_time"		"0.5"
+			"meteor_land_radius"	"300"
+			"bonus_all_stats"		"35"
+			"buff_duration"			"6"
 			// Below are the overwhelming, swift, and arcane modifier values, dont touch them unless you know what you're doing
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement"		"40"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"50"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_damage"	"50"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_cooldown"			"30"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ultimate_cooldown"		"25"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_pct_improvement"	"50"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow"			"50"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_slow"			"50"
-			}
-			// End of vanilla buffs
-			"15"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"100"
-			}
-			"16"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"str_damage"			"120"
-			}
-			"17"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"meteor_stun_duration"	"1.5"
-			}
-			"18"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"6.0"
-			}
-			"19"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"meteor_burn_duration"	"6.0"
-			}
-			"20"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"meteor_burn_dps"		"100"
-			}
+			"bonus_movement"		"40"
+			"bonus_attack_speed"	"50"
+			"bonus_attack_damage"	"50"
+			"base_cooldown"			"30"
+
+			"cast_pct_improvement"	"50"
+			"manacost_reduction"	"20"
+			"debuff_amp"			"20"
+
+			"movement_slow"			"50"
+			"attack_slow"			"50"
+			// Fall down effect
+			"base_damage"			"100"
+			"str_damage"			"100"
+			"meteor_stun_duration"	"1.5"
+			"slow_duration"			"6.0"
+			"meteor_burn_duration"	"6.0"
+			"meteor_burn_dps"		"100"
 		}
 	}
     //=================================================================================================================

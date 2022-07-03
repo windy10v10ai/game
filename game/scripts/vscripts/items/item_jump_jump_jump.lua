@@ -166,12 +166,20 @@ function modifier_item_jump_jump_jump_meteor_form:OnDestroy()
 	local burn_duration = ability:GetSpecialValueFor("meteor_burn_duration")
 	local stun_duration = ability:GetSpecialValueFor("meteor_stun_duration")
 	local slow_duration = stun_duration + ability:GetSpecialValueFor("slow_duration")
+	local start_damage = base_damage + str_damage * (caster.GetStrength and caster:GetStrength() or 0)
 
 	local damage_table = {
 		attacker = caster,
 		damage_type = DAMAGE_TYPE_MAGICAL,
 		ability = ability,
-		damage = base_damage + str_damage * (caster.GetStrength and caster:GetStrength() or 0)
+		damage = start_damage
+	}
+
+	local damage_table_building = {
+		attacker = caster,
+		damage_type = DAMAGE_TYPE_MAGICAL,
+		ability = ability,
+		damage = start_damage/2
 	}
 
 	-- Effects
@@ -199,11 +207,16 @@ function modifier_item_jump_jump_jump_meteor_form:OnDestroy()
 
 		enemy:AddNewModifier(caster, ability, "modifier_item_overwhelming_blink_debuff", {duration = slow_duration})
 		enemy:AddNewModifier(caster, ability, "modifier_item_jump_jump_jump_meteor_burn", {duration = burn_duration})
-		enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
 
 		damage_table.victim = enemy
 
-		ApplyDamage(damage_table)
+		if enemy:IsBuilding() then
+			enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration/2})
+			ApplyDamage(damage_table_building)
+		else
+			enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
+			ApplyDamage(damage_table)
+		end
 	end
 end
 
@@ -220,6 +233,10 @@ function modifier_item_jump_jump_jump_meteor_burn:OnCreated()
 	if IsClient() then return end
 
 	self.burn_dps = self:GetAbility():GetSpecialValueFor("meteor_burn_dps") or 0
+	-- if parent is building, then it's a tower, so burn dps is halved
+	if self:GetParent():IsBuilding() then
+		self.burn_dps = self.burn_dps / 2
+	end
 
 	self:StartIntervalThink(1.0)
 	self:OnIntervalThink()
