@@ -4956,18 +4956,16 @@
 			"meteor_land_radius"	"300"
 			"bonus_all_stats"		"35"
 			"buff_duration"			"6"
-			// Below are the overwhelming, swift, and arcane modifier values, dont touch them unless you know what you're doing
+			// Below are the overwhelming, swift, and arcane modifier values
+			"movement_slow"			"50"
+			"attack_slow"			"50"
+
 			"bonus_movement"		"40"
-			"bonus_attack_speed"	"50"
-			"bonus_attack_damage"	"50"
-			"base_cooldown"			"30"
+			"bonus_agi_active"		"35"
 
 			"cast_pct_improvement"	"50"
 			"manacost_reduction"	"20"
 			"debuff_amp"			"20"
-
-			"movement_slow"			"50"
-			"attack_slow"			"50"
 			// Fall down effect
 			"base_damage"			"100"
 			"str_damage"			"100"
