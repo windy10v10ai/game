@@ -194,7 +194,7 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_sheepstick',
 		'item_hallowed_scepter',
-		'item_sphere_2',
+		'item_sacred_six_vein',
 	},
 	npc_dota_hero_dragon_knight = {
 		'item_magic_wand',
