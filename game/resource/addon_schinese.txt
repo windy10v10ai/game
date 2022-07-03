@@ -944,7 +944,7 @@
 
         // item_jump_jump_jump
 		"DOTA_Tooltip_ability_item_jump_jump_jump"						"跳！跳！跳！刀"
-		"DOTA_Tooltip_ability_item_jump_jump_jump_Description"			"<h1>主动技能：闪现开团</h1>结合了全部三个闪烁匕首与天崩的效果。<br><br>变形为流星并降落在目标地点，在%meteor_stun_duration%秒内对附近%meteor_land_radius%范围内的敌人施加眩晕效果。受影响的敌人将承受%base_damage% + %str_damage%%%施放者力量的魔法伤害，然后燃烧并进一步造成每秒%meteor_burn_dps%的伤害，持续%meteor_burn_duration%秒。<br><br>在这一切灾难发生后，施法者将获得迅疾闪光与秘奥闪光的全部优势。受影响的敌人将在眩晕结束后承受盛势闪光效果。"
+		"DOTA_Tooltip_ability_item_jump_jump_jump_Description"			"<h1>主动技能：闪现开团</h1>结合了全部三个闪烁匕首与天崩的效果。<br><br>变形为流星并降落在目标地点，在%meteor_stun_duration%秒内对附近%meteor_land_radius%范围内的敌人施加眩晕效果。<br>受影响的敌人将承受%base_damage% + %str_damage%%%施放者力量的魔法伤害，然后燃烧并进一步造成每秒%meteor_burn_dps%的伤害，持续%meteor_burn_duration%秒。<br>对建筑的伤害和眩晕时间减半。<br><br>在这一切灾难发生后，施法者将获得迅疾闪光与秘奥闪光的全部优势。受影响的敌人将在眩晕结束后承受盛势闪光效果。"
 		"DOTA_Tooltip_Ability_item_jump_jump_jump_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Lore"					"你问我闪现是什么？唔…我是铁血刀斯林，震怒！"
 
