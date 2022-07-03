@@ -113,12 +113,7 @@ function modifier_tower_endure:OnCreated()
 	if IsClient() then return end
 	local hParent = self:GetParent()
 	local iHealth = hParent:GetMaxHealth()
-	local newHealth
-	if hParent:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		newHealth = math.floor(StackToPercentage(AIGameMode.iRadiantTowerEndure)*iHealth)
-	elseif hParent:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-		newHealth = math.floor(StackToPercentage(AIGameMode.iDireTowerEndure)*iHealth)
-	end
+	local newHealth = math.floor(StackToPercentage(AIGameMode.iTowerEndure)*iHealth)
 	Timers:CreateTimer(0.1, function ()
 		if hParent:IsNull() then return end
 		hParent:SetMaxHealth( newHealth )
@@ -162,17 +157,6 @@ function modifier_tower_power:GetModifierBaseDamageOutgoing_Percentage()
 	return 100*StackToPercentage(self:GetStackCount())-100
 end
 
--- show xp/gold multiplier
-modifier_multi = class({})
-
-function modifier_multi:IsPurgable() return false end
-function modifier_multi:IsDebuff() return false end
-function modifier_multi:GetTexture() return "multi" end
-
-function modifier_multi:DeclareFunctions()
-	return {
-	}
-end
 -------------------------------------------------
 -- NPC Think
 -------------------------------------------------

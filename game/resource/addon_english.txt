@@ -27,12 +27,9 @@
 		"show_game_options"  "Show Game Options"
 		"respawn_time_percentage"	"Respawn Time"
 		"max_level"	"Max Level"
-		"radiant_tower_power"	"Radiant Tower Level"
-		"dire_tower_power"	"Dire Tower Level"
-		// "radiant_tower_endure"	"Radiant Buildings Endurance Level"
-		// "dire_tower_endure"	"Dire Buildings Endurance Level"
-		"radiant_tower_heal"	"Radiant Building HP Regen"
-		"dire_tower_heal"	"Dire Building HP Regen"
+		"tower_power"	"Tower Power"
+		"tower_endure"	"Tower Endure"
+		"tower_heal"	"Tower HP Regen"
 		"starting_gold_player"	"Player Starting Gold"
 		"starting_gold_bot"	"Bot Starting Gold"
 		"same_hero_selection"  "Allow Same Hero Selection"
@@ -59,18 +56,10 @@
 		"player_gold_xp_multiplier_2"               "2"
 		"player_gold_xp_multiplier_5"               "5"
 
-		"respawn_time_percentage_125"        "Slow"
-		"respawn_time_percentage_100"        "Normal"
-		"respawn_time_percentage_75"         "Fast"
+		"respawn_time_percentage_slow"        "Slow"
+		"respawn_time_percentage_normal"        "Normal"
+		"respawn_time_percentage_fast"         "Fast"
 		"respawn_time_percentage_0"          "Zero"
-
-		"radiant_tower_power_150"         "150%"
-		"radiant_tower_power_175"         "175%"
-		"radiant_tower_power_200"         "200%"
-
-		"dire_tower_power_150"           "150%"
-		"dire_tower_power_175"           "175%"
-		"dire_tower_power_200"           "200%"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -82,7 +71,6 @@
 
 		"player_multiplier"	"Player Multi"
 		"bot_multiplier"	"Bot Multi"
-		"tower_power"		"Tower Level"
 
 		///////////////////////////////////////////////////
 		//
@@ -105,8 +93,6 @@
 
 		"DOTA_Tooltip_modifier_tower_endure"						"Buildings Endurance"
 		"DOTA_Tooltip_modifier_tower_endure_Description"		"The building's armor is changed by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, max health is set to %dMODIFIER_PROPERTY_TOOLTIP%%%."
-
-		"DOTA_Tooltip_modifier_multi"							"/10 Gold XP Multiplier"
 
 		"DOTA_Tooltip_modifier_melee_resistance"					"Bulldozer"
 		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% extra status resistance, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magical resistance."

@@ -276,23 +276,9 @@ function AIGameMode:OnGameStateChanged(keys)
 		-- modifier towers
 		local tTowers = Entities:FindAllByClassname("npc_dota_tower")
 		for k, v in pairs(tTowers) do
-			if v:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-				if self.iRadiantTowerPower >= 10 then
-					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(5)
-				else
-					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iRadiantTowerPower)
-				end
-				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iRadiantTowerEndure)
-				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iRadiantTowerHeal)
-			elseif v:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-				if self.iDireTowerPower >= 10 then
-					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(5)
-				else
-					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iDireTowerPower)
-				end
-				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iDireTowerEndure)
-				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iDireTowerHeal)
-			end
+			v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
+			v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
+			v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
 
 			-- set tower split
 			local towerName = v:GetName()
@@ -306,48 +292,19 @@ function AIGameMode:OnGameStateChanged(keys)
 		end
 		local barracks = Entities:FindAllByClassname("npc_dota_barracks")
 		for k, v in pairs(barracks) do
-			if v:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iRadiantTowerEndure)
-				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iRadiantTowerHeal)
-			elseif v:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iDireTowerEndure)
-				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iDireTowerHeal)
-			end
+			v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
+			v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
 		end
 		local healer = Entities:FindAllByClassname("npc_dota_healer")
 		for k, v in pairs(healer) do
-			if v:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iRadiantTowerEndure)
-				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iRadiantTowerHeal)
-			elseif v:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iDireTowerEndure)
-				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iDireTowerHeal)
-			end
+			v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
+			v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
 		end
 		local fort = Entities:FindAllByClassname("npc_dota_fort")
 		for k, v in pairs(fort) do
-			if v:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-				if self.iRadiantTowerPower >= 10 then
-					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(5)
-				else
-					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iRadiantTowerPower)
-				end
-				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iRadiantTowerEndure)
-				v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iRadiantTowerHeal)
-
-				v:AddNewModifier(v, nil, "modifier_multi", {}):SetStackCount(math.floor(self.fPlayerGoldXpMultiplier*10))
-
-			elseif v:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-				if self.iDireTowerPower >= 10 then
-					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(5)
-				else
-					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iDireTowerPower)
-				end
-				v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iDireTowerEndure)
-				v:AddNewModifier(v, nil, "modifier_multi", {}):SetStackCount(self.iDireTowerHeal)
-
-				v:AddNewModifier(v, nil, "modifier_multi", {}):SetStackCount(math.floor(self.fBotGoldXpMultiplier*10))
-			end
+			v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
+			v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
+			v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
 
 			-- set fort split
 			local towerSplitShot = v:AddAbility("tower_split_shot")
@@ -862,12 +819,11 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
 
 	self.iRespawnTimePercentage = tonumber(args.game_options.respawn_time_percentage)
 	self.iMaxLevel = tonumber(args.game_options.max_level)
-	self.iRadiantTowerPower = tonumber(args.game_options.radiant_tower_power)
-	self.iDireTowerPower = tonumber(args.game_options.dire_tower_power)
-	self.iRadiantTowerEndure = tonumber(args.game_options.radiant_tower_power)
-	self.iDireTowerEndure = tonumber(args.game_options.dire_tower_power)
-	self.iRadiantTowerHeal = tonumber(args.game_options.radiant_tower_heal)
-	self.iDireTowerHeal = tonumber(args.game_options.dire_tower_heal)
+
+	self.iTowerPower = tonumber(args.game_options.tower_power)
+	self.iTowerEndure = tonumber(args.game_options.tower_endure)
+	self.iTowerHeal = tonumber(args.game_options.tower_heal)
+
 	self.iStartingGoldPlayer = tonumber(args.game_options.starting_gold_player)
 	self.iStartingGoldBot = tonumber(args.game_options.starting_gold_bot)
 	self.bSameHeroSelection = args.game_options.same_hero_selection
@@ -991,8 +947,8 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
 	data.options = {
 		playerGoldXpMultiplier = tostring(self.fPlayerGoldXpMultiplier),
 		botGoldXpMultiplier = self.fBotGoldXpMultiplier > 10 and "??" or self.fBotGoldXpMultiplier,
-		radiantTowerPower = AIGameMode:StackToPercentage(self.iRadiantTowerPower),
-		direTowerPower = AIGameMode:StackToPercentage(self.iDireTowerPower),
+		towerPower = AIGameMode:StackToPercentage(self.iTowerPower),
+		towerEndure = AIGameMode:StackToPercentage(self.iTowerEndure),
 	}
 
     for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
@@ -1076,7 +1032,7 @@ function AIGameMode:StackToPercentage(iStackCount)
 	elseif iStackCount == 9 then
 		return "300%"
 	elseif iStackCount == 10 then
-		return "??"
+		return "500%"
 	else
 		return "100%"
 	end
