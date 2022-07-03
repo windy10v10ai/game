@@ -489,6 +489,18 @@
 		}
 	}
 	// level 5
+	"item_demonicon"
+	{
+		"AbilityCooldown"				"60.0"
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"summon_duration"				"35"
+			}
+		}
+	}
 	"item_spell_prism"
 	{
 		"AbilitySpecial"
@@ -8018,7 +8030,9 @@
 	"monkey_king_wukongs_command"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"110 100 90 80 70"
+		"AbilityCooldown"				"90"
+		"AbilityDuration"				"10.0"
+		"AbilityManaCost"				"100 150 200 250 300"
 		"AbilitySpecial"
 		{
 			"06"
@@ -8031,6 +8045,11 @@
 			{
 				"var_type"							"FIELD_FLOAT"
 				"attack_speed"						"1.2 1.15 1.1 1.05 1.0"
+			}
+			"08"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"duration"							"10.0"
 			}
 		}
 	}
@@ -8703,8 +8722,6 @@
 				"lance_damage"				"100 160 220 280 340"
 				"LinkedSpecialBonus"		"special_bonus_unique_phantom_lancer_2"
 			}
-
-
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
@@ -8713,7 +8730,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"illusion_duration"			"2.0 4.0 6.0 8.0 10.0"
+				"illusion_duration"			"3.0 4.0 5.0 6.0 7.0"
 			}
 			"06"
 			{
@@ -8751,6 +8768,16 @@
 				"illusion_2_damage_in_pct"	"300"
 				"CalculateSpellDamageTooltip"	"0"
 			}
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"illusion_duration"			"5"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"illusion_extended_duration"			"1"
+			}
 		}
 	}
 	"phantom_lancer_juxtapose"
@@ -8762,13 +8789,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"max_illusions"			"4"
+				"max_illusions"			"3"
 				"LinkedSpecialBonus"		"special_bonus_unique_phantom_lancer_3"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"proc_chance_pct"		"40 45 50 55"
+				"proc_chance_pct"		"35 40 45 50"
 			}
 			"03"
 			{
@@ -8778,21 +8805,27 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_out_pct"	"-50"
+				"illusion_damage_out_pct"	"-70 -60 -50 -40"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"tooltip_illusion_damage"	"50"
+				"tooltip_illusion_damage"	"30 40 50 60"
 				"LinkedSpecialBonus"		"special_bonus_unique_phantom_lancer_6"
 				"CalculateSpellDamageTooltip"	"0"
 			}
-			"08"
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"scepter_bonus_duration"	"5"
+				"RequiresScepter"			"1"
+			}
+			"11"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"tooltip_total_illusion_damage_in_pct"	"450"
-				"CalculateSpellDamageTooltip"	"0"
+				"scepter_bonus_illusions"	"1"
+				"RequiresScepter"			"1"
 			}
 		}
 	}
@@ -11479,54 +11512,76 @@
 		"AbilityDamage"					"75 150 225 300 375"
 		"AbilityManaCost"				"80 95 110 125 140"
 	}
-	"death_prophet_silence"
-	{
-		"AbilityCooldown"				"14 13 12 11"
-	}
 	"death_prophet_spirit_siphon"
 	{
 		"MaxLevel" "5"
 		"AbilityCharges"				"1 2 3 4 5"
-		"AbilityChargeRestoreTime"		"36 34 32 30 28"
-		"AbilityManaCost"				"80"
-		"AbilitySpecial"
+		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"damage"					"30"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"damage_pct"					"1.0 2.0 3.0 4.0 5.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_death_prophet_3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_steal"			"10"
-			}
+				"damage"					"10 12 14 16 18"
+				"damage_pct"
+				{
+					"value"			"1.0 2.0 3.0 4.0 5.0"
+				"special_bonus_unique_death_prophet_3"	"+1"
+				}
+				"AbilityChargeRestoreTime"
+				{
+					"value"					"36 34 32 30 28"
+					"special_bonus_unique_death_prophet_5" "-20"
+				}
 		}
 	}
 	"death_prophet_exorcism"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"80.0"
+		"AbilityCooldown"				"90.0"
 		"AbilityDuration"				"35"
-		"AbilityManaCost"				"250 300 350 400 450"
+		"AbilityManaCost"				"250 350 450 550 650"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spirits"				"8 16 24 30 36"
+				"spirits"				"8 12 16 20 24"
 				"LinkedSpecialBonus"	"special_bonus_unique_death_prophet"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"min_damage"			"55 65 75 85 95"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_damage"			"65 75 85 95 105"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal_percent"			"25 25 25"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"average_damage"		"60 70 80 90 100"
 			}
 			"15"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movement_bonus"				"16 18 20 22 24"
+				"movement_bonus"			"16 18 20 22 24"
+			}
+		}
+	}
+	"special_bonus_unique_death_prophet"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"4"
+				"ad_linked_abilities"			"death_prophet_exorcism"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
