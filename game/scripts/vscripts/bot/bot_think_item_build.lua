@@ -89,7 +89,6 @@ function BotThink:UseItemOnTarget(hHero, sItemName, hTarget)
     local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
     if hItem then
         if hItem:IsCooldownReady() then
-            print("Think use "..hHero:GetName().." try to use item "..sItemName)
             hHero:CastAbilityOnTarget(hTarget, hItem, hHero:GetPlayerOwnerID())
             return true
         end
@@ -105,7 +104,6 @@ function BotThink:UseItemOnPostion(hHero, sItemName, hTarget)
     local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
     if hItem then
         if hItem:IsCooldownReady() then
-            print("Think use "..hHero:GetName().." try to use item on postion "..sItemName)
             hHero:CastAbilityOnPosition(hTarget:GetOrigin(), hItem, hHero:GetPlayerOwnerID())
             return true
         end
@@ -120,7 +118,6 @@ function BotThink:UseItem(hHero, sItemName)
     local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
     if hItem then
         if hItem:IsCooldownReady() then
-            print("Think use "..hHero:GetName().." try to use item "..sItemName)
             hHero:CastAbilityNoTarget(hItem, hHero:GetPlayerOwnerID())
             return true
         end
@@ -150,8 +147,7 @@ local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
 
   if(hHero:GetGold() > iCost) then
     if hHero:GetNumItemsInInventory() > 8 then
-      -- TODO print
-      print("Warn! Think purchase "..hHero:GetName().." add "..iItemName.." stop with item count "..hHero:GetNumItemsInInventory())
+      -- print("Warn! Think purchase "..hHero:GetName().." add "..iItemName.." stop with item count "..hHero:GetNumItemsInInventory())
     else
       local addedItem = hHero:AddItemByName(iItemName)
       if addedItem then

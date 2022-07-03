@@ -43,10 +43,9 @@ function AIGameMode:EnterDebugMode()
 	print("========Enter Debug Mode========")
 	self.DebugMode = true
 	GameRules:SetCustomGameSetupAutoLaunchDelay( 30 )
-	GameRules:SetPreGameTime( 10 )
+	GameRules:SetHeroSelectionTime( 15 )
 	GameRules:SetStrategyTime( 10 )
-	GameRules:SetHeroSelectionTime( 10 )
-	print("DOTA 2 AI Wars Loaded.")
+	GameRules:SetPreGameTime( 10 )
 end
 
 function AIGameMode:InitGameOptions()
@@ -88,7 +87,6 @@ function AIGameMode:LinkLuaModifiers()
 	LinkLuaModifier("modifier_tower_power", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_tower_endure", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_tower_heal", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier("modifier_multi", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_sniper_assassinate_thinker", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_out_of_world", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -110,12 +108,11 @@ function AIGameMode:PreGameOptions()
 	self.iGoldTickTime = self.iGoldTickTime or GOLD_TICK_TIME
 	self.iRespawnTimePercentage = self.iRespawnTimePercentage or 1
 	self.iMaxLevel = self.iMaxLevel or MAX_LEVEL
-	self.iRadiantTowerPower = self.iRadiantTowerPower or 3
-	self.iDireTowerPower = self.iDireTowerPower or 3
-	self.iRadiantTowerEndure = self.iRadiantTowerEndure or 3
-	self.iDireTowerEndure = self.iDireTowerEndure or 3
-	self.iRadiantTowerHeal = self.iRadiantTowerHeal or 0
-	self.iDireTowerHeal = self.iDireTowerHeal or 0
+
+	self.iTowerPower = self.iTowerPower or 3
+	self.iTowerEndure = self.iTowerEndure or 3
+	self.iTowerHeal = self.iTowerHeal or 0
+
 	self.iStartingGoldPlayer = self.iStartingGoldPlayer or 600
 	self.iStartingGoldBot = self.iStartingGoldBot or 600
 	self.bSameHeroSelection = self.bSameHeroSelection or 1
@@ -186,22 +183,22 @@ function AIGameMode:PreGameOptions()
 	end
 
 
-	self.sumTowerPower = (AIGameMode.iRadiantTowerPower + AIGameMode.iDireTowerPower)
+	self.sumTowerPower = AIGameMode.iTowerPower
 	self.creepBuffLevel = 0
 	self.creepBuffLevelGood = 0
 	self.creepBuffLevelBad = 0
 	self.creepBuffLevelMegaGood = 0
 	self.creepBuffLevelMegaBad = 0
-	if self.sumTowerPower <= 10 then
+	if self.sumTowerPower <= 5 then
 		-- 150%
 		self.creepBuffLevel = 0
-	elseif self.sumTowerPower <= 12 then
+	elseif self.sumTowerPower <= 6 then
 		-- 175%
 		self.creepBuffLevel = 1
-	elseif self.sumTowerPower <= 14 then
+	elseif self.sumTowerPower <= 7 then
 		-- 200%
 		self.creepBuffLevel = 2
-	elseif self.sumTowerPower <= 16 then
+	elseif self.sumTowerPower <= 8 then
 		-- 250%
 		self.creepBuffLevel = 3
 	else

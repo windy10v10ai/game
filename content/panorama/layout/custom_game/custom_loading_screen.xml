@@ -70,9 +70,9 @@
 					<Panel id="RespawnTimePercentagePanel"	class="GameOptionsSubPanel">
 						<Label id="RespawnTimePercentagePanelTitle" class="GameOptionsLabel" text="#respawn_time_percentage" />
 						<DropDown id="respawn_time_percentage_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('respawn_time_percentage_dropdown')">
-							<Label text="#respawn_time_percentage_125" id="120"/>
-							<Label text="#respawn_time_percentage_100" id="100"/>
-							<Label text="#respawn_time_percentage_75" id="80"/>
+							<Label text="#respawn_time_percentage_slow" id="120"/>
+							<Label text="#respawn_time_percentage_normal" id="100"/>
+							<Label text="#respawn_time_percentage_fast" id="80"/>
 							<Label text="#respawn_time_percentage_0" id="0"/>
 						</DropDown>
 					</Panel>
@@ -87,39 +87,40 @@
 							<Label text="500" id="500"/>
 						</DropDown>
 					</Panel>
-					<Panel id="RadiantTowerPowerPanel"	class="GameOptionsSubPanel">
-						<Label id="RadiantTowerPowerTitle" class="GameOptionsLabel" text="#radiant_tower_power" />
-						<DropDown id="radiant_tower_power_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('radiant_tower_power_dropdown')">
+
+					<!-- 防御塔选项 START-->
+					<Panel id="TowerPowerPanel"	class="GameOptionsSubPanel">
+						<Label id="RadiantTowerPowerTitle" class="GameOptionsLabel" text="#tower_power" />
+						<DropDown id="tower_power_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('tower_power_dropdown')">
 							<Label text="50%" id="1"/>
 							<Label text="75%" id="2"/>
 							<Label text="100%" id="3"/>
 							<Label text="125%" id="4"/>
-							<Label text="#radiant_tower_power_150" id="5"/>
-							<Label text="#radiant_tower_power_175" id="6"/>
-							<Label text="#radiant_tower_power_200" id="7"/>
+							<Label text="150%" id="5"/>
+							<Label text="175%" id="6"/>
+							<Label text="200%" id="7"/>
 							<Label text="250%" id="8"/>
 							<Label text="300%" id="9"/>
-							<Label text="??" id="10"/>
 						</DropDown>
 					</Panel>
-					<Panel id="DireTowerPowerPanel"	class="GameOptionsSubPanel">
-						<Label id="DireTowerPowerTitle" class="GameOptionsLabel" text="#dire_tower_power" />
-						<DropDown id="dire_tower_power_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('dire_tower_power_dropdown')">
+					<Panel id="TowerEndurePanel"	class="GameOptionsSubPanel">
+						<Label id="DireTowerPowerTitle" class="GameOptionsLabel" text="#tower_endure" />
+						<DropDown id="tower_endure_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('tower_endure_dropdown')">
 							<Label text="50%" id="1"/>
 							<Label text="75%" id="2"/>
 							<Label text="100%" id="3"/>
 							<Label text="125%" id="4"/>
-							<Label text="#dire_tower_power_150" id="5"/>
-							<Label text="#dire_tower_power_175" id="6"/>
-							<Label text="#dire_tower_power_200" id="7"/>
+							<Label text="150%" id="5"/>
+							<Label text="175%" id="6"/>
+							<Label text="200%" id="7"/>
 							<Label text="250%" id="8"/>
 							<Label text="300%" id="9"/>
-							<Label text="??" id="10"/>
+							<Label text="500%" id="10"/>
 						</DropDown>
 					</Panel>
-					<Panel id="RadiantTowerHealPanel"	class="GameOptionsSubPanel">
-						<Label id="RadiantTowerHealTitle" class="GameOptionsLabel" text="#radiant_tower_heal" />
-						<DropDown id="radiant_tower_heal_dropdown" class="GameOptionsDropdown">
+					<Panel id="TowerHealPanel"	class="GameOptionsSubPanel">
+						<Label id="TowerHealTitle" class="GameOptionsLabel" text="#tower_heal" />
+						<DropDown id="tower_heal_dropdown" class="GameOptionsDropdown">
 							<Label text="0" id="0"/>
 							<Label text="1" id="1"/>
 							<Label text="5" id="5"/>
@@ -127,16 +128,7 @@
 							<Label text="20" id="20"/>
 						</DropDown>
 					</Panel>
-					<Panel id="DireTowerHealPanel"	class="GameOptionsSubPanel">
-						<Label id="DireTowerHealTitle" class="GameOptionsLabel" text="#dire_tower_heal" />
-						<DropDown id="dire_tower_heal_dropdown" class="GameOptionsDropdown">
-							<Label text="0" id="0"/>
-							<Label text="1" id="1"/>
-							<Label text="5" id="5"/>
-							<Label text="10" id="10"/>
-							<Label text="20" id="20"/>
-						</DropDown>
-					</Panel>
+					<!-- 防御塔选项 END -->
 					<Panel id="StartingGoldPlayerPanel"	class="GameOptionsSubPanel">
 						<Label id="StartingGoldPlayerTitle" class="GameOptionsLabel" text="#starting_gold_player" />
 						<DropDown id="starting_gold_player_dropdown" class="GameOptionsDropdown">
@@ -181,12 +173,12 @@
 						<Label id="DisplayOptionsBotGoldXp" class="DisplayOptionsLable" text="" />
 					</Panel>
 					<Panel id="RadiantTowerPanel" class="DisplayOptionsSubPanel">
-						<Label id="DisplayOptionsRadiantTowerTitle" class="DisplayOptionsLableTitle" text="#radiant_tower_power" />
-						<Label id="DisplayOptionsRadiantTower" class="DisplayOptionsLable" text="" />
+						<Label id="DisplayOptionsTowerPowerTitle" class="DisplayOptionsLableTitle" text="#tower_power" />
+						<Label id="DisplayOptionsTowerPower" class="DisplayOptionsLable" text="" />
 					</Panel>
 					<Panel id="DireTowerPanel" class="DisplayOptionsSubPanel">
-						<Label id="DisplayOptionsDireTowerTitle" class="DisplayOptionsLableTitle" text="#dire_tower_power" />
-						<Label id="DisplayOptionsDireTower" class="DisplayOptionsLable" text="" />
+						<Label id="DisplayOptionsTowerEndureTitle" class="DisplayOptionsLableTitle" text="#tower_endure" />
+						<Label id="DisplayOptionsTowerEndure" class="DisplayOptionsLable" text="" />
 					</Panel>
 					<Panel id="RespawnTimePanel" class="DisplayOptionsSubPanel">
 						<Label id="DisplayOptionsRespawnTimeTitle" class="DisplayOptionsLableTitle" text="#respawn_time_percentage" />

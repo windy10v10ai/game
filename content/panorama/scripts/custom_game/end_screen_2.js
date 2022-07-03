@@ -122,10 +122,10 @@ function Snippet_Team(team) {
 
 	if (team === 2) {
 		panel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#player_multiplier") + ": x" + GAME_RESULT.options.playerGoldXpMultiplier;
-		panel.FindChildTraverse("TowerPower").text = $.Localize("#tower_power") + ": " + GAME_RESULT.options.radiantTowerPower;
+		panel.FindChildTraverse("TowerPower").text = $.Localize("#tower_power") + ": " + GAME_RESULT.options.towerPower;
 	} else {
 		panel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#bot_multiplier") + ": x" + GAME_RESULT.options.botGoldXpMultiplier;
-		panel.FindChildTraverse("TowerPower").text = $.Localize("#tower_power") + ": " + GAME_RESULT.options.direTowerPower;
+		panel.FindChildTraverse("TowerPower").text = $.Localize("#tower_endure") + ": " + GAME_RESULT.options.towerEndure;
 	}
 	const teamDetails = Game.GetTeamDetails( team );
 	panel.FindChildTraverse("TeamScore").text = teamDetails.team_score;

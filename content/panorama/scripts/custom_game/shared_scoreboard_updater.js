@@ -240,12 +240,12 @@ function _ScoreboardUpdater_UpdateTeamPanel( scoreboardConfig, containerPanel, t
 	if (teamId === 2 && GAME_RESULT) {
 		let radiantPanel = containerPanel.FindChildInLayoutFile( "RadiantHeader" );
 		radiantPanel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#player_multiplier") + ": x" + GAME_RESULT.options.playerGoldXpMultiplier;
-		radiantPanel.FindChildTraverse("TowerPower").text = $.Localize("#tower_power") + ": " + GAME_RESULT.options.radiantTowerPower;
+		radiantPanel.FindChildTraverse("TowerPower").text = $.Localize("#tower_power") + ": " + GAME_RESULT.options.towerPower;
 		radiantPanel.FindChildTraverse("TeamScoreSmall").text = teamDetails.team_score;
 	} else {
 		let direPanel = containerPanel.FindChildInLayoutFile( "DireHeader" );
 		direPanel.FindChildTraverse("GoldXpMultiplier").text = $.Localize("#bot_multiplier") + ": x" + GAME_RESULT.options.botGoldXpMultiplier;
-		direPanel.FindChildTraverse("TowerPower").text = $.Localize("#tower_power") + ": " + GAME_RESULT.options.direTowerPower;
+		direPanel.FindChildTraverse("TowerPower").text = $.Localize("#tower_endure") + ": " + GAME_RESULT.options.towerEndure;
 		direPanel.FindChildTraverse("TeamScoreSmall").text = teamDetails.team_score;
 	}
 

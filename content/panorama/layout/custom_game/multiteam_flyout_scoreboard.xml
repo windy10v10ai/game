@@ -40,7 +40,7 @@
 						<Label id="TeamScoreSmall" class="TeamScoreSmall" text="999"/>
 						<Panel id="OptionValue" class="FlowDownPanel">
 							<Label id="GoldXpMultiplier" class="GameOptionValue" text="#bot_multiplier" />
-							<Label id="TowerPower" class="GameOptionValue" text="#tower_power" />
+							<Label id="TowerPower" class="GameOptionValue" text="#tower_endure" />
 						</Panel>
 					</Panel>
 				<Label class="LegendPanel ScoreCol_Kills" text="#custom_end_screen_legend_kills" />

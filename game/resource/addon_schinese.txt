@@ -27,12 +27,9 @@
 		"show_game_options"  "Show Game Options"
 		"respawn_time_percentage"	"复活时间"
 		"max_level"	"等级上限"
-		"radiant_tower_power"	"天辉建筑攻击/防御加成"
-		"dire_tower_power"	"夜魇建筑攻击/防御加成"
-		// "radiant_tower_endure"	"天辉建筑防御加成等级"
-		// "dire_tower_endure"	"夜魇建筑防御加成等级"
-		"radiant_tower_heal"	"天辉建筑生命恢复加成"
-		"dire_tower_heal"	"夜魇建筑生命恢复加成"
+		"tower_power"	"防御塔攻击"
+		"tower_endure"	"防御塔防御"
+		"tower_heal"	"防御塔生命恢复"
 		"starting_gold_player"	"玩家初始金钱"
 		"starting_gold_bot"	"电脑初始金钱"
 		"same_hero_selection"  "允许选择相同英雄"
@@ -59,18 +56,10 @@
 		"player_gold_xp_multiplier_2"            	"2    (新手)"
 		"player_gold_xp_multiplier_5"               "5    (我要打10个)"
 
-		"respawn_time_percentage_125"        "较慢"
-		"respawn_time_percentage_100"        "普通"
-		"respawn_time_percentage_75"         "快速"
+		"respawn_time_percentage_slow"        "较慢"
+		"respawn_time_percentage_normal"        "普通"
+		"respawn_time_percentage_fast"         "快速"
 		"respawn_time_percentage_0"          "秒活 (可能卡顿)"
-
-		"radiant_tower_power_150"         "150%"
-		"radiant_tower_power_175"         "175%"
-		"radiant_tower_power_200"         "200%"
-
-		"dire_tower_power_150"           "150%"
-		"dire_tower_power_175"           "175%"
-		"dire_tower_power_200"           "200%"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -80,9 +69,8 @@
 		"custom_end_screen_victory_message"	"天辉获胜"
 		"custom_end_screen_lose_message"	"夜魇获胜"
 
-		"player_multiplier"	"玩家倍率"
-		"bot_multiplier"	"电脑倍率"
-		"tower_power"		"建筑倍率"
+		"player_multiplier"		"玩家倍率"
+		"bot_multiplier"		"电脑倍率"
 
 		///////////////////////////////////////////////////
 		//
@@ -105,8 +93,6 @@
 
 		"DOTA_Tooltip_modifier_tower_endure"						"建筑防御加成"
 		"DOTA_Tooltip_modifier_tower_endure_Description"		"建筑物的护甲增加 %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, 最大生命值设为 %dMODIFIER_PROPERTY_TOOLTIP%%%."
-
-		"DOTA_Tooltip_modifier_multi"							"/10 金钱经验倍数"
 
 		"DOTA_Tooltip_modifier_melee_resistance"					"威压"
 		"DOTA_Tooltip_modifier_melee_resistance_Description"	"近战英雄额外获得 %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 状态抗性，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性"
@@ -182,7 +168,7 @@
 		"DOTA_Tooltip_modifier_jiangcai"				"<font color='#FFCC66'>★ 意面神教葱油拌面分教教主 ★</font>"
 		"DOTA_Tooltip_modifier_rwby"					"<font color='#5FD068'>★ Rwby伤害王！ ★</font>"
 		"DOTA_Tooltip_modifier_rwby_Description"		"<font color='#5FD068'> 被我指到的人都要好运！ </font>"
-		"DOTA_Tooltip_modifier_sun"						"<font color='#FFCC66'>★ 伟大尊贵的sun大神 ★</font>"
+		"DOTA_Tooltip_modifier_sun"						"<font color='#FFCC66'>★ 天下第一砍王 ★</font>"
 		"DOTA_Tooltip_modifier_cyn1"					"<font color='#FFCC66'>♥ Cherries ♥</font>"
 		"DOTA_Tooltip_modifier_cyn2"					"<font color='#FFCC66'>★ Cherries ★</font>"
 
