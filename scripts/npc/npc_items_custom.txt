@@ -5100,7 +5100,7 @@
 		"AbilityCastRange"				"1100"
 		"AbilityCastPoint"				"0.0"
 
-		"AbilityManaCost"				"200"
+		"AbilityManaCost"				"350"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -5178,7 +5178,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_damage"			"450"
+				"active_damage"			"440"
 			}
 		}
 	}

@@ -182,7 +182,10 @@
 		"DOTA_Tooltip_modifier_jiangcai"				"<font color='#FFCC66'>★ 意面神教葱油拌面分教教主 ★</font>"
 		"DOTA_Tooltip_modifier_rwby"					"<font color='#5FD068'>★ Rwby伤害王！ ★</font>"
 		"DOTA_Tooltip_modifier_rwby_Description"		"<font color='#5FD068'> 被我指到的人都要好运！ </font>"
-		"DOTA_Tooltip_modifier_sun"						"<font color='#FFCC66'>★ 定制专属称号 ★</font>"
+		"DOTA_Tooltip_modifier_sun"						"<font color='#FFCC66'>★ 伟大尊贵的sun大神 ★</font>"
+		"DOTA_Tooltip_modifier_cyn1"					"<font color='#FFCC66'>♥ Cherries ♥</font>"
+		"DOTA_Tooltip_modifier_cyn2"					"<font color='#FFCC66'>★ Cherries ★</font>"
+
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"
