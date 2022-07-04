@@ -276,12 +276,21 @@ function AIGameMode:OnGameStateChanged(keys)
 		-- modifier towers
 		local tTowers = Entities:FindAllByClassname("npc_dota_tower")
 		for k, v in pairs(tTowers) do
-			v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
+			local towerName = v:GetName()
+			if string.find(towerName, "tower1") then
+				-- 一塔攻击最高200%
+				if self.iTowerPower > 7 then
+					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(7)
+				else
+					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
+				end
+			else
+				v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
+			end
 			v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
 			v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
 
 			-- set tower split
-			local towerName = v:GetName()
 			if string.find(towerName, "tower4") then
 				local towerSplitShot = v:AddAbility("tower_split_shot")
 				if towerSplitShot then
@@ -1025,6 +1034,9 @@ function AIGameMode:StackToPercentage(iStackCount)
 		return "300%"
 	elseif iStackCount == 10 then
 		return "500%"
+	elseif iStackCount == 11 then
+		-- for test
+		return "1000%"
 	else
 		return "100%"
 	end
