@@ -314,8 +314,10 @@ function AIGameMode:OnGameStateChanged(keys)
 			end
 		end
 
+		-- refresh every 10 seconds
 		Timers:CreateTimer(2, function ()
-			AIGameMode:RefreshGameStatus10sec()
+			AIGameMode:RefreshGameStatus()
+			return 10
 		end)
 
 	elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
@@ -324,8 +326,11 @@ function AIGameMode:OnGameStateChanged(keys)
 		GameRules:SpawnNeutralCreeps()
 		-- start loop in 30 seconds
 		if IsClient() then return end
+
+		-- 每分钟30秒时刷一次怪
 		Timers:CreateTimer(30, function ()
 			AIGameMode:SpawnNeutralCreeps30sec()
+			return 60
 		end)
 
 	elseif state == DOTA_GAMERULES_STATE_POST_GAME then
@@ -339,15 +344,10 @@ function AIGameMode:SpawnNeutralCreeps30sec()
 	local GameTime = GameRules:GetDOTATime(false, false)
 	print("SpawnNeutral at GetDOTATime " .. GameTime)
 	GameRules:SpawnNeutralCreeps()
-
-	-- callback every minute
-	Timers:CreateTimer(60, function ()
-		AIGameMode:SpawnNeutralCreeps30sec()
-	end)
 end
 
 
-function AIGameMode:RefreshGameStatus10sec()
+function AIGameMode:RefreshGameStatus()
 
 	-- save player info
 	self:EndScreenStats(true, false)
@@ -449,11 +449,6 @@ function AIGameMode:RefreshGameStatus10sec()
 	AIGameMode.creepBuffLevelBad = buffLevelBad
 	AIGameMode.creepBuffLevelMegaGood = buffLevelMegaGood
 	AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
-
-	-- callback every 15 seconds
-	Timers:CreateTimer(15, function ()
-		AIGameMode:RefreshGameStatus10sec()
-	end)
 end
 
 function AIGameMode:OnEntityKilled(keys)
