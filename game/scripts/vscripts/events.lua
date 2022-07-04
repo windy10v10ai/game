@@ -382,25 +382,15 @@ function AIGameMode:RefreshGameStatus10sec()
 	local buffLevelMegaGood = 0
 	local buffLevelMegaBad = 0
 
-	if AIGameMode.tower1PushedGood > 0 then
+	if AIGameMode.tower3PushedGood == 1 then
 		buffLevelGood = buffLevelGood + 1
+	elseif AIGameMode.tower3PushedGood > 1 then
+		buffLevelGood = buffLevelGood + 2
 	end
-	if AIGameMode.tower1PushedBad > 0 then
+	if AIGameMode.tower3PushedBad == 1 then
 		buffLevelBad = buffLevelBad + 1
-	end
-
-	if AIGameMode.tower2PushedGood > 0 then
-		buffLevelGood = buffLevelGood + 1
-	end
-	if AIGameMode.tower2PushedBad > 0 then
-		buffLevelBad = buffLevelBad + 1
-	end
-
-	if AIGameMode.tower3PushedGood > 0 then
-		buffLevelGood = buffLevelGood + 1
-	end
-	if AIGameMode.tower3PushedBad > 0 then
-		buffLevelBad = buffLevelBad + 1
+	elseif AIGameMode.tower3PushedBad > 1 then
+		buffLevelBad = buffLevelBad + 2
 	end
 
 	if AIGameMode.tower4PushedGood > 1 then
@@ -415,32 +405,39 @@ function AIGameMode:RefreshGameStatus10sec()
 	buffLevelMegaGood = buffLevelMegaGood + AIGameMode.creepBuffLevel
 	buffLevelMegaBad = buffLevelMegaBad + AIGameMode.creepBuffLevel
 
-	if (GameTime >= (15 * 60)) then
-		buffLevelGood = buffLevelGood + 1
-		buffLevelBad = buffLevelBad + 1
-		buffLevelMegaGood = buffLevelMegaGood + 1
-		buffLevelMegaBad = buffLevelMegaBad + 1
-	end
-
-	if (GameTime >= (30 * 60)) then
-		buffLevelGood = buffLevelGood + 1
-		buffLevelBad = buffLevelBad + 1
-		buffLevelMegaGood = buffLevelMegaGood + 1
-		buffLevelMegaBad = buffLevelMegaBad + 1
-	end
-
-	if (GameTime >= (45 * 60)) then
-		buffLevelGood = buffLevelGood + 1
-		buffLevelBad = buffLevelBad + 1
-		buffLevelMegaGood = buffLevelMegaGood + 1
-		buffLevelMegaBad = buffLevelMegaBad + 1
-	end
-
 	if (GameTime >= (60 * 60)) then
+		buffLevelGood = buffLevelGood + 5
+		buffLevelBad = buffLevelBad + 5
+		buffLevelMegaGood = buffLevelMegaGood + 5
+		buffLevelMegaBad = buffLevelMegaBad + 5
+	elseif (GameTime >= (50 * 60)) then
+		buffLevelGood = buffLevelGood + 4
+		buffLevelBad = buffLevelBad + 4
+		buffLevelMegaGood = buffLevelMegaGood + 4
+		buffLevelMegaBad = buffLevelMegaBad + 4
+	elseif (GameTime >= (40 * 60)) then
+		buffLevelGood = buffLevelGood + 3
+		buffLevelBad = buffLevelBad + 3
+		buffLevelMegaGood = buffLevelMegaGood + 3
+		buffLevelMegaBad = buffLevelMegaBad + 3
+	elseif (GameTime >= (30 * 60)) then
+		buffLevelGood = buffLevelGood + 2
+		buffLevelBad = buffLevelBad + 2
+		buffLevelMegaGood = buffLevelMegaGood + 2
+		buffLevelMegaBad = buffLevelMegaBad + 2
+	elseif (GameTime >= (20 * 60)) then
 		buffLevelGood = buffLevelGood + 1
 		buffLevelBad = buffLevelBad + 1
 		buffLevelMegaGood = buffLevelMegaGood + 1
 		buffLevelMegaBad = buffLevelMegaBad + 1
+	end
+
+	-- 未推掉任何塔时，不设置小兵buff
+	if AIGameMode.tower1PushedGood == 0 then
+		buffLevelGood = 0
+	end
+	if AIGameMode.tower1PushedBad == 0 then
+		buffLevelGood = 0
 	end
 
 	buffLevelGood = math.min(buffLevelGood, 8)
