@@ -28,8 +28,8 @@ function UseActiveItem(hHero)
     if BotThink:UseItem(hHero, "item_insight_armor") then
         return true
     end
-    -- if health < 0.4
-    if hHero:GetHealth() < hHero:GetMaxHealth() * 0.4 then
+    -- if health < 0.5
+    if hHero:GetHealth() < hHero:GetMaxHealth() * 0.5 then
         -- item_undying_heart
         if BotThink:UseItem(hHero, "item_undying_heart") then
             return true
