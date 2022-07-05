@@ -446,7 +446,7 @@ function AIGameMode:RefreshGameStatus()
 		buffLevelGood = 0
 	end
 	if AIGameMode.tower1PushedBad == 0 then
-		buffLevelGood = 0
+		buffLevelBad = 0
 	end
 
 	buffLevelGood = math.min(buffLevelGood, 8)
@@ -621,12 +621,12 @@ function AIGameMode:OnNPCSpawned(keys)
 			if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
 				-- upgrade creep
 				local ability = hEntity:AddAbility("creep_buff_upgraded")
-				ability:SetLevel(buffLevel)
+				ability:SetLevel(buffLevelMega)
 				return
 			elseif string.find(sUnitName, "mega") then
 				-- mega creep
 				local ability = hEntity:AddAbility("creep_buff_mega")
-				ability:SetLevel(buffLevel)
+				ability:SetLevel(buffLevelMega)
 				return
 			end
 		end
