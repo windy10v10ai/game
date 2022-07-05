@@ -14698,7 +14698,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"40 35 30 25 20"
-		"AbilityManaCost"				"100 110 120 130 140"
+		"AbilityManaCost"				"110 120 130 140 150"
 		"AbilitySpecial"
 		{
 			"01"
@@ -14717,11 +14717,6 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"duration"					"20.0"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"search_aoe"				"800"
 			}
 		}
 	}

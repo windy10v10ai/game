@@ -67,7 +67,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"consumed_bonus_attack_speed"	"100"
+				"consumed_bonus_attack_speed"	"90"
 			}
 			"04"
 			{
@@ -1639,7 +1639,7 @@
 		"Model"                         "models/props_gameplay/red_box.vmdl"
 		"Effect"                        "particles/generic_gameplay/dropped_item.vpcf"
 		"AbilityTextureName"            "item_insight_armor"
-		"AbilityCastRange"              "1200"
+		"AbilityCastRange"              "900"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
