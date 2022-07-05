@@ -169,6 +169,10 @@ local cynSteamAccountID = Set {
 	-- Cyn.
 	107625818,
 }
+local adolphzeroSteamAccountID = Set {
+	-- Adolph_Zero
+	153632407,
+}
 -- 称号属性 END
 
 function AIGameMode:ArrayShuffle(array)
@@ -741,6 +745,10 @@ function AIGameMode:OnNPCSpawned(keys)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_cyn1", {})
 				LinkLuaModifier("modifier_cyn2", "modifiers/player/modifier_cyn2", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_cyn2", {})
+			end
+			if adolphzeroSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_adolphzero", "modifiers/player/modifier_adolphzero", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_adolphzero", {})
 			end
 
 			if luoshuBuffSteamAccountID[steamAccountID] then
