@@ -2340,7 +2340,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"images_count"				"3"
+				"images_count"				"2"
 			}
 			"02"
 			{
@@ -5297,7 +5297,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"scepter_duration"		"4"
+				"scepter_duration"		"3"
 				"RequiresScepter"			"1"
 			}
 			"11"
