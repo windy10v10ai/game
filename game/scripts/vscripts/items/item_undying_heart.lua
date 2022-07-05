@@ -4,13 +4,13 @@ LinkLuaModifier("modifier_item_undying_heart","items/item_undying_heart.lua", LU
 LinkLuaModifier("modifier_item_undying_heart_buff","items/item_undying_heart.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_undying_heart:GetIntrinsicModifierName()
-	return "modifier_item_undying_heart" 
+	return "modifier_item_undying_heart"
 end
 
 function item_undying_heart:OnSpellStart()
 	local caster = self:GetCaster()
 
-    caster:EmitSound( "Item.GuardianGreaves.Activate" ) 
+    caster:EmitSound( "Item.GuardianGreaves.Activate" )
 	local fx = ParticleManager:CreateParticle("particles/items3_fx/warmage.vpcf", PATTACH_ABSORIGIN, caster)
     ParticleManager:ReleaseParticleIndex(fx)
 
@@ -51,7 +51,7 @@ function modifier_item_undying_heart:OnCreated()
 		self.bonus_evasion = self.ability:GetSpecialValueFor("bonus_evasion")
 		self.status_resistance = self.ability:GetSpecialValueFor("status_resistance")
 	end
-end 
+end
 
 function modifier_item_undying_heart:DeclareFunctions()
 	return {
@@ -86,36 +86,27 @@ end
 modifier_item_undying_heart_buff=class({})
 
 
-function modifier_item_undying_heart_buff:IsHidden() 			
-    return false 
+function modifier_item_undying_heart_buff:IsHidden()
+    return false
 end
 
-function modifier_item_undying_heart_buff:IsPurgable() 		
+function modifier_item_undying_heart_buff:IsPurgable()
     return true
 end
 
-function modifier_item_undying_heart_buff:IsPurgeException() 
-    return true 
+function modifier_item_undying_heart_buff:IsPurgeException()
+    return true
 end
 
 function modifier_item_undying_heart_buff:GetTexture()
-    return "item_undying_heart" 
+    return "item_undying_heart"
 end
 
-function modifier_item_undying_heart_buff:CheckState() 
-    return 
-    {
-        [MODIFIER_STATE_ALLOW_PATHING_THROUGH_CLIFFS] = true,
-        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    } 
-end
-
-
-function modifier_item_undying_heart_buff:DeclareFunctions() 
-    return 
+function modifier_item_undying_heart_buff:DeclareFunctions()
+    return
     {
         MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-    } 
+    }
 end
 
 function modifier_item_undying_heart_buff:OnCreated()
@@ -123,12 +114,12 @@ function modifier_item_undying_heart_buff:OnCreated()
 		return
 	end
 	self.parent = self:GetParent()
-	
+
 	local buff_hp_regen = self:GetAbility():GetSpecialValueFor("buff_hp_regen")
 	local buff_hp_regen_pct = self:GetAbility():GetSpecialValueFor("buff_hp_regen_pct")
     self.active_hpregen= buff_hp_regen + self.parent:GetMaxHealth()*buff_hp_regen_pct/100
 end
 
-function modifier_item_undying_heart_buff:GetModifierConstantHealthRegen() 
+function modifier_item_undying_heart_buff:GetModifierConstantHealthRegen()
         return self.active_hpregen
 end
