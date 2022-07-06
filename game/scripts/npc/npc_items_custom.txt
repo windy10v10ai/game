@@ -67,7 +67,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"consumed_bonus_attack_speed"	"90"
+				"consumed_bonus_attack_speed"	"80"
 			}
 			"04"
 			{
@@ -1137,7 +1137,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
 		"AbilityCooldown"				"60"
-		"AbilityManaCost"				"200"
+		"AbilityManaCost"				"250"
 		"AbilitySharedCooldown"			"undying"
 
 		"ItemCost"						"13800"
@@ -1260,7 +1260,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150"
+		"AbilityManaCost"				"175"
 		"ItemCost"            "2225"
 
 		"ItemKillable" "0"
@@ -1459,7 +1459,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200"
+		"AbilityManaCost"				"250"
 		"ItemCost"            "2225"
 
 		"ItemKillable" "0"
@@ -1650,7 +1650,7 @@
 		"ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"AbilityCooldown"               "60.0"
-		"AbilityManaCost"               "200"
+		"AbilityManaCost"               "300"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1673,8 +1673,8 @@
 			}
 			"04"
 			{
-				"var_type"                      "FIELD_INTEGER"
-				"bonus_armor"                   "20"
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"20"
 			}
 			"05"
 			{
@@ -2086,7 +2086,7 @@
 		"ScriptFile"                    "items/item_dragon_lance_plus.lua"
 
 		"AbilityCooldown"				"20.0"
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"75"
 		"AbilitySharedCooldown"			"dragonlance"
 
 		// Item Info
@@ -2576,7 +2576,7 @@
 		"AbilityCastPoint"				"0.0"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200"
+		"AbilityManaCost"				"250"
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -2729,7 +2729,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"225"
+		"AbilityManaCost"				"250"
 
 
 		// Special
@@ -3706,7 +3706,7 @@
 
 		"AbilityCooldown"						"20.0"
 		"AbilityCastRange"						"900"
-		"AbilityManaCost"						"250"
+		"AbilityManaCost"						"300"
 		"AbilitySharedCooldown"			        "bluefantasy"
 
 
@@ -4556,7 +4556,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilityCooldown"				"27"
 		"AbilityCastRange"				"900"
-		"AbilityManaCost"				"200"
+		"AbilityManaCost"				"350"
 		"ItemCost"						"9850"
 		"AbilitySharedCooldown"			"shivas_guard"
 		"AbilityTextureName"			"item_shivas_guard_2"
@@ -5406,7 +5406,7 @@
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"25.0"
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"120"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------

@@ -4411,8 +4411,8 @@
 	"omniknight_guardian_angel"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"120 110 100 90"
-		"AbilityManaCost"				"150 200 250 300"
+		"AbilityCooldown"				"100"
+		"AbilityManaCost"				"200 300 400 500"
 		"AbilityValues"
 		{
 				"duration"					"5.0 6.0 7.0 8.0"
@@ -5298,6 +5298,12 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"scepter_duration"		"3"
+				"RequiresScepter"			"1"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_aura_radius"	"900"
 				"RequiresScepter"			"1"
 			}
 			"11"
