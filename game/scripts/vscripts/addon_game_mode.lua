@@ -13,6 +13,8 @@ require('settings')
 require('bot/bot_item_data')
 require('events')
 require('bot/bot_think_item_build')
+require('bot/bot_think_item_use')
+require('bot/bot_think_ability_use')
 require('bot/bot_think_modifier')
 require('web/web_server')
 
@@ -192,17 +194,17 @@ function AIGameMode:PreGameOptions()
 	if self.sumTowerPower <= 5 then
 		-- 150%
 		self.creepBuffLevel = 0
-	elseif self.sumTowerPower <= 6 then
-		-- 175%
-		self.creepBuffLevel = 1
 	elseif self.sumTowerPower <= 7 then
 		-- 200%
-		self.creepBuffLevel = 2
+		self.creepBuffLevel = 1
 	elseif self.sumTowerPower <= 8 then
 		-- 250%
+		self.creepBuffLevel = 2
+	elseif self.sumTowerPower <= 9 then
+		-- 300%
 		self.creepBuffLevel = 3
 	else
-		-- 300%
+		-- 500%
 		self.creepBuffLevel = 4
 	end
 

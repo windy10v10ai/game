@@ -1,7 +1,3 @@
-
-require('bot/bot_think_item_use')
-require('bot/bot_think_ability_use')
-
 --------------------------------------------------------------------------------
 -- Bot item use modifier
 --------------------------------------------------------------------------------
@@ -14,7 +10,12 @@ function modifier_bot_think_item_use:RemoveOnDeath() return false end
 function modifier_bot_think_item_use:OnCreated()
 	if IsClient() then return end
 	if not self then return end
-	self:StartIntervalThink(0.3)
+	-- start thinking after random time
+	local lagTime = RandomFloat(0.1, 0.4)
+	Timers:CreateTimer(lagTime, function()
+		if not self then return end
+		self:StartIntervalThink(0.3)
+	end)
 end
 
 function modifier_bot_think_item_use:OnIntervalThink()
@@ -39,7 +40,7 @@ function modifier_bot_think_item_use:OnIntervalThink()
 	if hAbility6 and hAbility6:IsInAbilityPhase() then return end
 
 	-- item use
-	if UseActiveItem(hHero) then return end
+	if BotItemThink:UseActiveItem(hHero) then return end
 
 	-- ability use
 	if hHero:IsSilenced() then return end

@@ -2,6 +2,7 @@
 -- Initial
 --------------------
 if BotAbilityThink == nil then
+	print("Bot Ability Think initialize!")
 	_G.BotAbilityThink = class({}) -- put in the global scope
 end
 
