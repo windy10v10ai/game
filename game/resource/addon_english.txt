@@ -427,7 +427,7 @@
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"Moon Shard"
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed_Description"		"Permanently granted %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_BONUS_DAY_VISION% day vision and %dMODIFIER_PROPERTY_BONUS_NIGHT_VISION% night vision."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven"								"Moon Shard"
-		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Description"				"Use: Consume the Moon Shard to permanently gain %consumed_bonus% attack speed, %consumed_bonus_day_vision% day vision and %consumed_bonus_night_vision% night vision. Consumed shards stack.\nPassive: Shade Sight - Grants %bonus_night_vision% bonus night vision."
+		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Description"				"Use: Consume the Moon Shard to permanently gain %consumed_bonus_attack_speed% attack speed, %consumed_bonus_day_vision% day vision and %consumed_bonus_night_vision% night vision. Consumed shards stack.\nPassive: Shade Sight - Grants %bonus_night_vision% bonus night vision."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Note0"						"The bonus night vision works during Night Stalker's Darkness ability."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"Said to be a tear from the lunar goddess Selemene."
