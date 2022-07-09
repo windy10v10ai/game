@@ -171,6 +171,7 @@
 		"DOTA_Tooltip_modifier_sun"						"<font color='#FFCC66'>★ 天下第一砍王 ★</font>"
 		"DOTA_Tooltip_modifier_cyn1"					"<font color='#FFCC66'>♥ Cherries ♥</font>"
 		"DOTA_Tooltip_modifier_cyn2"					"<font color='#FFCC66'>★ Cherries ★</font>"
+		"DOTA_Tooltip_modifier_cyn3"					"<font color='#FFCC66'>♥ ★ ♥ ★ ♥ ★ Cherries ★ ♥ ★ ♥ ★ ♥ </font>"
 		"DOTA_Tooltip_modifier_adolphzero"				"<font color='#FFCC66'>★ 在下千里马 ★</font>"
 		"DOTA_Tooltip_modifier_adolphzero_Description"	"<font color='#FFCC66'> 还好老子跑得快 </font>"
 
