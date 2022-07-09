@@ -462,7 +462,7 @@
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"真·银月之晶"
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed_Description"		"永久获得 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% 攻击速度, %dMODIFIER_PROPERTY_BONUS_DAY_VISION% 白天视野 和  %dMODIFIER_PROPERTY_BONUS_NIGHT_VISION% 夜间视野。"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven"								"真·银月之晶"
-		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Description"				"使用: 消耗真·银月之晶以永久获得 %consumed_bonus% 攻击速度, %consumed_bonus_day_vision% 白天视野 和 %consumed_bonus_night_vision% 夜间视野，可以重复使用。\n被动: 夜视 - 获得 %bonus_night_vision% 夜间视野。"
+		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Description"				"使用: 消耗真·银月之晶以永久获得 %consumed_bonus_attack_speed% 攻击速度, %consumed_bonus_day_vision% 白天视野 和 %consumed_bonus_night_vision% 夜间视野，可以重复使用。\n被动: 夜视 - 获得 %bonus_night_vision% 夜间视野。"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Note0"						"The bonus night vision works during Night Stalker's Darkness ability."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"Said to be a tear from the lunar goddess Selemene."

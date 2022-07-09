@@ -1855,6 +1855,7 @@
 	"beastmaster_wild_axes"
 	{
 		"MaxLevel" "7"
+		"AbilityManaCost"				"65 75 85 95 105 115 125"
 		"AbilitySpecial"
 		{
 			"04"
@@ -1935,34 +1936,19 @@
 	"beastmaster_primal_roar"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"60.0 55.0 50.0 45.0 40.0"
 		"AbilityManaCost"				"150 175 200 225 250"
-		"AbilitySpecial"
+
+		"AbilityValues"
 		{
-			"01"
+			"duration"					"3.0 3.5 4.0 4.5 5.0"
+			"damage"					"150 225 300 375 450"
+			"side_damage"				"150 225 300 375 450"
+			"slow_duration"				"3 3.5 4 4.5 5"
+			"movement_speed_duration"	"3.0 3.5 4.0 4.5 5.0"
+			"AbilityCooldown"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"3.0 3.5 4.0 4.5 5.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"150 225 300 375 450"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"side_damage"				"150 225 300 375 450"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_duration"				"3 3.5 4 4.5 5"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"movement_speed_duration"			"3.0 3.5 4.0 4.5 5.0"
+				"value"				"100.0 90.0 80.0 70.0 60.0"
+				"special_bonus_unique_beastmaster_7"		"-30"
 			}
 		}
 	}
@@ -2951,19 +2937,19 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"60"
+				"damage"				"60 90 120 150 180"
 				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.4 0.6 0.8 1.0 1.2"
+				"stun_duration"			"0.6 0.9 1.2 1.5 1.8"
 				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_3"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"rock_bonus_duration"	"0.4 0.6 0.8 1.0 1.2"
+				"rock_bonus_duration"	"0.6 0.9 1.2 1.5 1.8"
 			}
 			"10"
 			{
@@ -3015,11 +3001,6 @@
 		"AbilityChargeRestoreTime"		"15"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"60.0"
-			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -5725,19 +5706,19 @@
 	//=================================================================================================================
 	"tusk_ice_shards"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"23.0 20.0 17.0 14.0 11.0"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"23.0 21.0 19.0 17.0 15.0 13.0 11.0"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shard_damage"				"75 150 225 300 375"
+				"shard_damage"				"75 150 225 300 375 450 525"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"shard_duration"				"3 4 5 6 7"
+				"shard_duration"				"4.0 4.5 5.0 5.5 6.0 6.5 7.0"
 			}
 		}
 	}
@@ -5786,20 +5767,20 @@
 	}
 	"tusk_walrus_punch"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"14 12 10 8"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"18 16 14 12 10 8"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"300 350 400 450"
+				"crit_multiplier"			"300 350 400 450 500"
 				"LinkedSpecialBonus"		"special_bonus_unique_tusk"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"slow_duration"				"2.0 3.0 4.0 5.0"
+				"slow_duration"				"2.0 2.5 3.0 3.5 4.0"
 			}
 		}
 	}
@@ -11657,6 +11638,7 @@
 	"disruptor_kinetic_field"
 	{
 		"MaxLevel" "5"
+		"AbilityManaCost"				"70 90 110 130 150"
 		"AbilityCooldown"				"19 17 15 13 11"
 		"AbilitySpecial"
 		{
@@ -11673,16 +11655,22 @@
 			}
 		}
 	}
+	// 动能立场持续时间
+	"special_bonus_unique_disruptor_5"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"1"
+				"ad_linked_abilities"			"disruptor_kinetic_field"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	// 动能立场冷却
 	"special_bonus_unique_disruptor_2"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6368"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"

@@ -304,7 +304,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30"
+				"bonus_attack_speed"	"25"
 			}
 			"04"
 			{
@@ -425,7 +425,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"240"
+				"bonus_attack_speed"	"200"
 			}
 			"02"
 			{
@@ -449,7 +449,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1275"
+		"ItemCost"						"1300"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -802,7 +802,7 @@
 					"08"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"bonus_attack_speed"	"50"
+							"bonus_attack_speed"	"40"
 					}
 					"09"
 					{
@@ -812,7 +812,7 @@
 					"10"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"aura_attack_speed"		"50"
+							"aura_attack_speed"		"40"
 					}
 					"11"
 					{
@@ -1269,7 +1269,7 @@
 		"ItemDroppable" "1"
 		"ItemShareability" "ITEM_NOT_SHAREABLE"
 
-		"ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
+		"ItemShopTags"          "int;damage;hard_to_tag"
 		"ItemQuality"         "rare"
 		"ItemAliases"         "fs;force staff"
 		"ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -1468,7 +1468,7 @@
 		"ItemDroppable" "1"
 		"ItemShareability" "ITEM_NOT_SHAREABLE"
 
-		"ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
+		"ItemShopTags"          "int;damage;hard_to_tag"
 		"ItemQuality"         "rare"
 		"ItemAliases"         "fs;force staff"
 		"ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -1616,7 +1616,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"                      "2325"
+		"ItemCost"                      "1325"
 		"ItemShopTags"                  ""
 
 		// Recipe
@@ -1643,7 +1643,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"                      "10500"
+		"ItemCost"                      "9800"
 		"ItemShopTags"                  "armor;resist"
 		"ItemQuality"                   "epic"
 		"ItemAliases"                   "armor of insight"
@@ -2029,7 +2029,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"60"
+				"bonus_attack_speed"	"50"
 			}
 			"03"
 			{
@@ -2086,7 +2086,7 @@
 		"ScriptFile"                    "items/item_dragon_lance_plus.lua"
 
 		"AbilityCooldown"				"20.0"
-		"AbilityManaCost"				"75"
+		"AbilityManaCost"				"60"
 		"AbilitySharedCooldown"			"dragonlance"
 
 		// Item Info
@@ -2121,7 +2121,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost"				"80"
+				"active_boost"				"70"
 			}
 			"05"
 			{
@@ -2173,7 +2173,7 @@
 		"ScriptFile"                    "items/item_dragon_lance_pro_max.lua"
 
 		"AbilityCooldown"				"20.0"
-		"AbilityManaCost"			    "150"
+		"AbilityManaCost"			    "120"
 		"AbilitySharedCooldown"			"dragonlance"
 
 		// Item Info
@@ -2194,12 +2194,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_agility"	        	"50"
+				"bonus_agility"	        	"45"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_strength"		    "25"
+				"bonus_strength"		    "20"
 			}
 			"03"
 			{
@@ -2209,7 +2209,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost"				"160"
+				"active_boost"				"140"
 			}
 			"05"
 			{
@@ -2599,7 +2599,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30"
+				"bonus_attack_speed"	"25"
 			}
 			"05"
 			{
@@ -2744,7 +2744,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"45"
+				"bonus_attack_speed"	"35"
 			}
 			"06"
 			{
@@ -2976,7 +2976,7 @@
 		"AbilityTextureName"			"item_sacred_trident"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemShopTags"					"damage;str;agi;attack_speed;unique"
+		"ItemShopTags"					"damage;str;agi;unique"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"sacred trident"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -3634,7 +3634,7 @@
 		"AbilityCooldown"				"20.0"
 		"AbilitySharedCooldown"			"force"
 
-		"AbilityManaCost"				"200"
+		"AbilityManaCost"				"250"
 		"ItemCost"						"4450"
 		"ItemShopTags"					"int;damage;attack_speed;hard_to_tag"
 		"ItemQuality"					"epic"
@@ -3646,8 +3646,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_intellect"		"30"
-			"bonus_health"	"400"
+			"bonus_health"			"400"
+			"bonus_intellect"		"20"
 			"bonus_agility"			"70"
 			"bonus_strength"		"40"
 			"base_attack_range"		"250"
@@ -4080,7 +4080,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_speed"		   		"40"
+				"attack_speed"		   		"30"
 			}
 			"05"
 			{
@@ -4274,7 +4274,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_speed"		   		"40"
+				"attack_speed"		   		"30"
 			}
 			"05"
 			{
@@ -4518,7 +4518,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"1.2"
+				"slow_duration"			"1.0"
 			}
 		}
 	}
@@ -4583,7 +4583,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-70"
+				"aura_attack_speed"		"-80"
 			}
 			"05"
 			{
