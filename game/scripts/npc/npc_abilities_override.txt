@@ -11907,7 +11907,7 @@
 	"furion_force_of_nature"
 	{
 		"AbilityCastRange"				"750"
-		"AbilityCooldown"				"37"
+		"AbilityCooldown"				"40"
 		"AbilitySpecial"
 		{
 			"01"
@@ -11921,19 +11921,17 @@
 				"max_treants"			"2 3 4 5"
 				"LinkedSpecialBonus"	"special_bonus_unique_furion_2"
 			}
-			"04"
+		}
+	}
+	"special_bonus_unique_furion_2"
+	{
+		"AbilitySpecial"
+		{
+			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"treant_health_tooltip"				"550"
-				"LinkedSpecialBonus"	"special_bonus_unique_furion"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"treant_dmg_tooltip"				"18 26 34 42"
-				"LinkedSpecialBonus"	"special_bonus_unique_furion"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"
+				"ad_linked_abilities"			"furion_force_of_nature"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -12881,8 +12879,8 @@
 	"necrolyte_sadist"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"27 24 21 18 15"
-		"AbilityManaCost"				"50"
+		"AbilityCooldown"				"28 25 22 19 16"
+		"AbilityManaCost"				"50 75 100 125 150"
 		"AbilitySpecial"
 		{
 			"01"
