@@ -169,6 +169,10 @@ local cynSteamAccountID = Set {
 	-- Cyn.
 	107625818,
 }
+local adolphzeroSteamAccountID = Set {
+	-- Adolph_Zero
+	153632407,
+}
 -- 称号属性 END
 
 function AIGameMode:ArrayShuffle(array)
@@ -276,12 +280,21 @@ function AIGameMode:OnGameStateChanged(keys)
 		-- modifier towers
 		local tTowers = Entities:FindAllByClassname("npc_dota_tower")
 		for k, v in pairs(tTowers) do
-			v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
+			local towerName = v:GetName()
+			if string.find(towerName, "tower1") then
+				-- 一塔攻击最高200%
+				if self.iTowerPower > 7 then
+					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(7)
+				else
+					v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
+				end
+			else
+				v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
+			end
 			v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
 			v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
 
 			-- set tower split
-			local towerName = v:GetName()
 			if string.find(towerName, "tower4") then
 				local towerSplitShot = v:AddAbility("tower_split_shot")
 				if towerSplitShot then
@@ -314,8 +327,10 @@ function AIGameMode:OnGameStateChanged(keys)
 			end
 		end
 
+		-- refresh every 10 seconds
 		Timers:CreateTimer(2, function ()
-			AIGameMode:RefreshGameStatus10sec()
+			AIGameMode:RefreshGameStatus()
+			return 10
 		end)
 
 	elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
@@ -324,8 +339,11 @@ function AIGameMode:OnGameStateChanged(keys)
 		GameRules:SpawnNeutralCreeps()
 		-- start loop in 30 seconds
 		if IsClient() then return end
+
+		-- 每分钟30秒时刷一次怪
 		Timers:CreateTimer(30, function ()
 			AIGameMode:SpawnNeutralCreeps30sec()
+			return 60
 		end)
 
 	elseif state == DOTA_GAMERULES_STATE_POST_GAME then
@@ -339,15 +357,10 @@ function AIGameMode:SpawnNeutralCreeps30sec()
 	local GameTime = GameRules:GetDOTATime(false, false)
 	print("SpawnNeutral at GetDOTATime " .. GameTime)
 	GameRules:SpawnNeutralCreeps()
-
-	-- callback every minute
-	Timers:CreateTimer(60, function ()
-		AIGameMode:SpawnNeutralCreeps30sec()
-	end)
 end
 
 
-function AIGameMode:RefreshGameStatus10sec()
+function AIGameMode:RefreshGameStatus()
 
 	-- save player info
 	self:EndScreenStats(true, false)
@@ -382,25 +395,15 @@ function AIGameMode:RefreshGameStatus10sec()
 	local buffLevelMegaGood = 0
 	local buffLevelMegaBad = 0
 
-	if AIGameMode.tower1PushedGood > 0 then
+	if AIGameMode.tower3PushedGood == 1 then
 		buffLevelGood = buffLevelGood + 1
+	elseif AIGameMode.tower3PushedGood > 1 then
+		buffLevelGood = buffLevelGood + 2
 	end
-	if AIGameMode.tower1PushedBad > 0 then
+	if AIGameMode.tower3PushedBad == 1 then
 		buffLevelBad = buffLevelBad + 1
-	end
-
-	if AIGameMode.tower2PushedGood > 0 then
-		buffLevelGood = buffLevelGood + 1
-	end
-	if AIGameMode.tower2PushedBad > 0 then
-		buffLevelBad = buffLevelBad + 1
-	end
-
-	if AIGameMode.tower3PushedGood > 0 then
-		buffLevelGood = buffLevelGood + 1
-	end
-	if AIGameMode.tower3PushedBad > 0 then
-		buffLevelBad = buffLevelBad + 1
+	elseif AIGameMode.tower3PushedBad > 1 then
+		buffLevelBad = buffLevelBad + 2
 	end
 
 	if AIGameMode.tower4PushedGood > 1 then
@@ -415,32 +418,39 @@ function AIGameMode:RefreshGameStatus10sec()
 	buffLevelMegaGood = buffLevelMegaGood + AIGameMode.creepBuffLevel
 	buffLevelMegaBad = buffLevelMegaBad + AIGameMode.creepBuffLevel
 
-	if (GameTime >= (15 * 60)) then
-		buffLevelGood = buffLevelGood + 1
-		buffLevelBad = buffLevelBad + 1
-		buffLevelMegaGood = buffLevelMegaGood + 1
-		buffLevelMegaBad = buffLevelMegaBad + 1
-	end
-
-	if (GameTime >= (30 * 60)) then
-		buffLevelGood = buffLevelGood + 1
-		buffLevelBad = buffLevelBad + 1
-		buffLevelMegaGood = buffLevelMegaGood + 1
-		buffLevelMegaBad = buffLevelMegaBad + 1
-	end
-
-	if (GameTime >= (45 * 60)) then
-		buffLevelGood = buffLevelGood + 1
-		buffLevelBad = buffLevelBad + 1
-		buffLevelMegaGood = buffLevelMegaGood + 1
-		buffLevelMegaBad = buffLevelMegaBad + 1
-	end
-
 	if (GameTime >= (60 * 60)) then
+		buffLevelGood = buffLevelGood + 5
+		buffLevelBad = buffLevelBad + 5
+		buffLevelMegaGood = buffLevelMegaGood + 5
+		buffLevelMegaBad = buffLevelMegaBad + 5
+	elseif (GameTime >= (50 * 60)) then
+		buffLevelGood = buffLevelGood + 4
+		buffLevelBad = buffLevelBad + 4
+		buffLevelMegaGood = buffLevelMegaGood + 4
+		buffLevelMegaBad = buffLevelMegaBad + 4
+	elseif (GameTime >= (40 * 60)) then
+		buffLevelGood = buffLevelGood + 3
+		buffLevelBad = buffLevelBad + 3
+		buffLevelMegaGood = buffLevelMegaGood + 3
+		buffLevelMegaBad = buffLevelMegaBad + 3
+	elseif (GameTime >= (30 * 60)) then
+		buffLevelGood = buffLevelGood + 2
+		buffLevelBad = buffLevelBad + 2
+		buffLevelMegaGood = buffLevelMegaGood + 2
+		buffLevelMegaBad = buffLevelMegaBad + 2
+	elseif (GameTime >= (20 * 60)) then
 		buffLevelGood = buffLevelGood + 1
 		buffLevelBad = buffLevelBad + 1
 		buffLevelMegaGood = buffLevelMegaGood + 1
 		buffLevelMegaBad = buffLevelMegaBad + 1
+	end
+
+	-- 未推掉任何塔时，不设置小兵buff
+	if AIGameMode.tower1PushedGood == 0 then
+		buffLevelGood = 0
+	end
+	if AIGameMode.tower1PushedBad == 0 then
+		buffLevelBad = 0
 	end
 
 	buffLevelGood = math.min(buffLevelGood, 8)
@@ -452,11 +462,6 @@ function AIGameMode:RefreshGameStatus10sec()
 	AIGameMode.creepBuffLevelBad = buffLevelBad
 	AIGameMode.creepBuffLevelMegaGood = buffLevelMegaGood
 	AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
-
-	-- callback every 15 seconds
-	Timers:CreateTimer(15, function ()
-		AIGameMode:RefreshGameStatus10sec()
-	end)
 end
 
 function AIGameMode:OnEntityKilled(keys)
@@ -620,12 +625,12 @@ function AIGameMode:OnNPCSpawned(keys)
 			if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
 				-- upgrade creep
 				local ability = hEntity:AddAbility("creep_buff_upgraded")
-				ability:SetLevel(buffLevel)
+				ability:SetLevel(buffLevelMega)
 				return
 			elseif string.find(sUnitName, "mega") then
 				-- mega creep
 				local ability = hEntity:AddAbility("creep_buff_mega")
-				ability:SetLevel(buffLevel)
+				ability:SetLevel(buffLevelMega)
 				return
 			end
 		end
@@ -740,6 +745,12 @@ function AIGameMode:OnNPCSpawned(keys)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_cyn1", {})
 				LinkLuaModifier("modifier_cyn2", "modifiers/player/modifier_cyn2", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_cyn2", {})
+				LinkLuaModifier("modifier_cyn3", "modifiers/player/modifier_cyn3", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_cyn3", {})
+			end
+			if adolphzeroSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_adolphzero", "modifiers/player/modifier_adolphzero", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_adolphzero", {})
 			end
 
 			if luoshuBuffSteamAccountID[steamAccountID] then
@@ -1033,6 +1044,9 @@ function AIGameMode:StackToPercentage(iStackCount)
 		return "300%"
 	elseif iStackCount == 10 then
 		return "500%"
+	elseif iStackCount == 11 then
+		-- for test
+		return "1000%"
 	else
 		return "100%"
 	end

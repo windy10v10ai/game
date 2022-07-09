@@ -367,9 +367,8 @@ tBotItemData.purchaseItemList = {
 		'item_aether_lens',
 		'item_recipe_aether_lens',
 		'item_recipe_aether_lens',
-		'item_kaya_and_sange',
-		'item_yasha',
 		'item_soul_booster',
+		'item_sacred_trident',
 		'item_recipe_arcane_octarine_core',
 		'item_aeon_disk',
 		'item_recipe_aeon_pendant',
@@ -1039,10 +1038,8 @@ tBotItemData.sellItemList = {
 		'item_bfury',
 	},
 	npc_dota_hero_lich = {
-		'item_force_staff',
 	},
 	npc_dota_hero_lina = {
-		'item_force_staff',
 	},
 	npc_dota_hero_lion = {
 
@@ -1076,7 +1073,6 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_oracle = {
 		'item_holy_locket',
-		'item_force_staff',
 		'item_rod_of_atos',
 	},
 	npc_dota_hero_phantom_assassin = {
@@ -1101,14 +1097,12 @@ tBotItemData.sellItemList = {
 		'item_bfury',
 	},
 	npc_dota_hero_shadow_shaman = {
-		'item_force_staff',
 	},
 	npc_dota_hero_sand_king = {
 		'item_echo_sabre_2',
 		'item_overwhelming_blink',
 	},
 	npc_dota_hero_skywrath_mage = {
-		'item_force_staff',
 		'item_rod_of_atos',
 	},
 	npc_dota_hero_sniper = {
@@ -1137,14 +1131,12 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_warlock = {
 		'item_arcane_boots',
-		'item_force_staff',
 	},
 	npc_dota_hero_windrunner = {
 		'item_desolator',
 	},
 	npc_dota_hero_witch_doctor = {
 		'item_arcane_boots',
-		'item_force_staff',
 		'item_rod_of_atos',
 	},
 	npc_dota_hero_skeleton_king = {
@@ -1209,8 +1201,17 @@ tBotItemData.sellItemCommonList = {
 	'item_tranquil_boots',
 	-- 空明杖
 	'item_oblivion_staff',
+
+	-- 推推棒
+	'item_force_staff',
 	-- BKB
 	'item_black_king_bar',
+	-- 笛子
+	'item_pipe',
+	-- 龙心
+	'item_heart',
+	-- 狂战斧
+	'item_bfury',
 }
 
 -- Consume items
@@ -1404,7 +1405,7 @@ tBotItemData.addNeutralItemList = {
 		'item_ballista',
 	},
 	npc_dota_hero_mirana = {
-		'item_demonicon',
+		'item_ballista',
 	},
 	npc_dota_hero_nevermore = {
 		'item_desolator_2',
