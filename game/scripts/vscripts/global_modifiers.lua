@@ -34,13 +34,14 @@ function modifier_courier_speed:IsPurgable() return false end
 function modifier_courier_speed:IsHidden() return true end
 function modifier_courier_speed:RemoveOnDeath() return false end
 
-function modifier_courier_speed:CheckState() return {[MODIFIER_STATE_INVULNERABLE] = true} end
+-- function modifier_courier_speed:CheckState() return {[MODIFIER_STATE_INVULNERABLE] = true} end
 
 function modifier_courier_speed:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MOVESPEED_MAX,
 		MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE
+		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	}
 end
 
@@ -56,6 +57,9 @@ function modifier_courier_speed:GetModifierMoveSpeed_Absolute()
 	return 3000
 end
 
+function modifier_courier_speed:GetModifierPhysicalArmorBonus()
+	return 100
+end
 
 modifier_melee_resistance = class({})
 
