@@ -1434,9 +1434,6 @@
 				"value"				"0"
 				"special_bonus_unique_abaddon_4"	"+600"
 			}
-
-
-
 		}
 	}
 	"abaddon_aphotic_shield"
@@ -1488,10 +1485,10 @@
 				"special_bonus_unique_abaddon_5"	"-5"
 			}
 			"hp_threshold"							"600 800 1000 1200"
-			"duration"								"4.0 5.0 6.0 7.0"
+			"duration"								"4.5 5.0 5.5 6.0"
 			"duration_scepter"
 			{
-				"value"								"5 6 7 8"
+				"value"								"5.5 6.0 6.5 7.0"
 				"RequiresScepter"					"1"
 			}
 			"ally_threshold_scepter"
@@ -7709,8 +7706,8 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"9.0 8.0 7.0 6.0 5.0 4.0 3.0"
-				"special_bonus_unique_luna_2" "-1.5"
+				"value"					"9.0 8.5 8.0 7.5 7.0 6.5 6.0"
+				"special_bonus_unique_luna_2" "-3.0"
 			}
 			"AbilityManaCost"
 			{
@@ -7719,8 +7716,8 @@
 			}
 			"beam_damage"
 			{
-				"value"					"75 150 225 300 375 450 500"
-				"special_bonus_unique_luna_1"	"+100"
+				"value"					"70 140 210 280 350 420 490"
+				"special_bonus_unique_luna_1"	"+80"
 			}
 		}
 	}
@@ -7760,7 +7757,7 @@
 	"luna_eclipse"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"150 200 250 350 500"
+		"AbilityManaCost"				"150 250 350 450 550"
 		"AbilityValues"
 		{
 			"beams"
@@ -7781,7 +7778,7 @@
 			"AbilityCooldown"
 			{
 				"value"							"120 110 100 90 80"
-				"special_bonus_unique_luna_6"	"-25.0"
+				"special_bonus_unique_luna_6"	"-20.0"
 			}
 		}
 	}
@@ -8461,7 +8458,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"necromastery_soul_release"		"0.9"
+				"necromastery_soul_release"		"0.8"
 			}
 			"04"
 			{
@@ -8489,7 +8486,7 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityDamage"					"80 120 160 240 320"
-		"AbilityManaCost"				"150 175 200 225 250"
+		"AbilityManaCost"				"150 200 250 300 350"
 		"AbilityValues"
 		{
 			"requiem_radius"	"1000"
@@ -10605,26 +10602,17 @@
 	"ancient_apparition_ice_blast"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"50 45 40 35"
-		"AbilityManaCost"				"175"
+		"AbilityCooldown"				"55 50 45 40"
+		"AbilityManaCost"				"175 250 325 400"
 		"AbilityDamage"					"250 325 400 475"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"05"
+			"frostbite_duration"	"9 10 11 12"
+			"dot_damage"			"20.0 30.0 40.0 50.0"
+			"kill_pct"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"frostbite_duration"	"9 10 11 12"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dot_damage"			"20.0 30.0 40.0 50.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"kill_pct"				"11 12 13 14"
-				"LinkedSpecialBonus"	"special_bonus_unique_ancient_apparition_5"
+				"value"				"10 11 12 13"
+				"special_bonus_unique_ancient_apparition_5"	"+3"
 			}
 		}
 	}
@@ -14768,7 +14756,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"max_slow"				"40 50 60 70 80"
+				"max_slow"				"40 48 56 64 72"
 			}
 			"05"
 			{
