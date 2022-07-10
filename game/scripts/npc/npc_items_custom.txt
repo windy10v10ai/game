@@ -2316,7 +2316,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1800"
+		"ItemCost"						"2200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2351,7 +2351,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 
-		"ItemCost"						"14200"
+		"ItemCost"						"14600"
 		"ItemShopTags"					"int;mana"
 		"ItemQuality"					"hallowed"
 		"ItemAliases"					"hallowed scepter"
@@ -3123,7 +3123,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"status_resistance"		"36"
+				"status_resistance"		"33"
 			}
 			"07"
 			{
@@ -5481,6 +5481,75 @@
 			"spell_amp"					"30"
 			"bonus_base_damage_percent"	"30"
 			"bonus_cast_range"			"200"
+		}
+	}
+
+
+	//=================================================================================================================
+	// 死灵法杖
+	//=================================================================================================================
+	"item_recipe_necronomicon_staff"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3085"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_necronomicon_staff"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"6575"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_necronomicon_staff"
+		"ItemRequirements"
+		{
+			"01"						"item_sheepstick;item_ethereal_blade"
+		}
+	}
+	"item_necronomicon_staff"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3086"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"necronomicon_staff"
+		"ScriptFile"                    "items/item_necronomicon_staff"
+
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"2"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"30.0"
+		"AbilityManaCost"				"480"
+
+		"ItemCost"						"16900"
+		"ItemAliases"					"hex;sheepstick;scythe of vyse;nec;staff"
+		"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
+		"ItemQuality"					"rare"
+
+		"AbilityValues"
+		{
+			"bonus_strength"		"20"
+			"bonus_agility"			"20"
+			"bonus_intellect"		"80"
+			"bonus_mana_regen"		"12"
+			"spell_amp"				"18"
+
+			"sheep_duration"		"4.0"
+			"sheep_movement_speed"	"120"
+			"blast_damage_base"		"50"
+			"blast_att_multiplier"	"0.5"
+			"blast_damage_multiplier"	"-50"
 		}
 	}
 }

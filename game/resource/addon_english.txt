@@ -940,5 +940,17 @@
 
 		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble"				"Brinefoam"
 		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble_Description"	"This unit is protected by Brinefoam.  Healing 600 hp/sec."
+
+		// 死灵法杖
+		"DOTA_Tooltip_ability_item_necronomicon_staff"								"Necronomicon Staff"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>Active: Necronomicon Blast</h1>Turns a target unit into a harmless critter for %sheep_duration% seconds. The target has a base movement speed of %sheep_movement_speed% and will be silenced, muted, disarmed and takes %blast_damage_multiplier%%% more magic damage.<br><br>Enemy takes %blast_att_multiplier%x your all attribute + %blast_damage_base% as magical damage.<br><br>Range: %abilitycastrange%<br>Duration: %sheep_duration% seconds"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_strength"				"+$str"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_spell_amp"					"%+$spell_amp"
+
+		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"Necronomicon Blast"
+		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"Necronomicon Form. Taking %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%%% increased magic damage."
 	}
 }
