@@ -155,9 +155,9 @@
 		"item"		"item_sheepstick"
 		"item"		"item_gungir_2"
 		"item"		"item_wind_waker"
-		"item"		"item_bloodstone"
 		"item"		"item_ultimate_scepter_2"
 		"item"		"item_hallowed_scepter"
+		"item"		"item_necronomicon_staff"
 	}
 
 	// Level 3 - Purple Recipes
@@ -179,6 +179,7 @@
 		"item"		"item_undying_heart"
 		"item"		"item_vladmir_2"
 		"item"		"item_heavens_halberd_v2"
+		"item"		"item_bloodstone"
 	}
 
 	"weapons"
