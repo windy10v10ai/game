@@ -114,6 +114,11 @@ function BotItemThink:UseActiveItem(hHero)
         return true
     end
 
+    -- item_necronomicon_staff 死灵法杖
+    if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_necronomicon_staff", hTarget) then
+        return true
+    end
+
     -- refresh 刷新
     if BotItemThink:IsItemCanUse(tUsableItems, "item_refresher") then
         local hAbility6 = hHero:GetAbilityByIndex(5)
