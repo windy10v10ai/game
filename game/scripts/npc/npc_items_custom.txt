@@ -1219,7 +1219,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"710"
+		"ItemCost"						"850"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1228,7 +1228,7 @@
 		"ItemResult"					"item_force_staff_2"
 		"ItemRequirements"
 		{
-			"01"						"item_force_staff;item_null_talisman;item_null_talisman"
+			"01"						"item_force_staff;item_null_talisman"
 		}
 	}
 
@@ -1294,12 +1294,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"25"
+				"bonus_intellect"		"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"	"4"
+				"bonus_mana_regen"		"4"
 			}
 			"03"
 			{
@@ -1324,7 +1324,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_amp"			"12"
+				"spell_amp"			"9"
 			}
 		}
 		"OnSpellStart"
@@ -1418,7 +1418,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"910"
+		"ItemCost"						"950"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1427,7 +1427,7 @@
 		"ItemResult"					"item_force_staff_3"
 		"ItemRequirements"
 		{
-			"01"						"item_force_staff_2;item_null_talisman;item_null_talisman"
+			"01"						"item_force_staff_2;item_null_talisman"
 		}
 	}
 
@@ -1493,12 +1493,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"40"
+				"bonus_intellect"		"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"	"8"
+				"bonus_mana_regen"		"8"
 			}
 			"03"
 			{
@@ -1523,7 +1523,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_amp"			"24"
+				"spell_amp"			"18"
 			}
 		}
 		"OnSpellStart"
@@ -2287,7 +2287,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"spell_amp_per_int"			"0.09"
+				"spell_amp_per_int"			"0.1"
 			}
 			"03"
 			{
@@ -2331,7 +2331,7 @@
 
 
 	//=================================================================================================================
-	// Arcane Scepter
+	// Arcane Scepter 仙云法杖
 	//=================================================================================================================
 	"item_hallowed_scepter"
 	{
@@ -2381,7 +2381,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost_duration"		"5"
+				"active_boost_duration"		"4"
 			}
 		}
 	}
@@ -2925,12 +2925,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"260"
-				"corruption_armor"		"-20"
-				"corruption_duration"	"9.0"
-				"bonus_damage_per_kill"	"5"
-				"bonus_damage_per_assist"	"2"
-				"max_damage"			"50"
+			"bonus_damage"			"260"
+			"corruption_armor"		"-20"
+			"corruption_duration"	"9.0"
+			"bonus_damage_per_kill"	"5"
+			"bonus_damage_per_assist"	"2"
+			"max_damage"			"50"
 		}
 	}
 
@@ -3353,14 +3353,14 @@
 			"bonus_evasion"			"25"
 			"bonus_strength"		"45"
 			"disarm_con"			"2"
-			"disarm_con_per_str"	"500"
-			"disarm_con_max"		"3"
+			"disarm_con_per_str"	"300"
+			"disarm_con_max"		"4"
 			"hp_regen_amp"			"30"
-			"attch"					"20"
+			"attch"					"25"
 			"disarm"				"1"
 			"status_resistance"		"20"
 			"spell_resist"			"20"
-			"knockback_range"			"350"
+			"knockback_range"			"450"
 			"knockback_distance"		"150"
 		}
 	}
@@ -4009,7 +4009,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3056"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName" 			"item_recipe_wasp_agile"
+		"AbilityTextureName" 			"item_recipe_wasp_callous"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 
 		// Item Info
@@ -5439,7 +5439,7 @@
 		"ID"							"3083"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe_orb_of_the_brine"
+		"AbilityTextureName"			"item_recipe_tome_of_luoshu"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"6669"
@@ -5529,7 +5529,7 @@
 
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"30.0"
+		"AbilityCooldown"				"25.0"
 		"AbilityManaCost"				"480"
 
 		"ItemCost"						"16900"
@@ -5547,7 +5547,7 @@
 
 			"sheep_duration"		"4.0"
 			"sheep_movement_speed"	"120"
-			"blast_damage_base"		"50"
+			"blast_damage_base"		"100"
 			"blast_att_multiplier"	"0.5"
 			"blast_damage_multiplier"	"-50"
 		}

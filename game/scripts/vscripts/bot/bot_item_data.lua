@@ -36,8 +36,7 @@ tBotItemData.purchaseItemList = {
 		'item_aether_lens_3',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
-		-- 'item_ultimate_scepter',
-		-- 'item_recipe_ultimate_scepter_2',
+		'item_ultimate_scepter_2',
 		'item_soul_booster',
 		'item_gungir_2',
 		'item_recipe_arcane_octarine_core',
@@ -1493,7 +1492,7 @@ tBotItemData.addNeutralItemMultiTimeMap = {
 		900,
 	},
 	x20 = {
-		300,
+		600,
 	},
 }
 
