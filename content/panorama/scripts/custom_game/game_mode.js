@@ -6,55 +6,55 @@ function OnDropDownChanged(option) {
 	let optionId = $("#"+option).GetSelected().id;
 	GameEvents.SendCustomGameEventToServer('game_options_change', { optionName: option, optionValue: optionValue, optionId: optionId })
 
-	if (option == "bot_gold_xp_multiplier_dropdown") {
-		if (optionId == "20") {
-			// set April Fools
-			$("#player_gold_xp_multiplier_dropdown").SetSelected("2");
+	// if (option == "bot_gold_xp_multiplier_dropdown") {
+	// 	if (optionId == "20") {
+	// 		// set April Fools
+	// 		$("#player_gold_xp_multiplier_dropdown").SetSelected("2");
 
-			$("#tower_power_dropdown").SetSelected("7");
-			$("#tower_endure_dropdown").SetSelected("10");
-			$("#tower_heal_dropdown").SetSelected("5");
-			$("#respawn_time_percentage_dropdown").SetSelected("100");
-			$("#starting_gold_player_dropdown").SetSelected("2000");
-			$("#starting_gold_bot_dropdown").SetSelected("2000");
-			// disable dropdown
-			$("#player_gold_xp_multiplier_dropdown").enabled=false;
-			$("#tower_power_dropdown").enabled=false;
-			$("#tower_endure_dropdown").enabled=false;
-			$("#tower_heal_dropdown").enabled=false;
-			$("#respawn_time_percentage_dropdown").enabled=false;
-			$("#starting_gold_player_dropdown").enabled=false;
-			$("#starting_gold_bot_dropdown").enabled=false;
-			// disable option
+	// 		$("#tower_power_dropdown").SetSelected("7");
+	// 		$("#tower_endure_dropdown").SetSelected("10");
+	// 		$("#tower_heal_dropdown").SetSelected("5");
+	// 		$("#respawn_time_percentage_dropdown").SetSelected("100");
+	// 		$("#starting_gold_player_dropdown").SetSelected("2000");
+	// 		$("#starting_gold_bot_dropdown").SetSelected("2000");
+	// 		// disable dropdown
+	// 		$("#player_gold_xp_multiplier_dropdown").enabled=false;
+	// 		$("#tower_power_dropdown").enabled=false;
+	// 		$("#tower_endure_dropdown").enabled=false;
+	// 		$("#tower_heal_dropdown").enabled=false;
+	// 		$("#respawn_time_percentage_dropdown").enabled=false;
+	// 		$("#starting_gold_player_dropdown").enabled=false;
+	// 		$("#starting_gold_bot_dropdown").enabled=false;
+	// 		// disable option
 
-		} else {
-			// un set April Fools
-			$("#player_gold_xp_multiplier_dropdown").enabled=true;
-			$("#tower_power_dropdown").enabled=true;
-			$("#tower_endure_dropdown").enabled=true;
-			$("#tower_heal_dropdown").enabled=true;
-			$("#respawn_time_percentage_dropdown").enabled=true;
-			$("#starting_gold_player_dropdown").enabled=true;
-			$("#starting_gold_bot_dropdown").enabled=true;
-			if ($("#tower_power_dropdown").GetSelected().id == "10") {
-				$("#tower_power_dropdown").SetSelected("5");
-			}
-			if ($("#tower_endure_dropdown").GetSelected().id == "10") {
-				$("#tower_endure_dropdown").SetSelected("7");
-			}
-		}
-	}
+	// 	} else {
+	// 		// un set April Fools
+	// 		$("#player_gold_xp_multiplier_dropdown").enabled=true;
+	// 		$("#tower_power_dropdown").enabled=true;
+	// 		$("#tower_endure_dropdown").enabled=true;
+	// 		$("#tower_heal_dropdown").enabled=true;
+	// 		$("#respawn_time_percentage_dropdown").enabled=true;
+	// 		$("#starting_gold_player_dropdown").enabled=true;
+	// 		$("#starting_gold_bot_dropdown").enabled=true;
+	// 		if ($("#tower_power_dropdown").GetSelected().id == "10") {
+	// 			$("#tower_power_dropdown").SetSelected("5");
+	// 		}
+	// 		if ($("#tower_endure_dropdown").GetSelected().id == "10") {
+	// 			$("#tower_endure_dropdown").SetSelected("7");
+	// 		}
+	// 	}
+	// }
 
-	if (option == "tower_power_dropdown" && optionId == "10") {
-		if ($("#bot_gold_xp_multiplier_dropdown").GetSelected().id !== "20") {
-			$("#tower_power_dropdown").SetSelected("9");
-		}
-	}
-	if (option == "tower_endure_dropdown" && optionId == "10") {
-		if ($("#bot_gold_xp_multiplier_dropdown").GetSelected().id !== "20") {
-			$("#tower_endure_dropdown").SetSelected("9");
-		}
-	}
+	// if (option == "tower_power_dropdown" && optionId == "10") {
+	// 	if ($("#bot_gold_xp_multiplier_dropdown").GetSelected().id !== "20") {
+	// 		$("#tower_power_dropdown").SetSelected("9");
+	// 	}
+	// }
+	// if (option == "tower_endure_dropdown" && optionId == "10") {
+	// 	if ($("#bot_gold_xp_multiplier_dropdown").GetSelected().id !== "20") {
+	// 		$("#tower_endure_dropdown").SetSelected("9");
+	// 	}
+	// }
 }
 
 /** 事件初期化 */

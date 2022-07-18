@@ -45,7 +45,7 @@
 		"bots_multiplier_3"		"3   (Normal)"
 		"bots_multiplier_4"		"4   (Hard)"
 		"bots_multiplier_5"		"5   (Unfair)"
-		"bots_multiplier_7_5"	"7.5 (Legendary)"
+		"bots_multiplier_6"		"6   (Legendary)"
 		"bots_multiplier_10"	"10  (Hell)"
 
 		"player_gold_xp_multiplier_1"               "1"

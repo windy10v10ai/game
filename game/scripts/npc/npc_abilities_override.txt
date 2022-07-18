@@ -976,7 +976,7 @@
 	{
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
+		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.0"
 
 		// Stats
@@ -15097,35 +15097,14 @@
 			"creep_duration"		"2"
 			"hero_damage"			"40"
 			"bounce_range"			"575 575 575 575"
-			"bounces"				"3 5 7 9 11"
+			"bounces"
+			{
+				"value"					"3 5 7 9 11"
+				"special_bonus_unique_witch_doctor_3"			"+3"
+			}
 			"speed"					"1000"
 			"bounce_delay"			"0.3"
-			"bounces_tooltip"
-			{
-				"value"		"2 4 6 8 10"
-				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_3"
-			}
 			"bounce_bonus_damage"			"20 25 30 35 40"
-		}
-	}
-	"special_bonus_unique_witch_doctor_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6524"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"4"
-				"ad_linked_abilities"			"witch_doctor_paralyzing_cask"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
 		}
 	}
 	"witch_doctor_voodoo_restoration"
@@ -15138,6 +15117,9 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"mana_per_second"			"8 12 16 20 24 28 32"
+				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_4"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+				"LinkedSpecialBonusField"	"value"
 			}
 			"03"
 			{
@@ -15149,48 +15131,17 @@
 	"witch_doctor_maledict"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"24 22 20 18 16 14 12"
+		"AbilityCooldown"				"30 28 26 24 22 20 18"
 		"AbilityDuration"				"12.0"
-		"AbilityDamage"					"10 20 30 40 50 60 70"
-		"AbilityManaCost"				"105 110 115 120 125 130 135"
+		"AbilityDamage"					"20 30 40 50 60 70 80"
+		"AbilityManaCost"				"100 110 120 130 140 150 160"
 		"AbilitySpecial"
 		{
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"10 20 30 40 50 60 70"
+				"bonus_damage"				"20 25 30 35 40 45 50"
 				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_7"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage_threshold"	"100"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"ticks"						"3"
-				"LinkedSpecialBonusField"		"value2"
-			}
-		}
-	}
-	"special_bonus_unique_witch_doctor_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"417"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"150"
-				"ad_linked_abilities"			"witch_doctor_maledict"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -15209,7 +15160,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"25"
+				"value"				"15"
 				"ad_linked_abilities"			"witch_doctor_maledict"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -15217,7 +15168,6 @@
 	"witch_doctor_death_ward"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"50.0"
 		"AbilitySpecial"
 		{
 			"01"

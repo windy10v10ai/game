@@ -248,16 +248,15 @@ function AIGameMode:FilterGold(tGoldFilter)
 	local iReason = tGoldFilter["reason_const"]
 
 	if iReason == DOTA_ModifyGold_HeroKill then
-
-			if iGold > 2000 then
-				iGold = 1000
-			elseif iGold > 1000 then
-				iGold = iGold/4 + 500
-			elseif iGold > 500 then
-				iGold = iGold/2 + 250
-			else
-				iGold = iGold
-			end
+		if iGold > 2000 then
+			iGold = 1000
+		elseif iGold > 1000 then
+			iGold = iGold/4 + 500
+		elseif iGold > 500 then
+			iGold = iGold/2 + 250
+		else
+			iGold = iGold
+		end
 	end
 
 	if self.tHumanPlayerList[iPlayerID] then

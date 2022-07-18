@@ -14,8 +14,39 @@ end
 
 --------------------
 function BotItemThink:UseActiveItem(hHero)
-    local itemUseCastRange = 900
+    -- 获取可使用装备列表
     local tUsableItems = BotItemThink:GetUsableItems(hHero)
+
+    -- 对友军释放道具
+    -- 圣洁吊坠
+    if BotItemThink:IsItemCanUse(tUsableItems, "item_holy_locket") then
+        local tTeamHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, 700)
+        local iCount = #tTeamHeroes
+        for i = 1, iCount do
+            local hTeamHero = tTeamHeroes[i]
+            if hTeamHero:GetHealthPercent() < 40 then
+                if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_holy_locket", hTeamHero) then
+                    return true
+                end
+            end
+        end
+    end
+    -- 苍洋魔珠
+    if BotItemThink:IsItemCanUse(tUsableItems, "item_orb_of_the_brine") then
+        local tTeamHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, 700)
+        local iCount = #tTeamHeroes
+        for i = 1, iCount do
+            local hTeamHero = tTeamHeroes[i]
+            if hTeamHero:GetHealthPercent() < 40 then
+                if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_orb_of_the_brine", hTeamHero) then
+                    return true
+                end
+            end
+        end
+    end
+
+    -- 对敌军释放道具
+    local itemUseCastRange = 900
     if hHero:HasItemInInventory("arcane_octarine_core") or hHero:HasItemInInventory("item_octarine_core") then
         itemUseCastRange = itemUseCastRange + 300
     end
@@ -36,8 +67,8 @@ function BotItemThink:UseActiveItem(hHero)
     if BotItemThink:UseItem(tUsableItems, hHero, "item_insight_armor") then
         return true
     end
-    -- if health < 0.5
-    if hHero:GetHealth() < hHero:GetMaxHealth() * 0.5 then
+    -- if health < 50%
+    if hHero:GetHealthPercent() < 50 then
         -- item_undying_heart
         if BotItemThink:UseItem(tUsableItems, hHero, "item_undying_heart") then
             return true
@@ -111,6 +142,11 @@ function BotItemThink:UseActiveItem(hHero)
     end
     -- item_adi_king_plus
     if BotItemThink:UseItem(tUsableItems, hHero, "item_adi_king_plus") then
+        return true
+    end
+
+    -- item_necronomicon_staff 死灵法杖
+    if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_necronomicon_staff", hTarget) then
         return true
     end
 

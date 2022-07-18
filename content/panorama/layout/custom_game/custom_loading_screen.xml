@@ -31,9 +31,12 @@
 							<Label text="#bots_multiplier_3" id="3"/>
 							<Label text="#bots_multiplier_4" id="4"/>
 							<Label text="#bots_multiplier_5" id="5"/>
-							<Label text="#bots_multiplier_7_5" id="7.5"/>
+							<Label text="#bots_multiplier_6" id="6"/>
+							<Label text="7" id="7"/>
+							<Label text="8" id="8"/>
+							<Label text="9" id="9"/>
 							<Label text="#bots_multiplier_10" id="10"/>
-							<Label text="??" id="20"/>
+							<!-- <Label text="20" id="20"/> -->
 						</DropDown>
 					</Panel>
 					<Panel id="RadiantPlayerNumberMultiplierPanel"	class="GameOptionsSubPanel">
@@ -115,7 +118,6 @@
 							<Label text="200%" id="7"/>
 							<Label text="250%" id="8"/>
 							<Label text="300%" id="9"/>
-							<Label text="500%" id="10"/>
 						</DropDown>
 					</Panel>
 					<Panel id="TowerHealPanel"	class="GameOptionsSubPanel">
