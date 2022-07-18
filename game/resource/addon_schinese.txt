@@ -175,6 +175,8 @@
 		"DOTA_Tooltip_modifier_adolphzero"				"<font color='#FFCC66'>★ 在下千里马 ★</font>"
 		"DOTA_Tooltip_modifier_adolphzero_Description"	"<font color='#FFCC66'> 还好老子跑得快 </font>"
 		"DOTA_Tooltip_modifier_j3e9"					"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_xin"						"<font color='#FFCC66'>★ 鲨鱼辣椒 ★</font>"
+		"DOTA_Tooltip_modifier_xin_Description"			"<font color='#FFCC66'> 鲨鱼辣椒不吃辣~ </font>"
 
 
 		// 初音未来
