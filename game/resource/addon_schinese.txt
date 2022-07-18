@@ -45,7 +45,7 @@
 		"bots_multiplier_3"		"3    (普通)"
 		"bots_multiplier_4"		"4    (困难)"
 		"bots_multiplier_5"		"5    (疯狂)"
-		"bots_multiplier_7_5"	"7.5 (传说)"
+		"bots_multiplier_6"		"6    (传说)"
 		"bots_multiplier_10"	"10  (地狱)"
 
 		"player_gold_xp_multiplier_1"               "1    (传说)"
