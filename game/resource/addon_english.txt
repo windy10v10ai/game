@@ -952,5 +952,35 @@
 
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"Necronomicon Blast"
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"Necronomicon Form. Taking %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%%% increased magic damage."
+
+		// 小鸡臂章
+		"DOTA_Tooltip_Ability_item_armlet_plus"				"Armlet of Mordiggian Plus"
+		"DOTA_Tooltip_Ability_item_recipe_armlet_plus"					"Armlet of Mordiggian Plus Recipe"
+	    "DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_attack_speed% attackspeed, +%unholy_bonus_strength% strength and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		"DOTA_Tooltip_ability_item_armlet_plus_Lore"							    "Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
+		"DOTA_Tooltip_ability_item_armlet_plus_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
+		"DOTA_Tooltip_ability_item_armlet_plus_Note1"								"The strength change occurs over 0.6 seconds."
+		"DOTA_Tooltip_ability_item_armlet_plus_Note2"								"Activating or deactivating Unholy Strength does not interrupt channeling."
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_magical_armor"					"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_health_regen"					"+$hp_regen"
+
+		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"Armlet of Mordiggian Plus Pro Max"
+		"DOTA_Tooltip_Ability_item_recipe_armlet_pro_max"					"Armlet of Mordiggian Pro Max Recipe"
+	    "DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_attack_speed% attackspeed, +%unholy_bonus_strength% strength and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Note1"								"The strength change occurs over 0.6 seconds."
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Note2"								"Activating or deactivating Unholy Strength does not interrupt channeling."
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_magical_armor"					"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
+
+		"DOTA_Tooltip_modifier_item_armlet_unholy_strength"				"Unholy Strength"
+		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点.\nAttackspeed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%.\nStrength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%.\nArmor increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nLosing %dMODIFIER_PROPERTY_TOOLTIP% health per second."
 	}
 }
