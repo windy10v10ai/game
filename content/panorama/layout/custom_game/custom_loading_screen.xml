@@ -36,6 +36,7 @@
 							<Label text="8" id="8"/>
 							<Label text="9" id="9"/>
 							<Label text="#bots_multiplier_10" id="10"/>
+							<!-- <Label text="20" id="20"/> -->
 						</DropDown>
 					</Panel>
 					<Panel id="RadiantPlayerNumberMultiplierPanel"	class="GameOptionsSubPanel">
