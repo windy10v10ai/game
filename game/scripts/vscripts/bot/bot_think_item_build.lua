@@ -70,12 +70,12 @@ function BotThink:IsItemCanUse(hHero, sName)
     end
     return false
 end
--- find unit
+-- find enemy
 function BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
     local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
     return tAllHeroes
 end
--- find unit
+-- find team
 function BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
     local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
     return tAllHeroes

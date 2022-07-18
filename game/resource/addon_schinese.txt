@@ -45,7 +45,7 @@
 		"bots_multiplier_3"		"3    (普通)"
 		"bots_multiplier_4"		"4    (困难)"
 		"bots_multiplier_5"		"5    (疯狂)"
-		"bots_multiplier_7_5"	"7.5 (传说)"
+		"bots_multiplier_6"		"6    (传说)"
 		"bots_multiplier_10"	"10  (地狱)"
 
 		"player_gold_xp_multiplier_1"               "1    (传说)"
@@ -175,6 +175,8 @@
 		"DOTA_Tooltip_modifier_adolphzero"				"<font color='#FFCC66'>★ 在下千里马 ★</font>"
 		"DOTA_Tooltip_modifier_adolphzero_Description"	"<font color='#FFCC66'> 还好老子跑得快 </font>"
 		"DOTA_Tooltip_modifier_j3e9"					"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_xin"						"<font color='#FFCC66'>★ 鲨鱼辣椒 ★</font>"
+		"DOTA_Tooltip_modifier_xin_Description"			"<font color='#FFCC66'> 鲨鱼辣椒不吃辣~ </font>"
 
 
 		// 初音未来
