@@ -41,7 +41,8 @@ function item_blue_fantasy:OnProjectileHit(target, location)
     end
         target:EmitSound("DOTA_Item.Nullifier.Target")
         target:Purge(true, false, false, false, false)              --驱散正面buff
-        target:AddNewModifier(caster,self,"modifier_item_blue_fantasy_debuff",{duration=self:GetSpecialValueFor("mute_duration")})
+        local duration = self:GetSpecialValueFor("mute_duration") * (1 - target:GetStatusResistance())
+        target:AddNewModifier(caster,self,"modifier_item_blue_fantasy_debuff",{duration=duration})
     return true
 end
 

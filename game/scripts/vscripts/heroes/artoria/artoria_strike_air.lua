@@ -107,5 +107,6 @@ function artoria_strike_air:OnProjectileHit_ExtraData(target, vLocation, tData)
 	}
 	ApplyDamage(dmgtable)
 
+	local stunDuration = stunDuration * (1 - target:GetStatusResistance())
 	target:AddNewModifier( caster, self, "modifier_stunned", {Duration = stunDuration} )
 end

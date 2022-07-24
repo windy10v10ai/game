@@ -205,11 +205,14 @@ function modifier_item_jump_jump_jump_meteor_form:OnDestroy()
 	for _, enemy in pairs(enemies) do
 		enemy:EmitSound("DOTA_Item.MeteorHammer.Damage")
 
+		local slow_duration = slow_duration * (1 - enemy:GetStatusResistance())
 		enemy:AddNewModifier(caster, ability, "modifier_item_overwhelming_blink_debuff", {duration = slow_duration})
+		local burn_duration = burn_duration * (1 - enemy:GetStatusResistance())
 		enemy:AddNewModifier(caster, ability, "modifier_item_jump_jump_jump_meteor_burn", {duration = burn_duration})
 
 		damage_table.victim = enemy
 
+		local stun_duration = stun_duration * (1 - enemy:GetStatusResistance())
 		if enemy:IsBuilding() then
 			enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration/2})
 			ApplyDamage(damage_table_building)
