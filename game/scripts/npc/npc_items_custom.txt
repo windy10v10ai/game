@@ -1160,7 +1160,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"800"
+				"bonus_health"			"1000"
 			}
 			"03"
 			{
@@ -1175,7 +1175,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"status_resistance"		"12"
+				"status_resistance"		"8"
 			}
 			"06"
 			{
@@ -1190,7 +1190,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"active_hp_regen_pct"	"5"
+				"active_hp_regen_pct"	"4"
 			}
 			"09"
 			{
@@ -2948,7 +2948,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2150"
+		"ItemCost"						"3150"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3015,7 +3015,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"status_resistance"		"22"
+				"status_resistance"		"20"
 			}
 			"07"
 			{
@@ -3123,32 +3123,32 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"status_resistance"		"33"
+				"status_resistance"		"30"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movement_speed_percent_bonus"				"20"
+				"movement_speed_percent_bonus"				"16"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp_regen_amp"			"46"
+				"hp_regen_amp"			"40"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_amp"				"46"
+				"spell_amp"				"40"
 			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_lifesteal_amp"	"46"
+				"spell_lifesteal_amp"	"40"
 			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen_multiplier"	"46"
+				"mana_regen_multiplier"	"40"
 			}
 		}
 	}
@@ -3447,7 +3447,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_sp"				"40"
+				"active_sp"				"35"
 			}
 			"06"
 			{
@@ -3559,7 +3559,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_sp"				"60"
+				"active_sp"				"50"
 			}
 			"06"
 			{

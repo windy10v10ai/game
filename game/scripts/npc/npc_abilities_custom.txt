@@ -97,7 +97,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"scepter_radius"	"350"
+				"scepter_radius"	"300"
 			}
 			"05"
 			{
