@@ -178,6 +178,8 @@
 		"DOTA_Tooltip_modifier_xin"						"<font color='#FFCC66'>★ 鲨鱼辣椒 ★</font>"
 		"DOTA_Tooltip_modifier_xin_Description"			"<font color='#FFCC66'> 鲨鱼辣椒不吃辣~ </font>"
 		"DOTA_Tooltip_modifier_qiannian"				"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_feiji"					"<font color='#A149FA'>★ 贝伦卡斯泰露的庇佑 ★</font>"
+		"DOTA_Tooltip_modifier_feiji_Description"		"<font color='#A149FA'> 古户绘梨花受到了奇迹的魔女贝伦卡斯泰露的庇佑 </font>"
 
 
 		// 初音未来
