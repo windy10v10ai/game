@@ -59,11 +59,12 @@ function modifier_pantsushot:GetModifierPreAttack_CriticalStrike( params )
 			self:GetAbility():StartCooldown(self:GetAbility():GetSpecialValueFor( "cooldown" ))
 
             -- stun the enemy
+			local duration = self.stunDuration * (1 - target:GetStatusResistance())
             target:AddNewModifier(
                 self:GetCaster(), -- player source
                 self:GetAbility(), -- ability source
                 "modifier_stunned", -- modifier name
-                { duration = self.stunDuration } -- kv
+                { duration = duration } -- kv
             )
 
 			return self.crit_bonus

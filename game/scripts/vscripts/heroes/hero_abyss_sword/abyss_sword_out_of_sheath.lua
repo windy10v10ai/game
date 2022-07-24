@@ -56,6 +56,7 @@ function abyss_sword_out_of_sheath:OnSpellStart()
     ParticleManager:SetParticleControl(blink_pfx_end,0,target_origin)
     ParticleManager:ReleaseParticleIndex(blink_pfx_end)
 
+	local duration = duration * (1 - target:GetStatusResistance())
     target:AddNewModifier(caster,self,"modifier_abyss_sword_out_of_sheath_shard",{duration = duration})
 
     caster:PerformAttack(target, true, true, true, true, false, false, true)

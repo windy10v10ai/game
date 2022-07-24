@@ -190,7 +190,7 @@
         "DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "Damage in Chibi status:"
 		"DOTA_Tooltip_ability_miku_hadouken_Lore"           "Rich and fragrant vegetable juice! Fragrant and soft vegetable juice!"
 
-		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"Popipo will stun enemy for 2 seconds."
+		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"Popipo will stun enemy for %shard_stun% seconds."
 
 		// 双头龙
         "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"Increases Macropyre distance by +200 range, duration by +5 seconds and causes it to become Pure damage and pierce Spell Immunity."
