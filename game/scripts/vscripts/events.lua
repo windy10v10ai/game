@@ -181,6 +181,10 @@ local xinSteamAccountID = Set {
 	-- 新
 	171217775,
 }
+local qiannianSteamAccountID = Set {
+	-- 千年破晓
+	120921523,
+}
 -- 称号属性 END
 
 function AIGameMode:ArrayShuffle(array)
@@ -767,6 +771,10 @@ function AIGameMode:OnNPCSpawned(keys)
 			if xinSteamAccountID[steamAccountID] then
 				LinkLuaModifier("modifier_xin", "modifiers/player/modifier_xin", LUA_MODIFIER_MOTION_NONE)
 				hEntity:AddNewModifier(hEntity, nil, "modifier_xin", {})
+			end
+			if qiannianSteamAccountID[steamAccountID] then
+				LinkLuaModifier("modifier_qiannian", "modifiers/player/modifier_qiannian", LUA_MODIFIER_MOTION_NONE)
+				hEntity:AddNewModifier(hEntity, nil, "modifier_qiannian", {})
 			end
 
 
