@@ -3040,7 +3040,7 @@
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen_multiplier"	"46"
+				"mana_regen_multiplier"	"30"
 			}
 		}
 	}
@@ -4284,7 +4284,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"340"
+				"crit_multiplier"			"330"
 			}
 			"07"
 			{
