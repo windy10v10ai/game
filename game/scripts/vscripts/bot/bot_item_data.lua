@@ -366,10 +366,11 @@ tBotItemData.purchaseItemList = {
 		'item_soul_booster',
 		'item_sacred_trident',
 		'item_recipe_arcane_octarine_core',
-		'item_sacred_trident',
 		'item_dagon_5',
 		'item_hallowed_scepter',
 		'item_necronomicon_staff',
+		'item_shivas_guard_2',
+		'item_sacred_trident',
 	},
 	npc_dota_hero_lion = {
 		'item_magic_wand',
