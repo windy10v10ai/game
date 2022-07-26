@@ -103,7 +103,7 @@
 		{
 				"bonus_building_damage"		"150"			// -150
 				"incoming_hero_damage_penalty"		"-50"	// -50
-				"incoming_basic_damage_penalty"		"30"	// -30
+				"incoming_basic_damage_penalty"		"20"	// -30
 		}
 	}
 
@@ -7703,8 +7703,8 @@
 			}
 			"beam_damage"
 			{
-				"value"					"70 140 210 280 350 420 490"
-				"special_bonus_unique_luna_1"	"+80"
+				"value"					"80 140 200 260 320 380 440"
+				"special_bonus_unique_luna_1"	"+60"
 			}
 		}
 	}
