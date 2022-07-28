@@ -109,11 +109,12 @@ function modifier_miku_dance:OnIntervalThink()
 	for _,enemy in pairs(enemies) do
 		self.damageTable.victim = enemy
 		ApplyDamage( self.damageTable )
+		local duration = self.stunDuration * (1 - enemy:GetStatusResistance())
 		enemy:AddNewModifier(
 			caster, -- player source
 			self, -- ability source
 			"modifier_stunned", -- modifier name
-			{ duration = self.stunDuration } -- kv
+			{ duration = duration } -- kv
 		)
 		self:GetCaster():PerformAttack(
 			enemy,

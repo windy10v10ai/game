@@ -97,7 +97,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"scepter_radius"	"350"
+				"scepter_radius"	"300"
 			}
 			"05"
 			{
@@ -648,45 +648,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-		    {
-				"var_type"					"FIELD_INTEGER"
-			    "dragon_slave_speed"		"1000"
-		    }
-		    "02"
-		    {
-		    	"var_type"					"FIELD_INTEGER"
-		    	"dragon_slave_width_initial"	"200"
-		    }
-		    "03"
-		    {
-		    	"var_type"					"FIELD_INTEGER"
-		    	"dragon_slave_width_end"		"150"
-		    }
-		    "04"
-		    {
-		    	"var_type"					"FIELD_INTEGER"
-		    	"dragon_slave_distance"			"1075"
-		    }
-		    "05"
-		    {
-		    	"var_type"					"FIELD_INTEGER"
-		    	"fixed_duration"			"1"
-		    }
-		    "06"
-		    {
-		    	"var_type"					"FIELD_INTEGER"
-		    	"damage"			"150 210 270 330 390"
-		    }
-		    "07"
-		    {
-		    	"var_type"					"FIELD_INTEGER"
-		    	"damage_calne"			"320 400 480 560 640"
-		    }
+			"dragon_slave_speed"		"1000"
+			"dragon_slave_width_initial"	"200"
+			"dragon_slave_width_end"		"150"
+			"dragon_slave_distance"			"1075"
+			"fixed_duration"			"1"
+			"damage"			"150 210 270 330 390"
+			"damage_calne"			"320 400 480 560 640"
+			"shard_stun"			"2"
 		}
 	}
 	"pantsushot"

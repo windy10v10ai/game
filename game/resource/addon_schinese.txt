@@ -177,6 +177,9 @@
 		"DOTA_Tooltip_modifier_j3e9"					"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_xin"						"<font color='#FFCC66'>★ 鲨鱼辣椒 ★</font>"
 		"DOTA_Tooltip_modifier_xin_Description"			"<font color='#FFCC66'> 鲨鱼辣椒不吃辣~ </font>"
+		"DOTA_Tooltip_modifier_qiannian"				"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_feiji"					"<font color='#A149FA'>★ 贝伦卡斯泰露的庇佑 ★</font>"
+		"DOTA_Tooltip_modifier_feiji_Description"		"<font color='#A149FA'> 古户绘梨花受到了奇迹的魔女贝伦卡斯泰露的庇佑 </font>"
 
 
 		// 初音未来
@@ -221,7 +224,7 @@
         "DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "变身时伤害:"
 		"DOTA_Tooltip_ability_miku_hadouken_Lore"           "香醇浓厚的蔬菜果汁！香软绵柔的蔬菜果汁！"
 
-		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"蔬菜汁Popipo击中的敌人将眩晕2秒。"
+		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"蔬菜汁Popipo击中的敌人将眩晕%shard_stun%秒。"
 
 		// 双头龙
         "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"烈焰焚身的距离+200，持续时间+5秒，并且变为纯粹伤害，无视技能免疫。"
@@ -990,5 +993,34 @@
 
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"死灵冲击"
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"死灵形态。受到%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%%%法术攻击加成。"
+	    // 小鸡臂章
+		"DOTA_Tooltip_Ability_item_armlet_plus"				"小鸡臂章Plus"
+		"DOTA_Tooltip_Ability_item_recipe_armlet_plus"				"小鸡臂章Plus（图纸）"
+	    "DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_attack_speed%点攻击速度、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
+		"DOTA_Tooltip_ability_item_armlet_plus_Lore"									"你知道什么是小鸡臂章吗？"
+		"DOTA_Tooltip_ability_item_armlet_plus_Note0"								"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
+		"DOTA_Tooltip_ability_item_armlet_plus_Note1"								"力量的增加将在0.6秒内完成。"
+		"DOTA_Tooltip_ability_item_armlet_plus_Note2"								"开启或关闭邪恶之力并不会打断持续施法。"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_magical_armor"					"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_health_regen"					"+$hp_regen"
+
+		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"小鸡臂章Pro Max"
+		"DOTA_Tooltip_Ability_item_recipe_armlet_pro_max"				"小鸡臂章Pro Max（图纸）"
+	    "DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_attack_speed%点攻击速度、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Lore"									"小鸡臂章本应该不会让你每秒损失血量，但是咱们少扣点意思意思。"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Note0"								"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Note1"								"力量的增加将在0.6秒内完成。"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Note2"								"开启或关闭邪恶之力并不会打断持续施法。"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_magical_armor"					"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
+
+		"DOTA_Tooltip_modifier_item_armlet_unholy_strength"				"邪恶之力"
+		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"攻击力提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点。\n攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点。\n力量增加%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点。\n护甲提升%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。\n每秒损失%dMODIFIER_PROPERTY_TOOLTIP%点生命值"
 	}
 }

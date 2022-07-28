@@ -208,11 +208,12 @@ function modifier_liu_kick:PlayEffects()
 
             if self:GetCaster():HasModifier("modifier_chibi_monster") then
                 -- stun the enemy
+                local duration = self.stunDuration * (1 - enemy:GetStatusResistance())
                 enemy:AddNewModifier(
                     self:GetCaster(), -- player source
                     self, -- ability source
                     "modifier_stunned", -- modifier name
-                    { duration = self.stunDuration } -- kv
+                    { duration = duration } -- kv
                 )
             end
         end

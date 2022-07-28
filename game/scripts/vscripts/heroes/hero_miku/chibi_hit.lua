@@ -18,7 +18,7 @@ function chibi_hit:OnSpellStart()
 	-- check if simple form
 	if not modifier then
 		-- cancel if linken
-		
+
 
 		-- directly hit
 		self:Hit( target, false )
@@ -41,7 +41,7 @@ function chibi_hit:OnSpellStart()
 		Source = caster,
 		Ability = self,
 		iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_2,
-		
+
 		EffectName = projectile_name,
 		iMoveSpeed = projectile_speed,
 		bDodgeable = true,                           -- Optional
@@ -54,7 +54,7 @@ function chibi_hit:Hit( target, dragonform )
 	local caster = self:GetCaster()
 
 	-- cancel if linken
-	
+
 
 	-- load data
 	local damage = self:GetAbilityDamage()
@@ -71,6 +71,7 @@ function chibi_hit:Hit( target, dragonform )
 	ApplyDamage(damageTable)
 
 	-- stun
+	local duration = duration * (1 - target:GetStatusResistance())
 	target:AddNewModifier(
 		caster, -- player source
 		self, -- ability source

@@ -18,16 +18,17 @@ function item_abyssal_blade_v2:OnSpellStart()
         end
         EmitSoundOn("DOTA_Item.AbyssalBlade.Activate",target)
         --add target debuff
-        target:AddNewModifier(self.caster, self, "modifier_item_abyssal_blade_v2_debuff", {duration=self.stun_m})
+	local duration = self.stun_m * (1 - target:GetStatusResistance())
+        target:AddNewModifier(self.caster, self, "modifier_item_abyssal_blade_v2_debuff", {duration=duration})
         --commit att to target
         self.caster:MoveToPositionAggressive(tpos)
-       
+
         -- blink
         local blink_start_particle = ParticleManager:CreateParticle("particles/econ/events/ti9/blink_dagger_ti9_start_lvl2.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
 	ParticleManager:ReleaseParticleIndex(blink_start_particle)
-	
+
 	FindClearSpaceForUnit(self:GetCaster(), target:GetAbsOrigin() - self:GetCaster():GetForwardVector() * 56, false)
-	
+
 	local blink_end_particle = ParticleManager:CreateParticle("particles/econ/events/ti9/blink_dagger_ti9_lvl2_end.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
 	ParticleManager:ReleaseParticleIndex(blink_end_particle)
 
@@ -66,11 +67,11 @@ function modifier_item_abyssal_blade_v2:DeclareFunctions()
         return
         {
             MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-            MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, 
+            MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
             MODIFIER_PROPERTY_HEALTH_BONUS,
-            MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, 
+            MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
             MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
-            MODIFIER_EVENT_ON_ATTACK_LANDED, 
+            MODIFIER_EVENT_ON_ATTACK_LANDED,
         }
 end
 
@@ -98,14 +99,14 @@ function modifier_item_abyssal_blade_v2:OnCreated()
                 attacker = self.parent,
                 damage = self.damatt,
                 ability = self.ability,
-                damage_type =DAMAGE_TYPE_PHYSICAL      
+                damage_type =DAMAGE_TYPE_PHYSICAL
         }
 
 end
 
 function modifier_item_abyssal_blade_v2:OnIntervalThink()
         self.stunned=true
-        self:StartIntervalThink(-1)   
+        self:StartIntervalThink(-1)
 end
 
 function modifier_item_abyssal_blade_v2:OnAttackLanded(tg)
@@ -118,7 +119,8 @@ function modifier_item_abyssal_blade_v2:OnAttackLanded(tg)
                 if self.stunned==true then
                     self.stunned=false
                     self:StartIntervalThink(self.cd)
-                    tg.target:AddNewModifier(self.parent, self.ability, "modifier_item_abyssal_blade_v2_debuff", {duration=self.stun})
+                    local duration = self.stun * (1 - tg.target:GetStatusResistance())
+                    tg.target:AddNewModifier(self.parent, self.ability, "modifier_item_abyssal_blade_v2_debuff", {duration=duration})
                 end
                 self.damageTable2.victim = tg.target
                 ApplyDamage(self.damageTable2)
@@ -155,7 +157,7 @@ modifier_item_abyssal_blade_v2_debuff=class({})
 function modifier_item_abyssal_blade_v2_debuff:GetTexture()return "item_abyssal_blade_v2"
 end
 
-function modifier_item_abyssal_blade_v2_debuff:IsStunDebuff() return true 
+function modifier_item_abyssal_blade_v2_debuff:IsStunDebuff() return true
 end
 
 function modifier_item_abyssal_blade_v2_debuff:IsHidden()return false
