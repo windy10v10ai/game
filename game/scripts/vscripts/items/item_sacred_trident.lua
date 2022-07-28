@@ -12,7 +12,7 @@ function modifier_item_sacred_trident:IsHidden()		return true end
 function modifier_item_sacred_trident:IsPurgable()		return false end
 function modifier_item_sacred_trident:RemoveOnDeath()	return false end
 function modifier_item_sacred_trident:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
-  
+
 function modifier_item_sacred_trident:OnCreated()
 	if not self:GetAbility() then self:Destroy() return end
 
@@ -25,20 +25,9 @@ function modifier_item_sacred_trident:OnCreated()
 	self.spell_amp = self:GetAbility():GetSpecialValueFor("spell_amp")
 	self.spell_lifesteal_amp = self:GetAbility():GetSpecialValueFor("spell_lifesteal_amp")
 	self.mana_regen_multiplier = self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
-
-	if not IsServer() then return end
-
-	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-        mod:GetAbility():SetSecondaryCharges(_)
-    end
-end 
+end
 
 function modifier_item_sacred_trident:OnDestroy()
-    if not IsServer() then return end
-    
-    for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-        mod:GetAbility():SetSecondaryCharges(_)
-    end
 end
 
 function modifier_item_sacred_trident:DeclareFunctions()

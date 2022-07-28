@@ -753,6 +753,7 @@
 			}
 		}
 	}
+	// 跳刀卷轴
 	"item_recipe_overwhelming_blink"
 	{
 		"ItemCost"						"250"
@@ -764,6 +765,12 @@
 	"item_recipe_arcane_blink"
 	{
 		"ItemCost"						"250"
+	}
+
+	// 以太卷轴
+	"item_recipe_aether_lens"
+	{
+		"ItemCost"						"825"
 	}
 
 	"item_black_king_bar"
