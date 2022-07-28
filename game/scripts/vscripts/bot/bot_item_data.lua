@@ -32,12 +32,12 @@ tBotItemData.purchaseItemList = {
 		'item_null_talisman',
 		'item_arcane_boots',
 		'item_glimmer_cape',
-		'item_orb_of_the_brine',
 		'item_force_staff',
 		'item_aether_lens_3',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_ultimate_scepter_2',
+		'item_orb_of_the_brine',
 		'item_soul_booster',
 		'item_gungir_2',
 		'item_recipe_arcane_octarine_core',
@@ -64,7 +64,6 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_despotic',
 	},
 	npc_dota_hero_bloodseeker = {
-		'item_magic_wand',
 		'item_wraith_band',
 		'item_power_treads',
 		'item_orb_of_corrosion',
@@ -352,6 +351,7 @@ tBotItemData.purchaseItemList = {
 	},
 	npc_dota_hero_lina = {
 		'item_magic_wand',
+		'item_null_talisman',
 		'item_arcane_boots',
 		'item_null_talisman',
 		'item_glimmer_cape',
@@ -366,10 +366,11 @@ tBotItemData.purchaseItemList = {
 		'item_soul_booster',
 		'item_sacred_trident',
 		'item_recipe_arcane_octarine_core',
-		'item_sacred_trident',
 		'item_dagon_5',
 		'item_hallowed_scepter',
 		'item_necronomicon_staff',
+		'item_shivas_guard_2',
+		'item_sacred_trident',
 	},
 	npc_dota_hero_lion = {
 		'item_magic_wand',
@@ -395,7 +396,6 @@ tBotItemData.purchaseItemList = {
 		'item_necronomicon_staff',
 	},
 	npc_dota_hero_luna = {
-		'item_magic_wand',
 		'item_power_treads',
 		'item_wraith_band',
 		'item_dragon_lance',
@@ -735,11 +735,11 @@ tBotItemData.purchaseItemList = {
 		'item_sacred_six_vein',
 	},
 	npc_dota_hero_skeleton_king = {
-		'item_magic_wand',
+		'item_bracer',
 		'item_power_treads',
 		'item_bracer',
-		'item_armlet',
 		'item_echo_sabre',
+		'item_armlet',
 		'item_falcon_blade',
 		'item_blink',
 		'item_wings_of_haste',
@@ -758,7 +758,7 @@ tBotItemData.purchaseItemList = {
 		'item_jump_jump_jump',
 	},
 	npc_dota_hero_tiny = {
-		'item_magic_wand',
+		'item_bracer',
 		'item_power_treads',
 		'item_vanguard',
 		'item_falcon_blade',
@@ -801,7 +801,7 @@ tBotItemData.purchaseItemList = {
 		'item_undying_heart',
 	},
 	npc_dota_hero_vengefulspirit = {
-		'item_magic_wand',
+		'item_wraith_band',
 		'item_power_treads',
 		'item_vanguard',
 		'item_falcon_blade',
@@ -824,7 +824,7 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_despotic',
 	},
 	npc_dota_hero_viper = {
-		'item_magic_wand',
+		'item_wraith_band',
 		'item_power_treads',
 		'item_vanguard',
 		'item_falcon_blade',
@@ -849,7 +849,6 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_warlock = {
 		'item_magic_wand',
 		'item_arcane_boots',
-		'item_null_talisman',
 		'item_glimmer_cape',
 		'item_force_staff',
 		'item_wings_of_haste',
@@ -865,7 +864,7 @@ tBotItemData.purchaseItemList = {
 		'item_shivas_guard_2',
 	},
 	npc_dota_hero_windrunner = {
-		'item_magic_wand',
+		'item_null_talisman',
 		'item_null_talisman',
 		'item_power_treads',
 		'item_maelstrom',
@@ -908,7 +907,7 @@ tBotItemData.purchaseItemList = {
 		'item_necronomicon_staff',
 	},
 	npc_dota_hero_zuus = {
-		'item_magic_wand',
+		'item_null_talisman',
 		'item_null_talisman',
 		'item_arcane_boots',
 		'item_glimmer_cape',
@@ -1069,6 +1068,7 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_riki = {
 		'item_wraith_band',
+		'item_sange_and_yasha',
 		'item_echo_sabre_2',
 		'item_bfury',
 	},
@@ -1361,13 +1361,15 @@ tBotItemData.addNeutralItemList = {
 		'item_demonicon',
 	},
 	npc_dota_hero_dragon_knight = {
-		'item_giants_ring',
+		-- 'item_giants_ring',
+		'item_minotaur_horn',
 	},
 	npc_dota_hero_drow_ranger = {
 		'item_ballista',
 	},
 	npc_dota_hero_earthshaker = {
-		'item_giants_ring',
+		-- 'item_giants_ring',
+		'item_minotaur_horn',
 	},
 	npc_dota_hero_jakiro = {
 		'item_demonicon',
@@ -1412,7 +1414,8 @@ tBotItemData.addNeutralItemList = {
 		'item_desolator_2',
 	},
 	npc_dota_hero_pudge = {
-		'item_giants_ring',
+		-- 'item_giants_ring',
+		'item_minotaur_horn',
 	},
 	npc_dota_hero_razor = {
 		'item_spell_prism',
@@ -1424,7 +1427,8 @@ tBotItemData.addNeutralItemList = {
 		'item_seer_stone',
 	},
 	npc_dota_hero_sand_king = {
-		'item_giants_ring',
+		-- 'item_giants_ring',
+		'item_minotaur_horn',
 	},
 	npc_dota_hero_skywrath_mage = {
 		'item_seer_stone',

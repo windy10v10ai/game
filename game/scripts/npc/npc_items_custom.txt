@@ -1160,7 +1160,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"800"
+				"bonus_health"			"1000"
 			}
 			"03"
 			{
@@ -1175,7 +1175,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"status_resistance"		"12"
+				"status_resistance"		"8"
 			}
 			"06"
 			{
@@ -1190,7 +1190,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"active_hp_regen_pct"	"5"
+				"active_hp_regen_pct"	"4"
 			}
 			"09"
 			{
@@ -2948,7 +2948,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2150"
+		"ItemCost"						"3150"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3015,7 +3015,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"status_resistance"		"22"
+				"status_resistance"		"20"
 			}
 			"07"
 			{
@@ -3040,7 +3040,7 @@
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen_multiplier"	"46"
+				"mana_regen_multiplier"	"30"
 			}
 		}
 	}
@@ -3123,32 +3123,32 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"status_resistance"		"33"
+				"status_resistance"		"30"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movement_speed_percent_bonus"				"20"
+				"movement_speed_percent_bonus"				"16"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp_regen_amp"			"46"
+				"hp_regen_amp"			"40"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_amp"				"46"
+				"spell_amp"				"40"
 			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_lifesteal_amp"	"46"
+				"spell_lifesteal_amp"	"40"
 			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen_multiplier"	"46"
+				"mana_regen_multiplier"	"40"
 			}
 		}
 	}
@@ -3447,7 +3447,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_sp"				"40"
+				"active_sp"				"35"
 			}
 			"06"
 			{
@@ -3559,7 +3559,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_sp"				"60"
+				"active_sp"				"50"
 			}
 			"06"
 			{
@@ -4284,7 +4284,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"340"
+				"crit_multiplier"			"330"
 			}
 			"07"
 			{
@@ -5552,6 +5552,135 @@
 			"blast_damage_multiplier"	"-50"
 		}
 	}
+	//=================================================================================================================
+	// Armlet Plus 小鸡臂章Plus
+	//=================================================================================================================
+	"item_recipe_armlet_plus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3087"										// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+	    "BaseClass"						"item_recipe_armlet"
+		"AbilityTextureName"			"item_recipe_armlet_plus"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1525"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_armlet_plus"
+		"ItemRequirements"
+		{
+			"01"						"item_helm_of_iron_will;item_armlet;"
+		}
+	}
+	"item_armlet_plus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3088"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_armlet"
+		"AbilityTextureName"			"item_armlet_plus"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"5000"
+		"ItemShopTags"					"damage;attack_speed;armor;regen_health;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"armlet of mordiggian"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"			"25"
+			"bonus_attack_speed"	"35"
+			"bonus_armor"			"12"
+			"bonus_health_regen"	"10"
+			"unholy_bonus_damage"	"45"
+			"unholy_bonus_attack_speed"	"15"
+			"unholy_bonus_strength"	"35"
+			"unholy_bonus_armor"	"8"
+			"unholy_health_drain_per_second"	"25"
+			"toggle_cooldown"		"0.036f"
+		}
+	}
+	//=================================================================================================================
+	// Armlet Pro Max 小鸡臂章Pro Max
+	//=================================================================================================================
+	"item_recipe_armlet_pro_max"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3089"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_recipe_armlet"
+		"AbilityTextureName"			"item_recipe_armlet_pro_max"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1525"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_armlet_pro_max"
+		"ItemRequirements"
+		{
+			"01"						"item_helm_of_iron_will;item_armlet_plus;"
+		}
+	}
+	"item_armlet_pro_max"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3090"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_armlet"
+		"AbilityTextureName"			"item_armlet_pro_max"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"7500"
+		"ItemShopTags"					"damage;attack_speed;armor;regen_health;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"armlet of mordiggian"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"			"35"
+			"bonus_attack_speed"	"45"
+			"bonus_armor"			"18"
+			"bonus_health_regen"	"15"
+			"unholy_bonus_damage"	"55"
+			"unholy_bonus_attack_speed"	"30"
+			"unholy_bonus_strength"	"45"
+			"unholy_bonus_armor"	"12"
+			"unholy_health_drain_per_second"	"5"
+			"toggle_cooldown"		"0.036f"
+		}
+	}
 }
+
 
 

@@ -28,7 +28,6 @@ function artoria_ultimate_excalibur:OnSpellStart()
 
 	local chargeFxIndex = ParticleManager:CreateParticle( "particles/custom/artoria/artoria_ultimate_excalibur_charge.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
 
-	-- caster:AddNewModifier(caster, self, "modifier_artoria_ultimate_excalibur", { Duration = 5.01 })
 	local range = self:GetSpecialValueFor("range") - self:GetSpecialValueFor("width") -- We need this to take end radius of projectile into account
 
 	local excal =

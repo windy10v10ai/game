@@ -50,6 +50,7 @@ function artoria_mana_burst:OnSpellStart()
 			local slashFxIndex = ParticleManager:CreateParticle( slashParticleName, PATTACH_ABSORIGIN, mana_burst_target )
 			local explodeFxIndex = ParticleManager:CreateParticle( explodeParticleName, PATTACH_ABSORIGIN, mana_burst_target )
 
+			local duration = duration * (1 - mana_burst_target:GetStatusResistance())
 			mana_burst_target:AddNewModifier(caster, self, "modifier_artoria_mana_burst_slow", { Duration = duration })
 
 			Timers:CreateTimer(2.50, function()

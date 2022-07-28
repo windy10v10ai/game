@@ -93,8 +93,8 @@
 	"npc_dota_courier"
 	{
 		"MovementTurnRate"			"1.0" // 0.5
-		"VisionDaytimeRange"		"50" // 350
-		"VisionNighttimeRange"		"50" // 350
+		"VisionDaytimeRange"		"100" // 350
+		"VisionNighttimeRange"		"100" // 350
 	}
 	"npc_dota_roshan"
 	{
@@ -141,10 +141,10 @@
 	//=========================================================
 	"npc_dota_goodguys_tower1_top"
 	{
-		"AttackDamageMin"		"90" // 100
-		"AttackDamageMax"		"100" // 120
-		"AttackRate"				"1" // 1
-		"ArmorPhysical"			"15" // 12
+		"AttackDamageMin"			"90"		// 88
+		"AttackDamageMax"			"100"		// 92
+		"AttackRate"				"0.9"		// 1
+		"ArmorPhysical"				"15"		// 12
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
 		"BountyGoldMin"				"200"		// Gold earned min.
@@ -152,10 +152,10 @@
 	}
 	"npc_dota_badguys_tower1_top"
 	{
-		"AttackDamageMin"		"90" // 100
-		"AttackDamageMax"		"100" // 120
-		"AttackRate"				"1" // 1
-		"ArmorPhysical"			"15" // 12
+		"AttackDamageMin"			"90"		// 88
+		"AttackDamageMax"			"100"		// 92
+		"AttackRate"				"0.9"		// 1
+		"ArmorPhysical"				"15"		// 12
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
 		"BountyGoldMin"				"200"		// Gold earned min.
@@ -163,10 +163,10 @@
 	}
 	"npc_dota_goodguys_tower1_bot"
 	{
-		"AttackDamageMin"		"90" // 100
-		"AttackDamageMax"		"100" // 120
-		"AttackRate"				"1" // 1
-		"ArmorPhysical"			"15" // 12
+		"AttackDamageMin"			"90"		// 88
+		"AttackDamageMax"			"100"		// 92
+		"AttackRate"				"0.9"		// 1
+		"ArmorPhysical"				"15"		// 12
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
 		"BountyGoldMin"				"200"		// Gold earned min.
@@ -174,10 +174,10 @@
 	}
 	"npc_dota_badguys_tower1_bot"
 	{
-		"AttackDamageMin"		"90" // 100
-		"AttackDamageMax"		"100" // 120
-		"AttackRate"				"1" // 1
-		"ArmorPhysical"			"15" // 12
+		"AttackDamageMin"			"90"		// 88
+		"AttackDamageMax"			"100"		// 92
+		"AttackRate"				"0.9"		// 1
+		"ArmorPhysical"				"15"		// 12
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
 		"BountyGoldMin"				"200"		// Gold earned min.
@@ -185,10 +185,10 @@
 	}
 	"npc_dota_goodguys_tower1_mid"
 	{
-		"AttackDamageMin"		"90" // 100
-		"AttackDamageMax"		"100" // 120
-		"AttackRate"				"1" // 1
-		"ArmorPhysical"			"15" // 12
+		"AttackDamageMin"			"90"		// 88
+		"AttackDamageMax"			"100"		// 92
+		"AttackRate"				"0.9"		// 1
+		"ArmorPhysical"				"15"		// 12
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
 		"BountyGoldMin"				"200"		// Gold earned min.
@@ -196,10 +196,10 @@
 	}
 	"npc_dota_badguys_tower1_mid"
 	{
-		"AttackDamageMin"		"90" // 100
-		"AttackDamageMax"		"100" // 120
-		"AttackRate"				"1" // 1
-		"ArmorPhysical"			"15" // 12
+		"AttackDamageMin"			"90"		// 88
+		"AttackDamageMax"			"100"		// 92
+		"AttackRate"				"0.9"		// 1
+		"ArmorPhysical"				"15"		// 12
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
 		"BountyGoldMin"				"200"		// Gold earned min.
@@ -210,84 +210,84 @@
 	//=========================================================
 	"npc_dota_goodguys_tower2_top"
 	{
-		"AttackDamageMin"			"142" // 142
-		"AttackDamageMax"			"162" // 162
-		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"				"20" // 16
+		"AttackDamageMin"			"160"	// 170
+		"AttackDamageMax"			"180"	// 174
+		"AttackRate"				"0.9"	// 0.9
+		"ArmorPhysical"				"20"	// 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
-		"StatusHealth"				"2600"		// 2500
+		"StatusHealth"				"3000"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"BountyGoldMin"				"300"		// Gold earned min.
 		"BountyGoldMax"				"450"		// Gold earned max.
 	}
 	"npc_dota_badguys_tower2_top"
 	{
-		"AttackDamageMin"			"142" // 142
-		"AttackDamageMax"			"162" // 162
-		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"				"20" // 16
+		"AttackDamageMin"			"160"	// 170
+		"AttackDamageMax"			"180"	// 174
+		"AttackRate"				"0.9"	// 0.9
+		"ArmorPhysical"				"20"	// 16
 		"AttackAcquisitionRange"	"1100"		// Range within a target can be acquired.
 		"AttackRange"				"1100"		// Range within a target can be attacked.
 
-		"StatusHealth"				"2600"		// 2500
+		"StatusHealth"				"3000"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"BountyGoldMin"				"300"		// Gold earned min.
 		"BountyGoldMax"				"450"		// Gold earned max.
 	}
 	"npc_dota_goodguys_tower2_bot"
 	{
-		"AttackDamageMin"			"142" // 142
-		"AttackDamageMax"			"162" // 162
-		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"				"20" // 16
+		"AttackDamageMin"			"160"	// 170
+		"AttackDamageMax"			"180"	// 174
+		"AttackRate"				"0.9"	// 0.9
+		"ArmorPhysical"				"20"	// 16
 		"AttackAcquisitionRange"	"1100"		// Range within a target can be acquired.
 		"AttackRange"				"1100"		// Range within a target can be attacked.
 
-		"StatusHealth"				"2600"		// 2500
+		"StatusHealth"				"3000"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"BountyGoldMin"				"300"		// Gold earned min.
 		"BountyGoldMax"				"450"		// Gold earned max.
 	}
 	"npc_dota_badguys_tower2_bot"
 	{
-		"AttackDamageMin"			"142" // 142
-		"AttackDamageMax"			"162" // 162
-		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"				"20" // 16
+		"AttackDamageMin"			"160"	// 170
+		"AttackDamageMax"			"180"	// 174
+		"AttackRate"				"0.9"	// 0.9
+		"ArmorPhysical"				"20"	// 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
-		"StatusHealth"				"2600"		// 2500
+		"StatusHealth"				"3000"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"BountyGoldMin"				"300"		// Gold earned min.
 		"BountyGoldMax"				"450"		// Gold earned max.
 	}
 	"npc_dota_goodguys_tower2_mid"
 	{
-		"AttackDamageMin"			"142" // 142
-		"AttackDamageMax"			"162" // 162
-		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"				"20" // 16
+		"AttackDamageMin"			"160"	// 170
+		"AttackDamageMax"			"180"	// 174
+		"AttackRate"				"0.9"	// 0.9
+		"ArmorPhysical"				"20"	// 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
-		"StatusHealth"				"2600"		// 2500
+		"StatusHealth"				"3000"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"BountyGoldMin"				"300"		// Gold earned min.
 		"BountyGoldMax"				"450"		// Gold earned max.
 	}
 	"npc_dota_badguys_tower2_mid"
 	{
-		"AttackDamageMin"			"142" // 142
-		"AttackDamageMax"			"162" // 162
-		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"				"20" // 16
+		"AttackDamageMin"			"160"	// 170
+		"AttackDamageMax"			"180"	// 174
+		"AttackRate"				"0.9"	// 0.9
+		"ArmorPhysical"				"20"	// 16
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
-		"StatusHealth"				"2600"		// 2500
+		"StatusHealth"				"3000"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"BountyGoldMin"				"300"		// Gold earned min.
 		"BountyGoldMax"				"450"		// Gold earned max.
@@ -297,85 +297,97 @@
 	//=========================================================
 	"npc_dota_goodguys_tower3_top"
 	{
-		"AttackDamageMin"		"192" // 142
-		"AttackDamageMax"		"212" // 162
-		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 19
+		"AttackDamageMin"			"190"		// 170
+		"AttackDamageMax"			"210"		// 174
+		"AttackRate"				"0.9"		// 0.9
+		"ArmorPhysical"				"25"		// 16
+		"MagicalResistance"			"10"		// 0
+
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
-		"StatusHealth"				"3000"		// Base health.
-		"StatusHealthRegen"			"5"			// Health regeneration rate.
+		"StatusHealth"				"3000"		// 2500
+		"StatusHealthRegen"			"5"			// 0
 		"BountyGoldMin"				"500"		// Gold earned min.
 		"BountyGoldMax"				"600"		// Gold earned max.
 	}
 	"npc_dota_badguys_tower3_top"
 	{
-		"AttackDamageMin"		"192" // 142
-		"AttackDamageMax"		"212" // 162
-		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 19
+		"AttackDamageMin"			"190"		// 170
+		"AttackDamageMax"			"210"		// 174
+		"AttackRate"				"0.9"		// 0.9
+		"ArmorPhysical"				"25"		// 16
+		"MagicalResistance"			"10"		// 0
+
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
-		"StatusHealth"				"3000"		// Base health.
-		"StatusHealthRegen"			"5"			// Health regeneration rate.
+		"StatusHealth"				"3000"		// 2500
+		"StatusHealthRegen"			"5"			// 0
 		"BountyGoldMin"				"500"		// Gold earned min.
 		"BountyGoldMax"				"600"		// Gold earned max.
 	}
 	"npc_dota_goodguys_tower3_bot"
 	{
-		"AttackDamageMin"		"192" // 142
-		"AttackDamageMax"		"212" // 162
-		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 19
+		"AttackDamageMin"			"190"		// 170
+		"AttackDamageMax"			"210"		// 174
+		"AttackRate"				"0.9"		// 0.9
+		"ArmorPhysical"				"25"		// 16
+		"MagicalResistance"			"10"		// 0
+
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
-		"StatusHealth"				"3000"		// Base health.
-		"StatusHealthRegen"			"5"			// Health regeneration rate.
+		"StatusHealth"				"3000"		// 2500
+		"StatusHealthRegen"			"5"			// 0
 		"BountyGoldMin"				"500"		// Gold earned min.
 		"BountyGoldMax"				"600"		// Gold earned max.
 	}
 	"npc_dota_badguys_tower3_bot"
 	{
-		"AttackDamageMin"		"192" // 142
-		"AttackDamageMax"		"212" // 162
-		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 19
+		"AttackDamageMin"			"190"		// 170
+		"AttackDamageMax"			"210"		// 174
+		"AttackRate"				"0.9"		// 0.9
+		"ArmorPhysical"				"25"		// 16
+		"MagicalResistance"			"10"		// 0
+
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
-		"StatusHealth"				"3000"		// Base health.
-		"StatusHealthRegen"			"5"			// Health regeneration rate.
+		"StatusHealth"				"3000"		// 2500
+		"StatusHealthRegen"			"5"			// 0
 		"BountyGoldMin"				"500"		// Gold earned min.
 		"BountyGoldMax"				"600"		// Gold earned max.
 	}
 	"npc_dota_goodguys_tower3_mid"
 	{
-		"AttackDamageMin"		"192" // 142
-		"AttackDamageMax"		"212" // 162
-		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 19
+		"AttackDamageMin"			"190"		// 170
+		"AttackDamageMax"			"210"		// 174
+		"AttackRate"				"0.9"		// 0.9
+		"ArmorPhysical"				"25"		// 16
+		"MagicalResistance"			"10"		// 0
+
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
-		"StatusHealth"				"3000"		// Base health.
-		"StatusHealthRegen"			"5"			// Health regeneration rate.
+		"StatusHealth"				"3000"		// 2500
+		"StatusHealthRegen"			"5"			// 0
 		"BountyGoldMin"				"500"		// Gold earned min.
 		"BountyGoldMax"				"600"		// Gold earned max.
 	}
 	"npc_dota_badguys_tower3_mid"
 	{
-		"AttackDamageMin"		"192" // 142
-		"AttackDamageMax"		"212" // 162
-		"AttackRate"				"0.85" // 0.95
-		"ArmorPhysical"			"25" // 19
+		"AttackDamageMin"			"190"		// 170
+		"AttackDamageMax"			"210"		// 174
+		"AttackRate"				"0.9"		// 0.9
+		"ArmorPhysical"				"25"		// 16
+		"MagicalResistance"			"10"		// 0
+
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
-		"StatusHealth"				"3000"		// Base health.
-		"StatusHealthRegen"			"5"			// Health regeneration rate.
+		"StatusHealth"				"3000"		// 2500
+		"StatusHealthRegen"			"5"			// 0
 		"BountyGoldMin"				"500"		// Gold earned min.
 		"BountyGoldMax"				"600"		// Gold earned max.
 	}
@@ -783,9 +795,9 @@
 	//=========================================================
 	"npc_dota_goodguys_tower4"
 	{
-		"AttackDamageMin"		"232" // 142
-		"AttackDamageMax"		"252" // 162
-		"AttackRate"				"0.85" // 0.95
+		"AttackDamageMin"			"210" 		// 170
+		"AttackDamageMax"			"230" 		// 174
+		"AttackRate"				"0.9"		// 0.9
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
@@ -793,13 +805,14 @@
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"30"		// 21
 		"MagicalResistance"			"30"		// 0
-		"StatusHealth"				"10000"		// Base health.
-		"StatusHealthRegen"			"10"			// Health regeneration rate.
+		"StatusHealth"				"10000"		// 2600
+		"StatusHealthRegen"			"10"		// 0
 	}
 	"npc_dota_badguys_tower4"
-	{		"AttackDamageMin"		"232" // 142
-		"AttackDamageMax"		"252" // 162
-		"AttackRate"				"0.85" // 0.95
+	{
+		"AttackDamageMin"			"210" 		// 170
+		"AttackDamageMax"			"230" 		// 174
+		"AttackRate"				"0.9"		// 0.9
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
@@ -807,8 +820,8 @@
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"30"		// 21
 		"MagicalResistance"			"30"		// 0
-		"StatusHealth"				"10000"		// Base health.
-		"StatusHealthRegen"			"10"			// Health regeneration rate.
+		"StatusHealth"				"10000"		// 2600
+		"StatusHealthRegen"			"10"		// 0
 	}
 	//=================================================================================
 	// Creeps: Good Guys Fort 基地
@@ -824,9 +837,9 @@
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"380"			// Damage range min.
-		"AttackDamageMax"			"390"			// Damage range max.
+		"AttackDamageMax"			"420"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"0.6"			// Speed of attack.
+		"AttackRate"				"0.8"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"			// Range within a target can be acquired.
 		"AttackRange"				"700"			// Range within a target can be attacked.
@@ -835,8 +848,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"24000"		// Base health.
-		"StatusHealthRegen"			"20"			// Health regeneration rate.
+		"StatusHealth"				"20000"			// 4500
+		"StatusHealthRegen"			"20"			// 12
 	}
 	//=================================================================================
 	// Creeps: Bad Guys Fort
@@ -852,9 +865,9 @@
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"380"			// Damage range min.
-		"AttackDamageMax"			"390"			// Damage range max.
+		"AttackDamageMax"			"420"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"0.6"			// Speed of attack.
+		"AttackRate"				"0.8"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"			// Range within a target can be acquired.
 		"AttackRange"				"700"			// Range within a target can be attacked.
@@ -863,8 +876,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"24000"		// Base health.
-		"StatusHealthRegen"			"20"			// Health regeneration rate.
+		"StatusHealth"				"20000"			// 4500
+		"StatusHealthRegen"			"20"			// 12
 	}
 	"dota_fountain"
 	{
@@ -885,27 +898,27 @@
 	//=================================================================================
 	"npc_dota_creep_badguys_ranged"
 	{
-		"BountyXP"					"90"		// 69
-		"BountyGoldMin"				"60"		// 43
-		"BountyGoldMax"				"70"		// 52
+		"BountyXP"					"80"		// 69
+		"BountyGoldMin"				"55"		// 43
+		"BountyGoldMax"				"65"		// 52
 	}
 	"npc_dota_creep_goodguys_ranged"
 	{
-		"BountyXP"					"90"		// 69
-		"BountyGoldMin"				"60"		// 43
-		"BountyGoldMax"				"70"		// 52
+		"BountyXP"					"80"		// 69
+		"BountyGoldMin"				"55"		// 43
+		"BountyGoldMax"				"65"		// 52
 	}
 	"npc_dota_creep_badguys_melee"
 	{
-		"BountyXP"					"70"		// 57
+		"BountyXP"					"65"		// 57
 		"BountyGoldMin"				"45"		// 34
-		"BountyGoldMax"				"55"		// 39
+		"BountyGoldMax"				"50"		// 39
 	}
 	"npc_dota_creep_goodguys_melee"
 	{
-		"BountyXP"					"70"		// 57
+		"BountyXP"					"65"		// 57
 		"BountyGoldMin"				"45"		// 34
-		"BountyGoldMax"				"55"		// 39
+		"BountyGoldMax"				"50"		// 39
 	}
 	//=================================================================================
 	// Creeps: 小兵 高级

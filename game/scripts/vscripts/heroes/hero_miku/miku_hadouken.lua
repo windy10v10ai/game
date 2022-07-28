@@ -82,9 +82,10 @@ function miku_hadouken:OnProjectileHitHandle( target, location, projectile )
 	}
 	ApplyDamage( damageTable )
 
-	-- 魔晶眩晕
+	-- 魔晶眩晕2.0s
 	if caster:HasModifier("modifier_item_aghanims_shard") then
-		target:AddNewModifier( caster, self, "modifier_stunned", {Duration = 2.0} )
+		local duration = self:GetSpecialValueFor("shard_stun") * (1 - target:GetStatusResistance())
+		target:AddNewModifier( caster, self, "modifier_stunned", {Duration = duration} )
 	end
 
 	-- get direction

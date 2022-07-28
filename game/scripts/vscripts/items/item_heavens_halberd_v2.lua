@@ -38,6 +38,7 @@ function item_heavens_halberd_v2:OnSpellStart()
             center_z =  caster:GetAbsOrigin().z,
          }
         enemy:AddNewModifier(enemy, self, "modifier_knockback", Knockback)
+        local dur = dur * (1 - enemy:GetStatusResistance())
 		enemy:AddNewModifier(enemy, self, "modifier_item_heavens_halberd_v2_debuff", {duration=dur})
 	end
 end
@@ -137,7 +138,8 @@ function modifier_item_heavens_halberd_v2:OnAttackLanded(tg)
             if  self.disarmed==true then
                 self.disarmed=false
                 self:StartIntervalThink(self.cd)
-                tg.target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_disarmed", {duration=self.disarm})
+                local duration = self.disarm * (1 - tg.target:GetStatusResistance())
+                tg.target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_disarmed", {duration=duration})
             end
         end
     end
