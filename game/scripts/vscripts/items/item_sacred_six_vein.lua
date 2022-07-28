@@ -1,6 +1,6 @@
 if item_sacred_six_vein == nil then item_sacred_six_vein = class({}) end
 
-LinkLuaModifier("modifier_item_sacred_six_vein", 			"items/item_sacred_six_vein.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_sacred_six_vein", "items/item_sacred_six_vein.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_sacred_six_vein:GetIntrinsicModifierName()
 	return "modifier_item_sacred_six_vein" end
@@ -12,7 +12,7 @@ function modifier_item_sacred_six_vein:IsHidden()		return true end
 function modifier_item_sacred_six_vein:IsPurgable()		return false end
 function modifier_item_sacred_six_vein:RemoveOnDeath()	return false end
 function modifier_item_sacred_six_vein:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
-  
+
 function modifier_item_sacred_six_vein:OnCreated()
 	if not self:GetAbility() then self:Destroy() return end
 
@@ -25,20 +25,9 @@ function modifier_item_sacred_six_vein:OnCreated()
 	self.spell_amp = self:GetAbility():GetSpecialValueFor("spell_amp")
 	self.spell_lifesteal_amp = self:GetAbility():GetSpecialValueFor("spell_lifesteal_amp")
 	self.mana_regen_multiplier = self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
-
-	if not IsServer() then return end
-
-	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-        mod:GetAbility():SetSecondaryCharges(_)
-    end
-end 
+end
 
 function modifier_item_sacred_six_vein:OnDestroy()
-    if not IsServer() then return end
-    
-    for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-        mod:GetAbility():SetSecondaryCharges(_)
-    end
 end
 
 function modifier_item_sacred_six_vein:DeclareFunctions()
