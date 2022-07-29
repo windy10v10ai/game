@@ -8,6 +8,20 @@ local tBotNameList = {
 	--"npc_dota_hero_furion", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_shadow_shaman", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_huskar", // 不会放技能，只会物品和A人
+	--"npc_dota_hero_invoker",
+	--"npc_dota_hero_batrider",
+	--"npc_dota_hero_obsidian_destroyer",
+	--"npc_dota_hero_enchantress",
+	--"npc_dota_hero_snapfire",
+	--"npc_dota_hero_broodmother",
+	--"npc_dota_hero_lycan",
+	--"npc_dota_hero_meepo",
+	--"npc_dota_hero_arc_warden",
+	--"npc_dota_hero_ancient_apparition",
+	--"npc_dota_hero_treant",
+	--"npc_dota_hero_rubick",
+	--"npc_dota_hero_shredder",
+	--"npc_dota_hero_tinker",
 	"npc_dota_hero_axe",
 	"npc_dota_hero_bane",
 	"npc_dota_hero_bounty_hunter",
