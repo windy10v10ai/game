@@ -6,6 +6,35 @@ tBotItemData = {}
 
 -- purchase item in order
 tBotItemData.purchaseItemList = {
+	npc_dota_hero_abaddon = {
+		'item_magic_wand',
+		'item_boots',
+		'item_bracer',
+		'item_headdress',
+		'item_fluffy_hat',
+		'item_recipe_holy_locket',
+		'item_power_treads',
+		'item_bracer',
+		'item_vanguard',
+		'item_blade_mail',
+		'item_platemail',
+		'item_recipe_blade_mail_2',
+		'item_falcon_blade',	-- 猎鹰战刃
+		'item_echo_sabre',
+		'item_blink',
+		'item_wings_of_haste',
+		'item_aghanims_shard',
+		'item_reaver',
+		'item_recipe_overwhelming_blink',
+		'item_shivas_guard_2',
+		'item_black_king_bar_2',
+		'item_vladmir_2',
+		'item_ultimate_scepter_2',
+		'item_insight_armor',
+		'item_undying_heart',
+		'item_moon_shard_datadriven',
+		'item_jump_jump_jump',
+	},
 	npc_dota_hero_axe = {
 		'item_magic_wand',
 		'item_boots',
@@ -463,6 +492,29 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_despotic',
 		'item_satanic',
 	},
+	npc_dota_hero_meepo = {
+		'item_magic_wand',
+		'item_boots',
+		'item_wraith_band',
+		'item_wraith_band',
+		'item_power_treads',
+		'item_orb_of_corrosion',
+		'item_falcon_blade',
+		'item_bfury',
+		'item_aghanims_shard',
+		'item_ultimate_scepter',
+		'item_recipe_ultimate_scepter_2',
+		'item_echo_sabre',
+		'item_sange_and_yasha',
+		'item_black_king_bar_2',
+		'item_infernal_desolator',
+		'item_wasp_callous',
+		'item_moon_shard_datadriven',
+		'item_abyssal_blade_v2',
+		'item_wasp_despotic',
+		'item_bfury_2',
+		'item_jump_jump_jump',
+	},
 	-- 未启用
 	npc_dota_hero_mirana = {
 		'item_magic_wand',
@@ -717,9 +769,10 @@ tBotItemData.purchaseItemList = {
 		'item_recipe_aether_lens',
 		'item_soul_booster',
 		'item_recipe_arcane_octarine_core',
+		'item_refresher',
+		'item_black_king_bar_2',
 		'item_necronomicon_staff',
-		'item_wind_waker',
-		'item_sphere_2',
+		"item_jump_jump_jump",
 	},
 	npc_dota_hero_sand_king = {
 		'item_magic_wand',
@@ -1039,6 +1092,12 @@ tBotItemData.purchaseItemList = {
 -- sell item if has more than 8 item
 -- same item only need set once
 tBotItemData.sellItemList = {
+	npc_dota_hero_abaddon = {
+		'item_vanguard',
+		'item_overwhelming_blink',
+		'item_echo_sabre_2',
+		-- local
+	},
 	npc_dota_hero_axe = {
 		'item_vanguard',
 		'item_overwhelming_blink',
@@ -1133,6 +1192,13 @@ tBotItemData.sellItemList = {
 		'item_mask_of_madness',
 		'item_sange_and_yasha',
 	},
+	npc_dota_hero_meepo = {
+		'item_wraith_band',
+		'item_power_treads',
+		'item_echo_sabre_2',
+		'item_bfury',
+		'item_sange_and_yasha',
+	},
 	npc_dota_hero_mirana = {
 		'item_force_staff',
 	},
@@ -1180,6 +1246,14 @@ tBotItemData.sellItemList = {
 		'item_bfury',
 	},
 	npc_dota_hero_shadow_shaman = {
+		'item_magic_wand',
+		'item_boots',
+		'item_null_talisman',
+		'item_holy_locket',
+		'item_arcane_boots',
+		'item_glimmer_cape',
+		'item_force_staff',
+		'item_arcane_blink',
 	},
 	npc_dota_hero_sand_king = {
 		'item_echo_sabre_2',
@@ -1446,6 +1520,9 @@ tBotItemData.wardSentryPostionList = {
 }
 -- purchase neutral item in order
 tBotItemData.addNeutralItemList = {
+	npc_dota_hero_abaddon = {
+		'item_mirror_shield',
+	},
 	npc_dota_hero_axe = {
 		'item_mirror_shield',
 	},
@@ -1503,6 +1580,9 @@ tBotItemData.addNeutralItemList = {
 	npc_dota_hero_luna = {
 		'item_ballista',
 	},
+	npc_dota_hero_meepo = {
+		'item_desolator_2',
+	},
 	npc_dota_hero_mirana = {
 		'item_ballista',
 	},
@@ -1533,11 +1613,11 @@ tBotItemData.addNeutralItemList = {
 	npc_dota_hero_riki = {
 		'item_desolator_2',
 	},
-	npc_dota_hero_shadow_shaman = {
-		'item_seer_stone',
-	},
 	npc_dota_hero_sand_king = {
 		'item_force_field',
+	},
+	npc_dota_hero_shadow_shaman = {
+		'item_seer_stone',
 	},
 	npc_dota_hero_skywrath_mage = {
 		'item_seer_stone',
@@ -1564,7 +1644,7 @@ tBotItemData.addNeutralItemList = {
 		'item_demonicon',
 	},
 	npc_dota_hero_windrunner = {
-		'item_desolator_2',
+		'item_ballista',
 	},
 	npc_dota_hero_witch_doctor = {
 		'item_seer_stone',
