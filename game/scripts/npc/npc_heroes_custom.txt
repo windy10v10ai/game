@@ -1341,6 +1341,49 @@
 			}
 		}
 	}
+    "npc_dota_hero_meepo"
+    {
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"liu_kick"
+				"2"		"miku_hadouken"
+				"3"		"pantsushot"
+				"4"		"liu_kick"
+				"5"		"miku_hadouken"
+				"6"		"liu_kick"
+				"7"		"miku_hadouken"
+				"8"		"chibi_monster"
+				"9"		"liu_kick"
+				"10"		"special_bonus_attack_speed_20"
+				"11"		"miku_hadouken"
+				"12"		"liu_kick"
+				"13"		"miku_hadouken"
+				"14"		"miku_dance"
+				"15"		"special_bonus_lifesteal_15"
+				"16"		"pantsushot"
+				"17"		""
+				"18"		"chibi_monster"
+				"19"		""
+				"20"		"special_bonus_cooldown_reduction_10"
+				"21"		""
+				"22"		""
+				"23"		""
+				"24"		""
+				"25"		"special_bonus_cleave_60"
+				"26"		""
+				"27"		"special_bonus_hp_275"
+				"28"		"special_bonus_mana_reduction_9"
+				"29"		"special_bonus_all_stats_12"
+				"30"		"special_bonus_attack_damage_160"
+				"31"		"chibi_monster"
+				"32"		"pantsushot"
+				"33"		"pantsushot"
+				"34"		"pantsushot"
+			}
+		}
+	}
 	"npc_dota_hero_mirana"
 	{
 		"Bot"
