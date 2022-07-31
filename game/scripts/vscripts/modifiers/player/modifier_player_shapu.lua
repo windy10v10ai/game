@@ -1,10 +1,10 @@
-modifier_shapu = class({})
+modifier_player_shapu = class({})
 
-function modifier_shapu:IsPurgable() return false end
-function modifier_shapu:RemoveOnDeath() return false end
-function modifier_shapu:GetTexture() return "player/plusIcon" end
+function modifier_player_shapu:IsPurgable() return false end
+function modifier_player_shapu:RemoveOnDeath() return false end
+function modifier_player_shapu:GetTexture() return "player/plusIcon" end
 
-function modifier_shapu:OnCreated()
+function modifier_player_shapu:OnCreated()
 	local primaryAttributeBouns = 20
 	self.strength = 0
 	self.agility = 0
@@ -21,7 +21,7 @@ function modifier_shapu:OnCreated()
 end
 
 
-function modifier_shapu:DeclareFunctions()
+function modifier_player_shapu:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
@@ -30,14 +30,14 @@ function modifier_shapu:DeclareFunctions()
 end
 
 
-function modifier_shapu:GetModifierBonusStats_Strength()
+function modifier_player_shapu:GetModifierBonusStats_Strength()
 	return self.strength
 end
 
-function modifier_shapu:GetModifierBonusStats_Agility()
+function modifier_player_shapu:GetModifierBonusStats_Agility()
 	return self.agility
 end
 
-function modifier_shapu:GetModifierBonusStats_Intellect()
+function modifier_player_shapu:GetModifierBonusStats_Intellect()
 	return self.intellect
 end
