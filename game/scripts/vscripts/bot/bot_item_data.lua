@@ -1414,6 +1414,7 @@ tBotItemData.wardHeroList = Set {
 	'npc_dota_hero_warlock',
 	'npc_dota_hero_ogre_magi',
 	'npc_dota_hero_oracle',
+	'npc_dota_hero_shadow_shaman',
 }
 
 tBotItemData.wardObserverPostionList = {
