@@ -217,15 +217,6 @@ function AIGameMode:OnGameStateChanged(keys)
 			end
 			v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
 			v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
-
-			-- set tower split
-			if string.find(towerName, "tower4") then
-				local towerSplitShot = v:AddAbility("tower_split_shot")
-				if towerSplitShot then
-					towerSplitShot:SetLevel(1)
-					towerSplitShot:ToggleAbility()
-				end
-			end
 		end
 		local barracks = Entities:FindAllByClassname("npc_dota_barracks")
 		for k, v in pairs(barracks) do
@@ -242,13 +233,6 @@ function AIGameMode:OnGameStateChanged(keys)
 			v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
 			v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
 			v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
-
-			-- set fort split
-			local towerSplitShot = v:AddAbility("tower_split_shot")
-			if towerSplitShot then
-				towerSplitShot:SetLevel(2)
-				towerSplitShot:ToggleAbility()
-			end
 		end
 
 		-- refresh every 10 seconds
@@ -442,9 +426,55 @@ function RecordTowerKilled(hEntity)
 		if DOTA_TEAM_GOODGUYS == team then
 			AIGameMode.tower3PushedBad = AIGameMode.tower3PushedBad + 1
 			print("tower3PushedBad ", AIGameMode.tower3PushedBad)
+			-- 破高地后 给4塔 基地添加分裂箭
+			if AIGameMode.tower3PushedBad == 1 then
+				local towers = Entities:FindAllByClassname("npc_dota_tower")
+				for _, tower in pairs(towers) do
+					if string.find(tower:GetUnitName(), "npc_dota_goodguys_tower4") then
+						local towerSplitShot = tower:AddAbility("tower_split_shot")
+						if towerSplitShot then
+							towerSplitShot:SetLevel(1)
+							towerSplitShot:ToggleAbility()
+						end
+					end
+				end
+				local forts = Entities:FindAllByClassname("npc_dota_fort")
+				for _, fort in pairs(forts) do
+					if string.find(fort:GetUnitName(), "npc_dota_goodguys_fort") then
+						local towerSplitShot = fort:AddAbility("tower_split_shot")
+						if towerSplitShot then
+							towerSplitShot:SetLevel(2)
+							towerSplitShot:ToggleAbility()
+						end
+					end
+				end
+			end
 		elseif DOTA_TEAM_BADGUYS == team then
 			AIGameMode.tower3PushedGood = AIGameMode.tower3PushedGood + 1
 			print("tower3PushedGood ", AIGameMode.tower3PushedGood)
+			-- 破高地后 给4塔 基地添加分裂箭
+			if AIGameMode.tower3PushedGood == 1 then
+				local towers = Entities:FindAllByClassname("npc_dota_tower")
+				for _, tower in pairs(towers) do
+					if string.find(tower:GetUnitName(), "npc_dota_badguys_tower4") then
+						local towerSplitShot = tower:AddAbility("tower_split_shot")
+						if towerSplitShot then
+							towerSplitShot:SetLevel(1)
+							towerSplitShot:ToggleAbility()
+						end
+					end
+				end
+				local forts = Entities:FindAllByClassname("npc_dota_fort")
+				for _, fort in pairs(forts) do
+					if string.find(fort:GetUnitName(), "npc_dota_badguys_fort") then
+						local towerSplitShot = fort:AddAbility("tower_split_shot")
+						if towerSplitShot then
+							towerSplitShot:SetLevel(2)
+							towerSplitShot:ToggleAbility()
+						end
+					end
+				end
+			end
 		end
 	elseif string.find(sName, "tower4") then
 		if DOTA_TEAM_GOODGUYS == team then
