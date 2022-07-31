@@ -6802,7 +6802,7 @@
 				"range"	"700 750 800 850 900"
 				"damage_pct"
 				{
-					"value"		"55"
+					"value"		"65"
 					"special_bonus_unique_clinkz_4"	"+15"
 				}
 
