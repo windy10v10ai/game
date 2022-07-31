@@ -62,6 +62,10 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_Kunkka(hHero)
 	elseif sHeroName == "npc_dota_hero_ogre_magi" then
 		self:ThinkUseAbility_OgreMagi(hHero)
+	elseif sHeroName == "npc_dota_hero_shadow_shaman" then
+		self:ThinkUseAbility_ShadowShaman(hHero)
+	elseif sHeroName == "npc_dota_hero_abaddon" then
+		self:ThinkUseAbility_Abaddon(hHero)
 	end
 end
 
@@ -254,4 +258,27 @@ function BotAbilityThink:ThinkUseAbility_OgreMagi(hHero)
             return true
         end
 	end
+end
+
+function BotAbilityThink:ThinkUseAbility_ShadowShaman(hHero)
+	local hAbility1 = hHero:GetAbilityByIndex(0)
+	local hAbility2 = hHero:GetAbilityByIndex(1)
+	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility6 = hHero:GetAbilityByIndex(5)
+	self:CastAbilityOnEnemyTarget(hHero, hAbility2)
+	self:CastAbilityOnEnemyTarget(hHero, hAbility1)
+	self:CastAbilityOnEnemyPostion(hHero, hAbility6)
+	self:CastAbilityOnEnemyTarget(hHero, hAbility3)
+end
+
+-- TODO
+function BotAbilityThink:ThinkUseAbility_Abaddon(hHero)
+	local hAbility1 = hHero:GetAbilityByIndex(0)
+	local hAbility2 = hHero:GetAbilityByIndex(1)
+	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility6 = hHero:GetAbilityByIndex(5)
+	self:CastAbilityOnEnemyTarget(hHero, hAbility2)
+	self:CastAbilityOnEnemyTarget(hHero, hAbility1)
+	self:CastAbilityOnEnemyPostion(hHero, hAbility6)
+	self:CastAbilityOnEnemyTarget(hHero, hAbility3)
 end
