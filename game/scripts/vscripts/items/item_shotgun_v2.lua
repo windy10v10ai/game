@@ -1,6 +1,7 @@
 if item_shotgun_v2 == nil then item_shotgun_v2 = class({}) end
 
 LinkLuaModifier("modifier_item_shotgun_v2", "items/item_shotgun_v2.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_shotgun_v2_cooldown", "items/item_shotgun_v2.lua", LUA_MODIFIER_MOTION_NONE)
 
 
 function item_shotgun_v2:GetIntrinsicModifierName()
@@ -20,20 +21,20 @@ function modifier_item_shotgun_v2:OnCreated()
 	if IsServer() then
         if not self:GetAbility() then self:Destroy() end
     end
-	
+
 	if not IsServer() then return end
 
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
-	end 
-end 
+	end
+end
 
 function modifier_item_shotgun_v2:OnDestroy()
 	if not IsServer() then return end
 
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
-	end 
+	end
 end
 
 function modifier_item_shotgun_v2:DeclareFunctions()
@@ -41,8 +42,6 @@ function modifier_item_shotgun_v2:DeclareFunctions()
 		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK
-
-
 	}
 	return funcs
 end
@@ -52,7 +51,7 @@ function modifier_item_shotgun_v2:OnCreated()
 	local ability = self:GetAbility()
 	self.attack_radius = ability:GetSpecialValueFor("attack_radius")
 	self.attack_percent = ability:GetSpecialValueFor("attack_percent")
-	
+
 end
 
 function modifier_item_shotgun_v2:GetModifierBaseAttack_BonusDamage()
@@ -68,11 +67,15 @@ function modifier_item_shotgun_v2:GetModifierProcAttack_Feedback(keys)
 	if not keys.attacker:IsRealHero() or not keys.attacker:IsRangedAttacker() then return end
 	if keys.attacker:GetTeam() == keys.target:GetTeam() then return end
 	if keys.target:IsBuilding() then return end
-	
+
+	-- if item in cooldown then return end
+	if keys.attacker:HasModifier("modifier_item_shotgun_cooldown") then return end
+	if keys.attacker:HasModifier("modifier_item_shotgun_v2_cooldown") then return end
+
 	local ability = self:GetAbility()
 	local target_loc = keys.target:GetAbsOrigin()
 	local damage = keys.original_damage  * self.attack_percent * 0.01
-	
+
 	local blast_pfx = ParticleManager:CreateParticle("particles/custom/shrapnel.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(blast_pfx, 0, target_loc)
 	ParticleManager:ReleaseParticleIndex(blast_pfx)
@@ -90,4 +93,13 @@ function modifier_item_shotgun_v2:GetModifierProcAttack_Feedback(keys)
 			})
 		end
 	end
+
+	keys.attacker:AddNewModifier(keys.attacker, self:GetAbility(), "modifier_item_shotgun_v2_cooldown", {duration = 0.1})
 end
+
+if modifier_item_shotgun_v2_cooldown == nil then modifier_item_shotgun_v2_cooldown = class({}) end
+
+function modifier_item_shotgun_v2_cooldown:IsDebuff() return false end
+function modifier_item_shotgun_v2_cooldown:IsHidden() return true end
+function modifier_item_shotgun_v2_cooldown:IsPurgable() return false end
+function modifier_item_shotgun_v2_cooldown:RemoveOnDeath() return true end
