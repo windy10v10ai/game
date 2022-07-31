@@ -6,6 +6,13 @@ local windySteamAccountID = Set {
 	916506173,
 }
 
+local mimihuaSteamAccountID = Set {
+	-- mimihua
+	385130282,
+	-- 测试
+	916506173,
+}
+
 local luoshuBuffSteamAccountID = Set {
 	-- 洛书
 	136668998,
@@ -124,6 +131,11 @@ function EnablePlayerModifier(hEntity)
 		LinkLuaModifier("modifier_player_windy", "modifiers/player/modifier_player_windy", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_windy", {})
 	end
+	if mimihuaSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_mimihua", "modifiers/player/modifier_player_mimihua", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_mimihua", {})
+	end
+
 	if lumaoSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_lumao", "modifiers/player/modifier_player_lumao", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_lumao", {})
