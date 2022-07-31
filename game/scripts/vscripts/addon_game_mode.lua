@@ -95,7 +95,6 @@ function AIGameMode:LinkLuaModifiers()
 	LinkLuaModifier("modifier_bot_think_strategy", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_bot_think_item_use", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_bot_think_ward", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier("modifier_member", "modifiers/player/modifier_member", LUA_MODIFIER_MOTION_NONE)
 end
 
 
@@ -248,12 +247,14 @@ function AIGameMode:FilterGold(tGoldFilter)
 	local iReason = tGoldFilter["reason_const"]
 
 	if iReason == DOTA_ModifyGold_HeroKill then
-		if iGold > 2000 then
+		if iGold > 4000 then
 			iGold = 1000
-		elseif iGold > 1000 then
-			iGold = iGold/4 + 500
-		elseif iGold > 500 then
-			iGold = iGold/2 + 250
+		elseif iGold > 1600 then
+			iGold = iGold/8 + 500
+		elseif iGold > 800 then
+			iGold = iGold/4 + 300
+		elseif iGold > 200 then
+			iGold = iGold/2 + 100
 		else
 			iGold = iGold
 		end
