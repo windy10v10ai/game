@@ -500,8 +500,8 @@ tBotItemData.purchaseItemList = {
 		'item_power_treads',
 		'item_orb_of_corrosion',
 		'item_falcon_blade',
-		'item_bfury',
 		'item_aghanims_shard',
+		'item_bfury',
 		'item_ultimate_scepter',
 		'item_recipe_ultimate_scepter_2',
 		'item_echo_sabre',
@@ -1582,7 +1582,7 @@ tBotItemData.addNeutralItemList = {
 		'item_ballista',
 	},
 	npc_dota_hero_meepo = {
-		'item_desolator_2',
+		'item_minotaur_horn',
 	},
 	npc_dota_hero_mirana = {
 		'item_ballista',

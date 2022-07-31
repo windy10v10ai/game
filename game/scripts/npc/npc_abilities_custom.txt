@@ -733,7 +733,7 @@
 		"AbilityCastPoint"						"0.3"
 		"AbilityCooldown"						"20 18 16 14 12"
 		"AbilityManaCost"						"80 100 120 140 160"
-		"AbilityCastRange"						"600 700 800 900 1000"
+		"AbilityCastRange"						"900"
 
 		"HasScepterUpgrade"						"0"
 
@@ -758,7 +758,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"range"							"600 700 800 900 1000"
+				"range"							"900"
 			}
 			"04"
 			{
