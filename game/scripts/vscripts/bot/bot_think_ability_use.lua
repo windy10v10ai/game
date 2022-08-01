@@ -33,6 +33,18 @@ function BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility)
 	return false
 end
 
+function BotAbilityThink:CastAbilityOnFriendTarget(hHero, hAbility)
+	if hAbility:IsFullyCastable() then
+		local iRange = hAbility:GetCastRange()
+		local tAllHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
+		if #tAllHeroes > 0 then
+			hHero:CastAbilityOnTarget(tAllHeroes[1], hAbility, hHero:GetPlayerOwnerID())
+			return true
+		end
+	end
+	return false
+end
+
 --------------------
 -- Ability Think
 --------------------
@@ -62,6 +74,12 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_Kunkka(hHero)
 	elseif sHeroName == "npc_dota_hero_ogre_magi" then
 		self:ThinkUseAbility_OgreMagi(hHero)
+	elseif sHeroName == "npc_dota_hero_shadow_shaman" then
+		self:ThinkUseAbility_ShadowShaman(hHero)
+	elseif sHeroName == "npc_dota_hero_abaddon" then
+		self:ThinkUseAbility_Abaddon(hHero)
+	elseif sHeroName == "npc_dota_hero_meepo" then
+		self:ThinkUseAbility_Meepo(hHero)
 	end
 end
 
@@ -231,15 +249,15 @@ function BotAbilityThink:ThinkUseAbility_OgreMagi(hHero)
 	local hAbility3 = hHero:GetAbilityByIndex(2)
 	local hAbility4 = hHero:GetAbilityByIndex(3)
 	local hAbility5 = hHero:GetAbilityByIndex(4)
-	self:CastAbilityOnEnemyTarget(hHero, hAbility1)
-	self:CastAbilityOnEnemyTarget(hHero, hAbility2)
+	if self:CastAbilityOnEnemyTarget(hHero, hAbility1) then return true end
+	if self:CastAbilityOnEnemyTarget(hHero, hAbility2) then return true end
 	-- set hAbility3 auto cast
 	if hAbility3:IsFullyCastable() then
 		if hAbility3:GetAutoCastState() == false then
 			hAbility3:ToggleAutoCast()
 		end
 	end
-	self:CastAbilityOnEnemyTarget(hHero, hAbility4)
+	if self:CastAbilityOnEnemyTarget(hHero, hAbility4) then return true end
 
 	-- cast on teammate
 	if hAbility5:IsFullyCastable() then
@@ -253,5 +271,98 @@ function BotAbilityThink:ThinkUseAbility_OgreMagi(hHero)
 			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility5, hHero:GetPlayerOwnerID())
             return true
         end
+	end
+end
+
+function BotAbilityThink:ThinkUseAbility_ShadowShaman(hHero)
+	local hAbility1 = hHero:GetAbilityByIndex(0)
+	local hAbility2 = hHero:GetAbilityByIndex(1)
+	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility6 = hHero:GetAbilityByIndex(5)
+	if self:CastAbilityOnEnemyTarget(hHero, hAbility2) then return true end
+	if self:CastAbilityOnEnemyTarget(hHero, hAbility1) then return true end
+	if self:CastAbilityOnEnemyPostion(hHero, hAbility6) then return true end
+	if self:CastAbilityOnEnemyTarget(hHero, hAbility3) then return true end
+end
+
+function BotAbilityThink:ThinkUseAbility_Abaddon(hHero)
+	local hAbility1 = hHero:GetAbilityByIndex(0)
+	local hAbility2 = hHero:GetAbilityByIndex(1)
+	if self:CastAbilityOnEnemyTarget(hHero, hAbility1) then return true end
+
+	if hAbility2:IsFullyCastable() then
+		local iRange = hAbility2:GetCastRange()
+		local tAllHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
+		-- for each teammate, check if he has 90% hp or less, if so, cast on him
+		for i = 1, #tAllHeroes do
+			if tAllHeroes[i]:GetHealthPercent() <= 90 then
+				hHero:CastAbilityOnTarget(tAllHeroes[i], hAbility2, hHero:GetPlayerOwnerID())
+				return true
+			end
+		end
+	end
+end
+
+function BotAbilityThink:ThinkUseAbility_Meepo(hHero)
+	if hHero:HasModifier("modifier_miku_dance") then return end
+	if hHero:HasModifier("modifier_get_down") then return end
+
+	local hAbility1 = hHero:GetAbilityByIndex(0)
+	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
+	local hAbility5 = hHero:GetAbilityByIndex(4)
+	local hAbility6 = hHero:GetAbilityByIndex(5)
+
+	if hAbility1:IsFullyCastable() then
+		local iRange = 900
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		if #tAllHeroes > 0 then
+			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility1, hHero:GetPlayerOwnerID())
+			return true
+		end
+	end
+	if hAbility3:IsFullyCastable() then
+		local iRange = 900
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		if #tAllHeroes > 0 then
+			hHero:CastAbilityOnTarget(tAllHeroes[1], hAbility3, hHero:GetPlayerOwnerID())
+			return true
+		end
+	end
+
+	if hHero:HasModifier("modifier_chibi_monster") then
+		if hAbility6 and hAbility6:IsFullyCastable() then
+			local iRange = 400
+			local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+			if #tAllHeroes > 0 then
+				hHero:CastAbilityOnTarget(tAllHeroes[1], hAbility6, hHero:GetPlayerOwnerID())
+				return true
+			end
+		end
+	else
+		if hAbility6 and hAbility6:IsFullyCastable() then
+			local iRange = 800
+			local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+			if #tAllHeroes > 0 then
+				hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
+				return true
+			end
+		end
+	end
+
+	if hAbility4:IsFullyCastable() or hAbility5:IsFullyCastable() then
+		local iRange = 600
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		-- 范围内有两人以上时跳舞
+		 if #tAllHeroes > 1 then
+			if hAbility4:IsFullyCastable() then
+				hHero:CastAbilityNoTarget(hAbility4, hHero:GetPlayerOwnerID())
+				return true
+			end
+			if hAbility5:IsFullyCastable() then
+				hHero:CastAbilityNoTarget(hAbility5, hHero:GetPlayerOwnerID())
+				return true
+			end
+		end
 	end
 end

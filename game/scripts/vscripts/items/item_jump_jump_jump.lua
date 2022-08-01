@@ -99,7 +99,9 @@ end
 function modifier_item_jump_jump_jump:GetModifierIncomingDamage_Percentage(keys)
 	if keys.attacker == keys.target or keys.original_damage <= 0 then return end
 
-	if (not keys.attacker:IsControllableByAnyPlayer()) then return end
+	if (not keys.attacker:IsHero()) then return end
+	-- if attacker has same team as target, return
+	if keys.attacker:GetTeamNumber() == keys.target:GetTeamNumber() then return end
 
 	if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then return end
 

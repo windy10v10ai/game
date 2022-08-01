@@ -1100,7 +1100,7 @@
 	}
 
 	//=================================================================================================================
-	// Recipe: Heart 龙心2
+	// Recipe: Heart 龙心2 不朽之心
 	//=================================================================================================================
 	"item_recipe_undying_heart"
 	{
@@ -1155,7 +1155,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"120"
+				"bonus_strength"		"100"
 			}
 			"02"
 			{
@@ -1219,7 +1219,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"850"
+		"ItemCost"						"950"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1813,7 +1813,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5425"
+		"ItemCost"						"5900"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1840,7 +1840,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"11800"
+		"ItemCost"						"13000"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mana;mb;octarine core"
@@ -2985,63 +2985,17 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"33"			// not used
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"33"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"33"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"33"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"33"			// not used
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"status_resistance"		"20"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_speed_percent_bonus"				"12"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_regen_amp"			"30"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_amp"				"20"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_lifesteal_amp"	"20"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_regen_multiplier"	"30"
-			}
+			"bonus_strength"		"33"
+			"bonus_agility"			"33"
+			"bonus_intellect"		"33"
+			"movement_speed_percent_bonus"				"12"
+			"status_resistance"		"20"
+			"spell_amp"				"18"
+			"hp_regen_amp"			"18"
+			"spell_lifesteal_amp"	"18"
+			"mana_regen_multiplier"	"33"
 		}
 	}
 
@@ -3093,63 +3047,17 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"66"			// not used
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"66"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"66"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"66"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"66"			// not used
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"status_resistance"		"30"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_speed_percent_bonus"				"16"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_regen_amp"			"40"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_amp"				"40"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_lifesteal_amp"	"40"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_regen_multiplier"	"40"
-			}
+			"bonus_strength"		"66"
+			"bonus_agility"			"66"
+			"bonus_intellect"		"66"
+			"movement_speed_percent_bonus"				"16"
+			"status_resistance"		"30"
+			"spell_amp"				"36"
+			"hp_regen_amp"			"36"
+			"spell_lifesteal_amp"	"36"
+			"mana_regen_multiplier"	"66"
 		}
 	}
 
@@ -4989,7 +4897,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"250"
+		"ItemCost"						"1450"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5025,7 +4933,7 @@
 		"AbilityCastRange"				"1100"
 		"AbilityCastPoint"				"0.0"
 
-		"AbilityManaCost"				"350"
+		"AbilityManaCost"				"400"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------

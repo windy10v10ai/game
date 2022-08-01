@@ -1,13 +1,29 @@
+require('modifiers/player/enable_player_modifier')
+
 local tBotNameList = {
-	--"npc_dota_hero_abaddon", // 不会放技能，只会物品和A人
+	--"npc_dota_hero_invoker",
 	--"npc_dota_hero_antimage", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_spirit_breaker", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_silencer", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_mirana", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_medusa", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_furion", // 不会放技能，只会物品和A人
-	--"npc_dota_hero_shadow_shaman", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_huskar", // 不会放技能，只会物品和A人
+	--"npc_dota_hero_batrider",
+	--"npc_dota_hero_obsidian_destroyer",
+	--"npc_dota_hero_enchantress",
+	--"npc_dota_hero_snapfire",
+	--"npc_dota_hero_broodmother",
+	--"npc_dota_hero_lycan",
+	--"npc_dota_hero_arc_warden",
+	--"npc_dota_hero_ancient_apparition",
+	--"npc_dota_hero_treant",
+	--"npc_dota_hero_rubick",
+	--"npc_dota_hero_shredder",
+	--"npc_dota_hero_tinker",
+	"npc_dota_hero_meepo",-- 不会放技能，只会物品和A人
+	"npc_dota_hero_abaddon",-- 不会放技能，只会物品和A人
+	"npc_dota_hero_shadow_shaman",-- 不会放技能，只会物品和A人
 	"npc_dota_hero_axe",
 	"npc_dota_hero_bane",
 	"npc_dota_hero_bounty_hunter",
@@ -78,118 +94,10 @@ developerSteamAccountID[314757913]="孤尘"
 developerSteamAccountID[916506173]="Arararara"
 developerSteamAccountID[385130282]="米米花"
 
-
--- 称号属性 START
-local windySteamAccountID = Set {
-	-- windy
-	136407523,
-	-- 测试
-	916506173,
-}
-
-local luoshuBuffSteamAccountID = Set {
-	-- 洛书
-	136668998,
-}
-
 local luoshuHeroSteamAccountID = Set {
 	136668998,
 	138837968,
 }
-
-local lumaoSteamAccountID = Set {
-	-- 撸猫
-	128984820,
-}
-
-local bulangyaSteamAccountID = Set {
-	-- 布狼牙
-	117417953,
-}
-
-local qiliuSteamAccountID = Set {
-	-- 76
-	353885092,
-}
-
-local hunzhuoSteamAccountID = Set {
-	-- 浑浊
-	251171524,
-}
-
-local chashaobaoSteamAccountID = Set {
-	-- 叉烧包
-	882465781,
-}
-
-local menglihuaSteamAccountID = Set {
-	-- 梦璃花
-	907056028,
-}
-
-local dabuguoSteamAccountID = Set {
-	-- 打不过？没关系！去让咸鱼卖屁股啊！
-	342049002,
-}
-
--- 加主属性
-local shapuSteamAccountID = Set {
-	-- 傻蒲
-	208461180,
-	-- 爱发电用户_b6xN
-	445619710,
-}
-
-local kfw6SteamAccountID = Set {
-	-- 爱发电用户_Kfw6
-	322271699,
-}
-
-local dalaogongjiSteamAccountID = Set {
-	-- 大佬，请问攻击按哪个按键呀？
-	1166147496,
-}
-
-local jiangcaiSteamAccountID = Set {
-	-- 酱菜
-	108208968,
-}
-
-local rwbySteamAccountID = Set {
-	-- 爱发电用户_HjPS Rwby
-	156694017,
-}
-
-local sunSteamAccountID = Set {
-	-- 爱发电用户_qHkC/sun
-	138652140,
-}
-
-local cynSteamAccountID = Set {
-	-- Cyn.
-	107625818,
-}
-local adolphzeroSteamAccountID = Set {
-	-- Adolph_Zero
-	153632407,
-}
-local j3e9SteamAccountID = Set {
-	-- 爱发电用户_J3e9
-	887874899,
-}
-local xinSteamAccountID = Set {
-	-- 新
-	171217775,
-}
-local qiannianSteamAccountID = Set {
-	-- 千年破晓
-	120921523,
-}
-local feijiSteamAccountID = Set {
-	-- 爱发电用户_htSB/QQ飞机
-	213346065,
-}
--- 称号属性 END
 
 function AIGameMode:ArrayShuffle(array)
 	local size = #array
@@ -309,15 +217,6 @@ function AIGameMode:OnGameStateChanged(keys)
 			end
 			v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
 			v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
-
-			-- set tower split
-			if string.find(towerName, "tower4") then
-				local towerSplitShot = v:AddAbility("tower_split_shot")
-				if towerSplitShot then
-					towerSplitShot:SetLevel(1)
-					towerSplitShot:ToggleAbility()
-				end
-			end
 		end
 		local barracks = Entities:FindAllByClassname("npc_dota_barracks")
 		for k, v in pairs(barracks) do
@@ -334,13 +233,6 @@ function AIGameMode:OnGameStateChanged(keys)
 			v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
 			v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
 			v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
-
-			-- set fort split
-			local towerSplitShot = v:AddAbility("tower_split_shot")
-			if towerSplitShot then
-				towerSplitShot:SetLevel(2)
-				towerSplitShot:ToggleAbility()
-			end
 		end
 
 		-- refresh every 10 seconds
@@ -534,9 +426,55 @@ function RecordTowerKilled(hEntity)
 		if DOTA_TEAM_GOODGUYS == team then
 			AIGameMode.tower3PushedBad = AIGameMode.tower3PushedBad + 1
 			print("tower3PushedBad ", AIGameMode.tower3PushedBad)
+			-- 破高地后 给4塔 基地添加分裂箭
+			if AIGameMode.tower3PushedBad == 1 then
+				local towers = Entities:FindAllByClassname("npc_dota_tower")
+				for _, tower in pairs(towers) do
+					if string.find(tower:GetUnitName(), "npc_dota_goodguys_tower4") then
+						local towerSplitShot = tower:AddAbility("tower_split_shot")
+						if towerSplitShot then
+							towerSplitShot:SetLevel(1)
+							towerSplitShot:ToggleAbility()
+						end
+					end
+				end
+				local forts = Entities:FindAllByClassname("npc_dota_fort")
+				for _, fort in pairs(forts) do
+					if string.find(fort:GetUnitName(), "npc_dota_goodguys_fort") then
+						local towerSplitShot = fort:AddAbility("tower_split_shot")
+						if towerSplitShot then
+							towerSplitShot:SetLevel(2)
+							towerSplitShot:ToggleAbility()
+						end
+					end
+				end
+			end
 		elseif DOTA_TEAM_BADGUYS == team then
 			AIGameMode.tower3PushedGood = AIGameMode.tower3PushedGood + 1
 			print("tower3PushedGood ", AIGameMode.tower3PushedGood)
+			-- 破高地后 给4塔 基地添加分裂箭
+			if AIGameMode.tower3PushedGood == 1 then
+				local towers = Entities:FindAllByClassname("npc_dota_tower")
+				for _, tower in pairs(towers) do
+					if string.find(tower:GetUnitName(), "npc_dota_badguys_tower4") then
+						local towerSplitShot = tower:AddAbility("tower_split_shot")
+						if towerSplitShot then
+							towerSplitShot:SetLevel(1)
+							towerSplitShot:ToggleAbility()
+						end
+					end
+				end
+				local forts = Entities:FindAllByClassname("npc_dota_fort")
+				for _, fort in pairs(forts) do
+					if string.find(fort:GetUnitName(), "npc_dota_badguys_fort") then
+						local towerSplitShot = fort:AddAbility("tower_split_shot")
+						if towerSplitShot then
+							towerSplitShot:SetLevel(2)
+							towerSplitShot:ToggleAbility()
+						end
+					end
+				end
+			end
 		end
 	elseif string.find(sName, "tower4") then
 		if DOTA_TEAM_GOODGUYS == team then
@@ -552,11 +490,11 @@ function HeroKilled(keys)
 	local hHero = EntIndexToHScript(keys.entindex_killed)
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
-	local tDOTARespawnTime = {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 60}
-	if iLevel <= 40 then
+	local tDOTARespawnTime = {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 65, 66, 66, 67, 67, 68, 68, 69, 69, 70, 70}
+	if iLevel <= 50 then
 		fRespawnTime = math.ceil(tDOTARespawnTime[iLevel]*AIGameMode.iRespawnTimePercentage/100.0)
 	else
-		fRespawnTime = math.ceil((iLevel/4 + 50)*AIGameMode.iRespawnTimePercentage/100.0)
+		fRespawnTime = math.ceil((iLevel/4 + 58)*AIGameMode.iRespawnTimePercentage/100.0)
 	end
 
 	if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
@@ -699,105 +637,7 @@ function AIGameMode:OnNPCSpawned(keys)
 
 		-- Player Buff
 		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
-			local steamAccountID = PlayerResource:GetSteamAccountID(hEntity:GetPlayerOwnerID())
-			if windySteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_windy", "modifiers/player/modifier_windy", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_windy", {})
-			end
-			if lumaoSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_lumao", "modifiers/player/modifier_lumao", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_lumao", {})
-			end
-			if bulangyaSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_bulangya", "modifiers/player/modifier_bulangya", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_bulangya", {})
-			end
-			if qiliuSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_76", "modifiers/player/modifier_76", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_76", {})
-			end
-			if hunzhuoSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_hunzhuo", "modifiers/player/modifier_hunzhuo", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_hunzhuo", {})
-			end
-			if chashaobaoSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_chashaobao", "modifiers/player/modifier_chashaobao", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_chashaobao", {})
-			end
-			if menglihuaSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_menglihua", "modifiers/player/modifier_menglihua", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_menglihua", {})
-			end
-			if dabuguoSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_dabuguo", "modifiers/player/modifier_dabuguo", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_dabuguo", {})
-			end
-			if shapuSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_shapu", "modifiers/player/modifier_shapu", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_shapu", {})
-			end
-			if kfw6SteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_kfw6", "modifiers/player/modifier_kfw6", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_kfw6", {})
-			end
-			if dalaogongjiSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_dalaogongji", "modifiers/player/modifier_dalaogongji", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_dalaogongji", {})
-			end
-			if jiangcaiSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_jiangcai", "modifiers/player/modifier_jiangcai", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_jiangcai", {})
-			end
-			if rwbySteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_rwby", "modifiers/player/modifier_rwby", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_rwby", {})
-			end
-			if sunSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_sun", "modifiers/player/modifier_sun", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_sun", {})
-			end
-			if cynSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_cyn1", "modifiers/player/modifier_cyn1", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_cyn1", {})
-				LinkLuaModifier("modifier_cyn2", "modifiers/player/modifier_cyn2", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_cyn2", {})
-				LinkLuaModifier("modifier_cyn3", "modifiers/player/modifier_cyn3", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_cyn3", {})
-			end
-			if adolphzeroSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_adolphzero", "modifiers/player/modifier_adolphzero", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_adolphzero", {})
-			end
-			if j3e9SteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_j3e9", "modifiers/player/modifier_j3e9", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_j3e9", {})
-			end
-			if xinSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_xin", "modifiers/player/modifier_xin", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_xin", {})
-			end
-			if qiannianSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_qiannian", "modifiers/player/modifier_qiannian", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_qiannian", {})
-			end
-			if feijiSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_feiji", "modifiers/player/modifier_feiji", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_feiji", {})
-			end
-
-
-			if luoshuBuffSteamAccountID[steamAccountID] then
-				LinkLuaModifier("modifier_saber", "modifiers/player/modifier_saber", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_saber", {})
-				LinkLuaModifier("modifier_abyss", "modifiers/player/modifier_abyss", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_abyss", {})
-				LinkLuaModifier("modifier_goku", "modifiers/player/modifier_goku", LUA_MODIFIER_MOTION_NONE)
-				hEntity:AddNewModifier(hEntity, nil, "modifier_goku", {})
-			end
-
-			if WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
-				hEntity:AddNewModifier(hEntity, nil, "modifier_member", {})
-			end
+			EnablePlayerModifier(hEntity)
 		end
 
 		hEntity.bInitialized = true

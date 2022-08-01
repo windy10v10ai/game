@@ -143,10 +143,8 @@
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"
 
-		"DOTA_Tooltip_modifier_lumao"					"<font color='#fc8eac'>★ Unique Lumao Buff ★</font>"
-		"DOTA_Tooltip_modifier_member"					"<font color='#FFCC66'>★ Member Ship Buff ★</font>"
-		"DOTA_Tooltip_modifier_member_Description"	"Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
-		"DOTA_Tooltip_modifier_saber"					"<font color='#FFCC66'>★ Saber's Master ★</font>"
+		"DOTA_Tooltip_modifier_membership"					"<font color='#FFCC66'>★ Member Ship Buff ★</font>"
+		"DOTA_Tooltip_modifier_membership_Description"	"Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"Miku"
@@ -884,14 +882,14 @@
 
         // item_shotgun
 		"DOTA_Tooltip_ability_item_shotgun"                                  "Double-barreled Shotgun"
-    	"DOTA_Tooltip_ability_item_shotgun_Description"                      "<h1>Passive: Scatterblast</h1>RANGED ONLY: grants %attack_radius%%% splash damage (Physical) in %attack_percent% radius."
+    	"DOTA_Tooltip_ability_item_shotgun_Description"                      "<h1>Passive: Scatterblast</h1>RANGED ONLY: grants %attack_radius%%% splash damage (Physical) in %attack_percent% radius.<br/>Scatterblast cannot stack, has 0.1s built-in cooldown."
         "DOTA_Tooltip_ability_item_shotgun_attack_speed"           "+$attack"
         "DOTA_Tooltip_ability_item_shotgun_bonus_damage"           "+$damage"
 		"DOTA_Tooltip_ability_item_shotgun_lore"                             "Bang!Bang!"
 
         // item_shotgun_v2
 		"DOTA_Tooltip_ability_item_shotgun_v2"                                "Three Tube Shotguns"
-		"DOTA_Tooltip_ability_item_shotgun_v2_Description"                    "<h1>Passive: Greater Scatterblast</h1>RANGED ONLY: grants %attack_radius%%% splash damage (Magical) in %attack_percent% radius."
+		"DOTA_Tooltip_ability_item_shotgun_v2_Description"                    "<h1>Passive: Greater Scatterblast</h1>RANGED ONLY: grants %attack_radius%%% splash damage (Magical) in %attack_percent% radius.<br/>Scatterblast cannot stack, has 0.1s built-in cooldown."
         "DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"           "+$attack"
         "DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"           "+$damage"
 		"DOTA_Tooltip_ability_item_shotgun_v2_lore"                           "Bang!Bang!Bang!"
