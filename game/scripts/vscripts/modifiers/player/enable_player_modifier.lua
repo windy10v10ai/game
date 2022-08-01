@@ -116,6 +116,12 @@ local taikongSteamAccountID = Set {
 	-- 太空王子
 	140769251,
 }
+local wonderpisSteamAccountID = Set {
+	-- wonderpis
+	121514138,
+	-- 测试
+	916506173,
+}
 -- 称号属性 END
 
 function EnablePlayerModifier(hEntity)
@@ -221,6 +227,10 @@ function EnablePlayerModifier(hEntity)
 	if taikongSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_taikong", "modifiers/player/modifier_player_taikong", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_taikong", {})
+	end
+	if wonderpisSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_wonderpis", "modifiers/player/modifier_player_wonderpis", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_wonderpis", {})
 	end
 
 

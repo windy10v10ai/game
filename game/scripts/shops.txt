@@ -104,7 +104,7 @@
 		//"item"		"item_oblivion_staff"
 		//"item"		"item_pers"
  		"item"		"item_mask_of_madness"
-		"item"		"item_armlet"
+		"item"		"item_armlet_pro_max"
 		"item"		"item_helm_of_the_overlord"
 		"item"		"item_hand_of_midas"
 		"item"		"item_travel_boots"

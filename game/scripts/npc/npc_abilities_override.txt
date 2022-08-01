@@ -953,7 +953,7 @@
 	{
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"375"
+		"ItemCost"						"475"
 
 		"ItemRequirements"
 		{
@@ -972,67 +972,18 @@
 		"AbilityCooldown"				"10.0"
 		"AbilitySharedCooldown"			"magicwand"
 
-
-		// Sound
-		//-------------------------------------------------------------------------------------------------------------
-		"UIPickupSound"					"Item.PickUpRingShop"
-		"UIDropSound"					"Item.DropRingShop"
-		"WorldDropSound"				"Item.DropRingWorld"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"350"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"350"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"aura_health_regen"	"6.5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"	"1800"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_increase"		"30"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_charges"			"30"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"charge_radius"			"1800"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"8"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"restore_per_charge"	"30"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"charge_gain_timer"		"5"
-			}
+				"bonus_health"			"350"	// 250
+				"bonus_mana"			"350"	// 300
+				"aura_health_regen"	"6"			// 3
+				"aura_radius"	"1200"			// 1200
+				"heal_increase"		"30"		// 30
+				"max_charges"			"30"	// 20
+				"charge_radius"			"1200"	// 1200
+				"bonus_all_stats"		"8"		// 3
+				"restore_per_charge"	"25"	// 15
+				"charge_gain_timer"		"5"		// 10
 		}
 	}
 
@@ -3313,7 +3264,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"health_damage"				"0.32 0.38 0.44 0.50 0.56"
+				"health_damage"				"0.32 0.36 0.40 0.44 0.48"
 				"LinkedSpecialBonus"		"special_bonus_unique_huskar"
 			}
 			"03"
