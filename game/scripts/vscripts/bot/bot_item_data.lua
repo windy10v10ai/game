@@ -754,12 +754,12 @@ tBotItemData.purchaseItemList = {
 		'item_boots',
 		'item_null_talisman',
 		'item_holy_locket',
+		'item_aghanims_shard',
 		'item_arcane_boots',
 		'item_glimmer_cape',
 		'item_force_staff',
 		'item_wings_of_haste',
 		'item_blink',
-		'item_aghanims_shard',
 		'item_ultimate_scepter',
 		'item_recipe_ultimate_scepter_2',
 		'item_mystic_staff',
@@ -781,11 +781,12 @@ tBotItemData.purchaseItemList = {
 		'item_bracer',
 		'item_quelling_blade_2_datadriven',
 		'item_bracer',
+		'item_holy_locket',
 		'item_arcane_boots',
 		'item_aether_lens_3',
 		'item_blink',
+		'item_blade_mail_2',
 		'item_shivas_guard_2',
-		'item_echo_sabre_2',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_ultimate_scepter',
@@ -799,6 +800,7 @@ tBotItemData.purchaseItemList = {
 		'item_sheepstick',
 		'item_moon_shard_datadriven',
 		'item_jump_jump_jump',
+		'item_necronomicon_staff',
 	},
 	npc_dota_hero_skywrath_mage = {
 		'item_tango',
@@ -1257,8 +1259,9 @@ tBotItemData.sellItemList = {
 		'item_arcane_blink',
 	},
 	npc_dota_hero_sand_king = {
-		'item_echo_sabre_2',
+		'item_holy_locket',
 		'item_overwhelming_blink',
+		'item_blade_mail_2',
 	},
 	npc_dota_hero_skywrath_mage = {
 		'item_rod_of_atos',
@@ -1616,7 +1619,7 @@ tBotItemData.addNeutralItemList = {
 		'item_desolator_2',
 	},
 	npc_dota_hero_sand_king = {
-		'item_force_field',
+		'item_giants_ring',
 	},
 	npc_dota_hero_shadow_shaman = {
 		'item_seer_stone',
@@ -1637,7 +1640,7 @@ tBotItemData.addNeutralItemList = {
 		'item_pirate_hat',
 	},
 	npc_dota_hero_vengefulspirit = {
-		'item_desolator_2',
+		'item_ballista',
 	},
 	npc_dota_hero_viper = {
 		'item_ballista',
