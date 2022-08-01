@@ -871,8 +871,8 @@
 
 		"AbilityCastPoint"						"0.3"
 		//"AbilityChannelTime"					"5.0"
-		"AbilityCooldown"						"60"
-		"AbilityManaCost"						"250 400 550"
+		"AbilityCooldown"						"60 50 40"
+		"AbilityManaCost"						"200 350 500"
 
 		"HasScepterUpgrade"						"0"
 
@@ -882,44 +882,15 @@
 
 
 		"AbilityCastAnimation"          "ACT_DOTA_IDLE"
-
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"damage"						"80 120 160"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"hp"	                        "2000 3000 4000"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"agility"						"40 60 80"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"radius"	"800"
-			}
-			"05"
-			{
-				"var_type"								"FIELD_FLOAT"
-				"as"	"150"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"proc"				"400"
-			}
-			"10"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"fixed_duration"				"30"
-			}
+			"hp"						"1600 2400 3200"
+			"damage"					"60 90 120"
+			"agility"					"40 60 80"
+			"radius"					"800"
+			"as"						"150"
+			"proc"						"400"
+			"fixed_duration"			"30"
 		}
 	}
 	"chibi_hit"
@@ -954,12 +925,12 @@
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"15"
-		"AbilityManaCost"				"300 400 500"
+		"AbilityManaCost"				"200 300 400"
 		"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_5"
 
 		// Damage
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 1500 2000"
+		"AbilityDamage"					"800 1200 1600"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
