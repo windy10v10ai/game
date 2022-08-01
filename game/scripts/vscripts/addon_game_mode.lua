@@ -95,7 +95,6 @@ function AIGameMode:LinkLuaModifiers()
 	LinkLuaModifier("modifier_bot_think_strategy", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_bot_think_item_use", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_bot_think_ward", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier("modifier_member", "modifiers/player/modifier_member", LUA_MODIFIER_MOTION_NONE)
 end
 
 
@@ -145,33 +144,33 @@ function AIGameMode:PreGameOptions()
 			0,
 			180,
 			510,
-			960,
-			1520,
-			2110,
-			2850,
-			3640,
-			4480,
-			5370,
-			6310,
-			7380,
-			8580,
-			10005,
-			11555,
-			13230,
-			15030,
-			16955,
-			18955,
-			21045,
-			23145,
-			25495,
-			28095,
-			30945,
-			34045,
-			37545,
-			42045,
-			47545,
-			54045,
-			61545,
+			990,
+			1620,
+			2400,
+			3240,
+			4140,
+			5100,
+			6120,
+			7200,
+			8350,
+			9650,
+			11100,
+			12700,
+			14450,
+			16350,
+			18350,
+			20450,
+			22650,
+			25050,
+			27650,
+			30450,
+			33450,
+			36950,
+			40950,
+			45450,
+			50450,
+			55950,
+			61950,
 		} -- value fixed
 		local iRequireLevel = tLevelRequire[30]
 		for i = 31, self.iMaxLevel do
@@ -223,13 +222,13 @@ function AIGameMode:PreGameOptions()
 	self.roshanNumber = 0
 
 	if self.fBotGoldXpMultiplier < 5 then
-		self.botPushMin = RandomInt(12, 14)
+		self.botPushMin = RandomInt(14, 18)
 	elseif self.fBotGoldXpMultiplier <= 5 then
-		self.botPushMin = RandomInt(10, 12)
+		self.botPushMin = RandomInt(11, 14)
 	elseif self.fBotGoldXpMultiplier <= 8 then
-		self.botPushMin = RandomInt(8, 10)
+		self.botPushMin = RandomInt(8, 11)
 	else
-		self.botPushMin = RandomInt(6, 8)
+		self.botPushMin = RandomInt(6, 9)
 	end
 
 	print("botPushMin: "..self.botPushMin)
@@ -248,12 +247,14 @@ function AIGameMode:FilterGold(tGoldFilter)
 	local iReason = tGoldFilter["reason_const"]
 
 	if iReason == DOTA_ModifyGold_HeroKill then
-		if iGold > 2000 then
+		if iGold > 4000 then
 			iGold = 1000
-		elseif iGold > 1000 then
-			iGold = iGold/4 + 500
-		elseif iGold > 500 then
-			iGold = iGold/2 + 250
+		elseif iGold > 1600 then
+			iGold = iGold/8 + 500
+		elseif iGold > 800 then
+			iGold = iGold/4 + 300
+		elseif iGold > 200 then
+			iGold = iGold/2 + 100
 		else
 			iGold = iGold
 		end

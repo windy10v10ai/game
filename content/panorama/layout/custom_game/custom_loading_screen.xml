@@ -87,7 +87,6 @@
 							<Label text="75" id="75"/>
 							<Label text="100" id="100"/>
 							<Label text="200" id="200"/>
-							<Label text="500" id="500"/>
 						</DropDown>
 					</Panel>
 
@@ -134,7 +133,6 @@
 					<Panel id="StartingGoldPlayerPanel"	class="GameOptionsSubPanel">
 						<Label id="StartingGoldPlayerTitle" class="GameOptionsLabel" text="#starting_gold_player" />
 						<DropDown id="starting_gold_player_dropdown" class="GameOptionsDropdown">
-							<Label text="600" id="600"/>
 							<Label text="1000" id="1000"/>
 							<Label text="2000" id="2000"/>
 							<Label text="3000" id="3000"/>
@@ -143,7 +141,6 @@
 					<Panel id="StartingGoldBotPanel"	class="GameOptionsSubPanel">
 						<Label id="StartingGoldBotTitle" class="GameOptionsLabel" text="#starting_gold_bot" />
 						<DropDown id="starting_gold_bot_dropdown" class="GameOptionsDropdown">
-							<Label text="600" id="600"/>
 							<Label text="1000" id="1000"/>
 							<Label text="2000" id="2000"/>
 							<Label text="3000" id="3000"/>

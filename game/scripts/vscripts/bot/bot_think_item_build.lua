@@ -215,8 +215,19 @@ end
 function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
   local iHeroName = hHero:GetName()
 
-  local multiIndex = "x"..AIGameMode.fBotGoldXpMultiplier
-  multiIndex = multiIndex:gsub("%.", "%_")
+  local multiIndex = "x1"
+  if AIGameMode.fBotGoldXpMultiplier < 5 then
+    multiIndex = "x1"
+	elseif AIGameMode.fBotGoldXpMultiplier <= 5 then
+    multiIndex = "x5"
+	elseif AIGameMode.fBotGoldXpMultiplier <= 8 then
+    multiIndex = "x8"
+	elseif AIGameMode.fBotGoldXpMultiplier <= 10 then
+    multiIndex = "x10"
+	else
+    multiIndex = "x20"
+	end
+
   local addNeutralItemTime = tBotItemData.addNeutralItemMultiTimeMap[multiIndex] or tBotItemData.addNeutralItemMultiTimeMap["x1"]
 
   if (GameTime > addNeutralItemTime[1]) then
@@ -267,11 +278,15 @@ end
 -- 插眼
 local wardItemTable = {
   "item_ward_observer",
+  "item_ward_observer",
   "item_ward_sentry",
   "item_ward_sentry",
   "item_ward_sentry",
   "item_ward_sentry",
   "item_ward_sentry",
+  "item_ward_sentry",
+  "item_ward_sentry",
+  "item_dust",
 }
 function BotThink:AddWardItem(hHero)
   local iItemCount = hHero:GetNumItemsInInventory()
@@ -292,7 +307,7 @@ function BotThink:AddWardItem(hHero)
     return
   end
 
-  local itemIndex = RandomInt(1, 6)
+  local itemIndex = RandomInt(1, #wardItemTable)
   local sItemName = wardItemTable[itemIndex]
   local addedItem = hHero:AddItemByName(sItemName)
 end

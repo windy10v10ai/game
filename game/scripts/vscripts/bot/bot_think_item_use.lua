@@ -81,7 +81,9 @@ function BotItemThink:UseActiveItem(hHero)
         if BotItemThink:UseItem(tUsableItems, hHero, "item_silver_edge_2") then
             return true
         end
-    else
+    end
+
+    if hHero:GetHealthPercent() > 30 then
         -- item_jump_jump_jump 大跳刀
         if BotItemThink:UseItemOnPostion(tUsableItems, hHero, "item_jump_jump_jump", hTarget) then
             return true

@@ -12,7 +12,7 @@ panorama/images/custom_game/end/*.vtex_c
 panorama/images/custom_game/end/*.vxml_c
 /.tool/reference
 panorama_debugger.cfg
-resource/custom_game_whitelist.txt
+game/resource/custom_game_whitelist.txt
 /node_modules
 src/content/
 src/game/

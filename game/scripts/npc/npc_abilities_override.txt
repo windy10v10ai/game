@@ -753,6 +753,7 @@
 			}
 		}
 	}
+	// 跳刀卷轴
 	"item_recipe_overwhelming_blink"
 	{
 		"ItemCost"						"250"
@@ -764,6 +765,12 @@
 	"item_recipe_arcane_blink"
 	{
 		"ItemCost"						"250"
+	}
+
+	// 以太卷轴
+	"item_recipe_aether_lens"
+	{
+		"ItemCost"						"825"
 	}
 
 	"item_black_king_bar"
@@ -800,23 +807,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
-		"ItemStockTime"					"60.0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"lifetime"				"480"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration_minutes_tooltip"				"8"
-			}
-		}
+		"ItemStockTime"					"90.0"	// 135.0
 	}
 	//=================================================================================================================
 	// Sentry Ward
@@ -826,16 +817,13 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1.0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"40"
 		"ItemStockMax"					"10"
 		"ItemStockInitial"				"3"
-		"ItemStockTime"					"45"
+		"ItemStockTime"					"60"	// 70.0
 	}
 	"item_ward_dispenser"
 	{
@@ -6814,7 +6802,7 @@
 				"range"	"700 750 800 850 900"
 				"damage_pct"
 				{
-					"value"		"55"
+					"value"		"65"
 					"special_bonus_unique_clinkz_4"	"+15"
 				}
 
@@ -8471,7 +8459,7 @@
 	"nevermore_requiem"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"100 90 80 70 60"
+		"AbilityCooldown"				"120 110 100 90 80"
 		"AbilityDamage"					"80 120 160 240 320"
 		"AbilityManaCost"				"150 200 250 300 350"
 		"AbilityValues"
@@ -8489,23 +8477,6 @@
 				"value"					"2.4"
 				"LinkedSpecialBonus"		"special_bonus_unique_nevermore_6"
 				"LinkedSpecialBonusField"		"value2"
-			}
-			"requiem_reduction_radius"	"700 700 700"
-			"requiem_soul_conversion"	"1"
-			"requiem_line_width_start"	"125"
-			"requiem_line_width_end"	"350"
-			"requiem_line_speed"	"700 700 700"
-			"soul_death_release"	"0.5"
-			"requiem_heal_pct_scepter"
-			{
-				"value"			"100"
-				"RequiresScepter"			"1"
-			}
-			"requiem_damage_pct_scepter"
-			{
-				"value"			"40"
-				"RequiresScepter"			"1"
-				"CalculateSpellDamageTooltip"	"0"
 			}
 		}
 	}
