@@ -13703,7 +13703,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"shard_ward_count"		"8"
+				"shard_ward_count"		"6"
 				"RequiresShard"			"1"
 			}
 			"06"
