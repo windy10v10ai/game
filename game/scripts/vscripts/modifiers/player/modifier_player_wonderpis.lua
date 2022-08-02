@@ -5,7 +5,7 @@ function modifier_player_wonderpis:RemoveOnDeath() return false end
 function modifier_player_wonderpis:GetTexture() return "player/wonderpis" end
 
 function modifier_player_wonderpis:OnCreated()
-	self.iModelScale = 0.5
+	self.iModelScale = -50
 end
 function modifier_player_wonderpis:DeclareFunctions()
 	return {

@@ -886,7 +886,7 @@
 
 		"AttackDamageMin"			"390"		// 290
 		"AttackDamageMax"			"410"		// 310
-		"AttackRate"				"0.04"		// 0.15
+		"AttackRate"				"0.03"		// 0.15
 		"AttackAcquisitionRange"	"1400"		// 1200
 		"AttackRange"				"1400"		// 1200
 		"ProjectileSpeed"			"1800"		// 1400
