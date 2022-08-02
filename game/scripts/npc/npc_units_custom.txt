@@ -898,25 +898,25 @@
 	//=================================================================================
 	"npc_dota_creep_badguys_ranged"
 	{
-		"BountyXP"					"80"		// 69
-		"BountyGoldMin"				"55"		// 43
-		"BountyGoldMax"				"65"		// 52
+		"BountyXP"					"76"		// 69
+		"BountyGoldMin"				"50"		// 43
+		"BountyGoldMax"				"60"		// 52
 	}
 	"npc_dota_creep_goodguys_ranged"
 	{
-		"BountyXP"					"80"		// 69
-		"BountyGoldMin"				"55"		// 43
-		"BountyGoldMax"				"65"		// 52
+		"BountyXP"					"76"		// 69
+		"BountyGoldMin"				"50"		// 43
+		"BountyGoldMax"				"60"		// 52
 	}
 	"npc_dota_creep_badguys_melee"
 	{
-		"BountyXP"					"65"		// 57
+		"BountyXP"					"62"		// 57
 		"BountyGoldMin"				"45"		// 34
 		"BountyGoldMax"				"50"		// 39
 	}
 	"npc_dota_creep_goodguys_melee"
 	{
-		"BountyXP"					"65"		// 57
+		"BountyXP"					"62"		// 57
 		"BountyGoldMin"				"45"		// 34
 		"BountyGoldMax"				"50"		// 39
 	}
