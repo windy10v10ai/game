@@ -982,7 +982,7 @@
 				"max_charges"			"30"	// 20
 				"charge_radius"			"1200"	// 1200
 				"bonus_all_stats"		"8"		// 3
-				"restore_per_charge"	"25"	// 15
+				"restore_per_charge"	"30"	// 15
 				"charge_gain_timer"		"5"		// 10
 		}
 	}
