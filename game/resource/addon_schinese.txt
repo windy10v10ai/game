@@ -185,7 +185,9 @@
 		"DOTA_Tooltip_modifier_player_pns"						"<font color='#FFCC66'>★ 苟圣 ★</font>"
 		"DOTA_Tooltip_modifier_player_taikong"					"<font color='#FFCC66'>★ 太阳轰炸准备就绪 ★</font>"
 		"DOTA_Tooltip_modifier_player_wonderpis"				"<font color='#FFCC66'>★ 局外人 ★</font>"
-		"DOTA_Tooltip_modifier_player_wonderpis_Description"	"<font color='#FFCC66'>★ 壮士，请先打我队友！ ★</font>"
+		"DOTA_Tooltip_modifier_player_wonderpis_Description"	"<font color='#FFCC66'> 壮士，请先打我队友！ </font>"
+		"DOTA_Tooltip_modifier_player_xiayibing"				"<font color='#0096FF'>★ 冰神 ★</font>"
+		"DOTA_Tooltip_modifier_player_xiayibing_Description"	"<font color='#0096FF'> 2009级卡尔亡 </font>"
 
 
 		// 初音未来
