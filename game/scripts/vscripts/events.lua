@@ -443,7 +443,7 @@ function RecordTowerKilled(hEntity)
 					if string.find(fort:GetUnitName(), "npc_dota_goodguys_fort") then
 						local towerSplitShot = fort:AddAbility("tower_split_shot")
 						if towerSplitShot then
-							towerSplitShot:SetLevel(2)
+							towerSplitShot:SetLevel(3)
 							towerSplitShot:ToggleAbility()
 						end
 					end
