@@ -379,7 +379,7 @@ function BotThink:AddMoney(hHero)
     multiplier = AIGameMode.fPlayerGoldXpMultiplier
   end
 
-	local iAddMoney = math.floor(5 + multiplier*iAddBase)
+	local iAddMoney = math.floor(multiplier*iAddBase)
 
   if goldPerSec > iAddMoney then
     return false
