@@ -12392,7 +12392,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"shard_max_count"			"4"
+				"shard_max_count"			"3"
 				"RequiresShard"					"1"
 			}
 			"06"
