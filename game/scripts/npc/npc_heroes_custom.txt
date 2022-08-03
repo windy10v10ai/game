@@ -233,11 +233,6 @@
 		"GameSoundsFile"				"soundevents/game_sounds_heroes/game_sounds_saber.vsndevts"
 	}
 
-	"npc_dota_hero_clinkz"
-	{
-		"DisableWearables" 			"1"
-	}
-
 	"npc_dota_hero_techies"
 	{
 		"DisableWearables" 			"1"
