@@ -113,6 +113,15 @@
 
 		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%非英雄攻击额外伤害："
 
+		"DOTA_Tooltip_ability_tower_armor_aura"							"高地防御力光环"
+		"DOTA_Tooltip_ability_tower_armor_aura_Description"				"增加附近友军%bonus_armor%的防御力。"
+		"DOTA_Tooltip_ability_tower_magical_armor_aura"					"高地魔抗光环"
+		"DOTA_Tooltip_ability_tower_magical_armor_aura_Description"		"增加附近友军%bonus_magical_armor%的魔法抗性。"
+
+		"DOTA_Tooltip_ability_tower_split_shot"							"防御塔分裂箭"
+		"DOTA_Tooltip_ability_tower_split_shot_Description"				"当高地被破之后自动习得此技能。"
+		"DOTA_Tooltip_ability_tower_split_shot_arrow_count"				"额外目标数："
+
 		///////////////////////////////////////////////////
 		//
 		//            Heroes
@@ -144,7 +153,7 @@
 		"npc_dota_hero_techies"					"茶神"
 
 		"DOTA_Tooltip_modifier_membership"						"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
-		"DOTA_Tooltip_modifier_membership_Description"			"额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
+		"DOTA_Tooltip_modifier_membership_Description"			"额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
 		"DOTA_Tooltip_modifier_player_mimihua"					"<font color='#FFCC66'>★ 一次性消耗品 ★</font>"
@@ -184,6 +193,10 @@
 		"DOTA_Tooltip_modifier_player_feiji_Description"		"<font color='#A149FA'> 古户绘梨花受到了奇迹的魔女贝伦卡斯泰露的庇佑 </font>"
 		"DOTA_Tooltip_modifier_player_pns"						"<font color='#FFCC66'>★ 苟圣 ★</font>"
 		"DOTA_Tooltip_modifier_player_taikong"					"<font color='#FFCC66'>★ 太阳轰炸准备就绪 ★</font>"
+		"DOTA_Tooltip_modifier_player_wonderpis"				"<font color='#FFCC66'>★ 局外人 ★</font>"
+		"DOTA_Tooltip_modifier_player_wonderpis_Description"	"<font color='#FFCC66'> 壮士，请先打我队友！ </font>"
+		"DOTA_Tooltip_modifier_player_xiayibing"				"<font color='#0096FF'>★ 冰神 ★</font>"
+		"DOTA_Tooltip_modifier_player_xiayibing_Description"	"<font color='#0096FF'> 2009级卡尔亡 </font>"
 
 
 		// 初音未来

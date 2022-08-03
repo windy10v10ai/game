@@ -795,8 +795,8 @@
 	//=========================================================
 	"npc_dota_goodguys_tower4"
 	{
-		"AttackDamageMin"			"210" 		// 170
-		"AttackDamageMax"			"230" 		// 174
+		"AttackDamageMin"			"240" 		// 170
+		"AttackDamageMax"			"260" 		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -810,8 +810,8 @@
 	}
 	"npc_dota_badguys_tower4"
 	{
-		"AttackDamageMin"			"210" 		// 170
-		"AttackDamageMax"			"230" 		// 174
+		"AttackDamageMin"			"240" 		// 170
+		"AttackDamageMax"			"260" 		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -836,11 +836,11 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"380"			// Damage range min.
-		"AttackDamageMax"			"420"			// Damage range max.
+		"AttackDamageMin"			"480"			// Damage range min.
+		"AttackDamageMax"			"520"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.8"			// Speed of attack.
-		"AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
+		// "AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"			// Range within a target can be acquired.
 		"AttackRange"				"700"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"			// Particle system model for projectile.
@@ -864,11 +864,11 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"380"			// Damage range min.
-		"AttackDamageMax"			"420"			// Damage range max.
+		"AttackDamageMin"			"480"			// Damage range min.
+		"AttackDamageMax"			"520"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.8"			// Speed of attack.
-		"AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
+		// "AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"			// Range within a target can be acquired.
 		"AttackRange"				"700"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"			// Particle system model for projectile.
@@ -886,7 +886,7 @@
 
 		"AttackDamageMin"			"390"		// 290
 		"AttackDamageMax"			"410"		// 310
-		"AttackRate"				"0.04"		// 0.15
+		"AttackRate"				"0.03"		// 0.15
 		"AttackAcquisitionRange"	"1400"		// 1200
 		"AttackRange"				"1400"		// 1200
 		"ProjectileSpeed"			"1800"		// 1400
@@ -898,27 +898,27 @@
 	//=================================================================================
 	"npc_dota_creep_badguys_ranged"
 	{
-		"BountyXP"					"80"		// 69
-		"BountyGoldMin"				"55"		// 43
-		"BountyGoldMax"				"65"		// 52
+		"BountyXP"					"76"		// 69
+		"BountyGoldMin"				"50"		// 43
+		"BountyGoldMax"				"60"		// 52
 	}
 	"npc_dota_creep_goodguys_ranged"
 	{
-		"BountyXP"					"80"		// 69
-		"BountyGoldMin"				"55"		// 43
-		"BountyGoldMax"				"65"		// 52
+		"BountyXP"					"76"		// 69
+		"BountyGoldMin"				"50"		// 43
+		"BountyGoldMax"				"60"		// 52
 	}
 	"npc_dota_creep_badguys_melee"
 	{
-		"BountyXP"					"65"		// 57
-		"BountyGoldMin"				"45"		// 34
-		"BountyGoldMax"				"50"		// 39
+		"BountyXP"					"62"		// 57
+		"BountyGoldMin"				"48"		// 34
+		"BountyGoldMax"				"52"		// 39
 	}
 	"npc_dota_creep_goodguys_melee"
 	{
-		"BountyXP"					"65"		// 57
-		"BountyGoldMin"				"45"		// 34
-		"BountyGoldMax"				"50"		// 39
+		"BountyXP"					"62"		// 57
+		"BountyGoldMin"				"48"		// 34
+		"BountyGoldMax"				"52"		// 39
 	}
 	//=================================================================================
 	// Creeps: 小兵 高级
