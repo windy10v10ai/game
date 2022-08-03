@@ -113,6 +113,15 @@
 
 		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%NON-HERO ATTACK BONUS DAMAGE:"
 
+		"DOTA_Tooltip_ability_tower_armor_aura"							"High Ground Armor aura"
+		"DOTA_Tooltip_ability_tower_armor_aura_Description"				"Add %bonus_armor% armor to all nearby allied heroes."
+		"DOTA_Tooltip_ability_tower_magical_armor_aura"					"High Ground Magical Armor aura"
+		"DOTA_Tooltip_ability_tower_magical_armor_aura_Description"		"Add %bonus_magical_armor% magical armor to all nearby allied heroes."
+
+		"DOTA_Tooltip_ability_tower_split_shot"							"Tower Split Shot"
+		"DOTA_Tooltip_ability_tower_split_shot_Description"				"Active this ability when tower3 destroyed."
+		"DOTA_Tooltip_ability_tower_split_shot_arrow_count"				"EXTRA TARGETS:"
+
 		///////////////////////////////////////////////////
 		//
 		//            Heroes

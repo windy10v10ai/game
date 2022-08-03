@@ -113,6 +113,15 @@
 
 		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%非英雄攻击额外伤害："
 
+		"DOTA_Tooltip_ability_tower_armor_aura"							"高地防御力光环"
+		"DOTA_Tooltip_ability_tower_armor_aura_Description"				"增加附近友军%bonus_armor%的防御力。"
+		"DOTA_Tooltip_ability_tower_magical_armor_aura"					"高地魔抗光环"
+		"DOTA_Tooltip_ability_tower_magical_armor_aura_Description"		"增加附近友军%bonus_magical_armor%的魔法抗性。"
+
+		"DOTA_Tooltip_ability_tower_split_shot"							"防御塔分裂箭"
+		"DOTA_Tooltip_ability_tower_split_shot_Description"				"当高地被破之后自动习得此技能。"
+		"DOTA_Tooltip_ability_tower_split_shot_arrow_count"				"额外目标数："
+
 		///////////////////////////////////////////////////
 		//
 		//            Heroes
