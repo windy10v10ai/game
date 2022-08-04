@@ -7,8 +7,8 @@ function modifier_player_xin:GetTexture() return "player/xin" end
 function modifier_player_xin:OnCreated()
 	local primaryAttributeBouns = 60
 	self.strength = 20
-	self.agility = 0
-	self.intellect = 0
+	self.agility = 20
+	self.intellect = 20
 	-- get parent's primary attribute
 	if IsClient() then return end
 	local primaryAttribute = self:GetParent():GetPrimaryAttribute()
