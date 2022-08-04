@@ -286,7 +286,6 @@ local wardItemTable = {
   "item_ward_sentry",
   "item_ward_sentry",
   "item_ward_sentry",
-  "item_dust",
 }
 function BotThink:AddWardItem(hHero)
   local iItemCount = hHero:GetNumItemsInInventory()
