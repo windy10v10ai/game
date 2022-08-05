@@ -7912,6 +7912,7 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCooldown"				"120.0 100.0 80.0 60.0"
+		"AbilityManaCost"				"125 150 175 200"
 		"AbilitySpecial"
 		{
 			"01"
@@ -12392,7 +12393,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"shard_max_count"			"4"
+				"shard_max_count"			"3"
 				"RequiresShard"					"1"
 			}
 			"06"

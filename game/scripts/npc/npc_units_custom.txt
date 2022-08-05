@@ -898,27 +898,27 @@
 	//=================================================================================
 	"npc_dota_creep_badguys_ranged"
 	{
-		"BountyXP"					"76"		// 69
-		"BountyGoldMin"				"50"		// 43
-		"BountyGoldMax"				"60"		// 52
+		"BountyXP"					"80"		// 69
+		"BountyGoldMin"				"55"		// 43
+		"BountyGoldMax"				"65"		// 52
 	}
 	"npc_dota_creep_goodguys_ranged"
 	{
-		"BountyXP"					"76"		// 69
-		"BountyGoldMin"				"50"		// 43
-		"BountyGoldMax"				"60"		// 52
+		"BountyXP"					"80"		// 69
+		"BountyGoldMin"				"55"		// 43
+		"BountyGoldMax"				"65"		// 52
 	}
 	"npc_dota_creep_badguys_melee"
 	{
-		"BountyXP"					"62"		// 57
-		"BountyGoldMin"				"48"		// 34
-		"BountyGoldMax"				"52"		// 39
+		"BountyXP"					"65"		// 57
+		"BountyGoldMin"				"50"		// 34
+		"BountyGoldMax"				"55"		// 39
 	}
 	"npc_dota_creep_goodguys_melee"
 	{
-		"BountyXP"					"62"		// 57
-		"BountyGoldMin"				"48"		// 34
-		"BountyGoldMax"				"52"		// 39
+		"BountyXP"					"65"		// 57
+		"BountyGoldMin"				"50"		// 34
+		"BountyGoldMax"				"55"		// 39
 	}
 	//=================================================================================
 	// Creeps: 小兵 高级
