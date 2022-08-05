@@ -10,6 +10,7 @@ function modifier_player_shapu:OnCreated()
 	self.agility = 0
 	self.intellect = 0
 	-- get parent's primary attribute
+	if IsClient() then return end
 	local primaryAttribute = self:GetParent():GetPrimaryAttribute()
 	if primaryAttribute == 0 then
 		self.strength = self.strength + primaryAttributeBouns

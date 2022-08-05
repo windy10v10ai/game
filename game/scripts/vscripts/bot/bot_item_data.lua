@@ -1103,6 +1103,7 @@ tBotItemData.sellItemList = {
 		'item_vanguard',
 		'item_overwhelming_blink',
 		'item_echo_sabre_2',
+		'item_holy_locket',
 		-- local
 	},
 	npc_dota_hero_axe = {
