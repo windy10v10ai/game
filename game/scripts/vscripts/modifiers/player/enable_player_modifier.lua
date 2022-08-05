@@ -238,8 +238,6 @@ function EnablePlayerModifier(hEntity)
 		LinkLuaModifier("modifier_player_xiayibing", "modifiers/player/modifier_player_xiayibing", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_xiayibing", {})
 	end
-
-
 	if luoshuBuffSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_saber", "modifiers/player/modifier_player_saber", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_saber", {})
@@ -247,5 +245,8 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_abyss", {})
 		LinkLuaModifier("modifier_player_goku", "modifiers/player/modifier_player_goku", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_goku", {})
+		LinkLuaModifier("modifier_player_luoshu", "modifiers/player/modifier_player_luoshu", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_luoshu", {})
 	end
+
 end
