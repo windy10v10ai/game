@@ -1243,6 +1243,7 @@
 				"32"		"lion_mana_drain"
 				"33"		"lion_mana_drain"
 				"34"		"lion_mana_drain"
+				"35"		"lion_finger_of_death"
 			}
 		}
 	}
