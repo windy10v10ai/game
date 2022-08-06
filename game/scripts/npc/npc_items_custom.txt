@@ -4491,7 +4491,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-80"
+				"aura_attack_speed"		"-70"
 			}
 			"05"
 			{
