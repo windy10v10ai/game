@@ -4923,11 +4923,6 @@
 				"value"		"500 525 550 575 600 625 650 675 700 725 750 775 800 825"
 				"special_bonus_unique_sand_king_5"	"+100"
 			}
-			"shard_radius"
-			{
-				"value"		"425"
-				"special_bonus_unique_sand_king_5"	"+100"
-			}
 			"epicenter_pulses"
 			{
 				"value"		"6 8 10 12 14"
@@ -4936,21 +4931,21 @@
 			"epicenter_damage"	"110 120 130 140 150"
 			"epicenter_slow"
 			{
-				"value"			"-30"
+				"value"			"-40"
 			}
 			"epicenter_slow_as"
 			{
-				"value"			"-30"
+				"value"			"-40"
 			}
 			"shard_radius"
 			{
 				"value"		"425"
-				"special_bonus_unique_sand_king_5"	"+100"
+				"special_bonus_unique_sand_king_5"	"+200"
 				"RequiresShard"	"1"
 			}
 			"shard_move_distance"
 			{
-				"value"				"700.0"
+				"value"				"400.0"
 				"RequiresShard"		"1"
 			}
 			"shard_epicenter_pulse_damage_bonus"
@@ -12367,7 +12362,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"shard_radius_increase"			"100"
+				"shard_radius_increase"			"75"
 				"RequiresShard"					"1"
 			}
 			"05"
@@ -12406,9 +12401,9 @@
 	}
 	"leshrac_diabolic_edict"
 	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"95 105 115 125 135 145 155"
-		"AbilityDamage"					"10 20 30 40 50 60 70"
+		"MaxLevel" "5"
+		"AbilityManaCost"				"90 110 130 150 170"
+		"AbilityDamage"					"20 40 60 80 100"
 		"AbilityDuration"				"15"
 		"AbilitySpecial"
 		{
@@ -12971,14 +12966,14 @@
 	//=================================================================================================================
 	"obsidian_destroyer_arcane_orb"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"0"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"4 3 2 1 0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"mana_pool_damage_pct"	"10 11 12 13 14 15 16"
+				"mana_pool_damage_pct"	"6 7 8 9 10"
 				"LinkedSpecialBonus"	"special_bonus_unique_outworld_devourer"
 			}
 			"02"
@@ -13003,7 +12998,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"value"				"4"
+				"value"				"5"
 				"ad_linked_abilities"			"obsidian_destroyer_arcane_orb"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
