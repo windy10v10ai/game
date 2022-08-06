@@ -243,6 +243,11 @@
 		"Ability6"		"abyssal_underlord_dark_rift"
 	}
 
+	"npc_dota_hero_spirit_breaker"
+	{
+		"Ability4"		"spirit_breaker_empowering_haste"
+	}
+
 	//=================================================================================================================
 	// HERO BOT BUILD
 	//=================================================================================================================
@@ -1577,6 +1582,7 @@
 	}
 	"npc_dota_hero_omniknight"
 	{
+		"Ability5"		"chen_hand_of_god"
 		"Bot"
 		{
 			"Build"
@@ -2208,6 +2214,7 @@
 	}
 	"npc_dota_hero_tiny"
 	{
+		"Ability5"					"tiny_craggy_exterior"
 		"Bot"
 		{
 			"Build"
