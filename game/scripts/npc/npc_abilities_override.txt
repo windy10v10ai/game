@@ -14232,14 +14232,14 @@
 	//=================================================================================================================
 	"storm_spirit_static_remnant"
 	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"70 80 90 100 110"
+		"MaxLevel" "7"
+		"AbilityManaCost"				"70 80 90 100 110 120 130"
 		"AbilitySpecial"
 		{
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"static_remnant_damage"			"120 180 240 300 360"
+				"static_remnant_damage"			"120 180 240 300 360 420 480"
 				"LinkedSpecialBonus"	"special_bonus_unique_storm_spirit_5"
 			}
 		}
