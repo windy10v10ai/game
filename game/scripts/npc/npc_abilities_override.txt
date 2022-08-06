@@ -9877,6 +9877,18 @@
 			}
 		}
 	}
+	"special_bonus_unique_troll_warlord_7"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"10"
+				"ad_linked_abilities"			"troll_warlord_battle_trance"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
     //=================================================================================================================
 	// Ability: Ursa 熊战士/拍拍
 	//=================================================================================================================
@@ -11773,6 +11785,18 @@
 	"enigma_demonic_conversion"
 	{
 		"AbilityCooldown"				"40 35 30 25"
+	}
+	"special_bonus_unique_enigma"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"3"
+				"ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
 	}
 	"enigma_midnight_pulse"
 	{
@@ -14227,14 +14251,14 @@
 	//=================================================================================================================
 	"storm_spirit_static_remnant"
 	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"70 80 90 100 110"
+		"MaxLevel" "7"
+		"AbilityManaCost"				"70 80 90 100 110 120 130"
 		"AbilitySpecial"
 		{
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"static_remnant_damage"			"120 180 240 300 360"
+				"static_remnant_damage"			"120 180 240 300 360 420 480"
 				"LinkedSpecialBonus"	"special_bonus_unique_storm_spirit_5"
 			}
 		}
