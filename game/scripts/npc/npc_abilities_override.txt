@@ -4373,6 +4373,8 @@
 		"MaxLevel" "4"
 		"AbilityCooldown"				"100"
 		"AbilityManaCost"				"200 300 400 500"
+		"LinkedAbility"					"chen_hand_of_god"
+		"AbilityDraftPreAbility"		"chen_hand_of_god"
 		"AbilityValues"
 		{
 				"duration"					"5.0 6.0 7.0 8.0"
@@ -4398,6 +4400,34 @@
 				"var_type"					"FIELD_FLOAT"
 				"value"				"20"
 				"ad_linked_abilities"			"omniknight_guardian_angel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"chen_hand_of_god"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"120 100 80 60"
+		"AbilityManaCost"				"100 200 300 400"
+		"LinkedAbility"					"omniknight_guardian_angel"
+		"AbilityDraftPreAbility"		"omniknight_guardian_angel"
+		"HasScepterUpgrade"             "1"
+		"AbilityValues"
+		{
+			"heal_amount"
+			{
+				"value"							"400 500 600 700"
+				"special_bonus_unique_chen_2"	"+200"
+			}
+			"hot_duration"	"10"
+			"heal_per_second"
+			{
+				"value"							"30 40 50 60"
+				"special_bonus_unique_chen_2"	"+10"
+			}
+			"ancient_creeps_scepter"
+			{
+				"value"	"1 2 3"
+				"RequiresShard"			"1"
 			}
 		}
 	}
@@ -5520,11 +5550,48 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"22 20 18 16 14"
 		"AbilityManaCost"				"30 40 50 60 70"
+		"LinkedAbility"					"spirit_breaker_empowering_haste"
+		"AbilityDraftPreAbility"		"spirit_breaker_empowering_haste"
 		"AbilityValues"
 		{
 			"movement_speed"				"10 15 20 25 30"
 			"status_resistance"			"35 45 55 65 75"
 			"duration"	"8"
+		}
+	}
+	"spirit_breaker_empowering_haste"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"20"
+		"LinkedAbility"					"spirit_breaker_bulldoze"
+		"AbilityDraftPreAbility"		"spirit_breaker_bulldoze"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed_pct_self"	"10 15 20 25 30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed_pct_allies"	"6 8 10 12 14"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"1200"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed_pct_extra"		"6 8 10 12 14"
+			}
+			"05s"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"			"8"
+			}
 		}
 	}
 	"spirit_breaker_greater_bash"
@@ -5980,6 +6047,8 @@
 	"tiny_grow"
 	{
 		"MaxLevel" "5"
+		"LinkedAbility"					"tiny_craggy_exterior"
+		"AbilityDraftPreAbility"		"tiny_craggy_exterior"
 		"AbilityValues"
 		{
 			"bonus_armor"				"10 15 20 25 30"
@@ -5995,6 +6064,32 @@
 			}
 			"attack_speed_reduction"	"20 25 30 35 40"
 			"toss_bonus_damage"			"100 200 300 400 500"
+		}
+	}
+	"tiny_craggy_exterior"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"stun_chance"				"30"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"150"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"800"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -10811,130 +10906,7 @@
 	//=================================================================================================================
 	// Ability: Chen 陈
 	//=================================================================================================================
-	"chen_penitence"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"14.0 13.0 12.0 11.0 10.0"
-		"AbilityManaCost"				"70 75 80 85 90"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5 6 7 8 9"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"-18 -24 -30 -36 -42"
-				"LinkedSpecialBonus"	"special_bonus_unique_chen_8"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30 60 90 120 150"
-			}
-		}
-	}
-	"chen_divine_favor"
-	{
-		"MaxLevel" "7"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor"					"2 3 4 5 6 7 8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_rate"					"3 4 5 6 7 8 9"
-			}
-		}
-	}
-	"chen_holy_persuasion"
-	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"90 110 130 150 170"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_units"				"2 3 4 5 6"
-				"LinkedSpecialBonus"	"special_bonus_unique_chen_1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"level_req"				"6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_min"			"700 800 900 1000 1100"
-				"LinkedSpecialBonus"	"special_bonus_unique_chen_4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_speed_bonus"	"10 20 30 40 50"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_bonus"	"8 16 24 32 40"
-				"LinkedSpecialBonus"	"special_bonus_unique_chen_5"
-			}
-		}
-	}
-	"special_bonus_unique_chen_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"7869"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"32"
-				"ad_linked_abilities"			"chen_holy_persuasion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
-	"chen_hand_of_god"
-	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"80 70 60 50"
-		"AbilityManaCost"				"200 300 400 500"
-		"AbilityValues"
-		{
-			"heal_amount"
-			{
-				"value"							"300 500 700 900"
-				"special_bonus_unique_chen_2"	"+300"
-			}
-			"hot_duration"	"10"
-			"heal_per_second"
-			{
-				"value"							"20 30 40 50"
-				"special_bonus_unique_chen_2"	"+20"
-			}
-			"ancient_creeps_scepter"
-			{
-				"value"	"2 3 4 5"
-				"RequiresShard"			"1"
-			}
-		}
-	}
+	//已经替换成新英雄孙悟空
 	//=================================================================================================================
 	// Ability: Crystal Maiden 水晶室女/冰女
 	//=================================================================================================================
