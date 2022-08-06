@@ -246,6 +246,14 @@
 
 		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"蔬菜汁Popipo击中的敌人将眩晕%shard_stun%秒。"
 
+        // 虚空假面
+        "DOTA_Tooltip_ability_faceless_void_backtrack"			"回到过去"
+		"DOTA_Tooltip_ability_faceless_void_backtrack_description"			"虚空假面通过将时间向回移动一小段，来闪避一切（包括物理和魔法）伤害。<br/>回到过去概率：10/15/20/25/30"
+
+		// 死亡先知
+		"DOTA_Tooltip_ability_death_prophet_witchcraft"			"巫术精研"
+		"DOTA_Tooltip_ability_death_prophet_witchcraft_description"			"提升死亡先知克萝贝露丝Krobelus使用巫术的能力，被动提升移动速度。<br/>移动速度加成：10/15/20/25/30,<br/>地穴虫群魔法消耗降低：10/15/20/25/30,<br/>地穴虫群冷却时间降低：1,<br/>沉默魔法魔法消耗降低20,<br/>沉默魔法冷却时间降低：1。"
+
 		// 双头龙
         "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"烈焰焚身的距离+200，持续时间+5秒，并且变为纯粹伤害，无视技能免疫。"
 

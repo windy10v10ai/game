@@ -3172,11 +3172,55 @@
 	//=================================================================================================================
 	// Ability: Huskar 哈斯卡/神灵
 	//=================================================================================================================
+	"huskar_inner_vitality"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityDuration"				"16"
+		"AbilityManaCost"				"140"
+		"LinkedAbility"					"huskar_inner_fire"
+		"AbilityDraftPreAbility"		"huskar_inner_fire"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal"					"24"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attrib_bonus"			"0.1 0.15 0.20 0.25 0.3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hurt_attrib_bonus"		"0.2 0.4 0.6 0.8 1.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hurt_percent"			"0.5"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"tooltip_attrib_bonus"			"6 8 10 12 14"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_hurt_attrib_bonus"		"22 30 38 46 54"
+			}
+		}
+	}
 	"huskar_inner_fire"
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"16 14 12 10 8"
 		"AbilityManaCost"				"75 100 125 150 175"
+		"LinkedAbility"					"huskar_inner_vitality"
+		"AbilityDraftPreAbility"		"huskar_inner_vitality"
 		"AbilitySpecial"
 		{
 			"01"
@@ -7255,9 +7299,26 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"25 20 15 10 5"
 	}
+	"faceless_void_backtrack"
+	{
+		"MaxLevel" "5"
+		"LinkedAbility"					"faceless_void_time_lock"
+		"AbilityDraftPreAbility"		"faceless_void_time_lock"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dodge_chance_pct"		"10 15 20 25 30"
+
+			}
+		}
+	}
 	"faceless_void_time_lock"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
+		"LinkedAbility"					"faceless_void_backtrack"
+		"AbilityDraftPreAbility"		"faceless_void_backtrack"
 		"AbilityValues"
 		{
 				"duration"
@@ -7266,10 +7327,10 @@
 					"LinkedSpecialBonus"	"special_bonus_unique_faceless_void_8"
 				}
 				"duration_creep"		"2.0"
-				"chance_pct"			"12 16 20 24 28 32 36"
+				"chance_pct"			"16 20 24 28 32"
 				"bonus_damage"
 				{
-					"value"				"15 20 25 30 35 40 45"
+					"value"				"20 25 30 35 40"
 					"LinkedSpecialBonus"	"special_bonus_unique_faceless_void_3"
 				}
 				"delay"			"0.4"
@@ -11444,6 +11505,8 @@
 		"AbilityCooldown"				"8 7 6 5 4"
 		"AbilityDamage"					"75 150 225 300 375"
 		"AbilityManaCost"				"80 95 110 125 140"
+		"LinkedAbility"					"death_prophet_witchcraft"
+		"AbilityDraftPreAbility"		"death_prophet_witchcraft"
 	}
 	"death_prophet_spirit_siphon"
 	{
@@ -11463,6 +11526,79 @@
 					"value"					"36 34 32 30 28"
 					"special_bonus_unique_death_prophet_5" "-20"
 				}
+		}
+	}
+	"death_prophet_silence"
+	{
+		"AbilityCooldown"				"15 14 13 12"
+		"AbilityDuration"				"3 4 5 6"
+		"AbilityManaCost"				"80 90 100 110"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"425"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"3.0 4.0 5.0 6.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"projectile_speed"					"1000"
+			}
+		}
+	}
+	"death_prophet_witchcraft"
+	{
+		"MaxLevel" "5"
+		"LinkedAbility"					"death_prophet_carrion_swarm"
+		"AbilityDraftPreAbility"		"death_prophet_carrion_swarm"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"10 15 20 25 30"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"carrion_swarm_mana_cost_adjust"	"-10 -15 -20 -25 -30"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"carrion_swarm_cooldown_adjust"		"-1.0"
+			}
+			"04"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"silence_mana_cost_adjust"			"-20"
+			}
+			"05"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"silence_cooldown_adjust"			"-1.0"
+			}
+			"06"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"exorcism_1_extra_spirits"			"4"
+			}
+			"07"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"exorcism_2_extra_spirits"			"4"
+			}
+			"08"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"exorcism_3_extra_spirits"			"4"
+			}
 		}
 	}
 	"death_prophet_exorcism"
