@@ -248,6 +248,11 @@
 		"Ability4"		"spirit_breaker_empowering_haste"
 	}
 
+	"npc_dota_hero_faceless_void"
+	{
+		"Ability5"		"faceless_void_backtrack"
+	}
+
 	//=================================================================================================================
 	// HERO BOT BUILD
 	//=================================================================================================================
@@ -713,6 +718,7 @@
 	}
 	"npc_dota_hero_death_prophet"
 	{
+		"Ability4"		"death_prophet_witchcraft"
 		"Bot"
 		{
 			"Build"
@@ -934,6 +940,7 @@
 	}
 	"npc_dota_hero_huskar"
 	{
+		"Ability4"		"huskar_inner_vitality"
 		"Bot"
 		{
 			"Build"
