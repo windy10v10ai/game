@@ -199,6 +199,7 @@
 		"DOTA_Tooltip_modifier_player_xiayibing_Description"	"<font color='#0096FF'> 2009级卡尔亡 </font>"
 		"DOTA_Tooltip_modifier_player_luoshu"					"<font color='#FFCC66'>★ 狗狗侠 ★</font>"
 		"DOTA_Tooltip_modifier_player_luoshu_Description"		"<font color='#FFCC66'> 色图毁灭者 </font>"
+		"DOTA_Tooltip_modifier_player_m5xw"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 
 
 		// 初音未来
