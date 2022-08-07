@@ -235,9 +235,9 @@
 
 	"npc_dota_hero_techies"
 	{
-		"Ability4"		"techies_remote_mines"
+		"Ability4"		"techies_stasis_trap"
 		"Ability5"		"techies_minefield_sign"
-		"Ability7"		"techies_stasis_trap"
+		"Ability7"		"techies_remote_mines"
 		"Ability8"		"techies_focused_detonate"
 		"DisableWearables" 			"1"
 	}
