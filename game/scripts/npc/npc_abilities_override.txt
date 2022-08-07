@@ -13163,7 +13163,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"mana_cost_percentage"	"10"
+				"mana_cost_percentage"	"15"
 			}
 		}
 	}
