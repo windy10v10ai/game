@@ -14571,30 +14571,100 @@
 	//=================================================================================================================
 	"techies_land_mines"
 	{
-		"MaxLevel" "5"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"0"
 		"AbilityCharges"				"3"
-		"AbilityManaCost"				"110 140 170 200 230"
+		"AbilityManaCost"				"110 140 170 200"
+		"LinkedAbility"					"techies_remote_mines"
+		"AbilityDraftPreAbility"		"techies_remote_mines"
 		"AbilityValues"
 		{
 				"radius"				"500"
 				"proximity_threshold"				"1.0"
 				"damage"
 				{
-					"value"			"400 575 750 925 1100"
+					"value"			"400 575 750 925"
 					"LinkedSpecialBonus"		"special_bonus_unique_techies_2"
 				}
-				"building_damage_pct"		"25"
+				"building_damage_pct"		"30"
+				"activation_delay"
+				{
+					"value"		"1"
+					"special_bonus_unique_techies_4"	"-0.8"
+				}
+				"cast_range_scepter_bonus"
+				{
+					"value"		"300"
+					"RequiresScepter"			"1"
+				}
 				"AbilityChargeRestoreTime"
 				{
-					"value"		"19 17 15 13 11"
+					"value"		"19 17 15 13"
 					"special_bonus_unique_techies_3"	"-3"
 				}
 				"outer_damage"				"50"
 				"min_distance"				"150"
 				"placement_radius"			"350"
-				"mres_reduction"			"10 15 20 25 30"
+				"mres_reduction"			"15 20 25 30"
 				"burn_duration"				"5"
+		}
+	}
+	"techies_remote_mines"
+	{
+		"MaxLevel" "4"
+		"AbilityCastRange"				"800"
+		"AbilityCooldown"				"6"
+		"AbilityManaCost"				"120 180 240 300"
+		"LinkedAbility"					"techies_land_mines"
+		"AbilityDraftPreAbility"		"techies_land_mines"
+		"HasScepterUpgrade"				"0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_mines"					"21"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"500 600 700 800"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"425"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"600.0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"activation_time"			"2.0"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"vision_radius"			"500"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"vision_duration"			"3.0"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"model_scale"				"20"     // Percentage over model scale
+			}
+			"12"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"detonate_delay"			"0.25"
+			}
 		}
 	}
 	"techies_suicide"
@@ -14602,6 +14672,8 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"45 40 35 30 25"
 		"AbilityManaCost"				"100 125 150 175 200"
+		"LinkedAbility"					"techies_stasis_trap"
+		"AbilityDraftPreAbility"		"techies_stasis_trap"
 		"AbilitySpecial"
 		{
 			"01"
@@ -14632,11 +14704,60 @@
 			}
 		}
 	}
+	"techies_stasis_trap"
+	{
+		"MaxLevel" "5"
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"1.0"
+		"AbilityCooldown"				"20.0 16.0 13.0 10.0 7.0"
+		"AbilityManaCost"				"80 110 140 160 180"
+		"HasScepterUpgrade"				"0"
+		"LinkedAbility"					"techies_suicide"
+		"AbilityDraftPreAbility"		"techies_suicide"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"activation_radius"			"400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"explode_delay"			"0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"stun_radius"				"600"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"2 3 4 5 6"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"activation_time"			"2.0"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fade_time"					"2.0"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"600.0"
+			}
+		}
+	}
 	"techies_sticky_bomb"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"12 11 10 9 8 7 6"
-		"AbilityManaCost"				"100 115 130 145 160 175 190"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"13 11 9 7 5"
+		"AbilityManaCost"				"100 115 130 145 160"
 		"AbilityValues"
 		{
 				"duration"				"1.2"
@@ -14648,11 +14769,11 @@
 				}
 				"damage"
 				{
-					"value"	"90 180 270 360 450 530 600"
+					"value"	"90 180 270 360 450"
 				}
-				"slow"					"25 35 45 55 65 75 85"
-				"secondary_slow"		"15 25 35 45 55 65 75"
-				"secondary_slow_duration"		"2"
+				"slow"					"25 35 45 55 65"
+				"secondary_slow"		"15 25 35 45 55"
+				"secondary_slow_duration"		"2.5"
 				"explosion_radius"
 				{
 					"value"				"300"
@@ -14671,7 +14792,7 @@
 		"AbilityValues"
 		{
 			"duration"				"6"
-			"disarm_duration"		"3"
+			"disarm_duration"		"2.4 2.7 3 3.3 3.6"
 			"bonus_ms"				"15 20 25 30 35"
 			"stun_radius"			"400"
 			"scepter_damage"
