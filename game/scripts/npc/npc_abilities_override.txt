@@ -1946,11 +1946,40 @@
 			}
 		}
 	}
+	"brewmaster_drunken_haze"
+	{
+		"MaxLevel" "5"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"10 9 8 7 6"
+		"AbilityManaCost"				"25"
+		"LinkedAbility"					"brewmaster_cinder_brew"
+		"AbilityDraftPreAbility"		"brewmaster_cinder_brew"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"4.5"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_slow"				"10 20 30 40 50"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"miss_chance"				"70"
+			}
+		}
+	}
 	"brewmaster_cinder_brew"
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"20 17 14 11 8"
 		"AbilityManaCost"				"50 60 70 80 90"
+		"LinkedAbility"					"brewmaster_drunken_haze"
+		"AbilityDraftPreAbility"		"brewmaster_drunken_haze"
 		"AbilitySpecial"
 		{
 			"01"
@@ -12676,47 +12705,80 @@
 	//=================================================================================================================
 	"lich_frost_nova"
 	{
-		"MaxLevel" "7"
-		"AbilityDamage"					"80 120 160 200 240 280 320"
-		"AbilityManaCost"				"110 130 150 170 180 190 200"
+		"MaxLevel" "5"
+		"AbilityDamage"					"80 120 160 200 240"
+		"AbilityManaCost"				"110 120 130 140 150"
+		"LinkedAbility"					"lich_frost_aura"
+		"AbilityDraftPreAbility"		"lich_frost_aura"
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"		"7.0"
+				"special_bonus_unique_lich_3" "-3"
+			}
 			"radius"
 			{
 				"value"		"200 200 200 200"
-				"LinkedSpecialBonus"		"special_bonus_unique_lich_6"
+				"special_bonus_unique_lich_6" "+125"
 			}
 			"slow_movement_speed"	"-40"
-			"slow_attack_speed_primary"		"-30 -40 -50 -60 -70 -80 -90"
+			"slow_attack_speed_primary"		"-30 -40 -50 -60 -70"
 			"aoe_damage"
 			{
-				"value"			"80 120 160 200 240 280 320"
-				"LinkedSpecialBonus"		"special_bonus_unique_lich_6"
+				"value"			"80 120 160 200 240"
+				"special_bonus_unique_lich_6" "+125"
 			}
+		}
+	}
+	"lich_frost_aura"
+	{
+		"MaxLevel" "5"
+		"AbilityCastRange"				"1200"
+		"LinkedAbility"					"lich_frost_nova"
+		"AbilityDraftPreAbility"		"lich_frost_nova"
+		"AbilityValues"
+		{
+			"movespeed_slow"	"7 14 21 28 35"
+			"aura_radius"		"1200"
+			"duration"		"1.0"
 		}
 	}
 	"lich_sinister_gaze"
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"24 22 20 18 16"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"AbilityChannelTime"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"1.4 1.7 2.0 2.3 2.5"
-				"LinkedSpecialBonus"		"special_bonus_unique_lich_2"
+				"value" "1.4 1.7 2.0 2.3 2.6"
+				"special_bonus_unique_lich_2" "+0.5"
 			}
-			"02"
+			"destination"		"32 38 44 50 56"
+			"mana_drain"		"10 15 20 25 30"
+			"aoe_scepter"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"destination"		"32 38 44 50 56"
+				"special_bonus_scepter" "+400"
 			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mana_drain"		"10 15 20 25 30"
-			}
+		}
+	}
+	"lich_frost_armor"
+	{
+		"MaxLevel" "5"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+		"AbilityCooldown"				"5.0 5.0 5.0 5.0"
+		"AbilityDuration"				"40.0"
+		"AbilityManaCost"				"50 50 50 50"
+		"LinkedAbility"					"lich_frost_shield"
+		"AbilityDraftPreAbility"		"lich_frost_shield"
+		"AbilityValues"
+		{
+			"armor_bonus"			"4 6 8 10 12"
+			"slow_duration"			"2.0 2.0 2.0 2.0"
+			"slow_movement_speed"	"-8 -16 -24 -32 -40"
+			"slow_attack_speed"		"-8 -16 -24 -32 -40"
 		}
 	}
 	"lich_frost_shield"
@@ -12724,55 +12786,57 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"35 30 25 20 15"
 		"AbilityManaCost"				"100 110 120 130 140"
-		"AbilitySpecial"
+		"LinkedAbility"					"lich_frost_armor"
+		"AbilityDraftPreAbility"		"lich_frost_armor"
+		"AbilityValues"
 		{
-			"01"
+			"damage_reduction"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"30 40 50 60 70"
+				"value"	"30 40 50 60 70"
 				"CalculateSpellDamageTooltip"	"0"
-				"LinkedSpecialBonus"		"special_bonus_unique_lich_8"
+				"special_bonus_unique_lich_8"	"+10"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
-			"02"
+			"movement_slow"			"20 25 30 35 40"
+			"slow_duration"			"0.5"
+			"damage"				"20 30 40 50 60"
+			"interval"				"1"
+			"radius"				"600"
+			"duration"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow"			"20 25 30 35 40"
+				"value"	"6"
+				"special_bonus_unique_lich_4"	"+4"
 			}
-			"04"
+			"health_regen"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"20 30 40 50 60"
+				"special_bonus_unique_lich_1" "+50"
 			}
 		}
 	}
 	"lich_chain_frost"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"100.0 90.0 80.0 70.0 60.0"
-		"AbilityManaCost"				"180 300 420 540 660"
-		"AbilitySpecial"
+		"MaxLevel" "4"
+		"AbilityCooldown"				"90.0 80.0 70.0 60.0"
+		"AbilityManaCost"				"180 300 420 540"
+		"AbilityValues"
 		{
-			"01"
+			"damage"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 300 400 500 600"
-				"LinkedSpecialBonus"		"special_bonus_unique_lich_7"
+				"value"		"250 400 550 700"
+				"special_bonus_unique_lich_7" "+100"
 			}
-			"02"
+			"jumps"					"10 10 10"
+			"jump_range"			"400" //600
+			"slow_movement_speed"	"-65"
+			"slow_attack_speed"		"-65"
+			"slow_duration"			"2.5"
+			"projectile_speed"		"850"
+			"vision_radius"			"800"
+			"bonus_jump_damage"		"15 20 25 30"
+			"initial_projectile_speed"		"1050"
+			"has_unlimited_jumps"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"jumps"					"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"jump_range"			"400"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_jump_damage"		"20"
+				"special_bonus_unique_lich_5"	"+1"
 			}
 		}
 	}
@@ -14583,19 +14647,19 @@
 	}
 	"tinker_heat_seeking_missile"
 	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"95 105 115 125 135 145 155"
+		"MaxLevel" "5"
+		"AbilityManaCost"				"95 105 115 125 135"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"120 180 240 300 360 420 480"
+				"damage"			"120 190 260 330 400"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"targets"			"2 3 4 5 6 7 8"
+				"targets"			"2 3 4 5 6"
 				"LinkedSpecialBonus"	"special_bonus_unique_tinker_6"
 			}
 		}
@@ -14618,6 +14682,66 @@
 				"value"				"2"
 				"ad_linked_abilities"			"tinker_heat_seeking_missile"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
+		}
+	}
+	"tinker_march_of_the_machines"
+	{
+		"IsGrantedByShard"				"1"
+		"AbilityCastRange"				"300"
+		"AbilityCastPoint"				"0.53"
+		"AbilityCooldown"				"35.0"
+		"AbilityDamage"					"0"
+		"AbilityManaCost"				"190"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"900"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"collision_radius"		"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"splash_radius"			"150"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"8.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_tinker_5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"machines_per_sec"		"24"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"distance"				"1800"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"distance_scepter"		"1800"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"50"
+				"LinkedSpecialBonus"	"special_bonus_unique_tinker_2"
+			}
+
 		}
 	}
 	"tinker_rearm"
