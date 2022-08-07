@@ -728,6 +728,20 @@ function AIGameMode:OnGameOptionChange(keys)
 	CustomNetTables:SetTableValue('game_options_table', 'game_option', GameRules.GameOption)
 end
 
+function AIGameMode:SetUnitShareMask(data)
+	local toPlayerID = data.toPlayerID;
+	if PlayerResource:IsValidPlayerID(toPlayerID) then
+		local playerId = data.PlayerID;
+		-- flag: bitmask; 1 shares heroes, 2 shares units, 4 disables help
+		local flag = data.flag;
+		local disable = data.disable == 1
+		PlayerResource:SetUnitShareMaskForPlayer(playerId, toPlayerID, flag, disable)
+
+		local disableHelp = CustomNetTables:GetTableValue("disable_help", tostring(playerId)) or {}
+		disableHelp[tostring(to)] = disable
+		CustomNetTables:SetTableValue("disable_help", tostring(playerId), disableHelp)
+	end
+end
 
 function AIGameMode:OnPlayerChat( event )
 	local iPlayerID = event.playerid
