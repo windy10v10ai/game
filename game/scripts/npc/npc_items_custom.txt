@@ -5483,7 +5483,7 @@
 		"ItemResult"					"item_armlet_plus"
 		"ItemRequirements"
 		{
-			"01"						"item_helm_of_iron_will;item_armlet;"
+			"01"						"item_helm_of_iron_will;item_armlet"
 		}
 	}
 	"item_armlet_plus"
@@ -5547,7 +5547,7 @@
 		"ItemResult"					"item_armlet_pro_max"
 		"ItemRequirements"
 		{
-			"01"						"item_helm_of_iron_will;item_armlet_plus;"
+			"01"						"item_helm_of_iron_will;item_armlet_plus"
 		}
 	}
 	"item_armlet_pro_max"
@@ -5588,6 +5588,108 @@
 			"toggle_cooldown"		"0.036f"
 		}
 	}
+	//=================================================================================================================
+	// White Lotus 圣女白莲
+	//=================================================================================================================
+	"item_recipe_imba_orb"
+	{
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_recipe_imba_orb"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// General
+		// -------------------------------------------------------------------------------------------------------------
+		"ID"	"3091"
+		"Model"	"models/props_gameplay/recipe.vmdl"
+		// Item Info
+		// -------------------------------------------------------------------------------------------------------------
+		"ItemCost"	"3600"
+		// Recipe
+		// -------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"	"1"
+		"ItemResult"	"item_imba_orb"
+		"ItemRequirements"
+		{
+			"01"	"item_holy_locket;item_lotus_orb"
+		}
+	}
+	"item_imba_orb"
+	{
+		"BaseClass"	"item_lua"
+		"AbilityTextureName"	"imba_orb"
+		"ScriptFile"	"items/item_orb.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"15"
+		// Item Info
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"	"150"
+		// Stats
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"	"1200"
+
+		// General
+		// -------------------------------------------------------------------------------------------------------------
+		"ID"	"3092"
+		"ItemQuality"	"rare"
+		"ItemCost"	"0"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemShopTags"	"armor"
+
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
+			"particle"	"particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf"
+		}
+		// Special
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"bonus_armor"	"20"	//加甲
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"bonus_health"	"800" //加血
+			}
+
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"bonus_mana"		"600" //加蓝
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"6"	//主动持续时间
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"hp_re"		"20" //回血
+			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"mana_re"		"8"	//回蓝
+			}
+			"07"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"heal_bonus"		"40" //恢复增强
+			}
+			"08"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"heal"		"5"	//反制回血%
+			}
+		}
+	}
+
 }
 
 
