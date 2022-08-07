@@ -14,10 +14,16 @@ end
 
 function item_orb_of_the_brine:OnSpellStart()
 	if IsServer() then
-		self.bubble_duration = self:GetSpecialValueFor( "bubble_duration" )
+		local target = self:GetCursorTarget()
+		local caster = self:GetCaster()
+		if PlayerResource:IsDisableHelpSetForPlayerID(target:GetPlayerOwnerID(), caster:GetPlayerOwnerID()) then
+			self:EndCooldown()
+			self:RefundManaCost()
+			return false
+		end
 
-		local hTarget = self:GetCursorTarget()
-		hTarget:AddNewModifier( self:GetCaster(), self, "modifier_item_orb_of_the_brine_bubble", { duration = self.bubble_duration } )
+		self.bubble_duration = self:GetSpecialValueFor( "bubble_duration" )
+		target:AddNewModifier( self:GetCaster(), self, "modifier_item_orb_of_the_brine_bubble", { duration = self.bubble_duration } )
 
 		EmitSoundOn( "DOTA_Item.GhostScepter.Activate", self:GetCaster() )
 	end

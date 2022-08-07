@@ -63,9 +63,15 @@
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
-		//            Ending Screen
+		//            Scoreborad/Ending Screen
 		//
 		// /////////////////////////////////////////////////////////////////////////////
+		"scoreboard_tool_tip_mute_player"	"Mute"
+		"scoreboard_tool_tip_share_unit"	"Share Unit"
+		"scoreboard_tool_tip_share_hero"	"Share Hero"
+		"scoreboard_tool_tip_disable_help"	"Disable Help"
+		"scoreboard_tool_tip_actived"		" Actived"
+
 		"custom_end_screen_victory_message"	"Radiant Victory"
 		"custom_end_screen_lose_message"	"Dire Victory"
 
@@ -956,6 +962,7 @@
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_intellect"				"+$int"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_mana_regen"				"+$mana_regen"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_spell_amp"					"%+$spell_amp"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_mp_regen_amp"					"%+Mana Regen Amplification"
 
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"Necronomicon Blast"
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"Necronomicon Form. Taking %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%%% increased magic damage."
@@ -989,5 +996,19 @@
 
 		"DOTA_Tooltip_modifier_item_armlet_unholy_strength"				"Unholy Strength"
 		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点.\nAttackspeed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%.\nStrength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%.\nArmor increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nLosing %dMODIFIER_PROPERTY_TOOLTIP% health per second."
+
+		// 圣女白莲
+		"DOTA_Tooltip_Ability_item_saint_orb"							"Saint White Lotus"
+		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>White Lotus (Active):</font></h1>Gives a shield to the target, reflecting all directional spells for the duration (they are still affected by the effect). After the shield is applied, it will be immune to the spell triggered and the target's HP will be restored by %heal%% for the first time.\n<h1><font color='#FFFF00'>Holy Healing (Passive)：</font></h1>Increases all healing effects of self %heal_bonus%%.\n<h1><font color='#FFFF00'>Silt but not stained (Passive)：</font></h1>Self movement speed will not be reduced (lock movement will still work)."
+		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"Don't fight anymore. You have to fight in the dance studio. You can't beat people like this."
+		"DOTA_Tooltip_Ability_item_saint_orb_Note0"						"Simply put, it is to take the initiative to set a Sphere + Lotus to the target."
+		"DOTA_Tooltip_Ability_item_saint_orb_bonus_health"				"+$health"
+		"DOTA_Tooltip_Ability_item_saint_orb_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_Ability_item_saint_orb_hp_re"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_saint_orb_mana_re"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_saint_orb_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_saint_orb_duration"				"Duration:"
+		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"White Lotus"
+		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"Resist a disgusting directional spell"
 	}
 }

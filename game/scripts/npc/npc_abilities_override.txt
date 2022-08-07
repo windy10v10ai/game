@@ -24,11 +24,11 @@
 			"max_level"				"60"	// 30
 			"increase_time"			"150"	// 450
 			"increase_damage"		"6"		// 3
-			"increase_aspd"			"6"		// 5
-			"increase_health"		"50"	// 30
+			"increase_aspd"			"8"		// 5
+			"increase_health"		"60"	// 30
 			"increase_armor"		"1"		// 0.5
-			"increase_gold"			"3"		// 1
-			"increase_xp"			"8"		// 5
+			"increase_gold"			"5"		// 1
+			"increase_xp"			"10"	// 5
 		}
 	}
 
@@ -10147,18 +10147,6 @@
 			}
 		}
 	}
-	"special_bonus_unique_troll_warlord_7"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"value"				"10"
-				"ad_linked_abilities"			"troll_warlord_battle_trance"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
     //=================================================================================================================
 	// Ability: Ursa 熊战士/拍拍
 	//=================================================================================================================
@@ -13260,7 +13248,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"mana_cost_percentage"	"10"
+				"mana_cost_percentage"	"15"
 			}
 		}
 	}
