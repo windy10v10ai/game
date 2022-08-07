@@ -197,7 +197,7 @@
 		"Ability14"					"special_bonus_unique_artoria_strike_air_2"
 		"Ability15"					"special_bonus_all_stats_20"
 		"Ability16"					"special_bonus_unique_excalibur_1"
-		"Ability17"					"special_bonus_cleave_100"
+		"Ability17"					"special_bonus_cleave_60"
 
 		"StatusHealth"					"300"
 		"StatusHealthRegen"				"1.5"
