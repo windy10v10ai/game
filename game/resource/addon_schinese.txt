@@ -63,9 +63,15 @@
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
-		//            Ending Screen
+		//            Scoreborad/Ending Screen
 		//
 		// /////////////////////////////////////////////////////////////////////////////
+		"scoreboard_tool_tip_mute_player"	"静音"
+		"scoreboard_tool_tip_share_unit"	"共享单位"
+		"scoreboard_tool_tip_share_hero"	"共享英雄"
+		"scoreboard_tool_tip_disable_help"	"禁用帮助"
+		"scoreboard_tool_tip_actived"		" 已激活"
+
 		"custom_end_screen_victory_message"	"天辉获胜"
 		"custom_end_screen_lose_message"	"夜魇获胜"
 
