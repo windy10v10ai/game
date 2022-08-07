@@ -2155,7 +2155,7 @@
 			"stomp_damage"					"120 180 240 300 360"
 			"stun_duration"
 			{
-				"value"						"1.6 1.9 2.2 2.5 2.8"
+				"value"						"2.0 2.2 2.4 2.6 2.8"
 				"LinkedSpecialBonus"		"special_bonus_unique_centaur_2"
 			}
 		}
@@ -2163,48 +2163,67 @@
 	"centaur_double_edge"
 	{
 		"MaxLevel" "7"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"edge_damage"					"120 180 240 300 360 420 480"
+			"strength_damage"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"edge_damage"					"120 180 240 300 360 420 480"
+				"value"				"60 80 100 120 140 160 180"
+				"special_bonus_unique_centaur_4" "+60"
 			}
-			"02"
+			"radius"						"220"
+			"shard_str_pct"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"strength_damage"				"60 80 100 120 140 160 180"
-				"LinkedSpecialBonus"			"special_bonus_unique_centaur_4"
+				"special_bonus_shard"		"+15"
+			}
+			"shard_str_duration"
+			{
+				"special_bonus_shard"		"+15"
+			}
+			"shard_max_stacks"
+			{
+				"special_bonus_shard"		"+5"
+			}
+			"shard_movement_slow"
+			{
+				"special_bonus_shard"		"+25"
+			}
+			"shard_movement_slow_duration"
+			{
+				"special_bonus_shard"		"+2"
 			}
 		}
 	}
 	"centaur_return"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 				"return_damage"
 				{
-					"value"	"30 45 60 75 90 105 120"
+					"value"	"30 45 60 75 90"
 					"special_bonus_unique_centaur_3"	"+60"
 				}
-				"return_damage_str"			"20 26 32 38 44 50 56"
+				"return_damage_str"			"20 26 32 38 44"
 				"aura_radius"				"1200"
 		}
 	}
 	"centaur_stampede"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"70"
 		"AbilityManaCost"				"100 150 200 250"
 		"AbilityValues"
 		{
 			"duration"
 			{
 				"value"						"3.5 4 4.5 5.0"
-				"LinkedSpecialBonus"		"special_bonus_unique_centaur_7"
+				"special_bonus_unique_centaur_7"	"+1"
 			}
-			"base_damage"		"200"
+			"scepter_bonus_duration"
+			{
+				"special_bonus_scepter"		"+1"
+			}
+			"base_damage"		"300"
 			"strength_damage"
 			{
 				"value"							"1.75 2.5 3.25 4.0"
@@ -2215,13 +2234,16 @@
 			"slow_movement_speed"			"100"
 			"damage_reduction"
 			{
-				"value"				"20 25 30 35"
-				"RequiresScepter"	"1"
+				"special_bonus_scepter"	"+25 +30 +35 +40"
 			}
-			"scepter_bonus_duration"
+			"AbilityCooldown"
 			{
-				"value" 			"1"
-				"RequiresScepter"	"1"
+				"value"					"80"
+				"special_bonus_unique_centaur_5"	"-30"
+			}
+			"has_flying_movement"
+			{
+				"special_bonus_scepter"	"+1"
 			}
 		}
 	}
@@ -4776,7 +4798,7 @@
 		{
 			"damage_block"
 			{
-				"value"			"10 15 20 25 30"
+				"value"			"7 14 21 28 35"
 				"special_bonus_unique_pudge_1"	"x1.6"
 			}
 			"flesh_heap_strength_buff_amount"
@@ -4810,7 +4832,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"rot_slow"				"-14 -20 -26 -32 -36 -40 -44"
+				"rot_slow"				"-16 -20 -24 -28 -32 -36 -40"
 				"LinkedSpecialBonus"			"special_bonus_unique_pudge_4"
 			}
 			"04"
@@ -4826,24 +4848,56 @@
 		"MaxLevel"						"4"
 		"AbilityCooldown"				"30 25 20 15"
 		"AbilityManaCost"				"100 130 170 210"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"dismember_damage"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"dismember_damage"		"60 90 120 150"
-				"LinkedSpecialBonus"		"special_bonus_unique_pudge_3"
-				"LinkedSpecialBonusField"		"value"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+				"value"					"80 100 120 140"
+				"special_bonus_unique_pudge_3"	"x1.8"
 			}
-			"02"
+			"strength_damage"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"strength_damage"		"0.3 0.6 0.9 1.2"
-				"LinkedSpecialBonus"		"special_bonus_unique_pudge_3"
-				"LinkedSpecialBonusField"		"value"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+				"value"				"0.3 0.6 0.9 1.2"
+				"special_bonus_unique_pudge_3"	"x1.8"
 				"CalculateSpellDamageTooltip"	"0"
+			}
+			"ticks"
+			{
+				"value"						"6"
+				"special_bonus_unique_pudge_6"	"+2"
+			}
+			"pull_units_per_second"		"75"
+			"pull_distance_limit"		"125"
+			"animation_rate"		"1.5"
+			"AbilityChannelTime"
+			{
+				"value"				"3.0 3.0 3.0"
+				"special_bonus_unique_pudge_6"	"+0.8"
+			}
+			"creep_dismember_duration_tooltip"
+			{
+				"value"		"6.0"
+				"special_bonus_unique_pudge_6"	"+0.8"
+			}
+			"shard_regen_pct"
+			{
+						"value"			"5"
+				"RequiresShard"			"1"
+			}
+			"order_lock_duration"
+			{
+				"value"				"3"
+				"RequiresShard"			"1"
+			}
+			"shard_cast_range"
+			{
+				"value"				"300"
+				"RequiresShard"			"1"
+			}
+			"shard_cooldown_reduction"
+			{
+				"value"					"5.0"
+				"RequiresShard"			"1"
 			}
 		}
 	}
@@ -5881,6 +5935,37 @@
 				"var_type"					"FIELD_FLOAT"
 				"slow_duration"				"2.0 2.5 3.0 3.5 4.0"
 			}
+		}
+	}
+	"tusk_frozen_sigil"
+	{
+		"IsGrantedByShard"			    "1"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"30.0"
+		"AbilityManaCost"				"70"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"sigil_radius"				"650"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"sigil_duration"			"25.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"move_slow"					"40"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_slow"				"20"
+			}
+
 		}
 	}
 	//=================================================================================================================
