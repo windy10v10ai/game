@@ -253,6 +253,16 @@
 		"Ability5"		"faceless_void_backtrack"
 	}
 
+	"npc_dota_hero_brewmaster"
+	{
+		"Ability4"		"brewmaster_drunken_haze"
+	}
+
+	"npc_dota_hero_tinker"
+	{
+		"Ability7"		"tinker_march_of_the_machines"
+	}
+
 	//=================================================================================================================
 	// HERO BOT BUILD
 	//=================================================================================================================
@@ -1125,6 +1135,8 @@
 	}
 	"npc_dota_hero_lich"
 	{
+		"Ability5"		"lich_frost_armor"
+		"Ability7"		"lich_frost_aura"
 		"Bot"
 		{
 			"Build"
@@ -1160,12 +1172,9 @@
 				"29"		"special_bonus_unique_lich_4"
 				"30"		"special_bonus_unique_lich_1"
 				"31"		"lich_chain_frost"
-				"32"		"lich_chain_frost"
-				"33"		"lich_frost_nova"
-				"34"		"lich_frost_nova"
-				"35"		"lich_frost_nova"
-				"36"		"lich_frost_shield"
-				"37"		"lich_sinister_gaze"
+				"32"		"lich_frost_nova"
+				"33"		"lich_frost_shield"
+				"34"		"lich_sinister_gaze"
 			}
 		}
 	}
