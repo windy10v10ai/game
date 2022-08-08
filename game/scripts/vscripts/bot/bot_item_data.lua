@@ -69,7 +69,7 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_ultimate_scepter_2',
-		'item_orb_of_the_brine',
+		'item_aeon_pendant',
 		'item_soul_booster',
 		'item_gungir_2',
 		'item_recipe_arcane_octarine_core',
