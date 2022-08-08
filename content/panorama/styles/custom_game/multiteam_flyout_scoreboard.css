@@ -5,13 +5,13 @@
 {
 	horizontal-align: left;
 	vertical-align: top;
-	margin-top: 110px;
+	margin-top: 105px;
 	margin-left: 30px;
     flow-children: down;
     padding: 0px;
 	/* background-color: #666666CC; */
 
-    transform: translatex( -600px );
+    transform: translatex( -800px );
     transition-property: transform;
     transition-duration: 0.1s;
 }
@@ -434,4 +434,72 @@
 
 .PlayerHeader {
 	flow-children: right;
+}
+
+.ScoreCol_Buttons
+{
+	width: 60px;
+	vertical-align: center;
+	flow-children: right;
+}
+
+.ScoreCol_Buttons Button
+{
+	width: 15px;
+	height: 15px;
+	margin-right: 5px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: contain;
+	vertical-align: middle;
+	visibility: collapse;
+}
+.local_player_teammate .ScoreCol_Buttons Button
+{
+	visibility: visible;
+}
+.is_local_player .ScoreCol_Buttons Button
+{
+	visibility: collapse;
+}
+
+
+#BtnMuteVoice
+{
+	background-image: url("s2r://panorama/images/custom_game/mute_voice_off_png.vtex");
+}
+
+#BtnShareUnit
+{
+	background-image: url("s2r://panorama/images/custom_game/share_unit_off_png.vtex");
+}
+
+#BtnShareHero
+{
+	background-image: url("s2r://panorama/images/custom_game/share_hero_off_png.vtex");
+}
+
+#BtnDisableHelp
+{
+	background-image: url("s2r://panorama/images/custom_game/disable_help_off_png.vtex");
+}
+
+#BtnMuteVoice.Activated
+{
+	background-image: url("s2r://panorama/images/custom_game/mute_voice_on_png.vtex");
+}
+
+#BtnShareUnit.Activated
+{
+	background-image: url("s2r://panorama/images/custom_game/share_unit_on_png.vtex");
+}
+
+#BtnShareHero.Activated
+{
+	background-image: url("s2r://panorama/images/custom_game/share_hero_on_png.vtex");
+}
+
+#BtnDisableHelp.Activated
+{
+	background-image: url("s2r://panorama/images/custom_game/disable_help_on_png.vtex");
 }
