@@ -12265,6 +12265,15 @@
 	"invoker_emp"
 	{
 		"AbilityCooldown"				"15"
+		"AbilityValues"
+		{
+			"mana_burned"
+			{
+				"value"			"200 300 400 500 600 700 800"
+				"levelkey"				"wexlevel"
+			}
+			"damage_per_mana_pct"	"80"
+		}
 	}
 	"invoker_alacrity"
 	{
