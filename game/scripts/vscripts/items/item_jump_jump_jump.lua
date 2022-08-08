@@ -230,8 +230,8 @@ end
 -- Meteor Burn
 modifier_item_jump_jump_jump_meteor_burn = class({})
 
-function modifier_item_jump_jump_jump_meteor_form:IsHidden() return false end
-function modifier_item_jump_jump_jump_meteor_form:IsDebuff() return true end
+function modifier_item_jump_jump_jump_meteor_burn:IsHidden() return false end
+function modifier_item_jump_jump_jump_meteor_burn:IsDebuff() return true end
 function modifier_item_jump_jump_jump_meteor_burn:IsPurgable() return true end
 
 function modifier_item_jump_jump_jump_meteor_burn:OnCreated()

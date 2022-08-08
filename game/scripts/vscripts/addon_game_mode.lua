@@ -79,7 +79,8 @@ function AIGameMode:InitEvents()
 	CustomGameEventManager:RegisterListener("loading_set_options", function (eventSourceIndex, args) return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args) end)
 	-- 游戏选项改变事件
 	CustomGameEventManager:RegisterListener("game_options_change", function(_, keys) return AIGameMode:OnGameOptionChange(keys) end)
-
+	-- 共享单位，禁用帮助
+	CustomGameEventManager:RegisterListener("set_unit_share_mask", function(_, keys) return AIGameMode:SetUnitShareMask(keys) end)
 end
 
 
@@ -228,7 +229,7 @@ function AIGameMode:PreGameOptions()
 	elseif self.fBotGoldXpMultiplier <= 8 then
 		self.botPushMin = RandomInt(8, 11)
 	else
-		self.botPushMin = RandomInt(6, 9)
+		self.botPushMin = RandomInt(7, 9)
 	end
 
 	print("botPushMin: "..self.botPushMin)

@@ -1329,28 +1329,28 @@
 		}
 		"OnSpellStart"
 		{
-			"FireSound"
-			{
-				"EffectName"  "DOTA_Item.ForceStaff.Activate"
-				"Target"  "TARGET"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"  "modifier_item_force_staff_effect"
-				"Target"  "TARGET"
-			}
+			// "FireSound"
+			// {
+			// 	"EffectName"  "DOTA_Item.ForceStaff.Activate"
+			// 	"Target"  "TARGET"
+			// }
+			// "ApplyModifier"
+			// {
+			// 	"ModifierName"  "modifier_item_force_staff_effect"
+			// 	"Target"  "TARGET"
+			// }
 			"RunScript"
 			{
 				"ScriptFile"  "items/item_force_staff.lua"
-				"Function"  "ForceStaff"
-				"Target"  "TARGET"
+				"Function"	"ForceStaff"
+				"Target"	"TARGET"
 			}
 			"ApplyMotionController"
 			// For this: gfycat.com/BraveHideousGiantschnauzer -> check: bit.ly/1KWulqA
 			{
-					"Target"    "TARGET"
-					"ScriptFile"    "items/item_force_staff.lua"
-					"HorizontalControlFunction" "ForceHorizontal"
+				"Target"		"TARGET"
+				"ScriptFile"	"items/item_force_staff.lua"
+				"HorizontalControlFunction" "ForceHorizontal"
 			}
 		}
 		"Modifiers"
@@ -1528,28 +1528,28 @@
 		}
 		"OnSpellStart"
 		{
-			"FireSound"
-			{
-				"EffectName"  "DOTA_Item.ForceStaff.Activate"
-				"Target"  "TARGET"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"  "modifier_item_force_staff_effect"
-				"Target"  "TARGET"
-			}
+			// "FireSound"
+			// {
+			// 	"EffectName"  "DOTA_Item.ForceStaff.Activate"
+			// 	"Target"  "TARGET"
+			// }
+			// "ApplyModifier"
+			// {
+			// 	"ModifierName"  "modifier_item_force_staff_effect"
+			// 	"Target"  "TARGET"
+			// }
 			"RunScript"
 			{
 				"ScriptFile"  "items/item_force_staff.lua"
-				"Function"  "ForceStaff"
-				"Target"  "TARGET"
+				"Function"	"ForceStaff"
+				"Target"	"TARGET"
 			}
 			"ApplyMotionController"
 			// For this: gfycat.com/BraveHideousGiantschnauzer -> check: bit.ly/1KWulqA
 			{
-					"Target"    "TARGET"
-					"ScriptFile"    "items/item_force_staff.lua"
-					"HorizontalControlFunction" "ForceHorizontal"
+				"Target"		"TARGET"
+				"ScriptFile"	"items/item_force_staff.lua"
+				"HorizontalControlFunction" "ForceHorizontal"
 			}
 		}
 		"Modifiers"
@@ -4491,7 +4491,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-80"
+				"aura_attack_speed"		"-70"
 			}
 			"05"
 			{
@@ -5452,6 +5452,7 @@
 			"bonus_intellect"		"80"
 			"bonus_mana_regen"		"12"
 			"spell_amp"				"18"
+			"mp_regen_amp"			"75"
 
 			"sheep_duration"		"4.0"
 			"sheep_movement_speed"	"120"
@@ -5483,7 +5484,7 @@
 		"ItemResult"					"item_armlet_plus"
 		"ItemRequirements"
 		{
-			"01"						"item_helm_of_iron_will;item_armlet;"
+			"01"						"item_helm_of_iron_will;item_armlet"
 		}
 	}
 	"item_armlet_plus"
@@ -5547,7 +5548,7 @@
 		"ItemResult"					"item_armlet_pro_max"
 		"ItemRequirements"
 		{
-			"01"						"item_helm_of_iron_will;item_armlet_plus;"
+			"01"						"item_helm_of_iron_will;item_armlet_plus"
 		}
 	}
 	"item_armlet_pro_max"
@@ -5586,6 +5587,74 @@
 			"unholy_bonus_armor"	"12"
 			"unholy_health_drain_per_second"	"5"
 			"toggle_cooldown"		"0.036f"
+		}
+	}
+	//=================================================================================================================
+	// White Lotus 圣女白莲
+	//=================================================================================================================
+	"item_recipe_saint_orb"
+	{
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_recipe_saint_orb"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// General
+		// -------------------------------------------------------------------------------------------------------------
+		"ID"	"3091"
+		"Model"	"models/props_gameplay/recipe.vmdl"
+		// Item Info
+		// -------------------------------------------------------------------------------------------------------------
+		"ItemCost"	"3600"
+		// Recipe
+		// -------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"	"1"
+		"ItemResult"	"item_saint_orb"
+		"ItemRequirements"
+		{
+			"01"	"item_holy_locket;item_lotus_orb"
+		}
+	}
+	"item_saint_orb"
+	{
+		"BaseClass"	"item_lua"
+		"AbilityTextureName"	"saint_orb"
+		"ScriptFile"	"items/item_saint_orb.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"15"
+		// Item Info
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"	"300"
+		// Stats
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"	"900"
+
+		// General
+		// -------------------------------------------------------------------------------------------------------------
+		"ID"	"3092"
+		"ItemQuality"	"rare"
+		"ItemCost"	"0"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemShopTags"	"armor"
+
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
+			"particle"	"particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf"
+		}
+		// Special
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_armor"	"20"	//加甲
+			"hp_re"			"15" //回血
+			"mana_re"		"6"	//回蓝
+			"heal_bonus"	"20" //恢复增强
+			"bonus_health"	"600" //加血
+			"bonus_mana"	"800" //加蓝
+			"duration"		"6"	//主动持续时间
+			"heal"			"5"	//反制回血%
 		}
 	}
 }

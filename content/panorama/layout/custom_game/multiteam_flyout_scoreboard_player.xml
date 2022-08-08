@@ -4,6 +4,9 @@
 		<include src="file://{resources}/styles/custom_game/shared_scoreboard_styles.css" />
         <include src="file://{resources}/styles/custom_game/multiteam_flyout_scoreboard.css" />
     </styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/multiteam_flyout_scoreboard_player.js" />
+	</scripts>
 	<script>
 		function ToggleMute()
 		{
@@ -48,6 +51,12 @@
 			</Panel>
 			<Panel id="AssistsContainer" class="ScoreCol_Assists ScoreboardPanel">
 				<Label id="Assists" text="999" />
+			</Panel>
+			<Panel class="ScoreCol_Buttons ScoreboardPanel">
+				<!-- <Button id="BtnMuteVoice" onactivate="ToggleMute();" onmouseover="ShowToolTipMute();" onmouseout="HideToolTips();"/> -->
+				<Button id="BtnShareUnit" onactivate="ToggleShareUnit();" onmouseover="ShowToolTipShareUnit();" onmouseout="HideToolTips();"/>
+				<Button id="BtnShareHero" onactivate="ToggleShareHero();" onmouseover="ShowToolTipShareHero();" onmouseout="HideToolTips();"/>
+				<Button id="BtnDisableHelp" onactivate="ToggleDisableHelp();" onmouseover="ShowToolTipDisableHelp();" onmouseout="HideToolTips();"/>
 			</Panel>
 		</Panel>
 	</Panel>
