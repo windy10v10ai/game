@@ -1274,6 +1274,7 @@
 	}
 	"npc_dota_hero_luna"
 	{
+		"Ability4"		"luna_lunar_grace"
 		"Bot"
 		{
 			"Build"
@@ -1290,10 +1291,10 @@
 				"10"		"special_bonus_unique_luna_7"
 				"11"		"luna_lucent_beam"
 				"12"		"luna_eclipse"
-				"13"		"luna_lucent_beam"
+				"13"		"luna_moon_glaive"
 				"14"		"luna_lunar_blessing"
 				"15"		"special_bonus_unique_luna_2"
-				"16"		"luna_lucent_beam"
+				"16"		"luna_lunar_blessing"
 				"17"		""
 				"18"		"luna_eclipse"
 				"19"		""
@@ -1310,13 +1311,11 @@
 				"30"		"special_bonus_unique_luna_3"
 				"31"		"luna_eclipse"
 				"32"		"luna_eclipse"
-				"33"		"luna_lunar_blessing"
+				"33"		"luna_moon_glaive"
 				"34"		"luna_moon_glaive"
 				"35"		"luna_moon_glaive"
 				"36"		"luna_moon_glaive"
 				"37"		"luna_moon_glaive"
-				"38"		"luna_moon_glaive"
-				"39"		"luna_moon_glaive"
 			}
 		}
 	}

@@ -1447,28 +1447,31 @@
 	//=================================================================================================================
 	"abyssal_underlord_firestorm"
 	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"110 120 130 140 150 160 170"
+		"MaxLevel" "5"
+		"AbilityCastRange"				"600 625 650 675 700"
+		"AbilityManaCost"				"110 120 130 140 150"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
 				{
 					"value"	"12.0"
-					"special_bonus_unique_underlord_5"	"-2"
+					"special_bonus_unique_underlord_5"	"-4"
 				}
 				"radius"
 				{
 					"value"					"425"
 					"special_bonus_unique_underlord_8"	"+100"
 				}
-				"wave_damage"					"25 40 55 70 85 100 115"
+				"wave_count"					"6"
+				"wave_damage"					"25 40 55 70 85"
+				"wave_interval"					"1.0"
 				"burn_damage"
 				{
-					"value"					"0.9 1 1.1 1.2 1.3 1.4 1.5"
-					"special_bonus_unique_underlord_4"	"+0.5"
+					"value"					"0.8 0.9 1.0 1.1 1.2"
+					"special_bonus_unique_underlord_4"	"+0.3"
 				}
 				"burn_interval"					"1.0"
-				"burn_duration"					"1.0"
+				"burn_duration"					"2.0"
 				"can_target_units"
 				{
 					"special_bonus_shard"	"+1"
@@ -1488,61 +1491,58 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"21 19 17 15 13"
 		"AbilityManaCost"				"80 100 120 140 160"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"05"
+			"radius"
 			{
-				"var_type"						"FIELD_FLOAT"
-				"ensnare_duration"				"1.2 1.4 1.6 1.8 2.0"
-				"LinkedSpecialBonus"			"special_bonus_unique_underlord"
+				"value"					"400"
+				"special_bonus_unique_underlord_6"	"+75"
+			}
+
+			"pit_duration"					"12.0"
+			"pit_interval"					"3.6"
+			"pit_damage"					"0"
+			"ensnare_duration"
+			{
+				"value"	"1.2 1.4 1.6 1.8 2.0"
+				"special_bonus_unique_underlord" "+0.65"
+			}
+			"speed_bonus"
+			{
+				"special_bonus_scepter" "+50"
 			}
 		}
 	}
 	"abyssal_underlord_atrophy_aura"
 	{
 		"MaxLevel" "5"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
+			"radius"						"900"
+			"damage_reduction_pct"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"damage_reduction_pct"			"5 15 25 35 45"
-				"LinkedSpecialBonus"			"special_bonus_unique_underlord_3"
+				"value"		"5 15 25 35 45"
+				"special_bonus_unique_underlord_3"	"+15"
 			}
-			"03"
+			"bonus_damage_from_creep"		"2 4 6 8 10"
+			"bonus_damage_from_hero"		"30 35 40 45 50"
+			"bonus_damage_duration"			"30 45 60 75 90"
+			"bonus_shared_by_allies_pct"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_damage_from_creep"		"2 4 6 8 10"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_damage_from_hero"		"30 35 40 45 50"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"bonus_damage_duration"			"30 45 60 75 90"
+				"special_bonus_unique_underlord_9"	"+100"
 			}
 		}
 	}
 	"abyssal_underlord_dark_rift"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"100 90 80 70"
+		"AbilityCooldown"				"90 80 70 60"
 		"AbilityManaCost"				"100 200 300 400"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"600"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"teleport_delay"				"5.0 4.0 3.0 2.0"
-			}
+
+			"radius"						"600"
+			"teleport_delay"				"5.0 4.0 3.0 2.0"
 		}
 	}
 	//=================================================================================================================
@@ -6686,29 +6686,18 @@
 	"antimage_mana_break"
 	{
 		"MaxLevel" "5"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"percent_damage_per_burn"		"50"
+			"mana_per_hit"			"30 45 60 75 90"
+			"mana_per_hit_pct"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"percent_damage_per_burn"		"50"
+				"value"		"1 1.8 2.6 3.4 4.2"
+				"special_bonus_unique_antimage_7"	"+0.8"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_per_hit"			"30 45 60 75 90"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_per_hit_pct"		"1 1.8 2.6 3.4 4.2"
-				"LinkedSpecialBonus"		"special_bonus_unique_antimage_7"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"move_slow"				"10 20 30 40 50"
-			}
+			"illusion_percentage"		"50"
+			"move_slow"				"10 20 30 40 50"
+			"slow_duration"			"0.75"
 		}
 	}
 	"antimage_blink"
@@ -6731,50 +6720,58 @@
 	}
 	"antimage_counterspell"
 	{
-		"MaxLevel" "7"
-		"AbilitySpecial"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"15 12 9 6 3"
+		"AbilityManaCost"				"40 45 50 55 60"
+		"AbilityValues"
 		{
-			"01"
+			"magic_resistance"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"magic_resistance"			"15 25 35 45 55 60 65"
-				"LinkedSpecialBonus"		"special_bonus_unique_antimage_4"
+				"value"			"20 30 40 50 60"
+				"special_bonus_unique_antimage_4"	"+20"
 			}
-		}
-	}
-	"special_bonus_unique_antimage_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6607"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+			"duration"					"1.2"
+			"shard_radius"
+			{
+				"special_bonus_shard"		"+900"
+			}
+			"shard_spell_damage_reduction_pct"
+			{
+				"special_bonus_shard"					"+10"
+			}
+			"shard_bonus_aura_range"
+			{
+				"special_bonus_shard"	"+300"
+			}
+			"shard_bonus_spell_damage_reduction_pct"
+			{
+				"special_bonus_shard"		"+30"
+			}
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"15"
-				"ad_linked_abilities"			"antimage_counterspell"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
 		}
 	}
 	"antimage_mana_void"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"100 200 300 400"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"AbilityCooldown"
 			{
-				"var_type"						"FIELD_FLOAT"
-				"mana_void_damage_per_mana"		"0.9 1.0 1.1 1.2"
-				"LinkedSpecialBonus"		"special_bonus_unique_antimage_6"
+				"value"			"60"
+				"special_bonus_unique_antimage_2"	"-40"
 			}
+			"mana_void_damage_per_mana"
+			{
+				"value"				"0.9 1.0 1.1 1.2"
+				"special_bonus_unique_antimage_6"	"+0.1"
+			}
+			"mana_void_ministun"
+			{
+				"value"					"0.3"
+				"special_bonus_unique_antimage_8" "+0.7"
+			}
+			"mana_void_aoe_radius"			"500"
 		}
 	}
 	//=================================================================================================================
@@ -8046,23 +8043,40 @@
 	//=================================================================================================================
 	"luna_lucent_beam"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"					"9.0 8.5 8.0 7.5 7.0 6.5 6.0"
+				"value"					"9.0 8.0 7.0 6.0 5.0"
 				"special_bonus_unique_luna_2" "-3.0"
 			}
 			"AbilityManaCost"
 			{
-				"value"					"90 100 110 120 130 140 150"
+				"value"					"90 100 110 120 130"
 				"special_bonus_shard"	"-50"
 			}
 			"beam_damage"
 			{
-				"value"					"80 140 200 260 320 380 440"
-				"special_bonus_unique_luna_1"	"+60"
+				"value"					"80 160 240 320 400"
+				"special_bonus_unique_luna_1"	"+100"
+			}
+			"shard_search_radius"
+			{
+				"value"					"0"
+				"special_bonus_shard"	"+325"
+				"RequiresShard"			"1"
+			}
+			"shard_attack_radius"
+			{
+				"value"					"0"
+				"special_bonus_shard"	"+500"
+				"RequiresShard"			"1"
+			}
+			"stun_duration"
+			{
+				"value"					"0.8"
+				"special_bonus_unique_luna_4"	"+0.4"
 			}
 		}
 	}
@@ -8077,13 +8091,15 @@
 			"damage_reduction_percent"
 			{
 				"value"							"60 55 50 45 40 35 30"
-				"special_bonus_unique_luna_7"	"-8"
+				"special_bonus_unique_luna_7"	"-10"
 			}
 		}
 	}
 	"luna_lunar_blessing"
 	{
 		"MaxLevel" "5"
+		"LinkedAbility"					"luna_lunar_grace"
+		"AbilityDraftPreAbility"		"luna_lunar_grace"
 		"AbilityValues"
 		{
 				"radius"			"1200"
@@ -8095,14 +8111,28 @@
 				"bonus_night_vision"
 				{
 					"value"			"250 500 750 1000 1250"
-					"special_bonus_unique_luna_8"	"+200"
+					"special_bonus_unique_luna_8"	"+250"
 				}
+		}
+	}
+	"luna_lunar_grace"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"30 25 20 15 10"
+		"AbilityManaCost"				"20"
+		"LinkedAbility"					"luna_lunar_blessing"
+		"AbilityDraftPreAbility"		"luna_lunar_blessing"
+		"AbilityValues"
+		{
+			"attack_speed"					"30 45 60 75 90"
+			"night_multiplier"				"2.0"
+			"duration"						"5.0"
 		}
 	}
 	"luna_eclipse"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"150 250 350 450 550"
+		"AbilityManaCost"				"150 200 250 300 350"
 		"AbilityValues"
 		{
 			"beams"
@@ -8110,6 +8140,13 @@
 				"value"					"6 9 12 15 18"
 				"special_bonus_scepter"	"+0 +3 +6 +9 +12"
 			}
+			"beam_interval"
+			{
+				"value"					"0.6 0.6 0.6"
+				"special_bonus_scepter"	"-0.3"
+			}
+			"beam_interval_scepter"		"0.3" // purely for the tooltip Note, since the scepter tooltip doesn't show this.
+			"radius"					"675"
 			"hit_count"
 			{
 				"value"					"5"
@@ -8119,6 +8156,12 @@
 			{
 				"value"					"2.4 4.2 6.0 7.8 9.6"
 				"special_bonus_scepter"	"-0.6"
+			}
+			"night_duration"	"10.0"
+			"stun_duration"
+			{
+				"value"							"0"
+				"special_bonus_unique_luna_5"	"+0.25"
 			}
 			"AbilityCooldown"
 			{
@@ -10812,28 +10855,8 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"10 25 40 55 70"
+				"bonus_damage"			"15 30 45 60 75"
 				"LinkedSpecialBonus"	"special_bonus_unique_weaver_2"
-			}
-		}
-	}
-	"special_bonus_unique_weaver_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6990"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"2"
-				"ad_linked_abilities"			"weaver_geminate_attack"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
