@@ -10525,7 +10525,7 @@
 	"venomancer_venomous_gale"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"21"
+		"AbilityCooldown"				"20"
 		"AbilitySpecial"
 		{
 			"02"
@@ -10538,10 +10538,16 @@
 				"var_type"				"FIELD_INTEGER"
 				"tick_damage"			"15 45 75 105 135 165 195"
 			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shard_ward_count"					"1"   //tooltip only
+				"RequiresShard"			"1"
+			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shard_bonus_range"					"200"
+				"shard_bonus_range"					"400"
 				"RequiresShard"			"1"
 			}
 		}
@@ -10571,15 +10577,40 @@
 	}
 	"venomancer_plague_ward"
 	{
-		"AbilityCooldown"				"3.0"
-		"AbilityManaCost"				"10 15 20 25"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"5.0"
+		"AbilityManaCost"				"20"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"10.0"
+				"duration"				"20.0"
 				"LinkedSpecialBonus"		"special_bonus_unique_venomancer_7"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ward_hp_tooltip"		"120 230 340 450 560"
+				"LinkedSpecialBonus"	"special_bonus_unique_venomancer"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ward_damage_tooltip"	"26 44 62 80 98"
+				"LinkedSpecialBonus"	"special_bonus_unique_venomancer"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+			}
+			"04" // For special bonus at level 25
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ward_hp"		"150 400 650 900 1150"
+			}
+			"05" // For special bonus at level 25
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ward_damage"	"52 88 124 160 196"
 			}
 		}
 	}
