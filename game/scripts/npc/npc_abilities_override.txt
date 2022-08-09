@@ -3038,14 +3038,19 @@
 	}
 	"earth_spirit_stone_caller"
 	{
-		"AbilityCharges"				"9"
-		"AbilityChargeRestoreTime"		"15"
+		"AbilityCharges"				"10"
+		"AbilityChargeRestoreTime"		"10"
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"30.0"
+			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shard_bonus_charges"	"6"
+				"shard_bonus_charges"	"10"
 				"RequiresShard"			"1"
 			}
 			"03"
@@ -5771,7 +5776,7 @@
 	"spirit_breaker_empowering_haste"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"20"
+		"AbilityCooldown"				"15"
 		"LinkedAbility"					"spirit_breaker_bulldoze"
 		"AbilityDraftPreAbility"		"spirit_breaker_bulldoze"
 		"AbilitySpecial"
@@ -5796,7 +5801,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"bonus_movespeed_pct_extra"		"6 8 10 12 14"
 			}
-			"05s"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"duration"			"8"
@@ -9436,11 +9441,32 @@
 	//=================================================================================================================
 	// Ability: Riki 力丸/隐刺/SA
 	//=================================================================================================================
+	"riki_permanent_invisibility"
+	{
+		"MaxLevel" "5"
+		"LinkedAbility"					"riki_smoke_screen"
+		"AbilityDraftPreAbility"		"riki_smoke_screen"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fade_delay"					"2"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_speed"			"20 40 60 80 100"
+			}
+		}
+	}
 	"riki_smoke_screen"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"20 18 16 14 12"
+		"AbilityCooldown"				"19 17 15 13 11"
 		"AbilityManaCost"				"65 70 75 80 85"
+		"LinkedAbility"					"riki_permanent_invisibility"
+		"AbilityDraftPreAbility"		"riki_permanent_invisibility"
 		"AbilityValues"
 		{
 				"radius"
@@ -9449,15 +9475,13 @@
 					"LinkedSpecialBonus"		"special_bonus_unique_riki_7"
 				}
 				"duration"					"6"
-				"miss_rate"					"35 45 55 65 75"
-				"dodge_chance"				"20 40 60 80 100"
+				"miss_rate"					"30 45 60 75 90"
 		}
 	}
 	"riki_blink_strike"
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"600 700 800 900 1000"
-		// Special
 		"AbilityValues"
 		{
 			"bonus_damage"				"40 60 80 100 120"
@@ -9480,21 +9504,20 @@
 		{
 			"damage_multiplier"
 			{
-				"value"		"1.4 1.8 2.2 2.5"
+				"value"		"1.4 1.8 2.2 2.6"
 				"LinkedSpecialBonus"		"special_bonus_unique_riki_1"
 				"CalculateSpellDamageTooltip"	"0"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}
 
 			"backstab_angle"				"105 105 105"
-			"fade_delay"					"4 3 2 1"
+			"fade_delay"					"2"
 		}
 	}
 	"riki_tricks_of_the_trade"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"21 18 15 12 10"
-		"AbilityManaCost"				"55"
+		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityValues"
 		{
 			"radius"
