@@ -12579,7 +12579,7 @@
 	"jakiro_macropyre"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"80 70 60 50"
+		"AbilityCooldown"				"100 90 80 70"
 		"AbilitySpecial"
 		{
 			"01"
