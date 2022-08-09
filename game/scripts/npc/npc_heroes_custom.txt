@@ -1039,8 +1039,6 @@
 				"32"		"jakiro_ice_path"
 				"33"		"jakiro_liquid_fire"
 				"34"		"jakiro_dual_breath"
-				"35"		"jakiro_dual_breath"
-				"36"		"jakiro_dual_breath"
 			}
 		}
 	}
