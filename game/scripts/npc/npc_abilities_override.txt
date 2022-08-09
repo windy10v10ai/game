@@ -2919,24 +2919,30 @@
 	//=================================================================================================================
 	"earth_spirit_boulder_smash"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"20.0 18.0 16.0 14.0 12.0 10.0 8.0"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"18.0 15.0 12.0 9.0 6.0"
 		"AbilitySpecial"
 		{
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"rock_damage"			"120 180 240 300 360 420 480"
+				"rock_damage"			"120 180 240 300 360"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"			"1.5 2 2.5 3 3.5 4 4.5"
+				"duration"			"2 2.5 3 3.5 4"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"unit_distance"			"800.0"
+				"unit_distance"			"900.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_7"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"rock_distance"			"2200.0"
 				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_7"
 			}
 		}
@@ -2947,10 +2953,31 @@
 		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
 		"AbilitySpecial"
 		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1500"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rock_speed"			"2500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"distance"				"1000.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_4"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"rock_distance_multiplier"	"2.0"
+			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"60 90 120 150 180"
+				"damage"				"100"
 				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit"
 			}
 			"08"
@@ -2967,7 +2994,7 @@
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_str"			"100"
+				"damage_str"			"150"
 			}
 		}
 	}
@@ -2979,7 +3006,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"rock_damage"			"50 100 150 200 250"
+				"rock_damage"			"100 150 200 250 300"
 			}
 			"03"
 			{
@@ -3011,33 +3038,88 @@
 	}
 	"earth_spirit_stone_caller"
 	{
+		"AbilityCharges"				"9"
 		"AbilityChargeRestoreTime"		"15"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shard_bonus_charges"	"5"
+				"shard_bonus_charges"	"6"
 				"RequiresShard"			"1"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shard_vision_radius"	"500"
+				"shard_vision_radius"	"600"
 				"RequiresShard"			"1"
 			}
 		}
 	}
+	"earth_spirit_petrify"
+	{
+		"AbilityCastRange"				"250"
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"100"
+		"AbilityValues"
+		{
+				"duration"		"3"
+				"damage"	"450"
+				"aoe"		"450"
+				"ally_cast_range"	"600"
+		}
+	}
 	"earth_spirit_magnetize"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"80 70 60 50 40"
+		"MaxLevel" "4"
+		"AbilityCooldown"				"70 60 50 40"
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_radius"			"450"
+			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"			"40 80 120 160 200"
+				"damage_per_second"			"80 120 160 200"
+			}
+		    "03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_duration"			"6.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_6"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rock_search_radius"			"500"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rock_explosion_radius"			"700"
+			}
+		}
+	}
+	"special_bonus_unique_earth_spirit_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"7661"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"4"
 			}
 		}
 	}
@@ -4034,7 +4116,7 @@
 				"duration"				"16"
 				"charges_per_flurry"	"3 4 5 6"
 				"flurry_bonus_attack_speed"	"700 975 1325 1600"
-				"time_between_flurries"	"0.5"
+				"time_between_flurries"	"1.0"
 				"pulse_radius"			"800"
 				"pulse_debuff_duration"	"2.0"
 				"pulse_damage"			"50 100 150 200"
