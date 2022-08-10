@@ -7803,24 +7803,14 @@
 				"value"				"90 115 140 165 190"
 				"LinkedSpecialBonus"		"special_bonus_unique_juggernaut_3"
 			}
-			"duration"
-			{
-				"value"				"5.0"
-				"special_bonus_unique_juggernaut_4"	"+1"
-			}
-			"shard_bonus_move_speed"
-			{
-				"value"				"100"
-				"RequiresShard"					"1"
-			}
 			"shard_attack_rate"
 			{
-				"value"				"1.0"
+				"value"				"0.8"
 				"RequiresShard"					"1"
 			}
 			"shard_damage_pct"
 			{
-				"value"				"75"
+				"value"				"100"
 				"RequiresShard"					"1"
 			}
 
