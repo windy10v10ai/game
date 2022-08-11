@@ -1010,5 +1010,10 @@
 		"DOTA_Tooltip_ability_item_saint_orb_duration"				"Duration:"
 		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"White Lotus"
 		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"Resist a disgusting directional spell"
+
+		// 嘉心糖
+		"DOTA_Tooltip_Ability_item_candy_candy"							"Diana Candy"
+		"DOTA_Tooltip_ability_item_candy_candy_Description"             "Eat this candy, you are a fan of Diana.<br/>Grants the bonus effects of all Empowered Runes for %duration% seconds."
+		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "Diana, I love you so much! For you, I'm going to listen to cat addiction!"
 	}
 }
