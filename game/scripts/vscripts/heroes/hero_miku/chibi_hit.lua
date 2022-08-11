@@ -83,10 +83,10 @@ function chibi_hit:Hit( target, dragonform )
 	self:PlayEffects( target, dragonform )
 	if caster:HasModifier("modifier_miku_arcana") then
 		local sound_cast = "miku.strike_arcana"
-	EmitSoundOn( sound_cast, target )
+		EmitSoundOn( sound_cast, target )
 	else
-	local sound_cast = "miku.5_5"
-	EmitSoundOn( sound_cast, target )
+		local sound_cast = "miku.5_5.3d"
+		EmitSoundOn( sound_cast, target )
 	end
 end
 
