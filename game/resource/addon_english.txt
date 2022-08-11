@@ -186,7 +186,7 @@
         "DOTA_Tooltip_ability_miku_dance_dance_damage" "DamagePerTick:"
         "DOTA_Tooltip_ability_miku_dance_damage_reduction" "%Damage reduction:"
         "DOTA_Tooltip_ability_liu_kick" "Liu-kick"
-        "DOTA_Tooltip_ability_liu_kick_Description" "Performs a long leap from his feet to the target, inflicting some amount of magic damage, knockback, stun and a Normal Attack.<br/>Stuns the enemy when in Chibi status."
+        "DOTA_Tooltip_ability_liu_kick_Description" "Performs a long leap from his feet to the target and enemy around in %radius% radius, inflicting some amount of magic damage, knockback, stun and a Normal Attack.<br/>Stuns the enemy when in Chibi status."
         "DOTA_Tooltip_ability_liu_kick_damage" "Damage:"
         "DOTA_Tooltip_ability_liu_kick_range" "Caste Range:"
         "DOTA_Tooltip_ability_liu_kick_stun_duration" "Stun duration in Chibi status:"
