@@ -207,6 +207,7 @@
 		"DOTA_Tooltip_modifier_player_luoshu_Description"		"<font color='#FFCC66'> 然而和我洛书有什么关系呢？ </font>"
 		"DOTA_Tooltip_modifier_player_m5xw"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_mingri"					"<font color='#FFCC66'>★ 淘气鬼 ★</font>"
+		"DOTA_Tooltip_modifier_player_liaoran"					"<font color='#FFCC66'>★ 比队友跑的快！ ★</font>"
 
 
 		// 初音未来
@@ -1076,7 +1077,7 @@
 
 		// 嘉心糖
 		"DOTA_Tooltip_Ability_item_candy_candy"							"嘉心糖"
-		"DOTA_Tooltip_ability_item_candy_candy_Description"             "吃了这颗糖，就是一嘉人了。<br/>可以获得所有强化神符的加成效果，持续60秒。"
+		"DOTA_Tooltip_ability_item_candy_candy_Description"             "吃了这颗糖，就是一嘉人了。<br/>可以获得所有强化神符的加成效果，持续%duration%秒。"
 		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "嘉然，我好喜欢你啊！为了你，我要听猫中毒！"
 	}
 }
