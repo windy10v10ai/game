@@ -235,7 +235,7 @@
         "DOTA_Tooltip_ability_miku_dance_dance_damage" "每次攻击伤害:"
         "DOTA_Tooltip_ability_miku_dance_damage_reduction" "%伤害减免:"
         "DOTA_Tooltip_ability_liu_kick" "初音飞踢"
-        "DOTA_Tooltip_ability_liu_kick_Description" "踢向目标将其击退，对其与周围敌人造成一定的魔法伤害，并附加一次普通攻击。<br/>变身时对敌人造成眩晕。"
+        "DOTA_Tooltip_ability_liu_kick_Description" "踢向目标将其击退，对其与周围%radius%范围内敌人造成一定的魔法伤害，并附加一次普通攻击。<br/>变身时对敌人造成眩晕。"
         "DOTA_Tooltip_ability_liu_kick_damage" "伤害:"
         "DOTA_Tooltip_ability_liu_kick_range" "施法距离:"
         "DOTA_Tooltip_ability_liu_kick_stun_duration" "变身时眩晕时间:"
