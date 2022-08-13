@@ -1551,16 +1551,16 @@
 	"axe_berserkers_call"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"17 15 13 11 9"
+		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 			"radius"
 			{
-				"value"							"300"
-				"special_bonus_unique_axe_2"	"+100"
+				"value"							"400"
+				"special_bonus_unique_axe_2"	"+200"
 			}
-				"bonus_armor"			"30"
+				"bonus_armor"			"25"
 			"duration"				"2.0 2.4 2.8 3.2 3.6"
 			"scepter_cooldown_reduction"
 			{
@@ -1601,7 +1601,7 @@
 	"axe_counter_helix"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"0.2"
+		"AbilityCooldown"				"0.3"
 		"AbilityValues"
 		{
 			"damage"
@@ -1617,7 +1617,7 @@
 
 			}
 
-			"cooldown"					"0.2"
+			"cooldown"					"0.3"
 			"shard_debuff_duration"
 			{
 				"special_bonus_shard"		"+6.0"
@@ -1651,7 +1651,7 @@
 			"charge_speed"				"1200"
 			"armor_per_stack"
 			{
-				"value"					"1 1.5 2 2.5 3"
+				"value"					"2"
 				"special_bonus_unique_axe_3"	"+1"
 			}
 		}
@@ -1662,152 +1662,129 @@
 	"alchemist_berserk_potion"
 	{
 		"AbilityCooldown"				"25"
+		"AbilityValues"
+		{
+			"duration"		"15"
+			"attack_speed"		"80"
+			"hp_regen"		"60"
+			"projectile_speed"			"900"
+			"move_speed"			"40"
+
+		}
 	}
 	"alchemist_acid_spray"
 	{
 		"MaxLevel" "5"
 		"AbilityManaCost"				"130 140 150 160 170"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"radius"				"675"
+			"duration"				"16"
+			"damage"				"25 30 35 40 45"
+			"armor_reduction"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"475 525 575 625 650"
+				"value"						"4 5 6 7 8"
+				"special_bonus_unique_alchemist_5"		"+2"
 			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"20 25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"		"4 5 6 7 8"
-				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_5"
-			}
+			"tick_rate"				"1.0"
 		}
 	}
 	"alchemist_unstable_concoction"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"100"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"04"
+			"brew_time"					"5.0"
+			"brew_explosion"			"5.5"
+			"min_stun"					"1.0"
+			"max_stun"					"2.0 2.5 3.0 3.5 4.0"
+			"min_damage"				"150"
+			"max_damage"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"max_stun"					"1.75 2.5 3.25 4.0 4.5"
+				"value"					"200 250 300 350 400"
+				"special_bonus_unique_alchemist_2"		"+400"
 			}
-			"06"
+
+			"radius"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"max_damage"				"150 220 290 360 430"
-				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_2"
+				"value"					"300"
+				"special_bonus_unique_alchemist"	"+250"
 			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"move_speed"				"5 10 15 20 25"
-			}
+			"move_speed"				"10 15 20 25 30"
 		}
 	}
 	"alchemist_unstable_concoction_throw"
 	{
-		"AbilitySpecial"
+		"MaxLevel" "5"
+		"AbilityValues"
 		{
-			"03"
+			"brew_time"					"5.0"
+			"min_stun"					"1.0"
+			"max_stun"					"2.0 2.5 3.0 3.5 4.0"
+			"min_damage"				"150"
+			"max_damage"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"max_stun"					"1.75 2.5 3.25 4.0 4.5"
+				"value"					"200 250 300 350 400"
+				"special_bonus_unique_alchemist_2"		"+400"
 			}
-			"04"
+			"projectile_speed"			"900"
+			"midair_explosion_radius"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"min_damage"				"0"
+				"value"					"300"
+				"special_bonus_unique_alchemist"	"+250"
 			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"max_damage"				"150 220 290 360 430"
-			}
+			"brew_explosion"			"7.0"
 		}
 	}
 	"alchemist_goblins_greed"
 	{
-		"MaxLevel" "7"
-		"AbilitySpecial"
+		"MaxLevel" "5"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"36 38 40 42 44 46 48"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_gold"			"3 4 5 6 7 8 9"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_bonus_gold"		"3 4 5 6 7 8 9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_gold_cap"		"15 18 21 24 27 30 33"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bounty_multiplier"		"5.0"
-			}
+			"duration"				"36"
+			"bonus_gold"			"10"
+			"bonus_bonus_gold"		"10"
+			"bonus_gold_cap"		"40 50 60 70 80"
+			"bounty_multiplier"		"4.0"
 		}
 	}
 	"alchemist_chemical_rage"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"45.0"
-		"AbilityManaCost"				"50 75 100 125 150"
-		"AbilitySpecial"
+		"MaxLevel" "4"
+		"AbilityCooldown"				"50.0"
+		"AbilityManaCost"				"50 75 100 125"
+		"AbilityValues"
 		{
-			"01"
+			"duration"				"30"
+			"transformation_time"	"0.35"
+			"base_attack_time"		"1.2 1.1 1.0 0.9"
+			"bonus_health"			"1500"
+			"bonus_health_regen"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"25.0"
+				"value"	"50 100 150 200"
+				"special_bonus_unique_alchemist_4"		"+50"
 			}
-			"02"
+			"bonus_mana_regen"		"20"
+			"bonus_movespeed"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"transformation_time"	"0.25"
+
+				"value"		"50 60 70 80"
+				"special_bonus_unique_alchemist_6"			"+50"
 			}
-			"03"
+			"scepter_gold_damage"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"base_attack_time"		"1.2 1.1 1.0 0.9 0.8"
-				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_3"
+				"value"						"2"
+				"RequiresScepter"			"1"
 			}
-			"04"
+			"scepter_bonus_damage"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"500 1000 1500 2000 2500"
+				"value"						"20"
+				"RequiresScepter"			"1"
 			}
-			"05"
+			"scepter_spell_amp"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"50 75 100 125 150"
-				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_4"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"15 20 25 30 35"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed"		"40 50 60 70 80"
-				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_6"
+				"value"						"5"
+				"RequiresScepter"			"1"
 			}
 		}
 	}
@@ -1816,50 +1793,100 @@
 	//=================================================================================================================
 	"beastmaster_wild_axes"
 	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"65 75 85 95 105 115 125"
-		"AbilitySpecial"
+		"MaxLevel" "5"
+		"AbilityManaCost"				"65"
+		"AbilityValues"
 		{
-			"04"
+			"radius"					"175"
+			"spread"					"450"
+			"range"						"1500"
+			"axe_damage"					"40 80 120 140 160"
+			"duration"						"12"
+			"damage_amp"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"axe_damage"				"40 70 100 130 160 190 220"
-				"LinkedSpecialBonus"		"special_bonus_unique_beastmaster"
+				"value"				"6 8 10 12 14"
+				"special_bonus_unique_beastmaster_9"		"+4"
 			}
-			"06"
+			"AbilityCooldown"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_amp"				"6 8 10 12 14 16 18"
-				"LinkedSpecialBonus"		"special_bonus_unique_beastmaster_9"
+				"value"			"8"
+				"special_bonus_scepter"						"-100%"
 			}
+			"min_throw_duration"						"0.4"
+			"max_throw_duration"						"1.0"
 		}
 	}
 	"beastmaster_call_of_the_wild_boar"
 	{
-		"AbilityCooldown"				"35 30 25 20"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"40 35 30 25 20"
+		"AbilityManaCost"				"60 65 70 75 80"
+		"AbilityValues"
+		{
+
+			"duration"							"60"
+			"boar_base_max_health"				"450 600 750 900 1050"
+			"boar_base_damage"					"30 50 70 90 110"
+			"boar_bonus_damage"
+			{
+				"value"										"0"
+				"special_bonus_unique_beastmaster_2"		"+70"
+			}
+			"boar_base_xp_bounty"				"90"
+			"boar_base_movespeed"				"360"
+			"boar_moveslow_tooltip"				"10 20 30 40 50"
+			"boar_poison_duration_tooltip"		"3.0"
+		}
+	}
+	"beastmaster_boar_poison"
+	{
+		"MaxLevel" "5"
+		"AbilityValues"
+		{
+			"attack_speed"			"-10 -20 -30 -40 -50"
+			"movement_speed"		"-10 -20 -30 -40 -50"
+			"duration"				"3.0"
+		}
 	}
 	"beastmaster_call_of_the_wild_hawk"
 	{
-		"AbilityCooldown"				"50 40 30 20"
+		"MaxLevel" "5"
+		"AbilityValues"
+		{
+			"duration"						"60"
+			"hawk_base_max_health"			"200 250 300 350 400"
+			"hawk_base_movespeed"			"420"
+			"hawk_base_gold_bounty"			"60"
+			"hawk_base_vision_range"		"750 800 850 900 950"
+			"AbilityCooldown"
+			{
+				"value"						"45 40 35 30 25"
+				"special_bonus_shard"		"-5"
+
+			}
+		}
 	}
-	"special_bonus_unique_beastmaster_2"
+	"beastmaster_hawk_dive"
+	{
+		"AbilityValues"
+		{
+			"damage"		"350"
+			"stun_duration"		"2"
+		}
+	}
+	"special_bonus_unique_beastmaster_5"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6517"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"ID"					"506"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
+		"ad_linked_abilities"			"beastmaster_call_of_the_wild_hawk"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"70"
-				"ad_linked_abilities"			"beastmaster_call_of_the_wild_boar"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
+			"bonus_ms"					"40"
 		}
 	}
 	"special_bonus_unique_beastmaster_6"
@@ -1869,49 +1896,50 @@
 		"ID"					"613"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
+		"ad_linked_abilities"			"beastmaster_call_of_the_wild_boar"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_hp"				"500"
-				"ad_linked_abilities"			"beastmaster_call_of_the_wild_boar"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
+			"bonus_hp"				"450"
 		}
 	}
 	"beastmaster_inner_beast"
 	{
-		"MaxLevel" "7"
-		"AbilitySpecial"
+		"MaxLevel" "5"
+		"AbilityValues"
 		{
-			"02"
+			"radius"				"1200"
+			"bonus_attack_speed"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"15 25 35 45 55 65 75"
-				"LinkedSpecialBonus"		"special_bonus_unique_beastmaster_4"
+				"value"									"20 30 40 50 60"
+				"special_bonus_unique_beastmaster_4"		"+60"
 			}
 		}
 	}
 	"beastmaster_primal_roar"
 	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"150 175 200 225 250"
-
+		"MaxLevel" "4"
+		"AbilityManaCost"				"125 150 175 200"
 		"AbilityValues"
 		{
-			"duration"					"3.0 3.5 4.0 4.5 5.0"
-			"damage"					"150 225 300 375 450"
-			"side_damage"				"150 225 300 375 450"
-			"slow_duration"				"3 3.5 4 4.5 5"
-			"movement_speed_duration"	"3.0 3.5 4.0 4.5 5.0"
+			"duration"					"3.0 3.5 4.0 4.5"
+			"damage"					"150 250 350 450"
+			"side_damage"				"150 250 350 450"
+			"damage_radius"				"300"
+			"slow_movement_speed_pct"	"-60"
+			"slow_attack_speed_pct"		"-60"
+			"push_distance"				"450"
+			"push_duration"				"1.0"
+			"slow_duration"				"3 3.5 4 4.5"
+			"movement_speed"			"50"
+			"movement_speed_duration"			"3.0 3.5 4 4.5"
 			"AbilityCooldown"
 			{
-				"value"				"100.0 90.0 80.0 70.0 60.0"
-				"special_bonus_unique_beastmaster_7"		"-30"
+				"value"				"80.0 70.0 60.0 50.0"
+				"special_bonus_unique_beastmaster_7"		"-20"
 			}
+
 		}
 	}
 	//=================================================================================================================
@@ -12851,7 +12879,6 @@
 		"MaxLevel" "5"
 		"AbilityManaCost"				"90 110 130 150 170"
 		"AbilityDamage"					"20 40 60 80 100"
-		"AbilityDuration"				"15"
 		"AbilitySpecial"
 		{
 			"01"
@@ -12869,7 +12896,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tower_bonus"			"20"
+				"tower_bonus"			"0"
 
 			}
 
