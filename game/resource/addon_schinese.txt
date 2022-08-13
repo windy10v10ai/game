@@ -1013,7 +1013,7 @@
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"苍洋魔珠"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"						"要不是这颗尊崇的魔珠，教团在石鱼门一役就全军覆没。"
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有无敌效果的疗伤泡泡，移动速度降低至%bubble_move_speed%，无法攻击释放技能和道具持续%bubble_duration%秒，每%heal_tick_interval%秒治疗%bubble_heal_per_tick%点生命。\n\n<h1>被动：苍洋福佑</h1>自身提供的治疗效果提升%heal_increase%%%。"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有无敌效果的疗伤泡泡，移动速度降低至%bubble_move_speed%，无法攻击释放技能和道具持续%bubble_duration%秒。<br/>回复%bubble_total_heal_tip%点生命，%bubble_total_mana_tip%点魔法。\n\n<h1>被动：苍洋福佑</h1>自身提供的治疗效果提升%heal_increase%%%。"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_health"			"+$health"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana"				"+$mana"
