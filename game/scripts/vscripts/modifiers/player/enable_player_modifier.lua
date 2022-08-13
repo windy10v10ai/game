@@ -136,6 +136,14 @@ local liaoranSteamAccountID = Set {
 	-- 了然明心
 	141805019,
 }
+local laniSteamAccountID = Set {
+	-- 菈妮唯一的王
+	112073229,
+}
+local li123SteamAccountID = Set {
+	-- 爱发电 123
+	193859368,
+}
 
 -- 称号属性 END
 
@@ -273,5 +281,13 @@ function EnablePlayerModifier(hEntity)
 	if liaoranSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_liaoran", "modifiers/player/modifier_player_liaoran", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_liaoran", {})
+	end
+	if laniSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_lani", "modifiers/player/modifier_player_lani", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_lani", {})
+	end
+	if li123SteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_li123", "modifiers/player/modifier_player_li123", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_li123", {})
 	end
 end

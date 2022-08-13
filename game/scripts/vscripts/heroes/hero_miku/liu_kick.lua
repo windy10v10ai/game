@@ -162,8 +162,6 @@ function modifier_liu_kick:PlayEffects()
 
     self.target:AddNewModifier(self.parent, self.ability, "modifier_knockback", knockback)
 
-    print("knockback aoe"..self.ability:GetAOERadius())
-
     local enemies = FindUnitsInRadius(  self.parent:GetTeamNumber(),
                                         position,
                                         nil,
