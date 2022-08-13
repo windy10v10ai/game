@@ -1027,7 +1027,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
+		"BaseClass"						"item_lua"
+		"ScriptFile"                    "items/item_excalibur.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9048"
 		"AbilityTextureName"			"item_excalibur"
@@ -1035,35 +1036,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"666"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage_percent"	"100"
-			}
-		}
-		"Modifiers"
-		{
-
-			"modifier_item_excalibur"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%bonus_damage_percent"
-				}
-			}
+			"bonus_damage"			"666"
+			"bonus_damage_percent"	"100"
 		}
 	}
 
