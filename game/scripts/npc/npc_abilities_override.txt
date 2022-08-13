@@ -7805,7 +7805,7 @@
 			}
 			"shard_attack_rate"
 			{
-				"value"				"0.8"
+				"value"				"0.75"
 				"RequiresShard"					"1"
 			}
 			"shard_damage_pct"
@@ -14781,6 +14781,11 @@
 		"AbilityDamage"					"8 12 16 24"
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"										"FIELD_FLOAT"
+				"ball_lightning_initial_mana_percentage"		"6.5"
+			}
 			"03"
 			{
 				"var_type"							"FIELD_INTEGER"
@@ -14789,7 +14794,20 @@
 			"05"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"ball_lightning_travel_cost_base"	"10 20 30 40"
+				"ball_lightning_travel_cost_base"	"10 15 20 25"
+			}
+		}
+	}
+	// 球状闪电残影距离
+	"special_bonus_unique_storm_spirit_4"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"800"
+				"ad_linked_abilities"			"storm_spirit_ball_lightning && storm_spirit_static_remnant"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
