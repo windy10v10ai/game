@@ -206,7 +206,7 @@
 		"DOTA_Tooltip_modifier_player_luoshu"					"<font color='#FFCC66'>★ 洛书 ★</font>"
 		"DOTA_Tooltip_modifier_player_luoshu_Description"		"<font color='#FFCC66'> 然而和我洛书有什么关系呢？ </font>"
 		"DOTA_Tooltip_modifier_player_m5xw"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
-		"DOTA_Tooltip_modifier_player_mingri"					"<font color='#FFCC66'>★ 淘气鬼 ★</font>"
+		"DOTA_Tooltip_modifier_player_mingri"					"<font color='#FFCC66'>★ 这车能坐吗 ★</font>"
 		"DOTA_Tooltip_modifier_player_liaoran"					"<font color='#FFCC66'>★ 比队友跑的快！ ★</font>"
 		"DOTA_Tooltip_modifier_player_lani"						"<font color='#FFCC66'>★ 褪色者 ★</font>"
 		"DOTA_Tooltip_modifier_player_lani_Description"			"<font color='#FFCC66'> 菈妮唯一的王 </font>"
@@ -385,7 +385,7 @@
 		"npc_dota_hero_chen"									"孙悟空"
 
 		"DOTA_Tooltip_Ability_goku_kamehameha"								"龟派气功"
-		"DOTA_Tooltip_ability_goku_kamehameha_description"					"孙悟空将全身所有能量聚集一点浓缩后一起释放出来，射出一道光波，在持续时间内对直线上的敌人造成伤害\n<h1>超级赛亚人模式：</h1>光波距离变为%super_saiyan_length%，且伤害变为%super_saiyan_damage_multiple%倍。<br/>每秒额外消耗%super_saiyan_mana_percent%%%最大魔法值的蓝量。"
+		"DOTA_Tooltip_ability_goku_kamehameha_description"					"孙悟空将全身所有能量聚集一点浓缩后一起释放出来，射出一道光波，在持续时间内对直线上的敌人造成伤害<h1>超级赛亚人模式：</h1>光波距离变为%super_saiyan_length%，且伤害变为%super_saiyan_damage_multiple%倍。<br/>每秒额外消耗%super_saiyan_mana_percent%%%最大魔法值的蓝量。"
 		"DOTA_Tooltip_ability_goku_kamehameha_Lore"							"由龟仙人所创的绝技"
 		"DOTA_Tooltip_ability_goku_kamehameha_channel"						"持续时间："
 		"DOTA_Tooltip_ability_goku_kamehameha_length"						"光波长度："

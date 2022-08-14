@@ -5255,7 +5255,7 @@
 		"AbilityTextureName"			"item_recipe_orb_of_the_brine"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3250"
+		"ItemCost"						"3050"
 		"ItemShopTags"					""
 
 		// Recipe
