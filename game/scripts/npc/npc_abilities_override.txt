@@ -4803,6 +4803,11 @@
 		"AbilityCooldown"				"36 34 32 30 28"
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_cost_perc"			"10"
+			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -4812,7 +4817,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"10 30 50 70 90"
+				"damage_per_second"		"15 35 55 75 95"
 			}
 			"08"
 			{
@@ -4825,7 +4830,7 @@
 	"phoenix_fire_spirits"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"50 40 30 20 10"
+		"AbilityCooldown"				"35 30 25 20 15"
 		"AbilitySpecial"
 		{
 			"01"
@@ -4848,69 +4853,109 @@
 	}
 	"phoenix_sun_ray"
 	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"100 110 120 130 140 150 160"
+		"MaxLevel" "5"
+		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"hp_cost_perc_per_second"		"6"
+				"hp_cost_perc_per_second"		"5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"10 20 30 40 50 60 70"
+				"base_damage"			"10 20 30 40 50"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hp_perc_damage"		"0.5 1 1.5 2 2.5 3 3.5"
+				"hp_perc_damage"		"0.5 1.0 1.5 2.0 2.5"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_5"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"base_heal"			"10 20 30 40 50 60 70"
+				"base_heal"			"10 20 30 40 50"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hp_perc_heal"			"1.0 2.0 3.0 4.0 5.0 6.0 7.0"
+				"hp_perc_heal"			"1.0 2.0 3.0 4.0 5.0"
+			}
+		}
+	}
+	"special_bonus_unique_phoenix_5"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6915"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"1.0"
+				"ad_linked_abilities"			"phoenix_sun_ray"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
 	"phoenix_supernova"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"100 90 80 70 60"
-		"AbilityManaCost"				"150 200 250 300 350"
+		"MaxLevel" "4"
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"150 200 250 300"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_sec"	"60 90 120 150 180"
+				"damage_per_sec"	"60 90 120 150"
 			}
 
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"2.0 2.5 3.0 3.5 4.0"
+				"stun_duration"		"2.0 2.5 3.0 3.5"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_2"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_hero_attacks"	"6 8 10 12 14"
+				"max_hero_attacks"	"8 10 12 14"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_1"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_hero_attacks_scepter"	"8 11 14 16 18"
+				"max_hero_attacks_scepter"	"11 14 16 18"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_1"
 				"RequiresScepter"	"1"
+			}
+		}
+	}
+	"special_bonus_unique_phoenix_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6227"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"
+				"ad_linked_abilities"			"phoenix_supernova"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -5174,12 +5219,39 @@
 	//=================================================================================================================
 	"rattletrap_overclocking"
 	{
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"40"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"buff_duration"				"8"
+
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_movement_speed"		"40"
+
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_attack_speed"		"200"
+
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"debuff_duration"		"2"
+
+			}
+		}
 	}
 	"rattletrap_battery_assault"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"25 23 21 19 17 15 13"
+		"AbilityCooldown"				"24 22 20 18 16 14 12"
 		"AbilityManaCost"				"100"
 		"AbilitySpecial"
 		{
@@ -5199,6 +5271,26 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage"			"20 45 70 95 120 145 170"
 				"LinkedSpecialBonus"		"special_bonus_unique_clockwerk_3"
+			}
+		}
+	}
+	"special_bonus_unique_clockwerk_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6512"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"50"
+				"ad_linked_abilities"			"rattletrap_battery_assault"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -5234,16 +5326,16 @@
 	}
 	"rattletrap_rocket_flare"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"20.0 18.0 16.0 14.0 12.0 10.0 8.0"
-		"AbilityManaCost"				"30 45 40 45 50 55 60"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"18.0 16.0 14.0 12.0 10.0"
+		"AbilityManaCost"				"30 45 40 45 50"
 		"AbilityValues"
 		{
 				"radius"			"800"
 				"duration"			"8.0"
 				"speed"				"2250"
 				"vision_radius"		"800"
-				"damage"			"80 120 160 200 240 280 320"
+				"damage"			"80 120 160 200 240"
 		}
 	}
 	"rattletrap_hookshot"
@@ -5266,7 +5358,13 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"150 250 350 450"
+				"damage"			"100 200 200 400"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cooldown_scepter"	"15.0"
+				"RequiresScepter"			"1"
 			}
 		}
 	}
@@ -5597,13 +5695,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"vampiric_aura"			"9 16 23 30 37"
+				"vampiric_aura"			"15 20 25 30 35"
 				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_2"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"max_skeleton_charges"		"1 2 3 4 5"
+				"max_skeleton_charges"		"4"
 				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_5"
 			}
 		}
@@ -5635,21 +5733,21 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"48"
+				"value"				"72"
 				"ad_linked_abilities"			"skeleton_king_vampiric_aura"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
 	"skeleton_king_mortal_strike"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"5.5 5.0 4.5 4.0 3.5 3.0 2.5"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"5.5 4.5 3.5 2.5 1.5"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_mult"					"150 190 230 270 300 330 360"
+				"crit_mult"					"150 190 230 270 310"
 			}
 		}
 	}
@@ -5668,7 +5766,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"value"				"1"
+				"value"				"1.0"
 				"ad_linked_abilities"			"skeleton_king_mortal_strike"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -5688,7 +5786,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"scepter_aura_radius"	"900"
+				"scepter_aura_radius"	"1200"
 				"RequiresScepter"			"1"
 			}
 			"11"
