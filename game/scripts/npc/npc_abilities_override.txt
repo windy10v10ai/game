@@ -15612,9 +15612,23 @@
 
 		}
 	}
-	"tinker_rearm"
+	"tinker_keen_teleport"
 	{
+		"AbilityCooldown"				"80.0"
+		"AbilityChannelTime"			"4.5 3.5 2.5"
+		"AbilityCastPoint"				"0.0"
+		"LinkedAbility"					"tinker_rearm_lua"
+		"AbilityDraftPreAbility"		"tinker_rearm_lua"
+		"AbilitySpecial"
+		{
+		}
+	}
+	"tinker_rearm_lua"
+	{
+		"LinkedAbility"					"tinker_keen_teleport"
+		"AbilityDraftPreAbility"		"tinker_keen_teleport"
 		"AbilityManaCost"				"150 200 250"
+		"AbilityChannelTime"			"3.5 2.5 1.5"
 		"AbilitySpecial"
 		{
 		}
