@@ -2015,8 +2015,8 @@
 				"10"		"special_bonus_attack_speed_15"
 				"11"		"skeleton_king_mortal_strike"
 				"12"		"skeleton_king_reincarnation"
-				"13"		"skeleton_king_vampiric_aura"
-				"14"		"skeleton_king_vampiric_aura"
+				"13"		"skeleton_king_mortal_strike"
+				"14"		"skeleton_king_hellfire_blast"
 				"15"		"special_bonus_unique_wraith_king_6"
 				"16"		"skeleton_king_vampiric_aura"
 				"17"		""
@@ -2035,10 +2035,8 @@
 				"30"		"special_bonus_unique_wraith_king_10"
 				"31"		"skeleton_king_reincarnation"
 				"32"		"skeleton_king_vampiric_aura"
-				"33"		"skeleton_king_hellfire_blast"
-				"34"		"skeleton_king_mortal_strike"
-				"35"		"skeleton_king_mortal_strike"
-				"36"		"skeleton_king_mortal_strike"
+				"33"		"skeleton_king_vampiric_aura"
+				"34"		"skeleton_king_vampiric_aura"
 			}
 		}
 	}
