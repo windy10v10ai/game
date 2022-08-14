@@ -124,7 +124,7 @@ function AIGameMode:InitHumanPlayerListAndSetHumanStartGold()
 		print("[AIGameMode] InitSettings")
 		self.tHumanPlayerList = {}
 		for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
-			if PlayerResource:IsValidPlayer(i) then
+			if PlayerResource:GetConnectionState(i) ~= DOTA_CONNECTION_STATE_UNKNOWN then
 				-- set human player list
 				self.tHumanPlayerList[i] = true
 				-- set start gold
