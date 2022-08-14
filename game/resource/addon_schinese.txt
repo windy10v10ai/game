@@ -1082,5 +1082,16 @@
 		"DOTA_Tooltip_Ability_item_candy_candy"							"嘉心糖"
 		"DOTA_Tooltip_ability_item_candy_candy_Description"             "吃了这颗糖，就是一嘉人了。<br/>可以获得所有强化神符的加成效果，持续%duration%秒。"
 		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "嘉然，我好喜欢你啊！为了你，我要听猫中毒！"
+
+        // 潮汐猎人
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua"									"海妖外壳"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Description"						"加厚潮汐猎人的外皮，可以被动格挡物理伤害，当受到的伤害达到临界值时外皮还将移除绝大多数负面效果。\n\n不与带有伤害格挡的物品叠加。\n\n驱散类型：强驱散"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Lore"								"铁帆海军里有一个传言，说是有只强大的海兽，明明被矛刺中被剑砍伤依然能践踏舰队。"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note0"							"现在并非只有玩家控制单位（也可以说是任意单位）造成的伤害都可以计算在移除负面状态的累计伤害中。"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note1"							"如果%damage_reset_interval%秒内没有受到来自任意单位（包含小兵，防御塔，野怪）的伤害，伤害累计值将重置。"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note2"							"海妖外壳能移除绝大多数负面状态，即使该状态效果无法驱散。"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reduction"					"伤害格挡："
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_cleanse"					"伤害临界值："
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reset_interval"			"临界值累计时间："
 	}
 }

@@ -2279,19 +2279,20 @@
 	}
 	"npc_dota_hero_tidehunter"
 	{
+		"Ability2"		"tidehunter_kraken_shell_lua"
 		"Bot"
 		{
 			"Build"
 			{
 				"1"		"tidehunter_gush"
-				"2"		"tidehunter_kraken_shell"
+				"2"		"tidehunter_kraken_shell_lua"
 				"3"		"tidehunter_anchor_smash"
-				"4"		"tidehunter_kraken_shell"
+				"4"		"tidehunter_kraken_shell_lua"
 				"5"		"tidehunter_anchor_smash"
 				"6"		"tidehunter_ravage"
 				"7"		"tidehunter_anchor_smash"
-				"8"		"tidehunter_kraken_shell"
-				"9"		"tidehunter_kraken_shell"
+				"8"		"tidehunter_kraken_shell_lua"
+				"9"		"tidehunter_kraken_shell_lua"
 				"10"		"special_bonus_unique_tidehunter_5"
 				"11"		"tidehunter_anchor_smash"
 				"12"		"tidehunter_ravage"
@@ -2315,12 +2316,8 @@
 				"30"		"special_bonus_unique_tidehunter_8"
 				"31"		"tidehunter_ravage"
 				"32"		"tidehunter_gush"
-				"33"		"tidehunter_gush"
-				"34"		"tidehunter_gush"
-				"35"		"tidehunter_kraken_shell"
-				"36"		"tidehunter_kraken_shell"
-				"37"		"tidehunter_kraken_shell"
-				"38"		"tidehunter_anchor_smash"
+				"33"		"tidehunter_kraken_shell_lua"
+				"34"		"tidehunter_anchor_smash"
 			}
 		}
 	}
