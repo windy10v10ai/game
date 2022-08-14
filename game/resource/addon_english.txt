@@ -1032,7 +1032,7 @@
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"A new battery here, another set of rockets there, Boush continually improves on existing technology."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Tome of Knowledge, Refresher Orb,（including the advanced things for example Black king bar 2） and any neutral items."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Tome of Knowledge, Refresher Orb, (including the advanced things for example Black king bar 2, Armor of Insight, etc.) and any neutral items."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"TIME TO REARM:"
 	}
 }
