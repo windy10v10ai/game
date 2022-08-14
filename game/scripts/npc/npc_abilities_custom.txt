@@ -1905,8 +1905,6 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
 
-		"AbilityDraftUltShardAbility"		"tinker_warp_grenade"
-
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"0"
@@ -1923,7 +1921,6 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"channel_tooltip"			"3.5 2.5 1.5"
-				"LinkedSpecialBonus"	"special_bonus_unique_tinker_5"
 			}
 		}
 	}

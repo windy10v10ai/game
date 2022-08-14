@@ -1,5 +1,8 @@
 tinker_rearm_lua = class({})
 
+function tinker_rearm_lua:GetCastAnimation()
+	return ACT_DOTA_TINKER_REARM1
+end
 --------------------------------------------------------------------------------
 -- Ability Start
 function tinker_rearm_lua:OnSpellStart()
@@ -70,6 +73,7 @@ tinker_rearm_lua.ItemException = {
 	["item_aeon_pendant"] = true,
 	["item_black_king_bar_2"] = true,
 	["item_sphere_2"] = true,
+	["item_insight_armor"] = true,
 }
 
 --------------------------------------------------------------------------------
