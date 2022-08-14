@@ -46,6 +46,11 @@ function tinker_rearm_lua:OnChannelFinish( bInterrupted )
 		end
 	end
 
+	local item = caster:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
+	if item then
+		item:EndCooldown()
+	end
+
 	-- effects
 	self:PlayEffects()
 end
