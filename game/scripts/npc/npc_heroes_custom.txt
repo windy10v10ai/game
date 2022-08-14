@@ -264,6 +264,7 @@
 
 	"npc_dota_hero_tinker"
 	{
+		"Ability6"		"tinker_rearm_lua"
 		"Ability7"		"tinker_march_of_the_machines"
 	}
 
@@ -1103,12 +1104,12 @@
 				"5"		"kunkka_tidebringer"
 				"6"		"kunkka_ghostship"
 				"7"		"kunkka_tidebringer"
-				"8"		"kunkka_tidebringer"
+				"8"		"kunkka_torrent"
 				"9"		"kunkka_tidebringer"
 				"10"		"special_bonus_attack_damage_30"
-				"11"		"kunkka_tidebringer"
+				"11"		"kunkka_torrent"
 				"12"		"kunkka_ghostship"
-				"13"		"kunkka_x_marks_the_spot"
+				"13"		"kunkka_torrent"
 				"14"		"kunkka_x_marks_the_spot"
 				"15"		"special_bonus_unique_kunkka_6"
 				"16"		"kunkka_x_marks_the_spot"
@@ -1127,12 +1128,9 @@
 				"29"		"special_bonus_unique_kunkka_4"
 				"30"		"special_bonus_unique_kunkka_5"
 				"31"		"kunkka_ghostship"
-				"32"		"kunkka_ghostship"
-				"33"		"kunkka_torrent"
-				"34"		"kunkka_torrent"
-				"35"		"kunkka_torrent"
-				"36"		"kunkka_x_marks_the_spot"
-				"37"		"kunkka_x_marks_the_spot"
+				"32"		"kunkka_x_marks_the_spot"
+				"33"		"kunkka_x_marks_the_spot"
+				"34"		"kunkka_x_marks_the_spot"
 			}
 		}
 	}
@@ -2018,8 +2016,8 @@
 				"10"		"special_bonus_attack_speed_15"
 				"11"		"skeleton_king_mortal_strike"
 				"12"		"skeleton_king_reincarnation"
-				"13"		"skeleton_king_vampiric_aura"
-				"14"		"skeleton_king_vampiric_aura"
+				"13"		"skeleton_king_mortal_strike"
+				"14"		"skeleton_king_hellfire_blast"
 				"15"		"special_bonus_unique_wraith_king_6"
 				"16"		"skeleton_king_vampiric_aura"
 				"17"		""
@@ -2038,10 +2036,8 @@
 				"30"		"special_bonus_unique_wraith_king_10"
 				"31"		"skeleton_king_reincarnation"
 				"32"		"skeleton_king_vampiric_aura"
-				"33"		"skeleton_king_hellfire_blast"
-				"34"		"skeleton_king_mortal_strike"
-				"35"		"skeleton_king_mortal_strike"
-				"36"		"skeleton_king_mortal_strike"
+				"33"		"skeleton_king_vampiric_aura"
+				"34"		"skeleton_king_vampiric_aura"
 			}
 		}
 	}
@@ -2284,19 +2280,20 @@
 	}
 	"npc_dota_hero_tidehunter"
 	{
+		"Ability2"		"tidehunter_kraken_shell_lua"
 		"Bot"
 		{
 			"Build"
 			{
 				"1"		"tidehunter_gush"
-				"2"		"tidehunter_kraken_shell"
+				"2"		"tidehunter_kraken_shell_lua"
 				"3"		"tidehunter_anchor_smash"
-				"4"		"tidehunter_kraken_shell"
+				"4"		"tidehunter_kraken_shell_lua"
 				"5"		"tidehunter_anchor_smash"
 				"6"		"tidehunter_ravage"
 				"7"		"tidehunter_anchor_smash"
-				"8"		"tidehunter_kraken_shell"
-				"9"		"tidehunter_kraken_shell"
+				"8"		"tidehunter_kraken_shell_lua"
+				"9"		"tidehunter_kraken_shell_lua"
 				"10"		"special_bonus_unique_tidehunter_5"
 				"11"		"tidehunter_anchor_smash"
 				"12"		"tidehunter_ravage"
@@ -2320,12 +2317,8 @@
 				"30"		"special_bonus_unique_tidehunter_8"
 				"31"		"tidehunter_ravage"
 				"32"		"tidehunter_gush"
-				"33"		"tidehunter_gush"
-				"34"		"tidehunter_gush"
-				"35"		"tidehunter_kraken_shell"
-				"36"		"tidehunter_kraken_shell"
-				"37"		"tidehunter_kraken_shell"
-				"38"		"tidehunter_anchor_smash"
+				"33"		"tidehunter_kraken_shell_lua"
+				"34"		"tidehunter_anchor_smash"
 			}
 		}
 	}
