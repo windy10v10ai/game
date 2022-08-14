@@ -1016,7 +1016,7 @@
 		"DOTA_Tooltip_ability_item_candy_candy_Description"             "Eat this candy, you are a fan of Diana.<br/>Grants the bonus effects of all Empowered Runes for %duration% seconds."
 		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "Diana, I love you so much! For you, I'm going to listen to cat addiction!"
 
-	    // 潮汐猎人
+	    // 潮汐猎人 海妖外壳
 		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua"									"Kraken Shell"
 		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Description"						"Thickens Tidehunter's hide to passively block a portion of any incoming physical attack damage. The hide also removes negative status effects if the damage taken crosses a threshold.\n\nDoes not stack with items that provide Damage Block.\n\nDISPEL TYPE: Strong Dispel"
 		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Lore"								"Claddish navymen tell tales of a mighty sea-faring beast that suffered spear and sword but continued to lay waste to the fleet."
@@ -1026,5 +1026,13 @@
 		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reduction"					"DAMAGE BLOCK:"
 		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_cleanse"					"DAMAGE THRESHOLD:"
 		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reset_interval"			"THRESHOLD TIMER:"
+
+	    // 修补匠 刷新
+	    "DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"A new battery here, another set of rockets there, Boush continually improves on existing technology."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Tome of Knowledge, Refresher Orb,（including the advanced things for example Black king bar 2） and any neutral items."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"TIME TO REARM:"
 	}
 }
