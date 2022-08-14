@@ -119,9 +119,10 @@ function AIGameMode:GetFreeHeroName()
 end
 
 
-function AIGameMode:InitHumanPlayerListAndSetHumanStartGold()
+function AIGameMode:InitHeroSelection()
 	if self.PreGameOptionsSet then
 		print("[AIGameMode] InitSettings")
+		-- 初始化玩家列表和初期金钱
 		self.tHumanPlayerList = {}
 		for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
 			if PlayerResource:GetConnectionState(i) ~= DOTA_CONNECTION_STATE_UNKNOWN then
@@ -131,10 +132,40 @@ function AIGameMode:InitHumanPlayerListAndSetHumanStartGold()
 				PlayerResource:SetGold(i, (self.iStartingGoldPlayer-600),true)
 			end
 		end
+
+		-- 添加bot和初期金钱
+		local iPlayerNumRadiant = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+		local iPlayerNumDire = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
+		math.randomseed(math.floor(Time()*1000000))
+		-- 随机英雄列表
+		if not self.DebugMode then
+			print("[AIGameMode] Random hero list")
+			self:ArrayShuffle(tBotNameList)
+		end
+		local sDifficulty = "unfair"
+		if self.iDesiredRadiant > iPlayerNumRadiant then
+			for i = 1, self.iDesiredRadiant - iPlayerNumRadiant do
+				Tutorial:AddBot(self:GetFreeHeroName(), "", sDifficulty, true)
+			end
+		end
+		if self.iDesiredDire > iPlayerNumDire then
+			for i = 1, self.iDesiredDire - iPlayerNumDire do
+				Tutorial:AddBot(self:GetFreeHeroName(), "", sDifficulty, false)
+			end
+		end
+		GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
+		Tutorial:StartTutorialMode()
+		for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
+			if PlayerResource:IsValidPlayer(i) then
+				if not self.tHumanPlayerList[i] then
+					PlayerResource:SetGold(i, (self.iStartingGoldBot-600),true)
+				end
+			end
+		end
 	else
 		Timers:CreateTimer(0.5, function ()
 			print("[AIGameMode] Try InitSettings in 0.5s")
-			AIGameMode:InitHumanPlayerListAndSetHumanStartGold()
+			AIGameMode:InitHeroSelection()
 		end)
 	end
 end
@@ -148,7 +179,7 @@ function AIGameMode:OnGameStateChanged(keys)
 		end
 	elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
 		if IsServer() then
-			self:InitHumanPlayerListAndSetHumanStartGold()
+			self:InitHeroSelection()
 		end
 	elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 		if not self.PreGameOptionsSet then
@@ -163,39 +194,6 @@ function AIGameMode:OnGameStateChanged(keys)
 			end
 		end
 
-		-- Eanble bots and fill empty slots
-		if IsServer() == true then
-			local iPlayerNumRadiant = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-			local iPlayerNumDire = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
-			math.randomseed(math.floor(Time()*1000000))
-			-- 随机英雄列表
-			if not self.DebugMode then
-				print("[AIGameMode] Random hero list")
-				self:ArrayShuffle(tBotNameList)
-			end
-			local sDifficulty = "unfair"
-			if self.iDesiredRadiant > iPlayerNumRadiant then
-				for i = 1, self.iDesiredRadiant - iPlayerNumRadiant do
-					Tutorial:AddBot(self:GetFreeHeroName(), "", sDifficulty, true)
-				end
-			end
-			if self.iDesiredDire > iPlayerNumDire then
-				for i = 1, self.iDesiredDire - iPlayerNumDire do
-					Tutorial:AddBot(self:GetFreeHeroName(), "", sDifficulty, false)
-				end
-			end
-			GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
-			Tutorial:StartTutorialMode()
-
-			-- set bot start gold
-			for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
-				if PlayerResource:IsValidPlayer(i) then
-					if not self.tHumanPlayerList[i] then
-						PlayerResource:SetGold(i, (self.iStartingGoldBot-600),true)
-					end
-				end
-			end
-		end
 		Timers:CreateTimer(1, function ()
 			self:EndScreenStats(true, false)
 		end)
