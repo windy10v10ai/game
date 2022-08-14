@@ -3094,8 +3094,8 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"275"
-		"ItemCost"						"22750"
+		"AbilityManaCost"				"225"
+		"ItemCost"						"12800"
 		"ItemShopTags"					"damage;str;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"abyssal blade"
