@@ -5811,40 +5811,81 @@
 				"var_type"					"FIELD_INTEGER"
 				"bonus_speed"				"25 30 35 40 45"
 			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"15"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"river_speed"				"25"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"puddle_regen"				"40"
+				"RequiresScepter"			"1"
+
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"puddle_armor"				"15"
+				"RequiresScepter"			"1"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"puddle_status_resistance"			"50"
+				"RequiresScepter"			"1"
+			}
 			"07"
             {
                 "var_type"					"FIELD_INTEGER"
-                "river_speed_tooltip"		"41 49 57 65 73"
+                "river_speed_tooltip"		"25"
             }
 		}
 	}
 	"slardar_slithereen_crush"
 	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"90 100 110 120 130 140 150"
+		"MaxLevel" "5"
+		"AbilityManaCost"				"90 100 110 120 130"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"crush_extra_slow"				"-20 -25 -30 -35 -40 -45 -50"
+				"crush_extra_slow"				"-20 -25 -30 -35 -40"
 				"LinkedSpecialBonus"	"special_bonus_unique_slardar_8"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
 			}
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"crush_attack_slow_tooltip"		"-20 -25 -30 -35 -40 -45 -50"
+				"crush_attack_slow_tooltip"		"-20 -25 -30 -35 -40"
 			}
 			"04"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"crush_extra_slow_duration"		"2 3 4 5 6 7 8"
+				"crush_extra_slow_duration"		"3 4 5 6 7"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"puddle_duration"		"30"
+				"RequiresScepter"			"1"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"puddle_radius"		"800"
+				"RequiresScepter"			"1"
 			}
 			"08"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"crush_damage"			"70 140 210 280 350 400 450"
+				"crush_damage"			"70 140 210 280 350"
 				"LinkedSpecialBonus"	"special_bonus_unique_slardar"
 			}
 		}
@@ -5865,18 +5906,43 @@
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"1.0 1.1 1.2 1.3 1.4 1.5 1.6"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_count"			"3"
+			}
+		}
+	}
+	"special_bonus_unique_slardar_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6889"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"100"
+				"ad_linked_abilities"			"slardar_bash"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
 		}
 	}
 	"slardar_amplify_damage"
 	{
-		"MaxLevel" "5"
-		"AbilityCastRange"				"700 800 900 1000 1100"
+		"MaxLevel" "4"
+		"AbilityCastRange"				"700 800 900 1000"
 		"AbilityValues"
 		{
 			"armor_reduction"
 			{
-				"value"				"-10 -15 -20 -25 -30"
-				"special_bonus_unique_slardar_5"	"-4"
+				"value"				"-10 -15 -20 -25"
+				"special_bonus_unique_slardar_5"	"-5"
 			}
 			"duration"
 			{
@@ -5889,11 +5955,11 @@
 			}
 			"puddle_radius"
 			{
-				"value"			"100"
+				"value"			"200"
 			}
 			"puddle_duration"
 			{
-				"value"			"8"
+				"value"			"10"
 			}
 		}
 	}
@@ -6200,7 +6266,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"duration"		"10"
+				"duration"		"12"
 				"LinkedSpecialBonus"		"special_bonus_unique_sven_5"
 			}
 		}
@@ -6225,19 +6291,19 @@
 	//=================================================================================================================
 	"tusk_ice_shards"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"23.0 21.0 19.0 17.0 15.0 13.0 11.0"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"21.0 19.0 17.0 15.0 13.0"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shard_damage"				"75 150 225 300 375 450 525"
+				"shard_damage"				"75 150 225 300 375"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"shard_duration"				"4.0 4.5 5.0 5.5 6.0 6.5 7.0"
+				"shard_duration"				"4 5 6 7 8"
 			}
 		}
 	}
@@ -6261,7 +6327,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"snowball_damage_bonus"		"25 50 75 100 125"
+				"snowball_damage_bonus"		"50 75 100 125 150"
 			}
 			"04"
 			{
@@ -6279,27 +6345,67 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"			"20 45 70 95 120"
+				"bonus_damage"			"30 55 80 105 130"
 				"LinkedSpecialBonus"		"special_bonus_unique_tusk_3"
 			}
 		}
 	}
-	"tusk_walrus_punch"
+	"special_bonus_unique_tusk_3"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"18 16 14 12 10 8"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6961"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"300 350 400 450 500"
+				"value"				"50"
+				"ad_linked_abilities"			"tusk_tag_team"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"tusk_walrus_punch"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"20 16 12 8"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_multiplier"			"300 350 400 450"
 				"LinkedSpecialBonus"		"special_bonus_unique_tusk"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"slow_duration"				"2.0 2.5 3.0 3.5 4.0"
+				"slow_duration"				"2.0 3.0 4.0 5.0"
+			}
+		}
+	}
+	"special_bonus_unique_tusk"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6194"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"100"
+				"ad_linked_abilities"			"tusk_walrus_punch"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -6339,38 +6445,31 @@
 	//=================================================================================================================
 	"tidehunter_gush"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"10"
-		"AbilityManaCost"				"100 105 110 115 120 125 130"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"12"
+		"AbilityDuration"				"4.0"
+		"AbilityManaCost"				"100 105 110 115 120"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"gush_damage"		"110 160 210 260 310 360 400"
+				"gush_damage"		"110 160 210 260 310"
 				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_2"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movement_speed"	"-50"
-				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_5"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
-
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"negative_armor"		"3 4 5 6 7 8 9"
+				"negative_armor"		"3 4 5 6 7"
 				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter"
 			}
 		}
 	}
-	"special_bonus_unique_tidehunter"
+	"special_bonus_unique_tidehunter_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6151"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"ID"					"6945"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -6381,7 +6480,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"2"
+				"value"				"150"
 				"ad_linked_abilities"			"tidehunter_gush"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -6432,7 +6531,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"7.0 6.0 5.0 4.0 3.0"
-		"AbilityManaCost"				"40 45 50 55 60"
+		"AbilityManaCost"				"40 50 60 70 80"
 		"AbilitySpecial"
 		{
 			"01"
@@ -6473,7 +6572,7 @@
 	"tidehunter_ravage"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"100"
+		"AbilityCooldown"				"120"
 		"AbilityDamage"					"200 300 400 500"
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilitySpecial"
@@ -6658,28 +6757,48 @@
 	}
 	"treant_leech_seed"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"18 16 14 12 10 8 6"
-		"AbilityManaCost"				"80 90 100 110 120 130 140"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"leech_damage"					"20 35 50 65 80 95 110"
+				"leech_damage"					"30 45 60 75 90"
 				"LinkedSpecialBonus"			"special_bonus_unique_treant_2"
 			}
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"movement_slow"					"-10 -15 -20 -25 30 35 40"
+				"movement_slow"					"-15 -20 -25 -30 -35"
 				"LinkedSpecialBonus"			"special_bonus_unique_treant_3"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
 			}
 			"05"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"radius"						"650"
+				"radius"						"800"
+			}
+		}
+	}
+	"special_bonus_unique_treant_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6531"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"60"
+				"ad_linked_abilities"			"treant_leech_seed"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -6692,7 +6811,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"total_heal"		"45 80 125 180 245"
+				"total_heal"		"50 100 150 200 250"
 				"LinkedSpecialBonus"			"special_bonus_unique_treant_8"
 			}
 			"02"
@@ -6708,22 +6827,62 @@
 			}
 		}
 	}
+	"special_bonus_unique_treant_8"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"339"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"50"
+				"ad_linked_abilities"			"treant_living_armor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"special_bonus_unique_treant_13"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"756"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"10"
+				"ad_linked_abilities"			"treant_living_armor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
 	"treant_overgrowth"
 	{
-		"MaxLevel" "5"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"100"
-		"AbilityManaCost"				"200 250 300 350 400"
+		"AbilityManaCost"				"200 250 300 350"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"duration"						"3.0 3.5 4.0 4.5 5.0"
+				"duration"						"3.5 4.0 4.5 5.0"
 			}
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage"			"75 100 125 150 175"
+				"damage"			"100"
 				"LinkedSpecialBonus"		"special_bonus_unique_treant_11"
 			}
 		}
