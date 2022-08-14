@@ -3653,7 +3653,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_bonus"				"30 60 90 120 150 180 210"
+				"damage_bonus"				"30 60 90 120 150"
 				"LinkedSpecialBonus"		"special_bonus_unique_kunkka_6"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -8687,15 +8687,34 @@
 	//=================================================================================================================
 	"mirana_arrow"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"16 15 14 13 12 11 10"
-		"AbilityDamage"					"60 150 240 330 400 450 500"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"19 18 17 16 15"
+		"AbilityDamage"					"60 150 240 330 420"
+		"AbilitySpecial"
+		{
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"arrow_max_stun"	"3.0 3.5 4.0 4.5 5.0"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"scepter_radius"		"600"
+				"RequiresScepter"		"1"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"scepter_starstorm_target_pct"		"60"
+				"RequiresScepter"		"1"
+			}
+		}
 	}
 	"mirana_invis"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"120.0 100.0 80.0 60.0"
-		"AbilityManaCost"				"125 150 175 200"
+		"AbilityCooldown"				"110 100.0 90.0 80.0"
 		"AbilitySpecial"
 		{
 			"01"
@@ -8706,14 +8725,14 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"		"15 20 25 30"
+				"bonus_movement_speed"		"9 12 15 18"
 			}
 		}
 	}
 	"mirana_leap"
 	{
 		"MaxLevel" "5"
-		"AbilityChargeRestoreTime"		"45 40 35 30 25"
+		"AbilityChargeRestoreTime"		"40 35 30 25 20"
 		"AbilityValues"
 		{
 			"leap_distance"
@@ -8723,7 +8742,7 @@
 			}
 			"leap_speed"			"1300.0"
 			"leap_acceleration"		"6000.0"
-			"leap_speedbonus"	"15 20 25 30 35"
+			"leap_speedbonus"	"8 16 24 32 40"
 			"leap_speedbonus_as"
 			{
 				"value"				"25 50 75 100 125"
@@ -8759,8 +8778,8 @@
 	}
 	"mirana_starfall"
 	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"80 95 110 125 140 155 170"
+		"MaxLevel" "5"
+		"AbilityManaCost"				"80 95 110 125 140"
 		"AbilityValues"
 		{
 			"starfall_radius"	"650"
@@ -8768,7 +8787,7 @@
 			"secondary_starfall_damage_percent"	 "75"
 			"damage"
 			{
-				"value"			"75 150 225 300 375 450 525"
+				"value"			"75 150 225 300 375"
 				"special_bonus_unique_mirana_7"	"+200"
 			}
 		}
@@ -8778,21 +8797,20 @@
 	//=================================================================================================================
 	"monkey_king_boundless_strike"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"28 26 24 22 20 18 16"
-		"AbilityManaCost"				"100"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"28 26 24 22 20"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"1 1.2 1.4 1.6 1.8 2.0 2.2"
+				"stun_duration"				"1 1.2 1.4 1.6 1.8"
 				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king_9"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"strike_crit_mult"			"135 165 195 225 255 285 315"
+				"strike_crit_mult"			"135 165 195 225 255"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
 			}
 		}
@@ -10726,33 +10744,58 @@
 	}
 	"ursa_overpower"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"12 11 10 9 8 7 6"
-		"AbilityManaCost"				"30 35 40 45 50 55 60"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"12 11 10 9 8"
+		"AbilityManaCost"				"20 30 40 50 60"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"max_attacks"				"3 4 5 6 7 8 9"
+				"max_attacks"				"3 4 5 6 7"
 				"LinkedSpecialBonus"		"special_bonus_unique_ursa_7"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed_bonus_pct"	"400 500 600 700 800"
+			}
+		}
+	}
+	"special_bonus_unique_ursa_7"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"424"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"5"
+				"ad_linked_abilities"			"ursa_overpower"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
 	"ursa_fury_swipes"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 				"bonus_reset_time"
 				{
-					"value"						"30"
-					"special_bonus_unique_ursa_4" "+20"
+					"value"						"25"
+					"special_bonus_unique_ursa_4" "+25"
 				}
-				"bonus_reset_time_roshan"		"20"
+				"bonus_reset_time_roshan"		"15"
 				"damage_per_stack"
 				{
-					"value"					"10 20 30 40 50 60 70"
+					"value"					"20 30 40 50 60"
 					"LinkedSpecialBonus"			"special_bonus_unique_ursa"
 				}
 		}
@@ -10772,7 +10815,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"30"
+				"value"				"20"
 				"ad_linked_abilities"			"ursa_fury_swipes"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -10803,7 +10846,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"30 24 18 12"
+				"cooldown_scepter"			"24 21 18 15"
 				"RequiresScepter"			"1"
 			}
 		}
