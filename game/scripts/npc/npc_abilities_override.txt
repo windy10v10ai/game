@@ -2086,7 +2086,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"armor_per_stack"		"1.6 2.0 2.4 2.8 3.0"
+				"armor_per_stack"		"1.5 2.0 2.5 3.0 3.5"
 				"LinkedSpecialBonus"	"special_bonus_unique_bristleback_4"
 			}
 			"06"
@@ -2593,7 +2593,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"creep_level"			"6 6 6 6 6"
+				"creep_level"			"6"
 			}
 		}
 	}
@@ -2631,26 +2631,74 @@
 	"doom_bringer_infernal_blade"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"16 12 8 4 2"
+		"AbilityCooldown"				"15 12 9 6 3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"20 30 40 50 60"
+				"burn_damage"			"40 50 60 70 80"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"burn_damage_pct"		"1 2 3 4 5"
+				"burn_damage_pct"		"2"
 				"LinkedSpecialBonus"	"special_bonus_unique_doom_1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"burn_duration"			"3.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ministun_duration"		"1.0"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shard_ministun_duration"		"1.5"
+				"RequiresShard"					"1"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shard_bonus_stun_duration"		"2.0"
+				"RequiresShard"					"1"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"shard_bonus_damage"			"200"
+				"RequiresShard"					"1"
+			}
+		}
+	}
+	"special_bonus_unique_doom_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6073"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"2"
+				"ad_linked_abilities"			"doom_bringer_infernal_blade"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
 	"doom_bringer_doom"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"80.0"
+		"AbilityCooldown"				"100.0"
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilitySpecial"
 		{
@@ -2663,13 +2711,13 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"60 90 120 150"
+				"damage"				"60 80 100 120"
 				"LinkedSpecialBonus"	"special_bonus_unique_doom_5"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"scepter_cooldown"		"60.0"
+				"scepter_cooldown"		"70.0"
 			}
 			"05"
 			{
@@ -2701,7 +2749,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"2.0 2.25 2.5 2.75 3.0"
+				"stun_duration"			"2.25 2.5 2.75 3.0 3.25"
 				"LinkedSpecialBonus"		"special_bonus_unique_dragon_knight_2"
 			}
 		}
@@ -2730,20 +2778,30 @@
 		"AbilityCooldown"				"100 90 80 70"
 		"AbilitySpecial"
 		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_movement_speed"		"30"
+			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_damage"		"100 150 200 250"
+				"bonus_attack_damage"		"100"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"corrosive_breath_damage"	"20 30 40 50"
 			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"splash_radius"				"450"
+			}
 			"08"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"splash_damage_percent"		"75 85 95 100"
+				"splash_damage_percent"		"70 80 90 100"
 				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight_6"
 			}
 			"09"
@@ -2758,10 +2816,15 @@
 				"frost_bonus_attack_speed"		"-40 -50 -60 -70"
 				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight_5"
 			}
+			"12"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"frost_aoe"					"400"
+			}
 			"13"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_resistance"			"15 20 25 30"
+				"magic_resistance"			"10 15 20 25"
 			}
 			"14"
 			{
@@ -2912,7 +2975,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"echo_slam_echo_damage"		"50 70 90 110 130"
+				"echo_slam_echo_damage"		"70 90 110 130 150"
 				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_2"
 			}
 			"05"
@@ -3383,7 +3446,7 @@
 	"huskar_inner_fire"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityManaCost"				"75 100 125 150 175"
 		"LinkedAbility"					"huskar_inner_vitality"
 		"AbilityDraftPreAbility"		"huskar_inner_vitality"
@@ -3404,7 +3467,7 @@
 	}
 	"huskar_burning_spear"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -3415,7 +3478,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"burn_damage"					"10 20 30 40 50 60 70"
+				"burn_damage"					"20 40 60 80 100"
 				"LinkedSpecialBonus"			"special_bonus_unique_huskar_2"
 			}
 		}
@@ -3556,22 +3619,36 @@
 	"kunkka_torrent_storm"
 	{
 		"AbilityCooldown"				"50"
+		"AbilitySpecial"
+		{
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"torrent_max_distance"		"1200"
+				"RequiresScepter"			"1"
+			}
+		}
 	}
 	"kunkka_tidebringer"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"15.0 13.0 11.0 9.0 7.0 5.0 3.0"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"11.0 9.0 7.0 5.0 3.0"
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cleave_starting_width"			"200"
+			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_ending_width"			"500 550 600 650 700 750 800"
+				"cleave_ending_width"			"500 550 600 650 700"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_distance"			"700 800 900 1000 1100 1200 1300"
+				"cleave_distance"			"650 800 950 1100 1250"
 			}
 			"04"
 			{
@@ -3608,21 +3685,21 @@
 	}
 	"kunkka_ghostship"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"90 80 70 60 50"
-		"AbilityDamage"					"400 500 600 700 800"
-		"AbilityManaCost"				"125 150 175 200 225"
+		"MaxLevel" "4"
+		"AbilityCooldown"				"70 60 50 40"
+		"AbilityDamage"					"400 500 600 700"
+		"AbilityManaCost"				"125 175 225 275"
 		"AbilitySpecial"
 		{
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"			"15"
+				"movespeed_bonus"			"20"
 			}
 			"08"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"ghostship_absorb"			"40 45 50 55 60"
+				"ghostship_absorb"			"45"
 			}
 		}
 	}
@@ -3686,14 +3763,14 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp_regen"				"30 40 50 60 70"
+				"hp_regen"				"30 50 70 90 110"
 			}
 		}
 	}
 	"legion_commander_moment_of_courage"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"2.3 2.0 1.7 1.4 1.1 0.8 0.5"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"1.9 1.5 1.1 0.7 0.3"
 		"AbilityValues"
 		{
 			"trigger_chance"
@@ -3702,7 +3779,7 @@
 				"LinkedSpecialBonus"        "special_bonus_unique_legion_commander_3"
 			}
 			"buff_duration"				"1.0"
-			"hp_leech_percent"			"60 65 70 75 80 85 90"
+			"hp_leech_percent"			"60 70 80 90 100"
 		}
 	}
 	"special_bonus_unique_legion_commander_3"
@@ -3788,7 +3865,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movement_speed_bonus"	"15 16 17 18 19"
+				"movement_speed_bonus"	"16 17 18 19 20"
 				"LinkedSpecialBonus"	"special_bonus_unique_lifestealer_2"
 			}
 			"02"
@@ -3799,56 +3876,132 @@
 			}
 		}
 	}
+	"special_bonus_unique_lifestealer"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6173"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"1.0"
+				"ad_linked_abilities"			"life_stealer_rage"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
 	"life_stealer_feast"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"hp_leech_percent"		"1.6 2.2 2.8 3.4 3.9 4.4 4.8"
+				"hp_leech_percent"		"1.6 2.2 2.8 3.4 4.0"
 				"LinkedSpecialBonus"	"special_bonus_unique_lifestealer_3"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"hp_damage_percent"		"0.6 0.8 1 1.2 1.4 1.5 1.6"
+				"hp_damage_percent"		"0.8 1 1.2 1.4 1.6"
 			}
+		}
+	}
+	"special_bonus_unique_lifestealer_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"7012"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"1.0"
+				"ad_linked_abilities"			"life_stealer_feast"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"life_stealer_open_wounds"
+	{
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"50"
+		"AbilityValues"
+		{
+				"duration"				"7"
+				"slow_steps"			"-70 -60 -50 -40 -30 -20 -10"
+				"heal_percent"			"50"
+				"max_health_as_damage_pct"	"2"
+				"damage_threshold"		"400"
+				"spread_radius"			"700"
+				"slow_tooltip"			"50"
+
 		}
 	}
 	"life_stealer_ghoul_frenzy"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movement_slow"			"10 15 20 25 30 35 40"
+				"movement_slow"			"10 15 20 25 30"
 				"LinkedSpecialBonus"	"special_bonus_unique_lifestealer_6"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed_bonus"	"20 30 40 50 60 70 80"
+				"attack_speed_bonus"	"20 30 40 50 60"
 				"LinkedSpecialBonus"	"special_bonus_unique_lifestealer_7"
+			}
+		}
+	}
+	"special_bonus_unique_lifestealer_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"709"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"20"
+				"ad_linked_abilities"			"life_stealer_ghoul_frenzy"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
 	"life_stealer_infest"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"80 70 60 50 40"
-		"AbilityManaCost"				"100 125 150 175 200"
+		"MaxLevel" "4"
+		"AbilityCooldown"				"80 60 40 20"
+		"AbilityManaCost"				"100 125 150 175"
 		"AbilityValues"
 		{
 			"radius"				"700 700 700"
-			"damage"				"150 275 400 525 650"
+			"damage"				"150 275 400 525"
 			"damage_increase_pct"				"50"
-			"bonus_movement_speed"	"15 20 25 30 35"
-			"bonus_health"	"400 800 1200 1600 2000"
-			"self_regen"	"3 4 5 6 7"
+			"bonus_movement_speed"	"15 20 25 30"
+			"bonus_health"	"500 1000 1500 2000"
+			"self_regen"	"4 6 8 10"
 			"damage_threshold"	"500"
 			"infest_duration_scepter"
 			{
@@ -3857,7 +4010,7 @@
 			}
 			"cooldown_scepter"
 			{
-				"value"				"20"
+				"value"				"15"
 				"RequiresScepter"		"1"
 			}
 			"cast_range_scepter"
