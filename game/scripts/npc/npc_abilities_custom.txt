@@ -805,7 +805,7 @@
 		    "02"
 		    {
 		    	"var_type"				"FIELD_INTEGER"
-		    	"dance_radius"			"450"
+		    	"dance_radius"			"600"
 		    }
 		    "03"
 		    {
@@ -815,7 +815,7 @@
 		    "04"
 	 	    {
 		    	"var_type"				"FIELD_INTEGER"
-		    	"dance_damage"			"600"
+		    	"dance_damage"			"450"
 		    }
     		"05"
 	    	{
