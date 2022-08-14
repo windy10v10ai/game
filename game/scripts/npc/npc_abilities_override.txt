@@ -12000,21 +12000,21 @@
 	}
 	"dark_willow_shadow_realm"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"26 24 22 20 18 16 14"
-		"AbilityManaCost"				"70 80 90 100 110 120 130"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"22 20 18 16 14"
+		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"duration"						"5"
+				"duration"						"4.5"
 				"LinkedSpecialBonus"			"special_bonus_unique_dark_willow_1"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage"						"90 120 150 180 210 240 270"
+				"damage"						"90 120 150 180 210"
 			}
 			"03"
 			{
@@ -12027,6 +12027,26 @@
 				"max_damage_duration"			"3.0"
 				"CalculateSpellDamageTooltip"	"0"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
+			}
+		}
+	}
+	"special_bonus_unique_dark_willow_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6464"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"1.5"
+				"ad_linked_abilities"			"dark_willow_shadow_realm"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -12127,15 +12147,15 @@
 	"dazzle_shallow_grave"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"700 800 900 1000 1100"
-		"AbilityCooldown"				"40 35 30 25 20"
-		"AbilityManaCost"				"110 120 130 140 150"
+		"AbilityCastRange"				"600 700 800 900 1000"
+		"AbilityCooldown"				"36 32 28 24 20"
+		"AbilityManaCost"				"120 130 140 150 160"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"duration"		"4 4.5 5.0 5.5 6.0"
+				"duration"		"3 3.5 4 4.5 5.0"
 			}
 			"02"	// used to place the halo in the particles at the right height so that it hits the ground right when the effect expires
 			{
@@ -12470,20 +12490,20 @@
 	"disruptor_kinetic_field"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"70 90 110 130 150"
+		"AbilityManaCost"				"70"
 		"AbilityCooldown"				"19 17 15 13 11"
 		"AbilitySpecial"
 		{
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"2.6 3.2 3.8 4.4 5.0"
+				"duration"					"2.5 3.0 3.5 4.0 4.5"
 				"LinkedSpecialBonus"		"special_bonus_unique_disruptor_5"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_per_second"			"0"
+				"damage_per_second"			"80"
 			}
 		}
 	}
@@ -12495,7 +12515,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"1"
+				"value"				"0.5"
 				"ad_linked_abilities"			"disruptor_kinetic_field"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -12508,7 +12528,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"2"
+				"value"				"1"
 				"ad_linked_abilities"			"disruptor_kinetic_field"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
