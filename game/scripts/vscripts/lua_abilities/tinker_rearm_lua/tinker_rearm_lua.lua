@@ -79,6 +79,7 @@ tinker_rearm_lua.ItemException = {
 	["item_black_king_bar_2"] = true,
 	["item_sphere_2"] = true,
 	["item_insight_armor"] = true,
+	["item_hand_of_group"] = true,
 }
 
 --------------------------------------------------------------------------------
