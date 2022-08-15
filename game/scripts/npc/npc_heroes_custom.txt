@@ -1943,10 +1943,9 @@
 				"28"		"special_bonus_unique_shadow_shaman_2"
 				"29"		"special_bonus_unique_shadow_shaman_1"
 				"30"		"special_bonus_unique_shadow_shaman_3"
-				"31"		"shadow_shaman_mass_serpent_ward"
-				"32"		"shadow_shaman_voodoo"
-				"33"		"shadow_shaman_shackles"
-				"34"		"shadow_shaman_voodoo"
+				"31"		"shadow_shaman_voodoo"
+				"32"		"shadow_shaman_shackles"
+				"33"		"shadow_shaman_voodoo"
 			}
 		}
 	}
