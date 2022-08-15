@@ -107,7 +107,7 @@
  		"item"		"item_mask_of_madness"
 		"item"		"item_armlet_pro_max"
 		"item"		"item_helm_of_the_overlord"
-		"item"		"item_hand_of_midas"
+		"item"		"item_hand_of_group"  //"item"		"item_hand_of_midas"
 		"item"		"item_travel_boots"
 		//"item"		"item_moon_shard"
 		"item"		"item_moon_shard_datadriven"
