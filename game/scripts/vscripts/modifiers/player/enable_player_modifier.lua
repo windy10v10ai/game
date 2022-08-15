@@ -144,6 +144,10 @@ local li123SteamAccountID = Set {
 	-- 爱发电 123
 	193859368,
 }
+local yangqiSteamAccountID = Set {
+	-- QQ 杨奇
+	193859368,
+}
 
 -- 称号属性 END
 
@@ -289,5 +293,9 @@ function EnablePlayerModifier(hEntity)
 	if li123SteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_li123", "modifiers/player/modifier_player_li123", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_li123", {})
+	end
+	if yangqiSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_yangqi", "modifiers/player/modifier_player_yangqi", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_yangqi", {})
 	end
 end
