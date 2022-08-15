@@ -5720,12 +5720,14 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"70.0"
 
-		"BaseClass"						"item_hand_of_midas"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_hand_of_group.lua"
+
 		"AbilityTextureName"			"item_hand_of_group"
 		"AbilitySharedCooldown"			"item_hand_of_midas"
 
@@ -5738,6 +5740,10 @@
 		"ItemAliases"					"hand of group"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"precache"
+		{
+			"particle"	"particles/items2_fx/hand_of_midas.vpcf"
+		}
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -5746,17 +5752,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"80"
+				"attsp"			"80"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"xp_multiplier"			"3.0"
+				"xp"			"3.0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_gold"			"400"
+				"gold"			"400"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ch"			"2"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bounty"			"1"
 			}
 		}
 	}

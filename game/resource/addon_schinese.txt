@@ -1107,7 +1107,7 @@
 		"DOTA_Tooltip_Ability_item_recipe_hand_of_group"				                "团队之手（图纸）"
 	    "DOTA_Tooltip_ability_item_hand_of_group"										"团队之手"
 	    "DOTA_Tooltip_ability_item_hand_of_group_description"						    "<h1>主动：点石成金</h1> 立刻炼化一个普通单位，获得%bonus_gold%金钱和%xp_multiplier%倍经验值。<br><br>无法用于远古单位。<br><br>施法距离：%abilitycastrange%"
-	    "DOTA_Tooltip_ability_item_hand_of_group_bonus_attack_speed"			        "+$attack"
+	    "DOTA_Tooltip_ability_item_hand_of_group_bonus_attsp"			                "+attack speed"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"明智的选择，科学的投资。"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"1.使用点石成金获得的经验不会与他人共享。\n2.获得的金钱属于可靠金钱（不会得到击杀该单位的正常金钱）。"
 
