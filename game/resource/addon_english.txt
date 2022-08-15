@@ -1038,7 +1038,7 @@
 	    // 团队之手
 		"DOTA_Tooltip_ability_item_recipe_hand_of_group"								"Hand of group recipe"
 	    "DOTA_Tooltip_ability_item_hand_of_group"										"Hand of group"
-	    "DOTA_Tooltip_ability_item_hand_of_group_description"							"<h1>Active: Transmute</h1> Kills a non-hero target for %bonus_gold% gold and %xp_multiplier%x experience. <br><br> Cannot be used on Ancient Creeps.<br><br>Range: %abilitycastrange%"
+	    "DOTA_Tooltip_ability_item_hand_of_group_description"							"<h1>Active: Transmute</h1> Kills a non-hero target for %gold% gold and %xp% experience. <br><br> Cannot be used on Ancient Creeps.<br><br>Range: %abilitycastrange%"
 	    "DOTA_Tooltip_ability_item_hand_of_group_bonus_attsp"			                "+attack speed"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"A wise choice and Scientific investment."
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"The gold given is reliable gold (you do not get the normal creep bounty)."
