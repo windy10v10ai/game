@@ -5681,6 +5681,85 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// 团队之手卷轴
+	//=================================================================================================================
+	"item_recipe_hand_of_group"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3094"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"						"item_recipe_hand_of_midas"
+		"AbilityTextureName"					"item_recipe_hand_of_group"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"					"550"
+		"ItemShopTags"					""
+		"ItemAliases"					"hom"
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_hand_of_group"
+		"ItemRequirements"
+		{
+			"01"						"item_hand_of_midas;item_hyperstone"
+		}
+	}
+
+	//=================================================================================================================
+	// 团队之手
+	//=================================================================================================================
+	"item_hand_of_group"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3095"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"70.0"
+
+		"BaseClass"						"item_hand_of_midas"
+		"AbilityTextureName"			"item_hand_of_group"
+		"AbilitySharedCooldown"			"item_hand_of_midas"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"4750"
+		"ItemShopTags"					"attack_speed;hard_to_tag"
+		"ItemQuality"					"common"
+		"ItemAliases"					"hand of group"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"80"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"xp_multiplier"			"3.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold"			"400"
+			}
+		}
+	}
 }
 
 
