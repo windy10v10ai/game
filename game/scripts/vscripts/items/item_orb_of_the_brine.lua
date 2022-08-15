@@ -113,6 +113,7 @@ end
 
 function modifier_item_orb_of_the_brine_bubble:OnCreated( kv )
 	self.bubble_heal_per_tick = self:GetAbility():GetSpecialValueFor( "bubble_heal_per_tick" )
+	self.bubble_mana_per_tick = self:GetAbility():GetSpecialValueFor( "bubble_mana_per_tick" )
 	self.heal_tick_interval = self:GetAbility():GetSpecialValueFor( "heal_tick_interval" )
 	self.bubble_move_speed = self:GetAbility():GetSpecialValueFor( "bubble_move_speed" )
 	if IsServer() then
@@ -129,6 +130,7 @@ end
 function modifier_item_orb_of_the_brine_bubble:OnIntervalThink()
 	if IsServer() then
 		self:GetParent():Heal( self.bubble_heal_per_tick, self:GetAbility() )
+		self:GetParent():GiveMana( self.bubble_mana_per_tick )
 	end
 end
 

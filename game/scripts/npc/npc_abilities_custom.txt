@@ -655,7 +655,7 @@
 			"dragon_slave_width_end"		"150"
 			"dragon_slave_distance"			"1075"
 			"fixed_duration"			"1"
-			"damage"			"150 210 270 330 390"
+			"damage"				"120 180 240 300 360"
 			"damage_calne"			"320 400 480 560 640"
 			"shard_stun"			"2"
 		}
@@ -731,7 +731,7 @@
 		"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
 
 		"AbilityCastPoint"						"0.3"
-		"AbilityCooldown"						"20 18 16 14 12"
+		"AbilityCooldown"						"20 19 18 17 16"
 		"AbilityManaCost"						"80 100 120 140 160"
 		"AbilityCastRange"						"900"
 
@@ -743,38 +743,13 @@
 		{
 		}
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"radius"						"300"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"damage"						"120 200 280 360 440"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"range"							"900"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"range_knockback"				"300"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"speed"							"1600"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"stun_duration"					"1.2 1.4 1.6 1.8 2.0"
-			}
+			"radius"						"300"
+			"range_knockback"				"300"
+			"speed"							"1600"
+			"damage"						"120 200 280 360 440"
+			"stun_duration"					"1.2 1.4 1.6 1.8 2.0"
 		}
 	}
 	"miku_dance"
@@ -805,7 +780,7 @@
 
 	    // Ability Casting
 	    //-------------------------------------------------------------------------------------------------------------
-	    "AbilityCastRange"				"700"
+	    "AbilityCastRange"				"600"
     	"AbilityCastPoint"				"0.3"
     	"AbilityChannelTime"			"120"
     	"AbilityCastAnimation"          "ACT_DOTA_CHANNEL_ABILITY_4"
@@ -813,7 +788,7 @@
     	// Ability Resource
     	//-------------------------------------------------------------------------------------------------------------
     	"AbilityCooldown"				"90"
-    	"AbilityManaCost"				"200"
+    	"AbilityManaCost"				"250"
 
     	// Damage
     	//-------------------------------------------------------------------------------------------------------------
@@ -830,7 +805,7 @@
 		    "02"
 		    {
 		    	"var_type"				"FIELD_INTEGER"
-		    	"dance_radius"			"700"
+		    	"dance_radius"			"600"
 		    }
 		    "03"
 		    {
@@ -840,12 +815,12 @@
 		    "04"
 	 	    {
 		    	"var_type"				"FIELD_INTEGER"
-		    	"dance_damage"			"600"
+		    	"dance_damage"			"450"
 		    }
     		"05"
 	    	{
 	    		"var_type"				"FIELD_FLOAT"
-		    	"stun_duration"			"1"
+		    	"stun_duration"			"1.2"
 		    }
     		"06"
 	    	{
@@ -870,8 +845,7 @@
 		"SpellDispellableType"					"SPELL_DISPELLABLE_NO"
 
 		"AbilityCastPoint"						"0.3"
-		//"AbilityChannelTime"					"5.0"
-		"AbilityCooldown"						"60 50 40"
+		"AbilityCooldown"						"60"
 		"AbilityManaCost"						"200 350 500"
 
 		"HasScepterUpgrade"						"0"
@@ -925,12 +899,12 @@
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"15"
-		"AbilityManaCost"				"200 300 400"
+		"AbilityManaCost"				"150 225 300"
 		"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_5"
 
 		// Damage
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"800 1200 1600"
+		"AbilityDamage"					"600 1000 1400"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1799,5 +1773,155 @@
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+    //=================================================================================================================
+	// Tidehunter: kraken_shell 海妖外壳
+	//=================================================================================================================
+	"tidehunter_kraken_shell_lua"
+	{
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+		// base texture folder	: resource/flash3/images/spellicons
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"lua_abilities/tidehunter_kraken_shell_lua/tidehunter_kraken_shell_lua"
+		"AbilityTextureName"			"tidehunter_kraken_shell_lua"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_reduction"		"15 30 45 60"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_4"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_cleanse"		"600 550 500 450"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_6"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_reset_interval"	"7.0 7.0 7.0 7.0"
+
+				"CalculateSpellDamageTooltip"	"0"
+			}
+		}
+	}
+	"special_bonus_unique_tidehunter_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6947"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"60"
+				"ad_linked_abilities"			"tidehunter_kraken_shell_lua"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	"special_bonus_unique_tidehunter_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"7977"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"100"
+				"ad_linked_abilities"			"tidehunter_kraken_shell_lua"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Tinker: Rearm 刷新
+	//=================================================================================================================
+	"tinker_rearm_lua"
+	{
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+		// base texture folder	: resource/flash3/images/spellicons
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"lua_abilities/tinker_rearm_lua/tinker_rearm_lua"
+		"AbilityTextureName"			"tinker_rearm_lua"
+		"FightRecapLevel"				"2"
+		"MaxLevel"						"3"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
+			"particle"	"particles/units/heroes/hero_tinker/tinker_rearm.vpcf"
+		}
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.53"
+		"AbilityChannelTime"			"3.5 2.5 1.5"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"150 200 250"
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"channel_tooltip"			"3.5 2.5 1.5"
+			}
+		}
 	}
 }

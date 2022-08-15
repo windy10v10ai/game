@@ -206,7 +206,11 @@
 		"DOTA_Tooltip_modifier_player_luoshu"					"<font color='#FFCC66'>★ 洛书 ★</font>"
 		"DOTA_Tooltip_modifier_player_luoshu_Description"		"<font color='#FFCC66'> 然而和我洛书有什么关系呢？ </font>"
 		"DOTA_Tooltip_modifier_player_m5xw"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
-		"DOTA_Tooltip_modifier_player_mingri"					"<font color='#FFCC66'>★ 淘气鬼 ★</font>"
+		"DOTA_Tooltip_modifier_player_mingri"					"<font color='#FFCC66'>★ 这车能坐吗 ★</font>"
+		"DOTA_Tooltip_modifier_player_liaoran"					"<font color='#FFCC66'>★ 比队友跑的快！ ★</font>"
+		"DOTA_Tooltip_modifier_player_lani"						"<font color='#FFCC66'>★ 褪色者 ★</font>"
+		"DOTA_Tooltip_modifier_player_lani_Description"			"<font color='#FFCC66'> 菈妮唯一的王 </font>"
+		"DOTA_Tooltip_modifier_player_li123"					"<font color='#FFCC66'>★ 力中暴力 ★</font>"
 
 
 		// 初音未来
@@ -234,7 +238,7 @@
         "DOTA_Tooltip_ability_miku_dance_dance_damage" "每次攻击伤害:"
         "DOTA_Tooltip_ability_miku_dance_damage_reduction" "%伤害减免:"
         "DOTA_Tooltip_ability_liu_kick" "初音飞踢"
-        "DOTA_Tooltip_ability_liu_kick_Description" "踢向目标将其击退，对其与周围敌人造成一定的魔法伤害，并附加一次普通攻击。<br/>变身时对敌人造成眩晕。"
+        "DOTA_Tooltip_ability_liu_kick_Description" "踢向目标将其击退，对其与周围%radius%范围内敌人造成一定的魔法伤害，并附加一次普通攻击。<br/>变身时对敌人造成眩晕。"
         "DOTA_Tooltip_ability_liu_kick_damage" "伤害:"
         "DOTA_Tooltip_ability_liu_kick_range" "施法距离:"
         "DOTA_Tooltip_ability_liu_kick_stun_duration" "变身时眩晕时间:"
@@ -259,7 +263,7 @@
 
 		// 死亡先知
 		"DOTA_Tooltip_ability_death_prophet_witchcraft"			"巫术精研"
-		"DOTA_Tooltip_ability_death_prophet_witchcraft_description"			"提升死亡先知克萝贝露丝Krobelus使用巫术的能力，被动提升移动速度。<br/>移动速度加成：10/15/20/25/30,<br/>地穴虫群魔法消耗降低：10/15/20/25/30,<br/>地穴虫群冷却时间降低：1,<br/>沉默魔法魔法消耗降低20,<br/>沉默魔法冷却时间降低：1。"
+		"DOTA_Tooltip_ability_death_prophet_witchcraft_description"			"提升死亡先知克萝贝露丝Krobelus使用巫术的能力，被动提升移动速度。<br/>移动速度加成：10/15/20/25/30,<br/>地穴虫群魔法消耗降低：10/15/20/25/30,<br/>地穴虫群冷却时间降低：1,<br/>沉默魔法魔法消耗降低:20,<br/>沉默魔法冷却时间降低：1。"
 
 		// 双头龙
         "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"烈焰焚身的距离+200，持续时间+5秒，并且变为纯粹伤害，无视技能免疫。"
@@ -381,7 +385,7 @@
 		"npc_dota_hero_chen"									"孙悟空"
 
 		"DOTA_Tooltip_Ability_goku_kamehameha"								"龟派气功"
-		"DOTA_Tooltip_ability_goku_kamehameha_description"					"孙悟空将全身所有能量聚集一点浓缩后一起释放出来，射出一道光波，在持续时间内对直线上的敌人造成伤害\n<h1>超级赛亚人模式：</h1>光波距离变为%super_saiyan_length%，且伤害变为%super_saiyan_damage_multiple%倍。<br/>每秒额外消耗%super_saiyan_mana_percent%%%最大魔法值的蓝量。"
+		"DOTA_Tooltip_ability_goku_kamehameha_description"					"孙悟空将全身所有能量聚集一点浓缩后一起释放出来，射出一道光波，在持续时间内对直线上的敌人造成伤害<h1>超级赛亚人模式：</h1>光波距离变为%super_saiyan_length%，且伤害变为%super_saiyan_damage_multiple%倍。<br/>每秒额外消耗%super_saiyan_mana_percent%%%最大魔法值的蓝量。"
 		"DOTA_Tooltip_ability_goku_kamehameha_Lore"							"由龟仙人所创的绝技"
 		"DOTA_Tooltip_ability_goku_kamehameha_channel"						"持续时间："
 		"DOTA_Tooltip_ability_goku_kamehameha_length"						"光波长度："
@@ -603,7 +607,7 @@
 
         // item_excalibur
 		"DOTA_Tooltip_Ability_item_excalibur"				"EX咖喱棒"
-		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成，不能出售或销毁。\n<h1>被动：先王</h1> <font color='#e03e2e'>死亡有6%概率随机掉落。</font>"
+		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成，不能出售或销毁。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。\n<h1>被动：先王</h1> <font color='#e03e2e'>死亡有6%概率随机掉落。</font>"
 		"DOTA_Tooltip_Ability_item_excalibur_Note0"								"咖喱棒效忠于被选中的王者，随机掉落。"
 		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"咖喱棒效忠于被选中的王者。"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
@@ -1009,7 +1013,7 @@
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"苍洋魔珠"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"						"要不是这颗尊崇的魔珠，教团在石鱼门一役就全军覆没。"
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有无敌效果的疗伤泡泡，移动速度降低至%bubble_move_speed%，无法攻击释放技能和道具持续%bubble_duration%秒，每%heal_tick_interval%秒治疗%bubble_heal_per_tick%点生命。\n\n<h1>被动：苍洋福佑</h1>自身提供的治疗效果提升%heal_increase%%%。"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有无敌效果的疗伤泡泡，移动速度降低至%bubble_move_speed%，无法攻击释放技能和道具持续%bubble_duration%秒。<br/>回复%bubble_total_heal_tip%点生命，%bubble_total_mana_tip%点魔法。\n\n<h1>被动：苍洋福佑</h1>自身提供的治疗效果提升%heal_increase%%%。"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_health"			"+$health"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana"				"+$mana"
@@ -1029,7 +1033,8 @@
 
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"死灵冲击"
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"死灵形态。受到%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%%%法术攻击加成。"
-	    // 小鸡臂章
+
+		// 小鸡臂章
 		"DOTA_Tooltip_Ability_item_armlet_plus"				"小鸡臂章Plus"
 		"DOTA_Tooltip_Ability_item_recipe_armlet_plus"				"小鸡臂章Plus（图纸）"
 	    "DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_attack_speed%点攻击速度、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
@@ -1059,6 +1064,7 @@
 		"DOTA_Tooltip_modifier_item_armlet_unholy_strength"				"邪恶之力"
 		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"攻击力提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点。\n攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点。\n力量增加%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点。\n护甲提升%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。\n每秒损失%dMODIFIER_PROPERTY_TOOLTIP%点生命值"
 
+        // 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"圣女白莲"
 		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>白莲花(主动):</font></h1>给予目标一个护盾，持续时间内反弹所有指向性法术(自身依然受到效果影响)，护盾施加后会免疫第一次触发的法术，并且恢复目标%heal%%的血量。\n<h1><font color='#FFFF00'>圣洁治愈(被动)：</font></h1>增加自身%heal_bonus%%的所有恢复效果。\n<h1><font color='#FFFF00'>淤而不染(被动)：</font></h1>自身移动速度不会被减少(锁移动依然会有效)。"
 		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"你们不要再打啦，要打去练舞室打，你们这样是打不死人的。"
@@ -1071,5 +1077,29 @@
 		"DOTA_Tooltip_ability_item_saint_orb_duration"				"持续时间:"
 		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"白莲花"
 		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"抵挡一次恶心的指向性法术"
+
+		// 嘉心糖
+		"DOTA_Tooltip_Ability_item_candy_candy"							"嘉心糖"
+		"DOTA_Tooltip_ability_item_candy_candy_Description"             "吃了这颗糖，就是一嘉人了。<br/>可以获得所有强化神符的加成效果，持续%duration%秒。"
+		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "嘉然，我好喜欢你啊！为了你，我要听猫中毒！"
+
+        // 潮汐猎人
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua"									"海妖外壳"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Description"						"加厚潮汐猎人的外皮，可以被动格挡物理伤害，当受到的伤害达到临界值时外皮还将移除绝大多数负面效果。\n\n不与带有伤害格挡的物品叠加。\n\n驱散类型：强驱散"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Lore"								"铁帆海军里有一个传言，说是有只强大的海兽，明明被矛刺中被剑砍伤依然能践踏舰队。"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note0"							"现在并非只有玩家控制单位（也可以说是任意单位）造成的伤害都可以计算在移除负面状态的累计伤害中。"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note1"							"如果%damage_reset_interval%秒内没有受到来自任意单位（包含小兵，防御塔，野怪）的伤害，伤害累计值将重置。"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note2"							"海妖外壳能移除绝大多数负面状态，即使该状态效果无法驱散。"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reduction"					"伤害格挡："
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_cleanse"					"伤害临界值："
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reset_interval"			"临界值累计时间："
+
+        // 修补匠
+		"DOTA_Tooltip_ability_tinker_rearm_lua"												"再装填"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"对于充能型技能，每次施放再装填可以恢复该技能一点能量。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"持续施法 - 重置修补匠的大多数物品和技能的冷却时间。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"这儿换块新电池，那儿塞几枚火箭弹，鲍什不断改进现有的技术。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘、奥术鞋、黑皇杖、迈达斯之手、林肯法球、陨星锤、支配头盔、统御头盔、知识之书、洞察烟斗、刷新球(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲)及所有中立物品。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"再装填所需时间："
 	}
 }
