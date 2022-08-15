@@ -2,7 +2,7 @@ modifier_player_yangqi = class({})
 
 function modifier_player_yangqi:IsPurgable() return false end
 function modifier_player_yangqi:RemoveOnDeath() return false end
-function modifier_player_yangqi:GetTexture() return "player/plusIcon" end
+function modifier_player_yangqi:GetTexture() return "player/yangqi" end
 
 function modifier_player_yangqi:OnCreated()
 	self.iModelScale = -50
