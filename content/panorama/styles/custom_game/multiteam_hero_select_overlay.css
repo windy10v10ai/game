@@ -2,27 +2,29 @@
  .HeroSelectOverlayRoot{
 
   width: 100%;
-  height: 210px;
-  margin-top: 95px;
+  height: 100px;
+  margin-top: 110px;
  }
 
 
  .HeroSelectTeamRowsContainer{
 
   width: 80%;
-  height: 210px;
+  height: 100px;
   flow-children: down;
   horizontal-align: center;
  }
 
- #HeroSelectTeamsContainer,
+#HeroSelectTeamsContainer,
 #HeroSelectTeamsContainer2{
+    width: 100%;
+    flow-children: right;
+    margin-top: 5px;
+}
 
-
-     width: 100%;
-     flow-children: right;
-     margin-top: 5px;
- }
+#HeroSelectTeamsContainer2{
+    visibility: collapse;
+}
 
  .HeroSelectOverlayTimer{
 

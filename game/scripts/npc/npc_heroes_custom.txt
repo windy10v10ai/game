@@ -264,6 +264,7 @@
 
 	"npc_dota_hero_tinker"
 	{
+		"Ability6"		"tinker_rearm_lua"
 		"Ability7"		"tinker_march_of_the_machines"
 	}
 
@@ -687,6 +688,7 @@
 	}
 	"npc_dota_hero_dazzle"
 	{
+		"Ability4"		"dazzle_weave"
 		"Bot"
 		{
 			"Build"
@@ -1039,8 +1041,6 @@
 				"32"		"jakiro_ice_path"
 				"33"		"jakiro_liquid_fire"
 				"34"		"jakiro_dual_breath"
-				"35"		"jakiro_dual_breath"
-				"36"		"jakiro_dual_breath"
 			}
 		}
 	}
@@ -1104,12 +1104,12 @@
 				"5"		"kunkka_tidebringer"
 				"6"		"kunkka_ghostship"
 				"7"		"kunkka_tidebringer"
-				"8"		"kunkka_tidebringer"
+				"8"		"kunkka_torrent"
 				"9"		"kunkka_tidebringer"
 				"10"		"special_bonus_attack_damage_30"
-				"11"		"kunkka_tidebringer"
+				"11"		"kunkka_torrent"
 				"12"		"kunkka_ghostship"
-				"13"		"kunkka_x_marks_the_spot"
+				"13"		"kunkka_torrent"
 				"14"		"kunkka_x_marks_the_spot"
 				"15"		"special_bonus_unique_kunkka_6"
 				"16"		"kunkka_x_marks_the_spot"
@@ -1128,12 +1128,9 @@
 				"29"		"special_bonus_unique_kunkka_4"
 				"30"		"special_bonus_unique_kunkka_5"
 				"31"		"kunkka_ghostship"
-				"32"		"kunkka_ghostship"
-				"33"		"kunkka_torrent"
-				"34"		"kunkka_torrent"
-				"35"		"kunkka_torrent"
-				"36"		"kunkka_x_marks_the_spot"
-				"37"		"kunkka_x_marks_the_spot"
+				"32"		"kunkka_x_marks_the_spot"
+				"33"		"kunkka_x_marks_the_spot"
+				"34"		"kunkka_x_marks_the_spot"
 			}
 		}
 	}
@@ -1274,6 +1271,7 @@
 	}
 	"npc_dota_hero_luna"
 	{
+		"Ability4"		"luna_lunar_grace"
 		"Bot"
 		{
 			"Build"
@@ -1290,10 +1288,10 @@
 				"10"		"special_bonus_unique_luna_7"
 				"11"		"luna_lucent_beam"
 				"12"		"luna_eclipse"
-				"13"		"luna_lucent_beam"
+				"13"		"luna_moon_glaive"
 				"14"		"luna_lunar_blessing"
 				"15"		"special_bonus_unique_luna_2"
-				"16"		"luna_lucent_beam"
+				"16"		"luna_lunar_blessing"
 				"17"		""
 				"18"		"luna_eclipse"
 				"19"		""
@@ -1310,13 +1308,11 @@
 				"30"		"special_bonus_unique_luna_3"
 				"31"		"luna_eclipse"
 				"32"		"luna_eclipse"
-				"33"		"luna_lunar_blessing"
+				"33"		"luna_moon_glaive"
 				"34"		"luna_moon_glaive"
 				"35"		"luna_moon_glaive"
 				"36"		"luna_moon_glaive"
 				"37"		"luna_moon_glaive"
-				"38"		"luna_moon_glaive"
-				"39"		"luna_moon_glaive"
 			}
 		}
 	}
@@ -1822,26 +1818,27 @@
 	}
 	"npc_dota_hero_riki"
 	{
+		"Ability5"		"riki_permanent_invisibility"
 		"Bot"
 		{
 			"Build"
 			{
-				"1"		"riki_tricks_of_the_trade"
+				"1"		"riki_smoke_screen"
 				"2"		"riki_blink_strike"
-				"3"		"riki_tricks_of_the_trade"
-				"4"		"riki_smoke_screen"
-				"5"		"riki_tricks_of_the_trade"
+				"3"		"riki_smoke_screen"
+				"4"		"riki_blink_strike"
+				"5"		"riki_smoke_screen"
 				"6"		"riki_backstab"
-				"7"		"riki_tricks_of_the_trade"
+				"7"		"riki_smoke_screen"
 				"8"		"riki_blink_strike"
-				"9"		"riki_blink_strike"
+				"9"		"riki_smoke_screen"
 				"10"		"special_bonus_unique_riki_7"
 				"11"		"riki_blink_strike"
 				"12"		"riki_backstab"
-				"13"		"riki_smoke_screen"
-				"14"		"riki_smoke_screen"
+				"13"		"riki_blink_strike"
+				"14"		"riki_tricks_of_the_trade"
 				"15"		"special_bonus_unique_riki_3"
-				"16"		"riki_smoke_screen"
+				"16"		"riki_tricks_of_the_trade"
 				"17"		""
 				"18"		"riki_backstab"
 				"19"		""
@@ -1856,9 +1853,9 @@
 				"28"		"special_bonus_unique_riki_8"
 				"29"		"special_bonus_unique_riki_9"
 				"30"		"special_bonus_unique_riki_6"
-				"31"		"riki_blink_strike"
-				"32"		"riki_backstab"
-				"33"		"riki_smoke_screen"
+				"31"		"riki_backstab"
+				"32"		"riki_tricks_of_the_trade"
+				"33"		"riki_tricks_of_the_trade"
 				"34"		"riki_tricks_of_the_trade"
 			}
 		}
@@ -1911,6 +1908,7 @@
 	}
 	"npc_dota_hero_shadow_shaman"
 	{
+		"Ability4"		"shadow_shaman_serpentine"
 		"Bot"
 		{
 			"Build"
@@ -1945,9 +1943,10 @@
 				"28"		"special_bonus_unique_shadow_shaman_2"
 				"29"		"special_bonus_unique_shadow_shaman_1"
 				"30"		"special_bonus_unique_shadow_shaman_3"
-				"31"		"shadow_shaman_voodoo"
-				"32"		"shadow_shaman_shackles"
-				"33"		"shadow_shaman_voodoo"
+				"31"		"shadow_shaman_mass_serpent_ward"
+				"32"		"shadow_shaman_voodoo"
+				"33"		"shadow_shaman_shackles"
+				"34"		"shadow_shaman_voodoo"
 			}
 		}
 	}
@@ -2017,8 +2016,8 @@
 				"10"		"special_bonus_attack_speed_15"
 				"11"		"skeleton_king_mortal_strike"
 				"12"		"skeleton_king_reincarnation"
-				"13"		"skeleton_king_vampiric_aura"
-				"14"		"skeleton_king_vampiric_aura"
+				"13"		"skeleton_king_mortal_strike"
+				"14"		"skeleton_king_hellfire_blast"
 				"15"		"special_bonus_unique_wraith_king_6"
 				"16"		"skeleton_king_vampiric_aura"
 				"17"		""
@@ -2037,10 +2036,8 @@
 				"30"		"special_bonus_unique_wraith_king_10"
 				"31"		"skeleton_king_reincarnation"
 				"32"		"skeleton_king_vampiric_aura"
-				"33"		"skeleton_king_hellfire_blast"
-				"34"		"skeleton_king_mortal_strike"
-				"35"		"skeleton_king_mortal_strike"
-				"36"		"skeleton_king_mortal_strike"
+				"33"		"skeleton_king_vampiric_aura"
+				"34"		"skeleton_king_vampiric_aura"
 			}
 		}
 	}
@@ -2283,19 +2280,20 @@
 	}
 	"npc_dota_hero_tidehunter"
 	{
+		"Ability2"		"tidehunter_kraken_shell_lua"
 		"Bot"
 		{
 			"Build"
 			{
 				"1"		"tidehunter_gush"
-				"2"		"tidehunter_kraken_shell"
+				"2"		"tidehunter_kraken_shell_lua"
 				"3"		"tidehunter_anchor_smash"
-				"4"		"tidehunter_kraken_shell"
+				"4"		"tidehunter_kraken_shell_lua"
 				"5"		"tidehunter_anchor_smash"
 				"6"		"tidehunter_ravage"
 				"7"		"tidehunter_anchor_smash"
-				"8"		"tidehunter_kraken_shell"
-				"9"		"tidehunter_kraken_shell"
+				"8"		"tidehunter_kraken_shell_lua"
+				"9"		"tidehunter_kraken_shell_lua"
 				"10"		"special_bonus_unique_tidehunter_5"
 				"11"		"tidehunter_anchor_smash"
 				"12"		"tidehunter_ravage"
@@ -2319,12 +2317,8 @@
 				"30"		"special_bonus_unique_tidehunter_8"
 				"31"		"tidehunter_ravage"
 				"32"		"tidehunter_gush"
-				"33"		"tidehunter_gush"
-				"34"		"tidehunter_gush"
-				"35"		"tidehunter_kraken_shell"
-				"36"		"tidehunter_kraken_shell"
-				"37"		"tidehunter_kraken_shell"
-				"38"		"tidehunter_anchor_smash"
+				"33"		"tidehunter_kraken_shell_lua"
+				"34"		"tidehunter_anchor_smash"
 			}
 		}
 	}

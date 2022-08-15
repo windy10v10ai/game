@@ -1027,7 +1027,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
+		"BaseClass"						"item_lua"
+		"ScriptFile"                    "items/item_excalibur.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9048"
 		"AbilityTextureName"			"item_excalibur"
@@ -1035,35 +1036,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"666"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage_percent"	"100"
-			}
-		}
-		"Modifiers"
-		{
-
-			"modifier_item_excalibur"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%bonus_damage_percent"
-				}
-			}
+			"bonus_damage"			"666"
+			"bonus_damage_percent"	"100"
 		}
 	}
 
@@ -2194,7 +2170,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_agility"	        	"45"
+				"bonus_agility"	        	"50"
 			}
 			"02"
 			{
@@ -3118,8 +3094,8 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"275"
-		"ItemCost"						"22750"
+		"AbilityManaCost"				"225"
+		"ItemCost"						"12800"
 		"ItemShopTags"					"damage;str;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"abyssal blade"
@@ -4872,7 +4848,7 @@
 			"bonus_agi_active"		"35"
 
 			"cast_pct_improvement"	"50"
-			"manacost_reduction"	"20"
+			"manacost_reduction"	"25"
 			"debuff_amp"			"20"
 			// Fall down effect
 			"base_damage"			"100"
@@ -5279,7 +5255,7 @@
 		"AbilityTextureName"			"item_recipe_orb_of_the_brine"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2950"
+		"ItemCost"						"3050"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5332,8 +5308,12 @@
 
 			"bubble_duration"		"3.0"
 			"bubble_move_speed"		"300"
-			"bubble_heal_per_tick"	"300"
+			"bubble_heal_per_tick"	"200"
+			"bubble_mana_per_tick"	"200"
 			"heal_tick_interval"	"0.5"
+
+			"bubble_total_heal_tip"	"1200"
+			"bubble_total_mana_tip"	"1200"
 		}
 	}
 
@@ -5603,7 +5583,7 @@
 		"Model"	"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
-		"ItemCost"	"3600"
+		"ItemCost"	"4350"
 		// Recipe
 		// -------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"	"1"
@@ -5655,6 +5635,50 @@
 			"bonus_mana"	"800" //加蓝
 			"duration"		"6"	//主动持续时间
 			"heal"			"5"	//反制回血%
+		}
+	}
+	//=================================================================================================================
+	// Diana Candy 嘉心糖
+	//=================================================================================================================
+	"item_candy_candy"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3093"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"						"item_fusion_rune"
+		"AbilityTextureName"			"item_candy_candy"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"6666"
+		"ItemAliases"					"diana candy"
+		"ItemPurchasable"				"1"
+		"ItemInitialCharges"			"1"
+		"ItemPermanent"					"0"
+		"ItemStockInitial"				"1"
+		"ItemStockMax"					"2"
+		"ItemStockTime"					"300.0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"120.0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"250"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"60"
+			}
 		}
 	}
 }

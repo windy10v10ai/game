@@ -10,8 +10,8 @@ function modifier_player_qiannian:OnCreated()
 	self.iLifeSteal = 60
 
 	local primaryAttributeBouns = 60
-	self.strength = 0
-	self.agility = 0
+	self.strength = 80
+	self.agility = 80
 	self.intellect = 0
 	-- get parent's primary attribute
 	if IsClient() then return end

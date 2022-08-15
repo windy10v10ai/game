@@ -117,7 +117,8 @@ function UpdateTimer()
 
 (function()
 {
-	var bLargeGame = Game.GetAllPlayerIDs().length >= 12;
+	// var bLargeGame = Game.GetAllPlayerIDs().length >= 12;
+	var bLargeGame = true;
 
 	var localPlayerTeamId = Game.GetLocalPlayerInfo().player_team_id;
 	var first = true;
@@ -131,7 +132,6 @@ function UpdateTimer()
 
 	var nTeamsCreated = 0;
 	var nTeams = Game.GetAllTeamIDs().length
-	$.Msg( nTeams );
 	for ( var teamId of Game.GetAllTeamIDs() )
 	{
 		var teamPanelToUse = null;
@@ -142,7 +142,6 @@ function UpdateTimer()
 		else
 		{
 			teamPanelToUse = teamsContainer;
-
 		}
 
 		$.CreatePanel( "Panel", teamPanelToUse, "Spacer" );
