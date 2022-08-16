@@ -937,7 +937,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"700"
+		"ItemCost"						"300"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -946,7 +946,7 @@
 		"ItemResult"					"item_sphere_2"
 		"ItemRequirements"
 		{
-			"01"						"item_sphere;item_ultimate_orb;item_pers"
+			"01"						"item_sphere;item_pers"
 		}
 	}
 
@@ -966,7 +966,7 @@
 		"AbilityTextureName"			"item_sphere_2"
 
 		"AbilityCastRange"				"900"
-		"AbilityCooldown"				"4.0"
+		"AbilityCooldown"				"8.0"
 		"AbilitySharedCooldown"			"sphere"
 
 		// Special
@@ -976,7 +976,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"35"
+				"bonus_all_stats"		"25"
 			}
 			"02"
 			{
@@ -991,7 +991,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"block_cooldown"		"4.0"
+				"block_cooldown"		"8.0"
 			}
 		}
 	}
@@ -5590,7 +5590,7 @@
 		"ItemResult"	"item_saint_orb"
 		"ItemRequirements"
 		{
-			"01"	"item_lotus_orb;item_sphere"
+			"01"	"item_lotus_orb;item_sphere_2"
 		}
 	}
 	"item_saint_orb"
@@ -5602,7 +5602,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"15"
+		"AbilityCooldown"	"16"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"300"
@@ -5628,13 +5628,14 @@
 		"AbilityValues"
 		{
 			"bonus_armor"	"20"	//加甲
-			"hp_re"			"15" //回血
-			"mana_re"		"6"	//回蓝
+			"hp_re"			"30" //回血
+			"mana_re"		"16"	//回蓝
 			"heal_bonus"	"20" //恢复增强
 			"bonus_health"	"600" //加血
 			"bonus_mana"	"800" //加蓝
-			"duration"		"6"	//主动持续时间
+			"duration"		"8"	//主动持续时间
 			"heal"			"5"	//反制回血%
+			"bonus_all_stats" "30"//三围
 		}
 	}
 	//=================================================================================================================
