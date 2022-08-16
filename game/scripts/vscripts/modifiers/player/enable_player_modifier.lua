@@ -146,7 +146,7 @@ local li123SteamAccountID = Set {
 }
 local yangqiSteamAccountID = Set {
 	-- QQ 杨奇
-	193859368,
+	338188516,
 }
 
 -- 称号属性 END
