@@ -27,10 +27,12 @@ function modifier_item_saint_orb_passive:DeclareFunctions() return
 		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-		MODIFIER_PROPERTY_HEALTH_BONUS,
 		MODIFIER_PROPERTY_MANA_BONUS,
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 	}
 end
 function modifier_item_saint_orb_passive:CheckState()
@@ -41,19 +43,15 @@ end
 function modifier_item_saint_orb_passive:OnCreated()
 	if self:GetAbility() == nil then return end
 	local ab = self:GetAbility()
-	self.hp = ab:GetSpecialValueFor("bonus_health")
 	self.mp = ab:GetSpecialValueFor("bonus_mana")
 	self.hp_re = ab:GetSpecialValueFor("hp_re")
 	self.mp_re = ab:GetSpecialValueFor("mana_re")
 	self.armor = ab:GetSpecialValueFor("bonus_armor")
 	self.heal_bonus = ab:GetSpecialValueFor("heal_bonus")
-	self.all_stats = ab:GetSpecialValueFor("bonus_all_stats")
+	self.bonus_all_stats = ab:GetSpecialValueFor("bonus_all_stats")
 end
 function modifier_item_saint_orb_passive:GetModifierConstantManaRegen()
 	return self.mp_re
-end
-function modifier_item_saint_orb_passive:GetModifierHealthBonus()
-	return self.hp
 end
 function modifier_item_saint_orb_passive:GetModifierManaBonus()
 	return self.mp
@@ -70,33 +68,15 @@ end
 function modifier_item_saint_orb_passive:GetModifierLifestealRegenAmplify_Percentage ()
 	return self.heal_bonus
 end
-
--- modifier_item_saint_orb_buff2 = class({})
--- function modifier_item_saint_orb_buff2:IsDebuff()					return false end
--- function modifier_item_saint_orb_buff2:IsHidden() 					return false end
--- function modifier_item_saint_orb_buff2:IsPurgable() 				return false end
--- function modifier_item_saint_orb_buff2:IsPurgeException() 			return false end
--- function modifier_item_saint_orb_buff2:DeclareFunctions() return {MODIFIER_PROPERTY_ABSORB_SPELL} end
--- function modifier_item_saint_orb_buff2:GetTexture() return "item_saint_orb" end
--- function modifier_item_saint_orb_buff2:OnCreated()
--- 	if self:GetAbility() ~= nil then
--- 		self.heal = self:GetAbility():GetSpecialValueFor("heal")
--- 	end
--- end
-
--- function modifier_item_saint_orb_buff2:GetAbsorbSpell(keys)
--- 	if not IsServer() then
--- 		return
--- 	end
--- 	-- if not Is_Chinese_TG(keys.ability:GetCaster(), self:GetParent())then
--- 		local hp = self:GetParent():GetMaxHealth()*self.heal*0.01
--- 		self:GetParent():Heal(hp,self:GetCaster())
--- 		SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, self:GetParent(), hp, nil)
--- 	-- end
--- 	return 0
--- end
-
-
+function modifier_item_saint_orb_passive:GetModifierBonusStats_Strength()
+	return self.bonus_all_stats
+end
+function modifier_item_saint_orb_passive:GetModifierBonusStats_Agility()
+	return self.bonus_all_stats
+end
+function modifier_item_saint_orb_passive:GetModifierBonusStats_Intellect()
+	return self.bonus_all_stats
+end
 
 modifier_item_saint_orb_buff = class({})
 function modifier_item_saint_orb_buff:IsDebuff()					return false end

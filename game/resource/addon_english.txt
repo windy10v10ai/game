@@ -368,12 +368,6 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6" 					"+{s:bonus_channel} Kame Hame Ha duration"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7" 					"+{s:bonus_duration} Super Saiya mode duration"
 
-		// /////////////////////////////////////////////////////////////////////////////
-		//
-		// 					              Modifiers
-		//
-		// /////////////////////////////////////////////////////////////////////////////
-
 		//Abyss sword
 		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp" 	 "Hidden Sharp"
 		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_Description" 	 "Gain% dmodifier_property_basedamageoutgoing_percentage%%% attack power bonus"
@@ -395,6 +389,25 @@
 		"DOTA_Tooltip_modifier_goku_super_saiyan_passive_Description" 	 "Gain %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% strength bonus, %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility bonus and %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% intelligence bonus"
 		"DOTA_Tooltip_modifier_goku_super_saiyan" 	 "Super Saiya: Activate"
 		"DOTA_Tooltip_modifier_goku_super_saiyan_Description" 	 "Strengthen all your skills, gain %dMODIFIER_PROPERTY_STATUS_RESISTANCE%%% state resistance bonus, and restore %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% magic and %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% life per second"
+
+	    // 潮汐猎人 海妖外壳
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua"									"Kraken Shell"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Description"						"Thickens Tidehunter's hide to passively block a portion of any incoming physical attack damage. The hide also removes negative status effects if the damage taken crosses a threshold.\n\nDoes not stack with items that provide Damage Block.\n\nDISPEL TYPE: Strong Dispel"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Lore"								"Claddish navymen tell tales of a mighty sea-faring beast that suffered spear and sword but continued to lay waste to the fleet."
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note0"							"Now Not Only damage from player（means damage from anyone including creep and tower and neutral ones） owned sources is counted towards debuff removal."
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note1"							"The counter will reset if no anyone damage is taken for %damage_reset_interval% seconds."
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note2"							"Kraken Shell removes most debuffs, even if they are generally not purgable."
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reduction"					"DAMAGE BLOCK:"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_cleanse"					"DAMAGE THRESHOLD:"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reset_interval"			"THRESHOLD TIMER:"
+
+	    // 修补匠 刷新
+	    "DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"A new battery here, another set of rockets there, Boush continually improves on existing technology."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Tome of Knowledge, Refresher Orb, (including the upgrade items like Black king bar 2, Aeon Pendant, Sphere Upgrade, Armor of Insight, etc.) and any neutral items."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"TIME TO REARM:"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -1002,7 +1015,7 @@
 		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>White Lotus (Active):</font></h1>Gives a shield to the target, reflecting all directional spells for the duration (they are still affected by the effect). After the shield is applied, it will be immune to the spell triggered and the target's HP will be restored by %heal%% for the first time.\n<h1><font color='#FFFF00'>Holy Healing (Passive)：</font></h1>Increases all healing effects of self %heal_bonus%%.\n<h1><font color='#FFFF00'>Silt but not stained (Passive)：</font></h1>Self movement speed will not be reduced (lock movement will still work)."
 		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"Don't fight anymore. You have to fight in the dance studio. You can't beat people like this."
 		"DOTA_Tooltip_Ability_item_saint_orb_Note0"						"Simply put, it is to take the initiative to set a Sphere + Lotus to the target."
-		"DOTA_Tooltip_Ability_item_saint_orb_bonus_health"				"+$health"
+		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats"			"+$all"
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_mana"				"+$mana"
 		"DOTA_Tooltip_Ability_item_saint_orb_hp_re"					"+$hp_regen"
 		"DOTA_Tooltip_ability_item_saint_orb_mana_re"				"+$mana_regen"
@@ -1015,25 +1028,6 @@
 		"DOTA_Tooltip_Ability_item_candy_candy"							"Diana Candy"
 		"DOTA_Tooltip_ability_item_candy_candy_Description"             "Eat this candy, you are a fan of Diana.<br/>Grants the bonus effects of all Empowered Runes for %duration% seconds."
 		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "Diana, I love you so much! For you, I'm going to listen to cat addiction!"
-
-	    // 潮汐猎人 海妖外壳
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua"									"Kraken Shell"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Description"						"Thickens Tidehunter's hide to passively block a portion of any incoming physical attack damage. The hide also removes negative status effects if the damage taken crosses a threshold.\n\nDoes not stack with items that provide Damage Block.\n\nDISPEL TYPE: Strong Dispel"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Lore"								"Claddish navymen tell tales of a mighty sea-faring beast that suffered spear and sword but continued to lay waste to the fleet."
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note0"							"Now Not Only damage from player（means damage from anyone including creep and tower and neutral ones） owned sources is counted towards debuff removal."
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note1"							"The counter will reset if no anyone damage is taken for %damage_reset_interval% seconds."
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note2"							"Kraken Shell removes most debuffs, even if they are generally not purgable."
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reduction"					"DAMAGE BLOCK:"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_cleanse"					"DAMAGE THRESHOLD:"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reset_interval"			"THRESHOLD TIMER:"
-
-	    // 修补匠 刷新
-	    "DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"A new battery here, another set of rockets there, Boush continually improves on existing technology."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Tome of Knowledge, Refresher Orb, (including the upgrade items like Black king bar 2, Aeon Pendant, Sphere Upgrade, Armor of Insight, etc.) and any neutral items."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"TIME TO REARM:"
 
 	    // 团队之手
 		"DOTA_Tooltip_ability_item_recipe_hand_of_group"								"Hand of group recipe"
