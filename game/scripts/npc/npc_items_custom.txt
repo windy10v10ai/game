@@ -5750,12 +5750,12 @@
 		"AbilityValues"
 		{
 			"attack_speed"		"80"
-			"self_xp"			"4"
-			"self_gold"			"300"
+			"self_xp"			"4.2"
+			"self_gold"			"380"
 
 			"group_range"		"1800"
 			"group_xp"			"0.8"
-			"group_gold"		"60"
+			"group_gold"		"80"
 		}
 	}
 }
