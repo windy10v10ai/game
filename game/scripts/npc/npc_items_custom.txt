@@ -5583,14 +5583,14 @@
 		"Model"	"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
-		"ItemCost"	"4350"
+		"ItemCost"	"350"
 		// Recipe
 		// -------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"	"1"
 		"ItemResult"	"item_saint_orb"
 		"ItemRequirements"
 		{
-			"01"	"item_holy_locket;item_lotus_orb"
+			"01"	"item_holy_locket;item_lotus_orb;item_sphere"
 		}
 	}
 	"item_saint_orb"
