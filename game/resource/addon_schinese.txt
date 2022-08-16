@@ -212,6 +212,7 @@
 		"DOTA_Tooltip_modifier_player_lani_Description"			"<font color='#FFCC66'> 菈妮唯一的王 </font>"
 		"DOTA_Tooltip_modifier_player_li123"					"<font color='#FFCC66'>★ 力中暴力 ★</font>"
 		"DOTA_Tooltip_modifier_player_yangqi"					"<font color='#FFCC66'>★ 喵车乘客29 ★</font>"
+		"DOTA_Tooltip_modifier_player_kudo"						"<font color='#FFCC66'>★ kudo ★</font>"
 
 
 		// 初音未来
