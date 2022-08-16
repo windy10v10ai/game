@@ -1035,7 +1035,7 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_description"							"<h1>Active: Transmute</h1> Kills a non-hero target for %self_gold% gold and %self_xp%x experience. <br>Allies within %group_range% of the target gains %group_gold% gold and %group_xp%x experience.<br><br> Cannot be used on Ancient Creeps.<br><br>Range: %abilitycastrange%"
 	    "DOTA_Tooltip_ability_item_hand_of_group_bonus_attsp"			                "+attack speed"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"A wise choice and Scientific investment."
-	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"The money obtained has the multiplier bonus, but the experience does not has the multiplier bonus."
+	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"The money and experience obtained does not has the multiplier bonus."
 
 	}
 }
