@@ -5583,7 +5583,7 @@
 		"Model"	"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
-		"ItemCost"	"750"
+		"ItemCost"	"350"
 		// Recipe
 		// -------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"	"1"
@@ -5695,7 +5695,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"550"
+		"ItemCost"						"600"
 		"ItemShopTags"					""
 		"ItemAliases"					"hom"
 
@@ -5723,7 +5723,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"70.0"
+		"AbilityCooldown"				"90.0"
 
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_hand_of_group.lua"
@@ -5734,7 +5734,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-		"ItemCost"						"4750"
+		"ItemCost"						"4800"
 		"ItemShopTags"					"attack_speed;hard_to_tag"
 		"ItemQuality"					"common"
 		"ItemAliases"					"hand of group"
@@ -5749,11 +5749,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"attsp"			"80"
-			"xp"			"3.0"
-			"gold"			"400"
-			"ch"			"2"
-			"bounty"			"1"
+			"attack_speed"		"80"
+			"self_xp"			"4"
+			"self_gold"			"300"
+
+			"group_range"		"1800"
+			"group_xp"			"0.8"
+			"group_gold"		"60"
 		}
 	}
 }

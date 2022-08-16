@@ -475,7 +475,7 @@
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"对于充能型技能，每次施放再装填可以恢复该技能一点能量。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"持续施法 - 重置修补匠的大多数物品和技能的冷却时间。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"这儿换块新电池，那儿塞几枚火箭弹，鲍什不断改进现有的技术。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘、奥术鞋、黑皇杖、迈达斯之手、林肯法球、陨星锤、支配头盔、统御头盔、知识之书、洞察烟斗、刷新球(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲)及所有中立物品。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘、奥术鞋、黑皇杖、迈达斯之手、林肯法球、陨星锤、支配头盔、统御头盔、知识之书、洞察烟斗、刷新球(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲，团队之手)及所有中立物品。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"再装填所需时间："
 
 		// /////////////////////////////////////////////////////////////////////////////
@@ -1101,10 +1101,10 @@
 		// 团队之手
 		"DOTA_Tooltip_Ability_item_recipe_hand_of_group"				                "团队之手（图纸）"
 	    "DOTA_Tooltip_ability_item_hand_of_group"										"团队之手"
-	    "DOTA_Tooltip_ability_item_hand_of_group_description"						    "<h1>主动：点石成金</h1> 立刻炼化一个普通单位，获得 %gold% 金钱和 %xp% 倍经验值。<br><br>无法用于远古单位。<br><br>施法距离：%abilitycastrange%"
+	    "DOTA_Tooltip_ability_item_hand_of_group_description"						    "<h1>主动：点石成金</h1> 立刻炼化一个普通单位，获得 %self_gold% 金钱和 %self_xp% 倍经验值。<br>目标周围 %group_range% 范围内的友军获得 %group_gold% 金钱和 %group_xp% 倍经验值。<br><br>无法用于远古单位。<br><br>施法距离：%abilitycastrange%"
 	    "DOTA_Tooltip_ability_item_hand_of_group_bonus_attsp"			                "+attack speed"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"明智的选择，科学的投资。"
-	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"1.使用点石成金获得的经验不会与他人共享。\n2.获得的金钱属于可靠金钱（不会得到击杀该单位的正常金钱）。"
+	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"获得的金钱享有倍率加成，经验不享有倍率加成。"
 
 	}
 }
