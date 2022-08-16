@@ -937,7 +937,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"300"
+		"ItemCost"						"350"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -976,7 +976,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"25"
+				"bonus_all_stats"		"20"
 			}
 			"02"
 			{
@@ -5628,14 +5628,13 @@
 		"AbilityValues"
 		{
 			"bonus_armor"	"20"	//加甲
-			"hp_re"			"30" //回血
+			"bonus_mana"	"400"	//加蓝
+			"bonus_all_stats" "25"	//全属性
+			"hp_re"			"25"	//回血
 			"mana_re"		"16"	//回蓝
-			"heal_bonus"	"20" //恢复增强
-			"bonus_health"	"600" //加血
-			"bonus_mana"	"800" //加蓝
-			"duration"		"8"	//主动持续时间
-			"heal"			"5"	//反制回血%
-			"bonus_all_stats" "30"//三围
+			"heal_bonus"	"20"	//恢复增强
+			"duration"		"6"		//主动持续时间
+			"heal"			"5"		//反制回血%
 		}
 	}
 	//=================================================================================================================
@@ -5748,33 +5747,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attsp"			"80"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"xp"			"3.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"gold"			"400"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ch"			"2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bounty"			"1"
-			}
+			"attsp"			"80"
+			"xp"			"3.0"
+			"gold"			"400"
+			"ch"			"2"
+			"bounty"			"1"
 		}
 	}
 }
