@@ -47,6 +47,7 @@ function modifier_item_saint_orb_passive:OnCreated()
 	self.mp_re = ab:GetSpecialValueFor("mana_re")
 	self.armor = ab:GetSpecialValueFor("bonus_armor")
 	self.heal_bonus = ab:GetSpecialValueFor("heal_bonus")
+	self.all_stats = ab:GetSpecialValueFor("bonus_all_stats")
 end
 function modifier_item_saint_orb_passive:GetModifierConstantManaRegen()
 	return self.mp_re
