@@ -55,6 +55,9 @@ end
 function modifier_item_necronomicon_staff:AllowIllusionDuplicate()
 	return false
 end
+function modifier_item_necronomicon_staff:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
 
 function modifier_item_necronomicon_staff:OnCreated(params)
 	local hParent = self:GetParent()
