@@ -937,7 +937,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"700"
+		"ItemCost"						"350"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -946,7 +946,7 @@
 		"ItemResult"					"item_sphere_2"
 		"ItemRequirements"
 		{
-			"01"						"item_sphere;item_ultimate_orb;item_pers"
+			"01"						"item_sphere;item_pers"
 		}
 	}
 
@@ -966,7 +966,7 @@
 		"AbilityTextureName"			"item_sphere_2"
 
 		"AbilityCastRange"				"900"
-		"AbilityCooldown"				"4.0"
+		"AbilityCooldown"				"8.0"
 		"AbilitySharedCooldown"			"sphere"
 
 		// Special
@@ -976,7 +976,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"35"
+				"bonus_all_stats"		"20"
 			}
 			"02"
 			{
@@ -991,7 +991,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"block_cooldown"		"4.0"
+				"block_cooldown"		"8.0"
 			}
 		}
 	}
@@ -5583,14 +5583,14 @@
 		"Model"	"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
-		"ItemCost"	"4350"
+		"ItemCost"	"350"
 		// Recipe
 		// -------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"	"1"
 		"ItemResult"	"item_saint_orb"
 		"ItemRequirements"
 		{
-			"01"	"item_holy_locket;item_lotus_orb"
+			"01"	"item_lotus_orb;item_sphere_2"
 		}
 	}
 	"item_saint_orb"
@@ -5602,7 +5602,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"15"
+		"AbilityCooldown"	"16"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"300"
@@ -5628,13 +5628,13 @@
 		"AbilityValues"
 		{
 			"bonus_armor"	"20"	//加甲
-			"hp_re"			"15" //回血
-			"mana_re"		"6"	//回蓝
-			"heal_bonus"	"20" //恢复增强
-			"bonus_health"	"600" //加血
-			"bonus_mana"	"800" //加蓝
-			"duration"		"6"	//主动持续时间
-			"heal"			"5"	//反制回血%
+			"bonus_mana"	"400"	//加蓝
+			"bonus_all_stats" "25"	//全属性
+			"hp_re"			"25"	//回血
+			"mana_re"		"16"	//回蓝
+			"heal_bonus"	"20"	//恢复增强
+			"duration"		"6"		//主动持续时间
+			"heal"			"5"		//反制回血%
 		}
 	}
 	//=================================================================================================================
@@ -5695,7 +5695,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"550"
+		"ItemCost"						"600"
 		"ItemShopTags"					""
 		"ItemAliases"					"hom"
 
@@ -5723,41 +5723,39 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"70.0"
+		"AbilityCooldown"				"90.0"
 
-		"BaseClass"						"item_hand_of_midas"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_hand_of_group.lua"
+
 		"AbilityTextureName"			"item_hand_of_group"
 		"AbilitySharedCooldown"			"item_hand_of_midas"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-		"ItemCost"						"4750"
+		"ItemCost"						"4800"
 		"ItemShopTags"					"attack_speed;hard_to_tag"
 		"ItemQuality"					"common"
 		"ItemAliases"					"hand of group"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"precache"
+		{
+			"particle"	"particles/items2_fx/hand_of_midas.vpcf"
+		}
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"80"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"xp_multiplier"			"3.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_gold"			"400"
-			}
+			"attack_speed"		"80"
+			"self_xp"			"4.2"
+			"self_gold"			"380"
+
+			"group_range"		"1800"
+			"group_xp"			"0.8"
+			"group_gold"		"80"
 		}
 	}
 }
