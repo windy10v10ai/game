@@ -14983,7 +14983,7 @@
 	}
 	"shadow_shaman_serpentine"
 	{
-		"AbilityCooldown"				"35"
+		"AbilityCooldown"				"70"
 		"AbilityManaCost"				"100"
 		"AbilitySpecial"
 		{
