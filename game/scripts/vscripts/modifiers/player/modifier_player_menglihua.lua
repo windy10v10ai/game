@@ -19,8 +19,8 @@ function modifier_player_menglihua:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
-		MODIFIER_PROPERTY_CAST_RANGE_BONUS,
-		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS_UNIQUE,
+		MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
+		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 	}
 end
@@ -33,11 +33,11 @@ function modifier_player_menglihua:GetModifierPercentageCooldown()
 	return self.iCooldownReduction
 end
 
-function modifier_player_menglihua:GetModifierCastRangeBonus()
+function modifier_player_menglihua:GetModifierCastRangeBonusStacking()
 	return self.iCastRange
 end
 
-function modifier_player_menglihua:GetModifierAttackRangeBonusUnique()
+function modifier_player_menglihua:GetModifierAttackRangeBonus()
 	return self.iAttackRange
 end
 
