@@ -152,6 +152,10 @@ local kudoSteamAccountID = Set {
 	-- kud
 	118324486,
 }
+local arrayZoneYourSteamAccountID = Set {
+	-- ArrayZoneYour
+	314643375,
+}
 
 -- 称号属性 END
 
@@ -305,5 +309,9 @@ function EnablePlayerModifier(hEntity)
 	if kudoSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_kudo", "modifiers/player/modifier_player_kudo", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_kudo", {})
+	end
+	if arrayZoneYourSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_arrayzoneyour", "modifiers/player/modifier_player_arrayzoneyour", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_arrayzoneyour", {})
 	end
 end
