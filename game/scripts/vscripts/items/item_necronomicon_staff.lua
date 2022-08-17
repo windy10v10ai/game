@@ -69,6 +69,7 @@ function modifier_item_necronomicon_staff:OnCreated(params)
 	self.bonus_agility = self.ability:GetSpecialValueFor("bonus_agility")
 	self.bonus_intellect = self.ability:GetSpecialValueFor("bonus_intellect")
 	self.bonus_mana_regen = self.ability:GetSpecialValueFor("bonus_mana_regen")
+	self.spell_amp = self.ability:GetSpecialValueFor("spell_amp")
 	self.mp_regen_amp = self.ability:GetSpecialValueFor("mp_regen_amp")
 
 	self.sheep_duration = self.ability:GetSpecialValueFor("sheep_duration")
@@ -81,6 +82,7 @@ function modifier_item_necronomicon_staff:DeclareFunctions()
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
 	}
 end
@@ -95,6 +97,9 @@ function modifier_item_necronomicon_staff:GetModifierBonusStats_Intellect(params
 end
 function modifier_item_necronomicon_staff:GetModifierConstantManaRegen(params)
     return self.bonus_mana_regen
+end
+function modifier_item_necronomicon_staff:GetModifierSpellAmplify_Percentage(params)
+	return self.spell_amp
 end
 function modifier_item_necronomicon_staff:GetModifierMPRegenAmplify_Percentage(params)
 	return self.mp_regen_amp
