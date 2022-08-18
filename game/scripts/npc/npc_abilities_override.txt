@@ -15173,7 +15173,7 @@
 				"radius"				"170"
 				"AbilityChargeRestoreTime"
 				{
-					"value"			"24 20 16 12"
+					"value"			"26 22 18 14"
 					"special_bonus_unique_void_spirit_1"	"-2"
 				}
 				"min_travel_distance"	"200"
