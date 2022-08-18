@@ -270,6 +270,7 @@
 
 	"npc_dota_hero_pangolier"
 	{
+		"DisableWearables"	        "1"
 		"Ability8"					"pangolier_heartpiercer"
 	}
 
