@@ -8219,7 +8219,12 @@
 	//=================================================================================================================
 	"medusa_cold_blooded"
 	{
-		"AbilityCooldown"				"4"
+
+		"AbilityCooldown"				"10"
+		"AbilityValues"
+		{
+			"damage"		"200"
+		}
 	}
 	"medusa_split_shot"
 	{
@@ -8260,12 +8265,12 @@
 			"stone_form_scepter_base"
 			{
 				"value"							"0"
-				"special_bonus_scepter"			"+1.5"
+				"special_bonus_scepter"			"+1.3"
 			}
 			"stone_form_scepter_increment"
 			{
 				"value"							"0"
-				"special_bonus_scepter"			"+0.5"
+				"special_bonus_scepter"			"+0.2"
 			}
 			"movement_slow"						"30"
 			"turn_slow"							"50"
@@ -8274,16 +8279,16 @@
 	}
 	"medusa_mana_shield"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 				"damage_per_mana"
 				{
-					"value"				"1.5 2.0 2.5 3.0 3.5 4.0 4.5"
-					"special_bonus_unique_medusa_6"		"+1.5"
+					"value"				"1.5 2.0 2.5 3.0 3.5"
+					"special_bonus_unique_medusa_6"		"+1.0"
 				}
-				"absorption_pct"			"80"
-				"bonus_mana"			"200 250 300 350 400 450 500"
+				"absorption_pct"			"70"
+				"bonus_mana"			"200 250 300 350 400"
 		}
 	}
 	"medusa_stone_gaze"
@@ -8292,7 +8297,7 @@
 		"AbilityValues"
 		{
 			"AbilityCastRange"					"1200"
-			"AbilityCooldown"					"70"
+			"AbilityCooldown"					"80"
 			"AbilityManaCost"					"150"
 			"radius"							"1200"
 			"duration"
@@ -8300,7 +8305,7 @@
 				"value"							"5 5.5 6 6.5"
 				"special_bonus_unique_medusa"	"+1.5"
 			}
-			"slow"								"50"
+			"slow"								"35"
 			"stone_duration"					"3.0"
 			"face_duration"						"2.0"
 			"vision_cone"						"0.08715"		// 85 degree cone
@@ -8309,7 +8314,7 @@
 				"value"							"40 45 50 55"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_PHYSICAL"
 			}
-			"speed_boost"						"60"
+			"speed_boost"						"50"
 		}
 	}
 	//=================================================================================================================
@@ -9808,8 +9813,6 @@
 	"sniper_shrapnel"
 	{
 		"MaxLevel" "7"
-		"AbilityCharges"				"5"
-		"AbilityManaCost"				"30 40 50 60 70 80 90"
 		"AbilitySpecial"
 		{
 			"01"
@@ -9821,33 +9824,21 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shrapnel_damage"		"25 45 65 85 105 125 145"
+				"shrapnel_damage"		"25 40 55 70 85 100 115"
 				"LinkedSpecialBonus"	"special_bonus_unique_sniper_1"
-			}
-		}
-	}
-	"special_bonus_unique_sniper_2"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"5"
-				"ad_linked_abilities"			"sniper_shrapnel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
 	"sniper_headshot"
 	{
 		"MaxLevel" "7"
-		"AbilityDamage"					"20 50 80 100 120 140 160"
+		"AbilityDamage"					"30 50 70 90 110 130 150"
 		"AbilitySpecial"
 		{
-			"01"
+			"03"
 			{
-				"var_type"						"FIELD_FLOAT"
-				"slow_duration"					"0.5"
+				"var_type"					"FIELD_INTEGER"
+				"slow"			"-90"
 			}
 		}
 	}
@@ -9955,7 +9946,7 @@
 			"05"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"shard_dagger_cooldown"			"4.0"
+				"shard_dagger_cooldown"			"5.0"
 				"RequiresShard"					"1"
 			}
 		}
@@ -15171,70 +15162,64 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"20 17 14 11 9"
-		"AbilityDamage"					"100 180 260 340 400"
+		"AbilityDamage"					"100 180 260 340 420"
 		"AbilityManaCost"				"100 110 120 130 140"
 	}
 	"void_spirit_astral_step"
 	{
-		"MaxLevel" "5"
-		"AbilityChargeRestoreTime"		"28 24 20 16 12"
-		"AbilitySpecial"
+		"MaxLevel" "4"
+		"AbilityValues"
 		{
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"radius"				"170"
+				"AbilityChargeRestoreTime"
+				{
+					"value"			"24 20 16 12"
+					"special_bonus_unique_void_spirit_1"	"-2"
+				}
 				"min_travel_distance"	"200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_travel_distance"	"800 900 1000 1100 1200"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pop_damage"			"150 250 350 450 550"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow_pct"		"40 60 80 100"
-			}
-		}
-	}
-	"special_bonus_unique_void_spirit_1"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"value"					"-2.0" // (Astral Step Charge Restore Time)
-				"ad_linked_abilities"			"void_spirit_astral_step"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
+				"max_travel_distance"	"800 900 1000 1100"
+				"pop_damage_delay"
+				{
+					"value"	"1.25"
+					"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
+				}
+				"pop_damage"			"150 250 350 450"
+				"movement_slow_pct"		"50 60 70 80"
 		}
 	}
 	"void_spirit_resonant_pulse"
 	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"115 120 125 130 135 140 145"
+		"MaxLevel" "5"
+		"AbilityManaCost"				"115 120 125 130 135"
 		"AbilitySpecial"
 		{
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"70 120 170 220 270 320 370"
+				"damage"				"70 120 170 220 270"
 				"LinkedSpecialBonus"	"special_bonus_unique_void_spirit_4"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_absorb_amount"	"40 80 120 160 200 240 280"
+				"base_absorb_amount"	"40 80 120 160 200"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"absorb_per_hero_hit"	"30 45 60 75 90 105 120"
+				"absorb_per_hero_hit"	"30 45 60 75 90"
+			}
+		}
+	}
+	"special_bonus_unique_void_spirit_4"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"130"
+				"ad_linked_abilities"		"void_spirit_resonant_pulse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
