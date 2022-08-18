@@ -286,6 +286,39 @@
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"						"移动速度："
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"							"生命恢复："
 
+        // 混沌骑士
+		"DOTA_Tooltip_ability_chaos_knight_phantasm_lua"					"混沌之军"
+		"DOTA_Tooltip_ability_chaos_knight_phantasm_lua_Description"		"从另一维度内召唤若干个混沌骑士的幻象。幻象继承%outgoing_damage_tooltip%%%攻击力，但是承受%incoming_damage_tooltip%%%伤害。\n\n驱散类型：弱驱散"
+		"DOTA_Tooltip_ability_chaos_knight_phantasm_lua_scepter_description" "混沌之军可以对友方英雄施放。施法距离为1200。"
+		"DOTA_Tooltip_ability_chaos_knight_phantasm_lua_Lore"				"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
+		"DOTA_Tooltip_ability_chaos_knight_phantasm_lua_Note0"				"能够移除混沌骑士的大部分负面状态。"
+		"DOTA_Tooltip_ability_chaos_knight_phantasm_lua_Note1"				"混沌骑士在施放时有%invuln_duration%秒的无敌时间，可以躲避眩晕和伤害技能。"
+		"DOTA_Tooltip_ability_chaos_knight_phantasm_lua_Note2"				"强幻象不会被法术秒杀。"
+		"DOTA_Tooltip_ability_chaos_knight_phantasm_lua_images_count"		"幻象数量："
+		"DOTA_Tooltip_ability_chaos_knight_phantasm_lua_illusion_duration"	"幻象持续时间："
+		"DOTA_Tooltip_ability_chaos_knight_phantasm_lua_extra_phantasm_chance_pct_tooltip"		"额外幻象产生几率："
+		"DOTA_Tooltip_ability_chaos_knight_phantasm_lua_incoming_damage_tooltip"	"%幻象承受伤害："
+		"DOTA_Tooltip_ability_chaos_knight_phantasm_lua_outgoing_damage_tooltip"	"%幻象继承攻击力："
+
+		// 潮汐猎人
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua"									"海妖外壳"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Description"						"加厚潮汐猎人的外皮，可以被动格挡物理伤害，当受到的伤害达到临界值时外皮还将移除绝大多数负面效果。\n\n不与带有伤害格挡的物品叠加。\n\n驱散类型：强驱散"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Lore"								"铁帆海军里有一个传言，说是有只强大的海兽，明明被矛刺中被剑砍伤依然能践踏舰队。"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note0"							"现在并非只有玩家控制单位（也可以说是任意单位）造成的伤害都可以计算在移除负面状态的累计伤害中。"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note1"							"如果%damage_reset_interval%秒内没有受到来自任意单位（包含小兵，防御塔，野怪）的伤害，伤害累计值将重置。"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note2"							"海妖外壳能移除绝大多数负面状态，即使该状态效果无法驱散。"
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reduction"					"伤害格挡："
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_cleanse"					"伤害临界值："
+		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reset_interval"			"临界值累计时间："
+
+        // 修补匠
+		"DOTA_Tooltip_ability_tinker_rearm_lua"												"再装填"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"对于充能型技能，每次施放再装填可以恢复该技能一点能量。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"持续施法 - 重置修补匠的大多数物品和技能的冷却时间。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"这儿换块新电池，那儿塞几枚火箭弹，鲍什不断改进现有的技术。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘、奥术鞋、黑皇杖、迈达斯之手、林肯法球、陨星锤、支配头盔、统御头盔、知识之书、洞察烟斗、刷新球(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲，团队之手)及所有中立物品。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"再装填所需时间："
+
 		// Saber
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"
 		"npc_dota_hero_broodmother_npedesc1"		"遵从召唤而来，我问你，你是我的Master吗?"
@@ -469,24 +502,6 @@
 		"DOTA_Tooltip_modifier_goku_super_saiyan"	"超级赛亚人:激活"
 		"DOTA_Tooltip_modifier_goku_super_saiyan_Description"	"强化自身所有的技能，获得%dMODIFIER_PROPERTY_STATUS_RESISTANCE%%%状态抗性加成，每秒恢复%dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%%魔法和%dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%%生命"
 
-        // 潮汐猎人
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua"									"海妖外壳"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Description"						"加厚潮汐猎人的外皮，可以被动格挡物理伤害，当受到的伤害达到临界值时外皮还将移除绝大多数负面效果。\n\n不与带有伤害格挡的物品叠加。\n\n驱散类型：强驱散"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Lore"								"铁帆海军里有一个传言，说是有只强大的海兽，明明被矛刺中被剑砍伤依然能践踏舰队。"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note0"							"现在并非只有玩家控制单位（也可以说是任意单位）造成的伤害都可以计算在移除负面状态的累计伤害中。"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note1"							"如果%damage_reset_interval%秒内没有受到来自任意单位（包含小兵，防御塔，野怪）的伤害，伤害累计值将重置。"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note2"							"海妖外壳能移除绝大多数负面状态，即使该状态效果无法驱散。"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reduction"					"伤害格挡："
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_cleanse"					"伤害临界值："
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reset_interval"			"临界值累计时间："
-
-        // 修补匠
-		"DOTA_Tooltip_ability_tinker_rearm_lua"												"再装填"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"对于充能型技能，每次施放再装填可以恢复该技能一点能量。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"持续施法 - 重置修补匠的大多数物品和技能的冷却时间。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"这儿换块新电池，那儿塞几枚火箭弹，鲍什不断改进现有的技术。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘、奥术鞋、黑皇杖、迈达斯之手、林肯法球、陨星锤、支配头盔、统御头盔、知识之书、洞察烟斗、刷新球(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲，团队之手)及所有中立物品。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"再装填所需时间："
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
