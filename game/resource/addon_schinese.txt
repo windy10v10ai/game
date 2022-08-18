@@ -277,6 +277,15 @@
 		// 谜团
 		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"					"黑洞每秒造成额外伤害，数值为单位最大生命值的3%。"
 
+        // 全能骑士
+        "DOTA_Tooltip_ability_omniknight_repel"			"咸鱼恩赐"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight"			"奶飞天"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"			"全能骑士召唤出咸鱼之王的替身使者，提升目标的移动速度和生命恢复，并且使目标飞行。"
+        "DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"			"你被奶了，你飞天了，快去送。"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"							"持续时间："
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"						"移动速度："
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"							"生命恢复："
+
 		// Saber
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"
 		"npc_dota_hero_broodmother_npedesc1"		"遵从召唤而来，我问你，你是我的Master吗?"
