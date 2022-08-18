@@ -9089,40 +9089,90 @@
 	//=================================================================================================================
 	"pangolier_swashbuckle"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"19 16 13 10 7"
+		"AbilityManaCost"				"80 90 100 110 120"
+		"LinkedAbility"					"pangolier_heartpiercer"
+		"AbilityDraftPreAbility"		"pangolier_heartpiercer"
 		"AbilitySpecial"
 		{
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"24 42 60 78 96 114 132"
+				"damage"				"25 45 65 85 105"
 				"LinkedSpecialBonus"	"special_bonus_unique_pangolier_3"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 		}
 	}
+	"special_bonus_unique_pangolier_3"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"value"				"50"
+				"ad_linked_abilities"			"pangolier_swashbuckle"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
 	"pangolier_shield_crash"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"16 15 14 13 12 11 10"
-		"AbilityManaCost"				"75 85 95 105 110 130 160"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityManaCost"				"75 85 95 105 115"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"90 160 230 300 350 400 450"
+				"damage"				"90 160 230 300 370"
 				"LinkedSpecialBonus"	"special_bonus_unique_pangolier_2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hero_stacks"			"9 10 11 12 13 14 15"
+				"hero_stacks"			"8 9 10 11 12"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"4 5 6 7 8 9 10"
+				"duration"				"5 6 7 8 9"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow"	"20 25 30 35 40"
+			}
+		}
+	}
+	"pangolier_heartpiercer"
+	{
+		"MaxLevel" "5"
+		"LinkedAbility"					"pangolier_swashbuckle"
+		"AbilityDraftPreAbility"		"pangolier_swashbuckle"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chance_pct"			"15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2 2.5 3 3.5 4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_pct"			"-30 -35 -40 -45 -50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"debuff_delay"			"2.0"
 			}
 		}
 	}
@@ -9132,8 +9182,8 @@
 		"AbilityValues"
 		{
 				"chance_pct"			"17"
-				"duration"				"2.5 3 3.5 4 4.5"
-				"slow"			"15"
+				"duration"				"2 2.5 3 3.5 4"
+				"slow"			"0"
 				"armor"			"2 4 6 8 10"
 		}
 	}
@@ -9148,7 +9198,19 @@
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.0 1.25 1.5"
+				"stun_duration"			"1.0 1.25 1.5 1.75"
+			}
+		}
+	}
+	"special_bonus_unique_pangolier_6"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"value"				"5"
+				"ad_linked_abilities"			"pangolier_gyroshell"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
