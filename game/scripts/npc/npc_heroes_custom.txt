@@ -602,6 +602,7 @@
 	}
 	"npc_dota_hero_chaos_knight"
 	{
+		"Ability6"		"chaos_knight_phantasm_lua"
 		"Bot"
 		{
 			"Build"
@@ -616,14 +617,14 @@
 				"8"		"chaos_knight_reality_rift"
 				"9"		"chaos_knight_chaos_strike"
 				"10"		"special_bonus_unique_chaos_knight_6"
-				"11"		"chaos_knight_phantasm"
-				"12"		"chaos_knight_phantasm"
+				"11"		"chaos_knight_phantasm_lua"
+				"12"		"chaos_knight_phantasm_lua"
 				"13"		"chaos_knight_chaos_strike"
 				"14"		"chaos_knight_chaos_strike"
 				"15"		"special_bonus_unique_chaos_knight_8"
 				"16"		"chaos_knight_chaos_strike"
 				"17"		""
-				"18"		"chaos_knight_phantasm"
+				"18"		"chaos_knight_phantasm_lua"
 				"19"		""
 				"20"		"special_bonus_unique_chaos_knight_3"
 				"21"		""
@@ -636,13 +637,11 @@
 				"28"		"special_bonus_strength_12"
 				"29"		"special_bonus_unique_chaos_knight"
 				"30"		"special_bonus_unique_chaos_knight_4"
-				"31"		"chaos_knight_phantasm"
-				"32"		"chaos_knight_phantasm"
-				"33"		"chaos_knight_reality_rift"
-				"34"		"chaos_knight_chaos_bolt"
+				"31"		"chaos_knight_reality_rift"
+				"32"		"chaos_knight_chaos_bolt"
+				"33"		"chaos_knight_chaos_strike"
+				"34"		"chaos_knight_chaos_strike"
 				"35"		"chaos_knight_chaos_strike"
-				"36"		"chaos_knight_chaos_strike"
-				"37"		"chaos_knight_chaos_strike"
 			}
 		}
 	}
