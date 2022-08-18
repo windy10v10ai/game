@@ -2165,8 +2165,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"100"			// Damage range min.
-		"AttackDamageMax"			"100"			// Damage range max.
+		"AttackDamageMin"			"80"			// Damage range min.
+		"AttackDamageMax"			"80"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.5"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
@@ -2221,8 +2221,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"150"			// Damage range min.
-		"AttackDamageMax"			"150"			// Damage range max.
+		"AttackDamageMin"			"120"			// Damage range min.
+		"AttackDamageMax"			"120"			// Damage range max.
 	}
 
 	"npc_dota_shadow_shaman_ward_3"
@@ -2231,8 +2231,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"200"			// Damage range min.
-		"AttackDamageMax"			"200"			// Damage range max.
+		"AttackDamageMin"			"160"			// Damage range min.
+		"AttackDamageMax"			"160"			// Damage range max.
 	}
 
 	// beastmaster_boar 兽王野猪
