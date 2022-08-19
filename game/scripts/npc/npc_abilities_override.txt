@@ -8209,7 +8209,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"							"120 110 100 90 80"
+				"value"							"120.0 110.0 100.0 90.0 80.0"
 				"special_bonus_unique_luna_6"	"-20.0"
 			}
 		}
@@ -8219,7 +8219,6 @@
 	//=================================================================================================================
 	"medusa_cold_blooded"
 	{
-
 		"AbilityCooldown"				"10"
 		"AbilityValues"
 		{
@@ -8792,6 +8791,22 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"radius"					"1000 1200 1400 1600"
+			}
+		}
+	}
+	"naga_siren_crit"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"chance"					"60"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit"			"120"
 			}
 		}
 	}
@@ -10582,32 +10597,45 @@
 	//=================================================================================================================
 	// Ability: Venomancer 剧毒术士
 	//=================================================================================================================
+	"venomancer_area_poison"
+	{
+		"AbilityCooldown"				"90"
+		"AbilityCastRange"				"900"
+		"AbilityManaCost"				"150"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"		"15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"		"650"
+			}
+		}
+	}
 	"venomancer_venomous_gale"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"20"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"21 20 19 18 17"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"strike_damage"			"50 75 100 125 150 175 200"
+				"strike_damage"			"50 75 100 125 150"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tick_damage"			"15 45 75 105 135 165 195"
+				"tick_damage"			"15 45 75 105 135"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"shard_ward_count"					"1"   //tooltip only
-				"RequiresShard"			"1"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_bonus_range"					"400"
 				"RequiresShard"			"1"
 			}
 		}
@@ -10638,7 +10666,6 @@
 	"venomancer_plague_ward"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"5.0"
 		"AbilityManaCost"				"20"
 		"AbilitySpecial"
 		{
@@ -14403,7 +14430,7 @@
 	}
 	"shadow_shaman_serpentine"
 	{
-		"AbilityCooldown"				"70"
+		"AbilityCooldown"				"90"
 		"AbilityManaCost"				"200"
 		"AbilitySpecial"
 		{
