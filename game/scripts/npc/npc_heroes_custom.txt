@@ -274,6 +274,16 @@
 		"Ability8"					"pangolier_heartpiercer"
 	}
 
+    "npc_dota_hero_venomancer"
+	{
+		"Ability4"		"venomancer_area_poison"
+	}
+
+	 "npc_dota_hero_naga_siren"
+	{
+		"Ability4"		"naga_siren_crit"
+	}
+
 	//=================================================================================================================
 	// HERO BOT BUILD
 	//=================================================================================================================
