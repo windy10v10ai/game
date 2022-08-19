@@ -2354,12 +2354,36 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"outgoing_damage"			"-30 -10 10 30 50"
+				"outgoing_damage"			"20 40 60 80 100"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"outgoing_damage_tooltip"			"70 90 110 130 150"
+				"outgoing_damage_tooltip"			"120 140 160 180 200"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"incoming_damage"			"200"
+				"LinkedSpecialBonus"		"special_bonus_unique_chaos_knight_7"
+
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"incoming_damage_tooltip"			"300"
+				"LinkedSpecialBonus"		"special_bonus_unique_chaos_knight_7"
+
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"invuln_duration"		"0.1"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"			"50"
 			}
 		}
 	}
