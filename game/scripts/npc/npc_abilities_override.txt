@@ -1529,7 +1529,7 @@
 			"bonus_damage_duration"			"30 45 60 75 90"
 			"bonus_shared_by_allies_pct"
 			{
-				"special_bonus_unique_underlord_9"	"+100"
+				"special_bonus_unique_underlord_9"	"+70"
 			}
 		}
 	}
@@ -9397,13 +9397,12 @@
 	{
 		"MaxLevel" "7"
 		"AbilityCastRange"				"550 600 650 700 750 800 850"
-		"AbilityCooldown"				"6"
 		"AbilityManaCost"				"20 25 30 35 40 45 50"
 		"AbilityValues"
 		{
 			"move_slow"					"-50"
 			"dagger_speed"			"1200"
-			"duration"			"2.2 2.6 3.0 3.4 3.8 4.2 4.5"
+			"duration"			"2.4 2.7 3.0 3.3 3.6 3.9 4.2"
 			"base_damage"			"100"
 			"attack_factor"
 			{
@@ -9421,7 +9420,6 @@
 	"phantom_assassin_phantom_strike"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"1000"
 		"AbilityCooldown"				"12 10 8 6 4"
 		"AbilityManaCost"				"35 45 55 65 75"
 		"AbilitySpecial"
@@ -9437,7 +9435,6 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"60 55 50 45 40"
-		"AbilityManaCost"				"50"
 		"AbilitySpecial"
 		{
 			"01"
@@ -10608,25 +10605,6 @@
 	//=================================================================================================================
 	// Ability: Venomancer 剧毒术士
 	//=================================================================================================================
-	"venomancer_area_poison"
-	{
-		"AbilityCooldown"				"90"
-		"AbilityCastRange"				"900"
-		"AbilityManaCost"				"150"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"		"15"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"		"650"
-			}
-		}
-	}
 	"venomancer_venomous_gale"
 	{
 		"MaxLevel" "5"
@@ -12736,12 +12714,17 @@
 				"total_damage"				"200 300 400 500 600"
 				"LinkedSpecialBonus"		"special_bonus_unique_keeper_of_the_light"
 			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"channel_vision_step"		"150 180 210 240 270"
+			}
 		}
 	}
 	"keeper_of_the_light_radiant_bind"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"23 20 17 14 11"
+		"AbilityCooldown"				"22 20 18 16 14"
 		"AbilityManaCost"				"60 80 100 120 140"
 		"AbilityCastRange"				"700 750 800 850 900"
 		"AbilitySpecial"
@@ -12749,7 +12732,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"slow"				"4 5.5 7 8.5 10.0"
+				"slow"				"4 5.5 7 8.5 10"
 			}
 			"03"
 			{
@@ -12758,45 +12741,82 @@
 			}
 		}
 	}
+	"keeper_of_the_light_mana_leak"
+	{
+		"AbilityCooldown"				"18 16 14 12"
+		"LinkedAbility"					"keeper_of_the_light_chakra_magic"
+		"AbilityDraftPreAbility"		"keeper_of_the_light_chakra_magic"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"4.0 5.0 6.0 7.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"mana_leak_pct"				"5.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1.5 2.0 2.5 3.0"
+			}
+		}
+	}
 	"keeper_of_the_light_chakra_magic"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityCooldown"				"18 16 14 12"
+		"LinkedAbility"					"keeper_of_the_light_mana_leak"
+		"AbilityDraftPreAbility"		"keeper_of_the_light_mana_leak"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_restore"			"100 180 260 340 420"
+				"mana_restore"			"100 200 300 400"
 				"LinkedSpecialBonus"	"special_bonus_unique_keeper_of_the_light_2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cooldown_reduction"	"3 4 5 6 7"
+				"cooldown_reduction"	"3 4 5 6"
+			}
+		}
+	}
+	"special_bonus_unique_keeper_of_the_light_2"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"300"
+				"ad_linked_abilities"			"keeper_of_the_light_chakra_magic"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
 	"keeper_of_the_light_spirit_form"
 	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"75 125 175 225 275"
+		"MaxLevel" "4"
+		"AbilityManaCost"				"75 125 175 225"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movement_speed"			"15 20 25 30 35"
+				"movement_speed"			"15 20 25 30"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"cast_range"			"125 250 375 425 500"
+				"cast_range"			"140 210 280 350"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"illuminate_heal"			"40 50 60 70 80"
+				"illuminate_heal"			"40 50 60 70"
 			}
 		}
 	}
@@ -12811,6 +12831,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"total_damage"				"200 300 400 500 600"
 				"LinkedSpecialBonus"		"special_bonus_unique_keeper_of_the_light"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"channel_vision_step"		"150 180 210 240 270"
 			}
 		}
 	}
@@ -13885,15 +13910,27 @@
 	//=================================================================================================================
 	"pugna_nether_blast"
 	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"95 105 115 125 135 145 165"
+		"MaxLevel" "5"
+		"AbilityManaCost"				"85 105 125 145 165"
 		"AbilitySpecial"
 		{
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"blast_damage"				"100 175 250 325 400 475 550"
+				"blast_damage"				"100 175 250 325 400"
 				"LinkedSpecialBonus"		"special_bonus_unique_pugna_2"
+			}
+		}
+	}
+	"special_bonus_unique_pugna_2"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"200"
+				"ad_linked_abilities"			"pugna_nether_blast"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -13901,7 +13938,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"400 475 550 625 700"
-		"AbilityCooldown"				"14.0 12.0 10.0 8.0 6.0"
+		"AbilityCooldown"				"15.0 13.0 11.0 9.0 7.0"
 		"AbilityValues"
 		{
 			"bonus_spell_damage_pct_allies"
@@ -13918,7 +13955,7 @@
 			"bonus_movement_speed"		"-30 -40 -50 -60 -70"
 			"AbilityDuration"
 			{
-				"value"				"3.5"
+				"value"				"3.0"
 				"special_bonus_unique_pugna_5" "+1.0"
 			}
 		}
@@ -13928,11 +13965,6 @@
 		"AbilityDuration"				"20 25 30 35"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"2000"
-			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
@@ -13941,7 +13973,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"mana_multiplier"			"1.50 1.75 2.0 2.25"
+				"mana_multiplier"			"1.0 1.25 1.50 1.75"
 				"LinkedSpecialBonus"		"special_bonus_unique_pugna_3"
 			}
 			"05"
@@ -13950,30 +13982,24 @@
 				"attacks_to_destroy_tooltip"				"6 6 6 6"
 				"LinkedSpecialBonus"		"special_bonus_unique_pugna_6"
 			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"spell_damage_reduction"	"10 15 20 25"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
-			}
 		}
 	}
 	"pugna_life_drain"
 	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"125 150 175 200 225"
+		"MaxLevel" "4"
+		"AbilityManaCost"				"125 150 175 200"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"health_drain"					"150 250 350 450 550"
+				"health_drain"					"150 250 350 450"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"scepter_health_drain"			"350 450 550 650 750"
+				"scepter_health_drain"			"350 450 550 650"
 				"RequiresScepter"		"1"
 			}
 			"06"
@@ -14634,7 +14660,6 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"700 750 800 850 900"
-		"AbilityCooldown"				"14"
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilitySpecial"
 		{

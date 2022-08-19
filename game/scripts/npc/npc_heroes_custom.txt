@@ -274,14 +274,14 @@
 		"Ability8"					"pangolier_heartpiercer"
 	}
 
-    "npc_dota_hero_venomancer"
-	{
-		"Ability4"		"venomancer_area_poison"
-	}
-
-	 "npc_dota_hero_naga_siren"
+	"npc_dota_hero_naga_siren"
 	{
 		"Ability4"		"naga_siren_crit"
+	}
+
+	"npc_dota_hero_keeper_of_the_light"
+	{
+		"Ability19"		"keeper_of_the_light_mana_leak"
 	}
 
 	//=================================================================================================================
