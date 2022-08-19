@@ -217,7 +217,7 @@
         // 全能骑士
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"Increases the target's movement speed and health regeneration, and makes the target fly."
-        "DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"				""
+        "DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"				"You're being treated.You're flying now.Go ahead quickly!"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"			"Duration: "
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"		"Movement Speed: "
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"Health Regen: "
