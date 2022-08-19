@@ -2332,23 +2332,34 @@
 				"creep_multiplier"					"1.5"
 		}
 	}
-	"chaos_knight_phantasm_lua"
+	"chaos_knight_phantasm"
 	{
-		"MaxLevel" "3"
-		"AbilityCooldown"				"70"
-		"AbilityManaCost"				"75 125 175"
+		"MaxLevel" "5"
+		"HasScepterUpgrade"				"0"
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"75 125 175 225 275"
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"images_count"				"2"
+			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"extra_phantasm_chance_pct_tooltip"			"50"
+				"var_type"					"FIELD_FLOAT"
+				"illusion_duration"			"20"
+				"LinkedSpecialBonus"		"special_bonus_unique_chaos_knight_4"
 			}
 			"03"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"illusion_duration"			"30"
-				"LinkedSpecialBonus"		"special_bonus_unique_chaos_knight_4"
+				"var_type"					"FIELD_INTEGER"
+				"outgoing_damage"			"-30 -10 10 30 50"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"outgoing_damage_tooltip"			"70 90 110 130 150"
 			}
 		}
 	}
