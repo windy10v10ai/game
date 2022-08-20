@@ -1339,7 +1339,23 @@
 			}
 		}
 	}
-
+	// 统御头盔
+	"item_recipe_helm_of_the_overlord"
+	{
+		"ItemCost"						"1950"		// 1325
+	}
+	"item_helm_of_the_overlord"
+	{
+		"AbilityCooldown"				"120"		// 45
+		"AbilitySpecial"
+		{
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"creep_bonus_damage"			"60"
+			}
+		}
+	}
 
 	//=================================================================================================================
 	// HERO ABILITIES 英雄技能
