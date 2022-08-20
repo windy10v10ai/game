@@ -1304,6 +1304,7 @@ tBotItemData.sellItemList = {
 	npc_dota_hero_witch_doctor = {
 		'item_arcane_boots',
 		'item_rod_of_atos',
+		'item_holy_locket',
 	},
 	npc_dota_hero_skeleton_king = {
 		'item_armlet',
