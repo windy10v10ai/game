@@ -7931,12 +7931,12 @@
 			}
 			"shard_attack_rate"
 			{
-				"value"				"0.75"
+				"value"				"0.8"
 				"RequiresShard"					"1"
 			}
 			"shard_damage_pct"
 			{
-				"value"				"100"
+				"value"				"90"
 				"RequiresShard"					"1"
 			}
 
@@ -7960,7 +7960,7 @@
 	"juggernaut_omni_slash"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"100 90 80 70 60"
+		"AbilityCooldown"				"90"
 		"AbilityManaCost"				"200 250 300 350 400"
 		"AbilitySpecial"
 		{
