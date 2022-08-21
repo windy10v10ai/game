@@ -1943,4 +1943,8 @@
 	{
 		"AbilityTextureName"			"omni_slash"
 	}
+	"juggernaut_swift_slash"
+	{
+		"AbilityTextureName"			"swift_slash"
+	}
 }
