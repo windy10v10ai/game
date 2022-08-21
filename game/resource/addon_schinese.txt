@@ -214,6 +214,7 @@
 		"DOTA_Tooltip_modifier_player_yangqi"					"<font color='#FFCC66'>★ 喵车乘客29 ★</font>"
 		"DOTA_Tooltip_modifier_player_kudo"						"<font color='#FFCC66'>★ kudo ★</font>"
 		"DOTA_Tooltip_modifier_player_arrayzoneyour"			"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_nmjb"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 
 
 		// 初音未来
