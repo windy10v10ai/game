@@ -1339,10 +1339,10 @@
 			}
 		}
 	}
-	// 统御头盔
+	// 统御头盔 大支配
 	"item_recipe_helm_of_the_overlord"
 	{
-		"ItemCost"						"1950"		// 1325
+		"ItemCost"						"3750"		// 1325
 	}
 	"item_helm_of_the_overlord"
 	{
@@ -1352,7 +1352,12 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"creep_bonus_damage"			"60"
+				"creep_bonus_damage"			"40"	// 80
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"creep_bonus_armor"			"6"			// 8
 			}
 		}
 	}
