@@ -156,6 +156,10 @@ local arrayZoneYourSteamAccountID = Set {
 	-- ArrayZoneYour
 	314643375,
 }
+local nmjbSteamAccountID = Set {
+	-- 爱发电用户_NmjB
+	139073897,
+}
 
 -- 称号属性 END
 
@@ -313,5 +317,9 @@ function EnablePlayerModifier(hEntity)
 	if arrayZoneYourSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_arrayzoneyour", "modifiers/player/modifier_player_arrayzoneyour", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_arrayzoneyour", {})
+	end
+	if nmjbSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_nmjb", "modifiers/player/modifier_player_nmjb", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_nmjb", {})
 	end
 end
