@@ -1573,8 +1573,8 @@
 		{
 			"radius"
 			{
-				"value"							"400"
-				"special_bonus_unique_axe_2"	"+200"
+				"value"							"350"
+				"special_bonus_unique_axe_2"	"+150"
 			}
 				"bonus_armor"			"25"
 			"duration"				"2.0 2.4 2.8 3.2 3.6"
@@ -1662,9 +1662,6 @@
 			}
 			"speed_bonus"				"20 25 30 35 40"
 			"atk_speed_bonus"				"20 30 40 50 60"
-			"speed_duration"			"6"
-			"speed_aoe"					"900"
-			"charge_speed"				"1200"
 			"armor_per_stack"
 			{
 				"value"					"2"
