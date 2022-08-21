@@ -119,5 +119,6 @@ function modifier_artoria_instinct:PlayEffects( bBlock )
 end
 
 modifier_artoria_instinct.reflect_exceptions = {
-	["rubick_spell_steal_lua"] = true
+	["rubick_spell_steal"] = true,
+	["shadow_shaman_shackles"] = true,
 }

@@ -1,13 +1,15 @@
 "use strict";
 
-var imageMap = {
-	'npc_dota_hero_meepo': 'npc_dota_hero_meepo_custom',
-	'npc_dota_hero_juggernaut': 'npc_dota_hero_juggernaut_custom',
-	'npc_dota_hero_techies': 'npc_dota_hero_techies_custom',
-	'npc_dota_hero_broodmother': 'npc_dota_hero_broodmother_custom',
-	'npc_dota_hero_visage': 'npc_dota_hero_visage_custom',
-	'npc_dota_hero_chen': 'npc_dota_hero_chen_custom',
+var imagefile = {
+	'npc_dota_hero_meepo': 'file://{images}/heroes/npc_dota_hero_meepo_custom.png',
+	'npc_dota_hero_juggernaut': 'file://{images}/heroes/npc_dota_hero_juggernaut_custom.png',
+	'npc_dota_hero_techies': 'file://{images}/heroes/npc_dota_hero_techies_custom.png',
+	'npc_dota_hero_broodmother': 'file://{images}/heroes/npc_dota_hero_broodmother_custom.png',
+	'npc_dota_hero_visage': 'file://{images}/heroes/npc_dota_hero_visage_custom.png',
+	'npc_dota_hero_chen': 'file://{images}/heroes/npc_dota_hero_chen_custom.png',
+	'npc_dota_hero_pangolier': 'file://{images}/heroes/npc_dota_hero_pangolier_custom.png',
 }
+
 //=============================================================================
 //=============================================================================
 function _ScoreboardUpdater_SetTextSafe( panel, childName, textValue )
@@ -67,9 +69,9 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 		{
 			if ( playerInfo.player_selected_hero !== "" )
 			{
-				let heroImageCustom = imageMap[playerInfo.player_selected_hero];
+				let heroImageCustom = imagefile[playerInfo.player_selected_hero];
 				if (heroImageCustom && heroImageCustom !== "") {
-					playerPortrait.SetImage( "file://{images}/heroes/" + heroImageCustom + ".png" );
+					playerPortrait.SetImage( heroImageCustom );
 				} else {
 					playerPortrait.SetImage( "file://{images}/heroes/" + playerInfo.player_selected_hero + ".png" );
 				}

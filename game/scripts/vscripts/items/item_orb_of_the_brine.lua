@@ -49,6 +49,9 @@ end
 function modifier_item_orb_of_the_brine:IsPurgable()
 	return false
 end
+function modifier_item_orb_of_the_brine:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
 
 --------------------------------------------------------------------------------
 

@@ -52,6 +52,10 @@ function modifier_item_hand_of_group_pa:IsPurgeException()
     return false
 end
 
+function modifier_item_hand_of_group_pa:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_item_hand_of_group_pa:OnCreated()
     if self:GetAbility() then
         self.attack_speed = self:GetAbility():GetSpecialValueFor("attack_speed")

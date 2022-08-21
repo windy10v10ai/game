@@ -5653,7 +5653,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6666"
+		"ItemCost"						"6000"
 		"ItemAliases"					"diana candy"
 		"ItemPurchasable"				"1"
 		"ItemInitialCharges"			"1"

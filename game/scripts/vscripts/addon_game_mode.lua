@@ -222,14 +222,14 @@ function AIGameMode:PreGameOptions()
 
 	self.roshanNumber = 0
 
-	if self.fBotGoldXpMultiplier < 5 then
-		self.botPushMin = RandomInt(14, 18)
+	if self.fBotGoldXpMultiplier <= 3 then
+		self.botPushMin = RandomInt(15, 18)
 	elseif self.fBotGoldXpMultiplier <= 5 then
-		self.botPushMin = RandomInt(11, 14)
+		self.botPushMin = RandomInt(12, 15)
 	elseif self.fBotGoldXpMultiplier <= 8 then
-		self.botPushMin = RandomInt(8, 11)
+		self.botPushMin = RandomInt(10, 12)
 	else
-		self.botPushMin = RandomInt(7, 9)
+		self.botPushMin = RandomInt(8, 10)
 	end
 
 	print("botPushMin: "..self.botPushMin)
