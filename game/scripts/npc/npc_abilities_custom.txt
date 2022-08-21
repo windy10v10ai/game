@@ -1924,4 +1924,27 @@
 			}
 		}
 	}
+	//==============================================================================
+    // Juggernaut 主宰/剑圣
+    //==============================================================================
+    "juggernaut_blade_dance"
+	{
+		"AbilityTextureName"			"blade_dance"
+	}
+	"juggernaut_blade_fury"
+	{
+		"AbilityTextureName"			"blade_fury"
+	}
+	"juggernaut_healing_ward"
+	{
+		"AbilityTextureName"			"healing_ward"
+	}
+	"juggernaut_omni_slash"
+	{
+		"AbilityTextureName"			"omni_slash"
+	}
+	"juggernaut_swift_slash"
+	{
+		"AbilityTextureName"			"swift_slash"
+	}
 }
