@@ -216,6 +216,8 @@
 		"DOTA_Tooltip_modifier_player_kudo"						"<font color='#FFCC66'>★ kudo ★</font>"
 		"DOTA_Tooltip_modifier_player_arrayzoneyour"			"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_nmjb"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609"					"<font color='#FFCC66'>★ Endless Crazy ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_Description"		"<font color='#FFCC66'> フランドール♥スカーレット </font>"
 
 
 		// 初音未来
