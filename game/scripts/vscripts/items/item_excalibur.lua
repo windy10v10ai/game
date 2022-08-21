@@ -1,5 +1,4 @@
-
-item_excalibur = class({})
+if item_excalibur == nil then item_excalibur = class({}) end
 LinkLuaModifier( "modifier_item_excalibur", "items/item_excalibur", LUA_MODIFIER_MOTION_NONE )
 
 function item_excalibur:GetIntrinsicModifierName()
@@ -10,7 +9,7 @@ end
 -- Modifier
 --------------------------------------------------------------------------------
 
-modifier_item_excalibur = class({})
+if modifier_item_excalibur == nil then modifier_item_excalibur = class({}) end
 
 --------------------------------------------------------------------------------
 
@@ -19,6 +18,9 @@ function modifier_item_excalibur:IsHidden()
 end
 function modifier_item_excalibur:IsPurgable()
 	return false
+end
+function modifier_item_excalibur:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 --------------------------------------------------------------------------------
@@ -38,12 +40,10 @@ function modifier_item_excalibur:CheckState()
 end
 
 function modifier_item_excalibur:DeclareFunctions()
-	local funcs =
-	{
+	return {
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 		MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
 	}
-	return funcs
 end
 
 --------------------------------------------------------------------------------

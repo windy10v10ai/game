@@ -268,6 +268,22 @@
 		"Ability7"		"tinker_march_of_the_machines"
 	}
 
+	"npc_dota_hero_pangolier"
+	{
+		"DisableWearables"	        "1"
+		"Ability8"					"pangolier_heartpiercer"
+	}
+
+	"npc_dota_hero_naga_siren"
+	{
+		"Ability4"		"naga_siren_crit"
+	}
+
+	"npc_dota_hero_keeper_of_the_light"
+	{
+		"Ability19"		"keeper_of_the_light_mana_leak"
+	}
+
 	//=================================================================================================================
 	// HERO BOT BUILD
 	//=================================================================================================================
@@ -279,20 +295,20 @@
 			{
 				"1"		"abaddon_aphotic_shield"
 				"2"		"abaddon_frostmourne"
-				"3"		"abaddon_death_coil"
-				"4"		"abaddon_aphotic_shield"
-				"5"		"abaddon_frostmourne"
+				"3"		"abaddon_aphotic_shield"
+				"4"		"abaddon_death_coil"
+				"5"		"abaddon_aphotic_shield"
 				"6"		"abaddon_borrowed_time"
 				"7"		"abaddon_aphotic_shield"
-				"8"		"abaddon_frostmourne"
-				"9"		"abaddon_aphotic_shield"
+				"8"		"abaddon_death_coil"
+				"9"		"abaddon_death_coil"
 				"10"		"special_bonus_movement_speed_15"
 				"11"		"abaddon_borrowed_time"
 				"12"		"abaddon_death_coil"
 				"13"		"abaddon_aphotic_shield"
 				"14"		"abaddon_death_coil"
-				"15"		"special_bonus_attack_damage_65"
-				"16"		"abaddon_frostmourne"
+				"15"		"special_bonus_unique_abaddon_2"
+				"16"		"abaddon_death_coil"
 				"17"		""
 				"18"		"abaddon_borrowed_time"
 				"19"		""
@@ -301,20 +317,20 @@
 				"22"		""
 				"23"		""
 				"24"		""
-				"25"		"special_bonus_unique_abaddon_3"
+				"25"		"special_bonus_unique_abaddon_4"
 				"26"		""
 				"27"		"special_bonus_strength_8"
-				"28"		"special_bonus_unique_abaddon_2"
+				"28"		"special_bonus_attack_damage_65"
 				"29"		"special_bonus_unique_abaddon_5"
-				"30"		"special_bonus_unique_abaddon_4"
+				"30"		"special_bonus_unique_abaddon_3"
 				"31"		"abaddon_borrowed_time"
 				"32"		"abaddon_frostmourne"
 				"33"		"abaddon_death_coil"
 				"34"		"abaddon_frostmourne"
-				"35"		"abaddon_death_coil"
+				"35"		"abaddon_frostmourne"
 				"36"		"abaddon_frostmourne"
-				"37"		"abaddon_death_coil"
-				"38"		"abaddon_death_coil"
+				"37"		"abaddon_frostmourne"
+				"38"		"abaddon_frostmourne"
 			}
 		}
 	}
@@ -1598,7 +1614,9 @@
 	}
 	"npc_dota_hero_omniknight"
 	{
-		"Ability5"		"chen_hand_of_god"
+		"Ability4"		"omniknight_repel"
+		"Ability5"		"omniknight_angelic_flight"
+		"Ability7"		"omniknight_degen_aura"
 		"Bot"
 		{
 			"Build"
@@ -1637,8 +1655,6 @@
 				"32"		"omniknight_purification"
 				"33"		"omniknight_martyr"
 				"34"		"omniknight_hammer_of_purity"
-				"35"		"omniknight_hammer_of_purity"
-				"36"		"omniknight_hammer_of_purity"
 			}
 		}
 	}
@@ -2551,22 +2567,22 @@
 		{
 			"Build"
 			{
-				"1"		"zuus_arc_lightning"
-				"2"		"zuus_lightning_bolt"
-				"3"		"zuus_arc_lightning"
-				"4"		"zuus_lightning_bolt"
-				"5"		"zuus_arc_lightning"
+				"1"		"zuus_lightning_bolt"
+				"2"		"zuus_arc_lightning"
+				"3"		"zuus_lightning_bolt"
+				"4"		"zuus_heavenly_jump"
+				"5"		"zuus_lightning_bolt"
 				"6"		"zuus_thundergods_wrath"
 				"7"		"zuus_lightning_bolt"
 				"8"		"zuus_arc_lightning"
-				"9"		"zuus_heavenly_jump"
+				"9"		"zuus_lightning_bolt"
 				"10"		"special_bonus_mp_regen_125"
-				"11"		"zuus_heavenly_jump"
+				"11"		"zuus_lightning_bolt"
 				"12"		"zuus_thundergods_wrath"
 				"13"		"zuus_lightning_bolt"
-				"14"		"zuus_heavenly_jump"
+				"14"		"zuus_arc_lightning"
 				"15"		"special_bonus_unique_zeus"
-				"16"		"zuus_heavenly_jump"
+				"16"		"zuus_arc_lightning"
 				"17"		""
 				"18"		"zuus_thundergods_wrath"
 				"19"		""
@@ -2583,12 +2599,12 @@
 				"30"		"special_bonus_unique_zeus_5"
 				"31"		"zuus_thundergods_wrath"
 				"32"		"zuus_thundergods_wrath"
-				"33"		"zuus_lightning_bolt"
-				"34"		"zuus_arc_lightning"
-				"35"		"zuus_lightning_bolt"
-				"36"		"zuus_arc_lightning"
-				"37"		"zuus_lightning_bolt"
-				"38"		"zuus_arc_lightning"
+				"33"		"zuus_arc_lightning"
+				"34"		"zuus_heavenly_jump"
+				"35"		"zuus_arc_lightning"
+				"36"		"zuus_heavenly_jump"
+				"37"		"zuus_arc_lightning"
+				"38"		"zuus_heavenly_jump"
 			}
 		}
 	}

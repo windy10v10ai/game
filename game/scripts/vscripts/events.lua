@@ -21,9 +21,7 @@ local tBotNameList = {
 	--"npc_dota_hero_rubick",
 	--"npc_dota_hero_shredder",
 	--"npc_dota_hero_tinker",
-	"npc_dota_hero_meepo",
 	"npc_dota_hero_abaddon",
-	"npc_dota_hero_shadow_shaman",
 	"npc_dota_hero_axe",
 	"npc_dota_hero_bane",
 	"npc_dota_hero_bounty_hunter",
@@ -43,6 +41,7 @@ local tBotNameList = {
 	"npc_dota_hero_lina",
 	"npc_dota_hero_lion",
 	"npc_dota_hero_luna",
+	"npc_dota_hero_meepo",
 	"npc_dota_hero_nevermore",
 	"npc_dota_hero_necrolyte",
 	"npc_dota_hero_ogre_magi",
@@ -53,6 +52,7 @@ local tBotNameList = {
 	"npc_dota_hero_riki",
 	--"npc_dota_hero_razor", // 在泉水站着完全不动
 	"npc_dota_hero_sand_king",
+	"npc_dota_hero_shadow_shaman",
 	"npc_dota_hero_skywrath_mage",
 	"npc_dota_hero_sniper",
 	"npc_dota_hero_sven",
@@ -84,6 +84,8 @@ local tAPLevelList = {
 	24,
 	26,
 }
+
+local tDOTARespawnTime = {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 75}
 
 -- 测试密码
 local developerSteamAccountID = {}
@@ -488,7 +490,6 @@ function HeroKilled(keys)
 	local hHero = EntIndexToHScript(keys.entindex_killed)
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
-	local tDOTARespawnTime = {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 75}
 	if iLevel <= 50 then
 		fRespawnTime = math.ceil(tDOTARespawnTime[iLevel]*AIGameMode.iRespawnTimePercentage/100.0)
 	else

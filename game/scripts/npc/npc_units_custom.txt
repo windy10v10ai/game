@@ -1315,36 +1315,34 @@
 
 
 
+	// 中立生物
+	// 远古
 	//=================================================================================
-	// Neutral: Ancient - Black Drake 中立生物
+	// Neutral: Ancient - Black Drake
 	//=================================================================================
 	"npc_dota_neutral_black_drake"
 	{
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"3"			// 2
+		"MagicalResistance"			"40"		// 25
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"60"		// Damage range min.
-		"AttackDamageMax"			"90"		// Damage range max.
-		"AttackRate"				"1.6"		// Speed of attack.
-
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"70"
-		"HealthBarOffset"			"300"
+		"AttackDamageMin"			"50"		// 20
+		"AttackDamageMax"			"60"		// 22
+		"AttackRate"				"1.6"		// 2
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"150"		// Experience earn.
-		"BountyGoldMin"				"90"		// Gold earned min.
-		"BountyGoldMax"				"100"		// Gold earned max.
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"80"		// 39
+		"BountyGoldMax"				"90"		// 45
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// Base health.
-		"StatusHealthRegen"			"5"		// Health regeneration rate.
+		"StatusHealth"				"1900"		// 950
+		"StatusHealthRegen"			"5"			// 0.5
 
 	}
 	//===============================================================================
@@ -1354,28 +1352,27 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// Physical protection.
-		"MagicalResistance"				"70"		// Magical protection.
+		"ArmorPhysical"				"6"			// 4
+		"MagicalResistance"			"50"		// 30
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"100"		// Damage range min.
-		"AttackDamageMax"			"150"		// Damage range max.
-		"AttackRate"				"1.4"		// Speed of attack.
+		"AttackDamageMin"			"120"		// 62
+		"AttackDamageMax"			"130"		// 68
+		"AttackRate"				"1.6"		// 2
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"400"		// Experience earn.
-		"BountyGoldMin"				"300"		// Gold earned min.
-		"BountyGoldMax"				"400"		// Gold earned max.
+		"BountyXP"					"250"		// 124
+		"BountyGoldMin"				"150"		// 78
+		"BountyGoldMax"				"160"		// 82
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"4000"		// Base health.
-		"StatusHealthRegen"			"10"			// Health regeneration rate.
-		"StatusMana"				"1000"			// Base mana.
-		"StatusManaRegen"			"5"			// Mana regeneration rate.
+		"StatusHealth"				"4000"		// 2000
+		"StatusHealthRegen"			"10"		// 2
+		"StatusMana"				"1000"		// 500
+		"StatusManaRegen"			"5"			// 1
 	}
 
 	//=================================================================================
@@ -1383,30 +1380,32 @@
 	//=================================================================================
 	"npc_dota_neutral_rock_golem"
 	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"		// 4
+		"MagicalResistance"			"50"		// 30
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"60"		// Damage range min.
-		"AttackDamageMax"			"68"		// Damage range max.
-		"AttackRate"				"1.3"		// Speed of attack.
+		"AttackDamageMin"			"60"		// 22
+		"AttackDamageMax"			"68"		// 24
+		"AttackRate"				"1.6"		// 2
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"300"		// Experience earn.
-		"BountyGoldMin"				"120"		// Gold earned min.
-		"BountyGoldMax"				"140"		// Gold earned max.
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"80"		// 39
+		"BountyGoldMax"				"90"		// 45
 
 		// Movement
 		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"290"		// Speed.
+		"MovementSpeed"				"290"		// 270
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1600"		// Base health.
-		"StatusHealthRegen"			"5"		// Health regeneration rate.
-		"StatusMana"				"800"		// Base mana.
-		"StatusManaRegen"			"3"			// Mana regeneration rate.
+		"StatusHealth"				"1600"		// 800
+		"StatusHealthRegen"			"5"			// 0.5
+		"StatusMana"				"800"		// 400
+		"StatusManaRegen"			"2"			// 1
 	}
 
 	//=================================================================================
@@ -1414,30 +1413,32 @@
 	//=================================================================================
 	"npc_dota_neutral_granite_golem"
 	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"		// 8
+		"MagicalResistance"			"50"		// 30
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"150"		// Damage range min.
-		"AttackDamageMax"			"170"		// Damage range max.
-		"AttackRate"				"1.3"		// Speed of attack.
+		"AttackDamageMin"			"150"		// 80
+		"AttackDamageMax"			"170"		// 84
+		"AttackRate"				"1.6"		// 2
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"400"		// Experience earn.
-		"BountyGoldMin"				"240"		// Gold earned min.
-		"BountyGoldMax"				"250"		// Gold earned max.
+		"BountyXP"					"250"		// 124
+		"BountyGoldMin"				"150"		// 78
+		"BountyGoldMax"				"160"		// 82
 
 		// Movement
 		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"290"		// Speed.
+		"MovementSpeed"				"290"		// 270
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
-		"StatusHealthRegen"			"7"		// Health regeneration rate.
-		"StatusMana"				"1200"		// Base mana.
-		"StatusManaRegen"			"5"		// Mana regeneration rate.
+		"StatusHealth"				"3000"		// 1500
+		"StatusHealthRegen"			"7"			// 1.5
+		"StatusMana"				"1200"		// 600
+		"StatusManaRegen"			"5"			// 1.5
 	}
 	//=================================================================================
 	// Neutral: Ancient - Big Thunder Lizard
@@ -1447,32 +1448,31 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"5"			// 3
-		"MagicalResistance"				"70"		// Magical protection.
+		"MagicalResistance"			"50"		// 30
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"120"		// Damage range min.
-		"AttackDamageMax"			"130"		// Damage range max.
-		"AttackRate"				"1.7"		// Speed of attack.
+		"AttackDamageMin"			"120"		// 60
+		"AttackDamageMax"			"130"		// 65
+		"AttackRate"				"1.6"		// 2
+		"BaseAttackSpeed"			"120"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"300"		// Experience earn.
-		"BountyGoldMin"				"200"		// Gold earned min.
-		"BountyGoldMax"				"210"		// Gold earned max.
+		"BountyXP"					"250"		// 124
+		"BountyGoldMin"				"150"		// 78
+		"BountyGoldMax"				"160"		// 82
 
 		// Movement
 		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"290"		// Speed.
+		"MovementSpeed"				"290"		// 270
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2800"		// Base health.
-		"StatusHealthRegen"			"5"		// Health regeneration rate.
-		"StatusMana"				"800"		// Base mana.
-		"StatusManaRegen"			"3"		// Mana regeneration rate.
+		"StatusHealth"				"2800"		// 1400
+		"StatusHealthRegen"			"5"			// 0
+		"StatusMana"				"1600"		// 800
+		"StatusManaRegen"			"3"			// 0
 	}
 
 	//=================================================================================
@@ -1483,32 +1483,31 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"5"			// 3
-		"MagicalResistance"				"70"		// Magical protection.
+		"MagicalResistance"			"70"		// 50
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"80"		// Damage range min.
-		"AttackDamageMax"			"90"		// Damage range max.
-		"AttackRate"				"1.7"		// Speed of attack.
+		"AttackDamageMin"			"80"		// 32
+		"AttackDamageMax"			"90"		// 34
+		"AttackRate"				"1.6"		// 1.8
+		"BaseAttackSpeed"			"120"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"200"		// Experience earn.
-		"BountyGoldMin"				"90"		// Gold earned min.
-		"BountyGoldMax"				"100"		// Gold earned max.
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"90"		// 44
+		"BountyGoldMax"				"100"		// 51
 
 		// Movement
 		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"290"		// Speed.
+		"MovementSpeed"				"290"		// 270
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1600"		// Base health.
-		"StatusHealthRegen"			"5"		// Health regeneration rate.
-		"StatusMana"				"800"		// Base mana.
-		"StatusManaRegen"			"3"		// Mana regeneration rate.
+		"StatusHealth"				"1600"		// 800
+		"StatusHealthRegen"			"5"			// 0.5
+		"StatusMana"				"800"		// 400
+		"StatusManaRegen"			"3"			// 1.0
 	}
 
 	//=================================================================================
@@ -1519,22 +1518,22 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"5"			// 3
-		"MagicalResistance"				"50"		// 30
+		"MagicalResistance"			"50"		// 30
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"115"		// Damage range min.
-		"AttackDamageMax"			"125"		// Damage range max.
+		"AttackDamageMin"			"115"		// 58
+		"AttackDamageMax"			"125"		// 62
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"250"		// Experience earn.
-		"BountyGoldMin"				"150"		// Gold earned min.
-		"BountyGoldMax"				"160"		// Gold earned max.
+		"BountyXP"					"250"		// 124
+		"BountyGoldMin"				"150"		// 78
+		"BountyGoldMax"				"160"		// 82
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
-		"StatusHealthRegen"			"5"		// Health regeneration rate.
-		"StatusMana"				"800"		// Base mana.
-		"StatusManaRegen"			"2"		// Mana regeneration rate.
+		"StatusHealth"				"3000"		// 1500
+		"StatusHealthRegen"			"5"			// 0.5
+		"StatusMana"				"800"		// 400
+		"StatusManaRegen"			"2"			// 1
 	}
 
 	//=================================================================================
@@ -1544,24 +1543,24 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"			// 7
-		"MagicalResistance"				"50"		// 30
+		"ArmorPhysical"				"10"		// 7
+		"MagicalResistance"			"50"		// 30
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"60"		// Damage range min.
-		"AttackDamageMax"			"64"		// Damage range max.
+		"AttackDamageMin"			"60"		// 29
+		"AttackDamageMax"			"64"		// 31
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"190"		// Experience earn.
-		"BountyGoldMin"				"80"		// Gold earned min.
-		"BountyGoldMax"				"90"		// Gold earned max.
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"80"		// 39
+		"BountyGoldMax"				"90"		// 45
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"		// Base health.
-		"StatusHealthRegen"			"10"		// Health regeneration rate.
+		"StatusHealth"				"1800"		// 900
+		"StatusHealthRegen"			"5"			// 2
 	}
 
 
@@ -2165,8 +2164,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"100"			// Damage range min.
-		"AttackDamageMax"			"100"			// Damage range max.
+		"AttackDamageMin"			"80"			// Damage range min.
+		"AttackDamageMax"			"80"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.5"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
@@ -2221,8 +2220,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"150"			// Damage range min.
-		"AttackDamageMax"			"150"			// Damage range max.
+		"AttackDamageMin"			"120"			// Damage range min.
+		"AttackDamageMax"			"120"			// Damage range max.
 	}
 
 	"npc_dota_shadow_shaman_ward_3"
@@ -2231,8 +2230,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"200"			// Damage range min.
-		"AttackDamageMax"			"200"			// Damage range max.
+		"AttackDamageMin"			"160"			// Damage range min.
+		"AttackDamageMax"			"160"			// Damage range max.
 	}
 
 	// beastmaster_boar 兽王野猪

@@ -30,7 +30,7 @@ end
 function modifier_player_adolphzero:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS_UNIQUE,
+		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
@@ -42,7 +42,7 @@ function modifier_player_adolphzero:GetModifierMoveSpeedBonus_Constant()
 	return self.iMoveSpeed
 end
 
-function modifier_player_adolphzero:GetModifierAttackRangeBonusUnique()
+function modifier_player_adolphzero:GetModifierAttackRangeBonus()
 	return self.iAttackRange
 end
 
