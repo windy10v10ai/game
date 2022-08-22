@@ -998,7 +998,6 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_monkey_king_bar_2',
 		'item_shotgun_v2',
-		'item_adi_king_plus',
 		'item_wasp_callous',
 		'item_undying_heart',
 		'item_insight_armor',
@@ -1411,6 +1410,7 @@ tBotItemData.itemConsumeNoTargetList = {
 	'item_tome_of_agility',
 	'item_tome_of_strength',
 	'item_tome_of_intelligence',
+	'item_tome_of_luoshu',
 }
 -- ward setting
 tBotItemData.wardHeroList = Set {
