@@ -12924,7 +12924,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"100"
+				"value"				"70"
 				"ad_linked_abilities"			"leshrac_split_earth"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -12939,7 +12939,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"num_explosions"		"60"
+				"num_explosions"		"50"
 				"LinkedSpecialBonus"	"special_bonus_unique_leshrac_1"
 			}
 		}
