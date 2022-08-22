@@ -5,7 +5,7 @@ function modifier_player_puck1609:RemoveOnDeath() return false end
 function modifier_player_puck1609:GetTexture() return "player/puck1609" end
 
 function modifier_player_puck1609:OnCreated()
-	self.iCooldownReduction = 24
+	self.iCooldownReduction = 32
 end
 
 function modifier_player_puck1609:DeclareFunctions()
