@@ -8,7 +8,7 @@ local windySteamAccountID = Set {
 
 local xianyuSteamAccountID = Set {
 	-- 咸鱼之王
-	139073897,
+	1194383041,
 }
 local mimihuaSteamAccountID = Set {
 	-- mimihua
