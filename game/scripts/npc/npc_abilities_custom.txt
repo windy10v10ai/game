@@ -935,7 +935,7 @@
     	//-------------------------------------------------------------------------------------------------------------
     	"BaseClass"						"ability_lua"
     	"ScriptFile"					"heroes/hero_miku/get_down"
-    	"AbilityTextureName"			"miku_6"
+    	"AbilityTextureName"			"hatsune_6"
     	"FightRecapLevel"				"1"
     	"MaxLevel"						"3"
 		"LevelsBetweenUpgrades"			"99"
@@ -1924,27 +1924,62 @@
 			}
 		}
 	}
-	//==============================================================================
+	//=================================================================================================================
     // Juggernaut 主宰/剑圣
-    //==============================================================================
+    //=================================================================================================================
     "juggernaut_blade_dance"
 	{
-		"AbilityTextureName"			"blade_dance"
+		"AbilityTextureName"			"jugg_blade_dance"
 	}
 	"juggernaut_blade_fury"
 	{
-		"AbilityTextureName"			"blade_fury"
+		"AbilityTextureName"			"jugg_blade_fury"
 	}
 	"juggernaut_healing_ward"
 	{
-		"AbilityTextureName"			"healing_ward"
+		"AbilityTextureName"			"jugg_healing_ward"
 	}
 	"juggernaut_omni_slash"
 	{
-		"AbilityTextureName"			"omni_slash"
+		"AbilityTextureName"			"jugg_omni_slash"
 	}
 	"juggernaut_swift_slash"
 	{
-		"AbilityTextureName"			"swift_slash"
+		"AbilityTextureName"			"jugg_swift_slash"
+	}
+	//=================================================================================================================
+	// Ability: Pangolier 石鳞剑士
+	//=================================================================================================================
+	"pangolier_swashbuckle"
+	{
+		"AbilityTextureName"			"pang_swashbuckle"
+	}
+	"pangolier_shield_crash"
+	{
+		"AbilityTextureName"			"pang_shield_crash"
+	}
+	"pangolier_heartpiercer"
+	{
+		"AbilityTextureName"			"pang_heartpiercer"
+	}
+	"pangolier_lucky_shot"
+	{
+		"AbilityTextureName"			"pang_lucky_shot"
+	}
+	"pangolier_gyroshell"
+	{
+		"AbilityTextureName"			"pang_gyroshell"
+	}
+	"pangolier_gyroshell_stop"
+	{
+		"AbilityTextureName"			"pang_gyroshell_stop"
+	}
+	"pangolier_rollup"
+	{
+		"AbilityTextureName"			"pang_rollup"
+	}
+	"pangolier_rollup_stop"
+	{
+		"AbilityTextureName"			"pang_rollup_stop"
 	}
 }
