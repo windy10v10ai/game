@@ -4,5 +4,4 @@ set compiler=C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\
 "%compiler%" -r "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\content\dota_addons\Windy10v10AI\panorama\images\custom_game\*.*"
 "%compiler%" -r "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\content\dota_addons\Windy10v10AI\panorama\images\heroes\*.*"
 "%compiler%" -r "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\content\dota_addons\Windy10v10AI\soundevents\*.*"
-"%compiler%" -r "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\content\dota_addons\Windy10v10AI\materials\vgui\hud\*.*"
 set /p DUMMY=Hit ENTER to exit.
