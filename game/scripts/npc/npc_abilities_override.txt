@@ -3430,7 +3430,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"burn_damage"					"20 40 60 80 100"
+				"burn_damage"					"10 20 30 40 50"
 				"LinkedSpecialBonus"			"special_bonus_unique_huskar_2"
 			}
 		}
