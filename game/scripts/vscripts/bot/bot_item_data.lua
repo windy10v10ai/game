@@ -1088,10 +1088,11 @@ tBotItemData.purchaseItemList = {
 		'item_aghanims_shard',
 		'item_wings_of_haste',
 		'item_refresher',
-		'item_sacred_trident',
 		'item_dagon_5',
 		'item_recipe_arcane_octarine_core',
+		'item_necronomicon_staff',
 		'item_hallowed_scepter',
+		'item_sacred_trident',
 	},
 }
 
