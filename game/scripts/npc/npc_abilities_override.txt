@@ -4551,8 +4551,8 @@
 	"omniknight_repel"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"26 22 18 14 10"
-		"AbilityManaCost"				"85 95 105 115 125"
+		"AbilityCooldown"				"26 23 20 17 14"
+		"AbilityManaCost"				"95 105 115 125 135"
 		"LinkedAbility"					"omniknight_purification"
 		"AbilityDraftPreAbility"		"omniknight_purification"
 		"AbilitySpecial"
@@ -4565,17 +4565,17 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"status_resistance"		"50"
+				"status_resistance"		"35"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_str"		"10 20 30 40 50"
+				"bonus_str"		"8 18 28 38 48"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp_regen"		"10 15 20 25 30"
+				"hp_regen"		"8 12 16 20 24"
 			}
 		}
 	}
@@ -4594,8 +4594,8 @@
 	"omniknight_martyr"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"26 22 18 14 10"
-		"AbilityManaCost"				"85 95 105 115 125"
+		"AbilityCooldown"				"26 23 20 17 14"
+		"AbilityManaCost"				"95 105 115 125 135"
 		"AbilityValues"
 		{
 				"base_strength"				"8 18 28 38 48"
@@ -4619,7 +4619,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"5"
+				"value"				"3"
 				"ad_linked_abilities"			"omniknight_martyr"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -4631,7 +4631,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"5"
+				"value"				"2"
 				"ad_linked_abilities"			"omniknight_martyr"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -4639,8 +4639,8 @@
 	"omniknight_guardian_angel"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"100"
-		"AbilityManaCost"				"200 300 400 500"
+		"AbilityCooldown"				"130 120 110 100"
+		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
 				"duration"					"5.0 6.0 7.0 8.0"
@@ -4652,7 +4652,7 @@
 				}
 				"scepter_status_resist"
 				{
-					"value"			"40 50 60 70"
+					"value"			"40"
 					"RequiresScepter"		"1"
 				}
 		}
@@ -4682,7 +4682,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"7"
+				"duration"				"6"
 			}
 			"02"
 			{
@@ -9264,14 +9264,14 @@
 			}
 		}
 	}
-	"special_bonus_unique_pangolier_6"
+	"special_bonus_unique_pangolier_5"
 	{
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"value"				"5"
+				"value"				"10.0"
 				"ad_linked_abilities"			"pangolier_gyroshell"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
