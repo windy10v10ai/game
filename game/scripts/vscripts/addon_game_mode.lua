@@ -73,8 +73,9 @@ function AIGameMode:InitEvents()
 	ListenToGameEvent("dota_player_gained_level", Dynamic_Wrap(AIGameMode, "OnPlayerLevelUp"), self)
 	ListenToGameEvent("npc_spawned", Dynamic_Wrap(AIGameMode, "OnNPCSpawned"), self)
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(AIGameMode, "OnEntityKilled"), self)
-	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( AIGameMode, "OnItemPickedUp" ), self )
-	ListenToGameEvent( "player_chat", Dynamic_Wrap( AIGameMode, "OnPlayerChat" ), self )
+	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap( AIGameMode, "OnItemPickedUp" ), self )
+	ListenToGameEvent("player_chat", Dynamic_Wrap( AIGameMode, "OnPlayerChat" ), self )
+	ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
 	--JS events
 	CustomGameEventManager:RegisterListener("loading_set_options", function (eventSourceIndex, args) return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args) end)
 	-- 游戏选项改变事件
