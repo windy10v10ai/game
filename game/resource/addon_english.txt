@@ -398,17 +398,6 @@
 		"DOTA_Tooltip_modifier_goku_super_saiyan" 	 "Super Saiya: Activate"
 		"DOTA_Tooltip_modifier_goku_super_saiyan_Description" 	 "Strengthen all your skills, gain %dMODIFIER_PROPERTY_STATUS_RESISTANCE%%% state resistance bonus, and restore %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% magic and %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% life per second"
 
-	    // 潮汐猎人 海妖外壳
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua"									"Kraken Shell"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Description"						"Thickens Tidehunter's hide to passively block a portion of any incoming physical attack damage. The hide also removes negative status effects if the damage taken crosses a threshold.\n\nDoes not stack with items that provide Damage Block.\n\nDISPEL TYPE: Strong Dispel"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Lore"								"Claddish navymen tell tales of a mighty sea-faring beast that suffered spear and sword but continued to lay waste to the fleet."
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note0"							"Now Not Only damage from player（means damage from anyone including creep and tower and neutral ones） owned sources is counted towards debuff removal."
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note1"							"The counter will reset if no anyone damage is taken for %damage_reset_interval% seconds."
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note2"							"Kraken Shell removes most debuffs, even if they are generally not purgable."
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reduction"					"DAMAGE BLOCK:"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_cleanse"					"DAMAGE THRESHOLD:"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reset_interval"			"THRESHOLD TIMER:"
-
 	    // 修补匠 刷新
 	    "DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."

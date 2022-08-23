@@ -473,17 +473,6 @@
 		"DOTA_Tooltip_modifier_goku_super_saiyan"	"超级赛亚人:激活"
 		"DOTA_Tooltip_modifier_goku_super_saiyan_Description"	"强化自身所有的技能，获得%dMODIFIER_PROPERTY_STATUS_RESISTANCE%%%状态抗性加成，每秒恢复%dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%%魔法和%dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%%生命"
 
-        // 潮汐猎人
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua"									"海妖外壳"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Description"						"加厚潮汐猎人的外皮，可以被动格挡物理伤害，当受到的伤害达到临界值时外皮还将移除绝大多数负面效果。\n\n不与带有伤害格挡的物品叠加。\n\n驱散类型：强驱散"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Lore"								"铁帆海军里有一个传言，说是有只强大的海兽，明明被矛刺中被剑砍伤依然能践踏舰队。"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note0"							"现在并非只有玩家控制单位（也可以说是任意单位）造成的伤害都可以计算在移除负面状态的累计伤害中。"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note1"							"如果%damage_reset_interval%秒内没有受到来自任意单位（包含小兵，防御塔，野怪）的伤害，伤害累计值将重置。"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_Note2"							"海妖外壳能移除绝大多数负面状态，即使该状态效果无法驱散。"
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reduction"					"伤害格挡："
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_cleanse"					"伤害临界值："
-		"DOTA_Tooltip_ability_tidehunter_kraken_shell_lua_damage_reset_interval"			"临界值累计时间："
-
         // 修补匠
 		"DOTA_Tooltip_ability_tinker_rearm_lua"												"再装填"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"对于充能型技能，每次施放再装填可以恢复该技能一点能量。"
