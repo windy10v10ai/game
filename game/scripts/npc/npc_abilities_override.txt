@@ -8405,7 +8405,7 @@
 	"mirana_invis"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"110 100.0 90.0 80.0"
+		"AbilityCooldown"				"110.0 100.0 90.0 80.0"
 		"AbilitySpecial"
 		{
 			"01"
@@ -8581,7 +8581,7 @@
 				"AbilityCharges"
 				{
 					"value"	"0"
-					"special_bonus_unique_morphling_6"	"+3"
+					"special_bonus_unique_morphling_6"	"+2"
 				}
 				"AbilityCastRange"
 				{
