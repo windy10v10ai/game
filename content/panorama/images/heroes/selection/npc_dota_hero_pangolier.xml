@@ -1,0 +1,5 @@
+<root>
+	<Panel class="AddonLoadingRoot">
+		<Image id="gamemode" class="SeqImg" src="file://{images}/heroes/selection/npc_dota_hero_pangolier.png" />
+	</Panel>
+</root>
