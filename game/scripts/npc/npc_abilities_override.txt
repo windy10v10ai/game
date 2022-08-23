@@ -6307,7 +6307,7 @@
 			}
 		}
 	}
-	"tidehunter_kraken_shell_lua"
+	"tidehunter_kraken_shell"
 	{
 		"MaxLevel" "5"
 		"AbilitySpecial"
@@ -14516,12 +14516,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"count"		"8"
+				"count"		"6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"length"		"925"
+				"length"		"725"
 			}
 		}
 	}

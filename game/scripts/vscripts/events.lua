@@ -631,7 +631,7 @@ function AIGameMode:OnNPCSpawned(keys)
 					hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_ward", {})
 				end
 			end
-			hEntity:SetControllableByPlayer(-1, true)
+			-- hEntity:SetControllableByPlayer(-1, true)
 		end
 
 		-- Player Buff
