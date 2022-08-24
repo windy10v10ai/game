@@ -1535,7 +1535,7 @@
 
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"2"
+		"AbilityCastPoint"				"1.6"
 		"AbilityChannelTime"			"2.0"
 
 		// Ability Resource
@@ -1773,104 +1773,6 @@
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
-	}
-
-    //=================================================================================================================
-	// Tidehunter: kraken_shell 海妖外壳
-	//=================================================================================================================
-	"tidehunter_kraken_shell_lua"
-	{
-		// Ability Technical Aspect
-		// base script folder	: scripts/vscripts
-		// base texture folder	: resource/flash3/images/spellicons
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"lua_abilities/tidehunter_kraken_shell_lua/tidehunter_kraken_shell_lua"
-		"AbilityTextureName"			"tidehunter_kraken_shell_lua"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"4"
-
-		// Ability General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Ability Casting
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Ability Resource
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Damage
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"15 30 45 60"
-				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_4"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_cleanse"		"600 550 500 450"
-				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_6"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_reset_interval"	"7.0 7.0 7.0 7.0"
-
-				"CalculateSpellDamageTooltip"	"0"
-			}
-		}
-	}
-	"special_bonus_unique_tidehunter_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6947"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"60"
-				"ad_linked_abilities"			"tidehunter_kraken_shell_lua"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
-	"special_bonus_unique_tidehunter_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"7977"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"value"				"100"
-				"ad_linked_abilities"			"tidehunter_kraken_shell_lua"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
 	}
 
 	//=================================================================================================================

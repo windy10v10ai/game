@@ -9,7 +9,7 @@ function modifier_player_xianyu:OnCreated()
 	self.iStatusResist = 40
 	self.iLifeSteal = 40
 	self.iCastRange = 400
-	self.iMoveSpeed = 200
+	self.iMoveSpeed = 100
 end
 
 function modifier_player_xianyu:CheckState()
