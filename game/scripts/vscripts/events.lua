@@ -825,6 +825,43 @@ function AIGameMode:OnPlayerChat( event )
 	end
 end
 
+function AIGameMode:OnPlayerReconnect(keys)
+	local playerID = keys.PlayerID
+	local new_state = GameRules:State_Get()
+	if new_state > DOTA_GAMERULES_STATE_HERO_SELECTION then
+		if PlayerResource:IsValidPlayer(playerID) then
+			if PlayerResource:HasSelectedHero(playerID) or PlayerResource:HasRandomed(playerID) then
+				-- This playerID already had a hero before disconnect
+			else
+				if not PlayerResource:IsBroadcaster(playerID) then
+					local hPlayer = PlayerResource:GetPlayer(playerID)
+					hPlayer:MakeRandomHeroSelection()
+					PlayerResource:SetHasRandomed(playerID)
+
+					if new_state > DOTA_GAMERULES_STATE_WAIT_FOR_MAP_TO_LOAD then
+						local hHero = PlayerResource:GetSelectedHeroEntity(playerID)
+						if hHero then
+							print("hHero:RemoveSelf()")
+							hHero:RemoveSelf()
+						end
+						local pszHeroClass = PlayerResource:GetSelectedHeroName(playerID)
+						local hTeam = PlayerResource:GetTeam(playerID)
+						local vPositions = nil
+						if hTeam == DOTA_TEAM_GOODGUYS then
+							vPositions = Vector(-6900,-6400,384)
+						else
+							vPositions = Vector(7000,6150,384)
+						end
+						local hHero = CreateUnitByName(pszHeroClass, vPositions, true, nil, nil, hTeam)
+						hHero:SetControllableByPlayer(playerID, true)
+						hPlayer:SetAssignedHeroEntity(hHero)
+						hPlayer:SpawnCourierAtPosition(vPositions)
+					end
+				end
+			end
+		end
+	end
+end
 
 function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
     local time = GameRules:GetDOTATime(false, true)
