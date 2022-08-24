@@ -510,7 +510,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"5.0"
+				"duration"				"5.5"
 			}
 			"05"
 			{
@@ -586,7 +586,7 @@
 				"aura_damage_illusions"	"80"
 				"upgrade_day_vision"	"250"
 				"evasion"				"20"
-				"blind_pct"				"15"
+				"blind_pct"				"20"
 				"aura_radius"			"700"
 		}
 	}
@@ -1231,7 +1231,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"20.0"
+		"AbilityCooldown"				"18.0"
 		"AbilitySharedCooldown"			"force"
 
 		// Item Info
@@ -2092,7 +2092,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_range"		"170"
+				"bonus_attack_range"		"180"
 			}
 			"04"
 			{
@@ -2180,7 +2180,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_range"		"200"
+				"bonus_attack_range"		"210"
 			}
 			"04"
 			{
@@ -2810,6 +2810,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"80"
+		"AbilityManaCost"				"100"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3590,7 +3591,7 @@
 		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		"FightRecapLevel"						"1"
 
-		"AbilityCooldown"						"20.0"
+		"AbilityCooldown"						"18.0"
 		"AbilityCastRange"						"900"
 		"AbilityManaCost"						"300"
 		"AbilitySharedCooldown"			        "bluefantasy"
@@ -5117,6 +5118,7 @@
 				"bonus_strength"		"50"
 				"bonus_damage"			"90"
 				"lifesteal_percent"		"50"
+				"creep_lifesteal_reduction_pct"	"80"
 				"unholy_lifesteal_percent"	"250"
 				"unholy_lifesteal_total_tooltip"	"300"
 				"unholy_duration"		"6.0"
@@ -5752,8 +5754,8 @@
 		"AbilityValues"
 		{
 			"attack_speed"		"80"
-			"self_xp"			"4.2"
-			"self_gold"			"380"
+			"self_xp"			"4.6"
+			"self_gold"			"420"
 
 			"group_range"		"1800"
 			"group_xp"			"0.8"

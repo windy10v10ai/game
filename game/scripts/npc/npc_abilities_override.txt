@@ -729,27 +729,22 @@
 	{
 		"AbilityCooldown"				"120.0"
 	}
+	// 微光
 	"item_glimmer_cape"
 	{
 		"AbilityCastRange"				"700"
-		"AbilityCooldown"				"16.0"
 		"AbilityManaCost"				"50"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_magical_armor"	"20"
-			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"fade_delay"				"0.4"
+				"fade_delay"				"0.4"	// 0.5
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_magical_armor"	"60"
+				"active_magical_armor"	"60"		// 50
 			}
 		}
 	}
@@ -11908,33 +11903,30 @@
 	{
 		"MaxLevel" "5"
 		"AbilityManaCost"				"55 70 85 100 115"
-		"AbilityCooldown"				"24 22 20 18 16"
 		"AbilityCastRange"				"600 1000 1400 1800 2000"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
+			"cast_range"				"600 1000 1400 1800 2000"
+			"AbilityCooldown"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range"				"600 1000 1400 1800 2000"
+				"value"									"24 22 20 18 16"
+				"special_bonus_unique_disruptor_4"		"-10"
+			}
+			"max_damage"
+			{
+				"value"											"150 200 250 300 350"
+				"special_bonus_unique_disruptor_9"				"250"
 			}
 		}
 	}
 	"special_bonus_unique_disruptor_4"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6630"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"10"
+				"value"				"0"
 				"ad_linked_abilities"			"disruptor_glimpse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
