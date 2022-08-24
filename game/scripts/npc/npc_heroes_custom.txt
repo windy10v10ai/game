@@ -284,6 +284,11 @@
 		"Ability19"		"keeper_of_the_light_mana_leak"
 	}
 
+	"npc_dota_hero_rubick"
+	{
+		"Ability20"		"rubick_null_field"
+	}
+
 	//=================================================================================================================
 	// HERO BOT BUILD
 	//=================================================================================================================
@@ -2576,9 +2581,9 @@
 				"8"		"zuus_arc_lightning"
 				"9"		"zuus_lightning_bolt"
 				"10"		"special_bonus_mp_regen_125"
-				"11"		"zuus_lightning_bolt"
+				"11"		"zuus_heavenly_jump"
 				"12"		"zuus_thundergods_wrath"
-				"13"		"zuus_lightning_bolt"
+				"13"		"zuus_heavenly_jump"
 				"14"		"zuus_arc_lightning"
 				"15"		"special_bonus_unique_zeus"
 				"16"		"zuus_arc_lightning"
@@ -2603,7 +2608,6 @@
 				"35"		"zuus_arc_lightning"
 				"36"		"zuus_heavenly_jump"
 				"37"		"zuus_arc_lightning"
-				"38"		"zuus_heavenly_jump"
 			}
 		}
 	}
