@@ -14,10 +14,11 @@ local function addTome(k, v)
     amount = 6
   end
   for i = 1, amount do
-    table.insert(v,"item_tome_of_agility")
     table.insert(v,"item_tome_of_strength")
+    table.insert(v,"item_tome_of_agility")
     table.insert(v,"item_tome_of_intelligence")
 	end
+  table.insert(v,"item_tome_of_luoshu")
 end
 --------------------
 -- Initial
