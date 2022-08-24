@@ -8973,7 +8973,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"necromastery_max_souls_scepter" "40"
+				"necromastery_max_souls_scepter" "30"
 				"RequiresScepter"			"1"
 			}
 		}
@@ -8994,26 +8994,31 @@
 	"nevermore_requiem"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"120 110 100 90 80"
-		"AbilityDamage"					"80 120 160 240 320"
-		"AbilityManaCost"				"150 200 250 300 350"
+		"AbilityDamage"					"80 120 160 200 240"
+		"AbilityManaCost"				"150 175 200 225 250"
 		"AbilityValues"
 		{
-			"requiem_radius"	"1000"
-			"requiem_reduction_ms"	"-20 -25 -30 -35 -40"
-			"requiem_reduction_mres"	"-5 -7.5 -10 -12.5 -15"
-			"requiem_slow_duration"
-			{
-				"value"		"0.9"
-				"LinkedSpecialBonus"		"special_bonus_unique_nevermore_6"
-			}
-			"requiem_slow_duration_max"
-			{
-				"value"					"2.7"
-				"LinkedSpecialBonus"		"special_bonus_unique_nevermore_6"
-				"LinkedSpecialBonusField"		"value2"
-			}
-			"requiem_reduction_radius"	"700 700 700"
+				"AbilityCooldown"
+				{
+					"value"		"120 110 100 90 80"
+					"special_bonus_scepter"	"-10"
+				}
+
+				"requiem_radius"	"1000"
+				"requiem_reduction_ms"	"-20 -25 -30 -35 -40"
+				"requiem_reduction_mres"	"-6 -9 -12 -15 -18"
+				"requiem_slow_duration"
+				{
+					"value"		"0.9"
+					"LinkedSpecialBonus"		"special_bonus_unique_nevermore_6"
+				}
+				"requiem_slow_duration_max"
+				{
+					"value"					"2.7"
+					"LinkedSpecialBonus"		"special_bonus_unique_nevermore_6"
+					"LinkedSpecialBonusField"		"value2"
+				}
+				"requiem_reduction_radius"	"700 700 700"
 				"requiem_soul_conversion"	"1"
 				"requiem_line_width_start"	"125"
 				"requiem_line_width_end"	"350"
