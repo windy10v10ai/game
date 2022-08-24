@@ -534,12 +534,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"all_stats"			"20"
+				"all_stats"				"20"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"block_cooldown"		"5.0"
+				"block_cooldown"		"6.0"
 			}
 		}
 	}
