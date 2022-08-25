@@ -751,19 +751,6 @@ function AIGameMode:OnPlayerChat( event )
 	if not iPlayerID or not sChatMsg then return end
 	local steamAccountID = PlayerResource:GetSteamAccountID(iPlayerID)
 
-	if qiliuSteamAccountID[steamAccountID] then
-		if sChatMsg:find( '-远古是我爹' ) then
-			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-			local iGold = 0
-			hHero:ModifyGold(iGold. true, Dota_ModifyGold_Unspecified)
-			GameRules:SendCustomMessage(
-				"号外号外！"..qiliuSteamAccountID[steamAccountID].."这个吊毛又要玩小骷髅啦，大家快抢他远古",
-				DOTA_TEAM_GOODGUYS,
-				0
-			)
-			return
-		end
-	end
 	if developerSteamAccountID[steamAccountID] then
 		if sChatMsg:find( '^-greedisgood$' ) then
 			-- give money to the player
@@ -833,6 +820,11 @@ function AIGameMode:OnPlayerChat( event )
 		if pszHeroClass ~= nil then
 			local hHero = PlayerResource:GetSelectedheroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
+			GameRules:SendCustomMessage(
+				"号外号外！"..qiliuSteamAccountID[steamAccountID].."这个吊毛又要玩小骷髅啦，大家快抢他远古",
+				DOTA_TEAM_GOODGUYS,
+				0
+			)
 			return
 		end
 	end
