@@ -326,12 +326,12 @@ function AIGameMode:RefreshGameStatus()
 	buffLevelMegaGood = buffLevelMegaGood + AIGameMode.creepBuffLevel
 	buffLevelMegaBad = buffLevelMegaBad + AIGameMode.creepBuffLevel
 
-	if (GameTime >= (60 * 60)) then
+	if (GameTime >= (50 * 60)) then
 		buffLevelGood = buffLevelGood + 5
 		buffLevelBad = buffLevelBad + 5
 		buffLevelMegaGood = buffLevelMegaGood + 5
 		buffLevelMegaBad = buffLevelMegaBad + 5
-	elseif (GameTime >= (50 * 60)) then
+	elseif (GameTime >= (45 * 60)) then
 		buffLevelGood = buffLevelGood + 4
 		buffLevelBad = buffLevelBad + 4
 		buffLevelMegaGood = buffLevelMegaGood + 4
@@ -341,16 +341,19 @@ function AIGameMode:RefreshGameStatus()
 		buffLevelBad = buffLevelBad + 3
 		buffLevelMegaGood = buffLevelMegaGood + 3
 		buffLevelMegaBad = buffLevelMegaBad + 3
-	elseif (GameTime >= (30 * 60)) then
+	elseif (GameTime >= (35 * 60)) then
 		buffLevelGood = buffLevelGood + 2
 		buffLevelBad = buffLevelBad + 2
 		buffLevelMegaGood = buffLevelMegaGood + 2
 		buffLevelMegaBad = buffLevelMegaBad + 2
-	elseif (GameTime >= (20 * 60)) then
+	elseif (GameTime >= (30 * 60)) then
 		buffLevelGood = buffLevelGood + 1
 		buffLevelBad = buffLevelBad + 1
 		buffLevelMegaGood = buffLevelMegaGood + 1
 		buffLevelMegaBad = buffLevelMegaBad + 1
+	elseif (GameTime >= (20 * 60)) then
+		buffLevelGood = buffLevelGood + 1
+		buffLevelBad = buffLevelBad + 1
 	end
 
 	-- 未推掉任何塔时，不设置小兵buff
