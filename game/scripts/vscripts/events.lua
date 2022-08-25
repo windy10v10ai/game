@@ -818,10 +818,10 @@ function AIGameMode:OnPlayerChat( event )
 			pszHeroClass = "npc_dota_hero_clinkz"
 		end
 		if pszHeroClass ~= nil then
-			local hHero = PlayerResource:GetSelectedheroEntity(iPlayerID)
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			GameRules:SendCustomMessage(
-				"号外号外！"..qiliuSteamAccountID[steamAccountID].."这个吊毛又要玩小骷髅啦，大家快抢他远古",
+				"号外号外！"..qiliuSteamAccountID[steamAccountID].."这个吊毛又要玩小骷髅啦，大家快去抢他远古",
 				DOTA_TEAM_GOODGUYS,
 				0
 			)
