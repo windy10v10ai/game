@@ -14418,72 +14418,37 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityManaCost"				"130 135 140 145 150"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"damage"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"16 24 32 40 48"
-				"LinkedSpecialBonus"	"special_bonus_unique_silencer"
+				"value"							"16 24 32 40 48"
+				"special_bonus_unique_silencer"		"+12"
 			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed"			"-9 -12 -15 -18 -21"
-				"LinkedSpecialBonus"	"special_bonus_unique_silencer_6"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"penalty_multiplier"			"1.7"
-			}
+			"movespeed"			"-9 -12 -15 -18 -21"
 		}
 	}
 	"silencer_glaives_of_wisdom"
 	{
 		"MaxLevel" "5"
 		"AbilityManaCost"				"15 20 25 30 35"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"intellect_damage_pct"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"intellect_damage_pct"	"15 25 35 45 55"
-				"LinkedSpecialBonus"	"special_bonus_unique_silencer_3"
+				"value"					"15 25 35 45 55"
+				"special_bonus_unique_silencer_3"	"+10"
 			}
-			"02"
+			"int_steal"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"int_steal"		"2"
+				"value"		"2"
+				"special_bonus_shard"		"+1"
 			}
-			"03"
+			"int_steal_duration"		"15 20 25 30 35"
+			"permanent_int_steal_amount"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"int_steal_duration"		"15 20 25 30 35"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"shard_permanent_int_steal_amount_bonus"		"1"
-				"RequiresShard"		"1"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"permanent_int_steal_amount"		"1"
-			}
-		}
-	}
-	"special_bonus_unique_silencer_3"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"10"
-				"ad_linked_abilities"			"silencer_glaives_of_wisdom"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"value"						"2"
+				"special_bonus_shard"		"+1"
 			}
 		}
 	}
