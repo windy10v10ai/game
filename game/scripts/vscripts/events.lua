@@ -87,6 +87,9 @@ local tAPLevelList = {
 
 local tDOTARespawnTime = {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 75}
 
+local qiliuSteamAccountID = {}
+qiliuSteamAccountID[353885092]="76岁靠谱成年男性"
+
 -- 测试密码
 local developerSteamAccountID = {}
 developerSteamAccountID[136407523]="windy"
@@ -748,6 +751,19 @@ function AIGameMode:OnPlayerChat( event )
 	if not iPlayerID or not sChatMsg then return end
 	local steamAccountID = PlayerResource:GetSteamAccountID(iPlayerID)
 
+	if qiliuSteamAccountID[steamAccountID] then
+		if sChatMsg:find( '-远古是我爹' ) then
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			local iGold = 0
+			hHero:ModifyGold(iGold. true, Dota_ModifyGold_Unspecified)
+			GameRules:SendCustomMessage(
+				"号外号外！"..qiliuSteamAccountID[steamAccountID].."这个吊毛又要玩小骷髅啦，大家快抢他远古",
+				DOTA_TEAM_GOODGUYS,
+				0
+			)
+			return
+		end
+	end
 	if developerSteamAccountID[steamAccountID] then
 		if sChatMsg:find( '^-greedisgood$' ) then
 			-- give money to the player
@@ -805,6 +821,17 @@ function AIGameMode:OnPlayerChat( event )
 		end
 		if pszHeroClass ~= nil then
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
+			return
+		end
+	end
+	if qiliuSteamAccountID[steamAccountID] then
+		local pszHeroClass
+		if sChatMsg:find( '-远古是我爹' ) then
+			pszHeroClass = "npc_dota_hero_clinkz"
+		end
+		if pszHeroClass ~= nil then
+			local hHero = PlayerResource:GetSelectedheroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			return
 		end
