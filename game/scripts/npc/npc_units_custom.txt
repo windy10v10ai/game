@@ -941,8 +941,8 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// 22
-		"BountyGoldMin"				"40"		// 19
+		"BountyXP"					"60"		// 22
+		"BountyGoldMin"				"45"		// 19
 		"BountyGoldMax"				"50"		// 25
 
 		// Movement
@@ -973,8 +973,8 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// 22
-		"BountyGoldMin"				"40"		// 19
+		"BountyXP"					"60"		// 22
+		"BountyGoldMin"				"45"		// 19
 		"BountyGoldMax"				"50"		// 25
 
 		// Movement
@@ -1005,8 +1005,8 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// 25
-		"BountyGoldMin"				"40"		// 20
+		"BountyXP"					"60"		// 25
+		"BountyGoldMin"				"45"		// 20
 		"BountyGoldMax"				"50"		// 26
 
 		// Movement
@@ -1036,8 +1036,8 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// 25
-		"BountyGoldMin"				"40"		// 20
+		"BountyXP"					"60"		// 25
+		"BountyGoldMin"				"45"		// 20
 		"BountyGoldMax"				"50"		// 26
 
 		// Movement
@@ -1071,9 +1071,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"160"		// 88
-		"BountyGoldMin"				"120"		// 59
-		"BountyGoldMax"				"140"		// 72
+		"BountyXP"					"180"		// 88
+		"BountyGoldMin"				"150"		// 59
+		"BountyGoldMax"				"160"		// 72
 
 		// Movement
 		//----------------------------------------------------------------
@@ -1102,9 +1102,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"160"		// 88
-		"BountyGoldMin"				"120"		// 59
-		"BountyGoldMax"				"140"		// 72
+		"BountyXP"					"180"		// 88
+		"BountyGoldMin"				"150"		// 59
+		"BountyGoldMax"				"160"		// 72
 
 		// Movement
 		//----------------------------------------------------------------
@@ -1138,8 +1138,8 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// 22
-		"BountyGoldMin"				"40"		// 19
+		"BountyXP"					"60"		// 22
+		"BountyGoldMin"				"45"		// 19
 		"BountyGoldMax"				"50"		// 25
 
 		// Movement
@@ -1170,8 +1170,8 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// 22
-		"BountyGoldMin"				"40"		// 19
+		"BountyXP"					"60"		// 22
+		"BountyGoldMin"				"45"		// 19
 		"BountyGoldMax"				"50"		// 25
 
 		// Movement
@@ -1202,8 +1202,8 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// 25
-		"BountyGoldMin"				"40"		// 20
+		"BountyXP"					"60"		// 25
+		"BountyGoldMin"				"45"		// 20
 		"BountyGoldMax"				"50"		// 26
 
 		// Movement
@@ -1233,8 +1233,8 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// 25
-		"BountyGoldMin"				"40"		// 20
+		"BountyXP"					"60"		// 25
+		"BountyGoldMin"				"45"		// 20
 		"BountyGoldMax"				"50"		// 26
 
 		// Movement
@@ -1267,9 +1267,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"160"		// 88
-		"BountyGoldMin"				"120"		// 59
-		"BountyGoldMax"				"140"		// 72
+		"BountyXP"					"180"		// 88
+		"BountyGoldMin"				"150"		// 59
+		"BountyGoldMax"				"160"		// 72
 
 		// Movement
 		//----------------------------------------------------------------
@@ -1298,9 +1298,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"160"		// 88
-		"BountyGoldMin"				"120"		// 59
-		"BountyGoldMax"				"140"		// 72
+		"BountyXP"					"180"		// 88
+		"BountyGoldMin"				"150"		// 59
+		"BountyGoldMax"				"160"		// 72
 
 		// Movement
 		//----------------------------------------------------------------
