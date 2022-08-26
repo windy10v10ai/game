@@ -38,11 +38,12 @@ function item_abyssal_blade_v2:OnSpellStart()
 	ParticleManager:ReleaseParticleIndex(particle_abyssal_fx)
 
         -- Apply damage
-        local damt1 =self:GetCaster():GetStrength()
+        local str = self:GetCaster():GetStrength()
+        local damage = str * self:GetSpecialValueFor("active_damage_multi") + self:GetSpecialValueFor("active_damage_base")
 	local damageTable = {
 		victim = target,
 		attacker = self:GetCaster(),
-		damage = damt1 * self:GetSpecialValueFor("dam"),
+		damage = damage,
 		damage_type = DAMAGE_TYPE_PURE,
 		ability = self
 	}
