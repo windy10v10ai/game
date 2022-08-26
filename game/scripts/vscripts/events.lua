@@ -87,6 +87,9 @@ local tAPLevelList = {
 
 local tDOTARespawnTime = {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 75}
 
+local qiliuSteamAccountID = {}
+qiliuSteamAccountID[353885092]="76岁靠谱成年男性"
+
 -- 测试密码
 local developerSteamAccountID = {}
 developerSteamAccountID[136407523]="windy"
@@ -326,12 +329,12 @@ function AIGameMode:RefreshGameStatus()
 	buffLevelMegaGood = buffLevelMegaGood + AIGameMode.creepBuffLevel
 	buffLevelMegaBad = buffLevelMegaBad + AIGameMode.creepBuffLevel
 
-	if (GameTime >= (60 * 60)) then
+	if (GameTime >= (50 * 60)) then
 		buffLevelGood = buffLevelGood + 5
 		buffLevelBad = buffLevelBad + 5
 		buffLevelMegaGood = buffLevelMegaGood + 5
 		buffLevelMegaBad = buffLevelMegaBad + 5
-	elseif (GameTime >= (50 * 60)) then
+	elseif (GameTime >= (45 * 60)) then
 		buffLevelGood = buffLevelGood + 4
 		buffLevelBad = buffLevelBad + 4
 		buffLevelMegaGood = buffLevelMegaGood + 4
@@ -341,16 +344,19 @@ function AIGameMode:RefreshGameStatus()
 		buffLevelBad = buffLevelBad + 3
 		buffLevelMegaGood = buffLevelMegaGood + 3
 		buffLevelMegaBad = buffLevelMegaBad + 3
-	elseif (GameTime >= (30 * 60)) then
+	elseif (GameTime >= (35 * 60)) then
 		buffLevelGood = buffLevelGood + 2
 		buffLevelBad = buffLevelBad + 2
 		buffLevelMegaGood = buffLevelMegaGood + 2
 		buffLevelMegaBad = buffLevelMegaBad + 2
-	elseif (GameTime >= (20 * 60)) then
+	elseif (GameTime >= (30 * 60)) then
 		buffLevelGood = buffLevelGood + 1
 		buffLevelBad = buffLevelBad + 1
 		buffLevelMegaGood = buffLevelMegaGood + 1
 		buffLevelMegaBad = buffLevelMegaBad + 1
+	elseif (GameTime >= (20 * 60)) then
+		buffLevelGood = buffLevelGood + 1
+		buffLevelBad = buffLevelBad + 1
 	end
 
 	-- 未推掉任何塔时，不设置小兵buff
@@ -806,6 +812,22 @@ function AIGameMode:OnPlayerChat( event )
 		if pszHeroClass ~= nil then
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
+			return
+		end
+	end
+	if qiliuSteamAccountID[steamAccountID] then
+		local pszHeroClass
+		if sChatMsg:find( '-远古是我爹' ) then
+			pszHeroClass = "npc_dota_hero_clinkz"
+		end
+		if pszHeroClass ~= nil then
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
+			GameRules:SendCustomMessage(
+				"号外号外！"..qiliuSteamAccountID[steamAccountID].."这个吊毛又要玩小骷髅啦，大家快去抢他远古",
+				DOTA_TEAM_GOODGUYS,
+				0
+			)
 			return
 		end
 	end

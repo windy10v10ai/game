@@ -168,6 +168,10 @@ local puck1609SteamAccountID = Set {
 	-- puck1609
 	245559423,
 }
+local dky190SteamAccountID = Set {
+	-- dky190
+	1033313629,
+}
 
 -- 称号属性 END
 
@@ -337,5 +341,11 @@ function EnablePlayerModifier(hEntity)
 	if puck1609SteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_puck1609", "modifiers/player/modifier_player_puck1609", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_puck1609", {})
+	end
+	if dky190SteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_dky190", "modifiers/player/modifier_player_dky190", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dky190", {})
+		LinkLuaModifier("modifier_player_dky190_2", "modifiers/player/modifier_player_dky190_2", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dky190_2", {})
 	end
 end

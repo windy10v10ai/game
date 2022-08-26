@@ -162,7 +162,7 @@
 		"DOTA_Tooltip_modifier_membership_Description"			"额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
-		"DOTA_Tooltip_modifier_player_windy_Description"		"<font color='#FFCC66'> 恭喜你遇到了活生生的windy。<br/>感谢您对游戏的支持与喜爱。<br/>玩家交流QQ群：1007341432。</font>"
+		"DOTA_Tooltip_modifier_player_windy_Description"		"<font color='#0AA1DD'> 恭喜你遇到了活生生的windy。<br/>感谢您对游戏的支持与喜爱。<br/>玩家交流QQ群：1007341432。</font>"
 		"DOTA_Tooltip_modifier_player_xianyu"					"<font color='#FFCC66'>★ 咸鱼之王 ★</font>"
 		"DOTA_Tooltip_modifier_player_xianyu_Description"		"<font color='#FFCC66'> 恭喜你遇到了真正的咸鱼之王。<br/>感谢您对游戏的支持与喜爱。<br/>玩家交流QQ群：1007341432。</font>"
 		"DOTA_Tooltip_modifier_player_mimihua"					"<font color='#FFCC66'>★ 一次性消耗品 ★</font>"
@@ -220,6 +220,9 @@
 		"DOTA_Tooltip_modifier_player_nmjb"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_puck1609"					"<font color='#FFCC66'>★ Endless Crazy ★</font>"
 		"DOTA_Tooltip_modifier_player_puck1609_Description"		"<font color='#FFCC66'> フランドール♥スカーレット </font>"
+		"DOTA_Tooltip_modifier_player_dky190"					"<font color='#FFCC66'>★ Tiny ★</font>"
+		"DOTA_Tooltip_modifier_player_dky190_2"					"<font color='#FFCC66'>★ 極速之翼 ★</font>"
+		"DOTA_Tooltip_modifier_player_dky190_2_Description"		"<font color='#FFCC66'> 快的飞起 </font>"
 
 
 		// 初音未来

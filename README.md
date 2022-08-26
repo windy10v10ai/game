@@ -5,14 +5,23 @@ Dota2 custom game
 https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570
 
 ## Get Start
-1. Install Dota2 and [Dota 2 Workshop Tools](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Installing_and_Launching_Tools).
-2. Install node.js.
-3. Run `npm install` in root directory. Content and game folder will be linked to dota2 dota_addons directory.
-### compile item png to vtex_c
-https://www.reddit.com/r/DotA2/comments/8yymx9/item_icons_mods_dont_work_since_one_of_latest/
 
-create item XML file in dota 2 beta\content\dota_addons\Windy10v10AI\panorama\images\items
-run /tool/compile_item_png.bat
+### Requirement
+`Windows 10`
+### Develop Tool
+- [Github Desktop](https://desktop.github.com/)
+- [VS Code](https://code.visualstudio.com/)
+- [VRF](https://vrf.steamdb.info/)
+
+### Install
+1. Install Dota2 and [Dota 2 Workshop Tools](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Installing_and_Launching_Tools).
+2. Install [node.js](https://nodejs.org/).
+3. Run `npm install` in root directory. Content and game folder will be linked to dota2 dota_addons directory.
+
+### How to compile item png to vtex_c
+Create item XML file in dota 2 content folder then run `.tool/compile_item_png.bat`
+
+FYI: https://www.reddit.com/r/DotA2/comments/8yymx9/item_icons_mods_dont_work_since_one_of_latest/
 
 ## About ModDota template
 

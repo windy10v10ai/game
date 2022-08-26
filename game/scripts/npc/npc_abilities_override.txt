@@ -534,12 +534,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"all_stats"			"20"
+				"all_stats"				"20"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"block_cooldown"		"5.0"
+				"block_cooldown"		"6.0"
 			}
 		}
 	}
@@ -729,27 +729,22 @@
 	{
 		"AbilityCooldown"				"120.0"
 	}
+	// 微光
 	"item_glimmer_cape"
 	{
 		"AbilityCastRange"				"700"
-		"AbilityCooldown"				"16.0"
 		"AbilityManaCost"				"50"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_magical_armor"	"20"
-			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"fade_delay"				"0.4"
+				"fade_delay"				"0.4"	// 0.5
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_magical_armor"	"60"
+				"active_magical_armor"	"60"		// 50
 			}
 		}
 	}
@@ -1475,15 +1470,9 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"	"12.0"
-					"special_bonus_unique_underlord_5"	"-4"
+					"value"	"15 14 13 12"
+					"special_bonus_unique_underlord_5"	"-2"
 				}
-				"radius"
-				{
-					"value"					"425"
-					"special_bonus_unique_underlord_8"	"+100"
-				}
-				"wave_count"					"6"
 				"wave_damage"					"25 40 55 70 85"
 				"wave_interval"					"1.0"
 				"burn_damage"
@@ -1492,19 +1481,7 @@
 					"special_bonus_unique_underlord_4"	"+0.3"
 				}
 				"burn_interval"					"1.0"
-				"burn_duration"					"2.0"
-				"can_target_units"
-				{
-					"special_bonus_shard"	"+1"
-				}
-				"shard_wave_count_bonus"
-				{
-					"special_bonus_shard"	"+3"
-				}
-				"shard_wave_interval_reduction"
-				{
-					"special_bonus_shard"	"+25"
-				}
+				"burn_duration"					"1.0"
 		}
 	}
 	"abyssal_underlord_pit_of_malice"
@@ -5177,12 +5154,12 @@
 		"AbilityCooldown"				"15 14 13 12 11"
 		"AbilityManaCost"				"110 120 130 140 150"
 		"AbilityDamage"					"100 160 220 280 340"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
+			"burrow_duration"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"burrow_duration"	"1.6 1.8 2.0 2.2 2.4"
+				"value"			"1.6 1.8 2.0 2.2 2.4"
+				"special_bonus_unique_sand_king_burrowstrike_stun"				"+0.3"
 			}
 		}
 	}
@@ -6400,7 +6377,7 @@
 				"value"				"50"
 				"special_bonus_unique_tiny_7"	"+50"
 			}
-			"attack_speed_reduction"	"20 25 30 35 40"
+			"attack_speed_reduction"	"-20 -25 -30 -35 -40"
 			"toss_bonus_damage"			"100 200 300 400 500"
 		}
 	}
@@ -8661,15 +8638,19 @@
 	"naga_siren_ensnare"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"23 20 17 14 11"
 		"AbilityManaCost"				"70 80 90 100 110"
-		"AbilityCastRange"				"575 600 625 650 675"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"duration"					"3.0 3.5 4.0 4.5 5.0"
+			"AbilityCooldown"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"3.0 3.5 4.0 4.5 5.0"
+				"value"								"24 21 18 15 12"
+				"special_bonus_unique_naga_siren_net_cooldown"				"-2"
+			}
+			"AbilityCastRange"
+			{
+				"value"					"575 600 625 650 675"
+				"special_bonus_scepter"		"+50%"
 			}
 		}
 	}
@@ -8681,7 +8662,6 @@
 			"hits"
 			{
 				"value"					"6"
-				"special_bonus_unique_naga_siren_5" -1
 			}
 			"armor_reduction"
 			{
@@ -8693,9 +8673,6 @@
 				"value"			"40 45 50 55 60"
 				"LinkedSpecialBonus"		"special_bonus_unique_naga_siren_2"
 			}
-			"radius"					"300"
-			"duration"					"4.0"
-			"debuff_duration"			"10"
 		}
 	}
 	"special_bonus_unique_naga_siren_2"
@@ -8715,12 +8692,12 @@
 		"MaxLevel" "4"
 		"AbilityCooldown"				"120.0 100.0 80.0 60.0"
 		"AbilityManaCost"				"150 175 200 225"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"radius"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"1000 1200 1400 1600"
+				"value"			"1000 1200 1400 1600"
+				"special_bonus_unique_naga_siren_5" 			"+500"
 			}
 		}
 	}
@@ -11908,33 +11885,30 @@
 	{
 		"MaxLevel" "5"
 		"AbilityManaCost"				"55 70 85 100 115"
-		"AbilityCooldown"				"24 22 20 18 16"
 		"AbilityCastRange"				"600 1000 1400 1800 2000"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
+			"cast_range"				"600 1000 1400 1800 2000"
+			"AbilityCooldown"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range"				"600 1000 1400 1800 2000"
+				"value"									"24 22 20 18 16"
+				"special_bonus_unique_disruptor_4"		"-10"
+			}
+			"max_damage"
+			{
+				"value"											"150 200 250 300 350"
+				"special_bonus_unique_disruptor_9"				"250"
 			}
 		}
 	}
 	"special_bonus_unique_disruptor_4"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6630"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"10"
+				"value"				"0"
 				"ad_linked_abilities"			"disruptor_glimpse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -14444,72 +14418,37 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityManaCost"				"130 135 140 145 150"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"damage"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"16 24 32 40 48"
-				"LinkedSpecialBonus"	"special_bonus_unique_silencer"
+				"value"							"16 24 32 40 48"
+				"special_bonus_unique_silencer"		"+12"
 			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed"			"-9 -12 -15 -18 -21"
-				"LinkedSpecialBonus"	"special_bonus_unique_silencer_6"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"penalty_multiplier"			"1.7"
-			}
+			"movespeed"			"-9 -12 -15 -18 -21"
 		}
 	}
 	"silencer_glaives_of_wisdom"
 	{
 		"MaxLevel" "5"
 		"AbilityManaCost"				"15 20 25 30 35"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"intellect_damage_pct"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"intellect_damage_pct"	"15 25 35 45 55"
-				"LinkedSpecialBonus"	"special_bonus_unique_silencer_3"
+				"value"					"15 25 35 45 55"
+				"special_bonus_unique_silencer_3"	"+10"
 			}
-			"02"
+			"int_steal"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"int_steal"		"2"
+				"value"		"2"
+				"special_bonus_shard"		"+1"
 			}
-			"03"
+			"int_steal_duration"		"15 20 25 30 35"
+			"permanent_int_steal_amount"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"int_steal_duration"		"15 20 25 30 35"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"shard_permanent_int_steal_amount_bonus"		"1"
-				"RequiresShard"		"1"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"permanent_int_steal_amount"		"1"
-			}
-		}
-	}
-	"special_bonus_unique_silencer_3"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"10"
-				"ad_linked_abilities"			"silencer_glaives_of_wisdom"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"value"						"2"
+				"special_bonus_shard"		"+1"
 			}
 		}
 	}
@@ -15459,11 +15398,11 @@
 	"windrunner_windrun"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"15 14 13 12 11"
-		"AbilityDuration"				"3 4 5 6 7"
+		"AbilityCooldown"				"15"
+		"AbilityDuration"				"4 4.5 5 5.5 6"
 		"AbilityValues"
 		{
-			"movespeed_bonus_pct"	"60"
+			"movespeed_bonus_pct"	"60 70 80 90 100"
 			"evasion_pct_tooltip"	"100"
 			"enemy_movespeed_bonus_pct"
 			{
@@ -15481,10 +15420,10 @@
 			}
 			"scepter_blind"
 			{
-				"value"		"60"
+				"value"		"40 50 60 70 80"
 				"RequiresScepter"		"1"
 			}
-			"duration"					"3 4 5 6 7"
+			"duration"					"4 4.5 5 5.5 6"
 		}
 	}
 	"windrunner_focusfire"
@@ -15730,14 +15669,7 @@
 		"AbilityValues"
 		{
 			"damage"					"50 75 100 125 150"
-			"hop_distance"				"500"
-			"hop_duration"		"0.5"
-			"hop_height"		"250"
 			"range"				"700 800 900 1000 1100"
-			"duration"			"1.6"
-			"move_slow"				"80"
-			"aspd_slow"				"100"
-			"cast_slow"			"50"
 			"targets"
 			{
 				"value" "1"
@@ -15748,17 +15680,6 @@
 				"value"				"22 20 18 16 14"
 				"special_bonus_unique_zeus_jump_cooldown"	"-4"
 			}
-			"postjump_movespeed_duration"
-			{
-				"value"						"0"
-				"special_bonus_unique_zeus_jump_postjump_movespeed"		"+1.6"
-			}
-			"postjump_movespeed"
-			{
-				"value"						"0"
-				"special_bonus_unique_zeus_jump_postjump_movespeed"		"+30"
-			}
-
 		}
 	}
 	"zuus_arc_lightning"
