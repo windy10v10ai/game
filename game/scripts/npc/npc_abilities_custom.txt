@@ -60,7 +60,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilityCastPoint"				"0.5"
-		"AbilityCooldown"				"30.0 25.0 20.0 15.0 10.0"
+		"AbilityCooldown"				"30.0 26.0 22.0 18.0 14.0"
 		"AbilityManaCost"				"175 275 375 475 575"
 		"HasScepterUpgrade"				"1"
 
