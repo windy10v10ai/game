@@ -4941,12 +4941,12 @@
 			"damage_block"
 			{
 				"value"			"7 14 21 28 35"
-				"special_bonus_unique_pudge_1"	"x1.6"
+				"special_bonus_unique_pudge_1"	"x1.5"
 			}
 			"flesh_heap_strength_buff_amount"
 			{
 				"value"	"1.1 1.4 1.7 2 2.3"
-				"special_bonus_unique_pudge_1"	"x1.6"
+				"special_bonus_unique_pudge_1"	"x1.5"
 			}
 			"flesh_heap_range"		"450"
 			"duration"	"5 6 7 8 9"
@@ -4955,14 +4955,17 @@
 	"pudge_meat_hook"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"18 16 14 12 10"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"damage"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"			"150 220 290 360 430"
-				"LinkedSpecialBonus"			"special_bonus_unique_pudge_7"
+				"value"									"150 220 290 360 430"
+				"special_bonus_unique_pudge_7"			"+120"
+			}
+			"AbilityCooldown"
+			{
+				"value"								"18 16 14 12 10"
+				"special_bonus_unique_pudge_5"		"-3"
 			}
 		}
 	}
@@ -4988,7 +4991,6 @@
 	"pudge_dismember"
 	{
 		"MaxLevel"						"4"
-		"AbilityCooldown"				"30 25 20 15"
 		"AbilityManaCost"				"100 130 170 210"
 		"AbilityValues"
 		{
@@ -5003,43 +5005,10 @@
 				"special_bonus_unique_pudge_3"	"x1.8"
 				"CalculateSpellDamageTooltip"	"0"
 			}
-			"ticks"
+			"AbilityCooldown"
 			{
-				"value"						"6"
-				"special_bonus_unique_pudge_6"	"+2"
-			}
-			"pull_units_per_second"		"75"
-			"pull_distance_limit"		"125"
-			"animation_rate"		"1.5"
-			"AbilityChannelTime"
-			{
-				"value"				"3.0 3.0 3.0"
-				"special_bonus_unique_pudge_6"	"+0.8"
-			}
-			"creep_dismember_duration_tooltip"
-			{
-				"value"		"6.0"
-				"special_bonus_unique_pudge_6"	"+0.8"
-			}
-			"shard_regen_pct"
-			{
-						"value"			"5"
-				"RequiresShard"			"1"
-			}
-			"order_lock_duration"
-			{
-				"value"				"3"
-				"RequiresShard"			"1"
-			}
-			"shard_cast_range"
-			{
-				"value"				"300"
-				"RequiresShard"			"1"
-			}
-			"shard_cooldown_reduction"
-			{
-				"value"					"5.0"
-				"RequiresShard"			"1"
+				"value"							"30 25 20 15"
+				"special_bonus_shard"			"-5"
 			}
 		}
 	}
@@ -12909,17 +12878,6 @@
 		"AbilityDraftPreAbility"		"lich_frost_aura"
 		"AbilityValues"
 		{
-			"AbilityCooldown"
-			{
-				"value"		"7.0"
-				"special_bonus_unique_lich_3" "-3"
-			}
-			"radius"
-			{
-				"value"		"200 200 200 200"
-				"special_bonus_unique_lich_6" "+125"
-			}
-			"slow_movement_speed"	"-40"
 			"slow_attack_speed_primary"		"-30 -40 -50 -60 -70"
 			"aoe_damage"
 			{
@@ -12937,8 +12895,6 @@
 		"AbilityValues"
 		{
 			"movespeed_slow"	"7 14 21 28 35"
-			"aura_radius"		"1200"
-			"duration"		"1.0"
 		}
 	}
 	"lich_sinister_gaze"
@@ -12963,17 +12919,11 @@
 	"lich_frost_armor"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
-		"AbilityCooldown"				"5.0 5.0 5.0 5.0"
-		"AbilityDuration"				"40.0"
-		"AbilityManaCost"				"50 50 50 50"
 		"LinkedAbility"					"lich_frost_shield"
 		"AbilityDraftPreAbility"		"lich_frost_shield"
 		"AbilityValues"
 		{
 			"armor_bonus"			"4 6 8 10 12"
-			"slow_duration"			"2.0 2.0 2.0 2.0"
 			"slow_movement_speed"	"-8 -16 -24 -32 -40"
 			"slow_attack_speed"		"-8 -16 -24 -32 -40"
 		}
@@ -12997,17 +12947,6 @@
 			"movement_slow"			"20 25 30 35 40"
 			"slow_duration"			"0.5"
 			"damage"				"20 30 40 50 60"
-			"interval"				"1"
-			"radius"				"600"
-			"duration"
-			{
-				"value"	"6"
-				"special_bonus_unique_lich_4"	"+4"
-			}
-			"health_regen"
-			{
-				"special_bonus_unique_lich_1" "+50"
-			}
 		}
 	}
 	"lich_chain_frost"
@@ -13710,16 +13649,19 @@
 	"puck_illusory_orb"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"12 11 10 9 8"
-		"AbilityDamage"					"75 150 225 300 375"
 		"AbilityManaCost"				"80 100 120 140 160"
 		"AbilityValues"
 		{
-			"radius"					"225"
-			"max_distance"				"1950"
-			"orb_speed"					"651"
-			"orb_vision"				"450"
-			"vision_duration"			"3.34"
+			"damage"
+			{
+				"value"										"75 150 225 300 375"
+				"special_bonus_unique_puck_orb_damage"		"+50"
+			}
+			"AbilityCooldown"
+			{
+				"value"								"12 11 10 9 8"
+				"special_bonus_unique_puck_8"		"-2"
+			}
 		}
 	}
 	"puck_waning_rift"
@@ -13729,56 +13671,15 @@
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
-				"radius"				"400 400 400 400"
 				"silence_duration"
 				{
 					"value"					"2.0 2.5 3.0 3.5 4.0"
-					"LinkedSpecialBonus"	"special_bonus_unique_puck_7"
+					"special_bonus_unique_puck_7"	"+0.5"
 				}
 				"damage"
 				{
 					"value"		"70 130 190 250 310"
 					"special_bonus_unique_puck_6"	"+100"
-				}
-				"max_distance"			"400"
-				"scepter_max_distance"
-				{
-					"RequiresScepter"		"1"
-					"value"			"550"
-				}
-				"scepter_radius"
-				{
-					"RequiresScepter"		"1"
-					"value"			"550"
-				}
-				"scepter_pushback"
-				{
-					"RequiresScepter"		"1"
-					"value"			"400"
-				}
-				"scepter_pushback_duration"
-				{
-					"RequiresScepter"		"1"
-					"value"			"0.5"
-				}
-				"scepter_vision_duration"
-				{
-					"RequiresScepter"		"1"
-					"value"			"5"
-				}
-		}
-	}
-	"puck_phase_shift"
-	{
-		"AbilityChannelTime"			"1 1.75 2.5 3.25"
-		"AbilityCooldown"				"8 7.5 7 6.5"
-		"AbilityValues"
-		{
-				"duration"					"1 1.75 2.5 3.25"
-				"shard_attack_range_bonus"
-				{
-					"RequiresShard"				"1"
-					"value"						"300"
 				}
 		}
 	}
@@ -13789,20 +13690,21 @@
 		"AbilityManaCost"				"100 150 200 250"
 		"AbilityValues"
 		{
-				"coil_duration"				"6.0"
-				"coil_break_radius"			"600"
-				"stun_duration"				"0.5"
-				"coil_initial_damage"		"125 200 275 350"
+				"coil_initial_damage"
+				{
+					"value"					"125 200 275 350"
+					"special_bonus_unique_puck_coil_damage"			"+150"
+				}
 				"coil_stun_duration"
 				{
 					"value"			"1.8 2.4 3.0 3.6"
-					"special_bonus_unique_puck_4"	"+1"
+					"special_bonus_unique_puck_4"	"+0.6"
 				}
 				"coil_break_damage"
 				{
 					"value"					"200 300 400 500"
+					"special_bonus_unique_puck_coil_damage"			"+150"
 				}
-				"coil_radius"				"375"
 		}
 	}
 	//=================================================================================================================
@@ -13841,71 +13743,28 @@
 		"AbilityCooldown"				"15.0 13.0 11.0 9.0 7.0"
 		"AbilityValues"
 		{
-			"bonus_spell_damage_pct_allies"
-			{
-				"value"	"-25"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
-			}
-			"bonus_movement_speed_allies"		"0"
 			"bonus_spell_damage_pct"
 			{
 				"value"		"-30 -40 -50 -60 -70"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
 			}
 			"bonus_movement_speed"		"-30 -40 -50 -60 -70"
-			"AbilityDuration"
-			{
-				"value"				"3.0"
-				"special_bonus_unique_pugna_5" "+1.0"
-			}
-		}
-	}
-	"pugna_nether_ward"
-	{
-		"AbilityDuration"				"20 25 30 35"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"base_damage"			"100"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"mana_multiplier"			"1.0 1.25 1.50 1.75"
-				"LinkedSpecialBonus"		"special_bonus_unique_pugna_3"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attacks_to_destroy_tooltip"				"6 6 6 6"
-				"LinkedSpecialBonus"		"special_bonus_unique_pugna_6"
-			}
 		}
 	}
 	"pugna_life_drain"
 	{
 		"MaxLevel" "4"
-		"AbilityManaCost"				"125 150 175 200"
-		"AbilitySpecial"
+		"AbilityManaCost"				"125 175 225 275"
+		"AbilityValues"
 		{
-			"01"
+			"health_drain"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"health_drain"					"150 250 350 450"
+				"value"					"150 225 300 375"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"02"
+			"shard_damage_pct_from_ward"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"scepter_health_drain"			"350 450 550 650"
-				"RequiresScepter"		"1"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"shard_damage_pct_from_ward"			"60"
+				"value"				"60"
 				"RequiresShard"		"1"
 			}
 		}
@@ -15574,17 +15433,11 @@
 		"AbilityCooldown"				"20.0 18.0 16.0 14.0 12.0"
 		"AbilityValues"
 		{
-			"hero_duration"			"1.5"
-			"creep_duration"		"2"
-			"hero_damage"			"40"
-			"bounce_range"			"575 575 575 575"
 			"bounces"
 			{
 				"value"					"3 5 7 9 11"
 				"special_bonus_unique_witch_doctor_3"			"+3"
 			}
-			"speed"					"1000"
-			"bounce_delay"			"0.3"
 			"bounce_bonus_damage"			"20 25 30 35 40"
 		}
 	}
