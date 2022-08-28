@@ -176,6 +176,10 @@ local keleSteamAccountID = Set {
 	-- 榨汁可乐橙
 	330994098,
 }
+local loset12SteamAccountID = Set {
+	-- loset12
+	150252080,
+}
 
 -- 称号属性 END
 
@@ -357,5 +361,9 @@ function EnablePlayerModifier(hEntity)
 	if keleSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_kele", "modifiers/player/modifier_player_kele", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_kele", {})
+	end
+	if loset12SteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_loset12", "modifiers/player/modifier_player_loset12", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_loset12", {})
 	end
 end
