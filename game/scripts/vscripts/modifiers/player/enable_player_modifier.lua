@@ -308,6 +308,8 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_goku", {})
 		LinkLuaModifier("modifier_player_luoshu", "modifiers/player/modifier_player_luoshu", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_luoshu", {})
+		LinkLuaModifier("modifier_player_luoshu_2", "modifiers/player/modifier_player_luoshu_2", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_luoshu_2", {})
 	end
 
 	if m5xwSteamAccountID[steamAccountID] then
