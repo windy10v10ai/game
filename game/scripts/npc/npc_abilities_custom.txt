@@ -748,7 +748,7 @@
 			"radius"						"300"
 			"range_knockback"				"300"
 			"speed"							"1600"
-			"damage"						"120 200 280 360 440"
+			"damage"						"120 180 240 300 380"
 			"stun_duration"					"1.2 1.4 1.6 1.8 2.0"
 		}
 	}
