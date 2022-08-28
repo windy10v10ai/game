@@ -208,6 +208,8 @@
 		"DOTA_Tooltip_modifier_player_xiayibing_Description"	"<font color='#0096FF'> 2009级卡尔亡 </font>"
 		"DOTA_Tooltip_modifier_player_luoshu"					"<font color='#FFCC66'>★ 洛书 ★</font>"
 		"DOTA_Tooltip_modifier_player_luoshu_Description"		"<font color='#FFCC66'> 然而和我洛书有什么关系呢？ </font>"
+		"DOTA_Tooltip_modifier_player_luoshu_2"					"<font color='#FFCC66'>★ 天神下凡 ★</font>"
+		"DOTA_Tooltip_modifier_player_luoshu_2_Description"		"<font color='#FFCC66'> 天神下凡刹那，风云为之色变，大地为之双分。天辉与夜魇因此诞生，也因此永世不得停息，争斗不止。 </font>"
 		"DOTA_Tooltip_modifier_player_m5xw"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_mingri"					"<font color='#FFCC66'>★ 这车能坐吗 ★</font>"
 		"DOTA_Tooltip_modifier_player_liaoran"					"<font color='#FFCC66'>★ 比队友跑的快！ ★</font>"
