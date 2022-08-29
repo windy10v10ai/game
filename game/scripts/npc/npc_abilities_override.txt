@@ -103,7 +103,7 @@
 		{
 				"bonus_building_damage"		"150"			// -150
 				"incoming_hero_damage_penalty"		"-50"	// -50
-				"incoming_basic_damage_penalty"		"20"	// -30
+				"incoming_basic_damage_penalty"		"10"	// -30
 		}
 	}
 
@@ -6728,15 +6728,8 @@
 				"value"										"40 60 80 100 120"
 			}
 			"agility_multiplier"							"30 40 50 60 70"
-			"agility_range"									"1200"
-			"split_count"
-			{
-				"value"										"0"
-				"special_bonus_scepter"						"+2"
-			}
-			"split_range"									"375"
-			"split_damage_reduction"						"50"
-			"disable_range"									"400"
+			"split_range"									"300"
+			"split_damage_reduction"						"60"
 
 		}
 	}
