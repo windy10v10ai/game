@@ -3488,7 +3488,7 @@
 			"bonus_agility"			"70"
 			"bonus_strength"		"40"
 			"base_attack_range"		"250"
-			"push_length"			"1200"
+			"push_length"			"1000"
 			"enemy_length"			"550"
 			"range_duration"		"6"
 			"cast_range_enemy"		"800"

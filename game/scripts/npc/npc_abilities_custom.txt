@@ -59,9 +59,9 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
-		"AbilityCastPoint"				"0.5"
-		"AbilityCooldown"				"30.0 26.0 22.0 18.0 14.0"
-		"AbilityManaCost"				"175 275 375 475 575"
+		"AbilityCastPoint"				"0.6"
+		"AbilityCooldown"				"20.0"
+		"AbilityManaCost"				"200 275 350 425 500"
 		"HasScepterUpgrade"				"1"
 
 		// Casting
@@ -92,7 +92,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"total_cast_time_tooltip"	"0.5"
+				"total_cast_time_tooltip"	"0.6"
 			}
 			"04"
 			{
