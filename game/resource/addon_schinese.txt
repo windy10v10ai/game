@@ -197,6 +197,12 @@
 		"DOTA_Tooltip_modifier_player_j3e9"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_xin"						"<font color='#FFCC66'>★ 鲨鱼辣椒 ★</font>"
 		"DOTA_Tooltip_modifier_player_xin_Description"			"<font color='#FFCC66'> 鲨鱼辣椒不吃辣~ </font>"
+		"DOTA_Tooltip_modifier_player_xin_2"					"<font color='#FFCC66'>★ 蝎子莱莱 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_2_Description"		"<font color='#FFCC66'>★ 尊贵的心悦1会员福利 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_3"					"<font color='#FFCC66'>★ 蜘蛛侦探 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_3_Description"		"<font color='#FFCC66'>★ 尊贵的心悦2会员福利 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_4"					"<font color='#FFCC66'>★ 蟑螂恶霸 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_4_Description"		"<font color='#FFCC66'>★ 尊贵的心悦3会员福利 ★</font>"
 		"DOTA_Tooltip_modifier_player_qiannian"					"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_feiji"					"<font color='#A149FA'>★ 贝伦卡斯泰露的庇佑 ★</font>"
 		"DOTA_Tooltip_modifier_player_feiji_Description"		"<font color='#A149FA'> 古户绘梨花受到了奇迹的魔女贝伦卡斯泰露的庇佑 </font>"
@@ -228,7 +234,8 @@
 		"DOTA_Tooltip_modifier_player_dky190_3"					"<font color='#FFCC66'>★ Tiny的魔法书 ★</font>"
 		"DOTA_Tooltip_modifier_player_kele"						"<font color='#FFCC66'>★ 我一定会回来的！！！！ ★</font>"
 		"DOTA_Tooltip_modifier_player_kele_Description"			"<font color='#FFCC66'> 我一定会回来的！！！！ </font>"
-		"DOTA_Tooltip_modifier_player_loset12"					"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_loset12"					"<font color='#FA9494'>★ 猪 ★</font>"
+		"DOTA_Tooltip_modifier_player_loset12_2"				"<font color='#FA9494'>★ 猪队友 ★</font>"
 
 
 		// 初音未来
