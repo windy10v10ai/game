@@ -184,6 +184,10 @@ local chuyinSteamAccountID = Set {
 	-- 初音没未来了
 	908271686,
 }
+local sushiSteamAccountID = Set {
+	-- 速食上好佳
+	160996305,
+}
 
 -- 称号属性 END
 
@@ -385,5 +389,9 @@ function EnablePlayerModifier(hEntity)
 	if chuyinSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_chuyin", "modifiers/player/modifier_player_chuyin", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_chuyin", {})
+	end
+	if sushiSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_sushi", "modifiers/player/modifier_player_sushi", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_sushi", {})
 	end
 end
