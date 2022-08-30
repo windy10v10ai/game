@@ -180,6 +180,10 @@ local loset12SteamAccountID = Set {
 	-- loset12
 	150252080,
 }
+local chuyinSteamAccountID = Set {
+	-- 初音没未来了
+	908271686,
+}
 
 -- 称号属性 END
 
@@ -377,5 +381,9 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_loset12", {})
 		LinkLuaModifier("modifier_player_loset12_2", "modifiers/player/modifier_player_loset12_2", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_loset12_2", {})
+	end
+	if chuyinSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_chuyin", "modifiers/player/modifier_player_chuyin", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_chuyin", {})
 	end
 end
