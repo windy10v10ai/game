@@ -197,6 +197,12 @@
 		"DOTA_Tooltip_modifier_player_j3e9"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_xin"						"<font color='#FFCC66'>★ 鲨鱼辣椒 ★</font>"
 		"DOTA_Tooltip_modifier_player_xin_Description"			"<font color='#FFCC66'> 鲨鱼辣椒不吃辣~ </font>"
+		"DOTA_Tooltip_modifier_player_xin_2"					"<font color='#FFCC66'>★ 蝎子莱莱 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_2_Description"		"<font color='#FFCC66'>★ 尊贵的心悦1会员福利 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_3"					"<font color='#FFCC66'>★ 蜘蛛侦探 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_3_Description"		"<font color='#FFCC66'>★ 尊贵的心悦2会员福利 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_4"					"<font color='#FFCC66'>★ 蟑螂恶霸 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_4_Description"		"<font color='#FFCC66'>★ 尊贵的心悦3会员福利 ★</font>"
 		"DOTA_Tooltip_modifier_player_qiannian"					"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_feiji"					"<font color='#A149FA'>★ 贝伦卡斯泰露的庇佑 ★</font>"
 		"DOTA_Tooltip_modifier_player_feiji_Description"		"<font color='#A149FA'> 古户绘梨花受到了奇迹的魔女贝伦卡斯泰露的庇佑 </font>"
@@ -208,6 +214,8 @@
 		"DOTA_Tooltip_modifier_player_xiayibing_Description"	"<font color='#0096FF'> 2009级卡尔亡 </font>"
 		"DOTA_Tooltip_modifier_player_luoshu"					"<font color='#FFCC66'>★ 洛书 ★</font>"
 		"DOTA_Tooltip_modifier_player_luoshu_Description"		"<font color='#FFCC66'> 然而和我洛书有什么关系呢？ </font>"
+		"DOTA_Tooltip_modifier_player_luoshu_2"					"<font color='#FFCC66'>★ 天神下凡 ★</font>"
+		"DOTA_Tooltip_modifier_player_luoshu_2_Description"		"<font color='#FFCC66'> 天神下凡刹那，风云为之色变，大地为之双分。天辉与夜魇因此诞生，也因此永世不得停息，争斗不止。 </font>"
 		"DOTA_Tooltip_modifier_player_m5xw"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_mingri"					"<font color='#FFCC66'>★ 这车能坐吗 ★</font>"
 		"DOTA_Tooltip_modifier_player_liaoran"					"<font color='#FFCC66'>★ 比队友跑的快！ ★</font>"
@@ -223,6 +231,11 @@
 		"DOTA_Tooltip_modifier_player_dky190"					"<font color='#FFCC66'>★ Tiny ★</font>"
 		"DOTA_Tooltip_modifier_player_dky190_2"					"<font color='#FFCC66'>★ 極速之翼 ★</font>"
 		"DOTA_Tooltip_modifier_player_dky190_2_Description"		"<font color='#FFCC66'> 快的飞起 </font>"
+		"DOTA_Tooltip_modifier_player_dky190_3"					"<font color='#FFCC66'>★ Tiny的魔法书 ★</font>"
+		"DOTA_Tooltip_modifier_player_kele"						"<font color='#FFCC66'>★ 我一定会回来的！！！！ ★</font>"
+		"DOTA_Tooltip_modifier_player_kele_Description"			"<font color='#FFCC66'> 我一定会回来的！！！！ </font>"
+		"DOTA_Tooltip_modifier_player_loset12"					"<font color='#FA9494'>★ 猪 ★</font>"
+		"DOTA_Tooltip_modifier_player_loset12_2"				"<font color='#FA9494'>★ 猪队友 ★</font>"
 
 
 		// 初音未来
@@ -904,7 +917,7 @@
 
 		// item_abyssal_blade_v2 一闪
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"									"一闪"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"						"<h1>主动：一闪</h1>瞬移到目标面前，并将其击晕%stun_m%秒，造成英雄当前力量乘%dam%的纯粹伤害。\n<h1>被动：<font color='#F19B8F'>圣嘉然之力</font></h1>攻击目标时，近战有%ch_m%% ，远程有%ch_r%% 概率将其击晕%stun%秒，并额外造成%damatt%点物理伤害。\n<h1>被动：<font color='#f15b47'>萧瑟</font></h1>受到物理攻击时，有%block_chance%% 概率格挡伤害，近战减免%block_damage_melee%伤害，远程减免%block_damage_ranged%伤害。"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"						"<h1>主动：一闪</h1>瞬移到目标面前，并将其击晕%stun_m%秒，造成%active_damage_base%+%active_damage_multi%x[英雄力量]的纯粹伤害。<br><br>施法距离：%abilitycastrange%\n<h1>被动：<font color='#F19B8F'>圣嘉然之力</font></h1>攻击目标时，近战有%ch_m%% ，远程有%ch_r%% 概率将其击晕%stun%秒，并额外造成%damatt%点物理伤害。\n<h1>被动：<font color='#f15b47'>萧瑟</font></h1>受到物理攻击时，有%block_chance%% 概率格挡伤害，近战减免%block_damage_melee%伤害，远程减免%block_damage_ranged%伤害。"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_Lore"                  				"天空一声巨响，老子闪亮登场"
 		"DOTA_Tooltip_modifier_item_abyssal_blade_v2_debuff"							"眩晕"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_damage"						"+$damage"
