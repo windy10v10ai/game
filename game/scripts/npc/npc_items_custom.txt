@@ -3489,10 +3489,10 @@
 			"bonus_strength"		"40"
 			"base_attack_range"		"250"
 			"push_length"			"1000"
-			"enemy_length"			"550"
+			"enemy_length"			"500"
 			"range_duration"		"6"
 			"cast_range_enemy"		"800"
-			"max_attacks"			"10"
+			"max_attacks"			"12"
 			"bonus_attack_speed"	"200"
 		}
 	}
