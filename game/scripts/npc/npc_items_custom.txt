@@ -3041,7 +3041,7 @@
 	}
 
 	//=================================================================================================================
-	// recipe yishan
+	// recipe yishan 一闪
 	//=================================================================================================================
 	"item_recipe_abyssal_blade_v2"
 	{
@@ -3091,7 +3091,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"20"
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
 
 
@@ -3104,75 +3104,25 @@
 		"ItemAliases"					"abyssal blade"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun"					"1.2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ch_m"					"30"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ch_r"					"15"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dam"					"3"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_m"				"2.4"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"block_chance"			"85"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"block_damage_melee"	"200"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"block_damage_ranged"	"100"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damatt"				"240"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"500"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"20"
-			}
+			"bonus_damage"			"100"
+			"bonus_strength"		"50"
+			"bonus_health"			"500"
+			"bonus_health_regen"	"20"
+			// active
+			"stun_m"				"2.4"
+			"active_damage_base"	"150"
+			"active_damage_multi"	"2"
+			// Passive
+			"stun"					"1.2"
+			"ch_m"					"30"
+			"ch_r"					"15"
+			"block_chance"			"85"
+			"block_damage_melee"	"200"
+			"block_damage_ranged"	"100"
+			"damatt"				"240"
 		}
 	}
 
@@ -3538,7 +3488,7 @@
 			"bonus_agility"			"70"
 			"bonus_strength"		"40"
 			"base_attack_range"		"250"
-			"push_length"			"1200"
+			"push_length"			"1000"
 			"enemy_length"			"550"
 			"range_duration"		"6"
 			"cast_range_enemy"		"800"
