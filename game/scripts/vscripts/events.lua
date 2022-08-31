@@ -129,10 +129,13 @@ function AIGameMode:InitHeroSelection()
 		print("[AIGameMode] InitSettings")
 		-- 初始化玩家列表和初期金钱
 		self.tHumanPlayerList = {}
+		self.tIfChangeHeroList = {}
 		for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
 			if PlayerResource:GetConnectionState(i) ~= DOTA_CONNECTION_STATE_UNKNOWN then
 				-- set human player list
 				self.tHumanPlayerList[i] = true
+				-- 是否更换了会员英雄
+				self.tIfChangeHeroList[i] = false
 				-- set start gold
 				PlayerResource:SetGold(i, (self.iStartingGoldPlayer-600),true)
 			end
@@ -815,6 +818,8 @@ function AIGameMode:OnPlayerChat( event )
 			pszHeroClass = "npc_dota_hero_chen"
 		end
 		if pszHeroClass ~= nil then
+			if self.tIfChangeHeroList[iPlayerID] then return end
+			self.tIfChangeHeroList[iPlayerID] = true
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			return
@@ -826,6 +831,8 @@ function AIGameMode:OnPlayerChat( event )
 			pszHeroClass = "npc_dota_hero_clinkz"
 		end
 		if pszHeroClass ~= nil then
+			if self.tIfChangeHeroList[iPlayerID] then return end
+			self.tIfChangeHeroList[iPlayerID] = true
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			GameRules:SendCustomMessage(
@@ -845,6 +852,8 @@ function AIGameMode:OnPlayerChat( event )
 			pszHeroClass = "npc_dota_hero_chen"
 		end
 		if pszHeroClass ~= nil then
+			if self.tIfChangeHeroList[iPlayerID] then return end
+			self.tIfChangeHeroList[iPlayerID] = true
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			return
