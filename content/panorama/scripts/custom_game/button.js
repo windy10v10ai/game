@@ -63,7 +63,7 @@ function LoadMemberButton(table, key, gameResult) {
 		return;
 	}
     const player = gameResult.players[Game.GetLocalPlayerID()];
-    $.Msg(player);
+    // $.Msg(player);
     if (!player.memberInfo) {
         return;
     }

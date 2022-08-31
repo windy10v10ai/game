@@ -1,0 +1,25 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/item_choice.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/item_choice.js" />
+	</scripts>
+
+	<Panel hittest="false" class="item_choice_root" >
+		<Panel id="item_choice_container" >
+			<Label id="item_choice_label" text="#item_choice_header" />
+
+			<Panel id="item_choice_row" >
+				<DOTAItemImage id="item_choice_1" class="item_choice" itemname="item_tpscroll" onmouseactivate="MakeItemChoice('1')" />
+				<DOTAItemImage id="item_choice_2" class="item_choice" itemname="item_tpscroll" onmouseactivate="MakeItemChoice('2')" />
+				<DOTAItemImage id="item_choice_3" class="item_choice" itemname="item_tpscroll" onmouseactivate="MakeItemChoice('3')" />
+				<DOTAItemImage id="item_choice_4" class="item_choice" itemname="item_tpscroll" onmouseactivate="MakeItemChoice('4')" />
+			</Panel>
+
+			<ProgressBar id="remaining_time" value="300" max="300" />
+
+		</Panel>
+	</Panel>
+</root>

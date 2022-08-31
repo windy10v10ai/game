@@ -624,6 +624,11 @@ function AIGameMode:OnNPCSpawned(keys)
 			SniperInit(hEntity, self)
 		end
 
+		-- choose item 玩家抽选物品
+		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
+			self:SpecialItemAdd(hEntity)
+		end
+
 		-- Bots modifier 机器人AI脚本
 		if not self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
 			if not hEntity:HasModifier("modifier_bot_think_strategy") then
