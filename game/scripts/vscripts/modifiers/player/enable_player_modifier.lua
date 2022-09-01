@@ -188,6 +188,10 @@ local sushiSteamAccountID = Set {
 	-- 速食上好佳
 	160996305,
 }
+local kdvhSteamAccountID = Set {
+	-- 爱发电用户_kDVh
+	59388035,
+}
 
 -- 称号属性 END
 
@@ -369,6 +373,8 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_puck1609_2", {})
 		LinkLuaModifier("modifier_player_puck1609_3", "modifiers/player/modifier_player_puck1609_3", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_puck1609_3", {})
+		LinkLuaModifier("modifier_player_puck1609_4", "modifiers/player/modifier_player_puck1609_4", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_puck1609_4", {})
 	end
 	if dky190SteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_dky190", "modifiers/player/modifier_player_dky190", LUA_MODIFIER_MOTION_NONE)
@@ -397,5 +403,13 @@ function EnablePlayerModifier(hEntity)
 	if sushiSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_sushi", "modifiers/player/modifier_player_sushi", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_sushi", {})
+	end
+	if kdvhSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_kdvh_1", "modifiers/player/modifier_player_kdvh_1", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_kdvh_1", {})
+		LinkLuaModifier("modifier_player_kdvh_2", "modifiers/player/modifier_player_kdvh_2", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_kdvh_2", {})
+		LinkLuaModifier("modifier_player_kdvh_3", "modifiers/player/modifier_player_kdvh_3", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_kdvh_3", {})
 	end
 end
