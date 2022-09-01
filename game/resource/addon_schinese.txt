@@ -239,6 +239,8 @@
 		"DOTA_Tooltip_modifier_player_puck1609_2_Description"	"<font color='#FFCC66'> 博麗霊夢 </font>"
 		"DOTA_Tooltip_modifier_player_puck1609_3"				"<font color='#FFCC66'>★ Windstorm Wing ★</font>"
 		"DOTA_Tooltip_modifier_player_puck1609_3_Description"	"<font color='#FFCC66'> 射命丸文 </font>"
+		"DOTA_Tooltip_modifier_player_puck1609_4"				"<font color='#FFCC66'>★ Momiji Shield ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_4_Description"	"<font color='#FFCC66'> 犬走椛 </font>"
 		"DOTA_Tooltip_modifier_player_dky190"					"<font color='#FFCC66'>★ Tiny ★</font>"
 		"DOTA_Tooltip_modifier_player_dky190_2"					"<font color='#FFCC66'>★ 極速之翼 ★</font>"
 		"DOTA_Tooltip_modifier_player_dky190_2_Description"		"<font color='#FFCC66'> 快的飞起 </font>"
@@ -248,9 +250,12 @@
 		"DOTA_Tooltip_modifier_player_kele_Description"			"<font color='#FFCC66'> 我一定会回来的！！！！ </font>"
 		"DOTA_Tooltip_modifier_player_loset12"					"<font color='#FA9494'>★ 猪 ★</font>"
 		"DOTA_Tooltip_modifier_player_loset12_2"				"<font color='#FA9494'>★ 猪队友 ★</font>"
-		"DOTA_Tooltip_modifier_player_chuyin"					"<font color='#FFCC66'>★ 甘狄拔神弓之力 ★</font>"
+		"DOTA_Tooltip_modifier_player_chuyin"					"<font color='#FFCC66'>★ 射爆AI全家 ★</font>"
 		"DOTA_Tooltip_modifier_player_sushi"					"<font color='#FFCC66'>★ 基神的强袭自由 ★</font>"
 		"DOTA_Tooltip_modifier_player_sushi_Description"		"<font color='#FFCC66'> 天苍茫镜花水月之像，今朝我粉墨登场~ </font>"
+		"DOTA_Tooltip_modifier_player_kdvh_1"					"<font color='#FFCC66'>★ 男人的加油站 ★</font>"
+		"DOTA_Tooltip_modifier_player_kdvh_2"					"<font color='#FFCC66'>★ 快男也可以很骄傲 ★</font>"
+		"DOTA_Tooltip_modifier_player_kdvh_3"					"<font color='#FFCC66'>★ 浴血奋战才是真男人 ★</font>"
 
 
 		// 初音未来
