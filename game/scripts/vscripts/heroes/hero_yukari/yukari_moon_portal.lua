@@ -1,11 +1,11 @@
-LinkLuaModifier("modifier_yukari_moon_portal", "heroes/yukari_moon_portal", LUA_MODIFIER_MOTION_BOTH)
+LinkLuaModifier("modifier_yukari_moon_portal", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_BOTH)
 LinkLuaModifier("modifier_yukari_tp", "modifiers/modifier_yukari_tp", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_yukari_tp_3", "modifiers/modifier_yukari_tp_3", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_yukari_moon_portal_root", "heroes/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_yukari_moon_portal_caster", "heroes/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_yukari_leashed", "heroes/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_yukari_muted", "heroes/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_yukari_moon_portal_unlock", "heroes/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_yukari_moon_portal_root", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_yukari_moon_portal_caster", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_yukari_leashed", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_yukari_muted", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_yukari_moon_portal_unlock", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
 yukari_moon_portal = class({})
 function yukari_moon_portal:IsHiddenWhenStolen() return false end
 function yukari_moon_portal:IsRefreshable() return true end

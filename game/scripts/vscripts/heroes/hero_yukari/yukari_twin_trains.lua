@@ -1,6 +1,6 @@
 yukari_twin_trains = class({})
-LinkLuaModifier( "modifier_train_1", "heroes/yukari_twin_trains", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_train_2", "heroes/yukari_twin_trains", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_train_1", "heroes/hero_yukari/yukari_twin_trains", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_train_2", "heroes/hero_yukari/yukari_twin_trains", LUA_MODIFIER_MOTION_NONE )
 
 --function yukari_twin_trains:OnUpgrade()
    -- local ability = self:GetCaster():FindAbilityByName("yukari_mass_tp")
