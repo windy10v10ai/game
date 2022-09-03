@@ -80,6 +80,13 @@
 
 		///////////////////////////////////////////////////
 		//
+		//            Choose Item
+		//
+		///////////////////////////////////////////////////
+		"item_choice_header"										"选择一个道具！"
+
+		///////////////////////////////////////////////////
+		//
 		//            Member
 		//
 		///////////////////////////////////////////////////
@@ -228,14 +235,27 @@
 		"DOTA_Tooltip_modifier_player_nmjb"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_puck1609"					"<font color='#FFCC66'>★ Endless Crazy ★</font>"
 		"DOTA_Tooltip_modifier_player_puck1609_Description"		"<font color='#FFCC66'> フランドール♥スカーレット </font>"
+		"DOTA_Tooltip_modifier_player_puck1609_2"				"<font color='#FFCC66'>★ Gensokyo Miko ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_2_Description"	"<font color='#FFCC66'> 博麗霊夢 </font>"
+		"DOTA_Tooltip_modifier_player_puck1609_3"				"<font color='#FFCC66'>★ Windstorm Wing ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_3_Description"	"<font color='#FFCC66'> 射命丸文 </font>"
+		"DOTA_Tooltip_modifier_player_puck1609_4"				"<font color='#FFCC66'>★ Momiji Shield ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_4_Description"	"<font color='#FFCC66'> 犬走椛 </font>"
 		"DOTA_Tooltip_modifier_player_dky190"					"<font color='#FFCC66'>★ Tiny ★</font>"
 		"DOTA_Tooltip_modifier_player_dky190_2"					"<font color='#FFCC66'>★ 極速之翼 ★</font>"
 		"DOTA_Tooltip_modifier_player_dky190_2_Description"		"<font color='#FFCC66'> 快的飞起 </font>"
 		"DOTA_Tooltip_modifier_player_dky190_3"					"<font color='#FFCC66'>★ Tiny的魔法书 ★</font>"
+		"DOTA_Tooltip_modifier_player_dky190_4"					"<font color='#FFCC66'>★ Tiny这把想躺赢 ★</font>"
 		"DOTA_Tooltip_modifier_player_kele"						"<font color='#FFCC66'>★ 我一定会回来的！！！！ ★</font>"
 		"DOTA_Tooltip_modifier_player_kele_Description"			"<font color='#FFCC66'> 我一定会回来的！！！！ </font>"
 		"DOTA_Tooltip_modifier_player_loset12"					"<font color='#FA9494'>★ 猪 ★</font>"
 		"DOTA_Tooltip_modifier_player_loset12_2"				"<font color='#FA9494'>★ 猪队友 ★</font>"
+		"DOTA_Tooltip_modifier_player_chuyin"					"<font color='#FFCC66'>★ 射爆AI全家 ★</font>"
+		"DOTA_Tooltip_modifier_player_sushi"					"<font color='#FFCC66'>★ 基神的强袭自由 ★</font>"
+		"DOTA_Tooltip_modifier_player_sushi_Description"		"<font color='#FFCC66'> 天苍茫镜花水月之像，今朝我粉墨登场~ </font>"
+		"DOTA_Tooltip_modifier_player_kdvh_1"					"<font color='#FFCC66'>★ 男人的加油站 ★</font>"
+		"DOTA_Tooltip_modifier_player_kdvh_2"					"<font color='#FFCC66'>★ 快男也可以很骄傲 ★</font>"
+		"DOTA_Tooltip_modifier_player_kdvh_3"					"<font color='#FFCC66'>★ 浴血奋战才是真男人 ★</font>"
 
 
 		// 初音未来
@@ -1128,7 +1148,7 @@
 		"DOTA_Tooltip_Ability_item_recipe_hand_of_group"				                "团队之手（图纸）"
 	    "DOTA_Tooltip_ability_item_hand_of_group"										"团队之手"
 	    "DOTA_Tooltip_ability_item_hand_of_group_description"						    "<h1>主动：点石成金</h1> 立刻炼化一个普通单位，获得 %self_gold% 金钱和 %self_xp% 倍经验值。<br>目标周围 %group_range% 范围内的友军获得 %group_gold% 金钱和 %group_xp% 倍经验值。<br><br>无法用于远古单位。<br><br>施法距离：%abilitycastrange%"
-	    "DOTA_Tooltip_ability_item_hand_of_group_bonus_attsp"			                "+attack speed"
+	    "DOTA_Tooltip_ability_item_hand_of_group_attack_speed"			                "+$attack"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"明智的选择，科学的投资。"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"获得的金钱，经验不享有倍率加成。"
 

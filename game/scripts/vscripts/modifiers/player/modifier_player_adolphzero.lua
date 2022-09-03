@@ -9,10 +9,10 @@ function modifier_player_adolphzero:OnCreated()
 
 	self.iAttackRange = 0
 	if self:GetParent():IsRangedAttacker() then
-		self.iAttackRange = 50
+		self.iAttackRange = 200
 	end
 
-	local primaryAttributeBouns = 15
+	local primaryAttributeBouns = 30
 	self.strength = 0
 	self.agility = 0
 	self.intellect = 0
