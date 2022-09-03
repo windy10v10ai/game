@@ -113,7 +113,7 @@ end
 end
 
 modifier_yukari_01_hitcount = {}
-LinkLuaModifier("modifier_yukari_01_hitcount","scripts/vscripts/abilities/abilityyukari.lua",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_yukari_01_hitcount","scripts/vscripts/heroes/hero_yukari/yukari_01",LUA_MODIFIER_MOTION_NONE)
 function modifier_yukari_01_hitcount:IsHidden()      return true end
 function modifier_yukari_01_hitcount:IsPurgable()    return false end
 function modifier_yukari_01_hitcount:RemoveOnDeath() return true end

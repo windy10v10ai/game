@@ -1,6 +1,6 @@
 yukari_tentacles = class({})
-LinkLuaModifier( "modifier_yukari_tentacles", "heroes/yukari_tentacles", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_yukari_umb", "heroes/yukari_tp", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_yukari_tentacles", "heroes/hero_yukari/yukari_tentacles", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_yukari_umb", "heroes/hero_yukari/yukari_tp", LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------
 -- Custom KV
 -- AOE Radius

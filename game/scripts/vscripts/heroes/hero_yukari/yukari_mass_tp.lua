@@ -1,6 +1,6 @@
 yukari_mass_tp = class({})
 LinkLuaModifier( "modifier_yukari_tp", "modifiers/modifier_yukari_tp", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_yukari_muted", "heroes/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_yukari_muted", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
 --------------------------------------------------------------------------------
 -- Ability Start
 function yukari_mass_tp:OnSpellStart()
