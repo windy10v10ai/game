@@ -5610,7 +5610,7 @@
 		"ItemCost"						"6000"
 		"ItemAliases"					"diana candy"
 		"ItemPurchasable"				"1"
-		"ItemInitialCharges"			"1"
+		"ItemInitialCharges"			"2"
 		"ItemPermanent"					"0"
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"2"
