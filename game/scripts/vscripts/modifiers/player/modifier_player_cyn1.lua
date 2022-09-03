@@ -11,9 +11,14 @@ end
 function modifier_player_cyn1:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
 	}
 end
 
 function modifier_player_cyn1:GetModifierPercentageCooldown()
 	return self.iCooldownReduction
+end
+
+function modifier_player_cyn1:GetModifierBaseAttackTimeConstant()
+    return 1
 end
