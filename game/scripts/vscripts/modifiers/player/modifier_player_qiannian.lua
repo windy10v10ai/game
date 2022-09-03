@@ -14,7 +14,7 @@ function modifier_player_qiannian:OnCreated()
 	self.agility = 80
 	self.intellect = 0
 	self.iModelScale = -50
-	self.iMoveSpeed = 100
+	self.iMoveSpeed = 200
 	-- get parent's primary attribute
 	if IsClient() then return end
 	local primaryAttribute = self:GetParent():GetPrimaryAttribute()
@@ -37,6 +37,8 @@ function modifier_player_qiannian:DeclareFunctions()
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_MODEL_SCALE,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+        MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+        MODIFIER_PROPERTY_MOVESPEED_LIMIT,
 	}
 end
 
@@ -70,4 +72,12 @@ end
 
 function modifier_player_qiannian:GetModifierMoveSpeedBonus_Constant()
 	return self.iMoveSpeed
+end
+
+function modifier_player_qiannian:GetModifierMoveSpeed_Limit()
+    return 5000
+end
+
+function modifier_player_qiannian:GetModifierIgnoreMovespeedLimit()
+    return 1
 end

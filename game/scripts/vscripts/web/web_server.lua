@@ -96,29 +96,29 @@ function WebServer:RootAPI()
   end )
 end
 
-function WebServer:GetMember()
-  local path = "/members"
-  local url = self.hostname .. path
-  local key = GetDedicatedServerKeyV2("windy10v10ai")
-  print("[WEB]members url: " .. url)
-  local request = CreateHTTPRequest( "GET", url )
-  request:Send( function( result )
-    if result.StatusCode == 200 then
-      if string.find(result.Body, "136407523") then
-        local data = json.decode(result.Body)
-        print("[WEB]members table: ")
-        PrintTable(data)
-        WebServer.memberSteamAccountID = Set(data)
-        print("[WEB]memberSteamAccountID: ")
-        PrintTable(WebServer.memberSteamAccountID)
-      else
-        print( "[WEB]getMember failed with error " .. result.StatusCode )
-      end
-    else
-      print( "[WEB]getMember failed with error " .. result.StatusCode )
-    end
-  end )
-end
+-- function WebServer:GetMember()
+--   local path = "/members"
+--   local url = self.hostname .. path
+--   local key = GetDedicatedServerKeyV2("windy10v10ai")
+--   print("[WEB]members url: " .. url)
+--   local request = CreateHTTPRequest( "GET", url )
+--   request:Send( function( result )
+--     if result.StatusCode == 200 then
+--       if string.find(result.Body, "136407523") then
+--         local data = json.decode(result.Body)
+--         print("[WEB]members table: ")
+--         PrintTable(data)
+--         WebServer.memberSteamAccountID = Set(data)
+--         print("[WEB]memberSteamAccountID: ")
+--         PrintTable(WebServer.memberSteamAccountID)
+--       else
+--         print( "[WEB]getMember failed with error " .. result.StatusCode )
+--       end
+--     else
+--       print( "[WEB]getMember failed with error " .. result.StatusCode )
+--     end
+--   end )
+-- end
 
 
 function WebServer:GetMemberAll(retryTime)
@@ -126,7 +126,16 @@ function WebServer:GetMemberAll(retryTime)
     return
   end
   local path = "/members/all"
-  local url = self.hostname .. path .. "?retryTime="..retryTime
+  local steamIdQuery = ""
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) then
+      if string.len (steamIdQuery) > 0 then
+        steamIdQuery = steamIdQuery .. ","
+      end
+      steamIdQuery = steamIdQuery .. tostring(PlayerResource:GetSteamAccountID(playerID))
+    end
+  end
+  local url = self.hostname .. path .. "?retryTime="..retryTime.."&steamId="..steamIdQuery
   local key = GetDedicatedServerKeyV2("windy10v10ai")
   print("[WEB]members url: " .. url)
   local request = CreateHTTPRequest( "GET", url )
@@ -138,19 +147,15 @@ function WebServer:GetMemberAll(retryTime)
     end
 
     if result.StatusCode == 200 then
-      if string.find(result.Body, "136407523") then
-        local data = json.decode(result.Body)
-        print("[WEB]members table: ")
-        PrintTable(data)
-        for k,v in pairs(data) do
-          WebServer.memberSteamAccountID[v.steamId] = v
-        end
-        print("[WEB]memberSteamAccountID: ")
-        PrintTable(WebServer.memberSteamAccountID)
-        WebServer.getMemberInfoSuccess = true
-      else
-        print( "[WEB]getMember failed with error " .. result.StatusCode )
+      local data = json.decode(result.Body)
+      print("[WEB]members table: ")
+      PrintTable(data)
+      for k,v in pairs(data) do
+        WebServer.memberSteamAccountID[v.steamId] = v
       end
+      print("[WEB]memberSteamAccountID: ")
+      PrintTable(WebServer.memberSteamAccountID)
+      WebServer.getMemberInfoSuccess = true
     else
       print( "[WEB]getMember failed with error " .. result.StatusCode )
     end

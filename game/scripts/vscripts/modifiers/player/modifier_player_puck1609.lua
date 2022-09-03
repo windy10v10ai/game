@@ -9,6 +9,7 @@ function modifier_player_puck1609:OnCreated()
 	self.iBonusDamage = 120
 	self.agility = 80
 	self.iMoveSpeed = 100
+	self.iArmor = 40
 end
 
 function modifier_player_puck1609:DeclareFunctions()
@@ -17,6 +18,7 @@ function modifier_player_puck1609:DeclareFunctions()
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	}
 end
 
@@ -34,4 +36,8 @@ end
 
 function modifier_player_puck1609:GetModifierMoveSpeedBonus_Constant()
 	return self.iMoveSpeed
+end
+
+function modifier_player_puck1609:GetModifierPhysicalArmorBonus()
+    return  self.iArmor
 end

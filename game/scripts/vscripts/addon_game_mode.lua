@@ -12,6 +12,7 @@ require('util')
 require('settings')
 require('bot/bot_item_data')
 require('events')
+require('lottery/items')
 require('bot/bot_think_item_build')
 require('bot/bot_think_item_use')
 require('bot/bot_think_ability_use')
@@ -82,6 +83,8 @@ function AIGameMode:InitEvents()
 	CustomGameEventManager:RegisterListener("game_options_change", function(_, keys) return AIGameMode:OnGameOptionChange(keys) end)
 	-- 共享单位，禁用帮助
 	CustomGameEventManager:RegisterListener("set_unit_share_mask", function(_, keys) return AIGameMode:SetUnitShareMask(keys) end)
+	-- 选择道具
+	CustomGameEventManager:RegisterListener("item_choice_made", Dynamic_Wrap(AIGameMode, "FinishItemPick"))
 end
 
 
