@@ -1,8 +1,0 @@
-
-.tool/reference
-game/*.bin
-game/panorama_debugger.cfg
-game/resource/custom_game_whitelist.txt
-node_modules
-src/content/
-src/game/
