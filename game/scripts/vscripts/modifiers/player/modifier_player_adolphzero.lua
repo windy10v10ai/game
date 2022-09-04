@@ -13,8 +13,8 @@ function modifier_player_adolphzero:OnCreated()
 	end
 
 	local primaryAttributeBouns = 30
-	self.strength = 0
-	self.agility = 0
+	self.strength = 20
+	self.agility = 20
 	self.intellect = 0
 	-- get parent's primary attribute
 	if IsClient() then return end
