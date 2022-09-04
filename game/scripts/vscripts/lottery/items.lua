@@ -81,7 +81,7 @@ function AIGameMode:SpecialItemAdd(owner)
 	local item_tier = 1
 
 	local spawnedItem = {}
-	for i = 1, 4 do
+	for i = 1, 3 do
 		local repeatedTime = 0
 		local draw = RandomFloat(0.0, 100.0)
 		for iTier=#tierRate, 1, -1 do
