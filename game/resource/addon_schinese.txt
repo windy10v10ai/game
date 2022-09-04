@@ -246,6 +246,7 @@
 		"DOTA_Tooltip_modifier_player_dky190_2_Description"		"<font color='#FFCC66'> 快的飞起 </font>"
 		"DOTA_Tooltip_modifier_player_dky190_3"					"<font color='#FFCC66'>★ Tiny的魔法书 ★</font>"
 		"DOTA_Tooltip_modifier_player_dky190_4"					"<font color='#FFCC66'>★ Tiny这把想躺赢 ★</font>"
+		"DOTA_Tooltip_modifier_player_dky190_5"					"<font color='#FFCC66'>★ Tiny摆不动了 ★</font>"
 		"DOTA_Tooltip_modifier_player_kele"						"<font color='#FFCC66'>★ 我一定会回来的！！！！ ★</font>"
 		"DOTA_Tooltip_modifier_player_kele_Description"			"<font color='#FFCC66'> 我一定会回来的！！！！ </font>"
 		"DOTA_Tooltip_modifier_player_loset12"					"<font color='#FA9494'>★ 猪 ★</font>"
