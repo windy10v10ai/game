@@ -5,12 +5,13 @@ function modifier_player_dky190_3:RemoveOnDeath() return false end
 function modifier_player_dky190_3:GetTexture() return "player/dky190_3" end
 
 function modifier_player_dky190_3:OnCreated()
-	self.strength = 25
-	self.agility = 25
-	self.intellect = 25
+	self.strength = 50
+	self.agility = 50
+	self.intellect = 50
 	self.iCooldownReduction = 30
 	self.iLifeSteal = 15
 	self.iAttackSpeed = 20
+	self.iBonusDamage = 40
 end
 function modifier_player_dky190_3:DeclareFunctions()
 	return {
@@ -20,6 +21,7 @@ function modifier_player_dky190_3:DeclareFunctions()
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 	}
 end
 
@@ -45,4 +47,8 @@ end
 
 function modifier_player_dky190_3:GetModifierAttackSpeedBonus_Constant()
 	return self.iAttackSpeed
+end
+
+function modifier_player_dky190_3:GetModifierPreAttack_BonusDamage()
+	return self.iBonusDamage
 end

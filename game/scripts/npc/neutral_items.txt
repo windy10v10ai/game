@@ -115,6 +115,7 @@
 			"item_ascetic_cap"				"1"
 			"item_spell_prism"				"1"
 			"item_havoc_hammer"				"1"
+			"item_spy_gadget"				"1"
 		}
 	}
 	"5"
