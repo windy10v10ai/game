@@ -2385,7 +2385,7 @@
 		"ItemResult"					"item_skadi_2"
 		"ItemRequirements"
 		{
-			"01"						"item_skadi;item_ultimate_orb;item_ultimate_orb"
+			"01"						"item_skadi;item_ultimate_orb;item_satanic"
 		}
 	}
 
@@ -2404,6 +2404,7 @@
 		"AbilityValues"
 		{
 				"bonus_all_stats"		"50"
+				"bonus_strength"        "25"
 				"bonus_health"			"600"
 				"bonus_mana"			"600"
 				"cold_slow_melee"		"-40"
@@ -2412,6 +2413,7 @@
 				"cold_attack_slow_ranged"	"-120"
 				"cold_duration"	"4.0"
 				"heal_reduction"	"65"
+				"lifesteal_percent"    "40"
 		}
 	}
 
@@ -5557,6 +5559,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"16"
+		"AbilityItemCooldownReduction"  "100"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"300"
@@ -5589,6 +5592,7 @@
 			"heal_bonus"	"20"	//恢复增强
 			"duration"		"6"		//主动持续时间
 			"heal"			"5"		//反制回血%
+			"item_cooldown_reduction" "100"
 		}
 	}
 	//=================================================================================================================
