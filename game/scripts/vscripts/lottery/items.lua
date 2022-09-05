@@ -4,11 +4,16 @@ function AIGameMode:SpecialItemAdd(owner)
 	local tierRate = {}
 	tierRate[1] = 100
 	tierRate[2] = 20
-	tierRate[3] = 5
+	tierRate[3] = 6
+	tierRate[4] = 1
+	-- tierRate[5] = 0.6
 
 	local tier = {}
 
 	tier[1] =	{
+		"item_infused_raindrop",		-- 凝魂之露
+		"item_bottle",					-- 魔瓶
+		"item_cloak",					-- 抗魔斗篷
 		"item_crown",					-- 王冠
 		"item_belt_of_strength",		-- 力量+6
 		"item_boots_of_elves",			-- 敏捷+6
@@ -43,6 +48,8 @@ function AIGameMode:SpecialItemAdd(owner)
 	tier[3] =	{
 		"item_hand_of_midas",			-- 点金手
 		"item_holy_locket",				-- 圣洁吊坠
+		"item_ancient_janggo",			-- 战鼓
+		"item_meteor_hammer",			-- 陨星锤
 
 		"item_quicksilver_amulet",		-- 银闪护符
 		"item_spider_legs",				-- 网虫腿
@@ -50,49 +57,23 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_nether_shawl",			-- 幽冥披风
 		"item_pupils_gift",				-- 学徒之礼
 		"item_horizon",					-- 视界
-
-		-- "item_spy_gadget",
-		-- "item_timeless_relic",
-		-- "item_spell_prism",
-		-- "item_flicker",
-		-- "item_ninja_gear",
-		-- "item_illusionsts_cape",
-		-- "item_guardian_shell",
-		-- "item_ice_dragon_maw",
-		-- "item_paw_of_lucius",
-		-- "item_stonework_pendant",
-		-- "item_unhallowed_icon",
-		-- "item_carapace_of_qaldin",
-		-- "item_rhyziks_eye",
-		-- "item_the_leveller",
-		-- "item_penta_edged_sword",
-		-- "item_stormcrafter",
-		-- "item_trickster_cloak",
-		-- "item_heavy_blade",
 	}
 
 	tier[4] =	{
-		"item_force_boots",
-		"item_desolator_2",
-		"item_seer_stone",
-		"item_mirror_shield",
-		"item_fusion_rune",
-		"item_ballista",
-		"item_demonicon",
-		"item_fallen_sky",
-		"item_pirate_hat",
-		"item_ex_machina",
-		"item_apex",
-		"item_the_caustic_finale",
-		"item_glimmerdark_shield",
-		"item_dredged_trident",
-		"item_book_of_shadows",
-		"item_giants_ring",
-		"item_greater_mango",
+		"item_candy_candy",					-- 嘉心糖
+		"item_hand_of_group",				-- 团队之手
+		"item_tome_of_knowledge",			-- 知识之书
+		"item_aghanims_shard",				-- 阿哈利姆魔晶
+
+		"item_repair_kit",					-- 修理工具
+		"item_tome_of_aghanim",				-- 阿哈利姆之书
+		"item_illusionsts_cape",			-- 幻术师披风
+		"item_princes_knife",				-- 亲王短刀
+		"item_pirate_hat",					-- 海盗帽
 	}
 
 	tier[5] =	{
-		-- "item_excalibur",
+		-- "item_greater_mango",				-- 高级芒果
 	}
 
 	local hero = owner:GetClassname()
@@ -101,6 +82,7 @@ function AIGameMode:SpecialItemAdd(owner)
 
 	local spawnedItem = {}
 	for i = 1, 3 do
+		local repeatedTime = 0
 		local draw = RandomFloat(0.0, 100.0)
 		for iTier=#tierRate, 1, -1 do
 			if draw < tierRate[iTier] then
@@ -127,6 +109,10 @@ function AIGameMode:SpecialItemAdd(owner)
 
 			if not repeated_item then
 				spawnedItem[i] = potential_item
+				break
+			end
+			repeatedTime = repeatedTime + 1
+			if repeatedTime > 10 then
 				break
 			end
 		end

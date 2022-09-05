@@ -13,8 +13,8 @@ function modifier_player_adolphzero:OnCreated()
 	end
 
 	local primaryAttributeBouns = 30
-	self.strength = 0
-	self.agility = 0
+	self.strength = 20
+	self.agility = 20
 	self.intellect = 0
 	-- get parent's primary attribute
 	if IsClient() then return end
@@ -34,7 +34,12 @@ function modifier_player_adolphzero:DeclareFunctions()
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
 	}
+end
+
+function modifier_player_adolphzero:GetPriority()
+	return MODIFIER_PRIORITY_LOW
 end
 
 
@@ -56,4 +61,16 @@ end
 
 function modifier_player_adolphzero:GetModifierBonusStats_Intellect()
 	return self.intellect
+end
+
+function modifier_player_adolphzero:GetModifierBaseAttackTimeConstant()
+	if self.bat_check ~= true then
+		self.bat_check = true
+        local current_bat = self:GetParent():GetBaseAttackTime()
+
+        local bat_reduction = 0.1
+        local new_bat = current_bat - bat_reduction
+        self.bat_check = false
+        return new_bat
+    end
 end

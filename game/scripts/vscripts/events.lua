@@ -129,12 +129,15 @@ function AIGameMode:InitHeroSelection()
 		print("[AIGameMode] InitSettings")
 		-- 初始化玩家列表和初期金钱
 		self.tHumanPlayerList = {}
+		-- 是否更换了会员英雄
 		self.tIfChangeHeroList = {}
+		-- 是否选择了物品
+		self.tIfItemChosen = {}
 		for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
 			if PlayerResource:GetConnectionState(i) ~= DOTA_CONNECTION_STATE_UNKNOWN then
 				-- set human player list
 				self.tHumanPlayerList[i] = true
-				-- 是否更换了会员英雄
+				self.tIfItemChosen[i] = false
 				self.tIfChangeHeroList[i] = false
 				-- set start gold
 				PlayerResource:SetGold(i, (self.iStartingGoldPlayer-600),true)
@@ -628,8 +631,9 @@ function AIGameMode:OnNPCSpawned(keys)
 		end
 
 		-- choose item 玩家抽选物品
-		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
+		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] then
 			self:SpecialItemAdd(hEntity)
+			self.tIfItemChosen[hEntity:GetPlayerOwnerID()] = true
 		end
 
 		-- Bots modifier 机器人AI脚本
@@ -820,6 +824,7 @@ function AIGameMode:OnPlayerChat( event )
 		if pszHeroClass ~= nil then
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
+			self.tIfItemChosen[iPlayerID] = false
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			return
@@ -833,6 +838,7 @@ function AIGameMode:OnPlayerChat( event )
 		if pszHeroClass ~= nil then
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
+			self.tIfItemChosen[iPlayerID] = false
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			GameRules:SendCustomMessage(
@@ -854,6 +860,7 @@ function AIGameMode:OnPlayerChat( event )
 		if pszHeroClass ~= nil then
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
+			self.tIfItemChosen[iPlayerID] = false
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			return

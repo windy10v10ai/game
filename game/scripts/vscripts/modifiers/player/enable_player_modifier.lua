@@ -385,6 +385,8 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dky190_3", {})
 		LinkLuaModifier("modifier_player_dky190_4", "modifiers/player/modifier_player_dky190_4", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dky190_4", {})
+		LinkLuaModifier("modifier_player_dky190_5", "modifiers/player/modifier_player_dky190_5", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dky190_5", {})
 	end
 	if keleSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_kele", "modifiers/player/modifier_player_kele", LUA_MODIFIER_MOTION_NONE)
