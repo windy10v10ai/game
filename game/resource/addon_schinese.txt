@@ -270,6 +270,8 @@
 		"DOTA_Tooltip_modifier_player_kdvh_1"					"<font color='#FFCC66'>★ 男人的加油站 ★</font>"
 		"DOTA_Tooltip_modifier_player_kdvh_2"					"<font color='#FFCC66'>★ 快男也可以很骄傲 ★</font>"
 		"DOTA_Tooltip_modifier_player_kdvh_3"					"<font color='#FFCC66'>★ 浴血奋战才是真男人 ★</font>"
+		"DOTA_Tooltip_modifier_player_YYL"						"<font color='#FFCC66'>★ 游戏开发者 ★</font>"
+		"DOTA_Tooltip_modifier_player_aoliao"					"<font color='#FFCC66'>★ 奥利奥夹心饼 ★</font>"
 
 
 		// 初音未来
@@ -378,7 +380,7 @@
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"传送最大范围："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"弹幕持续伤害："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"增加一个新的技能：「深弹幕结界 -梦幻泡影-」"
-		
+
 
         // 虚空假面
         "DOTA_Tooltip_ability_faceless_void_backtrack"			"回到过去"
