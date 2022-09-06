@@ -192,6 +192,10 @@ local kdvhSteamAccountID = Set {
 	-- 爱发电用户_kDVh
 	59388035,
 }
+local YYLSteamAccountID = Set {
+	-- YYL
+	1159610111,
+}
 
 -- 称号属性 END
 
@@ -413,5 +417,9 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_kdvh_2", {})
 		LinkLuaModifier("modifier_player_kdvh_3", "modifiers/player/modifier_player_kdvh_3", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_kdvh_3", {})
+	end
+	if YYLSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_YYL", "modifiers/player/modifier_player_YYL", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_YYL", {})
 	end
 end
