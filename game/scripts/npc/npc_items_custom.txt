@@ -2385,7 +2385,7 @@
 		"ItemResult"					"item_skadi_2"
 		"ItemRequirements"
 		{
-			"01"						"item_skadi;item_ultimate_orb;item_satanic"
+			"01"						"item_skadi;item_ultimate_orb;item_ultimate_orb"
 		}
 	}
 
@@ -2413,7 +2413,6 @@
 				"cold_attack_slow_ranged"	"-120"
 				"cold_duration"	"4.0"
 				"heal_reduction"	"65"
-				"lifesteal_percent"    "40"
 		}
 	}
 
@@ -5375,6 +5374,7 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"25.0"
 		"AbilityManaCost"				"480"
+		"AbilitySharedCooldown"         "item_sheepstick"
 
 		"ItemCost"						"16900"
 		"ItemAliases"					"hex;sheepstick;scythe of vyse;nec;staff"
@@ -5559,7 +5559,6 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"16"
-		"AbilityItemCooldownReduction"  "100"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"300"
@@ -5592,7 +5591,6 @@
 			"heal_bonus"	"20"	//恢复增强
 			"duration"		"6"		//主动持续时间
 			"heal"			"5"		//反制回血%
-			"item_cooldown_reduction" "100"
 		}
 	}
 	//=================================================================================================================
