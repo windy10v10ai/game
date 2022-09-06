@@ -110,6 +110,12 @@ local enemies = FindUnitsInRadius(
 		-- damage
 		damageTable.victim = enemy
 		ApplyDamage(damageTable)
+		target:AddNewModifier(
+		self:GetCaster(),
+		self, 
+		"modifier_generic_stunned_lua", 
+		{ duration = self:GetSpecialValueFor( "stun_time" )  } 
+	)
 end		
 	self:PlayEffects(radius)
 	end)
@@ -188,6 +194,12 @@ function yukari_twin_trains:OnProjectileHitHandle( target, location, projectile 
 		ability = self, --Optional.
 	}
 	ApplyDamage( damageTable )
+	target:AddNewModifier(
+		self:GetCaster(),
+		self, 
+		"modifier_generic_stunned_lua", 
+		{ duration = self:GetSpecialValueFor( "stun_time" )  } 
+	)
 
 	-- get direction
 	local direction = ProjectileManager:GetLinearProjectileVelocity( projectile )
@@ -268,6 +280,12 @@ function modifier_train_2:OnProjectileHitHandle( target, location, projectile )
 		ability = self, --Optional.
 	}
 	ApplyDamage( damageTable )
+		target:AddNewModifier(
+		self:GetCaster(),
+		self, 
+		"modifier_generic_stunned_lua", 
+		{ duration = self:GetSpecialValueFor( "stun_time" )  } 
+	)
 
 	-- get direction
 	local direction = ProjectileManager:GetLinearProjectileVelocity( projectile )

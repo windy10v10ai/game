@@ -2055,7 +2055,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"magic"	"30"
+				"magic"	"50"
 			}
 			"03"
 			{
@@ -2664,6 +2664,11 @@
 				"var_type"	"FIELD_INTEGER"
 				"fixed_duration"	"1"
 			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"stun_time"	"1.2 1.4 1.6 1.8 2.0"
+			}
 		}
 		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
 		// Damage
@@ -2841,7 +2846,7 @@
 			"07"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_add"	"0.7"
+				"damage_add"	"0.8"
 			}
 		}
 		"SpellDispellableType"	"SPELL_DISPELLABLE_YES"
