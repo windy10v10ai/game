@@ -93,7 +93,7 @@
 		"player_member_ship"		"Sponsor. Click to view more."
 		"player_member_ship_url"		"https://www.patreon.com/windy10v10"
 
-		"player_member_button"		"Thank you for your sponsorship!<br/> - Type '-AbyssSword' to swap hero AbyssSword.<br/> - Type '-Goku' to swap hero Goku.<br/>Membership is valid until {expireDate}."
+		"player_member_button"		"Thank you for your sponsorship!<br/> - Type '-AbyssSword', '-Goku' or '-Yukari' to swap to new hero.<br/>Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your sponsorship!<br/>Membership is valid until {expireDate}, Click the button to renew."
 
 		///////////////////////////////////////////////////
@@ -489,7 +489,7 @@
         "DOTA_Tooltip_ability_ability_thdots_yukari04_min_radius"	"Teleport minimum range："
         "DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"Teleport maximum range："
         "DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"Barrage damage over time："
-        "DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"Add a new skill：「Deep Danmaku Barrier -Transient Dreams-」"		
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"Add a new skill：「Deep Danmaku Barrier -Transient Dreams-」"
 	    // 修补匠 刷新
 	    "DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."

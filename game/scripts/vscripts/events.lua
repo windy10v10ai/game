@@ -822,6 +822,13 @@ function AIGameMode:OnPlayerChat( event )
 		if sChatMsg:find( '-Goku' ) then
 			pszHeroClass = "npc_dota_hero_chen"
 		end
+
+		if sChatMsg:find( '-八云紫' ) then
+			pszHeroClass = "npc_dota_hero_phantom_lancer"
+		end
+		if sChatMsg:find( '-Yukari' ) then
+			pszHeroClass = "npc_dota_hero_phantom_lancer"
+		end
 		if pszHeroClass ~= nil then
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
