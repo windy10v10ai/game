@@ -98,7 +98,6 @@ developerSteamAccountID[143575444]="茶神"
 developerSteamAccountID[314757913]="孤尘"
 developerSteamAccountID[916506173]="Arararara"
 developerSteamAccountID[385130282]="米米花"
-developerSteamAccountID[353885092]="76"
 
 local luoshuHeroSteamAccountID = Set {
 	136668998,
