@@ -81,7 +81,7 @@ end
 
 
 function modifier_yukari_morph:GetModifierSpellAmplify_Percentage()
-    return 30
+    return 50
 end
 
 function modifier_yukari_morph:GetModifierMoveSpeedBonus_Constant()
