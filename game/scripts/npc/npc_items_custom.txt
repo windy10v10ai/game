@@ -2404,7 +2404,6 @@
 		"AbilityValues"
 		{
 				"bonus_all_stats"		"50"
-				"bonus_strength"        "25"
 				"bonus_health"			"600"
 				"bonus_mana"			"600"
 				"cold_slow_melee"		"-40"
