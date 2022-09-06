@@ -7,7 +7,7 @@ function modifier_player_76:GetTexture() return "player/76" end
 function modifier_player_76:OnCreated()
 	self.iMoveSpeed = 176
 	self.Bonus_Mana_Regen_Total_Percentage = 7.6
-	self.iItemCooldownReduction = 17.6
+	self.iCooldownReduction = 17.6
 end
 function modifier_player_76:DeclareFunctions()
 	return {
@@ -32,5 +32,5 @@ function modifier_player_76:GetModifierIgnoreMovespeedLimit()
 end
 
 function modifier_player_76:GetModifierPercentageCooldown()
-	return self.iItemCooldownReduction
+	return self.iCooldownReduction
 end
