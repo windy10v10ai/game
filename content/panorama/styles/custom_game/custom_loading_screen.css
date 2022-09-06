@@ -20,7 +20,7 @@
 #game_options_container
 {
 	width: 400px;
-	height: 80%;
+	height: 75%;
 	background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.02, #202327 ), color-stop( 0.3, #141619 ), to( #000000B0 ) );
 	box-shadow: #000000 0px 0px 20px 0px;
 	flow-children: down;
