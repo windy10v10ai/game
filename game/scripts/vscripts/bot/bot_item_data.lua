@@ -1439,7 +1439,9 @@ tBotItemData.wardObserverPostionList = {
 	Vector(-5187, -1619, 0),
 	Vector(-4640,-1056,0),
 	Vector(-4574, 476, 0),
-	Vector(-4096, 1525, 0),
+	Vector(-3815, 1577, 256),
+	Vector(-4620,-1060,384),
+	Vector(0,2598,256),
 	-- 中路
 	Vector(-1445,-2504,0),
 	Vector(-4526.85,-5406.58,0),
@@ -1458,6 +1460,8 @@ tBotItemData.wardObserverPostionList = {
 	Vector(3941,-4017,0),
 	Vector(594,-4149,0),
 	Vector(3876,-4138,0),
+	Vector(1321.6,-2288,256),
+	Vector(1045,-2041,128),
 	-- 下路
 	Vector(3443, -5779, 0),
 
@@ -1494,6 +1498,7 @@ tBotItemData.wardObserverPostionList = {
 	Vector(3923, -3441, 0),
 	Vector(3240.6,196.2,0),
 	Vector(4517,1319,0),
+	Vector(3298,-181,256),
 	-- 下路
 }
 tBotItemData.wardSentryPostionList = {
