@@ -18,7 +18,6 @@ require('bot/bot_think_item_use')
 require('bot/bot_think_ability_use')
 require('bot/bot_think_modifier')
 require('web/web_server')
-require("modifiers/player")
 require("damage")
 
 function Activate()
