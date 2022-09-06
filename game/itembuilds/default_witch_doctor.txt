@@ -1,0 +1,154 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_witch_doctor"
+	"Title"			"Recommended items for Witch Doctor"
+
+	"Items"
+	{
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_ward_observer"  //假眼
+			"item"		"item_ward_sentry"  //真眼
+			"item"		"item_quelling_blade_2_datadriven"  //毒瘤之刃
+			"item"		"item_holy_locket"  //圣洁吊坠
+			"item"		"item_hand_of_midas"  //迈达斯之手
+			"item"		"item_power_treads"  //动力鞋
+			"item"		"item_phase_boots"  //相位鞋
+			"item"		"item_arcane_boots"  //奥术鞋
+			"item"		"item_tranquil_boots"  //静谧之鞋
+			"item"		"item_null_talisman"  //空灵挂件
+			"item"		"item_wraith_band"  //怨灵细带
+			"item"		"item_bracer"  //护腕
+		}
+
+		"#dota_item_build_windy_consumables_items"
+		{
+			"item"		"item_smoke_of_deceit"  //诡计之雾
+			"item"		"item_dust"  //显影之尘
+			"item"		"item_tome_of_knowledge" //知识之书
+			"item"		"item_aghanims_shard" //阿哈利姆魔晶
+			"item"		"item_ultimate_scepter_2" //真阿哈利姆神杖
+			"item"		"item_wings_of_haste" //急速之翼
+			"item"		"item_moon_shard_datadriven" //真银月之晶
+			"item"		"item_candy_candy" //嘉心糖
+			"item"		"item_tome_of_strength" //力量之书
+			"item"		"item_tome_of_agility" //敏捷之书
+			"item"		"item_tome_of_intelligence" //智力之书
+			"item"		"item_tome_of_luoshu" //洛书
+		}
+
+
+		"#dota_item_build_windy_magical_core_items"
+		{
+			"item"		"item_refresher"  //刷新球
+			"item"		"item_dagon_5"  //达贡之神力
+			"item"		"item_sheepstick"  //邪恶镰刀
+			"item"		"item_wind_waker"  //风之杖
+			"item"		"item_aeon_pendant"  //咸鱼之王
+			"item"		"item_veil_of_discord_2"  //赫拉的神秘面纱
+			"item"		"item_force_staff_3"  //黄金法杖
+			"item"		"item_arcane_octarine_core"  //奥术之心
+			"item"		"item_gungir_2"  //风暴之锤
+			"item"		"item_hallowed_scepter"  //仙云法杖
+		    "item"		"item_necronomicon_staff"  //死灵法杖
+			"item"		"item_sacred_six_vein"  //六脉神剑
+		}
+
+		"#dota_item_build_windy_physical_core_items"
+		{
+			"item"		"item_bfury_2"  //超级狂战斧
+			"item"		"item_infernal_desolator"  //绝对破防之刃
+			"item"		"item_monkey_king_bar_2"  //定海神针
+			"item"		"item_shotgun_v2"  //三管霰弹枪
+			"item"		"item_silver_edge_2"  //无敌之刃
+			"item"		"item_abyssal_blade_v2"  //一闪
+			"item"		"item_blue_fantasy"  //苍蓝幻想
+			"item"		"item_satanic_2"  //真红撒旦之邪力
+			"item"		"item_skadi_2"  //粘妈之眼
+			"item"      "item_wasp_golden"  //黄金大核荣耀
+			"item"		"item_sacred_six_vein"  //六脉神剑
+			"item"		"item_excalibur"  //EX咖喱棒
+		}
+
+		"#dota_item_build_windy_magics_items"
+		{
+			"item"		"item_veil_of_discord_2"  //赫拉的神秘面纱
+		    "item"		"item_glimmer_cape"  //微光披风
+		    "item"		"item_force_staff_3"  //黄金法杖
+		    "item"		"item_aether_lens_3"  //以太透镜
+		    "item"		"item_arcane_octarine_core"  //奥术之心
+		    "item"		"item_witch_blade"  //巫师之刃
+		    "item"		"item_rod_of_atos"  //阿托斯之棍
+		    "item"		"item_dagon_5"  //达贡之神力
+		    "item"		"item_orchid"  //紫苑
+		    "item"		"item_refresher"  //刷新球
+		    "item"		"item_sheepstick"  //邪恶镰刀
+		    "item"		"item_gungir_2"  //风暴之锤
+		    "item"		"item_wind_waker"  //风之杖
+		    "item"		"item_ultimate_scepter_2"  //真阿哈利姆神杖
+		    "item"		"item_hallowed_scepter"  //仙云法杖
+		    "item"		"item_necronomicon_staff"  //死灵法杖
+		}
+
+		"#dota_item_build_windy_defense_items"
+		{
+			"item"		"item_vanguard"  //先锋盾
+		    "item"		"item_crimson_guard"  //赤红甲
+		    "item"		"item_blade_mail_2"  //刃甲2
+		    "item"		"item_insight_armor"  //洞察盔甲
+		    "item"		"item_solar_crest"  //炎阳纹章
+		    "item"		"item_eternal_shroud"  //永世法衣
+		    "item"		"item_bloodstone"  //血精石
+		    "item"		"item_aeon_pendant"  //咸鱼之王
+		    "item"		"item_sphere_2"  //真林肯法球
+		    "item"		"item_black_king_bar_2"  //天神杖
+		    "item"		"item_manta_1"  //幻身斧
+		    "item"		"item_shivas_guard_2"  //雅典娜的守护
+		    "item"		"item_saint_orb"  //圣女白莲
+		    "item"		"item_undying_heart"  //不朽之心
+		    "item"		"item_vladmir_2"  //强袭祭品
+		    "item"		"item_heavens_halberd_v2"  //无锋战戟
+		}
+
+		"#dota_item_build_windy_weapons_items"
+		{
+		    "item"		"item_basher"  //碎颅锤
+		    "item"		"item_greater_crit"  //代达罗斯之殇
+		    "item"		"item_bfury_2"  //超级狂战斧
+		    "item"		"item_ethereal_blade"  //虚灵之刃
+		    "item"		"item_nullifier"  //否决坠饰
+		    "item"		"item_bloodthorn"  //血棘
+		    "item"		"item_infernal_desolator"  //绝对破防之刃
+		    "item"		"item_monkey_king_bar_2"  //定海神针
+		    "item"		"item_shotgun_v2"  //三管霰弹枪
+		    "item"		"item_silver_edge_2"  //无敌之刃
+		    "item"		"item_abyssal_blade_v2"  //一闪
+		    "item"		"item_revenants_brooch"  //亡魂胸针
+		    "item"		"item_hurricane_pike_2"  //黄金魔龙枪
+		    "item"      "item_wasp_golden"  //黄金大核荣耀
+		    "item"		"item_radiance_2"  //辉耀2
+		    "item"		"item_excalibur"  //EX咖喱棒
+		}
+
+		"#dota_item_build_windy_artifacts_items"
+		{
+			"item"		"item_sange"  //散华
+ 		    "item"		"item_yasha"  //夜叉
+ 		    "item"		"item_kaya"  //慧光
+ 		    "item"		"item_maelstrom"  //旋涡
+		    "item"		"item_dragon_lance_pro_max"  //魔龙枪 PRO MAX
+		    "item"		"item_echo_sabre_2"  //音速战刃
+		    "item"		"item_blue_fantasy"  //苍蓝幻想
+ 		    "item"		"item_mage_slayer"  //法师克星
+ 		    "item"		"item_kaya_and_sange"  //散慧对剑
+ 		    "item"		"item_sange_and_yasha"  //散夜对剑
+ 		    "item"		"item_yasha_and_kaya"  //慧夜对剑
+		    "item"		"item_sacred_six_vein"  //六脉神剑
+ 		    "item"		"item_satanic_2"  //真红撒旦之邪力
+ 		    "item"		"item_skadi_2"  //粘妈之眼
+ 		    "item"		"item_mjollnir"  //雷神之锤
+		    "item"		"item_jump_jump_jump"  //跳跳跳刀
+		}
+	}
+}
