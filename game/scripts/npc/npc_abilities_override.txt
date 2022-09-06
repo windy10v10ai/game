@@ -5823,7 +5823,7 @@
 				"value"				"50"
 				"special_bonus_unique_tiny_7"	"+50"
 			}
-			"attack_speed_reduction"	"-20 -25 -30 -35 -40"
+			"attack_speed_reduction"	"-30"
 			"toss_bonus_damage"			"100 200 300 400 500"
 		}
 	}
