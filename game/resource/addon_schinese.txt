@@ -93,7 +93,7 @@
 		"player_member_ship"		"点击查看会员详情"
 		"player_member_ship_url"		"https://afdian.net/@windy10v10"
 
-		"player_member_button"		"感谢您的支持！<br/> - 打字输入“-沉渊之剑”即可召唤新英雄沉渊之剑<br/> - 打字输入“-超级赛亚人”即可召唤新英雄孙悟空<br/>会员有效期：{expireDate}"
+		"player_member_button"		"感谢您的支持！<br/> - 打字输入“-沉渊之剑”，“-超级赛亚人”，“-八云紫”即可召唤新英雄。<br/>会员有效期：{expireDate}"
 		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 
 		///////////////////////////////////////////////////
@@ -135,6 +135,19 @@
 		"DOTA_Tooltip_ability_tower_split_shot_Description"				"当高地被破之后自动习得此技能。"
 		"DOTA_Tooltip_ability_tower_split_shot_arrow_count"				"额外目标数："
 
+        ///////////////////////////////////////////////////
+		//
+		//            itembuilds
+		//
+		///////////////////////////////////////////////////
+		"dota_item_build_windy_consumables_items"	"10v10消耗物品"
+		"dota_item_build_windy_physical_core_items"	"10v10物理核心"
+		"dota_item_build_windy_magical_core_items"	"10v10法系核心"
+		"dota_item_build_windy_magics_items"		"10v10法器"
+		"dota_item_build_windy_defense_items"		"10v10防具"
+		"dota_item_build_windy_weapons_items"		"10v10兵刃"
+		"dota_item_build_windy_artifacts_items"		"10v10宝物"
+
 		///////////////////////////////////////////////////
 		//
 		//            Heroes
@@ -169,9 +182,9 @@
 		"DOTA_Tooltip_modifier_membership_Description"			"额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
-		"DOTA_Tooltip_modifier_player_windy_Description"		"<font color='#0AA1DD'> 恭喜你遇到了活生生的windy。<br/>感谢您对游戏的支持与喜爱。<br/>玩家交流QQ群：1007341432。</font>"
+		"DOTA_Tooltip_modifier_player_windy_Description"		"<font color='#0AA1DD'> 恭喜你遇到了活生生的windy。<br/>感谢您对游戏的支持与喜爱。<br/>玩家交流QQ群：836436993。</font>"
 		"DOTA_Tooltip_modifier_player_xianyu"					"<font color='#FFCC66'>★ 咸鱼之王 ★</font>"
-		"DOTA_Tooltip_modifier_player_xianyu_Description"		"<font color='#FFCC66'> 恭喜你遇到了真正的咸鱼之王。<br/>感谢您对游戏的支持与喜爱。<br/>玩家交流QQ群：1007341432。</font>"
+		"DOTA_Tooltip_modifier_player_xianyu_Description"		"<font color='#FFCC66'> 恭喜你遇到了真正的咸鱼之王。<br/>感谢您对游戏的支持与喜爱。<br/>玩家交流QQ群：836436993。</font>"
 		"DOTA_Tooltip_modifier_player_mimihua"					"<font color='#FFCC66'>★ 一次性消耗品 ★</font>"
 		"DOTA_Tooltip_modifier_player_mimihua_Description"		"<font color='#FFCC66'> 别想了，你得不到的。</font>"
 		"DOTA_Tooltip_modifier_player_bulangya"					"<font color='#5534A5'>★ 迷城骇兔 ★</font>"
@@ -257,6 +270,8 @@
 		"DOTA_Tooltip_modifier_player_kdvh_1"					"<font color='#FFCC66'>★ 男人的加油站 ★</font>"
 		"DOTA_Tooltip_modifier_player_kdvh_2"					"<font color='#FFCC66'>★ 快男也可以很骄傲 ★</font>"
 		"DOTA_Tooltip_modifier_player_kdvh_3"					"<font color='#FFCC66'>★ 浴血奋战才是真男人 ★</font>"
+		"DOTA_Tooltip_modifier_player_YYL"						"<font color='#FFCC66'>★ 游戏开发者 ★</font>"
+		"DOTA_Tooltip_modifier_player_aoliao"					"<font color='#FFCC66'>★ 奥利奥夹心饼 ★</font>"
 
 
 		// 初音未来
@@ -365,7 +380,7 @@
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"传送最大范围："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"弹幕持续伤害："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"增加一个新的技能：「深弹幕结界 -梦幻泡影-」"
-		
+
 
         // 虚空假面
         "DOTA_Tooltip_ability_faceless_void_backtrack"			"回到过去"
@@ -392,6 +407,19 @@
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"							"持续时间："
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"						"移动速度："
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"							"生命恢复："
+
+		// 混沌骑士
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"混沌之军"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战，持续%duration%秒。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
+
+		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
+
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"大招间隔降低至1，攻击次数+1"
 
 		// Saber
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"
@@ -880,6 +908,7 @@
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_all_stats"						"+$all"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_health"							"+$health"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_mana"							"+$mana"
+
 
 		// item_echo_sabre_2 回音刀2
 		"DOTA_Tooltip_Ability_item_echo_sabre_2"				"音速战刃"

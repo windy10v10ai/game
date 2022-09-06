@@ -196,6 +196,10 @@ local YYLSteamAccountID = Set {
 	-- YYL
 	1159610111,
 }
+local aoliaoSteamAccountID = Set {
+	-- 奥利奥苏打水
+	115909929,
+}
 
 -- 称号属性 END
 
@@ -421,5 +425,9 @@ function EnablePlayerModifier(hEntity)
 	if YYLSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_YYL", "modifiers/player/modifier_player_YYL", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_YYL", {})
+	end
+	if aoliaoSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_aoliao", "modifiers/player/modifier_player_aoliao", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_aoliao", {})
 	end
 end
