@@ -2609,4 +2609,48 @@
 			}
 		}
 	}
+	
+	// 八云紫
+	// ========================================================================
+	"Yukari"
+	{
+		"override_hero"	"npc_dota_hero_phantom_lancer"
+		"Model"	"models/new_touhou_model/yukari/yukari.vmdl"
+		"ModelScale"	"0.95"
+		"LoadoutScale"	"1.00000"
+		"SpectatorLoadoutScale"	"1.00000"
+		"VersusScale"	"1.00000"
+		"DisableWearables"	"1"
+		"Ability1"	"ability_yukari_01"
+		"Ability2"	"yukari_tentacles"
+		"Ability3"	"yukari_moon_portal"
+		"Ability4"	"ability_thdots_yukari04"
+		"Ability5"	"yukari_morph"
+		"Ability6"	"yukari_twin_trains"
+		"Ability10"	"special_bonus_mp_300"
+		"Ability11"	"special_bonus_mana_reduction_9"
+		"Ability12"	"special_bonus_intelligence_30"
+		"Ability13"	"special_bonus_cooldown_reduction_10"
+		"Ability14"	"special_bonus_yukari_20"
+		"Ability15"	"special_bonus_spell_amplify_15"
+		"Ability16"	"special_bonus_yukari_25"
+		"Ability17"	"special_bonus_cooldown_reduction_20"
+		"ItemSlots"	{}
+		"AttributePrimary"	"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"	"35"
+		"MagicalResistance"	"45"
+		"AttributeStrengthGain"	"2.0"
+		"AttributeBaseIntelligence"	"30"
+		"AttributeIntelligenceGain"	"3.0"
+		"BaseAttackSpeed"	"100"
+		"AttackAnimationPoint"	"0.200000"
+		"AttributeBaseAgility"	"10"
+		"AttributeAgilityGain"	"1.5"
+		"AttackRange"				"550"
+		"MovementSpeed"	"300"
+		"AttackDamageMin"	"35"
+		"AttackDamageMax"	"40"
+		"VisionDaytimeRange"	"1800"
+		"VisionNighttimeRange"	"1000"
+	}
 }

@@ -18,6 +18,8 @@ require('bot/bot_think_item_use')
 require('bot/bot_think_ability_use')
 require('bot/bot_think_modifier')
 require('web/web_server')
+require("modifiers/player")
+require("damage")
 
 function Activate()
 	AIGameMode:InitGameMode()
@@ -29,6 +31,9 @@ function Precache( context )
 	PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_abyss_sword.vsndevts", context)
 	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_goku.vsndevts", context)
 	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_saber.vsndevts", context)
+	PrecacheResource( "soundfile", "soundevents/yukari_yakumo.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/hero_themes.vsndevts", context )
+
 end
 
 function AIGameMode:InitGameMode()
