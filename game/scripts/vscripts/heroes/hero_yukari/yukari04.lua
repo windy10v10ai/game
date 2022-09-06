@@ -13,7 +13,7 @@ g_creeps_name={
 	"npc_dota_creep_badguys_ranged_upgraded"
 }
 ability_thdots_yukari04 = {}
-LinkLuaModifier( "modifier_yukari_scepter", "modifiers/modifier_yukari_scepter", LUA_MODIFIER_MOTION_NONE )
+
 function Yukari_CanMovetoGap(unit)
 	if unit==nil or unit:IsNull() then
 		return false

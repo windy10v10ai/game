@@ -1,6 +1,6 @@
 yukari_tp = class({})
-LinkLuaModifier( "modifier_yukari_tp", "modifiers/modifier_yukari_tp", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_yukari_tp_2", "modifiers/modifier_yukari_tp_2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_yukari_tp", "modifiers/hero_yukari/modifier_yukari_tp", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_yukari_tp_2", "modifiers/hero_yukari/modifier_yukari_tp_2", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_yukari_umb", "heroes/hero_yukari/yukari_tp", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
