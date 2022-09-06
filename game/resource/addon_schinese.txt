@@ -135,6 +135,19 @@
 		"DOTA_Tooltip_ability_tower_split_shot_Description"				"当高地被破之后自动习得此技能。"
 		"DOTA_Tooltip_ability_tower_split_shot_arrow_count"				"额外目标数："
 
+        ///////////////////////////////////////////////////
+		//
+		//            itembuilds
+		//
+		///////////////////////////////////////////////////
+		"dota_item_build_windy_consumables_items"	"10v10消耗物品"
+		"dota_item_build_windy_physical_core_items"	"10v10物理核心"
+		"dota_item_build_windy_magical_core_items"	"10v10法系核心"
+		"dota_item_build_windy_magics_items"		"10v10法器"
+		"dota_item_build_windy_defense_items"		"10v10防具"
+		"dota_item_build_windy_weapons_items"		"10v10兵刃"
+		"dota_item_build_windy_artifacts_items"		"10v10宝物"
+
 		///////////////////////////////////////////////////
 		//
 		//            Heroes
@@ -328,6 +341,19 @@
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"							"持续时间："
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"						"移动速度："
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"							"生命恢复："
+
+		// 混沌骑士
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"混沌之军"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战，持续%duration%秒。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
+
+		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
+
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"大招间隔降低至1，攻击次数+1"
 
 		// Saber
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"
