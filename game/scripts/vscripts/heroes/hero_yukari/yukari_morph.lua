@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_yukari_morph", "heroes/hero_yukari/yukari_morph", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_yukari_morph_real", "heroes/hero_yukari/yukari_morph", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_star_tier2", "modifiers/modifier_star_tier2", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_star_tier2", "modifiers/hero_yukari/modifier_star_tier2", LUA_MODIFIER_MOTION_NONE)
 
 yukari_morph = class({})
 

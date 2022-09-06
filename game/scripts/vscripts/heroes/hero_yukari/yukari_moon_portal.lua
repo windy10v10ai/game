@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_yukari_moon_portal", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_BOTH)
-LinkLuaModifier("modifier_yukari_tp", "modifiers/modifier_yukari_tp", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_yukari_tp_3", "modifiers/modifier_yukari_tp_3", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_yukari_tp", "modifiers/hero_yukari/modifier_yukari_tp", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_yukari_tp_3", "modifiers/hero_yukari/modifier_yukari_tp_3", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_yukari_moon_portal_root", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_yukari_moon_portal_caster", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_yukari_leashed", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
