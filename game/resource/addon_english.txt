@@ -93,7 +93,7 @@
 		"player_member_ship"		"Sponsor. Click to view more."
 		"player_member_ship_url"		"https://www.patreon.com/windy10v10"
 
-		"player_member_button"		"Thank you for your sponsorship!<br/> - Type '-AbyssSword' to swap hero AbyssSword.<br/> - Type '-Goku' to swap hero Goku.<br/>Membership is valid until {expireDate}."
+		"player_member_button"		"Thank you for your sponsorship!<br/> - Type '-AbyssSword', '-Goku' or '-Yukari' to swap to new hero.<br/>Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your sponsorship!<br/>Membership is valid until {expireDate}, Click the button to renew."
 
 		///////////////////////////////////////////////////
@@ -134,6 +134,19 @@
 		"DOTA_Tooltip_ability_tower_split_shot"							"Tower Split Shot"
 		"DOTA_Tooltip_ability_tower_split_shot_Description"				"Active this ability when tower3 destroyed."
 		"DOTA_Tooltip_ability_tower_split_shot_arrow_count"				"EXTRA TARGETS:"
+
+		///////////////////////////////////////////////////
+		//
+		//            itembuilds
+		//
+		///////////////////////////////////////////////////
+		"dota_item_build_windy_consumables_items"	"10v10_ConsumableItems"
+		"dota_item_build_windy_physical_core_items"	"10v10_Physical_Carry"
+		"dota_item_build_windy_magical_core_items"	"10v10_Magical_Carry"
+		"dota_item_build_windy_magics_items"		"10v10_Magics"
+		"dota_item_build_windy_defense_items"		"10v10_Defense"
+		"dota_item_build_windy_weapons_items"		"10v10_Weapons"
+		"dota_item_build_windy_artifacts_items"		"10v10_Artifacts"
 
 		///////////////////////////////////////////////////
 		//
@@ -228,6 +241,19 @@
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"			"Duration: "
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"		"Movement Speed: "
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"Health Regen: "
+
+		// 混沌骑士
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"混沌之军"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战，持续%duration%秒。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
+
+		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
+
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"大招间隔降低至1，攻击次数+1"
 
 		// Saber
 		"npc_dota_hero_broodmother"						"Artoria Pendragon"
@@ -463,7 +489,7 @@
         "DOTA_Tooltip_ability_ability_thdots_yukari04_min_radius"	"Teleport minimum range："
         "DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"Teleport maximum range："
         "DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"Barrage damage over time："
-        "DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"Add a new skill：「Deep Danmaku Barrier -Transient Dreams-」"		
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"Add a new skill：「Deep Danmaku Barrier -Transient Dreams-」"
 	    // 修补匠 刷新
 	    "DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."

@@ -15,6 +15,10 @@ function modifier_player_cyn1:DeclareFunctions()
 	}
 end
 
+function modifier_player_cyn1:GetPriority()
+	return MODIFIER_PRIORITY_SUPER_ULTRA
+end
+
 function modifier_player_cyn1:GetModifierPercentageCooldown()
 	return self.iCooldownReduction
 end

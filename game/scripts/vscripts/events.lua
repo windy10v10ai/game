@@ -98,6 +98,7 @@ developerSteamAccountID[143575444]="茶神"
 developerSteamAccountID[314757913]="孤尘"
 developerSteamAccountID[916506173]="Arararara"
 developerSteamAccountID[385130282]="米米花"
+developerSteamAccountID[353885092]="76"
 
 local luoshuHeroSteamAccountID = Set {
 	136668998,
@@ -820,6 +821,13 @@ function AIGameMode:OnPlayerChat( event )
 		end
 		if sChatMsg:find( '-Goku' ) then
 			pszHeroClass = "npc_dota_hero_chen"
+		end
+
+		if sChatMsg:find( '-八云紫' ) then
+			pszHeroClass = "npc_dota_hero_phantom_lancer"
+		end
+		if sChatMsg:find( '-Yukari' ) then
+			pszHeroClass = "npc_dota_hero_phantom_lancer"
 		end
 		if pszHeroClass ~= nil then
 			if self.tIfChangeHeroList[iPlayerID] then return end
