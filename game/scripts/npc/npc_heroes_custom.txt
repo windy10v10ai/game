@@ -249,7 +249,7 @@
 
 	"npc_dota_hero_spirit_breaker"
 	{
-		"Ability4"		"spirit_breaker_empowering_haste"
+		"Ability5"		"spirit_breaker_empowering_haste"
 	}
 
 	"npc_dota_hero_faceless_void"
@@ -527,7 +527,7 @@
 	}
 	"npc_dota_hero_bloodseeker"
 	{
-		"Ability16"		"special_bonus_cleave_100"
+		"Ability16"		"special_bonus_cleave_60"
 		"Bot"
 		{
 			"Build"
@@ -617,6 +617,9 @@
 	}
 	"npc_dota_hero_chaos_knight"
 	{
+		"Ability6"	"imba_chaos_knight_phantasm"
+		"Ability13"		"special_bonus_lifesteal_15"
+		"Ability17"		"special_bonus_cleave_60"
 		"Bot"
 		{
 			"Build"
@@ -631,14 +634,14 @@
 				"8"		"chaos_knight_reality_rift"
 				"9"		"chaos_knight_chaos_strike"
 				"10"		"special_bonus_unique_chaos_knight_6"
-				"11"		"chaos_knight_phantasm"
-				"12"		"chaos_knight_phantasm"
+				"11"		"imba_chaos_knight_phantasm"
+				"12"		"imba_chaos_knight_phantasm"
 				"13"		"chaos_knight_chaos_strike"
 				"14"		"chaos_knight_chaos_strike"
 				"15"		"special_bonus_unique_chaos_knight_8"
 				"16"		"chaos_knight_chaos_strike"
 				"17"		""
-				"18"		"chaos_knight_phantasm"
+				"18"		"imba_chaos_knight_phantasm"
 				"19"		""
 				"20"		"special_bonus_unique_chaos_knight_3"
 				"21"		""
@@ -648,16 +651,13 @@
 				"25"		"special_bonus_unique_chaos_knight_5"
 				"26"		""
 				"27"		"special_bonus_unique_chaos_knight_2"
-				"28"		"special_bonus_unique_chaos_knight_7"
+				"28"		"special_bonus_lifesteal_15"
 				"29"		"special_bonus_unique_chaos_knight"
-				"30"		"special_bonus_unique_chaos_knight_4"
-				"31"		"chaos_knight_phantasm"
-				"32"		"chaos_knight_phantasm"
-				"33"		"chaos_knight_reality_rift"
-				"34"		"chaos_knight_chaos_bolt"
-				"35"		"chaos_knight_chaos_strike"
-				"36"		"chaos_knight_chaos_strike"
-				"37"		"chaos_knight_chaos_strike"
+				"30"		"special_bonus_cleave_60"
+				"31"		"imba_chaos_knight_phantasm"
+				"32"		"chaos_knight_reality_rift"
+				"33"		"chaos_knight_chaos_bolt"
+				"34"		"chaos_knight_chaos_strike"
 			}
 		}
 	}
