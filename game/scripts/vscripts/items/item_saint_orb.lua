@@ -33,7 +33,6 @@ function modifier_item_saint_orb_passive:DeclareFunctions() return
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_ITEM_COOLDOWN_PERCENTAGE,
 	}
 end
 function modifier_item_saint_orb_passive:CheckState()
@@ -77,9 +76,6 @@ function modifier_item_saint_orb_passive:GetModifierBonusStats_Agility()
 end
 function modifier_item_saint_orb_passive:GetModifierBonusStats_Intellect()
 	return self.bonus_all_stats
-end
-function modifier_item_saint_orb_passove:GetModifierItemPercentageCooldown()
-	return self.iItemCooldownReduction
 end
 
 modifier_item_saint_orb_buff = class({})
