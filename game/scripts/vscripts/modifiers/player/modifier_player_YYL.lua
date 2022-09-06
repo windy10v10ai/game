@@ -8,7 +8,7 @@ function modifier_player_YYL:OnCreated()
 	self.iCooldownReduction = 20
 	self.iCastRange = 200
 	self.iSpellAmplify = 20
-   
+
 end
 
 function modifier_player_YYL:DeclareFunctions()
@@ -24,11 +24,11 @@ function modifier_player_YYL:GetModifierPercentageCooldown()
 	return self.iCooldownReduction
 end
 
-function modifier_player_menglihua:GetModifierCastRangeBonusStacking()
+function modifier_player_YYL:GetModifierCastRangeBonusStacking()
 	return self.iCastRange
 end
 
-function modifier_player_arrayzoneyour:GetModifierSpellAmplify_Percentage()
+function modifier_player_YYL:GetModifierSpellAmplify_Percentage()
 	return self.iSpellAmplify
 end
 
