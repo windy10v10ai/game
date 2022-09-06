@@ -121,7 +121,7 @@ end
 
 function yukari_moon_portal:GetCastRange( location , target)
 	if self:GetCaster():HasModifier("modifier_yukari_moon_portal_caster") then
-		return 800
+		return 99999
 	end
 	return self:GetSpecialValueFor("cast_range")
 end
