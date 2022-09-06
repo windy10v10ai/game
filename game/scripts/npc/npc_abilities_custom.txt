@@ -2961,4 +2961,56 @@
 	{
 		"AbilityTextureName"			"pang_rollup_stop"
 	}
+	// =================================================================================================================
+	// Chaos Knight: Phantasm
+	// =================================================================================================================
+	"imba_chaos_knight_phantasm"
+	{
+		// General
+		// -------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"chaos_knight_phantasm"
+		"ScriptFile"	"heroes/hero_chaos_knight/hero_chaos_knight.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
+		"FightRecapLevel"	"2"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"	"3"
+    	"HasShardUpgrade"               "1"
+		"HasScepterUpgrade"	"1"
+		// Casting
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"	"0.4 0.4 0.4"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		// Time
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"	"90 80 70"
+		// Cost
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"	"150 200 250"
+		"AbilityCastRange"	"1400"
+		// Special
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"attack_count"	"2 3 4"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"20 25 30"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"attack_cooldown"	"2"
+			}
+		}
+		"AbilitySound"	"Hero_ChaosKnight.Phantasm"
+	}
 }
