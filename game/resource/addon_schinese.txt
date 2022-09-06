@@ -363,7 +363,7 @@
 		"DOTA_Tooltip_ability_yukari_train_AbilityDamage"	"伤害:"
 		"DOTA_Tooltip_ability_yukari_train_Lore"	"I like trains"
 		"DOTA_Tooltip_ability_yukari_twin_trains"	"「无人废线车辆炸弹」"
-		"DOTA_Tooltip_ability_yukari_twin_trains_Description"	"生成一个入口，再次释放生成第二个入口。每个入口生成一辆驶向另一个入口的火车，对路线上的敌人造成大量伤害和眩晕。当火车相撞时，会引起巨大的爆炸，对周围的敌人再次造成伤害和眩晕。。"
+		"DOTA_Tooltip_ability_yukari_twin_trains_Description"	"生成一个入口，再次释放生成第二个入口。每个入口生成一辆驶向另一个入口的火车，对路线上的敌人造成大量伤害和眩晕。当火车相撞时，会引起巨大的爆炸，对周围的敌人再次造成伤害和眩晕。"
 		"DOTA_Tooltip_ability_yukari_twin_trains_AbilityDamage"	"伤害:"
 		"DOTA_Tooltip_ability_yukari_twin_trains_AbilityCastRange"	"施法距离："
 		"DOTA_Tooltip_ability_yukari_twin_trains_stun_time"	"眩晕时间："
