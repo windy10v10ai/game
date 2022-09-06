@@ -249,7 +249,7 @@
 
 	"npc_dota_hero_spirit_breaker"
 	{
-		"Ability4"		"spirit_breaker_empowering_haste"
+		"Ability5"		"spirit_breaker_empowering_haste"
 	}
 
 	"npc_dota_hero_faceless_void"
