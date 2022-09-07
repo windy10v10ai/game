@@ -143,10 +143,10 @@
 		"dota_item_build_windy_consumables_items"	"10v10消耗物品"
 		"dota_item_build_windy_physical_core_items"	"10v10物理核心"
 		"dota_item_build_windy_magical_core_items"	"10v10法系核心"
-		"dota_item_build_windy_magics_items"		"10v10法器"
+		"dota_item_build_windy_support_items"		"10v10辅助"
 		"dota_item_build_windy_defense_items"		"10v10防具"
-		"dota_item_build_windy_weapons_items"		"10v10兵刃"
-		"dota_item_build_windy_artifacts_items"		"10v10宝物"
+		"dota_item_build_windy_melee_items"			"10v10近战"
+		"dota_item_build_windy_range_items"			"10v10远程"
 
 		///////////////////////////////////////////////////
 		//
