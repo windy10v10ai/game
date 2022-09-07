@@ -5,7 +5,7 @@ function modifier_player_aoliao:RemoveOnDeath() return false end
 function modifier_player_aoliao:GetTexture() return "player/plusIcon" end
 
 function modifier_player_aoliao:OnCreated()
-	self.iCooldownReduction = 24
+	self.iCooldownReduction = 32
 	self.iMoveSpeed = 100
 end
 

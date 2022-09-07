@@ -223,7 +223,9 @@
 		"DOTA_Tooltip_modifier_player_xin_3_Description"		"<font color='#FFCC66'>★ 尊贵的心悦2会员福利 ★</font>"
 		"DOTA_Tooltip_modifier_player_xin_4"					"<font color='#FFCC66'>★ 蟑螂恶霸 ★</font>"
 		"DOTA_Tooltip_modifier_player_xin_4_Description"		"<font color='#FFCC66'>★ 尊贵的心悦3会员福利 ★</font>"
-		"DOTA_Tooltip_modifier_player_qiannian"					"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian"					"<font color='#FFCC66'>★ 新人光环 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_2"				"<font color='#FFCC66'>★ 狂风向前 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_3"				"<font color='#FFCC66'>★ 你看不见我 ★</font>"
 		"DOTA_Tooltip_modifier_player_feiji"					"<font color='#A149FA'>★ 贝伦卡斯泰露的庇佑 ★</font>"
 		"DOTA_Tooltip_modifier_player_feiji_Description"		"<font color='#A149FA'> 古户绘梨花受到了奇迹的魔女贝伦卡斯泰露的庇佑 </font>"
 		"DOTA_Tooltip_modifier_player_pns"						"<font color='#FFCC66'>★ 苟圣 ★</font>"
@@ -272,6 +274,7 @@
 		"DOTA_Tooltip_modifier_player_kdvh_3"					"<font color='#FFCC66'>★ 浴血奋战才是真男人 ★</font>"
 		"DOTA_Tooltip_modifier_player_YYL"						"<font color='#FFCC66'>★ 游戏开发者 ★</font>"
 		"DOTA_Tooltip_modifier_player_aoliao"					"<font color='#FFCC66'>★ 奥利奥夹心饼 ★</font>"
+		"DOTA_Tooltip_modifier_player_vjes"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 
 
 		// 初音未来

@@ -11,6 +11,7 @@ function modifier_player_adolphzero:OnCreated()
 	if self:GetParent():IsRangedAttacker() then
 		self.iAttackRange = 200
 	end
+	self.iSpellAmplify = 30
 
 	local primaryAttributeBouns = 30
 	self.strength = 20
@@ -35,6 +36,7 @@ function modifier_player_adolphzero:DeclareFunctions()
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
 	}
 end
 
@@ -73,4 +75,8 @@ function modifier_player_adolphzero:GetModifierBaseAttackTimeConstant()
         self.bat_check = false
         return new_bat
     end
+end
+
+function modifier_player_adolphzero:GetModifierSpellAmplify_Percentage()
+	return self.iSpellAmplify
 end

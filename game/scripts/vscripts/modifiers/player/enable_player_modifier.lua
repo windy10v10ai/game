@@ -107,6 +107,8 @@ local xinSteamAccountID = Set {
 local qiannianSteamAccountID = Set {
 	-- 千年破晓
 	120921523,
+	-- 测试
+	916506173,
 }
 local feijiSteamAccountID = Set {
 	-- 爱发电用户_htSB/QQ飞机
@@ -199,6 +201,10 @@ local YYLSteamAccountID = Set {
 local aoliaoSteamAccountID = Set {
 	-- 奥利奥苏打水
 	115909929,
+}
+local vjesSteamAccountID = Set {
+	-- 爱发电用户_VJES
+	231445049,
 }
 
 -- 称号属性 END
@@ -304,6 +310,10 @@ function EnablePlayerModifier(hEntity)
 	if qiannianSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_qiannian", "modifiers/player/modifier_player_qiannian", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_qiannian", {})
+		LinkLuaModifier("modifier_player_qiannian_2", "modifiers/player/modifier_player_qiannian_2", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_qiannian_2", {})
+		LinkLuaModifier("modifier_player_qiannian_3", "modifiers/player/modifier_player_qiannian_3", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_qiannian_3", {})
 	end
 	if feijiSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_feiji", "modifiers/player/modifier_player_feiji", LUA_MODIFIER_MOTION_NONE)
@@ -429,5 +439,9 @@ function EnablePlayerModifier(hEntity)
 	if aoliaoSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_aoliao", "modifiers/player/modifier_player_aoliao", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_aoliao", {})
+	end
+	if vjesSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_vjes", "modifiers/player/modifier_player_vjes", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_vjes", {})
 	end
 end
