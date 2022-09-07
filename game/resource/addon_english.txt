@@ -140,13 +140,13 @@
 		//            itembuilds
 		//
 		///////////////////////////////////////////////////
-		"dota_item_build_windy_consumables_items"	"10v10_ConsumableItems"
-		"dota_item_build_windy_physical_core_items"	"10v10_Physical_Carry"
-		"dota_item_build_windy_magical_core_items"	"10v10_Magical_Carry"
-		"dota_item_build_windy_magics_items"		"10v10_Magics"
-		"dota_item_build_windy_defense_items"		"10v10_Defense"
-		"dota_item_build_windy_weapons_items"		"10v10_Weapons"
-		"dota_item_build_windy_artifacts_items"		"10v10_Artifacts"
+		"dota_item_build_windy_consumables_items"	"10v10 ConsumableItems"
+		"dota_item_build_windy_physical_core_items"	"10v10 Physical Carry"
+		"dota_item_build_windy_magical_core_items"	"10v10 Magical Carry"
+		"dota_item_build_windy_support_items"		"10v10 Support"
+		"dota_item_build_windy_defense_items"		"10v10 Defense"
+		"dota_item_build_windy_melee_items"			"10v10 Melee"
+		"dota_item_build_windy_range_items"			"10v10 Range"
 
 		///////////////////////////////////////////////////
 		//
