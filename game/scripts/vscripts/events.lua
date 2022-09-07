@@ -87,9 +87,6 @@ local tAPLevelList = {
 
 local tDOTARespawnTime = {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 75}
 
-local qiliuSteamAccountID = {}
-qiliuSteamAccountID[353885092]="76岁靠谱成年男性"
-
 -- 测试密码
 local developerSteamAccountID = {}
 developerSteamAccountID[136407523]="windy"
@@ -98,7 +95,7 @@ developerSteamAccountID[143575444]="茶神"
 developerSteamAccountID[314757913]="孤尘"
 developerSteamAccountID[916506173]="Arararara"
 developerSteamAccountID[385130282]="米米花"
-developerSteamAccountID[353885092]="76"
+developerSteamAccountID[353885092]="76岁靠谱成年男性"
 
 local luoshuHeroSteamAccountID = Set {
 	136668998,
@@ -781,7 +778,7 @@ function AIGameMode:OnPlayerChat( event )
 			)
 			return
 		end
-		if sChatMsg:find( '^pos$' ) then
+		if sChatMsg:find( '^-pos$' ) then
 			-- get position
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			-- print position
@@ -795,7 +792,7 @@ function AIGameMode:OnPlayerChat( event )
 			return
 		end
 
-		if sChatMsg:find( '^modifier$' ) then
+		if sChatMsg:find( '^-modifier$' ) then
 			-- get position
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			-- print all modifiers
@@ -838,7 +835,7 @@ function AIGameMode:OnPlayerChat( event )
 			return
 		end
 	end
-	if qiliuSteamAccountID[steamAccountID] then
+	if developerSteamAccountID[steamAccountID] then
 		local pszHeroClass
 		if sChatMsg:find( '-远古是我爹' ) then
 			pszHeroClass = "npc_dota_hero_clinkz"
@@ -850,7 +847,7 @@ function AIGameMode:OnPlayerChat( event )
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			GameRules:SendCustomMessage(
-				"号外号外！"..qiliuSteamAccountID[steamAccountID].."这个吊毛又要玩小骷髅啦，大家快去抢他远古",
+				"号外号外！"..developerSteamAccountID[steamAccountID].."这个吊毛又要玩小骷髅啦，大家快去抢他远古",
 				DOTA_TEAM_GOODGUYS,
 				0
 			)
