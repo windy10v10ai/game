@@ -107,8 +107,6 @@ local xinSteamAccountID = Set {
 local qiannianSteamAccountID = Set {
 	-- 千年破晓
 	120921523,
-	-- 测试
-	916506173,
 }
 local feijiSteamAccountID = Set {
 	-- 爱发电用户_htSB/QQ飞机
