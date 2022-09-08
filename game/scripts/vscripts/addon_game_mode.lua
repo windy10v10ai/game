@@ -267,6 +267,11 @@ function AIGameMode:FilterGold(tGoldFilter)
 		else
 			iGold = iGold
 		end
+
+		local playerKill = PlayerResource:GetKills(iPlayerID)
+		local teamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(iPlayerID))
+		local teamCount = PlayerResource:GetPlayerCountForTeam(PlayerResource:GetTeam(iPlayerID))
+		iGold = iGold * AIGameMode:RewardFilterByKill(teamKill, playerKill, teamCount)
 	end
 
 	if self.tHumanPlayerList[iPlayerID] then
@@ -297,4 +302,11 @@ function AIGameMode:FilterXP(tXPFilter)
 		end
 	end
 	return true
+end
+
+function AIGameMode:RewardFilterByKill(teamKill, playerKill, teamCount)
+	local rewardMulti = 1
+	if teamKill < 10 then return rewardMulti end
+	rewardMulti = 1 - playerKill/teamKill + 1/teamCount
+	return rewardMulti
 end
