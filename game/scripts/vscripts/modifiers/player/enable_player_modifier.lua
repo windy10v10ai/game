@@ -204,6 +204,10 @@ local vjesSteamAccountID = Set {
 	-- 爱发电用户_VJES
 	231445049,
 }
+local laughSteamAccountID = Set {
+	-- laugh
+	118184749,
+}
 
 -- 称号属性 END
 
@@ -417,6 +421,12 @@ function EnablePlayerModifier(hEntity)
 	if chuyinSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_chuyin", "modifiers/player/modifier_player_chuyin", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_chuyin", {})
+		LinkLuaModifier("modifier_player_chuyin_2", "modifiers/player/modifier_player_chuyin_2", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_chuyin_2", {})
+		LinkLuaModifier("modifier_player_chuyin_3", "modifiers/player/modifier_player_chuyin_3", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_chuyin_3", {})
+		LinkLuaModifier("modifier_player_chuyin_4", "modifiers/player/modifier_player_chuyin_4", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_chuyin_4", {})
 	end
 	if sushiSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_sushi", "modifiers/player/modifier_player_sushi", LUA_MODIFIER_MOTION_NONE)
@@ -441,5 +451,9 @@ function EnablePlayerModifier(hEntity)
 	if vjesSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_vjes", "modifiers/player/modifier_player_vjes", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_vjes", {})
+	end
+	if laughSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_laugh", "modifiers/player/modifier_player_laugh", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_laugh", {})
 	end
 end
