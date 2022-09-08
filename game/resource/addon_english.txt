@@ -474,7 +474,7 @@
         "DOTA_Tooltip_ability_yukari_train_AbilityDamage" "Damage:"
         "DOTA_Tooltip_ability_yukari_train_Lore" "I like trains"
         "DOTA_Tooltip_ability_yukari_twin_trains" "Yukari's special:Double Train"
-        "DOTA_Tooltip_ability_yukari_twin_trains_Description" "When casted first time you will select first portal place.On second cast you will spawn 2 trains from 1st and 2nd portal that will ride into each other.Every character on their way will receice massive damage.When trains crushed into each other they cause  massive explosion that surely kills every enemy around."
+        "DOTA_Tooltip_ability_yukari_twin_trains_Description" "Generates one entry, and releases it again to generate the second entry. Each entrance spawns a train heading towards the other, dealing massive damage and stunning enemies in its path. When the trains collide, it causes a huge explosion that re-damages surrounding enemies."
         "DOTA_Tooltip_ability_yukari_twin_trains_AbilityDamage" "Damage:"
         "DOTA_Tooltip_ability_yukari_twin_trains_Lore" "What can be better that 1 train?2 of them!"
         "DOTA_Tooltip_ability_yukari_twin_trains_AbilityCastRange"	"Range："

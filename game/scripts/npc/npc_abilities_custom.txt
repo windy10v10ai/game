@@ -2627,7 +2627,7 @@
 		// Ability Resource
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"100 90 80 70 60"
-		"AbilityManaCost"	"300 500 700 900 1100"
+		"AbilityManaCost"	"200 400 600 800 1000"
 		// Ability Casting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"	"3000"
@@ -2642,17 +2642,17 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_speed"	"500"
+				"dragon_slave_speed"	"600"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_width_initial"	"300"
+				"dragon_slave_width_initial"	"350"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_width_end"	"300"
+				"dragon_slave_width_end"	"350"
 			}
 			"04"
 			{
