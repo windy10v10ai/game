@@ -12,12 +12,11 @@ function ability_yukari_01:OnSpellStart()
 	self.radius 						= self:GetSpecialValueFor("radius")
 	self.range 							= self:GetSpecialValueFor("range")
 	self.num 							= self:GetSpecialValueFor("num")
-	
+
 	self.caster:EmitSound("ability_yukari_01")
 
 	local angle = -4.5
-	
-	print(self.num)
+
 	self.low_speed = 500
 	self.projectile_table = {}
 	local caster = self.caster
@@ -42,9 +41,9 @@ function yukari_01CreateProjectile(caster,ability,start_position,end_position,sp
 	local DeleteOnHit = ture
 	local particle 			= "particles/econ/items/mirana/mirana_crescent_arrow/mirana_spell_crescent_arrow.vpcf"
 	if speed == ability.low_speed then
-		particle 			= "particles/econ/items/mirana/mirana_crescent_arrow/mirana_spell_crescent_arrow.vpcf"	
-		
-		
+		particle 			= "particles/econ/items/mirana/mirana_crescent_arrow/mirana_spell_crescent_arrow.vpcf"
+
+
 		distance = 0
 	end
 	local barrage = ProjectileManager:CreateLinearProjectile({
@@ -58,15 +57,15 @@ function yukari_01CreateProjectile(caster,ability,start_position,end_position,sp
 				fDistance = distance,
 				fStartRadius = ability.radius,
 				fEndRadius = ability.radius,
-				
+
 				vVelocity = ((end_position - start_position) * Vector(1, 1, 0)):Normalized() * speed,
 				bReplaceExisting = false,
-				bProvidesVision = true,	
+				bProvidesVision = true,
 				iVisionRadius = 650,
 				iVisionTeamNumber = caster:GetTeamNumber(),
 				bHasFrontalCone = false,
-				iUnitTargetTeam = ability:GetAbilityTargetTeam(),							
-				iUnitTargetType = ability:GetAbilityTargetType(),							
+				iUnitTargetTeam = ability:GetAbilityTargetTeam(),
+				iUnitTargetType = ability:GetAbilityTargetType(),
 			})
 	local projectile = {barrage = barrage,end_position = end_position}
 	ability.projectile_table[i] = projectile
@@ -80,7 +79,7 @@ function ability_yukari_01:OnProjectileHitHandle(hTarget, vLocation, iProjectile
 	local damage = self.damage+caster:GetIntellect()*0.8+self:GetCaster():FindTalentValue("special_bonus_yukari_20")
 
 	if target == nil and caster.yukari_01 == false then
-					
+
 		for i = 1,#self.projectile_table do
 			if self.projectile_table[i].barrage == iProjectileHandle then
 				yukari_01CreateProjectile(caster,self,vLocation,self.projectile_table[i].end_position,ability.speed,i)
@@ -93,16 +92,14 @@ function ability_yukari_01:OnProjectileHitHandle(hTarget, vLocation, iProjectile
 			end,
 		0)
 	end
-	if target ~= nil and caster.yukari_01 == true then	
+	if target ~= nil and caster.yukari_01 == true then
 	    target:AddNewModifier(caster,self,"modifier_yukari_01_hitcount",{duration = 1})
 	    local count = target:GetModifierStackCount("modifier_yukari_01_hitcount", nil)
 	    target:SetModifierStackCount("modifier_yukari_01_hitcount", self, count + 1)
-		
+
 		target:EmitSound("ability_yukari_01")
 		local damageTable = {victim = target,
 							damage = damage * ( (count + 1) ^ ( 1/ 4 ) - count  ^ ( 1/ 5 )),
-
-							print(damage),
 							damage_type = ability:GetAbilityDamageType(),
 							attacker = caster,
 							ability = ability

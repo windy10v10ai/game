@@ -21,21 +21,21 @@ function yukari_morph:OnSpellStart()
     local fixed_duration = self:GetSpecialValueFor("fixed_duration")
  if self:GetCaster():HasScepter() then
   caster:AddNewModifier(caster, self, "modifier_yukari_morph_real", {duration = 38})
-	caster:AddNewModifier(caster, self, "modifier_star_tier2", {duration = 38})
+	-- caster:AddNewModifier(caster, self, "modifier_star_tier2", {duration = 38})
  else
     caster:AddNewModifier(caster, self, "modifier_yukari_morph", {duration = fixed_duration})
-	caster:AddNewModifier(caster, self, "modifier_star_tier2", {duration = fixed_duration})
+	-- caster:AddNewModifier(caster, self, "modifier_star_tier2", {duration = fixed_duration})
 end
     --self:EndCooldown()
 
-    
+
 end
 function yukari_morph:OnProjectileHit(hTarget, vLocation)
 	if not hTarget then
 		return nil
 	end
 
-	
+
 
 	local damage_table = {	victim = hTarget,
 							attacker = self:GetCaster(),
@@ -48,26 +48,14 @@ end
 ---------------------------------------------------------------------------------------------------------------------
 modifier_yukari_morph = class({})
 function modifier_yukari_morph:IsHidden() return false end
-function modifier_yukari_morph:IsDebuff() return true end
+function modifier_yukari_morph:IsDebuff() return false end
 function modifier_yukari_morph:IsPurgable() return false end
 function modifier_yukari_morph:IsPurgeException() return false end
-function modifier_yukari_morph:RemoveOnDeath() return false end
-function modifier_yukari_morph:AllowIllusionDuplicate() return true end
-function modifier_yukari_morph:CheckState()
-    local state = { 
-                }
+function modifier_yukari_morph:RemoveOnDeath() return true end
+function modifier_yukari_morph:AllowIllusionDuplicate() return false end
 
-    if IsServer() and self.parent and not self.parent:IsNull() and self.parent:GetMana() <= self.awake_mana + 10 then
-        local awake = self.parent:FindAbilityByName("yukari_morph_awake")
-        if awake and not awake:IsNull() and awake:IsTrained() then
-            awake:CastAbility()
-        end
-    end
-
-    return state
-end
 function modifier_yukari_morph:DeclareFunctions()
-    local func = {  
+    local func = {
     				MODIFIER_PROPERTY_MODEL_SCALE,
 					 MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 	                MODIFIER_PROPERTY_EVASION_CONSTANT,
@@ -104,7 +92,7 @@ function modifier_yukari_morph:OnCreated(table)
 
     self.skills_table = {
                            ["yukari_morph"] = "yukari_morph",
-                            
+
                        }
 
 
@@ -126,13 +114,13 @@ function modifier_yukari_morph:OnCreated(table)
         if IsServer() then
         if not self.particle_time then
             self.particle_time =    ParticleManager:CreateParticle("particles/yukari_morph.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
-                                    
+
         end
 
-        
-		
+
+
         EmitSoundOn("yukari.morph", self.parent)
-        
+
 
         self.parent:Purge(false, true, false, true, true)
     end
@@ -142,60 +130,43 @@ function modifier_yukari_morph:OnRefresh(table)
     self:OnCreated(table)
 end
 function modifier_yukari_morph:OnDestroy()
-    --if IsServer() then
-        --if self.parent and not self.parent:IsNull() then
-            --for k, v in pairs(self.skills_table) do
-                --if k and v then
-                   -- self.parent:SwapAbilities(k, v, true, false)
-                    --k:SetHidden(false)
-                    --v:SetHidden(true)
-               -- end
-            --end
-			ParticleManager:DestroyParticle(self.particle_time, false)
+    if IsServer() then
+		ParticleManager:DestroyParticle(self.particle_time, false)
         ParticleManager:ReleaseParticleIndex(self.particle_time)
 
-            StopSoundOn("yukari.morph", self.parent)
-			
-
-            if self.parent:IsRealHero() then
-                --self.ability:StartCooldown(self.ability:GetCooldown(-1) * self.parent:GetCooldownReduction())
-                local ability = self.parent:FindAbilityByName("yukari_morph_awake")
-                if ability and not ability:IsNull() and ability:IsTrained() then
-                    --SetZenitsuAwakeLongCd(self.parent, self.ability)
-                    --ability:CastAbility()
-                end
-           --- end
-        end
+        StopSoundOn("yukari.morph", self.parent)
     end
----end
+end
+
 modifier_yukari_morph_real = class({})
 function modifier_yukari_morph_real:IsHidden() return false end
-function modifier_yukari_morph_real:IsDebuff() return true end
+function modifier_yukari_morph_real:IsDebuff() return false end
 function modifier_yukari_morph_real:IsPurgable() return false end
 function modifier_yukari_morph_real:IsPurgeException() return false end
-function modifier_yukari_morph_real:RemoveOnDeath() return false end
-function modifier_yukari_morph_real:AllowIllusionDuplicate() return true end
-function modifier_yukari_morph_real:CheckState()
-    local state = { 
-                }
+function modifier_yukari_morph_real:RemoveOnDeath() return true end
+function modifier_yukari_morph_real:AllowIllusionDuplicate() return false end
+-- function modifier_yukari_morph_real:CheckState()
+--     local state = {
+--                 }
 
-    if IsServer() and self.parent and not self.parent:IsNull() and self.parent:GetMana() <= self.awake_mana + 10 then
-        local awake = self.parent:FindAbilityByName("yukari_morph_awake")
-        if awake and not awake:IsNull() and awake:IsTrained() then
-            awake:CastAbility()
-        end
-    end
+--     if IsServer() and self.parent and not self.parent:IsNull() and self.parent:GetMana() <= self.awake_mana + 10 then
+--         local awake = self.parent:FindAbilityByName("yukari_morph_awake")
+--         if awake and not awake:IsNull() and awake:IsTrained() then
+--             awake:CastAbility()
+--         end
+--     end
 
-    return state
-end
+--     return state
+-- end
 function modifier_yukari_morph_real:DeclareFunctions()
-    local func = {  
-    				MODIFIER_PROPERTY_MODEL_SCALE,
-					 MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-	                MODIFIER_PROPERTY_EVASION_CONSTANT,
-                    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-                    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-                    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, }
+    local func = {
+        MODIFIER_PROPERTY_MODEL_SCALE,
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+        MODIFIER_PROPERTY_EVASION_CONSTANT,
+        MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+        MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    }
     return func
 end
 
@@ -227,7 +198,7 @@ function modifier_yukari_morph_real:OnCreated(table)
    self.skills_table = {
                             ["yukari_morph"] = "yukari_morph",
 							--["yukari_moon_portal"] = "yukari_mass_tp",
-                            
+
                        }
 
 
@@ -249,13 +220,13 @@ function modifier_yukari_morph_real:OnCreated(table)
         if IsServer() then
         if not self.particle_time then
             self.particle_time =    ParticleManager:CreateParticle("particles/yukari_true_moon.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
-                                    
+
         end
 
-        
-		
-      
-        
+
+
+
+
 
         self.parent:Purge(false, true, false, true, true)
     ---end
@@ -277,17 +248,6 @@ function modifier_yukari_morph_real:OnDestroy()
 		ParticleManager:DestroyParticle(self.particle_time, false)
         ParticleManager:ReleaseParticleIndex(self.particle_time)
 
-            
-			
-
-            if self.parent:IsRealHero() then
-                --self.ability:StartCooldown(self.ability:GetCooldown(-1) * self.parent:GetCooldownReduction())
-                local ability = self.parent:FindAbilityByName("yukari_morph_awake")
-                if ability and not ability:IsNull() and ability:IsTrained() then
-                    --SetZenitsuAwakeLongCd(self.parent, self.ability)
-                    --ability:CastAbility()
-                end
-            end
         end
     end
 end

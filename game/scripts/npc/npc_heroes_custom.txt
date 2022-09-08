@@ -2609,7 +2609,7 @@
 			}
 		}
 	}
-	
+
 	// 八云紫
 	// ========================================================================
 	"Yukari"
@@ -2636,20 +2636,23 @@
 		"Ability16"	"special_bonus_yukari_25"
 		"Ability17"	"special_bonus_cooldown_reduction_20"
 		"ItemSlots"	{}
-		"AttributePrimary"	"DOTA_ATTRIBUTE_INTELLECT"
-		"AttributeBaseStrength"	"35"
-		"MagicalResistance"	"45"
-		"AttributeStrengthGain"	"2.0"
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"30"
+		"MagicalResistance"			"40"
+		"AttributeStrengthGain"		"2.0"
 		"AttributeBaseIntelligence"	"30"
 		"AttributeIntelligenceGain"	"3.0"
-		"BaseAttackSpeed"	"100"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"		"35"
+		"AttackDamageMax"		"40"
+		"BaseAttackSpeed"		"100"
 		"AttackAnimationPoint"	"0.200000"
 		"AttributeBaseAgility"	"10"
 		"AttributeAgilityGain"	"1.5"
-		"AttackRange"				"550"
-		"MovementSpeed"	"300"
-		"AttackDamageMin"	"35"
-		"AttackDamageMax"	"40"
+		"AttackRange"			"550"
+		"ProjectileModel"		"particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+		"ProjectileSpeed"		"1250"
+		"MovementSpeed"			"300"
 		"VisionDaytimeRange"	"1800"
 		"VisionNighttimeRange"	"1000"
 	}
