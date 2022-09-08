@@ -19,7 +19,7 @@ self.point2 = self:GetCursorPosition()
 	local projectile_name = "particles/yukari_twin_train.vpcf"
 	local distance = (self.point2 - self.point):Length2D()
 	local projectile_distance = distance * 0.65
- 	local projectile_speed = 500
+ 	local projectile_speed = 600
 	local projectile_start_radius = self:GetSpecialValueFor( "dragon_slave_width_initial" )
 	local projectile_end_radius = self:GetSpecialValueFor( "dragon_slave_width_end" )
     local life  = projectile_distance * 0.001
@@ -111,17 +111,16 @@ local enemies = FindUnitsInRadius(
 		-- damage
 		damageTable.victim = enemy
 		ApplyDamage(damageTable)
-		target:AddNewModifier(
-		self:GetCaster(),
-		self, 
-		"modifier_generic_stunned_lua", 
-		{ duration = self:GetSpecialValueFor( "stun_time" )  } 
-	)
+		---target:AddNewModifier(
+		--self:GetCaster(),
+		--self, 
+		--"modifier_generic_stunned_lua", 
+		--{ duration = self:GetSpecialValueFor( "stun_time" )  } 
+	--)
 end		
 	self:PlayEffects(radius)
 	end)
 	self:PlayEffects2(radius)
-	--EmitSoundOn( "i.like.trains", caster ) 
 	EmitSoundOn( "ability_yukari_twin2", caster ) 
 	EmitSoundOn( "ability_yukari_twin1", caster ) 
 	
@@ -130,7 +129,7 @@ self.point = self:GetCursorPosition()
 caster:AddNewModifier(caster, self, "modifier_train_1", { duration = 4})
 self:EndCooldown()
 
-   local radius = 300
+   local radius = 350
 	self:PlayEffects1(radius)
 	self.sound_cast = "ability_yukari_01"
 	EmitSoundOn( self.sound_cast, self:GetCaster() )
@@ -229,7 +228,7 @@ function modifier_train_2:OnCreated( kv )
 	local caster = self:GetParent()
 	local projectile_name = "particles/yukari_train.vpcf"
 	local projectile_distance = 3000
-	local projectile_speed = 500
+	local projectile_speed = 600
 	local projectile_start_radius = 350
 	local projectile_end_radius = 350
 	local point = kv.place
