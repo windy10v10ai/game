@@ -6,7 +6,7 @@ function modifier_player_YYL:GetTexture() return "player/YYL" end
 
 function modifier_player_YYL:OnCreated()
 	self.iCooldownReduction = 20
-	self.iCastRange = 200
+	self.iCastRange = 300
 	self.iSpellAmplify = 20
 
 end
