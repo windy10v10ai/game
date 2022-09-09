@@ -5,7 +5,7 @@ function modifier_player_adolphzero:RemoveOnDeath() return false end
 function modifier_player_adolphzero:GetTexture() return "player/adolphzero" end
 
 function modifier_player_adolphzero:OnCreated()
-	self.iMoveSpeed = 50
+	self.iMoveSpeed = 150
 
 	self.iAttackRange = 0
 	if self:GetParent():IsRangedAttacker() then
