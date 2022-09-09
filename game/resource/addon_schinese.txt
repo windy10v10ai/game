@@ -916,7 +916,6 @@
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_health"							"+$health"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_mana"							"+$mana"
 
-
 		// item_echo_sabre_2 回音刀2
 		"DOTA_Tooltip_Ability_item_echo_sabre_2"				"音速战刃"
 		"DOTA_Tooltip_Ability_item_echo_sabre_2_Description"			        "<h1>被动：音速连击</h1>近战攻击可以快速攻击两次。两次攻击都将减缓%movement_slow%%%移动速度，每次持续%slow_duration%秒。"
