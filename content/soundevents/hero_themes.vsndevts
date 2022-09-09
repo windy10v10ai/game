@@ -1,0 +1,66 @@
+"star.theme2_42"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/yukari_theme.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.500000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "2000.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"     39.888000  }
+					
+                }
+            }
+        }
+    }
+}
+"star.theme2_43"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/yukari_2nd_theme.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.500000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "2000.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"     38.256001  }
+					
+                }
+            }
+        }
+    }
+}
