@@ -5377,7 +5377,6 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"25.0"
 		"AbilityManaCost"				"480"
-		"AbilitySharedCooldown"         "item_sheepstick"
 
 		"ItemCost"						"16900"
 		"ItemAliases"					"hex;sheepstick;scythe of vyse;nec;staff"
