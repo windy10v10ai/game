@@ -26,9 +26,9 @@ end
 -- Initializations
 function modifier_yukari_tp_2:OnCreated( kv )
 	-- references
-	local damage = self:GetAbility():GetSpecialValueFor( "damage_x" )+ self:GetCaster():FindTalentValue("special_bonus_yukari_20")
+	local damage = self:GetAbility():GetSpecialValueFor( "damage_x" )
 	self.radius = 75
-	
+
 
 	if not IsServer() then return end
 	-- precache damage
