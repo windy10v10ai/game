@@ -23,7 +23,7 @@ function yukari_tentacles:OnSpellStart()
 
 	-- load data
 	local duration = self:GetSpecialValueFor( "duration" )
-	
+
 
 	-- create thinker
 	CreateModifierThinker(
@@ -66,8 +66,7 @@ function modifier_yukari_tentacles:OnCreated( kv )
 	-- references
 	local interval = self:GetAbility():GetSpecialValueFor( "tick_rate" )
 	local caster = self:GetCaster()
-	--local damage = self:GetAbility():GetSpecialValueFor( "damage" ) + self:GetCaster():FindTalentValue("special_bonus_yukari_25")
-	local damage = self:GetAbility():GetSpecialValueFor( "damage" )+caster:GetIntellect()*self:GetAbility():GetSpecialValueFor( "intelligence" )+ self:GetCaster():FindTalentValue("special_bonus_yukari_25")
+	local damage = self:GetAbility():GetSpecialValueFor( "damage" ) + caster:GetIntellect() * self:GetAbility():GetSpecialValueFor( "intelligence" )
 	--self.damage2=caster:GetIntellect()*self:GetAbility():GetSpecialValueFor( "intelligence" )
 	--self.damage3=damage + self.damage2
 	local caster = self:GetCaster()
@@ -78,8 +77,8 @@ function modifier_yukari_tentacles:OnCreated( kv )
 
 	if not IsServer() then return end
 	if not self.thinker then return end
-	
-	
+
+
 
 	-- precache damage
 		self.damageTable = {
@@ -102,7 +101,7 @@ function modifier_yukari_tentacles:OnCreated( kv )
 end
 
 function modifier_yukari_tentacles:OnRefresh( kv )
-	
+
 end
 
 function modifier_yukari_tentacles:OnRemoved()
@@ -120,9 +119,9 @@ end
 function modifier_yukari_tentacles:CheckState()
 	local state = {
 		[MODIFIER_STATE_INVISIBLE] = false,
-	
-		
-		
+
+
+
 	}
 
 	return state
@@ -149,7 +148,7 @@ end
 --------------------------------------------------------------------------------
 -- Interval Effects
 function modifier_yukari_tentacles:OnIntervalThink()
-	-- find enemies 
+	-- find enemies
 	local enemies = FindUnitsInRadius(
 		self:GetCaster():GetTeamNumber(),	-- int, your team number
 		self:GetParent():GetOrigin(),	-- point, center point

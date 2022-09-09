@@ -254,9 +254,9 @@
 		"Ability11"	"special_bonus_mana_reduction_9"
 		"Ability12"	"special_bonus_intelligence_30"
 		"Ability13"	"special_bonus_cooldown_reduction_10"
-		"Ability14"	"special_bonus_yukari_20"
+		"Ability14"	"special_bonus_unique_yukari_01_damage"
 		"Ability15"	"special_bonus_spell_amplify_15"
-		"Ability16"	"special_bonus_yukari_25"
+		"Ability16"	"special_bonus_unique_yukari_tentacles_damage"
 		"Ability17"	"special_bonus_cooldown_reduction_20"
 		"ItemSlots"	{}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
