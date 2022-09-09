@@ -5,7 +5,6 @@ LinkLuaModifier("modifier_yukari_moon_portal_root", "heroes/hero_yukari/yukari_m
 LinkLuaModifier("modifier_yukari_moon_portal_caster", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_yukari_leashed", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_yukari_muted", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_yukari_moon_portal_unlock", "heroes/hero_yukari/yukari_moon_portal", LUA_MODIFIER_MOTION_NONE)
 yukari_moon_portal = class({})
 function yukari_moon_portal:IsHiddenWhenStolen() return false end
 function yukari_moon_portal:IsRefreshable() return true end
@@ -33,13 +32,13 @@ function yukari_moon_portal:OnSpellStart( params )
 	-- Handler on lifted targets
 	if caster:HasModifier("modifier_yukari_moon_portal_caster") then
 		local target_loc = self:GetCursorPosition()
-		
+
 	self.target:SetOrigin( target_loc )
 	FindClearSpaceForUnit( self.target, target_loc, true )
-	
-	
+
+
 	else
-		
+
 		self.target = self:GetCursorTarget()
 
 		local duration
@@ -53,38 +52,38 @@ function yukari_moon_portal:OnSpellStart( params )
   if self.target == self:GetCaster() then
 			self.target:AddNewModifier(caster, self, "modifier_yukari_muted", { duration = duration + 0.5 })
 			self.target:AddNewModifier(caster, self, "modifier_yukari_tp_3", { duration = duration })
-			--EmitSoundOn( "yukari.train", caster ) 
-			is_ally = false		
+			--EmitSoundOn( "yukari.train", caster )
+			is_ally = false
 	else
 	     self.target:AddNewModifier(caster, self, "modifier_yukari_muted", { duration = duration + 0.5 })
 		self.target:AddNewModifier(caster, self, "modifier_yukari_tp", { duration = duration })
-			--EmitSoundOn( "yukari.car", caster ) 
+			--EmitSoundOn( "yukari.car", caster )
 			is_ally = false
 			end
-			
+
 		else
 		 if self.target == self:GetCaster() then
-		duration = self:GetSpecialValueFor("ally_lift_duration") 
+		duration = self:GetSpecialValueFor("ally_lift_duration")
 		self.target:AddNewModifier(caster, self, "modifier_yukari_tp_3", { duration = duration})
-		--EmitSoundOn( "yukari.car2", caster ) 
+		--EmitSoundOn( "yukari.car2", caster )
 		else
-		duration = self:GetSpecialValueFor("ally_lift_duration") 
+		duration = self:GetSpecialValueFor("ally_lift_duration")
 		self.target:AddNewModifier(caster, self, "modifier_yukari_tp", { duration = duration})
-		--EmitSoundOn( "yukari.slash", caster ) 
+		--EmitSoundOn( "yukari.slash", caster )
 		end
-			end
-		
-		
+	end
 
-		
+
+
+
 
 		-- Add the particle & sounds
-		
+
 		caster:EmitSound("yukari.portal")
-		
+
 
 		-- Modifier-Params
-		
+
 		-- Add caster handler
 		caster:AddNewModifier(caster, self, "modifier_yukari_moon_portal_caster", { duration = duration - 0.2})
 		caster:AddNewModifier(caster, self, "modifier_yukari_leashed", { duration = duration + FrameTime()})
@@ -138,33 +137,25 @@ function modifier_yukari_moon_portal_caster:IsPurgeException() return false end
 function modifier_yukari_moon_portal_caster:IsStunDebuff() return false end
 function modifier_yukari_moon_portal_caster:RemoveOnDeath() return true end
 function modifier_yukari_moon_portal_caster:OnDestroy()
-self.ability = self:GetAbility()
-self.parent = self:GetParent()
-self.ability:StartCooldown(self.ability:GetCooldown(-1) * self.parent:GetCooldownReduction())
+	self.ability = self:GetAbility()
+	self.parent = self:GetParent()
 
-self:GetParent():AddNewModifier(caster, self, "modifier_yukari_moon_portal_unlock", {duration = 3})
- local HiddenAbilities = 
+	if IsServer() then
+		self.ability:StartCooldown(self.ability:GetCooldown(-1) * self.parent:GetCooldownReduction())
+	end
+
+	local HiddenAbilities =
 	{
-	
 		"yukari_moon_portal",
 	}
 
 	for _,HiddenAbility in pairs(HiddenAbilities) do
-	   	HiddenAbility = self:GetParent():FindAbilityByName(HiddenAbility)
-        if HiddenAbility:IsActivated() then
-            HiddenAbility:SetActivated(false)
+	   	local hAbility = self:GetParent():FindAbilityByName(HiddenAbility)
+        if hAbility and hAbility:IsActivated() then
+            hAbility:SetActivated(false)
         end
     end
-
-
 end
-modifier_yukari_moon_portal_unlock = class({})
-function modifier_yukari_moon_portal_unlock:IsDebuff() return false end
-function modifier_yukari_moon_portal_unlock:IsHidden() return true end
-function modifier_yukari_moon_portal_unlock:IsPurgable() return false end
-function modifier_yukari_moon_portal_unlock:IsPurgeException() return false end
-function modifier_yukari_moon_portal_unlock:IsStunDebuff() return false end
-function modifier_yukari_moon_portal_unlock:RemoveOnDeath() return true end
 
 modifier_yukari_leashed = class({})
 
@@ -226,7 +217,7 @@ function modifier_yukari_leashed:OnCreated( kv )
 end
 
 function modifier_yukari_leashed:OnRefresh( kv )
-	
+
 end
 
 function modifier_yukari_leashed:OnRemoved()
