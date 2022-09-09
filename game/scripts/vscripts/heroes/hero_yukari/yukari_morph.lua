@@ -21,10 +21,10 @@ function yukari_morph:OnSpellStart()
     local fixed_duration = self:GetSpecialValueFor("fixed_duration")
  if self:GetCaster():HasScepter() then
   caster:AddNewModifier(caster, self, "modifier_yukari_morph_real", {duration = 38})
-	-- caster:AddNewModifier(caster, self, "modifier_star_tier2", {duration = 38})
+	caster:AddNewModifier(caster, self, "modifier_star_tier2", {duration = 38})
  else
     caster:AddNewModifier(caster, self, "modifier_yukari_morph", {duration = fixed_duration})
-	-- caster:AddNewModifier(caster, self, "modifier_star_tier2", {duration = fixed_duration})
+	caster:AddNewModifier(caster, self, "modifier_star_tier2", {duration = fixed_duration})
 end
     --self:EndCooldown()
 
