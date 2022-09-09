@@ -1,35 +1,21 @@
 LinkLuaModifier("modifier_yukari_morph", "heroes/hero_yukari/yukari_morph", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_yukari_morph_real", "heroes/hero_yukari/yukari_morph", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_star_tier2", "modifiers/hero_yukari/modifier_star_tier2", LUA_MODIFIER_MOTION_NONE)
 
 yukari_morph = class({})
 
 function yukari_morph:IsStealable() return true end
 function yukari_morph:IsHiddenWhenStolen() return false end
 
---function yukari_morph:OnUpgrade()
-    --local ability = self:GetCaster():FindAbilityByName("yukari_train")
-    --if ability and ability:GetLevel() < self:GetLevel() then
-        --ability:SetLevel(self:GetLevel())
-    --end
---end
---[[function yukari_morph:GetBehavior()
-    return self:GetCaster():HasTalent("special_bonus_anime_zenitsu_25R") and (self.BaseClass.GetBehavior(self) + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE) or self.BaseClass.GetBehavior(self)
-end]]
 function yukari_morph:OnSpellStart()
     local caster = self:GetCaster()
     local fixed_duration = self:GetSpecialValueFor("fixed_duration")
- if self:GetCaster():HasScepter() then
-  caster:AddNewModifier(caster, self, "modifier_yukari_morph_real", {duration = 38})
-	caster:AddNewModifier(caster, self, "modifier_star_tier2", {duration = 38})
- else
-    caster:AddNewModifier(caster, self, "modifier_yukari_morph", {duration = fixed_duration})
-	caster:AddNewModifier(caster, self, "modifier_star_tier2", {duration = fixed_duration})
+    if self:GetCaster():HasScepter() then
+        caster:AddNewModifier(caster, self, "modifier_yukari_morph_real", {duration = fixed_duration})
+    else
+        caster:AddNewModifier(caster, self, "modifier_yukari_morph", {duration = fixed_duration})
+    end
 end
-    --self:EndCooldown()
 
-
-end
 function yukari_morph:OnProjectileHit(hTarget, vLocation)
 	if not hTarget then
 		return nil
@@ -111,20 +97,17 @@ function modifier_yukari_morph:OnCreated(table)
             end
         end
             --self.parent:SwapAbilities(v, pAbilityName2, bEnable1, bEnable2)
-        if IsServer() then
         if not self.particle_time then
             self.particle_time =    ParticleManager:CreateParticle("particles/yukari_morph.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 
         end
 
 
-
+        EmitSoundOn("star.theme2_42", self.parent)
         EmitSoundOn("yukari.morph", self.parent)
-
 
         self.parent:Purge(false, true, false, true, true)
     end
-end
 end
 function modifier_yukari_morph:OnRefresh(table)
     self:OnCreated(table)
@@ -135,6 +118,7 @@ function modifier_yukari_morph:OnDestroy()
         ParticleManager:ReleaseParticleIndex(self.particle_time)
 
         StopSoundOn("yukari.morph", self.parent)
+        StopSoundOn("star.theme2_42", self.parent)
     end
 end
 
@@ -145,19 +129,7 @@ function modifier_yukari_morph_real:IsPurgable() return false end
 function modifier_yukari_morph_real:IsPurgeException() return false end
 function modifier_yukari_morph_real:RemoveOnDeath() return true end
 function modifier_yukari_morph_real:AllowIllusionDuplicate() return false end
--- function modifier_yukari_morph_real:CheckState()
---     local state = {
---                 }
 
---     if IsServer() and self.parent and not self.parent:IsNull() and self.parent:GetMana() <= self.awake_mana + 10 then
---         local awake = self.parent:FindAbilityByName("yukari_morph_awake")
---         if awake and not awake:IsNull() and awake:IsTrained() then
---             awake:CastAbility()
---         end
---     end
-
---     return state
--- end
 function modifier_yukari_morph_real:DeclareFunctions()
     local func = {
         MODIFIER_PROPERTY_MODEL_SCALE,
@@ -169,9 +141,6 @@ function modifier_yukari_morph_real:DeclareFunctions()
     }
     return func
 end
-
-
-
 
 function modifier_yukari_morph_real:GetModifierSpellAmplify_Percentage()
     return 50
@@ -195,60 +164,32 @@ function modifier_yukari_morph_real:OnCreated(table)
     self.turn_rate = self.ability:GetSpecialValueFor("turn_rate")
     self.awake_mana = self.ability:GetSpecialValueFor("awake_mana")
 
-   self.skills_table = {
-                            ["yukari_morph"] = "yukari_morph",
-							--["yukari_moon_portal"] = "yukari_mass_tp",
+    self.skills_table = {
+        ["yukari_morph"] = "yukari_morph",
+    }
 
-                       }
-
-
-    --if IsServer() then
-        --for k, v in pairs(self.skills_table) do
-           -- if k and v then
-               -- self.parent:SwapAbilities(k, v, false, true)
-                --k:SetHidden(true)
-                --v:SetHidden(false)
-
-                local ability = self.parent:FindAbilityByName(v)
-                if ability and not ability:IsNull() and ability:IsTrained() and ability:GetCooldown(-1) > 0 then
-                    --ability:EndCooldown()
-                    --ability:RefreshCharges()
-                end
-            ---end
-        ---end
-            --self.parent:SwapAbilities(v, pAbilityName2, bEnable1, bEnable2)
         if IsServer() then
-        if not self.particle_time then
-            self.particle_time =    ParticleManager:CreateParticle("particles/yukari_true_moon.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+            if not self.particle_time then
+                self.particle_time =    ParticleManager:CreateParticle("particles/yukari_true_moon.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+            end
 
-        end
-
-
-
-
-
-
+        EmitSoundOn("star.theme2_43", self.parent)
+        EmitSoundOn("yukari.morph", self.parent)
         self.parent:Purge(false, true, false, true, true)
-    ---end
----end
----end
+    end
+end
+
 function modifier_yukari_morph_real:OnRefresh(table)
     self:OnCreated(table)
 end
+
 function modifier_yukari_morph_real:OnDestroy()
-    ---if --IsServer() then
-        --if self.parent and not self.parent:IsNull() then
-            --for k, v in pairs(self.skills_table) do
-               -- if k and v then
-                    --self.parent:SwapAbilities(k, v, true, false)
-                    --k:SetHidden(false)
-                    --v:SetHidden(true)
-                --end
-            --end
+    if IsServer() then
 		ParticleManager:DestroyParticle(self.particle_time, false)
         ParticleManager:ReleaseParticleIndex(self.particle_time)
 
-        end
+        StopSoundOn("yukari.morph", self.parent)
+        StopSoundOn("star.theme2_43", self.parent)
     end
 end
 

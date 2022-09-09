@@ -7,7 +7,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -17,81 +17,13 @@
                               "value0"        "sounds/vo/phantom_lancer/plance_attack_07.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "2.000000"  }
+                    "volume"            {   "value"     "1.500000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "100.000000" }
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"     0.960000  }
-					
-                }
-            }
-        }
-    }
-}
-"yukari.road_signs"
-{
-    "operator_stacks"
-    {
-        "update_stack"
-        {
-            "reference_operator"
-            {
-                "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_2d"
-                "operator_variables"
-                {
-                    "vsnd_files"
-                    {
-                        "value"
-                        {
-                              "value0"        "sounds/weapons/hero/leshrac/nihilism_cast.vsnd"
-                        }
-                    }
-                    "volume"            {   "value"     "2.000000"  }
-                    "pitch_rand_min"    {   "value"     "-0.050000"  }
-                    "pitch_rand_max"    {   "value"     "0.050000"  }
-                    "pitch"             {   "value"     "1.000000"  }
-                    "soundlevel"        {   "value"     "100.000000" }
-                    "distance_max"      {   "value"     "1600.000000"  }
-                    "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"     4.722857  }
-					
-                }
-            }
-        }
-    }
-}
-"yukari.road_signs_get_out"
-{
-    "operator_stacks"
-    {
-        "update_stack"
-        {
-            "reference_operator"
-            {
-                "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_2d"
-                "operator_variables"
-                {
-                    "vsnd_files"
-                    {
-                        "value"
-                        {
-                              "value0"        "sounds/weapons/hero/leshrac/split_earth.vsnd"
-                        }
-                    }
-                    "volume"            {   "value"     "2.000000"  }
-                    "pitch_rand_min"    {   "value"     "-0.050000"  }
-                    "pitch_rand_max"    {   "value"     "0.050000"  }
-                    "pitch"             {   "value"     "1.000000"  }
-                    "soundlevel"        {   "value"     "100.000000" }
-                    "distance_max"      {   "value"     "1600.000000"  }
-                    "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"     3.780181  }
-					
                 }
             }
         }
@@ -106,7 +38,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -116,7 +48,7 @@
                               "value0"        "sounds/explosion2.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "2.000000"  }
+                    "volume"            {   "value"     "1.000000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -124,7 +56,7 @@
                     "distance_max"      {   "value"     "4000.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"     6.720000  }
-					
+
                 }
             }
         }
@@ -157,7 +89,7 @@
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"     0.936000  }
-					
+
                 }
             }
         }
@@ -190,7 +122,7 @@
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"     1.332245  }
-					
+
                 }
             }
         }
@@ -205,7 +137,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -223,7 +155,7 @@
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"     1.992472  }
-					
+
                 }
             }
         }
@@ -238,7 +170,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -256,7 +188,7 @@
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"     1.104000  }
-					
+
                 }
             }
         }
@@ -271,7 +203,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -289,7 +221,7 @@
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"    3.192000  }
-					
+
                 }
             }
         }
@@ -304,7 +236,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_3d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -322,7 +254,7 @@
                     "distance_max"      {   "value"     "4000.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"    3.052000  }
-					
+
                 }
             }
         }
@@ -337,7 +269,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -355,7 +287,7 @@
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"    1.332245  }
-					
+
                 }
             }
         }
@@ -370,7 +302,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -388,7 +320,7 @@
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"    1.541224  }
-					
+
                 }
             }
         }
@@ -403,25 +335,23 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
                     {
-                        "value"  
+                        "value"
                         {
                               "value0"        "sounds/vo/phantom_lancer/plance_first_01.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.000000"  }
+                    "volume"            {   "value"     "0.900000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "100.000000" }
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"    2.533878  }
-					
                 }
             }
         }
@@ -436,7 +366,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -454,7 +384,7 @@
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"    39.888000  }
-					
+
                 }
             }
         }
@@ -469,7 +399,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -519,7 +449,7 @@
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"    2.400000  }
-					
+
                 }
             }
         }
@@ -552,7 +482,7 @@
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"    1.097143  }
-					
+
                 }
             }
         }
@@ -585,7 +515,7 @@
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"    2.859592  }
-					
+
                 }
             }
         }
@@ -617,7 +547,7 @@
                     "soundlevel"        {   "value"     "100.000000" }
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					
+
                 }
             }
         }
@@ -650,7 +580,7 @@
                     "distance_max"      {   "value"     "4000.000000"  }
                     "event_type"        {   "value"     "6.000000"  }
 					"vsnd_duration"     {   "value"     1.396825  }
-					
+
                 }
             }
         }
@@ -675,7 +605,7 @@
                               "value0"        "sounds/yukari_twin1.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "2.500000"  }
+                    "volume"            {   "value"     "1.000000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -683,7 +613,7 @@
                     "distance_max"      {   "value"     "4000.000000"  }
                     "event_type"        {   "value"     "6.000000"  }
 					"vsnd_duration"     {   "value"     3.000000  }
-					
+
                 }
             }
         }
@@ -708,15 +638,13 @@
                               "value0"        "sounds/yukari_twin2.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "3.000000"  }
+                    "volume"            {   "value"     "1.000000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "100.000000" }
-                    "distance_max"      {   "value"     "4000.000000"  }
+                    "distance_max"      {   "value"     "1800.000000"  }
                     "event_type"        {   "value"     "6.000000"  }
-					"vsnd_duration"     {   "value"     4.000000  }
-					
                 }
             }
         }
@@ -741,7 +669,7 @@
                               "value0"        "sounds/yukari_op.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "2.500000"  }
+                    "volume"            {   "value"     "2.000000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -749,7 +677,7 @@
                     "distance_max"      {   "value"     "4000.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
 					"vsnd_duration"     {   "value"     4.000000  }
-					
+
                 }
             }
         }

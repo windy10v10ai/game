@@ -1774,465 +1774,100 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
-	//老太婆
-	"yukari_tp"
+	//-------------------------------------------------------------------------------------------------------------
+	// 八云紫 老太婆 Yukari
+	//-------------------------------------------------------------------------------------------------------------
+	"ability_yukari_01"
 	{
-		// Ability Technical Aspect
-		// base script folder	: scripts/vscripts
-		// base texture folder	: resource/flash3/images/spellicons
-		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
-		"AbilityTextureName"	"yukari_1"
-		"ScriptFile"	"heroes/hero_yukari/yukari_tp"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		// Ability General
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"	"4"
-		"AbilityCastPoint"	"0.25 0.25 0.25 0.25"
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
-		// Ability Resource
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"22 20 18 16"
-		"AbilityManaCost"	"140 160 180 200"
-		// Ability Casting
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"	"400 450 500 550"
-		"precache"
-		{
-			"soundfile"	"soundevents/yukari_yakumo.vsndevts"
-			"particle"	"particles/yukari_portal.vpcf"
-		}
-		// Damage
-		// -------------------------------------------------------------------------------------------------------------
-		// Special
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"prison_duration"	"4.0"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"1"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"400"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"cast_range_tooltip"	"225 300 375 450"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"max_charges_scepter"	"2"
-			}
-			"06"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"charge_restore_time_scepter"	"12"
-			}
-			"07"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"scepter_range_bonus"	"300"
-			}
-			"08"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage_x"	"150 250 375 500"
-				"LinkedSpecialBonus"	"special_bonus_yukari_20"
-			}
-		}
-		"SpellDispellableType"	"SPELL_DISPELLABLE_NO"
-		"AbilityDuration"	"4.0"
-	}
-
-	"void_spirit_dissimilate_lua"
-	{
-		// Ability Technical Aspect
-		// base script folder	: scripts/vscripts
-		// base texture folder	: resource/flash3/images/spellicons
-		// -------------------------------------------------------------------------------------------------------------
-		"BaseClass"	"ability_lua"
-		"AbilityTextureName"	"yukari_2"
-		"ScriptFile"	"heroes/hero_yukari/void_spirit_dissimilate_lua"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityTextureName"	"yukari_01"
+		"ScriptFile"	"scripts/vscripts/heroes/hero_yukari/yukari01.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		// Ability General
-		// -------------------------------------------------------------------------------------------------------------
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"	"4"
-		// Ability Casting
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"	"0.2"
-		// Ability Resource
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"35 30 25 20"
-		"AbilityManaCost"	"100 120 140 160"
+		"MaxLevel"		"7"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate"	"1.5"
+		"AbilityCooldown"	"6"
+		"AbilityManaCost"	"90 100 110 120 130 140 150"
+		"AbilityCastRange"	"%cast_range"
 		"precache"
 		{
-			"particle"	"particles/void_spirit_dissimilate1.vpcf"
-			"particle"	"particles/void_spirit_dissimilate_dmg1.vpcf"
-			"particle"	"particles/void_spirit_dissimilate_exit1.vpcf"
+			"particle"	"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
+			"soundfile"	"soundevents/yukari_yakumo.vsndevts"
 		}
-		// Special
-		// -------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"phase_duration"	"1.3"
+				"damage"	"50 90 130 170 210 250 290"
+				"LinkedSpecialBonus"	"special_bonus_yukari_20"
 			}
 			"02"
 			{
-				"var_type"	"FIELD_INTEGER"
-				// proportional to distance_offset
-				"destination_fx_radius"	"183"
+				"var_type"	"FIELD_FLOAT"
+				"speed"	"1100"
 			}
 			"03"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"portals_per_ring"	"6"
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"55"
 			}
 			"04"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"angle_per_ring_portal"	"60"
+				"var_type"	"FIELD_FLOAT"
+				"range"	"1500"
 			}
 			"05"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"first_ring_distance_offset"	"520"
+				"var_type"	"FIELD_FLOAT"
+				"num"	"6"
 			}
 			"06"
 			{
-				"var_type"	"FIELD_INTEGER"
-				// proportional to distance_offset
-				"damage_radius"	"275"
-			}
-		}
-		// Damage
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"	"150 250 450 550"
-	}
-
-	"special_bonus_yukari_20"
-	{
-		"BaseClass"	"special_bonus_undefined"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"value"	"120"
-			}
-		}
-	}
-
-	"special_bonus_yukari_25"
-	{
-		"BaseClass"	"special_bonus_undefined"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"value"	"60"
-			}
-		}
-	}
-
-	"yukari_mass_tp"
-	{
-		// Ability Technical Aspect
-		// base script folder	: scripts/vscripts
-		// base texture folder	: resource/flash3/images/spellicons
-		// -------------------------------------------------------------------------------------------------------------
-		"BaseClass"	"ability_lua"
-		"AbilityTextureName"	"yukari_3"
-		"ScriptFile"	"heroes/hero_yukari/yukari_mass_tp"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		// Ability General
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"	"1"
-		"AbilityCastPoint"	"0.3"
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
-		// Ability Resource
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"70"
-		"AbilityManaCost"	"500"
-		// Ability Casting
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"	"400"
-		"precache"
-		{
-			"particle"	"particles/yukari_mass_tp.vpcf"
-		}
-		// Damage
-		// -------------------------------------------------------------------------------------------------------------
-		// Special
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"600"
-			}
-			"02"
-			{
 				"var_type"	"FIELD_FLOAT"
-				"silence_duration"	"2"
+				"cast_range"	"1500"
 			}
-			"03"
+			"07"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"600"
+				"damage_add"	"0.8"
 			}
 		}
 		"SpellDispellableType"	"SPELL_DISPELLABLE_YES"
 	}
 
-	"yukari_morph"
-	{
-		"BaseClass"	"ability_lua"
-		"AbilityTextureName"	"yukari_4"
-		"ScriptFile"	"heroes/hero_yukari/yukari_morph.lua"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		// "AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"	"1"
-		"RequiredLevel"	"30"
-		"LevelsBetweenUpgrades"	"1"
-		"AbilityCastPoint"	"0.3"
-		"AbilityCastAnimation"	"ACT_DOTA_IDLE"
-		// "AbilityChannelTime"					"5.0"
-		"AbilityCooldown"	"120"
-		"AbilityManaCost"	"150"
-		// "AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
-		"precache"
-		{
-			"particle"	"particles/yukari_morph.vpcf"
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"zenitsu_flash_upgrade_distance"	"0"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"magic"	"50"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"amp"	"50"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"as"	"120"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"zenitsu_hear_upgrade_flash_charges"	"0 0 2"
-			}
-			"06"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"bonus_movespeed"	"40 60 80"
-			}
-			"07"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"projectile_avoid_chance"	"40"
-			}
-			"08"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"turn_rate"	"1"
-			}
-			"09"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"awake_mana"	"0"
-			}
-			"10"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"fixed_duration"	"30"
-			}
-		}
-		"SpellDispellableType"	"SPELL_DISPELLABLE_NO"
-		"IsGrantedByShard"	"1"
-	}
-
-	"yukari_morph_awake"
-	{
-		"BaseClass"	"ability_lua"
-		"AbilityTextureName"	"esdeath_morph"
-		"ScriptFile"	"heroes/hero_yukari/yukari_morph"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		// "AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"	"1"
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
-		// "AbilityCastPoint"						"0.9 0.7 0.5 0.3"
-		// "AbilityChannelTime"					"5.0"
-		"AbilityCooldown"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"no_skills_cd"	"100"
-			}
-		}
-		"SpellDispellableType"	"SPELL_DISPELLABLE_NO"
-	}
-
-	"yukari_train"
+	"yukari_tentacles"
 	{
 		// Ability Technical Aspect
 		// base script folder	: scripts/vscripts
 		// base texture folder	: resource/flash3/images/spellicons
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
-		"AbilityTextureName"	"yukari_5"
-		"ScriptFile"	"heroes/hero_yukari/yukari_train.lua"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		// Ability General
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"	"3"
-		"RequiredLevel"	"6"
-		"LevelsBetweenUpgrades"	"5"
-		"AbilityCastPoint"	"0.1"
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
-		// Ability Resource
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"120 110 90"
-		"AbilityManaCost"	"300 400 500"
-		// Ability Casting
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"	"1500"
-		"precache"
-		{
-			"particle"	"particles/yukari_train.vpcf"
-		}
-		// Special
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_speed"	"1500"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_width_initial"	"300"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_width_end"	"300"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_distance"	"3000"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"fixed_duration"	"1"
-			}
-			"06"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"intelligence"	"1.5"
-			}
-			"07"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"400 900 1200"
-			}
-		}
-		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
-		// Damage
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"	"600 900 1200"
-	}
-
-	"yukari_dark"
-	{
-		// Ability Technical Aspect
-		// base script folder	: scripts/vscripts
-		// base texture folder	: resource/flash3/images/spellicons
-		// -------------------------------------------------------------------------------------------------------------
-		"BaseClass"	"ability_lua"
-		"AbilityTextureName"	"yukari_7"
-		"ScriptFile"	"heroes/hero_yukari/yukari_dark"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"	"yukari2"
+		"ScriptFile"	"heroes/hero_yukari/yukari_tentacles"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		// Ability General
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"	"7"
-		// Ability Resource
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"7"
-		"AbilityManaCost"	"100 100 100 100 100 100"
+		"MaxLevel"		"7"
 		// Ability Casting
 		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"	"0.1"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		// Ability Resource
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"	"20 19 18 17 16 15 14 13"
+		"AbilityManaCost"	"80 100 120 140 160 180 200"
 		"AbilityCastRange"	"1200"
 		// Damage
 		// -------------------------------------------------------------------------------------------------------------
@@ -2243,117 +1878,45 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"radius"	"350"
+				"radius"	"450"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"silence_duration"	"0.7"
+				"duration"	"5"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"120 160 200 240 280 320 360"
-				"LinkedSpecialBonus"	"special_bonus_yukari_20"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"delay"	"0.5"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"delay_plus_castpoint_tooltip"	"3.0"
-			}
-			"06"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"intelligence"	"0.7"
-			}
-		}
-		"SpellDispellableType"	"SPELL_DISPELLABLE_YES"
-	}
-
-	"yukari_car"
-	{
-		// Ability Technical Aspect
-		// base script folder	: scripts/vscripts
-		// base texture folder	: resource/flash3/images/spellicons
-		// -------------------------------------------------------------------------------------------------------------
-		"BaseClass"	"ability_lua"
-		"AbilityTextureName"	"yukari_ability1"
-		"ScriptFile"	"heroes/hero_yukari/yukari_car"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		// Ability General
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"	"1"
-		"RequiredLevel"	"18"
-		"AbilityCastPoint"	"0.3"
-		// Ability Resource
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"85"
-		"AbilityManaCost"	"400"
-		// Ability Casting
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"	"1500"
-		"precache"
-		{
-			"particle"	"particles/yukari_car.vpcf"
-		}
-		// Special
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"arrow_speed"	"1100"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"arrow_width"	"115"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"arrow_range"	"2000"
+				"damage"	"30 45 60 75 90 105 120"
+				"LinkedSpecialBonus"	"special_bonus_yukari_25"
 			}
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"arrow_max_stunrange"	"1500"
+				"root"	"-50"
 			}
 			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"arrow_min_stun"	"0.01"
+				"tick_rate"	"0.33"
 			}
 			"06"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"arrow_max_stun"	"1.5"
+				"stack_damage"	"4 6 8 10 12 14 16"
 			}
 			"07"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"arrow_bonus_damage"	"140"
+				"var_type"	"FIELD_FLOAT"
+				"stack_damage_max"	"20"
 			}
 			"08"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"arrow_vision"	"400"
+				"intelligence"	"0.2"
 			}
 		}
-		"SpellDispellableType"	"SPELL_DISPELLABLE_YES_STRONG"
-		// Damage
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"	"2000"
 	}
 
 	"yukari_moon_portal"
@@ -2450,157 +2013,6 @@
 				"cast_range"	"800"
 			}
 		}
-	}
-
-	"yukari_tentacles"
-	{
-		// Ability Technical Aspect
-		// base script folder	: scripts/vscripts
-		// base texture folder	: resource/flash3/images/spellicons
-		// -------------------------------------------------------------------------------------------------------------
-		"BaseClass"	"ability_lua"
-		"AbilityTextureName"	"yukari2"
-		"ScriptFile"	"heroes/hero_yukari/yukari_tentacles"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		// Ability General
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"		"7"
-		// Ability Casting
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"	"0.1"
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
-		// Ability Resource
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"20 19 18 17 16 15 14 13"
-		"AbilityManaCost"	"80 100 120 140 160 180 200"
-		"AbilityCastRange"	"1200"
-		// Damage
-		// -------------------------------------------------------------------------------------------------------------
-		// Special
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"radius"	"450"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"5"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"30 45 60 75 90 105 120"
-				"LinkedSpecialBonus"	"special_bonus_yukari_25"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"root"	"-50"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"tick_rate"	"0.33"
-			}
-			"06"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stack_damage"	"4 6 8 10 12 14 16"
-			}
-			"07"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"stack_damage_max"	"20"
-			}
-			"08"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"intelligence"	"0.2"
-			}
-		}
-	}
-
-	"yukari_twin_trains"
-	{
-		// Ability Technical Aspect
-		// base script folder	: scripts/vscripts
-		// base texture folder	: resource/flash3/images/spellicons
-		// -------------------------------------------------------------------------------------------------------------
-		"BaseClass"	"ability_lua"
-		"AbilityTextureName"	"yukari_5"
-		"ScriptFile"	"heroes/hero_yukari/yukari_twin_trains.lua"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		// Ability General
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"	"5"
-		"RequiredLevel"	"6"
-		"LevelsBetweenUpgrades"	"5"
-		"AbilityCastPoint"	"0.1"
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
-		// Ability Resource
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"90"
-		"AbilityManaCost"	"200 400 600 800 1000"
-		// Ability Casting
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"	"3000"
-		"precache"
-		{
-			"particle"	"particles/yukari_train.vpcf"
-		}
-		// Special
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_speed"	"600"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_width_initial"	"350"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_width_end"	"350"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_distance"	"3000"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"fixed_duration"	"1"
-			}
-			"06"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"stun_time"	"1.2 1.4 1.6 1.8 2.0"
-			}
-		}
-		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
-		// Damage
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"	"250 400 550 700 850"
 	}
 
 	"ability_thdots_yukari04"
@@ -2713,71 +2125,662 @@
 		"HasScepterUpgrade"	"1"
 	}
 
-	"ability_yukari_01"
+	"yukari_morph"
 	{
 		"BaseClass"	"ability_lua"
-		"AbilityTextureName"	"yukari_01"
-		"ScriptFile"	"scripts/vscripts/heroes/hero_yukari/yukari01.lua"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"	"yukari_4"
+		"ScriptFile"	"heroes/hero_yukari/yukari_morph.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"		"7"
-		"AbilityCastPoint"	"0.1"
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
-		"AnimationPlaybackRate"	"1.5"
-		"AbilityCooldown"	"6"
-		"AbilityManaCost"	"90 100 110 120 130 140 150"
-		"AbilityCastRange"	"%cast_range"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		// "AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"	"1"
+		"RequiredLevel"	"30"
+		"LevelsBetweenUpgrades"	"1"
+		"AbilityCastPoint"	"0.3"
+		"AbilityCastAnimation"	"ACT_DOTA_IDLE"
+		// "AbilityChannelTime"					"5.0"
+		"AbilityCooldown"	"120"
+		"AbilityManaCost"	"150"
+		// "AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
 		"precache"
 		{
-			"particle"	"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
-			"soundfile"	"soundevents/yukari_yakumo.vsndevts"
+			"particle"	"particles/yukari_morph.vpcf"
 		}
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"damage"	"50 90 130 170 210 250 290"
-				"LinkedSpecialBonus"	"special_bonus_yukari_20"
+				"zenitsu_flash_upgrade_distance"	"0"
 			}
 			"02"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"speed"	"1100"
+				"var_type"	"FIELD_INTEGER"
+				"magic"	"50"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"radius"	"55"
+				"amp"	"50"
 			}
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"range"	"1500"
+				"as"	"120"
 			}
 			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"num"	"6"
+				"zenitsu_hear_upgrade_flash_charges"	"0 0 2"
 			}
 			"06"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"cast_range"	"1500"
+				"bonus_movespeed"	"40 60 80"
 			}
 			"07"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"damage_add"	"0.8"
+				"var_type"	"FIELD_FLOAT"
+				"projectile_avoid_chance"	"40"
+			}
+			"08"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"turn_rate"	"1"
+			}
+			"09"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"awake_mana"	"0"
+			}
+			"10"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"fixed_duration"	"30"
 			}
 		}
-		"SpellDispellableType"	"SPELL_DISPELLABLE_YES"
+		"SpellDispellableType"	"SPELL_DISPELLABLE_NO"
+		"IsGrantedByShard"	"1"
 	}
+
+	// "yukari_morph_awake"
+	// {
+	// 	"BaseClass"	"ability_lua"
+	// 	"AbilityTextureName"	"esdeath_morph"
+	// 	"ScriptFile"	"heroes/hero_yukari/yukari_morph"
+	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	// 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	// 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	// 	"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	// 	// "AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
+	// 	"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+	// 	"MaxLevel"	"1"
+	// 	"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+	// 	// "AbilityCastPoint"						"0.9 0.7 0.5 0.3"
+	// 	// "AbilityChannelTime"					"5.0"
+	// 	"AbilityCooldown"	"3"
+	// 	"AbilitySpecial"
+	// 	{
+	// 		"01"
+	// 		{
+	// 			"var_type"	"FIELD_FLOAT"
+	// 			"no_skills_cd"	"100"
+	// 		}
+	// 	}
+	// 	"SpellDispellableType"	"SPELL_DISPELLABLE_NO"
+	// }
+
+	"yukari_twin_trains"
+	{
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+		// base texture folder	: resource/flash3/images/spellicons
+		// -------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"yukari_5"
+		"ScriptFile"	"heroes/hero_yukari/yukari_twin_trains.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		// Ability General
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"	"5"
+		"RequiredLevel"	"6"
+		"LevelsBetweenUpgrades"	"5"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+		// Ability Resource
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"	"90"
+		"AbilityManaCost"	"200 400 600 800 1000"
+		// Ability Casting
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"	"3000"
+		"precache"
+		{
+			"particle"	"particles/yukari_train.vpcf"
+		}
+		// Special
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"dragon_slave_speed"	"600"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"dragon_slave_width_initial"	"350"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"dragon_slave_width_end"	"350"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"dragon_slave_distance"	"3000"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"fixed_duration"	"1"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"stun_time"	"1.2 1.4 1.6 1.8 2.0"
+			}
+		}
+		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
+		// Damage
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"	"250 400 550 700 850"
+	}
+
+	"special_bonus_yukari_20"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"value"	"120"
+			}
+		}
+	}
+
+	"special_bonus_yukari_25"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"value"	"60"
+			}
+		}
+	}
+
+	// "yukari_tp"
+	// {
+	// 	// Ability Technical Aspect
+	// 	// base script folder	: scripts/vscripts
+	// 	// base texture folder	: resource/flash3/images/spellicons
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"BaseClass"	"ability_lua"
+	// 	"AbilityTextureName"	"yukari_1"
+	// 	"ScriptFile"	"heroes/hero_yukari/yukari_tp"
+	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+	// 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	// 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	// 	"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+	// 	"FightRecapLevel"	"1"
+	// 	// Ability General
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+	// 	"MaxLevel"	"4"
+	// 	"AbilityCastPoint"	"0.25 0.25 0.25 0.25"
+	// 	"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+	// 	// Ability Resource
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCooldown"	"22 20 18 16"
+	// 	"AbilityManaCost"	"140 160 180 200"
+	// 	// Ability Casting
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCastRange"	"400 450 500 550"
+	// 	"precache"
+	// 	{
+	// 		"soundfile"	"soundevents/yukari_yakumo.vsndevts"
+	// 		"particle"	"particles/yukari_portal.vpcf"
+	// 	}
+	// 	// Damage
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	// Special
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilitySpecial"
+	// 	{
+	// 		"01"
+	// 		{
+	// 			"var_type"	"FIELD_FLOAT"
+	// 			"prison_duration"	"4.0"
+	// 		}
+	// 		"02"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"damage"	"1"
+	// 		}
+	// 		"03"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"radius"	"400"
+	// 		}
+	// 		"04"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"cast_range_tooltip"	"225 300 375 450"
+	// 		}
+	// 		"05"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"max_charges_scepter"	"2"
+	// 		}
+	// 		"06"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"charge_restore_time_scepter"	"12"
+	// 		}
+	// 		"07"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"scepter_range_bonus"	"300"
+	// 		}
+	// 		"08"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"damage_x"	"150 250 375 500"
+	// 			"LinkedSpecialBonus"	"special_bonus_yukari_20"
+	// 		}
+	// 	}
+	// 	"SpellDispellableType"	"SPELL_DISPELLABLE_NO"
+	// 	"AbilityDuration"	"4.0"
+	// }
+
+	// "void_spirit_dissimilate_lua"
+	// {
+	// 	// Ability Technical Aspect
+	// 	// base script folder	: scripts/vscripts
+	// 	// base texture folder	: resource/flash3/images/spellicons
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"BaseClass"	"ability_lua"
+	// 	"AbilityTextureName"	"yukari_2"
+	// 	"ScriptFile"	"heroes/hero_yukari/void_spirit_dissimilate_lua"
+	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+	// 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	// 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+	// 	"FightRecapLevel"	"1"
+	// 	// Ability General
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+	// 	"MaxLevel"	"4"
+	// 	// Ability Casting
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCastPoint"	"0.2"
+	// 	// Ability Resource
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCooldown"	"35 30 25 20"
+	// 	"AbilityManaCost"	"100 120 140 160"
+	// 	"precache"
+	// 	{
+	// 		"particle"	"particles/void_spirit_dissimilate1.vpcf"
+	// 		"particle"	"particles/void_spirit_dissimilate_dmg1.vpcf"
+	// 		"particle"	"particles/void_spirit_dissimilate_exit1.vpcf"
+	// 	}
+	// 	// Special
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilitySpecial"
+	// 	{
+	// 		"01"
+	// 		{
+	// 			"var_type"	"FIELD_FLOAT"
+	// 			"phase_duration"	"1.3"
+	// 		}
+	// 		"02"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			// proportional to distance_offset
+	// 			"destination_fx_radius"	"183"
+	// 		}
+	// 		"03"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"portals_per_ring"	"6"
+	// 		}
+	// 		"04"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"angle_per_ring_portal"	"60"
+	// 		}
+	// 		"05"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"first_ring_distance_offset"	"520"
+	// 		}
+	// 		"06"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			// proportional to distance_offset
+	// 			"damage_radius"	"275"
+	// 		}
+	// 	}
+	// 	// Damage
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityDamage"	"150 250 450 550"
+	// }
+
+	// "yukari_mass_tp"
+	// {
+	// 	// Ability Technical Aspect
+	// 	// base script folder	: scripts/vscripts
+	// 	// base texture folder	: resource/flash3/images/spellicons
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"BaseClass"	"ability_lua"
+	// 	"AbilityTextureName"	"yukari_3"
+	// 	"ScriptFile"	"heroes/hero_yukari/yukari_mass_tp"
+	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+	// 	"FightRecapLevel"	"1"
+	// 	// Ability General
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+	// 	"MaxLevel"	"1"
+	// 	"AbilityCastPoint"	"0.3"
+	// 	"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+	// 	// Ability Resource
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCooldown"	"70"
+	// 	"AbilityManaCost"	"500"
+	// 	// Ability Casting
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCastRange"	"400"
+	// 	"precache"
+	// 	{
+	// 		"particle"	"particles/yukari_mass_tp.vpcf"
+	// 	}
+	// 	// Damage
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	// Special
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilitySpecial"
+	// 	{
+	// 		"01"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"radius"	"600"
+	// 		}
+	// 		"02"
+	// 		{
+	// 			"var_type"	"FIELD_FLOAT"
+	// 			"silence_duration"	"2"
+	// 		}
+	// 		"03"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"damage"	"600"
+	// 		}
+	// 	}
+	// 	"SpellDispellableType"	"SPELL_DISPELLABLE_YES"
+	// }
+
+
+	// "yukari_train"
+	// {
+	// 	// Ability Technical Aspect
+	// 	// base script folder	: scripts/vscripts
+	// 	// base texture folder	: resource/flash3/images/spellicons
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"BaseClass"	"ability_lua"
+	// 	"AbilityTextureName"	"yukari_5"
+	// 	"ScriptFile"	"heroes/hero_yukari/yukari_train.lua"
+	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+	// 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	// 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+	// 	"FightRecapLevel"	"1"
+	// 	// Ability General
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+	// 	"MaxLevel"	"3"
+	// 	"RequiredLevel"	"6"
+	// 	"LevelsBetweenUpgrades"	"5"
+	// 	"AbilityCastPoint"	"0.1"
+	// 	"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+	// 	// Ability Resource
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCooldown"	"120 110 90"
+	// 	"AbilityManaCost"	"300 400 500"
+	// 	// Ability Casting
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCastRange"	"1500"
+	// 	"precache"
+	// 	{
+	// 		"particle"	"particles/yukari_train.vpcf"
+	// 	}
+	// 	// Special
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilitySpecial"
+	// 	{
+	// 		"01"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"dragon_slave_speed"	"1500"
+	// 		}
+	// 		"02"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"dragon_slave_width_initial"	"300"
+	// 		}
+	// 		"03"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"dragon_slave_width_end"	"300"
+	// 		}
+	// 		"04"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"dragon_slave_distance"	"3000"
+	// 		}
+	// 		"05"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"fixed_duration"	"1"
+	// 		}
+	// 		"06"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"intelligence"	"1.5"
+	// 		}
+	// 		"07"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"damage"	"400 900 1200"
+	// 		}
+	// 	}
+	// 	"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
+	// 	// Damage
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityDamage"	"600 900 1200"
+	// }
+
+	// "yukari_dark"
+	// {
+	// 	// Ability Technical Aspect
+	// 	// base script folder	: scripts/vscripts
+	// 	// base texture folder	: resource/flash3/images/spellicons
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"BaseClass"	"ability_lua"
+	// 	"AbilityTextureName"	"yukari_7"
+	// 	"ScriptFile"	"heroes/hero_yukari/yukari_dark"
+	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+	// 	"FightRecapLevel"	"1"
+	// 	// Ability General
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+	// 	"MaxLevel"	"7"
+	// 	// Ability Resource
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCooldown"	"7"
+	// 	"AbilityManaCost"	"100 100 100 100 100 100"
+	// 	// Ability Casting
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCastRange"	"1200"
+	// 	// Damage
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	// Special
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilitySpecial"
+	// 	{
+	// 		"01"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"radius"	"350"
+	// 		}
+	// 		"02"
+	// 		{
+	// 			"var_type"	"FIELD_FLOAT"
+	// 			"silence_duration"	"0.7"
+	// 		}
+	// 		"03"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"damage"	"120 160 200 240 280 320 360"
+	// 			"LinkedSpecialBonus"	"special_bonus_yukari_20"
+	// 		}
+	// 		"04"
+	// 		{
+	// 			"var_type"	"FIELD_FLOAT"
+	// 			"delay"	"0.5"
+	// 		}
+	// 		"05"
+	// 		{
+	// 			"var_type"	"FIELD_FLOAT"
+	// 			"delay_plus_castpoint_tooltip"	"3.0"
+	// 		}
+	// 		"06"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"intelligence"	"0.7"
+	// 		}
+	// 	}
+	// 	"SpellDispellableType"	"SPELL_DISPELLABLE_YES"
+	// }
+
+	// "yukari_car"
+	// {
+	// 	// Ability Technical Aspect
+	// 	// base script folder	: scripts/vscripts
+	// 	// base texture folder	: resource/flash3/images/spellicons
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"BaseClass"	"ability_lua"
+	// 	"AbilityTextureName"	"yukari_ability1"
+	// 	"ScriptFile"	"heroes/hero_yukari/yukari_car"
+	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+	// 	"FightRecapLevel"	"1"
+	// 	// Ability General
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+	// 	"MaxLevel"	"1"
+	// 	"RequiredLevel"	"18"
+	// 	"AbilityCastPoint"	"0.3"
+	// 	// Ability Resource
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCooldown"	"85"
+	// 	"AbilityManaCost"	"400"
+	// 	// Ability Casting
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCastRange"	"1500"
+	// 	"precache"
+	// 	{
+	// 		"particle"	"particles/yukari_car.vpcf"
+	// 	}
+	// 	// Special
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilitySpecial"
+	// 	{
+	// 		"01"
+	// 		{
+	// 			"var_type"	"FIELD_FLOAT"
+	// 			"arrow_speed"	"1100"
+	// 		}
+	// 		"02"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"arrow_width"	"115"
+	// 		}
+	// 		"03"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"arrow_range"	"2000"
+	// 		}
+	// 		"04"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"arrow_max_stunrange"	"1500"
+	// 		}
+	// 		"05"
+	// 		{
+	// 			"var_type"	"FIELD_FLOAT"
+	// 			"arrow_min_stun"	"0.01"
+	// 		}
+	// 		"06"
+	// 		{
+	// 			"var_type"	"FIELD_FLOAT"
+	// 			"arrow_max_stun"	"1.5"
+	// 		}
+	// 		"07"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"arrow_bonus_damage"	"140"
+	// 		}
+	// 		"08"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"arrow_vision"	"400"
+	// 		}
+	// 	}
+	// 	"SpellDispellableType"	"SPELL_DISPELLABLE_YES_STRONG"
+	// 	// Damage
+	// 	// -------------------------------------------------------------------------------------------------------------
+	// 	"AbilityDamage"	"2000"
+	// }
 
 	//=================================================================================================================
 	// Tinker: Rearm 刷新

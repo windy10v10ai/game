@@ -22,10 +22,8 @@
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "100.000000" }
-                    "distance_max"      {   "value"     "2000.000000"  }
+                    "distance_max"      {   "value"     "1200.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"     39.888000  }
-					
                 }
             }
         }
@@ -55,10 +53,8 @@
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "100.000000" }
-                    "distance_max"      {   "value"     "2000.000000"  }
+                    "distance_max"      {   "value"     "1200.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"     38.256001  }
-					
                 }
             }
         }
