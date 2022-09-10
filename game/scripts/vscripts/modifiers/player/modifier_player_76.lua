@@ -16,6 +16,8 @@ function modifier_player_76:DeclareFunctions()
 		MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+        MODIFIER_PROPERTY_MOVESPEED_LIMIT,
 	}
 end
 
@@ -34,4 +36,12 @@ end
 
 function modifier_player_76:OnAttackLanded(params)
 	LifeStealOnAttackLanded(params, self.iLifeSteal)
+end
+
+function modifier_player_76:GetModifierMoveSpeed_Limit()
+    return 5000
+end
+
+function modifier_player_76:GetModifierIgnoreMovespeedLimit()
+    return 1
 end
