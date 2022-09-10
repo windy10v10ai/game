@@ -120,7 +120,11 @@ end
 
 function yukari_moon_portal:GetCastRange( location , target)
 	if self:GetCaster():HasModifier("modifier_yukari_moon_portal_caster") then
+	if self.target == self:GetCaster() then
 		return 99999
+		else
+		return 2000
+		end
 	end
 	return self:GetSpecialValueFor("cast_range")
 end
@@ -152,7 +156,7 @@ function modifier_yukari_moon_portal_caster:OnDestroy()
 	for _,HiddenAbility in pairs(HiddenAbilities) do
 	   	local hAbility = self:GetParent():FindAbilityByName(HiddenAbility)
         if hAbility and hAbility:IsActivated() then
-            hAbility:SetActivated(false)
+            hAbility:SetActivated(true)
         end
     end
 end
