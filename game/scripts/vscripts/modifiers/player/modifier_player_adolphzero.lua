@@ -5,12 +5,14 @@ function modifier_player_adolphzero:RemoveOnDeath() return false end
 function modifier_player_adolphzero:GetTexture() return "player/adolphzero" end
 
 function modifier_player_adolphzero:OnCreated()
-	self.iMoveSpeed = 50
+	self.iMoveSpeed = 150
 
 	self.iAttackRange = 0
 	if self:GetParent():IsRangedAttacker() then
 		self.iAttackRange = 200
 	end
+	self.iSpellAmplify = 30
+	self.iLifeSteal = 15
 
 	local primaryAttributeBouns = 30
 	self.strength = 20
@@ -35,6 +37,8 @@ function modifier_player_adolphzero:DeclareFunctions()
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+		MODIFIER_EVENT_ON_ATTACK_LANDED,
 	}
 end
 
@@ -73,4 +77,12 @@ function modifier_player_adolphzero:GetModifierBaseAttackTimeConstant()
         self.bat_check = false
         return new_bat
     end
+end
+
+function modifier_player_adolphzero:GetModifierSpellAmplify_Percentage()
+	return self.iSpellAmplify
+end
+
+function modifier_player_adolphzero:OnAttackLanded(params)
+	LifeStealOnAttackLanded(params, self.iLifeSteal, self:GetParent(), self:GetAbility())
 end

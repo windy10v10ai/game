@@ -93,7 +93,7 @@
 		"player_member_ship"		"Sponsor. Click to view more."
 		"player_member_ship_url"		"https://www.patreon.com/windy10v10"
 
-		"player_member_button"		"Thank you for your sponsorship!<br/> - Type '-AbyssSword' to swap hero AbyssSword.<br/> - Type '-Goku' to swap hero Goku.<br/>Membership is valid until {expireDate}."
+		"player_member_button"		"Thank you for your sponsorship!<br/> - Type '-AbyssSword', '-Goku' or '-Yukari' to swap to new hero.<br/>Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your sponsorship!<br/>Membership is valid until {expireDate}, Click the button to renew."
 
 		///////////////////////////////////////////////////
@@ -134,6 +134,19 @@
 		"DOTA_Tooltip_ability_tower_split_shot"							"Tower Split Shot"
 		"DOTA_Tooltip_ability_tower_split_shot_Description"				"Active this ability when tower3 destroyed."
 		"DOTA_Tooltip_ability_tower_split_shot_arrow_count"				"EXTRA TARGETS:"
+
+		///////////////////////////////////////////////////
+		//
+		//            itembuilds
+		//
+		///////////////////////////////////////////////////
+		"dota_item_build_windy_consumables_items"	"10v10 ConsumableItems"
+		"dota_item_build_windy_physical_core_items"	"10v10 Physical Carry"
+		"dota_item_build_windy_magical_core_items"	"10v10 Magical Carry"
+		"dota_item_build_windy_support_items"		"10v10 Support"
+		"dota_item_build_windy_defense_items"		"10v10 Defense"
+		"dota_item_build_windy_melee_items"			"10v10 Melee"
+		"dota_item_build_windy_range_items"			"10v10 Range"
 
 		///////////////////////////////////////////////////
 		//
@@ -228,6 +241,19 @@
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"			"Duration: "
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"		"Movement Speed: "
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"Health Regen: "
+
+		// 混沌骑士
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"混沌之军"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战，持续%duration%秒。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
+
+		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
+
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"大招间隔降低至1，攻击次数+1"
 
 		// Saber
 		"npc_dota_hero_broodmother"						"Artoria Pendragon"
@@ -404,7 +430,67 @@
 		"DOTA_Tooltip_modifier_goku_super_saiyan_passive_Description" 	 "Gain %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% strength bonus, %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility bonus and %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% intelligence bonus"
 		"DOTA_Tooltip_modifier_goku_super_saiyan" 	 "Super Saiya: Activate"
 		"DOTA_Tooltip_modifier_goku_super_saiyan_Description" 	 "Strengthen all your skills, gain %dMODIFIER_PROPERTY_STATUS_RESISTANCE%%% state resistance bonus, and restore %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% magic and %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% life per second"
+		// Yukari
+		"npc_dota_yukari_1"	"yukari"
+		"DOTA_Tooltip_ability_special_bonus_unique_yukari_01_damage"	"+{s:bonus_damage} Aerial Bait Hyperactive High Speed Flying Object Damage"
+		"DOTA_Tooltip_ability_special_bonus_unique_yukari_tentacles_damage"	"+{s:bonus_damage_per_second} yukari_tentacles Damage Per Second"
+		"npc_dota_hero_phantom_lancer"	"Yukari Yakumo"
+        "DOTA_Tooltip_ability_yukari_dark" "Darkness Falls"
+        "DOTA_Tooltip_ability_yukari_dark_Description" "Create a dismentional rift at the air.Huge cross will wall at the selected area,dealing damage to all enemies"
+        "DOTA_Tooltip_ability_yukari_dark_damage" "Damage:"
+        "DOTA_Tooltip_ability_yukari_dark_delay" "Delay:"
+        "DOTA_Tooltip_ability_yukari_portal_hand" "Yukaris Special:Hand from abyss"
+        "DOTA_Tooltip_ability_yukari_portal_hand_Description" "Creates a portal near from target that summons huge hand that crush selected target.Target will be stunned while hand exists."
+        "DOTA_Tooltip_ability_yukari_portal_hand_stun_duration" "Duration:"
+        "DOTA_Tooltip_ability_yukari_portal_hand_interval" "IntervalOfDamage:"
+        "DOTA_Tooltip_ability_yukari_portal_hand_damage" "DamagePerInterval:"
+        "DOTA_Tooltip_ability_yukari_mass_tp" "Moon Portal"
+        "DOTA_Tooltip_ability_yukari_mass_tp_Description" "After cast, all enemies around will be prisoned in dark portal,than receive damage."
+        "DOTA_Tooltip_ability_yukari_mass_tp_damage" "Damage:"
+        "DOTA_Tooltip_ability_yukari_mass_tp_silence_duration" "AstralDuration:"
+        "DOTA_Tooltip_ability_yukari_mass_tp_scepter_Description" "Pandora:Adds a new ability: Moon Portal, which instantly puts all enemies around it into a portal, damaging them"
+        "DOTA_Tooltip_ability_yukari_moon_portal" "Evil Spirits Yukari Yakumo's Spiriting Away"
+        "DOTA_Tooltip_ability_yukari_moon_portal_Description" "Imprison a unit in the gap, and the unit in the gap is invincible and unable to move. Use it for the second time to select the landing location. Yukari can release skills in the gap."
+        "DOTA_Tooltip_ability_yukari_moon_portal_damage" "Damage:"
+        "DOTA_Tooltip_ability_yukari_moon_portal_enemy_lift_duration" "Duration:"
+        "DOTA_Tooltip_ability_yukari_tentacles" "Tentacle Portal"
+        "DOTA_Tooltip_ability_yukari_tentacles_Description" "Opens a portal filled with dire tentacles in the target area, dealing damage over time, slowing everyone inside, and limiting the view range to 600."
+        "DOTA_Tooltip_ability_yukari_tentacles_damage_per_second" "Damage Per Second:"
+        "DOTA_Tooltip_ability_yukari_tentacles_duration" "Duration:"
+        "DOTA_Tooltip_ability_yukari_tentacles_root"	"%Movement speed decreased:"
+        // "DOTA_Tooltip_ability_yukari_tentacles_tick_rate"	"Damage frequency:"
+        "DOTA_Tooltip_ability_yukari_tentacles_AbilityCastRange"	"Range:"
+        "DOTA_Tooltip_ability_yukari_tentacles_intelligence"	"Bonus damage per intelligence:"
 
+        "DOTA_Tooltip_ability_yukari_morph"							"Moon Phase"
+        "DOTA_Tooltip_ability_yukari_morph_Description" 			"Uses hide potential to unleash true power"
+		"DOTA_Tooltip_ability_yukari_morph_magic"					"%+$spell_amp"
+        "DOTA_Tooltip_ability_yukari_morph_amp"						"BonusMs:"
+        "DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"Duration:"
+		"DOTA_Tooltip_modifier_yukari_morph"						"Moon Phase"
+		"DOTA_Tooltip_modifier_yukari_morph_real"					"Moon Phase"
+
+        "DOTA_Tooltip_ability_yukari_train" "Yukari's special:Train"
+        "DOTA_Tooltip_ability_yukari_train_Description" "Summons the train from portal that rides to selected direction.Deals collosal damage to all enemies in the train way."
+        "DOTA_Tooltip_ability_yukari_train_AbilityDamage" "Damage:"
+        "DOTA_Tooltip_ability_yukari_train_Lore" "I like trains"
+        "DOTA_Tooltip_ability_yukari_twin_trains" "Yukari's special:Double Train"
+        "DOTA_Tooltip_ability_yukari_twin_trains_Description" "Generates one entry, and releases it again to generate the second entry. Each entrance spawns a train heading towards the other, dealing massive damage and stunning enemies in its path. When the trains collide, it causes a huge explosion that re-damages surrounding enemies."
+        "DOTA_Tooltip_ability_yukari_twin_trains_AbilityDamage" "Damage:"
+        "DOTA_Tooltip_ability_yukari_twin_trains_Lore" "What can be better that 1 train?2 of them!"
+        "DOTA_Tooltip_ability_yukari_twin_trains_AbilityCastRange"	"Range："
+        "DOTA_Tooltip_ability_ability_yukari_01"	"Aerial Bait Hyperactive High Speed Flying Object"
+        "DOTA_Tooltip_ability_ability_yukari_01_Description"	"Fires 6 bullets to deal damage, and the damage of repeated hits is greatly reduced."
+        "DOTA_Tooltip_ability_ability_yukari_01_damage"	"damage:"
+        "DOTA_Tooltip_ability_ability_yukari_01_damage_add"	"Bonus damage per intelligence:"
+        "DOTA_Tooltip_ability_ability_yukari_01_range"	"Range:"
+        "DOTA_Tooltip_ability_ability_yukari_01_speed"  "Speed:"
+        "DOTA_Tooltip_ability_ability_thdots_yukari04"	"Deep Danmaku Barrier -Transient Dreams-"
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"A large teleportation enchantment is launched at any location as the target. Allies within the enchantment range and the units of other teammates and players will be teleported to the target unit together. The longer the channeling time, the greater the range of the teleportation enchantment. The maximum channel time is 2 seconds, and the maximum range of the enchantment is 750. No matter how long the channel is, as soon as the channel ends (even if it is interrupted), the teleport will take place. \nDuring the channeling, a large number of barrages will be scattered from the target location, causing damage to surrounding enemy units. After the teleportation is completed, a space shock will be generated, causing %int_bonus% times the intelligence magic damage to enemy units within %wanbaochui_radius%. \n"
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_min_radius"	"Teleport minimum range："
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"Teleport maximum range："
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"Barrage damage over time："
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"Add a new skill：「Deep Danmaku Barrier -Transient Dreams-」"
 	    // 修补匠 刷新
 	    "DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."

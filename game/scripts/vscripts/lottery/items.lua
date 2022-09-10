@@ -6,7 +6,7 @@ function AIGameMode:SpecialItemAdd(owner)
 	tierRate[2] = 20
 	tierRate[3] = 6
 	tierRate[4] = 1
-	-- tierRate[5] = 0.6
+	tierRate[5] = 0.1
 
 	local tier = {}
 
@@ -61,7 +61,7 @@ function AIGameMode:SpecialItemAdd(owner)
 
 	tier[4] =	{
 		"item_candy_candy",					-- 嘉心糖
-		"item_hand_of_group",				-- 团队之手
+		-- "item_hand_of_group",				-- 团队之手
 		"item_tome_of_knowledge",			-- 知识之书
 		"item_aghanims_shard",				-- 阿哈利姆魔晶
 
@@ -73,7 +73,9 @@ function AIGameMode:SpecialItemAdd(owner)
 	}
 
 	tier[5] =	{
-		-- "item_greater_mango",				-- 高级芒果
+		"item_tome_of_agility",				-- 敏捷之术
+		"item_tome_of_intelligence",		-- 智力之书
+		"item_tome_of_strength",			-- 力量之书
 	}
 
 	local hero = owner:GetClassname()

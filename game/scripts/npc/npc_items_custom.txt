@@ -2433,6 +2433,7 @@
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"				"1"
 		"IsTempestDoubleClonable"			"0"
+		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilitySpecial"
 		{
@@ -2463,6 +2464,7 @@
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"				"1"
 		"IsTempestDoubleClonable"			"0"
+		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilitySpecial"
 		{
@@ -2493,6 +2495,7 @@
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"				"1"
 		"IsTempestDoubleClonable"			"0"
+		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilitySpecial"
 		{
@@ -5315,6 +5318,7 @@
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
 		"IsTempestDoubleClonable"		"0"
+		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilityValues"
 		{
@@ -5610,6 +5614,7 @@
 		"ItemCost"						"6000"
 		"ItemAliases"					"diana candy"
 		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
 		"ItemInitialCharges"			"2"
 		"ItemPermanent"					"0"
 		"ItemStockInitial"				"1"

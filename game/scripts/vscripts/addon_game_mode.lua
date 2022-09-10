@@ -18,6 +18,7 @@ require('bot/bot_think_item_use')
 require('bot/bot_think_ability_use')
 require('bot/bot_think_modifier')
 require('web/web_server')
+require("damage")
 
 function Activate()
 	AIGameMode:InitGameMode()
@@ -29,6 +30,9 @@ function Precache( context )
 	PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_abyss_sword.vsndevts", context)
 	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_goku.vsndevts", context)
 	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_saber.vsndevts", context)
+	PrecacheResource( "soundfile", "soundevents/yukari_yakumo.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/hero_themes.vsndevts", context )
+
 end
 
 function AIGameMode:InitGameMode()
@@ -263,6 +267,11 @@ function AIGameMode:FilterGold(tGoldFilter)
 		else
 			iGold = iGold
 		end
+
+		local playerKill = PlayerResource:GetKills(iPlayerID)
+		local teamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(iPlayerID))
+		local teamCount = PlayerResource:GetPlayerCountForTeam(PlayerResource:GetTeam(iPlayerID))
+		iGold = iGold * AIGameMode:RewardFilterByKill(teamKill, playerKill, teamCount)
 	end
 
 	if self.tHumanPlayerList[iPlayerID] then
@@ -293,4 +302,11 @@ function AIGameMode:FilterXP(tXPFilter)
 		end
 	end
 	return true
+end
+
+function AIGameMode:RewardFilterByKill(teamKill, playerKill, teamCount)
+	local rewardMulti = 1
+	if teamKill < 10 then return rewardMulti end
+	rewardMulti = 1 - playerKill/teamKill + 1/teamCount
+	return rewardMulti
 end

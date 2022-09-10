@@ -1,0 +1,685 @@
+"yukari.portal"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/phantom_lancer/plance_attack_07.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.500000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+"yukari.trains_explosion"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/explosion2.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "4000.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"     6.720000  }
+
+                }
+            }
+        }
+    }
+}
+"yukari.tentacles"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/tentacles.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"     0.936000  }
+
+                }
+            }
+        }
+    }
+}
+"yukari.tentacles_cast"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/phantom_lancer/plance_attack_09.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.500000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"     1.332245  }
+
+                }
+            }
+        }
+    }
+}
+"yukari.portal_out"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/yukari_portal_out.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.500000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"     1.992472  }
+
+                }
+            }
+        }
+    }
+}
+"yukari.car"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/yukari_car.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"     1.104000  }
+
+                }
+            }
+        }
+    }
+}
+"yukari.car2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/yukari_car2.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"    3.192000  }
+
+                }
+            }
+        }
+    }
+}
+"yukari.explosion"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/explosion.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "4000.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"    3.052000  }
+
+                }
+            }
+        }
+    }
+}
+"yukari.portal.out"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/phantom_lancer/plance_attack_09.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"    1.332245  }
+
+                }
+            }
+        }
+    }
+}
+"yukari_mass_tp"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/phantom_lancer/plance_move_02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"    1.541224  }
+
+                }
+            }
+        }
+    }
+}
+"yukari.morph"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/phantom_lancer/plance_first_01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.900000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+"yukari.theme"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/yukari_theme.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"    39.888000  }
+
+                }
+            }
+        }
+    }
+}
+"yukari.train"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/yukari_train.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"    2.600250  }
+                }
+            }
+        }
+    }
+}
+"yukari.slash"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "src1_2d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/yukari_slash.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"    2.400000  }
+
+                }
+            }
+        }
+    }
+}
+"yukari.dark1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "src1_2d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/phantom_lancer/plance_attack_02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"    1.097143  }
+
+                }
+            }
+        }
+    }
+}
+"yukari.dark"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "src1_2d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/pugna/netherblast_ti9.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"    2.859592  }
+
+                }
+            }
+        }
+    }
+}
+"i.like.trains"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "src1_2d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/i_like_trains.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1600.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+
+                }
+            }
+        }
+    }
+}
+"ability_yukari_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/yukari01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.600000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "81.000000" }
+                    "distance_max"      {   "value"     "4000.000000"  }
+                    "event_type"        {   "value"     "6.000000"  }
+					"vsnd_duration"     {   "value"     1.396825  }
+
+                }
+            }
+        }
+    }
+}
+"ability_yukari_twin1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/yukari_twin1.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "81.000000" }
+                    "distance_max"      {   "value"     "4000.000000"  }
+                    "event_type"        {   "value"     "6.000000"  }
+					"vsnd_duration"     {   "value"     3.000000  }
+
+                }
+            }
+        }
+    }
+}
+"ability_yukari_twin2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/yukari_twin2.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "100.000000" }
+                    "distance_max"      {   "value"     "1800.000000"  }
+                    "event_type"        {   "value"     "6.000000"  }
+                }
+            }
+        }
+    }
+}
+"ability_yukari_op"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/yukari_op.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.050000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "81.000000" }
+                    "distance_max"      {   "value"     "4000.000000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+					"vsnd_duration"     {   "value"     4.000000  }
+
+                }
+            }
+        }
+    }
+}
