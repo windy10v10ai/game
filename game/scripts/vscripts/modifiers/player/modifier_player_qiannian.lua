@@ -2,17 +2,18 @@ modifier_player_qiannian = class({})
 
 function modifier_player_qiannian:IsPurgable() return false end
 function modifier_player_qiannian:RemoveOnDeath() return false end
-function modifier_player_qiannian:GetTexture() return "player/plusIcon" end
+function modifier_player_qiannian:GetTexture() return "player/qiannian" end
 
 function modifier_player_qiannian:OnCreated()
 	self.iCooldownReduction = 35
 	self.iStatusResist = 32
 	self.iLifeSteal = 60
+	self.iSpellAmplify = 40
 
 	local primaryAttributeBouns = 60
 	self.strength = 80
 	self.agility = 80
-	self.intellect = 0
+	self.intellect = 80
 	self.iModelScale = -50
 	self.iMoveSpeed = 200
 	-- get parent's primary attribute
@@ -39,6 +40,7 @@ function modifier_player_qiannian:DeclareFunctions()
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
         MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
 	}
 end
 
@@ -80,4 +82,8 @@ end
 
 function modifier_player_qiannian:GetModifierIgnoreMovespeedLimit()
     return 1
+end
+
+function modifier_player_qiannian:GetModifierSpellAmplify_Percentage()
+	return self.iSpellAmplify
 end

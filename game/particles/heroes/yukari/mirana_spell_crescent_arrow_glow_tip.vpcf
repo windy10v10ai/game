@@ -1,0 +1,114 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf37:version{f9a1c8c4-159b-4786-b740-4d1a118c8f46} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 32
+	m_flConstantRadius = 35.0
+	m_ConstantColor = [ 75, 0, 130, 255 ]
+	m_nBehaviorVersion = 3
+	m_nFirstMultipleOverride_BackwardCompat = 5
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 7.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMax = 0.25
+			m_fLifetimeMin = 0.25
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMin = 45
+			m_nAlphaMax = 75
+		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_nControlPointNumber = 3
+		},
+		{
+			_class = "C_INIT_RemapInitialCPDirectionToRotation"
+			m_nCP = 3
+			m_nFieldOutput = 4
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMax = [ 75, 0, 130 ]
+			m_ColorMin = [ 75, 0, 130 ]
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_nControlPointNumber = 3
+			m_OffsetMin = [ 43.0, 0.0, 0.0 ]
+			m_OffsetMax = [ 48.0, 0.0, 0.0 ]
+			m_bLocalCoords = true
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flStartScale = 0.0
+			m_flBias = 0.75
+		},
+		{
+			_class = "C_OP_AlphaDecay"
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_flEndTime = 999999.0
+			m_Rate = -8.0
+			m_nField = 16
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		{
+			_class = "C_OP_PositionLock"
+			m_nControlPointNumber = 3
+			m_bLockRot = true
+		},
+		{
+			_class = "C_OP_OscillateScalar"
+			m_FrequencyMax = 0.5
+			m_RateMin = 0.35
+			m_RateMax = 0.7
+			m_FrequencyMin = 0.25
+			m_flEndTime_min = 999999995904.0
+			m_flEndTime_max = 999999995904.0
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			VisibilityInputs = 
+			{
+				m_flCameraBias = -10.0
+			}
+			m_nOrientationType = "PARTICLE_ORIENTATION_WORLD_Z_ALIGNED"
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/particle_ring_wave_17.vtex"
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
+		},
+	]
+}

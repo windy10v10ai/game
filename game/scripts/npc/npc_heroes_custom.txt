@@ -233,6 +233,53 @@
 		"GameSoundsFile"				"soundevents/game_sounds_heroes/game_sounds_saber.vsndevts"
 	}
 
+	// 八云紫
+	// ========================================================================
+	"Yukari"
+	{
+		"override_hero"	"npc_dota_hero_phantom_lancer"
+		"Model"	"models/new_touhou_model/yukari/yukari.vmdl"
+		"ModelScale"	"0.95"
+		"LoadoutScale"	"1.00000"
+		"SpectatorLoadoutScale"	"1.00000"
+		"VersusScale"	"1.00000"
+		"DisableWearables"	"1"
+		"Ability1"	"ability_yukari_01"
+		"Ability2"	"yukari_tentacles"
+		"Ability3"	"yukari_moon_portal"
+		"Ability4"	"ability_thdots_yukari04"
+		"Ability5"	"yukari_morph"
+		"Ability6"	"yukari_twin_trains"
+		"Ability10"	"special_bonus_mp_300"
+		"Ability11"	"special_bonus_mana_reduction_9"
+		"Ability12"	"special_bonus_intelligence_30"
+		"Ability13"	"special_bonus_cooldown_reduction_10"
+		"Ability14"	"special_bonus_unique_yukari_01_damage"
+		"Ability15"	"special_bonus_spell_amplify_15"
+		"Ability16"	"special_bonus_unique_yukari_tentacles_damage"
+		"Ability17"	"special_bonus_cooldown_reduction_20"
+		"ItemSlots"	{}
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"30"
+		"MagicalResistance"			"40"
+		"AttributeStrengthGain"		"2.0"
+		"AttributeBaseIntelligence"	"30"
+		"AttributeIntelligenceGain"	"3.0"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"		"35"
+		"AttackDamageMax"		"40"
+		"BaseAttackSpeed"		"100"
+		"AttackAnimationPoint"	"0.200000"
+		"AttributeBaseAgility"	"10"
+		"AttributeAgilityGain"	"1.5"
+		"AttackRange"			"550"
+		"ProjectileModel"		"particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+		"ProjectileSpeed"		"1250"
+		"MovementSpeed"			"300"
+		"VisionDaytimeRange"	"1800"
+		"VisionNighttimeRange"	"1000"
+	}
+
 	"npc_dota_hero_techies"
 	{
 		"Ability4"		"techies_stasis_trap"
@@ -249,7 +296,7 @@
 
 	"npc_dota_hero_spirit_breaker"
 	{
-		"Ability4"		"spirit_breaker_empowering_haste"
+		"Ability5"		"spirit_breaker_empowering_haste"
 	}
 
 	"npc_dota_hero_faceless_void"
@@ -527,7 +574,7 @@
 	}
 	"npc_dota_hero_bloodseeker"
 	{
-		"Ability16"		"special_bonus_cleave_100"
+		"Ability16"		"special_bonus_cleave_60"
 		"Bot"
 		{
 			"Build"
@@ -617,6 +664,9 @@
 	}
 	"npc_dota_hero_chaos_knight"
 	{
+		"Ability6"	"imba_chaos_knight_phantasm"
+		"Ability13"		"special_bonus_lifesteal_15"
+		"Ability17"		"special_bonus_cleave_60"
 		"Bot"
 		{
 			"Build"
@@ -631,14 +681,14 @@
 				"8"		"chaos_knight_reality_rift"
 				"9"		"chaos_knight_chaos_strike"
 				"10"		"special_bonus_unique_chaos_knight_6"
-				"11"		"chaos_knight_phantasm"
-				"12"		"chaos_knight_phantasm"
+				"11"		"imba_chaos_knight_phantasm"
+				"12"		"imba_chaos_knight_phantasm"
 				"13"		"chaos_knight_chaos_strike"
 				"14"		"chaos_knight_chaos_strike"
 				"15"		"special_bonus_unique_chaos_knight_8"
 				"16"		"chaos_knight_chaos_strike"
 				"17"		""
-				"18"		"chaos_knight_phantasm"
+				"18"		"imba_chaos_knight_phantasm"
 				"19"		""
 				"20"		"special_bonus_unique_chaos_knight_3"
 				"21"		""
@@ -648,16 +698,13 @@
 				"25"		"special_bonus_unique_chaos_knight_5"
 				"26"		""
 				"27"		"special_bonus_unique_chaos_knight_2"
-				"28"		"special_bonus_unique_chaos_knight_7"
+				"28"		"special_bonus_lifesteal_15"
 				"29"		"special_bonus_unique_chaos_knight"
-				"30"		"special_bonus_unique_chaos_knight_4"
-				"31"		"chaos_knight_phantasm"
-				"32"		"chaos_knight_phantasm"
-				"33"		"chaos_knight_reality_rift"
-				"34"		"chaos_knight_chaos_bolt"
-				"35"		"chaos_knight_chaos_strike"
-				"36"		"chaos_knight_chaos_strike"
-				"37"		"chaos_knight_chaos_strike"
+				"30"		"special_bonus_cleave_60"
+				"31"		"imba_chaos_knight_phantasm"
+				"32"		"chaos_knight_reality_rift"
+				"33"		"chaos_knight_chaos_bolt"
+				"34"		"chaos_knight_chaos_strike"
 			}
 		}
 	}
