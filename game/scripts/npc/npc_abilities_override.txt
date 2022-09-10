@@ -6842,6 +6842,14 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"25 20 15 10 5"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"650 700 750 800 850"
+			}
+		}
 	}
 	"faceless_void_backtrack"
 	{
@@ -6865,7 +6873,7 @@
 		"AbilityDraftPreAbility"		"faceless_void_backtrack"
 		"AbilityValues"
 		{
-				"chance_pct"			"12 16 20 24"
+				"chance_pct"			"12 16 20 24 28"
 				"bonus_damage"
 				{
 					"value"				"20 25 30 35 40"
