@@ -434,7 +434,7 @@
 		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
 		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
 
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"大招间隔降低至1，攻击次数+1"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"增加大招攻击次数，降低攻击冷却时间。"
 
 		// Saber
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"
