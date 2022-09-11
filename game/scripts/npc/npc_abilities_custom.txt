@@ -1856,18 +1856,18 @@
 		{
 			"damage"
 			{
-				"value"						"30 40 50 60 70 80 90"
+				"value"						"20 30 40 50 60 70 80"
 				"special_bonus_unique_yukari_tentacles_damage"	"+30"
 			}
 			"damage_per_second"				// for tooltip
 			{
-				"value"						"90 120 150 180 210 240 270"
-				"special_bonus_unique_yukari_tentacles_damage"	"+90"
+				"value"						"50 75 100 125 150 175 200"
+				"special_bonus_unique_yukari_tentacles_damage"	"+75"
 			}
 			"radius"	"400"
 			"duration"	"5"
 			"root"		"-50"
-			"tick_rate"	"0.33"
+			"tick_rate"	"0.4"
 			"stack_damage"	"4 6 8 10 12 14 16"
 			"stack_damage_max"	"20"
 			"intelligence"	"0.15"
@@ -1933,7 +1933,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"ally_lift_duration"	"1.5"
+				"ally_lift_duration"	"1.75 2.0 2.4 2.6 2.8"
 			}
 			"05"
 			{

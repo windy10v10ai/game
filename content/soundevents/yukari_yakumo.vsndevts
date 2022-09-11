@@ -38,7 +38,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "dota_src1_3d"
+                "reference_stack"       "dota_src1_2d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -48,7 +48,7 @@
                               "value0"        "sounds/explosion2.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.000000"  }
+                    "volume"            {   "value"     "1.500000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -236,7 +236,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "dota_src1_3d"
+                "reference_stack"       "dota_src1_2d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -595,7 +595,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "dota_src1_3d"
+                "reference_stack"       "dota_src1_2d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -605,7 +605,7 @@
                               "value0"        "sounds/yukari_twin1.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.000000"  }
+                    "volume"            {   "value"     "1.500000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -628,7 +628,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "dota_src1_3d"
+                "reference_stack"       "dota_src1_2d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -638,7 +638,7 @@
                               "value0"        "sounds/yukari_twin2.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.000000"  }
+                    "volume"            {   "value"     "1.500000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
