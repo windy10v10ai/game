@@ -6,7 +6,7 @@ function modifier_player_76:GetTexture() return "player/76" end
 
 function modifier_player_76:OnCreated()
 	self.iMoveSpeed = 176
-	self.iManaRegen = 1.76
+	self.Bonus_Mana_Regen_Total_Percentage = 1.76
 	self.iCooldownReduction = 17.6
 	self.iLifeSteal = 17.6
 end
@@ -17,7 +17,7 @@ function modifier_player_76:DeclareFunctions()
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
-        MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+		MODIFIER_PROPERTY_MOVESPEED_LIMIT,
 	}
 end
 
@@ -27,7 +27,7 @@ function modifier_player_76:GetModifierMoveSpeedBonus_Constant()
 end
 
 function modifier_player_76:GetModifierTotalPercentageManaRegen()
-	return self.iManaRegen
+	return self.Bonus_Mana_Regen_Total_Percentage
 end
 
 function modifier_player_76:GetModifierPercentageCooldown()
