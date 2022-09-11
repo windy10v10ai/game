@@ -466,7 +466,7 @@
 
         "DOTA_Tooltip_ability_yukari_morph"							"Moon Phase"
         "DOTA_Tooltip_ability_yukari_morph_Description" 			"Uses hide potential to unleash true power"
-		"DOTA_Tooltip_ability_yukari_morph_magic"					"%+$spell_amp"
+		"DOTA_Tooltip_ability_yukari_morph_magic"					"%Spell Amp:"
         "DOTA_Tooltip_ability_yukari_morph_amp"						"BonusMs:"
         "DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"Duration:"
 		"DOTA_Tooltip_modifier_yukari_morph"						"Moon Phase"
