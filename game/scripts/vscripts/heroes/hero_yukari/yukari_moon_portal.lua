@@ -20,11 +20,11 @@ function yukari_moon_portal:CastFilterResultTarget(target)
 	end
 end
 
-function yukari_moon_portal:GetCustomCastErrorTarget(target)
-	if target == self:GetCaster() and self:GetCaster():IsRooted() then
-		return "dota_hud_error_ability_disabled_by_root"
-	end
-end
+--function yukari_moon_portal:GetCustomCastErrorTarget(target)
+	--if target == self:GetCaster() and self:GetCaster():IsRooted() then
+		--return "dota_hud_error_ability_disabled_by_root"
+	--end
+--end
 
 function yukari_moon_portal:OnSpellStart( params )
 	local caster = self:GetCaster()
