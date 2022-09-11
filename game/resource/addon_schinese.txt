@@ -270,6 +270,7 @@
 		"DOTA_Tooltip_modifier_player_chuyin_2"					"<font color='#FFCC66'>★ 奥法之怒 ★</font>"
 		"DOTA_Tooltip_modifier_player_chuyin_3"					"<font color='#FFCC66'>★ 致命箭雨 ★</font>"
 		"DOTA_Tooltip_modifier_player_chuyin_4"					"<font color='#FFCC66'>★ 雷霆爆发 ★</font>"
+		"DOTA_Tooltip_modifier_player_chuyin_5"					"<font color='#FFCC66'>★ 魔龙 ★</font>"
 		"DOTA_Tooltip_modifier_player_sushi"					"<font color='#FFCC66'>★ 基神的强袭自由 ★</font>"
 		"DOTA_Tooltip_modifier_player_sushi_Description"		"<font color='#FFCC66'> 天苍茫镜花水月之像，今朝我粉墨登场~ </font>"
 		"DOTA_Tooltip_modifier_player_kdvh_1"					"<font color='#FFCC66'>★ 男人的加油站 ★</font>"
@@ -279,6 +280,10 @@
 		"DOTA_Tooltip_modifier_player_aoliao"					"<font color='#FFCC66'>★ 奥利奥夹心饼 ★</font>"
 		"DOTA_Tooltip_modifier_player_vjes"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh"					"<font color='#FFCC66'>★ 至圣 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_1"					"<font color='#FFCC66'>★ 至圣先师 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_2"					"<font color='#FFCC66'>★ 万世师表 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_3"					"<font color='#FFCC66'>★ 天不生仲尼 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_4"					"<font color='#FFCC66'>★ 万古如长夜 ★</font>"
 
 
 		// 初音未来
