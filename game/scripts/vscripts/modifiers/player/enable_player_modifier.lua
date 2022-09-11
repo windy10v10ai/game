@@ -427,6 +427,8 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_chuyin_3", {})
 		LinkLuaModifier("modifier_player_chuyin_4", "modifiers/player/modifier_player_chuyin_4", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_chuyin_4", {})
+		LinkLuaModifier("modifier_player_chuyin_5", "modifiers/player/modifier_player_chuyin_5", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_chuyin_5", {})
 	end
 	if sushiSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_sushi", "modifiers/player/modifier_player_sushi", LUA_MODIFIER_MOTION_NONE)
@@ -455,5 +457,13 @@ function EnablePlayerModifier(hEntity)
 	if laughSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_laugh", "modifiers/player/modifier_player_laugh", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_laugh", {})
+		LinkLuaModifier("modifier_player_laugh_1", "modifiers/player/modifier_player_laugh_1", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_laugh_1", {})
+		LinkLuaModifier("modifier_player_laugh_2", "modifiers/player/modifier_player_laugh_2", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_laugh_2", {})
+		LinkLuaModifier("modifier_player_laugh_3", "modifiers/player/modifier_player_laugh_3", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_laugh_3", {})
+		LinkLuaModifier("modifier_player_laugh_4", "modifiers/player/modifier_player_laugh_4", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_laugh_4", {})
 	end
 end

@@ -8,10 +8,10 @@ function modifier_player_dky190_3:OnCreated()
 	self.strength = 50
 	self.agility = 50
 	self.intellect = 50
-	self.iCooldownReduction = 30
+	self.iCooldownReduction = 32
 	self.iLifeSteal = 15
 	self.iAttackSpeed = 20
-	self.iBonusDamage = 40
+	self.iArmor = 10
 end
 function modifier_player_dky190_3:DeclareFunctions()
 	return {
@@ -21,7 +21,7 @@ function modifier_player_dky190_3:DeclareFunctions()
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	}
 end
 
@@ -49,6 +49,6 @@ function modifier_player_dky190_3:GetModifierAttackSpeedBonus_Constant()
 	return self.iAttackSpeed
 end
 
-function modifier_player_dky190_3:GetModifierPreAttack_BonusDamage()
-	return self.iBonusDamage
+function modifier_player_dky190_3:GetModifierPhysicalArmorBonus()
+    return self.iArmor
 end
