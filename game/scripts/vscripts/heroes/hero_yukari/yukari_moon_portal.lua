@@ -88,11 +88,8 @@ function yukari_moon_portal:OnSpellStart( params )
 		caster:AddNewModifier(caster, self, "modifier_yukari_moon_portal_caster", { duration = duration - 0.2})
 		caster:AddNewModifier(caster, self, "modifier_yukari_leashed", { duration = duration + FrameTime()})
 		self:EndCooldown()
- --if self.target:GetTeam() ~= caster:GetTeam() then
-		--self:EndCooldown()
---end
-		end
 	end
+end
 
 
 
@@ -120,10 +117,8 @@ end
 
 function yukari_moon_portal:GetCastRange( location , target)
 	if self:GetCaster():HasModifier("modifier_yukari_moon_portal_caster") then
-	if self.target == self:GetCaster() then
-		return 99999
-		else
-		return 2000
+		if self.target == self:GetCaster() then
+			return 99999
 		end
 	end
 	return self:GetSpecialValueFor("cast_range")
@@ -140,13 +135,13 @@ function modifier_yukari_moon_portal_caster:IsPurgable() return false end
 function modifier_yukari_moon_portal_caster:IsPurgeException() return false end
 function modifier_yukari_moon_portal_caster:IsStunDebuff() return false end
 function modifier_yukari_moon_portal_caster:RemoveOnDeath() return true end
+
 function modifier_yukari_moon_portal_caster:OnDestroy()
+	if not IsServer() then return end
+
 	self.ability = self:GetAbility()
 	self.parent = self:GetParent()
-
-	if IsServer() then
-		self.ability:StartCooldown(self.ability:GetCooldown(-1) * self.parent:GetCooldownReduction())
-	end
+	self.ability:StartCooldown(self.ability:GetCooldown(-1) * self.parent:GetCooldownReduction())
 
 	local HiddenAbilities =
 	{

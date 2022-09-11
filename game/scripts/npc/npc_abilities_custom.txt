@@ -1794,7 +1794,7 @@
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate"	"1.5"
 		"AbilityCooldown"	"6"
-		"AbilityManaCost"	"90 100 110 120 130 140 150"
+		"AbilityManaCost"	"60 80 100 120 140 160 180"
 		"AbilityCastRange"	"%cast_range"
 		"precache"
 		{
@@ -1807,19 +1807,31 @@
 			"damage"
 			{
 				"value"						"60 100 140 180 220 260 300"
-				"special_bonus_unique_yukari_01_damage"	"+120"
+				"special_bonus_unique_yukari_01_damage"	"+100"
+			}
+			"stun_duration"
+			{
+				"value"						"0"
+				"special_bonus_unique_yukari_01_stun" "+0.8"
 			}
 			"speed"			"1100"
 			"radius"		"70"
 			"range"			"1500"
 			"num"			"6"
 			"cast_range"	"1500"
-			"damage_add"	"0.8"
+			"damage_add"	"0.6"
 		}
 		"SpellDispellableType"	"SPELL_DISPELLABLE_YES"
 	}
 
 	"special_bonus_unique_yukari_01_damage"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+	"special_bonus_unique_yukari_01_stun"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1856,21 +1868,22 @@
 		{
 			"damage"
 			{
-				"value"						"20 30 40 50 60 70 80"
+				"value"						"30 40 50 60 70 80 90"
 				"special_bonus_unique_yukari_tentacles_damage"	"+30"
 			}
 			"damage_per_second"				// for tooltip
 			{
-				"value"						"50 75 100 125 150 175 200"
+				"value"						"75 100 125 150 175 200 225"
 				"special_bonus_unique_yukari_tentacles_damage"	"+75"
 			}
 			"radius"	"400"
-			"duration"	"5"
+			"duration"	"4"
 			"root"		"-50"
 			"tick_rate"	"0.4"
-			"stack_damage"	"4 6 8 10 12 14 16"
-			"stack_damage_max"	"20"
-			"intelligence"	"0.15"
+			// "stack_damage"	"4 6 8 10 12 14 16"
+			// "stack_damage_max"	"20"
+			"intelligence"	"0.1"
+			"intelligence_per_second"	"0.25"	// for tooltip
 		}
 	}
 
@@ -1905,76 +1918,25 @@
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"35 30 25 20 15"
+		"AbilityCooldown"	"36 32 28 24 20"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"150"
-		// Precache
-		// -------------------------------------------------------------------------------------------------------------
-		// Special
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityManaCost"	"120 140 160 180 200"
+
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage"	"160 240 320 400 480"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"impact_stun_duration"	"1.75 2.0 2.4 2.6 2.8"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"impact_radius"	"325"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"ally_lift_duration"	"1.75 2.0 2.4 2.6 2.8"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"ally_range"	"750 875 1000 1125 1250"
-			}
-			"06"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"enemy_range"	"375 400 450 550 650"
-			}
-			"07"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"enemy_lift_duration"	"1.75 2.0 2.4 2.6 2.8"
-			}
-			"08"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"fall_animation"	"0.2"
-			}
-			"09"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"lift_animation"	"0.2"
-			}
-			"10"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"max_height"	"600"
-			}
-			"11"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"ally_cooldown"	"0.5"
-			}
-			"12"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"cast_range"	"800"
-			}
+			"damage"	"160 240 320 400 480"
+			"cast_range"	"800 900 1000 1100 1200"
+			// "impact_radius"	"325"
+			// "impact_stun_duration"	"2.0 2.4 2.6 2.8 3.0"
+			// "ally_range"	"750 875 1000 1125 1250"
+			// "enemy_range"	"375 400 450 550 650"
+			"ally_lift_duration"	"2.0 2.4 2.6 2.8 3.0"
+			"enemy_lift_duration"	"2.0 2.4 2.6 2.8 3.0"
+			"fall_animation"	"0.2"
+			"lift_animation"	"0.2"
+			"max_height"	"600"
+			"ally_cooldown"	"0.5"
 		}
 	}
 
@@ -2223,11 +2185,11 @@
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
 		// Ability Resource
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"90"
+		"AbilityCooldown"	"100"
 		"AbilityManaCost"	"200 300 400 500 600"
 		// Ability Casting
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"	"3000"
+		"AbilityCastRange"	"2000"
 		"precache"
 		{
 			"particle"	"particles/yukari_train.vpcf"
@@ -2254,7 +2216,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_distance"	"3000"
+				"dragon_slave_distance"	"2000"
 			}
 			"05"
 			{

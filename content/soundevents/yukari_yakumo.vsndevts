@@ -38,7 +38,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "dota_src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -53,10 +53,8 @@
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "100.000000" }
-                    "distance_max"      {   "value"     "4000.000000"  }
+                    "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"     6.720000  }
-
                 }
             }
         }
@@ -236,7 +234,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "dota_src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -251,10 +249,8 @@
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "100.000000" }
-                    "distance_max"      {   "value"     "4000.000000"  }
+                    "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"    3.052000  }
-
                 }
             }
         }
@@ -286,8 +282,6 @@
                     "soundlevel"        {   "value"     "100.000000" }
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"    1.332245  }
-
                 }
             }
         }
@@ -319,8 +313,6 @@
                     "soundlevel"        {   "value"     "100.000000" }
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"    1.541224  }
-
                 }
             }
         }
@@ -383,8 +375,6 @@
                     "soundlevel"        {   "value"     "100.000000" }
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"    39.888000  }
-
                 }
             }
         }
@@ -572,15 +562,13 @@
                               "value0"        "sounds/yukari01.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.600000"  }
+                    "volume"            {   "value"     "1.300000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "81.000000" }
                     "distance_max"      {   "value"     "4000.000000"  }
                     "event_type"        {   "value"     "6.000000"  }
-					"vsnd_duration"     {   "value"     1.396825  }
-
                 }
             }
         }
@@ -595,7 +583,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "dota_src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"
@@ -628,7 +616,7 @@
             "reference_operator"
             {
                 "operator"              "sos_reference_stack"
-                "reference_stack"       "dota_src1_2d"
+                "reference_stack"       "dota_src1_3d"
                 "operator_variables"
                 {
                     "vsnd_files"

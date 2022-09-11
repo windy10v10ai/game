@@ -96,19 +96,17 @@ function ability_yukari_01:OnProjectileHitHandle(hTarget, vLocation, iProjectile
 	    target:SetModifierStackCount("modifier_yukari_01_hitcount", self, count + 1)
 
 		target:EmitSound("ability_yukari_01")
-		local talent = caster:FindAbilityByName("special_bonus_unique_yukari_01_damage")
-    if talent and talent:GetLevel() > 0 then
-           
-            target:AddNewModifier( caster, self, "modifier_stunned", {Duration = 0.8} )
-        end
+		damage = damage * ( (count + 1) ^ ( 1/ 4 ) - count  ^ ( 1/ 5 ));
 		local damageTable = {victim = target,
-							damage = damage * ( (count + 1) ^ ( 1/ 4 ) - count  ^ ( 1/ 5 )),
-							damage_type = ability:GetAbilityDamageType(),
-							attacker = caster,
-							ability = ability
-							}
-
-				damage_dealt = UnitDamageTarget(damageTable)
+			damage = damage,
+			damage_type = ability:GetAbilityDamageType(),
+			attacker = caster,
+			ability = ability
+			}
+		damage_dealt = UnitDamageTarget(damageTable)
+		if count < 1 then
+	        target:AddNewModifier( caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")} )
+		end
 	end
 end
 
