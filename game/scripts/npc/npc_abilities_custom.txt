@@ -2825,45 +2825,41 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
 		"AbilityTextureName"	"chaos_knight_phantasm"
-		"ScriptFile"	"heroes/hero_chaos_knight/hero_chaos_knight.lua"
+		"ScriptFile"	"heroes/hero_chaos_knight/hero_chaos_knight"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
 		"FightRecapLevel"	"2"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"	"3"
     	"HasShardUpgrade"               "1"
 		"HasScepterUpgrade"	"1"
+		"MaxLevel"			"4"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"	"0.4 0.4 0.4"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"90 80 70"
+		"AbilityCooldown"	"90"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"150 200 250"
+		"AbilityManaCost"	"100 150 200 250"
 		"AbilityCastRange"	"1400"
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"duration"	"24 26 28 30"
+			"attack_count"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"attack_count"	"2 3 4"
+				"value"						"2 2 3 3"
+				"special_bonus_shard"		"+1"
 			}
-			"02"
+			"attack_cooldown"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"20 25 30"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"attack_cooldown"	"2"
+				"value"						"2 1.8 1.6 1.4"
+				"special_bonus_shard"		"-0.4"
 			}
 		}
 		"AbilitySound"	"Hero_ChaosKnight.Phantasm"
