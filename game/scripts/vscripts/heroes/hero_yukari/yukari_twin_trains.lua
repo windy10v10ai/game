@@ -109,6 +109,7 @@ local caster = self:GetCaster()
 		end)
 
 		self:PlayEffects2(radius)
+		caster:RemoveModifierByName("modifier_train_1")
 		EmitSoundOn( "ability_yukari_twin2", caster )
 		EmitSoundOn( "ability_yukari_twin1", caster )
 	else
