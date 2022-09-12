@@ -6,7 +6,7 @@ function AIGameMode:SpecialItemAdd(owner)
 	tierRate[2] = 20
 	tierRate[3] = 6
 	tierRate[4] = 1
-	tierRate[5] = 0.1
+	-- tierRate[5] = 0.1
 
 	local tier = {}
 
@@ -73,9 +73,10 @@ function AIGameMode:SpecialItemAdd(owner)
 	}
 
 	tier[5] =	{
-		"item_tome_of_agility",				-- 敏捷之术
-		"item_tome_of_intelligence",		-- 智力之书
-		"item_tome_of_strength",			-- 力量之书
+		-- 开局40s无法禁止出售，先不抽了
+		-- "item_tome_of_agility",				-- 敏捷之术
+		-- "item_tome_of_intelligence",		-- 智力之书
+		-- "item_tome_of_strength",			-- 力量之书
 	}
 
 	local hero = owner:GetClassname()
@@ -136,13 +137,14 @@ function AIGameMode:StartItemPick(owner, items)
 end
 
 function AIGameMode:FinishItemPick(keys)
+	if AIGameMode.tIfItemChosen[keys.PlayerID] then return end
 	print("Choose item")
 	PrintTable(keys)
 	local owner = EntIndexToHScript(keys.owner_entindex)
-	local hero = owner:GetClassname()
 
 	-- Add the item to the inventory and broadcast
 	owner:AddItemByName(keys.item)
+	AIGameMode.tIfItemChosen[keys.PlayerID] = true
 	-- EmitSoundOnClient("powerup_04", owner)
 	-- local item_drop =
 	-- {
