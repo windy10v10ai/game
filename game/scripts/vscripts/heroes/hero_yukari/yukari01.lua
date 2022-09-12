@@ -22,7 +22,7 @@ function ability_yukari_01:OnSpellStart()
 	local caster = self.caster
 	caster.yukari_01 = false
 	local start_position = caster:GetOrigin()
-	local qangle = QAngle(0, 22.5, 0)
+	local qangle = QAngle(0, 11.5, 0)
 	local end_position 			=self.caster:GetOrigin() + (self:GetCursorPosition() - self.caster:GetOrigin()):Normalized() * (self.range)
 	end_position 			= RotatePosition(caster:GetAbsOrigin(), qangle, end_position)
 	yukari_01CreateProjectile(caster,self,start_position,end_position,self.low_speed,1)
@@ -96,14 +96,17 @@ function ability_yukari_01:OnProjectileHitHandle(hTarget, vLocation, iProjectile
 	    target:SetModifierStackCount("modifier_yukari_01_hitcount", self, count + 1)
 
 		target:EmitSound("ability_yukari_01")
+		damage = damage * ( (count + 1) ^ ( 1/ 4 ) - count  ^ ( 1/ 5 ));
 		local damageTable = {victim = target,
-							damage = damage * ( (count + 1) ^ ( 1/ 4 ) - count  ^ ( 1/ 5 )),
-							damage_type = ability:GetAbilityDamageType(),
-							attacker = caster,
-							ability = ability
-							}
-
-				damage_dealt = UnitDamageTarget(damageTable)
+			damage = damage,
+			damage_type = ability:GetAbilityDamageType(),
+			attacker = caster,
+			ability = ability
+			}
+		damage_dealt = UnitDamageTarget(damageTable)
+		if count < 1 then
+	        target:AddNewModifier( caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")} )
+		end
 	end
 end
 
