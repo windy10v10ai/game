@@ -2168,7 +2168,7 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
 		"AbilityTextureName"	"yukari_5"
-		"ScriptFile"	"heroes/hero_yukari/yukari_twin_trains.lua"
+		"ScriptFile"	"heroes/hero_yukari/yukari_twin_trains"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -2187,6 +2187,10 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"100"
 		"AbilityManaCost"	"200 300 400 500 600"
+		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
+		// Damage
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"		"300 375 450 525 600"
 		// Ability Casting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"	"2000"
@@ -2206,12 +2210,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_width_initial"	"350"
+				"dragon_slave_width_initial"	"300"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_width_end"	"350"
+				"dragon_slave_width_end"	"300"
 			}
 			"04"
 			{
@@ -2229,10 +2233,6 @@
 				"stun_time"	"1.2 1.4 1.6 1.8 2.0"
 			}
 		}
-		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
-		// Damage
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"		"300 400 500 600 700"
 	}
 
 	// "special_bonus_yukari_20"
