@@ -48,15 +48,13 @@
                               "value0"        "sounds/explosion2.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.000000"  }
+                    "volume"            {   "value"     "1.500000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "100.000000" }
-                    "distance_max"      {   "value"     "4000.000000"  }
+                    "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"     6.720000  }
-
                 }
             }
         }
@@ -251,10 +249,8 @@
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "100.000000" }
-                    "distance_max"      {   "value"     "4000.000000"  }
+                    "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"    3.052000  }
-
                 }
             }
         }
@@ -286,8 +282,6 @@
                     "soundlevel"        {   "value"     "100.000000" }
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"    1.332245  }
-
                 }
             }
         }
@@ -319,8 +313,6 @@
                     "soundlevel"        {   "value"     "100.000000" }
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"    1.541224  }
-
                 }
             }
         }
@@ -383,8 +375,6 @@
                     "soundlevel"        {   "value"     "100.000000" }
                     "distance_max"      {   "value"     "1600.000000"  }
                     "event_type"        {   "value"     "1.000000"  }
-					"vsnd_duration"     {   "value"    39.888000  }
-
                 }
             }
         }
@@ -572,15 +562,13 @@
                               "value0"        "sounds/yukari01.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.600000"  }
+                    "volume"            {   "value"     "1.300000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "81.000000" }
                     "distance_max"      {   "value"     "4000.000000"  }
                     "event_type"        {   "value"     "6.000000"  }
-					"vsnd_duration"     {   "value"     1.396825  }
-
                 }
             }
         }
@@ -605,7 +593,7 @@
                               "value0"        "sounds/yukari_twin1.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.000000"  }
+                    "volume"            {   "value"     "1.500000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -638,7 +626,7 @@
                               "value0"        "sounds/yukari_twin2.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.000000"  }
+                    "volume"            {   "value"     "1.500000"  }
                     "pitch_rand_min"    {   "value"     "-0.050000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }

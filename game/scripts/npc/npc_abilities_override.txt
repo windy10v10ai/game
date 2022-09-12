@@ -2250,30 +2250,6 @@
 				"creep_multiplier"					"1.5"
 		}
 	}
-	"imba_chaos_knight_phantasm"
-	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"80"
-		"AbilityManaCost"				"75 125 175 225"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"attack_count"	"1 2 3 4"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"20 25 30 35"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"attack_cooldown"	"2"
-			}
-		}
-	}
 	//=================================================================================================================
 	// Ability: Dawnbreaker 破晓星辰/黄大锤
 	//=================================================================================================================

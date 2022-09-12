@@ -270,6 +270,7 @@
 		"DOTA_Tooltip_modifier_player_chuyin_2"					"<font color='#FFCC66'>★ 奥法之怒 ★</font>"
 		"DOTA_Tooltip_modifier_player_chuyin_3"					"<font color='#FFCC66'>★ 致命箭雨 ★</font>"
 		"DOTA_Tooltip_modifier_player_chuyin_4"					"<font color='#FFCC66'>★ 雷霆爆发 ★</font>"
+		"DOTA_Tooltip_modifier_player_chuyin_5"					"<font color='#FFCC66'>★ 魔龙 ★</font>"
 		"DOTA_Tooltip_modifier_player_sushi"					"<font color='#FFCC66'>★ 基神的强袭自由 ★</font>"
 		"DOTA_Tooltip_modifier_player_sushi_Description"		"<font color='#FFCC66'> 天苍茫镜花水月之像，今朝我粉墨登场~ </font>"
 		"DOTA_Tooltip_modifier_player_kdvh_1"					"<font color='#FFCC66'>★ 男人的加油站 ★</font>"
@@ -279,6 +280,10 @@
 		"DOTA_Tooltip_modifier_player_aoliao"					"<font color='#FFCC66'>★ 奥利奥夹心饼 ★</font>"
 		"DOTA_Tooltip_modifier_player_vjes"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh"					"<font color='#FFCC66'>★ 至圣 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_1"					"<font color='#FFCC66'>★ 至圣先师 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_2"					"<font color='#FFCC66'>★ 万世师表 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_3"					"<font color='#FFCC66'>★ 天不生仲尼 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_4"					"<font color='#FFCC66'>★ 万古如长夜 ★</font>"
 
 
 		// 初音未来
@@ -326,8 +331,9 @@
 		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"蔬菜汁Popipo击中的敌人将眩晕%shard_stun%秒。"
 			// 八云紫
 		"npc_dota_hero_phantom_lancer"	"八云紫"
-		"DOTA_Tooltip_ability_special_bonus_unique_yukari_01_damage"	"+{s:bonus_damage}空饵「狂躁高速飞行物体」伤害"
-		"DOTA_Tooltip_ability_special_bonus_unique_yukari_tentacles_damage"	"+{s:bonus_damage_per_second}静观其变之眼伤害"
+		"DOTA_Tooltip_ability_special_bonus_unique_yukari_01_damage"	"+{s:bonus_damage} 空饵「狂躁高速飞行物体」伤害"
+		"DOTA_Tooltip_ability_special_bonus_unique_yukari_01_stun"		"+{s:bonus_stun_duration}s 空饵「狂躁高速飞行物体」眩晕时间"
+		"DOTA_Tooltip_ability_special_bonus_unique_yukari_tentacles_damage"	"+{s:bonus_damage_per_second} 静观其变之眼伤害"
 		"npc_dota_yukari_1"	"yukari"
 		"DOTA_Tooltip_ability_yukari_dark"	"黑暗陨落"
 		"DOTA_Tooltip_ability_yukari_dark_Description"	"制造一个在延迟后造成伤害的裂隙."
@@ -344,13 +350,14 @@
 		"DOTA_Tooltip_ability_yukari_mass_tp_silence_duration"	"入口持续时间:"
 		"DOTA_Tooltip_ability_yukari_mass_tp_scepter_Description"	"Pandora:增加一个新的技能：月之入口，它会立即将周围的所有敌人放入一个门中，对他们造成伤害"
 		"DOTA_Tooltip_ability_yukari_moon_portal"	"罔两「八云紫的神隐」"
-		"DOTA_Tooltip_ability_yukari_moon_portal_Description"	"将一个单位禁锢到间隙之中，被间隙的单位无敌且无法行动，第二次使用选择降落地点.八云紫可以在间隙中释放技能."
+		"DOTA_Tooltip_ability_yukari_moon_portal_Description"	"将一个单位禁锢到间隙之中，被间隙的单位无敌且无法行动，第二次使用选择降落地点。<br>八云紫对自身施法时，可以在间隙中释放技能，并在全图范围内选择落地地点。"
+		"DOTA_Tooltip_ability_yukari_moon_portal_cast_range"	"施法距离:"
 		"DOTA_Tooltip_ability_yukari_moon_portal_damage"	"伤害:"
 		"DOTA_Tooltip_ability_yukari_moon_portal_enemy_lift_duration"	"禁锢持续时间:"
 		"DOTA_Tooltip_ability_yukari_tentacles"	"静观其变之眼"
 		"DOTA_Tooltip_ability_yukari_tentacles_Description"	"在目标区域打开一个充满可怕触手的间隙，持续造成伤害，减慢敌人的移动速度，并将视野范围限制为600."
 		"DOTA_Tooltip_ability_yukari_tentacles_damage_per_second"	"每秒伤害:"
-		"DOTA_Tooltip_ability_yukari_tentacles_intelligence"	"智力伤害系数:"
+		"DOTA_Tooltip_ability_yukari_tentacles_intelligence_per_second"	"智力伤害系数:"
 		"DOTA_Tooltip_ability_yukari_tentacles_duration"	"间隙持续时间:"
 		"DOTA_Tooltip_ability_yukari_tentacles_root"	"%移动速度降低:"
 		// "DOTA_Tooltip_ability_yukari_tentacles_tick_rate"	"伤害频率:"
@@ -358,7 +365,7 @@
 
 		"DOTA_Tooltip_ability_yukari_morph"							"月相"
 		"DOTA_Tooltip_ability_yukari_morph_Description"				"使用隐藏潜能释放真正的力量"
-		"DOTA_Tooltip_ability_yukari_morph_magic"					"%+$spell_amp"
+		"DOTA_Tooltip_ability_yukari_morph_magic"					"%技能增强:"
 		"DOTA_Tooltip_ability_yukari_morph_amp"						"移速增加:"
 		"DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"持续时间:"
 		"DOTA_Tooltip_modifier_yukari_morph"						"月相"
@@ -378,7 +385,8 @@
 		"DOTA_Tooltip_ability_ability_yukari_01"	" 空饵「狂躁高速飞行物体」"
 		"DOTA_Tooltip_ability_ability_yukari_01_Description"	"发射6发弹幕造成伤害，重复命中伤害大幅衰减。"
 		"DOTA_Tooltip_ability_ability_yukari_01_damage"	"弹幕伤害:"
-		"DOTA_Tooltip_ability_ability_yukari_01_damage_add"	"智力伤害系数:"
+		"DOTA_Tooltip_ability_ability_yukari_01_stun_duration"	"眩晕时间:"
+		"DOTA_Tooltip_ability_ability_yukari_01_damage_add"		"智力伤害系数:"
 		"DOTA_Tooltip_ability_ability_yukari_01_range"	"施法距离:"
 		"DOTA_Tooltip_ability_ability_yukari_01_speed"	"弹幕飞行速度:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04"	"「深弹幕结界 -梦幻泡影-」"
@@ -426,7 +434,7 @@
 		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
 		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
 
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"大招间隔降低至1，攻击次数+1"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"增加大招攻击次数，降低攻击冷却时间。"
 
 		// Saber
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"
