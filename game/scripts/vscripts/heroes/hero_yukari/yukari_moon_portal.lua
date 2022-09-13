@@ -42,12 +42,12 @@ function yukari_moon_portal:OnSpellStart(params)
     if caster:HasModifier("modifier_yukari_moon_portal_caster") then
         local teleportLoc = self:GetCursorPosition()
         -- for caster self
-        local toSelfBuff = caster:FindModifierByNameAndCaster("modifier_yukari_tp_3")
+        local toSelfBuff = caster:FindModifierByNameAndCaster("modifier_yukari_tp_3", caster)
         if toSelfBuff ~= nil then
             toSelfBuff.teleportLoc = teleportLoc
         end
         -- for others
-        local toOthersBuff = caster:FindModifierByNameAndCaster("modifier_yukari_tp")
+        local toOthersBuff = caster:FindModifierByNameAndCaster("modifier_yukari_tp", caster)
         if toOthersBuff ~= nil then
             toOthersBuff.teleportLoc = teleportLoc
         end
