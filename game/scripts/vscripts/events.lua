@@ -631,7 +631,6 @@ function AIGameMode:OnNPCSpawned(keys)
 		-- choose item 玩家抽选物品
 		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] then
 			self:SpecialItemAdd(hEntity)
-			self.tIfItemChosen[hEntity:GetPlayerOwnerID()] = true
 		end
 
 		-- Bots modifier 机器人AI脚本
