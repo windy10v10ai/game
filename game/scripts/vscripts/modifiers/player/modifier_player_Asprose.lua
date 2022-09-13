@@ -1,14 +1,14 @@
-modifier_player_Asprose = class({})
+modifier_player_asprose = class({})
 
-function modifier_player_Asprose:IsPurgable() return false end
-function modifier_player_Asprose:RemoveOnDeath() return false end
-function modifier_player_Asprose:GetTexture() return "player/Asprose" end
+function modifier_player_asprose:IsPurgable() return false end
+function modifier_player_asprose:RemoveOnDeath() return false end
+function modifier_player_asprose:GetTexture() return "player/Asprose" end
 
-function modifier_player_Asprose:OnCreated()
+function modifier_player_asprose:OnCreated()
 	self.iMoveSpeed = 50
 	self.iCooldownReduction = 32
 end
-function modifier_player_Asprose:DeclareFunctions()
+function modifier_player_asprose:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
@@ -18,18 +18,18 @@ function modifier_player_Asprose:DeclareFunctions()
 end
 
 
-function modifier_player_Asprose:GetModifierMoveSpeedBonus_Constant()
+function modifier_player_asprose:GetModifierMoveSpeedBonus_Constant()
 	return self.iMoveSpeed
 end
 
-function modifier_player_Asprose:GetModifierPercentageCooldown()
+function modifier_player_asprose:GetModifierPercentageCooldown()
 	return self.iCooldownReduction
 end
 
-function modifier_player_Asprose:GetModifierMoveSpeed_Limit()
+function modifier_player_asprose:GetModifierMoveSpeed_Limit()
     return 5000
 end
 
-function modifier_player_Asprose:GetModifierIgnoreMovespeedLimit()
+function modifier_player_asprose:GetModifierIgnoreMovespeedLimit()
     return 1
 end
