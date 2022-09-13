@@ -284,6 +284,9 @@
 		"DOTA_Tooltip_modifier_player_laugh_2"					"<font color='#FFCC66'>★ 万世师表 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh_3"					"<font color='#FFCC66'>★ 天不生仲尼 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh_4"					"<font color='#FFCC66'>★ 万古如长夜 ★</font>"
+		"DOTA_Tooltip_modifier_player_Asprose_CD"               "<font color='#FFCC66'>★ 超人会发光 ★</font>"
+		"DOTA_Tooltip_modifier_player_Asprose_SPEED"            "<font color='#FFCC66'>★ 超人不会发光 ★</font>"
+
 
 
 		// 初音未来
