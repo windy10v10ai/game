@@ -78,6 +78,11 @@ local jiangcaiSteamAccountID = Set {
 	108208968,
 }
 
+local asproseSteamAccountID = Set {
+	-- asprose(群友)
+	292827485,
+}
+
 local rwbySteamAccountID = Set {
 	-- 爱发电用户_HjPS Rwby
 	156694017,
@@ -242,6 +247,10 @@ function EnablePlayerModifier(hEntity)
 	if qiliuSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_76", "modifiers/player/modifier_player_76", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_76", {})
+	end
+	if asproseSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_asprose","modifiers/player/modifier_player_asprose",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_asprose",{})
 	end
 	if hunzhuoSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_hunzhuo", "modifiers/player/modifier_player_hunzhuo", LUA_MODIFIER_MOTION_NONE)
