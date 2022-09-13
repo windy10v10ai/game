@@ -36,23 +36,22 @@ end
 
 function yukari_moon_portal:OnSpellStart(params)
     local caster = self:GetCaster()
-    local target = self:GetCursorTarget()
-    local targetLoc = target:GetOrigin()
     -- Handler on lifted targets
     if caster:HasModifier("modifier_yukari_moon_portal_caster") then
         local teleportLoc = self:GetCursorPosition()
         -- for caster self
-        local toSelfBuff = caster:FindModifierByNameAndCaster("modifier_yukari_tp_3", caster)
+        local toSelfBuff = self.target:FindModifierByNameAndCaster("modifier_yukari_tp_3", caster)
         if toSelfBuff ~= nil then
             toSelfBuff.teleportLoc = teleportLoc
         end
         -- for others
-        local toOthersBuff = caster:FindModifierByNameAndCaster("modifier_yukari_tp", caster)
+        local toOthersBuff = self.target:FindModifierByNameAndCaster("modifier_yukari_tp", caster)
         if toOthersBuff ~= nil then
             toOthersBuff.teleportLoc = teleportLoc
         end
     else
         self.target = self:GetCursorTarget()
+        local targetLoc = self.target:GetOrigin()
         local duration = 0
         -- Create modifier and check Linken
         if self.target:GetTeam() ~= caster:GetTeam() then
