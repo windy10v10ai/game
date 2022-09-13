@@ -78,8 +78,8 @@ local jiangcaiSteamAccountID = Set {
 	108208968,
 }
 
-local AsproseSteamAccountID = Set {
-	-- Asprose(群友)
+local asproseSteamAccountID = Set {
+	-- asprose(群友)
 	292827485,
 }
 
@@ -248,11 +248,9 @@ function EnablePlayerModifier(hEntity)
 		LinkLuaModifier("modifier_player_76", "modifiers/player/modifier_player_76", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_76", {})
 	end
-	if AsproseSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_Asprose_CD","modifiers/player/modifier_player_Asprose_CD",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_Asprose_CD",{})
-		LinkLuaModifier("modifier_player_Asprose_SPEED","modifiers/player/modifier_player_Asprose_SPEED",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_Asprose_SPEED",{})
+	if asproseSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_asprose","modifiers/player/modifier_player_asprose",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_asprose",{})
 	end
 	if hunzhuoSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_hunzhuo", "modifiers/player/modifier_player_hunzhuo", LUA_MODIFIER_MOTION_NONE)
