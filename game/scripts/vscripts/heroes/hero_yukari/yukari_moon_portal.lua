@@ -50,7 +50,6 @@ function yukari_moon_portal:OnSpellStart(params)
             toOthersBuff.teleportLoc = teleportLoc
         end
     else
-        self.target = self:GetCursorTarget()
         local targetLoc = self.target:GetOrigin()
         local duration = 0
         -- Create modifier and check Linken
