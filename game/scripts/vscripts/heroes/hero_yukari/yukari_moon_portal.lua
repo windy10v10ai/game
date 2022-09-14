@@ -52,7 +52,8 @@ function yukari_moon_portal:OnSpellStart(params)
     else
         self.target = self:GetCursorTarget()
         local targetLoc = self.target:GetOrigin()
-        DebugPrint("targetLoc:" + targetLoc)
+        DebugPrint('targetLoc:\n')
+        DebugPrint(targetLoc)
         local duration = 0
         -- Create modifier and check Linken
         if self.target:GetTeam() ~= caster:GetTeam() then
