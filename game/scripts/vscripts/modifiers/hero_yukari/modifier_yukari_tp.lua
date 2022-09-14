@@ -29,8 +29,8 @@ function modifier_yukari_tp:OnCreated(kv)
         return
     end
     -- references
-    DebugPrint('modifier_yukari_tp:OnCreated(kv), kv:')
-    DebugPrintTable(kv)
+    print('modifier_yukari_tp:OnCreated(kv), kv:\n')
+    PrintTable(kv)
     local damage = self:GetAbility():GetSpecialValueFor("damage")
     self.radius = self:GetAbility():GetSpecialValueFor("radius")
     self.teleportLoc = kv.teleportLoc
