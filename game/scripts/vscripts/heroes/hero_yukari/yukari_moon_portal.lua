@@ -149,7 +149,7 @@ function modifier_yukari_moon_portal_caster:OnDestroy()
 
     self.ability = self:GetAbility()
     self.parent = self:GetParent()
-    self.ability:StartCooldown(self.ability:GetCooldown(-1) * self.parent:GetCooldownReduction())
+    self.ability:StartCooldown(self.ability:GetCooldown(-duration) )
 
     local HiddenAbilities = {
         "yukari_moon_portal",
