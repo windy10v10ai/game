@@ -1933,6 +1933,7 @@
 			// "enemy_range"	"375 400 450 550 650"
 			"ally_lift_duration"	"2.0 2.4 2.6 2.8 3.0"
 			"enemy_lift_duration"	"2.0 2.4 2.6 2.8 3.0"
+			"self_lift_duration"	"1.5"
 			"fall_animation"	"0.2"
 			"lift_animation"	"0.2"
 			"max_height"	"600"
