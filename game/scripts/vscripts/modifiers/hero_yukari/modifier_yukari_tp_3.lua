@@ -29,13 +29,8 @@ function modifier_yukari_tp_3:OnCreated(kv)
         return
     end
     -- references
-    print('modifier_yukari_tp_3:OnCreated(kv), kv:')
-    print(kv)
     local damage = self:GetAbility():GetSpecialValueFor("damage")
     self.radius = self:GetAbility():GetSpecialValueFor("radius")
-    self.teleportLoc = kv.teleportLoc
-    print('self.teleportLoc:')
-    print(self.teleportLoc)
     -- precache damage
     self.damageTable = {
         -- victim = target,
