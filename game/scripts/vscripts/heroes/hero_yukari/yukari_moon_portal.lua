@@ -66,7 +66,7 @@ function yukari_moon_portal:OnSpellStart(params)
         else
             if self.target == self:GetCaster() then
                 duration = self:GetSpecialValueFor("ally_lift_duration")
-                self.target:AddNewModifier(caster, self, "modifier_yukari_tp_3", { duration = duration })
+                self.target:AddNewModifier(caster, self, "modifier_yukari_tp_3", { duration = 1.5 })
                 self.target:FindModifierByNameAndCaster("modifier_yukari_tp_3", caster).teleportLoc = targetLoc
                 --EmitSoundOn( "yukari.car2", caster )
             else
