@@ -357,6 +357,7 @@
 		"DOTA_Tooltip_ability_yukari_moon_portal_cast_range"	"施法距离:"
 		"DOTA_Tooltip_ability_yukari_moon_portal_damage"	"伤害:"
 		"DOTA_Tooltip_ability_yukari_moon_portal_enemy_lift_duration"	"禁锢持续时间:"
+		"DOTA_Tooltip_ability_yukari_moon_portal_self_lift_duration"	"禁锢持续时间(对自身施法):"
 		"DOTA_Tooltip_ability_yukari_tentacles"	"静观其变之眼"
 		"DOTA_Tooltip_ability_yukari_tentacles_Description"	"在目标区域打开一个充满可怕触手的间隙，持续造成伤害，减慢敌人的移动速度，并将视野范围限制为600."
 		"DOTA_Tooltip_ability_yukari_tentacles_damage_per_second"	"每秒伤害:"

@@ -455,6 +455,7 @@
 		"DOTA_Tooltip_ability_yukari_moon_portal_cast_range"	"Cast Range:"
         "DOTA_Tooltip_ability_yukari_moon_portal_damage" "Damage:"
         "DOTA_Tooltip_ability_yukari_moon_portal_enemy_lift_duration" "Duration:"
+		"DOTA_Tooltip_ability_yukari_moon_portal_self_lift_duration"	"Duration to self:"
         "DOTA_Tooltip_ability_yukari_tentacles" "Tentacle Portal"
         "DOTA_Tooltip_ability_yukari_tentacles_Description" "Opens a portal filled with dire tentacles in the target area, dealing damage over time, slowing everyone inside, and limiting the view range to 600."
         "DOTA_Tooltip_ability_yukari_tentacles_damage_per_second" "Damage Per Second:"
