@@ -7,12 +7,12 @@ LinkLuaModifier( "modifier_yukari_umb", "heroes/hero_yukari/yukari_tp", LUA_MODI
 function yukari_tentacles:GetAOERadius()
 	return self:GetSpecialValueFor( "radius" )
 end
---function yukari_tentacles:OnUpgrade()
-  --  local ability = self:GetCaster():FindAbilityByName("ability_thdots_yukari04")
-   -- if ability and ability:GetLevel() < self:GetLevel() then
-    --    ability:SetLevel(self:GetLevel())
-   -- end
---end
+function yukari_tentacles:OnUpgrade()
+   local ability = self:GetCaster():FindAbilityByName("ability_thdots_yukari04")
+   if ability and ability:GetLevel() < self:GetLevel() then
+      ability:SetLevel(self:GetLevel())
+   end
+end
 function yukari_tentacles:GetIntrinsicModifierName()
     return "modifier_yukari_umb"
 end
