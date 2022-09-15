@@ -1877,7 +1877,7 @@
 				"special_bonus_unique_yukari_tentacles_damage"	"+75"
 			}
 			"radius"	"400"
-			"duration"	"4"
+			"duration"	"5"
 			"root"		"-50"
 			"tick_rate"	"0.4"
 			// "stack_damage"	"4 6 8 10 12 14 16"
@@ -1995,60 +1995,32 @@
 				"Exdamage"	"%ex_damage"
 			}
 		}
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"min_radius"	"250"
+			"max_radius"	"750"
+			"target_range"	"1000"
+			"barrage_spawn_point"	"16"
+			"barrage_fire_interval"	"0.1"
+			"barrage_damage"	"200"
+			"barrage_radius"	"250"
+			"ex_damage"	"15"
+			"wanbaochui_radius"	"750"
+			"int_bonus"	"0.1"
+			"stun_duration"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"min_radius"	"250"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"max_radius"	"750"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"target_range"	"1000"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"barrage_spawn_point"	"16"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"barrage_fire_interval"	"0.1"
-			}
-			"06"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"barrage_damage"	"200"
-			}
-			"07"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"barrage_radius"	"250"
-			}
-			"08"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"ex_damage"	"15"
-			}
-			"09"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"wanbaochui_radius"	"750"
-			}
-			"10"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"int_bonus"	"1.5"
+				"value"				"0"
+				"special_bonus_unique_thdots_yukari04_stun"	"+2"
 			}
 		}
 		"HasScepterUpgrade"	"1"
+	}
+
+	"special_bonus_unique_thdots_yukari04_stun"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"yukari_morph"
