@@ -30,28 +30,7 @@ function Yukari04_OnSpellStart(keys)
 	local lvl=ability:GetLevel()
 	local wanbaochui_radius = ability:GetSpecialValueFor("wanbaochui_radius")
 	local int_bonus = ability:GetSpecialValueFor("int_bonus")
-
-	if lvl==1 then
-		vecPos=target
-	elseif lvl==2 then
-		local allies = FindUnitsInRadius(
-			caster:GetTeamNumber(),
-			target,
-			nil,
-			keys.TargetRange,
-			DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-			DOTA_UNIT_TARGET_BUILDING + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
-			DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
-			FIND_CLOSEST,
-			false)
-		if #allies>0 then 
-			vecPos=allies[1]:GetOrigin()
-		end
-	elseif lvl==3 then
-		vecPos=target
-	end
-	
-
+	vecPos=target
 	if vecPos then
 		local tick=0
 		local tick_interval=keys.BarrageFireInterval
@@ -185,7 +164,7 @@ function Yukari04_OnSpellStart(keys)
 					ParticleManager:DestroyParticle(e1,true)
 					ParticleManager:DestroyParticle(e2,true)
 				
-						local intdamage=caster:GetIntellect()*4
+						local intdamage=caster:GetIntellect()*1.5
 						local enemies=FindUnitsInRadius(
 										caster:GetTeamNumber(),
 										caster:GetOrigin(),
@@ -204,6 +183,7 @@ function Yukari04_OnSpellStart(keys)
 								damage_type=DAMAGE_TYPE_MAGICAL,
 							}
 							UnitDamageTarget(damage_table)	
+							v:AddNewModifier( caster, self, "modifier_stunned", {Duration = 2} )
 						end
 						local pfx = ParticleManager:CreateParticle("particles/econ/items/death_prophet/death_prophet_ti9/death_prophet_silence_ti9.vpcf", PATTACH_CUSTOMORIGIN, nil)
 						ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
