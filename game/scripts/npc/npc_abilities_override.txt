@@ -4106,6 +4106,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"heal"					"90 160 230 300 370"
 				"LinkedSpecialBonus"	"special_bonus_unique_omniknight_1"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
 			}
 		}
 	}
