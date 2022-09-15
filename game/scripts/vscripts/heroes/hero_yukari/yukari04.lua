@@ -39,6 +39,7 @@ function Yukari04_OnSpellStart(keys)
 		local barrage_speed=1000
 		local rotate_radian=1.57
 		local rotate_speed=-0.08
+		local int_bonus = ability:GetSpecialValueFor("int_bonus")
 
 		local e1 = ParticleManager:CreateParticle("particles/heroes/yukari/ability_yukari_04_magical.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(e1, 0, vecPos)
@@ -118,7 +119,7 @@ function Yukari04_OnSpellStart(keys)
 							bProvidesVision=false,
 						}
 						ProjectileManager:CreateLinearProjectile(projectileTable2)
-						
+
 					end
 					tick=tick+1
 					return tick_interval
@@ -135,8 +136,8 @@ function Yukari04_OnSpellStart(keys)
 						DOTA_UNIT_TARGET_FLAG_NONE,
 						FIND_ANY_ORDER,
 						false)
-					-- if #units > 0 then 
-					-- 	for i=1,#units do 
+					-- if #units > 0 then
+					-- 	for i=1,#units do
 					-- 		print_r(units)
 					-- 		if units[i]:HasModifier("modifier_ability_thdots_kogasa04") then
 					-- 			table.remove(units,i)
@@ -151,9 +152,9 @@ function Yukari04_OnSpellStart(keys)
 						elseif u:IsControllableByAnyPlayer() and u:GetTeam()==caster:GetTeam() then
 							local e3 = ParticleManager:CreateParticle("particles/heroes/yukari/ability_yukari_03_teleportflash.vpcf", PATTACH_CUSTOMORIGIN, caster)
 							ParticleManager:SetParticleControl(e3, 0, caster:GetOrigin())
-							
+
 								FindClearSpaceForUnit(u,vecPos,true)
-							
+
 							local e4 = ParticleManager:CreateParticle("particles/heroes/yukari/ability_yukari_03_teleportflash2.vpcf", PATTACH_CUSTOMORIGIN, caster)
 							ParticleManager:SetParticleControl(e4, 0, caster:GetOrigin())
 						end
@@ -163,8 +164,8 @@ function Yukari04_OnSpellStart(keys)
 					caster:EmitSound("Hero_Enigma.Black_Hole.Stop")
 					ParticleManager:DestroyParticle(e1,true)
 					ParticleManager:DestroyParticle(e2,true)
-				
-						local intdamage=caster:GetIntellect()*1.5
+
+						local intdamage=caster:GetIntellect()*int_bonus
 						local enemies=FindUnitsInRadius(
 										caster:GetTeamNumber(),
 										caster:GetOrigin(),
@@ -177,13 +178,13 @@ function Yukari04_OnSpellStart(keys)
 										false)
 						for _,v in pairs(enemies) do
 							damage_table={
-								victim=v, 
-								attacker=caster, 
+								victim=v,
+								attacker=caster,
 								damage=intdamage,
 								damage_type=DAMAGE_TYPE_MAGICAL,
 							}
-							UnitDamageTarget(damage_table)	
-							v:AddNewModifier( caster, self, "modifier_stunned", {Duration = 2} )
+							UnitDamageTarget(damage_table)
+							v:AddNewModifier( caster, self, "modifier_stunned", {Duration = ability:GetSpecialValueFor("stun_duration")} )
 						end
 						local pfx = ParticleManager:CreateParticle("particles/econ/items/death_prophet/death_prophet_ti9/death_prophet_silence_ti9.vpcf", PATTACH_CUSTOMORIGIN, nil)
 						ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
@@ -211,7 +212,7 @@ function Yukari04_OnSpellStart(keys)
 			"yukari04_exdamage",
 			function ()
 				if GameRules:IsGamePaused() then return 0.03 end
-				if caster:IsChanneling() and exradius < keys.MaxRadius then 
+				if caster:IsChanneling() and exradius < keys.MaxRadius then
 					local targets = FindUnitsInRadius(
 							caster:GetTeam(),		--caster team
 							keys.target_points[1],		--find position
@@ -219,7 +220,7 @@ function Yukari04_OnSpellStart(keys)
 							exradius,		--find radius
 							DOTA_UNIT_TARGET_TEAM_ENEMY,
 							keys.ability:GetAbilityTargetType(),
-							0, 
+							0,
 							FIND_CLOSEST,
 							false
 						)
@@ -230,16 +231,16 @@ function Yukari04_OnSpellStart(keys)
 								victim = v,
 								attacker = caster,
 								damage = keys.Exdamage,
-								damage_type = keys.ability:GetAbilityDamageType(), 
+								damage_type = keys.ability:GetAbilityDamageType(),
 								damage_flags = keys.ability:GetAbilityTargetFlags()
 							}
 							UnitDamageTarget(damage_table)
 						end
 				else
 					return nil
-				end		
-				return 0.1	
-			end,				
+				end
+				return 0.1
+			end,
 	0)
 
 end
@@ -254,7 +255,7 @@ function Yukari04_OnProjectileHitUnit(keys)
 			victim = v,
 			attacker = caster,
 			damage = keys.BarrageDamage,
-			damage_type = keys.ability:GetAbilityDamageType(), 
+			damage_type = keys.ability:GetAbilityDamageType(),
 			damage_flags = keys.ability:GetAbilityTargetFlags()
 		}
 		UnitDamageTarget(damage_table)
