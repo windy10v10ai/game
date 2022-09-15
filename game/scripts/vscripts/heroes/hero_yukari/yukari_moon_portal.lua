@@ -35,7 +35,6 @@ end
 --end
 
 function yukari_moon_portal:OnSpellStart(params)
-    local SELF_DURATION = 1.5
     local caster = self:GetCaster()
     -- Handler on lifted targets
     if caster:HasModifier("modifier_yukari_moon_portal_caster") then
@@ -66,7 +65,7 @@ function yukari_moon_portal:OnSpellStart(params)
             --EmitSoundOn( "yukari.car", caster )
         else
             if self.target == self:GetCaster() then
-                duration = SELF_DURATION -- 对自己使用时，固定禁锢时间
+                duration = self:GetSpecialValueFor("self_lift_duration")
                 self.target:AddNewModifier(caster, self, "modifier_yukari_tp_3", { duration = duration })
                 self.target:FindModifierByNameAndCaster("modifier_yukari_tp_3", caster).teleportLoc = targetLoc
                 --EmitSoundOn( "yukari.car2", caster )
