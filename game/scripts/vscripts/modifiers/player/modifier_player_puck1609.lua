@@ -5,8 +5,8 @@ function modifier_player_puck1609:RemoveOnDeath() return false end
 function modifier_player_puck1609:GetTexture() return "player/puck1609" end
 
 function modifier_player_puck1609:OnCreated()
-	self.iCooldownReduction = 50
-	self.iCastRangeBonus = 500
+	self.iCooldownReduction = 40
+	self.iCastRangeBonus = 400
 	self.iSpellAmplify = 40
 	self.iMoveSpeed = 100
 	self.iHealthRegenPercentage = 2
