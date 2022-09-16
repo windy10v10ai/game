@@ -247,7 +247,7 @@ function Yukari04_OnSpellStart(keys)
 end
 
 function Yukari04_OnProjectileHitUnit(keys)
-	print('Yukari04_OnProjectileHitUnit works')
+	print('Yukari04_OnProjectileHitUnit works') -- 实测这函数根本没执行过
 	local ability=keys.ability
 	local caster=keys.caster
 	local targets = keys.target_entities
