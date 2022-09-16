@@ -279,6 +279,7 @@
 		"DOTA_Tooltip_modifier_player_kdvh_3"					"<font color='#FFCC66'>★ 浴血奋战才是真男人 ★</font>"
 		"DOTA_Tooltip_modifier_player_YYL"						"<font color='#FFCC66'>★ 游戏开发者 ★</font>"
 		"DOTA_Tooltip_modifier_player_aoliao"					"<font color='#FFCC66'>★ 奥利奥夹心饼 ★</font>"
+		"DOTA_Tooltip_modifier_player_aoliao_2"					"<font color='#FFCC66'>★ 雷电法王 ★</font>"
 		"DOTA_Tooltip_modifier_player_vjes"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh"					"<font color='#FFCC66'>★ 至圣 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh_1"					"<font color='#FFCC66'>★ 至圣先师 ★</font>"
