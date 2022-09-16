@@ -51,6 +51,12 @@ function yukari_moon_portal:OnSpellStart(params)
         end
     else
         self.target = self:GetCursorTarget()
+        -- disable help
+        if PlayerResource:IsDisableHelpSetForPlayerID(self.target:GetPlayerOwnerID(), caster:GetPlayerOwnerID()) then
+            self:EndCooldown()
+            self:RefundManaCost()
+            return false
+        end
         local targetLoc = self.target:GetOrigin()
         local duration = 0
         -- Create modifier and check Linken
