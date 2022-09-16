@@ -1935,7 +1935,6 @@
 			"fall_animation"	"0.2"
 			"lift_animation"	"0.2"
 			"max_height"	"600"
-			"ally_cooldown"	"0.5"
 		}
 	}
 
@@ -2002,7 +2001,7 @@
 			"barrage_fire_interval"	"0.1"
 			"barrage_damage"	"200"
 			"barrage_radius"	"250"
-			"ex_damage"	"15"
+			"ex_damage"	"25"
 			"wanbaochui_radius"	"750"
 			"int_bonus"	"4"
 			"stun_duration"

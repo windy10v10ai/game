@@ -38,6 +38,7 @@ function yukari_moon_portal:OnSpellStart(params)
     local caster = self:GetCaster()
     -- Handler on lifted targets
     if caster:HasModifier("modifier_yukari_moon_portal_caster") then
+        self:SetFrozenCooldown(true)
         local teleportLoc = self:GetCursorPosition()
         -- for caster self
         local toSelfBuff = self.target:FindModifierByNameAndCaster("modifier_yukari_tp_3", caster)
@@ -85,7 +86,7 @@ function yukari_moon_portal:OnSpellStart(params)
         -- Add the particle & sounds
         caster:EmitSound("yukari.portal")
         -- Add caster handler
-        caster:AddNewModifier(caster, self, "modifier_yukari_moon_portal_caster", { duration = duration - 0.2 })
+        caster:AddNewModifier(caster, self, "modifier_yukari_moon_portal_caster", { duration = duration })
         caster:AddNewModifier(caster, self, "modifier_yukari_leashed", { duration = duration + FrameTime() })
         self:EndCooldown()
     end
@@ -147,9 +148,13 @@ function modifier_yukari_moon_portal_caster:OnDestroy()
         return
     end
 
+    local cooldown = self.ability:GetCooldown(-1) * self.parent:GetCooldownReduction() - self.ability:GetSpecialValueFor("lift_duration")
     self.ability = self:GetAbility()
     self.parent = self:GetParent()
-    self.ability:StartCooldown(self.ability:GetCooldown(-1) * self.parent:GetCooldownReduction()-self.ability:GetSpecialValueFor("lift_duration"))
+    self.ability:SetFrozenCooldown(false)
+    self.ability:StartCooldown(cooldown)
+    print('yukari_cooldown:')
+    print(cooldown)
 
     local HiddenAbilities = {
         "yukari_moon_portal",
@@ -161,6 +166,7 @@ function modifier_yukari_moon_portal_caster:OnDestroy()
             hAbility:SetActivated(true)
         end
     end
+
 end
 
 modifier_yukari_leashed = class({})

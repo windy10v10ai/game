@@ -491,9 +491,10 @@
         "DOTA_Tooltip_ability_ability_yukari_01_speed"  "Speed:"
         "DOTA_Tooltip_ability_ability_thdots_yukari04"	"Deep Danmaku Barrier -Transient Dreams-"
         "DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"A large teleportation enchantment is launched at any location as the target. Yukari will be teleported to the target location after channeling. The longer the channeling time, the greater the damage it makes. The maximum channel time is 4 seconds, and the range of the enchantment is 750. No matter how long the channel is, as soon as the channel ends (even if it is interrupted), the teleport will take place. \nDuring the channeling, a large number of barrages will be scattered from the target location, causing damage to surrounding enemy units. After the teleportation is completed, a space shock will be generated, causing at most %int_bonus% times the intelligence magic damage to enemy units within %wanbaochui_radius% and stun %stun_duration% seconds."
-        "DOTA_Tooltip_ability_ability_thdots_yukari04_min_radius"	"Teleport minimum range："
-        "DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"Teleport maximum range："
-        "DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"Barrage damage over time："
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_min_radius"	"Teleport minimum range:"
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"Teleport maximum range:"
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"Barrage damage every time:"
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"Barrage damage interval:"
         "DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"Add a new skill：「Deep Danmaku Barrier -Transient Dreams-」"
 	    // 修补匠 刷新
 	    "DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"

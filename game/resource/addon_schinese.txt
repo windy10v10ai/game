@@ -398,7 +398,8 @@
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"以任意位置为目标展开大型的传送结界，八云紫将在引导结束后传送到目标位置。引导时间越长，造成的伤害越大。最大引导时间4秒，结界的范围为750。无论引导多久，只要引导一结束（即使是被打断的），传送就会进行。\n引导期间，目标地点会散射出大量的弹幕，对周围的敌方单位造成伤害，传送完成后产生空间震，根据引导时间对%wanbaochui_radius%范围内的敌方单位造成最多%int_bonus%倍智力的魔法伤害与%stun_duration%秒眩晕。"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_min_radius"	"传送最小范围："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"传送最大范围："
-		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"弹幕持续伤害："
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"弹幕结界单次伤害："
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"弹幕结界伤害间隔："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"增加一个新的技能：「深弹幕结界 -梦幻泡影-」"
 
 
