@@ -13,6 +13,7 @@ function modifier_player_adolphzero:OnCreated()
 	end
 	self.iSpellAmplify = 30
 	self.iLifeSteal = 15
+	self.iCooldownReduction = 32
 
 	local primaryAttributeBouns = 30
 	self.strength = 20
@@ -39,6 +40,7 @@ function modifier_player_adolphzero:DeclareFunctions()
 		MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
 	}
 end
 
@@ -85,4 +87,8 @@ end
 
 function modifier_player_adolphzero:OnAttackLanded(params)
 	LifeStealOnAttackLanded(params, self.iLifeSteal, self:GetParent(), self:GetAbility())
+end
+
+function modifier_player_adolphzero:GetModifierPercentageCooldown()
+	return self.iCooldownReduction
 end

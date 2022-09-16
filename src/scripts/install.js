@@ -19,7 +19,7 @@ const readline = require('readline');
         if (fs.existsSync(targetPath)) {
             const isCorrect = fs.lstatSync(sourcePath).isSymbolicLink() && fs.realpathSync(sourcePath) === targetPath;
             if (isCorrect) {
-                console.log(`Skipping '${sourcePath}' since it is already linked`);
+                console.log(`Skipping '${sourcePath}' since it is already linked to '${targetPath}'`);
                 continue;
             } else {
                 throw new Error(`'${targetPath}' is already linked to another directory`);

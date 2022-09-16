@@ -1814,7 +1814,7 @@
 				"value"						"0"
 				"special_bonus_unique_yukari_01_stun" "+0.8"
 			}
-			"speed"			"1100"
+			"speed"			"1200"
 			"radius"		"70"
 			"range"			"1500"
 			"num"			"6"
@@ -1877,7 +1877,7 @@
 				"special_bonus_unique_yukari_tentacles_damage"	"+75"
 			}
 			"radius"	"400"
-			"duration"	"4"
+			"duration"	"5"
 			"root"		"-50"
 			"tick_rate"	"0.4"
 			// "stack_damage"	"4 6 8 10 12 14 16"
@@ -1933,6 +1933,7 @@
 			// "enemy_range"	"375 400 450 550 650"
 			"ally_lift_duration"	"2.0 2.4 2.6 2.8 3.0"
 			"enemy_lift_duration"	"2.0 2.4 2.6 2.8 3.0"
+			"self_lift_duration"	"1.5"
 			"fall_animation"	"0.2"
 			"lift_animation"	"0.2"
 			"max_height"	"600"
@@ -1994,60 +1995,32 @@
 				"Exdamage"	"%ex_damage"
 			}
 		}
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"min_radius"	"250"
+			"max_radius"	"750"
+			"target_range"	"1000"
+			"barrage_spawn_point"	"16"
+			"barrage_fire_interval"	"0.1"
+			"barrage_damage"	"200"
+			"barrage_radius"	"250"
+			"ex_damage"	"15"
+			"wanbaochui_radius"	"750"
+			"int_bonus"	"0.1"
+			"stun_duration"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"min_radius"	"250"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"max_radius"	"750"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"target_range"	"1000"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"barrage_spawn_point"	"16"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"barrage_fire_interval"	"0.1"
-			}
-			"06"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"barrage_damage"	"200"
-			}
-			"07"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"barrage_radius"	"250"
-			}
-			"08"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"ex_damage"	"15"
-			}
-			"09"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"wanbaochui_radius"	"750"
-			}
-			"10"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"int_bonus"	"1.5"
+				"value"				"0"
+				"special_bonus_unique_thdots_yukari04_stun"	"+2"
 			}
 		}
 		"HasScepterUpgrade"	"1"
+	}
+
+	"special_bonus_unique_thdots_yukari04_stun"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"yukari_morph"
@@ -2168,7 +2141,7 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
 		"AbilityTextureName"	"yukari_5"
-		"ScriptFile"	"heroes/hero_yukari/yukari_twin_trains.lua"
+		"ScriptFile"	"heroes/hero_yukari/yukari_twin_trains"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -2187,6 +2160,10 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"100"
 		"AbilityManaCost"	"200 300 400 500 600"
+		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
+		// Damage
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"		"300 375 450 525 600"
 		// Ability Casting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"	"2000"
@@ -2206,12 +2183,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_width_initial"	"350"
+				"dragon_slave_width_initial"	"300"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"dragon_slave_width_end"	"350"
+				"dragon_slave_width_end"	"300"
 			}
 			"04"
 			{
@@ -2229,10 +2206,6 @@
 				"stun_time"	"1.2 1.4 1.6 1.8 2.0"
 			}
 		}
-		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
-		// Damage
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"		"300 400 500 600 700"
 	}
 
 	// "special_bonus_yukari_20"
@@ -2825,45 +2798,41 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
 		"AbilityTextureName"	"chaos_knight_phantasm"
-		"ScriptFile"	"heroes/hero_chaos_knight/hero_chaos_knight.lua"
+		"ScriptFile"	"heroes/hero_chaos_knight/hero_chaos_knight"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
 		"FightRecapLevel"	"2"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"	"3"
     	"HasShardUpgrade"               "1"
 		"HasScepterUpgrade"	"1"
+		"MaxLevel"			"4"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"	"0.4 0.4 0.4"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"90 80 70"
+		"AbilityCooldown"	"90"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"150 200 250"
+		"AbilityManaCost"	"100 150 200 250"
 		"AbilityCastRange"	"1400"
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"duration"	"24 26 28 30"
+			"attack_count"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"attack_count"	"2 3 4"
+				"value"						"2 2 3 3"
+				"special_bonus_shard"		"+1"
 			}
-			"02"
+			"attack_cooldown"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"duration"	"20 25 30"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"attack_cooldown"	"2"
+				"value"						"2 1.8 1.6 1.4"
+				"special_bonus_shard"		"-0.4"
 			}
 		}
 		"AbilitySound"	"Hero_ChaosKnight.Phantasm"

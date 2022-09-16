@@ -194,6 +194,7 @@
 		"DOTA_Tooltip_modifier_player_abyss_Description"		"<font color='#55D8C1'>唤醒沉渊魔剑的旅行者，是幸运？还是不幸？</font>"
 		"DOTA_Tooltip_modifier_player_goku"						"<font color='#FFCC66'>★ 集齐七颗龙珠召唤神龙！ ★</font>"
 		"DOTA_Tooltip_modifier_player_76"						"<font color='#F66B0E'>★ 克林克兹之馈赠 ★</font>"
+		"DOTA_Tooltip_modifier_player_76_Description"			"<font color='#FFCC66'> 如果你看到这个B玩小骷髅，那你可以躺了，记得给点控制哦~</font>"
 		"DOTA_Tooltip_modifier_player_hunzhuo"					"<font color='#A85CF9'>★ 我的口袋只剩玫瑰一片，此行又山高路远 ★</font>"
 		"DOTA_Tooltip_modifier_player_hunzhuo_Description"		"<font color='#A85CF9'>蹉跎错，消磨过，最是光阴化浮沫。</font>"
 		"DOTA_Tooltip_modifier_player_chashaobao"				"<font color='#E8C07D'>★ 叉烧包之王 ★</font>"
@@ -248,14 +249,14 @@
 		"DOTA_Tooltip_modifier_player_kudo"						"<font color='#FFCC66'>★ kudo ★</font>"
 		"DOTA_Tooltip_modifier_player_arrayzoneyour"			"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_nmjb"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
-		"DOTA_Tooltip_modifier_player_puck1609"					"<font color='#FFCC66'>★ Endless Crazy ★</font>"
-		"DOTA_Tooltip_modifier_player_puck1609_Description"		"<font color='#FFCC66'> フランドール♥スカーレット </font>"
-		"DOTA_Tooltip_modifier_player_puck1609_2"				"<font color='#FFCC66'>★ Gensokyo Miko ★</font>"
-		"DOTA_Tooltip_modifier_player_puck1609_2_Description"	"<font color='#FFCC66'> 博麗霊夢 </font>"
-		"DOTA_Tooltip_modifier_player_puck1609_3"				"<font color='#FFCC66'>★ Windstorm Wing ★</font>"
-		"DOTA_Tooltip_modifier_player_puck1609_3_Description"	"<font color='#FFCC66'> 射命丸文 </font>"
-		"DOTA_Tooltip_modifier_player_puck1609_4"				"<font color='#FFCC66'>★ Momiji Shield ★</font>"
-		"DOTA_Tooltip_modifier_player_puck1609_4_Description"	"<font color='#FFCC66'> 犬走椛 </font>"
+		"DOTA_Tooltip_modifier_player_puck1609"					"<font color='#FFCC66'>★ 魔剑莱瓦汀 ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_Description"		"<font color='#FFCC66'> Endless Crazy </font>"
+		"DOTA_Tooltip_modifier_player_puck1609_2"				"<font color='#FFCC66'>★ 梦想天生 ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_2_Description"	"<font color='#FFCC66'> Gensokyo Miko </font>"
+		"DOTA_Tooltip_modifier_player_puck1609_3"				"<font color='#FFCC66'>★ 无双风神 ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_3_Description"	"<font color='#FFCC66'> Windstorm Wing </font>"
+		"DOTA_Tooltip_modifier_player_puck1609_4"				"<font color='#FFCC66'>★ 枫叶白狼 ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_4_Description"	"<font color='#FFCC66'> Momiji Shield </font>"
 		"DOTA_Tooltip_modifier_player_dky190"					"<font color='#FFCC66'>★ Tiny ★</font>"
 		"DOTA_Tooltip_modifier_player_dky190_2"					"<font color='#FFCC66'>★ 極速之翼 ★</font>"
 		"DOTA_Tooltip_modifier_player_dky190_2_Description"		"<font color='#FFCC66'> 快的飞起 </font>"
@@ -284,6 +285,8 @@
 		"DOTA_Tooltip_modifier_player_laugh_2"					"<font color='#FFCC66'>★ 万世师表 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh_3"					"<font color='#FFCC66'>★ 天不生仲尼 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh_4"					"<font color='#FFCC66'>★ 万古如长夜 ★</font>"
+		"DOTA_Tooltip_modifier_player_asprose"					"<font color='#FFCC66'>★ 超人会发光 ★</font>"
+
 
 
 		// 初音未来
@@ -334,6 +337,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_yukari_01_damage"	"+{s:bonus_damage} 空饵「狂躁高速飞行物体」伤害"
 		"DOTA_Tooltip_ability_special_bonus_unique_yukari_01_stun"		"+{s:bonus_stun_duration}s 空饵「狂躁高速飞行物体」眩晕时间"
 		"DOTA_Tooltip_ability_special_bonus_unique_yukari_tentacles_damage"	"+{s:bonus_damage_per_second} 静观其变之眼伤害"
+		"DOTA_Tooltip_ability_special_bonus_unique_thdots_yukari04_stun"		"+{s:bonus_stun_duration}s 「深弹幕结界 -梦幻泡影-」眩晕时间"
 		"npc_dota_yukari_1"	"yukari"
 		"DOTA_Tooltip_ability_yukari_dark"	"黑暗陨落"
 		"DOTA_Tooltip_ability_yukari_dark_Description"	"制造一个在延迟后造成伤害的裂隙."
@@ -354,6 +358,7 @@
 		"DOTA_Tooltip_ability_yukari_moon_portal_cast_range"	"施法距离:"
 		"DOTA_Tooltip_ability_yukari_moon_portal_damage"	"伤害:"
 		"DOTA_Tooltip_ability_yukari_moon_portal_enemy_lift_duration"	"禁锢持续时间:"
+		"DOTA_Tooltip_ability_yukari_moon_portal_self_lift_duration"	"禁锢持续时间(对自身施法):"
 		"DOTA_Tooltip_ability_yukari_tentacles"	"静观其变之眼"
 		"DOTA_Tooltip_ability_yukari_tentacles_Description"	"在目标区域打开一个充满可怕触手的间隙，持续造成伤害，减慢敌人的移动速度，并将视野范围限制为600."
 		"DOTA_Tooltip_ability_yukari_tentacles_damage_per_second"	"每秒伤害:"
@@ -365,7 +370,7 @@
 
 		"DOTA_Tooltip_ability_yukari_morph"							"月相"
 		"DOTA_Tooltip_ability_yukari_morph_Description"				"使用隐藏潜能释放真正的力量"
-		"DOTA_Tooltip_ability_yukari_morph_magic"					"%+$spell_amp"
+		"DOTA_Tooltip_ability_yukari_morph_magic"					"%技能增强:"
 		"DOTA_Tooltip_ability_yukari_morph_amp"						"移速增加:"
 		"DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"持续时间:"
 		"DOTA_Tooltip_modifier_yukari_morph"						"月相"
@@ -390,7 +395,7 @@
 		"DOTA_Tooltip_ability_ability_yukari_01_range"	"施法距离:"
 		"DOTA_Tooltip_ability_ability_yukari_01_speed"	"弹幕飞行速度:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04"	"「深弹幕结界 -梦幻泡影-」"
-		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"以任意位置为目标展开大型的传送结界，结界范围内的己方队友和其他队友玩家的单位会一起被传送至目标单位旁。引导时间越长，传送结界的范围就越大。最大引导时间2秒，结界的最大范围为750。无论引导多久，只要引导一结束（即使是被打断的），传送就会进行。\n引导期间，目标地点会散射出大量的弹幕，对周围的敌方单位造成伤害,传送完成后产生空间震，对%wanbaochui_radius%范围内的敌方单位造成%int_bonus%倍智力的魔法伤害\n"
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"以任意位置为目标展开大型的传送结界，结界范围内的己方队友和其他队友玩家的单位会一起被传送至目标单位旁。引导时间越长，传送结界的范围就越大。最大引导时间2秒，结界的最大范围为750。无论引导多久，只要引导一结束（即使是被打断的），传送就会进行。\n引导期间，目标地点会散射出大量的弹幕，对周围的敌方单位造成伤害，传送完成后产生空间震，对%wanbaochui_radius%范围内的敌方单位造成%int_bonus%倍智力的魔法伤害与%stun_duration%秒眩晕。"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_min_radius"	"传送最小范围："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"传送最大范围："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"弹幕持续伤害："
@@ -434,7 +439,7 @@
 		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
 		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
 
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"大招间隔降低至1，攻击次数+1"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"增加大招攻击次数，降低攻击冷却时间。"
 
 		// Saber
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"

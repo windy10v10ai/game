@@ -10,6 +10,7 @@ function modifier_player_lumao:OnCreated()
 	self.iLifeSteal = 40
 	self.iCastRange = 400
 	self.iMoveSpeed = 200
+	self.iManaRegen = 2
 end
 
 function modifier_player_lumao:CheckState()
@@ -27,6 +28,7 @@ function modifier_player_lumao:DeclareFunctions()
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
         MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+		MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
 	}
 end
 
@@ -57,4 +59,8 @@ end
 
 function modifier_player_lumao:GetModifierIgnoreMovespeedLimit()
     return 1
+end
+
+function modifier_player_lumao:GetModifierTotalPercentageManaRegen()
+	return self.iManaRegen
 end
