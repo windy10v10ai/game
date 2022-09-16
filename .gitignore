@@ -6,3 +6,4 @@ game/resource/custom_game_whitelist.txt
 node_modules
 src/content/
 src/game/
+/.idea

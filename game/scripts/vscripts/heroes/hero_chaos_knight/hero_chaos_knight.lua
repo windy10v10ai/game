@@ -35,10 +35,6 @@ function modifier_imba_phantasm_buff:OnCreated()
 	self.parent=self:GetParent()
     self.attack_count=self.ability:GetSpecialValueFor("attack_count")
     self.attack_cooldown=self.ability:GetSpecialValueFor("attack_cooldown")
-	if IsServer() and self.parent:HasModifier("modifier_item_aghanims_shard") then
-		self.attack_count=self.attack_count+1
-		self.attack_cooldown=1
-	end
 end
 
 function modifier_imba_phantasm_buff:OnAttackLanded(keys)

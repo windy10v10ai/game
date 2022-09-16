@@ -208,6 +208,10 @@ local laughSteamAccountID = Set {
 	-- laugh
 	118184749,
 }
+local asproseSteamAccountID = Set {
+	-- 超人会发光耶 asprose
+	292827485,
+}
 
 -- 称号属性 END
 
@@ -465,5 +469,9 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_laugh_3", {})
 		LinkLuaModifier("modifier_player_laugh_4", "modifiers/player/modifier_player_laugh_4", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_laugh_4", {})
+	end
+	if asproseSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_asprose","modifiers/player/modifier_player_asprose",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_asprose",{})
 	end
 end

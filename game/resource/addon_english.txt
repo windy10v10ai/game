@@ -243,17 +243,17 @@
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"Health Regen: "
 
 		// 混沌骑士
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"混沌之军"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战，持续%duration%秒。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"Army of Chaos"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"Summons Chaos Knights from other dimensions to this world and fights with Chaos Knights here for %duration% seconds. Whenever Chaos Knight attacks, other Chaos Knights will also carry out additional attacks on the target, and other Chaos Knights' attacks have a short cooldown."
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"With the Chaos Knight's rich combat experience in various worlds, his illusions are enough to suppress anyone who dares to oppose him."
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"Additional Attacks:"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"Attack Cooldown:"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"Army of Chaos can be cast on an allied hero, granting the target hero the effect of Army of Chaos."
 
-		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
-		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"Army of Chaos"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"Multiple shadow clones!"
 
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"大招间隔降低至1，攻击次数+1"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"Increase the number of ultimate attacks and reduce the attack cooldown."
 
 		// Saber
 		"npc_dota_hero_broodmother"						"Artoria Pendragon"
@@ -435,6 +435,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_yukari_01_damage"	"+{s:bonus_damage} Aerial Bait Hyperactive High Speed Flying Object Damage"
 		"DOTA_Tooltip_ability_special_bonus_unique_yukari_01_stun"		"+{s:bonus_stun_duration}s Aerial Bait Hyperactive High Speed Flying Object Stun"
 		"DOTA_Tooltip_ability_special_bonus_unique_yukari_tentacles_damage"	"+{s:bonus_damage_per_second} yukari_tentacles Damage Per Second"
+		"DOTA_Tooltip_ability_special_bonus_unique_thdots_yukari04_stun"		"+{s:bonus_stun_duration}s Deep Danmaku Barrier -Transient Dreams- Stun"
 		"npc_dota_hero_phantom_lancer"	"Yukari Yakumo"
         "DOTA_Tooltip_ability_yukari_dark" "Darkness Falls"
         "DOTA_Tooltip_ability_yukari_dark_Description" "Create a dismentional rift at the air.Huge cross will wall at the selected area,dealing damage to all enemies"
@@ -455,6 +456,7 @@
 		"DOTA_Tooltip_ability_yukari_moon_portal_cast_range"	"Cast Range:"
         "DOTA_Tooltip_ability_yukari_moon_portal_damage" "Damage:"
         "DOTA_Tooltip_ability_yukari_moon_portal_enemy_lift_duration" "Duration:"
+		"DOTA_Tooltip_ability_yukari_moon_portal_self_lift_duration"	"Duration to self:"
         "DOTA_Tooltip_ability_yukari_tentacles" "Tentacle Portal"
         "DOTA_Tooltip_ability_yukari_tentacles_Description" "Opens a portal filled with dire tentacles in the target area, dealing damage over time, slowing everyone inside, and limiting the view range to 600."
         "DOTA_Tooltip_ability_yukari_tentacles_damage_per_second" "Damage Per Second:"
@@ -466,7 +468,7 @@
 
         "DOTA_Tooltip_ability_yukari_morph"							"Moon Phase"
         "DOTA_Tooltip_ability_yukari_morph_Description" 			"Uses hide potential to unleash true power"
-		"DOTA_Tooltip_ability_yukari_morph_magic"					"%+$spell_amp"
+		"DOTA_Tooltip_ability_yukari_morph_magic"					"%Spell Amp:"
         "DOTA_Tooltip_ability_yukari_morph_amp"						"BonusMs:"
         "DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"Duration:"
 		"DOTA_Tooltip_modifier_yukari_morph"						"Moon Phase"
@@ -489,7 +491,7 @@
         "DOTA_Tooltip_ability_ability_yukari_01_range"	"Range:"
         "DOTA_Tooltip_ability_ability_yukari_01_speed"  "Speed:"
         "DOTA_Tooltip_ability_ability_thdots_yukari04"	"Deep Danmaku Barrier -Transient Dreams-"
-        "DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"A large teleportation enchantment is launched at any location as the target. Allies within the enchantment range and the units of other teammates and players will be teleported to the target unit together. The longer the channeling time, the greater the range of the teleportation enchantment. The maximum channel time is 2 seconds, and the maximum range of the enchantment is 750. No matter how long the channel is, as soon as the channel ends (even if it is interrupted), the teleport will take place. \nDuring the channeling, a large number of barrages will be scattered from the target location, causing damage to surrounding enemy units. After the teleportation is completed, a space shock will be generated, causing %int_bonus% times the intelligence magic damage to enemy units within %wanbaochui_radius%. \n"
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"A large teleportation enchantment is launched at any location as the target. Allies within the enchantment range and the units of other teammates and players will be teleported to the target unit together. The longer the channeling time, the greater the range of the teleportation enchantment. The maximum channel time is 2 seconds, and the maximum range of the enchantment is 750. No matter how long the channel is, as soon as the channel ends (even if it is interrupted), the teleport will take place. \nDuring the channeling, a large number of barrages will be scattered from the target location, causing damage to surrounding enemy units. After the teleportation is completed, a space shock will be generated, causing %int_bonus% times the intelligence magic damage to enemy units within %wanbaochui_radius% and stun %stun_duration% seconds."
         "DOTA_Tooltip_ability_ability_thdots_yukari04_min_radius"	"Teleport minimum range："
         "DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"Teleport maximum range："
         "DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"Barrage damage over time："
