@@ -168,8 +168,6 @@ function Yukari04_OnSpellStart(keys)
 					ParticleManager:DestroyParticle(e2,true)
 
 						local intdamage=caster:GetIntellect()*max_int_bonus*elapsedPercent
-					    print('八云紫大招damage:')
-						print(intdamage)
 						local enemies=FindUnitsInRadius(
 										caster:GetTeamNumber(),
 										caster:GetOrigin(),
@@ -216,7 +214,7 @@ function Yukari04_OnSpellStart(keys)
 			"yukari04_exdamage",
 			function ()
 				if GameRules:IsGamePaused() then return 0.03 end
-				if caster:IsChanneling() and exradius < keys.MaxRadius then
+				if caster:IsChanneling() then
 					local targets = FindUnitsInRadius(
 							caster:GetTeam(),		--caster team
 							keys.target_points[1],		--find position
@@ -228,7 +226,6 @@ function Yukari04_OnSpellStart(keys)
 							FIND_CLOSEST,
 							false
 						)
-						exradius=exradius+25
 						for _,v in pairs(targets) do
 							local damage_table = {
 								ability = keys.ability,
@@ -250,6 +247,7 @@ function Yukari04_OnSpellStart(keys)
 end
 
 function Yukari04_OnProjectileHitUnit(keys)
+	print('Yukari04_OnProjectileHitUnit works')
 	local ability=keys.ability
 	local caster=keys.caster
 	local targets = keys.target_entities

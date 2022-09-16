@@ -2000,7 +2000,7 @@
 			"barrage_spawn_point"	"16"
 			"barrage_fire_interval"	"0.1"
 			"barrage_damage"	"200"
-			"barrage_radius"	"250"
+			"barrage_radius"	"750"
 			"ex_damage"	"25"
 			"wanbaochui_radius"	"750"
 			"int_bonus"	"4"
