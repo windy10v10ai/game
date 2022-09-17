@@ -21,7 +21,6 @@ local tBotNameList = {
 	--"npc_dota_hero_rubick",
 	--"npc_dota_hero_shredder",
 	--"npc_dota_hero_tinker",
-	"npc_dota_hero_phantom_lancer",
 	"npc_dota_hero_abaddon",
 	"npc_dota_hero_axe",
 	"npc_dota_hero_bane",

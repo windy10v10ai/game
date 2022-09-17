@@ -58,25 +58,22 @@ function yukari_moon_portal:OnSpellStart(params)
             return false
         end
         local targetLoc = self.target:GetOrigin()
-        local duration = 0
+        local duration = self:GetSpecialValueFor("lift_duration")
         -- Create modifier and check Linken
         if self.target:GetTeam() ~= caster:GetTeam() then
             if self.target:TriggerSpellAbsorb(self) then
                 return nil
             end
-            duration = self:GetSpecialValueFor("lift_duration")
             self.target:AddNewModifier(caster, self, "modifier_yukari_muted", { duration = duration + 0.5 })
             self.target:AddNewModifier(caster, self, "modifier_yukari_tp", { duration = duration })
             self.target:FindModifierByNameAndCaster("modifier_yukari_tp", caster).teleportLoc = targetLoc
             --EmitSoundOn( "yukari.car", caster )
         else
             if self.target == self:GetCaster() then
-                duration = self:GetSpecialValueFor("lift_duration")
                 self.target:AddNewModifier(caster, self, "modifier_yukari_tp_3", { duration = duration })
                 self.target:FindModifierByNameAndCaster("modifier_yukari_tp_3", caster).teleportLoc = targetLoc
                 --EmitSoundOn( "yukari.car2", caster )
             else
-                duration = self:GetSpecialValueFor("lift_duration")
                 self.target:AddNewModifier(caster, self, "modifier_yukari_tp", { duration = duration })
                 self.target:FindModifierByNameAndCaster("modifier_yukari_tp", caster).teleportLoc = targetLoc
                 --EmitSoundOn( "yukari.slash", caster )
