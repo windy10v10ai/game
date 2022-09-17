@@ -1931,13 +1931,10 @@
 			// "impact_stun_duration"	"2.0 2.4 2.6 2.8 3.0"
 			// "ally_range"	"750 875 1000 1125 1250"
 			// "enemy_range"	"375 400 450 550 650"
-			"ally_lift_duration"	"2.0 2.4 2.6 2.8 3.0"
-			"enemy_lift_duration"	"2.0 2.4 2.6 2.8 3.0"
-			"self_lift_duration"	"1.5"
+			"lift_duration"	"2.0"
 			"fall_animation"	"0.2"
 			"lift_animation"	"0.2"
 			"max_height"	"600"
-			"ally_cooldown"	"0.5"
 		}
 	}
 
@@ -1960,7 +1957,7 @@
 		// Stats
 		// ----------------------------------------------------------------
 		"AbilityCastRange"	"99999"
-		"AbilityChannelTime"	"2.0"
+		"AbilityChannelTime"	"4.0"
 		"precache"
 		{
 			"particle"	"particles/heroes/yukari/ability_yukari_04_effect.vpcf"
@@ -1997,19 +1994,19 @@
 		}
 		"AbilityValues"
 		{
-			"min_radius"	"250"
+			"min_radius"	"750"
 			"max_radius"	"750"
-			"target_range"	"1000"
+			"target_range"	"0"
 			"barrage_spawn_point"	"16"
 			"barrage_fire_interval"	"0.1"
 			"barrage_damage"	"200"
-			"barrage_radius"	"250"
-			"ex_damage"	"15"
+			"barrage_radius"	"750"
+			"ex_damage"	"25"
 			"wanbaochui_radius"	"750"
-			"int_bonus"	"1.5"
+			"int_bonus"	"4"
 			"stun_duration"
 			{
-				"value"				"0"
+				"value"				"1"
 				"special_bonus_unique_thdots_yukari04_stun"	"+2"
 			}
 		}
