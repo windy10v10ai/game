@@ -51,26 +51,29 @@ function yukari_moon_portal:OnSpellStart(params)
         end
     else
         self.target = self:GetCursorTarget()
+        -- disable help
+        if PlayerResource:IsDisableHelpSetForPlayerID(self.target:GetPlayerOwnerID(), caster:GetPlayerOwnerID()) then
+            self:EndCooldown()
+            self:RefundManaCost()
+            return false
+        end
         local targetLoc = self.target:GetOrigin()
-        local duration = 0
+        local duration = self:GetSpecialValueFor("lift_duration")
         -- Create modifier and check Linken
         if self.target:GetTeam() ~= caster:GetTeam() then
             if self.target:TriggerSpellAbsorb(self) then
                 return nil
             end
-            duration = self:GetSpecialValueFor("enemy_lift_duration")
             self.target:AddNewModifier(caster, self, "modifier_yukari_muted", { duration = duration + 0.5 })
             self.target:AddNewModifier(caster, self, "modifier_yukari_tp", { duration = duration })
             self.target:FindModifierByNameAndCaster("modifier_yukari_tp", caster).teleportLoc = targetLoc
             --EmitSoundOn( "yukari.car", caster )
         else
             if self.target == self:GetCaster() then
-                duration = self:GetSpecialValueFor("self_lift_duration")
                 self.target:AddNewModifier(caster, self, "modifier_yukari_tp_3", { duration = duration })
                 self.target:FindModifierByNameAndCaster("modifier_yukari_tp_3", caster).teleportLoc = targetLoc
                 --EmitSoundOn( "yukari.car2", caster )
             else
-                duration = self:GetSpecialValueFor("ally_lift_duration")
                 self.target:AddNewModifier(caster, self, "modifier_yukari_tp", { duration = duration })
                 self.target:FindModifierByNameAndCaster("modifier_yukari_tp", caster).teleportLoc = targetLoc
                 --EmitSoundOn( "yukari.slash", caster )
@@ -79,7 +82,7 @@ function yukari_moon_portal:OnSpellStart(params)
         -- Add the particle & sounds
         caster:EmitSound("yukari.portal")
         -- Add caster handler
-        caster:AddNewModifier(caster, self, "modifier_yukari_moon_portal_caster", { duration = duration - 0.2 })
+        caster:AddNewModifier(caster, self, "modifier_yukari_moon_portal_caster", { duration = duration })
         caster:AddNewModifier(caster, self, "modifier_yukari_leashed", { duration = duration + FrameTime() })
         self:EndCooldown()
     end
@@ -143,18 +146,12 @@ function modifier_yukari_moon_portal_caster:OnDestroy()
 
     self.ability = self:GetAbility()
     self.parent = self:GetParent()
-    self.ability:StartCooldown(self.ability:GetCooldown(-1) * self.parent:GetCooldownReduction()-self.ability:GetSpecialValueFor("enemy_lift_duration"))
 
-    local HiddenAbilities = {
-        "yukari_moon_portal",
-    }
+    local cooldown = self.ability:GetCooldown(-1) * self.parent:GetCooldownReduction() - self.ability:GetSpecialValueFor("lift_duration")
 
-    for _, HiddenAbility in pairs(HiddenAbilities) do
-        local hAbility = self:GetParent():FindAbilityByName(HiddenAbility)
-        if hAbility and hAbility:IsActivated() then
-            hAbility:SetActivated(true)
-        end
-    end
+    self.ability:EndCooldown()
+    self.ability:StartCooldown(cooldown)
+
 end
 
 modifier_yukari_leashed = class({})
