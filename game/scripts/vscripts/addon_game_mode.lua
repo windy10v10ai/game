@@ -81,6 +81,7 @@ function AIGameMode:InitEvents()
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap( AIGameMode, "OnItemPickedUp" ), self )
 	ListenToGameEvent("player_chat", Dynamic_Wrap( AIGameMode, "OnPlayerChat" ), self )
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
+	ListenToGameEvent("dota_buyback", Dynamic_Wrap(AIGameMode, 'OnBuyback'), self)
 	--JS events
 	CustomGameEventManager:RegisterListener("loading_set_options", function (eventSourceIndex, args) return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args) end)
 	-- 游戏选项改变事件
@@ -108,6 +109,7 @@ end
 
 
 function AIGameMode:PreGameOptions()
+
 	self.iDesiredRadiant = self.iDesiredRadiant or RADIANT_PLAYER_COUNT
 	self.iDesiredDire = self.iDesiredDire or DIRE_PLAYER_COUNT
 
@@ -245,6 +247,7 @@ function AIGameMode:PreGameOptions()
 	BotThink:SetTome()
 
 	self.PreGameOptionsSet = true
+
 end
 
 ------------------------------------------------------------------
