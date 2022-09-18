@@ -1635,6 +1635,26 @@
 			"super_saiyan_cooldown"			"14"
 		}
 	}
+	"goku_kaioken2"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"heroes/hero_goku/goku_kaioken2.lua"
+		"AbilityTextureName"        "custom/goku/goku_kaioken"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"5"
+
+		"SpellDispellableType"		"SPELL_DISPELLABLE_NO"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+
+		"AbilityValues"
+		{
+			
+			"SpellAmplify_Percentage"		"5 10 15 20 25"
+			"CooldownReduction"				"5 10 15 20 25"
+
+		}
+	}
 
 	"goku_super_saiyan"
 	{
@@ -1731,6 +1751,13 @@
 		}
 
 	}
+	"ability_goku_telent"
+	{
+		"BaseClass"	"ability_lua"
+		"ScriptFile"	"scripts/vscripts/modifiers/hero_goku/goku_telent.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"	"1"
+	}
 
 	"special_bonus_unique_goku_1"
 	{
@@ -1773,6 +1800,34 @@
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_goku_2_1"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"1"
+			}
+		}
+	}
+	"special_bonus_unique_goku_2_2"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"1"
+			}
+		}
 	}
 
 	//-------------------------------------------------------------------------------------------------------------

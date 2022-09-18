@@ -19,6 +19,7 @@ require('bot/bot_think_ability_use')
 require('bot/bot_think_modifier')
 require('web/web_server')
 require("damage")
+require("skillcard")
 
 function Activate()
 	AIGameMode:InitGameMode()
@@ -81,6 +82,7 @@ function AIGameMode:InitEvents()
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap( AIGameMode, "OnItemPickedUp" ), self )
 	ListenToGameEvent("player_chat", Dynamic_Wrap( AIGameMode, "OnPlayerChat" ), self )
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
+	ListenToGameEvent('player_chat', Dynamic_Wrap(Skillcard, 'OnPlayerSay'), self)
 	--JS events
 	CustomGameEventManager:RegisterListener("loading_set_options", function (eventSourceIndex, args) return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args) end)
 	-- 游戏选项改变事件
@@ -309,4 +311,17 @@ function AIGameMode:RewardFilterByKill(teamKill, playerKill, teamCount)
 	if teamKill < 10 then return rewardMulti end
 	rewardMulti = 1 - playerKill/teamKill + 1/teamCount
 	return rewardMulti
+end
+function Skillcard:OnPlayerSay(keys)
+	local text = keys.text
+	local plyid = keys.playerid
+	local plyhd = PlayerResource:GetPlayer(plyid)
+	PlayerResource:GetPlayer(plyid):GetAssignedHero():GetOrigin()
+	if text == "goku" then --
+		local hero = plyhd:GetAssignedHero()
+		if hero:GetName() == "npc_dota_hero_chen" then
+			print(hero:GetName())
+			Change_skill_GOKU(hero, plyhd)
+		end
+	end
 end

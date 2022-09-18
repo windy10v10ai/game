@@ -575,6 +575,12 @@
 		"DOTA_Tooltip_ability_goku_kaioken_bonus_attackspeed"				"攻击速度加成："
 		"DOTA_Tooltip_ability_goku_kaioken_super_saiyan_tick"				"主动效果攻击间隔："
 		"DOTA_Tooltip_ability_goku_kaioken_super_saiyan_radius"				"主动效果范围："
+		
+		"DOTA_Tooltip_Ability_goku_kaioken2"								"界王拳（精密）"
+		"DOTA_Tooltip_ability_goku_kaioken2_description"					"孙悟空使用超过自身极限的力量，获得冷却缩减与技能增强"
+		"DOTA_Tooltip_ability_goku_kaioken2_Lore"							"孙悟空在北界王处修炼时学会的招数"
+		"DOTA_Tooltip_ability_goku_kaioken2_SpellAmplify_Percentage"		"技能增强："
+		"DOTA_Tooltip_ability_goku_kaioken2_CooldownReduction"				"冷却缩减："
 
 		"DOTA_Tooltip_Ability_goku_super_saiyan"							"超级赛亚人"
 		"DOTA_Tooltip_ability_goku_super_saiyan_description"				"<h1>被动：</h1>超级赛亚人的力量隐藏在孙悟空的体内，使孙悟空被动获得全属性加成\n<h1>主动：</h1>孙悟空进入超级赛亚人模式，每秒恢复一定百分比自身最大生命魔法值，获得状态抗性加成，并强化自己的所有技能"
@@ -601,6 +607,8 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_5"					"+{s:bonus_regen}% 超级赛亚人恢复"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6"					"+{s:bonus_channel} 龟派气功持续时间"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7"					"+{s:bonus_duration}秒 超级赛亚人持续时间"
+		"DOTA_Tooltip_ability_special_bonus_unique_goku_2_1"                "技能增强+20%"
+		"DOTA_Tooltip_ability_special_bonus_unique_goku_2_2"                "冷却时间减少15%"
 
 		//沉渊之剑
 		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp"	"藏锋"
@@ -619,6 +627,8 @@
 		"DOTA_Tooltip_modifier_goku_tp_Description"	"获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%移动速度加成"
 		"DOTA_Tooltip_modifier_goku_kaioken"	"界王拳"
 		"DOTA_Tooltip_modifier_goku_kaioken_Description"	"获得%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度加成，攻击有几率击晕目标并召唤幻影再次攻击"
+		"DOTA_Tooltip_modifier_goku_kaioken2"	"界王拳（精密）"
+		"DOTA_Tooltip_modifier_goku_kaioken2_Description"	"获得%dMODIFIER_PROPERTY_COOLDOWN_PERCENTAGE%冷却速度缩减， 获得%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%技能增强"
 		"DOTA_Tooltip_modifier_goku_super_saiyan_passive"	"超级赛亚人：潜在"
 		"DOTA_Tooltip_modifier_goku_super_saiyan_passive_Description"	"获得%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%力量加成，%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%敏捷加成，%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS%智力加成"
 		"DOTA_Tooltip_modifier_goku_super_saiyan"	"超级赛亚人:激活"
