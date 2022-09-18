@@ -96,6 +96,7 @@ developerSteamAccountID[314757913]="孤尘"
 developerSteamAccountID[916506173]="Arararara"
 developerSteamAccountID[385130282]="米米花"
 developerSteamAccountID[353885092]="76岁靠谱成年男性"
+developerSteamAccountID[245559423]="puck1609"
 
 local luoshuHeroSteamAccountID = Set {
 	136668998,
@@ -402,6 +403,28 @@ function AIGameMode:OnEntityKilled(keys)
 	end
 end
 
+-- 买活时间设定
+function AIGameMode:OnBuyback(e)
+	local playerId = e.player_id
+	local hEntity = EntIndexToHScript(e.entindex)
+	-- 需要等待一段时间，否则GetBuybackCooldownTime()获取的值是0
+	Timers:CreateTimer(1, function ()
+		if hEntity:IsRealHero() and hEntity:IsReincarnating() == false then
+			local hHero = hEntity
+			local memberBuybackCooldownMaximum = 150
+			local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
+			-- 会员买活时间减少50%, 最大150s
+			if steamAccountID ~= nil and WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
+				local buybackTime = hHero:GetBuybackCooldownTime() * 0.5
+				if buybackTime > memberBuybackCooldownMaximum then
+					buybackTime = memberBuybackCooldownMaximum
+				end
+				hHero:SetBuybackCooldownTime(buybackTime)
+			end
+		end
+	end)
+end
+
 function RecordBarrackKilled(hEntity)
 	local team = hEntity:GetTeamNumber()
 	if DOTA_TEAM_GOODGUYS == team then
@@ -496,8 +519,10 @@ function RecordTowerKilled(hEntity)
 		end
 	end
 end
+
 function HeroKilled(keys)
 	local hHero = EntIndexToHScript(keys.entindex_killed)
+	local playerId = hHero:GetPlayerID()
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
 	if iLevel <= 50 then
@@ -515,6 +540,7 @@ function HeroKilled(keys)
 		fRespawnTime = 1
 	end
 	hHero:SetTimeUntilRespawn(fRespawnTime)
+
 end
 
 function AIGameMode:RollDrops(hHero)
@@ -799,6 +825,18 @@ function AIGameMode:OnPlayerChat( event )
 			for _,modifier in pairs(modifiers) do
 				print("Get here modifiers: ", modifier:GetName())
 			end
+			return
+		end
+
+		if sChatMsg:find( '^-kill$' ) then
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			hHero:ForceKill(true)
+			return
+		end
+
+		if sChatMsg:find( '^-refresh buyback$' ) then
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			hHero:SetBuybackCooldownTime(0)
 			return
 		end
 	end
