@@ -59,7 +59,14 @@ function modifier_player_puck1609:GetModifierPreAttack_BonusDamage()
 end
 
 function modifier_player_puck1609:GetModifierAttackRangeBonus()
-	return 400
+	local hero = self:GetParent()
+	if hero == nil then
+		return 0
+	end
+	if hero:IsRangedAttacker() then
+		return 400
+	end
+	return 100
 end
 
 function modifier_player_puck1609:GetModifierAttackSpeedBonus_Constant()
