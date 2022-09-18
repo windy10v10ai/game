@@ -436,17 +436,6 @@ function RecordBarrackKilled(hEntity)
 	end
 end
 
-function RecordBarrackKilled(hEntity)
-	local team = hEntity:GetTeamNumber()
-	if DOTA_TEAM_GOODGUYS == team then
-		AIGameMode.barrackPushedBad = AIGameMode.barrackPushedBad + 1
-		print("barrackPushedBad ", AIGameMode.barrackPushedBad)
-	elseif DOTA_TEAM_BADGUYS == team then
-		AIGameMode.barrackPushedGood = AIGameMode.barrackPushedGood + 1
-		print("barrackPushedGood ", AIGameMode.barrackPushedGood)
-	end
-end
-
 function RecordTowerKilled(hEntity)
 	local team = hEntity:GetTeamNumber()
 	local sName = hEntity:GetUnitName()
