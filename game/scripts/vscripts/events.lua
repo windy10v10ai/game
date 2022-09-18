@@ -415,14 +415,10 @@ function AIGameMode:OnBuyback(e)
 			local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
 			-- 会员买活时间减少50%, 最大150s
 			if steamAccountID ~= nil and WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
-				print('普通买活时间:')
-				print(hHero:GetBuybackCooldownTime())
 				local buybackTime = hHero:GetBuybackCooldownTime() * 0.5
 				if buybackTime > memberBuybackCooldownMaximum then
 					buybackTime = memberBuybackCooldownMaximum
 				end
-				print('会员买活时间:')
-				print(buybackTime)
 				hHero:SetBuybackCooldownTime(buybackTime)
 			end
 		end
