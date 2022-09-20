@@ -839,6 +839,12 @@ function AIGameMode:OnPlayerChat( event )
 			hHero:SetBuybackCooldownTime(0)
 			return
 		end
+
+		if sChatMsg:find( '^-shard$' ) then
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			hHero:AddItemByName('item_aghanims_shard')
+			return
+		end
 	end
 
 	if WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then

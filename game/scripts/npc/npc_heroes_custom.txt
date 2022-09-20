@@ -341,6 +341,52 @@
 		"Ability20"		"rubick_null_field"
 	}
 
+	"npc_dota_hero_slark"
+    {
+        "Ability10"		"special_bonus_unique_slark_2"
+        "Ability11"		"special_bonus_unique_slark"
+        "Ability12"		"special_bonus_lifesteal_15"
+        "Ability13"		"special_bonus_unique_slark_8"
+        "Ability14"		"special_bonus_unique_slark_4"
+        "Ability15"		"special_bonus_magic_resistance_20"
+        "Ability16"		"special_bonus_unique_slark_301"
+        "Ability17"		"special_bonus_unique_slark_5"
+    }
+
+	"npc_dota_hero_razor"
+	{
+	    "Ability11"		"special_bonus_unique_razor_101"
+        "Ability13"		"special_bonus_spell_amplify_12"
+        "Ability14"		"special_bonus_unique_razor_401"
+        "Ability15"		"special_bonus_unique_razor_static_link_aspd"
+        "Ability16"		"special_bonus_unique_razor_402"
+        "Ability17"		"special_bonus_unique_razor_plasmafield_second_ring"
+	}
+
+	"npc_dota_hero_legion_commander"
+    {
+        "Ability10"		"special_bonus_unique_legion_commander_2"
+        "Ability11"		"special_bonus_strength_12"
+        "Ability12"		"special_bonus_unique_legion_commander_6"
+        "Ability13"		"special_bonus_unique_legion_commander_4"
+        "Ability14"		"special_bonus_unique_legion_commander_5"
+        "Ability15"		"special_bonus_unique_legion_commander_3"
+        "Ability16"		"special_bonus_unique_legion_commander"
+        "Ability17"		"special_bonus_unique_legion_commander_8"
+    }
+
+    "npc_dota_hero_lina"
+    {
+        "Ability10"		"special_bonus_unique_lina_3"
+        "Ability11"		"special_bonus_unique_lina_1"
+        "Ability12"		"special_bonus_unique_lina_2"
+        "Ability13"		"special_bonus_unique_lina_201"
+        "Ability14"		"special_bonus_spell_amplify_12"
+        "Ability15"		"special_bonus_unique_lina_301"
+        "Ability16"		"special_bonus_unique_lina_6"
+        "Ability17"		"special_bonus_unique_lina_7"
+    }
+
 	//=================================================================================================================
 	// HERO BOT BUILD
 	//=================================================================================================================
