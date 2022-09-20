@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "rootDir": ".",
-        "outDir": "../game/scripts/vscripts",
+        "outDir": "../../game/scripts/vscripts",
         "target": "esnext",
         "lib": ["esnext"],
         "types": ["@moddota/dota-lua-types/normalized"],
