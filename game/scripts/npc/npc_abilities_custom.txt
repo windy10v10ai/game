@@ -2,7 +2,7 @@
 {
 
 	//================================================
-	// dummy unit passve (collection of global modifiers)
+	// dummy unit passive (collection of global modifiers)
 	//================================================
 	"dummy_unit_passive"
 	{
