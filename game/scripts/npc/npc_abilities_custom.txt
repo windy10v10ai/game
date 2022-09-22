@@ -2797,12 +2797,12 @@
 		"AbilityTextureName"	"chaos_knight_phantasm"
 		"ScriptFile"	"heroes/hero_chaos_knight/hero_chaos_knight"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
+		// "AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		// "AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		// "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
 		"FightRecapLevel"	"2"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-    	"HasShardUpgrade"               "1"
+    	// "HasShardUpgrade"	"1"
 		"HasScepterUpgrade"	"1"
 		"MaxLevel"			"4"
 		// Casting
@@ -2824,12 +2824,12 @@
 			"attack_count"
 			{
 				"value"						"2 2 3 3"
-				"special_bonus_shard"		"+1"
+				"special_bonus_scepter"		"+1"
 			}
 			"attack_cooldown"
 			{
 				"value"						"2 1.8 1.6 1.4"
-				"special_bonus_shard"		"-0.4"
+				"special_bonus_scepter"		"-0.6"
 			}
 		}
 		"AbilitySound"	"Hero_ChaosKnight.Phantasm"
