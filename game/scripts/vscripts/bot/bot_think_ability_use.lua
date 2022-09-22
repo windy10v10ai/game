@@ -96,6 +96,8 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_Abaddon(hHero)
 	elseif sHeroName == "npc_dota_hero_meepo" then
 		self:ThinkUseAbility_Meepo(hHero)
+	elseif sHeroName == "npc_dota_hero_chaos_knight" then
+		self:ThinkUseAbility_ChaosKnight(hHero)
 	end
 end
 
@@ -420,4 +422,17 @@ function BotAbilityThink:ThinkUseAbility_Omniknight(hHero)
 	if self:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility1, 80) then return true end
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility3) then return true end
 	if self:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility5, 85) then return true end
+end
+
+function BotAbilityThink:ThinkUseAbility_ChaosKnight(hHero)
+	local hAbility6 = hHero:GetAbilityByIndex(5)
+
+	if hAbility6:IsFullyCastable() then
+		local iRange = 600
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		-- 范围内有1人以上时施法
+		 if #tAllHeroes > 0 then
+			hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
+		end
+	end
 end
