@@ -14,5 +14,6 @@
         "luaTarget": "JIT",
         "sourceMapTraceback": true
     },
-    "include": ["**/*.ts", "../common/**/*.ts"]
+    "include": ["**/*.ts", "../common/**/*.ts"],
+    "exclude": ["**/lib/*.ts"]
 }
