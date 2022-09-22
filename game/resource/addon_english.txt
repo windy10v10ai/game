@@ -248,10 +248,10 @@
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"With the Chaos Knight's rich combat experience in various worlds, his illusions are enough to suppress anyone who dares to oppose him."
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"Additional Attacks:"
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"Attack Cooldown:"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"Army of Chaos can be cast on an allied hero, granting the target hero the effect of Army of Chaos."
+		// "DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"Army of Chaos can be cast on an allied hero, granting the target hero the effect of Army of Chaos."
 
 		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"Army of Chaos"
-		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"Multiple shadow clones!"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"									"Multiple shadow clones!"
 
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"Increase the number of ultimate attacks and reduce the attack cooldown."
 
