@@ -58,15 +58,10 @@ function LoadAfdianButton() {
     }
 }
 
-function LoadMemberButton(table, key, gameResult) {
-    if (!gameResult || key !== "player_data") {
+function LoadMemberButton(table, key, member) {
+    if (!member || key !== Game.GetLocalPlayerInfo().player_steamid) {
 		return;
 	}
-    const player = gameResult.players[Game.GetLocalPlayerID()];
-    // $.Msg(player);
-    if (!player.memberInfo) {
-        return;
-    }
     $.Msg("button.js LoadMemberButton");
 
 
@@ -86,13 +81,13 @@ function LoadMemberButton(table, key, gameResult) {
         let hMemberButton = hContainer.FindChild('memberButton') || $.CreatePanel('Button', hContainer, 'memberButton')
 
         let sString = $.Localize('#player_member_button');
-        if (player.memberInfo.enable) {
+        if (member.enable) {
             hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown.png')`
         } else {
             sString = $.Localize('#player_member_button_expire');
             hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown_grey.png')`
         }
-    	sString = sString.replace("{expireDate}", player.memberInfo.expireDateString);
+    	sString = sString.replace("{expireDate}", member.expireDateString);
 
         hMemberButton.style.backgroundSize = "100% 100%";
 
@@ -141,8 +136,8 @@ function LoadDiscordButton() {
     $.Schedule(1, () => {
         LoadPatreonButton();
 		LoadAfdianButton();
+        const steamId64 = Game.GetLocalPlayerInfo().player_steamid;
         CustomNetTables.SubscribeNetTableListener("ending_stats", LoadMemberButton);
-        LoadMemberButton(null, "player_data", CustomNetTables.GetTableValue("ending_stats", "player_data"));
+        LoadMemberButton(null, steamId64, CustomNetTables.GetTableValue("member_table", steamId64));
     });
-
 })();
