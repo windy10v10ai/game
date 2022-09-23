@@ -2860,17 +2860,17 @@
         "AbilityCastRange"				"0"
 
         "MaxLevel" "4"
-        "AbilityCooldown"				"90 80 70 60"
+        "AbilityCooldown"				"100"
         "AbilityManaCost"				"100"
 
         "HasScepterUpgrade"			"0"
 
         "AbilityValues"
         {
-            "damage_reduction"			"-80"
+            "damage_reduction"			"-50 -60 -70 -80"
             "duration"
             {
-                "value"							"3.0 3.3 3.6 4.0"
+                "value"							"3.0"
                 "special_bonus_unique_spectre_401"	"+1.0"
             }
             "status_resistance"
