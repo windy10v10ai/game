@@ -649,6 +649,24 @@
         "DOTA_Tooltip_ability_lina_fiery_soul_shard_description"	"+%shard_bonus_spell_damage%点每层炽魂技能伤害增加"
         "DOTA_Tooltip_ability_lina_fiery_soul_bonus_spell_damage"			"技能伤害增加："
 
+        // 幽鬼 spe
+        "DOTA_Tooltip_ability_spectre_desolate_Description"		"幽鬼的攻击对敌人造成额外的纯粹伤害。"
+        "DOTA_Tooltip_ability_spectre_desolate_radius"						""
+        "DOTA_Tooltip_ability_spectre_ursa_enrage"  "鬼影无形"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"	"此刻，幽鬼跳出三界之外，不在五行之中。"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_Description"	"幽鬼改变因果，承受的伤害降低并获得状态抗性。施放时将移除所受的负面效果。\n\n驱散类型：强驱散"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_scepter_description"							"减少冷却时间，而且幽鬼可以在被控制的状态下使用鬼影无形。"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_damage_reduction"		                        "%伤害降低："
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_status_resistance"		                     "%状态抗性："
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_duration"					                    "持续时间："
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_cooldown_scepter"					            "冷却时间："
+        "DOTA_Tooltip_ability_special_bonus_unique_spectre_401"    "+{s:bonus_duration} 鬼影无形持续时间"
+        "DOTA_Tooltip_modifier_spectre_ursa_enrage" "鬼影无形"
+        "DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"获得%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%承受伤害减少和%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%状态抗性"
+
+        // 剧毒
+        "DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} 毒刺伤害"
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items

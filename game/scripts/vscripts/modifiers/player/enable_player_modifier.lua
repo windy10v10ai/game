@@ -393,12 +393,12 @@ function EnablePlayerModifier(hEntity)
 	if puck1609SteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_puck1609", "modifiers/player/modifier_player_puck1609", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_puck1609", {})
-		LinkLuaModifier("modifier_player_puck1609_2", "modifiers/player/modifier_player_puck1609_2", LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_puck1609_2", {})
-		LinkLuaModifier("modifier_player_puck1609_3", "modifiers/player/modifier_player_puck1609_3", LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_puck1609_3", {})
-		LinkLuaModifier("modifier_player_puck1609_4", "modifiers/player/modifier_player_puck1609_4", LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_puck1609_4", {})
+		--LinkLuaModifier("modifier_player_puck1609_2", "modifiers/player/modifier_player_puck1609_2", LUA_MODIFIER_MOTION_NONE)
+		--hEntity:AddNewModifier(hEntity, nil, "modifier_player_puck1609_2", {})
+		--LinkLuaModifier("modifier_player_puck1609_3", "modifiers/player/modifier_player_puck1609_3", LUA_MODIFIER_MOTION_NONE)
+		--hEntity:AddNewModifier(hEntity, nil, "modifier_player_puck1609_3", {})
+		--LinkLuaModifier("modifier_player_puck1609_4", "modifiers/player/modifier_player_puck1609_4", LUA_MODIFIER_MOTION_NONE)
+		--hEntity:AddNewModifier(hEntity, nil, "modifier_player_puck1609_4", {})
 	end
 	if dky190SteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_dky190", "modifiers/player/modifier_player_dky190", LUA_MODIFIER_MOTION_NONE)

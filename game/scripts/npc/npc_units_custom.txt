@@ -1978,13 +1978,16 @@
 	// Venomancer Plague Wards 剧毒蛇棒
 	"npc_dota_venomancer_plague_ward_1"
 	{
-		"include_keys_from" "npc_dota_venomancer_plague_ward_1"
+
+	    // Abilities
+        //----------------------------------------------------------------
+        "Ability1"					"creep_siege"			// Ability 1.
 
         // Attack
         //----------------------------------------------------------------
-        "AttackDamageMin"			"30"		// Damage range min.
-        "AttackDamageMax"			"30"		// Damage range max.
-        "AttackRate"				"1.0"
+        "AttackDamageMin"			"25"		// Damage range min.
+        "AttackDamageMax"			"25"		// Damage range max.
+        "AttackRate"				"1.2"
 
         // Bounty
         //----------------------------------------------------------------
@@ -1994,18 +1997,22 @@
 
         // Status
         //----------------------------------------------------------------
-        "StatusHealth"				"200"		// Base health.
+        "StatusHealth"				"300"		// Base health.
 	}
 
 	"npc_dota_venomancer_plague_ward_2"
 	{
 		"include_keys_from" "npc_dota_venomancer_plague_ward_1"
 
+        // Abilities
+        //----------------------------------------------------------------
+        "Ability1"					"creep_siege"			// Ability 1.
+
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"50"		// Damage range min.
-		"AttackDamageMax"			"50"		// Damage range max.
-		"AttackRate"				"1.0"
+		"AttackDamageMin"			"30"		// Damage range min.
+		"AttackDamageMax"			"30"		// Damage range max.
+		"AttackRate"				"1.4"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -2022,11 +2029,15 @@
 	{
 		"include_keys_from" "npc_dota_venomancer_plague_ward_1"
 
+		// Abilities
+        //----------------------------------------------------------------
+        "Ability1"					"creep_siege"			// Ability 1.
+
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"70"		// Damage range min.
-		"AttackDamageMax"			"70"		// Damage range max.
-		"AttackRate"				"1.0"
+		"AttackDamageMin"			"35"		// Damage range min.
+		"AttackDamageMax"			"35"		// Damage range max.
+		"AttackRate"				"1.4"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -2036,18 +2047,22 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"600"		// Base health.
+		"StatusHealth"				"500"		// Base health.
 	}
 
 	"npc_dota_venomancer_plague_ward_4"
 	{
 		"include_keys_from" "npc_dota_venomancer_plague_ward_1"
 
+		// Abilities
+        //----------------------------------------------------------------
+        "Ability1"					"creep_siege"			// Ability 1.
+
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"90"		// Damage range min.
-		"AttackDamageMax"			"90"		// Damage range max.
-		"AttackRate"				"1.0"
+		"AttackDamageMin"			"40"		// Damage range min.
+		"AttackDamageMax"			"40"		// Damage range max.
+		"AttackRate"				"1.4"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -2057,18 +2072,22 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"800"		// Base health.
+		"StatusHealth"				"600"		// Base health.
 	}
 
 	"npc_dota_venomancer_plague_ward_5"
 	{
 		"include_keys_from" "npc_dota_venomancer_plague_ward_1"
 
+        // Abilities
+        //----------------------------------------------------------------
+        "Ability1"					"creep_siege"			// Ability 1.
+
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"110"		// Damage range min.
-		"AttackDamageMax"			"110"		// Damage range max.
-		"AttackRate"				"1.0"
+		"AttackDamageMin"			"45"
+        "AttackDamageMax"			"45"
+		"AttackRate"				"1.4"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -2078,7 +2097,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1000"		// Base health.
+		"StatusHealth"				"700"		// Base health.
 	}
 
 	// shadow_shaman_ward 小Y蛇棒
