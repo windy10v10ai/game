@@ -487,6 +487,7 @@
         "DOTA_Tooltip_ability_ability_yukari_01_damage"	"Damage:"
 		"DOTA_Tooltip_ability_ability_yukari_01_stun_duration"	"Stun durantion:"
         "DOTA_Tooltip_ability_ability_yukari_01_damage_add"	"Bonus damage per intelligence:"
+        "DOTA_Tooltip_ability_ability_yukari_01_factor"		"repeatedly hit damage factor:"
         "DOTA_Tooltip_ability_ability_yukari_01_range"	"Range:"
         "DOTA_Tooltip_ability_ability_yukari_01_speed"  "Speed:"
         "DOTA_Tooltip_ability_ability_thdots_yukari04"	"Deep Danmaku Barrier -Transient Dreams-"

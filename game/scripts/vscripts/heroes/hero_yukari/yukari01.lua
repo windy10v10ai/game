@@ -12,6 +12,7 @@ function ability_yukari_01:OnSpellStart()
 	self.radius 						= self:GetSpecialValueFor("radius")
 	self.range 							= self:GetSpecialValueFor("range")
 	self.num 							= self:GetSpecialValueFor("num")
+	self.factor = self:GetSpecialValueFor("factor")
 	self.damage_add = self:GetSpecialValueFor("damage_add")
 
 	self.caster:EmitSound("ability_yukari_01")
@@ -98,7 +99,7 @@ function ability_yukari_01:OnProjectileHitHandle(hTarget, vLocation, iProjectile
 
 		target:EmitSound("ability_yukari_01")
         if count > 0 then
-            damage = damage * 0.12
+            damage = damage * self.factor
         end
 		local damageTable = {victim = target,
 			damage = damage,

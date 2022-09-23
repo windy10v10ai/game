@@ -392,6 +392,7 @@
 		"DOTA_Tooltip_ability_ability_yukari_01_damage"	"弹幕伤害:"
 		"DOTA_Tooltip_ability_ability_yukari_01_stun_duration"	"眩晕时间:"
 		"DOTA_Tooltip_ability_ability_yukari_01_damage_add"		"智力伤害系数:"
+		"DOTA_Tooltip_ability_ability_yukari_01_factor"		"重复命中伤害系数:"
 		"DOTA_Tooltip_ability_ability_yukari_01_range"	"施法距离:"
 		"DOTA_Tooltip_ability_ability_yukari_01_speed"	"弹幕飞行速度:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04"	"「深弹幕结界 -梦幻泡影-」"
