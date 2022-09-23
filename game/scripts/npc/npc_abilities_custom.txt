@@ -1820,6 +1820,7 @@
 			"num"			"6"
 			"cast_range"	"1200"
 			"damage_add"	"0.4"
+			"factor" "0.12"
 		}
 		"SpellDispellableType"	"SPELL_DISPELLABLE_YES"
 	}
