@@ -535,6 +535,11 @@ function HeroKilled(keys)
 		fRespawnTime = fRespawnTime+hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel()*10
 	end
 
+	-- 会员减少5s复活时间
+	if Member:IsMember(PlayerResource:GetSteamAccountID(playerId)) then
+		fRespawnTime = fRespawnTime - 5
+	end
+
 	-- 复活时间至少1s
 	if fRespawnTime < 1 then
 		fRespawnTime = 1
