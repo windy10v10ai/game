@@ -370,8 +370,8 @@
 
 		"DOTA_Tooltip_ability_yukari_morph"							"月相"
 		"DOTA_Tooltip_ability_yukari_morph_Description"				"使用隐藏潜能释放真正的力量"
-		"DOTA_Tooltip_ability_yukari_morph_magic"					"%技能增强:"
-		"DOTA_Tooltip_ability_yukari_morph_amp"						"移速增加:"
+		"DOTA_Tooltip_ability_yukari_morph_amp"					"%技能增强:"
+		"DOTA_Tooltip_ability_yukari_morph_bonus_movespeed"						"移速增加:"
 		"DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"持续时间:"
 		"DOTA_Tooltip_modifier_yukari_morph"						"月相"
 		"DOTA_Tooltip_modifier_yukari_morph_real"					"月相"
