@@ -8948,25 +8948,11 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"50"
+				"value"				"30"
 				"ad_linked_abilities"			"slark_essence_shift"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
-	"special_bonus_unique_slark_5"
-    {
-        "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"					"FIELD_INTEGER"
-                "value"				"2"
-                "ad_linked_abilities"			"slark_essence_shift"
-            }
-        }
-    }
 	"slark_shadow_dance"
     {
         "MaxLevel" "4"
