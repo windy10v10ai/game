@@ -17,7 +17,7 @@ require('bot/bot_think_item_build')
 require('bot/bot_think_item_use')
 require('bot/bot_think_ability_use')
 require('bot/bot_think_modifier')
-require('web/web_server')
+require('api/api_loader')
 require("damage")
 
 function Activate()
