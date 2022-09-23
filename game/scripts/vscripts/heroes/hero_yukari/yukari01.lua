@@ -12,6 +12,8 @@ function ability_yukari_01:OnSpellStart()
 	self.radius 						= self:GetSpecialValueFor("radius")
 	self.range 							= self:GetSpecialValueFor("range")
 	self.num 							= self:GetSpecialValueFor("num")
+	self.factor = self:GetSpecialValueFor("factor")
+	self.damage_add = self:GetSpecialValueFor("damage_add")
 
 	self.caster:EmitSound("ability_yukari_01")
 
@@ -74,7 +76,7 @@ function ability_yukari_01:OnProjectileHitHandle(hTarget, vLocation, iProjectile
 	local caster = self.caster
 	local target = hTarget
 	local ability = self
-	local damage = self.damage+caster:GetIntellect()*0.8
+	local damage = self.damage+caster:GetIntellect() * self.damage_add
 
 	if target == nil and caster.yukari_01 == false then
 
@@ -96,7 +98,9 @@ function ability_yukari_01:OnProjectileHitHandle(hTarget, vLocation, iProjectile
 	    target:SetModifierStackCount("modifier_yukari_01_hitcount", self, count + 1)
 
 		target:EmitSound("ability_yukari_01")
-		damage = damage * ( (count + 1) ^ ( 1/ 4 ) - count  ^ ( 1/ 5 ));
+        if count > 0 then
+            damage = damage * self.factor
+        end
 		local damageTable = {victim = target,
 			damage = damage,
 			damage_type = ability:GetAbilityDamageType(),
