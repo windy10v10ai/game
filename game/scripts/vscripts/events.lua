@@ -408,14 +408,14 @@ function AIGameMode:OnBuyback(e)
 	local playerId = e.player_id
 	local hEntity = EntIndexToHScript(e.entindex)
 	-- 需要等待一段时间，否则GetBuybackCooldownTime()获取的值是0
-	Timers:CreateTimer(1, function ()
+	Timers:CreateTimer(0.5, function ()
 		if hEntity:IsRealHero() and hEntity:IsReincarnating() == false then
 			local hHero = hEntity
-			local memberBuybackCooldownMaximum = 150
+			-- 会员买活时间上限设置
+			local memberBuybackCooldownMaximum = 120
 			local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
-			-- 会员买活时间减少50%, 最大150s
 			if steamAccountID ~= nil and WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
-				local buybackTime = hHero:GetBuybackCooldownTime() * 0.5
+				local buybackTime = hHero:GetBuybackCooldownTime()
 				if buybackTime > memberBuybackCooldownMaximum then
 					buybackTime = memberBuybackCooldownMaximum
 				end

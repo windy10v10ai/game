@@ -7,7 +7,7 @@ LinkLuaModifier("modifier_imba_phantasm_delay", "heroes/hero_chaos_knight/hero_c
 function imba_chaos_knight_phantasm:IsHiddenWhenStolen() 	return false end
 function imba_chaos_knight_phantasm:IsRefreshable() 		return true end
 function imba_chaos_knight_phantasm:IsStealable() 			return true end
-function imba_chaos_knight_phantasm:GetBehavior() return self:GetCaster():HasScepter() and DOTA_ABILITY_BEHAVIOR_UNIT_TARGET or DOTA_ABILITY_BEHAVIOR_NO_TARGET end
+-- function imba_chaos_knight_phantasm:GetBehavior() return self:GetCaster():HasScepter() and DOTA_ABILITY_BEHAVIOR_UNIT_TARGET or DOTA_ABILITY_BEHAVIOR_NO_TARGET end
 
 function imba_chaos_knight_phantasm:OnSpellStart()
 	local caster = self:GetCaster()
