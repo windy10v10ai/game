@@ -218,7 +218,7 @@ local asproseSteamAccountID = Set {
 function EnablePlayerModifier(hEntity)
 	local steamAccountID = PlayerResource:GetSteamAccountID(hEntity:GetPlayerOwnerID())
 	LinkLuaModifier("modifier_membership", "modifiers/player/modifier_membership", LUA_MODIFIER_MOTION_NONE)
-	if WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
+	if Member:IsMember(steamAccountID) then
 		hEntity:AddNewModifier(hEntity, nil, "modifier_membership", {})
 	end
 

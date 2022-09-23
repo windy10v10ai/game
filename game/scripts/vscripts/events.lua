@@ -185,7 +185,7 @@ function AIGameMode:OnGameStateChanged(keys)
 
 	if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		if IsServer() then
-			WebServer:Initial()
+			Member:InitMemberInfo()
 		end
 	elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
 		if IsServer() then
@@ -414,7 +414,7 @@ function AIGameMode:OnBuyback(e)
 			-- 会员买活时间上限设置
 			local memberBuybackCooldownMaximum = 120
 			local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
-			if steamAccountID ~= nil and WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
+			if Member:IsMember(steamAccountID) then
 				local buybackTime = hHero:GetBuybackCooldownTime()
 				if buybackTime > memberBuybackCooldownMaximum then
 					buybackTime = memberBuybackCooldownMaximum
@@ -847,7 +847,7 @@ function AIGameMode:OnPlayerChat( event )
 		end
 	end
 
-	if WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
+	if Member:IsMember(steamAccountID) then
 		local pszHeroClass
 		if sChatMsg:find( '-沉渊之剑' ) then
 			pszHeroClass = "npc_dota_hero_visage"
@@ -982,8 +982,8 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 -- local tip_points = WebServer.TipCounter[playerID] or 0
 				local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
-                local membership = WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable or false
-				local memberInfo = WebServer.memberSteamAccountID[steamAccountID]
+                local membership = Member:IsMember(steamAccountID)
+				local memberInfo = Member:GetMember(steamAccountID)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
 
@@ -997,7 +997,7 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
 
                 local playerInfo = {
                     steamid = tostring(PlayerResource:GetSteamID(playerID)),
-                    steamAccountID = steamAccountID,
+                    -- steamAccountID = steamAccountID,
                     membership = membership,
 					memberInfo = memberInfo,
                     kills = PlayerResource:GetKills(playerID) or 0,
