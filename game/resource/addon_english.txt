@@ -503,6 +503,41 @@
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Tome of Knowledge, Refresher Orb, (including the upgrade items like Black king bar 2, Aeon Pendant, Sphere Upgrade, Armor of Insight, Hand of Group, etc.) and any neutral items."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"TIME TO REARM:"
 
+        // 电棍 razor
+        "DOTA_Tooltip_ability_special_bonus_unique_razor_101"   "+{s:bonus_radius} plasma field radius"
+        "DOTA_Tooltip_ability_special_bonus_unique_razor_401"   "+{s:value}s eye of the storm duration"
+        "DOTA_Tooltip_ability_special_bonus_unique_razor_402"   "+{s:value} eye of the storm damage"
+
+        // 小鱼 slark
+        "DOTA_Tooltip_ability_special_bonus_unique_slark_5"	"+{s:value} essence shift attack gain agility"
+        "DOTA_Tooltip_ability_special_bonus_unique_slark_301" "+{s:bonus_essence_stacks} pounce applying essence shift stacks"
+        "DOTA_Tooltip_ability_slark_essence_shift_Description"					"Slark steals the life essence of enemy heroes with his attacks, draining 1 of their each attributes and converting them to bonus Agility. If Slark kills an affected enemy hero, he permanently steals 1 Agility."
+
+        // 火女 lina
+        "DOTA_Tooltip_ability_special_bonus_unique_lina_201"    "+{s:value} light strike array aoe"
+        "DOTA_Tooltip_ability_lina_fiery_soul_Description"		"Grants bonus attack and movement speed, and spell damage increase each time Lina hits an enemy with a spell. Stacks with itself. Lasts %fiery_soul_stack_duration% seconds."
+        "DOTA_Tooltip_ability_special_bonus_unique_lina_301"    "+{s:bonus_bonus_spell_damage} each fiery soul spell damage increase"
+        "DOTA_Tooltip_ability_lina_fiery_soul_shard_description"	"+%shard_bonus_spell_damage% each fiery soul spell damage increase"
+        "DOTA_Tooltip_ability_lina_fiery_soul_bonus_spell_damage"			"spell damage increase:"
+
+        // 幽鬼 spe
+        "DOTA_Tooltip_ability_spectre_desolate_Description"		"Deals bonus pure damage whenever Spectre attacks an enemy."
+        "DOTA_Tooltip_ability_spectre_desolate_radius"						""
+        "DOTA_Tooltip_ability_spectre_ursa_enrage"												"Intangible Shadow"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"											"At this moment, Spectre jumped out of the Three Realms and was not in the Five Elements."
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_Description"									"Spectre change cause and effect, providing damage reduction and status resistance. Removes any existing debuffs.\n\nDISPEL TYPE: Strong Dispel"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_scepter_description"							"Reduces cooldown and allows Ursa to use Enrage while disabled."
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_damage_reduction"		                        "%DAMAGE REDUCTION:"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_status_resistance"		                     "%STATUS RESISTANCE:"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_duration"					                    "DURATION:"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_cooldown_scepter"					            "COOLDOWN:"
+        "DOTA_Tooltip_ability_special_bonus_unique_spectre_401"    "+{s:bonus_duration} intangible shadow duration"
+        "DOTA_Tooltip_modifier_spectre_ursa_enrage" "Intangible Shadow"
+        "DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"get %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming damage reduction and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance"
+
+        // 剧毒
+        "DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} poison sting damage"
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
