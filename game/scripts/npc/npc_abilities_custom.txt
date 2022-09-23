@@ -1793,7 +1793,7 @@
 		"AbilityCastPoint"	"0.1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate"	"1.5"
-		"AbilityCooldown"	"6"
+		"AbilityCooldown"	"7"
 		"AbilityManaCost"	"60 80 100 120 140 160 180"
 		"AbilityCastRange"	"%cast_range"
 		"precache"
@@ -1811,7 +1811,7 @@
 			}
 			"stun_duration"
 			{
-				"value"						"0"
+				"value"						"0.2"
 				"special_bonus_unique_yukari_01_stun" "+0.8"
 			}
 			"speed"			"1200"
@@ -1819,7 +1819,7 @@
 			"range"			"1500"
 			"num"			"6"
 			"cast_range"	"1500"
-			"damage_add"	"0.6"
+			"damage_add"	"0.4"
 		}
 		"SpellDispellableType"	"SPELL_DISPELLABLE_YES"
 	}
@@ -2024,7 +2024,7 @@
 	{
 		"BaseClass"	"ability_lua"
 		"AbilityTextureName"	"yukari_4"
-		"ScriptFile"	"heroes/hero_yukari/yukari_morph.lua"
+		"ScriptFile"	"heroes/hero_yukari/yukari_morph"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -2095,7 +2095,7 @@
 			"10"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"fixed_duration"	"30"
+				"fixed_duration"	"25"
 			}
 		}
 		"SpellDispellableType"	"SPELL_DISPELLABLE_NO"
@@ -2155,7 +2155,7 @@
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
 		// Ability Resource
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"100"
+		"AbilityCooldown"	"120"
 		"AbilityManaCost"	"200 300 400 500 600"
 		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
 		// Damage
@@ -2797,12 +2797,12 @@
 		"AbilityTextureName"	"chaos_knight_phantasm"
 		"ScriptFile"	"heroes/hero_chaos_knight/hero_chaos_knight"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
+		// "AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		// "AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		// "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
 		"FightRecapLevel"	"2"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-    	"HasShardUpgrade"               "1"
+    	// "HasShardUpgrade"	"1"
 		"HasScepterUpgrade"	"1"
 		"MaxLevel"			"4"
 		// Casting
@@ -2824,12 +2824,12 @@
 			"attack_count"
 			{
 				"value"						"2 2 3 3"
-				"special_bonus_shard"		"+1"
+				"special_bonus_scepter"		"+1"
 			}
 			"attack_cooldown"
 			{
 				"value"						"2 1.8 1.6 1.4"
-				"special_bonus_shard"		"-0.4"
+				"special_bonus_scepter"		"-0.6"
 			}
 		}
 		"AbilitySound"	"Hero_ChaosKnight.Phantasm"

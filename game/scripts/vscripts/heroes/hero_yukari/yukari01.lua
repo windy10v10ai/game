@@ -23,7 +23,7 @@ function ability_yukari_01:OnSpellStart()
 	caster.yukari_01 = false
 	local start_position = caster:GetOrigin()
 	local qangle = QAngle(0, 11.5, 0)
-	local end_position 			=self.caster:GetOrigin() + (self:GetCursorPosition() - self.caster:GetOrigin()):Normalized() * (self.range)
+	local end_position 			=self.caster:GetOrigin() + (self:GetCursorPosition() - self.caster:GetOrigin()):Normalized() * (self.range+self.caster:GetCastRangeBonus())
 	end_position 			= RotatePosition(caster:GetAbsOrigin(), qangle, end_position)
 	yukari_01CreateProjectile(caster,self,start_position,end_position,self.low_speed,1)
 	for i=2,self.num do
