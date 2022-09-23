@@ -1811,15 +1811,16 @@
 			}
 			"stun_duration"
 			{
-				"value"						"0.2"
+				"value"						"0"
 				"special_bonus_unique_yukari_01_stun" "+0.8"
 			}
 			"speed"			"1200"
 			"radius"		"70"
-			"range"			"1500"
+			"range"			"1200"
 			"num"			"6"
-			"cast_range"	"1500"
+			"cast_range"	"1200"
 			"damage_add"	"0.4"
+			"factor" "0.12"
 		}
 		"SpellDispellableType"	"SPELL_DISPELLABLE_YES"
 	}
@@ -1878,12 +1879,12 @@
 			}
 			"radius"	"400"
 			"duration"	"5"
-			"root"		"-50"
-			"tick_rate"	"0.4"
+			"root"		"-30"
+			"tick_rate"	"0.5"
 			// "stack_damage"	"4 6 8 10 12 14 16"
 			// "stack_damage_max"	"20"
 			"intelligence"	"0.1"
-			"intelligence_per_second"	"0.25"	// for tooltip
+			"intelligence_per_second"	"0.2"	// for tooltip
 		}
 	}
 
@@ -1925,7 +1926,7 @@
 
 		"AbilityValues"
 		{
-			"damage"	"160 240 320 400 480"
+			"damage"	"80 120 160 200 240"
 			"cast_range"	"800 900 1000 1100 1200"
 			// "impact_radius"	"325"
 			// "impact_stun_duration"	"2.0 2.4 2.6 2.8 3.0"
@@ -2060,7 +2061,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"amp"	"50"
+				"amp"	"40"
 			}
 			"04"
 			{
@@ -2075,7 +2076,7 @@
 			"06"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"bonus_movespeed"	"40 60 80"
+				"bonus_movespeed"	"50"
 			}
 			"07"
 			{
@@ -2160,7 +2161,7 @@
 		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
 		// Damage
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"		"300 375 450 525 600"
+		"AbilityDamage"		"200 275 350 425 500"
 		// Ability Casting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"	"2000"
