@@ -632,6 +632,41 @@
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘、奥术鞋、黑皇杖、迈达斯之手、林肯法球、陨星锤、支配头盔、统御头盔、知识之书、洞察烟斗、刷新球(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲，团队之手)及所有中立物品。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"再装填所需时间："
 
+		// 电棍 razor
+		"DOTA_Tooltip_ability_special_bonus_unique_razor_101"   "+{s:bonus_radius} 等离子场范围"
+		"DOTA_Tooltip_ability_special_bonus_unique_razor_401"   "+{s:value}秒 风暴之眼持续时间"
+		"DOTA_Tooltip_ability_special_bonus_unique_razor_402"   "+{s:value} 风暴之眼伤害"
+
+		// 小鱼 slark
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_5"	"+{s:value} 能量转移攻击获取敏捷"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_301" "+{s:bonus_essence_stacks} 突袭获取能量转移叠加次数"
+		"DOTA_Tooltip_ability_slark_essence_shift_Description"					"斯拉克的攻击会偷走敌方英雄的生命能量，每次吸取他们的1点全属性并转化成自身额外的敏捷值。只要敌方英雄带着该效果在斯拉克300范围内阵亡，他将永久窃取1点敏捷。"
+
+        // 火女 lina
+        "DOTA_Tooltip_ability_special_bonus_unique_lina_201"    "+{s:value} 光击阵范围"
+        "DOTA_Tooltip_ability_lina_fiery_soul_Description"		"莉娜每次利用技能击中一个敌人都会使她获得攻击和移动速度、技能伤害加成。可以叠加。持续%fiery_soul_stack_duration%秒。"
+        "DOTA_Tooltip_ability_special_bonus_unique_lina_301"    "+{s:bonus_bonus_spell_damage} 每层炽魂技能伤害增加"
+        "DOTA_Tooltip_ability_lina_fiery_soul_shard_description"	"+%shard_bonus_spell_damage%点每层炽魂技能伤害增加"
+        "DOTA_Tooltip_ability_lina_fiery_soul_bonus_spell_damage"			"技能伤害增加："
+
+        // 幽鬼 spe
+        "DOTA_Tooltip_ability_spectre_desolate_Description"		"幽鬼的攻击对敌人造成额外的纯粹伤害。"
+        "DOTA_Tooltip_ability_spectre_desolate_radius"						""
+        "DOTA_Tooltip_ability_spectre_ursa_enrage"  "鬼影无形"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"	"此刻，幽鬼跳出三界之外，不在五行之中。"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_Description"	"幽鬼改变因果，承受的伤害降低并获得状态抗性。施放时将移除所受的负面效果。\n\n驱散类型：强驱散"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_scepter_description"							"减少冷却时间，而且幽鬼可以在被控制的状态下使用鬼影无形。"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_damage_reduction"		                        "%伤害降低："
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_status_resistance"		                     "%状态抗性："
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_duration"					                    "持续时间："
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_cooldown_scepter"					            "冷却时间："
+        "DOTA_Tooltip_ability_special_bonus_unique_spectre_401"    "+{s:bonus_duration} 鬼影无形持续时间"
+        "DOTA_Tooltip_modifier_spectre_ursa_enrage" "鬼影无形"
+        "DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"获得%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%承受伤害减少和%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%状态抗性"
+
+        // 剧毒
+        "DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} 毒刺伤害"
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items

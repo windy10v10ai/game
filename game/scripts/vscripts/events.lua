@@ -789,7 +789,7 @@ function AIGameMode:OnPlayerChat( event )
 	if not iPlayerID or not sChatMsg then return end
 	local steamAccountID = PlayerResource:GetSteamAccountID(iPlayerID)
 
-	if developerSteamAccountID[steamAccountID] then
+	if self.DebugMode and developerSteamAccountID[steamAccountID] then
 		if sChatMsg:find( '^-greedisgood$' ) then
 			-- give money to the player
 			-- get hero
@@ -837,6 +837,12 @@ function AIGameMode:OnPlayerChat( event )
 		if sChatMsg:find( '^-refresh buyback$' ) then
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			hHero:SetBuybackCooldownTime(0)
+			return
+		end
+
+		if sChatMsg:find( '^-shard$' ) then
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			hHero:AddItemByName('item_aghanims_shard')
 			return
 		end
 	end
