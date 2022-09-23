@@ -789,7 +789,7 @@ function AIGameMode:OnPlayerChat( event )
 	if not iPlayerID or not sChatMsg then return end
 	local steamAccountID = PlayerResource:GetSteamAccountID(iPlayerID)
 
-	if developerSteamAccountID[steamAccountID] then
+	if self.DebugMode and developerSteamAccountID[steamAccountID] then
 		if sChatMsg:find( '^-greedisgood$' ) then
 			-- give money to the player
 			-- get hero
