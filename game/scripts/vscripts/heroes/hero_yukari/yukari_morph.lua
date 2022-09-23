@@ -143,11 +143,11 @@ function modifier_yukari_morph_real:DeclareFunctions()
 end
 
 function modifier_yukari_morph_real:GetModifierSpellAmplify_Percentage()
-    return 50
+    return self.spellAmp
 end
 
 function modifier_yukari_morph_real:GetModifierMoveSpeedBonus_Constant()
-    return 50
+    return self.bonus_movespeed
 end
 
 
@@ -159,6 +159,7 @@ function modifier_yukari_morph_real:OnCreated(table)
 
     self.ability_level = self.ability:GetLevel()
 
+    self.spellAmp = self.ability:GetSpecialValueFor("amp")
     self.bonus_movespeed = self.ability:GetSpecialValueFor("bonus_movespeed")
     self.projectile_avoid_chance = self.ability:GetSpecialValueFor("projectile_avoid_chance")
     self.turn_rate = self.ability:GetSpecialValueFor("turn_rate")
