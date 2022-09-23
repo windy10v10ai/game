@@ -3,6 +3,7 @@ modifier_player_puck1609 = class({})
 function modifier_player_puck1609:IsPurgable() return false end
 function modifier_player_puck1609:RemoveOnDeath() return false end
 function modifier_player_puck1609:GetTexture() return "player/puck1609" end
+function modifier_player_puck1609:IsHidden() return true end
 
 function modifier_player_puck1609:DeclareFunctions()
 	return {
@@ -12,11 +13,16 @@ function modifier_player_puck1609:DeclareFunctions()
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
 		MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 	}
 end
 
@@ -50,12 +56,32 @@ function modifier_player_puck1609:GetModifierTotalPercentageManaRegen()
 	return 2
 end
 
+function modifier_player_puck1609:GetModifierPhysicalArmorBonus()
+	return 40
+end
+
 function modifier_player_puck1609:GetModifierMagicalResistanceBonus()
 	return 40
 end
 
+function modifier_player_puck1609:GetModifierStatusResistanceStacking()
+	return 40
+end
+
 function modifier_player_puck1609:GetModifierPreAttack_BonusDamage()
-	return 30
+	return 60
+end
+
+function modifier_player_puck1609:GetModifierBonusStats_Strength()
+	return 20
+end
+
+function modifier_player_puck1609:GetModifierBonusStats_Agility()
+	return 20
+end
+
+function modifier_player_puck1609:GetModifierBonusStats_Intellect()
+	return 20
 end
 
 function modifier_player_puck1609:GetModifierAttackRangeBonus()
@@ -64,9 +90,9 @@ function modifier_player_puck1609:GetModifierAttackRangeBonus()
 		return 0
 	end
 	if hero:IsRangedAttacker() then
-		return 400
+		return 250
 	end
-	return 100
+	return 50
 end
 
 function modifier_player_puck1609:GetModifierAttackSpeedBonus_Constant()
