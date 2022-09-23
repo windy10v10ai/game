@@ -11151,7 +11151,6 @@
 		"MaxLevel" "7"
 		"AbilityCooldown"				"10 9 8 7 6 5 4"
 		"AbilityManaCost"				"100 110 120 130 140 150 160"
-		"AbilityCastPoint"				"0.25"
 		"AbilitySpecial"
 		{
 		    "03"
