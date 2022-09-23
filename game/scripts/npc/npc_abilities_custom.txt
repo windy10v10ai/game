@@ -2004,7 +2004,7 @@
 			"barrage_radius"	"750"
 			"ex_damage"	"25"
 			"wanbaochui_radius"	"750"
-			"int_bonus"	"6"
+			"int_bonus"	"4"
 			"stun_duration"
 			{
 				"value"				"1"
