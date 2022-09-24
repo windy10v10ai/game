@@ -212,7 +212,23 @@ local asproseSteamAccountID = Set {
 	-- 超人会发光耶 asprose
 	292827485,
 }
+local xysSteamAccountID = Set {
+	-- xys08217
+	195850772,
+}
 
+local yuliangSteamAccountID = Set {
+	-- yuliang
+	99825061,
+}
+local weilanSteamAccountID = Set {
+	-- 蔚蓝
+	215738002,
+}
+local ekxnSteamAccountID = Set {
+	-- 爱发电用户_ekXN
+	455689605,
+}
 -- 称号属性 END
 
 function EnablePlayerModifier(hEntity)
@@ -475,5 +491,21 @@ function EnablePlayerModifier(hEntity)
 	if asproseSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_asprose","modifiers/player/modifier_player_asprose",LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_asprose",{})
+	end
+	if xysSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_xys","modifiers/player/modifier_player_xys",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_xys",{})
+	end
+	if yuliangSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_yuliang","modifiers/player/modifier_player_yuliang",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_yuliang",{})
+	end
+	if weilanSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_weilan","modifiers/player/modifier_player_weilan",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_weilan",{})
+	end
+	if ekxnSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_ekxn","modifiers/player/modifier_player_ekxn",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_ekxn",{})
 	end
 end
