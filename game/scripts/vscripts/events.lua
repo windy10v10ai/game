@@ -852,7 +852,8 @@ function AIGameMode:OnPlayerChat( event )
 		end
 	end
 
-	if self.DebugMode or Member:IsMember(steamAccountID) then
+
+	if Member:IsMember(steamAccountID) then
 		local pszHeroClass
 		if sChatMsg:find( '-沉渊之剑' ) then
 			pszHeroClass = "npc_dota_hero_visage"
