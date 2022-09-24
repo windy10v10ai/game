@@ -290,6 +290,11 @@
 		"DOTA_Tooltip_modifier_player_laugh_3"					"<font color='#FFCC66'>★ 天不生仲尼 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh_4"					"<font color='#FFCC66'>★ 万古如长夜 ★</font>"
 		"DOTA_Tooltip_modifier_player_asprose"					"<font color='#FFCC66'>★ 超人会发光 ★</font>"
+		"DOTA_Tooltip_modifier_player_xys"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_yuliang"					"<font color='#FFCC66'>★ AE86 ★</font>"
+		"DOTA_Tooltip_modifier_player_yuliang_Description"		"<font color='#FFCC66'> 洗车，今晚上秋名山。 </font>"
+		"DOTA_Tooltip_modifier_player_weilan"					"<font color='#FFCC66'>★ 举杯吧！敬那些想杀死我的人 ★</font>"
+		"DOTA_Tooltip_modifier_player_ekxn"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 
 
 
