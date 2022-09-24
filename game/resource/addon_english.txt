@@ -84,6 +84,9 @@
 		//
 		///////////////////////////////////////////////////
 		"item_choice_header"										"Choose an item!"
+		"item_choice_shuffle"										"Click to refresh the items."
+		"item_choice_shuffle_used"									"Items refreshd."
+		"item_choice_shuffle_not_member"							"Members can refresh the items once, click to open the membership."
 
 		///////////////////////////////////////////////////
 		//
@@ -93,7 +96,7 @@
 		"player_member_ship"		"Sponsor. Click to view more."
 		"player_member_ship_url"		"https://www.patreon.com/windy10v10"
 
-		"player_member_button"		"Thank you for your sponsorship!<br/> - Type '-AbyssSword', '-Goku' or '-Yukari' to swap to new hero.<br/>Membership is valid until {expireDate}."
+		"player_member_button"		"Thank you for your sponsorship!<br/>Member Benefits<br/> - Rspawn time reduced by 5 seconds.<br/> - Buyback CD reduced to 2 minutes.<br/> - Can refresh the items lottery once.<br/> - Type '-AbyssSword', '-Goku' or '-Yukari' to swap to new hero.<br/>Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your sponsorship!<br/>Membership is valid until {expireDate}, Click the button to renew."
 
 		///////////////////////////////////////////////////
