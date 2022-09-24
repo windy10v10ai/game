@@ -16,6 +16,7 @@ function modifier_player_qiannian:OnCreated()
 	self.intellect = 80
 	self.iModelScale = -50
 	self.iMoveSpeed = 200
+	self.iArmor = 40
 	-- get parent's primary attribute
 	if IsClient() then return end
 	local primaryAttribute = self:GetParent():GetPrimaryAttribute()
@@ -41,6 +42,7 @@ function modifier_player_qiannian:DeclareFunctions()
         MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	}
 end
 
@@ -86,4 +88,8 @@ end
 
 function modifier_player_qiannian:GetModifierSpellAmplify_Percentage()
 	return self.iSpellAmplify
+end
+
+function modifier_player_qiannian:GetModifierPhysicalArmorBonus()
+    return self.iArmor
 end
