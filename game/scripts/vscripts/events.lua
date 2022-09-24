@@ -132,12 +132,14 @@ function AIGameMode:InitHeroSelection()
 		self.tIfChangeHeroList = {}
 		-- 是否选择了物品
 		self.tIfItemChosen = {}
+		self.tIfItemChooseInited = {}
 		for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
 			if PlayerResource:GetConnectionState(i) ~= DOTA_CONNECTION_STATE_UNKNOWN then
 				-- set human player list
 				self.tHumanPlayerList[i] = true
-				self.tIfItemChosen[i] = false
 				self.tIfChangeHeroList[i] = false
+				self.tIfItemChosen[i] = false
+				self.tIfItemChooseInited[i] = false
 				-- set start gold
 				PlayerResource:SetGold(i, (self.iStartingGoldPlayer-600),true)
 			end
@@ -660,8 +662,9 @@ function AIGameMode:OnNPCSpawned(keys)
 		end
 
 		-- choose item 玩家抽选物品
-		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] then
+		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] and not self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] then
 			self:SpecialItemAdd(hEntity)
+			self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] = true
 		end
 
 		-- Bots modifier 机器人AI脚本
@@ -850,8 +853,15 @@ function AIGameMode:OnPlayerChat( event )
 			hHero:AddItemByName('item_aghanims_shard')
 			return
 		end
-	end
+		if sChatMsg:find( '^-item$' ) then
+			self.tIfItemChosen[iPlayerID] = false
+			self.tIfItemChooseInited[iPlayerID] = false
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			self:SpecialItemAdd(hHero)
+			return
+		end
 
+	end
 
 	if Member:IsMember(steamAccountID) then
 		local pszHeroClass
@@ -879,6 +889,7 @@ function AIGameMode:OnPlayerChat( event )
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
 			self.tIfItemChosen[iPlayerID] = false
+			self.tIfItemChooseInited[iPlayerID] = false
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			return
@@ -893,6 +904,7 @@ function AIGameMode:OnPlayerChat( event )
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
 			self.tIfItemChosen[iPlayerID] = false
+			self.tIfItemChooseInited[iPlayerID] = false
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			GameRules:SendCustomMessage(
@@ -915,6 +927,7 @@ function AIGameMode:OnPlayerChat( event )
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
 			self.tIfItemChosen[iPlayerID] = false
+			self.tIfItemChooseInited[iPlayerID] = false
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			return
