@@ -2507,7 +2507,6 @@
 		}
 	}
 
-
 	//=================================================================================================================
 	// Recipe: manta 1 大分身卷轴
 	//=================================================================================================================
@@ -5718,6 +5717,99 @@
 			"group_gold"		"80"
 		}
 	}
+
+	//=================================================================================================================
+    // Item: Tome of Agility for lottery
+    //=================================================================================================================
+    "item_tome_of_agility_for_lottery"
+    {
+        "ID"						"3096"
+        "BaseClass"					"item_lua"
+        "ScriptFile"                    		"items/item_tome_of_agility_for_lottery.lua"
+        "AbilityTextureName"		    		"tome_of_agility"
+        "ItemCost"					"6666"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "ItemAliases"					"agility tome;agi"
+        "ItemShopTags"					"consumable"
+        "ItemQuality"					"consumable"
+        "ItemStackable"					"1"
+        "ItemPermanent"					"0"
+        "ItemInitialCharges"				"1"
+        "IsTempestDoubleClonable"			"0"
+        "ItemSellable"					"0"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "bonus"         		"50"
+            }
+        }
+    }
+
+
+    //=================================================================================================================
+    // Item: Tome of Intelligence for lottery
+    //=================================================================================================================
+    "item_tome_of_intelligence_for_lottery"
+    {
+        "ID"						"3097"
+        "BaseClass"					"item_lua"
+        "ScriptFile"                    		"items/item_tome_of_intelligence_for_lottery.lua"
+        "AbilityTextureName"		   		"tome_of_intelligence"
+        "ItemCost"					"6666"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "ItemAliases"					"intelligence tome;int"
+        "ItemShopTags"					"consumable"
+        "ItemQuality"					"consumable"
+        "ItemStackable"					"1"
+        "ItemPermanent"					"0"
+        "ItemInitialCharges"				"1"
+        "IsTempestDoubleClonable"			"0"
+        "ItemSellable"					"0"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "bonus"         		"50"
+            }
+        }
+    }
+
+
+    //=================================================================================================================
+    // Item: Tome of Strength for lottery
+    //=================================================================================================================
+    "item_tome_of_strength_for_lottery"
+    {
+        "ID"						"3098"
+        "BaseClass"					"item_lua"
+        "ScriptFile"                    		"items/item_tome_of_strength_for_lottery.lua"
+        "AbilityTextureName"		    		"tome_of_strength"
+        "ItemCost"					"6666"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "ItemAliases"					"strength tome;str"
+        "ItemShopTags"					"consumable"
+        "ItemQuality"					"consumable"
+        "ItemStackable"					"1"
+        "ItemPermanent"					"0"
+        "ItemInitialCharges"				"1"
+        "IsTempestDoubleClonable"			"0"
+        "ItemSellable"					"0"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "bonus"         		"50"
+            }
+        }
+    }
+
 }
 
 

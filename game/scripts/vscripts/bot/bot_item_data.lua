@@ -160,11 +160,11 @@ tBotItemData.purchaseItemList = {
 		'item_sange_and_yasha',
 		'item_aghanims_shard',
 		'item_vladmir_2',
+		'item_ultimate_scepter_2',
 		'item_insight_armor',
 		'item_undying_heart',
 		'item_monkey_king_bar_2',
 		'item_infernal_desolator',
-		-- 'item_ultimate_scepter_2',
 		'item_moon_shard_datadriven',
 		'item_abyssal_blade_v2',
 	},
@@ -1435,6 +1435,8 @@ tBotItemData.wardObserverPostionList = {
 
 	-- 上路
 	Vector(-5856, 827, 0),
+	Vector(2106,6046,0),
+	Vector(-1998,6113,0),
 	-- 上野区
 	Vector(-5187, -1619, 0),
 	Vector(-4640,-1056,0),
@@ -1446,10 +1448,12 @@ tBotItemData.wardObserverPostionList = {
 	Vector(-1445,-2504,0),
 	Vector(-4526.85,-5406.58,0),
 	Vector(-5916,-3984,0),
-	Vector(-7079,-4904,0),
-	Vector(-5238.3,-6668.1,0),
+	Vector(-6657,-4427,256),
+	Vector(-5017,-6268,0),
 	Vector(-3545,-6958,0),
 	Vector(1037,-2023,0),
+	Vector(1290,842,0),
+	Vector(-2567,-1743,0),
 	-- 下野区
 	Vector(2800, -3087, 0),
 	Vector(303, -2584, 0),
@@ -1464,6 +1468,8 @@ tBotItemData.wardObserverPostionList = {
 	Vector(1045,-2041,128),
 	-- 下路
 	Vector(3443, -5779, 0),
+	Vector(4445, -5124, 0),
+	Vector(6318,-1038,0),
 
 	-- 中路河道
 	Vector(-1625, -200, 0),
@@ -1490,6 +1496,9 @@ tBotItemData.wardObserverPostionList = {
 	Vector(-3804,4120,0),
 	-- 中路
 	Vector(2190,4065,0),
+	Vector(4861,5994,0),
+	Vector(6319,4319,0),
+	Vector(1739,1264),
 	-- 下野区
 	Vector(2050, -761, 0),
 	Vector(2781, -1575, 0),
@@ -1499,6 +1508,7 @@ tBotItemData.wardObserverPostionList = {
 	Vector(3240.6,196.2,0),
 	Vector(4517,1319,0),
 	Vector(3298,-181,256),
+	Vector(6287,-1011,0),
 	-- 下路
 }
 tBotItemData.wardSentryPostionList = {
@@ -1509,6 +1519,8 @@ tBotItemData.wardSentryPostionList = {
 
 	-- 上路
 	Vector(-6586, -2440, 0),
+	Vector(2106,6046,0),
+	Vector(-1998,6113,0),
 	-- 上野区
 	Vector(-4347, -1028, 0),
 	-- 中路
@@ -1516,6 +1528,10 @@ tBotItemData.wardSentryPostionList = {
 	Vector(-3345, -4005, 0),
 	Vector(-6119,-6403,0),
 	Vector(-7036,-5603,0),
+	Vector(-2073,-2417,0),
+	Vector(1290,842,0),
+	Vector(1739,1264,0),
+	Vector(-2567,-1743,0),
 	-- 下野区
 	Vector(303, -2584, 0),
 	Vector(-510, -3334, 0),
@@ -1543,6 +1559,8 @@ tBotItemData.wardSentryPostionList = {
 	-- 夜魇
 	Vector(5251, 2947, 0),
 	Vector(3493, 4632, 0),
+	Vector(4861,5994,0),
+	Vector(6319,4319,0),
 
 	-- 上路
 	Vector(-3300, 5608, 0),
@@ -1560,6 +1578,7 @@ tBotItemData.wardSentryPostionList = {
 	Vector(4359, -426, 0),
 	-- 下路
 	Vector(6342, 1735, 0),
+	Vector(6318,-1038),
 }
 -- purchase neutral item in order
 tBotItemData.addNeutralItemList = {

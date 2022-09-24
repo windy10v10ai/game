@@ -6,7 +6,7 @@ function AIGameMode:SpecialItemAdd(owner)
 	tierRate[2] = 20
 	tierRate[3] = 6
 	tierRate[4] = 1
-	-- tierRate[5] = 0.1
+	tierRate[5] = 0.1
 
 	local tier = {}
 
@@ -73,10 +73,9 @@ function AIGameMode:SpecialItemAdd(owner)
 	}
 
 	tier[5] =	{
-		-- 开局40s无法禁止出售，先不抽了
-		-- "item_tome_of_agility",				-- 敏捷之术
-		-- "item_tome_of_intelligence",		-- 智力之书
-		-- "item_tome_of_strength",			-- 力量之书
+		 "item_tome_of_agility_for_lottery",		    -- 敏捷之书
+		 "item_tome_of_intelligence_for_lottery",		-- 智力之书
+		 "item_tome_of_strength_for_lottery",			-- 力量之书
 	}
 
 	local hero = owner:GetClassname()
@@ -145,11 +144,11 @@ function AIGameMode:FinishItemPick(keys)
 	-- Add the item to the inventory and broadcast
 	owner:AddItemByName(keys.item)
 	AIGameMode.tIfItemChosen[keys.PlayerID] = true
-	-- EmitSoundOnClient("powerup_04", owner)
-	-- local item_drop =
-	-- {
-	-- 	hero_id = hero,
-	-- 	dropped_item = keys.item
-	-- }
-	-- CustomGameEventManager:Send_ServerToAllClients( "item_drop", item_drop)
+end
+
+function AIGameMode:ItemChoiceShuffle(keys)
+	if Member:IsMember(PlayerResource:GetSteamAccountID(keys.PlayerID)) then
+		local owner = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
+		AIGameMode:SpecialItemAdd(owner)
+	end
 end

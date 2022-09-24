@@ -8,6 +8,7 @@ function modifier_player_arrayzoneyour:OnCreated()
 	self.iCooldownReduction = 32
 	self.iSpellAmplify = 40
 	self.iCastRange = 200
+	self.iLifeSteal = 60
 end
 
 function modifier_player_arrayzoneyour:DeclareFunctions()
@@ -15,6 +16,7 @@ function modifier_player_arrayzoneyour:DeclareFunctions()
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
+		MODIFIER_EVENT_ON_ATTACK_LANDED,
 	}
 end
 
@@ -28,4 +30,8 @@ end
 
 function modifier_player_arrayzoneyour:GetModifierCastRangeBonusStacking()
 	return self.iCastRange
+end
+
+function modifier_player_arrayzoneyour:OnAttackLanded(params)
+	LifeStealOnAttackLanded(params, self.iLifeSteal, self:GetParent(), self:GetAbility())
 end

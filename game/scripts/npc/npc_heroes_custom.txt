@@ -294,10 +294,10 @@
 		"Ability6"		"abyssal_underlord_dark_rift"
 	}
 
-	"npc_dota_hero_spirit_breaker"
-	{
-		"Ability5"		"spirit_breaker_empowering_haste"
-	}
+	"npc_dota_hero_life_stealer"
+    {
+        "Ability17"		"special_bonus_attack_damage_150"
+    }
 
 	"npc_dota_hero_faceless_void"
 	{
@@ -336,9 +336,67 @@
 		"Ability20"		"rubick_null_field"
 	}
 
-	//=================================================================================================================
-	// HERO BOT BUILD
-	//=================================================================================================================
+	"npc_dota_hero_slark"
+    {
+        "Ability10"		"special_bonus_unique_slark_2"
+        "Ability11"		"special_bonus_unique_slark"
+        "Ability12"		"special_bonus_lifesteal_15"
+        "Ability13"		"special_bonus_unique_slark_8"
+        "Ability14"		"special_bonus_unique_slark_4"
+        "Ability15"		"special_bonus_magic_resistance_20"
+        "Ability16"		"special_bonus_unique_slark_301"
+        "Ability17"		"special_bonus_unique_slark_5"
+    }
+
+	"npc_dota_hero_legion_commander"
+    {
+        "Ability10"		"special_bonus_unique_legion_commander_2"
+        "Ability11"		"special_bonus_strength_12"
+        "Ability12"		"special_bonus_unique_legion_commander_6"
+        "Ability13"		"special_bonus_unique_legion_commander_4"
+        "Ability14"		"special_bonus_unique_legion_commander_5"
+        "Ability15"		"special_bonus_unique_legion_commander_3"
+        "Ability16"		"special_bonus_unique_legion_commander"
+        "Ability17"		"special_bonus_unique_legion_commander_8"
+    }
+
+    "npc_dota_hero_spectre"
+    {
+        "Ability1"		"spectre_spectral_dagger"
+        "Ability2"		"spectre_ursa_enrage"
+        "Ability3"		"spectre_dispersion"
+        "Ability4"		"spectre_reality"
+        "Ability5"		"spectre_haunt_single"
+        "Ability6"		"spectre_haunt"
+        "Ability7"		"spectre_desolate"
+        "Ability10"		"special_bonus_unique_spectre_2"
+        "Ability11"		"special_bonus_all_stats_5"
+        "Ability12"		"special_bonus_unique_spectre_3"
+        "Ability13"		"special_bonus_unique_spectre_6"
+        "Ability14"		"special_bonus_hp_350"
+        "Ability15"		"special_bonus_evasion_20"
+        "Ability16"		"special_bonus_unique_spectre_401"
+        "Ability17"		"special_bonus_unique_spectre_5"
+    }
+
+    "npc_dota_hero_venomancer"
+    {
+        "Ability1"		"venomancer_venomous_gale"
+        "Ability2"		"venomancer_poison_sting"
+        "Ability3"		"venomancer_plague_ward"
+        "Ability4"		"venomancer_latent_poison"
+        "Ability5"		"generic_hidden"
+        "Ability6"		"venomancer_poison_nova"
+        "Ability10"		"special_bonus_unique_venomancer_3"
+        "Ability11"		"special_bonus_unique_venomancer_poisonsting_regen_reduction"
+        "Ability12"		"special_bonus_unique_venomancer_8"
+        "Ability13"		"special_bonus_unique_venomancer_201"
+        "Ability14"		"special_bonus_unique_venomancer_4"
+        "Ability15"		"special_bonus_unique_venomancer_gale_plagueward"
+        "Ability16"		"special_bonus_unique_venomancer_5"
+        "Ability17"		"special_bonus_unique_venomancer"
+    }
+
 	"npc_dota_hero_abaddon"
 	{
 		"Bot"
@@ -1247,6 +1305,14 @@
 	}
 	"npc_dota_hero_lina"
 	{
+	    "Ability10"		"special_bonus_unique_lina_3"
+        "Ability11"		"special_bonus_unique_lina_1"
+        "Ability12"		"special_bonus_unique_lina_2"
+        "Ability13"		"special_bonus_unique_lina_201"
+        "Ability14"		"special_bonus_spell_amplify_12"
+        "Ability15"		"special_bonus_unique_lina_301"
+        "Ability16"		"special_bonus_unique_lina_6"
+        "Ability17"		"special_bonus_unique_lina_7"
 		"Bot"
 		{
 			"Build"
@@ -1260,26 +1326,26 @@
 				"7"		"lina_dragon_slave"
 				"8"		"lina_light_strike_array"
 				"9"		"lina_light_strike_array"
-				"10"		"special_bonus_unique_lina_1"
+				"10"		"special_bonus_unique_lina_3"
 				"11"		"lina_light_strike_array"
 				"12"		"lina_laguna_blade"
 				"13"		"lina_fiery_soul"
 				"14"		"lina_fiery_soul"
-				"15"		"special_bonus_unique_lina_3"
+				"15"		"special_bonus_unique_lina_2"
 				"16"		"lina_fiery_soul"
 				"17"		""
 				"18"		"lina_laguna_blade"
 				"19"		""
-				"20"		"special_bonus_spell_amplify_11"
+				"20"		"special_bonus_spell_amplify_12"
 				"21"		""
 				"22"		""
 				"23"		""
 				"24"		""
 				"25"		"special_bonus_unique_lina_6"
-				"26"		""
-				"27"		"special_bonus_attack_damage_25"
-				"28"		"special_bonus_hp_350"
-				"29"		"special_bonus_unique_lina_2"
+				"26"		"special_bonus_unique_lina_1"
+				"27"		"special_bonus_unique_lina_201"
+				"28"		"special_bonus_unique_lina_7"
+				"29"		"special_bonus_unique_lina_301"
 				"30"		"special_bonus_unique_lina_7"
 				"31"		"lina_laguna_blade"
 				"32"		"lina_laguna_blade"
@@ -1845,6 +1911,12 @@
 	}
 	"npc_dota_hero_razor"
 	{
+	    "Ability11"		"special_bonus_unique_razor_101"
+        "Ability13"		"special_bonus_spell_amplify_12"
+        "Ability14"		"special_bonus_unique_razor_401"
+        "Ability15"		"special_bonus_unique_razor_static_link_aspd"
+        "Ability16"		"special_bonus_unique_razor_402"
+        "Ability17"		"special_bonus_unique_razor_plasmafield_second_ring"
 		"Bot"
 		{
 			"Build"
@@ -2205,6 +2277,7 @@
 	}
 	"npc_dota_hero_spirit_breaker"
 	{
+	    "Ability5"		"spirit_breaker_empowering_haste"
 		"Bot"
 		{
 			"Build"
@@ -2446,7 +2519,7 @@
 				"7"		"viper_corrosive_skin"
 				"8"		"viper_corrosive_skin"
 				"9"		"viper_poison_attack"
-				"10"		"special_bonus_unique_viper_1"
+				"10"		"special_bonus_unique_viper_4"
 				"11"		"viper_nethertoxin"
 				"12"		"viper_viper_strike"
 				"13"		"viper_poison_attack"
@@ -2456,17 +2529,17 @@
 				"17"		""
 				"18"		"viper_viper_strike"
 				"19"		""
-				"20"		"special_bonus_unique_viper_4"
+				"20"		"special_bonus_unique_viper_2"
 				"21"		""
 				"22"		""
 				"23"		""
 				"24"		""
-				"25"		"special_bonus_unique_venomancer"
+				"25"		"special_bonus_unique_viper_5"
 				"26"		""
-				"27"		"special_bonus_attack_speed_20"
-				"28"		"special_bonus_hp_300"
-				"29"		"special_bonus_unique_venomancer_gale_plagueward"
-				"30"		"special_bonus_unique_viper_5"
+				"27"		"special_bonus_unique_viper_1"
+				"28"		"special_bonus_unique_viper_6"
+				"29"		"special_bonus_unique_viper_7"
+				"30"		"special_bonus_unique_viper_8"
 				"31"		"viper_viper_strike"
 				"32"		"viper_poison_attack"
 				"33"		"viper_corrosive_skin"
