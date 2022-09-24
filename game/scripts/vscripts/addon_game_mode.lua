@@ -17,7 +17,7 @@ require('bot/bot_think_item_build')
 require('bot/bot_think_item_use')
 require('bot/bot_think_ability_use')
 require('bot/bot_think_modifier')
-require('web/web_server')
+require('api/api_loader')
 require("damage")
 
 function Activate()
@@ -32,7 +32,6 @@ function Precache( context )
 	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_saber.vsndevts", context)
 	PrecacheResource( "soundfile", "soundevents/yukari_yakumo.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/hero_themes.vsndevts", context )
-
 end
 
 function AIGameMode:InitGameMode()
@@ -81,6 +80,7 @@ function AIGameMode:InitEvents()
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap( AIGameMode, "OnItemPickedUp" ), self )
 	ListenToGameEvent("player_chat", Dynamic_Wrap( AIGameMode, "OnPlayerChat" ), self )
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
+	ListenToGameEvent("dota_buyback", Dynamic_Wrap(AIGameMode, 'OnBuyback'), self)
 	--JS events
 	CustomGameEventManager:RegisterListener("loading_set_options", function (eventSourceIndex, args) return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args) end)
 	-- 游戏选项改变事件
@@ -89,6 +89,7 @@ function AIGameMode:InitEvents()
 	CustomGameEventManager:RegisterListener("set_unit_share_mask", function(_, keys) return AIGameMode:SetUnitShareMask(keys) end)
 	-- 选择道具
 	CustomGameEventManager:RegisterListener("item_choice_made", Dynamic_Wrap(AIGameMode, "FinishItemPick"))
+	CustomGameEventManager:RegisterListener("item_choice_shuffle", Dynamic_Wrap(AIGameMode, "ItemChoiceShuffle"))
 end
 
 
@@ -108,6 +109,7 @@ end
 
 
 function AIGameMode:PreGameOptions()
+
 	self.iDesiredRadiant = self.iDesiredRadiant or RADIANT_PLAYER_COUNT
 	self.iDesiredDire = self.iDesiredDire or DIRE_PLAYER_COUNT
 
@@ -245,6 +247,7 @@ function AIGameMode:PreGameOptions()
 	BotThink:SetTome()
 
 	self.PreGameOptionsSet = true
+
 end
 
 ------------------------------------------------------------------

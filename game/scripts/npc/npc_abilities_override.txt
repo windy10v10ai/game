@@ -3365,13 +3365,14 @@
 	{
 		"MaxLevel" "5"
 		"AbilityManaCost"				"100 110 120 130 140"
+		"AbilityCooldown"				"13 12 11 10 9"
 		"AbilityValues"
 		{
-				"damage"				"35 65 95 125 155"
-				"damage_per_unit"		"14 16 18 20 22"
+				"damage"				"40 70 100 130 160"
+				"damage_per_unit"		"25"
 				"damage_per_hero"
 				{
-					"value"				"35 65 95 125 155"
+					"value"				"40 70 100 130 160"
 					"LinkedSpecialBonus"	"special_bonus_unique_legion_commander_4"
 				}
 				"illusion_dmg_pct"
@@ -3419,30 +3420,30 @@
 	"legion_commander_press_the_attack"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"16.0 15.0 14.0 13.0 12.0"
+		"AbilityCooldown"				"14 13 12 11 10"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"65 90 115 140 165"
+				"attack_speed"			"70 100 130 160 190"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp_regen"				"50 60 70 80 90"
+				"hp_regen"				"60 90 120 150 180"
 			}
 		}
 	}
 	"legion_commander_moment_of_courage"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"1.9 1.5 1.1 0.7 0.3"
+		"AbilityCooldown"				"1.4 1.1 0.8 0.5 0.2"
 		"AbilityValues"
 		{
 			"trigger_chance"
 			{
-				"value"				"25"
+				"value"				"30"
 				"LinkedSpecialBonus"        "special_bonus_unique_legion_commander_3"
 			}
 			"buff_duration"				"1.0"
@@ -3460,7 +3461,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"10"
+				"value"				"20"
 				"ad_linked_abilities"			"legion_commander_moment_of_courage"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -3479,13 +3480,13 @@
 				}
 				"reward_damage"
 				{
-					"value"			"10 15 20 25"
+					"value"			"12 18 24 30"
 					"LinkedSpecialBonus"	"special_bonus_unique_legion_commander"
 				}
 				"victory_range"			"600"
 				"scepter_damage_reduction_pct"
 				{
-					"value"				"50"
+					"value"				"80"
 					"RequiresScepter"						"1"
 				}
 				"scepter_cooldown_reduction"
@@ -3503,39 +3504,54 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"5"
+				"value"				"12"
 				"ad_linked_abilities"			"legion_commander_duel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
+	"special_bonus_unique_legion_commander_8"
+    {
+        "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"						"special_bonus_base"
+        "ad_linked_abilities"			"legion_commander_press_the_attack"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "value"				"2.5"
+            }
+        }
+    }
 	//=================================================================================================================
 	// Ability: Lifestealer 噬魂鬼/小狗
 	//=================================================================================================================
 	"life_stealer_rage"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"21 20 19 18 17"
-		"AbilityManaCost"				"75 100 125 150 175"
-		"AbilityDuration"				"3 4 5 6 7"
-		"AbilityValues"
-		{
-			"movement_speed_bonus"
-			{
-				"value"						"15 16 17 18 19"
-				"special_bonus_unique_lifestealer_2"	"+16"
-			}
-			"duration"
-			{
-				"value"				"3.0 4.0 5.0 6.0 7.0"
-				"special_bonus_unique_lifestealer"	"+1.0"
-			}
-			"bonus_armor"
-			{
-				"value"					"0"
-				"special_bonus_unique_lifestealer_rage_armor"		"+7"
-			}
-		}
-	}
+    {
+        "MaxLevel"                      "5"
+        "AbilityCooldown"				"20 19 18 17 16"
+        "AbilityManaCost"				"100 125 150 175 200"
+        "AbilityDuration"				"4 5 6 7 8"
+        "AbilityValues"
+        {
+            "movement_speed_bonus"
+            {
+                "value"						"16 17 18 19 20"
+                "special_bonus_unique_lifestealer_2"	"+20"
+            }
+            "duration"
+            {
+                "value"				"4.0 5.0 6.0 7.0 8.0"
+            }
+            "bonus_armor"
+            {
+                "value"					"0"
+                "special_bonus_unique_lifestealer_rage_armor"		"+7"
+            }
+        }
+    }
+
 	"life_stealer_feast"
 	{
 		"MaxLevel" "5"
@@ -8543,23 +8559,27 @@
 	"razor_plasma_field"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"13 12 11 10 9"
+		"AbilityCooldown"				"10"
 		"AbilityValues"
 		{
 			"damage_min"
 			{
-				"value"				"40 45 50 55 60"
+				"value"				"30 40 50 60 70"
 				"special_bonus_unique_razor_4"	"+50"
 			}
 			"damage_max"
 			{
-				"value"				"80 115 150 185 220"
+				"value"				"80 95 110 124 140"
 				"special_bonus_unique_razor_4"	"+50"
 			}
-			"radius"					"700"
-			"speed"						"636"  // 1.2 second to reach radius
-			"slow_min"				"10"
-			"slow_max"				"25 30 35 40 45"
+			"radius"
+			{
+				"value"				"700 800 800 900 1000"
+				"special_bonus_unique_razor_101"    "+200"
+			}
+			"speed"						"1000"
+			"slow_min"				"20 25 30 35 40"
+			"slow_max"				"60 75 90 105 120"
 			"slow_duration"				"1.5"
 			"second_ring_delay"
 			{
@@ -8568,10 +8588,18 @@
 			}
 		}
 	}
+	"special_bonus_unique_razor_101"
+	{
+	    "BaseClass"					"special_bonus_undefined"
+        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
 	"razor_static_link"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"40 35 30 25 20"
+		"AbilityCooldown"				"30 28 26 24 22"
+		"AbilityCastRange"				"600"
+		"AbilityManaCost"				"65 75 85 100 120"
 		"AbilityValues"
 		{
 			"drain_length"
@@ -8579,11 +8607,11 @@
 				"value"			"4 5 6 7 8"
 				"special_bonus_unique_razor_3"	"+6"
 			}
-			"drain_duration"		"9 12 15 18 21"
+			"drain_duration"		"16 19 22 25 28"
 			"drain_rate"
 			{
-				"value"			"10 15 20 25 30"
-				"special_bonus_unique_razor"	"+10"
+				"value"			"11 15 19 23 27"
+				"special_bonus_unique_razor"	"+7"
 			}
 			"drain_range_buffer"	"250"
 			"radius"				"200 200 200 200"
@@ -8595,24 +8623,23 @@
 				"value"						"0"
 				"special_bonus_unique_razor_static_link_aspd"				"+1"
 			}
-
 		}
 	}
 	"razor_unstable_current"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "4"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"self_movement_speed_pct"	"12 16 20 24 28 32 36"
+				"self_movement_speed_pct"	"18 32 46 60"
 				"LinkedSpecialBonus"	"special_bonus_unique_razor_5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shard_pct_chance"		"20"
+				"shard_pct_chance"		"40"
 				"RequiresShard"			"1"
 			}
 			"04"
@@ -8623,38 +8650,73 @@
 			}
 		}
 	}
-	"special_bonus_unique_razor_5"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"24"
-				"ad_linked_abilities"			"razor_unstable_current"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
 	"razor_eye_of_the_storm"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"80 70 60 50 40"
+		"AbilityCooldown"				"70 65 60 55 50"
 		"AbilityManaCost"				"100 150 200 250 300"
-		"AbilitySpecial"
-		{
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"strike_interval"		"0.7 0.6 0.5 0.4 0.3"
-				"LinkedSpecialBonus"	"special_bonus_unique_razor_2"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"60 75 90 105 120"
-			}
-		}
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "radius"			"600"
+            }
+            "02"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "duration"			"30 35 40 45 50"
+                "LinkedSpecialBonus"    "special_bonus_unique_razor_401"
+            }
+            "03"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "strike_interval"		"1.0"
+                "LinkedSpecialBonus"	"special_bonus_unique_razor_2"
+            }
+            "04"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "armor_reduction"	"2 2 3 3 3"
+            }
+            "05"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "damage"			"160 220 280 340 400"
+                "LinkedSpecialBonus"    "special_bonus_unique_razor_402"
+            }
+        }
 	}
+	"special_bonus_unique_razor_401"
+    {
+        "BaseClass"					"special_bonus_undefined"
+        "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "value"				        "+20"
+                "ad_linked_abilities"		"razor_eye_of_the_storm"
+            }
+        }
+    }
+    "special_bonus_unique_razor_402"
+    {
+        "BaseClass"					"special_bonus_undefined"
+        "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "value"				        "+100"
+                "ad_linked_abilities"		"razor_eye_of_the_storm"
+            }
+        }
+    }
 	//=================================================================================================================
 	// Ability: Riki 力丸/隐刺/SA
 	//=================================================================================================================
@@ -8773,26 +8835,45 @@
 	//=================================================================================================================
 	"slark_depth_shroud"
 	{
-		"AbilityCooldown"				"45"
+		"AbilityCooldown"				"35"
 	}
 	"slark_dark_pact"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"10.0 9.0 8.0 7.0 6.0"
+		"AbilityCooldown"				"8 7 6 5 4"
 		"AbilitySpecial"
 		{
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"total_damage"			"75 150 225 300 375"
+				"total_damage"			"125 200 275 350 425"
 				"LinkedSpecialBonus"	"special_bonus_unique_slark_2"
 			}
+			"07"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "self_damage_pct"			"25"
+            }
 		}
 	}
+	"special_bonus_unique_slark_2"
+    {
+        "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "value"				"85"
+                "ad_linked_abilities"			"slark_dark_pact"
+            }
+        }
+    }
 	"slark_pounce"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"20.0 16.0 12.0 10.0 8.0"
+		"AbilityCooldown"				"12.0 11.0 10.0 9.0 8.0"
 		"AbilityValues"
 		{
 			"leash_duration"
@@ -8800,33 +8881,66 @@
 				"value"			"2.5 2.75 3 3.25 3.5"
 				"LinkedSpecialBonus"	"special_bonus_unique_slark"
 			}
+			"charge_restore_time"
+            {
+                "value"	"8"
+                "RequiresScepter"	"1"
+            }
+            "essence_stacks"
+            {
+                "value"     "1 1 2 3 4"
+                "special_bonus_unique_slark_301"    "+3"
+            }
 		}
 	}
+	"special_bonus_unique_slark"
+    {
+        "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "value"				"0.7"
+                "ad_linked_abilities"			"slark_pounce"
+            }
+        }
+    }
+    "special_bonus_unique_slark_301"
+    {
+        "BaseClass"					"special_bonus_undefined"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    }
 	"slark_essence_shift"
-	{
-		"MaxLevel" "5"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"agi_gain"				"2"
-				"LinkedSpecialBonus"	"special_bonus_unique_slark_5"
-
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stat_loss"				"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"15 30 45 60 75"
-				"LinkedSpecialBonus"	"special_bonus_unique_slark_4"
-			}
-		}
-	}
+    {
+        "MaxLevel" "5"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "agi_gain"				"3"
+                "LinkedSpecialBonus"	"special_bonus_unique_slark_5"
+            }
+            "02"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "stat_loss"				"1"
+            }
+            "03"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "duration"				"30 40 50 60 70"
+                "LinkedSpecialBonus"	"special_bonus_unique_slark_4"
+            }
+        }
+        "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+    }
 	"special_bonus_unique_slark_4"
 	{
 		"AbilitySpecial"
@@ -8834,31 +8948,35 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"35"
+				"value"				"30"
 				"ad_linked_abilities"			"slark_essence_shift"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
 	"slark_shadow_dance"
-	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"75 60 45 30"
-		"AbilityValues"
-		{
-
-			"duration"
-			{
-				"value"			"4 4.25 4.5 4.75"
-				"LinkedSpecialBonus"	"special_bonus_unique_slark_3"
-			}
-			"bonus_movement_speed"		"24 36 48 56"
-			"bonus_regen_pct"
-			{
-				"value"				"5 6 7 8"
-				"special_bonus_unique_slark_8"	"+1.5"
-			}
-		}
-	}
+    {
+        "MaxLevel" "4"
+        "AbilityDraftUltShardAbility"		"slark_depth_shroud"
+        "AbilityCooldown"				"60 55 50 45"
+        "AbilityManaCost"				"120 120 120"
+        "AbilityValues"
+        {
+            "duration"
+            {
+                "value"			"4 4.25 4.5 4.75"
+                "LinkedSpecialBonus"	"special_bonus_unique_slark_3"
+            }
+            "fade_time"					"0.0 0.0 0.0"
+            "bonus_movement_speed"		"50"
+            "bonus_regen"
+            {
+                "value"				"60 120 180 240"
+                "special_bonus_unique_slark_8"	"+60"
+            }
+            "activation_delay"			"0.5 0.5 0.5"
+            "neutral_disable"			"2.0 2.0 2.0"
+        }
+    }
 	//=================================================================================================================
 	// Ability: Sniper 狙击手/火枪
 	//=================================================================================================================
@@ -8946,21 +9064,21 @@
 	//=================================================================================================================
 	"spectre_spectral_dagger"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"22 20 18 16 14 12 10"
-		"AbilityManaCost"				"130 140 150 160 170 180 190"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"70 120 170 220 270 320 370"
+				"damage"				"120 180 240 300 360"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed"		"10 14 18 22 26 30 34"
+				"bonus_movespeed"		"15 17 19 21 23"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_3"
 			}
 		}
@@ -8973,9 +9091,14 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"21 34 47 60 73"
+				"bonus_damage"			"18 23 28 33 38"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_2"
 			}
+			"02"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "radius"				"0"
+            }
 		}
 	}
 	"spectre_dispersion"
@@ -9006,14 +9129,18 @@
 	"spectre_haunt"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"150 140 130 120"
-		"AbilityManaCost"				"125 150 175 200"
+		"AbilityCooldown"				"300"
+		"AbilityManaCost"				"200"
+		"LinkedAbility"					"spectre_ursa_enrage"
+        "HasScepterUpgrade"			    "1"
+        "AbilityDraftPreAbility"		    "spectre_reality"
+        "AbilityDraftUltScepterAbility"		"spectre_haunt_single"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"5.0 6.0 7.0 8.0"
+				"duration"					"4.0"
 			}
 			"02"
 			{
@@ -9023,37 +9150,74 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"tooltip_outgoing"	"40 60 80 100"
+				"tooltip_outgoing"	        "40 60 80 100"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_4"
 			}
 		}
 	}
-	"spectre_haunt_single"
-	{
-		"MaxLevel" "4"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"5.0 6.0 7.0 8.0"
-				"RequiresScepter"			"1"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_outgoing"	"-60 -40 -20 -0"
-				"RequiresScepter"			"1"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_outgoing"	"40 60 80 100"
-				"LinkedSpecialBonus"		"special_bonus_unique_spectre_4"
-				"RequiresScepter"			"1"
-			}
-		}
-	}
+    "spectre_haunt_single"
+    {
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+        "FightRecapLevel"				"2"
+        "MaxLevel"						"4"
+        "AbilitySound"					"Hero_Spectre.Haunt"
+        "HasScepterUpgrade"			"1"
+
+        "IsGrantedByScepter"			"1"
+        "AbilityDraftPreAbility"		"spectre_reality"
+
+        "AbilityCastPoint"				"0.3 0.3 0.3"
+        "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+        "AbilityCooldown"				"60"
+
+        "AbilityManaCost"				"200"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "duration"					"5"
+                "RequiresScepter"			"1"
+            }
+            "02"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "illusion_damage_outgoing"	"-60 -40 -20 -0"
+                "RequiresScepter"			"1"
+            }
+            "03"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "tooltip_outgoing"	"40 60 80 100"
+                "LinkedSpecialBonus"		"special_bonus_unique_spectre_4"
+                "RequiresScepter"			"1"
+            }
+            "04"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "illusion_damage_incoming"	"100 100 100 100"
+                "RequiresScepter"			"1"
+            }
+            "05"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "tooltip_illusion_total_damage_incoming"	"200 200 200 200"
+                "RequiresScepter"			"1"
+            }
+            "06"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "attack_delay"				"0"
+                "RequiresScepter"			"1"
+            }
+        }
+    }
 	//=================================================================================================================
 	// Ability: Templar Assassin 圣堂刺客/TA
 	//=================================================================================================================
@@ -9625,12 +9789,12 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"duration"				"15.0 15.0 15.0 15.0"
+			"duration"				"15.0"
 			"strike_damage"			"50 75 100 125 150"
-			"tick_damage"			"15 45 75 105 135"
-			"tick_interval"			"3.0 3.0 3.0 3.0"
-			"movement_slow"			"-50 -50 -50 -50"
-			"radius"				"125"
+			"tick_damage"			"25 50 80 110 150"
+			"tick_interval"			"3.0"
+			"movement_slow"			"-50"
+			"radius"				"150"
 			"speed"					"1200 1200 1200 1200"
 			"create_wards"
 			{
@@ -9639,7 +9803,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"												"21 20 19 18 17"
+				"value"												"18"
 				"special_bonus_unique_venomancer_3"					"-5"
 			}
 		}
@@ -9649,58 +9813,83 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"duration"				"8.0 10.0 12.0 14.0 16.0"
-			"damage"					"8 16 24 32 40"
+			"duration"				"4"
+			"damage"
+			{
+			    "value" "15 30 45 60 75"
+			    "special_bonus_unique_venomancer_201"		"+45"
+			}
 			"movement_speed"
 			{
-				"value"			"-8 -10 -12 -14 -16"
-				"special_bonus_unique_venomancer_2"		"-8"
+				"value"			"-10 -14 -18 -22 -26"
+				"special_bonus_unique_venomancer_2"		"-10"
 			}
 			"hp_regen_reduction"
 			{
 				"value"				"0"
-				"special_bonus_unique_venomancer_poisonsting_regen_reduction"	"+20"
+				"special_bonus_unique_venomancer_poisonsting_regen_reduction"	"+50"
 			}
 		}
+	}
+	"special_bonus_unique_venomancer_201"
+	{
+	    "BaseClass"					"special_bonus_undefined"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
 	"venomancer_plague_ward"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"18 21 24 27 30"
+		"AbilityManaCost"				"40 50 60 70 80"
+		"AbilityCooldown"				"5"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"20.0"
+				"duration"				"18"
 				"LinkedSpecialBonus"		"special_bonus_unique_venomancer_7"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ward_hp_tooltip"		"120 230 340 450 560"
+				"ward_hp_tooltip"		"300 400 500 600 700"
 				"LinkedSpecialBonus"	"special_bonus_unique_venomancer"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ward_damage_tooltip"	"26 44 62 80 98"
+				"ward_damage_tooltip"	"25 30 35 40 45"
 				"LinkedSpecialBonus"	"special_bonus_unique_venomancer"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
 			}
 			"04" // For special bonus at level 25
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ward_hp"		"150 400 650 900 1150"
+				"ward_hp"		"900 1200 1500 1800 2100"
 			}
 			"05" // For special bonus at level 25
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ward_damage"	"52 88 124 160 196"
+				"ward_damage"	"75 90 105 120 135"
 			}
 		}
 	}
+	"special_bonus_unique_venomancer"
+    {
+        "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "value"				"3"
+                "ad_linked_abilities"			"venomancer_plague_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+            }
+        }
+    }
 	"venomancer_poison_nova"
 	{
 		"MaxLevel" "4"
@@ -9708,8 +9897,8 @@
 		"AbilityManaCost"				"200 300 400 500"
 		"AbilityValues"
 		{
-				"radius"					"850 900 950 1000"
-				"start_radius"				"255 255 255"
+				"radius"					"1000 1100 1200 1300"
+				"start_radius"				"255 255 255 255"
 				"duration"
 				{
 					"value"			"20"
@@ -9726,15 +9915,44 @@
 					"value"				"2.0 2.5 3.0 3.5"
 					"RequiresScepter"		"1"
 				}
-				"speed"						"550"
+				"speed"						"1000"
 				"base_damage"					"20 40 60 80"
 				"aspd_slow"
 				{
 					"value"					"0"
-					"special_bonus_unique_venomancer_5"	"+100"
+					"special_bonus_unique_venomancer_5"	"+300"
 				}
 		}
 	}
+	"venomancer_latent_poison"
+    {
+        "IsGrantedByShard"				"1"
+        "MaxLevel"						"1"
+        "AbilityCastRange"				"600"
+        "AbilityCastPoint"				"0.2"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"				"10"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"				"75"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+                "duration_damage"		"50"
+                "movement_slow"			"-66"
+                "projectile_speed"		"1200"
+                "damage_interval"		"1.0"
+                "duration"				"7"
+                "explosion_damage"		"750"
+                "explosion_stun_duration"	"3"
+        }
+        "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_6"
+    }
 	//=================================================================================================================
 	// Ability: Viper 冥界亚龙/毒龙
 	//=================================================================================================================
@@ -10885,6 +11103,11 @@
 		"AbilityCooldown"				"19 17 15 13 11"
 		"AbilitySpecial"
 		{
+		    "02"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "formation_time"			"1 0.8 0.6 0.4 0.2"
+            }
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
@@ -11148,49 +11371,60 @@
 	//=================================================================================================================
 	"grimstroke_dark_artistry"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"12 10 8 6 4"
-		"AbilityManaCost"				"100 110 120 130 140"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"10 9 8 7 6 5 4"
+		"AbilityManaCost"				"100 110 120 130 140 150 160"
 		"AbilitySpecial"
 		{
+		    "03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"2500"
+			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"100 160 220 280 340"
+				"damage"					"80 140 200 260 320 380 440"
 				"LinkedSpecialBonus"		"special_bonus_unique_grimstroke_2"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage_per_target"	"20 30 40 50 60"
+				"bonus_damage_per_target"	"15 25 35 45 55 65 75"
 				"LinkedSpecialBonus"		"special_bonus_unique_grimstroke_2"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movement_slow_pct"		"50 60 70 80 90"
+				"movement_slow_pct"		"30 40 50 60 70 80 90"
 			}
 		}
 	}
 	"grimstroke_ink_creature"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"36 30 24 18 12"
-		"AbilityManaCost"				"80 100 120 140 160"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"28 25 22 19 16 13 10"
+		"AbilityManaCost"				"80 100 120 140 160 180 200"
 		"AbilitySpecial"
 		{
+		    "04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"destroy_attacks"			"8 9 10 11 12 13 14"
+				"LinkedSpecialBonus"		"special_bonus_unique_grimstroke_4"
+			}
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_per_second"				"10 20 30 40 50"
+				"damage_per_second"				"10 20 30 40 50 60 70"
 				"LinkedSpecialBonus"		"special_bonus_unique_grimstroke_8"
 			}
 			"10"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"pop_damage"				"120 200 280 360 440"
+				"pop_damage"				"100 170 240 310 390 460 530"
 			}
 		}
 	}
@@ -11241,6 +11475,32 @@
 			}
 		}
 	}
+	"grimstroke_dark_portrait"
+	{
+	"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"images_do_damage_percent"	"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"images_do_damage_percent_tooltip"			"200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"images_take_damage_percent_tooltip"			"200"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"images_movespeed_bonus"			"50"
+			}
+	        }
+        }
 	//=================================================================================================================
 	// Ability: Invoker 祈求者/卡尔
 	//=================================================================================================================
@@ -11910,14 +12170,20 @@
 	"lina_light_strike_array"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"13 11 9 7 5"
+		"AbilityCooldown"				"10 9 8 7 6"
 		"AbilityManaCost"				"100 105 110 115 120"
 		"AbilitySpecial"
 		{
+		    "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "light_strike_array_aoe"	"250"
+                "LinkedSpecialBonus"		"special_bonus_unique_lina_201"
+            }
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"light_strike_array_stun_duration"	"1.6 1.9 2.2 2.5 2.8"
+				"light_strike_array_stun_duration"	"2.5"
 			}
 			"04"
 			{
@@ -11927,36 +12193,73 @@
 			}
 		}
 	}
+	"special_bonus_unique_lina_201"
+    {
+        "BaseClass"					"special_bonus_undefined"
+        "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "value"				        "+100"
+                "ad_linked_abilities"		"lina_light_strike_array"
+            }
+        }
+    }
 	"lina_fiery_soul"
-	{
-		"MaxLevel" "5"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"fiery_soul_attack_speed_bonus"	"20 40 60 80 100"
-				"LinkedSpecialBonus"			"special_bonus_unique_lina_2"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"fiery_soul_move_speed_bonus"	"3 4 5 6 7"
-				"LinkedSpecialBonus"			"special_bonus_unique_lina_2"
-				"LinkedSpecialBonusField"		"value2"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fiery_soul_max_stacks"		"4"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fiery_soul_stack_duration"			"20"
-			}
-		}
-	}
+    {
+        "MaxLevel"  "5"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+        "HasShardUpgrade"				"1"
+        "AbilityValues"
+        {
+            "fiery_soul_attack_speed_bonus"
+            {
+                "value"								"10 13 16 19 22"
+                "special_bonus_unique_lina_2"		"+8"
+            }
+            "fiery_soul_move_speed_bonus"
+            {
+                "value"							"1 1.5 2 2.5 3"
+                "special_bonus_unique_lina_2"	"+1"
+            }
+            "fiery_soul_max_stacks"
+            {
+                "value"							"10"
+            }
+            "fiery_soul_stack_duration"			"18"
+            "bonus_spell_damage"
+            {
+                "value"								"5"
+                "special_bonus_shard"		       "+15"
+                "special_bonus_unique_lina_301"    "+10"
+            }
+        }
+    }
+    "special_bonus_unique_lina_301"
+    {
+        "BaseClass"					"special_bonus_undefined"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    }
+    "lina_flame_cloak"
+    {
+        "IsGrantedByScepter"				"1"
+        "MaxLevel"						"1"
+        "AbilityCooldown"				"25"
+        "AbilityManaCost"				"50"
+        "AbilityValues"
+        {
+            "flame_cloak_duration"				"9"
+            "magic_resistance"					"35"
+            "spell_amp"							"30"
+            "visualzdelta"							"310"
+            "zchangespeed"							"350"
+        }
+    }
 	"lina_laguna_blade"
 	{
 		"MaxLevel" "5"

@@ -66,11 +66,9 @@ function modifier_yukari_tentacles:OnCreated( kv )
 	-- references
 	local interval = self:GetAbility():GetSpecialValueFor( "tick_rate" )
 	local caster = self:GetCaster()
-	local damage = self:GetAbility():GetSpecialValueFor( "damage" ) + caster:GetIntellect() * self:GetAbility():GetSpecialValueFor( "intelligence" )
-	--self.damage2=caster:GetIntellect()*self:GetAbility():GetSpecialValueFor( "intelligence" )
-	--self.damage3=damage + self.damage2
+	local damage = (self:GetAbility():GetSpecialValueFor( "damage_per_second" ) + caster:GetIntellect() * self:GetAbility():GetSpecialValueFor( "intelligence_per_second" )) * interval -- 每interval伤害
 	local caster = self:GetCaster()
-	self.armor = self:GetAbility():GetSpecialValueFor( "root" )
+	self.slowdown = self:GetAbility():GetSpecialValueFor( "root" )
 	self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
 
 	self.thinker = kv.isProvidedByAura~=1
@@ -135,7 +133,7 @@ local func = {
  return func
 end
 function modifier_yukari_tentacles:GetModifierMoveSpeedBonus_Percentage()
-	return self.armor
+	return self.slowdown
 end
 function modifier_yukari_tentacles:GetFixedNightVision()
 	return 600

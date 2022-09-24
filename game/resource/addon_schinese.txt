@@ -84,6 +84,9 @@
 		//
 		///////////////////////////////////////////////////
 		"item_choice_header"										"选择一个道具！"
+		"item_choice_shuffle"										"点击刷新道具"
+		"item_choice_shuffle_used"									"道具已刷新"
+		"item_choice_shuffle_not_member"							"会员可刷新一次道具，点击开通会员"
 
 		///////////////////////////////////////////////////
 		//
@@ -93,7 +96,7 @@
 		"player_member_ship"		"点击查看会员详情"
 		"player_member_ship_url"		"https://afdian.net/@windy10v10"
 
-		"player_member_button"		"感谢您的支持！<br/> - 打字输入“-沉渊之剑”，“-超级赛亚人”，“-八云紫”即可召唤新英雄。<br/>会员有效期：{expireDate}"
+		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 打字输入“-沉渊之剑”，“-超级赛亚人”，“-八云紫”即可召唤新英雄。<br/> 会员有效期：{expireDate}"
 		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 
 		///////////////////////////////////////////////////
@@ -202,6 +205,10 @@
 		"DOTA_Tooltip_modifier_player_menglihua_Description"	"<font color='#A85CF9'>人类是有极限的！所以我不做人了！JOJO！！！</font>"
 		"DOTA_Tooltip_modifier_player_dabuguo"					"<font color='#FFCC66'>★ 天龙人 ★</font>"
 		"DOTA_Tooltip_modifier_player_dabuguo_Description"		"<font color='#FFCC66'>天龙人咸鱼为了廉价的赏金！献祭出了自己的珍宝皮燕子！（请勿模仿不值得啊）</font>"
+		"DOTA_Tooltip_modifier_player_dabuguo_1"				"<font color='#FFCC66'></font>"
+		"DOTA_Tooltip_modifier_player_dabuguo_2"				"<font color='#FFCC66'></font>"
+		"DOTA_Tooltip_modifier_player_dabuguo_3"				"<font color='#FFCC66'></font>"
+		"DOTA_Tooltip_modifier_player_dabuguo_4"				"<font color='#FFCC66'>哥哥你为我花了这么多钱，你女朋友不会生气吧？</font>"
 		"DOTA_Tooltip_modifier_player_shapu"					"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_kfw6"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_dalaogongji"				"<font color='#FFCC66'>★ 大佬，请问攻击是哪个按键呀？ ★</font>"
@@ -224,6 +231,10 @@
 		"DOTA_Tooltip_modifier_player_xin_3_Description"		"<font color='#FFCC66'>★ 尊贵的心悦2会员福利 ★</font>"
 		"DOTA_Tooltip_modifier_player_xin_4"					"<font color='#FFCC66'>★ 蟑螂恶霸 ★</font>"
 		"DOTA_Tooltip_modifier_player_xin_4_Description"		"<font color='#FFCC66'>★ 尊贵的心悦3会员福利 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_5"					"<font color='#FFCC66'>★ 鲨鱼巨人 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_5_Description"		"<font color='#FFCC66'>★ 双重超级变换形态 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_6"					"<font color='#FFCC66'>★ 蜻蜓队长 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_6_Description"		"<font color='#FFCC66'>★ 裁判机器人蜻蜓队长前来觐见！ ★</font>"
 		"DOTA_Tooltip_modifier_player_qiannian"					"<font color='#FFCC66'>★ 新人光环 ★</font>"
 		"DOTA_Tooltip_modifier_player_qiannian_2"				"<font color='#FFCC66'>★ 狂风向前 ★</font>"
 		"DOTA_Tooltip_modifier_player_qiannian_3"				"<font color='#FFCC66'>★ 你看不见我 ★</font>"
@@ -274,18 +285,33 @@
 		"DOTA_Tooltip_modifier_player_chuyin_5"					"<font color='#FFCC66'>★ 魔龙 ★</font>"
 		"DOTA_Tooltip_modifier_player_sushi"					"<font color='#FFCC66'>★ 基神的强袭自由 ★</font>"
 		"DOTA_Tooltip_modifier_player_sushi_Description"		"<font color='#FFCC66'> 天苍茫镜花水月之像，今朝我粉墨登场~ </font>"
+		"DOTA_Tooltip_modifier_player_sushi_2"					"<font color='#FFCC66'>★ 基神的强袭自由 ★</font>"
+		"DOTA_Tooltip_modifier_player_sushi_2_Description"		"<font color='#FFCC66'> 爱佑[浮生]，从一而终 </font>"
+		"DOTA_Tooltip_modifier_player_sushi_3"					"<font color='#FFCC66'>★ 基神的强袭自由 ★</font>"
+		"DOTA_Tooltip_modifier_player_sushi_3_Description"		"<font color='#FFCC66'> 千般[鏖灭]，心未成灰 </font>"
+		"DOTA_Tooltip_modifier_player_sushi_4"					"<font color='#FFCC66'>★ 基神的强袭自由 ★</font>"
+		"DOTA_Tooltip_modifier_player_sushi_4_Description"		"<font color='#FFCC66'> 纵承[天慧]，真意难解 </font>"
 		"DOTA_Tooltip_modifier_player_kdvh_1"					"<font color='#FFCC66'>★ 男人的加油站 ★</font>"
 		"DOTA_Tooltip_modifier_player_kdvh_2"					"<font color='#FFCC66'>★ 快男也可以很骄傲 ★</font>"
 		"DOTA_Tooltip_modifier_player_kdvh_3"					"<font color='#FFCC66'>★ 浴血奋战才是真男人 ★</font>"
 		"DOTA_Tooltip_modifier_player_YYL"						"<font color='#FFCC66'>★ 游戏开发者 ★</font>"
 		"DOTA_Tooltip_modifier_player_aoliao"					"<font color='#FFCC66'>★ 奥利奥夹心饼 ★</font>"
+		"DOTA_Tooltip_modifier_player_aoliao_2"					"<font color='#FFCC66'>★ 雷电法王 ★</font>"
 		"DOTA_Tooltip_modifier_player_vjes"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh"					"<font color='#FFCC66'>★ 至圣 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh_1"					"<font color='#FFCC66'>★ 至圣先师 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh_2"					"<font color='#FFCC66'>★ 万世师表 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh_3"					"<font color='#FFCC66'>★ 天不生仲尼 ★</font>"
 		"DOTA_Tooltip_modifier_player_laugh_4"					"<font color='#FFCC66'>★ 万古如长夜 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_5"					"<font color='#FFCC66'>★ 风驰电掣 ★</font>"
 		"DOTA_Tooltip_modifier_player_asprose"					"<font color='#FFCC66'>★ 超人会发光 ★</font>"
+		"DOTA_Tooltip_modifier_player_xys"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_yuliang"					"<font color='#FFCC66'>★ AE86 ★</font>"
+		"DOTA_Tooltip_modifier_player_yuliang_Description"		"<font color='#FFCC66'> 洗车，今晚上秋名山。 </font>"
+		"DOTA_Tooltip_modifier_player_weilan"					"<font color='#FFCC66'>★ 举杯吧！敬那些想杀死我的人 ★</font>"
+		"DOTA_Tooltip_modifier_player_ekxn"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_uh9g"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_xibaibai"					"<font color='#FFCC66'>★ 能者多牢 ★</font>"
 
 
 
@@ -354,11 +380,10 @@
 		"DOTA_Tooltip_ability_yukari_mass_tp_silence_duration"	"入口持续时间:"
 		"DOTA_Tooltip_ability_yukari_mass_tp_scepter_Description"	"Pandora:增加一个新的技能：月之入口，它会立即将周围的所有敌人放入一个门中，对他们造成伤害"
 		"DOTA_Tooltip_ability_yukari_moon_portal"	"罔两「八云紫的神隐」"
-		"DOTA_Tooltip_ability_yukari_moon_portal_Description"	"将一个单位禁锢到间隙之中，被间隙的单位无敌且无法行动，第二次使用选择降落地点。<br>八云紫对自身施法时，可以在间隙中释放技能，并在全图范围内选择落地地点。"
+		"DOTA_Tooltip_ability_yukari_moon_portal_Description"	"将一个单位禁锢到间隙之中，被间隙的单位无敌且无法行动，第二次使用选择降落地点。禁锢时间结束后，间隙里的单位会被传送到降落地点。<br>八云紫对自身施法时，可以在间隙中释放技能，并在全图范围内选择降落地点。"
 		"DOTA_Tooltip_ability_yukari_moon_portal_cast_range"	"施法距离:"
 		"DOTA_Tooltip_ability_yukari_moon_portal_damage"	"伤害:"
-		"DOTA_Tooltip_ability_yukari_moon_portal_enemy_lift_duration"	"禁锢持续时间:"
-		"DOTA_Tooltip_ability_yukari_moon_portal_self_lift_duration"	"禁锢持续时间(对自身施法):"
+		"DOTA_Tooltip_ability_yukari_moon_portal_lift_duration"	"禁锢持续时间:"
 		"DOTA_Tooltip_ability_yukari_tentacles"	"静观其变之眼"
 		"DOTA_Tooltip_ability_yukari_tentacles_Description"	"在目标区域打开一个充满可怕触手的间隙，持续造成伤害，减慢敌人的移动速度，并将视野范围限制为600."
 		"DOTA_Tooltip_ability_yukari_tentacles_damage_per_second"	"每秒伤害:"
@@ -370,8 +395,8 @@
 
 		"DOTA_Tooltip_ability_yukari_morph"							"月相"
 		"DOTA_Tooltip_ability_yukari_morph_Description"				"使用隐藏潜能释放真正的力量"
-		"DOTA_Tooltip_ability_yukari_morph_magic"					"%技能增强:"
-		"DOTA_Tooltip_ability_yukari_morph_amp"						"移速增加:"
+		"DOTA_Tooltip_ability_yukari_morph_amp"					"%技能增强:"
+		"DOTA_Tooltip_ability_yukari_morph_bonus_movespeed"						"移速增加:"
 		"DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"持续时间:"
 		"DOTA_Tooltip_modifier_yukari_morph"						"月相"
 		"DOTA_Tooltip_modifier_yukari_morph_real"					"月相"
@@ -392,13 +417,14 @@
 		"DOTA_Tooltip_ability_ability_yukari_01_damage"	"弹幕伤害:"
 		"DOTA_Tooltip_ability_ability_yukari_01_stun_duration"	"眩晕时间:"
 		"DOTA_Tooltip_ability_ability_yukari_01_damage_add"		"智力伤害系数:"
+		"DOTA_Tooltip_ability_ability_yukari_01_factor"		"重复命中伤害系数:"
 		"DOTA_Tooltip_ability_ability_yukari_01_range"	"施法距离:"
 		"DOTA_Tooltip_ability_ability_yukari_01_speed"	"弹幕飞行速度:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04"	"「深弹幕结界 -梦幻泡影-」"
-		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"以任意位置为目标展开大型的传送结界，结界范围内的己方队友和其他队友玩家的单位会一起被传送至目标单位旁。引导时间越长，传送结界的范围就越大。最大引导时间2秒，结界的最大范围为750。无论引导多久，只要引导一结束（即使是被打断的），传送就会进行。\n引导期间，目标地点会散射出大量的弹幕，对周围的敌方单位造成伤害，传送完成后产生空间震，对%wanbaochui_radius%范围内的敌方单位造成%int_bonus%倍智力的魔法伤害与%stun_duration%秒眩晕。"
-		"DOTA_Tooltip_ability_ability_thdots_yukari04_min_radius"	"传送最小范围："
-		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"传送最大范围："
-		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"弹幕持续伤害："
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"以任意位置为目标展开大型的传送结界，八云紫将在引导结束后传送到目标位置。引导时间越长，造成的伤害越大。最大引导时间4秒，结界的范围为750。无论引导多久，只要引导一结束（即使是被打断的），传送就会进行。\n引导期间，目标地点会散射出大量的弹幕，对周围的敌方单位造成伤害，传送完成后产生空间震，根据引导时间对%wanbaochui_radius%范围内的敌方单位造成最多%int_bonus%倍智力的魔法伤害与%stun_duration%秒眩晕。"
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"结界范围："
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"弹幕结界单次伤害："
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"弹幕结界伤害间隔："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"增加一个新的技能：「深弹幕结界 -梦幻泡影-」"
 
 
@@ -434,12 +460,12 @@
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
+		// "DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
 
 		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
 		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
 
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_shard_description"				"增加大招攻击次数，降低攻击冷却时间。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"				"增加大招攻击次数，降低攻击冷却时间。"
 
 		// Saber
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"
@@ -632,6 +658,41 @@
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘、奥术鞋、黑皇杖、迈达斯之手、林肯法球、陨星锤、支配头盔、统御头盔、知识之书、洞察烟斗、刷新球(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲，团队之手)及所有中立物品。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"再装填所需时间："
 
+		// 电棍 razor
+		"DOTA_Tooltip_ability_special_bonus_unique_razor_101"   "+{s:bonus_radius} 等离子场范围"
+		"DOTA_Tooltip_ability_special_bonus_unique_razor_401"   "+{s:value}秒 风暴之眼持续时间"
+		"DOTA_Tooltip_ability_special_bonus_unique_razor_402"   "+{s:value} 风暴之眼伤害"
+
+		// 小鱼 slark
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_5"	"+{s:value} 能量转移攻击获取敏捷"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_301" "+{s:bonus_essence_stacks} 突袭获取能量转移叠加次数"
+		"DOTA_Tooltip_ability_slark_essence_shift_Description"					"斯拉克的攻击会偷走敌方英雄的生命能量，每次吸取他们的1点全属性并转化成自身额外的敏捷值。只要敌方英雄带着该效果在斯拉克300范围内阵亡，他将永久窃取1点敏捷。"
+
+        // 火女 lina
+        "DOTA_Tooltip_ability_special_bonus_unique_lina_201"    "+{s:value} 光击阵范围"
+        "DOTA_Tooltip_ability_lina_fiery_soul_Description"		"莉娜每次利用技能击中一个敌人都会使她获得攻击和移动速度、技能伤害加成。可以叠加。持续%fiery_soul_stack_duration%秒。"
+        "DOTA_Tooltip_ability_special_bonus_unique_lina_301"    "+{s:bonus_bonus_spell_damage} 每层炽魂技能伤害增加"
+        "DOTA_Tooltip_ability_lina_fiery_soul_shard_description"	"+%shard_bonus_spell_damage%点每层炽魂技能伤害增加"
+        "DOTA_Tooltip_ability_lina_fiery_soul_bonus_spell_damage"			"技能伤害增加："
+
+        // 幽鬼 spe
+        "DOTA_Tooltip_ability_spectre_desolate_Description"		"幽鬼的攻击对敌人造成额外的纯粹伤害。"
+        "DOTA_Tooltip_ability_spectre_desolate_radius"						""
+        "DOTA_Tooltip_ability_spectre_ursa_enrage"  "鬼影无形"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"	"此刻，幽鬼跳出三界之外，不在五行之中。"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_Description"	"幽鬼改变因果，承受的伤害降低并获得状态抗性。施放时将移除所受的负面效果。\n\n驱散类型：强驱散"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_scepter_description"							"减少冷却时间，而且幽鬼可以在被控制的状态下使用鬼影无形。"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_damage_reduction"		                        "%伤害降低："
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_status_resistance"		                     "%状态抗性："
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_duration"					                    "持续时间："
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_cooldown_scepter"					            "冷却时间："
+        "DOTA_Tooltip_ability_special_bonus_unique_spectre_401"    "+{s:bonus_duration} 鬼影无形持续时间"
+        "DOTA_Tooltip_modifier_spectre_ursa_enrage" "鬼影无形"
+        "DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"获得%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%承受伤害减少和%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%状态抗性"
+
+        // 剧毒
+        "DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} 毒刺伤害"
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
@@ -646,6 +707,10 @@
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>使用: 力量之书</h1> 永久增加力量 %bonus% 点。\n可以分享给队友"
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Lore"				"Is it strength that you desire...?"
 
+		"DOTA_Tooltip_Ability_item_tome_of_strength_for_lottery"					"力量之书（抽奖用）"
+        "DOTA_Tooltip_Ability_item_tome_of_strength_for_lottery_Description"		"<h1>使用: 力量之书</h1> 永久增加力量 %bonus% 点。\n可以分享给队友"
+        "DOTA_Tooltip_Ability_item_tome_of_strength_for_lottery_Lore"				"Is it strength that you desire...?"
+
 		"DOTA_Tooltip_modifier_str_tome"								"力量之书加成"
 		"DOTA_Tooltip_modifier_str_tome_Description"					"力量增加 <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
@@ -654,13 +719,20 @@
 		"DOTA_Tooltip_Ability_item_tome_of_agility_Description"			"<h1>使用: 敏捷之书</h1> 永久增加敏捷 %bonus% 点。\n可以分享给队友"
 		"DOTA_Tooltip_Ability_item_tome_of_agility_Lore"				"Is it swiftness that you seek...?"
 
+		"DOTA_Tooltip_Ability_item_tome_of_agility_for_lottery"						"敏捷之书（抽奖用）"
+        "DOTA_Tooltip_Ability_item_tome_of_agility_for_lottery_Description"			"<h1>使用: 敏捷之书</h1> 永久增加敏捷 %bonus% 点。\n可以分享给队友"
+        "DOTA_Tooltip_Ability_item_tome_of_agility_for_lottery_Lore"				"Is it swiftness that you seek...?"
+
 		"DOTA_Tooltip_modifier_agi_tome"								"敏捷之书加成"
 		"DOTA_Tooltip_modifier_agi_tome_Description"					"敏捷增加 <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
-
 
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence"				"智力之书"
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Description"	"<h1>使用: 智力之书</h1> 永久增加智力 %bonus% 点。\n可以分享给队友"
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Lore"			"Is it enlightenment that you aspire to...?"
+
+		"DOTA_Tooltip_Ability_item_tome_of_intelligence_for_lottery"				"智力之书（抽奖用）"
+        "DOTA_Tooltip_Ability_item_tome_of_intelligence_for_lottery_Description"	"<h1>使用: 智力之书</h1> 永久增加智力 %bonus% 点。\n可以分享给队友"
+        "DOTA_Tooltip_Ability_item_tome_of_intelligence_for_lottery_Lore"			"Is it enlightenment that you aspire to...?"
 
 		"DOTA_Tooltip_modifier_int_tome"								"智力之书加成"
 		"DOTA_Tooltip_modifier_int_tome_Description"					"智力增加 <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."

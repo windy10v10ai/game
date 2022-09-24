@@ -2,7 +2,7 @@
 {
 
 	//================================================
-	// dummy unit passve (collection of global modifiers)
+	// dummy unit passive (collection of global modifiers)
 	//================================================
 	"dummy_unit_passive"
 	{
@@ -1793,7 +1793,7 @@
 		"AbilityCastPoint"	"0.1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate"	"1.5"
-		"AbilityCooldown"	"6"
+		"AbilityCooldown"	"7"
 		"AbilityManaCost"	"60 80 100 120 140 160 180"
 		"AbilityCastRange"	"%cast_range"
 		"precache"
@@ -1816,10 +1816,11 @@
 			}
 			"speed"			"1200"
 			"radius"		"70"
-			"range"			"1500"
+			"range"			"1200"
 			"num"			"6"
-			"cast_range"	"1500"
-			"damage_add"	"0.6"
+			"cast_range"	"1200"
+			"damage_add"	"0.4"
+			"factor" "0.12"
 		}
 		"SpellDispellableType"	"SPELL_DISPELLABLE_YES"
 	}
@@ -1878,12 +1879,12 @@
 			}
 			"radius"	"400"
 			"duration"	"5"
-			"root"		"-50"
-			"tick_rate"	"0.4"
+			"root"		"-30"
+			"tick_rate"	"0.5"
 			// "stack_damage"	"4 6 8 10 12 14 16"
 			// "stack_damage_max"	"20"
 			"intelligence"	"0.1"
-			"intelligence_per_second"	"0.25"	// for tooltip
+			"intelligence_per_second"	"0.2"	// for tooltip
 		}
 	}
 
@@ -1925,19 +1926,16 @@
 
 		"AbilityValues"
 		{
-			"damage"	"160 240 320 400 480"
+			"damage"	"80 120 160 200 240"
 			"cast_range"	"800 900 1000 1100 1200"
 			// "impact_radius"	"325"
 			// "impact_stun_duration"	"2.0 2.4 2.6 2.8 3.0"
 			// "ally_range"	"750 875 1000 1125 1250"
 			// "enemy_range"	"375 400 450 550 650"
-			"ally_lift_duration"	"2.0 2.4 2.6 2.8 3.0"
-			"enemy_lift_duration"	"2.0 2.4 2.6 2.8 3.0"
-			"self_lift_duration"	"1.5"
+			"lift_duration"	"2.0"
 			"fall_animation"	"0.2"
 			"lift_animation"	"0.2"
 			"max_height"	"600"
-			"ally_cooldown"	"0.5"
 		}
 	}
 
@@ -1960,7 +1958,7 @@
 		// Stats
 		// ----------------------------------------------------------------
 		"AbilityCastRange"	"99999"
-		"AbilityChannelTime"	"2.0"
+		"AbilityChannelTime"	"4.0"
 		"precache"
 		{
 			"particle"	"particles/heroes/yukari/ability_yukari_04_effect.vpcf"
@@ -1997,19 +1995,19 @@
 		}
 		"AbilityValues"
 		{
-			"min_radius"	"250"
+			"min_radius"	"750"
 			"max_radius"	"750"
-			"target_range"	"1000"
+			"target_range"	"0"
 			"barrage_spawn_point"	"16"
 			"barrage_fire_interval"	"0.1"
 			"barrage_damage"	"200"
-			"barrage_radius"	"250"
-			"ex_damage"	"15"
+			"barrage_radius"	"750"
+			"ex_damage"	"25"
 			"wanbaochui_radius"	"750"
-			"int_bonus"	"0.1"
+			"int_bonus"	"4"
 			"stun_duration"
 			{
-				"value"				"0"
+				"value"				"1"
 				"special_bonus_unique_thdots_yukari04_stun"	"+2"
 			}
 		}
@@ -2027,7 +2025,7 @@
 	{
 		"BaseClass"	"ability_lua"
 		"AbilityTextureName"	"yukari_4"
-		"ScriptFile"	"heroes/hero_yukari/yukari_morph.lua"
+		"ScriptFile"	"heroes/hero_yukari/yukari_morph"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -2063,7 +2061,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"amp"	"50"
+				"amp"	"40"
 			}
 			"04"
 			{
@@ -2078,7 +2076,7 @@
 			"06"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"bonus_movespeed"	"40 60 80"
+				"bonus_movespeed"	"50"
 			}
 			"07"
 			{
@@ -2098,7 +2096,7 @@
 			"10"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"fixed_duration"	"30"
+				"fixed_duration"	"25"
 			}
 		}
 		"SpellDispellableType"	"SPELL_DISPELLABLE_NO"
@@ -2158,12 +2156,12 @@
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
 		// Ability Resource
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"100"
+		"AbilityCooldown"	"120"
 		"AbilityManaCost"	"200 300 400 500 600"
 		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
 		// Damage
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"		"300 375 450 525 600"
+		"AbilityDamage"		"200 275 350 425 500"
 		// Ability Casting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"	"2000"
@@ -2800,12 +2798,12 @@
 		"AbilityTextureName"	"chaos_knight_phantasm"
 		"ScriptFile"	"heroes/hero_chaos_knight/hero_chaos_knight"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
+		// "AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		// "AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		// "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
 		"FightRecapLevel"	"2"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-    	"HasShardUpgrade"               "1"
+    	// "HasShardUpgrade"	"1"
 		"HasScepterUpgrade"	"1"
 		"MaxLevel"			"4"
 		// Casting
@@ -2827,14 +2825,65 @@
 			"attack_count"
 			{
 				"value"						"2 2 3 3"
-				"special_bonus_shard"		"+1"
+				"special_bonus_scepter"		"+1"
 			}
 			"attack_cooldown"
 			{
 				"value"						"2 1.8 1.6 1.4"
-				"special_bonus_shard"		"-0.4"
+				"special_bonus_scepter"		"-0.6"
 			}
 		}
 		"AbilitySound"	"Hero_ChaosKnight.Phantasm"
 	}
+	// =================================================================================================================
+    // Spectre: spectre_ursa_enrage
+    // =================================================================================================================
+	"spectre_ursa_enrage"
+    {
+        "BaseClass"     "ability_lua"
+        "AbilityTextureName"	"spe_new_ultimate"
+        "ScriptFile"	"heroes/hero_spectre/spectre_ursa_enrage"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"				"1"
+        "RequiredLevel"	                "6"
+        "LevelsBetweenUpgrades"	        "6"
+        "AbilitySound"					"Hero_Spectre.Haunt"
+
+        "LinkedAbility"					"spectre_haunt"
+
+        "AbilityCastPoint"				"0.1"
+        "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+        "AbilityCastGestureSlot"		"DEFAULT"
+        "AbilityCastRange"				"0"
+
+        "MaxLevel" "4"
+        "AbilityCooldown"				"100"
+        "AbilityManaCost"				"100"
+
+        "HasScepterUpgrade"			"0"
+
+        "AbilityValues"
+        {
+            "damage_reduction"			"-50 -60 -70 -80"
+            "duration"
+            {
+                "value"							"3.0"
+                "special_bonus_unique_spectre_401"	"+1.0"
+            }
+            "status_resistance"
+            {
+                "value"							"30"
+            }
+        }
+    }
+    "special_bonus_unique_spectre_401"
+    {
+        "BaseClass"					"special_bonus_undefined"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    }
 }

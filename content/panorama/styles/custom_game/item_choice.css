@@ -12,8 +12,13 @@
 	flow-children: down;
 	border-radius: 8px;
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #000000b0 ), to( #000000d0 ) );
-	box-shadow: #000000ff -5px -5px 5px 10px;
+	box-shadow: #000000ff -5px -0px 5px 10px;
 	visibility: collapse;
+}
+
+#item_choice_title
+{
+	width: 100%;
 }
 
 #item_choice_label
@@ -26,6 +31,22 @@
 	font-weight: bold;
 	font-family: "DejaVu Sans";
 	text-shadow: 1px 1px 8px 3.0 #000000FF;
+}
+
+/* set refresh button to absolute right top */
+#item_choice_shuffle
+{
+	background-image: url("s2r://panorama/images/status_icons/econtooltip_shuffled_psd.vtex");
+	background-size: 32px;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #000000b0 ), to( #000000d0 ) );
+	width: 32px;
+	height: 32px;
+	horizontal-align: right;
+}
+
+#item_choice_shuffle.IsEnable
+{
+	background-image: url("s2r://panorama/images/status_icons/econtooltip_shuffled_immortal_psd.vtex");
 }
 
 #item_choice_row

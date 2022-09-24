@@ -96,6 +96,7 @@ developerSteamAccountID[314757913]="孤尘"
 developerSteamAccountID[916506173]="Arararara"
 developerSteamAccountID[385130282]="米米花"
 developerSteamAccountID[353885092]="76岁靠谱成年男性"
+developerSteamAccountID[245559423]="puck1609"
 
 local luoshuHeroSteamAccountID = Set {
 	136668998,
@@ -131,12 +132,14 @@ function AIGameMode:InitHeroSelection()
 		self.tIfChangeHeroList = {}
 		-- 是否选择了物品
 		self.tIfItemChosen = {}
+		self.tIfItemChooseInited = {}
 		for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
 			if PlayerResource:GetConnectionState(i) ~= DOTA_CONNECTION_STATE_UNKNOWN then
 				-- set human player list
 				self.tHumanPlayerList[i] = true
-				self.tIfItemChosen[i] = false
 				self.tIfChangeHeroList[i] = false
+				self.tIfItemChosen[i] = false
+				self.tIfItemChooseInited[i] = false
 				-- set start gold
 				PlayerResource:SetGold(i, (self.iStartingGoldPlayer-600),true)
 			end
@@ -184,7 +187,7 @@ function AIGameMode:OnGameStateChanged(keys)
 
 	if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		if IsServer() then
-			WebServer:Initial()
+			Member:InitMemberInfo()
 		end
 	elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
 		if IsServer() then
@@ -402,6 +405,28 @@ function AIGameMode:OnEntityKilled(keys)
 	end
 end
 
+-- 买活时间设定
+function AIGameMode:OnBuyback(e)
+	local playerId = e.player_id
+	local hEntity = EntIndexToHScript(e.entindex)
+	-- 需要等待一段时间，否则GetBuybackCooldownTime()获取的值是0
+	Timers:CreateTimer(0.5, function ()
+		if hEntity:IsRealHero() and hEntity:IsReincarnating() == false then
+			local hHero = hEntity
+			-- 会员买活时间上限设置
+			local memberBuybackCooldownMaximum = 120
+			local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
+			if Member:IsMember(steamAccountID) then
+				local buybackTime = hHero:GetBuybackCooldownTime()
+				if buybackTime > memberBuybackCooldownMaximum then
+					buybackTime = memberBuybackCooldownMaximum
+				end
+				hHero:SetBuybackCooldownTime(buybackTime)
+			end
+		end
+	end)
+end
+
 function RecordBarrackKilled(hEntity)
 	local team = hEntity:GetTeamNumber()
 	if DOTA_TEAM_GOODGUYS == team then
@@ -496,8 +521,10 @@ function RecordTowerKilled(hEntity)
 		end
 	end
 end
+
 function HeroKilled(keys)
 	local hHero = EntIndexToHScript(keys.entindex_killed)
+	local playerId = hHero:GetPlayerID()
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
 	if iLevel <= 50 then
@@ -510,11 +537,17 @@ function HeroKilled(keys)
 		fRespawnTime = fRespawnTime+hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel()*10
 	end
 
+	-- 会员减少5s复活时间
+	if Member:IsMember(PlayerResource:GetSteamAccountID(playerId)) then
+		fRespawnTime = fRespawnTime - 5
+	end
+
 	-- 复活时间至少1s
 	if fRespawnTime < 1 then
 		fRespawnTime = 1
 	end
 	hHero:SetTimeUntilRespawn(fRespawnTime)
+
 end
 
 function AIGameMode:RollDrops(hHero)
@@ -629,8 +662,9 @@ function AIGameMode:OnNPCSpawned(keys)
 		end
 
 		-- choose item 玩家抽选物品
-		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] then
+		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] and not self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] then
 			self:SpecialItemAdd(hEntity)
+			self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] = true
 		end
 
 		-- Bots modifier 机器人AI脚本
@@ -763,7 +797,7 @@ function AIGameMode:OnPlayerChat( event )
 	if not iPlayerID or not sChatMsg then return end
 	local steamAccountID = PlayerResource:GetSteamAccountID(iPlayerID)
 
-	if developerSteamAccountID[steamAccountID] then
+	if self.DebugMode and developerSteamAccountID[steamAccountID] then
 		if sChatMsg:find( '^-greedisgood$' ) then
 			-- give money to the player
 			-- get hero
@@ -801,9 +835,35 @@ function AIGameMode:OnPlayerChat( event )
 			end
 			return
 		end
+
+		if sChatMsg:find( '^-kill$' ) then
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			hHero:ForceKill(true)
+			return
+		end
+
+		if sChatMsg:find( '^-refresh buyback$' ) then
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			hHero:SetBuybackCooldownTime(0)
+			return
+		end
+
+		if sChatMsg:find( '^-shard$' ) then
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			hHero:AddItemByName('item_aghanims_shard')
+			return
+		end
+		if sChatMsg:find( '^-item$' ) then
+			self.tIfItemChosen[iPlayerID] = false
+			self.tIfItemChooseInited[iPlayerID] = false
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			self:SpecialItemAdd(hHero)
+			return
+		end
+
 	end
 
-	if WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable then
+	if Member:IsMember(steamAccountID) then
 		local pszHeroClass
 		if sChatMsg:find( '-沉渊之剑' ) then
 			pszHeroClass = "npc_dota_hero_visage"
@@ -829,6 +889,7 @@ function AIGameMode:OnPlayerChat( event )
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
 			self.tIfItemChosen[iPlayerID] = false
+			self.tIfItemChooseInited[iPlayerID] = false
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			return
@@ -843,6 +904,7 @@ function AIGameMode:OnPlayerChat( event )
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
 			self.tIfItemChosen[iPlayerID] = false
+			self.tIfItemChooseInited[iPlayerID] = false
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			GameRules:SendCustomMessage(
@@ -865,6 +927,7 @@ function AIGameMode:OnPlayerChat( event )
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
 			self.tIfItemChosen[iPlayerID] = false
+			self.tIfItemChooseInited[iPlayerID] = false
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			return
@@ -938,8 +1001,8 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 -- local tip_points = WebServer.TipCounter[playerID] or 0
 				local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
-                local membership = WebServer.memberSteamAccountID[steamAccountID] and WebServer.memberSteamAccountID[steamAccountID].enable or false
-				local memberInfo = WebServer.memberSteamAccountID[steamAccountID]
+                local membership = Member:IsMember(steamAccountID)
+				local memberInfo = Member:GetMember(steamAccountID)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
 
@@ -953,7 +1016,7 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
 
                 local playerInfo = {
                     steamid = tostring(PlayerResource:GetSteamID(playerID)),
-                    steamAccountID = steamAccountID,
+                    -- steamAccountID = steamAccountID,
                     membership = membership,
 					memberInfo = memberInfo,
                     kills = PlayerResource:GetKills(playerID) or 0,

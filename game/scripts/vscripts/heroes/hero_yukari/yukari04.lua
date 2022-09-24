@@ -22,6 +22,7 @@ function Yukari_CanMovetoGap(unit)
 		if name==unit:GetUnitName() then return true end
 	end
 end
+
 function Yukari04_OnSpellStart(keys)
 	local ability=keys.ability
 	local caster=keys.caster
@@ -29,7 +30,7 @@ function Yukari04_OnSpellStart(keys)
 	local vecPos=nil
 	local lvl=ability:GetLevel()
 	local wanbaochui_radius = ability:GetSpecialValueFor("wanbaochui_radius")
-	local int_bonus = ability:GetSpecialValueFor("int_bonus")
+	local max_int_bonus = ability:GetSpecialValueFor("int_bonus")
 	vecPos=target
 	if vecPos then
 		local tick=0
@@ -124,8 +125,9 @@ function Yukari04_OnSpellStart(keys)
 					tick=tick+1
 					return tick_interval
 				else
+					local elapsedPercent = (GameRules:GetGameTime()-channel_start_time)/ability:GetChannelTime()
 					local Ability02=caster:FindAbilityByName("ability_thdots_yukari02")
-					local teleport_radius=keys.MinRadius+(keys.MaxRadius-keys.MinRadius)*(GameRules:GetGameTime()-channel_start_time)/ability:GetChannelTime()
+					local teleport_radius = 0 -- only teleport caster
 					local units=FindUnitsInRadius(
 						caster:GetTeamNumber(),
 						caster:GetOrigin(),
@@ -165,7 +167,7 @@ function Yukari04_OnSpellStart(keys)
 					ParticleManager:DestroyParticle(e1,true)
 					ParticleManager:DestroyParticle(e2,true)
 
-						local intdamage=caster:GetIntellect()*int_bonus
+						local intdamage=caster:GetIntellect()*max_int_bonus*elapsedPercent
 						local enemies=FindUnitsInRadius(
 										caster:GetTeamNumber(),
 										caster:GetOrigin(),
@@ -212,7 +214,7 @@ function Yukari04_OnSpellStart(keys)
 			"yukari04_exdamage",
 			function ()
 				if GameRules:IsGamePaused() then return 0.03 end
-				if caster:IsChanneling() and exradius < keys.MaxRadius then
+				if caster:IsChanneling() then
 					local targets = FindUnitsInRadius(
 							caster:GetTeam(),		--caster team
 							keys.target_points[1],		--find position
@@ -224,7 +226,6 @@ function Yukari04_OnSpellStart(keys)
 							FIND_CLOSEST,
 							false
 						)
-						exradius=exradius+25
 						for _,v in pairs(targets) do
 							local damage_table = {
 								ability = keys.ability,
@@ -246,6 +247,7 @@ function Yukari04_OnSpellStart(keys)
 end
 
 function Yukari04_OnProjectileHitUnit(keys)
+	print('Yukari04_OnProjectileHitUnit works') -- 实测这函数根本没执行过
 	local ability=keys.ability
 	local caster=keys.caster
 	local targets = keys.target_entities
