@@ -74,6 +74,7 @@ end
 -- Interval Effects
 function modifier_get_down:OnIntervalThink()
 	if self.active==0 then return end
+	local caster = self:GetCaster()
 
 	-- find enemies
 	local enemies = FindUnitsInRadius(
@@ -92,7 +93,8 @@ function modifier_get_down:OnIntervalThink()
 	for _,enemy in pairs(enemies) do
 		self.damageTable.victim = enemy
 		ApplyDamage( self.damageTable )
-		self:GetCaster():PerformAttack (
+        caster:AddNewModifier(caster, self, "modifier_tidehunter_anchor_smash_caster", {})
+		caster:PerformAttack (
 		enemy,
 		true,
 		true,
@@ -101,7 +103,8 @@ function modifier_get_down:OnIntervalThink()
 		true,
 		false,
 		true
-	)
+		)
+        caster:RemoveModifierByName("modifier_tidehunter_anchor_smash_caster")
 
 	end
 
