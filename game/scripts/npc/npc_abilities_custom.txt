@@ -1867,24 +1867,22 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"damage"
-			{
-				"value"						"30 40 50 60 70 80 90"
-				"special_bonus_unique_yukari_tentacles_damage"	"+30"
-			}
-			"damage_per_second"				// for tooltip
+			// "damage"
+			// {
+			// 	"value"						"30 40 50 60 70 80 90"
+			// 	"special_bonus_unique_yukari_tentacles_damage"	"+30"
+			// }
+			"damage_per_second"
 			{
 				"value"						"75 100 125 150 175 200 225"
 				"special_bonus_unique_yukari_tentacles_damage"	"+75"
 			}
 			"radius"	"400"
-			"duration"	"5"
-			"root"		"-30"
+			"duration"	"4"
+			"root"		"-40"
 			"tick_rate"	"0.5"
-			// "stack_damage"	"4 6 8 10 12 14 16"
-			// "stack_damage_max"	"20"
-			"intelligence"	"0.1"
-			"intelligence_per_second"	"0.2"	// for tooltip
+			// "intelligence"	"0.1"
+			"intelligence_per_second"	"0.2"
 		}
 	}
 
@@ -1928,10 +1926,6 @@
 		{
 			"damage"	"80 120 160 200 240"
 			"cast_range"	"800 900 1000 1100 1200"
-			// "impact_radius"	"325"
-			// "impact_stun_duration"	"2.0 2.4 2.6 2.8 3.0"
-			// "ally_range"	"750 875 1000 1125 1250"
-			// "enemy_range"	"375 400 450 550 650"
 			"lift_duration"	"2.0"
 			"fall_animation"	"0.2"
 			"lift_animation"	"0.2"
