@@ -96,7 +96,7 @@
 		"player_member_ship"		"点击查看会员详情"
 		"player_member_ship_url"		"https://afdian.net/@windy10v10"
 
-		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 打字输入“-沉渊之剑”，“-超级赛亚人”，“-八云紫”即可召唤新英雄。<br/> 会员有效期：{expireDate}"
+		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 打字输入“-超级赛亚人”，“-八云紫”即可召唤新英雄。<br/> 会员有效期：{expireDate}"
 		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 
 		///////////////////////////////////////////////////
@@ -528,6 +528,7 @@
 
 		//沉渊之剑
 		"npc_dota_hero_visage"									"沉渊之剑"
+		"npc_dota_hero_visage_npedesc1"							"来自深渊的剑客，在战场间来去无踪。"
 		"DOTA_Tooltip_Ability_abyss_sword_rush_night_sword_qi"				"冲宵剑气"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_description"	"沉渊之剑向前方劈出一道剑气，对触碰到的敌方单位造成一次附带额外伤害的普通攻击"
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sword_qi_Lore"		"来自沉渊之剑师门的基础剑法"
