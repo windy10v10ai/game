@@ -1,8 +1,8 @@
 
 
 export class ApiClient {
-	private static TIMEOUT_SECONDS = 30;
-	private static RETRY_TIMES = 3;
+	private static TIMEOUT_SECONDS = 10;
+	private static RETRY_TIMES = 6;
 	private static HOST_NAME: string = (() => {
 		return IsInToolsMode() ? "http://localhost:5000/api" : "https://windy10v10ai.web.app/api"
 	})();
