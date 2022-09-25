@@ -122,6 +122,7 @@ end
 function modifier_liu_kick:PlayEffects()
     local position = self.target:GetAbsOrigin()
     local damage = self.damage
+    local caster = self:GetCaster()
     if self.particle_time2 then
 		ParticleManager:DestroyParticle(self.particle_time2, false)
         ParticleManager:ReleaseParticleIndex(self.particle_time2)
@@ -194,7 +195,8 @@ function modifier_liu_kick:PlayEffects()
 
             ApplyDamage(damage_table)
             -- normal attck
-            self:GetCaster():PerformAttack (
+            caster:AddNewModifier(caster, self, "modifier_tidehunter_anchor_smash_caster", {})
+            caster:PerformAttack (
             enemy,
             true,
             true,
@@ -203,6 +205,7 @@ function modifier_liu_kick:PlayEffects()
             true,
             false,
             true)
+            caster:RemoveModifierByName("modifier_tidehunter_anchor_smash_caster")
 
 
             if self:GetCaster():HasModifier("modifier_chibi_monster") then
