@@ -46,8 +46,8 @@ function ApiClient.getWithRetry(self, url, params, callback)
     end
     retry(nil)
 end
-ApiClient.TIMEOUT_SECONDS = 30
-ApiClient.RETRY_TIMES = 3
+ApiClient.TIMEOUT_SECONDS = 10
+ApiClient.RETRY_TIMES = 6
 ApiClient.HOST_NAME = (function()
     return IsInToolsMode() and "http://localhost:5000/api" or "https://windy10v10ai.web.app/api"
 end)(nil)
