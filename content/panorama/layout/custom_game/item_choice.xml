@@ -9,8 +9,10 @@
 
 	<Panel hittest="false" class="item_choice_root" >
 		<Panel id="item_choice_container" >
-			<Label id="item_choice_label" text="#item_choice_header" />
-
+			<Panel id="item_choice_title" >
+				<Button id="item_choice_shuffle" class="ButtonClass" text="#item_choice_shuffle"/>
+				<Label id="item_choice_label" text="#item_choice_header" />
+			</Panel>
 			<Panel id="item_choice_row" >
 				<DOTAItemImage id="item_choice_1" class="item_choice" itemname="item_tpscroll" onmouseactivate="MakeItemChoice('1')" />
 				<DOTAItemImage id="item_choice_2" class="item_choice" itemname="item_tpscroll" onmouseactivate="MakeItemChoice('2')" />

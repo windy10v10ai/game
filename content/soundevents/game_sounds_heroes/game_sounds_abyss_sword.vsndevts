@@ -1,6 +1,6 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	Hero_Abyss_Sword.PreAttack = 
+	Hero_Abyss_Sword.PreAttack =
 	{
 		type = "dota_src1_3d"
 		volume = 0.699707
@@ -10,7 +10,7 @@
 		soundlevel = 78.000000
 		distance_max = 1500.000000
 		event_type = 1.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/shared/small_blade/whoosh01.vsnd",
 			"sounds/weapons/hero/shared/small_blade/whoosh02.vsnd",
@@ -19,7 +19,7 @@
 		]
 		vsnd_duration = 0.188254
 	}
-	Hero_Abyss_Sword.Attack = 
+	Hero_Abyss_Sword.Attack =
 	{
 		type = "dota_src1_3d"
 		volume = 1.000000
@@ -29,12 +29,8 @@
 		soundlevel = 81.000000
 		mixgroup = "BaseAttacks"
 		distance_max = 2500.000000
-		soundevent_layer2 = "Hero_Juggernaut.Attack.Rip"
-		soundevent_layer2_on = 1.000000
-		soundevent_layer3 = "Hero_Juggernaut.Attack.Ring"
-		soundevent_layer3_on = 1.000000
 		event_type = 1.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/attack01.vsnd",
 			"sounds/weapons/hero/juggernaut/attack02.vsnd",
@@ -42,7 +38,7 @@
 		]
 		vsnd_duration = 0.536372
 	}
-	Hero_Abyss_Sword.Attack.Rip = 
+	Hero_Abyss_Sword.Attack.Rip =
 	{
 		type = "dota_src1_3d"
 		volume_rand_min = -0.250000
@@ -58,7 +54,7 @@
 		soundevent_layer2 = "Damage_Melee.Gore"
 		soundevent_layer2_on = 1.000000
 		limiter_on = 0.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/physics/damage/npc/rip01.vsnd",
 			"sounds/physics/damage/npc/rip02.vsnd",
@@ -67,7 +63,7 @@
 		]
 		vsnd_duration = 0.244626
 	}
-	Hero_Abyss_Sword.Attack.Ring = 
+	Hero_Abyss_Sword.Attack.Ring =
 	{
 		type = "dota_src1_3d"
 		volume_rand_min = -0.449951
@@ -82,7 +78,7 @@
 		rand_delay_min = 0.100000
 		rand_delay_max = 0.150000
 		event_type = 1.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/shared/small_blade/ring01.vsnd",
 			"sounds/weapons/hero/shared/small_blade/ring02.vsnd",
@@ -92,7 +88,7 @@
 		]
 		vsnd_duration = 0.596961
 	}
-	Hero_Abyss_Sword.BladeFuryStart = 
+	Hero_Abyss_Sword.BladeFuryStart =
 	{
 		type = "dota_update_default"
 		volume = 1.000000
@@ -101,13 +97,13 @@
 		mixgroup = "Weapons"
 		spread_radius = 300.000000
 		volume_fade_out = 0.500000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/bladefury_start_loop.vsnd",
 		]
 		vsnd_duration = 1.097234
 	}
-	Hero_Abyss_Sword.BladeFuryStop = 
+	Hero_Abyss_Sword.BladeFuryStop =
 	{
 		type = "dota_src1_3d"
 		volume = 1.000000
@@ -115,13 +111,13 @@
 		soundlevel = 81.000000
 		mixgroup = "Weapons"
 		volume_fade_in = 0.500000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/bladefury_stop.vsnd",
 		]
 		vsnd_duration = 2.350658
 	}
-	Hero_Abyss_Sword.BladeFury.Impact = 
+	Hero_Abyss_Sword.BladeFury.Impact =
 	{
 		type = "dota_src1_3d"
 		volume = 1.000000
@@ -137,7 +133,7 @@
 		limiter_match_type = 0.000000
 		limiter_match_entity = 0.000000
 		limiter_match_substring = 0.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/shared/small_blade/whoosh01.vsnd",
 			"sounds/weapons/hero/shared/small_blade/whoosh02.vsnd",
@@ -146,7 +142,7 @@
 		]
 		vsnd_duration = 0.188254
 	}
-	Hero_Abyss_Sword.HealingWard.Cast = 
+	Hero_Abyss_Sword.HealingWard.Cast =
 	{
 		type = "dota_update_default"
 		volume = 1.000000
@@ -156,13 +152,13 @@
 		soundlevel = 78.000000
 		mixgroup = "Weapons"
 		spread_radius = 600.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/healing_ward_cast.vsnd",
 		]
 		vsnd_duration = 2.510862
 	}
-	Hero_Abyss_Sword.HealingWard.Loop = 
+	Hero_Abyss_Sword.HealingWard.Loop =
 	{
 		type = "dota_update_default"
 		volume = 0.500000
@@ -172,13 +168,13 @@
 		volume_fade_in = 1.000000
 		volume_fade_out = 1.000000
 		distance_max = 2000.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/healing_ward_loop.vsnd",
 		]
 		vsnd_duration = 4.133764
 	}
-	Hero_Abyss_Sword.HealingWard.Stop = 
+	Hero_Abyss_Sword.HealingWard.Stop =
 	{
 		type = "dota_update_default"
 		volume = 1.000000
@@ -186,13 +182,13 @@
 		soundlevel = 81.000000
 		mixgroup = "Weapons"
 		spread_radius = 300.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/healing_ward_stop.vsnd",
 		]
 		vsnd_duration = 2.047710
 	}
-	Hero_Abyss_Sword.OmniSlash = 
+	Hero_Abyss_Sword.OmniSlash =
 	{
 		type = "dota_update_default"
 		volume = 1.000000
@@ -202,14 +198,14 @@
 		soundlevel = 81.000000
 		mixgroup = "Weapons"
 		spread_radius = 600.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/omnislash_attack1.vsnd",
 			"sounds/weapons/hero/juggernaut/omnislash_attack2.vsnd",
 		]
 		vsnd_duration = 3.334354
 	}
-	Hero_Abyss_Sword.SwiftSlash = 
+	Hero_Abyss_Sword.SwiftSlash =
 	{
 		type = "dota_src1_3d"
 		volume = 1.000000
@@ -220,7 +216,7 @@
 		mixgroup = "Weapons"
 		distance_max = 2500.000000
 		event_type = 1.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/shared/small_blade/ring01.vsnd",
 			"sounds/weapons/hero/shared/small_blade/ring02.vsnd",
@@ -228,7 +224,7 @@
 		]
 		vsnd_duration = 0.596961
 	}
-	Hero_Abyss_Sword.OmniSlash.Damage = 
+	Hero_Abyss_Sword.OmniSlash.Damage =
 	{
 		type = "dota_update_default"
 		volume_rand_min = -0.149902
@@ -243,7 +239,7 @@
 		distance_max = 2500.000000
 		soundevent_layer2 = "Hero_Juggernaut.Attack.Ring"
 		soundevent_layer2_on = 1.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/attack01.vsnd",
 			"sounds/weapons/hero/juggernaut/attack02.vsnd",
@@ -251,7 +247,7 @@
 		]
 		vsnd_duration = 0.536372
 	}
-	Hero_Abyss_Sword.Footsteps = 
+	Hero_Abyss_Sword.Footsteps =
 	{
 		type = "dota_src1_3d_footsteps"
 		volume_rand_min = -0.099976
@@ -263,7 +259,7 @@
 		soundlevel = 72.000000
 		distance_max = 2000.000000
 		event_type = 4.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/physics/footsteps/hero/shared/general01.vsnd",
 			"sounds/physics/footsteps/hero/shared/general02.vsnd",
@@ -275,7 +271,7 @@
 		]
 		vsnd_duration = 0.453787
 	}
-	Hero_Abyss_Sword.Impact = 
+	Hero_Abyss_Sword.Impact =
 	{
 		type = "dota_src1_3d"
 		volume = 0.349854
@@ -283,7 +279,7 @@
 		soundlevel = 75.000000
 		distance_max = 2000.000000
 		event_type = 4.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/physics/deaths/common/body_impact_light_01.vsnd",
 			"sounds/physics/deaths/common/body_impact_light_02.vsnd",
@@ -292,7 +288,7 @@
 		]
 		vsnd_duration = 0.282676
 	}
-	Hero_Abyss_Sword.idle = 
+	Hero_Abyss_Sword.idle =
 	{
 		type = "dota_src1_3d"
 		volume = 0.500000
@@ -302,13 +298,13 @@
 		soundlevel = 72.000000
 		distance_max = 1500.000000
 		limiter_on = 0.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/misc/idles/idle_jugger.vsnd",
 		]
 		vsnd_duration = 0.627755
 	}
-	Hero_Abyss_Sword.Taunt.Spin = 
+	Hero_Abyss_Sword.Taunt.Spin =
 	{
 		type = "dota_src1_3d"
 		volume = 1.000000
@@ -316,13 +312,13 @@
 		soundlevel = 75.000000
 		distance_max = 2000.000000
 		limiter_on = 0.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/misc/idles/idle_troll_spin.vsnd",
 		]
 		vsnd_duration = 0.468685
 	}
-	Hero_Abyss_Sword.Taunt.Impact = 
+	Hero_Abyss_Sword.Taunt.Impact =
 	{
 		type = "dota_src1_3d_footsteps"
 		volume = 1.000000
@@ -332,7 +328,7 @@
 		soundlevel = 72.000000
 		distance_max = 2000.000000
 		event_type = 4.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/physics/footsteps/hero/shared/general01.vsnd",
 			"sounds/physics/footsteps/hero/shared/general02.vsnd",
@@ -344,7 +340,7 @@
 		]
 		vsnd_duration = 0.453787
 	}
-	Hero_Abyss_Sword.FortunesTout.Cast = 
+	Hero_Abyss_Sword.FortunesTout.Cast =
 	{
 		type = "dota_update_default"
 		volume = 1.000000
@@ -356,13 +352,13 @@
 		spread_radius = 600.000000
 		soundevent_layer2 = "Hero_Juggernaut.FortunesTout.Cast.Layer"
 		soundevent_layer2_on = 1.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/healing_ward_cast.vsnd",
 		]
 		vsnd_duration = 2.510862
 	}
-	Hero_Abyss_Sword.FortunesTout.Cast.Layer = 
+	Hero_Abyss_Sword.FortunesTout.Cast.Layer =
 	{
 		type = "dota_update_default"
 		volume = 0.800000
@@ -372,13 +368,13 @@
 		soundlevel = 75.000000
 		mixgroup = "Weapons"
 		spread_radius = 300.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/kitteh.vsnd",
 		]
 		vsnd_duration = 1.184399
 	}
-	Hero_Abyss_Sword.FortunesTout.Loop = 
+	Hero_Abyss_Sword.FortunesTout.Loop =
 	{
 		type = "dota_update_default"
 		volume = 0.500000
@@ -388,13 +384,13 @@
 		volume_fade_in = 1.000000
 		volume_fade_out = 1.000000
 		distance_max = 2000.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/fortunes_tout_loop.vsnd",
 		]
 		vsnd_duration = 4.133764
 	}
-	Hero_Abyss_Sword.FortunesTout.Stop = 
+	Hero_Abyss_Sword.FortunesTout.Stop =
 	{
 		type = "dota_update_default"
 		volume = 1.000000
@@ -404,13 +400,13 @@
 		spread_radius = 300.000000
 		soundevent_layer2 = "Hero_Juggernaut.FortunesTout.Stop.Layer"
 		soundevent_layer2_on = 1.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/healing_ward_stop.vsnd",
 		]
 		vsnd_duration = 2.047710
 	}
-	Hero_Abyss_Sword.FortunesTout.Stop.Layer = 
+	Hero_Abyss_Sword.FortunesTout.Stop.Layer =
 	{
 		type = "dota_update_default"
 		volume = 1.000000
@@ -418,13 +414,13 @@
 		soundlevel = 81.000000
 		mixgroup = "Weapons"
 		spread_radius = 300.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/kitteh_bye.vsnd",
 		]
 		vsnd_duration = 3.255011
 	}
-	Hero_Abyss_Sword.SwordQi.Cast = 
+	Hero_Abyss_Sword.SwordQi.Cast =
 	{
 		type = "dota_src1_3d"
 		volume = 3.000000
@@ -434,7 +430,7 @@
 		soundlevel = 72.000000
 		distance_max = 1500.000000
 		event_type = 1.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/dragon_knight/sword_swing1.vsnd",
 			"sounds/weapons/hero/dragon_knight/sword_swing2.vsnd",
@@ -442,7 +438,7 @@
 		]
 		vsnd_duration = 0.615420
 	}
-	Hero_Abyss_Sword.HiddenSharp.Cast = 
+	Hero_Abyss_Sword.HiddenSharp.Cast =
 	{
 		type = "dota_update_default"
 		volume = 1.000000
@@ -452,13 +448,13 @@
 		soundlevel = 87.000000
 		mixgroup = "Weapons"
 		spread_radius = 600.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/items/black_king_bar.vsnd",
 		]
 		vsnd_duration = 3.884853
 	}
-	Hero_Abyss_Sword.OutOfSheath.Shard = 
+	Hero_Abyss_Sword.OutOfSheath.Shard =
 	{
 		type = "dota_update_default"
 		volume = 0.750000
@@ -469,13 +465,13 @@
 		mixgroup = "Weapons"
 		soundevent_layer2 = "Hero_QueenOfPain.Blink_in.Layer"
 		soundevent_layer2_on = 1.000000
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/queenofpain/blink_in.vsnd",
 		]
 		vsnd_duration = 3.462018
 	}
-	Hero_Abyss_Sword.OutOfSheath.Impact = 
+	Hero_Abyss_Sword.OutOfSheath.Impact =
 	{
 		type = "dota_src1_3d"
 		volume_rand_min = -0.149902
@@ -487,7 +483,7 @@
 		soundlevel = 81.000000
 		distance_max = 2500.000000
 		mixgroup = "Weapons"
-		vsnd_files = 
+		vsnd_files =
 		[
 			"sounds/weapons/hero/juggernaut/sword_swing_special.vsnd",
 		]

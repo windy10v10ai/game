@@ -32,7 +32,6 @@ function Precache( context )
 	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_saber.vsndevts", context)
 	PrecacheResource( "soundfile", "soundevents/yukari_yakumo.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/hero_themes.vsndevts", context )
-
 end
 
 function AIGameMode:InitGameMode()
@@ -90,6 +89,7 @@ function AIGameMode:InitEvents()
 	CustomGameEventManager:RegisterListener("set_unit_share_mask", function(_, keys) return AIGameMode:SetUnitShareMask(keys) end)
 	-- 选择道具
 	CustomGameEventManager:RegisterListener("item_choice_made", Dynamic_Wrap(AIGameMode, "FinishItemPick"))
+	CustomGameEventManager:RegisterListener("item_choice_shuffle", Dynamic_Wrap(AIGameMode, "ItemChoiceShuffle"))
 end
 
 
@@ -310,6 +310,6 @@ end
 function AIGameMode:RewardFilterByKill(teamKill, playerKill, teamCount)
 	local rewardMulti = 1
 	if teamKill < 10 then return rewardMulti end
-	rewardMulti = 1 - playerKill/teamKill + 1/teamCount
+	rewardMulti = (1 - playerKill/teamKill + 1/teamCount) ^ 2
 	return rewardMulti
 end

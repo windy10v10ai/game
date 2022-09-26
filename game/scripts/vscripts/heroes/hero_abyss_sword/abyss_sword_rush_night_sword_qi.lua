@@ -4,7 +4,7 @@ LinkLuaModifier("modifier_abyss_sword_rush_night_sword_qi_enemy", "heroes/hero_a
 abyss_sword_rush_night_sword_qi = abyss_sword_rush_night_sword_qi or class({})
 modifier_abyss_sword_rush_night_sword_qi = modifier_abyss_sword_rush_night_sword_qi or class({})
 modifier_abyss_sword_rush_night_sword_qi_spell = modifier_abyss_sword_rush_night_sword_qi_spell or class({})
-modifier_abyss_sword_rush_night_sword_qi_enemy = modifier_abyss_sword_rush_night_sword_qi_spell or class({})
+modifier_abyss_sword_rush_night_sword_qi_enemy = modifier_abyss_sword_rush_night_sword_qi_enemy or class({})
 
 function abyss_sword_rush_night_sword_qi:GetCastRange()
     return self:GetSpecialValueFor("length")
@@ -14,8 +14,10 @@ function abyss_sword_rush_night_sword_qi:OnProjectileHit(target,location)
     local caster = self:GetCaster()
     if caster:HasModifier("modifier_abyss_sword_rush_night_sword_qi_spell") then
         caster:AddNewModifier(caster, self, "modifier_abyss_sword_rush_night_sword_qi", {})
+        caster:AddNewModifier(caster, self, "modifier_tidehunter_anchor_smash_caster", {})
         caster:PerformAttack(target, true, true, true, true, false, false, true)
         caster:RemoveModifierByName("modifier_abyss_sword_rush_night_sword_qi")
+        caster:RemoveModifierByName("modifier_tidehunter_anchor_smash_caster")
     else
         if not target then return end
         if target:HasModifier("modifier_abyss_sword_rush_night_sword_qi_enemy") then return end

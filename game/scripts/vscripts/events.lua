@@ -132,12 +132,14 @@ function AIGameMode:InitHeroSelection()
 		self.tIfChangeHeroList = {}
 		-- 是否选择了物品
 		self.tIfItemChosen = {}
+		self.tIfItemChooseInited = {}
 		for i=0, (DOTA_MAX_TEAM_PLAYERS - 1) do
 			if PlayerResource:GetConnectionState(i) ~= DOTA_CONNECTION_STATE_UNKNOWN then
 				-- set human player list
 				self.tHumanPlayerList[i] = true
-				self.tIfItemChosen[i] = false
 				self.tIfChangeHeroList[i] = false
+				self.tIfItemChosen[i] = false
+				self.tIfItemChooseInited[i] = false
 				-- set start gold
 				PlayerResource:SetGold(i, (self.iStartingGoldPlayer-600),true)
 			end
@@ -535,6 +537,11 @@ function HeroKilled(keys)
 		fRespawnTime = fRespawnTime+hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel()*10
 	end
 
+	-- 会员减少5s复活时间
+	if Member:IsMember(PlayerResource:GetSteamAccountID(playerId)) then
+		fRespawnTime = fRespawnTime - 5
+	end
+
 	-- 复活时间至少1s
 	if fRespawnTime < 1 then
 		fRespawnTime = 1
@@ -655,8 +662,9 @@ function AIGameMode:OnNPCSpawned(keys)
 		end
 
 		-- choose item 玩家抽选物品
-		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] then
+		if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] and not self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] then
 			self:SpecialItemAdd(hEntity)
+			self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] = true
 		end
 
 		-- Bots modifier 机器人AI脚本
@@ -845,16 +853,18 @@ function AIGameMode:OnPlayerChat( event )
 			hHero:AddItemByName('item_aghanims_shard')
 			return
 		end
+		if sChatMsg:find( '^-item$' ) then
+			self.tIfItemChosen[iPlayerID] = false
+			self.tIfItemChooseInited[iPlayerID] = false
+			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+			self:SpecialItemAdd(hHero)
+			return
+		end
+
 	end
 
-	if self.DebugMode or Member:IsMember(steamAccountID) then
+	if Member:IsMember(steamAccountID) then
 		local pszHeroClass
-		if sChatMsg:find( '-沉渊之剑' ) then
-			pszHeroClass = "npc_dota_hero_visage"
-		end
-		if sChatMsg:find( '-AbyssSword' ) then
-			pszHeroClass = "npc_dota_hero_visage"
-		end
 
 		if sChatMsg:find( '-超级赛亚人' ) then
 			pszHeroClass = "npc_dota_hero_chen"
@@ -873,35 +883,14 @@ function AIGameMode:OnPlayerChat( event )
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
 			self.tIfItemChosen[iPlayerID] = false
+			self.tIfItemChooseInited[iPlayerID] = false
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
-			return
-		end
-	end
-	if developerSteamAccountID[steamAccountID] then
-		local pszHeroClass
-		if sChatMsg:find( '-远古是我爹' ) then
-			pszHeroClass = "npc_dota_hero_clinkz"
-		end
-		if pszHeroClass ~= nil then
-			if self.tIfChangeHeroList[iPlayerID] then return end
-			self.tIfChangeHeroList[iPlayerID] = true
-			self.tIfItemChosen[iPlayerID] = false
-			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
-			GameRules:SendCustomMessage(
-				"号外号外！"..developerSteamAccountID[steamAccountID].."这个吊毛又要玩小骷髅啦，大家快去抢他远古",
-				DOTA_TEAM_GOODGUYS,
-				0
-			)
 			return
 		end
 	end
 	if luoshuHeroSteamAccountID[steamAccountID] then
 		local pszHeroClass
-		if sChatMsg:find( '-沉渊之剑' ) then
-			pszHeroClass = "npc_dota_hero_visage"
-		end
 		if sChatMsg:find( '-超级赛亚人' ) then
 			pszHeroClass = "npc_dota_hero_chen"
 		end
@@ -909,6 +898,7 @@ function AIGameMode:OnPlayerChat( event )
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
 			self.tIfItemChosen[iPlayerID] = false
+			self.tIfItemChooseInited[iPlayerID] = false
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
 			return

@@ -82,7 +82,8 @@ function artoria_strike_air:OnProjectileHit_ExtraData(target, vLocation, tData)
 
 	if caster:HasModifier("modifier_item_aghanims_shard") then
 		-- perform attack target
-		self:GetCaster():PerformAttack (
+        caster:AddNewModifier(caster, self, "modifier_tidehunter_anchor_smash_caster", {})
+		caster:PerformAttack (
             target,
             true,
             true,
@@ -91,6 +92,7 @@ function artoria_strike_air:OnProjectileHit_ExtraData(target, vLocation, tData)
             false,
             false,
             true)
+        caster:RemoveModifierByName("modifier_tidehunter_anchor_smash_caster")
 	end
 
 	if target:IsMagicImmune() then
