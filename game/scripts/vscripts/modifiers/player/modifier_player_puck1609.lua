@@ -9,6 +9,7 @@ function modifier_player_puck1609:DeclareFunctions()
 	if AIGameMode.DebugMode then
 		return {
 			MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+			MODIFIER_PROPERTY_MANACOST_PERCENTAGE,
 		}
 	end
 	return {
@@ -35,6 +36,11 @@ function modifier_player_puck1609:CheckState()
 	return {
 		[MODIFIER_STATE_CANNOT_MISS] = true,
 	}
+end
+
+-- 无限火力测试
+function modifier_player_puck1609:GetModifierPercentageManacost()
+	return 80
 end
 
 function modifier_player_puck1609:GetModifierPercentageCooldown()
