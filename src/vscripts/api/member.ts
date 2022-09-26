@@ -12,12 +12,24 @@ export class Member {
 	private MemberList: MemberDto[] = [];
 	constructor() {
 		if (IsInToolsMode()) {
-			// TODO add developer
+			const developSteamAccountIds = [
+				136407523, 1194383041, 143575444, 314757913, 385130282, 967052298, 1159610111, 353885092, 245559423, 916506173];
+
+			for (const steamId of developSteamAccountIds) {
+				this.MemberList.push({
+					steamId: steamId,
+					enable: true,
+					expireDateString: "2099-12-31",
+				});
+			}
 		}
 		print("[Member] constructor in TS");
 	}
 
 	public InitMemberInfo() {
+		if (IsInToolsMode()) {
+			this.saveMemberToNetTable();
+		}
 		// get IsValidPlayer player's steamIds
 		const steamIds = [];
 		for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
@@ -32,19 +44,23 @@ export class Member {
 			DeepPrintTable(this.MemberList);
 
 			// set member to member table
-			for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
-				if (PlayerResource.IsValidPlayer(i)) {
-					// 32bit steamId
-					const steamId = PlayerResource.GetSteamAccountID(i);
-					const member = this.MemberList.find(m => m.steamId == steamId);
-					if (member) {
-						// set key as 64bit steamId
-						// @ts-ignore
-						CustomNetTables.SetTableValue("member_table", PlayerResource.GetSteamID(i).toString(), member);
-					}
+			this.saveMemberToNetTable();
+		});
+	}
+
+	private saveMemberToNetTable() {
+		for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
+			if (PlayerResource.IsValidPlayer(i)) {
+				// 32bit steamId
+				const steamId = PlayerResource.GetSteamAccountID(i);
+				const member = this.MemberList.find(m => m.steamId == steamId);
+				if (member) {
+					// set key as 64bit steamId
+					// @ts-ignore
+					CustomNetTables.SetTableValue("member_table", PlayerResource.GetSteamID(i).toString(), member);
 				}
 			}
-		});
+		}
 	}
 
 	public IsMember(steamId: number) {

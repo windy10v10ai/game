@@ -1,4 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-game/scripts/vscripts/web/*.lua text eol=lf
+game/scripts/vscripts/api/*.lua text eol=lf
+game/scripts/vscripts/lualib_bundle.lua text eol=lf

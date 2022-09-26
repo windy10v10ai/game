@@ -1,18 +1,39 @@
 (function () {
+	$.Msg("item_choice.js loaded");
 	GameEvents.Subscribe("item_choice", SetItemChoice);
+	const member = CustomNetTables.GetTableValue("member_table", Game.GetLocalPlayerInfo().player_steamid);
+	const button = $("#item_choice_shuffle");
+	if (member && member.enable) {
+		button.SetHasClass("IsEnable", true);
+		button.SetPanelEvent('onactivate', OnShuffleButtonPressed);
+        button.SetPanelEvent('onmouseover',() => {
+            $.DispatchEvent("DOTAShowTextTooltip", button, $.Localize('#item_choice_shuffle'));
+        })
+	} else {
+		button.SetPanelEvent('onactivate',() => {
+            $.DispatchEvent('ExternalBrowserGoToURL', $.Localize('#player_member_ship_url'))
+        })
+        button.SetPanelEvent('onmouseover',() => {
+            $.DispatchEvent("DOTAShowTextTooltip", button, $.Localize('#item_choice_shuffle_not_member'));
+        })
+	}
+	button.SetPanelEvent('onmouseout',() => {
+		$.DispatchEvent("DOTAHideTextTooltip");
+	})
 })();
 
+var loadDelayTime = 1;
 function SetItemChoice(keys) {
+	$.Schedule(loadDelayTime, () => ShowItemChoice(keys));
+	loadDelayTime = 0;
+}
+
+function ShowItemChoice(keys) {
     $.Msg("ShowItemChoice");
-    $.Msg(keys);
 	for (var i = 1; i <= 4; i++) {
 		$('#item_choice_' + i).itemname = keys[i]
 	}
-
-	$.Schedule(1.5, ShowItemChoice);
-}
-
-function ShowItemChoice() {
+	$('#remaining_time').value = 300;
 	$('#item_choice_container').style.visibility = 'visible';
 	$.Schedule(0.03, TickItemTime);
 }
@@ -40,6 +61,20 @@ function MakeItemChoice(slot) {
 	$('#remaining_time').value = 300;
 	$('#remaining_time').style.width = '100%';
 	$('#item_choice_container').style.visibility = 'collapse';
+}
+
+function OnShuffleButtonPressed() {
+	$.Msg("OnShuffleButtonPressed");
+	const button = $("#item_choice_shuffle");
+	button.enabled = false;
+	button.SetHasClass("IsEnable", false);
+	button.SetPanelEvent('onmouseover',() => {
+		$.DispatchEvent("DOTAShowTextTooltip", button, $.Localize('#item_choice_shuffle_used'));
+	})
+	const member = CustomNetTables.GetTableValue("member_table", Game.GetLocalPlayerInfo().player_steamid);
+	if (member && member.enable) {
+		GameEvents.SendCustomGameEventToServer("item_choice_shuffle", {});
+	}
 }
 
 // Utility functions

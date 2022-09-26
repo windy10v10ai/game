@@ -144,11 +144,11 @@ function AIGameMode:FinishItemPick(keys)
 	-- Add the item to the inventory and broadcast
 	owner:AddItemByName(keys.item)
 	AIGameMode.tIfItemChosen[keys.PlayerID] = true
-	-- EmitSoundOnClient("powerup_04", owner)
-	-- local item_drop =
-	-- {
-	-- 	hero_id = hero,
-	-- 	dropped_item = keys.item
-	-- }
-	-- CustomGameEventManager:Send_ServerToAllClients( "item_drop", item_drop)
+end
+
+function AIGameMode:ItemChoiceShuffle(keys)
+	if Member:IsMember(PlayerResource:GetSteamAccountID(keys.PlayerID)) then
+		local owner = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
+		AIGameMode:SpecialItemAdd(owner)
+	end
 end
