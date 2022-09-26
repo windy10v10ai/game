@@ -41,18 +41,18 @@ end
 
 -- 无限火力测试
 function modifier_player_puck1609:GetModifierBaseAttackTimeConstant()
-	return 1
+	return 0.7
 end
 
 -- 无限火力测试
 function modifier_player_puck1609:GetModifierPercentageManacost()
-	return 80
+	return 90
 end
 
 function modifier_player_puck1609:GetModifierPercentageCooldown()
 	-- 无限火力测试
 	if AIGameMode.DebugMode then
-		return 80
+		return 90
 	end
 	return 40
 end
