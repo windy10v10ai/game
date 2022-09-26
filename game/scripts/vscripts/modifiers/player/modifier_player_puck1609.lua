@@ -10,6 +10,7 @@ function modifier_player_puck1609:DeclareFunctions()
 		return {
 			MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
 			MODIFIER_PROPERTY_MANACOST_PERCENTAGE,
+			MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
 		}
 	end
 	return {
@@ -36,6 +37,11 @@ function modifier_player_puck1609:CheckState()
 	return {
 		[MODIFIER_STATE_CANNOT_MISS] = true,
 	}
+end
+
+-- 无限火力测试
+function modifier_player_puck1609:GetModifierBaseAttackTimeConstant()
+	return 1
 end
 
 -- 无限火力测试
