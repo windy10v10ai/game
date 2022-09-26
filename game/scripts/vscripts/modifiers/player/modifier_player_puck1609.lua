@@ -6,13 +6,6 @@ function modifier_player_puck1609:GetTexture() return "player/puck1609" end
 function modifier_player_puck1609:IsHidden() return true end
 
 function modifier_player_puck1609:DeclareFunctions()
-	if AIGameMode.DebugMode then
-		return {
-			MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
-			MODIFIER_PROPERTY_MANACOST_PERCENTAGE,
-			MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
-		}
-	end
 	return {
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
 		MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
@@ -39,21 +32,7 @@ function modifier_player_puck1609:CheckState()
 	}
 end
 
--- 无限火力测试
-function modifier_player_puck1609:GetModifierBaseAttackTimeConstant()
-	return 0.7
-end
-
--- 无限火力测试
-function modifier_player_puck1609:GetModifierPercentageManacost()
-	return 90
-end
-
 function modifier_player_puck1609:GetModifierPercentageCooldown()
-	-- 无限火力测试
-	if AIGameMode.DebugMode then
-		return 90
-	end
 	return 40
 end
 
