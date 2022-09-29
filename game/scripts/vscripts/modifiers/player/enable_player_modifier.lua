@@ -237,6 +237,10 @@ local xibaibaiSteamAccountID = Set {
 	-- 爱发电用户_XfbN/洗白白
 	186715813,
 }
+local dacapoSteamAccountID = Set {
+	-- 爱发电用户_3hwJ丨Capo
+	136373823,
+}
 -- 称号属性 END
 
 function EnablePlayerModifier(hEntity)
@@ -535,6 +539,12 @@ function EnablePlayerModifier(hEntity)
 	if ekxnSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_ekxn","modifiers/player/modifier_player_ekxn",LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_ekxn",{})
+		LinkLuaModifier("modifier_property_cooldown","modifiers/property/modifier_property_cooldown",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_property_cooldown",{value = 32})
+		LinkLuaModifier("modifier_property_status_resist","modifiers/property/modifier_property_status_resist",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_property_status_resist",{value = 8})
+		LinkLuaModifier("modifier_property_life_steal","modifiers/property/modifier_property_life_steal",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_property_life_steal",{value = 15})
 	end
 	if uh9gSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_uh9g","modifiers/player/modifier_player_uh9g",LUA_MODIFIER_MOTION_NONE)
@@ -543,5 +553,11 @@ function EnablePlayerModifier(hEntity)
 	if xibaibaiSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_xibaibai","modifiers/player/modifier_player_xibaibai",LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_xibaibai",{})
+	end
+	if dacapoSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_dacapo","modifiers/player/modifier_player_dacapo",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dacapo",{})
+		LinkLuaModifier("modifier_property_primary_attribute","modifiers/property/modifier_property_primary_attribute",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_property_primary_attribute",{value = 15})
 	end
 end
