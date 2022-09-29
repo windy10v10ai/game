@@ -860,6 +860,13 @@ function AIGameMode:OnPlayerChat( event )
 			self:SpecialItemAdd(hHero)
 			return
 		end
+		if sChatMsg:find( '^-playerinfo$' ) then
+			print('playerid:')
+			print(iPlayerID)
+			print('steamid:')
+			print(PlayerResource:GetSteamAccountID(iPlayerID))
+			return
+		end
 
 	end
 

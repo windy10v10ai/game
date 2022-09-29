@@ -138,7 +138,7 @@ function AIGameMode:PreGameOptions()
 
     local gameMode = GameRules:GetGameModeEntity()
     gameMode:SetModifyGoldFilter(Dynamic_Wrap(AIGameMode, "FilterGold"), self)
-    GameRules:GetGameModeEntity():SetModifyExperienceFilter(Dynamic_Wrap(AIGameMode, "FilterXP"), self)
+    gameMode:SetModifyExperienceFilter(Dynamic_Wrap(AIGameMode, "FilterXP"), self)
 
     -- 神符
     gameMode:SetUseDefaultDOTARuneSpawnLogic(true)
@@ -152,6 +152,7 @@ function AIGameMode:PreGameOptions()
     if self.bSameHeroSelection == 1 then
         GameRules:SetSameHeroSelectionEnabled(true)
     end
+
     if self.iMaxLevel ~= 30 then
         local tLevelRequire = {
             0,
@@ -249,6 +250,16 @@ function AIGameMode:PreGameOptions()
 
     self.PreGameOptionsSet = true
 
+    self.ApplyTestOptions()
+
+end
+
+-- 个性化测试环境
+function AIGameMode:ApplyTestOptions()
+    if self.DebugMode and PlayerResource:GetSteamAccountID(0) == 245559423 then
+        self.iDesiredRadiant = 2
+        self.iDesiredDire = 2
+    end
 end
 
 ------------------------------------------------------------------
