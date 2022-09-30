@@ -29,10 +29,6 @@
 		soundlevel = 81.000000
 		mixgroup = "BaseAttacks"
 		distance_max = 2500.000000
-		soundevent_layer2 = "Hero_Juggernaut.Attack.Rip"
-		soundevent_layer2_on = 1.000000
-		soundevent_layer3 = "Hero_Juggernaut.Attack.Ring"
-		soundevent_layer3_on = 1.000000
 		event_type = 1.000000
 		vsnd_files =
 		[
