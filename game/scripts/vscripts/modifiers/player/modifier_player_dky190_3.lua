@@ -9,7 +9,7 @@ function modifier_player_dky190_3:OnCreated()
 	self.agility = 50
 	self.intellect = 50
 	self.iCooldownReduction = 32
-	self.iLifeSteal = 15
+	self.iLifeSteal = 25
 	self.iAttackSpeed = 20
 	self.iArmor = 10
 end

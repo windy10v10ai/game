@@ -865,12 +865,6 @@ function AIGameMode:OnPlayerChat( event )
 
 	if Member:IsMember(steamAccountID) then
 		local pszHeroClass
-		if sChatMsg:find( '-沉渊之剑' ) then
-			pszHeroClass = "npc_dota_hero_visage"
-		end
-		if sChatMsg:find( '-AbyssSword' ) then
-			pszHeroClass = "npc_dota_hero_visage"
-		end
 
 		if sChatMsg:find( '-超级赛亚人' ) then
 			pszHeroClass = "npc_dota_hero_chen"
@@ -895,31 +889,8 @@ function AIGameMode:OnPlayerChat( event )
 			return
 		end
 	end
-	if developerSteamAccountID[steamAccountID] then
-		local pszHeroClass
-		if sChatMsg:find( '-远古是我爹' ) then
-			pszHeroClass = "npc_dota_hero_clinkz"
-		end
-		if pszHeroClass ~= nil then
-			if self.tIfChangeHeroList[iPlayerID] then return end
-			self.tIfChangeHeroList[iPlayerID] = true
-			self.tIfItemChosen[iPlayerID] = false
-			self.tIfItemChooseInited[iPlayerID] = false
-			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
-			GameRules:SendCustomMessage(
-				"号外号外！"..developerSteamAccountID[steamAccountID].."这个吊毛又要玩小骷髅啦，大家快去抢他远古",
-				DOTA_TEAM_GOODGUYS,
-				0
-			)
-			return
-		end
-	end
 	if luoshuHeroSteamAccountID[steamAccountID] then
 		local pszHeroClass
-		if sChatMsg:find( '-沉渊之剑' ) then
-			pszHeroClass = "npc_dota_hero_visage"
-		end
 		if sChatMsg:find( '-超级赛亚人' ) then
 			pszHeroClass = "npc_dota_hero_chen"
 		end

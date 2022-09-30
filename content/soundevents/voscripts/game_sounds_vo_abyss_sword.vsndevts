@@ -3,7 +3,7 @@
 	npc_dota_hero_visage.vo.SwordQi.Cast =
 	{
 		type = "dota_src1_2d"
-		volume = 5.000000
+		volume = 3.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
