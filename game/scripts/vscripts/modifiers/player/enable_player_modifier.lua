@@ -398,6 +398,10 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_luoshu", {})
 		LinkLuaModifier("modifier_player_luoshu_2", "modifiers/player/modifier_player_luoshu_2", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_luoshu_2", {})
+		LinkLuaModifier("modifier_property_movespeed","modifiers/property/modifier_property_movespeed",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_property_movespeed",{value = 200})
+		LinkLuaModifier("modifier_property_movespeed_unlimit","modifiers/property/modifier_property_movespeed_unlimit",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_property_movespeed_unlimit",{})
 	end
 
 	if m5xwSteamAccountID[steamAccountID] then
