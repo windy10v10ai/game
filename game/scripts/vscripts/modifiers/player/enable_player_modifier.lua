@@ -366,6 +366,8 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_qiannian_3", {})
 		LinkLuaModifier("modifier_property_cast_range","modifiers/property/modifier_property_cast_range",LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_property_cast_range",{value = 200})
+		LinkLuaModifier("modifier_property_mana_regen_precent","modifiers/property/modifier_property_mana_regen_precent",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_property_mana_regen_precent",{value = 2})
 	end
 	if feijiSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_feiji", "modifiers/player/modifier_player_feiji", LUA_MODIFIER_MOTION_NONE)
