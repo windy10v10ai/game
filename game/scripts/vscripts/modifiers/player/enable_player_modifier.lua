@@ -244,8 +244,6 @@ local dacapoSteamAccountID = Set {
 local xingguangSteamAccountID = Set {
 	-- QQ星光
 	152852224,
-	-- 测试
-	916506173,
 }
 -- 称号属性 END
 
