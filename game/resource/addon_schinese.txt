@@ -313,7 +313,7 @@
 		"DOTA_Tooltip_modifier_player_uh9g"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_xibaibai"					"<font color='#FFCC66'>★ 能者多牢 ★</font>"
 		"DOTA_Tooltip_modifier_player_dacapo"					"<font color='#FFCC66'>★ Da丨Capo  ★</font>"
-		"DOTA_Tooltip_modifier_icon_plus"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_xingguang"				"<font color='#FFCC66'>★ 星光灿烂 ★</font>"
 
 
 
