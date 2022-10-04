@@ -244,6 +244,8 @@ local dacapoSteamAccountID = Set {
 local xingguangSteamAccountID = Set {
 	-- QQ星光
 	152852224,
+	-- 测试
+	916506173,
 }
 -- 称号属性 END
 
@@ -573,8 +575,8 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_property_primary_attribute",{value = 15})
 	end
 	if xingguangSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_icon_plus","modifiers/player/modifier_icon_plus",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_icon_plus",{})
+		LinkLuaModifier("modifier_player_xingguang","modifiers/player/modifier_player_xingguang",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_xingguang",{})
 		LinkLuaModifier("modifier_property_movespeed","modifiers/property/modifier_property_movespeed",LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_property_movespeed",{value = 200})
 		LinkLuaModifier("modifier_property_movespeed_unlimit","modifiers/property/modifier_property_movespeed_unlimit",LUA_MODIFIER_MOTION_NONE)
