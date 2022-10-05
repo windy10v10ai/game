@@ -7,10 +7,10 @@ fix #
 
 AI添加新英雄 美杜莎。
 优化火女技能施法。
-修正一些bug。
+一些bug修正和平衡性改动。
 
 [b]Gameplay update v1.44[/b]
 
 Add medusa to bots pool.
 Improve lina ability usage.
-Fixed some bug.
+Fixed some bug and balance.
