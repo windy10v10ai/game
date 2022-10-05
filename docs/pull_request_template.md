@@ -1,16 +1,16 @@
+## 修改的Issues
+fix #
 
-## 简要的概括修改内容
+## Releas Note
 
-#issueId
+[b]游戏性更新 v1.44[/b]
 
-## Releas Note Template
+AI添加新英雄 美杜莎。
+优化火女技能施法。
+修正一些bug。
 
-[b]游戏性更新 v1.37[/b]
+[b]Gameplay update v1.44[/b]
 
-添加新道具。
-修正一些技能的数值错误。
-
-[b]Gameplay update v1.37[/b]
-
-Add new items.
-Fix some ability value error.
+Add medusa to bots pool.
+Improve lina ability usage.
+Fixed some bug.
