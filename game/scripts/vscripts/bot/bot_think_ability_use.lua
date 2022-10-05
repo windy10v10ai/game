@@ -59,6 +59,19 @@ function BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility, hp
 	return false
 end
 
+function BotAbilityThink:CastAbilityOnEnemyTargetWithLessHp(hHero, hAbility, hpPercent)
+	if hAbility:IsFullyCastable() then
+		local iRange = hAbility:GetCastRange()
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		for i = 1, #tAllHeroes do
+			if tAllHeroes[i]:GetHealthPercent() <= hpPercent then
+				hHero:CastAbilityOnTarget(tAllHeroes[i], hAbility, hHero:GetPlayerOwnerID())
+				return true
+			end
+		end
+	end
+	return false
+end
 --------------------
 -- Ability Think
 --------------------
@@ -100,6 +113,8 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_Meepo(hHero)
 	elseif sHeroName == "npc_dota_hero_chaos_knight" then
 		self:ThinkUseAbility_ChaosKnight(hHero)
+	elseif sHeroName == "npc_dota_hero_lina" then
+		self:ThinkUseAbility_Lina(hHero)
 	end
 end
 
@@ -435,6 +450,7 @@ function BotAbilityThink:ThinkUseAbility_ChaosKnight(hHero)
 		-- 范围内有1人以上时施法
 		if #tAllHeroes >= 1 then
 			hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
+			return true
 		end
 	end
 end
@@ -484,6 +500,23 @@ function BotAbilityThink:ThinkUseAbility_Medusa(hHero)
 		-- 范围内有3人以上时施法
 		if #tAllHeroes >= 3 then
 			hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
+			return true
 		end
 	end
+end
+
+function BotAbilityThink:ThinkUseAbility_Lina(hHero)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
+	local hAbility6 = hHero:GetAbilityByIndex(5)
+
+	if hAbility4:IsFullyCastable() then
+		local iRange = 900
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		-- 范围内有1人以上时施法
+		if #tAllHeroes >= 1 then
+			hHero:CastAbilityNoTarget(hAbility4, hHero:GetPlayerOwnerID())
+			return true
+		end
+	end
+	if self:CastAbilityOnEnemyTargetWithLessHp(hHero, hAbility6, 80) then return true end
 end

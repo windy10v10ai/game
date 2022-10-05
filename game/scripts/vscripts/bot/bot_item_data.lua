@@ -1382,6 +1382,9 @@ tBotItemData.sellItemCommonList = {
 	'item_recipe_ring_of_basilius',
 	'item_ring_of_basilius',
 
+	-- 草鞋
+	'item_boots',
+
 	-- 王冠
 	'item_crown',
 	-- 护腕
@@ -1393,8 +1396,6 @@ tBotItemData.sellItemCommonList = {
 	-- 腐蚀之球
 	'item_orb_of_corrosion',
 
-	-- 草鞋
-	'item_boots',
 	-- 相位
 	'item_phase_boots',
 	-- 动力鞋
