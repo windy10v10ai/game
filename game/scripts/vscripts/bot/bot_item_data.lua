@@ -497,6 +497,33 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_despotic',
 		'item_satanic',
 	},
+	npc_dota_hero_medusa = {
+		'item_magic_wand',
+		'item_boots',
+		'item_wraith_band',
+		'item_wraith_band',
+		'item_wraith_band',
+		'item_power_treads',
+		'item_mask_of_madness',
+		'item_dragon_lance',
+		'item_aghanims_shard',
+		'item_ultimate_scepter',
+		'item_wings_of_haste',
+		'item_skadi',
+		'item_recipe_dragon_lance_plus',
+		'item_eagle',
+		'item_recipe_dragon_lance_pro_max',
+		'item_hurricane_pike',
+		'item_recipe_hurricane_pike_2',
+		'item_butterfly',
+		'item_manta_1',
+		'item_ultimate_scepter_2',
+		'item_infernal_desolator',
+		'item_black_king_bar_2',
+		'item_lesser_crit',
+		'item_recipe_wasp_callous',
+		'item_wasp_despotic',
+	},
 	npc_dota_hero_meepo = {
 		'item_magic_wand',
 		'item_boots',
@@ -1202,6 +1229,9 @@ tBotItemData.sellItemList = {
 		'item_mask_of_madness',
 		'item_sange_and_yasha',
 	},
+	npc_dota_hero_medusa = {
+		'item_mask_of_madness',
+	},
 	npc_dota_hero_meepo = {
 		'item_wraith_band',
 		'item_power_treads',
@@ -1640,6 +1670,9 @@ tBotItemData.addNeutralItemList = {
 		'item_timeless_relic',
 	},
 	npc_dota_hero_luna = {
+		'item_ballista',
+	},
+	npc_dota_hero_medusa = {
 		'item_ballista',
 	},
 	npc_dota_hero_meepo = {

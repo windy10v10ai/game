@@ -6,7 +6,6 @@ local tBotNameList = {
 	--"npc_dota_hero_spirit_breaker", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_silencer", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_mirana", // 不会放技能，只会物品和A人
-	--"npc_dota_hero_medusa", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_furion", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_huskar", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_batrider",
@@ -41,6 +40,7 @@ local tBotNameList = {
 	"npc_dota_hero_lina",
 	"npc_dota_hero_lion",
 	"npc_dota_hero_luna",
+	"npc_dota_hero_medusa",
 	"npc_dota_hero_meepo",
 	"npc_dota_hero_nevermore",
 	"npc_dota_hero_necrolyte",
