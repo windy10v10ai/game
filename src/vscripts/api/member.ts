@@ -1,5 +1,5 @@
 
-import { ApiClient } from "./api_client";
+import { ApiClient, HttpMethod } from "./api_client";
 
 class MemberDto {
 	steamId!: number;
@@ -15,13 +15,13 @@ export class Member {
 			const developSteamAccountIds = [
 				136407523, 1194383041, 143575444, 314757913, 385130282, 967052298, 1159610111, 353885092, 245559423, 916506173];
 
-			for (const steamId of developSteamAccountIds) {
-				this.MemberList.push({
-					steamId: steamId,
-					enable: true,
-					expireDateString: "2099-12-31",
-				});
-			}
+			// for (const steamId of developSteamAccountIds) {
+			// 	this.MemberList.push({
+			// 		steamId: steamId,
+			// 		enable: true,
+			// 		expireDateString: "2099-12-31",
+			// 	});
+			// }
 		}
 		print("[Member] constructor in TS");
 	}
@@ -37,8 +37,10 @@ export class Member {
 				steamIds.push(PlayerResource.GetSteamAccountID(i));
 			}
 		}
+		// FIXME remove test get match id
+		const matchId = GameRules.Script_GetMatchID().toString();
 		// get member list from server
-		ApiClient.getWithRetry("/members", { steamIds: steamIds.join(",") }, (data: string) => {
+		ApiClient.sendWithRetry(HttpMethod.GET, "/members", { steamIds: steamIds.join(","), matchId }, null, (data: string) => {
 			print(`[Member] GetMember callback data ${data}`);
 			this.MemberList = json.decode(data)[0] as MemberDto[];
 			DeepPrintTable(this.MemberList);

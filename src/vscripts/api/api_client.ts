@@ -1,4 +1,11 @@
 
+// enum http methods
+export enum HttpMethod {
+	GET = "GET",
+	POST = "POST",
+	PUT = "PUT",
+	DELETE = "DELETE",
+}
 
 export class ApiClient {
 	private static TIMEOUT_SECONDS = 10;
@@ -8,26 +15,24 @@ export class ApiClient {
 		return IsInToolsMode() ? "http://localhost:5000/api" : "https://windy10v10ai.web.app/api"
 	})();
 
-
-	public static get(url: string, params: { [key: string]: string }, callback: (data: string) => void) {
-		print(`[ApiClient] get ${ApiClient.HOST_NAME}${url} with ${json.encode(params)}`);
-		const request = CreateHTTPRequestScriptVM("GET", ApiClient.HOST_NAME + url);
+	public static send(method: HttpMethod, path: string, params: { [key: string]: string } | null, body: Object | null, callback: (data: string) => void) {
+		print(`[ApiClient] ${method} ${ApiClient.HOST_NAME}${path} with params ${json.encode(params)} body ${json.encode(body)}`);
+		const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + path);
 		const key = GetDedicatedServerKeyV2(ApiClient.VERSION);
 
-		// get Script_GetMatchID id
-		const matchId = GameRules.Script_GetMatchID();
-		// set matchId string to params
-		params["matchId"] = matchId.toString();
-		print(`[ApiClient] matchId ${params["matchId"]}`);
-		print(`[ApiClient] key ${key}`);
-		for (const key in params) {
-			request.SetHTTPRequestGetOrPostParameter(key, params[key]);
+		if (params) {
+			for (const key in params) {
+				request.SetHTTPRequestGetOrPostParameter(key, params[key]);
+			}
 		}
-		// set matchId to query
 		request.SetHTTPRequestNetworkActivityTimeout(ApiClient.TIMEOUT_SECONDS);
 		request.SetHTTPRequestHeaderValue("x-api-key", key);
+		if (body) {
+			request.SetHTTPRequestRawPostBody("application/json", json.encode(body));
+		}
 		request.Send((result: CScriptHTTPResponse) => {
-			if (result.StatusCode == 200) {
+			// if 20X
+			if (result.StatusCode >= 200 && result.StatusCode < 300) {
 				callback(result.Body);
 			} else {
 				print(`[ApiClient] get error: ${result.StatusCode}`);
@@ -36,11 +41,10 @@ export class ApiClient {
 		});
 	}
 
-	// retry 3 times if get error
-	public static getWithRetry(url: string, params: { [key: string]: string }, callback: (data: string) => void) {
+	public static sendWithRetry(method: HttpMethod, path: string, params: { [key: string]: string } | null, body: Object | null, callback: (data: string) => void) {
 		let retryCount = 0;
 		const retry = () => {
-			this.get(url, params, (data: string) => {
+			this.send(method, path, params, body, (data: string) => {
 				if (data == "error") {
 					retryCount++;
 					if (retryCount < ApiClient.RETRY_TIMES) {
