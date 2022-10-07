@@ -125,6 +125,10 @@ function BotItemThink:UseActiveItem(hHero)
         return true
     end
 
+    -- 分身斧
+    if BotItemThink:UseItem(tUsableItems, hHero, "item_manta_1") then
+        return true
+    end
     -- item_wasp_despotic
     if BotItemThink:UseItem(tUsableItems, hHero, "item_wasp_despotic") then
         return true

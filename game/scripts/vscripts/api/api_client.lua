@@ -1,28 +1,37 @@
 local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["6"] = 3,["7"] = 3,["8"] = 3,["10"] = 3,["11"] = 12,["12"] = 13,["13"] = 14,["14"] = 15,["15"] = 18,["16"] = 20,["17"] = 21,["18"] = 22,["19"] = 23,["20"] = 24,["22"] = 27,["23"] = 28,["24"] = 29,["25"] = 30,["26"] = 31,["28"] = 33,["29"] = 34,["31"] = 29,["32"] = 12,["33"] = 40,["34"] = 41,["35"] = 42,["36"] = 42,["37"] = 43,["38"] = 43,["39"] = 43,["40"] = 43,["41"] = 44,["42"] = 45,["43"] = 46,["44"] = 47,["45"] = 48,["48"] = 51,["50"] = 43,["51"] = 43,["52"] = 42,["53"] = 55,["54"] = 40,["55"] = 4,["56"] = 5,["57"] = 6,["58"] = 7,["59"] = 8,["60"] = 7});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["6"] = 3,["7"] = 4,["8"] = 5,["9"] = 6,["10"] = 7,["11"] = 10,["12"] = 10,["13"] = 10,["15"] = 10,["16"] = 18,["17"] = 19,["18"] = 20,["19"] = 21,["20"] = 23,["21"] = 24,["22"] = 25,["25"] = 28,["26"] = 29,["27"] = 30,["28"] = 31,["29"] = 31,["30"] = 31,["31"] = 31,["33"] = 33,["34"] = 35,["35"] = 36,["37"] = 38,["38"] = 39,["40"] = 33,["41"] = 18,["42"] = 44,["43"] = 45,["44"] = 46,["45"] = 46,["46"] = 47,["47"] = 47,["48"] = 47,["49"] = 47,["50"] = 47,["51"] = 47,["52"] = 48,["53"] = 49,["54"] = 50,["55"] = 51,["56"] = 52,["59"] = 55,["61"] = 47,["62"] = 47,["63"] = 46,["64"] = 59,["65"] = 44,["66"] = 11,["67"] = 12,["68"] = 13,["69"] = 14,["70"] = 15,["71"] = 14});
 local ____exports = {}
+____exports.HttpMethod = HttpMethod or ({})
+____exports.HttpMethod.GET = "GET"
+____exports.HttpMethod.POST = "POST"
+____exports.HttpMethod.PUT = "PUT"
+____exports.HttpMethod.DELETE = "DELETE"
 ____exports.ApiClient = __TS__Class()
 local ApiClient = ____exports.ApiClient
 ApiClient.name = "ApiClient"
 function ApiClient.prototype.____constructor(self)
 end
-function ApiClient.get(self, url, params, callback)
-    print(((("[ApiClient] get " .. ____exports.ApiClient.HOST_NAME) .. url) .. " with ") .. json.encode(params))
-    local request = CreateHTTPRequestScriptVM("GET", ____exports.ApiClient.HOST_NAME .. url)
-    -- TODO remove later
-    local matchId = GameRules:Script_GetMatchID()
-    params.matchId = tostring(matchId)
-    -- END TODO
-    for key in pairs(params) do
-        request:SetHTTPRequestGetOrPostParameter(key, params[key])
+function ApiClient.send(self, method, path, params, body, callback)
+    print(((((((("[ApiClient] " .. method) .. " ") .. ____exports.ApiClient.HOST_NAME) .. path) .. " with params ") .. json.encode(params)) .. " body ") .. json.encode(body))
+    local request = CreateHTTPRequestScriptVM(method, ____exports.ApiClient.HOST_NAME .. path)
+    local key = GetDedicatedServerKeyV2(____exports.ApiClient.VERSION)
+    if params then
+        for key in pairs(params) do
+            request:SetHTTPRequestGetOrPostParameter(key, params[key])
+        end
     end
     request:SetHTTPRequestNetworkActivityTimeout(____exports.ApiClient.TIMEOUT_SECONDS)
-    local key = GetDedicatedServerKeyV2(____exports.ApiClient.VERSION)
     request:SetHTTPRequestHeaderValue("x-api-key", key)
+    if body then
+        request:SetHTTPRequestRawPostBody(
+            "application/json",
+            json.encode(body)
+        )
+    end
     request:Send(function(result)
-        if result.StatusCode == 200 then
+        if result.StatusCode >= 200 and result.StatusCode < 300 then
             callback(nil, result.Body)
         else
             print("[ApiClient] get error: " .. tostring(result.StatusCode))
@@ -30,13 +39,15 @@ function ApiClient.get(self, url, params, callback)
         end
     end)
 end
-function ApiClient.getWithRetry(self, url, params, callback)
+function ApiClient.sendWithRetry(self, method, path, params, body, callback)
     local retryCount = 0
     local retry
     retry = function()
-        self:get(
-            url,
+        self:send(
+            method,
+            path,
             params,
+            body,
             function(____, data)
                 if data == "error" then
                     retryCount = retryCount + 1

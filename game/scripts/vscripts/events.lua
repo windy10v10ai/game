@@ -6,7 +6,6 @@ local tBotNameList = {
 	--"npc_dota_hero_spirit_breaker", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_silencer", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_mirana", // 不会放技能，只会物品和A人
-	--"npc_dota_hero_medusa", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_furion", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_huskar", // 不会放技能，只会物品和A人
 	--"npc_dota_hero_batrider",
@@ -41,6 +40,7 @@ local tBotNameList = {
 	"npc_dota_hero_lina",
 	"npc_dota_hero_lion",
 	"npc_dota_hero_luna",
+	"npc_dota_hero_medusa",
 	"npc_dota_hero_meepo",
 	"npc_dota_hero_nevermore",
 	"npc_dota_hero_necrolyte",
@@ -263,9 +263,6 @@ function AIGameMode:OnGameStateChanged(keys)
 			AIGameMode:SpawnNeutralCreeps30sec()
 			return 60
 		end)
-
-	elseif state == DOTA_GAMERULES_STATE_POST_GAME then
-		self:EndScreenStats(true, true)
 	end
 end
 
@@ -385,26 +382,6 @@ function AIGameMode:RefreshGameStatus()
 	AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
 end
 
-function AIGameMode:OnEntityKilled(keys)
-	local hEntity = EntIndexToHScript(keys.entindex_killed)
-	-- on hero killed
-	if hEntity:IsRealHero() and hEntity:IsReincarnating() == false then
-		HeroKilled(keys)
-		-- drop items only when killed by hero
-		if EntIndexToHScript(keys.entindex_attacker):GetPlayerOwner() then
-			AIGameMode:RollDrops(EntIndexToHScript(keys.entindex_killed))
-		end
-	end
-	-- on barrack killed
-	if hEntity:GetClassname() == "npc_dota_barracks" then
-		RecordBarrackKilled(hEntity)
-	end
-	-- on tower killed
-	if hEntity:GetClassname() == "npc_dota_tower" then
-		RecordTowerKilled(hEntity)
-	end
-end
-
 -- 买活时间设定
 function AIGameMode:OnBuyback(e)
 	local playerId = e.player_id
@@ -425,6 +402,44 @@ function AIGameMode:OnBuyback(e)
 			end
 		end
 	end)
+end
+
+function AIGameMode:OnEntityKilled(keys)
+	local hEntity = EntIndexToHScript(keys.entindex_killed)
+	-- on hero killed
+	if hEntity:IsRealHero() and hEntity:IsReincarnating() == false then
+		HeroKilled(keys)
+		-- drop items only when killed by hero
+		if EntIndexToHScript(keys.entindex_attacker):GetPlayerOwner() then
+			AIGameMode:RollDrops(EntIndexToHScript(keys.entindex_killed))
+		end
+	end
+	-- on barrack killed
+	if hEntity:GetClassname() == "npc_dota_barracks" then
+		RecordBarrackKilled(hEntity)
+	end
+	-- on tower killed
+	if hEntity:GetClassname() == "npc_dota_tower" then
+		RecordTowerKilled(hEntity)
+	end
+
+	if hEntity:GetClassname() == "npc_dota_fort" then
+		print(hEntity:GetUnitName())
+		print(hEntity:GetClassname())
+		local lostTeam = 1
+		if hEntity:GetUnitName() == "npc_dota_badguys_fort" then
+			lostTeam = 3
+		else
+			lostTeam = 2
+		end
+		AIGameMode:OnFortKilled(lostTeam)
+	end
+end
+function AIGameMode:OnFortKilled(lostTeamID)
+	if IsServer() then
+		self:EndScreenStats(true, true)
+		Game:SendEndGameInfo(lostTeamID)
+	end
 end
 
 function RecordBarrackKilled(hEntity)
@@ -861,6 +876,11 @@ function AIGameMode:OnPlayerChat( event )
 			return
 		end
 
+		if sChatMsg:find( '^-postgame$' ) then
+			print("[AIGameMode] SendEndGameInfo POST_GAME")
+			Game:SendEndGameInfo()
+			return
+		end
 	end
 
 	if Member:IsMember(steamAccountID) then
