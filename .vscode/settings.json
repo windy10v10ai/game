@@ -2,6 +2,9 @@
     "Lua.diagnostics.disable": [
         "undefined-global"
     ],
+    "Lua.workspace.library": [
+        "/game/scripts"
+    ],
     "css.lint.unknownProperties": "ignore",
     "search.exclude": {
         "materials": true,
