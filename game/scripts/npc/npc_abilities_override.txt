@@ -8564,13 +8564,13 @@
 		{
 			"damage_min"
 			{
-				"value"				"30 40 50 60 70"
-				"special_bonus_unique_razor_4"	"+50"
+				"value"				"40 50 60 70 80"
+				"special_bonus_unique_razor_4"	"+60"
 			}
 			"damage_max"
 			{
-				"value"				"80 95 110 124 140"
-				"special_bonus_unique_razor_4"	"+50"
+				"value"				"70 85 100 115 130"
+				"special_bonus_unique_razor_4"	"+60"
 			}
 			"radius"
 			{
@@ -8671,18 +8671,18 @@
             "03"
             {
                 "var_type"				"FIELD_FLOAT"
-                "strike_interval"		"1.0"
+                "strike_interval"		"0.7 0.6 0.6 0.5 0.5"
                 "LinkedSpecialBonus"	"special_bonus_unique_razor_2"
             }
             "04"
             {
                 "var_type"			"FIELD_INTEGER"
-                "armor_reduction"	"2 2 3 3 3"
+                "armor_reduction"	"1"
             }
             "05"
             {
                 "var_type"			"FIELD_INTEGER"
-                "damage"			"160 220 280 340 400"
+                "damage"			"100 130 160 190 220"
                 "LinkedSpecialBonus"    "special_bonus_unique_razor_402"
             }
         }
@@ -8712,7 +8712,7 @@
             "01"
             {
                 "var_type"					"FIELD_FLOAT"
-                "value"				        "+100"
+                "value"				        "+60"
                 "ad_linked_abilities"		"razor_eye_of_the_storm"
             }
         }
