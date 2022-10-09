@@ -2705,17 +2705,17 @@
 				"value"								"4"
 				"special_bonus_unique_jack_4" 		"-2"
 			}
-			"dmg_add_time"				"3 4 5 6 7"
+			"dmg_add_time"				"2 3 4 5 6"
 			"dmg_add_agility"
 			{
-				"value"								"0.4 0.8 1.2 1.6 2.0"
-				"special_bonus_unique_jack_3" 		"+0.6"
+				"value"								"0.4 0.5 0.6 0.7 0.8"
+				"special_bonus_unique_jack_3" 		"+0.2"
 			}
-			"movespeed_add"				"20 30 40 50 60"
+			"movespeed_add"				"20 25 30 35 40"
 			"talent_chance"
 			{
 				"value"					"0"
-				"special_bonus_unique_jack_6" 		"+35"
+				"special_bonus_unique_jack_6" 		"+25"
 			}
 		}
 	}
@@ -2738,9 +2738,9 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"25"
-			"AbilityManaCost"		"90 100 110 120 130"
+			"AbilityManaCost"		"80 100 120 140 160"
 			"AbilityCastRange"		"900"
-			"duration"				"10"
+			"duration"				"8"
 			"radius"
 			{
 				"value"								"400"
@@ -2844,7 +2844,7 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"			"60 50 40"
-			"AbilityManaCost"			"100"
+			"AbilityManaCost"			"100 200 300"
 			"AbilityCastRange"			"1200"
 			"stun_duration"				"2.5 3.5 4.5"
 			"atttak_duration"			"1.5"
