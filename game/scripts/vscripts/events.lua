@@ -944,6 +944,9 @@ function AIGameMode:OnPlayerChat( event )
 		if sChatMsg:find( '-超级赛亚人' ) then
 			pszHeroClass = "npc_dota_hero_chen"
 		end
+		if sChatMsg:find( '-男妈妈来哩！' ) then
+			pszHeroClass = "npc_dota_hero_brewmaster"
+		end
 		if pszHeroClass ~= nil then
 			if self.tIfChangeHeroList[iPlayerID] then return end
 			self.tIfChangeHeroList[iPlayerID] = true
