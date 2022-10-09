@@ -1460,12 +1460,11 @@
 	"Hero_vo_player"
 	{
 		"BaseClass"	"ability_lua"
-		"ScriptFile"	"heroes/hero_abyss_sword/Hero_vo_player"
+		"ScriptFile"	"voicePlayer/Hero_vo_player"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"	"1"
 		"AbilityValues"
 		{
-			"CoolDown"			"15"
 			"AttackProbability"	"20"
 			"MoveProbability"	"10"
 		}
@@ -2671,6 +2670,233 @@
 	// 	// -------------------------------------------------------------------------------------------------------------
 	// 	"AbilityDamage"	"2000"
 	// }
+
+	//=================================================================================================================
+	// Jack
+	//=================================================================================================================
+	"jack_presence_concealment"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"custom/jack/jack_presence_concealment"
+		"ScriptFile"	"heroes/hero_jack/jack_presence_concealment"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation"			""
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+		"HasShardUpgrade"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"AbilityCooldown"
+			{
+				"special_bonus_shard" 	"+60"
+			}
+			"AbilityManaCost"
+			{
+	 			"special_bonus_shard" 	"+100"
+			}
+			"invision_time"
+			{
+				"value"								"4"
+				"special_bonus_unique_jack_4" 		"-2"
+			}
+			"dmg_add_time"				"3 4 5 6 7"
+			"dmg_add_agility"
+			{
+				"value"								"0.4 0.8 1.2 1.6 2.0"
+				"special_bonus_unique_jack_3" 		"+0.6"
+			}
+			"movespeed_add"				"20 30 40 50 60"
+			"talent_chance"
+			{
+				"value"					"0"
+				"special_bonus_unique_jack_6" 		"+35"
+			}
+		}
+	}
+
+	"jack_murderer_of_the_misty_night"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"custom/jack/jack_murderer_of_the_misty_night"
+		"ScriptFile"	"heroes/hero_jack/jack_murderer_of_the_misty_night"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityCastPoint"	"0.5"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"25"
+			"AbilityManaCost"		"90 100 110 120 130"
+			"AbilityCastRange"		"900"
+			"duration"				"10"
+			"radius"
+			{
+				"value"								"400"
+				"special_bonus_unique_jack_2" 		"+100"
+			}
+			"movespeed_down"		"20 30 40 50 60"
+			"attackspeed_down"		"30 50 70 90 100"
+			"turnrate_down"			"20 30 40 50 60"
+			"visionrange_down"		"30 40 50 60 60"
+		}
+	}
+
+	"jack_surgery"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"custom/jack/jack_surgery"
+		"ScriptFile"	"heroes/hero_jack/jack_surgery"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"5"
+		"FightRecapLevel"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"max_count"					"5"
+			"duration"					"5"
+			"heal_down"
+			{
+				"value"								"14 18 22 26 30"
+				"special_bonus_unique_jack_1" 		"+15"
+			}
+			"regen_down"
+			{
+				"value"								"14 18 22 26 30"
+				"special_bonus_unique_jack_1" 		"+15"
+			}
+			"attack_lifesteal_down"
+			{
+				"value"								"14 18 22 26 30"
+				"special_bonus_unique_jack_1" 		"+15"
+			}
+			"spell_lifesteal_down"
+			{
+				"value"								"14 18 22 26 30"
+				"special_bonus_unique_jack_1" 		"+15"
+			}
+		}
+	}
+
+	"jack_the_mist"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"custom/jack/jack_the_mist"
+		"ScriptFile"	"heroes/hero_jack/jack_the_mist"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastPoint"	"0.5"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+		"FightRecapLevel"				"1"
+		"MaxLevel"	"1"
+		"IsGrantedByScepter"	"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"100"
+			"AbilityManaCost"		"160"
+			"radius_normal"			"200"
+			"radius_active"			"400"
+			"duration"				"30"
+		}
+	}
+
+	"jack_maria_the_ripper"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"custom/jack/jack_maria_the_ripper"
+		"ScriptFile"	"heroes/hero_jack/jack_maria_the_ripper"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"LinkedAbility"	"jack_maria_the_ripper"
+		"FightRecapLevel"				"1"
+		"AbilityCastPoint"	"0.3"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"AbilityCooldown"			"60 50 40"
+			"AbilityManaCost"			"100"
+			"AbilityCastRange"			"1200"
+			"stun_duration"				"2.5 3.5 4.5"
+			"atttak_duration"			"1.5"
+			"attacktimes_count"
+			{
+				"value"								"1 1.5 2"
+				"special_bonus_unique_jack_5" 		"+2"
+			}
+		}
+	}
+
+	"special_bonus_unique_jack_1"
+	{
+		"BaseClass"	"special_bonus_base"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+	"special_bonus_unique_jack_2"
+	{
+		"BaseClass"	"special_bonus_base"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+	"special_bonus_unique_jack_3"
+	{
+		"BaseClass"	"special_bonus_base"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+	"special_bonus_unique_jack_4"
+	{
+		"BaseClass"	"special_bonus_base"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+	"special_bonus_unique_jack_5"
+	{
+		"BaseClass"	"special_bonus_base"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+	"special_bonus_unique_jack_6"
+	{
+		"BaseClass"	"special_bonus_base"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
 
 	//=================================================================================================================
 	// Tinker: Rearm 刷新
