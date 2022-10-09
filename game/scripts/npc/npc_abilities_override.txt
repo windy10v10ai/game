@@ -9002,15 +9002,23 @@
 	"sniper_headshot"
 	{
 		"MaxLevel" "7"
-		"AbilityDamage"					"30 50 70 90 110 130 150"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"03"
+			"damage"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"slow"			"-90"
+				"value"	"20 50 80 110 140 170 200"
+				"special_bonus_unique_sniper_headshot_damage"	"+40"
 			}
+			"proc_chance"					"40"
+			"knockback_distance"
+			{
+				"value"					"10"
+				"special_bonus_unique_sniper_3"			"+28"
+			}
+			"slow"			"-100"
+			"slow_duration"					"0.5"
 		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	"sniper_take_aim"
 	{
