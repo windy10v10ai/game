@@ -1,5 +1,35 @@
 "DOTAHeroes"
 {
+	//杰克
+	"npc_dota_hero_jack"
+	{
+		"override_hero" 		"npc_dota_hero_brewmaster"
+		"Model"					"models/heroes/jack/npc_dota_hero_jack.vmdl"
+		"ModelScale"			"0.6"
+		"LoadoutScale"			"0.6"
+		"DisableWearables"		"1"
+
+		"Ability1"				"jack_presence_concealment"
+		"Ability2"				"jack_murderer_of_the_misty_night"
+		"Ability3"				"jack_surgery"
+		"Ability4"				"jack_the_mist"
+		"Ability5"				"generic_hidden"
+		"Ability6"				"jack_maria_the_ripper"
+
+		"Ability10"				"special_bonus_attack_damage_10"
+		"Ability11"				"special_bonus_movement_speed_25"
+		"Ability12"				"special_bonus_unique_jack_1"
+		"Ability13"				"special_bonus_unique_jack_2"
+		"Ability14"				"special_bonus_unique_jack_3"
+		"Ability15"				"special_bonus_unique_jack_4"
+		"Ability16"				"special_bonus_unique_jack_5"
+		"Ability17"				"special_bonus_unique_jack_6"
+		"Ability32"				"Hero_vo_player"
+		"SoundSet"				"Hero_PhantomAssassin"
+		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_jack.vsndevts"
+	}
+
 	//孙悟空
 	"npc_dota_hero_Goku"
 	{
