@@ -594,6 +594,23 @@ function AIGameMode:CreateItem(sItemName, hEntity)
 	item:LaunchLoot(false, 200, 0.75, pos_launch)
 end
 
+function AIGameMode:OnLastHit(keys)
+	if keys.FirstBlood == 1 then
+		local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
+		if hero and hero:HasAbility("Hero_vo_player") then
+			hero:PlayVoiceAllPlayerIgnoreCooldown(hero:GetName() .. ".vo.FirstBlood")
+		end
+	end
+end
+
+function AIGameMode:OnPickHeroSpawn(keys)
+    local heroname = keys.hero
+    local hero = EntIndexToHScript(keys.heroindex)
+    if hero:HasAbility("Hero_vo_player") then
+        hero:PlayVoiceIgnoreCooldown(heroname .. ".vo.Spawn")
+    end
+end
+
 function AIGameMode:OnNPCSpawned(keys)
 	if GameRules:State_Get() < DOTA_GAMERULES_STATE_PRE_GAME then
 		Timers:CreateTimer(1, function ()
@@ -603,6 +620,19 @@ function AIGameMode:OnNPCSpawned(keys)
 	end
 	local hEntity = EntIndexToHScript(keys.entindex)
 	if not hEntity or hEntity:IsNull() then return end
+
+	if hEntity:IsBaseNPC() then
+		local playerid = hEntity:GetPlayerOwnerID()
+		if playerid then
+			 local hero = PlayerResource:GetSelectedHeroEntity(playerid)
+			 if hero and hero == hEntity and hero:HasAbility("Hero_vo_player") then
+			   if not hero.isBuyBack then
+				   hero:PlayVoiceIgnoreCooldown(hero:GetName() .. ".vo.Respawn")
+			   end
+			   hero.isBuyBack = false
+			 end
+		end
+	end
 
 	if hEntity:IsCourier() and self.bFastCourier == 1 then
 		hEntity:AddNewModifier(hEntity, nil, "modifier_courier_speed", {})
