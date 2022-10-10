@@ -248,20 +248,29 @@ end
 ------------------------------------------------------------------
 --                        Gold/XP Filter                        --
 ------------------------------------------------------------------
-GOLD_REASON_FILTER = {DOTA_ModifyGold_Unspecified, DOTA_ModifyGold_Death, DOTA_ModifyGold_Buyback,
-                      DOTA_ModifyGold_PurchaseConsumable, DOTA_ModifyGold_PurchaseItem,
-                      DOTA_ModifyGold_AbandonedRedistribute, DOTA_ModifyGold_SellItem, DOTA_ModifyGold_AbilityCost,
-                      DOTA_ModifyGold_CheatCommand, DOTA_ModifyGold_SelectionPenalty, DOTA_ModifyGold_GameTick -- DOTA_ModifyGold_Building,
--- DOTA_ModifyGold_HeroKill,
--- DOTA_ModifyGold_CreepKill,
--- DOTA_ModifyGold_NeutralKill,
--- DOTA_ModifyGold_RoshanKill,
--- DOTA_ModifyGold_CourierKill,
--- DOTA_ModifyGold_BountyRune,
--- DOTA_ModifyGold_SharedGold,
--- DOTA_ModifyGold_AbilityGold,
--- DOTA_ModifyGold_WardKill,
--- DOTA_ModifyGold_CourierKilledByThisPlayer,
+GOLD_REASON_FILTER = {
+    DOTA_ModifyGold_Unspecified,
+    DOTA_ModifyGold_Death,
+    DOTA_ModifyGold_Buyback,
+    DOTA_ModifyGold_PurchaseConsumable,
+    DOTA_ModifyGold_PurchaseItem,
+    DOTA_ModifyGold_AbandonedRedistribute,
+    DOTA_ModifyGold_SellItem,
+    DOTA_ModifyGold_AbilityCost,
+    DOTA_ModifyGold_CheatCommand,
+    DOTA_ModifyGold_SelectionPenalty,
+    DOTA_ModifyGold_GameTick,
+    -- DOTA_ModifyGold_Building,
+    -- DOTA_ModifyGold_HeroKill,
+    -- DOTA_ModifyGold_CreepKill,
+    -- DOTA_ModifyGold_NeutralKill,
+    -- DOTA_ModifyGold_RoshanKill,
+    -- DOTA_ModifyGold_CourierKill,
+    -- DOTA_ModifyGold_BountyRune,
+    -- DOTA_ModifyGold_SharedGold,
+    -- DOTA_ModifyGold_AbilityGold,
+    -- DOTA_ModifyGold_WardKill,
+    -- DOTA_ModifyGold_CourierKilledByThisPlayer,
 }
 
 function AIGameMode:FilterGold(tGoldFilter)
@@ -296,18 +305,6 @@ function AIGameMode:FilterGold(tGoldFilter)
         iGold = iGold * AIGameMode:RewardFilterByKill(teamKill, playerKill, teamCount)
     end
 
-    -- 玩家团队奖励
-    if iReason == DOTA_ModifyGold_CreepKill then
-        iGold = math.min(iGold, 200)
-        print("玩家团队奖励 gold:" .. iGold)
-    end
-
-    -- 电脑连续死亡 补偿金钱
-    if iReason == DOTA_ModifyGold_CourierKill then
-        iGold = math.min(iGold, 35)
-        print("电脑连续死亡 补偿金钱 gold:" .. iGold)
-    end
-
     -- 通用金钱系数
     if self.tHumanPlayerList[iPlayerID] then
         tGoldFilter["gold"] = math.floor(iGold * self.fPlayerGoldXpMultiplier)
@@ -315,15 +312,6 @@ function AIGameMode:FilterGold(tGoldFilter)
         tGoldFilter["gold"] = math.floor(iGold * self.fPlayerGoldXpMultiplier)
     else
         tGoldFilter["gold"] = math.floor(iGold * self.fBotGoldXpMultiplier)
-    end
-
-    -- 检查用
-    if iReason == DOTA_ModifyGold_CreepKill then
-        print("玩家团队奖励 最终过滤后的 gold:" .. tGoldFilter["gold"])
-    end
-
-    if iReason == DOTA_ModifyGold_CourierKill then
-        print("电脑连续死亡 补偿金钱 最终过滤后的 gold:" .. tGoldFilter["gold"])
     end
 
     return true
