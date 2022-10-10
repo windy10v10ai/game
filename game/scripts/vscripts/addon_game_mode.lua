@@ -7,9 +7,6 @@ if AIGameMode == nil then
     _G.AIGameMode = class({}) -- put in the global scope
 end
 
--- Custom Const
-DOTA_ModifyGold_Custom_AISuccessiveDeath = 100
-
 require('timers')
 require('util')
 require('settings')
@@ -147,6 +144,7 @@ function AIGameMode:PreGameOptions()
 
     local gameMode = GameRules:GetGameModeEntity()
     gameMode:SetModifyGoldFilter(Dynamic_Wrap(AIGameMode, "FilterGold"), self)
+    GameRules:SetFilterMoreGold(true)
     gameMode:SetModifyExperienceFilter(Dynamic_Wrap(AIGameMode, "FilterXP"), self)
 
     -- 神符
@@ -271,18 +269,50 @@ end
 function AIGameMode:ApplyTestOptions()
     print('------------------------读取个性化测试环境------------------------')
     if self.DebugMode and PlayerResource:GetSteamAccountID(0) == 245559423 then
-        self.iDesiredRadiant = 2
-        self.iDesiredDire = 2
+        self.iDesiredRadiant = 5
+        self.iDesiredDire = 5
     end
 end
 
 ------------------------------------------------------------------
 --                        Gold/XP Filter                        --
 ------------------------------------------------------------------
+GOLD_REASON_FILTER = {
+    DOTA_ModifyGold_Unspecified,
+    DOTA_ModifyGold_Death,
+    DOTA_ModifyGold_Buyback,
+    DOTA_ModifyGold_PurchaseConsumable,
+    DOTA_ModifyGold_PurchaseItem,
+    DOTA_ModifyGold_AbandonedRedistribute,
+    DOTA_ModifyGold_SellItem,
+    DOTA_ModifyGold_AbilityCost,
+    DOTA_ModifyGold_CheatCommand,
+    DOTA_ModifyGold_SelectionPenalty,
+    DOTA_ModifyGold_GameTick,
+    --DOTA_ModifyGold_Building,
+    --DOTA_ModifyGold_HeroKill,
+    --DOTA_ModifyGold_CreepKill,
+    --DOTA_ModifyGold_NeutralKill,
+    --DOTA_ModifyGold_RoshanKill,
+    --DOTA_ModifyGold_CourierKill,
+    --DOTA_ModifyGold_BountyRune,
+    --DOTA_ModifyGold_SharedGold,
+    --DOTA_ModifyGold_AbilityGold,
+    --DOTA_ModifyGold_WardKill,
+    --DOTA_ModifyGold_CourierKilledByThisPlayer,
+}
+
 function AIGameMode:FilterGold(tGoldFilter)
     local iGold = tGoldFilter["gold"]
     local iPlayerID = tGoldFilter["player_id_const"]
     local iReason = tGoldFilter["reason_const"]
+
+    -- 过滤一些不走Filter的reason
+    for _, filteredReason in pairs(GOLD_REASON_FILTER) do
+        if filteredReason == iReason then
+            return true
+        end
+    end
 
     -- 通用击杀金钱调整
     if iReason == DOTA_ModifyGold_HeroKill then
@@ -305,13 +335,13 @@ function AIGameMode:FilterGold(tGoldFilter)
     end
 
     -- 玩家团队奖励
-    if iReason == DOTA_ModifyGold_Unspecified then
+    if iReason == DOTA_ModifyGold_CreepKill then
         iGold = math.min(iGold, 200)
         print("玩家团队奖励 gold:" .. iGold)
     end
 
     -- 电脑连续死亡 补偿金钱
-    if iReason == DOTA_ModifyGold_Custom_AISuccessiveDeath then
+    if iReason == DOTA_ModifyGold_CourierKill then
         iGold = math.min(iGold, 35)
         print("电脑连续死亡 补偿金钱 gold:" .. iGold)
     end
@@ -326,11 +356,11 @@ function AIGameMode:FilterGold(tGoldFilter)
     end
 
     -- 检查用
-    if iReason == DOTA_ModifyGold_Unspecified then
+    if iReason == DOTA_ModifyGold_CreepKill then
         print("玩家团队奖励 最终过滤后的 gold:" .. tGoldFilter["gold"])
     end
 
-    if iReason == DOTA_ModifyGold_Custom_AISuccessiveDeath then
+    if iReason == DOTA_ModifyGold_CourierKill then
         print("电脑连续死亡 补偿金钱 最终过滤后的 gold:" .. tGoldFilter["gold"])
     end
 
@@ -343,7 +373,7 @@ function AIGameMode:FilterXP(tXPFilter)
     local iReason = tXPFilter["reason_const"]
 
     -- 电脑连续死亡 补偿经验
-    if iReason == DOTA_ModifyXP_Unspecified then
+    if iReason == DOTA_ModifyXP_MAX then
         print("电脑连续死亡 补偿经验 xp:" .. iXP)
     end
 
@@ -356,7 +386,7 @@ function AIGameMode:FilterXP(tXPFilter)
     end
 
     -- 检查用
-    if iReason == DOTA_ModifyXP_Unspecified then
+    if iReason == DOTA_ModifyXP_MAX then
         print("电脑连续死亡 补偿经验 最终过滤后的 xp:" .. tXPFilter["experience"])
     end
 
