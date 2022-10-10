@@ -1006,7 +1006,6 @@ function AIGameMode:OnPlayerChat(event)
             pszHeroClass = "npc_dota_hero_chen"
         end
 
-<<<<<<<<< Temporary merge branch 1
 		if sChatMsg:find( '-八云紫' ) then
 			pszHeroClass = "npc_dota_hero_phantom_lancer"
 		end
