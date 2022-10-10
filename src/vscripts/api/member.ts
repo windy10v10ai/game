@@ -40,7 +40,7 @@ export class Member {
 		// FIXME remove test get match id
 		const matchId = GameRules.Script_GetMatchID().toString();
 		// get member list from server
-		ApiClient.sendWithRetry(HttpMethod.GET, "/members", { steamIds: steamIds.join(","), matchId }, null, (data: string) => {
+		ApiClient.sendWithRetry(HttpMethod.GET, "/game/start", { steamIds: steamIds.join(","), matchId }, null, (data: string) => {
 			print(`[Member] GetMember callback data ${data}`);
 			this.MemberList = json.decode(data)[0] as MemberDto[];
 			DeepPrintTable(this.MemberList);
