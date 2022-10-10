@@ -33,11 +33,11 @@ function modifier_player_puck1609:CheckState()
 end
 
 function modifier_player_puck1609:GetModifierPercentageCooldown()
-	return 40
+	return 32
 end
 
 function modifier_player_puck1609:GetModifierCastRangeBonusStacking()
-	return 400
+	return 200
 end
 
 function modifier_player_puck1609:GetModifierSpellAmplify_Percentage()
@@ -65,7 +65,7 @@ function modifier_player_puck1609:GetModifierMagicalResistanceBonus()
 end
 
 function modifier_player_puck1609:GetModifierStatusResistanceStacking()
-	return 40
+	return 32
 end
 
 function modifier_player_puck1609:GetModifierPreAttack_BonusDamage()
@@ -90,13 +90,13 @@ function modifier_player_puck1609:GetModifierAttackRangeBonus()
 		return 0
 	end
 	if hero:IsRangedAttacker() then
-		return 250
+		return 200
 	end
-	return 50
+	return 0
 end
 
 function modifier_player_puck1609:GetModifierAttackSpeedBonus_Constant()
-	return 60
+	return 90
 end
 
 function modifier_player_puck1609:OnAttackLanded(params)
