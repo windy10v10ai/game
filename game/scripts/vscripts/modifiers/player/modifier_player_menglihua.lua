@@ -8,10 +8,7 @@ function modifier_player_menglihua:OnCreated()
 	self.iStatusResist = 40
 	self.iCooldownReduction = 35
 	self.iCastRange = 200
-	self.iAttackRange = 0
-	if self:GetParent():IsRangedAttacker() then
-		self.iAttackRange = 200
-	end
+	self.iAttackRange = 200
 	self.iLifeSteal = 30
 end
 
@@ -38,7 +35,10 @@ function modifier_player_menglihua:GetModifierCastRangeBonusStacking()
 end
 
 function modifier_player_menglihua:GetModifierAttackRangeBonus()
-	return self.iAttackRange
+	if self:GetParent():IsRangedAttacker() then
+		return self.iAttackRange
+	end
+	return 0
 end
 
 function modifier_player_menglihua:OnAttackLanded(params)

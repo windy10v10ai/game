@@ -5,7 +5,7 @@ function modifier_player_luoshu_2:RemoveOnDeath() return false end
 function modifier_player_luoshu_2:GetTexture() return "player/luoshu_2" end
 
 function modifier_player_luoshu_2:OnCreated()
-	self.iModelScale = 50
+	self.iModelScale = 75
 end
 function modifier_player_luoshu_2:DeclareFunctions()
 	return {

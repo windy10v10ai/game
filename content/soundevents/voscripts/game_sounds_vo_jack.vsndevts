@@ -1,0 +1,219 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	npc_dota_hero_brewmaster.vo.PresenceConcealment.Cast =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/ability1_cast1.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.PresenceConcealment.ToNight =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/ability1_tonight1.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.MurdererOfTheMistyNight.Cast =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/ability2_cast1.vsnd",
+			"sounds/vo/jack/ability2_cast2.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.Surgery.Cast =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/ability3_cast1.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.TheMist.Cast =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/ability4_cast1.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.MariaTheRipper.Cast =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/ability6_cast1.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.item_ultimate_scepter =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/item_scepter1.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.Attack =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/attack1.vsnd",
+			"sounds/vo/jack/attack2.vsnd",
+			"sounds/vo/jack/attack3.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.Move =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/move1.vsnd",
+			"sounds/vo/jack/move2.vsnd",
+			"sounds/vo/jack/move3.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.Upgrade =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/upgrade1.vsnd",
+			"sounds/vo/jack/upgrade2.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.Respawn =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/respawn1.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.Spawn =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/respawn1.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.BuyBack =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/respawn1.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.FirstBlood =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/firstblood1.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.Kill =
+	{
+		type = "dota_src1_2d"
+		volume = 2.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		vsnd_files =
+		[
+			"sounds/vo/jack/kill1.vsnd",
+		]
+	}
+	npc_dota_hero_brewmaster.vo.Death =
+	{
+		type = "dota_src1_3d"
+		volume = 5.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		pitch_rand_min = -0.0500
+		pitch_rand_max = 0.0500
+		distance_max = 900.000000
+		vsnd_files =
+		[
+			"sounds/vo/jack/death1.vsnd",
+			"sounds/vo/jack/death2.vsnd",
+		]
+	}
+}

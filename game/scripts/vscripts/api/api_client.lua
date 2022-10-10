@@ -1,22 +1,37 @@
 local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["6"] = 3,["7"] = 3,["8"] = 3,["10"] = 3,["11"] = 11,["12"] = 12,["13"] = 13,["14"] = 14,["15"] = 15,["17"] = 17,["18"] = 18,["19"] = 19,["20"] = 20,["22"] = 22,["23"] = 23,["25"] = 18,["26"] = 11,["27"] = 29,["28"] = 30,["29"] = 31,["30"] = 31,["31"] = 32,["32"] = 32,["33"] = 32,["34"] = 32,["35"] = 33,["36"] = 34,["37"] = 35,["38"] = 36,["39"] = 37,["42"] = 40,["44"] = 32,["45"] = 32,["46"] = 31,["47"] = 44,["48"] = 29,["49"] = 4,["50"] = 5,["51"] = 6,["52"] = 7,["53"] = 6});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["6"] = 3,["7"] = 4,["8"] = 5,["9"] = 6,["10"] = 7,["11"] = 10,["12"] = 10,["13"] = 10,["15"] = 10,["16"] = 18,["17"] = 19,["18"] = 20,["19"] = 21,["20"] = 23,["21"] = 24,["22"] = 25,["25"] = 28,["26"] = 29,["27"] = 30,["28"] = 31,["29"] = 31,["30"] = 31,["31"] = 31,["33"] = 33,["34"] = 35,["35"] = 36,["37"] = 38,["38"] = 39,["40"] = 33,["41"] = 18,["42"] = 44,["43"] = 45,["44"] = 46,["45"] = 46,["46"] = 47,["47"] = 47,["48"] = 47,["49"] = 47,["50"] = 47,["51"] = 47,["52"] = 48,["53"] = 49,["54"] = 50,["55"] = 51,["56"] = 52,["59"] = 55,["61"] = 47,["62"] = 47,["63"] = 46,["64"] = 59,["65"] = 44,["66"] = 11,["67"] = 12,["68"] = 13,["69"] = 14,["70"] = 15,["71"] = 14});
 local ____exports = {}
+____exports.HttpMethod = HttpMethod or ({})
+____exports.HttpMethod.GET = "GET"
+____exports.HttpMethod.POST = "POST"
+____exports.HttpMethod.PUT = "PUT"
+____exports.HttpMethod.DELETE = "DELETE"
 ____exports.ApiClient = __TS__Class()
 local ApiClient = ____exports.ApiClient
 ApiClient.name = "ApiClient"
 function ApiClient.prototype.____constructor(self)
 end
-function ApiClient.get(self, url, params, callback)
-    print(((("[ApiClient] get " .. ____exports.ApiClient.HOST_NAME) .. url) .. " with ") .. json.encode(params))
-    local request = CreateHTTPRequestScriptVM("GET", ____exports.ApiClient.HOST_NAME .. url)
-    for key in pairs(params) do
-        request:SetHTTPRequestGetOrPostParameter(key, params[key])
+function ApiClient.send(self, method, path, params, body, callback)
+    print(((((((("[ApiClient] " .. method) .. " ") .. ____exports.ApiClient.HOST_NAME) .. path) .. " with params ") .. json.encode(params)) .. " body ") .. json.encode(body))
+    local request = CreateHTTPRequestScriptVM(method, ____exports.ApiClient.HOST_NAME .. path)
+    local key = GetDedicatedServerKeyV2(____exports.ApiClient.VERSION)
+    if params then
+        for key in pairs(params) do
+            request:SetHTTPRequestGetOrPostParameter(key, params[key])
+        end
     end
     request:SetHTTPRequestNetworkActivityTimeout(____exports.ApiClient.TIMEOUT_SECONDS)
+    request:SetHTTPRequestHeaderValue("x-api-key", key)
+    if body then
+        request:SetHTTPRequestRawPostBody(
+            "application/json",
+            json.encode(body)
+        )
+    end
     request:Send(function(result)
-        if result.StatusCode == 200 then
+        if result.StatusCode >= 200 and result.StatusCode < 300 then
             callback(nil, result.Body)
         else
             print("[ApiClient] get error: " .. tostring(result.StatusCode))
@@ -24,13 +39,15 @@ function ApiClient.get(self, url, params, callback)
         end
     end)
 end
-function ApiClient.getWithRetry(self, url, params, callback)
+function ApiClient.sendWithRetry(self, method, path, params, body, callback)
     local retryCount = 0
     local retry
     retry = function()
-        self:get(
-            url,
+        self:send(
+            method,
+            path,
             params,
+            body,
             function(____, data)
                 if data == "error" then
                     retryCount = retryCount + 1
@@ -48,6 +65,7 @@ function ApiClient.getWithRetry(self, url, params, callback)
 end
 ApiClient.TIMEOUT_SECONDS = 10
 ApiClient.RETRY_TIMES = 6
+ApiClient.VERSION = "v1.43"
 ApiClient.HOST_NAME = (function()
     return IsInToolsMode() and "http://localhost:5000/api" or "https://windy10v10ai.web.app/api"
 end)(nil)

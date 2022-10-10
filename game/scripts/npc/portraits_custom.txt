@@ -386,4 +386,31 @@
 			}
 		}
 	}
+	"models/heroes/jack/npc_dota_hero_jack.vmdl"
+	{
+		"PortraitLightPosition"		"75.79 -21.18 200.33"
+		"PortraitLightAngles"		"130.94 332.64 0.00"
+		"PortraitLightFOV"		"66"
+		"PortraitLightDistance"		"156"
+		"PortraitLightColor"		"89 89 89"
+		"PortraitShadowColor"		"144 131 131"
+		"PortraitShadowScale"		"0.200000"
+		"PortraitAmbientColor"		"254 167 169"
+		"PortraitAmbientScale"		"2.500000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_motion_swoops.vmat"
+		"PortraitLightScale"		"1.000000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-32.640 201.860 -1.930"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"230.00 -35.00 205.00"
+				"PortraitAngles"		"352.00 167.00 0.00"
+				"PortraitFOV"		"20"
+			}
+		}
+	}
 }
