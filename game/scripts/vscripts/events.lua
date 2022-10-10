@@ -528,9 +528,12 @@ end
 function HeroKilled(keys)
 	local hHero = EntIndexToHScript(keys.entindex_killed)
 	local attacker = EntIndexToHScript(keys.entindex_attacker)
-	local playerId = hHero:GetPlayerID()
+	local playerId = hHero:GetPlayerID() -- 死亡玩家id
 	local attackerPlayer = attacker:GetPlayerOwner()
-	local attackerPlayerID = attackerPlayer:GetPlayerID()
+	local attackerPlayerID = -1
+	if attackerPlayer then
+		attackerPlayerID = attackerPlayer:GetPlayerID()
+	end
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
 	local GameTime = GameRules:GetDOTATime(false, false)

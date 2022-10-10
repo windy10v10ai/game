@@ -146,9 +146,9 @@ end
 print("Util loaded.")
 
 function IsGoodTeamPlayer (playerid)
-	return playerid >= 0 and playerid <= 11
+	return PlayerResource:GetTeam(playerid) == DOTA_TEAM_GOODGUYS
 end
 
 function IsBadTeamPlayer (playerid)
-	return playerid >= 12 and playerid <= 23
+	return PlayerResource:GetTeam(playerid) == DOTA_TEAM_BADGUYS
 end
