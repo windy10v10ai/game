@@ -49,7 +49,7 @@ function Member.prototype.InitMemberInfo(self)
     local matchId = tostring(GameRules:Script_GetMatchID())
     ApiClient:sendWithRetry(
         HttpMethod.GET,
-        "/members",
+        "/game/start",
         {
             steamIds = table.concat(steamIds, ","),
             matchId = matchId
