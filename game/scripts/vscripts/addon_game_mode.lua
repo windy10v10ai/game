@@ -38,10 +38,16 @@ function AIGameMode:InitGameMode()
     AIGameMode:InitGameOptions()
     AIGameMode:InitEvents()
     AIGameMode:LinkLuaModifiers()
+    AIGameMode:InitBotRecordTable()
     if IsInToolsMode() then
         self:EnterDebugMode()
     end
     print("DOTA 2 AI Wars Loaded.")
+end
+
+function AIGameMode:InitBotRecordTable()
+    -- AI连续死亡记录表
+    AIGameMode.BotRecordSuccessiveDeathTable = {}
 end
 
 function AIGameMode:EnterDebugMode()
@@ -66,7 +72,7 @@ function AIGameMode:InitGameOptions()
     GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 
     GameRules.DropTable = LoadKeyValues("scripts/kv/item_drops.kv")
-    -- 游戏选择项目初期化
+    -- 游戏选择项目初始化
     GameRules.GameOption = LoadKeyValues("scripts/kv/game_option.kv")
 end
 
@@ -271,6 +277,7 @@ function AIGameMode:FilterGold(tGoldFilter)
     local iPlayerID = tGoldFilter["player_id_const"]
     local iReason = tGoldFilter["reason_const"]
 
+    -- 通用击杀金钱调整
     if iReason == DOTA_ModifyGold_HeroKill then
         if iGold > 6000 then
             iGold = 1400
@@ -281,7 +288,7 @@ function AIGameMode:FilterGold(tGoldFilter)
         elseif iGold > 200 then
             iGold = iGold / 2 + 100
         else
-            iGold = iGold
+            iGold = iGold * 1
         end
 
         local playerKill = PlayerResource:GetKills(iPlayerID)
@@ -290,15 +297,24 @@ function AIGameMode:FilterGold(tGoldFilter)
         iGold = iGold * AIGameMode:RewardFilterByKill(teamKill, playerKill, teamCount)
     end
 
+    -- 玩家团队奖励
+    if iReason == DOTA_ModifyGold_Unspecified then
+        iGold = math.min(iGold, 200)
+        print("玩家团队奖励 已过滤完成 gold:" .. iGold)
+    end
+
+    -- 电脑连续死亡 补偿金钱
+    
+
+    -- 通用金钱系数
     if self.tHumanPlayerList[iPlayerID] then
         tGoldFilter["gold"] = math.floor(iGold * self.fPlayerGoldXpMultiplier)
+    elseif self.bRadiantBotSameMulti and PlayerResource:GetTeam(iPlayerID) == DOTA_TEAM_GOODGUYS then
+        tGoldFilter["gold"] = math.floor(iGold * self.fPlayerGoldXpMultiplier)
     else
-        if self.bRadiantBotSameMulti and PlayerResource:GetTeam(iPlayerID) == DOTA_TEAM_GOODGUYS then
-            tGoldFilter["gold"] = math.floor(iGold * self.fPlayerGoldXpMultiplier)
-        else
-            tGoldFilter["gold"] = math.floor(iGold * self.fBotGoldXpMultiplier)
-        end
+        tGoldFilter["gold"] = math.floor(iGold * self.fBotGoldXpMultiplier)
     end
+
     return true
 end
 
@@ -307,15 +323,17 @@ function AIGameMode:FilterXP(tXPFilter)
     local iPlayerID = tXPFilter["player_id_const"]
     local iReason = tXPFilter["reason_const"]
 
+    -- 电脑连续死亡 补偿经验
+
+
     if self.tHumanPlayerList[iPlayerID] then
         tXPFilter["experience"] = math.floor(iXP * self.fPlayerGoldXpMultiplier)
+    elseif self.bRadiantBotSameMulti and PlayerResource:GetTeam(iPlayerID) == DOTA_TEAM_GOODGUYS then
+        tXPFilter["experience"] = math.floor(iXP * self.fPlayerGoldXpMultiplier)
     else
-        if self.bRadiantBotSameMulti and PlayerResource:GetTeam(iPlayerID) == DOTA_TEAM_GOODGUYS then
-            tXPFilter["experience"] = math.floor(iXP * self.fPlayerGoldXpMultiplier)
-        else
-            tXPFilter["experience"] = math.floor(iXP * self.fBotGoldXpMultiplier)
-        end
+        tXPFilter["experience"] = math.floor(iXP * self.fBotGoldXpMultiplier)
     end
+
     return true
 end
 

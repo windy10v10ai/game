@@ -144,3 +144,11 @@ function LifeStealOnAttackLanded (params, iLifeSteal, hHero, hAbility)
 end
 
 print("Util loaded.")
+
+function IsGoodTeamPlayer (playerid)
+	return playerid >= 0 and playerid <= 11
+end
+
+function IsBadTeamPlayer (playerid)
+	return playerid >= 12 and playerid <= 23
+end

@@ -87,7 +87,7 @@ local tAPLevelList = {
 
 local tDOTARespawnTime = {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 75}
 
--- 测试密码
+-- 注册测试人员id
 local developerSteamAccountID = {}
 developerSteamAccountID[136407523]="windy"
 developerSteamAccountID[1194383041]="咸鱼"
@@ -385,14 +385,17 @@ function AIGameMode:RefreshGameStatus()
 	AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
 end
 
+-- 监听死亡事件
 function AIGameMode:OnEntityKilled(keys)
 	local hEntity = EntIndexToHScript(keys.entindex_killed)
+	local attacker = EntIndexToHScript(keys.entindex_attacker)
 	-- on hero killed
 	if hEntity:IsRealHero() and hEntity:IsReincarnating() == false then
+		-- 结算英雄死亡事件
 		HeroKilled(keys)
 		-- drop items only when killed by hero
-		if EntIndexToHScript(keys.entindex_attacker):GetPlayerOwner() then
-			AIGameMode:RollDrops(EntIndexToHScript(keys.entindex_killed))
+		if attacker:GetPlayerOwner() then
+			AIGameMode:RollDrops(hEntity)
 		end
 	end
 	-- on barrack killed
@@ -524,15 +527,21 @@ end
 
 function HeroKilled(keys)
 	local hHero = EntIndexToHScript(keys.entindex_killed)
+	local attacker = EntIndexToHScript(keys.entindex_attacker)
 	local playerId = hHero:GetPlayerID()
+	local attackerPlayer = attacker:GetPlayerOwner()
+	local attackerPlayerID = attackerPlayer:GetPlayerID()
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
+
+	---- 复活时间逻辑
 	if iLevel <= 50 then
 		fRespawnTime = math.ceil(tDOTARespawnTime[iLevel]*AIGameMode.iRespawnTimePercentage/100.0)
 	else
 		fRespawnTime = math.ceil((iLevel/4 + 62)*AIGameMode.iRespawnTimePercentage/100.0)
 	end
 
+	-- NEC大招
 	if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
 		fRespawnTime = fRespawnTime+hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel()*10
 	end
@@ -546,7 +555,33 @@ function HeroKilled(keys)
 	if fRespawnTime < 1 then
 		fRespawnTime = 1
 	end
+
 	hHero:SetTimeUntilRespawn(fRespawnTime)
+
+	----玩家团队奖励逻辑
+	if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
+		print("---触发玩家团队奖励---")
+		print("attacker playerid:" .. attackerPlayerID)
+		local gold = 0
+		if iLevel <= 10 then
+			gold = 5+iLevel*2
+		elseif iLevel <= 20 then
+			gold = 10+iLevel*2.5
+		elseif iLevel <= 30 then
+			gold = 15+iLevel*3
+		elseif iLevel <= 50 then
+			gold = 25+iLevel*3.5
+		else
+			gold = 200
+		end
+		print("bonus gold:" .. gold)
+		for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+			if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and PlayerResource:GetSelectedHeroEntity(playerID) then
+				-- DOTA_ModifyGold_Unspecified 仅用于此
+				PlayerResource:ModifyGold(playerID, gold, true, DOTA_ModifyGold_Unspecified)
+			end
+		end
+	end
 
 end
 
@@ -574,7 +609,7 @@ end
 function AIGameMode:CreateItem(sItemName, hEntity)
 	local item = CreateItem(sItemName, nil, nil)
 	local pos = hEntity:GetAbsOrigin()
-	local drop = CreateItemOnPositionSync( pos, item )
+	CreateItemOnPositionSync( pos, item )
 	local pos_launch = pos+RandomVector(RandomFloat(150,200))
 	item:LaunchLoot(false, 200, 0.75, pos_launch)
 end
@@ -803,7 +838,7 @@ function AIGameMode:OnPlayerChat( event )
 			-- get hero
 			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 			local iGold = 10000
-			hHero:ModifyGold(iGold, true, DOTA_ModifyGold_Unspecified)
+			hHero:ModifyGold(iGold, true, DOTA_ModifyGold_CheatCommand)
 			GameRules:SendCustomMessage(
 				"号外号外！开发者:"..developerSteamAccountID[steamAccountID].." 用自己的菊花交换了增加10000金币",
 				DOTA_TEAM_GOODGUYS,
