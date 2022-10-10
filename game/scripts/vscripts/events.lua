@@ -580,9 +580,10 @@ function HeroKilled(keys)
 		end
 		print("bonus gold:" .. gold)
 		for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-			if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and PlayerResource:GetSelectedHeroEntity(playerID) then
+			if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
+				print("触发玩家团队奖励 判断成功 playerid:" .. playerID)
 				-- DOTA_ModifyGold_Unspecified 仅用于此
-				PlayerResource:ModifyGold(playerID, gold, true, DOTA_ModifyGold_Unspecified)
+				GameRules:ModifyGoldFiltered(playerID, gold, true, DOTA_ModifyGold_CreepKill)
 			end
 		end
 	end
@@ -610,7 +611,8 @@ function HeroKilled(keys)
 	-- AI连死补偿
 	-- AI 50级后不再补偿
 	if  attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) and
-		BotRecordSuccessiveDeathTable[attackerPlayerID] and BotRecordSuccessiveDeathTable[attackerPlayerID] >= 3 and iLevel < 50 then
+		AIGameMode.BotRecordSuccessiveDeathTable[playerId] and AIGameMode.BotRecordSuccessiveDeathTable[playerId] >= 3
+			and iLevel < 50 then
 
 		-- 补偿的金钱和经验 设计上不应该超过AI通过击杀玩家获得的
 		print("AI连死补偿")
@@ -620,25 +622,26 @@ function HeroKilled(keys)
 		local gold = 0
 		local xp = 0
 
+		print("GameTime:" .. GameTime)
 		if GameTime <= 5 * 60 then
 			gold = 5
-			xp = 12
+			xp = 10
 		elseif GameTime <= 10 * 60 then
 			gold = 15
-			xp = 24
+			xp = 25
 		elseif GameTime <= 15 * 60 then
 			gold = 25
-			xp = 36
+			xp = 40
 		else
 			gold = 35
-			xp = 48
+			xp = 50
 		end
 
 		if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and PlayerResource:GetSelectedHeroEntity(playerId) then
 			-- Reason: DOTA_ModifyGold_Custom_AISuccessiveDeath
-			PlayerResource:ModifyGold(playerID, gold, true, DOTA_ModifyGold_Custom_AISuccessiveDeath)
+			GameRules:ModifyGoldFiltered(playerId, gold, true, DOTA_ModifyGold_CourierKill)
 			-- Reason: DOTA_ModifyXP_Unspecified 仅用于此
-			hHero:AddExperience(xp, DOTA_ModifyXP_Unspecified, false, false)
+			hHero:AddExperience(xp, DOTA_ModifyXP_MAX, false, false)
 		end
 
 	end
