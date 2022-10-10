@@ -96,7 +96,7 @@ function modifier_player_puck1609:GetModifierAttackRangeBonus()
 end
 
 function modifier_player_puck1609:GetModifierAttackSpeedBonus_Constant()
-	return 60
+	return 90
 end
 
 function modifier_player_puck1609:OnAttackLanded(params)

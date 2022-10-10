@@ -157,6 +157,8 @@ function AIGameMode:PreGameOptions()
 	gameMode:SetMinimumAttackSpeed( MINIMUM_ATTACK_SPEED )
 	-- 每点敏捷提供护甲
 	gameMode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.143)
+	-- 死亡不扣钱
+	gameMode:SetLoseGoldOnDeath(LOSE_GOLD_ON_DEATH)
 
 	if self.bSameHeroSelection == 1 then
 		GameRules:SetSameHeroSelectionEnabled( true )
