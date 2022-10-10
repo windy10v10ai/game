@@ -1,0 +1,54 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf45:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_nBehaviorVersion = 12
+	m_nMaxParticles = 0
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+			m_previewState = 
+			{
+				m_previewModel = "models/heroes/phantom_assassin/phantom_assassin.vmdl"
+				m_nModSpecificData = 137
+				m_sequenceName = "phantom_assassin_idle_alt1_anim"
+				m_hitboxSetName = "default"
+			}
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/heroes/jack/children/jack_presence_concealment_ground.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/jack/children/jack_presence_concealment_smoke_body_outline.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/jack/children/jack_presence_concealment_start.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/jack/children/jack_presence_concealment_smoke_light.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_phantom_assassin/phantom_assassin_active_blur_smoke_body.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/jack/children/jack_presence_concealment_flek_start.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/jack/children/jack_presence_concealment_smoke_start.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_phantom_assassin/phantom_assassin_active_blur_embers.vpcf"
+		},
+	]
+}
