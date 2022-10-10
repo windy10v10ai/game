@@ -5611,7 +5611,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6000"
+		"ItemCost"						"4800"
 		"ItemAliases"					"diana candy"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
@@ -5727,7 +5727,7 @@
         "BaseClass"					"item_lua"
         "ScriptFile"                    		"items/item_tome_of_agility_for_lottery.lua"
         "AbilityTextureName"		    		"tome_of_agility"
-        "ItemCost"					"6666"
+        "ItemCost"					"4800"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "ItemAliases"					"agility tome;agi"
         "ItemShopTags"					"consumable"
@@ -5758,7 +5758,7 @@
         "BaseClass"					"item_lua"
         "ScriptFile"                    		"items/item_tome_of_intelligence_for_lottery.lua"
         "AbilityTextureName"		   		"tome_of_intelligence"
-        "ItemCost"					"6666"
+        "ItemCost"					"4800"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "ItemAliases"					"intelligence tome;int"
         "ItemShopTags"					"consumable"
@@ -5789,7 +5789,7 @@
         "BaseClass"					"item_lua"
         "ScriptFile"                    		"items/item_tome_of_strength_for_lottery.lua"
         "AbilityTextureName"		    		"tome_of_strength"
-        "ItemCost"					"6666"
+        "ItemCost"					"4800"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "ItemAliases"					"strength tome;str"
         "ItemShopTags"					"consumable"

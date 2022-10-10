@@ -3,8 +3,8 @@
 function AIGameMode:SpecialItemAdd(owner)
 	local tierRate = {}
 	tierRate[1] = 100
-	tierRate[2] = 20
-	tierRate[3] = 6
+	tierRate[2] = 30
+	tierRate[3] = 9
 	tierRate[4] = 1
 	tierRate[5] = 0.1
 

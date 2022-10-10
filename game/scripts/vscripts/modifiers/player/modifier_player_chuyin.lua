@@ -5,10 +5,7 @@ function modifier_player_chuyin:RemoveOnDeath() return false end
 function modifier_player_chuyin:GetTexture() return "player/chuyin" end
 
 function modifier_player_chuyin:OnCreated()
-	self.iAttackRange = 0
-	if self:GetParent():IsRangedAttacker() then
-		self.iAttackRange = 200
-	end
+	self.iAttackRange = 200
 	self.iMoveSpeed = 150
 	self.iLifeSteal = 15
 	self.iCooldownReduction = 32
@@ -30,7 +27,10 @@ function modifier_player_chuyin:DeclareFunctions()
 end
 
 function modifier_player_chuyin:GetModifierAttackRangeBonus()
-	return self.iAttackRange
+	if self:GetParent():IsRangedAttacker() then
+		return self.iAttackRange
+	end
+	return 0
 end
 
 function modifier_player_chuyin:GetModifierMoveSpeedBonus_Constant()

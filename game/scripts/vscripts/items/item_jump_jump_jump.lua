@@ -216,12 +216,11 @@ function modifier_item_jump_jump_jump_meteor_form:OnDestroy()
 
 		local stun_duration = stun_duration * (1 - enemy:GetStatusResistance())
 		if enemy:IsBuilding() then
-			enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration/2})
 			ApplyDamage(damage_table_building)
 		else
-			enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
 			ApplyDamage(damage_table)
 		end
+		enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
 	end
 end
 
