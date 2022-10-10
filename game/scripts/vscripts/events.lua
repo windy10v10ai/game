@@ -533,6 +533,7 @@ function HeroKilled(keys)
 	local attackerPlayerID = attackerPlayer:GetPlayerID()
 	local fRespawnTime = 0
 	local iLevel = hHero:GetLevel()
+	local GameTime = GameRules:GetDOTATime(false, false)
 
 	---- 复活时间逻辑
 	if iLevel <= 50 then
@@ -558,7 +559,7 @@ function HeroKilled(keys)
 
 	hHero:SetTimeUntilRespawn(fRespawnTime)
 
-	----玩家团队奖励逻辑
+	---- 玩家团队奖励逻辑
 	if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
 		print("---触发玩家团队奖励---")
 		print("attacker playerid:" .. attackerPlayerID)
@@ -581,6 +582,62 @@ function HeroKilled(keys)
 				PlayerResource:ModifyGold(playerID, gold, true, DOTA_ModifyGold_Unspecified)
 			end
 		end
+	end
+
+	-- AI连续死亡记录
+	if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
+		print("AI已死亡")
+		print("playerId:" .. playerId)
+		if AIGameMode.BotRecordSuccessiveDeathTable[playerId] then
+			AIGameMode.BotRecordSuccessiveDeathTable[playerId] = AIGameMode.BotRecordSuccessiveDeathTable[playerId] + 1
+		else
+			AIGameMode.BotRecordSuccessiveDeathTable[playerId] = 1
+		end
+		print("累计连死次数:" .. AIGameMode.BotRecordSuccessiveDeathTable[playerId])
+	end
+
+	-- AI连续死亡记录清零
+	if attackerPlayer and IsBadTeamPlayer(attackerPlayerID) and IsGoodTeamPlayer(playerId) then
+		print("AI已击杀玩家")
+		print("attackerPlayerID:" .. attackerPlayerID)
+		AIGameMode.BotRecordSuccessiveDeathTable[attackerPlayerID] = 0
+		print("累计连死次数:" .. AIGameMode.BotRecordSuccessiveDeathTable[attackerPlayerID])
+	end
+
+	-- AI连死补偿
+	-- AI 50级后不再补偿
+	if  attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) and
+		BotRecordSuccessiveDeathTable[attackerPlayerID] and BotRecordSuccessiveDeathTable[attackerPlayerID] >= 3 and iLevel < 50 then
+
+		-- 补偿的金钱和经验 设计上不应该超过AI通过击杀玩家获得的
+		print("AI连死补偿")
+		print("playerId:" .. playerId)
+		local deathCount = AIGameMode.BotRecordSuccessiveDeathTable[playerId]
+		print("累计连死次数:" .. deathCount)
+		local gold = 0
+		local xp = 0
+
+		if GameTime <= 5 * 60 then
+			gold = 5
+			xp = 12
+		elseif GameTime <= 10 * 60 then
+			gold = 15
+			xp = 24
+		elseif GameTime <= 15 * 60 then
+			gold = 25
+			xp = 36
+		else
+			gold = 35
+			xp = 48
+		end
+
+		if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and PlayerResource:GetSelectedHeroEntity(playerId) then
+			-- Reason: DOTA_ModifyGold_Custom_AISuccessiveDeath
+			PlayerResource:ModifyGold(playerID, gold, true, DOTA_ModifyGold_Custom_AISuccessiveDeath)
+			-- Reason: DOTA_ModifyXP_Unspecified 仅用于此
+			hHero:AddExperience(xp, DOTA_ModifyXP_Unspecified, false, false)
+		end
+
 	end
 
 end

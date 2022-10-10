@@ -7,6 +7,9 @@ if AIGameMode == nil then
     _G.AIGameMode = class({}) -- put in the global scope
 end
 
+-- Custom Const
+DOTA_ModifyGold_Custom_AISuccessiveDeath = 100
+
 require('timers')
 require('util')
 require('settings')
@@ -152,6 +155,10 @@ function AIGameMode:PreGameOptions()
     gameMode:SetTowerBackdoorProtectionEnabled(true)
     gameMode:SetMaximumAttackSpeed(MAXIMUM_ATTACK_SPEED)
     gameMode:SetMinimumAttackSpeed(MINIMUM_ATTACK_SPEED)
+
+    -- 死亡不扣钱
+    gameMode:SetLoseGoldOnDeath(LOSE_GOLD_ON_DEATH)
+
     -- 每点敏捷提供护甲
     gameMode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.143)
 
@@ -300,11 +307,14 @@ function AIGameMode:FilterGold(tGoldFilter)
     -- 玩家团队奖励
     if iReason == DOTA_ModifyGold_Unspecified then
         iGold = math.min(iGold, 200)
-        print("玩家团队奖励 已过滤完成 gold:" .. iGold)
+        print("玩家团队奖励 gold:" .. iGold)
     end
 
     -- 电脑连续死亡 补偿金钱
-    
+    if iReason == DOTA_ModifyGold_Custom_AISuccessiveDeath then
+        iGold = math.min(iGold, 35)
+        print("电脑连续死亡 补偿金钱 gold:" .. iGold)
+    end
 
     -- 通用金钱系数
     if self.tHumanPlayerList[iPlayerID] then
@@ -313,6 +323,15 @@ function AIGameMode:FilterGold(tGoldFilter)
         tGoldFilter["gold"] = math.floor(iGold * self.fPlayerGoldXpMultiplier)
     else
         tGoldFilter["gold"] = math.floor(iGold * self.fBotGoldXpMultiplier)
+    end
+
+    -- 检查用
+    if iReason == DOTA_ModifyGold_Unspecified then
+        print("玩家团队奖励 最终过滤后的 gold:" .. tGoldFilter["gold"])
+    end
+
+    if iReason == DOTA_ModifyGold_Custom_AISuccessiveDeath then
+        print("电脑连续死亡 补偿金钱 最终过滤后的 gold:" .. tGoldFilter["gold"])
     end
 
     return true
@@ -324,7 +343,9 @@ function AIGameMode:FilterXP(tXPFilter)
     local iReason = tXPFilter["reason_const"]
 
     -- 电脑连续死亡 补偿经验
-
+    if iReason == DOTA_ModifyXP_Unspecified then
+        print("电脑连续死亡 补偿经验 xp:" .. iXP)
+    end
 
     if self.tHumanPlayerList[iPlayerID] then
         tXPFilter["experience"] = math.floor(iXP * self.fPlayerGoldXpMultiplier)
@@ -332,6 +353,11 @@ function AIGameMode:FilterXP(tXPFilter)
         tXPFilter["experience"] = math.floor(iXP * self.fPlayerGoldXpMultiplier)
     else
         tXPFilter["experience"] = math.floor(iXP * self.fBotGoldXpMultiplier)
+    end
+
+    -- 检查用
+    if iReason == DOTA_ModifyXP_Unspecified then
+        print("电脑连续死亡 补偿经验 最终过滤后的 xp:" .. tXPFilter["experience"])
     end
 
     return true
