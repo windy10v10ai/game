@@ -372,22 +372,12 @@ function AIGameMode:FilterXP(tXPFilter)
     local iPlayerID = tXPFilter["player_id_const"]
     local iReason = tXPFilter["reason_const"]
 
-    -- 电脑连续死亡 补偿经验
-    if iReason == DOTA_ModifyXP_MAX then
-        print("电脑连续死亡 补偿经验 xp:" .. iXP)
-    end
-
     if self.tHumanPlayerList[iPlayerID] then
         tXPFilter["experience"] = math.floor(iXP * self.fPlayerGoldXpMultiplier)
     elseif self.bRadiantBotSameMulti and PlayerResource:GetTeam(iPlayerID) == DOTA_TEAM_GOODGUYS then
         tXPFilter["experience"] = math.floor(iXP * self.fPlayerGoldXpMultiplier)
     else
         tXPFilter["experience"] = math.floor(iXP * self.fBotGoldXpMultiplier)
-    end
-
-    -- 检查用
-    if iReason == DOTA_ModifyXP_MAX then
-        print("电脑连续死亡 补偿经验 最终过滤后的 xp:" .. tXPFilter["experience"])
     end
 
     return true

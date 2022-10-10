@@ -624,24 +624,26 @@ function HeroKilled(keys)
 
 		print("GameTime:" .. GameTime)
 		if GameTime <= 5 * 60 then
-			gold = 5
-			xp = 10
+			gold = 10
+			xp = 15
 		elseif GameTime <= 10 * 60 then
-			gold = 15
-			xp = 25
+			gold = 20
+			xp = 30
 		elseif GameTime <= 15 * 60 then
-			gold = 25
-			xp = 40
+			gold = 40
+			xp = 60
 		else
-			gold = 35
-			xp = 50
+			gold = 80
+			xp = 120
 		end
 
+		-- AddExperience走不到Filter，倍率逻辑只能写在这里
+		xp = xp * AIGameMode.fBotGoldXpMultiplier
+
 		if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and PlayerResource:GetSelectedHeroEntity(playerId) then
-			-- Reason: DOTA_ModifyGold_Custom_AISuccessiveDeath
 			GameRules:ModifyGoldFiltered(playerId, gold, true, DOTA_ModifyGold_CourierKill)
-			-- Reason: DOTA_ModifyXP_Unspecified 仅用于此
-			hHero:AddExperience(xp, DOTA_ModifyXP_MAX, false, false)
+			hHero:AddExperience(xp, DOTA_ModifyXP_TomeOfKnowledge, false, false)
+			print("AI经验补偿 XP:" .. xp)
 		end
 
 	end
