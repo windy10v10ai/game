@@ -85,7 +85,7 @@ function AIGameMode:InitEvents()
     ListenToGameEvent("player_chat", Dynamic_Wrap(AIGameMode, "OnPlayerChat"), self)
     ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
     ListenToGameEvent("dota_buyback", Dynamic_Wrap(AIGameMode, 'OnBuyback'), self)
-    --JS events
+    -- JS events
     CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
         return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
     end)
@@ -165,38 +165,9 @@ function AIGameMode:PreGameOptions()
     end
 
     if self.iMaxLevel ~= 30 then
-        local tLevelRequire = {
-            0,
-            180,
-            510,
-            990,
-            1620,
-            2400,
-            3240,
-            4140,
-            5100,
-            6120,
-            7200,
-            8350,
-            9650,
-            11100,
-            12700,
-            14450,
-            16350,
-            18350,
-            20450,
-            22650,
-            25050,
-            27650,
-            30450,
-            33450,
-            36950,
-            40950,
-            45450,
-            50450,
-            55950,
-            61950,
-        } -- value fixed
+        local tLevelRequire = {0, 180, 510, 990, 1620, 2400, 3240, 4140, 5100, 6120, 7200, 8350, 9650, 11100, 12700,
+                               14450, 16350, 18350, 20450, 22650, 25050, 27650, 30450, 33450, 36950, 40950, 45450,
+                               50450, 55950, 61950} -- value fixed
         local iRequireLevel = tLevelRequire[30]
         for i = 31, self.iMaxLevel do
             iRequireLevel = iRequireLevel + i * 200
@@ -277,29 +248,20 @@ end
 ------------------------------------------------------------------
 --                        Gold/XP Filter                        --
 ------------------------------------------------------------------
-GOLD_REASON_FILTER = {
-    DOTA_ModifyGold_Unspecified,
-    DOTA_ModifyGold_Death,
-    DOTA_ModifyGold_Buyback,
-    DOTA_ModifyGold_PurchaseConsumable,
-    DOTA_ModifyGold_PurchaseItem,
-    DOTA_ModifyGold_AbandonedRedistribute,
-    DOTA_ModifyGold_SellItem,
-    DOTA_ModifyGold_AbilityCost,
-    DOTA_ModifyGold_CheatCommand,
-    DOTA_ModifyGold_SelectionPenalty,
-    DOTA_ModifyGold_GameTick,
-    --DOTA_ModifyGold_Building,
-    --DOTA_ModifyGold_HeroKill,
-    --DOTA_ModifyGold_CreepKill,
-    --DOTA_ModifyGold_NeutralKill,
-    --DOTA_ModifyGold_RoshanKill,
-    --DOTA_ModifyGold_CourierKill,
-    --DOTA_ModifyGold_BountyRune,
-    --DOTA_ModifyGold_SharedGold,
-    --DOTA_ModifyGold_AbilityGold,
-    --DOTA_ModifyGold_WardKill,
-    --DOTA_ModifyGold_CourierKilledByThisPlayer,
+GOLD_REASON_FILTER = {DOTA_ModifyGold_Unspecified, DOTA_ModifyGold_Death, DOTA_ModifyGold_Buyback,
+                      DOTA_ModifyGold_PurchaseConsumable, DOTA_ModifyGold_PurchaseItem,
+                      DOTA_ModifyGold_AbandonedRedistribute, DOTA_ModifyGold_SellItem, DOTA_ModifyGold_AbilityCost,
+                      DOTA_ModifyGold_CheatCommand, DOTA_ModifyGold_SelectionPenalty, DOTA_ModifyGold_GameTick -- DOTA_ModifyGold_Building,
+-- DOTA_ModifyGold_HeroKill,
+-- DOTA_ModifyGold_CreepKill,
+-- DOTA_ModifyGold_NeutralKill,
+-- DOTA_ModifyGold_RoshanKill,
+-- DOTA_ModifyGold_CourierKill,
+-- DOTA_ModifyGold_BountyRune,
+-- DOTA_ModifyGold_SharedGold,
+-- DOTA_ModifyGold_AbilityGold,
+-- DOTA_ModifyGold_WardKill,
+-- DOTA_ModifyGold_CourierKilledByThisPlayer,
 }
 
 function AIGameMode:FilterGold(tGoldFilter)
