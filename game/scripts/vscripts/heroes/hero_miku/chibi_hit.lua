@@ -1,5 +1,4 @@
 chibi_hit = class({})
-LinkLuaModifier( "modifier_generic_stunned_lua", "modifiers/modifier_generic_stunned_lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 -- Custom KV
@@ -75,7 +74,7 @@ function chibi_hit:Hit( target, dragonform )
 	target:AddNewModifier(
 		caster, -- player source
 		self, -- ability source
-		"modifier_generic_stunned_lua", -- modifier name
+		"modifier_stunned", -- modifier name
 		{ duration = duration } -- kv
 	)
 
