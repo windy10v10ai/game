@@ -731,7 +731,7 @@
 
 		// 电棍 razor
 		"DOTA_Tooltip_ability_special_bonus_unique_razor_101"   "+{s:bonus_radius} 等离子场范围"
-		"DOTA_Tooltip_ability_special_bonus_unique_razor_401"   "+{s:value}秒 风暴之眼持续时间"
+		"DOTA_Tooltip_ability_special_bonus_unique_razor_401"   "+{s:bonus_duration}秒 风暴之眼持续时间"
 		"DOTA_Tooltip_ability_special_bonus_unique_razor_402"   "+{s:value} 风暴之眼伤害"
 
 		// 小鱼 slark

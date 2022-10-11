@@ -510,7 +510,7 @@
 
         // 电棍 razor
         "DOTA_Tooltip_ability_special_bonus_unique_razor_101"   "+{s:bonus_radius} plasma field radius"
-        "DOTA_Tooltip_ability_special_bonus_unique_razor_401"   "+{s:value}s eye of the storm duration"
+        "DOTA_Tooltip_ability_special_bonus_unique_razor_401"   "+{s:bonus_duration}s eye of the storm duration"
         "DOTA_Tooltip_ability_special_bonus_unique_razor_402"   "+{s:value} eye of the storm damage"
 
         // 小鱼 slark
