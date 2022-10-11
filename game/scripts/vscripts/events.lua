@@ -573,6 +573,8 @@ function HeroKilled(keys)
         else
             gold = 200
         end
+        -- 初次更新 数值改保守点
+        gold = gold / 2
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
                 PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
@@ -617,11 +619,17 @@ function HeroKilled(keys)
             gold = 20
             xp = 30
         elseif GameTime <= 15 * 60 then
+            -- 初次更新 数值改保守点
+            -- gold = 40
+            -- xp = 60
+            gold = 30
+            xp = 45
+        else
+            -- 初次更新 数值改保守点
+            -- gold = 80
+            -- xp = 120
             gold = 40
             xp = 60
-        else
-            gold = 80
-            xp = 120
         end
 
         -- AddExperience走不到Filter，倍率逻辑只能写在这里
