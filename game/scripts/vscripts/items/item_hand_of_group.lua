@@ -13,6 +13,11 @@ function item_hand_of_group:OnSpellStart()
     local self_gold =self:GetSpecialValueFor("self_gold")
     local group_xp =self:GetSpecialValueFor("group_xp")
     local group_gold =self:GetSpecialValueFor("group_gold")
+    local caster_playerid = -1
+
+    if caster then
+        caster_playerid = caster:GetPlayerOwnerID()
+    end
 
     local pfx= ParticleManager:CreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_ABSORIGIN,target)
     ParticleManager:SetParticleControl(pfx, 0, target_pos)
@@ -22,18 +27,19 @@ function item_hand_of_group:OnSpellStart()
     target:ForceKill(false)
     caster:EmitSound( "DOTA_Item.Hand_Of_Midas" )
     caster:ModifyGoldFiltered( self_gold , true, DOTA_ModifyGold_AbilityGold)
-    caster:AddExperience( target:GetDeathXP() * self_xp , DOTA_ModifyXP_TomeOfKnowledge, false, false )
-    SendOverheadEventMessage(caster, OVERHEAD_ALERT_GOLD, target, self_gold, caster)
+    caster:AddExperience( target:GetDeathXP() * self_xp * AIGameMode:GetPlayerGoldXpMultiplier(caster_playerid) , DOTA_ModifyXP_TomeOfKnowledge, false, false )
+    SendOverheadEventMessage(caster, OVERHEAD_ALERT_GOLD, target, self_gold * AIGameMode:GetPlayerGoldXpMultiplier(caster_playerid), caster)
 
     -- 团队增益
     local team = caster:GetTeamNumber()
     local all = FindUnitsInRadius(team, target_pos, nil, self:GetSpecialValueFor("group_range"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
     for _,teammate in pairs(all) do
         if teammate:GetTeamNumber() == team then
+            local teammate_playerid = teammate:GetPlayerOwnerID()
             teammate:EmitSound( "DOTA_Item.Hand_Of_Midas" )
             teammate:ModifyGoldFiltered( group_gold , true, DOTA_ModifyGold_AbilityGold)
-            teammate:AddExperience( target:GetDeathXP() * group_xp , DOTA_ModifyXP_TomeOfKnowledge, false, false )
-            SendOverheadEventMessage(teammate, OVERHEAD_ALERT_GOLD, teammate, group_gold, caster)
+            teammate:AddExperience( target:GetDeathXP() * group_xp * AIGameMode:GetPlayerGoldXpMultiplier(teammate_playerid) , DOTA_ModifyXP_TomeOfKnowledge, false, false )
+            SendOverheadEventMessage(teammate, OVERHEAD_ALERT_GOLD, teammate, group_gold * AIGameMode:GetPlayerGoldXpMultiplier(teammate_playerid), caster)
         end
     end
 end
