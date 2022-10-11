@@ -4,9 +4,9 @@ SKIP_TEAM_SETUP = false                 -- Should we skip the team setup entirel
 ENABLE_AUTO_LAUNCH = true               -- Should we automatically have the game complete team setup after AUTO_LAUNCH_DELAY seconds?
 AUTO_LAUNCH_DELAY = 60                -- How long should the default team selection launch timer be?  The default for custom games is 30.  Setting to 0 will skip team selection.
 LOCK_TEAM_SETUP = false                 -- Should we lock the teams initially?  Note that the host can still unlock the teams
-HERO_SELECTION_TIME = 60.0              -- How long should we let people select their hero?
+HERO_SELECTION_TIME = 30.0              -- How long should we let people select their hero?
 PRE_GAME_TIME = 60.0                     -- How long after people select their heroes should the horn blow and the game start?
-STRATEGY_TIME = 30.0
+STRATEGY_TIME = 10.0
 
 RADIANT_PLAYER_COUNT = 10
 DIRE_PLAYER_COUNT = 10
@@ -25,6 +25,8 @@ MAX_LEVEL = 50                         -- What level should we let heroes get to
 
 MAXIMUM_ATTACK_SPEED = 700              -- What should we use for the maximum attack speed?
 MINIMUM_ATTACK_SPEED = 20               -- What should we use for the minimum attack speed?
+
+LOSE_GOLD_ON_DEATH = false               -- Should we have players lose the normal amount of dota gold on death?
 
 -- The above are enabled ones
 --[[
@@ -76,7 +78,7 @@ end
 
 ENABLE_FIRST_BLOOD = true               -- Should we enable first blood for the first kill in this game?
 HIDE_KILL_BANNERS = false               -- Should we hide the kill banners that show when a player is killed?
-LOSE_GOLD_ON_DEATH = true               -- Should we have players lose the normal amount of dota gold on death?
+
 SHOW_ONLY_PLAYER_INVENTORY = false      -- Should we only allow players to see their own inventory even when selecting other units?
 DISABLE_STASH_PURCHASING = false        -- Should we prevent players from being able to buy items into their stash when not at a shop?
 DISABLE_ANNOUNCER = false               -- Should we disable the announcer from working in the game?

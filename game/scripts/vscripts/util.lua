@@ -144,3 +144,11 @@ function LifeStealOnAttackLanded (params, iLifeSteal, hHero, hAbility)
 end
 
 print("Util loaded.")
+
+function IsGoodTeamPlayer (playerid)
+	return PlayerResource:GetTeam(playerid) == DOTA_TEAM_GOODGUYS
+end
+
+function IsBadTeamPlayer (playerid)
+	return PlayerResource:GetTeam(playerid) == DOTA_TEAM_BADGUYS
+end

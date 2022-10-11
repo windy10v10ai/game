@@ -15,13 +15,13 @@ export class Member {
 			const developSteamAccountIds = [
 				136407523, 1194383041, 143575444, 314757913, 385130282, 967052298, 1159610111, 353885092, 245559423, 916506173];
 
-			// for (const steamId of developSteamAccountIds) {
-			// 	this.MemberList.push({
-			// 		steamId: steamId,
-			// 		enable: true,
-			// 		expireDateString: "2099-12-31",
-			// 	});
-			// }
+			for (const steamId of developSteamAccountIds) {
+				this.MemberList.push({
+					steamId: steamId,
+					enable: true,
+					expireDateString: "2099-12-31",
+				});
+			}
 		}
 		print("[Member] constructor in TS");
 	}

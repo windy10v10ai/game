@@ -21,8 +21,8 @@ function item_hand_of_group:OnSpellStart()
 
     target:ForceKill(false)
     caster:EmitSound( "DOTA_Item.Hand_Of_Midas" )
-    caster:ModifyGoldFiltered( self_gold , true, DOTA_ModifyGold_Unspecified )
-    caster:AddExperience( target:GetDeathXP() * self_xp , DOTA_ModifyXP_Unspecified, false, false )
+    caster:ModifyGoldFiltered( self_gold , true, DOTA_ModifyGold_AbilityGold)
+    caster:AddExperience( target:GetDeathXP() * self_xp , DOTA_ModifyXP_TomeOfKnowledge, false, false )
     SendOverheadEventMessage(caster, OVERHEAD_ALERT_GOLD, target, self_gold, caster)
 
     -- 团队增益
@@ -31,8 +31,8 @@ function item_hand_of_group:OnSpellStart()
     for _,teammate in pairs(all) do
         if teammate:GetTeamNumber() == team then
             teammate:EmitSound( "DOTA_Item.Hand_Of_Midas" )
-            teammate:ModifyGoldFiltered( group_gold , true, DOTA_ModifyGold_Unspecified )
-            teammate:AddExperience( target:GetDeathXP() * group_xp , DOTA_ModifyXP_Unspecified, false, false )
+            teammate:ModifyGoldFiltered( group_gold , true, DOTA_ModifyGold_AbilityGold)
+            teammate:AddExperience( target:GetDeathXP() * group_xp , DOTA_ModifyXP_TomeOfKnowledge, false, false )
             SendOverheadEventMessage(teammate, OVERHEAD_ALERT_GOLD, teammate, group_gold, caster)
         end
     end
