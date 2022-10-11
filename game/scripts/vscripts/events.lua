@@ -573,6 +573,8 @@ function HeroKilled(keys)
         else
             gold = 200
         end
+        -- 初次更新 数值改保守点
+        gold = gold / 2
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
                 PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
@@ -617,11 +619,17 @@ function HeroKilled(keys)
             gold = 20
             xp = 30
         elseif GameTime <= 15 * 60 then
+            -- 初次更新 数值改保守点
+            -- gold = 40
+            -- xp = 60
+            gold = 30
+            xp = 45
+        else
+            -- 初次更新 数值改保守点
+            -- gold = 80
+            -- xp = 120
             gold = 40
             xp = 60
-        else
-            gold = 80
-            xp = 120
         end
 
         -- AddExperience走不到Filter，倍率逻辑只能写在这里
@@ -629,8 +637,8 @@ function HeroKilled(keys)
 
         if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and
             PlayerResource:GetSelectedHeroEntity(playerId) then
-            GameRules:ModifyGoldFiltered(playerId, gold, true, DOTA_ModifyGold_CourierKill)
-            hHero:AddExperience(xp, DOTA_ModifyXP_TomeOfKnowledge, false, false)
+            GameRules:ModifyGoldFiltered(playerId, gold, true, DOTA_ModifyGold_CreepKill)
+            hHero:AddExperience(xp, DOTA_ModifyXP_CreepKill, false, false)
         end
 
     end
@@ -861,7 +869,7 @@ function AIGameMode:OnItemPickedUp(event)
     if event.PlayerID ~= nil and item ~= nil and hHero ~= nil and item:GetAbilityName() == "item_bag_of_gold" then
         local iGold = item:GetSpecialValueFor("bonus_gold")
         hHero:ModifyGoldFiltered(iGold, true, DOTA_ModifyGold_RoshanKill)
-        SendOverheadEventMessage(hHero, OVERHEAD_ALERT_GOLD, hHero, iGold, nil)
+        SendOverheadEventMessage(hHero, OVERHEAD_ALERT_GOLD, hHero, iGold * AIGameMode:GetPlayerGoldXpMultiplier(event.PlayerID), nil)
     end
 end
 
