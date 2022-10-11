@@ -8666,7 +8666,7 @@
             {
                 "var_type"			"FIELD_FLOAT"
                 "duration"			"30 35 40 45 50"
-                "LinkedSpecialBonus"    "special_bonus_unique_razor_401"
+                "special_bonus_unique_razor_401"    "+20"
             }
             "03"
             {
@@ -8690,17 +8690,8 @@
 	"special_bonus_unique_razor_401"
     {
         "BaseClass"					"special_bonus_undefined"
-        "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"					"FIELD_FLOAT"
-                "value"				        "+20"
-                "ad_linked_abilities"		"razor_eye_of_the_storm"
-            }
-        }
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
     }
     "special_bonus_unique_razor_402"
     {
