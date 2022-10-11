@@ -240,8 +240,8 @@ end
 function AIGameMode:ApplyTestOptions()
     print('------------------------读取个性化测试环境------------------------')
     if self.DebugMode and PlayerResource:GetSteamAccountID(0) == 245559423 then
-        self.iDesiredRadiant = 5
-        self.iDesiredDire = 5
+        self.iDesiredRadiant = 1
+        self.iDesiredDire = 1
     end
 end
 
@@ -306,13 +306,7 @@ function AIGameMode:FilterGold(tGoldFilter)
     end
 
     -- 通用金钱系数
-    if self.tHumanPlayerList[iPlayerID] then
-        tGoldFilter["gold"] = math.floor(iGold * self.fPlayerGoldXpMultiplier)
-    elseif self.bRadiantBotSameMulti and PlayerResource:GetTeam(iPlayerID) == DOTA_TEAM_GOODGUYS then
-        tGoldFilter["gold"] = math.floor(iGold * self.fPlayerGoldXpMultiplier)
-    else
-        tGoldFilter["gold"] = math.floor(iGold * self.fBotGoldXpMultiplier)
-    end
+    tGoldFilter["gold"] = math.floor(iGold * self:GetPlayerGoldXpMultiplier(iPlayerID))
 
     return true
 end
@@ -322,13 +316,7 @@ function AIGameMode:FilterXP(tXPFilter)
     local iPlayerID = tXPFilter["player_id_const"]
     local iReason = tXPFilter["reason_const"]
 
-    if self.tHumanPlayerList[iPlayerID] then
-        tXPFilter["experience"] = math.floor(iXP * self.fPlayerGoldXpMultiplier)
-    elseif self.bRadiantBotSameMulti and PlayerResource:GetTeam(iPlayerID) == DOTA_TEAM_GOODGUYS then
-        tXPFilter["experience"] = math.floor(iXP * self.fPlayerGoldXpMultiplier)
-    else
-        tXPFilter["experience"] = math.floor(iXP * self.fBotGoldXpMultiplier)
-    end
+    tXPFilter["experience"] = math.floor(iXP * self:GetPlayerGoldXpMultiplier(iPlayerID))
 
     return true
 end
@@ -340,4 +328,19 @@ function AIGameMode:RewardFilterByKill(teamKill, playerKill, teamCount)
     end
     rewardMulti = (1 - playerKill / teamKill + 1 / teamCount) ^ 2
     return rewardMulti
+end
+
+-- 根据playerid获取金钱经验倍率
+function AIGameMode:GetPlayerGoldXpMultiplier(iPlayerID)
+    local mul = 1
+
+    if self.tHumanPlayerList[iPlayerID] then
+        mul = self.fPlayerGoldXpMultiplier
+    elseif self.bRadiantBotSameMulti and IsGoodTeamPlayer(iPlayerID) then
+        mul = self.fPlayerGoldXpMultiplier
+    else
+        mul = self.fBotGoldXpMultiplier
+    end
+
+    return mul
 end
