@@ -629,8 +629,8 @@ function HeroKilled(keys)
 
         if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and
             PlayerResource:GetSelectedHeroEntity(playerId) then
-            GameRules:ModifyGoldFiltered(playerId, gold, true, DOTA_ModifyGold_CourierKill)
-            hHero:AddExperience(xp, DOTA_ModifyXP_TomeOfKnowledge, false, false)
+            GameRules:ModifyGoldFiltered(playerId, gold, true, DOTA_ModifyGold_CreepKill)
+            hHero:AddExperience(xp, DOTA_ModifyXP_CreepKill, false, false)
         end
 
     end
@@ -861,7 +861,7 @@ function AIGameMode:OnItemPickedUp(event)
     if event.PlayerID ~= nil and item ~= nil and hHero ~= nil and item:GetAbilityName() == "item_bag_of_gold" then
         local iGold = item:GetSpecialValueFor("bonus_gold")
         hHero:ModifyGoldFiltered(iGold, true, DOTA_ModifyGold_RoshanKill)
-        SendOverheadEventMessage(hHero, OVERHEAD_ALERT_GOLD, hHero, iGold, nil)
+        SendOverheadEventMessage(hHero, OVERHEAD_ALERT_GOLD, hHero, iGold * AIGameMode:GetPlayerGoldXpMultiplier(event.PlayerID), nil)
     end
 end
 
