@@ -7062,7 +7062,7 @@
 				"blade_dance_lifesteal"
 				{
 					"value"	"0"
-					"special_bonus_unique_juggernaut_blade_dance_lifesteal"	"+40"
+					"special_bonus_unique_juggernaut_blade_dance_lifesteal"	"+50"
 				}
 		}
 	}
@@ -8564,13 +8564,13 @@
 		{
 			"damage_min"
 			{
-				"value"				"30 40 50 60 70"
-				"special_bonus_unique_razor_4"	"+50"
+				"value"				"40 50 60 70 80"
+				"special_bonus_unique_razor_4"	"+60"
 			}
 			"damage_max"
 			{
-				"value"				"80 95 110 124 140"
-				"special_bonus_unique_razor_4"	"+50"
+				"value"				"70 85 100 115 130"
+				"special_bonus_unique_razor_4"	"+60"
 			}
 			"radius"
 			{
@@ -8666,23 +8666,23 @@
             {
                 "var_type"			"FIELD_FLOAT"
                 "duration"			"30 35 40 45 50"
-                "LinkedSpecialBonus"    "special_bonus_unique_razor_401"
+                "special_bonus_unique_razor_401"    "+20"
             }
             "03"
             {
                 "var_type"				"FIELD_FLOAT"
-                "strike_interval"		"1.0"
+                "strike_interval"		"0.7 0.6 0.6 0.5 0.5"
                 "LinkedSpecialBonus"	"special_bonus_unique_razor_2"
             }
             "04"
             {
                 "var_type"			"FIELD_INTEGER"
-                "armor_reduction"	"2 2 3 3 3"
+                "armor_reduction"	"1"
             }
             "05"
             {
                 "var_type"			"FIELD_INTEGER"
-                "damage"			"160 220 280 340 400"
+                "damage"			"100 130 160 190 220"
                 "LinkedSpecialBonus"    "special_bonus_unique_razor_402"
             }
         }
@@ -8690,17 +8690,8 @@
 	"special_bonus_unique_razor_401"
     {
         "BaseClass"					"special_bonus_undefined"
-        "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"					"FIELD_FLOAT"
-                "value"				        "+20"
-                "ad_linked_abilities"		"razor_eye_of_the_storm"
-            }
-        }
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
     }
     "special_bonus_unique_razor_402"
     {
@@ -8712,7 +8703,7 @@
             "01"
             {
                 "var_type"					"FIELD_FLOAT"
-                "value"				        "+100"
+                "value"				        "+60"
                 "ad_linked_abilities"		"razor_eye_of_the_storm"
             }
         }
@@ -9002,13 +8993,12 @@
 	"sniper_headshot"
 	{
 		"MaxLevel" "7"
-		"AbilityDamage"					"30 50 70 90 110 130 150"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"03"
+			"damage"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"slow"			"-90"
+				"value"	"20 50 80 110 140 170 200"
+				"special_bonus_unique_sniper_headshot_damage"	"+40"
 			}
 		}
 	}
@@ -9853,26 +9843,26 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ward_hp_tooltip"		"300 400 500 600 700"
+				"ward_hp_tooltip"		"300 450 600 750 900"
 				"LinkedSpecialBonus"	"special_bonus_unique_venomancer"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ward_damage_tooltip"	"25 30 35 40 45"
+				"ward_damage_tooltip"	"20 30 40 50 60"
 				"LinkedSpecialBonus"	"special_bonus_unique_venomancer"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
 			}
 			"04" // For special bonus at level 25
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ward_hp"		"900 1200 1500 1800 2100"
+				"ward_hp"		"900 1350 1800 2250 2700"
 			}
 			"05" // For special bonus at level 25
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ward_damage"	"75 90 105 120 135"
+				"ward_damage"	"60 90 120 150 180"
 			}
 		}
 	}
