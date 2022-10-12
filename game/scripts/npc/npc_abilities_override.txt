@@ -1709,7 +1709,7 @@
 		{
 			"base_attack_time"
 			{
-				"value"		"1.15 1.1 1.05 1.0"
+				"value"		"1.2 1.1 1.0 0.9"
 				"special_bonus_unique_alchemist_8"		"-0.1"
 			}
 			"bonus_health"			"1500"
