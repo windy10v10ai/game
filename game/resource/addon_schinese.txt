@@ -1406,7 +1406,7 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_description"						    "<h1>主动：点石成金</h1> 立刻炼化一个普通单位，获得 %self_gold% 金钱和 %self_xp% 倍经验值。<br>目标周围 %group_range% 范围内的友军获得 %group_gold% 金钱和 %group_xp% 倍经验值。<br><br>无法用于远古单位。<br><br>施法距离：%abilitycastrange%"
 	    "DOTA_Tooltip_ability_item_hand_of_group_attack_speed"			                "+$attack"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"明智的选择，科学的投资。"
-	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"获得的金钱，经验不享有倍率加成。"
+	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"获得的金钱经验，享有倍率加成！"
 
 	}
 }

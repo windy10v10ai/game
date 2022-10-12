@@ -26,8 +26,8 @@ function item_hand_of_group:OnSpellStart()
 
     target:ForceKill(false)
     caster:EmitSound( "DOTA_Item.Hand_Of_Midas" )
-    caster:ModifyGoldFiltered( self_gold , true, DOTA_ModifyGold_AbilityGold)
-    caster:AddExperience( target:GetDeathXP() * self_xp * AIGameMode:GetPlayerGoldXpMultiplier(caster_playerid) , DOTA_ModifyXP_TomeOfKnowledge, false, false )
+    caster:ModifyGoldFiltered( self_gold , true, DOTA_ModifyGold_CreepKill)
+    caster:AddExperience( target:GetDeathXP() * self_xp * AIGameMode:GetPlayerGoldXpMultiplier(caster_playerid) , DOTA_ModifyXP_CreepKill, false, false )
     SendOverheadEventMessage(caster, OVERHEAD_ALERT_GOLD, target, self_gold * AIGameMode:GetPlayerGoldXpMultiplier(caster_playerid), caster)
 
     -- 团队增益
@@ -37,8 +37,8 @@ function item_hand_of_group:OnSpellStart()
         if teammate:GetTeamNumber() == team then
             local teammate_playerid = teammate:GetPlayerOwnerID()
             teammate:EmitSound( "DOTA_Item.Hand_Of_Midas" )
-            teammate:ModifyGoldFiltered( group_gold , true, DOTA_ModifyGold_AbilityGold)
-            teammate:AddExperience( target:GetDeathXP() * group_xp * AIGameMode:GetPlayerGoldXpMultiplier(teammate_playerid) , DOTA_ModifyXP_TomeOfKnowledge, false, false )
+            teammate:ModifyGoldFiltered( group_gold , true, DOTA_ModifyGold_CreepKill)
+            teammate:AddExperience( target:GetDeathXP() * group_xp * AIGameMode:GetPlayerGoldXpMultiplier(teammate_playerid) , DOTA_ModifyXP_CreepKill, false, false )
             SendOverheadEventMessage(teammate, OVERHEAD_ALERT_GOLD, teammate, group_gold * AIGameMode:GetPlayerGoldXpMultiplier(teammate_playerid), caster)
         end
     end

@@ -585,12 +585,12 @@
             "02"
             {
                 "var_type"              "FIELD_FLOAT"
-                "duration"              "0.75"	// 6 10 13 16 20
+                "duration"              "0.75"
             }
             "03"
             {
                 "var_type"              "FIELD_FLOAT"
-                "think_interval"        "0.15 0.075 0.05 0.037 0.025" // 5 10 15 20 30
+                "think_interval"        "0.25 0.15 0.075 0.05 0.037" // 3 5 10 15 20
             }
         }
     }
