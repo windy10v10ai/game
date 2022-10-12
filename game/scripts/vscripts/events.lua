@@ -632,8 +632,7 @@ function HeroKilled(keys)
             xp = 60
         end
 
-        -- AddExperience走不到Filter，倍率逻辑只能写在这里
-        xp = xp * AIGameMode.fBotGoldXpMultiplier
+        xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId)
 
         if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and
             PlayerResource:GetSelectedHeroEntity(playerId) then
