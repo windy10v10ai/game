@@ -1619,10 +1619,9 @@
 		{
 			"duration"		"15"
 			"attack_speed"		"80"
-			"hp_regen"		"60"
+			"hp_regen"		"80"
 			"projectile_speed"			"900"
-			"move_speed"			"40"
-
+			"move_speed"			"60"
 		}
 	}
 	"alchemist_acid_spray"
@@ -1649,8 +1648,8 @@
 		{
 			"brew_time"					"5.0"
 			"brew_explosion"			"5.5"
-			"min_stun"					"1.0"
-			"max_stun"					"2.0 2.5 3.0 3.5 4.0"
+			"min_stun"					"1.5"
+			"max_stun"					"2.0 3.0 4.0 4.5 5.0"
 			"min_damage"				"150"
 			"max_damage"
 			{
@@ -1661,7 +1660,7 @@
 			"radius"
 			{
 				"value"					"300"
-				"special_bonus_unique_alchemist"	"+250"
+				"special_bonus_unique_alchemist"	"+300"
 			}
 			"move_speed"				"10 15 20 25 30"
 		}
@@ -1672,8 +1671,8 @@
 		"AbilityValues"
 		{
 			"brew_time"					"5.0"
-			"min_stun"					"1.0"
-			"max_stun"					"2.0 2.5 3.0 3.5 4.0"
+			"min_stun"					"1.5"
+			"max_stun"					"2.0 3.0 4.0 4.5 5.0"
 			"min_damage"				"150"
 			"max_damage"
 			{
@@ -1684,7 +1683,7 @@
 			"midair_explosion_radius"
 			{
 				"value"					"300"
-				"special_bonus_unique_alchemist"	"+250"
+				"special_bonus_unique_alchemist"	"+300"
 			}
 			"brew_explosion"			"7.0"
 		}
@@ -1695,9 +1694,9 @@
 		"AbilityValues"
 		{
 			"duration"				"36"
-			"bonus_gold"			"10"
-			"bonus_bonus_gold"		"10"
-			"bonus_gold_cap"		"40 50 60 70 80"
+			"bonus_gold"			"8"
+			"bonus_bonus_gold"		"4"
+			"bonus_gold_cap"		"28 36 44 52 60"
 			"bounty_multiplier"		"4.0"
 		}
 	}
