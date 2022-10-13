@@ -578,7 +578,6 @@ function HeroKilled(keys)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
                 PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
-                -- DOTA_ModifyGold_Unspecified 仅用于此
                 GameRules:ModifyGoldFiltered(playerID, gold, true, DOTA_ModifyGold_CreepKill)
                 local playerHero = PlayerResource:GetSelectedHeroEntity(playerID)
                 playerHero:EmitSound( "DOTA_Item.Hand_Of_Midas" )
@@ -632,8 +631,7 @@ function HeroKilled(keys)
             xp = 60
         end
 
-        -- AddExperience走不到Filter，倍率逻辑只能写在这里
-        xp = xp * AIGameMode.fBotGoldXpMultiplier
+        xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId)
 
         if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and
             PlayerResource:GetSelectedHeroEntity(playerId) then
@@ -1004,6 +1002,13 @@ function AIGameMode:OnPlayerChat(event)
 			Game:SendEndGameInfo()
 			return
 		end
+
+        if sChatMsg:find( '^-g$' ) then
+            local hero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+            PlayerResource:ModifyGold(iPlayerID, 99999, true, DOTA_ModifyGold_CheatCommand)
+            hero:AddExperience( 49999 , DOTA_ModifyXP_Unspecified , false, false )
+            return
+        end
 
 	end
 
