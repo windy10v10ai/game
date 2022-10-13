@@ -419,10 +419,10 @@ function AIGameMode:OnEntityKilled(keys)
 		AIGameMode:OnFortKilled(lostTeam)
 	end
 end
-function AIGameMode:OnFortKilled(lostTeamID)
+function AIGameMode:OnFortKilled(lostTeam)
 	if IsServer() then
 		self:EndScreenStats(true, true)
-		Game:SendEndGameInfo(lostTeamID)
+		Game:SendEndGameInfo(lostTeam)
 	end
 end
 
