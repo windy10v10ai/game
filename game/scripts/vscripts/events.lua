@@ -580,6 +580,7 @@ function HeroKilled(keys)
             gold = 210
         end
         gold = math.max(gold, 210)
+        Printf("玩家团队奖励 基础值: %d", gold)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
                     PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
@@ -630,6 +631,7 @@ function HeroKilled(keys)
             gold = 40
             xp = 80
         end
+        Printf("AI连死补偿 基础值: %d", gold)
 
         local extraFactor = 1
         -- 连死次数补正
@@ -640,6 +642,7 @@ function HeroKilled(keys)
             extraFactor = math.max(1, 1.4 + (deathCount - 5) * 0.4)
         end
         extraFactor = math.min(extraFactor, 3)
+        Printf("AI连死补偿 连死次数补正系数: %.2f", extraFactor)
 
         -- 两边团队击杀数补正
         local playerTeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(attackerPlayerID))
@@ -656,10 +659,14 @@ function HeroKilled(keys)
         else
             teamKillFactor = 2
         end
+        Printf("AI连死补偿 团队击杀数补正系数: %.2f", teamKillFactor)
         extraFactor = extraFactor * teamKillFactor
 
         gold = gold * extraFactor
         xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId) * extraFactor
+        Printf("AI连死补偿 最终系数: %.2f", extraFactor)
+        Printf("AI连死补偿 最终金钱值: %d", gold)
+        Printf("AI连死补偿 最终经验值: %d", xp)
 
         if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and
                 PlayerResource:GetSelectedHeroEntity(playerId) then
