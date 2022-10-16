@@ -1182,11 +1182,15 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     local mostKill_1 = 0
     local mostKillPlayerID_2 = -1
     local mostKill_2 = 0
+    local mostKillPlayerID_3 = -1
+    local mostKill_3 = 0
 
     local mostAssistsPlayerID_1 = -1
     local mostAssists_1 = 0
     local mostAssistsPlayerID_2 = -1
     local mostAssists_2 = 0
+    local mostAssistsPlayerID_3 = -1
+    local mostAssists_3 = 0
 
     local mostDamageReceivedPlayerID_1 = -1
     local mostDamageReceived_1 = 0
@@ -1250,23 +1254,37 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     playerNumber = playerNumber + 1
                     playerInfo.points = playerInfo.points + basePoint
                     if kills > mostKill_1 then
+                        mostKillPlayerID_3 = mostKillPlayerID_2
+                        mostKill_3 = mostKill_2
                         mostKillPlayerID_2 = mostKillPlayerID_1
                         mostKill_2 = mostKill_1
                         mostKillPlayerID_1 = playerID
                         mostKill_1 = kills
                     elseif kills > mostKill_2 then
+                        mostKillPlayerID_3 = mostKillPlayerID_2
+                        mostKill_3 = mostKill_2
                         mostKillPlayerID_2 = playerID
                         mostKill_2 = kills
+                    elseif kills > mostKill_3 then
+                        mostKillPlayerID_3 = playerID
+                        mostKill_3 = kills
                     end
 
                     if assists > mostAssists_1 then
+                        mostAssistsPlayerID_3 = mostAssistsPlayerID_2
+                        mostAssists_3 = mostAssists_2
                         mostAssistsPlayerID_2 = mostAssistsPlayerID_1
                         mostAssists_2 = mostAssists_1
                         mostAssistsPlayerID_1 = playerID
                         mostAssists_1 = assists
                     elseif assists > mostAssists_2 then
+                        mostAssistsPlayerID_3 = mostAssistsPlayerID_2
+                        mostAssists_3 = mostAssists_2
                         mostAssistsPlayerID_2 = playerID
                         mostAssists_2 = assists
+                    elseif assists > mostAssists_3 then
+                        mostAssistsPlayerID_3 = playerID
+                        mostAssists_3 = assists
                     end
 
                     if damagereceived > mostDamageReceived_1 then
@@ -1287,7 +1305,8 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     end
 
     local firstPoint = math.ceil(playerNumber * 1)
-    local secondPoint = math.ceil(playerNumber * 0.5)
+    local secondPoint = math.ceil(playerNumber * 0.6)
+    local thirdPoint = math.ceil(playerNumber * 0.3)
     -- add point to most player
     if mostKillPlayerID_1 ~= -1 then
         data.players[mostKillPlayerID_1].points = data.players[mostKillPlayerID_1].points + firstPoint
@@ -1295,11 +1314,17 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     if mostKillPlayerID_2 ~= -1 then
         data.players[mostKillPlayerID_2].points = data.players[mostKillPlayerID_2].points + secondPoint
     end
+    if mostKillPlayerID_3 ~= -1 then
+        data.players[mostKillPlayerID_3].points = data.players[mostKillPlayerID_3].points + thirdPoint
+    end
     if mostAssistsPlayerID_1 ~= -1 then
         data.players[mostAssistsPlayerID_1].points = data.players[mostAssistsPlayerID_1].points + firstPoint
     end
     if mostAssistsPlayerID_2 ~= -1 then
         data.players[mostAssistsPlayerID_2].points = data.players[mostAssistsPlayerID_2].points + secondPoint
+    end
+    if mostAssistsPlayerID_3 ~= -1 then
+        data.players[mostAssistsPlayerID_3].points = data.players[mostAssistsPlayerID_3].points + thirdPoint
     end
     if mostDamageReceivedPlayerID_1 ~= -1 then
         data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + firstPoint
