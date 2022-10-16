@@ -6,6 +6,7 @@ class Player {
 	steamId!: number;
 	heroName!: string;
 	points!: number;
+	isDisconnect!: boolean;
 }
 
 class GameInfo {
@@ -37,6 +38,7 @@ export class Game {
 				player.steamId = PlayerResource.GetSteamAccountID(i);
 				player.heroName = PlayerResource.GetSelectedHeroName(i);
 				player.points = endData.players[i]?.points;
+				player.isDisconnect = endData.players[i]?.isDisconnect;
 				gameInfo.players.push(player);
 			}
 		}
