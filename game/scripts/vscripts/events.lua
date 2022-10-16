@@ -1,80 +1,80 @@
 require('modifiers/player/enable_player_modifier')
 
 local tBotNameList = {
-	--"npc_dota_hero_invoker",
-	--"npc_dota_hero_antimage", // 不会放技能，只会物品和A人
-	--"npc_dota_hero_spirit_breaker", // 不会放技能，只会物品和A人
-	--"npc_dota_hero_silencer", // 不会放技能，只会物品和A人
-	--"npc_dota_hero_mirana", // 不会放技能，只会物品和A人
-	--"npc_dota_hero_furion", // 不会放技能，只会物品和A人
-	--"npc_dota_hero_huskar", // 不会放技能，只会物品和A人
-	--"npc_dota_hero_batrider",
-	--"npc_dota_hero_obsidian_destroyer",
-	--"npc_dota_hero_enchantress",
-	--"npc_dota_hero_snapfire",
-	--"npc_dota_hero_broodmother",
-	--"npc_dota_hero_lycan",
-	--"npc_dota_hero_arc_warden",
-	--"npc_dota_hero_ancient_apparition",
-	--"npc_dota_hero_treant",
-	--"npc_dota_hero_rubick",
-	--"npc_dota_hero_shredder",
-	--"npc_dota_hero_tinker",
-	"npc_dota_hero_abaddon",
-	"npc_dota_hero_axe",
-	"npc_dota_hero_bane",
-	"npc_dota_hero_bounty_hunter",
-	"npc_dota_hero_bloodseeker",
-	"npc_dota_hero_bristleback",
-	"npc_dota_hero_chaos_knight",
-	"npc_dota_hero_crystal_maiden",
-	"npc_dota_hero_dazzle",
-	"npc_dota_hero_death_prophet",
-	"npc_dota_hero_dragon_knight",
-	"npc_dota_hero_drow_ranger",
-	"npc_dota_hero_earthshaker",
-	"npc_dota_hero_jakiro",
-	"npc_dota_hero_juggernaut",
-	"npc_dota_hero_kunkka",
-	"npc_dota_hero_lich",
-	"npc_dota_hero_lina",
-	"npc_dota_hero_lion",
-	"npc_dota_hero_luna",
-	"npc_dota_hero_medusa",
-	"npc_dota_hero_meepo",
-	"npc_dota_hero_nevermore",
-	"npc_dota_hero_necrolyte",
-	"npc_dota_hero_ogre_magi",
-	"npc_dota_hero_omniknight",
-	"npc_dota_hero_oracle",
-	"npc_dota_hero_phantom_assassin",
-	"npc_dota_hero_pudge",
-	"npc_dota_hero_riki",
-	--"npc_dota_hero_razor", // 在泉水站着完全不动
-	"npc_dota_hero_sand_king",
-	"npc_dota_hero_shadow_shaman",
-	"npc_dota_hero_skywrath_mage",
-	"npc_dota_hero_sniper",
-	"npc_dota_hero_sven",
-	--"npc_dota_hero_tidehunter", // 在泉水站着完全不动
-	"npc_dota_hero_tiny",
-	"npc_dota_hero_vengefulspirit",
-	"npc_dota_hero_viper",
-	"npc_dota_hero_warlock",
-	"npc_dota_hero_windrunner",
-	"npc_dota_hero_witch_doctor",
-	"npc_dota_hero_skeleton_king",
-	"npc_dota_hero_zuus",
+    --"npc_dota_hero_invoker",
+    --"npc_dota_hero_antimage", // 不会放技能，只会物品和A人
+    --"npc_dota_hero_spirit_breaker", // 不会放技能，只会物品和A人
+    --"npc_dota_hero_silencer", // 不会放技能，只会物品和A人
+    --"npc_dota_hero_mirana", // 不会放技能，只会物品和A人
+    --"npc_dota_hero_furion", // 不会放技能，只会物品和A人
+    --"npc_dota_hero_huskar", // 不会放技能，只会物品和A人
+    --"npc_dota_hero_batrider",
+    --"npc_dota_hero_obsidian_destroyer",
+    --"npc_dota_hero_enchantress",
+    --"npc_dota_hero_snapfire",
+    --"npc_dota_hero_broodmother",
+    --"npc_dota_hero_lycan",
+    --"npc_dota_hero_arc_warden",
+    --"npc_dota_hero_ancient_apparition",
+    --"npc_dota_hero_treant",
+    --"npc_dota_hero_rubick",
+    --"npc_dota_hero_shredder",
+    --"npc_dota_hero_tinker",
+    "npc_dota_hero_abaddon",
+    "npc_dota_hero_axe",
+    "npc_dota_hero_bane",
+    "npc_dota_hero_bounty_hunter",
+    "npc_dota_hero_bloodseeker",
+    "npc_dota_hero_bristleback",
+    "npc_dota_hero_chaos_knight",
+    "npc_dota_hero_crystal_maiden",
+    "npc_dota_hero_dazzle",
+    "npc_dota_hero_death_prophet",
+    "npc_dota_hero_dragon_knight",
+    "npc_dota_hero_drow_ranger",
+    "npc_dota_hero_earthshaker",
+    "npc_dota_hero_jakiro",
+    "npc_dota_hero_juggernaut",
+    "npc_dota_hero_kunkka",
+    "npc_dota_hero_lich",
+    "npc_dota_hero_lina",
+    "npc_dota_hero_lion",
+    "npc_dota_hero_luna",
+    "npc_dota_hero_medusa",
+    "npc_dota_hero_meepo",
+    "npc_dota_hero_nevermore",
+    "npc_dota_hero_necrolyte",
+    "npc_dota_hero_ogre_magi",
+    "npc_dota_hero_omniknight",
+    "npc_dota_hero_oracle",
+    "npc_dota_hero_phantom_assassin",
+    "npc_dota_hero_pudge",
+    "npc_dota_hero_riki",
+    --"npc_dota_hero_razor", // 在泉水站着完全不动
+    "npc_dota_hero_sand_king",
+    "npc_dota_hero_shadow_shaman",
+    "npc_dota_hero_skywrath_mage",
+    "npc_dota_hero_sniper",
+    "npc_dota_hero_sven",
+    --"npc_dota_hero_tidehunter", // 在泉水站着完全不动
+    "npc_dota_hero_tiny",
+    "npc_dota_hero_vengefulspirit",
+    "npc_dota_hero_viper",
+    "npc_dota_hero_warlock",
+    "npc_dota_hero_windrunner",
+    "npc_dota_hero_witch_doctor",
+    "npc_dota_hero_skeleton_king",
+    "npc_dota_hero_zuus",
 }
 
-local tSkillCustomNameList = {"npc_dota_hero_crystal_maiden", "npc_dota_hero_queenofpain", "npc_dota_hero_mirana",
-                              "npc_dota_hero_earthshaker", "npc_dota_hero_nevermore"}
+local tSkillCustomNameList = { "npc_dota_hero_crystal_maiden", "npc_dota_hero_queenofpain", "npc_dota_hero_mirana",
+                               "npc_dota_hero_earthshaker", "npc_dota_hero_nevermore" }
 
-local tAPLevelList = {17, 19, 21, 22, 23, 24, 26}
+local tAPLevelList = { 17, 19, 21, 22, 23, 24, 26 }
 
-local tDOTARespawnTime = {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50,
-                          51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73,
-                          74, 75, 75}
+local tDOTARespawnTime = { 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50,
+                           51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73,
+                           74, 75, 75 }
 
 -- 注册测试人员id
 local developerSteamAccountID = {}
@@ -87,7 +87,7 @@ developerSteamAccountID[385130282] = "米米花"
 developerSteamAccountID[353885092] = "76岁靠谱成年男性"
 developerSteamAccountID[245559423] = "puck1609"
 
-local luoshuHeroSteamAccountID = Set {136668998, 138837968}
+local luoshuHeroSteamAccountID = Set { 136668998, 138837968 }
 
 function AIGameMode:ArrayShuffle(array)
     local size = #array
@@ -244,12 +244,12 @@ function AIGameMode:OnGameStateChanged(keys)
             return
         end
 
-		-- 每分钟30秒时刷一次怪
-		Timers:CreateTimer(30, function ()
-			AIGameMode:SpawnNeutralCreeps30sec()
-			return 60
-		end)
-	end
+        -- 每分钟30秒时刷一次怪
+        Timers:CreateTimer(30, function()
+            AIGameMode:SpawnNeutralCreeps30sec()
+            return 60
+        end)
+    end
 end
 
 function AIGameMode:SpawnNeutralCreeps30sec()
@@ -266,9 +266,11 @@ function AIGameMode:RefreshGameStatus()
 
     -- set global state
     local GameTime = GameRules:GetDOTATime(false, false)
-    if (GameTime >= ((AIGameMode.botPushMin * 4) * 60)) then -- LATEGAME
+    if (GameTime >= ((AIGameMode.botPushMin * 4) * 60)) then
+        -- LATEGAME
         GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
-    elseif (GameTime >= ((AIGameMode.botPushMin + 4) * 60)) then -- MIDGAME
+    elseif (GameTime >= ((AIGameMode.botPushMin + 4) * 60)) then
+        -- MIDGAME
         if AIGameMode.tower3PushedGood >= 2 or AIGameMode.tower3PushedBad >= 2 then
             GameRules:GetGameModeEntity():SetBotsMaxPushTier(4)
         end
@@ -278,11 +280,13 @@ function AIGameMode:RefreshGameStatus()
         elseif AIGameMode.barrackPushedGood > 2 or AIGameMode.barrackPushedBad > 2 then
             GameRules:GetGameModeEntity():SetBotsMaxPushTier(5)
         end
-    elseif (GameTime >= (AIGameMode.botPushMin * 60)) then -- MIDGAME
+    elseif (GameTime >= (AIGameMode.botPushMin * 60)) then
+        -- MIDGAME
         GameRules:GetGameModeEntity():SetBotsInLateGame(true)
         GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(true)
         GameRules:GetGameModeEntity():SetBotsMaxPushTier(3)
-    else -- EARLYGAME
+    else
+        -- EARLYGAME
         GameRules:GetGameModeEntity():SetBotsInLateGame(false)
         GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
         GameRules:GetGameModeEntity():SetBotsMaxPushTier(1)
@@ -389,41 +393,41 @@ function AIGameMode:OnBuyback(e)
 end
 
 function AIGameMode:OnEntityKilled(keys)
-	local hEntity = EntIndexToHScript(keys.entindex_killed)
-	-- on hero killed
-	if hEntity:IsRealHero() and hEntity:IsReincarnating() == false then
-		HeroKilled(keys)
-		-- drop items only when killed by hero
-		if EntIndexToHScript(keys.entindex_attacker):GetPlayerOwner() then
-			AIGameMode:RollDrops(EntIndexToHScript(keys.entindex_killed))
-		end
-	end
-	-- on barrack killed
-	if hEntity:GetClassname() == "npc_dota_barracks" then
-		RecordBarrackKilled(hEntity)
-	end
-	-- on tower killed
-	if hEntity:GetClassname() == "npc_dota_tower" then
-		RecordTowerKilled(hEntity)
-	end
+    local hEntity = EntIndexToHScript(keys.entindex_killed)
+    -- on hero killed
+    if hEntity:IsRealHero() and hEntity:IsReincarnating() == false then
+        HeroKilled(keys)
+        -- drop items only when killed by hero
+        if EntIndexToHScript(keys.entindex_attacker):GetPlayerOwner() then
+            AIGameMode:RollDrops(EntIndexToHScript(keys.entindex_killed))
+        end
+    end
+    -- on barrack killed
+    if hEntity:GetClassname() == "npc_dota_barracks" then
+        RecordBarrackKilled(hEntity)
+    end
+    -- on tower killed
+    if hEntity:GetClassname() == "npc_dota_tower" then
+        RecordTowerKilled(hEntity)
+    end
 
-	if hEntity:GetClassname() == "npc_dota_fort" then
-		print(hEntity:GetUnitName())
-		print(hEntity:GetClassname())
-		local winnerTeam = 1
-		if hEntity:GetUnitName() == "npc_dota_badguys_fort" then
-			winnerTeam = DOTA_TEAM_GOODGUYS
-		else
-			winnerTeam = DOTA_TEAM_BADGUYS
-		end
-		AIGameMode:OnFortKilled(winnerTeam)
-	end
+    if hEntity:GetClassname() == "npc_dota_fort" then
+        print(hEntity:GetUnitName())
+        print(hEntity:GetClassname())
+        local winnerTeam = 1
+        if hEntity:GetUnitName() == "npc_dota_badguys_fort" then
+            winnerTeam = DOTA_TEAM_GOODGUYS
+        else
+            winnerTeam = DOTA_TEAM_BADGUYS
+        end
+        AIGameMode:OnFortKilled(winnerTeam)
+    end
 end
 function AIGameMode:OnFortKilled(winnerTeam)
-	if IsServer() then
-		local endData = self:EndScreenStats(winnerTeam, true)
-		Game:SendEndGameInfo(endData)
-	end
+    if IsServer() then
+        local endData = self:EndScreenStats(winnerTeam, true)
+        Game:SendEndGameInfo(endData)
+    end
 end
 
 function RecordBarrackKilled(hEntity)
@@ -544,7 +548,7 @@ function HeroKilled(keys)
     -- NEC大招
     if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
         fRespawnTime = fRespawnTime +
-                           hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel() * 10
+                hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel() * 10
     end
 
     -- 会员减少5s复活时间
@@ -561,26 +565,27 @@ function HeroKilled(keys)
 
     -- 玩家团队奖励逻辑
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
+        -- 前期增长慢，电脑等级较高时，增长快
+        -- 30级时电脑天赋学满，战斗力基本开始成型了，这时打野的钱本身也变多了
         local gold = 0
         if iLevel <= 10 then
-            gold = 5 + iLevel * 2
+            gold = 5 + iLevel * 1
         elseif iLevel <= 20 then
-            gold = 10 + iLevel * 2.5
+            gold = 15 + (iLevel - 10) * 1.5
         elseif iLevel <= 30 then
-            gold = 15 + iLevel * 3
+            gold = 30 + (iLevel - 20) * 2
         elseif iLevel <= 50 then
-            gold = 25 + iLevel * 3.5
+            gold = 50 + (iLevel - 30) * 8
         else
-            gold = 200
+            gold = 210
         end
-        -- 初次更新 数值改保守点
-        gold = gold / 2
+        gold = math.max(gold, 210)
+        Printf("玩家团队奖励 基础值: %d", gold)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
-                PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
+                    PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
                 GameRules:ModifyGoldFiltered(playerID, gold, true, DOTA_ModifyGold_CreepKill)
                 local playerHero = PlayerResource:GetSelectedHeroEntity(playerID)
-                playerHero:EmitSound( "DOTA_Item.Hand_Of_Midas" )
                 SendOverheadEventMessage(playerHero, OVERHEAD_ALERT_GOLD, playerHero, gold * AIGameMode:GetPlayerGoldXpMultiplier(playerID), playerHero)
             end
         end
@@ -603,38 +608,67 @@ function HeroKilled(keys)
     -- AI连死补偿
     -- AI 50级后不再补偿
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) and
-        AIGameMode.BotRecordSuccessiveDeathTable[playerId] and AIGameMode.BotRecordSuccessiveDeathTable[playerId] >= 3 and
-        iLevel < 50 then
+            AIGameMode.BotRecordSuccessiveDeathTable[playerId] and AIGameMode.BotRecordSuccessiveDeathTable[playerId] >= 3 and
+            iLevel < 50 then
 
         -- 补偿的金钱和经验 设计上不应该超过AI通过击杀玩家获得的
         local deathCount = AIGameMode.BotRecordSuccessiveDeathTable[playerId]
         local gold = 0
         local xp = 0
 
+        -- 基础值
         if GameTime <= 5 * 60 then
             gold = 10
-            xp = 15
+            xp = 20
         elseif GameTime <= 10 * 60 then
             gold = 20
-            xp = 30
+            xp = 40
         elseif GameTime <= 15 * 60 then
-            -- 初次更新 数值改保守点
-            -- gold = 40
-            -- xp = 60
             gold = 30
-            xp = 45
-        else
-            -- 初次更新 数值改保守点
-            -- gold = 80
-            -- xp = 120
-            gold = 40
             xp = 60
+        else
+            gold = 40
+            xp = 80
         end
+        Printf("AI连死补偿 基础值: %d", gold)
 
-        xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId)
+        local extraFactor = 1
+        -- 连死次数补正
+        -- 连死9次后拿到最高补偿（超鬼）
+        if deathCount <= 5 then
+            extraFactor = math.max(1, 1 + (deathCount - 3) * 0.2)
+        else
+            extraFactor = math.max(1, 1.4 + (deathCount - 5) * 0.4)
+        end
+        extraFactor = math.min(extraFactor, 3)
+        Printf("AI连死补偿 连死次数补正系数: %.2f", extraFactor)
+
+        -- 两边团队击杀数补正
+        local playerTeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(attackerPlayerID))
+        local AITeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(playerId))
+        local teamKillFactor = 1
+        if playerTeamKill < AITeamKill then
+            teamKillFactor = 0
+        elseif playerTeamKill < 2 * AITeamKill then
+            teamKillFactor = 0.5
+        elseif playerTeamKill - AITeamKill <= 20 then
+            teamKillFactor = 1
+        elseif playerTeamKill - AITeamKill <= 50 then
+            teamKillFactor = 1.5
+        else
+            teamKillFactor = 2
+        end
+        Printf("AI连死补偿 团队击杀数补正系数: %.2f", teamKillFactor)
+        extraFactor = extraFactor * teamKillFactor
+
+        gold = gold * extraFactor
+        xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId) * extraFactor
+        Printf("AI连死补偿 最终系数: %.2f", extraFactor)
+        Printf("AI连死补偿 最终金钱值: %d", gold)
+        Printf("AI连死补偿 最终经验值: %d", xp)
 
         if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and
-            PlayerResource:GetSelectedHeroEntity(playerId) then
+                PlayerResource:GetSelectedHeroEntity(playerId) then
             GameRules:ModifyGoldFiltered(playerId, gold, true, DOTA_ModifyGold_CreepKill)
             hHero:AddExperience(xp, DOTA_ModifyXP_CreepKill, false, false)
         end
@@ -673,12 +707,12 @@ function AIGameMode:CreateItem(sItemName, hEntity)
 end
 
 function AIGameMode:OnLastHit(keys)
-	if keys.FirstBlood == 1 then
-		local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
-		if hero and hero:HasAbility("Hero_vo_player") then
-			hero:PlayVoiceAllPlayerIgnoreCooldown(hero:GetName() .. ".vo.FirstBlood")
-		end
-	end
+    if keys.FirstBlood == 1 then
+        local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
+        if hero and hero:HasAbility("Hero_vo_player") then
+            hero:PlayVoiceAllPlayerIgnoreCooldown(hero:GetName() .. ".vo.FirstBlood")
+        end
+    end
 end
 
 function AIGameMode:OnPickHeroSpawn(keys)
@@ -701,23 +735,23 @@ function AIGameMode:OnNPCSpawned(keys)
         return
     end
 
-	if hEntity:IsBaseNPC() then
-		local playerid = hEntity:GetPlayerOwnerID()
-		if playerid then
-			 local hero = PlayerResource:GetSelectedHeroEntity(playerid)
-			 if hero and hero == hEntity and hero:HasAbility("Hero_vo_player") then
-			   if not hero.isBuyBack then
-				   hero:PlayVoiceIgnoreCooldown(hero:GetName() .. ".vo.Respawn")
-			   end
-			   hero.isBuyBack = false
-			 end
-		end
-	end
+    if hEntity:IsBaseNPC() then
+        local playerid = hEntity:GetPlayerOwnerID()
+        if playerid then
+            local hero = PlayerResource:GetSelectedHeroEntity(playerid)
+            if hero and hero == hEntity and hero:HasAbility("Hero_vo_player") then
+                if not hero.isBuyBack then
+                    hero:PlayVoiceIgnoreCooldown(hero:GetName() .. ".vo.Respawn")
+                end
+                hero.isBuyBack = false
+            end
+        end
+    end
 
-	if hEntity:IsCourier() and self.bFastCourier == 1 then
-		hEntity:AddNewModifier(hEntity, nil, "modifier_courier_speed", {})
-		return
-	end
+    if hEntity:IsCourier() and self.bFastCourier == 1 then
+        hEntity:AddNewModifier(hEntity, nil, "modifier_courier_speed", {})
+        return
+    end
 
     local sName = hEntity:GetName()
     if sName == "npc_dota_creep_lane" or sName == "npc_dota_creep_siege" then
@@ -778,7 +812,7 @@ function AIGameMode:OnNPCSpawned(keys)
 
     if hEntity:IsRealHero() and not hEntity.bInitialized then
         if hEntity:GetAttackCapability() == DOTA_UNIT_CAP_MELEE_ATTACK or sName == "npc_dota_hero_troll_warlord" or
-            sName == "npc_dota_hero_lone_druid" then
+                sName == "npc_dota_hero_lone_druid" then
             hEntity:AddNewModifier(hEntity, nil, "modifier_melee_resistance", {})
         end
 
@@ -789,7 +823,7 @@ function AIGameMode:OnNPCSpawned(keys)
 
         -- choose item 玩家抽选物品
         if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] and
-            not self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] then
+                not self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] then
             self:SpecialItemAdd(hEntity)
             self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] = true
         end
@@ -938,7 +972,7 @@ function AIGameMode:OnPlayerChat(event)
             local iGold = 10000
             hHero:ModifyGold(iGold, true, DOTA_ModifyGold_CheatCommand)
             GameRules:SendCustomMessage("号外号外！开发者:" .. developerSteamAccountID[steamAccountID] ..
-                                            " 用自己的菊花交换了增加10000金币", DOTA_TEAM_GOODGUYS, 0)
+                    " 用自己的菊花交换了增加10000金币", DOTA_TEAM_GOODGUYS, 0)
             return
         end
         if sChatMsg:find('^-pos$') then
@@ -947,10 +981,10 @@ function AIGameMode:OnPlayerChat(event)
             -- print position
             local pos = hHero:GetAbsOrigin()
             GameRules:SendCustomMessage("开发者:" .. developerSteamAccountID[steamAccountID] .. " 的位置是:" ..
-                                            pos.x .. "," .. pos.y .. "," .. pos.z, DOTA_TEAM_GOODGUYS, 0)
+                    pos.x .. "," .. pos.y .. "," .. pos.z, DOTA_TEAM_GOODGUYS, 0)
             print(
-                "开发者:" .. developerSteamAccountID[steamAccountID] .. " 的位置是:" .. pos.x .. "," .. pos.y ..
-                    "," .. pos.z)
+                    "开发者:" .. developerSteamAccountID[steamAccountID] .. " 的位置是:" .. pos.x .. "," .. pos.y ..
+                            "," .. pos.z)
             return
         end
 
@@ -997,21 +1031,21 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
-		if sChatMsg:find( '^-postgame$' ) then
-			print("[AIGameMode] SendEndGameInfo POST_GAME")
+        if sChatMsg:find('^-postgame$') then
+            print("[AIGameMode] SendEndGameInfo POST_GAME")
             local endData = self:EndScreenStats(2, true)
             Game:SendEndGameInfo(endData)
-			return
-		end
-
-        if sChatMsg:find( '^-g$' ) then
-            local hero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-            PlayerResource:ModifyGold(iPlayerID, 99999, true, DOTA_ModifyGold_CheatCommand)
-            hero:AddExperience( 49999 , DOTA_ModifyXP_Unspecified , false, false )
             return
         end
 
-	end
+        if sChatMsg:find('^-g$') then
+            local hero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+            PlayerResource:ModifyGold(iPlayerID, 99999, true, DOTA_ModifyGold_CheatCommand)
+            hero:AddExperience(49999, DOTA_ModifyXP_Unspecified, false, false)
+            return
+        end
+
+    end
 
     if Member:IsMember(steamAccountID) then
         local pszHeroClass
@@ -1023,40 +1057,44 @@ function AIGameMode:OnPlayerChat(event)
             pszHeroClass = "npc_dota_hero_chen"
         end
 
-		if sChatMsg:find( '-八云紫' ) then
-			pszHeroClass = "npc_dota_hero_phantom_lancer"
-		end
-		if sChatMsg:find( '-Yukari' ) then
-			pszHeroClass = "npc_dota_hero_phantom_lancer"
-		end
-		if pszHeroClass ~= nil then
-			if self.tIfChangeHeroList[iPlayerID] then return end
-			self.tIfChangeHeroList[iPlayerID] = true
-			self.tIfItemChosen[iPlayerID] = false
-			self.tIfItemChooseInited[iPlayerID] = false
-			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
-			return
-		end
-	end
-	if luoshuHeroSteamAccountID[steamAccountID] then
-		local pszHeroClass
-		if sChatMsg:find( '-超级赛亚人' ) then
-			pszHeroClass = "npc_dota_hero_chen"
-		end
-		if sChatMsg:find( '-男妈妈来哩' ) then
-			pszHeroClass = "npc_dota_hero_brewmaster"
-		end
-		if pszHeroClass ~= nil then
-			if self.tIfChangeHeroList[iPlayerID] then return end
-			self.tIfChangeHeroList[iPlayerID] = true
-			self.tIfItemChosen[iPlayerID] = false
-			self.tIfItemChooseInited[iPlayerID] = false
-			local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-			PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
-			return
-		end
-	end
+        if sChatMsg:find('-八云紫') then
+            pszHeroClass = "npc_dota_hero_phantom_lancer"
+        end
+        if sChatMsg:find('-Yukari') then
+            pszHeroClass = "npc_dota_hero_phantom_lancer"
+        end
+        if pszHeroClass ~= nil then
+            if self.tIfChangeHeroList[iPlayerID] then
+                return
+            end
+            self.tIfChangeHeroList[iPlayerID] = true
+            self.tIfItemChosen[iPlayerID] = false
+            self.tIfItemChooseInited[iPlayerID] = false
+            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+            PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
+            return
+        end
+    end
+    if luoshuHeroSteamAccountID[steamAccountID] then
+        local pszHeroClass
+        if sChatMsg:find('-超级赛亚人') then
+            pszHeroClass = "npc_dota_hero_chen"
+        end
+        if sChatMsg:find('-男妈妈来哩') then
+            pszHeroClass = "npc_dota_hero_brewmaster"
+        end
+        if pszHeroClass ~= nil then
+            if self.tIfChangeHeroList[iPlayerID] then
+                return
+            end
+            self.tIfChangeHeroList[iPlayerID] = true
+            self.tIfItemChosen[iPlayerID] = false
+            self.tIfItemChooseInited[iPlayerID] = false
+            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+            PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
+            return
+        end
+    end
 end
 
 function AIGameMode:OnPlayerReconnect(keys)
@@ -1151,7 +1189,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
 
     for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
-            PlayerResource:GetSelectedHeroEntity(playerID) then
+                PlayerResource:GetSelectedHeroEntity(playerID) then
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 local membership = Member:IsMember(steamAccountID)
@@ -1160,7 +1198,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                 local damagereceived = 0
                 for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
                     if PlayerResource:IsValidPlayerID(victimID) and PlayerResource:IsValidPlayer(victimID) and
-                        PlayerResource:GetSelectedHeroEntity(victimID) then
+                            PlayerResource:GetSelectedHeroEntity(victimID) then
                         if PlayerResource:GetTeam(victimID) ~= PlayerResource:GetTeam(playerID) then
                             damagereceived = damagereceived + PlayerResource:GetDamageDoneToHero(victimID, playerID)
                         end
@@ -1201,7 +1239,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                 if hNeutralItem then
                     playerInfo.items[DOTA_ITEM_NEUTRAL_SLOT] = hNeutralItem:GetAbilityName()
                 end
-
 
                 if not PlayerResource:IsFakeClient(playerID) then
                     playerNumber = playerNumber + 1
