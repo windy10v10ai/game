@@ -191,7 +191,7 @@ function AIGameMode:OnGameStateChanged(keys)
         end
 
         Timers:CreateTimer(1, function()
-            self:EndScreenStats(true, false)
+            self:EndScreenStats(1, false)
         end)
 
     elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
@@ -262,7 +262,7 @@ end
 function AIGameMode:RefreshGameStatus()
 
     -- save player info
-    self:EndScreenStats(true, false)
+    self:EndScreenStats(1, false)
 
     -- set global state
     local GameTime = GameRules:GetDOTATime(false, false)
@@ -410,19 +410,19 @@ function AIGameMode:OnEntityKilled(keys)
 	if hEntity:GetClassname() == "npc_dota_fort" then
 		print(hEntity:GetUnitName())
 		print(hEntity:GetClassname())
-		local lostTeam = 1
+		local winnerTeam = 1
 		if hEntity:GetUnitName() == "npc_dota_badguys_fort" then
-			lostTeam = 3
+			winnerTeam = DOTA_TEAM_GOODGUYS
 		else
-			lostTeam = 2
+			winnerTeam = DOTA_TEAM_BADGUYS
 		end
-		AIGameMode:OnFortKilled(lostTeam)
+		AIGameMode:OnFortKilled(winnerTeam)
 	end
 end
-function AIGameMode:OnFortKilled(lostTeam)
+function AIGameMode:OnFortKilled(winnerTeam)
 	if IsServer() then
-		self:EndScreenStats(true, true)
-		Game:SendEndGameInfo(lostTeam)
+		local endData = self:EndScreenStats(winnerTeam, true)
+		Game:SendEndGameInfo(endData)
 	end
 end
 
@@ -999,7 +999,8 @@ function AIGameMode:OnPlayerChat(event)
 
 		if sChatMsg:find( '^-postgame$' ) then
 			print("[AIGameMode] SendEndGameInfo POST_GAME")
-			Game:SendEndGameInfo()
+            local endData = self:EndScreenStats(2, true)
+            Game:SendEndGameInfo(endData)
 			return
 		end
 
@@ -1096,7 +1097,7 @@ function AIGameMode:OnPlayerReconnect(keys)
     end
 end
 
-function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
+function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     local time = GameRules:GetDOTATime(false, true)
     -- local matchID = tostring(GameRules:GetMatchID())
 
@@ -1106,7 +1107,9 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
         mapName = GetMapName(),
         players = {},
         options = {},
-        isWinner = isWinner,
+        gameOption = {},
+        winnerTeamId = winnerTeamId,
+        isWinner = true,
         duration = math.floor(time),
         flags = {}
     }
@@ -1117,19 +1120,44 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
         towerPower = AIGameMode:StackToPercentage(self.iTowerPower),
         towerEndure = AIGameMode:StackToPercentage(self.iTowerEndure)
     }
+    -- send to api server
+    data.gameOption = {
+        playerGoldXpMultiplier = self.fPlayerGoldXpMultiplier,
+        botGoldXpMultiplier = self.fBotGoldXpMultiplier,
+        towerPower = self.iTowerPower,
+        towerEndure = self.iTowerEndure,
+    }
+
+    local basePoint = 0
+    if time > 3600 then
+        basePoint = 50
+    elseif time > 900 then
+        basePoint = math.floor(20 + time / 120)
+    end
+    if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
+        basePoint = basePoint / 2
+    end
+
+    local playerNumber = 0
+    -- find most
+    local mostKillPlayerID = -1
+    local mostKill = 0
+    local mostDamageReceivedPlayerID = -1
+    local mostDamageReceived = 0
+    local mostHealingPlayerID = -1
+    local mostHealing = 0
+    local mostAssistsPlayerID = -1
+    local mostAssists = 0
 
     for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
             PlayerResource:GetSelectedHeroEntity(playerID) then
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
-                -- local tip_points = WebServer.TipCounter[playerID] or 0
-                local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
                 local membership = Member:IsMember(steamAccountID)
                 local memberInfo = Member:GetMember(steamAccountID)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
-
                 for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
                     if PlayerResource:IsValidPlayerID(victimID) and PlayerResource:IsValidPlayer(victimID) and
                         PlayerResource:GetSelectedHeroEntity(victimID) then
@@ -1138,20 +1166,24 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
                         end
                     end
                 end
+                local healing = PlayerResource:GetHealing(playerID)
+                local assists = PlayerResource:GetAssists(playerID)
+                local deaths = PlayerResource:GetDeaths(playerID)
+                local kills = PlayerResource:GetKills(playerID)
 
                 local playerInfo = {
                     steamid = tostring(PlayerResource:GetSteamID(playerID)),
-                    -- steamAccountID = steamAccountID,
                     membership = membership,
                     memberInfo = memberInfo,
-                    kills = PlayerResource:GetKills(playerID) or 0,
-                    deaths = PlayerResource:GetDeaths(playerID) or 0,
-                    assists = PlayerResource:GetAssists(playerID) or 0,
+                    kills = kills or 0,
+                    deaths = deaths or 0,
+                    assists = assists or 0,
                     damage = damage or 0,
                     damagereceived = damagereceived or 0,
                     heroName = hero:GetUnitName() or "Haachama",
                     lasthits = PlayerResource:GetLastHits(playerID) or 0,
-                    heroHealing = PlayerResource:GetHealing(playerID) or 0,
+                    heroHealing = healing or 0,
+                    points = 0,
                     str = hero:GetStrength() or 0,
                     agi = hero:GetAgility() or 0,
                     int = hero:GetIntellect() or 0,
@@ -1170,14 +1202,52 @@ function AIGameMode:EndScreenStats(isWinner, bTrueEnd)
                     playerInfo.items[DOTA_ITEM_NEUTRAL_SLOT] = hNeutralItem:GetAbilityName()
                 end
 
+
+                if not PlayerResource:IsFakeClient(playerID) then
+                    playerNumber = playerNumber + 1
+                    playerInfo.points = playerInfo.points + basePoint
+                    if kills > mostKill then
+                        mostKill = kills
+                        mostKillPlayerID = playerID
+                    end
+                    if damagereceived > mostDamageReceived then
+                        mostDamageReceived = damagereceived
+                        mostDamageReceivedPlayerID = playerID
+                    end
+                    if healing > mostHealing then
+                        mostHealing = PlayerResource:GetHealing(playerID)
+                        mostHealingPlayerID = playerID
+                    end
+                    if assists > mostAssists then
+                        mostAssists = assists
+                        mostAssistsPlayerID = playerID
+                    end
+                end
+
                 data.players[playerID] = playerInfo
             end
         end
     end
 
+    -- add point to most player
+    if mostKillPlayerID ~= -1 then
+        data.players[mostKillPlayerID].points = data.players[mostKillPlayerID].points + playerNumber
+    end
+    if mostDamageReceivedPlayerID ~= -1 then
+        data.players[mostDamageReceivedPlayerID].points = data.players[mostDamageReceivedPlayerID].points + playerNumber
+    end
+    if mostHealingPlayerID ~= -1 then
+        data.players[mostHealingPlayerID].points = data.players[mostHealingPlayerID].points + playerNumber
+    end
+    if mostAssistsPlayerID ~= -1 then
+        data.players[mostAssistsPlayerID].points = data.players[mostAssistsPlayerID].points + playerNumber
+    end
+
     local sTable = "ending_stats"
 
     CustomNetTables:SetTableValue(sTable, "player_data", data)
+
+    return data
 end
 
 function AIGameMode:StackToPercentage(iStackCount)

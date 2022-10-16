@@ -5,11 +5,12 @@ class Player {
 	teamId!: number;
 	steamId!: number;
 	heroName!: string;
+	points!: number;
 }
 
 class GameInfo {
 	players!: Player[];
-	lostTeamId!: number;
+	winnerTeamId!: number;
 	matchId!: string;
 	gameOption!: Object;
 	constructor() {
@@ -22,15 +23,12 @@ export class Game {
 	constructor() {
 	}
 
-	public SendEndGameInfo(lostTeamId: number) {
+	public SendEndGameInfo(endData: any) {
 		const gameInfo = new GameInfo();
-		gameInfo.lostTeamId = lostTeamId;
+		gameInfo.winnerTeamId = endData.winnerTeamId;
 		gameInfo.matchId = GameRules.Script_GetMatchID().toString();
-		// @ts-ignore
-		const gameOption = CustomNetTables.GetTableValue("game_options_table", "game_option");
-		if (gameOption) {
-			gameInfo.gameOption = gameOption;
-		}
+
+		gameInfo.gameOption = endData.gameOption;
 
 		for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
 			if (PlayerResource.IsValidPlayerID(i)) {
@@ -38,6 +36,7 @@ export class Game {
 				player.teamId = PlayerResource.GetTeam(i);
 				player.steamId = PlayerResource.GetSteamAccountID(i);
 				player.heroName = PlayerResource.GetSelectedHeroName(i);
+				player.points = endData.players[i]?.points;
 				gameInfo.players.push(player);
 			}
 		}

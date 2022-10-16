@@ -2,7 +2,7 @@ local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__New = ____lualib.__TS__New
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["7"] = 2,["8"] = 2,["9"] = 2,["10"] = 4,["11"] = 4,["13"] = 4,["14"] = 10,["15"] = 10,["17"] = 16,["18"] = 17,["19"] = 15,["20"] = 21,["21"] = 21,["22"] = 21,["24"] = 22,["25"] = 25,["26"] = 26,["27"] = 27,["28"] = 28,["29"] = 30,["30"] = 31,["31"] = 32,["34"] = 35,["35"] = 35,["36"] = 36,["37"] = 37,["38"] = 38,["39"] = 39,["40"] = 40,["41"] = 41,["42"] = 41,["44"] = 35,["47"] = 46,["48"] = 46,["49"] = 46,["50"] = 46,["51"] = 46,["52"] = 46,["53"] = 47,["54"] = 46,["55"] = 46,["56"] = 25});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["7"] = 2,["8"] = 2,["9"] = 2,["10"] = 4,["11"] = 4,["13"] = 4,["14"] = 11,["15"] = 11,["17"] = 17,["18"] = 18,["19"] = 16,["20"] = 22,["21"] = 22,["22"] = 22,["24"] = 23,["25"] = 26,["26"] = 27,["27"] = 28,["28"] = 29,["29"] = 31,["31"] = 33,["32"] = 33,["33"] = 34,["34"] = 35,["35"] = 36,["36"] = 37,["37"] = 38,["38"] = 39,["39"] = 39,["40"] = 39,["42"] = 39,["43"] = 40,["44"] = 40,["46"] = 33,["49"] = 45,["50"] = 45,["51"] = 45,["52"] = 45,["53"] = 45,["54"] = 45,["55"] = 46,["56"] = 45,["57"] = 45,["58"] = 26});
 local ____exports = {}
 local ____api_client = require("api.api_client")
 local ApiClient = ____api_client.ApiClient
@@ -22,24 +22,26 @@ local Game = ____exports.Game
 Game.name = "Game"
 function Game.prototype.____constructor(self)
 end
-function Game.prototype.SendEndGameInfo(self, lostTeamID)
+function Game.prototype.SendEndGameInfo(self, endData)
     local gameInfo = __TS__New(GameInfo)
-    gameInfo.lostTeamID = lostTeamID
+    gameInfo.winnerTeamId = endData.winnerTeamId
     gameInfo.matchId = tostring(GameRules:Script_GetMatchID())
-    local gameOption = CustomNetTables:GetTableValue("game_options_table", "game_option")
-    if gameOption then
-        gameInfo.gameOption = gameOption
-    end
+    gameInfo.gameOption = endData.gameOption
     do
         local i = 0
         while i < PlayerResource:GetPlayerCount() do
             if PlayerResource:IsValidPlayerID(i) then
                 local player = __TS__New(Player)
-                player.team = PlayerResource:GetTeam(i)
+                player.teamId = PlayerResource:GetTeam(i)
                 player.steamId = PlayerResource:GetSteamAccountID(i)
                 player.heroName = PlayerResource:GetSelectedHeroName(i)
-                local ____gameInfo_players_0 = gameInfo.players
-                ____gameInfo_players_0[#____gameInfo_players_0 + 1] = player
+                local ____endData_players_i_points_0 = endData.players[i]
+                if ____endData_players_i_points_0 ~= nil then
+                    ____endData_players_i_points_0 = ____endData_players_i_points_0.points
+                end
+                player.points = ____endData_players_i_points_0
+                local ____gameInfo_players_2 = gameInfo.players
+                ____gameInfo_players_2[#____gameInfo_players_2 + 1] = player
             end
             i = i + 1
         end

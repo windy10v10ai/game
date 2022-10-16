@@ -89,7 +89,8 @@ function Snippet_Player(playerId, rootPanel, index) {
 	panel.SetDialogVariableInt("money", Players.GetTotalEarnedGold(playerId));
 	panel.SetDialogVariableInt("damage", playerData.damage);
 	panel.SetDialogVariableInt("damagereceived", playerData.damagereceived);
-	panel.SetDialogVariable("heroHealing", playerData.heroHealing);
+	panel.SetDialogVariableInt("heroHealing", playerData.heroHealing);
+	panel.SetDialogVariableInt("points", playerData.points);
 
 	panel.SetDialogVariableInt("strength", playerData.str);
 	panel.SetDialogVariableInt("agility", playerData.agi);
