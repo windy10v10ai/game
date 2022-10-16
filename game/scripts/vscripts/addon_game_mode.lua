@@ -27,13 +27,13 @@ end
 
 function Precache(context)
     PrecacheResource("soundfile", "soundevents/hero_artoria.vsndevts", context)
-	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_abyss_sword.vsndevts", context)
-	PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_abyss_sword.vsndevts", context)
-	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_goku.vsndevts", context)
-	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_saber.vsndevts", context)
-	PrecacheResource("soundfile", "soundevents/yukari_yakumo.vsndevts", context )
-	PrecacheResource("soundfile", "soundevents/hero_themes.vsndevts", context )
-	PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_jack.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_abyss_sword.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_abyss_sword.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_goku.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_saber.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/yukari_yakumo.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/hero_themes.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_jack.vsndevts", context)
 
 end
 
@@ -80,26 +80,32 @@ function AIGameMode:InitGameOptions()
 end
 
 function AIGameMode:InitEvents()
-	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(AIGameMode, "OnGameStateChanged"), self)
-	ListenToGameEvent("dota_player_gained_level", Dynamic_Wrap(AIGameMode, "OnPlayerLevelUp"), self)
-	ListenToGameEvent("npc_spawned", Dynamic_Wrap(AIGameMode, "OnNPCSpawned"), self)
-	ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(AIGameMode, "OnPickHeroSpawn"), self)
-	ListenToGameEvent("entity_killed", Dynamic_Wrap(AIGameMode, "OnEntityKilled"), self)
-	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap( AIGameMode, "OnItemPickedUp" ), self )
-	ListenToGameEvent("player_chat", Dynamic_Wrap( AIGameMode, "OnPlayerChat" ), self )
-	ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
-	ListenToGameEvent("dota_buyback", Dynamic_Wrap(AIGameMode, 'OnBuyback'), self)
-	ListenToGameEvent("last_hit", Dynamic_Wrap(AIGameMode, 'OnLastHit'), self)
+    ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(AIGameMode, "OnGameStateChanged"), self)
+    ListenToGameEvent("dota_player_gained_level", Dynamic_Wrap(AIGameMode, "OnPlayerLevelUp"), self)
+    ListenToGameEvent("npc_spawned", Dynamic_Wrap(AIGameMode, "OnNPCSpawned"), self)
+    ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(AIGameMode, "OnPickHeroSpawn"), self)
+    ListenToGameEvent("entity_killed", Dynamic_Wrap(AIGameMode, "OnEntityKilled"), self)
+    ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(AIGameMode, "OnItemPickedUp"), self)
+    ListenToGameEvent("player_chat", Dynamic_Wrap(AIGameMode, "OnPlayerChat"), self)
+    ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
+    ListenToGameEvent("dota_buyback", Dynamic_Wrap(AIGameMode, 'OnBuyback'), self)
+    ListenToGameEvent("last_hit", Dynamic_Wrap(AIGameMode, 'OnLastHit'), self)
 
-	--JS events
-	CustomGameEventManager:RegisterListener("loading_set_options", function (eventSourceIndex, args) return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args) end)
-	-- 游戏选项改变事件
-	CustomGameEventManager:RegisterListener("game_options_change", function(_, keys) return AIGameMode:OnGameOptionChange(keys) end)
-	-- 共享单位，禁用帮助
-	CustomGameEventManager:RegisterListener("set_unit_share_mask", function(_, keys) return AIGameMode:SetUnitShareMask(keys) end)
-	-- 选择道具
-	CustomGameEventManager:RegisterListener("item_choice_made", Dynamic_Wrap(AIGameMode, "FinishItemPick"))
-	CustomGameEventManager:RegisterListener("item_choice_shuffle", Dynamic_Wrap(AIGameMode, "ItemChoiceShuffle"))
+    --JS events
+    CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
+        return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
+    end)
+    -- 游戏选项改变事件
+    CustomGameEventManager:RegisterListener("game_options_change", function(_, keys)
+        return AIGameMode:OnGameOptionChange(keys)
+    end)
+    -- 共享单位，禁用帮助
+    CustomGameEventManager:RegisterListener("set_unit_share_mask", function(_, keys)
+        return AIGameMode:SetUnitShareMask(keys)
+    end)
+    -- 选择道具
+    CustomGameEventManager:RegisterListener("item_choice_made", Dynamic_Wrap(AIGameMode, "FinishItemPick"))
+    CustomGameEventManager:RegisterListener("item_choice_shuffle", Dynamic_Wrap(AIGameMode, "ItemChoiceShuffle"))
 end
 
 function AIGameMode:LinkLuaModifiers()
@@ -165,9 +171,9 @@ function AIGameMode:PreGameOptions()
     end
 
     if self.iMaxLevel ~= 30 then
-        local tLevelRequire = {0, 180, 510, 990, 1620, 2400, 3240, 4140, 5100, 6120, 7200, 8350, 9650, 11100, 12700,
-                               14450, 16350, 18350, 20450, 22650, 25050, 27650, 30450, 33450, 36950, 40950, 45450,
-                               50450, 55950, 61950} -- value fixed
+        local tLevelRequire = { 0, 180, 510, 990, 1620, 2400, 3240, 4140, 5100, 6120, 7200, 8350, 9650, 11100, 12700,
+                                14450, 16350, 18350, 20450, 22650, 25050, 27650, 30450, 33450, 36950, 40950, 45450,
+                                50450, 55950, 61950 } -- value fixed
         local iRequireLevel = tLevelRequire[30]
         for i = 31, self.iMaxLevel do
             iRequireLevel = iRequireLevel + i * 200
