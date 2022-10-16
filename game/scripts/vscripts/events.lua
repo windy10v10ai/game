@@ -1304,9 +1304,9 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
         end
     end
 
-    local firstPoint = math.ceil(playerNumber * 1)
-    local secondPoint = math.ceil(playerNumber * 0.6)
-    local thirdPoint = math.ceil(playerNumber * 0.3)
+    local firstPoint = playerNumber * 1
+    local secondPoint = playerNumber * 0.8
+    local thirdPoint = playerNumber * 0.6
     -- add point to most player
     if mostKillPlayerID_1 ~= -1 then
         data.players[mostKillPlayerID_1].points = data.players[mostKillPlayerID_1].points + firstPoint
@@ -1331,6 +1331,10 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     end
     if mostHealingPlayerID_1 ~= -1 then
         data.players[mostHealingPlayerID_1].points = data.players[mostHealingPlayerID_1].points + firstPoint
+    end
+    -- floor point
+    for playerID, playerInfo in pairs(data.players) do
+        playerInfo.points = math.floor(playerInfo.points)
     end
 
     local sTable = "ending_stats"
