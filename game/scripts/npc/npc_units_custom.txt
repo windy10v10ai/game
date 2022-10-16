@@ -1985,9 +1985,9 @@
 
         // Attack
         //----------------------------------------------------------------
-        "AttackDamageMin"			"25"		// Damage range min.
-        "AttackDamageMax"			"25"		// Damage range max.
-        "AttackRate"				"1.2"
+        "AttackDamageMin"			"20"		// Damage range min.
+        "AttackDamageMax"			"20"		// Damage range max.
+        "AttackRate"				"1.0"
 
         // Bounty
         //----------------------------------------------------------------
@@ -2012,7 +2012,7 @@
 		//----------------------------------------------------------------
 		"AttackDamageMin"			"30"		// Damage range min.
 		"AttackDamageMax"			"30"		// Damage range max.
-		"AttackRate"				"1.4"
+		"AttackRate"				"1.0"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -2022,7 +2022,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"400"		// Base health.
+		"StatusHealth"				"450"		// Base health.
 	}
 
 	"npc_dota_venomancer_plague_ward_3"
@@ -2035,9 +2035,9 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"35"		// Damage range min.
-		"AttackDamageMax"			"35"		// Damage range max.
-		"AttackRate"				"1.4"
+		"AttackDamageMin"			"40"		// Damage range min.
+		"AttackDamageMax"			"40"		// Damage range max.
+		"AttackRate"				"1.0"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -2047,7 +2047,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"500"		// Base health.
+		"StatusHealth"				"600"		// Base health.
 	}
 
 	"npc_dota_venomancer_plague_ward_4"
@@ -2060,9 +2060,9 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"40"		// Damage range min.
-		"AttackDamageMax"			"40"		// Damage range max.
-		"AttackRate"				"1.4"
+		"AttackDamageMin"			"50"		// Damage range min.
+		"AttackDamageMax"			"50"		// Damage range max.
+		"AttackRate"				"1.0"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -2072,7 +2072,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"600"		// Base health.
+		"StatusHealth"				"750"		// Base health.
 	}
 
 	"npc_dota_venomancer_plague_ward_5"
@@ -2085,9 +2085,9 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"45"
-        "AttackDamageMax"			"45"
-		"AttackRate"				"1.4"
+		"AttackDamageMin"			"60"
+        "AttackDamageMax"			"60"
+		"AttackRate"				"1.0"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -2097,7 +2097,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"700"		// Base health.
+		"StatusHealth"				"900"		// Base health.
 	}
 
 	// shadow_shaman_ward 小Y蛇棒
