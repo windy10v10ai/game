@@ -586,7 +586,6 @@ function HeroKilled(keys)
                     PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
                 GameRules:ModifyGoldFiltered(playerID, gold, true, DOTA_ModifyGold_CreepKill)
                 local playerHero = PlayerResource:GetSelectedHeroEntity(playerID)
-                playerHero:EmitSound("DOTA_Item.Hand_Of_Midas")
                 SendOverheadEventMessage(playerHero, OVERHEAD_ALERT_GOLD, playerHero, gold * AIGameMode:GetPlayerGoldXpMultiplier(playerID), playerHero)
             end
         end
