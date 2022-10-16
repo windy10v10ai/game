@@ -72,6 +72,8 @@
 		"scoreboard_tool_tip_disable_help"	"Disable Help"
 		"scoreboard_tool_tip_actived"		" Actived"
 
+		"endscreen_tool_tip_season_point"	"Season Point"
+
 		"custom_end_screen_victory_message"	"Radiant Victory"
 		"custom_end_screen_lose_message"	"Dire Victory"
 
