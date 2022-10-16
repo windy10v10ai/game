@@ -632,7 +632,7 @@ function HeroKilled(keys)
         end
 
         local extraFactor = 1
-        -- 连死次数补偿
+        -- 连死次数补正
         -- 连死9次后拿到最高补偿（超鬼）
         if deathCount <= 5 then
             extraFactor = math.max(1, 1 + (deathCount - 3) * 0.2)
@@ -640,6 +640,23 @@ function HeroKilled(keys)
             extraFactor = math.max(1, 1.4 + (deathCount - 5) * 0.4)
         end
         extraFactor = math.min(extraFactor, 3)
+
+        -- 两边团队击杀数补正
+        local playerTeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(attackerPlayerID))
+        local AITeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(playerId))
+        local teamKillFactor = 1
+        if playerTeamKill < AITeamKill then
+            teamKillFactor = 0
+        elseif playerTeamKill < 2 * AITeamKill then
+            teamKillFactor = 0.5
+        elseif playerTeamKill - AITeamKill <= 20 then
+            teamKillFactor = 1
+        elseif playerTeamKill - AITeamKill <= 50 then
+            teamKillFactor = 1.5
+        else
+            teamKillFactor = 2
+        end
+        extraFactor = extraFactor * teamKillFactor
 
         gold = gold * extraFactor
         xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId) * extraFactor
