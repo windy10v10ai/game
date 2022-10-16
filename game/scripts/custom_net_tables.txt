@@ -4,8 +4,8 @@
   [
     "player_table",
     "game_options_table",
-		"ending_stats",
-		"disable_help",
-		"member_table",
+	"ending_stats",
+	"disable_help",
+	"member_table",
   ]
 }
