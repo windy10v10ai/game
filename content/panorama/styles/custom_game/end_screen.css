@@ -106,7 +106,7 @@
 
 
  #EndScreenWindow #MatchResultBlock #EndScreenVictory{
-     margin-left: 12px;
+     margin-left: 10px;
      margin-top: 10px;
      font-size: 50px;
      font-weight: bold;
@@ -117,7 +117,7 @@
      width: 300px;
  }
 #GameTime{
-    margin-left: 12px;
+    margin-left: 10px;
     margin-top: 10px;
     font-size: 30px;
     font-weight: bold;
@@ -276,7 +276,7 @@
 
 
  .TotalMoneyColumn, .TotalDamageColumn, .TotalDamageReceivedColumn{
-     width: 100px;
+     width: 80px;
      margin-right: 5px;
      margin-left: 5px;
  }
@@ -324,18 +324,19 @@
  }
 
  .DamageTakenColumn{
-     width: 100px;
+     width: 80px;
      margin-left: 16px;
  }
 
  .BossDamageColumn{
-     width: 100px;
+     width: 80px;
      margin-left: 16px;
  }
 
  .HeroHealingColumn{
      width: 80px;
-     margin-left: 12px;
+     margin-left: 5px;
+     margin-right: 5px;
  }
 
  .AspectRatio4x3 .HeroHealingColumn{
@@ -343,9 +344,9 @@
  }
 
  .PtsColumn{
-     width: 80px;
-     margin-left: 12px;
-     margin-right: 12px;
+     width: 50px;
+     margin-left: 5px;
+     margin-right: 5px;
  }
 
  .AspectRatio4x3 .PtsColumn{
@@ -493,7 +494,7 @@
      font-size: 18px;
  }
 
- .Team #TeamInfo > Label,
+.Team #TeamInfo > Label,
 .Team #TeamInfo > Panel,
 .Team #TeamInfo > Image,
 .Team #TeamInfo > .NetWorthColumn{
@@ -504,14 +505,12 @@
      tooltip-body-position: 75%;
  }
 
- .Team #TeamInfo .StrColumn,
+.Team #TeamInfo .StrColumn,
 .Team #TeamInfo .AgiColumn,
 .Team #TeamInfo .IntColumn{
-
-
-     height: 32px;
-     padding: 0 8px;
- }
+    height: 32px;
+    padding: 0 8px;
+}
 
  .Team #TeamInfo .LegendPanel{
      vertical-align: bottom;

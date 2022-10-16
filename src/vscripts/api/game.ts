@@ -2,14 +2,15 @@
 import { ApiClient, HttpMethod } from "./api_client";
 
 class Player {
-	team!: number;
+	teamId!: number;
 	steamId!: number;
 	heroName!: string;
+	points!: number;
 }
 
 class GameInfo {
 	players!: Player[];
-	lostTeamID!: number;
+	winnerTeamId!: number;
 	matchId!: string;
 	gameOption!: Object;
 	constructor() {
@@ -22,22 +23,20 @@ export class Game {
 	constructor() {
 	}
 
-	public SendEndGameInfo(lostTeamID: number) {
+	public SendEndGameInfo(endData: any) {
 		const gameInfo = new GameInfo();
-		gameInfo.lostTeamID = lostTeamID;
+		gameInfo.winnerTeamId = endData.winnerTeamId;
 		gameInfo.matchId = GameRules.Script_GetMatchID().toString();
-		// @ts-ignore
-		const gameOption = CustomNetTables.GetTableValue("game_options_table", "game_option");
-		if (gameOption) {
-			gameInfo.gameOption = gameOption;
-		}
+
+		gameInfo.gameOption = endData.gameOption;
 
 		for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
 			if (PlayerResource.IsValidPlayerID(i)) {
 				const player = new Player();
-				player.team = PlayerResource.GetTeam(i);
+				player.teamId = PlayerResource.GetTeam(i);
 				player.steamId = PlayerResource.GetSteamAccountID(i);
 				player.heroName = PlayerResource.GetSelectedHeroName(i);
+				player.points = endData.players[i]?.points;
 				gameInfo.players.push(player);
 			}
 		}
