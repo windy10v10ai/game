@@ -1235,7 +1235,8 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     str = hero:GetStrength() or 0,
                     agi = hero:GetAgility() or 0,
                     int = hero:GetIntellect() or 0,
-                    items = {}
+                    items = {},
+                    isDisconnect = false,
                 }
 
                 for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
@@ -1252,7 +1253,12 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
 
                 if not PlayerResource:IsFakeClient(playerID) then
                     playerNumber = playerNumber + 1
-                    playerInfo.points = playerInfo.points + basePoint
+
+                    if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
+                        playerInfo.points = basePoint
+                    else
+                        playerInfo.isDisconnect = true
+                    end
                     if kills > mostKill_1 then
                         mostKillPlayerID_3 = mostKillPlayerID_2
                         mostKill_3 = mostKill_2
