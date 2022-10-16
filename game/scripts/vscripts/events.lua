@@ -561,20 +561,21 @@ function HeroKilled(keys)
 
     -- 玩家团队奖励逻辑
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
+        -- 前期增长慢，电脑等级较高时，增长快
+        -- 30级时电脑天赋学满，战斗力基本开始成型了，这时打野的钱本身也变多了
         local gold = 0
         if iLevel <= 10 then
-            gold = 5 + iLevel * 2
+            gold = 5 + iLevel * 1
         elseif iLevel <= 20 then
-            gold = 10 + iLevel * 2.5
+            gold = 15 + (iLevel - 10) * 1.5
         elseif iLevel <= 30 then
-            gold = 15 + iLevel * 3
+            gold = 30 + (iLevel - 20) * 2
         elseif iLevel <= 50 then
-            gold = 25 + iLevel * 3.5
+            gold = 50 + (iLevel - 30) * 8
         else
-            gold = 200
+            gold = 210
         end
-        -- 初次更新 数值改保守点
-        gold = gold / 2
+        gold = math.max(gold, 210)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
                 PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
@@ -611,27 +612,33 @@ function HeroKilled(keys)
         local gold = 0
         local xp = 0
 
+        -- 基础值
         if GameTime <= 5 * 60 then
             gold = 10
-            xp = 15
+            xp = 20
         elseif GameTime <= 10 * 60 then
             gold = 20
-            xp = 30
+            xp = 40
         elseif GameTime <= 15 * 60 then
-            -- 初次更新 数值改保守点
-            -- gold = 40
-            -- xp = 60
-            gold = 30
-            xp = 45
+             gold = 30
+             xp = 60
         else
-            -- 初次更新 数值改保守点
-            -- gold = 80
-            -- xp = 120
-            gold = 40
-            xp = 60
+             gold = 40
+             xp = 80
         end
 
-        xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId)
+        local extraFactor = 1
+        -- 连死次数补偿
+        -- 连死9次后拿到最高补偿（超鬼）
+        if deathCount <= 5 then
+            extraFactor = math.max(1, 1 + (deathCount - 3) * 0.2)
+        else
+            extraFactor = math.max(1, 1.4 + (deathCount - 5) * 0.4)
+        end
+        extraFactor = math.min(extraFactor, 3)
+
+        gold = gold * extraFactor
+        xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId) * extraFactor
 
         if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and
             PlayerResource:GetSelectedHeroEntity(playerId) then
