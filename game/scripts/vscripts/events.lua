@@ -1169,7 +1169,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     local basePoint = 0
     if time > 3600 then
         basePoint = 50
-    elseif time > 900 then
+    elseif time > 600 then
         basePoint = math.floor(20 + time / 120)
     end
     if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
@@ -1178,14 +1178,20 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
 
     local playerNumber = 0
     -- find most
-    local mostKillPlayerID = -1
-    local mostKill = 0
-    local mostDamageReceivedPlayerID = -1
-    local mostDamageReceived = 0
-    local mostHealingPlayerID = -1
-    local mostHealing = 0
-    local mostAssistsPlayerID = -1
-    local mostAssists = 0
+    local mostKillPlayerID_1 = -1
+    local mostKill_1 = 0
+    local mostKillPlayerID_2 = -1
+    local mostKill_2 = 0
+
+    local mostAssistsPlayerID_1 = -1
+    local mostAssists_1 = 0
+    local mostAssistsPlayerID_2 = -1
+    local mostAssists_2 = 0
+
+    local mostDamageReceivedPlayerID_1 = -1
+    local mostDamageReceived_1 = 0
+    local mostHealingPlayerID_1 = -1
+    local mostHealing_1 = 0
 
     for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
@@ -1243,22 +1249,36 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                 if not PlayerResource:IsFakeClient(playerID) then
                     playerNumber = playerNumber + 1
                     playerInfo.points = playerInfo.points + basePoint
-                    if kills > mostKill then
-                        mostKill = kills
-                        mostKillPlayerID = playerID
+                    if kills > mostKill_1 then
+                        mostKillPlayerID_2 = mostKillPlayerID_1
+                        mostKill_2 = mostKill_1
+                        mostKillPlayerID_1 = playerID
+                        mostKill_1 = kills
+                    elseif kills > mostKill_2 then
+                        mostKillPlayerID_2 = playerID
+                        mostKill_2 = kills
                     end
-                    if damagereceived > mostDamageReceived then
-                        mostDamageReceived = damagereceived
-                        mostDamageReceivedPlayerID = playerID
+
+                    if assists > mostAssists_1 then
+                        mostAssistsPlayerID_2 = mostAssistsPlayerID_1
+                        mostAssists_2 = mostAssists_1
+                        mostAssistsPlayerID_1 = playerID
+                        mostAssists_1 = assists
+                    elseif assists > mostAssists_2 then
+                        mostAssistsPlayerID_2 = playerID
+                        mostAssists_2 = assists
                     end
-                    if healing > mostHealing then
-                        mostHealing = PlayerResource:GetHealing(playerID)
-                        mostHealingPlayerID = playerID
+
+                    if damagereceived > mostDamageReceived_1 then
+                        mostDamageReceivedPlayerID_1 = playerID
+                        mostDamageReceived_1 = damagereceived
                     end
-                    if assists > mostAssists then
-                        mostAssists = assists
-                        mostAssistsPlayerID = playerID
+
+                    if healing > mostHealing_1 then
+                        mostHealingPlayerID_1 = playerID
+                        mostHealing_1 = healing
                     end
+
                 end
 
                 data.players[playerID] = playerInfo
@@ -1266,18 +1286,26 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
         end
     end
 
+    local firstPoint = math.ceil(playerNumber * 1)
+    local secondPoint = math.ceil(playerNumber * 0.5)
     -- add point to most player
-    if mostKillPlayerID ~= -1 then
-        data.players[mostKillPlayerID].points = data.players[mostKillPlayerID].points + playerNumber
+    if mostKillPlayerID_1 ~= -1 then
+        data.players[mostKillPlayerID_1].points = data.players[mostKillPlayerID_1].points + firstPoint
     end
-    if mostDamageReceivedPlayerID ~= -1 then
-        data.players[mostDamageReceivedPlayerID].points = data.players[mostDamageReceivedPlayerID].points + playerNumber
+    if mostKillPlayerID_2 ~= -1 then
+        data.players[mostKillPlayerID_2].points = data.players[mostKillPlayerID_2].points + secondPoint
     end
-    if mostHealingPlayerID ~= -1 then
-        data.players[mostHealingPlayerID].points = data.players[mostHealingPlayerID].points + playerNumber
+    if mostAssistsPlayerID_1 ~= -1 then
+        data.players[mostAssistsPlayerID_1].points = data.players[mostAssistsPlayerID_1].points + firstPoint
     end
-    if mostAssistsPlayerID ~= -1 then
-        data.players[mostAssistsPlayerID].points = data.players[mostAssistsPlayerID].points + playerNumber
+    if mostAssistsPlayerID_2 ~= -1 then
+        data.players[mostAssistsPlayerID_2].points = data.players[mostAssistsPlayerID_2].points + secondPoint
+    end
+    if mostDamageReceivedPlayerID_1 ~= -1 then
+        data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + firstPoint
+    end
+    if mostHealingPlayerID_1 ~= -1 then
+        data.players[mostHealingPlayerID_1].points = data.players[mostHealingPlayerID_1].points + firstPoint
     end
 
     local sTable = "ending_stats"
