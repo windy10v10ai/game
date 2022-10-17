@@ -569,17 +569,17 @@ function HeroKilled(keys)
         -- 30级时电脑天赋学满，战斗力基本开始成型了，这时打野的钱本身也变多了
         local gold = 0
         if iLevel <= 10 then
-            gold = 5 + iLevel * 1
+            gold = 5 + iLevel * 0.5
         elseif iLevel <= 20 then
-            gold = 15 + (iLevel - 10) * 1.5
+            gold = 10 + (iLevel - 10) * 0.8
         elseif iLevel <= 30 then
-            gold = 30 + (iLevel - 20) * 2
+            gold = 18 + (iLevel - 20) * 2
         elseif iLevel <= 50 then
-            gold = 50 + (iLevel - 30) * 8
+            gold = 38 + (iLevel - 30) * 8
         else
-            gold = 210
+            gold = 198
         end
-        gold = math.min(gold, 210)
+        gold = math.min(gold, 198)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
                     PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
@@ -783,6 +783,17 @@ function AIGameMode:OnNPCSpawned(keys)
                 return
             end
         end
+
+        -- 随时间增加金钱
+        local originMaxGold = hEntity:GetMaximumGoldBounty()
+        local originMinGold = hEntity:GetMinimumGoldBounty()
+        local mul = AIGameMode:GetLaneGoldMul()
+        local modifiedMaxGold = originMaxGold * mul
+        local modifiedMinGold = originMinGold * mul
+        hEntity:SetMaximumGoldBounty(modifiedMaxGold)
+        hEntity:SetMinimumGoldBounty(modifiedMinGold)
+        Printf("修改小兵金钱:\norigin: %d~%d\nmodified: %d~%d\nmul: %.1f",
+                originMinGold, originMaxGold, modifiedMinGold, modifiedMaxGold, mul)
     end
 
     if hEntity:IsCreep() then
