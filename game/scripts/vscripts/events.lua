@@ -761,6 +761,15 @@ function AIGameMode:OnNPCSpawned(keys)
             buffLevelMega = AIGameMode.creepBuffLevelMegaBad
         end
 
+        -- 随时间增加金钱
+        local originMaxGold = hEntity:GetMaximumGoldBounty()
+        local originMinGold = hEntity:GetMinimumGoldBounty()
+        local mul = AIGameMode:GetLaneGoldMul()
+        local modifiedMaxGold = originMaxGold * mul
+        local modifiedMinGold = originMinGold * mul
+        hEntity:SetMaximumGoldBounty(modifiedMaxGold)
+        hEntity:SetMinimumGoldBounty(modifiedMinGold)
+
         if buffLevel > 0 then
             if not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
                 -- normal creep
@@ -783,17 +792,6 @@ function AIGameMode:OnNPCSpawned(keys)
                 return
             end
         end
-
-        -- 随时间增加金钱
-        local originMaxGold = hEntity:GetMaximumGoldBounty()
-        local originMinGold = hEntity:GetMinimumGoldBounty()
-        local mul = AIGameMode:GetLaneGoldMul()
-        local modifiedMaxGold = originMaxGold * mul
-        local modifiedMinGold = originMinGold * mul
-        hEntity:SetMaximumGoldBounty(modifiedMaxGold)
-        hEntity:SetMinimumGoldBounty(modifiedMinGold)
-        Printf("修改小兵金钱:\norigin: %d~%d\nmodified: %d~%d\nmul: %.1f",
-                originMinGold, originMaxGold, modifiedMinGold, modifiedMaxGold, mul)
     end
 
     if hEntity:IsCreep() then
