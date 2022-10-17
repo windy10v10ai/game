@@ -1338,9 +1338,8 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     if mostHealingPlayerID_1 ~= -1 then
         data.players[mostHealingPlayerID_1].points = data.players[mostHealingPlayerID_1].points + firstPoint
     end
-    -- floor point
     for playerID, playerInfo in pairs(data.players) do
-        playerInfo.points = math.floor(playerInfo.points)
+        playerInfo.points = math.ceil(playerInfo.points)
     end
 
     local sTable = "ending_stats"
