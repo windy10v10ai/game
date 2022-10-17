@@ -1,23 +1,6 @@
-function DebugPrint(...)
-	local spew = -1
-	if spew == -1 and BAREBONES_DEBUG_SPEW then
-		spew = 1
-	end
-
-	if spew == 1 then
-		print(...)
-	end
-end
-
-function DebugPrintTable(...)
-	local spew = -1
-	if spew == -1 and BAREBONES_DEBUG_SPEW then
-		spew = 1
-	end
-
-	if spew == 1 then
-		PrintTable(...)
-	end
+function Printf(pattern, ...)
+	local str = string.format(pattern, ...)
+	print(str)
 end
 
 function PrintTable(t, indent, done)
@@ -158,3 +141,4 @@ function IsBadTeamPlayer (playerid)
 	end
 	return PlayerResource:GetTeam(playerid) == DOTA_TEAM_BADGUYS
 end
+

@@ -72,6 +72,8 @@
 		"scoreboard_tool_tip_disable_help"	"禁用帮助"
 		"scoreboard_tool_tip_actived"		" 已激活"
 
+		"endscreen_tool_tip_season_point"	"赛季积分"
+
 		"custom_end_screen_victory_message"	"天辉获胜"
 		"custom_end_screen_lose_message"	"夜魇获胜"
 
