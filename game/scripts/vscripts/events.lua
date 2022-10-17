@@ -1202,6 +1202,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                 PlayerResource:GetSelectedHeroEntity(playerID) then
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
+                local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
                 local membership = Member:IsMember(steamAccountID)
                 local memberInfo = Member:GetMember(steamAccountID)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
