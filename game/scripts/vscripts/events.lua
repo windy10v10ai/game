@@ -579,7 +579,7 @@ function HeroKilled(keys)
         else
             gold = 210
         end
-        gold = math.max(gold, 210)
+        gold = math.min(gold, 210)
         Printf("玩家团队奖励 基础值: %d", gold)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
