@@ -1165,6 +1165,7 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_spectre = {
 		'item_vanguard',
+		'item_reaver',
 	},
 	npc_dota_hero_bane = {
 		'item_arcane_boots',

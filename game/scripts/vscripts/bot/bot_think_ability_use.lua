@@ -533,7 +533,6 @@ function BotAbilityThink:ThinkUseAbility_Spectre(hHero)
 	if hAbility1:IsFullyCastable() then
 		local castRange = castRangeBonus + hAbility1:GetCastRange()
 		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, castRange)
-		-- 范围内有1人以上时施法
 		if #tAllHeroes >= 1 then
 			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility1, hHero:GetPlayerOwnerID())
 			return true
@@ -541,7 +540,7 @@ function BotAbilityThink:ThinkUseAbility_Spectre(hHero)
 	end
 
 	if hAbility2:IsFullyCastable() then
-		local range = 900
+		local range = 1200
 		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, range)
 		if #tAllHeroes >= 1 and hHero:GetHealthPercent() <= 40 then
 			hHero:CastAbilityNoTarget(hAbility2, hHero:GetPlayerOwnerID())
@@ -567,7 +566,7 @@ function BotAbilityThink:ThinkUseAbility_Spectre(hHero)
 
 	if hAbility6:IsFullyCastable() then
 		local range = 900
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, range)
 		if #tAllHeroes >= 2 then
 			hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
 			return true
