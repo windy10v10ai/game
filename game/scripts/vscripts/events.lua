@@ -1050,14 +1050,12 @@ function AIGameMode:OnPlayerChat(event)
         end
 
         if sChatMsg:find('^-gall$') then
-            for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-                if PlayerResource:GetSelectedHeroEntity(playerID) then
-                    local hero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-                    PlayerResource:ModifyGold(iPlayerID, 99999, true, DOTA_ModifyGold_CheatCommand)
-                    hero:AddExperience(999999, DOTA_ModifyXP_Unspecified, false, false)
-                    return
-                end
+            local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+            for _, hero in pairs(tAllHeroes) do
+                hero:ModifyGold(99999, true, DOTA_ModifyGold_CheatCommand)
+                hero:AddExperience(999999, DOTA_ModifyXP_Unspecified, false, false)
             end
+            return
         end
 
     end
