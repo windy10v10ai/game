@@ -1049,6 +1049,18 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
+        if sChatMsg:find('^-gall$') then
+            for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+                if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
+                        PlayerResource:GetSelectedHeroEntity(playerID) then
+                    local hero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+                    PlayerResource:ModifyGold(iPlayerID, 99999, true, DOTA_ModifyGold_CheatCommand)
+                    hero:AddExperience(999999, DOTA_ModifyXP_Unspecified, false, false)
+                    return
+                end
+            end
+        end
+
     end
 
     if Member:IsMember(steamAccountID) then
