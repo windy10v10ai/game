@@ -25,6 +25,7 @@ local tBotNameList = {
     "npc_dota_hero_bane",
     "npc_dota_hero_bounty_hunter",
     "npc_dota_hero_bloodseeker",
+    "npc_dota_hero_spectre",
     "npc_dota_hero_bristleback",
     "npc_dota_hero_chaos_knight",
     "npc_dota_hero_crystal_maiden",
