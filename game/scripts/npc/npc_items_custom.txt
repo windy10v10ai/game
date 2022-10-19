@@ -4412,7 +4412,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"25"
+				"bonus_armor"			"30"
 			}
 			"03"
 			{
