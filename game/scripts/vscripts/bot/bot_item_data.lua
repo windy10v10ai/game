@@ -76,7 +76,7 @@ tBotItemData.purchaseItemList = {
 		'item_shivas_guard_2',
 		'item_insight_armor',
 		'item_blue_fantasy',
-		'item_arcane_octarine_core',
+		'item_jump_jump_jump',
 		'item_moon_shard_datadriven',
 	},
 	npc_dota_hero_bane = {
