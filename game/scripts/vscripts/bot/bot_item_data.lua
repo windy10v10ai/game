@@ -58,6 +58,27 @@ tBotItemData.purchaseItemList = {
 		'item_abyssal_blade_v2',
 		'item_jump_jump_jump',
 	},
+	npc_dota_hero_spectre = {
+		'item_magic_wand',
+		'item_boots',
+		'item_bracer',
+		'item_power_treads',
+		'item_bracer',
+		'item_vanguard',
+		'item_blade_mail',
+		'item_platemail',
+		'item_recipe_blade_mail_2',
+		'item_wings_of_haste',
+		'item_aghanims_shard',
+		'item_reaver',
+		'item_ultimate_scepter_2',
+		'item_undying_heart',
+		'item_shivas_guard_2',
+		'item_insight_armor',
+		'item_blue_fantasy',
+		'item_jump_jump_jump',
+		'item_moon_shard_datadriven',
+	},
 	npc_dota_hero_bane = {
 		'item_magic_wand',
 		'item_boots',
@@ -1142,6 +1163,10 @@ tBotItemData.sellItemList = {
 
 		-- local
 	},
+	npc_dota_hero_spectre = {
+		'item_vanguard',
+		'item_reaver',
+	},
 	npc_dota_hero_bane = {
 		'item_arcane_boots',
 		'item_force_staff',
@@ -1618,6 +1643,9 @@ tBotItemData.addNeutralItemList = {
 		'item_mirror_shield',
 	},
 	npc_dota_hero_axe = {
+		'item_mirror_shield',
+	},
+	npc_dota_hero_spectre = {
 		'item_mirror_shield',
 	},
 	npc_dota_hero_bane = {
