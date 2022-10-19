@@ -46,7 +46,21 @@ function BotItemThink:UseActiveItem(hHero)
     end
 
     -- 对敌军释放道具
-    local itemUseCastRange = 900
+    -- 长射程道具
+    local itemUseCastRange = 1200
+    if hHero:GetHealthPercent() > 30 then
+        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, itemUseCastRange)
+        if #tAllHeroes > 0 then
+            local hTarget = tAllHeroes[1]
+            -- item_jump_jump_jump 大跳刀
+            if BotItemThink:UseItemOnPostion(tUsableItems, hHero, "item_jump_jump_jump", hTarget) then
+                return true
+            end
+        end
+    end
+
+    -- 普通
+    itemUseCastRange = 900
     if hHero:HasItemInInventory("arcane_octarine_core") or hHero:HasItemInInventory("item_octarine_core") then
         itemUseCastRange = itemUseCastRange + 300
     end
@@ -84,11 +98,6 @@ function BotItemThink:UseActiveItem(hHero)
     end
 
     if hHero:GetHealthPercent() > 30 then
-        -- item_jump_jump_jump 大跳刀
-        if BotItemThink:UseItemOnPostion(tUsableItems, hHero, "item_jump_jump_jump", hTarget) then
-            return true
-        end
-
         if BotItemThink:IsItemCanUse(tUsableItems, "item_abyssal_blade_v2") then
             itemUseCastRange = 600
             local tAllHeroesRange600 = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, itemUseCastRange)
