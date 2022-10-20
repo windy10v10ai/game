@@ -227,6 +227,10 @@
         "DOTA_Tooltip_ability_miku_hadouken_damage" "Damage:"
         "DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "Damage in Chibi status:"
 		"DOTA_Tooltip_ability_miku_hadouken_Lore"           "Rich and fragrant vegetable juice! Fragrant and soft vegetable juice!"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_101" "{s:bonus_AbilityCooldown} Popipo cooldown"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_201" "+{s:bonus_crit_bonus}% pantsushot critical factor"
+        "DOTA_Tooltip_ability_special_bonus_unique_miku_301" "{s:bonus_AbilityCooldown}s Liu-kick cooldown"
+        "DOTA_Tooltip_ability_special_bonus_unique_miku_302" "+{s:bonus_AbilityCastRange} Liu-kick cast range"
 
 		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"Popipo will stun enemy for %shard_stun% seconds."
 
