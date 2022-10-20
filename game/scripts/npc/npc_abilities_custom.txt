@@ -710,11 +710,8 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_bonus"
-				{
-				    "value" "160 180 200 220 240"
-				    "LinkedSpecialBonus" "special_bonus_unique_miku_201"
-				}
+				"crit_bonus" "160 180 200 220 240"
+				"LinkedSpecialBonus" "special_bonus_unique_miku_201"
 			}
 			"03"
 			{
