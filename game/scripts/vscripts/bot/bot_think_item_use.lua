@@ -159,6 +159,10 @@ function BotItemThink:UseActiveItem(hHero)
     if BotItemThink:UseItem(tUsableItems, hHero, "item_adi_king_plus") then
         return true
     end
+    -- item_force_field
+    if BotItemThink:UseItem(tUsableItems, hHero, "item_force_field") then
+        return true
+    end
 
     -- item_necronomicon_staff 死灵法杖
     if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_necronomicon_staff", hTarget) then
