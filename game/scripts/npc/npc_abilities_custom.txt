@@ -641,11 +641,6 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"
-		{
-		    "value" "15 14 13 12 11"
-		    "special_bonus_unique_miku_101"	"-3"
-		}
 		"AbilityManaCost"				"70 90 110 130 150"
 
 		// Damage
@@ -654,6 +649,11 @@
 
 		"AbilityValues"
 		{
+		    "AbilityCooldown"
+            {
+                "value" "15 14 13 12 11"
+                "special_bonus_unique_miku_101"	"-3"
+            }
 			"dragon_slave_speed"		"1000"
 			"dragon_slave_width_initial"	"200"
 			"dragon_slave_width_end"		"150"
@@ -713,7 +713,7 @@
 				"crit_bonus"
 				{
 				    "value" "160 180 200 220 240"
-				    "special_bonus_unique_miku_201" "+60"
+				    "LinkedSpecialBonus" "special_bonus_unique_miku_201"
 				}
 			}
 			"03"
@@ -731,8 +731,17 @@
 	"special_bonus_unique_miku_201"
     {
         "BaseClass"					"special_bonus_undefined"
-        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "value"				        "+60"
+                "ad_linked_abilities"		"pantsushot"
+            }
+        }
     }
 	"liu_kick"
 	{
@@ -751,17 +760,9 @@
 		"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
 
 		"AbilityCastPoint"						"0.3"
-		"AbilityCooldown"
-		{
-		    "value" "20 19 18 17 16"
-		    "special_bonus_unique_miku_301" "-5"
-		}
+
 		"AbilityManaCost"						"80 100 120 140 160"
-		"AbilityCastRange"
-		{
-		    "value" "900"
-		    "special_bonus_unique_miku_302" "+250"
-		}
+
 
 		"HasScepterUpgrade"						"0"
 
@@ -773,6 +774,16 @@
 
 		"AbilityValues"
 		{
+		    "AbilityCooldown"
+            {
+                "value" "20 19 18 17 16"
+                "special_bonus_unique_miku_301" "-5"
+            }
+            "AbilityCastRange"
+            {
+                "value" "900"
+                "special_bonus_unique_miku_302" "+250"
+            }
 			"radius"						"300"
 			"range_knockback"				"300"
 			"speed"							"1600"
