@@ -428,6 +428,10 @@
         "DOTA_Tooltip_ability_miku_hadouken_damage"         "伤害:"
         "DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "变身时伤害:"
 		"DOTA_Tooltip_ability_miku_hadouken_Lore"           "香醇浓厚的蔬菜果汁！香软绵柔的蔬菜果汁！"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_101" "-{s:bonus_AbilityCooldown}s 蔬菜汁Popipo 冷却时间"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_201" "+{s:value}% 脑浆炸裂女孩 暴击倍率"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_301" "-{s:bonus_AbilityCooldown}s 初音飞踢 冷却时间"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_302" "+{s:bonus_AbilityCastRange} 初音飞踢 施法距离"
 
 		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"蔬菜汁Popipo击中的敌人将眩晕%shard_stun%秒。"
 			// 八云紫
