@@ -147,7 +147,7 @@ function Snippet_Team(team) {
 function OnGameResult(table, key, gameResult) {
 	if (!gameResult || key !== "player_data") {
 		$.Msg("[EndScreen2] Invalid game result");
-		FinishGame();
+		// FinishGame();
 		return;
 	}
 
