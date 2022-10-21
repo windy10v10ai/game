@@ -246,8 +246,8 @@ end
 function AIGameMode:ApplyTestOptions()
     print('------------------------读取个性化测试环境------------------------')
     if self.DebugMode and PlayerResource:GetSteamAccountID(0) == 245559423 then
-        self.iDesiredRadiant = 1
-        self.iDesiredDire = 1
+        self.iDesiredRadiant = 10
+        self.iDesiredDire = 10
     end
 end
 
@@ -348,5 +348,23 @@ function AIGameMode:GetPlayerGoldXpMultiplier(iPlayerID)
         mul = self.fBotGoldXpMultiplier
     end
 
+    return mul
+end
+
+-- 小兵金钱随时间增加
+function AIGameMode:GetLaneGoldMul()
+    local time = GameRules:GetDOTATime(false, false)
+    local mul = 1
+    if time <= 5 * 60 then
+        mul = 1
+    elseif time <= 10 * 60 then
+        mul = 1.25
+    elseif time <= 15 * 60 then
+        mul = 1.5
+    else
+        mul = 1.5 + (math.floor(time / 300) - 2) * 0.5
+    end
+    -- 60分钟封顶
+    mul = math.min(mul, 6)
     return mul
 end
