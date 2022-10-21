@@ -48,13 +48,15 @@ function BotItemThink:UseActiveItem(hHero)
     -- 对敌军释放道具
     -- 长射程道具
     local itemUseCastRange = 1200
-    if hHero:GetHealthPercent() > 30 then
-        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, itemUseCastRange)
-        if #tAllHeroes > 0 then
-            local hTarget = tAllHeroes[1]
-            -- item_jump_jump_jump 大跳刀
-            if BotItemThink:UseItemOnPostion(tUsableItems, hHero, "item_jump_jump_jump", hTarget) then
-                return true
+    if tUsableItems["item_jump_jump_jump"] then
+        if hHero:GetHealthPercent() > 30 then
+            local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, itemUseCastRange)
+            if #tAllHeroes > 0 then
+                local hTarget = tAllHeroes[1]
+                -- item_jump_jump_jump 大跳刀
+                if BotItemThink:UseItemOnPostion(tUsableItems, hHero, "item_jump_jump_jump", hTarget) then
+                    return true
+                end
             end
         end
     end
