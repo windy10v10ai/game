@@ -3130,13 +3130,13 @@
 
         "MaxLevel" "4"
         "AbilityCooldown"				"100"
-        "AbilityManaCost"				"100"
+        "AbilityManaCost"				"150 200 250 300"
 
         "HasScepterUpgrade"			"0"
 
         "AbilityValues"
         {
-            "damage_reduction"			"-40 -50 -60 -70"
+            "damage_reduction"			"-35 -40 -45 -50"
             "duration"
             {
                 "value"							"3.0"
@@ -3144,7 +3144,7 @@
             }
             "status_resistance"
             {
-                "value"							"30"
+                "value"							"25 30 35 40"
             }
         }
     }
