@@ -1646,7 +1646,7 @@ tBotItemData.addNeutralItemList = {
 		'item_mirror_shield',
 	},
 	npc_dota_hero_spectre = {
-		'item_mirror_shield',
+		'item_force_field',
 	},
 	npc_dota_hero_bane = {
 		'item_seer_stone',
