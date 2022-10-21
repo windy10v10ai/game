@@ -23,7 +23,6 @@ export class Member {
 				});
 			}
 		}
-		print("[Member] constructor in TS");
 	}
 
 	public InitMemberInfo() {
