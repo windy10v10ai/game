@@ -250,7 +250,7 @@ local xingguangSteamAccountID = Set {
 function EnablePlayerModifier(hEntity)
 	local steamAccountID = PlayerResource:GetSteamAccountID(hEntity:GetPlayerOwnerID())
 	LinkLuaModifier("modifier_membership", "modifiers/player/modifier_membership", LUA_MODIFIER_MOTION_NONE)
-	if Member:IsMember(steamAccountID) then
+	if Player:IsMember(steamAccountID) then
 		hEntity:AddNewModifier(hEntity, nil, "modifier_membership", {})
 	end
 
