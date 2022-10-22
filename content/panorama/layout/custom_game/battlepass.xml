@@ -1,0 +1,203 @@
+<!-- xml reconstructed by ValveResourceFormat: https://vrf.steamdb.info/ -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/custom_game/battlepass.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/battlepass.vjs_c" />
+	</scripts>
+	<snippets>
+		<snippet name="Pet">
+			<Panel class="NewPatreonPet">
+				<Panel id="PetImagePanel">
+					<Image id="PetImage" />
+				</Panel>
+				<Label id="PetName" text="{s:PetName}" />
+				<Label id="PetTier" text="{s:PetTier}" />
+				<Button class="deactivated" id="EnablePet">
+					<Label id="EnablePetLabel" text="EQUIP" />
+				</Button>
+				<Panel id="RoshanOptions" />
+			</Panel>
+		</snippet>
+		<snippet name="BabyRoshanOption">
+			<Panel>
+				<Button id="ChooseRoshan" />
+			</Panel>
+		</snippet>
+		<snippet name="Emblem">
+			<Panel class="NewPatreonEmblem">
+				<Panel id="EmblemImagePanel">
+					<Image id="EmblemImage" />
+				</Panel>
+				<Label id="EmblemName" text="{s:EmblemName}" />
+				<Label id="EmblemTier" text="{s:EmblemTier}" />
+				<Button class="deactivated" id="EnableEmblem">
+					<Label id="EnableEmblemLabel" text="APPLY" />
+				</Button>
+				<Panel id="EmblemOptions" />
+			</Panel>
+		</snippet>
+		<snippet name="EmblemOption">
+			<Panel>
+				<Button id="ChooseEmblem" />
+			</Panel>
+		</snippet>
+		<snippet name="BpReward">
+			<Panel class="NewBpReward">
+				<Panel id="RewardImagePanel">
+					<Image id="RewardImage" />
+				</Panel>
+				<Label id="RewardName" text="{s:RewardName}" />
+				<Label id="RewardTier" text="{s:RewardTier}" />
+				<Button class="deactivated" id="EnableReward">
+					<Label id="EnableRewardLabel" text="APPLY" />
+				</Button>
+				<Panel id="RewardOptions" />
+			</Panel>
+		</snippet>
+		<snippet name="RewardOption">
+			<Panel>
+				<Button id="ChooseReward" />
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<Panel hittest="false" class="BPParent">
+		<Panel id="CosmeticSettings" hittest="false" />
+		<!-- 显示按钮 -->
+		<Panel id="BPButtonPanel">
+			<Button class="AnimatedLook" text="" id="BPButton" onactivate="ToggleBP()">
+				<Label id="BPButtonText" text="#data_panel_button" />
+			</Button>
+		</Panel>
+		<!-- 主面板 -->
+		<Panel id="BPWindow" hitttest="false">
+			<Panel id="PlayerPointStats">
+				<Panel id="ChargePointContainer" class="pointParent">
+					<Image id="ChargePointImage" class="pointIcon" src="s2r://panorama/images/custom_game/charge_point_png.vtex"
+						onmouseover="UIShowTextTooltipStyled( #data_panel_charge_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+					<Label id="ChargePoint" class="pointNumber" text="18888" />
+				</Panel>
+				<Panel id="SeasonPointContainer" class="pointParent">
+					<Image id="SeasonPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/pts_earned_png.vtex"
+						onmouseover="UIShowTextTooltipStyled( #data_panel_season_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+					<Label id="SeasonPoint" class="pointNumber" text="18888" />
+				</Panel>
+			</Panel>
+
+			<Panel id="InDeveloping">
+				<Label id="InDevelopingLabel" text="#data_panel_developing" />
+			</Panel>
+			<!-- <Panel id="BpWindowPlayerStats">
+				<Panel id="BpLevelImageContainer">
+					<Image id="BpLevelImage" src="s2r://panorama/images/custom_game/battlepass/shield_icon_end_screen_psd_png.vtex" />
+					<Label id="BpLevelNumber" text="188" />
+				</Panel>
+				<Panel id="BpLevelTrackContainer">
+					<Label id="BpLevelNextRemainingText" text="level progress" />
+					<Label id="BpLevelNextRemainingNumber" text="850/1000" />
+					<ProgressBar id="BpLevelNextRemainingBar">
+						<Panel id="BpLevelNextRemainingBarLeft" />
+						<Panel id="BpLevelNextRemainingBarRight" />
+					</ProgressBar>
+				</Panel>
+			</Panel>
+
+			<Panel id="BpWindowNavBar">
+				<RadioButton group="MainBPWindow" id="BpWindowRewardsButton" onactivate="SwitchToRewards()">
+					<Label id="BPButtonText" text="rewards" />
+				</RadioButton>
+				<RadioButton group="MainBPWindow" id="BpWindowPatreonButton" onactivate="SwitchToPatreon()">
+					<Label id="BPButtonText" text="patreon" />
+				</RadioButton>
+			</Panel> -->
+
+			<!-- <Panel id="BpWindowMain">
+				<Panel id="BpWindowMainRewards">
+					<Panel id="BpRewardsButtons">
+						<RadioButton group="BpRewardsButtons" class="RadioBox" id="RBBpRewards" onactivate="SwitchToBpRewards()" onload="SetBpSelected()">
+							<Label id="RBBpRewardsLabel" text="Rewards" />
+						</RadioButton>
+						<RadioButton group="BpRewardsButtons" class="RadioBox" id="RBBpArmory" onactivate="SwitchToBpArmory()">
+							<Label id="RBBpArmoryLabel" text="Armory" />
+						</RadioButton>
+						<RadioButton group="BpRewardsButtons" class="RadioBox" id="RBBpSettings" onactivate="SwitchToBpSettings()">
+							<Label id="RBBpSettingsLabel" text="Settings" />
+						</RadioButton>
+					</Panel>
+					<Panel id="BpRewardsContent" />
+					<Panel id="BpArmoryContent" />
+					<Panel id="BpSettingsContent">
+						<Panel id="SettingsWrap">
+							<Panel id="TeleportStopPanel">
+								<Label id="TeleportStopLabel" text="Teleport Requires Hold/Stop" />
+								<Panel id="TeleportStopButtonContainer">
+									<Panel id="TeleportStopButtonContainerActive" />
+									<Button id="TeleportStopButton" onactivate="SwitchTeleportStop()" />
+									<Panel id="TeleportStopButtonCircle" />
+								</Panel>
+								<Panel id="TeleportHelpIcon" />
+							</Panel>
+							<Panel id="QuickCastPanel">
+								<Label id="QuickCastLabel" text="Inventory Slot 1 Quickcast" />
+								<Panel id="QuickCastButtonContainer">
+									<Panel id="QuickCastButtonContainerActive" />
+									<Button id="QuickCastButton" onactivate="SwitchQuickCast()" />
+									<Panel id="QuickCastButtonCircle" />
+								</Panel>
+								<Panel id="QuickCastHelpIcon" />
+							</Panel>
+							<Panel id="QuickCastPanel2">
+								<Label id="QuickCastLabel2" text="Inventory Slot 2 Quickcast" />
+								<Panel id="QuickCastButtonContainer2">
+									<Panel id="QuickCastButtonContainerActive2" />
+									<Button id="QuickCastButton2" onactivate="SwitchQuickCast2()" />
+									<Panel id="QuickCastButtonCircle2" />
+								</Panel>
+								<Panel id="QuickCastHelpIcon2" />
+							</Panel>
+						</Panel>
+					</Panel>
+				</Panel>
+
+				<Panel id="BpWindowMainPatreon">
+					<Panel id="PatreonButtons">
+						<RadioButton group="PatreonButtons" class="RadioBox" id="RBPatreonPets" onactivate="SwitchToPatreonPets()">
+							<Label id="RBPatreonPetsLabel" text="Pets" />
+						</RadioButton>
+						<RadioButton group="PatreonButtons" class="RadioBox" id="RBPatreonEmblems" onactivate="SwitchToPatreonEmblems()">
+							<Label id="RBPatreonEmblemsLabel" text="Effects" />
+						</RadioButton>
+						<RadioButton group="PatreonButtons" class="RadioBox" id="RBPatreonSettings" onactivate="SwitchToPatreonSettings()">
+							<Label id="RBPatreonSettingsLabel" text="Settings" />
+						</RadioButton>
+					</Panel>
+					<Panel id="PatreonPetsContent" />
+					<Panel id="PatreonEmblemsContent" />
+					<Panel id="PatreonSettingsContent">
+						<Panel id="SettingsWrap">
+							<Panel id="AllowPetEffectsPanel">
+								<Label id="AllowPetEffectsLabel" text="Enable Pet Effects" />
+								<Panel id="AllowPetEffectsButtonContainer">
+									<Panel id="AllowPetEffectsButtonContainerActive" />
+									<Button id="AllowPetEffectsButton" onactivate="SwitchPetEffects()" />
+									<Panel id="AllowPetEffectsButtonCircle" />
+								</Panel>
+							</Panel>
+							<Panel id="AllowPetFlyPanel">
+								<Label id="AllowPetFlyLabel" text="Allow Pet Flight" />
+								<Panel id="AllowPetFlyButtonContainer">
+									<Panel id="AllowPetFlyButtonContainerActive" />
+									<Button id="AllowPetFlyButton" onactivate="SwitchPetFly()" />
+									<Panel id="AllowPetFlyButtonCircle" />
+								</Panel>
+								<Panel id="HelpIcon" />
+							</Panel>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel> -->
+		</Panel>
+	</Panel>
+</root>
