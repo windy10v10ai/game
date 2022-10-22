@@ -21,6 +21,8 @@ class GameInfo {
 }
 
 export class Game {
+
+	private static VERSION = "v1.46";
 	constructor() {
 	}
 
@@ -44,7 +46,7 @@ export class Game {
 		}
 
 
-		ApiClient.sendWithRetry(HttpMethod.POST, "/game/end", null, gameInfo, (data: string) => {
+		ApiClient.sendWithRetry(HttpMethod.POST, "/game/end", { version: Game.VERSION }, gameInfo, (data: string) => {
 			print(`[Game] end game callback data ${data}`);
 		});
 	}
