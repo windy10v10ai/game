@@ -1,0 +1,785 @@
+@define defaultFont:  Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+ @define monospaceNumbersFont: RadianceM,Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+ @define titleFont: Reaver,Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+ @define monospaceFont: Courier New,Courier;
+ @define diretideFont: Creepster, Valve Radus, Radiance, FZKai-Z03,TH Sarabun New,YDYGO 540;
+ Label,TextEntry{
+
+  font-family: defaultFont;
+ }
+ Label.MonoNumbersFont,TextEntry.MonoNumbersFont{
+
+  font-family: monospaceNumbersFont;
+ }
+ Label.TitleFont,TextEntry.TitleFont{
+
+  font-family: titleFont;
+ }
+ Label.MonoFont,TextEntry.MonoFont{
+
+  font-family: monospaceFont;
+ }
+
+ #MyStreakParticle{
+  margin-left: -30px;
+  width: 130px;
+  height: 130px;
+  z-index: -10;
+ }
+
+ .BPParent{
+  width: 100%;
+  height: 100%;
+ }
+
+ #BPButtonPanel{
+  vertical-align: top;
+  horizontal-align: right;
+  margin-top: 50px;
+  width: 200px;
+  height: 50px;
+ }
+
+ #BPButton{
+  width: 140px;
+  height: 33px;
+  horizontal-align: center;
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(#4856b288), to(#05033a88));
+  border: 1px solid #3c20da88;
+  border-radius: 2px;
+  font-size: 16px;
+  color: white;
+  box-shadow: 0px 0px 5px 1px #3c20da22;
+  border-top: 1px solid #00000055;
+  border-bottom: 1px solid #00000055;
+  transition-property: box-shadow, background-color, opacity;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  background-repeat: no-repeat;
+  background-position: 58.3% 35%;
+  background-size: 22% 90%;
+ }
+
+ #BPButton:hover{
+  box-shadow: 0px 0px 6px 0px #3c20dadd;
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(#4856b2ee), to(#05033aee));
+ }
+
+ #BPButtonText{
+  horizontal-align: center;
+  vertical-align: center;
+  text-align: center;
+  padding: 1px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-overflow: shrink;
+  font-family: defaultFont;
+  font-weight: semi-bold;
+ }
+
+
+
+
+
+ #BPWindow{
+  margin-top: 120px;
+  margin-right: 20px;
+  /* width: 30%; */
+  height: 20%;
+  horizontal-align: right;
+  vertical-align: top;
+  background-color: gradient( linear, 0% 100%, 0% 10%, from( #1c112ecc ), color-stop( 0.3, #1c112e55 ), color-stop( 0.6, #000000bb ),to( #000000ee) );
+  opacity: 0;
+  visibility: collapse;
+  transform: translateX(400px);
+  flow-children: down;
+  transition-property: transform, opacity, width, height;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  border-radius: 15px;
+  border: 1px solid #e0caa5;
+ }
+
+ #PlayerPointStats{
+  horizontal-align: right;
+  flow-children: right;
+  padding: 10px;
+  margin: 10px;
+ }
+ .pointParent{
+  vertical-align: center;
+  margin: 5px 10px 5px 10px;
+  width: 200px;
+  height: 40px;
+  background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
+  border-radius: 15px;
+  border: 1px solid #e0caa5;
+  box-shadow: 0px 0px 2px #e0caa5;
+ }
+
+ .pointIcon{
+  width: 32px;
+  height: 38px;
+  vertical-align: center;
+  margin: 0px 10px 0px 10px;
+ }
+
+ .pointNumber{
+  horizontal-align: right;
+  vertical-align: center;
+  margin: 0px 10px 0px 10px;
+  color: white;
+  font-size: 32px;
+  margin-left: 1%;
+ }
+
+ #InDeveloping{
+  horizontal-align: center;
+  vertical-align: center;
+  margin: 20px;
+ }
+ #InDevelopingLabel{
+  horizontal-align: center;
+  vertical-align: center;
+  color: white;
+  font-size: 24px;
+  margin-left: 1%;
+ }
+ #BpWindowPlayerStats{
+  margin-top: 3%;
+  horizontal-align: center;
+  vertical-align: top;
+  width: 80%;
+  height: 120px;
+  background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
+  border-radius: 15px;
+  box-shadow: 0px 0px 2px #e0caa5;
+  flow-children: right;
+ }
+
+ .AspectRatio4x3 #BPWindow{
+  width: 54%;
+ }
+
+ .AspectRatio16x10 #BPWindow{
+  width: 44%;
+ }
+
+
+ #BpLevelImageContainer{
+  margin-left: 15%;
+  width: 115px;
+  height: 115px;
+  vertical-align: center;
+ }
+ #BpLevelImage{
+  width: 115px;
+  height: 115px;
+ }
+ #BpLevelNumber{
+  horizontal-align: center;
+  vertical-align: center;
+  color: white;
+  font-size: 40px;
+  margin-left: 1%;
+ }
+
+
+
+ #BpLevelTrackContainer{
+  vertical-align: center;
+  width: 300px;
+  height: 80px;
+ }
+
+ #BpLevelNextRemainingText{
+  font-size: 20px;
+  color: #fefefeaa;
+  font-weight: thin;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+ }
+ #BpLevelNextRemainingNumber{
+  font-size: 20px;
+  color: #fefefe;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: defaultFont;
+  horizontal-align: right;
+ }
+ #BpLevelNextRemainingBar{
+  vertical-align: center;
+  background-color: #000;
+  height: 25px;
+  width: 300px;
+  border: 1px solid #b2894850;
+ }
+ #BpLevelNextRemainingBarLeft{
+  height: 100%;
+  width: 85%;
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(#11033a), to(#4f48b2));
+ }
+ #BpLevelNextRemainingBarRight{
+  height: 100%;
+ }
+
+
+
+ #BpWindowNavBar{
+  margin-top: 3%;
+  horizontal-align: center;
+  vertical-align: top;
+  width: 80%;
+  height: 40px;
+  flow-children: right;
+  color: white;
+ }
+
+ #BpWindowRewardsButton,#BpWindowPatreonButton{
+
+  background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
+  width: 200px;
+  height: 40px;
+  margin-left: 55px;
+  margin-right: 55px;
+  transition-property: box-shadow, background-color;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  box-shadow: 0px 0px 3px 1px #b2894877;
+ }
+
+ #BpWindowRewardsButton:hover,#BpWindowPatreonButton:hover{
+
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(#333333), to(#111111));
+  box-shadow: 0px 0px 3px 1px #dbaf69;
+ }
+
+ #BpWindowRewardsButton:selected,#BpWindowPatreonButton:selected{
+
+  box-shadow: 0px 0px 9px 0px #b28948dd;
+ }
+
+ #BpWindowRewardsButton:active,#BpWindowPatreonButton:active{
+
+  sound: "ui.tick";
+ }
+
+
+
+
+ #BpWindowMain{
+  width: 100%;
+  height: 100%;
+ }
+
+ #BpWindowMainPatreon,#BpWindowMainRewards{
+
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  visibility: collapse;
+ }
+
+ #PatreonButtons,#BpRewardsButtons{
+
+  width: 100%;
+  height: 10%;
+  flow-children: right;
+ }
+
+ #RBPatreonPets,#RBPatreonEmblems,#RBPatreonSettings,#RBBpRewards,#RBBpArmory,#RBBpSettings{
+
+
+
+
+
+  width: fill-parent-flow(1);
+  height: 80%;
+  vertical-align: bottom;
+  horizontal-align: center;
+ }
+
+ #RBPatreonPets:selected,#RBBpRewards:selected{
+
+  color: blue;
+ }
+
+ .RadioBox{
+  min-width: 20px;
+  min-height: 20px;
+  vertical-align: center;
+  horizontal-align: center;
+ }
+ .RadioBox:active{
+  sound: "ui.tick";
+ }
+
+ #RBPatreonPetsLabel,#RBPatreonEmblemsLabel,#RBPatreonSettingsLabel,#RBBpRewardsLabel,#RBBpArmoryLabel,#RBBpSettingsLabel{
+
+
+
+
+
+  width: 52%;
+  letter-spacing: 2px;
+  font-size: 14px;
+  color: #ffffff90;
+  vertical-align: center;
+  horizontal-align: center;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px 3 black;
+  transition-property: color, border;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333cc), to(#111111cc));
+  border: 1px solid rgba(178, 137, 72, 0.3);
+  height: 21px;
+  background-color: rgba(100, 100, 100, 0.2);
+  box-shadow: 0 3px 10px 0 rgba(31, 38, 135, 0.27);
+  border-radius: 5px;
+ }
+
+ #RBPatreonPets:hover > #RBPatreonPetsLabel,#RBPatreonEmblems:hover > #RBPatreonEmblemsLabel,#RBPatreonSettings:hover > #RBPatreonSettingsLabel,#RBBpRewards:hover > #RBBpRewardsLabel,#RBBpArmory:hover > #RBBpArmoryLabel,#RBBpSettings:hover > #RBBpSettingsLabel{
+
+
+
+
+
+  color: #ffffffee;
+  border: 1px solid rgba(178, 137, 72, 0.8);
+ }
+
+ #RBPatreonPets:selected > #RBPatreonPetsLabel,#RBPatreonEmblems:selected > #RBPatreonEmblemsLabel,#RBPatreonSettings:selected > #RBPatreonSettingsLabel,#RBBpRewards:selected > #RBBpRewardsLabel,#RBBpArmory:selected > #RBBpArmoryLabel,#RBBpSettings:selected > #RBBpSettingsLabel{
+
+
+
+
+
+  color: #edb55c;
+  border: 1px solid rgba(178, 137, 72, 1);
+  background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333ff), to(#111111ff));
+  brightness: 1.5;
+ }
+
+ #PatreonPetsContent,#PatreonEmblemsContent,#PatreonSettingsContent,#BpRewardsContent,#BpArmoryContent,#BpRewardsSettings{
+
+
+
+
+
+  horizontal-align: center;
+  width: 97%;
+  height: 100%;
+  flow-children: down;
+  overflow: squish scroll;
+  visibility: collapse;
+ }
+ .NewPatreonPet,.NewPatreonEmblem,.NewBpReward{
+
+
+  margin-bottom: 20px;
+  horizontal-align: center;
+  width: 98%;
+  height: 150px;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#2229), to(#0009));
+  transition-property: background-color, box-shadow;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+ }
+
+ .NewPatreonPet:hover,.NewPatreonEmblem:hover,.NewBpReward:hover{
+
+
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#292600aa), to(#0009));
+  box-shadow: inset 0px 0px 2px 0px #b28948;
+ }
+
+ #PetImagePanel,#EmblemImagePanel,#RewardImagePanel{
+
+
+  width: 32%;
+  height: 100%;
+  vertical-align: center;
+  margin-left: 20px;
+ }
+ #RewardImagePanel{
+  border-radius: 17px;
+ }
+
+ #RewardImage,#EmblemImage{
+
+  horizontal-align: center;
+  vertical-align: center;
+ }
+
+ #PetName,#EmblemName,#RewardName{
+
+
+  width: 100%;
+  letter-spacing: 2px;
+  font-size: 24px;
+  color: #ffffff90;
+  vertical-align: top;
+  horizontal-align: center;
+  margin-top: 20px;
+  margin-left: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px 3 black;
+ }
+
+ #PetTier,#EmblemTier{
+
+  width: 12%;
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: #b28948;
+  vertical-align: top;
+  horizontal-align: right;
+  margin-top: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px 3 black;
+ }
+
+ #RewardTier{
+  width: 12%;
+  letter-spacing: 2px;
+  font-size: 16px;
+  color: #cfa35d;
+  vertical-align: top;
+  horizontal-align: right;
+  margin-top: 10px;
+  text-align: center;
+  text-shadow: 2px 2px 4px 3 black;
+ }
+
+ .activated{
+  width: 120px;
+  height: 30px;
+  vertical-align: bottom;
+  horizontal-align: right;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(#4f48b2), to(#0f033a));
+  box-shadow: 0px 0px 2px 1px #3c20da77;
+  text-transform: uppercase;
+  transition-property: background-color, box-shadow;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+ }
+
+ .activated:hover{
+  background-color: gradient(linear, 50% 0%, 100% 0%, from(#4f48b2), to(#0f033a));
+  box-shadow: 0px 0px 2px 1px #8e7affaa;
+ }
+
+ .unequip{
+  width: 120px;
+  height: 30px;
+  vertical-align: bottom;
+  horizontal-align: right;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  background-color: gradient(linear, 100% 0%, 0% 0%, from(#b24848), to(#3a0303));
+  box-shadow: 0px 0px 2px 1px #da202077;
+  text-transform: uppercase;
+  transition-property: background-color, box-shadow;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+ }
+
+ .unequip:hover{
+  background-color: gradient(linear, 50% 0%, 0% 0%, from(#b24848), to(#3a0303));
+  box-shadow: 0px 0px 2px 1px #e87474aa;
+ }
+
+ .reequip{
+  width: 120px;
+  height: 30px;
+  vertical-align: bottom;
+  horizontal-align: right;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  background-color: gradient(linear, 100% 0%, 0% 0%, from(#48b254), to(#033a03));
+  box-shadow: 0px 0px 2px 1px #65fc7677;
+  text-transform: uppercase;
+  transition-property: background-color, box-shadow;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+ }
+
+ .reequip:hover{
+  background-color: gradient(linear, 50% 0%, 0% 0%, from(#48b254), to(#033a03));
+  box-shadow: 0px 0px 2px 1px #b5ffbdaa;
+ }
+
+ .deactivated{
+  width: 120px;
+  height: 30px;
+  vertical-align: bottom;
+  horizontal-align: right;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(gray), to(black));
+  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  transition-property: background-color, box-shadow;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+ }
+
+ #EnablePetLabel,#EnableEmblemLabel,#EnableRewardLabel{
+
+
+  color: white;
+  vertical-align: center;
+  horizontal-align: center;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+  text-shadow: 1px 1px 3px 3 black;
+ }
+ #RoshanOptions,#EmblemOptions,#RewardOptions{
+
+
+  vertical-align: bottom;
+  horizontal-align: right;
+  width: 300px;
+  height: 80px;
+  margin-right: 175px;
+  flow-children: right-wrap;
+ }
+ #BabyRoshanOption,#EmblemOption,#RewardOption{
+
+
+  width: 30px;
+  height: 30px;
+  margin-left: 3px;
+  margin-top: 5px;
+ }
+
+ #ChooseRoshan,#ChooseEmblem,#ChooseReward{
+
+
+  vertical-align: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+ }
+
+ #SettingsWrap{
+  flow-children: down;
+ }
+
+ #AllowPetEffectsPanel,#AllowPetFlyPanel{
+
+  padding-left: 50px;
+  width: 400px;
+  height: 60px;
+  flow-children: right;
+ }
+
+ #TeleportStopPanel,#QuickCastPanel,#QuickCastPanel2{
+
+
+  padding-left: 50px;
+  width: 480px;
+  height: 60px;
+  flow-children: right;
+ }
+
+ #AllowPetEffectsButton,#AllowPetEffectsButtonContainer,#AllowPetFlyButton,#AllowPetFlyButtonContainer,#TeleportStopButton,#TeleportStopButtonContainer,#QuickCastButton,#QuickCastButtonContainer,#QuickCastButton2,#QuickCastButtonContainer2{
+
+
+
+
+
+
+
+
+
+  width: 55px;
+  height: 30px;
+  vertical-align: center;
+  margin-left: 15px;
+ }
+
+ #AllowPetEffectsButton,#AllowPetFlyButton,#TeleportStopButton,#QuickCastButton,#QuickCastButton2{
+
+
+
+
+  margin-left: 0;
+ }
+
+ #AllowPetEffectsButtonContainer,#AllowPetFlyButtonContainer,#TeleportStopButtonContainer,#QuickCastButtonContainer,#QuickCastButtonContainer2{
+
+
+
+
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 3px solid #000000;
+
+  box-shadow: #5b62bf77 0px 0px 8px 1px;
+  border-radius: 30px;
+ }
+
+ #AllowPetEffectsButtonContainer:hover,#AllowPetFlyButtonContainer:hover,#TeleportStopButtonContainer:hover,#QuickCastButtonContainer:hover,#QuickCastButtonContainer2:hover{
+
+
+
+
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 3px solid #000000;
+
+  box-shadow: #5b62bf77 0px 0px 12px 1px;
+  border-radius: 30px;
+ }
+
+ #AllowPetEffectsButtonContainerActive,#AllowPetFlyButtonContainerActive,#TeleportStopButtonContainerActive,#QuickCastButtonContainerActive,#QuickCastButtonContainerActive2{
+
+
+
+
+  width: 0%;
+  height: 100%;
+  background-color: #4f48b2;
+  transition-property: width;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+ }
+ #AllowPetEffectsButtonContainer:hover > #AllowPetEffectsButtonContainerActive,#AllowPetFlyButtonContainer:hover > #AllowPetFlyButtonContainerActive,#TeleportStopButtonContainer:hover > #TeleportStopButtonContainerActive,#QuickCastButtonContainer:hover > #QuickCastButtonContainerActive,#QuickCastButtonContainer2:hover > #QuickCastButtonContainerActive2{
+
+
+
+
+  background-color: #6058d1;
+ }
+
+ #AllowPetEffectsButtonCircle,#AllowPetFlyButtonCircle,#TeleportStopButtonCircle,#QuickCastButtonCircle,#QuickCastButtonCircle2{
+
+
+
+
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#ccdbda), to(#a0d6d7));
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  vertical-align: center;
+  horizontal-align: left;
+  transition-property: transform;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+ }
+ #AllowPetEffectsLabel,#AllowPetFlyLabel{
+
+  font-size: 22px;
+  color: white;
+  vertical-align: center;
+  letter-spacing: 1px;
+  font-weight: thin;
+  width: 200px;
+ }
+ #TeleportStopLabel,#QuickCastLabel,#QuickCastLabel2{
+
+
+  font-size: 22px;
+  color: white;
+  vertical-align: center;
+  letter-spacing: 1px;
+  font-weight: thin;
+  width: 310px;
+ }
+
+ #HelpIcon,#TeleportHelpIcon,#QuickCastHelpIcon,#QuickCastHelpIcon2{
+
+
+
+  width: 18px;
+  height: 18px;
+  background-image: url("s2r://panorama/images/custom_game/battlepass/information_png.vtex");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  horizontal-align: left;
+  vertical-align: center;
+  margin-left: 3px;
+  margin-bottom: 6px;
+  wash-color: #888888;
+ }
+ #HelpIcon:hover,#TeleportHelpIcon:hover,#QuickCastHelpIcon:hover,#QuickCastHelpIcon2:hover{
+
+
+
+  wash-color: #88888888;
+ }
+
+
+
+ .DevourlingButton0{
+  background-color: gradient(radial, 0% 50%, 0% 0%, 80% 80%, from(#2cba75), to(#2b3133));
+ }
+
+ .DemiheroButton0{
+  background-color: gradient(radial, 0% 50%, 0% 0%, 80% 80%, from(#f1c07c), to(#e16029));
+ }
+
+
+ .EmblemButton0{
+  background-color: gradient(radial, 0% 50%, 0% 0%, 80% 80%, from(#bd966d), to(#428488));
+ }
+
+ .FountainButton0{
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#bc8738), to(#978039));
+ }
+
+
+ .SlotsMargin4{
+  margin-left: 379px;
+ }
+
+ .SlotsMargin5{
+  margin-left: 409px;
+ }
+
+ .SlotsMargin6{
+  margin-left: 469px;
+ }
+
+ .SlotsMarginTreant{
+  margin-left: 445px;
+ }
+
+ .Cooldown{
+  width: 100%;
+  height: 100%;
+ }
+
+ .CooldownEffect{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+ }
+
+ .CooldownCountdown{
+  vertical-align: bottom;
+  padding: 0px 2px;
+  text-shadow: 2px 2px 4px 2 black;
+  font-size: 16px;
+  color: #999;
+ }
