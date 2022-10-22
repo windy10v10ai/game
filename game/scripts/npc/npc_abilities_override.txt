@@ -1693,11 +1693,10 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"duration"				"36"
 			"bonus_gold"			"8"
 			"bonus_bonus_gold"		"4"
-			"bonus_gold_cap"		"28 36 44 52 60"
-			"bounty_multiplier"		"4.0"
+			"bonus_gold_cap"		"26 30 34 38 42"
+			"bounty_multiplier"		"2.0 2.5 3.0 3.5 4.0"
 		}
 	}
 	"alchemist_chemical_rage"
