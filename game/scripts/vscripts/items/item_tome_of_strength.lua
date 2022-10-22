@@ -9,7 +9,7 @@ if IsServer() then
     function item_tome_of_strength:OnSpellStart()
         local caster = self:GetCaster()
         local str = self:GetSpecialValueFor("bonus")
-        local tome_table = CustomNetTables:GetTableValue("player_table", "str_tome_" .. caster:GetUnitName())
+        local tome_table = CustomNetTables:GetTableValue("player_tome_table", "str_tome_" .. caster:GetUnitName())
         caster:ModifyStrength(str)
         EmitSoundOnClient("Item.TomeOfKnowledge", caster)
 
@@ -21,11 +21,11 @@ if IsServer() then
                 tomeValue = tome_table.str
             end
             local newValue = tomeValue + str
-            CustomNetTables:SetTableValue("player_table", "str_tome_" .. caster:GetUnitName(), {str = newValue})
+            CustomNetTables:SetTableValue("player_tome_table", "str_tome_" .. caster:GetUnitName(), {str = newValue})
         else
             caster:AddNewModifier(caster, self, "modifier_str_tome", {})
             caster:FindModifierByName("modifier_str_tome"):SetStackCount(1)
-            CustomNetTables:SetTableValue("player_table", "str_tome_" .. caster:GetUnitName(), {str = str})
+            CustomNetTables:SetTableValue("player_tome_table", "str_tome_" .. caster:GetUnitName(), {str = str})
         end
 
         self:SpendCharge()
@@ -55,7 +55,7 @@ function modifier_str_tome:OnCreated(kv)
     if IsServer() then
         local parent = self:GetParent()
         if parent:IsIllusion() or parent:IsTempestDouble() then
-            local tome_table = CustomNetTables:GetTableValue("player_table", "str_tome_" .. self:GetParent():GetUnitName())
+            local tome_table = CustomNetTables:GetTableValue("player_tome_table", "str_tome_" .. self:GetParent():GetUnitName())
             local mod = parent:FindModifierByName("modifier_str_tome")
             local tomeValue = 0
             if tome_table then
@@ -73,7 +73,7 @@ function modifier_str_tome:OnRefresh(kv)
     if IsServer() then
         local parent = self:GetParent()
         if parent:IsIllusion() or parent:IsTempestDouble() then
-            local tome_table = CustomNetTables:GetTableValue("player_table", "str_tome_" .. self:GetParent():GetUnitName())
+            local tome_table = CustomNetTables:GetTableValue("player_tome_table", "str_tome_" .. self:GetParent():GetUnitName())
             local mod = parent:FindModifierByName("modifier_str_tome")
             local tomeValue = 0
             if tome_table then
