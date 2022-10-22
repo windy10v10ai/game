@@ -172,7 +172,7 @@ function AIGameMode:OnGameStateChanged(keys)
 
     if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
         if IsServer() then
-            Member:InitMemberInfo()
+            Player:Init()
         end
     elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
         if IsServer() then
@@ -382,7 +382,7 @@ function AIGameMode:OnBuyback(e)
             -- 会员买活时间上限设置
             local memberBuybackCooldownMaximum = 120
             local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
-            if Member:IsMember(steamAccountID) then
+            if Player:IsMember(steamAccountID) then
                 local buybackTime = hHero:GetBuybackCooldownTime()
                 if buybackTime > memberBuybackCooldownMaximum then
                     buybackTime = memberBuybackCooldownMaximum
@@ -553,7 +553,7 @@ function HeroKilled(keys)
     end
 
     -- 会员减少5s复活时间
-    if Member:IsMember(PlayerResource:GetSteamAccountID(playerId)) then
+    if Player:IsMember(PlayerResource:GetSteamAccountID(playerId)) then
         fRespawnTime = fRespawnTime - 5
     end
 
@@ -1060,7 +1060,7 @@ function AIGameMode:OnPlayerChat(event)
 
     end
 
-    if Member:IsMember(steamAccountID) then
+    if Player:IsMember(steamAccountID) then
         local pszHeroClass
 
         if sChatMsg:find('-超级赛亚人') then
@@ -1216,8 +1216,8 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
-                local membership = Member:IsMember(steamAccountID)
-                local memberInfo = Member:GetMember(steamAccountID)
+                local membership = Player:IsMember(steamAccountID)
+                local memberInfo = Player:GetMember(steamAccountID)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
                 for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
