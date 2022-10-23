@@ -918,10 +918,18 @@ end
 function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
     local points = playerInfo.points
 
-    -- if GameRules:IsCheatMode() then
-    --     print("Cheat mode is on, no season point will be given")
-    --     return 0
-    -- end
+    if GameRules:IsCheatMode() and not AIGameMode.DebugMode then
+        print("Cheat mode is on, no season point will be given")
+        return 0
+    end
+    if AIGameMode.sumTowerPower <= 6 then
+        print("Tower power is low than 100%, half season point will be given")
+        points = points * 0.5
+    end
+    if AIGameMode.iDesiredDire < 10 then
+        print("DesiredDire bot is less than 10")
+        points = points * AIGameMode.iDesiredDire / 10
+    end
 
     if GameRules:GetDOTATime(false, true) < 20 * 60 then
         points = points * 0.5
