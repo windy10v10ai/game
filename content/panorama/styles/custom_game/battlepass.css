@@ -35,14 +35,14 @@
  #BPButtonPanel{
   vertical-align: top;
   horizontal-align: right;
-  margin-top: 50px;
+  margin-top: 40px;
   width: 200px;
   height: 50px;
  }
 
  #BPButton{
   width: 140px;
-  height: 33px;
+  height: 30px;
   horizontal-align: center;
   background-color: gradient(linear, 0% 0%, 100% 0%, from(#4856b288), to(#05033a88));
   border: 1px solid #3c20da88;
