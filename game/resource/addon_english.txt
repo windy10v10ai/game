@@ -163,18 +163,85 @@
 
 		///////////////////////////////////////////////////
 		//
+		//            会员BUFF
+		//
+		///////////////////////////////////////////////////
+		"DOTA_Tooltip_modifier_membership"					"<font color='#FFCC66'>★ Member Ship Buff ★</font>"
+		"DOTA_Tooltip_modifier_membership_Description"	"Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplify, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
+
+		///////////////////////////////////////////////////
+		//
 		//            Heroes
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven"					"Glaives of Wisdom"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Lore"			"Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Description"	"Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence. Silencer temporarily increases his Intelligence with each hit."
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_intellect_damage_pct"	"%INT TO DAMAGE:"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal"				"INT INCREASE:"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal_duration"		"INT INCREASE DURATION:"
-		"DOTA_Tooltip_modifier_glaives_of_wisdom_status"								"Glaives of Wisdom"
-		"DOTA_Tooltip_modifier_glaives_of_wisdom_status_Description"				"Temporarily increasing Intelligence"
+		//杰克
+		"npc_dota_hero_brewmaster"																"Jack the Ripper"
+		"npc_dota_hero_brewmaster_npedesc1"														"From here to hell, we are the fire, the rain, the power, and the carnage!"
 
+		"DOTA_Tooltip_ability_jack_presence_concealment"										"Aura Masking"
+		"DOTA_Tooltip_ability_jack_presence_concealment_description"							"Jack will enter stealth after a period of time at night or in the mist, during which he will receive a movement speed bonus and an attack bonus of a certain percentage of his agility value, and will exit stealth after attacking, and the attack bonus will remain for a period of time after exiting stealth."
+		"DOTA_Tooltip_ability_jack_presence_concealment_Lore"									"Cutting off the breath of a Servant is a skill suitable for covert operations. If you cut off your breath completely, it is almost impossible to be detected."
+		"DOTA_Tooltip_ability_jack_presence_concealment_shard_description"						"You can actively use this skill at night or in the mist to enter stealth immediately and refresh this skill cooldown after killing enemies."
+		"DOTA_Tooltip_ability_jack_presence_concealment_invision_time"							"Fade out time:"
+		"DOTA_Tooltip_ability_jack_presence_concealment_dmg_add_time"							"Attack damage bonus duration:"
+		"DOTA_Tooltip_ability_jack_presence_concealment_dmg_add_agility"						"Attack damage agility multiplier:"
+		"DOTA_Tooltip_ability_jack_presence_concealment_movespeed_add"							"%Movement speed bonus:"
+
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night"									"Foggy Night Murder"
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_description"						"Jack generates a mist at the target location, in the mist Jack will enter a state of invisibility, and make the attack speed, movement speed, turn rate, vision range of the enemies in the mist decreased \nIf in the mist at the same time with the invisibility effect of Aura Masking, invisibility will not be True Sight."
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_Lore"							"On the characteristic that she is not an assassin but a murderer, she as the aggressor is always able to take advantage of the other as the victim."
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_duration"						"Duration:"
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_radius"							"Mist Range:"
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_movespeed_down"					"%Movement speed reduce:"
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_attackspeed_down"				"Attack speed reduce:"
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_turnrate_down"					"%Turning rate reduce:"
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_visionrange_down"				"%Vision reduction:"
+
+		"DOTA_Tooltip_ability_jack_surgery"														"Surgical Procedures"
+		"DOTA_Tooltip_ability_jack_surgery_description"											"The enemy attacked by Jack will gain Dissolution effect, each layer of Dissolution will reduce the enemy's healing, life recovery, attack blood draw and skill blood draw \n the maximum Dissolution layer on each enemy is %max_count%, when the maximum layer is reached, the enemy will be damaged by the effect \n the enemy lost attributes will be attached to Jack."
+		"DOTA_Tooltip_ability_jack_surgery_Lore"												"A blood-stained scalpel can be used to heal the Master as well as himself. Jack the Ripper's victims are killed in a way that requires anatomical knowledge, such as removal of specific organs."
+		"DOTA_Tooltip_ability_jack_surgery_duration"											"Duration:"
+		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%Treatment reduction per tier:"
+		"DOTA_Tooltip_ability_jack_surgery_regen_down"											"%Life Regeneration reduction per tier:"
+		"DOTA_Tooltip_ability_jack_surgery_attack_lifesteal_down"								"%Lifesteal Amplify reduction per tier:"
+		"DOTA_Tooltip_ability_jack_surgery_spell_lifesteal_down"								"%Ability Lifesteal Amplify reduction per tier:"
+
+		"DOTA_Tooltip_ability_jack_the_mist"													"Dark Fog City"
+		"DOTA_Tooltip_ability_jack_the_mist_description"										"Jack always surrounded by the mist, the enemy in the mist will be subject to the same effect as the mist in Foggy Night Murder, active use can immediately turn into night, and expand the range of the mist, lasting a period of time."
+		"DOTA_Tooltip_ability_jack_the_mist_Lore"												"After the Industrial Revolution, a huge amount of soot began to be emitted, and in the 1950s it became sulfuric acid fog and caused a major disaster in London. The Dark Fog City is the treasure that recreates the Fog of Death."
+		"DOTA_Tooltip_ability_jack_the_mist_radius_normal"										"Passive Mist Range:"
+		"DOTA_Tooltip_ability_jack_the_mist_radius_active"										"Active Mist Range:"
+		"DOTA_Tooltip_ability_jack_the_mist_duration"											"Duration:"
+
+		"DOTA_Tooltip_ability_jack_maria_the_ripper"											"Our Lady Dissolution"
+		"DOTA_Tooltip_ability_jack_maria_the_ripper_description"								"Jack blinks behind the enemy, stuns the target for a period of time, and if the target has Dissolution effect on it, makes an attack based on the number of Dissolutions within %atttak_duration% seconds, during which time he is in an invisible state that cannot be seen by the True Sight."
+		"DOTA_Tooltip_ability_jack_maria_the_ripper_Lore"										"At that time, it was said that there were 80,000 prostitutes in the slums of London, and the resentment of the children who could not even become prostitutes, who were killed and thrown away for the reason of living, had a vicious effect."
+		"DOTA_Tooltip_ability_jack_maria_the_ripper_stun_duration"								"Stun duration:"
+		"DOTA_Tooltip_ability_jack_maria_the_ripper_attacktimes_count"							"Number of attacks provided per Dissolution layer:"
+
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_1"										"+{s:bonus_heal_down}% Dissolution effect per layer"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_2"										"+{s:bonus_radius} Foggy Night Murder range"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_3"										"+{s:bonus_dmg_add_agility} Aura Masking attack damage agility multiplier"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_4"										"-{s:bonus_invision_time}s Aura Masking Fade out time"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_5"										"+{s:bonus_attacktimes_count} number of Our Lady Dissolution attacks per Dissolution layer"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_6"										"Attack has {s:bonus_talent_chance}% chance to attack again"
+
+		"DOTA_Tooltip_modifier_jack_presence_concealment_invision"								"Aura Masking"
+		"DOTA_Tooltip_modifier_jack_presence_concealment_invision_Description"					"Jack goes into stealth and gets %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movespeed."
+		"DOTA_Tooltip_modifier_jack_presence_concealment_damage"								"Ripper"
+		"DOTA_Tooltip_modifier_jack_presence_concealment_damage_Description"					"Jack gets %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% Attack damage."
+		"DOTA_Tooltip_modifier_jack_murderer_of_the_misty_night"								"Misty"
+		"DOTA_Tooltip_modifier_jack_murderer_of_the_misty_night_Description"					"Being in the mist"
+		"DOTA_Tooltip_modifier_jack_surgery"													"Surgical Procedures：Treatment"
+		"DOTA_Tooltip_modifier_jack_surgery_Description"										"Get %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%% Treatment, %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%% Life Regeneration, %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%% Lifesteal Amplify,%dMODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE%%% Ability Lifesteal Amplify."
+		"DOTA_Tooltip_modifier_jack_surgery_target"												"Surgical Procedures：Dissolution"
+		"DOTA_Tooltip_modifier_jack_surgery_target_Description"									"Suffer %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%% Treatment, %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%% Life Regeneration, %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%% Lifesteal Amplify,%dMODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE%%% Ability Lifesteal Amplify."
+		"DOTA_Tooltip_modifier_jack_the_mist_cast"												"Dark Fog City"
+		"DOTA_Tooltip_modifier_jack_the_mist_cast_Description"									"Expanding the mist around itself"
+		"DOTA_Tooltip_modifier_jack_maria_the_ripper"											"Our Lady Dissolution"
+		"DOTA_Tooltip_modifier_jack_maria_the_ripper_Description"								"Entering a state of invisibility where you cannot be seen, you continuously attack the enemy."
+
+		// 火枪暗杀
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"Assassinate (old)"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
@@ -190,9 +257,6 @@
 
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"
-
-		"DOTA_Tooltip_modifier_membership"					"<font color='#FFCC66'>★ Member Ship Buff ★</font>"
-		"DOTA_Tooltip_modifier_membership_Description"	"Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplify, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"Miku"
@@ -354,7 +418,7 @@
 
 
 		"DOTA_Tooltip_Ability_abyss_sword_hidden_sharp" 				 "Hidden Sharp"
-		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_description" 	 "The sword of the abyss enters the power storage state and continues to cast spells. During the casting period, it continuously improves its attack power and skill immunity. The attack power bonus effect disappears after a certain number of attacks."
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_description" 	 "The sword of the abyss enters the power storage state and continues to cast spells. During the casting period, it continuously improves its attack damage and skill immunity. The attack damage bonus effect disappears after a certain number of attacks."
 		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_Note0" 		 "Rush night sword Qi will not consume the attack times of Hidden Sharp"
 		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_Lore" 		 "The essence of sword meaning lies in concealment"
 		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_channel" 		 "Duration:"
@@ -375,7 +439,7 @@
 
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_1" 				 "+ {s:bonus_damage} night sword attack bonus"
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_2" 				 "+ {s:bonus_percentage} out of sheath critical hit probability"
-		"Dota_tooltip_ability_special_bonus_unique_abyss_sword_3" 				 "+ {s:bonus_attack_bounts}% attack power bonus of hidden front per second"
+		"Dota_tooltip_ability_special_bonus_unique_abyss_sword_3" 				 "+ {s:bonus_attack_bounts}% attack damage bonus of hidden front per second"
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_4" 				 "+ {s:bonus_chance}% trigger chance of breaking the army at night"
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_5" 				 "+ {s:bonus_count} number of sword Qi to break the army at night"
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_6" 				 "Rush night sword Qi will trigger scabbard removal"
@@ -429,9 +493,9 @@
 
 		//Abyss sword
 		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp" 	 "Hidden Sharp"
-		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_Description" 	 "Gain% dmodifier_property_basedamageoutgoing_percentage%%% attack power bonus"
+		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_Description" 	 "Gain% dmodifier_property_basedamageoutgoing_percentage%%% attack damage bonus"
 		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_interval" 	 "Hidden Sharp: accumulating strength"
-		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_interval_Description" 	 "Continuously increase the attack power of the abyss sword and provide skill immunity"
+		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_interval_Description" 	 "Continuously increase the attack damage of the abyss sword and provide skill immunity"
 		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath" 	 "Out of sheath"
 		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath_Description" 	 "The attack of abyss sword has a chance to cause critical hit and absorb life"
 		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath_shard" 	 "Descabbard: destroy"
