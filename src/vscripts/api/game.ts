@@ -14,6 +14,7 @@ class GameInfo {
 	winnerTeamId!: number;
 	matchId!: string;
 	gameOption!: Object;
+	version!: string;
 	constructor() {
 		print("[Game] constructor in TS");
 		this.players = [];
@@ -30,7 +31,7 @@ export class Game {
 		const gameInfo = new GameInfo();
 		gameInfo.winnerTeamId = endData.winnerTeamId;
 		gameInfo.matchId = GameRules.Script_GetMatchID().toString();
-
+		gameInfo.version = Game.VERSION;
 		gameInfo.gameOption = endData.gameOption;
 
 		for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
@@ -45,8 +46,7 @@ export class Game {
 			}
 		}
 
-
-		ApiClient.sendWithRetry(HttpMethod.POST, "/game/end", { version: Game.VERSION }, gameInfo, (data: string) => {
+		ApiClient.sendWithRetry(HttpMethod.POST, "/game/end", null, gameInfo, (data: string) => {
 			print(`[Game] end game callback data ${data}`);
 		});
 	}
