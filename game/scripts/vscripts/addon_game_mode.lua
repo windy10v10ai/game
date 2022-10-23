@@ -74,7 +74,6 @@ function AIGameMode:InitGameOptions()
     GameRules:SetShowcaseTime(0)
     GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 
-    GameRules.DropTable = LoadKeyValues("scripts/kv/item_drops.kv")
     -- 游戏选择项目初始化
     GameRules.GameOption = LoadKeyValues("scripts/kv/game_option.kv")
 end
@@ -348,23 +347,5 @@ function AIGameMode:GetPlayerGoldXpMultiplier(iPlayerID)
         mul = self.fBotGoldXpMultiplier
     end
 
-    return mul
-end
-
--- 小兵金钱随时间增加
-function AIGameMode:GetLaneGoldMul()
-    local time = GameRules:GetDOTATime(false, false)
-    local mul = 1
-    if time <= 5 * 60 then
-        mul = 1
-    elseif time <= 10 * 60 then
-        mul = 1.25
-    elseif time <= 15 * 60 then
-        mul = 1.5
-    else
-        mul = 1.5 + (math.floor(time / 300) - 2) * 0.5
-    end
-    -- 60分钟封顶
-    mul = math.min(mul, 6)
     return mul
 end
