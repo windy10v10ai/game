@@ -712,32 +712,31 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     if time > 3600 then
         basePoint = 50
     elseif time > 600 then
-        basePoint = math.floor(20 + time / 120)
-    end
-    if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
-        basePoint = basePoint / 2
+        basePoint = math.floor(10 + time / 120)
+    else
+        basePoint = math.floor(time / 60)
     end
 
     local playerNumber = 0
-    -- find most
-    local mostKillPlayerID_1 = -1
-    local mostKill_1 = 0
-    local mostKillPlayerID_2 = -1
-    local mostKill_2 = 0
-    local mostKillPlayerID_3 = -1
-    local mostKill_3 = 0
+    -- find most kill/assist 1st to 6th
+    local mostKillPlayerIDList = {}
+    local mostKillList = {}
 
-    local mostAssistsPlayerID_1 = -1
-    local mostAssists_1 = 0
-    local mostAssistsPlayerID_2 = -1
-    local mostAssists_2 = 0
-    local mostAssistsPlayerID_3 = -1
-    local mostAssists_3 = 0
+    local mostAssistsPlayerList = {}
+    local mostAssistsList = {}
 
     local mostDamageReceivedPlayerID_1 = -1
     local mostDamageReceived_1 = 0
+    local mostDamageReceivedPlayerID_2 = -1
+    local mostDamageReceived_2 = 0
     local mostHealingPlayerID_1 = -1
     local mostHealing_1 = 0
+    local mostHealingPlayerID_2 = -1
+    local mostHealing_2 = 0
+    local mostTowerKillPlayerID_1 = -1
+    local mostTowerKill_1 = 0
+    local mostTowerKillPlayerID_2 = -1
+    local mostTowerKill_2 = 0
 
     for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
@@ -761,6 +760,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                 local assists = PlayerResource:GetAssists(playerID)
                 local deaths = PlayerResource:GetDeaths(playerID)
                 local kills = PlayerResource:GetKills(playerID)
+                local towerKills = PlayerResource:GetTowerKills(playerID)
 
                 local playerInfo = {
                     steamid = tostring(PlayerResource:GetSteamID(playerID)),
@@ -802,48 +802,67 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     else
                         playerInfo.isDisconnect = true
                     end
-                    if kills > mostKill_1 then
-                        mostKillPlayerID_3 = mostKillPlayerID_2
-                        mostKill_3 = mostKill_2
-                        mostKillPlayerID_2 = mostKillPlayerID_1
-                        mostKill_2 = mostKill_1
-                        mostKillPlayerID_1 = playerID
-                        mostKill_1 = kills
-                    elseif kills > mostKill_2 then
-                        mostKillPlayerID_3 = mostKillPlayerID_2
-                        mostKill_3 = mostKill_2
-                        mostKillPlayerID_2 = playerID
-                        mostKill_2 = kills
-                    elseif kills > mostKill_3 then
-                        mostKillPlayerID_3 = playerID
-                        mostKill_3 = kills
+                    -- find most kill 1st to 6th
+                    for i = 1, 6 do
+                        if mostKillList[i] == nil then
+                            mostKillList[i] = kills
+                            mostKillPlayerIDList[i] = playerID
+                            break
+                        elseif mostKillList[i] < kills then
+                            for j = 6, i + 1, -1 do
+                                mostKillList[j] = mostKillList[j - 1]
+                                mostKillPlayerIDList[j] = mostKillPlayerIDList[j - 1]
+                            end
+                            mostKillList[i] = kills
+                            mostKillPlayerIDList[i] = playerID
+                            break
+                        end
                     end
-
-                    if assists > mostAssists_1 then
-                        mostAssistsPlayerID_3 = mostAssistsPlayerID_2
-                        mostAssists_3 = mostAssists_2
-                        mostAssistsPlayerID_2 = mostAssistsPlayerID_1
-                        mostAssists_2 = mostAssists_1
-                        mostAssistsPlayerID_1 = playerID
-                        mostAssists_1 = assists
-                    elseif assists > mostAssists_2 then
-                        mostAssistsPlayerID_3 = mostAssistsPlayerID_2
-                        mostAssists_3 = mostAssists_2
-                        mostAssistsPlayerID_2 = playerID
-                        mostAssists_2 = assists
-                    elseif assists > mostAssists_3 then
-                        mostAssistsPlayerID_3 = playerID
-                        mostAssists_3 = assists
+                    -- find assist kill 1st to 6th
+                    for i = 1, 6 do
+                        if mostAssistsList[i] == nil then
+                            mostAssistsList[i] = assists
+                            mostAssistsPlayerList[i] = playerID
+                            break
+                        elseif mostAssistsList[i] < assists then
+                            for j = 6, i + 1, -1 do
+                                mostAssistsList[j] = mostAssistsList[j - 1]
+                                mostAssistsPlayerList[j] = mostAssistsPlayerList[j - 1]
+                            end
+                            mostAssistsList[i] = assists
+                            mostAssistsPlayerList[i] = playerID
+                            break
+                        end
                     end
 
                     if damagereceived > mostDamageReceived_1 then
+                        mostDamageReceivedPlayerID_2 = mostDamageReceivedPlayerID_1
+                        mostDamageReceived_2 = mostDamageReceived_1
                         mostDamageReceivedPlayerID_1 = playerID
                         mostDamageReceived_1 = damagereceived
+                    elseif damagereceived > mostDamageReceived_2 then
+                        mostDamageReceivedPlayerID_2 = playerID
+                        mostDamageReceived_2 = damagereceived
                     end
 
                     if healing > mostHealing_1 then
+                        mostHealingPlayerID_2 = mostHealingPlayerID_1
+                        mostHealing_2 = mostHealing_1
                         mostHealingPlayerID_1 = playerID
                         mostHealing_1 = healing
+                    elseif healing > mostHealing_2 then
+                        mostHealingPlayerID_2 = playerID
+                        mostHealing_2 = healing
+                    end
+
+                    if towerKills > mostTowerKill_1 then
+                        mostTowerKillPlayerID_2 = mostTowerKillPlayerID_1
+                        mostTowerKill_2 = mostTowerKill_1
+                        mostTowerKillPlayerID_1 = playerID
+                        mostTowerKill_1 = towerKills
+                    elseif towerKills > mostTowerKill_2 then
+                        mostTowerKillPlayerID_2 = playerID
+                        mostTowerKill_2 = towerKills
                     end
 
                 end
@@ -853,36 +872,41 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
         end
     end
 
-    local firstPoint = playerNumber * 1
-    local secondPoint = playerNumber * 0.8
-    local thirdPoint = playerNumber * 0.6
+    local pointOne = playerNumber * 1
+    local pointHalf = playerNumber * 0.5
+
     -- add point to most player
-    if mostKillPlayerID_1 ~= -1 then
-        data.players[mostKillPlayerID_1].points = data.players[mostKillPlayerID_1].points + firstPoint
+    for i = 1, #mostKillPlayerIDList do
+        local playerID = mostKillPlayerIDList[i]
+        data.players[playerID].points = data.players[playerID].points + playerNumber * (2 - 0.2 * (i - 1))
     end
-    if mostKillPlayerID_2 ~= -1 then
-        data.players[mostKillPlayerID_2].points = data.players[mostKillPlayerID_2].points + secondPoint
+    for i = 1, #mostAssistsPlayerList do
+        local playerID = mostAssistsPlayerList[i]
+        data.players[playerID].points = data.players[playerID].points + playerNumber * (2 - 0.2 * (i - 1))
     end
-    if mostKillPlayerID_3 ~= -1 then
-        data.players[mostKillPlayerID_3].points = data.players[mostKillPlayerID_3].points + thirdPoint
-    end
-    if mostAssistsPlayerID_1 ~= -1 then
-        data.players[mostAssistsPlayerID_1].points = data.players[mostAssistsPlayerID_1].points + firstPoint
-    end
-    if mostAssistsPlayerID_2 ~= -1 then
-        data.players[mostAssistsPlayerID_2].points = data.players[mostAssistsPlayerID_2].points + secondPoint
-    end
-    if mostAssistsPlayerID_3 ~= -1 then
-        data.players[mostAssistsPlayerID_3].points = data.players[mostAssistsPlayerID_3].points + thirdPoint
-    end
+
+
     if mostDamageReceivedPlayerID_1 ~= -1 then
-        data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + firstPoint
+        data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + pointOne
+    end
+    if mostDamageReceivedPlayerID_2 ~= -1 then
+        data.players[mostDamageReceivedPlayerID_2].points = data.players[mostDamageReceivedPlayerID_2].points + pointHalf
     end
     if mostHealingPlayerID_1 ~= -1 then
-        data.players[mostHealingPlayerID_1].points = data.players[mostHealingPlayerID_1].points + firstPoint
+        data.players[mostHealingPlayerID_1].points = data.players[mostHealingPlayerID_1].points + pointOne
     end
+    if mostHealingPlayerID_2 ~= -1 then
+        data.players[mostHealingPlayerID_2].points = data.players[mostHealingPlayerID_2].points + pointHalf
+    end
+    if mostTowerKillPlayerID_1 ~= -1 then
+        data.players[mostTowerKillPlayerID_1].points = data.players[mostTowerKillPlayerID_1].points + pointOne
+    end
+    if mostTowerKillPlayerID_2 ~= -1 then
+        data.players[mostTowerKillPlayerID_2].points = data.players[mostTowerKillPlayerID_2].points + pointHalf
+    end
+    -- filter points
     for playerID, playerInfo in pairs(data.players) do
-        playerInfo.points = math.ceil(playerInfo.points)
+        playerInfo.points = AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
     end
 
     local sTable = "ending_stats"
@@ -890,6 +914,16 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     CustomNetTables:SetTableValue(sTable, "player_data", data)
 
     return data
+end
+
+
+function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
+    local points = playerInfo.points
+
+    if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
+        points = points / 2
+    end
+    return math.ceil(points)
 end
 
 function AIGameMode:StackToPercentage(iStackCount)
