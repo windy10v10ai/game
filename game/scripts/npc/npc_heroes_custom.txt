@@ -5,8 +5,8 @@
 	{
 		"override_hero" 		"npc_dota_hero_brewmaster"
 		"Model"					"models/heroes/jack/npc_dota_hero_jack.vmdl"
-		"ModelScale"			"0.6"
-		"LoadoutScale"			"0.6"
+		"ModelScale"			"0.7"
+		"LoadoutScale"			"0.7"
 		"DisableWearables"		"1"
 
 		"Ability1"				"jack_presence_concealment"
