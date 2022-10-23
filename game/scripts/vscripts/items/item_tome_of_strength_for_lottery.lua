@@ -7,7 +7,7 @@ if IsServer() then
     function item_tome_of_strength_for_lottery:OnSpellStart()
         local caster = self:GetCaster()
         local str = self:GetSpecialValueFor("bonus")
-        local tome_table = CustomNetTables:GetTableValue("player_table", "str_tome_" .. caster:GetUnitName())
+        local tome_table = CustomNetTables:GetTableValue("player_tome_table", "str_tome_" .. caster:GetUnitName())
         caster:ModifyStrength(str)
         EmitSoundOnClient("Item.TomeOfKnowledge", caster)
 
@@ -19,11 +19,11 @@ if IsServer() then
                 tomeValue = tome_table.str
             end
             local newValue = tomeValue + str
-            CustomNetTables:SetTableValue("player_table", "str_tome_" .. caster:GetUnitName(), {str = newValue})
+            CustomNetTables:SetTableValue("player_tome_table", "str_tome_" .. caster:GetUnitName(), {str = newValue})
         else
             caster:AddNewModifier(caster, self, "modifier_str_tome", {})
             caster:FindModifierByName("modifier_str_tome"):SetStackCount(1)
-            CustomNetTables:SetTableValue("player_table", "str_tome_" .. caster:GetUnitName(), {str = str})
+            CustomNetTables:SetTableValue("player_tome_table", "str_tome_" .. caster:GetUnitName(), {str = str})
         end
 
         self:SpendCharge()

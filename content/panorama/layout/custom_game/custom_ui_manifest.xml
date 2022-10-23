@@ -35,6 +35,7 @@
 		<CustomUIElement type="FlyoutScoreboard"	layoutfile="file://{resources}/layout/custom_game/multiteam_flyout_scoreboard.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/button.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/item_choice.xml" />
+		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/battlepass.xml" />
 		<CustomUIElement type="EndScreen" layoutfile="file://{resources}/layout/custom_game/end_screen_2.xml" />
 	</Panel>
 </root>

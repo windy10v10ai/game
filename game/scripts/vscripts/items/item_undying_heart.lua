@@ -34,6 +34,7 @@ end
 if modifier_item_undying_heart == nil then modifier_item_undying_heart = class({}) end
 
 function modifier_item_undying_heart:IsHidden()		return true end
+function modifier_item_undying_heart:IsDebuff()		return false end
 function modifier_item_undying_heart:IsPurgable()	return false end
 function modifier_item_undying_heart:RemoveOnDeath()	return false end
 function modifier_item_undying_heart:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
