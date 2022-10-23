@@ -58,7 +58,6 @@ function AIGameMode:EnterDebugMode()
     self.DebugMode = true
     GameRules:SetCustomGameSetupAutoLaunchDelay(30)
     GameRules:SetHeroSelectionTime(15)
-    GameRules:SetStrategyTime(10)
     GameRules:SetPreGameTime(10)
 end
 
@@ -71,7 +70,8 @@ function AIGameMode:InitGameOptions()
     GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, RADIANT_PLAYER_COUNT)
     GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, DIRE_PLAYER_COUNT)
     GameRules:SetStrategyTime(STRATEGY_TIME)
-    GameRules:SetShowcaseTime(0)
+    GameRules:SetShowcaseTime(SHOWCASE_TIME)
+    GameRules:SetCustomGameEndDelay(GAME_END_DELAY)
     GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 
     -- 游戏选择项目初始化
@@ -146,10 +146,10 @@ function AIGameMode:PreGameOptions()
     GameRules:SetGoldPerTick(self.iGoldPerTick)
     GameRules:SetGoldTickTime(self.iGoldTickTime)
     GameRules:SetUseUniversalShopMode(true)
+    GameRules:SetFilterMoreGold(true)
 
     local gameMode = GameRules:GetGameModeEntity()
     gameMode:SetModifyGoldFilter(Dynamic_Wrap(AIGameMode, "FilterGold"), self)
-    GameRules:SetFilterMoreGold(true)
     gameMode:SetModifyExperienceFilter(Dynamic_Wrap(AIGameMode, "FilterXP"), self)
 
     -- 神符
