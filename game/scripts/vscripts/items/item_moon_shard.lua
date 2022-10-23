@@ -15,9 +15,10 @@ LinkLuaModifier("modifier_item_moon_shard_datadriven_consumed", "items/item_moon
 
 if modifier_item_moon_shard_datadriven_consumed == nil then modifier_item_moon_shard_datadriven_consumed = class({}) end
 
-function modifier_item_moon_shard_datadriven_consumed:RemoveOnDeath() return false end
-function modifier_item_moon_shard_datadriven_consumed:IsPurgable() return false end
-function modifier_item_moon_shard_datadriven_consumed:IsPermanent() return true end
+function modifier_item_moon_shard_datadriven_consumed:RemoveOnDeath()	return false end
+function modifier_item_moon_shard_datadriven_consumed:IsDebuff()		return false end
+function modifier_item_moon_shard_datadriven_consumed:IsPurgable()		return false end
+function modifier_item_moon_shard_datadriven_consumed:IsPermanent()		return true end
 
 function modifier_item_moon_shard_datadriven_consumed:OnCreated()
 	if self:GetAbility() then

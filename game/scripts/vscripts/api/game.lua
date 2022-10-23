@@ -2,7 +2,7 @@ local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__New = ____lualib.__TS__New
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["7"] = 2,["8"] = 2,["9"] = 2,["10"] = 4,["11"] = 4,["13"] = 4,["14"] = 12,["15"] = 12,["17"] = 18,["18"] = 19,["19"] = 17,["20"] = 23,["21"] = 23,["22"] = 23,["24"] = 24,["25"] = 27,["26"] = 28,["27"] = 29,["28"] = 30,["29"] = 32,["31"] = 34,["32"] = 34,["33"] = 35,["34"] = 36,["35"] = 37,["36"] = 38,["37"] = 39,["38"] = 40,["39"] = 40,["40"] = 40,["42"] = 40,["43"] = 41,["44"] = 41,["45"] = 41,["47"] = 41,["48"] = 42,["49"] = 42,["51"] = 34,["54"] = 47,["55"] = 47,["56"] = 47,["57"] = 47,["58"] = 47,["59"] = 47,["60"] = 48,["61"] = 47,["62"] = 47,["63"] = 27});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["7"] = 2,["8"] = 2,["9"] = 2,["10"] = 4,["11"] = 4,["13"] = 4,["14"] = 12,["15"] = 12,["17"] = 19,["18"] = 20,["19"] = 18,["20"] = 24,["21"] = 24,["22"] = 24,["24"] = 27,["25"] = 30,["26"] = 31,["27"] = 32,["28"] = 33,["29"] = 34,["30"] = 35,["32"] = 37,["33"] = 37,["34"] = 38,["35"] = 39,["36"] = 40,["37"] = 41,["38"] = 42,["39"] = 43,["40"] = 43,["41"] = 43,["43"] = 43,["44"] = 44,["45"] = 44,["46"] = 44,["48"] = 44,["49"] = 45,["50"] = 45,["52"] = 37,["55"] = 49,["56"] = 49,["57"] = 49,["58"] = 49,["59"] = 49,["60"] = 49,["61"] = 50,["62"] = 49,["63"] = 49,["64"] = 30,["65"] = 26});
 local ____exports = {}
 local ____api_client = require("api.api_client")
 local ApiClient = ____api_client.ApiClient
@@ -26,6 +26,7 @@ function Game.prototype.SendEndGameInfo(self, endData)
     local gameInfo = __TS__New(GameInfo)
     gameInfo.winnerTeamId = endData.winnerTeamId
     gameInfo.matchId = tostring(GameRules:Script_GetMatchID())
+    gameInfo.version = ____exports.Game.VERSION
     gameInfo.gameOption = endData.gameOption
     do
         local i = 0
@@ -61,4 +62,5 @@ function Game.prototype.SendEndGameInfo(self, endData)
         end
     )
 end
+Game.VERSION = "v1.46"
 return ____exports

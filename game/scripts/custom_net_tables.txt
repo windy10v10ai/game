@@ -2,10 +2,11 @@
 {
   custom_net_tables =
   [
-    "player_table",
+    "player_tome_table",
     "game_options_table",
-	"ending_stats",
-	"disable_help",
-	"member_table",
+    "ending_stats",
+    "disable_help",
+    "member_table",
+    "player_table",
   ]
 }

@@ -74,7 +74,6 @@ function AIGameMode:InitGameOptions()
     GameRules:SetShowcaseTime(0)
     GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 
-    GameRules.DropTable = LoadKeyValues("scripts/kv/item_drops.kv")
     -- 游戏选择项目初始化
     GameRules.GameOption = LoadKeyValues("scripts/kv/game_option.kv")
 end
@@ -246,8 +245,8 @@ end
 function AIGameMode:ApplyTestOptions()
     print('------------------------读取个性化测试环境------------------------')
     if self.DebugMode and PlayerResource:GetSteamAccountID(0) == 245559423 then
-        self.iDesiredRadiant = 1
-        self.iDesiredDire = 1
+        self.iDesiredRadiant = 2
+        self.iDesiredDire = 3
     end
 end
 

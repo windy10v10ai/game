@@ -72,13 +72,22 @@
 		"scoreboard_tool_tip_disable_help"	"禁用帮助"
 		"scoreboard_tool_tip_actived"		" 已激活"
 
-		"endscreen_tool_tip_season_point"	"赛季积分"
 
 		"custom_end_screen_victory_message"	"天辉获胜"
 		"custom_end_screen_lose_message"	"夜魇获胜"
 
 		"player_multiplier"		"玩家倍率"
 		"bot_multiplier"		"电脑倍率"
+
+		///////////////////////////////////////////////////
+		//
+		//            Data panel
+		//
+		///////////////////////////////////////////////////
+		"data_panel_button"				"玩家数据"
+		"data_panel_charge_point"		"会员积分"
+		"data_panel_season_point"		"赛季积分"
+		"data_panel_developing"			"更多功能正在开发中"
 
 		///////////////////////////////////////////////////
 		//
@@ -98,7 +107,7 @@
 		"player_member_ship"		"点击查看会员详情"
 		"player_member_ship_url"		"https://afdian.net/@windy10v10"
 
-		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 打字输入“-超级赛亚人”，“-八云紫”即可召唤新英雄。<br/> 会员有效期：{expireDate}"
+		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得60会员积分<br/> - 打字输入“-超级赛亚人”，“-八云紫”即可召唤新英雄。<br/> 会员有效期：{expireDate}"
 		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 
 		///////////////////////////////////////////////////
@@ -428,6 +437,10 @@
         "DOTA_Tooltip_ability_miku_hadouken_damage"         "伤害:"
         "DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "变身时伤害:"
 		"DOTA_Tooltip_ability_miku_hadouken_Lore"           "香醇浓厚的蔬菜果汁！香软绵柔的蔬菜果汁！"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_101" "-{s:bonus_AbilityCooldown}s 蔬菜汁Popipo 冷却时间"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_201" "+{s:value}% 脑浆炸裂女孩 暴击倍率"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_301" "-{s:bonus_AbilityCooldown}s 初音飞踢 冷却时间"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_302" "+{s:bonus_AbilityCastRange} 初音飞踢 施法距离"
 
 		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"蔬菜汁Popipo击中的敌人将眩晕%shard_stun%秒。"
 			// 八云紫

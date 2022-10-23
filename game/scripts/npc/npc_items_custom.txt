@@ -782,7 +782,7 @@
 					"04"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"bonus_armor"			"20"
+							"bonus_armor"			"15"
 					}
 					"05"
 					{
@@ -1655,7 +1655,7 @@
 			"05"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"magical_resis"      	"20"
+				"magical_resis"      	"30"
 			}
 			"06"
 			{
@@ -3171,8 +3171,8 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60"
-		"AbilityManaCost"				"250"
+		"AbilityCooldown"				"25"
+		"AbilityManaCost"				"150"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3189,8 +3189,8 @@
 
 		"AbilityValues"
 		{
-			"bonus_evasion"			"25"
-			"bonus_strength"		"45"
+			"bonus_evasion"			"30"
+			"bonus_strength"		"50"
 			"disarm_con"			"2"
 			"disarm_con_per_str"	"300"
 			"disarm_con_max"		"4"
@@ -3198,7 +3198,7 @@
 			"attch"					"25"
 			"disarm"				"1"
 			"status_resistance"		"20"
-			"spell_resist"			"20"
+			"spell_resist"			"30"
 			"knockback_range"			"450"
 			"knockback_distance"		"150"
 		}
