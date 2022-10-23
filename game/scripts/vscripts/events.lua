@@ -711,10 +711,8 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     local basePoint = 0
     if time > 3600 then
         basePoint = 50
-    elseif time > 600 then
-        basePoint = math.floor(10 + time / 120)
     else
-        basePoint = math.floor(time / 60)
+        basePoint = math.floor(10 + time / 120)
     end
 
     local playerNumber = 0
@@ -920,8 +918,16 @@ end
 function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
     local points = playerInfo.points
 
+    -- if GameRules:IsCheatMode() then
+    --     print("Cheat mode is on, no season point will be given")
+    --     return 0
+    -- end
+
+    if GameRules:GetDOTATime(false, true) < 20 * 60 then
+        points = points * 0.5
+    end
     if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
-        points = points / 2
+        points = points * 0.5
     end
     return math.ceil(points)
 end
