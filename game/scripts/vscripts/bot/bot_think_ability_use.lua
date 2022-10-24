@@ -527,7 +527,6 @@ function BotAbilityThink:ThinkUseAbility_Spectre(hHero)
 	-- UG_AI初版，待完善
 	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
-	local hAbility6 = hHero:GetAbilityByIndex(5)
 	local castRangeBonus = hHero:GetCastRangeBonus()
 
 	if hAbility1:IsFullyCastable() then
@@ -560,15 +559,6 @@ function BotAbilityThink:ThinkUseAbility_Spectre(hHero)
 		end
 		if #tAllHeroes >= 5 and hHero:GetHealthPercent() <= 95 then
 			hHero:CastAbilityNoTarget(hAbility2, hHero:GetPlayerOwnerID())
-			return true
-		end
-	end
-
-	if hAbility6:IsFullyCastable() then
-		local range = 900
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, range)
-		if #tAllHeroes >= 2 then
-			hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
 			return true
 		end
 	end
