@@ -103,11 +103,11 @@
 		//            Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_ship"		"Sponsor. Click to view more."
+		"player_member_ship"			"Click to open membership."
 		"player_member_ship_url"		"https://afdian.net/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&month=1&remark="
 
-		"player_member_button"		"Thank you for your sponsorship!<br/>Member Benefits<br/> - Rspawn time reduced by 5 seconds.<br/> - Buyback CD reduced to 2 minutes.<br/> - Can refresh the items lottery once.<br/> - Daily login to get 60 membership points.<br/> - Type '-Goku' or '-Yukari' to swap to new hero.<br/>Membership is valid until {expireDate}."
-		"player_member_button_expire"		"Thank you for your sponsorship!<br/>Membership is valid until {expireDate}, Click the button to renew."
+		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Rspawn time reduced by 5 seconds.<br/> - Buyback CD reduced to 2 minutes.<br/> - Can refresh the items lottery once.<br/> - Daily login to get 60 membership points.<br/> - Type '-Goku' or '-Yukari' to swap to new hero.<br/>Membership is valid until {expireDate}."
+		"player_member_button_expire"		"Thank you for your membership!<br/>Membership is valid until {expireDate}, Click the button to renew."
 
 		///////////////////////////////////////////////////
 		//
