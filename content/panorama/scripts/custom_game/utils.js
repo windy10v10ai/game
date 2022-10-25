@@ -73,11 +73,26 @@ function FindDotaHudElement(id) {
 	return GetDotaHud().FindChildTraverse(id);
 }
 
+function ConvertSteamIdTo32Bit(steamId64) {
+	return Long.fromString(steamId64).sub('76561197960265728').toString();
+}
+
 function GetSteamAccountID() {
-	const prefix = '76561197960265728';
 	const steamId64 = Game.GetLocalPlayerInfo().player_steamid;
-	const steamId32 = Long.fromString(steamId64).sub(prefix).toString();
+	const steamId32 = ConvertSteamIdTo32Bit(steamId64);
 	return steamId32;
+}
+
+function GetMember() {
+	return CustomNetTables.GetTableValue("member_table", GetSteamAccountID());
+}
+
+function GetPlayer() {
+	return CustomNetTables.GetTableValue("player_table", GetSteamAccountID());
+}
+
+function GetOpenMemberUrl() {
+	return $.Localize('#player_member_ship_url') + GetSteamAccountID();
 }
 
 var useChineseDateFormat = $.Language() === 'schinese' || $.Language() === 'tchinese';

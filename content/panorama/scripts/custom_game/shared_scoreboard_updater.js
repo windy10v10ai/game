@@ -28,7 +28,7 @@ function _ScoreboardUpdater_SetTextSafe( panel, childName, textValue )
 
 //=============================================================================
 //=============================================================================
-function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContainer, playerId, localPlayerTeamId, GAME_RESULT )
+function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContainer, playerId, localPlayerTeamId)
 {
 	var playerPanelName = "_dynamic_player_" + playerId;
 //	$.Msg( playerPanelName );
@@ -137,11 +137,15 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 		}
 
 		// set member info
-		const playerData = GAME_RESULT.players[playerId];
-		if (playerData && playerData.membership) {
+		const member = CustomNetTables.GetTableValue("member_table", ConvertSteamIdTo32Bit(playerInfo.player_steamid));
+
+		playerPanel.RemoveClass("IsMemberShip");
+		// $.Msg(playerInfo.player_steamid);
+		// $.Msg(member);
+		if (member && member.enable) {
 			playerPanel.AddClass("IsMemberShip");
 			let membershipString = $.Localize('#player_member_ship');
-			let membershipUrl = $.Localize('#player_member_ship_url');
+			let membershipUrl = GetOpenMemberUrl();
 
 			let membershipIcon = playerPanel.FindChildTraverse("PlayerMemberShip");
 
@@ -269,7 +273,7 @@ function _ScoreboardUpdater_UpdateTeamPanel( scoreboardConfig, containerPanel, t
 	{
 		for ( var playerId of teamPlayers )
 		{
-			_ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContainer, playerId, localPlayerTeamId, GAME_RESULT )
+			_ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContainer, playerId, localPlayerTeamId)
 		}
 	}
 

@@ -3,7 +3,7 @@
 })();
 
 function PregameSetup() {
-    PlayerDataLoaded(CustomNetTables.GetTableValue("player_table", GetSteamAccountID()));
+    PlayerDataLoaded(GetPlayer());
 }
 
 function PlayerDataLoaded(player) {
