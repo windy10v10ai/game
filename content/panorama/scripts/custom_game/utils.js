@@ -73,6 +73,13 @@ function FindDotaHudElement(id) {
 	return GetDotaHud().FindChildTraverse(id);
 }
 
+function GetSteamAccountID() {
+	const prefix = '76561197960265728';
+	const steamId64 = Game.GetLocalPlayerInfo().player_steamid;
+	const steamId32 = Long.fromString(steamId64).sub(prefix).toString();
+	return steamId32;
+}
+
 var useChineseDateFormat = $.Language() === 'schinese' || $.Language() === 'tchinese';
 /** @param {Date} date */
 function formatDate(date) {
