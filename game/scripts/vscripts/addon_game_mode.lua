@@ -254,17 +254,17 @@ end
 --                        Gold/XP Filter                        --
 ------------------------------------------------------------------
 GOLD_REASON_FILTER = {
-    DOTA_ModifyGold_Unspecified,
-    DOTA_ModifyGold_Death,
-    DOTA_ModifyGold_Buyback,
-    DOTA_ModifyGold_PurchaseConsumable,
-    DOTA_ModifyGold_PurchaseItem,
-    DOTA_ModifyGold_AbandonedRedistribute,
-    DOTA_ModifyGold_SellItem,
-    DOTA_ModifyGold_AbilityCost,
-    DOTA_ModifyGold_CheatCommand,
-    DOTA_ModifyGold_SelectionPenalty,
-    DOTA_ModifyGold_GameTick,
+    [DOTA_ModifyGold_Unspecified] = true,
+    [DOTA_ModifyGold_Death] = true,
+    [DOTA_ModifyGold_Buyback] = true,
+    [DOTA_ModifyGold_PurchaseConsumable] = true,
+    [DOTA_ModifyGold_PurchaseItem] = true,
+    [DOTA_ModifyGold_AbandonedRedistribute] = true,
+    [DOTA_ModifyGold_SellItem] = true,
+    [DOTA_ModifyGold_AbilityCost] = true,
+    [DOTA_ModifyGold_CheatCommand] = true,
+    [DOTA_ModifyGold_SelectionPenalty] = true,
+    [DOTA_ModifyGold_GameTick] = true,
     -- DOTA_ModifyGold_Building,
     -- DOTA_ModifyGold_HeroKill,
     -- DOTA_ModifyGold_CreepKill,
@@ -284,10 +284,8 @@ function AIGameMode:FilterGold(tGoldFilter)
     local iReason = tGoldFilter["reason_const"]
 
     -- 过滤一些不走Filter的reason
-    for _, filteredReason in pairs(GOLD_REASON_FILTER) do
-        if filteredReason == iReason then
-            return true
-        end
+    if GOLD_REASON_FILTER[iReason] then
+        return true
     end
 
     -- 通用击杀金钱调整
