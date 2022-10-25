@@ -3,14 +3,17 @@
 })();
 
 function PregameSetup() {
-    const steamId64 = Game.GetLocalPlayerInfo().player_steamid;
-    PlayerDataLoaded(CustomNetTables.GetTableValue("player_table", steamId64));
+    PlayerDataLoaded(CustomNetTables.GetTableValue("player_table", GetSteamAccountID()));
 }
 
 function PlayerDataLoaded(player) {
 
 	$.Msg("LocalDataLoaded");
 	$.Msg(player);
+
+	if(player == null) {
+		return;
+	}
 
 	let chargePointTotal = player.chargePointTotal;
 	let seasonPointTotal = player.seasonPointTotal;

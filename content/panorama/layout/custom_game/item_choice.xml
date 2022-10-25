@@ -4,6 +4,8 @@
 	</styles>
 
 	<scripts>
+		<include src="file://{resources}/scripts/custom_game/long.js" />
+		<include src="file://{resources}/scripts/custom_game/utils.js" />
 		<include src="file://{resources}/scripts/custom_game/item_choice.js" />
 	</scripts>
 

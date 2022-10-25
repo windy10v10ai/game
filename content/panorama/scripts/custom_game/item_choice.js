@@ -1,7 +1,7 @@
 (function () {
 	$.Msg("item_choice.js loaded");
 	GameEvents.Subscribe("item_choice", SetItemChoice);
-	const member = CustomNetTables.GetTableValue("member_table", Game.GetLocalPlayerInfo().player_steamid);
+	const member = CustomNetTables.GetTableValue("member_table", GetSteamAccountID());
 	const button = $("#item_choice_shuffle");
 	if (member && member.enable) {
 		button.SetHasClass("IsEnable", true);
@@ -71,7 +71,7 @@ function OnShuffleButtonPressed() {
 	button.SetPanelEvent('onmouseover',() => {
 		$.DispatchEvent("DOTAShowTextTooltip", button, $.Localize('#item_choice_shuffle_used'));
 	})
-	const member = CustomNetTables.GetTableValue("member_table", Game.GetLocalPlayerInfo().player_steamid);
+	const member = CustomNetTables.GetTableValue("member_table", GetSteamAccountID());
 	if (member && member.enable) {
 		GameEvents.SendCustomGameEventToServer("item_choice_shuffle", {});
 	}
