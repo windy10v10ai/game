@@ -1417,5 +1417,13 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"明智的选择，科学的投资。"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"获得的金钱经验，享有倍率加成！"
 
+	    // item_bloodstone_v2 血精神石
+	    "DOTA_Tooltip_ability_item_bloodstone_v2"						"血精神石"
+	    "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
+        "DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"血精石鲜红的色彩在战场上绝对不会被看错，拥有者似乎有无限的生命力和精力。"
+        "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
+        "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
+        "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
+
 	}
 }

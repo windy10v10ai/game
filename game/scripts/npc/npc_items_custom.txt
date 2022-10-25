@@ -5810,6 +5810,99 @@
         }
     }
 
+    //=================================================================================================================
+    // Recipe: Bloodstone
+    //=================================================================================================================
+    "item_recipe_bloodstone_v2"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"							"9501"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"						"item_recipe_bloodstone"
+        "AbilityTextureName" 			"item_recipe_bloodstone"
+        "Model"							"models/props_gameplay/recipe.vmdl"
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"						"2000"
+        "ItemShopTags"					""
+
+        // Recipe
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemRecipe"					"1"
+        "ItemResult"					"item_bloodstone_v2"
+        "ItemRequirements"
+        {
+            "01"						"item_bloodstone;item_bloodstone"
+        }
+    }
+
+    //=================================================================================================================
+    // Bloodstone
+    //=================================================================================================================
+    "item_bloodstone_v2"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"							"9502"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"						"item_bloodstone"
+        "AbilityTextureName" 			"item_bloodstone"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "FightRecapLevel"				"2"
+
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"				"0.0"
+        "AbilityCooldown"				"30.0"
+        "AbilityManaCost"				"0"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"						"10800"
+        "ItemShopTags"					"regen_health;regen_mana;mana_pool;health_pool"
+        "ItemQuality"					"epic"
+        "ItemAliases"					"bs;bloodstone"
+        "ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        "AllowedInBackpack"				"1"
+        "ShouldBeSuggested"				"1"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "bonus_health"		"1200"
+            }
+            "02"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "bonus_mana"		"1200"
+            }
+            "03"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "spell_lifesteal"			"60000"
+            }
+            "04"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "buff_duration"			"8"
+            }
+            "05"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "lifesteal_multiplier"		"2.5"
+            }
+            "06"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "hp_cost"		"0"
+            }
+        }
+    }
 }
 
 
