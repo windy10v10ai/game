@@ -12348,6 +12348,11 @@
 		"AbilityManaCost"				"70 100 130 160 190"
 		"AbilitySpecial"
 		{
+		    "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "area_of_effect"		"600"
+            }
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -12363,7 +12368,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"60"
+				"value"				"70"
 				"ad_linked_abilities"			"necrolyte_death_pulse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -12393,7 +12398,7 @@
 			"heal_bonus"
 			{
 				"value"			"45 55 65 75 85"
-				"special_bonus_unique_necrophos_sadist_heal_bonus"		"+15"
+				"special_bonus_unique_necrophos_sadist_heal_bonus"		"+35"
 			}
 			"movement_speed"
 			{
@@ -12416,8 +12421,8 @@
 		{
 			"damage_per_health"			"0.8 0.85 0.9 0.95 1"
 			"stun_duration"				"1.5 1.5 1.5 1.5 1.5"
-			"hp_per_kill"				"2 4 6 8 10"
-			"mana_per_kill"				"1 2 3 4 5"
+			"hp_per_kill"				"4 8 12 16 20"
+			"mana_per_kill"				"2 4 6 8 10"
 		}
 	}
 	//=================================================================================================================
