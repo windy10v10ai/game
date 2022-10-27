@@ -77,6 +77,7 @@ function modifier_item_heavens_halberd_v2:DeclareFunctions()
         MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
         MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
         MODIFIER_EVENT_ON_ATTACK_LANDED,
+        MODIFIER_EVENT_ON_TAKEDAMAGE,
    }
 end
 
@@ -87,13 +88,32 @@ function modifier_item_heavens_halberd_v2:OnCreated()
     self.cd = 5
 
     if  self.ability then
-    self.bonus_evasion=self.ability:GetSpecialValueFor("bonus_evasion")
-    self.bonus_strength=self.ability:GetSpecialValueFor("bonus_strength")
-    self.hp_regen_amp=self.ability:GetSpecialValueFor("hp_regen_amp")
-    self.attch=self.ability:GetSpecialValueFor("attch")
-    self.disarm=self.ability:GetSpecialValueFor("disarm")
-    self.status_resistance=self.ability:GetSpecialValueFor("status_resistance")
-	self.spell_resist = self:GetAbility():GetSpecialValueFor("spell_resist")
+        self.bonus_evasion=self.ability:GetSpecialValueFor("bonus_evasion")
+        self.bonus_strength=self.ability:GetSpecialValueFor("bonus_strength")
+        self.hp_regen_amp=self.ability:GetSpecialValueFor("hp_regen_amp")
+        self.attch=self.ability:GetSpecialValueFor("attch")
+        self.disarm=self.ability:GetSpecialValueFor("disarm")
+        self.status_resistance=self.ability:GetSpecialValueFor("status_resistance")
+        self.spell_resist = self:GetAbility():GetSpecialValueFor("spell_resist")
+        self.spell_lifesteal = self:GetAbility():GetSpecialValueFor("spell_lifesteal")
+    end
+end
+
+function modifier_item_heavens_halberd_v2:OnTakeDamage(keys)
+    if not IsServer() then
+        return
+    end
+    if keys.attacker == self:GetParent() and keys.inflictor and IsEnemy(keys.attacker, keys.unit) and
+            bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION and
+            bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) ~= DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL then
+        local dmg = keys.damage * (self.spell_lifesteal / 100)
+        if keys.unit:IsCreep() then
+            dmg = dmg / 5
+        end
+        Printf("法术吸血系数:%.2f", dmg/keys.damage)
+        self:GetParent():Heal(dmg, self.ability)
+        local pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        ParticleManager:ReleaseParticleIndex(pfx)
     end
 end
 

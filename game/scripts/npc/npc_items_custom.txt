@@ -3201,6 +3201,7 @@
 			"spell_resist"			"30"
 			"knockback_range"			"450"
 			"knockback_distance"		"150"
+			"spell_lifesteal"   "20"
 		}
 	}
 
