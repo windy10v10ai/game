@@ -11196,6 +11196,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityManaCost"				"100 120 140 160 180"
+		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityValues"
 		{
 			"stun_duration"
@@ -11206,13 +11207,23 @@
 			"damage"
 			{
 				"value"								"40 60 80 100 120"
-				"special_bonus_unique_enigma_5"		"+30"
+				"special_bonus_unique_enigma_5"		"+40"
 			}
 		}
 	}
 	"enigma_demonic_conversion"
 	{
-		"AbilityCooldown"				"40 35 30 25"
+		"AbilityCooldown"				"40 32 24 16"
+		// Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "02"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "split_attack_count"	"6 6 5 4"
+            }
+        }
 	}
 	"special_bonus_unique_enigma"
 	{
@@ -11229,7 +11240,7 @@
 	"enigma_midnight_pulse"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"60 55 50 45 40"
+		"AbilityCooldown"				"55 50 45 40 35"
 		"AbilityManaCost"				"50 80 110 140 170"
 		"AbilitySpecial"
 		{
@@ -11249,7 +11260,7 @@
 	"enigma_black_hole"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"160.0 155.0 150.0 145.0"
+		"AbilityCooldown"				"145"
 		"AbilityManaCost"				"300 400 500 600"
 		"AbilityValues"
 		{
