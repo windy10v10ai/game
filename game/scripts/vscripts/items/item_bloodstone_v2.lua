@@ -22,12 +22,24 @@ function modifier_item_bloodstone_v2:IsHidden() return true end
 function modifier_item_bloodstone_v2:OnCreated(kv)
 	if not IsServer() then return end
 	self.value = self:GetAbility():GetSpecialValueFor("spell_lifesteal")
+	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
+	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
 
 function modifier_item_bloodstone_v2:DeclareFunctions()
 	return {
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
+		MODIFIER_PROPERTY_HEALTH_BONUS,
+		MODIFIER_PROPERTY_MANA_BONUS,
 	}
+end
+
+function modifier_item_bloodstone_v2:GetModifierHealthBonus()
+	return self.bonus_health
+end
+
+function modifier_item_bloodstone_v2:GetModifierManaBonus( params )
+	return self.bonus_mana
 end
 
 function modifier_item_bloodstone_v2:OnTakeDamage(keys)
