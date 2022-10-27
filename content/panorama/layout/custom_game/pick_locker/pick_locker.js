@@ -50,7 +50,6 @@ function PickLocker() {
 		// if memberHeroNames contains possible_hero_selection
 		if (memberHeroNames.includes(possible_hero_selection)) {
 			$.Msg("Lock Member hero Pick");
-			$.Msg(localized_text[0]);
 
 			pick_button.enabled = false;
 			pick_button.SetAcceptsFocus(false);
