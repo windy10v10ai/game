@@ -11214,8 +11214,6 @@
 	"enigma_demonic_conversion"
 	{
 		"AbilityCooldown"				"40 32 24 16"
-		// Special
-        //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
         {
             "02"
@@ -11223,8 +11221,38 @@
                 "var_type"				"FIELD_INTEGER"
                 "split_attack_count"	"6 6 5 4"
             }
+            "03"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "eidolon_hp_tooltip"	"280 300 320 400"
+                "LinkedSpecialBonus"	"special_bonus_unique_enigma_7"
+            }
         }
 	}
+	"special_bonus_unique_enigma_3"
+    {
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "value"				"45"
+                "ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+            }
+        }
+    }
+	"special_bonus_unique_enigma_4"
+    {
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "value"				"20"
+                "ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+            }
+        }
+    }
 	"special_bonus_unique_enigma"
 	{
 		"AbilitySpecial"
