@@ -60,7 +60,7 @@ function modifier_item_bloodstone_v2_amp:IsDebuff() return false end
 function modifier_item_bloodstone_v2_amp:RemoveOnDeath() return false end
 function modifier_item_bloodstone_v2_amp:IsHidden() return true end
 
-function modifier_item_bloodstone_v2:DeclareFunctions()
+function modifier_item_bloodstone_v2_amp:DeclareFunctions()
 	return {
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
 	}
