@@ -8027,7 +8027,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"necromastery_max_souls_scepter" "30"
+				"necromastery_max_souls_scepter" "40"
 				"RequiresScepter"			"1"
 			}
 		}
