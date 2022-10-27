@@ -564,13 +564,4 @@ function BotAbilityThink:ThinkUseAbility_Spectre(hHero)
 		end
 	end
 
-	if hAbility6:IsFullyCastable() then
-		local range = 900
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, range)
-		if #tAllHeroes >= 2 then
-			hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
-			return true
-		end
-	end
-
 end
