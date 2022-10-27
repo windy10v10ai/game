@@ -12206,8 +12206,8 @@
         {
             "fiery_soul_attack_speed_bonus"
             {
-                "value"								"10 13 16 19 22"
-                "special_bonus_unique_lina_2"		"+8"
+                "value"								"15 20 25 30 35"
+                "special_bonus_unique_lina_2"		"+10"
             }
             "fiery_soul_move_speed_bonus"
             {
