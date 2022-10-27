@@ -21,7 +21,7 @@ function modifier_item_bloodstone_v2:IsHidden() return true end
 
 function modifier_item_bloodstone_v2:OnCreated(kv)
 	if not IsServer() then return end
-	self.value = self:GetAbility():GetSpecialValueFor("spell_lifesteal")
+	self.spell_lifesteal = self:GetAbility():GetSpecialValueFor("spell_lifesteal")
 	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
 	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
@@ -46,20 +46,11 @@ function modifier_item_bloodstone_v2:OnTakeDamage(keys)
 	if not IsServer() then
 		return
 	end
-	if keys.attacker == self:GetParent() and keys.inflictor and IsEnemy(keys.attacker, keys.unit) and
-			bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION and
-			bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) ~= DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL then
-		local dmg = keys.damage * (self.value / 100)
-		if self:GetParent():HasModifier("modifier_item_bloodstone_v2_amp") then
-			dmg = dmg * self:GetAbility():GetSpecialValueFor("lifesteal_multiplier")
-		end
-		if keys.unit:IsCreep() then
-			dmg = dmg / 5
-		end
-		self:GetParent():Heal(dmg, self.ability)
-		local pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
-		ParticleManager:ReleaseParticleIndex(pfx)
+	local amp = nil
+	if self:GetParent():HasModifier("modifier_item_bloodstone_v2_amp") then
+		amp = self:GetAbility():GetSpecialValueFor("lifesteal_multiplier")
 	end
+	SpellLifeSteal(keys,self,self.spell_lifesteal,amp)
 end
 
 if modifier_item_bloodstone_v2_amp == nil then modifier_item_bloodstone_v2_amp = class({}) end
