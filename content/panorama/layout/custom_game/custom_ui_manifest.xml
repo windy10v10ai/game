@@ -31,6 +31,7 @@
 
 
 	<Panel>
+		<CustomUIElement type="HeroSelection"		layoutfile="file://{resources}/layout/custom_game/pick_locker/pick_locker.xml" />
 		<CustomUIElement type="HeroSelection"		layoutfile="file://{resources}/layout/custom_game/multiteam_hero_select_overlay.xml" />
 		<CustomUIElement type="FlyoutScoreboard"	layoutfile="file://{resources}/layout/custom_game/multiteam_flyout_scoreboard.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/button.xml" />
