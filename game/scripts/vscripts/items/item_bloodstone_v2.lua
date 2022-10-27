@@ -60,12 +60,29 @@ function modifier_item_bloodstone_v2_amp:IsDebuff() return false end
 function modifier_item_bloodstone_v2_amp:RemoveOnDeath() return false end
 function modifier_item_bloodstone_v2_amp:IsHidden() return true end
 
+function modifier_item_bloodstone_v2:DeclareFunctions()
+	return {
+		MODIFIER_EVENT_ON_TAKEDAMAGE,
+	}
+end
+
 function modifier_item_bloodstone_v2_amp:OnCreated(kv)
 	if not IsServer() then
 		return
 	end
 	self.particleId = ParticleManager:CreateParticle("particles/items_fx/bloodstone_heal_model.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
 	self:GetParent():EmitSound('DOTA_Item.Bloodstone.Cast')
+end
+
+function modifier_item_bloodstone_v2_amp:OnTakeDamage(keys)
+	local hero = self:GetParent()
+	if keys.attacker == hero and keys.inflictor and IsEnemy(keys.attacker, keys.unit) and
+			bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION then
+		hero:SetMana(hero:GetMana() + keys.damage)
+		Printf("法术吸蓝量:%.2f", keys.damage)
+		local pfx = ParticleManager:CreateParticle("particles/items_fx/bloodstone_heal_fx_flare.vpcf", PATTACH_ABSORIGIN_FOLLOW, modifier:GetParent())
+		ParticleManager:ReleaseParticleIndex(pfx)
+	end
 end
 
 function modifier_item_bloodstone_v2_amp:OnDestroy(kv)
