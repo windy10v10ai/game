@@ -142,3 +142,10 @@ function IsBadTeamPlayer (playerid)
 	return PlayerResource:GetTeam(playerid) == DOTA_TEAM_BADGUYS
 end
 
+function IsEnemy(unit1, unit2)
+	if unit1 == nil or unit2 == nil then
+		return false
+	end
+	return unit1:GetTeamNumber() ~= unit2:GetTeamNumber()
+end
+
