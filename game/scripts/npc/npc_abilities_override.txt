@@ -11461,16 +11461,16 @@
 	}
 	"grimstroke_soul_chain"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"70 60 50 40"
-		"AbilityCastRange"				"700 800 900 1000"
-		"AbilityManaCost"				"150 200 250 300"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"70 60 50 40 30"
+		"AbilityCastRange"				"700 800 900 1000 1100"
+		"AbilityManaCost"				"150 200 250 300 350"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"chain_duration"		"6.0 7.0 8.0 9.0"
+				"chain_duration"		"6.0 7.0 8.0 9.0 10.0"
 			}
 		}
 	}
