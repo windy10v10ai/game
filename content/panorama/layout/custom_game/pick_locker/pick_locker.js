@@ -9,13 +9,12 @@ const localized_text = [
 	$.Localize("#pick_button_member_text"),
 ];
 
-const interval = 0.1;
+const interval = 0.03;
 
 const custom_random_button = $.GetContextPanel().FindChildTraverse("CustomRandomButton")
 const random_button = FindDotaHudElement("RandomButton");
 let random_pressed = false;
-// const member = GetMember();
-const member = undefined;
+const member = GetMember();
 
 (() => {
 	// random_button.visible = false;
