@@ -1,5 +1,5 @@
 function Printf(pattern, ...)
-	if not self.DebugMode then
+	if not AIGameMode.DebugMode then
 		return
 	end
 	local str = string.format(pattern, ...)
