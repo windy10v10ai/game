@@ -1266,7 +1266,7 @@
 		"Ability14"		"special_bonus_unique_juggernaut_blade_dance_lifesteal"
 		"Ability15"		"special_bonus_unique_juggernaut_3"
 		"Ability16"		"special_bonus_unique_juggernaut_omnislash_duration"
-		"Ability17"		"special_bonus_cleave_60"
+		"Ability17"		"special_bonus_cleave_50"
 		"Bot"
 		{
 			"Build"
