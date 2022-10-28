@@ -11,6 +11,8 @@ end
 --------------------
 function BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility)
 	if hAbility:IsFullyCastable() then
+		-- TODO 动态施法距离
+		--local iRange = GetFullCastRange(hHero, hAbility)
 		local iRange = hAbility:GetCastRange()
 		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 		if #tAllHeroes > 0 then
@@ -117,6 +119,8 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_Lina(hHero)
 	elseif sHeroName == "npc_dota_hero_spectre" then
 		self:ThinkUseAbility_Spectre(hHero)
+	elseif sHeroName == "npc_dota_hero_necrolyte" then
+		self:ThinkUseAbility_Necrolyte(hHero)
 	end
 end
 
@@ -524,7 +528,6 @@ function BotAbilityThink:ThinkUseAbility_Lina(hHero)
 end
 
 function BotAbilityThink:ThinkUseAbility_Spectre(hHero)
-	-- UG_AI初版，待完善
 	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
 	local castRangeBonus = hHero:GetCastRangeBonus()
@@ -562,5 +565,23 @@ function BotAbilityThink:ThinkUseAbility_Spectre(hHero)
 			return true
 		end
 	end
+end
 
+function BotAbilityThink:ThinkUseAbility_Necrolyte(hHero)
+	local hAbility1 = hHero:GetAbilityByIndex(0)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
+	local hAbility6 = hHero:GetAbilityByIndex(5)
+
+	if hAbility1:IsFullyCastable() then
+		local iRange = 600
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		if #tAllHeroes > 0 then
+			hHero:CastAbilityNoTarget(hAbility1, hHero:GetPlayerOwnerID())
+			return true
+		end
+	end
+
+	if self:CastAbilityOnEnemyTarget(hHero, hAbility4) then return true end
+
+	if self:CastAbilityOnEnemyTargetWithLessHp(hHero, hAbility6, 50) then return true end
 end

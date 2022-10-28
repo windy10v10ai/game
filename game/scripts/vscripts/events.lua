@@ -24,6 +24,7 @@ local tBotNameList = {
     --"npc_dota_hero_shredder",
     --"npc_dota_hero_tinker",
     "npc_dota_hero_abaddon",
+    "npc_dota_hero_necrolyte",
     "npc_dota_hero_axe",
     "npc_dota_hero_bane",
     "npc_dota_hero_bounty_hunter",
@@ -47,7 +48,6 @@ local tBotNameList = {
     "npc_dota_hero_medusa",
     "npc_dota_hero_meepo",
     "npc_dota_hero_nevermore",
-    "npc_dota_hero_necrolyte",
     "npc_dota_hero_ogre_magi",
     "npc_dota_hero_omniknight",
     "npc_dota_hero_oracle",
@@ -356,6 +356,13 @@ function AIGameMode:RefreshGameStatus()
     AIGameMode.creepBuffLevelBad = buffLevelBad
     AIGameMode.creepBuffLevelMegaGood = buffLevelMegaGood
     AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
+
+    -- 简单限制电脑前期买活
+    if GameTime <= 15 * 60 then
+        GameRules:SetBuybackEnabled(false)
+    else
+        GameRules:SetBuybackEnabled(true)
+    end
 end
 
 -- 买活时间设定
@@ -968,3 +975,4 @@ function AIGameMode:StackToPercentage(iStackCount)
         return "100%"
     end
 end
+

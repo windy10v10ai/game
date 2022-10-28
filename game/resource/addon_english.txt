@@ -1073,6 +1073,7 @@
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+Status Resistance"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_hp_regen_amp"							"%+Self HP Regen and Lifesteal Amp"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_resist"							"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_lifesteal"					    "%+$spell_lifesteal"
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Shoes"
@@ -1272,5 +1273,12 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"A wise choice and Scientific investment."
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"The money and experience obtained does will has the multiplier bonus!"
 
+        // item_bloodstone_v2 血精神石
+        "DOTA_Tooltip_ability_item_bloodstone_v2"						"Godness bloodstone"
+		"DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>Active: Bloodpact</h1> Increases Godness bloodstone's Spell Lifesteal by %lifesteal_multiplier%x and also converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
+		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"This magical stone make caster absorb blood..."
+		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
+        "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
+        "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
 	}
 }

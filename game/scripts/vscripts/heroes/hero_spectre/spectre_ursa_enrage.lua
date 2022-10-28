@@ -4,9 +4,7 @@ spectre_ursa_enrage = class({})
 
 function spectre_ursa_enrage:OnSpellStart()
     self.caster = self:GetCaster()
-    print('spectre_ursa_enrage duration:')
     self.duration = self:GetSpecialValueFor('duration')
-    print(self.duration)
     self.caster:EmitSound('Hero_Spectre.Haunt')
     self.caster:AddNewModifier(self.caster, self, "modifier_spectre_ursa_enrage", { duration = self.duration })
 end
@@ -40,9 +38,6 @@ function modifier_spectre_ursa_enrage:OnCreated(table)
     self.caster = self:GetParent()
     self.damageReduction = self.ability:GetSpecialValueFor('damage_reduction')
     self.statusResistance = self.ability:GetSpecialValueFor('status_resistance')
-    print('spectre_ursa_enrage damageReduction & statusResistance:')
-    print(self.damageReduction)
-    print(self.statusResistance)
     self.particleId = ParticleManager:CreateParticle("particles/yukari_true_moon.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
 end
 

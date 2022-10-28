@@ -254,7 +254,7 @@
 		"DOTA_Tooltip_modifier_player_arrayzoneyour"			"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_nmjb"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_puck1609"					"<font color='#FFCC66'>★ 魔剑莱瓦汀 ★</font>"
-		"DOTA_Tooltip_modifier_player_puck1609_Description"		"<font color='#FFCC66'> Endless Crazy </font>"
+		"DOTA_Tooltip_modifier_player_puck1609_Description"		"<font color='#FFCC66'> Scarlet Laevatain </font>"
 		"DOTA_Tooltip_modifier_player_puck1609_2"				"<font color='#FFCC66'>★ 梦想天生 ★</font>"
 		"DOTA_Tooltip_modifier_player_puck1609_2_Description"	"<font color='#FFCC66'> Gensokyo Miko </font>"
 		"DOTA_Tooltip_modifier_player_puck1609_3"				"<font color='#FFCC66'>★ 无双风神 ★</font>"
@@ -1225,6 +1225,7 @@
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+状态抗性"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_hp_regen_amp"							"%+自身生命恢复和吸血增强"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_resist"							"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_lifesteal"					    "%+$spell_lifesteal"
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"										"阿迪王"
@@ -1423,6 +1424,14 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_attack_speed"			                "+$attack"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"明智的选择，科学的投资。"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"获得的金钱经验，享有倍率加成！"
+
+	    // item_bloodstone_v2 血精神石
+	    "DOTA_Tooltip_ability_item_bloodstone_v2"						"血精神石"
+	    "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
+        "DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"这块魔石使人能够从魔法中吸取鲜血..."
+        "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
+        "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
+        "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
 
 	}
 }
