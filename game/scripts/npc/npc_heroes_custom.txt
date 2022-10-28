@@ -5,8 +5,8 @@
 	{
 		"override_hero" 		"npc_dota_hero_brewmaster"
 		"Model"					"models/heroes/jack/npc_dota_hero_jack.vmdl"
-		"ModelScale"			"0.6"
-		"LoadoutScale"			"0.6"
+		"ModelScale"			"0.7"
+		"LoadoutScale"			"0.7"
 		"DisableWearables"		"1"
 
 		"Ability1"				"jack_presence_concealment"
@@ -1266,7 +1266,7 @@
 		"Ability14"		"special_bonus_unique_juggernaut_blade_dance_lifesteal"
 		"Ability15"		"special_bonus_unique_juggernaut_3"
 		"Ability16"		"special_bonus_unique_juggernaut_omnislash_duration"
-		"Ability17"		"special_bonus_cleave_60"
+		"Ability17"		"special_bonus_cleave_40"
 		"Bot"
 		{
 			"Build"
@@ -1300,7 +1300,7 @@
 				"27"		"special_bonus_all_stats_5"
 				"28"		"special_bonus_unique_juggernaut_4"
 				"29"		"special_bonus_unique_juggernaut_blade_dance_lifesteal"
-				"30"		"special_bonus_cleave_60"
+				"30"		"special_bonus_cleave_40"
 				"31"		"juggernaut_omni_slash"
 				"32"		"juggernaut_omni_slash"
 				"33"		"juggernaut_healing_ward"

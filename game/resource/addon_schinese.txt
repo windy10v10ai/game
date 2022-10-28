@@ -63,6 +63,13 @@
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
+		//            Hero Selection
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+		"pick_button_member_text"			"会员限定英雄"
+
+		// /////////////////////////////////////////////////////////////////////////////
+		//
 		//            Scoreborad/Ending Screen
 		//
 		// /////////////////////////////////////////////////////////////////////////////
@@ -104,8 +111,8 @@
 		//            Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_ship"		"点击查看会员详情"
-		"player_member_ship_url"		"https://afdian.net/@windy10v10"
+		"player_member_ship"			"点击开通会员"
+		"player_member_ship_url"		"https://afdian.net/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&month=1&remark="
 
 		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得60会员积分<br/> - 打字输入“-超级赛亚人”，“-八云紫”即可召唤新英雄。<br/> 会员有效期：{expireDate}"
 		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
@@ -164,102 +171,9 @@
 
 		///////////////////////////////////////////////////
 		//
-		//            Heroes
+		//            会员BUFF
 		//
 		///////////////////////////////////////////////////
-		//杰克
-		"npc_dota_hero_brewmaster"																"杰克"
-
-		"DOTA_Tooltip_ability_jack_presence_concealment"										"气息遮断"
-		"DOTA_Tooltip_ability_jack_presence_concealment_description"							"杰克在夜间或者迷雾中一段时间后，将会进入隐身状态，在此期间获得移动速度加成和自身敏捷值一定比例的攻击力加成，攻击后退出隐身状态，攻击力加成在退出隐身状态后会保持一段时间"
-		"DOTA_Tooltip_ability_jack_presence_concealment_Lore"									"切断作为Servant的气息，适合秘密行动的技能。完全切断气息的话近乎不可能被发现。"
-		"DOTA_Tooltip_ability_jack_presence_concealment_shard_description"						"在夜间或迷雾中可以主动使用此技能，立即进入隐身状态，击杀敌人后刷新此技能冷却"
-		"DOTA_Tooltip_ability_jack_presence_concealment_invision_time"							"隐身时间："
-		"DOTA_Tooltip_ability_jack_presence_concealment_dmg_add_time"							"攻击力加成持续时间："
-		"DOTA_Tooltip_ability_jack_presence_concealment_dmg_add_agility"						"攻击力加成敏捷系数："
-		"DOTA_Tooltip_ability_jack_presence_concealment_movespeed_add"							"%移动速度加成："
-
-		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night"									"雾夜凶杀"
-		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_description"						"杰克在目标地点生成一片迷雾，在迷雾中杰克将进入隐身状态，并使迷雾中的敌人的攻击速度，移动速度，转身速率，视野范围下降\n如果在迷雾中同时拥有气息遮断的隐身效果，隐身将无法被真视"
-		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_Lore"							"在她不是暗杀者而是杀人狂这一特性上，身为加害者的她总是能对身为被害者的对方占先下手。"
-		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_duration"						"持续时间："
-		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_radius"							"迷雾范围："
-		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_movespeed_down"					"%移动速度降低："
-		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_attackspeed_down"				"攻击速度降低："
-		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_turnrate_down"					"%转身速率降低："
-		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_visionrange_down"				"%视野范围降低："
-
-		"DOTA_Tooltip_ability_jack_surgery"														"外科手术"
-		"DOTA_Tooltip_ability_jack_surgery_description"											"被杰克攻击的敌人将会获得解体效果，每层解体都会降低敌人的治疗，生命恢复，攻击吸血和技能吸血\n每个敌人身上最大解体层数为%max_count%，当达到最大层数时，敌人将受到破坏效果\n敌人失去的属性将会附加给杰克"
-		"DOTA_Tooltip_ability_jack_surgery_Lore"												"可以使用沾满血的手术刀为Master以及自己治疗。开膛手杰克的牺牲者是以“摘除特定脏器”这种需要解剖学知识的方式被杀的。"
-		"DOTA_Tooltip_ability_jack_surgery_duration"											"持续时间："
-		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%每层治疗降低："
-		"DOTA_Tooltip_ability_jack_surgery_regen_down"											"%每层生命恢复降低："
-		"DOTA_Tooltip_ability_jack_surgery_attack_lifesteal_down"								"%每层攻击吸血降低："
-		"DOTA_Tooltip_ability_jack_surgery_spell_lifesteal_down"								"%每层技能吸血降低："
-
-		"DOTA_Tooltip_ability_jack_the_mist"													"暗夜雾都"
-		"DOTA_Tooltip_ability_jack_the_mist_description"										"杰克身边始终围绕着迷雾，在迷雾中的敌人将会受到和雾夜凶杀中的迷雾一样的效果，主动使用可以立刻变成夜晚，并扩大迷雾的范围，持续一段时间"
-		"DOTA_Tooltip_ability_jack_the_mist_Lore"												"工业革命以后，开始被大量排出的庞大煤烟，于1950年代成为硫酸雾在伦敦引起了大灾害。“暗黑雾都”就是重现出那团“死之雾”的宝具。"
-		"DOTA_Tooltip_ability_jack_the_mist_radius_normal"										"默认迷雾范围："
-		"DOTA_Tooltip_ability_jack_the_mist_radius_active"										"激活迷雾范围："
-		"DOTA_Tooltip_ability_jack_the_mist_duration"											"持续时间："
-
-		"DOTA_Tooltip_ability_jack_maria_the_ripper"											"解体圣母"
-		"DOTA_Tooltip_ability_jack_maria_the_ripper_description"								"杰克闪烁至敌人身后，眩晕目标一段时间，如果目标身上有解体效果，则在%atttak_duration%秒内对其进行基于解体次数的攻击，在此期间自身处于不可被真视的隐身状态"
-		"DOTA_Tooltip_ability_jack_maria_the_ripper_Lore"										"“当时伦敦贫民街据说有八万名之多的娼妇们，以生活为由所斩杀扔掉的，连娼妇都成不了的孩子们”的怨念，发挥出凶恶的效果。"
-		"DOTA_Tooltip_ability_jack_maria_the_ripper_stun_duration"								"眩晕时间："
-		"DOTA_Tooltip_ability_jack_maria_the_ripper_attacktimes_count"							"每层解体提供攻击次数："
-
-		"DOTA_Tooltip_Ability_special_bonus_unique_jack_1"										"+{s:bonus_heal_down}% 每层解体效果"
-		"DOTA_Tooltip_Ability_special_bonus_unique_jack_2"										"+{s:bonus_radius} 雾夜凶杀范围"
-		"DOTA_Tooltip_Ability_special_bonus_unique_jack_3"										"+{s:bonus_dmg_add_agility} 气息遮断敏捷系数"
-		"DOTA_Tooltip_Ability_special_bonus_unique_jack_4"										"-{s:bonus_invision_time}秒 气息遮断进入隐身时间"
-		"DOTA_Tooltip_Ability_special_bonus_unique_jack_5"										"+{s:bonus_attacktimes_count} 每层解体提供解体圣母攻击次数"
-		"DOTA_Tooltip_Ability_special_bonus_unique_jack_6"										"攻击有{s:bonus_talent_chance}%几率再次进行攻击"
-
-		"DOTA_Tooltip_modifier_jack_presence_concealment_invision"								"气息遮断"
-		"DOTA_Tooltip_modifier_jack_presence_concealment_invision_Description"					"杰克进入隐身状态并获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%移动速度加成"
-		"DOTA_Tooltip_modifier_jack_presence_concealment_damage"								"开膛手"
-		"DOTA_Tooltip_modifier_jack_presence_concealment_damage_Description"					"杰克获得%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%攻击力加成"
-		"DOTA_Tooltip_modifier_jack_murderer_of_the_misty_night"								"迷雾"
-		"DOTA_Tooltip_modifier_jack_murderer_of_the_misty_night_Description"					"正处于迷雾中"
-		"DOTA_Tooltip_modifier_jack_surgery"													"外科手术：治疗"
-		"DOTA_Tooltip_modifier_jack_surgery_Description"										"获得%dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%%治疗,%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%生命恢复,%dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%攻击吸血,%dMODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE%%%技能吸血加成"
-		"DOTA_Tooltip_modifier_jack_surgery_target"												"外科手术：解体"
-		"DOTA_Tooltip_modifier_jack_surgery_target_Description"									"受到%dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%%治疗,%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%生命恢复,%dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%攻击吸血,%dMODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE%%%技能吸血降低"
-		"DOTA_Tooltip_modifier_jack_the_mist_cast"												"暗夜雾都"
-		"DOTA_Tooltip_modifier_jack_the_mist_cast_Description"									"使自身周围的迷雾扩大"
-		"DOTA_Tooltip_modifier_jack_maria_the_ripper"											"解体圣母"
-		"DOTA_Tooltip_modifier_jack_maria_the_ripper_Description"								"自身进入无法被真视的隐身状态，连续对敌人进行攻击"
-
-
-
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven"					"Glaives of Wisdom"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Lore"			"Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_Description"	"Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence. Silencer temporarily increases his Intelligence with each hit."
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_intellect_damage_pct"	"%INT TO DAMAGE:"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal"				"INT INCREASE:"
-		"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_datadriven_int_steal_duration"		"INT INCREASE DURATION:"
-		"DOTA_Tooltip_modifier_glaives_of_wisdom_status"								"Glaives of Wisdom"
-		"DOTA_Tooltip_modifier_glaives_of_wisdom_status_Description"				"Temporarily increasing Intelligence"
-
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"暗杀（旧版）"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"施法距离:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"神杖升级暗杀范围:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%神杖升级致命一击:"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"暗杀（旧版）"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
-
-		// 茶神
-		"npc_dota_hero_techies"					"茶神"
-
 		"DOTA_Tooltip_modifier_membership"						"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
 		"DOTA_Tooltip_modifier_membership_Description"			"额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
@@ -340,7 +254,7 @@
 		"DOTA_Tooltip_modifier_player_arrayzoneyour"			"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_nmjb"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 		"DOTA_Tooltip_modifier_player_puck1609"					"<font color='#FFCC66'>★ 魔剑莱瓦汀 ★</font>"
-		"DOTA_Tooltip_modifier_player_puck1609_Description"		"<font color='#FFCC66'> Endless Crazy </font>"
+		"DOTA_Tooltip_modifier_player_puck1609_Description"		"<font color='#FFCC66'> Scarlet Laevatain </font>"
 		"DOTA_Tooltip_modifier_player_puck1609_2"				"<font color='#FFCC66'>★ 梦想天生 ★</font>"
 		"DOTA_Tooltip_modifier_player_puck1609_2_Description"	"<font color='#FFCC66'> Gensokyo Miko </font>"
 		"DOTA_Tooltip_modifier_player_puck1609_3"				"<font color='#FFCC66'>★ 无双风神 ★</font>"
@@ -394,7 +308,94 @@
 		"DOTA_Tooltip_modifier_player_dacapo"					"<font color='#FFCC66'>★ Da丨Capo  ★</font>"
 		"DOTA_Tooltip_modifier_player_xingguang"				"<font color='#FFCC66'>★ 星光灿烂 ★</font>"
 
+		///////////////////////////////////////////////////
+		//
+		//            Heroes
+		//
+		///////////////////////////////////////////////////
+		//杰克
+		"npc_dota_hero_brewmaster"																"开膛手杰克"
+		"npc_dota_hero_brewmaster_npedesc1"														"从这里到地狱，我们是火，是雨，是力量，在这里献上杀戮。"
 
+		"DOTA_Tooltip_ability_jack_presence_concealment"										"气息遮断"
+		"DOTA_Tooltip_ability_jack_presence_concealment_description"							"杰克在夜间或者迷雾中一段时间后，将会进入隐身状态，在此期间获得移动速度加成和自身敏捷值一定比例的攻击力加成，攻击后退出隐身状态，攻击力加成在退出隐身状态后会保持一段时间"
+		"DOTA_Tooltip_ability_jack_presence_concealment_Lore"									"切断作为Servant的气息，适合秘密行动的技能。完全切断气息的话近乎不可能被发现。"
+		"DOTA_Tooltip_ability_jack_presence_concealment_shard_description"						"在夜间或迷雾中可以主动使用此技能，立即进入隐身状态，击杀敌人后刷新此技能冷却"
+		"DOTA_Tooltip_ability_jack_presence_concealment_invision_time"							"渐隐时间："
+		"DOTA_Tooltip_ability_jack_presence_concealment_dmg_add_time"							"攻击力加成持续时间："
+		"DOTA_Tooltip_ability_jack_presence_concealment_dmg_add_agility"						"攻击力加成敏捷系数："
+		"DOTA_Tooltip_ability_jack_presence_concealment_movespeed_add"							"%移动速度加成："
+
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night"									"雾夜凶杀"
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_description"						"杰克在目标地点生成一片迷雾，在迷雾中杰克将进入隐身状态，并使迷雾中的敌人的攻击速度，移动速度，转身速率，视野范围下降\n如果在迷雾中同时拥有气息遮断的隐身效果，隐身将无法被真视"
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_Lore"							"在她不是暗杀者而是杀人狂这一特性上，身为加害者的她总是能对身为被害者的对方占先下手。"
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_duration"						"持续时间："
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_radius"							"迷雾范围："
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_movespeed_down"					"%移动速度降低："
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_attackspeed_down"				"攻击速度降低："
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_turnrate_down"					"%转身速率降低："
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_visionrange_down"				"%视野范围降低："
+
+		"DOTA_Tooltip_ability_jack_surgery"														"外科手术"
+		"DOTA_Tooltip_ability_jack_surgery_description"											"被杰克攻击的敌人将会获得解体效果，每层解体都会降低敌人的治疗，生命恢复，攻击吸血和技能吸血\n每个敌人身上最大解体层数为%max_count%，当达到最大层数时，敌人将受到破坏效果\n敌人失去的属性将会附加给杰克"
+		"DOTA_Tooltip_ability_jack_surgery_Lore"												"可以使用沾满血的手术刀为Master以及自己治疗。开膛手杰克的牺牲者是以“摘除特定脏器”这种需要解剖学知识的方式被杀的。"
+		"DOTA_Tooltip_ability_jack_surgery_duration"											"持续时间："
+		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%每层治疗降低："
+		"DOTA_Tooltip_ability_jack_surgery_regen_down"											"%每层生命恢复降低："
+		"DOTA_Tooltip_ability_jack_surgery_attack_lifesteal_down"								"%每层攻击吸血降低："
+		"DOTA_Tooltip_ability_jack_surgery_spell_lifesteal_down"								"%每层技能吸血降低："
+
+		"DOTA_Tooltip_ability_jack_the_mist"													"暗夜雾都"
+		"DOTA_Tooltip_ability_jack_the_mist_description"										"杰克身边始终围绕着迷雾，在迷雾中的敌人将会受到和雾夜凶杀中的迷雾一样的效果，主动使用可以立刻变成夜晚，并扩大迷雾的范围，持续一段时间"
+		"DOTA_Tooltip_ability_jack_the_mist_Lore"												"工业革命以后，开始被大量排出的庞大煤烟，于1950年代成为硫酸雾在伦敦引起了大灾害。“暗黑雾都”就是重现出那团“死之雾”的宝具。"
+		"DOTA_Tooltip_ability_jack_the_mist_radius_normal"										"默认迷雾范围："
+		"DOTA_Tooltip_ability_jack_the_mist_radius_active"										"激活迷雾范围："
+		"DOTA_Tooltip_ability_jack_the_mist_duration"											"持续时间："
+
+		"DOTA_Tooltip_ability_jack_maria_the_ripper"											"解体圣母"
+		"DOTA_Tooltip_ability_jack_maria_the_ripper_description"								"杰克闪烁至敌人身后，眩晕目标一段时间，如果目标身上有解体效果，则在%atttak_duration%秒内对其进行基于解体次数的攻击，在此期间自身处于不可被真视的隐身状态"
+		"DOTA_Tooltip_ability_jack_maria_the_ripper_Lore"										"“当时伦敦贫民街据说有八万名之多的娼妇们，以生活为由所斩杀扔掉的，连娼妇都成不了的孩子们”的怨念，发挥出凶恶的效果。"
+		"DOTA_Tooltip_ability_jack_maria_the_ripper_stun_duration"								"眩晕时间："
+		"DOTA_Tooltip_ability_jack_maria_the_ripper_attacktimes_count"							"每层解体提供攻击次数："
+
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_1"										"+{s:bonus_heal_down}% 每层解体效果"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_2"										"+{s:bonus_radius} 雾夜凶杀范围"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_3"										"+{s:bonus_dmg_add_agility} 气息遮断敏捷系数"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_4"										"-{s:bonus_invision_time}秒 气息遮断进入隐身时间"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_5"										"+{s:bonus_attacktimes_count} 每层解体提供解体圣母攻击次数"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_6"										"攻击有{s:bonus_talent_chance}%几率再次进行攻击"
+
+		"DOTA_Tooltip_modifier_jack_presence_concealment_invision"								"气息遮断"
+		"DOTA_Tooltip_modifier_jack_presence_concealment_invision_Description"					"杰克进入隐身状态并获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%移动速度加成"
+		"DOTA_Tooltip_modifier_jack_presence_concealment_damage"								"开膛手"
+		"DOTA_Tooltip_modifier_jack_presence_concealment_damage_Description"					"杰克获得%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%攻击力加成"
+		"DOTA_Tooltip_modifier_jack_murderer_of_the_misty_night"								"迷雾"
+		"DOTA_Tooltip_modifier_jack_murderer_of_the_misty_night_Description"					"正处于迷雾中"
+		"DOTA_Tooltip_modifier_jack_surgery"													"外科手术：治疗"
+		"DOTA_Tooltip_modifier_jack_surgery_Description"										"获得%dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%%治疗,%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%生命恢复,%dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%攻击吸血,%dMODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE%%%技能吸血加成"
+		"DOTA_Tooltip_modifier_jack_surgery_target"												"外科手术：解体"
+		"DOTA_Tooltip_modifier_jack_surgery_target_Description"									"受到%dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%%治疗,%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%生命恢复,%dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%攻击吸血,%dMODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE%%%技能吸血降低"
+		"DOTA_Tooltip_modifier_jack_the_mist_cast"												"暗夜雾都"
+		"DOTA_Tooltip_modifier_jack_the_mist_cast_Description"									"使自身周围的迷雾扩大"
+		"DOTA_Tooltip_modifier_jack_maria_the_ripper"											"解体圣母"
+		"DOTA_Tooltip_modifier_jack_maria_the_ripper_Description"								"自身进入无法被真视的隐身状态，连续对敌人进行攻击"
+
+		// 火枪暗杀
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"暗杀（旧版）"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"施法距离:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"神杖升级暗杀范围:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%神杖升级致命一击:"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"暗杀（旧版）"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
+
+		// 茶神
+		"npc_dota_hero_techies"					"茶神"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"
@@ -1224,6 +1225,7 @@
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+状态抗性"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_hp_regen_amp"							"%+自身生命恢复和吸血增强"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_resist"							"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_lifesteal"					    "%+$spell_lifesteal"
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"										"阿迪王"
@@ -1422,6 +1424,14 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_attack_speed"			                "+$attack"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"明智的选择，科学的投资。"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"获得的金钱经验，享有倍率加成！"
+
+	    // item_bloodstone_v2 血精神石
+	    "DOTA_Tooltip_ability_item_bloodstone_v2"						"血精神石"
+	    "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
+        "DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"这块魔石使人能够从魔法中吸取鲜血..."
+        "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
+        "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
+        "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
 
 	}
 }
