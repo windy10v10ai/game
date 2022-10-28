@@ -170,3 +170,7 @@ function IsEnemy(unit1, unit2)
 	return unit1:GetTeamNumber() ~= unit2:GetTeamNumber()
 end
 
+function GetFullCastRange(hHero, hAbility)
+	return hAbility:GetCastRange() + hHero:GetCastRangeBonus()
+end
+
