@@ -9,11 +9,13 @@ function modifier_property_life_steal:OnCreated(kv)
 	self.value = kv.value
     self:SetHasCustomTransmitterData(true)
 end
+
 function modifier_property_life_steal:AddCustomTransmitterData()
     return {
         value = self.value,
     }
 end
+
 function modifier_property_life_steal:HandleCustomTransmitterData( data )
     self.value = data.value
 end

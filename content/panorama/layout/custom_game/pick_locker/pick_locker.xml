@@ -1,0 +1,19 @@
+<!-- xml reconstructed by ValveResourceFormat: https://vrf.steamdb.info/ -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/layout/custom_game/pick_locker/pick_locker.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/long.js" />
+		<include src="file://{resources}/scripts/custom_game/utils.js" />
+		<include src="s2r://panorama/layout/custom_game/pick_locker/pick_locker.vjs_c" />
+	</scripts>
+
+	<Panel hittest="false">
+		<!-- <Button id="CustomRandomButton" class="PickButton" onactivate="PickRandomHero()" onmouseout="UIHideTextTooltip();" onmouseover="UIShowTextTooltip( #DOTA_Hud_Pregame_Random_Tooltip );">
+			<Panel class="RandomIcon" />
+			<Label text="#random" />
+		</Button> -->
+	</Panel>
+</root>

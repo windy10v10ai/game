@@ -1,6 +1,9 @@
 function Printf(pattern, ...)
+	if not AIGameMode.DebugMode then
+		return
+	end
 	local str = string.format(pattern, ...)
-	print(str)
+	GameRules:SendCustomMessage(str, DOTA_TEAM_GOODGUYS, 0)
 end
 
 function PrintTable(t, indent, done)
@@ -126,6 +129,24 @@ function LifeStealOnAttackLanded (params, iLifeSteal, hHero, hAbility)
 	end
 end
 
+function SpellLifeSteal(keys,modifier,base_life_steal,amp_life_steal)
+	if keys.attacker == modifier:GetParent() and keys.inflictor and IsEnemy(keys.attacker, keys.unit) and
+			bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION and
+			bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) ~= DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL then
+		local dmg = keys.damage * (base_life_steal / 100)
+		if amp_life_steal then
+			dmg = dmg * amp_life_steal
+		end
+		if keys.unit:IsCreep() then
+			dmg = dmg / 5
+		end
+		modifier:GetParent():Heal(dmg, modifier.ability)
+		-- Printf("法术吸血系数:%.2f",dmg/keys.damage)
+		local pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, modifier:GetParent())
+		ParticleManager:ReleaseParticleIndex(pfx)
+	end
+end
+
 print("Util loaded.")
 
 function IsGoodTeamPlayer (playerid)
@@ -140,5 +161,16 @@ function IsBadTeamPlayer (playerid)
 		return false
 	end
 	return PlayerResource:GetTeam(playerid) == DOTA_TEAM_BADGUYS
+end
+
+function IsEnemy(unit1, unit2)
+	if unit1 == nil or unit2 == nil then
+		return false
+	end
+	return unit1:GetTeamNumber() ~= unit2:GetTeamNumber()
+end
+
+function GetFullCastRange(hHero, hAbility)
+	return hAbility:GetCastRange() + hHero:GetCastRangeBonus()
 end
 

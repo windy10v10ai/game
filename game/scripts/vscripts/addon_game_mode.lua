@@ -58,7 +58,6 @@ function AIGameMode:EnterDebugMode()
     self.DebugMode = true
     GameRules:SetCustomGameSetupAutoLaunchDelay(30)
     GameRules:SetHeroSelectionTime(15)
-    GameRules:SetStrategyTime(10)
     GameRules:SetPreGameTime(10)
 end
 
@@ -71,7 +70,8 @@ function AIGameMode:InitGameOptions()
     GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, RADIANT_PLAYER_COUNT)
     GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, DIRE_PLAYER_COUNT)
     GameRules:SetStrategyTime(STRATEGY_TIME)
-    GameRules:SetShowcaseTime(0)
+    GameRules:SetShowcaseTime(SHOWCASE_TIME)
+    GameRules:SetCustomGameEndDelay(GAME_END_DELAY)
     GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 
     -- 游戏选择项目初始化
@@ -146,10 +146,10 @@ function AIGameMode:PreGameOptions()
     GameRules:SetGoldPerTick(self.iGoldPerTick)
     GameRules:SetGoldTickTime(self.iGoldTickTime)
     GameRules:SetUseUniversalShopMode(true)
+    GameRules:SetFilterMoreGold(true)
 
     local gameMode = GameRules:GetGameModeEntity()
     gameMode:SetModifyGoldFilter(Dynamic_Wrap(AIGameMode, "FilterGold"), self)
-    GameRules:SetFilterMoreGold(true)
     gameMode:SetModifyExperienceFilter(Dynamic_Wrap(AIGameMode, "FilterXP"), self)
 
     -- 神符
@@ -245,8 +245,8 @@ end
 function AIGameMode:ApplyTestOptions()
     print('------------------------读取个性化测试环境------------------------')
     if self.DebugMode and PlayerResource:GetSteamAccountID(0) == 245559423 then
-        self.iDesiredRadiant = 2
-        self.iDesiredDire = 3
+        self.iDesiredRadiant = 10
+        self.iDesiredDire = 10
     end
 end
 
@@ -254,17 +254,17 @@ end
 --                        Gold/XP Filter                        --
 ------------------------------------------------------------------
 GOLD_REASON_FILTER = {
-    DOTA_ModifyGold_Unspecified,
-    DOTA_ModifyGold_Death,
-    DOTA_ModifyGold_Buyback,
-    DOTA_ModifyGold_PurchaseConsumable,
-    DOTA_ModifyGold_PurchaseItem,
-    DOTA_ModifyGold_AbandonedRedistribute,
-    DOTA_ModifyGold_SellItem,
-    DOTA_ModifyGold_AbilityCost,
-    DOTA_ModifyGold_CheatCommand,
-    DOTA_ModifyGold_SelectionPenalty,
-    DOTA_ModifyGold_GameTick,
+    [DOTA_ModifyGold_Unspecified] = true,
+    [DOTA_ModifyGold_Death] = true,
+    [DOTA_ModifyGold_Buyback] = true,
+    [DOTA_ModifyGold_PurchaseConsumable] = true,
+    [DOTA_ModifyGold_PurchaseItem] = true,
+    [DOTA_ModifyGold_AbandonedRedistribute] = true,
+    [DOTA_ModifyGold_SellItem] = true,
+    [DOTA_ModifyGold_AbilityCost] = true,
+    [DOTA_ModifyGold_CheatCommand] = true,
+    [DOTA_ModifyGold_SelectionPenalty] = true,
+    [DOTA_ModifyGold_GameTick] = true,
     -- DOTA_ModifyGold_Building,
     -- DOTA_ModifyGold_HeroKill,
     -- DOTA_ModifyGold_CreepKill,
@@ -284,10 +284,8 @@ function AIGameMode:FilterGold(tGoldFilter)
     local iReason = tGoldFilter["reason_const"]
 
     -- 过滤一些不走Filter的reason
-    for _, filteredReason in pairs(GOLD_REASON_FILTER) do
-        if filteredReason == iReason then
-            return true
-        end
+    if GOLD_REASON_FILTER[iReason] then
+        return true
     end
 
     -- 通用击杀金钱调整

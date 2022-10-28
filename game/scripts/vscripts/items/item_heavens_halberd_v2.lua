@@ -77,6 +77,7 @@ function modifier_item_heavens_halberd_v2:DeclareFunctions()
         MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
         MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
         MODIFIER_EVENT_ON_ATTACK_LANDED,
+        MODIFIER_EVENT_ON_TAKEDAMAGE,
    }
 end
 
@@ -87,14 +88,22 @@ function modifier_item_heavens_halberd_v2:OnCreated()
     self.cd = 5
 
     if  self.ability then
-    self.bonus_evasion=self.ability:GetSpecialValueFor("bonus_evasion")
-    self.bonus_strength=self.ability:GetSpecialValueFor("bonus_strength")
-    self.hp_regen_amp=self.ability:GetSpecialValueFor("hp_regen_amp")
-    self.attch=self.ability:GetSpecialValueFor("attch")
-    self.disarm=self.ability:GetSpecialValueFor("disarm")
-    self.status_resistance=self.ability:GetSpecialValueFor("status_resistance")
-	self.spell_resist = self:GetAbility():GetSpecialValueFor("spell_resist")
+        self.bonus_evasion=self.ability:GetSpecialValueFor("bonus_evasion")
+        self.bonus_strength=self.ability:GetSpecialValueFor("bonus_strength")
+        self.hp_regen_amp=self.ability:GetSpecialValueFor("hp_regen_amp")
+        self.attch=self.ability:GetSpecialValueFor("attch")
+        self.disarm=self.ability:GetSpecialValueFor("disarm")
+        self.status_resistance=self.ability:GetSpecialValueFor("status_resistance")
+        self.spell_resist = self:GetAbility():GetSpecialValueFor("spell_resist")
+        self.spell_lifesteal = self:GetAbility():GetSpecialValueFor("spell_lifesteal")
     end
+end
+
+function modifier_item_heavens_halberd_v2:OnTakeDamage(keys)
+    if not IsServer() then
+        return
+    end
+    SpellLifeSteal(keys,self,self.spell_lifesteal,nil)
 end
 
 function modifier_item_heavens_halberd_v2:OnIntervalThink()
