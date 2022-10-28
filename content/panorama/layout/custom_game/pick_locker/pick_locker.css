@@ -1,0 +1,49 @@
+#CustomRandomButton{
+  margin-left: 12px;
+  width: 93px;
+  height: 93px;
+  flow-children: none;
+  saturation: 0;
+  brightness: 0.2;
+  tooltip-position: top;
+  tooltip-body-position: 50% 50%;
+}
+ #CustomRandomButton.Activated,#ReCustomRandomButton.Activated,#EnterGameReCustomRandomButton.Activated{
+
+
+  sound: "ui.pick_play";
+ }
+ .LocalPlayerInControl #CustomRandomButton{
+  saturation: 1;
+  brightness: 1;
+ }
+ .LocalPlayerInControl #CustomRandomButton:hover{
+  brightness: 2;
+ }
+ .LocalPlayerInControl #CustomRandomButton:active{
+  brightness: 1.5;
+ }
+ .IsCoach #CustomRandomButton,.HasSelectedHero #CustomRandomButton,.IsInBanPhase #CustomRandomButton{
+
+
+  visibility: collapse;
+ }
+ #CustomRandomButton > Label{
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  text-overflow: shrink;
+  margin-bottom: -6px;
+  vertical-align: bottom;
+ }
+ #CustomRandomButton .RandomIcon{
+  width: 34px;
+  height: 38px;
+  horizontal-align: center;
+ }
+ .RandomIcon{
+  background-image: url("s2r://panorama/images/control_icons/random_dice_psd.vtex");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
