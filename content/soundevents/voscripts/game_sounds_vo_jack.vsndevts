@@ -3,7 +3,7 @@
 	npc_dota_hero_brewmaster.vo.PresenceConcealment.Cast =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -16,7 +16,7 @@
 	npc_dota_hero_brewmaster.vo.PresenceConcealment.ToNight =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -29,7 +29,7 @@
 	npc_dota_hero_brewmaster.vo.MurdererOfTheMistyNight.Cast =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -43,7 +43,7 @@
 	npc_dota_hero_brewmaster.vo.Surgery.Cast =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -56,7 +56,7 @@
 	npc_dota_hero_brewmaster.vo.TheMist.Cast =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -69,7 +69,7 @@
 	npc_dota_hero_brewmaster.vo.MariaTheRipper.Cast =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -82,7 +82,7 @@
 	npc_dota_hero_brewmaster.vo.item_ultimate_scepter =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -95,7 +95,7 @@
 	npc_dota_hero_brewmaster.vo.Attack =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -110,7 +110,7 @@
 	npc_dota_hero_brewmaster.vo.Move =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -125,7 +125,7 @@
 	npc_dota_hero_brewmaster.vo.Upgrade =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -139,7 +139,7 @@
 	npc_dota_hero_brewmaster.vo.Respawn =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -152,7 +152,7 @@
 	npc_dota_hero_brewmaster.vo.Spawn =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -165,7 +165,7 @@
 	npc_dota_hero_brewmaster.vo.BuyBack =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -178,7 +178,7 @@
 	npc_dota_hero_brewmaster.vo.FirstBlood =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -191,7 +191,7 @@
 	npc_dota_hero_brewmaster.vo.Kill =
 	{
 		type = "dota_src1_2d"
-		volume = 1.500000
+		volume = 1.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
