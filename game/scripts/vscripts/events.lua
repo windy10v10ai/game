@@ -358,11 +358,11 @@ function AIGameMode:RefreshGameStatus()
     AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
 
     -- 简单限制电脑前期买活
-    if GameTime <= 15 * 60 then
-        GameRules:SetBuybackEnabled(false)
-    else
-        GameRules:SetBuybackEnabled(true)
-    end
+    -- if GameTime <= 15 * 60 then
+    --     GameRules:SetBuybackEnabled(false)
+    -- else
+    --     GameRules:SetBuybackEnabled(true)
+    -- end
 end
 
 -- 买活时间设定
@@ -723,12 +723,14 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     end
 
     local playerNumber = 0
+    -- 参战率积分
+    local battleParticipationBase = 20
     -- find most kill/assist 1st to 6th
-    local mostKillPlayerIDList = {}
-    local mostKillList = {}
+    -- local mostKillPlayerIDList = {}
+    -- local mostKillList = {}
 
-    local mostAssistsPlayerList = {}
-    local mostAssistsList = {}
+    -- local mostAssistsPlayerList = {}
+    -- local mostAssistsList = {}
 
     local mostDamageReceivedPlayerID_1 = -1
     local mostDamageReceived_1 = 0
@@ -807,38 +809,47 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     else
                         playerInfo.isDisconnect = true
                     end
-                    -- find most kill 1st to 6th
-                    for i = 1, 6 do
-                        if mostKillList[i] == nil then
-                            mostKillList[i] = kills
-                            mostKillPlayerIDList[i] = playerID
-                            break
-                        elseif mostKillList[i] < kills then
-                            for j = 6, i + 1, -1 do
-                                mostKillList[j] = mostKillList[j - 1]
-                                mostKillPlayerIDList[j] = mostKillPlayerIDList[j - 1]
-                            end
-                            mostKillList[i] = kills
-                            mostKillPlayerIDList[i] = playerID
-                            break
-                        end
+                    -- 参战积分
+                    local teamKills = GetTeamHeroKills(PlayerResource:GetTeam(playerID))
+
+                    print("teamKills", teamKills)
+                    if teamKills > 0 then
+                        local battleParticipation = math.floor(battleParticipationBase * ((kills + assists) / teamKills))
+                        print("battleParticipation", battleParticipation)
+                        playerInfo.points = playerInfo.points + battleParticipation
                     end
-                    -- find assist kill 1st to 6th
-                    for i = 1, 6 do
-                        if mostAssistsList[i] == nil then
-                            mostAssistsList[i] = assists
-                            mostAssistsPlayerList[i] = playerID
-                            break
-                        elseif mostAssistsList[i] < assists then
-                            for j = 6, i + 1, -1 do
-                                mostAssistsList[j] = mostAssistsList[j - 1]
-                                mostAssistsPlayerList[j] = mostAssistsPlayerList[j - 1]
-                            end
-                            mostAssistsList[i] = assists
-                            mostAssistsPlayerList[i] = playerID
-                            break
-                        end
-                    end
+                    -- -- find most kill 1st to 6th
+                    -- for i = 1, 6 do
+                    --     if mostKillList[i] == nil then
+                    --         mostKillList[i] = kills
+                    --         mostKillPlayerIDList[i] = playerID
+                    --         break
+                    --     elseif mostKillList[i] < kills then
+                    --         for j = 6, i + 1, -1 do
+                    --             mostKillList[j] = mostKillList[j - 1]
+                    --             mostKillPlayerIDList[j] = mostKillPlayerIDList[j - 1]
+                    --         end
+                    --         mostKillList[i] = kills
+                    --         mostKillPlayerIDList[i] = playerID
+                    --         break
+                    --     end
+                    -- end
+                    -- -- find assist kill 1st to 6th
+                    -- for i = 1, 6 do
+                    --     if mostAssistsList[i] == nil then
+                    --         mostAssistsList[i] = assists
+                    --         mostAssistsPlayerList[i] = playerID
+                    --         break
+                    --     elseif mostAssistsList[i] < assists then
+                    --         for j = 6, i + 1, -1 do
+                    --             mostAssistsList[j] = mostAssistsList[j - 1]
+                    --             mostAssistsPlayerList[j] = mostAssistsPlayerList[j - 1]
+                    --         end
+                    --         mostAssistsList[i] = assists
+                    --         mostAssistsPlayerList[i] = playerID
+                    --         break
+                    --     end
+                    -- end
 
                     if damagereceived > mostDamageReceived_1 then
                         mostDamageReceivedPlayerID_2 = mostDamageReceivedPlayerID_1
@@ -881,14 +892,14 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     local pointHalf = playerNumber * 0.5
 
     -- add point to most player
-    for i = 1, #mostKillPlayerIDList do
-        local playerID = mostKillPlayerIDList[i]
-        data.players[playerID].points = data.players[playerID].points + playerNumber * (2 - 0.2 * (i - 1))
-    end
-    for i = 1, #mostAssistsPlayerList do
-        local playerID = mostAssistsPlayerList[i]
-        data.players[playerID].points = data.players[playerID].points + playerNumber * (2 - 0.2 * (i - 1))
-    end
+    -- for i = 1, #mostKillPlayerIDList do
+    --     local playerID = mostKillPlayerIDList[i]
+    --     data.players[playerID].points = data.players[playerID].points + playerNumber * (2 - 0.2 * (i - 1))
+    -- end
+    -- for i = 1, #mostAssistsPlayerList do
+    --     local playerID = mostAssistsPlayerList[i]
+    --     data.players[playerID].points = data.players[playerID].points + playerNumber * (2 - 0.2 * (i - 1))
+    -- end
 
 
     if mostDamageReceivedPlayerID_1 ~= -1 then
