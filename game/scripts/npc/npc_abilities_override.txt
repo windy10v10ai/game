@@ -8027,7 +8027,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"necromastery_max_souls_scepter" "30"
+				"necromastery_max_souls_scepter" "40"
 				"RequiresScepter"			"1"
 			}
 		}
@@ -11196,6 +11196,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityManaCost"				"100 120 140 160 180"
+		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityValues"
 		{
 			"stun_duration"
@@ -11206,14 +11207,52 @@
 			"damage"
 			{
 				"value"								"40 60 80 100 120"
-				"special_bonus_unique_enigma_5"		"+30"
+				"special_bonus_unique_enigma_5"		"+40"
 			}
 		}
 	}
 	"enigma_demonic_conversion"
 	{
-		"AbilityCooldown"				"40 35 30 25"
+		"AbilityCooldown"				"40 32 24 16"
+        "AbilitySpecial"
+        {
+            "02"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "split_attack_count"	"6 6 5 4"
+            }
+            "03"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "eidolon_hp_tooltip"	"280 300 320 400"
+                "LinkedSpecialBonus"	"special_bonus_unique_enigma_7"
+            }
+        }
 	}
+	"special_bonus_unique_enigma_3"
+    {
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "value"				"45"
+                "ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+            }
+        }
+    }
+	"special_bonus_unique_enigma_4"
+    {
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "value"				"20"
+                "ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+            }
+        }
+    }
 	"special_bonus_unique_enigma"
 	{
 		"AbilitySpecial"
@@ -11229,7 +11268,7 @@
 	"enigma_midnight_pulse"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"60 55 50 45 40"
+		"AbilityCooldown"				"55 50 45 40 35"
 		"AbilityManaCost"				"50 80 110 140 170"
 		"AbilitySpecial"
 		{
@@ -11249,7 +11288,7 @@
 	"enigma_black_hole"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"160.0 155.0 150.0 145.0"
+		"AbilityCooldown"				"145"
 		"AbilityManaCost"				"300 400 500 600"
 		"AbilityValues"
 		{
@@ -11450,16 +11489,16 @@
 	}
 	"grimstroke_soul_chain"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"70 60 50 40"
-		"AbilityCastRange"				"700 800 900 1000"
-		"AbilityManaCost"				"150 200 250 300"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"70 60 50 40 30"
+		"AbilityCastRange"				"700 800 900 1000 1100"
+		"AbilityManaCost"				"150 200 250 300 350"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"chain_duration"		"6.0 7.0 8.0 9.0"
+				"chain_duration"		"6.0 7.0 8.0 9.0 10.0"
 			}
 		}
 	}
@@ -12206,8 +12245,8 @@
         {
             "fiery_soul_attack_speed_bonus"
             {
-                "value"								"10 13 16 19 22"
-                "special_bonus_unique_lina_2"		"+8"
+                "value"								"15 20 25 30 35"
+                "special_bonus_unique_lina_2"		"+10"
             }
             "fiery_soul_move_speed_bonus"
             {
@@ -12348,12 +12387,22 @@
 		"AbilityManaCost"				"70 100 130 160 190"
 		"AbilitySpecial"
 		{
+		    "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "area_of_effect"		"600"
+            }
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"heal"					"60 90 120 150 180"
 				"LinkedSpecialBonus"		"special_bonus_unique_necrophos_4"
 			}
+			"03"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "projectile_speed"		"1000"
+            }
 		}
 	}
 	"special_bonus_unique_necrophos_4"
@@ -12363,7 +12412,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"60"
+				"value"				"70"
 				"ad_linked_abilities"			"necrolyte_death_pulse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -12381,6 +12430,11 @@
 			}
 			"health_regen"	"4 5 6 7 8 9 10"
 			"mana_regen"	"4 5 6 7 8 9 10"
+			"heal_reduction_pct"
+            {
+                "value"					"0"
+                "special_bonus_unique_necrophos_5"		"+40"
+            }
 		}
 	}
 	"necrolyte_sadist"
@@ -12393,7 +12447,7 @@
 			"heal_bonus"
 			{
 				"value"			"45 55 65 75 85"
-				"special_bonus_unique_necrophos_sadist_heal_bonus"		"+15"
+				"special_bonus_unique_necrophos_sadist_heal_bonus"		"+35"
 			}
 			"movement_speed"
 			{
@@ -12416,8 +12470,8 @@
 		{
 			"damage_per_health"			"0.8 0.85 0.9 0.95 1"
 			"stun_duration"				"1.5 1.5 1.5 1.5 1.5"
-			"hp_per_kill"				"2 4 6 8 10"
-			"mana_per_kill"				"1 2 3 4 5"
+			"hp_per_kill"				"4 8 12 16 20"
+			"mana_per_kill"				"2 4 6 8 10"
 		}
 	}
 	//=================================================================================================================
