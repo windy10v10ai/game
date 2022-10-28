@@ -50,7 +50,7 @@ function Snippet_Player(playerId, rootPanel, index) {
 	if (playerData.membership) {
 		panel.AddClass("IsMemberShip");
 		let membershipString = $.Localize('#player_member_ship');
-		let membershipUrl = $.Localize('#player_member_ship_url');
+		let membershipUrl = GetOpenMemberUrl();
 
 		let membershipIcon = panel.FindChildTraverse("PlayerMemberShip");
 

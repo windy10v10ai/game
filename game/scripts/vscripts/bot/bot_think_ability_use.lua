@@ -565,7 +565,6 @@ function BotAbilityThink:ThinkUseAbility_Spectre(hHero)
 			return true
 		end
 	end
-
 end
 
 function BotAbilityThink:ThinkUseAbility_Necrolyte(hHero)
@@ -585,5 +584,4 @@ function BotAbilityThink:ThinkUseAbility_Necrolyte(hHero)
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility4) then return true end
 
 	if self:CastAbilityOnEnemyTargetWithLessHp(hHero, hAbility6, 50) then return true end
-
 end

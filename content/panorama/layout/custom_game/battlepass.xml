@@ -4,6 +4,8 @@
 		<include src="s2r://panorama/styles/custom_game/battlepass.vcss_c" />
 	</styles>
 	<scripts>
+		<include src="file://{resources}/scripts/custom_game/long.js" />
+		<include src="file://{resources}/scripts/custom_game/utils.js" />
 		<include src="s2r://panorama/scripts/custom_game/battlepass.vjs_c" />
 	</scripts>
 	<snippets>
