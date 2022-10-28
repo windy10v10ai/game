@@ -76,9 +76,9 @@ export class Player {
 				const steamId = PlayerResource.GetSteamAccountID(i);
 				const member = this.memberList.find(m => m.steamId == steamId);
 				if (member) {
-					// set key as 64bit steamId
+					// set key as short dotaId
 					// @ts-ignore
-					CustomNetTables.SetTableValue("member_table", PlayerResource.GetSteamID(i).toString(), member);
+					CustomNetTables.SetTableValue("member_table", steamId.toString(), member);
 				}
 			}
 		}
@@ -91,9 +91,9 @@ export class Player {
 				const steamId = PlayerResource.GetSteamAccountID(i);
 				const player = this.playerList.find(p => p.id == steamId.toString());
 				if (player) {
-					// set key as 64bit steamId
+					// set key as short dotaId
 					// @ts-ignore
-					CustomNetTables.SetTableValue("player_table", PlayerResource.GetSteamID(i).toString(), player);
+					CustomNetTables.SetTableValue("player_table", steamId.toString(), player);
 				}
 			}
 		}

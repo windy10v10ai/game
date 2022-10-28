@@ -91,7 +91,7 @@ function Player.prototype.saveMemberToNetTable(self)
                 if member then
                     CustomNetTables:SetTableValue(
                         "member_table",
-                        tostring(PlayerResource:GetSteamID(i)),
+                        tostring(steamId),
                         member
                     )
                 end
@@ -113,7 +113,7 @@ function Player.prototype.savePlayerToNetTable(self)
                 if player then
                     CustomNetTables:SetTableValue(
                         "player_table",
-                        tostring(PlayerResource:GetSteamID(i)),
+                        tostring(steamId),
                         player
                     )
                 end

@@ -6,6 +6,7 @@
 		<include src="file://{resources}/styles/custom_game/end_screen.css" />
 	</styles>
 	<scripts>
+		<include src="file://{resources}/scripts/custom_game/long.js" />
 		<include src="file://{resources}/scripts/custom_game/utils.js" />
 		<include src="file://{resources}/scripts/custom_game/end_screen_2.js" />
 	</scripts>
