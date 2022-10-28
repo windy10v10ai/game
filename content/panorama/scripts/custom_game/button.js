@@ -45,7 +45,7 @@ function LoadAfdianButton() {
         hAfdianButton.style.backgroundSize = "100% 100%";
 
         hAfdianButton.SetPanelEvent('onactivate',() => {
-            $.DispatchEvent('ExternalBrowserGoToURL', 'https://afdian.net/@windy10v10')
+            $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl())
         })
 
         hAfdianButton.SetPanelEvent('onmouseover',() => {
@@ -58,13 +58,10 @@ function LoadAfdianButton() {
     }
 }
 
-function LoadMemberButton(table, key, member) {
-    if (!member || key !== Game.GetLocalPlayerInfo().player_steamid) {
+function LoadMemberButton(member) {
+    if (!member) {
 		return;
 	}
-    $.Msg("button.js LoadMemberButton");
-
-
     const hContainer = FindDotaHudElement('ButtonBar');
 
     if (hContainer){
@@ -92,7 +89,7 @@ function LoadMemberButton(table, key, member) {
         hMemberButton.style.backgroundSize = "100% 100%";
 
         hMemberButton.SetPanelEvent('onactivate',() => {
-            $.DispatchEvent('ExternalBrowserGoToURL', 'https://afdian.net/@windy10v10')
+            $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl())
         })
 
         hMemberButton.SetPanelEvent('onmouseover',() => {
@@ -136,8 +133,6 @@ function LoadDiscordButton() {
     $.Schedule(1, () => {
         LoadPatreonButton();
 		LoadAfdianButton();
-        const steamId64 = Game.GetLocalPlayerInfo().player_steamid;
-        CustomNetTables.SubscribeNetTableListener("ending_stats", LoadMemberButton);
-        LoadMemberButton(null, steamId64, CustomNetTables.GetTableValue("member_table", steamId64));
+        LoadMemberButton(CustomNetTables.GetTableValue("member_table", GetSteamAccountID()));
     });
 })();
