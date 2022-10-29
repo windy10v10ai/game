@@ -167,8 +167,7 @@ function BotAbilityThink:ThinkUseAbility_EarthShaker(hHero)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
 
 	if hAbility2:IsFullyCastable() then
-
-        local iRange = 300
+        local iRange = hAbility2:GetSpecialValueFor("aftershock_range")
         local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
         if #tAllHeroes > 0 then
             if hHero:HasModifier("modifier_item_ultimate_scepter") then

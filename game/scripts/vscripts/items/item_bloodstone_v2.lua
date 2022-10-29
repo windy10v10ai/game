@@ -79,7 +79,6 @@ function modifier_item_bloodstone_v2_amp:OnTakeDamage(keys)
 	if keys.attacker == hero and keys.inflictor and IsEnemy(keys.attacker, keys.unit) and
 			bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION then
 		hero:SetMana(hero:GetMana() + keys.damage)
-		Printf("法术吸蓝量:%.2f", keys.damage)
 		local pfx = ParticleManager:CreateParticle("particles/items_fx/bloodstone_heal_fx_flare.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end
