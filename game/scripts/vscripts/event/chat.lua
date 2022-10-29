@@ -21,16 +21,6 @@ function AIGameMode:OnPlayerChat(event)
     local steamAccountID = PlayerResource:GetSteamAccountID(iPlayerID)
 
     if AIGameMode.DebugMode and developerSteamAccountID[steamAccountID] then
-        if sChatMsg:find('^-greedisgood$') then
-            -- give money to the player
-            -- get hero
-            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-            local iGold = 10000
-            hHero:ModifyGold(iGold, true, DOTA_ModifyGold_CheatCommand)
-            GameRules:SendCustomMessage("号外号外！开发者:" .. developerSteamAccountID[steamAccountID] ..
-                    " 用自己的菊花交换了增加10000金币", DOTA_TEAM_GOODGUYS, 0)
-            return
-        end
         if sChatMsg:find('^-pos$') then
             -- get position
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
@@ -106,6 +96,23 @@ function AIGameMode:OnPlayerChat(event)
             for _, hero in pairs(tAllHeroes) do
                 hero:ModifyGold(99999, true, DOTA_ModifyGold_CheatCommand)
                 hero:AddExperience(999999, DOTA_ModifyXP_Unspecified, false, false)
+            end
+            return
+        end
+
+        if sChatMsg:find('^-hploss$') then
+            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+            hHero:SetHealth(hHero:GetHealth() * 0.1)
+            return
+        end
+
+        if sChatMsg:find('^-f$') then
+            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+            LinkLuaModifier("modifier_wtf", "modifiers/test/modifier_wtf.lua", LUA_MODIFIER_MOTION_NONE)
+            if hHero:HasModifier("modifier_wtf") then
+                hHero:RemoveModifierByName("modifier_wtf")
+            else
+                hHero:AddNewModifier(hHero, nil, "modifier_wtf", { duration = 3600 })
             end
             return
         end

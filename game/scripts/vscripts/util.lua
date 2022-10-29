@@ -140,8 +140,10 @@ function SpellLifeSteal(keys,modifier,base_life_steal,amp_life_steal)
 		if keys.unit:IsCreep() then
 			dmg = dmg / 5
 		end
+		--local preHealth = modifier:GetParent():GetHealth()
 		modifier:GetParent():HealWithParams(dmg,modifier:GetAbility(),false,true,modifier:GetParent(),true)
-		Printf("法术吸血系数:%.2f",dmg/keys.damage)
+		--local curHealth = modifier:GetParent():GetHealth()
+		--Printf("终态法术吸血系数:%.2f",(curHealth-preHealth)/keys.damage)
 		local pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, modifier:GetParent())
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end
