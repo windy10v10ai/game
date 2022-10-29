@@ -2691,6 +2691,13 @@
 		"AbilityDuration"				"0.6 0.9 1.2 1.5 1.8"
 		"AbilitySpecial"
 		{
+		    "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "aftershock_range"			"300"
+                "LinkedSpecialBonus"		"special_bonus_unique_earthshaker_5"
+
+            }
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
@@ -12160,31 +12167,37 @@
 	}
 	"lich_chain_frost"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"90.0 80.0 70.0 60.0"
-		"AbilityManaCost"				"180 300 420 540"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"80 75 70 65 60"
+		"AbilityManaCost"				"180 300 420 540 660"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"		"250 400 550 700"
+				"value"		"250 400 550 700 850"
 				"special_bonus_unique_lich_7" "+100"
 			}
-			"jumps"					"10 10 10"
-			"jump_range"			"400" //600
+			"jumps"
+			{
+			    "value" "10 12 14 16 18"
+			    "special_bonus_unique_lich_401" "+15"
+			}
+			"jump_range"			"600"
 			"slow_movement_speed"	"-65"
 			"slow_attack_speed"		"-65"
 			"slow_duration"			"2.5"
 			"projectile_speed"		"850"
 			"vision_radius"			"800"
-			"bonus_jump_damage"		"15 20 25 30"
+			"bonus_jump_damage"		"15 20 25 30 35"
 			"initial_projectile_speed"		"1050"
-			"has_unlimited_jumps"
-			{
-				"special_bonus_unique_lich_5"	"+1"
-			}
 		}
 	}
+	"special_bonus_unique_lich_401"
+    {
+        "BaseClass"					"special_bonus_undefined"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    }
 	//=================================================================================================================
 	// Ability: Lina 莉娜/火女
 	//=================================================================================================================

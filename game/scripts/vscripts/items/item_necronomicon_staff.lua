@@ -15,7 +15,10 @@ function item_necronomicon_staff:OnSpellStart()
     local duration=self:GetSpecialValueFor("sheep_duration")
     local blast_damage_base=self:GetSpecialValueFor("blast_damage_base")
     local blast_att_multiplier=self:GetSpecialValueFor("blast_att_multiplier")
-    -- target:EmitSound("DOTA_Item.Nullifier.Target")
+
+	if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
+		return
+	end
 
     local allAtt = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()
     local damage = blast_damage_base + allAtt * blast_att_multiplier
