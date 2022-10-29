@@ -780,6 +780,9 @@
         // 剧毒
         "DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} 毒刺伤害"
 
+        // 巫妖
+        "DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} 连环霜冻弹跳次数"
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items

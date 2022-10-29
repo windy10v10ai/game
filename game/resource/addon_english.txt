@@ -628,6 +628,9 @@
         // 剧毒
         "DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} poison sting damage"
 
+        // 巫妖
+        "DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} chain frost jumps"
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
