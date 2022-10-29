@@ -11,14 +11,14 @@ const localized_text = [
 
 const interval = 0.03;
 
-const custom_random_button = $.GetContextPanel().FindChildTraverse("CustomRandomButton")
+// const custom_random_button = $.GetContextPanel().FindChildTraverse("CustomRandomButton")
 const random_button = FindDotaHudElement("RandomButton");
 let random_pressed = false;
 const member = GetMember();
 
 (() => {
 	// random_button.visible = false;
-	custom_random_button.visible = true;
+	// custom_random_button.visible = true;
 	// custom_random_button.SetParent(random_button.GetParent());
 	PickLockerLoop();
 })();

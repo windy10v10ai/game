@@ -141,7 +141,7 @@ function SpellLifeSteal(keys,modifier,base_life_steal,amp_life_steal)
 			dmg = dmg / 5
 		end
 		modifier:GetParent():Heal(dmg, modifier.ability)
-		Printf("法术吸血系数:%.2f",dmg/keys.damage)
+		-- Printf("法术吸血系数:%.2f",dmg/keys.damage)
 		local pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, modifier:GetParent())
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end
