@@ -5904,6 +5904,14 @@
             }
         }
     }
+
+    "item_gem"
+    {
+        "AbilityCastRange"				"600"
+        "ItemStockTime"					"180.0"
+        "AllowedInBackpack"				"1"
+        "IsTempestDoubleClonable"		"1"
+    }
 }
 
 
