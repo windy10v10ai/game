@@ -119,6 +119,10 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_Spectre(hHero)
 	elseif sHeroName == "npc_dota_hero_necrolyte" then
 		self:ThinkUseAbility_Necrolyte(hHero)
+	elseif sHeroName == "npc_dota_hero_riki" then
+		self:ThinkUseAbility_Riki(hHero)
+	elseif sHeroName == "npc_dota_hero_witch_doctor" then
+		self:ThinkUseAbility_WitchDoctor(hHero)
 	end
 end
 
@@ -308,10 +312,21 @@ function BotAbilityThink:ThinkUseAbility_ShadowShaman(hHero)
 	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
 	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility2) then return true end
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility1) then return true end
 	if self:CastAbilityOnEnemyPostion(hHero, hAbility6) then return true end
+
+	if hAbility4:IsFullyCastable() then
+		local iRange = GetFullCastRange(hHero, hAbility4)
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		if #tAllHeroes > 0 then
+			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin() - hHero:GetOrigin(), hAbility4, hHero:GetPlayerOwnerID())
+			return true
+		end
+	end
+
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility3) then return true end
 end
 
@@ -519,4 +534,33 @@ function BotAbilityThink:ThinkUseAbility_Necrolyte(hHero)
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility4) then return true end
 
 	if self:CastAbilityOnEnemyTargetWithLessHp(hHero, hAbility6, 50) then return true end
+end
+
+function BotAbilityThink:ThinkUseAbility_Riki(hHero)
+	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
+
+	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility3) then
+		return true
+	end
+
+	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility4) then
+		return true
+	end
+end
+
+function BotAbilityThink:ThinkUseAbility_WitchDoctor(hHero)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
+
+	if hAbility4:IsFullyCastable() then
+		if hHero:GetHealthPercent() < 50 then
+			local iRange = 600
+			local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+			if #tAllHeroes > 0 then
+				hHero:CastAbilityNoTarget(hAbility4, hHero:GetPlayerOwnerID())
+				return true
+			end
+		end
+	end
+
 end
