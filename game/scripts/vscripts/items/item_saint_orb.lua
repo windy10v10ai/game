@@ -10,7 +10,6 @@ function item_saint_orb:OnSpellStart()
 	local dur = self:GetSpecialValueFor("duration")
 	tar:EmitSound("Item.LotusOrb.Target")
 	tar:AddNewModifier(caster,self,"modifier_item_saint_orb_buff",{duration = dur}) --林肯特效
-	-- tar:AddNewModifier(caster,self,"modifier_item_saint_orb_buff2",{duration = dur})	--反击回血
 	tar:AddNewModifier(caster,self,"modifier_item_lotus_orb_active",{duration = dur})	--原版莲花
 end
 
@@ -88,23 +87,24 @@ function modifier_item_saint_orb_buff:GetTexture() 		return "item_saint_orb" end
 function modifier_item_saint_orb_buff:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-	self:GetParent():Purge(false, true, false, false, false)
-    local pos=self:GetParent():GetAbsOrigin()
-	local fx= ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW ,self:GetParent())
-    ParticleManager:SetParticleControl(fx, 0,pos)
-    ParticleManager:SetParticleControlEnt(fx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
-    ParticleManager:SetParticleControl(fx, 5,pos)
-    self:AddParticle( fx, false, false, 20, false, false )
+		self:GetParent():Purge(false, true, false, false, false)
+		local pos=self:GetParent():GetAbsOrigin()
+		local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW ,self:GetParent())
+		ParticleManager:SetParticleControl(fx, 0, pos)
+		ParticleManager:SetParticleControlEnt(fx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
+		ParticleManager:SetParticleControl(fx, 5, pos)
+		self:AddParticle( fx, false, false, 20, false, false )
 	end
 end
 
 function modifier_item_saint_orb_buff:GetAbsorbSpell(keys)
 	if not IsServer() then
-		return
+		return 0
 	end
-	-- if Is_Chinese_TG(keys.ability:GetCaster(), self:GetParent())then
-	-- 	return 0
-	-- end
+	local caster = keys.ability:GetCaster()
+	if not IsEnemy(caster, self:GetParent()) then
+		return 0
+	end
 	local fx= ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
     ParticleManager:SetParticleControl(fx, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(fx, 1, self:GetParent():GetAbsOrigin())
