@@ -2631,4 +2631,11 @@
 
         "StatusHealth"				"400"		// Base health.
     }
+
+    "npc_dota_sentry_wards"
+    {
+        "BountyXP"					"10"			// Experience earn.
+        "BountyGoldMin"				"10"		// Gold earned min.
+        "BountyGoldMax"				"10"		// Gold earned max.
+    }
 }
