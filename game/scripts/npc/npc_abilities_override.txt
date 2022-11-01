@@ -12123,9 +12123,9 @@
 			"AbilityChannelTime"
 			{
 				"value" "1.4 1.7 2.0 2.3 2.6"
-				"special_bonus_unique_lich_2" "+0.5"
+				"special_bonus_unique_lich_2" "+0.7"
 			}
-			"destination"		"32 38 44 50 50"
+			"destination"		"30 35 40 45 50"
 			"mana_drain"		"10 15 20 25 30"
 			"aoe_scepter"
 			{
