@@ -12117,6 +12117,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"24 22 20 18 16"
+		"AbilityCastRange"				"700"
 		"AbilityValues"
 		{
 			"AbilityChannelTime"
@@ -12124,7 +12125,7 @@
 				"value" "1.4 1.7 2.0 2.3 2.6"
 				"special_bonus_unique_lich_2" "+0.5"
 			}
-			"destination"		"32 38 44 50 56"
+			"destination"		"32 38 44 50 50"
 			"mana_drain"		"10 15 20 25 30"
 			"aoe_scepter"
 			{
@@ -12175,18 +12176,18 @@
 			"damage"
 			{
 				"value"		"250 400 550 700 850"
-				"special_bonus_unique_lich_7" "+100"
+				"special_bonus_unique_lich_7" "+150"
 			}
 			"jumps"
 			{
 			    "value" "10 12 14 16 18"
-			    "special_bonus_unique_lich_401" "+15"
+			    "special_bonus_unique_lich_401" "+18"
 			}
-			"jump_range"			"600"
+			"jump_range"			"650"
 			"slow_movement_speed"	"-65"
 			"slow_attack_speed"		"-65"
 			"slow_duration"			"2.5"
-			"projectile_speed"		"850"
+			"projectile_speed"		"1050"
 			"vision_radius"			"800"
 			"bonus_jump_damage"		"15 20 25 30 35"
 			"initial_projectile_speed"		"1050"
