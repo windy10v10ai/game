@@ -11,9 +11,7 @@ end
 --------------------
 function BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility)
 	if hAbility:IsFullyCastable() then
-		-- TODO 动态施法距离
-		--local iRange = GetFullCastRange(hHero, hAbility)
-		local iRange = hAbility:GetCastRange()
+		local iRange = GetFullCastRange(hHero, hAbility)
 		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 		if #tAllHeroes > 0 then
 			hHero:CastAbilityOnTarget(tAllHeroes[1], hAbility, hHero:GetPlayerOwnerID())
@@ -25,7 +23,7 @@ end
 
 function BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility)
 	if hAbility:IsFullyCastable() then
-		local iRange = hAbility:GetCastRange()
+		local iRange = GetFullCastRange(hHero, hAbility)
 		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 		if #tAllHeroes > 0 then
 			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility, hHero:GetPlayerOwnerID())
@@ -37,7 +35,7 @@ end
 
 function BotAbilityThink:CastAbilityOnFriendTarget(hHero, hAbility)
 	if hAbility:IsFullyCastable() then
-		local iRange = hAbility:GetCastRange()
+		local iRange = GetFullCastRange(hHero, hAbility)
 		local tAllHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
 		if #tAllHeroes > 0 then
 			hHero:CastAbilityOnTarget(tAllHeroes[1], hAbility, hHero:GetPlayerOwnerID())
@@ -49,7 +47,7 @@ end
 
 function BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility, hpPercent)
 	if hAbility:IsFullyCastable() then
-		local iRange = hAbility:GetCastRange()
+		local iRange = GetFullCastRange(hHero, hAbility)
 		local tAllHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
 		for i = 1, #tAllHeroes do
 			if tAllHeroes[i]:GetHealthPercent() <= hpPercent then
@@ -63,7 +61,7 @@ end
 
 function BotAbilityThink:CastAbilityOnEnemyTargetWithLessHp(hHero, hAbility, hpPercent)
 	if hAbility:IsFullyCastable() then
-		local iRange = hAbility:GetCastRange()
+		local iRange = GetFullCastRange(hHero, hAbility)
 		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 		for i = 1, #tAllHeroes do
 			if tAllHeroes[i]:GetHealthPercent() <= hpPercent then
@@ -121,6 +119,10 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_Spectre(hHero)
 	elseif sHeroName == "npc_dota_hero_necrolyte" then
 		self:ThinkUseAbility_Necrolyte(hHero)
+	elseif sHeroName == "npc_dota_hero_riki" then
+		self:ThinkUseAbility_Riki(hHero)
+	elseif sHeroName == "npc_dota_hero_witch_doctor" then
+		self:ThinkUseAbility_WitchDoctor(hHero)
 	end
 end
 
@@ -130,8 +132,7 @@ function BotAbilityThink:ThinkUseAbility_Axe(hHero)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
 
 	if hAbility6:IsFullyCastable() then
-		local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, hAbility6:GetCastRange()+150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-
+		local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, hAbility6:GetCastRange() + 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 		local iThreshold = hAbility6:GetSpecialValueFor("damage")
 		for i, v in ipairs(tAllHeroes) do
 			if v:GetHealth() < iThreshold then
@@ -140,6 +141,7 @@ function BotAbilityThink:ThinkUseAbility_Axe(hHero)
 			end
 		end
 	end
+
 	if hAbility1:IsFullyCastable() then
 		local iRange = hAbility1:GetSpecialValueFor("radius") - 10
 		local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
@@ -147,19 +149,14 @@ function BotAbilityThink:ThinkUseAbility_Axe(hHero)
 		for i = 1, iCount do
 			if tAllHeroes[iCount+1-i]:IsStunned() or tAllHeroes[iCount+1-i]:IsHexed() or tAllHeroes[iCount+1-i]:IsInvisible() then table.remove(tAllHeroes, iCount+1-i) end
 		end
-
 		if #tAllHeroes > 0 then
 			hHero:CastAbilityNoTarget(hAbility1, hHero:GetPlayerOwnerID())
 			return true
 		end
 	end
-	if hAbility2:IsFullyCastable() then
-		local iRange = hAbility2:GetCastRange()
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		for i, v in ipairs(tAllHeroes) do
-			hHero:CastAbilityOnTarget(v, hAbility2, hHero:GetPlayerOwnerID())
-			return true
-		end
+
+	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility2) then
+		return true
 	end
 end
 
@@ -206,16 +203,11 @@ function BotAbilityThink:ThinkUseAbility_Zuus(hHero)
 	local hAbility3 = hHero:GetAbilityByIndex(2)
 	local hAbility4 = hHero:GetAbilityByIndex(3)
 
-	if hAbility2:IsFullyCastable() then
-        local iRange = hAbility2:GetCastRange()
-        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-        if #tAllHeroes > 0 then
-			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility2, hHero:GetPlayerOwnerID())
-            return true
-        end
+	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility2) then
+		return true
 	end
 	if hAbility3:IsFullyCastable() then
-        local iRange = hAbility3:GetCastRange()
+        local iRange = hAbility3:GetSpecialValueFor("range")
         local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
         if #tAllHeroes > 0 then
 			hHero:CastAbilityNoTarget(hAbility3, hHero:GetPlayerOwnerID())
@@ -224,7 +216,7 @@ function BotAbilityThink:ThinkUseAbility_Zuus(hHero)
 	end
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
 		if hAbility4:IsFullyCastable() then
-			local iRange = 3000
+			local iRange = 5000
 			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_FARTHEST, false)
 			if #tAllHeroes > 0 then
 				hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility4, hHero:GetPlayerOwnerID())
@@ -237,13 +229,8 @@ end
 function BotAbilityThink:ThinkUseAbility_Viper(hHero)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
 
-	if hAbility2:IsFullyCastable() then
-        local iRange = hAbility2:GetCastRange()
-        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-        if #tAllHeroes > 0 then
-			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility2, hHero:GetPlayerOwnerID())
-            return true
-        end
+	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility2) then
+		return true
 	end
 end
 
@@ -251,13 +238,8 @@ function BotAbilityThink:ThinkUseAbility_Juggernaut(hHero)
 	local hAbility4 = hHero:GetAbilityByIndex(3)
 
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
-		if hAbility4:IsFullyCastable() then
-			local iRange = hAbility4:GetCastRange()
-			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)
-			if #tAllHeroes > 0 then
-				hHero:CastAbilityOnTarget(tAllHeroes[1], hAbility4, hHero:GetPlayerOwnerID())
-				return
-			end
+		if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility4) then
+			return true
 		end
 	end
 end
@@ -266,21 +248,20 @@ function BotAbilityThink:ThinkUseAbility_Sniper(hHero)
 	local hAbility5 = hHero:GetAbilityByIndex(4)
 
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
-		if hAbility5:IsFullyCastable() then
-			local iRange = hAbility5:GetCastRange()
-			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_FARTHEST, false)
-			if #tAllHeroes > 0 then
-				hHero:CastAbilityOnTarget(tAllHeroes[1], hAbility5, hHero:GetPlayerOwnerID())
-				return
-			end
+		if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility5) then
+			return true
 		end
 	end
 end
 
 function BotAbilityThink:ThinkUseAbility_Kunkka(hHero)
+	local hAbility3 = hHero:GetAbilityByIndex(2)
 	local hAbility4 = hHero:GetAbilityByIndex(3)
 	local hAbility5 = hHero:GetAbilityByIndex(4)
 
+	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility3) then
+		return true
+	end
 	-- kunkka_torrent_storm
 	if hAbility4:IsFullyCastable() then
         local iRange = 900
@@ -291,13 +272,8 @@ function BotAbilityThink:ThinkUseAbility_Kunkka(hHero)
             return true
         end
 	end
-	if hAbility5:IsFullyCastable() then
-        local iRange = 900
-        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-        if #tAllHeroes > 0 then
-			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility5, hHero:GetPlayerOwnerID())
-            return true
-        end
+	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility5) then
+		return true
 	end
 end
 
@@ -319,7 +295,7 @@ function BotAbilityThink:ThinkUseAbility_OgreMagi(hHero)
 
 	-- cast on teammate
 	if hAbility5:IsFullyCastable() then
-        local iRange = 900
+        local iRange = GetFullCastRange(hHero, hAbility5)
         local tAllHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
 		local iCount = #tAllHeroes
 		for i = 1, iCount do
@@ -336,38 +312,34 @@ function BotAbilityThink:ThinkUseAbility_ShadowShaman(hHero)
 	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
 	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility2) then return true end
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility1) then return true end
 	if self:CastAbilityOnEnemyPostion(hHero, hAbility6) then return true end
+
+	if hAbility4:IsFullyCastable() then
+		local iRange = GetFullCastRange(hHero, hAbility4)
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		if #tAllHeroes > 0 then
+			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin() - hHero:GetOrigin(), hAbility4, hHero:GetPlayerOwnerID())
+			return true
+		end
+	end
+
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility3) then return true end
 end
 
 function BotAbilityThink:ThinkUseAbility_Abaddon(hHero)
 	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
-	if hAbility1:IsFullyCastable() then
-		local iRange = hAbility1:GetCastRange()
-		local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-		for i = 1, #tAllHeroes do
-			if tAllHeroes[i]:GetHealthPercent() <= 80 then
-				hHero:CastAbilityOnTarget(tAllHeroes[i], hAbility1, hHero:GetPlayerOwnerID())
-				return true
-			end
-		end
+	if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility1, 99) then
+		return true
 	end
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility1) then return true end
 
-	if hAbility2:IsFullyCastable() then
-		local iRange = hAbility2:GetCastRange()
-		local tAllHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
-		-- for each teammate, check if he has 80% hp or less, if so, cast on him
-		for i = 1, #tAllHeroes do
-			if tAllHeroes[i]:GetHealthPercent() <= 80 and not tAllHeroes[i]:HasModifier("modifier_abaddon_aphotic_shield") then
-				hHero:CastAbilityOnTarget(tAllHeroes[i], hAbility2, hHero:GetPlayerOwnerID())
-				return true
-			end
-		end
+	if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility2, 99) then
+		return true
 	end
 end
 
@@ -381,35 +353,20 @@ function BotAbilityThink:ThinkUseAbility_Meepo(hHero)
 	local hAbility5 = hHero:GetAbilityByIndex(4)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
 
-	if hAbility1:IsFullyCastable() then
-		local iRange = 900
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		if #tAllHeroes > 0 then
-			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility1, hHero:GetPlayerOwnerID())
-			return true
-		end
+	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility1) then
+		return true
 	end
-	if hAbility3:IsFullyCastable() then
-		local iRange = 900
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		if #tAllHeroes > 0 then
-			hHero:CastAbilityOnTarget(tAllHeroes[1], hAbility3, hHero:GetPlayerOwnerID())
-			return true
-		end
+	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility3) then
+		return true
 	end
 
 	if hHero:HasModifier("modifier_chibi_monster") then
-		if hAbility6 and hAbility6:IsFullyCastable() then
-			local iRange = 400
-			local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-			if #tAllHeroes > 0 then
-				hHero:CastAbilityOnTarget(tAllHeroes[1], hAbility6, hHero:GetPlayerOwnerID())
-				return true
-			end
+		if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility6) then
+			return true
 		end
 	else
 		if hAbility6 and hAbility6:IsFullyCastable() then
-			local iRange = 800
+			local iRange = 900
 			local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 			if #tAllHeroes > 0 then
 				hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
@@ -529,15 +486,9 @@ end
 function BotAbilityThink:ThinkUseAbility_Spectre(hHero)
 	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
-	local castRangeBonus = hHero:GetCastRangeBonus()
 
-	if hAbility1:IsFullyCastable() then
-		local castRange = castRangeBonus + hAbility1:GetCastRange()
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, castRange)
-		if #tAllHeroes >= 1 then
-			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility1, hHero:GetPlayerOwnerID())
-			return true
-		end
+	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility1) then
+		return true
 	end
 
 	if hAbility2:IsFullyCastable() then
@@ -583,4 +534,33 @@ function BotAbilityThink:ThinkUseAbility_Necrolyte(hHero)
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility4) then return true end
 
 	if self:CastAbilityOnEnemyTargetWithLessHp(hHero, hAbility6, 50) then return true end
+end
+
+function BotAbilityThink:ThinkUseAbility_Riki(hHero)
+	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
+
+	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility3) then
+		return true
+	end
+
+	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility4) then
+		return true
+	end
+end
+
+function BotAbilityThink:ThinkUseAbility_WitchDoctor(hHero)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
+
+	if hAbility4:IsFullyCastable() then
+		if hHero:GetHealthPercent() < 50 then
+			local iRange = 600
+			local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+			if #tAllHeroes > 0 then
+				hHero:CastAbilityNoTarget(hAbility4, hHero:GetPlayerOwnerID())
+				return true
+			end
+		end
+	end
+
 end
