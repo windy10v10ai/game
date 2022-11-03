@@ -12488,7 +12488,7 @@
 	"necrolyte_reapers_scythe"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"75"
+		"AbilityCooldown"				"70"
 		"AbilityManaCost"				"250 375 500 625 750"
 		"AbilityValues"
 		{
