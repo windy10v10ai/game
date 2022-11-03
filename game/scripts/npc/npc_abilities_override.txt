@@ -11009,17 +11009,17 @@
 			"06"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"exorcism_1_extra_spirits"			"1 1 1 1 2"
+				"exorcism_1_extra_spirits"			"0"
 			}
 			"07"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"exorcism_2_extra_spirits"			"1 1 1 1 2"
+				"exorcism_2_extra_spirits"			"0"
 			}
 			"08"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"exorcism_3_extra_spirits"			"1 1 1 1 2"
+				"exorcism_3_extra_spirits"			"0"
 			}
 		}
 	}
@@ -11032,9 +11032,10 @@
 		"AbilityValues"
 		{
 		        "radius"				"800"
+		        "spirit_speed"			"800"
 				"spirits"
 				{
-					"value"					"3 5 7 9 11"
+					"value"					"4 5 6 7 8"
 					"LinkedSpecialBonus"	"special_bonus_unique_death_prophet"
 				}
 				"min_damage"			"100 150 200 250 300"
@@ -11051,7 +11052,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"3"
+				"value"				"6"
 				"ad_linked_abilities"			"death_prophet_exorcism"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
