@@ -11347,26 +11347,39 @@
 	"furion_teleportation"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"65 50 35 20 5"
+		"AbilityCooldown"				"65 50 35 20 10"
 	}
 	"furion_force_of_nature"
 	{
-		"AbilityCastRange"				"750"
-		"AbilityCooldown"				"40"
+		"AbilityCastRange"				"900"
+		"AbilityCooldown"				"35"
 		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"150 225 300 375"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_treants"			"2 3 4 5"
-				"LinkedSpecialBonus"	"special_bonus_unique_furion_2"
-			}
-		}
+        {
+            "04"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "treant_health_tooltip"				"550 600 650 700"
+                "LinkedSpecialBonus"	"special_bonus_unique_furion"
+                "LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+            }
+            "05"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "treant_dmg_tooltip"				"20 30 40 50"
+                "LinkedSpecialBonus"	"special_bonus_unique_furion"
+                "LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+            }
+            "06"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "treant_hp_bonus"				"1100 1200 1300 1400"
+            }
+            "07"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "treant_damage_bonus"		"40 60 80 100"
+            }
+        }
 	}
 	"special_bonus_unique_furion_2"
 	{
@@ -11396,12 +11409,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_percent_add"	"10"
+				"damage_percent_add"	"12"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"kill_damage"			"10"
+				"kill_damage"			"15"
 			}
 			"06"
 			{
@@ -11410,6 +11423,18 @@
 			}
 		}
 	}
+	"special_bonus_unique_furion"
+    {
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "value"				"3"
+                "ad_linked_abilities"			"furion_force_of_nature"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+            }
+        }
+    }
 	//=================================================================================================================
 	// Ability: Grimstroke 天涯墨客
 	//=================================================================================================================
