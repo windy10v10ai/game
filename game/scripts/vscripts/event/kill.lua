@@ -159,7 +159,7 @@ local function HeroKilled(keys)
     -- NEC大招
     if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
         fRespawnTime = fRespawnTime +
-                hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel() * 10
+                hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel() * 6
     end
 
     -- 会员减少5s复活时间
