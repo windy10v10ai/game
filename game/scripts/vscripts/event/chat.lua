@@ -10,8 +10,6 @@ developerSteamAccountID[385130282] = "米米花"
 developerSteamAccountID[353885092] = "76岁靠谱成年男性"
 developerSteamAccountID[245559423] = "puck1609"
 
-local luoshuHeroSteamAccountID = Set { 136668998, 138837968 }
-
 function AIGameMode:OnPlayerChat(event)
     local iPlayerID = event.playerid
     local sChatMsg = event.text
