@@ -1735,15 +1735,15 @@
 		"AbilityManaCost"				"65"
 		"AbilityValues"
 		{
-			"radius"					"175"
+			"radius"					"200"
 			"spread"					"450"
 			"range"						"1500"
 			"axe_damage"					"40 70 100 130 160"
 			"duration"						"12"
 			"damage_amp"
 			{
-				"value"				"6 8 10 12 14"
-				"special_bonus_unique_beastmaster_9"		"+4"
+				"value"				"10 12 14 16 18"
+				"special_bonus_unique_beastmaster_9"		"+7"
 			}
 			"AbilityCooldown"
 			{
@@ -1761,14 +1761,13 @@
 		"AbilityManaCost"				"60 65 70 75 80"
 		"AbilityValues"
 		{
-
 			"duration"							"60"
-			"boar_base_max_health"				"450 600 750 900 1050"
-			"boar_base_damage"					"30 50 70 90 110"
+			"boar_base_max_health"				"600 900 1200 1500 1800"
+			"boar_base_damage"					"30 60 90 120 180"
 			"boar_bonus_damage"
 			{
 				"value"										"0"
-				"special_bonus_unique_beastmaster_2"		"+70"
+				"special_bonus_unique_beastmaster_2"		"+120"
 			}
 			"boar_base_xp_bounty"				"90"
 			"boar_base_movespeed"				"360"
@@ -1795,7 +1794,7 @@
 			"hawk_base_max_health"			"200 250 300 350 400"
 			"hawk_base_movespeed"			"420"
 			"hawk_base_gold_bounty"			"60"
-			"hawk_base_vision_range"		"750 800 850 900 950"
+			"hawk_base_vision_range"		"800 900 1000 1100 1200"
 			"AbilityCooldown"
 			{
 				"value"						"50 45 40 35 30"
@@ -1816,14 +1815,14 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_ms"					"40"
+			"bonus_ms"					"80"
 		}
 	}
 	"special_bonus_unique_beastmaster_6"
 	{
 		"AbilityValues"
 		{
-			"bonus_hp"				"450"
+			"bonus_hp"				"600"
 		}
 	}
 	"beastmaster_inner_beast"
@@ -1835,7 +1834,7 @@
 			"bonus_attack_speed"
 			{
 				"value"									"20 30 40 50 60"
-				"special_bonus_unique_beastmaster_4"		"+20"
+				"special_bonus_unique_beastmaster_4"		"+30"
 			}
 		}
 	}
@@ -1861,9 +1860,20 @@
 				"value"				"80.0 70.0 60.0 50.0"
 				"special_bonus_unique_beastmaster_7"		"-20"
 			}
-
 		}
 	}
+	//=================================================================================================================
+    // Beastmaster: Drums of Slom (scepter)
+    //=================================================================================================================
+    "beastmaster_drums_of_slom"
+    {
+        "AbilityCooldown"				"35"
+        "AbilityValues"
+        {
+            "heal_pct"						"40"
+            "creep_heal_pct"				"30"
+        }
+    }
 	//=================================================================================================================
 	// Ability: Brewmaster 熊猫酒仙
 	//=================================================================================================================
@@ -11220,18 +11230,18 @@
 	}
 	"enigma_demonic_conversion"
 	{
-		"AbilityCooldown"				"40 32 24 16"
+		"AbilityCooldown"				"34 30 26 22"
         "AbilitySpecial"
         {
             "02"
             {
                 "var_type"				"FIELD_INTEGER"
-                "split_attack_count"	"6 6 5 4"
+                "split_attack_count"	"6 5 4 3"
             }
             "03"
             {
                 "var_type"				"FIELD_INTEGER"
-                "eidolon_hp_tooltip"	"280 300 320 400"
+                "eidolon_hp_tooltip"	"250 400 550 700"
                 "LinkedSpecialBonus"	"special_bonus_unique_enigma_7"
             }
         }
