@@ -11039,7 +11039,7 @@
 				}
 				"min_damage"			"100 150 200 250 300"
 				"max_damage"			"100 150 200 250 300"
-				"average_damage"		"80 120 160 200 240"
+				"average_damage"		"100 150 200 250 300"
 				"movement_base"					"30"
 				"movement_bonus"				"30"
 		}
