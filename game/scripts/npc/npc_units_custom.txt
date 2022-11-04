@@ -2253,7 +2253,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"450"		// Base health.
+		"StatusHealth"				"600"		// Base health.
 		"StatusHealthRegen"			"1.5"		// Health regeneration rate.
 
 		// Vision
@@ -2273,40 +2273,40 @@
 	{
 		"include_keys_from" "npc_dota_beastmaster_boar"
 
-		"AttackDamageMin"			"50"		// Damage range min.
-		"AttackDamageMax"			"50"		// Damage range max.
+		"AttackDamageMin"			"60"		// Damage range min.
+		"AttackDamageMax"			"60"		// Damage range max.
 
-		"StatusHealth"				"600"		// Base health.
+		"StatusHealth"				"900"		// Base health.
 	}
 
 	"npc_dota_beastmaster_boar_3"
 	{
 		"include_keys_from" "npc_dota_beastmaster_boar"
 
-		"AttackDamageMin"			"70"		// Damage range min.
-		"AttackDamageMax"			"70"		// Damage range max.
+		"AttackDamageMin"			"90"		// Damage range min.
+		"AttackDamageMax"			"90"		// Damage range max.
 
-		"StatusHealth"				"750"		// Base health.
+		"StatusHealth"				"1200"		// Base health.
 	}
 
 	"npc_dota_beastmaster_boar_4"
 	{
 		"include_keys_from" "npc_dota_beastmaster_boar"
 
-		"AttackDamageMin"			"90"		// Damage range min.
-		"AttackDamageMax"			"90"		// Damage range max.
+		"AttackDamageMin"			"120"		// Damage range min.
+		"AttackDamageMax"			"120"		// Damage range max.
 
-		"StatusHealth"				"900"		// Base health.
+		"StatusHealth"				"1500"		// Base health.
 	}
 
 	"npc_dota_beastmaster_boar_5"
 	{
 		"include_keys_from" "npc_dota_beastmaster_boar"
 
-		"AttackDamageMin"			"110"		// Damage range min.
-		"AttackDamageMax"			"110"		// Damage range max.
+		"AttackDamageMin"			"150"		// Damage range min.
+		"AttackDamageMax"			"150"		// Damage range max.
 
-		"StatusHealth"				"1050"		// Base health.
+		"StatusHealth"				"1800"		// Base health.
 	}
 
     // beastmaster_hawk 兽王战鹰
@@ -2361,8 +2361,8 @@
 
 		// Vision
 		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"750"		// Range of vision during day light.
-		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+		"VisionDaytimeRange"		"800"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
 
 		// Team
 		//----------------------------------------------------------------
@@ -2380,8 +2380,8 @@
 
 		"StatusHealth"				"250"		// Base health.
 
-		"VisionDaytimeRange"		"800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+		"VisionDaytimeRange"		"900"		// Range of vision during day light.
+		"VisionNighttimeRange"		"900"		// Range of vision at night time.
 	}
 
 	"npc_dota_beastmaster_hawk_3"
@@ -2390,8 +2390,8 @@
 
 		"StatusHealth"				"300"		// Base health.
 
-		"VisionDaytimeRange"		"850"		// Range of vision during day light.
-		"VisionNighttimeRange"		"850"		// Range of vision at night time.
+		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
 	}
 
 	"npc_dota_beastmaster_hawk_4"
@@ -2400,8 +2400,8 @@
 
 		"StatusHealth"				"350"		// Base health.
 
-		"VisionDaytimeRange"		"850"		// Range of vision during day light.
-		"VisionNighttimeRange"		"850"		// Range of vision at night time.
+		"VisionDaytimeRange"		"1100"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1100"		// Range of vision at night time.
 	}
 
 	"npc_dota_beastmaster_hawk_5"
@@ -2410,8 +2410,8 @@
 
 		"StatusHealth"				"400"		// Base health.
 
-		"VisionDaytimeRange"		"900"		// Range of vision during day light.
-		"VisionNighttimeRange"		"900"		// Range of vision at night time.
+		"VisionDaytimeRange"		"1200"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
 	}
 
     // wraith_king_skeleton_warrior 骷髅王骷髅兵
@@ -2492,6 +2492,7 @@
 		"VisionDaytimeRange"		"800"		// Range of vision during day light.
 		"VisionNighttimeRange"		"600"		// Range of vision at night time.
 	}
+	// 小谜团
 	"npc_dota_lesser_eidolon"
     {
         // General
@@ -2529,7 +2530,7 @@
         "AttackDamageMin"			"16"		// Damage range min.
         "AttackDamageMax"			"24"		// Damage range max.
         "AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-        "AttackRate"				"1.3"			// Speed of attack.
+        "AttackRate"				"1.25"			// Speed of attack.
         "AttackAnimationPoint"		"0.2"		// Normalized time in animation cycle to attack.
         "AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
         "AttackRange"				"500"		// Range within a target can be attacked.
@@ -2555,7 +2556,7 @@
 
         // Status
         //----------------------------------------------------------------
-        "StatusHealth"				"280"		// Base health.
+        "StatusHealth"				"250"		// Base health.
         "StatusHealthRegen"			"4"		// Health regeneration rate.
         "StatusMana"				"0"			// Base mana.
         "StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -2581,7 +2582,7 @@
         "ArmorPhysical"				"15"			// Physical protection.
         "MagicalResistance"			"40"		// Magical protection.
 
-        "AttackRate"				"1.2"
+        "AttackRate"				"1.1"
         "AttackDamageMin"			"24"		// Damage range min.
         "AttackDamageMax"			"32"		// Damage range max.
 
@@ -2589,7 +2590,7 @@
 
         "MovementSpeed"				"310"		// Speed
 
-        "StatusHealth"				"300"		// Base health.
+        "StatusHealth"				"400"		// Base health.
 
     }
 
@@ -2600,7 +2601,7 @@
         "ArmorPhysical"				"10"			// Physical protection.
         "MagicalResistance"			"50"		// Magical protection.
 
-        "AttackRate"				"1.1"
+        "AttackRate"				"0.95"
         "AttackDamageMin"			"34"		// Damage range min.
         "AttackDamageMax"			"42"		// Damage range max.
 
@@ -2608,7 +2609,7 @@
 
         "MovementSpeed"				"340"		// Speed
 
-        "StatusHealth"				"320"		// Base health.
+        "StatusHealth"				"550"		// Base health.
 
     }
 
@@ -2621,7 +2622,7 @@
         "ArmorPhysical"				"20"			// Physical protection.
         "MagicalResistance"			"60"		// Magical protection.
 
-        "AttackRate"				"0.9"
+        "AttackRate"				"0.8"
         "AttackDamageMin"			"43"		// Damage range min.
         "AttackDamageMax"			"51"		// Damage range max.
 
@@ -2629,7 +2630,7 @@
 
         "MovementSpeed"				"370"		// Speed
 
-        "StatusHealth"				"400"		// Base health.
+        "StatusHealth"				"700"		// Base health.
     }
 
     "npc_dota_sentry_wards"
@@ -2637,5 +2638,41 @@
         "BountyXP"					"10"			// Experience earn.
         "BountyGoldMin"				"10"		// Gold earned min.
         "BountyGoldMax"				"10"		// Gold earned max.
+    }
+
+    "npc_dota_furion_treant_1"
+    {
+        "AttackDamageMin"			"20"		// Damage range min.
+        "AttackDamageMax"			"20"		// Damage range max.
+        "AttackRate"				"1.4"		// Speed of attack.
+
+        "StatusHealth"				"550"		// Base health.
+    }
+
+    "npc_dota_furion_treant_2"
+    {
+       "AttackDamageMin"			"30"		// Damage range min.
+       "AttackDamageMax"			"30"		// Damage range max.
+       "AttackRate"				    "1.4"		// Speed of attack.
+
+       "StatusHealth"				"600"		// Base health.
+    }
+
+    "npc_dota_furion_treant_3"
+    {
+        "AttackDamageMin"			"40"		// Damage range min.
+        "AttackDamageMax"			"40"		// Damage range max.
+        "AttackRate"				"1.4"		// Speed of attack.
+
+        "StatusHealth"				"650"		// Base health.
+    }
+
+    "npc_dota_furion_treant_4"
+    {
+        "AttackDamageMin"			"50"		// Damage range min.
+        "AttackDamageMax"			"50"		// Damage range max.
+        "AttackRate"				"1.4"		// Speed of attack.
+
+        "StatusHealth"				"700"		// Base health.
     }
 }
