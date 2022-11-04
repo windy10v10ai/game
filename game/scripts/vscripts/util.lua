@@ -174,7 +174,7 @@ end
 
 function GetFullCastRange(hHero, hAbility)
 	-- 兼容 技能 or 物品
-	return hAbility:GetCastRange() + hHero:GetCastRangeBonus()
+	return hAbility:GetCastRange(hHero:GetOrigin(), nil) + hHero:GetCastRangeBonus()
 end
 
 
