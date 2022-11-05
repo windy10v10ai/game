@@ -76,8 +76,9 @@ export class Player {
 			this.saveMemberToNetTable();
 			this.savePlayerToNetTable();
 
+			const status = this.playerList.length > 0 ? 2 : 3;
 			// @ts-ignore
-			CustomNetTables.SetTableValue("loading_status", "loading_status", { status: 2 });
+			CustomNetTables.SetTableValue("loading_status", "loading_status", { status });
 		});
 	}
 
