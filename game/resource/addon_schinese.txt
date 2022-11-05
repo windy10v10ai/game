@@ -61,6 +61,10 @@
 		"respawn_time_percentage_fast"         "快速"
 		"respawn_time_percentage_0"          "秒活 (可能卡顿)"
 
+		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
+		"loading_status_2"				"玩家数据加载成功！"
+		"loading_status_3"				"玩家数据加载失败，请使用服务器主机重新开始游戏。"
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		//            Hero Selection
