@@ -950,7 +950,7 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
         points = points * AIGameMode.iDesiredDire / 10
     end
 
-    if GameRules:GetDOTATime(false, true) < 20 * 60 then
+    if GameRules:GetDOTATime(false, true) < 15 * 60 then
         points = points * 0.5
     end
     if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
