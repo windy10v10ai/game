@@ -15,20 +15,20 @@ function PlayerDataLoaded(player) {
 		return;
 	}
 
-	let chargePointTotal = player.chargePointTotal;
+	let memberPointTotal = player.memberPointTotal;
 	let seasonPointTotal = player.seasonPointTotal;
 
-	$("#ChargePoint").text = player.chargePointTotal;
+	$("#ChargePoint").text = player.memberPointTotal;
 	$("#SeasonPoint").text = player.seasonPointTotal;
-	// let levelPointsLabel = $("#BpLevelNextRemainingNumber");
-	// let levelPointsProgress = $("#BpLevelNextRemainingBarLeft");
 
-	// let currentLevel = Math.floor(localPlayerStats.bp_points / 1000);
-	// let currentPoints = Math.round(localPlayerStats.bp_points - currentLevel * 1000);
+	$("#SeasonLevelNumber").text = player.seasonLevel + 1;
+	$("#SeasonLevelNextRemainingNumber").text = `${player.seasonCurrrentLevelPoint} / ${player.seasonNextLevelPoint}`;
+	$("#MemberLevelNumber").text = player.memberLevel + 1;
+	$("#MemberLevelNextRemainingNumber").text = `${player.memberCurrentLevelPoint} / ${player.memberNextLevelPoint}`;
 
-	// levelLabel.text = 1 + currentLevel;
-	// levelPointsLabel.text = currentPoints + "/1000";
-	// levelPointsProgress.style.width = currentPoints / 10 + "%";
+	$("#SeasonLevelNextRemainingBarLeft").style.width = `${(player.seasonCurrrentLevelPoint / player.seasonNextLevelPoint) * 100}%`;
+	$("#MemberLevelNextRemainingBarLeft").style.width = `${(player.memberCurrentLevelPoint / player.memberNextLevelPoint) * 100}%`;
+
 	// CreatePatreonPetList();
 	// CreatePatreonEffectList();
 	// CreateBattlepassRewardsList();

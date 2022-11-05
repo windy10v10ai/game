@@ -5885,17 +5885,17 @@
             "03"
             {
                 "var_type"				"FIELD_INTEGER"
-                "spell_lifesteal"			"60"
+                "spell_lifesteal"			"50"
             }
             "04"
             {
                 "var_type"				"FIELD_INTEGER"
-                "buff_duration"			"8"
+                "buff_duration"			"6"
             }
             "05"
             {
                 "var_type"				"FIELD_FLOAT"
-                "lifesteal_multiplier"		"2.5"
+                "lifesteal_multiplier"		"2"
             }
             "06"
             {
@@ -5903,6 +5903,14 @@
                 "hp_cost"		"0"
             }
         }
+    }
+
+    "item_gem"
+    {
+        "AbilityCastRange"				"600"
+        "ItemStockTime"					"180.0"
+        "AllowedInBackpack"				"1"
+        "IsTempestDoubleClonable"		"1"
     }
 }
 
