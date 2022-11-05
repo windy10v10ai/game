@@ -144,8 +144,13 @@ function OnGameLoadingStatusChange(table, key, value) {
 	if (value) {
 		const status = value.status;
 		$("#GameLoadingStatusText").text = $.Localize("#loading_status_" + status);
+		if (status == 1) {
+			$("#GameLoadingStatusText").style.color = "#FD841F";
+		}
+		if (status == 2) {
+			$("#GameLoadingStatusText").style.color = "#5DA7DB";
+		}
 		if (status == 3) {
-			// set text coler to red
 			$("#GameLoadingStatusText").style.color = "#E14D2A";
 		}
 	}
