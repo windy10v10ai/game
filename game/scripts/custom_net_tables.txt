@@ -2,6 +2,7 @@
 {
   custom_net_tables =
   [
+    "loading_status",
     "player_tome_table",
     "game_options_table",
     "ending_stats",

@@ -12,10 +12,16 @@ class PlayerDto {
 	matchCount!: number;
 	winCount!: number;
 	disconnectCount!: number;
-	seasonPointUsable!: number;
 	seasonPointTotal!: number;
-	chargePointUsable!: number;
-	chargePointTotal!: number;
+	seasonLevel!: number;
+	seasonCurrrentLevelPoint!: number;
+	seasonNextLevelPoint!: number;
+
+
+	memberPointTotal!: number;
+	memberLevel!: number;
+	memberCurrentLevelPoint!: number;
+	memberNextLevelPoint!: number;
 }
 
 
@@ -27,7 +33,7 @@ class GameStart {
 export class Player {
 	private memberList: MemberDto[] = [];
 	private playerList: PlayerDto[] = [];
-	private static GAME_START_URL = "/game/start/v2";
+	private static GAME_START_URL = "/game/start";
 	constructor() {
 		if (IsInToolsMode()) {
 			const developSteamAccountIds = [
@@ -47,6 +53,9 @@ export class Player {
 		if (IsInToolsMode()) {
 			this.saveMemberToNetTable();
 		}
+
+		// @ts-ignore
+		CustomNetTables.SetTableValue("loading_status", "loading_status", { status: 1 });
 		// get IsValidPlayer player's steamIds
 		const steamIds = [];
 		for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
@@ -66,6 +75,9 @@ export class Player {
 			// set member to member table
 			this.saveMemberToNetTable();
 			this.savePlayerToNetTable();
+
+			// @ts-ignore
+			CustomNetTables.SetTableValue("loading_status", "loading_status", { status: 2 });
 		});
 	}
 

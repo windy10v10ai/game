@@ -1485,6 +1485,17 @@ tBotItemData.wardHeroList = Set {
 	'npc_dota_hero_ogre_magi',
 	'npc_dota_hero_oracle',
 	'npc_dota_hero_shadow_shaman',
+	'npc_dota_hero_necrolyte',
+	'npc_dota_hero_dazzle',
+	'npc_dota_hero_death_prophet',
+	'npc_dota_hero_earthshaker',
+	'npc_dota_hero_jakiro',
+	'npc_dota_hero_lina',
+	'npc_dota_hero_omniknight',
+	'npc_dota_hero_riki',
+	'npc_dota_hero_sand_king',
+	'npc_dota_hero_tiny',
+	'npc_dota_hero_windrunner'
 }
 
 tBotItemData.wardObserverPostionList = {

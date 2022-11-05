@@ -10,8 +10,6 @@ developerSteamAccountID[385130282] = "米米花"
 developerSteamAccountID[353885092] = "76岁靠谱成年男性"
 developerSteamAccountID[245559423] = "puck1609"
 
-local luoshuHeroSteamAccountID = Set { 136668998, 138837968 }
-
 function AIGameMode:OnPlayerChat(event)
     local iPlayerID = event.playerid
     local sChatMsg = event.text
@@ -21,16 +19,6 @@ function AIGameMode:OnPlayerChat(event)
     local steamAccountID = PlayerResource:GetSteamAccountID(iPlayerID)
 
     if AIGameMode.DebugMode and developerSteamAccountID[steamAccountID] then
-        if sChatMsg:find('^-greedisgood$') then
-            -- give money to the player
-            -- get hero
-            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-            local iGold = 10000
-            hHero:ModifyGold(iGold, true, DOTA_ModifyGold_CheatCommand)
-            GameRules:SendCustomMessage("号外号外！开发者:" .. developerSteamAccountID[steamAccountID] ..
-                    " 用自己的菊花交换了增加10000金币", DOTA_TEAM_GOODGUYS, 0)
-            return
-        end
         if sChatMsg:find('^-pos$') then
             -- get position
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
@@ -110,54 +98,23 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
-    end
-
-    if Player:IsMember(steamAccountID) then
-        local pszHeroClass
-
-        if sChatMsg:find('-超级赛亚人') then
-            pszHeroClass = "npc_dota_hero_chen"
-        end
-        if sChatMsg:find('-Goku') then
-            pszHeroClass = "npc_dota_hero_chen"
-        end
-
-        if sChatMsg:find('-八云紫') then
-            pszHeroClass = "npc_dota_hero_phantom_lancer"
-        end
-        if sChatMsg:find('-Yukari') then
-            pszHeroClass = "npc_dota_hero_phantom_lancer"
-        end
-        if pszHeroClass ~= nil then
-            if AIGameMode.tIfChangeHeroList[iPlayerID] then
-                return
-            end
-            AIGameMode.tIfChangeHeroList[iPlayerID] = true
-            AIGameMode.tIfItemChosen[iPlayerID] = false
-            AIGameMode.tIfItemChooseInited[iPlayerID] = false
+        if sChatMsg:find('^-hploss$') then
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-            PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
+            hHero:SetHealth(hHero:GetHealth() * 0.1)
             return
         end
-    end
-    if luoshuHeroSteamAccountID[steamAccountID] then
-        local pszHeroClass
-        if sChatMsg:find('-超级赛亚人') then
-            pszHeroClass = "npc_dota_hero_chen"
-        end
-        if sChatMsg:find('-男妈妈来哩') then
-            pszHeroClass = "npc_dota_hero_brewmaster"
-        end
-        if pszHeroClass ~= nil then
-            if AIGameMode.tIfChangeHeroList[iPlayerID] then
-                return
-            end
-            AIGameMode.tIfChangeHeroList[iPlayerID] = true
-            AIGameMode.tIfItemChosen[iPlayerID] = false
-            AIGameMode.tIfItemChooseInited[iPlayerID] = false
+
+        if sChatMsg:find('^-f$') then
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-            PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
+            LinkLuaModifier("modifier_wtf", "modifiers/test/modifier_wtf.lua", LUA_MODIFIER_MOTION_NONE)
+            if hHero:HasModifier("modifier_wtf") then
+                hHero:RemoveModifierByName("modifier_wtf")
+            else
+                hHero:AddNewModifier(hHero, nil, "modifier_wtf", { duration = 3600 })
+            end
             return
         end
+
     end
+
 end

@@ -835,7 +835,7 @@
 
     	// Ability Resource
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilityCooldown"				"90"
+    	"AbilityCooldown"				"60"
     	"AbilityManaCost"				"250"
 
     	// Damage
@@ -894,7 +894,7 @@
 
 		"AbilityCastPoint"						"0.3"
 		"AbilityCooldown"						"60"
-		"AbilityManaCost"						"200 350 500"
+		"AbilityManaCost"						"200 300 400"
 
 		"HasScepterUpgrade"						"0"
 
@@ -1010,7 +1010,7 @@
 
     	// Ability Resource
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilityCooldown"				"90"
+    	"AbilityCooldown"				"60"
     	"AbilityManaCost"				"200 300 400"
 
     	// Damage
@@ -2750,14 +2750,14 @@
 			}
 			"invision_time"
 			{
-				"value"								"4"
-				"special_bonus_unique_jack_4" 		"-2"
+				"value"								"6 5 4 3 2"
+				"special_bonus_unique_jack_4" 		"-1"
 			}
 			"dmg_add_time"				"2 3 4 5 6"
 			"dmg_add_agility"
 			{
-				"value"								"0.4 0.5 0.6 0.7 0.8"
-				"special_bonus_unique_jack_3" 		"+0.2"
+				"value"								"0.5 0.6 0.7 0.8 0.9"
+				"special_bonus_unique_jack_3" 		"+0.1"
 			}
 			"movespeed_add"				"20 25 30 35 40"
 			"talent_chance"
@@ -2821,22 +2821,22 @@
 			"heal_down"
 			{
 				"value"								"14 18 22 26 30"
-				"special_bonus_unique_jack_1" 		"+15"
+				"special_bonus_unique_jack_1" 		"+10"
 			}
 			"regen_down"
 			{
 				"value"								"14 18 22 26 30"
-				"special_bonus_unique_jack_1" 		"+15"
+				"special_bonus_unique_jack_1" 		"+10"
 			}
 			"attack_lifesteal_down"
 			{
 				"value"								"14 18 22 26 30"
-				"special_bonus_unique_jack_1" 		"+15"
+				"special_bonus_unique_jack_1" 		"+10"
 			}
 			"spell_lifesteal_down"
 			{
 				"value"								"14 18 22 26 30"
-				"special_bonus_unique_jack_1" 		"+15"
+				"special_bonus_unique_jack_1" 		"+10"
 			}
 		}
 	}

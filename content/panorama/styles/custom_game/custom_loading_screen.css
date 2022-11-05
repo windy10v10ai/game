@@ -144,14 +144,14 @@
 	margin-top: 10px;
 	margin-left: 400px;
 	padding-left: 20px;
-	width: 350px;
-	height: 200px;
-	flow-children: down;
+	width: 700px;
+	height: 250px;
+	flow-children: right;
 	visibility: collapse;
 }
 #DisplayOptionsPanel
 {
-	width: 100%;
+	width: 350px;
 	height: 100%;
 	flow-children: down;
 	padding: 10px;
@@ -176,4 +176,9 @@
 	horizontal-align:right;
 	color: #ffffff;
 	font-weight: bold;
+}
+#GameLoadingStatus
+{
+	flow-children: down;
+	padding: 10px;
 }
