@@ -88,10 +88,7 @@
 				</Panel>
 			</Panel>
 
-			<Panel id="InDeveloping">
-				<Label id="InDevelopingLabel" text="#data_panel_developing" />
-			</Panel>
-			<!-- <Panel id="BpWindowPlayerStats">
+			<Panel id="BpWindowPlayerStats">
 				<Panel id="BpLevelImageContainer">
 					<Image id="BpLevelImage" src="s2r://panorama/images/custom_game/battlepass/shield_icon_end_screen_psd_png.vtex" />
 					<Label id="BpLevelNumber" text="188" />
@@ -113,7 +110,10 @@
 				<RadioButton group="MainBPWindow" id="BpWindowPatreonButton" onactivate="SwitchToPatreon()">
 					<Label id="BPButtonText" text="patreon" />
 				</RadioButton>
-			</Panel> -->
+			</Panel>
+			<Panel id="InDeveloping">
+				<Label id="InDevelopingLabel" text="#data_panel_developing" />
+			</Panel>
 
 			<!-- <Panel id="BpWindowMain">
 				<Panel id="BpWindowMainRewards">
