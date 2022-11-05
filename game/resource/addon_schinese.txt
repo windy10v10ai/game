@@ -96,8 +96,11 @@
 		//
 		///////////////////////////////////////////////////
 		"data_panel_button"				"玩家数据"
-		"data_panel_charge_point"		"会员积分"
+		"data_panel_member_point"		"会员积分"
 		"data_panel_season_point"		"赛季积分"
+		"data_panel_member_level"		"会员等级"
+		"data_panel_season_level"		"赛季等级"
+		"data_panel_level_progress"		"升级进度"
 		"data_panel_developing"			"更多功能正在开发中"
 
 		///////////////////////////////////////////////////

@@ -12,10 +12,16 @@ class PlayerDto {
 	matchCount!: number;
 	winCount!: number;
 	disconnectCount!: number;
-	seasonPointUsable!: number;
 	seasonPointTotal!: number;
-	chargePointUsable!: number;
-	chargePointTotal!: number;
+	seasonLevel!: number;
+	seasonCurrrentLevelPoint!: number;
+	seasonNextLevelPoint!: number;
+
+
+	memberPointTotal!: number;
+	memberLevel!: number;
+	memberCurrentLevelPoint!: number;
+	memberNextLevelPoint!: number;
 }
 
 
@@ -27,7 +33,7 @@ class GameStart {
 export class Player {
 	private memberList: MemberDto[] = [];
 	private playerList: PlayerDto[] = [];
-	private static GAME_START_URL = "/game/start/v2";
+	private static GAME_START_URL = "/game/start";
 	constructor() {
 		if (IsInToolsMode()) {
 			const developSteamAccountIds = [
