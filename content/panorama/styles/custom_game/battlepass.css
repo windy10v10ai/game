@@ -35,7 +35,7 @@
  #BPButtonPanel{
   vertical-align: top;
   horizontal-align: right;
-  margin-top: 40px;
+  margin-top: 50px;
   width: 200px;
   height: 50px;
  }
@@ -85,8 +85,8 @@
  #BPWindow{
   margin-top: 120px;
   margin-right: 20px;
-  /* width: 30%; */
-  height: 20%;
+  width: 30%;
+  height: 50%;
   horizontal-align: right;
   vertical-align: top;
   background-color: gradient( linear, 0% 100%, 0% 10%, from( #1c112ecc ), color-stop( 0.3, #1c112e55 ), color-stop( 0.6, #000000bb ),to( #000000ee) );
@@ -103,7 +103,7 @@
  }
 
  #PlayerPointStats{
-  horizontal-align: right;
+  horizontal-align: center;
   flow-children: right;
   padding: 10px;
   margin: 10px;
@@ -147,18 +147,6 @@
   font-size: 24px;
   margin-left: 1%;
  }
- #BpWindowPlayerStats{
-  margin-top: 3%;
-  horizontal-align: center;
-  vertical-align: top;
-  width: 80%;
-  height: 120px;
-  background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
-  border-radius: 15px;
-  box-shadow: 0px 0px 2px #e0caa5;
-  flow-children: right;
- }
-
  .AspectRatio4x3 #BPWindow{
   width: 54%;
  }
@@ -168,40 +156,57 @@
  }
 
 
- #BpLevelImageContainer{
-  margin-left: 15%;
+ .WindowPlayerStats{
+    margin-top: 3%;
+    horizontal-align: center;
+    vertical-align: top;
+    width: 80%;
+    height: 120px;
+    background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
+    border-radius: 15px;
+    box-shadow: 0px 0px 2px #e0caa5;
+    flow-children: right;
+   }
+
+ .LevelImageContainer{
+  margin-left: 10px;
   width: 115px;
   height: 115px;
   vertical-align: center;
+  flow-children: down;
  }
- #BpLevelImage{
-  width: 115px;
-  height: 115px;
+ .LevelText{
+  horizontal-align: left;
+  vertical-align: top;
+  color: white;
+  font-size: 16px;
+  margin: 5px;
  }
- #BpLevelNumber{
+ .LevelNumber{
   horizontal-align: center;
   vertical-align: center;
   color: white;
   font-size: 40px;
   margin-left: 1%;
+  padding-bottom: 26px;
  }
 
 
 
- #BpLevelTrackContainer{
+ .LevelTrackContainer{
   vertical-align: center;
   width: 300px;
   height: 80px;
  }
 
- #BpLevelNextRemainingText{
+ .LevelNextRemainingText{
   font-size: 20px;
   color: #fefefeaa;
   font-weight: thin;
   letter-spacing: 1px;
   text-transform: uppercase;
  }
- #BpLevelNextRemainingNumber{
+ .LevelNextRemainingNumber{
   font-size: 20px;
   color: #fefefe;
   font-weight: bold;
@@ -210,19 +215,25 @@
   font-family: defaultFont;
   horizontal-align: right;
  }
- #BpLevelNextRemainingBar{
+ .LevelNextRemainingBar{
   vertical-align: center;
   background-color: #000;
   height: 25px;
   width: 300px;
   border: 1px solid #b2894850;
  }
- #BpLevelNextRemainingBarLeft{
+ .LevelNextRemainingBarLeft{
   height: 100%;
+ }
+ #SeasonLevelNextRemainingBarLeft{
   width: 85%;
   background-color: gradient(linear, 0% 0%, 100% 0%, from(#11033a), to(#4f48b2));
  }
- #BpLevelNextRemainingBarRight{
+ #MemberLevelNextRemainingBarLeft{
+  width: 60%;
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(#dd9300), to(#FFCC66));
+ }
+ .LevelNextRemainingBarRight{
   height: 100%;
  }
 

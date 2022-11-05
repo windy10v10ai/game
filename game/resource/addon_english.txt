@@ -95,8 +95,11 @@
 		//
 		///////////////////////////////////////////////////
 		"data_panel_button"				"Player Data"
-		"data_panel_charge_point"		"Member Point"
+		"data_panel_member_point"		"Member Point"
 		"data_panel_season_point"		"Season Point"
+		"data_panel_member_level"		"Member Level"
+		"data_panel_season_level"		"Season Level"
+		"data_panel_level_progress"		"Level Progress"
 		"data_panel_developing"			"More feature will be added in the future"
 
 		///////////////////////////////////////////////////
