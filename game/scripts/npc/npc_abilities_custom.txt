@@ -835,7 +835,7 @@
 
     	// Ability Resource
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilityCooldown"				"90"
+    	"AbilityCooldown"				"60"
     	"AbilityManaCost"				"250"
 
     	// Damage
@@ -894,7 +894,7 @@
 
 		"AbilityCastPoint"						"0.3"
 		"AbilityCooldown"						"60"
-		"AbilityManaCost"						"200 350 500"
+		"AbilityManaCost"						"200 300 400"
 
 		"HasScepterUpgrade"						"0"
 
@@ -1010,7 +1010,7 @@
 
     	// Ability Resource
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilityCooldown"				"90"
+    	"AbilityCooldown"				"60"
     	"AbilityManaCost"				"200 300 400"
 
     	// Damage
