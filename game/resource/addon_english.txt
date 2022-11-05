@@ -61,6 +61,10 @@
 		"respawn_time_percentage_fast"         "Fast"
 		"respawn_time_percentage_0"          "Zero"
 
+		"loading_status_1"				"Player data is loading... Please wait for loading to complete before starting the game."
+		"loading_status_2"				"Player data loaded successfully!"
+		"loading_status_3"				"Player data loading failed, please use the Dedicated Server to restart a game."
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		//            Hero Selection

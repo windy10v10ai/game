@@ -47,6 +47,9 @@ export class Player {
 		if (IsInToolsMode()) {
 			this.saveMemberToNetTable();
 		}
+
+		// @ts-ignore
+		CustomNetTables.SetTableValue("loading_status", "loading_status", { status: 1 });
 		// get IsValidPlayer player's steamIds
 		const steamIds = [];
 		for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
@@ -66,6 +69,9 @@ export class Player {
 			// set member to member table
 			this.saveMemberToNetTable();
 			this.savePlayerToNetTable();
+
+			// @ts-ignore
+			CustomNetTables.SetTableValue("loading_status", "loading_status", { status: 2 });
 		});
 	}
 
