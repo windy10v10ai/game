@@ -2750,7 +2750,7 @@
 			}
 			"invision_time"
 			{
-				"value"								"6 5 4 3 2"
+				"value"								"3"
 				"special_bonus_unique_jack_4" 		"-1"
 			}
 			"dmg_add_time"				"2 3 4 5 6"
