@@ -142,7 +142,8 @@ function OnGameOptionsChange() {
 function OnGameLoadingStatusChange(table, key, value) {
 	$.Msg("OnGameLoadingStatusChange");
 	if (value) {
-		const status = value.status;
+		let status = value.status;
+		status = 1;
 		$("#GameLoadingStatusText").text = $.Localize("#loading_status_" + status);
 		if (status == 1) {
 			$("#GameLoadingStatusText").style.color = "#FD841F";
