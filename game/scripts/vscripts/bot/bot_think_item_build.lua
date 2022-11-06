@@ -128,6 +128,31 @@ end
 
 
 --------------------
+-- 是否在防御塔附近
+--------------------
+function BotThink:IsBesideFriendTower(hHero, radius)
+  local vHeroPos = hHero:GetAbsOrigin()
+  local towers = Entities:FindAllByClassnameWithin("npc_dota_tower", vHeroPos, radius)
+  for i,vTower in ipairs(towers) do
+    if vTower:GetTeamNumber() == hHero:GetTeamNumber() then
+      return true
+    end
+  end
+  return false
+end
+
+function BotThink:IsBesideEnemyTower(hHero, radius)
+  local vHeroPos = hHero:GetAbsOrigin()
+  local towers = Entities:FindAllByClassnameWithin("npc_dota_tower", vHeroPos, radius)
+  for i,vTower in ipairs(towers) do
+    if vTower:GetTeamNumber() ~= hHero:GetTeamNumber() then
+      return true
+    end
+  end
+  return false
+end
+
+--------------------
 -- common function
 --------------------
 local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
@@ -280,6 +305,7 @@ end
 local wardItemTable = {
   "item_ward_observer",
   "item_ward_observer",
+  "item_ward_observer",
   "item_ward_sentry",
   "item_ward_sentry",
   "item_ward_sentry",
@@ -316,15 +342,40 @@ function BotThink:PutWardObserver(hHero)
   local wardPostionList = tBotItemData.wardObserverPostionList
   local sWardItemName = "item_ward_observer"
   local sUnitClassName = "npc_dota_ward_base"
+
+  if BotThink:IsBesideFriendTower(hHero, 1600) then
+    return
+  end
+  if BotThink:IsBesideEnemyTower(hHero, 900) then
+    return
+  end
+
+  -- 随机在附近插假眼
+  if RandomInt(1, 10) == 1 then
+    wardPostionList = {}
+    table.insert(wardPostionList, hHero:GetAbsOrigin())
+  end
+
   if BotThink:IsItemCanUse(hHero, sWardItemName) then
     BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassName)
   end
 end
 
 function BotThink:PutWardSentry(hHero)
+  if BotThink:IsBesideFriendTower(hHero, 1000) then
+    return
+  end
+
   local wardPostionList = tBotItemData.wardSentryPostionList
   local sWardItemName = "item_ward_sentry"
   local sUnitClassName = "npc_dota_ward_base_truesight"
+
+  -- 受伤时做真眼
+  if hHero:GetHealthPercent() < 80 then
+    wardPostionList = {}
+    table.insert(wardPostionList, hHero:GetAbsOrigin())
+  end
+
   if BotThink:IsItemCanUse(hHero, sWardItemName) then
     BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassName)
   end
@@ -335,14 +386,13 @@ function BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassN
   local iCastRange = 500
   local iFindRange = 900
   if sWardItemName == "item_ward_observer" then
-    iFindRange = 1200
+    iFindRange = 1600
   end
   local wardItem = BotThink:FindItemByNameIncludeStash(hHero, sWardItemName)
   local vHeroPos = hHero:GetAbsOrigin()
   for i,vWardPos in ipairs(wardPostionList) do
     if wardItem then
-      -- local wardPosVector = vWardPos + Vector(RandomInt(-5, 5),RandomInt(-5, 5),0)
-      local wardPosVector = vWardPos
+      local wardPosVector = vWardPos + Vector(RandomInt(-50, 50),RandomInt(-50, 50),0)
       local wardPosDistance = (wardPosVector - vHeroPos):Length()
       if wardPosDistance < iCastRange then
         -- find wards in wardPosVector
