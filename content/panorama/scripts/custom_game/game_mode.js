@@ -140,7 +140,6 @@ function OnGameOptionsChange() {
 }
 
 function OnGameLoadingStatusChange(table, key, value) {
-	$.Msg("OnGameLoadingStatusChange");
 	if (value) {
 		const status = value.status;
 		$("#GameLoadingStatusText").text = $.Localize("#loading_status_" + status);
