@@ -97,7 +97,7 @@ function BotItemThink:UseActiveItem(hHero)
             end
         end
     end
-    
+
     -- 对点目标
     -- 大跳刀
     if BotItemThink:IsItemCanUse(tUsableItems, "item_jump_jump_jump") then
@@ -126,11 +126,9 @@ function BotItemThink:UseActiveItem(hHero)
     end
 
     -- 真眼
-    if hHero:GetHealthPercent() < 99 then
-        if BotItemThink:IsItemCanUse(tUsableItems, "item_ward_sentry") then
-            if BotItemThink:UseItemOnPostion(tUsableItems, hHero, "item_ward_sentry", hHero) then
-                return true
-            end
+    if hHero:GetHealthPercent() < 80 then
+        if BotItemThink:UseItemOnPostion(tUsableItems, hHero, "item_ward_sentry", hHero) then
+            return true
         end
     end
 
@@ -248,7 +246,7 @@ function BotItemThink:UseActiveItem(hHero)
     if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_shivas_guard_2") then
         return true
     end
-    
+
     -- refresh 刷新
     if BotItemThink:IsItemCanUse(tUsableItems, "item_refresher") then
         local hAbility6 = hHero:GetAbilityByIndex(5)
