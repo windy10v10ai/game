@@ -38,7 +38,6 @@ function LoadAfdianButton() {
     let sString = '通过爱发电支持我们的游戏！';
     sString = sString + "<br/>订阅会员可解锁新英雄，点击查看更多福利！";
 
-    hContainer.FindChild('memberButton').DeleteAsync(0);
     if (hContainer){
         let hAfdianButton = hContainer.FindChild('JoinAfdian') || $.CreatePanel('Button', hContainer, 'JoinAfdian')
 
@@ -134,6 +133,6 @@ function LoadDiscordButton() {
     $.Schedule(1, () => {
         LoadPatreonButton();
 		LoadAfdianButton();
-        // LoadMemberButton(CustomNetTables.GetTableValue("member_table", GetSteamAccountID()));
+        LoadMemberButton(CustomNetTables.GetTableValue("member_table", GetSteamAccountID()));
     });
 })();
