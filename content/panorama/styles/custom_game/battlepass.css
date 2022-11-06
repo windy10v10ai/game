@@ -111,7 +111,7 @@
  .pointParent{
   vertical-align: center;
   margin: 5px 10px 5px 10px;
-  width: 200px;
+  width: 150px;
   height: 40px;
   background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
   border-radius: 15px;
@@ -124,6 +124,14 @@
   height: 38px;
   vertical-align: center;
   margin: 0px 10px 0px 10px;
+
+  tooltip-position: top;
+  tooltip-body-position: 50%;
+ }
+
+ #PropertyPointImage{
+  width: 32px;
+  height: 32px;
  }
 
  .pointNumber{
@@ -138,7 +146,6 @@
  #InDeveloping{
   horizontal-align: center;
   vertical-align: center;
-  margin: 20px;
  }
  #InDevelopingLabel{
   horizontal-align: center;
@@ -240,22 +247,34 @@
 
 
  #BpWindowNavBar{
-  margin-top: 3%;
   horizontal-align: center;
   vertical-align: top;
   width: 80%;
-  height: 40px;
+  height: 30px;
   flow-children: right;
   color: white;
  }
 
- #BpWindowRewardsButton,#BpWindowPatreonButton{
+ .BPNavButtonText{
+  horizontal-align: center;
+  vertical-align: center;
+  text-align: center;
+  padding: 1px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-overflow: shrink;
+  font-family: defaultFont;
+  font-weight: semi-bold;
+  font-size: 16px;
+ }
+
+ .BpWindowNavButton{
 
   background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
-  width: 200px;
+  width: 30%;
   height: 40px;
-  margin-left: 55px;
-  margin-right: 55px;
+  margin-left: 10px;
+  margin-right: 10px;
   transition-property: box-shadow, background-color;
   transition-delay: 0s;
   transition-duration: 0.2s;
@@ -263,18 +282,18 @@
   box-shadow: 0px 0px 3px 1px #b2894877;
  }
 
- #BpWindowRewardsButton:hover,#BpWindowPatreonButton:hover{
+ .BpWindowNavButton:hover{
 
   background-color: gradient(linear, 0% 0%, 100% 0%, from(#333333), to(#111111));
   box-shadow: 0px 0px 3px 1px #dbaf69;
  }
 
- #BpWindowRewardsButton:selected,#BpWindowPatreonButton:selected{
+ .BpWindowNavButton:selected{
 
   box-shadow: 0px 0px 9px 0px #b28948dd;
  }
 
- #BpWindowRewardsButton:active,#BpWindowPatreonButton:active{
+ .BpWindowNavButton:active{
 
   sound: "ui.tick";
  }
@@ -287,10 +306,11 @@
   height: 100%;
  }
 
- #BpWindowMainPatreon,#BpWindowMainRewards{
+ .BpWindowMainContainer{
 
   width: 100%;
   height: 100%;
+  padding: 10px;
   flow-children: down;
   visibility: collapse;
  }

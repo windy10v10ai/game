@@ -24,7 +24,6 @@ local tBotNameList = {
     --"npc_dota_hero_shredder",
     --"npc_dota_hero_tinker",
     "npc_dota_hero_abaddon",
-    "npc_dota_hero_necrolyte",
     "npc_dota_hero_axe",
     "npc_dota_hero_bane",
     "npc_dota_hero_bounty_hunter",
@@ -47,6 +46,7 @@ local tBotNameList = {
     "npc_dota_hero_luna",
     "npc_dota_hero_medusa",
     "npc_dota_hero_meepo",
+    "npc_dota_hero_necrolyte",
     "npc_dota_hero_nevermore",
     "npc_dota_hero_ogre_magi",
     "npc_dota_hero_omniknight",
@@ -950,7 +950,7 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
         points = points * AIGameMode.iDesiredDire / 10
     end
 
-    if GameRules:GetDOTATime(false, true) < 20 * 60 then
+    if GameRules:GetDOTATime(false, true) < 15 * 60 then
         points = points * 0.5
     end
     if winnerTeamId ~= DOTA_TEAM_GOODGUYS then

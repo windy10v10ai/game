@@ -498,12 +498,9 @@
 .Team #TeamInfo > Panel,
 .Team #TeamInfo > Image,
 .Team #TeamInfo > .NetWorthColumn{
-
-
-
-     tooltip-position: top;
-     tooltip-body-position: 75%;
- }
+    tooltip-position: top;
+    tooltip-body-position: 75%;
+}
 
 .Team #TeamInfo .StrColumn,
 .Team #TeamInfo .AgiColumn,
