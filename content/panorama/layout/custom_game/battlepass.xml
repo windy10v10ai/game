@@ -87,7 +87,7 @@
 						onmouseover="UIShowTextTooltipStyled( #data_panel_season_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 					<Label id="SeasonPoint" class="pointNumber" text="18888" />
 				</Panel>
-				<Panel id="PropertyPoint" class="pointParent">
+				<Panel id="PropertyPointContainer" class="pointParent">
 					<Image id="PropertyPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/levelup_plus_fill_psd.vtex"
 						onmouseover="UIShowTextTooltipStyled( #data_panel_property_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 					<Label id="PropertyPoint" class="pointNumber" text="18/28" />
@@ -95,51 +95,54 @@
 			</Panel>
 
 			<Panel id="BpWindowNavBar">
-				<RadioButton group="MainBPWindow" id="BpWindowRewardsButton" onactivate="SwitchToRewards()">
-					<Label id="BPButtonText" text="rewards" />
+				<RadioButton group="MainBPWindow" id="BPNavButtonData" class="BpWindowNavButton" onactivate="SwitchToData()">
+					<Label class="BPNavButtonText" text="#data_panel_data_button" />
 				</RadioButton>
-				<RadioButton group="MainBPWindow" id="BpWindowPatreonButton" onactivate="SwitchToPatreon()">
-					<Label id="BPButtonText" text="patreon" />
+				<RadioButton group="MainBPWindow" id="BPNavButtonProperty" class="BpWindowNavButton" onactivate="SwitchToProperty()">
+					<Label class="BPNavButtonText" text="#data_panel_property_button" />
 				</RadioButton>
 			</Panel>
 
-			<!-- 等级 -->
-			<Panel id="SeasonWindowPlayerStats" class="WindowPlayerStats">
-				<Panel id="SeasonLevelImageContainer" class="LevelImageContainer">
-					<Label id="SeasonLevelText" class="LevelText" text="#data_panel_season_level" />
-					<Label id="SeasonLevelNumber" class="LevelNumber" text="188" />
+			<Panel id="BpWindowMain" >
+				<Panel id="BpWindowMainLevel" class="BpWindowMainContainer">
+					<!-- 等级 -->
+					<Panel id="SeasonWindowPlayerStats" class="WindowPlayerStats">
+						<Panel id="SeasonLevelImageContainer" class="LevelImageContainer">
+							<Label id="SeasonLevelText" class="LevelText" text="#data_panel_season_level" />
+							<Label id="SeasonLevelNumber" class="LevelNumber" text="188" />
+						</Panel>
+						<Panel id="SeasonLevelTrackContainer" class="LevelTrackContainer">
+							<Label id="SeasonLevelNextRemainingText" class="LevelNextRemainingText" text="#data_panel_level_progress" />
+							<Label id="SeasonLevelNextRemainingNumber" class="LevelNextRemainingNumber" text="850/1000" />
+							<ProgressBar id="SeasonLevelNextRemainingBar" class="LevelNextRemainingBar">
+								<Panel id="SeasonLevelNextRemainingBarLeft" class="LevelNextRemainingBarLeft"/>
+								<Panel id="SeasonLevelNextRemainingBarRight" class="LevelNextRemainingBarRight" />
+							</ProgressBar>
+						</Panel>
+					</Panel>
+					<Panel id="MemberWindowPlayerStats" class="WindowPlayerStats">
+						<Panel id="MemberLevelImageContainer" class="LevelImageContainer">
+							<Label id="MemberLevelText" class="LevelText" text="#data_panel_member_level" />
+							<Label id="MemberLevelNumber" class="LevelNumber" text="188" />
+						</Panel>
+						<Panel id="MemberLevelTrackContainer" class="LevelTrackContainer">
+							<Label id="MemberLevelNextRemainingText" class="LevelNextRemainingText" text="#data_panel_level_progress" />
+							<Label id="MemberLevelNextRemainingNumber" class="LevelNextRemainingNumber" text="600/1000" />
+							<ProgressBar id="MemberLevelNextRemainingBar" class="LevelNextRemainingBar">
+								<Panel id="MemberLevelNextRemainingBarLeft" class="LevelNextRemainingBarLeft"/>
+								<Panel id="MemberLevelNextRemainingBarRight" class="LevelNextRemainingBarRight" />
+							</ProgressBar>
+						</Panel>
+					</Panel>
 				</Panel>
-				<Panel id="SeasonLevelTrackContainer" class="LevelTrackContainer">
-					<Label id="SeasonLevelNextRemainingText" class="LevelNextRemainingText" text="#data_panel_level_progress" />
-					<Label id="SeasonLevelNextRemainingNumber" class="LevelNextRemainingNumber" text="850/1000" />
-					<ProgressBar id="SeasonLevelNextRemainingBar" class="LevelNextRemainingBar">
-						<Panel id="SeasonLevelNextRemainingBarLeft" class="LevelNextRemainingBarLeft"/>
-						<Panel id="SeasonLevelNextRemainingBarRight" class="LevelNextRemainingBarRight" />
-					</ProgressBar>
-				</Panel>
-			</Panel>
-			<Panel id="MemberWindowPlayerStats" class="WindowPlayerStats">
-				<Panel id="MemberLevelImageContainer" class="LevelImageContainer">
-					<Label id="MemberLevelText" class="LevelText" text="#data_panel_member_level" />
-					<Label id="MemberLevelNumber" class="LevelNumber" text="188" />
-				</Panel>
-				<Panel id="MemberLevelTrackContainer" class="LevelTrackContainer">
-					<Label id="MemberLevelNextRemainingText" class="LevelNextRemainingText" text="#data_panel_level_progress" />
-					<Label id="MemberLevelNextRemainingNumber" class="LevelNextRemainingNumber" text="600/1000" />
-					<ProgressBar id="MemberLevelNextRemainingBar" class="LevelNextRemainingBar">
-						<Panel id="MemberLevelNextRemainingBarLeft" class="LevelNextRemainingBarLeft"/>
-						<Panel id="MemberLevelNextRemainingBarRight" class="LevelNextRemainingBarRight" />
-					</ProgressBar>
-				</Panel>
-			</Panel>
 
-
-			<Panel id="InDeveloping">
-				<Label id="InDevelopingLabel" text="#data_panel_developing" />
-			</Panel>
-
-			<!-- <Panel id="BpWindowMain">
-				<Panel id="BpWindowMainRewards">
+				<!-- 属性 -->
+				<Panel id="BpWindowMainProperty" class="BpWindowMainContainer">
+					<Panel id="InDeveloping">
+						<Label id="InDevelopingLabel" text="#data_panel_developing" />
+					</Panel>
+				</Panel>
+				<!-- <Panel id="BpWindowMainRewards">
 					<Panel id="BpRewardsButtons">
 						<RadioButton group="BpRewardsButtons" class="RadioBox" id="RBBpRewards" onactivate="SwitchToBpRewards()" onload="SetBpSelected()">
 							<Label id="RBBpRewardsLabel" text="Rewards" />
@@ -221,8 +224,9 @@
 							</Panel>
 						</Panel>
 					</Panel>
-				</Panel>
-			</Panel> -->
+				</Panel> -->
+
+			</Panel>
 		</Panel>
 	</Panel>
 </root>

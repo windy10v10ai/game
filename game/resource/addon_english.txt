@@ -94,9 +94,14 @@
 		//            Data panel
 		//
 		///////////////////////////////////////////////////
-		"data_panel_button"				"Player Data"
+		"data_panel_button"				"Player Profile"
 		"data_panel_member_point"		"Member Point"
 		"data_panel_season_point"		"Season Point"
+		"data_panel_property_point"		"Property Point"
+
+		"data_panel_data_button"		"data"
+		"data_panel_property_button"	"property"
+
 		"data_panel_member_level"		"Member Level"
 		"data_panel_season_level"		"Season Level"
 		"data_panel_level_progress"		"Level Progress"
