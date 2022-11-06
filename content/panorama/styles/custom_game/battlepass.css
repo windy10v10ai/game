@@ -111,7 +111,7 @@
  .pointParent{
   vertical-align: center;
   margin: 5px 10px 5px 10px;
-  width: 200px;
+  width: 150px;
   height: 40px;
   background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
   border-radius: 15px;
@@ -122,6 +122,16 @@
  .pointIcon{
   width: 32px;
   height: 38px;
+  vertical-align: center;
+  margin: 0px 10px 0px 10px;
+
+  tooltip-position: top;
+  tooltip-body-position: 75%;
+ }
+
+ #PropertyPointImage{
+  width: 32px;
+  height: 32px;
   vertical-align: center;
   margin: 0px 10px 0px 10px;
  }
@@ -252,10 +262,10 @@
  #BpWindowRewardsButton,#BpWindowPatreonButton{
 
   background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
-  width: 200px;
+  width: 30%;
   height: 40px;
-  margin-left: 55px;
-  margin-right: 55px;
+  margin-left: 10px;
+  margin-right: 10px;
   transition-property: box-shadow, background-color;
   transition-delay: 0s;
   transition-duration: 0.2s;
