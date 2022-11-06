@@ -125,13 +125,6 @@ function BotItemThink:UseActiveItem(hHero)
         end
     end
 
-    -- 真眼
-    if hHero:GetHealthPercent() < 80 then
-        if BotItemThink:UseItemOnPostion(tUsableItems, hHero, "item_ward_sentry", hHero) then
-            return true
-        end
-    end
-
     -- 无目标 长距离
     local searchRange = 1200
 	local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
