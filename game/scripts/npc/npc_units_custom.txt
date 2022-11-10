@@ -2109,7 +2109,7 @@
 		"Model"						"models/heroes/shadowshaman/shadowshaman_totem.vmdl"// Model.
 		"SoundSet"					"ShadowShaman_Ward"					// Name of sound set.
 		"Level"						"3"
-		"ModelScale"				"2.0"
+		"ModelScale"				"1.8"
 		"SelectionGroup"			"Shaman_Wards"
 		"wearable"				"8371"
 
@@ -2158,7 +2158,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"6"		// Base health.
+		"StatusHealth"				"12"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
