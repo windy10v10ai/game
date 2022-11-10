@@ -783,9 +783,6 @@
         // 巫妖
         "DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} 连环霜冻弹跳次数"
 
-        // 大屁股
-        "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_Description"		"以友方单位、英雄或建筑作为目标地点打开黑暗的大门。经过短暂的延迟，孽主和附近所有友方英雄都将传送至目标地点。 黑暗之门在传送生效前可以取消。如果在技能生效前取消，或者目标单位死亡，黑暗之门都会进入冷却。"
-
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
