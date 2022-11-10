@@ -13383,6 +13383,18 @@
 			}
 		}
 	}
+	"special_bonus_unique_shadow_shaman_8"
+    {
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "value"				"200"
+                "ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+            }
+        }
+    }
 	//=================================================================================================================
 	// Ability: Silencer 沉默术士
 	//=================================================================================================================
