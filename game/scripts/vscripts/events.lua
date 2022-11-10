@@ -501,6 +501,7 @@ function AIGameMode:OnNPCSpawned(keys)
         hEntity:AddNewModifier(hEntity, nil, "modifier_melee_resistance", {})
     end
 
+    -- 初始化英雄
     if hEntity:IsRealHero() and not hEntity.bInitialized then
         if hEntity:GetAttackCapability() == DOTA_UNIT_CAP_MELEE_ATTACK or sName == "npc_dota_hero_troll_warlord" or
                 sName == "npc_dota_hero_lone_druid" then
@@ -541,6 +542,11 @@ function AIGameMode:OnNPCSpawned(keys)
         end
 
         hEntity.bInitialized = true
+    end
+
+    -- 移除泉水无敌
+    if hEntity:IsRealHero() and hEntity:HasModifier("modifier_fountain_invulnerability") then
+        hEntity:RemoveModifierByName("modifier_fountain_invulnerability")
     end
 end
 
