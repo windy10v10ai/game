@@ -2108,7 +2108,7 @@
 		"BaseClass"					"npc_dota_shadowshaman_serpentward"	// Class of entity of link to.
 		"Model"						"models/heroes/shadowshaman/shadowshaman_totem.vmdl"// Model.
 		"SoundSet"					"ShadowShaman_Ward"					// Name of sound set.
-		"Level"						"3"
+		"Level"						"5"
 		"ModelScale"				"1.15"
 		"SelectionGroup"			"Shaman_Wards"
 		"wearable"				"8371"
