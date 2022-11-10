@@ -285,7 +285,7 @@ function AIGameMode:RefreshGameStatus()
         if IsGoodTeamPlayer(playerId) then
             PlayerResource:SetCustomBuybackCost(playerId, GetBuyBackCost(PlayerResource:GetSelectedHeroEntity(playerId), GameTime))
         elseif IsBadTeamPlayer(playerId) then
-            if AIGameMode.tower3PushedBad > 0 then
+            if AIGameMode.tower3PushedGood > 0 then
                 PlayerResource:SetCustomBuybackCost(playerId, GetBuyBackCost(PlayerResource:GetSelectedHeroEntity(playerId), GameTime))
             else
                 PlayerResource:SetCustomBuybackCost(playerId, 100000)
