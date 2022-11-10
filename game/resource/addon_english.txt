@@ -631,6 +631,9 @@
         // 巫妖
         "DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} chain frost jumps"
 
+        // 大屁股
+        "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_Description"		"Opens a dark rift at the targeted friendly unit or hero or building's position.  After a short delay, Underlord and all nearby friendly heroes are teleported to that unit's location.  Dark Rift can be cancelled at anytime during the cast.  If it is cancelled in this way or the target unit dies before the spell becomes active, Dark Rift goes into cooldown."
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items

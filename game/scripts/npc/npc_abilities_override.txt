@@ -1449,18 +1449,16 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"	"15 14 13 12"
+					"value"	"15 14 13 12 11"
 					"special_bonus_unique_underlord_5"	"-2"
 				}
-				"wave_damage"					"25 40 55 70 85"
+				"wave_damage"					"30 45 60 75 90"
 				"wave_interval"					"1.0"
 				"burn_damage"
 				{
-					"value"					"0.8 0.9 1.0 1.1 1.2"
-					"special_bonus_unique_underlord_4"	"+0.3"
+					"value"					"1.4 1.8 2.2 2.6 3"
+					"special_bonus_unique_underlord_4"	"+1"
 				}
-				"burn_interval"					"1.0"
-				"burn_duration"					"1.0"
 		}
 	}
 	"abyssal_underlord_pit_of_malice"
@@ -1515,6 +1513,7 @@
 		"MaxLevel" "4"
 		"AbilityCooldown"				"90 80 70 60"
 		"AbilityManaCost"				"100 200 300 400"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityValues"
 		{
 
