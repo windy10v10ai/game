@@ -2108,14 +2108,14 @@
 		"BaseClass"					"npc_dota_shadowshaman_serpentward"	// Class of entity of link to.
 		"Model"						"models/heroes/shadowshaman/shadowshaman_totem.vmdl"// Model.
 		"SoundSet"					"ShadowShaman_Ward"					// Name of sound set.
-		"Level"						"5"
-		"ModelScale"				"1.15"
+		"Level"						"3"
+		"ModelScale"				"2.0"
 		"SelectionGroup"			"Shaman_Wards"
 		"wearable"				"8371"
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"creep_piercing"			// Ability 1.
+		"Ability1"					""			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
@@ -2129,8 +2129,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"200"			// Damage range min.
-		"AttackDamageMax"			"200"			// Damage range max.
+		"AttackDamageMin"			"100"			// Damage range min.
+		"AttackDamageMax"			"100"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
@@ -2185,8 +2185,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"275"			// Damage range min.
-		"AttackDamageMax"			"275"			// Damage range max.
+		"AttackDamageMin"			"250"			// Damage range min.
+		"AttackDamageMax"			"250"			// Damage range max.
 	}
 
 	"npc_dota_shadow_shaman_ward_3"
@@ -2195,29 +2195,9 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"350"			// Damage range min.
-		"AttackDamageMax"			"350"			// Damage range max.
+		"AttackDamageMin"			"450"			// Damage range min.
+		"AttackDamageMax"			"450"			// Damage range max.
 	}
-
-	"npc_dota_shadow_shaman_ward_4"
-    	{
-    		"include_keys_from" "npc_dota_shadow_shaman_ward_1"
-
-    		// Attack
-    		//----------------------------------------------------------------
-    		"AttackDamageMin"			"425"			// Damage range min.
-    		"AttackDamageMax"			"425"			// Damage range max.
-    	}
-
-    "npc_dota_shadow_shaman_ward_5"
-        {
-            "include_keys_from" "npc_dota_shadow_shaman_ward_1"
-
-            // Attack
-            //----------------------------------------------------------------
-            "AttackDamageMin"			"500"			// Damage range min.
-            "AttackDamageMax"			"500"			// Damage range max.
-        }
 
 	// beastmaster_boar 兽王野猪
 	"npc_dota_beastmaster_boar"
