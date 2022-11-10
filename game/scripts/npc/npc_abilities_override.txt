@@ -13245,7 +13245,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"140 200 260 320 380"
+				"damage"					"140 220 300 380 460"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_3"
 			}
 		}
@@ -13259,7 +13259,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"1.5 2.0 2.5 3.0 3.5"
+				"duration"					"1.25 2.0 2.75 3.5 4.25"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_7"
 			}
 		}
@@ -13275,7 +13275,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"total_damage"		"60 130 200 270 340"
+				"total_damage"		"80 160 240 320 400"
 				"LinkedSpecialBonus"	"special_bonus_unique_shadow_shaman_6"
 			}
 			"03"
@@ -13287,51 +13287,51 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"shard_ward_count"		"6"
+				"shard_ward_count"		"1"
 				"RequiresShard"			"1"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"shard_ward_duration"		"8"
+				"shard_ward_duration"		"10"
 				"RequiresShard"			"1"
 			}
 		}
 	}
 	"shadow_shaman_mass_serpent_ward"
 	{
-		"MaxLevel" "3"
+		"MaxLevel" "5"
 		"AbilityCooldown"				"90"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ward_count"		"10"
+				"ward_count"		"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"80 120 160"
+				"damage_tooltip"			"200 275 350 425 500"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_4"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"30.0"
+				"duration"				"20.0"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip"			"3"
+				"hits_to_destroy_tooltip"			"6"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_1"
 				"LinkedSpecialBonusField"		"value2"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip_creeps"		"6"
+				"hits_to_destroy_tooltip_creeps"		"12"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_1"
 			}
 		}
@@ -13349,7 +13349,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value2"				"2"
+				"value2"				"4"
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -13361,7 +13361,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"60"
+				"value"				"200"
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -13375,12 +13375,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"count"		"6"
+				"count"		"3"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"length"		"725"
+				"length"		"500"
 			}
 		}
 	}
