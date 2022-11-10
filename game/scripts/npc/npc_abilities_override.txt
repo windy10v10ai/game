@@ -13299,8 +13299,8 @@
 	}
 	"shadow_shaman_mass_serpent_ward"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"90"
+		"MaxLevel" "3"
+		"AbilityCooldown"				"80"
 		"AbilitySpecial"
 		{
 			"01"
@@ -13311,14 +13311,14 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"200 275 350 425 500"
+				"damage_tooltip"			"100 250 450"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_4"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"20.0"
+				"duration"				"24.0"
 			}
 			"06"
 			{
@@ -13342,13 +13342,13 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"4"
+				"value"				"8"
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value2"				"2"
+				"value2"				"4"
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -13367,19 +13367,19 @@
 	}
 	"shadow_shaman_serpentine"
 	{
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"80"
 		"AbilityManaCost"				"300"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"count"		"3"
+				"count"		"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"length"		"500"
+				"length"		"600"
 			}
 		}
 	}
