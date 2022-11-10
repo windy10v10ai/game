@@ -1509,20 +1509,20 @@
 		}
 	}
 	"abyssal_underlord_dark_rift"
-    	{
-    	    "MaxLevel" "4"
-    		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP"
-    		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_CHECK_DISABLE_HELP"
-    		"AbilityCooldown"				"90 80 70 60"
+    {
+        "MaxLevel" "4"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+        "AbilityCooldown"				"90 80 70 60"
 
-    		"AbilityManaCost"				"100 200 300 400"
+        "AbilityManaCost"				"100 200 300 400"
 
-    		"AbilityValues"
-    		{
-    			"radius"						"600"
-    			"teleport_delay"				"4.5 4.0 3.5 3.0"
-    		}
-    	}
+        "AbilityValues"
+        {
+            "radius"						"600"
+            "teleport_delay"				"4.5 4.0 3.5 3.0"
+        }
+    }
 	//=================================================================================================================
 	// Ability: Axe 斧王
 	//=================================================================================================================
