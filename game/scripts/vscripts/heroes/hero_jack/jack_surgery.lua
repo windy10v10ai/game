@@ -38,6 +38,7 @@ end
 
 function modifier_jack_surgery:OnAttackLanded(keys)
     local parent = self:GetParent()
+    if not keys.target:IsHero() then return end
     if keys.attacker == parent then
         local ability = self:GetAbility()
         local duration = ability:GetSpecialValueFor("duration")
