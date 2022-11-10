@@ -24,6 +24,7 @@ local tBotNameList = {
     --"npc_dota_hero_shredder",
     --"npc_dota_hero_tinker",
     "npc_dota_hero_abaddon",
+    "npc_dota_hero_shadow_shaman",
     "npc_dota_hero_necrolyte",
     "npc_dota_hero_axe",
     "npc_dota_hero_bane",
@@ -56,7 +57,6 @@ local tBotNameList = {
     "npc_dota_hero_riki",
     --"npc_dota_hero_razor", // 在泉水站着完全不动
     "npc_dota_hero_sand_king",
-    "npc_dota_hero_shadow_shaman",
     "npc_dota_hero_skywrath_mage",
     "npc_dota_hero_sniper",
     "npc_dota_hero_sven",
