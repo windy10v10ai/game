@@ -1511,7 +1511,7 @@
 	"abyssal_underlord_dark_rift"
     	{
     	    "MaxLevel" "4"
-    		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+    		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP"
     		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_CHECK_DISABLE_HELP"
     		"AbilityCooldown"				"90 80 70 60"
 
