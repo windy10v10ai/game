@@ -180,7 +180,7 @@ end
 function GetBuyBackCost(hHero, time)
 	-- time unit is second
 	local level = hHero:GetLevel()
-	local cost = 100 + level * level * 2 + time * 4
+	local cost = math.floor(100 + level * level * 2 + time * 4)
 	cost = math.min(cost, 50000)
 	Printf("买活金钱: %d", cost)
 	return cost
