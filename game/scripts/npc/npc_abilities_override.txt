@@ -4814,6 +4814,7 @@
 	{
 		"MaxLevel" "7"
 		"AbilityManaCost"				"80"
+		"AbilityCooldown"				"6"
 		"AbilitySpecial"
 		{
 			"01"
@@ -4840,19 +4841,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"15"
-			}
-		}
-	}
-	"special_bonus_unique_timbersaw"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"5"
-				"ad_linked_abilities"			"shredder_whirling_death"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"duration"					"25"
 			}
 		}
 	}
@@ -4861,6 +4850,7 @@
 		"MaxLevel" "5"
 		"AbilityCastRange"				"800 950 1100 1250 1400"
 		"AbilityManaCost"				"60 70 80 90 100"
+		"AbilityCastPoint"				"0"
 		"AbilitySpecial"
 		{
 			"02"
@@ -4869,11 +4859,15 @@
 				"range"				"800 950 1100 1250 1400"
 				"LinkedSpecialBonus"	"special_bonus_unique_timbersaw_3"
 			}
-
+            "03"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "radius"		"275"
+            }
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"speed"				"2200 2400 2600 2800 3000"
+				"speed"				"4000"
 			}
 			"05"
 			{
@@ -4882,6 +4876,18 @@
 			}
 		}
 	}
+	"special_bonus_unique_timbersaw_3"
+    {
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "value"				"1500"
+                "ad_linked_abilities"			"shredder_timber_chain"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+            }
+        }
+    }
 	"shredder_reactive_armor"
 	{
 		"MaxLevel" "5"
@@ -4890,12 +4896,12 @@
 			"01"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"bonus_armor"						"1.0 1.2 1.4 1.6 1.8"
+				"bonus_armor"						"1.2 1.4 1.6 1.8 2.0"
 			}
 			"02"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"bonus_hp_regen"							"1.0 1.2 1.4 1.6 1.8"
+				"bonus_hp_regen"							"1.0 1.5 2.0 2.5 3"
 			}
 			"03"
 			{
@@ -4911,24 +4917,18 @@
 			}
 		}
 	}
-	"special_bonus_unique_timbersaw_2"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"3"
-				"ad_linked_abilities"			"shredder_reactive_armor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
 	"shredder_chakram"
 	{
 		"MaxLevel" "4"
 		"AbilityManaCost"				"75 125 175 225"
+		"AbilityCastPoint"				"0"
 		"AbilitySpecial"
 		{
+		    "01"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "speed"					"1800.0"
+            }
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -4944,6 +4944,12 @@
 				"var_type"				"FIELD_FLOAT"
 				"mana_per_second"		"15 20 25 30"
 			}
+			"11"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "castpoint_scepter"		"0"
+                "RequiresScepter"	"1"
+            }
 		}
 	}
 	"shredder_chakram_2"
