@@ -14536,7 +14536,7 @@
             "01"
             {
                 "var_type"					"FIELD_FLOAT"
-                "value"				"100"
+                "value"				"1.8"
                 "ad_linked_abilities"			"witch_doctor_voodoo_restoration"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
             }
         }
