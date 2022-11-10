@@ -4882,7 +4882,7 @@
             "01"
             {
                 "var_type"					"FIELD_INTEGER"
-                "value"				"1500"
+                "value"				"1600"
                 "ad_linked_abilities"			"shredder_timber_chain"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
             }
         }
@@ -14537,7 +14537,7 @@
             "01"
             {
                 "var_type"					"FIELD_FLOAT"
-                "value"				"1.8"
+                "value"				"100"
                 "ad_linked_abilities"			"witch_doctor_voodoo_restoration"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
             }
         }
