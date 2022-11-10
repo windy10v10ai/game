@@ -24,8 +24,6 @@ local tBotNameList = {
     --"npc_dota_hero_shredder",
     --"npc_dota_hero_tinker",
     "npc_dota_hero_abaddon",
-    "npc_dota_hero_shadow_shaman",
-    "npc_dota_hero_necrolyte",
     "npc_dota_hero_axe",
     "npc_dota_hero_bane",
     "npc_dota_hero_bounty_hunter",
@@ -48,6 +46,7 @@ local tBotNameList = {
     "npc_dota_hero_luna",
     "npc_dota_hero_medusa",
     "npc_dota_hero_meepo",
+    "npc_dota_hero_necrolyte",
     "npc_dota_hero_nevermore",
     "npc_dota_hero_ogre_magi",
     "npc_dota_hero_omniknight",
@@ -57,6 +56,7 @@ local tBotNameList = {
     "npc_dota_hero_riki",
     --"npc_dota_hero_razor", // 在泉水站着完全不动
     "npc_dota_hero_sand_king",
+    "npc_dota_hero_shadow_shaman",
     "npc_dota_hero_skywrath_mage",
     "npc_dota_hero_sniper",
     "npc_dota_hero_sven",
@@ -501,7 +501,6 @@ function AIGameMode:OnNPCSpawned(keys)
         hEntity:AddNewModifier(hEntity, nil, "modifier_melee_resistance", {})
     end
 
-    -- 初始化英雄
     if hEntity:IsRealHero() and not hEntity.bInitialized then
         if hEntity:GetAttackCapability() == DOTA_UNIT_CAP_MELEE_ATTACK or sName == "npc_dota_hero_troll_warlord" or
                 sName == "npc_dota_hero_lone_druid" then
@@ -542,11 +541,6 @@ function AIGameMode:OnNPCSpawned(keys)
         end
 
         hEntity.bInitialized = true
-    end
-
-    -- 移除泉水无敌
-    if hEntity:IsRealHero() and hEntity:HasModifier("modifier_fountain_invulnerability") then
-        hEntity:RemoveModifierByName("modifier_fountain_invulnerability")
     end
 end
 
@@ -956,7 +950,7 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
         points = points * AIGameMode.iDesiredDire / 10
     end
 
-    if GameRules:GetDOTATime(false, true) < 20 * 60 then
+    if GameRules:GetDOTATime(false, true) < 15 * 60 then
         points = points * 0.5
     end
     if winnerTeamId ~= DOTA_TEAM_GOODGUYS then

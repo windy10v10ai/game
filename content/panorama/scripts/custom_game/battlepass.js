@@ -15,20 +15,21 @@ function PlayerDataLoaded(player) {
 		return;
 	}
 
-	let chargePointTotal = player.chargePointTotal;
-	let seasonPointTotal = player.seasonPointTotal;
-
-	$("#ChargePoint").text = player.chargePointTotal;
+	$("#ChargePoint").text = player.memberPointTotal;
 	$("#SeasonPoint").text = player.seasonPointTotal;
-	// let levelPointsLabel = $("#BpLevelNextRemainingNumber");
-	// let levelPointsProgress = $("#BpLevelNextRemainingBarLeft");
 
-	// let currentLevel = Math.floor(localPlayerStats.bp_points / 1000);
-	// let currentPoints = Math.round(localPlayerStats.bp_points - currentLevel * 1000);
+	$("#SeasonLevelNumber").text = player.seasonLevel + 1;
+	$("#SeasonLevelNextRemainingNumber").text = `${player.seasonCurrrentLevelPoint} / ${player.seasonNextLevelPoint}`;
+	$("#MemberLevelNumber").text = player.memberLevel + 1;
+	$("#MemberLevelNextRemainingNumber").text = `${player.memberCurrentLevelPoint} / ${player.memberNextLevelPoint}`;
+	$("#PropertyPoint").text = player.seasonLevel + player.memberLevel;
 
-	// levelLabel.text = 1 + currentLevel;
-	// levelPointsLabel.text = currentPoints + "/1000";
-	// levelPointsProgress.style.width = currentPoints / 10 + "%";
+
+
+	$("#SeasonLevelNextRemainingBarLeft").style.width = `${(player.seasonCurrrentLevelPoint / player.seasonNextLevelPoint) * 100}%`;
+	$("#MemberLevelNextRemainingBarLeft").style.width = `${(player.memberCurrentLevelPoint / player.memberNextLevelPoint) * 100}%`;
+
+	SetDataSelected();
 	// CreatePatreonPetList();
 	// CreatePatreonEffectList();
 	// CreateBattlepassRewardsList();
@@ -37,7 +38,23 @@ function PlayerDataLoaded(player) {
 	$.Msg("BP Loaded!");
 }
 
-//RecreateBattlepass()
+
+function SetDataSelected() {
+	$("#BPNavButtonData").checked = true;
+	SwitchToData();
+}
+
+function SwitchToData() {
+	$("#BpWindowMainLevel").visible = true;
+	$("#BpWindowMainProperty").visible = false;
+}
+
+function SwitchToProperty() {
+	$("#BpWindowMainProperty").visible = true;
+	$("#BpWindowMainLevel").visible = false;
+}
+
+// old code
 function RecreateBattlepass() {
 	$("#PatreonPetsContent").RemoveAndDeleteChildren();
 	$("#PatreonEmblemsContent").RemoveAndDeleteChildren();
@@ -72,22 +89,23 @@ function SetRewardsSelected() {
 	$("#BpRewardsContent").visible = true;
 }
 
-function SwitchToPatreon() {
-	$("#BpWindowMainPatreon").visible = true;
-	$("#BpWindowMainRewards").visible = false;
-	$("#BpRewardsContent").visible = false;
-	$("#BpSettingsContent").visible = false;
-	SetPetsSelected();
-}
 
-function SwitchToRewards() {
-	$("#BpWindowMainPatreon").visible = false;
-	$("#BpWindowMainRewards").visible = true;
-	$("#PatreonEmblemsContent").visible = false;
-	$("#PatreonPetsContent").visible = false;
-	$("#PatreonSettingsContent").visible = false;
-	SetRewardsSelected();
-}
+// function SwitchToPatreon() {
+// 	$("#BpWindowMainPatreon").visible = true;
+// 	$("#BpWindowMainRewards").visible = false;
+// 	$("#BpRewardsContent").visible = false;
+// 	$("#BpSettingsContent").visible = false;
+// 	SetPetsSelected();
+// }
+
+// function SwitchToRewards() {
+// 	$("#BpWindowMainPatreon").visible = false;
+// 	$("#BpWindowMainRewards").visible = true;
+// 	$("#PatreonEmblemsContent").visible = false;
+// 	$("#PatreonPetsContent").visible = false;
+// 	$("#PatreonSettingsContent").visible = false;
+// 	SetRewardsSelected();
+// }
 
 function SwitchToPatreonPets() {
 	$("#PatreonPetsContent").visible = true;

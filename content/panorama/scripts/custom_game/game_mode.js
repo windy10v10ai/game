@@ -137,12 +137,28 @@ function OnGameOptionsChange() {
 	$("#DisplayOptionsTowerEndure").text = gameOptions.tower_endure_dropdown;
 	$("#DisplayOptionsRespawnTime").text = gameOptions.respawn_time_percentage_dropdown;
 	$("#DisplayOptionsMaxLevel").text = gameOptions.max_level_dropdown;
-
 }
 
+function OnGameLoadingStatusChange(table, key, value) {
+	if (value) {
+		const status = value.status;
+		$("#GameLoadingStatusText").text = $.Localize("#loading_status_" + status);
+		if (status == 1) {
+			$("#GameLoadingStatusText").style.color = "#FD841F";
+		}
+		if (status == 2) {
+			$("#GameLoadingStatusText").style.color = "#5DA7DB";
+		}
+		if (status == 3) {
+			$("#GameLoadingStatusText").style.color = "#E14D2A";
+		}
+	}
+}
 (function() {
 	// 游戏选择项目table监听
 	CustomNetTables.SubscribeNetTableListener("game_options_table", OnGameOptionsChange)
+	CustomNetTables.SubscribeNetTableListener("loading_status", OnGameLoadingStatusChange);
+	OnGameLoadingStatusChange(null, "loading_status", CustomNetTables.GetTableValue("loading_status", "loading_status"));
 })();
 
 GameEvents.Subscribe( "player_connect_full", InitializeUI);

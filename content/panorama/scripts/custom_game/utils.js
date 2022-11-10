@@ -78,9 +78,14 @@ function ConvertSteamIdTo32Bit(steamId64) {
 }
 
 function GetSteamAccountID() {
-	const steamId64 = Game.GetLocalPlayerInfo().player_steamid;
-	const steamId32 = ConvertSteamIdTo32Bit(steamId64);
-	return steamId32;
+	const player_info = Game.GetLocalPlayerInfo();
+	if ( !player_info ) {
+		return '';
+	} else {
+		const steamId64 = player_info.player_steamid;
+		const steamId32 = ConvertSteamIdTo32Bit(steamId64);
+		return steamId32;
+	}
 }
 
 function GetMember() {

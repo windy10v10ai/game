@@ -154,6 +154,8 @@ function AIGameMode:PreGameOptions()
     gameMode:SetModifyGoldFilter(Dynamic_Wrap(AIGameMode, "FilterGold"), self)
     gameMode:SetModifyExperienceFilter(Dynamic_Wrap(AIGameMode, "FilterXP"), self)
 
+    GameRules:SetTimeOfDay(0.25)
+
     -- 神符
     gameMode:SetUseDefaultDOTARuneSpawnLogic(true)
 
@@ -180,10 +182,10 @@ function AIGameMode:PreGameOptions()
             iRequireLevel = iRequireLevel + i * 200
             table.insert(tLevelRequire, iRequireLevel)
         end
-        GameRules:GetGameModeEntity():SetUseCustomHeroLevels(true)
         GameRules:SetUseCustomHeroXPValues(true)
-        GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(self.iMaxLevel)
-        GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(tLevelRequire)
+        gameMode:SetUseCustomHeroLevels(true)
+        gameMode:SetCustomHeroMaxLevel(self.iMaxLevel)
+        gameMode:SetCustomXPRequiredToReachNextLevel(tLevelRequire)
     end
 
     self.sumTowerPower = AIGameMode.iTowerPower
