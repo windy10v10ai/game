@@ -182,7 +182,7 @@ function GetBuyBackCost(hHero, time)
 	local level = hHero:GetLevel()
 	local cost = math.floor(100 + level * level * 2 + time * 4)
 	cost = math.min(cost, 50000)
-	Printf("买活金钱: %d", cost)
+	Printf("计算买活金钱: %d, 玩家id: %d", cost, hHero:GetPlayerID())
 	return cost
 end
 
