@@ -280,6 +280,19 @@ function AIGameMode:RefreshGameStatus()
         GameRules:GetGameModeEntity():SetBotsMaxPushTier(1)
     end
 
+    -- 设置买活金钱
+    SelectEveryValidPlayerDoFunc(function(playerId)
+        if PlayerResource:IsFakeClient(playerId) then
+            if AIGameMode.tower3PushedGood > 0 or AIGameMode.tower3PushedBad > 0 then
+                PlayerResource:SetCustomBuybackCost(playerId, GetBuyBackCost(playerId))
+            else
+                PlayerResource:SetCustomBuybackCost(playerId, 100000)
+            end
+        else
+            PlayerResource:SetCustomBuybackCost(playerId, GetBuyBackCost(playerId))
+        end
+    end)
+
     -- set creep buff level
     local buffLevelGood = 0
     local buffLevelBad = 0
@@ -356,13 +369,6 @@ function AIGameMode:RefreshGameStatus()
     AIGameMode.creepBuffLevelBad = buffLevelBad
     AIGameMode.creepBuffLevelMegaGood = buffLevelMegaGood
     AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
-
-     -- 简单限制电脑前期买活
-     if GameTime <= 15 * 60 then
-         GameRules:GetGameModeEntity():SetBuybackEnabled(false)
-     else
-         GameRules:GetGameModeEntity():SetBuybackEnabled(true)
-     end
 
 end
 
