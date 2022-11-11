@@ -370,13 +370,6 @@ function AIGameMode:RefreshGameStatus()
     AIGameMode.creepBuffLevelMegaGood = buffLevelMegaGood
     AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
 
-     -- 简单限制电脑前期买活
-     if GameTime <= 15 * 60 then
-         GameRules:GetGameModeEntity():SetBuybackEnabled(false)
-     else
-         GameRules:GetGameModeEntity():SetBuybackEnabled(true)
-     end
-
 end
 
 -- 买活时间设定
