@@ -181,7 +181,7 @@ function GetBuyBackCost(playerId)
 	local hHero = PlayerResource:GetSelectedHeroEntity(playerId)
 	local iNetWorth = PlayerResource:GetNetWorth(playerId)
 	local level = hHero:GetLevel()
-	local cost = math.floor(200 + iNetWorth / 15)
+	local cost = math.floor(200 + iNetWorth / 20)
 	cost = math.min(cost, 50000)
 	Printf("计算买活金钱: %d, 玩家id: %d", cost, hHero:GetPlayerID())
 	return cost
