@@ -282,14 +282,14 @@ function AIGameMode:RefreshGameStatus()
 
     -- 设置买活金钱
     SelectEveryValidPlayerDoFunc(function(playerId)
-        if IsGoodTeamPlayer(playerId) then
-            PlayerResource:SetCustomBuybackCost(playerId, GetBuyBackCost(PlayerResource:GetSelectedHeroEntity(playerId), GameTime))
-        elseif IsBadTeamPlayer(playerId) then
-            if AIGameMode.tower3PushedGood > 0 then
-                PlayerResource:SetCustomBuybackCost(playerId, GetBuyBackCost(PlayerResource:GetSelectedHeroEntity(playerId), GameTime))
+        if PlayerResource:IsFakeClient(playerId) then
+            if AIGameMode.tower3PushedGood > 0 or AIGameMode.tower3PushedBad > 0 then
+                PlayerResource:SetCustomBuybackCost(playerId, GetBuyBackCost(playerId))
             else
                 PlayerResource:SetCustomBuybackCost(playerId, 100000)
             end
+        else
+            PlayerResource:SetCustomBuybackCost(playerId, GetBuyBackCost(playerId))
         end
     end)
 

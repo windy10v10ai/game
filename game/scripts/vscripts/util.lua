@@ -177,10 +177,11 @@ function GetFullCastRange(hHero, hAbility)
 	return hAbility:GetCastRange(hHero:GetOrigin(), nil) + hHero:GetCastRangeBonus()
 end
 
-function GetBuyBackCost(hHero, time)
-	-- time unit is second
+function GetBuyBackCost(playerId)
+	local hHero = PlayerResource:GetSelectedHeroEntity(playerId)
+	local iNetWorth = PlayerResource:GetNetWorth(playerId)
 	local level = hHero:GetLevel()
-	local cost = math.floor(100 + level * level * 2 + time * 4)
+	local cost = math.floor(200 + iNetWorth / 15)
 	cost = math.min(cost, 50000)
 	Printf("计算买活金钱: %d, 玩家id: %d", cost, hHero:GetPlayerID())
 	return cost
