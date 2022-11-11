@@ -1452,12 +1452,12 @@
 					"value"	"15 14 13 12 11"
 					"special_bonus_unique_underlord_5"	"-2"
 				}
-				"wave_damage"					"30 45 60 75 90"
+				"wave_damage"					"30 50 70 90 110"
 				"wave_interval"					"1.0"
 				"burn_damage"
 				{
 					"value"					"1 1.2 1.4 1.6 1.8"
-					"special_bonus_unique_underlord_4"	"+0.7"
+					"special_bonus_unique_underlord_4"	"+0.2"
 				}
 		}
 	}
@@ -4839,7 +4839,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"25"
+				"duration"					"15"
 			}
 		}
 	}
@@ -4848,7 +4848,6 @@
 		"MaxLevel" "5"
 		"AbilityCastRange"				"800 950 1100 1250 1400"
 		"AbilityManaCost"				"60 70 80 90 100"
-		"AbilityCastPoint"				"0"
 		"AbilitySpecial"
 		{
 			"02"
@@ -4865,7 +4864,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"speed"				"4000"
+				"speed"				"3000"
 			}
 			"05"
 			{
@@ -4874,18 +4873,6 @@
 			}
 		}
 	}
-	"special_bonus_unique_timbersaw_3"
-    {
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"					"FIELD_INTEGER"
-                "value"				"1600"
-                "ad_linked_abilities"			"shredder_timber_chain"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-            }
-        }
-    }
 	"shredder_reactive_armor"
 	{
 		"MaxLevel" "5"
@@ -4919,14 +4906,8 @@
 	{
 		"MaxLevel" "4"
 		"AbilityManaCost"				"75 125 175 225"
-		"AbilityCastPoint"				"0"
 		"AbilitySpecial"
 		{
-		    "01"
-            {
-                "var_type"				"FIELD_FLOAT"
-                "speed"					"1800.0"
-            }
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -4942,12 +4923,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"mana_per_second"		"15 20 25 30"
 			}
-			"11"
-            {
-                "var_type"				"FIELD_FLOAT"
-                "castpoint_scepter"		"0"
-                "RequiresScepter"	"1"
-            }
 		}
 	}
 	"shredder_chakram_2"
@@ -13274,13 +13249,13 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"shard_ward_count"		"1"
+				"shard_ward_count"		"2"
 				"RequiresShard"			"1"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"shard_ward_duration"		"10"
+				"shard_ward_duration"		"6"
 				"RequiresShard"			"1"
 			}
 		}
@@ -13294,12 +13269,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ward_count"		"4"
+				"ward_count"		"8"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"100 250 450"
+				"damage_tooltip"			"100 160 220"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_4"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -13311,14 +13286,14 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip"			"6"
+				"hits_to_destroy_tooltip"			"3"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_1"
 				"LinkedSpecialBonusField"		"value2"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip_creeps"		"12"
+				"hits_to_destroy_tooltip_creeps"		"6"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_1"
 			}
 		}
@@ -13330,13 +13305,13 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"8"
+				"value"				"4"		// 2
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value2"				"4"
+				"value2"				"2"		// 1 守卫最大生命
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -13348,7 +13323,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"200"
+				"value"				"80"		// 25 守卫攻击力
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -13378,7 +13353,7 @@
             "01"
             {
                 "var_type"					"FIELD_INTEGER"
-                "value"				"200"
+                "value"				"200"		// 120 守卫攻击距离
                 "ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
             }
         }
@@ -14499,7 +14474,6 @@
 				"special_bonus_unique_witch_doctor_3"			"+3"
 			}
 			"bounce_bonus_damage"			"20 25 30 35 40"
-			"bounce_delay"			"0.15"
 		}
 	}
 	"witch_doctor_voodoo_restoration"
@@ -14586,7 +14560,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"80 160 250 350 460"
+				"damage"					"90 150 210 270 330"
 				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_5"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -14599,7 +14573,7 @@
             "01"
             {
                 "var_type"					"FIELD_INTEGER"
-                "value"				"120"
+                "value"				"90"		// 60
                 "ad_linked_abilities"			"witch_doctor_death_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
             }
         }
