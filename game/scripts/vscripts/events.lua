@@ -280,6 +280,19 @@ function AIGameMode:RefreshGameStatus()
         GameRules:GetGameModeEntity():SetBotsMaxPushTier(1)
     end
 
+    -- 设置买活金钱
+    SelectEveryValidPlayerDoFunc(function(playerId)
+        if IsGoodTeamPlayer(playerId) then
+            PlayerResource:SetCustomBuybackCost(playerId, GetBuyBackCost(PlayerResource:GetSelectedHeroEntity(playerId), GameTime))
+        elseif IsBadTeamPlayer(playerId) then
+            if AIGameMode.tower3PushedGood > 0 then
+                PlayerResource:SetCustomBuybackCost(playerId, GetBuyBackCost(PlayerResource:GetSelectedHeroEntity(playerId), GameTime))
+            else
+                PlayerResource:SetCustomBuybackCost(playerId, 100000)
+            end
+        end
+    end)
+
     -- set creep buff level
     local buffLevelGood = 0
     local buffLevelBad = 0

@@ -1449,18 +1449,16 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"	"15 14 13 12"
+					"value"	"15 14 13 12 11"
 					"special_bonus_unique_underlord_5"	"-2"
 				}
-				"wave_damage"					"25 40 55 70 85"
+				"wave_damage"					"30 45 60 75 90"
 				"wave_interval"					"1.0"
 				"burn_damage"
 				{
-					"value"					"0.8 0.9 1.0 1.1 1.2"
-					"special_bonus_unique_underlord_4"	"+0.3"
+					"value"					"1 1.2 1.4 1.6 1.8"
+					"special_bonus_unique_underlord_4"	"+0.7"
 				}
-				"burn_interval"					"1.0"
-				"burn_duration"					"1.0"
 		}
 	}
 	"abyssal_underlord_pit_of_malice"
@@ -1511,17 +1509,17 @@
 		}
 	}
 	"abyssal_underlord_dark_rift"
-	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"90 80 70 60"
-		"AbilityManaCost"				"100 200 300 400"
-		"AbilityValues"
-		{
+    {
+        "MaxLevel" "4"
+        "AbilityCooldown"				"90 80 70 60"
+        "AbilityManaCost"				"100 200 300 400"
 
-			"radius"						"600"
-			"teleport_delay"				"5.0 4.0 3.0 2.0"
-		}
-	}
+        "AbilityValues"
+        {
+            "radius"						"600"
+            "teleport_delay"				"4.5 4.0 3.5 3.0"
+        }
+    }
 	//=================================================================================================================
 	// Ability: Axe 斧王
 	//=================================================================================================================
@@ -4814,6 +4812,7 @@
 	{
 		"MaxLevel" "7"
 		"AbilityManaCost"				"80"
+		"AbilityCooldown"				"6"
 		"AbilitySpecial"
 		{
 			"01"
@@ -4840,19 +4839,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"15"
-			}
-		}
-	}
-	"special_bonus_unique_timbersaw"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"5"
-				"ad_linked_abilities"			"shredder_whirling_death"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"duration"					"25"
 			}
 		}
 	}
@@ -4861,6 +4848,7 @@
 		"MaxLevel" "5"
 		"AbilityCastRange"				"800 950 1100 1250 1400"
 		"AbilityManaCost"				"60 70 80 90 100"
+		"AbilityCastPoint"				"0"
 		"AbilitySpecial"
 		{
 			"02"
@@ -4869,11 +4857,15 @@
 				"range"				"800 950 1100 1250 1400"
 				"LinkedSpecialBonus"	"special_bonus_unique_timbersaw_3"
 			}
-
+            "03"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "radius"		"275"
+            }
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"speed"				"2200 2400 2600 2800 3000"
+				"speed"				"4000"
 			}
 			"05"
 			{
@@ -4882,6 +4874,18 @@
 			}
 		}
 	}
+	"special_bonus_unique_timbersaw_3"
+    {
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "value"				"1600"
+                "ad_linked_abilities"			"shredder_timber_chain"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+            }
+        }
+    }
 	"shredder_reactive_armor"
 	{
 		"MaxLevel" "5"
@@ -4890,12 +4894,12 @@
 			"01"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"bonus_armor"						"1.0 1.2 1.4 1.6 1.8"
+				"bonus_armor"						"1.2 1.4 1.6 1.8 2.0"
 			}
 			"02"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"bonus_hp_regen"							"1.0 1.2 1.4 1.6 1.8"
+				"bonus_hp_regen"							"1.0 1.5 2.0 2.5 3"
 			}
 			"03"
 			{
@@ -4911,24 +4915,18 @@
 			}
 		}
 	}
-	"special_bonus_unique_timbersaw_2"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"3"
-				"ad_linked_abilities"			"shredder_reactive_armor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
 	"shredder_chakram"
 	{
 		"MaxLevel" "4"
 		"AbilityManaCost"				"75 125 175 225"
+		"AbilityCastPoint"				"0"
 		"AbilitySpecial"
 		{
+		    "01"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "speed"					"1800.0"
+            }
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -4944,6 +4942,12 @@
 				"var_type"				"FIELD_FLOAT"
 				"mana_per_second"		"15 20 25 30"
 			}
+			"11"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "castpoint_scepter"		"0"
+                "RequiresScepter"	"1"
+            }
 		}
 	}
 	"shredder_chakram_2"
@@ -13228,7 +13232,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"140 200 260 320 380"
+				"damage"					"140 220 300 380 460"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_3"
 			}
 		}
@@ -13242,7 +13246,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"1.5 2.0 2.5 3.0 3.5"
+				"duration"					"1.25 2.0 2.75 3.5 4.25"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_7"
 			}
 		}
@@ -13258,7 +13262,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"total_damage"		"60 130 200 270 340"
+				"total_damage"		"80 160 240 320 400"
 				"LinkedSpecialBonus"	"special_bonus_unique_shadow_shaman_6"
 			}
 			"03"
@@ -13270,13 +13274,13 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"shard_ward_count"		"6"
+				"shard_ward_count"		"1"
 				"RequiresShard"			"1"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"shard_ward_duration"		"8"
+				"shard_ward_duration"		"10"
 				"RequiresShard"			"1"
 			}
 		}
@@ -13284,37 +13288,37 @@
 	"shadow_shaman_mass_serpent_ward"
 	{
 		"MaxLevel" "3"
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"80"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ward_count"		"10"
+				"ward_count"		"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"80 120 160"
+				"damage_tooltip"			"100 250 450"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_4"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"30.0"
+				"duration"				"24.0"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip"			"3"
+				"hits_to_destroy_tooltip"			"6"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_1"
 				"LinkedSpecialBonusField"		"value2"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip_creeps"		"6"
+				"hits_to_destroy_tooltip_creeps"		"12"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_1"
 			}
 		}
@@ -13326,13 +13330,13 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"2"
+				"value"				"8"
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value2"				"2"
+				"value2"				"4"
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -13344,29 +13348,41 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"60"
+				"value"				"200"
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
 	"shadow_shaman_serpentine"
 	{
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"80"
 		"AbilityManaCost"				"300"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"count"		"6"
+				"count"		"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"length"		"725"
+				"length"		"600"
 			}
 		}
 	}
+	"special_bonus_unique_shadow_shaman_8"
+    {
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "value"				"200"
+                "ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+            }
+        }
+    }
 	//=================================================================================================================
 	// Ability: Silencer 沉默术士
 	//=================================================================================================================
@@ -14483,6 +14499,7 @@
 				"special_bonus_unique_witch_doctor_3"			"+3"
 			}
 			"bounce_bonus_damage"			"20 25 30 35 40"
+			"bounce_delay"			"0.15"
 		}
 	}
 	"witch_doctor_voodoo_restoration"
@@ -14494,11 +14511,16 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_per_second"			"8 12 16 20 24 28 32"
+				"mana_per_second"			"8 16 24 32 40 48 56"
 				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_4"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
 				"LinkedSpecialBonusField"	"value"
 			}
+			"02"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "radius"					"550 575 600 625 650 675 700"
+            }
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
@@ -14507,6 +14529,18 @@
 			}
 		}
 	}
+	"special_bonus_unique_witch_doctor_2"
+    {
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "value"				"1.8"
+                "ad_linked_abilities"			"witch_doctor_voodoo_restoration"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+            }
+        }
+    }
 	"witch_doctor_maledict"
 	{
 		"MaxLevel" "7"
@@ -14552,12 +14586,24 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"85 140 195 250 305"
+				"damage"					"80 160 250 350 460"
 				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_5"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 		}
 	}
+	"special_bonus_unique_witch_doctor_5"
+    {
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "value"				"120"
+                "ad_linked_abilities"			"witch_doctor_death_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+            }
+        }
+    }
 	//=================================================================================================================
 	// Ability: Zuus 宙斯
 	//=================================================================================================================
