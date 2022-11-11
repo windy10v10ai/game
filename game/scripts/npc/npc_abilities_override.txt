@@ -3180,37 +3180,21 @@
 		"AbilityDraftPreAbility"		"huskar_inner_vitality"
 		"AbilityValues"
 		{
-			"damage"				"120 180 240 300 360"
-			"radius"				"500"
+			"damage"
+			{
+				"value"			"120 180 240 300 360"
+				"CalculateSpellDamageTooltip" "1"
+			}
 			"disarm_duration"
 			{
 				"value"		"2.0 2.5 3.0 3.5 4.0"
 				"special_bonus_unique_huskar_3"			"+0.5"
-
 			}
-			"knockback_distance"	"400"
-			"knockback_duration"	"1"
 			"AbilityCooldown"
 			{
 				"value"					"18 16 14 12 10"
 				"special_bonus_shard"	"-2"
 			}
-			"movement_slow_pct"
-			{
-				"value"					"0"
-				"special_bonus_shard"	"+40"
-			}
-			"hero_damage_heal_pct"
-			{
-				"value"						"0"
-				"special_bonus_shard"		"+50"
-			}
-			"creep_damage_heal_pct"
-			{
-				"value"						"FIELD_INTEGER"
-				"special_bonus_shard"			"+10"
-			}
-
 		}
 	}
 	"huskar_burning_spear"
@@ -4136,6 +4120,7 @@
 				"heal"					"90 160 230 300 370"
 				"LinkedSpecialBonus"	"special_bonus_unique_omniknight_1"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
+				"CalculateSpellDamageTooltip" "1"
 			}
 		}
 	}
@@ -6755,7 +6740,6 @@
 				{
 					"value"					"100 200 300 400 500 600 700"
 					"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_1"
-					"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 				}
 				"tick_interval"					"0.2"
 				"damage_per_second"
@@ -6880,7 +6864,6 @@
 			{
 				"value"				"10 11 12 13 14"
 				"special_bonus_unique_faceless_void_6" "+6"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 			}
 		}
 	}
