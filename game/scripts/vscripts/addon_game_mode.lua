@@ -57,7 +57,7 @@ end
 function AIGameMode:EnterDebugMode()
     print("========Enter Debug Mode========")
     self.DebugMode = true
-    GameRules:SetCustomGameSetupAutoLaunchDelay(30)
+    GameRules:SetCustomGameSetupAutoLaunchDelay(10)
     GameRules:SetHeroSelectionTime(15)
     GameRules:SetPreGameTime(10)
 end
