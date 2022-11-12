@@ -159,7 +159,7 @@ function AIGameMode:OnGameStateChanged(keys)
 
     if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
         if IsServer() then
-            Player:Init()
+            PlayerController:Init()
         end
     elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
         if IsServer() then
@@ -383,7 +383,7 @@ function AIGameMode:OnBuyback(e)
             -- 会员买活时间上限设置
             local memberBuybackCooldownMaximum = 120
             local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
-            if Player:IsMember(steamAccountID) then
+            if PlayerController:IsMember(steamAccountID) then
                 local buybackTime = hHero:GetBuybackCooldownTime()
                 if buybackTime > memberBuybackCooldownMaximum then
                     buybackTime = memberBuybackCooldownMaximum
@@ -758,8 +758,8 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
-                local membership = Player:IsMember(steamAccountID)
-                local memberInfo = Player:GetMember(steamAccountID)
+                local membership = PlayerController:IsMember(steamAccountID)
+                local memberInfo = PlayerController:GetMember(steamAccountID)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
                 for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do

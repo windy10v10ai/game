@@ -147,7 +147,7 @@ function AIGameMode:FinishItemPick(keys)
 end
 
 function AIGameMode:ItemChoiceShuffle(keys)
-	if Player:IsMember(PlayerResource:GetSteamAccountID(keys.PlayerID)) then
+	if PlayerController:IsMember(PlayerResource:GetSteamAccountID(keys.PlayerID)) then
 		local owner = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
 		AIGameMode:SpecialItemAdd(owner)
 	end
