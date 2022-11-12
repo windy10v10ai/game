@@ -1,6 +1,6 @@
 local ____player = require("api.player")
 local ____game = require("api.game")
-local ____game = require("modifiers.property.property_controller")
+local ____property = require("modifiers.property.property_controller")
 local ____lualib = require("lualib_bundle")
 local __TS__New = ____lualib.__TS__New
 
@@ -19,5 +19,5 @@ end
 
 if PropertyController == nil then
     print("PropertyController initialize via Lua!")
-    _G.PropertyController = __TS__New(____game.PropertyController)
+    _G.PropertyController = __TS__New(____property.PropertyController)
 end
