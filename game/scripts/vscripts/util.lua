@@ -6,6 +6,13 @@ function Printf(pattern, ...)
 	GameRules:SendCustomMessage(str, DOTA_TEAM_GOODGUYS, 0)
 end
 
+function TsPrint(_, valueStr)
+	if not AIGameMode.DebugMode then
+		return
+	end
+	GameRules:SendCustomMessage(valueStr, DOTA_TEAM_GOODGUYS, 0)
+end
+
 function PrintTable(t, indent, done)
 	--print ( string.format ('PrintTable type %s', type(keys)) )
 	if type(t) ~= "table" then
