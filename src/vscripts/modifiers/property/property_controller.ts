@@ -1,26 +1,11 @@
-
-import { BaseModifier } from "../../lib/dota_ts_adapter";
-import { ModifierPropertyCooldown } from "./property_cooldown";
-
-class Property {
-    playerSteamId!: string;
-    propertyName!: string;
-    level!: number;
-}
+import { Player, PlayerDto } from "../../api/player";
+import { property_cooldown_percentage } from "./property_cooldown_percentage";
 
 export class PropertyController {
     private propertyValuePerLevel = new Map<string, number>();
-    private propertys: Property[] = [];
     constructor() {
         // load property
-        this.propertyValuePerLevel.set(ModifierPropertyCooldown.name, 4);
-
-        // load player data
-        this.propertys.push({
-            playerSteamId: "136407523",
-            propertyName: "ModifierPropertyCooldown",
-            level: 10,
-        });
+        this.propertyValuePerLevel.set(property_cooldown_percentage.name, 4);
     }
 
     public InitPlayerProperty(hero: CDOTA_BaseNPC_Hero) {
@@ -29,16 +14,20 @@ export class PropertyController {
         }
 
         const steamId = PlayerResource.GetSteamAccountID(hero.GetPlayerOwnerID());
-        const currentPlayerPropertys = this.propertys.filter((m) => m.playerSteamId === steamId.toString());
+        const playerInfo = Player.playerList.find((player) => player.id == steamId.toString());
 
-        for (const property of currentPlayerPropertys) {
+        if (!playerInfo?.properties) {
+            return;
+        }
 
-            const propertyValuePerLevel = this.propertyValuePerLevel.get(property.propertyName);
+        for (const property of playerInfo.properties) {
+            print(`currentPlayerPropertys ${property.name} level ${property.level} `);
+            const propertyValuePerLevel = this.propertyValuePerLevel.get(property.name);
             if (propertyValuePerLevel) {
                 // @ts-ignore
-                TsPrint(`InitPlayerProperty ${property.propertyName}`);
+                TsPrint(`InitPlayerProperty ${property.propertyName} `);
                 // add property modifer to player
-                hero.AddNewModifier(hero, undefined, property.propertyName, {
+                hero.AddNewModifier(hero, undefined, property.name, {
                     value: propertyValuePerLevel * property.level
                 });
             }

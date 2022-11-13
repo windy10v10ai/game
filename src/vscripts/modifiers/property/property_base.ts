@@ -1,7 +1,7 @@
 import { BaseModifier, registerModifier } from "../../lib/dota_ts_adapter";
 
 @registerModifier()
-export class ModifierPropertyCooldown extends BaseModifier {
+export class PropertyBaseModifier extends BaseModifier {
     value!: number;
 
     IsPurgable(): boolean {
@@ -32,13 +32,5 @@ export class ModifierPropertyCooldown extends BaseModifier {
 
     HandleCustomTransmitterData(data: { value: number }) {
         this.value = data.value;
-    }
-
-    // Declare functions
-    DeclareFunctions(): ModifierFunction[] {
-        return [ModifierFunction.COOLDOWN_PERCENTAGE];
-    }
-    GetModifierPercentageCooldown(): number {
-        return this.value;
     }
 }

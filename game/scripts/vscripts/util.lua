@@ -1,16 +1,22 @@
+function TsPrint(_, s)
+	if not AIGameMode.DebugMode then
+		return
+	end
+	GameRules:SendCustomMessage(s, DOTA_TEAM_GOODGUYS, 0)
+end
+function TsPrintTable(_, t, indent, done)
+	if not AIGameMode.DebugMode then
+		return
+	end
+	PrintTable(t, indent, done)
+end
+
 function Printf(pattern, ...)
 	if not AIGameMode.DebugMode then
 		return
 	end
 	local str = string.format(pattern, ...)
 	GameRules:SendCustomMessage(str, DOTA_TEAM_GOODGUYS, 0)
-end
-
-function TsPrint(_, valueStr)
-	if not AIGameMode.DebugMode then
-		return
-	end
-	GameRules:SendCustomMessage(valueStr, DOTA_TEAM_GOODGUYS, 0)
 end
 
 function PrintTable(t, indent, done)

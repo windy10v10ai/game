@@ -51,7 +51,6 @@ export class ApiClient {
 						print(`[ApiClient] getWithRetry retry ${retryCount}`);
 						retry();
 					} else {
-						// @ts-ignore
 						CustomNetTables.SetTableValue("loading_status", "loading_status", { status: 3 });
 					}
 				} else {
