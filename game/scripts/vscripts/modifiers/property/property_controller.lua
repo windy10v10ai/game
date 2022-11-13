@@ -4,18 +4,22 @@ local Map = ____lualib.Map
 local __TS__New = ____lualib.__TS__New
 local __TS__ArrayFind = ____lualib.__TS__ArrayFind
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["9"] = 1,["10"] = 1,["11"] = 2,["12"] = 2,["13"] = 4,["14"] = 4,["15"] = 4,["17"] = 5,["18"] = 8,["19"] = 6,["20"] = 11,["21"] = 12,["24"] = 16,["25"] = 17,["26"] = 17,["27"] = 17,["28"] = 17,["29"] = 19,["30"] = 19,["31"] = 19,["33"] = 19,["36"] = 23,["37"] = 24,["38"] = 25,["39"] = 26,["40"] = 28,["41"] = 28,["42"] = 28,["43"] = 28,["44"] = 30,["47"] = 11});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["9"] = 1,["10"] = 1,["11"] = 2,["12"] = 2,["13"] = 2,["14"] = 2,["15"] = 4,["16"] = 4,["17"] = 4,["19"] = 5,["20"] = 8,["21"] = 9,["22"] = 10,["23"] = 6,["24"] = 13,["25"] = 14,["28"] = 18,["29"] = 19,["30"] = 19,["31"] = 19,["32"] = 19,["33"] = 21,["34"] = 21,["35"] = 21,["37"] = 21,["40"] = 25,["41"] = 26,["42"] = 27,["43"] = 29,["46"] = 13});
 local ____exports = {}
 local ____player = require("api.player")
 local Player = ____player.Player
-local ____property_cooldown_percentage = require("modifiers.property.property_cooldown_percentage")
-local property_cooldown_percentage = ____property_cooldown_percentage.property_cooldown_percentage
+local ____property_declare = require("modifiers.property.property_declare")
+local property_cast_range_bonus_stacking = ____property_declare.property_cast_range_bonus_stacking
+local property_cooldown_percentage = ____property_declare.property_cooldown_percentage
+local property_status_resistance_stacking = ____property_declare.property_status_resistance_stacking
 ____exports.PropertyController = __TS__Class()
 local PropertyController = ____exports.PropertyController
 PropertyController.name = "PropertyController"
 function PropertyController.prototype.____constructor(self)
     self.propertyValuePerLevel = __TS__New(Map)
     self.propertyValuePerLevel:set(property_cooldown_percentage.name, 4)
+    self.propertyValuePerLevel:set(property_status_resistance_stacking.name, 4)
+    self.propertyValuePerLevel:set(property_cast_range_bonus_stacking.name, 25)
 end
 function PropertyController.prototype.InitPlayerProperty(self, hero)
     if not hero then
@@ -34,13 +38,8 @@ function PropertyController.prototype.InitPlayerProperty(self, hero)
         return
     end
     for ____, property in ipairs(playerInfo.properties) do
-        print(((("currentPlayerPropertys " .. property.name) .. " level ") .. tostring(property.level)) .. " ")
         local propertyValuePerLevel = self.propertyValuePerLevel:get(property.name)
         if propertyValuePerLevel then
-            TsPrint(
-                nil,
-                ("InitPlayerProperty " .. tostring(property.propertyName)) .. " "
-            )
             hero:AddNewModifier(hero, nil, property.name, {value = propertyValuePerLevel * property.level})
         end
     end
