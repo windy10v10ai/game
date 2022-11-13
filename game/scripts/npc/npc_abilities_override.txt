@@ -12963,17 +12963,11 @@
 		"AbilityManaCost"				"250 400 550 700"
 		"AbilityValues"
 		{
-				"starting_aoe"		"100"
-				"distance"			"900"
-				"final_aoe"			"450"
-				"speed"				"900"
 				"damage"
 				{
 					"value"											"350 450 550 650"
 					"special_bonus_unique_queen_of_pain_7"			"+250"
 				}
-				"knockback_distance"	"350"
-				"knockback_duration" "1.4"
 				"AbilityCooldown"
 				{
 					"value"											"90"
