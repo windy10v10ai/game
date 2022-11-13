@@ -544,6 +544,7 @@ function AIGameMode:OnNPCSpawned(keys)
         -- Player Buff
         if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
             EnablePlayerModifier(hEntity)
+            PropertyController:InitPlayerProperty(hEntity)
         end
 
         hEntity.bInitialized = true
