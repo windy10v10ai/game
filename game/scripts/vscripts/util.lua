@@ -118,6 +118,9 @@ function SetMember (list)
 	for _, l in ipairs(list) do set[l] = {enable=1, expireDateString="获取失败"} end
 	return set
 end
+function TsLifeStealOnAttackLanded (_, params, iLifeSteal, hHero, hAbility)
+	LifeStealOnAttackLanded (params, iLifeSteal, hHero, hAbility)
+end
 
 function LifeStealOnAttackLanded (params, iLifeSteal, hHero, hAbility)
 	if IsServer() then
