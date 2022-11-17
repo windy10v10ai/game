@@ -107,6 +107,29 @@
 		"data_panel_level_progress"		"Level Progress"
 		"data_panel_developing"			"More feature will be added in the future"
 
+		"data_panel_player_property_cooldown_percentage"		"Cooldown ( % )"
+		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
+		"data_panel_player_property_spell_amplify_percentage"	"Spell Amplify ( % )"
+		"data_panel_player_property_status_resistance_stacking"	"Status Resistance ( % )"
+		"data_panel_player_property_magical_resistance_bonus"	"Magical Resistance ( % )"
+		"data_panel_player_property_attack_range_bonus"			"Attack Range"
+		"data_panel_player_property_physical_armor_bonus"		"Physical Armor"
+		"data_panel_player_property_preattack_bonus_damage"		"Attack Damage"
+		"data_panel_player_property_attackspeed_bonus_constant"	"Attack Speed"
+		"data_panel_player_property_stats_strength_bonus"		"Strength"
+		"data_panel_player_property_stats_agility_bonus"		"Agility"
+		"data_panel_player_property_stats_intellect_bonus"		"Intellect"
+		"data_panel_player_property_health_regen_percentage"	"Health Regen Percentage ( % )"
+		"data_panel_player_property_mana_regen_total_percentage"	"Mana Regen Percentage ( % )"
+		"data_panel_player_property_lifesteal"					"Life Steal ( % )"
+		"data_panel_player_property_spell_lifesteal"			"Spell Life Steal ( % )"
+		"data_panel_player_property_movespeed_bonus_constant"	"Move Speed"
+		"data_panel_player_property_ignore_movespeed_limit"		"Move Speed Ignore Limit"
+		"data_panel_player_property_cannot_miss"				"Cannot Miss"
+
+		"data_panel_player_property_value"				"Value"
+		"data_panel_player_property_level"				"Level"
+
 		///////////////////////////////////////////////////
 		//
 		//            Choose Item

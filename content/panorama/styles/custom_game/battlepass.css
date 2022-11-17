@@ -20,13 +20,6 @@
   font-family: monospaceFont;
  }
 
- #MyStreakParticle{
-  margin-left: -30px;
-  width: 130px;
-  height: 130px;
-  z-index: -10;
- }
-
  .BPParent{
   width: 100%;
   height: 100%;
@@ -83,10 +76,10 @@
 
 
  #BPWindow{
-  margin-top: 120px;
+  margin-top: 150px;
   margin-right: 20px;
   width: 30%;
-  height: 50%;
+  height: 65%;
   horizontal-align: right;
   vertical-align: top;
   background-color: gradient( linear, 0% 100%, 0% 10%, from( #1c112ecc ), color-stop( 0.3, #1c112e55 ), color-stop( 0.6, #000000bb ),to( #000000ee) );
@@ -163,140 +156,124 @@
  }
 
 
- .WindowPlayerStats{
-    margin-top: 3%;
-    horizontal-align: center;
-    vertical-align: top;
-    width: 80%;
-    height: 120px;
-    background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
-    border-radius: 15px;
-    box-shadow: 0px 0px 2px #e0caa5;
-    flow-children: right;
-   }
-
- .LevelImageContainer{
-  margin-left: 10px;
-  width: 115px;
-  height: 115px;
-  vertical-align: center;
-  flow-children: down;
- }
- .LevelText{
-  horizontal-align: left;
-  vertical-align: top;
-  color: white;
-  font-size: 16px;
-  margin: 5px;
- }
- .LevelNumber{
-  horizontal-align: center;
-  vertical-align: center;
-  color: white;
-  font-size: 40px;
-  margin-left: 1%;
-  padding-bottom: 26px;
- }
-
-
-
- .LevelTrackContainer{
-  vertical-align: center;
-  width: 300px;
-  height: 80px;
- }
-
- .LevelNextRemainingText{
-  font-size: 20px;
-  color: #fefefeaa;
-  font-weight: thin;
-  letter-spacing: 1px;
-  text-transform: uppercase;
- }
- .LevelNextRemainingNumber{
-  font-size: 20px;
-  color: #fefefe;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-family: defaultFont;
-  horizontal-align: right;
- }
- .LevelNextRemainingBar{
-  vertical-align: center;
-  background-color: #000;
-  height: 25px;
-  width: 300px;
-  border: 1px solid #b2894850;
- }
- .LevelNextRemainingBarLeft{
-  height: 100%;
- }
- #SeasonLevelNextRemainingBarLeft{
-  width: 85%;
-  background-color: gradient(linear, 0% 0%, 100% 0%, from(#11033a), to(#4f48b2));
- }
- #MemberLevelNextRemainingBarLeft{
-  width: 60%;
-  background-color: gradient(linear, 0% 0%, 100% 0%, from(#dd9300), to(#FFCC66));
- }
- .LevelNextRemainingBarRight{
-  height: 100%;
- }
-
-
-
- #BpWindowNavBar{
+.WindowPlayerStats{
+  margin: 20px 10px;
   horizontal-align: center;
   vertical-align: top;
   width: 80%;
-  height: 30px;
-  flow-children: right;
-  color: white;
- }
-
- .BPNavButtonText{
-  horizontal-align: center;
-  vertical-align: center;
-  text-align: center;
-  padding: 1px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-overflow: shrink;
-  font-family: defaultFont;
-  font-weight: semi-bold;
-  font-size: 16px;
- }
-
- .BpWindowNavButton{
-
+  height: 120px;
   background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
-  width: 30%;
-  height: 40px;
-  margin-left: 10px;
-  margin-right: 10px;
-  transition-property: box-shadow, background-color;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-  box-shadow: 0px 0px 3px 1px #b2894877;
- }
+  border-radius: 15px;
+  box-shadow: 0px 0px 2px #e0caa5;
+  flow-children: right;
+}
 
- .BpWindowNavButton:hover{
-
-  background-color: gradient(linear, 0% 0%, 100% 0%, from(#333333), to(#111111));
-  box-shadow: 0px 0px 3px 1px #dbaf69;
- }
-
- .BpWindowNavButton:selected{
-
-  box-shadow: 0px 0px 9px 0px #b28948dd;
- }
-
- .BpWindowNavButton:active{
-
-  sound: "ui.tick";
- }
+.LevelImageContainer{
+ margin-left: 10px;
+ width: 115px;
+ height: 115px;
+ vertical-align: center;
+ flow-children: down;
+}
+.LevelText{
+ horizontal-align: left;
+ vertical-align: top;
+ color: white;
+ font-size: 16px;
+ margin: 5px;
+}
+.LevelNumber{
+ horizontal-align: center;
+ vertical-align: center;
+ color: white;
+ font-size: 40px;
+ margin-left: 1%;
+ padding-bottom: 26px;
+}
+.LevelTrackContainer{
+ vertical-align: center;
+ width: 300px;
+ height: 80px;
+}
+.LevelNextRemainingText{
+ font-size: 20px;
+ color: #fefefeaa;
+ font-weight: thin;
+ letter-spacing: 1px;
+ text-transform: uppercase;
+}
+.LevelNextRemainingNumber{
+ font-size: 20px;
+ color: #fefefe;
+ font-weight: bold;
+ letter-spacing: 1px;
+ text-transform: uppercase;
+ font-family: defaultFont;
+ horizontal-align: right;
+}
+.LevelNextRemainingBar{
+ vertical-align: center;
+ background-color: #000;
+ height: 25px;
+ width: 300px;
+ border: 1px solid #b2894850;
+}
+.LevelNextRemainingBarLeft{
+ height: 100%;
+}
+#SeasonLevelNextRemainingBarLeft{
+ width: 85%;
+ background-color: gradient(linear, 0% 0%, 100% 0%, from(#11033a), to(#4f48b2));
+}
+#MemberLevelNextRemainingBarLeft{
+ width: 60%;
+ background-color: gradient(linear, 0% 0%, 100% 0%, from(#dd9300), to(#FFCC66));
+}
+.LevelNextRemainingBarRight{
+ height: 100%;
+}
+#BpWindowNavBar{
+ horizontal-align: center;
+ vertical-align: top;
+ width: 80%;
+ height: 30px;
+ flow-children: right;
+ color: white;
+}
+.BPNavButtonText{
+ horizontal-align: center;
+ vertical-align: center;
+ text-align: center;
+ padding: 1px;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ text-overflow: shrink;
+ font-family: defaultFont;
+ font-weight: semi-bold;
+ font-size: 16px;
+}
+.BpWindowNavButton{
+ background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
+ width: 30%;
+ height: 40px;
+ margin-left: 10px;
+ margin-right: 10px;
+ transition-property: box-shadow, background-color;
+ transition-delay: 0s;
+ transition-duration: 0.2s;
+ transition-timing-function: ease-in-out;
+ box-shadow: 0px 0px 3px 1px #b2894877;
+}
+.BpWindowNavButton:hover{
+ background-color: gradient(linear, 0% 0%, 100% 0%, from(#333333), to(#111111));
+ box-shadow: 0px 0px 3px 1px #dbaf69;
+}
+.BpWindowNavButton:selected{
+ box-shadow: 0px 0px 9px 0px #b28948dd;
+}
+.BpWindowNavButton:active{
+ sound: "ui.tick";
+}
 
 
 
@@ -306,14 +283,95 @@
   height: 100%;
  }
 
- .BpWindowMainContainer{
-
+.BpWindowMainContainer{
   width: 100%;
   height: 100%;
   padding: 10px;
   flow-children: down;
   visibility: collapse;
- }
+}
+
+.BpWindowSubContainer{
+  horizontal-align: center;
+  width: 95%;
+  height: 100%;
+  flow-children: down;
+  overflow: squish scroll;
+  visibility: collapse;
+}
+
+.SnippetListItem{
+  margin: 10px 10px;
+  horizontal-align: center;
+  flow-children: right;
+  width: 100%;
+  height: 120px;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#222c), to(#000c));
+  transition-property: background-color, box-shadow;
+  transition-delay: 0s;
+  transition-duration: 0.0s;
+  transition-timing-function: ease-in-out;
+  border-radius: 15px;
+}
+.SnippetListItem:hover{
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#292600cc), to(#000c));
+  box-shadow: inset 0px 0px 2px 0px #b28948;
+}
+
+.ItemImagePanel{
+  width: 80px;
+  height: 80px;
+  vertical-align: center;
+  margin-left: 20px;
+  border-radius: 50px;
+}
+
+.ItemImage{
+  width: 100px;
+  height: 100px;
+  vertical-align: center;
+}
+
+.ItemContextPanel{
+  width: 75%;
+  height: 100px;
+  vertical-align: center;
+  flow-children: down;
+}
+
+.ItemName{
+  width: 100%;
+  font-size: 24px;
+  color: #ffffff90;
+  vertical-align: top;
+  horizontal-align: center;
+  margin: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px 3 black;
+}
+
+.ItemContextValuePanel{
+  width: 100%;
+  height: 100%;
+  vertical-align: center;
+  flow-children: right;
+  margin: 0 50px;
+}
+
+.ItemValue{
+  min-width: 100px;
+  letter-spacing: 2px;
+  font-size: 24px;
+  color: #b28948;
+  vertical-align: top;
+  horizontal-align: right;
+  margin-top: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px 3 black;
+}
+
 
  #PatreonButtons,#BpRewardsButtons{
 
@@ -411,73 +469,12 @@
   overflow: squish scroll;
   visibility: collapse;
  }
- .NewPatreonPet,.NewPatreonEmblem,.NewBpReward{
 
-
-  margin-bottom: 20px;
-  horizontal-align: center;
-  width: 98%;
-  height: 150px;
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#2229), to(#0009));
-  transition-property: background-color, box-shadow;
-  transition-delay: 0s;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
- }
-
- .NewPatreonPet:hover,.NewPatreonEmblem:hover,.NewBpReward:hover{
-
-
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#292600aa), to(#0009));
-  box-shadow: inset 0px 0px 2px 0px #b28948;
- }
-
- #PetImagePanel,#EmblemImagePanel,#RewardImagePanel{
-
-
-  width: 32%;
-  height: 100%;
-  vertical-align: center;
-  margin-left: 20px;
- }
- #RewardImagePanel{
-  border-radius: 17px;
- }
 
  #RewardImage,#EmblemImage{
 
   horizontal-align: center;
   vertical-align: center;
- }
-
- #PetName,#EmblemName,#RewardName{
-
-
-  width: 100%;
-  letter-spacing: 2px;
-  font-size: 24px;
-  color: #ffffff90;
-  vertical-align: top;
-  horizontal-align: center;
-  margin-top: 20px;
-  margin-left: 50px;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 4px 3 black;
- }
-
- #PetTier,#EmblemTier{
-
-  width: 12%;
-  letter-spacing: 2px;
-  font-size: 12px;
-  color: #b28948;
-  vertical-align: top;
-  horizontal-align: right;
-  margin-top: 10px;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 4px 3 black;
  }
 
  #RewardTier{
