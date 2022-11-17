@@ -94,6 +94,17 @@ function InitSetting() {
 	$("#same_hero_selection").checked=true;
 	$("#fast_courier").checked=true;
 	$("#radiant_bot_same_multi").checked=true;
+
+	// 开发模式
+	if (Game.IsInToolsMode()) {
+		$("#player_gold_xp_multiplier_dropdown").SetSelected("2");
+		$("#bot_gold_xp_multiplier_dropdown").SetSelected("2");
+		$("#radiant_player_number_dropdown").SetSelected("1");
+		$("#dire_player_number_dropdown").SetSelected("1");
+		$("#starting_gold_bot_dropdown").SetSelected("3000");
+		$("#tower_power_dropdown").SetSelected("5");
+		$("#tower_endure_dropdown").SetSelected("5");
+	}
 }
 InitSetting();
 

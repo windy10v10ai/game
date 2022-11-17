@@ -7,7 +7,12 @@ class MemberDto {
 	expireDateString!: string;
 }
 
-class PlayerDto {
+export class PlayerProperty {
+	name!: string;
+	level!: number;
+}
+
+export class PlayerDto {
 	id!: string;
 	matchCount!: number;
 	winCount!: number;
@@ -22,6 +27,7 @@ class PlayerDto {
 	memberLevel!: number;
 	memberCurrentLevelPoint!: number;
 	memberNextLevelPoint!: number;
+	properties?: PlayerProperty[];
 }
 
 
@@ -30,9 +36,24 @@ class GameStart {
 	players!: PlayerDto[];
 }
 
+
+declare global {
+	interface CustomNetTableDeclarations {
+		loading_status: {
+			loading_status: any;
+		};
+		member_table: {
+			[steamId: string]: MemberDto;
+		};
+		player_table: {
+			[steamId: string]: PlayerDto;
+		};
+	}
+}
+
 export class Player {
-	private memberList: MemberDto[] = [];
-	private playerList: PlayerDto[] = [];
+	public static memberList: MemberDto[] = [];
+	public static playerList: PlayerDto[] = [];
 	private static GAME_START_URL = "/game/start";
 	constructor() {
 		if (IsInToolsMode()) {
@@ -40,7 +61,7 @@ export class Player {
 				136407523, 1194383041, 143575444, 314757913, 385130282, 967052298, 1159610111, 353885092, 245559423, 916506173];
 
 			for (const steamId of developSteamAccountIds) {
-				this.memberList.push({
+				Player.memberList.push({
 					steamId: steamId,
 					enable: true,
 					expireDateString: "2099-12-31",
@@ -54,7 +75,6 @@ export class Player {
 			this.saveMemberToNetTable();
 		}
 
-		// @ts-ignore
 		CustomNetTables.SetTableValue("loading_status", "loading_status", { status: 1 });
 		// get IsValidPlayer player's steamIds
 		const steamIds = [];
@@ -69,15 +89,14 @@ export class Player {
 			print(`[Player] Init callback data ${data}`);
 			const gameStart = json.decode(data)[0] as GameStart;
 			DeepPrintTable(gameStart);
-			this.memberList = gameStart.members;
-			this.playerList = gameStart.players;
+			Player.memberList = gameStart.members;
+			Player.playerList = gameStart.players;
 
 			// set member to member table
 			this.saveMemberToNetTable();
 			this.savePlayerToNetTable();
 
-			const status = this.playerList.length > 0 ? 2 : 3;
-			// @ts-ignore
+			const status = Player.playerList.length > 0 ? 2 : 3;
 			CustomNetTables.SetTableValue("loading_status", "loading_status", { status });
 		});
 	}
@@ -87,10 +106,9 @@ export class Player {
 			if (PlayerResource.IsValidPlayer(i)) {
 				// 32bit steamId
 				const steamId = PlayerResource.GetSteamAccountID(i);
-				const member = this.memberList.find(m => m.steamId == steamId);
+				const member = Player.memberList.find(m => m.steamId == steamId);
 				if (member) {
 					// set key as short dotaId
-					// @ts-ignore
 					CustomNetTables.SetTableValue("member_table", steamId.toString(), member);
 				}
 			}
@@ -102,17 +120,16 @@ export class Player {
 			if (PlayerResource.IsValidPlayer(i)) {
 				// 32bit steamId
 				const steamId = PlayerResource.GetSteamAccountID(i);
-				const player = this.playerList.find(p => p.id == steamId.toString());
+				const player = Player.playerList.find(p => p.id == steamId.toString());
 				if (player) {
 					// set key as short dotaId
-					// @ts-ignore
 					CustomNetTables.SetTableValue("player_table", steamId.toString(), player);
 				}
 			}
 		}
 	}
 	public IsMember(steamId: number) {
-		const member = this.memberList.find(m => m.steamId == steamId);
+		const member = Player.memberList.find(m => m.steamId == steamId);
 		if (member) {
 			return member.enable;
 		}
@@ -120,7 +137,7 @@ export class Player {
 	}
 
 	public GetMember(steamId: number) {
-		const member = this.memberList.find(m => m.steamId == steamId);
+		const member = Player.memberList.find(m => m.steamId == steamId);
 		if (member) {
 			return member;
 		}

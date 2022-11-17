@@ -17,7 +17,7 @@ require('bot/bot_think_item_build')
 require('bot/bot_think_item_use')
 require('bot/bot_think_ability_use')
 require('bot/bot_think_modifier')
-require('api/api_loader')
+require('ts_loader')
 require('damage')
 require('voicePlayer/PlayFuncs')
 require('custom_test_env')
@@ -57,7 +57,7 @@ end
 function AIGameMode:EnterDebugMode()
     print("========Enter Debug Mode========")
     self.DebugMode = true
-    GameRules:SetCustomGameSetupAutoLaunchDelay(30)
+    GameRules:SetCustomGameSetupAutoLaunchDelay(10)
     GameRules:SetHeroSelectionTime(15)
     GameRules:SetPreGameTime(10)
 end
