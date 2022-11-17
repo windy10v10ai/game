@@ -13,7 +13,6 @@ function modifier_player_dky190:DeclareFunctions()
 	}
 end
 
-
 function modifier_player_dky190:GetModifierModelScale()
 	return self.iModelScale
 end

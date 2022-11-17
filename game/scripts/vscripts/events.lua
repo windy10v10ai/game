@@ -159,7 +159,7 @@ function AIGameMode:OnGameStateChanged(keys)
 
     if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
         if IsServer() then
-            Player:Init()
+            PlayerController:Init()
         end
     elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
         if IsServer() then
@@ -383,7 +383,7 @@ function AIGameMode:OnBuyback(e)
             -- 会员买活时间上限设置
             local memberBuybackCooldownMaximum = 120
             local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
-            if Player:IsMember(steamAccountID) then
+            if PlayerController:IsMember(steamAccountID) then
                 local buybackTime = hHero:GetBuybackCooldownTime()
                 if buybackTime > memberBuybackCooldownMaximum then
                     buybackTime = memberBuybackCooldownMaximum
@@ -544,6 +544,7 @@ function AIGameMode:OnNPCSpawned(keys)
         -- Player Buff
         if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
             EnablePlayerModifier(hEntity)
+            PropertyController:InitPlayerProperty(hEntity)
         end
 
         hEntity.bInitialized = true
@@ -758,8 +759,8 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
-                local membership = Player:IsMember(steamAccountID)
-                local memberInfo = Player:GetMember(steamAccountID)
+                local membership = PlayerController:IsMember(steamAccountID)
+                local memberInfo = PlayerController:GetMember(steamAccountID)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
                 for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
@@ -819,44 +820,11 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     -- 参战积分
                     local teamKills = GetTeamHeroKills(PlayerResource:GetTeam(playerID))
 
-                    print("teamKills", teamKills)
                     if teamKills > 0 then
                         local battleParticipation = math.floor(battleParticipationBase * ((kills + assists) / teamKills))
                         print("battleParticipation", battleParticipation)
                         playerInfo.points = playerInfo.points + battleParticipation
                     end
-                    -- -- find most kill 1st to 6th
-                    -- for i = 1, 6 do
-                    --     if mostKillList[i] == nil then
-                    --         mostKillList[i] = kills
-                    --         mostKillPlayerIDList[i] = playerID
-                    --         break
-                    --     elseif mostKillList[i] < kills then
-                    --         for j = 6, i + 1, -1 do
-                    --             mostKillList[j] = mostKillList[j - 1]
-                    --             mostKillPlayerIDList[j] = mostKillPlayerIDList[j - 1]
-                    --         end
-                    --         mostKillList[i] = kills
-                    --         mostKillPlayerIDList[i] = playerID
-                    --         break
-                    --     end
-                    -- end
-                    -- -- find assist kill 1st to 6th
-                    -- for i = 1, 6 do
-                    --     if mostAssistsList[i] == nil then
-                    --         mostAssistsList[i] = assists
-                    --         mostAssistsPlayerList[i] = playerID
-                    --         break
-                    --     elseif mostAssistsList[i] < assists then
-                    --         for j = 6, i + 1, -1 do
-                    --             mostAssistsList[j] = mostAssistsList[j - 1]
-                    --             mostAssistsPlayerList[j] = mostAssistsPlayerList[j - 1]
-                    --         end
-                    --         mostAssistsList[i] = assists
-                    --         mostAssistsPlayerList[i] = playerID
-                    --         break
-                    --     end
-                    -- end
 
                     if damagereceived > mostDamageReceived_1 then
                         mostDamageReceivedPlayerID_2 = mostDamageReceivedPlayerID_1
@@ -948,11 +916,9 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
         return 0
     end
     if AIGameMode.sumTowerPower <= 6 then
-        print("Tower power is low than 100%, half season point will be given")
         points = points * 0.5
     end
     if AIGameMode.iDesiredDire < 10 then
-        print("DesiredDire bot is less than 10")
         points = points * AIGameMode.iDesiredDire / 10
     end
 
