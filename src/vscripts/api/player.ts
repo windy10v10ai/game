@@ -28,7 +28,7 @@ export class PlayerDto {
 	memberCurrentLevelPoint!: number;
 	memberNextLevelPoint!: number;
 	properties?: PlayerProperty[];
-	propertyTotalLevels?: number;
+	propertyTotalLevel?: number;
 }
 
 

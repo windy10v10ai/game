@@ -22,7 +22,9 @@ function PlayerDataLoaded(player) {
 	$("#SeasonLevelNextRemainingNumber").text = `${player.seasonCurrrentLevelPoint} / ${player.seasonNextLevelPoint}`;
 	$("#MemberLevelNumber").text = player.memberLevel + 1;
 	$("#MemberLevelNextRemainingNumber").text = `${player.memberCurrentLevelPoint} / ${player.memberNextLevelPoint}`;
-	$("#PropertyPoint").text = player.seasonLevel + player.memberLevel;
+
+	const totalLevel = player.memberLevel + player.seasonLevel;
+	$("#PropertyPoint").text = `${player.propertyTotalLevel} / ${totalLevel}`;
 
 
 
