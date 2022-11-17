@@ -4,6 +4,8 @@
 
 function PregameSetup() {
     PlayerDataLoaded(GetPlayer());
+	SubscribePlayer(PlayerDataLoaded);
+	SetDataSelected();
 }
 
 function PlayerDataLoaded(player) {
@@ -22,23 +24,22 @@ function PlayerDataLoaded(player) {
 	$("#SeasonLevelNextRemainingNumber").text = `${player.seasonCurrrentLevelPoint} / ${player.seasonNextLevelPoint}`;
 	$("#MemberLevelNumber").text = player.memberLevel + 1;
 	$("#MemberLevelNextRemainingNumber").text = `${player.memberCurrentLevelPoint} / ${player.memberNextLevelPoint}`;
-	$("#PropertyPoint").text = player.seasonLevel + player.memberLevel;
 
-
+	const totalLevel = player.memberLevel + player.seasonLevel;
+	$("#PropertyPoint").text = `${player.propertyTotalLevel} / ${totalLevel}`;
 
 	$("#SeasonLevelNextRemainingBarLeft").style.width = `${(player.seasonCurrrentLevelPoint / player.seasonNextLevelPoint) * 100}%`;
 	$("#MemberLevelNextRemainingBarLeft").style.width = `${(player.memberCurrentLevelPoint / player.memberNextLevelPoint) * 100}%`;
 
-	SetDataSelected();
-	// CreatePatreonPetList();
-	// CreatePatreonEffectList();
-	// CreateBattlepassRewardsList();
-	// CreateBattlepassArmoryList();
+	SetPlayerProperty(player.properties);
 
 	$.Msg("BP Loaded!");
 }
 
+// --------------------------------------------------------------------------------
+// 选项卡切换
 
+// 数据
 function SetDataSelected() {
 	$("#BPNavButtonData").checked = true;
 	SwitchToData();
@@ -49,12 +50,197 @@ function SwitchToData() {
 	$("#BpWindowMainProperty").visible = false;
 }
 
+// 属性
+function SetPropertySelected() {
+	$("#BPNavButtonProperty").checked = true;
+	SwitchToProperty();
+}
+
 function SwitchToProperty() {
 	$("#BpWindowMainProperty").visible = true;
+	$("#PlayerPropertyContent").visible = true;
+
 	$("#BpWindowMainLevel").visible = false;
 }
 
+
+
+// --------------------------------------------------------------------------------
+
+function SetPlayerProperty(playerProperties) {
+	ClearPlayerProperty();
+
+	const playerPropertiesValues = Object.values(playerProperties);
+	$.Msg(playerPropertiesValues);
+	for(const property of Player_Property_List) {
+		// find by name and set level
+		const playerProperty = playerPropertiesValues.find(p => p.name === property.name);
+		if(playerProperty) {
+			property.level = playerProperty.level;
+		}
+		AddPlayerProperty(property);
+	}
+}
+
+function ClearPlayerProperty() {
+	$("#PlayerPropertyContent").RemoveAndDeleteChildren();
+}
+
+function AddPlayerProperty(property) {
+
+	const maxLevel = 8;
+
+	let panel = $.CreatePanel("Panel", $("#PlayerPropertyContent"), "");
+	panel.BLoadLayoutSnippet("Property");
+
+
+	const propertyName = $.Localize(`#data_panel_player_${property.name}`);
+	panel.SetDialogVariable("PropertyName", propertyName);
+	const propertyLevelString = $.Localize(`#data_panel_player_property_level`) + " " + property.level + "/" + maxLevel;
+	const propertyValueString = $.Localize(`#data_panel_player_property_value`) + " " + (property.level * property.valuePerLevel);
+	panel.SetDialogVariable("PropertyLevel", propertyLevelString);
+	panel.SetDialogVariable("PropertyValue", propertyValueString);
+	let imageSrc = property.imageSrc;
+	if (!imageSrc) {
+		imageSrc = "s2r://panorama/images/cavern/icon_custom_challenge_png.vtex";
+	}
+	panel.FindChildTraverse("PropertyImage").SetImage(imageSrc);
+	panel.FindChildTraverse("PropertyLevel").style.color = "#2cba75";
+
+	// if (property.level <= maxLevel) {
+	// 	panel.FindChildTraverse("EnablePet").SetHasClass("deactivated", false);
+	// 	panel.FindChildTraverse("EnablePet").SetHasClass("activated", true);
+	// 	panel.FindChildTraverse("EnablePet").SetPanelEvent("onactivate", () => {
+	// 		// TODO : send request to server call level up
+	// 	});
+	// }
+
+}
+
+const Player_Property_List = [
+	{
+		name: "property_cooldown_percentage",
+		level: 0,
+		imageSrc: "s2r://panorama/images/cavern/icon_shovel_png.vtex",
+		valuePerLevel: 4,
+	},
+	{
+		name: "property_cast_range_bonus_stacking",
+		level: 0,
+		imageSrc: "s2r://panorama/images/cavern/icon_cc_aghs_png.vtex",
+		valuePerLevel: 25,
+	},
+	{
+		name: "property_spell_amplify_percentage",
+		level: 0,
+		imageSrc: "s2r://panorama/images/challenges/icon_challenges_magicdamage_png.vtex",
+		valuePerLevel: 5,
+	},
+	{
+		name: "property_status_resistance_stacking",
+		level: 0,
+		imageSrc: "s2r://panorama/images/cavern/icon_cc_fuzzy_png.vtex",
+		valuePerLevel: 4,
+	},
+	{
+		name: "property_magical_resistance_bonus",
+		level: 0,
+		imageSrc: "s2r://panorama/images/events/aghanim/blessing_icons/blessing_magic_resist_icon_png.vtex",
+		valuePerLevel: 4,
+	},
+	{
+		name: "property_attack_range_bonus",
+		level: 0,
+		imageSrc: "s2r://panorama/images/challenges/icon_challenges_spelldisjointed_png.vtex",
+		valuePerLevel: 25,
+	},
+	{
+		name: "property_physical_armor_bonus",
+		level: 0,
+		imageSrc: "s2r://panorama/images/cavern/icon_cc_ti2021final_png.vtex",
+		valuePerLevel: 5,
+	},
+	{
+		name: "property_preattack_bonus_damage",
+		level: 0,
+		imageSrc: "s2r://panorama/images/challenges/icon_challenges_physicaldamage_png.vtex",
+		valuePerLevel: 15,
+	},
+	{
+		name: "property_attackspeed_bonus_constant",
+		level: 0,
+		imageSrc: "s2r://panorama/images/events/aghanim/blessing_icons/blessing_attack_speed_icon_dormant_png.vtex",
+		valuePerLevel: 15,
+	},
+	{
+		name: "property_stats_strength_bonus",
+		level: 0,
+		imageSrc: "s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex",
+		valuePerLevel: 10,
+	},
+	{
+		name: "property_stats_agility_bonus",
+		level: 0,
+		imageSrc: "s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex",
+		valuePerLevel: 10,
+	},
+	{
+		name: "property_stats_intellect_bonus",
+		level: 0,
+		imageSrc: "s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex",
+		valuePerLevel: 10,
+	},
+	{
+		name: "property_health_regen_percentage",
+		level: 0,
+		imageSrc: "s2r://panorama/images/challenges/icon_challenges_totalhealing_png.vtex",
+		valuePerLevel: 0.25,
+	},
+	{
+		name: "property_mana_regen_total_percentage",
+		level: 0,
+		imageSrc: "s2r://panorama/images/challenges/icon_challenges_manareduction_png.vtex",
+		valuePerLevel: 0.25,
+	},
+	{
+		name: "property_lifesteal",
+		level: 0,
+		imageSrc: "s2r://panorama/images/challenges/icon_challenges_lifestolen_png.vtex",
+		valuePerLevel: 7.5,
+	},
+	{
+		name: "property_spell_lifesteal",
+		level: 0,
+		imageSrc: "s2r://panorama/images/challenges/icon_challenges_creepkillswithabilities_png.vtex",
+		valuePerLevel: 7.5,
+	},
+	{
+		name: "property_movespeed_bonus_constant",
+		level: 0,
+		imageSrc: "s2r://panorama/images/cavern/icon_cc_steed_png.vtex",
+		valuePerLevel: 25,
+	},
+	{
+		name: "property_ignore_movespeed_limit",
+		level: 0,
+		imageSrc: "s2r://panorama/images/cavern/icon_cc_wings_png.vtex",
+		valuePerLevel: 0.125,
+	},
+	{
+		name: "property_cannot_miss",
+		level: 0,
+		imageSrc: "s2r://panorama/images/cavern/icon_swap_png.vtex",
+		valuePerLevel: 0.125,
+	},
+];
+
+
+
+
+
+// --------------------------------------------------------------------------------
 // old code
+// --------------------------------------------------------------------------------
 function RecreateBattlepass() {
 	$("#PatreonPetsContent").RemoveAndDeleteChildren();
 	$("#PatreonEmblemsContent").RemoveAndDeleteChildren();
@@ -555,7 +741,7 @@ function SetEffectEquipButtonReady(button) {
 function CreateBattlepassRewardsList() {
 	let localPlayerID = Game.GetLocalPlayerID();
 	let localPlayerStats = CustomNetTables.GetTableValue("local_data", "localboard" + localPlayerID);
-	let currentLevel = Math.floor(localPlayerStats.bp_points / 1000) + 1;
+	let currentLevel = 100 + 1;
 
 	for (i = 0; i < battlepass_rewards.length; i++) {
 		AddBpReward(battlepass_rewards[i][0], battlepass_rewards[i][1], battlepass_rewards[i][2], currentLevel);

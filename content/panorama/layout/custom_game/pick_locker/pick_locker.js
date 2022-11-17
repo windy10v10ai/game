@@ -43,7 +43,6 @@ function PickLocker() {
 		$.Msg("Is Member");
 		return;
 	} else {
-		$.Msg("Not Member");
 
 		const possible_hero_selection =  Game.GetLocalPlayerInfo().possible_hero_selection;
 		const pick_button = FindDotaHudElement("LockInButton");
@@ -64,7 +63,6 @@ function PickLocker() {
 			// label.style.textOverflow = "shrink";
 			label.text = localized_text[1];
 		} else {
-			$.Msg("Unlocak hero Pick");
 			pick_button.enabled = true;
 			pick_button.SetAcceptsFocus(true);
 			pick_button.BAcceptsInput(true);

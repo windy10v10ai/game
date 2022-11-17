@@ -2,4 +2,5 @@
 * text=auto
 
 game/scripts/vscripts/api/*.lua text eol=lf
+game/scripts/vscripts/modifiers/property/*.lua text eol=lf
 game/scripts/vscripts/lualib_bundle.lua text eol=lf

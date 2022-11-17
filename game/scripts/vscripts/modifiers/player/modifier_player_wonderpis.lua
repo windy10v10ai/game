@@ -13,7 +13,6 @@ function modifier_player_wonderpis:DeclareFunctions()
 	}
 end
 
-
 function modifier_player_wonderpis:GetModifierModelScale()
 	return self.iModelScale
 end

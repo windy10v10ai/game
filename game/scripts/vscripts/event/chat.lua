@@ -78,7 +78,7 @@ function AIGameMode:OnPlayerChat(event)
         if sChatMsg:find('^-postgame$') then
             print("[AIGameMode] SendEndGameInfo POST_GAME")
             local endData = AIGameMode:EndScreenStats(2, true)
-            Game:SendEndGameInfo(endData)
+            GameController:SendEndGameInfo(endData)
             return
         end
 

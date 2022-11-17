@@ -34,7 +34,7 @@ end
 local function OnFortKilled(winnerTeam)
     if IsServer() then
         local endData = AIGameMode:EndScreenStats(winnerTeam, true)
-        Game:SendEndGameInfo(endData)
+        GameController:SendEndGameInfo(endData)
     end
 end
 
@@ -163,7 +163,7 @@ local function HeroKilled(keys)
     end
 
     -- 会员减少5s复活时间
-    if Player:IsMember(PlayerResource:GetSteamAccountID(playerId)) then
+    if PlayerController:IsMember(PlayerResource:GetSteamAccountID(playerId)) then
         fRespawnTime = fRespawnTime - 5
     end
 

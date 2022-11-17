@@ -13,7 +13,6 @@ function modifier_player_yangqi:DeclareFunctions()
 	}
 end
 
-
 function modifier_player_yangqi:GetModifierModelScale()
 	return self.iModelScale
 end
