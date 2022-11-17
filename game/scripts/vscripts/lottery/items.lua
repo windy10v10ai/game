@@ -25,6 +25,7 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_quelling_blade_2_datadriven",		-- 毒瘤之刃
 
 		"item_ironwood_tree",			-- 铁树之木
+		"item_mango_tree",              -- 芒果树
 	}
 
 	tier[2] =	{
@@ -43,6 +44,9 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_faded_broach",			-- 暗淡胸针
 		"item_keen_optic",				-- 基恩镜片
 		"item_dimensional_doorway",		-- 空间之门
+		"item_iron_talon",              -- 打野爪
+		"item_poor_mans_shield",        -- 穷鬼盾
+		"item_vampire_fangs",           -- 吸血鬼獠牙
 	}
 
 	tier[3] =	{
@@ -57,6 +61,16 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_nether_shawl",			-- 幽冥披风
 		"item_pupils_gift",				-- 学徒之礼
 		"item_horizon",					-- 视界
+		"item_vengeances_shadow",       -- 复仇之影
+		"item_helm_of_the_undying",     -- 不死头盔
+		"item_witless_shako",           -- 脑瘫帽
+		"item_panic_button",            -- 神灯
+		"item_third_eye",               -- 第三只眼
+		"item_woodland_striders",       -- 丛林鞋
+		"item_spell_prism",             -- 法术棱镜
+		"item_ex_machina",              -- 机械之心
+		"item_seer_stone",              -- 先哲石
+		"item_repair_kit",			    -- 修理工具
 	}
 
 	tier[4] =	{
@@ -65,11 +79,13 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_tome_of_knowledge",			-- 知识之书
 		"item_aghanims_shard",				-- 阿哈利姆魔晶
 
-		"item_repair_kit",					-- 修理工具
 		"item_tome_of_aghanim",				-- 阿哈利姆之书
 		"item_illusionsts_cape",			-- 幻术师披风
 		"item_princes_knife",				-- 亲王短刀
 		"item_pirate_hat",					-- 海盗帽
+		"item_fallen_sky",                  -- 天崩
+		"item_demonicon",                   -- 大死灵书
+		"item_mirror_shield",               -- 神镜盾
 	}
 
 	tier[5] =	{
@@ -77,7 +93,6 @@ function AIGameMode:SpecialItemAdd(owner)
 		 "item_tome_of_intelligence_for_lottery",		-- 智力之书
 		 "item_tome_of_strength_for_lottery",			-- 力量之书
 	}
-
 	local hero = owner:GetClassname()
 	local ownerTeam = owner:GetTeamNumber()
 	local item_tier = 1
