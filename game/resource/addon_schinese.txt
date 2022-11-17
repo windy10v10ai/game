@@ -98,7 +98,7 @@
 		"data_panel_button"				"玩家主页"
 		"data_panel_member_point"		"会员积分"
 		"data_panel_season_point"		"赛季积分"
-		"data_panel_property_point"		"属性点数"
+		"data_panel_property_point"		"属性点数 (可用/总数)"
 
 		"data_panel_data_button"		"数据"
 		"data_panel_property_button"	"属性"
@@ -107,6 +107,29 @@
 		"data_panel_season_level"		"赛季等级"
 		"data_panel_level_progress"		"升级进度"
 		"data_panel_developing"			"更多功能正在开发中"
+
+		"data_panel_player_property_cooldown_percentage"		"冷却时间 ( % )"
+		"data_panel_player_property_cast_range_bonus_stacking"	"施法距离"
+		"data_panel_player_property_spell_amplify_percentage"	"法术强度 ( % )"
+		"data_panel_player_property_status_resistance_stacking"	"状态抗性 ( % )"
+		"data_panel_player_property_magical_resistance_bonus"	"魔法抗性 ( % )"
+		"data_panel_player_property_attack_range_bonus"			"攻击距离"
+		"data_panel_player_property_physical_armor_bonus"		"物理护甲"
+		"data_panel_player_property_preattack_bonus_damage"		"额外攻击伤害"
+		"data_panel_player_property_attackspeed_bonus_constant"	"攻击速度"
+		"data_panel_player_property_stats_strength_bonus"		"力量"
+		"data_panel_player_property_stats_agility_bonus"		"敏捷"
+		"data_panel_player_property_stats_intellect_bonus"		"智力"
+		"data_panel_player_property_health_regen_percentage"	"生命回复 ( % )"
+		"data_panel_player_property_mana_regen_total_percentage"	"魔法回复 ( % )"
+		"data_panel_player_property_lifesteal"					"攻击吸血 ( % )"
+		"data_panel_player_property_spell_lifesteal"			"法术吸血 ( % )"
+		"data_panel_player_property_movespeed_bonus_constant"	"移动速度"
+		"data_panel_player_property_ignore_movespeed_limit"		"无视移速上限"
+		"data_panel_player_property_cannot_miss"				"无法闪避"
+
+		"data_panel_player_property_value"				"数值"
+		"data_panel_player_property_level"				"等级"
 
 		///////////////////////////////////////////////////
 		//
@@ -190,7 +213,6 @@
 		"DOTA_Tooltip_modifier_membership_Description"			"额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
-		"DOTA_Tooltip_modifier_player_windy_Description"		"<font color='#0AA1DD'> 恭喜你遇到了活生生的windy。<br/>感谢您对游戏的支持与喜爱。<br/>玩家交流QQ群：836436993。</font>"
 		"DOTA_Tooltip_modifier_player_xianyu"					"<font color='#FFCC66'>★ 咸鱼之王 ★</font>"
 		"DOTA_Tooltip_modifier_player_xianyu_Description"		"<font color='#FFCC66'> 恭喜你遇到了真正的咸鱼之王。<br/>感谢您对游戏的支持与喜爱。<br/>玩家交流QQ群：836436993。</font>"
 		"DOTA_Tooltip_modifier_player_mimihua"					"<font color='#FFCC66'>★ 一次性消耗品 ★</font>"
