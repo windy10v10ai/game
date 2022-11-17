@@ -9,17 +9,21 @@
 		<include src="s2r://panorama/scripts/custom_game/battlepass.vjs_c" />
 	</scripts>
 	<snippets>
-		<snippet name="Pet">
-			<Panel class="NewPatreonPet">
-				<Panel id="PetImagePanel">
-					<Image id="PetImage" />
+		<snippet name="Property">
+			<Panel class="SnippetListItem">
+				<Panel class="ItemImagePanel">
+					<Image id="PropertyImage" class="ItemImage" />
 				</Panel>
-				<Label id="PetName" text="{s:PetName}" />
-				<Label id="PetTier" text="{s:PetTier}" />
-				<Button class="deactivated" id="EnablePet">
+				<Panel class="ItemContextPanel">
+					<Label id="PropertyName" class="ItemName" text="{s:PropertyName}" />
+					<Panel class="ItemContextValuePanel">
+						<Label id="PropertyValue" class="ItemValue" text="{s:PropertyValue}" />
+						<Label id="PropertyLevel" class="ItemValue" text="{s:PropertyLevel}" />
+					</Panel>
+				</Panel>
+				<!-- <Button class="deactivated" id="EnablePet">
 					<Label id="EnablePetLabel" text="EQUIP" />
-				</Button>
-				<Panel id="RoshanOptions" />
+				</Button> -->
 			</Panel>
 		</snippet>
 		<snippet name="BabyRoshanOption">
@@ -28,8 +32,8 @@
 			</Panel>
 		</snippet>
 		<snippet name="Emblem">
-			<Panel class="NewPatreonEmblem">
-				<Panel id="EmblemImagePanel">
+			<Panel class="SnippetListItem">
+				<Panel class="ItemImagePanel">
 					<Image id="EmblemImage" />
 				</Panel>
 				<Label id="EmblemName" text="{s:EmblemName}" />
@@ -46,8 +50,8 @@
 			</Panel>
 		</snippet>
 		<snippet name="BpReward">
-			<Panel class="NewBpReward">
-				<Panel id="RewardImagePanel">
+			<Panel class="SnippetListItem">
+				<Panel class="ItemImagePanel">
 					<Image id="RewardImage" />
 				</Panel>
 				<Label id="RewardName" text="{s:RewardName}" />
@@ -77,15 +81,15 @@
 		<Panel id="BPWindow" hitttest="false">
 			<!-- 积分 -->
 			<Panel id="PlayerPointStats">
-				<Panel id="ChargePointContainer" class="pointParent">
-					<Image id="ChargePointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex"
-						onmouseover="UIShowTextTooltipStyled( #data_panel_member_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
-					<Label id="ChargePoint" class="pointNumber" text="18888" />
-				</Panel>
 				<Panel id="SeasonPointContainer" class="pointParent">
 					<Image id="SeasonPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex"
 						onmouseover="UIShowTextTooltipStyled( #data_panel_season_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 					<Label id="SeasonPoint" class="pointNumber" text="18888" />
+				</Panel>
+				<Panel id="ChargePointContainer" class="pointParent">
+					<Image id="ChargePointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex"
+						onmouseover="UIShowTextTooltipStyled( #data_panel_member_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+					<Label id="ChargePoint" class="pointNumber" text="18888" />
 				</Panel>
 				<Panel id="PropertyPointContainer" class="pointParent">
 					<Image id="PropertyPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/levelup_plus_fill_psd.vtex"
@@ -94,6 +98,7 @@
 				</Panel>
 			</Panel>
 
+			<!-- 选项卡 -->
 			<Panel id="BpWindowNavBar">
 				<RadioButton group="MainBPWindow" id="BPNavButtonData" class="BpWindowNavButton" onactivate="SwitchToData()">
 					<Label class="BPNavButtonText" text="#data_panel_data_button" />
@@ -138,10 +143,12 @@
 
 				<!-- 属性 -->
 				<Panel id="BpWindowMainProperty" class="BpWindowMainContainer">
-					<Panel id="InDeveloping">
+					<Panel id="PlayerPropertyContent" class="BpWindowSubContainer" />
+					<!-- <Panel id="InDeveloping">
 						<Label id="InDevelopingLabel" text="#data_panel_developing" />
-					</Panel>
+					</Panel> -->
 				</Panel>
+
 				<!-- <Panel id="BpWindowMainRewards">
 					<Panel id="BpRewardsButtons">
 						<RadioButton group="BpRewardsButtons" class="RadioBox" id="RBBpRewards" onactivate="SwitchToBpRewards()" onload="SetBpSelected()">

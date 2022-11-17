@@ -96,6 +96,15 @@ function GetPlayer() {
 	return CustomNetTables.GetTableValue("player_table", GetSteamAccountID());
 }
 
+function SubscribePlayer(callbackFunction) {
+	CustomNetTables.SubscribeNetTableListener("player_table", function(tableName, key, data) {
+		if (key === GetSteamAccountID()) {
+			callbackFunction(data);
+		}
+	});
+}
+
+
 function GetOpenMemberUrl() {
 	return $.Localize('#player_member_ship_url') + GetSteamAccountID();
 }

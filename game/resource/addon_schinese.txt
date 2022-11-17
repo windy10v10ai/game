@@ -108,6 +108,29 @@
 		"data_panel_level_progress"		"升级进度"
 		"data_panel_developing"			"更多功能正在开发中"
 
+		"data_panel_player_property_cooldown_percentage"		"冷却时间 ( % )"
+		"data_panel_player_property_cast_range_bonus_stacking"	"施法距离"
+		"data_panel_player_property_spell_amplify_percentage"	"法术强度 ( % )"
+		"data_panel_player_property_status_resistance_stacking"	"状态抗性 ( % )"
+		"data_panel_player_property_magical_resistance_bonus"	"魔法抗性 ( % )"
+		"data_panel_player_property_attack_range_bonus"			"攻击距离"
+		"data_panel_player_property_physical_armor_bonus"		"物理护甲"
+		"data_panel_player_property_preattack_bonus_damage"		"额外攻击伤害"
+		"data_panel_player_property_attackspeed_bonus_constant"	"攻击速度"
+		"data_panel_player_property_stats_strength_bonus"		"力量"
+		"data_panel_player_property_stats_agility_bonus"		"敏捷"
+		"data_panel_player_property_stats_intellect_bonus"		"智力"
+		"data_panel_player_property_health_regen_percentage"	"生命回复 ( % )"
+		"data_panel_player_property_mana_regen_total_percentage"	"魔法回复 ( % )"
+		"data_panel_player_property_lifesteal"					"攻击吸血 ( % )"
+		"data_panel_player_property_spell_lifesteal"			"法术吸血 ( % )"
+		"data_panel_player_property_movespeed_bonus_constant"	"移动速度"
+		"data_panel_player_property_ignore_movespeed_limit"		"无视移速上限"
+		"data_panel_player_property_cannot_miss"				"无法闪避"
+
+		"data_panel_player_property_value"				"数值"
+		"data_panel_player_property_level"				"等级"
+
 		///////////////////////////////////////////////////
 		//
 		//            Choose Item
