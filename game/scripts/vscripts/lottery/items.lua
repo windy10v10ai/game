@@ -4,7 +4,7 @@ function AIGameMode:SpecialItemAdd(owner)
 	local tierRate = {}
 	tierRate[1] = 100
 	tierRate[2] = 30
-	tierRate[3] = 9
+	tierRate[3] = 10
 	tierRate[4] = 1
 	tierRate[5] = 0.1
 
@@ -67,9 +67,6 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_panic_button",            -- 神灯
 		"item_third_eye",               -- 第三只眼
 		"item_woodland_striders",       -- 丛林鞋
-		"item_spell_prism",             -- 法术棱镜
-		"item_ex_machina",              -- 机械之心
-		"item_seer_stone",              -- 先哲石
 		"item_repair_kit",			    -- 修理工具
 	}
 
@@ -83,9 +80,12 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_illusionsts_cape",			-- 幻术师披风
 		"item_princes_knife",				-- 亲王短刀
 		"item_pirate_hat",					-- 海盗帽
-		"item_fallen_sky",                  -- 天崩
-		"item_demonicon",                   -- 大死灵书
-		"item_mirror_shield",               -- 神镜盾
+		"item_fallen_sky",					-- 天崩
+		"item_demonicon",					-- 大死灵书
+		"item_mirror_shield",				-- 神镜盾
+		"item_spell_prism",					-- 法术棱镜
+		"item_ex_machina",					-- 机械之心
+		"item_seer_stone",					-- 先哲石
 	}
 
 	tier[5] =	{
