@@ -2,6 +2,8 @@
 	$.Schedule(0.1, PregameSetup);
 })();
 
+var levelUseable = 0;
+
 function PregameSetup() {
     PlayerDataLoaded(GetPlayer());
 	SubscribePlayer(PlayerDataLoaded);
@@ -29,7 +31,8 @@ function PlayerDataLoaded(player) {
 	$("#SeasonLevelNextRemainingBarLeft").style.width = `${(player.seasonCurrrentLevelPoint / player.seasonNextLevelPoint) * 100}%`;
 	$("#MemberLevelNextRemainingBarLeft").style.width = `${(player.memberCurrentLevelPoint / player.memberNextLevelPoint) * 100}%`;
 
-	SetPlayerProperty(player);
+	SetLevelUseable(player);
+	SetPlayerProperty();
 
 	$.Msg("BP Loaded!");
 }
@@ -65,10 +68,8 @@ function SwitchToProperty() {
 
 // --------------------------------------------------------------------------------
 
-function SetPlayerProperty(player) {
+function SetLevelUseable(player) {
 	const playerProperties = player.properties;
-	ClearPlayerProperty();
-
 	let levelUsed = 0;
 	const playerPropertiesValues = Object.values(playerProperties);
 	for(const property of Player_Property_List) {
@@ -77,10 +78,17 @@ function SetPlayerProperty(player) {
 			property.level = playerProperty.level;
 			levelUsed += playerProperty.level;
 		}
-		AddPlayerProperty(property);
 	}
 	const totalLevel = player.memberLevel + player.seasonLevel;
-	$("#PropertyPoint").text = `${totalLevel - levelUsed} / ${totalLevel}`;
+	levelUseable = totalLevel - levelUsed;
+	$("#PropertyPoint").text = `${levelUseable} / ${totalLevel}`;
+}
+
+function SetPlayerProperty() {
+	ClearPlayerProperty();
+	for(const property of Player_Property_List) {
+		AddPlayerProperty(property);
+	}
 }
 
 function ClearPlayerProperty() {
@@ -122,26 +130,28 @@ function AddPlayerProperty(property) {
 	panel.FindChildTraverse("Levelup").name = property.name;
 	panel.FindChildTraverse("Levelup").nextLevel = nextLevel;
 	panel.FindChildTraverse("LevelupText").text =  levelupText;
-	if (property.level < maxLevel) {
+	if (nextLevel <= maxLevel && levelUseable >= (nextLevel - property.level)) {
 		panel.FindChildTraverse("Levelup").SetHasClass("deactivated", false);
 		panel.FindChildTraverse("Levelup").SetHasClass("activated", true);
 		panel.FindChildTraverse("Levelup").SetPanelEvent("onactivate", () => {
-			$.Msg("Levelup");
-			$.Msg(panel.FindChildTraverse("Levelup").name);
-			$.Msg(panel.FindChildTraverse("Levelup").nextLevel);
-			// disable button
-			panel.FindChildTraverse("Levelup").SetHasClass("deactivated", true);
-			panel.FindChildTraverse("Levelup").SetHasClass("activated", false);
-			panel.FindChildTraverse("Levelup").SetPanelEvent("onactivate", () => {});
-			// send request to server
-			GameEvents.SendCustomGameEventToServer("player_property_levelup",{
-				name: panel.FindChildTraverse("Levelup").name,
-				level: panel.FindChildTraverse("Levelup").nextLevel,
-			});
+			OnLevelupActive(panel);
 		});
-
 	}
+}
 
+function OnLevelupActive(panel) {
+	$.Msg("Levelup");
+	$.Msg(panel.FindChildTraverse("Levelup").name);
+	$.Msg(panel.FindChildTraverse("Levelup").nextLevel);
+	// disable button
+	panel.FindChildTraverse("Levelup").SetHasClass("deactivated", true);
+	panel.FindChildTraverse("Levelup").SetHasClass("activated", false);
+	panel.FindChildTraverse("Levelup").SetPanelEvent("onactivate", () => {});
+	// send request to server
+	GameEvents.SendCustomGameEventToServer("player_property_levelup",{
+		name: panel.FindChildTraverse("Levelup").name,
+		level: panel.FindChildTraverse("Levelup").nextLevel,
+	});
 }
 
 const Player_Property_List = [
