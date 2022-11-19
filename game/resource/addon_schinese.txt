@@ -130,6 +130,7 @@
 		"data_panel_player_property_value"				"数值"
 		"data_panel_player_property_level"				"等级"
 		"data_panel_player_property_level_up"			"升级"
+		"data_panel_player_property_level_up_8"			"使用8点属性点升级"
 
 		///////////////////////////////////////////////////
 		//
