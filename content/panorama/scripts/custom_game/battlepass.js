@@ -132,10 +132,6 @@ function AddPlayerProperty(property) {
 	panel.FindChildTraverse("Levelup").nextLevel = nextLevel;
 	panel.FindChildTraverse("LevelupText").text =  levelupText;
 
-	$.Msg(`Property ${property.name} level ${property.level} / nextLevel ${nextLevel}`);
-	$.Msg(`levelUseable ${levelUseable} nextLevel - property.level ${nextLevel - property.level}`);
-
-
 	if (property.level < maxLevel && levelUseable >= (nextLevel - property.level)) {
 		panel.FindChildTraverse("Levelup").SetHasClass("deactivated", false);
 		panel.FindChildTraverse("Levelup").SetHasClass("activated", true);
