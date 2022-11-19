@@ -29,7 +29,7 @@ export class PlayerDto {
 	memberLevel!: number;
 	memberCurrentLevelPoint!: number;
 	memberNextLevelPoint!: number;
-	properties!: PlayerProperty[];
+	properties?: PlayerProperty[];
 }
 
 
@@ -214,6 +214,9 @@ export class Player {
 		// 更新 nettable
 		const player = Player.playerList.find(p => p.id == playerProperty.steamId.toString());
 		if (player) {
+			if (!player.properties) {
+				player.properties = [];
+			}
 			const property = player.properties.find(p => p.name == playerProperty.name);
 			if (property) {
 				property.level = playerProperty.level;
