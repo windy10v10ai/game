@@ -26,13 +26,10 @@ function PlayerDataLoaded(player) {
 	$("#MemberLevelNumber").text = player.memberLevel + 1;
 	$("#MemberLevelNextRemainingNumber").text = `${player.memberCurrentLevelPoint} / ${player.memberNextLevelPoint}`;
 
-	const totalLevel = player.memberLevel + player.seasonLevel;
-	$("#PropertyPoint").text = `${totalLevel - player.propertyTotalLevel} / ${totalLevel}`;
-
 	$("#SeasonLevelNextRemainingBarLeft").style.width = `${(player.seasonCurrrentLevelPoint / player.seasonNextLevelPoint) * 100}%`;
 	$("#MemberLevelNextRemainingBarLeft").style.width = `${(player.memberCurrentLevelPoint / player.memberNextLevelPoint) * 100}%`;
 
-	SetPlayerProperty(player.properties);
+	SetPlayerProperty(player);
 
 	$.Msg("BP Loaded!");
 }
@@ -68,19 +65,22 @@ function SwitchToProperty() {
 
 // --------------------------------------------------------------------------------
 
-function SetPlayerProperty(playerProperties) {
+function SetPlayerProperty(player) {
+	const playerProperties = player.properties;
 	ClearPlayerProperty();
 
+	let levelUsed = 0;
 	const playerPropertiesValues = Object.values(playerProperties);
-	$.Msg(playerPropertiesValues);
 	for(const property of Player_Property_List) {
-		// find by name and set level
 		const playerProperty = playerPropertiesValues.find(p => p.name === property.name);
 		if(playerProperty) {
 			property.level = playerProperty.level;
+			levelUsed += playerProperty.level;
 		}
 		AddPlayerProperty(property);
 	}
+	const totalLevel = player.memberLevel + player.seasonLevel;
+	$("#PropertyPoint").text = `${totalLevel - levelUsed} / ${totalLevel}`;
 }
 
 function ClearPlayerProperty() {
@@ -110,22 +110,34 @@ function AddPlayerProperty(property) {
 	panel.SetDialogVariable("PropertyLevel", propertyLevelString);
 	panel.SetDialogVariable("PropertyValue", propertyValueString);
 	panel.FindChildTraverse("PropertyLevel").style.color = "#2cba75";
-	// 升级
-	panel.FindChildTraverse("Levelup").name = property.name;
-	let LevelupText = $.Localize(`#data_panel_player_property_level_up`) + ` (+${property.valuePerLevel})`;
-	// if property_ignore_movespeed_limit or property_cannot_miss
+	// 升级按钮
+	let levelupText = $.Localize(`#data_panel_player_property_level_up`) + ` (+${property.valuePerLevel})`;
+	let nextLevel = property.level + 1;
+	// 特殊属性
 	if (property.name === "property_ignore_movespeed_limit" || property.name === "property_cannot_miss") {
-		LevelupText = $.Localize(`#data_panel_player_property_level_up_8`);
+		levelupText = $.Localize(`#data_panel_player_property_level_up_8`);
+		nextLevel = 8;
 		panel.FindChildTraverse("Levelup").SetHasClass("LevelupButtonLong", true);
 	}
-	panel.FindChildTraverse("LevelupText").text =  LevelupText;
+	panel.FindChildTraverse("Levelup").name = property.name;
+	panel.FindChildTraverse("Levelup").nextLevel = nextLevel;
+	panel.FindChildTraverse("LevelupText").text =  levelupText;
 	if (property.level < maxLevel) {
 		panel.FindChildTraverse("Levelup").SetHasClass("deactivated", false);
 		panel.FindChildTraverse("Levelup").SetHasClass("activated", true);
 		panel.FindChildTraverse("Levelup").SetPanelEvent("onactivate", () => {
+			$.Msg("Levelup");
 			$.Msg(panel.FindChildTraverse("Levelup").name);
-			// TODO : send request to server call level up
-			// $.DispatchEvent("DOTAShowTextTooltip", panel.FindChildTraverse("Levelup"), $.Localize(`#data_panel_player_property_level_up_success`));
+			$.Msg(panel.FindChildTraverse("Levelup").nextLevel);
+			// disable button
+			panel.FindChildTraverse("Levelup").SetHasClass("deactivated", true);
+			panel.FindChildTraverse("Levelup").SetHasClass("activated", false);
+			panel.FindChildTraverse("Levelup").SetPanelEvent("onactivate", () => {});
+			// send request to server
+			GameEvents.SendCustomGameEventToServer("player_property_levelup",{
+				name: panel.FindChildTraverse("Levelup").name,
+				level: panel.FindChildTraverse("Levelup").nextLevel,
+			});
 		});
 
 	}

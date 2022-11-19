@@ -344,7 +344,8 @@
 
 .ItemName{
   width: 100%;
-  font-size: 24px;
+  font-size: 22px;
+  letter-spacing: 0px;
   color: #ffffff90;
   vertical-align: top;
   horizontal-align: center;
@@ -363,8 +364,8 @@
 
 .ItemValue{
   min-width: 0px;
-  letter-spacing: 1px;
-  font-size: 24px;
+  letter-spacing: 0px;
+  font-size: 22px;
   color: #b28948;
   vertical-align: top;
   horizontal-align: right;
@@ -377,12 +378,12 @@
 .LevelupButton{
   width: 120px;
   height: 30px;
-  vertical-align: bottom;
+  vertical-align: top;
   horizontal-align: right;
   margin: 10px;
 }
 .LevelupButtonLong{
-  width: 160px;
+  width: 180px;
 }
 .deactivated{
   background-color: gradient(linear, 0% 0%, 100% 0%, from(gray), to(black));

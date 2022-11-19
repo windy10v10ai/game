@@ -90,6 +90,7 @@ function AIGameMode:InitEvents()
     ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
     ListenToGameEvent("dota_buyback", Dynamic_Wrap(AIGameMode, 'OnBuyback'), self)
     ListenToGameEvent("last_hit", Dynamic_Wrap(AIGameMode, 'OnLastHit'), self)
+    ListenToGameEvent("player_property_levelup", Dynamic_Wrap(AIGameMode, 'OnPlayerPropertyLevelup'), self)
 
     --JS events
     CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
