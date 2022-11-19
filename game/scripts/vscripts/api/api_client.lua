@@ -1,7 +1,7 @@
 local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["6"] = 3,["7"] = 4,["8"] = 5,["9"] = 6,["10"] = 7,["11"] = 10,["12"] = 10,["13"] = 10,["15"] = 10,["16"] = 18,["17"] = 19,["18"] = 20,["19"] = 21,["20"] = 23,["21"] = 24,["22"] = 25,["25"] = 28,["26"] = 29,["27"] = 30,["28"] = 31,["29"] = 31,["30"] = 31,["31"] = 31,["33"] = 33,["34"] = 35,["35"] = 36,["37"] = 38,["38"] = 39,["40"] = 33,["41"] = 18,["42"] = 44,["43"] = 45,["44"] = 46,["45"] = 46,["46"] = 47,["47"] = 47,["48"] = 47,["49"] = 47,["50"] = 47,["51"] = 47,["52"] = 48,["53"] = 49,["54"] = 50,["55"] = 51,["56"] = 52,["58"] = 54,["61"] = 57,["63"] = 47,["64"] = 47,["65"] = 46,["66"] = 61,["67"] = 44,["68"] = 11,["69"] = 12,["70"] = 13,["71"] = 14,["72"] = 15,["73"] = 14});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["6"] = 3,["7"] = 4,["8"] = 5,["9"] = 6,["10"] = 7,["11"] = 20,["12"] = 20,["13"] = 20,["15"] = 20,["16"] = 33,["17"] = 34,["18"] = 35,["19"] = 36,["20"] = 38,["21"] = 39,["22"] = 40,["25"] = 43,["26"] = 44,["27"] = 45,["28"] = 46,["29"] = 46,["30"] = 46,["31"] = 46,["33"] = 48,["34"] = 50,["35"] = 51,["37"] = 53,["38"] = 54,["40"] = 48,["41"] = 33,["42"] = 59,["43"] = 60,["44"] = 61,["45"] = 62,["46"] = 62,["47"] = 63,["48"] = 63,["49"] = 63,["50"] = 63,["51"] = 63,["52"] = 63,["53"] = 64,["54"] = 65,["55"] = 66,["56"] = 67,["57"] = 68,["59"] = 70,["60"] = 71,["64"] = 75,["66"] = 63,["67"] = 63,["68"] = 62,["69"] = 79,["70"] = 59,["71"] = 22,["72"] = 23,["73"] = 24,["74"] = 26,["75"] = 27,["76"] = 28,["77"] = 29,["78"] = 30,["79"] = 29});
 local ____exports = {}
 ____exports.HttpMethod = HttpMethod or ({})
 ____exports.HttpMethod.GET = "GET"
@@ -13,13 +13,13 @@ local ApiClient = ____exports.ApiClient
 ApiClient.name = "ApiClient"
 function ApiClient.prototype.____constructor(self)
 end
-function ApiClient.send(self, method, path, params, body, callback)
-    print(((((((("[ApiClient] " .. method) .. " ") .. ____exports.ApiClient.HOST_NAME) .. path) .. " with params ") .. json.encode(params)) .. " body ") .. json.encode(body))
+function ApiClient.send(self, method, path, querys, body, successFunc)
+    print(((((((("[ApiClient] " .. method) .. " ") .. ____exports.ApiClient.HOST_NAME) .. path) .. " with querys ") .. json.encode(querys)) .. " body ") .. json.encode(body))
     local request = CreateHTTPRequestScriptVM(method, ____exports.ApiClient.HOST_NAME .. path)
     local key = GetDedicatedServerKeyV2(____exports.ApiClient.VERSION)
-    if params then
-        for key in pairs(params) do
-            request:SetHTTPRequestGetOrPostParameter(key, params[key])
+    if querys then
+        for key in pairs(querys) do
+            request:SetHTTPRequestGetOrPostParameter(key, querys[key])
         end
     end
     request:SetHTTPRequestNetworkActivityTimeout(____exports.ApiClient.TIMEOUT_SECONDS)
@@ -32,39 +32,45 @@ function ApiClient.send(self, method, path, params, body, callback)
     end
     request:Send(function(result)
         if result.StatusCode >= 200 and result.StatusCode < 300 then
-            callback(nil, result.Body)
+            successFunc(nil, result.Body)
         else
             print("[ApiClient] get error: " .. tostring(result.StatusCode))
-            callback(nil, "error")
+            successFunc(nil, "error")
         end
     end)
 end
-function ApiClient.sendWithRetry(self, method, path, params, body, callback)
+function ApiClient.sendWithRetry(self, apiParameter)
     local retryCount = 0
+    local maxRetryTimes = apiParameter.retryTimes or ____exports.ApiClient.RETRY_TIMES
     local retry
     retry = function()
         self:send(
-            method,
-            path,
-            params,
-            body,
+            apiParameter.method,
+            apiParameter.path,
+            apiParameter.querys,
+            apiParameter.body,
             function(____, data)
                 if data == "error" then
                     retryCount = retryCount + 1
-                    if retryCount < ____exports.ApiClient.RETRY_TIMES then
+                    if retryCount < maxRetryTimes then
                         print("[ApiClient] getWithRetry retry " .. tostring(retryCount))
                         retry(nil)
                     else
-                        CustomNetTables:SetTableValue("loading_status", "loading_status", {status = 3})
+                        if apiParameter.failureFunc then
+                            apiParameter:failureFunc(data)
+                        end
                     end
                 else
-                    callback(nil, data)
+                    apiParameter:successFunc(data)
                 end
             end
         )
     end
     retry(nil)
 end
+ApiClient.GAME_START_URL = "/game/start"
+ApiClient.ADD_PLAYER_PROPERTY_URL = "/game/addPlayerProperty"
+ApiClient.POST_GAME_URL = "/game/end"
 ApiClient.TIMEOUT_SECONDS = 10
 ApiClient.RETRY_TIMES = 6
 ApiClient.VERSION = "v1.43"

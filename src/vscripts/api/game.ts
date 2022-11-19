@@ -45,10 +45,16 @@ export class Game {
 				gameInfo.players.push(player);
 			}
 		}
+		const apiParameter = {
+			method: HttpMethod.POST,
+			path: ApiClient.POST_GAME_URL,
+			body: gameInfo,
+			successFunc: (data: string) => {
+				print(`[Game] end game callback data ${data}`);
+			}
+		};
 
-		ApiClient.sendWithRetry(HttpMethod.POST, "/game/end", null, gameInfo, (data: string) => {
-			print(`[Game] end game callback data ${data}`);
-		});
+		ApiClient.sendWithRetry(apiParameter);
 	}
 
 }

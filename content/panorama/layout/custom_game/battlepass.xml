@@ -97,7 +97,7 @@
 				<Panel id="PropertyPointContainer" class="pointParent">
 					<Image id="PropertyPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/levelup_plus_fill_psd.vtex"
 						onmouseover="UIShowTextTooltipStyled( #data_panel_property_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
-					<Label id="PropertyPoint" class="pointNumber" text="18/28" />
+					<Label id="PropertyPoint" class="pointNumber" text="888" />
 				</Panel>
 			</Panel>
 
