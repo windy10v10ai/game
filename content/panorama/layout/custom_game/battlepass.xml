@@ -79,6 +79,9 @@
 		</Panel>
 		<!-- 主面板 -->
 		<Panel id="BPWindow" hitttest="false">
+			<Panel id="LoadingFail">
+				<Label id="LoadingFailLabel" text="#loading_status_3" />
+			</Panel>
 			<!-- 积分 -->
 			<Panel id="PlayerPointStats">
 				<Panel id="SeasonPointContainer" class="pointParent">
@@ -144,9 +147,6 @@
 				<!-- 属性 -->
 				<Panel id="BpWindowMainProperty" class="BpWindowMainContainer">
 					<Panel id="PlayerPropertyContent" class="BpWindowSubContainer" />
-					<!-- <Panel id="InDeveloping">
-						<Label id="InDevelopingLabel" text="#data_panel_developing" />
-					</Panel> -->
 				</Panel>
 
 				<!-- <Panel id="BpWindowMainRewards">

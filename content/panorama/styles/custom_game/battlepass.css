@@ -136,16 +136,19 @@
   margin-left: 1%;
  }
 
- #InDeveloping{
+ #LoadingFail{
+  height: 100%;
+  width: 100%;
   horizontal-align: center;
   vertical-align: center;
+  visibility: collapse;
  }
- #InDevelopingLabel{
+ #LoadingFailLabel{
   horizontal-align: center;
   vertical-align: center;
   color: white;
   font-size: 24px;
-  margin-left: 1%;
+  margin: 5%;
  }
  .AspectRatio4x3 #BPWindow{
   width: 54%;
@@ -333,7 +336,7 @@
 }
 
 .ItemContextPanel{
-  width: 75%;
+  width: 80%;
   height: 100px;
   vertical-align: center;
   flow-children: down;
