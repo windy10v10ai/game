@@ -14,6 +14,7 @@ function PlayerDataLoaded(player) {
 	$.Msg(player);
 
 	if(player == null) {
+		$("#LoadingFail").visible = true;
 		return;
 	}
 
