@@ -17,13 +17,13 @@
 				<Panel class="ItemContextPanel">
 					<Label id="PropertyName" class="ItemName" text="{s:PropertyName}" />
 					<Panel class="ItemContextValuePanel">
-						<Label id="PropertyValue" class="ItemValue" text="{s:PropertyValue}" />
 						<Label id="PropertyLevel" class="ItemValue" text="{s:PropertyLevel}" />
+						<Label id="PropertyValue" class="ItemValue" text="{s:PropertyValue}" />
+						<Button id="Levelup" class="LevelupButton deactivated" name="">
+							<Label id="LevelupText" text="#data_panel_player_property_level_up" />
+						</Button>
 					</Panel>
 				</Panel>
-				<!-- <Button class="deactivated" id="EnablePet">
-					<Label id="EnablePetLabel" text="EQUIP" />
-				</Button> -->
 			</Panel>
 		</snippet>
 		<snippet name="BabyRoshanOption">
@@ -79,6 +79,9 @@
 		</Panel>
 		<!-- 主面板 -->
 		<Panel id="BPWindow" hitttest="false">
+			<Panel id="LoadingFail">
+				<Label id="LoadingFailLabel" text="#loading_status_3" />
+			</Panel>
 			<!-- 积分 -->
 			<Panel id="PlayerPointStats">
 				<Panel id="SeasonPointContainer" class="pointParent">
@@ -94,7 +97,7 @@
 				<Panel id="PropertyPointContainer" class="pointParent">
 					<Image id="PropertyPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/levelup_plus_fill_psd.vtex"
 						onmouseover="UIShowTextTooltipStyled( #data_panel_property_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
-					<Label id="PropertyPoint" class="pointNumber" text="18/28" />
+					<Label id="PropertyPoint" class="pointNumber" text="888" />
 				</Panel>
 			</Panel>
 
@@ -144,9 +147,6 @@
 				<!-- 属性 -->
 				<Panel id="BpWindowMainProperty" class="BpWindowMainContainer">
 					<Panel id="PlayerPropertyContent" class="BpWindowSubContainer" />
-					<!-- <Panel id="InDeveloping">
-						<Label id="InDevelopingLabel" text="#data_panel_developing" />
-					</Panel> -->
 				</Panel>
 
 				<!-- <Panel id="BpWindowMainRewards">

@@ -16,8 +16,3 @@ if GameController == nil then
     print("GameController initialize via Lua!")
     _G.GameController = __TS__New(____game.Game)
 end
-
-if PropertyController == nil then
-    print("PropertyController initialize via Lua!")
-    _G.PropertyController = __TS__New(____property.PropertyController)
-end
