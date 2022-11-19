@@ -17,13 +17,13 @@
 				<Panel class="ItemContextPanel">
 					<Label id="PropertyName" class="ItemName" text="{s:PropertyName}" />
 					<Panel class="ItemContextValuePanel">
-						<Label id="PropertyValue" class="ItemValue" text="{s:PropertyValue}" />
 						<Label id="PropertyLevel" class="ItemValue" text="{s:PropertyLevel}" />
+						<Label id="PropertyValue" class="ItemValue" text="{s:PropertyValue}" />
+						<Button id="Levelup" class="LevelupButton deactivated" name="">
+							<Label id="LevelupText" text="#data_panel_player_property_level_up" />
+						</Button>
 					</Panel>
 				</Panel>
-				<!-- <Button class="deactivated" id="EnablePet">
-					<Label id="EnablePetLabel" text="EQUIP" />
-				</Button> -->
 			</Panel>
 		</snippet>
 		<snippet name="BabyRoshanOption">
