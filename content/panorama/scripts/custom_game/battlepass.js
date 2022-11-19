@@ -95,26 +95,40 @@ function AddPlayerProperty(property) {
 	panel.BLoadLayoutSnippet("Property");
 
 
-	const propertyName = $.Localize(`#data_panel_player_${property.name}`);
-	panel.SetDialogVariable("PropertyName", propertyName);
-	const propertyLevelString = $.Localize(`#data_panel_player_property_level`) + " " + property.level + "/" + maxLevel;
-	const propertyValueString = $.Localize(`#data_panel_player_property_value`) + " " + (property.level * property.valuePerLevel);
-	panel.SetDialogVariable("PropertyLevel", propertyLevelString);
-	panel.SetDialogVariable("PropertyValue", propertyValueString);
+	// 图标
 	let imageSrc = property.imageSrc;
 	if (!imageSrc) {
 		imageSrc = "s2r://panorama/images/cavern/icon_custom_challenge_png.vtex";
 	}
 	panel.FindChildTraverse("PropertyImage").SetImage(imageSrc);
+	// 标题
+	const propertyName = $.Localize(`#data_panel_player_${property.name}`);
+	panel.SetDialogVariable("PropertyName", propertyName);
+	// 数值
+	const propertyLevelString = $.Localize(`#data_panel_player_property_level`) + " " + property.level + "/" + maxLevel;
+	const propertyValueString = $.Localize(`#data_panel_player_property_value`) + " " + (property.level * property.valuePerLevel);
+	panel.SetDialogVariable("PropertyLevel", propertyLevelString);
+	panel.SetDialogVariable("PropertyValue", propertyValueString);
 	panel.FindChildTraverse("PropertyLevel").style.color = "#2cba75";
+	// 升级
+	panel.FindChildTraverse("Levelup").name = property.name;
+	let LevelupText = $.Localize(`#data_panel_player_property_level_up`) + ` (+${property.valuePerLevel})`;
+	// if property_ignore_movespeed_limit or property_cannot_miss
+	if (property.name === "property_ignore_movespeed_limit" || property.name === "property_cannot_miss") {
+		LevelupText = $.Localize(`#data_panel_player_property_level_up_8`);
+		panel.FindChildTraverse("Levelup").SetHasClass("LevelupButtonLong", true);
+	}
+	panel.FindChildTraverse("LevelupText").text =  LevelupText;
+	if (property.level < maxLevel) {
+		panel.FindChildTraverse("Levelup").SetHasClass("deactivated", false);
+		panel.FindChildTraverse("Levelup").SetHasClass("activated", true);
+		panel.FindChildTraverse("Levelup").SetPanelEvent("onactivate", () => {
+			$.Msg(panel.FindChildTraverse("Levelup").name);
+			// TODO : send request to server call level up
+			// $.DispatchEvent("DOTAShowTextTooltip", panel.FindChildTraverse("Levelup"), $.Localize(`#data_panel_player_property_level_up_success`));
+		});
 
-	// if (property.level <= maxLevel) {
-	// 	panel.FindChildTraverse("EnablePet").SetHasClass("deactivated", false);
-	// 	panel.FindChildTraverse("EnablePet").SetHasClass("activated", true);
-	// 	panel.FindChildTraverse("EnablePet").SetPanelEvent("onactivate", () => {
-	// 		// TODO : send request to server call level up
-	// 	});
-	// }
+	}
 
 }
 

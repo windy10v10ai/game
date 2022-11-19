@@ -118,8 +118,8 @@
 		"data_panel_player_property_stats_strength_bonus"		"Strength"
 		"data_panel_player_property_stats_agility_bonus"		"Agility"
 		"data_panel_player_property_stats_intellect_bonus"		"Intellect"
-		"data_panel_player_property_health_regen_percentage"	"Health Regen Percentage ( % )"
-		"data_panel_player_property_mana_regen_total_percentage"	"Mana Regen Percentage ( % )"
+		"data_panel_player_property_health_regen_percentage"	"Max Health Regen Percentage ( % )"
+		"data_panel_player_property_mana_regen_total_percentage"	"Max Mana Regen Percentage ( % )"
 		"data_panel_player_property_lifesteal"					"Life Steal ( % )"
 		"data_panel_player_property_spell_lifesteal"			"Spell Life Steal ( % )"
 		"data_panel_player_property_movespeed_bonus_constant"	"Move Speed"
@@ -129,7 +129,7 @@
 		"data_panel_player_property_value"				"Value"
 		"data_panel_player_property_level"				"Level"
 		"data_panel_player_property_level_up"			"Level Up"
-		"data_panel_player_property_level_up_8"			"Level Up with 8 Points"
+		"data_panel_player_property_level_up_8"			"Level Up use 8 Points"
 
 		///////////////////////////////////////////////////
 		//

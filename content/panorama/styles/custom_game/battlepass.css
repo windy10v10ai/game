@@ -359,22 +359,64 @@
   height: 100%;
   vertical-align: center;
   flow-children: right;
-  margin: 0 50px;
 }
 
 .ItemValue{
-  min-width: 100px;
-  letter-spacing: 2px;
+  min-width: 0px;
+  letter-spacing: 1px;
   font-size: 24px;
   color: #b28948;
   vertical-align: top;
   horizontal-align: right;
-  margin-top: 10px;
+  margin: 10px;
   text-align: center;
   text-transform: uppercase;
   text-shadow: 2px 2px 4px 3 black;
 }
 
+.LevelupButton{
+  width: 120px;
+  height: 30px;
+  vertical-align: bottom;
+  horizontal-align: right;
+  margin: 10px;
+}
+.LevelupButtonLong{
+  width: 160px;
+}
+.deactivated{
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(gray), to(black));
+  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  transition-property: background-color, box-shadow;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+.activated{
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(#4f48b2), to(#0f033a));
+  box-shadow: 0px 0px 2px 1px #3c20da77;
+  text-transform: uppercase;
+  transition-property: background-color, box-shadow;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+.activated:hover{
+  background-color: gradient(linear, 50% 0%, 100% 0%, from(#4f48b2), to(#0f033a));
+  box-shadow: 0px 0px 2px 1px #8e7affaa;
+}
+
+#LevelupText{
+  color: white;
+  vertical-align: center;
+  horizontal-align: center;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  font-size: 16px;
+  text-shadow: 1px 1px 3px 3 black;
+}
 
  #PatreonButtons,#BpRewardsButtons{
 
@@ -492,27 +534,6 @@
   text-shadow: 2px 2px 4px 3 black;
  }
 
- .activated{
-  width: 120px;
-  height: 30px;
-  vertical-align: bottom;
-  horizontal-align: right;
-  margin-right: 15px;
-  margin-bottom: 15px;
-  background-color: gradient(linear, 0% 0%, 100% 0%, from(#4f48b2), to(#0f033a));
-  box-shadow: 0px 0px 2px 1px #3c20da77;
-  text-transform: uppercase;
-  transition-property: background-color, box-shadow;
-  transition-delay: 0s;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
- }
-
- .activated:hover{
-  background-color: gradient(linear, 50% 0%, 100% 0%, from(#4f48b2), to(#0f033a));
-  box-shadow: 0px 0px 2px 1px #8e7affaa;
- }
-
  .unequip{
   width: 120px;
   height: 30px;
@@ -555,34 +576,6 @@
   box-shadow: 0px 0px 2px 1px #b5ffbdaa;
  }
 
- .deactivated{
-  width: 120px;
-  height: 30px;
-  vertical-align: bottom;
-  horizontal-align: right;
-  margin-right: 15px;
-  margin-bottom: 15px;
-  background-color: gradient(linear, 0% 0%, 100% 0%, from(gray), to(black));
-  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.6);
-  text-transform: uppercase;
-  transition-property: background-color, box-shadow;
-  transition-delay: 0s;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
- }
-
- #EnablePetLabel,#EnableEmblemLabel,#EnableRewardLabel{
-
-
-  color: white;
-  vertical-align: center;
-  horizontal-align: center;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 16px;
-  text-shadow: 1px 1px 3px 3 black;
- }
  #RoshanOptions,#EmblemOptions,#RewardOptions{
 
 
