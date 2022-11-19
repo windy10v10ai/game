@@ -1,4 +1,5 @@
 
+import { PropertyController } from "../modifiers/property/property_controller";
 import { ApiClient, HttpMethod } from "./api_client";
 
 class MemberDto {
@@ -89,6 +90,9 @@ export class Player {
 			failureFunc: this.InitFailure,
 		};
 
+		// Controller初期化
+		new PropertyController();
+
 		ApiClient.sendWithRetry(apiParameter);
 	}
 
@@ -112,6 +116,25 @@ export class Player {
 			Player.saveMemberToNetTable();
 		}
 		CustomNetTables.SetTableValue("loading_status", "loading_status", { status: 3 });
+	}
+
+
+	public InitPlayerProperty(hero: CDOTA_BaseNPC_Hero) {
+		print(`[Player] InitPlayerProperty ${hero.GetUnitName()}`);
+		if (!hero) {
+			return;
+		}
+
+		const steamId = PlayerResource.GetSteamAccountID(hero.GetPlayerOwnerID());
+		const playerInfo = Player.playerList.find((player) => player.id == steamId.toString());
+
+		if (!playerInfo?.properties) {
+			return;
+		}
+
+		for (const property of playerInfo.properties) {
+			PropertyController.addModifier(hero, property);
+		}
 	}
 
 	public static saveMemberToNetTable() {
@@ -164,12 +187,6 @@ export class Player {
 
 	public onPlayerPropertyLevelup(event: { PlayerID: PlayerID, name: string, level: string }) {
 		print(`[Player] onPlayerPropertyLevelup ${event.PlayerID} ${event.name} ${event.level}`);
-		// post /api/player-property
-		// {
-		// 	"steamId": 0,
-		// 	"name": "string",
-		// 	"level": 0
-		//   }
 		const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
 
 		const apiParameter = {
@@ -191,17 +208,17 @@ export class Player {
 		print(`[Player] Property Levelup Success data ${data}`);
 		const playerProperty = json.decode(data)[0] as PlayerProperty;
 		DeepPrintTable(playerProperty);
+
+		PropertyController.RefreshPlayerProperty(playerProperty);
+
+		// 更新 nettable
 		const player = Player.playerList.find(p => p.id == playerProperty.steamId.toString());
 		if (player) {
-			if (player.properties) {
-				const property = player.properties.find(p => p.name == playerProperty.name);
-				if (property) {
-					property.level = playerProperty.level;
-				} else {
-					player.properties.push(playerProperty);
-				}
+			const property = player.properties.find(p => p.name == playerProperty.name);
+			if (property) {
+				property.level = playerProperty.level;
 			} else {
-				player.properties = [playerProperty];
+				player.properties.push(playerProperty);
 			}
 
 			CustomNetTables.SetTableValue("player_table", player.id, player);
