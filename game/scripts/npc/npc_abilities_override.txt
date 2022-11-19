@@ -13300,7 +13300,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"80"		// 25 守卫攻击力
+				"value"				"60"		// 25 守卫攻击力
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}

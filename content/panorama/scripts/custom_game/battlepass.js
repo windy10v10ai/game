@@ -2,6 +2,8 @@
 	$.Schedule(0.1, PregameSetup);
 })();
 
+var levelUseable = 0;
+
 function PregameSetup() {
     PlayerDataLoaded(GetPlayer());
 	SubscribePlayer(PlayerDataLoaded);
@@ -14,6 +16,7 @@ function PlayerDataLoaded(player) {
 	$.Msg(player);
 
 	if(player == null) {
+		$("#LoadingFail").visible = true;
 		return;
 	}
 
@@ -25,13 +28,11 @@ function PlayerDataLoaded(player) {
 	$("#MemberLevelNumber").text = player.memberLevel + 1;
 	$("#MemberLevelNextRemainingNumber").text = `${player.memberCurrentLevelPoint} / ${player.memberNextLevelPoint}`;
 
-	const totalLevel = player.memberLevel + player.seasonLevel;
-	$("#PropertyPoint").text = `${player.propertyTotalLevel} / ${totalLevel}`;
-
 	$("#SeasonLevelNextRemainingBarLeft").style.width = `${(player.seasonCurrrentLevelPoint / player.seasonNextLevelPoint) * 100}%`;
 	$("#MemberLevelNextRemainingBarLeft").style.width = `${(player.memberCurrentLevelPoint / player.memberNextLevelPoint) * 100}%`;
 
-	SetPlayerProperty(player.properties);
+	SetLevelUseable(player);
+	SetPlayerProperty();
 
 	$.Msg("BP Loaded!");
 }
@@ -67,17 +68,25 @@ function SwitchToProperty() {
 
 // --------------------------------------------------------------------------------
 
-function SetPlayerProperty(playerProperties) {
-	ClearPlayerProperty();
-
+function SetLevelUseable(player) {
+	const playerProperties = player.properties;
+	let levelUsed = 0;
 	const playerPropertiesValues = Object.values(playerProperties);
-	$.Msg(playerPropertiesValues);
 	for(const property of Player_Property_List) {
-		// find by name and set level
 		const playerProperty = playerPropertiesValues.find(p => p.name === property.name);
 		if(playerProperty) {
 			property.level = playerProperty.level;
+			levelUsed += playerProperty.level;
 		}
+	}
+	const totalLevel = player.memberLevel + player.seasonLevel;
+	levelUseable = totalLevel - levelUsed;
+	$("#PropertyPoint").text = `${levelUseable} / ${totalLevel}`;
+}
+
+function SetPlayerProperty() {
+	ClearPlayerProperty();
+	for(const property of Player_Property_List) {
 		AddPlayerProperty(property);
 	}
 }
@@ -94,27 +103,57 @@ function AddPlayerProperty(property) {
 	panel.BLoadLayoutSnippet("Property");
 
 
-	const propertyName = $.Localize(`#data_panel_player_${property.name}`);
-	panel.SetDialogVariable("PropertyName", propertyName);
-	const propertyLevelString = $.Localize(`#data_panel_player_property_level`) + " " + property.level + "/" + maxLevel;
-	const propertyValueString = $.Localize(`#data_panel_player_property_value`) + " " + (property.level * property.valuePerLevel);
-	panel.SetDialogVariable("PropertyLevel", propertyLevelString);
-	panel.SetDialogVariable("PropertyValue", propertyValueString);
+	// 图标
 	let imageSrc = property.imageSrc;
 	if (!imageSrc) {
 		imageSrc = "s2r://panorama/images/cavern/icon_custom_challenge_png.vtex";
 	}
 	panel.FindChildTraverse("PropertyImage").SetImage(imageSrc);
+	// 标题
+	const propertyName = $.Localize(`#data_panel_player_${property.name}`);
+	panel.SetDialogVariable("PropertyName", propertyName);
+	// 数值
+	const propertyLevelString = $.Localize(`#data_panel_player_property_level`) + " " + property.level + "/" + maxLevel;
+	const propertyValueString = $.Localize(`#data_panel_player_property_value`) + " " + (property.level * property.valuePerLevel);
+	panel.SetDialogVariable("PropertyLevel", propertyLevelString);
+	panel.SetDialogVariable("PropertyValue", propertyValueString);
 	panel.FindChildTraverse("PropertyLevel").style.color = "#2cba75";
+	// 升级按钮
+	let levelupText = $.Localize(`#data_panel_player_property_level_up`) + ` (+${property.valuePerLevel})`;
+	let nextLevel = property.level + 1;
+	// 特殊属性
+	if (property.name === "property_ignore_movespeed_limit" || property.name === "property_cannot_miss") {
+		levelupText = $.Localize(`#data_panel_player_property_level_up_8`);
+		nextLevel = 8;
+		panel.FindChildTraverse("Levelup").SetHasClass("LevelupButtonLong", true);
+	}
 
-	// if (property.level <= maxLevel) {
-	// 	panel.FindChildTraverse("EnablePet").SetHasClass("deactivated", false);
-	// 	panel.FindChildTraverse("EnablePet").SetHasClass("activated", true);
-	// 	panel.FindChildTraverse("EnablePet").SetPanelEvent("onactivate", () => {
-	// 		// TODO : send request to server call level up
-	// 	});
-	// }
+	panel.FindChildTraverse("Levelup").name = property.name;
+	panel.FindChildTraverse("Levelup").nextLevel = nextLevel;
+	panel.FindChildTraverse("LevelupText").text =  levelupText;
 
+	if (property.level < maxLevel && levelUseable >= (nextLevel - property.level)) {
+		panel.FindChildTraverse("Levelup").SetHasClass("deactivated", false);
+		panel.FindChildTraverse("Levelup").SetHasClass("activated", true);
+		panel.FindChildTraverse("Levelup").SetPanelEvent("onactivate", () => {
+			OnLevelupActive(panel);
+		});
+	}
+}
+
+function OnLevelupActive(panel) {
+	$.Msg("Levelup");
+	$.Msg(panel.FindChildTraverse("Levelup").name);
+	$.Msg(panel.FindChildTraverse("Levelup").nextLevel);
+	// disable button
+	panel.FindChildTraverse("Levelup").SetHasClass("deactivated", true);
+	panel.FindChildTraverse("Levelup").SetHasClass("activated", false);
+	panel.FindChildTraverse("Levelup").SetPanelEvent("onactivate", () => {});
+	// send request to server
+	GameEvents.SendCustomGameEventToServer("player_property_levelup",{
+		name: panel.FindChildTraverse("Levelup").name,
+		level: panel.FindChildTraverse("Levelup").nextLevel,
+	});
 }
 
 const Player_Property_List = [
