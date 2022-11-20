@@ -328,7 +328,7 @@ function AIGameMode:RewardFilterByKill(teamKill, playerKill, teamCount)
     if teamKill < 10 then
         return rewardMulti
     end
-    rewardMulti = (1 - playerKill / teamKill + 1 / teamCount) ^ 2
+    rewardMulti = 1 - playerKill / teamKill + 1 / teamCount
     return rewardMulti
 end
 
