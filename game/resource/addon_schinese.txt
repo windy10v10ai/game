@@ -107,6 +107,10 @@
 		"data_panel_season_level"		"赛季等级"
 		"data_panel_level_progress"		"升级进度"
 
+		"data_panel_link_charge"		"会员积分充值"
+		"data_panel_link_rule"			"积分规则说明"
+		"data_panel_member_point_rule_url"		"https://afdian.net/p/24140a48680511ed9d3852540025c377"
+
 		"data_panel_player_property_cooldown_percentage"		"冷却时间 ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"施法距离"
 		"data_panel_player_property_spell_amplify_percentage"	"法术强度 ( % )"

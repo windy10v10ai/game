@@ -106,6 +106,10 @@
 		"data_panel_season_level"		"Season Level"
 		"data_panel_level_progress"		"Level Progress"
 
+		"data_panel_link_charge"		"Charge Member Point"
+		"data_panel_link_rule"			"Point Rule"
+		"data_panel_member_point_rule_url"		"https://afdian.net/p/8d1e8ac8682711ed984b52540025c377"
+
 		"data_panel_player_property_cooldown_percentage"		"Cooldown ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
 		"data_panel_player_property_spell_amplify_percentage"	"Spell Amplify ( % )"
