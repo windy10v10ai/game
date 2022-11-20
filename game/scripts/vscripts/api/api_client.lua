@@ -1,7 +1,7 @@
 local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["6"] = 3,["7"] = 4,["8"] = 5,["9"] = 6,["10"] = 7,["11"] = 20,["12"] = 20,["13"] = 20,["15"] = 20,["16"] = 33,["17"] = 34,["18"] = 35,["19"] = 36,["20"] = 38,["21"] = 39,["22"] = 40,["25"] = 43,["26"] = 44,["27"] = 45,["28"] = 46,["29"] = 46,["30"] = 46,["31"] = 46,["33"] = 48,["34"] = 50,["35"] = 51,["37"] = 53,["38"] = 54,["40"] = 48,["41"] = 33,["42"] = 59,["43"] = 60,["44"] = 61,["45"] = 62,["46"] = 62,["47"] = 63,["48"] = 63,["49"] = 63,["50"] = 63,["51"] = 63,["52"] = 63,["53"] = 64,["54"] = 65,["55"] = 66,["56"] = 67,["57"] = 68,["59"] = 70,["60"] = 71,["64"] = 75,["66"] = 63,["67"] = 63,["68"] = 62,["69"] = 79,["70"] = 59,["71"] = 22,["72"] = 23,["73"] = 24,["74"] = 26,["75"] = 27,["76"] = 28,["77"] = 29,["78"] = 30,["79"] = 29});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["6"] = 3,["7"] = 4,["8"] = 5,["9"] = 6,["10"] = 7,["11"] = 20,["12"] = 20,["13"] = 20,["15"] = 20,["16"] = 33,["17"] = 34,["18"] = 35,["19"] = 36,["20"] = 38,["21"] = 39,["22"] = 40,["25"] = 43,["26"] = 44,["27"] = 45,["28"] = 46,["29"] = 46,["30"] = 46,["31"] = 46,["33"] = 48,["34"] = 49,["35"] = 48,["36"] = 33,["37"] = 53,["38"] = 54,["39"] = 55,["40"] = 56,["41"] = 56,["42"] = 57,["43"] = 57,["44"] = 57,["45"] = 57,["46"] = 57,["47"] = 57,["48"] = 60,["49"] = 61,["50"] = 62,["51"] = 63,["52"] = 64,["53"] = 65,["56"] = 68,["57"] = 69,["58"] = 70,["59"] = 71,["61"] = 73,["62"] = 74,["66"] = 57,["67"] = 57,["68"] = 56,["69"] = 80,["70"] = 53,["71"] = 22,["72"] = 23,["73"] = 24,["74"] = 26,["75"] = 27,["76"] = 28,["77"] = 29,["78"] = 30,["79"] = 29});
 local ____exports = {}
 ____exports.HttpMethod = HttpMethod or ({})
 ____exports.HttpMethod.GET = "GET"
@@ -31,12 +31,7 @@ function ApiClient.send(self, method, path, querys, body, successFunc)
         )
     end
     request:Send(function(result)
-        if result.StatusCode >= 200 and result.StatusCode < 300 then
-            successFunc(nil, result.Body)
-        else
-            print("[ApiClient] get error: " .. tostring(result.StatusCode))
-            successFunc(nil, "error")
-        end
+        successFunc(nil, result)
     end)
 end
 function ApiClient.sendWithRetry(self, apiParameter)
@@ -49,19 +44,24 @@ function ApiClient.sendWithRetry(self, apiParameter)
             apiParameter.path,
             apiParameter.querys,
             apiParameter.body,
-            function(____, data)
-                if data == "error" then
+            function(____, result)
+                print("[ApiClient] get error: " .. tostring(result.StatusCode))
+                if result.StatusCode >= 200 and result.StatusCode < 300 then
+                    apiParameter:successFunc(result.Body)
+                elseif result.StatusCode == 401 then
+                    if apiParameter.failureFunc then
+                        apiParameter:failureFunc(result.Body)
+                    end
+                else
                     retryCount = retryCount + 1
                     if retryCount < maxRetryTimes then
                         print("[ApiClient] getWithRetry retry " .. tostring(retryCount))
                         retry(nil)
                     else
                         if apiParameter.failureFunc then
-                            apiParameter:failureFunc(data)
+                            apiParameter:failureFunc(result.Body)
                         end
                     end
-                else
-                    apiParameter:successFunc(data)
                 end
             end
         )
