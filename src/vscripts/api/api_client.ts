@@ -30,7 +30,7 @@ export class ApiClient {
 		return IsInToolsMode() ? "http://localhost:5000/api" : "https://windy10v10ai.web.app/api"
 	})();
 
-	public static send(method: HttpMethod, path: string, querys: { [key: string]: string } | undefined, body: Object | undefined, successFunc: (data: string) => void) {
+	public static send(method: HttpMethod, path: string, querys: { [key: string]: string } | undefined, body: Object | undefined, successFunc: (result: CScriptHTTPResponse) => void) {
 		print(`[ApiClient] ${method} ${ApiClient.HOST_NAME}${path} with querys ${json.encode(querys)} body ${json.encode(body)}`);
 		const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + path);
 		const key = GetDedicatedServerKeyV2(ApiClient.VERSION);
@@ -46,13 +46,7 @@ export class ApiClient {
 			request.SetHTTPRequestRawPostBody("application/json", json.encode(body));
 		}
 		request.Send((result: CScriptHTTPResponse) => {
-			// if 20X
-			if (result.StatusCode >= 200 && result.StatusCode < 300) {
-				successFunc(result.Body);
-			} else {
-				print(`[ApiClient] get error: ${result.StatusCode}`);
-				successFunc("error");
-			}
+			successFunc(result);
 		});
 	}
 
@@ -60,19 +54,26 @@ export class ApiClient {
 		let retryCount = 0;
 		const maxRetryTimes = apiParameter.retryTimes || ApiClient.RETRY_TIMES;
 		const retry = () => {
-			this.send(apiParameter.method, apiParameter.path, apiParameter.querys, apiParameter.body, (data: string) => {
-				if (data == "error") {
+			this.send(apiParameter.method, apiParameter.path, apiParameter.querys, apiParameter.body, (result: CScriptHTTPResponse) => {
+
+				// if 20X
+				print(`[ApiClient] get error: ${result.StatusCode}`);
+				if (result.StatusCode >= 200 && result.StatusCode < 300) {
+					apiParameter.successFunc(result.Body);
+				} else if (result.StatusCode == 401) {
+					if (apiParameter.failureFunc) {
+						apiParameter.failureFunc(result.Body);
+					}
+				} else {
 					retryCount++;
 					if (retryCount < maxRetryTimes) {
 						print(`[ApiClient] getWithRetry retry ${retryCount}`);
 						retry();
 					} else {
 						if (apiParameter.failureFunc) {
-							apiParameter.failureFunc(data);
+							apiParameter.failureFunc(result.Body);
 						}
 					}
-				} else {
-					apiParameter.successFunc(data);
 				}
 			});
 		}
