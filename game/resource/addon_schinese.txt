@@ -125,7 +125,7 @@
 		"data_panel_player_property_spell_lifesteal"			"法术吸血 ( % )"
 		"data_panel_player_property_movespeed_bonus_constant"	"移动速度"
 		"data_panel_player_property_ignore_movespeed_limit"		"无视移速上限"
-		"data_panel_player_property_cannot_miss"				"无法闪避"
+		"data_panel_player_property_cannot_miss"				"克敌机先"
 
 		"data_panel_player_property_value"				"数值"
 		"data_panel_player_property_level"				"等级"
