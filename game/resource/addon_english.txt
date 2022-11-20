@@ -124,7 +124,7 @@
 		"data_panel_player_property_spell_lifesteal"			"Spell Life Steal ( % )"
 		"data_panel_player_property_movespeed_bonus_constant"	"Move Speed"
 		"data_panel_player_property_ignore_movespeed_limit"		"Move Speed Ignore Limit"
-		"data_panel_player_property_cannot_miss"				"Cannot Miss"
+		"data_panel_player_property_cannot_miss"				"True Strike"
 
 		"data_panel_player_property_value"				"Value"
 		"data_panel_player_property_level"				"Level"
