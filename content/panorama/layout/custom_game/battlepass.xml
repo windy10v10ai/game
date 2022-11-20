@@ -20,7 +20,7 @@
 						<Label id="PropertyLevel" class="ItemValue" text="{s:PropertyLevel}" />
 						<Label id="PropertyValue" class="ItemValue" text="{s:PropertyValue}" />
 						<Button id="Levelup" class="LevelupButton deactivated" name="">
-							<Label id="LevelupText" text="#data_panel_player_property_level_up" />
+							<Label id="LevelupText" class="ButtonText" text="#data_panel_player_property_level_up" />
 						</Button>
 					</Panel>
 				</Panel>
@@ -141,6 +141,15 @@
 								<Panel id="MemberLevelNextRemainingBarRight" class="LevelNextRemainingBarRight" />
 							</ProgressBar>
 						</Panel>
+					</Panel>
+
+					<Panel class="LinkPanel">
+						<Button id="RuleLink" class="LinkButton activated">
+							<Label id="RuleText" class="ButtonText" text="#data_panel_link_rule" />
+						</Button>
+						<Button id="ChargeLink" class="LinkButton activated-gold">
+							<Label id="ChargeText" class="ButtonText" text="#data_panel_link_charge" />
+						</Button>
 					</Panel>
 				</Panel>
 
