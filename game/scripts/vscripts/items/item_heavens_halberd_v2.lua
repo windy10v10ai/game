@@ -103,7 +103,7 @@ function modifier_item_heavens_halberd_v2:OnTakeDamage(keys)
     if not IsServer() then
         return
     end
-    SpellLifeSteal(keys,self,self.spell_lifesteal,nil)
+    SpellLifeSteal(keys, self, self.spell_lifesteal)
 end
 
 function modifier_item_heavens_halberd_v2:OnIntervalThink()
