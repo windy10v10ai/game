@@ -101,7 +101,7 @@
 		"data_panel_property_point"		"属性点数 (可用/总数)"
 
 		"data_panel_data_button"		"数据"
-		"data_panel_property_button"	"属性"
+		"data_panel_property_button"	"英雄属性"
 
 		"data_panel_member_level"		"会员等级"
 		"data_panel_season_level"		"赛季等级"
