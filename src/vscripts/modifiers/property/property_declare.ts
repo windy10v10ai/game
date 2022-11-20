@@ -153,9 +153,8 @@ export class property_lifesteal extends PropertyBaseModifier {
         return [ModifierFunction.ON_ATTACK_LANDED];
     }
     OnAttackLanded(event: ModifierAttackEvent): void {
-        // FIXME
         // @ts-ignore
-        TsLifeStealOnAttackLanded(event, this.value, this.GetParent(), this.GetAbility())
+        TsLifeStealOnAttackLanded(event, this.value, this.GetParent(), this)
     }
 }
 
@@ -165,7 +164,10 @@ export class property_spell_lifesteal extends PropertyBaseModifier {
     DeclareFunctions(): ModifierFunction[] {
         return [ModifierFunction.ON_TAKEDAMAGE];
     }
-    // TODO 法术吸血
+    OnTakeDamage(event: ModifierInstanceEvent): void {
+        // @ts-ignore
+        TsSpellLifeSteal(event, this, this.value)
+    }
 }
 
 @registerModifier()
