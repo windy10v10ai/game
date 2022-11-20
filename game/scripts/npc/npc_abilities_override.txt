@@ -13251,7 +13251,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"80 140 200"
+				"damage_tooltip"			"60 120 180"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_4"
 				"CalculateSpellDamageTooltip"	"0"
 			}
