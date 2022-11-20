@@ -145,22 +145,25 @@ function LifeStealOnAttackLanded (params, iLifeSteal, hHero, hAbility)
 	end
 end
 
-function SpellLifeSteal(keys,modifier,base_life_steal,amp_life_steal)
-	if keys.attacker == modifier:GetParent() and keys.inflictor and IsEnemy(keys.attacker, keys.unit) and
+function TsSpellLifeSteal(_, keys, hAbility, ilifeSteal)
+	SpellLifeSteal(keys, hAbility, ilifeSteal)
+end
+
+function SpellLifeSteal(keys, hAbility, ilifeSteal)
+	local hParent = hAbility:GetParent()
+	if keys.attacker == hParent and keys.inflictor and IsEnemy(keys.attacker, keys.unit) and
 			bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION and
 			bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) ~= DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL then
-		local dmg = keys.damage * (base_life_steal / 100)
-		if amp_life_steal then
-			dmg = dmg * amp_life_steal
-		end
+		local dmg = keys.damage * (ilifeSteal / 100)
+
 		if keys.unit:IsCreep() then
 			dmg = dmg / 5
 		end
-		--local preHealth = modifier:GetParent():GetHealth()
-		modifier:GetParent():HealWithParams(dmg,modifier:GetAbility(),false,true,modifier:GetParent(),true)
-		--local curHealth = modifier:GetParent():GetHealth()
-		--Printf("终态法术吸血系数:%.2f",(curHealth-preHealth)/keys.damage)
-		local pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, modifier:GetParent())
+		-- local preHealth = hParent:GetHealth()
+		hParent:HealWithParams(dmg,hAbility:GetAbility(),false,true,hParent,true)
+		-- local curHealth = hParent:GetHealth()
+		-- Printf("法术吸血点数:%.2f",(curHealth-preHealth))
+		local pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, hParent)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end
 end

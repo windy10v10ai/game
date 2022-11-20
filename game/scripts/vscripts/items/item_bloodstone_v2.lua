@@ -46,11 +46,11 @@ function modifier_item_bloodstone_v2:OnTakeDamage(keys)
 	if not IsServer() then
 		return
 	end
-	local amp = nil
+	local spellLifesteal = self.spell_lifesteal
 	if self:GetParent():HasModifier("modifier_item_bloodstone_v2_amp") then
-		amp = self:GetAbility():GetSpecialValueFor("lifesteal_multiplier")
+		spellLifesteal = spellLifesteal * self:GetAbility():GetSpecialValueFor("lifesteal_multiplier")
 	end
-	SpellLifeSteal(keys,self,self.spell_lifesteal,amp)
+	SpellLifeSteal(keys, self, spellLifesteal)
 end
 
 if modifier_item_bloodstone_v2_amp == nil then modifier_item_bloodstone_v2_amp = class({}) end

@@ -13240,7 +13240,7 @@
 	"shadow_shaman_mass_serpent_ward"
 	{
 		"MaxLevel" "3"
-		"AbilityCooldown"				"80"
+		"AbilityCooldown"				"90"
 		"AbilitySpecial"
 		{
 			"01"
@@ -13251,7 +13251,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"100 160 220"
+				"damage_tooltip"			"80 140 200"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_4"
 				"CalculateSpellDamageTooltip"	"0"
 			}
