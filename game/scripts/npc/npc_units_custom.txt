@@ -2103,7 +2103,6 @@
 	// shadow_shaman_ward 小Y蛇棒
 	"npc_dota_shadow_shaman_ward_1"
 	{
-		"ModelScale"				"1.3"
 		"Ability1"					""			// creep_piercing
 		// Attack
 		//----------------------------------------------------------------
