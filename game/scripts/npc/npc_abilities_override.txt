@@ -13240,7 +13240,7 @@
 	"shadow_shaman_mass_serpent_ward"
 	{
 		"MaxLevel" "3"
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"110"
 		"AbilitySpecial"
 		{
 			"01"
@@ -13307,7 +13307,7 @@
 	}
 	"shadow_shaman_serpentine"
 	{
-		"AbilityCooldown"				"80"
+		"AbilityCooldown"				"90"
 		"AbilityManaCost"				"300"
 		"AbilitySpecial"
 		{
