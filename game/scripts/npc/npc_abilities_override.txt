@@ -8610,7 +8610,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"self_movement_speed_pct"	"18 32 46 60"
+				"self_movement_speed_pct"	"12 18 24 30"
 				"LinkedSpecialBonus"	"special_bonus_unique_razor_5"
 			}
 			"02"
