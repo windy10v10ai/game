@@ -9079,12 +9079,6 @@
 				"damage_reflection_pct"	"8 11 14 17 20"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_5"
 			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_dagger_damage"			"300"
-				"RequiresShard"			"1"
-			}
 			"05"
 			{
 				"var_type"						"FIELD_FLOAT"
@@ -13184,7 +13178,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"140 220 300 380 460"
+				"damage"					"140 200 260 320 380"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_3"
 			}
 		}
@@ -13207,7 +13201,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityChannelTime"			"3 3.5 4 4.5 5"
-		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityCooldown"				"14 13 12 11 10"
 		"AbilityManaCost"				"140 150 160 170 180"
 		"AbilitySpecial"
 		{
@@ -13240,7 +13234,7 @@
 	"shadow_shaman_mass_serpent_ward"
 	{
 		"MaxLevel" "3"
-		"AbilityCooldown"				"110"
+		"AbilityCooldown"				"100"
 		"AbilitySpecial"
 		{
 			"01"

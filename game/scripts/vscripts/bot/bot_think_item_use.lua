@@ -243,7 +243,7 @@ function BotItemThink:UseActiveItem(hHero)
     -- refresh 刷新
     if BotItemThink:IsItemCanUse(tUsableItems, "item_refresher") then
         local hAbility6 = hHero:GetAbilityByIndex(5)
-        if hAbility6 and hAbility6:GetCooldownTimeRemaining() > 10 then
+        if hAbility6 and hAbility6:GetCooldownTimeRemaining() > 20 then
             if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_refresher") then
                 return true
             end
