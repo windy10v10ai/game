@@ -686,6 +686,23 @@
 				"demolish"			"30"
 		}
 	}
+	// 其他中立
+	"item_helm_of_the_undying"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"			"3"
+			}
+		}
+	}
 
 
 
@@ -5932,8 +5949,8 @@
 	}
 	"treant_eyes_in_the_forest"
 	{
-		"AbilityCharges"				"5"
-		"AbilityChargeRestoreTime"		"120.0"
+		"AbilityCharges"				"3"
+		"AbilityChargeRestoreTime"		"180.0"
 	}
 	//=================================================================================================================
 	// Ability: Undying 不朽尸王
@@ -9790,7 +9807,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityManaCost"				"40 50 60 70 80"
-		"AbilityCooldown"				"5"
+		"AbilityCooldown"				"8"
 		"AbilitySpecial"
 		{
 			"01"
@@ -11294,8 +11311,7 @@
 	}
 	"furion_force_of_nature"
 	{
-		"AbilityCastRange"				"900"
-		"AbilityCooldown"				"35"
+		"AbilityCooldown"				"90"
 		"AbilitySpecial"
         {
             "04"
@@ -13274,7 +13290,7 @@
 	}
 	"shadow_shaman_serpentine"
 	{
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"100"
 		"AbilityManaCost"				"300"
 		"AbilitySpecial"
 		{
