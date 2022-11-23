@@ -45,14 +45,21 @@ function BotAbilityThink:CastAbilityOnFriendTarget(hHero, hAbility)
 	return false
 end
 
-function BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility, hpPercent)
+function BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility, hpPercent, modifierName)
 	if hAbility:IsFullyCastable() then
 		local iRange = GetFullCastRange(hHero, hAbility)
 		local tAllHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
 		for i = 1, #tAllHeroes do
 			if tAllHeroes[i]:GetHealthPercent() <= hpPercent then
-				hHero:CastAbilityOnTarget(tAllHeroes[i], hAbility, hHero:GetPlayerOwnerID())
-				return true
+				if modifierName ~= nil then
+					if not tAllHeroes[i]:HasModifier(modifierName) then
+						hHero:CastAbilityOnTarget(tAllHeroes[i], hAbility, hHero:GetPlayerOwnerID())
+						return true
+					end
+				else
+					hHero:CastAbilityOnTarget(tAllHeroes[i], hAbility, hHero:GetPlayerOwnerID())
+					return true
+				end
 			end
 		end
 	end
@@ -335,12 +342,12 @@ end
 function BotAbilityThink:ThinkUseAbility_Abaddon(hHero)
 	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
-	if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility1, 99) then
+	if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility1, 95) then
 		return true
 	end
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility1) then return true end
 
-	if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility2, 99) then
+	if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility2, 95, "modifier_abaddon_aphotic_shield") then
 		return true
 	end
 end
@@ -573,10 +580,13 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
 	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility4 = hHero:GetAbilityByIndex(3)
+	local hAbility5 = hHero:GetAbilityByIndex(4)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
-	local refreshCoolDownTotal = 20
 
-
+	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility4) then
+		return true
+	end
 	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility1) then
 		return true
 	end
@@ -589,13 +599,79 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 		end
 	end
 
-	-- ability cool down total
-	local iAbilityCoolDownTotal = 0
-	iAbilityCoolDownTotal = iAbilityCoolDownTotal + hAbility1:GetCooldownTimeRemaining()
-	iAbilityCoolDownTotal = iAbilityCoolDownTotal + hAbility2:GetCooldownTimeRemaining()
-	iAbilityCoolDownTotal = iAbilityCoolDownTotal + hAbility3:GetCooldownTimeRemaining()
-	if hAbility6:IsFullyCastable() and iAbilityCoolDownTotal > refreshCoolDownTotal then
-		hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
+	if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility3, 90, "modifier_tinker_defense_matrix") then
 		return true
+	end
+
+	if hAbility5:IsFullyCastable() then
+		-- if mp less than 10% go back to fountain
+		if hHero:GetManaPercent() < 10 or hHero:GetHealthPercent() < 10 then
+			-- get team
+			local team = hHero:GetTeam()
+			if team == 2 then
+				hHero:CastAbilityOnPosition(Vector(-7170, -6725, 0), hAbility5, hHero:GetPlayerOwnerID())
+				return true
+			end
+			if team == 3 then
+				hHero:CastAbilityOnPosition(Vector(7100, 6300, 0), hAbility5, hHero:GetPlayerOwnerID())
+				return true
+			end
+		end
+		-- if later game
+		if hHero:GetLevel() > 17 and hHero:GetManaPercent() > 90 and hHero:GetHealthPercent() > 90 then
+			-- if far away from teammate
+			local iRange = 1800
+			local tNearHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
+			if #tNearHeroes < 1 then
+				print("only self tinker tp think")
+				-- if not teammate, find nearest teammate
+				iRange = 20000
+				local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false)
+				PrintTable(tAllHeroes)
+				-- if team hero hp > 90% go to him
+				if #tAllHeroes > 1 and tAllHeroes[2]:GetHealthPercent() > 90 then
+					hHero:CastAbilityOnPosition(tAllHeroes[2]:GetOrigin(), hAbility5, hHero:GetPlayerOwnerID())
+					return true
+				end
+			end
+		end
+	end
+
+	-- re-arm
+	-- find enemy in 300
+	if hAbility6:IsFullyCastable() then
+		local iRange = 600
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		if #tAllHeroes > 0 then
+			return false
+		end
+
+		local refreshAbilityCoolDownTotal = 15
+		local refreshItemCoolDownTotal = 30
+
+		local iAbilityCoolDownTotal = 0
+		local iItemCoolDownTotal = 0
+		iAbilityCoolDownTotal = iAbilityCoolDownTotal + hAbility1:GetCooldownTimeRemaining()
+		iAbilityCoolDownTotal = iAbilityCoolDownTotal + hAbility2:GetCooldownTimeRemaining()
+		iAbilityCoolDownTotal = iAbilityCoolDownTotal + hAbility3:GetCooldownTimeRemaining()
+		iAbilityCoolDownTotal = iAbilityCoolDownTotal + hAbility4:GetCooldownTimeRemaining()
+
+		iItemCoolDownTotal = iItemCoolDownTotal + hAbility5:GetCooldownTimeRemaining()
+		for i = 0, 5 do
+			local hItem = hHero:GetItemInSlot(i)
+			if hItem ~= nil then
+				iItemCoolDownTotal = iItemCoolDownTotal + hItem:GetCooldownTimeRemaining()
+			end
+		end
+		local tpItem = hHero:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
+		if tpItem ~= nil then
+			iItemCoolDownTotal = iItemCoolDownTotal + tpItem:GetCooldownTimeRemaining()
+		end
+
+		if iAbilityCoolDownTotal > refreshAbilityCoolDownTotal
+				or iAbilityCoolDownTotal + iItemCoolDownTotal > refreshItemCoolDownTotal then
+			hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
+			return true
+		end
 	end
 end
