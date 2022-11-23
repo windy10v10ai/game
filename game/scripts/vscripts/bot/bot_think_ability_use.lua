@@ -487,8 +487,10 @@ function BotAbilityThink:ThinkUseAbility_Spectre(hHero)
 	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
 
-	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility1) then
-		return true
+	if hAbility1:GetLevel() > 2 then
+		if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility1) then
+			return true
+		end
 	end
 
 	if hAbility2:IsFullyCastable() then
