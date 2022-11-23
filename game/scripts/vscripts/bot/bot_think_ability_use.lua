@@ -605,7 +605,7 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 
 	if hAbility5:IsFullyCastable() then
 		-- if mp less than 10% go back to fountain
-		if hHero:GetManaPercent() < 10 or hHero:GetHealthPercent() < 10 then
+		if hHero:GetMana() < 200 or hHero:GetManaPercent() < 15 or hHero:GetHealthPercent() < 20 then
 			-- get team
 			local team = hHero:GetTeam()
 			if team == 2 then
@@ -618,23 +618,23 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 			end
 		end
 		-- if later game
-		if hHero:GetLevel() > 17 and hHero:GetManaPercent() > 90 and hHero:GetHealthPercent() > 90 then
-			-- if far away from teammate
-			local iRange = 1800
-			local tNearHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
-			if #tNearHeroes < 1 then
-				print("only self tinker tp think")
-				-- if not teammate, find nearest teammate
-				iRange = 20000
-				local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false)
-				PrintTable(tAllHeroes)
-				-- if team hero hp > 90% go to him
-				if #tAllHeroes > 1 and tAllHeroes[2]:GetHealthPercent() > 90 then
-					hHero:CastAbilityOnPosition(tAllHeroes[2]:GetOrigin(), hAbility5, hHero:GetPlayerOwnerID())
-					return true
-				end
-			end
-		end
+		-- if hHero:GetLevel() > 17 and hHero:GetManaPercent() > 90 and hHero:GetHealthPercent() > 90 then
+		-- 	-- if far away from teammate
+		-- 	local iRange = 1800
+		-- 	local tNearHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
+		-- 	if #tNearHeroes < 1 then
+		-- 		print("only self tinker tp think")
+		-- 		-- if not teammate, find nearest teammate
+		-- 		iRange = 20000
+		-- 		local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false)
+		-- 		PrintTable(tAllHeroes)
+		-- 		-- if team hero hp > 90% go to him
+		-- 		if #tAllHeroes > 1 and tAllHeroes[2]:GetHealthPercent() > 90 then
+		-- 			hHero:CastAbilityOnPosition(tAllHeroes[2]:GetOrigin(), hAbility5, hHero:GetPlayerOwnerID())
+		-- 			return true
+		-- 		end
+		-- 	end
+		-- end
 	end
 
 	-- re-arm
