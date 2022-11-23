@@ -351,7 +351,6 @@
 	"npc_dota_hero_tinker"
 	{
 		"Ability6"		"tinker_rearm_lua"
-		"Ability7"		"tinker_march_of_the_machines"
 	}
 
 	"npc_dota_hero_pangolier"
@@ -2553,6 +2552,10 @@
 				"34"		"tidehunter_anchor_smash"
 			}
 		}
+	}
+	"npc_dota_hero_undying"
+	{
+		"Ability14"					"special_bonus_strength_30"
 	}
 	"npc_dota_hero_vengefulspirit"
 	{
