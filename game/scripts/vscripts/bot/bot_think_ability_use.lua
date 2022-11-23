@@ -123,6 +123,8 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_Riki(hHero)
 	elseif sHeroName == "npc_dota_hero_witch_doctor" then
 		self:ThinkUseAbility_WitchDoctor(hHero)
+	elseif sHeroName == "npc_dota_hero_tinker" then
+		self:ThinkUseAbility_Tinker(hHero)
 	end
 end
 
@@ -565,4 +567,35 @@ function BotAbilityThink:ThinkUseAbility_WitchDoctor(hHero)
 		end
 	end
 
+end
+
+function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
+	local hAbility1 = hHero:GetAbilityByIndex(0)
+	local hAbility2 = hHero:GetAbilityByIndex(1)
+	local hAbility3 = hHero:GetAbilityByIndex(2)
+	local hAbility6 = hHero:GetAbilityByIndex(5)
+	local refreshCoolDownTotal = 20
+
+
+	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility1) then
+		return true
+	end
+	if hAbility2:IsFullyCastable() then
+		local iRange = hAbility2:GetCastRange()
+		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+		if #tAllHeroes > 0 then
+			hHero:CastAbilityNoTarget(hAbility2, hHero:GetPlayerOwnerID())
+			return true
+		end
+	end
+
+	-- ability cool down total
+	local iAbilityCoolDownTotal = 0
+	iAbilityCoolDownTotal = iAbilityCoolDownTotal + hAbility1:GetCooldownTimeRemaining()
+	iAbilityCoolDownTotal = iAbilityCoolDownTotal + hAbility2:GetCooldownTimeRemaining()
+	iAbilityCoolDownTotal = iAbilityCoolDownTotal + hAbility3:GetCooldownTimeRemaining()
+	if hAbility6:IsFullyCastable() and iAbilityCoolDownTotal > refreshCoolDownTotal then
+		hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
+		return true
+	end
 end

@@ -125,7 +125,7 @@ function BotItemThink:UseActiveItem(hHero)
         end
     end
 
-    -- 无目标 长距离
+    ------------------ 无目标 长距离 ------------------
     local searchRange = 1200
 	local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
 	if #tAllHeroes == 0 then
@@ -177,7 +177,17 @@ function BotItemThink:UseActiveItem(hHero)
         end
     end
 
-    -- 无目标 中距离
+    -- item_magic_scepter 小仙云
+    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_scepter") then
+        return true
+    end
+
+    -- item_hallowed_scepter 仙云法杖
+    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_hallowed_scepter") then
+        return true
+    end
+
+    ------------------ 无目标 中距离 ------------------
     local searchRange = 900
     local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
     if #tAllHeroes == 0 then
@@ -196,16 +206,6 @@ function BotItemThink:UseActiveItem(hHero)
         if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_black_king_bar_2") then
             return true
         end
-    end
-
-    -- item_magic_scepter 小仙云
-    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_scepter") then
-        return true
-    end
-
-    -- item_hallowed_scepter 仙云法杖
-    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_hallowed_scepter") then
-        return true
     end
 
     -- 分身斧
