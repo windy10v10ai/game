@@ -74,6 +74,17 @@ function BotItemThink:UseActiveItem(hHero)
         end
     end
 
+    -- item_sheepstick 羊刀
+    if BotItemThink:IsItemCanUse(tUsableItems, "item_sheepstick") then
+        local iRange = GetFullCastRange(hHero, tUsableItems["item_sheepstick"])
+        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+        if #tAllHeroes > 0 then
+            local hTarget = tAllHeroes[1]
+            if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_sheepstick", hTarget) then
+                return true
+            end
+        end
+    end
     -- item_necronomicon_staff 死灵法杖
     if BotItemThink:IsItemCanUse(tUsableItems, "item_necronomicon_staff") then
         local iRange = GetFullCastRange(hHero, tUsableItems["item_necronomicon_staff"])
