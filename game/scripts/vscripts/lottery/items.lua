@@ -5,7 +5,7 @@ function AIGameMode:SpecialItemAdd(owner)
 	tierRate[1] = 100
 	tierRate[2] = 30
 	tierRate[3] = 10
-	tierRate[4] = 1
+	tierRate[4] = 1.5
 	tierRate[5] = 0.1
 
 	local tier = {}
@@ -61,31 +61,31 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_nether_shawl",			-- 幽冥披风
 		"item_pupils_gift",				-- 学徒之礼
 		"item_horizon",					-- 视界
-		"item_vengeances_shadow",       -- 复仇之影
-		"item_helm_of_the_undying",     -- 不死头盔
 		"item_witless_shako",           -- 脑瘫帽
 		"item_panic_button",            -- 神灯
 		"item_third_eye",               -- 第三只眼
-		"item_woodland_striders",       -- 丛林鞋
 		"item_repair_kit",			    -- 修理工具
 	}
 
 	tier[4] =	{
-		"item_candy_candy",					-- 嘉心糖
-		-- "item_hand_of_group",				-- 团队之手
-		"item_tome_of_knowledge",			-- 知识之书
-		"item_aghanims_shard",				-- 阿哈利姆魔晶
+		"item_candy_candy",				-- 嘉心糖
+		-- "item_hand_of_group",			-- 团队之手
+		"item_tome_of_knowledge",		-- 知识之书
+		"item_aghanims_shard",			-- 阿哈利姆魔晶
 
-		"item_tome_of_aghanim",				-- 阿哈利姆之书
-		"item_illusionsts_cape",			-- 幻术师披风
-		"item_princes_knife",				-- 亲王短刀
-		"item_pirate_hat",					-- 海盗帽
-		"item_fallen_sky",					-- 天崩
-		"item_demonicon",					-- 大死灵书
-		"item_mirror_shield",				-- 神镜盾
-		"item_spell_prism",					-- 法术棱镜
-		"item_ex_machina",					-- 机械之心
-		"item_seer_stone",					-- 先哲石
+		"item_tome_of_aghanim",			-- 阿哈利姆之书
+		"item_illusionsts_cape",		-- 幻术师披风
+		"item_princes_knife",			-- 亲王短刀
+		"item_pirate_hat",				-- 海盗帽
+		"item_fallen_sky",				-- 天崩
+		"item_demonicon",				-- 大死灵书
+		"item_mirror_shield",			-- 神镜盾
+		"item_spell_prism",				-- 法术棱镜
+		"item_ex_machina",				-- 机械之心
+		"item_seer_stone",				-- 先哲石
+		"item_vengeances_shadow",		-- 复仇之影
+		"item_helm_of_the_undying",		-- 不死头盔
+		"item_woodland_striders",		-- 丛林鞋
 	}
 
 	tier[5] =	{
