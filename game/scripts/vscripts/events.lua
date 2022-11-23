@@ -863,8 +863,8 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
         end
     end
 
-    local pointOne = playerNumber * 1
-    local pointHalf = playerNumber * 0.5
+    local pointOne = playerNumber * 0.8
+    local pointHalf = playerNumber * 0.4
 
     -- add point to most player
     -- for i = 1, #mostKillPlayerIDList do
