@@ -4974,34 +4974,30 @@
 	"skeleton_king_vampiric_aura"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"60 70 80 90 100"
+		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
 			"vampiric_aura"
 			{
-				"value"									"15 30 45 60 75"
-				"special_bonus_unique_wraith_king_2"	"+20"
+				"value"									"9 16 23 30 37"
+				"special_bonus_unique_wraith_king_2"	"+8"
 			}
 			"skeleton_duration"
 			{
-				"value"					"40"
-				"special_bonus_unique_wraith_king_vampiric_skeleton_duration"	"+25%"
+				"value"					"20"
+				"special_bonus_unique_wraith_king_vampiric_skeleton_duration"	"+20%"
 			}
 			"AbilityCooldown"
 			{
 				"value"					"50"
-				"special_bonus_unique_wraith_king_vampiric_skeleton_duration"	"-25%"
+				"special_bonus_unique_wraith_king_vampiric_skeleton_duration"	"-20%"
 			}
-			"max_skeleton_charges"			"3"
+			"max_skeleton_charges"			"2"
 			"min_skeleton_spawn"
 			{
 				"value"		"0"
-				"special_bonus_unique_wraith_king_5"	"+6"
+				"special_bonus_unique_wraith_king_5"	"+2"
 			}
-			"spawn_interval"			"0.25"
-			"reincarnate_time"			"3"
-			"gold_bounty"						"5"
-			"xp_bounty"						"5"
 		}
 	}
 	"special_bonus_unique_wraith_king_6"
@@ -5044,7 +5040,7 @@
 	"skeleton_king_reincarnation"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"100 80 60 40"
+		"AbilityCooldown"				"120 100 80 60"
 		"AbilitySpecial"
 		{
 			"07"
@@ -13235,7 +13231,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"60 120 180"
+				"damage_tooltip"			"60 100 140"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_4"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -13301,7 +13297,7 @@
             "01"
             {
                 "var_type"					"FIELD_INTEGER"
-                "value"				"200"		// 120 守卫攻击距离
+                "value"				"150"		// 120 守卫攻击距离
                 "ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
             }
         }
