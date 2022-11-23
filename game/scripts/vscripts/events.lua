@@ -22,13 +22,12 @@ local tBotNameList = {
     --"npc_dota_hero_treant",
     --"npc_dota_hero_rubick",
     --"npc_dota_hero_shredder",
-    --"npc_dota_hero_tinker",
+    "npc_dota_hero_tinker",
     "npc_dota_hero_abaddon",
     "npc_dota_hero_axe",
     "npc_dota_hero_bane",
     "npc_dota_hero_bounty_hunter",
     "npc_dota_hero_bloodseeker",
-    "npc_dota_hero_spectre",
     "npc_dota_hero_bristleback",
     "npc_dota_hero_chaos_knight",
     "npc_dota_hero_crystal_maiden",
@@ -59,6 +58,7 @@ local tBotNameList = {
     "npc_dota_hero_shadow_shaman",
     "npc_dota_hero_skywrath_mage",
     "npc_dota_hero_sniper",
+    "npc_dota_hero_spectre",
     "npc_dota_hero_sven",
     --"npc_dota_hero_tidehunter", // 在泉水站着完全不动
     "npc_dota_hero_tiny",
@@ -733,12 +733,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     local playerNumber = 0
     -- 参战率积分
     local battleParticipationBase = 20
-    -- find most kill/assist 1st to 6th
-    -- local mostKillPlayerIDList = {}
-    -- local mostKillList = {}
-
-    -- local mostAssistsPlayerList = {}
-    -- local mostAssistsList = {}
 
     local mostDamageReceivedPlayerID_1 = -1
     local mostDamageReceived_1 = 0
@@ -865,17 +859,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
 
     local pointOne = playerNumber * 0.8
     local pointHalf = playerNumber * 0.4
-
-    -- add point to most player
-    -- for i = 1, #mostKillPlayerIDList do
-    --     local playerID = mostKillPlayerIDList[i]
-    --     data.players[playerID].points = data.players[playerID].points + playerNumber * (2 - 0.2 * (i - 1))
-    -- end
-    -- for i = 1, #mostAssistsPlayerList do
-    --     local playerID = mostAssistsPlayerList[i]
-    --     data.players[playerID].points = data.players[playerID].points + playerNumber * (2 - 0.2 * (i - 1))
-    -- end
-
 
     if mostDamageReceivedPlayerID_1 ~= -1 then
         data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + pointOne

@@ -351,6 +351,50 @@
 	"npc_dota_hero_tinker"
 	{
 		"Ability6"		"tinker_rearm_lua"
+        "Bot"
+        {
+            "Build"
+            {
+                "1"		"tinker_laser"
+                "2"		"tinker_heat_seeking_missile"
+                "3"		"tinker_heat_seeking_missile"
+                "4"		"tinker_laser"
+                "5"		"tinker_heat_seeking_missile"
+                "6"		"tinker_rearm_lua"
+                "7"		"tinker_heat_seeking_missile"
+                "8"		"tinker_defense_matrix"
+                "9"		"tinker_heat_seeking_missile"
+                "10"		"special_bonus_mana_reduction_8"
+                "11"		"tinker_defense_matrix"
+                "12"		"tinker_rearm_lua"
+                "13"		"tinker_laser"
+                "14"		"tinker_laser"
+                "15"		"special_bonus_unique_tinker_6"
+                "16"		"tinker_laser"
+                "17"		""
+                "18"		"tinker_rearm_lua"
+                "19"		""
+                "20"		"special_bonus_unique_tinker_defense_matrix_cdr"
+                "21"		""
+                "22"		""
+                "23"		""
+                "24"		""
+                "25"		"special_bonus_unique_tinker_3"
+                "26"		""
+                "27"		"special_bonus_unique_tinker_4"
+                "28"		"special_bonus_unique_tinker_7"
+                "29"		"special_bonus_unique_tinker_5"
+                "30"		"special_bonus_unique_tinker"
+                "31"		"tinker_defense_matrix"
+                "32"		"tinker_defense_matrix"
+                "33"		"tinker_defense_matrix"
+            }
+			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_HARD_CARRY"
+			"LaningInfo"
+			{
+				"SoloDesire"		"2"
+			}
+        }
 	}
 
 	"npc_dota_hero_pangolier"

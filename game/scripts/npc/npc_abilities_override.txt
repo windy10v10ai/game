@@ -13890,66 +13890,6 @@
 			}
 		}
 	}
-	"tinker_march_of_the_machines"
-	{
-		"IsGrantedByShard"				"1"
-		"AbilityCastRange"				"300"
-		"AbilityCastPoint"				"0.53"
-		"AbilityCooldown"				"35.0"
-		"AbilityDamage"					"0"
-		"AbilityManaCost"				"190"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"collision_radius"		"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"splash_radius"			"150"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"8.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_tinker_5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"400"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"machines_per_sec"		"24"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"1800"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance_scepter"		"1800"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"50"
-				"LinkedSpecialBonus"	"special_bonus_unique_tinker_2"
-			}
-
-		}
-	}
 	"tinker_keen_teleport"
 	{
 		"AbilityCooldown"				"80.0"
@@ -13973,13 +13913,9 @@
 	}
 	"tinker_warp_grenade"
 	{
-		"AbilityCooldown"				"15"
 		"AbilityValues"
 		{
-				"damage"					"100"
-				"knockback_distance"		"600"
-				"range_reduction"		"40"
-				"debuff_duration"		"3"
+			"damage"					"100"
 		}
 	}
 	//=================================================================================================================
