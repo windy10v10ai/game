@@ -2119,8 +2119,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"120"			// 85
-		"AttackDamageMax"			"120"			// 85
+		"AttackDamageMin"			"100"			// 85
+		"AttackDamageMax"			"100"			// 85
 	}
 
 	"npc_dota_shadow_shaman_ward_3"
@@ -2129,8 +2129,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"160"			// 120
-		"AttackDamageMax"			"160"			// 120
+		"AttackDamageMin"			"140"			// 120
+		"AttackDamageMax"			"140"			// 120
 	}
 
 	// beastmaster_boar 兽王野猪
