@@ -957,6 +957,36 @@ tBotItemData.purchaseItemList = {
 		'item_blue_fantasy',
 		'item_jump_jump_jump',
 	},
+	npc_dota_hero_tinker = {
+		'item_clarity',
+		'item_clarity',
+		'item_boots',
+		'item_null_talisman',
+		'item_null_talisman',
+		'item_force_staff',
+		'item_recipe_force_staff_2',
+		'item_recipe_force_staff_3',
+		'item_tome_of_knowledge',
+		'item_glimmer_cape',
+		'item_blink',
+		'item_aether_lens',
+		'item_recipe_aether_lens',
+		'item_recipe_aether_lens',
+		'item_aghanims_shard',
+		'item_sheepstick',
+		'item_wings_of_haste',
+		'item_mystic_staff',
+		'item_recipe_arcane_blink',
+		'item_ultimate_scepter',
+		'item_recipe_ultimate_scepter_2',
+		'item_dagon_5',
+		'item_magic_scepter',
+		'item_necronomicon_staff',
+		'item_hallowed_scepter',
+		'item_soul_booster',
+		'item_gungir_2',
+		'item_recipe_arcane_octarine_core',
+	},
 	npc_dota_hero_tiny = {
 		'item_magic_wand',
 		'item_boots',
@@ -1371,6 +1401,9 @@ tBotItemData.sellItemList = {
 		'item_echo_sabre_2',
 		'item_overwhelming_blink',
 	},
+	npc_dota_hero_tinker = {
+		'item_force_staff_3',
+	},
 	npc_dota_hero_tiny = {
 		'item_vanguard',
 		'item_sange_and_yasha',
@@ -1494,7 +1527,6 @@ tBotItemData.wardHeroList = Set {
 	'npc_dota_hero_omniknight',
 	'npc_dota_hero_riki',
 	'npc_dota_hero_sand_king',
-	'npc_dota_hero_tiny',
 	'npc_dota_hero_windrunner'
 }
 
@@ -1766,6 +1798,9 @@ tBotItemData.addNeutralItemList = {
 	},
 	npc_dota_hero_tidehunter = {
 		'item_mirror_shield',
+	},
+	npc_dota_hero_tinker = {
+		'item_seer_stone',
 	},
 	npc_dota_hero_tiny = {
 		'item_pirate_hat',

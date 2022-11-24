@@ -686,6 +686,23 @@
 				"demolish"			"30"
 		}
 	}
+	// 其他中立
+	"item_helm_of_the_undying"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"			"3"
+			}
+		}
+	}
 
 
 
@@ -4974,34 +4991,30 @@
 	"skeleton_king_vampiric_aura"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"60 70 80 90 100"
+		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
 			"vampiric_aura"
 			{
-				"value"									"15 20 25 30 35"
-				"special_bonus_unique_wraith_king_2"	"+10"
+				"value"									"9 16 23 30 37"
+				"special_bonus_unique_wraith_king_2"	"+8"
 			}
 			"skeleton_duration"
 			{
-				"value"					"40"
-				"special_bonus_unique_wraith_king_vampiric_skeleton_duration"	"+25%"
+				"value"					"20"
+				"special_bonus_unique_wraith_king_vampiric_skeleton_duration"	"+20%"
 			}
 			"AbilityCooldown"
 			{
 				"value"					"50"
-				"special_bonus_unique_wraith_king_vampiric_skeleton_duration"	"-25%"
+				"special_bonus_unique_wraith_king_vampiric_skeleton_duration"	"-20%"
 			}
-			"max_skeleton_charges"			"2 3 4 5 6"
+			"max_skeleton_charges"			"2"
 			"min_skeleton_spawn"
 			{
 				"value"		"0"
-				"special_bonus_unique_wraith_king_5"	"+6"
+				"special_bonus_unique_wraith_king_5"	"+2"
 			}
-			"spawn_interval"			"0.25"
-			"reincarnate_time"			"3"
-			"gold_bounty"						"5"
-			"xp_bounty"						"5"
 		}
 	}
 	"special_bonus_unique_wraith_king_6"
@@ -5044,7 +5057,7 @@
 	"skeleton_king_reincarnation"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"100 80 60 40"
+		"AbilityCooldown"				"120 100 80 60"
 		"AbilitySpecial"
 		{
 			"07"
@@ -5936,8 +5949,8 @@
 	}
 	"treant_eyes_in_the_forest"
 	{
-		"AbilityCharges"				"5"
-		"AbilityChargeRestoreTime"		"120.0"
+		"AbilityCharges"				"3"
+		"AbilityChargeRestoreTime"		"180.0"
 	}
 	//=================================================================================================================
 	// Ability: Undying 不朽尸王
@@ -5985,7 +5998,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_per_unit"			"30 35 40 45 50 55 60"
+				"damage_per_unit"			"30 40 50 60 70 80 90"
 				"LinkedSpecialBonus"			"special_bonus_unique_undying_6"
 			}
 			"02"
@@ -5993,18 +6006,13 @@
 				"var_type"					"FIELD_INTEGER"
 				"max_units"					"10"
 			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tombstone_heal"			"4 8 12 16 20"
-			}
 		}
 	}
 	// 墓碑
 	"undying_tombstone"
 	{
-		"AbilityCooldown"				"120"
-		"AbilityManaCost"				"120 130 140 150"
+		"AbilityCooldown"				"180"
+		"AbilityManaCost"				"200 300 400 500"
 		"AbilitySpecial"
 		{
 			"03"
@@ -8610,7 +8618,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"self_movement_speed_pct"	"18 32 46 60"
+				"self_movement_speed_pct"	"12 18 24 30"
 				"LinkedSpecialBonus"	"special_bonus_unique_razor_5"
 			}
 			"02"
@@ -9033,7 +9041,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"12"
-		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilityManaCost"				"130 140 150 160 170"
 		"AbilitySpecial"
 		{
 			"01"
@@ -9079,12 +9087,6 @@
 				"damage_reflection_pct"	"8 11 14 17 20"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_5"
 			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_dagger_damage"			"300"
-				"RequiresShard"			"1"
-			}
 			"05"
 			{
 				"var_type"						"FIELD_FLOAT"
@@ -9097,7 +9099,7 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCooldown"				"300"
-		"AbilityManaCost"				"200"
+		"AbilityManaCost"				"300 400 500 600"
 		"LinkedAbility"					"spectre_ursa_enrage"
         "HasScepterUpgrade"			    "1"
         "AbilityDraftPreAbility"		    "spectre_reality"
@@ -9805,7 +9807,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityManaCost"				"40 50 60 70 80"
-		"AbilityCooldown"				"5"
+		"AbilityCooldown"				"8"
 		"AbilitySpecial"
 		{
 			"01"
@@ -10984,14 +10986,11 @@
 	}
 	"death_prophet_exorcism"
 	{
-	    "AbilityCastPoint"				"0"
 		"MaxLevel" "5"
-		"AbilityCooldown"				"90 85 80 75 70"
-		"AbilityManaCost"				"250 350 450 550 650"
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"200 300 400 500 600"
 		"AbilityValues"
 		{
-		        "radius"				"700"
-		        "spirit_speed"			"700"
 				"spirits"
 				{
 					"value"					"4 5 6 7 8"
@@ -11000,8 +10999,6 @@
 				"min_damage"			"100 150 200 250 300"
 				"max_damage"			"100 150 200 250 300"
 				"average_damage"		"100 150 200 250 300"
-				"movement_base"					"30"
-				"movement_bonus"				"30"
 		}
 	}
 	"special_bonus_unique_death_prophet"
@@ -11011,7 +11008,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"6"
+				"value"				"4"
 				"ad_linked_abilities"			"death_prophet_exorcism"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -11314,8 +11311,7 @@
 	}
 	"furion_force_of_nature"
 	{
-		"AbilityCastRange"				"900"
-		"AbilityCooldown"				"35"
+		"AbilityCooldown"				"90"
 		"AbilitySpecial"
         {
             "04"
@@ -13184,7 +13180,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"140 220 300 380 460"
+				"damage"					"140 200 260 320 380"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_3"
 			}
 		}
@@ -13207,7 +13203,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityChannelTime"			"3 3.5 4 4.5 5"
-		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityCooldown"				"16 15 14 13 12"
 		"AbilityManaCost"				"140 150 160 170 180"
 		"AbilitySpecial"
 		{
@@ -13240,7 +13236,7 @@
 	"shadow_shaman_mass_serpent_ward"
 	{
 		"MaxLevel" "3"
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"120"
 		"AbilitySpecial"
 		{
 			"01"
@@ -13251,7 +13247,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"80 140 200"
+				"damage_tooltip"			"60 100 140"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_4"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -13259,19 +13255,6 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"24.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip"			"3"
-				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_1"
-				"LinkedSpecialBonusField"		"value2"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip_creeps"		"6"
-				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_1"
 			}
 		}
 	}
@@ -13307,7 +13290,7 @@
 	}
 	"shadow_shaman_serpentine"
 	{
-		"AbilityCooldown"				"80"
+		"AbilityCooldown"				"100"
 		"AbilityManaCost"				"300"
 		"AbilitySpecial"
 		{
@@ -13330,7 +13313,7 @@
             "01"
             {
                 "var_type"					"FIELD_INTEGER"
-                "value"				"200"		// 120 守卫攻击距离
+                "value"				"150"		// 120 守卫攻击距离
                 "ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
             }
         }
@@ -13907,66 +13890,6 @@
 			}
 		}
 	}
-	"tinker_march_of_the_machines"
-	{
-		"IsGrantedByShard"				"1"
-		"AbilityCastRange"				"300"
-		"AbilityCastPoint"				"0.53"
-		"AbilityCooldown"				"35.0"
-		"AbilityDamage"					"0"
-		"AbilityManaCost"				"190"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"collision_radius"		"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"splash_radius"			"150"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"8.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_tinker_5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"400"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"machines_per_sec"		"24"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"1800"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance_scepter"		"1800"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"50"
-				"LinkedSpecialBonus"	"special_bonus_unique_tinker_2"
-			}
-
-		}
-	}
 	"tinker_keen_teleport"
 	{
 		"AbilityCooldown"				"80.0"
@@ -13990,13 +13913,9 @@
 	}
 	"tinker_warp_grenade"
 	{
-		"AbilityCooldown"				"15"
 		"AbilityValues"
 		{
-				"damage"					"100"
-				"knockback_distance"		"600"
-				"range_reduction"		"40"
-				"debuff_duration"		"3"
+			"damage"					"100"
 		}
 	}
 	//=================================================================================================================
