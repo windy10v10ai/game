@@ -66,6 +66,9 @@ function modifier_item_heavens_halberd_v2:AllowIllusionDuplicate()
     return false
 end
 
+function modifier_item_heavens_halberd_v2:GetAttributes()
+    return MODIFIER_ATTRIBUTE_MULTIPLE
+end
 
 function modifier_item_heavens_halberd_v2:DeclareFunctions()
     return

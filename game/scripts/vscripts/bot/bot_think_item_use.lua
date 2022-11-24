@@ -74,6 +74,17 @@ function BotItemThink:UseActiveItem(hHero)
         end
     end
 
+    -- item_sheepstick 羊刀
+    if BotItemThink:IsItemCanUse(tUsableItems, "item_sheepstick") then
+        local iRange = GetFullCastRange(hHero, tUsableItems["item_sheepstick"])
+        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+        if #tAllHeroes > 0 then
+            local hTarget = tAllHeroes[1]
+            if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_sheepstick", hTarget) then
+                return true
+            end
+        end
+    end
     -- item_necronomicon_staff 死灵法杖
     if BotItemThink:IsItemCanUse(tUsableItems, "item_necronomicon_staff") then
         local iRange = GetFullCastRange(hHero, tUsableItems["item_necronomicon_staff"])
@@ -125,7 +136,7 @@ function BotItemThink:UseActiveItem(hHero)
         end
     end
 
-    -- 无目标 长距离
+    ------------------ 无目标 长距离 ------------------
     local searchRange = 1200
 	local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
 	if #tAllHeroes == 0 then
@@ -177,7 +188,17 @@ function BotItemThink:UseActiveItem(hHero)
         end
     end
 
-    -- 无目标 中距离
+    -- item_magic_scepter 小仙云
+    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_scepter") then
+        return true
+    end
+
+    -- item_hallowed_scepter 仙云法杖
+    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_hallowed_scepter") then
+        return true
+    end
+
+    ------------------ 无目标 中距离 ------------------
     local searchRange = 900
     local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
     if #tAllHeroes == 0 then
@@ -196,16 +217,6 @@ function BotItemThink:UseActiveItem(hHero)
         if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_black_king_bar_2") then
             return true
         end
-    end
-
-    -- item_magic_scepter 小仙云
-    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_scepter") then
-        return true
-    end
-
-    -- item_hallowed_scepter 仙云法杖
-    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_hallowed_scepter") then
-        return true
     end
 
     -- 分身斧
@@ -243,7 +254,7 @@ function BotItemThink:UseActiveItem(hHero)
     -- refresh 刷新
     if BotItemThink:IsItemCanUse(tUsableItems, "item_refresher") then
         local hAbility6 = hHero:GetAbilityByIndex(5)
-        if hAbility6 and hAbility6:GetCooldownTimeRemaining() > 10 then
+        if hAbility6 and hAbility6:GetCooldownTimeRemaining() > 20 then
             if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_refresher") then
                 return true
             end
