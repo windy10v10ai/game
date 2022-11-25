@@ -884,8 +884,8 @@
 		// Abilities
 		"Ability2"					"tower_headshot"			// none
 
-		"AttackDamageMin"			"390"		// 290
-		"AttackDamageMax"			"410"		// 310
+		"AttackDamageMin"			"490"		// 290
+		"AttackDamageMax"			"510"		// 310
 		"AttackRate"				"0.03"		// 0.15
 		"AttackAcquisitionRange"	"1400"		// 1200
 		"AttackRange"				"1400"		// 1200
