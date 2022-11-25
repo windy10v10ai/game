@@ -12804,6 +12804,15 @@
 				}
 		}
 	}
+	"puck_phase_shift"
+	{
+		"AbilityChannelTime"			"1 1.75 2.5 3.1"
+		"AbilityCooldown"				"8 7.7 7.4 7.1"
+		"AbilityValues"
+		{
+				"duration"					"1 1.75 2.5 3.1"
+		}
+	}
 	"puck_dream_coil"
 	{
 		"MaxLevel" "4"
