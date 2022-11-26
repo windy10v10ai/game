@@ -291,17 +291,18 @@ function EnablePlayerModifier(hEntity)
 		LinkLuaModifier("modifier_player_menglihua", "modifiers/player/modifier_player_menglihua", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_menglihua", {})
 	end
+	-- FIXME remove
 	if dabuguoSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_dabuguo", "modifiers/player/modifier_player_dabuguo", LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dabuguo", {})
-		LinkLuaModifier("modifier_player_dabuguo_1", "modifiers/player/modifier_player_dabuguo_1", LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dabuguo_1", {})
-		LinkLuaModifier("modifier_player_dabuguo_2", "modifiers/player/modifier_player_dabuguo_2", LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dabuguo_2", {})
-		LinkLuaModifier("modifier_player_dabuguo_3", "modifiers/player/modifier_player_dabuguo_3", LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dabuguo_3", {})
-		LinkLuaModifier("modifier_player_dabuguo_4", "modifiers/player/modifier_player_dabuguo_4", LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dabuguo_4", {})
+		-- LinkLuaModifier("modifier_player_dabuguo", "modifiers/player/modifier_player_dabuguo", LUA_MODIFIER_MOTION_NONE)
+		-- hEntity:AddNewModifier(hEntity, nil, "modifier_player_dabuguo", {})
+		-- LinkLuaModifier("modifier_player_dabuguo_1", "modifiers/player/modifier_player_dabuguo_1", LUA_MODIFIER_MOTION_NONE)
+		-- hEntity:AddNewModifier(hEntity, nil, "modifier_player_dabuguo_1", {})
+		-- LinkLuaModifier("modifier_player_dabuguo_2", "modifiers/player/modifier_player_dabuguo_2", LUA_MODIFIER_MOTION_NONE)
+		-- hEntity:AddNewModifier(hEntity, nil, "modifier_player_dabuguo_2", {})
+		-- LinkLuaModifier("modifier_player_dabuguo_3", "modifiers/player/modifier_player_dabuguo_3", LUA_MODIFIER_MOTION_NONE)
+		-- hEntity:AddNewModifier(hEntity, nil, "modifier_player_dabuguo_3", {})
+		-- LinkLuaModifier("modifier_player_dabuguo_4", "modifiers/player/modifier_player_dabuguo_4", LUA_MODIFIER_MOTION_NONE)
+		-- hEntity:AddNewModifier(hEntity, nil, "modifier_player_dabuguo_4", {})
 	end
 	if shapuSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_shapu", "modifiers/player/modifier_player_shapu", LUA_MODIFIER_MOTION_NONE)
