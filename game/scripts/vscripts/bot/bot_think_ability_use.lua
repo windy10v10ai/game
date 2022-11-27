@@ -620,9 +620,15 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 			-- blink when has teammate
 			local vTeammate = BotThink:FindNearestEnemyHeroesInRangeAndVisible(hTarget, distance)
 			if vTeammate then
-				local vBlink = vTarget - (vTarget - hHero:GetOrigin()):Normalized() * distance
-				local iRandomRange = 100
-				vBlink = vBlink + Vector(RandomInt(-iRandomRange, iRandomRange), RandomInt(-iRandomRange, iRandomRange), 0)
+				local vBlink = vTarget - (vTarget - vTeammate:GetOrigin()):Normalized() * distance
+				print("Target Position: " .. vTarget.x .. " " .. vTarget.y)
+				print("Blink Position: " .. vBlink.x .. " " .. vBlink.y)
+				-- change 45 degree
+				local iRandomDegree = RandomInt(-45, 45)
+				vBlink = RotatePosition(vTarget, QAngle(0, iRandomDegree, 0), vBlink)
+
+				print("Blink Position random: " .. vBlink.x .. " " .. vBlink.y)
+
 				hHero:CastAbilityOnPosition(vBlink, hItemBlink, hHero:GetPlayerOwnerID())
 				return true
 			end
@@ -660,7 +666,7 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 			end
 		end
 
-		if hHero:GetLevel() > 17 and hHero:GetManaPercent() > 90 and hHero:GetHealthPercent() > 90 then
+		if hHero:GetLevel() > 17 and hHero:GetManaPercent() > 80 and hHero:GetHealthPercent() > 80 then
 			-- if far away from teammate
 			local iRange = 3000
 			local tNearHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
