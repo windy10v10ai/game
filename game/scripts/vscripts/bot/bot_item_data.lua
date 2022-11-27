@@ -1521,7 +1521,6 @@ tBotItemData.wardHeroList = Set {
 	'npc_dota_hero_necrolyte',
 	'npc_dota_hero_dazzle',
 	'npc_dota_hero_death_prophet',
-	'npc_dota_hero_earthshaker',
 	'npc_dota_hero_jakiro',
 	'npc_dota_hero_lina',
 	'npc_dota_hero_omniknight',
