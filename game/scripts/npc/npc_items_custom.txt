@@ -289,38 +289,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_movement_speed"		"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"30"	// not used
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"	"25"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_all_stats"		"15"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"bonus_health_regen"	"8"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"bonus_mana_regen"		"5"
-			}
 		}
 
 		// Data driven
@@ -1730,7 +1705,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3275"
+		"ItemCost"						"2275"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1772,7 +1747,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_cooldown"		"30"
+				"bonus_cooldown"		"25"
 			}
 			"02"
 			{
@@ -5902,7 +5877,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_cooldown"		"35"
+			"bonus_cooldown"		"34"
+			"bonus_cooldown_stack"	"12"
 			"cast_range_bonus"		"300"
 			"bonus_health"			"1200"
 			"bonus_mana"			"1600"
