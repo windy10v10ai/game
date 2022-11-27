@@ -3678,7 +3678,7 @@
 	//=================================================================================================================
 	"lycan_summon_wolves"
 	{
-		"AbilityCooldown"				"20.0"
+		"AbilityCooldown"				"90.0"
 		"AbilityValues"
 		{
 			"wolf_hp"
@@ -10576,31 +10576,13 @@
 	}
 	"dark_seer_wall_of_replica"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"120"
-		"AbilityManaCost"				"150 200 250 300"
+		"AbilityCooldown"				"180"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"10.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replica_damage_outgoing"	"-30 -20 -10 0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_outgoing"	"70 80 90 100"
-				"LinkedSpecialBonus"	"special_bonus_unique_dark_seer_7"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow"					"50 60 70 80"
+				"duration"				"5.0"
 			}
 		}
 	}
@@ -11326,17 +11308,23 @@
 		"AbilityCooldown"				"90"
 		"AbilitySpecial"
         {
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_treants"			"2"
+				"LinkedSpecialBonus"	"special_bonus_unique_furion_2"
+			}
             "04"
             {
                 "var_type"				"FIELD_INTEGER"
-                "treant_health_tooltip"				"550 600 650 700"
+                "treant_health_tooltip"				"500 600 700 800"		// 18 26 34 42
                 "LinkedSpecialBonus"	"special_bonus_unique_furion"
                 "LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
             }
             "05"
             {
                 "var_type"				"FIELD_INTEGER"
-                "treant_dmg_tooltip"				"20 30 40 50"
+                "treant_dmg_tooltip"				"35 50 65 80"			// 18 26 34 42
                 "LinkedSpecialBonus"	"special_bonus_unique_furion"
                 "LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
             }

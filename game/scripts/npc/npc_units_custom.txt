@@ -2576,17 +2576,17 @@
 
     "npc_dota_furion_treant_1"
     {
-        "AttackDamageMin"			"20"		// Damage range min.
-        "AttackDamageMax"			"20"		// Damage range max.
+        "AttackDamageMin"			"35"		// Damage range min.
+        "AttackDamageMax"			"35"		// Damage range max.
         "AttackRate"				"1.4"		// Speed of attack.
 
-        "StatusHealth"				"550"		// Base health.
+        "StatusHealth"				"500"		// Base health.
     }
 
     "npc_dota_furion_treant_2"
     {
-       "AttackDamageMin"			"30"		// Damage range min.
-       "AttackDamageMax"			"30"		// Damage range max.
+       "AttackDamageMin"			"50"		// Damage range min.
+       "AttackDamageMax"			"50"		// Damage range max.
        "AttackRate"				    "1.4"		// Speed of attack.
 
        "StatusHealth"				"600"		// Base health.
@@ -2594,19 +2594,19 @@
 
     "npc_dota_furion_treant_3"
     {
-        "AttackDamageMin"			"40"		// Damage range min.
-        "AttackDamageMax"			"40"		// Damage range max.
+        "AttackDamageMin"			"65"		// Damage range min.
+        "AttackDamageMax"			"65"		// Damage range max.
         "AttackRate"				"1.4"		// Speed of attack.
 
-        "StatusHealth"				"650"		// Base health.
+        "StatusHealth"				"700"		// Base health.
     }
 
     "npc_dota_furion_treant_4"
     {
-        "AttackDamageMin"			"50"		// Damage range min.
-        "AttackDamageMax"			"50"		// Damage range max.
+        "AttackDamageMin"			"80"		// Damage range min.
+        "AttackDamageMax"			"80"		// Damage range max.
         "AttackRate"				"1.4"		// Speed of attack.
 
-        "StatusHealth"				"700"		// Base health.
+        "StatusHealth"				"800"		// Base health.
     }
 }
