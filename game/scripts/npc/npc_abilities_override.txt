@@ -726,6 +726,10 @@
 		"AbilitySharedCooldown"			"refresh"
 		"AbilityCooldown"				"150.0"	// 180.0
 	}
+	"item_refresher_shard"
+	{
+		"AbilitySharedCooldown"			"refresh"
+	}
 	// 微光
 	"item_glimmer_cape"
 	{
