@@ -26,9 +26,13 @@ function item_refresh_core:OnSpellStart()
 		end
 	end
 
-	local item = caster:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
-	if item then
-		item:EndCooldown()
+	local itemTp = caster:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
+	if itemTp then
+		itemTp:EndCooldown()
+	end
+	local itemNeutral = caster:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT )
+	if itemNeutral then
+		itemNeutral:EndCooldown()
 	end
 
 	-- effects
