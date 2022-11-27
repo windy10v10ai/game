@@ -21,19 +21,13 @@ function item_refresh_core:OnSpellStart()
 	-- find all refreshable items
 	for i=0,8 do
 		local item = caster:GetItemInSlot(i)
-		if item and item:GetPurchaser()==caster and not self:IsItemException( item ) then
-			item:EndCooldown()
-		end
+		self:RefreshItem( item, caster )
 	end
 
 	local itemTp = caster:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
-	if itemTp then
-		itemTp:EndCooldown()
-	end
+	self:RefreshItem( itemTp, caster )
 	local itemNeutral = caster:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT )
-	if itemNeutral then
-		itemNeutral:EndCooldown()
-	end
+	self:RefreshItem( itemNeutral, caster )
 
 	-- effects
 	local sound_cast = "DOTA_Item.Refresher.Activate"
@@ -49,6 +43,11 @@ end
 item_refresh_core.AbitilyException = {
 	["dazzle_good_juju"] = true,
 }
+function item_refresh_core:RefreshItem( item, caster )
+	if item and item:GetPurchaser()==caster and not self:IsItemException( item ) then
+		item:EndCooldown()
+	end
+end
 function item_refresh_core:IsItemException( item )
 	return self.ItemException[item:GetName()]
 end
@@ -56,6 +55,7 @@ item_refresh_core.ItemException = {
 	["item_refresher"] = true,
 	["item_refresher_shard"] = true,
 	["item_refresh_core"] = true,
+	["item_ex_machina"] = true,
 }
 ---------------------------------------------------------------------
 --Modifiers
