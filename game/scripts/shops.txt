@@ -145,7 +145,7 @@
 		"item"		"item_veil_of_discord_2"
 		"item"		"item_glimmer_cape"
 		"item"		"item_force_staff_3"
-		"item"		"item_aether_lens_3"
+		"item"		"item_aether_lens_2"
 		"item"		"item_witch_blade"
 		"item"		"item_rod_of_atos"
 		"item"		"item_orchid"

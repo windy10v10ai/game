@@ -655,68 +655,9 @@
 			}
 	}
 	//=================================================================================================================
-	// 以太3
+	// 以太3 已删除
 	//=================================================================================================================
-	"item_recipe_aether_lens_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
-		"ID"							"9039"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe_aether_lens_3"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						""
-		"ItemShopTags"					""
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_aether_lens_3"
-		"ItemRequirements"
-		{
-			"01"						"item_aether_lens_2;item_recipe_aether_lens"
-		}
-	}
-	"item_aether_lens_3"
-	{
-			// General
-			//-------------------------------------------------------------------------------------------------------------
-			"ID"                            "9040"
-			"BaseClass"                     "item_aether_lens"
-			"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-			"AbilityTextureName"			      "item_aether_lens_3"
-
-			// Item Info
-			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"                      "5350"
-			"ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
-			"ItemQuality"                   "rare"
-			"ItemAliases"                   "aether lens"
-
-			// Special
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilitySpecial"
-			{
-					"01"
-					{
-							"var_type"              "FIELD_INTEGER"
-							"bonus_mana"            "300"
-					}
-					"02"
-					{
-							"var_type"              "FIELD_FLOAT"
-							"bonus_mana_regen"      "3.5"
-					}
-					"03"
-					{
-							"var_type"              "FIELD_INTEGER"
-							"cast_range_bonus"      "275"
-					}
-			}
-	}
 	//=================================================================================================================
 	// Recipe: Vladmir's Cuirass 强袭祭品
 	//=================================================================================================================
@@ -1789,7 +1730,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5900"
+		"ItemCost"						"3900"
 		"ItemShopTags"					""
 
 		// Recipe
