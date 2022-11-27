@@ -8,14 +8,14 @@ fix custom item icon shown on end screen
 
 		'item_reaver',
 		'item_recipe_overwhelming_blink',
-		
+
 		'item_overwhelming_blink',
 敏捷跳刀
 		'item_eagle',
 		'item_recipe_swift_blink',
 
 		'item_swift_blink',
-		
+
 强袭祭品
 		'item_vladmir',
 		'item_assault',
@@ -28,9 +28,9 @@ fix custom item icon shown on end screen
 		'item_reaver',
 		'item_talisman_of_evasion',
 		'item_recipe_heart',
-		
+
 		'item_undying_heart',
-		
+
 挑战
 		'item_hood_of_defiance',
 永世法衣
@@ -44,7 +44,7 @@ fix custom item icon shown on end screen
 		'item_pipe',
 		'item_platemail',
 		'item_recipe_insight_armor',
-		
+
 		'item_insight_armor',
 
 辉耀2
@@ -65,7 +65,7 @@ A杖
 		'item_ultimate_orb',
 		'item_pers',
 		'item_recipe_sphere_2',
-		
+
 		'item_sphere_2',
 推推
 		'item_force_staff',
@@ -76,22 +76,30 @@ A杖
 		'item_glimmer_cape',
 		'item_aeon_disk',
 		'item_recipe_aeon_pendant',
-		
+
+咸鱼之王
 		'item_aeon_pendant',
 血精石
 		'item_bloodstone',
+		'item_bloodstone_v2',
 红杖
 		'item_dagon_5',
 玲珑心
-		'item_aether_lens_3',
+		'item_aether_lens_2',
 		'item_soul_booster',
-		
+
 		'item_octarine_core',
 奥术之心
 		'item_veil_of_discord',
 		'item_recipe_arcane_octarine_core',
 
 		'item_arcane_octarine_core',
+
+大刷新
+		'item_recipe_refresh_core',
+
+风暴之锤
+		'item_gungir_2',
 
 法杖
 		'item_magic_scepter',
@@ -108,9 +116,9 @@ A杖
 		'item_javelin',
 		'item_javelin',
 		'item_recipe_monkey_king_bar_2',
-		
+
 		'item_monkey_king_bar_2',
-		
+
 大核荣耀
 
 		'item_butterfly',
@@ -130,7 +138,7 @@ A杖
 
 EX咖喱棒
 		'item_excalibur',
-		
+
 鞋子
 
 		'item_boots',
@@ -138,15 +146,15 @@ EX咖喱棒
 		'item_power_treads',
 		'item_arcane_boots',
 		'item_tranquil_boots',
-		
+
 		'item_wings_of_haste',
 圣洁吊坠
 		'item_magic_wand',
-		
+
 		'item_headdress',
 		'item_fluffy_hat',
 		'item_recipe_holy_locket',
-		
+
 		'item_holy_locket',
 
 		'item_urn_of_shadows',
@@ -175,7 +183,7 @@ EX咖喱棒
 		'item_chainmail',
 图纸（卫士胫甲）
 		'item_recipe_guardian_greaves',
-		
+
 系带
 
 		'item_wraith_band',
@@ -183,4 +191,3 @@ EX咖喱棒
 		'item_null_talisman',
 护腕
 		'item_bracer',
-		

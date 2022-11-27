@@ -85,7 +85,7 @@ function InitSetting() {
 
 	$("#respawn_time_percentage_dropdown").SetSelected("80");
 	$("#max_level_dropdown").SetSelected("50");
-	$("#tower_power_dropdown").SetSelected("7");
+	$("#tower_power_dropdown").SetSelected("9");
 	$("#tower_endure_dropdown").SetSelected("9");
 	$("#tower_heal_dropdown").SetSelected("10");
 

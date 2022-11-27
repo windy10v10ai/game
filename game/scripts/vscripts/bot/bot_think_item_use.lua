@@ -63,47 +63,45 @@ function BotItemThink:UseActiveItem(hHero)
 
 
     -- item_blue_fantasy 苍蓝
-    if BotItemThink:IsItemCanUse(tUsableItems, "item_blue_fantasy") then
-        local iRange = GetFullCastRange(hHero, tUsableItems["item_blue_fantasy"])
-        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-        if #tAllHeroes > 0 then
-            local hTarget = tAllHeroes[1]
-            if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_blue_fantasy", hTarget) then
-                return true
-            end
-        end
+    if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_blue_fantasy") then
+        return true
     end
 
     -- item_sheepstick 羊刀
-    if BotItemThink:IsItemCanUse(tUsableItems, "item_sheepstick") then
-        local iRange = GetFullCastRange(hHero, tUsableItems["item_sheepstick"])
-        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-        if #tAllHeroes > 0 then
-            local hTarget = tAllHeroes[1]
-            if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_sheepstick", hTarget) then
-                return true
-            end
-        end
+    if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_sheepstick") then
+        return true
     end
     -- item_necronomicon_staff 死灵法杖
-    if BotItemThink:IsItemCanUse(tUsableItems, "item_necronomicon_staff") then
-        local iRange = GetFullCastRange(hHero, tUsableItems["item_necronomicon_staff"])
-        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-        if #tAllHeroes > 0 then
-            local hTarget = tAllHeroes[1]
-            if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_necronomicon_staff", hTarget) then
-                return true
-            end
-        end
+    if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_necronomicon_staff") then
+        return true
+    end
+    -- item_ethereal_blade 虚灵刀
+    if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_ethereal_blade") then
+        return true
+    end
+    -- item_dagon 红杖
+    if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_dagon") then
+        return true
+    end
+    if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_dagon_2") then
+        return true
+    end
+    if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_dagon_3") then
+        return true
+    end
+    if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_dagon_4") then
+        return true
+    end
+    if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_dagon_5") then
+        return true
     end
 
     -- 大天堂
     if BotItemThink:IsItemCanUse(tUsableItems, "item_heavens_halberd_v2") then
         local iRange = GetFullCastRange(hHero, tUsableItems["item_heavens_halberd_v2"])
         local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-        if #tAllHeroes > 0 then
-            local hTarget = tAllHeroes[1]
-            if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_heavens_halberd_v2", hTarget) then
+        if #tAllHeroes > 1 then
+            if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_heavens_halberd_v2") then
                 return true
             end
         end
@@ -199,8 +197,8 @@ function BotItemThink:UseActiveItem(hHero)
     end
 
     ------------------ 无目标 中距离 ------------------
-    local searchRange = 900
-    local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
+    searchRange = 900
+    tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
     if #tAllHeroes == 0 then
         return false
     end
@@ -240,8 +238,8 @@ function BotItemThink:UseActiveItem(hHero)
     end
 
     -- 无目标 短距离
-    local searchRange = 600
-    local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
+    searchRange = 600
+    tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
     if #tAllHeroes == 0 then
         return false
     end
@@ -251,21 +249,24 @@ function BotItemThink:UseActiveItem(hHero)
         return true
     end
 
-    -- refresh 刷新
-    if BotItemThink:IsItemCanUse(tUsableItems, "item_refresher") then
-        local hAbility6 = hHero:GetAbilityByIndex(5)
-        if hAbility6 and hAbility6:GetCooldownTimeRemaining() > 20 then
-            if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_refresher") then
-                return true
-            end
-        end
-    end
-
     if BotItemThink:IsItemCanUse(tUsableItems, "item_hurricane_pike_2") then
         local itemUseCastRange = 600
         tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, itemUseCastRange)
         if #tAllHeroes > 0 then
             if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_hurricane_pike_2", tAllHeroes[1]) then
+                return true
+            end
+        end
+    end
+
+    -- refresh 刷新
+    if BotItemThink:IsItemCanUse(tUsableItems, "item_refresher") or BotItemThink:IsItemCanUse(tUsableItems, "item_refresh_core") then
+        local cooldownThreshold = 60
+        if BotThink:GetCooldownTotal(hHero) > cooldownThreshold then
+            if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_refresher") then
+                return true
+            end
+            if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_refresh_core") then
                 return true
             end
         end
@@ -298,8 +299,6 @@ function BotItemThink:GetUsableItems(hHero)
         end
 		if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
 	end
-    -- print(hHero:GetName() .. " usable item names: ")
-    -- PrintTable(tUsableItems)
     return tUsableItems
 end
 
@@ -333,6 +332,21 @@ end
 -- 使用可用物品 指定物品名称，可用物品列表
 -- 施法目标：Target
 --
+function BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, sItemName)
+    local hItem = tUsableItems[sItemName]
+    if hItem then
+        local iRange = GetFullCastRange(hHero, hItem)
+        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+        if #tAllHeroes > 0 then
+            local hTarget = tAllHeroes[1]
+            if BotItemThink:UseItemOnTarget(tUsableItems, hHero, sItemName, hTarget) then
+                return true
+            end
+        end
+    end
+    return false
+end
+
 function BotItemThink:UseItemOnTarget(tUsableItems, hHero, sItemName, hTarget)
     local hItem = tUsableItems[sItemName]
     if hItem then
