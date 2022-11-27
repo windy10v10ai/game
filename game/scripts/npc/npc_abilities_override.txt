@@ -7158,7 +7158,7 @@
 	//=================================================================================================================
 	"lone_druid_spirit_bear"
 	{
-		"AbilityCooldown"				"30.0"
+		"AbilityCooldown"				"180.0"
 		"AbilitySpecial"
 		{
 			"05"
@@ -7169,7 +7169,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"30.0"
+				"cooldown_scepter"			"180.0"
 				"RequiresScepter"			"1"
 			}
 		}
@@ -7609,8 +7609,8 @@
 	"monkey_king_wukongs_command"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"90"
-		"AbilityDuration"				"10.0"
+		"AbilityCooldown"				"120"
+		"AbilityDuration"				"8.0"
 		"AbilityManaCost"				"100 150 200 250 300"
 		"AbilitySpecial"
 		{
@@ -7628,7 +7628,7 @@
 			"08"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"duration"							"10.0"
+				"duration"							"8.0"
 			}
 		}
 	}
@@ -9292,21 +9292,17 @@
 	//=================================================================================================================
 	"terrorblade_reflection"
 	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"35 40 45 50 55"
+		"AbilityManaCost"				"55 70 85 100"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
 				{
-					"value"		"26 24 22 20 18"
-					"special_bonus_unique_terrorblade_2" "-3"
+					"value"		"28 26 24 22"
+					"special_bonus_unique_terrorblade_2" "-2"
 				}
-				"illusion_outgoing_damage"	"-40 -30 -20 -10 0"
-				"illusion_outgoing_tooltip"	"60 70 80 90 100"
-				"move_slow"
+				"illusion_duration"
 				{
-					"value"					"15 20 25 30 35"
-					"special_bonus_unique_terrorblade_6"				"+15"
+					"value"		"3"
 				}
 		}
 	}
@@ -11184,7 +11180,7 @@
 	}
 	"enigma_demonic_conversion"
 	{
-		"AbilityCooldown"				"34 30 26 22"
+		"AbilityCooldown"				"60"
         "AbilitySpecial"
         {
             "02"
@@ -11199,6 +11195,18 @@
                 "LinkedSpecialBonus"	"special_bonus_unique_enigma_7"
             }
         }
+	}
+	"special_bonus_unique_enigma"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"		// 5 虚灵数量
+				"ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
 	}
 	"special_bonus_unique_enigma_3"
     {
@@ -11224,18 +11232,6 @@
             }
         }
     }
-	"special_bonus_unique_enigma"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"3"
-				"ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
 	"enigma_midnight_pulse"
 	{
 		"MaxLevel" "5"
@@ -13589,8 +13585,6 @@
 	"techies_land_mines"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"0"
-		"AbilityCharges"				"3"
 		"AbilityManaCost"				"110 140 170 200"
 		"LinkedAbility"					"techies_remote_mines"
 		"AbilityDraftPreAbility"		"techies_remote_mines"
@@ -13603,34 +13597,19 @@
 					"value"			"400 575 750 925"
 					"LinkedSpecialBonus"		"special_bonus_unique_techies_2"
 				}
-				"building_damage_pct"		"30"
-				"activation_delay"
-				{
-					"value"		"1"
-					"special_bonus_unique_techies_4"	"-0.8"
-				}
-				"cast_range_scepter_bonus"
-				{
-					"value"		"300"
-					"RequiresScepter"			"1"
-				}
 				"AbilityChargeRestoreTime"
 				{
-					"value"		"19 17 15 13"
-					"special_bonus_unique_techies_3"	"-3"
+					"value"		"19 18 17 16"
+					"special_bonus_unique_techies_3"	"-2"
 				}
-				"outer_damage"				"50"
-				"min_distance"				"150"
-				"placement_radius"			"350"
 				"mres_reduction"			"15 20 25 30"
-				"burn_duration"				"5"
 		}
 	}
 	"techies_remote_mines"
 	{
 		"MaxLevel" "4"
 		"AbilityCastRange"				"800"
-		"AbilityCooldown"				"6"
+		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"120 180 240 300"
 		"LinkedAbility"					"techies_land_mines"
 		"AbilityDraftPreAbility"		"techies_land_mines"
@@ -13726,7 +13705,7 @@
 		"MaxLevel" "5"
 		"AbilityCastRange"				"400"
 		"AbilityCastPoint"				"1.0"
-		"AbilityCooldown"				"20.0 16.0 13.0 10.0 7.0"
+		"AbilityCooldown"				"20.0"
 		"AbilityManaCost"				"80 110 140 160 180"
 		"HasScepterUpgrade"				"0"
 		"LinkedAbility"					"techies_suicide"
