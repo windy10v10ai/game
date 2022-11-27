@@ -289,38 +289,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_movement_speed"		"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"30"	// not used
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"	"25"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_all_stats"		"15"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"bonus_health_regen"	"8"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"bonus_mana_regen"		"5"
-			}
 		}
 
 		// Data driven
