@@ -612,7 +612,7 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 		hItemBlink = hHero:FindItemInInventory("item_swift_blink")
 	end
 	if hItemBlink ~= nil and hItemBlink:IsFullyCastable() and hHero:GetManaPercent() > 20 and hHero:GetHealthPercent() > 50 then
-		local iFindRange = 3000
+		local iFindRange = 3500
 		local distance = GetFullCastRange(hHero, hAbility1)
 		local iTeamRange = distance + 300
 		local hTarget = BotThink:FindNearestEnemyHeroesInRangeAndVisible(hHero, iFindRange)
@@ -665,7 +665,7 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 
 		if hHero:GetLevel() > 17 and hHero:GetManaPercent() > 80 and hHero:GetHealthPercent() > 80 then
 			-- if far away from teammate
-			local iRange = 3000
+			local iRange = 5000
 			local tNearHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
 			if #tNearHeroes <= 1 then
 				print("tinker tp think only self")
