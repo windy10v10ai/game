@@ -152,7 +152,7 @@
 		"item"		"item_dagon_5"
 		"item"		"item_orchid"
 		//"item"		"item_ultimate_scepter"
-		"item"		"item_refresher"
+		"item"		"item_refresh_core"
 		"item"		"item_sheepstick"
 		"item"		"item_gungir_2"
 		"item"		"item_wind_waker"
