@@ -34,7 +34,10 @@ end
 local function OnFortKilled(winnerTeam)
     if IsServer() then
         local endData = AIGameMode:EndScreenStats(winnerTeam, true)
-        GameController:SendEndGameInfo(endData)
+        -- 作弊模式不发送统计
+        if not GameRules:IsCheatMode() or AIGameMode.DebugMode then
+            GameController:SendEndGameInfo(endData)
+        end
     end
 end
 
