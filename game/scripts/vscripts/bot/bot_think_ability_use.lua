@@ -590,7 +590,7 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 		local iRange = 300
 		local hTarget = BotThink:FindNearestEnemyHeroesInRangeAndVisible(hHero, iRange)
 		if hTarget then
-			hHero:CastAbilityOnTarget(hTarget, hAbility, hHero:GetPlayerOwnerID())
+			hHero:CastAbilityOnTarget(hTarget, hAbility4, hHero:GetPlayerOwnerID())
 			return true
 		end
 	end
@@ -612,22 +612,19 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 		hItemBlink = hHero:FindItemInInventory("item_swift_blink")
 	end
 	if hItemBlink ~= nil and hItemBlink:IsFullyCastable() and hHero:GetManaPercent() > 20 and hHero:GetHealthPercent() > 50 then
-		local iRange = 2400
+		local iFindRange = 3000
 		local distance = GetFullCastRange(hHero, hAbility1)
-		local hTarget = BotThink:FindNearestEnemyHeroesInRangeAndVisible(hHero, iRange)
+		local iTeamRange = distance + 300
+		local hTarget = BotThink:FindNearestEnemyHeroesInRangeAndVisible(hHero, iFindRange)
 		if hTarget then
 			local vTarget = hTarget:GetOrigin()
 			-- blink when has teammate
-			local vTeammate = BotThink:FindNearestEnemyHeroesInRangeAndVisible(hTarget, distance)
+			local vTeammate = BotThink:FindNearestEnemyHeroesInRangeAndVisible(hTarget, iTeamRange)
 			if vTeammate then
 				local vBlink = vTarget - (vTarget - vTeammate:GetOrigin()):Normalized() * distance
-				print("Target Position: " .. vTarget.x .. " " .. vTarget.y)
-				print("Blink Position: " .. vBlink.x .. " " .. vBlink.y)
 				-- change 45 degree
 				local iRandomDegree = RandomInt(-45, 45)
 				vBlink = RotatePosition(vTarget, QAngle(0, iRandomDegree, 0), vBlink)
-
-				print("Blink Position random: " .. vBlink.x .. " " .. vBlink.y)
 
 				hHero:CastAbilityOnPosition(vBlink, hItemBlink, hHero:GetPlayerOwnerID())
 				return true
@@ -700,12 +697,11 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 		for i = 0, 5 do
 			local hItem = hHero:GetItemInSlot(i)
 			if hItem ~= nil then
-				iItemCoolDownTotal = iItemCoolDownTotal + hItem:GetCooldownTimeRemaining()
+				-- if item name is refresh_core
+				if not hItem:GetName() == "item_refresh_core" then
+					iItemCoolDownTotal = iItemCoolDownTotal + hItem:GetCooldownTimeRemaining()
+				end
 			end
-		end
-		local tpItem = hHero:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
-		if tpItem ~= nil then
-			iItemCoolDownTotal = iItemCoolDownTotal + tpItem:GetCooldownTimeRemaining()
 		end
 
 		if iAbilityCoolDownTotal > refreshAbilityCoolDownTotal

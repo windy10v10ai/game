@@ -762,7 +762,7 @@
 	// 以太卷轴
 	"item_recipe_aether_lens"
 	{
-		"ItemCost"						"825"
+		"ItemCost"						"850"
 	}
 
 	"item_black_king_bar"
@@ -1312,7 +1312,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range_bonus"			"300"
+				"cast_range_bonus"			"275"
 			}
 			"03"
 			{
@@ -1322,7 +1322,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"725"
+				"bonus_mana"			"800"
 			}
 			"05"
 			{

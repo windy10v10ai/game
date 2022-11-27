@@ -136,6 +136,28 @@ function BotThink:UseItem(hHero, sItemName)
 end
 
 
+function BotThink:GetCooldownTotal(hHero)
+  local iCooldownTotal = 0
+  for i = 0, 5 do
+    local hAbility = hHero:GetAbilityByIndex(i)
+    if hAbility then
+      iCooldownTotal = iCooldownTotal + hAbility:GetCooldownTimeRemaining()
+    end
+  end
+  -- item 0 to 8
+  for i = 0, 8 do
+    local hItem = hHero:GetItemInSlot(i)
+    if hItem then
+      iCooldownTotal = iCooldownTotal + hItem:GetCooldownTimeRemaining()
+    end
+  end
+	local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT )
+	if itemNeutral then
+    iCooldownTotal = iCooldownTotal + itemNeutral:GetCooldownTimeRemaining()
+  end
+  return iCooldownTotal
+end
+
 --------------------
 -- 是否在防御塔附近
 --------------------

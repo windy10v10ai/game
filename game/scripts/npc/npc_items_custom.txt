@@ -1730,7 +1730,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3900"
+		"ItemCost"						"3275"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1772,7 +1772,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_cooldown"		"35"
+				"bonus_cooldown"		"30"
 			}
 			"02"
 			{
@@ -1782,17 +1782,17 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"1200"
+				"bonus_health"			"1000"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"1600"
+				"bonus_mana"			"1400"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"9.0"
+				"bonus_mana_regen"		"8.0"
 			}
 		}
 	}
@@ -5859,7 +5859,7 @@
         "Model"							"models/props_gameplay/recipe.vmdl"
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"5000"
+        "ItemCost"						"4200"
         "ItemShopTags"					""
 
         // Recipe

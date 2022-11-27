@@ -75,6 +75,10 @@ function BotItemThink:UseActiveItem(hHero)
     if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_necronomicon_staff") then
         return true
     end
+    -- item_ethereal_blade 虚灵刀
+    if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_ethereal_blade") then
+        return true
+    end
     -- item_dagon 红杖
     if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_dagon") then
         return true
@@ -193,8 +197,8 @@ function BotItemThink:UseActiveItem(hHero)
     end
 
     ------------------ 无目标 中距离 ------------------
-    local searchRange = 900
-    local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
+    searchRange = 900
+    tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
     if #tAllHeroes == 0 then
         return false
     end
@@ -234,8 +238,8 @@ function BotItemThink:UseActiveItem(hHero)
     end
 
     -- 无目标 短距离
-    local searchRange = 600
-    local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
+    searchRange = 600
+    tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
     if #tAllHeroes == 0 then
         return false
     end
@@ -245,21 +249,24 @@ function BotItemThink:UseActiveItem(hHero)
         return true
     end
 
-    -- refresh 刷新
-    if BotItemThink:IsItemCanUse(tUsableItems, "item_refresher") then
-        local hAbility6 = hHero:GetAbilityByIndex(5)
-        if hAbility6 and hAbility6:GetCooldownTimeRemaining() > 20 then
-            if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_refresher") then
-                return true
-            end
-        end
-    end
-
     if BotItemThink:IsItemCanUse(tUsableItems, "item_hurricane_pike_2") then
         local itemUseCastRange = 600
         tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, itemUseCastRange)
         if #tAllHeroes > 0 then
             if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_hurricane_pike_2", tAllHeroes[1]) then
+                return true
+            end
+        end
+    end
+
+    -- refresh 刷新
+    if BotItemThink:IsItemCanUse(tUsableItems, "item_refresher") or BotItemThink:IsItemCanUse(tUsableItems, "item_refresh_core") then
+        local cooldownThreshold = 60
+        if BotThink:GetCooldownTotal(hHero) > cooldownThreshold then
+            if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_refresher") then
+                return true
+            end
+            if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_refresh_core") then
                 return true
             end
         end
