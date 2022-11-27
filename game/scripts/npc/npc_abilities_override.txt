@@ -723,7 +723,8 @@
 	}
 	"item_refresher"
 	{
-		"AbilityCooldown"				"120.0"
+		"AbilitySharedCooldown"			"refresh"
+		"AbilityCooldown"				"150.0"	// 180.0
 	}
 	// 微光
 	"item_glimmer_cape"
@@ -761,7 +762,7 @@
 	// 以太卷轴
 	"item_recipe_aether_lens"
 	{
-		"ItemCost"						"825"
+		"ItemCost"						"850"
 	}
 
 	"item_black_king_bar"
@@ -1294,7 +1295,7 @@
 	{
 		"ItemRequirements"
 		{
-			"01"						"item_aether_lens_3;item_soul_booster"
+			"01"						"item_aether_lens_2;item_soul_booster"
 		}
 	}
 	"item_octarine_core"
@@ -1311,7 +1312,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range_bonus"			"300"
+				"cast_range_bonus"			"275"
 			}
 			"03"
 			{
@@ -1321,7 +1322,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"725"
+				"bonus_mana"			"800"
 			}
 			"05"
 			{
@@ -1352,6 +1353,18 @@
 			}
 		}
 	}
+
+    "item_gem"
+    {
+        "AbilityCastRange"				"600"
+        "ItemStockTime"					"180.0"
+        "AllowedInBackpack"				"1"
+    }
+
+    "item_rapier"
+    {
+        "AllowedInBackpack"				"1"
+    }
 
 	//=================================================================================================================
 	// HERO ABILITIES 英雄技能
@@ -3666,7 +3679,7 @@
 	//=================================================================================================================
 	"lycan_summon_wolves"
 	{
-		"AbilityCooldown"				"20.0"
+		"AbilityCooldown"				"90.0"
 		"AbilityValues"
 		{
 			"wolf_hp"
@@ -7146,7 +7159,7 @@
 	//=================================================================================================================
 	"lone_druid_spirit_bear"
 	{
-		"AbilityCooldown"				"30.0"
+		"AbilityCooldown"				"180.0"
 		"AbilitySpecial"
 		{
 			"05"
@@ -7157,7 +7170,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"30.0"
+				"cooldown_scepter"			"180.0"
 				"RequiresScepter"			"1"
 			}
 		}
@@ -7597,8 +7610,8 @@
 	"monkey_king_wukongs_command"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"90"
-		"AbilityDuration"				"10.0"
+		"AbilityCooldown"				"120"
+		"AbilityDuration"				"8.0"
 		"AbilityManaCost"				"100 150 200 250 300"
 		"AbilitySpecial"
 		{
@@ -7616,7 +7629,7 @@
 			"08"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"duration"							"10.0"
+				"duration"							"8.0"
 			}
 		}
 	}
@@ -9280,21 +9293,17 @@
 	//=================================================================================================================
 	"terrorblade_reflection"
 	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"35 40 45 50 55"
+		"AbilityManaCost"				"55 70 85 100"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
 				{
-					"value"		"26 24 22 20 18"
-					"special_bonus_unique_terrorblade_2" "-3"
+					"value"		"28 26 24 22"
+					"special_bonus_unique_terrorblade_2" "-2"
 				}
-				"illusion_outgoing_damage"	"-40 -30 -20 -10 0"
-				"illusion_outgoing_tooltip"	"60 70 80 90 100"
-				"move_slow"
+				"illusion_duration"
 				{
-					"value"					"15 20 25 30 35"
-					"special_bonus_unique_terrorblade_6"				"+15"
+					"value"		"3"
 				}
 		}
 	}
@@ -10564,31 +10573,13 @@
 	}
 	"dark_seer_wall_of_replica"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"120"
-		"AbilityManaCost"				"150 200 250 300"
+		"AbilityCooldown"				"180"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"10.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replica_damage_outgoing"	"-30 -20 -10 0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_outgoing"	"70 80 90 100"
-				"LinkedSpecialBonus"	"special_bonus_unique_dark_seer_7"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow"					"50 60 70 80"
+				"duration"				"5.0"
 			}
 		}
 	}
@@ -11190,7 +11181,7 @@
 	}
 	"enigma_demonic_conversion"
 	{
-		"AbilityCooldown"				"34 30 26 22"
+		"AbilityCooldown"				"60"
         "AbilitySpecial"
         {
             "02"
@@ -11205,6 +11196,18 @@
                 "LinkedSpecialBonus"	"special_bonus_unique_enigma_7"
             }
         }
+	}
+	"special_bonus_unique_enigma"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"		// 5 虚灵数量
+				"ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
 	}
 	"special_bonus_unique_enigma_3"
     {
@@ -11230,18 +11233,6 @@
             }
         }
     }
-	"special_bonus_unique_enigma"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"3"
-				"ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
 	"enigma_midnight_pulse"
 	{
 		"MaxLevel" "5"
@@ -11314,17 +11305,23 @@
 		"AbilityCooldown"				"90"
 		"AbilitySpecial"
         {
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_treants"			"2"
+				"LinkedSpecialBonus"	"special_bonus_unique_furion_2"
+			}
             "04"
             {
                 "var_type"				"FIELD_INTEGER"
-                "treant_health_tooltip"				"550 600 650 700"
+                "treant_health_tooltip"				"500 600 700 800"		// 18 26 34 42
                 "LinkedSpecialBonus"	"special_bonus_unique_furion"
                 "LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
             }
             "05"
             {
                 "var_type"				"FIELD_INTEGER"
-                "treant_dmg_tooltip"				"20 30 40 50"
+                "treant_dmg_tooltip"				"35 50 65 80"			// 18 26 34 42
                 "LinkedSpecialBonus"	"special_bonus_unique_furion"
                 "LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
             }
@@ -12804,6 +12801,15 @@
 				}
 		}
 	}
+	"puck_phase_shift"
+	{
+		"AbilityChannelTime"			"1 1.75 2.5 3.1"
+		"AbilityCooldown"				"8 7.7 7.4 7.1"
+		"AbilityValues"
+		{
+				"duration"					"1 1.75 2.5 3.1"
+		}
+	}
 	"puck_dream_coil"
 	{
 		"MaxLevel" "4"
@@ -13580,8 +13586,6 @@
 	"techies_land_mines"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"0"
-		"AbilityCharges"				"3"
 		"AbilityManaCost"				"110 140 170 200"
 		"LinkedAbility"					"techies_remote_mines"
 		"AbilityDraftPreAbility"		"techies_remote_mines"
@@ -13594,34 +13598,19 @@
 					"value"			"400 575 750 925"
 					"LinkedSpecialBonus"		"special_bonus_unique_techies_2"
 				}
-				"building_damage_pct"		"30"
-				"activation_delay"
-				{
-					"value"		"1"
-					"special_bonus_unique_techies_4"	"-0.8"
-				}
-				"cast_range_scepter_bonus"
-				{
-					"value"		"300"
-					"RequiresScepter"			"1"
-				}
 				"AbilityChargeRestoreTime"
 				{
-					"value"		"19 17 15 13"
-					"special_bonus_unique_techies_3"	"-3"
+					"value"		"19 18 17 16"
+					"special_bonus_unique_techies_3"	"-2"
 				}
-				"outer_damage"				"50"
-				"min_distance"				"150"
-				"placement_radius"			"350"
 				"mres_reduction"			"15 20 25 30"
-				"burn_duration"				"5"
 		}
 	}
 	"techies_remote_mines"
 	{
 		"MaxLevel" "4"
 		"AbilityCastRange"				"800"
-		"AbilityCooldown"				"6"
+		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"120 180 240 300"
 		"LinkedAbility"					"techies_land_mines"
 		"AbilityDraftPreAbility"		"techies_land_mines"
@@ -13717,7 +13706,7 @@
 		"MaxLevel" "5"
 		"AbilityCastRange"				"400"
 		"AbilityCastPoint"				"1.0"
-		"AbilityCooldown"				"20.0 16.0 13.0 10.0 7.0"
+		"AbilityCooldown"				"20.0"
 		"AbilityManaCost"				"80 110 140 160 180"
 		"HasScepterUpgrade"				"0"
 		"LinkedAbility"					"techies_suicide"

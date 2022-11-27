@@ -87,6 +87,7 @@ tinker_rearm_lua.ItemException = {
 	["item_necronomicon_3"] = true,
 	["item_refresher"] = true,
 	["item_refresher_shard"] = true,
+	["item_refresh_core"] = true,
 	["item_pipe"] = true,
 	["item_sphere"] = true,
 

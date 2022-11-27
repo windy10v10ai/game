@@ -44,7 +44,7 @@
 		    "item"		"item_force_staff_3"  //黄金法杖
 			"item"		"item_orb_of_the_brine"  //苍洋魔珠
 			"item"		"item_veil_of_discord_2"  //赫拉的神秘面纱
-		    "item"		"item_aether_lens_3"  //以太透镜
+		    "item"		"item_aether_lens_2"  //以太透镜
 			"item"		"item_aeon_pendant"  //咸鱼之王
 		    "item"		"item_sphere_2"  //真林肯法球
 		    "item"		"item_necronomicon_staff"  //死灵法杖

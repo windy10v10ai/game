@@ -792,13 +792,6 @@
 		"DOTA_Tooltip_ability_item_aether_lens_2_bonus_mana"                      "+$mana"
 		"DOTA_Tooltip_ability_item_aether_lens_2_bonus_mana_regen"                "+$mana_regen"
 
-		// item_aether_lens_3
-		"DOTA_Tooltip_Ability_item_aether_lens_3"				"Aether Lens 3"
-		"DOTA_Tooltip_ability_item_aether_lens_3_Description"                     "<h1>Passive: Aethereal Focus 3</h1> Increases targeted spell and item cast range by %cast_range_bonus%"
-		"DOTA_Tooltip_ability_item_aether_lens_3_Note0"                           "Passive does not stack."
-		"DOTA_Tooltip_ability_item_aether_lens_3_bonus_mana"                      "+$mana"
-		"DOTA_Tooltip_ability_item_aether_lens_3_bonus_mana_regen"                "+$mana_regen"
-
         // item_vladmir_2
 		"DOTA_Tooltip_ability_item_vladmir_2"                               "Assault Vladimir"
 		"DOTA_Tooltip_ability_item_vladmir_2_Description"							"<h1>Passive: Vladmir's Aura</h1>Grants %vampiric_aura%%% lifesteal, %damage_aura%%% bonus damage, and %mana_regen_aura% mana regeneration to nearby allies.<br>Grants %aura_attack_speed% attack speed and %aura_positive_armor% armor to nearby allied units and structures, and decreases nearby enemy unit armor by %aura_negative_armor%. <br><br>Radius: %aura_radius%"
@@ -1323,5 +1316,16 @@
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
         "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
         "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
+
+        // item_refresh_core 大刷新
+		"DOTA_Tooltip_Ability_item_refresh_core"						"Refresh Core"
+		"DOTA_Tooltip_ability_item_refresh_core_Description"			"<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities.\n<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+		"DOTA_Tooltip_ability_item_refresh_core_cast_range_bonus"		"+$cast_range"
+		"DOTA_Tooltip_ability_item_refresh_core_bonus_mana_regen"		"+$mana_regen"
+		"DOTA_Tooltip_ability_item_refresh_core_bonus_health_regen"		"+$hp_regen"
+		"DOTA_Tooltip_ability_item_refresh_core_bonus_health"			"+$health"
+		"DOTA_Tooltip_ability_item_refresh_core_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_refresh_core_Lore"					"At the core of spellcraft are spectrums only the very gifted can sense."
+
 	}
 }
