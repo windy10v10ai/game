@@ -12,7 +12,7 @@ function item_refresh_core:OnSpellStart()
 	-- find all refreshable abilities
 	for i=0,caster:GetAbilityCount()-1 do
 		local ability = caster:GetAbilityByIndex( i )
-		if ability and ability:GetAbilityType()~=DOTA_ABILITY_TYPE_ATTRIBUTES then
+		if ability and ability:GetAbilityType()~=DOTA_ABILITY_TYPE_ATTRIBUTES and not self:IsAbitilyException( ability ) then
 			ability:RefreshCharges()
 			ability:EndCooldown()
 		end
@@ -43,6 +43,12 @@ function item_refresh_core:OnSpellStart()
 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, caster )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 end
+function item_refresh_core:IsAbitilyException( ability )
+	return self.AbitilyException[ability:GetName()]
+end
+item_refresh_core.AbitilyException = {
+	["dazzle_good_juju"] = true,
+}
 function item_refresh_core:IsItemException( item )
 	return self.ItemException[item:GetName()]
 end
@@ -64,14 +70,27 @@ function modifier_item_refresh_core:GetAttributes()	return MODIFIER_ATTRIBUTE_MU
 
 function modifier_item_refresh_core:OnCreated()
 	self.bonus_cooldown = self:GetAbility():GetSpecialValueFor("bonus_cooldown")
+	self.bonus_cooldown_stack = self:GetAbility():GetSpecialValueFor("bonus_cooldown_stack")
 	self.cast_range_bonus = self:GetAbility():GetSpecialValueFor("cast_range_bonus")
 	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
 	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
 	self.bonus_health_regen = self:GetAbility():GetSpecialValueFor("bonus_health_regen")
 	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 
+	if IsServer() then
+		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+			mod:GetAbility():SetSecondaryCharges(_)
+		end
+	end
 end
 
+function modifier_item_refresh_core:OnDestroy()
+	if IsServer() then
+		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+			mod:GetAbility():SetSecondaryCharges(_)
+		end
+	end
+end
 
 function modifier_item_refresh_core:DeclareFunctions()
 	return {
@@ -85,7 +104,13 @@ function modifier_item_refresh_core:DeclareFunctions()
 end
 
 function modifier_item_refresh_core:GetModifierPercentageCooldown()
-	return self.bonus_cooldown
+	if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
+		if self:GetParent():HasModifier("modifier_item_octarine_core") then
+			return self.bonus_cooldown_stack
+		else
+			return self.bonus_cooldown
+		end
+	end
 end
 function modifier_item_refresh_core:GetModifierCastRangeBonus()
 	return self.cast_range_bonus
