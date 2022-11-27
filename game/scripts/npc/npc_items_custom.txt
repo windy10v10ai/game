@@ -5846,7 +5846,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "ID"							"9502"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "BaseClass"						"item_lua"
-        "ScriptFile"                    "items/item_bloodstone_v2.lua"
+        "ScriptFile"                    "items/item_bloodstone_v2"
         "AbilityTextureName"			"item_bloodstone_v2"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
@@ -5903,6 +5903,71 @@
                 "hp_cost"		"0"
             }
         }
+    }
+
+    //=================================================================================================================
+    // 大刷新 refresh core
+    //=================================================================================================================
+    "item_recipe_refresh_core"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"							"9503"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"						"item_datadriven"
+        "AbilityTextureName" 			"item_recipe_refresh_core"
+        "Model"							"models/props_gameplay/recipe.vmdl"
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"						"5000"
+        "ItemShopTags"					""
+
+        // Recipe
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemRecipe"					"1"
+        "ItemResult"					"item_refresh_core"
+        "ItemRequirements"
+        {
+            "01"						"item_refresher;item_arcane_octarine_core"
+        }
+    }
+    "item_refresh_core"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"							"9504"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"						"item_lua"
+        "ScriptFile"                    "items/item_refresh_core"
+        "AbilityTextureName"			"item_refresh_core"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"				"0.0"
+        "AbilityCooldown"				"120.0"
+        "AbilityManaCost"				"600"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"						"18000"
+		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"mana;mb;refresh core"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ShouldBeSuggested"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_cooldown"		"35"
+			"cast_range_bonus"		"300"
+			"bonus_health"			"1200"
+			"bonus_mana"			"1600"
+			"bonus_health_regen"	"15.0"
+			"bonus_mana_regen"		"15.0"
+		}
     }
 }
 

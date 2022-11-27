@@ -723,7 +723,7 @@
 	}
 	"item_refresher"
 	{
-		"AbilityCooldown"				"120.0"
+		"AbilityCooldown"				"150.0"	// 180.0
 	}
 	// 微光
 	"item_glimmer_cape"
