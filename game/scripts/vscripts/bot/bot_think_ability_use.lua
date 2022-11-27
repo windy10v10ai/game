@@ -584,9 +584,51 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 	local hAbility5 = hHero:GetAbilityByIndex(4)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
 
-	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility4) then
-		return true
+
+	if hAbility4:IsFullyCastable() then
+		-- 折跃范围
+		local iRange = 300
+		local hTarget = BotThink:FindNearestEnemyHeroesInRangeAndVisible(hHero, iRange)
+		if hTarget then
+			hHero:CastAbilityOnTarget(hTarget, hAbility, hHero:GetPlayerOwnerID())
+			return true
+		end
 	end
+
+	-- if hAbility6 is Channel
+	if hAbility6:IsChanneling() then
+		return false
+	end
+
+	-- item blink
+	local hItemBlink = hHero:FindItemInInventory("item_blink")
+	if hItemBlink == nil then
+		hItemBlink = hHero:FindItemInInventory("item_arcane_blink")
+	end
+	if hItemBlink == nil then
+		hItemBlink = hHero:FindItemInInventory("item_overwhelming_blink")
+	end
+	if hItemBlink == nil then
+		hItemBlink = hHero:FindItemInInventory("item_swift_blink")
+	end
+	if hItemBlink ~= nil and hItemBlink:IsFullyCastable() and hHero:GetManaPercent() > 20 and hHero:GetHealthPercent() > 50 then
+		local iRange = 2400
+		local distance = GetFullCastRange(hHero, hAbility1)
+		local hTarget = BotThink:FindNearestEnemyHeroesInRangeAndVisible(hHero, iRange)
+		if hTarget then
+			local vTarget = hTarget:GetOrigin()
+			-- blink when has teammate
+			local vTeammate = BotThink:FindNearestEnemyHeroesInRangeAndVisible(hTarget, distance)
+			if vTeammate then
+				local vBlink = vTarget - (vTarget - hHero:GetOrigin()):Normalized() * distance
+				local iRandomRange = 100
+				vBlink = vBlink + Vector(RandomInt(-iRandomRange, iRandomRange), RandomInt(-iRandomRange, iRandomRange), 0)
+				hHero:CastAbilityOnPosition(vBlink, hItemBlink, hHero:GetPlayerOwnerID())
+				return true
+			end
+		end
+	end
+
 	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility1) then
 		return true
 	end
@@ -605,7 +647,7 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 
 	if hAbility5:IsFullyCastable() then
 		-- if mp less than 10% go back to fountain
-		if hHero:GetMana() < 200 or hHero:GetManaPercent() < 15 or hHero:GetHealthPercent() < 20 then
+		if hHero:GetMana() < 300 or hHero:GetManaPercent() < 10 then
 			-- get team
 			local team = hHero:GetTeam()
 			if team == 2 then
@@ -617,34 +659,26 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 				return true
 			end
 		end
-		-- if later game
-		-- if hHero:GetLevel() > 17 and hHero:GetManaPercent() > 90 and hHero:GetHealthPercent() > 90 then
-		-- 	-- if far away from teammate
-		-- 	local iRange = 1800
-		-- 	local tNearHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
-		-- 	if #tNearHeroes < 1 then
-		-- 		print("only self tinker tp think")
-		-- 		-- if not teammate, find nearest teammate
-		-- 		iRange = 20000
-		-- 		local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false)
-		-- 		PrintTable(tAllHeroes)
-		-- 		-- if team hero hp > 90% go to him
-		-- 		if #tAllHeroes > 1 and tAllHeroes[2]:GetHealthPercent() > 90 then
-		-- 			hHero:CastAbilityOnPosition(tAllHeroes[2]:GetOrigin(), hAbility5, hHero:GetPlayerOwnerID())
-		-- 			return true
-		-- 		end
-		-- 	end
-		-- end
+
+		if hHero:GetLevel() > 17 and hHero:GetManaPercent() > 90 and hHero:GetHealthPercent() > 90 then
+			-- if far away from teammate
+			local iRange = 3000
+			local tNearHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
+			if #tNearHeroes <= 1 then
+				print("tinker tp think only self")
+				-- if not teammate, find nearest teammate
+				iRange = 20000
+				local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false)
+				-- if team hero hp > 90% go to him
+				if #tAllHeroes > 1 and tAllHeroes[2]:GetHealthPercent() > 90 then
+					hHero:CastAbilityOnPosition(tAllHeroes[2]:GetOrigin(), hAbility5, hHero:GetPlayerOwnerID())
+					return true
+				end
+			end
+		end
 	end
 
-	-- re-arm
-	-- find enemy in 300
 	if hAbility6:IsFullyCastable() then
-		local iRange = 600
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		if #tAllHeroes > 0 then
-			return false
-		end
 
 		local refreshAbilityCoolDownTotal = 15
 		local refreshItemCoolDownTotal = 30

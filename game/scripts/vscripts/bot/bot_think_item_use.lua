@@ -298,8 +298,6 @@ function BotItemThink:GetUsableItems(hHero)
         end
 		if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
 	end
-    -- print(hHero:GetName() .. " usable item names: ")
-    -- PrintTable(tUsableItems)
     return tUsableItems
 end
 
