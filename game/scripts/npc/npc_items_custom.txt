@@ -5945,7 +5945,7 @@
         "AbilityCastPoint"				"0.0"
         "AbilityCooldown"				"120.0"
         "AbilityManaCost"				"600"
-        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilitySharedCooldown"			"refresh"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------

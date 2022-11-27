@@ -723,6 +723,7 @@
 	}
 	"item_refresher"
 	{
+		"AbilitySharedCooldown"			"refresh"
 		"AbilityCooldown"				"150.0"	// 180.0
 	}
 	// 微光
