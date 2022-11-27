@@ -77,9 +77,11 @@ A杖
 		'item_aeon_disk',
 		'item_recipe_aeon_pendant',
 
+咸鱼之王
 		'item_aeon_pendant',
 血精石
 		'item_bloodstone',
+		'item_bloodstone_v2',
 红杖
 		'item_dagon_5',
 玲珑心
@@ -92,6 +94,12 @@ A杖
 		'item_recipe_arcane_octarine_core',
 
 		'item_arcane_octarine_core',
+
+大刷新
+		'item_recipe_refresh_core',
+
+风暴之锤
+		'item_gungir_2',
 
 法杖
 		'item_magic_scepter',
