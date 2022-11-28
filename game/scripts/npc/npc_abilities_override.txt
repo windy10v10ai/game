@@ -9130,7 +9130,7 @@
 	"spectre_haunt"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"300"
+		"AbilityCooldown"				"240"
 		"AbilityManaCost"				"300 400 500 600"
 		"LinkedAbility"					"spectre_ursa_enrage"
         "HasScepterUpgrade"			    "1"
