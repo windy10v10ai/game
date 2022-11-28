@@ -170,6 +170,7 @@ end
 function modifier_item_orb_of_the_brine_bubble:OnDestroy()
 	if IsServer()  then
 		ParticleManager:DestroyParticle( self.nFXIndex, false )
+		ParticleManager:ReleaseParticleIndex( self.nFXIndex )
 	end
 end
 

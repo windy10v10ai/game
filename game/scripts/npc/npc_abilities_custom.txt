@@ -2863,7 +2863,7 @@
 		{
 			"AbilityCooldown"		"100"
 			"AbilityManaCost"		"160"
-			"radius_normal"			"200"
+			// "radius_normal"			"200"
 			"radius_active"			"400"
 			"duration"				"30"
 		}
@@ -2892,14 +2892,14 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"			"60 50 40"
-			"AbilityManaCost"			"100 200 300"
+			"AbilityManaCost"			"150 300 450"
 			"AbilityCastRange"			"1200"
-			"stun_duration"				"2.5 3.5 4.5"
-			"atttak_duration"			"1.5"
+			"stun_duration"				"2.5 3.0 3.5"
+			"attack_duration"			"1.5"
 			"attacktimes_count"
 			{
 				"value"								"1 1.5 2"
-				"special_bonus_unique_jack_5" 		"+2"
+				"special_bonus_unique_jack_5" 		"+1"
 			}
 		}
 	}

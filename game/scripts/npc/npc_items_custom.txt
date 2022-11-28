@@ -5860,7 +5860,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"				"0.0"
         "AbilityCooldown"				"120.0"
-        "AbilityManaCost"				"600"
+        "AbilityManaCost"				"800"
 		"AbilitySharedCooldown"			"refresh"
 
         // Item Info

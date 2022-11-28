@@ -686,6 +686,19 @@
 				"demolish"			"30"
 		}
 	}
+	// 机械之心
+	"item_ex_machina"
+	{
+		"AbilityCooldown"				"30.0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"30"
+			}
+		}
+	}
 	// 其他中立
 	"item_helm_of_the_undying"
 	{
@@ -723,8 +736,8 @@
 	}
 	"item_refresher"
 	{
-		"AbilitySharedCooldown"			"refresh"
-		"AbilityCooldown"				"150.0"	// 180.0
+		"AbilityManaCost"				"450"	// 350
+		"AbilityCooldown"				"160.0"	// 180.0
 	}
 	// 微光
 	"item_glimmer_cape"
@@ -7630,6 +7643,12 @@
 			{
 				"var_type"							"FIELD_FLOAT"
 				"duration"							"8.0"
+			}
+			"14"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"scepter_spawn_interval"			"12"
+				"RequiresScepter"	"1"
 			}
 		}
 	}
