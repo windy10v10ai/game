@@ -385,9 +385,9 @@
 		"DOTA_Tooltip_ability_jack_surgery_spell_lifesteal_down"								"%每层技能吸血降低："
 
 		"DOTA_Tooltip_ability_jack_the_mist"													"暗夜雾都"
-		"DOTA_Tooltip_ability_jack_the_mist_description"										"杰克身边始终围绕着迷雾，在迷雾中的敌人将会受到和雾夜凶杀中的迷雾一样的效果，主动使用可以立刻变成夜晚，并扩大迷雾的范围，持续一段时间"
+		"DOTA_Tooltip_ability_jack_the_mist_description"										"主动使用可以立刻变成夜晚，并使杰克身边始终围绕着迷雾，在迷雾中的敌人将会受到和雾夜凶杀中的迷雾一样的效果。"
 		"DOTA_Tooltip_ability_jack_the_mist_Lore"												"工业革命以后，开始被大量排出的庞大煤烟，于1950年代成为硫酸雾在伦敦引起了大灾害。“暗黑雾都”就是重现出那团“死之雾”的宝具。"
-		"DOTA_Tooltip_ability_jack_the_mist_radius_normal"										"默认迷雾范围："
+		// "DOTA_Tooltip_ability_jack_the_mist_radius_normal"										"默认迷雾范围："
 		"DOTA_Tooltip_ability_jack_the_mist_radius_active"										"激活迷雾范围："
 		"DOTA_Tooltip_ability_jack_the_mist_duration"											"持续时间："
 
@@ -414,8 +414,8 @@
 		"DOTA_Tooltip_modifier_jack_surgery_Description"										"获得%dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%%治疗,%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%生命恢复,%dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%攻击吸血,%dMODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE%%%技能吸血加成"
 		"DOTA_Tooltip_modifier_jack_surgery_target"												"外科手术：解体"
 		"DOTA_Tooltip_modifier_jack_surgery_target_Description"									"受到%dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%%治疗,%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%生命恢复,%dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%攻击吸血,%dMODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE%%%技能吸血降低"
-		"DOTA_Tooltip_modifier_jack_the_mist_cast"												"暗夜雾都"
-		"DOTA_Tooltip_modifier_jack_the_mist_cast_Description"									"使自身周围的迷雾扩大"
+		"DOTA_Tooltip_modifier_jack_the_mist_aura"												"暗夜雾都"
+		"DOTA_Tooltip_modifier_jack_the_mist_aura_Description"									"使自身周围充满迷雾"
 		"DOTA_Tooltip_modifier_jack_maria_the_ripper"											"解体圣母"
 		"DOTA_Tooltip_modifier_jack_maria_the_ripper_Description"								"自身进入无法被真视的隐身状态，连续对敌人进行攻击"
 

@@ -21,8 +21,8 @@ function jack_maria_the_ripper:OnSpellStart()
         count = math.ceil(modi:GetStackCount() * attacktimes_count)
     end
     local stun_duration = self:GetSpecialValueFor("stun_duration")
-    local attack_duration = self:GetSpecialValueFor("atttak_duration")
-    local tick = 1.5 / count
+    local attack_duration = self:GetSpecialValueFor("attack_duration")
+    local tick = attack_duration / count
     if count == 0 then
         attack_duration = 0
         tick = 999

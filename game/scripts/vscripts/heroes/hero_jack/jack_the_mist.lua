@@ -18,21 +18,22 @@ function jack_the_mist:OnSpellStart()
     local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("duration")
     GameRules:BeginTemporaryNight(duration)
-    caster:AddNewModifier(caster, self, "modifier_jack_the_mist_cast", {duration = duration})
+    caster:AddNewModifier(caster, self, "modifier_jack_the_mist_aura", {duration = duration})
 
 
     if not IsServer() then return end
     local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_ulti.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
     ParticleManager:DestroyParticle(particle, false)
+    ParticleManager:ReleaseParticleIndex(particle)
     caster:EmitSound("Hero_DrowRanger.Silence")
     caster:PlayVoice("npc_dota_hero_brewmaster.vo.TheMist.Cast")
 end
 
-function jack_the_mist:GetIntrinsicModifierName()
-    return "modifier_jack_the_mist_aura"
-end
+-- function jack_the_mist:GetIntrinsicModifierName()
+--     return "modifier_jack_the_mist_aura"
+-- end
 
-function modifier_jack_the_mist_aura:IsHidden() return true end
+function modifier_jack_the_mist_aura:IsHidden() return false end
 
 function modifier_jack_the_mist_aura:RemoveOnDeath()
     return true
@@ -41,9 +42,9 @@ end
 function modifier_jack_the_mist_aura:OnCreated()
     self.caster = self:GetCaster()
     self.parent = self:GetParent()
-    self.radius_normal = self:GetAbility():GetSpecialValueFor("radius_normal")
+    -- self.radius_normal = self:GetAbility():GetSpecialValueFor("radius_normal")
     self.radius_active = self:GetAbility():GetSpecialValueFor("radius_active")
-    self.radius = self.radius_normal
+    self.radius = self.radius_active
     self.aura = false
     self:StartIntervalThink(0.1)
 end
@@ -79,14 +80,14 @@ function modifier_jack_the_mist_aura:OnIntervalThink()
     end
 end
 
-function modifier_jack_the_mist_aura:SetActive(active)
-    if active then
-        self:RefreshRadius(self.radius_active)
-    else
-        self:RefreshRadius(self.radius_normal)
-    end
+-- function modifier_jack_the_mist_aura:SetActive(active)
+--     if active then
+--         self:RefreshRadius(self.radius_active)
+--     else
+--         self:RefreshRadius(self.radius_normal)
+--     end
 
-end
+-- end
 
 function modifier_jack_the_mist_aura:RefreshRadius(radius)
     self.radius = radius
@@ -110,14 +111,18 @@ function modifier_jack_the_mist_aura:GetAuraEntityReject(hEntity)
 end
 
 function modifier_jack_the_mist_aura:GetModifierAura()		return "modifier_jack_murderer_of_the_misty_night" end
-
-function modifier_jack_the_mist_cast:OnCreated(table)
-    if not IsServer() then return end
-    self.aura = self:GetParent():FindModifierByName("modifier_jack_the_mist_aura")
-    self.aura:SetActive(true)
+function modifier_jack_the_mist_aura:OnDestroy()
+    ParticleManager:DestroyParticle(self.particle, false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
 end
 
-function modifier_jack_the_mist_cast:OnDestroy()
-    if not IsServer() then return end
-    self.aura:SetActive(false)
-end
+-- function modifier_jack_the_mist_cast:OnCreated(table)
+--     if not IsServer() then return end
+--     self.aura = self:GetParent():FindModifierByName("modifier_jack_the_mist_aura")
+--     self.aura:SetActive(true)
+-- end
+
+-- function modifier_jack_the_mist_cast:OnDestroy()
+--     if not IsServer() then return end
+--     self.aura:SetActive(false)
+-- end
