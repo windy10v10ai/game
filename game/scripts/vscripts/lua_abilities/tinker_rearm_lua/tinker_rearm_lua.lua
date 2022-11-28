@@ -40,9 +40,14 @@ function tinker_rearm_lua:OnChannelFinish( bInterrupted )
 	-- find all refreshable abilities
 	for i=0,caster:GetAbilityCount()-1 do
 		local ability = caster:GetAbilityByIndex( i )
-		if ability and ability:GetAbilityType()~=DOTA_ABILITY_TYPE_ATTRIBUTES then
-			ability:RefreshCharges()
-			ability:EndCooldown()
+		if ability and ability:GetAbilityType()~=ABILITY_TYPE_ATTRIBUTES and not self:IsAbitilyException( ability ) then
+			if string.find(ability:GetName(),"tinker") then
+				ability:RefreshCharges()
+				ability:EndCooldown()
+			elseif ability:GetAbilityType()~=ABILITY_TYPE_ULTIMATE then
+				ability:RefreshCharges()
+				ability:EndCooldown()
+			end
 		end
 	end
 
@@ -72,6 +77,13 @@ end
 
 --------------------------------------------------------------------------------
 -- Helper
+
+function tinker_rearm_lua:IsAbitilyException( ability )
+	return self.AbitilyException[ability:GetName()]
+end
+tinker_rearm_lua.AbitilyException = {
+	["zuus_cloud"] = true,
+}
 function tinker_rearm_lua:IsItemException( item )
 	return self.ItemException[item:GetName()]
 end
