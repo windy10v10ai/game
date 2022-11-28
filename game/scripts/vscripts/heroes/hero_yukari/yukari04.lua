@@ -166,6 +166,8 @@ function Yukari04_OnSpellStart(keys)
 					caster:EmitSound("Hero_Enigma.Black_Hole.Stop")
 					ParticleManager:DestroyParticle(e1,true)
 					ParticleManager:DestroyParticle(e2,true)
+					ParticleManager:ReleaseParticleIndex(e1)
+					ParticleManager:ReleaseParticleIndex(e2)
 
 						local intdamage=caster:GetIntellect()*max_int_bonus*elapsedPercent
 						local enemies=FindUnitsInRadius(
