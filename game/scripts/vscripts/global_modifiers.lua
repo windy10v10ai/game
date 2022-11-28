@@ -229,6 +229,7 @@ end
 
 function modifier_sniper_assassinate_target:OnDestroy()
 	ParticleManager:DestroyParticle(self.iParticle, true)
+	ParticleManager:ReleaseParticleIndex(self.iParticle)
 end
 
 
