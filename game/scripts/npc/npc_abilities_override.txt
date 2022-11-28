@@ -7635,6 +7635,12 @@
 				"var_type"							"FIELD_FLOAT"
 				"duration"							"8.0"
 			}
+			"14"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"scepter_spawn_interval"			"12"
+				"RequiresScepter"	"1"
+			}
 		}
 	}
 	"monkey_king_jingu_mastery"
