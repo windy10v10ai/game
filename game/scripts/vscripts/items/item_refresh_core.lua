@@ -7,6 +7,10 @@ function item_refresh_core:GetIntrinsicModifierName()
 	return "modifier_item_refresh_core"
 end
 
+function item_refresh_core:IsRefreshable()
+	return false
+end
+
 function item_refresh_core:OnSpellStart()
 	local caster = self:GetCaster()
 	-- find all refreshable abilities
@@ -37,15 +41,21 @@ function item_refresh_core:OnSpellStart()
 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, caster )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 end
+
 function item_refresh_core:IsAbitilyException( ability )
 	return self.AbitilyException[ability:GetName()]
 end
 item_refresh_core.AbitilyException = {
 	["dazzle_good_juju"] = true,
 }
+
 function item_refresh_core:RefreshItem( item, caster )
-	if item and item:GetPurchaser()==caster and not self:IsItemException( item ) then
-		item:EndCooldown()
+	if item and item:GetPurchaser()==caster then
+		if self:IsItemException( item ) then
+			item:StartCooldown( self:GetCooldownTimeRemaining() )
+		else
+			item:EndCooldown()
+		end
 	end
 end
 function item_refresh_core:IsItemException( item )
@@ -69,13 +79,16 @@ function modifier_item_refresh_core:GetAttributes()	return MODIFIER_ATTRIBUTE_MU
 
 
 function modifier_item_refresh_core:OnCreated()
-	self.bonus_cooldown = self:GetAbility():GetSpecialValueFor("bonus_cooldown")
-	self.bonus_cooldown_stack = self:GetAbility():GetSpecialValueFor("bonus_cooldown_stack")
-	self.cast_range_bonus = self:GetAbility():GetSpecialValueFor("cast_range_bonus")
-	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
-	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
-	self.bonus_health_regen = self:GetAbility():GetSpecialValueFor("bonus_health_regen")
-	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+	local ability = self:GetAbility()
+	if ability then
+		self.bonus_cooldown = ability:GetSpecialValueFor("bonus_cooldown")
+		self.bonus_cooldown_stack = ability:GetSpecialValueFor("bonus_cooldown_stack")
+		self.cast_range_bonus = ability:GetSpecialValueFor("cast_range_bonus")
+		self.bonus_health = ability:GetSpecialValueFor("bonus_health")
+		self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
+		self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
+		self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+	end
 
 	if IsServer() then
 		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
