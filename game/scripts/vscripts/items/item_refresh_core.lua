@@ -51,21 +51,18 @@ item_refresh_core.AbitilyException = {
 
 function item_refresh_core:RefreshItem( item, caster )
 	if item and item:GetPurchaser()==caster then
-		if self:IsItemException( item ) then
-			item:StartCooldown( self:GetCooldownTimeRemaining() )
-		else
+		if item:IsRefreshable() then
 			item:EndCooldown()
+		end
+		if self.ItemShareCooldown[item:GetName()] then
+			item:StartCooldown( self:GetCooldownTimeRemaining() )
 		end
 	end
 end
-function item_refresh_core:IsItemException( item )
-	return self.ItemException[item:GetName()]
-end
-item_refresh_core.ItemException = {
+item_refresh_core.ItemShareCooldown = {
 	["item_refresher"] = true,
 	["item_refresher_shard"] = true,
 	["item_refresh_core"] = true,
-	["item_ex_machina"] = true,
 }
 ---------------------------------------------------------------------
 --Modifiers
