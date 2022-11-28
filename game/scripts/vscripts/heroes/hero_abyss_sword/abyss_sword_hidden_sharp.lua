@@ -134,6 +134,7 @@ end
 
 function modifier_abyss_sword_hidden_sharp:OnDestroy()
     ParticleManager:DestroyParticle(self.particle,false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
 end
 
 

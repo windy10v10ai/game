@@ -254,9 +254,9 @@
 		"DOTA_Tooltip_ability_jack_surgery_spell_lifesteal_down"								"%Ability Lifesteal Amplify reduction per tier:"
 
 		"DOTA_Tooltip_ability_jack_the_mist"													"Dark Fog City"
-		"DOTA_Tooltip_ability_jack_the_mist_description"										"Jack always surrounded by the mist, the enemy in the mist will be subject to the same effect as the mist in Foggy Night Murder, active use can immediately turn into night, and expand the range of the mist, lasting a period of time."
+		"DOTA_Tooltip_ability_jack_the_mist_description"										"Active use can immediately turn into night, and Jack will surrounded by the mist, the enemy in the mist will be subject to the same effect as the mist in Foggy Night Murder."
 		"DOTA_Tooltip_ability_jack_the_mist_Lore"												"After the Industrial Revolution, a huge amount of soot began to be emitted, and in the 1950s it became sulfuric acid fog and caused a major disaster in London. The Dark Fog City is the treasure that recreates the Fog of Death."
-		"DOTA_Tooltip_ability_jack_the_mist_radius_normal"										"Passive Mist Range:"
+		// "DOTA_Tooltip_ability_jack_the_mist_radius_normal"										"Passive Mist Range:"
 		"DOTA_Tooltip_ability_jack_the_mist_radius_active"										"Active Mist Range:"
 		"DOTA_Tooltip_ability_jack_the_mist_duration"											"Duration:"
 
@@ -283,8 +283,8 @@
 		"DOTA_Tooltip_modifier_jack_surgery_Description"										"Get %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%% Treatment, %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%% Life Regeneration, %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%% Lifesteal Amplify,%dMODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE%%% Ability Lifesteal Amplify."
 		"DOTA_Tooltip_modifier_jack_surgery_target"												"Surgical Procedures：Dissolution"
 		"DOTA_Tooltip_modifier_jack_surgery_target_Description"									"Suffer %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%% Treatment, %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%% Life Regeneration, %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%% Lifesteal Amplify,%dMODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE%%% Ability Lifesteal Amplify."
-		"DOTA_Tooltip_modifier_jack_the_mist_cast"												"Dark Fog City"
-		"DOTA_Tooltip_modifier_jack_the_mist_cast_Description"									"Expanding the mist around itself"
+		"DOTA_Tooltip_modifier_jack_the_mist_aura"												"Dark Fog City"
+		"DOTA_Tooltip_modifier_jack_the_mist_aura_Description"									"Surround Jack self with mist"
 		"DOTA_Tooltip_modifier_jack_maria_the_ripper"											"Our Lady Dissolution"
 		"DOTA_Tooltip_modifier_jack_maria_the_ripper_Description"								"Entering a state of invisibility where you cannot be seen, you continuously attack the enemy."
 

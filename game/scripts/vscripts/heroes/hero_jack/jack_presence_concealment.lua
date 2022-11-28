@@ -42,6 +42,7 @@ function jack_presence_concealment:OnSpellStart()
         caster:EmitSound("Hero_PhantomAssassin.Blur")
         local particle_start = ParticleManager:CreateParticle("particles/heroes/jack/jack_presence_concealment_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
         ParticleManager:DestroyParticle(particle_start, false)
+        ParticleManager:ReleaseParticleIndex(particle_start)
     end
 
     local modifier = caster:FindModifierByName("modifier_jack_presence_concealment")
@@ -162,6 +163,7 @@ function modifier_jack_presence_concealment_invision:OnCreated(keys)
     self.parent:EmitSound("Hero_PhantomAssassin.Blur")
     local particle_start = ParticleManager:CreateParticle("particles/heroes/jack/jack_presence_concealment_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent )
     ParticleManager:DestroyParticle(particle_start, false)
+    ParticleManager:ReleaseParticleIndex(particle_start)
 
     local particle_state = ParticleManager:CreateParticle("particles/heroes/jack/jack_presence_concealment.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent )
 	self:AddParticle(particle_state,false, false, -1, false, false )

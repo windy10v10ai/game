@@ -7,6 +7,10 @@ function item_refresh_core:GetIntrinsicModifierName()
 	return "modifier_item_refresh_core"
 end
 
+function item_refresh_core:IsRefreshable()
+	return false
+end
+
 function item_refresh_core:OnSpellStart()
 	local caster = self:GetCaster()
 	-- find all refreshable abilities
@@ -21,19 +25,13 @@ function item_refresh_core:OnSpellStart()
 	-- find all refreshable items
 	for i=0,8 do
 		local item = caster:GetItemInSlot(i)
-		if item and item:GetPurchaser()==caster and not self:IsItemException( item ) then
-			item:EndCooldown()
-		end
+		self:RefreshItem( item, caster )
 	end
 
 	local itemTp = caster:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
-	if itemTp then
-		itemTp:EndCooldown()
-	end
+	self:RefreshItem( itemTp, caster )
 	local itemNeutral = caster:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT )
-	if itemNeutral then
-		itemNeutral:EndCooldown()
-	end
+	self:RefreshItem( itemNeutral, caster )
 
 	-- effects
 	local sound_cast = "DOTA_Item.Refresher.Activate"
@@ -43,16 +41,25 @@ function item_refresh_core:OnSpellStart()
 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, caster )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 end
+
 function item_refresh_core:IsAbitilyException( ability )
 	return self.AbitilyException[ability:GetName()]
 end
 item_refresh_core.AbitilyException = {
 	["dazzle_good_juju"] = true,
 }
-function item_refresh_core:IsItemException( item )
-	return self.ItemException[item:GetName()]
+
+function item_refresh_core:RefreshItem( item, caster )
+	if item and item:GetPurchaser()==caster then
+		if item:IsRefreshable() then
+			item:EndCooldown()
+		end
+		if self.ItemShareCooldown[item:GetName()] then
+			item:StartCooldown( self:GetCooldownTimeRemaining() )
+		end
+	end
 end
-item_refresh_core.ItemException = {
+item_refresh_core.ItemShareCooldown = {
 	["item_refresher"] = true,
 	["item_refresher_shard"] = true,
 	["item_refresh_core"] = true,
@@ -69,13 +76,16 @@ function modifier_item_refresh_core:GetAttributes()	return MODIFIER_ATTRIBUTE_MU
 
 
 function modifier_item_refresh_core:OnCreated()
-	self.bonus_cooldown = self:GetAbility():GetSpecialValueFor("bonus_cooldown")
-	self.bonus_cooldown_stack = self:GetAbility():GetSpecialValueFor("bonus_cooldown_stack")
-	self.cast_range_bonus = self:GetAbility():GetSpecialValueFor("cast_range_bonus")
-	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
-	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
-	self.bonus_health_regen = self:GetAbility():GetSpecialValueFor("bonus_health_regen")
-	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+	local ability = self:GetAbility()
+	if ability then
+		self.bonus_cooldown = ability:GetSpecialValueFor("bonus_cooldown")
+		self.bonus_cooldown_stack = ability:GetSpecialValueFor("bonus_cooldown_stack")
+		self.cast_range_bonus = ability:GetSpecialValueFor("cast_range_bonus")
+		self.bonus_health = ability:GetSpecialValueFor("bonus_health")
+		self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
+		self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
+		self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+	end
 
 	if IsServer() then
 		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
