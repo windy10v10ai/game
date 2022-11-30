@@ -16,7 +16,7 @@ function item_refresh_core:OnSpellStart()
 	-- find all refreshable abilities
 	for i=0,caster:GetAbilityCount()-1 do
 		local ability = caster:GetAbilityByIndex( i )
-		if ability and ability:GetAbilityType()~=DOTA_ABILITY_TYPE_ATTRIBUTES and not self:IsAbitilyException( ability ) then
+		if ability and ability:GetAbilityType()~=ABILITY_TYPE_ATTRIBUTES and not self:IsAbitilyException( ability ) then
 			ability:RefreshCharges()
 			ability:EndCooldown()
 		end

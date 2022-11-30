@@ -424,7 +424,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1300"
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -500,7 +500,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"active_reflection_pct"			"80"
+				"active_reflection_pct"			"85"
 			}
 		}
 	}
@@ -5834,7 +5834,7 @@
         "Model"							"models/props_gameplay/recipe.vmdl"
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"4200"
+        "ItemCost"						"4600"
         "ItemShopTags"					""
 
         // Recipe
@@ -5860,12 +5860,12 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"				"0.0"
         "AbilityCooldown"				"120.0"
-        "AbilityManaCost"				"800"
+        "AbilityManaCost"				"900"
 		"AbilitySharedCooldown"			"refresh"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"18000"
+        "ItemCost"						"18200"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mana;mb;refresh core"
