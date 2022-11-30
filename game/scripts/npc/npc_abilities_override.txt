@@ -737,7 +737,7 @@
 	"item_refresher"
 	{
 		"AbilityManaCost"				"450"	// 350
-		"AbilityCooldown"				"160.0"	// 180.0
+		"AbilityCooldown"				"180.0"	// 180.0
 	}
 	// 微光
 	"item_glimmer_cape"
@@ -14556,6 +14556,17 @@
 				"var_type"				"FIELD_INTEGER"
 				"spread_aoe"	"375"
 			}
+		}
+	}
+	"zuus_static_field"
+	{
+		"AbilityValues"
+		{
+				"damage_health_pct"
+				{
+					"value"	"6.5"
+					"CalculateSpellDamageTooltip"	"0"
+				}
 		}
 	}
 	"zuus_thundergods_wrath"
