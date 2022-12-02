@@ -1,0 +1,14 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.css" />
+		<include src="s2r://panorama/styles/custom_game/team_select.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/layout/custom_game/team_select/team_select_player.js" />
+	</scripts>
+	<Panel class="TeamSelectPlayer">
+		<DOTAAvatarImage id="PlayerAvatar" />
+		<Label id="PlayerIsHostPanel" />
+		<Label id="PlayerName" text="xxxxx" />
+	</Panel>
+</root>
