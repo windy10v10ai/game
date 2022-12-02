@@ -257,7 +257,7 @@ function AIGameMode:RefreshGameStatus()
     if (GameTime >= ((AIGameMode.botPushMin * 4) * 60)) then
         -- LATEGAME
         GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
-    elseif (GameTime >= ((AIGameMode.botPushMin + 4) * 60)) then
+    elseif (GameTime >= ((AIGameMode.botPushMin * 1.3) * 60)) then
         -- MIDGAME
         if AIGameMode.tower3PushedGood >= 2 or AIGameMode.tower3PushedBad >= 2 then
             GameRules:GetGameModeEntity():SetBotsMaxPushTier(4)
