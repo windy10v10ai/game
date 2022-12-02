@@ -90,7 +90,6 @@ function AIGameMode:InitEvents()
     ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
     ListenToGameEvent("dota_buyback", Dynamic_Wrap(AIGameMode, 'OnBuyback'), self)
     ListenToGameEvent("last_hit", Dynamic_Wrap(AIGameMode, 'OnLastHit'), self)
-    ListenToGameEvent("player_property_levelup", Dynamic_Wrap(AIGameMode, 'OnPlayerPropertyLevelup'), self)
 
     --JS events
     CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
@@ -228,15 +227,18 @@ function AIGameMode:PreGameOptions()
     self.tower4PushedGood = 0
 
     self.roshanNumber = 0
+    self.playerNumber = 10
 
     if self.fBotGoldXpMultiplier <= 3 then
-        self.botPushMin = RandomInt(15, 18)
+        self.botPushMin = RandomInt(16, 20)
     elseif self.fBotGoldXpMultiplier <= 5 then
-        self.botPushMin = RandomInt(12, 15)
+        self.botPushMin = RandomInt(13, 16)
     elseif self.fBotGoldXpMultiplier <= 8 then
-        self.botPushMin = RandomInt(10, 12)
-    else
+        self.botPushMin = RandomInt(10, 13)
+    elseif self.fBotGoldXpMultiplier <= 10 then
         self.botPushMin = RandomInt(8, 10)
+    else
+        self.botPushMin = RandomInt(5, 7)
     end
 
     print("botPushMin: " .. self.botPushMin)

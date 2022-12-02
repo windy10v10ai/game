@@ -257,7 +257,7 @@ function AIGameMode:RefreshGameStatus()
     if (GameTime >= ((AIGameMode.botPushMin * 4) * 60)) then
         -- LATEGAME
         GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
-    elseif (GameTime >= ((AIGameMode.botPushMin + 4) * 60)) then
+    elseif (GameTime >= ((AIGameMode.botPushMin * 1.3) * 60)) then
         -- MIDGAME
         if AIGameMode.tower3PushedGood >= 2 or AIGameMode.tower3PushedBad >= 2 then
             GameRules:GetGameModeEntity():SetBotsMaxPushTier(4)
@@ -607,6 +607,7 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
     if tonumber(args.host_privilege) ~= 1 then
         return
     end
+    self.iGameDifficulty = tonumber(args.game_options.game_difficulty)
     self.iDesiredRadiant = tonumber(args.game_options.radiant_player_number)
     self.iDesiredDire = tonumber(args.game_options.dire_player_number)
     self.fPlayerGoldXpMultiplier = tonumber(args.game_options.player_gold_xp_multiplier)
@@ -634,8 +635,9 @@ end
 function AIGameMode:OnGameOptionChange(keys)
     local optionName = keys.optionName
     local optionValue = keys.optionValue
+    local optionId = keys.optionId
     -- 对应的游戏选择项目设定
-    GameRules.GameOption[optionName] = optionValue
+    GameRules.GameOption[optionName] = {optionValue = optionValue, optionId = optionId}
     CustomNetTables:SetTableValue('game_options_table', 'game_option', GameRules.GameOption)
 end
 
@@ -711,12 +713,13 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
 
     data.options = {
         playerGoldXpMultiplier = tostring(self.fPlayerGoldXpMultiplier),
-        botGoldXpMultiplier = self.fBotGoldXpMultiplier > 10 and "??" or self.fBotGoldXpMultiplier,
+        botGoldXpMultiplier = tostring(self.fBotGoldXpMultiplier),
         towerPower = AIGameMode:StackToPercentage(self.iTowerPower),
         towerEndure = AIGameMode:StackToPercentage(self.iTowerEndure)
     }
     -- send to api server
     data.gameOption = {
+        gameDifficulty = self.iGameDifficulty,
         playerGoldXpMultiplier = self.fPlayerGoldXpMultiplier,
         botGoldXpMultiplier = self.fBotGoldXpMultiplier,
         towerPower = self.iTowerPower,
@@ -857,6 +860,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
         end
     end
 
+    AIGameMode.playerNumber = playerNumber
     local pointOne = playerNumber * 0.8
     local pointHalf = playerNumber * 0.4
 
@@ -898,7 +902,7 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
         print("Cheat mode is on, no season point will be given")
         return 0
     end
-    if AIGameMode.sumTowerPower <= 6 then
+    if AIGameMode.sumTowerPower < 6 then
         points = points * 0.5
     end
     if AIGameMode.iDesiredDire < 10 then
@@ -910,6 +914,19 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
     end
     if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
         points = points * 0.5
+    end
+    -- 根据难度积分加倍
+    local difficulty = self.iGameDifficulty
+    if difficulty == 1 then
+        points = points * 1.6
+    elseif difficulty == 2 then
+        points = points * 1.8
+    elseif difficulty == 3 then
+        points = points * 2.0
+    elseif difficulty == 4 then
+        points = points * 2.5
+    elseif difficulty == 5 then
+        points = points * 3.0
     end
     return math.ceil(points)
 end
@@ -934,10 +951,10 @@ function AIGameMode:StackToPercentage(iStackCount)
     elseif iStackCount == 9 then
         return "300%"
     elseif iStackCount == 10 then
-        return "500%"
+        return "400%"
     elseif iStackCount == 11 then
         -- for test
-        return "1000%"
+        return "500%"
     else
         return "100%"
     end

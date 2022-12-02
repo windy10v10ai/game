@@ -1,0 +1,16 @@
+
+#TeamsContainer
+{
+	width: 100%;
+	padding: 10px;
+}
+#GameLoadingStatus
+{
+	flow-children: down;
+	padding: 20px;
+	min-height: 100px;
+}
+#GameLoadingStatusText
+{
+	font-size: 18px;
+}

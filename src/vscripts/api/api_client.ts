@@ -23,17 +23,27 @@ export class ApiClient {
 	public static ADD_PLAYER_PROPERTY_URL = "/game/addPlayerProperty";
 	public static POST_GAME_URL = "/game/end";
 
+	private static LOCAL_APIKEY = "Invalid_NotOnDedicatedServer";
 	private static TIMEOUT_SECONDS = 10;
-	private static RETRY_TIMES = 6;
+	private static RETRY_TIMES = 3;
 	private static VERSION = "v1.43";
 	private static HOST_NAME: string = (() => {
 		return IsInToolsMode() ? "http://localhost:5000/api" : "https://windy10v10ai.web.app/api"
 	})();
 
-	public static send(method: HttpMethod, path: string, querys: { [key: string]: string } | undefined, body: Object | undefined, successFunc: (result: CScriptHTTPResponse) => void) {
+	public static send(method: HttpMethod, path: string, querys: { [key: string]: string } | undefined, body: Object | undefined, callbackFunc: (result: CScriptHTTPResponse) => void) {
 		print(`[ApiClient] ${method} ${ApiClient.HOST_NAME}${path} with querys ${json.encode(querys)} body ${json.encode(body)}`);
 		const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + path);
 		const key = GetDedicatedServerKeyV2(ApiClient.VERSION);
+
+		if (key == ApiClient.LOCAL_APIKEY && !IsInToolsMode()) {
+			callbackFunc({
+				StatusCode: 401,
+				Body: ApiClient.LOCAL_APIKEY,
+				Request: request,
+			});
+			return;
+		}
 
 		if (querys) {
 			for (const key in querys) {
@@ -46,7 +56,7 @@ export class ApiClient {
 			request.SetHTTPRequestRawPostBody("application/json", json.encode(body));
 		}
 		request.Send((result: CScriptHTTPResponse) => {
-			successFunc(result);
+			callbackFunc(result);
 		});
 	}
 
