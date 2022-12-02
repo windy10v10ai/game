@@ -199,5 +199,10 @@
 				</Button>
 			</Panel>
 		</Panel>
+		<Panel id="AnniversaryPanel">
+			<Label id="AnniversaryText1" text="#anniversary_text1" class="AnniversaryText" />
+			<Label id="AnniversaryText2" text="#anniversary_text2" class="AnniversaryText" />
+			<Label id="AnniversaryText3" text="#anniversary_text3" class="AnniversaryText" />
+		</Panel>
 	</Panel>
 </root>
