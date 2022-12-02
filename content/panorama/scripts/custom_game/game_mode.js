@@ -26,10 +26,6 @@ function CheckForHostPrivileges() {
 	}
 }
 
-function JoinRadiant() {
-	Game.PlayerJoinTeam(2);
-}
-
 function InitializeUI(keys) {
 	if (keys.PlayerID != Game.GetLocalPlayerID()) {return}
 	var is_host = CheckForHostPrivileges();
@@ -111,8 +107,6 @@ InitSetting();
 function StateChange() {
 	if ( Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) ) {
 		$("#display_options_container").style.visibility='visible';
-		// join radiant team
-		$.Schedule(1, JoinRadiant);
 	} else if ( Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION) ) {
 		GameEvents.SendCustomGameEventToServer("loading_set_options",{
 			"host_privilege": CheckForHostPrivileges(),
@@ -150,26 +144,9 @@ function OnGameOptionsChange() {
 	$("#DisplayOptionsMaxLevel").text = gameOptions.max_level_dropdown;
 }
 
-function OnGameLoadingStatusChange(table, key, value) {
-	if (value) {
-		const status = value.status;
-		$("#GameLoadingStatusText").text = $.Localize("#loading_status_" + status);
-		if (status == 1) {
-			$("#GameLoadingStatusText").style.color = "#FD841F";
-		}
-		if (status == 2) {
-			$("#GameLoadingStatusText").style.color = "#5DA7DB";
-		}
-		if (status == 3) {
-			$("#GameLoadingStatusText").style.color = "#E14D2A";
-		}
-	}
-}
 (function() {
 	// 游戏选择项目table监听
 	CustomNetTables.SubscribeNetTableListener("game_options_table", OnGameOptionsChange)
-	CustomNetTables.SubscribeNetTableListener("loading_status", OnGameLoadingStatusChange);
-	OnGameLoadingStatusChange(null, "loading_status", CustomNetTables.GetTableValue("loading_status", "loading_status"));
 })();
 
 GameEvents.Subscribe( "player_connect_full", InitializeUI);

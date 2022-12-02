@@ -31,12 +31,13 @@
 
 
 	<Panel>
+		<CustomUIElement type="GameSetup" 			layoutfile="file://{resources}/layout/custom_game/team_select/team_select.xml" />
 		<CustomUIElement type="HeroSelection"		layoutfile="file://{resources}/layout/custom_game/pick_locker/pick_locker.xml" />
 		<CustomUIElement type="HeroSelection"		layoutfile="file://{resources}/layout/custom_game/multiteam_hero_select_overlay.xml" />
 		<CustomUIElement type="FlyoutScoreboard"	layoutfile="file://{resources}/layout/custom_game/multiteam_flyout_scoreboard.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/button.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/item_choice.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/battlepass.xml" />
-		<CustomUIElement type="EndScreen" layoutfile="file://{resources}/layout/custom_game/end_screen_2.xml" />
+		<CustomUIElement type="EndScreen" 			layoutfile="file://{resources}/layout/custom_game/end_screen_2.xml" />
 	</Panel>
 </root>

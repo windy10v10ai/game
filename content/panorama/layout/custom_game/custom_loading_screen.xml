@@ -188,9 +188,6 @@
 						<Label id="DisplayOptionsMaxLevel" class="DisplayOptionsLable" text="" />
 					</Panel>
 				</Panel>
-				<Panel id="GameLoadingStatus" class="DisplayOptionsSubPanel">
-					<Label id="GameLoadingStatusText" class="DisplayOptionsLableTitle" text="#loading_status_1" />
-				</Panel>
 			</Panel>
 			<!-- 游戏选项显示 END-->
 			<Panel id="ChatHideButtonContainer" hittest="false">

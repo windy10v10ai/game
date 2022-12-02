@@ -177,8 +177,3 @@
 	color: #ffffff;
 	font-weight: bold;
 }
-#GameLoadingStatus
-{
-	flow-children: down;
-	padding: 10px;
-}
