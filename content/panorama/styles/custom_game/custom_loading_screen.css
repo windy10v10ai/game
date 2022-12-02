@@ -20,7 +20,7 @@
 #game_options_container
 {
 	width: 400px;
-	height: 75%;
+	height: 76%;
 	background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.02, #202327 ), color-stop( 0.3, #141619 ), to( #000000B0 ) );
 	box-shadow: #000000 0px 0px 20px 0px;
 	flow-children: down;
@@ -29,7 +29,7 @@
 
 #GameOptionsPanel
 {
-	margin-top: 60px;
+	margin-top: 50px;
 	margin-left: 5px;
 	margin-right: 5px;
 	width: 100%;
@@ -144,8 +144,7 @@
 	margin-top: 10px;
 	margin-left: 400px;
 	padding-left: 20px;
-	width: 700px;
-	height: 250px;
+	height: 200px;
 	flow-children: right;
 	visibility: collapse;
 }
@@ -177,7 +176,23 @@
 	color: #ffffff;
 	font-weight: bold;
 }
-
+#DifficultyContainer
+{
+	flow-children: right;
+	width: 350px;
+}
+#DifficultyPanel
+{
+	width: 220px;
+	margin-right: 20px;
+}
+#DisplaySeasonPointMulti
+{
+	horizontal-align:right;
+	vertical-align: middle;
+	color: #ffffff;
+	font-weight: bold;
+}
 
 #AnniversaryPanel
 {
