@@ -230,13 +230,15 @@ function AIGameMode:PreGameOptions()
     self.playerNumber = 10
 
     if self.fBotGoldXpMultiplier <= 3 then
-        self.botPushMin = RandomInt(15, 18)
+        self.botPushMin = RandomInt(16, 20)
     elseif self.fBotGoldXpMultiplier <= 5 then
-        self.botPushMin = RandomInt(12, 15)
+        self.botPushMin = RandomInt(13, 16)
     elseif self.fBotGoldXpMultiplier <= 8 then
-        self.botPushMin = RandomInt(10, 12)
-    else
+        self.botPushMin = RandomInt(10, 13)
+    elseif self.fBotGoldXpMultiplier <= 10 then
         self.botPushMin = RandomInt(8, 10)
+    else
+        self.botPushMin = RandomInt(6, 8)
     end
 
     print("botPushMin: " .. self.botPushMin)
