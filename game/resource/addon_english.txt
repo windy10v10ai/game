@@ -13,10 +13,14 @@
 		// /////////////////////////////////////////////////////////////////////////////
 		"addon_option_title"	"Game Options"
 		"addon_option_title_br"	""
-		// "radiant_gold_multiplier"	"Radiant Gold Multiplier"
-		// "dire_gold_multiplier"	"Dire Gold Multiplier"
-		// "radiant_xp_multiplier"	"Radiant XP Multiplier"
-		// "dire_xp_multiplier"	"Dire XP Multiplier"
+
+		"game_difficulty_title"	"difficulty challenge "
+		"game_difficulty_n0"	"Custome"
+		"game_difficulty_n1"	"N1"
+		"game_difficulty_n2"	"N2"
+		"game_difficulty_n3"	"N3"
+		"game_difficulty_n4"	"N4"
+		"game_difficulty_n5"	"N5"
 
 		"player_gold_xp_multiplier"	"Player Gold&XP Multiplier"
 		"bot_gold_xp_multiplier"	"Bot Gold&XP Multiplier"
@@ -61,10 +65,13 @@
 		"respawn_time_percentage_fast"         "Fast"
 		"respawn_time_percentage_0"          "Zero"
 
-		"loading_status_1"				"Player data is loading... Please wait for loading to complete before starting the game."
+		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting the game."
 		"loading_status_2"				"Player data loaded successfully!"
 		"loading_status_3"				"Player data loading failed, please use the Dedicated Server to restart a game."
 
+		"anniversary_text1"				"  Two-year anniversary celebration, have fun!"
+		"anniversary_text2"				"· All players can enjoy free membership effects. Event Period: From December 3 to December 5 (GMT+0)"
+		"anniversary_text3"				"· Specify the difficulty challenge and get multiplied season points. Event period: One week after this update until the next update."
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		//            Hero Selection

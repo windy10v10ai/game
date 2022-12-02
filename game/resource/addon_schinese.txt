@@ -13,10 +13,14 @@
 		// /////////////////////////////////////////////////////////////////////////////
 		"addon_option_title"	"游戏选项"
 		"addon_option_title_br"	""
-		// "radiant_gold_multiplier"	"天辉金钱倍率"
-		// "dire_gold_multiplier"	"夜魇金钱倍率"
-		// "radiant_xp_multiplier"	"天辉经验倍率"
-		// "dire_xp_multiplier"	"夜魇经验倍率"
+
+		"game_difficulty_title"	"难度挑战"
+		"game_difficulty_n0"	"自定义"
+		"game_difficulty_n1"	"N1"
+		"game_difficulty_n2"	"N2"
+		"game_difficulty_n3"	"N3"
+		"game_difficulty_n4"	"N4"
+		"game_difficulty_n5"	"N5"
 
 		"player_gold_xp_multiplier"	"玩家金钱/经验倍率"
 		"bot_gold_xp_multiplier"	"电脑金钱/经验倍率"
@@ -65,6 +69,9 @@
 		"loading_status_2"				"玩家数据加载成功！"
 		"loading_status_3"				"玩家数据加载失败，请使用服务器主机重新开始游戏。"
 
+		"anniversary_text1"				"  10v10 AI喜迎两周年，祝大家游戏开心！"
+		"anniversary_text2"				"· 全体玩家免费享有会员特效。活动期限：12月3日 8:00~ 12月6日 8:00 (GMT+8)"
+		"anniversary_text3"				"· 指定难度挑战，获得多倍赛季积分。活动期限：本次更新后一周时间，直至下次更新。"
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		//            Hero Selection

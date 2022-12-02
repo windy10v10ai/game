@@ -11,6 +11,17 @@
 			<Panel id="game_options_container" >
 				<Panel id = "GameOptionsPanel">
 					<Label id="GameOptionsPanelTitle" text="#addon_option_title" />
+					<Panel id="GameDifficultyPanel"	class="GameOptionsSubPanel">
+						<Label id="GameDifficultyTitle" class="GameOptionsLabel" text="#game_difficulty_title" />
+						<DropDown id="game_difficulty_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDifficultyDropDownChanged()">
+							<Label text="#game_difficulty_n0" id="0"/>
+							<Label text="#game_difficulty_n1" id="1"/>
+							<Label text="#game_difficulty_n2" id="2"/>
+							<Label text="#game_difficulty_n3" id="3"/>
+							<Label text="#game_difficulty_n4" id="4"/>
+							<Label text="#game_difficulty_n5" id="5"/>
+						</DropDown>
+					</Panel>
 					<Panel id="RadiantGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantGoldXPMultiplierTitle" class="GameOptionsLabel" text="#player_gold_xp_multiplier" />
 						<DropDown id="player_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('player_gold_xp_multiplier_dropdown')">
@@ -32,11 +43,10 @@
 							<Label text="4" id="4"/>
 							<Label text="5" id="5"/>
 							<Label text="6" id="6"/>
-							<Label text="7" id="7"/>
 							<Label text="8" id="8"/>
-							<Label text="9" id="9"/>
 							<Label text="10" id="10"/>
-							<!-- <Label text="20" id="20"/> -->
+							<Label text="15" id="15"/>
+							<Label text="20" id="20"/>
 						</DropDown>
 					</Panel>
 					<Panel id="RadiantPlayerNumberMultiplierPanel"	class="GameOptionsSubPanel">
@@ -69,7 +79,7 @@
 							<Label text="1" id="1"/>
 						</DropDown>
 					</Panel>
-					<Label id="GameOptionsPanelBr" text="#addon_option_title_br" />
+					<!-- <Label id="GameOptionsPanelBr" text="#addon_option_title_br" /> -->
 					<Panel id="RespawnTimePercentagePanel"	class="GameOptionsSubPanel">
 						<Label id="RespawnTimePercentagePanelTitle" class="GameOptionsLabel" text="#respawn_time_percentage" />
 						<DropDown id="respawn_time_percentage_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('respawn_time_percentage_dropdown')">
@@ -144,6 +154,7 @@
 							<Label text="1000" id="1000"/>
 							<Label text="2000" id="2000"/>
 							<Label text="3000" id="3000"/>
+							<Label text="5000" id="5000"/>
 						</DropDown>
 					</Panel>
 					<Panel id="SameHeroSelectionPanel"	class="GameOptionsSubPanel">
@@ -163,6 +174,14 @@
 			<!-- 游戏选项显示 START-->
 			<Panel id="display_options_container" >
 				<Panel id="DisplayOptionsPanel">
+					<Panel id="DifficultyContainer">
+						<Panel id="DifficultyPanel" class="DisplayOptionsSubPanel">
+							<Label id="DisplayGameDifficultyTitle" class="DisplayOptionsLableTitle" text="#game_difficulty_title" />
+							<Label id="DisplayGameDifficulty" class="DisplayOptionsLable" text="" />
+						</Panel>
+						<Image class="PtsColumnImg" class="DisplayOptionsLable" src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex" onmouseover="UIShowTextTooltipStyled( #data_panel_season_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+						<Label id="DisplaySeasonPointMulti"  text="" />
+					</Panel>
 					<Panel id="PlayerGoldXpPanel" class="DisplayOptionsSubPanel">
 						<Label id="DisplayOptionsPlayerGoldXpTitle" class="DisplayOptionsLableTitle" text="#player_gold_xp_multiplier" />
 						<Label id="DisplayOptionsPlayerGoldXp" class="DisplayOptionsLable" text="" />
@@ -179,17 +198,6 @@
 						<Label id="DisplayOptionsTowerEndureTitle" class="DisplayOptionsLableTitle" text="#tower_endure" />
 						<Label id="DisplayOptionsTowerEndure" class="DisplayOptionsLable" text="" />
 					</Panel>
-					<Panel id="RespawnTimePanel" class="DisplayOptionsSubPanel">
-						<Label id="DisplayOptionsRespawnTimeTitle" class="DisplayOptionsLableTitle" text="#respawn_time_percentage" />
-						<Label id="DisplayOptionsRespawnTime" class="DisplayOptionsLable" text="" />
-					</Panel>
-					<Panel id="DMaxLevelPanel" class="DisplayOptionsSubPanel">
-						<Label id="DisplayOptionsMaxLevelTitle" class="DisplayOptionsLableTitle" text="#max_level" />
-						<Label id="DisplayOptionsMaxLevel" class="DisplayOptionsLable" text="" />
-					</Panel>
-				</Panel>
-				<Panel id="GameLoadingStatus" class="DisplayOptionsSubPanel">
-					<Label id="GameLoadingStatusText" class="DisplayOptionsLableTitle" text="#loading_status_1" />
 				</Panel>
 			</Panel>
 			<!-- 游戏选项显示 END-->
@@ -201,6 +209,11 @@
 					<Label id="ChatHideButtonLabelShow" class="ChatHideButtonLabel" text="#show_chat_team" />
 				</Button>
 			</Panel>
+		</Panel>
+		<Panel id="AnniversaryPanel">
+			<Label id="AnniversaryText1" text="#anniversary_text1" class="AnniversaryText" />
+			<Label id="AnniversaryText2" text="#anniversary_text2" class="AnniversaryText" />
+			<Label id="AnniversaryText3" text="#anniversary_text3" class="AnniversaryText" />
 		</Panel>
 	</Panel>
 </root>
