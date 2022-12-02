@@ -2,7 +2,6 @@
 
 /** 下拉框事件 */
 function OnDifficultyDropDownChanged() {
-	$.Msg("====OnDifficultyDropDownChanged====");
 	let optionValue = $("#game_difficulty_dropdown").GetSelected().text;
 	let optionId = $("#game_difficulty_dropdown").GetSelected().id;
 	if (optionId == 0) {
@@ -274,24 +273,22 @@ function OnGameOptionsChange() {
 	}
 	$("#DisplayGameDifficulty").text = $.Localize('#game_difficulty_n' + iDifficulty);
 
-	$.Msg("====OnGameOptionsChange====");
-	$.Msg("iDifficulty: " + iDifficulty);
 	let seasonPointMulti = "1.0";
 	switch (+iDifficulty) {
 		case 1:
-			seasonPointMulti = "1.5";
+			seasonPointMulti = "1.6";
 			break;
 		case 2:
-			seasonPointMulti = "2.0";
+			seasonPointMulti = "1.8";
 			break;
 		case 3:
-			seasonPointMulti = "2.5";
+			seasonPointMulti = "2.0";
 			break;
 		case 4:
-			seasonPointMulti = "3.0";
+			seasonPointMulti = "2.5";
 			break;
 		case 5:
-			seasonPointMulti = "4.0";
+			seasonPointMulti = "3.0";
 			break;
 		default:
 			seasonPointMulti = "1.0";
@@ -305,7 +302,6 @@ function OnGameOptionsChange() {
 	// 游戏选择项目table监听
 	CustomNetTables.SubscribeNetTableListener("game_options_table", OnGameOptionsChange)
 	InitSetting();
-	$.Msg("====function====");
 	OnDifficultyDropDownChanged();
 })();
 

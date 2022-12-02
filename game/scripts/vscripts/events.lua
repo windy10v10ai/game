@@ -719,6 +719,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     }
     -- send to api server
     data.gameOption = {
+        gameDifficulty = self.iGameDifficulty,
         playerGoldXpMultiplier = self.fPlayerGoldXpMultiplier,
         botGoldXpMultiplier = self.fBotGoldXpMultiplier,
         towerPower = self.iTowerPower,
@@ -917,15 +918,15 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
     -- 根据难度积分加倍
     local difficulty = self.iGameDifficulty
     if difficulty == 1 then
-        points = points * 1.5
+        points = points * 1.6
     elseif difficulty == 2 then
-        points = points * 2
+        points = points * 1.8
     elseif difficulty == 3 then
-        points = points * 2.5
+        points = points * 2.0
     elseif difficulty == 4 then
-        points = points * 3
+        points = points * 2.5
     elseif difficulty == 5 then
-        points = points * 4
+        points = points * 3.0
     end
     return math.ceil(points)
 end
