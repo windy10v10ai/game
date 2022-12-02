@@ -227,6 +227,7 @@ function AIGameMode:PreGameOptions()
     self.tower4PushedGood = 0
 
     self.roshanNumber = 0
+    self.playerNumber = 10
 
     if self.fBotGoldXpMultiplier <= 3 then
         self.botPushMin = RandomInt(15, 18)
