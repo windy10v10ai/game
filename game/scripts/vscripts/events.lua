@@ -658,6 +658,10 @@ end
 
 function AIGameMode:OnPlayerReconnect(keys)
     local playerID = keys.PlayerID
+    if not self.tHumanPlayerList[playerID] then
+        DisconnectClient(playerID, true)
+        return
+    end
     local new_state = GameRules:State_Get()
     if new_state > DOTA_GAMERULES_STATE_HERO_SELECTION then
         if PlayerResource:IsValidPlayer(playerID) then
