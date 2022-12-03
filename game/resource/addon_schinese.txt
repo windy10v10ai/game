@@ -1200,7 +1200,7 @@
 
         // item_dodo_desolator 黯灭头
 		"DOTA_Tooltip_Ability_item_dodo_desolator"				"黯灭头"
-		"DOTA_Tooltip_ability_item_dodo_desolator_Description"						"<h1>被动：dodo的爱</h1>物理攻击将降低目标%corruption_armor%点护甲，持续%corruption_duration%秒。\n<h1>被动：灵魂窃取</h1>黯灭在装备后每次击杀英雄获得+%bonus_damage_per_kill%点攻击力，每次助攻获得+%bonus_damage_per_assist%点攻击力，最多获得%max_damage%点。"
+		"DOTA_Tooltip_ability_item_dodo_desolator_Description"						"<h1>被动：dodo的爱</h1>物理攻击将降低目标%corruption_armor%点护甲，持续%corruption_duration%秒。\n<h1>被动：灵魂窃取</h1>黯灭在装备后每次有英雄死于毁蚀效果下就会+%bonus_damage_per_kill%点攻击力，最多获得%max_damage%点。"
 		"DOTA_Tooltip_ability_item_dodo_desolator_Lore"							"是某个女人的头发。"
 		"DOTA_Tooltip_ability_item_dodo_desolator_Note0"								"护甲降低效果对建筑有效。"
 		//"DOTA_Tooltip_ability_item_dodo_desolator_corruption_armor"					"ARMOR REDUCTION:"
@@ -1208,7 +1208,7 @@
 
 		// item_infernal_desolator 绝对破防之刃
 		"DOTA_Tooltip_Ability_item_infernal_desolator"				"绝对破防之刃"
-		"DOTA_Tooltip_ability_item_infernal_desolator_Description"						"<h1>被动：绝对腐蚀</h1>物理攻击将降低目标%corruption_armor%点护甲，持续%corruption_duration%秒。\n<h1>被动：灵魂窃取</h1>黯灭在装备后每次击杀英雄获得+%bonus_damage_per_kill%点攻击力，每次助攻获得+%bonus_damage_per_assist%点攻击力，最多获得%max_damage%点。"
+		"DOTA_Tooltip_ability_item_infernal_desolator_Description"						"<h1>被动：绝对腐蚀</h1>物理攻击将降低目标%corruption_armor%点护甲，持续%corruption_duration%秒。\n<h1>被动：灵魂窃取</h1>黯灭在装备后每次有英雄死于毁蚀效果下就会+%bonus_damage_per_kill%点攻击力，最多获得%max_damage%点。"
 		"DOTA_Tooltip_ability_item_infernal_desolator_Lore"							"上百护甲，一秒打穿。"
 		"DOTA_Tooltip_ability_item_infernal_desolator_Note0"								"护甲降低效果对建筑有效。"
 		//"DOTA_Tooltip_ability_item_infernal_desolator_corruption_armor"					"ARMOR REDUCTION:"
