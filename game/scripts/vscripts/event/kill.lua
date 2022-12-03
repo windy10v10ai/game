@@ -271,7 +271,7 @@ local function HeroKilled(keys)
             teamKillFactor = 4
         end
         extraFactor = extraFactor * teamKillFactor
-        extraFactor = extraFactor * 10 / AIGameMode.playerNumber
+        extraFactor = extraFactor * AIGameMode.playerNumber / 10
 
         gold = gold * extraFactor
         xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId) * extraFactor
