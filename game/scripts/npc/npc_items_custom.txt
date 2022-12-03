@@ -2781,7 +2781,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2500"
+		"ItemCost"						"3250"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2825,7 +2825,7 @@
 			"corruption_duration"	"9.0"
 			"bonus_damage_per_kill"	"5"
 			"bonus_damage_per_assist"	"2"
-			"max_damage"			"50"
+			"max_damage"			"100"
 		}
 	}
 
@@ -4878,7 +4878,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3750"
+		"ItemCost"						"2900"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4887,7 +4887,7 @@
 		"ItemResult"					"item_dodo_desolator"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator"
+			"01"						"item_desolator;item_demon_edge"
 		}
 	}
 
@@ -4922,7 +4922,7 @@
 				"corruption_duration"	"8.0"
 				"bonus_damage_per_kill"	"3"
 				"bonus_damage_per_assist"	"2"
-				"max_damage"			"30"
+				"max_damage"			"50"
 		}
 	}
 
