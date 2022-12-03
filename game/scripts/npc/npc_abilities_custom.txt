@@ -1840,8 +1840,8 @@
 		"AbilityCastPoint"	"0.1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate"	"1.5"
-		"AbilityCooldown"	"7"
-		"AbilityManaCost"	"60 80 100 120 140 160 180"
+		"AbilityCooldown"	"8"
+		"AbilityManaCost"	"80 100 120 140 160 180 200"
 		"AbilityCastRange"	"%cast_range"
 		"precache"
 		{
@@ -1858,7 +1858,7 @@
 			}
 			"stun_duration"
 			{
-				"value"						"0"
+				"value"						"0.2"
 				"special_bonus_unique_yukari_01_stun" "+0.8"
 			}
 			"speed"			"1200"
@@ -1906,7 +1906,7 @@
 		// Ability Resource
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"20 19 18 17 16 15 14"
-		"AbilityManaCost"	"80 100 120 140 160 180 200"
+		"AbilityManaCost"	"100 120 140 160 180 200 220"
 		"AbilityCastRange"	"1200"
 		// Damage
 		// -------------------------------------------------------------------------------------------------------------
@@ -1914,21 +1914,15 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			// "damage"
-			// {
-			// 	"value"						"30 40 50 60 70 80 90"
-			// 	"special_bonus_unique_yukari_tentacles_damage"	"+30"
-			// }
 			"damage_per_second"
 			{
-				"value"						"75 100 125 150 175 200 225"
-				"special_bonus_unique_yukari_tentacles_damage"	"+75"
+				"value"						"50 75 100 125 150 175 200"
+				"special_bonus_unique_yukari_tentacles_damage"	"+50"
 			}
 			"radius"	"400"
 			"duration"	"4"
 			"root"		"-40"
 			"tick_rate"	"0.5"
-			// "intelligence"	"0.1"
 			"intelligence_per_second"	"0.2"
 		}
 	}
