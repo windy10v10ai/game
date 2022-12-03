@@ -185,15 +185,15 @@ local function HeroKilled(keys)
         if iLevel <= 10 then
             gold = 5 + iLevel * 0.5
         elseif iLevel <= 20 then
-            gold = 10 + (iLevel - 10) * 0.8
+            gold = 10 + (iLevel - 10) * 1
         elseif iLevel <= 30 then
-            gold = 18 + (iLevel - 20) * 2
+            gold = 20 + (iLevel - 20) * 1.5
         elseif iLevel <= 50 then
-            gold = 38 + (iLevel - 30) * 8
+            gold = 35 + (iLevel - 30) * 2
         else
-            gold = 198
+            gold = 75
         end
-        gold = math.min(gold, 198)
+        gold = math.min(gold, 75)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
                     PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
