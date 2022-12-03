@@ -58,6 +58,9 @@
 					<Label text="#custom_game_team_select_cancel_unlock" />
 				</Button>
 
+				<!-- playerPanel background -->
+				<Panel id="UnassignedPlayersContainer"/>
+
 			</Panel>
 		</Panel>
 	</Panel>
