@@ -18,7 +18,7 @@
 	npc_dota_hero_visage.vo.HiddenSharp.Cast =
 	{
 		type = "dota_src1_2d"
-		volume = 10.000000
+		volume = 7.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -34,7 +34,7 @@
 	npc_dota_hero_visage.vo.Sally.Cast =
 	{
 		type = "dota_src1_2d"
-		volume = 10.000000
+		volume = 7.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -48,7 +48,7 @@
 	npc_dota_hero_visage.vo.item_ultimate_scepter =
 	{
 		type = "dota_src1_2d"
-		volume = 10.000000
+		volume = 7.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -61,7 +61,7 @@
 	npc_dota_hero_visage.vo.item_aghanims_shard =
 	{
 		type = "dota_src1_2d"
-		volume = 10.000000
+		volume = 7.000000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
@@ -75,7 +75,7 @@
 	npc_dota_hero_visage.vo.Attack =
 	{
 		type = "dota_src1_2d"
-		volume = 10.00000
+		volume = 7.00000
 		pitch = 1.000000
 		soundlevel = 81.000000
 		pitch_rand_min = -0.0500
