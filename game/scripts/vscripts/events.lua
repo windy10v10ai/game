@@ -906,9 +906,6 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
         print("Cheat mode is on, no season point will be given")
         return 0
     end
-    if AIGameMode.sumTowerPower < 6 then
-        points = points * 0.5
-    end
     if AIGameMode.iDesiredDire < 10 then
         points = points * AIGameMode.iDesiredDire / 10
     end
