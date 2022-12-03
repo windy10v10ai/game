@@ -1,0 +1,261 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	miku.1.3d =
+	{
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/miku_1_alt.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+	}
+	miku.1_calne.3d =
+	{
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/miku/arcana_sounds/popi_2.vsnd",
+			"sounds/miku/arcana_sounds/popi_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+	}
+	miku.5_5.3d =
+	{
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/miku_3_alt.vsnd",
+			"sounds/miku_3_alt2.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+	}
+
+	miku.1 =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku_1_alt.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 1.608000
+	}
+	miku.2 =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku_2.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 1.008000
+	}
+	miku.3_1 =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku3_1.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 1.800000
+	}
+	miku.3_2 =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku3_2.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 1.320000
+	}
+	miku.3_3 =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku3_3.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 1.776000
+	}
+	miku.song_1 =
+	{
+		type = "src1_3d"
+		vsnd_files =
+		[
+			"sounds/miku_song_1.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1000.000000"
+		event_type = "1.000000"
+		vsnd_duration = 119.255997
+	}
+	miku.song_2 =
+	{
+		type = "src1_3d"
+		vsnd_files =
+		[
+			"sounds/miku_song_2.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1000.000000"
+		event_type = "1.000000"
+		vsnd_duration = 118.512001
+	}
+	miku.song_3 =
+	{
+		type = "src1_3d"
+		vsnd_files =
+		[
+			"sounds/miku_song_3.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1000.000000"
+		event_type = "1.000000"
+		vsnd_duration = 119.639999
+	}
+	miku.5_5 =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku_3_alt.vsnd",
+			"sounds/miku_3_alt2.vsnd",
+		]
+		volume = "2.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 1.416000
+	}
+	miku.6 =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku_6.vsnd",
+		]
+		volume = "0.500000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 32.375999
+	}
+	miku.1_calne =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku/arcana_sounds/popi_2.vsnd",
+			"sounds/miku/arcana_sounds/popi_3.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 1.488000
+	}
+	miku.4_calne_1 =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku/arcana_sounds/calne_4.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 80.760002
+	}
+	miku.strike_arcana =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku/arcana_sounds/piz_2.vsnd",
+		]
+		volume = "2.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 2.016000
+	}
+	miku.4_calne_2 =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku/arcana_sounds/calne_5.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 116.975998
+	}
+	miku.6_calne_base =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku/arcana_sounds/calne_agan_2.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 34.200001
+	}
+	miku.6_calne_ult =
+	{
+		type = "src1_2d"
+		vsnd_files =
+		[
+			"sounds/miku/arcana_sounds/calne_agan.vsnd",
+		]
+		volume = "1.000000"
+		soundlevel = "100.000000"
+		distance_max = "1600.000000"
+		event_type = "1.000000"
+		vsnd_duration = 29.903999
+	}
+}

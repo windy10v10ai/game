@@ -614,7 +614,6 @@
 		"precache"
 		{
 			"soundfile"	"soundevents/Hatsune_miku.vsndevts"
-			"soundfile"	"soundevents/Hatsune_miku_1.vsndevts"
 		    "particle"	"particles/hadouken1.vpcf"
 		    "particle"	"particles/hadouken2.vpcf"
 		    "particle"	"particles/hadouken3.vpcf"
