@@ -2825,7 +2825,7 @@
 			"corruption_duration"	"9.0"
 			"bonus_damage_per_kill"	"5"
 			"bonus_damage_per_assist"	"2"
-			"max_damage"			"100"
+			"max_damage"			"80"
 		}
 	}
 
