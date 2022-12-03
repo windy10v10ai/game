@@ -73,16 +73,16 @@ function OnShufflePlayersPressed()
 function FindOrCreatePanelForPlayer( playerId, parent )
 {
 	// Search the list of player player panels for one witht the specified player id
-	// for ( var i = 0; i < g_PlayerPanels.length; ++i )
-	// {
-	// 	var playerPanel = g_PlayerPanels[ i ];
+	for ( var i = 0; i < g_PlayerPanels.length; ++i )
+	{
+		var playerPanel = g_PlayerPanels[ i ];
 
-	// 	if ( playerPanel.GetAttributeInt( "player_id", -1 ) == playerId )
-	// 	{
-	// 		playerPanel.SetParent( parent );
-	// 		return playerPanel;
-	// 	}
-	// }
+		if ( playerPanel && playerPanel.GetAttributeInt( "player_id", -1 ) == playerId )
+		{
+			playerPanel.SetParent( parent );
+			return playerPanel;
+		}
+	}
 
 	// Create a new player panel for the specified player id if an existing one was not found
 	var newPlayerPanel = $.CreatePanel( "Panel", parent, "player_root" );
@@ -148,7 +148,7 @@ function UpdateTeamPanel( teamPanel )
 		if ( playerSlot.GetChildCount() == 0 )
 		{
 			var empty_slot = $.CreatePanel( "Panel", playerSlot, "player_root" );
-			empty_slot.BLoadLayout( "file://{resources}/layout/custom_game/team_select_empty_slot.xml", false, false );
+			empty_slot.BLoadLayout( "s2r://panorama/layout/custom_game/team_select_empty_slot.xml", false, false );
 		}
 	}
 
@@ -171,25 +171,25 @@ function UpdateTeamPanel( teamPanel )
 //--------------------------------------------------------------------------------------------------
 function OnTeamPlayerListChanged()
 {
-	// var unassignedPlayersContainerNode = $( "#UnassignedPlayersContainer" );
-	// if ( unassignedPlayersContainerNode === null )
-	// 	return;
+	var unassignedPlayersContainerNode = $( "#UnassignedPlayersContainer" );
+	if ( unassignedPlayersContainerNode === null )
+		return;
 
-	// // Move all existing player panels back to the unassigned player list
-	// for ( var i = 0; i < g_PlayerPanels.length; ++i )
-	// {
-	// 	var playerPanel = g_PlayerPanels[ i ];
-	// 	playerPanel.SetParent( unassignedPlayersContainerNode );
-	// }
+	// Move all existing player panels back to the unassigned player list
+	for ( var i = 0; i < g_PlayerPanels.length; ++i )
+	{
+		var playerPanel = g_PlayerPanels[ i ];
+		playerPanel.SetParent( unassignedPlayersContainerNode );
+	}
 
 	// Make sure all of the unassigned player have a player panel
 	// and that panel is a child of the unassigned player panel.
 	var unassignedPlayers = Game.GetUnassignedPlayerIDs();
-	// for ( var i = 0; i < unassignedPlayers.length; ++i )
-	// {
-	// 	var playerId = unassignedPlayers[ i ];
-	// 	FindOrCreatePanelForPlayer( playerId, unassignedPlayersContainerNode );
-	// }
+	for ( var i = 0; i < unassignedPlayers.length; ++i )
+	{
+		var playerId = unassignedPlayers[ i ];
+		FindOrCreatePanelForPlayer( playerId, unassignedPlayersContainerNode );
+	}
 
 	// Update all of the team panels moving the player panels for the
 	// players assigned to each team to the corresponding team panel.
@@ -206,26 +206,26 @@ function OnTeamPlayerListChanged()
 
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
-function OnPlayerSelectedTeam( nPlayerId, nTeamId, bSuccess )
-{
-	var playerInfo = Game.GetLocalPlayerInfo();
-	if ( !playerInfo )
-		return;
+// function OnPlayerSelectedTeam( nPlayerId, nTeamId, bSuccess )
+// {
+// 	var playerInfo = Game.GetLocalPlayerInfo();
+// 	if ( !playerInfo )
+// 		return;
 
-	// Check to see if the event is for the local player
-	if ( playerInfo.player_id === nPlayerId )
-	{
-		// Play a sound to indicate success or failure
-		if ( bSuccess )
-		{
-			Game.EmitSound( "ui_team_select_pick_team" );
-		}
-		else
-		{
-			Game.EmitSound( "ui_team_select_pick_team_failed" );
-		}
-	}
-}
+// 	// Check to see if the event is for the local player
+// 	if ( playerInfo.player_id === nPlayerId )
+// 	{
+// 		// Play a sound to indicate success or failure
+// 		if ( bSuccess )
+// 		{
+// 			Game.EmitSound( "ui_team_select_pick_team" );
+// 		}
+// 		else
+// 		{
+// 			Game.EmitSound( "ui_team_select_pick_team_failed" );
+// 		}
+// 	}
+// }
 
 
 //--------------------------------------------------------------------------------------------------
@@ -362,7 +362,7 @@ function OnGameLoadingStatusChange(table, key, value) {
 	$.RegisterForUnhandledEvent( "DOTAGame_TeamPlayerListChanged", OnTeamPlayerListChanged );
 
 	// Register a listener for the event which is broadcast whenever a player attempts to pick a team
-	$.RegisterForUnhandledEvent( "DOTAGame_PlayerSelectedCustomTeam", OnPlayerSelectedTeam );
+	// $.RegisterForUnhandledEvent( "DOTAGame_PlayerSelectedCustomTeam", OnPlayerSelectedTeam );
 
 	// 游戏数据加载状态监听
 	CustomNetTables.SubscribeNetTableListener("loading_status", OnGameLoadingStatusChange);

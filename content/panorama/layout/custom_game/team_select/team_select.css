@@ -14,3 +14,7 @@
 {
 	font-size: 18px;
 }
+#UnassignedPlayersContainer
+{
+	visibility: collapse;
+}
