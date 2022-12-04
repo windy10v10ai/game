@@ -424,7 +424,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
+		"ItemCost"						"2300"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -456,7 +456,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
-		"ItemCost"						"5000"
+		"ItemCost"						"5800"
 		"ItemShopTags"					"damage;armor;int;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bm;blade mail;blademail"
@@ -470,7 +470,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"40"
+				"bonus_damage"			"56"
 			}
 			"02"
 			{
@@ -647,7 +647,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2075"
+		"ItemCost"						"2225"
 		"ItemShopTags"					""
 
 		// Recipe
