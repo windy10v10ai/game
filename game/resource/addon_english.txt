@@ -14,8 +14,8 @@
 		"addon_option_title"	"Game Options"
 		"addon_option_title_br"	""
 
-		"game_difficulty_title"	"difficulty challenge "
-		"game_difficulty_n0"	"Custome"
+		"game_difficulty_title"	"Challenge Difficulty"
+		"game_difficulty_n0"	"Custom"
 		"game_difficulty_n1"	"N1"
 		"game_difficulty_n2"	"N2"
 		"game_difficulty_n3"	"N3"
