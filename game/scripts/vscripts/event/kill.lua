@@ -230,28 +230,22 @@ local function HeroKilled(keys)
         local xp = 0
 
         -- 基础值
-        if GameTime <= 5 * 60 then
+        if GameTime <= 3 * 60 then
             gold = 10
             xp = 20
-        elseif GameTime <= 10 * 60 then
+        elseif GameTime <= 6 * 60 then
             gold = 20
             xp = 40
-        elseif GameTime <= 15 * 60 then
-            gold = 30
-            xp = 60
-        else
+        elseif GameTime <= 9 * 60 then
             gold = 40
             xp = 80
+        else
+            gold = 60
+            xp = 120
         end
 
-        local extraFactor = 1
         -- 连死次数补正
-        if deathCount <= 5 then
-            extraFactor = math.max(1, 1 + (deathCount - 3) * 0.25)
-        else
-            extraFactor = math.max(1, 1.5 + (deathCount - 5) * 0.5)
-        end
-        extraFactor = math.min(extraFactor, 5)
+        local extraFactor = math.max(1, deathCount - 3)
 
         -- 两边团队击杀数补正
         local playerTeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(attackerPlayerID))
@@ -259,22 +253,31 @@ local function HeroKilled(keys)
         local teamKillFactor = 1
         if playerTeamKill < AITeamKill then
             teamKillFactor = 0
-        elseif playerTeamKill < 2 * AITeamKill then
-            teamKillFactor = 0.5
-        elseif playerTeamKill - AITeamKill <= 10 then
-            teamKillFactor = 1
-        elseif playerTeamKill - AITeamKill <= 20 then
-            teamKillFactor = 2
-        elseif playerTeamKill - AITeamKill <= 40 then
-            teamKillFactor = 3
         else
-            teamKillFactor = 4
+            if playerTeamKill < 2 * AITeamKill then
+                teamKillFactor = 1
+            elseif playerTeamKill - AITeamKill <= 20 then
+                teamKillFactor = 2
+            elseif playerTeamKill - AITeamKill <= 40 then
+                teamKillFactor = 3
+            elseif playerTeamKill - AITeamKill <= 60 then
+                teamKillFactor = 4
+            elseif playerTeamKill - AITeamKill <= 80 then
+                teamKillFactor = 5
+            elseif playerTeamKill - AITeamKill <= 100 then
+                teamKillFactor = 6
+            else
+                teamKillFactor = 8
+            end
         end
-        extraFactor = extraFactor * teamKillFactor
-        extraFactor = extraFactor * AIGameMode.playerNumber / 10
+        local totalFactor = extraFactor + teamKillFactor
+        totalFactor = math.max(totalFactor, 0)
+        totalFactor = math.min(totalFactor, 10)
+        totalFactor = totalFactor * (AIGameMode.playerNumber - 1) / 9
 
-        gold = gold * extraFactor
-        xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId) * extraFactor
+
+        gold = gold * totalFactor
+        xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId) * totalFactor
 
         if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and
                 PlayerResource:GetSelectedHeroEntity(playerId) then
