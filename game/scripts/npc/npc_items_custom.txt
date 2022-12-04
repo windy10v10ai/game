@@ -2125,7 +2125,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1950"
+		"ItemCost"						"2950"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2150,7 +2150,7 @@
 		"AbilityTextureName" 			"magic_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_magic_scepter.lua"
+		"ScriptFile"                    "items/item_magic_scepter"
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
@@ -2159,7 +2159,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 
-		"ItemCost"						"6700"
+		"ItemCost"						"7800"
 		"ItemShopTags"					"int;mana"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"magic scepter"
@@ -2174,7 +2174,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_intelligence"		"50"
+				"bonus_intelligence"		"60"
 			}
 			"02"
 			{
@@ -2208,7 +2208,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2200"
+		"ItemCost"						"5000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2217,7 +2217,7 @@
 		"ItemResult"					"item_hallowed_scepter"
 		"ItemRequirements"
 		{
-			"01"						"item_magic_scepter;item_mystic_staff;item_mystic_staff"
+			"01"						"item_magic_scepter;item_mystic_staff"
 		}
 	}
 
@@ -2234,7 +2234,7 @@
 		"AbilityTextureName" 			"hallowed_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_hallowed_scepter.lua"
+		"ScriptFile"                    "items/item_hallowed_scepter"
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
@@ -2243,7 +2243,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 
-		"ItemCost"						"14600"
+		"ItemCost"						"15600"
 		"ItemShopTags"					"int;mana"
 		"ItemQuality"					"hallowed"
 		"ItemAliases"					"hallowed scepter"
@@ -2258,7 +2258,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_intelligence"		"100"
+				"bonus_intelligence"		"120"
 			}
 			"02"
 			{
@@ -5740,7 +5740,7 @@
         "Model"							"models/props_gameplay/recipe.vmdl"
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"2000"
+        "ItemCost"						"3000"
         "ItemShopTags"					""
 
         // Recipe
@@ -5776,7 +5776,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"10800"
+        "ItemCost"						"11800"
         "ItemShopTags"					"regen_health;regen_mana;mana_pool;health_pool"
         "ItemQuality"					"epic"
         "ItemAliases"					"bs;bloodstone"
@@ -5792,12 +5792,12 @@
             "01"
             {
                 "var_type"				"FIELD_INTEGER"
-                "bonus_health"		"1200"
+                "bonus_health"		"1300"
             }
             "02"
             {
                 "var_type"				"FIELD_INTEGER"
-                "bonus_mana"		"1200"
+                "bonus_mana"		"1300"
             }
             "03"
             {
