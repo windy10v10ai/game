@@ -1026,6 +1026,12 @@
 		"ID"							"73"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxUpgradeLevel"				"2"
+		"ItemBaseLevel"					"1"
+		"ItemLevelByGameTime"			"10"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"550"
@@ -1080,6 +1086,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"75"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxUpgradeLevel"				"2"
+		"ItemBaseLevel"					"1"
+		"ItemLevelByGameTime"			"10"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -1136,6 +1148,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"77"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxUpgradeLevel"				"2"
+		"ItemBaseLevel"					"1"
+		"ItemLevelByGameTime"			"10"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
