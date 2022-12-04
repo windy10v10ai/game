@@ -69,9 +69,6 @@
 		"loading_status_2"				"Player data loaded successfully!"
 		"loading_status_3"				"Player data loading failed, please use the Dedicated Server to restart a game."
 
-		"anniversary_text1"				"  Two-year anniversary celebration, have fun!"
-		"anniversary_text2"				"· All players can enjoy free membership effects. Event Period: From December 3 to December 5 (GMT+0)"
-		"anniversary_text3"				"· Specify the difficulty challenge and get multiplied season points. Event period: One week after this update until the next update."
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		//            Hero Selection
