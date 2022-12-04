@@ -180,7 +180,6 @@ local function HeroKilled(keys)
     -- 玩家团队奖励逻辑
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
         -- 前期增长慢，电脑等级较高时，增长快
-        -- 30级时电脑天赋学满，战斗力基本开始成型了，这时打野的钱本身也变多了
         local gold = 0
         if iLevel <= 10 then
             gold = 5 + iLevel * 0.5
@@ -193,11 +192,11 @@ local function HeroKilled(keys)
         else
             gold = 75
         end
-        gold = math.min(gold, 75)
+        gold = math.ceil(gold)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
                     PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
-                GameRules:ModifyGoldFiltered(playerID, gold, true, DOTA_ModifyGold_CreepKill)
+                GameRules:ModifyGoldFiltered(playerID, gold, true, DOTA_ModifyGold_HeroKill)
                 local playerHero = PlayerResource:GetSelectedHeroEntity(playerID)
                 SendOverheadEventMessage(playerHero, OVERHEAD_ALERT_GOLD, playerHero, gold * AIGameMode:GetPlayerGoldXpMultiplier(playerID), playerHero)
             end
@@ -260,8 +259,8 @@ local function HeroKilled(keys)
         totalFactor = totalFactor * (AIGameMode.playerNumber - 1) / 9
 
 
-        gold = gold * totalFactor
-        xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId) * totalFactor
+        gold = math.ceil(gold * totalFactor)
+        xp = math.ceil(xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId) * totalFactor)
 
         if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and
                 PlayerResource:GetSelectedHeroEntity(playerId) then
