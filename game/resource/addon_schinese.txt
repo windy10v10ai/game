@@ -14,7 +14,7 @@
 		"addon_option_title"	"游戏选项"
 		"addon_option_title_br"	""
 
-		"game_difficulty_title"	"难度挑战"
+		"game_difficulty_title"	"挑战难度"
 		"game_difficulty_n0"	"自定义"
 		"game_difficulty_n1"	"N1"
 		"game_difficulty_n2"	"N2"
