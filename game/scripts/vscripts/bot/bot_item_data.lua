@@ -1037,8 +1037,6 @@ tBotItemData.purchaseItemList = {
 		'item_undying_heart',
 		'item_wasp_despotic',
 		'item_wasp_callous',
-		'item_silver_edge_2',
-		'item_shivas_guard_2',
 		'item_jump_jump_jump',
 	},
 	-- 未启用

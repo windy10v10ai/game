@@ -35,7 +35,7 @@ local function OnFortKilled(winnerTeam)
     if IsServer() then
         local endData = AIGameMode:EndScreenStats(winnerTeam, true)
         -- 作弊模式不发送统计
-        if not GameRules:IsCheatMode() or AIGameMode.DebugMode then
+        if not AIGameMode:IsInvalidGame() then
             GameController:SendEndGameInfo(endData)
         end
     end
@@ -180,7 +180,6 @@ local function HeroKilled(keys)
     -- 玩家团队奖励逻辑
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
         -- 前期增长慢，电脑等级较高时，增长快
-        -- 30级时电脑天赋学满，战斗力基本开始成型了，这时打野的钱本身也变多了
         local gold = 0
         if iLevel <= 10 then
             gold = 5 + iLevel * 0.5
@@ -193,11 +192,11 @@ local function HeroKilled(keys)
         else
             gold = 75
         end
-        gold = math.min(gold, 75)
+        gold = math.ceil(gold)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
                     PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
-                GameRules:ModifyGoldFiltered(playerID, gold, true, DOTA_ModifyGold_CreepKill)
+                GameRules:ModifyGoldFiltered(playerID, gold, true, DOTA_ModifyGold_HeroKill)
                 local playerHero = PlayerResource:GetSelectedHeroEntity(playerID)
                 SendOverheadEventMessage(playerHero, OVERHEAD_ALERT_GOLD, playerHero, gold * AIGameMode:GetPlayerGoldXpMultiplier(playerID), playerHero)
             end
@@ -230,51 +229,38 @@ local function HeroKilled(keys)
         local xp = 0
 
         -- 基础值
-        if GameTime <= 5 * 60 then
+        if GameTime <= 3 * 60 then
             gold = 10
             xp = 20
-        elseif GameTime <= 10 * 60 then
+        elseif GameTime <= 6 * 60 then
             gold = 20
             xp = 40
-        elseif GameTime <= 15 * 60 then
-            gold = 30
-            xp = 60
-        else
+        elseif GameTime <= 9 * 60 then
             gold = 40
             xp = 80
+        else
+            gold = 60
+            xp = 120
         end
 
-        local extraFactor = 1
         -- 连死次数补正
-        if deathCount <= 5 then
-            extraFactor = math.max(1, 1 + (deathCount - 3) * 0.25)
-        else
-            extraFactor = math.max(1, 1.5 + (deathCount - 5) * 0.5)
-        end
-        extraFactor = math.min(extraFactor, 5)
+        local extraFactor = math.max(1, deathCount - 3)
 
         -- 两边团队击杀数补正
         local playerTeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(attackerPlayerID))
         local AITeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(playerId))
-        local teamKillFactor = 1
-        if playerTeamKill < AITeamKill then
-            teamKillFactor = 0
-        elseif playerTeamKill < 2 * AITeamKill then
-            teamKillFactor = 0.5
-        elseif playerTeamKill - AITeamKill <= 10 then
-            teamKillFactor = 1
-        elseif playerTeamKill - AITeamKill <= 20 then
-            teamKillFactor = 2
-        elseif playerTeamKill - AITeamKill <= 40 then
-            teamKillFactor = 3
-        else
-            teamKillFactor = 4
-        end
-        extraFactor = extraFactor * teamKillFactor
-        extraFactor = extraFactor * AIGameMode.playerNumber / 10
+        local teamKillFactor = playerTeamKill / (AITeamKill + 1) - 1
 
-        gold = gold * extraFactor
-        xp = xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId) * extraFactor
+        -- 补正之和在0-10之间
+        local totalFactor = extraFactor + teamKillFactor
+        totalFactor = math.max(totalFactor, 0)
+        totalFactor = math.min(totalFactor, 10)
+        -- 玩家数量减少时降低整倍率
+        totalFactor = totalFactor * (AIGameMode.playerNumber - 1) / 9
+
+
+        gold = math.ceil(gold * totalFactor)
+        xp = math.ceil(xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId) * totalFactor)
 
         if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and
                 PlayerResource:GetSelectedHeroEntity(playerId) then

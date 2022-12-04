@@ -902,15 +902,14 @@ end
 function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
     local points = playerInfo.points
 
-    if GameRules:IsCheatMode() and not AIGameMode.DebugMode then
-        print("Cheat mode is on, no season point will be given")
+    if AIGameMode:IsInvalidGame() then
         return 0
     end
     if AIGameMode.iDesiredDire < 10 then
         points = points * AIGameMode.iDesiredDire / 10
     end
 
-    if GameRules:GetDOTATime(false, true) < 15 * 60 then
+    if GameRules:GetDOTATime(false, true) < 10 * 60 then
         points = points * 0.5
     end
     if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
@@ -930,6 +929,21 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
         points = points * 3.0
     end
     return math.ceil(points)
+end
+
+function AIGameMode:IsInvalidGame()
+    if AIGameMode.DebugMode then
+        return false
+    end
+
+    if GameRules:IsCheatMode() then
+        return true
+    end
+
+    if GameRules:GetDOTATime(false, true) < 5 * 60 then
+        return true
+    end
+    return false
 end
 
 function AIGameMode:StackToPercentage(iStackCount)

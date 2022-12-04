@@ -1,5 +1,6 @@
 "use strict";
 
+var init = false;
 /** 下拉框事件 */
 function OnDifficultyDropDownChanged() {
 	let optionValue = $("#game_difficulty_dropdown").GetSelected().text;
@@ -97,7 +98,9 @@ function ShowChatTeamActivate() {
 function InitSetting() {
 	$("#player_gold_xp_multiplier_dropdown").SetSelected("1");
 	$("#bot_gold_xp_multiplier_dropdown").SetSelected("5");
-	$("#radiant_player_number_dropdown").SetSelected("10");
+	if (!init) {
+		$("#radiant_player_number_dropdown").SetSelected("10");
+	}
 	$("#dire_player_number_dropdown").SetSelected("10");
 
 	$("#respawn_time_percentage_dropdown").SetSelected("80");
@@ -116,12 +119,15 @@ function InitSetting() {
 	if (Game.IsInToolsMode()) {
 		$("#player_gold_xp_multiplier_dropdown").SetSelected("2");
 		$("#bot_gold_xp_multiplier_dropdown").SetSelected("2");
-		$("#radiant_player_number_dropdown").SetSelected("1");
+		if (!init) {
+			$("#radiant_player_number_dropdown").SetSelected("1");
+		}
 		$("#dire_player_number_dropdown").SetSelected("1");
 		$("#starting_gold_bot_dropdown").SetSelected("3000");
 		$("#tower_power_dropdown").SetSelected("5");
 		$("#tower_endure_dropdown").SetSelected("5");
 	}
+	init = true;
 }
 
 // -------- Difficulty Setting --------
@@ -129,7 +135,7 @@ function InitSetting() {
 function LockOption() {
 	$("#player_gold_xp_multiplier_dropdown").enabled=false;
 	$("#bot_gold_xp_multiplier_dropdown").enabled=false;
-	$("#radiant_player_number_dropdown").enabled=false;
+	// $("#radiant_player_number_dropdown").enabled=false;
 	$("#dire_player_number_dropdown").enabled=false;
 
 	$("#respawn_time_percentage_dropdown").enabled=false;
@@ -148,7 +154,7 @@ function LockOption() {
 function UnLockOption() {
 	$("#player_gold_xp_multiplier_dropdown").enabled=true;
 	$("#bot_gold_xp_multiplier_dropdown").enabled=true;
-	$("#radiant_player_number_dropdown").enabled=true;
+	// $("#radiant_player_number_dropdown").enabled=true;
 	$("#dire_player_number_dropdown").enabled=true;
 
 	$("#respawn_time_percentage_dropdown").enabled=true;
@@ -165,7 +171,7 @@ function UnLockOption() {
 }
 
 function InitDifficultyCommonSetting() {
-	$("#radiant_player_number_dropdown").SetSelected("10");
+	// $("#radiant_player_number_dropdown").SetSelected("10");
 	$("#dire_player_number_dropdown").SetSelected("10");
 
 	$("#respawn_time_percentage_dropdown").SetSelected("80");

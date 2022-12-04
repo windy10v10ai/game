@@ -798,6 +798,10 @@
 	{
 		"AbilitySharedCooldown"			"gungir"
 	}
+	"item_bloodstone"
+	{
+		"AbilitySharedCooldown"			"bloodstone"
+	}
 
 	"item_smoke_of_deceit"
 	{
@@ -1026,6 +1030,12 @@
 		"ID"							"73"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxUpgradeLevel"				"2"
+		"ItemBaseLevel"					"1"
+		"ItemLevelByGameTime"			"10"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"550"
@@ -1080,6 +1090,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"75"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxUpgradeLevel"				"2"
+		"ItemBaseLevel"					"1"
+		"ItemLevelByGameTime"			"10"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -1136,6 +1152,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"77"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxUpgradeLevel"				"2"
+		"ItemBaseLevel"					"1"
+		"ItemLevelByGameTime"			"10"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -5893,30 +5915,19 @@
 		"MaxLevel" "7"
 		"AbilityCooldown"				"9.0 8.0 7.0 6.0 5.0 4.0 3.0"
 		"AbilityDuration"				"21.0 24.0 27.0 30.0 32.0 34.0 36.0"
-		"AbilityManaCost"				"70 75 80 85 90 95 100"
+		"AbilityManaCost"				"90 100 110 120 130 140 150"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"decay_damage"					"20 50 80 110 130 150 170"
+				"decay_damage"					"40 80 120 160 200 240 280"
 				"LinkedSpecialBonus"			"special_bonus_unique_undying_8"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"str_steal"						"6"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"decay_duration"				"45"
-				"LinkedSpecialBonus"			"special_bonus_unique_undying_4"
 			}
 			"06"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"str_steal_scepter"				"15"
+				"str_steal_scepter"				"12"			// 8
 				"RequiresScepter"	"1"
 			}
 		}
