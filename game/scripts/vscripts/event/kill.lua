@@ -250,29 +250,13 @@ local function HeroKilled(keys)
         -- 两边团队击杀数补正
         local playerTeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(attackerPlayerID))
         local AITeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(playerId))
-        local teamKillFactor = 1
-        if playerTeamKill < AITeamKill then
-            teamKillFactor = 0
-        else
-            if playerTeamKill < 2 * AITeamKill then
-                teamKillFactor = 1
-            elseif playerTeamKill - AITeamKill <= 20 then
-                teamKillFactor = 2
-            elseif playerTeamKill - AITeamKill <= 40 then
-                teamKillFactor = 3
-            elseif playerTeamKill - AITeamKill <= 60 then
-                teamKillFactor = 4
-            elseif playerTeamKill - AITeamKill <= 80 then
-                teamKillFactor = 5
-            elseif playerTeamKill - AITeamKill <= 100 then
-                teamKillFactor = 6
-            else
-                teamKillFactor = 8
-            end
-        end
+        local teamKillFactor = playerTeamKill / (AITeamKill + 1) - 1
+
+        -- 补正之和在0-10之间
         local totalFactor = extraFactor + teamKillFactor
         totalFactor = math.max(totalFactor, 0)
         totalFactor = math.min(totalFactor, 10)
+        -- 玩家数量减少时降低整倍率
         totalFactor = totalFactor * (AIGameMode.playerNumber - 1) / 9
 
 
