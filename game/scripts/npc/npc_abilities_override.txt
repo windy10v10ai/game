@@ -798,6 +798,10 @@
 	{
 		"AbilitySharedCooldown"			"gungir"
 	}
+	"item_bloodstone"
+	{
+		"AbilitySharedCooldown"			"bloodstone"
+	}
 
 	"item_smoke_of_deceit"
 	{
