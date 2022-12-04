@@ -87,7 +87,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"		"items/item_moon_shard.lua"
+				"ScriptFile"		"items/item_moon_shard"
 				"Function"			"MoonShardOnSpell"
 
 				"modifier"			"modifier_item_moon_shard_datadriven_consumed"
@@ -194,7 +194,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"		"items/item_ultimate_scepter_2.lua"
+				"ScriptFile"		"items/item_ultimate_scepter_2"
 				"Function"			"Scepter2OnSpell"
 
 				"modifier"			"modifier_item_ultimate_scepter_2_consumed"
@@ -222,7 +222,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"		"items/item_ultimate_scepter_2.lua"
+						"ScriptFile"		"items/item_ultimate_scepter_2"
 						"Function"			"Scepter2OnCreated"
 					}
 				}
@@ -230,7 +230,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"		"items/item_ultimate_scepter_2.lua"
+						"ScriptFile"		"items/item_ultimate_scepter_2"
 						"Function"			"Scepter2OnDestroy"
 					}
 				}
@@ -304,7 +304,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"		"items/item_wings_of_haste.lua"
+				"ScriptFile"		"items/item_wings_of_haste"
 				"Function"			"WingsOfHasteOnSpell"
 
 				"modifier"			"modifier_item_wings_of_haste_consumed"
@@ -338,7 +338,7 @@
 	{
 		"ID"						"9029"
 		"BaseClass"					"item_lua"
-		"ScriptFile"				"items/item_royal_jelly_custom.lua"
+		"ScriptFile"				"items/item_royal_jelly_custom"
 		"AbilityTextureName"		"royal_jelly"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
@@ -385,7 +385,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"Model"						"models/props_gameplay/neutral_box.vmdl"
-		"ScriptFile"				"items/item_pirate_hat_custom.lua"
+		"ScriptFile"				"items/item_pirate_hat_custom"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -805,7 +805,7 @@
 							{
 								"RunScript"
 								{
-									"ScriptFile"	"items/item_vladmir_2.lua"
+									"ScriptFile"	"items/item_vladmir_2"
 									"Function"		"VampiricAuraApply"
 									"attack_damage"	"%attack_damage"
 								}
@@ -944,7 +944,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_lua"
-		"ScriptFile"                    "items/item_excalibur.lua"
+		"ScriptFile"                    "items/item_excalibur"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9048"
 		"AbilityTextureName"			"item_excalibur"
@@ -1038,7 +1038,7 @@
 		"ItemAliases"					"hot;heart of tarrasque"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"ScriptFile"                    "items/item_undying_heart.lua"
+		"ScriptFile"                    "items/item_undying_heart"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1233,7 +1233,7 @@
 			// }
 			"RunScript"
 			{
-				"ScriptFile"  "items/item_force_staff.lua"
+				"ScriptFile"  "items/item_force_staff"
 				"Function"	"ForceStaff"
 				"Target"	"TARGET"
 			}
@@ -1241,7 +1241,7 @@
 			// For this: gfycat.com/BraveHideousGiantschnauzer -> check: bit.ly/1KWulqA
 			{
 				"Target"		"TARGET"
-				"ScriptFile"	"items/item_force_staff.lua"
+				"ScriptFile"	"items/item_force_staff"
 				"HorizontalControlFunction" "ForceHorizontal"
 			}
 		}
@@ -1432,7 +1432,7 @@
 			// }
 			"RunScript"
 			{
-				"ScriptFile"  "items/item_force_staff.lua"
+				"ScriptFile"  "items/item_force_staff"
 				"Function"	"ForceStaff"
 				"Target"	"TARGET"
 			}
@@ -1440,7 +1440,7 @@
 			// For this: gfycat.com/BraveHideousGiantschnauzer -> check: bit.ly/1KWulqA
 			{
 				"Target"		"TARGET"
-				"ScriptFile"	"items/item_force_staff.lua"
+				"ScriptFile"	"items/item_force_staff"
 				"HorizontalControlFunction" "ForceHorizontal"
 			}
 		}
@@ -1975,7 +1975,7 @@
 		"AbilityTextureName" 			"dragon_lance_plus"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_dragon_lance_plus.lua"
+		"ScriptFile"                    "items/item_dragon_lance_plus"
 
 		"AbilityCooldown"				"20.0"
 		"AbilityManaCost"				"60"
@@ -2062,7 +2062,7 @@
 		"AbilityTextureName" 			"dragon_lance_pro_max"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_dragon_lance_pro_max.lua"
+		"ScriptFile"                    "items/item_dragon_lance_pro_max"
 
 		"AbilityCooldown"				"20.0"
 		"AbilityManaCost"			    "120"
@@ -2338,7 +2338,7 @@
 	{
 		"ID"						"3027"
 		"BaseClass"					"item_lua"
-		"ScriptFile"                    		"items/item_tome_of_agility.lua"
+		"ScriptFile"                    		"items/item_tome_of_agility"
 		"AbilityTextureName"		    		"tome_of_agility"
 		"ItemCost"					"19999"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -2369,7 +2369,7 @@
 	{
 		"ID"						"3028"
 		"BaseClass"					"item_lua"
-		"ScriptFile"                    		"items/item_tome_of_intelligence.lua"
+		"ScriptFile"                    		"items/item_tome_of_intelligence"
 		"AbilityTextureName"		   		"tome_of_intelligence"
 		"ItemCost"					"19999"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -2400,7 +2400,7 @@
 	{
 		"ID"						"3029"
 		"BaseClass"					"item_lua"
-		"ScriptFile"                    		"items/item_tome_of_strength.lua"
+		"ScriptFile"                    		"items/item_tome_of_strength"
 		"AbilityTextureName"		    		"tome_of_strength"
 		"ItemCost"					"19999"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -2998,7 +2998,7 @@
 		"ID"							"3043"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"item_abyssal_blade_v2"
-		"ScriptFile"					"items/item_abyssal_blade_v2.lua"												// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ScriptFile"					"items/item_abyssal_blade_v2"												// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -3159,7 +3159,7 @@
 		"ID"									"3047"
 		"BaseClass"								"item_lua"
 		"AbilityTextureName"					"item_adi_king"
-		"ScriptFile"							"items/item_adi_king.lua"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ScriptFile"							"items/item_adi_king"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilitySharedCooldown"					"adiking"
 
@@ -3271,7 +3271,7 @@
 		"ID"									"3049"
 		"BaseClass"								"item_lua"
 		"AbilityTextureName"					"item_adi_king_plus"
-		"ScriptFile"							"items/item_adi_king_plus.lua"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ScriptFile"							"items/item_adi_king_plus"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilitySharedCooldown"					"adiking"
 
@@ -3453,7 +3453,7 @@
 		"ID"									"3053"
 		"BaseClass"								"item_lua"
 		"AbilityTextureName"					"item_blue_fantasy"
-		"ScriptFile"							"items/item_blue_fantasy.lua"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ScriptFile"							"items/item_blue_fantasy"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -4541,7 +4541,7 @@
 		"AbilityTextureName" 			"shotgun"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_shotgun.lua"
+		"ScriptFile"                    "items/item_shotgun"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4617,7 +4617,7 @@
 		"AbilityTextureName" 			"shotgun_v2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_shotgun_v2.lua"
+		"ScriptFile"                    "items/item_shotgun_v2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4689,7 +4689,7 @@
 	{
 		"ID"							"3071"
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/item_jump_jump_jump.lua"
+		"ScriptFile"					"items/item_jump_jump_jump"
 		"AbilityTextureName"			"jump_jump_jump"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
@@ -5472,7 +5472,7 @@
 	{
 		"BaseClass"	"item_lua"
 		"AbilityTextureName"	"saint_orb"
-		"ScriptFile"	"items/item_saint_orb.lua"
+		"ScriptFile"	"items/item_saint_orb"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -5602,7 +5602,7 @@
 		"AbilityCooldown"				"90.0"
 
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/item_hand_of_group.lua"
+		"ScriptFile"					"items/item_hand_of_group"
 
 		"AbilityTextureName"			"item_hand_of_group"
 		"AbilitySharedCooldown"			"item_hand_of_midas"
@@ -5642,7 +5642,7 @@
     {
         "ID"						"3096"
         "BaseClass"					"item_lua"
-        "ScriptFile"                    		"items/item_tome_of_agility_for_lottery.lua"
+        "ScriptFile"                    		"items/item_tome_of_agility_for_lottery"
         "AbilityTextureName"		    		"tome_of_agility"
         "ItemCost"					"4800"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -5673,7 +5673,7 @@
     {
         "ID"						"3097"
         "BaseClass"					"item_lua"
-        "ScriptFile"                    		"items/item_tome_of_intelligence_for_lottery.lua"
+        "ScriptFile"                    		"items/item_tome_of_intelligence_for_lottery"
         "AbilityTextureName"		   		"tome_of_intelligence"
         "ItemCost"					"4800"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -5704,7 +5704,7 @@
     {
         "ID"						"3098"
         "BaseClass"					"item_lua"
-        "ScriptFile"                    		"items/item_tome_of_strength_for_lottery.lua"
+        "ScriptFile"                    		"items/item_tome_of_strength_for_lottery"
         "AbilityTextureName"		    		"tome_of_strength"
         "ItemCost"					"4800"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
