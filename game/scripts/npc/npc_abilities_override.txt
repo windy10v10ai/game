@@ -8548,6 +8548,8 @@
 				"var_type"				"FIELD_INTEGER"
 				"shard_damage"			"200"
 				"RequiresShard"			"1"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
+				"CalculateSpellDamageTooltip"	"1"
 			}
 		}
 	}
