@@ -4709,7 +4709,7 @@
 		{
 			"blink_damage_cooldown"	"3.0"
 			"meteor_fall_time"		"0.5"
-			"meteor_land_radius"	"300"
+			"meteor_land_radius"	"350"
 			"bonus_all_stats"		"35"
 			"buff_duration"			"6"
 			// Below are the overwhelming, swift, and arcane modifier values
