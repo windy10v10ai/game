@@ -9427,7 +9427,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"20 25 30 35 40 45 50"
+				"attack_speed"			"15 20 25 30 35 40 45"
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_5"
 			}
 			"02"
@@ -9437,36 +9437,24 @@
 			}
 		}
 	}
-	"special_bonus_unique_troll_warlord_5"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"10"
-				"ad_linked_abilities"			"troll_warlord_fervor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
 	"troll_warlord_battle_trance"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"70"
 		"AbilityManaCost"				"150"
 		"AbilityValues"
         {
+			"trance_duration"		"6"
             "AbilityCooldown"
             {
-                "value"			"90 80 70 60 50"
+                "value"			"90 85 80 75 70"
                 "special_bonus_unique_troll_warlord_7"		"-15"
             }
             "lifesteal"			"40 50 60 70 80"
-            "attack_speed"			"60 90 120 150 180"
+            "attack_speed"			"80 110 140 170 200"
             "movement_speed"
             {
-                "value"		"25 30 35 40 45"
-                "special_bonus_unique_troll_warlord_battle_trance_movespeed"		"+20"
+                "value"		"20 25 30 35 40"
+                "special_bonus_unique_troll_warlord_battle_trance_movespeed"		"+15"
             }
         }
 	}
