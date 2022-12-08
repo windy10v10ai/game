@@ -102,10 +102,10 @@
 		"data_panel_button"				"玩家主页"
 		"data_panel_member_point"		"会员积分"
 		"data_panel_season_point"		"赛季积分"
-		"data_panel_property_point"		"属性点数 (可用/总数)"
+		"data_panel_property_point"		"玩家属性点 (可用/总数)"
 
 		"data_panel_data_button"		"数据"
-		"data_panel_property_button"	"英雄属性"
+		"data_panel_property_button"	"玩家属性"
 
 		"data_panel_member_level"		"会员等级"
 		"data_panel_season_level"		"赛季等级"
