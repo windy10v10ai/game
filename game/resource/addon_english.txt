@@ -16,11 +16,11 @@
 
 		"game_difficulty_title"	"Challenge Difficulty"
 		"game_difficulty_n0"	"Custom"
-		"game_difficulty_n1"	"N1"
-		"game_difficulty_n2"	"N2"
-		"game_difficulty_n3"	"N3"
-		"game_difficulty_n4"	"N4"
-		"game_difficulty_n5"	"N5"
+		"game_difficulty_n1"	"N1 - 1.2x points"
+		"game_difficulty_n2"	"N2 - 1.4x points"
+		"game_difficulty_n3"	"N3 - 1.6x points"
+		"game_difficulty_n4"	"N4 - 1.8x points"
+		"game_difficulty_n5"	"N5 - 2.0x points"
 
 		"player_gold_xp_multiplier"	"Player Gold&XP Multiplier"
 		"bot_gold_xp_multiplier"	"Bot Gold&XP Multiplier"
