@@ -985,7 +985,6 @@ tBotItemData.purchaseItemList = {
 		'item_clarity',
 		'item_boots',
 		'item_null_talisman',
-		'item_null_talisman',
 		'item_kaya',
 		'item_glimmer_cape',
 		'item_blink',
