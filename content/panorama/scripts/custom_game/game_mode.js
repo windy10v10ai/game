@@ -185,52 +185,52 @@ function InitDifficultyCommonSetting() {
 
 function InitN1Setting() {
 	$("#player_gold_xp_multiplier_dropdown").SetSelected("1.5");
-	$("#bot_gold_xp_multiplier_dropdown").SetSelected("5");
+	$("#bot_gold_xp_multiplier_dropdown").SetSelected("2");
 
 	$("#tower_power_dropdown").SetSelected("5");
 	$("#tower_endure_dropdown").SetSelected("5");
 
-	$("#starting_gold_player_dropdown").SetSelected("3000");
+	$("#starting_gold_player_dropdown").SetSelected("5000");
 	$("#starting_gold_bot_dropdown").SetSelected("1000");
 }
 function InitN2Setting() {
 	$("#player_gold_xp_multiplier_dropdown").SetSelected("1.5");
-	$("#bot_gold_xp_multiplier_dropdown").SetSelected("8");
+	$("#bot_gold_xp_multiplier_dropdown").SetSelected("4");
 
-	$("#tower_power_dropdown").SetSelected("5");
-	$("#tower_endure_dropdown").SetSelected("7");
+	$("#tower_power_dropdown").SetSelected("6");
+	$("#tower_endure_dropdown").SetSelected("6");
 
 	$("#starting_gold_player_dropdown").SetSelected("3000");
-	$("#starting_gold_bot_dropdown").SetSelected("2000");
+	$("#starting_gold_bot_dropdown").SetSelected("1000");
 }
 function InitN3Setting() {
 	$("#player_gold_xp_multiplier_dropdown").SetSelected("1.5");
-	$("#bot_gold_xp_multiplier_dropdown").SetSelected("10");
+	$("#bot_gold_xp_multiplier_dropdown").SetSelected("6");
 
 	$("#tower_power_dropdown").SetSelected("7");
 	$("#tower_endure_dropdown").SetSelected("7");
 
 	$("#starting_gold_player_dropdown").SetSelected("3000");
-	$("#starting_gold_bot_dropdown").SetSelected("3000");
+	$("#starting_gold_bot_dropdown").SetSelected("2000");
 }
 function InitN4Setting() {
 	$("#player_gold_xp_multiplier_dropdown").SetSelected("1.5");
-	$("#bot_gold_xp_multiplier_dropdown").SetSelected("15");
+	$("#bot_gold_xp_multiplier_dropdown").SetSelected("8");
 
 	$("#tower_power_dropdown").SetSelected("8");
 	$("#tower_endure_dropdown").SetSelected("8");
 
-	$("#starting_gold_player_dropdown").SetSelected("2000");
-	$("#starting_gold_bot_dropdown").SetSelected("5000");
+	$("#starting_gold_player_dropdown").SetSelected("3000");
+	$("#starting_gold_bot_dropdown").SetSelected("3000");
 }
 function InitN5Setting() {
-	$("#player_gold_xp_multiplier_dropdown").SetSelected("1.3");
-	$("#bot_gold_xp_multiplier_dropdown").SetSelected("20");
+	$("#player_gold_xp_multiplier_dropdown").SetSelected("1.5");
+	$("#bot_gold_xp_multiplier_dropdown").SetSelected("10");
 
 	$("#tower_power_dropdown").SetSelected("9");
 	$("#tower_endure_dropdown").SetSelected("9");
 
-	$("#starting_gold_player_dropdown").SetSelected("1000");
+	$("#starting_gold_player_dropdown").SetSelected("3000");
 	$("#starting_gold_bot_dropdown").SetSelected("5000");
 }
 // -------- send to server --------
@@ -282,19 +282,19 @@ function OnGameOptionsChange() {
 	let seasonPointMulti = "1.0";
 	switch (+iDifficulty) {
 		case 1:
-			seasonPointMulti = "1.6";
+			seasonPointMulti = "1.2";
 			break;
 		case 2:
-			seasonPointMulti = "1.8";
+			seasonPointMulti = "1.4";
 			break;
 		case 3:
-			seasonPointMulti = "2.0";
+			seasonPointMulti = "1.6";
 			break;
 		case 4:
-			seasonPointMulti = "2.5";
+			seasonPointMulti = "1.8";
 			break;
 		case 5:
-			seasonPointMulti = "3.0";
+			seasonPointMulti = "2.0";
 			break;
 		default:
 			seasonPointMulti = "1.0";
