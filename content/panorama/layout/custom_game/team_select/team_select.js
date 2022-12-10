@@ -297,6 +297,20 @@ function OnGameLoadingStatusChange(table, key, value) {
 	}
 }
 
+/**
+ * 难度选择
+ * @param {*} difficulty
+ */
+function OnChooseDifficulty(difficulty) {
+	// remove all selected class
+	for (let i = 0; i <= 5; i++) {
+		$("#DifficultyN" + i).RemoveClass("selected");
+	}
+	// get this button
+	const button = $("#DifficultyN" + difficulty);
+	// add selected class
+	button.AddClass("selected");
+}
 //--------------------------------------------------------------------------------------------------
 // Entry point called when the team select panel is created
 //--------------------------------------------------------------------------------------------------

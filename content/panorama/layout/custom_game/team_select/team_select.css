@@ -3,7 +3,7 @@
 {
 	width: 100%;
 	padding: 5px;
-	flow-children: down;
+	flow-children: right;
 }
 .selectTitle
 {
@@ -13,13 +13,16 @@
 .difficultyChoice
 {
 	margin: 2px;
-	height: 24px;
-	width: 40%;
+	height: 30px;
+	width: 14%;
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #4b4b4bcc ), to( #2c2c2ccc ) );
 	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
 	border: 1px solid #000000;
 }
-.difficultyChoice.active
+.difficultyChoice.longer{
+	width: 20%;
+}
+.difficultyChoice.selected
 {
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #838383cc ), to( #2c2c2ccc ) );
 }
@@ -27,6 +30,7 @@
 {
 	font-size: 18px;
 	horizontal-align: center;
+	vertical-align: center;
 	text-align: center;
 }
 #TeamsContainer
