@@ -44,7 +44,7 @@ function OnCancelAndUnlockPressed()
 	Game.SetTeamSelectionLocked( false );
 
 	// Stop the countdown timer
-	Game.SetRemainingSetupTime( 30 );
+	Game.SetRemainingSetupTime( -1 );
 }
 
 
