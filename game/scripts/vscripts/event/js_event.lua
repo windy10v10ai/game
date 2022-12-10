@@ -3,7 +3,6 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
     if tonumber(args.host_privilege) ~= 1 then
         return
     end
-    self.iGameDifficulty = tonumber(args.game_options.game_difficulty)
     self.iDesiredRadiant = tonumber(args.game_options.radiant_player_number)
     self.iDesiredDire = tonumber(args.game_options.dire_player_number)
     self.fPlayerGoldXpMultiplier = tonumber(args.game_options.player_gold_xp_multiplier)
@@ -59,10 +58,11 @@ function AIGameMode:CalculateDifficulty(force)
             end
         end
     end
-    averageDifficulty = averageDifficulty / playerCount
+    averageDifficulty = averageDifficulty / playerChosen
     -- 四舍五入 FIXME 如果难度偏高 改成人数相同时优先选择低难度 + 0.4
     averageDifficulty = math.floor(averageDifficulty + 0.5)
     if force or playerChosen >= playerCount then
         CustomNetTables:SetTableValue('game_difficulty', 'all', {difficulty = averageDifficulty})
+        AIGameMode.iGameDifficulty = tonumber(averageDifficulty)
     end
 end
