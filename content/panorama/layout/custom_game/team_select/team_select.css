@@ -1,3 +1,10 @@
+#TimerLabelVote {
+	color: #a9aaaa;
+	font-size: 16px;
+	text-transform: uppercase;
+	horizontal-align: center;
+	visibility: collapse;
+}
 
 #DifficultyContainer
 {

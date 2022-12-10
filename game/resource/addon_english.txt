@@ -15,7 +15,6 @@
 		"addon_option_title_br"	""
 
 		"game_difficulty_title"	"Difficulty"
-		"game_difficulty_choice"	"Choose a difficulty"
 		"game_difficulty_n0"	"Custom"
 		"game_difficulty_n1"	"N1"
 		"game_difficulty_n2"	"N2"
@@ -65,6 +64,10 @@
 		"respawn_time_percentage_normal"        "Normal"
 		"respawn_time_percentage_fast"         "Fast"
 		"respawn_time_percentage_0"          "Zero"
+
+		// 右侧面板
+		"game_difficulty_choice"		"Choose a difficulty"
+		"custom_game_vote"				"Vote Timer"
 
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting the game."
 		"loading_status_2"				"Player data loaded successfully!"

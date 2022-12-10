@@ -9,5 +9,7 @@
     "disable_help",
     "member_table",
     "player_table",
+    "game_difficulty",
+    "difficulty_choice",
   ]
 }

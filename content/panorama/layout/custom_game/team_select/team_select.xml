@@ -33,6 +33,7 @@
 						<Image id="TimerRing" src="s2r://panorama/images/status_icons/timer_ring.psd" />
 						<Label id="TeamSelectTimer" text="#custom_game_team_select_timer" />
 						<Panel id="TimerLabelBox" >
+							<Label id="TimerLabelVote" text="#custom_game_vote" />
 							<Label id="TimerLabelAutoStart" text="#custom_game_team_select_auto_start" />
 							<Label id="TimerLabelGameStart" text="#custom_game_team_select_starting" />
 						</Panel>

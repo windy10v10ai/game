@@ -2,11 +2,11 @@
 
 var init = false;
 /** 下拉框事件 */
-function OnDifficultyDropDownChanged() {
-	let optionValue = $("#game_difficulty_dropdown").GetSelected().text;
-	let optionId = $("#game_difficulty_dropdown").GetSelected().id;
+function OnDifficultyDropDownChanged(difficulty) {
+	let optionValue = "";
+	let optionId = difficulty;
 	if (optionId == 0) {
-		UnLockOption();
+		UnLockOptionAll();
 		InitSetting();
 	} else {
 		InitDifficultyCommonSetting();
@@ -132,10 +132,13 @@ function InitSetting() {
 
 // -------- Difficulty Setting --------
 
+function LockOptionAll() {
+	$("#radiant_player_number_dropdown").enabled=false;
+	LockOption();
+}
 function LockOption() {
 	$("#player_gold_xp_multiplier_dropdown").enabled=false;
 	$("#bot_gold_xp_multiplier_dropdown").enabled=false;
-	// $("#radiant_player_number_dropdown").enabled=false;
 	$("#dire_player_number_dropdown").enabled=false;
 
 	$("#respawn_time_percentage_dropdown").enabled=false;
@@ -151,10 +154,10 @@ function LockOption() {
 	$("#radiant_bot_same_multi").enabled=false;
 }
 
-function UnLockOption() {
+function UnLockOptionAll() {
 	$("#player_gold_xp_multiplier_dropdown").enabled=true;
 	$("#bot_gold_xp_multiplier_dropdown").enabled=true;
-	// $("#radiant_player_number_dropdown").enabled=true;
+	$("#radiant_player_number_dropdown").enabled=true;
 	$("#dire_player_number_dropdown").enabled=true;
 
 	$("#respawn_time_percentage_dropdown").enabled=true;
@@ -241,7 +244,7 @@ function StateChange() {
 		GameEvents.SendCustomGameEventToServer("loading_set_options",{
 			"host_privilege": CheckForHostPrivileges(),
 			"game_options":{
-				"game_difficulty": $("#game_difficulty_dropdown").GetSelected().id,
+				// "game_difficulty": $("#game_difficulty_dropdown").GetSelected().id,
 				"player_gold_xp_multiplier": $("#player_gold_xp_multiplier_dropdown").GetSelected().id,
 				"bot_gold_xp_multiplier": $("#bot_gold_xp_multiplier_dropdown").GetSelected().id,
 				"radiant_player_number": $("#radiant_player_number_dropdown").GetSelected().id,
@@ -303,12 +306,19 @@ function OnGameOptionsChange() {
 	$("#DisplaySeasonPointMulti").text = "x"+ seasonPointMulti;
 }
 
+function OnGameDifficultyChoiceChange(table, key, value) {
+	const difficulty = value.difficulty;
+	if (key != 'all') {
+		return;
+	}
+	OnDifficultyDropDownChanged(difficulty);
+}
 
 (function() {
+	LockOptionAll();
 	// 游戏选择项目table监听
-	CustomNetTables.SubscribeNetTableListener("game_options_table", OnGameOptionsChange)
-	InitSetting();
-	OnDifficultyDropDownChanged();
+	CustomNetTables.SubscribeNetTableListener("game_options_table", OnGameOptionsChange);
+	CustomNetTables.SubscribeNetTableListener("game_difficulty", OnGameDifficultyChoiceChange);
 })();
 
 GameEvents.Subscribe( "player_connect_full", InitializeUI);

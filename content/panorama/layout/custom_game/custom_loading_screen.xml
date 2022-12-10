@@ -11,7 +11,7 @@
 			<Panel id="game_options_container" >
 				<Panel id = "GameOptionsPanel">
 					<Label id="GameOptionsPanelTitle" text="#addon_option_title" />
-					<Panel id="GameDifficultyPanel"	class="GameOptionsSubPanel">
+					<!-- <Panel id="GameDifficultyPanel"	class="GameOptionsSubPanel">
 						<Label id="GameDifficultyTitle" class="GameOptionsLabel" text="#game_difficulty_title" />
 						<DropDown id="game_difficulty_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDifficultyDropDownChanged()">
 							<Label text="#game_difficulty_n0" id="0"/>
@@ -21,7 +21,7 @@
 							<Label text="#game_difficulty_n4" id="4"/>
 							<Label text="#game_difficulty_n5" id="5"/>
 						</DropDown>
-					</Panel>
+					</Panel> -->
 					<Panel id="RadiantGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantGoldXPMultiplierTitle" class="GameOptionsLabel" text="#player_gold_xp_multiplier" />
 						<DropDown id="player_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('player_gold_xp_multiplier_dropdown')">
@@ -77,7 +77,7 @@
 							<Label text="1" id="1"/>
 						</DropDown>
 					</Panel>
-					<!-- <Label id="GameOptionsPanelBr" text="#addon_option_title_br" /> -->
+					<Label id="GameOptionsPanelBr" text="#addon_option_title_br" />
 					<Panel id="RespawnTimePercentagePanel"	class="GameOptionsSubPanel">
 						<Label id="RespawnTimePercentagePanelTitle" class="GameOptionsLabel" text="#respawn_time_percentage" />
 						<DropDown id="respawn_time_percentage_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('respawn_time_percentage_dropdown')">

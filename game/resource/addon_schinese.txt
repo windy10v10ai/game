@@ -15,7 +15,6 @@
 		"addon_option_title_br"	""
 
 		"game_difficulty_title"	"难度"
-		"game_difficulty_choice"	"选择一个难度"
 		"game_difficulty_n0"	"自定义"
 		"game_difficulty_n1"	"N1"
 		"game_difficulty_n2"	"N2"
@@ -65,6 +64,10 @@
 		"respawn_time_percentage_normal"        "普通"
 		"respawn_time_percentage_fast"         "快速"
 		"respawn_time_percentage_0"          "秒活 (可能卡顿)"
+
+		// 右侧面板
+		"game_difficulty_choice"		"选择一个难度"
+		"custom_game_vote"				"投票倒计时"
 
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
 		"loading_status_2"				"玩家数据加载成功！"
