@@ -40,6 +40,29 @@
 
 				</Panel>
 
+				<!--难度选择-->
+				<Panel id="DifficultyContainer">
+					<Label class="selectTitle" text="#game_difficulty_choice" />
+					<Button id="DifficultyN0" class="difficultyChoice">
+						<Label class="difficultyText" text="#game_difficulty_n0" />
+					</Button>
+					<Button id="DifficultyN1" class="difficultyChoice">
+						<Label class="difficultyText" text="#game_difficulty_n1" />
+					</Button>
+					<Button id="DifficultyN2" class="difficultyChoice active">
+						<Label class="difficultyText" text="#game_difficulty_n2" />
+					</Button>
+					<Button id="DifficultyN3" class="difficultyChoice">
+						<Label class="difficultyText" text="#game_difficulty_n3" />
+					</Button>
+					<Button id="DifficultyN4" class="difficultyChoice">
+						<Label class="difficultyText" text="#game_difficulty_n4" />
+					</Button>
+					<Button id="DifficultyN5" class="difficultyChoice">
+						<Label class="difficultyText" text="#game_difficulty_n5" />
+					</Button>
+				</Panel>
+
 				<!--Teams List, left hand panel-->
 				<Panel id="TeamsContainer">
 					<Panel id="TeamsListRoot" />
