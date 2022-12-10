@@ -174,14 +174,14 @@ function UnLockOptionAll() {
 }
 
 function InitDifficultyCommonSetting() {
-	// $("#radiant_player_number_dropdown").SetSelected("10");
+	$("#radiant_player_number_dropdown").enabled=true;
 	$("#dire_player_number_dropdown").SetSelected("10");
 
 	$("#respawn_time_percentage_dropdown").SetSelected("80");
 	$("#max_level_dropdown").SetSelected("50");
 	$("#tower_heal_dropdown").SetSelected("10");
 
-	$("#same_hero_selection").checked=false;
+	$("#same_hero_selection").checked=true;
 	$("#fast_courier").checked=true;
 	$("#radiant_bot_same_multi").checked=true;
 }
