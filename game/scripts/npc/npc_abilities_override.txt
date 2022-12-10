@@ -9469,9 +9469,14 @@
 		"AbilityValues"
 		{
 			"movement_slow"				"-16 -24 -32 -40 -48"
+			"shard_enrage_duration"
+			{
+				"value"				"1.2"
+				"RequiresShard"		"1"
+			}
 			"AbilityCooldown"
 			{
-				"value"				"14 12 10 8 6"
+				"value"				"16 14 12 10 8"
 				"special_bonus_unique_ursa_2"			"-2"
 			}
 		}
@@ -9551,7 +9556,7 @@
 			}
 			"cooldown_scepter"
 			{
-				"value"						"30 24 18 15"
+				"value"						"30 26 22 18"
 				"RequiresScepter"			"1"
 			}
 		}
