@@ -5,8 +5,8 @@ function modifier_player_abyss:RemoveOnDeath() return false end
 function modifier_player_abyss:GetTexture() return "player/abyss" end
 
 function modifier_player_abyss:OnCreated()
-	self.iAttackDamage = 20
-	self.iSpellAmp = 5
+	self.iAttackDamage = 60
+	self.iSpellAmp = 15
 end
 
 function modifier_player_abyss:DeclareFunctions()
