@@ -9,6 +9,11 @@
 #DifficultyContainer
 {
 	width: 100%;
+	flow-children: down;
+}
+#DifficultyList
+{
+	width: 100%;
 	padding: 5px;
 	flow-children: right;
 }
@@ -39,6 +44,10 @@
 	horizontal-align: center;
 	vertical-align: center;
 	text-align: center;
+}
+.deactivated .difficultyText
+{
+	color: #a9aaaa;
 }
 #TeamsContainer
 {

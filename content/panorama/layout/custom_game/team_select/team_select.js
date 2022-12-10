@@ -20,6 +20,9 @@ function OnLockAndStartPressed()
 	if ( Game.GetUnassignedPlayerIDs().length > 0  ) {
 		return;
 	}
+	if ( !g_DifficultyChosen ) {
+		return;
+	}
 
 	// Lock the team selection so that no more team changes can be made
 	Game.SetTeamSelectionLocked( true );
@@ -232,8 +235,8 @@ function UpdateTimer()
 	var transitionTime = Game.GetStateTransitionTime();
 
 	if (g_DifficultyChosen) {
-		$( "#LockAndStartButton" ).visible = false;
-		$( "#CancelAndUnlockButton" ).visible = false;
+		$( "#LockAndStartButton" ).enabled=true;
+		$( "#CancelAndUnlockButton" ).enabled=true;
 		CheckForHostPrivileges();
 		if ( transitionTime >= 0 )
 		{
@@ -256,17 +259,22 @@ function UpdateTimer()
 		$.GetContextPanel().SetHasClass( "teams_locked", Game.GetTeamSelectionLocked() );
 		$.GetContextPanel().SetHasClass( "teams_unlocked", Game.GetTeamSelectionLocked() == false );
 	} else {
-		$.GetContextPanel().SetHasClass( "player_has_host_privileges", false );
 		const voteTime = Math.max( 0, Math.floor( transitionTime - gameTime - 30 ) );
-		if (voteTime > 0) {
-			$( "#StartGameCountdownTimer" ).SetDialogVariableInt( "countdown_timer_seconds", voteTime );
-			$( "#TimerLabelVote" ).visible = true;
-		} else {
-			GameEvents.SendCustomGameEventToServer("vote_end", {});
+		$( "#LockAndStartButton" ).enabled = false;
+		$( "#CancelAndUnlockButton" ).enabled = false;
+		$( "#TimerLabelVote" ).visible = true;
+		if (transitionTime >= 0) {
+			if (voteTime > 0) {
+				$( "#StartGameCountdownTimer" ).SetDialogVariableInt( "countdown_timer_seconds", voteTime );
+			} else {
+				GameEvents.SendCustomGameEventToServer("vote_end", {});
+			}
 		}
 	}
 
-	$.Schedule( 0.1, UpdateTimer );
+	if ( Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) ) {
+		$.Schedule( 0.1, UpdateTimer );
+	}
 }
 
 
@@ -314,6 +322,8 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 		return;
 	}
 	g_DifficultyChosen = true;
+
+	$( "#DifficultyContainer" ).AddClass( "deactivated" );
 }
 
 //--------------------------------------------------------------------------------------------------
