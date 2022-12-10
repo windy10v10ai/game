@@ -92,6 +92,11 @@ function SetLevelUseable(player) {
 	const totalLevel = player.memberLevel + player.seasonLevel;
 	levelUseable = totalLevel - levelUsed;
 	$("#PropertyPoint").text = `${levelUseable} / ${totalLevel}`;
+	if (levelUseable === 0) {
+		$("#BPButton").SetHasClass("hasPoint", false);
+	} else {
+		$("#BPButton").SetHasClass("hasPoint", true);
+	}
 }
 
 function SetPlayerProperty() {
