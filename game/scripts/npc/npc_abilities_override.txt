@@ -3405,6 +3405,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"hp_regen"				"60 90 120 150 180"
+				"LinkedSpecialBonus"	"special_bonus_unique_legion_commander_6"
 			}
 		}
 	}
@@ -6544,6 +6545,7 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"damage"	"10 15 20 25 30"
+				"LinkedSpecialBonus"			"special_bonus_unique_drow_ranger_2"
 			}
 		}
 	}
@@ -6804,7 +6806,7 @@
 	"faceless_void_chronosphere"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"120 110 100 90"
+		"AbilityCooldown"				"120"
 		"AbilityManaCost"				"150 225 300 375"
 		"AbilitySpecial"
 		{
@@ -8547,6 +8549,8 @@
 				"var_type"				"FIELD_INTEGER"
 				"shard_damage"			"200"
 				"RequiresShard"			"1"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
+				"CalculateSpellDamageTooltip"	"1"
 			}
 		}
 	}
@@ -9424,7 +9428,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"20 25 30 35 40 45 50"
+				"attack_speed"			"15 20 25 30 35 40 45"
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_5"
 			}
 			"02"
@@ -9434,36 +9438,24 @@
 			}
 		}
 	}
-	"special_bonus_unique_troll_warlord_5"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"10"
-				"ad_linked_abilities"			"troll_warlord_fervor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
 	"troll_warlord_battle_trance"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"70"
 		"AbilityManaCost"				"150"
 		"AbilityValues"
         {
+			"trance_duration"		"6"
             "AbilityCooldown"
             {
-                "value"			"90 80 70 60 50"
+                "value"			"90 85 80 75 70"
                 "special_bonus_unique_troll_warlord_7"		"-15"
             }
             "lifesteal"			"40 50 60 70 80"
-            "attack_speed"			"60 90 120 150 180"
+            "attack_speed"			"80 110 140 170 200"
             "movement_speed"
             {
-                "value"		"25 30 35 40 45"
-                "special_bonus_unique_troll_warlord_battle_trance_movespeed"		"+20"
+                "value"		"20 25 30 35 40"
+                "special_bonus_unique_troll_warlord_battle_trance_movespeed"		"+15"
             }
         }
 	}
@@ -9477,9 +9469,14 @@
 		"AbilityValues"
 		{
 			"movement_slow"				"-16 -24 -32 -40 -48"
+			"shard_enrage_duration"
+			{
+				"value"				"1.2"
+				"RequiresShard"		"1"
+			}
 			"AbilityCooldown"
 			{
-				"value"				"14 12 10 8 6"
+				"value"				"16 14 12 10 8"
 				"special_bonus_unique_ursa_2"			"-2"
 			}
 		}
@@ -9559,7 +9556,7 @@
 			}
 			"cooldown_scepter"
 			{
-				"value"						"30 24 18 15"
+				"value"						"30 26 22 18"
 				"RequiresScepter"			"1"
 			}
 		}
@@ -10452,7 +10449,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"40 110 180 250 220"
+				"damage"				"100 150 200 250 300"
 			}
 		}
 	}

@@ -14,8 +14,8 @@
 		"addon_option_title"	"Game Options"
 		"addon_option_title_br"	""
 
-		"game_difficulty_title"	"difficulty challenge "
-		"game_difficulty_n0"	"Custome"
+		"game_difficulty_title"	"Difficulty"
+		"game_difficulty_n0"	"Custom"
 		"game_difficulty_n1"	"N1"
 		"game_difficulty_n2"	"N2"
 		"game_difficulty_n3"	"N3"
@@ -65,13 +65,14 @@
 		"respawn_time_percentage_fast"         "Fast"
 		"respawn_time_percentage_0"          "Zero"
 
+		// 右侧面板
+		"game_difficulty_choice"		"Choose a difficulty"
+		"custom_game_vote"				"Vote Timer"
+
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting the game."
 		"loading_status_2"				"Player data loaded successfully!"
 		"loading_status_3"				"Player data loading failed, please use the Dedicated Server to restart a game."
 
-		"anniversary_text1"				"  Two-year anniversary celebration, have fun!"
-		"anniversary_text2"				"· All players can enjoy free membership effects. Event Period: From December 3 to December 5 (GMT+0)"
-		"anniversary_text3"				"· Specify the difficulty challenge and get multiplied season points. Event period: One week after this update until the next update."
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		//            Hero Selection
@@ -104,10 +105,10 @@
 		"data_panel_button"				"Player Profile"
 		"data_panel_member_point"		"Member Point"
 		"data_panel_season_point"		"Season Point"
-		"data_panel_property_point"		"Attribute Point (Useable/Total)"
+		"data_panel_property_point"		"Player Attribute Point (Useable/Total)"
 
 		"data_panel_data_button"		"Data"
-		"data_panel_property_button"	"Attribute"
+		"data_panel_property_button"	"Player Attribute"
 
 		"data_panel_member_level"		"Member Level"
 		"data_panel_season_level"		"Season Level"

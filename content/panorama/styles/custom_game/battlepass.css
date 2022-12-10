@@ -54,6 +54,11 @@
   background-size: 22% 90%;
  }
 
+ #BPButton.hasPoint{
+  box-shadow: 0px 0px 0px 0px #3c20dadd;
+  /* background-color: gradient(linear, 0% 0%, 100% 0%, from(#4856b2ee), to(#05033aee)); */
+ }
+
  #BPButton:hover{
   box-shadow: 0px 0px 6px 0px #3c20dadd;
   background-color: gradient(linear, 0% 0%, 100% 0%, from(#4856b2ee), to(#05033aee));

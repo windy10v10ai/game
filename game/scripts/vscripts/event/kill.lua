@@ -186,15 +186,15 @@ local function HeroKilled(keys)
         elseif iLevel <= 20 then
             gold = 10 + (iLevel - 10) * 1
         elseif iLevel <= 30 then
-            gold = 20 + (iLevel - 20) * 1.5
+            gold = 20 + (iLevel - 20) * 2
         elseif iLevel <= 50 then
-            gold = 35 + (iLevel - 30) * 2
+            gold = 40 + (iLevel - 30) * 3
         else
-            gold = 75
+            gold = 100
         end
         gold = math.ceil(gold)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-            if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
+            if attackerPlayerID ~= playerID and PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
                     PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
                 GameRules:ModifyGoldFiltered(playerID, gold, true, DOTA_ModifyGold_HeroKill)
                 local playerHero = PlayerResource:GetSelectedHeroEntity(playerID)

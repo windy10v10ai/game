@@ -1,4 +1,5 @@
 require('modifiers/player/enable_player_modifier')
+require('event/js_event')
 require('event/creep')
 require('event/chat')
 require('event/kill')
@@ -603,50 +604,12 @@ function AIGameMode:OnItemPickedUp(event)
     end
 end
 
-function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
-    if tonumber(args.host_privilege) ~= 1 then
-        return
-    end
-    self.iGameDifficulty = tonumber(args.game_options.game_difficulty)
-    self.iDesiredRadiant = tonumber(args.game_options.radiant_player_number)
-    self.iDesiredDire = tonumber(args.game_options.dire_player_number)
-    self.fPlayerGoldXpMultiplier = tonumber(args.game_options.player_gold_xp_multiplier)
-    self.fBotGoldXpMultiplier = tonumber(args.game_options.bot_gold_xp_multiplier)
-
-    self.iRespawnTimePercentage = tonumber(args.game_options.respawn_time_percentage)
-    self.iMaxLevel = tonumber(args.game_options.max_level)
-
-    self.iTowerPower = tonumber(args.game_options.tower_power)
-    self.iTowerEndure = tonumber(args.game_options.tower_endure)
-    self.iTowerHeal = tonumber(args.game_options.tower_heal)
-
-    self.iStartingGoldPlayer = tonumber(args.game_options.starting_gold_player)
-    self.iStartingGoldBot = tonumber(args.game_options.starting_gold_bot)
-    self.bSameHeroSelection = args.game_options.same_hero_selection
-    self.bFastCourier = args.game_options.fast_courier
-    if args.game_options.radiant_bot_same_multi == 1 or args.game_options.radiant_bot_same_multi == "1" then
-        self.bRadiantBotSameMulti = true
-    else
-        self.bRadiantBotSameMulti = false
-    end
-    self:PreGameOptions()
-end
-
-function AIGameMode:OnGameOptionChange(keys)
-    local optionName = keys.optionName
-    local optionValue = keys.optionValue
-    local optionId = keys.optionId
-    -- 对应的游戏选择项目设定
-    GameRules.GameOption[optionName] = {optionValue = optionValue, optionId = optionId}
-    CustomNetTables:SetTableValue('game_options_table', 'game_option', GameRules.GameOption)
-end
-
 function AIGameMode:SetUnitShareMask(data)
-    local toPlayerID = data.toPlayerID;
+    local toPlayerID = data.toPlayerID
     if PlayerResource:IsValidPlayerID(toPlayerID) then
-        local playerId = data.PlayerID;
+        local playerId = data.PlayerID
         -- flag: bitmask; 1 shares heroes, 2 shares units, 4 disables help
-        local flag = data.flag;
+        local flag = data.flag
         local disable = data.disable == 1
         PlayerResource:SetUnitShareMaskForPlayer(playerId, toPlayerID, flag, disable)
 
@@ -918,15 +881,15 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
     -- 根据难度积分加倍
     local difficulty = self.iGameDifficulty
     if difficulty == 1 then
-        points = points * 1.6
+        points = points * 1.2
     elseif difficulty == 2 then
-        points = points * 1.8
+        points = points * 1.4
     elseif difficulty == 3 then
-        points = points * 2.0
+        points = points * 1.6
     elseif difficulty == 4 then
-        points = points * 2.5
+        points = points * 1.8
     elseif difficulty == 5 then
-        points = points * 3.0
+        points = points * 2.0
     end
     return math.ceil(points)
 end

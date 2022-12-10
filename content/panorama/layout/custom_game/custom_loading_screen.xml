@@ -11,7 +11,7 @@
 			<Panel id="game_options_container" >
 				<Panel id = "GameOptionsPanel">
 					<Label id="GameOptionsPanelTitle" text="#addon_option_title" />
-					<Panel id="GameDifficultyPanel"	class="GameOptionsSubPanel">
+					<!-- <Panel id="GameDifficultyPanel"	class="GameOptionsSubPanel">
 						<Label id="GameDifficultyTitle" class="GameOptionsLabel" text="#game_difficulty_title" />
 						<DropDown id="game_difficulty_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDifficultyDropDownChanged()">
 							<Label text="#game_difficulty_n0" id="0"/>
@@ -21,7 +21,7 @@
 							<Label text="#game_difficulty_n4" id="4"/>
 							<Label text="#game_difficulty_n5" id="5"/>
 						</DropDown>
-					</Panel>
+					</Panel> -->
 					<Panel id="RadiantGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantGoldXPMultiplierTitle" class="GameOptionsLabel" text="#player_gold_xp_multiplier" />
 						<DropDown id="player_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('player_gold_xp_multiplier_dropdown')">
@@ -45,8 +45,6 @@
 							<Label text="6" id="6"/>
 							<Label text="8" id="8"/>
 							<Label text="10" id="10"/>
-							<Label text="15" id="15"/>
-							<Label text="20" id="20"/>
 						</DropDown>
 					</Panel>
 					<Panel id="RadiantPlayerNumberMultiplierPanel"	class="GameOptionsSubPanel">
@@ -79,7 +77,7 @@
 							<Label text="1" id="1"/>
 						</DropDown>
 					</Panel>
-					<!-- <Label id="GameOptionsPanelBr" text="#addon_option_title_br" /> -->
+					<Label id="GameOptionsPanelBr" text="#addon_option_title_br" />
 					<Panel id="RespawnTimePercentagePanel"	class="GameOptionsSubPanel">
 						<Label id="RespawnTimePercentagePanelTitle" class="GameOptionsLabel" text="#respawn_time_percentage" />
 						<DropDown id="respawn_time_percentage_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('respawn_time_percentage_dropdown')">
@@ -100,7 +98,7 @@
 						</DropDown>
 					</Panel>
 
-					<!-- 防御塔选项 START-->
+					<!-- 防御塔选项 -->
 					<Panel id="TowerPowerPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantTowerPowerTitle" class="GameOptionsLabel" text="#tower_power" />
 						<DropDown id="tower_power_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('tower_power_dropdown')">
@@ -139,13 +137,14 @@
 							<Label text="20" id="20"/>
 						</DropDown>
 					</Panel>
-					<!-- 防御塔选项 END -->
+					<!-- 初始金钱 -->
 					<Panel id="StartingGoldPlayerPanel"	class="GameOptionsSubPanel">
 						<Label id="StartingGoldPlayerTitle" class="GameOptionsLabel" text="#starting_gold_player" />
 						<DropDown id="starting_gold_player_dropdown" class="GameOptionsDropdown">
 							<Label text="1000" id="1000"/>
 							<Label text="2000" id="2000"/>
 							<Label text="3000" id="3000"/>
+							<Label text="5000" id="5000"/>
 						</DropDown>
 					</Panel>
 					<Panel id="StartingGoldBotPanel"	class="GameOptionsSubPanel">
@@ -209,11 +208,6 @@
 					<Label id="ChatHideButtonLabelShow" class="ChatHideButtonLabel" text="#show_chat_team" />
 				</Button>
 			</Panel>
-		</Panel>
-		<Panel id="AnniversaryPanel">
-			<Label id="AnniversaryText1" text="#anniversary_text1" class="AnniversaryText" />
-			<Label id="AnniversaryText2" text="#anniversary_text2" class="AnniversaryText" />
-			<Label id="AnniversaryText3" text="#anniversary_text3" class="AnniversaryText" />
 		</Panel>
 	</Panel>
 </root>

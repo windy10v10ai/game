@@ -57,7 +57,6 @@ end
 function AIGameMode:EnterDebugMode()
     print("========Enter Debug Mode========")
     self.DebugMode = true
-    GameRules:SetCustomGameSetupAutoLaunchDelay(10)
     GameRules:SetHeroSelectionTime(15)
     GameRules:SetPreGameTime(10)
 end
@@ -91,13 +90,18 @@ function AIGameMode:InitEvents()
     ListenToGameEvent("dota_buyback", Dynamic_Wrap(AIGameMode, 'OnBuyback'), self)
     ListenToGameEvent("last_hit", Dynamic_Wrap(AIGameMode, 'OnLastHit'), self)
 
-    --JS events
+    -- 游戏选项事件
     CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
         return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
     end)
-    -- 游戏选项改变事件
     CustomGameEventManager:RegisterListener("game_options_change", function(_, keys)
         return AIGameMode:OnGameOptionChange(keys)
+    end)
+    CustomGameEventManager:RegisterListener("choose_difficulty", function(_, keys)
+        return AIGameMode:OnChooseDifficulty(keys)
+    end)
+    CustomGameEventManager:RegisterListener("vote_end", function(_, keys)
+        return AIGameMode:CalculateDifficulty(true)
     end)
     -- 共享单位，禁用帮助
     CustomGameEventManager:RegisterListener("set_unit_share_mask", function(_, keys)
