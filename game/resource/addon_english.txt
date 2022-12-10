@@ -38,7 +38,7 @@
 		"starting_gold_bot"	"Bot Starting Gold"
 		"same_hero_selection"  "Allow Same Hero Selection"
 		"fast_courier"  "Fast Invulnerable Courier"
-		"radiant_bot_same_multi"  "Radiant Bot same multiplier with player"
+		"radiant_bot_same_multi"  "Radiant Bot Same Multiplier with Player"
 		"hide_chat_team"  "Hide Chat and Team"
 		"show_chat_team"  "Show Chat and Team"
 
@@ -78,7 +78,7 @@
 		//            Hero Selection
 		//
 		// /////////////////////////////////////////////////////////////////////////////
-		"pick_button_member_text"			"Member Limit Hero"
+		"pick_button_member_text"			"Member-Only Hero"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -89,7 +89,7 @@
 		"scoreboard_tool_tip_share_unit"	"Share Unit"
 		"scoreboard_tool_tip_share_hero"	"Share Hero"
 		"scoreboard_tool_tip_disable_help"	"Disable Help"
-		"scoreboard_tool_tip_actived"		" Actived"
+		"scoreboard_tool_tip_actived"		"Actived"
 
 		"custom_end_screen_victory_message"	"Radiant Victory"
 		"custom_end_screen_lose_message"	"Dire Victory"
@@ -134,14 +134,14 @@
 		"data_panel_player_property_mana_regen_total_percentage"	"Max Mana Regen Percentage ( % )"
 		"data_panel_player_property_lifesteal"					"Life Steal ( % )"
 		"data_panel_player_property_spell_lifesteal"			"Spell Life Steal ( % )"
-		"data_panel_player_property_movespeed_bonus_constant"	"Move Speed"
-		"data_panel_player_property_ignore_movespeed_limit"		"Move Speed Ignore Limit"
+		"data_panel_player_property_movespeed_bonus_constant"	"Movement Speed"
+		"data_panel_player_property_ignore_movespeed_limit"		"Bypass the Default Movement Speed Limit"
 		"data_panel_player_property_cannot_miss"				"True Strike"
 
 		"data_panel_player_property_value"				"Value"
 		"data_panel_player_property_level"				"Level"
 		"data_panel_player_property_level_up"			"Level Up"
-		"data_panel_player_property_level_up_8"			"Level Up use 8 Points"
+		"data_panel_player_property_level_up_8"			"Level Up with 8 Points"
 
 		///////////////////////////////////////////////////
 		//
@@ -149,9 +149,9 @@
 		//
 		///////////////////////////////////////////////////
 		"item_choice_header"										"Choose an item!"
-		"item_choice_shuffle"										"Click to refresh the items."
-		"item_choice_shuffle_used"									"Items refreshd."
-		"item_choice_shuffle_not_member"							"Members can refresh the items once, click to open the membership."
+		"item_choice_shuffle"										"Click to reroll the items."
+		"item_choice_shuffle_used"									"Items rerolled."
+		"item_choice_shuffle_not_member"							"Members can reroll the items once, click to open the membership."
 
 		///////////////////////////////////////////////////
 		//
@@ -161,8 +161,8 @@
 		"player_member_ship"			"Click to open membership."
 		"player_member_ship_url"		"https://afdian.net/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&month=1&remark="
 
-		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Rspawn time reduced by 5 seconds.<br/> - Buyback CD reduced to 2 minutes.<br/> - Can refresh the items lottery once.<br/> - Daily login to get 60 membership points.<br/> - Membership limited heror Goku, Yukari and Jack.<br/>Membership is valid until {expireDate}."
-		"player_member_button_expire"		"Thank you for your membership!<br/>Membership is valid until {expireDate}, Click the button to renew."
+		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Respawn time is reduced by 5 seconds.<br/> - Buyback CD is reduced to 2 minutes.<br/> - You can reroll the items lottery once.<br/> - Daily login grants 60 membership points.<br/> - Member-only heroes available are Goku, Yukari and Jack.<br/>Membership is valid until {expireDate}."
+		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired since {expireDate}, Click the button to renew."
 
 		///////////////////////////////////////////////////
 		//
@@ -176,7 +176,7 @@
 		"DOTA_Tooltip_modifier_tower_endure_Description"		"The building's armor is changed by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, max health is set to %dMODIFIER_PROPERTY_TOOLTIP%%%."
 
 		"DOTA_Tooltip_modifier_melee_resistance"					"Bulldozer"
-		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% extra status resistance, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magical resistance."
+		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% extra status resistance, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
@@ -200,7 +200,7 @@
 		"DOTA_Tooltip_ability_tower_magical_armor_aura_Description"		"Add %bonus_magical_armor% magical armor to all nearby allied heroes."
 
 		"DOTA_Tooltip_ability_tower_split_shot"							"Tower Split Shot"
-		"DOTA_Tooltip_ability_tower_split_shot_Description"				"Active this ability when tower3 destroyed."
+		"DOTA_Tooltip_ability_tower_split_shot_Description"				"Active this ability when any tier 3 tower is destroyed."
 		"DOTA_Tooltip_ability_tower_split_shot_arrow_count"				"EXTRA TARGETS:"
 
 		///////////////////////////////////////////////////
@@ -221,7 +221,7 @@
 		//            会员BUFF
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_modifier_membership"					"<font color='#FFCC66'>★ Member Ship Buff ★</font>"
+		"DOTA_Tooltip_modifier_membership"					"<font color='#FFCC66'>★ Membership Buff ★</font>"
 		"DOTA_Tooltip_modifier_membership_Description"	"Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplify, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
 
 		///////////////////////////////////////////////////
@@ -342,7 +342,7 @@
         "DOTA_Tooltip_ability_liu_kick_damage" "Damage:"
         "DOTA_Tooltip_ability_liu_kick_range" "Caste Range:"
         "DOTA_Tooltip_ability_liu_kick_stun_duration" "Stun duration in Chibi status:"
-		"DOTA_Tooltip_ability_liu_kick_Lore" "Miku~miku~Kick"
+		"DOTA_Tooltip_ability_liu_kick_Lore" "Miku~miku~Kick! Who would reject her exquisite and fragrant foot!? -- It was a hentai named BM's last word before he got one-shotted by Liu-kick."
         "DOTA_Tooltip_ability_pantsushot" "PantsuShot"
         "DOTA_Tooltip_ability_pantsushot_Description" "Has a chance to inflict a crushing kick from a 720 degree roundabout, dealing critical damage, stunning the enemy."
         "DOTA_Tooltip_ability_pantsushot_crit_chance" "%Chance:"
@@ -373,14 +373,14 @@
         // 全能骑士
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"Increases the target's movement speed and health regeneration, and makes the target fly."
-        "DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"				"You're being treated.You're flying now.Go ahead quickly!"
+        "DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"				"You're got wings now.Charge!"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"			"Duration: "
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"		"Movement Speed: "
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"Health Regen: "
 
 		// 混沌骑士
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"Army of Chaos"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"Summons Chaos Knights from other dimensions to this world and fights with Chaos Knights here for %duration% seconds. Whenever Chaos Knight attacks, other Chaos Knights will also carry out additional attacks on the target, and other Chaos Knights' attacks have a short cooldown."
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"Summons Chaos Knights from other dimensions to this world and fight with Chaos Knights here for %duration% seconds. Whenever Chaos Knight attacks, other Chaos Knights will also carry out additional attacks on the target, and other Chaos Knights' attacks have a short cooldown."
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"With the Chaos Knight's rich combat experience in various worlds, his illusions are enough to suppress anyone who dares to oppose him."
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"Additional Attacks:"
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"Attack Cooldown:"
