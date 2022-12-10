@@ -11075,6 +11075,7 @@
 	"enigma_demonic_conversion"
 	{
 		"AbilityCooldown"				"60"
+		"AbilityDuration"				"60.0"
         "AbilitySpecial"
         {
             "02"
