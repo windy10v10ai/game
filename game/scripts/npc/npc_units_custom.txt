@@ -25,7 +25,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"0"			// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -300,13 +300,13 @@
 		"AttackDamageMin"			"190"		// 170
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
-		"ArmorPhysical"				"25"		// 16
+		"ArmorPhysical"				"30"		// 16
 		"MagicalResistance"			"10"		// 0
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
-		"StatusHealth"				"3000"		// 2500
+		"StatusHealth"				"4000"		// 2500
 		"StatusHealthRegen"			"5"			// 0
 		"BountyGoldMin"				"500"		// Gold earned min.
 		"BountyGoldMax"				"600"		// Gold earned max.
@@ -316,13 +316,13 @@
 		"AttackDamageMin"			"190"		// 170
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
-		"ArmorPhysical"				"25"		// 16
+		"ArmorPhysical"				"30"		// 16
 		"MagicalResistance"			"10"		// 0
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
-		"StatusHealth"				"3000"		// 2500
+		"StatusHealth"				"4000"		// 2500
 		"StatusHealthRegen"			"5"			// 0
 		"BountyGoldMin"				"500"		// Gold earned min.
 		"BountyGoldMax"				"600"		// Gold earned max.
@@ -332,13 +332,13 @@
 		"AttackDamageMin"			"190"		// 170
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
-		"ArmorPhysical"				"25"		// 16
+		"ArmorPhysical"				"30"		// 16
 		"MagicalResistance"			"10"		// 0
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
-		"StatusHealth"				"3000"		// 2500
+		"StatusHealth"				"4000"		// 2500
 		"StatusHealthRegen"			"5"			// 0
 		"BountyGoldMin"				"500"		// Gold earned min.
 		"BountyGoldMax"				"600"		// Gold earned max.
@@ -348,13 +348,13 @@
 		"AttackDamageMin"			"190"		// 170
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
-		"ArmorPhysical"				"25"		// 16
+		"ArmorPhysical"				"30"		// 16
 		"MagicalResistance"			"10"		// 0
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
-		"StatusHealth"				"3000"		// 2500
+		"StatusHealth"				"4000"		// 2500
 		"StatusHealthRegen"			"5"			// 0
 		"BountyGoldMin"				"500"		// Gold earned min.
 		"BountyGoldMax"				"600"		// Gold earned max.
@@ -364,13 +364,13 @@
 		"AttackDamageMin"			"190"		// 170
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
-		"ArmorPhysical"				"25"		// 16
+		"ArmorPhysical"				"30"		// 16
 		"MagicalResistance"			"10"		// 0
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
-		"StatusHealth"				"3000"		// 2500
+		"StatusHealth"				"4000"		// 2500
 		"StatusHealthRegen"			"5"			// 0
 		"BountyGoldMin"				"500"		// Gold earned min.
 		"BountyGoldMax"				"600"		// Gold earned max.
@@ -380,13 +380,13 @@
 		"AttackDamageMin"			"190"		// 170
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
-		"ArmorPhysical"				"25"		// 16
+		"ArmorPhysical"				"30"		// 16
 		"MagicalResistance"			"10"		// 0
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
 
-		"StatusHealth"				"3000"		// 2500
+		"StatusHealth"				"4000"		// 2500
 		"StatusHealthRegen"			"5"			// 0
 		"BountyGoldMin"				"500"		// Gold earned min.
 		"BountyGoldMax"				"600"		// Gold earned max.
@@ -401,8 +401,8 @@
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"ArmorPhysical"				"30"		// 15
+		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -424,7 +424,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"4000"		// 2200
 		"StatusHealthRegen"			"5"		// Health regeneration rate.
 	}
 	"npc_dota_goodguys_melee_rax_mid"
@@ -434,8 +434,8 @@
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"ArmorPhysical"				"30"		// 15
+		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -457,7 +457,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"4000"		// 2200
 		"StatusHealthRegen"			"5"		// Health regeneration rate.
 	}
 	"npc_dota_goodguys_melee_rax_bot"
@@ -467,8 +467,8 @@
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"ArmorPhysical"				"30"		// 15
+		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -490,7 +490,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"4000"		// 2200
 		"StatusHealthRegen"			"5"		// Health regeneration rate.
 	}
 
@@ -501,8 +501,8 @@
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"ArmorPhysical"				"30"		// 15
+		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -524,7 +524,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"4000"		// 2200
 		"StatusHealthRegen"			"5"		// Health regeneration rate.
 	}
 	"npc_dota_badguys_melee_rax_mid"
@@ -534,8 +534,8 @@
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"ArmorPhysical"				"30"		// 15
+		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -557,7 +557,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"4000"		// 2200
 		"StatusHealthRegen"			"5"		// Health regeneration rate.
 	}
 	"npc_dota_badguys_melee_rax_bot"
@@ -567,8 +567,8 @@
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"ArmorPhysical"				"30"		// 15
+		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -590,7 +590,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"4000"		// 2200
 		"StatusHealthRegen"			"5"		// Health regeneration rate.
 	}
 	//=================================================================================
@@ -603,8 +603,8 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"		// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"ArmorPhysical"				"20"		// 9
+		"MagicalResistance"			"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -625,7 +625,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// Base health.
+		"StatusHealth"				"3000"		// 1300
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 	}
 	"npc_dota_goodguys_range_rax_mid"
@@ -635,8 +635,8 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"		// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"ArmorPhysical"				"20"		// 9
+		"MagicalResistance"			"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -657,7 +657,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// Base health.
+		"StatusHealth"				"3000"		// 1300
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 	}
 	"npc_dota_goodguys_range_rax_bot"
@@ -667,8 +667,8 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"		// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"ArmorPhysical"				"20"		// 9
+		"MagicalResistance"			"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -689,7 +689,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// Base health.
+		"StatusHealth"				"3000"		// 1300
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 	}
 
@@ -701,8 +701,8 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"		// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"ArmorPhysical"				"20"		// 9
+		"MagicalResistance"			"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -723,7 +723,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// Base health.
+		"StatusHealth"				"3000"		// 1300
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 	}
 	"npc_dota_badguys_range_rax_mid"
@@ -733,8 +733,8 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"		// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"ArmorPhysical"				"20"		// 9
+		"MagicalResistance"			"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -755,7 +755,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// Base health.
+		"StatusHealth"				"3000"		// 1300
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 	}
 	"npc_dota_badguys_range_rax_bot"
@@ -765,8 +765,8 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"		// Physical protection.
-		"MagicalResistance"				"0"			// Magical protection.
+		"ArmorPhysical"				"20"		// 9
+		"MagicalResistance"			"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -787,7 +787,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// Base health.
+		"StatusHealth"				"3000"		// 1300
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 	}
 	//=========================================================
