@@ -9,14 +9,20 @@ var g_PlayerPanels = [];
 
 var g_TEAM_SPECATOR = 1;
 
+var g_DifficultyChosen = false;
+
 //--------------------------------------------------------------------------------------------------
 // Handler for when the Lock and Start button is pressed
 //--------------------------------------------------------------------------------------------------
 function OnLockAndStartPressed()
 {
 	// Don't allow a forced start if there are unassigned players
-	if ( Game.GetUnassignedPlayerIDs().length > 0  )
+	if ( Game.GetUnassignedPlayerIDs().length > 0  ) {
 		return;
+	}
+	if ( !g_DifficultyChosen ) {
+		return;
+	}
 
 	// Lock the team selection so that no more team changes can be made
 	Game.SetTeamSelectionLocked( true );
@@ -205,30 +211,6 @@ function OnTeamPlayerListChanged()
 
 
 //--------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------
-// function OnPlayerSelectedTeam( nPlayerId, nTeamId, bSuccess )
-// {
-// 	var playerInfo = Game.GetLocalPlayerInfo();
-// 	if ( !playerInfo )
-// 		return;
-
-// 	// Check to see if the event is for the local player
-// 	if ( playerInfo.player_id === nPlayerId )
-// 	{
-// 		// Play a sound to indicate success or failure
-// 		if ( bSuccess )
-// 		{
-// 			Game.EmitSound( "ui_team_select_pick_team" );
-// 		}
-// 		else
-// 		{
-// 			Game.EmitSound( "ui_team_select_pick_team_failed" );
-// 		}
-// 	}
-// }
-
-
-//--------------------------------------------------------------------------------------------------
 // Check to see if the local player has host privileges and set the 'player_has_host_privileges' on
 // the root panel if so, this allows buttons to only be displayed for the host.
 //--------------------------------------------------------------------------------------------------
@@ -252,32 +234,47 @@ function UpdateTimer()
 	var gameTime = Game.GetGameTime();
 	var transitionTime = Game.GetStateTransitionTime();
 
-	CheckForHostPrivileges();
+	if (g_DifficultyChosen) {
+		$( "#LockAndStartButton" ).enabled=true;
+		$( "#CancelAndUnlockButton" ).enabled=true;
+		CheckForHostPrivileges();
+		if ( transitionTime >= 0 )
+		{
+			$( "#StartGameCountdownTimer" ).SetDialogVariableInt( "countdown_timer_seconds", Math.max( 0, Math.floor( transitionTime - gameTime ) ) );
+			$( "#StartGameCountdownTimer" ).SetHasClass( "countdown_active", true );
+			$( "#StartGameCountdownTimer" ).SetHasClass( "countdown_inactive", false );
+		}
+		else
+		{
+			$( "#StartGameCountdownTimer" ).SetHasClass( "countdown_active", false );
+			$( "#StartGameCountdownTimer" ).SetHasClass( "countdown_inactive", true );
+		}
 
-	var mapInfo = Game.GetMapInfo();
-	$( "#MapInfo" ).SetDialogVariable( "map_name", mapInfo.map_display_name );
+		var autoLaunch = Game.GetAutoLaunchEnabled();
+		$( "#StartGameCountdownTimer" ).SetHasClass( "auto_start", autoLaunch );
+		$( "#StartGameCountdownTimer" ).SetHasClass( "forced_start", ( autoLaunch == false ) );
+		$( "#TimerLabelVote" ).visible = false;
 
-	if ( transitionTime >= 0 )
-	{
-		$( "#StartGameCountdownTimer" ).SetDialogVariableInt( "countdown_timer_seconds", Math.max( 0, Math.floor( transitionTime - gameTime ) ) );
-		$( "#StartGameCountdownTimer" ).SetHasClass( "countdown_active", true );
-		$( "#StartGameCountdownTimer" ).SetHasClass( "countdown_inactive", false );
+		// Allow the ui to update its state based on team selection being locked or unlocked
+		$.GetContextPanel().SetHasClass( "teams_locked", Game.GetTeamSelectionLocked() );
+		$.GetContextPanel().SetHasClass( "teams_unlocked", Game.GetTeamSelectionLocked() == false );
+	} else {
+		const voteTime = Math.max( 0, Math.floor( transitionTime - gameTime - 30 ) );
+		$( "#LockAndStartButton" ).enabled = false;
+		$( "#CancelAndUnlockButton" ).enabled = false;
+		$( "#TimerLabelVote" ).visible = true;
+		if (transitionTime >= 0) {
+			if (voteTime > 0) {
+				$( "#StartGameCountdownTimer" ).SetDialogVariableInt( "countdown_timer_seconds", voteTime );
+			} else {
+				GameEvents.SendCustomGameEventToServer("vote_end", {});
+			}
+		}
 	}
-	else
-	{
-		$( "#StartGameCountdownTimer" ).SetHasClass( "countdown_active", false );
-		$( "#StartGameCountdownTimer" ).SetHasClass( "countdown_inactive", true );
+
+	if ( Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) ) {
+		$.Schedule( 0.1, UpdateTimer );
 	}
-
-	var autoLaunch = Game.GetAutoLaunchEnabled();
-	$( "#StartGameCountdownTimer" ).SetHasClass( "auto_start", autoLaunch );
-	$( "#StartGameCountdownTimer" ).SetHasClass( "forced_start", ( autoLaunch == false ) );
-
-	// Allow the ui to update its state based on team selection being locked or unlocked
-	$.GetContextPanel().SetHasClass( "teams_locked", Game.GetTeamSelectionLocked() );
-	$.GetContextPanel().SetHasClass( "teams_unlocked", Game.GetTeamSelectionLocked() == false );
-
-	$.Schedule( 0.1, UpdateTimer );
 }
 
 
@@ -295,6 +292,38 @@ function OnGameLoadingStatusChange(table, key, value) {
 			$("#GameLoadingStatusText").style.color = "#E14D2A";
 		}
 	}
+}
+
+/**
+ * 难度选择
+ * @param {*} difficulty
+ */
+function OnChooseDifficulty(difficulty) {
+	if (g_DifficultyChosen) {
+		return;
+	}
+	// remove all selected class
+	for (let i = 0; i <= 5; i++) {
+		$("#DifficultyN" + i).RemoveClass("selected");
+	}
+	// get this button
+	const button = $("#DifficultyN" + difficulty);
+	// add selected class
+	button.AddClass("selected");
+	// send difficulty to server
+	GameEvents.SendCustomGameEventToServer("choose_difficulty", {
+		difficulty: difficulty,
+	});
+}
+
+function OnGameDifficultyChoiceChange(table, key, value) {
+	const difficulty = value.difficulty;
+	if (key != 'all') {
+		return;
+	}
+	g_DifficultyChosen = true;
+
+	$( "#DifficultyContainer" ).AddClass( "deactivated" );
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -347,14 +376,12 @@ function OnGameLoadingStatusChange(table, key, value) {
 	// Automatically assign players to teams.
 
 	Game.PlayerJoinTeam(2);
-	// if ( bAutoAssignTeams )
-	// {
-	// 	Game.AutoAssignPlayersToTeams();
-	// }
 
 	// Do an initial update of the player team assignment
 	OnTeamPlayerListChanged();
 
+	var mapInfo = Game.GetMapInfo();
+	$( "#MapInfo" ).SetDialogVariable( "map_name", mapInfo.map_display_name );
 	// Start updating the timer, this function will schedule itself to be called periodically
 	UpdateTimer();
 
@@ -367,5 +394,5 @@ function OnGameLoadingStatusChange(table, key, value) {
 	// 游戏数据加载状态监听
 	CustomNetTables.SubscribeNetTableListener("loading_status", OnGameLoadingStatusChange);
 	OnGameLoadingStatusChange(null, "loading_status", CustomNetTables.GetTableValue("loading_status", "loading_status"));
-
+	CustomNetTables.SubscribeNetTableListener("game_difficulty", OnGameDifficultyChoiceChange);
 })();

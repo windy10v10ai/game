@@ -24,9 +24,9 @@ function PlayerDataLoaded(player) {
 	$("#ChargePoint").text = player.memberPointTotal;
 	$("#SeasonPoint").text = player.seasonPointTotal;
 
-	$("#SeasonLevelNumber").text = player.seasonLevel + 1;
+	$("#SeasonLevelNumber").text = player.seasonLevel;
 	$("#SeasonLevelNextRemainingNumber").text = `${player.seasonCurrrentLevelPoint} / ${player.seasonNextLevelPoint}`;
-	$("#MemberLevelNumber").text = player.memberLevel + 1;
+	$("#MemberLevelNumber").text = player.memberLevel;
 	$("#MemberLevelNextRemainingNumber").text = `${player.memberCurrentLevelPoint} / ${player.memberNextLevelPoint}`;
 
 	$("#SeasonLevelNextRemainingBarLeft").style.width = `${(player.seasonCurrrentLevelPoint / player.seasonNextLevelPoint) * 100}%`;
@@ -92,6 +92,11 @@ function SetLevelUseable(player) {
 	const totalLevel = player.memberLevel + player.seasonLevel;
 	levelUseable = totalLevel - levelUsed;
 	$("#PropertyPoint").text = `${levelUseable} / ${totalLevel}`;
+	if (levelUseable === 0) {
+		$("#BPButton").SetHasClass("hasPoint", false);
+	} else {
+		$("#BPButton").SetHasClass("hasPoint", true);
+	}
 }
 
 function SetPlayerProperty() {
