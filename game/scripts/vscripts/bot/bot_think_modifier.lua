@@ -11,10 +11,10 @@ function modifier_bot_think_item_use:OnCreated()
 	if IsClient() then return end
 	if not self then return end
 	-- start thinking after random time
-	local lagTime = RandomFloat(0.1, 0.4)
+	local lagTime = RandomFloat(0.0, 0.4)
 	Timers:CreateTimer(lagTime, function()
 		if not self then return end
-		self:StartIntervalThink(0.3)
+		self:StartIntervalThink(0.4)
 	end)
 end
 
