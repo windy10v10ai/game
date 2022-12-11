@@ -437,7 +437,9 @@
 			}
 		}
 	}
-
+	//=================================================================================================================
+	// 泉水击退
+	//=================================================================================================================
 	"tower_headshot"
 	{
 		"BaseClass"						"sniper_headshot"
@@ -447,7 +449,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"slow_duration"					"0.2"
+				"slow_duration"					"0.1"
 			}
 			"02"
 			{
@@ -457,7 +459,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"knockback_distance"			"100"
+				"knockback_distance"			"80"
 			}
 			"04"
 			{
@@ -3083,7 +3085,7 @@
 		"AbilitySound"	"Hero_ChaosKnight.Phantasm"
 	}
 	// =================================================================================================================
-    // Spectre: spectre_ursa_enrage
+    // Spectre: spectre_ursa_enrage 幽鬼
     // =================================================================================================================
 	"spectre_ursa_enrage"
     {
@@ -3115,15 +3117,15 @@
 
         "AbilityValues"
         {
-            "damage_reduction"			"-25 -30 -35 -40"
+            "damage_reduction"			"-24 -28 -32 -36"
             "duration"
             {
-                "value"							"3.0"
+                "value"						"3.0"
                 "special_bonus_unique_spectre_401"	"+1.0"
             }
             "status_resistance"
             {
-                "value"							"25 30 35 40"
+                "value"						"-24 -28 -32 -36"
             }
         }
     }
