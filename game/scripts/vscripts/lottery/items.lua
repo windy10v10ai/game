@@ -25,7 +25,7 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_quelling_blade_2_datadriven",		-- 毒瘤之刃
 
 		"item_ironwood_tree",			-- 铁树之木
-		"item_mango_tree",              -- 芒果树
+		-- "item_mango_tree",              -- 芒果树
 	}
 
 	tier[2] =	{
