@@ -6546,6 +6546,7 @@
 				"var_type"						"FIELD_INTEGER"
 				"damage"	"10 15 20 25 30"
 				"LinkedSpecialBonus"			"special_bonus_unique_drow_ranger_2"
+				"CalculateSpellDamageTooltip"	"0"
 			}
 		}
 	}
