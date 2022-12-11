@@ -704,14 +704,21 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     -- 参战率积分
     local battleParticipationBase = 20
 
+    local mostdamagePlayerID_1 = -1
+    local mostdamage_1 = 0
+    local mostdamagePlayerID_2 = -1
+    local mostdamage_2 = 0
+
     local mostDamageReceivedPlayerID_1 = -1
     local mostDamageReceived_1 = 0
     local mostDamageReceivedPlayerID_2 = -1
     local mostDamageReceived_2 = 0
+
     local mostHealingPlayerID_1 = -1
     local mostHealing_1 = 0
     local mostHealingPlayerID_2 = -1
     local mostHealing_2 = 0
+
     local mostTowerKillPlayerID_1 = -1
     local mostTowerKill_1 = 0
     local mostTowerKillPlayerID_2 = -1
@@ -790,6 +797,16 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                         playerInfo.points = playerInfo.points + battleParticipation
                     end
 
+                    if damage > mostdamage_1 then
+                        mostdamagePlayerID_2 = mostdamagePlayerID_1
+                        mostdamage_2 = mostdamage_1
+                        mostdamagePlayerID_1 = playerID
+                        mostdamage_1 = damage
+                    elseif damage > mostdamage_2 then
+                        mostdamagePlayerID_2 = playerID
+                        mostdamage_2 = damage
+                    end
+
                     if damagereceived > mostDamageReceived_1 then
                         mostDamageReceivedPlayerID_2 = mostDamageReceivedPlayerID_1
                         mostDamageReceived_2 = mostDamageReceived_1
@@ -828,26 +845,34 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     end
 
     AIGameMode.playerNumber = playerNumber
-    local pointOne = playerNumber * 0.8
-    local pointHalf = playerNumber * 0.4
+    local pointT1 = playerNumber * 0.8
+    local pointT2 = playerNumber * 0.4
+    local pointT3 = playerNumber * 0.2
+
+    if mostdamagePlayerID_1 ~= -1 then
+        data.players[mostdamagePlayerID_1].points = data.players[mostdamagePlayerID_1].points + pointT2
+    end
+    if mostdamagePlayerID_2 ~= -1 then
+        data.players[mostdamagePlayerID_2].points = data.players[mostdamagePlayerID_2].points + pointT3
+    end
 
     if mostDamageReceivedPlayerID_1 ~= -1 then
-        data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + pointOne
+        data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + pointT1
     end
     if mostDamageReceivedPlayerID_2 ~= -1 then
-        data.players[mostDamageReceivedPlayerID_2].points = data.players[mostDamageReceivedPlayerID_2].points + pointHalf
+        data.players[mostDamageReceivedPlayerID_2].points = data.players[mostDamageReceivedPlayerID_2].points + pointT2
     end
     if mostHealingPlayerID_1 ~= -1 then
-        data.players[mostHealingPlayerID_1].points = data.players[mostHealingPlayerID_1].points + pointOne
+        data.players[mostHealingPlayerID_1].points = data.players[mostHealingPlayerID_1].points + pointT1
     end
     if mostHealingPlayerID_2 ~= -1 then
-        data.players[mostHealingPlayerID_2].points = data.players[mostHealingPlayerID_2].points + pointHalf
+        data.players[mostHealingPlayerID_2].points = data.players[mostHealingPlayerID_2].points + pointT2
     end
     if mostTowerKillPlayerID_1 ~= -1 then
-        data.players[mostTowerKillPlayerID_1].points = data.players[mostTowerKillPlayerID_1].points + pointOne
+        data.players[mostTowerKillPlayerID_1].points = data.players[mostTowerKillPlayerID_1].points + pointT1
     end
     if mostTowerKillPlayerID_2 ~= -1 then
-        data.players[mostTowerKillPlayerID_2].points = data.players[mostTowerKillPlayerID_2].points + pointHalf
+        data.players[mostTowerKillPlayerID_2].points = data.players[mostTowerKillPlayerID_2].points + pointT2
     end
     -- filter points
     for playerID, playerInfo in pairs(data.players) do
