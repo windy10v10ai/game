@@ -839,7 +839,7 @@
 
         // item_undying_heart 不朽之心
 		"DOTA_Tooltip_Ability_item_undying_heart"				"Undying Heart"
-		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>Active: Dragon Recovery</font></h1>Immediately regen %active_hp_regen% + %active_hp_regen_pct%%% max health, and remove debuff.<br>Get hp regen buff for %dur% seconds that provides %buff_hp_regen% + %buff_hp_regen_pct%%% max health regen."
+		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>Active: Dragon Recovery</font></h1>Immediately regenerates %active_hp_regen% + %active_hp_regen_pct%%% max health, and applies a dispel.<br>Grants hp regen buff for %dur% seconds that provides %buff_hp_regen% + %buff_hp_regen_pct%%% max health regen."<br><br>Dispel Type: Basic Dispel
 		"DOTA_Tooltip_ability_item_undying_heart_Lore"									"The powerful headpiece of a dead necromancer."
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_health"							"+$health"
@@ -911,7 +911,7 @@
 
         // item_magic_scepter 紫杖
 		"DOTA_Tooltip_Ability_item_magic_scepter"								"Magic Scepter"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>Active: <font color='#a74abd'>Spell Boost</font></h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int% Spell Amplification for each point of Intelligence."
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>Active: <font color='#a74abd'>Spell Boost</font></h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
 		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, mildly deteriorated.."
 		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_magic_scepter"						"Magic Scepter Recipe"
@@ -921,7 +921,7 @@
 
 		// item_hallowed_scepter 大紫杖
 		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"Hallowed Scepter"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>Active: <font color='#a74abd'>Hallowed Spell Boost</font></h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int% Spell Amplification for each point of Intelligence."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>Active: <font color='#a74abd'>Hallowed Spell Boost</font></h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_hallowed_scepter"						"Hallowed Scepter Recipe"
@@ -1121,7 +1121,7 @@
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Shoes"
-		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used."<br><br>Dispel Type: Basic Dispel
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used."<br><br>Dispel Type: Basic Dispel
 		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"faster speed"
 		"DOTA_Tooltip_ability_item_adi_king_sp"												"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
