@@ -120,16 +120,16 @@
 
 		"data_panel_player_property_cooldown_percentage"		"Cooldown ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
-		"data_panel_player_property_spell_amplify_percentage"	"Spell Amplify ( % )"
+		"data_panel_player_property_spell_amplify_percentage"	"Spell Amplification ( % )"
 		"data_panel_player_property_status_resistance_stacking"	"Status Resistance ( % )"
-		"data_panel_player_property_magical_resistance_bonus"	"Magical Resistance ( % )"
+		"data_panel_player_property_magical_resistance_bonus"	"Magic Resistance ( % )"
 		"data_panel_player_property_attack_range_bonus"			"Attack Range (Ranged Heroes)"
 		"data_panel_player_property_physical_armor_bonus"		"Physical Armor"
 		"data_panel_player_property_preattack_bonus_damage"		"Attack Damage"
 		"data_panel_player_property_attackspeed_bonus_constant"	"Attack Speed"
 		"data_panel_player_property_stats_strength_bonus"		"Strength"
 		"data_panel_player_property_stats_agility_bonus"		"Agility"
-		"data_panel_player_property_stats_intellect_bonus"		"Intellect"
+		"data_panel_player_property_stats_intellect_bonus"		"Intelligence"
 		"data_panel_player_property_health_regen_percentage"	"Max Health Regen Percentage ( % )"
 		"data_panel_player_property_mana_regen_total_percentage"	"Max Mana Regen Percentage ( % )"
 		"data_panel_player_property_lifesteal"					"Life Steal ( % )"
@@ -407,8 +407,8 @@
 		"DOTA_Tooltip_ability_artoria_strike_air_shard_description"		"Strike Air inflicts a Normal Attack to the enemy. (Includes immune enemies)"
 
 		"DOTA_Tooltip_Ability_artoria_instinct"					"<font color='#FFE56E'>Instinct</font>"
-		"DOTA_Tooltip_ability_artoria_instinct_Description"		"Saber's gifted instinct allows her gains extra <font color='#FF3399'>magical resistance</font> and <font color='#C24401'>status resistance</font>."
-		"DOTA_Tooltip_ability_artoria_instinct_magic_res"		"%Magical Resistance "
+		"DOTA_Tooltip_ability_artoria_instinct_Description"		"Saber's gifted instinct allows her gains extra <font color='#FF3399'>magic resistance</font> and <font color='#C24401'>status resistance</font>."
+		"DOTA_Tooltip_ability_artoria_instinct_magic_res"		"%Magic Resistance "
 		"DOTA_Tooltip_ability_artoria_instinct_status_res"		"%Status Resistance "
 
 		"DOTA_Tooltip_Ability_artoria_mana_burst"					"<font color='#FFE56E'>Mana Burst</font>"
@@ -826,7 +826,7 @@
 
         // item_excalibur 咖喱棒
 		"DOTA_Tooltip_Ability_item_excalibur"				"Excalibur"
-		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by Mars. Gaining <font color='#f15b47'>%bonus_damage_percent%%%</font> base damage bonus, Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will not miss due to Evasion or other Effects.\n<h1>Passive: Late king</h1> <font color='#e03e2e'>Drop on death with 6% change.</font>"
+		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by Mars. Gaining <font color='#f15b47'>%bonus_damage_percent%%%</font> base damage bonus, Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will not miss due to Evasion or other Effects.\n<h1>Passive: Late king</h1> <font color='#e03e2e'>Drop on death with 6% chance.</font>"
 		"DOTA_Tooltip_Ability_item_excalibur_Note0"								"Excalibur are loyal to the chosen king and drop randomly."
 		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"Excalibur are loyal to the chosen king and drop randomly."
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
@@ -872,7 +872,7 @@
 
         // item_insight_armor 洞察盔甲
 		"DOTA_Tooltip_ability_item_insight_armor"                               "Armor of Insight"
-		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>Active: A Stroke of Insight</h1>Significantly boosts the strength of the Aura of Insight for %duration% seconds.<br><br>Additional HP Regen: %aura_regen_buff%<br>Additional Damage Reduction: %aura_damage_reduction_buff%%%<br>Additional Magical Resistance: %aura_magical_resis_buff%%%<br><br>Radius: %radius%\n<h1>Passive: Aura of Insight</h1>Gives allied units %aura_regen_base% health regeneration and %aura_damage_reduction_base%%% incoming damage reduction.<br><br>Radius: %radius%"
+		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>Active: A Stroke of Insight</h1>Significantly boosts the strength of the Aura of Insight for %duration% seconds.<br><br>Additional HP Regen: %aura_regen_buff%<br>Additional Damage Reduction: %aura_damage_reduction_buff%%%<br>Additional Magic Resistance: %aura_magical_resis_buff%%%<br><br>Radius: %radius%\n<h1>Passive: Aura of Insight</h1>Gives allied units %aura_regen_base% health regeneration and %aura_damage_reduction_base%%% incoming damage reduction.<br><br>Radius: %radius%"
 		"DOTA_Tooltip_ability_item_insight_armor_Lore"							"An exquisitely crafted suit of armor that bestows secret wisdom upon the wearer."
 		"DOTA_Tooltip_ability_item_insight_armor_magical_resis"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_health"					"+$health"
@@ -1101,7 +1101,7 @@
 
 		// item_abyssal_blade_v2 一闪
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"Flash"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>Active: Flash</h1>Teleport to a target enemy unit and stun it for %stun_m% seconds. Deals %active_damage_base%+%active_damage_multi%x[Hero Strength] pure damage.<br><br>Pierce Spell Immunity.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: <font color='#F19B8F'>Power of Sacred Diana</font></h1>Grants melee heroes a %ch_m%% chance on hit to stun the target for %stun% seconds and deal %damatt% bonus physical damage. Bash chance for ranged heroes is %ch_r%%.\n<h1>Passive: <font color='#f15b47'>Bleak</font></h1>Grants a %block_chance%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>Active: Flash</h1>Teleport to a target enemy unit and stun it for %stun_m% seconds. Deals %active_damage_base%+%active_damage_multi%x[Hero Strength] pure damage.<br><br>Pierce Spell Immunity.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: <font color='#F19B8F'>Power of Sacred Diana</font></h1>Grants melee heroes a %ch_m%%% chance on hit to stun the target for %stun% seconds and deal %damatt% bonus physical damage. Bash chance for ranged heroes is %ch_r%%%.\n<h1>Passive: <font color='#f15b47'>Bleak</font></h1>Grants a %block_chance%%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_Lore"                   "abyssal_blade_v2"
 		"DOTA_Tooltip_modifier_item_abyssal_blade_v2_debuff"				"stun"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_damage"			"+$damage"
@@ -1111,7 +1111,7 @@
 
 		// item_heavens_halberd_v2 天堂2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"heavens halberd v2"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within %knockback_range% with self as the center，And knocks back the surrounding enemies.<br>Disarm duration：%disarm_con%s +Hero's current str/%disarm_con_per_str% seconds,Up to %disarm_con_max% seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% chance of disarming the target. This effect can be triggered every 5 seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within %knockback_range% with self as the center，and knocks back the surrounding enemies.<br>Disarm duration：%disarm_con%s +Hero's current str/%disarm_con_per_str% seconds, up to %disarm_con_max% seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% chance of disarming the target. This effect can be triggered every 5 seconds."
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+Status Resistance"
@@ -1121,7 +1121,7 @@
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Shoes"
-		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a basic dispel when used."
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used."<br><br>Dispel Type: Basic Dispel
 		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"faster speed"
 		"DOTA_Tooltip_ability_item_adi_king_sp"												"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
@@ -1157,7 +1157,7 @@
 		// item_wasp_despotic 大核荣耀
 		"DOTA_Tooltip_ability_item_wasp_despotic"					"WASP Despotic"
 		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"It is the product of the ancient moon soul，and it represents callousness."
-		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active：Despotic</h1>Critical chance is %active_crit_chance%%% for %active_boost_duration% second，Critical damage is %active_crit_multiplier%%%。"
+		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active：Despotic</h1>Critical chance is %active_crit_chance%%% for %active_boost_duration% second and critical damage is %active_crit_multiplier%%%。"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_chance"		"%Critical Chance:"
@@ -1167,7 +1167,7 @@
 		// item_wasp_callous
 		"DOTA_Tooltip_ability_item_wasp_callous"						"WASP Callous"
 		"DOTA_Tooltip_ability_item_wasp_callous_Lore"				"It is the product of the ancient moon soul，and it represents callousness."
-		"DOTA_Tooltip_ability_item_wasp_callous_Description"			"<h1>Active：Callous</h1>Dodge probability is %active_dodge_chance%%% for%active_boost_duration% seconds,Move speed increase by %move_speed%%%."
+		"DOTA_Tooltip_ability_item_wasp_callous_Description"			"<h1>Active：Callous</h1>Dodge chance is increased to %active_dodge_chance%%% and movement speed is increased by %move_speed%%% for %active_boost_duration% seconds."
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_agile"			"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_callous_dodge_chance"		"%+$evasion"
@@ -1179,7 +1179,7 @@
         // item_wasp_golden
 		"DOTA_Tooltip_ability_item_wasp_golden"							"Golden WASP"
 		"DOTA_Tooltip_ability_item_wasp_golden_Lore"						"Someone seems to whisper in your ear : Do you want absolute power?"
-		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>Active：WASP</h1>Critical chance and dodge probability is %active_crit_chance%%% ,Critical damage is %active_crit_multiplier%%%,Move speed increase by %move_speed%%%,The effect lasts for %active_boost_duration% seconds."
+		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>Active：WASP</h1>Critical chance and dodge probability is %active_crit_chance%%%. Critical damage is %active_crit_multiplier%%%. Movement speed is increased by %move_speed%%%. The effect lasts for %active_boost_duration% seconds."
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_agile"				"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_golden_dodge_chance"				"%+$evasion"
@@ -1263,7 +1263,7 @@
 		// 小鸡臂章
 		"DOTA_Tooltip_Ability_item_armlet_plus"				"Armlet of Mordiggian Plus"
 		"DOTA_Tooltip_Ability_item_recipe_armlet_plus"					"Armlet of Mordiggian Plus Recipe"
-	    "DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_attack_speed% attackspeed, +%unholy_bonus_strength% strength and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+	    "DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_attack_speed% attack speed, +%unholy_bonus_strength% strength and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
 		"DOTA_Tooltip_ability_item_armlet_plus_Lore"							    "Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
 		"DOTA_Tooltip_ability_item_armlet_plus_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
 		"DOTA_Tooltip_ability_item_armlet_plus_Note1"								"The strength change occurs over 0.6 seconds."
@@ -1276,7 +1276,7 @@
 
 		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"Armlet of Mordiggian Plus Pro Max"
 		"DOTA_Tooltip_Ability_item_recipe_armlet_pro_max"					"Armlet of Mordiggian Pro Max Recipe"
-	    "DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_attack_speed% attackspeed, +%unholy_bonus_strength% strength and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+	    "DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_attack_speed% attack speed, +%unholy_bonus_strength% strength and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note1"								"The strength change occurs over 0.6 seconds."
@@ -1292,7 +1292,7 @@
 
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"Saint White Lotus"
-		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>White Lotus (Active):</font></h1>Gives a shield to the target, reflecting all directional spells for the duration (they are still affected by the effect). After the shield is applied, it will be immune to the spell triggered and the target's HP will be restored by %heal%% for the first time.\n<h1><font color='#FFFF00'>Holy Healing (Passive)：</font></h1>Increases all healing effects of self %heal_bonus%%.\n<h1><font color='#FFFF00'>Silt but not stained (Passive)：</font></h1>Self movement speed will not be reduced (lock movement will still work)."
+		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>White Lotus (Active):</font></h1>Gives a shield to the target, reflecting all directional spells for the duration (they are still affected by the effect). After the shield is applied, it will block and reflect the first directional spell received and the target's HP will be restored by %heal%%.<br><br>Cast Range: %abilitycastrange% <br><br>Dispel Type: Basic Dispel\n<h1><font color='#FFFF00'>Holy Healing (Passive)：</font></h1>Amplifies heals you provide by %heal_bonus%%.\n<h1><font color='#FFFF00'>Silt but not stained (Passive)：</font></h1>Self movement speed will not be reduced (does not remove any movement speed cap)."
 		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"Don't fight anymore. You have to fight in the dance studio. You can't beat people like this."
 		"DOTA_Tooltip_Ability_item_saint_orb_Note0"						"Simply put, it is to take the initiative to set a Sphere + Lotus to the target."
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats"			"+$all"
