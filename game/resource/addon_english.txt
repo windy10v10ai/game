@@ -742,7 +742,7 @@
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"						"Aghanim's Regalia Synth"
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted all benefits from Aghanim's Regalia: Ultimate Upgrade, +%dMODIFIER_PROPERTY_HEALTH_BONUS% health, +%dMODIFIER_PROPERTY_MANA_BONUS% mana, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2"									"Aghanim's Regalia"
-		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"Use: Consume the Aghanim's Regalia to permanently gain Ultimate Upgrade, +%bonus_health% health, +%bonus_mana% mana, +%spell_amp%%% spell damage.\nPassive: Ultimate Upgrade - Upgrades the ultimate, and some abilities, of certain heroes."
+		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"Use: Consume the Aghanim's Regalia to permanently gain Ultimate Upgrade, +%bonus_health% health, +%bonus_mana% mana, +%spell_amp%%% spell damage.\nPassive: Ultimate Upgrade - Upgrades the ultimate, and some abilities, of certain heroes. Can be used on allied heroes."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Lore"							"The regalia of a wizard with demigod-like powers."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_all_stats"				"+$all"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_health"					"+$health"
@@ -1026,7 +1026,7 @@
 		"DOTA_Tooltip_ability_item_manta_1_bonus_movement_speed"					"%+$move_speed"
 
 		// item_silver_edge_2 无敌之刃
-		"DOTA_Tooltip_Ability_item_silver_edge_2"			"Silver Edge Upgrade"
+		"DOTA_Tooltip_Ability_item_silver_edge_2"			"Invinsibility edge"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Description"						"<h1>Active: Shadow Walk</h1>Makes you invisible for %windwalk_duration% seconds, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  <br><br>Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus physical damage and a guaranteed %crit_multiplier%%% critical strike to the target, and disable their passive abilities for %backstab_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_attack_speed"			"+$attack"
@@ -1101,7 +1101,7 @@
 
 		// item_abyssal_blade_v2 一闪
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"Flash"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>Active: Flash</h1>Teleport to a target enemy unit and stun it for %stun_m% seconds. Deals %active_damage_base%+%active_damage_multi%x[Hero Strength] pure damage.<br><br>Range: %abilitycastrange%\n<h1>Passive: <font color='#F19B8F'>Power of Sacred Diana</font></h1>Grants melee heroes a %ch_m%% chance on hit to stun the target for %stun% seconds and deal %damatt% bonus physical damage. Bash chance for ranged heroes is %ch_r%%.\n<h1>Passive: <font color='#f15b47'>Bleak</font></h1>Grants a %block_chance%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>Active: Flash</h1>Teleport to a target enemy unit and stun it for %stun_m% seconds. Deals %active_damage_base%+%active_damage_multi%x[Hero Strength] pure damage.<br><br>Pierce Spell Immunity.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: <font color='#F19B8F'>Power of Sacred Diana</font></h1>Grants melee heroes a %ch_m%% chance on hit to stun the target for %stun% seconds and deal %damatt% bonus physical damage. Bash chance for ranged heroes is %ch_r%%.\n<h1>Passive: <font color='#f15b47'>Bleak</font></h1>Grants a %block_chance%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_Lore"                   "abyssal_blade_v2"
 		"DOTA_Tooltip_modifier_item_abyssal_blade_v2_debuff"				"stun"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_damage"			"+$damage"
@@ -1111,7 +1111,7 @@
 
 		// item_heavens_halberd_v2 天堂2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"heavens halberd v2"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within %knockback_range% with self as the center，And produce a repulsion effect，Disarm duration：%disarm_con%s +Hero's current str/%disarm_con_per_str% seconds,Up to %disarm_con_max% seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% probability of disarming the target ,It can be triggered every 5 seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within %knockback_range% with self as the center，And knocks back the surrounding enemies.<br>Disarm duration：%disarm_con%s +Hero's current str/%disarm_con_per_str% seconds,Up to %disarm_con_max% seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% chance of disarming the target. This effect can be triggered every 5 seconds."
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+Status Resistance"
@@ -1121,7 +1121,7 @@
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Shoes"
-		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Remove debuff when used."
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a basic dispel when used."
 		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"faster speed"
 		"DOTA_Tooltip_ability_item_adi_king_sp"												"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
@@ -1133,7 +1133,7 @@
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Shoes plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds.  Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Remove debuff when used."
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds.  Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a basic dispel when used."
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"faster speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
@@ -1145,7 +1145,7 @@
 
 		// item_blue_fantasy 苍蓝幻想
 		"DOTA_Tooltip_ability_item_blue_fantasy"									"Blue Fantasy"
-		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1><font color='#FFFF00'>Active：Destruction song</font></h1>Dispel the gain effect of the target, and add debuff for %mute_duration% seconds.<br><br>During the duration, passive disabled, item use disabled, movement speed is reduced by %slow_pct%%%, attack speed by %attsp% is reduced.<br><br>Deals %max_hp_dmg_pct%%% of maximum health magic damage to the target every second.\n<h1><font color='#FFFF00'>Passive：mana remove</font></h1>Each attack burns %mana_base% magic points and causes the same amount of physical damage to the target"
+		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1><font color='#FFFF00'>Active：Destruction song</font></h1>Dispels, breaks, mutes the target and applies a debuff for %mute_duration% seconds.<br><br>The debuff slows the target by %slow_pct%%%, reduces its attack speed by %attsp%, deals %max_hp_dmg_pct%%% of maximum health magic damage to the target every second.\n<h1><font color='#FFFF00'>Passive：mana remove</font></h1>Each attack burns %mana_base% mana, and deals 1 physical damage per burned mana"
 		"DOTA_Tooltip_ability_item_blue_fantasy_int"								"+$int"
 		"DOTA_Tooltip_ability_item_blue_fantasy_agi"								"+$agi"
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_damage"						"+$damage"
@@ -1156,8 +1156,8 @@
 
 		// item_wasp_despotic 大核荣耀
 		"DOTA_Tooltip_ability_item_wasp_despotic"					"WASP Despotic"
-		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"It is the product of the ancient moon soul,It represents callousness."
-		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active：Despotic</h1>Critical chance is %crit_chance%%% for %active_boost_duration% second，Critical damage is %active_crit_multiplier%%%。"
+		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"It is the product of the ancient moon soul，and it represents callousness."
+		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active：Despotic</h1>Critical chance is %active_crit_chance%%% for %active_boost_duration% second，Critical damage is %active_crit_multiplier%%%。"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_chance"		"%Critical Chance:"
@@ -1166,7 +1166,7 @@
 
 		// item_wasp_callous
 		"DOTA_Tooltip_ability_item_wasp_callous"						"WASP Callous"
-		"DOTA_Tooltip_ability_item_wasp_callous_Lore"				"It is the product of the ancient moon soul,It represents callousness."
+		"DOTA_Tooltip_ability_item_wasp_callous_Lore"				"It is the product of the ancient moon soul，and it represents callousness."
 		"DOTA_Tooltip_ability_item_wasp_callous_Description"			"<h1>Active：Callous</h1>Dodge probability is %active_dodge_chance%%% for%active_boost_duration% seconds,Move speed increase by %move_speed%%%."
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_agile"			"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_damage"		"+$damage"
