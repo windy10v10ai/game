@@ -373,7 +373,7 @@
         // 全能骑士
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"Increases the target's movement speed and health regeneration, and makes the target fly."
-        "DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"				"You're got wings now.Charge!"
+        "DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"				"You're got wings now. Charge!"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"			"Duration: "
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"		"Movement Speed: "
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"Health Regen: "
@@ -421,7 +421,7 @@
 		"DOTA_Tooltip_ability_artoria_mana_burst_duration"		"SLOW DURATION:"
 
 		"DOTA_Tooltip_Ability_artoria_excalibur"				"<font color='#FFE56E'>Excalibur</font>"
-		"DOTA_Tooltip_ability_artoria_excalibur_description"	"Saber supercharges Excalibur with her prana and swings it to unleash a wave of light.Dealing <font color='#05CAFF'>magical damage</font> to every enemy in the path of light.\n\n<font color='#FF3399'>Upgradable with item Excalibur</font>"
+		"DOTA_Tooltip_ability_artoria_excalibur_description"	"Saber supercharges Excalibur with her prana and swings it to unleash a wave of light. Dealing <font color='#05CAFF'>magical damage</font> to every enemy in the path of light.\n\n<font color='#FF3399'>Upgradable with item Excalibur</font>"
 		"DOTA_Tooltip_ability_artoria_excalibur_Lore"	"The lone King's ideal shines the brightest in the starry night."
 		"DOTA_Tooltip_ability_artoria_excalibur_cast_delay"		"CAST DELAY:"
 		"DOTA_Tooltip_ability_artoria_excalibur_range"		"RANGE:"
@@ -575,16 +575,16 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_thdots_yukari04_stun"		"+{s:bonus_stun_duration}s Deep Danmaku Barrier -Transient Dreams- Stun"
 		"npc_dota_hero_phantom_lancer"	"Yukari Yakumo"
         "DOTA_Tooltip_ability_yukari_dark" "Darkness Falls"
-        "DOTA_Tooltip_ability_yukari_dark_Description" "Create a dismentional rift at the air.Huge cross will wall at the selected area,dealing damage to all enemies"
+        "DOTA_Tooltip_ability_yukari_dark_Description" "Creates a dismentional rift in the air. Huge cross will wall at the selected area, dealing damage to all enemies"
         "DOTA_Tooltip_ability_yukari_dark_damage" "Damage:"
         "DOTA_Tooltip_ability_yukari_dark_delay" "Delay:"
         "DOTA_Tooltip_ability_yukari_portal_hand" "Yukaris Special:Hand from abyss"
-        "DOTA_Tooltip_ability_yukari_portal_hand_Description" "Creates a portal near from target that summons huge hand that crush selected target.Target will be stunned while hand exists."
+        "DOTA_Tooltip_ability_yukari_portal_hand_Description" "Creates a portal near from target that summons huge hand that crush selected target. Target will be stunned while hand exists."
         "DOTA_Tooltip_ability_yukari_portal_hand_stun_duration" "Duration:"
         "DOTA_Tooltip_ability_yukari_portal_hand_interval" "IntervalOfDamage:"
         "DOTA_Tooltip_ability_yukari_portal_hand_damage" "DamagePerInterval:"
         "DOTA_Tooltip_ability_yukari_mass_tp" "Moon Portal"
-        "DOTA_Tooltip_ability_yukari_mass_tp_Description" "After cast, all enemies around will be prisoned in dark portal,than receive damage."
+        "DOTA_Tooltip_ability_yukari_mass_tp_Description" "After cast, all enemies around will be prisoned in dark portal, than receive damage."
         "DOTA_Tooltip_ability_yukari_mass_tp_damage" "Damage:"
         "DOTA_Tooltip_ability_yukari_mass_tp_silence_duration" "AstralDuration:"
         "DOTA_Tooltip_ability_yukari_mass_tp_scepter_Description" "Pandora:Adds a new ability: Moon Portal, which instantly puts all enemies around it into a portal, damaging them"
@@ -611,7 +611,7 @@
 		"DOTA_Tooltip_modifier_yukari_morph_real"					"Moon Phase"
 
         "DOTA_Tooltip_ability_yukari_train" "Yukari's special:Train"
-        "DOTA_Tooltip_ability_yukari_train_Description" "Summons the train from portal that rides to selected direction.Deals collosal damage to all enemies in the train way."
+        "DOTA_Tooltip_ability_yukari_train_Description" "Summons the train from portal that rides to selected direction. Deals collosal damage to all enemies in the train way."
         "DOTA_Tooltip_ability_yukari_train_AbilityDamage" "Damage:"
         "DOTA_Tooltip_ability_yukari_train_Lore" "I like trains"
         "DOTA_Tooltip_ability_yukari_twin_trains" "Yukari's special:Double Train"
@@ -1081,7 +1081,7 @@
 		"DOTA_Tooltip_Ability_item_sacred_trident_magic_damage_attack"				"+Magic Damage Attack"
 		"DOTA_Tooltip_Ability_item_sacred_trident_spell_lifesteal_amp"				"%+Spell Lifesteal Amplification"
 
-		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									"It is said that it is the symbol and weapon of Poseidon in ancient Greek mythology.But now it is widely used by fishermen for fishing"
+		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									"It is said that it is the symbol and weapon of Poseidon in ancient Greek mythology. But now it is widely used by fishermen for fishing"
 
         // item_six_vein 六脉神剑
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"Sacred Six Vein"
@@ -1206,7 +1206,7 @@
 		"DOTA_Tooltip_ability_item_jump_jump_jump"						"*Jump! Jump! Jump!*"
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Description"			"<h1>Active: Advanced Flash</h1> Combines the effects of Fallen Sky and all three Blink Dagger upgrades.<br><br>Transforms into a meteor, which lands at the target point, stunning enemies in %meteor_land_radius% radius for %meteor_stun_duration% seconds. <br>Affected enemies take %base_damage% + %str_damage%%% of the caster's strength as magical damage, then burn for a further %meteor_burn_dps% damage per second for %meteor_burn_duration% seconds.<br>Deals half damage to buildings.<br><br>After all this calamity happens, the caster receives the benefits of Swift Blink and Arcane Blink. Affected enemies suffer the effect of Overwhelming Blink after the stun duration ends."
 		"DOTA_Tooltip_Ability_item_jump_jump_jump_bonus_all_stats"		"+$all"
-		"DOTA_Tooltip_ability_item_jump_jump_jump_Lore"					"You say Flash？No No No I am a Dotaer not LOLer.It is Blink man."
+		"DOTA_Tooltip_ability_item_jump_jump_jump_Lore"					"You say Flash？No No No I am a Dotaer not LOLer. It is Blink man."
 
         // item_gungir_2 大缚灵索
 		"DOTA_Tooltip_ability_item_gungir_2"							"Advanced Gleipnir"
