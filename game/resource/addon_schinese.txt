@@ -1060,7 +1060,7 @@
 
 		// item_magic_scepter 紫杖
 		"DOTA_Tooltip_Ability_item_magic_scepter"								"魔渊法杖"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>主动: <font color='#a74abd'>魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续 %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int% 法术增强."
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>主动: <font color='#a74abd'>魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续 %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int%%% 法术增强."
 		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, mildly deteriorated.."
 		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_magic_scepter"						"魔渊法杖卷轴"
@@ -1070,7 +1070,7 @@
 
 		// item_hallowed_scepter 大紫杖
 		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"仙云法杖"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>主动: <font color='#a74abd'>仙力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续  %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int% 法术增强。"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>主动: <font color='#a74abd'>仙力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续  %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int%%% 法术增强。"
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_hallowed_scepter"						"仙云法杖卷轴"
@@ -1249,7 +1249,7 @@
 
 		// item_abyssal_blade_v2 一闪
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"									"一闪"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"						"<h1>主动：一闪</h1>瞬移到目标面前，并将其击晕%stun_m%秒，造成%active_damage_base%+%active_damage_multi%x[英雄力量]的纯粹伤害。<br><br>施法距离：%abilitycastrange%\n<h1>被动：<font color='#F19B8F'>圣嘉然之力</font></h1>攻击目标时，近战有%ch_m%% ，远程有%ch_r%% 概率将其击晕%stun%秒，并额外造成%damatt%点物理伤害。\n<h1>被动：<font color='#f15b47'>萧瑟</font></h1>受到物理攻击时，有%block_chance%% 概率格挡伤害，近战减免%block_damage_melee%伤害，远程减免%block_damage_ranged%伤害。"
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"						"<h1>主动：一闪</h1>瞬移到目标面前，并将其击晕%stun_m%秒，造成%active_damage_base%+%active_damage_multi%x[英雄力量]的纯粹伤害。<br><br>施法距离：%abilitycastrange%\n<h1>被动：<font color='#F19B8F'>圣嘉然之力</font></h1>攻击目标时，近战有%ch_m%%% ，远程有%ch_r%%% 概率将其击晕%stun%秒，并额外造成%damatt%点物理伤害。\n<h1>被动：<font color='#f15b47'>萧瑟</font></h1>受到物理攻击时，有%block_chance%%% 概率格挡伤害，近战减免%block_damage_melee%伤害，远程减免%block_damage_ranged%伤害。"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_Lore"                  				"天空一声巨响，老子闪亮登场"
 		"DOTA_Tooltip_modifier_item_abyssal_blade_v2_debuff"							"眩晕"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_damage"						"+$damage"
