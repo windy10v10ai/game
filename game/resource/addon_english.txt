@@ -1197,7 +1197,7 @@
 
         // item_shotgun_v2
 		"DOTA_Tooltip_ability_item_shotgun_v2"                                "Three Tube Shotguns"
-		"DOTA_Tooltip_ability_item_shotgun_v2_Description"                    "<h1>Passive: Greater Scatterblast</h1>RANGED ONLY: grants %attack_percent%%% splash damage (Physical) in %attack_radius% radius.<br/>Scatterblast cannot stack, has 0.1s built-in cooldown."
+		"DOTA_Tooltip_ability_item_shotgun_v2_Description"                    "<h1>Passive: Greater Scatterblast</h1>RANGED ONLY: grants %attack_percent%%% splash damage (Magical) in %attack_radius% radius.<br/>Scatterblast cannot stack, has 0.1s built-in cooldown."
         "DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"           "+$attack"
         "DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"           "+$damage"
 		"DOTA_Tooltip_ability_item_shotgun_v2_lore"                           "Bang!Bang!Bang!"
