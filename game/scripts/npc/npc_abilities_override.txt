@@ -2300,25 +2300,26 @@
 	//=================================================================================================================
 	"dawnbreaker_fire_wreath"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"17 15 13 11 9"
+		"MaxLevel" "7"
+		"AbilityManaCost"				"100 110 120 130 140 150 160"
+		"AbilityCooldown"				"17 16 15 14 13 12 11"
 		"AbilitySpecial"
 		{
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"swipe_damage"				"25 40 55 70 85"
+				"swipe_damage"				"40 55 70 85 100 115 130"
 				"LinkedSpecialBonus"		"special_bonus_unique_dawnbreaker_fire_wreath_swipe"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"smash_damage"				"25 40 55 70 85"
+				"smash_damage"				"40 55 70 85 100 115 130"
 			}
 			"09"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"smash_stun_duration"			"0.8 1.0 1.2 1.4 1.6"
+				"smash_stun_duration"			"0.8 0.9 1 1.1 1.2 1.3 1.4"
 			}
 		}
 	}
@@ -2336,32 +2337,27 @@
 	}
 	"dawnbreaker_celestial_hammer"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"18 16 14 12 10"
-		"AbilityManaCost"				"110 120 130 140 150"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"18 17 16 15 14 13 12"
+		"AbilityManaCost"				"110 120 130 140 150 160 170"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hammer_damage"			"60 90 120 150 180"
+				"hammer_damage"			"60 90 120 150 180 210 240"
 				"LinkedSpecialBonus"		"special_bonus_unique_dawnbreaker_celestial_blade"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"flare_debuff_duration"				"5"
 			}
 			"06"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"move_slow"							"24 28 32 36 40"
+				"move_slow"							"24 28 32 36 40 44 48"
 				"LinkedSpecialBonus"		"special_bonus_unique_dawnbreaker_celestial_hammer_slow"
 			}
 			"07"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"burn_damage"						"40 50 60 70 80"
+				"burn_damage"						"40 50 60 70 80 90 100"
 			}
 		}
 	}
@@ -2402,7 +2398,11 @@
 		"AbilityManaCost"				"100 150 200 250 300"
 		"AbilityValues"
 		{
-			"base_damage"			"40 60 80 100 120"
+			"base_damage"
+			{
+				"value"			"40 60 80 100 120"
+				"CalculateSpellDamageTooltip" "1"
+			}
 			"base_heal"
 			{
 				"value"				"45 70 95 120 145"
@@ -2658,25 +2658,25 @@
 	//=================================================================================================================
 	"earthshaker_fissure"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"19 18 17 16 15"
-		"AbilityManaCost"				"120 130 140 150 160"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"18 17.5 17 16.5 16 15.5 15"
+		"AbilityManaCost"				"120 130 140 150 160 170 180"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"fissure_duration"			"6.0"
+				"fissure_duration"			"6.5"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"1.0 1.25 1.5 1.75 2.0"
+				"stun_duration"				"1.0 1.2 1.4 1.6 1.8 2.0 2.2"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"fissure_damage"			"110 160 210 260 310"
+				"fissure_damage"			"110 160 210 260 310 360 410"
 				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_4"
 			}
 		}
@@ -2744,7 +2744,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"100.0 90.0 80.0 70.0 60.0"
-		"AbilityManaCost"				"150 200 250 300 350"
+		"AbilityManaCost"				"145 205 265 325 385"
 		"AbilitySpecial"
 		{
 			"04"
@@ -2756,7 +2756,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"echo_slam_initial_damage"		"100 140 180 220 260"
+				"echo_slam_initial_damage"		"140 180 220 260 300"
 			}
 		}
 	}
@@ -2777,31 +2777,19 @@
 	//=================================================================================================================
 	"earth_spirit_boulder_smash"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"18.0 15.0 12.0 9.0 6.0"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"22.0 20.0 18.0 16.0 14.0 12.0 10.0"
 		"AbilitySpecial"
 		{
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"rock_damage"			"120 180 240 300 360"
+				"rock_damage"			"120 180 240 300 360 420 480"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"			"2 2.5 3 3.5 4"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"unit_distance"			"900.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_7"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"rock_distance"			"2200.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_7"
+				"duration"				"2 2.5 3 3.5 4 4.5 5"
 			}
 		}
 	}
@@ -2811,43 +2799,27 @@
 		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
 		"AbilitySpecial"
 		{
-			"02"
+			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"1500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rock_speed"			"2500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"distance"				"1000.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_4"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"rock_distance_multiplier"	"2.0"
+				"radius"				"200"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"100"
+				"damage"				"250"
 				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.6 0.9 1.2 1.5 1.8"
+				"stun_duration"			"0.8 1.0 1.2 1.4 1.6"
 				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_3"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"rock_bonus_duration"	"0.6 0.9 1.2 1.5 1.8"
+				"rock_bonus_duration"	"0.8 1.0 1.2 1.4 1.6"
 			}
 			"10"
 			{
@@ -2905,34 +2877,13 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCooldown"				"70 60 50 40"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"cast_radius"			"450"
+			"damage_per_second"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_radius"			"450"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"			"80 120 160 200"
-			}
-		    "03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_duration"			"6.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_6"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rock_search_radius"			"500"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rock_explosion_radius"			"700"
+				"value"									"80 160 240 320"
+				"special_bonus_unique_earth_spirit_8"	"+20"
 			}
 		}
 	}
@@ -2952,44 +2903,51 @@
 	//=================================================================================================================
 	"elder_titan_echo_stomp"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"14 13 12 11 10"
-		"AbilityManaCost"				"100"
-		"AbilitySpecial"
+		"MaxLevel" "7"
+		"AbilityValues"
 		{
-			"03"
+			"stomp_damage"
 			{
-				"var_type"						"FIELD_FLOAT"
-				"sleep_duration"				"2 2.5 3 3.5 4"
+				"value"					"75 100 125 150 175 200 225"
+				"special_bonus_unique_elder_titan_2"			"+75"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
-			"04"
+			"wake_damage_limit"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"stomp_damage"					"70 90 110 130 150"
-				"LinkedSpecialBonus"			"special_bonus_unique_elder_titan_2"
+				"value"				"50 100 150 200 250 300 350"
+				"special_bonus_unique_elder_titan_4"			"+450"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
+				"CalculateSpellDamageTooltip"				"0"
 			}
-			"07"
+			"AbilityCooldown"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"wake_damage_limit"				"50 100 150 200 250"
-				"LinkedSpecialBonus"			"special_bonus_unique_elder_titan_4"
+				"value"				"15 14 13 12 11 10 9"
+				"special_bonus_shard"				"-1"
 			}
 		}
 	}
 	"elder_titan_echo_stomp_spirit"
 	{
-		"MaxLevel" "5"
-		"AbilitySpecial"
+		"MaxLevel" "7"
+		"AbilityValues"
 		{
-			"03"
+			"stomp_damage"
 			{
-				"var_type"						"FIELD_FLOAT"
-				"sleep_duration"				"2 2.5 3 3.5 4"
+				"value"					"75 100 125 150 175 200 225"
+				"special_bonus_unique_elder_titan_2"			"+75"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
-			"04"
+			"wake_damage_limit"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"stomp_damage"					"70 90 110 130 150"
+				"value"				"50 100 150 200 250 300 350"
+				"special_bonus_unique_elder_titan_4"			"+450"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
+				"CalculateSpellDamageTooltip"				"0"
+			}
+			"AbilityCooldown"
+			{
+				"value"				"15 14 13 12 11 10 9"
+				"special_bonus_shard"				"-1"
 			}
 		}
 	}
@@ -3000,12 +2958,6 @@
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
-			"radius"						"275"
-			"pass_damage"					"100"
-			"spirit_duration"				"10.0"
-			"buff_duration"					"10.0"
-			"speed"							"900"
-			"move_pct_creeps"				"1"
 			"move_pct_heroes"
 			{
 				"value"		"5 6 7 8 9"
@@ -3022,12 +2974,10 @@
 				"special_bonus_unique_elder_titan"	"+25"
 				"CalculateSpellDamageTooltip"	"0"
 			}
-			"armor_creeps"					"0.5"
 			"armor_heroes"					"2 3 4 5 6"
-			"move_pct_cap"					"40"
 			"scepter_magic_immune_per_hero"
 			{
-				"value"				"2"
+				"value"				"1"
 				"RequiresScepter"				"1"
 			}
 		}
@@ -3035,74 +2985,31 @@
 	"elder_titan_natural_order"
 	{
 		"MaxLevel" "5"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"250"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"armor_reduction_pct"	    "40 50 60 70 80"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"magic_resistance_pct"		"40 50 60 70 80"
-			}
 		}
 	}
 	"elder_titan_natural_order_spirit"
 	{
 		"MaxLevel" "5"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"250"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"armor_reduction_pct"	    "40 50 60 70 80"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"magic_resistance_pct"		"40 50 60 70 80"
-			}
 		}
 	}
 	"elder_titan_earth_splitter"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"100 90 80 70"
-		"AbilityManaCost"				"125 175 225 275"
+		"AbilityCooldown"				"100 90 80"
 		"AbilitySpecial"
 		{
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow_pct"					"30 40 50 60"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_duration"				"3.0 4.0 5.0 6.0"
-			}
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_pct"				"15 20 25 30"
+				"damage_pct"				"25 30 35"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
-			}
-			"13"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_duration_scepter"		"4.0 5.0 6.0 7.0"
 			}
 		}
 	}
@@ -3113,7 +3020,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"20"
+				"value"				"40"
 				"ad_linked_abilities"			"elder_titan_earth_splitter"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -3955,17 +3862,17 @@
 	//=================================================================================================================
 	"night_stalker_void"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"11 10 9 8 7"
-		"AbilityManaCost"				"80 90 100 110 120"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"11 10.5 10 9.5 9 8.5 8"
+		"AbilityManaCost"				"90 100 110 120 130 140 150"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"		"80 160 240 320 400"
+				"value"		"80 160 240 320 400 480 560"
 				"special_bonus_unique_night_stalker_4"	"+100"
 			}
-			"duration_night"		"2.5 3 3.5 4 4.5"
+			"duration_night"		"2.5 3 3.5 4 4.5 5 5.5"
 		}
 	}
 	"night_stalker_crippling_fear"
@@ -4002,22 +3909,17 @@
 			"bonus_attack_speed_night"
 			{
 				"value"			"20 40 60 80 100 120 140"
-				"special_bonus_unique_night_stalker_2"	"+80"
+				"special_bonus_unique_night_stalker_2"	"+120"
 			}
 		}
 	}
 	"night_stalker_darkness"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"110"
+		"AbilityCooldown"				"140 130 120 110 100"
 		"AbilityManaCost"				"125 175 225 275 325"
 		"AbilityValues"
 		{
-			"duration"
-			{
-				"value"			"30.0"
-				"special_bonus_unique_night_stalker_7"	"+8"
-			}
 			"bonus_damage"
 			{
 				"value"			"50 100 150 200 250"
@@ -4551,21 +4453,14 @@
 	//=================================================================================================================
 	"rattletrap_battery_assault"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"24 22 20 18 16"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"24 23 22 21 20 19 18"
 		"AbilityValues"
 		{
-			"radius"			"275 275 275 275"
-			"duration"					"10.5 10.5 10.5 10.5"
-			"interval"
-			{
-				"value"								"0.7 0.7 0.7 0.7"
-				"special_bonus_unique_clockwerk"		"-0.25"
-			}
 			"damage"
 			{
-				"value"									"20 45 70 95 120"
-				"special_bonus_unique_clockwerk_3"		"+45"
+				"value"									"30 60 90 120 150 180 210"
+				"special_bonus_unique_clockwerk_3"		"+40"
 			}
 			"creep_damage_multiplier"					"2"
 		}
@@ -4587,11 +4482,6 @@
 				"value"					"4"
 				"special_bonus_unique_clockwerk_5"		"+2"
 			}
-			"push_length"		"300"
-			"push_duration"		"1"
-			"cogs_radius"			"215"
-			"trigger_distance"			"185"
-			"extra_pull_buffer"			"-10"
 			"bonus_armor"		"5"
 			"leash"
 			{
@@ -4608,17 +4498,18 @@
 	}
 	"rattletrap_rocket_flare"
 	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"30 35 40 45 50"
+		"MaxLevel" "7"
+		"AbilityManaCost"				"35 40 45 50 55 60 65"
 		"AbilityValues"
 		{
-			"radius"			"600"
-			"duration"			"6.0"
-			"speed"				"2250"
-			"damage"			"80 120 160 200 240"
+			"damage"
+			{
+				"value"			"80 120 160 200 240 280 320"
+				"CalculateSpellDamageTooltip" "1"
+			}
 			"AbilityCooldown"
 			{
-				"value"				"20.0 18.0 16.0 14.0 12.0"
+				"value"				"20.0 19.0 18.0 17.0 16.0 15.0 14.0"
 				"special_bonus_unique_clockwerk_7" "-2"
 			}
 		}
@@ -5137,17 +5028,52 @@
 	//=================================================================================================================
 	"snapfire_scatterblast"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"16 14 12 10 8"
-		"AbilityManaCost"				"85 90 95 100 105"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"16 15 14 13 12 11 10"
+		"AbilityManaCost"				"85 90 95 100 105 110 115"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"100 160 220 280 340"
+				"damage"					"100 160 220 280 340 400 460"
 				"LinkedSpecialBonus"		"special_bonus_unique_snapfire_7"
 			}
+		}
+	}
+	"snapfire_firesnap_cookie"
+	{
+		"MaxLevel" "7"
+		"AbilityValues"
+		{
+				"AbilityCooldown"
+				{
+					"value"		"21 20 19 18 17 16 15"
+					"special_bonus_unique_snapfire_3"	"-3"
+				}
+				"impact_damage"
+				{
+					"value"					"70 140 210 280 350 420 490"
+					"CalculateSpellDamageTooltip"	"1"
+				}
+				"impact_stun_duration"	"1.4 1.6 1.8 2.0 2.2 2.4 2.6"
+				"target_heal"
+				{
+					"value"			"50 100 150 200 250 300 350"
+					"special_bonus_unique_snapfire_5"	"+150"
+				}
+		}
+	}
+	"snapfire_lil_shredder"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"24 20 16 12 8"
+		"AbilityDuration"				"6"
+		"AbilityManaCost"				"50 65 80 95 110"
+		"AbilityValues"
+		{
+				"damage"					"20 45 70 95 120"
+				"attack_range_bonus"		"75 150 225 300 375"
 		}
 	}
 	"snapfire_mortimer_kisses"
@@ -5181,32 +5107,6 @@
 				"max_time_in_belly"		"4.0"
 				"RequiresScepter"		"1"
 			}
-		}
-	}
-	"snapfire_firesnap_cookie"
-	{
-		"MaxLevel" "5"
-		"AbilityValues"
-		{
-				"AbilityCooldown"
-				{
-					"value"		"21 19 17 15 13"
-					"special_bonus_unique_snapfire_3"	"-3"
-				}
-				"impact_damage"			"70 140 210 280 350"
-				"impact_stun_duration"	"1.4 1.8 2.2 2.6 3.0"
-		}
-	}
-	"snapfire_lil_shredder"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"24 20 16 12 8"
-		"AbilityDuration"				"6"
-		"AbilityManaCost"				"50 65 80 95 110"
-		"AbilityValues"
-		{
-				"damage"					"20 45 70 95 120"
-				"attack_range_bonus"		"75 150 225 300 375"
 		}
 	}
 	//=================================================================================================================
@@ -8550,19 +8450,14 @@
 	"razor_eye_of_the_storm"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"70 65 60 55 50"
+		"AbilityCooldown"				"80 75 70 65 60"
 		"AbilityManaCost"				"100 150 200 250 300"
         "AbilitySpecial"
         {
-            "01"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "radius"			"800"
-            }
             "02"
             {
                 "var_type"			"FIELD_FLOAT"
-                "duration"			"30 35 40 45 50"
+                "duration"			"30"
                 "special_bonus_unique_razor_401"    "+20"
             }
             "03"
@@ -10164,9 +10059,7 @@
 	}
 	"bane_fiends_grip"
 	{
-		"HasScepterUpgrade"			"0"
 		"MaxLevel" "5"
-		"AbilityCooldown"				"60 50 40 30 20"
 		"AbilityManaCost"				"200 300 400 500 600"
 		"AbilityValues"
 		{
@@ -10181,11 +10074,15 @@
 				"value"					"5.0 5.5 6.0 6.5 7.0"
 				"special_bonus_unique_bane_3"		"+5"
 			}
-			"fiend_grip_damage"				"70 110 150 190 230"
+			"fiend_grip_damage"
+			{
+				"value"			"70 110 150 190 230"
+				"CalculateSpellDamageTooltip" "1"
+			}
 			"AbilityCooldown"
 			{
 				"value"	"80 70 60 50 40"
-				"special_bonus_scepter"	"-0"
+				"special_bonus_scepter"	"-20"
 			}
 			"illusion_count"
 			{
@@ -10221,8 +10118,8 @@
 		{
 			"damage"
 			{
-				"value"	"6 12 18 24 30"
-				"special_bonus_unique_batrider_4"	"+6"
+				"value"	"12 18 24 30 36"
+				"special_bonus_unique_batrider_4"	"+14"
 				"CalculateSpellDamageTooltip"		"1"
 			}
 			"radius"
@@ -10243,49 +10140,37 @@
 		"AbilityValues"
 		{
 
-			"damage_impact"		"30 60 90 120 150"
-			"damage_per_second"		"30"
-			"damage_duration"		"2 4 6 8 10"
-			"explosion_radius"		"500"
-			"collision_radius"		"100 100 100 100"
-			"stun_duration"			"0.5 0.5 0.5 0.5"
-			"speed"					"1200"
-			"knockback_distance"
+			"damage_impact"
 			{
-				"value"				"300"
-				"special_bonus_unique_batrider_3"	"+75"
+				"value"			"60 90 120 150 180"
+				"CalculateSpellDamageTooltip" "1"
 			}
-			"knockback_height"		"100 100 100 100"
-			"knockback_duration"	"0.35"
-			"napalm_stacks"
+			"damage_per_second"
 			{
-				"value"				"0"
-				"special_bonus_unique_batrider_2"	"+2"
+				"value"			"30"
+				"CalculateSpellDamageTooltip" "1"
 			}
-			"AbilityCharges"
+			"damage_duration"
 			{
-				"value"	"0"
-				"special_bonus_unique_batrider_5"	"+2"
+				"value"		"2 4 6 8 10"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
+				"CalculateSpellDamageTooltip" "0"
 			}
 		}
 	}
 	"batrider_firefly"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"50 46 42 38 34"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"52 48 44 40 36 32 28"
 		"AbilityValues"
 		{
-			"damage_per_second"		"20 35 50 65 80"
-			"movement_speed"		"3 6 9 12 15"
-			"radius"				"200"
-			"duration"
+			"damage_per_second"
 			{
-				"value"					"15"
-				"special_bonus_unique_batrider_1"	"+6.5"
+				"value"			"20 35 50 65 80 95 110"
+				"CalculateSpellDamageTooltip" "1"
 			}
-			"tick_interval"			"0.5 0.5 0.5 0.5"
-			"tree_radius"			"100 100 100 100"
-			"bonus_vision"			"100 200 300 400"
+			"movement_speed"		"4 6 8 10 12 14 16"
+			"bonus_vision"			"100 200 300 400 500 600 700"
 		}
 	}
 	"batrider_flaming_lasso"
@@ -10295,17 +10180,14 @@
 		"AbilityValues"
 		{
 			"duration"				"3.0 3.5 4.0 4.5"
-			"drag_distance"			"300 300 300"
-			"break_distance"		"425"
-			"damage"		"35 55 75 95"
-			"grab_radius_scepter"
+			"damage"
 			{
-				"value"		"600"
-				"RequiresScepter"		"1"
+				"value"			"35 55 75 95"
+				"CalculateSpellDamageTooltip" "1"
 			}
 			"AbilityCooldown"
 			{
-				"value"				"100 95 90 85"
+				"value"				"95 90 85 80"
 				"special_bonus_unique_batrider_6"			"-10"
 			}
 
@@ -11100,7 +10982,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"2 3 4 5 6"
+				"damage_percent"			"4 4.5 5 5.5 6"
 			}
 			"03"
 			{
@@ -11112,25 +10994,20 @@
 	}
 	"enigma_black_hole"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"145"
-		"AbilityManaCost"				"300 400 500 600"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"130"
+		"AbilityManaCost"				"300 400 500 600 700"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"		"100 150 200 250"
+				"value"		"100 150 200 250 300"
 				"special_bonus_unique_enigma_6"	"+50"
 			}
 			"scepter_pct_damage"
 			{
 				"value"					"3"
 				"RequiresScepter"		"1"
-			}
-			"shard_radius"
-			{
-				"value"					"1000"
-				"RequiresShard"			"1"
 			}
 		}
 	}
@@ -11240,26 +11117,21 @@
 	"grimstroke_dark_artistry"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"10 9 8 7 6 5 4"
+		"AbilityCooldown"				"11 10 9 8 7 6 5"
 		"AbilityManaCost"				"100 110 120 130 140 150 160"
 		"AbilitySpecial"
 		{
-		    "03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"		"2500"
-			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"80 140 200 260 320 380 440"
+				"damage"					"100 160 220 280 340 400 460"
 				"LinkedSpecialBonus"		"special_bonus_unique_grimstroke_2"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage_per_target"	"15 25 35 45 55 65 75"
+				"bonus_damage_per_target"	"20 30 40 50 60 70 80"
 				"LinkedSpecialBonus"		"special_bonus_unique_grimstroke_2"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
 			}
@@ -11277,10 +11149,15 @@
 		"AbilityManaCost"				"80 100 120 140 160 180 200"
 		"AbilitySpecial"
 		{
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"latch_duration"			"3"
+			}
 		    "04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"destroy_attacks"			"8 9 10 11 12 13 14"
+				"destroy_attacks"			"6 6 9 9 12 12 15"
 				"LinkedSpecialBonus"		"special_bonus_unique_grimstroke_4"
 			}
 			"06"
@@ -11292,7 +11169,7 @@
 			"10"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"pop_damage"				"100 170 240 310 390 460 530"
+				"pop_damage"				"120 200 280 360 440 520 600"
 			}
 		}
 	}
@@ -11326,17 +11203,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"tick_dps_tooltip"		"25 35 45 55 65"
 			}
-		}
-	}
-	"grimstroke_soul_chain"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"90 80 70 60 50"
-		"AbilityCastRange"				"700 800 900 1000 1100"
-		"AbilityManaCost"				"150 200 250 300 350"
-		"AbilityValues"
-		{
-			"chain_duration"		"6.0 7.0 8.0 9.0 10.0"
 		}
 	}
 	"grimstroke_dark_portrait"
@@ -11374,11 +11240,25 @@
 	}
 	"invoker_ghost_walk"
 	{
-		"AbilityCooldown"				"40"
+		"AbilityCooldown"				"30"
 	}
 	"invoker_tornado"
 	{
-		"AbilityCooldown"				"25"
+		"AbilityValues"
+		{
+			"AbilityCooldown"
+			{
+				"value"					"26"
+				"special_bonus_unique_invoker_3" "-6"
+			}
+			"area_of_effect"		"200"
+			"vision_distance"		"400"
+			"base_damage"
+			{
+				"value"							"120"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+		}
 	}
 	"invoker_emp"
 	{
@@ -11389,6 +11269,7 @@
 			{
 				"value"			"200 300 400 500 600 700 800"
 				"levelkey"				"wexlevel"
+				"special_bonus_unique_invoker_10"	"+20%"
 			}
 			"damage_per_mana_pct"	"80"
 		}
@@ -11428,6 +11309,14 @@
 	"invoker_deafening_blast"
 	{
 		"AbilityCooldown"				"30"
+		"AbilityValues"
+		{
+			"damage"
+			{
+				"value"					"100 150 200 250 300 350 400 450"
+				"levelkey"				"exortlevel"
+			}
+		}
 	}
 	"special_bonus_unique_invoker_13"
 	{
@@ -12207,16 +12096,16 @@
 	//=================================================================================================================
 	"necrolyte_death_pulse"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"8 7 6 5 4"
-		"AbilityDamage"					"100 160 220 280 340"
-		"AbilityManaCost"				"70 100 130 160 190"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"8 7.5 7 6.5 6 5.5 5"
+		"AbilityDamage"					"100 160 220 280 340 400 460"
+		"AbilityManaCost"				"70 100 130 160 190 220 250"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal"					"60 90 120 150 180"
+				"heal"					"60 90 120 150 180 210 240"
 				"LinkedSpecialBonus"		"special_bonus_unique_necrophos_4"
 			}
 		}
@@ -12240,18 +12129,13 @@
 		{
 			"aura_damage"
 			{
-				"value"		"1.2 1.4 1.6 1.8 2.0 2.2 2.4"
-				"special_bonus_unique_necrophos_2"		"+0.6"
+				"value"		"1.2 1.5 1.8 2.1 2.4 2.7 3.0"
+				"special_bonus_unique_necrophos_2"		"+0.5"
 				"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"health_regen"	"4 5 6 7 8 9 10"
 			"mana_regen"	"4 5 6 7 8 9 10"
-			"heal_reduction_pct"
-            {
-                "value"					"0"
-                "special_bonus_unique_necrophos_5"		"+40"
-            }
 		}
 	}
 	"necrolyte_sadist"
@@ -12286,7 +12170,6 @@
 		"AbilityValues"
 		{
 			"damage_per_health"			"0.8 0.85 0.9 0.95 1"
-			"stun_duration"				"1.5 1.5 1.5 1.5 1.5"
 			"hp_per_kill"				"4 8 12 16 20"
 			"mana_per_kill"				"2 4 6 8 10"
 		}
@@ -12488,14 +12371,14 @@
 	//=================================================================================================================
 	"oracle_fortunes_end"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"14 12 9 7 5"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"12 11 10 9 8 7 6"
 		"AbilityManaCost"				"100"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"					"100 160 220 280 340"
+				"value"					"100 160 220 280 340 400 460"
 				"special_bonus_unique_oracle_fortunes_end_damage"		"+80"
 			}
 		}
@@ -12523,7 +12406,6 @@
 	"oracle_purifying_flames"
 	{
 		"MaxLevel" "7"
-		"AbilityManaCost"				"80"
 		"AbilitySpecial"
 		{
 			"01"
@@ -12549,25 +12431,27 @@
 		"AbilityCooldown"				"90 80 70 60"
 		"AbilityCastRange"				"700 800 900 1000"
 		"AbilityManaCost"				"100 150 200 250"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"duration"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"6 7 8 9"
-				"LinkedSpecialBonus"	"special_bonus_unique_oracle"
+				"value"				"7 8 9 10"
+				"special_bonus_unique_oracle"	"+1"
 			}
-		}
-	}
-	"special_bonus_unique_oracle"
-	{
-		"AbilitySpecial"
-		{
-			"01"
+			"AbilityCooldown"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"value"						"1"
-				"ad_linked_abilities"			"oracle_false_promise"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"value"								"90 80 70 60"
+				"special_bonus_unique_oracle_6"		"-20"
+			}
+			"bonus_armor"
+			{
+				"value"								"0"
+				"special_bonus_unique_oracle_9"		"+20"
+			}
+			"heal_amp_pct"
+			{
+				"value"							"100 125 150 175"
+				"special_bonus_shard"			"+25"
 			}
 		}
 	}
@@ -12635,23 +12519,24 @@
 	"puck_dream_coil"
 	{
 		"MaxLevel" "5"
+		"AbilityCooldown"				"60"
 		"AbilityManaCost"				"100 150 200 250 300"
 		"AbilityValues"
 		{
 				"coil_initial_damage"
 				{
 					"value"					"150 230 310 390 470"
-					"special_bonus_unique_puck_coil_damage"			"+150"
+					"special_bonus_unique_puck_coil_damage"			"+230"
 				}
 				"coil_stun_duration"
 				{
 					"value"			"1.8 2.2 2.6 3.0 3.4"
-					"special_bonus_unique_puck_4"	"+0.6"
+					"special_bonus_unique_puck_4"	"+0.8"
 				}
 				"coil_break_damage"
 				{
 					"value"					"200 300 400 500 600"
-					"special_bonus_unique_puck_coil_damage"			"+150"
+					"special_bonus_unique_puck_coil_damage"			"+230"
 				}
 		}
 	}
@@ -13721,11 +13606,6 @@
 		"AbilityManaCost"				"75 80 85 90 95"
 		"AbilityValues"
 		{
-			"remnant_watch_distance"
-			{
-				"value"		"450"
-				"special_bonus_shard"		"+150"
-			}
 			"impact_damage"
 			{
 				"value"			"80 130 180 230 280"
@@ -13752,7 +13632,7 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-				"radius"				"170"
+				"radius"				"200"
 				"AbilityChargeRestoreTime"
 				{
 					"value"			"26 22 18 14"
@@ -13760,12 +13640,11 @@
 				}
 				"min_travel_distance"	"200"
 				"max_travel_distance"	"800 900 1000 1100"
-				"pop_damage_delay"
+				"pop_damage"
 				{
-					"value"	"1.25"
-					"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
+					"value"					"150 250 350 459"
+					"CalculateSpellDamageTooltip"	"1"
 				}
-				"pop_damage"			"150 250 350 450"
 				"movement_slow_pct"		"50 60 70 80"
 		}
 	}
@@ -13778,18 +13657,18 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"70 120 170 220 270"
+				"damage"				"120 170 220 270 320"
 				"LinkedSpecialBonus"	"special_bonus_unique_void_spirit_4"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_absorb_amount"	"40 80 120 160 200"
+				"base_absorb_amount"	"80 160 240 320 400"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"absorb_per_hero_hit"	"30 45 60 75 90"
+				"absorb_per_hero_hit"	"30 60 90 120 150"
 			}
 		}
 	}
@@ -13800,7 +13679,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"value"					"130"
+				"value"					"180"
 				"ad_linked_abilities"		"void_spirit_resonant_pulse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}

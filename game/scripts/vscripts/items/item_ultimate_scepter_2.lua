@@ -1,11 +1,11 @@
 function Scepter2OnCreated(keys)
 	-- bane A杖大招会卡顿，移除A杖效果
-	if keys.caster:GetUnitName() ~= "npc_dota_hero_bane" then
-		-- add modifier_item_ultimate_scepter after 0.1s
-		Timers:CreateTimer(0.1, function()
-			keys.caster:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", {duration = -1})
-		end)
-	end
+	-- if keys.caster:GetUnitName() ~= "npc_dota_hero_bane" then
+	-- end
+	-- add modifier_item_ultimate_scepter after 0.1s
+	Timers:CreateTimer(0.1, function()
+		keys.caster:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", {duration = -1})
+	end)
 end
 
 --[[ ============================================================================================================
@@ -38,9 +38,9 @@ end
 		Date: 17.05.2015	]]
 function Scepter2OnSpell(keys)
 	if keys.caster:IsRealHero() and keys.target:IsRealHero() and not keys.caster:HasModifier("modifier_arc_warden_tempest_double") and not keys.target:HasModifier("modifier_arc_warden_tempest_double") and not keys.target:HasModifier(keys.modifier) then
-		if keys.target:GetUnitName() ~= "npc_dota_hero_bane" then
-			keys.target:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", {duration = -1})
-		end
+		keys.target:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", {duration = -1})
+		-- if keys.target:GetUnitName() ~= "npc_dota_hero_bane" then
+		-- end
 		keys.target:AddNewModifier(keys.caster, keys.ability, keys.modifier, {})
 
 		keys.target:EmitSound("Hero_Alchemist.Scepter.Cast")
