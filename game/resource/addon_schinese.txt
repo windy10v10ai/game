@@ -357,6 +357,68 @@
 		//            Heroes
 		//
 		///////////////////////////////////////////////////
+		// 原版英雄
+		// 火枪暗杀
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"暗杀（旧版）"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"施法距离:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"神杖升级暗杀范围:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%神杖升级致命一击:"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"暗杀（旧版）"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
+
+		// 茶神
+		"npc_dota_hero_techies"					"茶神"
+
+        // 虚空假面
+        "DOTA_Tooltip_ability_faceless_void_backtrack"			"回到过去"
+		"DOTA_Tooltip_ability_faceless_void_backtrack_description"			"虚空假面通过将时间向回移动一小段，来闪避一切（包括物理和魔法）伤害。<br/>回到过去概率：10/15/20/25/30"
+
+		// 死亡先知
+		"DOTA_Tooltip_ability_death_prophet_witchcraft"			"巫术精研"
+		"DOTA_Tooltip_ability_death_prophet_witchcraft_description"			"提升死亡先知克萝贝露丝Krobelus使用巫术的能力，被动提升移动速度。<br/>移动速度加成：10/15/20/25/30,<br/>地穴虫群魔法消耗降低：10/15/20/25/30,<br/>地穴虫群冷却时间降低：1,<br/>沉默魔法魔法消耗降低:20,<br/>沉默魔法冷却时间降低：1。"
+
+		// 双头龙
+        "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"烈焰焚身的距离+200，持续时间+5秒，并且变为纯粹伤害，无视技能免疫。"
+
+        // 美杜莎
+		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "每次美杜莎受到指向性技能作用时都会朝该敌人放出一条单体的秘术异蛇。冷却时间：10。"
+
+		// 谜团
+		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"					"黑洞每秒造成额外伤害，数值为单位最大生命值的3%。"
+
+        // 全能骑士
+        "DOTA_Tooltip_ability_omniknight_repel"			"咸鱼恩赐"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight"			"奶飞天"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"			"全能骑士召唤出咸鱼之王的替身使者，提升目标的移动速度和生命恢复，并且使目标飞行。"
+        "DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"			"你被奶了，你飞天了，快去送。"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"							"持续时间："
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"						"移动速度："
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"							"生命恢复："
+
+		// 电炎绝手/老奶奶
+		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"治疗："
+
+		// 混沌骑士
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"混沌之军"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战，持续%duration%秒。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
+		// "DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
+
+		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
+
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"				"增加大招攻击次数，降低攻击冷却时间。"
+
+		///////////////////////////////////////////////////
+		// 自定义英雄
 		//杰克
 		"npc_dota_hero_brewmaster"																"开膛手杰克"
 		"npc_dota_hero_brewmaster_npedesc1"														"从这里到地狱，我们是火，是雨，是力量，在这里献上杀戮。"
@@ -423,23 +485,6 @@
 		"DOTA_Tooltip_modifier_jack_the_mist_aura_Description"									"使自身周围充满迷雾"
 		"DOTA_Tooltip_modifier_jack_maria_the_ripper"											"解体圣母"
 		"DOTA_Tooltip_modifier_jack_maria_the_ripper_Description"								"自身进入无法被真视的隐身状态，连续对敌人进行攻击"
-
-		// 火枪暗杀
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"暗杀（旧版）"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"施法距离:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"神杖升级暗杀范围:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%神杖升级致命一击:"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"暗杀（旧版）"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
-
-		// 茶神
-		"npc_dota_hero_techies"					"茶神"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"初音未来"
@@ -556,46 +601,6 @@
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"弹幕结界单次伤害："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"弹幕结界伤害间隔："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"增加一个新的技能：「深弹幕结界 -梦幻泡影-」"
-
-
-        // 虚空假面
-        "DOTA_Tooltip_ability_faceless_void_backtrack"			"回到过去"
-		"DOTA_Tooltip_ability_faceless_void_backtrack_description"			"虚空假面通过将时间向回移动一小段，来闪避一切（包括物理和魔法）伤害。<br/>回到过去概率：10/15/20/25/30"
-
-		// 死亡先知
-		"DOTA_Tooltip_ability_death_prophet_witchcraft"			"巫术精研"
-		"DOTA_Tooltip_ability_death_prophet_witchcraft_description"			"提升死亡先知克萝贝露丝Krobelus使用巫术的能力，被动提升移动速度。<br/>移动速度加成：10/15/20/25/30,<br/>地穴虫群魔法消耗降低：10/15/20/25/30,<br/>地穴虫群冷却时间降低：1,<br/>沉默魔法魔法消耗降低:20,<br/>沉默魔法冷却时间降低：1。"
-
-		// 双头龙
-        "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"烈焰焚身的距离+200，持续时间+5秒，并且变为纯粹伤害，无视技能免疫。"
-
-        // 美杜莎
-		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "每次美杜莎受到指向性技能作用时都会朝该敌人放出一条单体的秘术异蛇。冷却时间：10。"
-
-		// 谜团
-		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"					"黑洞每秒造成额外伤害，数值为单位最大生命值的3%。"
-
-        // 全能骑士
-        "DOTA_Tooltip_ability_omniknight_repel"			"咸鱼恩赐"
-		"DOTA_Tooltip_ability_omniknight_angelic_flight"			"奶飞天"
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"			"全能骑士召唤出咸鱼之王的替身使者，提升目标的移动速度和生命恢复，并且使目标飞行。"
-        "DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"			"你被奶了，你飞天了，快去送。"
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"							"持续时间："
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"						"移动速度："
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"							"生命恢复："
-
-		// 混沌骑士
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"混沌之军"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战，持续%duration%秒。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
-		// "DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
-
-		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
-		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
-
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"				"增加大招攻击次数，降低攻击冷却时间。"
 
 		// Saber
 		"npc_dota_hero_broodmother"									"阿尔托莉雅・潘德拉贡"

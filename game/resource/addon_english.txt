@@ -229,6 +229,28 @@
 		//            Heroes
 		//
 		///////////////////////////////////////////////////
+		// 原版英雄
+		// 火枪暗杀
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"Assassinate (old)"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"RANGE:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"SCEPTER RADIUS:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%SCEPTER CRITICAL DAMAGE:"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"Assassinate"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
+
+		// 茶神
+		"npc_dota_hero_techies"					"hechahecha"
+
+		// 电炎绝手/老奶奶
+		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"Cookie Heal:"
+		///////////////////////////////////////////////////
+		// 自定义英雄
 		//杰克
 		"npc_dota_hero_brewmaster"																"Jack the Ripper"
 		"npc_dota_hero_brewmaster_npedesc1"														"From here to hell, we are the fire, the rain, the power, and the carnage!"
@@ -295,23 +317,6 @@
 		"DOTA_Tooltip_modifier_jack_the_mist_aura_Description"									"Surround Jack self with mist"
 		"DOTA_Tooltip_modifier_jack_maria_the_ripper"											"Our Lady Dissolution"
 		"DOTA_Tooltip_modifier_jack_maria_the_ripper_Description"								"Entering a state of invisibility where you cannot be seen, you continuously attack the enemy."
-
-		// 火枪暗杀
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"Assassinate (old)"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"RANGE:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"SCEPTER RADIUS:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%SCEPTER CRITICAL DAMAGE:"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"Assassinate"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
-
-		// 茶神
-		"npc_dota_hero_techies"					"hechahecha"
 
 		// 初音未来
 		"npc_dota_hero_meepo"					"Miku"
