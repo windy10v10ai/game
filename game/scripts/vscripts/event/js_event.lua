@@ -58,9 +58,11 @@ function AIGameMode:CalculateDifficulty(force)
             end
         end
     end
-    averageDifficulty = averageDifficulty / playerChosen
-    -- 四舍五入 FIXME 如果难度偏高 改成人数相同时优先选择低难度 + 0.4
-    averageDifficulty = math.floor(averageDifficulty + 0.5)
+    if playerChosen ~= 0 then
+        averageDifficulty = averageDifficulty / playerChosen
+        -- 四舍五入 FIXME 如果难度偏高 改成人数相同时优先选择低难度 + 0.4
+        averageDifficulty = math.floor(averageDifficulty + 0.5)
+    end
     if force or playerChosen >= playerCount then
         CustomNetTables:SetTableValue('game_difficulty', 'all', {difficulty = averageDifficulty})
         AIGameMode.iGameDifficulty = tonumber(averageDifficulty)

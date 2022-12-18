@@ -337,7 +337,7 @@ local wardItemTable = {
   "item_ward_observer",
   "item_ward_observer",
   "item_ward_observer",
-  "item_ward_sentry",
+  "item_ward_observer",
   "item_ward_sentry",
   "item_ward_sentry",
   "item_ward_sentry",
@@ -382,7 +382,7 @@ function BotThink:PutWardObserver(hHero)
   end
 
   -- 随机在附近插假眼
-  if RandomInt(1, 10) == 1 then
+  if RandomInt(1, 5) == 1 then
     wardPostionList = {}
     table.insert(wardPostionList, hHero:GetAbsOrigin())
   end
@@ -415,13 +415,13 @@ end
 function BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassName)
   -- if in range of wardPostionList, put ward
   local iCastRange = 500
-  local iFindRange = 900
+  local iFindRange = 1200
   if sWardItemName == "item_ward_observer" then
     iFindRange = 1600
   end
   local wardItem = BotThink:FindItemByNameIncludeStash(hHero, sWardItemName)
   local vHeroPos = hHero:GetAbsOrigin()
-  for i,vWardPos in ipairs(wardPostionList) do
+  for _,vWardPos in ipairs(wardPostionList) do
     if wardItem then
       local wardPosVector = vWardPos + Vector(RandomInt(-50, 50),RandomInt(-50, 50),0)
       local wardPosDistance = (wardPosVector - vHeroPos):Length()
