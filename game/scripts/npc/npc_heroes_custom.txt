@@ -1141,8 +1141,10 @@
 				"33"		"earthshaker_fissure"
 				"34"		"earthshaker_aftershock"
 				"35"		"earthshaker_enchant_totem"
-				"36"		"earthshaker_enchant_totem"
+				"36"		"earthshaker_fissure"
 				"37"		"earthshaker_enchant_totem"
+				"38"		"earthshaker_fissure"
+				"39"		"earthshaker_enchant_totem"
 			}
 		}
 	}
@@ -1938,8 +1940,10 @@
 				"32"		"oracle_fortunes_end"
 				"33"		"oracle_fates_edict"
 				"34"		"oracle_purifying_flames"
-				"35"		"oracle_purifying_flames"
+				"35"		"oracle_fortunes_end"
 				"36"		"oracle_purifying_flames"
+				"37"		"oracle_fortunes_end"
+				"38"		"oracle_purifying_flames"
 			}
 		}
 	}
