@@ -3125,7 +3125,7 @@
             }
             "status_resistance"
             {
-                "value"						"-24 -28 -32 -36"
+                "value"						"24 28 32 36"
             }
         }
     }
