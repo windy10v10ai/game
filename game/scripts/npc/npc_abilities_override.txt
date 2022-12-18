@@ -12781,13 +12781,13 @@
 	{
 		"MaxLevel" "5"
 		"AbilityDuration"				"2.75"
-		"AbilityCooldown"				"29.0 26.0 23.0 20.0 17.0"
+		"AbilityCooldown"				"26 25 24 23 22"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"illusion_duration"			"11 12 13 14 15"
+				"illusion_duration"			"10"
 			}
 			"03"
 			{
