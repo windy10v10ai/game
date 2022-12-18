@@ -8972,21 +8972,21 @@
 	//=================================================================================================================
 	"spectre_spectral_dagger"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"12"
-		"AbilityManaCost"				"130 140 150 160 170"
+		"MaxLevel" "7"
+		"AbilityCooldown"				"20 19 18 17 16 15 14"
+		"AbilityManaCost"				"110 130 150 170 190 210 230"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"120 180 240 300 360"
+				"damage"				"120 180 240 300 360 420 480"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed"		"15 17 19 21 23"
+				"bonus_movespeed"		"10 12 14 16 18 20 22"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_3"
 			}
 		}
@@ -9043,8 +9043,8 @@
 	"spectre_haunt"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"240"
-		"AbilityManaCost"				"300 400 500 600"
+		"AbilityCooldown"				"300"
+		"AbilityManaCost"				"500 1000 1500 2000"
 		"LinkedAbility"					"spectre_ursa_enrage"
         "HasScepterUpgrade"			    "1"
         "AbilityDraftPreAbility"		    "spectre_reality"
