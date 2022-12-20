@@ -265,7 +265,7 @@
 		"DOTA_Tooltip_ability_jack_presence_concealment_movespeed_add"							"%Movement speed bonus:"
 
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night"									"Foggy Night Murder"
-		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_description"						"Jack generates a mist at the target location, in the mist Jack will enter a state of invisibility, and make the attack speed, movement speed, turn rate, vision range of the enemies in the mist decreased \nIf in the mist at the same time with the invisibility effect of Aura Masking, invisibility will not be True Sight."
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_description"						"Jack generates a mist at the target location, in the mist Jack will enter a state of invisibility, and make the attack speed, movement speed, turn rate, vision range of the enemies in the mist decreased \nIf Jack is in the mist at the same time with the invisibility effect of Aura Masking, invisibility will not be detected by true sight."
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_Lore"							"On the characteristic that she is not an assassin but a murderer, she as the aggressor is always able to take advantage of the other as the victim."
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_duration"						"Duration:"
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_radius"							"Mist Range:"
@@ -275,7 +275,7 @@
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_visionrange_down"				"%Vision reduction:"
 
 		"DOTA_Tooltip_ability_jack_surgery"														"Surgical Procedures"
-		"DOTA_Tooltip_ability_jack_surgery_description"											"The enemy attacked by Jack will gain Dissolution effect, each layer of Dissolution will reduce the enemy's healing, life recovery, attack blood draw and skill blood draw \n the maximum Dissolution layer on each enemy is %max_count%, when the maximum layer is reached, the enemy will be damaged by the effect \n the enemy lost attributes will be attached to Jack."
+		"DOTA_Tooltip_ability_jack_surgery_description"											"The enemy attacked by Jack will gain Dissolution effect, and each layer of Dissolution will reduce the enemy's healing, life recovery, attack lifesteal and spell lifesteal. \n The maximum Dissolution layer on each enemy is %max_count%, when the maximum layer is reached, the enemy will be damaged by the effect. \n Jack will gain the lost effects from the enemy."
 		"DOTA_Tooltip_ability_jack_surgery_Lore"												"A blood-stained scalpel can be used to heal the Master as well as himself. Jack the Ripper's victims are killed in a way that requires anatomical knowledge, such as removal of specific organs."
 		"DOTA_Tooltip_ability_jack_surgery_duration"											"Duration:"
 		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%Treatment reduction per tier:"
@@ -284,14 +284,14 @@
 		"DOTA_Tooltip_ability_jack_surgery_spell_lifesteal_down"								"%Ability Lifesteal Amplify reduction per tier:"
 
 		"DOTA_Tooltip_ability_jack_the_mist"													"Dark Fog City"
-		"DOTA_Tooltip_ability_jack_the_mist_description"										"Active use can immediately turn into night, and Jack will surrounded by the mist, the enemy in the mist will be subject to the same effect as the mist in Foggy Night Murder."
+		"DOTA_Tooltip_ability_jack_the_mist_description"										"Can be actively used to immediately turn into night, and Jack will be surrounded by the mist. The enemies in the mist will be subject to the same effect as the mist in Foggy Night Murder."
 		"DOTA_Tooltip_ability_jack_the_mist_Lore"												"After the Industrial Revolution, a huge amount of soot began to be emitted, and in the 1950s it became sulfuric acid fog and caused a major disaster in London. The Dark Fog City is the treasure that recreates the Fog of Death."
 		// "DOTA_Tooltip_ability_jack_the_mist_radius_normal"										"Passive Mist Range:"
 		"DOTA_Tooltip_ability_jack_the_mist_radius_active"										"Active Mist Range:"
 		"DOTA_Tooltip_ability_jack_the_mist_duration"											"Duration:"
 
 		"DOTA_Tooltip_ability_jack_maria_the_ripper"											"Our Lady Dissolution"
-		"DOTA_Tooltip_ability_jack_maria_the_ripper_description"								"Jack blinks behind the enemy, stuns the target for a period of time, and if the target has Dissolution effect on it, makes an attack based on the number of Dissolutions within %atttak_duration% seconds, during which time he is in an invisible state that cannot be seen by the True Sight."
+		"DOTA_Tooltip_ability_jack_maria_the_ripper_description"								"Jack blinks behind the enemy, stuns the target for a period of time. If the target has Dissolution effect on it, Jack will make focus strike the target based on the number of Dissolutions stacks within %atttak_duration% seconds, during which she is invisible and cannot be detected by the true sight."
 		"DOTA_Tooltip_ability_jack_maria_the_ripper_Lore"										"At that time, it was said that there were 80,000 prostitutes in the slums of London, and the resentment of the children who could not even become prostitutes, who were killed and thrown away for the reason of living, had a vicious effect."
 		"DOTA_Tooltip_ability_jack_maria_the_ripper_stun_duration"								"Stun duration:"
 		"DOTA_Tooltip_ability_jack_maria_the_ripper_attacktimes_count"							"Number of attacks provided per Dissolution layer:"
@@ -304,9 +304,9 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_jack_6"										"Attack has {s:bonus_talent_chance}% chance to attack again"
 
 		"DOTA_Tooltip_modifier_jack_presence_concealment_invision"								"Aura Masking"
-		"DOTA_Tooltip_modifier_jack_presence_concealment_invision_Description"					"Jack goes into stealth and gets %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movespeed."
+		"DOTA_Tooltip_modifier_jack_presence_concealment_invision_Description"					"Jack goes into stealth and gets %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% extra movespeed."
 		"DOTA_Tooltip_modifier_jack_presence_concealment_damage"								"Ripper"
-		"DOTA_Tooltip_modifier_jack_presence_concealment_damage_Description"					"Jack gets %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% Attack damage."
+		"DOTA_Tooltip_modifier_jack_presence_concealment_damage_Description"					"Jack gets %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage."
 		"DOTA_Tooltip_modifier_jack_murderer_of_the_misty_night"								"Misty"
 		"DOTA_Tooltip_modifier_jack_murderer_of_the_misty_night_Description"					"Being in the mist"
 		"DOTA_Tooltip_modifier_jack_surgery"													"Surgical Procedures：Treatment"
@@ -314,7 +314,7 @@
 		"DOTA_Tooltip_modifier_jack_surgery_target"												"Surgical Procedures：Dissolution"
 		"DOTA_Tooltip_modifier_jack_surgery_target_Description"									"Suffer %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%% Treatment, %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%% Life Regeneration, %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%% Lifesteal Amplify,%dMODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE%%% Ability Lifesteal Amplify."
 		"DOTA_Tooltip_modifier_jack_the_mist_aura"												"Dark Fog City"
-		"DOTA_Tooltip_modifier_jack_the_mist_aura_Description"									"Surround Jack self with mist"
+		"DOTA_Tooltip_modifier_jack_the_mist_aura_Description"									"Surround Jack with mist"
 		"DOTA_Tooltip_modifier_jack_maria_the_ripper"											"Our Lady Dissolution"
 		"DOTA_Tooltip_modifier_jack_maria_the_ripper_Description"								"Entering a state of invisibility where you cannot be seen, you continuously attack the enemy."
 
@@ -322,11 +322,11 @@
 		"npc_dota_hero_meepo"					"Miku"
 		"npc_dota_hero_meepo_npedesc1"		"Hatsune Miku Princess"
 		"DOTA_Tooltip_ability_get_down" "GET DOWN!!!"
-        "DOTA_Tooltip_ability_get_down_Description" "Uses his own secret dance, inflicting a Normal Attack to each enemy around him every second for the entire duration of the dance. Deals bonus magic damage per hit. The blows do not pass through the invulnerability to magic."
+        "DOTA_Tooltip_ability_get_down_Description" "Uses her own secret dance, inflicting a Normal Attack to each enemy around her every second for the entire duration of the dance. Deals bonus magic damage per hit. The attacks inflicted have true strike. The blows do not pierce magic immunity."
         "DOTA_Tooltip_ability_get_down_dance_radius" "Radius:"
         "DOTA_Tooltip_ability_get_down_dance_damage" "Bonus Magic Damage Per Hit:"
 		"DOTA_Tooltip_ability_get_down_Lore"  "Is this enough?"
-		"DOTA_Tooltip_ability_get_down_scepter_description"    "Get new ability <font color='#FFFFFF'>GET DOWN</font>.<br/>Hatsune Miku's Secret Dance, inflicting a Normal Attack to enemy around and bonus magic damage per second. Ability has same level with <font color='#FFFFFF'>Chibi Miku</font>"
+		"DOTA_Tooltip_ability_get_down_scepter_description"    "Get new ability <font color='#FFFFFF'>GET DOWN</font>.<br/>Hatsune Miku's Secret Dance, inflicting a Normal Attack to enemy around and bonus magic damage per second. The attacks inflicted have true strike. This ability has the same level with <font color='#FFFFFF'>Chibi Miku</font>"
         "DOTA_Tooltip_ability_chibi_hit" "CHIBI STRIKE"
         "DOTA_Tooltip_ability_chibi_hit_Description" "Deals a devastating blow to the target enemy, dealing a colossal amount of damage and stunning them."
         "DOTA_Tooltip_ability_chibi_hit_AbilityDamage" "Damage:"
@@ -467,14 +467,14 @@
 
 
 		"DOTA_Tooltip_Ability_abyss_sword_out_of_sheath" 				 "Out of sheath"
-		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_description" 	 "The attack of abyss sword has a chance to cause critical hit. It has blood sucking effect when triggering critical hit"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_description" 	 "The attack of abyss sword has a chance to cause critical hit. The critical hits lifesteals."
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_Lore" 		 "The power of predators gained after falling into hell"
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_chance" 		 "%trigger probability:"
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_percentage" 			 "%critical damage:"
-		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_lifesteal" 			 "%life theft:"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_lifesteal" 			 "%life steal:"
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_range" 			 "Magic crystal upgrade casting range:"
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_duration" 			 "Duration of magic crystal upgrade damage:"
-		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_description" 		 "Gain active effect, be able to use it against enemy units, flash to the position of enemy units, make an attack and cause destructive effect"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_description" 		 "Can be activated to use it against enemy units. Abyss sword will flash to the position of the target and make an attack that breaks the enemy."
 
 
 		"DOTA_Tooltip_Ability_abyss_sword_hidden_sharp" 				 "Hidden Sharp"
@@ -594,12 +594,12 @@
         "DOTA_Tooltip_ability_yukari_mass_tp_silence_duration" "AstralDuration:"
         "DOTA_Tooltip_ability_yukari_mass_tp_scepter_Description" "Pandora:Adds a new ability: Moon Portal, which instantly puts all enemies around it into a portal, damaging them"
         "DOTA_Tooltip_ability_yukari_moon_portal" "Evil Spirits Yukari Yakumo's Spiriting Away"
-        "DOTA_Tooltip_ability_yukari_moon_portal_Description" "Imprison a unit in the gap, and the unit in the gap is invincible and unable to move. Use it for the second time to select the landing location. After imprisonment time, the unit in the gap will appear at the landing location. When Yukari casting on self, she can cast spells in the gap and choose the landing location within the whole map."
+        "DOTA_Tooltip_ability_yukari_moon_portal_Description" "Imprison a unit in the gap, and the unit in the gap is banished from the battlefield. When the unit is banished, the spell could be used again to choose the landing location. When the imprison ends, the unit in the gap will appear at the choosen landing location. If no landing location was chosen, the target will appear in place. When the spell is cast on herself, she can cast spells while being banished and choose the landing location anywhere on map."
 		"DOTA_Tooltip_ability_yukari_moon_portal_cast_range"	"Cast Range:"
         "DOTA_Tooltip_ability_yukari_moon_portal_damage" "Damage:"
         "DOTA_Tooltip_ability_yukari_moon_portal_lift_duration" "Duration:"
         "DOTA_Tooltip_ability_yukari_tentacles" "Tentacle Portal"
-        "DOTA_Tooltip_ability_yukari_tentacles_Description" "Opens a portal filled with dire tentacles in the target area, dealing damage over time, slowing everyone inside, and limiting the view range to 600."
+        "DOTA_Tooltip_ability_yukari_tentacles_Description" "Opens a portal filled with dire tentacles in the target area, dealing damage over time, slowing everyone inside, and reducing the trapped enemies' vision to 600."
         "DOTA_Tooltip_ability_yukari_tentacles_damage_per_second" "Damage Per Second:"
         "DOTA_Tooltip_ability_yukari_tentacles_intelligence_per_second"	"Bonus damage per intelligence:"
         "DOTA_Tooltip_ability_yukari_tentacles_duration" "Duration:"
@@ -608,7 +608,7 @@
         "DOTA_Tooltip_ability_yukari_tentacles_AbilityCastRange"	"Range:"
 
         "DOTA_Tooltip_ability_yukari_morph"							"Moon Phase"
-        "DOTA_Tooltip_ability_yukari_morph_Description" 			"Uses hide potential to unleash true power"
+        "DOTA_Tooltip_ability_yukari_morph_Description" 			"Uses her hidden potential to unleash true power"
 		"DOTA_Tooltip_ability_yukari_morph_amp"					"%Spell Amp:"
         "DOTA_Tooltip_ability_yukari_morph_bonus_movespeed"						"Bonus movespeed:"
         "DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"Duration:"
@@ -620,20 +620,20 @@
         "DOTA_Tooltip_ability_yukari_train_AbilityDamage" "Damage:"
         "DOTA_Tooltip_ability_yukari_train_Lore" "I like trains"
         "DOTA_Tooltip_ability_yukari_twin_trains" "Yukari's special:Double Train"
-        "DOTA_Tooltip_ability_yukari_twin_trains_Description" "Generates one entry, and releases it again to generate the second entry. Each entrance spawns a train heading towards the other, dealing massive damage and stunning enemies in its path. When the trains collide, it causes a huge explosion that re-damages surrounding enemies."
+        "DOTA_Tooltip_ability_yukari_twin_trains_Description" "Generates one entry, and releases it again to generate the second entry. Each entrance spawns a train heading towards the other, dealing massive damage and stunning enemies on its path. When the trains collide, they will cause a huge explosion that re-damages surrounding enemies."
         "DOTA_Tooltip_ability_yukari_twin_trains_AbilityDamage" "Damage:"
         "DOTA_Tooltip_ability_yukari_twin_trains_Lore" "What can be better that 1 train?2 of them!"
         "DOTA_Tooltip_ability_yukari_twin_trains_AbilityCastRange"	"Range："
         "DOTA_Tooltip_ability_ability_yukari_01"	"Aerial Bait Hyperactive High Speed Flying Object"
-        "DOTA_Tooltip_ability_ability_yukari_01_Description"	"Fires 6 bullets to deal damage, and the damage of repeated hits is greatly reduced."
+        "DOTA_Tooltip_ability_ability_yukari_01_Description"	"Fires 6 damaging bullets at the enemies, and the damage of repeated bullet hits on the same target is greatly reduced."
         "DOTA_Tooltip_ability_ability_yukari_01_damage"	"Damage:"
 		"DOTA_Tooltip_ability_ability_yukari_01_stun_duration"	"Stun durantion:"
         "DOTA_Tooltip_ability_ability_yukari_01_damage_add"	"Bonus damage per intelligence:"
-        "DOTA_Tooltip_ability_ability_yukari_01_factor"		"repeatedly hit damage factor:"
+        "DOTA_Tooltip_ability_ability_yukari_01_factor"		"Repeatedly hit damage factor:"
         "DOTA_Tooltip_ability_ability_yukari_01_range"	"Range:"
         "DOTA_Tooltip_ability_ability_yukari_01_speed"  "Speed:"
         "DOTA_Tooltip_ability_ability_thdots_yukari04"	"Deep Danmaku Barrier -Transient Dreams-"
-        "DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"A large teleportation enchantment is launched at any location as the target. Yukari will be teleported to the target location after channeling. The longer the channeling time, the greater the damage it makes. The maximum channel time is 4 seconds, and the range of the enchantment is 750. No matter how long the channel is, as soon as the channel ends (even if it is interrupted), the teleport will take place. \nDuring the channeling, a large number of barrages will be scattered from the target location, causing damage to surrounding enemy units. After the teleportation is completed, a space shock will be generated, causing at most %int_bonus% times the intelligence magic damage to enemy units within %wanbaochui_radius% and stun %stun_duration% seconds."
+        "DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"A large teleportation enchantment is channeled at any targeted location across the map. Yukari will be teleported to the target location after channeling. The longer the channeling time, the greater the damage the spell makes. The maximum channel time is 4 seconds, and the range of the enchantment is 750. No matter how long the channel is, as soon as the channel ends (even if it is interrupted), the teleport will take place. \nDuring the channeling, a large number of barrages will be scattered at the target location, causing damage to surrounding enemy units. After the teleportation is completed, a space shock will be generated, causing at most %int_bonus% times the intelligence magic damage to enemy units within %wanbaochui_radius% and stun %stun_duration% seconds."
         "DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"Barrage range:"
         "DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"Barrage damage every time:"
         "DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"Barrage damage interval:"
@@ -668,7 +668,7 @@
         "DOTA_Tooltip_ability_spectre_desolate_radius"						""
         "DOTA_Tooltip_ability_spectre_ursa_enrage"												"Intangible Shadow"
         "DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"											"At this moment, Spectre jumped out of the Three Realms and was not in the Five Elements."
-        "DOTA_Tooltip_ability_spectre_ursa_enrage_Description"									"Spectre change cause and effect, providing damage reduction and status resistance. Removes any existing debuffs.\n\nDISPEL TYPE: Strong Dispel"
+        "DOTA_Tooltip_ability_spectre_ursa_enrage_Description"									"Spectre reverses causation, providing damage reduction and status resistance. Removes any existing debuffs.\n\nDISPEL TYPE: Strong Dispel"
         "DOTA_Tooltip_ability_spectre_ursa_enrage_scepter_description"							"Reduces cooldown and allows Ursa to use Enrage while disabled."
         "DOTA_Tooltip_ability_spectre_ursa_enrage_damage_reduction"		                        "%DAMAGE REDUCTION:"
         "DOTA_Tooltip_ability_spectre_ursa_enrage_status_resistance"		                     "%STATUS RESISTANCE:"
@@ -738,7 +738,7 @@
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"Moon Shard"
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed_Description"		"Permanently granted %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_BONUS_DAY_VISION% day vision and %dMODIFIER_PROPERTY_BONUS_NIGHT_VISION% night vision."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven"								"Moon Shard"
-		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Description"				"Use: Consume the Moon Shard to permanently gain %consumed_bonus_attack_speed% attack speed, %consumed_bonus_day_vision% day vision and %consumed_bonus_night_vision% night vision. Consumed shards stack.\nPassive: Shade Sight - Grants %bonus_night_vision% bonus night vision."
+		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Description"				"Use: Consume the Moon Shard to permanently gain %consumed_bonus_attack_speed% attack speed, %consumed_bonus_day_vision% day vision and %consumed_bonus_night_vision% night vision. Multiple consumed shards stack.\nPassive: Shade Sight - Grants %bonus_night_vision% bonus night vision."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Note0"						"The bonus night vision works during Night Stalker's Darkness ability."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"Said to be a tear from the lunar goddess Selemene."
@@ -831,7 +831,7 @@
 
         // item_excalibur 咖喱棒
 		"DOTA_Tooltip_Ability_item_excalibur"				"Excalibur"
-		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by Mars. Gaining <font color='#f15b47'>%bonus_damage_percent%%%</font> base damage bonus, Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will not miss due to Evasion or other Effects.\n<h1>Passive: Late king</h1> <font color='#e03e2e'>Drop on death with 6% chance.</font>"
+		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by Mars. Gaining <font color='#f15b47'>%bonus_damage_percent%%%</font> base damage bonus, Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will not miss due to evasion or other effects.\n<h1>Passive: Late king</h1> <font color='#e03e2e'>Drop on death with 6% chance.</font>"
 		"DOTA_Tooltip_Ability_item_excalibur_Note0"								"Excalibur are loyal to the chosen king and drop randomly."
 		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"Excalibur are loyal to the chosen king and drop randomly."
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
@@ -855,7 +855,7 @@
 
         // item_force_staff_2 推推2
 		"DOTA_Tooltip_Ability_item_force_staff_2"			"Wind Force Staff"
-		"DOTA_Tooltip_Ability_item_force_staff_2_Description"						"<h1>Active: Wind Force</h1>Pushes any target unit %push_length% units in the direction it is facing.<br><br>Range: %abilitycastrange%"
+		"DOTA_Tooltip_Ability_item_force_staff_2_Description"						"<h1>Active: Wind Force</h1>Pushes any target unit %push_length% units in the direction it is facing.<br><br>Cast Range: %abilitycastrange%"
 		"DOTA_Tooltip_Ability_item_force_staff_2_Lore"						"Allows you to manipulate others, for good or evil."
 		"DOTA_Tooltip_Ability_item_force_staff_2_Note0"							"Self-cast will cause you to use Force on yourself."
 		"DOTA_Tooltip_Ability_item_force_staff_2_Note1"							"Wind Force Staff doesn't interrupt the target's actions."
@@ -866,7 +866,7 @@
 
         // item_force_staff_3 推推3
 		"DOTA_Tooltip_Ability_item_force_staff_3"			"Golden Force Staff"
-		"DOTA_Tooltip_Ability_item_force_staff_3_Description"						"<h1>Active: Golden Force</h1>Pushes any target unit %push_length% units in the direction it is facing.<br><br>Range: %abilitycastrange%"
+		"DOTA_Tooltip_Ability_item_force_staff_3_Description"						"<h1>Active: Golden Force</h1>Pushes any target unit %push_length% units in the direction it is facing.<br><br>Cast Range: %abilitycastrange%"
 		"DOTA_Tooltip_Ability_item_force_staff_3_Lore"						"Allows you to manipulate others, for good or evil."
 		"DOTA_Tooltip_Ability_item_force_staff_3_Note0"							"Self-cast will cause you to use Force on yourself."
 		"DOTA_Tooltip_Ability_item_force_staff_3_Note1"							"Golden Force Staff doesn't interrupt the target's actions."
@@ -1138,7 +1138,7 @@
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Shoes plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds.  Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a basic dispel when used."
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds.  Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel"
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"faster speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
@@ -1162,7 +1162,7 @@
 		// item_wasp_despotic 大核荣耀
 		"DOTA_Tooltip_ability_item_wasp_despotic"					"WASP Despotic"
 		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"It is the product of the ancient moon soul，and it represents callousness."
-		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active：Despotic</h1>Critical chance is %active_crit_chance%%% for %active_boost_duration% second and critical damage is %active_crit_multiplier%%%。"
+		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active：Despotic</h1>Critical chance is %active_crit_chance%%% for %active_boost_duration% second and critical damage is %active_crit_multiplier%%%."
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_chance"		"%Critical Chance:"
@@ -1244,7 +1244,7 @@
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"Orb of the Brine"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"						"Were it not for this revered orb, there would have been no Conclave survivors at the Battle of Stonefish Gate."
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>Active: Brinefoam</h1> Puts a friendly unit in a protective healing bubble for %bubble_duration% seconds, target unit has move speed %bubble_move_speed%, cannot attack or use abilities and items.<br/>Restores %bubble_total_heal_tip% health and %bubble_total_mana_tip% mana.\n\n<h1>Passive: Brine Blessing</h1>Amplifies heals you provide by %heal_increase%%%."
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>Active: Brinefoam</h1> Puts a friendly unit in a protective healing bubble for %bubble_duration% seconds. The unit under effect is silenced and muted, and has movement speed of %bubble_move_speed%.<br/>Restores %bubble_total_heal_tip% health and %bubble_total_mana_tip% mana.\n\n<h1>Passive: Brine Blessing</h1>Amplifies heals you provide by %heal_increase%%%."
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_health"			"+$health"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana"				"+$mana"
@@ -1311,8 +1311,8 @@
 
 		// 嘉心糖
 		"DOTA_Tooltip_Ability_item_candy_candy"							"Diana Candy"
-		"DOTA_Tooltip_ability_item_candy_candy_Description"             "Eat this candy, you are a fan of Diana.<br/>Grants the bonus effects of all Empowered Runes for %duration% seconds."
-		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "Diana, I love you so much! For you, I'm going to listen to cat addiction!"
+		"DOTA_Tooltip_ability_item_candy_candy_Description"             "Eat this candy, you are a fan of Diana.<br/>Grants the bonus effects of all Powere Runes for %duration% seconds."
+		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "Diana, I love you so much! For you, I'm going to listen to Cat Addiction!"
 
 	    // 团队之手
 		"DOTA_Tooltip_ability_item_recipe_hand_of_group"								"Hand of group recipe"
