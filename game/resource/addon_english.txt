@@ -322,11 +322,11 @@
 		"npc_dota_hero_meepo"					"Miku"
 		"npc_dota_hero_meepo_npedesc1"		"Hatsune Miku Princess"
 		"DOTA_Tooltip_ability_get_down" "GET DOWN!!!"
-        "DOTA_Tooltip_ability_get_down_Description" "Uses his own secret dance, inflicting a Normal Attack to each enemy around him every second for the entire duration of the dance. Deals bonus magic damage per hit. The blows do not pass through the invulnerability to magic."
+        "DOTA_Tooltip_ability_get_down_Description" "Uses his own secret dance, inflicting a Normal Attack to each enemy around him every second for the entire duration of the dance. Deals bonus magic damage per hit. The attacks inflicted have true strike. The blows do not pierce magic immunity."
         "DOTA_Tooltip_ability_get_down_dance_radius" "Radius:"
         "DOTA_Tooltip_ability_get_down_dance_damage" "Bonus Magic Damage Per Hit:"
 		"DOTA_Tooltip_ability_get_down_Lore"  "Is this enough?"
-		"DOTA_Tooltip_ability_get_down_scepter_description"    "Get new ability <font color='#FFFFFF'>GET DOWN</font>.<br/>Hatsune Miku's Secret Dance, inflicting a Normal Attack to enemy around and bonus magic damage per second. Ability has same level with <font color='#FFFFFF'>Chibi Miku</font>"
+		"DOTA_Tooltip_ability_get_down_scepter_description"    "Get new ability <font color='#FFFFFF'>GET DOWN</font>.<br/>Hatsune Miku's Secret Dance, inflicting a Normal Attack to enemy around and bonus magic damage per second. The attacks inflicted have true strike. This ability has the same level with <font color='#FFFFFF'>Chibi Miku</font>"
         "DOTA_Tooltip_ability_chibi_hit" "CHIBI STRIKE"
         "DOTA_Tooltip_ability_chibi_hit_Description" "Deals a devastating blow to the target enemy, dealing a colossal amount of damage and stunning them."
         "DOTA_Tooltip_ability_chibi_hit_AbilityDamage" "Damage:"
@@ -738,7 +738,7 @@
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"Moon Shard"
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed_Description"		"Permanently granted %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_BONUS_DAY_VISION% day vision and %dMODIFIER_PROPERTY_BONUS_NIGHT_VISION% night vision."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven"								"Moon Shard"
-		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Description"				"Use: Consume the Moon Shard to permanently gain %consumed_bonus_attack_speed% attack speed, %consumed_bonus_day_vision% day vision and %consumed_bonus_night_vision% night vision. Consumed shards stack.\nPassive: Shade Sight - Grants %bonus_night_vision% bonus night vision."
+		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Description"				"Use: Consume the Moon Shard to permanently gain %consumed_bonus_attack_speed% attack speed, %consumed_bonus_day_vision% day vision and %consumed_bonus_night_vision% night vision. Multiple consumed shards stack.\nPassive: Shade Sight - Grants %bonus_night_vision% bonus night vision."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Note0"						"The bonus night vision works during Night Stalker's Darkness ability."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"Said to be a tear from the lunar goddess Selemene."
@@ -855,7 +855,7 @@
 
         // item_force_staff_2 推推2
 		"DOTA_Tooltip_Ability_item_force_staff_2"			"Wind Force Staff"
-		"DOTA_Tooltip_Ability_item_force_staff_2_Description"						"<h1>Active: Wind Force</h1>Pushes any target unit %push_length% units in the direction it is facing.<br><br>Range: %abilitycastrange%"
+		"DOTA_Tooltip_Ability_item_force_staff_2_Description"						"<h1>Active: Wind Force</h1>Pushes any target unit %push_length% units in the direction it is facing.<br><br>Cast Range: %abilitycastrange%"
 		"DOTA_Tooltip_Ability_item_force_staff_2_Lore"						"Allows you to manipulate others, for good or evil."
 		"DOTA_Tooltip_Ability_item_force_staff_2_Note0"							"Self-cast will cause you to use Force on yourself."
 		"DOTA_Tooltip_Ability_item_force_staff_2_Note1"							"Wind Force Staff doesn't interrupt the target's actions."
@@ -866,7 +866,7 @@
 
         // item_force_staff_3 推推3
 		"DOTA_Tooltip_Ability_item_force_staff_3"			"Golden Force Staff"
-		"DOTA_Tooltip_Ability_item_force_staff_3_Description"						"<h1>Active: Golden Force</h1>Pushes any target unit %push_length% units in the direction it is facing.<br><br>Range: %abilitycastrange%"
+		"DOTA_Tooltip_Ability_item_force_staff_3_Description"						"<h1>Active: Golden Force</h1>Pushes any target unit %push_length% units in the direction it is facing.<br><br>Cast Range: %abilitycastrange%"
 		"DOTA_Tooltip_Ability_item_force_staff_3_Lore"						"Allows you to manipulate others, for good or evil."
 		"DOTA_Tooltip_Ability_item_force_staff_3_Note0"							"Self-cast will cause you to use Force on yourself."
 		"DOTA_Tooltip_Ability_item_force_staff_3_Note1"							"Golden Force Staff doesn't interrupt the target's actions."
@@ -1138,7 +1138,7 @@
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Shoes plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds.  Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a basic dispel when used."
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds.  Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel"
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"faster speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
@@ -1162,7 +1162,7 @@
 		// item_wasp_despotic 大核荣耀
 		"DOTA_Tooltip_ability_item_wasp_despotic"					"WASP Despotic"
 		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"It is the product of the ancient moon soul，and it represents callousness."
-		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active：Despotic</h1>Critical chance is %active_crit_chance%%% for %active_boost_duration% second and critical damage is %active_crit_multiplier%%%。"
+		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active：Despotic</h1>Critical chance is %active_crit_chance%%% for %active_boost_duration% second and critical damage is %active_crit_multiplier%%%."
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_chance"		"%Critical Chance:"
@@ -1244,7 +1244,7 @@
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"Orb of the Brine"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"						"Were it not for this revered orb, there would have been no Conclave survivors at the Battle of Stonefish Gate."
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>Active: Brinefoam</h1> Puts a friendly unit in a protective healing bubble for %bubble_duration% seconds, target unit has move speed %bubble_move_speed%, cannot attack or use abilities and items.<br/>Restores %bubble_total_heal_tip% health and %bubble_total_mana_tip% mana.\n\n<h1>Passive: Brine Blessing</h1>Amplifies heals you provide by %heal_increase%%%."
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>Active: Brinefoam</h1> Puts a friendly unit in a protective healing bubble for %bubble_duration% seconds. The unit under effect is silenced and muted, and has movement speed of %bubble_move_speed%.<br/>Restores %bubble_total_heal_tip% health and %bubble_total_mana_tip% mana.\n\n<h1>Passive: Brine Blessing</h1>Amplifies heals you provide by %heal_increase%%%."
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_health"			"+$health"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana"				"+$mana"
@@ -1311,8 +1311,8 @@
 
 		// 嘉心糖
 		"DOTA_Tooltip_Ability_item_candy_candy"							"Diana Candy"
-		"DOTA_Tooltip_ability_item_candy_candy_Description"             "Eat this candy, you are a fan of Diana.<br/>Grants the bonus effects of all Empowered Runes for %duration% seconds."
-		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "Diana, I love you so much! For you, I'm going to listen to cat addiction!"
+		"DOTA_Tooltip_ability_item_candy_candy_Description"             "Eat this candy, you are a fan of Diana.<br/>Grants the bonus effects of all Powere Runes for %duration% seconds."
+		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "Diana, I love you so much! For you, I'm going to listen to Cat Addiction!"
 
 	    // 团队之手
 		"DOTA_Tooltip_ability_item_recipe_hand_of_group"								"Hand of group recipe"
