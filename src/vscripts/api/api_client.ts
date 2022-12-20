@@ -67,7 +67,7 @@ export class ApiClient {
 			this.send(apiParameter.method, apiParameter.path, apiParameter.querys, apiParameter.body, (result: CScriptHTTPResponse) => {
 
 				// if 20X
-				print(`[ApiClient] get error: ${result.StatusCode}`);
+				print(`[ApiClient] return with status code: ${result.StatusCode}`);
 				if (result.StatusCode >= 200 && result.StatusCode < 300) {
 					apiParameter.successFunc(result.Body);
 				} else if (result.StatusCode == 401) {

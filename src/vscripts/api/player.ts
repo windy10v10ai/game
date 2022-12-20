@@ -88,6 +88,7 @@ export class Player {
 			querys: { steamIds: steamIds.join(","), matchId },
 			successFunc: this.InitSuccess,
 			failureFunc: this.InitFailure,
+			retryTimes: 6,
 		};
 
 		// Controller初期化

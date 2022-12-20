@@ -323,7 +323,7 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 	}
 	g_DifficultyChosen = true;
 	if (difficulty != 0) {
-		Game.SetRemainingSetupTime( 6 );
+		Game.SetRemainingSetupTime( 11 );
 	}
 
 	$( "#DifficultyContainer" ).AddClass( "deactivated" );

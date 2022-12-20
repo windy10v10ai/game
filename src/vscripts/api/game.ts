@@ -51,7 +51,7 @@ export class Game {
 			body: gameInfo,
 			successFunc: (data: string) => {
 				print(`[Game] end game callback data ${data}`);
-			}
+			},
 		};
 
 		ApiClient.sendWithRetry(apiParameter);
