@@ -14,7 +14,7 @@ const interval = 0.03;
 // const custom_random_button = $.GetContextPanel().FindChildTraverse("CustomRandomButton")
 const random_button = FindDotaHudElement("RandomButton");
 let random_pressed = false;
-const member = GetMember();
+let member = GetMember();
 
 (() => {
 	// random_button.visible = false;
@@ -39,13 +39,24 @@ function PickRandomHero() {
 }
 
 function PickLocker() {
+	if (!member) {
+		member = GetMember();
+	}
+	const pick_button = FindDotaHudElement("LockInButton");
 	if (member && member.enable) {
 		$.Msg("Is Member");
+		pick_button.enabled = true;
+		pick_button.SetAcceptsFocus(true);
+		pick_button.BAcceptsInput(true);
+		pick_button.style.saturation = null;
+		pick_button.style.brightness = null;
+
+		let label = pick_button.GetChild(0);
+		label.text = localized_text[0];
 		return;
 	} else {
 
 		const possible_hero_selection =  Game.GetLocalPlayerInfo().possible_hero_selection;
-		const pick_button = FindDotaHudElement("LockInButton");
 		// if memberHeroNames contains possible_hero_selection
 		if (memberHeroNames.includes(possible_hero_selection)) {
 			$.Msg("Lock Member hero Pick");
@@ -57,10 +68,6 @@ function PickLocker() {
 			pick_button.style.brightness = 0.2;
 
 			let label = pick_button.GetChild(0);
-			// label.style.width = "95%";
-			// label.style.height = "25px";
-			// label.style.horizontalAlign = "left";
-			// label.style.textOverflow = "shrink";
 			label.text = localized_text[1];
 		} else {
 			pick_button.enabled = true;

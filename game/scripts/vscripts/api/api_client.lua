@@ -49,7 +49,7 @@ function ApiClient.sendWithRetry(self, apiParameter)
             apiParameter.querys,
             apiParameter.body,
             function(____, result)
-                print("[ApiClient] get error: " .. tostring(result.StatusCode))
+                print("[ApiClient] return with status code: " .. tostring(result.StatusCode))
                 if result.StatusCode >= 200 and result.StatusCode < 300 then
                     apiParameter:successFunc(result.Body)
                 elseif result.StatusCode == 401 then
