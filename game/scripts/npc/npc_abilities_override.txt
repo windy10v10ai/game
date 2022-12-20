@@ -2804,10 +2804,16 @@
 				"var_type"				"FIELD_INTEGER"
 				"radius"				"200"
 			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"distance"				"950.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_4"
+			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"250"
+				"damage"				"300"
 				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit"
 			}
 			"08"
