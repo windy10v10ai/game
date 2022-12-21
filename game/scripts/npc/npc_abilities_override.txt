@@ -12027,16 +12027,16 @@
 	//=================================================================================================================
 	"lion_impale"
 	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"85 110 135 160 185"
+		"MaxLevel" "7"
+		"AbilityManaCost"				"85 110 135 160 185 210 235"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"			"95 150 205 260 315"
-				"special_bonus_unique_lion_3"	"+65"
+				"value"			"95 150 205 260 315 370 425"
+				"special_bonus_unique_lion_3"	"+75"
 			}
-			"duration"			"1.4 1.8 2.2 2.6 3.0"
+			"duration"			"1.4 1.6 1.8 2 2.2 2.4 2.6"
 		}
 	}
 	"lion_voodoo"
@@ -12073,7 +12073,7 @@
 	"lion_finger_of_death"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"120.0 100.0 80.0 60.0 40.0"
+		"AbilityCooldown"				"80.0 70.0 60.0 50.0 40.0"
 		"AbilityManaCost"				"200 400 600 800 1000"
 
 		"AbilityValues"
@@ -12954,24 +12954,6 @@
 			}
 		}
 	}
-	"special_bonus_unique_shadow_shaman_1"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"4"		// 2
-				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value2"				"2"		// 1 守卫最大生命
-				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
 	"special_bonus_unique_shadow_shaman_4"
 	{
 		"AbilitySpecial"
@@ -12986,7 +12968,7 @@
 	}
 	"shadow_shaman_serpentine"
 	{
-		"AbilityCooldown"				"100"
+		"AbilityCooldown"				"140"
 		"AbilityManaCost"				"300"
 		"AbilitySpecial"
 		{
