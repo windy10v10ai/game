@@ -595,7 +595,7 @@
         "DOTA_Tooltip_ability_yukari_mass_tp_silence_duration" "AstralDuration:"
         "DOTA_Tooltip_ability_yukari_mass_tp_scepter_Description" "Pandora:Adds a new ability: Moon Portal, which instantly puts all enemies around it into a portal, damaging them"
         "DOTA_Tooltip_ability_yukari_moon_portal" "Evil Spirits Yukari Yakumo's Spiriting Away"
-        "DOTA_Tooltip_ability_yukari_moon_portal_Description" "Imprison a unit in the gap, and the unit in the gap is banished from the battlefield. When the unit is banished, the spell could be used again to choose the landing location. When the imprison ends, the unit in the gap will appear at the choosen landing location. If no landing location was chosen, the target will appear in place. When the spell is cast on herself, she can cast spells while being banished and choose the landing location anywhere on map."
+        "DOTA_Tooltip_ability_yukari_moon_portal_Description" "Imprison a unit in the gap, and the unit in the gap is banished from the battlefield. When the unit is banished, the spell could be used again to choose the landing location. When the imprison ends, the unit in the gap will appear at the chosen landing location. If no landing location was chosen, the target will appear in place. When the spell is cast on herself, she can cast spells while being banished and choose the landing location anywhere on map. Otherwise, the landing location is limited by the cast range of the spell and Yukari will be leashed while the unit is banished."
 		"DOTA_Tooltip_ability_yukari_moon_portal_cast_range"	"Cast Range:"
         "DOTA_Tooltip_ability_yukari_moon_portal_damage" "Damage:"
         "DOTA_Tooltip_ability_yukari_moon_portal_lift_duration" "Duration:"
