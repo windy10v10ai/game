@@ -372,6 +372,17 @@
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"暗杀（旧版）"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
+		// 混沌骑士
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"混沌之军"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战，持续%duration%秒。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
+		// "DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"				"增加大招攻击次数，降低攻击冷却时间。"
+
 		// 茶神
 		"npc_dota_hero_techies"					"茶神"
 
@@ -404,18 +415,6 @@
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"治疗："
 
-		// 混沌骑士
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"混沌之军"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战，持续%duration%秒。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
-		// "DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
-
-		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
-		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
-
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"				"增加大招攻击次数，降低攻击冷却时间。"
 
 		///////////////////////////////////////////////////
 		// 自定义英雄
