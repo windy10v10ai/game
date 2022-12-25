@@ -321,10 +321,22 @@
 
 	"npc_dota_hero_techies"
 	{
-		"Ability4"		"techies_stasis_trap"
-		"Ability7"		"techies_remote_mines"
-		"Ability8"		"techies_focused_detonate"
-		"DisableWearables" 			"1"
+		"Ability17"					"special_bonus_cooldown_reduction_40"
+	}
+
+	"npc_dota_hero_storm_spirit"
+	{
+		"Ability17"					"special_bonus_cooldown_reduction_40"
+	}
+
+	"npc_dota_hero_void_spirit"
+	{
+		"Ability17"					"special_bonus_cooldown_reduction_40"
+	}
+
+	"npc_dota_hero_earth_spirit"
+	{
+		"Ability17"					"special_bonus_cooldown_reduction_40"
 	}
 
 	"npc_dota_hero_abyssal_underlord"
