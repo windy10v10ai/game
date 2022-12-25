@@ -1,7 +1,7 @@
 local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["6"] = 3,["7"] = 4,["8"] = 5,["9"] = 6,["10"] = 7,["11"] = 20,["12"] = 20,["13"] = 20,["15"] = 20,["16"] = 34,["17"] = 35,["18"] = 36,["19"] = 37,["20"] = 39,["21"] = 40,["24"] = 48,["25"] = 49,["26"] = 50,["29"] = 53,["30"] = 54,["31"] = 55,["32"] = 56,["33"] = 56,["34"] = 56,["35"] = 56,["37"] = 58,["38"] = 59,["39"] = 58,["40"] = 34,["41"] = 63,["42"] = 64,["43"] = 65,["44"] = 66,["45"] = 66,["46"] = 67,["47"] = 67,["48"] = 67,["49"] = 67,["50"] = 67,["51"] = 67,["52"] = 70,["53"] = 71,["54"] = 72,["55"] = 73,["56"] = 74,["57"] = 75,["60"] = 78,["61"] = 79,["62"] = 80,["63"] = 81,["65"] = 83,["66"] = 84,["70"] = 67,["71"] = 67,["72"] = 66,["73"] = 90,["74"] = 63,["75"] = 22,["76"] = 23,["77"] = 24,["78"] = 26,["79"] = 27,["80"] = 28,["81"] = 29,["82"] = 30,["83"] = 31,["84"] = 30});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["6"] = 3,["7"] = 4,["8"] = 5,["9"] = 6,["10"] = 7,["11"] = 20,["12"] = 20,["13"] = 20,["15"] = 20,["16"] = 35,["17"] = 36,["18"] = 37,["19"] = 38,["20"] = 40,["21"] = 41,["24"] = 49,["25"] = 50,["26"] = 51,["29"] = 54,["30"] = 55,["31"] = 56,["32"] = 57,["33"] = 57,["34"] = 57,["35"] = 57,["37"] = 59,["38"] = 60,["39"] = 59,["40"] = 35,["41"] = 64,["42"] = 65,["43"] = 66,["44"] = 67,["45"] = 67,["46"] = 68,["47"] = 68,["48"] = 68,["49"] = 68,["50"] = 68,["51"] = 68,["52"] = 71,["53"] = 72,["54"] = 73,["55"] = 74,["56"] = 75,["57"] = 76,["60"] = 79,["61"] = 80,["62"] = 81,["63"] = 82,["65"] = 84,["66"] = 85,["70"] = 68,["71"] = 68,["72"] = 67,["73"] = 91,["74"] = 64,["75"] = 22,["76"] = 23,["77"] = 24,["78"] = 26,["79"] = 27,["80"] = 28,["81"] = 30,["82"] = 31,["83"] = 32,["84"] = 31});
 local ____exports = {}
 ____exports.HttpMethod = HttpMethod or ({})
 ____exports.HttpMethod.GET = "GET"
@@ -16,7 +16,7 @@ end
 function ApiClient.send(self, method, path, querys, body, callbackFunc)
     print(((((((("[ApiClient] " .. method) .. " ") .. ____exports.ApiClient.HOST_NAME) .. path) .. " with querys ") .. json.encode(querys)) .. " body ") .. json.encode(body))
     local request = CreateHTTPRequestScriptVM(method, ____exports.ApiClient.HOST_NAME .. path)
-    local key = GetDedicatedServerKeyV2(____exports.ApiClient.VERSION)
+    local key = GetDedicatedServerKeyV2(____exports.ApiClient.SERVER_KEY)
     if key == ____exports.ApiClient.LOCAL_APIKEY and not IsInToolsMode() then
         callbackFunc(nil, {StatusCode = 401, Body = ____exports.ApiClient.LOCAL_APIKEY, Request = request})
         return
@@ -78,7 +78,7 @@ ApiClient.POST_GAME_URL = "/game/end"
 ApiClient.LOCAL_APIKEY = "Invalid_NotOnDedicatedServer"
 ApiClient.TIMEOUT_SECONDS = 10
 ApiClient.RETRY_TIMES = 3
-ApiClient.VERSION = "v1.43"
+ApiClient.SERVER_KEY = "v1.43"
 ApiClient.HOST_NAME = (function()
     return IsInToolsMode() and "http://localhost:5000/api" or "https://windy10v10ai.web.app/api"
 end)(nil)

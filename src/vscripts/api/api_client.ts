@@ -26,7 +26,8 @@ export class ApiClient {
 	private static LOCAL_APIKEY = "Invalid_NotOnDedicatedServer";
 	private static TIMEOUT_SECONDS = 10;
 	private static RETRY_TIMES = 3;
-	private static VERSION = "v1.43";
+	// dont change this version, it is used to identify the server
+	private static SERVER_KEY = "v1.43";
 	private static HOST_NAME: string = (() => {
 		return IsInToolsMode() ? "http://localhost:5000/api" : "https://windy10v10ai.web.app/api"
 	})();
@@ -34,7 +35,7 @@ export class ApiClient {
 	public static send(method: HttpMethod, path: string, querys: { [key: string]: string } | undefined, body: Object | undefined, callbackFunc: (result: CScriptHTTPResponse) => void) {
 		print(`[ApiClient] ${method} ${ApiClient.HOST_NAME}${path} with querys ${json.encode(querys)} body ${json.encode(body)}`);
 		const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + path);
-		const key = GetDedicatedServerKeyV2(ApiClient.VERSION);
+		const key = GetDedicatedServerKeyV2(ApiClient.SERVER_KEY);
 
 		if (key == ApiClient.LOCAL_APIKEY && !IsInToolsMode()) {
 			callbackFunc({
