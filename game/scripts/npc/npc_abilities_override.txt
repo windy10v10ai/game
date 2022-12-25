@@ -10929,17 +10929,29 @@
 		"AbilityDuration"				"60.0"
         "AbilitySpecial"
         {
-            "02"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "split_attack_count"	"6 5 4 3"
-            }
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spawn_count"			"2"
+				"LinkedSpecialBonus"	"special_bonus_unique_enigma"
+			}
             "03"
             {
                 "var_type"				"FIELD_INTEGER"
-                "eidolon_hp_tooltip"	"250 400 550 700"
+                "eidolon_hp_tooltip"	"300 500 700 900"
                 "LinkedSpecialBonus"	"special_bonus_unique_enigma_7"
             }
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"eidolon_dmg_tooltip"	"30 42 57 70"
+				"LinkedSpecialBonus"	"special_bonus_unique_enigma_3"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"eidolon_attack_range_tooltip"		"500 550 600 650"
+			}
         }
 	}
 	"special_bonus_unique_enigma"
@@ -10949,7 +10961,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"2"		// 5 虚灵数量
+				"value"				"1"		// 5 虚灵数量
 				"ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
