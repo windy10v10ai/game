@@ -13231,7 +13231,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"overload_damage"			"80 100 120 140 160"
+				"overload_damage"			"90 140 180 220 260"
 				"LinkedSpecialBonus"	"special_bonus_unique_storm_spirit_6"
 			}
 		}
@@ -13245,7 +13245,7 @@
 			"01"
 			{
 				"var_type"										"FIELD_FLOAT"
-				"ball_lightning_initial_mana_percentage"		"8.5"
+				"ball_lightning_initial_mana_percentage"		"3.5"
 			}
 			"03"
 			{
@@ -13277,8 +13277,8 @@
 	//=================================================================================================================
 	"techies_land_mines"
 	{
-		"MaxLevel" "4"
-		"AbilityManaCost"				"110 140 170 200"
+		"MaxLevel" "3"
+		"AbilityManaCost"				"140 170 200"
 		"LinkedAbility"					"techies_remote_mines"
 		"AbilityDraftPreAbility"		"techies_remote_mines"
 		"AbilityValues"
@@ -13287,15 +13287,15 @@
 				"proximity_threshold"				"1.0"
 				"damage"
 				{
-					"value"			"600 1200 1800 2400"
+					"value"			"1200 2100 3000"
 					"LinkedSpecialBonus"		"special_bonus_unique_techies_2"
 				}
 				"AbilityChargeRestoreTime"
 				{
-					"value"		"26 26 26 26"
+					"value"		"26 26 26"
 					"special_bonus_unique_techies_3"	"-2"
 				}
-				"mres_reduction"			"15 20 25 30"
+				"mres_reduction"			"30 40 50"
 		}
 	}
 	"techies_suicide"
@@ -13578,7 +13578,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"value"					"24F0"
+				"value"					"240"
 				"ad_linked_abilities"		"void_spirit_resonant_pulse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
