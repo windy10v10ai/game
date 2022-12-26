@@ -12923,7 +12923,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"shard_ward_count"		"2"
+				"shard_ward_count"		"1"
 				"RequiresShard"			"1"
 			}
 			"06"
@@ -12943,12 +12943,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ward_count"		"8"
+				"ward_count"		"6"			// 10
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"60 100 140"
+				"damage_tooltip"			"60 120 180"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_4"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -12956,6 +12956,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"24.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spawn_radius"			"120"	// 150
 			}
 		}
 	}
@@ -12980,12 +12985,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"count"		"4"
+				"count"		"3"			// 8
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"length"		"600"
+				"length"		"400"	// 925
 			}
 		}
 	}
