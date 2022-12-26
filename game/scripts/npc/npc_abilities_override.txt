@@ -1574,14 +1574,14 @@
 	"axe_berserkers_call"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityCooldown"				"19 17 15 13 11"
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 			"radius"
 			{
 				"value"							"350"
-				"special_bonus_unique_axe_2"	"+150"
+				"special_bonus_unique_axe_2"	"+120"
 			}
 				"bonus_armor"			"25"
 			"duration"				"2.0 2.4 2.8 3.2 3.6"
