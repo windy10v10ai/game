@@ -1535,9 +1535,11 @@
 				"30"		"special_bonus_unique_lion_4"
 				"31"		"lion_finger_of_death"
 				"32"		"lion_mana_drain"
-				"33"		"lion_mana_drain"
+				"33"		"lion_impale"
 				"34"		"lion_mana_drain"
-				"35"		"lion_finger_of_death"
+				"35"		"lion_impale"
+				"36"		"lion_mana_drain"
+				"37"		"lion_finger_of_death"
 			}
 		}
 	}

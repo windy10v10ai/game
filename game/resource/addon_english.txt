@@ -595,7 +595,7 @@
         "DOTA_Tooltip_ability_yukari_mass_tp_silence_duration" "AstralDuration:"
         "DOTA_Tooltip_ability_yukari_mass_tp_scepter_Description" "Pandora:Adds a new ability: Moon Portal, which instantly puts all enemies around it into a portal, damaging them"
         "DOTA_Tooltip_ability_yukari_moon_portal" "Evil Spirits Yukari Yakumo's Spiriting Away"
-        "DOTA_Tooltip_ability_yukari_moon_portal_Description" "Imprison a unit in the gap, and the unit in the gap is banished from the battlefield. When the unit is banished, the spell could be used again to choose the landing location. When the imprison ends, the unit in the gap will appear at the choosen landing location. If no landing location was chosen, the target will appear in place. When the spell is cast on herself, she can cast spells while being banished and choose the landing location anywhere on map."
+        "DOTA_Tooltip_ability_yukari_moon_portal_Description" "Imprison a unit in the gap, and the unit in the gap is banished from the battlefield. When the unit is banished, the spell could be used again to choose the landing location. When the imprison ends, the unit in the gap will appear at the chosen landing location. If no landing location was chosen, the target will appear in place. When the spell is cast on herself, she can cast spells while being banished and choose the landing location anywhere on map. Otherwise, the landing location is limited by the cast range of the spell and Yukari will be leashed while the unit is banished."
 		"DOTA_Tooltip_ability_yukari_moon_portal_cast_range"	"Cast Range:"
         "DOTA_Tooltip_ability_yukari_moon_portal_damage" "Damage:"
         "DOTA_Tooltip_ability_yukari_moon_portal_lift_duration" "Duration:"
@@ -621,7 +621,7 @@
         "DOTA_Tooltip_ability_yukari_train_AbilityDamage" "Damage:"
         "DOTA_Tooltip_ability_yukari_train_Lore" "I like trains"
         "DOTA_Tooltip_ability_yukari_twin_trains" "Yukari's special:Double Train"
-        "DOTA_Tooltip_ability_yukari_twin_trains_Description" "Generates one entry, and releases it again to generate the second entry. Each entrance spawns a train heading towards the other, dealing massive damage and stunning enemies on its path. When the trains collide, they will cause a huge explosion that re-damages surrounding enemies."
+        "DOTA_Tooltip_ability_yukari_twin_trains_Description" "Generates one entry, and releases it again within 4 seconds to generate the second entry. Each entrance spawns a train heading towards the other, dealing massive damage and stunning enemies on its path. When the trains collide, they will cause a huge explosion that re-damages surrounding enemies."
         "DOTA_Tooltip_ability_yukari_twin_trains_AbilityDamage" "Damage:"
         "DOTA_Tooltip_ability_yukari_twin_trains_Lore" "What can be better that 1 train?2 of them!"
         "DOTA_Tooltip_ability_yukari_twin_trains_AbilityCastRange"	"Range："
@@ -849,7 +849,7 @@
 		"DOTA_Tooltip_ability_item_undying_heart_Lore"									"The powerful headpiece of a dead necromancer."
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_health"							"+$health"
-		"DOTA_Tooltip_ability_item_undying_heart_health_regen_pct"						"%+Max Health Regen (cannot repetitive)"
+		"DOTA_Tooltip_ability_item_undying_heart_health_regen_pct"						"%+Max Health Regen (cannot stack with the same item)"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_evasion"							"%+$evasion"
 		"DOTA_Tooltip_ability_item_undying_heart_status_resistance"						"%+Status Resistance"
 		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"Buff：Dragon Recovery"
@@ -1041,7 +1041,7 @@
 		"DOTA_Tooltip_ability_item_silver_edge_2_Note1"					"Backstab does not pierce spell immunity."
 
 		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk"	"Shadow Walk"
-		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk_Description"	"Invisible. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and you can move through units. Attacking to break invisibility will deal %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT% bonus damage, slow the target and disable their passives."
+		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk_Description"	"Invisible. Movement speed is increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and you can move through units. Attacking to break invisibility will deal %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT% bonus damage, slow the target and disable their passives."
 
         // item_black_king_bar_2 黑皇杖2
 		"DOTA_Tooltip_Ability_item_black_king_bar_2"			"Black King Bar Upgrade"
