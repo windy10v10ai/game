@@ -1574,14 +1574,14 @@
 	"axe_berserkers_call"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityCooldown"				"19 17 15 13 11"
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 			"radius"
 			{
 				"value"							"350"
-				"special_bonus_unique_axe_2"	"+150"
+				"special_bonus_unique_axe_2"	"+120"
 			}
 				"bonus_armor"			"25"
 			"duration"				"2.0 2.4 2.8 3.2 3.6"
@@ -12923,7 +12923,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"shard_ward_count"		"2"
+				"shard_ward_count"		"1"
 				"RequiresShard"			"1"
 			}
 			"06"
@@ -12943,12 +12943,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ward_count"		"8"
+				"ward_count"		"6"			// 10
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"60 100 140"
+				"damage_tooltip"			"60 120 180"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_4"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -12956,6 +12956,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"24.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spawn_radius"			"120"	// 150
 			}
 		}
 	}
@@ -12980,12 +12985,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"count"		"4"
+				"count"		"3"			// 8
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"length"		"600"
+				"length"		"400"	// 925
 			}
 		}
 	}
@@ -13218,7 +13223,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"overload_damage"			"80 100 120 140 160"
+				"overload_damage"			"90 140 180 220 260"
 				"LinkedSpecialBonus"	"special_bonus_unique_storm_spirit_6"
 			}
 		}
@@ -13232,7 +13237,7 @@
 			"01"
 			{
 				"var_type"										"FIELD_FLOAT"
-				"ball_lightning_initial_mana_percentage"		"8.5"
+				"ball_lightning_initial_mana_percentage"		"3.5"
 			}
 			"03"
 			{
@@ -13264,8 +13269,8 @@
 	//=================================================================================================================
 	"techies_land_mines"
 	{
-		"MaxLevel" "4"
-		"AbilityManaCost"				"110 140 170 200"
+		"MaxLevel" "3"
+		"AbilityManaCost"				"140 170 200"
 		"LinkedAbility"					"techies_remote_mines"
 		"AbilityDraftPreAbility"		"techies_remote_mines"
 		"AbilityValues"
@@ -13274,15 +13279,15 @@
 				"proximity_threshold"				"1.0"
 				"damage"
 				{
-					"value"			"600 1200 1800 2400"
+					"value"			"1200 2100 3000"
 					"LinkedSpecialBonus"		"special_bonus_unique_techies_2"
 				}
 				"AbilityChargeRestoreTime"
 				{
-					"value"		"26 26 26 26"
+					"value"		"26 26 26"
 					"special_bonus_unique_techies_3"	"-2"
 				}
-				"mres_reduction"			"15 20 25 30"
+				"mres_reduction"			"30 40 50"
 		}
 	}
 	"techies_suicide"
@@ -13565,7 +13570,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"value"					"24F0"
+				"value"					"240"
 				"ad_linked_abilities"		"void_spirit_resonant_pulse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
