@@ -12041,7 +12041,7 @@
 				"value"			"95 150 205 260 315 370 425"
 				"special_bonus_unique_lion_3"	"+75"
 			}
-			"duration"			"1.4 1.6 1.8 2 2.2 2.4 2.6"
+			"duration"			"1.4 1.7 2 2.3 2.6 2.9 3.2"
 		}
 	}
 	"lion_voodoo"
@@ -12086,7 +12086,7 @@
 				"damage"
 				{
 					"value"				"600 725 850 975 1100"
-					"special_bonus_scepter"		"+100"
+					"special_bonus_scepter"		"+300"
 				}
 				"damage_per_kill"
 				{
@@ -12097,7 +12097,7 @@
 				"grace_period"				"3.5"
 				"cooldown_scepter"
 				{
-					"value"	"80.0 65.0 50.0 35.0 20.0"
+					"value"	"60.0 50.0 40.0 30.0 20.0"
 					"RequiresScepter"			"1"
 				}
 		}
