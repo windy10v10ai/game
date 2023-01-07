@@ -76,7 +76,28 @@
   font-weight: semi-bold;
  }
 
+.tooltipIcon{
+  width: 16px;
+  height: 16px;
+  vertical-align: center;
 
+  tooltip-position: top;
+  tooltip-body-position: 50%;
+}
+.LabelText{
+  horizontal-align: left;
+  vertical-align: top;
+  color: white;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.flowDown{
+  flow-children: down;
+}
+.flowRight{
+  flow-children: right;
+}
 
 
 
