@@ -2779,7 +2779,7 @@
 	"earth_spirit_boulder_smash"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"22.0 21.0 20.0 19.0 18.0 17.0 16.0"
+		"AbilityCooldown"				"22.0 20.0 18.0 16.0 14.0 12.0 10.0"
 		"AbilitySpecial"
 		{
 			"03"
@@ -2797,7 +2797,7 @@
 	"earth_spirit_rolling_boulder"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"12.0 10.0 9.0 8.0 7.0"
+		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
 		"AbilitySpecial"
 		{
 			"01"
@@ -2870,7 +2870,7 @@
 	"earth_spirit_petrify"
 	{
 		"AbilityCastRange"				"500"
-		"AbilityCooldown"				"40"
+		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"100"
 		"AbilityValues"
 		{
@@ -2883,7 +2883,7 @@
 	"earth_spirit_magnetize"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"70 65 60 60"
+		"AbilityCooldown"				"70 60 50 40"
 		"AbilityValues"
 		{
 			"cast_radius"			"450"
@@ -13204,7 +13204,7 @@
 	"storm_spirit_electric_vortex"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"20 20 20 20 19"
+		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityDuration"				"1.5 1.8 2.1 2.6 3.1"
 		"AbilityManaCost"				"60 70 80 90 100"
 		"AbilitySpecial"
@@ -13331,7 +13331,7 @@
 	"techies_sticky_bomb"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"14 13 12 10 8"
+		"AbilityCooldown"				"14 12 10 8 6"
 		"AbilityManaCost"				"100 115 130 145 160"
 		"AbilityValues"
 		{
@@ -13362,7 +13362,7 @@
 	"techies_reactive_tazer"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"28 24 20 16 16"
+		"AbilityCooldown"				"28 25 22 19 16"
 		"AbilityManaCost"				"60"
 		"AbilityValues"
 		{
@@ -13507,7 +13507,7 @@
 			"pull_destination"		"44 50 56 62 68"
 			"AbilityCooldown"
 			{
-				"value"							"17.0 15.5 14.5 14.0 13.5"
+				"value"							"17.0 15.0 13.0 11.0 9.0"
 				"special_bonus_shard"			"-1"
 			}
 		}
@@ -13515,7 +13515,7 @@
 	"void_spirit_dissimilate"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"20 17 14 13 12"
+		"AbilityCooldown"				"20 17 14 11 9"
 		"AbilityDamage"					"100 200 300 400 500"
 		"AbilityManaCost"				"100 110 120 130 140"
 	}
