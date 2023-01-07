@@ -4160,7 +4160,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"20 40 60 80 100"
+				"damage_per_second"		"25 50 75 100 125"
 			}
 			"08"
 			{
@@ -4208,18 +4208,18 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"10 20 30 40 50"
+				"base_damage"			"22 34 46 58 70"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hp_perc_damage"		"0.5 1.0 1.5 2.0 2.5"
+				"hp_perc_damage"		"1.0 1.5 2.0 2.5 3.0"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_5"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"base_heal"			"10 20 30 40 50"
+				"base_heal"			"22 34 46 58 70"
 			}
 			"05"
 			{
@@ -4262,13 +4262,13 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_hero_attacks"	"8 10 12 14"
+				"max_hero_attacks"	"9 12 14 16"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_1"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_hero_attacks_scepter"	"11 14 16 18"
+				"max_hero_attacks_scepter"	"12 16 20 24"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_1"
 				"RequiresScepter"	"1"
 			}
