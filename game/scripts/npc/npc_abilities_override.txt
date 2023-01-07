@@ -1392,7 +1392,8 @@
     "item_gem"
     {
         "AbilityCastRange"				"600"
-        "ItemStockTime"					"180.0"
+		"ItemSellable"					"0"
+        "ItemStockTime"					"300.0"
         "AllowedInBackpack"				"1"
     }
 
