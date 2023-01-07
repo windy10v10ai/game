@@ -106,19 +106,25 @@
 		"data_panel_button"				"玩家主页"
 		"data_panel_member_point"		"会员积分"
 		"data_panel_season_point"		"赛季积分"
-		"data_panel_property_point"		"玩家属性点 (可用/总数)"
+		"data_panel_property_point"		"属性点 (可用/总数)"
 
 		"data_panel_data_button"		"数据"
 		"data_panel_property_button"	"玩家属性"
 
-		"data_panel_member_level"		"会员等级"
 		"data_panel_season_level"		"赛季等级"
+		"data_panel_season_level_tooltip"		"进行游戏获得赛季积分后，赛季等级将提升。<br>赛季结束后，将根据继承的赛季积分重新计算赛季等级，并赋予相应属性点。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>100</font>点。"
+		"data_panel_member_level"		"会员等级"
+		"data_panel_member_level_tooltip"		"会员每日登陆可获取60会员积分<br>通过<font color='#E8C07D'>会员积分充值</font>可获得大量会员积分。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>50</font>点。"
 		"data_panel_level_progress"		"升级进度"
+		"data_panel_season_end"			"赛季结束时间：2023/3/31"
+		"data_panel_season_end_tooltip"			"赛季结束后将重置赛季等级<br><font color='#E8C07D'>继承40%</font>赛季积分到下个赛季"
 
 		"data_panel_link_charge"		"会员积分充值"
 		"data_panel_link_rule"			"积分规则说明"
 		"data_panel_member_point_rule_url"		"https://afdian.net/p/24140a48680511ed9d3852540025c377"
 
+		"data_panel_player_property_label"		"消耗属性点增强英雄，升级后属性及时生效，并在赛季结束前不可修改"
+		"data_panel_player_property_label_tooltip"		"赛季结束时，将重置属性加点"
 		"data_panel_player_property_cooldown_percentage"		"冷却时间 ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"施法距离"
 		"data_panel_player_property_spell_amplify_percentage"	"法术强度 ( % )"
