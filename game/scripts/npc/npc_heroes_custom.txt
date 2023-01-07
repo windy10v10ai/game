@@ -319,26 +319,6 @@
 		"VisionNighttimeRange"	"1000"
 	}
 
-	"npc_dota_hero_techies"
-	{
-		"Ability17"					"special_bonus_cooldown_reduction_40"
-	}
-
-	"npc_dota_hero_storm_spirit"
-	{
-		"Ability17"					"special_bonus_cooldown_reduction_40"
-	}
-
-	"npc_dota_hero_void_spirit"
-	{
-		"Ability17"					"special_bonus_cooldown_reduction_40"
-	}
-
-	"npc_dota_hero_earth_spirit"
-	{
-		"Ability17"					"special_bonus_cooldown_reduction_40"
-	}
-
 	"npc_dota_hero_abyssal_underlord"
 	{
 		"Ability6"		"abyssal_underlord_dark_rift"
