@@ -209,7 +209,7 @@
  vertical-align: top;
  color: white;
  font-size: 16px;
- margin: 5px;
+ margin: 5px 0px;
 }
 .LevelNumber{
  horizontal-align: center;
@@ -275,7 +275,7 @@
  text-align: center;
  padding: 1px;
  text-transform: uppercase;
- letter-spacing: 2px;
+ letter-spacing: 1px;
  text-overflow: shrink;
  font-family: defaultFont;
  font-weight: semi-bold;
