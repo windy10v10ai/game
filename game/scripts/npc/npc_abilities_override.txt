@@ -6967,6 +6967,7 @@
 	//=================================================================================================================
 	"lone_druid_spirit_bear"
 	{
+		"AbilityCooldown"				"180.0"
 		"AbilityManaCost"				"9999 9999 9999 120"
 		"AbilitySpecial"
 		{
@@ -12937,7 +12938,7 @@
 	"shadow_shaman_mass_serpent_ward"
 	{
 		"MaxLevel" "3"
-		"AbilityCooldown"				"120"
+		"AbilityCooldown"				"140"
 		"AbilitySpecial"
 		{
 			"01"
@@ -13655,7 +13656,7 @@
 	"warlock_rain_of_chaos"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"140"
 		"AbilityManaCost"				"250 375 500 625 750"
 		"AbilityValues"
 		{
