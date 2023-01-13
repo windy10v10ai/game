@@ -164,7 +164,7 @@
 		//            Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_ship"			"Click to open membership."
+		"player_member_ship"			"Click to enable your membership."
 		"player_member_ship_url"		"https://afdian.net/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&month=1&remark="
 
 		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Respawn time is reduced by 5 seconds.<br/> - Buyback CD is reduced to 2 minutes.<br/> - You can reroll the items lottery once.<br/> - Daily login grants 60 membership points.<br/> - Member-only heroes available are Goku, Yukari and Jack.<br/>Membership is valid until {expireDate}."
@@ -176,10 +176,10 @@
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_tower_power"							"Tower power"
-		"DOTA_Tooltip_modifier_tower_power_Description"			"The tower's attack damage is changed by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%, bonus attack speed is %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+		"DOTA_Tooltip_modifier_tower_power_Description"			"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%, and its attack speed is increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 		"DOTA_Tooltip_modifier_tower_endure"						"Buildings Endurance"
-		"DOTA_Tooltip_modifier_tower_endure_Description"		"The building's armor is changed by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, max health is set to %dMODIFIER_PROPERTY_TOOLTIP%%%."
+		"DOTA_Tooltip_modifier_tower_endure_Description"		"The building's armor is increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, and its max health is set to %dMODIFIER_PROPERTY_TOOLTIP%%%."
 
 		"DOTA_Tooltip_modifier_melee_resistance"					"Bulldozer"
 		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% extra status resistance, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
@@ -202,8 +202,8 @@
 
 		"DOTA_Tooltip_ability_tower_armor_aura"							"High Ground Armor aura"
 		"DOTA_Tooltip_ability_tower_armor_aura_Description"				"Add %bonus_armor% armor to all nearby allied heroes."
-		"DOTA_Tooltip_ability_tower_magical_armor_aura"					"High Ground Magical Armor aura"
-		"DOTA_Tooltip_ability_tower_magical_armor_aura_Description"		"Add %bonus_magical_armor% magical armor to all nearby allied heroes."
+		"DOTA_Tooltip_ability_tower_magical_armor_aura"					"High Ground Magical Resistance aura"
+		"DOTA_Tooltip_ability_tower_magical_armor_aura_Description"		"Add %bonus_magical_armor% magical resistance to all nearby allied heroes."
 
 		"DOTA_Tooltip_ability_tower_split_shot"							"Tower Split Shot"
 		"DOTA_Tooltip_ability_tower_split_shot_Description"				"Active this ability when any tier 3 tower is destroyed."
@@ -228,7 +228,7 @@
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_membership"					"<font color='#FFCC66'>★ Membership Buff ★</font>"
-		"DOTA_Tooltip_modifier_membership_Description"	"Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplify, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
+		"DOTA_Tooltip_modifier_membership_Description"	"Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplification, +%dMODIFIER_PROPERTY_HEALTH_BONUS% health, and+%dMODIFIER_PROPERTY_MANA_BONUS% mana."
 
 		///////////////////////////////////////////////////
 		//
@@ -262,7 +262,7 @@
 		"npc_dota_hero_brewmaster_npedesc1"														"From here to hell, we are the fire, the rain, the power, and the carnage!"
 
 		"DOTA_Tooltip_ability_jack_presence_concealment"										"Aura Masking"
-		"DOTA_Tooltip_ability_jack_presence_concealment_description"							"Jack will enter stealth after a period of time at night or in the mist, during which he will receive a movement speed bonus and an attack bonus of a certain percentage of his agility value, and will exit stealth after attacking, and the attack bonus will remain for a period of time after exiting stealth."
+		"DOTA_Tooltip_ability_jack_presence_concealment_description"							"Jack will enter stealth after a period of time at night or in the mist, during which she will receive a movement speed bonus and an attack damage bonus of a certain percentage of her agility value. Jack will exit stealth after attacking, and the attack damage bonus will remain for a period of time after exiting stealth."
 		"DOTA_Tooltip_ability_jack_presence_concealment_Lore"									"Cutting off the breath of a Servant is a skill suitable for covert operations. If you cut off your breath completely, it is almost impossible to be detected."
 		"DOTA_Tooltip_ability_jack_presence_concealment_shard_description"						"You can actively use this skill at night or in the mist to enter stealth immediately and refresh this skill cooldown after killing enemies."
 		"DOTA_Tooltip_ability_jack_presence_concealment_invision_time"							"Fade out time:"
@@ -271,7 +271,7 @@
 		"DOTA_Tooltip_ability_jack_presence_concealment_movespeed_add"							"%Movement speed bonus:"
 
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night"									"Foggy Night Murder"
-		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_description"						"Jack generates a mist at the target location, in the mist Jack will enter a state of invisibility, and make the attack speed, movement speed, turn rate, vision range of the enemies in the mist decreased \nIf Jack is in the mist at the same time with the invisibility effect of Aura Masking, invisibility will not be detected by true sight."
+		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_description"						"Jack generates a mist at the target location. In the mist Jack will enter a state of invisibility. The mist will decrease the attack speed, movement speed, turn rate, vision range of the enemies inside. \nIf Jack is in the mist at the same time with the invisibility effect of Aura Masking, her invisibility will not be detected by true sight."
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_Lore"							"On the characteristic that she is not an assassin but a murderer, she as the aggressor is always able to take advantage of the other as the victim."
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_duration"						"Duration:"
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_radius"							"Mist Range:"
@@ -282,7 +282,7 @@
 
 		"DOTA_Tooltip_ability_jack_surgery"														"Surgical Procedures"
 		"DOTA_Tooltip_ability_jack_surgery_description"											"The enemy attacked by Jack will gain Dissolution effect, and each layer of Dissolution will reduce the enemy's healing, life recovery, attack lifesteal and spell lifesteal. \n The maximum Dissolution layer on each enemy is %max_count%, when the maximum layer is reached, the enemy will be damaged by the effect. \n Jack will gain the lost effects from the enemy."
-		"DOTA_Tooltip_ability_jack_surgery_Lore"												"A blood-stained scalpel can be used to heal the Master as well as himself. Jack the Ripper's victims are killed in a way that requires anatomical knowledge, such as removal of specific organs."
+		"DOTA_Tooltip_ability_jack_surgery_Lore"												"A blood-stained scalpel can be used to heal the Master as well as herself. Jack the Ripper's victims are killed in a way that requires anatomical knowledge, such as removal of specific organs."
 		"DOTA_Tooltip_ability_jack_surgery_duration"											"Duration:"
 		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%Treatment reduction per tier:"
 		"DOTA_Tooltip_ability_jack_surgery_regen_down"											"%Life Regeneration reduction per tier:"
@@ -310,7 +310,7 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_jack_6"										"Attack has {s:bonus_talent_chance}% chance to attack again"
 
 		"DOTA_Tooltip_modifier_jack_presence_concealment_invision"								"Aura Masking"
-		"DOTA_Tooltip_modifier_jack_presence_concealment_invision_Description"					"Jack goes into stealth and gets %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% extra movespeed."
+		"DOTA_Tooltip_modifier_jack_presence_concealment_invision_Description"					"Jack goes into stealth and gets %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% extra movement speed."
 		"DOTA_Tooltip_modifier_jack_presence_concealment_damage"								"Ripper"
 		"DOTA_Tooltip_modifier_jack_presence_concealment_damage_Description"					"Jack gets %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage."
 		"DOTA_Tooltip_modifier_jack_murderer_of_the_misty_night"								"Misty"
@@ -334,7 +334,7 @@
 		"DOTA_Tooltip_ability_get_down_Lore"  "Is this enough?"
 		"DOTA_Tooltip_ability_get_down_scepter_description"    "Get new ability <font color='#FFFFFF'>GET DOWN</font>.<br/>Hatsune Miku's Secret Dance, inflicting a Normal Attack to enemy around and bonus magic damage per second. The attacks inflicted have true strike. This ability has the same level with <font color='#FFFFFF'>Chibi Miku</font>"
         "DOTA_Tooltip_ability_chibi_hit" "CHIBI STRIKE"
-        "DOTA_Tooltip_ability_chibi_hit_Description" "Deals a devastating blow to the target enemy, dealing a colossal amount of damage and stunning them."
+        "DOTA_Tooltip_ability_chibi_hit_Description" "Performs a devastating blow to the target enemy, dealing a colossal amount of damage and stunning them."
         "DOTA_Tooltip_ability_chibi_hit_AbilityDamage" "Damage:"
         "DOTA_Tooltip_ability_chibi_hit_stun_duration" "Stun duration:"
         "DOTA_Tooltip_ability_chibi_monster" "Chibi Miku"
@@ -361,7 +361,7 @@
         "DOTA_Tooltip_ability_pantsushot_stun_duration" "Stun duration:"
 		"DOTA_Tooltip_ability_pantsushot_Lore" "Nyanyanyanyanyanyanya!"
         "DOTA_Tooltip_ability_miku_hadouken" "Popipo"
-        "DOTA_Tooltip_ability_miku_hadouken_Description" "Creates a musical wave directed in the specified direction, damaging all enemies in its path"
+        "DOTA_Tooltip_ability_miku_hadouken_Description" "Creates a musical wave in the specified direction, damaging all enemies in its path"
         "DOTA_Tooltip_ability_miku_hadouken_damage" "Damage:"
         "DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "Damage in Chibi status:"
 		"DOTA_Tooltip_ability_miku_hadouken_Lore"           "Rich and fragrant vegetable juice! Fragrant and soft vegetable juice!"
@@ -373,7 +373,7 @@
 		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"Popipo will stun enemy for %shard_stun% seconds."
 
 		// 双头龙
-        "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"Increases Macropyre distance by +200 range, duration by +5 seconds and causes it to become Pure damage and pierce Spell Immunity."
+        "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"Increases Macropyre distance by 200, duration by 5 seconds and causes it to deal Pure damage and pierce Spell Immunity."
 
         // 美杜莎
 		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "When Medusa is targeted with a spell, a single-target Mystic Snake is sent back towards the enemy. Cooldown: 10."
@@ -415,15 +415,15 @@
 		"DOTA_Tooltip_ability_artoria_strike_air_stun_duration"			"STUN DURATION:"
 		"DOTA_Tooltip_ability_artoria_strike_air_immunity_duration"		"IMMUNITY DURATION:"
 
-		"DOTA_Tooltip_ability_artoria_strike_air_shard_description"		"Strike Air inflicts a Normal Attack to the enemy. (Includes immune enemies)"
+		"DOTA_Tooltip_ability_artoria_strike_air_shard_description"		"Strike Air inflicts a normal attack to the enemy. (The attack also applies on spell immune enemies)"
 
 		"DOTA_Tooltip_Ability_artoria_instinct"					"<font color='#FFE56E'>Instinct</font>"
-		"DOTA_Tooltip_ability_artoria_instinct_Description"		"Saber's gifted instinct allows her gains extra <font color='#FF3399'>magic resistance</font> and <font color='#C24401'>status resistance</font>."
+		"DOTA_Tooltip_ability_artoria_instinct_Description"		"Saber's gifted instinct gives her extra <font color='#FF3399'>magic resistance</font> and <font color='#C24401'>status resistance</font>."
 		"DOTA_Tooltip_ability_artoria_instinct_magic_res"		"%Magic Resistance "
 		"DOTA_Tooltip_ability_artoria_instinct_status_res"		"%Status Resistance "
 
 		"DOTA_Tooltip_Ability_artoria_mana_burst"					"<font color='#FFE56E'>Mana Burst</font>"
-		"DOTA_Tooltip_ability_artoria_mana_burst_description"		"Strikes Nearby enemies with a single powerful blow, dealing <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>slow</font>.Purge all buffs on the enemy. \nPassively increase self magic potency."
+		"DOTA_Tooltip_ability_artoria_mana_burst_description"		"Strikes Nearby enemies with a single powerful blow, dealing <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>slow</font>. Purges all buffs on the enemies in range. \nPassively increase self magic potency."
 		"DOTA_Tooltip_ability_artoria_mana_burst_Lore"		""
 		"DOTA_Tooltip_ability_artoria_mana_burst_amp_pct"		"%Spell Damage Amplification:"
 		"DOTA_Tooltip_ability_artoria_mana_burst_damage"		"DAMAGE:"
@@ -512,36 +512,36 @@
 
 		"npc_dota_hero_chen" 									 			"Goku"
 		"DOTA_Tooltip_Ability_goku_kamehameha" 								"Kame Hame Ha"
-		"DOTA_Tooltip_ability_goku_kamehameha_description" 					"Goku concentrates all the energy in his body and releases it together. He emits a light wave and causes damage to the enemy in the straight line within the duration.\n <h1> Super Saiya mode: </h1> The light wave distance becomes to %super_saiyan_length%, the damage becomes %super_saiyan_damage_multiple% times.<br/>An additional %super_saiyan_mana_percent%%% max mana is consumed per second."
+		"DOTA_Tooltip_ability_goku_kamehameha_description" 					"Goku concentrates all the energy in his body and releases it together. He emits a light wave and causes damage to the enemy in the straight line within the duration.\n <h1> Super Saiyan mode: </h1> The light wave distance increased to %super_saiyan_length% and its damage becomes %super_saiyan_damage_multiple% times.<br/>An additional %super_saiyan_mana_percent%%% max mana is consumed per second."
 		"DOTA_Tooltip_ability_goku_kamehameha_Lore" 						"A unique skill created by the tortoise Fairy"
 		"DOTA_Tooltip_ability_goku_kamehameha_channel" 						"Duration:"
 		"DOTA_Tooltip_ability_goku_kamehameha_length" 						"Light wave length:"
-		"DOTA_Tooltip_ability_goku_kamehameha_width" 					 	"Lightwave width:"
-		"DOTA_Tooltip_ability_goku_kamehameha_manacost_pre_second" 		 	"Blue consumption per second:"
+		"DOTA_Tooltip_ability_goku_kamehameha_width" 					 	"Light wave width:"
+		"DOTA_Tooltip_ability_goku_kamehameha_manacost_pre_second" 		 	"Mana consumption per second:"
 		"DOTA_Tooltip_ability_goku_kamehameha_damage_pre_second" 		 	"Damage per second:"
 		"DOTA_Tooltip_ability_goku_kamehameha_scepter_description" 			"Kame Hame Ha ignores skill immunity and becomes pure damage."
 		"DOTA_Tooltip_Ability_goku_tp" 										"High speed mobile"
-		"DOTA_Tooltip_ability_goku_tp_description" 							"The Goku unleash his leg strength and hovers at a very fast speed. Grants Goku increased movement speed and free pathing. Goku cannot be selected during high speed movement.\n <h1> Super Saiyan mode: </h1> Completely removes the speed limit for Goku. "
+		"DOTA_Tooltip_ability_goku_tp_description" 							"Goku unleashes his leg strength and hovers at a very fast speed. Grants Goku increased movement speed and free pathing. Goku cannot be selected during high speed movement.\n <h1> Super Saiyan mode: </h1> Completely removes the max movement speed limit for Goku. "
 		"DOTA_Tooltip_ability_goku_tp_Lore" 								"Rapid movement is the best way to avoid attack"
 		"DOTA_Tooltip_ability_goku_tp_duration" 							"Duration:"
-		"DOTA_Tooltip_ability_goku_tp_bonus_movespeed" 						"%movement speed bonus:"
+		"DOTA_Tooltip_ability_goku_tp_bonus_movespeed" 						"%Movement speed bonus:"
 		"DOTA_Tooltip_Ability_goku_kaioken" 								"Jiewang boxing"
-		"DOTA_Tooltip_ability_goku_kaioken_description" 					"The Goku uses his power beyond his limit to gain an attack speed bonus, and has a chance to stun the enemy and summon the phantom to attack again \n <h1> Super Saiya mode: </h1> Jiewang fist can be used actively. Launch an attack on all enemies in the target range and return to the original position."
+		"DOTA_Tooltip_ability_goku_kaioken_description" 					"Goku uses his power beyond his limit to gain an attack speed bonus, and has a chance to stun the enemy and summon a phantom to attack again \n <h1> Super Saiyan mode: </h1> Jiewang fist can be used actively. Launch an attack on all enemies in the target range and return to the original position."
 		"DOTA_Tooltip_ability_goku_kaioken_Lore" 							"The moves that Sun Wukong learned when practicing at the northern boundary king"
-		"DOTA_Tooltip_ability_goku_kaioken_chance" 							"%trigger probability:"
-		"DOTA_Tooltip_ability_goku_kaioken_stun_duration" 					"Vertigo time:"
+		"DOTA_Tooltip_ability_goku_kaioken_chance" 							"%Trigger probability:"
+		"DOTA_Tooltip_ability_goku_kaioken_stun_duration" 					"Stun duration:"
 		"DOTA_Tooltip_ability_goku_kaioken_bonus_attackspeed" 				"Attack speed bonus:"
 		"DOTA_Tooltip_ability_goku_kaioken_super_saiyan_tick" 				"Active effect attack interval:"
 		"DOTA_Tooltip_ability_goku_kaioken_super_saiyan_radius" 			"Active effect range:"
-		"DOTA_Tooltip_Ability_goku_super_saiyan" 							"Super Saiya"
-		"DOTA_Tooltip_ability_goku_super_saiyan_description" 				"<h1>Passive:</h1> the power of the super Saiya is hidden in the Goku's body, making the Goku passively gain the full attribute bonus.\n <h1> Active: </h1> The Goku enters the super Saiya mode, restores a certain percentage of his max health and mana every second, obtains the extra state resistance, and strengthens all his skills."
+		"DOTA_Tooltip_Ability_goku_super_saiyan" 							"Super Saiyan"
+		"DOTA_Tooltip_ability_goku_super_saiyan_description" 				"<h1>Passive:</h1> The power of the Super Saiyan is hidden in Goku's body, making Goku passively gain full attribute bonus.\n <h1> Active: </h1> Goku enters the Super Saiyan mode, restores a certain percentage of his max health and mana every second, obtains extra status resistance, and enhances all his skills."
 		"DOTA_Tooltip_ability_goku_super_saiyan_Lore" 						"It is said that there will be a super soldier every 1000 years"
-		"DOTA_Tooltip_Ability_goku_super_saiyan_bonus_attribute" 			"Full attribute enhancement:"
-		"DOTA_Tooltip_Ability_goku_super_saiyan_bonus_status_resistance" 	"%status:"
-		"DOTA_Tooltip_Ability_goku_super_saiyan_regen" 						"%life magic recovery:"
+		"DOTA_Tooltip_Ability_goku_super_saiyan_bonus_attribute" 			"Full attribute bonus:"
+		"DOTA_Tooltip_Ability_goku_super_saiyan_bonus_status_resistance" 	"%Extra status resistance:"
+		"DOTA_Tooltip_Ability_goku_super_saiyan_regen" 						"%Max health and mana recovery per second:"
 		"DOTA_Tooltip_Ability_goku_super_saiyan_duration" 					"Duration:"
 		"DOTA_Tooltip_Ability_goku_spirit_bomb" 							"Vitality bullet"
-		"DOTA_Tooltip_ability_goku_spirit_bomb_description" 				"The Goku raises his hands high and channels the spell, condensing the energy into a huge blue and white energy ball and gaining flying vision. The longer he channels,  the larger the flying vision he gets, the larger area the energy ball damageds, and the higher the damage the ball deals. After releasing the enegery ball, it will deal damage to a circular area.\n <h1> Super Saiya mode: </h1> Vitality bullet always deals the maximum damage no matter how long Goku channels the spell."
+		"DOTA_Tooltip_ability_goku_spirit_bomb_description" 				"Goku raises his hands high and channels the spell, condensing the energy into a huge blue and white energy ball and gaining flying vision. The longer he channels, the larger the flying vision he gets, the larger area the energy ball damageds, and the higher the damage the ball deals. After releasing the enegery ball, it will deal damage to a circular area.\n <h1> Super Saiyan mode: </h1> Vitality bullet always deals the maximum damage no matter how long Goku channels the spell."
 		"DOTA_Tooltip_ability_goku_spirit_bomb_Lore" 						"Developed by the king of the northern realm, the moves learned by the Goku from the king of the northern realm after he died in the first world war with latiz"
 		"DOTA_Tooltip_ability_goku_spirit_bomb_channel" 					"Maximum casting time:"
 		"DOTA_Tooltip_ability_goku_spirit_bomb_visionRange_max" 			"Maximum extra flying vision range:"
@@ -555,7 +555,7 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4_description" 		"Kame Hame Ha will continuously apply basic dispels on enemy hits."
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_5" 					"+{s:bonus_regen}% Super Saiyan recovery"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6" 					"+{s:bonus_channel} Kame Hame Ha duration"
-		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7" 					"+{s:bonus_duration} Super Saiya mode duration"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7" 					"+{s:bonus_duration} Super Saiyan mode duration"
 
 		//Abyss sword
 		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp" 	 "Hidden Sharp"
@@ -574,9 +574,9 @@
 		"DOTA_Tooltip_modifier_goku_tp_Description" 	 "Gain %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed bonus"
 		"DOTA_Tooltip_modifier_goku_kaioken" 	 "Jiewang boxing"
 		"DOTA_Tooltip_modifier_goku_kaioken_Description" 	 "Gain a %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed bonus. The attack has a chance to stun the target and summon the phantom to attack again"
-		"DOTA_Tooltip_modifier_goku_super_saiyan_passive" 	 "Super Saiya: potential"
+		"DOTA_Tooltip_modifier_goku_super_saiyan_passive" 	 "Super Saiyan: potential"
 		"DOTA_Tooltip_modifier_goku_super_saiyan_passive_Description" 	 "Gain %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% strength bonus, %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility bonus and %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% intelligence bonus"
-		"DOTA_Tooltip_modifier_goku_super_saiyan" 	 "Super Saiya: Activate"
+		"DOTA_Tooltip_modifier_goku_super_saiyan" 	 "Super Saiyan: Activate"
 		"DOTA_Tooltip_modifier_goku_super_saiyan_Description" 	 "Strengthen all your skills, gain %dMODIFIER_PROPERTY_STATUS_RESISTANCE%%% state resistance bonus, and restore %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% magic and %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% life per second"
 
 		// Yukari
