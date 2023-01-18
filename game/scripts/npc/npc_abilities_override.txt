@@ -8430,7 +8430,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"self_movement_speed_pct"	"12 18 24 30 36"
+				"self_movement_speed_pct"	"9 18 27 36 45"
 				"LinkedSpecialBonus"	"special_bonus_unique_razor_5"
 			}
 			"02"
