@@ -21,6 +21,7 @@
 		"game_difficulty_n3"	"N3"
 		"game_difficulty_n4"	"N4"
 		"game_difficulty_n5"	"N5"
+		"game_difficulty_n6"	"N6 AI天团"
 
 		"player_gold_xp_multiplier"	"玩家金钱/经验倍率"
 		"bot_gold_xp_multiplier"	"电脑金钱/经验倍率"
@@ -166,7 +167,7 @@
 		//
 		///////////////////////////////////////////////////
 		"player_member_ship"			"点击开通会员"
-		"player_member_ship_url"		"https://afdian.net/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&month=1&remark="
+		"player_member_ship_url"		"https://afdian.net/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
 
 		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得60会员积分<br/> - 会员限定英雄 超级赛亚人,八云紫,杰克。<br/> 会员有效期：{expireDate}"
 		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
