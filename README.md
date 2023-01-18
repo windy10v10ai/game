@@ -24,6 +24,8 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570
 ``` bash
 # load custom game
 dota_launch_custom_game windy10v10ai dota
+# show game end panel
+dota_custom_ui_debug_panel 7
 ```
 
 ### How to compile item png to vtex_c
