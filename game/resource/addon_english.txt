@@ -1117,7 +1117,7 @@
 
 		// item_heavens_halberd_v2 天堂2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"heavens halberd v2"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within %knockback_range% with self as the center，and knocks back the surrounding enemies.<br>Disarm duration：%disarm_con%s +Hero's current str/%disarm_con_per_str% seconds, up to %disarm_con_max% seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% chance of disarming the target. This effect can be triggered every 5 seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within %knockback_range% with self as the center，and knocks back the surrounding enemies.<br>Disarm duration：%disarm_con%s +Hero's current str/%disarm_con_per_str% seconds, up to %disarm_con_max% seconds.\n<h1>Passive: End the War with War</h1>General attack has a %attch%%% chance of disarming the target. This effect can be triggered every 5 seconds."
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+Status Resistance"
@@ -1127,7 +1127,7 @@
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Shoes"
-		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel"
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：Deja Vu</font></h1>After use, you will get a movement speed bonus of %active_sp%%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%% extra movement speed to allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"faster speed"
 		"DOTA_Tooltip_ability_item_adi_king_sp"												"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
@@ -1139,7 +1139,7 @@
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Shoes plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds.  Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel"
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：Deja Vu</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%% extra movement speed to allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"faster speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
