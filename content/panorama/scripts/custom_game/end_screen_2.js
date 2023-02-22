@@ -15,6 +15,7 @@ var imagefile = {
 	'npc_dota_hero_pangolier': 'file://{images}/heroes/npc_dota_hero_pangolier_custom.png',
 	'npc_dota_hero_phantom_lancer': 'file://{images}/heroes/npc_dota_hero_phantom_lancer_custom.png',
 	'npc_dota_hero_brewmaster': 'file://{images}/heroes/npc_dota_hero_brewmaster_custom.png',
+	'npc_dota_hero_dark_seer': 'file://{images}/heroes/npc_dota_hero_dark_seer_custom.png',
 }
 
 var GAME_RESULT = {};
