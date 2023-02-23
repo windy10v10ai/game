@@ -472,8 +472,8 @@
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_chance" 		 "%TRIGGER PROBABILITY:"
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_percentage" 			 "%CRITICAL DAMAGE:"
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_lifesteal" 			 "%LIFE STEAL:"
-		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_range" 			 "MAGIC CRYSTAL UPGRADE CASTING RANGE:"
-		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_duration" 			 "DURATION OF MAGIC CRYSTAL UPGRADE DAMAGE:"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_range" 			 "CAST RANGE:"
+		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_duration" 			 "DURATION:"
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_description" 		 "Can be activated to use it against enemy units. Abyss sword will flash to the position of the target and make an attack that breaks the enemy."
 
 
