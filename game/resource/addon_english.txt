@@ -282,7 +282,7 @@
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_visionrange_down"				"%Vision reduction:"
 
 		"DOTA_Tooltip_ability_jack_surgery"														"Surgical Procedures"
-		"DOTA_Tooltip_ability_jack_surgery_description"											"The enemy attacked by Jack will gain Dissolution effect, and each layer of Dissolution will reduce the enemy's healing, life recovery, attack lifesteal and spell lifesteal. \n The maximum Dissolution layer on each enemy is %max_count%, when the maximum layer is reached, the enemy will be damaged by the effect. \n Jack will gain the lost effects from the enemy."
+		"DOTA_Tooltip_ability_jack_surgery_description"											"The enemy attacked by Jack will gain Dissolution effect, and each layer of Dissolution will reduce the enemy's healing, life recovery, attack lifesteal and spell lifesteal. \n The maximum Dissolution layer on each enemy is %max_count%, when the maximum layer is reached, the enemy will get their passive disabled for %duration%. Attacking enemies in the mist will instantly reach the maximum Dissolution layer. \n Jack will gain the lost effects from the enemy."
 		"DOTA_Tooltip_ability_jack_surgery_Lore"												"A blood-stained scalpel can be used to heal the Master as well as herself. Jack the Ripper's victims are killed in a way that requires anatomical knowledge, such as removal of specific organs."
 		"DOTA_Tooltip_ability_jack_surgery_duration"											"Duration:"
 		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%Heal reduction per tier:"
@@ -967,7 +967,7 @@
 
         // item_hurricane_pike_2 黄金魔龙枪
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2"			"Golden Hurricane Pike"
-		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Description"                    "<h1>Active: Hurricane Thrust</h1> Pushes you and target enemy %enemy_length% units away from each other, and for %range_duration% seconds, allows you to make %max_attacks% attacks against the target without range restrictions and with +%bonus_attack_speed% attack speed.<br><br>Works like Force Staff when used on self or allies.<br><br>Allied Range: %abilitycastrange%<br>Enemy Range: %cast_range_enemy%\n<h1>Passive:  Dragon's Reach</h1> Increases attack range of ranged heroes by %base_attack_range%."
+		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Description"                    "<h1>Active: Hurricane Thrust</h1> Pushes you and target enemy %enemy_length% units away from each other, and for %range_duration% seconds, allows you to make %max_attacks% attacks against the target without range restrictions and with +%bonus_attack_speed% attack speed.<br><br>Works like Force Staff when used on self or allies.<br><br>Allied Range: %abilitycastrange%<br>Enemy Range: %cast_range_enemy%\n<h1>Passive: Dragon's Reach</h1> Increases attack range of ranged heroes by %base_attack_range%."
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Lore"                           "A legendary pike once held as royal sigil of the ancient wyvern riders."
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Note0"                          "Self-cast will use Golden Hurricane Pike on yourself."
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Note1"                          "Golden Hurricane Pike doesn't interrupt the target's actions."
@@ -1014,7 +1014,7 @@
 
 		//  veil_of_discord_2 纷争2
 		"DOTA_Tooltip_Ability_item_veil_of_discord_2"				"Veil of Discord Upgrade"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>Active: Magic Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes to take %spell_amp%%% increased damage from spells.<br><br>Range: %abilitycastrange%<br>Duration: %resist_debuff_duration% seconds. \n\n<h1>Passive: Basilius Aura</h1>Grants %aura_mana_regen% mana regeneration to allies.  <br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>Active: Magic Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes to take %spell_amp%%% increased damage from spells.<br><br>Range: %abilitycastrange%<br>Duration: %resist_debuff_duration% seconds. \n\n<h1>Passive: Basilius Aura</h1>Grants %aura_mana_regen% mana regeneration to allies. <br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"The headwear of corrupt magi."
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_all_stats"			"+$all"
 
@@ -1040,7 +1040,7 @@
 
 		// item_silver_edge_2 无敌之刃
 		"DOTA_Tooltip_Ability_item_silver_edge_2"			"Invinsibility edge"
-		"DOTA_Tooltip_ability_item_silver_edge_2_Description"						"<h1>Active: Shadow Walk</h1>Makes you invisible for %windwalk_duration% seconds, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  <br><br>Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus physical damage and a guaranteed %crit_multiplier%%% critical strike to the target, and disable their passive abilities for %backstab_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_silver_edge_2_Description"						"<h1>Active: Shadow Walk</h1>Makes you invisible for %windwalk_duration% seconds, or until you attack or cast a spell. While invisible, you move %windwalk_movement_speed%%% faster and can move through units. <br><br>Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus physical damage and a guaranteed %crit_multiplier%%% critical strike to the target, and disable their passive abilities for %backstab_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Lore"						"Once used to slay an unjust king, only to have the kingdom erupt into civil war in the aftermath."
@@ -1053,7 +1053,7 @@
         // item_black_king_bar_2 黑皇杖2
 		"DOTA_Tooltip_Ability_item_black_king_bar_2"			"Black King Bar Upgrade"
 		"DOTA_Tooltip_Ability_item_recipe_black_king_bar"			"Black King Bar Upgrade Recipe"
-		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>Active: Avatar</h1> Grants Spell Immunity.  Duration decreases with each use. <br><br>Duration: %duration% <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>Active: Avatar</h1> Grants Spell Immunity. Duration decreases with each use. <br><br>Duration: %duration% <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Lore"							"A powerful staff imbued with the strength of giants."
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Note0"						"Purchasing another Black King Bar will not reset its immunity duration."
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Note1"						"Using Black King Bar may remove some positive buffs."
@@ -1124,7 +1124,7 @@
 
 		// item_heavens_halberd_v2 天堂2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"heavens halberd v2"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within %knockback_range% with self as the center，and knocks back the surrounding enemies.<br>Disarm duration：%disarm_con%s +Hero's current str/%disarm_con_per_str% seconds, up to %disarm_con_max% seconds.\n<h1>Passive: end the war with war</h1>General attack has a %attch%%% chance of disarming the target. This effect can be triggered every 5 seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Disarm</h1>Disarm units within %knockback_range% with self as the center, and knocks back the surrounding enemies.<br>Disarm duration：%disarm_con%s +Hero's current str/%disarm_con_per_str% seconds, up to %disarm_con_max% seconds.\n<h1>Passive: End the War with War</h1>General attack has a %attch%%% chance of disarming the target. This effect can be triggered every 5 seconds."
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+Status Resistance"
@@ -1134,7 +1134,7 @@
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Shoes"
-		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel"
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：Deja Vu</font></h1>After use, you will get a movement speed bonus of %active_sp%%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%% extra movement speed to allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"faster speed"
 		"DOTA_Tooltip_ability_item_adi_king_sp"												"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
@@ -1146,7 +1146,7 @@
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Shoes plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：phase shift</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds.  Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel"
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：Deja Vu</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%% extra movement speed to allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"faster speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
@@ -1169,7 +1169,7 @@
 
 		// item_wasp_despotic 大核荣耀
 		"DOTA_Tooltip_ability_item_wasp_despotic"					"WASP Despotic"
-		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"It is the product of the ancient moon soul，and it represents callousness."
+		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"It is the product of the ancient moon soul, and it represents callousness."
 		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active：Despotic</h1>Critical chance is %active_crit_chance%%% for %active_boost_duration% second and critical damage is %active_crit_multiplier%%%."
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
@@ -1179,7 +1179,7 @@
 
 		// item_wasp_callous
 		"DOTA_Tooltip_ability_item_wasp_callous"						"WASP Callous"
-		"DOTA_Tooltip_ability_item_wasp_callous_Lore"				"It is the product of the ancient moon soul，and it represents callousness."
+		"DOTA_Tooltip_ability_item_wasp_callous_Lore"				"It is the product of the ancient moon soul, and it represents callousness."
 		"DOTA_Tooltip_ability_item_wasp_callous_Description"			"<h1>Active：Callous</h1>Dodge chance is increased to %active_dodge_chance%%% and movement speed is increased by %move_speed%%% for %active_boost_duration% seconds."
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_agile"			"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_damage"		"+$damage"
@@ -1258,7 +1258,7 @@
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana"				"+$mana"
 
 		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble"				"Brinefoam"
-		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble_Description"	"This unit is protected by Brinefoam.  Healing 600 hp/sec."
+		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble_Description"	"This unit is protected by Brinefoam. Healing 600 hp/sec."
 
 		// 死灵法杖
 		"DOTA_Tooltip_ability_item_necronomicon_staff"								"Necronomicon Staff"
