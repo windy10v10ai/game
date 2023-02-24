@@ -74,7 +74,9 @@ function sword_master_tap:OnSpellStart()
         if ability_arbiter ~= nil then
             ability_arbiter:ArbiterAttack(caster,enemy)
         else
+            caster:AddNewModifier(caster, self, "modifier_tidehunter_anchor_smash_caster", {})
             caster:PerformAttack(enemy, false, false, true, true, false, false, true)
+            caster:RemoveModifierByName("modifier_tidehunter_anchor_smash_caster")
         end
         enemy:AddNewModifier(caster, self, "modifier_stunned", {duration = stun_duration})
 
