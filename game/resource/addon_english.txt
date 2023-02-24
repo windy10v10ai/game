@@ -275,7 +275,7 @@
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_visionrange_down"				"%Vision reduction:"
 
 		"DOTA_Tooltip_ability_jack_surgery"														"Surgical Procedures"
-		"DOTA_Tooltip_ability_jack_surgery_description"											"The enemy attacked by Jack will gain Dissolution effect, and each layer of Dissolution will reduce the enemy's healing, life recovery, attack lifesteal and spell lifesteal. \n The maximum Dissolution layer on each enemy is %max_count%, when the maximum layer is reached, the enemy will get their passive disabled for %duration%. Attacking enemies in the mist will instantly reach the maximum Dissolution layer. \n Jack will gain the lost effects from the enemy."
+		"DOTA_Tooltip_ability_jack_surgery_description"											"The enemy attacked by Jack will gain Dissolution effect, and each layer of Dissolution will reduce the enemy's healing, life regeneration, attack lifesteal and spell lifesteal. \n The maximum Dissolution layer on each enemy is %max_count%, when the maximum layer is reached, the enemy will get their passive disabled for %duration%. Following attacks on the same broken enemy will refresh the break duration. Attacking enemies in the mist at the same time with the invisibility effect of Aura Masking will instantly reach the maximum Dissolution layer. \n Jack will gain the lost effects from the enemy."
 		"DOTA_Tooltip_ability_jack_surgery_Lore"												"A blood-stained scalpel can be used to heal the Master as well as herself. Jack the Ripper's victims are killed in a way that requires anatomical knowledge, such as removal of specific organs."
 		"DOTA_Tooltip_ability_jack_surgery_duration"											"Duration:"
 		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%Heal reduction per tier:"
