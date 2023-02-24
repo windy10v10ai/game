@@ -16,7 +16,6 @@ export class PropertyBaseModifier extends BaseModifier {
 
     OnCreated(kv: { value: number }) {
         if (IsClient()) return;
-        // @ts-ignore
         TsPrint(`${this.GetClass()} Created with value: ${kv.value}`);
 
         this.value = kv.value;

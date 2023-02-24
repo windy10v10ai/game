@@ -1777,39 +1777,38 @@
 	//=================================================================================================================
 	"beastmaster_wild_axes"
 	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"65"
+		"MaxLevel" "7"
+		"AbilityManaCost"				"65 75 85 95 105 115 125"
 		"AbilityValues"
 		{
-			"radius"					"200"
-			"spread"					"450"
-			"range"						"1500"
-			"axe_damage"					"40 70 100 130 160"
-			"duration"						"12"
+			"axe_damage"
+			{
+				"value"					"80 120 160 200 240 280 320"
+				"CalculateSpellDamageTooltip"	"1"
+			}
 			"damage_amp"
 			{
-				"value"				"10 12 14 16 18"
-				"special_bonus_unique_beastmaster_9"		"+7"
+				"value"				"8 10 12 14 16 18 20"
+				"special_bonus_unique_beastmaster_9"		"+5"
 			}
-			"AbilityCooldown"
-			{
-				"value"			"8"
-				"special_bonus_unique_beastmaster_wild_axe_cooldown"						"-5"
-			}
-			"min_throw_duration"						"0.4"
-			"max_throw_duration"						"1.0"
 		}
 	}
 	"beastmaster_call_of_the_wild_boar"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"40 35 30 25 20"
-		"AbilityManaCost"				"60 65 70 75 80"
+		"AbilityCooldown"				"40"
+		"AbilityManaCost"				"60 70 80 90 100"
 		"AbilityValues"
 		{
 			"duration"							"60"
 			"boar_base_max_health"				"600 900 1200 1500 1800"
 			"boar_base_damage"					"30 60 90 120 180"
+			"boar_total_damage_tooltip"
+			{
+				"value"										"30 60 90 120 180"
+				"special_bonus_unique_beastmaster_2"		"+120"
+				"CalculateSpellDamageTooltip"				"0"
+			}
 			"boar_bonus_damage"
 			{
 				"value"										"0"
@@ -1843,7 +1842,7 @@
 			"hawk_base_vision_range"		"800 900 1000 1100 1200"
 			"AbilityCooldown"
 			{
-				"value"						"50 45 40 35 30"
+				"value"						"60"
 				"special_bonus_shard"		"-10"
 
 			}
@@ -1887,17 +1886,20 @@
 	"beastmaster_primal_roar"
 	{
 		"MaxLevel" "4"
-		"AbilityManaCost"				"125 150 175 200"
+		"AbilityManaCost"				"150 175 200 225"
 		"AbilityValues"
 		{
 			"duration"					"3.0 3.5 4.0 4.5"
-			"damage"					"150 250 350 450"
-			"side_damage"				"150 250 350 450"
-			"damage_radius"				"300"
-			"slow_movement_speed_pct"	"-60"
-			"slow_attack_speed_pct"		"-60"
-			"push_distance"				"450"
-			"push_duration"				"1.0"
+			"damage"
+			{
+				"value"			"200 300 400 500"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"side_damage"
+			{
+				"value"			"200 300 400 500"
+				"CalculateSpellDamageTooltip" "1"
+			}
 			"slow_duration"				"3 3.5 4 4.5"
 			"movement_speed"			"50"
 			"movement_speed_duration"			"3.0 3.5 4 4.5"
@@ -2660,7 +2662,7 @@
 	"earthshaker_fissure"
 	{
 		"MaxLevel" "7"
-		"AbilityCooldown"				"18 17.5 17 16.5 16 15.5 15"
+		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"120 130 140 150 160 170 180"
 		"AbilitySpecial"
 		{
@@ -2672,7 +2674,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"1.0 1.2 1.4 1.6 1.8 2.0 2.2"
+				"stun_duration"				"1.0 1.25 1.5 1.75 2.0 2.25 2.5"
 			}
 			"05"
 			{
@@ -2689,7 +2691,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"100"
+				"value"				"150"
 				"ad_linked_abilities"			"earthshaker_fissure"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -2724,7 +2726,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aftershock_damage"			"75 100 125 150 175"
+				"aftershock_damage"			"100 125 150 175 200"
 				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_6"
 			}
 		}
@@ -2785,7 +2787,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"rock_damage"			"120 180 240 300 360 420 480"
+				"rock_damage"			"180 240 300 360 420 480 540"
 			}
 			"05"
 			{
@@ -2803,7 +2805,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"200"
+				"radius"				"240"
 			}
 			"04"
 			{
@@ -2984,7 +2986,7 @@
 			"armor_heroes"					"2 3 4 5 6"
 			"scepter_magic_immune_per_hero"
 			{
-				"value"				"1"
+				"value"				"1.2"
 				"RequiresScepter"				"1"
 			}
 		}
@@ -4160,7 +4162,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"25 50 75 100 125"
+				"damage_per_second"		"50 75 100 125 150"
 			}
 			"08"
 			{
@@ -4189,7 +4191,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_second"				"15 35 55 75 95"
+				"damage_per_second"				"40 60 80 100 120"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_3"
 			}
 		}
@@ -4213,7 +4215,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hp_perc_damage"		"1.0 1.5 2.0 2.5 3.0"
+				"hp_perc_damage"		"2.0 2.5 3.0 3.5 4.0"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_5"
 			}
 			"04"
@@ -4224,7 +4226,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hp_perc_heal"			"1.0 2.0 3.0 4.0 5.0"
+				"hp_perc_heal"			"2.0 2.5 3.0 3.5 4.0"
 			}
 		}
 	}
@@ -4262,13 +4264,13 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_hero_attacks"	"9 12 14 16"
+				"max_hero_attacks"	"12 16 20 24"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_1"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_hero_attacks_scepter"	"12 16 20 24"
+				"max_hero_attacks_scepter"	"14 20 26 32"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_1"
 				"RequiresScepter"	"1"
 			}
@@ -4917,7 +4919,7 @@
 	"slardar_sprint"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"29 25 21 17 13"
+		"AbilityCooldown"				"24 22 20 18 16"
 		"AbilityValues"
 		{
 				"bonus_speed"					"25 30 35 40 45"
@@ -4928,7 +4930,7 @@
 				}
 				"puddle_armor"
 				{
-					"value"						"1 2 3 4 5"
+					"value"						"2 4 6 8 10"
 					"special_bonus_scepter"		"+11"
 				}
 		}
@@ -4945,8 +4947,13 @@
 					"LinkedSpecialBonus"	"special_bonus_unique_slardar_8"
 					"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
 				}
-				"crush_attack_slow_tooltip"		"-20 -25 -30 -35 -40"
+				"crush_attack_slow_tooltip"		"-40 -50 -60 -70 -80"
 				"crush_extra_slow_duration"		"3 4 5 6 7"
+				"stun_duration"
+				{
+					"value"															"1.75"
+					"special_bonus_unique_slardar_slithereen_crush_stun"			"+0.25"
+				}
 				"puddle_duration"
 				{
 					"value"					"3 4 5 6 7"
@@ -4954,7 +4961,7 @@
 				}
 				"crush_damage"
 				{
-					"value"					"70 140 210 280 350"
+					"value"					"140 210 280 350 420"
 					"LinkedSpecialBonus"	"special_bonus_unique_slardar"
 				}
 		}
@@ -7901,21 +7908,21 @@
 	"nyx_assassin_mana_burn"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"25 20 15 10 5"
-		"AbilityManaCost"				"60 70 80 90 100"
+		"AbilityCooldown"				"20 16 12 8 4"
+		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
 			"float_multiplier"
 			{
-				"value"		"1.0 1.5 2.0 2.5 3.0"
-				"special_bonus_unique_nyx_5"			"+0.5"
+				"value"		"2.0 2.4 2.8 3.2 3.6"
+				"special_bonus_unique_nyx_5"			"+0.4"
 			}
 		}
 	}
 	"nyx_assassin_spiked_carapace"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"26 22 18 14 10"
+		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityManaCost"				"40 60 80 100 120"
 		"AbilityValues"
 		{
@@ -7950,16 +7957,6 @@
 		"AbilityCooldown"				"30"
 		"AbilitySpecial"
 		{
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"impale_bonus_cast_range"			"300"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"mana_burn_bonus_cast_range"			"300"
-			}
 			"06"
 			{
 				"var_type"						"FIELD_FLOAT"
@@ -7969,7 +7966,7 @@
 	}
 	"nyx_assassin_unburrow"
 	{
-		"AbilityCooldown"				"30.0"
+		"AbilityCooldown"				"5.0"
 	}
 	//=================================================================================================================
 	// Ability: Pangolier 石鳞剑士/滚滚
@@ -7986,7 +7983,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"25 45 65 85 105"
+				"damage"				"45 65 85 105 125"
 				"LinkedSpecialBonus"	"special_bonus_unique_pangolier_3"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -8011,10 +8008,10 @@
 		"AbilityManaCost"				"75 85 95 105 115"
 		"AbilityValues"
 		{
-			"damage"					"90 160 230 300 370"
+			"damage"					"160 230 300 370 440"
 			"hero_stacks"
 			{
-				"value"					"12"
+				"value"					"16"
 				"special_bonus_unique_pangolier_shield_crash_herostacks"		"+4"
 			}
 			"rolling_thunder_cooldown"
@@ -10014,7 +10011,7 @@
 	"bane_enfeeble"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"26 21 16 11 6"
+		"AbilityCooldown"				"24 20 16 12 8"
 		"AbilityManaCost"				"40 50 60 70 80"
 
 		"AbilityValues"
@@ -10041,7 +10038,7 @@
 		{
 			"brain_sap_damage"
 			{
-				"value"									"75 150 225 300 350 400 450"
+				"value"									"150 225 300 350 400 450 500"
 				"special_bonus_unique_bane_2"			"+250"
 			}
 			"AbilityCooldown"
@@ -10049,20 +10046,16 @@
 				"value"	"16 15 14 13 12 11 10"
 				"special_bonus_unique_bane_8"			"-2"
 			}
-			"shard_radius"
-			{
-				"special_bonus_shard"				"+550"
-			}
 			"shard_secondary_target_heal_pct"
 			{
-				"special_bonus_shard"				"+25"
+				"special_bonus_shard"				"+35"
 			}
 		}
 	}
 	"bane_nightmare"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"425 500 575 650 725"
+		"AbilityCastRange"				"650"
 		"AbilityDuration"				"4.0 5.0 6.0 7.0 8.0"
 		"AbilityValues"
 		{
@@ -10075,7 +10068,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"	"24 21 18 15 12"
+				"value"	"22 20 18 16 14"
 				"special_bonus_unique_bane_5" "-3"
 			}
 		}
@@ -11129,6 +11122,7 @@
 	"grimstroke_dark_artistry"
 	{
 		"MaxLevel" "7"
+		"AbilityCastRange"				"1600"
 		"AbilityCooldown"				"11 10 9 8 7 6 5"
 		"AbilityManaCost"				"100 110 120 130 140 150 160"
 		"AbilitySpecial"
@@ -11136,7 +11130,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"100 160 220 280 340 400 460"
+				"damage"					"160 220 280 340 400 460 520"
 				"LinkedSpecialBonus"		"special_bonus_unique_grimstroke_2"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
 			}
@@ -11169,13 +11163,18 @@
 		    "04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"destroy_attacks"			"6 6 9 9 12 12 15"
+				"destroy_attacks"			"6 8 10 12 14 16 18"
 				"LinkedSpecialBonus"		"special_bonus_unique_grimstroke_4"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hero_attack_multiplier"	"2"
 			}
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_per_second"				"10 20 30 40 50 60 70"
+				"damage_per_second"				"20 30 40 50 60 70 80"
 				"LinkedSpecialBonus"		"special_bonus_unique_grimstroke_8"
 			}
 			"10"
@@ -11202,24 +11201,29 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"max_damage"			"90 180 270 360 450"
+				"max_damage"			"180 270 360 450 540"
 				"LinkedSpecialBonus"		"special_bonus_unique_grimstroke_5"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"max_stun"				"1.5 2.0 2.5 3.0 3.5"
+				"max_stun"				"2.0 2.5 3.0 3.5 4.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_tick"		"15 20 25 30 35"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tick_dps_tooltip"		"25 35 45 55 65"
+				"tick_dps_tooltip"		"75 100 125 150 175"
 			}
 		}
 	}
 	"grimstroke_dark_portrait"
 	{
-	"AbilitySpecial"
+		"AbilitySpecial"
 		{
 			"02"
 			{
@@ -11241,8 +11245,8 @@
 				"var_type"				"FIELD_INTEGER"
 				"images_movespeed_bonus"			"50"
 			}
-	        }
-        }
+		}
+	}
 	//=================================================================================================================
 	// Ability: Invoker 祈求者/卡尔
 	//=================================================================================================================
@@ -12385,13 +12389,13 @@
 	{
 		"MaxLevel" "7"
 		"AbilityCooldown"				"12 11 10 9 8 7 6"
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"100 110 120 130 140 150 160"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"					"100 160 220 280 340 400 460"
-				"special_bonus_unique_oracle_fortunes_end_damage"		"+80"
+				"value"					"120 180 240 300 360 420 480"
+				"special_bonus_unique_oracle_fortunes_end_damage"		"+120"
 			}
 		}
 	}
@@ -12400,18 +12404,13 @@
 		"MaxLevel" "5"
 		"AbilityCastRange"				"500 600 700 800 900"
 		"AbilityCooldown"				"15 13 11 9 7"
-		"AbilityManaCost"				"50"
+		"AbilityManaCost"				"50 75 100 125 150"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.0 3.5 4.0 4.5 5.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_damage_resistance_pct_tooltip"				"100"
+				"duration"				"3.5 4.0 4.5 5.0 5.5"
 			}
 		}
 	}
@@ -12423,7 +12422,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"90 180 270 360 450 530 600"
+				"damage"				"90 180 270 360 450 540 630"
 			}
 			"02"
 			{
@@ -12440,7 +12439,6 @@
 	"oracle_false_promise"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"90 80 70 60"
 		"AbilityCastRange"				"700 800 900 1000"
 		"AbilityManaCost"				"100 150 200 250"
 		"AbilityValues"
@@ -12458,7 +12456,7 @@
 			"bonus_armor"
 			{
 				"value"								"0"
-				"special_bonus_unique_oracle_9"		"+20"
+				"special_bonus_unique_oracle_9"		"+50"
 			}
 			"heal_amp_pct"
 			{
@@ -12472,11 +12470,12 @@
 		"AbilityCooldown"				"30"
 		"AbilityValues"
 		{
-				"radius"				"650"
-				"duration"				"10"
-				"damage"				"50"
-				"tick_rate"				"1.0"
-				"heal_amp"				"25"
+				"damage"
+				{
+					"value"					"120"
+					"CalculateSpellDamageTooltip"	"1"
+				}
+				"heal_amp"				"50"
 		}
 	}
 	//=================================================================================================================
@@ -12490,7 +12489,7 @@
 		{
 			"damage"
 			{
-				"value"										"75 150 225 300 375 450 525"
+				"value"										"150 225 300 375 450 525 600"
 				"special_bonus_unique_puck_orb_damage"		"+100"
 			}
 			"AbilityCooldown"
@@ -12514,7 +12513,7 @@
 				}
 				"damage"
 				{
-					"value"		"70 130 190 250 310"
+					"value"		"130 190 250 310 370"
 					"special_bonus_unique_puck_6"	"+100"
 				}
 		}
@@ -12557,14 +12556,14 @@
 	//=================================================================================================================
 	"pugna_nether_blast"
 	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"85 105 125 145 165"
+		"MaxLevel" "7"
+		"AbilityManaCost"				"85 105 125 145 165 185 205"
 		"AbilitySpecial"
 		{
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"blast_damage"				"100 175 250 325 400"
+				"blast_damage"				"100 175 250 325 400 475 550"
 				"LinkedSpecialBonus"		"special_bonus_unique_pugna_2"
 			}
 		}
@@ -12609,7 +12608,7 @@
 			}
 			"shard_damage_pct_from_ward"
 			{
-				"value"				"60"
+				"value"				"65"
 				"RequiresShard"		"1"
 			}
 		}

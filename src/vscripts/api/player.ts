@@ -2,7 +2,7 @@
 import { PropertyController } from "../modifiers/property/property_controller";
 import { ApiClient, HttpMethod } from "./api_client";
 
-class MemberDto {
+export class MemberDto {
 	steamId!: number;
 	enable!: boolean;
 	expireDateString!: string;
@@ -38,20 +38,6 @@ class GameStart {
 	players!: PlayerDto[];
 }
 
-
-declare global {
-	interface CustomNetTableDeclarations {
-		loading_status: {
-			loading_status: any;
-		};
-		member_table: {
-			[steamId: string]: MemberDto;
-		};
-		player_table: {
-			[steamId: string]: PlayerDto;
-		};
-	}
-}
 
 export class Player {
 	public static memberList: MemberDto[] = [];

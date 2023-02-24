@@ -68,7 +68,7 @@ function goku_kamehameha:OnSpellStart()
 	self.manacost = self:GetSpecialValueFor("manacost_pre_second")
 	self.times = 0
 	local speed = self:GetSpecialValueFor("speed")
-	local damage = self:GetSpecialValueFor("damage_pre_second") * self.tick
+	local damage = self:GetSpecialValueFor("damage_per_second") * self.tick
 	local length = self:GetSpecialValueFor("length") + self:GetCaster():GetCastRangeBonus()
 	self.time = GameRules:GetDOTATime(true,false)
 	if  origin ~= point then
