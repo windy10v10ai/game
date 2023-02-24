@@ -39,6 +39,7 @@
 #EndingPanelTop{
     width: 100%;
     flow-children: right;
+    vertical-align: middle;
 }
 
  #EndScreenWindow #MatchResultBlock #EndScreenVictory{

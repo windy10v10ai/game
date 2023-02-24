@@ -76,8 +76,8 @@ ApiClient.GAME_START_URL = "/game/start"
 ApiClient.ADD_PLAYER_PROPERTY_URL = "/game/addPlayerProperty"
 ApiClient.POST_GAME_URL = "/game/end"
 ApiClient.LOCAL_APIKEY = "Invalid_NotOnDedicatedServer"
-ApiClient.TIMEOUT_SECONDS = 10
-ApiClient.RETRY_TIMES = 3
+ApiClient.TIMEOUT_SECONDS = 15
+ApiClient.RETRY_TIMES = 4
 ApiClient.SERVER_KEY = "v1.43"
 ApiClient.HOST_NAME = (function()
     return IsInToolsMode() and "http://localhost:5000/api" or "https://windy10v10ai.web.app/api"

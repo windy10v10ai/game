@@ -24,8 +24,8 @@ export class ApiClient {
 	public static POST_GAME_URL = "/game/end";
 
 	private static LOCAL_APIKEY = "Invalid_NotOnDedicatedServer";
-	private static TIMEOUT_SECONDS = 10;
-	private static RETRY_TIMES = 3;
+	private static TIMEOUT_SECONDS = 15;
+	private static RETRY_TIMES = 4;
 	// dont change this version, it is used to identify the server
 	private static SERVER_KEY = "v1.43";
 	private static HOST_NAME: string = (() => {
