@@ -6,6 +6,9 @@ declare global {
         loading_status: {
             loading_status: any;
         };
+        ending_status: {
+            ending_status: any;
+        };
         member_table: {
             [steamId: string]: MemberDto;
         };
