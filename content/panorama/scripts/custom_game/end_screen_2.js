@@ -196,24 +196,24 @@ function OnGameResult(table, key, gameResult) {
 }
 
 
-function OnGameEndingStatusChange(table, key, value) {
-	$.Msg("OnGameEndingStatusChange", table, key, value);
-	if (value) {
-		const status = value.status;
-		$("#GameEndingStatusText").text = $.Localize("#ending_status_" + status);
-		if (status == 1) {
-			$("#CloseButton").enabled = false;
-		}
-		if (status == 2) {
-			$("#CloseButton").enabled = true;
-			$("#GameEndingStatusText").style.color = "#6bc1ff";
-		}
-		if (status == 3) {
-			$("#CloseButton").enabled = true;
-			$("#GameEndingStatusText").style.color = "#ff8367";
-		}
-	}
-}
+// function OnGameEndingStatusChange(table, key, value) {
+// 	$.Msg("OnGameEndingStatusChange", table, key, value);
+// 	if (value) {
+// 		const status = value.status;
+// 		$("#GameEndingStatusText").text = $.Localize("#ending_status_" + status);
+// 		if (status == 1) {
+// 			$("#CloseButton").enabled = false;
+// 		}
+// 		if (status == 2) {
+// 			$("#CloseButton").enabled = true;
+// 			$("#GameEndingStatusText").style.color = "#6bc1ff";
+// 		}
+// 		if (status == 3) {
+// 			$("#CloseButton").enabled = true;
+// 			$("#GameEndingStatusText").style.color = "#ff8367";
+// 		}
+// 	}
+// }
 
 (function() {
 	$.Msg("CustomGameEndScreen2.js loaded");
@@ -222,10 +222,10 @@ function OnGameEndingStatusChange(table, key, value) {
 
 	$.GetContextPanel().RemoveClass("FadeOut");
 	// disable the close button
-	$("#CloseButton").enabled = false;
-	$("#GameEndingStatusText").style.color = "#ffffff";
+	// $("#CloseButton").enabled = false;
+	// $("#GameEndingStatusText").style.color = "#ffffff";
 
 	CustomNetTables.SubscribeNetTableListener("ending_stats", OnGameResult);
-	CustomNetTables.SubscribeNetTableListener("ending_status", OnGameEndingStatusChange);
+	// CustomNetTables.SubscribeNetTableListener("ending_status", OnGameEndingStatusChange);
 	OnGameResult(null, "player_data", CustomNetTables.GetTableValue("ending_stats", "player_data"));
 })();
