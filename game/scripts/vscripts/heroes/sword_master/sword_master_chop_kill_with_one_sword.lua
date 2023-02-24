@@ -32,7 +32,7 @@ function sword_master_chop_kill_with_one_sword:OnSpellStart()
     local base_damage = self:GetSpecialValueFor("base_damage")
     local damage_per = self:GetSpecialValueFor("damage_per") / 100
     local distance_add = self:GetSpecialValueFor("distance_add")
-    
+
     local casterOrigin = caster:GetAbsOrigin()
     local vector = target:GetAbsOrigin() - casterOrigin
     local direction = vector:Normalized()
@@ -40,7 +40,7 @@ function sword_master_chop_kill_with_one_sword:OnSpellStart()
     local location = casterOrigin + direction * distance
     local stun_duration = self:GetSpecialValueFor("stun_duration")
     target:AddNewModifier(caster, self, "modifier_stunned", {duration = stun_duration})
-    
+
     FindClearSpaceForUnit(caster, location, true)
 
     ApplyDamage({
@@ -48,7 +48,7 @@ function sword_master_chop_kill_with_one_sword:OnSpellStart()
         attacker = caster,
         damage = base_damage + target:GetHealthDeficit() * damage_per,
         damage_type = DAMAGE_TYPE_PHYSICAL,
-        damage_flags = DOTA_DAMAGE_FLAG_NONE, --Optional.
+        damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, --Optional.
         ability = self, --Optional.
     })
 
@@ -57,7 +57,7 @@ function sword_master_chop_kill_with_one_sword:OnSpellStart()
     ParticleManager:SetParticleControl(particle, 1, location)
     ParticleManager:DestroyParticle(particle, false)
     ParticleManager:ReleaseParticleIndex(particle)
-    
+
     local particle_impact = ParticleManager:CreateParticle("particles/heroes/sword_master/children/sword_master_chop_kill_with_one_sword_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
     ParticleManager:DestroyParticle(particle_impact, false)
     ParticleManager:ReleaseParticleIndex(particle_impact)

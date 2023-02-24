@@ -458,7 +458,7 @@
 		"DOTA_Tooltip_ability_sword_master_tap_damage_bonus"									"额外伤害："
 
 		"DOTA_Tooltip_ability_sword_master_arbiter"												"执剑泰斗"
-		"DOTA_Tooltip_ability_sword_master_arbiter_description"									"此技能初始为1级，随着执剑泰斗的等级上升，此技能会在6，12，18，24，30级升级，并获得额外效果\n<h1>1级-执剑泰斗</h1>每隔一段时间秒获得一层[泰斗]，到达层数上限后不再增强\n<h1>2级-唯快不破</h1>当你消耗泰斗层数后，下次攻击获得急速效果\n<h1>3级-十里飘血</h1>当你完成击杀时，恢复%lv3_charge_regen%层泰斗层数\n<h1>4级-一剑封喉</h1>消耗泰斗层数的技能会禁止敌人恢复生命，持续%lv4_duration%秒\n<h1>5级-无招胜有招</h1>消耗泰斗层数的技能会对敌人施加强驱散，如果成功驱散了状态，则为对方添加%lv5_duration%秒的闭锁和沉默效果\n<h1>6级-独孤求败</h1>消耗泰斗点数的技能额外附带当前敏捷值的攻击伤害，每当你完成击杀则立刻强驱散自身，并获得持续%lv6_duration%秒的%lv6_status_resistance%%%状态抗性和%lv6_damage_reduction%%%的伤害见面"
+		"DOTA_Tooltip_ability_sword_master_arbiter_description"									"此技能初始为1级，随着执剑泰斗的等级上升，此技能会在6，12，18，24，30级升级，并获得额外效果\n<h1>1级-执剑泰斗</h1>每隔%charge_restore%秒获得一层[泰斗]，到达层数上限后不再增强\n<h1>2级-唯快不破</h1>当你消耗泰斗层数后，下次攻击获得急速效果\n<h1>3级-十里飘血</h1>当你完成击杀时，恢复%lv3_charge_regen%层泰斗层数\n<h1>4级-一剑封喉</h1>消耗泰斗层数的技能会禁止敌人恢复生命，持续%lv4_duration%秒\n<h1>5级-无招胜有招</h1>消耗泰斗层数的技能会对敌人施加强驱散，如果成功驱散了状态，则为对方添加%lv5_duration%秒的闭锁和沉默效果\n<h1>6级-独孤求败</h1>消耗泰斗点数的技能额外附带当前敏捷值的攻击伤害，每当你完成击杀则立刻强驱散自身，并获得持续%lv6_duration%秒的%lv6_status_resistance%%%状态抗性和%lv6_damage_reduction%%%的伤害见面"
 		"DOTA_Tooltip_ability_sword_master_arbiter_Lore"										"强大的剑士会和锻炼自己的身体一样锻炼自己的剑"
 		"DOTA_Tooltip_ability_sword_master_arbiter_charge_restore"								"泰斗恢复时间："
 		"DOTA_Tooltip_ability_sword_master_arbiter_max_charges"									"泰斗最大层数："
@@ -473,6 +473,7 @@
 
 		"DOTA_Tooltip_ability_sword_master_chop_kill_with_one_sword"							"一剑之杀"
 		"DOTA_Tooltip_ability_sword_master_chop_kill_with_one_sword_description"				"冲刺穿越至距离目标%distance_add%距离的位置，对其造成基础伤害和基于目标已损失生命值的伤害，并短暂眩晕目标"
+		"DOTA_Tooltip_ability_sword_master_chop_kill_with_one_sword_Note0"						"百分比伤害不享有技能增强加成"
 		"DOTA_Tooltip_ability_sword_master_chop_kill_with_one_sword_Lore"						"杀你，一剑足矣"
 		"DOTA_Tooltip_ability_sword_master_chop_kill_with_one_sword_base_damage"				"基础伤害："
 		"DOTA_Tooltip_ability_sword_master_chop_kill_with_one_sword_damage_per"					"%损失生命百分比："
@@ -487,13 +488,15 @@
 
 		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship"					"快剑绝伦"
 		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship_description"		"向目标位置冲刺，并对路径上的所有单位进行数次攻击，每次攻击额外造成敌人当前生命值一定百分比的伤害"
+		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship_Note0"				"百分比伤害不享有技能增强加成"
 		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship_Lore"				"剑光一闪"
 		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship_AbilityCastRange"	"施法距离："
-		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship_damage_pre"		"%当前生命值百分比："
+		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship_damage_per"		"%当前生命值百分比："
 		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship_attack_times"		"攻击次数："
 
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky"						"怒刃擎天"
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_description"			"使用全部气力向前方劈出一刀，对矩形范围内的造成基于其最大生命值的伤害"
+		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_Note0"					"百分比伤害不享有技能增强加成"
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_Lore"					"这一刀，教你灰飞烟灭"
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_width"					"宽度："
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_length"				"长度："
@@ -833,7 +836,7 @@
 		"DOTA_Tooltip_ability_goku_kamehameha_length"						"光波长度："
 		"DOTA_Tooltip_ability_goku_kamehameha_width"						"光波宽度："
 		"DOTA_Tooltip_ability_goku_kamehameha_manacost_pre_second"			"每秒耗蓝："
-		"DOTA_Tooltip_ability_goku_kamehameha_damage_pre_second"			"每秒伤害："
+		"DOTA_Tooltip_ability_goku_kamehameha_damage_per_second"			"每秒伤害："
 		"DOTA_Tooltip_ability_goku_kamehameha_scepter_description"			"龟派气功无视技能免疫，并变为纯粹伤害"
 
 		"DOTA_Tooltip_Ability_goku_tp"										"高速移动"
@@ -868,7 +871,7 @@
 		"DOTA_Tooltip_ability_goku_spirit_bomb_radius_max"					"最大范围："
 		"DOTA_Tooltip_ability_goku_spirit_bomb_speed"						"飞行速度："
 
-		"DOTA_Tooltip_Ability_special_bonus_unique_goku_1"					"+{s:bonus_damage_pre_second} 龟派气功每秒伤害"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_1"					"+{s:bonus_damage_per_second} 龟派气功每秒伤害"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_2"					"+{s:bonus_duration}秒 高速移动持续时间"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_3"					"+{s:bonus_stun_duration}秒 界王拳击晕时间"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4"					"龟派气功强驱散"

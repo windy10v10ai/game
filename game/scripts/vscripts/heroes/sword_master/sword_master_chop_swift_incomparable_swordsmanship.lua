@@ -31,20 +31,20 @@ function sword_master_chop_swift_incomparable_swordsmanship:OnSpellStart()
     end
 
     self.attack_times = self:GetSpecialValueFor("attack_times")
-    self.damage_pre = self:GetSpecialValueFor("damage_pre") / 100
+    self.damage_per = self:GetSpecialValueFor("damage_per") / 100
     self.damageTable = {
         victim = nil,
         attacker = caster,
         damage = 0,
         damage_type = DAMAGE_TYPE_PURE,
-        damage_flags = DOTA_DAMAGE_FLAG_NONE,
+        damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
         ability = self,
     }
     caster:AddNewModifier(caster, self, "modifier_sword_master_chop_swift_incomparable_swordsmanship_move", {})
 
     local particle_text = ParticleManager:CreateParticle("particles/heroes/sword_master/sword_master_chop_swift_incomparable_swordsmanship_head.vpcf", PATTACH_OVERHEAD_FOLLOW, caster )
     ParticleManager:SetParticleControl(particle_text,0,caster:GetAbsOrigin())
-    
+
     caster:EmitSound("Greevil.ColdSnap.Cast")
 end
 
@@ -69,7 +69,7 @@ function sword_master_chop_swift_incomparable_swordsmanship:OnProjectileHit(targ
                 return
             end
             self.damageTable.victim = target
-            self.damageTable.damage = target:GetHealth() * self.damage_pre
+            self.damageTable.damage = target:GetHealth() * self.damage_per
             ApplyDamage(self.damageTable)
             if ability_chop ~= nil then
                 ability_chop:ChopAttack(caster,target)
