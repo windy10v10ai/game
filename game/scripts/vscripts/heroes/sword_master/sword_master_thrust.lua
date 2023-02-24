@@ -50,7 +50,9 @@ function sword_master_thrust:OnProjectileHit(target,location)
         if ability_arbiter ~= nil then
             ability_arbiter:ArbiterAttack(caster,target)
         else
+            caster:AddNewModifier(caster, self, "modifier_tidehunter_anchor_smash_caster", {})
             caster:PerformAttack(target, false, false, true, true, false, false, true)
+            caster:RemoveModifierByName("modifier_tidehunter_anchor_smash_caster")
         end
     end
 end

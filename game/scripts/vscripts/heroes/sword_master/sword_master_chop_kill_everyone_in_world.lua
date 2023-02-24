@@ -49,13 +49,15 @@ function sword_master_chop_kill_everyone_in_world:OnSpellStart()
         FIND_ANY_ORDER,
         false
     )
-    
+
     caster:AddNewModifier(caster, self, "modifier_sword_master_chop_kill_everyone_in_world", {})
     for _, enemy in ipairs(enemies) do
         if ability ~= nil then
             ability:ChopAttack(caster,enemy)
         else
+            caster:AddNewModifier(caster, self, "modifier_tidehunter_anchor_smash_caster", {})
             caster:PerformAttack(enemy, true, true, true, true, false, false, true)
+            caster:RemoveModifierByName("modifier_tidehunter_anchor_smash_caster")
         end
 
         local particle_impact = ParticleManager:CreateParticle("particles/heroes/sword_master/children/sword_master_chop_kill_with_one_sword_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
@@ -67,10 +69,10 @@ function sword_master_chop_kill_everyone_in_world:OnSpellStart()
     local particle = ParticleManager:CreateParticle("particles/heroes/sword_master/sword_master_chop_kill_everyone_in_world.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     caster:EmitSoundParams("Hero_Juggernaut.BladeDance",0,5,0)
     caster:EmitSound("Hero_FacelessVoid.TimeDilation.Cast.ti7_layer")
-    
+
     local particle_text = ParticleManager:CreateParticle("particles/heroes/sword_master/sword_master_chop_kill_everyone_in_world_head.vpcf", PATTACH_OVERHEAD_FOLLOW, caster )
     ParticleManager:SetParticleControl(particle_text,0,caster:GetAbsOrigin())
-    
+
     -- ParticleManager:SetParticleControl(particle, 5, Vector(350,0,0))
     Timers:CreateTimer(0.5,function ()
         ParticleManager:DestroyParticle(particle, false)
@@ -81,7 +83,7 @@ function sword_master_chop_kill_everyone_in_world:OnSpellStart()
     --     ParticleManager:DestroyParticle(particle, false)
     --     ParticleManager:ReleaseParticleIndex(particle)
     -- end)
-            
+
 
 end
 

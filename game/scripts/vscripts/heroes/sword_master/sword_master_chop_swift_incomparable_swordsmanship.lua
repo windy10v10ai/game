@@ -74,7 +74,9 @@ function sword_master_chop_swift_incomparable_swordsmanship:OnProjectileHit(targ
             if ability_chop ~= nil then
                 ability_chop:ChopAttack(caster,target)
             else
+                caster:AddNewModifier(caster, self, "modifier_tidehunter_anchor_smash_caster", {})
                 caster:PerformAttack(target, true, true, true, true, false, false, true)
+                caster:RemoveModifierByName("modifier_tidehunter_anchor_smash_caster")
             end
             i = i + 1
 

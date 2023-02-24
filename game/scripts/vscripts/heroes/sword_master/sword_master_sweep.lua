@@ -199,7 +199,9 @@ function modifier_sword_master_sweep_damage:OnCreated()
     if ability_arbiter ~= nil then
         ability_arbiter:ArbiterAttack(caster,parent)
     else
+        caster:AddNewModifier(caster, self, "modifier_tidehunter_anchor_smash_caster", {})
         caster:PerformAttack(parent, false, false, true, true, false, false, true)
+        caster:RemoveModifierByName("modifier_tidehunter_anchor_smash_caster")
     end
 end
 
