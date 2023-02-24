@@ -3080,7 +3080,7 @@
 		{
 			"AbilityCastRange"			"1200"
 			"base_damage"				"100 200 300"
-			"damage_per"				"30 60 90"
+			"damage_per"				"50 70 90"
 			"distance_add"				"350"
 			"stun_duration"				"0.5"
 		}
@@ -3158,7 +3158,7 @@
 			"speed"							"2400"
 			"width"							"120"
 			"damage_per"					"3 5 7"
-			"attack_times"					"2 4 6"
+			"attack_times"					"2 3 4"
 			"attack_interval"				"0.05"
 		}
 	}
