@@ -98,6 +98,9 @@
 		"player_multiplier"	"Player Multi"
 		"bot_multiplier"	"Bot Multi"
 
+		"ending_status_1"				"Please do not end the game while the game data is uploading."
+		"ending_status_2"				"Game data uploaded successfully!"
+		"ending_status_3"				"Unfortunately, the game data upload was failed due to network problem. Please try to change the server host and play again."
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -519,7 +522,7 @@
 		"DOTA_Tooltip_ability_goku_kamehameha_length" 						"Light wave length:"
 		"DOTA_Tooltip_ability_goku_kamehameha_width" 					 	"Light wave width:"
 		"DOTA_Tooltip_ability_goku_kamehameha_manacost_pre_second" 		 	"Mana consumption per second:"
-		"DOTA_Tooltip_ability_goku_kamehameha_damage_pre_second" 		 	"Damage per second:"
+		"DOTA_Tooltip_ability_goku_kamehameha_damage_per_second" 		 	"Damage per second:"
 		"DOTA_Tooltip_ability_goku_kamehameha_scepter_description" 			"Kame Hame Ha ignores skill immunity and becomes pure damage."
 		"DOTA_Tooltip_Ability_goku_tp" 										"High speed mobile"
 		"DOTA_Tooltip_ability_goku_tp_description" 							"Goku unleashes his leg strength and hovers at a very fast speed. Grants Goku increased movement speed and free pathing. Goku cannot be selected during high speed movement.\n <h1> Super Saiyan mode: </h1> Completely removes the max movement speed limit for Goku. "
@@ -549,7 +552,7 @@
 		"DOTA_Tooltip_ability_goku_spirit_bomb_damage_max" 					"Maximum damage:"
 		"DOTA_Tooltip_ability_goku_spirit_bomb_radius_max" 					"Maximum damaging radius:"
 		"DOTA_Tooltip_ability_goku_spirit_bomb_speed" 						"Vitality bullet's traveling speed:"
-		"DOTA_Tooltip_Ability_special_bonus_unique_goku_1" 					"+{s:bonus_damage_pre_second} Kame Hame Ha Damage per Second"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_1" 					"+{s:bonus_damage_per_second} Kame Hame Ha Damage per Second"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_2" 					"+{s:bonus_duration} Second High Speed Movement Duration"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_3" 					"+{s:bonus_stun_duration} Second Boxing Stun Time"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4" 					"Kame Hame Ha Purges Enemies"

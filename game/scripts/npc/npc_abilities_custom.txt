@@ -1605,7 +1605,7 @@
 			"width"				"200"
 			"speed"			"2400"
 			"manacost_pre_second"	"60 80 100 120 140"
-			"damage_pre_second"
+			"damage_per_second"
 			{
 				"value"					"100 160 220 280 340"
 				"special_bonus_unique_goku_1"	"+60"
@@ -1859,7 +1859,7 @@
 			}
 			"stun_duration"
 			{
-				"value"						"0.2"
+				"value"						"0.4"
 				"special_bonus_unique_yukari_01_stun" "+0.8"
 			}
 			"speed"			"1200"
@@ -2941,6 +2941,307 @@
 		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
 
+	//=================================================================================================================
+	// 执剑泰斗
+	//=================================================================================================================
+	"sword_master_sweep"
+	{
+		"MaxLevel"                      "4"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/sword_master/sword_master_sweep"
+		"AbilityTextureName"			"custom/sword_master/sword_master_sweep"
+
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityCastAnimation" 			"NULL"
+		"AbilityCastPoint"				"0.1"
+
+		"AbilityValues"
+		{
+            "AbilityCooldown"				"0.5"
+			"speed"							"600"
+			"distance"
+			{
+				"value"									"150"
+				"special_bonus_unique_sword_master_2"	"+80"
+			}
+			"radius"						"350"
+			"damage_bonus"					"60 120 180 240"
+		}
+	}
+
+	"sword_master_thrust"
+	{
+		"MaxLevel"                      "4"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/sword_master/sword_master_thrust"
+		"AbilityTextureName"			"custom/sword_master/sword_master_thrust"
+
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastPoint"				"0.3"
+
+		"AbilityValues"
+		{
+            "AbilityCooldown"				"0.5"
+			"speed"							"2400"
+			"width"							"120"
+			"AbilityCastRange"				"650"
+			"damage_bonus"					"60 100 140 180"
+			"talent_movespeed"
+			{
+				"value"						"0"
+				"special_bonus_unique_sword_master_3"	"+30"
+			}
+			"talent_duration"
+			{
+				"value"						"0"
+				"special_bonus_unique_sword_master_3"	"+3"
+			}
+         }
+	}
+
+	"sword_master_tap"
+	{
+		"MaxLevel"                      "4"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/sword_master/sword_master_tap"
+		"AbilityTextureName"			"custom/sword_master/sword_master_tap"
+
+
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+        "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+        "AbilityCastPoint"				"0.3"
+
+		"AbilityValues"
+		{
+            "AbilityCooldown"				"0.5"
+			"width"							"200"
+			"length"						"550"
+			"damage_bonus"					"30 60 90 120"
+			"stun_duration"					"1 1.5 2 2.5"
+			"talent_duration"
+			{
+				"value"						"0"
+				"special_bonus_unique_sword_master_4"	"+5"
+			}
+        }
+    }
+
+	"sword_master_chop"
+	{
+		"MaxLevel"                      "3"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/sword_master/sword_master_chop"
+		"AbilityTextureName"			"custom/sword_master/sword_master_chop"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"LinkedAbility"					"sword_master_chop_kill_with_one_sword"
+		"AbilityCastPoint"				"0.4"
+
+		"AbilityValues"
+		{
+			"AbilityCooldown"
+			{
+				"value"									"10"
+				"special_bonus_unique_sword_master_1"	"-3"
+			}
+			"damage_stack"				"8 12 16"
+		}
+	}
+
+	"sword_master_chop_kill_with_one_sword"
+	{
+		"MaxLevel"                      "3"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/sword_master/sword_master_chop_kill_with_one_sword"
+		"AbilityTextureName"			"custom/sword_master/sword_master_chop_kill_with_one_sword"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"LinkedAbility"					"sword_master_chop_kill_everyone_in_world"
+		"AbilityCastPoint"				"0.1"
+
+		"AbilityValues"
+		{
+			"AbilityCastRange"			"1200"
+			"base_damage"				"100 200 300"
+			"damage_per"				"50 70 90"
+			"distance_add"				"350"
+			"stun_duration"				"0.5"
+		}
+	}
+
+	"sword_master_chop_kill_everyone_in_world"
+	{
+		"MaxLevel"                      "3"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/sword_master/sword_master_chop_kill_everyone_in_world"
+		"AbilityTextureName"			"custom/sword_master/sword_master_chop_kill_everyone_in_world"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"LinkedAbility"					"sword_master_chop_rage_nlade_soars_the_sky"
+		"AbilityCastPoint"				"0.4"
+
+		"AbilityValues"
+		{
+			"base_damage"				"100 200 300"
+			"damage_crit"				"150 250 350"
+			"radius"					"350"
+		}
+	}
+
+	"sword_master_chop_rage_nlade_soars_the_sky"
+	{
+		"MaxLevel"                      "3"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/sword_master/sword_master_chop_rage_nlade_soars_the_sky"
+		"AbilityTextureName"			"custom/sword_master/sword_master_chop_rage_nlade_soars_the_sky"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"LinkedAbility"					"sword_master_chop_swift_incomparable_swordsmanship"
+		"AbilityCastPoint"				"0.4"
+
+		"AbilityValues"
+		{
+			"width"						"200"
+			"length"					"650"
+			"damage_per"				"15 20 25"
+			"stun_duration"				"1.5 2.5 3.5"
+		}
+	}
+
+
+	"sword_master_chop_swift_incomparable_swordsmanship"
+	{
+		"MaxLevel"                      "3"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/sword_master/sword_master_chop_swift_incomparable_swordsmanship"
+		"AbilityTextureName"			"custom/sword_master/sword_master_chop_swift_incomparable_swordsmanship"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastAnimation" 			""
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"LinkedAbility"					"sword_master_chop"
+		"AbilityCastPoint"				"0"
+
+		"AbilityValues"
+		{
+			"AbilityCastRange"				"800"
+			"speed"							"2400"
+			"width"							"120"
+			"damage_per"					"3 5 7"
+			"attack_times"					"2 3 4"
+			"attack_interval"				"0.05"
+		}
+	}
+
+
+    "sword_master_arbiter"
+	{
+		"MaxLevel"                      "6"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/sword_master/sword_master_arbiter"
+		"AbilityTextureName"			"custom/sword_master/sword_master_arbiter"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityCastAnimation" 			"NULL"
+        "LevelsBetweenUpgrades"			"6"
+        "RequiredLevel"					"0"
+
+        "HasShardUpgrade"			"1"
+		"HasScepterUpgrade"			"1"
+        "AbilityValues"
+		{
+			"charge_restore"				"10"
+            "max_charges"
+			{
+				"value"			        "3"
+				"special_bonus_shard"	"+1"
+			}
+			"lv3_charge_regen"				"1"
+			"lv4_duration"					"8"
+			"lv5_duration"					"5"
+			"lv6_duration"					"3"
+			"lv6_status_resistance"			"80"
+			"lv6_damage_reduction"			"80"
+			"scepter_charge_add"			"2"
+			"AbilityCooldown"		    	"60"
+			"talent_heal"
+			{
+				"value"			        				"0"
+				"special_bonus_unique_sword_master_5"	"+45"
+			}
+		}
+	}
+
+	"special_bonus_unique_sword_master_1"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+	"special_bonus_unique_sword_master_2"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+	"special_bonus_unique_sword_master_3"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+	"special_bonus_unique_sword_master_4"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+	"special_bonus_unique_sword_master_5"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+
+	"special_bonus_unique_sword_master_6"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
 	//=================================================================================================================
 	// Tinker: Rearm 刷新
 	//=================================================================================================================

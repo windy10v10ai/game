@@ -15,6 +15,7 @@ var imagefile = {
 	'npc_dota_hero_pangolier': 'file://{images}/heroes/npc_dota_hero_pangolier_custom.png',
 	'npc_dota_hero_phantom_lancer': 'file://{images}/heroes/npc_dota_hero_phantom_lancer_custom.png',
 	'npc_dota_hero_brewmaster': 'file://{images}/heroes/npc_dota_hero_brewmaster_custom.png',
+	'npc_dota_hero_dark_seer': 'file://{images}/heroes/npc_dota_hero_dark_seer_custom.png',
 }
 
 var GAME_RESULT = {};
@@ -157,7 +158,6 @@ function OnGameResult(table, key, gameResult) {
 		gameResult.isWinner = false;
 	}
 
-	$("#LoadingPanel").visible = false;
 	$("#EndScreenWindow").visible = true;
 	$("#TeamsContainer").RemoveAndDeleteChildren();
 
@@ -196,6 +196,24 @@ function OnGameResult(table, key, gameResult) {
 }
 
 
+function OnGameEndingStatusChange(table, key, value) {
+	$.Msg("OnGameEndingStatusChange", table, key, value);
+	if (value) {
+		const status = value.status;
+		$("#GameEndingStatusText").text = $.Localize("#ending_status_" + status);
+		if (status == 1) {
+			$("#CloseButton").enabled = false;
+		}
+		if (status == 2) {
+			$("#CloseButton").enabled = true;
+			$("#GameEndingStatusText").style.color = "#6bc1ff";
+		}
+		if (status == 3) {
+			$("#CloseButton").enabled = true;
+			$("#GameEndingStatusText").style.color = "#ff8367";
+		}
+	}
+}
 
 (function() {
 	$.Msg("CustomGameEndScreen2.js loaded");
@@ -203,9 +221,11 @@ function OnGameResult(table, key, gameResult) {
 	find_hud_element("GameEndContainer").visible = false;
 
 	$.GetContextPanel().RemoveClass("FadeOut");
-	$("#LoadingPanel").visible = false;
-	$("#EndScreenWindow").visible = false;
+	// disable the close button
+	$("#CloseButton").enabled = false;
+	$("#GameEndingStatusText").style.color = "#ffffff";
 
 	CustomNetTables.SubscribeNetTableListener("ending_stats", OnGameResult);
+	CustomNetTables.SubscribeNetTableListener("ending_status", OnGameEndingStatusChange);
 	OnGameResult(null, "player_data", CustomNetTables.GetTableValue("ending_stats", "player_data"));
 })();
