@@ -10,6 +10,14 @@ developerSteamAccountID[385130282] = "米米花"
 developerSteamAccountID[353885092] = "76岁靠谱成年男性"
 developerSteamAccountID[245559423] = "puck1609"
 
+
+local newheroSteamAccountID = Set {
+	-- windy
+	136407523,
+	-- 洛书
+	136668998,
+}
+
 function AIGameMode:OnPlayerChat(event)
     local iPlayerID = event.playerid
     local sChatMsg = event.text
@@ -17,7 +25,18 @@ function AIGameMode:OnPlayerChat(event)
         return
     end
     local steamAccountID = PlayerResource:GetSteamAccountID(iPlayerID)
+    -- 新英雄召唤
+    if newheroSteamAccountID[steamAccountID] then
+        if sChatMsg:find('^-执剑泰斗$') and not AIGameMode.bHeroChanged then
+            AIGameMode.bHeroChanged = true
+            local pszHeroClass = "npc_dota_hero_dark_seer"
+            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+            PlayerResource:ReplaceHeroWith(iPlayerID, pszHeroClass, hHero:GetGold(), hHero:GetCurrentXP())
+            return
+        end
+    end
 
+    -- 开发测试代码
     if AIGameMode.DebugMode and developerSteamAccountID[steamAccountID] then
         if sChatMsg:find('^-pos$') then
             -- get position
