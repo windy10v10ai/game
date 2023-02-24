@@ -2,14 +2,16 @@
 {
   custom_net_tables =
   [
-    "loading_status",
     "player_tome_table",
     "game_options_table",
     "ending_stats",
     "disable_help",
-    "member_table",
-    "player_table",
     "game_difficulty",
     "difficulty_choice",
+    // TS tables
+    "loading_status",
+    "ending_status",
+    "member_table",
+    "player_table",
   ]
 }

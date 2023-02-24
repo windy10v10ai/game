@@ -98,6 +98,9 @@
 		"player_multiplier"	"Player Multi"
 		"bot_multiplier"	"Bot Multi"
 
+		"ending_status_1"				"Please do not end the game while the game data is uploading."
+		"ending_status_2"				"Game data uploaded successfully!"
+		"ending_status_3"				"Unfortunately, due to network fluctuations, the upload of settlement data failed. Please try to change the server host and play again."
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
