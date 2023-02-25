@@ -499,10 +499,10 @@
 
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_1" 				 "+ {s:bonus_damage} Night Sword Attack Bonus."
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_2" 				 "+ {s:bonus_percentage} Out of Sheath Critical Hit Chance."
-		"Dota_tooltip_ability_special_bonus_unique_abyss_sword_3" 				 "+ {s:bonus_attack_bounts}% Attack Damage Bonus of Hidden Sharp per Second."
+		"Dota_tooltip_ability_special_bonus_unique_abyss_sword_3" 				 "+ {s:bonus_attack_bounts}% Attack Damage Bonus of Hidden Sharp Per Second."
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_4" 				 "+ {s:bonus_chance}% Chance of Rush Night Sally."
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_5" 				 "+ {s:bonus_count} Sword Qi Quantity to Rush Night Sally."
-		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_6" 				 "Rush night sword Qi will trigger Out of Shealth."
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_6" 				 "Rush Night Sword Qi Will Trigger Out Of Shealth."
 
 		"npc_dota_hero_chen" 									 			"Goku"
 		"DOTA_Tooltip_Ability_goku_kamehameha" 								"Kame Hame Ha"
@@ -553,25 +553,25 @@
 
 		//Abyss sword
 		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp" 	 "Hidden Sharp"
-		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_Description" 	 "Gain% dmodifier_property_basedamageoutgoing_percentage%%% attack damage bonus."
+		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_Description" 	 "Gains %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% attack damage bonus."
 		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_interval" 	 "Hidden Sharp: accumulating strength."
 		"DOTA_Tooltip_modifier_abyss_sword_hidden_sharp_interval_Description" 	 "Continuously increases the attack damage of the abyss sword and provides spell immunity."
 		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath" 	 "Out of sheath"
-		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath_Description" 	 "The attack of abyss sword has a chance to cause critical hit and lifesteal."
+		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath_Description" 	 "The attack of Abyss Sword has a chance to cause critical hit and lifesteal."
 		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath_shard" 	 "Descabbard: destroy"
 		"DOTA_Tooltip_modifier_abyss_sword_out_of_sheath_shard_Description" 	 "Passive ability is disabled due to the influence of sheath removal."
 		"DOTA_Tooltip_modifier_abyss_sword_rush_night_sally" 	 "Rush Night Sally"
-		"DOTA_Tooltip_modifier_abyss_sword_rush_night_sally_Description" 	 "The sword of the abyss gains a% dmodifier_property_attackspeed_bonus_constant% attack speed bonus and a% dmodifier_property_movespeed_bonus_percentage%%% movement speed bonus. You have a chance to emit several night rush sword Qi when attacking."
+		"DOTA_Tooltip_modifier_abyss_sword_rush_night_sally_Description" 	 "The sword of the abyss gains %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed bonus and %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed bonus. You have a chance to emit several night rush sword Qi when attacking."
 
 		// Goku
 		"DOTA_Tooltip_modifier_goku_tp" 	 "High speed mobile"
-		"DOTA_Tooltip_modifier_goku_tp_Description" 	 "Gain %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed bonus"
+		"DOTA_Tooltip_modifier_goku_tp_Description" 	 "Gains %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed bonus."
 		"DOTA_Tooltip_modifier_goku_kaioken" 	 "Jiewang boxing"
-		"DOTA_Tooltip_modifier_goku_kaioken_Description" 	 "Gain a %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed bonus. The attack has a chance to stun the target and summon the phantom to attack again"
+		"DOTA_Tooltip_modifier_goku_kaioken_Description" 	 "Gains a %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed bonus. The attack has a chance to stun the target and summon the phantom to attack again."
 		"DOTA_Tooltip_modifier_goku_super_saiyan_passive" 	 "Super Saiyan: potential"
-		"DOTA_Tooltip_modifier_goku_super_saiyan_passive_Description" 	 "Gain %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% strength bonus, %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility bonus and %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% intelligence bonus"
+		"DOTA_Tooltip_modifier_goku_super_saiyan_passive_Description" 	 "Gains %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% strength bonus, %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility bonus and %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% intelligence bonus."
 		"DOTA_Tooltip_modifier_goku_super_saiyan" 	 "Super Saiyan: Activate"
-		"DOTA_Tooltip_modifier_goku_super_saiyan_Description" 	 "Strengthen all your skills, gain %dMODIFIER_PROPERTY_STATUS_RESISTANCE%%% state resistance bonus, and restore %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% magic and %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% life per second"
+		"DOTA_Tooltip_modifier_goku_super_saiyan_Description" 	 "Strengthen all your skills, providing %dMODIFIER_PROPERTY_STATUS_RESISTANCE%%% state resistance bonus, and restore %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% magic and %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% life per second."
 
 		// Yukari
 		"npc_dota_yukari_1"	"yukari"
@@ -1127,7 +1127,7 @@
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Shoes"
-		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：Gotta Go Fast</font></h1>After use, you will get a movement speed bonus of %active_sp%%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%% extra movement speed to allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：Gotta Go Fast</font></h1>After use, you will get a movement speed bonus of %active_sp%%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"Gotta go fast!"
 		"DOTA_Tooltip_ability_item_adi_king_sp"												"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
@@ -1135,12 +1135,12 @@
 		"DOTA_Tooltip_ability_item_adi_king_bonus_evasion"									"%+$evasion"
 		"DOTA_Tooltip_ability_item_adi_king_rate"											"%+turn rate"
 		"DOTA_Tooltip_modifier_item_adi_king_aura"							        		"Speed Aura"
-		"DOTA_Tooltip_modifier_item_adi_king_aura_Description"								"Movement speed is increased by %aura_sp%%."
+		"DOTA_Tooltip_modifier_item_adi_king_aura_Description"								"Movement speed is increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		"DOTA_Tooltip_modifier_item_adi_king_buff"											"Gotta Go Fast"
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Shoes plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：Gotta Go Fast</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%% extra movement speed to allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：Gotta Go Fast</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"Gotta go fast!"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
@@ -1148,7 +1148,7 @@
 		"DOTA_Tooltip_ability_item_adi_king_plus_bonus_evasion"									"%+$evasion"
 		"DOTA_Tooltip_ability_item_adi_king_plus_rate"											"%+turn rate"
 		"DOTA_Tooltip_modifier_item_adi_king_plus_aura"							        		"Speed Aura"
-		"DOTA_Tooltip_modifier_item_adi_king_plus_aura_Description"								"Movement speed is increased by %aura_sp%%."
+		"DOTA_Tooltip_modifier_item_adi_king_plus_aura_Description"								"Movement speed is increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		"DOTA_Tooltip_modifier_item_adi_king_plus_buff"											"Gotta Go Fast"
 
 		// item_blue_fantasy 苍蓝幻想
