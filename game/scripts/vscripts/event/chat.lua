@@ -16,6 +16,10 @@ local newheroSteamAccountID = Set {
 	136407523,
 	-- 洛书
 	136668998,
+    -- BM
+	176910316,
+    -- 米米花
+	385130282,
 }
 
 function AIGameMode:OnPlayerChat(event)
