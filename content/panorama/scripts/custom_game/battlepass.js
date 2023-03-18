@@ -101,6 +101,9 @@ function SetLevelUseable(player) {
 
 function SetPlayerProperty() {
 	ClearPlayerProperty();
+
+	let panel = $.CreatePanel("Panel", $("#PlayerPropertyContent"), "");
+	panel.BLoadLayoutSnippet("PlayerPropertyTooltip");
 	for(const property of Player_Property_List) {
 		AddPlayerProperty(property);
 	}

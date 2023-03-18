@@ -42,27 +42,34 @@
 				</Panel>
 
 				<!--难度选择-->
-				<Panel id="DifficultyContainer">
+				<Panel id="DifficultyContainer" class="flowDown">
 					<Label class="selectTitle" text="#game_difficulty_choice" />
-					<Panel id="DifficultyList">
-						<Button id="DifficultyN0" class="difficultyChoice longer" onactivate="OnChooseDifficulty(0)">
-							<Label class="difficultyText" text="#game_difficulty_n0"/>
-						</Button>
-						<Button id="DifficultyN1" class="difficultyChoice" onactivate="OnChooseDifficulty(1)">
-							<Label class="difficultyText" text="#game_difficulty_n1" />
-						</Button>
-						<Button id="DifficultyN2" class="difficultyChoice" onactivate="OnChooseDifficulty(2)">
-							<Label class="difficultyText" text="#game_difficulty_n2" />
-						</Button>
-						<Button id="DifficultyN3" class="difficultyChoice" onactivate="OnChooseDifficulty(3)">
-							<Label class="difficultyText" text="#game_difficulty_n3" />
-						</Button>
-						<Button id="DifficultyN4" class="difficultyChoice" onactivate="OnChooseDifficulty(4)">
-							<Label class="difficultyText" text="#game_difficulty_n4" />
-						</Button>
-						<Button id="DifficultyN5" class="difficultyChoice" onactivate="OnChooseDifficulty(5)">
-							<Label class="difficultyText" text="#game_difficulty_n5" />
-						</Button>
+					<Panel id="DifficultyList" class="flowDown">
+						<Panel class="flowRight">
+							<Button id="DifficultyN0" class="difficultyChoice longer" onactivate="OnChooseDifficulty(0)">
+								<Label class="difficultyText" text="#game_difficulty_n0"/>
+							</Button>
+							<Button id="DifficultyN6" class="difficultyChoice longer" onactivate="OnChooseDifficulty(6)">
+								<Label class="difficultyText" text="#game_difficulty_n6" />
+							</Button>
+						</Panel>
+						<Panel id="DifficultyN1-5" class="flowRight">
+							<Button id="DifficultyN1" class="difficultyChoice" onactivate="OnChooseDifficulty(1)">
+								<Label class="difficultyText" text="#game_difficulty_n1" />
+							</Button>
+							<Button id="DifficultyN2" class="difficultyChoice" onactivate="OnChooseDifficulty(2)">
+								<Label class="difficultyText" text="#game_difficulty_n2" />
+							</Button>
+							<Button id="DifficultyN3" class="difficultyChoice" onactivate="OnChooseDifficulty(3)">
+								<Label class="difficultyText" text="#game_difficulty_n3" />
+							</Button>
+							<Button id="DifficultyN4" class="difficultyChoice" onactivate="OnChooseDifficulty(4)">
+								<Label class="difficultyText" text="#game_difficulty_n4" />
+							</Button>
+							<Button id="DifficultyN5" class="difficultyChoice" onactivate="OnChooseDifficulty(5)">
+								<Label class="difficultyText" text="#game_difficulty_n5" />
+							</Button>
+						</Panel>
 					</Panel>
 				</Panel>
 

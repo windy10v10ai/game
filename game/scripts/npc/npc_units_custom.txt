@@ -2109,8 +2109,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"60"			// 50
 		"AttackDamageMax"			"60"			// 50
-		//----------------------------------------------------------------
-		"StatusHealth"				"6"		// 4
 	}
 
 	"npc_dota_shadow_shaman_ward_2"
@@ -2119,8 +2117,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"100"			// 85
-		"AttackDamageMax"			"100"			// 85
+		"AttackDamageMin"			"120"			// 85
+		"AttackDamageMax"			"120"			// 85
 	}
 
 	"npc_dota_shadow_shaman_ward_3"
@@ -2129,8 +2127,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"140"			// 120
-		"AttackDamageMax"			"140"			// 120
+		"AttackDamageMin"			"180"			// 120
+		"AttackDamageMax"			"180"			// 120
 	}
 
 	// beastmaster_boar 兽王野猪
@@ -2351,61 +2349,15 @@
     // wraith_king_skeleton_warrior 骷髅王骷髅兵
 	"npc_dota_wraith_king_skeleton_warrior"
 	{
-		// General
-		//
-		"BaseClass"					"npc_dota_creep_neutral"	// Class of entity of link to.
-		"Model"						"models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"	// Model.
-		"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
-		"ModelScale"				"1.1"
-		"Level"						"1"
-		"IsSummoned"				"1"
-
-		// Abilities
-		//----------------------------------------------------------------
-
-		"Ability1"					""			// Ability 1.
-		"Ability2"					""			// Ability 2.
-		"Ability3"					""			// Ability 3.
-		"Ability4"					""			// Ability 4.
-		"Ability5"					""			// Ability 5.
-		"Ability6"					""			// Ability 6 - Extra.
-		"Ability7"					""			// Ability 7 - Extra.
-		"Ability8"					""			// Ability 8 - Extra.
-
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"2"			// Physical protection.
+		"ArmorPhysical"				"3"			// Physical protection.
 		"MagicalResistance"				"50"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"72"		// Damage range min.
 		"AttackDamageMax"			"72"		// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.2"		// Speed of attack.
-		"AttackAnimationPoint"		"0.56"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"300"		// Range within a target can be acquired.
-		"AttackRange"				"115"		// Range within a target can be attacked.
-		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			""			// Speed of projectile.
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"					"0"		// Experience earn.
-		"BountyGoldMin"				"0"			// Gold earned min.
-		"BountyGoldMax"				"0"		// Gold earned max.
-
-		// Bounds
-		//----------------------------------------------------------------
-		"BoundsHullName"			"DOTA_HULL_SIZE_SMALLEST"			// Hull type used for navigation/locomotion.
-		"HealthBarOffset"			"140"
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"350"		// Speed
-		"MovementTurnRate"			"0.5"		// Turning rate.
 
 		// Status
 		//----------------------------------------------------------------
@@ -2413,158 +2365,69 @@
 		"StatusHealthRegen"			"0.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
-
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"600"		// Range of vision at night time.
 	}
 	// 小谜团
 	"npc_dota_lesser_eidolon"
     {
-        // General
-        //
-        "BaseClass"					"npc_dota_creep"	// Class of entity of link to.
-        "Model"						"models/heroes/enigma/eidelon.vmdl"	// Model.
-        "SoundSet"					"Creep_Good_Range"					// Name of sound set.
-        "ModelScale"				"0.75"
-        "Level"						"1"
-        "IsSummoned"				"1"
-        "SelectionGroup"			"Eidolons"
-        "UnitLabel"			"eidolons"
-        "wearable"				"8638"
-
-        // Abilities
-        //----------------------------------------------------------------
-
-        "Ability1"					""			// Ability 1.
-        "Ability2"					""			// Ability 2.
-        "Ability3"					""			// Ability 3.
-        "Ability4"					""			// Ability 4.
-        "Ability5"					""			// Ability 5.
-        "Ability6"					""			// Ability 6 - Extra.
-        "Ability7"					""			// Ability 7 - Extra.
-        "Ability8"					""			// Ability 8 - Extra.
-
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"				"5"			// Physical protection.
-        "MagicalResistance"				"30"		// Magical protection.
+        "ArmorPhysical"				"5"			// 2
 
         // Attack
         //----------------------------------------------------------------
-        "AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-        "AttackDamageMin"			"16"		// Damage range min.
-        "AttackDamageMax"			"24"		// Damage range max.
-        "AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-        "AttackRate"				"1.25"			// Speed of attack.
-        "AttackAnimationPoint"		"0.2"		// Normalized time in animation cycle to attack.
-        "AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
-        "AttackRange"				"500"		// Range within a target can be attacked.
-        "ProjectileModel"			"particles/units/heroes/hero_enigma/enigma_base_attack_eidolon.vpcf" // Particle system model for projectile.
-        "ProjectileSpeed"			"900"		// Speed of projectile.
-
-        // Bounty
-        //----------------------------------------------------------------
-        "BountyXP"					"10"		// Experience earn.
-        "BountyGoldMin"				"18"		// Gold earned min.
-        "BountyGoldMax"				"24"		// Gold earned max.
-
-        // Bounds
-        //----------------------------------------------------------------
-        "BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
-        "HealthBarOffset"			"130"
-
-        // Movement
-        //----------------------------------------------------------------
-        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-        "MovementSpeed"				"280"		// Speed
-        "MovementTurnRate"			"0.9"		// Turning rate.
+        "AttackDamageMin"			"24"		// 16
+        "AttackDamageMax"			"36"		// 24
+        "AttackRate"				"1.25"		// 1.5
+        "AttackRange"				"500"		// 425
 
         // Status
         //----------------------------------------------------------------
-        "StatusHealth"				"250"		// Base health.
-        "StatusHealthRegen"			"4"		// Health regeneration rate.
-        "StatusMana"				"0"			// Base mana.
-        "StatusManaRegen"			"0"			// Mana regeneration rate.
-
-        // Team
-        //----------------------------------------------------------------
-        "TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
-        "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-        "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-        "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-
-        // Vision
-        //----------------------------------------------------------------
-        "VisionDaytimeRange"		"1200"		// Range of vision during day light.
-        "VisionNighttimeRange"		"800"		// Range of vision at night time.
+        "StatusHealth"				"300"		// 180
     }
 
     "npc_dota_eidolon"
     {
         "include_keys_from" "npc_dota_lesser_eidolon"
-        "ModelScale"				"0.8"
-
-        "ArmorPhysical"				"15"			// Physical protection.
-        "MagicalResistance"			"40"		// Magical protection.
+        "ArmorPhysical"				"6"			// 3
 
         "AttackRate"				"1.1"
-        "AttackDamageMin"			"24"		// Damage range min.
-        "AttackDamageMax"			"32"		// Damage range max.
+        "AttackDamageMin"			"36"		// 24
+        "AttackDamageMax"			"48"		// 32
 
-        "HealthBarOffset"			"135"
-
-        "MovementSpeed"				"310"		// Speed
-
-        "StatusHealth"				"400"		// Base health.
+        "StatusHealth"				"500"		// 200
+        "AttackRange"				"550"		// 450
 
     }
 
     "npc_dota_greater_eidolon"
     {
         "include_keys_from" "npc_dota_lesser_eidolon"
-        "ModelScale"				"0.85"
-        "ArmorPhysical"				"10"			// Physical protection.
-        "MagicalResistance"			"50"		// Magical protection.
+        "ArmorPhysical"				"8"			// 4
 
         "AttackRate"				"0.95"
-        "AttackDamageMin"			"34"		// Damage range min.
-        "AttackDamageMax"			"42"		// Damage range max.
+        "AttackDamageMin"			"51"		// 34
+        "AttackDamageMax"			"63"		// 42
 
         "HealthBarOffset"			"140"
 
         "MovementSpeed"				"340"		// Speed
 
-        "StatusHealth"				"550"		// Base health.
+        "StatusHealth"				"700"		// 220
+        "AttackRange"				"600"		// 475
 
     }
 
     "npc_dota_dire_eidolon"
     {
         "include_keys_from" "npc_dota_lesser_eidolon"
-
-        "ModelScale"				".9"
-
-        "ArmorPhysical"				"20"			// Physical protection.
-        "MagicalResistance"			"60"		// Magical protection.
+        "ArmorPhysical"				"10"		// 5
 
         "AttackRate"				"0.8"
-        "AttackDamageMin"			"43"		// Damage range min.
-        "AttackDamageMax"			"51"		// Damage range max.
+        "AttackDamageMin"			"64"		// 43
+        "AttackDamageMax"			"76"		// 51
 
-        "HealthBarOffset"			"145"
-
-        "MovementSpeed"				"370"		// Speed
-
-        "StatusHealth"				"700"		// Base health.
+        "StatusHealth"				"900"		// 240
+        "AttackRange"				"650"		// 500
     }
 
     "npc_dota_sentry_wards"

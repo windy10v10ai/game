@@ -26,6 +26,14 @@
 				</Panel>
 			</Panel>
 		</snippet>
+		<snippet name="PlayerPropertyTooltip">
+			<Panel class="flowRight" style="horizontal-align: right;">
+				<Label class="LabelText" text="#data_panel_player_property_label" />
+				<Image class="tooltipIcon" src="s2r://panorama/images/status_icons/information_psd.vtex"
+			onmouseover="UIShowTextTooltipStyled( #data_panel_player_property_label_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+			</Panel>
+		</snippet>
+
 		<snippet name="BabyRoshanOption">
 			<Panel>
 				<Button id="ChooseRoshan" />
@@ -110,13 +118,16 @@
 					<Label class="BPNavButtonText" text="#data_panel_property_button" />
 				</RadioButton>
 			</Panel>
-
 			<Panel id="BpWindowMain" >
 				<Panel id="BpWindowMainLevel" class="BpWindowMainContainer">
 					<!-- 等级 -->
 					<Panel id="SeasonWindowPlayerStats" class="WindowPlayerStats">
 						<Panel id="SeasonLevelImageContainer" class="LevelImageContainer">
-							<Label id="SeasonLevelText" class="LevelText" text="#data_panel_season_level" />
+							<Panel class="flowRight">
+								<Label id="SeasonLevelText" class="LevelText" text="#data_panel_season_level" />
+								<Image class="tooltipIcon" src="s2r://panorama/images/status_icons/information_psd.vtex"
+							onmouseover="UIShowTextTooltipStyled( #data_panel_season_level_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+							</Panel>
 							<Label id="SeasonLevelNumber" class="LevelNumber" text="188" />
 						</Panel>
 						<Panel id="SeasonLevelTrackContainer" class="LevelTrackContainer">
@@ -130,7 +141,11 @@
 					</Panel>
 					<Panel id="MemberWindowPlayerStats" class="WindowPlayerStats">
 						<Panel id="MemberLevelImageContainer" class="LevelImageContainer">
-							<Label id="MemberLevelText" class="LevelText" text="#data_panel_member_level" />
+							<Panel class="flowRight">
+								<Label id="MemberLevelText" class="LevelText" text="#data_panel_member_level" />
+								<Image class="tooltipIcon" src="s2r://panorama/images/status_icons/information_psd.vtex"
+							onmouseover="UIShowTextTooltipStyled( #data_panel_member_level_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+							</Panel>
 							<Label id="MemberLevelNumber" class="LevelNumber" text="188" />
 						</Panel>
 						<Panel id="MemberLevelTrackContainer" class="LevelTrackContainer">
@@ -143,6 +158,11 @@
 						</Panel>
 					</Panel>
 
+					<Panel class="flowRight" style="horizontal-align: middle;">
+						<Label class="LabelText" text="#data_panel_season_end" />
+						<Image class="tooltipIcon" src="s2r://panorama/images/status_icons/information_psd.vtex"
+					onmouseover="UIShowTextTooltipStyled( #data_panel_season_end_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+					</Panel>
 					<Panel class="LinkPanel">
 						<Button id="RuleLink" class="LinkButton activated">
 							<Label id="RuleText" class="ButtonText" text="#data_panel_link_rule" />

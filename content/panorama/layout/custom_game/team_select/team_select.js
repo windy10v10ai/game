@@ -303,7 +303,7 @@ function OnChooseDifficulty(difficulty) {
 		return;
 	}
 	// remove all selected class
-	for (let i = 0; i <= 5; i++) {
+	for (let i = 0; i <= 6; i++) {
 		$("#DifficultyN" + i).RemoveClass("selected");
 	}
 	// get this button
@@ -323,7 +323,7 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 	}
 	g_DifficultyChosen = true;
 	if (difficulty != 0) {
-		Game.SetRemainingSetupTime( 6 );
+		Game.SetRemainingSetupTime( 11 );
 	}
 
 	$( "#DifficultyContainer" ).AddClass( "deactivated" );

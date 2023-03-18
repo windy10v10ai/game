@@ -3,74 +3,7 @@ require('event/js_event')
 require('event/creep')
 require('event/chat')
 require('event/kill')
-
-local tBotNameList = {
-    --"npc_dota_hero_invoker",
-    --"npc_dota_hero_antimage", // 不会放技能，只会物品和A人
-    --"npc_dota_hero_spirit_breaker", // 不会放技能，只会物品和A人
-    --"npc_dota_hero_silencer", // 不会放技能，只会物品和A人
-    --"npc_dota_hero_mirana", // 不会放技能，只会物品和A人
-    --"npc_dota_hero_furion", // 不会放技能，只会物品和A人
-    --"npc_dota_hero_huskar", // 不会放技能，只会物品和A人
-    --"npc_dota_hero_batrider",
-    --"npc_dota_hero_obsidian_destroyer",
-    --"npc_dota_hero_enchantress",
-    --"npc_dota_hero_snapfire",
-    --"npc_dota_hero_broodmother",
-    --"npc_dota_hero_lycan",
-    --"npc_dota_hero_arc_warden",
-    --"npc_dota_hero_ancient_apparition",
-    --"npc_dota_hero_treant",
-    --"npc_dota_hero_rubick",
-    --"npc_dota_hero_shredder",
-    "npc_dota_hero_tinker",
-    "npc_dota_hero_abaddon",
-    "npc_dota_hero_axe",
-    "npc_dota_hero_bane",
-    "npc_dota_hero_bounty_hunter",
-    "npc_dota_hero_bloodseeker",
-    "npc_dota_hero_bristleback",
-    "npc_dota_hero_chaos_knight",
-    "npc_dota_hero_crystal_maiden",
-    "npc_dota_hero_dazzle",
-    "npc_dota_hero_death_prophet",
-    "npc_dota_hero_dragon_knight",
-    "npc_dota_hero_drow_ranger",
-    "npc_dota_hero_earthshaker",
-    "npc_dota_hero_jakiro",
-    "npc_dota_hero_juggernaut",
-    "npc_dota_hero_kunkka",
-    "npc_dota_hero_lich",
-    "npc_dota_hero_lina",
-    "npc_dota_hero_lion",
-    "npc_dota_hero_luna",
-    "npc_dota_hero_medusa",
-    "npc_dota_hero_meepo",
-    "npc_dota_hero_necrolyte",
-    "npc_dota_hero_nevermore",
-    "npc_dota_hero_ogre_magi",
-    "npc_dota_hero_omniknight",
-    "npc_dota_hero_oracle",
-    "npc_dota_hero_phantom_assassin",
-    "npc_dota_hero_pudge",
-    "npc_dota_hero_riki",
-    --"npc_dota_hero_razor", // 在泉水站着完全不动
-    "npc_dota_hero_sand_king",
-    "npc_dota_hero_shadow_shaman",
-    "npc_dota_hero_skywrath_mage",
-    "npc_dota_hero_sniper",
-    "npc_dota_hero_spectre",
-    "npc_dota_hero_sven",
-    --"npc_dota_hero_tidehunter", // 在泉水站着完全不动
-    "npc_dota_hero_tiny",
-    "npc_dota_hero_vengefulspirit",
-    "npc_dota_hero_viper",
-    "npc_dota_hero_warlock",
-    "npc_dota_hero_windrunner",
-    "npc_dota_hero_witch_doctor",
-    "npc_dota_hero_skeleton_king",
-    "npc_dota_hero_zuus",
-}
+require('event/bot_herolist')
 
 local tSkillCustomNameList = { "npc_dota_hero_crystal_maiden", "npc_dota_hero_queenofpain", "npc_dota_hero_mirana",
                                "npc_dota_hero_earthshaker", "npc_dota_hero_nevermore" }
@@ -87,8 +20,14 @@ function AIGameMode:ArrayShuffle(array)
     return array
 end
 
-function AIGameMode:GetFreeHeroName()
-    for i, v in ipairs(tBotNameList) do
+function AIGameMode:GetFreeHeroName(isRadiant)
+    local tFreeHeroName = tBotNameList
+    if not isRadiant and self.iGameDifficulty == 6 then
+        tFreeHeroName = tBotAllStar
+    end
+    print("tFreeHeroName".. tostring(isRadiant))
+    PrintTable(tFreeHeroName)
+    for i, v in ipairs(tFreeHeroName) do
         if PlayerResource:WhoSelectedHero(v, false) < 0 then
             return v
         end
@@ -123,19 +62,28 @@ function AIGameMode:InitHeroSelection()
         local iPlayerNumDire = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
         math.randomseed(math.floor(Time() * 1000000))
         -- 随机英雄列表
-        if not self.DebugMode then
-            print("[AIGameMode] Random hero list")
-            self:ArrayShuffle(tBotNameList)
-        end
-        local sDifficulty = "unfair"
-        if self.iDesiredRadiant > iPlayerNumRadiant then
-            for i = 1, self.iDesiredRadiant - iPlayerNumRadiant do
-                Tutorial:AddBot(self:GetFreeHeroName(), "", sDifficulty, true)
+        print("[AIGameMode] Random hero list")
+        self:ArrayShuffle(tBotNameList)
+
+        if self.iGameDifficulty == 6 then
+            print("[AIGameMode] Use all star hero list start")
+            local iRandomTeam = math.random(1, 11)
+            print("[AIGameMode] Random team: " .. tostring(iRandomTeam))
+            for _, v in ipairs(tBotAllStarRandom["team" .. tostring(iRandomTeam)]) do
+                table.insert(tBotAllStar, v)
             end
+            self:ArrayShuffle(tBotAllStar)
         end
+
+        local sDifficulty = "unfair"
         if self.iDesiredDire > iPlayerNumDire then
             for i = 1, self.iDesiredDire - iPlayerNumDire do
-                Tutorial:AddBot(self:GetFreeHeroName(), "", sDifficulty, false)
+                Tutorial:AddBot(self:GetFreeHeroName(false), "", sDifficulty, false)
+            end
+        end
+        if self.iDesiredRadiant > iPlayerNumRadiant then
+            for i = 1, self.iDesiredRadiant - iPlayerNumRadiant do
+                Tutorial:AddBot(self:GetFreeHeroName(true), "", sDifficulty, true)
             end
         end
         GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
@@ -915,6 +863,8 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
         points = points * 1.8
     elseif difficulty == 5 then
         points = points * 2.0
+    elseif difficulty == 6 then
+        points = points * 2.2
     end
     return math.ceil(points)
 end
