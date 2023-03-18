@@ -23,11 +23,13 @@ class GameInfo {
 
 export class Game {
 
-	private static VERSION = "v2.02";
+	private static VERSION = "v2.07";
 	constructor() {
 	}
 
 	public SendEndGameInfo(endData: any) {
+		CustomNetTables.SetTableValue("ending_status", "ending_status", { status: 1 });
+
 		const gameInfo = new GameInfo();
 		gameInfo.winnerTeamId = endData.winnerTeamId;
 		gameInfo.matchId = GameRules.Script_GetMatchID().toString();
@@ -50,8 +52,13 @@ export class Game {
 			path: ApiClient.POST_GAME_URL,
 			body: gameInfo,
 			successFunc: (data: string) => {
+				CustomNetTables.SetTableValue("ending_status", "ending_status", { status: 2 });
 				print(`[Game] end game callback data ${data}`);
-			}
+			},
+			failureFunc: (data: string) => {
+				CustomNetTables.SetTableValue("ending_status", "ending_status", { status: 3 });
+				print(`[Game] end game callback data ${data}`);
+			},
 		};
 
 		ApiClient.sendWithRetry(apiParameter);

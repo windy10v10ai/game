@@ -32,7 +32,7 @@ function item_necronomicon_staff:OnSpellStart()
     ApplyDamage(damageTable)
     target:EmitSound("DOTA_Item.Sheepstick.Activate")
 
-	local duration = duration * (1 - target:GetStatusResistance())
+	duration = duration * (1 - target:GetStatusResistance())
     target:AddNewModifier(caster,self,"modifier_item_necronomicon_staff_debuff",{duration=duration})
 end
 ---------------------------------------------------------------------

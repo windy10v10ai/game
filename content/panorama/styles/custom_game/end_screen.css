@@ -3,84 +3,10 @@
      height: 100%;
 }
 
- #LoadingPanel{
-     width: 500px;
-     margin-top: -20px;
-     align: center center;
-     flow-children: down;
- }
-
- #LoadingPanel > Label{
-     width: 100%;
-     text-align: center;
- }
-
- #LoadingPanel #LoadingText{
-     margin-bottom: -12px;
-     font-size: 72px;
-     font-weight: bold;
-     color: #fff;
- }
-
- #LoadingPanel .Spinner{
-     width: 80px;
-     height: 80px;
-     horizontal-align: center;
- }
-
- #LoadingPanel #LoadingMessage{
-     margin-top: 8px;
-     font-size: 30px;
- }
-
- #ErrorPanel{
-     width: 500px;
-     visibility: collapse;
-     align: center center;
-     flow-children: down;
- }
-
- #ErrorPanel > Label{
-     width: 100%;
-     text-align: center;
- }
-
- #ErrorPanel #ErrorText{
-     margin-bottom: -15px;
-     font-size: 72px;
-     font-weight: bold;
-     color: #f22;
- }
-
- #ErrorPanel #ErrorIcon{
-     width: 70px;
-     height: 70px;
-     margin-bottom: 20px;
-     background-image: url("s2r://panorama/images/status_icons/exclamation_psd.vtex");
-     background-position: 50% 50%;
-     background-repeat: no-repeat;
-     background-size: contain;
-     horizontal-align: center;
-     wash-color: #f99;
- }
-
- #ErrorPanel #ErrorMessage{
-     max-height: 300px;
-     font-size: 30px;
-     color: #fff;
-     text-overflow: shrink;
- }
-
- #ErrorPanel #CloseButton{
-     width: 50%;
-     margin-top: 20px;
-     horizontal-align: center;
- }
-
  #EndScreenWindow{
      width: 100%;
      height: 1000px;
-     margin-top: 32px;
+     margin-top: 30px;
      visibility: collapse;
      align: center center;
      flow-children: down;
@@ -104,6 +30,17 @@
      height: 15%;
  }
 
+/* 结束面板TOP */
+ #EndingPanel{
+    width: 100%;
+    height: 100%;
+    flow-children: down;
+}
+#EndingPanelTop{
+    width: 100%;
+    flow-children: right;
+    vertical-align: middle;
+}
 
  #EndScreenWindow #MatchResultBlock #EndScreenVictory{
      margin-left: 10px;
@@ -114,7 +51,7 @@
      text-shadow: 3px 3px 10px black;
      horizontal-align: left;
      letter-spacing: 1.5px;
-     width: 300px;
+     width: 350px;
  }
 #GameTime{
     margin-left: 10px;
@@ -167,19 +104,30 @@
      font-size: 40px;
  }
 
- #EndScreenWindow #MatchResultBlock #CloseButton{
-     width: 20%;
+ /* 结束按钮 */
+#EndScreenWindow #MatchResultBlock #CloseButton{
+     width: 40%;
      height: 38px;
-     margin: 12px;
-     align: right bottom;
+     margin: 5px;
+     align: center bottom;
      background-color: #0d1c22ff, gradient( radial, 100% -10%, 100px -40px, 250% 330%, from( #3a464bff ), color-stop( 0.23, #d14343 ), to( #212121 ) );
      transition: background-color .35s ease-in-out 0s;
- }
+}
 
- #EndScreenWindow #MatchResultBlock #CloseButton:hover{
+#EndScreenWindow #MatchResultBlock #CloseButton:hover{
      background-color: #0d1c22ff, gradient( radial, 100% -0%, 100px -40px, 500% 800%, from( #3a464bff ), color-stop( 0.23, #d14343 ), to( #0d1c22ff ) );
      transition: background-color .35s ease-in-out 0.1s;
- }
+}
+
+ /* 数据同步状态 */
+#GameEndingStatusText{
+    margin-right: 50px;
+    /* flow right */
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 3px 3px 10px black;
+    horizontal-align: right;
+}
 
  #EndScreenWindow #MatchResultBlock #MatchResultPlayer{
      margin-bottom: 5px;

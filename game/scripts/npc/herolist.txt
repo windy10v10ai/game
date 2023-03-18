@@ -25,7 +25,7 @@
 	"npc_dota_hero_clinkz"				"1"
 	"npc_dota_hero_rattletrap"			"1"
 	"npc_dota_hero_crystal_maiden"		"1"
-	"npc_dota_hero_dark_seer"			"1"
+	"npc_dota_hero_dark_seer"			"0"
 	"npc_dota_hero_dazzle"				"1"
 	"npc_dota_hero_dark_willow"			"1"
 	"npc_dota_hero_death_prophet"		"1"
@@ -127,5 +127,6 @@
 	"npc_dota_hero_hoodwink"			"1"
 	"npc_dota_hero_dawnbreaker"			"1"
 	"npc_dota_hero_marci"				"1"
-    "npc_dota_hero_primal_beast"        "1"
+    "npc_dota_hero_primal_beast"		"1"
+	"npc_dota_hero_muerta"				"1"
 }

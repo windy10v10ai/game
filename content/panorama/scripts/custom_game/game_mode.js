@@ -18,7 +18,7 @@ function OnDifficultyDropDownChanged(difficulty) {
 			InitN3Setting();
 		} else if (optionId == 4) {
 			InitN4Setting();
-		} else if (optionId == 5) {
+		} else if (optionId == 5 || optionId == 6) {
 			InitN5Setting();
 		}
 		LockOption();
@@ -244,7 +244,6 @@ function StateChange() {
 		GameEvents.SendCustomGameEventToServer("loading_set_options",{
 			"host_privilege": CheckForHostPrivileges(),
 			"game_options":{
-				// "game_difficulty": $("#game_difficulty_dropdown").GetSelected().id,
 				"player_gold_xp_multiplier": $("#player_gold_xp_multiplier_dropdown").GetSelected().id,
 				"bot_gold_xp_multiplier": $("#bot_gold_xp_multiplier_dropdown").GetSelected().id,
 				"radiant_player_number": $("#radiant_player_number_dropdown").GetSelected().id,
@@ -298,6 +297,9 @@ function OnGameOptionsChange() {
 			break;
 		case 5:
 			seasonPointMulti = "2.0";
+			break;
+		case 6:
+			seasonPointMulti = "2.2";
 			break;
 		default:
 			seasonPointMulti = "1.0";
