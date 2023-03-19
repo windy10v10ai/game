@@ -323,7 +323,7 @@
 		"DOTA_Tooltip_ability_sword_master_chop_kill_everyone_in_world_radius"					"RADIUS:"
 
 		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship"					"Flash Dash"
-		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship_description"		"Dash to the target position and attack all enemy units on the path several times, and each strike will cause an additional damage based on the target's current HP."
+		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship_description"		"Dash to the target position and attack all enemy units on the path several times. Each strike will cause an additional damage based on the target's current HP."
 		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship_Note0"				"Percentage damage is not affected by spell amplification."
 		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship_Lore"				"I will end this quickly for you."
 		"DOTA_Tooltip_ability_sword_master_chop_swift_incomparable_swordsmanship_AbilityCastRange"	"DASH DISTANCE:"
