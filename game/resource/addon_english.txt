@@ -270,6 +270,7 @@
 		"DOTA_Tooltip_ability_sword_master_sweep_description"									"The sword master swings the blade, sprints forward for a short distance and rotates the blade to attack the surrounding enemies. The sweeping attack inflicts sword master's attack damage, and adds a charge of [Sweep] to himself."
 		"DOTA_Tooltip_ability_sword_master_sweep_Note0"											"The sweep attack does not proc any attack modifiers."
 		"DOTA_Tooltip_ability_sword_master_sweep_Note1"											"Using this ability consumes 1 Supreme Swordsmanship charge."
+		"DOTA_Tooltip_ability_sword_master_sweep_Note2"											"Destroys trees within the sweeping radius."
 		"DOTA_Tooltip_ability_sword_master_sweep_Lore"											"Basic Swordsmanship #1: Sweep."
 		"DOTA_Tooltip_ability_sword_master_sweep_distance"										"SPRINT DISTANCE:"
 		"DOTA_Tooltip_ability_sword_master_sweep_radius"										"SWEEP RADIUS:"
@@ -337,6 +338,7 @@
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_width"					"WIDTH:"
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_length"				"LENGTH:"
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_damage_per"			"%MAX HP AS DAMAGE:"
+		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_stun_duration"			"STUN DURATION:"
 
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_1"								"-{s:bonus_AbilityCooldown} second chop cooldown"
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_2"								"+{s:bonus_distance} Sweep Sprint Distance"
