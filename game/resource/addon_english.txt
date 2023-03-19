@@ -276,7 +276,7 @@
 		"DOTA_Tooltip_ability_sword_master_sweep_damage_bonus"									"ATTACK DAMAGE BONUS:"
 
 		"DOTA_Tooltip_ability_sword_master_thrust"												"Thrust"
-		"DOTA_Tooltip_ability_sword_master_thrust_description"									"The sword master dashes forward at the target location and thrusts his sword, attacking the enemies on the path with additional damage. This ability adds a charge of [Thrust] to himself."
+		"DOTA_Tooltip_ability_sword_master_thrust_description"									"The sword master dashes forward at the target location and thrusts his sword, attacking the enemies on the path with additional damage. Using this ability adds a charge of [Thrust] to himself."
 		"DOTA_Tooltip_ability_sword_master_thrust_Note0"										"The thrust attack does not proc any attack modifiers."
 		"DOTA_Tooltip_ability_sword_master_thrust_Note1"										"Using this ability consumes 1 Supreme Swordsmanship charge."
 		"DOTA_Tooltip_ability_sword_master_thrust_Lore"											"Basic Swordsmanship #2: Thrust."
@@ -284,7 +284,7 @@
 		"DOTA_Tooltip_ability_sword_master_thrust_damage_bonus"									"ATTACK DAMAGE BONUS:"
 
 		"DOTA_Tooltip_ability_sword_master_tap"													"Slash"
-		"DOTA_Tooltip_ability_sword_master_tap_description"										"The sword master slashes his sword downward and attacks enemies in the front with additional damage in a rectangular area and stuns them. The ability adds a charge of [Slash] to himself."
+		"DOTA_Tooltip_ability_sword_master_tap_description"										"The sword master slashes his sword downward and attacks enemies in the front with additional damage in a rectangular area and stuns them. Using this ability adds a charge of [Slash] to himself."
 		"DOTA_Tooltip_ability_sword_master_tap_Note0"											"The slash attack does not proc any attack modifiers."
 		"DOTA_Tooltip_ability_sword_master_tap_Note1"											"Using this ability consumes 1 Supreme Swordsmanship charge."
 		"DOTA_Tooltip_ability_sword_master_tap_Lore"											"Basic Swordsmanship #3: Slash."
@@ -294,7 +294,7 @@
 		"DOTA_Tooltip_ability_sword_master_tap_damage_bonus"									"ATTACK DAMAGE BONUS:"
 
 		"DOTA_Tooltip_ability_sword_master_arbiter"												"Supreme Swordsmanship"
-		"DOTA_Tooltip_ability_sword_master_arbiter_description"									"This innate ability is initially at level 1. As the level of the sword master increases, this ability will be upgraded at level 6, 12, 18, 24, 30 and provides additional effects.\n<h1>Level 1 - Sword Master</h1 >Gain a layer of [Supreme Swordsmanship] every %charge_restore% seconds up to 3 charges at max.\n<h1>Level 2 - Speed is the Heart of Battle</h1> After consuming a charge of [Supreme Swordsmanship], the blade master's will gain maximum attack speed for his next attack.\n<h1>Level 3 - Ten Miles of Blood</h1>Killing an enemy will restore %lv3_charge_regen% [Supreme Swordsmanship] charge for the sword master.\n<h1>Level 4 - A Sword to Seal the Throat</h1> Hitting enemies with Sweep, Thrust, and Slash will prevent them from regenerating for %lv4_duration% seconds.\n<h1>Level 5 - The Formless is the Best Form</h1> Sweep, Thrust and Slash will apply strong dispel to the enemy. If any buff on the enemy is successfully dispelled, the enemy will be muted and silenced for %lv5_duration% seconds.\n<h1>Level 6 - In Solitude I Seek for Defeat</h1> The damage of Sweep, Thrust, and Slash will be increased by the sword master's the current agility value. Additionally, every time the sword master kills an enemy, he will be strong dispelled and gain %lv6_status_resistance%%% status resistance as well as %lv6_damage_reduction%%% damage reduction for %lv6_duration% seconds."
+		"DOTA_Tooltip_ability_sword_master_arbiter_description"									"This innate ability is initially at level 1. As the level of the sword master increases, this ability will be upgraded at level 6, 12, 18, 24, 30 and provides additional effects.\n<h1>Level 1 - Sword Master</h1 >Gain a charge of [Supreme Swordsmanship] every %charge_restore% seconds up to 3 charges at max.\n<h1>Level 2 - Speed is the Heart of Battle</h1> After consuming a charge of [Supreme Swordsmanship], the blade master's will gain maximum attack speed for his next attack.\n<h1>Level 3 - Ten Miles of Blood</h1>Killing an enemy will restore %lv3_charge_regen% [Supreme Swordsmanship] charge for the sword master.\n<h1>Level 4 - A Sword to Seal the Throat</h1> Hitting enemies with Sweep, Thrust, and Slash will prevent them from regenerating for %lv4_duration% seconds.\n<h1>Level 5 - The Formless is the Best Form</h1> Sweep, Thrust and Slash will apply strong dispel to the enemy. If any buff on the enemy is successfully dispelled, the enemy will be muted and silenced for %lv5_duration% seconds.\n<h1>Level 6 - In Solitude I Seek for Defeat</h1> The damage of Sweep, Thrust, and Slash will be increased by the sword master's the current agility value. Additionally, every time the sword master kills an enemy, he will be strong dispelled and gain %lv6_status_resistance%%% status resistance as well as %lv6_damage_reduction%%% damage reduction for %lv6_duration% seconds."
 		"DOTA_Tooltip_ability_sword_master_arbiter_Lore"										"A strong swordsman exercises his sword as much as his body."
 		"DOTA_Tooltip_ability_sword_master_arbiter_charge_restore"								"BASE CHARGE RESTORE TIME:"
 		"DOTA_Tooltip_ability_sword_master_arbiter_max_charges"									"MAX CHARGES:"
@@ -302,13 +302,13 @@
 		"DOTA_Tooltip_ability_sword_master_arbiter_scepter_description"							"Supreme Swordsmanship can be actively used to restore %scepter_charge_add% charges instantly."
 
 		"DOTA_Tooltip_ability_sword_master_chop"												"Chop"
-		"DOTA_Tooltip_ability_sword_master_chop_description"									"This ability will switch according to the layers of [Sweep], [Thrust], and [Slash] on your hero. Using this ability to kill an enemy hero will permanently increase your attack damage."
+		"DOTA_Tooltip_ability_sword_master_chop_description"									"This ability will switch according to the charges of [Sweep], [Thrust], and [Slash] on your hero. Using this ability to kill an enemy hero will permanently increase your attack damage."
 		"DOTA_Tooltip_ability_sword_master_chop_Note0"											"Using this skill will clear [Sweep][Thrust][Slash] charges on your hero, and the total number of [Sweep][Thrust][Slash] charges is up to 3."
 		"DOTA_Tooltip_ability_sword_master_chop_Lore"											"Basic moves can evolve into various advanced ones."
 		"DOTA_Tooltip_ability_sword_master_chop_damage_stack"									"Bonus damage per kill:"
 
 		"DOTA_Tooltip_ability_sword_master_chop_kill_with_one_sword"							"One-hit Knock Out"
-		"DOTA_Tooltip_ability_sword_master_chop_kill_with_one_sword_description"				"The sword master dashes through to a distance of %distance_add% from the target, dealing damage based on the target's lost HP and briefly stuns the target."
+		"DOTA_Tooltip_ability_sword_master_chop_kill_with_one_sword_description"				"The sword master dashes through to a distance of %distance_add% behind the target, dealing damage based on the target's lost HP and briefly stuns the target."
 		"DOTA_Tooltip_ability_sword_master_chop_kill_with_one_sword_Note0"						"Percentage damage is not affected by spell amplification."
 		"DOTA_Tooltip_ability_sword_master_chop_kill_with_one_sword_Lore"						"One swing is more than enough to kill you."
 		"DOTA_Tooltip_ability_sword_master_chop_kill_with_one_sword_base_damage"				"BASE DAMAGE:"
@@ -346,7 +346,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_4_Description"					"Slash breaks enemies for {s:bonus_talent_duration} seconds."
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_5"								"{s:bonus_talent_heal}% Sweep, Thrust and Slash Spell Lifesteal"
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_5_Description"					"Sweep, Thrust, and Slash recover the sword master {s:bonus_talent_heal}% of damage dealt."
-		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_6"								"Sweep, Thrust, and Slash pierce spell immunity."
+		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_6"								"Sweep, Thrust, and Slash Pierce Spell Immunity."
 
 		"DOTA_Tooltip_modifier_sword_master_arbiter_count"										"Supreme Swordsmanship: Current Charges"
 		"DOTA_Tooltip_modifier_sword_master_arbiter_count_Description"							"The current number of Supreme Swordsmanship charges."
@@ -1257,10 +1257,11 @@
 		"DOTA_Tooltip_modifier_item_adi_king_aura"							        		"Speed Aura"
 		"DOTA_Tooltip_modifier_item_adi_king_aura_Description"								"Movement speed is increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		"DOTA_Tooltip_modifier_item_adi_king_buff"											"Gotta Go Fast"
+		"DOTA_Tooltip_modifier_item_adi_king_buff_Description"								"Gaining unobstructed movement and move speed is increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Shoes plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：Gotta Go Fast</font></h1>After use, you will get a movement speed bonus of %active_sp%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：Gotta Go Fast</font></h1>After use, you will get a movement speed bonus of %active_sp%%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"Gotta go fast!"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
@@ -1270,6 +1271,7 @@
 		"DOTA_Tooltip_modifier_item_adi_king_plus_aura"							        		"Speed Aura"
 		"DOTA_Tooltip_modifier_item_adi_king_plus_aura_Description"								"Movement speed is increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		"DOTA_Tooltip_modifier_item_adi_king_plus_buff"											"Gotta Go Fast"
+		"DOTA_Tooltip_modifier_item_adi_king_plus_buff_Description"								"Gaining unobstructed movement and move speed is increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 		// item_blue_fantasy 苍蓝幻想
 		"DOTA_Tooltip_ability_item_blue_fantasy"									"Blue Fantasy"
