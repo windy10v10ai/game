@@ -461,7 +461,7 @@
 		"DOTA_Tooltip_ability_sword_master_tap_damage_bonus"									"额外伤害："
 
 		"DOTA_Tooltip_ability_sword_master_arbiter"												"执剑泰斗"
-		"DOTA_Tooltip_ability_sword_master_arbiter_description"									"此技能初始为1级，随着执剑泰斗的等级上升，此技能会在6，12，18，24，30级升级，并获得额外效果\n<h1>1级-执剑泰斗</h1>每隔%charge_restore%秒获得一层[泰斗]，到达层数上限后不再增强\n<h1>2级-唯快不破</h1>当你消耗泰斗层数后，下次攻击获得急速效果\n<h1>3级-十里飘血</h1>当你完成击杀时，恢复%lv3_charge_regen%层泰斗层数\n<h1>4级-一剑封喉</h1>消耗泰斗层数的技能会禁止敌人恢复生命，持续%lv4_duration%秒\n<h1>5级-无招胜有招</h1>消耗泰斗层数的技能会对敌人施加强驱散，如果成功驱散了状态，则为对方添加%lv5_duration%秒的闭锁和沉默效果\n<h1>6级-独孤求败</h1>消耗泰斗点数的技能额外附带当前敏捷值的攻击伤害，每当你完成击杀则立刻强驱散自身，并获得持续%lv6_duration%秒的%lv6_status_resistance%%%状态抗性和%lv6_damage_reduction%%%的伤害见面"
+		"DOTA_Tooltip_ability_sword_master_arbiter_description"									"此技能初始为1级，随着执剑泰斗的等级上升，此技能会在6，12，18，24，30级升级，并获得额外效果\n<h1>1级-执剑泰斗</h1>每隔%charge_restore%秒获得一层[泰斗]，到达层数上限后不再增强\n<h1>2级-唯快不破</h1>当你消耗泰斗层数后，下次攻击获得极限攻速效果\n<h1>3级-十里飘血</h1>当你完成击杀时，恢复%lv3_charge_regen%层泰斗层数\n<h1>4级-一剑封喉</h1>消耗泰斗层数的技能会禁止敌人恢复生命，持续%lv4_duration%秒\n<h1>5级-无招胜有招</h1>消耗泰斗层数的技能会对敌人施加强驱散，如果成功驱散了状态，则为对方添加%lv5_duration%秒的闭锁和沉默效果\n<h1>6级-独孤求败</h1>消耗泰斗点数的技能额外附带当前敏捷值的攻击伤害，每当你完成击杀则立刻强驱散自身，并获得持续%lv6_duration%秒的%lv6_status_resistance%%%状态抗性和%lv6_damage_reduction%%%的伤害减免"
 		"DOTA_Tooltip_ability_sword_master_arbiter_Lore"										"强大的剑士会和锻炼自己的身体一样锻炼自己的剑"
 		"DOTA_Tooltip_ability_sword_master_arbiter_charge_restore"								"泰斗恢复时间："
 		"DOTA_Tooltip_ability_sword_master_arbiter_max_charges"									"泰斗最大层数："
@@ -504,6 +504,7 @@
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_width"					"宽度："
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_length"				"长度："
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_damage_per"			"%最大生命值百分比："
+		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_stun_duration"			"眩晕时间："
 
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_1"								"-{s:bonus_AbilityCooldown} 秒斩冷却时间"
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_2"								"+{s:bonus_distance} 扫冲刺距离"
