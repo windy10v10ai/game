@@ -3031,7 +3031,7 @@
 			"talent_duration"
 			{
 				"value"						"0"
-				"special_bonus_unique_sword_master_4"	"+5"
+				"special_bonus_unique_sword_master_4"	"+4"
 			}
         }
     }
@@ -3105,7 +3105,7 @@
 		"AbilityValues"
 		{
 			"base_damage"				"100 200 300"
-			"damage_crit"				"150 250 350"
+			"damage_crit"				"180 250 320"
 			"radius"					"350"
 		}
 	}
