@@ -3,6 +3,7 @@ LinkLuaModifier("modifier_sword_master_arbiter_count","Heroes/sword_master/sword
 LinkLuaModifier("modifier_sword_master_arbiter_quick_attack","Heroes/sword_master/sword_master_arbiter.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sword_master_arbiter_silence_and_mute","Heroes/sword_master/sword_master_arbiter.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sword_master_arbiter_resistance","Heroes/sword_master/sword_master_arbiter.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sword_master_arbiter_no_heal","Heroes/sword_master/sword_master_arbiter.lua", LUA_MODIFIER_MOTION_NONE)
 
 sword_master_arbiter = sword_master_arbiter or class({})
 modifier_sword_master_arbiter = modifier_sword_master_arbiter or class({})
@@ -10,6 +11,7 @@ modifier_sword_master_arbiter_count = modifier_sword_master_arbiter_count or cla
 modifier_sword_master_arbiter_quick_attack = modifier_sword_master_arbiter_quick_attack or class({})
 modifier_sword_master_arbiter_silence_and_mute = modifier_sword_master_arbiter_silence_and_mute or class({})
 modifier_sword_master_arbiter_resistance = modifier_sword_master_arbiter_resistance or class({})
+modifier_sword_master_arbiter_no_heal = modifier_sword_master_arbiter_no_heal or class({})
 
 function sword_master_arbiter:IsStealable() return false end
 function sword_master_arbiter:Spawn()
@@ -218,7 +220,7 @@ function modifier_sword_master_arbiter:OnTakeDamage(keys)
             local target = keys.unit
             if ability:GetLevel() >= 4 then
                 local duration = ability:GetSpecialValueFor("lv4_duration")
-                target:AddNewModifier(parent, ability, "modifier_no_heal", {duration = duration})
+                target:AddNewModifier(parent, ability, "modifier_sword_master_arbiter_no_heal", {duration = duration})
             end
 
             if ability:GetLevel() >= 5 then
