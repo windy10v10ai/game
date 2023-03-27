@@ -127,7 +127,7 @@
 		"data_panel_link_rule"			"Point Rule"
 		"data_panel_member_point_rule_url"		"https://afdian.net/p/8d1e8ac8682711ed984b52540025c377"
 
-		"data_panel_player_property_label"		"Consume attribute points to enhance the hero, the upgrade attribute in time to take effect, and can not be modified until the end of the season."
+		"data_panel_player_property_label"		"Consume attribute points to enhance the hero, the upgrade attribute in time to take effect, and can not be modified."
 		"data_panel_player_property_label_tooltip"		"At the end of the season, the attribute points will be reset"
 		"data_panel_player_property_cooldown_percentage"		"Cooldown ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
