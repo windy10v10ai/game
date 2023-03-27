@@ -128,7 +128,7 @@
 		"data_panel_link_rule"			"积分规则说明"
 		"data_panel_member_point_rule_url"		"https://afdian.net/p/24140a48680511ed9d3852540025c377"
 
-		"data_panel_player_property_label"		"消耗属性点增强英雄，升级后属性及时生效，并在赛季结束前不可修改"
+		"data_panel_player_property_label"		"消耗属性点增强英雄，升级后属性及时生效，不可修改"
 		"data_panel_player_property_label_tooltip"		"赛季结束时，将重置属性加点"
 		"data_panel_player_property_cooldown_percentage"		"冷却时间 ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"施法距离"
