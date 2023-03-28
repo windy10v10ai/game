@@ -340,7 +340,7 @@
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_damage_per"			"%MAX HP AS DAMAGE:"
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_stun_duration"			"STUN DURATION:"
 
-		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_1"								"-{s:bonus_AbilityCooldown} second chop cooldown"
+		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_1"								"-{s:bonus_AbilityCooldown} second ultimate ability cooldown"
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_2"								"+{s:bonus_distance} Sweep Sprint Distance"
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_3"								"{s:bonus_talent_movespeed}% Thrust Movement Speed Bonus"
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_3_Description"					"Using Thrust provides {s:bonus_talent_movespeed}% movement speed bonus for {s:bonus_talent_duration} seconds."
@@ -360,7 +360,7 @@
 		"DOTA_Tooltip_modifier_sword_master_arbiter_silence_and_mute_Description"				"Muted and silenced."
 		"DOTA_Tooltip_modifier_sword_master_arbiter_resistance"									"Supreme Swordsmanship: In Solitude I Seek for Defeat"
 		"DOTA_Tooltip_modifier_sword_master_arbiter_resistance_Description"						"Gaines %dMODIFIER_PROPERTY_STATUS_RESISTANCE%%% status resistance and %MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% damage reduction."
-		"DOTA_Tooltip_modifier_sword_master_chop_attack_bonus"									"Chop: Bonus Attack Damage"
+		"DOTA_Tooltip_modifier_sword_master_chop_attack_bonus"									"Kill: Bonus Attack Damage"
 		"DOTA_Tooltip_modifier_sword_master_chop_attack_bonus_Description"						"Gained %dMODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE% bonus attack damage."
 		"DOTA_Tooltip_modifier_sword_master_sweep_count"										"Sweep"
 		"DOTA_Tooltip_modifier_sword_master_sweep_count_Description"							"Gained after using Sweep."
