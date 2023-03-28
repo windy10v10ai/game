@@ -3043,10 +3043,9 @@
 		"ScriptFile"					"heroes/sword_master/sword_master_chop"
 		"AbilityTextureName"			"custom/sword_master/sword_master_chop"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"LinkedAbility"					"sword_master_chop_kill_with_one_sword"
-		"AbilityCastPoint"				"0.4"
 
 		"AbilityValues"
 		{
@@ -3066,7 +3065,7 @@
 		"ScriptFile"					"heroes/sword_master/sword_master_chop_kill_with_one_sword"
 		"AbilityTextureName"			"custom/sword_master/sword_master_chop_kill_with_one_sword"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -3083,6 +3082,11 @@
 			"damage_per"				"50 70 90"
 			"distance_add"				"350"
 			"stun_duration"				"0.5"
+			"AbilityCooldown"
+			{
+				"value"									"10"
+				"special_bonus_unique_sword_master_1"	"-3"
+			}
 		}
 	}
 
@@ -3107,6 +3111,11 @@
 			"base_damage"				"100 200 300"
 			"damage_crit"				"150 250 350"
 			"radius"					"350"
+			"AbilityCooldown"
+			{
+				"value"									"10"
+				"special_bonus_unique_sword_master_1"	"-3"
+			}
 		}
 	}
 
@@ -3132,6 +3141,11 @@
 			"length"					"650"
 			"damage_per"				"15 20 25"
 			"stun_duration"				"1.5 2.5 3.5"
+			"AbilityCooldown"
+			{
+				"value"									"10"
+				"special_bonus_unique_sword_master_1"	"-3"
+			}
 		}
 	}
 
@@ -3160,6 +3174,11 @@
 			"damage_per"					"3 5 7"
 			"attack_times"					"2 3 4"
 			"attack_interval"				"0.05"
+			"AbilityCooldown"
+			{
+				"value"									"10"
+				"special_bonus_unique_sword_master_1"	"-3"
+			}
 		}
 	}
 

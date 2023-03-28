@@ -506,7 +506,7 @@
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_damage_per"			"%最大生命值百分比："
 		"DOTA_Tooltip_ability_sword_master_chop_rage_nlade_soars_the_sky_stun_duration"			"眩晕时间："
 
-		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_1"								"-{s:bonus_AbilityCooldown} 秒斩冷却时间"
+		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_1"								"-{s:bonus_AbilityCooldown} 秒终极技能冷却时间"
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_2"								"+{s:bonus_distance} 扫冲刺距离"
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_3"								"{s:bonus_talent_movespeed}% 刺移动速度加成"
 		"DOTA_Tooltip_ability_special_bonus_unique_sword_master_3_Description"					"释放刺后获得{s:bonus_talent_movespeed}%移动速度加成，持续{s:bonus_talent_duration}秒"
@@ -526,7 +526,7 @@
 		"DOTA_Tooltip_modifier_sword_master_arbiter_silence_and_mute_Description"				"被闭锁和沉默"
 		"DOTA_Tooltip_modifier_sword_master_arbiter_resistance"									"执剑泰斗:独孤求败"
 		"DOTA_Tooltip_modifier_sword_master_arbiter_resistance_Description"						"获得%dMODIFIER_PROPERTY_STATUS_RESISTANCE%%%状态抗性和%MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%伤害减免"
-		"DOTA_Tooltip_modifier_sword_master_chop_attack_bonus"									"斩:攻击加成"
+		"DOTA_Tooltip_modifier_sword_master_chop_attack_bonus"									"斩杀:攻击加成"
 		"DOTA_Tooltip_modifier_sword_master_chop_attack_bonus_Description"						"获得%dMODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE%攻击加成"
 		"DOTA_Tooltip_modifier_sword_master_sweep_count"										"扫"
 		"DOTA_Tooltip_modifier_sword_master_sweep_count_Description"							"使用扫后获得"
