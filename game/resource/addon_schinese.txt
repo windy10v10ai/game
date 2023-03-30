@@ -468,6 +468,7 @@
 		"DOTA_Tooltip_ability_sword_master_arbiter_max_charges"									"泰斗最大层数："
 		"DOTA_Tooltip_ability_sword_master_arbiter_shard_description"							"泰斗最大层数 + %bonus_max_charges%"
 		"DOTA_Tooltip_ability_sword_master_arbiter_scepter_description"							"执剑泰斗可主动使用，恢复%scepter_charge_add%层泰斗层数"
+		"sword_master_arbiter_custom_cast_error"												"执剑泰斗点数不足"
 
 		"DOTA_Tooltip_ability_sword_master_chop"												"斩"
 		"DOTA_Tooltip_ability_sword_master_chop_description"									"此技能会根据自身身上的[扫]，[刺]，[点]的层数切换为不同的技能，使用此技能击杀敌方英雄会为自身永久增加攻击"
