@@ -3051,8 +3051,8 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"									"10"
-				"special_bonus_unique_sword_master_1"	"-3"
+				"value"									"25"
+				"special_bonus_unique_sword_master_1"	"-5"
 			}
 			"damage_stack"				"8 12 16"
 		}
@@ -3084,8 +3084,8 @@
 			"stun_duration"				"0.5"
 			"AbilityCooldown"
 			{
-				"value"									"10"
-				"special_bonus_unique_sword_master_1"	"-3"
+				"value"									"25"
+				"special_bonus_unique_sword_master_1"	"-5"
 			}
 		}
 	}
@@ -3109,12 +3109,12 @@
 		"AbilityValues"
 		{
 			"base_damage"				"100 200 300"
-			"damage_crit"				"180 250 320"
+			"damage_crit"				"180 240 300"
 			"radius"					"350"
 			"AbilityCooldown"
 			{
-				"value"									"10"
-				"special_bonus_unique_sword_master_1"	"-3"
+				"value"									"25"
+				"special_bonus_unique_sword_master_1"	"-5"
 			}
 		}
 	}
@@ -3143,8 +3143,8 @@
 			"stun_duration"				"1.5 2.5 3.5"
 			"AbilityCooldown"
 			{
-				"value"									"10"
-				"special_bonus_unique_sword_master_1"	"-3"
+				"value"									"25"
+				"special_bonus_unique_sword_master_1"	"-5"
 			}
 		}
 	}
@@ -3176,8 +3176,8 @@
 			"attack_interval"				"0.05"
 			"AbilityCooldown"
 			{
-				"value"									"10"
-				"special_bonus_unique_sword_master_1"	"-3"
+				"value"									"25"
+				"special_bonus_unique_sword_master_1"	"-5"
 			}
 		}
 	}
