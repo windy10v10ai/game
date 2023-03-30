@@ -26,7 +26,7 @@ function sword_master_sweep:CastFilterResultLocation()
 end
 
 function sword_master_sweep:GetCustomCastErrorLocation()
-    return "执剑泰斗点数不足"
+    return "#sword_master_arbiter_custom_cast_error"
 end
 
 function sword_master_sweep:OnSpellStart()

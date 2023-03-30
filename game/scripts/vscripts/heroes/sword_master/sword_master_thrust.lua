@@ -23,7 +23,7 @@ function sword_master_thrust:CastFilterResultLocation()
 end
 
 function sword_master_thrust:GetCustomCastErrorLocation()
-    return "执剑泰斗点数不足"
+    return "#sword_master_arbiter_custom_cast_error"
 end
 
 function sword_master_thrust:OnProjectileThink(location)

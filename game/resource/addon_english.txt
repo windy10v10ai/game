@@ -302,6 +302,7 @@
 		"DOTA_Tooltip_ability_sword_master_arbiter_max_charges"									"MAX CHARGES:"
 		"DOTA_Tooltip_ability_sword_master_arbiter_shard_description"							"Supreme Swordsmanship max charges + %bonus_max_charges%"
 		"DOTA_Tooltip_ability_sword_master_arbiter_scepter_description"							"Supreme Swordsmanship can be actively used to restore %scepter_charge_add% charges instantly."
+		"sword_master_arbiter_custom_cast_error"												"Supreme Swordsmanship charges not enough."
 
 		"DOTA_Tooltip_ability_sword_master_chop"												"Chop"
 		"DOTA_Tooltip_ability_sword_master_chop_description"									"This ability will switch according to the charges of [Sweep], [Thrust], and [Slash] on your hero. Using this ability to kill an enemy hero will permanently increase your attack damage."
