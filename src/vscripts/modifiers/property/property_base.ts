@@ -16,7 +16,7 @@ export class PropertyBaseModifier extends BaseModifier {
 
     OnCreated(kv: { value: number }) {
         if (IsClient()) return;
-        TsPrint(`${this.GetClass()} Created with value: ${kv.value}`);
+        TsPrint(`${this.GetName()} Created with value: ${kv.value}`);
 
         this.value = kv.value;
         this.SetHasCustomTransmitterData(true);

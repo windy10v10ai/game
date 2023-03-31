@@ -27,7 +27,7 @@ function PropertyBaseModifier.prototype.OnCreated(self, kv)
     end
     TsPrint(
         nil,
-        (self:GetClass() .. " Created with value: ") .. tostring(kv.value)
+        (self:GetName() .. " Created with value: ") .. tostring(kv.value)
     )
     self.value = kv.value
     self:SetHasCustomTransmitterData(true)

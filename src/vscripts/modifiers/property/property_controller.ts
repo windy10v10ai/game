@@ -10,7 +10,7 @@ export class PropertyController {
         PropertyController.propertyValuePerLevel.set(property_spell_amplify_percentage.name, 5);
         PropertyController.propertyValuePerLevel.set(property_status_resistance_stacking.name, 4);
         PropertyController.propertyValuePerLevel.set(property_magical_resistance_bonus.name, 4);
-        PropertyController.propertyValuePerLevel.set(property_incoming_damage_percentage.name, 4);
+        PropertyController.propertyValuePerLevel.set(property_incoming_damage_percentage.name, -3);
         PropertyController.propertyValuePerLevel.set(property_attack_range_bonus.name, 25);
         PropertyController.propertyValuePerLevel.set(property_physical_armor_bonus.name, 5);
         PropertyController.propertyValuePerLevel.set(property_preattack_bonus_damage.name, 15);
@@ -31,7 +31,7 @@ export class PropertyController {
         const propertyValuePerLevel = PropertyController.propertyValuePerLevel.get(property.name);
         if (propertyValuePerLevel) {
             const value = propertyValuePerLevel * property.level;
-            if (value > 0) {
+            if (value != 0) {
                 hero.RemoveModifierByName(property.name);
                 hero.AddNewModifier(hero, undefined, property.name, {
                     value

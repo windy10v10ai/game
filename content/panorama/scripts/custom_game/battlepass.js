@@ -209,7 +209,7 @@ const Player_Property_List = [
 		name: "property_incoming_damage_percentage",
 		level: 0,
 		imageSrc: "s2r://panorama/images/cavern/map_unlock_support_psd.vtex",
-		valuePerLevel: 4,
+		valuePerLevel: 3,
 	},
 	{
 		name: "property_attack_range_bonus",
