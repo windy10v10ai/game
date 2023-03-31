@@ -94,7 +94,7 @@ ____exports.registerModifier = function(____, name) return function(____, modifi
     local originalOnCreated = env[name].OnCreated
     env[name].OnCreated = function(self, parameters)
         self:____constructor()
-        if originalOnCreated then
+        if not not originalOnCreated then
             originalOnCreated(self, parameters)
         end
     end

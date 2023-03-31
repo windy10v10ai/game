@@ -5,19 +5,12 @@ modifier_sword_master_chop_attack_bonus = modifier_sword_master_chop_attack_bonu
 modifier_sword_master_chop_magic_immune = modifier_sword_master_chop_magic_immune or class({})
 
 function sword_master_chop:Spawn()
-    --第一位sweep层数，第二位thrust层数，第三位tap层数
-    self.comboTable = 
+    self.comboTable =
     {
-        ["003"] = "sword_master_chop_rage_nlade_soars_the_sky",
-        ["012"] = nil,
-        ["021"] = nil,
-        ["030"] = "sword_master_chop_swift_incomparable_swordsmanship",
-        ["102"] = nil,
-        ["111"] = "sword_master_chop_kill_with_one_sword",
-        ["120"] = nil,
-        ["201"] = nil,
-        ["210"] = nil,
-        ["300"] = "sword_master_chop_kill_everyone_in_world",
+        [0] = "sword_master_chop_kill_with_one_sword",
+        [1] = "sword_master_chop_kill_everyone_in_world",
+        [2] = "sword_master_chop_swift_incomparable_swordsmanship",
+        [3] = "sword_master_chop_rage_nlade_soars_the_sky",
     }
 
     if not IsServer() then return end
@@ -39,47 +32,31 @@ end
 function sword_master_chop:SetUltimateType(active)
     local caster = self:GetCaster()
     local active_ability_name = caster:GetAbilityByIndex(5):GetName()
-    -- self:SetActivated(active)
     if active then
-        local sweep_count = 0
-        local thrust_count = 0
-        local tap_count = 0
-        for _, value in ipairs(caster.combos) do
-            local name = value:GetName()
-            if name == "modifier_sword_master_sweep_count" then
-                sweep_count  = sweep_count + 1
-            elseif name == "modifier_sword_master_thrust_count" then
-                thrust_count = thrust_count +1
-            else
-                tap_count = tap_count + 1
-            end
+        local type = 0
+        if caster:HasModifier("modifier_sword_master_sweep_count") then
+            type = 1
+        elseif caster:HasModifier("modifier_sword_master_thrust_count") then
+            type = 2
+        elseif caster:HasModifier("modifier_sword_master_tap_count") then
+            type = 3
         end
-        
-        local change_ability = self.comboTable[string.format("%d%d%d",sweep_count,thrust_count,tap_count)]
+
+        local change_ability = self.comboTable[type]
         if change_ability ~= nil then
             caster:SwapAbilities(active_ability_name, change_ability, false, true)
         else
-            caster:SwapAbilities(active_ability_name, self:GetAbilityName(), false, true)
-        end
-    else
-        local cooldown = self:GetCooldown(self:GetLevel())
-        if cooldown ~= 0 then
-            self:EndCooldown()
-            self:StartCooldown(cooldown)
-            for _, name in pairs(self.comboTable) do
-                local ability_combo = caster:FindAbilityByName(name)
-                if ability_combo ~= nil then
-                    ability_combo:EndCooldown()
-                    ability_combo:StartCooldown(cooldown)
-                end
+            if active_ability_name ~= "sword_master_chop_kill_with_one_sword" then
+                caster:SwapAbilities(active_ability_name, "sword_master_chop_kill_with_one_sword", false, true)
             end
         end
-
+    else
         caster:RemoveAllModifiersOfName("modifier_sword_master_sweep_count")
         caster:RemoveAllModifiersOfName("modifier_sword_master_tap_count")
         caster:RemoveAllModifiersOfName("modifier_sword_master_thrust_count")
-        caster.combos = {}
-        caster:SwapAbilities(active_ability_name, self:GetAbilityName(), false, true)
+        if active_ability_name ~= "sword_master_chop_kill_with_one_sword" then
+            caster:SwapAbilities(active_ability_name, "sword_master_chop_kill_with_one_sword", false, true)
+        end
     end
 end
 
@@ -135,7 +112,7 @@ function modifier_sword_master_chop_attack_bonus:OnHeroKilled(keys)
             if table.contains(ability.comboTable,keys.inflictor:GetName()) then
                 ability:AddIntrinsicModifierCount()
             end
-            
+
         else
             if parent.chop_attack then
                 ability:AddIntrinsicModifierCount()

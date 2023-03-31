@@ -4,22 +4,18 @@ const memberHeroNames = [
 	"phantom_lancer",
 ]
 
-const localized_text = [
-	$.Localize("#DOTA_Hero_Selection_LOCKIN"),
-	$.Localize("#pick_button_member_text"),
-];
+const seasonLevel20HeroNames = [
+	"dark_seer",
+]
 
 const interval = 0.03;
 
-// const custom_random_button = $.GetContextPanel().FindChildTraverse("CustomRandomButton")
 const random_button = FindDotaHudElement("RandomButton");
 let random_pressed = false;
 let member = GetMember();
+let player = GetPlayer();
 
 (() => {
-	// random_button.visible = false;
-	// custom_random_button.visible = true;
-	// custom_random_button.SetParent(random_button.GetParent());
 	PickLockerLoop();
 })();
 
@@ -39,48 +35,89 @@ function PickRandomHero() {
 }
 
 function PickLocker() {
+	const possible_hero_selection =  Game.GetLocalPlayerInfo().possible_hero_selection;
+
+	if (memberHeroNames.includes(possible_hero_selection)) {
+		if(isMember()) {
+			unlockHero();
+		} else {
+			lockMemberHero();
+		}
+	} else if (seasonLevel20HeroNames.includes(possible_hero_selection)) {
+		if(isSeasonLevel20()) {
+			unlockHero();
+		} else {
+			lockSeasonLevel20Hero();
+		}
+	} else {
+		unlockHero();
+	}
+
+	PickLockerLoop();
+}
+
+function unlockHero() {
+	$.Msg("Unlock hero Pick");
+	const pick_button = FindDotaHudElement("LockInButton");
+	pick_button.enabled = true;
+	pick_button.SetAcceptsFocus(true);
+	pick_button.BAcceptsInput(true);
+	pick_button.style.saturation = null;
+	pick_button.style.brightness = null;
+
+	let label = pick_button.GetChild(0);
+	label.text = $.Localize("#DOTA_Hero_Selection_LOCKIN");
+	label.style.fontSize = 20;
+}
+
+function lockMemberHero() {
+	$.Msg("Lock Member hero Pick");
+	const pick_button = FindDotaHudElement("LockInButton");
+	pick_button.enabled = false;
+	pick_button.SetAcceptsFocus(false);
+	pick_button.BAcceptsInput(false);
+	pick_button.style.saturation = 0.0;
+	pick_button.style.brightness = 0.2;
+
+	let label = pick_button.GetChild(0);
+	label.text = $.Localize("#pick_button_member_text");
+	label.style.fontSize = 20;
+}
+
+
+function lockSeasonLevel20Hero() {
+	$.Msg("Lock Season Level 20 hero Pick");
+	const pick_button = FindDotaHudElement("LockInButton");
+	pick_button.enabled = false;
+	pick_button.SetAcceptsFocus(false);
+	pick_button.BAcceptsInput(false);
+	pick_button.style.saturation = 0.0;
+	pick_button.style.brightness = 0.2;
+
+	let label = pick_button.GetChild(0);
+	label.text = $.Localize("#pick_button_season_level20_text");
+	label.style.fontSize = 16;
+}
+
+function isMember() {
 	if (!member) {
 		member = GetMember();
 	}
-	const pick_button = FindDotaHudElement("LockInButton");
 	if (member && member.enable) {
-		$.Msg("Is Member");
-		pick_button.enabled = true;
-		pick_button.SetAcceptsFocus(true);
-		pick_button.BAcceptsInput(true);
-		pick_button.style.saturation = null;
-		pick_button.style.brightness = null;
-
-		let label = pick_button.GetChild(0);
-		label.text = localized_text[0];
-		return;
+		return true;
 	} else {
-
-		const possible_hero_selection =  Game.GetLocalPlayerInfo().possible_hero_selection;
-		// if memberHeroNames contains possible_hero_selection
-		if (memberHeroNames.includes(possible_hero_selection)) {
-			$.Msg("Lock Member hero Pick");
-
-			pick_button.enabled = false;
-			pick_button.SetAcceptsFocus(false);
-			pick_button.BAcceptsInput(false);
-			pick_button.style.saturation = 0.0;
-			pick_button.style.brightness = 0.2;
-
-			let label = pick_button.GetChild(0);
-			label.text = localized_text[1];
-		} else {
-			pick_button.enabled = true;
-			pick_button.SetAcceptsFocus(true);
-			pick_button.BAcceptsInput(true);
-			pick_button.style.saturation = null;
-			pick_button.style.brightness = null;
-
-			let label = pick_button.GetChild(0);
-			label.text = localized_text[0];
-		}
-
-
+		return false;
 	}
-	PickLockerLoop();
+}
+
+function isSeasonLevel20() {
+	if (!player) {
+		player = GetPlayer();
+	}
+	$.Msg("Player Season Level: ", player?.seasonLevel);
+	if (player && player.seasonLevel >= 20) {
+		return true;
+	} else {
+		return false;
+	}
 }

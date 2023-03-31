@@ -1,10 +1,10 @@
-export interface BaseAbility extends CDOTA_Ability_Lua {}
-export class BaseAbility {}
+export interface BaseAbility extends CDOTA_Ability_Lua { }
+export class BaseAbility { }
 
-export interface BaseItem extends CDOTA_Item_Lua {}
-export class BaseItem {}
+export interface BaseItem extends CDOTA_Item_Lua { }
+export class BaseItem { }
 
-export interface BaseModifier extends CDOTA_Modifier_Lua {}
+export interface BaseModifier extends CDOTA_Modifier_Lua { }
 export class BaseModifier {
     public static apply<T extends typeof BaseModifier>(
         this: T,
@@ -17,14 +17,14 @@ export class BaseModifier {
     }
 }
 
-export interface BaseModifierMotionHorizontal extends CDOTA_Modifier_Lua_Horizontal_Motion {}
-export class BaseModifierMotionHorizontal extends BaseModifier {}
+export interface BaseModifierMotionHorizontal extends CDOTA_Modifier_Lua_Horizontal_Motion { }
+export class BaseModifierMotionHorizontal extends BaseModifier { }
 
-export interface BaseModifierMotionVertical extends CDOTA_Modifier_Lua_Vertical_Motion {}
-export class BaseModifierMotionVertical extends BaseModifier {}
+export interface BaseModifierMotionVertical extends CDOTA_Modifier_Lua_Vertical_Motion { }
+export class BaseModifierMotionVertical extends BaseModifier { }
 
-export interface BaseModifierMotionBoth extends CDOTA_Modifier_Lua_Motion_Both {}
-export class BaseModifierMotionBoth extends BaseModifier {}
+export interface BaseModifierMotionBoth extends CDOTA_Modifier_Lua_Motion_Both { }
+export class BaseModifierMotionBoth extends BaseModifier { }
 
 // Add standard base classes to prototype chain to make `super.*` work as `self.BaseClass.*`
 setmetatable(BaseAbility.prototype, { __index: CDOTA_Ability_Lua ?? C_DOTA_Ability_Lua });
@@ -72,7 +72,7 @@ export const registerModifier = (name?: string) => (modifier: new () => CDOTA_Mo
     const originalOnCreated = (env[name] as CDOTA_Modifier_Lua).OnCreated;
     env[name].OnCreated = function (parameters: any) {
         this.____constructor();
-        if (originalOnCreated) {
+        if (!!originalOnCreated) {
             originalOnCreated.call(this, parameters);
         }
     };
