@@ -3,7 +3,7 @@ local __TS__Class = ____lualib.__TS__Class
 local Map = ____lualib.Map
 local __TS__New = ____lualib.__TS__New
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["8"] = 2,["9"] = 2,["10"] = 2,["11"] = 2,["12"] = 2,["13"] = 2,["14"] = 2,["15"] = 2,["16"] = 2,["17"] = 2,["18"] = 2,["19"] = 2,["20"] = 2,["21"] = 2,["22"] = 2,["23"] = 2,["24"] = 2,["25"] = 2,["26"] = 2,["27"] = 2,["28"] = 4,["29"] = 4,["30"] = 4,["32"] = 7,["33"] = 8,["34"] = 9,["35"] = 10,["36"] = 11,["37"] = 12,["38"] = 13,["39"] = 14,["40"] = 15,["41"] = 16,["42"] = 17,["43"] = 18,["44"] = 19,["45"] = 20,["46"] = 21,["47"] = 22,["48"] = 23,["49"] = 24,["50"] = 25,["51"] = 26,["52"] = 6,["53"] = 29,["54"] = 30,["55"] = 31,["56"] = 32,["57"] = 33,["58"] = 34,["59"] = 35,["62"] = 29,["63"] = 42,["64"] = 43,["66"] = 45,["67"] = 45,["68"] = 46,["69"] = 47,["70"] = 48,["71"] = 49,["72"] = 50,["73"] = 51,["77"] = 45,["80"] = 42,["81"] = 5});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["8"] = 2,["9"] = 2,["10"] = 2,["11"] = 2,["12"] = 2,["13"] = 2,["14"] = 2,["15"] = 2,["16"] = 2,["17"] = 2,["18"] = 2,["19"] = 2,["20"] = 2,["21"] = 2,["22"] = 2,["23"] = 2,["24"] = 2,["25"] = 2,["26"] = 2,["27"] = 2,["28"] = 2,["29"] = 4,["30"] = 4,["31"] = 4,["33"] = 7,["34"] = 8,["35"] = 9,["36"] = 10,["37"] = 11,["38"] = 12,["39"] = 13,["40"] = 14,["41"] = 15,["42"] = 16,["43"] = 17,["44"] = 18,["45"] = 19,["46"] = 20,["47"] = 21,["48"] = 22,["49"] = 23,["50"] = 24,["51"] = 25,["52"] = 26,["53"] = 27,["54"] = 6,["55"] = 30,["56"] = 31,["57"] = 32,["58"] = 33,["59"] = 34,["60"] = 35,["61"] = 36,["64"] = 30,["65"] = 43,["66"] = 44,["68"] = 46,["69"] = 46,["70"] = 47,["71"] = 48,["72"] = 49,["73"] = 50,["74"] = 51,["75"] = 52,["79"] = 46,["82"] = 43,["83"] = 5});
 local ____exports = {}
 local ____property_declare = require("modifiers.property.property_declare")
 local property_attackspeed_bonus_constant = ____property_declare.property_attackspeed_bonus_constant
@@ -13,6 +13,7 @@ local property_cast_range_bonus_stacking = ____property_declare.property_cast_ra
 local property_cooldown_percentage = ____property_declare.property_cooldown_percentage
 local property_health_regen_percentage = ____property_declare.property_health_regen_percentage
 local property_ignore_movespeed_limit = ____property_declare.property_ignore_movespeed_limit
+local property_incoming_damage_percentage = ____property_declare.property_incoming_damage_percentage
 local property_lifesteal = ____property_declare.property_lifesteal
 local property_magical_resistance_bonus = ____property_declare.property_magical_resistance_bonus
 local property_mana_regen_total_percentage = ____property_declare.property_mana_regen_total_percentage
@@ -35,6 +36,7 @@ function PropertyController.prototype.____constructor(self)
     ____exports.PropertyController.propertyValuePerLevel:set(property_spell_amplify_percentage.name, 5)
     ____exports.PropertyController.propertyValuePerLevel:set(property_status_resistance_stacking.name, 4)
     ____exports.PropertyController.propertyValuePerLevel:set(property_magical_resistance_bonus.name, 4)
+    ____exports.PropertyController.propertyValuePerLevel:set(property_incoming_damage_percentage.name, 4)
     ____exports.PropertyController.propertyValuePerLevel:set(property_attack_range_bonus.name, 25)
     ____exports.PropertyController.propertyValuePerLevel:set(property_physical_armor_bonus.name, 5)
     ____exports.PropertyController.propertyValuePerLevel:set(property_preattack_bonus_damage.name, 15)
