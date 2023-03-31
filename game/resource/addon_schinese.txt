@@ -135,6 +135,7 @@
 		"data_panel_player_property_spell_amplify_percentage"	"法术强度 ( % )"
 		"data_panel_player_property_status_resistance_stacking"	"状态抗性 ( % )"
 		"data_panel_player_property_magical_resistance_bonus"	"魔法抗性 ( % )"
+		"data_panel_player_property_incoming_damage_percentage"	"伤害减免 ( % )"
 		"data_panel_player_property_attack_range_bonus"			"攻击距离 (仅远程英雄)"
 		"data_panel_player_property_physical_armor_bonus"		"物理护甲"
 		"data_panel_player_property_preattack_bonus_damage"		"攻击力"

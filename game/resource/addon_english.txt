@@ -134,6 +134,7 @@
 		"data_panel_player_property_spell_amplify_percentage"	"Spell Amplification ( % )"
 		"data_panel_player_property_status_resistance_stacking"	"Status Resistance ( % )"
 		"data_panel_player_property_magical_resistance_bonus"	"Magic Resistance ( % )"
+		"data_panel_player_property_incoming_damage_percentage"	"Damage Reduction ( % )"
 		"data_panel_player_property_attack_range_bonus"			"Attack Range (Ranged Heroes)"
 		"data_panel_player_property_physical_armor_bonus"		"Physical Armor"
 		"data_panel_player_property_preattack_bonus_damage"		"Attack Damage"

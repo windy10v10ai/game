@@ -115,12 +115,10 @@ export class Player {
 		const steamId = PlayerResource.GetSteamAccountID(hero.GetPlayerOwnerID());
 		const playerInfo = Player.playerList.find((player) => player.id == steamId.toString());
 
-		if (!playerInfo?.properties) {
-			return;
-		}
-
-		for (const property of playerInfo.properties) {
-			PropertyController.addModifier(hero, property);
+		if (playerInfo?.properties) {
+			for (const property of playerInfo.properties) {
+				PropertyController.addModifier(hero, property);
+			}
 		}
 	}
 
