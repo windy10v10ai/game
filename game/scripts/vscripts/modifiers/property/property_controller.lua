@@ -36,7 +36,7 @@ function PropertyController.prototype.____constructor(self)
     ____exports.PropertyController.propertyValuePerLevel:set(property_spell_amplify_percentage.name, 5)
     ____exports.PropertyController.propertyValuePerLevel:set(property_status_resistance_stacking.name, 4)
     ____exports.PropertyController.propertyValuePerLevel:set(property_magical_resistance_bonus.name, 4)
-    ____exports.PropertyController.propertyValuePerLevel:set(property_incoming_damage_percentage.name, 4)
+    ____exports.PropertyController.propertyValuePerLevel:set(property_incoming_damage_percentage.name, -3)
     ____exports.PropertyController.propertyValuePerLevel:set(property_attack_range_bonus.name, 25)
     ____exports.PropertyController.propertyValuePerLevel:set(property_physical_armor_bonus.name, 5)
     ____exports.PropertyController.propertyValuePerLevel:set(property_preattack_bonus_damage.name, 15)
@@ -56,7 +56,7 @@ function PropertyController.addModifier(self, hero, property)
     local propertyValuePerLevel = ____exports.PropertyController.propertyValuePerLevel:get(property.name)
     if propertyValuePerLevel then
         local value = propertyValuePerLevel * property.level
-        if value > 0 then
+        if value ~= 0 then
             hero:RemoveModifierByName(property.name)
             hero:AddNewModifier(hero, nil, property.name, {value = value})
         end
