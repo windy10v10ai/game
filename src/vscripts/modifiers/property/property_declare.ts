@@ -12,17 +12,6 @@ export class property_cooldown_percentage extends PropertyBaseModifier {
 }
 
 @registerModifier()
-export class property_status_resistance_stacking extends PropertyBaseModifier {
-    DeclareFunctions(): ModifierFunction[] {
-        return [ModifierFunction.STATUS_RESISTANCE_STACKING];
-    }
-    GetModifierStatusResistanceStacking(): number {
-        return this.value;
-    }
-}
-
-
-@registerModifier()
 export class property_cast_range_bonus_stacking extends PropertyBaseModifier {
     DeclareFunctions(): ModifierFunction[] {
         return [ModifierFunction.CAST_RANGE_BONUS_STACKING];
@@ -43,11 +32,31 @@ export class property_spell_amplify_percentage extends PropertyBaseModifier {
 }
 
 @registerModifier()
+export class property_status_resistance_stacking extends PropertyBaseModifier {
+    DeclareFunctions(): ModifierFunction[] {
+        return [ModifierFunction.STATUS_RESISTANCE_STACKING];
+    }
+    GetModifierStatusResistanceStacking(): number {
+        return this.value;
+    }
+}
+
+@registerModifier()
 export class property_magical_resistance_bonus extends PropertyBaseModifier {
     DeclareFunctions(): ModifierFunction[] {
         return [ModifierFunction.MAGICAL_RESISTANCE_BONUS];
     }
     GetModifierMagicalResistanceBonus(): number {
+        return this.value;
+    }
+}
+
+@registerModifier()
+export class property_incoming_damage_percentage extends PropertyBaseModifier {
+    DeclareFunctions(): ModifierFunction[] {
+        return [ModifierFunction.INCOMING_DAMAGE_PERCENTAGE];
+    }
+    GetModifierIncomingDamage_Percentage(): number {
         return this.value;
     }
 }

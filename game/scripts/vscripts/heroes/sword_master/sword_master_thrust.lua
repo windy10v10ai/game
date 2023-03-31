@@ -11,13 +11,6 @@ function sword_master_thrust:Precache(context)
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts", context )
 end
 
-function sword_master_thrust:Spawn()
-    local caster = self:GetCaster()
-    if caster.combos == nil then
-        caster.combos = {}
-    end
-end
-
 function sword_master_thrust:CastFilterResultLocation()
     if not IsServer() then return end
     local caster = self:GetCaster()
@@ -30,7 +23,7 @@ function sword_master_thrust:CastFilterResultLocation()
 end
 
 function sword_master_thrust:GetCustomCastErrorLocation()
-    return "执剑泰斗点数不足"
+    return "#sword_master_arbiter_custom_cast_error"
 end
 
 function sword_master_thrust:OnProjectileThink(location)
@@ -66,23 +59,15 @@ end
 
 
 function sword_master_thrust:AddThrustCount()
-    local caster = self:GetCaster()
-    if caster:HasAbility("sword_master_chop") then
-
-        table.insert(caster.combos,caster:AddNewModifier(caster, self, "modifier_sword_master_thrust_count", {}))
-        if #caster.combos > 3 then
-            caster.combos[1]:Destroy()
-            table.remove(caster.combos,1)
-        end
-    end
-
     if IsServer() then
+        local caster = self:GetCaster()
         if caster:HasAbility("sword_master_chop") then
-
-            if #caster.combos == 3 then
-                local ability = caster:FindAbilityByName("sword_master_chop")
-                ability:SetUltimateType(true)
-            end
+            caster:RemoveAllModifiersOfName("modifier_sword_master_sweep_count")
+            caster:RemoveAllModifiersOfName("modifier_sword_master_tap_count")
+            caster:RemoveAllModifiersOfName("modifier_sword_master_thrust_count")
+            caster:AddNewModifier(caster, self, "modifier_sword_master_thrust_count", {})
+            local ability = caster:FindAbilityByName("sword_master_chop")
+            ability:SetUltimateType(true)
         end
 
         local modi_count = caster:FindModifierByName("modifier_sword_master_arbiter_count")
