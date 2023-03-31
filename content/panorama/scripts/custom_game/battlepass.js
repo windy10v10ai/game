@@ -209,7 +209,7 @@ const Player_Property_List = [
 		name: "property_incoming_damage_percentage",
 		level: 0,
 		imageSrc: "s2r://panorama/images/cavern/map_unlock_support_psd.vtex",
-		valuePerLevel: 3,
+		valuePerLevel: 4,
 	},
 	{
 		name: "property_attack_range_bonus",
@@ -251,19 +251,19 @@ const Player_Property_List = [
 		name: "property_stats_intellect_bonus",
 		level: 0,
 		imageSrc: "s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex",
-		valuePerLevel: 10,
+		valuePerLevel: 15,
 	},
 	{
 		name: "property_health_regen_percentage",
 		level: 0,
 		imageSrc: "s2r://panorama/images/challenges/icon_challenges_totalhealing_png.vtex",
-		valuePerLevel: 0.25,
+		valuePerLevel: 0.3,
 	},
 	{
 		name: "property_mana_regen_total_percentage",
 		level: 0,
 		imageSrc: "s2r://panorama/images/challenges/icon_challenges_manareduction_png.vtex",
-		valuePerLevel: 0.25,
+		valuePerLevel: 0.3,
 	},
 	{
 		name: "property_lifesteal",
