@@ -9132,6 +9132,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"30 50 70 90 110"
+				"CalculateSpellDamageTooltip"	"0"
 			}
 			"08"
 			{
