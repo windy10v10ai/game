@@ -643,19 +643,21 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
 
     local basePoint = 0
     if time > 3600 then
-        basePoint = 50
+        basePoint = 40
     else
         basePoint = math.floor(10 + time / 120)
     end
 
     local playerNumber = 0
     -- 参战率积分
-    local battleParticipationBase = 20
+    local battleParticipationBase = 15
 
     local mostdamagePlayerID_1 = -1
     local mostdamage_1 = 0
     local mostdamagePlayerID_2 = -1
     local mostdamage_2 = 0
+    local mostdamagePlayerID_3 = -1
+    local mostdamage_3 = 0
 
     local mostDamageReceivedPlayerID_1 = -1
     local mostDamageReceived_1 = 0
@@ -746,13 +748,20 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     end
 
                     if damage > mostdamage_1 then
+                        mostdamagePlayerID_3 = mostdamagePlayerID_2
+                        mostdamage_3 = mostdamage_2
                         mostdamagePlayerID_2 = mostdamagePlayerID_1
                         mostdamage_2 = mostdamage_1
                         mostdamagePlayerID_1 = playerID
                         mostdamage_1 = damage
                     elseif damage > mostdamage_2 then
+                        mostdamagePlayerID_3 = mostdamagePlayerID_2
+                        mostdamage_3 = mostdamage_2
                         mostdamagePlayerID_2 = playerID
                         mostdamage_2 = damage
+                    elseif damage > mostdamage_3 then
+                        mostdamagePlayerID_3 = playerID
+                        mostdamage_3 = damage
                     end
 
                     if damagereceived > mostDamageReceived_1 then
@@ -793,16 +802,20 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     end
 
     AIGameMode.playerNumber = playerNumber
-    local pointT1 = playerNumber * 0.8
-    local pointT2 = playerNumber * 0.4
-    local pointT3 = playerNumber * 0.2
+    local pointT1 = playerNumber * 1.2
+    local pointT2 = playerNumber * 0.8
+    local pointT3 = playerNumber * 0.4
 
     if mostdamagePlayerID_1 ~= -1 then
-        data.players[mostdamagePlayerID_1].points = data.players[mostdamagePlayerID_1].points + pointT2
+        data.players[mostdamagePlayerID_1].points = data.players[mostdamagePlayerID_1].points + pointT1
     end
     if mostdamagePlayerID_2 ~= -1 then
-        data.players[mostdamagePlayerID_2].points = data.players[mostdamagePlayerID_2].points + pointT3
+        data.players[mostdamagePlayerID_2].points = data.players[mostdamagePlayerID_2].points + pointT2
     end
+    if mostdamagePlayerID_3 ~= -1 then
+        data.players[mostdamagePlayerID_3].points = data.players[mostdamagePlayerID_3].points + pointT3
+    end
+
 
     if mostDamageReceivedPlayerID_1 ~= -1 then
         data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + pointT1
