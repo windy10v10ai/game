@@ -132,7 +132,12 @@ function AddPlayerProperty(property) {
 	panel.SetDialogVariable("PropertyName", propertyName);
 	// 数值
 	const propertyLevelString = $.Localize(`#data_panel_player_property_level`) + " " + property.level + "/" + maxLevel;
-	const propertyValueString = $.Localize(`#data_panel_player_property_value`) + " " + (property.level * property.valuePerLevel);
+	let propertyValue = property.level * property.valuePerLevel;
+	// 如果不为整数，小数点一位以内
+	if (propertyValue % 1 !== 0) {
+		propertyValue = propertyValue.toFixed(1);
+	}
+	const propertyValueString = $.Localize(`#data_panel_player_property_value`) + " " + propertyValue;
 	panel.SetDialogVariable("PropertyLevel", propertyLevelString);
 	panel.SetDialogVariable("PropertyValue", propertyValueString);
 	panel.FindChildTraverse("PropertyLevel").style.color = "#2cba75";

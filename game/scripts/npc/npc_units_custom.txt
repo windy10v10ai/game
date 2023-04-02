@@ -2361,10 +2361,14 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"650"		// Base health.
+		"StatusHealth"				"0"		// Base health.
 		"StatusHealthRegen"			"0.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
+	}
+	"npc_dota_clinkz_skeleton_archer"
+	{
+		"StatusHealth"              "-1"
 	}
 	// 小谜团
 	"npc_dota_lesser_eidolon"
