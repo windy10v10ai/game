@@ -5800,8 +5800,7 @@
 	"undying_decay"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"6.0 5.0 4.0 3.0 2.5"
-		"AbilityDuration"				"40.0 45.0 50.0 55.0 60.0"
+		"AbilityCooldown"				"8 7 6 5 4"
 		"AbilityManaCost"				"110 140 170 200 250"
 		"AbilitySpecial"
 		{
