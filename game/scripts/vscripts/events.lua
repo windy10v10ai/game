@@ -658,11 +658,17 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     local mostdamage_2 = 0
     local mostdamagePlayerID_3 = -1
     local mostdamage_3 = 0
+    local mostdamagePlayerID_4 = -1
+    local mostdamage_4 = 0
+    local mostdamagePlayerID_5 = -1
+    local mostdamage_5 = 0
 
     local mostDamageReceivedPlayerID_1 = -1
     local mostDamageReceived_1 = 0
     local mostDamageReceivedPlayerID_2 = -1
     local mostDamageReceived_2 = 0
+    local mostDamageReceivedPlayerID_3 = -1
+    local mostDamageReceived_3 = 0
 
     local mostHealingPlayerID_1 = -1
     local mostHealing_1 = 0
@@ -748,6 +754,10 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     end
 
                     if damage > mostdamage_1 then
+                        mostdamagePlayerID_5 = mostdamagePlayerID_4
+                        mostdamage_5 = mostdamage_4
+                        mostdamagePlayerID_4 = mostdamagePlayerID_3
+                        mostdamage_4 = mostdamage_3
                         mostdamagePlayerID_3 = mostdamagePlayerID_2
                         mostdamage_3 = mostdamage_2
                         mostdamagePlayerID_2 = mostdamagePlayerID_1
@@ -755,23 +765,46 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                         mostdamagePlayerID_1 = playerID
                         mostdamage_1 = damage
                     elseif damage > mostdamage_2 then
+                        mostdamagePlayerID_5 = mostdamagePlayerID_4
+                        mostdamage_5 = mostdamage_4
+                        mostdamagePlayerID_4 = mostdamagePlayerID_3
+                        mostdamage_4 = mostdamage_3
                         mostdamagePlayerID_3 = mostdamagePlayerID_2
                         mostdamage_3 = mostdamage_2
                         mostdamagePlayerID_2 = playerID
                         mostdamage_2 = damage
                     elseif damage > mostdamage_3 then
+                        mostdamagePlayerID_5 = mostdamagePlayerID_4
+                        mostdamage_5 = mostdamage_4
+                        mostdamagePlayerID_4 = mostdamagePlayerID_3
+                        mostdamage_4 = mostdamage_3
                         mostdamagePlayerID_3 = playerID
                         mostdamage_3 = damage
+                    elseif damage > mostdamage_4 then
+                        mostdamagePlayerID_5 = mostdamagePlayerID_4
+                        mostdamage_5 = mostdamage_4
+                        mostdamagePlayerID_4 = playerID
+                        mostdamage_4 = damage
+                    elseif damage > mostdamage_5 then
+                        mostdamagePlayerID_5 = playerID
+                        mostdamage_5 = damage
                     end
 
                     if damagereceived > mostDamageReceived_1 then
+                        mostDamageReceivedPlayerID_3 = mostDamageReceivedPlayerID_2
+                        mostDamageReceived_3 = mostDamageReceived_2
                         mostDamageReceivedPlayerID_2 = mostDamageReceivedPlayerID_1
                         mostDamageReceived_2 = mostDamageReceived_1
                         mostDamageReceivedPlayerID_1 = playerID
                         mostDamageReceived_1 = damagereceived
                     elseif damagereceived > mostDamageReceived_2 then
+                        mostDamageReceivedPlayerID_3 = mostDamageReceivedPlayerID_2
+                        mostDamageReceived_3 = mostDamageReceived_2
                         mostDamageReceivedPlayerID_2 = playerID
                         mostDamageReceived_2 = damagereceived
+                    elseif damagereceived > mostDamageReceived_3 then
+                        mostDamageReceivedPlayerID_3 = playerID
+                        mostDamageReceived_3 = damagereceived
                     end
 
                     if healing > mostHealing_1 then
@@ -802,18 +835,26 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     end
 
     AIGameMode.playerNumber = playerNumber
+    local pointT0 = playerNumber * 1.6
     local pointT1 = playerNumber * 1.2
     local pointT2 = playerNumber * 0.8
     local pointT3 = playerNumber * 0.4
+    local pointT4 = playerNumber * 0.2
 
     if mostdamagePlayerID_1 ~= -1 then
-        data.players[mostdamagePlayerID_1].points = data.players[mostdamagePlayerID_1].points + pointT1
+        data.players[mostdamagePlayerID_1].points = data.players[mostdamagePlayerID_1].points + pointT0
     end
     if mostdamagePlayerID_2 ~= -1 then
-        data.players[mostdamagePlayerID_2].points = data.players[mostdamagePlayerID_2].points + pointT2
+        data.players[mostdamagePlayerID_2].points = data.players[mostdamagePlayerID_2].points + pointT1
     end
     if mostdamagePlayerID_3 ~= -1 then
-        data.players[mostdamagePlayerID_3].points = data.players[mostdamagePlayerID_3].points + pointT3
+        data.players[mostdamagePlayerID_3].points = data.players[mostdamagePlayerID_3].points + pointT2
+    end
+    if mostdamagePlayerID_4 ~= -1 then
+        data.players[mostdamagePlayerID_4].points = data.players[mostdamagePlayerID_4].points + pointT3
+    end
+    if mostdamagePlayerID_5 ~= -1 then
+        data.players[mostdamagePlayerID_5].points = data.players[mostdamagePlayerID_5].points + pointT4
     end
 
 
@@ -823,6 +864,10 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     if mostDamageReceivedPlayerID_2 ~= -1 then
         data.players[mostDamageReceivedPlayerID_2].points = data.players[mostDamageReceivedPlayerID_2].points + pointT2
     end
+    if mostDamageReceivedPlayerID_3 ~= -1 then
+        data.players[mostDamageReceivedPlayerID_3].points = data.players[mostDamageReceivedPlayerID_3].points + pointT3
+    end
+
     if mostHealingPlayerID_1 ~= -1 then
         data.players[mostHealingPlayerID_1].points = data.players[mostHealingPlayerID_1].points + pointT1
     end
