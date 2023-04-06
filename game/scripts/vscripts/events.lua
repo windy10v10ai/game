@@ -663,6 +663,17 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     local mostdamagePlayerID_5 = -1
     local mostdamage_5 = 0
 
+    local mostAssistsPlayerID_1 = -1
+    local mostAssists_1 = 0
+    local mostAssistsPlayerID_2 = -1
+    local mostAssists_2 = 0
+    local mostAssistsPlayerID_3 = -1
+    local mostAssists_3 = 0
+    local mostAssistsPlayerID_4 = -1
+    local mostAssists_4 = 0
+    local mostAssistsPlayerID_5 = -1
+    local mostAssists_5 = 0
+
     local mostDamageReceivedPlayerID_1 = -1
     local mostDamageReceived_1 = 0
     local mostDamageReceivedPlayerID_2 = -1
@@ -790,6 +801,44 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                         mostdamage_5 = damage
                     end
 
+                    -- 助攻
+                    if assists > mostAssists_1 then
+                        mostAssistsPlayerID_5 = mostAssistsPlayerID_4
+                        mostAssists_5 = mostAssists_4
+                        mostAssistsPlayerID_4 = mostAssistsPlayerID_3
+                        mostAssists_4 = mostAssists_3
+                        mostAssistsPlayerID_3 = mostAssistsPlayerID_2
+                        mostAssists_3 = mostAssists_2
+                        mostAssistsPlayerID_2 = mostAssistsPlayerID_1
+                        mostAssists_2 = mostAssists_1
+                        mostAssistsPlayerID_1 = playerID
+                        mostAssists_1 = assists
+                    elseif assists > mostAssists_2 then
+                        mostAssistsPlayerID_5 = mostAssistsPlayerID_4
+                        mostAssists_5 = mostAssists_4
+                        mostAssistsPlayerID_4 = mostAssistsPlayerID_3
+                        mostAssists_4 = mostAssists_3
+                        mostAssistsPlayerID_3 = mostAssistsPlayerID_2
+                        mostAssists_3 = mostAssists_2
+                        mostAssistsPlayerID_2 = playerID
+                        mostAssists_2 = assists
+                    elseif assists > mostAssists_3 then
+                        mostAssistsPlayerID_5 = mostAssistsPlayerID_4
+                        mostAssists_5 = mostAssists_4
+                        mostAssistsPlayerID_4 = mostAssistsPlayerID_3
+                        mostAssists_4 = mostAssists_3
+                        mostAssistsPlayerID_3 = playerID
+                        mostAssists_3 = assists
+                    elseif assists > mostAssists_4 then
+                        mostAssistsPlayerID_5 = mostAssistsPlayerID_4
+                        mostAssists_5 = mostAssists_4
+                        mostAssistsPlayerID_4 = playerID
+                        mostAssists_4 = assists
+                    elseif assists > mostAssists_5 then
+                        mostAssistsPlayerID_5 = playerID
+                        mostAssists_5 = assists
+                    end
+
                     if damagereceived > mostDamageReceived_1 then
                         mostDamageReceivedPlayerID_3 = mostDamageReceivedPlayerID_2
                         mostDamageReceived_3 = mostDamageReceived_2
@@ -838,25 +887,41 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     local pointT0 = playerNumber * 1.6
     local pointT1 = playerNumber * 1.2
     local pointT2 = playerNumber * 0.8
-    local pointT3 = playerNumber * 0.4
-    local pointT4 = playerNumber * 0.2
+    local pointT3 = playerNumber * 0.6
+    local pointT4 = playerNumber * 0.4
+    local pointT5 = playerNumber * 0.2
 
     if mostdamagePlayerID_1 ~= -1 then
-        data.players[mostdamagePlayerID_1].points = data.players[mostdamagePlayerID_1].points + pointT0
+        data.players[mostdamagePlayerID_1].points = data.players[mostdamagePlayerID_1].points + pointT1
     end
     if mostdamagePlayerID_2 ~= -1 then
-        data.players[mostdamagePlayerID_2].points = data.players[mostdamagePlayerID_2].points + pointT1
+        data.players[mostdamagePlayerID_2].points = data.players[mostdamagePlayerID_2].points + pointT2
     end
     if mostdamagePlayerID_3 ~= -1 then
-        data.players[mostdamagePlayerID_3].points = data.players[mostdamagePlayerID_3].points + pointT2
+        data.players[mostdamagePlayerID_3].points = data.players[mostdamagePlayerID_3].points + pointT3
     end
     if mostdamagePlayerID_4 ~= -1 then
-        data.players[mostdamagePlayerID_4].points = data.players[mostdamagePlayerID_4].points + pointT3
+        data.players[mostdamagePlayerID_4].points = data.players[mostdamagePlayerID_4].points + pointT4
     end
     if mostdamagePlayerID_5 ~= -1 then
-        data.players[mostdamagePlayerID_5].points = data.players[mostdamagePlayerID_5].points + pointT4
+        data.players[mostdamagePlayerID_5].points = data.players[mostdamagePlayerID_5].points + pointT5
     end
 
+    if mostAssistsPlayerID_1 ~= -1 then
+        data.players[mostAssistsPlayerID_1].points = data.players[mostAssistsPlayerID_1].points + pointT0
+    end
+    if mostAssistsPlayerID_2 ~= -1 then
+        data.players[mostAssistsPlayerID_2].points = data.players[mostAssistsPlayerID_2].points + pointT1
+    end
+    if mostAssistsPlayerID_3 ~= -1 then
+        data.players[mostAssistsPlayerID_3].points = data.players[mostAssistsPlayerID_3].points + pointT2
+    end
+    if mostAssistsPlayerID_4 ~= -1 then
+        data.players[mostAssistsPlayerID_4].points = data.players[mostAssistsPlayerID_4].points + pointT3
+    end
+    if mostAssistsPlayerID_5 ~= -1 then
+        data.players[mostAssistsPlayerID_5].points = data.players[mostAssistsPlayerID_5].points + pointT4
+    end
 
     if mostDamageReceivedPlayerID_1 ~= -1 then
         data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + pointT1
