@@ -66,14 +66,14 @@ function LoadMemberButton(member) {
 
     if (hContainer){
         let hAfdianButton = hContainer.FindChild('JoinAfdian')
-        let hPatreonButton = hContainer.FindChild('JoinPatreon')
+        // let hPatreonButton = hContainer.FindChild('JoinPatreon')
         // remove hAfidianButton if hPatreonButton is found
-        if (hPatreonButton) {
+        if (hAfdianButton) {
             hAfdianButton.DeleteAsync(0)
         }
-        if (hPatreonButton) {
-            hPatreonButton.DeleteAsync(0)
-        }
+        // if (hPatreonButton) {
+        //     hPatreonButton.DeleteAsync(0)
+        // }
 
         let hMemberButton = hContainer.FindChild('memberButton') || $.CreatePanel('Button', hContainer, 'memberButton')
 
@@ -131,7 +131,7 @@ function LoadDiscordButton() {
 	$.Msg("button.js loaded");
 
     $.Schedule(1, () => {
-        LoadPatreonButton();
+        // LoadPatreonButton();
 		LoadAfdianButton();
         LoadMemberButton(CustomNetTables.GetTableValue("member_table", GetSteamAccountID()));
     });

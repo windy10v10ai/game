@@ -245,6 +245,10 @@ local xingguangSteamAccountID = Set {
 	-- QQ星光
 	152852224,
 }
+local hjauinSteamAccountID = Set {
+	-- HJauin
+	106354079,
+}
 -- 称号属性 END
 
 function EnablePlayerModifier(hEntity)
@@ -556,5 +560,9 @@ function EnablePlayerModifier(hEntity)
 	if xingguangSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_xingguang","modifiers/player/modifier_player_xingguang",LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_xingguang",{})
+	end
+	if hjauinSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_hjauin","modifiers/player/modifier_player_hjauin",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_hjauin",{})
 	end
 end
