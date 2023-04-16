@@ -884,7 +884,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     end
 
     AIGameMode.playerNumber = playerNumber
-    local pointT0 = playerNumber * 1.6
     local pointT1 = playerNumber * 1.2
     local pointT2 = playerNumber * 0.8
     local pointT3 = playerNumber * 0.6
@@ -908,19 +907,19 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     end
 
     if mostAssistsPlayerID_1 ~= -1 then
-        data.players[mostAssistsPlayerID_1].points = data.players[mostAssistsPlayerID_1].points + pointT0
+        data.players[mostAssistsPlayerID_1].points = data.players[mostAssistsPlayerID_1].points + pointT1
     end
     if mostAssistsPlayerID_2 ~= -1 then
-        data.players[mostAssistsPlayerID_2].points = data.players[mostAssistsPlayerID_2].points + pointT1
+        data.players[mostAssistsPlayerID_2].points = data.players[mostAssistsPlayerID_2].points + pointT2
     end
     if mostAssistsPlayerID_3 ~= -1 then
-        data.players[mostAssistsPlayerID_3].points = data.players[mostAssistsPlayerID_3].points + pointT2
+        data.players[mostAssistsPlayerID_3].points = data.players[mostAssistsPlayerID_3].points + pointT3
     end
     if mostAssistsPlayerID_4 ~= -1 then
-        data.players[mostAssistsPlayerID_4].points = data.players[mostAssistsPlayerID_4].points + pointT3
+        data.players[mostAssistsPlayerID_4].points = data.players[mostAssistsPlayerID_4].points + pointT4
     end
     if mostAssistsPlayerID_5 ~= -1 then
-        data.players[mostAssistsPlayerID_5].points = data.players[mostAssistsPlayerID_5].points + pointT4
+        data.players[mostAssistsPlayerID_5].points = data.players[mostAssistsPlayerID_5].points + pointT5
     end
 
     if mostDamageReceivedPlayerID_1 ~= -1 then
