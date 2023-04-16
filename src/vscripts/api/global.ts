@@ -15,6 +15,9 @@ declare global {
         player_table: {
             [steamId: string]: PlayerDto;
         };
+        leader_board: {
+            top100SteamIds: string[];
+        };
     }
     function TsPrint(...args: any[]): void;
 }

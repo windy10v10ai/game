@@ -1,0 +1,207 @@
+
+ .UpperPanel{
+  width: 100%;
+  height: 100%;
+ }
+
+ #BoardContainer{
+  visibility: collapse;
+ }
+
+ .LeaderboardMain{
+  padding: 20px;
+  margin-top: -80px;
+  margin-left: 50px;
+  width: 30%;
+  height: 65%;
+  horizontal-align: left;
+  vertical-align: center;
+
+  background-color: gradient( linear, 0% 100%, 0% 10%, from( #1c112ecc ), color-stop( 0.3, #1c112e55 ), color-stop( 0.6, #000000bb ),to( #000000ee) );
+  border: 2px solid black;
+  border-radius: 10px;
+  opacity: 0.0;
+  transition-property: opacity, transform;
+  transition-delay: 0.0s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  transform:translateX(-400px) translateY(-150px);
+ }
+
+ .AspectRatio4x3 .LeaderboardMain{
+  width: 54%;
+ }
+
+ .AspectRatio16x10 .LeaderboardMain{
+  width: 44%;
+ }
+
+
+ #lbName{
+  horizontal-align: center;
+  font-size: 35px;
+  color:#DAA520FF;
+  text-decoration: underline;
+  text-shadow: 2px 2px 8px 3.0 black;
+ }
+
+ #CloseLB{
+  width: 35px;
+  height: 35px;
+  background-image: url("s2r://panorama/images/x_close_png.vtex");
+  background-size: 100% 100%;
+  horizontal-align: right;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: top;
+  wash-color: #d94848;
+  opacity: 0.5;
+  z-index: 2;
+  transition-property: opacity, width, height;
+  transition-delay: 0.0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+ }
+
+ #CloseLB:hover{
+  opacity: 1;
+  width: 40px;
+  height: 40px;
+ }
+
+
+
+
+ #Boardlist{
+  padding: 25px;
+  padding-top: 55px;
+  flow-children: down;
+ }
+
+ #FieldDesc{
+  flow-children: right;
+  horizontal-align: center;
+ }
+
+ .FieldLabel{
+  font-size: 26px;
+  letter-spacing: 0.8px;
+  width: 120px;
+  color: white;
+  text-shadow: 2px 2px 8px 2.0 black;
+  horizontal-align: center;
+ }
+
+ .rk{
+  width: 150px;
+ }
+
+ .nm{
+  width: 450px;
+ }
+
+ .pts{
+  width: 130px;
+ }
+
+ .wn{
+  width: 85px;
+ }
+
+ #Players{
+  padding-top: 20px;
+  flow-children: down;
+  overflow: squish scroll;
+ }
+
+ .Player{
+  width: 800px;
+  height: 60px;
+  flow-children: right;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-right: 12px;
+ }
+
+ .Player:hover{
+  background-color:gradient( linear, 0% 0%, 50% 100%, from( #584e6977 ), color-stop( 0.3, #1E1528 ), to( #9e7d4420 ) );
+ }
+
+ .imagePanel{
+  vertical-align: center;
+  margin: 5px;
+ }
+
+ .AvatarIMG{
+  width: 52px;
+  height: 52px;
+  vertical-align: center;
+ }
+
+ .rankPanel{
+  width: 30px;
+  margin: 15px;
+ }
+
+ .rankLabel{
+  font-size: 25px;
+  color: #DAA520FF;
+  text-overflow: shrink;
+ }
+
+ .pointLabel,.winLabel,.lossLabel{
+  color: #f2f2f2;
+  text-shadow: 3px 3px 5px 1.5 black;
+ }
+
+ .winLabel{
+  color: #6fd64f;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+ }
+
+ .lossLabel{
+  color: #d94848;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+ }
+
+
+ .namePanel{
+  width: 280px;
+ }
+
+
+
+ .pointPanel{
+  width: 110px;
+ }
+ .winPanel{
+  width: 90px;
+ }
+ .lossPanel{
+  width: 150px;
+ }
+
+
+ .rankPanel,.namePanel,.pointPanel,.winPanel,.lossPanel{
+  vertical-align: center;
+  horizontal-align: center;
+ }
+
+
+
+
+
+
+
+
+
+ VerticalScrollBar .ScrollThumb,HTMLVerticalScrollBar .ScrollThumb{
+  background-color: #DAA520FF;
+  border-radius: 20px;
+ }
+
+ VerticalScrollBar:hover .ScrollThumb,HTMLVerticalScrollBar:hover .ScrollThumb{
+  background-color: tomato;
+}
