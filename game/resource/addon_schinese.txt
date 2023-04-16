@@ -179,6 +179,15 @@
 
 		///////////////////////////////////////////////////
 		//
+		//            Leaderboard
+		//
+		///////////////////////////////////////////////////
+		"leaderboard_title"				"赛季排行榜"
+		"leaderboard_rank"				"排名"
+		"leaderboard_name"				"玩家"
+
+		///////////////////////////////////////////////////
+		//
 		//            Creep / Tower
 		//
 		///////////////////////////////////////////////////
@@ -363,6 +372,8 @@
 		"DOTA_Tooltip_modifier_player_xibaibai"					"<font color='#FFCC66'>★ 能者多牢 ★</font>"
 		"DOTA_Tooltip_modifier_player_dacapo"					"<font color='#FFCC66'>★ Da丨Capo  ★</font>"
 		"DOTA_Tooltip_modifier_player_xingguang"				"<font color='#FFCC66'>★ 星光灿烂 ★</font>"
+		"DOTA_Tooltip_modifier_player_hjauin"					"<font color='#FFCC66'>★ BILIBILI直播间1426674 ★</font>"
+		"DOTA_Tooltip_modifier_player_hjauin_Description"		"<font color='#FFCC66'>https://live.bilibili.com/1426674</font>"
 
 		///////////////////////////////////////////////////
 		//

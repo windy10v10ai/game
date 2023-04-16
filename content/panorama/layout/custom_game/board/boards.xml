@@ -1,0 +1,50 @@
+<!-- xml reconstructed by ValveResourceFormat: https://vrf.steamdb.info/ -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/layout/custom_game/board/boards.css" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/layout/custom_game/board/boards.js" />
+	</scripts>
+	<snippets>
+		<snippet name="Player">
+			<Panel class="Player">
+				<Panel class="rankPanel" id="PlayerRank">
+					<Label class="rankLabel" text="{s:PlayerRank}" />
+				</Panel>
+				<Panel class="imagePanel" id="PlayerImage">
+					<DOTAAvatarImage class="AvatarIMG" id="PlayerImageDisplay" />
+				</Panel>
+				<Panel class="namePanel" id="PlayerName">
+					<DOTAUserName id="PlayerNameDisplay" />
+				</Panel>
+				<!-- <Panel class="pointPanel" id="PlayerPoint">
+					<Label class="pointLabel" text="{s:PlayerPoint}" />
+				</Panel>
+				<Panel class="winPanel" id="PlayerWin">
+					<Label class="winLabel" text="{s:PlayerWin}" />
+				</Panel>
+				<Panel class="lossPanel" id="PlayerLoss">
+					<Label class="lossLabel" text="{s:PlayerLoss}" />
+				</Panel> -->
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="UpperPanel" hittest="false">
+		<Panel class="LeaderboardMain" id="BoardContainer">
+			<Label id="lbName" text="#leaderboard_title" />
+			<Button id="CloseLB" onactivate="ToggleLB()" />
+			<Panel id="Boardlist">
+				<Panel id="FieldDesc">
+					<Label class="FieldLabel rk" id="lbPlayerRank" text="#leaderboard_rank" />
+					<Label class="FieldLabel nm" id="lbPlayerName" text="#leaderboard_name" />
+					<!-- <Label class="FieldLabel pts" id="lbPlayerPoints" text="Points" />
+					<Label class="FieldLabel wn" id="lbPlayerWins" text="Win" />
+					<Label class="FieldLabel ls" id="lbPlayerLosses" text="Loss" /> -->
+				</Panel>
+				<Panel id="Players" />
+			</Panel>
+		</Panel>
+	</Panel>
+</root>
