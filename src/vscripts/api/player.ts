@@ -36,6 +36,7 @@ export class PlayerDto {
 class GameStart {
 	members!: MemberDto[];
 	players!: PlayerDto[];
+	top100SteamIds!: string[];
 }
 
 
@@ -89,6 +90,9 @@ export class Player {
 		DeepPrintTable(gameStart);
 		Player.memberList = gameStart.members;
 		Player.playerList = gameStart.players;
+		const top100SteamIds = gameStart.top100SteamIds;
+
+		CustomNetTables.SetTableValue("leader_board", "top100SteamIds", top100SteamIds);
 
 		// set member to member table
 		Player.savePlayerToNetTable();
