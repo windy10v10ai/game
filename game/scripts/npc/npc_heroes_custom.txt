@@ -462,7 +462,8 @@
 
 	"npc_dota_hero_keeper_of_the_light"
 	{
-		"Ability19"		"keeper_of_the_light_mana_leak"
+		"Ability6"		"keeper_of_the_light_mana_leak"
+		"Ability19"		"keeper_of_the_light_spirit_form"
 	}
 
 	"npc_dota_hero_rubick"
