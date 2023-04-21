@@ -6376,20 +6376,12 @@
 		"AbilityCooldown"				"20 19 18 17 16"
 		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"25 30 35 40 45"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"move_speed_bonus_pct"		"15 30 45 60 75"
-			}
+			"duration"					"25 30 35 40 45"
+			"move_speed_bonus_pct"		"15 30 45 60 75"
 			"skeleton_count"
 			{
 				"value"					"0"
-				"special_bonus_shard"	"+0"
+				"special_bonus_shard"	"0"
 			}
 		}
 	}
