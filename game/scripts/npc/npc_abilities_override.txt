@@ -6376,17 +6376,12 @@
 		"AbilityCooldown"				"20 19 18 17 16"
 		"AbilityValues"
 		{
-			"01"
+			"duration"					"25 30 35 40 45"
+			"move_speed_bonus_pct"		"15 30 45 60 75"
+			"skeleton_count"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"25 30 35 40 45"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"move_speed_bonus_pct"		"15 30 45 60 75"
-				"clinkz_skeleton_archer_count"	"0"
-				"shard_skeleton_archer_count" "0"
+				"value"					"0"
+				"special_bonus_shard"	"0"
 			}
 		}
 	}
@@ -6412,6 +6407,71 @@
 				"damage_gain_pct"		"4 8 12 16"
 				"LinkedSpecialBonus"			"special_bonus_unique_clinkz_8"
 				"LinkedSpecialBonusField"		"value2"
+			}
+		}
+	}
+	"clinkz_burning_army"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"7319"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"						"1"
+		"FightRecapLevel"				"1"
+		"IsGrantedByScepter"			"1"
+		"HasScepterUpgrade"				"1"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Clinkz.DeathPact"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"80"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"			"1300"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"	"30"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"count"			"0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attack_rate"			"1.6"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_percent"	"30"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"spawn_interval"			"0.5"
 			}
 		}
 	}
@@ -8433,7 +8493,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shard_pct_chance"		"36"
+				"shard_pct_chance"		"50"
 				"RequiresShard"			"1"
 			}
 			"04"
@@ -8443,6 +8503,12 @@
 				"RequiresShard"			"1"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 				"CalculateSpellDamageTooltip"	"1"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"shard_internal_cd"		"0"
+				"RequiresShard"			"1"
 			}
 		}
 	}
@@ -11615,6 +11681,12 @@
 		"AbilityManaCost"				"75 125 175 225"
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"1800.0 1800.0 1800.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_keeper_of_the_light_11"
+			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
