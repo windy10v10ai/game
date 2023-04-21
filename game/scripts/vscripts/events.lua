@@ -438,18 +438,18 @@ function AIGameMode:OnNPCSpawned(keys)
     end
 
     if hEntity:IsCreep() then
-        if sName == "npc_dota_roshan" then
-            local ability_roshan_buff = hEntity:FindAbilityByName("roshan_buff")
-            ability_roshan_buff:SetLevel(self.roshanNumber)
-            local ability_gold_bag = hEntity:FindAbilityByName("generic_gold_bag_fountain")
-            ability_gold_bag:SetLevel(self.roshanNumber)
+        -- if sName == "npc_dota_roshan" then
+        --     local ability_roshan_buff = hEntity:FindAbilityByName("roshan_buff")
+        --     ability_roshan_buff:SetLevel(self.roshanNumber)
+        --     local ability_gold_bag = hEntity:FindAbilityByName("generic_gold_bag_fountain")
+        --     ability_gold_bag:SetLevel(self.roshanNumber)
 
-            self.roshanNumber = self.roshanNumber + 1
-            if self.roshanNumber > 4 then
-                self.roshanNumber = 4
-            end
-            return
-        end
+        --     self.roshanNumber = self.roshanNumber + 1
+        --     if self.roshanNumber > 4 then
+        --         self.roshanNumber = 4
+        --     end
+        --     return
+        -- end
     end
 
     if sName == "npc_dota_lone_druid_bear" then
