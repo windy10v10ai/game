@@ -96,45 +96,45 @@
 		"VisionDaytimeRange"		"100" // 350
 		"VisionNighttimeRange"		"100" // 350
 	}
-	"npc_dota_roshan"
-	{
-		// Abilities
-		//----------------------------------------------------------------
-		"Ability1"					"roshan_spell_block"	// Ability 1.
-		"Ability2"					"roshan_bash"			// Ability 2.
-		"Ability3"					"roshan_slam"			// Ability 3.
-		"Ability4"					"roshan_inherent_buffs"	// Ability 4.
-		"Ability5"					"roshan_devotion"		// Ability 5.
-		"Ability6"					"giant_wolf_critical_strike"						// Ability 6 - Extra.
-		"Ability7"					"generic_gold_bag_fountain"						// Ability 7 - Extra.
-		"Ability8"					"roshan_buff"						// Ability 8 - Extra.
+	// "npc_dota_roshan"
+	// {
+	// 	// Abilities
+	// 	//----------------------------------------------------------------
+	// 	"Ability1"					"roshan_spell_block"	// Ability 1.
+	// 	"Ability2"					"roshan_bash"			// Ability 2.
+	// 	"Ability3"					"roshan_slam"			// Ability 3.
+	// 	"Ability4"					"roshan_inherent_buffs"	// Ability 4.
+	// 	"Ability5"					"roshan_devotion"		// Ability 5.
+	// 	"Ability6"					"giant_wolf_critical_strike"						// Ability 6 - Extra.
+	// 	"Ability7"					"generic_gold_bag_fountain"						// Ability 7 - Extra.
+	// 	"Ability8"					"roshan_buff"						// Ability 8 - Extra.
 
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"			// 20
-		"MagicalResistance"			"75"			// 55
+	// 	// Armor
+	// 	//----------------------------------------------------------------
+	// 	"ArmorPhysical"				"20"			// 20
+	// 	"MagicalResistance"			"75"			// 55
 
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"200"		// 100
-		"AttackDamageMax"			"200"		// 100
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.2"		// 2.0
-		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
-		"AttackRange"				"150"		// Range within a target can be attacked.
-		// Movement
-		//----------------------------------------------------------------
-		"MovementSpeed"				"410"		// Speed 310
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"6000"		// Base health.
-		"StatusHealthRegen"			"50"		// Health regeneration rate.
-		"StatusMana"				"0"		// Base mana.
-		"StatusManaRegen"			"0"		// Mana regeneration rate.
+	// 	// Attack
+	// 	//----------------------------------------------------------------
+	// 	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+	// 	"AttackDamageMin"			"200"		// 100
+	// 	"AttackDamageMax"			"200"		// 100
+	// 	"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+	// 	"AttackRate"				"1.2"		// 2.0
+	// 	"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
+	// 	"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
+	// 	"AttackRange"				"150"		// Range within a target can be attacked.
+	// 	// Movement
+	// 	//----------------------------------------------------------------
+	// 	"MovementSpeed"				"410"		// Speed 310
+	// 	// Status
+	// 	//----------------------------------------------------------------
+	// 	"StatusHealth"				"6000"		// Base health.
+	// 	"StatusHealthRegen"			"50"		// Health regeneration rate.
+	// 	"StatusMana"				"0"		// Base mana.
+	// 	"StatusManaRegen"			"0"		// Mana regeneration rate.
 
-	}
+	// }
 
 	//=========================================================
 	// TIER 1
