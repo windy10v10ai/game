@@ -19,6 +19,7 @@
 		{
 			"item_keen_optic"				"1"	// 基恩镜片
 			"item_trusty_shovel"			"1"	// 可靠铁铲
+			"item_arcane_ring"				"1"
 			"item_chipped_vest"				"1"
 			"item_royal_jelly_custom"		"1"
 			"item_ring_of_aquila"			"1"
@@ -30,7 +31,6 @@
 			"item_occult_bracelet"			"1"
 			"item_possessed_mask"			"1"
 			"item_paintball"				"1"
-			"item_arcane_ring"				"1"
 			"item_iron_talon"				"1"	// 打野爪
 			"item_broom_handle"				"1"
 			"item_duelist_gloves"			"1"
