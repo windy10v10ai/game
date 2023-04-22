@@ -13,7 +13,6 @@ tBotItemData.purchaseItemList = {
 		'item_headdress',
 		'item_fluffy_hat',
 		'item_recipe_holy_locket',
-		'item_power_treads',
 		'item_bracer',
 		'item_vanguard',
 		'item_blade_mail',
@@ -1061,9 +1060,6 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_vengefulspirit = {
 		'item_magic_wand',
 		'item_boots',
-		'item_wraith_band',
-		'item_wraith_band',
-		'item_power_treads',
 		'item_falcon_blade',
 		'item_dragon_lance',
 		'item_wings_of_haste',
@@ -1131,9 +1127,6 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_windrunner = {
 		'item_magic_wand',
 		'item_boots',
-		'item_null_talisman',
-		'item_null_talisman',
-		'item_power_treads',
 		'item_maelstrom',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
