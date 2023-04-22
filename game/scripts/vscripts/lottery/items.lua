@@ -24,7 +24,7 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_null_talisman",			-- 挂件
 		"item_quelling_blade_2_datadriven",		-- 毒瘤之刃
 
-		"item_ironwood_tree",			-- 铁树之木
+		-- "item_ironwood_tree",			-- 铁树之木
 		-- "item_mango_tree",              -- 芒果树
 	}
 
@@ -38,15 +38,10 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_medallion_of_courage",	-- 勇气勋章
 		"item_falcon_blade",			-- 猎鹰战刃
 
-		"item_ocean_heart",				-- 海洋之心
-		"item_broom_handle",			-- 扫帚柄
-		"item_trusty_shovel",			-- 可靠铁铲
-		"item_faded_broach",			-- 暗淡胸针
-		"item_keen_optic",				-- 基恩镜片
-		"item_dimensional_doorway",		-- 空间之门
-		"item_iron_talon",              -- 打野爪
-		"item_poor_mans_shield",        -- 穷鬼盾
-		"item_vampire_fangs",           -- 吸血鬼獠牙
+		-- "item_ocean_heart",				-- 海洋之心
+		-- "item_faded_broach",			-- 暗淡胸针
+		-- "item_dimensional_doorway",		-- 空间之门
+		-- "item_vampire_fangs",           -- 吸血鬼獠牙
 	}
 
 	tier[3] =	{
@@ -58,10 +53,10 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_quicksilver_amulet",		-- 银闪护符
 		"item_spider_legs",				-- 网虫腿
 		"item_essence_ring",			-- 精华指环
-		"item_nether_shawl",			-- 幽冥披风
-		"item_pupils_gift",				-- 学徒之礼
+		-- "item_nether_shawl",			-- 幽冥披风
+		-- "item_pupils_gift",				-- 学徒之礼
 		"item_horizon",					-- 视界
-		"item_witless_shako",           -- 脑瘫帽
+		"item_witless_shako",           -- 无知小帽
 		"item_panic_button",            -- 神灯
 		"item_third_eye",               -- 第三只眼
 		"item_repair_kit",			    -- 修理工具
@@ -74,7 +69,7 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_aghanims_shard",			-- 阿哈利姆魔晶
 
 		"item_tome_of_aghanim",			-- 阿哈利姆之书
-		"item_illusionsts_cape",		-- 幻术师披风
+		-- "item_illusionsts_cape",		-- 幻术师披风
 		"item_princes_knife",			-- 亲王短刀
 		"item_pirate_hat",				-- 海盗帽
 		"item_fallen_sky",				-- 天崩
@@ -83,8 +78,8 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_spell_prism",				-- 法术棱镜
 		"item_ex_machina",				-- 机械之心
 		"item_seer_stone",				-- 先哲石
-		"item_vengeances_shadow",		-- 复仇之影
-		"item_helm_of_the_undying",		-- 不死头盔
+		-- "item_vengeances_shadow",		-- 复仇之影
+		-- "item_helm_of_the_undying",		-- 不死头盔
 		"item_woodland_striders",		-- 丛林鞋
 	}
 
