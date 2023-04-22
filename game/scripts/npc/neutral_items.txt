@@ -69,6 +69,7 @@
 			"item_orb_of_destruction"		"1"
 			"item_vampire_fangs"			"1"	// 吸血鬼獠牙
 			"item_gossamer_cape"			"1"	// 蛛丝斗篷
+			"item_tome_of_aghanim"			"1"	// 阿哈利姆之书
 		}
 	}
 	"3"
@@ -101,7 +102,13 @@
 			"item_vindicators_axe"			"1"
 			"item_dandelion_amulet"			"1"
 			"item_quicksilver_amulet"		"1"
-			"item_essence_ring"				"1"
+			"item_essence_ring"				"1" // 精华指环
+			"item_spider_legs"				"1" // 网虫腿
+			"item_horizon"					"1" // 视界
+			"item_witless_shako"			"1" // 无知小帽
+			"item_panic_button"				"1" // 神灯
+			"item_third_eye"				"1" // 第三只眼
+			"item_repair_kit"				"1" // 修理工具
 		}
 	}
 	"4"
@@ -135,6 +142,7 @@
 			"item_spy_gadget"				"1"
 			"item_princes_knife"			"1" // 亲王短刀
 			"item_martyrs_plate"			"1" // 烈士鳞甲
+			"item_woodland_striders"		"1" // 丛林鞋
 		}
 	}
 	"5"
@@ -162,7 +170,8 @@
 			"item_force_boots"				"1"
 			"item_book_of_shadows"			"1"
 			"item_desolator_2"				"1"
-			"item_pirate_hat_custom"		"1"
+			// "item_pirate_hat_custom"		"1" // 海盗帽 旧版
+			"item_pirate_hat"				"1" // 海盗帽
 			"item_giants_ring"				"1"
 			"item_ex_machina"				"1"
 			"item_ballista"					"1"
