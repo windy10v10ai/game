@@ -17,6 +17,8 @@
 
 		"items"
 		{
+			"item_keen_optic"				"1"	// 基恩镜片
+			"item_trusty_shovel"			"1"	// 可靠铁铲
 			"item_chipped_vest"				"1"
 			"item_royal_jelly_custom"		"1"
 			"item_ring_of_aquila"			"1"
@@ -29,6 +31,11 @@
 			"item_possessed_mask"			"1"
 			"item_paintball"				"1"
 			"item_arcane_ring"				"1"
+			"item_iron_talon"				"1"	// 打野爪
+			"item_broom_handle"				"1"
+			"item_duelist_gloves"			"1"
+			"item_spark_of_courage"			"1"
+			"item_poor_mans_shield"			"1"	// 穷鬼盾
 		}
 	}
 	"2"
@@ -48,18 +55,20 @@
 
 		"items"
 		{
-			"item_poor_mans_shield"			"1"
 			"item_imp_claw"					"1"
 			"item_grove_bow"				"1"
 			"item_bullwhip"					"1"
 			"item_mysterious_hat"			"1"
 			"item_quickening_charm"			"1"
-			"item_misericorde"				"1"
+			// "item_misericorde"				"1"
 			"item_vambrace"					"1"
 			"item_dragon_scale"				"1"
 			"item_eye_of_the_vizier"		"1"
 			"item_specialists_array"		"1"
 			"item_dagger_of_ristul"			"1"
+			"item_orb_of_destruction"		"1"
+			"item_vampire_fangs"			"1"	// 吸血鬼獠牙
+			"item_gossamer_cape"			"1"	// 蛛丝斗篷
 		}
 	}
 	"3"
@@ -79,7 +88,6 @@
 
 		"items"
 		{
-			"item_orb_of_destruction"		"1"
 			"item_elven_tunic"				"1"
 			"item_cloak_of_flames"			"1"
 			"item_ceremonial_robe"			"1"
@@ -89,7 +97,11 @@
 			"item_mind_breaker"				"1"
 			"item_ogre_seal_totem"			"1"
 			"item_enchanted_quiver"			"1"
-			"item_black_powder_bag"			"1"
+			// "item_black_powder_bag"			"1"
+			"item_vindicators_axe"			"1"
+			"item_dandelion_amulet"			"1"
+			"item_quicksilver_amulet"		"1"
+			"item_essence_ring"				"1"
 		}
 	}
 	"4"
@@ -115,11 +127,14 @@
 			"item_minotaur_horn"			"1"
 			"item_trickster_cloak"			"1"
 			"item_penta_edged_sword"		"1"
-			"item_heavy_blade"				"1"
+			"item_the_leveller"				"1" // 平世剑
+			// "item_heavy_blade"				"1" // 行巫之祸
 			"item_ascetic_cap"				"1"
 			"item_spell_prism"				"1"
 			"item_havoc_hammer"				"1"
 			"item_spy_gadget"				"1"
+			"item_princes_knife"			"1" // 亲王短刀
+			"item_martyrs_plate"			"1" // 烈士鳞甲
 		}
 	}
 	"5"
@@ -139,21 +154,19 @@
 
 		"items"
 		{
-			"item_mirror_shield"			"1"
-			"item_fallen_sky"				"1"
+			"item_mirror_shield"			"1" // 神镜盾
+			"item_fallen_sky"				"1" // 天崩
 			"item_apex"						"1"
 			"item_demonicon"				"1"
 			"item_timeless_relic"			"1"
 			"item_force_boots"				"1"
 			"item_book_of_shadows"			"1"
-			"item_flicker"					"1"
 			"item_desolator_2"				"1"
 			"item_pirate_hat_custom"		"1"
 			"item_giants_ring"				"1"
 			"item_ex_machina"				"1"
 			"item_ballista"					"1"
 			"item_force_field"				"1"
-			"item_the_leveller"				"1"
 		}
 	}
 }
