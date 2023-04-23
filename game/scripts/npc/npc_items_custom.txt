@@ -1571,7 +1571,7 @@
 			"05"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"magical_resis"      	"30"
+				"magical_resis"      	"25"
 			}
 			"06"
 			{
@@ -5309,7 +5309,7 @@
 			"spell_amp"				"18"
 			"mp_regen_amp"			"75"
 
-			"sheep_duration"		"4.0"
+			"sheep_duration"		"3.5"
 			"sheep_movement_speed"	"120"
 			"blast_damage_base"		"100"
 			"blast_att_multiplier"	"0.5"
