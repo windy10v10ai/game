@@ -352,33 +352,6 @@
 			}
 		}
 	}
-	"item_stormcrafter"
-	{
-		"AbilityCooldown"				"20.0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"			"900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"			"350"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"interval"			"2.5"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"			"6"
-			}
-		}
-	}
 	"item_titan_sliver"
 	{
 		"AbilitySpecial"
@@ -544,53 +517,6 @@
 			}
 		}
 	}
-	"item_fallen_sky"
-	{
-		"AbilityCooldown"				"15.0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"25.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"12.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"burn_dps_buildings"		"80"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"burn_dps_units"		"130"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"impact_radius"		"375"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blink_damage_cooldown"	"2.5"
-			}
-		}
-	}
 	"item_book_of_shadows"
 	{
 		"AbilitySpecial"
@@ -653,13 +579,10 @@
 	}
 	"item_apex"
 	{
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"primary_stat"			"100"
-			}
+			"primary_stat"			 	"100"
+			"primary_stat_universal"	"30"
 		}
 	}
 	"item_desolator_2"
@@ -762,19 +685,6 @@
 	{
 		"AbilityCastRange"				"700"
 		"AbilityManaCost"				"50"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fade_delay"				"0.4"	// 0.5
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_magical_armor"	"60"		// 50
-			}
-		}
 	}
 	// 跳刀卷轴
 	"item_recipe_overwhelming_blink"
@@ -867,10 +777,13 @@
 	//=================================================================================================================
 	"item_tome_of_knowledge"
 	{
+		"ItemPurchasable"				"1"
 		"ItemStockMax"					"5"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"300.0"
 		"ItemInitialStockTime"			"360.0"
+		"IsObsolete"					"0"
+
 		"AbilitySpecial"
 		{
 			"01"

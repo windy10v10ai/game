@@ -2779,6 +2779,7 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"ShouldBeSuggested"				"1"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -3406,7 +3407,7 @@
 		"ItemResult"						"item_blue_fantasy"
 		"ItemRequirements"
 		{
-			"01"							"item_nullifier;item_diffusal_blade;item_diffusal_blade"
+			"01"							"item_nullifier;item_disperser"
 		}
 	}
 
@@ -4377,7 +4378,7 @@
 		"ID"							"3065"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityCooldown"				"22"
+		"AbilityCooldown"				"16"
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"200"
@@ -4391,40 +4392,14 @@
 		"BaseClass"						"item_veil_of_discord"
 		"AbilityTextureName"			"item_veil_of_discord_2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"aura_mana_regen"		"3.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"1500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_amp"			"30"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"debuff_radius"			"800"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"resist_debuff_duration"	"20.0"
-			}
+			"bonus_all_stats"		"30"
+			"aura_mana_regen"		"3.5"
+			"aura_radius"			"1200"
+			"spell_amp"			"30"
+			"debuff_radius"			"600"
+			"resist_debuff_duration"	"16.0"
 		}
 	}
 
@@ -4879,6 +4854,7 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"ShouldBeSuggested"				"1"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -4952,7 +4928,7 @@
 		"AbilityValues"
 		{
 				"bonus_strength"		"50"
-				"bonus_damage"			"90"
+				"bonus_damage"			"50"
 				"lifesteal_percent"		"50"
 				"creep_lifesteal_reduction_pct"	"80"
 				"unholy_lifesteal_percent"	"250"
