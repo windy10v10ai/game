@@ -1157,111 +1157,46 @@
 	"item_dagon"
 	{
 		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"		"20 25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 750 900 1050 1200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_cost_tooltip"		"160 240 320 400 480"
-			}
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"160 240 320 400 480"
 		}
 	}
 	"item_dagon_2"
 	{
 		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"		"20 25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 750 900 1050 1200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_cost_tooltip"		"160 240 320 400 480"
-			}
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"160 240 320 400 480"
 		}
 	}
 	"item_dagon_3"
 	{
 		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"		"20 25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 750 900 1050 1200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_cost_tooltip"		"160 240 320 400 480"
-			}
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"160 240 320 400 480"
 		}
 	}
 	"item_dagon_4"
 	{
 		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"		"20 25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 750 900 1050 1200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_cost_tooltip"		"160 240 320 400 480"
-			}
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"160 240 320 400 480"
 		}
 	}
 	"item_dagon_5"
 	{
 		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"		"20 25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 750 900 1050 1200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_cost_tooltip"		"160 240 320 400 480"
-			}
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"160 240 320 400 480"
 		}
 	}
 
