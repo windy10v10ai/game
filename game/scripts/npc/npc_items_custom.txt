@@ -862,7 +862,7 @@
 		"ItemResult"					"item_sphere_2"
 		"ItemRequirements"
 		{
-			"01"						"item_sphere;item_pers"
+			"01"						"item_sphere;item_cornucopia"
 		}
 	}
 
@@ -5016,7 +5016,7 @@
 		"ItemResult"					"item_bfury_2"
 		"ItemRequirements"
 		{
-			"01"						"item_bfury;item_relic;item_pers;item_quelling_blade_2_datadriven"
+			"01"						"item_bfury;item_relic;item_cornucopia;item_quelling_blade_2_datadriven"
 		}
 	}
 	//=================================================================================================================
