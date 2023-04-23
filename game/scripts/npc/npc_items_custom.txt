@@ -3413,6 +3413,9 @@
 			"cast_range_enemy"		"800"
 			"max_attacks"			"12"
 			"bonus_attack_speed"	"200"
+			"push_time"				"0.5"
+			"dizzy_duration"		"0"
+			"dizzy_distance_pct"	"0"
 		}
 	}
 
