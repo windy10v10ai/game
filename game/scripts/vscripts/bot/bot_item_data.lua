@@ -546,7 +546,6 @@ tBotItemData.purchaseItemList = {
 		'item_hurricane_pike',
 		'item_recipe_hurricane_pike_2',
 		'item_butterfly',
-		'item_manta_1',
 		'item_recipe_ultimate_scepter_2',
 		'item_lesser_crit',
 		'item_infernal_desolator',
