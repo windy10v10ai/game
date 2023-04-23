@@ -17,8 +17,6 @@
 
 	"neutral_upgrade"
 	{
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"max_level"				"60"	// 30
@@ -37,8 +35,6 @@
 	//=================================================================================================================
 	"roshan_slam"
 	{
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
@@ -90,15 +86,11 @@
 	//=================================================================================================================
 	"creep_siege"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"912"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"1"
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 				"bonus_building_damage"		"150"			// -150
@@ -112,14 +104,10 @@
 	//=================================================================================================================
 	"backdoor_protection"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5350"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
@@ -146,14 +134,10 @@
 	//=================================================================================================================
 	"backdoor_protection_in_base"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5351"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
@@ -175,8 +159,46 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
-
-
+	//=================================================================================================================
+	// 疗伤莲花
+	//=================================================================================================================
+	"item_famango"
+	{
+		"AbilityValues"
+		{
+				"replenish_amount"		"250"
+		}
+	}
+	"item_great_famango"
+	{
+		"AbilityValues"
+		{
+				"replenish_amount"		"500"
+		}
+	}
+	"item_greater_famango"
+	{
+		"AbilityValues"
+		{
+				"replenish_amount"		"1000"
+		}
+	}
+	"item_recipe_great_famango"
+	{
+		"ItemRequirements"
+		{
+			"01"						"item_famango;item_famango"
+		}
+	}
+	"item_royale_with_cheese"
+	{
+		"AbilityValues"
+		{
+				"shield"			"2500"
+				"regen"				"200"
+				"idle"				"5"
+		}
+	}
 	//=================================================================================================================
 	// Custom item Override 中立物品
 	//=================================================================================================================
@@ -327,33 +349,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"slow_range"			"20"
-			}
-		}
-	}
-	"item_stormcrafter"
-	{
-		"AbilityCooldown"				"20.0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"			"900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"			"350"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"interval"			"2.5"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"			"6"
 			}
 		}
 	}
@@ -522,57 +517,8 @@
 			}
 		}
 	}
-	"item_fallen_sky"
-	{
-		"AbilityCooldown"				"15.0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"25.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"12.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"burn_dps_buildings"		"80"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"burn_dps_units"		"130"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"impact_radius"		"375"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blink_damage_cooldown"	"2.5"
-			}
-		}
-	}
 	"item_book_of_shadows"
 	{
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
@@ -633,13 +579,10 @@
 	}
 	"item_apex"
 	{
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"primary_stat"			"100"
-			}
+			"primary_stat"			 	"100"
+			"primary_stat_universal"	"30"
 		}
 	}
 	"item_desolator_2"
@@ -677,8 +620,6 @@
 	// the leveller 平世剑
 	"item_the_leveller"
 	{
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 				"bonus_attack_speed"			"50"
@@ -744,19 +685,6 @@
 	{
 		"AbilityCastRange"				"700"
 		"AbilityManaCost"				"50"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fade_delay"				"0.4"	// 0.5
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_magical_armor"	"60"		// 50
-			}
-		}
 	}
 	// 跳刀卷轴
 	"item_recipe_overwhelming_blink"
@@ -813,8 +741,6 @@
 	//=================================================================================================================
 	"item_ward_observer"
 	{
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
 		"ItemStockTime"					"90.0"	// 135.0
 	}
@@ -824,11 +750,7 @@
 	"item_ward_sentry"
 	{
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"40"
 		"ItemStockMax"					"20"
 		"ItemStockInitial"				"3"
@@ -855,10 +777,13 @@
 	//=================================================================================================================
 	"item_tome_of_knowledge"
 	{
+		"ItemPurchasable"				"1"
 		"ItemStockMax"					"5"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"300.0"
 		"ItemInitialStockTime"			"360.0"
+		"IsObsolete"					"0"
+
 		"AbilitySpecial"
 		{
 			"01"
@@ -878,20 +803,14 @@
 	//=================================================================================================================
 	"item_magic_stick"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"34"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Model"							"models/props_gameplay/magic_wand.vmdl"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"10.0"
 		"AbilitySharedCooldown"			"magicwand"
 		"AbilityCastRange"				"1800"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
@@ -916,21 +835,15 @@
 	//=================================================================================================================
 	"item_magic_wand"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"36"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Model"							"models/props_gameplay/magic_wand.vmdl"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"10.0"
 		"AbilitySharedCooldown"			"magicwand"
 		"AbilityCastRange"				"1800"
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
@@ -960,37 +873,31 @@
 	//=================================================================================================================
 	"item_recipe_holy_locket"
 	{
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"675"
+		"ItemCost"						"525"
 
 		"ItemRequirements"
 		{
-			"01"						"item_headdress;item_fluffy_hat;item_magic_wand"
+			"01"						"item_diadem;item_headdress;item_magic_wand"
 		}
 	}
 	"item_holy_locket"
 	{
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.0"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"10.0"
 		"AbilitySharedCooldown"			"magicwand"
 
 		"AbilityValues"
 		{
-				"bonus_health"			"350"	// 250
-				"bonus_mana"			"350"	// 300
+				"bonus_health"			"0"
+				"bonus_mana"			"0"
 				"aura_health_regen"	"6"			// 3
 				"aura_radius"	"1200"			// 1200
 				"heal_increase"		"30"		// 30
 				"max_charges"			"30"	// 20
 				"charge_radius"			"1200"	// 1200
-				"bonus_all_stats"		"8"		// 3
+				"bonus_all_stats"		"15"	// 10
 				"restore_per_charge"	"30"	// 15
 				"charge_gain_timer"		"5"		// 10
 		}
@@ -1001,17 +908,11 @@
 	//=================================================================================================================
 	"item_recipe_bracer"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"72"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"255"
 		"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bracer"
 		"ItemRequirements"
@@ -1025,19 +926,13 @@
 	//=================================================================================================================
 	"item_bracer"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"73"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
 		"ItemLevelByGameTime"			"10"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"550"
 		"ItemShopTags"					"damage;int;agi;str"
 		"ItemQuality"					"common"
@@ -1062,17 +957,11 @@
 	//=================================================================================================================
 	"item_recipe_wraith_band"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"74"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"255"
 		"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_wraith_band"
 		"ItemRequirements"
@@ -1086,19 +975,13 @@
 	//=================================================================================================================
 	"item_wraith_band"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"75"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
 		"ItemLevelByGameTime"			"10"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"550"
 		"ItemShopTags"					"damage;int;agi;str"
 		"ItemQuality"					"common"
@@ -1106,8 +989,6 @@
 		"ShouldBeInitiallySuggested"	"1"
 		"ShouldBeSuggested"				"1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"bonus_agility"			"9 18"
@@ -1124,17 +1005,11 @@
 	//=================================================================================================================
 	"item_recipe_null_talisman"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"76"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"255"
 		"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_null_talisman"
 		"ItemRequirements"
@@ -1148,19 +1023,13 @@
 	//=================================================================================================================
 	"item_null_talisman"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"77"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
 		"ItemLevelByGameTime"			"10"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"550"
 		"ItemShopTags"					"damage;int;agi;str"
 		"ItemQuality"					"common"
@@ -1168,8 +1037,6 @@
 		"ShouldBeInitiallySuggested"	"1"
 		"ShouldBeSuggested"				"1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"bonus_intellect"		"9 18"
@@ -1197,129 +1064,52 @@
 	//=================================================================================================================
 	"item_recipe_dagon"
 	{
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"2100"
 		"ItemShopTags"					""
 	}
 	"item_dagon"
 	{
 		"AbilityManaCost"				"160 240 320 400 480"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"		"20 25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 750 900 1050 1200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_cost_tooltip"		"160 240 320 400 480"
-			}
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"160 240 320 400 480"
 		}
 	}
 	"item_dagon_2"
 	{
 		"AbilityManaCost"				"160 240 320 400 480"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"		"20 25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 750 900 1050 1200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_cost_tooltip"		"160 240 320 400 480"
-			}
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"160 240 320 400 480"
 		}
 	}
 	"item_dagon_3"
 	{
 		"AbilityManaCost"				"160 240 320 400 480"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"		"20 25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 750 900 1050 1200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_cost_tooltip"		"160 240 320 400 480"
-			}
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"160 240 320 400 480"
 		}
 	}
 	"item_dagon_4"
 	{
 		"AbilityManaCost"				"160 240 320 400 480"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"		"20 25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 750 900 1050 1200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_cost_tooltip"		"160 240 320 400 480"
-			}
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"160 240 320 400 480"
 		}
 	}
 	"item_dagon_5"
 	{
 		"AbilityManaCost"				"160 240 320 400 480"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"		"20 25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 750 900 1050 1200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_cost_tooltip"		"160 240 320 400 480"
-			}
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"160 240 320 400 480"
 		}
 	}
 
@@ -1335,8 +1125,6 @@
 	}
 	"item_octarine_core"
 	{
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
@@ -4894,21 +4682,34 @@
 	}
 	"skeleton_king_reincarnation"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"120 100 80 60"
 		"AbilitySpecial"
 		{
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"scepter_duration"		"3"
-				"RequiresScepter"			"1"
-			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"shard_skeleton_count"	"0"
 				"RequiresScepter"			"1"
+			}
+		}
+
+		"AbilityValues"
+		{
+			"scepter_duration"
+			{
+				"value"						"0"
+				"special_bonus_scepter"			"+3"
+				"RequiresScepter"			"1"
+			}
+			"scepter_aura_radius"
+			{
+				"value"						"0"
+				"special_bonus_scepter"			"+900"
+				"RequiresScepter"			"1"
+			}
+			"shard_skeleton_count"
+			{
+				"value"							"0"
+				"special_bonus_shard"			"+0"
 			}
 		}
 	}
@@ -6412,8 +6213,6 @@
 	}
 	"clinkz_burning_army"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"7319"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
@@ -6425,22 +6224,14 @@
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Clinkz.DeathPact"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"80"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
@@ -14073,14 +13864,10 @@
 	}
 	"special_bonus_unique_witch_doctor_7"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"555"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
@@ -14228,12 +14015,8 @@
 		"MaxLevel" "7"
 		"AbilityCooldown"				"16 15 14 13 12 11 10"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100 120 140 160 180 200 220"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"damage"
@@ -14249,8 +14032,6 @@
 		"MaxLevel" "5"
 		"AbilityManaCost"				"150 175 200 225 250"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"damage"						"45 90 135 180 225"
@@ -14275,12 +14056,8 @@
 		"MaxLevel" "4"
 		"AbilityCooldown"				"60 55 50 45"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150 250 350 450"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"duration"					"6 7 8 9"

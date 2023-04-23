@@ -470,7 +470,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"56"
+				"bonus_damage"			"40"
 			}
 			"02"
 			{
@@ -490,12 +490,12 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"passive_reflection_constant"			"65"
+				"passive_reflection_constant"			"60"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"passive_reflection_pct"			"30"
+				"passive_reflection_pct"			"25"
 			}
 			"07"
 			{
@@ -862,7 +862,7 @@
 		"ItemResult"					"item_sphere_2"
 		"ItemRequirements"
 		{
-			"01"						"item_sphere;item_pers"
+			"01"						"item_sphere;item_cornucopia"
 		}
 	}
 
@@ -885,30 +885,15 @@
 		"AbilityCooldown"				"8.0"
 		"AbilitySharedCooldown"			"sphere"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_all_stats"		"20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"15"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"10.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
+				"bonus_health_regen"	"12"
+				"bonus_mana_regen"		"9"
 				"block_cooldown"		"8.0"
-			}
+				"upgrade_absorb_duration"		"10.0"
+				"damage_absorb"		"300"
+				"bonus_damage"			"20"
 		}
 	}
 	//=================================================================================================================
@@ -1047,7 +1032,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"100"
+				"bonus_strength"		"90"
 			}
 			"02"
 			{
@@ -1571,7 +1556,7 @@
 			"05"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"magical_resis"      	"30"
+				"magical_resis"      	"25"
 			}
 			"06"
 			{
@@ -2698,7 +2683,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3750"
+		"ItemCost"						"3350"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2707,7 +2692,7 @@
 		"ItemResult"					"item_black_king_bar_2"
 		"ItemRequirements"
 		{
-			"01"						"item_black_king_bar;item_mithril_hammer;item_mithril_hammer"
+			"01"						"item_black_king_bar;item_ogre_axe;item_mithril_hammer"
 		}
 	}
 
@@ -2727,7 +2712,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"80"
+		"AbilityCooldown"				"75"
 		"AbilityManaCost"				"100"
 
 		// Item Info
@@ -2735,35 +2720,14 @@
 		"ItemSellable"					"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"60"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"12.0 11.0 10.0 9.0 8.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_level"				"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"model_scale"			"50"     // Percentage over model scale
-			}
+			"bonus_strength"		"25"
+			"bonus_damage"			"60"
+			"duration"				"12 11 10 9 8"
+			"max_level"				"5"
+			"model_scale"			"50"     // Percentage over model scale
+			"magic_resist"			"75"
 		}
 	}
 
@@ -2815,6 +2779,7 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"ShouldBeSuggested"				"1"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -2973,7 +2938,7 @@
 		"FightRecapLevel"						"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6550"
+		"ItemCost"						"4550"
 		"ItemShopTags"					""
 
 
@@ -3008,15 +2973,15 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20"
-		"AbilityCastRange"				"600"
+		"AbilityCooldown"				"35"
+		"AbilityCastRange"				"300"
 		"AbilityCastPoint"				"0.0"
 
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"225"
-		"ItemCost"						"12800"
+		"ItemCost"						"10800"
 		"ItemShopTags"					"damage;str;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"abyssal blade"
@@ -3025,14 +2990,14 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"			"100"
-			"bonus_strength"		"50"
-			"bonus_health"			"500"
+			"bonus_damage"			"80"
+			"bonus_health"			"400"
 			"bonus_health_regen"	"20"
+			"bonus_strength"		"20"
 			// active
-			"stun_m"				"2.4"
-			"active_damage_base"	"150"
-			"active_damage_multi"	"2"
+			"stun_m"				"2.0"
+			"active_damage_base"	"200"
+			"active_damage_multi"	"1"
 			// Passive
 			"stun"					"1.2"
 			"ch_m"					"30"
@@ -3413,6 +3378,9 @@
 			"cast_range_enemy"		"800"
 			"max_attacks"			"12"
 			"bonus_attack_speed"	"200"
+			"push_time"				"0.5"
+			"dizzy_duration"		"0"
+			"dizzy_distance_pct"	"0"
 		}
 	}
 
@@ -3439,7 +3407,7 @@
 		"ItemResult"						"item_blue_fantasy"
 		"ItemRequirements"
 		{
-			"01"							"item_nullifier;item_diffusal_blade;item_diffusal_blade"
+			"01"							"item_nullifier;item_disperser"
 		}
 	}
 
@@ -4410,7 +4378,7 @@
 		"ID"							"3065"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityCooldown"				"22"
+		"AbilityCooldown"				"16"
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"200"
@@ -4424,40 +4392,14 @@
 		"BaseClass"						"item_veil_of_discord"
 		"AbilityTextureName"			"item_veil_of_discord_2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"aura_mana_regen"		"3.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"1500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_amp"			"30"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"debuff_radius"			"800"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"resist_debuff_duration"	"20.0"
-			}
+			"bonus_all_stats"		"30"
+			"aura_mana_regen"		"3.5"
+			"aura_radius"			"1200"
+			"spell_amp"			"30"
+			"debuff_radius"			"600"
+			"resist_debuff_duration"	"16.0"
 		}
 	}
 
@@ -4912,6 +4854,7 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"ShouldBeSuggested"				"1"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -4985,7 +4928,7 @@
 		"AbilityValues"
 		{
 				"bonus_strength"		"50"
-				"bonus_damage"			"90"
+				"bonus_damage"			"50"
 				"lifesteal_percent"		"50"
 				"creep_lifesteal_reduction_pct"	"80"
 				"unholy_lifesteal_percent"	"250"
@@ -5016,7 +4959,7 @@
 		"ItemResult"					"item_bfury_2"
 		"ItemRequirements"
 		{
-			"01"						"item_bfury;item_relic;item_pers;item_quelling_blade_2_datadriven"
+			"01"						"item_bfury;item_relic;item_cornucopia;item_quelling_blade_2_datadriven"
 		}
 	}
 	//=================================================================================================================
@@ -5309,7 +5252,7 @@
 			"spell_amp"				"18"
 			"mp_regen_amp"			"75"
 
-			"sheep_duration"		"4.0"
+			"sheep_duration"		"3.5"
 			"sheep_movement_speed"	"120"
 			"blast_damage_base"		"100"
 			"blast_att_multiplier"	"0.5"
@@ -5769,7 +5712,7 @@
         // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"				"0.0"
-        "AbilityCooldown"				"30.0"
+        "AbilityCooldown"				"35.0"
         "AbilityManaCost"				"0"
         "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilitySharedCooldown"			"bloodstone"
