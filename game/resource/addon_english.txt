@@ -1180,10 +1180,10 @@
         // item_black_king_bar_2 黑皇杖2
 		"DOTA_Tooltip_Ability_item_black_king_bar_2"			"Black King Bar Upgrade"
 		"DOTA_Tooltip_Ability_item_recipe_black_king_bar"			"Black King Bar Upgrade Recipe"
-		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>Active: Avatar</h1> Grants Spell Immunity. Duration decreases with each use. <br><br>Duration: %duration% <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>Active: Avatar</h1> Applies a basic dispel. Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect. <br><br>Duration: %duration% <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Lore"							"A powerful staff imbued with the strength of giants."
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Note0"						"Purchasing another Black King Bar will not reset its immunity duration."
-		"DOTA_Tooltip_ability_item_black_king_bar_2_Note1"						"Using Black King Bar may remove some positive buffs."
+		"DOTA_Tooltip_ability_item_black_king_bar_2_Note1"						"Abilities that pierce magic immunity will work fully even when Avatar is activated"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_bonus_damage"					"+$damage"
 

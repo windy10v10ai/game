@@ -1047,7 +1047,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"100"
+				"bonus_strength"		"90"
 			}
 			"02"
 			{
@@ -2698,7 +2698,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3750"
+		"ItemCost"						"3350"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2707,7 +2707,7 @@
 		"ItemResult"					"item_black_king_bar_2"
 		"ItemRequirements"
 		{
-			"01"						"item_black_king_bar;item_mithril_hammer;item_mithril_hammer"
+			"01"						"item_black_king_bar;item_ogre_axe;item_mithril_hammer"
 		}
 	}
 
@@ -2727,7 +2727,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"80"
+		"AbilityCooldown"				"75"
 		"AbilityManaCost"				"100"
 
 		// Item Info
@@ -2735,35 +2735,14 @@
 		"ItemSellable"					"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"60"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"12.0 11.0 10.0 9.0 8.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_level"				"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"model_scale"			"50"     // Percentage over model scale
-			}
+			"bonus_strength"		"25"
+			"bonus_damage"			"60"
+			"duration"				"12 11 10 9 8"
+			"max_level"				"5"
+			"model_scale"			"50"     // Percentage over model scale
+			"magic_resist"			"75"
 		}
 	}
 
@@ -2973,7 +2952,7 @@
 		"FightRecapLevel"						"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3550"
+		"ItemCost"						"4550"
 		"ItemShopTags"					""
 
 
