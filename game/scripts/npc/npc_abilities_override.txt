@@ -166,7 +166,21 @@
 	{
 		"AbilityValues"
 		{
-				"replenish_amount"		"200"
+				"replenish_amount"		"250"
+		}
+	}
+	"item_great_famango"
+	{
+		"AbilityValues"
+		{
+				"replenish_amount"		"500"
+		}
+	}
+	"item_greater_famango"
+	{
+		"AbilityValues"
+		{
+				"replenish_amount"		"1000"
 		}
 	}
 	"item_recipe_great_famango"
@@ -181,7 +195,7 @@
 		"AbilityValues"
 		{
 				"shield"			"2500"
-				"regen"				"100"
+				"regen"				"200"
 				"idle"				"5"
 		}
 	}
