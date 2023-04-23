@@ -4769,21 +4769,34 @@
 	}
 	"skeleton_king_reincarnation"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"120 100 80 60"
 		"AbilitySpecial"
 		{
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"scepter_duration"		"3"
-				"RequiresScepter"			"1"
-			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"shard_skeleton_count"	"0"
 				"RequiresScepter"			"1"
+			}
+		}
+
+		"AbilityValues"
+		{
+			"scepter_duration"
+			{
+				"value"						"0"
+				"special_bonus_scepter"			"+3"
+				"RequiresScepter"			"1"
+			}
+			"scepter_aura_radius"
+			{
+				"value"						"0"
+				"special_bonus_scepter"			"+900"
+				"RequiresScepter"			"1"
+			}
+			"shard_skeleton_count"
+			{
+				"value"							"0"
+				"special_bonus_shard"			"+0"
 			}
 		}
 	}

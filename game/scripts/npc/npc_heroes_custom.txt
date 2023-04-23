@@ -2355,10 +2355,9 @@
 				"28"		"special_bonus_unique_wraith_king_11"
 				"29"		"special_bonus_cleave_25"
 				"30"		"special_bonus_unique_wraith_king_10"
-				"31"		"skeleton_king_reincarnation"
+				"31"		"skeleton_king_vampiric_aura"
 				"32"		"skeleton_king_vampiric_aura"
 				"33"		"skeleton_king_vampiric_aura"
-				"34"		"skeleton_king_vampiric_aura"
 			}
 		}
 	}
