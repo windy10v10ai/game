@@ -2973,7 +2973,7 @@
 		"FightRecapLevel"						"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6550"
+		"ItemCost"						"3550"
 		"ItemShopTags"					""
 
 
@@ -3008,8 +3008,8 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20"
-		"AbilityCastRange"				"600"
+		"AbilityCooldown"				"35"
+		"AbilityCastRange"				"300"
 		"AbilityCastPoint"				"0.0"
 
 
@@ -3030,9 +3030,9 @@
 			"bonus_health"			"500"
 			"bonus_health_regen"	"20"
 			// active
-			"stun_m"				"2.4"
-			"active_damage_base"	"150"
-			"active_damage_multi"	"2"
+			"stun_m"				"2.0"
+			"active_damage_base"	"200"
+			"active_damage_multi"	"1"
 			// Passive
 			"stun"					"1.2"
 			"ch_m"					"30"
