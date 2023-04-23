@@ -1685,12 +1685,12 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"9058"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"						"item_recipe_octarine_core"
+		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_recipe_arcane_octarine_core"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2275"
+		"ItemCost"						"2200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1699,25 +1699,26 @@
 		"ItemResult"					"item_arcane_octarine_core"
 		"ItemRequirements"
 		{
-			"01"						"item_octarine_core"
+			"01"						"item_octarine_core;item_aether_lens_2"
 		}
 	}
 
 	//=================================================================================================================
-	// Octarine Core 大玲珑心（奥术之心）
+	// Octarine Core 奥术之心（大玲珑心）
 	//=================================================================================================================
 	"item_arcane_octarine_core"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"9059"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"						"item_octarine_core"
-		"AbilityTextureName" 			"arcane_octarine_core"
+        "BaseClass"						"item_lua"
+        "ScriptFile"                    "items/item_arcane_octarine_core"
+		"AbilityTextureName" 			"item_arcane_octarine_core"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"13000"
+		"ItemCost"						"10000"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mana;mb;octarine core"
@@ -1725,35 +1726,14 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ShouldBeSuggested"				"1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_cooldown"		"25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_bonus"		"300"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"1000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"1400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"8.0"
-			}
+			"bonus_cooldown"		"25"
+			"cast_range_bonus"		"275"
+			"bonus_health"			"800"
+			"bonus_mana"			"1000"
+			"bonus_health_regen"	"8.0"
+			"bonus_mana_regen"		"8.0"
 		}
 	}
 	//=================================================================================================================
@@ -5809,7 +5789,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"18200"
+        "ItemCost"						"19600"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mana;mb;refresh core"
@@ -5826,8 +5806,8 @@
 			"cast_range_bonus"		"300"
 			"bonus_health"			"1200"
 			"bonus_mana"			"1600"
-			"bonus_health_regen"	"15.0"
-			"bonus_mana_regen"		"15.0"
+			"bonus_health_regen"	"20.0"
+			"bonus_mana_regen"		"20.0"
 		}
     }
 }

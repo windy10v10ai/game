@@ -115,7 +115,8 @@ end
 
 function modifier_item_refresh_core:GetModifierPercentageCooldown()
 	if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
-		if self:GetParent():HasModifier("modifier_item_octarine_core") then
+		if self:GetParent():HasModifier("modifier_item_octarine_core")
+			or self:GetParent():HasModifier("modifier_item_arcane_octarine_core") then
 			return self.bonus_cooldown_stack
 		else
 			return self.bonus_cooldown
