@@ -1328,10 +1328,10 @@
 		// item_black_king_bar_2 黑皇杖2
 		"DOTA_Tooltip_Ability_item_black_king_bar_2"			"天神杖"
 		"DOTA_Tooltip_Ability_item_recipe_black_king_bar_2"			"图纸（天神杖）"
-		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>主动：天神下凡</h1>获得技能免疫状态。持续时间每使用一次都会降低。<br><br>持续时间：%duration%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>主动：天神下凡</h1>获得减益免疫状态。提供%magic_resist%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。<br><br>持续时间：%duration%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Lore"							"山丘之王的锤子年久失修，锤头掉了只剩一个锤柄，凑合能用。"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Note0"						"再次购买黑皇杖也不会重置天神下凡的持续时间。"
-		"DOTA_Tooltip_ability_item_black_king_bar_2_Note1"						"使用黑皇杖将使部分有益状态消失。"
+		"DOTA_Tooltip_ability_item_black_king_bar_2_Note1"						"即使天神下凡正在生效，无视减益免疫的技能也能产生全部的作用。"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_bonus_damage"					"+$damage"
 
