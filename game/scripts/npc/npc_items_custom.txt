@@ -470,7 +470,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"56"
+				"bonus_damage"			"40"
 			}
 			"02"
 			{
@@ -490,12 +490,12 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"passive_reflection_constant"			"65"
+				"passive_reflection_constant"			"60"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"passive_reflection_pct"			"30"
+				"passive_reflection_pct"			"25"
 			}
 			"07"
 			{
@@ -885,30 +885,15 @@
 		"AbilityCooldown"				"8.0"
 		"AbilitySharedCooldown"			"sphere"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_all_stats"		"20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"15"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"10.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
+				"bonus_health_regen"	"12"
+				"bonus_mana_regen"		"9"
 				"block_cooldown"		"8.0"
-			}
+				"upgrade_absorb_duration"		"10.0"
+				"damage_absorb"		"300"
+				"bonus_damage"			"20"
 		}
 	}
 	//=================================================================================================================
@@ -2995,7 +2980,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"225"
-		"ItemCost"						"12800"
+		"ItemCost"						"10800"
 		"ItemShopTags"					"damage;str;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"abyssal blade"
@@ -3004,10 +2989,10 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"			"100"
-			"bonus_strength"		"50"
-			"bonus_health"			"500"
+			"bonus_damage"			"80"
+			"bonus_health"			"400"
 			"bonus_health_regen"	"20"
+			"bonus_strength"		"20"
 			// active
 			"stun_m"				"2.0"
 			"active_damage_base"	"200"
@@ -5751,7 +5736,7 @@
         // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"				"0.0"
-        "AbilityCooldown"				"30.0"
+        "AbilityCooldown"				"35.0"
         "AbilityManaCost"				"0"
         "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilitySharedCooldown"			"bloodstone"
