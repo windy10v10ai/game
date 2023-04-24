@@ -883,26 +883,26 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     end
 
     if mostDamageReceivedPlayerID_1 ~= -1 then
-        data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + pointT1
+        data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + pointT2
     end
     if mostDamageReceivedPlayerID_2 ~= -1 then
-        data.players[mostDamageReceivedPlayerID_2].points = data.players[mostDamageReceivedPlayerID_2].points + pointT2
+        data.players[mostDamageReceivedPlayerID_2].points = data.players[mostDamageReceivedPlayerID_2].points + pointT3
     end
     if mostDamageReceivedPlayerID_3 ~= -1 then
-        data.players[mostDamageReceivedPlayerID_3].points = data.players[mostDamageReceivedPlayerID_3].points + pointT3
+        data.players[mostDamageReceivedPlayerID_3].points = data.players[mostDamageReceivedPlayerID_3].points + pointT4
     end
 
     if mostHealingPlayerID_1 ~= -1 then
-        data.players[mostHealingPlayerID_1].points = data.players[mostHealingPlayerID_1].points + pointT1
+        data.players[mostHealingPlayerID_1].points = data.players[mostHealingPlayerID_1].points + pointT2
     end
     if mostHealingPlayerID_2 ~= -1 then
-        data.players[mostHealingPlayerID_2].points = data.players[mostHealingPlayerID_2].points + pointT2
+        data.players[mostHealingPlayerID_2].points = data.players[mostHealingPlayerID_2].points + pointT3
     end
     if mostTowerKillPlayerID_1 ~= -1 then
-        data.players[mostTowerKillPlayerID_1].points = data.players[mostTowerKillPlayerID_1].points + pointT1
+        data.players[mostTowerKillPlayerID_1].points = data.players[mostTowerKillPlayerID_1].points + pointT2
     end
     if mostTowerKillPlayerID_2 ~= -1 then
-        data.players[mostTowerKillPlayerID_2].points = data.players[mostTowerKillPlayerID_2].points + pointT2
+        data.players[mostTowerKillPlayerID_2].points = data.players[mostTowerKillPlayerID_2].points + pointT3
     end
     -- filter points
     for _, playerInfo in pairs(data.players) do
