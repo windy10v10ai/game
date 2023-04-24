@@ -650,29 +650,10 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
 
     local playerNumber = 0
     -- 参战率积分
-    local battleParticipationBase = 20
+    local battleParticipationBase = 17
 
-    local mostdamagePlayerID_1 = -1
-    local mostdamage_1 = 0
-    local mostdamagePlayerID_2 = -1
-    local mostdamage_2 = 0
-    local mostdamagePlayerID_3 = -1
-    local mostdamage_3 = 0
-    local mostdamagePlayerID_4 = -1
-    local mostdamage_4 = 0
-    local mostdamagePlayerID_5 = -1
-    local mostdamage_5 = 0
-
-    local mostAssistsPlayerID_1 = -1
-    local mostAssists_1 = 0
-    local mostAssistsPlayerID_2 = -1
-    local mostAssists_2 = 0
-    local mostAssistsPlayerID_3 = -1
-    local mostAssists_3 = 0
-    local mostAssistsPlayerID_4 = -1
-    local mostAssists_4 = 0
-    local mostAssistsPlayerID_5 = -1
-    local mostAssists_5 = 0
+    local mostDamagePlayerIdAndDamageList = {}
+    local mostAssistsPlayerIdAndDamageList = {}
 
     local mostDamageReceivedPlayerID_1 = -1
     local mostDamageReceived_1 = 0
@@ -747,6 +728,9 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     playerInfo.items[DOTA_ITEM_NEUTRAL_SLOT] = hNeutralItem:GetAbilityName()
                 end
 
+                -- 测试用
+                -- if PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
+
                 if not PlayerResource:IsFakeClient(playerID) then
                     playerNumber = playerNumber + 1
 
@@ -764,79 +748,11 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                         playerInfo.points = playerInfo.points + battleParticipation
                     end
 
-                    if damage > mostdamage_1 then
-                        mostdamagePlayerID_5 = mostdamagePlayerID_4
-                        mostdamage_5 = mostdamage_4
-                        mostdamagePlayerID_4 = mostdamagePlayerID_3
-                        mostdamage_4 = mostdamage_3
-                        mostdamagePlayerID_3 = mostdamagePlayerID_2
-                        mostdamage_3 = mostdamage_2
-                        mostdamagePlayerID_2 = mostdamagePlayerID_1
-                        mostdamage_2 = mostdamage_1
-                        mostdamagePlayerID_1 = playerID
-                        mostdamage_1 = damage
-                    elseif damage > mostdamage_2 then
-                        mostdamagePlayerID_5 = mostdamagePlayerID_4
-                        mostdamage_5 = mostdamage_4
-                        mostdamagePlayerID_4 = mostdamagePlayerID_3
-                        mostdamage_4 = mostdamage_3
-                        mostdamagePlayerID_3 = mostdamagePlayerID_2
-                        mostdamage_3 = mostdamage_2
-                        mostdamagePlayerID_2 = playerID
-                        mostdamage_2 = damage
-                    elseif damage > mostdamage_3 then
-                        mostdamagePlayerID_5 = mostdamagePlayerID_4
-                        mostdamage_5 = mostdamage_4
-                        mostdamagePlayerID_4 = mostdamagePlayerID_3
-                        mostdamage_4 = mostdamage_3
-                        mostdamagePlayerID_3 = playerID
-                        mostdamage_3 = damage
-                    elseif damage > mostdamage_4 then
-                        mostdamagePlayerID_5 = mostdamagePlayerID_4
-                        mostdamage_5 = mostdamage_4
-                        mostdamagePlayerID_4 = playerID
-                        mostdamage_4 = damage
-                    elseif damage > mostdamage_5 then
-                        mostdamagePlayerID_5 = playerID
-                        mostdamage_5 = damage
+                    if damage > 0 then
+                        table.insert(mostDamagePlayerIdAndDamageList, {playerID = playerID, damage = damage})
                     end
-
-                    -- 助攻
-                    if assists > mostAssists_1 then
-                        mostAssistsPlayerID_5 = mostAssistsPlayerID_4
-                        mostAssists_5 = mostAssists_4
-                        mostAssistsPlayerID_4 = mostAssistsPlayerID_3
-                        mostAssists_4 = mostAssists_3
-                        mostAssistsPlayerID_3 = mostAssistsPlayerID_2
-                        mostAssists_3 = mostAssists_2
-                        mostAssistsPlayerID_2 = mostAssistsPlayerID_1
-                        mostAssists_2 = mostAssists_1
-                        mostAssistsPlayerID_1 = playerID
-                        mostAssists_1 = assists
-                    elseif assists > mostAssists_2 then
-                        mostAssistsPlayerID_5 = mostAssistsPlayerID_4
-                        mostAssists_5 = mostAssists_4
-                        mostAssistsPlayerID_4 = mostAssistsPlayerID_3
-                        mostAssists_4 = mostAssists_3
-                        mostAssistsPlayerID_3 = mostAssistsPlayerID_2
-                        mostAssists_3 = mostAssists_2
-                        mostAssistsPlayerID_2 = playerID
-                        mostAssists_2 = assists
-                    elseif assists > mostAssists_3 then
-                        mostAssistsPlayerID_5 = mostAssistsPlayerID_4
-                        mostAssists_5 = mostAssists_4
-                        mostAssistsPlayerID_4 = mostAssistsPlayerID_3
-                        mostAssists_4 = mostAssists_3
-                        mostAssistsPlayerID_3 = playerID
-                        mostAssists_3 = assists
-                    elseif assists > mostAssists_4 then
-                        mostAssistsPlayerID_5 = mostAssistsPlayerID_4
-                        mostAssists_5 = mostAssists_4
-                        mostAssistsPlayerID_4 = playerID
-                        mostAssists_4 = assists
-                    elseif assists > mostAssists_5 then
-                        mostAssistsPlayerID_5 = playerID
-                        mostAssists_5 = assists
+                    if assists > 0 then
+                        table.insert(mostAssistsPlayerIdAndDamageList, {playerID = playerID, assists = assists})
                     end
 
                     if damagereceived > mostDamageReceived_1 then
@@ -884,42 +800,86 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     end
 
     AIGameMode.playerNumber = playerNumber
-    local pointT1 = playerNumber * 1.2
+    local pointT1 = playerNumber * 1.0
     local pointT2 = playerNumber * 0.8
     local pointT3 = playerNumber * 0.6
-    local pointT4 = playerNumber * 0.4
-    local pointT5 = playerNumber * 0.2
+    local pointT4 = playerNumber * 0.5
+    local pointT5 = playerNumber * 0.4
+    local pointT6 = playerNumber * 0.3
+    local pointT7 = playerNumber * 0.2
+    local pointT8 = playerNumber * 0.1
 
-    if mostdamagePlayerID_1 ~= -1 then
-        data.players[mostdamagePlayerID_1].points = data.players[mostdamagePlayerID_1].points + pointT1
+    table.sort(mostDamagePlayerIdAndDamageList, function(a, b)
+        return a.damage > b.damage
+    end)
+
+    local damage1 = mostDamagePlayerIdAndDamageList[1]
+    if damage1 then
+        data.players[damage1.playerID].points = data.players[damage1.playerID].points + pointT1
     end
-    if mostdamagePlayerID_2 ~= -1 then
-        data.players[mostdamagePlayerID_2].points = data.players[mostdamagePlayerID_2].points + pointT2
+    local damage2 = mostDamagePlayerIdAndDamageList[2]
+    if damage2 then
+        data.players[damage2.playerID].points = data.players[damage2.playerID].points + pointT2
     end
-    if mostdamagePlayerID_3 ~= -1 then
-        data.players[mostdamagePlayerID_3].points = data.players[mostdamagePlayerID_3].points + pointT3
+    local damage3 = mostDamagePlayerIdAndDamageList[3]
+    if damage3 then
+        data.players[damage3.playerID].points = data.players[damage3.playerID].points + pointT3
     end
-    if mostdamagePlayerID_4 ~= -1 then
-        data.players[mostdamagePlayerID_4].points = data.players[mostdamagePlayerID_4].points + pointT4
+    local damage4 = mostDamagePlayerIdAndDamageList[4]
+    if damage4 then
+        data.players[damage4.playerID].points = data.players[damage4.playerID].points + pointT4
     end
-    if mostdamagePlayerID_5 ~= -1 then
-        data.players[mostdamagePlayerID_5].points = data.players[mostdamagePlayerID_5].points + pointT5
+    local damage5 = mostDamagePlayerIdAndDamageList[5]
+    if damage5 then
+        data.players[damage5.playerID].points = data.players[damage5.playerID].points + pointT5
+    end
+    local damage6 = mostDamagePlayerIdAndDamageList[6]
+    if damage6 then
+        data.players[damage6.playerID].points = data.players[damage6.playerID].points + pointT6
+    end
+    local damage7 = mostDamagePlayerIdAndDamageList[7]
+    if damage7 then
+        data.players[damage7.playerID].points = data.players[damage7.playerID].points + pointT7
+    end
+    local damage8 = mostDamagePlayerIdAndDamageList[8]
+    if damage8 then
+        data.players[damage8.playerID].points = data.players[damage8.playerID].points + pointT8
     end
 
-    if mostAssistsPlayerID_1 ~= -1 then
-        data.players[mostAssistsPlayerID_1].points = data.players[mostAssistsPlayerID_1].points + pointT1
+    table.sort(mostAssistsPlayerIdAndDamageList, function(a, b)
+        return a.assists > b.assists
+    end)
+    local assists1 = mostAssistsPlayerIdAndDamageList[1]
+    if assists1 then
+        data.players[assists1.playerID].points = data.players[assists1.playerID].points + pointT1
     end
-    if mostAssistsPlayerID_2 ~= -1 then
-        data.players[mostAssistsPlayerID_2].points = data.players[mostAssistsPlayerID_2].points + pointT2
+    local assists2 = mostAssistsPlayerIdAndDamageList[2]
+    if assists2 then
+        data.players[assists2.playerID].points = data.players[assists2.playerID].points + pointT2
     end
-    if mostAssistsPlayerID_3 ~= -1 then
-        data.players[mostAssistsPlayerID_3].points = data.players[mostAssistsPlayerID_3].points + pointT3
+    local assists3 = mostAssistsPlayerIdAndDamageList[3]
+    if assists3 then
+        data.players[assists3.playerID].points = data.players[assists3.playerID].points + pointT3
     end
-    if mostAssistsPlayerID_4 ~= -1 then
-        data.players[mostAssistsPlayerID_4].points = data.players[mostAssistsPlayerID_4].points + pointT4
+    local assists4 = mostAssistsPlayerIdAndDamageList[4]
+    if assists4 then
+        data.players[assists4.playerID].points = data.players[assists4.playerID].points + pointT4
     end
-    if mostAssistsPlayerID_5 ~= -1 then
-        data.players[mostAssistsPlayerID_5].points = data.players[mostAssistsPlayerID_5].points + pointT5
+    local assists5 = mostAssistsPlayerIdAndDamageList[5]
+    if assists5 then
+        data.players[assists5.playerID].points = data.players[assists5.playerID].points + pointT5
+    end
+    local assists6 = mostAssistsPlayerIdAndDamageList[6]
+    if assists6 then
+        data.players[assists6.playerID].points = data.players[assists6.playerID].points + pointT6
+    end
+    local assists7 = mostAssistsPlayerIdAndDamageList[7]
+    if assists7 then
+        data.players[assists7.playerID].points = data.players[assists7.playerID].points + pointT7
+    end
+    local assists8 = mostAssistsPlayerIdAndDamageList[8]
+    if assists8 then
+        data.players[assists8.playerID].points = data.players[assists8.playerID].points + pointT8
     end
 
     if mostDamageReceivedPlayerID_1 ~= -1 then
@@ -945,7 +905,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
         data.players[mostTowerKillPlayerID_2].points = data.players[mostTowerKillPlayerID_2].points + pointT2
     end
     -- filter points
-    for playerID, playerInfo in pairs(data.players) do
+    for _, playerInfo in pairs(data.players) do
         playerInfo.points = AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
     end
 
