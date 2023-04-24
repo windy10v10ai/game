@@ -12,9 +12,6 @@ function TsPrintTable(_, t, indent, done)
 end
 
 function Printf(pattern, ...)
-	if not AIGameMode.DebugMode then
-		return
-	end
 	local str = string.format(pattern, ...)
 	GameRules:SendCustomMessage(str, DOTA_TEAM_GOODGUYS, 0)
 end
@@ -159,10 +156,7 @@ function SpellLifeSteal(keys, hAbility, ilifeSteal)
 		if keys.unit:IsCreep() then
 			dmg = dmg / 5
 		end
-		-- local preHealth = hParent:GetHealth()
 		hParent:HealWithParams(dmg,hAbility:GetAbility(),false,true,hParent,true)
-		-- local curHealth = hParent:GetHealth()
-		-- Printf("法术吸血点数:%.2f",(curHealth-preHealth))
 		local pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, hParent)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end
@@ -202,7 +196,6 @@ function GetBuyBackCost(playerId)
 	local level = hHero:GetLevel()
 	local cost = math.floor(200 + iNetWorth / 20)
 	cost = math.min(cost, 50000)
-	-- Printf("计算买活金钱: %d, 玩家id: %d", cost, hHero:GetPlayerID())
 	return cost
 end
 
