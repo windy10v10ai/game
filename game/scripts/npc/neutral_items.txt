@@ -101,7 +101,7 @@
 			// "item_black_powder_bag"			"1"
 			"item_vindicators_axe"			"1"
 			"item_dandelion_amulet"			"1"
-			"item_quicksilver_amulet"		"1"
+			// "item_quicksilver_amulet"		"1" // 银闪护符
 			"item_essence_ring"				"1" // 精华指环
 			"item_spider_legs"				"1" // 网虫腿
 			"item_horizon"					"1" // 视界

@@ -50,7 +50,7 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_ancient_janggo",			-- 战鼓
 		"item_meteor_hammer",			-- 陨星锤
 
-		"item_quicksilver_amulet",		-- 银闪护符
+		-- "item_quicksilver_amulet",		-- 银闪护符
 		"item_spider_legs",				-- 网虫腿
 		"item_essence_ring",			-- 精华指环
 		-- "item_nether_shawl",			-- 幽冥披风
