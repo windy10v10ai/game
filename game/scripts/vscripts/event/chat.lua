@@ -186,5 +186,17 @@ function AIGameMode:OnPlayerChat(event)
             end
             return
         end
+
+        if sChatMsg:find('^-cg$') then
+            local totalMemory = collectgarbage("count");
+            Printf("内存占用: " .. math.floor(totalMemory) .. " kb")
+            return
+        end
+        if sChatMsg:find('^-cg .+') then
+            local opt = sChatMsg:sub(5)
+            local result = collectgarbage(opt);
+            Printf(result)
+            return
+        end
     end
 end
