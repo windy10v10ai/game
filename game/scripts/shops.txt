@@ -135,7 +135,7 @@
 		"item"		"item_guardian_greaves"
 		"item"		"item_boots_of_bearing"
 		"item"		"item_meteor_hammer"
-		"item"		"item_orb_of_the_brine"
+		// "item"		"item_orb_of_the_brine"
 		"item"		"item_adi_king"
 		"item"		"item_adi_king_plus"
 	}
@@ -157,7 +157,7 @@
 		"item"		"item_gungir_2"
 		"item"		"item_ultimate_scepter_2"
 		"item"		"item_hallowed_scepter"
-		"item"		"item_necronomicon_staff"
+		// "item"		"item_necronomicon_staff"
 	}
 
 	// Level 3 - Purple Recipes
@@ -195,7 +195,7 @@
 		"item"		"item_bloodthorn"
 		"item"		"item_infernal_desolator"
 		"item"		"item_monkey_king_bar_2"
-		"item"		"item_shotgun_v2"
+		// "item"		"item_shotgun_v2"
 		//"item"		"item_abyssal_blade"
 		"item"		"item_silver_edge_2"
 		"item"		"item_abyssal_blade_v2"
@@ -213,7 +213,7 @@
  		"item"		"item_yasha"
  		"item"		"item_kaya"
  		"item"		"item_maelstrom"
-		"item"		"item_dragon_lance_pro_max"
+		// "item"		"item_dragon_lance_pro_max"
 		"item"		"item_echo_sabre_2"
  		// "item"		"item_diffusal_blade"
 		"item"		"item_blue_fantasy"
