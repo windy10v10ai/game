@@ -150,7 +150,7 @@ function AIGameMode:OnPlayerChat(event)
         if sChatMsg:find('^-g$') then
             local hero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
             PlayerResource:ModifyGold(iPlayerID, 99999, true, DOTA_ModifyGold_CheatCommand)
-            hero:AddExperience(49999, DOTA_ModifyXP_Unspecified, false, false)
+            hero:AddExperience(99999, DOTA_ModifyXP_Unspecified, false, false)
             return
         end
 
