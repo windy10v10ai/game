@@ -10,9 +10,7 @@ tBotItemData.purchaseItemList = {
 		'item_magic_wand',
 		'item_boots',
 		'item_bracer',
-		'item_headdress',
-		'item_fluffy_hat',
-		'item_recipe_holy_locket',
+		'item_holy_locket',
 		'item_bracer',
 		'item_vanguard',
 		'item_blade_mail',
@@ -220,9 +218,7 @@ tBotItemData.purchaseItemList = {
 		-- 出门装
 		'item_magic_wand',
 		'item_boots',
-		'item_headdress',
-		'item_fluffy_hat',
-		'item_recipe_holy_locket',
+		'item_holy_locket',
 		'item_arcane_boots',
 		'item_null_talisman',
 		'item_glimmer_cape',
@@ -650,9 +646,7 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_omniknight = {
 		'item_magic_wand',
 		'item_boots',
-		'item_headdress',
-		'item_fluffy_hat',
-		'item_recipe_holy_locket',
+		'item_holy_locket',
 		'item_arcane_boots',
 		'item_vanguard',
 		'item_glimmer_cape',
@@ -674,9 +668,7 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_oracle = {
 		'item_magic_wand',
 		'item_boots',
-		'item_headdress',
-		'item_fluffy_hat',
-		'item_recipe_holy_locket',
+		'item_holy_locket',
 		'item_arcane_boots',
 		'item_glimmer_cape',
 		'item_force_staff',
@@ -1157,7 +1149,6 @@ tBotItemData.sellItemList = {
 		'item_vanguard',
 		'item_overwhelming_blink',
 		'item_echo_sabre_2',
-		'item_holy_locket',
 		-- local
 	},
 	npc_dota_hero_axe = {
@@ -1207,7 +1198,6 @@ tBotItemData.sellItemList = {
 		'item_force_staff',
 	},
 	npc_dota_hero_dazzle = {
-		'item_holy_locket',
 		'item_force_staff',
 	},
 	npc_dota_hero_death_prophet = {
@@ -1278,18 +1268,15 @@ tBotItemData.sellItemList = {
 		'item_swift_blink',
 	},
 	npc_dota_hero_necrolyte = {
-		'item_holy_locket',
 	},
 	npc_dota_hero_ogre_magi = {
 		'item_overwhelming_blink',
 	},
 	npc_dota_hero_omniknight = {
 		'item_vanguard',
-		'item_holy_locket',
 		'item_echo_sabre_2',
 	},
 	npc_dota_hero_oracle = {
-		'item_holy_locket',
 		'item_rod_of_atos',
 	},
 	npc_dota_hero_phantom_assassin = {
@@ -1318,14 +1305,12 @@ tBotItemData.sellItemList = {
 		'item_magic_wand',
 		'item_boots',
 		'item_null_talisman',
-		'item_holy_locket',
 		'item_arcane_boots',
 		'item_glimmer_cape',
 		'item_force_staff',
 		'item_arcane_blink',
 	},
 	npc_dota_hero_sand_king = {
-		'item_holy_locket',
 		'item_overwhelming_blink',
 		'item_blade_mail_2',
 	},
@@ -1365,7 +1350,6 @@ tBotItemData.sellItemList = {
 	npc_dota_hero_witch_doctor = {
 		'item_arcane_boots',
 		'item_rod_of_atos',
-		'item_holy_locket',
 	},
 	npc_dota_hero_skeleton_king = {
 		'item_armlet',
@@ -1450,6 +1434,8 @@ tBotItemData.sellItemCommonList = {
 	-- 回音刃
 	'item_echo_sabre_2',
 
+	-- 圣洁吊坠
+	'item_holy_locket',
 	-- 黯灭
 	'item_desolator',
 	-- BKB
