@@ -642,15 +642,15 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     }
 
     local basePoint = 0
-    if time > 3600 then
+    if time > 2400 then
         basePoint = 40
     else
-        basePoint = math.floor(10 + time / 120)
+        basePoint = math.floor(time / 60)
     end
 
     local playerNumber = 0
     -- 参战率积分
-    local battleParticipationBase = 15
+    local battleParticipationBase = 20
 
     local mostdamagePlayerID_1 = -1
     local mostdamage_1 = 0
@@ -967,9 +967,6 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
         points = points * AIGameMode.iDesiredDire / 10
     end
 
-    if GameRules:GetDOTATime(false, true) < 10 * 60 then
-        points = points * 0.5
-    end
     if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
         points = points * 0.5
     end
