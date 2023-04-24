@@ -1329,18 +1329,9 @@
 			"radius"
 			{
 				"value"							"350"
-				"special_bonus_unique_axe_2"	"+120"
+				"special_bonus_unique_axe_2"	"+100"
 			}
-				"bonus_armor"			"25"
-			"duration"				"2.0 2.4 2.8 3.2 3.6"
-			"scepter_cooldown_reduction"
-			{
-				"special_bonus_scepter" "+3.0"
-			}
-			"applies_battle_hunger"
-			{
-				"special_bonus_scepter" "+1"
-			}
+			"duration"				"1.8 2.2 2.6 3.0 3.4"
 		}
 	}
 	"axe_battle_hunger"
@@ -1367,18 +1358,8 @@
 		{
 			"damage"
 			{
-				"value"				"60 100 140 180 220 260 300"
+				"value"				"80 110 140 170 200 230 260"
 				"special_bonus_unique_axe_4" "+30"
-			}
-			"radius"					"275"
-			"trigger_chance"
-			{
-				"value" 			"17 18 19 20 21 22 23"
-				"special_bonus_shard"		"+10"
-			}
-			"shard_max_stacks"
-			{
-				"special_bonus_shard"		"+5"
 			}
 		}
 	}
@@ -1543,11 +1524,11 @@
 	"beastmaster_call_of_the_wild_boar"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"40"
+		"AbilityCooldown"				"60"
 		"AbilityManaCost"				"60 70 80 90 100"
 		"AbilityValues"
 		{
-			"duration"							"60"
+			"duration"							"45"
 			"boar_base_max_health"				"600 900 1200 1500 1800"
 			"boar_base_damage"					"30 60 90 120 180"
 			"boar_total_damage_tooltip"
@@ -1582,7 +1563,7 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"duration"						"60"
+			"duration"						"45"
 			"hawk_base_max_health"			"200 250 300 350 400"
 			"hawk_base_movespeed"			"420"
 			"hawk_base_gold_bounty"			"60"
@@ -1600,7 +1581,6 @@
 		"AbilityValues"
 		{
 			"damage"		"350"
-			"stun_duration"		"2.5"
 		}
 	}
 	"special_bonus_unique_beastmaster_5"
@@ -1633,10 +1613,10 @@
 	"beastmaster_primal_roar"
 	{
 		"MaxLevel" "4"
-		"AbilityManaCost"				"150 175 200 225"
+		"AbilityManaCost"				"125 150 175 200"
 		"AbilityValues"
 		{
-			"duration"					"3.0 3.5 4.0 4.5"
+			"duration"					"3.0 3.25 3.5 3.75"
 			"damage"
 			{
 				"value"			"200 300 400 500"
@@ -1648,7 +1628,6 @@
 				"CalculateSpellDamageTooltip" "1"
 			}
 			"slow_duration"				"3 3.5 4 4.5"
-			"movement_speed"			"50"
 			"movement_speed_duration"			"3.0 3.5 4 4.5"
 			"AbilityCooldown"
 			{
@@ -1658,136 +1637,11 @@
 		}
 	}
 	//=================================================================================================================
-    // Beastmaster: Drums of Slom (scepter)
-    //=================================================================================================================
-    "beastmaster_drums_of_slom"
-    {
-        "AbilityCooldown"				"35"
-        "AbilityValues"
-        {
-            "heal_pct"						"40"
-            "creep_heal_pct"				"30"
-        }
-    }
+	// Ability: Brewmaster 酒仙
 	//=================================================================================================================
-	// Ability: Brewmaster 熊猫酒仙
+	//已经替换成新英雄 杰克
 	//=================================================================================================================
-	"brewmaster_thunder_clap"
-	{
-		"MaxLevel" "5"
-		"AbilityManaCost"				"90 100 110 120 130"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"90 160 230 300 370"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_slow"				"25 35 45 55 65"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_speed_slow"			"25 35 45 55 65"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.0"
-				"LinkedSpecialBonus"		"special_bonus_unique_brewmaster_3"
-			}
-		}
-	}
-	"brewmaster_drunken_haze"
-	{
-		"MaxLevel" "5"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"10 9 8 7 6"
-		"AbilityManaCost"				"25"
-		"LinkedAbility"					"brewmaster_cinder_brew"
-		"AbilityDraftPreAbility"		"brewmaster_cinder_brew"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.5"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_slow"				"10 20 30 40 50"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"miss_chance"				"70"
-			}
-		}
-	}
-	"brewmaster_cinder_brew"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"20 17 14 11 8"
-		"AbilityManaCost"				"50 60 70 80 90"
-		"LinkedAbility"					"brewmaster_drunken_haze"
-		"AbilityDraftPreAbility"		"brewmaster_drunken_haze"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"5"
-				"LinkedSpecialBonus"		"special_bonus_unique_brewmaster_5"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"total_damage"				"75 150 225 300 375"
-				"LinkedSpecialBonus"		"special_bonus_unique_brewmaster_5"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_slow"				"24 28 32 36 40"
-			}
-		}
-	}
-	"brewmaster_drunken_brawler"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"0"
-		"AbilityValues"
-		{
-			"dodge_chance"		"15 20 25 30 35"
-			"crit_multiplier"			"145 160 175 190 205"
-			"magic_resist"	"5 10 15 20 25"
-			"armor"		"1 3 5 7 9"
-			"bonus_move_speed"		"5 7 9 11 13"
-		}
-	}
-	"brewmaster_primal_split"
-	{
-		"AbilityCooldown"				"80 70 60"
-	}
-	"special_bonus_unique_brewmaster"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"3000"
-				"ad_linked_abilities"			"brewmaster_primal_split"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
+
 	//=================================================================================================================
 	// Ability: Bristleback 钢背兽
 	//=================================================================================================================
@@ -2421,7 +2275,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"1.0 1.25 1.5 1.75 2.0 2.25 2.5"
+				"stun_duration"				"0.9 1.0 1.1 1.2 1.3 1.4 1.5"
 			}
 			"05"
 			{
@@ -2460,7 +2314,7 @@
 	"earthshaker_aftershock"
 	{
 		"MaxLevel" "5"
-		"AbilityDuration"				"0.6 0.9 1.2 1.5 1.8"
+		"AbilityDuration"				"0.9 1.0 1.1 1.2 1.3"
 		"AbilitySpecial"
 		{
 		    "01"
@@ -2664,7 +2518,7 @@
 		{
 			"stomp_damage"
 			{
-				"value"					"75 100 125 150 175 200 225"
+				"value"					"70 100 130 160 190 220 250"
 				"special_bonus_unique_elder_titan_2"			"+75"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
@@ -2689,7 +2543,7 @@
 		{
 			"stomp_damage"
 			{
-				"value"					"75 100 125 150 175 200 225"
+				"value"					"70 100 130 160 190 220 250"
 				"special_bonus_unique_elder_titan_2"			"+75"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
@@ -2963,16 +2817,7 @@
 	}
 	"kunkka_torrent_storm"
 	{
-		"AbilityCooldown"				"50"
-		"AbilitySpecial"
-		{
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"torrent_max_distance"		"1200"
-				"RequiresScepter"			"1"
-			}
-		}
+		"AbilityCooldown"				"60"
 	}
 	"kunkka_tidebringer"
 	{
@@ -5561,20 +5406,13 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"8 7 6 5 4"
-		"AbilityManaCost"				"110 140 170 200 250"
-		"AbilitySpecial"
+		"AbilityManaCost"				"100 110 120 130 140"
+		"AbilityValues"
 		{
-			"01"
+			"decay_damage"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"decay_damage"					"40 80 120 160 200 240 280"
-				"LinkedSpecialBonus"			"special_bonus_unique_undying_8"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"str_steal_scepter"				"12"			// 8
-				"RequiresScepter"	"1"
+				"value"		"40 80 120 160 200"
+				"special_bonus_unique_undying_8" "+50"
 			}
 		}
 	}
@@ -5603,23 +5441,10 @@
 	{
 		"AbilityCooldown"				"180"
 		"AbilityManaCost"				"200 300 400 500"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"10.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"600"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"zombie_interval"		"4.0"
-			}
+			"duration"					"10.0"
+			"radius"					"600"
 		}
 	}
 
@@ -5628,29 +5453,20 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"100"
 		"AbilityManaCost"				"100 125 150 175 200"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"slow"						"40 45 50 55 60"
+			"damage_amp"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"slow"						"40 45 50 55 60"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_amp"				"25 30 35 40 45"
+				"value"					"25 30 35 40 45"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}
-			"04"
+			"str_percentage"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"str_percentage"			"40 50 60 70 80"
+				"value"					"40 50 60 70 80"
+				"special_bonus_unique_undying_4" "+60"
 			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_bonus"			"30 40 50 60 70"
-			}
+			"movement_bonus"			"30 40 50 60 70"
 		}
 	}
 	//=================================================================================================================
@@ -5752,10 +5568,10 @@
 		"AbilityValues"
 		{
 			"percent_damage_per_burn"		"50"
-			"mana_per_hit"			"30 45 60 75 90"
+			"mana_per_hit"			"25 30 35 40 45"
 			"mana_per_hit_pct"
 			{
-				"value"		"1 1.8 2.6 3.4 4.2"
+				"value"		"1.6 2.4 3.2 4 4.8"
 				"special_bonus_unique_antimage_7"	"+0.6"
 			}
 			"illusion_percentage"		"50"
@@ -5960,14 +5776,14 @@
 	"bloodseeker_rupture"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"50"
+		"AbilityCooldown"				"60"
 		"AbilityManaCost"				"100 150 200 250 300"
 		"AbilityValues"
 		{
 			"duration"					"10 11 12 13 14"
 			"movement_damage_pct"
 			{
-				"value"	"33 44 55 66 77"
+				"value"	"35 45 55 65 75"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"AbilityCharges"
@@ -6231,18 +6047,13 @@
 	"drow_ranger_frost_arrows"
 	{
 		"MaxLevel" "5"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"frost_arrows_movement_speed"	"-10 -25 -40 -55 -70"
+			"damage"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"frost_arrows_movement_speed"	"-10 -25 -40 -55 -70"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage"	"10 15 20 25 30"
-				"LinkedSpecialBonus"			"special_bonus_unique_drow_ranger_2"
+				"value"						"10 15 20 25 30"
+				"special_bonus_unique_drow_ranger_2"			"+15"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 		}
@@ -6682,11 +6493,6 @@
 		{
 				"blade_dance_crit_chance"	"20 25 30 35 40 45 50"
 				"blade_dance_crit_mult"		"180 190 200 210 220 230 240"
-				"blade_dance_lifesteal"
-				{
-					"value"	"0"
-					"special_bonus_unique_juggernaut_blade_dance_lifesteal"	"+50"
-				}
 		}
 	}
 	"juggernaut_blade_fury"
@@ -6696,16 +6502,6 @@
 		"AbilityManaCost"				"120 110 100 90 80"
 		"AbilityValues"
 		{
-			"blade_fury_damage_tick"
-			{
-				"value"					"0.2"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"blade_fury_radius"
-			{
-				"value"						"260"
-				"LinkedSpecialBonus"		"special_bonus_unique_juggernaut"
-			}
 			"blade_fury_damage"
 			{
 				"value"				"90 115 140 165 190"
@@ -6713,7 +6509,7 @@
 			}
 			"shard_attack_rate"
 			{
-				"value"				"0.8"
+				"value"				"1.0"
 				"RequiresShard"					"1"
 			}
 			"shard_damage_pct"
@@ -6721,7 +6517,6 @@
 				"value"				"90"
 				"RequiresShard"					"1"
 			}
-
 		}
 	}
 	"juggernaut_healing_ward"
@@ -6763,19 +6558,6 @@
 				"var_type"					"FIELD_FLOAT"
 				"duration"					"3.0 3.25 3.5 3.75 4.0"
 				"LinkedSpecialBonus"		"special_bonus_unique_juggernaut_2"
-			}
-		}
-	}
-	"juggernaut_swift_slash"
-	{
-		"AbilityCooldown"				"20"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"		"1.0"
-				"RequiresScepter"				"1"
 			}
 		}
 	}
@@ -7151,51 +6933,18 @@
 		"AbilityChargeRestoreTime"		"40 35 30 25 20"
 		"AbilityValues"
 		{
-			"leap_distance"
-			{
-				"value"							"575"
-				"special_bonus_unique_mirana_6"	"+100"
-			}
-			"leap_speed"			"1300.0"
-			"leap_acceleration"		"6000.0"
 			"leap_speedbonus"	"8 16 24 32 40"
 			"leap_speedbonus_as"
 			{
 				"value"				"25 50 75 100 125"
 				"special_bonus_unique_mirana_1"	"+80"
 			}
-			"leap_bonus_duration"	"2.5"
-			"shard_radius"
-			{
-				"value"				"300"
-				"RequiresShard"		"1"
-			}
-			"shard_damage"
-			{
-				"value"				"150"
-				"RequiresShard"		"1"
-			}
-			"shard_slow_pct"
-			{
-				"value"				"30"
-				"RequiresShard"		"1"
-			}
-			"shard_slow_duration"
-			{
-				"value"				"2.5"
-				"RequiresShard"		"1"
-			}
-			"shard_bonus_charges"
-			{
-				"value"				"1"
-				"RequiresShard"		"1"
-			}
 		}
 	}
 	"mirana_starfall"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"80 95 110 125 140"
+		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 			"damage"
@@ -9829,22 +9578,17 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"24 20 16 12 8"
-		"AbilityManaCost"				"40 50 60 70 80"
+		"AbilityManaCost"				"120 135 150 165 180"
 
 		"AbilityValues"
 		{
-			"damage_reduction"	"45 50 55 60 65"
-			"heal_reduction"
+			"damage_reduction"	"55 60 65 70 75"
+			"enfeeble_tick_damage"
 			{
-				"value" "45 50 55 60 65"
-				"special_bonus_unique_bane_6" "+50"
+				"value"			"12 18 24 30 36"
+				"special_bonus_unique_bane_10"				"+13"
+				"CalculateSpellDamageTooltip" "1"
 			}
-			"cast_reduction"
-			{
-				"value"								"30"
-				"special_bonus_unique_bane_11"		"+20"
-			}
-			"duration"	"8 9 10 11 12"
 		}
 	}
 	"bane_brain_sap"
@@ -9873,16 +9617,9 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"650"
-		"AbilityDuration"				"4.0 5.0 6.0 7.0 8.0"
 		"AbilityValues"
 		{
-
-			"duration"					"4.0 5.0 6.0 7.0 8.0"
-			"nightmare_tick_damage"
-			{
-				"value"			"20 30 40 50 60"
-				"CalculateSpellDamageTooltip" "1"
-			}
+			"duration"					"3.5 4.5 5.5 6.5 7.5"
 			"AbilityCooldown"
 			{
 				"value"	"22 20 18 16 14"
@@ -9898,8 +9635,8 @@
 		{
 			"AbilityChannelTime"
 			{
-				"value"					"5.0 5.5 6.0 6.5 7.0"
-				"special_bonus_unique_bane_3"		"+5"
+				"value"					"4.75 5.25 5.75 6.25 6.75"
+				"special_bonus_unique_bane_3"		"+3"
 			}
 			"fiend_grip_damage"
 			{
@@ -11764,7 +11501,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"light_strike_array_stun_duration"	"2.5"
+				"light_strike_array_stun_duration"	"1.6 1.8 2.0 2.2 2.4"
 			}
 			"04"
 			{
@@ -11861,15 +11598,15 @@
 	"lion_impale"
 	{
 		"MaxLevel" "7"
-		"AbilityManaCost"				"85 110 135 160 185 210 235"
+		"AbilityManaCost"				"90 110 130 150 170 190 210"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"			"95 150 205 260 315 370 425"
+				"value"			"100 160 220 280 340 400 460"
 				"special_bonus_unique_lion_3"	"+75"
 			}
-			"duration"			"1.4 1.7 2 2.3 2.6 2.9 3.2"
+			"duration"			"1.4 1.6 1.8 2.0 2.2 2.4 2.6"
 		}
 	}
 	"lion_voodoo"
@@ -11883,7 +11620,7 @@
 				"value"				"20 18 16 14 12"
 				"special_bonus_unique_lion_5"	"-3"
 			}
-			"duration"					"2.5 3 3.5 4 4.5"
+			"duration"					"2 2.4 2.8 3.2 3.6"
 		}
 	}
 	"lion_mana_drain"
@@ -13092,22 +12829,16 @@
 	//=================================================================================================================
 	"techies_land_mines"
 	{
-		"MaxLevel" "3"
-		"AbilityManaCost"				"140 170 200"
-		"LinkedAbility"					"techies_remote_mines"
-		"AbilityDraftPreAbility"		"techies_remote_mines"
+		"AbilityManaCost"				"140 270 400"
 		"AbilityValues"
 		{
-				"radius"				"500"
-				"proximity_threshold"				"1.0"
 				"damage"
 				{
 					"value"			"1200 2100 3000"
-					"LinkedSpecialBonus"		"special_bonus_unique_techies_2"
 				}
 				"AbilityChargeRestoreTime"
 				{
-					"value"		"26 26 26"
+					"value"		"36 32 28"
 					"special_bonus_unique_techies_3"	"-2"
 				}
 				"mres_reduction"			"30 40 50"
@@ -13130,23 +12861,18 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"275 350 425 500 575"
+				"damage"					"200 300 400 500 600"
 				"LinkedSpecialBonus"		"special_bonus_unique_techies"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"silence_duration"			"3 4 5 6 7"
+				"stun_duration"				"0.8 1.0 1.2 1.4 1.6"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"hp_cost"			"40 35 30 25 20"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.75"
 			}
 		}
 	}
@@ -13188,15 +12914,8 @@
 		"AbilityManaCost"				"60"
 		"AbilityValues"
 		{
-			"duration"				"6"
 			"disarm_duration"		"2.4 2.7 3 3.3 3.6"
 			"bonus_ms"				"15 20 25 30 35"
-			"stun_radius"			"400"
-			"scepter_damage"
-			{
-				"value"					"300"
-				"RequiresScepter"		"1"
-			}
 		}
 	}
 	//=================================================================================================================
