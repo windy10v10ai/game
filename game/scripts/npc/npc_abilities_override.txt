@@ -1228,24 +1228,18 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"								"55.0 50.0 45.0 40.0"
-				"special_bonus_unique_abaddon_5"	"-5"
+				"value"								"60 55 50 45"
 			}
 			"hp_threshold"							"600 800 1000 1200"
-			"duration"								"4.5 5.0 5.5 6.0"
+			"duration"								"3.5 4.0 4.5 5.0"
 			"duration_scepter"
 			{
-				"value"								"5.5 6.0 6.5 7.0"
+				"value"								"4.5 5.0 5.5 6.0"
 				"RequiresScepter"					"1"
 			}
 			"ally_threshold_scepter"
 			{
-				"value"								"525"
-				"RequiresScepter"					"1"
-			}
-			"redirect_range_scepter"
-			{
-				"value"								"1600"
+				"value"								"750"
 				"RequiresScepter"					"1"
 			}
 		}
@@ -1742,8 +1736,8 @@
 			"stomp_damage"					"120 180 240 300 360"
 			"stun_duration"
 			{
-				"value"						"2.0 2.2 2.4 2.6 2.8"
-				"LinkedSpecialBonus"		"special_bonus_unique_centaur_2"
+				"value"						"1.6 1.8 2.0 2.2 2.4"
+				"special_bonus_unique_centaur_2" "+0.8"
 			}
 		}
 	}
@@ -1791,7 +1785,7 @@
 					"value"	"20 30 40 50 60"
 					"special_bonus_unique_centaur_3"	"+60"
 				}
-				"return_damage_str"			"20 26 32 38 44"
+				"return_damage_str"			"16 24 32 40 48"
 				"aura_radius"				"1200"
 		}
 	}
@@ -2864,17 +2858,13 @@
 		"AbilityValues"
 		{
 				"damage"				"40 70 100 130 160"
-				"damage_per_unit"		"25"
+				"damage_per_unit"		"14 16 18 20 22"
 				"damage_per_hero"
 				{
-					"value"				"40 70 100 130 160"
-					"LinkedSpecialBonus"	"special_bonus_unique_legion_commander_4"
+					"value"				"35 65 95 125 155"
+					"special_bonus_unique_legion_commander_4"	"+75"
 				}
-				"radius"
-				{
-					"value"		"330 340 350 360 370"
-					"LinkedSpecialBonus"	"special_bonus_unique_legion_commander_2"
-				}
+				"bonus_attack_speed"		"65 90 115 140 165"
 		}
 	}
 	"legion_commander_press_the_attack"
@@ -2886,7 +2876,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"70 100 130 160 190"
+				"move_speed"			"10 14 18 22 26"
 			}
 			"03"
 			{
@@ -2924,49 +2914,6 @@
 				"var_type"					"FIELD_INTEGER"
 				"value"				"20"
 				"ad_linked_abilities"			"legion_commander_moment_of_courage"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
-	"legion_commander_duel"
-	{
-		"MaxLevel" "4"
-		"AbilityCastRange"				"200 250 300 350"
-		"AbilityValues"
-		{
-				"duration"				"4.0 4.5 5.0 5.5"
-				"duration_scepter"
-				{
-					"value"			"6 7 8 9"
-					"RequiresScepter"	"1"
-				}
-				"reward_damage"
-				{
-					"value"			"12 18 24 30"
-					"LinkedSpecialBonus"	"special_bonus_unique_legion_commander"
-				}
-				"victory_range"			"600"
-				"scepter_damage_reduction_pct"
-				{
-					"value"				"80"
-					"RequiresScepter"						"1"
-				}
-				"scepter_cooldown_reduction"
-				{
-					"value"			"20.0"
-					"RequiresScepter"						"1"
-				}
-				"AbilityCooldown"	"40"
-		}
-	}
-	"special_bonus_unique_legion_commander"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"12"
-				"ad_linked_abilities"			"legion_commander_duel"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -3677,16 +3624,11 @@
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
-				"duration"					"5.0 6.0 7.0 8.0"
+				"duration"					"5 6 7 8"
 				"radius"					"1200"
 				"duration_scepter"
 				{
-					"value"		"7.0 8.0 9.0 10.0"
-					"RequiresScepter"		"1"
-				}
-				"scepter_status_resist"
-				{
-					"value"			"40"
+					"value"		"6 7 8 9"
 					"RequiresScepter"		"1"
 				}
 		}
@@ -3849,7 +3791,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"2.0 2.5 3.0 3.5"
+				"stun_duration"		"1.6 2 2.4 2.8"
 				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_2"
 			}
 			"04"
@@ -3874,7 +3816,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"2"
+				"value"				"8"
 				"ad_linked_abilities"			"phoenix_supernova"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -4245,34 +4187,11 @@
 		"MaxLevel" "7"
 		"AbilityManaCost"				"80"
 		"AbilityCooldown"				"6"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"whirling_radius"			"375"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"whirling_damage"			"80 120 160 200 240 280 320"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"tree_damage_scale"			"15 25 35 45 55 65 75"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"stat_loss_pct"				"10"
-				"LinkedSpecialBonus"		"special_bonus_unique_timbersaw"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"duration"					"15"
-			}
 		}
 	}
 	"shredder_timber_chain"
@@ -4308,29 +4227,14 @@
 	"shredder_reactive_armor"
 	{
 		"MaxLevel" "5"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"bonus_armor"						"1.2 1.4 1.6 1.8 2.0"
+			"bonus_hp_regen"							"1.0 1.5 2.0 2.5 3"
+			"stack_limit"
 			{
-				"var_type"							"FIELD_FLOAT"
-				"bonus_armor"						"1.2 1.4 1.6 1.8 2.0"
-			}
-			"02"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"bonus_hp_regen"							"1.0 1.5 2.0 2.5 3"
-			}
-			"03"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"stack_limit"						"5 10 15 20 25"
-				"LinkedSpecialBonus"				"special_bonus_unique_timbersaw_2"
-			}
-			"04"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"stack_duration"					"10 12 14 16 18"
-				"LinkedSpecialBonus"				"special_bonus_unique_timbersaw_2"
+				"value"			"10 20 30 40 50"
+				"LinkedSpecialBonus"			"special_bonus_unique_timbersaw_2"
 			}
 		}
 	}
@@ -4338,48 +4242,21 @@
 	{
 		"MaxLevel" "4"
 		"AbilityManaCost"				"75 125 175 225"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"pass_damage"			"110 155 200 245"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"damage_per_second"		"50 75 100 125"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_per_second"		"15 20 25 30"
-			}
+				"mana_per_second"		"14 22 30 38"
 		}
 	}
 	"shredder_chakram_2"
 	{
 		"AbilityManaCost"				"75 125 175 225"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"pass_damage"			"110 155 200 245"
-				"RequiresScepter"	"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"damage_per_second"		"50 75 100 125"
-				"RequiresScepter"	"1"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_per_second"		"15 20 25 30"
-				"RequiresScepter"	"1"
-			}
+				"mana_per_second"		"14 22 30 38"
 		}
 	}
 	//=================================================================================================================
@@ -4390,25 +4267,14 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"17 14 11 8 5"
 		"AbilityDamage"					"60 90 120 150 180"
-		"AbilityManaCost"				"90 100 110 120 130"
+		"AbilityManaCost"				"95 110 125 140 155"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"blast_stun_duration"	"1.2 1.5 1.8 2.1 2.4"
+				"blast_stun_duration"	"1.0 1.2 1.4 1.6 1.8"
 				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_11"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blast_dot_duration"	"2.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_7"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_slow"			"-20"
 			}
 			"05"
 			{
@@ -4426,36 +4292,19 @@
 		{
 			"vampiric_aura"
 			{
-				"value"									"9 16 23 30 37"
+				"value"									"20 30 40 50 60"
 				"special_bonus_unique_wraith_king_2"	"+8"
 			}
-			"skeleton_duration"
+			"creep_vampiric_aura"
 			{
-				"value"					"20"
-				"special_bonus_unique_wraith_king_vampiric_skeleton_duration"	"+20%"
-			}
-			"AbilityCooldown"
-			{
-				"value"					"50"
-				"special_bonus_unique_wraith_king_vampiric_skeleton_duration"	"-20%"
+				"value"									"10 15 20 25 30"
+				"special_bonus_unique_wraith_king_2"	"+4"
 			}
 			"max_skeleton_charges"			"0"
 			"min_skeleton_spawn"
 			{
 				"value"		"0"
 				"special_bonus_unique_wraith_king_5"	"+0"
-			}
-		}
-	}
-	"special_bonus_unique_wraith_king_6"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"48"
-				"ad_linked_abilities"			"skeleton_king_vampiric_aura"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
 	}
@@ -4468,7 +4317,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_mult"					"150 190 230 270 310"
+				"crit_mult"					"150 200 250 300 350"
 			}
 		}
 	}
@@ -4486,16 +4335,6 @@
 	}
 	"skeleton_king_reincarnation"
 	{
-		"AbilitySpecial"
-		{
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_skeleton_count"	"0"
-				"RequiresScepter"			"1"
-			}
-		}
-
 		"AbilityValues"
 		{
 			"scepter_duration"
@@ -5915,22 +5754,19 @@
 	"clinkz_strafe"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"30 26 22 18 14"
-		"AbilityManaCost"				"40 55 70 85 100"
+		"AbilityManaCost"				"75 80 85 90 95"
 		"AbilityValues"
 		{
-				"wave_count"
-				{
-					"value"			"6"
-					"LinkedSpecialBonus"		"special_bonus_unique_clinkz_12"
-				}
-				"range"	"750 800 850 900 950"
-				"damage_pct"
-				{
-					"value"		"50 55 60 65 70"
-					"special_bonus_unique_clinkz_4"	"+10"
-				}
-
+			"attack_speed_bonus"
+			{
+				"value"									"100 140 180 220 260"
+				"special_bonus_unique_clinkz_7"			"+40"
+			}
+			"AbilityCooldown"
+			{
+				"value"								"30 26 22 18 14"
+				"special_bonus_unique_clinkz_4"		"-6"
+			}
 		}
 	}
 	"clinkz_searing_arrows"
@@ -5948,97 +5784,21 @@
 	}
 	"clinkz_wind_walk"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"20 19 18 17 16"
 		"AbilityValues"
 		{
-			"duration"					"25 30 35 40 45"
-			"move_speed_bonus_pct"		"15 30 45 60 75"
 			"skeleton_count"
 			{
 				"value"					"0"
-				"special_bonus_shard"	"0"
 			}
 		}
-	}
-	"clinkz_burning_army"
-	{
-		"AbilityCooldown"				"120"
 	}
 	"clinkz_death_pact"
 	{
 		"MaxLevel" "4"
 		"AbilityCooldown"				"70 60 50 40"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_gain_pct"		"30 55 80 100"
-				"LinkedSpecialBonus"			"special_bonus_unique_clinkz_8"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_gain_pct"		"4 8 12 16"
-				"LinkedSpecialBonus"			"special_bonus_unique_clinkz_8"
-				"LinkedSpecialBonusField"		"value2"
-			}
-		}
-	}
-	"clinkz_burning_army"
-	{
-		"ID"					"7319"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"MaxLevel"						"1"
-		"FightRecapLevel"				"1"
-		"IsGrantedByScepter"			"1"
-		"HasScepterUpgrade"				"1"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Clinkz.DeathPact"
-
-		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-
-		"AbilityCooldown"				"80"
-
-		"AbilityManaCost"				"150"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"			"1300"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"	"30"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"count"			"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"attack_rate"			"1.6"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_percent"	"30"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"spawn_interval"			"0.5"
-			}
+			"skeleton_duration"					"0"
 		}
 	}
 	//=================================================================================================================
@@ -8137,8 +7897,8 @@
 				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}
 
-			"backstab_angle"				"105 105 105"
-			"fade_delay"					"2"
+			"fade_delay"					"4 3 2 1"
+			"bonus_xp_kill"					"150 250 350 450"
 		}
 	}
 	"riki_tricks_of_the_trade"
@@ -9186,69 +8946,6 @@
                 "ad_linked_abilities"			"venomancer_plague_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
             }
         }
-    }
-	"venomancer_poison_nova"
-	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"100.0 90.0 80.0 70.0"
-		"AbilityManaCost"				"200 300 400 500"
-		"AbilityValues"
-		{
-				"radius"					"1000 1100 1200 1300"
-				"start_radius"				"255 255 255 255"
-				"duration"
-				{
-					"value"			"20"
-					"LinkedSpecialBonus"		"special_bonus_unique_venomancer_4"
-				}
-				"damage"					"1.5 2.0 2.5 3.0"
-				"cooldown_scepter"
-				{
-					"value"				"90.0 80.0 70.0 60.0"
-					"RequiresScepter"		"1"
-				}
-				"damage_scepter"
-				{
-					"value"				"2.0 2.5 3.0 3.5"
-					"RequiresScepter"		"1"
-				}
-				"speed"						"1000"
-				"base_damage"					"20 40 60 80"
-				"aspd_slow"
-				{
-					"value"					"0"
-					"special_bonus_unique_venomancer_5"	"+300"
-				}
-		}
-	}
-	"venomancer_latent_poison"
-    {
-        "IsGrantedByShard"				"1"
-        "MaxLevel"						"1"
-        "AbilityCastRange"				"600"
-        "AbilityCastPoint"				"0.2"
-
-        // Time
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"				"10"
-
-        // Cost
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"				"75"
-
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityValues"
-        {
-                "duration_damage"		"50"
-                "movement_slow"			"-66"
-                "projectile_speed"		"1200"
-                "damage_interval"		"1.0"
-                "duration"				"7"
-                "explosion_damage"		"750"
-                "explosion_stun_duration"	"3"
-        }
-        "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_6"
     }
 	//=================================================================================================================
 	// Ability: Viper 冥界亚龙/毒龙
@@ -10577,99 +10274,73 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"625 700 775 850 925"
-		"AbilityCooldown"				"11 10 9 8 7"
+		"AbilityCooldown"				"12 11 10 9 8"
 		"AbilityManaCost"				"70 90 110 130 150"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3 4 5 6 7"
-			}
+			"duration"						"3 4 5 6 7"
 		}
 	}
 	"furion_teleportation"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"62 48 34 20 10"
+		"AbilityCooldown"				"65 55 45 35 25"
 		"AbilityManaCost"				"50 75 100 125 150"
+		"AbilityValues"
+		{
+			"max_stacks"
+			{
+				"value"				"3 6 9 12 15"
+				"special_bonus_unique_furion_teleportation_max_stacks"		"+4"
+			}
+		}
 	}
 	"furion_force_of_nature"
 	{
-		"AbilityCooldown"				"90"
-		"AbilitySpecial"
+		"AbilityValues"
         {
-			"02"
+			"max_treants"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"max_treants"			"2"
-				"LinkedSpecialBonus"	"special_bonus_unique_furion_2"
+				"value"							"2"
+				"special_bonus_unique_furion_2"	"+1"
 			}
-            "04"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "treant_health_tooltip"				"500 600 700 800"		// 18 26 34 42
-                "LinkedSpecialBonus"	"special_bonus_unique_furion"
-                "LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
-            }
-            "05"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "treant_dmg_tooltip"				"35 50 65 80"			// 18 26 34 42
-                "LinkedSpecialBonus"	"special_bonus_unique_furion"
-                "LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
-            }
-            "06"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "treant_hp_bonus"				"1100 1200 1300 1400"
-            }
-            "07"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "treant_damage_bonus"		"40 60 80 100"
-            }
+			"treant_duration"				"30"
+			"treant_health"
+			{
+				"value"								"500 600 700 800"
+				"special_bonus_unique_furion"			"x2.5"
+			}
+			"treant_damage_min"
+			{
+				"value"					"35 50 65 80"
+				"special_bonus_unique_furion"			"x2.5"
+			}
+			"treant_damage_max"
+			{
+				"value"					"35 50 65 80"
+				"special_bonus_unique_furion"			"x2.5"
+			}
+			"AbilityCooldown"
+			{
+				"value"				"90"
+				"special_bonus_unique_furion_6"		"-10"
+			}
         }
-	}
-	"special_bonus_unique_furion_2"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"2"
-				"ad_linked_abilities"			"furion_force_of_nature"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
 	}
 	"furion_wrath_of_nature"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"65"
 		"AbilityManaCost"				"175 225 275 325 375"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
+
+			"damage"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"115 150 185 220 255"
-				"LinkedSpecialBonus"			"special_bonus_unique_furion_5"
+				"value"				"105 145 185 225 265"
+				"special_bonus_unique_furion_5"			"+30"
 			}
 		}
 	}
-	"special_bonus_unique_furion"
-    {
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"					"FIELD_FLOAT"
-                "value"				"3"
-                "ad_linked_abilities"			"furion_force_of_nature"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-            }
-        }
-    }
 	//=================================================================================================================
 	// Ability: Grimstroke 天涯墨客
 	//=================================================================================================================
@@ -11084,26 +10755,6 @@
 			"channel_vision_interval"	"0.5"
 			"channel_vision_duration"	"10.34"
 			"channel_vision_step"		"150 180 210 240 270"
-		}
-	}
-	"keeper_of_the_light_radiant_bind"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"22 20 18 16 14"
-		"AbilityManaCost"				"60 80 100 120 140"
-		"AbilityCastRange"				"700 750 800 850 900"
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow"				"4 5.5 7 8.5 10"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"magic_resistance"			"16 22 28 34 40"
-			}
 		}
 	}
 	"keeper_of_the_light_mana_leak"
@@ -12949,7 +12600,7 @@
 	"tinker_laser"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"20 18 16 14 12"
+		"AbilityCooldown"				"22 20 18 16 14"
 		"AbilityManaCost"				"110 130 150 170 190"
 		"AbilitySpecial"
 		{
@@ -12976,7 +12627,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"120 190 260 330 400"
+				"damage"			"120 200 280 360 440"
 			}
 			"03"
 			{
@@ -13192,15 +12843,19 @@
 			"duration"				"2.0"
 			"max_slow"				"40 48 56 64 72"
 			"max_damage"			"35 60 85 110 135"
+
+			"imps_interval"				"4"
+			"minor_imp_duration"		"5"
+			"major_imp_duration"		"10"
 		}
 	}
 	"warlock_rain_of_chaos"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"140"
 		"AbilityManaCost"				"250 375 500 625 750"
 		"AbilityValues"
 		{
+			"golem_duration"			"30"
 			"golem_hp"					"1500 2500 3500 4500 6000"
 			"golem_dmg"					"100 150 200 250 300"
 			"golem_armor"				"8 12 14 16 18"

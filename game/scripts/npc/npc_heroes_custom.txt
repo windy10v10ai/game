@@ -1910,6 +1910,10 @@
 			}
 		}
 	}
+	"npc_dota_hero_clinkz"
+	{
+		"Ability4"		"generic_hidden"
+	}
 	"npc_dota_hero_omniknight"
 	{
 		"Ability4"		"omniknight_repel"
@@ -2171,8 +2175,8 @@
 				"24"		""
 				"25"		"special_bonus_unique_riki_5"
 				"26"		""
-				"27"		"special_bonus_unique_riki_2"
-				"28"		"special_bonus_unique_riki_8"
+				"27"		"special_bonus_unique_riki_8"
+				"28"		"special_bonus_unique_riki_2"
 				"29"		"special_bonus_unique_riki_9"
 				"30"		"special_bonus_unique_riki_6"
 				"31"		"riki_backstab"

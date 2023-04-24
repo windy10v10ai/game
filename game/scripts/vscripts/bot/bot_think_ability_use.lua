@@ -543,15 +543,11 @@ end
 
 function BotAbilityThink:ThinkUseAbility_Riki(hHero)
 	local hAbility3 = hHero:GetAbilityByIndex(2)
-	local hAbility4 = hHero:GetAbilityByIndex(3)
 
 	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility3) then
 		return true
 	end
 
-	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility4) then
-		return true
-	end
 end
 
 function BotAbilityThink:ThinkUseAbility_WitchDoctor(hHero)
