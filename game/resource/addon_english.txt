@@ -935,10 +935,11 @@
 
         // item_aether_lens_2
 		"DOTA_Tooltip_Ability_item_aether_lens_2"				"Aether Lens 2"
-		"DOTA_Tooltip_ability_item_aether_lens_2_Description"                     "<h1>Passive: Aethereal Focus 2</h1> Increases targeted spell and item cast range by %cast_range_bonus%"
+		"DOTA_Tooltip_ability_item_aether_lens_2_Description"                     "<h1>Passive: Aethereal Focus</h1> Increases targeted spell and item cast range."
 		"DOTA_Tooltip_ability_item_aether_lens_2_Note0"                           "Passive does not stack."
 		"DOTA_Tooltip_ability_item_aether_lens_2_bonus_mana"                      "+$mana"
 		"DOTA_Tooltip_ability_item_aether_lens_2_bonus_mana_regen"                "+$mana_regen"
+		"DOTA_Tooltip_ability_item_aether_lens_2_cast_range_bonus"                "+$cast_range"
 
         // item_vladmir_2
 		"DOTA_Tooltip_ability_item_vladmir_2"                               "Assault Vladimir"
@@ -1027,11 +1028,13 @@
 
         // item_arcane_octarine_core 奥术之心
 		"DOTA_Tooltip_Ability_item_arcane_octarine_core"			"Arcane Core"
-		"DOTA_Tooltip_ability_item_arcane_octarine_core_Description"				"<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+		"DOTA_Tooltip_ability_item_arcane_octarine_core_Description"				"<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items."
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_cast_range_bonus"             "+$cast_range"
+		"DOTA_Tooltip_ability_item_arcane_octarine_core_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_bonus_mana_regen"                "+$mana_regen"
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_bonus_health"				"+$health"
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_arcane_octarine_core_bonus_cooldown"				"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_Lore"						"At the core of spellcraft are spectrums only the very gifted can sense."
 
         // item_aeon_pendant 咸鱼之王
@@ -1472,12 +1475,13 @@
 
         // item_refresh_core 大刷新
 		"DOTA_Tooltip_Ability_item_refresh_core"						"Refresh Core"
-		"DOTA_Tooltip_ability_item_refresh_core_Description"			"<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities.\n<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+		"DOTA_Tooltip_ability_item_refresh_core_Description"			"<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities.\n<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items."
 		"DOTA_Tooltip_ability_item_refresh_core_cast_range_bonus"		"+$cast_range"
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_mana_regen"		"+$mana_regen"
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_health_regen"		"+$hp_regen"
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_health"			"+$health"
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_refresh_core_bonus_cooldown"				"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_refresh_core_Lore"					"At the core of spellcraft are spectrums only the very gifted can sense."
 
 	}

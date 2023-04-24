@@ -1113,47 +1113,6 @@
 		}
 	}
 
-	//=================================================================================================================
-	// Recipe: Octarine Core 玲珑心
-	//=================================================================================================================
-	"item_recipe_octarine_core"
-	{
-		"ItemRequirements"
-		{
-			"01"						"item_aether_lens_2;item_soul_booster"
-		}
-	}
-	"item_octarine_core"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_cooldown"		"25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_bonus"			"275"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"800"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"5.0"
-			}
-		}
-	}
 	// 统御头盔 大支配
 	"item_recipe_helm_of_the_overlord"
 	{
