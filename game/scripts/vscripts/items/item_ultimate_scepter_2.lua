@@ -38,6 +38,9 @@ end
 		Date: 17.05.2015	]]
 function Scepter2OnSpell(keys)
 	if keys.caster:IsRealHero() and keys.target:IsRealHero() and not keys.caster:HasModifier("modifier_arc_warden_tempest_double") and not keys.target:HasModifier("modifier_arc_warden_tempest_double") and not keys.target:HasModifier(keys.modifier) then
+		if keys.target:HasModifier("modifier_item_ultimate_scepter") then
+			keys.target:RemoveModifierByName("modifier_item_ultimate_scepter")
+		end
 		keys.target:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", {duration = -1})
 		-- if keys.target:GetUnitName() ~= "npc_dota_hero_bane" then
 		-- end
