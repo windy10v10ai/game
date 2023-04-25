@@ -272,14 +272,8 @@ function BotAbilityThink:ThinkUseAbility_Kunkka(hHero)
 		return true
 	end
 	-- kunkka_torrent_storm
-	if hAbility4:IsFullyCastable() then
-        local iRange = 900
-        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		-- 范围内有两人以上时释放
-        if #tAllHeroes > 1 then
-			hHero:CastAbilityNoTarget(hAbility4, hHero:GetPlayerOwnerID())
-            return true
-        end
+	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility4) then
+		return true
 	end
 	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility5) then
 		return true
@@ -549,15 +543,11 @@ end
 
 function BotAbilityThink:ThinkUseAbility_Riki(hHero)
 	local hAbility3 = hHero:GetAbilityByIndex(2)
-	local hAbility4 = hHero:GetAbilityByIndex(3)
 
 	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility3) then
 		return true
 	end
 
-	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility4) then
-		return true
-	end
 end
 
 function BotAbilityThink:ThinkUseAbility_WitchDoctor(hHero)
