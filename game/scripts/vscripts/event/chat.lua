@@ -86,12 +86,12 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
-        if sChatMsg:find('^-itemreplace .+') then
-            Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人替换所有物品:" .. sChatMsg:sub(14))
+        if sChatMsg:find('^-ri .+') then
+            Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人替换所有物品:" .. sChatMsg:sub(5))
 
             removeAllItems()
 
-            local item = sChatMsg:sub(14)
+            local item = sChatMsg:sub(5)
             -- give all player item
             local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
             for _, hero in pairs(tAllHeroes) do
@@ -105,14 +105,14 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
-        -- remove all item
-        if sChatMsg:find('^-rai$') then
+        -- remove item
+        if sChatMsg:find('^-rmi$') then
             removeAllItems()
             return
         end
 
-        -- remove all item modifer
-        if sChatMsg:find('^-raim$') then
+        -- remove item modifer
+        if sChatMsg:find('^-rmim$') then
             local modiferList = {
                 "modifier_item_aghanims_shard",
                 "modifier_item_ultimate_scepter",
@@ -136,9 +136,9 @@ function AIGameMode:OnPlayerChat(event)
         end
 
         -- change all hero
-        if sChatMsg:find('^-changehero .+') then
-            Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人更换英雄:" .. sChatMsg:sub(13))
-            local heroName = sChatMsg:sub(13)
+        if sChatMsg:find('^-rh .+') then
+            Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人更换英雄:" .. sChatMsg:sub(5))
+            local heroName = sChatMsg:sub(5)
             local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
             for _, hero in pairs(tAllHeroes) do
                 local playerID = hero:GetPlayerID()
