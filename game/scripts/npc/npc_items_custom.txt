@@ -100,7 +100,7 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -207,7 +207,7 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 				"RemoveOnDeath"		"0"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -316,7 +316,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -743,7 +743,7 @@
 					{
 							"Passive"			"1"
 							"IsHidden"			"1"
-							"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+							"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 							"Properties"
 							{
@@ -1238,7 +1238,7 @@
 						"Passive"  "1"
 						"IsHidden" "1"
 
-						"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
+						"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 						"Properties"
 						{
 								"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
@@ -1437,7 +1437,7 @@
 						"Passive"  "1"
 						"IsHidden" "1"
 
-						"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
+						"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 						"Properties"
 						{
 								"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
@@ -1616,7 +1616,7 @@
 			{
 				"Passive"           "1"
 				"IsHidden"          "1"
-				"Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Aura"                  "modifier_insight_armor_aura"
 				"Aura_Radius"           "%radius"
@@ -3609,7 +3609,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -3833,7 +3833,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -4037,7 +4037,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
