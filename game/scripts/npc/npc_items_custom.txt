@@ -12,6 +12,8 @@
 		{
 			"item_jump_jump_jump_bonus_all_stats"		"35"
 			"item_undying_heart_bonus_strength"			"90"
+			"item_magic_scepter_bonus_intelligence"			"60"
+			"item_hallowed_scepter_bonus_intelligence"			"120"
 		}
 		"Modifiers"
 		{
@@ -39,6 +41,30 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_undying_heart_bonus_strength"
+				}
+			}
+			"modifier_item_magic_scepter_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_magic_scepter_bonus_intelligence"
+				}
+			}
+			"modifier_item_hallowed_scepter_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_hallowed_scepter_bonus_intelligence"
 				}
 			}
 		}
@@ -2183,7 +2209,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_intelligence"		"60"
+				"bonus_intelligence"		"60"	// tooltip, real value in item_magic_scepter_bonus_intelligence
 			}
 			"02"
 			{
@@ -2267,7 +2293,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_intelligence"		"120"
+				"bonus_intelligence"		"120"	// Tooltip, real value in item_hallowed_scepter_bonus_intelligence
 			}
 			"02"
 			{

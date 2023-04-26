@@ -22,15 +22,18 @@ function modifier_item_magic_scepter:RemoveOnDeath()	return false end
 function modifier_item_magic_scepter:GetAttributes()	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_magic_scepter:OnCreated()
+	self.stats_modifier_name = "modifier_item_magic_scepter_stats"
 	if IsServer() then
         if not self:GetAbility() then self:Destroy() end
     end
+	self.spell_amp_per_int = self:GetAbility():GetSpecialValueFor("spell_amp_per_int")
 
 	if not IsServer() then return end
 
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
 	end
+	RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
 end
 
 function modifier_item_magic_scepter:OnDestroy()
@@ -39,20 +42,13 @@ function modifier_item_magic_scepter:OnDestroy()
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
 	end
+	RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
 end
 
 function modifier_item_magic_scepter:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
 	}
-end
-
-
-function modifier_item_magic_scepter:GetModifierBonusStats_Intellect()
-	if self:GetAbility() then
-		return self:GetAbility():GetSpecialValueFor("bonus_intelligence")
-	end
 end
 
 function modifier_item_magic_scepter:GetModifierSpellAmplify_Percentage()
@@ -61,8 +57,7 @@ function modifier_item_magic_scepter:GetModifierSpellAmplify_Percentage()
 	end
 	if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
 		local current_int = self:GetParent():GetIntellect()
-		local applied_amp = current_int * self:GetAbility():GetSpecialValueFor("spell_amp_per_int")
-		return applied_amp
+		return current_int * self.spell_amp_per_int
 	end
 end
 
