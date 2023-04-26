@@ -1,5 +1,36 @@
 "DOTAAbilities"
 {
+	"item_apply_modifiers"
+	{
+		"ID"							"9000"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass"						"item_datadriven"
+
+		"AbilityValues"
+		{
+			"item_jump_jump_jump_bonus_all_stats"		"35"	// Tooltip, hard-coded in lua
+		}
+		"Modifiers"
+		{
+			"modifier_item_jump_jump_jump_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_jump_jump_jump_bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_jump_jump_jump_bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_jump_jump_jump_bonus_all_stats"
+				}
+			}
+		}
+	}
+
 	//=================================================================================================================
 	// Recipe: Moon Shard
 	//=================================================================================================================
@@ -100,7 +131,7 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -206,8 +237,8 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"RemoveOnDeath"		"0"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -316,7 +347,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -743,7 +774,7 @@
 					{
 							"Passive"			"1"
 							"IsHidden"			"1"
-							"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+							"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 							"Properties"
 							{
@@ -1238,7 +1269,7 @@
 						"Passive"  "1"
 						"IsHidden" "1"
 
-						"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+						"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 						"Properties"
 						{
 								"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
@@ -1437,7 +1468,7 @@
 						"Passive"  "1"
 						"IsHidden" "1"
 
-						"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+						"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 						"Properties"
 						{
 								"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
@@ -1616,7 +1647,7 @@
 			{
 				"Passive"           "1"
 				"IsHidden"          "1"
-				"Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Aura"                  "modifier_insight_armor_aura"
 				"Aura_Radius"           "%radius"
@@ -3609,7 +3640,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -3833,7 +3864,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -4037,7 +4068,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -4629,10 +4660,10 @@
 
 		"AbilityValues"
 		{
+			"bonus_all_stats"		"35"	// Tooltip, real value in item_apply_modifiers
 			"blink_damage_cooldown"	"3.0"
 			"meteor_fall_time"		"0.5"
 			"meteor_land_radius"	"350"
-			"bonus_all_stats"		"35"
 			"buff_duration"			"6"
 			// Below are the overwhelming, swift, and arcane modifier values
 			"movement_slow"			"50"
