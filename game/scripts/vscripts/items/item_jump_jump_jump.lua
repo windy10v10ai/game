@@ -68,14 +68,14 @@ function modifier_item_jump_jump_jump:OnCreated(keys)
 end
 
 function modifier_item_jump_jump_jump:OnRefresh(keys)
+	self.stats_modifier_name = "modifier_item_jump_jump_jump_stats"
 	local ability = self:GetAbility()
 	if (not ability) or ability:IsNull() then return end
 
-	self.bonus_all_stats_modifier = "modifier_item_jump_jump_jump_stats"
 	self.blink_damage_cooldown = ability:GetSpecialValueFor("blink_damage_cooldown")
 
 	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.bonus_all_stats_modifier)
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
 		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 			mod:GetAbility():SetSecondaryCharges(_)
 		end
@@ -84,7 +84,7 @@ end
 
 function modifier_item_jump_jump_jump:OnDestroy()
 	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.bonus_all_stats_modifier)
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
 		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 			mod:GetAbility():SetSecondaryCharges(_)
 		end
