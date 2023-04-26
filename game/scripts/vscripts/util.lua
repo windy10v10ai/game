@@ -210,10 +210,10 @@ function SelectEveryValidPlayerDoFunc(func)
 end
 
 function RefreshItemDataDrivenModifier(item, modifier)
+	local caster = item:GetCaster()
+	local itemName = item:GetName()
 	Timers:CreateTimer(0.1, function()
 		print("Add DataDriven Modifier "..modifier)
-		local caster = item:GetCaster()
-		local itemName = item:GetName()
 		-- get how many item caster has
 		local itemCount = 0
 		for i=0,5 do
