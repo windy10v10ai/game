@@ -14,8 +14,10 @@
 			"item_undying_heart_bonus_strength"			"90"
 			"item_magic_scepter_bonus_intelligence"			"60"
 			"item_hallowed_scepter_bonus_intelligence"			"120"
+
 			"item_blue_fantasy_agi"			"50"
 			"item_blue_fantasy_int"			"25"
+			"item_blue_fantasy_bonus_armor"			"10"
 		}
 		"Modifiers"
 		{
@@ -80,6 +82,8 @@
 				{
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_blue_fantasy_agi"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_blue_fantasy_int"
+
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%item_blue_fantasy_bonus_armor"
 				}
 			}
 		}
@@ -3536,7 +3540,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"10"
+				"bonus_armor"			"10"	// tooltip, real value is set in item_blue_fantasy_bonus_armor
 			}
 			"05"
 			{
