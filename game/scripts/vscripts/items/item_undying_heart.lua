@@ -37,7 +37,7 @@ function modifier_item_undying_heart:IsHidden()		return true end
 function modifier_item_undying_heart:IsDebuff()		return false end
 function modifier_item_undying_heart:IsPurgable()	return false end
 function modifier_item_undying_heart:RemoveOnDeath()	return false end
-function modifier_item_undying_heart:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
+function modifier_item_undying_heart:GetAttributes()	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_undying_heart:OnCreated()
 	self.parent=self:GetParent()

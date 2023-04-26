@@ -14,7 +14,7 @@ end
 function modifier_item_arcane_octarine_core:IsHidden()		return true end
 function modifier_item_arcane_octarine_core:IsPurgable()	return false end
 function modifier_item_arcane_octarine_core:RemoveOnDeath()	return false end
-function modifier_item_arcane_octarine_core:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
+function modifier_item_arcane_octarine_core:GetAttributes()	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_arcane_octarine_core:OnCreated(params)
 	self.bonus_cooldown = self:GetAbility():GetSpecialValueFor("bonus_cooldown")
