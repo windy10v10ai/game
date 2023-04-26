@@ -72,7 +72,7 @@ end
 function modifier_item_refresh_core:IsHidden()		return true end
 function modifier_item_refresh_core:IsPurgable()	return false end
 function modifier_item_refresh_core:RemoveOnDeath()	return false end
-function modifier_item_refresh_core:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
+function modifier_item_refresh_core:GetAttributes()	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 
 function modifier_item_refresh_core:OnCreated()

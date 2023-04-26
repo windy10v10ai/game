@@ -21,7 +21,7 @@ function modifier_item_excalibur:IsPurgable()
 	return false
 end
 function modifier_item_excalibur:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_PERMANENT
 end
 
 --------------------------------------------------------------------------------

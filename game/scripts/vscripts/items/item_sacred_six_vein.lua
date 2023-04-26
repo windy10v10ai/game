@@ -11,7 +11,7 @@ if modifier_item_sacred_six_vein == nil then modifier_item_sacred_six_vein = cla
 function modifier_item_sacred_six_vein:IsHidden()		return true end
 function modifier_item_sacred_six_vein:IsPurgable()		return false end
 function modifier_item_sacred_six_vein:RemoveOnDeath()	return false end
-function modifier_item_sacred_six_vein:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
+function modifier_item_sacred_six_vein:GetAttributes()	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_sacred_six_vein:OnCreated()
 	if not self:GetAbility() then self:Destroy() return end

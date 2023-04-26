@@ -11,7 +11,7 @@ if modifier_item_sacred_trident == nil then modifier_item_sacred_trident = class
 function modifier_item_sacred_trident:IsHidden()		return true end
 function modifier_item_sacred_trident:IsPurgable()		return false end
 function modifier_item_sacred_trident:RemoveOnDeath()	return false end
-function modifier_item_sacred_trident:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
+function modifier_item_sacred_trident:GetAttributes()	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_sacred_trident:OnCreated()
 	if not self:GetAbility() then self:Destroy() return end

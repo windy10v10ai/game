@@ -19,7 +19,7 @@ if modifier_item_dragon_lance_pro_max == nil then modifier_item_dragon_lance_pro
 function modifier_item_dragon_lance_pro_max:IsHidden()		return true end
 function modifier_item_dragon_lance_pro_max:IsPurgable()	return false end
 function modifier_item_dragon_lance_pro_max:RemoveOnDeath()	return false end
-function modifier_item_dragon_lance_pro_max:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
+function modifier_item_dragon_lance_pro_max:GetAttributes()	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_dragon_lance_pro_max:OnCreated()
 

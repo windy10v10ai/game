@@ -59,7 +59,7 @@ function modifier_item_necronomicon_staff:AllowIllusionDuplicate()
 	return false
 end
 function modifier_item_necronomicon_staff:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
 function modifier_item_necronomicon_staff:OnCreated(params)

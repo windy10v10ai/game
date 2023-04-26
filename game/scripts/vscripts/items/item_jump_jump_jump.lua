@@ -61,7 +61,7 @@ modifier_item_jump_jump_jump = class({})
 function modifier_item_jump_jump_jump:IsDebuff() return false end
 function modifier_item_jump_jump_jump:IsHidden() return true end
 function modifier_item_jump_jump_jump:IsPurgable() return false end
-function modifier_item_jump_jump_jump:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+function modifier_item_jump_jump_jump:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_jump_jump_jump:OnCreated(keys)
 	self:OnRefresh(keys)
