@@ -58,7 +58,7 @@ function AIGameMode:EnterDebugMode()
     print("========Enter Debug Mode========")
     self.DebugMode = true
     GameRules:SetHeroSelectionTime(15)
-    GameRules:SetPreGameTime(10)
+    GameRules:SetPreGameTime(100)
 end
 
 function AIGameMode:InitGameOptions()
