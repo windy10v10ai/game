@@ -7,6 +7,10 @@ if IsServer() then
 		if caster:HasModifier("modifier_luoshu_tome") then
 			return
 		else
+			local bonus_all_stats = self:GetSpecialValueFor("bonus_all_stats")
+			caster:ModifyIntellect(bonus_all_stats)
+			caster:ModifyAgility(bonus_all_stats)
+			caster:ModifyStrength(bonus_all_stats)
 			caster:AddNewModifier(caster, self, "modifier_luoshu_tome", {})
 			EmitSoundOnClient("Item.TomeOfKnowledge", caster)
 		end
@@ -22,7 +26,6 @@ function modifier_luoshu_tome:IsPermanent() return true end
 
 function modifier_luoshu_tome:OnCreated()
 	if self:GetAbility() then
-		self.bonus_all_stats = self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 		self.status_resistance = self:GetAbility():GetSpecialValueFor("status_resistance")
 		self.spell_amp = self:GetAbility():GetSpecialValueFor("spell_amp")
 		self.bonus_base_damage_percent = self:GetAbility():GetSpecialValueFor("bonus_base_damage_percent")
@@ -32,26 +35,11 @@ end
 
 function modifier_luoshu_tome:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
 		MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
 	}
-end
-
-function modifier_luoshu_tome:GetModifierBonusStats_Strength()
-	return self.bonus_all_stats
-end
-
-function modifier_luoshu_tome:GetModifierBonusStats_Agility()
-	return self.bonus_all_stats
-end
-
-function modifier_luoshu_tome:GetModifierBonusStats_Intellect()
-	return self.bonus_all_stats
 end
 
 function modifier_luoshu_tome:GetModifierStatusResistanceStacking()
