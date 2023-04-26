@@ -18,6 +18,9 @@
 			"item_blue_fantasy_agi"			"50"
 			"item_blue_fantasy_int"			"25"
 			"item_blue_fantasy_bonus_armor"			"10"
+
+			"item_saint_orb_bonus_all_stats"		"25"
+			"item_saint_orb_bonus_armor"			"20"
 		}
 		"Modifiers"
 		{
@@ -84,6 +87,22 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_blue_fantasy_int"
 
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%item_blue_fantasy_bonus_armor"
+				}
+			}
+			"modifier_item_saint_orb_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_saint_orb_bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_saint_orb_bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_saint_orb_bonus_all_stats"
+
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%item_saint_orb_bonus_armor"
 				}
 			}
 		}
@@ -5514,11 +5533,11 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_armor"	"20"	//加甲
-			"bonus_mana"	"400"	//加蓝
-			"bonus_all_stats" "25"	//全属性
+			"bonus_all_stats" "25"	//全属性 tooltip, real value is item_saint_orb_bonus_all_stats
+			"bonus_armor"	"20"	//加甲 tooltip, real value is item_saint_orb_bonus_armor
 			"hp_re"			"25"	//回血
 			"mana_re"		"16"	//回蓝
+			"bonus_mana"	"400"	//加蓝
 			"heal_bonus"	"20"	//恢复增强
 			"duration"		"6"		//主动持续时间
 			"heal"			"5"		//反制回血%
