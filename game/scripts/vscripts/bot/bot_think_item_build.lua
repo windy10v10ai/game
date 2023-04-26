@@ -272,6 +272,16 @@ function BotThink:ThinkPurchase(hHero)
 end
 
 function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
+  -- if hHero has neutral token
+  local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT )
+  if itemNeutral then
+    if string.find(itemNeutral:GetName(), "item_tier") then
+      -- remove item
+      hHero:RemoveItem(itemNeutral)
+      return
+    end
+  end
+
   local iHeroName = hHero:GetName()
 
   local multiIndex = "x1"

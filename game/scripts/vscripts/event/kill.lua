@@ -6,7 +6,7 @@ local function CreateItemLocal(sItemName, hEntity)
     local pos = hEntity:GetAbsOrigin()
     CreateItemOnPositionSync(pos, item)
     local pos_launch = pos + RandomVector(RandomFloat(150, 200))
-    item:LaunchLoot(false, 200, 0.75, pos_launch)
+    item:LaunchLoot(false, 200, 0.75, pos_launch, nil)
 end
 
 local function RollDrops(hHero)

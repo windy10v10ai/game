@@ -61,53 +61,56 @@ modifier_item_jump_jump_jump = class({})
 function modifier_item_jump_jump_jump:IsDebuff() return false end
 function modifier_item_jump_jump_jump:IsHidden() return true end
 function modifier_item_jump_jump_jump:IsPurgable() return false end
-function modifier_item_jump_jump_jump:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+function modifier_item_jump_jump_jump:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_jump_jump_jump:OnCreated(keys)
 	self:OnRefresh(keys)
 end
 
 function modifier_item_jump_jump_jump:OnRefresh(keys)
+	self.stats_modifier_name = "modifier_item_jump_jump_jump_stats"
 	local ability = self:GetAbility()
 	if (not ability) or ability:IsNull() then return end
 
-	self.bonus_all_stats = ability:GetSpecialValueFor("bonus_all_stats")
 	self.blink_damage_cooldown = ability:GetSpecialValueFor("blink_damage_cooldown")
+
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+			mod:GetAbility():SetSecondaryCharges(_)
+		end
+	end
+end
+
+function modifier_item_jump_jump_jump:OnDestroy()
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+			mod:GetAbility():SetSecondaryCharges(_)
+		end
+	end
 end
 
 function modifier_item_jump_jump_jump:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
 	}
 end
 
-function modifier_item_jump_jump_jump:GetModifierBonusStats_Strength()
-	return self.bonus_all_stats or 0
-end
-
-function modifier_item_jump_jump_jump:GetModifierBonusStats_Agility()
-	return self.bonus_all_stats or 0
-end
-
-function modifier_item_jump_jump_jump:GetModifierBonusStats_Intellect()
-	return self.bonus_all_stats or 0
-end
-
 function modifier_item_jump_jump_jump:GetModifierIncomingDamage_Percentage(keys)
-	if keys.attacker == keys.target or keys.original_damage <= 0 then return end
+	if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
+		if keys.attacker == keys.target or keys.original_damage <= 0 then return end
 
-	if (not keys.attacker:IsHero()) then return end
-	-- if attacker has same team as target, return
-	if keys.attacker:GetTeamNumber() == keys.target:GetTeamNumber() then return end
+		if (not keys.attacker:IsHero()) then return end
+		-- if attacker has same team as target, return
+		if keys.attacker:GetTeamNumber() == keys.target:GetTeamNumber() then return end
 
-	if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then return end
+		if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then return end
 
-	local ability = self:GetAbility()
-	if ability and (not ability:IsNull()) and ability:GetCooldownTimeRemaining() < self.blink_damage_cooldown then
-		ability:StartCooldown(self.blink_damage_cooldown)
+		local ability = self:GetAbility()
+		if ability and (not ability:IsNull()) and ability:GetCooldownTimeRemaining() < self.blink_damage_cooldown then
+			ability:StartCooldown(self.blink_damage_cooldown)
+		end
 	end
 end
 

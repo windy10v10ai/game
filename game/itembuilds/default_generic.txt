@@ -53,13 +53,14 @@
 		"#dota_item_build_windy_magical_core_items"
 		{
 			"item"		"item_force_staff_3"  //黄金法杖
-			"item"		"item_refresher"  //刷新球
 			"item"		"item_dagon_5"  //达贡之神力
 			"item"		"item_arcane_octarine_core"  //奥术之心
 			"item"		"item_gungir_2"  //风暴之锤
 			"item"		"item_hallowed_scepter"  //仙云法杖
 		    "item"		"item_necronomicon_staff"  //死灵法杖
 			"item"		"item_sacred_six_vein"  //六脉神剑
+			"item"		"item_refresh_core"  //刷新球
+			"item"		"item_bloodstone_v2"  //血精神石
 		}
 
 		"#dota_item_build_windy_physical_core_items"

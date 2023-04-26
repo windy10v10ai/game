@@ -208,3 +208,42 @@ function SelectEveryValidPlayerDoFunc(func)
 		end
 	end
 end
+
+function RefreshItemDataDrivenModifier(item, modifier)
+	local caster = item:GetCaster()
+	local itemName = item:GetName()
+	Timers:CreateTimer(0.1, function()
+		print("Add DataDriven Modifier "..modifier)
+		-- get how many item caster has
+		local itemCount = 0
+		for i=0,5 do
+			local itemInSlot = caster:GetItemInSlot(i)
+			if itemInSlot and itemInSlot:GetName() == itemName then
+				itemCount = itemCount + 1
+			end
+		end
+		local modifiers = caster:FindAllModifiersByName(modifier)
+		local modifierCount = #modifiers
+
+		print("itemCount: "..itemCount)
+		print("modifierCount: "..modifierCount)
+
+		if itemCount > modifierCount then
+			-- add modifier
+			local statsModifier = CreateItem("item_apply_modifiers", nil, nil)
+			for i=1,itemCount-modifierCount do
+				statsModifier:ApplyDataDrivenModifier(caster, caster, modifier, {})
+			end
+			-- Cleanup
+			UTIL_RemoveImmediate(statsModifier)
+			statsModifier = nil
+		end
+
+		if itemCount < modifierCount then
+			-- remove modifier
+			for i=1,modifierCount-itemCount do
+				modifiers[i]:Destroy()
+			end
+		end
+	end)
+end

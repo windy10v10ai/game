@@ -59,7 +59,7 @@ function modifier_item_hand_of_group_pa:IsPurgeException()
 end
 
 function modifier_item_hand_of_group_pa:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
 function modifier_item_hand_of_group_pa:OnCreated()

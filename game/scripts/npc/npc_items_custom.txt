@@ -1,5 +1,113 @@
 "DOTAAbilities"
 {
+	"item_apply_modifiers"
+	{
+		"ID"							"9000"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass"						"item_datadriven"
+
+		"AbilityValues"
+		{
+			"item_jump_jump_jump_bonus_all_stats"		"35"
+			"item_undying_heart_bonus_strength"			"90"
+			"item_magic_scepter_bonus_intelligence"			"60"
+			"item_hallowed_scepter_bonus_intelligence"			"120"
+
+			"item_blue_fantasy_agi"			"50"
+			"item_blue_fantasy_int"			"25"
+			"item_blue_fantasy_bonus_armor"			"10"
+
+			"item_saint_orb_bonus_all_stats"		"25"
+			"item_saint_orb_bonus_armor"			"20"
+		}
+		"Modifiers"
+		{
+			"modifier_item_jump_jump_jump_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_jump_jump_jump_bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_jump_jump_jump_bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_jump_jump_jump_bonus_all_stats"
+				}
+			}
+			"modifier_item_undying_heart_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_undying_heart_bonus_strength"
+				}
+			}
+			"modifier_item_magic_scepter_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_magic_scepter_bonus_intelligence"
+				}
+			}
+			"modifier_item_hallowed_scepter_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_hallowed_scepter_bonus_intelligence"
+				}
+			}
+			"modifier_item_blue_fantasy_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_blue_fantasy_agi"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_blue_fantasy_int"
+
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%item_blue_fantasy_bonus_armor"
+				}
+			}
+			"modifier_item_saint_orb_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_saint_orb_bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_saint_orb_bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_saint_orb_bonus_all_stats"
+
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%item_saint_orb_bonus_armor"
+				}
+			}
+		}
+	}
+
 	//=================================================================================================================
 	// Recipe: Moon Shard
 	//=================================================================================================================
@@ -100,7 +208,7 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -206,8 +314,8 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"RemoveOnDeath"		"0"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -316,7 +424,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -743,7 +851,7 @@
 					{
 							"Passive"			"1"
 							"IsHidden"			"1"
-							"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+							"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 							"Properties"
 							{
@@ -1032,7 +1140,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"90"
+				"bonus_strength"		"90"	// Tooltip, real value in item_undying_heart_bonus_strength
 			}
 			"02"
 			{
@@ -1238,7 +1346,7 @@
 						"Passive"  "1"
 						"IsHidden" "1"
 
-						"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
+						"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 						"Properties"
 						{
 								"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
@@ -1437,7 +1545,7 @@
 						"Passive"  "1"
 						"IsHidden" "1"
 
-						"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
+						"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 						"Properties"
 						{
 								"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
@@ -1616,7 +1724,7 @@
 			{
 				"Passive"           "1"
 				"IsHidden"          "1"
-				"Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Aura"                  "modifier_insight_armor_aura"
 				"Aura_Radius"           "%radius"
@@ -2139,7 +2247,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_intelligence"		"60"
+				"bonus_intelligence"		"60"	// tooltip, real value in item_magic_scepter_bonus_intelligence
 			}
 			"02"
 			{
@@ -2223,7 +2331,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_intelligence"		"120"
+				"bonus_intelligence"		"120"	// Tooltip, real value in item_hallowed_scepter_bonus_intelligence
 			}
 			"02"
 			{
@@ -3441,17 +3549,17 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"agi"					"50"
+				"agi"					"50"	// tooltip, real value is set in item_blue_fantasy_agi
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"int"					"25"
+				"int"					"25"	// tooltip, real value is set in item_blue_fantasy_int
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"10"
+				"bonus_armor"			"10"	// tooltip, real value is set in item_blue_fantasy_bonus_armor
 			}
 			"05"
 			{
@@ -3609,7 +3717,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -3833,7 +3941,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -4037,7 +4145,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Properties"
 				{
@@ -4629,10 +4737,10 @@
 
 		"AbilityValues"
 		{
+			"bonus_all_stats"		"35"	// Tooltip, real value in item_jump_jump_jump_bonus_all_stats
 			"blink_damage_cooldown"	"3.0"
 			"meteor_fall_time"		"0.5"
 			"meteor_land_radius"	"350"
-			"bonus_all_stats"		"35"
 			"buff_duration"			"6"
 			// Below are the overwhelming, swift, and arcane modifier values
 			"movement_slow"			"50"
@@ -5425,11 +5533,11 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_armor"	"20"	//加甲
-			"bonus_mana"	"400"	//加蓝
-			"bonus_all_stats" "25"	//全属性
+			"bonus_all_stats" "25"	//全属性 tooltip, real value is item_saint_orb_bonus_all_stats
+			"bonus_armor"	"20"	//加甲 tooltip, real value is item_saint_orb_bonus_armor
 			"hp_re"			"25"	//回血
 			"mana_re"		"16"	//回蓝
+			"bonus_mana"	"400"	//加蓝
 			"heal_bonus"	"20"	//恢复增强
 			"duration"		"6"		//主动持续时间
 			"heal"			"5"		//反制回血%

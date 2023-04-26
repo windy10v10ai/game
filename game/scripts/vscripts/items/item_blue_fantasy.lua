@@ -1,4 +1,5 @@
-item_blue_fantasy=class({})
+if item_blue_fantasy == nil then item_blue_fantasy = class({}) end
+
 LinkLuaModifier("modifier_item_blue_fantasy", "items/item_blue_fantasy.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_blue_fantasy_debuff", "items/item_blue_fantasy.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -48,7 +49,7 @@ function item_blue_fantasy:OnProjectileHit(target, location)
     return true
 end
 
-modifier_item_blue_fantasy=class({})
+if modifier_item_blue_fantasy == nil then modifier_item_blue_fantasy = class({}) end
 
 function modifier_item_blue_fantasy:IsHidden()
     return true
@@ -62,35 +63,51 @@ function modifier_item_blue_fantasy:IsPurgeException()
     return false
 end
 
+function modifier_item_blue_fantasy:RemoveOnDeath()	return false end
+function modifier_item_blue_fantasy:GetAttributes()	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+
 function modifier_item_blue_fantasy:DeclareFunctions()
     return
     {
-        MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
         MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
         MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
         MODIFIER_EVENT_ON_ATTACK_LANDED
     }
 end
 
 function modifier_item_blue_fantasy:OnCreated()
+	self.stats_modifier_name = "modifier_item_blue_fantasy_stats"
     self.parent=self:GetParent()
     if self:GetAbility() == nil then
 		return
     end
     self.ability=self:GetAbility()
-    self.int=self.ability:GetSpecialValueFor( "int" )
-    self.agi=self.ability:GetSpecialValueFor( "agi" )
     self.bonus_damage=self.ability:GetSpecialValueFor("bonus_damage")
-    self.bonus_armor=self.ability:GetSpecialValueFor("bonus_armor")
     self.bonus_regen=self.ability:GetSpecialValueFor("bonus_regen")
     self.mana_base=self.ability:GetSpecialValueFor("mana_base")
     self.dam=0
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+			mod:GetAbility():SetSecondaryCharges(_)
+		end
+	end
+end
+
+function modifier_item_blue_fantasy:OnDestroy()
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+			mod:GetAbility():SetSecondaryCharges(_)
+		end
+	end
 end
 
 function modifier_item_blue_fantasy:OnAttackLanded(tg)
     if not IsServer() then
+        return
+    end
+    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() ~= 1 then
         return
     end
     if (tg.attacker:IsBuilding() or tg.attacker:IsIllusion()) then
@@ -100,7 +117,7 @@ function modifier_item_blue_fantasy:OnAttackLanded(tg)
        local mana = tg.target:GetMana()
        if mana then
             self.dam=self.mana_base
-            tg.target:ReduceMana(self.dam)
+            tg.target:Script_ReduceMana(self.dam, self.ability)
             local damageTablep = {
                     victim = tg.target,
                     attacker = self.parent,
@@ -113,20 +130,8 @@ function modifier_item_blue_fantasy:OnAttackLanded(tg)
     end
 end
 
-function modifier_item_blue_fantasy:GetModifierBonusStats_Intellect()
-    return self.int
-end
-
-function modifier_item_blue_fantasy:GetModifierBonusStats_Agility()
-    return self.agi
-end
-
 function modifier_item_blue_fantasy:GetModifierPreAttack_BonusDamage()
     return self.bonus_damage
-end
-
-function modifier_item_blue_fantasy:GetModifierPhysicalArmorBonus()
-    return self.bonus_armor
 end
 
 function modifier_item_blue_fantasy:GetModifierConstantHealthRegen()

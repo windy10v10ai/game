@@ -37,35 +37,45 @@ function modifier_item_undying_heart:IsHidden()		return true end
 function modifier_item_undying_heart:IsDebuff()		return false end
 function modifier_item_undying_heart:IsPurgable()	return false end
 function modifier_item_undying_heart:RemoveOnDeath()	return false end
-function modifier_item_undying_heart:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
+function modifier_item_undying_heart:GetAttributes()	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_undying_heart:OnCreated()
-	self.parent=self:GetParent()
+	self:OnRefresh(keys)
+end
+
+function modifier_item_undying_heart:OnRefresh(keys)
+	self.stats_modifier_name = "modifier_item_undying_heart_stats"
+
 	if IsServer() then
         if not self:GetAbility() then self:Destroy() end
     end
 	self.ability=self:GetAbility()
 	if self:GetAbility() then
-		self.bonus_strength = self.ability:GetSpecialValueFor("bonus_strength")
 		self.bonus_health = self.ability:GetSpecialValueFor("bonus_health")
 		self.health_regen_pct = self.ability:GetSpecialValueFor("health_regen_pct")
 		self.bonus_evasion = self.ability:GetSpecialValueFor("bonus_evasion")
 		self.status_resistance = self.ability:GetSpecialValueFor("status_resistance")
 	end
+
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	end
 end
+
+function modifier_item_undying_heart:OnDestroy()
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	end
+end
+
 
 function modifier_item_undying_heart:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_HEALTH_BONUS,
 		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE,
 		MODIFIER_PROPERTY_EVASION_CONSTANT,
 		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
 	}
-end
-
-function modifier_item_undying_heart:GetModifierBonusStats_Strength()
-	return self.bonus_strength
 end
 
 function modifier_item_undying_heart:GetModifierHealthBonus()
