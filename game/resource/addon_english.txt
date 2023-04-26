@@ -1292,7 +1292,7 @@
 
 		// item_blue_fantasy 苍蓝幻想
 		"DOTA_Tooltip_ability_item_blue_fantasy"									"Blue Fantasy"
-		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1><font color='#FFFF00'>Active：Destruction song</font></h1>Dispels, breaks, mutes the target and applies a debuff for %mute_duration% seconds.<br><br>The debuff slows the target by %slow_pct%%%, reduces its attack speed by %attsp%, deals %max_hp_dmg_pct%%% of maximum health magic damage to the target every second.\n<h1><font color='#FFFF00'>Passive：mana remove</font></h1>Each attack burns %mana_base% mana, and deals 1 physical damage per burned mana"
+		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1><font color='#FFFF00'>Active：Destruction song</font></h1>Dispels, breaks, mutes the target and applies a debuff for %mute_duration% seconds.<br><br>The debuff slows the target by %slow_pct%%%, reduces its attack speed by %attsp%, deals %max_hp_dmg_pct%%% of maximum health magic damage to the target every second.\n<h1><font color='#FFFF00'>Passive：mana remove</font></h1>Each attack burns %mana_base% mana, and deals 1 physical damage per burned mana. (Multiple item do not stack)"
 		"DOTA_Tooltip_ability_item_blue_fantasy_int"								"+$int"
 		"DOTA_Tooltip_ability_item_blue_fantasy_agi"								"+$agi"
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_damage"						"+$damage"

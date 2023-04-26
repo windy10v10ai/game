@@ -1,5 +1,6 @@
+LinkLuaModifier( "modifier_item_excalibur", "items/item_excalibur.lua", LUA_MODIFIER_MOTION_NONE )
+
 if item_excalibur == nil then item_excalibur = class({}) end
-LinkLuaModifier( "modifier_item_excalibur", "items/item_excalibur", LUA_MODIFIER_MOTION_NONE )
 
 function item_excalibur:GetIntrinsicModifierName()
 	return "modifier_item_excalibur"
@@ -20,7 +21,7 @@ function modifier_item_excalibur:IsPurgable()
 	return false
 end
 function modifier_item_excalibur:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_PERMANENT
 end
 
 --------------------------------------------------------------------------------

@@ -50,7 +50,7 @@ function modifier_item_orb_of_the_brine:IsPurgable()
 	return false
 end
 function modifier_item_orb_of_the_brine:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
 --------------------------------------------------------------------------------
