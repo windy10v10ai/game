@@ -21,6 +21,9 @@ function modifier_item_saint_orb_passive:IsDebuff()			return false end
 function modifier_item_saint_orb_passive:IsHidden() 		return true end
 function modifier_item_saint_orb_passive:IsPurgable() 		return false end
 function modifier_item_saint_orb_passive:IsPurgeException()	return false end
+function modifier_item_saint_orb_passive:RemoveOnDeath()	return false end
+function modifier_item_saint_orb_passive:GetAttributes()	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+
 function modifier_item_saint_orb_passive:DeclareFunctions() return
 	{
 		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
@@ -28,10 +31,6 @@ function modifier_item_saint_orb_passive:DeclareFunctions() return
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_MANA_BONUS,
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 	}
 end
 function modifier_item_saint_orb_passive:CheckState()
@@ -40,23 +39,28 @@ function modifier_item_saint_orb_passive:CheckState()
 		}
 end
 function modifier_item_saint_orb_passive:OnCreated()
+	self.stats_modifier_name = "modifier_item_saint_orb_stats"
 	if self:GetAbility() == nil then return end
 	local ab = self:GetAbility()
 	self.mp = ab:GetSpecialValueFor("bonus_mana")
 	self.hp_re = ab:GetSpecialValueFor("hp_re")
 	self.mp_re = ab:GetSpecialValueFor("mana_re")
-	self.armor = ab:GetSpecialValueFor("bonus_armor")
 	self.heal_bonus = ab:GetSpecialValueFor("heal_bonus")
-	self.bonus_all_stats = ab:GetSpecialValueFor("bonus_all_stats")
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	end
 end
+function modifier_item_saint_orb_passive:OnDestroy()
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	end
+end
+
 function modifier_item_saint_orb_passive:GetModifierConstantManaRegen()
 	return self.mp_re
 end
 function modifier_item_saint_orb_passive:GetModifierManaBonus()
 	return self.mp
-end
-function modifier_item_saint_orb_passive:GetModifierPhysicalArmorBonus()
-	return self.armor
 end
 function modifier_item_saint_orb_passive:GetModifierConstantHealthRegen()
 	return self.hp_re
@@ -66,15 +70,6 @@ function modifier_item_saint_orb_passive:GetModifierHPRegenAmplify_Percentage()
 end
 function modifier_item_saint_orb_passive:GetModifierLifestealRegenAmplify_Percentage ()
 	return self.heal_bonus
-end
-function modifier_item_saint_orb_passive:GetModifierBonusStats_Strength()
-	return self.bonus_all_stats
-end
-function modifier_item_saint_orb_passive:GetModifierBonusStats_Agility()
-	return self.bonus_all_stats
-end
-function modifier_item_saint_orb_passive:GetModifierBonusStats_Intellect()
-	return self.bonus_all_stats
 end
 
 modifier_item_saint_orb_buff = class({})
