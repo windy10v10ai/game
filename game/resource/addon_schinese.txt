@@ -1435,7 +1435,7 @@
 
 		// item_blue_fantasy 苍蓝幻想
 		"DOTA_Tooltip_ability_item_blue_fantasy"									"苍蓝幻想"
-		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1><font color='#FFFF00'>主动：毁灭终曲</font></h1>驱散目标身上的增益效果，并且施加持续%mute_duration%秒的负面效果。<br><br>持续时间内，破坏其被动，禁用他的装备，降低%slow_pct%%%移速，%attsp%攻速。<br><br>同时目标每秒受到自身%max_hp_dmg_pct%%%的最大生命值魔法伤害。\n<h1><font color='#FFFF00'>被动：蚕食进行曲</font></h1>每次攻击燃烧目标 %mana_base% 点魔法并造成等量的物理伤害。"
+		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1><font color='#FFFF00'>主动：毁灭终曲</font></h1>驱散目标身上的增益效果，并且施加持续%mute_duration%秒的负面效果。<br><br>持续时间内，破坏其被动，禁用他的装备，降低%slow_pct%%%移速，%attsp%攻速。<br><br>同时目标每秒受到自身%max_hp_dmg_pct%%%的最大生命值魔法伤害。\n<h1><font color='#FFFF00'>被动：蚕食进行曲</font></h1>每次攻击燃烧目标 %mana_base% 点魔法并造成等量的物理伤害。(多件道具不叠加)"
 		"DOTA_Tooltip_ability_item_blue_fantasy_int"								"+智力"
 		"DOTA_Tooltip_ability_item_blue_fantasy_agi"								"+敏捷"
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_damage"						"+攻击力"
