@@ -63,12 +63,13 @@ function modifier_item_abyssal_blade_v2:IsPurgeException()return false
 end
 function modifier_item_abyssal_blade_v2:AllowIllusionDuplicate()return false
 end
+function modifier_item_abyssal_blade_v2:RemoveOnDeath()	return false end
+function modifier_item_abyssal_blade_v2:GetAttributes()	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_abyssal_blade_v2:DeclareFunctions()
         return
         {
             MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-            MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
             MODIFIER_PROPERTY_HEALTH_BONUS,
             MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
             MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
@@ -77,6 +78,7 @@ function modifier_item_abyssal_blade_v2:DeclareFunctions()
 end
 
 function modifier_item_abyssal_blade_v2:OnCreated()
+	self.stats_modifier_name = "modifier_item_abyssal_blade_v2_stats"
         self.ability = self:GetAbility()
         self.parent = self:GetParent()
         self.stunned = true
@@ -86,7 +88,6 @@ function modifier_item_abyssal_blade_v2:OnCreated()
            return
         end
         self.bonus_damage=self.ability:GetSpecialValueFor("bonus_damage")
-        self.bonus_strength=self.ability:GetSpecialValueFor("bonus_strength")
         self.stun=self.ability:GetSpecialValueFor("stun")
         self.ch_m=self.ability:GetSpecialValueFor("ch_m")
         self.ch_r=self.ability:GetSpecialValueFor("ch_r")
@@ -103,6 +104,15 @@ function modifier_item_abyssal_blade_v2:OnCreated()
                 damage_type =DAMAGE_TYPE_PHYSICAL
         }
 
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	end
+end
+
+function modifier_item_abyssal_blade_v2:OnDestroy()
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	end
 end
 
 function modifier_item_abyssal_blade_v2:OnIntervalThink()
@@ -131,9 +141,6 @@ function modifier_item_abyssal_blade_v2:OnAttackLanded(tg)
 
 function modifier_item_abyssal_blade_v2:GetModifierPreAttack_BonusDamage()
 	return self.bonus_damage
-end
-function modifier_item_abyssal_blade_v2:GetModifierBonusStats_Strength()
-	return self.bonus_strength
 end
 function modifier_item_abyssal_blade_v2:GetModifierHealthBonus()
 	return self.bonus_health
