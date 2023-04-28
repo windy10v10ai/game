@@ -280,6 +280,11 @@ function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
       hHero:RemoveItem(itemNeutral)
       return
     end
+    -- if owner not self, remove
+    if itemNeutral:GetPurchaser() ~= hHero then
+      hHero:RemoveItem(itemNeutral)
+      return
+    end
   end
 
   local iHeroName = hHero:GetName()
