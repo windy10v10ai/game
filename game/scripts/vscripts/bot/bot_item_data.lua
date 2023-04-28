@@ -717,13 +717,11 @@ tBotItemData.purchaseItemList = {
 		'item_bracer',
 		'item_arcane_boots',
 		'item_vanguard',
-		'item_hood_of_defiance',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_blade_mail_2',
 		'item_blink',
-		'item_voodoo_mask',
-		'item_recipe_eternal_shroud',
+		'item_eternal_shroud',
 		'item_aether_lens_2',
 		'item_reaver',
 		'item_recipe_overwhelming_blink',
@@ -1656,7 +1654,7 @@ tBotItemData.addNeutralItemList = {
 		'item_desolator_2',
 	},
 	npc_dota_hero_bloodseeker = {
-		'item_pirate_hat_custom',
+		'item_pirate_hat',
 	},
 	npc_dota_hero_bristleback = {
 		'item_mirror_shield',
@@ -1752,7 +1750,7 @@ tBotItemData.addNeutralItemList = {
 		'item_ballista',
 	},
 	npc_dota_hero_sven = {
-		'item_pirate_hat_custom',
+		'item_pirate_hat',
 	},
 	npc_dota_hero_tidehunter = {
 		'item_mirror_shield',
