@@ -157,7 +157,7 @@
 		"item"		"item_gungir_2"
 		"item"		"item_ultimate_scepter_2"
 		"item"		"item_hallowed_scepter"
-		// "item"		"item_necronomicon_staff"
+		"item"		"item_necronomicon_staff"
 	}
 
 	// Level 3 - Purple Recipes
