@@ -17,10 +17,15 @@ function modifier_item_shotgun_v2:IsHidden() return true end
 function modifier_item_shotgun_v2:IsPurgable() return false end
 function modifier_item_shotgun_v2:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
+
 function modifier_item_shotgun_v2:OnCreated()
-	if IsServer() then
-        if not self:GetAbility() then self:Destroy() end
-    end
+
+	local ability = self:GetAbility()
+	self.attack_radius = ability:GetSpecialValueFor("attack_radius")
+	self.attack_percent = ability:GetSpecialValueFor("attack_percent")
+
+	self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+	self.attack_speed = ability:GetSpecialValueFor("attack_speed")
 
 	if not IsServer() then return end
 
@@ -46,31 +51,24 @@ function modifier_item_shotgun_v2:DeclareFunctions()
 	return funcs
 end
 
-function modifier_item_shotgun_v2:OnCreated()
-
-	local ability = self:GetAbility()
-	self.attack_radius = ability:GetSpecialValueFor("attack_radius")
-	self.attack_percent = ability:GetSpecialValueFor("attack_percent")
-
-end
-
 function modifier_item_shotgun_v2:GetModifierBaseAttack_BonusDamage()
-	return self:GetAbility():GetSpecialValueFor("bonus_damage")
+	return self.bonus_damage
 end
 
 function modifier_item_shotgun_v2:GetModifierAttackSpeedBonus_Constant()
-	return self:GetAbility():GetSpecialValueFor("attack_speed")
+	return self.attack_speed
 end
 
 
 function modifier_item_shotgun_v2:GetModifierProcAttack_Feedback(keys)
 	if not keys.attacker:IsRealHero() or not keys.attacker:IsRangedAttacker() then return end
-	if keys.attacker:GetTeam() == keys.target:GetTeam() then return end
-	if keys.target:IsBuilding() then return end
 
 	-- if item in cooldown then return end
 	if keys.attacker:HasModifier("modifier_item_shotgun_cooldown") then return end
 	if keys.attacker:HasModifier("modifier_item_shotgun_v2_cooldown") then return end
+
+	if keys.attacker:GetTeam() == keys.target:GetTeam() then return end
+	if keys.target:IsBuilding() then return end
 
 	local ability = self:GetAbility()
 	local target_loc = keys.target:GetAbsOrigin()

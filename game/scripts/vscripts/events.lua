@@ -25,8 +25,6 @@ function AIGameMode:GetFreeHeroName(isRadiant)
     if not isRadiant and self.iGameDifficulty == 6 then
         tFreeHeroName = tBotAllStar
     end
-    print("tFreeHeroName".. tostring(isRadiant))
-    PrintTable(tFreeHeroName)
     for i, v in ipairs(tFreeHeroName) do
         if PlayerResource:WhoSelectedHero(v, false) < 0 then
             return v
