@@ -56,10 +56,19 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_item_orb_of_the_brine:OnCreated( kv )
-	self.bonus_all_stats = self:GetAbility():GetSpecialValueFor( "bonus_all_stats" )
+	self.stats_modifier_name = "modifier_item_orb_of_the_brine_stats"
 	self.bonus_health = self:GetAbility():GetSpecialValueFor( "bonus_health" )
 	self.bonus_mana = self:GetAbility():GetSpecialValueFor( "bonus_mana" )
 	self.heal_increase = self:GetAbility():GetSpecialValueFor( "heal_increase" )
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	end
+end
+
+function modifier_item_orb_of_the_brine:OnDestroy()
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	end
 end
 
 --------------------------------------------------------------------------------
@@ -67,9 +76,6 @@ end
 function modifier_item_orb_of_the_brine:DeclareFunctions()
 	local funcs =
 	{
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_HEALTH_BONUS,
 		MODIFIER_PROPERTY_MANA_BONUS,
 		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
@@ -78,18 +84,6 @@ function modifier_item_orb_of_the_brine:DeclareFunctions()
 end
 
 --------------------------------------------------------------------------------
-
-function modifier_item_orb_of_the_brine:GetModifierBonusStats_Intellect( params )
-	return self.bonus_all_stats
-end
-
-function modifier_item_orb_of_the_brine:GetModifierBonusStats_Agility( params )
-	return self.bonus_all_stats
-end
-
-function modifier_item_orb_of_the_brine:GetModifierBonusStats_Strength( params )
-	return self.bonus_all_stats
-end
 
 function modifier_item_orb_of_the_brine:GetModifierHealthBonus( params )
 	return self.bonus_health
