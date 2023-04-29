@@ -448,7 +448,15 @@
 			}
         }
 	}
+	"npc_dota_hero_storm_spirit"
+	{
+		"Ability17"  "special_bonus_cooldown_reduction_50"
+	}
 
+	"npc_dota_hero_rattletrap"
+	{
+		"AttackRate"		"1.000000"
+	}
 	"npc_dota_hero_pangolier"
 	{
 		"DisableWearables"	        "1"
@@ -1722,6 +1730,7 @@
 	}
 	"npc_dota_hero_mirana"
 	{
+		"AttackRate"		"1.400000"
 		"Bot"
 		{
 			"Build"
