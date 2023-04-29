@@ -23,6 +23,12 @@
 			"item_blue_fantasy_int"			"25"
 
 			"item_saint_orb_bonus_all_stats"		"25"
+
+			"item_necronomicon_staff_bonus_strength"		"20"
+			"item_necronomicon_staff_bonus_agility"			"20"
+			"item_necronomicon_staff_bonus_intellect"		"80"
+
+			"item_orb_of_the_brine_bonus_all_stats"		"15"
 		}
 		"Modifiers"
 		{
@@ -127,6 +133,34 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_saint_orb_bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_saint_orb_bonus_all_stats"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"20"
+				}
+			}
+			"modifier_item_necronomicon_staff_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_necronomicon_staff_bonus_strength"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_necronomicon_staff_bonus_agility"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_necronomicon_staff_bonus_intellect"
+				}
+			}
+			"modifier_item_orb_of_the_brine_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_orb_of_the_brine_bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_orb_of_the_brine_bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_orb_of_the_brine_bonus_all_stats"
 				}
 			}
 		}
@@ -2222,7 +2256,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2950"
+		"ItemCost"						"3150"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2276,7 +2310,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"spell_amp_per_int"			"0.1"
+				"spell_amp_per_int"			"0.12"
 			}
 			"03"
 			{
@@ -2305,7 +2339,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5000"
+		"ItemCost"						"6000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2340,7 +2374,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 
-		"ItemCost"						"15600"
+		"ItemCost"						"16800"
 		"ItemShopTags"					"int;mana"
 		"ItemQuality"					"hallowed"
 		"ItemAliases"					"hallowed scepter"
@@ -2360,7 +2394,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"spell_amp_per_int"			"0.18"
+				"spell_amp_per_int"			"0.2"
 			}
 			"03"
 			{
@@ -4898,7 +4932,7 @@
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"50"
+				"bonus_agility"			"70"
 			}
 			"11"
 			{
@@ -5173,77 +5207,77 @@
 	//=================================================================================================================
 	// Recipe:orb_of_the_brine 苍蓝魔珠图纸
 	//=================================================================================================================
-	// "item_recipe_orb_of_the_brine"
-	// {
-	// 	// General
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ID"							"3081"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-	// 	"BaseClass"						"item_datadriven"
-	// 	"Model"							"models/props_gameplay/recipe.vmdl"
-	// 	"AbilityTextureName"			"item_recipe_orb_of_the_brine"
-	// 	// Item Info
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemCost"						"3050"
-	// 	"ItemShopTags"					""
+	"item_recipe_orb_of_the_brine"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3081"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_orb_of_the_brine"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"3050"
+		"ItemShopTags"					""
 
-	// 	// Recipe
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemRecipe"					"1"
-	// 	"ItemResult"					"item_orb_of_the_brine"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"						"item_glimmer_cape;item_holy_locket"
-	// 	}
-	// }
-	//=================================================================================================================
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_orb_of_the_brine"
+		"ItemRequirements"
+		{
+			"01"						"item_glimmer_cape;item_holy_locket"
+		}
+	}
+	// =================================================================================================================
 	// orb_of_the_brine 苍蓝魔珠
-	//=================================================================================================================
-	// "item_orb_of_the_brine"
-	// {
-	// 	// General
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ID"							"3082"
-	// 	"BaseClass"						"item_lua"
-	// 	"AbilityTextureName"			"orb_of_the_brine"
-	// 	"ScriptFile"					"items/item_orb_of_the_brine"
+	// =================================================================================================================
+	"item_orb_of_the_brine"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3082"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"orb_of_the_brine"
+		"ScriptFile"					"items/item_orb_of_the_brine"
 
-	// 	"Model"							"models/props_gameplay/red_box.vmdl"
+		"Model"							"models/props_gameplay/red_box.vmdl"
 
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-	// 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-	// 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
-	// 	// Stats
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"AbilityCastRange"				"700"
-	// 	"AbilityCastPoint"				"0.2"
-	// 	"AbilityCooldown"				"25.0"
-	// 	"AbilityManaCost"				"120"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"25.0"
+		"AbilityManaCost"				"120"
 
-	// 	// Item Info
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemCost"						"8000"
-	// 	"ItemPurchasable"				"1"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"8000"
+		"ItemPurchasable"				"1"
 
-	// 	// Special
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"AbilityValues"
-	// 	{
-	// 		"bonus_all_stats"		"15"
-	// 		"bonus_health"			"500"
-	// 		"bonus_mana"			"500"
-	// 		"heal_increase"			"50"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"15"	// tooltip, real value in item_orb_of_the_brine_bonus_all_stats
+			"bonus_health"			"500"
+			"bonus_mana"			"500"
+			"heal_increase"			"50"
 
-	// 		"bubble_duration"		"3.0"
-	// 		"bubble_move_speed"		"300"
-	// 		"bubble_heal_per_tick"	"200"
-	// 		"bubble_mana_per_tick"	"200"
-	// 		"heal_tick_interval"	"0.5"
+			"bubble_duration"		"2.0"
+			"bubble_move_speed"		"350"
+			"bubble_heal_per_tick"	"300"
+			"bubble_mana_per_tick"	"300"
+			"heal_tick_interval"	"0.5"
 
-	// 		"bubble_total_heal_tip"	"1200"
-	// 		"bubble_total_mana_tip"	"1200"
-	// 	}
-	// }
+			"bubble_total_heal_tip"	"1200"
+			"bubble_total_mana_tip"	"1200"
+		}
+	}
 
 	//=================================================================================================================
 	// 洛书
@@ -5305,72 +5339,72 @@
 	//=================================================================================================================
 	// 死灵法杖
 	//=================================================================================================================
-	// "item_recipe_necronomicon_staff"
-	// {
-	// 	// General
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ID"							"3085"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-	// 	"BaseClass"						"item_datadriven"
-	// 	"Model"							"models/props_gameplay/recipe.vmdl"
-	// 	"AbilityTextureName"			"item_recipe_necronomicon_staff"
-	// 	// Item Info
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemCost"						"6575"
-	// 	"ItemShopTags"					""
+	"item_recipe_necronomicon_staff"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3085"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_necronomicon_staff"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"6600"
+		"ItemShopTags"					""
 
-	// 	// Recipe
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemRecipe"					"1"
-	// 	"ItemResult"					"item_necronomicon_staff"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"						"item_sheepstick;item_ethereal_blade"
-	// 	}
-	// }
-	// "item_necronomicon_staff"
-	// {
-	// 	// General
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ID"							"3086"
-	// 	"BaseClass"						"item_lua"
-	// 	"AbilityTextureName"			"necronomicon_staff"
-	// 	"ScriptFile"                    "items/item_necronomicon_staff"
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_necronomicon_staff"
+		"ItemRequirements"
+		{
+			"01"						"item_sheepstick;item_ethereal_blade"
+		}
+	}
+	"item_necronomicon_staff"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3086"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"necronomicon_staff"
+		"ScriptFile"                    "items/item_necronomicon_staff"
 
-	// 	"Model"							"models/props_gameplay/red_box.vmdl"
+		"Model"							"models/props_gameplay/red_box.vmdl"
 
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-	// 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	// 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	// 	"FightRecapLevel"				"2"
-	// 	"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"2"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 
-	// 	"AbilityCastRange"				"800"
-	// 	"AbilityCastPoint"				"0.0"
-	// 	"AbilityCooldown"				"25.0"
-	// 	"AbilityManaCost"				"480"
-	// 	"AbilitySharedCooldown"			"item_sheepstick"
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"25.0"
+		"AbilityManaCost"				"480"
+		"AbilitySharedCooldown"			"item_sheepstick"
 
-	// 	"ItemCost"						"16900"
-	// 	"ItemAliases"					"hex;sheepstick;scythe of vyse;nec;staff"
-	// 	"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
-	// 	"ItemQuality"					"rare"
+		"ItemCost"						"16900"
+		"ItemAliases"					"hex;sheepstick;scythe of vyse;nec;staff"
+		"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
+		"ItemQuality"					"rare"
 
-	// 	"AbilityValues"
-	// 	{
-	// 		"bonus_strength"		"20"
-	// 		"bonus_agility"			"20"
-	// 		"bonus_intellect"		"80"
-	// 		"bonus_mana_regen"		"12"
-	// 		"spell_amp"				"18"
-	// 		"mp_regen_amp"			"75"
+		"AbilityValues"
+		{
+			"bonus_strength"		"20"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
+			"bonus_agility"			"20"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
+			"bonus_intellect"		"80"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
+			"bonus_mana_regen"		"12"
+			"spell_amp"				"18"
+			"mp_regen_amp"			"75"
 
-	// 		"sheep_duration"		"3.5"
-	// 		"sheep_movement_speed"	"120"
-	// 		"blast_damage_base"		"100"
-	// 		"blast_att_multiplier"	"0.5"
-	// 		"blast_damage_multiplier"	"-50"
-	// 	}
-	// }
+			"sheep_duration"		"3.5"
+			"sheep_movement_speed"	"120"
+			"blast_damage_base"		"100"
+			"blast_att_multiplier"	"0.5"
+			"blast_damage_multiplier"	"-50"
+		}
+	}
 	//=================================================================================================================
 	// Armlet Plus 小鸡臂章Plus
 	//=================================================================================================================
