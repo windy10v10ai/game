@@ -2240,7 +2240,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2950"
+		"ItemCost"						"3150"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2294,7 +2294,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"spell_amp_per_int"			"0.1"
+				"spell_amp_per_int"			"0.12"
 			}
 			"03"
 			{
@@ -2378,7 +2378,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"spell_amp_per_int"			"0.18"
+				"spell_amp_per_int"			"0.2"
 			}
 			"03"
 			{
