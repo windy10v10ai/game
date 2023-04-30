@@ -7828,7 +7828,7 @@
 		{
 			"damage_multiplier"
 			{
-				"value"		"1.4 2.0 2.8 3.6"
+				"value"		"1.2 1.6 2.0 2.4"
 				"LinkedSpecialBonus"		"special_bonus_unique_riki_1"
 				"CalculateSpellDamageTooltip"	"0"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
@@ -7841,7 +7841,7 @@
 	"riki_tricks_of_the_trade"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityCooldown"				"16.5 14.5 12.5 10.5 8.5"
 		"AbilityValues"
 		{
 			"radius"
@@ -7851,7 +7851,7 @@
 			}
 			"attack_count"	"4"
 			"damage_pct"	"100"
-			"agility_pct"	"70 90 110 130 150"
+			"agility_pct"	"55 70 85 100 115"
 			"scepter_duration"
 			{
 				"value"			"2"
