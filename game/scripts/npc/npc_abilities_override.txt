@@ -7850,8 +7850,8 @@
 				"LinkedSpecialBonus"		"special_bonus_unique_riki_4"
 			}
 			"attack_count"	"4"
-			"damage_pct"	"80"
-			"agility_pct"	"55 70 85 100 120"
+			"damage_pct"	"100"
+			"agility_pct"	"55 70 85 100 115"
 			"scepter_duration"
 			{
 				"value"			"2"
