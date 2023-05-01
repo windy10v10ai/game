@@ -31,7 +31,7 @@ script_reload
 ```
 
 ### How to compile item png to vtex_c
-Create item XML file in dota 2 content folder then run `.tool/compile_item_png.bat`
+Create item XML file in dota 2 content folder then run `tool/compile_item_png.bat`
 
 FYI: https://www.reddit.com/r/DotA2/comments/8yymx9/item_icons_mods_dont_work_since_one_of_latest/
 
