@@ -538,7 +538,7 @@
 				"IsBuff"			"1"
 				"IsPurgable"		"0"
 
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"TextureName"		"item_wings_of_haste"
 
