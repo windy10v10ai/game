@@ -122,8 +122,6 @@ function modifier_sword_master_tap_damage_bonus:OnCreated()
     if ability_arbiter ~= nil and ability_arbiter:GetLevel() >= 6 then
         self.damage_bonus = self.damage_bonus + caster:GetAgility()
     end
-
-    self.damage_bonus = self.damage_bonus * (1 + caster:GetSpellAmplification(false))
 end
 
 

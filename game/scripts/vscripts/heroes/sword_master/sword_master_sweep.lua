@@ -155,8 +155,6 @@ function modifier_sword_master_sweep_aura:OnCreated(table)
         self.damage_bonus = self.damage_bonus + caster:GetAgility()
     end
 
-    self.damage_bonus = self.damage_bonus * (1 + caster:GetSpellAmplification(false))
-
     self:OnIntervalThink()
     self:StartIntervalThink(FrameTime())
 end

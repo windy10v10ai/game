@@ -2429,7 +2429,7 @@
 	//=================================================================================================================
 	"sword_master_sweep"
 	{
-		"MaxLevel"                      "4"
+		"MaxLevel"                      "5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_sweep"
 		"AbilityTextureName"			"custom/sword_master/sword_master_sweep"
@@ -2451,13 +2451,13 @@
 				"special_bonus_unique_sword_master_2"	"+80"
 			}
 			"radius"						"350"
-			"damage_bonus"					"60 120 180 240"
+			"damage_bonus"					"100 160 220 280 340"
 		}
 	}
 
 	"sword_master_thrust"
 	{
-		"MaxLevel"                      "4"
+		"MaxLevel"                      "5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_thrust"
 		"AbilityTextureName"			"custom/sword_master/sword_master_thrust"
@@ -2475,7 +2475,7 @@
 			"speed"							"2400"
 			"width"							"120"
 			"AbilityCastRange"				"650"
-			"damage_bonus"					"60 100 140 180"
+			"damage_bonus"					"80 120 160 200 240"
 			"talent_movespeed"
 			{
 				"value"						"0"
@@ -2491,7 +2491,7 @@
 
 	"sword_master_tap"
 	{
-		"MaxLevel"                      "4"
+		"MaxLevel"                      "5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_tap"
 		"AbilityTextureName"			"custom/sword_master/sword_master_tap"
@@ -2509,8 +2509,8 @@
             "AbilityCooldown"				"0.5"
 			"width"							"200"
 			"length"						"550"
-			"damage_bonus"					"30 60 90 120"
-			"stun_duration"					"1.2 1.4 1.6 1.8"
+			"damage_bonus"					"60 90 120 150 180"
+			"stun_duration"					"1.2 1.4 1.6 1.8 2.0"
 			"talent_duration"
 			{
 				"value"						"0"
@@ -2591,8 +2591,12 @@
 
 		"AbilityValues"
 		{
-			"base_damage"				"100 200 300"
-			"damage_crit"				"160 210 260"
+			"base_damage"
+			{
+				"value"		"100 200 300"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"damage_crit"				"180 260 340"
 			"radius"					"350"
 			"AbilityCooldown"
 			{
