@@ -19,16 +19,14 @@ function modifier_item_shotgun_v2:GetAttributes() return MODIFIER_ATTRIBUTE_PERM
 
 
 function modifier_item_shotgun_v2:OnCreated()
+	self.stats_modifier_name = "modifier_item_shotgun_v2_stats"
 
 	local ability = self:GetAbility()
 	self.attack_radius = ability:GetSpecialValueFor("attack_radius")
 	self.attack_percent = ability:GetSpecialValueFor("attack_percent")
-
-	self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
-	self.attack_speed = ability:GetSpecialValueFor("attack_speed")
-
 	if not IsServer() then return end
 
+	RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
 	end
@@ -37,6 +35,7 @@ end
 function modifier_item_shotgun_v2:OnDestroy()
 	if not IsServer() then return end
 
+	RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
 	end
@@ -44,21 +43,10 @@ end
 
 function modifier_item_shotgun_v2:DeclareFunctions()
 	local funcs = {
-		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
-		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK
 	}
 	return funcs
 end
-
-function modifier_item_shotgun_v2:GetModifierBaseAttack_BonusDamage()
-	return self.bonus_damage
-end
-
-function modifier_item_shotgun_v2:GetModifierAttackSpeedBonus_Constant()
-	return self.attack_speed
-end
-
 
 function modifier_item_shotgun_v2:GetModifierProcAttack_Feedback(keys)
 	if not keys.attacker:IsRealHero() or not keys.attacker:IsRangedAttacker() then return end

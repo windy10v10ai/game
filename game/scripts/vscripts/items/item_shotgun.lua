@@ -18,12 +18,14 @@ function modifier_item_shotgun:IsPurgable() return false end
 function modifier_item_shotgun:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 
 function modifier_item_shotgun:OnCreated()
-	if IsServer() then
-        if not self:GetAbility() then self:Destroy() end
-    end
+	self.stats_modifier_name = "modifier_item_shotgun_stats"
+	local ability = self:GetAbility()
+	self.attack_radius = ability:GetSpecialValueFor("attack_radius")
+	self.attack_percent = ability:GetSpecialValueFor("attack_percent")
 
 	if not IsServer() then return end
 
+	RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
 	end
@@ -32,39 +34,18 @@ end
 function modifier_item_shotgun:OnDestroy()
 	if not IsServer() then return end
 
+	RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
 	end
 end
 
-
 function modifier_item_shotgun:DeclareFunctions()
 	local funcs = {
-		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
-		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK
-
-
 	}
 	return funcs
 end
-
-function modifier_item_shotgun:OnCreated()
-
-	local ability = self:GetAbility()
-	self.attack_radius = ability:GetSpecialValueFor("attack_radius")
-	self.attack_percent = ability:GetSpecialValueFor("attack_percent")
-
-end
-
-function modifier_item_shotgun:GetModifierBaseAttack_BonusDamage()
-	return self:GetAbility():GetSpecialValueFor("bonus_damage")
-end
-
-function modifier_item_shotgun:GetModifierAttackSpeedBonus_Constant()
-	return self:GetAbility():GetSpecialValueFor("attack_speed")
-end
-
 
 function modifier_item_shotgun:GetModifierProcAttack_Feedback(keys)
 	if not keys.attacker:IsRealHero() or not keys.attacker:IsRangedAttacker() then return end
