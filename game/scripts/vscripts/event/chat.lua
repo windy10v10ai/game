@@ -56,6 +56,22 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
+        if sChatMsg:find('^-kill hero$') then
+            local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+            for _, hero in pairs(tAllHeroes) do
+                hero:ForceKill(true)
+            end
+            return
+        end
+
+        if sChatMsg:find('^-kill creep$') then
+            local tAllCreep = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_CREEP, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+            for _, creep in pairs(tAllCreep) do
+                creep:ForceKill(true)
+            end
+            return
+        end
+
         if sChatMsg:find('^-refresh buyback$') then
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
             hHero:SetBuybackCooldownTime(0)
