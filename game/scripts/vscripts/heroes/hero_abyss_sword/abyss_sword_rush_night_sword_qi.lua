@@ -87,10 +87,10 @@ function modifier_abyss_sword_rush_night_sword_qi:RemoveOnDeath() return false e
 function modifier_abyss_sword_rush_night_sword_qi:IsHidden() return true end
 function modifier_abyss_sword_rush_night_sword_qi:IsPurgable() return false end
 function modifier_abyss_sword_rush_night_sword_qi:DeclareFunctions()
-    return {MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE}
+    return {MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE}
 end
 
-function modifier_abyss_sword_rush_night_sword_qi:GetModifierBaseAttack_BonusDamage(params)
+function modifier_abyss_sword_rush_night_sword_qi:GetModifierPreAttack_BonusDamage(params)
     local damage = self:GetAbility():GetSpecialValueFor("damage")
     return damage
 end
