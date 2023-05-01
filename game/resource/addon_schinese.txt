@@ -450,6 +450,7 @@
 		"DOTA_Tooltip_ability_sword_master_sweep_description"									"执剑泰斗挥动剑刃，向前冲刺一小段距离，旋转剑刃对周围的敌人进行一次附带额外伤害的攻击，并为自身添加一层[扫]"
 		"DOTA_Tooltip_ability_sword_master_sweep_Note0"											"此攻击不会触发攻击特效"
 		"DOTA_Tooltip_ability_sword_master_sweep_Note1"											"此技能需要消耗泰斗层数"
+		"DOTA_Tooltip_ability_sword_master_sweep_Note2"											"摧毁周围的树木"
 		"DOTA_Tooltip_ability_sword_master_sweep_Lore"											"基础剑法其一:扫"
 		"DOTA_Tooltip_ability_sword_master_sweep_distance"										"冲刺距离："
 		"DOTA_Tooltip_ability_sword_master_sweep_radius"										"范围："

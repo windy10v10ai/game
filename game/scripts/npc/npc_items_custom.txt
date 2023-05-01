@@ -163,6 +163,44 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_orb_of_the_brine_bonus_all_stats"
 				}
 			}
+			"modifier_item_hand_of_group_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"80"
+				}
+			}
+			"modifier_item_shotgun_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"25"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"70"
+				}
+			}
+			"modifier_item_shotgun_v2_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"50"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"70"
+				}
+			}
 		}
 	}
 
@@ -491,6 +529,23 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"				"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"					"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"				"%bonus_all_stats"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"				"%bonus_health_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"%bonus_mana_regen"
+				}
+			}
+			"modifier_item_wings_of_haste_consumed"
+			{
+				"IsBuff"			"1"
+				"IsPurgable"		"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"TextureName"		"item_wings_of_haste"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"%bonus_movement_speed"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"				"%bonus_health_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"%bonus_mana_regen"
 				}
@@ -4647,12 +4702,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"25"
+				"bonus_damage"			"25" 	// tooltip, real value in modifier_item_shotgun_stats
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"70"
+				"attack_speed"			"70" 	// tooltip, real value in modifier_item_shotgun_stats
 			}
 			"03"
 			{
@@ -4670,78 +4725,78 @@
 	//=================================================================================================================
 	// Recipe: Shotgun v2 三管霰弹枪合成图
 	//=================================================================================================================
-	// "item_recipe_shotgun_v2"
-	// {
-	// 	// General
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ID"							"3068"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-	// 	"BaseClass"						"item_datadriven"
-	// 	"AbilityTextureName" 			"item_recipe_shotgun_v2"
-	// 	"Model"							"models/props_gameplay/recipe.vmdl"
+	"item_recipe_shotgun_v2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3068"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"item_recipe_shotgun_v2"
+		"Model"							"models/props_gameplay/recipe.vmdl"
 
-	// 	// Item Info
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemCost"						"1700"
-	// 	"ItemShopTags"					""
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1700"
+		"ItemShopTags"					""
 
-	// 	// Recipe
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemRecipe"					"1"
-	// 	"ItemResult"					"item_shotgun_v2"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"						"item_shotgun;item_maelstrom"
-	// 	}
-	// }
-	//=================================================================================================================
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_shotgun_v2"
+		"ItemRequirements"
+		{
+			"01"						"item_shotgun;item_maelstrom"
+		}
+	}
+	// =================================================================================================================
 	// Shotgun v2 三管霰弹枪
-	//=================================================================================================================
-	// "item_shotgun_v2"
-	// {
-	// 	// General
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ID"							"3069"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-	// 	"BaseClass"						"item_lua"
-	// 	"AbilityTextureName" 			"shotgun_v2"
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	// 	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-	// 	"ScriptFile"                    "items/item_shotgun_v2"
+	// =================================================================================================================
+	"item_shotgun_v2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3069"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_lua"
+		"AbilityTextureName" 			"shotgun_v2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"ScriptFile"                    "items/item_shotgun_v2"
 
-	// 	// Item Info
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemCost"						"12000"
-	// 	"ItemShopTags"					"damage;attack_speed"
-	// 	"ItemQuality"					"arcane"
-	// 	"ItemAliases"					"shotgun"
-	// 	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-	// 	"ItemRequiresCharges"			"0"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"12000"
+		"ItemShopTags"					"damage;attack_speed"
+		"ItemQuality"					"arcane"
+		"ItemAliases"					"shotgun"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequiresCharges"			"0"
 
-	// 	// Special
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"AbilitySpecial"
-	// 	{
-	// 		"01"
-	// 		{
-	// 			"var_type"				"FIELD_INTEGER"
-	// 			"bonus_damage"			"50"
-	// 		}
-	// 		"02"
-	// 		{
-	// 			"var_type"				"FIELD_INTEGER"
-	// 			"attack_speed"			"70"
-	// 		}
-	// 		"03"
-	// 		{
-	// 			"var_type"				"FIELD_INTEGER"
-	// 			"attack_radius"			"200"
-	// 		}
-	// 		"04"
-	// 		{
-	// 			"var_type"				"FIELD_INTEGER"
-	// 			"attack_percent"		"50"
-	// 		}
-	// 	}
-	// }
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"50" 	// tooltip, real value in modifier_item_shotgun_v2_stats
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed"			"70" 	// tooltip, real value in modifier_item_shotgun_v2_stats
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_radius"			"200"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_percent"		"50"
+			}
+		}
+	}
 
 	//=================================================================================================================
 	// Recipe: Jump!Jump!Jump! 跳！跳！跳！刀合成图
@@ -5714,7 +5769,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"attack_speed"		"80"
+			"attack_speed"		"80"	// tooltip, real value  in modifier_item_hand_of_group_stats
 			"self_xp"			"3.0"
 			"self_gold"			"300"
 

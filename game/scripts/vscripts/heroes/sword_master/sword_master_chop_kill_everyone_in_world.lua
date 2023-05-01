@@ -94,9 +94,8 @@ function modifier_sword_master_chop_kill_everyone_in_world:IsPurgeException() re
 function modifier_sword_master_chop_kill_everyone_in_world:OnCreated(table)
     local caster = self:GetCaster()
     local ability = self:GetAbility()
-    local spellAmplif = (1 + caster:GetSpellAmplification(false))
-    self.damage_bonus = ability:GetSpecialValueFor("base_damage") *  spellAmplif
-    self.damage_crit = ability:GetSpecialValueFor("damage_crit") * spellAmplif
+    self.damage_bonus = ability:GetSpecialValueFor("base_damage")
+    self.damage_crit = ability:GetSpecialValueFor("damage_crit")
 end
 
 function modifier_sword_master_chop_kill_everyone_in_world:OnRefresh(table)
