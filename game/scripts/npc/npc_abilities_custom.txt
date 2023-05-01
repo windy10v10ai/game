@@ -2593,7 +2593,7 @@
 		{
 			"base_damage"
 			{
-				"value"		"100 200 300"
+				"value"		"120 240 360"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"damage_crit"				"180 260 340"
