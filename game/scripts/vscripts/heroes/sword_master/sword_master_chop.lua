@@ -83,13 +83,13 @@ end
 
 function modifier_sword_master_chop_attack_bonus:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
         MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
         MODIFIER_EVENT_ON_HERO_KILLED
     }
 end
 
-function modifier_sword_master_chop_attack_bonus:GetModifierBaseAttack_BonusDamage()
+function modifier_sword_master_chop_attack_bonus:GetModifierPreAttack_BonusDamage()
     return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("damage_stack")
 end
 

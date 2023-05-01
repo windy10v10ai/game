@@ -104,8 +104,6 @@ function modifier_sword_master_thrust_move:OnCreated(keys)
         self.damage_bonus = self.damage_bonus + parent:GetAgility()
     end
 
-    self.damage_bonus = self.damage_bonus * (1 + parent:GetSpellAmplification(false))
-
     self.location = startLocation
 
     if self.projectile ~= nil then
