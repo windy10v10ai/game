@@ -62,10 +62,10 @@ function AddStacks(ability, caster, unit, modifier, stack_amount, refresh)
 		if refresh then
 			ability:ApplyDataDrivenModifier(caster, unit, modifier, {})
 		end
-		unit:SetModifierStackCount(modifier, ability, unit:GetModifierStackCount(modifier, ability) + stack_amount)
+		unit:SetModifierStackCount(modifier, caster, unit:GetModifierStackCount(modifier, ability) + stack_amount)
 	else
 		ability:ApplyDataDrivenModifier(caster, unit, modifier, {})
-		unit:SetModifierStackCount(modifier, ability, stack_amount)
+		unit:SetModifierStackCount(modifier, caster, stack_amount)
 	end
 end
 

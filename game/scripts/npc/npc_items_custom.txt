@@ -271,17 +271,17 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"consumed_bonus_attack_speed"	"80"
+				"consumed_bonus_attack_speed"	"80"	// tooltip only
 			}
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"consumed_bonus_night_vision"	"150"
+				"consumed_bonus_night_vision"	"150"	// tooltip only
 			}
 			"05"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"consumed_bonus_day_vision"		"150"
+				"consumed_bonus_day_vision"		"150"	// tooltip only
 			}
 		}
 
@@ -310,6 +310,22 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"%bonus_night_vision"
+				}
+			}
+			"modifier_item_moon_shard_datadriven_consumed"
+			{
+				"IsBuff"			"1"
+				"IsPurgable"		"0"
+
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"TextureName"		"item_moon_shard_datadriven"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"80"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"150"
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"				"150"
 				}
 			}
 		}
