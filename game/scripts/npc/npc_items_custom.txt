@@ -163,6 +163,18 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_orb_of_the_brine_bonus_all_stats"
 				}
 			}
+			"modifier_item_hand_of_group_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"80"
+				}
+			}
 		}
 	}
 
@@ -5714,7 +5726,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"attack_speed"		"80"
+			"attack_speed"		"80"	// tooltip, real value  in modifier_item_hand_of_group_stats
 			"self_xp"			"3.0"
 			"self_gold"			"300"
 

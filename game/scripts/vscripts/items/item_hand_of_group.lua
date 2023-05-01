@@ -63,18 +63,14 @@ function modifier_item_hand_of_group_pa:GetAttributes()
 end
 
 function modifier_item_hand_of_group_pa:OnCreated()
-    if self:GetAbility() then
-        self.attack_speed = self:GetAbility():GetSpecialValueFor("attack_speed")
-    end
+	self.stats_modifier_name = "modifier_item_hand_of_group_stats"
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	end
 end
 
-function modifier_item_hand_of_group_pa:DeclareFunctions()
-    return
-    {
-        MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
-    }
-end
-
-function modifier_item_hand_of_group_pa:GetModifierAttackSpeedBonus_Constant()
-    return self.attack_speed
+function modifier_item_hand_of_group_pa:OnDestroy()
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	end
 end
