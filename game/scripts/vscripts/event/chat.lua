@@ -56,6 +56,22 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
+        if sChatMsg:find('^-kill hero$') then
+            local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+            for _, hero in pairs(tAllHeroes) do
+                hero:ForceKill(true)
+            end
+            return
+        end
+
+        if sChatMsg:find('^-kill creep$') then
+            local tAllCreep = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_CREEP, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+            for _, creep in pairs(tAllCreep) do
+                creep:ForceKill(true)
+            end
+            return
+        end
+
         if sChatMsg:find('^-refresh buyback$') then
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
             hHero:SetBuybackCooldownTime(0)
@@ -75,8 +91,25 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
-        if sChatMsg:find('^-itemall .+') then
-            local item = sChatMsg:sub(10)
+        -- player info all
+        if sChatMsg:find('^-player info all$') then
+            for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+                if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
+                        PlayerResource:GetSelectedHeroEntity(playerID) then
+                    if PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
+                        local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+                        local playerName = PlayerResource:GetPlayerName(playerID)
+                        local heroName = hero:GetUnitName()
+                        Printf("玩家:" .. playerName .. " playerID:" .. playerID .. " 英雄:" .. heroName)
+                    end
+                end
+            end
+            return
+        end
+
+
+        if sChatMsg:find('^-item all .+') then
+            local item = sChatMsg:sub(11)
             Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人添加物品:" .. item)
             -- give all player item
             local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
@@ -86,8 +119,8 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
-        if sChatMsg:find('^-ri .+') then
-            local item = sChatMsg:sub(5)
+        if sChatMsg:find('^-change item all .+') then
+            local item = sChatMsg:sub(18)
             Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人替换所有物品:" .. item)
 
             removeAllItems()
@@ -106,13 +139,13 @@ function AIGameMode:OnPlayerChat(event)
         end
 
         -- remove item
-        if sChatMsg:find('^-rmi$') then
+        if sChatMsg:find('^-remove item$') then
             removeAllItems()
             return
         end
 
         -- remove item modifer
-        if sChatMsg:find('^-rmim$') then
+        if sChatMsg:find('^-remove item modifier$') then
             local modiferList = {
                 "modifier_item_aghanims_shard",
                 "modifier_item_ultimate_scepter",
@@ -136,8 +169,8 @@ function AIGameMode:OnPlayerChat(event)
         end
 
         -- add all modifier
-        if sChatMsg:find('^-am .+') then
-            local modifier = sChatMsg:sub(5)
+        if sChatMsg:find('^-add modifier all .+') then
+            local modifier = sChatMsg:sub(19)
             Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人添加modifier:" .. modifier)
             -- give all player item
             local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
@@ -148,8 +181,8 @@ function AIGameMode:OnPlayerChat(event)
         end
 
         -- remove all modifier
-        if sChatMsg:find('^-rm .+') then
-            local modifier = sChatMsg:sub(5)
+        if sChatMsg:find('^-remove modifier all .+') then
+            local modifier = sChatMsg:sub(22)
             Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人移除modifier:" .. modifier)
             -- give all player item
             local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
@@ -163,8 +196,8 @@ function AIGameMode:OnPlayerChat(event)
 
 
         -- change all hero
-        if sChatMsg:find('^-rh .+') then
-            local heroName = sChatMsg:sub(5)
+        if sChatMsg:find('^-change hero all .+') then
+            local heroName = sChatMsg:sub(18)
             Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人更换英雄:" .. heroName)
             local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
             for _, hero in pairs(tAllHeroes) do
