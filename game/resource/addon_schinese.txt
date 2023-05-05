@@ -374,6 +374,7 @@
 		"DOTA_Tooltip_modifier_player_xingguang"				"<font color='#FFCC66'>★ 星光灿烂 ★</font>"
 		"DOTA_Tooltip_modifier_player_hjauin"					"<font color='#FFCC66'>★ BILIBILI直播间1426674 ★</font>"
 		"DOTA_Tooltip_modifier_player_hjauin_Description"		"<font color='#FFCC66'>https://live.bilibili.com/1426674</font>"
+		"DOTA_Tooltip_modifier_player_eygc"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
 
 		///////////////////////////////////////////////////
 		//
