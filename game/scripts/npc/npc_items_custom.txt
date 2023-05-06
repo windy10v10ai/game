@@ -19,6 +19,7 @@
 			"item_magic_scepter_bonus_intelligence"			"60"
 			"item_hallowed_scepter_bonus_intelligence"			"120"
 
+			"item_blue_fantasy_bonus_damage"			"80"
 			"item_blue_fantasy_agi"			"50"
 			"item_blue_fantasy_int"			"25"
 
@@ -115,6 +116,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
 				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%item_blue_fantasy_bonus_damage"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_blue_fantasy_agi"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_blue_fantasy_int"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"10"
@@ -3673,22 +3675,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"80"
+				"bonus_damage"			"80"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"agi"					"50"	// tooltip, real value is set in item_blue_fantasy_agi
+				"agi"					"50"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"int"					"25"	// tooltip, real value is set in item_blue_fantasy_int
+				"int"					"25"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"10"	// tooltip, real value is set in item_blue_fantasy_bonus_armor
+				"bonus_armor"			"10"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
 			}
 			"05"
 			{
