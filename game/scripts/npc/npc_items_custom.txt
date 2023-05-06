@@ -19,7 +19,6 @@
 			"item_magic_scepter_bonus_intelligence"			"60"
 			"item_hallowed_scepter_bonus_intelligence"			"120"
 
-			"item_blue_fantasy_bonus_damage"			"80"
 			"item_blue_fantasy_agi"			"50"
 			"item_blue_fantasy_int"			"25"
 
@@ -116,7 +115,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%item_blue_fantasy_bonus_damage"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"80"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_blue_fantasy_agi"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_blue_fantasy_int"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"10"
@@ -1167,8 +1166,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_lua"
-		"ScriptFile"                    "items/item_excalibur"
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9048"
 		"AbilityTextureName"			"item_excalibur"
@@ -1180,6 +1178,27 @@
 		{
 			"bonus_damage"			"666"
 			"bonus_damage_percent"	"100"
+		}
+		"Modifiers"
+		{
+			"modifier_item_excalibur_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"		"%bonus_damage_percent"
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 	}
 
