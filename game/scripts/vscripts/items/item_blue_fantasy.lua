@@ -69,7 +69,6 @@ function modifier_item_blue_fantasy:GetAttributes()	return MODIFIER_ATTRIBUTE_PE
 function modifier_item_blue_fantasy:DeclareFunctions()
     return
     {
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
         MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
         MODIFIER_EVENT_ON_ATTACK_LANDED
     }
@@ -82,7 +81,6 @@ function modifier_item_blue_fantasy:OnCreated()
 		return
     end
     self.ability=self:GetAbility()
-    self.bonus_damage=self.ability:GetSpecialValueFor("bonus_damage")
     self.bonus_regen=self.ability:GetSpecialValueFor("bonus_regen")
     self.mana_base=self.ability:GetSpecialValueFor("mana_base")
     self.dam=0
@@ -128,10 +126,6 @@ function modifier_item_blue_fantasy:OnAttackLanded(tg)
             ApplyDamage(damageTablep)
         end
     end
-end
-
-function modifier_item_blue_fantasy:GetModifierPreAttack_BonusDamage()
-    return self.bonus_damage
 end
 
 function modifier_item_blue_fantasy:GetModifierConstantHealthRegen()
