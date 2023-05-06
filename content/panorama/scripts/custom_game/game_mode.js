@@ -99,7 +99,7 @@ function InitSetting() {
 	$("#player_gold_xp_multiplier_dropdown").SetSelected("1");
 	$("#bot_gold_xp_multiplier_dropdown").SetSelected("5");
 	if (!init) {
-		$("#radiant_player_number_dropdown").SetSelected("10");
+		$("#radiant_player_number_dropdown").SetSelected("1");
 	}
 	$("#dire_player_number_dropdown").SetSelected("10");
 
@@ -132,10 +132,6 @@ function InitSetting() {
 
 // -------- Difficulty Setting --------
 
-function LockOptionAll() {
-	$("#radiant_player_number_dropdown").enabled=false;
-	LockOption();
-}
 function LockOption() {
 	$("#player_gold_xp_multiplier_dropdown").enabled=false;
 	$("#bot_gold_xp_multiplier_dropdown").enabled=false;
@@ -174,7 +170,6 @@ function UnLockOptionAll() {
 }
 
 function InitDifficultyCommonSetting() {
-	$("#radiant_player_number_dropdown").enabled=true;
 	$("#dire_player_number_dropdown").SetSelected("10");
 
 	$("#respawn_time_percentage_dropdown").SetSelected("80");
@@ -317,7 +312,7 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 }
 
 (function() {
-	LockOptionAll();
+	LockOption();
 	// 游戏选择项目table监听
 	CustomNetTables.SubscribeNetTableListener("game_options_table", OnGameOptionsChange);
 	CustomNetTables.SubscribeNetTableListener("game_difficulty", OnGameDifficultyChoiceChange);
