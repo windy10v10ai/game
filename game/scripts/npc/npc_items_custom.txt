@@ -13,7 +13,9 @@
 			"item_jump_jump_jump_bonus_all_stats"		"35"
 
 			"item_undying_heart_bonus_strength"			"90"
+
 			"item_abyssal_blade_v2_bonus_strength"			"20"
+
 			"item_heavens_halberd_v2_bonus_strength"			"50"
 
 			"item_magic_scepter_bonus_intelligence"			"60"
@@ -67,6 +69,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
 				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"80"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_abyssal_blade_v2_bonus_strength"
 				}
 			}
@@ -3228,10 +3231,10 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"			"80"
+			"bonus_damage"			"80"	// tooltip, real value in modifier_item_abyssal_blade_v2_stats
 			"bonus_health"			"400"
 			"bonus_health_regen"	"20"
-			"bonus_strength"		"20"	// tooltip, real value in item_abyssal_blade_v2_bonus_strength
+			"bonus_strength"		"20"	// tooltip, real value in modifier_item_abyssal_blade_v2_stats
 			// active
 			"stun_m"				"2.0"
 			"active_damage_base"	"200"
@@ -3240,9 +3243,8 @@
 			"stun"					"1.2"
 			"ch_m"					"30"
 			"ch_r"					"15"
-			"block_chance"			"85"
-			"block_damage_melee"	"200"
-			"block_damage_ranged"	"100"
+			"block_chance"			"100"	// tooltip
+			"block_damage"			"120"
 			"damatt"				"240"
 		}
 	}
