@@ -20,7 +20,6 @@ require('bot/bot_think_modifier')
 require('ts_loader')
 require('damage')
 require('voicePlayer/PlayFuncs')
-require('custom_test_env')
 
 function Activate()
     AIGameMode:InitGameMode()
@@ -251,9 +250,6 @@ function AIGameMode:PreGameOptions()
     BotThink:SetTome()
 
     self.PreGameOptionsSet = true
-
-    self:ApplyTestOptions()
-
 end
 
 ------------------------------------------------------------------
