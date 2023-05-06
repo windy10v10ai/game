@@ -69,7 +69,6 @@ function modifier_item_abyssal_blade_v2:GetAttributes()	return MODIFIER_ATTRIBUT
 function modifier_item_abyssal_blade_v2:DeclareFunctions()
         return
         {
-            MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
             MODIFIER_PROPERTY_HEALTH_BONUS,
             MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
             MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
@@ -87,13 +86,11 @@ function modifier_item_abyssal_blade_v2:OnCreated()
         if not self.ability then
            return
         end
-        self.bonus_damage=self.ability:GetSpecialValueFor("bonus_damage")
         self.stun=self.ability:GetSpecialValueFor("stun")
         self.ch_m=self.ability:GetSpecialValueFor("ch_m")
         self.ch_r=self.ability:GetSpecialValueFor("ch_r")
-        self.block_chance=self.ability:GetSpecialValueFor("block_chance")
-        self.block_damage_melee=self.ability:GetSpecialValueFor("block_damage_melee")
-        self.block_damage_ranged=self.ability:GetSpecialValueFor("block_damage_ranged")
+        self.block_damage = self.ability:GetSpecialValueFor("block_damage")
+
         self.damatt=self.ability:GetSpecialValueFor("damatt")
         self.bonus_health=self.ability:GetSpecialValueFor("bonus_health")
         self.bonus_health_regen=self.ability:GetSpecialValueFor("bonus_health_regen")
@@ -121,27 +118,24 @@ function modifier_item_abyssal_blade_v2:OnIntervalThink()
 end
 
 function modifier_item_abyssal_blade_v2:OnAttackLanded(tg)
-        if not IsServer() then
-            return
-        end
-        if tg.attacker == self.parent and not tg.target:IsBuilding() and not self.parent:IsIllusion() then
-            local ch=self.parent:IsRangedAttacker() and self.ch_r or self.ch_m
-            if  RollPseudoRandomPercentage(ch,0,self.ability) then
-                if self.stunned==true then
-                    self.stunned=false
-                    self:StartIntervalThink(self.cd)
-                    local duration = self.stun * (1 - tg.target:GetStatusResistance())
-                    tg.target:AddNewModifier(self.parent, self.ability, "modifier_item_abyssal_blade_v2_debuff", {duration=duration})
-                end
-                self.damageTable2.victim = tg.target
-                ApplyDamage(self.damageTable2)
+    if not IsServer() then
+    return
+    end
+    if tg.attacker == self.parent and not tg.target:IsBuilding() and not self.parent:IsIllusion() then
+        local ch=self.parent:IsRangedAttacker() and self.ch_r or self.ch_m
+        if  RollPseudoRandomPercentage(ch,0,self.ability) then
+            if self.stunned==true then
+                self.stunned=false
+                self:StartIntervalThink(self.cd)
+                local duration = self.stun * (1 - tg.target:GetStatusResistance())
+                tg.target:AddNewModifier(self.parent, self.ability, "modifier_item_abyssal_blade_v2_debuff", {duration=duration})
             end
+            self.damageTable2.victim = tg.target
+            ApplyDamage(self.damageTable2)
         end
     end
-
-function modifier_item_abyssal_blade_v2:GetModifierPreAttack_BonusDamage()
-	return self.bonus_damage
 end
+
 function modifier_item_abyssal_blade_v2:GetModifierHealthBonus()
 	return self.bonus_health
 end
@@ -150,15 +144,8 @@ function modifier_item_abyssal_blade_v2:GetModifierConstantHealthRegen()
 end
 
 function modifier_item_abyssal_blade_v2:GetModifierPhysical_ConstantBlock()
-	if self:GetAbility() and RollPseudoRandomPercentage(self.block_chance,0,self) then
-		if not self:GetParent():IsRangedAttacker() then
-			return self.block_damage_melee
-		else
-			return self.block_damage_ranged
-		end
-	end
+        return self.block_damage
 end
-
 
 modifier_item_abyssal_blade_v2_debuff=class({})
 

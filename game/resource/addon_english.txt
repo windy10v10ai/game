@@ -1244,7 +1244,7 @@
 
 		// item_abyssal_blade_v2 一闪
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"Flash"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>Active: Flash</h1>Teleport to a target enemy unit and stun it for %stun_m% seconds. Deals %active_damage_base%+%active_damage_multi%x[Hero Strength] pure damage.<br><br>Pierce Spell Immunity.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: <font color='#F19B8F'>Power of Sacred Diana</font></h1>Grants melee heroes a %ch_m%%% chance on hit to stun the target for %stun% seconds and deal %damatt% bonus physical damage. Bash chance for ranged heroes is %ch_r%%%.\n<h1>Passive: <font color='#f15b47'>Bleak</font></h1>Grants a %block_chance%%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>Active: Flash</h1>Teleport to a target enemy unit and stun it for %stun_m% seconds. Deals %active_damage_base%+%active_damage_multi%x[Hero Strength] pure damage.<br><br>Pierce Spell Immunity.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: <font color='#F19B8F'>Power of Sacred Diana</font></h1>Grants melee heroes a %ch_m%%% chance on hit to stun the target for %stun% seconds and deal %damatt% bonus physical damage. Bash chance for ranged heroes is %ch_r%%%.\n<h1>Passive: <font color='#f15b47'>Bleak</font></h1>Grants a %block_chance%%% chance to block %block_damage% damage from incoming attacks."
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_Lore"                   "abyssal_blade_v2"
 		"DOTA_Tooltip_modifier_item_abyssal_blade_v2_debuff"				"stun"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_damage"			"+$damage"
