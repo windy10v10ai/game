@@ -191,7 +191,7 @@
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_tower_power"							"Tower power"
-		"DOTA_Tooltip_modifier_tower_power_Description"			"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%, and its attack speed is increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+		"DOTA_Tooltip_modifier_tower_power_Description"			"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
 
 		"DOTA_Tooltip_modifier_tower_endure"						"Buildings Endurance"
 		"DOTA_Tooltip_modifier_tower_endure_Description"		"The building's armor is increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, and its max health is set to %dMODIFIER_PROPERTY_TOOLTIP%%%."

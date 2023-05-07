@@ -151,13 +151,7 @@ function modifier_tower_power:GetTexture() return "tower_power" end
 function modifier_tower_power:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
-		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 	}
-end
-
-
-function modifier_tower_power:GetModifierAttackSpeedBonus_Constant()
-	return 20
 end
 
 function modifier_tower_power:GetModifierBaseDamageOutgoing_Percentage()
