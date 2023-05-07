@@ -1,6 +1,5 @@
 "use strict";
 
-var init = false;
 /** 下拉框事件 */
 function OnDifficultyDropDownChanged(difficulty) {
 	let optionValue = "";
@@ -98,9 +97,6 @@ function ShowChatTeamActivate() {
 function InitSetting() {
 	$("#player_gold_xp_multiplier_dropdown").SetSelected("1");
 	$("#bot_gold_xp_multiplier_dropdown").SetSelected("5");
-	if (!init) {
-		$("#radiant_player_number_dropdown").SetSelected("10");
-	}
 	$("#dire_player_number_dropdown").SetSelected("10");
 
 	$("#respawn_time_percentage_dropdown").SetSelected("80");
@@ -119,23 +115,16 @@ function InitSetting() {
 	if (Game.IsInToolsMode()) {
 		$("#player_gold_xp_multiplier_dropdown").SetSelected("2");
 		$("#bot_gold_xp_multiplier_dropdown").SetSelected("2");
-		if (!init) {
-			$("#radiant_player_number_dropdown").SetSelected("10");
-		}
+		$("#radiant_player_number_dropdown").SetSelected("10");
 		$("#dire_player_number_dropdown").SetSelected("10");
 		$("#starting_gold_bot_dropdown").SetSelected("3000");
 		$("#tower_power_dropdown").SetSelected("5");
 		$("#tower_endure_dropdown").SetSelected("5");
 	}
-	init = true;
 }
 
 // -------- Difficulty Setting --------
 
-function LockOptionAll() {
-	$("#radiant_player_number_dropdown").enabled=false;
-	LockOption();
-}
 function LockOption() {
 	$("#player_gold_xp_multiplier_dropdown").enabled=false;
 	$("#bot_gold_xp_multiplier_dropdown").enabled=false;
@@ -157,7 +146,6 @@ function LockOption() {
 function UnLockOptionAll() {
 	$("#player_gold_xp_multiplier_dropdown").enabled=true;
 	$("#bot_gold_xp_multiplier_dropdown").enabled=true;
-	$("#radiant_player_number_dropdown").enabled=true;
 	$("#dire_player_number_dropdown").enabled=true;
 
 	$("#respawn_time_percentage_dropdown").enabled=true;
@@ -174,7 +162,6 @@ function UnLockOptionAll() {
 }
 
 function InitDifficultyCommonSetting() {
-	$("#radiant_player_number_dropdown").enabled=true;
 	$("#dire_player_number_dropdown").SetSelected("10");
 
 	$("#respawn_time_percentage_dropdown").SetSelected("80");
@@ -317,7 +304,8 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 }
 
 (function() {
-	LockOptionAll();
+	$("#radiant_player_number_dropdown").SetSelected("1");
+	LockOption();
 	// 游戏选择项目table监听
 	CustomNetTables.SubscribeNetTableListener("game_options_table", OnGameOptionsChange);
 	CustomNetTables.SubscribeNetTableListener("game_difficulty", OnGameDifficultyChoiceChange);

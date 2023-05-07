@@ -18,6 +18,43 @@ local function removeAllItems()
     end
 end
 
+local function removeAllPlayerModifiers()
+
+    local modiferList = {
+        "property_cooldown_percentage",
+        "property_cast_range_bonus_stacking",
+        "property_spell_amplify_percentage",
+        "property_status_resistance_stacking",
+        "property_magical_resistance_bonus",
+        "property_incoming_damage_percentage",
+        "property_attack_range_bonus",
+        "property_physical_armor_bonus",
+        "property_preattack_bonus_damage",
+        "property_attackspeed_bonus_constant",
+        "property_stats_strength_bonus",
+        "property_stats_agility_bonus",
+        "property_stats_intellect_bonus",
+        "property_health_regen_percentage",
+        "property_mana_regen_total_percentage",
+        "property_lifesteal",
+        "property_spell_lifesteal",
+        "property_movespeed_bonus_constant",
+        "property_ignore_movespeed_limit",
+        "property_cannot_miss",
+    }
+    -- give all player item
+    local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+    for _, hero in pairs(tAllHeroes) do
+        local hereModifiers = hero:FindAllModifiers()
+        for _, modifier in pairs(hereModifiers) do
+            for _, modifierName in pairs(modiferList) do
+                if modifier:GetName() == modifierName then
+                    hero:RemoveModifierByName(modifierName)
+                end
+            end
+        end
+    end
+end
 function AIGameMode:OnPlayerChat(event)
     local iPlayerID = event.playerid
     local sChatMsg = event.text
@@ -173,6 +210,7 @@ function AIGameMode:OnPlayerChat(event)
             local modifier = sChatMsg:sub(19)
             Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人添加modifier:" .. modifier)
             -- give all player item
+            removeAllPlayerModifiers()
             local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
             for _, hero in pairs(tAllHeroes) do
                 hero:AddNewModifier(hero, nil, modifier, {value = 1})
@@ -180,17 +218,25 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
-        -- remove all modifier
-        if sChatMsg:find('^-remove modifier all .+') then
-            local modifier = sChatMsg:sub(22)
-            Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人移除modifier:" .. modifier)
+        if sChatMsg:find('^-add datadriven modifier all .+') then
+            local modifier = sChatMsg:sub(30)
+            Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人添加modifier:" .. modifier)
             -- give all player item
+            removeAllPlayerModifiers()
             local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
             for _, hero in pairs(tAllHeroes) do
-                if hero:HasModifier(modifier) then
-                    hero:RemoveModifierByName(modifier)
-                end
+                -- loop 100 times
+                local modifierItem = CreateItem("item_player_modifiers", nil, nil)
+                modifierItem:ApplyDataDrivenModifier(hero, hero, modifier, {duration = -1})
+                UTIL_RemoveImmediate(modifierItem)
             end
+            return
+        end
+
+        -- remove all modifier
+        if sChatMsg:find('^-remove player modifier') then
+            Printf("开发者:" .. developerSteamAccountID[steamAccountID] .. " 给所有人移除player modifier")
+            removeAllPlayerModifiers()
             return
         end
 

@@ -2,7 +2,7 @@
 {
 	"item_apply_modifiers"
 	{
-		"ID"							"9000"
+		"ID"							"3001"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -13,7 +13,9 @@
 			"item_jump_jump_jump_bonus_all_stats"		"35"
 
 			"item_undying_heart_bonus_strength"			"90"
+
 			"item_abyssal_blade_v2_bonus_strength"			"20"
+
 			"item_heavens_halberd_v2_bonus_strength"			"50"
 
 			"item_magic_scepter_bonus_intelligence"			"60"
@@ -67,6 +69,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
 				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"80"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_abyssal_blade_v2_bonus_strength"
 				}
 			}
@@ -115,6 +118,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
 				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"80"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_blue_fantasy_agi"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_blue_fantasy_int"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"10"
@@ -199,6 +203,107 @@
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"50"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"70"
+				}
+			}
+		}
+	}
+
+	"item_player_modifiers"
+	{
+		"ID"							"3002"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass"						"item_datadriven"
+
+		"Modifiers"
+		{
+			"modifier_player_property_movespeed_bonus_constant_level_1"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"25"
+				}
+			}
+			"modifier_player_property_movespeed_bonus_constant_level_2"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"50"
+				}
+			}
+			"modifier_player_property_movespeed_bonus_constant_level_3"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"75"
+				}
+			}
+			"modifier_player_property_movespeed_bonus_constant_level_4"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"100"
+				}
+			}
+			"modifier_player_property_movespeed_bonus_constant_level_5"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"125"
+				}
+			}
+			"modifier_player_property_movespeed_bonus_constant_level_6"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"150"
+				}
+			}
+			"modifier_player_property_movespeed_bonus_constant_level_7"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"175"
+				}
+			}
+			"modifier_player_property_movespeed_bonus_constant_level_8"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"200"
 				}
 			}
 		}
@@ -1165,8 +1270,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_lua"
-		"ScriptFile"                    "items/item_excalibur"
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9048"
 		"AbilityTextureName"			"item_excalibur"
@@ -1178,6 +1282,27 @@
 		{
 			"bonus_damage"			"666"
 			"bonus_damage_percent"	"100"
+		}
+		"Modifiers"
+		{
+			"modifier_item_excalibur_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"		"%bonus_damage_percent"
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 	}
 
@@ -3207,10 +3332,10 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"			"80"
+			"bonus_damage"			"80"	// tooltip, real value in modifier_item_abyssal_blade_v2_stats
 			"bonus_health"			"400"
 			"bonus_health_regen"	"20"
-			"bonus_strength"		"20"	// tooltip, real value in item_abyssal_blade_v2_bonus_strength
+			"bonus_strength"		"20"	// tooltip, real value in modifier_item_abyssal_blade_v2_stats
 			// active
 			"stun_m"				"2.0"
 			"active_damage_base"	"200"
@@ -3219,9 +3344,8 @@
 			"stun"					"1.2"
 			"ch_m"					"30"
 			"ch_r"					"15"
-			"block_chance"			"85"
-			"block_damage_melee"	"200"
-			"block_damage_ranged"	"100"
+			"block_chance"			"100"	// tooltip
+			"block_damage"			"120"
 			"damatt"				"240"
 		}
 	}
@@ -3673,22 +3797,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"80"
+				"bonus_damage"			"80"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"agi"					"50"	// tooltip, real value is set in item_blue_fantasy_agi
+				"agi"					"50"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"int"					"25"	// tooltip, real value is set in item_blue_fantasy_int
+				"int"					"25"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"10"	// tooltip, real value is set in item_blue_fantasy_bonus_armor
+				"bonus_armor"			"10"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
 			}
 			"05"
 			{
