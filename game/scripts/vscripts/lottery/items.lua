@@ -68,7 +68,7 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_tome_of_knowledge",		-- 知识之书
 		"item_aghanims_shard",			-- 阿哈利姆魔晶
 
-		"item_tome_of_aghanim",			-- 阿哈利姆之书
+		-- "item_tome_of_aghanim",			-- 阿哈利姆之书
 		-- "item_illusionsts_cape",		-- 幻术师披风
 		"item_princes_knife",			-- 亲王短刀
 		"item_pirate_hat",				-- 海盗帽
