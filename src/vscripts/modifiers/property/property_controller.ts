@@ -3,6 +3,7 @@ import { property_attackspeed_bonus_constant, property_attack_range_bonus, prope
 
 export class PropertyController {
     private static propertyValuePerLevel = new Map<string, number>();
+    private static propertyDataDrivenName = new Map<string, string>();
     constructor() {
         print("PropertyController init");
         PropertyController.propertyValuePerLevel.set(property_cooldown_percentage.name, 4);
@@ -22,9 +23,13 @@ export class PropertyController {
         PropertyController.propertyValuePerLevel.set(property_mana_regen_total_percentage.name, 0.3);
         PropertyController.propertyValuePerLevel.set(property_lifesteal.name, 7.5);
         PropertyController.propertyValuePerLevel.set(property_spell_lifesteal.name, 7.5);
-        PropertyController.propertyValuePerLevel.set(property_movespeed_bonus_constant.name, 25);
         PropertyController.propertyValuePerLevel.set(property_ignore_movespeed_limit.name, 0.125);
         PropertyController.propertyValuePerLevel.set(property_cannot_miss.name, 0.125);
+
+        // multi level property must end with '_level_'
+        PropertyController.propertyDataDrivenName.set(
+            property_movespeed_bonus_constant.name, 'modifier_player_property_movespeed_bonus_constant_level_'
+        );
     }
 
     public static addModifier(hero: CDOTA_BaseNPC_Hero, property: PlayerProperty) {
@@ -36,6 +41,11 @@ export class PropertyController {
                 hero.AddNewModifier(hero, undefined, property.name, {
                     value
                 });
+            }
+        } else {
+            const dataDrivenName = PropertyController.propertyDataDrivenName.get(property.name);
+            if (dataDrivenName) {
+                this.refreshDataDrivenPlayerProperty(hero, dataDrivenName, property.level);
             }
         }
     }
@@ -54,5 +64,25 @@ export class PropertyController {
                 }
             }
         }
+    }
+
+    private static refreshDataDrivenPlayerProperty(hero: CDOTA_BaseNPC_Hero, dataDrivenName: string, level: number) {
+        if (level == 0) {
+            return;
+        }
+
+        if (dataDrivenName.endsWith('_level_')) {
+            // for 1-8 level
+            for (let i = 1; i <= 8; i++) {
+                hero.RemoveModifierByName(`${dataDrivenName}${i}`);
+            }
+            dataDrivenName = dataDrivenName + level;
+        } else {
+            hero.RemoveModifierByName(dataDrivenName);
+        }
+
+        const modifierItem = CreateItem("item_player_modifiers", undefined, undefined) as CDOTA_Item_DataDriven;
+        modifierItem.ApplyDataDrivenModifier(hero, hero, dataDrivenName, { duration: -1 });
+        UTIL_RemoveImmediate(modifierItem);
     }
 }

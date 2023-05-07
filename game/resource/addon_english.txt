@@ -120,8 +120,8 @@
 		"data_panel_member_level"		"Member Level"
 		"data_panel_member_level_tooltip"		"Members can get 60 membership points for daily login.<br>You can get a lot of membership points by <font color='#E8C07D'>Charge Member Point</font>.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>50</font> points."
 		"data_panel_level_progress"		"Level Progress"
-		"data_panel_season_end"			"Season end date: 2023/3/31"
-		"data_panel_season_end_tooltip"			"Season level will be reset at the end of the season. <br><font color='#E8C07D'>Inherit 40%</font> season points to the next season"
+		"data_panel_season_end"			"Second Season end date: 2023/6/30"
+		"data_panel_season_end_tooltip"			"Season level will be reset at the end of the season. <br><font color='#E8C07D'>Inherit 50%</font> season points to the next season"
 
 		"data_panel_link_charge"		"Charge Member Point"
 		"data_panel_link_rule"			"Point Rule"
@@ -191,7 +191,7 @@
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_tower_power"							"Tower power"
-		"DOTA_Tooltip_modifier_tower_power_Description"			"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%, and its attack speed is increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+		"DOTA_Tooltip_modifier_tower_power_Description"			"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
 
 		"DOTA_Tooltip_modifier_tower_endure"						"Buildings Endurance"
 		"DOTA_Tooltip_modifier_tower_endure_Description"		"The building's armor is increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, and its max health is set to %dMODIFIER_PROPERTY_TOOLTIP%%%."
@@ -1244,7 +1244,7 @@
 
 		// item_abyssal_blade_v2 一闪
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"Flash"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>Active: Flash</h1>Teleport to a target enemy unit and stun it for %stun_m% seconds. Deals %active_damage_base%+%active_damage_multi%x[Hero Strength] pure damage.<br><br>Pierce Spell Immunity.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: <font color='#F19B8F'>Power of Sacred Diana</font></h1>Grants melee heroes a %ch_m%%% chance on hit to stun the target for %stun% seconds and deal %damatt% bonus physical damage. Bash chance for ranged heroes is %ch_r%%%.\n<h1>Passive: <font color='#f15b47'>Bleak</font></h1>Grants a %block_chance%%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>Active: Flash</h1>Teleport to a target enemy unit and stun it for %stun_m% seconds. Deals %active_damage_base%+%active_damage_multi%x[Hero Strength] pure damage.<br><br>Pierce Spell Immunity.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: <font color='#F19B8F'>Power of Sacred Diana</font></h1>Grants melee heroes a %ch_m%%% chance on hit to stun the target for %stun% seconds and deal %damatt% bonus physical damage. Bash chance for ranged heroes is %ch_r%%%.\n<h1>Passive: <font color='#f15b47'>Bleak</font></h1>Grants a %block_chance%%% chance to block %block_damage% damage from incoming attacks."
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_Lore"                   "abyssal_blade_v2"
 		"DOTA_Tooltip_modifier_item_abyssal_blade_v2_debuff"				"stun"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_damage"			"+$damage"

@@ -20,7 +20,6 @@ require('bot/bot_think_modifier')
 require('ts_loader')
 require('damage')
 require('voicePlayer/PlayFuncs')
-require('custom_test_env')
 
 function Activate()
     AIGameMode:InitGameMode()
@@ -58,7 +57,7 @@ function AIGameMode:EnterDebugMode()
     print("========Enter Debug Mode========")
     self.DebugMode = true
     GameRules:SetHeroSelectionTime(15)
-    GameRules:SetPreGameTime(100)
+    GameRules:SetPreGameTime(120)
 end
 
 function AIGameMode:InitGameOptions()
@@ -251,9 +250,6 @@ function AIGameMode:PreGameOptions()
     BotThink:SetTome()
 
     self.PreGameOptionsSet = true
-
-    self:ApplyTestOptions()
-
 end
 
 ------------------------------------------------------------------
