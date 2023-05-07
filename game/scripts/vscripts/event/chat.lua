@@ -213,10 +213,7 @@ function AIGameMode:OnPlayerChat(event)
             removeAllPlayerModifiers()
             local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM, Vector(0, 0, 0), nil, 99999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
             for _, hero in pairs(tAllHeroes) do
-                -- loop 100 times
-                for i = 1, 100 do
-                    hero:AddNewModifier(hero, nil, modifier, {value = 1})
-                end
+                hero:AddNewModifier(hero, nil, modifier, {value = 1})
             end
             return
         end
@@ -230,9 +227,7 @@ function AIGameMode:OnPlayerChat(event)
             for _, hero in pairs(tAllHeroes) do
                 -- loop 100 times
                 local modifierItem = CreateItem("item_player_modifiers", nil, nil)
-                for i = 1, 100 do
-                    modifierItem:ApplyDataDrivenModifier(hero, hero, modifier, {duration = -1})
-                end
+                modifierItem:ApplyDataDrivenModifier(hero, hero, modifier, {duration = -1})
                 UTIL_RemoveImmediate(modifierItem)
             end
             return
