@@ -215,7 +215,7 @@ function AIGameMode:OnPlayerChat(event)
             for _, hero in pairs(tAllHeroes) do
                 -- loop 100 times
                 for i = 1, 100 do
-                    hero:AddNewModifier(hero, nil, modifier, {value = 1})
+                    hero:AddNewModifier(hero, nil, modifier, {value = 1, level = 1})
                 end
             end
             return
