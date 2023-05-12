@@ -69,7 +69,7 @@
 			"item_orb_of_destruction"		"1"
 			"item_vampire_fangs"			"1"	// 吸血鬼獠牙
 			"item_gossamer_cape"			"1"	// 蛛丝斗篷
-			"item_tome_of_aghanim"			"1"	// 阿哈利姆之书
+			// "item_tome_of_aghanim"			"1"	// 阿哈利姆之书
 		}
 	}
 	"3"
