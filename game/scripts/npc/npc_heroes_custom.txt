@@ -380,9 +380,32 @@
 		"VisionNighttimeRange"	"1000"
 	}
 
+	"npc_dota_hero_doom_bringer"
+	{
+		"AttackRate"		"1.20000"
+	}
+
+	"npc_dota_hero_terrorblade"
+	{
+		"Ability12"		"special_bonus_hp_1500"
+		"Ability14"		"special_bonus_all_stats_50"
+	}
+
+	"npc_dota_hero_antimage"
+	{
+		"AttackRate" "1.0"
+	}
+
+	"npc_dota_hero_luna"
+	{
+		"AttackRate"		"1.400000"
+	}
+
 	"npc_dota_hero_abyssal_underlord"
 	{
+		"AttackRate" "1.4"
 		"Ability6"		"abyssal_underlord_dark_rift"
+		"Ability7"		"abyssal_underlord_dark_portal"
 	}
 
 	"npc_dota_hero_life_stealer"
@@ -392,7 +415,13 @@
 
 	"npc_dota_hero_faceless_void"
 	{
+		"AttackRate" "1.400000"
 		"Ability5"		"faceless_void_backtrack"
+	}
+
+	"npc_dota_hero_void_spirit"
+	{
+		"Ability17" "special_bonus_cooldown_reduction_50"
 	}
 
 	"npc_dota_hero_brewmaster"
@@ -471,6 +500,10 @@
 		"Ability20"		"rubick_null_field"
 	}
 
+	"npc_dota_hero_enigma"
+	{
+		"Ability17" "special_bonus_special_bonus_all_stats_150"
+	}
 	"npc_dota_hero_slark"
     {
         "Ability10"		"special_bonus_unique_slark_2"
@@ -482,6 +515,11 @@
         "Ability16"		"special_bonus_unique_slark_301"
         "Ability17"		"special_bonus_unique_slark_5"
     }
+
+	"npc_dota_hero_queenofpain"
+	{
+		"AttackRate"		"1.000000"
+	}
 
 	"npc_dota_hero_legion_commander"
     {
@@ -1770,6 +1808,7 @@
 	}
 	"npc_dota_hero_nevermore"
 	{
+		"Ability14"		"special_bonus_cooldown_reduction_40"
 		"Bot"
 		{
 			"Build"
