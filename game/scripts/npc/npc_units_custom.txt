@@ -2375,30 +2375,30 @@
     {
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"				"5"			// 2
+        "ArmorPhysical"				"10"			// 2
 
         // Attack
         //----------------------------------------------------------------
-        "AttackDamageMin"			"24"		// 16
-        "AttackDamageMax"			"36"		// 24
-        "AttackRate"				"1.25"		// 1.5
+        "AttackDamageMin"			"70"		// 16
+        "AttackDamageMax"			"100"		// 24
+        "AttackRate"				"0.6"		// 1.5
         "AttackRange"				"500"		// 425
 
         // Status
         //----------------------------------------------------------------
-        "StatusHealth"				"300"		// 180
+        "StatusHealth"				"1000"		// 180
     }
 
     "npc_dota_eidolon"
     {
         "include_keys_from" "npc_dota_lesser_eidolon"
-        "ArmorPhysical"				"6"			// 3
+        "ArmorPhysical"				"10"			// 3
 
-        "AttackRate"				"1.1"
-        "AttackDamageMin"			"36"		// 24
-        "AttackDamageMax"			"48"		// 32
+        "AttackRate"				"0.6"
+        "AttackDamageMin"			"70"		// 24
+        "AttackDamageMax"			"100"		// 32
 
-        "StatusHealth"				"500"		// 200
+        "StatusHealth"				"1000"		// 200
         "AttackRange"				"550"		// 450
 
     }
@@ -2406,17 +2406,17 @@
     "npc_dota_greater_eidolon"
     {
         "include_keys_from" "npc_dota_lesser_eidolon"
-        "ArmorPhysical"				"8"			// 4
+        "ArmorPhysical"				"20"			// 4
 
-        "AttackRate"				"0.95"
-        "AttackDamageMin"			"51"		// 34
-        "AttackDamageMax"			"63"		// 42
+        "AttackRate"				"0.3"
+        "AttackDamageMin"			"70"		// 34
+        "AttackDamageMax"			"100"		// 42
 
         "HealthBarOffset"			"140"
 
         "MovementSpeed"				"340"		// Speed
 
-        "StatusHealth"				"700"		// 220
+        "StatusHealth"				"1400"		// 220
         "AttackRange"				"600"		// 475
 
     }
@@ -2426,11 +2426,11 @@
         "include_keys_from" "npc_dota_lesser_eidolon"
         "ArmorPhysical"				"10"		// 5
 
-        "AttackRate"				"0.8"
-        "AttackDamageMin"			"64"		// 43
-        "AttackDamageMax"			"76"		// 51
+        "AttackRate"				"0.3"
+        "AttackDamageMin"			"70"		// 43
+        "AttackDamageMax"			"100"		// 51
 
-        "StatusHealth"				"900"		// 240
+        "StatusHealth"				"1600"		// 240
         "AttackRange"				"650"		// 500
     }
 
