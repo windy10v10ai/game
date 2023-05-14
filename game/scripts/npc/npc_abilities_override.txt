@@ -2031,13 +2031,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"60 100 140 180 220"
+				"damage_per_second"		"40 70 100 130 160"
 				"LinkedSpecialBonus"	"special_bonus_unique_doom_4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"1800"
+				"radius"				"900"
 			}
 			"03"
 			{
@@ -2088,7 +2088,7 @@
 			"06"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"shard_bonus_stun_duration"		"3.5"
+				"shard_bonus_stun_duration"		"3.0"
 				"RequiresShard"					"1"
 			}
 			"07"
@@ -2825,13 +2825,13 @@
 	"legion_commander_press_the_attack"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"12 11 10 9 8"
+		"AbilityCooldown"				"13 12 11 10 9"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"move_speed"			"10 20 30 40 50"
+				"move_speed"			"10 14 18 22 26"
 			}
 			"03"
 			{
@@ -2844,7 +2844,7 @@
 	"legion_commander_moment_of_courage"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"1.3 1.0 0.7 0.4 0.1"
+		"AbilityCooldown"				"1.0 1.0 1.0 0.5 0.1"
 		"AbilityValues"
 		{
 			"trigger_chance"
@@ -2870,10 +2870,10 @@
 		"AbilityModifierSupportValue"	"3.0"
 		"AbilityValues"
 		{
-			"duration"				"600"
+			"duration"				"10 20 30 40"
 			"duration_scepter"
 			{
-				"value"			"600"
+				"value"			"30 40 50 60"
 				"RequiresScepter"	"1"
 			}
 			"reward_damage"
@@ -5398,12 +5398,12 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"percent_damage_per_burn"		"80"
+			"percent_damage_per_burn"		"60"
 			"mana_per_hit"			"30 40 50 60 70"
 			"mana_per_hit_pct"
 			{
-				"value"		"2 4 6 8 10"
-				"special_bonus_unique_antimage_7"	"+2"
+				"value"		"4 5 6 7 8"
+				"special_bonus_unique_antimage_7"	"+1"
 			}
 			"illusion_percentage"		"100"
 			"move_slow"				"40 50 60 70 80"
@@ -5460,7 +5460,7 @@
 			}
 			"mana_void_ministun"
 			{
-				"value"					"0.5"
+				"value"					"1.0"
 				"special_bonus_unique_antimage_8" "+1.0"
 			}
 			"mana_void_aoe_radius"			"800"
@@ -6027,7 +6027,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dodge_chance_pct"		"10 20 30 40 50"
+				"dodge_chance_pct"		"20 25 30 35 40"
 
 			}
 		}
@@ -6039,7 +6039,7 @@
 		"AbilityDraftPreAbility"		"faceless_void_backtrack"
 		"AbilityValues"
 		{
-				"chance_pct"			"10 20 30 40 50"
+				"chance_pct"			"12 18 24 30 36"
 				"bonus_damage"
 				{
 					"value"				"20 40 60 80 100"
@@ -6077,7 +6077,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"300"
+				"bonus_attack_speed"	"950"
 				"LinkedSpecialBonus"	"special_bonus_unique_faceless_void"
 			}
 		}
@@ -6290,7 +6290,7 @@
 				}
 				"healing_ward_hits_to_kill_tooltip"
 				{
-					"value" "999"
+					"value" "1"
 					"special_bonus_unique_juggernaut_2" "+999"
 				}
 		}
@@ -6463,7 +6463,7 @@
 			"AbilityCooldown"
 			{
 				"value"					"9.0 8.0 7.0 6.0 5.0"
-				"special_bonus_unique_luna_2" "-4.0"
+				"special_bonus_unique_luna_2" "-3.5"
 			}
 			"AbilityManaCost"
 			{
@@ -6477,7 +6477,7 @@
 			"glaives_fired"
 			{
 				"value"			"0"
-				"special_bonus_unique_luna_8"	"+4"
+				"special_bonus_unique_luna_8"	"+3"
 			}
 			"search_radius"
 			{
@@ -6515,7 +6515,7 @@
 			"bounces"							"5 6 7 8 9"
 			"damage_reduction_percent"
 			{
-				"value"							"40 35 30 25 20"
+				"value"							"45 40 35 30 25"
 				"special_bonus_unique_luna_7"	"-15"
 			}
 		}
@@ -7181,8 +7181,8 @@
 		{
 			"presence_armor_reduction"
 			{
-				"value"		"-5 -10 -15 -20 -25"
-				"special_bonus_unique_nevermore_5"			"-10"
+				"value"		"-4 -7 -10 -13 -16"
+				"special_bonus_unique_nevermore_5"			"-4"
 			}
 		}
 	}
@@ -8430,29 +8430,29 @@
 	"terrorblade_metamorphosis"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"80.0"
+		"AbilityCooldown"				"170.0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"35 40 45 50 55"
+				"duration"				"30 32 34 36 38"
 				"LinkedSpecialBonus"	"special_bonus_unique_terrorblade_3"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"base_attack_time"		"0.8"
+				"base_attack_time"		"1.25"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_range"			"600 800 1000 1200 1500"
+				"bonus_range"			"300 500 700 900 1200"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_attack_range"			"750 950 1150 1350 1650"
+				"tooltip_attack_range"			"450 650 850 1050 1350"
 			}
 			"06"
 			{
@@ -8482,7 +8482,7 @@
 	"terrorblade_sunder"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"20.0 20.0 20.0 20.0"
+		"AbilityCooldown"				"20.0 20.0 20.0 15.0"
 		"AbilityManaCost"				"200 200 200 200"
 		"AbilityCastRange"				"80000"
 		"AbilityCastPoint"				"0.35"
@@ -10115,17 +10115,17 @@
 	}
 	"enigma_black_hole"
 	{
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.3 0.3 0.3"
 		"AbilityChannelTime"			"6.0"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
 		"MaxLevel" "5"
-		"AbilityCooldown"				"80"
-		"AbilityManaCost"				"500 600 700 800 900"
+		"AbilityCooldown"				"100"
+		"AbilityManaCost"				"500 600 700 900 1200"
 		"AbilityValues"
 		{
-			"radius"			"750"
+			"radius"			"650"
 			"damage"
 			{
 				"value"		"100 150 200 250 300"
@@ -10133,7 +10133,7 @@
 			}
 			"scepter_pct_damage"
 			{
-				"value"					"6"
+				"value"					"4.5"
 				"RequiresScepter"		"1"
 			}
 		}
@@ -11861,7 +11861,7 @@
 	"shadow_demon_shadow_poison"
 	{
 		"AbilityDuration"				"20"
-		"AbilityCooldown"				"1.5"
+		"AbilityCooldown"				"2.5"
 		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
@@ -12608,7 +12608,7 @@
 				"AbilityChargeRestoreTime"
 				{
 					"value"			"24 21 18 16"
-					"special_bonus_unique_void_spirit_1"	"-6"
+					"special_bonus_unique_void_spirit_1"	"-4"
 				}
 				"min_travel_distance"	"200"
 				"max_travel_distance"	"800 1700 2600 3500"
@@ -12635,12 +12635,12 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_absorb_amount"	"700 900 1100 1300 1500"
+				"base_absorb_amount"	"350 450 550 650 750"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"absorb_per_hero_hit"	"480 560 640 720 850"
+				"absorb_per_hero_hit"	"180 260 340 420 500"
 			}
 		}
 	}

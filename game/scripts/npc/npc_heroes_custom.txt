@@ -385,12 +385,6 @@
 		"AttackRate"		"1.20000"
 	}
 
-	"npc_dota_hero_terrorblade"
-	{
-		"Ability12"		"special_bonus_hp_1500"
-		"Ability14"		"special_bonus_all_stats_50"
-	}
-
 	"npc_dota_hero_antimage"
 	{
 		"AttackRate" "1.0"
@@ -502,7 +496,7 @@
 
 	"npc_dota_hero_enigma"
 	{
-		"Ability17" "special_bonus_special_bonus_all_stats_150"
+		"Ability17" "special_bonus_cooldown_reduction_20"
 	}
 	"npc_dota_hero_slark"
     {
@@ -1382,7 +1376,7 @@
 		"Ability4"		"juggernaut_swift_slash"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"juggernaut_omni_slash"
-		"Ability10"		"special_bonus_all_stats_5"
+		"Ability10"		"special_bonus_unique_juggernaut_2"
 		"Ability11"		"special_bonus_unique_juggernaut"
 		"Ability12"		"special_bonus_unique_juggernaut_5"
 		"Ability13"		"special_bonus_unique_juggernaut_4"
