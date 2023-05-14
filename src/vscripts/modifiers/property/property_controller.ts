@@ -16,9 +16,6 @@ export class PropertyController {
         PropertyController.propertyValuePerLevel.set(property_physical_armor_bonus.name, 5);
         PropertyController.propertyValuePerLevel.set(property_preattack_bonus_damage.name, 15);
         PropertyController.propertyValuePerLevel.set(property_attackspeed_bonus_constant.name, 15);
-        PropertyController.propertyValuePerLevel.set(property_stats_strength_bonus.name, 10);
-        PropertyController.propertyValuePerLevel.set(property_stats_agility_bonus.name, 10);
-        PropertyController.propertyValuePerLevel.set(property_stats_intellect_bonus.name, 15);
         PropertyController.propertyValuePerLevel.set(property_health_regen_percentage.name, 0.3);
         PropertyController.propertyValuePerLevel.set(property_mana_regen_total_percentage.name, 0.3);
         PropertyController.propertyValuePerLevel.set(property_lifesteal.name, 7.5);
@@ -29,6 +26,16 @@ export class PropertyController {
         // multi level property must end with '_level_'
         PropertyController.propertyDataDrivenName.set(
             property_movespeed_bonus_constant.name, 'modifier_player_property_movespeed_bonus_constant_level_'
+        );
+
+        PropertyController.propertyDataDrivenName.set(
+            property_stats_strength_bonus.name, 'modifier_player_property_stats_strength_bonus_level_'
+        );
+        PropertyController.propertyDataDrivenName.set(
+            property_stats_agility_bonus.name, 'modifier_player_property_stats_agility_bonus_level_'
+        );
+        PropertyController.propertyDataDrivenName.set(
+            property_stats_intellect_bonus.name, 'modifier_player_property_stats_intellect_bonus_level_'
         );
     }
 
