@@ -11884,7 +11884,7 @@
 	"shadow_demon_demonic_purge"
 	{
 		"AbilityDuration"				"10.0"
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"35"
 		"AbilityCastRange"				"1500"
 		"AbilityCastPoint"				"0.3 0.3 0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
@@ -11906,13 +11906,13 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"charge_restore_time"		"30"
+				"charge_restore_time"		"35"
 				"RequiresScepter"			"1"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"charge_restore_time_tooltip_scepter"		"30"
+				"charge_restore_time_tooltip_scepter"		"35"
 				"RequiresScepter"			"1"
 			}
 			"05"
@@ -11930,7 +11930,7 @@
 	"shadow_demon_demonic_cleanse"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"35"
 		"AbilityManaCost"				"150 175 200 225"
 		"AbilityValues"
 		{
@@ -11946,12 +11946,12 @@
 				}
 				"charge_restore_time"
 				{
-					"value"				"30"
+					"value"				"35"
 					"RequiresScepter"			"1"
 				}
 				"charge_restore_time_tooltip_scepter"
 				{
-					"value"				"30"
+					"value"				"35"
 					"RequiresScepter"			"1"
 				}
 		}
