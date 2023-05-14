@@ -4,7 +4,7 @@ local Map = ____lualib.Map
 local __TS__New = ____lualib.__TS__New
 local __TS__StringEndsWith = ____lualib.__TS__StringEndsWith
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["9"] = 2,["10"] = 2,["11"] = 2,["12"] = 2,["13"] = 2,["14"] = 2,["15"] = 2,["16"] = 2,["17"] = 2,["18"] = 2,["19"] = 2,["20"] = 2,["21"] = 2,["22"] = 2,["23"] = 2,["24"] = 2,["25"] = 2,["26"] = 2,["27"] = 2,["28"] = 2,["29"] = 2,["30"] = 4,["31"] = 4,["32"] = 4,["34"] = 8,["35"] = 9,["36"] = 10,["37"] = 11,["38"] = 12,["39"] = 13,["40"] = 14,["41"] = 15,["42"] = 16,["43"] = 17,["44"] = 18,["45"] = 19,["46"] = 20,["47"] = 21,["48"] = 22,["49"] = 23,["50"] = 24,["51"] = 25,["52"] = 26,["53"] = 27,["54"] = 30,["55"] = 7,["56"] = 35,["57"] = 36,["58"] = 37,["59"] = 38,["60"] = 39,["61"] = 40,["62"] = 41,["65"] = 46,["66"] = 47,["67"] = 48,["70"] = 35,["71"] = 53,["72"] = 54,["74"] = 56,["75"] = 56,["76"] = 57,["77"] = 58,["78"] = 59,["79"] = 60,["80"] = 61,["81"] = 62,["85"] = 56,["88"] = 53,["89"] = 69,["90"] = 70,["93"] = 74,["95"] = 76,["96"] = 76,["97"] = 77,["98"] = 76,["101"] = 79,["103"] = 81,["105"] = 84,["106"] = 85,["107"] = 86,["108"] = 69,["109"] = 5,["110"] = 6});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["9"] = 2,["10"] = 2,["11"] = 2,["12"] = 2,["13"] = 2,["14"] = 2,["15"] = 2,["16"] = 2,["17"] = 2,["18"] = 2,["19"] = 2,["20"] = 2,["21"] = 2,["22"] = 2,["23"] = 2,["24"] = 2,["25"] = 2,["26"] = 2,["27"] = 2,["28"] = 2,["29"] = 2,["30"] = 4,["31"] = 4,["32"] = 4,["34"] = 8,["35"] = 9,["36"] = 10,["37"] = 11,["38"] = 12,["39"] = 13,["40"] = 14,["41"] = 15,["42"] = 16,["43"] = 17,["44"] = 18,["45"] = 19,["46"] = 20,["47"] = 21,["48"] = 22,["49"] = 23,["50"] = 24,["51"] = 27,["52"] = 31,["53"] = 34,["54"] = 37,["55"] = 7,["56"] = 42,["57"] = 43,["58"] = 44,["59"] = 45,["60"] = 46,["61"] = 47,["62"] = 48,["65"] = 53,["66"] = 54,["67"] = 55,["70"] = 42,["71"] = 60,["72"] = 61,["74"] = 63,["75"] = 63,["76"] = 64,["77"] = 65,["78"] = 66,["79"] = 67,["80"] = 68,["81"] = 69,["85"] = 63,["88"] = 60,["89"] = 76,["90"] = 77,["93"] = 81,["95"] = 83,["96"] = 83,["97"] = 84,["98"] = 83,["101"] = 86,["103"] = 88,["105"] = 91,["106"] = 92,["107"] = 93,["108"] = 76,["109"] = 5,["110"] = 6});
 local ____exports = {}
 local ____property_declare = require("modifiers.property.property_declare")
 local property_attackspeed_bonus_constant = ____property_declare.property_attackspeed_bonus_constant
@@ -42,9 +42,6 @@ function PropertyController.prototype.____constructor(self)
     ____exports.PropertyController.propertyValuePerLevel:set(property_physical_armor_bonus.name, 5)
     ____exports.PropertyController.propertyValuePerLevel:set(property_preattack_bonus_damage.name, 15)
     ____exports.PropertyController.propertyValuePerLevel:set(property_attackspeed_bonus_constant.name, 15)
-    ____exports.PropertyController.propertyValuePerLevel:set(property_stats_strength_bonus.name, 10)
-    ____exports.PropertyController.propertyValuePerLevel:set(property_stats_agility_bonus.name, 10)
-    ____exports.PropertyController.propertyValuePerLevel:set(property_stats_intellect_bonus.name, 15)
     ____exports.PropertyController.propertyValuePerLevel:set(property_health_regen_percentage.name, 0.3)
     ____exports.PropertyController.propertyValuePerLevel:set(property_mana_regen_total_percentage.name, 0.3)
     ____exports.PropertyController.propertyValuePerLevel:set(property_lifesteal.name, 7.5)
@@ -52,6 +49,9 @@ function PropertyController.prototype.____constructor(self)
     ____exports.PropertyController.propertyValuePerLevel:set(property_ignore_movespeed_limit.name, 0.125)
     ____exports.PropertyController.propertyValuePerLevel:set(property_cannot_miss.name, 0.125)
     ____exports.PropertyController.propertyDataDrivenName:set(property_movespeed_bonus_constant.name, "modifier_player_property_movespeed_bonus_constant_level_")
+    ____exports.PropertyController.propertyDataDrivenName:set(property_stats_strength_bonus.name, "modifier_player_property_stats_strength_bonus_level_")
+    ____exports.PropertyController.propertyDataDrivenName:set(property_stats_agility_bonus.name, "modifier_player_property_stats_agility_bonus_level_")
+    ____exports.PropertyController.propertyDataDrivenName:set(property_stats_intellect_bonus.name, "modifier_player_property_stats_intellect_bonus_level_")
 end
 function PropertyController.addModifier(self, hero, property)
     local propertyValuePerLevel = ____exports.PropertyController.propertyValuePerLevel:get(property.name)
