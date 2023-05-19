@@ -253,6 +253,10 @@ local eygcSteamAccountID = Set {
 	-- 爱发电用户_EyGC
 	424859328,
 }
+local eesamaSteamAccountID = Set {
+	-- Eesama
+	135986270,
+}
 -- 称号属性 END
 
 function EnablePlayerModifier(hEntity)
@@ -572,5 +576,9 @@ function EnablePlayerModifier(hEntity)
 	if eygcSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_eygc","modifiers/player/modifier_player_eygc",LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_eygc",{})
+	end
+	if eesamaSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_eesama","modifiers/player/modifier_player_eesama",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_eesama",{})
 	end
 end
