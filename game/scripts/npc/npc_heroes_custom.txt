@@ -497,7 +497,7 @@
 	"npc_dota_hero_monkey_king"
 	{
 		"Ability6"		"spectre_ursa_enrage"
-		"Ability17"     "special_bonus_cooldown_reduction_40"
+		"Ability17"     "special_bonus_unique_spectre_401"
 	}
 
     "npc_dota_hero_spectre"
