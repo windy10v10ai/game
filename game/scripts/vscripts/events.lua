@@ -164,11 +164,38 @@ function AIGameMode:OnGameStateChanged(keys)
             v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
         end
 
+
         -- refresh every 10 seconds
         Timers:CreateTimer(2, function()
             AIGameMode:RefreshGameStatus()
             return 10
         end)
+
+        -- 增强N6电脑出门属性 技能点
+        if self.iGameDifficulty == 6 then
+            Timers:CreateTimer(10, function()
+                -- for each player in dire
+                for i = 0, (DOTA_MAX_TEAM_PLAYERS - 1) do
+                    if PlayerResource:IsValidPlayer(i) then
+                        if PlayerResource:GetTeam(i) == DOTA_TEAM_BADGUYS then
+                            local hero = PlayerResource:GetSelectedHeroEntity(i)
+                            if hero then
+                                -- set to level 5
+                                hero:SetAbilityPoints(4)
+                                -- add modifier
+                                local statsModifier = CreateItem("item_player_modifiers", nil, nil)
+                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_strength_bonus_level_8", {})
+                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_agility_bonus_level_8", {})
+                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_intellect_bonus_level_8", {})
+                                -- Cleanup
+                                UTIL_RemoveImmediate(statsModifier)
+                                statsModifier = nil
+                            end
+                        end
+                    end
+                end
+            end)
+        end
 
     elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
         self.fGameStartTime = GameRules:GetGameTime()
