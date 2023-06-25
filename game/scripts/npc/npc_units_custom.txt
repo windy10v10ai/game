@@ -2107,8 +2107,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"520"			// 50
-		"AttackDamageMax"			"520"			// 50
+		"AttackDamageMin"			"360"			// 50
+		"AttackDamageMax"			"360"			// 50
 		"AttackRate"				"0.7"
 	}
 
@@ -2118,9 +2118,9 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"1080"			// 85
-		"AttackDamageMax"			"1080"			// 85
-		"AttackRate"				"0.55"
+		"AttackDamageMin"			"720"			// 85
+		"AttackDamageMax"			"720"			// 85
+		"AttackRate"				"0.7"
 	}
 
 	"npc_dota_shadow_shaman_ward_3"
@@ -2129,9 +2129,9 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"1600"			// 120
-		"AttackDamageMax"			"1600"			// 120
-		"AttackRate"				"0.4"
+		"AttackDamageMin"			"1080"			// 120
+		"AttackDamageMax"			"1080"			// 120
+		"AttackRate"				"0.7"
 	}
 
 	// beastmaster_boar 兽王野猪
