@@ -6713,59 +6713,6 @@
 	//=================================================================================================================
 	// Ability: Monkey King 齐天大圣/大圣
 	//=================================================================================================================
-	"monkey_king_immortal_secret"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_monkey_king/immortal_secret"
-		"AbilityUnitDamageType"		   	"DAMAGE_TYPE_PHYSICAL"
-		"AbilityBehavior"		      	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"monkey_king_tree_dance"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"8"
-		"LevelsBetweenUpgrades"			"8"
-
-		"AbilityCooldown"               "80"
-//		"AbilityCooldown"               "30"
-		"AbilityManaCost"               "175"
-
-		"AbilityCastPoint"				"0.1"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				 "var_type"					"FIELD_INTEGER"
-//			     "hit_count"				"8 10 12 16 20"
-				 "hit_count"				"5 7 9 12 15"
-			}
-			"02"
-			{
-				 "var_type"					"FIELD_INTEGER"
-				 "bonus_scale"			    "10"
-			}
-			"03"
-			{
-				 "var_type"					"FIELD_FLOAT"
-				 "immortal_duration"		"5"
-			}
-			"04"
-			{
-				 "var_type"					"FIELD_FLOAT"
-				 "immortal_regen_pct"		"7"
-			}
-			"05"
-			{
-				 "var_type"					"FIELD_INTEGER"
-				 "immortal_cooldown"		"100 90 80 70 60"
-// 			     "immortal_cooldown"		"60 55 50 40 30"
-			}
-
-		}
-	}
 	"monkey_king_boundless_strike"
 	{
 		"MaxLevel" "5"
