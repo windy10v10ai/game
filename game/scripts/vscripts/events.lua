@@ -184,9 +184,9 @@ function AIGameMode:OnGameStateChanged(keys)
                                 hero:SetAbilityPoints(4)
                                 -- add modifier
                                 local statsModifier = CreateItem("item_player_modifiers", nil, nil)
-                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_strength_bonus_level_8", {})
-                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_agility_bonus_level_8", {})
-                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_intellect_bonus_level_8", {})
+                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_strength_bonus_level_6", {})
+                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_agility_bonus_level_6", {})
+                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_intellect_bonus_level_6", {})
                                 -- Cleanup
                                 UTIL_RemoveImmediate(statsModifier)
                                 statsModifier = nil
