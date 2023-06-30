@@ -11910,12 +11910,12 @@
 				}
 				"charge_restore_time"
 				{
-					"value"				"30"
+					"value"				"40"
 					"RequiresScepter"			"1"
 				}
 				"charge_restore_time_tooltip_scepter"
 				{
-					"value"				"30"
+					"value"				"40"
 					"RequiresScepter"			"1"
 				}
 		}
