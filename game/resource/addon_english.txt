@@ -120,7 +120,7 @@
 		"data_panel_member_level"		"Member Level"
 		"data_panel_member_level_tooltip"		"Members can get 60 membership points for daily login.<br>You can get a lot of membership points by <font color='#E8C07D'>Charge Member Point</font>.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>50</font> points."
 		"data_panel_level_progress"		"Level Progress"
-		"data_panel_season_end"			"Second Season end date: 2023/6/30"
+		"data_panel_season_end"			"Third Season end date: 2023/9/30"
 		"data_panel_season_end_tooltip"			"Season level will be reset at the end of the season. <br><font color='#E8C07D'>Inherit 50%</font> season points to the next season"
 
 		"data_panel_link_charge"		"Charge Member Point"
