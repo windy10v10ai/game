@@ -494,19 +494,8 @@
         "Ability17"		"special_bonus_unique_legion_commander_8"
     }
 
-	"npc_dota_hero_night_stalker"
-	{
-		"ArmorPhysical"		"6"
-		"VisionDaytimeRange"		"1800"
-		"VisionNighttimeRange"		"80000"
-		"AttributeBaseIntelligence"		"15"
-		"AttributeIntelligenceGain"		"3.00000"
-	}
-
 	"npc_dota_hero_monkey_king"
 	{
-		"VisionDaytimeRange"		"80000"
-		"VisionNighttimeRange"		"80000"
 		"Ability6"		"spectre_ursa_enrage"
 		"Ability17"     "special_bonus_unique_spectre_401"
 	}
@@ -1878,21 +1867,8 @@
 			}
 		}
 	}
-	"npc_dota_hero_tusk"
-	{
-		"ArmorPhysical"		"7"
-		"AttackRange"		"250"
-		"AttributeBaseStrength"		"27"
-		"AttributeStrengthGain"		"5.000"
-		"AttributeBaseAgility"		"23"
-		"AttributeAgilityGain"		"4.100000"
-	}
 	"npc_dota_hero_ogre_magi"
 	{
-		"AttackRate" "1.4"
-		"ArmorPhysical"		"10.000000"
-		"AttributeBaseAgility"		"20"
-		"AttributeAgilityGain"		"4"
 		"Bot"
 		{
 			"Build"

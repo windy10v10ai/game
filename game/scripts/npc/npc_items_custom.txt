@@ -1049,7 +1049,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_amp"				"20"
+				"spell_amp"				"24"
 			}
 		}
 
@@ -2103,7 +2103,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_amp"			"9"
+				"spell_amp"			"10"
 			}
 		}
 		"OnSpellStart"
@@ -2302,7 +2302,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_amp"			"18"
+				"spell_amp"			"20"
 			}
 		}
 		"OnSpellStart"
@@ -5278,7 +5278,7 @@
 			"bonus_all_stats"		"30"
 			"aura_mana_regen"		"3.5"
 			"aura_radius"			"1200"
-			"spell_amp"			"30"
+			"spell_amp"			"35"
 			"debuff_radius"			"600"
 			"resist_debuff_duration"	"16.0"
 		}
@@ -6130,7 +6130,7 @@
 			"bonus_agility"			"20"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
 			"bonus_intellect"		"80"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
 			"bonus_mana_regen"		"12"
-			"spell_amp"				"18"
+			"spell_amp"				"24"
 			"mp_regen_amp"			"75"
 
 			"sheep_duration"		"3.5"

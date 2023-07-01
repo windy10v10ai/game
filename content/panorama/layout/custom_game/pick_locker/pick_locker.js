@@ -4,7 +4,7 @@ const memberHeroNames = [
 	"phantom_lancer",
 ]
 
-const seasonLevel20HeroNames = [
+const seasonLevelHeroNames = [
 	"dark_seer",
 ]
 
@@ -43,11 +43,11 @@ function PickLocker() {
 		} else {
 			lockMemberHero();
 		}
-	} else if (seasonLevel20HeroNames.includes(possible_hero_selection)) {
-		if(isSeasonLevel20()) {
+	} else if (seasonLevelHeroNames.includes(possible_hero_selection)) {
+		if(isSeasonLevelBiggerThan(15)) {
 			unlockHero();
 		} else {
-			lockSeasonLevel20Hero();
+			lockSeasonLevelHero();
 		}
 	} else {
 		unlockHero();
@@ -85,8 +85,7 @@ function lockMemberHero() {
 }
 
 
-function lockSeasonLevel20Hero() {
-	$.Msg("Lock Season Level 20 hero Pick");
+function lockSeasonLevelHero() {
 	const pick_button = FindDotaHudElement("LockInButton");
 	pick_button.enabled = false;
 	pick_button.SetAcceptsFocus(false);
@@ -95,7 +94,7 @@ function lockSeasonLevel20Hero() {
 	pick_button.style.brightness = 0.2;
 
 	let label = pick_button.GetChild(0);
-	label.text = $.Localize("#pick_button_season_level20_text");
+	label.text = $.Localize("#pick_button_season_level_text");
 	label.style.fontSize = 16;
 }
 
@@ -110,12 +109,12 @@ function isMember() {
 	}
 }
 
-function isSeasonLevel20() {
+function isSeasonLevelBiggerThan(level) {
 	if (!player) {
 		player = GetPlayer();
 	}
 	$.Msg("Player Season Level: ", player?.seasonLevel);
-	if (player && player.seasonLevel >= 20) {
+	if (player && player.seasonLevel >= level) {
 		return true;
 	} else {
 		return false;
