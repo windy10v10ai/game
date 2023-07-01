@@ -80,7 +80,7 @@
 		//
 		// /////////////////////////////////////////////////////////////////////////////
 		"pick_button_member_text"			"会员限定英雄"
-		"pick_button_season_level20_text"	"赛季等级20级解锁"
+		"pick_button_season_level_text"	"赛季等级15级解锁"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -121,7 +121,7 @@
 		"data_panel_member_level"		"会员等级"
 		"data_panel_member_level_tooltip"		"会员每日登陆可获取60会员积分。<br>通过<font color='#E8C07D'>会员积分充值</font>可获得大量会员积分。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>50</font>点。"
 		"data_panel_level_progress"		"升级进度"
-		"data_panel_season_end"			"第二赛季结束时间：2023/6/30"
+		"data_panel_season_end"			"第三赛季结束时间：2023/9/30"
 		"data_panel_season_end_tooltip"			"赛季结束后将重置赛季等级<br><font color='#E8C07D'>继承50%</font>赛季积分到下个赛季"
 
 		"data_panel_link_charge"		"会员积分充值"
