@@ -1506,18 +1506,18 @@
 	"beastmaster_wild_axes"
 	{
 		"MaxLevel" "7"
-		"AbilityManaCost"				"65 75 85 95 105 115 125"
+		"AbilityManaCost"				"50 60 70 80 90 100 110"
 		"AbilityValues"
 		{
 			"axe_damage"
 			{
-				"value"					"80 120 160 200 240 280 320"
+				"value"					"65 95 125 155 185 215 245"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"damage_amp"
 			{
-				"value"				"8 10 12 14 16 18 20"
-				"special_bonus_unique_beastmaster_9"		"+5"
+				"value"				"6 8 10 12 14 16 18"
+				"special_bonus_unique_beastmaster_9"		"+4"
 			}
 		}
 	}
@@ -2345,7 +2345,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"echo_slam_echo_damage"		"70 90 110 130 150"
+				"echo_slam_echo_damage"		"85 105 125 145 165"
 				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_2"
 			}
 			"05"
@@ -7391,148 +7391,9 @@
 		}
 	}
     //=================================================================================================================
-	// Ability: Phantom Lancer 幻影长矛手/猴子
+	// Ability: Phantom Lancer 幻影长矛手/猴子 已替换成八云紫
 	//=================================================================================================================
-	"phantom_lancer_spirit_lance"
-	{
-		"MaxLevel" "5"
-		"AbilityCastRange"				"525 600 675 750 825"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"lance_damage"				"100 160 220 280 340"
-				"LinkedSpecialBonus"		"special_bonus_unique_phantom_lancer_2"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_speed_pct"		"-10 -18 -26 -34 -42"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"illusion_duration"			"3.0 4.0 5.0 6.0 7.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_out_pct"	"-60"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_illusion_damage"	"40"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_illusion_total_damage_in_pct"	"300"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-		}
-	}
-	"phantom_lancer_doppelwalk"
-	{
-		"AbilitySpecial"
-		{
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_2_damage_out_pct"	"-60"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_2_damage_in_pct"	"300"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"illusion_duration"			"5"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"illusion_extended_duration"			"1"
-			}
-		}
-	}
-	"phantom_lancer_juxtapose"
-	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"30"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_illusions"			"3"
-				"LinkedSpecialBonus"		"special_bonus_unique_phantom_lancer_3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"proc_chance_pct"		"35 40 45 50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"illusion_proc_chance_pct"		"15"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_out_pct"	"-70 -60 -50 -40"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_illusion_damage"	"30 40 50 60"
-				"LinkedSpecialBonus"		"special_bonus_unique_phantom_lancer_6"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"scepter_bonus_duration"	"5"
-				"RequiresScepter"			"1"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"scepter_bonus_illusions"	"1"
-				"RequiresScepter"			"1"
-			}
-		}
-	}
-	"phantom_lancer_phantom_edge"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"10 8 6 4 2"
-		"AbilityValues"
-		{
-				"min_distance"		"200"
-				"max_distance"
-				{
-					"value"				"600 675 750 825 900"
-					"LinkedSpecialBonus"		"special_bonus_unique_phantom_lancer"
-				}
-				"bonus_speed"		"800"
-				"bonus_agility"		"20 40 60 80 100"
-				"agility_duration"
-				{
-					"value"			"2.5"
-					"special_bonus_unique_phantom_lancer_2"		"+1.5"
-				}
-		}
-	}
+
 	//=================================================================================================================
 	// Ability: Phantom_Assassin 幻影刺客/PA
 	//=================================================================================================================
@@ -7697,7 +7558,7 @@
 				"value"			"4 5 6 7 8"
 				"special_bonus_unique_razor_3"	"+6"
 			}
-			"drain_duration"		"16 19 22 25 28"
+			"drain_duration"		"12 14 16 18 20"
 			"drain_rate"
 			{
 				"value"			"11 15 19 23 27"
@@ -7719,7 +7580,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"self_movement_speed_pct"	"9 18 27 36 45"
+				"self_movement_speed_pct"	"9 15 21 27 33"
 				"LinkedSpecialBonus"	"special_bonus_unique_razor_5"
 			}
 			"02"
@@ -9970,7 +9831,7 @@
 			}
 			"damage"
 			{
-				"value"								"40 60 80 100 120"
+				"value"								"55 70 85 100 115"
 				"special_bonus_unique_enigma_5"		"+40"
 			}
 		}
@@ -10045,7 +9906,7 @@
 	"enigma_midnight_pulse"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"55 50 45 40 35"
+		"AbilityCooldown"				"45 40 35 30 25"
 		"AbilityManaCost"				"50 80 110 140 170"
 		"AbilitySpecial"
 		{
@@ -10946,7 +10807,7 @@
 		"AbilityManaCost"				"100 110 120 130 140 150 160"
 		"AbilityValues"
 		{
-			"dragon_slave_damage"		"85 160 235 310 380 440 500"
+			"dragon_slave_damage"		"85 165 245 325 405 485 565"
 		}
 	}
 	"lina_light_strike_array"
@@ -10970,7 +10831,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"light_strike_array_damage"	"100 150 200 250 300"
+				"light_strike_array_damage"	"110 160 210 260 310"
 				"LinkedSpecialBonus"		"special_bonus_unique_lina_3"
 			}
 		}
@@ -11027,21 +10888,6 @@
         "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
     }
-    "lina_flame_cloak"
-    {
-        "IsGrantedByScepter"				"1"
-        "MaxLevel"						"1"
-        "AbilityCooldown"				"25"
-        "AbilityManaCost"				"50"
-        "AbilityValues"
-        {
-            "flame_cloak_duration"				"9"
-            "magic_resistance"					"35"
-            "spell_amp"							"30"
-            "visualzdelta"							"310"
-            "zchangespeed"							"350"
-        }
-    }
 	"lina_laguna_blade"
 	{
 		"MaxLevel" "5"
@@ -11067,8 +10913,8 @@
 		{
 			"damage"
 			{
-				"value"			"100 160 220 280 340 400 460"
-				"special_bonus_unique_lion_3"	"+75"
+				"value"			"105 170 235 300 365 430 495"
+				"special_bonus_unique_lion_3"	"+85"
 			}
 			"duration"			"1.4 1.6 1.8 2.0 2.2 2.4 2.6"
 		}
@@ -13076,7 +12922,7 @@
 			"damage_health_pct"
 			{
 				"value"				"3 4 5 6 7 8 9"
-				"special_bonus_unique_zeus_2"	"+2"
+				"special_bonus_unique_zeus_2"	"+4"
 			}
 		}
 	}
@@ -13135,7 +12981,7 @@
 		{
 			"damage"
 			{
-				"value"							"300 425 550 675 800"
+				"value"							"350 500 650 800 950"
 				"special_bonus_unique_zeus_4"		"+150"
 			}
 		}
