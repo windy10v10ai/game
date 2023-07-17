@@ -3051,7 +3051,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost"				"40"
+				"active_boost"				"50"
 			}
 			"04"
 			{
@@ -3135,7 +3135,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost"				"80"
+				"active_boost"				"100"
 			}
 			"04"
 			{
