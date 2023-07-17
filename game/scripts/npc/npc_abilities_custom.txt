@@ -66,7 +66,7 @@
 
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"3000"
+		"AbilityCastRange"				"4500"
 		"AbilityCastRangeBuffer"		"600"
 		"AoERadius"						"%scepter_radius"
 
@@ -97,12 +97,12 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"scepter_radius"	"300"
+				"scepter_radius"	"450"
 			}
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"scepter_crit_bonus"	"240 260 280 300 320"
+				"scepter_crit_bonus"	"240 270 300 330 360"
 			}
 		}
 
@@ -2776,7 +2776,7 @@
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0"
-		"AbilityChannelTime"			"3.5 2.5 1.5"
+		"AbilityChannelTime"			"2.4 1.6 0.8"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
 
