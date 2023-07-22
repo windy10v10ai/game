@@ -10396,8 +10396,8 @@
 	{
 		"AbilityCooldown"
 		{
-			"value"					"14"
-			"special_bonus_unique_invoker_9"	"-14"
+			"value"					"8"
+			"special_bonus_unique_invoker_9"	"-8"
 		}
 	}
 	"invoker_ghost_walk"
@@ -10410,7 +10410,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"22"
+				"value"					"26"
 				"special_bonus_unique_invoker_3" "-6"
 			}
 			"area_of_effect"		"200"
@@ -10424,7 +10424,7 @@
 	}
 	"invoker_emp"
 	{
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"16"
 		"AbilityValues"
 		{
 			"mana_burned"
@@ -10444,7 +10444,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"36"
+				"value"					"20"
 			}
 		}
 	}
@@ -10488,11 +10488,11 @@
 	}
 	"invoker_ice_wall"
 	{
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"10"
 	}
 	"invoker_deafening_blast"
 	{
-		"AbilityCooldown"				"24"
+		"AbilityCooldown"				"20"
 		"AbilityValues"
 		{
 			"damage"
