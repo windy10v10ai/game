@@ -3594,7 +3594,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"75"
+		"AbilityCooldown"				"60"
 		"AbilityManaCost"				"100"
 
 		// Item Info
@@ -3604,12 +3604,12 @@
 
 		"AbilityValues"
 		{
-			"bonus_strength"		"25"
-			"bonus_damage"			"60"
-			"duration"				"12 11 10 9 8"
+			"bonus_strength"		"50"
+			"bonus_damage"			"90"
+			"duration"				"12 12 11 11 10"
 			"max_level"				"5"
 			"model_scale"			"50"     // Percentage over model scale
-			"magic_resist"			"75"
+			"magic_resist"			"100"
 		}
 	}
 
@@ -6004,7 +6004,7 @@
 			"bonus_mana"			"500"
 			"heal_increase"			"50"
 
-			"bubble_duration"		"2.0"
+			"bubble_duration"		"1.25"
 			"bubble_move_speed"		"350"
 			"bubble_heal_per_tick"	"300"
 			"bubble_mana_per_tick"	"300"
