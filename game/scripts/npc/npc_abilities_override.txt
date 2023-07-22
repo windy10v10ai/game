@@ -7562,13 +7562,70 @@
 		"AbilityDamage"					"180 260 340 420"
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_time_tooltip"		"1.2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"tick_interval"			"0.05"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"forward_move_speed"	"800"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT" // used after any break in the roll (start/jump/bounce)
+				"turn_rate_boosted"		"360"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"turn_rate"				"240"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"600"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hit_radius"			"300"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bounce_duration"		"0.4"
+			}
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.8 1.0 1.2 1.4"
+				"stun_duration"			"1.0 1.2 1.4 1.6"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"knockback_radius"		"150"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"12.0"
+				"LinkedSpecialBonus"	"special_bonus_unique_pangolier_6"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"jump_recover_time"		"0.25"
 			}
 		}
 	}
+
 	"special_bonus_unique_pangolier_5"
 	{
 		"AbilitySpecial"
@@ -10337,11 +10394,15 @@
 	//=================================================================================================================
 	"invoker_cold_snap"
 	{
-		"AbilityCooldown"				"18"
+		"AbilityCooldown"
+		{
+			"value"					"14"
+			"special_bonus_unique_invoker_9"	"-8"
+		}
 	}
 	"invoker_ghost_walk"
 	{
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"24"
 	}
 	"invoker_tornado"
 	{
@@ -10349,7 +10410,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"26"
+				"value"					"22"
 				"special_bonus_unique_invoker_3" "-6"
 			}
 			"area_of_effect"		"200"
@@ -10363,19 +10424,19 @@
 	}
 	"invoker_emp"
 	{
-		"AbilityCooldown"				"15"
+		"AbilityCooldown"				"12"
 		"AbilityValues"
 		{
 			"mana_burned"
 			{
-				"value"			"200 300 400 500 600 700 800"
+				"value"			"400 500 600 700 800 900 1000"
 				"levelkey"				"wexlevel"
 			}
 		}
 	}
 	"invoker_alacrity"
 	{
-		"AbilityCooldown"				"10"
+		"AbilityCooldown"				"8"
 	}
 	"invoker_chaos_meteor"
 	{
@@ -10383,36 +10444,14 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"45"
+				"value"					"36"
 			}
 		}
 	}
-		"invoker_sun_strike"
+	"invoker_sun_strike"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5386"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-		"MaxLevel"						"1"
-		"HotKeyOverride"				"T"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Invoker.SunStrike.Charge"
-
-		"HasScepterUpgrade"			"1"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.05"
-		"AbilityCastAnimation"			"ACT_INVALID"
-
-		"AbilityCooldown"				"10"
+		"AbilityCooldown"				"8"
 		"AbilityManaCost"				"250"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"delay"						"1.7"
@@ -10432,7 +10471,7 @@
 			}
 			"cataclysm_cooldown"
 			{
-				"value"					"80"
+				"value"					"70"
 				"RequiresScepter"		"1"
 			}
 			"cataclysm_min_range"
@@ -10449,11 +10488,11 @@
 	}
 	"invoker_ice_wall"
 	{
-		"AbilityCooldown"				"15"
+		"AbilityCooldown"				"12"
 	}
 	"invoker_deafening_blast"
 	{
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"24"
 		"AbilityValues"
 		{
 			"damage"
@@ -10461,6 +10500,17 @@
 				"value"					"100 150 200 250 300 350 400 450"
 				"levelkey"				"exortlevel"
 			}
+		}
+	}
+		"invoker_invoke"
+	{
+		"AbilityCooldown"				"3"
+		"AbilityManaCost"				"0"
+		"AbilityCastAnimation"			"ACT_INVALID"
+		"AbilityValues"
+		{
+			"max_invoked_spells"			"2"
+			"cooldown_reduction_per_orb"	"1"
 		}
 	}
     //=================================================================================================================
@@ -11884,18 +11934,19 @@
 	}
 	"shadow_demon_demonic_purge"
 	{
+		"MaxLevel" "4"
 		"AbilityDuration"				"10.0"
 		"AbilityCooldown"				"30"
 		"AbilityCastRange"				"1500"
-		"AbilityCastPoint"				"0.3 0.3 0.3"
+		"AbilityCastPoint"				"0.3 0.2 0.1 0.0"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
-		"AbilityManaCost"				"150 175 200"
+		"AbilityManaCost"				"150 175 200 225"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"purge_damage"		"600 900 1200"
+				"purge_damage"		"600 900 1200 1500"
 				"LinkedSpecialBonus"	"special_bonus_unique_shadow_demon_1"
 			}
 			"02"
@@ -11931,7 +11982,7 @@
 	"shadow_demon_demonic_cleanse"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"35"
+		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"150 175 200 225"
 		"AbilityValues"
 		{
@@ -11947,12 +11998,12 @@
 				}
 				"charge_restore_time"
 				{
-					"value"				"40"
+					"value"				"30"
 					"RequiresScepter"			"1"
 				}
 				"charge_restore_time_tooltip_scepter"
 				{
-					"value"				"40"
+					"value"				"30"
 					"RequiresScepter"			"1"
 				}
 		}
