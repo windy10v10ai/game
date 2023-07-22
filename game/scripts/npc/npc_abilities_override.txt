@@ -10392,12 +10392,48 @@
 	//=================================================================================================================
 	// Ability: Invoker 祈求者/卡尔
 	//=================================================================================================================
-	"invoker_cold_snap_ad"
+	"invoker_cold_snap"
 	{
-		"AbilityCooldown"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"MaxLevel"						"1"
+		"HotKeyOverride"				"Y"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Invoker.ColdSnap"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0"
+		"AbilityCastAnimation"			"ACT_INVALID"
+		"AbilityManaCost"				"100"
+		"AbilityModifierSupportValue"	"0.15"
+		"AbilityValues"
 		{
-			"value"					"10"
-			"special_bonus_unique_invoker_9"	"-10"
+			"AbilityCooldown"
+			{
+				"value"					"8"
+				"special_bonus_unique_invoker_9"	"-8"
+			}
+			"duration"
+			{
+				"value"					"3.0 3.4 3.8 4.2 4.6 5.0 5.4 5.8"
+				"levelkey"				"quaslevel"
+				"special_bonus_unique_invoker_7"	"+3"
+			}
+			"freeze_duration"			"0.4"
+			"freeze_cooldown"
+			{
+				"value"					"0.83 0.80 0.77 0.74 0.71 0.68 0.65 0.62"
+				"levelkey"				"quaslevel"
+			}
+			"freeze_damage"
+			{
+				"value"					"8 16 24 32 40 48 56 64"
+				"levelkey"				"quaslevel"
+			}
+			"damage_trigger"			"10.0"
 		}
 	}
 	"invoker_ghost_walk"
