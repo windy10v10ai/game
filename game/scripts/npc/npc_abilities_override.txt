@@ -680,11 +680,202 @@
 		"AbilityManaCost"				"450"	// 350
 		"AbilityCooldown"				"180.0"	// 180.0
 	}
-	// 微光
+	//=================================================================================================================
+	//微光披风（超級加强） Glimmer Cape
+	//=================================================================================================================
 	"item_glimmer_cape"
 	{
-		"AbilityCastRange"				"700"
+		"AbilityCastRange"				"1000"
+		"AbilityCooldown"				"10.0"
 		"AbilityManaCost"				"50"
+		"AbilityValues"
+		{
+			"active_movement_speed"		"60"
+			"bonus_magical_armor"			"35"
+			"barrier_block"					"500"
+		}
+	}
+	//=================================================================================================================
+	//灵匣（卷轴） Recipe: Phylactery
+	//=================================================================================================================
+	"item_recipe_phylactery"
+	{
+		"ItemRequirements"
+		{
+			"01"						"item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask"
+		}
+	}
+	//=================================================================================================================
+	//灵匣（史诗级加强） Phylactery
+	//=================================================================================================================
+	"item_phylactery"
+	{
+		"AbilityCooldown"				"0"
+		"ItemCost"						"9500"
+		"AbilityValues"
+		{
+			"bonus_health"		"1000"
+			"bonus_mana"		"1000"
+			"bonus_all_stats"	"35"
+			"bonus_mana_regen"	"3.5"
+			"slow"						"50"
+			"bonus_spell_damage"		"1000"
+			"slow_duration"				"2.5"
+		}
+	}
+	//=================================================================================================================
+	//血辣/血棘（加强） Bloodthorn
+	//=================================================================================================================
+	"item_bloodthorn"
+	{
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9.0"
+		"AbilityValues"
+		{
+				"bonus_intellect"			"40"
+				"bonus_attack_speed"		"75"
+				"bonus_damage"				"50"
+				"bonus_mana_regen"			"6"
+				"bonus_magic_resist"		"35"
+				"bonus_health_regen"		"8.25"
+				"silence_duration"			"5"
+				"silence_damage_percent"	"90"
+				"duration"					"6"
+				"spell_amp_debuff"			"70"
+		}
+	}
+	//=================================================================================================================
+	//大吹风（略微加强） Wind Waker
+	//=================================================================================================================
+	"item_wind_waker"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"610"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.0"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"11.0"
+		"AbilitySharedCooldown"			"cyclone"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"175"
+		"ItemCost"						"6825"
+		"ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"cyclone;wind waker;ww"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"5.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"40"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cyclone_duration"		"2.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_drop_damage"	"50"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tornado_speed"	"900"
+			}
+		}
+	}
+	//=================================================================================================================
+    // 亡魂胸针（加强） revenants brooch
+    //=================================================================================================================
+	"item_recipe_revenants_brooch"
+	{
+		"ItemRequirements"
+		{
+			"01"						"item_witch_blade;item_mystic_staff;item_platemail;item_platemail"
+		}
+	}
+	"item_revenants_brooch"
+	{
+		"AbilityCooldown"				"4"
+		"AbilityManaCost"				"200"
+		"ItemCost"						"9000"
+		"AbilityValues"
+		{
+				"bonus_intellect"		"45"
+				"bonus_attack_speed"	"40"
+				"bonus_armor"			"35"
+				"projectile_speed"		"300"
+				"int_damage_multiplier"	"1.2"
+				"slow"	"25"
+				"slow_duration"	"8"
+				"mana_cost"				"100"
+				"damage_penalty"		"0"
+				"passive_cooldown"		"3"
+				"number_of_attacks"		"50"
+				"active_duration"		"12"
+				"active_attack_speed"	"60"
+		}
+	}
+	//=================================================================================================================
+	// 鱼叉（加强） harpoon
+	//=================================================================================================================
+	"item_recipe_harpoon"
+	{
+		"ItemRequirements"
+		{
+			"01"						"item_echo_sabre_2;item_diadem;item_diadem"
+		}
+	}
+	"item_harpoon"
+	{
+		"AbilityCastRange"				"1000"
+		"AbilityCooldown"				"8.0"
+		"AbilityValues"
+		{
+			"bonus_attack_speed"	"20"
+			"bonus_damage"			"40"
+			"bonus_strength"		"35"
+			"bonus_agility"			"20"
+			"bonus_intellect"		"25"
+			"bonus_mana_regen"		"2.0"
+			"passive_cooldown"		"2"
+			"movement_slow"			"100"
+			"slow_duration"			"2.0"
+			"pull_duration"				"0.3"
+			"pull_distance_pct"			"35"
+			"min_distance"				"100"
+			"max_distance"				"1000"
+			"cast_range_enemy"		"700"
+			"push_length"			"600"
+			"projectile_speed"		"2000"
+		}
 	}
 	// 跳刀卷轴
 	"item_recipe_overwhelming_blink"
