@@ -494,6 +494,14 @@
         "Ability17"		"special_bonus_unique_legion_commander_8"
     }
 
+	"npc_dota_hero_nyx_assassin"
+	{
+		"Ability6"      "nyx_assassin_mana_burn"
+		"Ability7"		"nyx_assassin_vendetta"
+		"Ability8"		"nyx_assassin_unburrow"
+	}
+
+
 	"npc_dota_hero_monkey_king"
 	{
 		"Ability6"		"spectre_ursa_enrage"
