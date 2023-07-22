@@ -10397,7 +10397,7 @@
 		"AbilityCooldown"
 		{
 			"value"					"14"
-			"special_bonus_unique_invoker_9"	"-8"
+			"special_bonus_unique_invoker_9"	"-14"
 		}
 	}
 	"invoker_ghost_walk"
