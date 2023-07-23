@@ -83,7 +83,7 @@ function modifier_item_heavens_halberd_v2:DeclareFunctions()
         MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
         MODIFIER_EVENT_ON_ATTACK_LANDED,
         MODIFIER_EVENT_ON_TAKEDAMAGE,
-   }
+    }
 end
 
 
@@ -104,7 +104,7 @@ function modifier_item_heavens_halberd_v2:OnCreated()
         self.mp_re = self.ability:GetSpecialValueFor("mana_re")
     end
 	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+        RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
 	end
 end
 
