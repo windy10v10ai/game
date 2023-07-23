@@ -80,6 +80,7 @@ function modifier_item_heavens_halberd_v2:DeclareFunctions()
         MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
         MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
         MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
         MODIFIER_EVENT_ON_ATTACK_LANDED,
         MODIFIER_EVENT_ON_TAKEDAMAGE,
    }
@@ -100,6 +101,7 @@ function modifier_item_heavens_halberd_v2:OnCreated()
         self.status_resistance=self.ability:GetSpecialValueFor("status_resistance")
         self.spell_resist = self:GetAbility():GetSpecialValueFor("spell_resist")
         self.spell_lifesteal = self:GetAbility():GetSpecialValueFor("spell_lifesteal")
+        self.mp_re = self.ability:GetSpecialValueFor("mana_re")
     end
 	if IsServer() then
 		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
@@ -130,6 +132,10 @@ function modifier_item_heavens_halberd_v2:GetModifierEvasion_Constant()
 
 function modifier_item_heavens_halberd_v2:GetModifierHPRegenAmplify_Percentage()
     return self.hp_regen_amp
+end
+
+function modifier_item_heavens_halberd_v2:GetModifierConstantManaRegen()
+	return self.mp_re
 end
 
 function modifier_item_heavens_halberd_v2:GetModifierHealAmplify_PercentageTarget()
