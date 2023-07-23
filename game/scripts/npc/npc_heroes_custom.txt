@@ -467,6 +467,8 @@
 
 	"npc_dota_hero_rubick"
 	{
+		"Ability3" "tinker_rearm_lua"
+		"Ability8"		"rubick_arcane_supremacy"
 		"Ability20"		"rubick_null_field"
 	}
 
@@ -493,6 +495,13 @@
         "Ability16"		"special_bonus_unique_legion_commander"
         "Ability17"		"special_bonus_unique_legion_commander_8"
     }
+
+	"npc_dota_hero_nyx_assassin"
+	{
+		"Ability6"      "nyx_assassin_mana_burn"
+		"Ability7"		"nyx_assassin_vendetta"
+		"Ability8"		"nyx_assassin_unburrow"
+	}
 
 	"npc_dota_hero_monkey_king"
 	{
@@ -1637,8 +1646,25 @@
 			}
 		}
 	}
+
+	"npc_dota_hero_phoenix"
+	{
+		"Ability5" "tinker_rearm"
+	}
+
+	"npc_dota_hero_weaver"
+	{
+		"Ability12"		"special_bonus_mana_break_100"
+		"Ability15"		"special_bonus_unique_weaver_5"
+		"Ability16"		"special_bonus_unique_weaver_6"
+		"Ability17"		"special_bonus_unique_weaver_3"
+		"AttackRange"		"850"
+	}
+
 	"npc_dota_hero_medusa"
 	{
+		"Ability15"		"special_bonus_unique_medusa_4"
+		"Ability17"		"special_bonus_unique_medusa"
 		"Bot"
 		{
 			"Build"
@@ -2022,6 +2048,8 @@
 	}
 	"npc_dota_hero_phantom_assassin"
 	{
+		"VisionDaytimeRange"		"2500"
+		"VisionNighttimeRange"		"2500"
 		"Bot"
 		{
 			"Build"
@@ -2287,6 +2315,12 @@
 			}
 		}
 	}
+	"npc_dota_hero_hoodwink"
+	{
+		"Ability15"					"special_bonus_unique_hoodwink_acorn_shot_charges"
+		"Ability16"					"special_bonus_corruption_4"
+		"Ability17"					"special_bonus_unique_hoodwink_bushwhack_radius"
+	}
 	"npc_dota_hero_silencer"
 	{
 		"override_hero"		"npc_dota_hero_silencer"
@@ -2428,6 +2462,7 @@
 	"npc_dota_hero_sniper"
 	{
 		"Ability5"		"sniper_assassinate_upgrade"
+		"MovementSpeed"		"550"
 		"Bot"
 		{
 			"Build"
@@ -2755,6 +2790,8 @@
 	}
 	"npc_dota_hero_windrunner"
 	{
+		"AttackRate"		"1.300000"
+		"AttackRange"		"800"
 		"Bot"
 		{
 			"Build"
