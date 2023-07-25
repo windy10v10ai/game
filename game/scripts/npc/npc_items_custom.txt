@@ -1779,7 +1779,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Recipe: Excalibur EX咖喱棒(加强配方，合成更顺滑)
+	// Recipe: Excalibur EX咖喱棒
 	//=================================================================================================================
 	"item_recipe_excalibur"
 	{
@@ -1790,7 +1790,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6666"
+		"ItemCost"						"12150"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1799,7 +1799,7 @@
 		"ItemResult"					"item_excalibur"
 		"ItemRequirements"
 		{
-			"01"						"item_rapier;item_rapier;item_monkey_king_bar_2"
+			"01"						"item_rapier;item_rapier;item_rapier"
 		}
 	}
 
@@ -3051,7 +3051,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost"				"50"
+				"active_boost"				"40"
 			}
 			"04"
 			{
@@ -3135,7 +3135,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost"				"100"
+				"active_boost"				"80"
 			}
 			"04"
 			{
@@ -3189,9 +3189,9 @@
 				"bonus_all_stats"		"50"
 				"bonus_health"			"600"
 				"bonus_mana"			"600"
-				"cold_slow_melee"		"-60"
+				"cold_slow_melee"		"-40"
 				"cold_attack_slow_melee"	"-80"
-				"cold_slow_ranged"	"-75"
+				"cold_slow_ranged"	"-60"
 				"cold_attack_slow_ranged"	"-120"
 				"cold_duration"	"4.0"
 				"heal_reduction"	"65"
@@ -3319,7 +3319,7 @@
 
 
 	//=================================================================================================================
-	// manta 1 大分身 （偷偷加强）
+	// manta 1 大分身
 	//=================================================================================================================
 	"item_manta_1"
 	{
@@ -3380,42 +3380,42 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"images_do_damage_percent_melee"	"+50"
+				"images_do_damage_percent_melee"	"-50"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_damage_outgoing_melee"			"150"
+				"tooltip_damage_outgoing_melee"			"50"
 			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"images_take_damage_percent_melee"	"150"
+				"images_take_damage_percent_melee"	"200"
 			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_damage_incoming_melee_total_pct"			"150"
+				"tooltip_damage_incoming_melee_total_pct"			"300"
 			}
 			"12"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"images_do_damage_percent_ranged"	"-0"
+				"images_do_damage_percent_ranged"	"-65"
 			}
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_damage_outgoing_ranged"			"100"
+				"tooltip_damage_outgoing_ranged"			"35"
 			}
 			"14"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"images_take_damage_percent_ranged"	"100"
+				"images_take_damage_percent_ranged"	"250"
 			}
 			"15"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_damage_incoming_ranged_total_pct"			"100"
+				"tooltip_damage_incoming_ranged_total_pct"			"350"
 			}
 			"16"
 			{
@@ -3964,7 +3964,6 @@
 			"knockback_range"			"450"
 			"knockback_distance"		"150"
 			"spell_lifesteal"   "20"
-			"mana_re" "99"
 		}
 	}
 
@@ -5128,7 +5127,6 @@
 			}
 		}
 	}
-
 	//=================================================================================================================
 	// Recipe: Shiva's Guard 雅典娜的守护图纸
 	//=================================================================================================================
@@ -6015,6 +6013,7 @@
 			"bubble_total_mana_tip"	"1200"
 		}
 	}
+
 	//=================================================================================================================
 	// 洛书
 	//=================================================================================================================
