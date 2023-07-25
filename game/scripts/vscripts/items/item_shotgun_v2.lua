@@ -80,7 +80,7 @@ function modifier_item_shotgun_v2:GetModifierProcAttack_Feedback(keys)
 		end
 	end
 
-	keys.attacker:AddNewModifier(keys.attacker, self:GetAbility(), "modifier_item_shotgun_v2_cooldown", {duration = 0})
+	keys.attacker:AddNewModifier(keys.attacker, self:GetAbility(), "modifier_item_shotgun_v2_cooldown", {duration = 0.1})
 end
 
 if modifier_item_shotgun_v2_cooldown == nil then modifier_item_shotgun_v2_cooldown = class({}) end
