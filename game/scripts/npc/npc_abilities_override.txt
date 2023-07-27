@@ -700,9 +700,10 @@
 	//=================================================================================================================
 	"item_recipe_phylactery"
 	{
+		"ItemCost"						"1375"
 		"ItemRequirements"
 		{
-			"01"						"item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask"
+			"01"						"item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask"
 		}
 	}
 	//=================================================================================================================
@@ -710,17 +711,17 @@
 	//=================================================================================================================
 	"item_phylactery"
 	{
-		"AbilityCooldown"				"0"
-		"ItemCost"						"9500"
+		"AbilityCooldown"				"1"		// 6
+		"ItemCost"						"8500"
 		"AbilityValues"
 		{
-			"bonus_health"		"1000"
-			"bonus_mana"		"1000"
-			"bonus_all_stats"	"35"
-			"bonus_mana_regen"	"3.5"
-			"slow"						"50"
-			"bonus_spell_damage"		"1000"
-			"slow_duration"				"2.5"
+			"bonus_health"		"1000"			// 200
+			"bonus_mana"		"1000"			// 200
+			"bonus_all_stats"	"35"			// 7
+			"bonus_mana_regen"	"3.5"			// .7
+			"slow"						"60"	// 50
+			"bonus_spell_damage"		"1000"	// 150
+			"slow_duration"				"2.5"	// 1.5
 		}
 	}
 	//=================================================================================================================
@@ -750,64 +751,29 @@
 	//=================================================================================================================
 	"item_wind_waker"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"610"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
-		"FightRecapLevel"				"1"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900"
-		"AbilityCastPoint"				"0.0"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"11.0"
-		"AbilitySharedCooldown"			"cyclone"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"175"
-		"ItemCost"						"6825"
-		"ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"cyclone;wind waker;ww"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"50"
+				"bonus_movement_speed"	"50"			// 30
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"5.0"
+				"bonus_mana_regen"		"5.0"			// 3
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cyclone_duration"		"2.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_drop_damage"	"50"
+				"bonus_intellect"		"40"			// 35
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tornado_speed"	"900"
+				"tornado_speed"	"720"					// 360
 			}
 		}
 	}
@@ -10394,21 +10360,6 @@
 	//=================================================================================================================
 	"invoker_cold_snap"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"1"
-		"HotKeyOverride"				"Y"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Invoker.ColdSnap"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_INVALID"
-		"AbilityManaCost"				"100"
-		"AbilityModifierSupportValue"	"0.15"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -10416,29 +10367,17 @@
 				"value"					"8"
 				"special_bonus_unique_invoker_9"	"-8"
 			}
-			"duration"
-			{
-				"value"					"3.0 3.4 3.8 4.2 4.6 5.0 5.4 5.8"
-				"levelkey"				"quaslevel"
-				"special_bonus_unique_invoker_7"	"+3"
-			}
-			"freeze_duration"			"0.4"
-			"freeze_cooldown"
-			{
-				"value"					"0.83 0.80 0.77 0.74 0.71 0.68 0.65 0.62"
-				"levelkey"				"quaslevel"
-			}
-			"freeze_damage"
-			{
-				"value"					"8 16 24 32 40 48 56 64"
-				"levelkey"				"quaslevel"
-			}
-			"damage_trigger"			"10.0"
 		}
 	}
 	"invoker_ghost_walk"
 	{
-		"AbilityCooldown"				"24"
+		"AbilityValues"
+		{
+			"AbilityCooldown"
+			{
+				"value"					"24"
+			}
+		}
 	}
 	"invoker_tornado"
 	{
