@@ -3964,7 +3964,7 @@
 			"knockback_range"		"450"
 			"knockback_distance"    "150"
 			"spell_lifesteal"       "20"
-			"mana_re"               "76"
+			"mana_re"               "7.6"
 		}
 	}
 
