@@ -1790,7 +1790,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"12150"
+		"ItemCost"						"7689"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1799,7 +1799,7 @@
 		"ItemResult"					"item_excalibur"
 		"ItemRequirements"
 		{
-			"01"						"item_rapier;item_rapier;item_rapier"
+			"01"						"item_rapier;item_rapier;item_monkey_king_bar_2"
 		}
 	}
 
@@ -3051,7 +3051,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost"				"40"
+				"active_boost"				"50"
 			}
 			"04"
 			{
@@ -3135,7 +3135,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"active_boost"				"80"
+				"active_boost"				"100"
 			}
 			"04"
 			{
@@ -3189,9 +3189,9 @@
 				"bonus_all_stats"		"50"
 				"bonus_health"			"600"
 				"bonus_mana"			"600"
-				"cold_slow_melee"		"-40"
+				"cold_slow_melee"		"-60"
 				"cold_attack_slow_melee"	"-80"
-				"cold_slow_ranged"	"-60"
+				"cold_slow_ranged"	"-75"
 				"cold_attack_slow_ranged"	"-120"
 				"cold_duration"	"4.0"
 				"heal_reduction"	"65"
@@ -3380,37 +3380,37 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"images_do_damage_percent_melee"	"-50"
+				"images_do_damage_percent_melee"	"+50"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_damage_outgoing_melee"			"50"
+				"tooltip_damage_outgoing_melee"			"150"
 			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"images_take_damage_percent_melee"	"200"
+				"images_take_damage_percent_melee"	"150"
 			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_damage_incoming_melee_total_pct"			"300"
+				"tooltip_damage_incoming_melee_total_pct"			"150"
 			}
 			"12"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"images_do_damage_percent_ranged"	"-65"
+				"images_do_damage_percent_ranged"	"-0"
 			}
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_damage_outgoing_ranged"			"35"
+				"tooltip_damage_outgoing_ranged"			"100"
 			}
 			"14"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"images_take_damage_percent_ranged"	"250"
+				"images_take_damage_percent_ranged"	"100"
 			}
 			"15"
 			{
@@ -3594,7 +3594,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"75"
+		"AbilityCooldown"				"60"
 		"AbilityManaCost"				"100"
 
 		// Item Info
@@ -3604,12 +3604,12 @@
 
 		"AbilityValues"
 		{
-			"bonus_strength"		"25"
-			"bonus_damage"			"60"
-			"duration"				"12 11 10 9 8"
+			"bonus_strength"		"50"
+			"bonus_damage"			"90"
+			"duration"				"12 12 11 11 10"
 			"max_level"				"5"
 			"model_scale"			"50"     // Percentage over model scale
-			"magic_resist"			"75"
+			"magic_resist"			"100"
 		}
 	}
 
@@ -3961,9 +3961,10 @@
 			"disarm"				"1"
 			"status_resistance"		"20"
 			"spell_resist"			"30"
-			"knockback_range"			"450"
-			"knockback_distance"		"150"
-			"spell_lifesteal"   "20"
+			"knockback_range"		"450"
+			"knockback_distance"    "150"
+			"spell_lifesteal"       "20"
+			"mana_re"               "7.6"
 		}
 	}
 
@@ -6003,7 +6004,7 @@
 			"bonus_mana"			"500"
 			"heal_increase"			"50"
 
-			"bubble_duration"		"2.0"
+			"bubble_duration"		"1.25"
 			"bubble_move_speed"		"350"
 			"bubble_heal_per_tick"	"300"
 			"bubble_mana_per_tick"	"300"

@@ -1411,6 +1411,7 @@
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_hp_regen_amp"							"%+自身生命恢复和吸血增强"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_resist"							"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_lifesteal"					    "%+$spell_lifesteal"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_mana_re"					    		"+$mana_regen"
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"										"阿迪王"
