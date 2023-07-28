@@ -1104,7 +1104,7 @@
 			"bonus_intellect"		"3 6"
 			"bonus_damage"			"9 18"
 			"bonus_health_regen"	"3 6"
-			"clock_time"			"10"
+			"clock_time"			"5"
 		}
 	}
 
@@ -1153,7 +1153,7 @@
 			"bonus_intellect"		"3 6"
 			"bonus_attack_speed"	"9 18"
 			"bonus_armor"			"3 6"
-			"clock_time"			"10"
+			"clock_time"			"5"
 		}
 	}
 
@@ -1201,7 +1201,7 @@
 			"bonus_agility"			"3 6"
 			"bonus_max_mana_percentage"	"5 10"
 			"bonus_mana_regen"		"1.5 3"
-			"clock_time"			"10"
+			"clock_time"			"5"
 		}
 	}
 	//=================================================================================================================
