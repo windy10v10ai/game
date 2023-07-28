@@ -2776,7 +2776,7 @@
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0"
-		"AbilityChannelTime"			"3.5 2.5 1.5"
+		"AbilityChannelTime"			"2.4 1.6 0.8"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
 
