@@ -1088,7 +1088,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"10"
+		"ItemLevelByGameTime"			"5"
 
 		"ItemCost"						"550"
 		"ItemShopTags"					"damage;int;agi;str"
@@ -1137,7 +1137,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"10"
+		"ItemLevelByGameTime"			"5"
 
 		"ItemCost"						"550"
 		"ItemShopTags"					"damage;int;agi;str"
@@ -1185,7 +1185,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"10"
+		"ItemLevelByGameTime"			"5"
 
 		"ItemCost"						"550"
 		"ItemShopTags"					"damage;int;agi;str"
