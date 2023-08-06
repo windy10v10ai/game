@@ -38,8 +38,6 @@ function AIGameMode:InitHeroSelection()
         print("[AIGameMode] InitSettings")
         -- 初始化玩家列表和初期金钱
         self.tHumanPlayerList = {}
-        -- 是否更换了会员英雄
-        self.tIfChangeHeroList = {}
         -- 是否选择了物品
         self.tIfItemChosen = {}
         self.tIfItemChooseInited = {}
@@ -47,7 +45,6 @@ function AIGameMode:InitHeroSelection()
             if PlayerResource:GetConnectionState(i) ~= DOTA_CONNECTION_STATE_UNKNOWN then
                 -- set human player list
                 self.tHumanPlayerList[i] = true
-                self.tIfChangeHeroList[i] = false
                 self.tIfItemChosen[i] = false
                 self.tIfItemChooseInited[i] = false
                 -- set start gold
