@@ -118,14 +118,10 @@
 		"data_panel_season_level"		"Season Level"
 		"data_panel_season_level_tooltip"		"After playing the game to get the season points, the season level will be raised.<br>At the end of the season, the season level will be recalculated based on the inherited season points and attribute points will be given.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>100</font> points."
 		"data_panel_member_level"		"Member Level"
-		"data_panel_member_level_tooltip"		"Members can get 60 membership points for daily login.<br>You can get a lot of membership points by <font color='#E8C07D'>Charge Member Point</font>.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>50</font> points."
+		"data_panel_member_level_tooltip"		"Members can get 60 membership points for daily login.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>50</font> points."
 		"data_panel_level_progress"		"Level Progress"
 		"data_panel_season_end"			"Third Season end date: 2023/9/30"
 		"data_panel_season_end_tooltip"			"Season level will be reset at the end of the season. <br><font color='#E8C07D'>Inherit 50%</font> season points to the next season"
-
-		"data_panel_link_charge"		"Charge Member Point"
-		"data_panel_link_rule"			"Point Rule"
-		"data_panel_member_point_rule_url"		"https://afdian.net/p/8d1e8ac8682711ed984b52540025c377"
 
 		"data_panel_player_property_label"		"Consume attribute points to enhance the hero, the upgrade attribute in time to take effect, and can not be modified."
 		"data_panel_player_property_label_tooltip"		"At the end of the season, the attribute points will be reset"
@@ -163,18 +159,14 @@
 		"item_choice_header"										"Choose an item!"
 		"item_choice_shuffle"										"Click to reroll the items."
 		"item_choice_shuffle_used"									"Items rerolled."
-		"item_choice_shuffle_not_member"							"Members can reroll the items once, click to open the membership."
 
 		///////////////////////////////////////////////////
 		//
 		//            Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_ship"			"Click to enable your membership."
-		"player_member_ship_url"		"https://afdian.net/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
-
 		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Respawn time is reduced by 5 seconds.<br/> - Buyback CD is reduced to 2 minutes.<br/> - You can reroll the items lottery once.<br/> - Daily login grants 60 membership points.<br/> - Member-only heroes available are Goku, Yukari and Jack.<br/>Membership is valid until {expireDate}."
-		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired since {expireDate}, Click the button to renew."
+		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired since {expireDate}."
 
 		///////////////////////////////////////////////////
 		//

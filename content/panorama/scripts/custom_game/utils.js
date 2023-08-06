@@ -104,11 +104,6 @@ function SubscribePlayer(callbackFunction) {
 	});
 }
 
-
-function GetOpenMemberUrl() {
-	return $.Localize('#player_member_ship_url') + GetSteamAccountID();
-}
-
 var useChineseDateFormat = $.Language() === 'schinese' || $.Language() === 'tchinese';
 /** @param {Date} date */
 function formatDate(date) {
