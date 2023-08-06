@@ -32,14 +32,6 @@ function PlayerDataLoaded(player) {
 	$("#SeasonLevelNextRemainingBarLeft").style.width = `${(player.seasonCurrrentLevelPoint / player.seasonNextLevelPoint) * 100}%`;
 	$("#MemberLevelNextRemainingBarLeft").style.width = `${(player.memberCurrentLevelPoint / player.memberNextLevelPoint) * 100}%`;
 
-
-	$("#RuleLink").SetPanelEvent('onactivate',() => {
-		$.DispatchEvent('ExternalBrowserGoToURL', $.Localize(`#data_panel_member_point_rule_url`));
-	})
-	$("#ChargeLink").SetPanelEvent('onactivate',() => {
-		$.DispatchEvent('ExternalBrowserGoToURL', 'https://afdian.net/a/windy10v10?tab=shop');
-	})
-
 	// 英雄属性
 	SetLevelUseable(player);
 	SetPlayerProperty();

@@ -145,21 +145,6 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 		// $.Msg(member);
 		if (member && member.enable) {
 			playerPanel.AddClass("IsMemberShip");
-			let membershipString = $.Localize('#player_member_ship');
-			let membershipUrl = GetOpenMemberUrl();
-
-			let membershipIcon = playerPanel.FindChildTraverse("PlayerMemberShip");
-
-			membershipIcon.SetPanelEvent('onmouseover',() => {
-				$.DispatchEvent("DOTAShowTextTooltip", membershipIcon, membershipString);
-			})
-			membershipIcon.SetPanelEvent('onmouseout',() => {
-				$.DispatchEvent("DOTAHideTextTooltip");
-			})
-
-			membershipIcon.SetPanelEvent('onactivate',() => {
-				$.DispatchEvent('ExternalBrowserGoToURL', membershipUrl)
-			})
 		}
 	}
 

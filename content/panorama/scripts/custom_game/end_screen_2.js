@@ -50,21 +50,6 @@ function Snippet_Player(playerId, rootPanel, index) {
 
 	if (playerData.membership) {
 		panel.AddClass("IsMemberShip");
-		let membershipString = $.Localize('#player_member_ship');
-		let membershipUrl = GetOpenMemberUrl();
-
-		let membershipIcon = panel.FindChildTraverse("PlayerMemberShip");
-
-        membershipIcon.SetPanelEvent('onmouseover',() => {
-            $.DispatchEvent("DOTAShowTextTooltip", membershipIcon, membershipString);
-        })
-        membershipIcon.SetPanelEvent('onmouseout',() => {
-            $.DispatchEvent("DOTAHideTextTooltip");
-        })
-
-        membershipIcon.SetPanelEvent('onactivate',() => {
-            $.DispatchEvent('ExternalBrowserGoToURL', membershipUrl)
-        })
 	}
 
 	panel.index = index; // For backwards compatibility
