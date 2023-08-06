@@ -1,8 +1,3 @@
-const memberHeroNames = [
-	"brewmaster",
-	"chen",
-	"phantom_lancer",
-]
 
 const seasonLevelHeroNames = [
 	"dark_seer",
@@ -37,13 +32,7 @@ function PickRandomHero() {
 function PickLocker() {
 	const possible_hero_selection =  Game.GetLocalPlayerInfo().possible_hero_selection;
 
-	if (memberHeroNames.includes(possible_hero_selection)) {
-		if(isMember()) {
-			unlockHero();
-		} else {
-			lockMemberHero();
-		}
-	} else if (seasonLevelHeroNames.includes(possible_hero_selection)) {
+	if (seasonLevelHeroNames.includes(possible_hero_selection)) {
 		if(isSeasonLevelBiggerThan(15)) {
 			unlockHero();
 		} else {
@@ -69,21 +58,6 @@ function unlockHero() {
 	label.text = $.Localize("#DOTA_Hero_Selection_LOCKIN");
 	label.style.fontSize = 20;
 }
-
-function lockMemberHero() {
-	$.Msg("Lock Member hero Pick");
-	const pick_button = FindDotaHudElement("LockInButton");
-	pick_button.enabled = false;
-	pick_button.SetAcceptsFocus(false);
-	pick_button.BAcceptsInput(false);
-	pick_button.style.saturation = 0.0;
-	pick_button.style.brightness = 0.2;
-
-	let label = pick_button.GetChild(0);
-	label.text = $.Localize("#pick_button_member_text");
-	label.style.fontSize = 20;
-}
-
 
 function lockSeasonLevelHero() {
 	const pick_button = FindDotaHudElement("LockInButton");

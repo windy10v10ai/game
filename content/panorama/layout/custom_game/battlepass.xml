@@ -163,14 +163,6 @@
 						<Image class="tooltipIcon" src="s2r://panorama/images/status_icons/information_psd.vtex"
 					onmouseover="UIShowTextTooltipStyled( #data_panel_season_end_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 					</Panel>
-					<Panel class="LinkPanel">
-						<Button id="RuleLink" class="LinkButton activated">
-							<Label id="RuleText" class="ButtonText" text="#data_panel_link_rule" />
-						</Button>
-						<Button id="ChargeLink" class="LinkButton activated-gold">
-							<Label id="ChargeText" class="ButtonText" text="#data_panel_link_charge" />
-						</Button>
-					</Panel>
 				</Panel>
 
 				<!-- 属性 -->
