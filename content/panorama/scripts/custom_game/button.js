@@ -4,60 +4,6 @@
     Thanks to Angel Arena Black Star.
  */
 
-
-function LoadPatreonButton() {
-	$.Msg("button.js LoadPatreonButton");
-    const hContainer = FindDotaHudElement('ButtonBar');
-    let sString = 'Support the game on Patreon!';
-    sString = sString + "<br/>Unlock new heroes, and more benefit!";
-    // let sString = bSupporter ? 'Support the game and enjoy Patreon\'s perks!' : '<font color="#ffa1f4">Thank you for your support ♥!</font><br><br>&#9;&#160;&#160;&#160;&#160;&#160;Status: <font color="'+tiers[hStats.donator][1]+'">'+hStats.donator+'</font>';
-
-    if (hContainer){
-        let hPatreonButton = hContainer.FindChild('JoinPatreon') || $.CreatePanel('Button', hContainer, 'JoinPatreon')
-
-        hPatreonButton.style.backgroundImage = `url('file://{images}/custom_game/patreon_small.png')`
-        hPatreonButton.style.backgroundSize = "100% 100%";
-
-        hPatreonButton.SetPanelEvent('onactivate',() => {
-            $.DispatchEvent('ExternalBrowserGoToURL', 'https://www.patreon.com/windy10v10')
-        })
-
-        hPatreonButton.SetPanelEvent('onmouseover',() => {
-            $.DispatchEvent("DOTAShowTextTooltip", hPatreonButton, sString);
-        })
-
-        hPatreonButton.SetPanelEvent('onmouseout',() => {
-            $.DispatchEvent("DOTAHideTextTooltip");
-        })
-    }
-}
-
-function LoadAfdianButton() {
-	$.Msg("button.js LoadAfdianButton");
-    const hContainer = FindDotaHudElement('ButtonBar');
-    let sString = '通过爱发电支持我们的游戏！';
-    sString = sString + "<br/>订阅会员可解锁新英雄，点击查看更多福利！";
-
-    if (hContainer){
-        let hAfdianButton = hContainer.FindChild('JoinAfdian') || $.CreatePanel('Button', hContainer, 'JoinAfdian')
-
-        hAfdianButton.style.backgroundImage = `url('file://{images}/custom_game/afdian.png')`
-        hAfdianButton.style.backgroundSize = "100% 100%";
-
-        hAfdianButton.SetPanelEvent('onactivate',() => {
-            $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl())
-        })
-
-        hAfdianButton.SetPanelEvent('onmouseover',() => {
-            $.DispatchEvent("DOTAShowTextTooltip", hAfdianButton, sString);
-        })
-
-        hAfdianButton.SetPanelEvent('onmouseout',() => {
-            $.DispatchEvent("DOTAHideTextTooltip");
-        })
-    }
-}
-
 function LoadMemberButton(member) {
     if (!member) {
 		return;
@@ -65,12 +11,12 @@ function LoadMemberButton(member) {
     const hContainer = FindDotaHudElement('ButtonBar');
 
     if (hContainer){
-        let hAfdianButton = hContainer.FindChild('JoinAfdian')
+        // let hAfdianButton = hContainer.FindChild('JoinAfdian')
         // let hPatreonButton = hContainer.FindChild('JoinPatreon')
         // remove hAfidianButton if hPatreonButton is found
-        if (hAfdianButton) {
-            hAfdianButton.DeleteAsync(0)
-        }
+        // if (hAfdianButton) {
+        //     hAfdianButton.DeleteAsync(0)
+        // }
         // if (hPatreonButton) {
         //     hPatreonButton.DeleteAsync(0)
         // }
@@ -87,10 +33,6 @@ function LoadMemberButton(member) {
     	sString = sString.replace("{expireDate}", member.expireDateString);
 
         hMemberButton.style.backgroundSize = "100% 100%";
-
-        hMemberButton.SetPanelEvent('onactivate',() => {
-            $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl())
-        })
 
         hMemberButton.SetPanelEvent('onmouseover',() => {
             $.DispatchEvent("DOTAShowTextTooltip", hMemberButton, sString);
@@ -131,8 +73,6 @@ function LoadDiscordButton() {
 	$.Msg("button.js loaded");
 
     $.Schedule(1, () => {
-        // LoadPatreonButton();
-		LoadAfdianButton();
         LoadMemberButton(CustomNetTables.GetTableValue("member_table", GetSteamAccountID()));
     });
 })();

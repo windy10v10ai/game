@@ -700,10 +700,10 @@
 	//=================================================================================================================
 	"item_recipe_phylactery"
 	{
-		"ItemCost"						"1375"
+		"ItemCost"						"4250"
 		"ItemRequirements"
 		{
-			"01"						"item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask"
+			"01"						"item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask"
 		}
 	}
 	//=================================================================================================================
@@ -712,7 +712,7 @@
 	"item_phylactery"
 	{
 		"AbilityCooldown"				"1"		// 6
-		"ItemCost"						"8500"
+		"ItemCost"						"9000"
 		"AbilityValues"
 		{
 			"bonus_health"		"1000"			// 200
@@ -1088,7 +1088,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"10"
+		"ItemLevelByGameTime"			"5"
 
 		"ItemCost"						"550"
 		"ItemShopTags"					"damage;int;agi;str"
@@ -1137,7 +1137,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"10"
+		"ItemLevelByGameTime"			"5"
 
 		"ItemCost"						"550"
 		"ItemShopTags"					"damage;int;agi;str"
@@ -1185,7 +1185,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"10"
+		"ItemLevelByGameTime"			"5"
 
 		"ItemCost"						"550"
 		"ItemShopTags"					"damage;int;agi;str"
