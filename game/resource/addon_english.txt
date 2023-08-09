@@ -164,7 +164,7 @@
 		//            Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Respawn time is reduced by 5 seconds.<br/> - Buyback CD is reduced to 2 minutes.<br/> - You can reroll the items lottery once.<br/> - Daily login grants 60 membership points.<br/> - Member-only heroes available are Goku, Yukari and Jack.<br/>Membership is valid until {expireDate}."
+		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Respawn time is reduced by 5 seconds.<br/> - Buyback CD is reduced to 2 minutes.<br/> - You can reroll the items lottery once.<br/> - Daily login grants 60 membership points.<br/> Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired since {expireDate}."
 
 		///////////////////////////////////////////////////
