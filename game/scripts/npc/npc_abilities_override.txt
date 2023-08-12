@@ -8252,71 +8252,34 @@
 	}
 	"spectre_dispersion"
 	{
-		"MaxLevel" "9"
+		"MaxLevel" "7"
 		"AbilityValues"
 		{
 			"damage_reflection_pct"
 			{
-				"value"		"8 9 10 11 12 13 14 15 16"
-				"special_bonus_unique_spectre_5"		"+7"
+				"value"		"8 10 12 14 16 18 20"
+				"special_bonus_unique_spectre_5"		"+5"
 			}
 		}
 	}
 	"spectre_haunt"
 	{
-		"MaxLevel" "4"
 		"AbilityCooldown"				"300"
-		"AbilityManaCost"				"500 1000 1500 2000"
-		"HasScepterUpgrade"			    "1"
-		"AbilityDraftPreAbility"		    "spectre_reality"
-        "AbilityDraftUltScepterAbility"		"spectre_haunt_single"
-		"RequiredLevel"					"30"
-		"AbilitySpecial"
+		"AbilityManaCost"				"2000"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"duration"					"4.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_outgoing"	"-60 -40 -20 -0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_outgoing"	        "40 60 80 100"
-				"LinkedSpecialBonus"		"special_bonus_unique_spectre_4"
-			}
 		}
 	}
     "spectre_haunt_single"
     {
-        "AbilityCooldown"				"60"
-        "AbilityManaCost"				"250"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"					"FIELD_FLOAT"
-                "duration"					"5"
-				 "RequiresScepter"			"1"
-            }
-            "02"
-            {
-                "var_type"					"FIELD_INTEGER"
-                "illusion_damage_outgoing"	"-60 -40 -20 -0"
-				"RequiresScepter"			"1"
-            }
-            "03"
-            {
-                "var_type"					"FIELD_INTEGER"
-                "tooltip_outgoing"	"40 60 80 100"
-                "LinkedSpecialBonus"		"special_bonus_unique_spectre_4"
-				"RequiresScepter"			"1"
-            }
-        }
+        "AbilityManaCost"				"150 250 350"
+		"AbilityValues"
+		{
+				"duration"					"5.0"
+				"illusion_damage_outgoing"	"-40 -20 0"
+				"tooltip_outgoing"	"60 80 100"
+		}
     }
 	//=================================================================================================================
 	// Ability: Templar Assassin 圣堂刺客/TA
