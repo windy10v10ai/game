@@ -79,7 +79,6 @@
 		//            Hero Selection
 		//
 		// /////////////////////////////////////////////////////////////////////////////
-		"pick_button_member_text"			"Member-Only Hero"
 		"pick_button_season_level_text"	"Season level 15 unlock"
 
 		// /////////////////////////////////////////////////////////////////////////////
@@ -165,7 +164,7 @@
 		//            Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Respawn time is reduced by 5 seconds.<br/> - Buyback CD is reduced to 2 minutes.<br/> - You can reroll the items lottery once.<br/> - Daily login grants 60 membership points.<br/> - Member-only heroes available are Goku, Yukari and Jack.<br/>Membership is valid until {expireDate}."
+		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Respawn time is reduced by 5 seconds.<br/> - Buyback CD is reduced to 2 minutes.<br/> - You can reroll the items lottery once.<br/> - Daily login grants 60 membership points.<br/> Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired since {expireDate}."
 
 		///////////////////////////////////////////////////
@@ -491,9 +490,6 @@
         "DOTA_Tooltip_ability_special_bonus_unique_miku_302" "+{s:bonus_AbilityCastRange} Liu-kick Cast Range"
 
 		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"Popipo will stun enemy for %shard_stun% seconds."
-
-		// 双头龙
-        "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"Increases Macropyre distance by 200, duration by 5 seconds and causes it to deal Pure damage and pierce Spell Immunity."
 
         // 美杜莎
 		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "When Medusa is targeted with a spell, a single-target Mystic Snake is sent back towards the enemy. Cooldown: 10."

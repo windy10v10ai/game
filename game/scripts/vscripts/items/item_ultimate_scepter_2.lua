@@ -40,7 +40,9 @@ end
 --[[	Author: Hewdraw
 		Date: 17.05.2015	]]
 function Scepter2OnSpell(keys)
-	if keys.caster:IsRealHero() and keys.target:IsRealHero() and not keys.caster:HasModifier("modifier_arc_warden_tempest_double") and not keys.target:HasModifier("modifier_arc_warden_tempest_double") and not keys.target:HasModifier(keys.modifier) then
+	if (keys.caster:IsRealHero() or keys.caster:GetName() == "npc_dota_lone_druid_bear")
+		and (keys.target:IsRealHero() or keys.target:GetName() == "npc_dota_lone_druid_bear")
+		and not keys.caster:HasModifier("modifier_arc_warden_tempest_double") and not keys.target:HasModifier("modifier_arc_warden_tempest_double") and not keys.target:HasModifier(keys.modifier) then
 		if keys.target:HasModifier("modifier_item_ultimate_scepter") then
 			keys.target:RemoveModifierByName("modifier_item_ultimate_scepter")
 		end

@@ -428,6 +428,63 @@
 				"split_shot_bonus_range"		"150"
 		}
 	}
+
+	"tower_ursa_fury_swipes"
+	{
+		"MaxLevel"						"6"
+		"BaseClass"						"ursa_fury_swipes"
+		"AbilityValues"
+		{
+				"bonus_reset_time"
+				{
+					"value"						"15"
+					"special_bonus_unique_ursa_4" "+0"
+				}
+
+				"bonus_reset_time_roshan"		"15"
+				"damage_per_stack"
+				{
+					"value"					"20 24 28 32 36 40"
+					"LinkedSpecialBonus"			"special_bonus_unique_ursa"
+				}
+		}
+	}
+	"tower_troll_warlord_fervor"
+	{
+		"MaxLevel"						"6"
+		"BaseClass"                    "troll_warlord_fervor"
+		"AbilityValues"
+		{
+			"attack_speed"
+			{
+				"value"		"10 14 18 22 26 30"
+				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_5"
+			}
+			"max_stacks"
+			{
+				"value"		"10"
+				"special_bonus_shard"	"+0"
+			}
+		}
+	}
+	"tower_antimage_mana_break"
+	{
+		"MaxLevel"						"6"
+		"BaseClass"						"antimage_mana_break"
+		"AbilityValues"
+		{
+			"percent_damage_per_burn"		"50"
+			"mana_per_hit"			"10 20 30 40 50 60"
+			"mana_per_hit_pct"
+			{
+				"value"		"1.0 1.2 1.4 1.6 1.8 2.0"
+				"special_bonus_unique_antimage_7"	"+0.0"
+			}
+			"illusion_percentage"		"50"
+			"move_slow"				"10 20 30 40 50 60"
+			"slow_duration"			"0.75"
+		}
+	}
 	//=================================================================================================================
 	// 泉水击退
 	//=================================================================================================================
@@ -444,7 +501,7 @@
 			"proc_chance"					"100"
 			"knockback_distance"
 			{
-				"value"					"80"
+				"value"					"60"
 				"special_bonus_unique_sniper_3"			"+0"
 			}
 			"slow"			"-80"
