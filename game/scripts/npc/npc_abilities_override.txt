@@ -10498,43 +10498,16 @@
 	"jakiro_macropyre"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"100 90 80 70"
+		"AbilityCooldown"				"90 80 70 60"
 		"AbilityManaCost"				"230 340 450 560"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"damage"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"100 140 180 220"
-				"LinkedSpecialBonus"	"special_bonus_unique_jakiro_7"
+				"value"								"100 150 200 250"
+				"special_bonus_unique_jakiro_7"		"+30"
 			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"					"10"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"burn_interval"				"1.0 1.0 1.0 1.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"linger_duration"			"1"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"scepter_bonus_range"			"200"
-				"RequiresScepter"		"1"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"scepter_bonus_duration"			"5"
-				"RequiresScepter"		"1"
-			}
+			"linger_duration"			"1"
 		}
 	}
 	//=================================================================================================================
