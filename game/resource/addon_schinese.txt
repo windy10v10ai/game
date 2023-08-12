@@ -165,7 +165,7 @@
 		//            Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得60会员积分<br/> - 会员限定英雄 超级赛亚人,八云紫,杰克。<br/> 会员有效期：{expireDate}"
+		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得60会员积分<br/> 会员有效期：{expireDate}"
 		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期。"
 
 		///////////////////////////////////////////////////
@@ -285,6 +285,11 @@
 		"DOTA_Tooltip_modifier_player_qiannian"					"<font color='#FFCC66'>★ 新人光环 ★</font>"
 		"DOTA_Tooltip_modifier_player_qiannian_2"				"<font color='#FFCC66'>★ 狂风向前 ★</font>"
 		"DOTA_Tooltip_modifier_player_qiannian_3"				"<font color='#FFCC66'>★ 你看不见我 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_4"				"<font color='#FFCC66'>★ 全场最帅 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_5"				"<font color='#FFCC66'>★ 不服打我 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_6"				"<font color='#FFCC66'>★ 贪狼 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_7"				"<font color='#FFCC66'>★ 破军 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_8"				"<font color='#FFCC66'>★ 七杀 ★</font>"
 		"DOTA_Tooltip_modifier_player_feiji"					"<font color='#A149FA'>★ 贝伦卡斯泰露的庇佑 ★</font>"
 		"DOTA_Tooltip_modifier_player_feiji_Description"		"<font color='#A149FA'> 古户绘梨花受到了奇迹的魔女贝伦卡斯泰露的庇佑 </font>"
 		"DOTA_Tooltip_modifier_player_pns"						"<font color='#FFCC66'>★ 苟圣 ★</font>"
@@ -409,9 +414,6 @@
 		// 死亡先知
 		"DOTA_Tooltip_ability_death_prophet_witchcraft"			"巫术精研"
 		"DOTA_Tooltip_ability_death_prophet_witchcraft_description"			"提升死亡先知克萝贝露丝Krobelus使用巫术的能力，被动提升移动速度。<br/>移动速度加成：10/15/20/25/30,<br/>地穴虫群魔法消耗降低：10/15/20/25/30,<br/>地穴虫群冷却时间降低：1,<br/>沉默魔法魔法消耗降低:20,<br/>沉默魔法冷却时间降低：1。"
-
-		// 双头龙
-        "DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"烈焰焚身的距离+200，持续时间+5秒，并且变为纯粹伤害，无视技能免疫。"
 
         // 美杜莎
 		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "每次美杜莎受到指向性技能作用时都会朝该敌人放出一条单体的秘术异蛇。冷却时间：10。"

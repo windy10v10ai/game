@@ -3597,16 +3597,15 @@
 		"AbilityManaCost"				"80 95 110 125 140"
 		"LinkedAbility"					"omniknight_repel"
 		"AbilityDraftPreAbility"		"omniknight_repel"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal"					"90 160 230 300 370"
-				"LinkedSpecialBonus"	"special_bonus_unique_omniknight_1"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
-				"CalculateSpellDamageTooltip" "1"
-			}
+				"heal"
+				{
+					"value"		"90 160 230 300 370"
+					"LinkedSpecialBonus"	"special_bonus_unique_omniknight_1"
+					"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
+					"CalculateSpellDamageTooltip" "1"
+				}
 		}
 	}
 	"omniknight_repel"
@@ -3655,7 +3654,7 @@
 	"omniknight_martyr"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"26 23 20 17 14"
+		"AbilityCooldown"				"30 26 22 18 14"
 		"AbilityManaCost"				"95 105 115 125 135"
 		"AbilityValues"
 		{
@@ -3665,11 +3664,6 @@
 				{
 					"value"			"3 4 5 6 7"
 					"LinkedSpecialBonus"	"special_bonus_unique_omniknight_2"
-				}
-				"duration"
-				{
-					"value"			"10"
-					"LinkedSpecialBonus"	"special_bonus_unique_omniknight_5"
 				}
 		}
 	}
@@ -8252,71 +8246,34 @@
 	}
 	"spectre_dispersion"
 	{
-		"MaxLevel" "9"
+		"MaxLevel" "7"
 		"AbilityValues"
 		{
 			"damage_reflection_pct"
 			{
-				"value"		"8 9 10 11 12 13 14 15 16"
-				"special_bonus_unique_spectre_5"		"+7"
+				"value"		"8 10 12 14 16 18 20"
+				"special_bonus_unique_spectre_5"		"+5"
 			}
 		}
 	}
 	"spectre_haunt"
 	{
-		"MaxLevel" "4"
 		"AbilityCooldown"				"300"
-		"AbilityManaCost"				"500 1000 1500 2000"
-		"HasScepterUpgrade"			    "1"
-		"AbilityDraftPreAbility"		    "spectre_reality"
-        "AbilityDraftUltScepterAbility"		"spectre_haunt_single"
-		"RequiredLevel"					"30"
-		"AbilitySpecial"
+		"AbilityManaCost"				"2000"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"duration"					"4.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_outgoing"	"-60 -40 -20 -0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_outgoing"	        "40 60 80 100"
-				"LinkedSpecialBonus"		"special_bonus_unique_spectre_4"
-			}
 		}
 	}
     "spectre_haunt_single"
     {
-        "AbilityCooldown"				"60"
-        "AbilityManaCost"				"250"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"					"FIELD_FLOAT"
-                "duration"					"5"
-				 "RequiresScepter"			"1"
-            }
-            "02"
-            {
-                "var_type"					"FIELD_INTEGER"
-                "illusion_damage_outgoing"	"-60 -40 -20 -0"
-				"RequiresScepter"			"1"
-            }
-            "03"
-            {
-                "var_type"					"FIELD_INTEGER"
-                "tooltip_outgoing"	"40 60 80 100"
-                "LinkedSpecialBonus"		"special_bonus_unique_spectre_4"
-				"RequiresScepter"			"1"
-            }
-        }
+        "AbilityManaCost"				"150 250 350"
+		"AbilityValues"
+		{
+				"duration"					"5.0"
+				"illusion_damage_outgoing"	"-40 -20 0"
+				"tooltip_outgoing"	"60 80 100"
+		}
     }
 	//=================================================================================================================
 	// Ability: Templar Assassin 圣堂刺客/TA
@@ -8606,18 +8563,18 @@
 	"troll_warlord_fervor"
 	{
 		"MaxLevel" "7"
-		"AbilitySpecial"
+
+		"AbilityValues"
 		{
-			"01"
+			"attack_speed"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"15 20 25 30 35 40 45"
+				"value"		"15 20 25 30 35 40 45"
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_5"
 			}
-			"02"
+			"max_stacks"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"max_stacks"			"9"
+				"value"		"9"
+				"special_bonus_shard"	"+4"
 			}
 		}
 	}
@@ -10052,89 +10009,47 @@
 	}
 	"enigma_demonic_conversion"
 	{
+		"AbilityHealthCost"				"100 150 200 250"
 		"AbilityCooldown"				"60"
 		"AbilityDuration"				"60.0"
-        "AbilitySpecial"
-        {
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spawn_count"			"2"
-				"LinkedSpecialBonus"	"special_bonus_unique_enigma"
-			}
-            "03"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "eidolon_hp_tooltip"	"300 500 700 900"
-                "LinkedSpecialBonus"	"special_bonus_unique_enigma_7"
-            }
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"eidolon_dmg_tooltip"	"30 42 57 70"
-				"LinkedSpecialBonus"	"special_bonus_unique_enigma_3"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"eidolon_attack_range_tooltip"		"500 550 600 650"
-			}
-        }
-	}
-	"special_bonus_unique_enigma"
-	{
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"spawn_count"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"1"		// 5 虚灵数量
-				"ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"value"			"2"
+				"special_bonus_unique_enigma"	"+1"
 			}
+			"eidelon_max_health"
+			{
+				"value"			"300 500 700 900"
+				"special_bonus_unique_enigma_7"	"+300"
+			}
+			"eidelon_base_damage"		"30 42 54 66"
+			"eidolon_damage_spread"			"4"
+
+			"eidolon_bonus_attack_speed"
+			{
+				"value"			"0"
+				"special_bonus_unique_enigma_4"		"+20"
+			}
+			"eidelon_base_movespeed"			"280 310 340 370"
+			"eidolon_attack_range"		"500 550 600 650"
 		}
 	}
-	"special_bonus_unique_enigma_3"
-    {
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"					"FIELD_INTEGER"
-                "value"				"45"
-                "ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-            }
-        }
-    }
-	"special_bonus_unique_enigma_4"
-    {
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"					"FIELD_INTEGER"
-                "value"				"20"
-                "ad_linked_abilities"			"enigma_demonic_conversion"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-            }
-        }
-    }
 	"enigma_midnight_pulse"
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"45 40 35 30 25"
 		"AbilityManaCost"				"50 80 110 140 170"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"4 4.5 5 5.5 6"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"10"
-				"LinkedSpecialBonus"	"special_bonus_unique_enigma_8"
-			}
+				"damage_percent"			"4 5 6 7 8"
+				"duration"
+				{
+					"value"			"10"
+					"special_bonus_unique_enigma_8"	"+5"
+				}
+				"tick_rate"			"0.5"
 		}
 	}
 	"enigma_black_hole"
@@ -10583,43 +10498,16 @@
 	"jakiro_macropyre"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"100 90 80 70"
+		"AbilityCooldown"				"90 80 70 60"
 		"AbilityManaCost"				"230 340 450 560"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"damage"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"100 140 180 220"
-				"LinkedSpecialBonus"	"special_bonus_unique_jakiro_7"
+				"value"								"100 150 200 250"
+				"special_bonus_unique_jakiro_7"		"+30"
 			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"					"10"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"burn_interval"				"1.0 1.0 1.0 1.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"linger_duration"			"1"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"scepter_bonus_range"			"200"
-				"RequiresScepter"		"1"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"scepter_bonus_duration"			"5"
-				"RequiresScepter"		"1"
-			}
+			"linger_duration"			"1"
 		}
 	}
 	//=================================================================================================================

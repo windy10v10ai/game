@@ -5,20 +5,27 @@
 
 
 local function addTome(k, v)
-  local amount = 5
-  if AIGameMode.fBotGoldXpMultiplier > 10 then
+  table.insert(v,"item_tome_of_luoshu")
+
+  local amount = 2
+  if AIGameMode.iGameDifficulty >= 6 then
+    amount = 16
+  elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
     amount = 10
-  elseif AIGameMode.fBotGoldXpMultiplier > 8 then
+  elseif AIGameMode.fBotGoldXpMultiplier >= 4 then
     amount = 8
-  elseif AIGameMode.fBotGoldXpMultiplier > 6 then
+  elseif AIGameMode.fBotGoldXpMultiplier >= 3 then
     amount = 6
+  elseif AIGameMode.fBotGoldXpMultiplier >= 2 then
+    amount = 4
   end
   for i = 1, amount do
     table.insert(v,"item_tome_of_strength")
     table.insert(v,"item_tome_of_agility")
-    table.insert(v,"item_tome_of_intelligence")
+    if i % 2 == 0 then
+      table.insert(v,"item_tome_of_intelligence")
+    end
 	end
-  table.insert(v,"item_tome_of_luoshu")
 end
 --------------------
 -- Initial
