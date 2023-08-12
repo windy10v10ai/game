@@ -7335,20 +7335,18 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"18 17 16 15 14"
 		"AbilityManaCost"				"100 120 140 160 180"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"1.1 1.4 1.7 2.0 2.3"
-				"LinkedSpecialBonus"	"special_bonus_unique_nyx_4"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"impale_damage"			"100 160 220 280 340"
-				"LinkedSpecialBonus"	"special_bonus_unique_nyx_2"
-			}
+				"duration"
+				{
+					"value"				"1.1 1.4 1.7 2.0 2.3"
+					"LinkedSpecialBonus"	"special_bonus_unique_nyx_4"
+				}
+				"impale_damage"
+				{
+					"value"			"100 160 220 280 340"
+					"LinkedSpecialBonus"	"special_bonus_unique_nyx_2"
+				}
 		}
 	}
 	"nyx_assassin_jolt"
@@ -7385,9 +7383,6 @@
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
-
-			"duration"				"40 50 60 70"
-			"fade_time"				"0.0"
 			"movement_speed"		"16 18 20 22"
 			"bonus_damage"
 			{
@@ -7608,14 +7603,11 @@
 	"phantom_assassin_fan_of_knives"
 	{
 		"AbilityCooldown"				"20"
-		"AbilityManaCost"				"70"
-		"AbilitySpecial"
+		"AbilityManaCost"				"75"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pct_health_damage_initial"			"10"
-			}
+				"pct_health_damage_initial"			"12"
+				"pct_health_damage"			"2"
 		}
 	}
 	"phantom_assassin_stifling_dagger"
@@ -7647,12 +7639,12 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"12 10 8 6 4"
 		"AbilityManaCost"				"35 40 45 50 55"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"bonus_attack_speed"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"75 100 125 150 175"
+				"value"													"75 100 125 150 175"
+				"special_bonus_unique_phantom_assassin_strike_aspd"		"+60"
 			}
 		}
 	}
@@ -7685,31 +7677,9 @@
 	"phantom_assassin_coup_de_grace"
 	{
 		"MaxLevel" "4"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_chance"				"20"
-				"LinkedSpecialBonus"		"special_bonus_unique_phantom_assassin_2"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_bonus"				"200 325 450 575"
-			}
-		}
-	}
-	"special_bonus_unique_phantom_assassin_2"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"5"
-				"ad_linked_abilities"			"phantom_assassin_coup_de_grace"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
+			"crit_bonus"				"200 325 450 575"
 		}
 	}
 	//=================================================================================================================
