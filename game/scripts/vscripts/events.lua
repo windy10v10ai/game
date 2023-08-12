@@ -129,6 +129,7 @@ function AIGameMode:OnGameStateChanged(keys)
     elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
         -- modifier towers
         local tTowers = Entities:FindAllByClassname("npc_dota_tower")
+        local iTowerLevel = math.max(self.iGameDifficulty, 1)
         for k, v in pairs(tTowers) do
             local towerName = v:GetName()
             if string.find(towerName, "tower1") then
@@ -143,6 +144,15 @@ function AIGameMode:OnGameStateChanged(keys)
             end
             v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
             v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
+
+            -- add tower ability
+            if string.find(towerName, "tower3") or string.find(towerName, "tower4") then
+                v:AddAbility("tower_ursa_fury_swipes"):SetLevel(iTowerLevel)
+                if v:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+                    v:AddAbility("tower_troll_warlord_fervor"):SetLevel(iTowerLevel)
+                    v:AddAbility("tower_antimage_mana_break"):SetLevel(iTowerLevel)
+                end
+            end
         end
         local barracks = Entities:FindAllByClassname("npc_dota_barracks")
         for k, v in pairs(barracks) do
@@ -159,6 +169,11 @@ function AIGameMode:OnGameStateChanged(keys)
             v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
             v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
             v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
+
+            -- add tower ability
+            v:AddAbility("tower_ursa_fury_swipes"):SetLevel(iTowerLevel)
+            v:AddAbility("tower_troll_warlord_fervor"):SetLevel(iTowerLevel)
+            v:AddAbility("tower_antimage_mana_break"):SetLevel(iTowerLevel)
         end
 
 

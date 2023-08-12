@@ -883,9 +883,10 @@
 	{
 		// Abilities
 		"Ability2"					"tower_headshot"			// none
+		"Ability4"					"tower_ursa_fury_swipes"
 
-		"AttackDamageMin"			"490"		// 290
-		"AttackDamageMax"			"510"		// 310
+		"AttackDamageMin"			"390"		// 290
+		"AttackDamageMax"			"410"		// 310
 		"AttackRate"				"0.03"		// 0.15
 		"AttackAcquisitionRange"	"1400"		// 1200
 		"AttackRange"				"1400"		// 1200
