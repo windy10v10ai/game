@@ -444,7 +444,7 @@
 				"bonus_reset_time_roshan"		"15"
 				"damage_per_stack"
 				{
-					"value"					"20 24 28 32 36 144"
+					"value"					"20 24 28 32 36 108"
 					"LinkedSpecialBonus"			"special_bonus_unique_ursa"
 				}
 		}
@@ -457,7 +457,7 @@
 		{
 			"attack_speed"
 			{
-				"value"		"10 14 18 22 26 104"
+				"value"		"10 14 18 22 26 44"
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_5"
 			}
 			"max_stacks"
