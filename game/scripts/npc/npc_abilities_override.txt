@@ -673,7 +673,7 @@
 	}
 	"item_aghanims_shard"
 	{
-		"ItemInitialStockTime"			"120.0"
+		"ItemInitialStockTime"			"180.0"
 	}
 	"item_refresher"
 	{
@@ -1090,7 +1090,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"5"
+		"ItemLevelByGameTime"			"2"
 
 		"ItemCost"						"550"
 		"ItemShopTags"					"damage;int;agi;str"
@@ -1139,7 +1139,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"5"
+		"ItemLevelByGameTime"			"2"
 
 		"ItemCost"						"550"
 		"ItemShopTags"					"damage;int;agi;str"
@@ -1187,7 +1187,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"5"
+		"ItemLevelByGameTime"			"2"
 
 		"ItemCost"						"550"
 		"ItemShopTags"					"damage;int;agi;str"
