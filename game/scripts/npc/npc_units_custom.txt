@@ -869,8 +869,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.8"			// Speed of attack.
 		// "AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"700"			// Range within a target can be acquired.
-		"AttackRange"				"700"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"900"			// Range within a target can be acquired.
+		"AttackRange"				"900"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -878,6 +878,7 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"20000"			// 4500
 		"StatusHealthRegen"			"20"			// 12
+		"Ability7"                  "tower_elder_titan_natural_order"
 	}
 	"dota_fountain"
 	{
