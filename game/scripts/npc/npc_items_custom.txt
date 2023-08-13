@@ -1898,7 +1898,7 @@
 		"ItemResult"					"item_undying_heart"
 		"ItemRequirements"
 		{
-			"01"						"item_heart;item_reaver;item_talisman_of_evasion;item_bracer;item_bracer"
+			"01"						"item_heart;item_reaver;item_talisman_of_evasion;item_bracer"
 		}
 	}
 
@@ -4213,7 +4213,7 @@
 		"ItemResult"					"item_hurricane_pike_2"
 		"ItemRequirements"
 		{
-			"01"						"item_hurricane_pike;item_wraith_band;item_wraith_band;item_wraith_band;item_wraith_band"
+			"01"						"item_hurricane_pike;item_wraith_band;item_wraith_band"
 		}
 	}
 
@@ -6093,7 +6093,7 @@
 		"ItemResult"					"item_necronomicon_staff"
 		"ItemRequirements"
 		{
-			"01"						"item_sheepstick;item_ethereal_blade;item_null_talisman;item_null_talisman"
+			"01"						"item_sheepstick;item_ethereal_blade;item_null_talisman"
 		}
 	}
 	"item_necronomicon_staff"
