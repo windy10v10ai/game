@@ -1889,7 +1889,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4700"
+		"ItemCost"						"3600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1898,7 +1898,7 @@
 		"ItemResult"					"item_undying_heart"
 		"ItemRequirements"
 		{
-			"01"						"item_heart;item_reaver;item_talisman_of_evasion"
+			"01"						"item_heart;item_reaver;item_talisman_of_evasion;item_bracer;item_bracer"
 		}
 	}
 
@@ -1933,7 +1933,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"90"	// Tooltip, real value in item_undying_heart_bonus_strength
+				"bonus_strength"		"120"	// Tooltip, real value in item_undying_heart_bonus_strength
 			}
 			"02"
 			{
@@ -4204,7 +4204,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4213,7 +4213,7 @@
 		"ItemResult"					"item_hurricane_pike_2"
 		"ItemRequirements"
 		{
-			"01"						"item_hurricane_pike;item_force_staff_3"
+			"01"						"item_hurricane_pike;item_wraith_band;item_wraith_band;item_wraith_band;item_wraith_band"
 		}
 	}
 
@@ -6084,7 +6084,7 @@
 		"AbilityTextureName"			"item_recipe_necronomicon_staff"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6600"
+		"ItemCost"						"4400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -6093,7 +6093,7 @@
 		"ItemResult"					"item_necronomicon_staff"
 		"ItemRequirements"
 		{
-			"01"						"item_sheepstick;item_ethereal_blade"
+			"01"						"item_sheepstick;item_ethereal_blade;item_null_talisman;item_null_talisman"
 		}
 	}
 	"item_necronomicon_staff"
