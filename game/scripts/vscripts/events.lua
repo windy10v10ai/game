@@ -176,7 +176,6 @@ function AIGameMode:OnGameStateChanged(keys)
             v:AddAbility("tower_antimage_mana_break"):SetLevel(iTowerLevel)
         end
 
-
         -- refresh every 10 seconds
         Timers:CreateTimer(2, function()
             AIGameMode:RefreshGameStatus()
@@ -199,6 +198,9 @@ function AIGameMode:OnGameStateChanged(keys)
                                 statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_strength_bonus_level_8", {})
                                 statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_agility_bonus_level_8", {})
                                 statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_intellect_bonus_level_8", {})
+                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_physical_armor_bonus_level_8", {})
+                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_movespeed_bonus_constant_level_8", {})
+                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_preattack_bonus_damage_level_8", {})
                                 -- Cleanup
                                 UTIL_RemoveImmediate(statsModifier)
                                 statsModifier = nil
@@ -980,7 +982,7 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
     elseif difficulty == 5 then
         points = points * 2.0
     elseif difficulty == 6 then
-        points = points * 2.0
+        points = points * 4.0
     end
     return math.ceil(points)
 end
