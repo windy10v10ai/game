@@ -198,6 +198,9 @@ function AIGameMode:OnGameStateChanged(keys)
                                 statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_strength_bonus_level_8", {})
                                 statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_agility_bonus_level_8", {})
                                 statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_intellect_bonus_level_8", {})
+                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_physical_armor_bonus_level_8", {})
+                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_movespeed_bonus_constant_level_8", {})
+                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_preattack_bonus_damage_level_8", {})
                                 -- Cleanup
                                 UTIL_RemoveImmediate(statsModifier)
                                 statsModifier = nil
