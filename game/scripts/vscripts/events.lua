@@ -176,7 +176,6 @@ function AIGameMode:OnGameStateChanged(keys)
             v:AddAbility("tower_antimage_mana_break"):SetLevel(iTowerLevel)
         end
 
-
         -- refresh every 10 seconds
         Timers:CreateTimer(2, function()
             AIGameMode:RefreshGameStatus()
@@ -980,7 +979,7 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
     elseif difficulty == 5 then
         points = points * 2.0
     elseif difficulty == 6 then
-        points = points * 2.0
+        points = points * 4.0
     end
     return math.ceil(points)
 end
