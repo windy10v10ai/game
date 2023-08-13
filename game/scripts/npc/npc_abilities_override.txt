@@ -673,7 +673,7 @@
 	}
 	"item_aghanims_shard"
 	{
-		"ItemInitialStockTime"			"360.0"
+		"ItemInitialStockTime"			"120.0"
 	}
 	"item_refresher"
 	{
@@ -807,6 +807,8 @@
 				"number_of_attacks"		"50"
 				"active_duration"		"12"
 				"active_attack_speed"	"60"
+				"active_mres_reduction"	"99"
+				"spell_amp_duration"	"10"
 		}
 	}
 	//=================================================================================================================
@@ -1099,12 +1101,12 @@
 
 		"AbilityValues"
 		{
-			"bonus_strength"		"9 18"
-			"bonus_agility"			"3 6"
-			"bonus_intellect"		"3 6"
-			"bonus_damage"			"9 18"
-			"bonus_health_regen"	"3 6"
-			"clock_time"			"5"
+			"bonus_strength"		"15 30"
+			"bonus_agility"			"8 16"
+			"bonus_intellect"		"8 16"
+			"bonus_damage"			"15 30"
+			"bonus_health_regen"	"5 10"
+			"clock_time"			"2"
 		}
 	}
 
@@ -1148,12 +1150,12 @@
 
 		"AbilityValues"
 		{
-			"bonus_agility"			"9 18"
-			"bonus_strength"		"3 6"
-			"bonus_intellect"		"3 6"
-			"bonus_attack_speed"	"9 18"
-			"bonus_armor"			"3 6"
-			"clock_time"			"5"
+			"bonus_agility"			"15 30"
+			"bonus_strength"		"8 16"
+			"bonus_intellect"		"8 16"
+			"bonus_attack_speed"	"15 30"
+			"bonus_armor"			"5 10"
+			"clock_time"			"2"
 		}
 	}
 
@@ -1196,12 +1198,12 @@
 
 		"AbilityValues"
 		{
-			"bonus_intellect"		"9 18"
-			"bonus_strength"		"3 6"
-			"bonus_agility"			"3 6"
-			"bonus_max_mana_percentage"	"5 10"
-			"bonus_mana_regen"		"1.5 3"
-			"clock_time"			"5"
+			"bonus_intellect"		"15 30"
+			"bonus_strength"		"8 16"
+			"bonus_agility"			"8 16"
+			"bonus_max_mana_percentage"	"10 20"
+			"bonus_mana_regen"		"3 6"
+			"clock_time"			"2"
 		}
 	}
 	//=================================================================================================================
@@ -2702,6 +2704,11 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
+			"radius"
+				{
+					"value"		"350"
+					"special_bonus_unique_elder_titan_5"	"+450"
+				}
 				"armor_reduction_pct"	    "40 50 60 80 100"
 				"magic_resistance_pct"		"40 50 60 80 100"
 		}
@@ -2711,6 +2718,11 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
+			"radius"
+				{
+					"value"		"350"
+					"special_bonus_unique_elder_titan_5"	"+450"
+				}
 				"armor_reduction_pct"	    "40 50 60 80 100"
 				"magic_resistance_pct"		"40 50 60 80 100"
 		}
@@ -3654,15 +3666,15 @@
 	"omniknight_martyr"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"30 26 22 18 14"
+		"AbilityCooldown"				"22 21 20 19 18"
 		"AbilityManaCost"				"95 105 115 125 135"
 		"AbilityValues"
 		{
-				"base_strength"				"8 18 28 38 48"
-				"base_hpregen"				"8 12 16 20 24"
+				"base_strength"				"16 32 52 76 96"
+				"base_hpregen"				"24 36 48 60 72"
 				"strength_bonus"
 				{
-					"value"			"3 4 5 6 7"
+					"value"			"9 12 15 18 21"
 					"LinkedSpecialBonus"	"special_bonus_unique_omniknight_2"
 				}
 		}
@@ -5348,12 +5360,30 @@
 	// 墓碑
 	"undying_tombstone"
 	{
-		"AbilityCooldown"				"180"
+		"AbilityCooldown"				"65"
 		"AbilityManaCost"				"200 300 400 500"
 		"AbilityValues"
 		{
-			"duration"					"10.0"
-			"radius"					"600"
+			"hits_to_destroy_tooltip"
+			{
+				"value"					"6 7 8 9 10"
+				"special_bonus_unique_undying_5"	"+20"
+			}
+
+			"duration"					"30.0"
+			"tombstone_grab_radius"		"650"
+			"tombstone_bunker_cd"		"0.33"
+		}
+	}
+	"undying_tombstone_zombie_aura"
+	{
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"zombie_interval"		"80000"
+			}
 		}
 	}
 
@@ -5404,19 +5434,50 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"creep_damage"				"10 15 20 25 30"
+			"creep_damage"				"10 20 30 40 50"
 			"hero_damage"
 			{
 				"value"				"30 50 70 90 110"
-				"special_bonus_unique_wisp"		"+55"
+				"special_bonus_unique_wisp"		"+110"
+			}
+			"revolution_time"			"10.0 10.0 10.0 10.0 10.0"
+			"min_range"					"200"
+			"max_range"
+			{
+					"value"		"850"
+					"affected_by_aoe_increase"	"1"
+			}
+			"hero_hit_radius"			"110"
+			"explode_radius"
+			{
+				"value"		"500"
+				"affected_by_aoe_increase"	"1"
+			}
+			"hit_radius"
+			{
+				"value"		"150 150 150 150"
+				"affected_by_aoe_increase"	"1"
+			}
+			"spirit_movement_rate"		"250 350 450 550 650"
+			"spirit_duration"			"19.0 19.0 19.0 19.0"
+			"spirit_amount"			"5"
+			"scepter_slow_pct"
+			{
+				"value"			"0"
+				"special_bonus_scepter"			"+100"
+			}
+			"scepter_slow_duration"
+			{
+				"value"			"0"
+				"special_bonus_scepter"			"+1.0"
 			}
 			"AbilityManaCost"
 			{
-				"value"							"100 110 120 130 140"
+				"value"							"100 110 120 130"
 			}
 			"AbilityCooldown"
 			{
-				"value"				"28.0 26.0 24.0 22.0 20.0"
+				"value"				"26.0 24.0 22.0 20.0"
 				"special_bonus_scepter"			"-50%"
 			}
 		}
@@ -6015,8 +6076,16 @@
 				"value"										"40 60 80 100 120"
 			}
 			"agility_multiplier"							"30 40 50 60 70"
-			"split_range"									"300"
-			"split_damage_reduction"						"60"
+			"agility_range"									"1200"
+			"agility_multiplier_ally"						"100"
+			"split_count"
+			{
+				"value"										"0"
+				"special_bonus_scepter"						"2"
+			}
+			"split_range"									"375"
+			"split_damage_reduction"						"40"
+			"disable_range"									"400"
 
 		}
 	}
@@ -6394,7 +6463,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Juggernaut 主宰/剑圣
+	// Ability: Juggernaut 主宰/剑圣/奶棒人
 	//=================================================================================================================
 	"juggernaut_blade_dance"
 	{
@@ -6955,6 +7024,11 @@
 				"value"				"700 800 900 1000 1100"
 				"special_bonus_unique_morphling_1"	"+250"
 			}
+			"AbilityCharges"
+			{
+				"value"	"0"
+				"special_bonus_unique_morphling_6"	"+2"
+			}
 			"AbilityCooldown"
 			{
 				"value"														"20 18 16 14 12"
@@ -7301,19 +7375,20 @@
 	}
 	"nevermore_dark_lord"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 			"presence_armor_reduction"
 			{
-				"value"		"-4 -5 -6 -7 -8 -9 -10"
-				"special_bonus_unique_nevermore_5"			"-4"
+				"value"		"-4 -5 -6 -7 -8"
+				"special_bonus_unique_nevermore_5"			"-6"
 			}
 		}
 	}
 	"nevermore_requiem"
 	{
 		"MaxLevel" "5"
+		"AbilityCastPoint"				"1.67 1.33 0.99 0.67 0.33"
 		"AbilityDamage"					"80 120 160 200 240"
 		"AbilityManaCost"				"150 175 200 225 250"
 		"AbilityValues"
@@ -7330,6 +7405,31 @@
 	//=================================================================================================================
 	// Ability: Nyx Assassin 司夜刺客/小强
 	//=================================================================================================================
+	"nyx_assassin_mana_burn"
+	{
+		"MaxLevel" "5"
+		"LinkedAbility"					"nyx_assassin_jolt"
+		"AbilityDraftPreAbility"		"nyx_assassin_jolt"
+		"AbilityCastRange"				"600 700 800 900 1000"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4"
+		"AbilityCooldown"				"15 12 9 6 3"
+		"AbilityManaCost"				"70 80 90 100 110"
+		"AbilityValues"
+		{
+			"float_multiplier"
+			{
+				"value"		"3 4 5 6 7"
+				"special_bonus_unique_nyx_5"			"+1.0"
+			}
+			"aoe"
+			{
+				"value"		"0"
+				"special_bonus_unique_nyx"		"+300"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
 	"nyx_assassin_impale"
 	{
 		"MaxLevel" "5"
@@ -7351,14 +7451,16 @@
 	}
 	"nyx_assassin_jolt"
 	{
+		"LinkedAbility"					"nyx_assassin_mana_burn"
+		"AbilityDraftPreAbility"		"nyx_assassin_mana_burn"
 		"MaxLevel" "5"
-		"AbilityCooldown"				"16 13 10 7 4"
+		"AbilityCooldown"				"15 12 9 6 3"
 		"AbilityValues"
 		{
 			"float_multiplier"
 			{
-				"value"		"2.0 2.4 2.8 3.2 3.6"
-				"special_bonus_unique_nyx_5"			"+0.4"
+				"value"		"2 3 4 5 6"
+				"special_bonus_unique_nyx_5"			"+1"
 			}
 		}
 	}
@@ -7399,7 +7501,17 @@
 		"AbilityCooldown"				"5.0"
 		"AbilityValues"
 		{
-			"impale_cooldown_reduction"			"4.0"
+			"health_regen_rate"		"2.4"
+			"mana_regen_rate"		"2.4"
+			"damage_reduction"			"40"
+			"impale_bonus_cast_range"			"525"
+			"jolt_bonus_cast_range"			"400"
+			"impale_cooldown_reduction"			"7.0"
+			"carapace_radius"
+			{
+				"value"			"450"
+				"affected_by_aoe_increase"	"1"
+			}
 		}
 	}
 	"nyx_assassin_unburrow"
@@ -7945,7 +8057,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Slark 斯拉克/小鱼人
+	// Ability: Slark 斯拉克/小鱼人/弟弟鱼
 	//=================================================================================================================
 	"slark_depth_shroud"
 	{
@@ -8878,6 +8990,52 @@
             }
         }
     }
+	"venomancer_noxious_plague"
+	{
+		"MaxLevel" "4"
+		"AbilityCooldown"				"100 80 60 40"
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.15"
+		"AbilityValues"
+		{
+			"debuff_duration"			"10"
+			"impact_damage"				"150 250 350 450"
+			"health_damage"
+			{
+				"value"							"4.5 5.5 6.5 7.5"
+				"special_bonus_unique_venomancer_4" "2.5"
+			}
+			"debuff_radius"
+			{
+				"value"		"800"
+				"affected_by_aoe_increase"	"1"
+			}
+			"movement_slow_max"			"50"
+			"attack_slow"
+			{
+				"value"					"0"
+				"special_bonus_unique_venomancer_5"	"+700"
+			}
+			"projectile_speed"			"1200"
+		}
+	}
+	"venomancer_poison_nova"
+	{
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"1200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"start_radius"				"255"
+			"duration"					"10"
+			"damage"					"8"
+			"magic_resist"				"-50"
+			"speed"						"550"
+			"trigger_cd"				"5"
+		}
+	}
 	//=================================================================================================================
 	// Ability: Viper 冥界亚龙/毒龙
 	//=================================================================================================================
@@ -11098,6 +11256,39 @@
 			"mana_regen"	"4 5 6 7 8 9 10"
 		}
 	}
+		"necrolyte_heartstopper_aura"
+	{
+		"MaxLevel" "7"
+		"AbilityValues"
+		{
+			"aura_damage"
+			{
+				"value"		"1.2 1.5 1.8 2.1 2.4 2.7 3.0"
+				"special_bonus_unique_necrophos_2"		"+0.5"
+				"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"health_regen"	"4 5 6 7 8 9 10"
+			"mana_regen"	"4 5 6 7 8 9 10"
+			"hero_multiplier" "10"
+			"regen_duration"
+			{
+				"value"						 "8"
+				"special_bonus_unique_necrophos_heartstopper_regen_duration"							"+2"
+			}
+			"heal_reduction_pct"
+			{
+				"value"					"0"
+				"special_bonus_unique_necrophos_5"		"+30"
+			}
+			"heal_regen_to_damage"
+			{
+				"value"					"0"
+				"special_bonus_scepter"	"+60"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
 	"necrolyte_sadist"
 	{
 		"MaxLevel" "5"
@@ -12822,15 +13013,24 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCastRange"				"700 750 800 850"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 		"AbilityCooldown"				"90 80 70 60"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"4.25 4.5 4.75 5"
-				"LinkedSpecialBonus"	"special_bonus_unique_winter_wyvern_3"
-			}
+				"radius"
+				{
+					"value"	"625"
+					"affected_by_aoe_increase"	"1"
+				}
+				"damage_reduction"	"0"
+				"damage_amplification"	"50"
+				"bonus_attack_speed"	"100"
+				"duration"
+				{
+					"value"	"4.0 5.0 6.0 7.0"
+					"LinkedSpecialBonus"	"special_bonus_unique_winter_wyvern_3"
+				}
+				"early_out_timer"	"3.5"
 		}
 	}
 	"special_bonus_unique_winter_wyvern_3"
@@ -12940,13 +13140,12 @@
 		"MaxLevel" "5"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"90 150 210 270 330"
-				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_5"
-				"CalculateSpellDamageTooltip"	"0"
-			}
+				"damage"
+				{
+					"value"		"90 150 210 270 330"
+					"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_5"
+					"CalculateSpellDamageTooltip"	"1.2"
+				}
 		}
 	}
 	"special_bonus_unique_witch_doctor_5"
