@@ -456,6 +456,7 @@
 
 	"npc_dota_hero_naga_siren"
 	{
+		"MovementSpeed" "600"
 		"Ability5"		"naga_siren_crit"
 	}
 
@@ -474,12 +475,12 @@
     {
         "Ability10"		"special_bonus_unique_slark_2"
         "Ability11"		"special_bonus_unique_slark"
-        "Ability12"		"special_bonus_lifesteal_15"
+        "Ability17"		"special_bonus_lifesteal_15"
         "Ability13"		"special_bonus_unique_slark_8"
         "Ability14"		"special_bonus_unique_slark_4"
         "Ability15"		"special_bonus_magic_resistance_20"
         "Ability16"		"special_bonus_unique_slark_301"
-        "Ability17"		"special_bonus_unique_slark_5"
+        "Ability12"		"special_bonus_unique_slark_5"
     }
 
 	"npc_dota_hero_legion_commander"
@@ -1205,6 +1206,7 @@
 	}
 	"npc_dota_hero_furion"
 	{
+		"AttackRange" "850"
 		"Bot"
 		{
 			"Build"
@@ -1818,9 +1820,20 @@
 			}
 		}
 	}
+	"npc_dota_hero_invoker"
+	{
+		"Ability16"		"invoker_forge_spirit"
+		"Ability15"		"invoker_ice_wall"
+		"Ability14"		"invoker_deafening_blast"
+	}
+	"npc_dota_hero_ember_spirit"
+	{
+		"Ability5" "zuus_arc_lightning"
+		"Ability7" "zuus_lightning_hands"
+	}
 	"npc_dota_hero_puck"
 	{
-		"AttackRate" "1.4"
+		"AttackRate" "1.0"
 	}
 	"npc_dota_hero_morphling"
 	{
@@ -2623,6 +2636,9 @@
 	}
 	"npc_dota_hero_tidehunter"
 	{
+		"Ability5" "tidehunter_arm_of_the_deep"
+		"Ability17"		"special_bonus_unique_tidehunter_10"
+		"Ability14"		"special_bonus_unique_tidehunter_8"
 		"Bot"
 		{
 			"Build"
@@ -2895,6 +2911,8 @@
 	}
 	"npc_dota_hero_zuus"
 	{
+		"AttackRange"		"600"
+		"Ability7" "zuus_static_field"
 		"Bot"
 		{
 			"Build"
