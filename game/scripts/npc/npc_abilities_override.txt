@@ -10720,7 +10720,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"10"
+				"value"					"16"
 			}
 		}
 	}
@@ -10730,7 +10730,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"16"
+				"value"					"20"
 				"special_bonus_unique_invoker_3" "-6"
 			}
 			"area_of_effect"		"200"
@@ -10744,13 +10744,18 @@
 	}
 	"invoker_emp"
 	{
-		"AbilityCooldown"				"10"
+		"AbilityCooldown"				"16"
 		"AbilityValues"
 		{
 			"mana_burned"
 			{
 				"value"			"400 500 600 700 800 900 1000"
 				"levelkey"				"wexlevel"
+			}
+			"shard_drag_speed"
+			{
+				"value"					"450"
+				"RequiresShard"			"1"
 			}
 		}
 	}
@@ -10781,7 +10786,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"10"
+				"value"					"16"
 			}
 		}
 	}
@@ -10808,7 +10813,7 @@
 			}
 			"cataclysm_cooldown"
 			{
-				"value"					"60"
+				"value"					"80"
 				"RequiresScepter"		"1"
 			}
 			"cataclysm_min_range"
@@ -10823,7 +10828,7 @@
 			}
 		}
 	}
-"invoker_ice_wall"
+	"invoker_ice_wall"
 	{
 		"AbilityCooldown"				"10"
 		"AbilityValues"
@@ -10902,8 +10907,8 @@
 			}
 			"cooldown_reduction"
 			{
-				"value"		"1 2 3 4 5 6 7"
-				"special_bonus_unique_invoker_13"	"x4"
+				"value"		"1 1 2 2 3 3 4"
+				"special_bonus_unique_invoker_13"	"x3"
 			}
 			"agility_bonus"			"1"
 		}
