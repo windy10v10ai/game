@@ -83,7 +83,6 @@ function tinker_rearm_lua:IsAbitilyException( ability )
 end
 tinker_rearm_lua.AbitilyException = {
 	["zuus_cloud"] = true,
-	["invoker_sun_strike"] = true,
 }
 function tinker_rearm_lua:IsItemException( item )
 	return self.ItemException[item:GetName()]
