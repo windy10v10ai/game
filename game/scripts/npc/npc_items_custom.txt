@@ -8,6 +8,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"BaseClass"						"item_datadriven"
 
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
 		"AbilityValues"
 		{
 			"item_jump_jump_jump_bonus_all_stats"		"35"
@@ -216,6 +218,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"BaseClass"						"item_datadriven"
 
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
 		"Modifiers"
 		{
 			"modifier_player_property_movespeed_bonus_constant_level_1"
@@ -6477,7 +6481,8 @@
         "ItemPermanent"					"0"
         "ItemInitialCharges"				"1"
         "IsTempestDoubleClonable"			"0"
-        "ItemSellable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
         "ItemShareability"				"ITEM_FULLY_SHAREABLE"
         "AbilitySpecial"
         {
@@ -6508,7 +6513,8 @@
         "ItemPermanent"					"0"
         "ItemInitialCharges"				"1"
         "IsTempestDoubleClonable"			"0"
-        "ItemSellable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
         "ItemShareability"				"ITEM_FULLY_SHAREABLE"
         "AbilitySpecial"
         {
@@ -6539,7 +6545,8 @@
         "ItemPermanent"					"0"
         "ItemInitialCharges"				"1"
         "IsTempestDoubleClonable"			"0"
-        "ItemSellable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
         "ItemShareability"				"ITEM_FULLY_SHAREABLE"
         "AbilitySpecial"
         {
