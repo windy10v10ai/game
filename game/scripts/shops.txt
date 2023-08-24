@@ -39,6 +39,9 @@
 		"item"		"item_blade_of_alacrity"
 		"item"		"item_staff_of_wizardry"
 		"item"		"item_diadem"
+		"item"		"item_tome_of_strength_for_lottery"
+		"item"		"item_tome_of_agility_for_lottery"
+		"item"		"item_tome_of_intelligence_for_lottery"
 	}
 
 	"weapons_armor"
@@ -222,8 +225,8 @@
  		//"item"		"item_swift_blink"
  		//"item"		"item_arcane_blink"
 		"item"		"item_harpoon"
-		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_strength"
+		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
 		"item"		"item_tome_of_luoshu"
 	}

@@ -939,8 +939,8 @@
 		"ItemPurchasable"				"1"
 		"ItemStockMax"					"5"
 		"ItemStockInitial"				"0"
-		"ItemStockTime"					"300.0"
-		"ItemInitialStockTime"			"360.0"
+		"ItemStockTime"					"180.0"
+		"ItemInitialStockTime"			"240.0"
 		"IsObsolete"					"0"
 
 		"AbilitySpecial"
@@ -953,7 +953,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"xp_per_use"			"350"
+				"xp_per_use"			"300"
 			}
 		}
 	}
