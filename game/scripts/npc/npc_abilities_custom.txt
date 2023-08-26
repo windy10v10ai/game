@@ -417,12 +417,10 @@
 				"damage_modifier"
 				{
 					"value"		"0 0 0 0"
-					"special_bonus_unique_medusa_2"	"+0"
 				}
 				"damage_modifier_tooltip"
 				{
 					"value"			"100 100 100 100"
-					"special_bonus_unique_medusa_2"	"+0"
 				}
 				"arrow_count"	"1 2 3 4"
 				"split_shot_bonus_range"		"150"
@@ -496,13 +494,11 @@
 			"damage"
 			{
 				"value"	"0"
-				"special_bonus_unique_sniper_headshot_damage"	"+0"
 			}
 			"proc_chance"					"100"
 			"knockback_distance"
 			{
 				"value"					"60"
-				"special_bonus_unique_sniper_3"			"+0"
 			}
 			"slow"			"-80"
 			"slow_duration"					"0.2"
