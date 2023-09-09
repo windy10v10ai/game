@@ -778,7 +778,7 @@
 		}
 	}
 	//=================================================================================================================
-    // 亡魂胸针（加强） revenants brooch
+    // 亡魂胸针 revenants brooch
     //=================================================================================================================
 	"item_recipe_revenants_brooch"
 	{
@@ -789,26 +789,17 @@
 	}
 	"item_revenants_brooch"
 	{
-		"AbilityCooldown"				"4"
-		"AbilityManaCost"				"200"
+		"AbilityCooldown"				"4"		// 25
 		"ItemCost"						"9000"
 		"AbilityValues"
 		{
-				"bonus_intellect"		"45"
-				"bonus_attack_speed"	"40"
-				"bonus_armor"			"35"
-				"projectile_speed"		"300"
-				"int_damage_multiplier"	"1.2"
-				"slow"	"25"
-				"slow_duration"	"8"
-				"mana_cost"				"100"
-				"damage_penalty"		"0"
-				"passive_cooldown"		"3"
-				"number_of_attacks"		"50"
-				"active_duration"		"12"
-				"active_attack_speed"	"60"
-				"active_mres_reduction"	"99"
-				"spell_amp_duration"	"10"
+				"bonus_armor"			"25"	// 8
+				"int_damage_multiplier"	"1.2"	// 1
+				"passive_cooldown"		"3"		// 9
+				"number_of_attacks"		"20"	// 5
+				"active_duration"		"12"	// 15
+				"active_mres_reduction"	"60"	// 20
+				"spell_amp_duration"	"10"	// 3
 		}
 	}
 	//=================================================================================================================
@@ -939,8 +930,8 @@
 		"ItemPurchasable"				"1"
 		"ItemStockMax"					"5"
 		"ItemStockInitial"				"0"
-		"ItemStockTime"					"300.0"
-		"ItemInitialStockTime"			"360.0"
+		"ItemStockTime"					"180.0"
+		"ItemInitialStockTime"			"240.0"
 		"IsObsolete"					"0"
 
 		"AbilitySpecial"
@@ -953,7 +944,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"xp_per_use"			"350"
+				"xp_per_use"			"300"
 			}
 		}
 	}
@@ -7410,22 +7401,14 @@
 		"MaxLevel" "5"
 		"LinkedAbility"					"nyx_assassin_jolt"
 		"AbilityDraftPreAbility"		"nyx_assassin_jolt"
-		"AbilityCastRange"				"600 700 800 900 1000"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4"
-		"AbilityCooldown"				"15 12 9 6 3"
+		"AbilityCooldown"				"18 15 12 9 6"
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
 			"float_multiplier"
 			{
-				"value"		"3 4 5 6 7"
-				"special_bonus_unique_nyx_5"			"+1.0"
-			}
-			"aoe"
-			{
-				"value"		"0"
-				"special_bonus_unique_nyx"		"+300"
-				"affected_by_aoe_increase"	"1"
+				"value"		"2.0 2.3 2.6 2.9 3.2"
+				"special_bonus_unique_nyx_5"			"+0.8"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -8209,20 +8192,23 @@
 	"sniper_shrapnel"
 	{
 		"MaxLevel" "7"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-12 -16 -20 -24 -28 -32 -36"
-				"LinkedSpecialBonus"	"special_bonus_unique_sniper_5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shrapnel_damage"		"25 40 55 70 85 100 115"
-				"LinkedSpecialBonus"	"special_bonus_unique_sniper_1"
-			}
+				"slow_movement_speed"
+				{
+					"value"		"-12 -16 -20 -24 -28 -32 -36"
+					"LinkedSpecialBonus"	"special_bonus_unique_sniper_5"
+				}
+				"radius"
+				{
+					"value"		"400 425 450 475"
+					"affected_by_aoe_increase"	"1"
+				}
+				"shrapnel_damage"
+				{
+					"value"			"25 40 55 70 85 100 115"
+					"LinkedSpecialBonus"	"special_bonus_unique_sniper_1"
+				}
 		}
 	}
 	"sniper_headshot"
@@ -13066,28 +13052,26 @@
 	"witch_doctor_voodoo_restoration"
 	{
 		"MaxLevel" "7"
-		"AbilityManaCost"				"35 40 45 50 55 60 65"
-		"AbilitySpecial"
+		"AbilityManaCost"				"50"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_per_second"			"8 16 24 32 40 48 56"
-				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_4"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
-				"LinkedSpecialBonusField"	"value"
-			}
-			"02"
-            {
-                "var_type"					"FIELD_INTEGER"
-                "radius"					"550 575 600 625 650 675 700"
-            }
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"heal"						"20 30 40 50 60 70 80"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
-			}
+				"mana_per_second"
+				{
+					"value"	"8 16 24 32 40 48 56"
+					"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_4"
+					"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+					"LinkedSpecialBonusField"	"value"
+				}
+				"radius"
+				{
+					"value"			"550 575 600 625 650 675 700"
+					"affected_by_aoe_increase"	"1"
+				}
+				"heal"
+				{
+					"value"			"18 30 42 54 66 78 90"
+					"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
+				}
 		}
 	}
 	"special_bonus_unique_witch_doctor_2"
@@ -13109,42 +13093,26 @@
 		"AbilityDuration"				"12.0"
 		"AbilityDamage"					"20 30 40 50 60 70 80"
 		"AbilityManaCost"				"100 110 120 130 140 150 160"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"20 25 30 35 40 45 50"
-				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_7"
-			}
-		}
-	}
-	"special_bonus_unique_witch_doctor_7"
-	{
-		"ID"					"555"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"15"
-				"ad_linked_abilities"			"witch_doctor_maledict"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
+				"bonus_damage"
+				{
+					"value"			"16 22 28 34 40 46 52"
+					"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_7"
+				}
 		}
 	}
 	"witch_doctor_death_ward"
 	{
 		"MaxLevel" "5"
-		"AbilitySpecial"
+		"AbilityCooldown"				"100 90 80 70 60"
+		"AbilityValues"
 		{
 				"damage"
 				{
-					"value"		"90 150 210 270 330"
+					"value"		"60 110 160 210 260"
 					"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_5"
-					"CalculateSpellDamageTooltip"	"1.2"
+					"CalculateSpellDamageTooltip"	"0"
 				}
 		}
 	}
@@ -13155,7 +13123,7 @@
             "01"
             {
                 "var_type"					"FIELD_INTEGER"
-                "value"				"90"		// 60
+                "value"				"60"		// 45
                 "ad_linked_abilities"			"witch_doctor_death_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
             }
         }
