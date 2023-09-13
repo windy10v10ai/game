@@ -64,7 +64,9 @@ function BotItemThink:UseActiveItem(hHero)
 
     -- 对敌军目标
     if BotItemThink:IsItemCanUse(tUsableItems, "item_abyssal_blade_v2") then
-        if hHero:GetHealthPercent() < 80 then
+        local iRandom = RandomInt(1, 100)
+        local usePercent = 20
+        if iRandom <= usePercent and hHero:GetHealthPercent() > 15 then
             local iRange = GetFullCastRange(hHero, tUsableItems["item_abyssal_blade_v2"])
             local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
             if #tAllHeroes > 0 then
