@@ -5330,22 +5330,23 @@
 	}
 	"undying_soul_rip"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"24.0 20.0 16.0 12.0 8.0 6.0 4.0"
-		"AbilityManaCost"				"85 100 115 130 140 150 160"
-		"AbilitySpecial"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"16.0 12.0 8.0 6.0 4.0"
+		"AbilityManaCost"				"115 130 140 150 160"
+		"AbilityValues"
 		{
-			"01"
+			"damage_per_unit"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_per_unit"			"30 40 50 60 70 80 90"
+				"value"			"15 25 35 45 55"
 				"LinkedSpecialBonus"			"special_bonus_unique_undying_6"
 			}
-			"02"
+			"max_units"					"30"
+			"radius"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"max_units"					"10"
+				"value"			"1800"
+				"affected_by_aoe_increase"	"1"
 			}
+			"tombstone_heal"			"4 8 12 16 20"
 		}
 	}
 	// 墓碑
@@ -5355,9 +5356,13 @@
 		"AbilityManaCost"				"200 300 400 500"
 		"AbilityValues"
 		{
+			"zombie_interval"
+			{
+				"value"		"80000"
+			}
 			"hits_to_destroy_tooltip"
 			{
-				"value"					"6 7 8 9 10"
+				"value"					"7 8 9 10"
 				"special_bonus_unique_undying_5"	"+20"
 			}
 
@@ -7403,6 +7408,7 @@
 		"AbilityDraftPreAbility"		"nyx_assassin_jolt"
 		"AbilityCooldown"				"18 15 12 9 6"
 		"AbilityManaCost"				"70 80 90 100 110"
+		"AbilityCastRange"              "800 800 800 800 800"
 		"AbilityValues"
 		{
 			"float_multiplier"
@@ -7490,6 +7496,7 @@
 			"impale_bonus_cast_range"			"525"
 			"jolt_bonus_cast_range"			"400"
 			"impale_cooldown_reduction"			"7.0"
+			"mana_burn_bonus_cast_range"    "400"
 			"carapace_radius"
 			{
 				"value"			"450"
@@ -7697,12 +7704,10 @@
 	//=================================================================================================================
 	"phantom_assassin_fan_of_knives"
 	{
-		"AbilityCooldown"				"20"
-		"AbilityManaCost"				"75"
 		"AbilityValues"
 		{
-				"pct_health_damage_initial"			"12"
-				"pct_health_damage"			"2"
+			"pct_health_damage_initial"			"14"
+			"pct_health_damage"			"2"
 		}
 	}
 	"phantom_assassin_stifling_dagger"
@@ -7764,8 +7769,8 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"25"
-				"ad_linked_abilities"			"phantom_assassin_blur"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"value"				"30"
+				"ad_linked_abilities"			"phantom_assassin_blur"
 			}
 		}
 	}
@@ -11807,18 +11812,17 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"28 26 24 22 20"
 		"AbilityCastRange"				"550 575 600 625 650"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"lift_duration"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"lift_duration"				"0.95 1.2 1.45 1.7 1.95"
-				"LinkedSpecialBonus"		"special_bonus_unique_rubick_7"
+				"value"			"0.95 1.2 1.45 1.7 1.95"
+				"special_bonus_unique_rubick_7" "+0.4"
 			}
-			"02"
+			"stun_duration"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"0.9 1.1 1.3 1.5 1.7"
+				"value"		"0.9 1.1 1.3 1.5 1.7"
+				"special_bonus_unique_rubick_7" "+0.4"
 			}
 		}
 	}
@@ -11827,17 +11831,18 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"16 14 12 10 8"
 		"AbilityManaCost"				"120 130 140 150 160"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"damage"					"100 175 250 325 400"
+			"jump_damage_reduction_pct"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"100 175 250 325 400"
+				"value"			"0"
+				"CalculateSpellDamageTooltip"	"0"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}
-			"03"
+			"attack_damage_reduction"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"attack_damage_reduction"	"14 21 28 35 42"
+				"value"			"5 15 25 35 45"
 				"LinkedSpecialBonus"		"special_bonus_unique_rubick_2"
 				"CalculateSpellDamageTooltip"	"0"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
@@ -11854,7 +11859,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"magic_damage_reduction_pct"	"12 14 16 18 20"
+				"magic_damage_reduction_pct"	"10 13 16 19 22"
 			}
 		}
 	}
@@ -11868,17 +11873,18 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"cast_range"				"100 125 150 175 200"
+				"cast_range"				"50 100 150 200 250"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"spell_amp"			"12 14 16 18 20"
+				"spell_amp"			"10 15 20 25 30"
 			}
 		}
 	}
 	"rubick_spell_steal"
 	{
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"MaxLevel" "4"
 		"AbilityCooldown"				"16 12 8 4"
 		"AbilitySpecial"
@@ -13108,12 +13114,12 @@
 		"AbilityCooldown"				"100 90 80 70 60"
 		"AbilityValues"
 		{
-				"damage"
-				{
-					"value"		"60 110 160 210 260"
-					"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_5"
-					"CalculateSpellDamageTooltip"	"0"
-				}
+			"damage"
+			{
+				"value"		"60 120 180 240 300"
+				"LinkedSpecialBonus"	"special_bonus_unique_witch_doctor_5"
+				"CalculateSpellDamageTooltip"	"0"
+			}
 		}
 	}
 	"special_bonus_unique_witch_doctor_5"
@@ -13123,7 +13129,7 @@
             "01"
             {
                 "var_type"					"FIELD_INTEGER"
-                "value"				"60"		// 45
+                "value"				"120"		// 45
                 "ad_linked_abilities"			"witch_doctor_death_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
             }
         }

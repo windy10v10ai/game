@@ -47,9 +47,24 @@ function BotItemThink:UseActiveItem(hHero)
         end
     end
 
+    -- 圣女白莲
+    if BotItemThink:IsItemCanUse(tUsableItems, "item_saint_orb") then
+        local iRange = GetFullCastRange(hHero, tUsableItems["item_saint_orb"])
+        local tTeamHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
+        local iCount = #tTeamHeroes
+        for i = 1, iCount do
+            local hTeamHero = tTeamHeroes[i]
+            if hTeamHero:GetHealthPercent() < 80 then
+                if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_saint_orb", hTeamHero) then
+                    return true
+                end
+            end
+        end
+    end
+
     -- 对敌军目标
     if BotItemThink:IsItemCanUse(tUsableItems, "item_abyssal_blade_v2") then
-        if hHero:GetHealthPercent() > 10 then
+        if hHero:GetHealthPercent() < 80 then
             local iRange = GetFullCastRange(hHero, tUsableItems["item_abyssal_blade_v2"])
             local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
             if #tAllHeroes > 0 then

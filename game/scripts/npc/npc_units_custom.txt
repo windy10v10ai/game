@@ -1975,6 +1975,11 @@
 		//Inventory
 		"HasInventory"				"0"
 	}
+	// Witch Doctor Ward 巫医棒子
+	"npc_dota_witch_doctor_death_ward"
+	{
+		"AttackRate" "0.15"
+	}
 
 	// Venomancer Plague Wards 剧毒蛇棒
 	"npc_dota_venomancer_plague_ward_1"
