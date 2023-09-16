@@ -17,14 +17,14 @@ function ability_yukari_01:OnSpellStart()
 
 	self.caster:EmitSound("ability_yukari_01")
 
-	local angle = -4.5
+	local angle = -15.5
 
 	self.low_speed = 500
 	self.projectile_table = {}
 	local caster = self.caster
 	caster.yukari_01 = false
 	local start_position = caster:GetOrigin()
-	local qangle = QAngle(0, 11.5, 0)
+	local qangle = QAngle(-20, 32, -20)
 	local end_position 			=self.caster:GetOrigin() + (self:GetCursorPosition() - self.caster:GetOrigin()):Normalized() * (self.range+self.caster:GetCastRangeBonus())
 	end_position 			= RotatePosition(caster:GetAbsOrigin(), qangle, end_position)
 	yukari_01CreateProjectile(caster,self,start_position,end_position,self.low_speed,1)
@@ -41,9 +41,9 @@ function yukari_01CreateProjectile(caster,ability,start_position,end_position,sp
 	-- local distance 			= ability:GetSpecialValueFor("cast_range")
 	local distance 			= (end_position - start_position):Length2D()
 	local DeleteOnHit = ture
-	local particle 			= "particles/econ/items/mirana/mirana_crescent_arrow/mirana_spell_crescent_arrow.vpcf"
+	local particle 			= "particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_merry_wanderer.vpcf"
 	if speed == ability.low_speed then
-		particle 			= "particles/econ/items/mirana/mirana_crescent_arrow/mirana_spell_crescent_arrow.vpcf"
+		particle 			= "particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_merry_wanderer.vpcf"
 
 
 		distance = 0
