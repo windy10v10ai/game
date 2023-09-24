@@ -1888,7 +1888,7 @@
 		{
 			"damage"
 			{
-				"value"						"60 100 140 180 220 260 300"
+				"value"						"100 150 200 250 300 350 400"
 				"special_bonus_unique_yukari_01_damage"	"+100"
 			}
 			"stun_duration"
