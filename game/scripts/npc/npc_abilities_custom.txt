@@ -1897,7 +1897,7 @@
 				"special_bonus_unique_yukari_01_stun" "+0.6"
 			}
 			"speed"			"1200"
-			"radius"		"70"
+			"radius"		"250"
 			"range"			"1200"
 			"num"			"6"
 			"cast_range"	"1200"
