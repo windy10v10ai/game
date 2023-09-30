@@ -41,6 +41,17 @@ export class property_status_resistance_stacking extends PropertyBaseModifier {
     }
 }
 
+// MODIFIER_PROPERTY_EVASION_CONSTANT
+@registerModifier()
+export class property_evasion_constant extends PropertyBaseModifier {
+    DeclareFunctions(): ModifierFunction[] {
+        return [ModifierFunction.EVASION_CONSTANT];
+    }
+    GetModifierEvasion_Constant(): number {
+        return this.value;
+    }
+}
+
 @registerModifier()
 export class property_magical_resistance_bonus extends PropertyBaseModifier {
     DeclareFunctions(): ModifierFunction[] {

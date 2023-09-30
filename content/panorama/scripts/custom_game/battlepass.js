@@ -197,6 +197,12 @@ const Player_Property_List = [
 		valuePerLevel: 4,
 	},
 	{
+		name: "property_evasion_constant",
+		level: 0,
+		imageSrc: "s2r://panorama/images/spellicons/blue_dragonspawn_overseer_evasion_png.vtex",
+		valuePerLevel: 4,
+	},
+	{
 		name: "property_magical_resistance_bonus",
 		level: 0,
 		imageSrc: "s2r://panorama/images/events/aghanim/blessing_icons/blessing_magic_resist_icon_png.vtex",
