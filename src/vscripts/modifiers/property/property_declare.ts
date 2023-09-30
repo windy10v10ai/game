@@ -170,9 +170,9 @@ export class property_mana_regen_total_percentage extends PropertyBaseModifier {
 @registerModifier()
 export class property_lifesteal extends PropertyBaseModifier {
     DeclareFunctions(): ModifierFunction[] {
-        return [ModifierFunction.ON_ATTACK_LANDED];
+        return [ModifierFunction.ON_TAKEDAMAGE];
     }
-    OnAttackLanded(event: ModifierAttackEvent): void {
+    OnTakeDamage(event: ModifierInstanceEvent): void {
         // @ts-ignore
         TsLifeStealOnAttackLanded(event, this.value, this.GetParent(), this)
     }

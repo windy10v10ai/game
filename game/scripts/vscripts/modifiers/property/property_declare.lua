@@ -258,9 +258,9 @@ local property_lifesteal = ____exports.property_lifesteal
 property_lifesteal.name = "property_lifesteal"
 __TS__ClassExtends(property_lifesteal, PropertyBaseModifier)
 function property_lifesteal.prototype.DeclareFunctions(self)
-    return {MODIFIER_EVENT_ON_ATTACK_LANDED}
+    return {MODIFIER_EVENT_ON_TAKEDAMAGE}
 end
-function property_lifesteal.prototype.OnAttackLanded(self, event)
+function property_lifesteal.prototype.OnTakeDamage(self, event)
     TsLifeStealOnAttackLanded(
         nil,
         event,
