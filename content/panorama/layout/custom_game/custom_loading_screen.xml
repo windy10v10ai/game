@@ -169,7 +169,7 @@
 							<Label id="DisplayGameDifficultyTitle" class="DisplayOptionsLableTitle" text="#game_difficulty_title" />
 							<Label id="DisplayGameDifficulty" class="DisplayOptionsLable" text="" />
 						</Panel>
-						<Image class="PtsColumnImg" class="DisplayOptionsLable" src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex" onmouseover="UIShowTextTooltipStyled( #data_panel_season_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+						<Image class="PtsColumnImg DisplayOptionsLable" src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex" onmouseover="UIShowTextTooltipStyled( #data_panel_season_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 						<Label id="DisplaySeasonPointMulti"  text="" />
 					</Panel>
 					<Panel id="PlayerGoldXpPanel" class="DisplayOptionsSubPanel">
