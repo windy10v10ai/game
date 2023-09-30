@@ -128,6 +128,7 @@
 		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
 		"data_panel_player_property_spell_amplify_percentage"	"Spell Amplification ( % )"
 		"data_panel_player_property_status_resistance_stacking"	"Status Resistance ( % )"
+		"data_panel_player_property_evasion_constant"			"Evasion ( % )"
 		"data_panel_player_property_magical_resistance_bonus"	"Magic Resistance ( % )"
 		"data_panel_player_property_incoming_damage_percentage"	"Incoming Damage Reduction ( % )"
 		"data_panel_player_property_attack_range_bonus"			"Attack Range (Ranged Heroes)"

@@ -4,7 +4,7 @@ local Map = ____lualib.Map
 local __TS__New = ____lualib.__TS__New
 local __TS__StringEndsWith = ____lualib.__TS__StringEndsWith
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["9"] = 2,["10"] = 2,["11"] = 2,["12"] = 2,["13"] = 2,["14"] = 2,["15"] = 2,["16"] = 2,["17"] = 2,["18"] = 2,["19"] = 2,["20"] = 2,["21"] = 2,["22"] = 2,["23"] = 2,["24"] = 2,["25"] = 2,["26"] = 2,["27"] = 2,["28"] = 2,["29"] = 2,["30"] = 4,["31"] = 4,["32"] = 4,["34"] = 8,["35"] = 9,["36"] = 10,["37"] = 11,["38"] = 12,["39"] = 13,["40"] = 14,["41"] = 15,["42"] = 16,["43"] = 17,["44"] = 18,["45"] = 19,["46"] = 20,["47"] = 21,["48"] = 24,["49"] = 28,["50"] = 31,["51"] = 34,["52"] = 37,["53"] = 40,["54"] = 43,["55"] = 7,["56"] = 48,["57"] = 49,["58"] = 50,["59"] = 51,["60"] = 52,["61"] = 53,["62"] = 54,["65"] = 59,["66"] = 60,["67"] = 61,["70"] = 48,["71"] = 66,["72"] = 67,["74"] = 69,["75"] = 69,["76"] = 70,["77"] = 71,["78"] = 72,["79"] = 73,["80"] = 74,["81"] = 75,["85"] = 69,["88"] = 66,["89"] = 82,["90"] = 83,["93"] = 87,["95"] = 89,["96"] = 89,["97"] = 90,["98"] = 89,["101"] = 92,["103"] = 94,["105"] = 97,["106"] = 98,["107"] = 99,["108"] = 82,["109"] = 5,["110"] = 6});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["9"] = 2,["10"] = 2,["11"] = 2,["12"] = 2,["13"] = 2,["14"] = 2,["15"] = 2,["16"] = 2,["17"] = 2,["18"] = 2,["19"] = 2,["20"] = 2,["21"] = 2,["22"] = 2,["23"] = 2,["24"] = 2,["25"] = 2,["26"] = 2,["27"] = 2,["28"] = 2,["29"] = 2,["30"] = 2,["31"] = 4,["32"] = 4,["33"] = 4,["35"] = 8,["36"] = 9,["37"] = 10,["38"] = 11,["39"] = 12,["40"] = 13,["41"] = 14,["42"] = 15,["43"] = 16,["44"] = 17,["45"] = 18,["46"] = 19,["47"] = 20,["48"] = 21,["49"] = 22,["50"] = 25,["51"] = 29,["52"] = 32,["53"] = 35,["54"] = 38,["55"] = 41,["56"] = 44,["57"] = 7,["58"] = 49,["59"] = 50,["60"] = 51,["61"] = 52,["62"] = 53,["63"] = 54,["64"] = 55,["67"] = 60,["68"] = 61,["69"] = 62,["72"] = 49,["73"] = 67,["74"] = 68,["76"] = 70,["77"] = 70,["78"] = 71,["79"] = 72,["80"] = 73,["81"] = 74,["82"] = 75,["83"] = 76,["87"] = 70,["90"] = 67,["91"] = 83,["92"] = 84,["95"] = 88,["97"] = 90,["98"] = 90,["99"] = 91,["100"] = 90,["103"] = 93,["105"] = 95,["107"] = 98,["108"] = 99,["109"] = 100,["110"] = 83,["111"] = 5,["112"] = 6});
 local ____exports = {}
 local ____property_declare = require("modifiers.property.property_declare")
 local property_attackspeed_bonus_constant = ____property_declare.property_attackspeed_bonus_constant
@@ -27,6 +27,7 @@ local property_stats_agility_bonus = ____property_declare.property_stats_agility
 local property_stats_intellect_bonus = ____property_declare.property_stats_intellect_bonus
 local property_stats_strength_bonus = ____property_declare.property_stats_strength_bonus
 local property_status_resistance_stacking = ____property_declare.property_status_resistance_stacking
+local property_evasion_constant = ____property_declare.property_evasion_constant
 ____exports.PropertyController = __TS__Class()
 local PropertyController = ____exports.PropertyController
 PropertyController.name = "PropertyController"
@@ -36,6 +37,7 @@ function PropertyController.prototype.____constructor(self)
     ____exports.PropertyController.propertyValuePerLevel:set(property_cast_range_bonus_stacking.name, 25)
     ____exports.PropertyController.propertyValuePerLevel:set(property_spell_amplify_percentage.name, 5)
     ____exports.PropertyController.propertyValuePerLevel:set(property_status_resistance_stacking.name, 4)
+    ____exports.PropertyController.propertyValuePerLevel:set(property_evasion_constant.name, 4)
     ____exports.PropertyController.propertyValuePerLevel:set(property_magical_resistance_bonus.name, 4)
     ____exports.PropertyController.propertyValuePerLevel:set(property_incoming_damage_percentage.name, -4)
     ____exports.PropertyController.propertyValuePerLevel:set(property_attack_range_bonus.name, 25)
