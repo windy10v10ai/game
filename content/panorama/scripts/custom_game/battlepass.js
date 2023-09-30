@@ -272,13 +272,13 @@ const Player_Property_List = [
 		name: "property_lifesteal",
 		level: 0,
 		imageSrc: "s2r://panorama/images/challenges/icon_challenges_lifestolen_png.vtex",
-		valuePerLevel: 7.5,
+		valuePerLevel: 10,
 	},
 	{
 		name: "property_spell_lifesteal",
 		level: 0,
 		imageSrc: "s2r://panorama/images/challenges/icon_challenges_creepkillswithabilities_png.vtex",
-		valuePerLevel: 7.5,
+		valuePerLevel: 8,
 	},
 	{
 		name: "property_movespeed_bonus_constant",
