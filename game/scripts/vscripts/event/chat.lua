@@ -25,6 +25,7 @@ local function removeAllPlayerModifiers()
         "property_cast_range_bonus_stacking",
         "property_spell_amplify_percentage",
         "property_status_resistance_stacking",
+        "property_evasion_constant",
         "property_magical_resistance_bonus",
         "property_incoming_damage_percentage",
         "property_attack_range_bonus",
