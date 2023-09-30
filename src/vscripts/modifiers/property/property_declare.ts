@@ -41,6 +41,17 @@ export class property_status_resistance_stacking extends PropertyBaseModifier {
     }
 }
 
+// MODIFIER_PROPERTY_EVASION_CONSTANT
+@registerModifier()
+export class property_evasion_constant extends PropertyBaseModifier {
+    DeclareFunctions(): ModifierFunction[] {
+        return [ModifierFunction.EVASION_CONSTANT];
+    }
+    GetModifierEvasion_Constant(): number {
+        return this.value;
+    }
+}
+
 @registerModifier()
 export class property_magical_resistance_bonus extends PropertyBaseModifier {
     DeclareFunctions(): ModifierFunction[] {
@@ -159,9 +170,9 @@ export class property_mana_regen_total_percentage extends PropertyBaseModifier {
 @registerModifier()
 export class property_lifesteal extends PropertyBaseModifier {
     DeclareFunctions(): ModifierFunction[] {
-        return [ModifierFunction.ON_ATTACK_LANDED];
+        return [ModifierFunction.ON_TAKEDAMAGE];
     }
-    OnAttackLanded(event: ModifierAttackEvent): void {
+    OnTakeDamage(event: ModifierInstanceEvent): void {
         // @ts-ignore
         TsLifeStealOnAttackLanded(event, this.value, this.GetParent(), this)
     }

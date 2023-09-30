@@ -116,22 +116,45 @@ function SetMember (list)
 	return set
 end
 function TsLifeStealOnAttackLanded (_, params, iLifeSteal, hHero, hAbility)
-	LifeStealOnAttackLanded (params, iLifeSteal, hHero, hAbility)
+	LifeStealOnTakeDamage (params, iLifeSteal, hHero, hAbility)
 end
-
-function LifeStealOnAttackLanded (params, iLifeSteal, hHero, hAbility)
+function LifeStealOnTakeDamage (params, iLifeSteal, hHero, hAbility)
 	if IsServer() then
 		local attacker = params.attacker
 		if attacker == hHero then
-			local hTarget = params.target
-			local iDamage = params.damage
+			local hTarget = params.unit
 			if attacker:IsBuilding() or attacker:IsIllusion() then
 				return
 			end
 			if hTarget:IsBuilding() or hTarget:IsIllusion() or (hTarget:GetTeam() == attacker:GetTeam()) then
 				return
 			end
-			local iHeal = iDamage * iLifeSteal * 0.01
+			local actual_damage = params.damage
+			local iHeal = actual_damage * iLifeSteal * 0.01
+            attacker:HealWithParams(iHeal,hAbility,true,true,attacker,false)
+
+			-- effect
+			local lifesteal_pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+			ParticleManager:SetParticleControl(lifesteal_pfx, 0, attacker:GetAbsOrigin())
+			ParticleManager:ReleaseParticleIndex(lifesteal_pfx)
+		end
+	end
+end
+
+-- FIXME
+function LifeStealOnAttackLanded (params, iLifeSteal, hHero, hAbility)
+	if IsServer() then
+		local attacker = params.attacker
+		if attacker == hHero then
+			local hTarget = params.target
+			if attacker:IsBuilding() or attacker:IsIllusion() then
+				return
+			end
+			if hTarget:IsBuilding() or hTarget:IsIllusion() or (hTarget:GetTeam() == attacker:GetTeam()) then
+				return
+			end
+			local actual_damage = CalculateActualDamage(params, hTarget)
+			local iHeal = actual_damage * iLifeSteal * 0.01
             attacker:HealWithParams(iHeal,hAbility,true,true,attacker,false)
 
 			-- effect
@@ -151,15 +174,29 @@ function SpellLifeSteal(keys, hAbility, ilifeSteal)
 	if keys.attacker == hParent and keys.inflictor and IsEnemy(keys.attacker, keys.unit) and
 			bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION and
 			bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) ~= DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL then
-		local dmg = keys.damage * (ilifeSteal / 100)
+		local iHeal = keys.damage * (ilifeSteal / 100)
 
 		if keys.unit:IsCreep() then
-			dmg = dmg / 5
+			iHeal = iHeal / 5
 		end
-		hParent:HealWithParams(dmg,hAbility:GetAbility(),false,true,hParent,true)
+		hParent:HealWithParams(iHeal, hAbility:GetAbility(),false,true,hParent,true)
 		local pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, hParent)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end
+end
+
+-- 计算实际造成的伤害
+function CalculateActualDamage(keys, target)
+	local damage = keys.damage
+	local damage_type = keys.damage_type
+
+	print("damage: "..damage)
+	local target_armor = target:GetPhysicalArmorValue(false)
+	print("target_armor: "..target_armor)
+	damage = damage * (1 - target_armor * 0.06 / (1 + math.abs(target_armor) * 0.06))
+
+	print("damage after reduction: "..damage)
+	return damage
 end
 
 print("Util loaded.")
