@@ -16,8 +16,8 @@ export class PropertyController {
         PropertyController.propertyValuePerLevel.set(property_attack_range_bonus.name, 25);
         PropertyController.propertyValuePerLevel.set(property_health_regen_percentage.name, 0.3);
         PropertyController.propertyValuePerLevel.set(property_mana_regen_total_percentage.name, 0.3);
-        PropertyController.propertyValuePerLevel.set(property_lifesteal.name, 7.5);
-        PropertyController.propertyValuePerLevel.set(property_spell_lifesteal.name, 7.5);
+        PropertyController.propertyValuePerLevel.set(property_lifesteal.name, 8);
+        PropertyController.propertyValuePerLevel.set(property_spell_lifesteal.name, 8);
         PropertyController.propertyValuePerLevel.set(property_ignore_movespeed_limit.name, 0.125);
         PropertyController.propertyValuePerLevel.set(property_cannot_miss.name, 0.125);
 
