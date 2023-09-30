@@ -63,7 +63,7 @@ BaseModifierMotionBoth.name = "BaseModifierMotionBoth"
 __TS__ClassExtends(BaseModifierMotionBoth, ____exports.BaseModifier)
 setmetatable(____exports.BaseAbility.prototype, {__index = CDOTA_Ability_Lua or C_DOTA_Ability_Lua})
 setmetatable(____exports.BaseItem.prototype, {__index = CDOTA_Item_Lua or C_DOTA_Item_Lua})
-setmetatable(____exports.BaseModifier.prototype, {__index = CDOTA_Modifier_Lua or C_DOTA_Modifier_Lua})
+setmetatable(____exports.BaseModifier.prototype, {__index = CDOTA_Modifier_Lua or CDOTA_Modifier_Lua})
 ____exports.registerAbility = function(____, name) return function(____, ability)
     if name ~= nil then
         ability.name = name
