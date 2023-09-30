@@ -272,7 +272,7 @@ const Player_Property_List = [
 		name: "property_lifesteal",
 		level: 0,
 		imageSrc: "s2r://panorama/images/challenges/icon_challenges_lifestolen_png.vtex",
-		valuePerLevel: 10,
+		valuePerLevel: 8,
 	},
 	{
 		name: "property_spell_lifesteal",
