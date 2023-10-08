@@ -884,7 +884,6 @@
 	}
 	"npc_dota_hero_chaos_knight"
 	{
-		"Ability5"  "doom_bringer_infernal_blade"
 		"Ability6"	"imba_chaos_knight_phantasm"
 		"Ability13"		"special_bonus_lifesteal_15"
 		"Ability17"		"special_bonus_cleave_60"
@@ -1064,34 +1063,8 @@
 			}
 		}
 	}
-	"npc_dota_hero_snapfire"
-	{
-		"Ability16"				"special_bonus_unique_snapfire_8"
-		"Ability14"				"special_bonus_unique_snapfire_6"
-	}
-	"npc_dota_hero_gyrocopter"
-	{
-		"AttackRate" "1.4"
-		"AttackRange" "850"
-	}
-	"npc_dota_hero_earth_spirit"
-	{
-		"AttributeBaseStrength"		"50"
-		"AttributeStrengthGain"		"12.000000"
-		"AttributeBaseAgility"		"50"
-		"AttributeAgilityGain"		"12.000000"
-		"AttributeBaseIntelligence"		"50"
-		"AttributeIntelligenceGain"		"12.000000"
-	}
-	"npc_dota_hero_wisp"
-	{
-		"Ability17"		"special_bonus_unique_wisp_10"
-		"Ability14"		"special_bonus_unique_wisp_4"
-	}
-
 	"npc_dota_hero_dragon_knight"
 	{
-		"AttackRate" "1.4"
 		"Bot"
 		{
 			"Build"
@@ -2828,8 +2801,6 @@
 	}
 	"npc_dota_hero_warlock"
 	{
-		"Ability16"		"special_bonus_unique_warlock_4"
-		"Ability14"		"special_bonus_unique_warlock_2"
 		"Bot"
 		{
 			"Build"
