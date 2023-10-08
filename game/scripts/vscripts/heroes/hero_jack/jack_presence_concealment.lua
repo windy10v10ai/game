@@ -7,6 +7,13 @@ modifier_jack_presence_concealment = modifier_jack_presence_concealment or class
 modifier_jack_presence_concealment_invision = modifier_jack_presence_concealment_invision or class({})
 modifier_jack_presence_concealment_damage = modifier_jack_presence_concealment_damage or class({})
 
+function jack_presence_concealment:Spawn()
+    if not IsServer() then return end
+    if self:GetLevel() < 1 then
+        self:SetLevel(1)
+    end
+end
+
 function jack_presence_concealment:Precache(context)
     PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts",context)
 end
