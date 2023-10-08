@@ -441,7 +441,7 @@
 				"bonus_reset_time_roshan"		"15"
 				"damage_per_stack"
 				{
-					"value"					"12 14 16 18 20 200"
+					"value"					"12 14 16 18 20 30"
 					"LinkedSpecialBonus"			"special_bonus_unique_ursa"
 				}
 		}
@@ -454,7 +454,7 @@
 		{
 			"attack_speed"
 			{
-				"value"		"10 14 18 22 26 130"
+				"value"		"10 14 18 22 26 30"
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_5"
 			}
 			"max_stacks"
@@ -471,29 +471,14 @@
 		"AbilityValues"
 		{
 			"percent_damage_per_burn"		"50"
-			"mana_per_hit"			"10 20 30 40 50 180"
+			"mana_per_hit"			"10 20 30 40 50 60"
 			"mana_per_hit_pct"
 			{
-				"value"		"0.2 0.4 0.6 0.8 1.0 6.0"
+				"value"		"0.2 0.4 0.6 0.8 1.0 2.0"
 			}
 			"illusion_percentage"		"50"
-			"move_slow"				"10 20 30 40 50 80"
+			"move_slow"				"10 20 30 40 50 60"
 			"slow_duration"			"0.75"
-		}
-	}
-	"tower_elder_titan_natural_order"
-	{
-		"MaxLevel" "1"
-		"BaseClass" "elder_titan_natural_order"
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"1100"
-				"special_bonus_unique_elder_titan_5"	"+450"
-			}
-			"armor_reduction_pct"	    "100"
-			"magic_resistance_pct"		"100"
 		}
 	}
 	//=================================================================================================================
@@ -2264,7 +2249,7 @@
 	}
 
 	//=================================================================================================================
-	// Jack
+	// Jack 杰克
 	//=================================================================================================================
 	"jack_presence_concealment"
 	{
@@ -2276,7 +2261,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCastAnimation"			""
-		"MaxLevel"						"5"
+		"MaxLevel"						"7"
+		"RequiredLevel"					"0"
 		"FightRecapLevel"				"1"
 		"HasShardUpgrade"				"1"
 
@@ -2286,7 +2272,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"special_bonus_shard" 	"+60"
+				"special_bonus_shard" 	"+30"
 			}
 			"AbilityManaCost"
 			{
@@ -2294,21 +2280,23 @@
 			}
 			"invision_time"
 			{
-				"value"								"2"
-				"special_bonus_unique_jack_4" 		"-1"
+				"value"								"1.5"
+				"special_bonus_unique_jack_4" 		"-0.5"
 			}
-			"dmg_add_time"				"5"
+			"dmg_add_time"				"3"
 			"dmg_add_agility"
 			{
-				"value"								"0.6 0.7 0.8 0.9 1.0"
+				"value"								"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
 				"special_bonus_unique_jack_3" 		"+0.2"
 			}
-			"movespeed_add"				"20 25 30 35 40"
+			"movespeed_add"				"0 5 10 15 20 25 30"
 			"talent_chance"
 			{
 				"value"					"0"
 				"special_bonus_unique_jack_6" 		"+25"
 			}
+			"invision_bonus_damage"			"200"
+			"invision_bonus_stun_duration"	"1"
 		}
 	}
 
@@ -2319,7 +2307,7 @@
 		"BaseClass"	"ability_lua"
 		"AbilityTextureName"	"custom/jack/jack_murderer_of_the_misty_night"
 		"ScriptFile"	"heroes/hero_jack/jack_murderer_of_the_misty_night"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityCastPoint"	"0.5"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
 		"MaxLevel"						"5"
@@ -2335,7 +2323,7 @@
 			"duration"				"8"
 			"radius"
 			{
-				"value"								"400"
+				"value"								"550"
 				"special_bonus_unique_jack_2" 		"+100"
 			}
 			"movespeed_down"		"20 30 40 50 60"
