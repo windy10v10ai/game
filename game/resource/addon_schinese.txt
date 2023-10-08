@@ -558,12 +558,14 @@
 		"npc_dota_hero_brewmaster_npedesc1"														"从这里到地狱，我们是火，是雨，是力量，在这里献上杀戮。"
 
 		"DOTA_Tooltip_ability_jack_presence_concealment"										"气息遮断"
-		"DOTA_Tooltip_ability_jack_presence_concealment_description"							"杰克在夜间或者迷雾中一段时间后，将会进入隐身状态，在此期间获得移动速度加成和自身敏捷值一定比例的攻击力加成，攻击后退出隐身状态，攻击力加成在退出隐身状态后会保持一段时间"
+		"DOTA_Tooltip_ability_jack_presence_concealment_description"							"杰克在夜间或者迷雾中一段时间后，将会进入隐身状态，在此期间获得移动速度加成和自身敏捷值一定比例的攻击力加成。<br>攻击后退出隐身状态，攻击力加成在退出隐身状态后会保持一段时间。破隐一击将造成额外伤害和短暂眩晕。"
 		"DOTA_Tooltip_ability_jack_presence_concealment_Lore"									"切断作为Servant的气息，适合秘密行动的技能。完全切断气息的话近乎不可能被发现。"
 		"DOTA_Tooltip_ability_jack_presence_concealment_shard_description"						"在夜间或迷雾中可以主动使用此技能，立即进入隐身状态，击杀敌人后刷新此技能冷却"
 		"DOTA_Tooltip_ability_jack_presence_concealment_invision_time"							"渐隐时间："
 		"DOTA_Tooltip_ability_jack_presence_concealment_dmg_add_time"							"攻击力加成持续时间："
 		"DOTA_Tooltip_ability_jack_presence_concealment_dmg_add_agility"						"攻击力加成敏捷系数："
+		"DOTA_Tooltip_ability_jack_presence_concealment_invision_bonus_damage"					"破隐一击额外伤害："
+		"DOTA_Tooltip_ability_jack_presence_concealment_invision_bonus_stun_duration"			"破隐一击眩晕时间："
 		"DOTA_Tooltip_ability_jack_presence_concealment_movespeed_add"							"%移动速度加成："
 		"DOTA_Tooltip_ability_jack_presence_concealment_cast_error"								"只能在晚上或者迷雾中使用"
 
