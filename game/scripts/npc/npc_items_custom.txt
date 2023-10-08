@@ -1568,22 +1568,23 @@
 			"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 			"AbilityCastRange"              "900"
 
+
 			"AbilitySpecial"
 			{
 					"01"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"bonus_all_stats"		"10"			// unuse
+							"bonus_attack_speed"	"40"
+					}
+					"02"
+					{
+							"var_type"				"FIELD_INTEGER"
+							"bonus_armor"			"20"
 					}
 					"03"
 					{
 							"var_type"				"FIELD_FLOAT"
 							"mana_regen_aura"		"6"
-					}
-					"04"
-					{
-							"var_type"				"FIELD_INTEGER"
-							"bonus_armor"			"15"
 					}
 					"05"
 					{
@@ -1593,17 +1594,12 @@
 					"06"
 					{
 							"var_type"				"FIELD_INTEGER"
-							"vampiric_aura"			"20"
+							"vampiric_aura"			"25"
 					}
 					"07"
 					{
 							"var_type"				"FIELD_INTEGER"
 							"aura_radius"			"900"
-					}
-					"08"
-					{
-							"var_type"				"FIELD_INTEGER"
-							"bonus_attack_speed"	"40"
 					}
 					"09"
 					{
@@ -6427,7 +6423,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"90.0"
+		"AbilityCooldown"				"85.0"
 
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_hand_of_group"
@@ -6443,6 +6439,7 @@
 		"ItemQuality"					"common"
 		"ItemAliases"					"hand of group"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
 		"ShouldBeSuggested"				"1"
 		"precache"
 		{

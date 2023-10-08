@@ -7,6 +7,13 @@ modifier_jack_presence_concealment = modifier_jack_presence_concealment or class
 modifier_jack_presence_concealment_invision = modifier_jack_presence_concealment_invision or class({})
 modifier_jack_presence_concealment_damage = modifier_jack_presence_concealment_damage or class({})
 
+function jack_presence_concealment:Spawn()
+    if not IsServer() then return end
+    if self:GetLevel() < 1 then
+        self:SetLevel(1)
+    end
+end
+
 function jack_presence_concealment:Precache(context)
     PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts",context)
 end
@@ -31,7 +38,7 @@ function jack_presence_concealment:CastFilterResult()
 end
 
 function jack_presence_concealment:GetCustomCastError()
-    return "只能在晚上或者迷雾中使用"
+    return "#DOTA_Tooltip_ability_jack_presence_concealment_cast_error"
 end
 
 function jack_presence_concealment:OnSpellStart()
@@ -97,9 +104,10 @@ function modifier_jack_presence_concealment:OnIntervalThink()
     local active = false
     if activeDay and not hasmodifier then
         active = false
-        self.parent:RemoveModifierByName("modifier_jack_presence_concealment_invision")
-        self.invis_time = 0
-        self.active = false
+        -- self.parent:RemoveModifierByName("modifier_jack_presence_concealment_invision")
+        -- self.invis_time = 0
+        -- self.active = false
+        self:RemoveInvision()
     else
         active = true
     end
@@ -123,6 +131,13 @@ end
 
 function modifier_jack_presence_concealment:OnAttacked(keys)
     if keys.attacker == self.parent then
+        if not keys.no_attack_cooldown and self.parent:HasModifier("modifier_jack_presence_concealment_invision")
+            and not keys.target:IsBuilding() then
+            local duration = self:GetAbility():GetSpecialValueFor("invision_bonus_stun_duration")
+            keys.target:AddNewModifier(self.parent, self:GetAbility(), "modifier_stunned", {duration = duration})
+            local damage = self:GetAbility():GetSpecialValueFor("invision_bonus_damage")
+            ApplyDamage({victim = keys.target, attacker = self.parent, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = self:GetAbility()})
+        end
         self:RemoveInvision()
         if not keys.no_attack_cooldown then
             local chance = self:GetAbility():GetSpecialValueFor("talent_chance")
