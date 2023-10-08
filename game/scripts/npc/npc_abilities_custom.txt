@@ -2264,7 +2264,7 @@
 	}
 
 	//=================================================================================================================
-	// Jack
+	// Jack 杰克
 	//=================================================================================================================
 	"jack_presence_concealment"
 	{
@@ -2276,7 +2276,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCastAnimation"			""
-		"MaxLevel"						"5"
+		"MaxLevel"						"7"
+		"RequiredLevel"					"0"
 		"FightRecapLevel"				"1"
 		"HasShardUpgrade"				"1"
 
@@ -2300,10 +2301,10 @@
 			"dmg_add_time"				"5"
 			"dmg_add_agility"
 			{
-				"value"								"0.6 0.7 0.8 0.9 1.0"
+				"value"								"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
 				"special_bonus_unique_jack_3" 		"+0.2"
 			}
-			"movespeed_add"				"20 25 30 35 40"
+			"movespeed_add"				"0 5 10 15 20 25 30"
 			"talent_chance"
 			{
 				"value"					"0"
@@ -2319,7 +2320,7 @@
 		"BaseClass"	"ability_lua"
 		"AbilityTextureName"	"custom/jack/jack_murderer_of_the_misty_night"
 		"ScriptFile"	"heroes/hero_jack/jack_murderer_of_the_misty_night"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityCastPoint"	"0.5"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
 		"MaxLevel"						"5"
@@ -2335,7 +2336,7 @@
 			"duration"				"8"
 			"radius"
 			{
-				"value"								"400"
+				"value"								"550"
 				"special_bonus_unique_jack_2" 		"+100"
 			}
 			"movespeed_down"		"20 30 40 50 60"
