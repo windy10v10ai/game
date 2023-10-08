@@ -6423,7 +6423,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"90.0"
+		"AbilityCooldown"				"85.0"
 
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_hand_of_group"
@@ -6439,6 +6439,7 @@
 		"ItemQuality"					"common"
 		"ItemAliases"					"hand of group"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
 		"ShouldBeSuggested"				"1"
 		"precache"
 		{
