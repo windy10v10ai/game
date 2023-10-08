@@ -23,7 +23,7 @@ class GameInfo {
 
 export class Game {
 
-	private static VERSION = "v2.28";
+	private static VERSION = "v2.29";
 	constructor() {
 	}
 
