@@ -37,14 +37,14 @@ export class ApiClient {
 		const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + path);
 		const key = GetDedicatedServerKeyV2(ApiClient.SERVER_KEY);
 
-		if (key == ApiClient.LOCAL_APIKEY && !IsInToolsMode()) {
-			callbackFunc({
-				StatusCode: 401,
-				Body: ApiClient.LOCAL_APIKEY,
-				Request: request,
-			});
-			return;
-		}
+		// if (key == ApiClient.LOCAL_APIKEY && !IsInToolsMode()) {
+		// 	callbackFunc({
+		// 		StatusCode: 401,
+		// 		Body: ApiClient.LOCAL_APIKEY,
+		// 		Request: request,
+		// 	});
+		// 	return;
+		// }
 
 		if (querys) {
 			for (const key in querys) {
