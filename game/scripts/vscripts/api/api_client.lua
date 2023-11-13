@@ -1,7 +1,7 @@
 local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["6"] = 3,["7"] = 4,["8"] = 5,["9"] = 6,["10"] = 7,["11"] = 20,["12"] = 20,["13"] = 20,["15"] = 20,["16"] = 35,["17"] = 36,["18"] = 37,["19"] = 38,["20"] = 40,["21"] = 41,["24"] = 49,["25"] = 50,["26"] = 51,["29"] = 54,["30"] = 55,["31"] = 56,["32"] = 57,["33"] = 57,["34"] = 57,["35"] = 57,["37"] = 59,["38"] = 60,["39"] = 59,["40"] = 35,["41"] = 64,["42"] = 65,["43"] = 66,["44"] = 67,["45"] = 67,["46"] = 68,["47"] = 68,["48"] = 68,["49"] = 68,["50"] = 68,["51"] = 68,["52"] = 71,["53"] = 72,["54"] = 73,["55"] = 74,["56"] = 75,["57"] = 76,["60"] = 79,["61"] = 80,["62"] = 81,["63"] = 82,["65"] = 84,["66"] = 85,["70"] = 68,["71"] = 68,["72"] = 67,["73"] = 91,["74"] = 64,["75"] = 22,["76"] = 23,["77"] = 24,["78"] = 26,["79"] = 27,["80"] = 28,["81"] = 30,["82"] = 31,["83"] = 32,["84"] = 31});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["6"] = 3,["7"] = 4,["8"] = 5,["9"] = 6,["10"] = 7,["11"] = 20,["12"] = 20,["13"] = 20,["15"] = 20,["16"] = 35,["17"] = 36,["18"] = 37,["19"] = 38,["20"] = 49,["21"] = 50,["22"] = 51,["25"] = 54,["26"] = 55,["27"] = 56,["28"] = 57,["29"] = 57,["30"] = 57,["31"] = 57,["33"] = 59,["34"] = 60,["35"] = 59,["36"] = 35,["37"] = 64,["38"] = 65,["39"] = 66,["40"] = 67,["41"] = 67,["42"] = 68,["43"] = 68,["44"] = 68,["45"] = 68,["46"] = 68,["47"] = 68,["48"] = 71,["49"] = 72,["50"] = 73,["51"] = 74,["52"] = 75,["53"] = 76,["56"] = 79,["57"] = 80,["58"] = 81,["59"] = 82,["61"] = 84,["62"] = 85,["66"] = 68,["67"] = 68,["68"] = 67,["69"] = 91,["70"] = 64,["71"] = 22,["72"] = 23,["73"] = 24,["74"] = 26,["75"] = 27,["76"] = 28,["77"] = 30,["78"] = 31,["79"] = 32,["80"] = 31});
 local ____exports = {}
 ____exports.HttpMethod = HttpMethod or ({})
 ____exports.HttpMethod.GET = "GET"
@@ -17,10 +17,6 @@ function ApiClient.send(self, method, path, querys, body, callbackFunc)
     print(((((((("[ApiClient] " .. method) .. " ") .. ____exports.ApiClient.HOST_NAME) .. path) .. " with querys ") .. json.encode(querys)) .. " body ") .. json.encode(body))
     local request = CreateHTTPRequestScriptVM(method, ____exports.ApiClient.HOST_NAME .. path)
     local key = GetDedicatedServerKeyV2(____exports.ApiClient.SERVER_KEY)
-    if key == ____exports.ApiClient.LOCAL_APIKEY and not IsInToolsMode() then
-        callbackFunc(nil, {StatusCode = 401, Body = ____exports.ApiClient.LOCAL_APIKEY, Request = request})
-        return
-    end
     if querys then
         for key in pairs(querys) do
             request:SetHTTPRequestGetOrPostParameter(key, querys[key])
