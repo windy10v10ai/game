@@ -23,8 +23,8 @@
 		"game_difficulty_n5"	"N5"
 		"game_difficulty_n6"	"N6 (Unfair)"
 
-		"player_gold_xp_multiplier"	"Player Gold&XP Multiplier"
-		"bot_gold_xp_multiplier"	"Bot Gold&XP Multiplier"
+		"player_gold_xp_multiplier"	"Player Gold&XP Multi"
+		"bot_gold_xp_multiplier"	"Bot Gold&XP Multi"
 
 		"radiant_player_number"	"Radiant Player Number"
 		"dire_player_number"	"Dire Player Number"
