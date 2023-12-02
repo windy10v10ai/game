@@ -126,7 +126,9 @@ function modifier_item_necronomicon_staff_debuff:AllowIllusionDuplicate()
 end
 function modifier_item_necronomicon_staff_debuff:OnCreated(params)
 	self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor("sheep_movement_speed")
-	self.blast_damage_multiplier = self:GetAbility():GetSpecialValueFor("blast_damage_multiplier")
+	-- self.blast_damage_multiplier = self:GetAbility():GetSpecialValueFor("blast_damage_multiplier")
+
+	self.blast_int_bonus = self:GetAbility():GetSpecialValueFor("blast_int_bonus")
 
 	local model_list = {"models/props_gameplay/pig.vmdl","models/props_gameplay/sheep01.vmdl"}
 	self.model_file = model_list[RandomInt(1,#model_list)]
@@ -143,8 +145,8 @@ function modifier_item_necronomicon_staff_debuff:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE,
 		MODIFIER_PROPERTY_MODEL_CHANGE,
-        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE,
-
+        -- MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 	}
 end
 function modifier_item_necronomicon_staff_debuff:GetModifierMoveSpeedOverride(params)
@@ -153,6 +155,9 @@ end
 function modifier_item_necronomicon_staff_debuff:GetModifierModelChange(params)
 	return self.model_file
 end
-function modifier_item_necronomicon_staff_debuff:GetModifierMagicalResistanceDecrepifyUnique(params)
-    return self.blast_damage_multiplier
+-- function modifier_item_necronomicon_staff_debuff:GetModifierMagicalResistanceDecrepifyUnique(params)
+--     return self.blast_damage_multiplier
+-- end
+function modifier_item_necronomicon_staff_debuff:GetModifierBonusStats_Intellect(params)
+	return self.blast_int_bonus
 end
