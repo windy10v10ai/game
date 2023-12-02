@@ -881,6 +881,13 @@
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_mana"					"+$mana"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_spell_amp"					"%+$spell_amp"
 
+		// 可消耗宝石
+		"DOTA_Tooltip_ability_item_consumable_gem"						"Consumable Gem"
+		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"On activation, gives the hero true sight within %radius% range.<br> True Sight buff will last %duration_minutes% minutes or be removed until death."
+
+		"DOTA_Tooltip_modifier_consumable_gem_aura"						"True Sight"
+		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"See invisible units and wards."
+
         // wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Wings of Haste"
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% movement speed, %MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regen, %MODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen."
@@ -1476,6 +1483,5 @@
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_mana"				"+$mana"
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_cooldown"				"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_refresh_core_Lore"					"At the core of spellcraft are spectrums only the very gifted can sense."
-
 	}
 }
