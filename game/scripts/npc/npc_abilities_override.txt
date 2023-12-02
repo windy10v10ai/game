@@ -1290,7 +1290,7 @@
     {
         "AbilityCastRange"				"600"
 		"ItemSellable"					"0"
-        "ItemStockTime"					"300.0"
+        "ItemStockTime"					"240.0"
         "AllowedInBackpack"				"1"
     }
 
