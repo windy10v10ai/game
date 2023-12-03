@@ -118,7 +118,7 @@
 		"data_panel_season_level"		"赛季等级"
 		"data_panel_season_level_tooltip"		"进行游戏获得赛季积分后，赛季等级将提升。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>100</font>点。"
 		"data_panel_member_level"		"会员等级"
-		"data_panel_member_level_tooltip"		"会员每日登陆可获取60会员积分。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>50</font>点。"
+		"data_panel_member_level_tooltip"		"会员每日登陆可获取100会员积分。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>50</font>点。"
 		"data_panel_level_progress"		"升级进度"
 		// "data_panel_season_end"			"第三赛季结束时间：2023/9/30"
 		// "data_panel_season_end_tooltip"			"赛季结束后将重置赛季等级<br><font color='#E8C07D'>继承50%</font>赛季积分到下个赛季"
@@ -166,7 +166,7 @@
 		//            Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得60会员积分<br/> 会员有效期：{expireDate}"
+		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得100会员积分<br/> 会员有效期：{expireDate}"
 		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期。"
 
 		///////////////////////////////////////////////////

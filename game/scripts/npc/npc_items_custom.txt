@@ -6479,7 +6479,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"85.0"
+		"AbilityCooldown"				"80.0"
 
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_hand_of_group"
@@ -6508,7 +6508,7 @@
 		{
 			"attack_speed"		"80"	// tooltip, real value  in modifier_item_hand_of_group_stats
 			"self_xp"			"3.0"
-			"self_gold"			"300"
+			"self_gold"			"400"
 
 			"group_range"		"1800"
 			"group_xp"			"0.5"
@@ -6805,7 +6805,7 @@
 		"BaseClass"                     "item_minotaur_horn"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"60.0"
-		"ItemCost"						"4000"
+		"ItemCost"						"6000"
 		"ItemPurchasable"				"1"
 		"ItemSellable"				    "1"
 		"ItemIsNeutralDrop"				"0"
@@ -6816,8 +6816,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_strength"			"40"
-				"duration"			"10"
+			"bonus_strength"			"40"
+			"duration"					"10"
 		}
 	}
 }
