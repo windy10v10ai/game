@@ -7,10 +7,11 @@
 	vertical-align: top;
 	horizontal-align: center;
 	flow-children: down;
-	margin-top: 150px;
+	margin-top: 100px;
 	width: 25%;
-	border-radius: 8px;
+	border-radius: 10px;
 	background-color: gradient( linear, 0% 100%, 0% 10%, from( #1c112ecc ), color-stop( 0.3, #1c112e55 ), color-stop( 0.6, #000000bb ),to( #000000ee) );
+	border: 2px solid #000000;
 }
 .point_info_header {
 	margin-top: 5px;
@@ -20,7 +21,7 @@
 }
 
 .pointHeaderText{
-	font-size: 35px;
+	font-size: 26px;
 	color:#DAA520FF;
 	text-decoration: underline;
 	text-shadow: 2px 2px 8px 3.0 black;
@@ -53,19 +54,25 @@
 	margin-right: 12px;
 }
 .pointTitleText{
-	font-size: 25px;
-	color:rgb(32, 196, 218);
+	font-size: 22px;
+	color:#39A7FF;
 	text-shadow: 2px 2px 8px 3.0 black;
 }
 .pointText {
-	font-size: 20px;
+	font-size: 28px;
     color: #FFFFFF99;
     text-shadow: 2.0px 2.0px 0.0px 1.0 #00000090;
     text-align: left;
     horizontal-align: left;
     vertical-align: top;
     margin-top: 4px;
-    margin-left: 12px;
+}
+
+.pointIcon{
+	width: 32px;
+	height: 38px;
+	vertical-align: center;
+	margin: 0px 10px 0px 10px;
 }
 
 .pointPanelTitle {
