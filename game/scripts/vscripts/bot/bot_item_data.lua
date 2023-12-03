@@ -1682,7 +1682,7 @@ tBotItemData.addNeutralItemList = {
 		'item_ballista',
 	},
 	npc_dota_hero_axe = {
-		'item_mirror_shield',
+		'item_timeless_relic',
 	},
 	npc_dota_hero_spectre = {
 		'item_force_field',
@@ -1697,7 +1697,7 @@ tBotItemData.addNeutralItemList = {
 		'item_pirate_hat',
 	},
 	npc_dota_hero_bristleback = {
-		'item_mirror_shield',
+		'item_giants_ring',
 	},
 	npc_dota_hero_chaos_knight = {
 		'item_the_leveller',
@@ -1715,7 +1715,7 @@ tBotItemData.addNeutralItemList = {
 		'item_force_field',
 	},
 	npc_dota_hero_drow_ranger = {
-		'item_ballista',
+		'item_princes_knife',
 	},
 	npc_dota_hero_earthshaker = {
 		'item_giants_ring',
@@ -1760,7 +1760,7 @@ tBotItemData.addNeutralItemList = {
 		'item_seer_stone',
 	},
 	npc_dota_hero_omniknight = {
-		'item_mirror_shield',
+		'item_giants_ring',
 	},
 	npc_dota_hero_oracle = {
 		'item_spell_prism',
@@ -1805,7 +1805,7 @@ tBotItemData.addNeutralItemList = {
 		'item_desolator_2',
 	},
 	npc_dota_hero_viper = {
-		'item_ballista',
+		'item_princes_knife',
 	},
 	npc_dota_hero_warlock = {
 		'item_demonicon',

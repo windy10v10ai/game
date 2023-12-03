@@ -4284,6 +4284,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
 		"FightRecapLevel"				"1"
+		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
 
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
@@ -6415,15 +6416,15 @@
 		"ItemPermanent"					"0"
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"2"
-		"ItemStockTime"					"300.0"
+		"ItemStockTime"					"180.0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"120.0"
+		"AbilityCooldown"				"1.0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"250"
+		"AbilityCastRange"				"80000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -6432,7 +6433,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"60"
+				"duration"				"180"
 			}
 		}
 	}
@@ -6794,6 +6795,31 @@
 			"bonus_mana_regen"		"20.0"
 		}
     }
+
+	//=================================================================================================================
+	// 真·黑黄杖 black king bar real
+	//=================================================================================================================
+	"item_black_king_bar_real"
+	{
+		"ID"                            "9600"
+		"BaseClass"                     "item_minotaur_horn"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"60.0"
+		"ItemCost"						"4000"
+		"ItemPurchasable"				"1"
+		"ItemSellable"				    "1"
+		"ItemIsNeutralDrop"				"0"
+		"AbilityTextureName"			"item_black_king_bar_real"
+		"AbilitySharedCooldown"			"bkb"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_strength"			"40"
+				"duration"			"10"
+		}
+	}
 }
 
 
