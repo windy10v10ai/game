@@ -1106,6 +1106,60 @@
 		}
 	}
 	//=================================================================================================================
+	// Recipe: consumable gem 可消耗宝石
+	//=================================================================================================================
+	"item_recipe_consumable_gem"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"					"item_datadriven"
+		"ID"						"9005"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_recipe_consumable_gem"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"					"4100"
+		"ItemShopTags"				""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"				"1"
+		"ItemResult"				"item_consumable_gem"
+		"ItemRequirements"
+		{
+			"01"					"item_gem"
+		}
+	}
+	"item_consumable_gem"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"					"item_lua"
+		"ID"						"9006"
+		"AbilityTextureName"		"item_consumable_gem"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"ScriptFile"				"items/item_consumable_gem"
+
+		"AbilityCastRange"			"0" // anywhere on the map
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"					"5000"
+		"ItemShopTags"				"see_invis"
+		"ItemQuality"				"component"
+		"ItemAliases"				"gem of true sight"
+		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"radius"				"900"
+			"duration_minutes"		"7"
+		}
+	}
+	//=================================================================================================================
 	// Recipe: Wings of Haste
 	//=================================================================================================================
 	"item_recipe_wings_of_haste"
@@ -4230,6 +4284,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
 		"FightRecapLevel"				"1"
+		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
 
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
@@ -6138,6 +6193,7 @@
 			"blast_damage_base"		"100"
 			"blast_att_multiplier"	"0.5"
 			"blast_damage_multiplier"	"-50"
+			"blast_int_bonus"		"-500"
 		}
 	}
 	//=================================================================================================================
@@ -6360,15 +6416,15 @@
 		"ItemPermanent"					"0"
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"2"
-		"ItemStockTime"					"300.0"
+		"ItemStockTime"					"180.0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"120.0"
+		"AbilityCooldown"				"1.0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"250"
+		"AbilityCastRange"				"80000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -6377,7 +6433,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"60"
+				"duration"				"180"
 			}
 		}
 	}
@@ -6423,7 +6479,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"85.0"
+		"AbilityCooldown"				"80.0"
 
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_hand_of_group"
@@ -6452,7 +6508,7 @@
 		{
 			"attack_speed"		"80"	// tooltip, real value  in modifier_item_hand_of_group_stats
 			"self_xp"			"3.0"
-			"self_gold"			"300"
+			"self_gold"			"400"
 
 			"group_range"		"1800"
 			"group_xp"			"0.5"
@@ -6739,6 +6795,31 @@
 			"bonus_mana_regen"		"20.0"
 		}
     }
+
+	//=================================================================================================================
+	// 真·黑黄杖 black king bar real
+	//=================================================================================================================
+	"item_black_king_bar_real"
+	{
+		"ID"                            "9600"
+		"BaseClass"                     "item_minotaur_horn"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"60.0"
+		"ItemCost"						"6000"
+		"ItemPurchasable"				"1"
+		"ItemSellable"				    "1"
+		"ItemIsNeutralDrop"				"0"
+		"AbilityTextureName"			"item_black_king_bar_real"
+		"AbilitySharedCooldown"			"bkb"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_strength"			"40"
+			"duration"					"10"
+		}
+	}
 }
 
 

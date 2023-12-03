@@ -1,0 +1,88 @@
+.point_info_root {
+	width: 100%;
+	height: 100%;
+	flow-children: down;
+}
+.PanelHeader {
+	vertical-align: top;
+	horizontal-align: center;
+	flow-children: down;
+	margin-top: 100px;
+	width: 25%;
+	border-radius: 10px;
+	background-color: gradient( linear, 0% 100%, 0% 10%, from( #1c112ecc ), color-stop( 0.3, #1c112e55 ), color-stop( 0.6, #000000bb ),to( #000000ee) );
+	border: 2px solid #000000;
+}
+.point_info_header {
+	margin-top: 5px;
+	background-color: #00000000;
+	flow-children: right;
+	horizontal-align: center;
+}
+
+.pointHeaderText{
+	font-size: 26px;
+	color:#DAA520FF;
+	text-decoration: underline;
+	text-shadow: 2px 2px 8px 3.0 black;
+}
+.CloseLB{
+	width: 35px;
+	height: 35px;
+	background-image: url("s2r://panorama/images/x_close_png.vtex");
+	background-size: 100% 100%;
+	horizontal-align: right;
+	background-repeat: no-repeat;
+	background-position: center;
+	vertical-align: top;
+	wash-color: #d94848;
+   }
+
+#point_info_container {
+	vertical-align: top;
+	horizontal-align: center;
+	flow-children: down;
+	width: 100%;
+}
+
+.pointInfo {
+	width: 100%;
+	flow-children: down;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-radius: 10px;
+	margin-right: 12px;
+}
+.pointTitleText{
+	font-size: 22px;
+	color:#39A7FF;
+	text-shadow: 2px 2px 8px 3.0 black;
+}
+.pointText {
+	font-size: 28px;
+    color: #FFFFFF99;
+    text-shadow: 2.0px 2.0px 0.0px 1.0 #00000090;
+    text-align: left;
+    horizontal-align: left;
+    vertical-align: top;
+    margin-top: 4px;
+}
+
+.pointIcon{
+	width: 32px;
+	height: 38px;
+	vertical-align: center;
+	margin: 0px 10px 0px 10px;
+}
+
+.pointPanelTitle {
+	margin-top: 5px;
+	margin-left: 10px;
+	flow-children: right;
+	horizontal-align: center;
+}
+.pointPanelRow {
+	margin-left: 10px;
+	flow-children: right;
+	horizontal-align: center;
+}

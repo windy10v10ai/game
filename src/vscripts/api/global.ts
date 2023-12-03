@@ -1,5 +1,4 @@
-
-import { MemberDto, PlayerDto } from "./player";
+import { MemberDto, PlayerDto, PointInfoDto } from "./player";
 
 declare global {
     interface CustomNetTableDeclarations {
@@ -17,6 +16,9 @@ declare global {
         };
         leader_board: {
             top100SteamIds: string[];
+        };
+        point_info: {
+            [steamId: string]: PointInfoDto[];
         };
     }
     function TsPrint(...args: any[]): void;
