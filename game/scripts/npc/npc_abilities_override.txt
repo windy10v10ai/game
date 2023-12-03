@@ -224,15 +224,16 @@
 	"item_cheese"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"						"4000"
+		"ItemCost"						"4000"	// 1000
+		"ItemStockInitial"				"1"
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"300"
 		"ItemPurchasable"				"1"
 		"ItemSellable"                  "1"
 		"AbilityValues"
 		{
-				"health_restore"		"5000"
-				"mana_restore"			"3000"
+				"health_restore"		"5000"	// 2500
+				"mana_restore"			"3000"	// 1500
 		}
 	}
 
@@ -244,16 +245,17 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"1.0"
 		"ItemCost"						"1000"
-		"ItemStockMax"					"99"
-		"ItemStockTime"					"30"
+		"ItemStockInitial"				"5"
+		"ItemStockMax"					"20"
+		"ItemStockTime"					"60"
 		"ItemInitialStockTime"			"0"
 		"ItemInitialStockTimeTurbo"		"0"
 		"ItemStackable"					"1"
 		"AbilityValues"
 		{
-				"mana_regen"			"4.0"
-				"magic_damage_block"	"600"
-				"min_damage"			"100"
+				"mana_regen"			"4.0"	// 0.8
+				"magic_damage_block"	"600"	// 120
+				"min_damage"			"100"	// 75
 				"initial_charges"		"6"
 		}
 	}
@@ -840,10 +842,10 @@
 		{
 			"bonus_health"		"1000"			// 200
 			"bonus_mana"		"1000"			// 200
-			"bonus_all_stats"	"35"			// 7
+			"bonus_all_stats"	"30"			// 7
 			"bonus_mana_regen"	"3.5"			// .7
 			"slow"						"60"	// 50
-			"bonus_spell_damage"		"1000"	// 150
+			"bonus_spell_damage"		"900"	// 150
 			"slow_duration"				"2.5"	// 1.5
 		}
 	}
@@ -905,25 +907,26 @@
     //=================================================================================================================
 	"item_recipe_revenants_brooch"
 	{
+		"ItemCost"						"1800"		// 800
 		"ItemRequirements"
 		{
-			"01"						"item_witch_blade;item_mystic_staff;item_platemail;item_platemail"
+			"01"						"item_witch_blade;item_mystic_staff;item_platemail"
 		}
 	}
 	"item_revenants_brooch"
 	{
-		"AbilityManaCost"				"500"
-		"AbilityCooldown"				"10"		// 25
+		"AbilityManaCost"				"500"		// 300
+		"AbilityCooldown"				"15"		// 25
 		"ItemCost"						"9000"
 		"AbilityValues"
 		{
 				"bonus_armor"			"25"	// 8
 				"int_damage_multiplier"	"1.5"	// 1
 				"passive_cooldown"		"3"		// 9
-				"number_of_attacks"		"40"	// 5
+				"number_of_attacks"		"30"	// 5
 				"active_duration"		"15"	// 15
 				"active_mres_reduction"	"20"	// 20
-				"spell_amp_duration"	"3"	// 3
+				"spell_amp_duration"	"3"		// 3
 		}
 	}
 	//=================================================================================================================

@@ -982,6 +982,9 @@
 		//
 		// /////////////////////////////////////////////////////////////////////////////
 
+		// 贤者石
+		"DOTA_Tooltip_ability_item_philosophers_stone_bonus_mana"       "-$mana"
+
 		// bag_of_gold
         "DOTA_Tooltip_ability_item_bag_of_gold"					"金袋"
 
