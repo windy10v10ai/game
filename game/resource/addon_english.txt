@@ -1483,5 +1483,13 @@
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_mana"				"+$mana"
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_cooldown"				"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_refresh_core_Lore"					"At the core of spellcraft are spectrums only the very gifted can sense."
+
+		// item_black_king_bar_real 真·黑黄杖
+		"DOTA_Tooltip_Ability_item_black_king_bar_real"			                    "<font color='#e03e2e'>Artifact · Real Black King Bar</font>"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Description"					"<h1>Active: Magic immunity</h1>Immune to most magic.<br><br>Duration：%duration%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Lore"						"The Real Black King Bar is back."
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Note0"						"Repeat purchases do not refresh the cooldown."
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Note1"						"Fight hunger, be yourself, and be a real man in 10 seconds."
+		"DOTA_Tooltip_ability_item_black_king_bar_real_bonus_strength"				"+$str"
 	}
 }
