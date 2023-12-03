@@ -83,8 +83,8 @@
 		"item"		"item_shadow_amulet"
 		"item"		"item_ghost"
 		"item"		"item_blink"
-		"item"      "item_recipe_greater_famango"
 		"item"      "item_black_king_bar_real"
+		"item"      "item_recipe_greater_famango"
 	}
 
 	// Level 1 - Green Recipes
