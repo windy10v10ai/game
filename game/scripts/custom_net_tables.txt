@@ -14,5 +14,6 @@
     "member_table",
     "player_table",
     "leader_board",
+    "point_info",
   ]
 }

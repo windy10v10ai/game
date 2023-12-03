@@ -118,7 +118,7 @@
 		"data_panel_season_level"		"赛季等级"
 		"data_panel_season_level_tooltip"		"进行游戏获得赛季积分后，赛季等级将提升。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>100</font>点。"
 		"data_panel_member_level"		"会员等级"
-		"data_panel_member_level_tooltip"		"会员每日登陆可获取60会员积分。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>50</font>点。"
+		"data_panel_member_level_tooltip"		"会员每日登陆可获取100会员积分。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>50</font>点。"
 		"data_panel_level_progress"		"升级进度"
 		// "data_panel_season_end"			"第三赛季结束时间：2023/9/30"
 		// "data_panel_season_end_tooltip"			"赛季结束后将重置赛季等级<br><font color='#E8C07D'>继承50%</font>赛季积分到下个赛季"
@@ -166,7 +166,7 @@
 		//            Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得60会员积分<br/> 会员有效期：{expireDate}"
+		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得100会员积分<br/> 会员有效期：{expireDate}"
 		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期。"
 
 		///////////////////////////////////////////////////
@@ -177,6 +177,13 @@
 		"leaderboard_title"				"赛季排行榜"
 		"leaderboard_rank"				"排名"
 		"leaderboard_name"				"玩家"
+
+		///////////////////////////////////////////////////
+		//
+		//            pointInfo
+		//
+		///////////////////////////////////////////////////
+		"point_header_text"				"通知"
 
 		///////////////////////////////////////////////////
 		//
@@ -1040,6 +1047,13 @@
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_mana"					"+$mana"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_spell_amp"					"%+$spell_amp"
 
+		// 可消耗宝石
+		"DOTA_Tooltip_ability_item_consumable_gem"						"可消耗宝石"
+		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"使用后赋予英雄在%radius%范围内的真视效果。<br>真视增益将持续%duration_minutes%分钟，或在英雄死亡时移除。"
+
+		"DOTA_Tooltip_modifier_consumable_gem_aura"						"真视"
+		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"可以看见周围隐形的单位和首位"
+
         // wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"急速之翼"
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% 移动速度, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% 攻击速度, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复, %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% 魔法恢复。"
@@ -1543,7 +1557,7 @@
 
 		// 死灵法杖
 		"DOTA_Tooltip_ability_item_necronomicon_staff"								"死灵法杖"
-		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>主动：死灵冲击</h1>将一个单位变成无害的小动物。目标的基础移速变为%sheep_movement_speed%，并且被沉默、锁闭和缴械，接下来受到的魔法伤害将会提升%blast_damage_multiplier%%%。<br><br>敌人将会受到%blast_att_multiplier%x[你的全属性]+%blast_damage_base%点魔法伤害。<br><br>施法距离：%abilitycastrange%<br>持续时间：%sheep_duration%秒"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>主动：死灵冲击</h1>将一个单位变成无害的小动物。目标的基础移速变为%sheep_movement_speed%，并且被沉默、锁闭和缴械，并降低敌人 %blast_int_bonus% 点的智力。<br><br>敌人将会受到%blast_att_multiplier%x[你的全属性]+%blast_damage_base%点魔法伤害。<br><br>施法距离：%abilitycastrange%<br>持续时间：%sheep_duration%秒"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_intellect"				"+$int"
@@ -1631,5 +1645,12 @@
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_cooldown"				"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_refresh_core_Lore"					"位于法术技艺核心的，是只有身负异能之人才能感知的光带。"
 
+		// item_black_king_bar_real 真·黑黄杖
+		"DOTA_Tooltip_Ability_item_black_king_bar_real"			                    "<font color='#e03e2e'>神器·真黑黄杖</font>"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Description"					"<h1>主动：魔免</h1>免疫大部分魔法。<br><br>持续时间：%duration%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Lore"						"真正的黑黄杖回来了。"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Note0"						"重复购买不刷新冷却。"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Note1"						"横扫饥饿，做回自己，10秒真男人。"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_bonus_strength"				"+$str"
 	}
 }

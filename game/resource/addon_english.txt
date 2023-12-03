@@ -23,8 +23,8 @@
 		"game_difficulty_n5"	"N5"
 		"game_difficulty_n6"	"N6 (Unfair)"
 
-		"player_gold_xp_multiplier"	"Player Gold&XP Multiplier"
-		"bot_gold_xp_multiplier"	"Bot Gold&XP Multiplier"
+		"player_gold_xp_multiplier"	"Player Gold&XP Multi"
+		"bot_gold_xp_multiplier"	"Bot Gold&XP Multi"
 
 		"radiant_player_number"	"Radiant Player Number"
 		"dire_player_number"	"Dire Player Number"
@@ -117,7 +117,7 @@
 		"data_panel_season_level"		"Season Level"
 		"data_panel_season_level_tooltip"		"After playing the game to get the season points, the season level will be raised.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>100</font> points."
 		"data_panel_member_level"		"Member Level"
-		"data_panel_member_level_tooltip"		"Members can get 60 membership points for daily login.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>50</font> points."
+		"data_panel_member_level_tooltip"		"Members can get 100 membership points for daily login.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>50</font> points."
 		"data_panel_level_progress"		"Level Progress"
 		// "data_panel_season_end"			"Third Season end date: 2023/9/30"
 		// "data_panel_season_end_tooltip"			"Season level will be reset at the end of the season. <br><font color='#E8C07D'>Inherit 50%</font> season points to the next season"
@@ -165,7 +165,7 @@
 		//            Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Respawn time is reduced by 5 seconds.<br/> - Buyback CD is reduced to 2 minutes.<br/> - You can reroll the items lottery once.<br/> - Daily login grants 60 membership points.<br/> Membership is valid until {expireDate}."
+		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Respawn time is reduced by 5 seconds.<br/> - Buyback CD is reduced to 2 minutes.<br/> - You can reroll the items lottery once.<br/> - Daily login grants 100 membership points.<br/> Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired since {expireDate}."
 
 		///////////////////////////////////////////////////
@@ -176,6 +176,13 @@
 		"leaderboard_title"				"Season Leaderboard"
 		"leaderboard_rank"				"Rank"
 		"leaderboard_name"				"Name"
+
+		///////////////////////////////////////////////////
+		//
+		//            pointInfo
+		//
+		///////////////////////////////////////////////////
+		"point_header_text"				"Notice"
 
 		///////////////////////////////////////////////////
 		//
@@ -881,6 +888,13 @@
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_mana"					"+$mana"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_spell_amp"					"%+$spell_amp"
 
+		// 可消耗宝石
+		"DOTA_Tooltip_ability_item_consumable_gem"						"Consumable Gem"
+		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"On activation, gives the hero true sight within %radius% range.<br> True Sight buff will last %duration_minutes% minutes or be removed until death."
+
+		"DOTA_Tooltip_modifier_consumable_gem_aura"						"True Sight"
+		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"See invisible units and wards."
+
         // wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Wings of Haste"
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% movement speed, %MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regen, %MODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen."
@@ -1389,7 +1403,7 @@
 
 		// 死灵法杖
 		"DOTA_Tooltip_ability_item_necronomicon_staff"								"Necronomicon Staff"
-		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>Active: Necronomicon Blast</h1>Turns a target unit into a harmless critter for %sheep_duration% seconds. The target has a base movement speed of %sheep_movement_speed% and will be silenced, muted, disarmed and takes %blast_damage_multiplier%%% more magic damage.<br><br>Enemy takes %blast_att_multiplier%x your all attribute + %blast_damage_base% as magical damage.<br><br>Range: %abilitycastrange%<br>Duration: %sheep_duration% seconds"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>Active: Necronomicon Blast</h1>Turns a target unit into a harmless critter for %sheep_duration% seconds. The target has a base movement speed of %sheep_movement_speed% and will be silenced, muted, disarmed and reduce enemy %blast_int_bonus% intelligence.<br><br>Enemy takes %blast_att_multiplier%x your all attribute + %blast_damage_base% as magical damage.<br><br>Range: %abilitycastrange%<br>Duration: %sheep_duration% seconds"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_intellect"				"+$int"
@@ -1477,5 +1491,12 @@
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_cooldown"				"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_refresh_core_Lore"					"At the core of spellcraft are spectrums only the very gifted can sense."
 
+		// item_black_king_bar_real 真·黑黄杖
+		"DOTA_Tooltip_Ability_item_black_king_bar_real"			                    "<font color='#e03e2e'>Real Black King Bar</font>"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Description"					"<h1>Active: Magic immunity</h1>Immune to most magic.<br><br>Duration：%duration%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Lore"						"The Real Black King Bar is back."
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Note0"						"Repeat purchases do not refresh the cooldown."
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Note1"						"Fight hunger, be yourself, and be a real man in 10 seconds."
+		"DOTA_Tooltip_ability_item_black_king_bar_real_bonus_strength"				"+$str"
 	}
 }
