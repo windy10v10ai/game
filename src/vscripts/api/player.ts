@@ -31,18 +31,28 @@ export class PlayerDto {
 	memberNextLevelPoint!: number;
 	properties?: PlayerProperty[];
 }
-
+export class PointInfoDto {
+	steamId!: number;
+	title!: {
+		cn: string;
+		en: string;
+	};
+	seasonPoint?: number;
+	memberPoint?: number;
+}
 
 class GameStart {
 	members!: MemberDto[];
 	players!: PlayerDto[];
 	top100SteamIds!: string[];
+	pointInfo!: PointInfoDto[];
 }
-
 
 export class Player {
 	public static memberList: MemberDto[] = [];
 	public static playerList: PlayerDto[] = [];
+	// PointInfoDto
+	public static pointInfoList: PointInfoDto[] = [];
 	constructor() {
 		this.RegisterListener();
 		// if (IsInToolsMode()) {
@@ -90,6 +100,7 @@ export class Player {
 		DeepPrintTable(gameStart);
 		Player.memberList = gameStart.members;
 		Player.playerList = gameStart.players;
+		Player.pointInfoList = gameStart.pointInfo;
 		const top100SteamIds = gameStart.top100SteamIds;
 
 		CustomNetTables.SetTableValue("leader_board", "top100SteamIds", top100SteamIds);
@@ -97,6 +108,8 @@ export class Player {
 		// set member to member table
 		Player.savePlayerToNetTable();
 		Player.saveMemberToNetTable();
+		// set point info to point info table
+		Player.savePointInfoToNetTable();
 
 		const status = Player.playerList.length > 0 ? 2 : 3;
 		CustomNetTables.SetTableValue("loading_status", "loading_status", { status });
@@ -135,6 +148,20 @@ export class Player {
 				if (member) {
 					// set key as short dotaId
 					CustomNetTables.SetTableValue("member_table", steamId.toString(), member);
+				}
+			}
+		}
+	}
+
+	public static savePointInfoToNetTable() {
+		for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
+			if (PlayerResource.IsValidPlayer(i)) {
+				// 32bit steamId
+				const steamId = PlayerResource.GetSteamAccountID(i);
+				const steamIdPointInfoList = Player.pointInfoList.filter(p => p.steamId == steamId);
+				if (steamIdPointInfoList.length > 0) {
+					// set key as short dotaId
+					CustomNetTables.SetTableValue("point_info", steamId.toString(), steamIdPointInfoList);
 				}
 			}
 		}

@@ -1,0 +1,50 @@
+<root>
+	<styles>
+		<include src="file://{resources}/layout/custom_game/point_info/point_info.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/long.js" />
+		<include src="file://{resources}/scripts/custom_game/utils.js" />
+		<include src="file://{resources}/layout/custom_game/point_info/point_info.js" />
+	</scripts>
+
+	<Panel hittest="false" class="point_info_root">
+		<Panel id="panel_id" class="PanelHeader">
+			<Panel class="point_info_header">
+				<Label class="pointHeaderText" text="#point_header_text" />
+				<Button class="CloseLB" onactivate="ToggleLB()" />
+			</Panel>
+
+			<Panel id="point_info_container" />
+
+		</Panel>
+	</Panel>
+
+	<snippets>
+		<snippet name="PointInfoSnippet">
+			<Panel class="pointInfo">
+				<Panel class="pointPanelTitle" id="pointInfoTitle1">
+					<Label class="pointTitleText" text="{s:point_info_title_text1}" />
+				</Panel>
+				<Panel class="pointPanelTitle" id="pointInfoTitle2">
+					<Label class="pointTitleText" text="{s:point_info_title_text2}" />
+				</Panel>
+				<Panel class="pointPanelRow" id="pointInfoPoint">
+					<Panel class="pointPanelRow" id="panelSeasonPoint">
+						<Label class="pointText" text="+" />
+						<Label class="pointText" text="{s:point_info_seasonPoint}" />
+						<Image class="pointIcon"
+							src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex" />
+					</Panel>
+					<Panel class="pointPanelRow" id="panelMemberPointt">
+						<Label class="pointText" text="+" />
+						<Label class="pointText" text="{s:point_info_memberPoint}" />
+						<Image class="pointIcon"
+							src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex" />
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+</root>
