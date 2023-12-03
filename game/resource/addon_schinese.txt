@@ -1638,5 +1638,12 @@
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_cooldown"				"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_refresh_core_Lore"					"位于法术技艺核心的，是只有身负异能之人才能感知的光带。"
 
+		// item_black_king_bar_real 真·黑黄杖
+		"DOTA_Tooltip_Ability_item_black_king_bar_real"			                    "<font color='#e03e2e'>神器·真黑黄杖</font>"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Description"					"<h1>主动：魔免</h1>免疫大部分魔法。<br><br>持续时间：%duration%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Lore"						"真正的黑黄杖回来了。"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Note0"						"重复购买不刷新冷却。"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_Note1"						"横扫饥饿，做回自己，10秒真男人。"
+		"DOTA_Tooltip_ability_item_black_king_bar_real_bonus_strength"				"+$str"
 	}
 }

@@ -11,7 +11,6 @@ function AIGameMode:SpecialItemAdd(owner)
 	local tier = {}
 
 	tier[1] =	{
-		"item_infused_raindrop",		-- 凝魂之露
 		"item_bottle",					-- 魔瓶
 		"item_cloak",					-- 抗魔斗篷
 		"item_crown",					-- 王冠
@@ -29,6 +28,7 @@ function AIGameMode:SpecialItemAdd(owner)
 	}
 
 	tier[2] =	{
+		"item_infused_raindrop",		-- 凝魂之露
 		"item_ogre_axe",				-- 力量+10
 		"item_blade_of_alacrity",		-- 敏捷+10
 		"item_staff_of_wizardry",		-- 智力+10
