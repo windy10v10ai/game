@@ -165,7 +165,7 @@
 	"item_famango"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"                      "500"
+		"ItemCost"                      "0"
 		"ItemSellable"                  "1"
 		"ItemStackable"                 "1"
 		"AbilityValues"
@@ -176,7 +176,7 @@
 	"item_great_famango"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"                      "1000"
+		"ItemCost"                      "0"
 		"ItemSellable"                  "1"
 		"ItemStackable"                 "1"
 		"AbilityValues"
@@ -187,7 +187,7 @@
 	"item_greater_famango"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"                      "3000"
+		"ItemCost"                      "0"
 		"ItemSellable"                  "1"
 		"ItemStackable"                 "1"
 		"AbilityValues"
@@ -270,8 +270,8 @@
 	{
 		"AbilityValues"
 		{
-				"bonus_gpm"			"1500"
-				"bonus_mana"		"-1000"
+				"bonus_gpm"			"1200"
+				"bonus_mana"		"-800"
 				"bonus_damage"		"-300"
 		}
 	}
@@ -280,28 +280,13 @@
 	//=================================================================================================================
 	"item_poor_mans_shield"
 	{
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"12"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_block_melee"	"40"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_block_ranged"	"30"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_chance"			"80"
-			}
+				"bonus_agility"			"15"		// 8
+				"damage_block_melee"	"50"	// 30
+				"damage_block_ranged"	"40"	// 20
+				"block_chance"			"80"	// 50
+				"block_chance_hero"		"100"	// 100
 		}
 	}
 	"item_chipped_vest"
@@ -333,9 +318,9 @@
 	{
 		"AbilityValues"
 		{
-			"attack_lifesteal"			"45"
-			"spell_lifesteal"			"60"
-			"night_vision"			"500"
+			"attack_lifesteal"			"30"		// 15
+			"spell_lifesteal"			"45"		// 10
+			"night_vision"			"500"			// 300
 			"creep_lifesteal_reduction_pct"	"40"
 		}
 	}
@@ -343,8 +328,8 @@
 	{
 		"AbilityValues"
 		{
-				"bonus_primary_stat"		"30"
-				"bonus_secondary_stat"			"10"
+				"bonus_primary_stat"		"20"
+				"bonus_secondary_stat"			"6"
 				"bonus_spell_amp"		"16"
 				"bonus_magic_resistance"	"20"
 				"bonus_attack_speed"	"40"
@@ -352,23 +337,11 @@
 	}
 	"item_mysterious_hat" //仙灵饰品
 	{
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"800"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_amp"			"16"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"manacost_reduction"			"16"
-			}
+				"bonus_health"			"400"			// 75
+				"spell_amp"				"12"			// 5
+				"manacost_reduction"	"12"			// 5
 		}
 	}
 	"item_imp_claw"
@@ -384,41 +357,23 @@
 			}
 		}
 	}
-	"item_grove_bow"
+	"item_grove_bow"	// 林野长弓
 	{
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_range_bonus"			"50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed_bonus"			"30"
-			}
+			"attack_range_bonus"			"75"		// 100
+			"attack_speed_bonus"			"30"		// 20
+			"magic_resistance_reduction"		"30"	// 15
 		}
 	}
-	"item_orb_of_destruction"
+	"item_orb_of_destruction"	// 毁灭灵球
 	{
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"			"5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_melee"			"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_range"			"20"
-			}
+				"armor_reduction"		"5"		// 3
+				"slow_melee"			"30"	// 20
+				"slow_range"			"20"	// 10
+				"duration"				"4"
 		}
 	}
 	"item_titan_sliver"
