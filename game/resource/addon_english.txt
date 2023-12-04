@@ -896,7 +896,7 @@
 		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"On activation, gives the hero true sight within %radius% range.<br> True Sight buff will last %duration_minutes% minutes or be removed until death."
 
 		"DOTA_Tooltip_modifier_consumable_gem_aura"						"True Sight"
-		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"See invisible units and wards."
+		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"Grants the ability to see invisible units and wards to any allied vision within <b>900</b> range of its carrier."
 
         // wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Wings of Haste"

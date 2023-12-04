@@ -1054,8 +1054,8 @@
 		"DOTA_Tooltip_ability_item_consumable_gem"						"可消耗宝石"
 		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"使用后赋予英雄在%radius%范围内的真视效果。<br>真视增益将持续%duration_minutes%分钟，或在英雄死亡时移除。"
 
-		"DOTA_Tooltip_modifier_consumable_gem_aura"						"真视"
-		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"可以看见周围隐形的单位和首位"
+		"DOTA_Tooltip_modifier_consumable_gem_aura"						"真实视域"
+		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"携带者自身和周围友方单位可以看见<b>900</b>范围内的隐身单位和守卫。"
 
         // wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"急速之翼"
