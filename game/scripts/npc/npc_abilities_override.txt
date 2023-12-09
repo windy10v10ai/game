@@ -263,39 +263,33 @@
 	// Custom item Override 中立物品
 	//=================================================================================================================
 	// level 1
-	//=================================================================================================================
-	// Philosopher's Stone 贤者石
-	//=================================================================================================================
-	"item_philosophers_stone"
+	"item_philosophers_stone" //贤者石
 	{
 		"AbilityValues"
 		{
-				"bonus_gpm"			"1200"
+				"bonus_gpm"			"1000"
 				"bonus_mana"		"-800"
-				"bonus_damage"		"-300"
+				"bonus_damage"		"-350"
 		}
 	}
-	//=================================================================================================================
-	// Poor Man's Shield 穷鬼盾
-	//=================================================================================================================
-	"item_poor_mans_shield"
+	"item_poor_mans_shield" //穷鬼盾
 	{
 		"AbilityValues"
 		{
-				"bonus_agility"			"15"		// 8
+				"bonus_agility"			"15"	// 8
 				"damage_block_melee"	"50"	// 30
 				"damage_block_ranged"	"40"	// 20
 				"block_chance"			"80"	// 50
 				"block_chance_hero"		"100"	// 100
 		}
 	}
-	"item_chipped_vest"
+	"item_chipped_vest" //碎裂背心
 	{
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
+				"var_type"			"FIELD_FLOAT"
 				"hp_regen"			"6"
 			}
 			"02"
@@ -311,9 +305,6 @@
 		}
 	}
 	// level 2
-	//=================================================================================================================
-	// Fairy's Trinket
-	//=================================================================================================================
 	"item_vampire_fangs" //吸血鬼獠牙
 	{
 		"AbilityValues"
@@ -344,29 +335,28 @@
 				"manacost_reduction"	"12"			// 5
 		}
 	}
-	"item_imp_claw"
+	"item_imp_claw" //魔童之爪 暴击爪
 	{
-		"AbilityCooldown"				"4.0"
-
+		"AbilityCooldown"				"1.5"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"crit_multiplier"	"160"
+				"crit_multiplier"	"150"
 			}
 		}
 	}
-	"item_grove_bow"	// 林野长弓
+	"item_grove_bow" //林野长弓
 	{
 		"AbilityValues"
 		{
 			"attack_range_bonus"			"75"		// 100
-			"attack_speed_bonus"			"30"		// 20
-			"magic_resistance_reduction"		"30"	// 15
+			"attack_speed_bonus"			"40"		// 20
+			"magic_resistance_reduction"		"20"	// 15
 		}
 	}
-	"item_orb_of_destruction"	// 毁灭灵球
+	"item_orb_of_destruction" //毁灭灵球
 	{
 		"AbilityValues"
 		{
@@ -376,22 +366,7 @@
 				"duration"				"4"
 		}
 	}
-	"item_titan_sliver"
-	{
-		"AbilitySpecial"
-		{
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resistance"			"20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"status_resistance"			"20"
-			}
-		}
-	}
+	//level 3
 	"item_mind_breaker" //智灭
 	{
 		"AbilityCooldown"				"8.0"
@@ -408,7 +383,7 @@
 		{
 			"bonus_attack_speed"	"80"
 			"bonus_damage"			"100"
-			"bonus_armor"			"30"
+			"bonus_armor"			"40"
 			"bonus_slow_resist"		"100"
 		}
 	}
@@ -424,6 +399,14 @@
 	}
 
 	// level 4
+	"item_titan_sliver" //巨神残铁
+	{
+		"AbilityValues"
+		{
+				"magic_resistance"			"20"		// 16
+				"status_resistance"			"20"		// 10
+		}
+	}
 	"item_martyrs_plate" //烈士鳞甲
 	{
 		"AbilityCooldown"				"30"
@@ -456,15 +439,7 @@
 			"duration"			"4.5"
 		}
 	}
-	"item_timeless_relic" //永恒遗物
-	{
-		"AbilityValues"
-		{
-			"debuff_amp"		"50"
-			"spell_amp"			"60"
-		}
-	}
-	"item_penta_edged_sword"
+	"item_penta_edged_sword" //五锋长剑
 	{
 		"AbilitySpecial"
 		{
@@ -485,7 +460,7 @@
 			}
 		}
 	}
-	"item_minotaur_horn"
+	"item_minotaur_horn" //恶牛角
 	{
 		"AbilitySpecial"
 		{
@@ -501,7 +476,7 @@
 			}
 		}
 	}
-	"item_ninja_gear"
+	"item_ninja_gear" //忍者用具 单人雾
 	{
 		"AbilityCooldown"				"35.0"
 
@@ -529,7 +504,7 @@
 			}
 		}
 	}
-	"item_trickster_cloak"
+	"item_trickster_cloak" //欺诈师斗篷
 	{
 		"AbilityCooldown"				"20.0"
 
@@ -547,20 +522,7 @@
 			}
 		}
 	}
-	// level 5
-	"item_demonicon"
-	{
-		"AbilityCooldown"				"60.0"
-		"AbilitySpecial"
-		{
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"summon_duration"				"35"
-			}
-		}
-	}
-	"item_spell_prism"
+	"item_spell_prism" //法术棱镜
 	{
 		"AbilitySpecial"
 		{
@@ -581,7 +543,24 @@
 			}
 		}
 	}
-	"item_mirror_shield"
+	// level 5
+	"item_timeless_relic" //永恒遗物
+	{
+		"AbilityValues"
+		{
+			"debuff_amp"		"35"	// 20
+			"spell_amp"			"50"	// 15
+		}
+	}
+	"item_demonicon" //大死灵书 冥灵书
+	{
+		"AbilityCooldown"				"60.0"
+		"AbilityValues"
+		{
+				"summon_duration"		"35"	// 75
+		}
+	}
+	"item_mirror_shield" //神镜盾
 	{
 		"AbilitySpecial"
 		{
@@ -602,7 +581,7 @@
 			}
 		}
 	}
-	"item_book_of_shadows"
+	"item_book_of_shadows" //暗影邪典
 	{
 		"AbilitySpecial"
 		{
@@ -618,7 +597,7 @@
 			}
 		}
 	}
-	"item_ballista"
+	"item_ballista" //弩炮
 	{
 		"AbilitySpecial"
 		{
@@ -639,8 +618,7 @@
 			}
 		}
 	}
-	// level 6
-	"item_seer_stone"
+	"item_seer_stone" //先哲之石
 	{
 		"AbilityCooldown"				"60"
 		"AbilitySpecial"
@@ -670,7 +648,7 @@
 			"primary_stat_universal"	"30"
 		}
 	}
-	"item_desolator_2"
+	"item_desolator_2" //寂灭
 	{
 		"AbilitySpecial"
 		{
@@ -686,7 +664,7 @@
 			}
 		}
 	}
-	"item_giants_ring"
+	"item_giants_ring" //巨人戒
 	{
 		"AbilityValues"
 		{
@@ -697,8 +675,7 @@
 			"damage_radius"			"250"
 		}
 	}
-	// the leveller 平世剑
-	"item_the_leveller"
+	"item_the_leveller"	//平世剑
 	{
 		"AbilityValues"
 		{
@@ -707,8 +684,7 @@
 				"demolish"			"30"
 		}
 	}
-	// 机械之心
-	"item_ex_machina"
+	"item_ex_machina" //机械之心
 	{
 		"AbilityCooldown"				"30.0"
 		"AbilitySpecial"
@@ -720,8 +696,8 @@
 			}
 		}
 	}
-	// 其他中立
-	"item_helm_of_the_undying"
+	//其他中立
+	"item_helm_of_the_undying" //不朽尸王头盔（出问题随时移除）
 	{
 		"AbilitySpecial"
 		{
