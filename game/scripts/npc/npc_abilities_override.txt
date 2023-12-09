@@ -8032,9 +8032,14 @@
 					"value"			"30.0"
 					"special_bonus_unique_razor_401"    "+20"
 				}
+				"strike_interval"
+				{
+					"value"		"0.7 0.6 0.5 0.4 0.3"
+					"LinkedSpecialBonus"	"special_bonus_unique_razor_2"
+				}
 				"damage"
 				{
-					"value"			"30.0"
+					"value"			"30.0 35.0 40.0 45.0 50.0"
 					"special_bonus_unique_razor_402"    "+60"
 				}
 		}
@@ -12084,22 +12089,20 @@
 	"shadow_demon_shadow_poison"
 	{
 		"MaxLevel" "5"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stack_damage"			"24 36 48 60 72"
-				"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_4"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
-			}
-			"06" //Damage that is applied every time shadow poison is applied.
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hit_damage"			"26 34 42 50 58"
-				"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_4"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
-			}
+				"stack_damage"
+				{
+					"value"			"24 36 48 60 72"
+					"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_4"
+					"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
+				}
+				"hit_damage"
+				{
+					"value"			"30 40 50 60 70"
+					"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_4"
+					"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
+				}
 		}
 	}
 	"shadow_demon_demonic_purge"
