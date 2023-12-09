@@ -174,7 +174,7 @@ function AIGameMode:PreGameOptions()
     gameMode:SetCustomBuybackCostEnabled(true)
 
     -- 每点敏捷提供护甲
-    gameMode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.143)
+    gameMode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.133)
 
     if self.bSameHeroSelection == 1 then
         GameRules:SetSameHeroSelectionEnabled(true)
