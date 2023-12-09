@@ -1,6 +1,6 @@
 (function () {
 	$.Msg("point_info.js loaded");
-	$.Schedule(0.1, OnDataLoaded);
+	$.Schedule(1, OnDataLoaded);
 })();
 
 function OnDataLoaded() {
@@ -12,7 +12,7 @@ function OnDataLoaded() {
 	$.Msg("point_info.js OnDataLoaded", data);
 
 	if (data == null) {
-		$.Schedule(0.5, OnDataLoaded);
+		// $.Schedule(0.5, OnDataLoaded);
 		return;
 	}
 
