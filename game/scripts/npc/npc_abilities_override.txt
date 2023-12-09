@@ -6276,18 +6276,16 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"14 12 10 8 6"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"radius"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"250 350 450 550 650"
+				"value"			"250 350 450 550 650"
+				"affected_by_aoe_increase"	"1"
 			}
-
-			"02"
+			"bonus_hero_damage"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_hero_damage"			"60 90 120 150 180"
+				"value"		"60 90 120 150 180"
 				"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_6"
 				"CalculateSpellDamageTooltip"	"0"
 			}
