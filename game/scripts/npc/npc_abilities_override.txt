@@ -4654,26 +4654,14 @@
 	"slardar_bash"
 	{
 		"MaxLevel" "7"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"bonus_damage"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"50 100 150 200 250 300 350"
-				"LinkedSpecialBonus"	"special_bonus_unique_slardar_2"
+				"value"		"50 100 150 200 250 300 350"
+				"special_bonus_unique_slardar_2"	"+100"
 			}
-		}
-	}
-	"special_bonus_unique_slardar_2"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"100"
-				"ad_linked_abilities"			"slardar_bash"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
+			"river_damage"			"8 16 24 32 40 48 56"
 		}
 	}
 	"slardar_amplify_damage"
