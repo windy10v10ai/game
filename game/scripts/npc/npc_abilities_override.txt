@@ -1155,7 +1155,7 @@
 	{
 		"ID"							"72"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 
-		"ItemCost"						"255"
+		"ItemCost"						"305"
 		"ItemShopTags"					""
 
 		"ItemRecipe"					"1"
@@ -1178,7 +1178,7 @@
 		"ItemBaseLevel"					"1"
 		"ItemLevelByGameTime"			"2"
 
-		"ItemCost"						"550"
+		"ItemCost"						"600"
 		"ItemShopTags"					"damage;int;agi;str"
 		"ItemQuality"					"common"
 		"ItemAliases"					"bracer"
@@ -1204,7 +1204,7 @@
 	{
 		"ID"							"74"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 
-		"ItemCost"						"255"
+		"ItemCost"						"305"
 		"ItemShopTags"					""
 
 		"ItemRecipe"					"1"
@@ -1227,7 +1227,7 @@
 		"ItemBaseLevel"					"1"
 		"ItemLevelByGameTime"			"2"
 
-		"ItemCost"						"550"
+		"ItemCost"						"600"
 		"ItemShopTags"					"damage;int;agi;str"
 		"ItemQuality"					"common"
 		"ItemAliases"					"wraith band"
@@ -1252,7 +1252,7 @@
 	{
 		"ID"							"76"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 
-		"ItemCost"						"255"
+		"ItemCost"						"305"
 		"ItemShopTags"					""
 
 		"ItemRecipe"					"1"
@@ -1275,7 +1275,7 @@
 		"ItemBaseLevel"					"1"
 		"ItemLevelByGameTime"			"2"
 
-		"ItemCost"						"550"
+		"ItemCost"						"600"
 		"ItemShopTags"					"damage;int;agi;str"
 		"ItemQuality"					"common"
 		"ItemAliases"					"null talisman"
@@ -1287,7 +1287,7 @@
 			"bonus_intellect"		"10 20"
 			"bonus_strength"		"5 10"
 			"bonus_agility"			"5 10"
-			"bonus_max_mana_percentage"	"10 20"
+			"bonus_max_mana_percentage"	"5 10"
 			"bonus_mana_regen"		"3 6"
 			"clock_time"			"2"
 		}

@@ -1560,7 +1560,7 @@
 
 		// 死灵法杖
 		"DOTA_Tooltip_ability_item_necronomicon_staff"								"死灵法杖"
-		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>主动：死灵冲击</h1>将一个单位变成无害的小动物。目标的基础移速变为%sheep_movement_speed%，并且被沉默、锁闭和缴械，并降低敌人 %blast_int_bonus% 点的智力。<br><br>敌人将会受到%blast_att_multiplier%x[你的全属性]+%blast_damage_base%点魔法伤害。<br><br>施法距离：%abilitycastrange%<br>持续时间：%sheep_duration%秒"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>主动：死灵冲击</h1>将一个单位变成无害的小动物。目标的基础移速变为%sheep_movement_speed%，并且被沉默、锁闭和缴械，并降低敌人 %blast_int_percent%%% 点的智力。<br><br>敌人将会受到%blast_att_multiplier%x[你的全属性]+%blast_damage_base%点魔法伤害。<br><br>施法距离：%abilitycastrange%<br>持续时间：%sheep_duration%秒"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_intellect"				"+$int"
