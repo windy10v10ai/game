@@ -2255,12 +2255,12 @@
 		{
 			"base_damage"
 			{
-				"value"			"40 60 80 100 120"
+				"value"			"50 75 100 125 150"
 				"CalculateSpellDamageTooltip" "1"
 			}
 			"base_heal"
 			{
-				"value"				"45 70 95 120 145"
+				"value"				"80 120 160 200 240"
 				"special_bonus_scepter"	"+15 20 25 30 35"
 			}
 			"land_damage"			"130 160 190 220 250"
