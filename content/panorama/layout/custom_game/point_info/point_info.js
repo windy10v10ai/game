@@ -13,17 +13,16 @@ function OnDataLoaded() {
 
 	if (data == null) {
 		$.Schedule(0.5, OnDataLoaded);
-
-		// if data is null, panel is hidden
-		$('#panel_id').style.opacity = '0.0';
-		$('#panel_id').style.visibility = 'collapse';
-
 		return;
 	}
 
 	for (const index in data) {
 		AddPointInfo(data[index]);
 	}
+
+	// panel is displayed
+	$('#panel_id').style.opacity = '1.0';
+	$('#panel_id').style.visibility = 'visible';
 }
 
 function AddPointInfo(data) {
@@ -69,22 +68,12 @@ function AddPointInfo(data) {
 	}
 }
 
-function ToggleLB(){
-	let state = $('#panel_id');
-	if (state.style.opacity == '0.0' || state.style.opacity == null){
-		Game.EmitSound( "ui.match_open" );
-		state.style.transitionDuration = '0s';
-		state.style.transform = 'translateX(-400px) translateY(-150px)';
-		state.style.visibility = "visible";
-		state.style.transitionDuration = '0.4s';
-		state.style.opacity = '1.0';
-		state.style.transform = 'none';
-	}
-	else{
-		Game.EmitSound( "ui.match_close" );
-		state.style.transitionDuration = '0.25s';
-		state.style.opacity = '0.0';
-		state.style.transform = 'translateX(200px) translateY(150px)';
-		$.Schedule(0.25, CollapseLB);
-	}
+const _ui_RootPanel = $("#panel_id");
+
+function OnClick_CloseView() {
+    $.Msg('==>  Popup Pay close: ', _ui_RootPanel.id);
+
+	 // panel is hidden
+	_ui_RootPanel.style.opacity = '0.0';
+	_ui_RootPanel.style.visibility = 'collapse';
 }
