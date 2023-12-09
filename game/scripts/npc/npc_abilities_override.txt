@@ -7013,25 +7013,10 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"19 18 17 16 15"
 		"AbilityDamage"					"60 150 240 330 420"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"arrow_max_stun"	"3.0 3.5 4.0 4.5 5.0"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"scepter_radius"		"600"
-				"RequiresScepter"		"1"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"scepter_starstorm_target_pct"		"60"
-				"RequiresScepter"		"1"
-			}
+				"arrow_bonus_damage"	"150 200 250 300 350"
 		}
 	}
 	"mirana_invis"
@@ -7671,15 +7656,14 @@
 		"AbilityManaCost"				"75 80 85 90 95"
 		"LinkedAbility"					"pangolier_heartpiercer"
 		"AbilityDraftPreAbility"		"pangolier_heartpiercer"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"45 65 85 105 125"
-				"LinkedSpecialBonus"	"special_bonus_unique_pangolier_3"
-				"CalculateSpellDamageTooltip"	"0"
-			}
+				"damage"
+				{
+					"value"		"50 75 100 125 150"
+					"LinkedSpecialBonus"	"special_bonus_unique_pangolier_3"
+					"CalculateSpellDamageTooltip"	"0"
+				}
 		}
 	}
 	"special_bonus_unique_pangolier_3"
@@ -8041,32 +8025,19 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"80 75 70 65 60"
 		"AbilityManaCost"				"100 150 200 250 300"
-        "AbilitySpecial"
-        {
-            "02"
-            {
-                "var_type"			"FIELD_FLOAT"
-                "duration"			"30"
-                "special_bonus_unique_razor_401"    "+20"
-            }
-            "03"
-            {
-                "var_type"				"FIELD_FLOAT"
-                "strike_interval"		"0.7 0.6 0.6 0.5 0.5"
-                "LinkedSpecialBonus"	"special_bonus_unique_razor_2"
-            }
-            "04"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "armor_reduction"	"1"
-            }
-            "05"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "damage"			"100 130 160 190 220"
-                "LinkedSpecialBonus"    "special_bonus_unique_razor_402"
-            }
-        }
+		"AbilityValues"
+		{
+				"duration"
+				{
+					"value"			"30.0"
+					"special_bonus_unique_razor_401"    "+20"
+				}
+				"damage"
+				{
+					"value"			"30.0"
+					"special_bonus_unique_razor_402"    "+60"
+				}
+		}
 	}
 	"special_bonus_unique_razor_401"
     {
@@ -8077,17 +8048,8 @@
     "special_bonus_unique_razor_402"
     {
         "BaseClass"					"special_bonus_undefined"
-        "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"					"FIELD_FLOAT"
-                "value"				        "+60"
-                "ad_linked_abilities"		"razor_eye_of_the_storm"
-            }
-        }
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
     }
 	//=================================================================================================================
 	// Ability: Riki 力丸/隐刺/SA
