@@ -6239,25 +6239,19 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"13 12 11 10 9"
 		"AbilityManaCost"				"80 90 100 110 120"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"duration"						"1.5 2.0 2.5 3.0 3.5"
-				"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_2"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
+				"duration"
+				{
+					"value"		"1.5 2.0 2.5 3.0 3.5"
+					"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_2"
+				}
 				"damage_per_second"				"50 70 90 110 130"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"unit_count"					"3"
-				"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_7"
-			}
+				"unit_count"
+				{
+					"value"			"3"
+					"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_7"
+				}
 		}
 	}
 	"special_bonus_unique_ember_spirit_7"
@@ -6314,7 +6308,7 @@
 				"radius"						"400"
 				"absorb_amount"
 				{
-					"value"					"100 200 300 400 500 600 700"
+					"value"					"150 300 450 600 800 1000 1200"
 					"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_1"
 				}
 				"tick_interval"					"0.2"
@@ -7689,6 +7683,13 @@
 			{
 				"value"					"70 140 210 280 350"
 				"CalculateSpellDamageTooltip"	"1"
+			}
+			"base_shield"	"0"
+			"hero_shield"
+			{
+				"value"	"50 100 150 200"
+				"special_bonus_unique_pangolier_shield_crash_herostacks"		"+100"
+
 			}
 			"hero_stacks"
 			{
