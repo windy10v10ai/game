@@ -128,7 +128,11 @@ function modifier_item_necronomicon_staff_debuff:OnCreated(params)
 	self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor("sheep_movement_speed")
 	-- self.blast_damage_multiplier = self:GetAbility():GetSpecialValueFor("blast_damage_multiplier")
 
-	self.blast_int_bonus = self:GetAbility():GetSpecialValueFor("blast_int_bonus")
+	self.blast_int_bonus = 0
+	self.blast_int_percent = self:GetAbility():GetSpecialValueFor("blast_int_percent")
+	if self:GetParent():IsHero() then
+		self.blast_int_bonus = self:GetParent():GetIntellect() * self.blast_int_percent * 0.01
+	end
 
 	local model_list = {"models/props_gameplay/pig.vmdl","models/props_gameplay/sheep01.vmdl"}
 	self.model_file = model_list[RandomInt(1,#model_list)]

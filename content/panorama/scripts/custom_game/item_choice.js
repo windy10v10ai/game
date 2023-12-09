@@ -26,7 +26,7 @@ function ShowItemChoice(keys) {
 	for (var i = 1; i <= 4; i++) {
 		$('#item_choice_' + i).itemname = keys[i]
 	}
-	$('#remaining_time').value = 300;
+	$('#remaining_time').value = 400;
 	$('#item_choice_container').style.visibility = 'visible';
 	$.Schedule(0.03, TickItemTime);
 }
@@ -39,7 +39,7 @@ function TickItemTime() {
 		if ($('#remaining_time').value <= 0) {
 			MakeItemChoice( Math.floor(Math.random() * 3) + 1)
 		} else {
-			$('#remaining_time').style.width = ($('#remaining_time').value / 3) + '%';
+			$('#remaining_time').style.width = ($('#remaining_time').value / 4) + '%';
 			$.Schedule(0.03, TickItemTime);
 		}
 	}
@@ -51,7 +51,7 @@ function MakeItemChoice(slot) {
 
 	GameEvents.SendCustomGameEventToServer("item_choice_made", {owner_entindex: owner_index, item: item});
 
-	$('#remaining_time').value = 300;
+	$('#remaining_time').value = 400;
 	$('#remaining_time').style.width = '100%';
 	$('#item_choice_container').style.visibility = 'collapse';
 }
