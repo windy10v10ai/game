@@ -1,10 +1,5 @@
 ## 变更内容 Change Log
-
 - [ ] fix #9999
-
-## Checklist
-
-- [ ] 更新游戏版本号
 
 ## Releas Note
 
