@@ -1,6 +1,7 @@
 <root>
 	<styles>
 		<include src="file://{resources}/layout/custom_game/point_info/point_info.css" />
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 	</styles>
 
 	<scripts>
@@ -13,11 +14,10 @@
 		<Panel id="panel_id" class="PanelHeader">
 			<Panel class="point_info_header">
 				<Label class="pointHeaderText" text="#point_header_text" />
-				<Button class="CloseLB" onactivate="ToggleLB()" />
 			</Panel>
 
 			<Panel id="point_info_container" />
-
+			<TextButton id="CloseButton" class="ButtonBevel" onactivate="OnClick_CloseView()" text="#DOTA_Ok" />
 		</Panel>
 	</Panel>
 

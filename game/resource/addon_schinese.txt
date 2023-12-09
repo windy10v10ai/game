@@ -982,6 +982,9 @@
 		//
 		// /////////////////////////////////////////////////////////////////////////////
 
+		// 贤者石
+		"DOTA_Tooltip_ability_item_philosophers_stone_bonus_mana"       "-$mana"
+
 		// bag_of_gold
         "DOTA_Tooltip_ability_item_bag_of_gold"					"金袋"
 
@@ -1051,8 +1054,8 @@
 		"DOTA_Tooltip_ability_item_consumable_gem"						"可消耗宝石"
 		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"使用后赋予英雄在%radius%范围内的真视效果。<br>真视增益将持续%duration_minutes%分钟，或在英雄死亡时移除。"
 
-		"DOTA_Tooltip_modifier_consumable_gem_aura"						"真视"
-		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"可以看见周围隐形的单位和首位"
+		"DOTA_Tooltip_modifier_consumable_gem_aura"						"真实视域"
+		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"携带者自身和周围友方单位可以看见<b>900</b>范围内的隐身单位和守卫。"
 
         // wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"急速之翼"
@@ -1557,7 +1560,7 @@
 
 		// 死灵法杖
 		"DOTA_Tooltip_ability_item_necronomicon_staff"								"死灵法杖"
-		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>主动：死灵冲击</h1>将一个单位变成无害的小动物。目标的基础移速变为%sheep_movement_speed%，并且被沉默、锁闭和缴械，并降低敌人 %blast_int_bonus% 点的智力。<br><br>敌人将会受到%blast_att_multiplier%x[你的全属性]+%blast_damage_base%点魔法伤害。<br><br>施法距离：%abilitycastrange%<br>持续时间：%sheep_duration%秒"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>主动：死灵冲击</h1>将一个单位变成无害的小动物。目标的基础移速变为%sheep_movement_speed%，并且被沉默、锁闭和缴械，并降低敌人 %blast_int_percent%%% 点的智力。<br><br>敌人将会受到%blast_att_multiplier%x[你的全属性]+%blast_damage_base%点魔法伤害。<br><br>施法距离：%abilitycastrange%<br>持续时间：%sheep_duration%秒"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_intellect"				"+$int"

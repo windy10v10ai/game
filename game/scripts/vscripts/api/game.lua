@@ -68,5 +68,5 @@ function Game.prototype.SendEndGameInfo(self, endData)
     }
     ApiClient:sendWithRetry(apiParameter)
 end
-Game.VERSION = "v3.00"
+Game.VERSION = "v3.01"
 return ____exports

@@ -4,14 +4,16 @@
 	flow-children: down;
 }
 .PanelHeader {
+	opacity: 0.0;
+	visibility: collapse;
 	vertical-align: top;
 	horizontal-align: center;
 	flow-children: down;
-	margin-top: 100px;
-	width: 25%;
+	margin-top: 80px;
+	width: 20%;
 	border-radius: 10px;
-	background-color: gradient( linear, 0% 100%, 0% 10%, from( #1c112ecc ), color-stop( 0.3, #1c112e55 ), color-stop( 0.6, #000000bb ),to( #000000ee) );
-	border: 2px solid #000000;
+	background-color: gradient( linear, 0% 100%, 0% 10%, from( #1c112e88 ), color-stop( 0.3, #1c112e44 ), color-stop( 0.6, #1a083688 ),to( #1a0836bb) );
+	border: 2px solid #1a0836;
 }
 .point_info_header {
 	margin-top: 5px;
@@ -23,7 +25,6 @@
 .pointHeaderText{
 	font-size: 26px;
 	color:#DAA520FF;
-	text-decoration: underline;
 	text-shadow: 2px 2px 8px 3.0 black;
 }
 .CloseLB{
@@ -85,4 +86,13 @@
 	margin-left: 10px;
 	flow-children: right;
 	horizontal-align: center;
+}
+#CloseButton{
+	color: #FFFFFF;
+	width: 28%;
+	height: 38px;
+	margin: 5px;
+	align: center center;
+	background-color: gradient( linear, 0% 100%, 0% 10%, from( #64CCC5 ), color-stop( 0.7, #176B87 ),to( #04364A) );
+	transition: background-color .35s ease-in-out 0s;
 }

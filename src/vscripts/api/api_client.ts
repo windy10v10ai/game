@@ -28,9 +28,10 @@ export class ApiClient {
 	private static RETRY_TIMES = 4;
 	// dont change this version, it is used to identify the server
 	private static SERVER_KEY = "v1.43";
-	private static HOST_NAME: string = (() => {
-		return IsInToolsMode() ? "http://localhost:5000/api" : "https://windy10v10ai.web.app/api"
-	})();
+	// private static HOST_NAME: string = (() => {
+	// 	return IsInToolsMode() ? "http://localhost:5000/api" : "https://windy10v10ai.web.app/api"
+	// })();
+	private static HOST_NAME: string = "https://windy10v10ai.web.app/api";
 
 	public static send(method: HttpMethod, path: string, querys: { [key: string]: string } | undefined, body: Object | undefined, callbackFunc: (result: CScriptHTTPResponse) => void) {
 		print(`[ApiClient] ${method} ${ApiClient.HOST_NAME}${path} with querys ${json.encode(querys)} body ${json.encode(body)}`);
