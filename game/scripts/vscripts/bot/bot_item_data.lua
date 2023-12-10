@@ -1410,6 +1410,7 @@ tBotItemData.sellItemCommonList = {
 	-- Consume
 	'item_tango_single',
 	'item_tango',
+	'item_blood_grenade',	-- 血腥榴弹
 	'item_clarity',
 	'item_faerie_fire',
 	'item_enchanted_mango',
@@ -1417,6 +1418,11 @@ tBotItemData.sellItemCommonList = {
 	'item_bottle',
 
 	-- basic
+	'item_blood_grenade',	-- 淬毒之珠
+	'item_slippers',		-- 敏捷便靴
+	'item_mantle',			-- 智力斗篷
+	'item_gauntlets',		-- 力量手套
+	'item_circlet',			-- 圆环
 	'item_branches',
 	'item_magic_stick',
 	'item_recipe_magic_wand',
