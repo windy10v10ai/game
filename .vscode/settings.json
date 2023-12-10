@@ -8,9 +8,10 @@
     ],
     "css.lint.unknownProperties": "ignore",
     "search.exclude": {
-        "materials": true,
-        "models": true,
-        "particules": true
+        "game/materials": true,
+        "game/models": true,
+        "game/particules": true,
+        "game/itembuilds": true,
     },
     "files.watcherExclude": {
         "materials": true,

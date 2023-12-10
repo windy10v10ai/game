@@ -1418,7 +1418,7 @@ tBotItemData.sellItemCommonList = {
 	'item_bottle',
 
 	-- basic
-	'item_blood_grenade',	-- 淬毒之珠
+	'item_orb_of_venom',	-- 淬毒之珠
 	'item_slippers',		-- 敏捷便靴
 	'item_mantle',			-- 智力斗篷
 	'item_gauntlets',		-- 力量手套
