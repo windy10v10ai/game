@@ -8,15 +8,16 @@
     ],
     "css.lint.unknownProperties": "ignore",
     "search.exclude": {
-        "game/materials": true,
-        "game/models": true,
-        "game/particules": true,
+        "**/materials": true,
+        "**/models": true,
+        "**/soundevents": true,
+        "**/particles": true,
         "game/itembuilds": true,
     },
     "files.watcherExclude": {
-        "materials": true,
-        "models": true,
-        "particules": true
+        "**/materials": true,
+        "**/models": true,
+        "**/particles": true
     },
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
