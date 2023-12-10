@@ -9,7 +9,7 @@ local function addTome(k, v)
 
   local amount = 2
   if AIGameMode.iGameDifficulty and AIGameMode.iGameDifficulty >= 6 then
-    amount = 16
+    amount = 20
   elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
     amount = 10
   elseif AIGameMode.fBotGoldXpMultiplier >= 4 then
