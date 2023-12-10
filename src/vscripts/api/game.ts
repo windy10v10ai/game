@@ -28,6 +28,11 @@ export class Game {
 	}
 
 	public SendEndGameInfo(endData: any) {
+
+		if (GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) == ApiClient.LOCAL_APIKEY && !IsInToolsMode()) {
+			return;
+		}
+
 		CustomNetTables.SetTableValue("ending_status", "ending_status", { status: 1 });
 
 		const gameInfo = new GameInfo();
