@@ -6,6 +6,7 @@
         "mhutchie.git-graph",
         "bigciba.dota2-tools",
         "donjayamanne.git-extension-pack",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
     ]
 }
