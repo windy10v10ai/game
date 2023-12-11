@@ -10,7 +10,8 @@
         "build:vscripts": "tstl --project src/vscripts/tsconfig.json",
         "dev": "run-p dev:*",
         "dev:panorama": "tsc --project src/panorama/tsconfig.json --watch",
-        "dev:vscripts": "tstl --project src/vscripts/tsconfig.json --watch"
+        "dev:vscripts": "tstl --project src/vscripts/tsconfig.json --watch",
+        "prettier-check": "prettier --check ."
     },
     "devDependencies": {
         "@moddota/dota-lua-types": "^4.29.1",
