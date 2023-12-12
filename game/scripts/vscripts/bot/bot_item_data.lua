@@ -1427,6 +1427,7 @@ tBotItemData.sellItemCommonList = {
 	'item_magic_stick',
 	'item_recipe_magic_wand',
 	'item_magic_wand',
+	'item_wind_lace',		-- 风灵之纹
 
 	-- 补刀斧
 	'item_quelling_blade',
