@@ -187,10 +187,10 @@
 		// "item"		"item_lesser_crit"
  		"item"		"item_desolator"
 		"item"		"item_basher"
+		"item"		"item_nullifier"			// 否决
 		"item"		"item_greater_crit"
-		"item"		"item_ethereal_blade"
-		"item"		"item_nullifier"
-		"item"		"item_revenants_brooch"
+		"item"		"item_ethereal_blade"		// 虚灵之刃
+		"item"		"item_revenants_brooch"		// 英灵胸针
 		"item"		"item_disperser"
 		"item"		"item_angels_demise"
 		"item"		"item_armlet_pro_max"

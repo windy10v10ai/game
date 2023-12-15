@@ -980,6 +980,7 @@
 		"DOTA_Tooltip_Ability_item_excalibur_Note0"								"Excalibur are loyal to the chosen king and drop randomly."
 		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"Excalibur are loyal to the chosen king and drop randomly."
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_Ability_item_excalibur_bonus_spell_amp"						"%+$spell_amp"
 
         // item_quelling_blade_2_datadriven 毒瘤之刃
 		"DOTA_Tooltip_Ability_item_quelling_blade_2_datadriven"			"Toxic Blade"

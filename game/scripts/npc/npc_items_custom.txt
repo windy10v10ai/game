@@ -1843,7 +1843,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"7689"
+		"ItemCost"						"8800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1873,6 +1873,7 @@
 
 		"AbilityValues"
 		{
+			"bonus_spell_amp"		"66"
 			"bonus_damage"			"666"
 			"bonus_damage_percent"	"100"
 		}
@@ -1887,6 +1888,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
 				{
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"			"%bonus_spell_amp"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"		"%bonus_damage_percent"
 				}
@@ -2795,7 +2797,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3936"
+		"ItemCost"						"3300"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2831,28 +2833,12 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"60"
 				"bonus_attack_speed"	"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_chance"			"85"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_chance_damage"			"300"
-			}
+				"bonus_chance_damage"	"260"
 		}
 	}
 
@@ -5291,7 +5277,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1575"
+		"ItemCost"						"1275"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5330,7 +5316,7 @@
 
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"30"
+			"bonus_all_stats"		"40"
 			"aura_mana_regen"		"3.5"
 			"aura_radius"			"1200"
 			"spell_amp"			"35"
@@ -6502,12 +6488,12 @@
 		"AbilityValues"
 		{
 			"attack_speed"		"80"	// tooltip, real value  in modifier_item_hand_of_group_stats
-			"self_xp"			"3.0"
-			"self_gold"			"400"
+			"self_xp"			"3.5"
+			"self_gold"			"380"
 
 			"group_range"		"1800"
-			"group_xp"			"0.5"
-			"group_gold"		"50"
+			"group_xp"			"0.6"
+			"group_gold"		"60"
 		}
 	}
 

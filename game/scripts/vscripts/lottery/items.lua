@@ -35,7 +35,7 @@ function AIGameMode:SpecialItemAdd(owner)
 		-- "item_orb_of_corrosion",		-- 腐蚀之球
 		-- "item_urn_of_shadows",			-- 骨灰
 		-- "item_lifesteal",				-- 吸血面具
-		"item_medallion_of_courage",	-- 勇气勋章
+		-- "item_medallion_of_courage",	-- 勇气勋章
 		"item_falcon_blade",			-- 猎鹰战刃
 
 		-- "item_ocean_heart",				-- 海洋之心

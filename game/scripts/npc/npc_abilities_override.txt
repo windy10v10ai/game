@@ -10,6 +10,8 @@
 	"item_travel_boots_2"			"REMOVE"
 	"item_recipe_moon_shard"		"REMOVE"
 	"item_moon_shard"				"REMOVE"
+	"item_helm_of_the_dominator"	"REMOVE" // 支配头盔
+	"item_helm_of_the_overlord"		"REMOVE" // 统御头盔
 
 	//=================================================================================================================
 	// Creep
@@ -756,28 +758,55 @@
 	//=================================================================================================================
 	"item_recipe_phylactery"
 	{
-		"ItemCost"						"4250"
+		"ItemCost"						"1600"
 		"ItemRequirements"
 		{
-			"01"						"item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask"
+			"01"						"item_point_booster;item_diadem;item_point_booster;item_diadem"
 		}
 	}
 	//=================================================================================================================
-	//灵匣（史诗级加强） Phylactery
+	//灵匣（加强） Phylactery
 	//=================================================================================================================
 	"item_phylactery"
 	{
-		"AbilityCooldown"				"1"		// 6
-		"ItemCost"						"9000"
+		"AbilityCooldown"				"2"		// 6
+		"ItemCost"						"6000"
 		"AbilityValues"
 		{
-			"bonus_health"		"1000"			// 200
-			"bonus_mana"		"1000"			// 200
-			"bonus_all_stats"	"30"			// 7
-			"bonus_mana_regen"	"3.5"			// .7
-			"slow"						"60"	// 50
-			"bonus_spell_damage"		"900"	// 150
-			"slow_duration"				"2.5"	// 1.5
+			"bonus_health"		"500"			// 200
+			"bonus_mana"		"500"			// 200
+			"bonus_all_stats"	"20"			// 7
+			"bonus_spell_damage"		"600"	// 150
+		}
+	}
+	//=================================================================================================================
+	// Khanda 绝刃
+	//=================================================================================================================
+	"item_recipe_angels_demise"
+	{
+		"ItemCost"						"600"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_angels_demise"
+		"ItemRequirements"
+		{
+			"01"						"item_phylactery;item_greater_crit"
+		}
+	}
+	"item_angels_demise"
+	{
+		"AbilityCooldown"				"1.0"	// 6
+		"AbilityValues"
+		{
+			"bonus_damage"			"100"		// 50
+			"crit_chance"			"30"		// 30
+			"spell_crit_multiplier"		"125"	// 75
+			"spell_crit_flat"			"900"	// 100
+			"crit_multiplier"		"250"		// 160
+			"tooltip_crit_damage"	"150"		// 60
+
+			"bonus_health"		"600"			// 200
+			"bonus_mana"		"600"			// 200
+			"bonus_all_stats"	"25"			// 8
 		}
 	}
 	//=================================================================================================================
@@ -807,57 +836,51 @@
 	//=================================================================================================================
 	"item_wind_waker"
 	{
-		"AbilityCastRange"				"900"
-		"AbilityCooldown"				"11.0"
-		"AbilitySpecial"
+		"AbilityCastRange"				"900"			// 550
+		"AbilityCooldown"				"11.0"			// 13
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_movement_speed"	"50"			// 30
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"bonus_mana_regen"		"5.0"			// 3
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"40"			// 35
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tornado_speed"	"720"					// 360
-			}
+				"bonus_intellect"		"45"			// 35
+				"tooltip_drop_damage"	"150"			// 50
+				"tornado_speed"			"540"			// 360
 		}
 	}
 	//=================================================================================================================
-    // 亡魂胸针 revenants brooch
+    // 英灵胸针 revenants brooch
     //=================================================================================================================
 	"item_recipe_revenants_brooch"
 	{
-		"ItemCost"						"1800"		// 800
-		"ItemRequirements"
-		{
-			"01"						"item_witch_blade;item_mystic_staff;item_platemail"
-		}
+		"ItemCost"						"1900"		// 800
 	}
 	"item_revenants_brooch"
 	{
-		"AbilityManaCost"				"500"		// 300
-		"AbilityCooldown"				"15"		// 25
-		"ItemCost"						"9000"
 		"AbilityValues"
 		{
-				"bonus_armor"			"25"	// 8
-				"int_damage_multiplier"	"1.5"	// 1
-				"passive_cooldown"		"3"		// 9
-				"number_of_attacks"		"30"	// 5
-				"active_duration"		"15"	// 15
-				"active_mres_reduction"	"20"	// 20
-				"spell_amp_duration"	"3"		// 3
+				"manacost_per_hit"		"150"
+		}
+	}
+	//=================================================================================================================
+	// Parasma 圣斧
+	//=================================================================================================================
+	"item_recipe_devastator"
+	{
+		"ItemCost"						"1025"
+	}
+	//=================================================================================================================
+	// Parasma
+	//=================================================================================================================
+	"item_devastator"
+	{
+		"AbilityCooldown"				"6"			// 7
+		"AbilityValues"
+		{
+				"int_damage_multiplier"	"1.5"		// 1
+				"slow"	"35"						// 25
+				"slow_duration"	"4"					// 4
+				"active_mres_reduction"		"30"	// 20
+				"passive_cooldown"		"4"			// 4
 		}
 	}
 	//=================================================================================================================
@@ -905,6 +928,7 @@
 				"extra_spell_damage_percent"	"-20"
 		}
 	}
+	// TODO
 	//虚灵刀
 	"item_ethereal_blade"
 	{
@@ -1176,7 +1200,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"2"
+		"ItemLevelByGameTime"			"3"
 
 		"ItemCost"						"600"
 		"ItemShopTags"					"damage;int;agi;str"
@@ -1190,9 +1214,9 @@
 			"bonus_strength"		"10 20"
 			"bonus_agility"			"5 10"
 			"bonus_intellect"		"5 10"
-			"bonus_damage"			"10 20"
-			"bonus_health_regen"	"5 10"
-			"clock_time"			"2"
+			"bonus_damage"			"8 16"
+			"bonus_health_regen"	"3 6"
+			"clock_time"			"3"
 		}
 	}
 
@@ -1225,7 +1249,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"2"
+		"ItemLevelByGameTime"			"3"
 
 		"ItemCost"						"600"
 		"ItemShopTags"					"damage;int;agi;str"
@@ -1241,7 +1265,7 @@
 			"bonus_intellect"		"5 10"
 			"bonus_attack_speed"	"10 20"
 			"bonus_armor"			"5 10"
-			"clock_time"			"2"
+			"clock_time"			"3"
 		}
 	}
 
@@ -1273,7 +1297,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"2"
+		"ItemLevelByGameTime"			"3"
 
 		"ItemCost"						"600"
 		"ItemShopTags"					"damage;int;agi;str"
@@ -1289,7 +1313,7 @@
 			"bonus_agility"			"5 10"
 			"bonus_max_mana_percentage"	"5 10"
 			"bonus_mana_regen"		"3 6"
-			"clock_time"			"2"
+			"clock_time"			"3"
 		}
 	}
 	//=================================================================================================================
