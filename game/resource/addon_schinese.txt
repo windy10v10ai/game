@@ -383,6 +383,8 @@
 		"DOTA_Tooltip_modifier_player_bansheng_1"				"<font color='#FF0000'>★ 红钻贵族 ★</font>"
 		"DOTA_Tooltip_modifier_player_bansheng_2"				"<font color='#00BFFF'>★ 蓝钻贵族 ★</font>"
 		"DOTA_Tooltip_modifier_player_bansheng_3"				"<font color='#FFCC66'>★ 黄钻贵族 ★</font>"
+		"DOTA_Tooltip_modifier_player_pipilu"					"<font color='#FFCC66'>★ 皮皮鲁 ★</font>"
+		"DOTA_Tooltip_modifier_player_pipilu_Description"		"<font color='#FFCC66'>童话大王</font>"
 
 		///////////////////////////////////////////////////
 		//

@@ -261,6 +261,10 @@ local banshengSteamAccountID = Set {
 	-- 半生醉逍遥
 	155769916,
 }
+local pipiluSteamAccountID = Set {
+	-- 皮皮撸
+	112829917,
+}
 -- 称号属性 END
 
 function EnablePlayerModifier(hEntity)
@@ -602,5 +606,9 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_bansheng_2",{})
 		LinkLuaModifier("modifier_player_bansheng_3","modifiers/player/modifier_player_bansheng_3",LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_bansheng_3",{})
+	end
+	if pipiluSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_pipilu","modifiers/player/modifier_player_pipilu",LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_pipilu",{})
 	end
 end
