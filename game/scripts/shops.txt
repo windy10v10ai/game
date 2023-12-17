@@ -46,7 +46,6 @@
 		"item"		"item_tome_of_strength_for_lottery"
 		"item"		"item_tome_of_agility_for_lottery"
 		"item"		"item_tome_of_intelligence_for_lottery"
-		"item"      "item_black_king_bar_real"
 	}
 
 	"weapons_armor"
@@ -112,6 +111,7 @@
 		"item"		"item_wings_of_haste"
 		"item"		"item_moon_shard_datadriven"
 		"item"		"item_candy_candy"
+		"item"		"item_consumable_gem"		// 幻影宝石
 	}
 
 	// Level 2 - Blue Recipes
@@ -151,7 +151,7 @@
 		"item"		"item_rod_of_atos"
 		"item"		"item_dagon_5"
 		"item"		"item_orchid"
-		"item"		"item_solar_crest"
+ 		"item"		"item_phylactery"			// 灵匣
 		"item"		"item_ultimate_scepter_2"
 		"item"		"item_arcane_octarine_core"
 		"item"		"item_refresh_core"
@@ -165,6 +165,7 @@
 	"defense"
 	{
 		"item"		"item_vanguard"
+		"item"		"item_solar_crest"			// 炎阳纹章
 		"item"		"item_blade_mail_2"
 		"item"		"item_aeon_pendant"
 		"item"		"item_eternal_shroud"
@@ -222,8 +223,8 @@
  		// "item"		"item_diffusal_blade"
 		"item"		"item_blue_fantasy"
  		"item"		"item_mage_slayer"
- 		"item"		"item_phylactery"
  		//"item"		"item_heavens_halberd"
+		"item"		"item_harpoon"
  		"item"		"item_kaya_and_sange"
  		"item"		"item_sange_and_yasha"
  		"item"		"item_yasha_and_kaya"
@@ -234,7 +235,7 @@
  		//"item"		"item_overwhelming_blink"
  		//"item"		"item_swift_blink"
  		//"item"		"item_arcane_blink"
-		"item"		"item_harpoon"
+		"item"      "item_black_king_bar_real"			// 真bkb
 		"item"		"item_tome_of_strength"
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"

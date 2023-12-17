@@ -816,19 +816,13 @@
 	{
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9.0"
+		"AbilityCooldown"				"12.0"
 		"AbilityValues"
 		{
-				"bonus_intellect"			"40"
-				"bonus_attack_speed"		"75"
-				"bonus_damage"				"50"
-				"bonus_mana_regen"			"6"
-				"bonus_magic_resist"		"35"
-				"bonus_health_regen"		"8.25"
-				"silence_duration"			"5"
-				"silence_damage_percent"	"90"
-				"duration"					"6"
-				"spell_amp_debuff"			"70"
+				"bonus_intellect"			"20"
+				"bonus_mana_regen"			"5"
+				"silence_damage_percent"	"80"
+				"bonus_damage"				"20"
 		}
 	}
 	//=================================================================================================================
@@ -899,22 +893,15 @@
 		"AbilityCooldown"				"8.0"
 		"AbilityValues"
 		{
-			"bonus_attack_speed"	"20"
-			"bonus_damage"			"40"
-			"bonus_strength"		"35"
-			"bonus_agility"			"20"
-			"bonus_intellect"		"25"
+			"bonus_damage"			"50"
+			"bonus_strength"		"40"
+			"bonus_agility"			"15"
+			"bonus_intellect"		"15"
 			"bonus_mana_regen"		"2.0"
-			"passive_cooldown"		"2"
+
+			"passive_cooldown"		"3"
 			"movement_slow"			"100"
-			"slow_duration"			"2.0"
-			"pull_duration"				"0.3"
-			"pull_distance_pct"			"35"
-			"min_distance"				"100"
-			"max_distance"				"1000"
-			"cast_range_enemy"		"700"
-			"push_length"			"600"
-			"projectile_speed"		"2000"
+			"slow_duration"			"1.5"
 		}
 	}
 	//绿杖
@@ -926,28 +913,6 @@
 				"bonus_all_stats"		"5"
 				"duration"				"6.0"
 				"extra_spell_damage_percent"	"-20"
-		}
-	}
-	// TODO
-	//虚灵刀
-	"item_ethereal_blade"
-	{
-		"AbilityCooldown"				"20.0"
-		"AbilityValues"
-		{
-				"bonus_agility"			"5"
-				"bonus_strength"		"5"
-				"bonus_intellect"		"25"
-				"spell_amp"			"12"
-				"spell_lifesteal_amp"			"24"
-				"mana_regen_multiplier"		"75"
-				"blast_movement_slow"	"-80"
-				"duration"				"8.0"
-				"blast_agility_multiplier"			"1.5"
-				"blast_damage_base"			"50"
-				"duration_ally"				"8.0"
-				"ethereal_damage_bonus"	"-60"
-				"projectile_speed"	"1275"
 		}
 	}
 	//点金
@@ -1140,35 +1105,22 @@
 	//=================================================================================================================
 	// Holy Locket 圣洁吊坠
 	//=================================================================================================================
-	"item_recipe_holy_locket"
-	{
-		"ItemCost"						"525"
-
-		"ItemRequirements"
-		{
-			"01"						"item_diadem;item_headdress;item_magic_wand"
-		}
-	}
 	"item_holy_locket"
 	{
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.0"
 
-		"AbilityCooldown"				"10.0"
 		"AbilitySharedCooldown"			"magicwand"
 
 		"AbilityValues"
 		{
-				"bonus_health"			"0"
-				"bonus_mana"			"0"
-				"aura_health_regen"	"6"			// 3
-				"aura_radius"	"1200"			// 1200
-				"heal_increase"		"30"		// 30
+				"heal_increase"			"30"	// 30
 				"max_charges"			"30"	// 20
 				"charge_radius"			"1200"	// 1200
-				"bonus_all_stats"		"15"	// 10
+				"bonus_all_stats"		"15"	// 9
 				"restore_per_charge"	"30"	// 15
 				"charge_gain_timer"		"5"		// 10
+				"use_cooldown"			"10"	// 13
 		}
 	}
 

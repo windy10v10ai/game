@@ -1053,7 +1053,7 @@
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_spell_amp"					"%+$spell_amp"
 
 		// 可消耗宝石
-		"DOTA_Tooltip_ability_item_consumable_gem"						"可消耗宝石"
+		"DOTA_Tooltip_ability_item_consumable_gem"						"幻影宝石"
 		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"使用后赋予英雄在%radius%范围内的真视效果。<br>真视增益将持续%duration_minutes%分钟，或在英雄死亡时移除。"
 
 		"DOTA_Tooltip_modifier_consumable_gem_aura"						"真实视域"
@@ -1305,25 +1305,27 @@
 
 		//  shivas_guard_2 西瓦2
 		"DOTA_Tooltip_Ability_item_shivas_guard_2"				"雅典娜的守护"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。<br><br>作用范围：%blast_radius%\n<h1>被动：霜冷光环</h1>降低敌人%aura_attack_speed%攻击速度，和%hp_regen_degen_aura%%%所有治疗、恢复和吸血效果。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，使敌人受到的技能伤害增加%spell_amp%%%，持续%resist_debuff_duration%秒，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。对幻象造成%illusion_multiplier_pct%%%伤害。<br><br>作用范围：%blast_radius%\n\n<h1>被动：霜冷光环</h1>降低敌人%aura_attack_speed%攻击速度，和%hp_regen_degen_aura%%%所有治疗、恢复和吸血效果。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Lore"							"据说曾经属于某位女神希瓦，但是被宙斯送给雅典娜当玩具的后保留至今。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note0"							"极寒冲击的扩张速度为%blast_speed%，最大半径为%blast_radius%。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note1"							"极寒冲击将以施放者为中心。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note2" 							"多个霜冷光环效果不会叠加。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_agility"					"+$agi"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_strength"					"+$str"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_armor"					"+$armor"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"					"+$hp_regen"
 
 		// item_veil_of_discord_2 纷争2
 		"DOTA_Tooltip_Ability_item_veil_of_discord_2"				"赫拉的神秘面纱"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>主动：魔法虚弱</h1>发出一波弱化冲击，使%debuff_radius%范围内敌方英雄受到的技能伤害增加%spell_amp%%%。<br><br>施法距离：%abilitycastrange%<br>持续时间：%resist_debuff_duration%秒。\n\n <h1>被动：王者光环</h1>向友军提供%aura_mana_regen%点/秒魔法恢复。<br><br>作用范围：%aura_radius%"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"据说曾经属于古希腊传说中女神赫拉的面纱，主神宙斯看到它总会感到血脉喷张。"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>主动：魔法虚弱</h1>发出一波弱化冲击，使%debuff_radius%范围内敌方英雄受到的技能伤害增加%spell_amp%%%。<br><br>持续时间：%resist_debuff_duration%秒。"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"一个堕落法师的头饰。"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_all_stats"			"+$all"
-
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana"				"赫拉的神秘面纱"
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana_Description"	"向友军提供魔法恢复。"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_hp_regen"			"+$hp_regen"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_armor"			"+$armor"
 
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"				"魔法虚弱"
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"受到的魔法伤害增加%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"受到的技能伤害增加%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
 
 		// item_manta_1 分身2
 		"DOTA_Tooltip_Ability_item_manta_1"				"幻身斧"
@@ -1341,12 +1343,10 @@
 
 		// item_silver_edge_2 无敌之刃
 		"DOTA_Tooltip_Ability_item_silver_edge_2"			"无敌之刃"
-		"DOTA_Tooltip_ability_item_silver_edge_2_Description"						"<h1>主动：暗影步</h1>进入隐身直到%windwalk_duration%秒持续时间结束、攻击或施法。隐身时，移动速度将提升%windwalk_movement_speed%%%，而且可以穿越单位。<br><br>破隐一击将额外造成%windwalk_bonus_damage%点物理伤害，并且必定对目标造成%crit_multiplier%%%致命一击伤害，同时%backstab_duration%秒内目标的被动技能无效。\n<h1>被动：致命一击</h1>每次攻击时有%crit_chance%%%概率造成%crit_multiplier%%%伤害。"
+		"DOTA_Tooltip_ability_item_silver_edge_2_Description"				"<h1>主动：暗影步</h1>进入隐身直到%windwalk_duration%秒持续时间结束、或者在此之前攻击或施法。隐身时，移动速度将提升%windwalk_movement_speed%%%，而且可以穿越单位。<br><br>破隐一击将额外造成%windwalk_bonus_damage%点物理伤害，同时%backstab_duration%秒内目标的被动技能无效。\n\n"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_attack_speed"			"+$attack"
+		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Lore"						"众所周知，隐身等于无敌。"
-		"DOTA_Tooltip_ability_item_silver_edge_2_Note0"					"暗影步无法闪避。"
-		"DOTA_Tooltip_ability_item_silver_edge_2_Note1"					"暗影步并不能无视技能免疫。"
 
 		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk"	"暗影步"
 		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk_Description"	"隐身，移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，而且可以穿过单位。破隐一击将造成%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT%点额外伤害，同时禁用被动技能。"
@@ -1524,12 +1524,12 @@
 
         // item_gungir_2 大缚灵索
 		"DOTA_Tooltip_ability_item_gungir_2"						"风暴之锤"
-		"DOTA_Tooltip_ability_item_gungir_2_Description"						"<h1>主动：闪电风暴</h1>缠绕目标%radius%范围内所有敌人，持续%duration%秒，并造成%active_damage%点伤害。<br><br>施法距离：%abilitycastrange%\n\n<h1>被动：连环闪电</h1>攻击有%chain_chance%%%几率释放一道连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避。"
-		"DOTA_Tooltip_ability_item_gungir_2_Lore"								"警告：侦测到天气控制机。闪电风暴准备就绪。"
-		"DOTA_Tooltip_ability_item_gungir_2_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_item_gungir_2_bonus_intellect"					"+$int"
-		"DOTA_Tooltip_ability_item_gungir_2_bonus_strength"					"+$str"
-		"DOTA_Tooltip_ability_item_gungir_2_bonus_agility"					"+$agi"
+		"DOTA_Tooltip_ability_item_gungir_2_Description"						"<h1>主动：闪电风暴</h1>缠绕目标%radius%范围内所有敌人，持续%duration%秒，并造成%active_damage%点伤害。<br><br>施法距离：%abilitycastrange%\n\n<h1>被动：连环闪电</h1>攻击有%chain_chance%%%几率释放一道连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避。对幻象造成%illusion_multiplier_pct%%%伤害。"
+		"DOTA_Tooltip_ability_item_gungir_2_Lore"							"警告：侦测到天气控制机。闪电风暴准备就绪。"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_damage"					"+$damage"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_hp"						"+$health"
 
 		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"闪电风暴"
 		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"被缠绕时无法移动。"
