@@ -10,6 +10,8 @@
 	"item_travel_boots_2"			"REMOVE"
 	"item_recipe_moon_shard"		"REMOVE"
 	"item_moon_shard"				"REMOVE"
+	"item_helm_of_the_dominator"	"REMOVE" // 支配头盔
+	"item_helm_of_the_overlord"		"REMOVE" // 统御头盔
 
 	//=================================================================================================================
 	// Creep
@@ -263,13 +265,13 @@
 	// Custom item Override 中立物品
 	//=================================================================================================================
 	// level 1
-	"item_philosophers_stone" //贤者石
+	"item_mysterious_hat" //仙灵饰品
 	{
 		"AbilityValues"
 		{
-				"bonus_gpm"			"1000"
-				"bonus_mana"		"-800"
-				"bonus_damage"		"-350"
+				"bonus_health"			"400"			// 75
+				"spell_amp"				"12"			// 5
+				"manacost_reduction"	"12"			// 5
 		}
 	}
 	"item_poor_mans_shield" //穷鬼盾
@@ -305,6 +307,23 @@
 		}
 	}
 	// level 2
+	"item_apex" //极 暂时提前至2级中立
+	{
+		"AbilityValues"
+		{
+			"primary_stat"			 	"60"
+			"primary_stat_universal"	"30"
+		}
+	}
+	"item_philosophers_stone" //贤者石
+	{
+		"AbilityValues"
+		{
+				"bonus_gpm"			"1000"
+				"bonus_mana"		"-800"
+				"bonus_damage"		"-250"
+		}
+	}
 	"item_vampire_fangs" //吸血鬼獠牙
 	{
 		"AbilityValues"
@@ -324,15 +343,6 @@
 				"bonus_spell_amp"		"16"
 				"bonus_magic_resistance"	"20"
 				"bonus_attack_speed"	"40"
-		}
-	}
-	"item_mysterious_hat" //仙灵饰品
-	{
-		"AbilityValues"
-		{
-				"bonus_health"			"400"			// 75
-				"spell_amp"				"12"			// 5
-				"manacost_reduction"	"12"			// 5
 		}
 	}
 	"item_imp_claw" //魔童之爪 暴击爪
@@ -367,16 +377,6 @@
 		}
 	}
 	//level 3
-	"item_mind_breaker" //智灭
-	{
-		"AbilityCooldown"				"8.0"
-		"AbilityValues"
-		{
-				"magic_damage"			"100"
-				"attack_speed"			"80"
-				"duration"		"3.0"
-		}
-	}
 	"item_vindicators_axe" //正义之斧
 	{
 		"AbilityValues"
@@ -399,6 +399,25 @@
 	}
 
 	// level 4
+	"item_the_leveller"	//平世剑
+	{
+		"AbilityValues"
+		{
+				"bonus_attack_speed"			"100"
+				"bonus_armor"			"30"
+				"demolish"			"30"
+		}
+	}
+	"item_mind_breaker" //智灭
+	{
+		"AbilityCooldown"				"8.0"
+		"AbilityValues"
+		{
+				"magic_damage"			"100"
+				"attack_speed"			"80"
+				"duration"		"3.0"
+		}
+	}
 	"item_titan_sliver" //巨神残铁
 	{
 		"AbilityValues"
@@ -640,14 +659,6 @@
 			}
 		}
 	}
-	"item_apex" //极 暂时提前至2级中立
-	{
-		"AbilityValues"
-		{
-			"primary_stat"			 	"60"
-			"primary_stat_universal"	"30"
-		}
-	}
 	"item_desolator_2" //寂灭
 	{
 		"AbilitySpecial"
@@ -673,15 +684,6 @@
 			"model_scale"			"0"
 			"pct_str_damage_per_second"			"150"
 			"damage_radius"			"250"
-		}
-	}
-	"item_the_leveller"	//平世剑
-	{
-		"AbilityValues"
-		{
-				"bonus_attack_speed"			"100"
-				"bonus_armor"			"30"
-				"demolish"			"30"
 		}
 	}
 	"item_ex_machina" //机械之心
@@ -756,28 +758,55 @@
 	//=================================================================================================================
 	"item_recipe_phylactery"
 	{
-		"ItemCost"						"4250"
+		"ItemCost"						"1600"
 		"ItemRequirements"
 		{
-			"01"						"item_point_booster;item_diadem;item_sobi_mask;item_point_booster;item_diadem;item_sobi_mask"
+			"01"						"item_point_booster;item_diadem;item_point_booster;item_diadem"
 		}
 	}
 	//=================================================================================================================
-	//灵匣（史诗级加强） Phylactery
+	//灵匣（加强） Phylactery
 	//=================================================================================================================
 	"item_phylactery"
 	{
-		"AbilityCooldown"				"1"		// 6
-		"ItemCost"						"9000"
+		"AbilityCooldown"				"2"		// 6
+		"ItemCost"						"6000"
 		"AbilityValues"
 		{
-			"bonus_health"		"1000"			// 200
-			"bonus_mana"		"1000"			// 200
-			"bonus_all_stats"	"30"			// 7
-			"bonus_mana_regen"	"3.5"			// .7
-			"slow"						"60"	// 50
-			"bonus_spell_damage"		"900"	// 150
-			"slow_duration"				"2.5"	// 1.5
+			"bonus_health"		"500"			// 200
+			"bonus_mana"		"500"			// 200
+			"bonus_all_stats"	"20"			// 7
+			"bonus_spell_damage"		"600"	// 150
+		}
+	}
+	//=================================================================================================================
+	// Khanda 绝刃
+	//=================================================================================================================
+	"item_recipe_angels_demise"
+	{
+		"ItemCost"						"600"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_angels_demise"
+		"ItemRequirements"
+		{
+			"01"						"item_phylactery;item_greater_crit"
+		}
+	}
+	"item_angels_demise"
+	{
+		"AbilityCooldown"				"1.0"	// 6
+		"AbilityValues"
+		{
+			"bonus_damage"			"100"		// 50
+			"crit_chance"			"30"		// 30
+			"spell_crit_multiplier"		"125"	// 75
+			"spell_crit_flat"			"900"	// 100
+			"crit_multiplier"		"250"		// 160
+			"tooltip_crit_damage"	"150"		// 60
+
+			"bonus_health"		"600"			// 200
+			"bonus_mana"		"600"			// 200
+			"bonus_all_stats"	"25"			// 8
 		}
 	}
 	//=================================================================================================================
@@ -787,19 +816,13 @@
 	{
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"9.0"
+		"AbilityCooldown"				"12.0"
 		"AbilityValues"
 		{
-				"bonus_intellect"			"40"
-				"bonus_attack_speed"		"75"
-				"bonus_damage"				"50"
-				"bonus_mana_regen"			"6"
-				"bonus_magic_resist"		"35"
-				"bonus_health_regen"		"8.25"
-				"silence_duration"			"5"
-				"silence_damage_percent"	"90"
-				"duration"					"6"
-				"spell_amp_debuff"			"70"
+				"bonus_intellect"			"20"
+				"bonus_mana_regen"			"5"
+				"silence_damage_percent"	"80"
+				"bonus_damage"				"20"
 		}
 	}
 	//=================================================================================================================
@@ -807,57 +830,51 @@
 	//=================================================================================================================
 	"item_wind_waker"
 	{
-		"AbilityCastRange"				"900"
-		"AbilityCooldown"				"11.0"
-		"AbilitySpecial"
+		"AbilityCastRange"				"900"			// 550
+		"AbilityCooldown"				"11.0"			// 13
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_movement_speed"	"50"			// 30
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"bonus_mana_regen"		"5.0"			// 3
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"40"			// 35
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tornado_speed"	"720"					// 360
-			}
+				"bonus_intellect"		"45"			// 35
+				"tooltip_drop_damage"	"150"			// 50
+				"tornado_speed"			"540"			// 360
 		}
 	}
 	//=================================================================================================================
-    // 亡魂胸针 revenants brooch
+    // 英灵胸针 revenants brooch
     //=================================================================================================================
 	"item_recipe_revenants_brooch"
 	{
-		"ItemCost"						"1800"		// 800
-		"ItemRequirements"
-		{
-			"01"						"item_witch_blade;item_mystic_staff;item_platemail"
-		}
+		"ItemCost"						"1900"		// 800
 	}
 	"item_revenants_brooch"
 	{
-		"AbilityManaCost"				"500"		// 300
-		"AbilityCooldown"				"15"		// 25
-		"ItemCost"						"9000"
 		"AbilityValues"
 		{
-				"bonus_armor"			"25"	// 8
-				"int_damage_multiplier"	"1.5"	// 1
-				"passive_cooldown"		"3"		// 9
-				"number_of_attacks"		"30"	// 5
-				"active_duration"		"15"	// 15
-				"active_mres_reduction"	"20"	// 20
-				"spell_amp_duration"	"3"		// 3
+				"manacost_per_hit"		"150"
+		}
+	}
+	//=================================================================================================================
+	// Parasma 圣斧
+	//=================================================================================================================
+	"item_recipe_devastator"
+	{
+		"ItemCost"						"1025"
+	}
+	//=================================================================================================================
+	// Parasma
+	//=================================================================================================================
+	"item_devastator"
+	{
+		"AbilityCooldown"				"6"			// 7
+		"AbilityValues"
+		{
+				"int_damage_multiplier"	"1.5"		// 1
+				"slow"	"35"						// 25
+				"slow_duration"	"4"					// 4
+				"active_mres_reduction"		"30"	// 20
+				"passive_cooldown"		"4"			// 4
 		}
 	}
 	//=================================================================================================================
@@ -876,22 +893,15 @@
 		"AbilityCooldown"				"8.0"
 		"AbilityValues"
 		{
-			"bonus_attack_speed"	"20"
-			"bonus_damage"			"40"
-			"bonus_strength"		"35"
-			"bonus_agility"			"20"
-			"bonus_intellect"		"25"
+			"bonus_damage"			"50"
+			"bonus_strength"		"40"
+			"bonus_agility"			"15"
+			"bonus_intellect"		"15"
 			"bonus_mana_regen"		"2.0"
-			"passive_cooldown"		"2"
+
+			"passive_cooldown"		"3"
 			"movement_slow"			"100"
-			"slow_duration"			"2.0"
-			"pull_duration"				"0.3"
-			"pull_distance_pct"			"35"
-			"min_distance"				"100"
-			"max_distance"				"1000"
-			"cast_range_enemy"		"700"
-			"push_length"			"600"
-			"projectile_speed"		"2000"
+			"slow_duration"			"1.5"
 		}
 	}
 	//绿杖
@@ -903,27 +913,6 @@
 				"bonus_all_stats"		"5"
 				"duration"				"6.0"
 				"extra_spell_damage_percent"	"-20"
-		}
-	}
-	//虚灵刀
-	"item_ethereal_blade"
-	{
-		"AbilityCooldown"				"20.0"
-		"AbilityValues"
-		{
-				"bonus_agility"			"5"
-				"bonus_strength"		"5"
-				"bonus_intellect"		"25"
-				"spell_amp"			"12"
-				"spell_lifesteal_amp"			"24"
-				"mana_regen_multiplier"		"75"
-				"blast_movement_slow"	"-80"
-				"duration"				"8.0"
-				"blast_agility_multiplier"			"1.5"
-				"blast_damage_base"			"50"
-				"duration_ally"				"8.0"
-				"ethereal_damage_bonus"	"-60"
-				"projectile_speed"	"1275"
 		}
 	}
 	//点金
@@ -1116,35 +1105,22 @@
 	//=================================================================================================================
 	// Holy Locket 圣洁吊坠
 	//=================================================================================================================
-	"item_recipe_holy_locket"
-	{
-		"ItemCost"						"525"
-
-		"ItemRequirements"
-		{
-			"01"						"item_diadem;item_headdress;item_magic_wand"
-		}
-	}
 	"item_holy_locket"
 	{
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.0"
 
-		"AbilityCooldown"				"10.0"
 		"AbilitySharedCooldown"			"magicwand"
 
 		"AbilityValues"
 		{
-				"bonus_health"			"0"
-				"bonus_mana"			"0"
-				"aura_health_regen"	"6"			// 3
-				"aura_radius"	"1200"			// 1200
-				"heal_increase"		"30"		// 30
+				"heal_increase"			"30"	// 30
 				"max_charges"			"30"	// 20
 				"charge_radius"			"1200"	// 1200
-				"bonus_all_stats"		"15"	// 10
+				"bonus_all_stats"		"15"	// 9
 				"restore_per_charge"	"30"	// 15
 				"charge_gain_timer"		"5"		// 10
+				"use_cooldown"			"10"	// 13
 		}
 	}
 
@@ -1176,7 +1152,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"2"
+		"ItemLevelByGameTime"			"3"
 
 		"ItemCost"						"600"
 		"ItemShopTags"					"damage;int;agi;str"
@@ -1190,9 +1166,9 @@
 			"bonus_strength"		"10 20"
 			"bonus_agility"			"5 10"
 			"bonus_intellect"		"5 10"
-			"bonus_damage"			"10 20"
-			"bonus_health_regen"	"5 10"
-			"clock_time"			"2"
+			"bonus_damage"			"8 16"
+			"bonus_health_regen"	"3 6"
+			"clock_time"			"3"
 		}
 	}
 
@@ -1225,7 +1201,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"2"
+		"ItemLevelByGameTime"			"3"
 
 		"ItemCost"						"600"
 		"ItemShopTags"					"damage;int;agi;str"
@@ -1241,7 +1217,7 @@
 			"bonus_intellect"		"5 10"
 			"bonus_attack_speed"	"10 20"
 			"bonus_armor"			"5 10"
-			"clock_time"			"2"
+			"clock_time"			"3"
 		}
 	}
 
@@ -1273,7 +1249,7 @@
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"2"
+		"ItemLevelByGameTime"			"3"
 
 		"ItemCost"						"600"
 		"ItemShopTags"					"damage;int;agi;str"
@@ -1289,7 +1265,7 @@
 			"bonus_agility"			"5 10"
 			"bonus_max_mana_percentage"	"5 10"
 			"bonus_mana_regen"		"3 6"
-			"clock_time"			"2"
+			"clock_time"			"3"
 		}
 	}
 	//=================================================================================================================
@@ -4298,7 +4274,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"rot_damage"			"150 300 450 600 750"
+				"rot_damage"			"100 200 300 400 500"
 				"LinkedSpecialBonus"	"special_bonus_unique_pudge_2"
 			}
 		}
@@ -6417,12 +6393,12 @@
 		{
 			"radius"
 			{
-				"value"			"300 400 500 600 800"
+				"value"			"300 400 500 600 700"
 				"affected_by_aoe_increase"	"1"
 			}
 			"bonus_hero_damage"
 			{
-				"value"		"50 150 250 350 450"
+				"value"		"100 150 200 250 300"
 				"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_6"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -6705,7 +6681,7 @@
 			}
 			"fire_rate"
 			{
-				"value"								"0.35"
+				"value"								"0.45"
 				"RequiresScepter"					"1"
 			}
 			"scepter_radius"
@@ -7264,7 +7240,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"30 60 120 180 240"
+				"duration"				"40 60 80 100 120"
 				"LinkedSpecialBonus"	"special_bonus_unique_slark_4"
 			}
 		}
@@ -8888,7 +8864,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"-80"
+				"value"				"-30"
 				"ad_linked_abilities"			"templar_assassin_meld"
 			}
 		}

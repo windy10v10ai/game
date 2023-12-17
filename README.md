@@ -15,7 +15,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570
 
 ## Install
 1. Install Dota2 and [Dota 2 Workshop Tools](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Installing_and_Launching_Tools).
-2. Install [node.js](https://nodejs.org/).
+2. Install [node.js](https://nodejs.org/). `v20.10.0`
 3. Run `npm install` in root directory. Content and game folder will be linked to dota2 dota_addons directory.
 
 # Develop

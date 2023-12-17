@@ -21,7 +21,7 @@
 		"game_difficulty_n3"	"N3"
 		"game_difficulty_n4"	"N4"
 		"game_difficulty_n5"	"N5"
-		"game_difficulty_n6"	"N6 (Unfair)"
+		"game_difficulty_n6"	"N6 (Hell mode)"
 
 		"player_gold_xp_multiplier"	"Player Gold&XP Multi"
 		"bot_gold_xp_multiplier"	"Bot Gold&XP Multi"
@@ -892,7 +892,7 @@
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_spell_amp"					"%+$spell_amp"
 
 		// 可消耗宝石
-		"DOTA_Tooltip_ability_item_consumable_gem"						"Consumable Gem"
+		"DOTA_Tooltip_ability_item_consumable_gem"						"Phantom Gem"
 		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"On activation, gives the hero true sight within %radius% range.<br> True Sight buff will last %duration_minutes% minutes or be removed until death."
 
 		"DOTA_Tooltip_modifier_consumable_gem_aura"						"True Sight"
@@ -980,6 +980,7 @@
 		"DOTA_Tooltip_Ability_item_excalibur_Note0"								"Excalibur are loyal to the chosen king and drop randomly."
 		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"Excalibur are loyal to the chosen king and drop randomly."
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_Ability_item_excalibur_bonus_spell_amp"						"%+$spell_amp"
 
         // item_quelling_blade_2_datadriven 毒瘤之刃
 		"DOTA_Tooltip_Ability_item_quelling_blade_2_datadriven"			"Toxic Blade"
@@ -1143,25 +1144,27 @@
 
 		//  shivas_guard_2 西瓦2
 		"DOTA_Tooltip_Ability_item_shivas_guard_2"				"Athena's Guard"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>Active: Arctic Blast</h1> Emits a freezing wave that deals %blast_damage% magical damage to enemies and slows their movement by %blast_movement_speed%%% for %blast_debuff_duration% seconds.<br><br>Radius: %blast_radius%\n<h1>Passive: Freezing Aura</h1> Reduces the attack speed of all enemies by %aura_attack_speed% and all heals, regeneration and lifesteal by %hp_regen_degen_aura%%%. <br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>Active: Arctic Blast</h1> Emits a freezing wave that causes enemies to take %spell_amp%%% more damage from spells for %resist_debuff_duration% seconds, deals %blast_damage% magical damage and slows their movement by %blast_movement_speed%%% for %blast_debuff_duration% seconds. Deals %illusion_multiplier_pct%%% damage to illusions.<br><br>Radius: %blast_radius%\n\n<h1>Passive: Freezing Aura</h1> Reduces the attack speed of all enemies by %aura_attack_speed% and all heals, regeneration and lifesteal by %hp_regen_degen_aura%%%. <br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Lore"							"Said to have belonged to a goddess, today it retains much of its former power."
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note0"							"The wave extends at a speed of %blast_speed% to a max size of %blast_radius%."
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note1"							"The Arctic Blast follows its caster."
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note2" 							"Multiple instances of Freezing Aura do not stack."
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_agility"					"+$agi"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_strength"					"+$str"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_armor"					"+$armor"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"					"+$hp_regen"
 
 		//  veil_of_discord_2 纷争2
 		"DOTA_Tooltip_Ability_item_veil_of_discord_2"				"Veil of Discord Upgrade"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>Active: Magic Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes to take %spell_amp%%% increased damage from spells.<br><br>Range: %abilitycastrange%<br>Duration: %resist_debuff_duration% seconds. \n\n<h1>Passive: Basilius Aura</h1>Grants %aura_mana_regen% mana regeneration to allies. <br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>Active: Magic Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes to take %spell_amp%%% increased damage from spells.<br><br>Duration: %resist_debuff_duration% seconds."
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"The headwear of corrupt magi."
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_all_stats"			"+$all"
-
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana"				"Veil of Discord Upgrade"
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_mana_Description"	"Granting mana regeneration to allies."
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_hp_regen"			"+$hp_regen"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_armor"			"+$armor"
 
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"				"Magic Weakness"
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"Magic damage increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"Spell damage taken increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 
 		// item_manta_1 分身2
 		"DOTA_Tooltip_Ability_item_manta_1"										"Manta Style Upgrade"
@@ -1179,12 +1182,10 @@
 
 		// item_silver_edge_2 无敌之刃
 		"DOTA_Tooltip_Ability_item_silver_edge_2"			"Invinsibility edge"
-		"DOTA_Tooltip_ability_item_silver_edge_2_Description"						"<h1>Active: Shadow Walk</h1>Makes you invisible for %windwalk_duration% seconds, or until you attack or cast a spell. While invisible, you move %windwalk_movement_speed%%% faster and can move through units. <br><br>Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus physical damage and a guaranteed %crit_multiplier%%% critical strike to the target, and disable their passive abilities for %backstab_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_silver_edge_2_Description"				"<h1>Active: Shadow Walk</h1>Makes you invisible for %windwalk_duration% seconds, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  <br><br>Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus physical damage and disable their passive abilities for %backstab_duration% seconds.\n\n"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_attack_speed"			"+$attack"
+		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Lore"						"Once used to slay an unjust king, only to have the kingdom erupt into civil war in the aftermath."
-		"DOTA_Tooltip_ability_item_silver_edge_2_Note0"					"Backstab cannot miss."
-		"DOTA_Tooltip_ability_item_silver_edge_2_Note1"					"Backstab does not pierce spell immunity."
 
 		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk"	"Shadow Walk"
 		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk_Description"	"Invisible. Movement speed is increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and you can move through units. Attacking to break invisibility will deal %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT% bonus damage, slow the target and disable their passives."
@@ -1367,12 +1368,12 @@
 
         // item_gungir_2 大缚灵索
 		"DOTA_Tooltip_ability_item_gungir_2"							"Advanced Gleipnir"
-		"DOTA_Tooltip_ability_item_gungir_2_Description"						"<h1>Active: Lightning Storm</h1>Roots all enemies in a target %radius% radius for %duration% seconds and deals %active_damage% damage.<br><br>Range: %abilitycastrange% \n\n<h1>Passive: Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion."
-		"DOTA_Tooltip_ability_item_gungir_2_Lore"								"Warning:Weather control device detected. Lightning Storm Ready."
-		"DOTA_Tooltip_ability_item_gungir_2_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_item_gungir_2_bonus_intellect"					"+$int"
-		"DOTA_Tooltip_ability_item_gungir_2_bonus_strength"					"+$str"
-		"DOTA_Tooltip_ability_item_gungir_2_bonus_agility"					"+$agi"
+		"DOTA_Tooltip_ability_item_gungir_2_Description"						"<h1>Active: Lightning Storm</h1>Roots all enemies in a target %radius% radius for %duration% seconds and deals %active_damage% damage.<br><br>Range: %abilitycastrange% \n\n<h1>Passive: Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion. Deals %illusion_multiplier_pct%%% damage to illusions."
+		"DOTA_Tooltip_ability_item_gungir_2_Lore"							"Warning:Weather control device detected. Lightning Storm Ready."
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_damage"					"+$damage"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_hp"						"+$health"
 
 		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"Lightning Storm"
 		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"Cannot move while rooted."
@@ -1478,6 +1479,7 @@
         "DOTA_Tooltip_ability_item_bloodstone_v2"						"Godness bloodstone"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>Active: Bloodpact</h1> Increases Godness bloodstone's Spell Lifesteal by %lifesteal_multiplier%x and also converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"This magical stone make caster absorb blood..."
+		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_aoe"							"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
         "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
         "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"

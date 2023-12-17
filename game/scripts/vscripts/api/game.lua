@@ -2,7 +2,7 @@ local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__New = ____lualib.__TS__New
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["7"] = 2,["8"] = 2,["9"] = 2,["10"] = 4,["11"] = 4,["13"] = 4,["14"] = 12,["15"] = 12,["17"] = 19,["18"] = 20,["19"] = 18,["20"] = 24,["21"] = 24,["22"] = 24,["24"] = 27,["25"] = 30,["26"] = 31,["27"] = 33,["28"] = 34,["29"] = 35,["30"] = 36,["31"] = 37,["33"] = 39,["34"] = 39,["35"] = 40,["36"] = 41,["37"] = 42,["38"] = 43,["39"] = 44,["40"] = 45,["41"] = 45,["42"] = 45,["44"] = 45,["45"] = 46,["46"] = 46,["47"] = 46,["49"] = 46,["50"] = 47,["51"] = 47,["53"] = 39,["56"] = 50,["57"] = 50,["58"] = 50,["59"] = 50,["60"] = 54,["61"] = 55,["62"] = 56,["63"] = 50,["64"] = 58,["65"] = 59,["66"] = 60,["67"] = 50,["68"] = 50,["69"] = 64,["70"] = 30,["71"] = 26});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["7"] = 2,["8"] = 2,["9"] = 2,["10"] = 4,["11"] = 4,["13"] = 4,["14"] = 12,["15"] = 12,["17"] = 19,["18"] = 20,["19"] = 18,["20"] = 24,["21"] = 24,["22"] = 24,["24"] = 27,["25"] = 30,["26"] = 32,["29"] = 36,["30"] = 38,["31"] = 39,["32"] = 40,["33"] = 41,["34"] = 42,["36"] = 44,["37"] = 44,["38"] = 45,["39"] = 46,["40"] = 47,["41"] = 48,["42"] = 49,["43"] = 50,["44"] = 50,["45"] = 50,["47"] = 50,["48"] = 51,["49"] = 51,["50"] = 51,["52"] = 51,["53"] = 52,["54"] = 52,["56"] = 44,["59"] = 55,["60"] = 55,["61"] = 55,["62"] = 55,["63"] = 59,["64"] = 60,["65"] = 61,["66"] = 55,["67"] = 63,["68"] = 64,["69"] = 65,["70"] = 55,["71"] = 55,["72"] = 69,["73"] = 30,["74"] = 26});
 local ____exports = {}
 local ____api_client = require("api.api_client")
 local ApiClient = ____api_client.ApiClient
@@ -23,6 +23,9 @@ Game.name = "Game"
 function Game.prototype.____constructor(self)
 end
 function Game.prototype.SendEndGameInfo(self, endData)
+    if GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) == ApiClient.LOCAL_APIKEY and not IsInToolsMode() then
+        return
+    end
     CustomNetTables:SetTableValue("ending_status", "ending_status", {status = 1})
     local gameInfo = __TS__New(GameInfo)
     gameInfo.winnerTeamId = endData.winnerTeamId
@@ -68,5 +71,5 @@ function Game.prototype.SendEndGameInfo(self, endData)
     }
     ApiClient:sendWithRetry(apiParameter)
 end
-Game.VERSION = "v3.01"
+Game.VERSION = "v3.02"
 return ____exports
