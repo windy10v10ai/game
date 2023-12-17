@@ -6625,11 +6625,11 @@
         //-------------------------------------------------------------------------------------------------------------
         "ID"							"9501"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "BaseClass"						"item_recipe_bloodstone"
-        "AbilityTextureName" 			"item_recipe_bloodstone"
+        "AbilityTextureName" 			"item_recipe_bloodstone_v2"
         "Model"							"models/props_gameplay/recipe.vmdl"
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"3000"
+        "ItemCost"						"2200"
         "ItemShopTags"					""
 
         // Recipe
@@ -6650,10 +6650,11 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"							"9502"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-        "BaseClass"						"item_lua"
-        "ScriptFile"                    "items/item_bloodstone_v2"
+        "BaseClass"						"item_bloodstone"
+        // "ScriptFile"                    "items/item_bloodstone_v2"
         "AbilityTextureName"			"item_bloodstone_v2"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"FightRecapLevel"				"2"
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
@@ -6675,40 +6676,16 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "bonus_health"		"1300"
-            }
-            "02"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "bonus_mana"		"1300"
-            }
-            "03"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "spell_lifesteal"			"50"
-            }
-            "04"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "buff_duration"			"6"
-            }
-            "05"
-            {
-                "var_type"				"FIELD_FLOAT"
-                "lifesteal_multiplier"		"2"
-            }
-            "06"
-            {
-                "var_type"				"FIELD_FLOAT"
-                "hp_cost"		"0"
-            }
-        }
+		"AbilityValues"
+		{
+				"bonus_aoe"				"150"
+				"bonus_health"			"1200"
+				"bonus_mana"			"1200"
+				"spell_lifesteal"		"50"
+				"buff_duration"			"6"
+				"lifesteal_multiplier"	"2.5"
+				"hp_cost"				"0"
+		}
     }
 
     //=================================================================================================================
