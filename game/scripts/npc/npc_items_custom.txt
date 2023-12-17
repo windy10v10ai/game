@@ -6614,8 +6614,10 @@
 		"ID"                            "9600"
 		"BaseClass"                     "item_minotaur_horn"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"				"60.0"
-		"ItemCost"						"6000"
+		"AbilityCooldown"				"90.0"
+		"AbilityManaCost"				"250"
+
+		"ItemCost"						"10000"
 		"ItemPurchasable"				"1"
 		"ItemSellable"				    "1"
 		"ItemIsNeutralDrop"				"0"
@@ -6626,7 +6628,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_strength"			"40"
+			"bonus_strength"			"60"
 			"duration"					"10"
 		}
 	}
