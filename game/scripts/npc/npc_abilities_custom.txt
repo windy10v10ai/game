@@ -441,7 +441,7 @@
 				"bonus_reset_time_roshan"		"15"
 				"damage_per_stack"
 				{
-					"value"					"12 14 16 18 20 50"
+					"value"					"12 14 16 18 20 30"
 					"LinkedSpecialBonus"			"special_bonus_unique_ursa"
 				}
 		}
@@ -454,7 +454,7 @@
 		{
 			"attack_speed"
 			{
-				"value"		"10 14 18 22 26 50"
+				"value"		"10 14 18 22 26 30"
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_5"
 			}
 			"max_stacks"
@@ -471,7 +471,7 @@
 		"AbilityValues"
 		{
 			"percent_damage_per_burn"		"50"
-			"mana_per_hit"			"10 20 30 40 50 100"
+			"mana_per_hit"			"10 20 30 40 50 60"
 			"mana_per_hit_pct"
 			{
 				"value"		"0.2 0.4 0.6 0.8 1.0 2.0"

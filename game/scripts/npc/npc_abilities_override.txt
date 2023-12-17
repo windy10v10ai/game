@@ -4274,7 +4274,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"rot_damage"			"100 200 300 400 500"
+				"rot_damage"			"150 300 450 600 750"
 				"LinkedSpecialBonus"	"special_bonus_unique_pudge_2"
 			}
 		}
@@ -6393,12 +6393,12 @@
 		{
 			"radius"
 			{
-				"value"			"300 400 500 600 700"
+				"value"			"300 400 500 600 800"
 				"affected_by_aoe_increase"	"1"
 			}
 			"bonus_hero_damage"
 			{
-				"value"		"100 150 200 250 300"
+				"value"		"50 150 250 350 450"
 				"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_6"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -6681,7 +6681,7 @@
 			}
 			"fire_rate"
 			{
-				"value"								"0.45"
+				"value"								"0.35"
 				"RequiresScepter"					"1"
 			}
 			"scepter_radius"
@@ -7240,7 +7240,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"40 60 80 100 120"
+				"duration"				"30 60 120 180 240"
 				"LinkedSpecialBonus"	"special_bonus_unique_slark_4"
 			}
 		}
@@ -8864,7 +8864,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"-30"
+				"value"				"-80"
 				"ad_linked_abilities"			"templar_assassin_meld"
 			}
 		}
