@@ -46,7 +46,6 @@ function modifier_imba_phantasm_buff:OnAttackLanded(keys)
 			ParticleManager:SetParticleControlEnt(pfx, 2, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
 			ParticleManager:ReleaseParticleIndex(pfx)
 		end
-		local cooldown = math.min((1 /self.parent:GetAttacksPerSecond()), self.attack_cooldown)
 		self.parent:AddNewModifier(self:GetCaster(), self.ability, "modifier_imba_phantasm_cooldown", {duration =  self.attack_cooldown})
 	end
 end
