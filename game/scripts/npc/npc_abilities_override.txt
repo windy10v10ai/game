@@ -265,13 +265,13 @@
 	// Custom item Override 中立物品
 	//=================================================================================================================
 	// level 1
-	"item_philosophers_stone" //贤者石
+	"item_mysterious_hat" //仙灵饰品
 	{
 		"AbilityValues"
 		{
-				"bonus_gpm"			"1000"
-				"bonus_mana"		"-800"
-				"bonus_damage"		"-250"
+				"bonus_health"			"400"			// 75
+				"spell_amp"				"12"			// 5
+				"manacost_reduction"	"12"			// 5
 		}
 	}
 	"item_poor_mans_shield" //穷鬼盾
@@ -307,6 +307,23 @@
 		}
 	}
 	// level 2
+	"item_apex" //极 暂时提前至2级中立
+	{
+		"AbilityValues"
+		{
+			"primary_stat"			 	"60"
+			"primary_stat_universal"	"30"
+		}
+	}
+	"item_philosophers_stone" //贤者石
+	{
+		"AbilityValues"
+		{
+				"bonus_gpm"			"1000"
+				"bonus_mana"		"-800"
+				"bonus_damage"		"-250"
+		}
+	}
 	"item_vampire_fangs" //吸血鬼獠牙
 	{
 		"AbilityValues"
@@ -326,15 +343,6 @@
 				"bonus_spell_amp"		"16"
 				"bonus_magic_resistance"	"20"
 				"bonus_attack_speed"	"40"
-		}
-	}
-	"item_mysterious_hat" //仙灵饰品
-	{
-		"AbilityValues"
-		{
-				"bonus_health"			"400"			// 75
-				"spell_amp"				"12"			// 5
-				"manacost_reduction"	"12"			// 5
 		}
 	}
 	"item_imp_claw" //魔童之爪 暴击爪
@@ -369,16 +377,6 @@
 		}
 	}
 	//level 3
-	"item_mind_breaker" //智灭
-	{
-		"AbilityCooldown"				"8.0"
-		"AbilityValues"
-		{
-				"magic_damage"			"100"
-				"attack_speed"			"80"
-				"duration"		"3.0"
-		}
-	}
 	"item_vindicators_axe" //正义之斧
 	{
 		"AbilityValues"
@@ -401,6 +399,25 @@
 	}
 
 	// level 4
+	"item_the_leveller"	//平世剑
+	{
+		"AbilityValues"
+		{
+				"bonus_attack_speed"			"100"
+				"bonus_armor"			"30"
+				"demolish"			"30"
+		}
+	}
+	"item_mind_breaker" //智灭
+	{
+		"AbilityCooldown"				"8.0"
+		"AbilityValues"
+		{
+				"magic_damage"			"100"
+				"attack_speed"			"80"
+				"duration"		"3.0"
+		}
+	}
 	"item_titan_sliver" //巨神残铁
 	{
 		"AbilityValues"
@@ -642,14 +659,6 @@
 			}
 		}
 	}
-	"item_apex" //极 暂时提前至2级中立
-	{
-		"AbilityValues"
-		{
-			"primary_stat"			 	"60"
-			"primary_stat_universal"	"30"
-		}
-	}
 	"item_desolator_2" //寂灭
 	{
 		"AbilitySpecial"
@@ -675,15 +684,6 @@
 			"model_scale"			"0"
 			"pct_str_damage_per_second"			"150"
 			"damage_radius"			"250"
-		}
-	}
-	"item_the_leveller"	//平世剑
-	{
-		"AbilityValues"
-		{
-				"bonus_attack_speed"			"100"
-				"bonus_armor"			"30"
-				"demolish"			"30"
 		}
 	}
 	"item_ex_machina" //机械之心
