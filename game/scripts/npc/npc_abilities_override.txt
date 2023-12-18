@@ -934,6 +934,35 @@
 		"ItemCost"						"250"
 	}
 
+	// 血精石 替换为 血精神石
+	"item_recipe_bloodstone"
+	{
+        "AbilityTextureName" 			"item_recipe_bloodstone_v2"
+		"ItemCost"						"1200"
+
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_bloodstone"
+		"ItemRequirements"
+		{
+			"01"						"item_bloodstone_v2;item_bloodstone_v2"
+		}
+	}
+	"item_bloodstone"
+	{
+		"AbilitySharedCooldown"			"bloodstone"
+        "AbilityTextureName"			"item_bloodstone_v2"
+		"AbilityValues"
+		{
+				"bonus_aoe"				"150"
+				"bonus_health"			"1200"
+				"bonus_mana"			"1200"
+				"spell_lifesteal"		"50"
+				"buff_duration"			"6"
+				"lifesteal_multiplier"	"2.5"
+				"hp_cost"				"0"
+		}
+	}
 	// 以太卷轴
 	"item_recipe_aether_lens"
 	{
@@ -959,10 +988,6 @@
 	"item_gungir"
 	{
 		"AbilitySharedCooldown"			"gungir"
-	}
-	"item_bloodstone"
-	{
-		"AbilitySharedCooldown"			"bloodstone"
 	}
 
 	"item_smoke_of_deceit"

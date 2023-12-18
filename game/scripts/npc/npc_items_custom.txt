@@ -6473,7 +6473,7 @@
     }
 
     //=================================================================================================================
-    // Bloodstone v2 血精神石
+    // Bloodstone v2 血精神石 替换为血精石
     //=================================================================================================================
     "item_recipe_bloodstone_v2"
     {
@@ -6481,11 +6481,11 @@
         //-------------------------------------------------------------------------------------------------------------
         "ID"							"9501"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "BaseClass"						"item_recipe_bloodstone"
-        "AbilityTextureName" 			"item_recipe_bloodstone_v2"
+        "AbilityTextureName" 			"item_recipe_bloodstone"
         "Model"							"models/props_gameplay/recipe.vmdl"
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"2200"
+        "ItemCost"						"700"
         "ItemShopTags"					""
 
         // Recipe
@@ -6494,7 +6494,7 @@
         "ItemResult"					"item_bloodstone_v2"
         "ItemRequirements"
         {
-            "01"						"item_bloodstone;item_bloodstone"
+			"01"						"item_voodoo_mask;item_soul_booster"
         }
     }
     "item_bloodstone_v2"
@@ -6504,7 +6504,7 @@
         "ID"							"9502"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "BaseClass"						"item_bloodstone"
         // "ScriptFile"                    "items/item_bloodstone_v2"
-        "AbilityTextureName"			"item_bloodstone_v2"
+        "AbilityTextureName"			"item_bloodstone"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
 
@@ -6530,10 +6530,10 @@
         //-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_aoe"				"150"
-				"bonus_health"			"1200"
-				"bonus_mana"			"1200"
-				"spell_lifesteal"		"50"
+				"bonus_aoe"				"75"
+				"bonus_health"			"500"
+				"bonus_mana"			"500"
+				"spell_lifesteal"		"30"
 				"buff_duration"			"6"
 				"lifesteal_multiplier"	"2.5"
 				"hp_cost"				"0"
