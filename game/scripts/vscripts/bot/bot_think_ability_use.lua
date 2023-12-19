@@ -400,10 +400,12 @@ function BotAbilityThink:ThinkUseAbility_Omniknight(hHero)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
 	local hAbility3 = hHero:GetAbilityByIndex(2)
 	local hAbility5 = hHero:GetAbilityByIndex(4)
+	local hAbility6 = hHero:GetAbilityByIndex(5)
 	if self:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility2, 60) then return true end
 	if self:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility1, 80) then return true end
 	if self:CastAbilityOnEnemyTarget(hHero, hAbility3) then return true end
 	if self:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility5, 85) then return true end
+	if self:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility6, 85) then return true end
 end
 
 function BotAbilityThink:ThinkUseAbility_ChaosKnight(hHero)
