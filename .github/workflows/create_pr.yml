@@ -1,11 +1,6 @@
 name: Create Pull Request to develop
 on:
   workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to create PR from'
-        required: true
-
 
 jobs:
   create_pull_request:
@@ -13,13 +8,18 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.inputs.branch }}
+
+      - name: Get branch name
+        id: get_branch
+        run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+
+      - name: Use branch name
+        run: echo "Current branch is ${{ steps.get_branch.outputs.branch }}"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: Update from ${{ github.event.inputs.branch }}
-          branch: ${{ github.event.inputs.branch }}
+          title: Update from ${{ steps.get_branch.outputs.branch }}
+          branch: ${{ steps.get_branch.outputs.branch }}
           base: develop
