@@ -1,3 +1,13 @@
+---
+name: Bug report
+about: Create a report to help us improve
+title: "[BUG]"
+labels: bug
+reviewers: 'windybirth'
+assignees: ''
+
+---
+
 ## 变更内容 Change Log
 
 - [ ] fix #9999
