@@ -180,7 +180,7 @@
 		"item"		"item_shivas_guard_2"
 		"item"		"item_undying_heart"
 		"item"		"item_vladmir_2"
-		"item"		"item_bloodstone_v2"
+		"item"		"item_bloodstone"
 	}
 
 	"weapons"

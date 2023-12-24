@@ -42,7 +42,7 @@
 	{
 		"drop_rates"
 		{
-			"7:00"
+			"6:00"
 			{
 				"0" "15"
 				"1" "14"
@@ -83,7 +83,7 @@
 	{
 		"drop_rates"
 		{
-			"14:00"
+			"12:00"
 			{
 				"0" "10"
 				"1" "9"
@@ -103,7 +103,6 @@
 			//"item_spider_legs"			  "1" //网虫腿 蜘蛛腿
 			//"item_icarus_wings"		      "1"
 			"item_defiant_shell"			  "1" //不羁甲壳
-			"item_paladin_sword"			  "1" //骑士剑
 			"item_nemesis_curse"			  "1" //天诛之咒
 			"item_vindicators_axe"			  "1" //正义之斧
 			"item_dandelion_amulet"			  "1" //蒲公英护符
@@ -115,13 +114,14 @@
 			"item_psychic_headband"			  "1" //通灵头带
 			"item_ogre_seal_totem"			  "1" //食人魔海豹图腾
 			"item_doubloon"					  "1" //双面币
+			"item_havoc_hammer"				  "1" //浩劫巨锤
 		}
 	}
 	"4"
 	{
 		"drop_rates"
 		{
-			"20:00"
+			"18:00"
 			{
 				"0" "10"
 				"1" "8"
@@ -154,17 +154,18 @@
 			"item_trickster_cloak"			  "1" //欺诈师斗篷
 			"item_stormcrafter"			      "1" //风暴宝器
 			"item_ancient_guardian"		      "1" //遗迹守护者
-			"item_havoc_hammer"				  "1" //浩劫巨锤
 			"item_mind_breaker"				  "1" //智灭
 			"item_martyrs_plate"			  "1" //烈士鳞甲
 			"item_rattlecage"				  "1" //回响之笼
+			"item_repair_kit"                 "1" //维修器具
+			"item_paladin_sword"			  "1" //骑士剑
 		}
 	}
 	"5"
 	{
 		"drop_rates"
 		{
-			"25:00"
+			"24:00"
 			{
 				"0" "6"
 				"1" "5"
@@ -190,7 +191,6 @@
 			"item_desolator_2"				  "1" //寂灭
 			"item_seer_stone"				  "1" //先哲之石
 			"item_mirror_shield"		 	  "1" //神镜盾
-			"item_demonicon"				  "1" //冥灵书
 			"item_force_field"				  "1" //秘术师铠甲
 			"item_pirate_hat"				  "1" //海盗帽
 			"item_giants_ring"				  "1" //巨人戒

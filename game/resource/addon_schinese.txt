@@ -21,7 +21,7 @@
 		"game_difficulty_n3"	"N3"
 		"game_difficulty_n4"	"N4"
 		"game_difficulty_n5"	"N5"
-		"game_difficulty_n6"	"N6 地狱模式"
+		"game_difficulty_n6"	"N6 挑战模式"
 
 		"player_gold_xp_multiplier"	"玩家金钱/经验倍率"
 		"bot_gold_xp_multiplier"	"电脑金钱/经验倍率"
@@ -118,7 +118,7 @@
 		"data_panel_season_level"		"赛季等级"
 		"data_panel_season_level_tooltip"		"进行游戏获得赛季积分后，赛季等级将提升。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>100</font>点。"
 		"data_panel_member_level"		"会员等级"
-		"data_panel_member_level_tooltip"		"会员每日登陆可获取100会员积分。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>50</font>点。"
+		"data_panel_member_level_tooltip"		"通过会员积分提升会员等级，升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>50</font>点。"
 		"data_panel_level_progress"		"升级进度"
 		// "data_panel_season_end"			"第三赛季结束时间：2023/9/30"
 		// "data_panel_season_end_tooltip"			"赛季结束后将重置赛季等级<br><font color='#E8C07D'>继承50%</font>赛季积分到下个赛季"
@@ -1632,8 +1632,9 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"获得的金钱经验，享有倍率加成！"
 
 	    // item_bloodstone_v2 血精神石
-	    "DOTA_Tooltip_ability_item_bloodstone_v2"						"血精神石"
-	    "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
+	    "DOTA_Tooltip_ability_item_bloodstone"							"血精神石"
+	    "DOTA_Tooltip_ability_item_bloodstone_v2"						"血精石"
+	    // "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
         "DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"这块魔石使人能够从魔法中吸取鲜血..."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_aoe"							"+$aoe_bonus"
         "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"

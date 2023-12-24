@@ -1,0 +1,29 @@
+name: Create Pull Request to develop
+on:
+  workflow_dispatch:
+
+jobs:
+  create_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get branch name
+        id: get_branch
+        run: echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+
+      - name: Reset promotion branch
+        run: |
+          git fetch origin ${{ steps.get_branch.outputs.branch }}:${{ steps.get_branch.outputs.branch }}
+          git reset --hard ${{ steps.get_branch.outputs.branch }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: Update ${{ steps.get_branch.outputs.branch }}
+          branch: ${{ steps.get_branch.outputs.branch }}
+          base: develop
+          reviewers: windybirth
