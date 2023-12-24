@@ -3185,7 +3185,7 @@
 	}
 
 	//=================================================================================================================
-	// Recipe: Skadi 2
+	// Recipe: Skadi 2 粘妈之眼 大冰眼
 	//=================================================================================================================
 	"item_recipe_skadi_2"
 	{
@@ -6505,14 +6505,14 @@
         "BaseClass"						"item_bloodstone"
         // "ScriptFile"                    "items/item_bloodstone_v2"
         "AbilityTextureName"			"item_bloodstone"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"FightRecapLevel"				"2"
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastPoint"				"0.0"
-        "AbilityCooldown"				"35.0"
-        "AbilityManaCost"				"0"
+        // "AbilityCastPoint"				"0.0"
+        // "AbilityCooldown"				"35.0"
+        // "AbilityManaCost"				"0"
         "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilitySharedCooldown"			"bloodstone"
 
