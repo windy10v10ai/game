@@ -6284,8 +6284,8 @@
 			}
 			"gold_steal"
 			{
-				"value"			"20 24 28 32 36"
-				"special_bonus_unique_bounty_hunter"		"+50"
+				"value"			"12 16 20 24 28"
+				"special_bonus_unique_bounty_hunter"		"+30"
 			}
 		}
 	}
