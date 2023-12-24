@@ -1,6 +1,6 @@
 ---
-name: BUG 汇报
-about: 创建汇报以帮助我们改进
+name: 报告错误
+about: 创建报告错误以帮助我们改进
 title: "[BUG]"
 labels: bug
 assignees: windybirth
