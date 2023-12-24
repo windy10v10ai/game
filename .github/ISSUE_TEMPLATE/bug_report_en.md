@@ -7,8 +7,17 @@ assignees: ''
 
 ---
 
+**Bug type**
+- [ ] Ability
+- [ ] Item
+- [ ] Hero
+- [ ] Bot
+- [ ] UI
+- [ ] Other
+
 **Describe the bug**
 A clear and concise description of what the bug is.
+Please use the full names of heroes and abilities.
 
 **To Reproduce**
 Steps to reproduce the behavior:
