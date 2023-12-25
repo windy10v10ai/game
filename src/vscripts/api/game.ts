@@ -1,12 +1,5 @@
 import { ApiClient, HttpMethod } from "./api_client";
 
-// FIXME
-class EndGameData {
-  players!: { [key: number]: { points: number; isDisconnect: boolean } };
-  winnerTeamId!: number;
-  gameOption!: object;
-}
-
 class Player {
   teamId!: number;
   steamId!: number;
@@ -19,7 +12,7 @@ class GameInfo {
   players!: Player[];
   winnerTeamId!: number;
   matchId!: string;
-  gameOption!: object;
+  gameOption!: Object;
   version!: string;
   constructor() {
     print("[Game] constructor in TS");
@@ -28,10 +21,10 @@ class GameInfo {
 }
 
 export class Game {
-  private static VERSION = "v3.01";
+  private static VERSION = "v3.04";
   constructor() {}
 
-  public SendEndGameInfo(endData: EndGameData) {
+  public SendEndGameInfo(endData: any) {
     if (
       GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) == ApiClient.LOCAL_APIKEY &&
       !IsInToolsMode()

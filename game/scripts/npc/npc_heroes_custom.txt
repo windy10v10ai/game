@@ -474,8 +474,6 @@
 	{
 		"DisableWearables"	        "1"
 		"Ability8"					"pangolier_heartpiercer"
-		"Ability16"					"special_bonus_unique_pangolier_3"
-		"Ability14"					"special_bonus_unique_pangolier_4"
 	}
 
 	"npc_dota_hero_naga_siren"
@@ -625,16 +623,13 @@
 				"34"		"abaddon_frostmourne"
 				"35"		"abaddon_frostmourne"
 				"36"		"abaddon_frostmourne"
-				"37"		"abaddon_frostmourne"
-				"38"		"abaddon_frostmourne"
 			}
 		}
 	}
     "npc_dota_hero_antimage"
 	{
-		"AttackRange"   "450"
-		"Ability4"		"skeleton_king_reincarnation"
-		"Ability5"		"abaddon_borrowed_time"
+		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
 		"Bot"
 		{
 			"Build"
@@ -1003,7 +998,7 @@
 	"npc_dota_hero_dazzle"
 	{
 		"Ability4"		"dazzle_weave"
-		"Ability7"      "dazzle_good_juju"
+		"Ability5"      "dazzle_good_juju"
 		"Bot"
 		{
 			"Build"
@@ -1047,38 +1042,9 @@
 			}
 		}
 	}
-	"npc_dota_hero_shadow_demon"
-	{
-		"MovementSpeed" "450"
-	}
-	"npc_dota_hero_dawnbreaker"
-	{
-        "AttackRate"    "1.4"
-        "AttackRange"   "350"
-		"Ability10"		"special_bonus_unique_dawnbreaker_fire_wreath_swipe"
-		"Ability16"		"special_bonus_unique_dawnbreaker_celestial_hammer_slow"
-		"Ability12"		"special_bonus_unique_dawnbreaker_luminosity_crit"
-		"Ability11"		"special_bonus_unique_dawnbreaker_solar_guardian_cooldown"
-		"Ability14"		"special_bonus_unique_dawnbreaker_solar_guardian_radius"
-		"Ability13"		"special_bonus_unique_dawnbreaker_luminosity_attack_count"
-		"Ability15"		"special_bonus_unique_dawnbreaker_fire_wreath_cooldown"
-        "AttributeBaseStrength"		"50"
-		"AttributeStrengthGain"		"4.00000"
-		"AttributeBaseAgility"		"50"
-		"AttributeAgilityGain"		"5.00000"
-		"AttributeBaseIntelligence"		"50"
-		"AttributeIntelligenceGain"		"4.000000"
-	}
-    "npc_dota_hero_death_prophet"
+	"npc_dota_hero_death_prophet"
 	{
 		"Ability4"		"death_prophet_witchcraft"
-		"Ability6"      "undying_flesh_golem"
-		"AttributeBaseStrength"		"25"
-		"AttributeStrengthGain"		"5.00000"
-		"AttributeBaseAgility"		"25"
-		"AttributeAgilityGain"		"5.00000"
-		"AttributeBaseIntelligence"		"24"
-		"AttributeIntelligenceGain"		"3.000000"
 		"Bot"
 		{
 			"Build"
@@ -1300,77 +1266,17 @@
 			}
 		}
 	}
-	"npc_dota_hero_gyrocopter"
-	{
-		"Ability4"		"drow_ranger_marksmanship"
-		"AttackRange"   "600"
-		"MovementSpeed" "450"
-		"AttackRate"    "1.4"
-	}
-	"npc_dota_hero_ember_spirit"
-	{
-		"Ability7"      "slark_essence_shift_mirana"
-		"Ability5"      "brewmaster_drunken_brawler"
-		"Ability16"		"special_bonus_unique_ember_spirit_7"
-		"Ability14"		"special_bonus_unique_ember_spirit_4"
-	}
-	"npc_dota_hero_night_stalker"
-	{
-		"AttackRange"   "300"
-		"AttackRate"    "1.4"
-		"Ability10"		"special_bonus_unique_night_stalker_4"
-		"Ability11"		"special_bonus_unique_night_stalker_7"
-		"Ability12"		"special_bonus_unique_night_stalker_3"
-		"Ability17"		"special_bonus_unique_night_stalker_hunter_status_resist"
-		"Ability14"		"special_bonus_unique_night_stalker_6"
-		"Ability15"		"special_bonus_strength_20"
-		"Ability16"		"special_bonus_unique_night_stalker_2"
-		"Ability13"		"special_bonus_unique_night_stalker"
-		"VisionDaytimeRange"		"800"
-		"VisionNighttimeRange"		"80000"
-		"AttributeBaseAgility"		"24"
-		"AttributeAgilityGain"		"6.00000"
-	}
-	"npc_dota_hero_templar_assassin"
-	{
-		"AttackRange"   "300"
-		"AttackRate"    "1.4"
-		"Ability10"		"special_bonus_unique_templar_assassin_refraction_damage"
-		"Ability17"		"special_bonus_unique_templar_assassin_3"
-		"Ability12"		"special_bonus_unique_templar_assassin_refraction_disable_cast"
-		"Ability11"		"special_bonus_unique_templar_assassin_8"
-		"Ability14"		"special_bonus_unique_templar_assassin_4"
-		"Ability13"		"special_bonus_unique_templar_assassin_2"
-		"Ability16"		"special_bonus_unique_templar_assassin_7"
-		"Ability15"		"special_bonus_unique_templar_assassin"
-	}
-	"npc_dota_hero_slardar"
-	{
-		"AttackRate"    "1.0"
-		"Ability12"     "special_bonus_unique_slardar_4"
-		"Ability16"     "special_bonus_hp_325"
-		"Ability17"		"special_bonus_unique_slardar_5"
-		"Ability15"		"special_bonus_unique_slardar_3"
-	}
 	"npc_dota_hero_huskar"
 	{
-		"AttackRange"   "600"
-		"MovementSpeed" "400"
 		"Ability4"		"huskar_inner_vitality"
-		"Ability15"		"special_bonus_unique_huskar_3"
-		"Ability11"		"special_bonus_unique_huskar_4"
+		"Ability10"		"special_bonus_unique_huskar_3"
+		"Ability17"		"special_bonus_unique_huskar_4"
 		"Ability12"		"special_bonus_unique_huskar_2"
 		"Ability13"		"special_bonus_lifesteal_15"
-		"Ability17"		"special_bonus_unique_huskar_6"
-		"Ability10"		"special_bonus_unique_huskar_7"
+		"Ability14"		"special_bonus_unique_huskar_6"
+		"Ability11"		"special_bonus_unique_huskar_7"
 		"Ability16"		"special_bonus_unique_huskar"
-		"Ability14"		"special_bonus_unique_huskar_5"
-		"AttributeBaseStrength"		"24"
-		"AttributeStrengthGain"		"4.00000"
-		"AttributeBaseAgility"		"25"
-		"AttributeAgilityGain"		"5.0000"
-		"AttributeBaseIntelligence"		"50"
-		"AttributeIntelligenceGain"		"5.0000"
+		"Ability15"		"special_bonus_unique_huskar_5"
 		"Bot"
 		{
 			"Build"
@@ -1513,9 +1419,7 @@
 				"32"		"juggernaut_omni_slash"
 				"33"		"juggernaut_healing_ward"
 				"34"		"juggernaut_blade_dance"
-				"35"		"juggernaut_blade_dance"
-				"36"		"juggernaut_blade_dance"
-				"37"		"juggernaut_blade_fury"
+				"35"		"juggernaut_blade_fury"
 			}
 		}
 	}
@@ -1845,18 +1749,6 @@
 	}
 	"npc_dota_hero_mirana"
 	{
-		"AttackRate"    "1.4"
-		"AttackRange"   "650"
-		"Ability4"      "winter_wyvern_arctic_burn"
-		"Ability5"      "slark_essence_shift_mirana"
-		"Ability16"		"special_bonus_attack_damage_45"
-		"Ability15"		"special_bonus_unique_mirana_2"
-		"AttributeBaseStrength"		"30"
-		"AttributeStrengthGain"		"3.0"
-		"AttributeBaseIntelligence"		"30"
-		"AttributeIntelligenceGain"		"3.0"
-		"AttributeBaseAgility"		"30"
-		"AttributeAgilityGain"		"3.0"
 		"Bot"
 		{
 			"Build"
@@ -2070,7 +1962,7 @@
 	{
 		//"Ability5"		"omniknight_repel" 加强新版二技能的同时暂时移除老版二技能
 		"Ability4"		"omniknight_angelic_flight"
-		"Ability7"		"omniknight_degen_aura"
+		"Ability5"		"omniknight_degen_aura"
 		"Bot"
 		{
 			"Build"
@@ -2251,10 +2143,8 @@
 	}
 	"npc_dota_hero_razor"
 	{
-		"AttackRate"    "1.4"
-		"AttackRange"   "650"
 	    "Ability11"		"special_bonus_unique_razor_101"
-        "Ability13"		"special_bonus_unique_razor_2"
+        "Ability13"		"special_bonus_spell_amplify_12"
         "Ability14"		"special_bonus_unique_razor_401"
         "Ability15"		"special_bonus_unique_razor_static_link_aspd"
         "Ability16"		"special_bonus_unique_razor_402"

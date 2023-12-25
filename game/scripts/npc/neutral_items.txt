@@ -17,32 +17,32 @@
 
 		"items"
 		{
-			"item_keen_optic"				"1"	// 基恩镜片
-			"item_trusty_shovel"			"1"	// 可靠铁铲
-			"item_arcane_ring"				"1"
-			"item_chipped_vest"				"1"
-			"item_royal_jelly_custom"		"1"
-			"item_ring_of_aquila"			"1"
-			"item_philosophers_stone"		"1"
-			"item_pogo_stick"				"1"
-			"item_unstable_wand"			"1"
-			"item_seeds_of_serenity"		"1"
-			"item_lance_of_pursuit"			"1"
-			"item_occult_bracelet"			"1"
-			"item_possessed_mask"			"1"
-			"item_paintball"				"1"
-			"item_iron_talon"				"1"	// 打野爪
-			"item_broom_handle"				"1"
-			"item_duelist_gloves"			"1"
-			"item_spark_of_courage"			"1"
-			"item_poor_mans_shield"			"1"	// 穷鬼盾
+			//"item_keen_optic"				  "1" //基恩镜片
+			//"item_possessed_mask"			  "1" //附魂面具
+			//"item_pogo_stick"				  "1" //杂技玩具
+			//"item_ocean_heart"			  "1" //海洋之心
+			//"item_chipped_vest"			  "1" //碎裂背心
+			//"item_ironwood_tree"			  "1" //铁树之木
+			"item_trusty_shovel"			  "1" //可靠铁铲
+			"item_arcane_ring"				  "1" //魔力指环
+			"item_mysterious_hat"			  "1" //仙灵饰品
+			"item_unstable_wand"			  "1" //豚杆
+			"item_safety_bubble"			  "1" //安全泡泡
+			"item_seeds_of_serenity"		  "1" //宁静种籽
+			"item_lance_of_pursuit"			  "1" //追击之矛
+			"item_occult_bracelet"			  "1" //玄奥手镯
+			"item_duelist_gloves"			  "1" //决斗家手套
+			"item_broom_handle"				  "1" //扫帚柄
+			"item_royal_jelly"				  "1" //蜂王浆
+			"item_faded_broach"				  "1" //暗淡胸针
+			"item_spark_of_courage"			  "1" //勇气之光
 		}
 	}
 	"2"
 	{
 		"drop_rates"
 		{
-			"7:00"
+			"6:00"
 			{
 				"0" "15"
 				"1" "14"
@@ -55,29 +55,35 @@
 
 		"items"
 		{
-			"item_imp_claw"					"1"
-			"item_grove_bow"				"1"
-			"item_bullwhip"					"1"
-			"item_mysterious_hat"			"1"
-			"item_quickening_charm"			"1"
-			// "item_misericorde"				"1"
-			"item_vambrace"					"1"
-			"item_dragon_scale"				"1"
-			"item_eye_of_the_vizier"		"1"
-			"item_specialists_array"		"1"
-			"item_dagger_of_ristul"			"1"
-			"item_orb_of_destruction"		"1"
-			"item_vampire_fangs"			"1"	// 吸血鬼獠牙
-			"item_gossamer_cape"			"1"	// 蛛丝斗篷
-			// "item_tome_of_aghanim"			"1"	// 阿哈利姆之书
-			"item_apex"						"1"//极
+			//"item_ring_of_aquila"		  "1" //天鹰戒
+			//"item_imp_claw"			  "1" //魔童之爪 暴击爪
+			//"item_nether_shawl"		  "1" //幽冥披肩
+			//"item_misericorde"		  "1" //飞贼之刃
+			//"item_essence_ring"		  "1" //精华指环
+			//"item_paintball"			  "1" //仙灵榴弹
+			//"item_quicksilver_amulet"	  "1" //银闪护符
+			//"item_dagger_of_ristul"	  "1" //瑞斯图尔尖匕
+			//"item_blighted_spirit"	  "1"
+			"item_dragon_scale"           "1" //炎龙之鳞
+			"item_whisper_of_the_dread"   "1" //邪道私语
+			"item_pupils_gift"            "1" //学徒之礼
+			"item_vambrace"               "1" //臂甲
+			"item_grove_bow"              "1" //林野长弓
+			"item_philosophers_stone"     "1" //贤者石
+			"item_bullwhip"			      "1" //凌厉长鞭
+			"item_orb_of_destruction"	  "1" //毁灭灵球
+			"item_eye_of_the_vizier"	  "1" //维齐尔之眼
+			"item_vampire_fangs"		  "1" //吸血鬼獠牙
+			"item_gossamer_cape"		  "1" //蛛丝斗篷
+			"item_light_collector"	      "1" //集光器
+			"item_apex"			          "1" //极
 		}
 	}
 	"3"
 	{
 		"drop_rates"
 		{
-			"14:00"
+			"12:00"
 			{
 				"0" "10"
 				"1" "9"
@@ -90,34 +96,32 @@
 
 		"items"
 		{
-			"item_elven_tunic"				"1"
-			"item_cloak_of_flames"			"1"
-			"item_ceremonial_robe"			"1"
-			"item_psychic_headband"			"1"
-			"item_stormcrafter"				"1"
-			"item_paladin_sword"			"1"
-			"item_mind_breaker"				"1"
-			"item_ogre_seal_totem"			"1"
-			"item_enchanted_quiver"			"1"
-			// "item_black_powder_bag"			"1"
-			"item_vindicators_axe"			"1"
-			"item_dandelion_amulet"			"1"
-			// "item_quicksilver_amulet"		"1" // 银闪护符
-			"item_essence_ring"				"1" // 精华指环
-			"item_spider_legs"				"1" // 网虫腿
-			"item_horizon"					"1" // 视界
-			"item_witless_shako"			"1" // 无知小帽
-			"item_panic_button"				"1" // 神灯
-			"item_third_eye"				"1" // 第三只眼
-			"item_repair_kit"				"1" // 修理工具
-			"item_helm_of_the_undying"      "1" // 不朽尸王头盔
+			//"item_titan_sliver"			  "1" //巨神残铁
+			//"item_quickening_charm"		  "1" //加速护符
+			//"item_slime_vial"				  "1"
+			//"item_black_powder_bag"		  "1" //雷火弹
+			//"item_spider_legs"			  "1" //网虫腿 蜘蛛腿
+			//"item_icarus_wings"		      "1"
+			"item_defiant_shell"			  "1" //不羁甲壳
+			"item_nemesis_curse"			  "1" //天诛之咒
+			"item_vindicators_axe"			  "1" //正义之斧
+			"item_dandelion_amulet"			  "1" //蒲公英护符
+			"item_craggy_coat"				  "1" //崎岖外衣 情趣外衣
+			"item_enchanted_quiver"			  "1" //魔力箭袋 萝莉肩带
+			"item_elven_tunic"				  "1" //精灵外衣
+			"item_cloak_of_flames"			  "1" //火焰斗篷 火焰风衣 献祭斗篷
+			"item_ceremonial_robe"			  "1" //祭礼长袍
+			"item_psychic_headband"			  "1" //通灵头带
+			"item_ogre_seal_totem"			  "1" //食人魔海豹图腾
+			"item_doubloon"					  "1" //双面币
+			"item_havoc_hammer"				  "1" //浩劫巨锤
 		}
 	}
 	"4"
 	{
 		"drop_rates"
 		{
-			"20:00"
+			"18:00"
 			{
 				"0" "10"
 				"1" "8"
@@ -130,28 +134,38 @@
 
 		"items"
 		{
-			"item_titan_sliver"				"1"
-			"item_seer_stone"				"1"
-			"item_ninja_gear"				"1"
-			"item_minotaur_horn"			"1"
-			"item_trickster_cloak"			"1"
-			"item_penta_edged_sword"		"1"
-			"item_the_leveller"				"1" // 平世剑
-			// "item_heavy_blade"				"1" // 行巫之祸
-			"item_ascetic_cap"				"1"
-			"item_spell_prism"				"1"
-			"item_havoc_hammer"				"1"
-			"item_spy_gadget"				"1"
-			"item_princes_knife"			"1" // 亲王短刀
-			"item_martyrs_plate"			"1" // 烈士鳞甲
-			"item_woodland_striders"		"1" // 丛林鞋
+			//"item_spell_prism"			  "1" //法术棱镜
+			//"item_heavy_blade"			  "1" //行巫之祸
+			//"item_flicker"				  "1" //闪灵
+			//"item_illusionsts_cape"		  "1" //幻术师披风
+			//"item_fortitude_ring"			  "1"
+			//"item_the_leveller"			  "1" //平世剑
+			//"item_minotaur_horn"			  "1" //恶牛角
+			//"item_penta_edged_sword"		  "1" //五锋长剑
+			//"item_princes_knife"			  "1" //亲王短刀 亲妈短刀
+			//"item_harpoon"				  "1" //鱼叉
+			//"item_barricade"			  	  "1"
+			//"item_horizons_equilibrium"	  "1" //视界平衡
+			"item_specialists_array"	      "1" //行家阵列
+			"item_ascetic_cap"				  "1" //简朴短帽
+			"item_avianas_feather"			  "1" //艾维娜之羽
+			"item_ninja_gear"				  "1" //忍者用具
+			"item_spy_gadget"				  "1" //望远镜
+			"item_trickster_cloak"			  "1" //欺诈师斗篷
+			"item_stormcrafter"			      "1" //风暴宝器
+			"item_ancient_guardian"		      "1" //遗迹守护者
+			"item_mind_breaker"				  "1" //智灭
+			"item_martyrs_plate"			  "1" //烈士鳞甲
+			"item_rattlecage"				  "1" //回响之笼
+			"item_repair_kit"                 "1" //维修器具
+			"item_paladin_sword"			  "1" //骑士剑
 		}
 	}
 	"5"
 	{
 		"drop_rates"
 		{
-			"25:00"
+			"24:00"
 			{
 				"0" "6"
 				"1" "5"
@@ -164,19 +178,25 @@
 
 		"items"
 		{
-			"item_mirror_shield"			"1" // 神镜盾
-			"item_fallen_sky"				"1" // 天崩
-			"item_demonicon"				"1"
-			"item_timeless_relic"			"1"
-			"item_force_boots"				"1"
-			"item_book_of_shadows"			"1"
-			"item_desolator_2"				"1"
-			// "item_pirate_hat_custom"		"1" // 海盗帽 旧版
-			"item_pirate_hat"				"1" // 海盗帽
-			"item_giants_ring"				"1"
-			"item_ex_machina"				"1"
-			"item_ballista"					"1"
-			"item_force_field"				"1"
+			// "item_pirate_hat_custom"		  "1" //海盗帽 旧版
+			//"item_ballista"				  "1" //弩炮
+			//"item_fallen_sky"		  	      "1" //天崩
+			//"item_ex_machina"				  "1" //机械之心
+			//"item_vengeances_shadow"		  "1" //复仇之影
+			//"item_manacles_of_power"		  "1"
+			//"item_bottomless_chalice"		  "1"
+			//"item_wand_of_sanctitude"		  "1"
+			"item_timeless_relic"			  "1" //永恒遗物
+			"item_force_boots"				  "1" //原力鞋
+			"item_desolator_2"				  "1" //寂灭
+			"item_seer_stone"				  "1" //先哲之石
+			"item_mirror_shield"		 	  "1" //神镜盾
+			"item_force_field"				  "1" //秘术师铠甲
+			"item_pirate_hat"				  "1" //海盗帽
+			"item_giants_ring"				  "1" //巨人戒
+			"item_unwavering_condition"		  "1" //坚毅之件
+			"item_book_of_shadows"			  "1" //暗影邪典
+			"item_panic_button"				  "1" //神妙明灯
 		}
 	}
 }

@@ -15,11 +15,11 @@
 		"item"		"item_dust"
 		"item"		"item_bottle"
 		"item"		"item_aghanims_shard"
+
 		"item"		"item_tome_of_knowledge"
 		"item"		"item_candy_candy"
 		"item"		"item_consumable_gem"
 		"item"      "item_cheese"
-		"item"      "item_infused_raindrop"
 	}
 
 	"attributes"
@@ -42,6 +42,7 @@
 		"item"		"item_blade_of_alacrity"
 		"item"		"item_staff_of_wizardry"
 		"item"		"item_diadem"
+
 		"item"		"item_tome_of_strength_for_lottery"
 		"item"		"item_tome_of_agility_for_lottery"
 		"item"		"item_tome_of_intelligence_for_lottery"
@@ -50,7 +51,7 @@
 	"weapons_armor"
 	{
 		"item"		"item_quelling_blade"
-		"item"		"item_quelling_blade_2_datadriven"
+		"item"		"item_quelling_blade_2_datadriven" // 毒瘤之刃
 		"item"		"item_ring_of_protection"
 		"item"		"item_infused_raindrop"
 		"item"		"item_orb_of_venom"
@@ -83,7 +84,9 @@
 		"item"		"item_shadow_amulet"
 		"item"		"item_ghost"
 		"item"		"item_blink"
-		"item"      "item_black_king_bar_real"
+		"item"		"item_ring_of_health"
+		"item"		"item_void_stone"
+
 		"item"      "item_recipe_greater_famango"
 	}
 
@@ -99,15 +102,16 @@
 		"item"		"item_falcon_blade"
 		"item"		"item_power_treads"
 		"item"		"item_phase_boots"
+
 		//"item"		"item_oblivion_staff"
+		//"item"		"item_pers"
  		"item"		"item_mask_of_madness"
 		"item"		"item_travel_boots"
 		"item"		"item_hand_of_group"  //"item"		"item_hand_of_midas"
-		"item"		"item_aghanims_shard"
 		"item"		"item_wings_of_haste"
 		"item"		"item_moon_shard_datadriven"
 		"item"		"item_candy_candy"
-		//"item"		"item_pers"
+		"item"		"item_consumable_gem"		// 幻影宝石
 	}
 
 	// Level 2 - Blue Recipes
@@ -116,21 +120,21 @@
 		// "item"		"item_buckler"
 		// "item"		"item_ring_of_basilius"
 		// "item"		"item_headdress"
-		"item"		"item_urn_of_shadows"
+		// "item"		"item_urn_of_shadows"
 		"item"		"item_tranquil_boots"
-		"item"		"item_medallion_of_courage"
 		"item"		"item_pavise"
 		"item"		"item_arcane_boots"
 		"item"		"item_ancient_janggo"
 		"item"		"item_mekansm"
 		"item"		"item_holy_locket"
-		// "item"		"item_vladmir"
+		"item"		"item_vladmir"
 		"item"		"item_wraith_pact"
 		"item"		"item_spirit_vessel"
+		"item"		"item_meteor_hammer"
 		"item"		"item_pipe"
 		"item"		"item_guardian_greaves"
 		"item"		"item_boots_of_bearing"
-		"item"		"item_meteor_hammer"
+		"item"		"item_devastator"
 		"item"		"item_orb_of_the_brine"
 		"item"		"item_adi_king"
 		"item"		"item_adi_king_plus"
@@ -147,7 +151,7 @@
 		"item"		"item_rod_of_atos"
 		"item"		"item_dagon_5"
 		"item"		"item_orchid"
-		"item"		"item_solar_crest"
+ 		"item"		"item_phylactery"			// 灵匣
 		"item"		"item_ultimate_scepter_2"
 		"item"		"item_arcane_octarine_core"
 		"item"		"item_refresh_core"
@@ -161,6 +165,7 @@
 	"defense"
 	{
 		"item"		"item_vanguard"
+		"item"		"item_solar_crest"			// 炎阳纹章
 		"item"		"item_blade_mail_2"
 		"item"		"item_aeon_pendant"
 		"item"		"item_eternal_shroud"
@@ -175,22 +180,23 @@
 		"item"		"item_shivas_guard_2"
 		"item"		"item_undying_heart"
 		"item"		"item_vladmir_2"
-		"item"		"item_bloodstone_v2"
+		"item"		"item_bloodstone"
 	}
 
 	"weapons"
 	{
 		// "item"		"item_lesser_crit"
+ 		"item"		"item_desolator"
 		"item"		"item_basher"
+		"item"		"item_nullifier"			// 否决
 		"item"		"item_greater_crit"
-		"item"		"item_revenants_brooch"
+		"item"		"item_ethereal_blade"		// 虚灵之刃
+		"item"		"item_revenants_brooch"		// 英灵胸针
 		"item"		"item_disperser"
+		"item"		"item_angels_demise"
 		"item"		"item_armlet_pro_max"
 		// "item"		"item_invis_sword"
- 		"item"		"item_desolator"
 		"item"		"item_bfury_2"
-		"item"		"item_ethereal_blade"
-		"item"		"item_nullifier"
 		"item"		"item_bloodthorn"
 		"item"		"item_monkey_king_bar_2"
 		"item"		"item_shotgun_v2"
@@ -217,8 +223,8 @@
  		// "item"		"item_diffusal_blade"
 		"item"		"item_blue_fantasy"
  		"item"		"item_mage_slayer"
- 		"item"		"item_phylactery"
  		//"item"		"item_heavens_halberd"
+		"item"		"item_harpoon"
  		"item"		"item_kaya_and_sange"
  		"item"		"item_sange_and_yasha"
  		"item"		"item_yasha_and_kaya"
@@ -229,7 +235,7 @@
  		//"item"		"item_overwhelming_blink"
  		//"item"		"item_swift_blink"
  		//"item"		"item_arcane_blink"
-		"item"		"item_harpoon"
+		"item"      "item_black_king_bar_real"			// 真bkb
 		"item"		"item_tome_of_strength"
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
@@ -265,14 +271,14 @@
 
 	"secretshop"
 	{
-		"item"		"item_bottle"
-		"item"		"item_ring_of_health"
-		"item"		"item_void_stone"
+		"item"		"item_ring_of_tarrasque"
+		"item"		"item_tiara_of_selemene"
+		"item"		"item_cornucopia"
 		"item"		"item_energy_booster"
 		"item"		"item_vitality_booster"
 		"item"		"item_point_booster"
-		"item"		"item_platemail"
 		"item"		"item_talisman_of_evasion"
+		"item"		"item_platemail"
 		"item"		"item_hyperstone"
 		"item"		"item_ultimate_orb"
 		"item"		"item_demon_edge"

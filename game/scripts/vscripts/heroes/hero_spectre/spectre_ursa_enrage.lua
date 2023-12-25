@@ -45,6 +45,4 @@ function modifier_spectre_ursa_enrage:OnRefresh(table)
 end
 
 function modifier_spectre_ursa_enrage:OnDestroy()
-    ParticleManager:DestroyParticle(self.particleId, true)
-    ParticleManager:ReleaseParticleIndex(self.particleId)
 end

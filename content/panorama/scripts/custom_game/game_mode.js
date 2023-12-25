@@ -115,13 +115,13 @@ function InitSetting() {
 
 	// 开发模式
 	if (Game.IsInToolsMode()) {
-		$("#player_gold_xp_multiplier_dropdown").SetSelected("2");
-		$("#bot_gold_xp_multiplier_dropdown").SetSelected("2");
-		$("#radiant_player_number_dropdown").SetSelected("1");
-		$("#dire_player_number_dropdown").SetSelected("1");
+		$("#player_gold_xp_multiplier_dropdown").SetSelected("5");
+		$("#bot_gold_xp_multiplier_dropdown").SetSelected("5");
+		$("#radiant_player_number_dropdown").SetSelected("5");
+		$("#dire_player_number_dropdown").SetSelected("5");
 		$("#starting_gold_bot_dropdown").SetSelected("3000");
-		$("#tower_power_dropdown").SetSelected("5");
-		$("#tower_endure_dropdown").SetSelected("5");
+		$("#tower_power_dropdown").SetSelected("9");
+		$("#tower_endure_dropdown").SetSelected("9");
 	}
 }
 
@@ -227,14 +227,13 @@ function InitN5Setting() {
 }
 function InitN6Setting() {
 	$("#player_gold_xp_multiplier_dropdown").SetSelected("1.5");
-	$("#bot_gold_xp_multiplier_dropdown").SetSelected("20");
-	$("#dire_player_number_dropdown").SetSelected("12");
+	$("#bot_gold_xp_multiplier_dropdown").SetSelected("10");
 
 	$("#tower_power_dropdown").SetSelected("10");
 	$("#tower_endure_dropdown").SetSelected("10");
 
 	$("#starting_gold_player_dropdown").SetSelected("3000");
-	$("#starting_gold_bot_dropdown").SetSelected("20000");
+	$("#starting_gold_bot_dropdown").SetSelected("10000");
 }
 // -------- send to server --------
 function StateChange() {
@@ -299,7 +298,7 @@ function OnGameOptionsChange() {
 			seasonPointMulti = "2.0";
 			break;
 		case 6:
-			seasonPointMulti = "2.5";
+			seasonPointMulti = "2.0";
 			break;
 		default:
 			seasonPointMulti = "1.0";
