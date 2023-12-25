@@ -35,6 +35,7 @@ export class PointInfoDto {
     cn: string;
     en: string;
   };
+
   seasonPoint?: number;
   memberPoint?: number;
 }
@@ -103,11 +104,7 @@ export class Player {
     Player.pointInfoList = gameStart.pointInfo;
     const top100SteamIds = gameStart.top100SteamIds;
 
-    CustomNetTables.SetTableValue(
-      "leader_board",
-      "top100SteamIds",
-      top100SteamIds
-    );
+    CustomNetTables.SetTableValue("leader_board", "top100SteamIds", top100SteamIds);
 
     // set member to member table
     Player.savePlayerToNetTable();
@@ -137,9 +134,7 @@ export class Player {
     }
 
     const steamId = PlayerResource.GetSteamAccountID(hero.GetPlayerOwnerID());
-    const playerInfo = Player.playerList.find(
-      (player) => player.id == steamId.toString()
-    );
+    const playerInfo = Player.playerList.find((player) => player.id == steamId.toString());
 
     if (playerInfo?.properties) {
       for (const property of playerInfo.properties) {
@@ -156,11 +151,7 @@ export class Player {
         const member = Player.memberList.find((m) => m.steamId == steamId);
         if (member) {
           // set key as short dotaId
-          CustomNetTables.SetTableValue(
-            "member_table",
-            steamId.toString(),
-            member
-          );
+          CustomNetTables.SetTableValue("member_table", steamId.toString(), member);
         }
       }
     }
@@ -171,16 +162,10 @@ export class Player {
       if (PlayerResource.IsValidPlayer(i)) {
         // 32bit steamId
         const steamId = PlayerResource.GetSteamAccountID(i);
-        const steamIdPointInfoList = Player.pointInfoList.filter(
-          (p) => p.steamId == steamId
-        );
+        const steamIdPointInfoList = Player.pointInfoList.filter((p) => p.steamId == steamId);
         if (steamIdPointInfoList.length > 0) {
           // set key as short dotaId
-          CustomNetTables.SetTableValue(
-            "point_info",
-            steamId.toString(),
-            steamIdPointInfoList
-          );
+          CustomNetTables.SetTableValue("point_info", steamId.toString(), steamIdPointInfoList);
         }
       }
     }
@@ -191,20 +176,15 @@ export class Player {
       if (PlayerResource.IsValidPlayer(i)) {
         // 32bit steamId
         const steamId = PlayerResource.GetSteamAccountID(i);
-        const player = Player.playerList.find(
-          (p) => p.id == steamId.toString()
-        );
+        const player = Player.playerList.find((p) => p.id == steamId.toString());
         if (player) {
           // set key as short dotaId
-          CustomNetTables.SetTableValue(
-            "player_table",
-            steamId.toString(),
-            player
-          );
+          CustomNetTables.SetTableValue("player_table", steamId.toString(), player);
         }
       }
     }
   }
+
   public IsMember(steamId: number) {
     const member = Player.memberList.find((m) => m.steamId == steamId);
     if (member) {
@@ -224,18 +204,12 @@ export class Player {
   public RegisterListener() {
     CustomGameEventManager.RegisterListener<{ name: string; level: string }>(
       "player_property_levelup",
-      (_, event) => this.onPlayerPropertyLevelup(event)
+      (_, event) => this.onPlayerPropertyLevelup(event),
     );
   }
 
-  public onPlayerPropertyLevelup(event: {
-    PlayerID: PlayerID;
-    name: string;
-    level: string;
-  }) {
-    print(
-      `[Player] onPlayerPropertyLevelup ${event.PlayerID} ${event.name} ${event.level}`
-    );
+  public onPlayerPropertyLevelup(event: { PlayerID: PlayerID; name: string; level: string }) {
+    print(`[Player] onPlayerPropertyLevelup ${event.PlayerID} ${event.name} ${event.level}`);
     const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
 
     const apiParameter = {
@@ -261,16 +235,12 @@ export class Player {
     PropertyController.RefreshPlayerProperty(playerProperty);
 
     // 更新 nettable
-    const player = Player.playerList.find(
-      (p) => p.id == playerProperty.steamId.toString()
-    );
+    const player = Player.playerList.find((p) => p.id == playerProperty.steamId.toString());
     if (player) {
       if (!player.properties) {
         player.properties = [];
       }
-      const property = player.properties.find(
-        (p) => p.name == playerProperty.name
-      );
+      const property = player.properties.find((p) => p.name == playerProperty.name);
       if (property) {
         property.level = playerProperty.level;
       } else {

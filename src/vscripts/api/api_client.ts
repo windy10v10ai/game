@@ -36,17 +36,14 @@ export class ApiClient {
     path: string,
     querys: { [key: string]: string } | undefined,
     body: object | undefined,
-    callbackFunc: (result: CScriptHTTPResponse) => void
+    callbackFunc: (result: CScriptHTTPResponse) => void,
   ) {
     print(
-      `[ApiClient] ${method} ${
-        ApiClient.HOST_NAME
-      }${path} with querys ${json.encode(querys)} body ${json.encode(body)}`
+      `[ApiClient] ${method} ${ApiClient.HOST_NAME}${path} with querys ${json.encode(
+        querys,
+      )} body ${json.encode(body)}`,
     );
-    const request = CreateHTTPRequestScriptVM(
-      method,
-      ApiClient.HOST_NAME + path
-    );
+    const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + path);
     const key = GetDedicatedServerKeyV2(ApiClient.SERVER_KEY);
 
     // if (key == ApiClient.LOCAL_APIKEY && !IsInToolsMode()) {
@@ -102,7 +99,7 @@ export class ApiClient {
               }
             }
           }
-        }
+        },
       );
     };
     retry();

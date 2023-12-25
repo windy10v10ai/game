@@ -3,3 +3,4 @@ dist/
 *.d.ts
 src/vscripts/lib/dota_ts_adapter.ts
 src/vscripts/lib/tstl-utils.ts
+src/scripts

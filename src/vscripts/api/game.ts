@@ -12,10 +12,19 @@ class GameInfo {
   players!: Player[];
   winnerTeamId!: number;
   matchId!: string;
-  gameOption!: Object;
+  gameOption!: object;
   version!: string;
   constructor() {
     print("[Game] constructor in TS");
+    this.players = [];
+  }
+}
+
+class EndGameInfo {
+  winnerTeamId!: number;
+  players!: Player[];
+  gameOption!: object;
+  constructor() {
     this.players = [];
   }
 }
@@ -24,7 +33,7 @@ export class Game {
   private static VERSION = "v3.04";
   constructor() {}
 
-  public SendEndGameInfo(endData: any) {
+  public SendEndGameInfo(endData: EndGameInfo) {
     if (
       GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) == ApiClient.LOCAL_APIKEY &&
       !IsInToolsMode()
