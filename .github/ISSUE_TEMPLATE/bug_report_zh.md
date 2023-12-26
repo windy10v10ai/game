@@ -4,10 +4,10 @@ about: 创建BUG报告以帮助我们改进
 title: "[BUG]"
 labels: bug
 assignees: windybirth
-
 ---
 
 **BUG 类型**
+
 - [ ] 技能
 - [ ] 物品
 - [ ] 英雄
@@ -21,6 +21,7 @@ assignees: windybirth
 
 **复现步骤**
 复现这个行为的步骤：
+
 1. 在 '...' 情况下
 2. 使用 '....'
 3. 进行 '....' 操作
