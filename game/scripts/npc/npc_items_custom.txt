@@ -3246,7 +3246,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"                    		"items/item_tome_of_agility"
 		"AbilityTextureName"		    		"tome_of_agility"
-		"ItemCost"					"15000"
+		"ItemCost"					"19999"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"agility tome;agi"
 		"ItemShopTags"					"consumable"
@@ -3277,7 +3277,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"                    		"items/item_tome_of_intelligence"
 		"AbilityTextureName"		   		"tome_of_intelligence"
-		"ItemCost"					"15000"
+		"ItemCost"					"19999"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"intelligence tome;int"
 		"ItemShopTags"					"consumable"
@@ -3308,7 +3308,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"                    		"items/item_tome_of_strength"
 		"AbilityTextureName"		    		"tome_of_strength"
-		"ItemCost"					"15000"
+		"ItemCost"					"19999"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"strength tome;str"
 		"ItemShopTags"					"consumable"
@@ -5924,7 +5924,7 @@
 		"AbilityTextureName"			"item_recipe_tome_of_luoshu"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5000"
+		"ItemCost"						"6003"
 		"ItemShopTags"					""
 
 		// Recipe

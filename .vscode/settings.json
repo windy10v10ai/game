@@ -21,5 +21,12 @@
   "files.insertFinalNewline": true,
   "[typescript]": {
     "editor.formatOnSave": true
+  },
+  "[txt]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.autoIndent": "full"
   }
 }

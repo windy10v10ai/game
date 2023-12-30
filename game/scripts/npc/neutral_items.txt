@@ -55,7 +55,6 @@
 
 		"items"
 		{
-			//"item_ring_of_aquila"		  "1" //天鹰戒
 			//"item_imp_claw"			  "1" //魔童之爪 暴击爪
 			//"item_nether_shawl"		  "1" //幽冥披肩
 			//"item_misericorde"		  "1" //飞贼之刃
@@ -64,6 +63,7 @@
 			//"item_quicksilver_amulet"	  "1" //银闪护符
 			//"item_dagger_of_ristul"	  "1" //瑞斯图尔尖匕
 			//"item_blighted_spirit"	  "1"
+			//"item_ring_of_aquila"		  "1" //天鹰戒
 			"item_dragon_scale"           "1" //炎龙之鳞
 			"item_whisper_of_the_dread"   "1" //邪道私语
 			"item_pupils_gift"            "1" //学徒之礼
@@ -76,7 +76,6 @@
 			"item_vampire_fangs"		  "1" //吸血鬼獠牙
 			"item_gossamer_cape"		  "1" //蛛丝斗篷
 			"item_light_collector"	      "1" //集光器
-			"item_apex"			          "1" //极
 		}
 	}
 	"3"
@@ -96,25 +95,26 @@
 
 		"items"
 		{
-			//"item_titan_sliver"			  "1" //巨神残铁
-			//"item_quickening_charm"		  "1" //加速护符
-			//"item_slime_vial"				  "1"
-			//"item_black_powder_bag"		  "1" //雷火弹
-			//"item_spider_legs"			  "1" //网虫腿 蜘蛛腿
-			//"item_icarus_wings"		      "1"
-			"item_defiant_shell"			  "1" //不羁甲壳
-			"item_nemesis_curse"			  "1" //天诛之咒
-			"item_vindicators_axe"			  "1" //正义之斧
-			"item_dandelion_amulet"			  "1" //蒲公英护符
-			"item_craggy_coat"				  "1" //崎岖外衣 情趣外衣
-			"item_enchanted_quiver"			  "1" //魔力箭袋 萝莉肩带
-			"item_elven_tunic"				  "1" //精灵外衣
-			"item_cloak_of_flames"			  "1" //火焰斗篷 火焰风衣 献祭斗篷
-			"item_ceremonial_robe"			  "1" //祭礼长袍
-			"item_psychic_headband"			  "1" //通灵头带
-			"item_ogre_seal_totem"			  "1" //食人魔海豹图腾
-			"item_doubloon"					  "1" //双面币
-			"item_havoc_hammer"				  "1" //浩劫巨锤
+			//"item_titan_sliver"			"1" //巨神残铁
+			//"item_quickening_charm"		"1" //加速护符
+			//"item_slime_vial"				"1"
+			//"item_black_powder_bag"		"1" //雷火弹
+			//"item_spider_legs"			"1" //网虫腿 蜘蛛腿
+			//"item_icarus_wings"			"1"
+			"item_defiant_shell"			"1" //不羁甲壳
+			"item_nemesis_curse"			"1" //天诛之咒
+			"item_vindicators_axe"			"1" //正义之斧
+			"item_dandelion_amulet"			"1" //蒲公英护符
+			"item_craggy_coat"				"1" //崎岖外衣 情趣外衣
+			"item_enchanted_quiver"			"1" //魔力箭袋 萝莉肩带
+			"item_elven_tunic"				"1" //精灵外衣
+			"item_cloak_of_flames"			"1" //火焰斗篷 火焰风衣 献祭斗篷
+			"item_ceremonial_robe"			"1" //祭礼长袍
+			"item_psychic_headband"			"1" //通灵头带
+			"item_ogre_seal_totem"			"1" //食人魔海豹图腾
+			"item_doubloon"					"1" //双面币
+			"item_havoc_hammer"				"1" //浩劫巨锤
+			"item_paladin_sword"			"1" //骑士剑
 		}
 	}
 	"4"
@@ -134,31 +134,31 @@
 
 		"items"
 		{
-			//"item_spell_prism"			  "1" //法术棱镜
-			//"item_heavy_blade"			  "1" //行巫之祸
-			//"item_flicker"				  "1" //闪灵
-			//"item_illusionsts_cape"		  "1" //幻术师披风
-			//"item_fortitude_ring"			  "1"
-			//"item_the_leveller"			  "1" //平世剑
-			//"item_minotaur_horn"			  "1" //恶牛角
-			//"item_penta_edged_sword"		  "1" //五锋长剑
-			//"item_princes_knife"			  "1" //亲王短刀 亲妈短刀
-			//"item_harpoon"				  "1" //鱼叉
-			//"item_barricade"			  	  "1"
-			//"item_horizons_equilibrium"	  "1" //视界平衡
-			"item_specialists_array"	      "1" //行家阵列
-			"item_ascetic_cap"				  "1" //简朴短帽
-			"item_avianas_feather"			  "1" //艾维娜之羽
-			"item_ninja_gear"				  "1" //忍者用具
-			"item_spy_gadget"				  "1" //望远镜
-			"item_trickster_cloak"			  "1" //欺诈师斗篷
-			"item_stormcrafter"			      "1" //风暴宝器
-			"item_ancient_guardian"		      "1" //遗迹守护者
-			"item_mind_breaker"				  "1" //智灭
-			"item_martyrs_plate"			  "1" //烈士鳞甲
-			"item_rattlecage"				  "1" //回响之笼
-			"item_repair_kit"                 "1" //维修器具
-			"item_paladin_sword"			  "1" //骑士剑
+			//"item_spell_prism"			"1" //法术棱镜
+			//"item_heavy_blade"			"1" //行巫之祸
+			//"item_flicker"				"1" //闪灵
+			//"item_illusionsts_cape"		"1" //幻术师披风
+			//"item_fortitude_ring"			"1"
+			//"item_the_leveller"			"1" //平世剑
+			//"item_minotaur_horn"			"1" //恶牛角
+			//"item_penta_edged_sword"		"1" //五锋长剑
+			//"item_princes_knife"			"1" //亲王短刀 亲妈短刀
+			//"item_harpoon"				"1" //鱼叉
+			//"item_barricade"			  	"1"
+			//"item_horizons_equilibrium"	"1" //视界平衡
+			"item_apex"						"1" //极
+			"item_specialists_array"	    "1" //行家阵列
+			"item_ascetic_cap"				"1" //简朴短帽
+			"item_avianas_feather"			"1" //艾维娜之羽
+			"item_ninja_gear"				"1" //忍者用具
+			"item_spy_gadget"				"1" //望远镜
+			"item_trickster_cloak"			"1" //欺诈师斗篷
+			"item_stormcrafter"			    "1" //风暴宝器
+			"item_ancient_guardian"		    "1" //遗迹守护者
+			"item_mind_breaker"				"1" //智灭
+			"item_martyrs_plate"			"1" //烈士鳞甲
+			"item_rattlecage"				"1" //回响之笼
+			"item_repair_kit"               "1" //维修器具
 		}
 	}
 	"5"
