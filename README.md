@@ -10,7 +10,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570
 
 ## Table of Contents
 
-1. [Contributing 参与指南](#contributing)
+1. [Contributing 参与开发](#contributing)
 2. [Get Start 环境配置](#get-start)
    - [Requirement](#requirement)
    - [Develop Tool](#develop-tool)
@@ -19,9 +19,11 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570
    - [Dota2 vConsole2 Command](#dota2-vconsole2-command)
    - [How to compile item png to vtex_c](#how-to-compile-item-png-to-vtex_c)
 
-# Contributing
+# Contributing 参与开发
 
 If you would like to contribute to Windy10v10AI, please see our [contributing guidelines](.github/CONTRIBUTING.md).
+
+如果你想参与Windy10v10AI的开发，请参考我们的[参与指南](.github/CONTRIBUTING.md#参与开发)。
 
 # Get Start
 

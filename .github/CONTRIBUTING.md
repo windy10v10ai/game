@@ -27,7 +27,11 @@ Run Workflow with your branch.
 
 ![image](https://github.com/windybirth/windy10v10ai/assets/3445793/e7abb29a-ebfe-48dc-b5b7-ba9faf71e7ba)
 
-# 参与 Windy10v10AI
+## Conmuication
+
+- [Discord](https://discord.com/invite/MfawtDpxks)
+
+# 参与开发 Windy10v10AI
 
 首先，感谢您花时间参与Wind10v10AI的开发！
 
@@ -55,3 +59,7 @@ Run Workflow with your branch.
 运行 Workflow 并选择你的分支。
 
 ![image](https://github.com/windybirth/windy10v10ai/assets/3445793/e7abb29a-ebfe-48dc-b5b7-ba9faf71e7ba)
+
+## 沟通
+
+- [QQ](https://qm.qq.com/cgi-bin/qm/qr?k=6yNcbJ0GOuPECq1dmIvsmdj8y7dZBiHs)
