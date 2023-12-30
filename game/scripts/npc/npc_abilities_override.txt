@@ -937,7 +937,7 @@
 			"damage_reset_interval"		"7"		//7
 			"damage_threshold"			"600"	//180
 			"slow"			            "70"	//100
-			"projectile_speed"			"1000	//1000
+			"projectile_speed"			"1000"	//1000
 			"projectile_damage"			"500"	//125
 			"target_count"				"4"		//2
 			"bonus_armor"				"24"	//12
