@@ -680,7 +680,7 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_3" 					"+{s:bonus_stun_duration} Second Boxing Stun Time"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4" 					"Kame Hame Ha Purges Enemies"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4_description" 		"Kame Hame Ha will continuously apply basic dispels on enemy hits."
-		"DOTA_Tooltip_Ability_special_bonus_unique_goku_5" 					"+{s:bonus_regen}% Super Saiyan Recovery"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_5" 					"+{s:bonus_length} Kame Hame Ha Length"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6" 					"+{s:bonus_channel} Kame Hame Ha Duration"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7" 					"+{s:bonus_duration} Super Saiyan Mode Duration"
 

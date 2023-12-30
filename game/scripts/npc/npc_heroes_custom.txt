@@ -117,16 +117,16 @@
 		"Ability3"                   "goku_kaioken"
 		"Ability4"                   "goku_spirit_bomb"
 		"Ability6"                   "goku_super_saiyan"
-		"Ability10"					 "special_bonus_unique_goku_1"
-		"Ability11"					 "special_bonus_unique_goku_4"
+		"Ability10"					 "special_bonus_unique_goku_5"	// 龟派气功光波长度
+		"Ability11"					 "special_bonus_spell_amplify_10"	// 龟派气功强驱散
 
-		"Ability12"					 "special_bonus_spell_amplify_10"
-		"Ability13"					 "special_bonus_unique_goku_3"
+		"Ability12"					 "special_bonus_unique_goku_4"
+		"Ability13"					 "special_bonus_unique_goku_3"	// 界王拳击晕时间
 
-		"Ability14"					 "special_bonus_unique_goku_2"
-		"Ability15"					 "special_bonus_unique_goku_5"
+		"Ability14"					 "special_bonus_unique_goku_1"	// 龟派气功每秒伤害
+		"Ability15"					 "special_bonus_unique_goku_2"
 
-		"Ability16"					 "special_bonus_unique_goku_6"
+		"Ability16"					 "special_bonus_unique_goku_6"	// 龟派气功持续时间
 		"Ability17"					 "special_bonus_unique_goku_7"
 
 		"ItemSlots"
@@ -770,7 +770,6 @@
 	}
 	"npc_dota_hero_bounty_hunter"
 	{
-		"AttackRate"    "1.5"
 		"Bot"
 		{
 			"Build"
