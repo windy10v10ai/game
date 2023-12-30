@@ -1,16 +1,33 @@
 # Windy10v10AI
 
-Dota2 custom game
+This is a custom game for Dota2. It is a 10v10 AI game.<br>
 
-# Steam workshop
+这是一个Dota2的自定义游戏。是一个10v10的AI游戏。
+
+## Steam workshop
 
 https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570
+
+## Table of Contents
+
+1. [Contributing 参与指南](#contributing)
+2. [Get Start 环境配置](#get-start)
+   - [Requirement](#requirement)
+   - [Develop Tool](#develop-tool)
+   - [Install](#install)
+3. [Develop 开发](#develop)
+   - [Dota2 vConsole2 Command](#dota2-vconsole2-command)
+   - [How to compile item png to vtex_c](#how-to-compile-item-png-to-vtex_c)
+
+# Contributing
+
+If you would like to contribute to Windy10v10AI, please see our [contributing guidelines](.github/CONTRIBUTING.md).
 
 # Get Start
 
 ## Requirement
 
-`Windows 10`
+`Windows 10/11`
 
 ## Develop Tool
 

@@ -2,36 +2,48 @@
 
 First off, thanks for taking the time to contribute!
 
-## Code of Conduct
+# How Can I Contribute?
 
-This project and everyone participating in it is governed by the [Windy10v10AI Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+## Reporting Bugs and Suggesting Enhancements
 
-## How Can I Contribute?
+Create a [issue](https://github.com/windybirth/windy10v10ai/issues) to report bugs or suggest enhancements.
+Use [bug report template](https://github.com/windybirth/windy10v10ai/issues/new/choose).
 
-### Reporting Bugs
+## Developing
 
-This section guides you through submitting a bug report for Windy10v10AI. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports.
+### Create a branch
+
+Choose the issue you want to work on and create a branch linked to the issue.
+
+- Branch name rule: `feature/{issue number}-{branch name}`
 
 ### Pull Requests
 
-The process described here has several goals:
+Use [github actions](https://github.com/windybirth/windy10v10ai/actions/workflows/create_pr.yml) to create a pull request to develop.
 
-- Maintain Windy10v10AI's quality
-- Fix problems that are important to users
-- Engage the community in working toward the best possible Windy10v10AI
-- Enable a sustainable system for Windy10v10AI's maintainers to review contributions
+Run Workflow with your branch.
 
-Please follow these steps to have your contribution considered by the maintainers:
+# 参与 Windy10v10AI
 
-1. Follow all instructions in [the template](PULL_REQUEST_TEMPLATE.md)
-2. Follow the [styleguides](#styleguides)
-3. After you submit your pull request, verify that all status checks are passing
+首先，感谢您花时间参与Wind10v10AI的开发！
 
-## Styleguides
+# 我该如何参与？
 
-### Git Commit Messages
+## 报告BUG和提出建议
 
-- Use the present tense ("Add feature" not "Added feature")
-- Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-- Limit the first line to 72 characters or less
-- Reference issues and pull requests liberally after the first line
+创建一个[Issue](https://github.com/windybirth/windy10v10ai/issues)来报告BUG或提出建议。
+使用[BUG报告模板](https://github.com/windybirth/windy10v10ai/issues/new/choose)。
+
+## 开发
+
+### 创建一个分支
+
+选择你想要处理的问题并创建一个与问题相关的分支。
+
+- 分支命名规则：`feature/{issue number}-{branch name}`
+
+### Pull Requests
+
+使用[github actions](https://github.com/windybirth/windy10v10ai/actions/workflows/create_pr.yml)创建一个 pull request 到 develop 分支。
+
+运行 Workflow 并选择你的分支。
