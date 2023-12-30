@@ -33,7 +33,10 @@
         ]
       }
     ],
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
     "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
     "prefer-const": "error",
     "no-eval": "error",
