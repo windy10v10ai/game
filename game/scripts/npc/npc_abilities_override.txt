@@ -270,10 +270,12 @@
 	"item_trusty_shovel" //小铲子
 	{
 		"AbilityCooldown"				"30.0" //40
+
+		// chance_bounty_rune + chance_other_item * 3 = 100
 		"AbilityValues"
 		{
 			"bonus_health"			"300" //75
-			"chance_bounty_rune"	"50"  //16
+			"chance_bounty_rune"	"40"  //16
 			"chance_other_item"		"20"  //28
 			"kobold_duration"		"40"  //60
 		}
