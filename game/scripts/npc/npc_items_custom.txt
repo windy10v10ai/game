@@ -6632,6 +6632,63 @@
 			"duration"					"10"
 		}
 	}
+
+	//=================================================================================================================
+    // 神器诅咒圣剑 rapier ultra
+    //=================================================================================================================
+	"item_recipe_rapier_ultra"
+	{
+		"BaseClass"						"item_datadriven"
+		"ID"							"9594"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_rapier_ultra"
+		"ItemRequirements"
+		{
+			"01"						"item_rapier;item_rapier;item_rapier;item_rapier;item_rapier;item_monkey_king_bar_2"
+		}
+	}
+
+	"item_rapier_ultra"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ID"							"9595"
+		"AbilityTextureName"			"item_rapier_ultra"
+		"ItemDroppable"                 "0"
+		"ItemKillable"					"0"
+		"ItemSellable"					"0"
+		"AllowedInBackpack"             "0"
+
+		"AbilityValues"
+		{
+			"bonus_damage"			"2000"
+			"bonus_spell_amp"		"200"
+		}
+		"Modifiers"
+		{
+			"modifier_item_rapier_ultra_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"1"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%bonus_spell_amp"
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
 }
 
 

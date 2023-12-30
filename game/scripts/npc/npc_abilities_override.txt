@@ -822,19 +822,19 @@
 	}
 	"item_specialists_array" //行家阵列
 	{
-		"AbilityCooldown"				"1.5"		//8
+		"AbilityCooldown"				"0.8"		//8
 		"AbilityValues"
 		{
-			"all_stats"						"15"	//7
-			"bonus_damage"					"30"	//12
+			"all_stats"						"35"	//7
+			"bonus_damage"					"90"	//12
 			"count"							"4"		//2
 			"secondary_target_range_bonus"	"450"	//225
-			"proc_bonus_damage"				"100"	//20
+			"proc_bonus_damage"				"120"	//20
 		}
 	}
 	"item_ascetic_cap" //简朴短帽
 	{
-		"AbilityCooldown"		"20.0"  //25
+		"AbilityCooldown"		"25.0"  //25
 		"AbilityValues"
 		{
 			"status_resistance"	"60"	//40
@@ -955,12 +955,12 @@
 			"hp_regen"					"20"   //5
 		}
 	}
-	"item_princes_knife" //亲妈短刀
+	"item_princes_knife" //亲妈短刀 亲王短刀
 	{
-		"AbilityCooldown"				"8.0"
+		"AbilityCooldown"				"7.5" //10
 		"AbilityValues"
 		{
-				"duration"			"2.0"  //1.5
+				"duration"			"2.5"  //1.5
 				"movespeed"			"100"  //140
 				"projectile_bonus"	"60"   //60
 		}
@@ -1318,15 +1318,11 @@
 	//=================================================================================================================
     // 英灵胸针 revenants brooch
     //=================================================================================================================
-	"item_recipe_revenants_brooch"
-	{
-		"ItemCost"						"1900"		// 800
-	}
 	"item_revenants_brooch"
 	{
 		"AbilityValues"
 		{
-				"manacost_per_hit"		"150"
+				"manacost_per_hit"		"65"
 		}
 	}
 	//=================================================================================================================

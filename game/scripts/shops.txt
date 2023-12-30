@@ -19,7 +19,7 @@
 		"item"		"item_tome_of_knowledge"
 		"item"		"item_candy_candy"
 		"item"		"item_consumable_gem"
-		"item"      "item_cheese"
+		"item"		"item_cheese"
 	}
 
 	"attributes"
@@ -87,7 +87,7 @@
 		"item"		"item_ring_of_health"
 		"item"		"item_void_stone"
 
-		"item"      "item_recipe_greater_famango"
+		"item"		"item_recipe_greater_famango"
 	}
 
 	// Level 1 - Green Recipes
@@ -186,15 +186,14 @@
 	"weapons"
 	{
 		// "item"		"item_lesser_crit"
- 		"item"		"item_desolator"
 		"item"		"item_basher"
 		"item"		"item_nullifier"			// 否决
 		"item"		"item_greater_crit"
+		"item"		"item_armlet_pro_max"		// 小鸡臂章
 		"item"		"item_ethereal_blade"		// 虚灵之刃
 		"item"		"item_revenants_brooch"		// 英灵胸针
 		"item"		"item_disperser"
 		"item"		"item_angels_demise"
-		"item"		"item_armlet_pro_max"
 		// "item"		"item_invis_sword"
 		"item"		"item_bfury_2"
 		"item"		"item_bloodthorn"
@@ -206,8 +205,9 @@
 		"item"		"item_hurricane_pike_2"
 		"item"		"item_radiance_2"
 		"item"		"item_infernal_desolator"
-		"item"      "item_wasp_golden"
+		"item"		"item_wasp_golden"
 		"item"		"item_excalibur"
+		"item"		"item_rapier_ultra"
 	}
 
 	// Level 4 - Orange / Orb / Artifacts
@@ -235,7 +235,7 @@
  		//"item"		"item_overwhelming_blink"
  		//"item"		"item_swift_blink"
  		//"item"		"item_arcane_blink"
-		"item"      "item_black_king_bar_real"			// 真bkb
+		"item"		"item_black_king_bar_real"			// 真bkb
 		"item"		"item_tome_of_strength"
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
