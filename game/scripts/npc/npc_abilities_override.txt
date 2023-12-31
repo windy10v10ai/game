@@ -1268,12 +1268,12 @@
 	}
 	"item_angels_demise"
 	{
-		"AbilityCooldown"				"1.0"	// 6
+		"AbilityCooldown"				"2.0"	// 6
 		"AbilityValues"
 		{
 			"bonus_damage"			"100"		// 50
 			"crit_chance"			"30"		// 30
-			"spell_crit_multiplier"		"100"	// 75
+			"spell_crit_multiplier"		"80"	// 75
 			"spell_crit_flat"			"900"	// 100
 			"crit_multiplier"		"250"		// 160
 			"tooltip_crit_damage"	"150"		// 60
