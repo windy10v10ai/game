@@ -546,7 +546,6 @@ tBotItemData.purchaseItemList = {
 		'item_aghanims_shard',
 		'item_ultimate_scepter',
 		'item_wings_of_haste',
-		'item_skadi',
 		'item_hurricane_pike_2',
 		'item_butterfly',
 		'item_recipe_ultimate_scepter_2',

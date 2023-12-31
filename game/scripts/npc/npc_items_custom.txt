@@ -3229,9 +3229,9 @@
 				"bonus_health"			"600"
 				"bonus_mana"			"600"
 				"cold_slow_melee"		"-60"
-				"cold_attack_slow_melee"	"-80"
+				"cold_attack_slow_melee"	"-60"
 				"cold_slow_ranged"	"-75"
-				"cold_attack_slow_ranged"	"-120"
+				"cold_attack_slow_ranged"	"-80"
 				"cold_duration"	"4.0"
 				"heal_reduction"	"65"
 		}
