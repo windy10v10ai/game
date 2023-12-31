@@ -1635,18 +1635,22 @@
 				"value"					"2"
 				"special_bonus_unique_goku_6"	"+1"
 			}
-			"length"			"1500"
+			"length"
+			{
+				"value"					"1500"
+				"special_bonus_unique_goku_5"	"+600"
+			}
 			"width"				"200"
 			"speed"			"2400"
-			"manacost_pre_second"	"50 60 70 80 90"
+			"manacost_pre_second"	"50 75 100 125 150"
 			"damage_per_second"
 			{
-				"value"					"100 160 220 280 340"
-				"special_bonus_unique_goku_1"	"+60"
+				"value"					"100 175 250 325 400"
+				"special_bonus_unique_goku_1"	"+100"
 			}
 			"dmg_tick"				"0.1"
-			"super_saiyan_damage_multiple"		"2"
-			"super_saiyan_mana_percent"		"12"
+			"super_saiyan_damage_multiple"		"1.5"
+			"super_saiyan_mana_percent"		"16"
 			"super_saiyan_length"			"15000"
 		}
 	}
@@ -1755,8 +1759,7 @@
 			"bonus_status_resistance"		"15 20 25"
 			"regen"
 			{
-				"value"						"2.5 3 3.5"
-				"special_bonus_unique_goku_5"	"+0.5"
+				"value"						"2 2.5 3"
 			}
 			"duration"
 			{

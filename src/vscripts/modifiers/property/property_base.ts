@@ -2,33 +2,34 @@ import { BaseModifier, registerModifier } from "../../lib/dota_ts_adapter";
 
 @registerModifier()
 export class PropertyBaseModifier extends BaseModifier {
-    value!: number;
+  value!: number;
 
-    IsPurgable(): boolean {
-        return false;
-    }
-    RemoveOnDeath(): boolean {
-        return false;
-    }
-    IsHidden(): boolean {
-        return true;
-    }
+  IsPurgable(): boolean {
+    return false;
+  }
 
-    OnCreated(kv: { value: number }) {
-        if (IsClient()) return;
+  RemoveOnDeath(): boolean {
+    return false;
+  }
 
-        this.value = kv.value;
-        this.SetHasCustomTransmitterData(true);
-    }
+  IsHidden(): boolean {
+    return true;
+  }
 
+  OnCreated(kv: { value: number }) {
+    if (IsClient()) return;
 
-    AddCustomTransmitterData(): { value: number } {
-        return {
-            value: this.value,
-        };
-    }
+    this.value = kv.value;
+    this.SetHasCustomTransmitterData(true);
+  }
 
-    HandleCustomTransmitterData(data: { value: number }) {
-        this.value = data.value;
-    }
+  AddCustomTransmitterData(): { value: number } {
+    return {
+      value: this.value,
+    };
+  }
+
+  HandleCustomTransmitterData(data: { value: number }) {
+    this.value = data.value;
+  }
 }

@@ -3,15 +3,25 @@ name: Bug report
 about: Create a report to help us improve
 title: "[BUG]"
 labels: bug
-assignees: ''
-
+assignees: ""
 ---
+
+**Bug type**
+
+- [ ] Ability
+- [ ] Item
+- [ ] Hero
+- [ ] Bot
+- [ ] UI
+- [ ] Other
 
 **Describe the bug**
 A clear and concise description of what the bug is.
+Please use the full names of heroes and abilities.
 
 **To Reproduce**
 Steps to reproduce the behavior:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'

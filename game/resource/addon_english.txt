@@ -680,7 +680,7 @@
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_3" 					"+{s:bonus_stun_duration} Second Boxing Stun Time"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4" 					"Kame Hame Ha Purges Enemies"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_4_description" 		"Kame Hame Ha will continuously apply basic dispels on enemy hits."
-		"DOTA_Tooltip_Ability_special_bonus_unique_goku_5" 					"+{s:bonus_regen}% Super Saiyan Recovery"
+		"DOTA_Tooltip_Ability_special_bonus_unique_goku_5" 					"+{s:bonus_length} Kame Hame Ha Length"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_6" 					"+{s:bonus_channel} Kame Hame Ha Duration"
 		"DOTA_Tooltip_Ability_special_bonus_unique_goku_7" 					"+{s:bonus_duration} Super Saiyan Mode Duration"
 
@@ -1126,7 +1126,7 @@
 
         // item_skadi_2 冰眼2
 		"DOTA_Tooltip_Ability_item_skadi_2"				"Eye of Skadi Upgrade"
-		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>Passive: Cold Attack</h1> Attacks lower enemy movement and attack speed and reduces heals, health regeneration, lifesteal and spell lifesteal by %heal_reduction%%% for %cold_duration% seconds. Slows enemy ranged units by %cold_slow_ranged%%% movement speed and by %cold_attack_slow_ranged% attack speed. Slows enemy melee units by %cold_slow_melee%%% movement speed and by %cold_attack_slow_melee% attack speed. "
+		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>Passive: Cold Attack</h1> Attacks lower enemy movement by %cold_slow_melee%%% if they are melee and %cold_slow_ranged%%% if they are ranged, as well as their attack speed by %cold_attack_slow_melee%%% if they are melee and %cold_attack_slow_ranged%%% if they are ranged. Additionally it reduces all healing, lifesteal and regen by %heal_reduction%%% Lasts for %cold_duration% seconds."
 		"DOTA_Tooltip_ability_item_skadi_2_Lore"									"Extremely rare artifact, guarded by the azure dragons."
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_all_stats"						"+$all"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_health"							"+$health"
@@ -1504,5 +1504,91 @@
 		"DOTA_Tooltip_ability_item_black_king_bar_real_Note0"						"Repeat purchases do not refresh the cooldown."
 		"DOTA_Tooltip_ability_item_black_king_bar_real_Note1"						"Fight hunger, be yourself, and be a real man in 10 seconds."
 		"DOTA_Tooltip_ability_item_black_king_bar_real_bonus_strength"				"+$str"
+
+		// item_rapier_ultra 诅咒圣剑
+		"DOTA_Tooltip_ability_item_rapier_ultra"                        "<font color='#e03e2e'>Cursed Rapier</font>"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1><h1>Passive: True Strike</h1>Attacks will not miss due to evasion or other effects.\n<h1>Passive: <font color='#e03e2e'>Price of power</font></h1>Very great power always has its very great price. But its not on the table, since you are unstoppable now."
+		"DOTA_Tooltip_ability_item_rapier_ultra_Lore"					"Ruined at death."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"It has 99% to be ruined at death, actually. So, will you be the lucky dog?"
+
+			// item_satanic_ultra Ultra Satanic
+			"DOTA_Tooltip_Ability_item_satanic_ultra"				"<font color='#e03e2e'>Ultra Satanic</font>"
+			"DOTA_Tooltip_ability_item_satanic_ultra_Description"							"<h1>Active: Satanic Frenzy</h1>Increases lifesteal to %unholy_lifesteal_total_tooltip%%%, lasting %unholy_duration% seconds.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Weak Dispel</span>\n<h1>Passive: Lifesteal</h1>Attacks heal the attacker for %lifesteal_percent%%% of the damage dealt."
+			"DOTA_Tooltip_ability_item_satanic_ultra_Lore"								"Feel the wrath of the gods"
+			"DOTA_Tooltip_ability_item_satanic_ultra_bonus_strength"						"+$str"
+			"DOTA_Tooltip_ability_item_satanic_ultra_bonus_damage"						"+$damage"
+
+			// item_blade_mail_ultra Eternal Blade Mail
+			"DOTA_Tooltip_Ability_item_blade_mail_ultra"	"<font color='#e03e2e'>Eternal Blade Mail</font>"
+			"DOTA_Tooltip_ability_item_blade_mail_ultra_Description"						"<h1>Active: Self-Detonation</h1>Increases damage reflection by %active_reflection_pct%%% for %duration% seconds.<br><br>Passive: Damage Reflection</h1>Reflects %passive_reflection_constant% + %passive_reflection_pct%%% of the damage taken."
+			"DOTA_Tooltip_ability_item_blade_mail_ultra_Lore"								"The pinnacle of damage reflection, condensed in armor."
+			"DOTA_Tooltip_ability_item_blade_mail_ultra_Note0"							"Reflected damage is calculated before reductions."
+			"DOTA_Tooltip_ability_item_blade_mail_ultra_Note1"							"Damage reflection does not reflect damage from other Blade Mails."
+			"DOTA_Tooltip_ability_item_blade_mail_ultra_Note2"							"Reflected damage type matches the damage received."
+			"DOTA_Tooltip_ability_item_blade_mail_ultra_bonus_damage"						"+$damage"
+			"DOTA_Tooltip_ability_item_blade_mail_ultra_bonus_armor"						"-$armor"
+
+			// item_bloodstone_ultra Divine Bloodstone
+		    "DOTA_Tooltip_ability_item_bloodstone_ultra"						"<font color='#e03e2e'>Divine Bloodstone</font>"
+		    "DOTA_Tooltip_ability_item_bloodstone_ultra_Description"						"<h1>Active: Blood Pact</h1>Increases spell lifesteal of Bloodstone by %lifesteal_multiplier%x and converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
+			"DOTA_Tooltip_ability_item_bloodstone_ultra_Lore"								"The crimson color of the Bloodstone is unmistakable on the battlefield, granting its wielder seemingly infinite vitality and energy."
+			"DOTA_Tooltip_ability_item_bloodstone_ultra_Note0"							"Using Blood Pact leaves the user exhausted, lasting for 40 seconds, during which the effects of Blood Pact cannot be enjoyed again."
+			"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_aoe"						"+$aoe_bonus"
+			"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_health"						"+$health"
+			"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_mana"						"+$mana"
+			"DOTA_Tooltip_ability_item_bloodstone_ultra_spell_lifesteal"					"%+$spell_lifesteal"
+			"DOTA_Tooltip_modifier_item_bloodstone_ultra_active"							"Blood Pact"
+			"DOTA_Tooltip_modifier_item_bloodstone_ultra_active_Description"				"Restores %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health per second."
+			"DOTA_Tooltip_modifier_item_bloodstone_ultra_drained"							"Exhausted"
+			"DOTA_Tooltip_modifier_item_bloodstone_ultra_drained_Description"				"The bonus effects of Blood Pact do not apply to exhausted units."
+
+			// item_mjollnir_ultra Thunder God's Hammer
+			"DOTA_Tooltip_ability_item_mjollnir_ultra"                                  "<font color='#e03e2e'>Thunder God's Hammer</font>"
+			"DOTA_Tooltip_ability_item_mjollnir_ultra_Description"						"<h1>Active: Lightning Strike</h1>Applies a static shield to the target unit for %static_duration% seconds. The shield has a %static_chance%%% chance to release a lightning strike that hits %static_strikes% enemy units within %static_radius% range, dealing %static_damage% magic damage.<br><br>Cast Range: %abilitycastrange%\n\n<h1>Passive: Chain Lightning</h1>Attacks have a %chain_chance%%% chance to release a chain lightning that jumps between %chain_strikes% targets within %chain_radius% range, dealing %chain_damage% magic damage. Lightning strikes ignore evasion. Deals %illusion_multiplier_pct%%% damage to illusions."
+			"DOTA_Tooltip_ability_item_mjollnir_ultra_Lore"								"A hammer imbued with godly power"
+			"DOTA_Tooltip_ability_item_mjollnir_ultra_Note0"								"The interval between Lightning Strikes is greater than 0.2 seconds."
+			"DOTA_Tooltip_ability_item_mjollnir_ultra_Note1"								"The lightning from Lightning Strikes will hit units around the hero with the shield, while Static Charge only releases lightning strikes on targets within %static_seconary_radius% range."
+			"DOTA_Tooltip_ability_item_mjollnir_ultra_Note2"								"Lightning Strikes will not jump to heroes in invisibility or within the fog of war."
+			"DOTA_Tooltip_ability_item_mjollnir_ultra_bonus_damage"						"+$damage"
+			"DOTA_Tooltip_ability_item_mjollnir_ultra_bonus_attack_speed"					"+$attack"
+			"DOTA_Tooltip_modifier_item_mjollnir_ultra_static"				"Thunder God's Hammer Lightning Strike"
+			"DOTA_Tooltip_modifier_item_mjollnir_ultra_static_Description"	"Has a %dMODIFIER_PROPERTY_TOOLTIP%%% chance to release a lightning strike on the attacker and %dMODIFIER_PROPERTY_TOOLTIP% other enemy units nearby when attacked."
+
+			// item_radiance_ultra Group Evasion
+			"DOTA_Tooltip_Ability_item_radiance_ultra"				"<font color='#e03e2e'>Ultra Radiance</font>"
+			"DOTA_Tooltip_ability_item_radiance_ultra_Description"						"<h1>Toggle: Aura of Light</h1>When active, Radiance Burn deals %aura_damage% magic damage per second to enemies and has a %blind_pct%%% chance to miss their attacks. Illusions deal %aura_damage_illusions% magic damage per second.<br><br>Aura Radius: %aura_radius%"
+			"DOTA_Tooltip_ability_item_radiance_ultra_Lore"								"Do you understand teamwork? Do you understand group evasion?"
+			"DOTA_Tooltip_ability_item_radiance_ultra_bonus_damage"						"+$damage"
+			"DOTA_Tooltip_ability_item_radiance_ultra_evasion"							"%+$evasion"
+			"DOTA_Tooltip_modifier_item_radiance_ultra_debuff"				"Radiance Burn"
+			"DOTA_Tooltip_modifier_item_radiance_ultra_debuff_Description"	"Takes 600 damage per second and has a %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% chance to miss attacks."
+
+			// item_spirit_vessel_ultra Remnants of the Sage
+			"DOTA_Tooltip_ability_item_spirit_vessel_ultra"                         "<font color='#e03e2e'>Remnants of the Sage</font>"
+			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_Description"					"<h1>Active: Light of the Sage</h1>When used on enemies, reduces their current health by %enemy_hp_drain%%% per second and reduces their healing, regeneration, lifesteal, and spell lifesteal effects by %hp_regen_reduction_enemy%%%. Deals %soul_damage_amount% damage per second.<br><br>When used on allies, provides %soul_heal_amount% health regeneration per second.<br><br>Lasts %duration% seconds.<br><br>Gain charges whenever an enemy hero dies within %soul_radius% range. Only the urn closest to the dying hero will gain a charge.<br><br>Cast Range: %abilitycastrange%"
+			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_lore"					"The remains of a renowned sage, capable of releasing tremendous energy."
+			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_bonus_health"                     "+$health"
+			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_bonus_mana_regen"                "+$mana_regen"
+			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_bonus_all_stats"                "+$all"
+			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_bonus_armor"					"+$armor"
+			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_mana_regen"					"+$mana_regen"
+
+			"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_heal"							"Remnants of the Sage Heal"
+			"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_heal_Description"				"Restores %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health per second."
+			"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_damage"							"Remnants of the Sage Damage"
+			"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_damage_Description"				"Loses %dMODIFIER_PROPERTY_TOOLTIP% health per second +%dMODIFIER_PROPERTY_TOOLTIP%%% of current health. Reduces all healing effects by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%."
+
+			"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_aura"							"Remnants of the Sage Aura"
+			"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_aura_Description"				"Reduces all healing effects by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%."
+
+			// item_skadi_ultra Absolute Zero
+			"DOTA_Tooltip_ability_item_skadi_ultra"                         "<font color='#e03e2e'>Absolute Zero</font>"
+			"DOTA_Tooltip_ability_item_skadi_ultra_Description"				"<h1>Passive: Absolute Zero</h1>Attacks apply a frost effect, reducing the movement and attack speed of enemies, and reducing their healing, regeneration, lifesteal, and spell lifesteal effects by %heal_reduction%%%, lasting %cold_duration% seconds. Slows ranged enemies by %cold_slow_ranged%%% movement speed and %cold_attack_slow_ranged%%% attack speed. Slows melee enemies by %cold_slow_melee%%% movement speed and %cold_attack_slow_melee%%% attack speed."
+			"DOTA_Tooltip_ability_item_skadi_ultra_Lore"					"Absolute Zero, that's all there is to it."
+			"DOTA_Tooltip_ability_item_skadi_ultra_bonus_all_stats"			"+$all"
+			"DOTA_Tooltip_ability_item_skadi_ultra_bonus_health"			"+$health"
+			"DOTA_Tooltip_ability_item_skadi_ultra_bonus_mana"				"+$mana"
 	}
 }

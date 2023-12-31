@@ -1,29 +1,32 @@
 {
-    "Lua.diagnostics.disable": [
-        "undefined-global",
-        "lowercase-global"
-    ],
-    "Lua.workspace.library": [
-        "/game/scripts"
-    ],
-    "css.lint.unknownProperties": "ignore",
-    "search.exclude": {
-        "**/materials": true,
-        "**/models": true,
-        "**/soundevents": true,
-        "**/particles": true,
-        "game/itembuilds": true,
-    },
-    "files.watcherExclude": {
-        "**/materials": true,
-        "**/models": true,
-        "**/particles": true
-    },
-    "editor.insertSpaces": true,
+  "Lua.diagnostics.disable": ["undefined-global", "lowercase-global"],
+  "Lua.workspace.library": ["/game/scripts"],
+  "css.lint.unknownProperties": "ignore",
+  "search.exclude": {
+    "**/materials": true,
+    "**/models": true,
+    "**/soundevents": true,
+    "**/particles": true,
+    "game/itembuilds": true
+  },
+  "files.watcherExclude": {
+    "**/materials": true,
+    "**/models": true,
+    "**/particles": true
+  },
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[txt]": {
+    "editor.insertSpaces": false,
     "editor.tabSize": 4,
+    "editor.formatOnSave": true,
     "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "[typescript]": {
-        "editor.formatOnSave": true
-    },
+    "editor.autoIndent": "full"
+  }
 }

@@ -1,0 +1,64 @@
+name: Create Pull Request to develop
+on:
+  workflow_dispatch:
+
+jobs:
+  create_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get branch name
+        id: get_branch
+        run: echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+
+      - name: Reset promotion branch
+        run: |
+          git fetch origin ${{ steps.get_branch.outputs.branch }}:${{ steps.get_branch.outputs.branch }}
+          git reset --hard ${{ steps.get_branch.outputs.branch }}
+
+      - name: Get issue number from branch name
+        id: get_issue
+        run: echo number=$(echo ${GITHUB_REF#refs/heads/feature/} | cut -d'-' -f1) >> $GITHUB_OUTPUT
+
+      - name: Fetch issue details
+        id: fetch_issue
+        run: |
+          response=$(curl --request GET --url https://api.github.com/repos/${{ github.repository }}/issues/${{ steps.get_issue.outputs.number }})
+          title=$(echo "$response" | jq -r .title)
+          if [ $title = "null" ]; then
+            title=$(echo ${GITHUB_REF#refs/heads/})
+          fi
+          echo title=$title >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: ${{ steps.fetch_issue.outputs.title }}
+          branch: ${{ steps.get_branch.outputs.branch }}
+          base: develop
+          reviewers: windybirth
+
+      - name: Enable Pull Request Automerge
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: squash
+
+      - name: Assign PR to triggerer
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = ${{ steps.cpr.outputs.pull-request-number }}
+            const user = context.actor
+            await github.rest.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              assignees: [user]
+            })

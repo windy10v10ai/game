@@ -220,6 +220,6 @@ function goku_kamehameha:IntervalDetection()
 end
 
 function ConvertNumber(number,count)
-	local num = math.pow(10,count)
+	local num = 10 ^ count
 	return math.floor(number * num + 0.5) / num
 end
