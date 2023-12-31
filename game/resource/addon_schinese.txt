@@ -1668,5 +1668,84 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"其实是死亡99%概率摧毁，至于能不能幸免于难，施主且行且珍惜。"
+
+		// item_satanic_ultra 撒旦之神力
+		"DOTA_Tooltip_Ability_item_satanic_ultra"				"<font color='#e03e2e'>神器·撒旦之神力</font>"
+		"DOTA_Tooltip_ability_item_satanic_ultra_Description"							"<h1>主动：神力狂热</h1>吸血效果提升至%unholy_lifesteal_total_tooltip%%%，持续%unholy_duration%秒。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n<h1>被动：吸血</h1>攻击者每次攻击都将根据造成的伤害回复%lifesteal_percent%%%的生命值。"
+		"DOTA_Tooltip_ability_item_satanic_ultra_Lore"								"感受神的愤怒"
+		"DOTA_Tooltip_ability_item_satanic_ultra_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_satanic_ultra_bonus_damage"						"+$damage"
+
+		// item_blade_mail_ultra 天地同寿
+		"DOTA_Tooltip_Ability_item_blade_mail_ultra"	"<font color='#e03e2e'>神器·天地同寿</font>"
+		"DOTA_Tooltip_ability_item_blade_mail_ultra_Description"						"<h1>主动：自爆卡车</h1>%duration%秒内，反弹所有来源的伤害提升%active_reflection_pct%%%。\n<h1>被动：伤害反弹</h1>每次受到攻击时，反弹%passive_reflection_constant% + 所受攻击伤害的%passive_reflection_pct%%%。"
+		"DOTA_Tooltip_ability_item_blade_mail_ultra_Lore"								"反伤的巅峰之作，浓缩在甲胄之中。"
+		"DOTA_Tooltip_ability_item_blade_mail_ultra_Note0"							"反弹的均为减免前的伤害。"
+		"DOTA_Tooltip_ability_item_blade_mail_ultra_Note1"							"伤害反弹不会反弹来自其他刃甲的伤害。"
+		"DOTA_Tooltip_ability_item_blade_mail_ultra_Note2"							"反弹伤害的类型与受到时相同。"
+		"DOTA_Tooltip_ability_item_blade_mail_ultra_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_blade_mail_ultra_bonus_armor"						"-$armor"
+
+		// item_bloodstone_ultra 神圣血精石
+	    "DOTA_Tooltip_ability_item_bloodstone_ultra"						"<font color='#e03e2e'>神器·神圣血精石</font>"
+	    "DOTA_Tooltip_ability_item_bloodstone_ultra_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
+		"DOTA_Tooltip_ability_item_bloodstone_ultra_Lore"								"血精石鲜红的色彩在战场上绝对不会被看错，拥有者似乎有无限的生命力和精力。"
+		"DOTA_Tooltip_ability_item_bloodstone_ultra_Note0"							"使用血之契约会使自身精疲力竭，持续40秒，在此期间无法再次享受血之契约的效果。"
+		"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_aoe"						"+$aoe_bonus"
+		"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_mana"						"+$mana"
+		"DOTA_Tooltip_ability_item_bloodstone_ultra_spell_lifesteal"					"%+$spell_lifesteal"
+		"DOTA_Tooltip_modifier_item_bloodstone_ultra_active"							"血之契约"
+		"DOTA_Tooltip_modifier_item_bloodstone_ultra_active_Description"				"每秒恢复%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点生命。"
+		"DOTA_Tooltip_modifier_item_bloodstone_ultra_drained"							"精疲力竭"
+		"DOTA_Tooltip_modifier_item_bloodstone_ultra_drained_Description"				"血之契约的加成效果不会施加给精疲力竭的单位。"
+
+		// item_mjollnir_ultra 雷神重锤
+		"DOTA_Tooltip_ability_item_mjollnir_ultra"                                  "<font color='#e03e2e'>神器·雷神重锤</font>"
+		"DOTA_Tooltip_ability_item_mjollnir_ultra_Description"						"<h1>主动：雷电冲击</h1>对目标单位施加一个静电护盾，持续%static_duration%秒。护盾有%static_chance%%%几率对附近攻击护盾的目标及其周围%static_strikes%个敌方单位释放闪电冲击，造成%static_damage%点魔法伤害。<br><br>施法距离：%abilitycastrange%\n\n<h1>被动：连环闪电</h1>攻击有%chain_chance%%%几率释放一道连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避。对幻象造成%illusion_multiplier_pct%%%伤害。"
+		"DOTA_Tooltip_ability_item_mjollnir_ultra_Lore"								"拥有神力的重锤"
+		"DOTA_Tooltip_ability_item_mjollnir_ultra_Note0"								"雷电冲击的触发间隔大于0.2秒。"
+		"DOTA_Tooltip_ability_item_mjollnir_ultra_Note1"								"雷电冲击的闪电将会对拥有护盾的英雄周围单位造成魔法伤害，静电冲击只会对%static_seconary_radius%范围以内的目标发出闪电冲击。"
+		"DOTA_Tooltip_ability_item_mjollnir_ultra_Note2"								"雷电冲击不会弹跳至处于隐身状态下或战争迷雾内的英雄。"
+		"DOTA_Tooltip_ability_item_mjollnir_ultra_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_mjollnir_ultra_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_modifier_item_mjollnir_ultra_static"				"雷神重锤雷电冲击"
+		"DOTA_Tooltip_modifier_item_mjollnir_ultra_static_Description"	"受到攻击时有%dMODIFIER_PROPERTY_TOOLTIP%%%几率对攻击者和附近其他%dMODIFIER_PROPERTY_TOOLTIP%个敌方单位发出闪电攻击。"
+
+		// item_radiance 群体闪避
+		"DOTA_Tooltip_Ability_item_radiance_ultra"				"<font color='#e03e2e'>神器·群体闪避</font>"
+		"DOTA_Tooltip_ability_item_radiance_ultra_Description"						"<h1>开关：团队之光</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害，并且物理攻击有%blind_pct%%%几率不会命中。幻象每秒造成%aura_damage_illusions%点魔法伤害。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_radiance_ultra_Lore"								"懂不懂团队啊，群体闪避懂不懂啊？"
+		"DOTA_Tooltip_ability_item_radiance_ultra_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_radiance_ultra_evasion"							"%+$evasion"
+		"DOTA_Tooltip_modifier_item_radiance_ultra_debuff"				"灼烧伤害"
+		"DOTA_Tooltip_modifier_item_radiance_ultra_debuff_Description"	"每秒受到600点伤害，而且攻击有%dMODIFIER_PROPERTY_MISS_PERCENTAGE%%%几率不会命中。"
+
+		// item_spirit_vessel_ultra 圣人遗骸
+		"DOTA_Tooltip_ability_item_spirit_vessel_ultra"                         "<font color='#e03e2e'>神器·圣人遗骸</font>"
+		"DOTA_Tooltip_ability_item_spirit_vessel_ultra_Description"					"<h1>主动：圣人之光</h1>对敌人使用时，每秒减少%enemy_hp_drain%%%当前生命值，并且生命恢复、治疗、吸血和技能吸血效果降低%hp_regen_reduction_enemy%%%。每秒造成%soul_damage_amount%点伤害。<br><br>对友军使用时，提供%soul_heal_amount%点/秒生命恢复。<br><br>持续%duration%秒。<br><br>每当敌方英雄在%soul_radius%范围内死亡时获得充能。只有最靠近阵亡英雄的灵瓮能得到充能。<br><br>施法距离：%abilitycastrange%"
+		"DOTA_Tooltip_ability_item_spirit_vessel_ultra_lore"					"著名圣人的遗骸，能够释放巨大的能量。"
+		"DOTA_Tooltip_ability_item_spirit_vessel_ultra_bonus_health"                     "+$health"
+		"DOTA_Tooltip_ability_item_spirit_vessel_ultra_bonus_mana_regen"                "+$mana_regen"
+		"DOTA_Tooltip_ability_item_spirit_vessel_ultra_bonus_all_stats"                "+$all"
+		"DOTA_Tooltip_ability_item_spirit_vessel_ultra_bonus_armor"					"+$armor"
+		"DOTA_Tooltip_ability_item_spirit_vessel_ultra_mana_regen"					"+$mana_regen"
+
+		"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_heal"							"圣人遗骸治疗"
+		"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_heal_Description"				"每秒治疗%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点生命。"
+		"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_damage"							"圣人遗骸伤害"
+		"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_damage_Description"				"每秒损失%dMODIFIER_PROPERTY_TOOLTIP%点生命+%dMODIFIER_PROPERTY_TOOLTIP%%%当前生命值。所有治疗效果降低%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%。"
+
+		"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_aura"							"圣人遗骸恢复降低"
+		"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_aura_Description"				"所有治疗效果降低%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%。"
+
+		// item_skadi_ultra 零度冰眼
+		"DOTA_Tooltip_ability_item_skadi_ultra"                         "<font color='#e03e2e'>神器·零度之眼</font>"
+		"DOTA_Tooltip_ability_item_skadi_ultra_Description"				"<h1>被动：绝对零度</h1>攻击附带霜冻效果，可以降低敌人的移动速度和攻击速度，并且他们的治疗、生命恢复、吸血和技能吸血效果降低%heal_reduction%%%，持续%cold_duration%秒。对敌方远程目标将减缓%cold_slow_ranged%%%移动速度，降低%cold_attack_slow_ranged%攻击速度。对敌方近战目标将减缓%cold_slow_melee%%%移动速度，降低%cold_attack_slow_melee%攻击速度。"
+		"DOTA_Tooltip_ability_item_skadi_ultra_Lore"					"绝对零度怎么说，绝对零度。"
+		"DOTA_Tooltip_ability_item_skadi_ultra_bonus_all_stats"			"+$all"
+		"DOTA_Tooltip_ability_item_skadi_ultra_bonus_health"			"+$health"
+		"DOTA_Tooltip_ability_item_skadi_ultra_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_Ability_item_skadi_ultra_Note0"					"gtmd全能戴泽nec。"
 	}
 }

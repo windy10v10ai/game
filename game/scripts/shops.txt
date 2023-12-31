@@ -208,6 +208,9 @@
 		"item"		"item_wasp_golden"
 		"item"		"item_excalibur"
 		"item"		"item_rapier_ultra"
+		"item"      "item_mjollnir_ultra"
+		"item"      "item_radiance_ultra"
+		"item"      "item_satanic_ultra"
 	}
 
 	// Level 4 - Orange / Orb / Artifacts
@@ -240,6 +243,10 @@
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
 		"item"		"item_tome_of_luoshu"
+		"item"      "item_spirit_vessel_ultra"
+		"item"      "item_blade_mail_ultra"
+		"item"      "item_skadi_ultra"
+		"item"      "item_bloodstone_ultra"
 	}
 
 	"sideshop1"
