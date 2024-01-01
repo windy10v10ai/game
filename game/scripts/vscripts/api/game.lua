@@ -2,7 +2,7 @@ local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__New = ____lualib.__TS__New
 local __TS__SourceMapTraceBack = ____lualib.__TS__SourceMapTraceBack
-__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["7"] = 1,["8"] = 1,["9"] = 1,["10"] = 3,["11"] = 3,["13"] = 3,["14"] = 11,["15"] = 11,["17"] = 18,["18"] = 19,["19"] = 17,["20"] = 23,["21"] = 23,["23"] = 28,["24"] = 27,["25"] = 32,["26"] = 32,["27"] = 32,["29"] = 34,["30"] = 36,["31"] = 38,["34"] = 44,["35"] = 48,["36"] = 49,["37"] = 50,["38"] = 51,["39"] = 52,["41"] = 54,["42"] = 54,["43"] = 55,["44"] = 56,["45"] = 57,["46"] = 58,["47"] = 59,["48"] = 60,["49"] = 60,["50"] = 60,["52"] = 60,["53"] = 61,["54"] = 61,["55"] = 61,["57"] = 61,["58"] = 62,["59"] = 62,["61"] = 54,["64"] = 65,["65"] = 65,["66"] = 65,["67"] = 65,["68"] = 69,["69"] = 70,["70"] = 73,["71"] = 65,["72"] = 75,["73"] = 76,["74"] = 79,["75"] = 65,["76"] = 65,["77"] = 83,["78"] = 36,["79"] = 33});
+__TS__SourceMapTraceBack(debug.getinfo(1).short_src, {["7"] = 1,["8"] = 1,["9"] = 1,["10"] = 3,["11"] = 3,["13"] = 3,["14"] = 12,["15"] = 12,["17"] = 19,["18"] = 20,["19"] = 18,["20"] = 24,["21"] = 24,["23"] = 29,["24"] = 28,["25"] = 33,["26"] = 33,["27"] = 33,["29"] = 35,["30"] = 37,["31"] = 39,["34"] = 45,["35"] = 49,["36"] = 50,["37"] = 51,["38"] = 52,["39"] = 53,["40"] = 55,["42"] = 57,["43"] = 57,["45"] = 58,["46"] = 59,["47"] = 60,["49"] = 62,["50"] = 63,["51"] = 64,["52"] = 65,["53"] = 66,["54"] = 67,["55"] = 68,["56"] = 68,["59"] = 57,["62"] = 70,["63"] = 70,["64"] = 70,["65"] = 70,["66"] = 74,["67"] = 75,["68"] = 78,["69"] = 70,["70"] = 80,["71"] = 81,["72"] = 84,["73"] = 70,["74"] = 70,["75"] = 88,["76"] = 37,["77"] = 34});
 local ____exports = {}
 local ____api_client = require("api.api_client")
 local ApiClient = ____api_client.ApiClient
@@ -37,27 +37,25 @@ function Game.prototype.SendEndGameInfo(self, endData)
     gameInfo.matchId = tostring(GameRules:Script_GetMatchID())
     gameInfo.version = ____exports.Game.VERSION
     gameInfo.gameOption = endData.gameOption
+    DeepPrintTable(endData)
     do
-        local i = 0
-        while i < PlayerResource:GetPlayerCount() do
-            if PlayerResource:IsValidPlayerID(i) then
-                local player = __TS__New(Player)
-                player.teamId = PlayerResource:GetTeam(i)
-                player.steamId = PlayerResource:GetSteamAccountID(i)
-                player.heroName = PlayerResource:GetSelectedHeroName(i)
-                local ____endData_players_i_points_0 = endData.players[i + 1]
-                if ____endData_players_i_points_0 ~= nil then
-                    ____endData_players_i_points_0 = ____endData_players_i_points_0.points
+        local i = -1
+        while i < #endData.players do
+            do
+                local player = endData.players[i + 1]
+                if player == nil then
+                    goto __continue8
                 end
-                player.points = ____endData_players_i_points_0
-                local ____endData_players_i_isDisconnect_2 = endData.players[i + 1]
-                if ____endData_players_i_isDisconnect_2 ~= nil then
-                    ____endData_players_i_isDisconnect_2 = ____endData_players_i_isDisconnect_2.isDisconnect
-                end
-                player.isDisconnect = ____endData_players_i_isDisconnect_2
-                local ____gameInfo_players_4 = gameInfo.players
-                ____gameInfo_players_4[#____gameInfo_players_4 + 1] = player
+                local newPlayer = __TS__New(Player)
+                newPlayer.teamId = player.teamId
+                newPlayer.steamId = player.steamAccountID
+                newPlayer.heroName = player.heroName
+                newPlayer.points = player.points
+                newPlayer.isDisconnect = player.isDisconnect
+                local ____gameInfo_players_0 = gameInfo.players
+                ____gameInfo_players_0[#____gameInfo_players_0 + 1] = newPlayer
             end
+            ::__continue8::
             i = i + 1
         end
     end

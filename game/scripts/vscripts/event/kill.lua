@@ -24,7 +24,7 @@ local function RollDrops(hHero)
                         hHero:RemoveItem(hItem)
                         -- Create the item
                         if item_name == "item_excalibur" then
-                            CreateItemLocal("item_tpscroll", hHero)
+                            CreateItemLocal(item_name, hHero)
                         end
                     end
                 end

@@ -184,7 +184,7 @@ function AIGameMode:OnGameStateChanged(keys)
         end)
 
         -- 增强N6电脑出门属性 技能点
-        if self.iGameDifficulty == 6 then
+        if self.iGameDifficulty == 5 or self.iGameDifficulty == 6 then
             Timers:CreateTimer(10, function()
                 -- for each player in dire
                 for i = 0, (DOTA_MAX_TEAM_PLAYERS - 1) do
@@ -192,19 +192,35 @@ function AIGameMode:OnGameStateChanged(keys)
                         if PlayerResource:GetTeam(i) == DOTA_TEAM_BADGUYS then
                             local hero = PlayerResource:GetSelectedHeroEntity(i)
                             if hero then
-                                -- set to level 5
-                                hero:SetAbilityPoints(4)
-                                -- add modifier
-                                local statsModifier = CreateItem("item_player_modifiers", nil, nil)
-                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_strength_bonus_level_8", {})
-                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_agility_bonus_level_8", {})
-                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_intellect_bonus_level_8", {})
-                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_physical_armor_bonus_level_8", {})
-                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_movespeed_bonus_constant_level_4", {})
-                                statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_preattack_bonus_damage_level_4", {})
-                                -- Cleanup
-                                UTIL_RemoveImmediate(statsModifier)
-                                statsModifier = nil
+                                if self.iGameDifficulty == 5 then
+                                    -- set to level 3
+                                    hero:SetAbilityPoints(2)
+                                    -- add modifier
+                                    local statsModifier = CreateItem("item_player_modifiers", nil, nil)
+                                    statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_strength_bonus_level_4", {})
+                                    statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_agility_bonus_level_4", {})
+                                    statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_intellect_bonus_level_4", {})
+                                    statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_physical_armor_bonus_level_4", {})
+                                    statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_movespeed_bonus_constant_level_2", {})
+                                    statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_preattack_bonus_damage_level_2", {})
+                                    -- Cleanup
+                                    UTIL_RemoveImmediate(statsModifier)
+                                    statsModifier = nil
+                                elseif self.iGameDifficulty == 6 then
+                                    -- set to level 5
+                                    hero:SetAbilityPoints(4)
+                                    -- add modifier
+                                    local statsModifier = CreateItem("item_player_modifiers", nil, nil)
+                                    statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_strength_bonus_level_8", {})
+                                    statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_agility_bonus_level_8", {})
+                                    statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_stats_intellect_bonus_level_8", {})
+                                    statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_physical_armor_bonus_level_8", {})
+                                    statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_movespeed_bonus_constant_level_4", {})
+                                    statsModifier:ApplyDataDrivenModifier(hero, hero, "modifier_player_property_preattack_bonus_damage_level_4", {})
+                                    -- Cleanup
+                                    UTIL_RemoveImmediate(statsModifier)
+                                    statsModifier = nil
+                                end
                             end
                         end
                     end
@@ -738,6 +754,8 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
 
                 local playerInfo = {
                     steamid = tostring(PlayerResource:GetSteamID(playerID)),
+                    steamAccountID = tostring(PlayerResource:GetSteamAccountID(playerID)),
+                    teamId = PlayerResource:GetTeam(playerID),
                     membership = membership,
                     memberInfo = memberInfo,
                     kills = kills or 0,
