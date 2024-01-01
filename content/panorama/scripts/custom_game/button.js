@@ -21,7 +21,7 @@ function LoadMemberButton(member) {
     //     hPatreonButton.DeleteAsync(0)
     // }
 
-    let hMemberButton =
+    const hMemberButton =
       hContainer.FindChild("memberButton") || $.CreatePanel("Button", hContainer, "memberButton");
 
     let sString = $.Localize("#player_member_button");
@@ -50,7 +50,7 @@ function LoadDiscordButton() {
   const hContainer = FindDotaHudElement("ButtonBar");
 
   if (hContainer) {
-    let hDiscordButton =
+    const hDiscordButton =
       hContainer.FindChild("JoinDiscord") || $.CreatePanel("Button", hContainer, "JoinDiscord");
 
     hDiscordButton.style.backgroundImage = `url('file://{images}/custom_game/discord.png')`;

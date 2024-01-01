@@ -97,7 +97,7 @@ function SetLevelUseable(player) {
 function SetPlayerProperty() {
   ClearPlayerProperty();
 
-  let panel = $.CreatePanel("Panel", $("#PlayerPropertyContent"), "");
+  const panel = $.CreatePanel("Panel", $("#PlayerPropertyContent"), "");
   panel.BLoadLayoutSnippet("PlayerPropertyTooltip");
   for (const property of Player_Property_List) {
     AddPlayerProperty(property);
@@ -111,7 +111,7 @@ function ClearPlayerProperty() {
 function AddPlayerProperty(property) {
   const maxLevel = 8;
 
-  let panel = $.CreatePanel("Panel", $("#PlayerPropertyContent"), "");
+  const panel = $.CreatePanel("Panel", $("#PlayerPropertyContent"), "");
   panel.BLoadLayoutSnippet("Property");
 
   // 图标
@@ -312,7 +312,7 @@ const Player_Property_List = [
 ];
 
 function ToggleBP() {
-  let state = $("#BPWindow");
+  const state = $("#BPWindow");
   if (state.style.opacity == "0.0" || state.style.opacity == null) {
     state.style.opacity = "0.98";
     state.style.transform = "none";
@@ -359,8 +359,8 @@ function SetEquipPetButton(button, label, name) {
 }
 function SetEquipButtonReady(button) {
   GameEvents.Unsubscribe(unequipButtonEvents[button.name]);
-  let name = button.name;
-  let petButton = buttonSaver[name];
+  const name = button.name;
+  const petButton = buttonSaver[name];
 
   petButton[0].SetPanelEvent("onactivate", () => {
     EquipPet(name);
@@ -383,7 +383,7 @@ function defaultPreviousButton(button, label, name) {
 }
 
 function UpdateScoreboard() {
-  let hScoreboard = FindDotaHudElement("scoreboard");
+  const hScoreboard = FindDotaHudElement("scoreboard");
 
   if (hScoreboard) {
     if (hScoreboard.BHasClass("ScoreboardClosed")) {
@@ -395,7 +395,7 @@ function UpdateScoreboard() {
     if (!bTippingAvailable && bScoreTipping && FindDotaHudElement("Background")) {
       for (let nID = 0; nID < 5; nID++) {
         if (Players.IsValidPlayerID(nID) && nID != Game.GetLocalPlayerID()) {
-          let hScoreButton = $("#ScoreTipButton" + nID);
+          const hScoreButton = $("#ScoreTipButton" + nID);
 
           if (hScoreButton) {
             if (!hScoreButton.BHasClass("GrayedTip")) hScoreButton.AddClass("GrayedTip");

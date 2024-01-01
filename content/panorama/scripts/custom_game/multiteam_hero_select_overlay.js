@@ -56,7 +56,7 @@ function UpdatePlayer(teamPanel, playerId) {
   }
 
   if (playerInfo.player_selected_hero !== "") {
-    let heroImageCustom = imagefile[playerInfo.player_selected_hero];
+    const heroImageCustom = imagefile[playerInfo.player_selected_hero];
     if (heroImageCustom) {
       playerPortrait.SetImage(heroImageCustom);
     } else {
@@ -68,7 +68,7 @@ function UpdatePlayer(teamPanel, playerId) {
     playerInfo.possible_hero_selection !== "" &&
     playerInfo.player_team_id == localPlayerTeamId
   ) {
-    let heroImageCustom = imagefile["npc_dota_hero_" + playerInfo.possible_hero_selection];
+    const heroImageCustom = imagefile["npc_dota_hero_" + playerInfo.possible_hero_selection];
     if (heroImageCustom) {
       playerPortrait.SetImage(heroImageCustom);
     } else {

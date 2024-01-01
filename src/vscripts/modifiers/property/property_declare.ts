@@ -1,4 +1,4 @@
-import { registerModifier } from "../../lib/dota_ts_adapter";
+import { registerModifier } from "../../utils/dota_ts_adapter";
 import { PropertyBaseModifier } from "./property_base";
 
 @registerModifier()
