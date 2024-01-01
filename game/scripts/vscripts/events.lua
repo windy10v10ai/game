@@ -754,6 +754,8 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
 
                 local playerInfo = {
                     steamid = tostring(PlayerResource:GetSteamID(playerID)),
+                    steamAccountID = tostring(PlayerResource:GetSteamAccountID(playerID)),
+                    teamId = PlayerResource:GetTeam(playerID),
                     membership = membership,
                     memberInfo = memberInfo,
                     kills = kills or 0,

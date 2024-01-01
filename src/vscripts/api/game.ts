@@ -2,6 +2,7 @@ import { ApiClient, HttpMethod } from "./api_client";
 
 class Player {
   teamId!: number;
+  steamAccountID!: number;
   steamId!: number;
   heroName!: string;
   points!: number;
@@ -51,16 +52,20 @@ export class Game {
     gameInfo.version = Game.VERSION;
     gameInfo.gameOption = endData.gameOption;
 
-    for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
-      if (PlayerResource.IsValidPlayerID(i)) {
-        const player = new Player();
-        player.teamId = PlayerResource.GetTeam(i);
-        player.steamId = PlayerResource.GetSteamAccountID(i);
-        player.heroName = PlayerResource.GetSelectedHeroName(i);
-        player.points = endData.players[i]?.points;
-        player.isDisconnect = endData.players[i]?.isDisconnect;
-        gameInfo.players.push(player);
+    DeepPrintTable(endData);
+
+    for (let i = -1; i < endData.players.length; i++) {
+      const player = endData.players[i];
+      if (player == null) {
+        continue;
       }
+      const newPlayer = new Player();
+      newPlayer.teamId = player.teamId;
+      newPlayer.steamId = player.steamAccountID;
+      newPlayer.heroName = player.heroName;
+      newPlayer.points = player.points;
+      newPlayer.isDisconnect = player.isDisconnect;
+      gameInfo.players.push(newPlayer);
     }
     const apiParameter = {
       method: HttpMethod.POST,
