@@ -2,6 +2,7 @@
 tool/reference
 game/*.bin
 game/panorama_debugger.cfg
+game/panorama/layout/custom_game/
 game/resource/custom_game_whitelist.txt
 node_modules
 src/content/

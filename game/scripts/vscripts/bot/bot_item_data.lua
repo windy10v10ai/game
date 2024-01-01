@@ -970,7 +970,6 @@ tBotItemData.purchaseItemList = {
 		'item_kaya',
 		'item_glimmer_cape',
 		'item_blink',
-		'item_tome_of_knowledge',
 		'item_aether_lens_2',
 		'item_aghanims_shard',
 		'item_dagon',
