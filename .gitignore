@@ -13,6 +13,7 @@ src/game/
 /official_scripts
 
 # Ignore tstl output
+game/scripts/vscripts/api/
 game/scripts/vscripts/modules/
 game/scripts/vscripts/server/
 game/scripts/vscripts/utils/

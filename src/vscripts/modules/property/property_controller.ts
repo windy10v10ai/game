@@ -21,7 +21,7 @@ import {
   property_stats_strength_bonus,
   property_status_resistance_stacking,
   property_evasion_constant,
-} from "./property_declare";
+} from "../../modifiers/property/property_declare";
 
 export class PropertyController {
   private static propertyValuePerLevel = new Map<string, number>();
@@ -75,10 +75,42 @@ export class PropertyController {
     );
   }
 
-  public static addModifier(hero: CDOTA_BaseNPC_Hero, property: PlayerProperty) {
+  private static limitPropertyNames = [
+    "property_preattack_bonus_damage",
+    "property_attackspeed_bonus_constant",
+    "property_stats_strength_bonus",
+    "property_stats_agility_bonus",
+    "property_stats_intellect_bonus",
+  ];
+
+  // 属性加点后更新属性
+  public static RefreshPlayerProperty(property: PlayerProperty) {
+    for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
+      if (PlayerResource.IsValidPlayer(i)) {
+        const steamId = PlayerResource.GetSteamAccountID(i);
+        if (steamId == property.steamId) {
+          const hero = PlayerResource.GetSelectedHeroEntity(i);
+          if (hero) {
+            PropertyController.setModifier(hero, property);
+          }
+        }
+      }
+    }
+  }
+
+  // 更新单条属性
+  public static setModifier(hero: CDOTA_BaseNPC_Hero, property: PlayerProperty) {
+    const name = property.name;
+    let limitdLevel = property.level;
+    print(`[PropertyController] setModifier ${name} ${limitdLevel}`);
+    if (PropertyController.limitPropertyNames.includes(name)) {
+      const heroLevel = hero.GetLevel();
+      limitdLevel = Math.min(limitdLevel, heroLevel);
+      print(`[PropertyController] setModifier ${name} ${limitdLevel} limit`);
+    }
     const propertyValuePerLevel = PropertyController.propertyValuePerLevel.get(property.name);
     if (propertyValuePerLevel) {
-      const value = propertyValuePerLevel * property.level;
+      const value = propertyValuePerLevel * limitdLevel;
       if (value != 0) {
         hero.RemoveModifierByName(property.name);
         hero.AddNewModifier(hero, undefined, property.name, {
@@ -88,21 +120,7 @@ export class PropertyController {
     } else {
       const dataDrivenName = PropertyController.propertyDataDrivenName.get(property.name);
       if (dataDrivenName) {
-        this.refreshDataDrivenPlayerProperty(hero, dataDrivenName, property.level);
-      }
-    }
-  }
-
-  public static RefreshPlayerProperty(property: PlayerProperty) {
-    for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
-      if (PlayerResource.IsValidPlayer(i)) {
-        const steamId = PlayerResource.GetSteamAccountID(i);
-        if (steamId == property.steamId) {
-          const hero = PlayerResource.GetSelectedHeroEntity(i);
-          if (hero) {
-            PropertyController.addModifier(hero, property);
-          }
-        }
+        this.refreshDataDrivenPlayerProperty(hero, dataDrivenName, limitdLevel);
       }
     }
   }
