@@ -1688,13 +1688,13 @@
 
 		// item_bloodstone_ultra 神圣血精石
 	    "DOTA_Tooltip_ability_item_bloodstone_ultra"						"<font color='#e03e2e'>神器·神圣血精石</font>"
-	    "DOTA_Tooltip_ability_item_bloodstone_ultra_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
+	    //"DOTA_Tooltip_ability_item_bloodstone_ultra_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
 		"DOTA_Tooltip_ability_item_bloodstone_ultra_Lore"								"血精石鲜红的色彩在战场上绝对不会被看错，拥有者似乎有无限的生命力和精力。"
 		"DOTA_Tooltip_ability_item_bloodstone_ultra_Note0"							"使用血之契约会使自身精疲力竭，持续40秒，在此期间无法再次享受血之契约的效果。"
 		"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_aoe"						"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_mana"						"+$mana"
-		"DOTA_Tooltip_ability_item_bloodstone_ultra_spell_lifesteal"					"%+$spell_lifesteal"
+		//"DOTA_Tooltip_ability_item_bloodstone_ultra_spell_lifesteal"					"%+$spell_lifesteal"
 		"DOTA_Tooltip_modifier_item_bloodstone_ultra_active"							"血之契约"
 		"DOTA_Tooltip_modifier_item_bloodstone_ultra_active_Description"				"每秒恢复%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点生命。"
 		"DOTA_Tooltip_modifier_item_bloodstone_ultra_drained"							"精疲力竭"

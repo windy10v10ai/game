@@ -1532,13 +1532,13 @@
 
 			// item_bloodstone_ultra Divine Bloodstone
 		    "DOTA_Tooltip_ability_item_bloodstone_ultra"						"<font color='#e03e2e'>Divine Bloodstone</font>"
-		    "DOTA_Tooltip_ability_item_bloodstone_ultra_Description"						"<h1>Active: Blood Pact</h1>Increases spell lifesteal of Bloodstone by %lifesteal_multiplier%x and converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
+		    //"DOTA_Tooltip_ability_item_bloodstone_ultra_Description"						"<h1>Active: Blood Pact</h1>Increases spell lifesteal of Bloodstone by %lifesteal_multiplier%x and converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
 			"DOTA_Tooltip_ability_item_bloodstone_ultra_Lore"								"The crimson color of the Bloodstone is unmistakable on the battlefield, granting its wielder seemingly infinite vitality and energy."
 			"DOTA_Tooltip_ability_item_bloodstone_ultra_Note0"							"Using Blood Pact leaves the user exhausted, lasting for 40 seconds, during which the effects of Blood Pact cannot be enjoyed again."
 			"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_aoe"						"+$aoe_bonus"
 			"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_health"						"+$health"
 			"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_mana"						"+$mana"
-			"DOTA_Tooltip_ability_item_bloodstone_ultra_spell_lifesteal"					"%+$spell_lifesteal"
+			//"DOTA_Tooltip_ability_item_bloodstone_ultra_spell_lifesteal"					"%+$spell_lifesteal"
 			"DOTA_Tooltip_modifier_item_bloodstone_ultra_active"							"Blood Pact"
 			"DOTA_Tooltip_modifier_item_bloodstone_ultra_active_Description"				"Restores %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health per second."
 			"DOTA_Tooltip_modifier_item_bloodstone_ultra_drained"							"Exhausted"

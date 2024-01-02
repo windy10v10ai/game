@@ -1,5 +1,6 @@
 import { Player } from "../../api/player";
 import { Helper } from "../helper/helper";
+import { PropertyController } from "../property/property_controller";
 
 export class Event {
   constructor() {
@@ -13,8 +14,7 @@ export class Event {
 
     // 更新玩家属性
     if (Helper.IsHumanPlayer(hero)) {
-      // FIXME 前8级升级属性
-      if (keys.level <= 8) {
+      if (keys.level % PropertyController.HERO_LEVEL_PER_POINT == 1) {
         print(`[Event] OnPlayerLevelUp SetPlayerProperty ${hero.GetUnitName()}`);
         Player.SetPlayerProperty(hero);
       }

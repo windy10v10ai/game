@@ -31,7 +31,7 @@ class EndGameInfo {
 }
 
 export class Game {
-  private static VERSION = "v3.04";
+  private static VERSION = "v3.05";
   constructor() {}
 
   public SendEndGameInfo(endData: EndGameInfo) {
