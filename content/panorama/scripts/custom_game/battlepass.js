@@ -141,17 +141,29 @@ function AddPlayerProperty(property) {
   let nextLevel = property.level + 1;
   // 特殊属性
   if (
+    property.name === "property_skill_points_bonus" ||
     property.name === "property_ignore_movespeed_limit" ||
     property.name === "property_cannot_miss"
   ) {
-    levelupText = $.Localize(`#data_panel_player_property_level_up_8`);
-    nextLevel = 8;
+    levelupText = $.Localize(`#data_panel_player_property_level_up_X`).replace(
+      "X",
+      property.pointCostPerLevel,
+    );
+    nextLevel = property.level + property.pointCostPerLevel;
     panel.FindChildTraverse("Levelup").SetHasClass("LevelupButtonLong", true);
   }
 
   panel.FindChildTraverse("Levelup").name = property.name;
   panel.FindChildTraverse("Levelup").nextLevel = nextLevel;
   panel.FindChildTraverse("LevelupText").text = levelupText;
+
+  if (Player_Propertys_Show_Tooltip_1.includes(property.name)) {
+    panel.FindChildTraverse("PropertyTooltip1").SetHasClass("hidden", false);
+  } else if (Player_Propertys_Show_Tooltip_2.includes(property.name)) {
+    panel.FindChildTraverse("PropertyTooltip2").SetHasClass("hidden", false);
+  } else {
+    panel.FindChildTraverse("PropertyTooltip").SetHasClass("hidden", false);
+  }
 
   if (property.level < maxLevel && levelUseable >= nextLevel - property.level) {
     panel.FindChildTraverse("Levelup").SetHasClass("deactivated", false);
@@ -177,12 +189,36 @@ function OnLevelupActive(panel) {
   });
 }
 
+const Player_Propertys_Show_Tooltip_1 = [
+  "property_cooldown_percentage",
+  "property_movespeed_bonus_constant",
+  "property_health_regen_percentage",
+  "property_mana_regen_total_percentage",
+  "property_ignore_movespeed_limit",
+  "property_cannot_miss",
+];
+
+const Player_Propertys_Show_Tooltip_2 = ["property_skill_points_bonus"];
+
 const Player_Property_List = [
   {
     name: "property_cooldown_percentage",
     level: 0,
     imageSrc: "s2r://panorama/images/cavern/icon_shovel_png.vtex",
     valuePerLevel: 4,
+  },
+  {
+    name: "property_movespeed_bonus_constant",
+    level: 0,
+    imageSrc: "s2r://panorama/images/cavern/icon_cc_steed_png.vtex",
+    valuePerLevel: 25,
+  },
+  {
+    name: "property_skill_points_bonus",
+    level: 0,
+    imageSrc: "s2r://panorama/images/hud/reborn/levelup_plus_fill_psd.vtex",
+    valuePerLevel: 0.5,
+    pointCostPerLevel: 2,
   },
   {
     name: "property_cast_range_bonus_stacking",
@@ -268,18 +304,6 @@ const Player_Property_List = [
     valuePerLevel: 15,
   },
   {
-    name: "property_health_regen_percentage",
-    level: 0,
-    imageSrc: "s2r://panorama/images/challenges/icon_challenges_totalhealing_png.vtex",
-    valuePerLevel: 0.3,
-  },
-  {
-    name: "property_mana_regen_total_percentage",
-    level: 0,
-    imageSrc: "s2r://panorama/images/challenges/icon_challenges_manareduction_png.vtex",
-    valuePerLevel: 0.3,
-  },
-  {
     name: "property_lifesteal",
     level: 0,
     imageSrc: "s2r://panorama/images/challenges/icon_challenges_lifestolen_png.vtex",
@@ -292,22 +316,30 @@ const Player_Property_List = [
     valuePerLevel: 8,
   },
   {
-    name: "property_movespeed_bonus_constant",
+    name: "property_health_regen_percentage",
     level: 0,
-    imageSrc: "s2r://panorama/images/cavern/icon_cc_steed_png.vtex",
-    valuePerLevel: 25,
+    imageSrc: "s2r://panorama/images/challenges/icon_challenges_totalhealing_png.vtex",
+    valuePerLevel: 0.3,
+  },
+  {
+    name: "property_mana_regen_total_percentage",
+    level: 0,
+    imageSrc: "s2r://panorama/images/challenges/icon_challenges_manareduction_png.vtex",
+    valuePerLevel: 0.3,
   },
   {
     name: "property_ignore_movespeed_limit",
     level: 0,
     imageSrc: "s2r://panorama/images/cavern/icon_cc_wings_png.vtex",
     valuePerLevel: 0.125,
+    pointCostPerLevel: 8,
   },
   {
     name: "property_cannot_miss",
     level: 0,
     imageSrc: "s2r://panorama/images/cavern/icon_swap_png.vtex",
     valuePerLevel: 0.125,
+    pointCostPerLevel: 8,
   },
 ];
 

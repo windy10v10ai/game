@@ -123,7 +123,10 @@
 		// "data_panel_season_end_tooltip"			"Season level will be reset at the end of the season. <br><font color='#E8C07D'>Inherit 50%</font> season points to the next season"
 
 		"data_panel_player_property_label"		"Consume attribute points to enhance the hero, the upgrade attribute in time to take effect, and can not be modified."
-		// "data_panel_player_property_label_tooltip"		"At the end of the season, the attribute points will be reset"
+		"data_panel_player_property_label_2"		"Cannot add points on local host. Please use a server host to play the game."
+		"data_panel_player_property_label_3"		"Activates 1 level of attributes for every 2 hero levels"
+		"data_panel_player_property_label_3_tooltip"		"Hero will gain corresponding effects at levels 2, 4, 6, 8, 12, 14, and 16.<br>For example, if you added 2 levels as +50 cast range, the hero will gain +25 at level 2 and +50 at level 4.<br>Except for certain attributes."
+
 		"data_panel_player_property_cooldown_percentage"		"Cooldown ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
 		"data_panel_player_property_spell_amplify_percentage"	"Spell Amplification ( % )"
@@ -138,18 +141,23 @@
 		"data_panel_player_property_stats_strength_bonus"		"Strength"
 		"data_panel_player_property_stats_agility_bonus"		"Agility"
 		"data_panel_player_property_stats_intellect_bonus"		"Intelligence"
-		"data_panel_player_property_health_regen_percentage"	"Max Health Regen Percentage ( % )"
-		"data_panel_player_property_mana_regen_total_percentage"	"Max Mana Regen Percentage ( % )"
+		"data_panel_player_property_health_regen_percentage"	"Max Health Regen ( % )"
+		"data_panel_player_property_mana_regen_total_percentage"	"Max Mana Regen ( % )"
 		"data_panel_player_property_lifesteal"					"Life Steal ( % )"
 		"data_panel_player_property_spell_lifesteal"			"Spell Life Steal ( % )"
 		"data_panel_player_property_movespeed_bonus_constant"	"Movement Speed"
-		"data_panel_player_property_ignore_movespeed_limit"		"Ignore the Movement Speed Limit"
+		"data_panel_player_property_ignore_movespeed_limit"		"Ignore Movement Speed Limit"
 		"data_panel_player_property_cannot_miss"				"True Strike"
+		"data_panel_player_property_skill_points_bonus"			"Bonus Skill Points"
+
+		"data_panel_player_property_tooltip"					"Hero will gain corresponding effects at levels 2, 4, 6, 8, 12, 14, and 16."
+		"data_panel_player_property_skill_points_bonus_tooltip"	"Hero will gain corresponding effects at levels 4, 8, 12, and 16."
+		"data_panel_player_property_except_tooltip"				"Hero gains all effects at level 1"
 
 		"data_panel_player_property_value"				"Value"
 		"data_panel_player_property_level"				"Level"
 		"data_panel_player_property_level_up"			"Level Up"
-		"data_panel_player_property_level_up_8"			"Level Up with 8 Points"
+		"data_panel_player_property_level_up_X"			"Level Up with X Points"
 
 		///////////////////////////////////////////////////
 		//

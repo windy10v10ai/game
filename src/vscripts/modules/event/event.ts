@@ -14,7 +14,7 @@ export class Event {
 
     // 更新玩家属性
     if (Helper.IsHumanPlayer(hero)) {
-      if (keys.level % PropertyController.HERO_LEVEL_PER_POINT == 1) {
+      if (keys.level % PropertyController.HERO_LEVEL_PER_POINT == 0) {
         print(`[Event] OnPlayerLevelUp SetPlayerProperty ${hero.GetUnitName()}`);
         Player.SetPlayerProperty(hero);
       }

@@ -209,6 +209,13 @@ export class Player {
   }
 
   public onPlayerPropertyLevelup(event: { PlayerID: PlayerID; name: string; level: string }) {
+    if (
+      GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) == ApiClient.LOCAL_APIKEY &&
+      !IsInToolsMode()
+    ) {
+      return;
+    }
+
     print(`[Player] onPlayerPropertyLevelup ${event.PlayerID} ${event.name} ${event.level}`);
     const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
 
