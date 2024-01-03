@@ -195,6 +195,32 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
 
   if (isTeammate) {
     _ScoreboardUpdater_SetTextSafe(playerPanel, "TeammateGoldAmount", goldValue);
+    playerPanel.RemoveClass("IsMemberShip");
+    // set member info
+    const member = CustomNetTables.GetTableValue(
+      "member_table",
+      ConvertSteamIdTo32Bit(playerInfo.player_steamid),
+    );
+    // $.Msg(playerInfo.player_steamid);
+    // $.Msg(member);
+    if (member && member.enable) {
+      playerPanel.AddClass("IsMemberShip");
+      const membershipString = $.Localize("#player_member_ship");
+      const membershipUrl = GetOpenMemberUrl();
+
+      const membershipIcon = playerPanel.FindChildTraverse("PlayerMemberShip");
+
+      membershipIcon.SetPanelEvent("onmouseover", () => {
+        $.DispatchEvent("DOTAShowTextTooltip", membershipIcon, membershipString);
+      });
+      membershipIcon.SetPanelEvent("onmouseout", () => {
+        $.DispatchEvent("DOTAHideTextTooltip");
+      });
+
+      membershipIcon.SetPanelEvent("onactivate", () => {
+        $.DispatchEvent("ExternalBrowserGoToURL", membershipUrl);
+      });
+    }
   }
 
   _ScoreboardUpdater_SetTextSafe(playerPanel, "PlayerGoldAmount", goldValue);

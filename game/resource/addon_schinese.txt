@@ -168,6 +168,7 @@
 		"item_choice_header"										"选择一个道具！"
 		"item_choice_shuffle"										"点击刷新道具"
 		"item_choice_shuffle_used"									"道具已刷新"
+		"item_choice_shuffle_not_member"							"会员可刷新一次道具，点击开通会员"
 
 		///////////////////////////////////////////////////
 		//
@@ -175,7 +176,9 @@
 		//
 		///////////////////////////////////////////////////
 		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得100会员积分<br/> 会员有效期：{expireDate}"
-		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期。"
+		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
+		"player_member_ship"			"点击开通会员"
+		"player_member_ship_url"		"https://afdian.net/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
 
 		///////////////////////////////////////////////////
 		//
@@ -251,7 +254,7 @@
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_membership"						"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
-		"DOTA_Tooltip_modifier_membership_Description"			"额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP."
+		"DOTA_Tooltip_modifier_membership_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/>"
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
 		"DOTA_Tooltip_modifier_player_xianyu"					"<font color='#FFCC66'>★ 咸鱼之王 ★</font>"
