@@ -48,17 +48,3 @@ jobs:
         with:
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
           merge-method: squash
-
-      - name: Assign PR to triggerer
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const prNumber = ${{ steps.cpr.outputs.pull-request-number }}
-            const user = context.actor
-            await github.rest.issues.addAssignees({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: prNumber,
-              assignees: [user]
-            })
