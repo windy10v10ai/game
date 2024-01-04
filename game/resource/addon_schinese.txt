@@ -126,7 +126,7 @@
 		"data_panel_player_property_label"		"消耗属性点增强英雄，升级后属性及时生效。"
 		"data_panel_player_property_label_2"		"本地主机无法加点，请使用服务器主机进行游戏。"
 		"data_panel_player_property_label_3"		"英雄每升2级将激活1级属性"
-		"data_panel_player_property_label_3_tooltip"		"英雄将在2，4，6，8，12，14，16级时，获得相应效果。<br>如，施法距离点了2次+50时，英雄在2级时获得+25，4级时获得+50的效果。<br>部分属性除外"
+		"data_panel_player_property_label_3_tooltip"		"英雄将在2，4，6，8，10，12，14，16级时，获得相应效果。<br>如，施法距离点了2次+50时，英雄在2级时获得+25，4级时获得+50的效果。<br>部分属性除外"
 
 		"data_panel_player_property_cooldown_percentage"		"冷却时间 ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"施法距离"
@@ -151,7 +151,7 @@
 		"data_panel_player_property_cannot_miss"				"克敌机先"
 		"data_panel_player_property_skill_points_bonus"			"额外技能点"
 
-		"data_panel_player_property_tooltip"					"英雄将在2，4，6，8，12，14，16级时，获得相应效果。"
+		"data_panel_player_property_tooltip"					"英雄将在2，4，6，8，10，12，14，16级时，获得相应效果。"
 		"data_panel_player_property_skill_points_bonus_tooltip"	"英雄将在4，8，12，16级时，获得相应效果。"
 		"data_panel_player_property_except_tooltip"				"英雄1级即可获得全部效果"
 

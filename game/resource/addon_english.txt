@@ -129,7 +129,7 @@
 		"data_panel_player_property_label"		"Consume attribute points to enhance the hero, the upgrade attribute in time to take effect, and can not be modified."
 		"data_panel_player_property_label_2"		"Cannot add points on local host. Please use a server host to play the game."
 		"data_panel_player_property_label_3"		"Activates 1 level of attributes for every 2 hero levels"
-		"data_panel_player_property_label_3_tooltip"		"Hero will gain corresponding effects at levels 2, 4, 6, 8, 12, 14, and 16.<br>For example, if you added 2 levels as +50 cast range, the hero will gain +25 at level 2 and +50 at level 4.<br>Except for certain attributes."
+		"data_panel_player_property_label_3_tooltip"		"Hero will gain corresponding effects at levels 2, 4, 6, 8, 10, 12, 14, and 16.<br>For example, if you added 2 levels as +50 cast range, the hero will gain +25 at level 2 and +50 at level 4.<br>Except for certain attributes."
 
 		"data_panel_player_property_cooldown_percentage"		"Cooldown ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
@@ -154,7 +154,7 @@
 		"data_panel_player_property_cannot_miss"				"True Strike"
 		"data_panel_player_property_skill_points_bonus"			"Bonus Skill Points"
 
-		"data_panel_player_property_tooltip"					"Hero will gain corresponding effects at levels 2, 4, 6, 8, 12, 14, and 16."
+		"data_panel_player_property_tooltip"					"Hero will gain corresponding effects at levels 2, 4, 6, 8, 10, 12, 14, and 16."
 		"data_panel_player_property_skill_points_bonus_tooltip"	"Hero will gain corresponding effects at levels 4, 8, 12, and 16."
 		"data_panel_player_property_except_tooltip"				"Hero gains all effects at level 1"
 
