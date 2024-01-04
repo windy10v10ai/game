@@ -1,6 +1,5 @@
 node_modules/
 dist/
 *.d.ts
-src/vscripts/lib/dota_ts_adapter.ts
-src/vscripts/lib/tstl-utils.ts
 src/scripts
+src/vscripts/utils

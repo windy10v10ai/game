@@ -1,6 +1,5 @@
 local ____player = require("api.player")
 local ____game = require("api.game")
-local ____property = require("modifiers.property.property_controller")
 local ____lualib = require("lualib_bundle")
 local __TS__New = ____lualib.__TS__New
 

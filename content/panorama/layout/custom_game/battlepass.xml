@@ -15,7 +15,15 @@
 					<Image id="PropertyImage" class="ItemImage" />
 				</Panel>
 				<Panel class="ItemContextPanel">
-					<Label id="PropertyName" class="ItemName" text="{s:PropertyName}" />
+					<Panel class="flowRight ItemNamePanel">
+						<Label id="PropertyName" class="ItemName" text="{s:PropertyName}" />
+						<Image id="PropertyTooltip" class="tooltipIcon hidden" src="s2r://panorama/images/status_icons/information_psd.vtex"
+				onmouseover="UIShowTextTooltipStyled( #data_panel_player_property_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+						<Image id="PropertyTooltip1" class="tooltipIcon hidden" src="s2r://panorama/images/status_icons/information_psd.vtex"
+				onmouseover="UIShowTextTooltipStyled( #data_panel_player_property_except_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+						<Image id="PropertyTooltip2" class="tooltipIcon hidden" src="s2r://panorama/images/status_icons/information_psd.vtex"
+				onmouseover="UIShowTextTooltipStyled( #data_panel_player_property_skill_points_bonus_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+					</Panel>
 					<Panel class="ItemContextValuePanel">
 						<Label id="PropertyLevel" class="ItemValue" text="{s:PropertyLevel}" />
 						<Label id="PropertyValue" class="ItemValue" text="{s:PropertyValue}" />
@@ -27,10 +35,14 @@
 			</Panel>
 		</snippet>
 		<snippet name="PlayerPropertyTooltip">
-			<Panel class="flowRight" style="horizontal-align: right;">
+			<Panel class="flowDown" style="horizontal-align: left;">
 				<Label class="LabelText" text="#data_panel_player_property_label" />
-				<!-- <Image class="tooltipIcon" src="s2r://panorama/images/status_icons/information_psd.vtex"
-			onmouseover="UIShowTextTooltipStyled( #data_panel_player_property_label_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/> -->
+				<Label class="LabelText" text="#data_panel_player_property_label_2" />
+				<Panel class="flowRight">
+					<Label class="LabelText" text="#data_panel_player_property_label_3" />
+					<Image class="tooltipIcon" src="s2r://panorama/images/status_icons/information_psd.vtex"
+			onmouseover="UIShowTextTooltipStyled( #data_panel_player_property_label_3_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+				</Panel>
 			</Panel>
 		</snippet>
 

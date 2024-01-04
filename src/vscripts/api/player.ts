@@ -1,4 +1,4 @@
-import { PropertyController } from "../modifiers/property/property_controller";
+import { PropertyController } from "../modules/property/property_controller";
 import { ApiClient, HttpMethod } from "./api_client";
 
 export class MemberDto {
@@ -127,8 +127,8 @@ export class Player {
     });
   }
 
-  public InitPlayerProperty(hero: CDOTA_BaseNPC_Hero) {
-    print(`[Player] InitPlayerProperty ${hero.GetUnitName()}`);
+  public static SetPlayerProperty(hero: CDOTA_BaseNPC_Hero) {
+    print(`[Player] SetPlayerProperty ${hero.GetUnitName()}`);
     if (!hero) {
       return;
     }
@@ -138,7 +138,7 @@ export class Player {
 
     if (playerInfo?.properties) {
       for (const property of playerInfo.properties) {
-        PropertyController.addModifier(hero, property);
+        PropertyController.setModifier(hero, property);
       }
     }
   }
@@ -209,6 +209,13 @@ export class Player {
   }
 
   public onPlayerPropertyLevelup(event: { PlayerID: PlayerID; name: string; level: string }) {
+    if (
+      GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) == ApiClient.LOCAL_APIKEY &&
+      !IsInToolsMode()
+    ) {
+      return;
+    }
+
     print(`[Player] onPlayerPropertyLevelup ${event.PlayerID} ${event.name} ${event.level}`);
     const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
 

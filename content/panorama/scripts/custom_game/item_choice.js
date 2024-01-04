@@ -9,6 +9,13 @@
     button.SetPanelEvent("onmouseover", () => {
       $.DispatchEvent("DOTAShowTextTooltip", button, $.Localize("#item_choice_shuffle"));
     });
+  } else {
+    button.SetPanelEvent("onactivate", () => {
+      $.DispatchEvent("ExternalBrowserGoToURL", GetOpenMemberUrl());
+    });
+    button.SetPanelEvent("onmouseover", () => {
+      $.DispatchEvent("DOTAShowTextTooltip", button, $.Localize("#item_choice_shuffle_not_member"));
+    });
   }
   button.SetPanelEvent("onmouseout", () => {
     $.DispatchEvent("DOTAHideTextTooltip");

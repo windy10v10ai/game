@@ -74,7 +74,7 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
     var playerPortrait = playerPanel.FindChildInLayoutFile("HeroIcon");
     if (playerPortrait) {
       if (playerInfo.player_selected_hero !== "") {
-        let heroImageCustom = imagefile[playerInfo.player_selected_hero];
+        const heroImageCustom = imagefile[playerInfo.player_selected_hero];
         if (heroImageCustom && heroImageCustom !== "") {
           playerPortrait.SetImage(heroImageCustom);
         } else {
@@ -195,6 +195,32 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
 
   if (isTeammate) {
     _ScoreboardUpdater_SetTextSafe(playerPanel, "TeammateGoldAmount", goldValue);
+    playerPanel.RemoveClass("IsMemberShip");
+    // set member info
+    const member = CustomNetTables.GetTableValue(
+      "member_table",
+      ConvertSteamIdTo32Bit(playerInfo.player_steamid),
+    );
+    // $.Msg(playerInfo.player_steamid);
+    // $.Msg(member);
+    if (member && member.enable) {
+      playerPanel.AddClass("IsMemberShip");
+      const membershipString = $.Localize("#player_member_ship");
+      const membershipUrl = GetOpenMemberUrl();
+
+      const membershipIcon = playerPanel.FindChildTraverse("PlayerMemberShip");
+
+      membershipIcon.SetPanelEvent("onmouseover", () => {
+        $.DispatchEvent("DOTAShowTextTooltip", membershipIcon, membershipString);
+      });
+      membershipIcon.SetPanelEvent("onmouseout", () => {
+        $.DispatchEvent("DOTAHideTextTooltip");
+      });
+
+      membershipIcon.SetPanelEvent("onactivate", () => {
+        $.DispatchEvent("ExternalBrowserGoToURL", membershipUrl);
+      });
+    }
   }
 
   _ScoreboardUpdater_SetTextSafe(playerPanel, "PlayerGoldAmount", goldValue);
@@ -252,14 +278,14 @@ function _ScoreboardUpdater_UpdateTeamPanel(
 
   const GAME_RESULT = CustomNetTables.GetTableValue("ending_stats", "player_data");
   if (teamId === 2 && GAME_RESULT) {
-    let radiantPanel = containerPanel.FindChildInLayoutFile("RadiantHeader");
+    const radiantPanel = containerPanel.FindChildInLayoutFile("RadiantHeader");
     radiantPanel.FindChildTraverse("GoldXpMultiplier").text =
       $.Localize("#player_multiplier") + ": x" + GAME_RESULT.options.playerGoldXpMultiplier;
     radiantPanel.FindChildTraverse("TowerPower").text =
       $.Localize("#tower_power") + ": " + GAME_RESULT.options.towerPower;
     radiantPanel.FindChildTraverse("TeamScoreSmall").text = teamDetails.team_score;
   } else {
-    let direPanel = containerPanel.FindChildInLayoutFile("DireHeader");
+    const direPanel = containerPanel.FindChildInLayoutFile("DireHeader");
     direPanel.FindChildTraverse("GoldXpMultiplier").text =
       $.Localize("#bot_multiplier") + ": x" + GAME_RESULT.options.botGoldXpMultiplier;
     direPanel.FindChildTraverse("TowerPower").text =

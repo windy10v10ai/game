@@ -28,7 +28,7 @@ MAX_LEVEL = 50                         -- What level should we let heroes get to
 MAXIMUM_ATTACK_SPEED = 700              -- What should we use for the maximum attack speed?
 MINIMUM_ATTACK_SPEED = 20               -- What should we use for the minimum attack speed?
 
-LOSE_GOLD_ON_DEATH = false               -- Should we have players lose the normal amount of dota gold on death?
+-- LOSE_GOLD_ON_DEATH = false               -- Should we have players lose the normal amount of dota gold on death?
 
 -- The above are enabled ones
 --[[

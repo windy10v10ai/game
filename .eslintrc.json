@@ -15,6 +15,7 @@
   },
   "plugins": ["@typescript-eslint", "import", "prettier", "react", "react-hooks"],
   "rules": {
+    "consistent-return": "error", // 要求 return 语句要么总是指定返回的值，要么不指定
     "prettier/prettier": [
       "error",
       {

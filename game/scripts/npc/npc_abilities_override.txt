@@ -10079,7 +10079,7 @@
 		"MaxLevel" "4"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"3"
-		"AbilityHealthCost"				"0 0 0"
+		"AbilityHealthCost"				"75 100 125 150"
 		"AbilityValues"
 		{
 			"armor_reduction"
@@ -10090,9 +10090,9 @@
 			"duration"					"8 10 12 14"
 
 			"cooldown_reduction"			"4 5 6 7"
-			"cooldown_reduction_items" 		"4 5 6 7"
-			"mana_cost_increase_pct"		"0"
-			"mana_cost_increase_duration"	"30 25 20"
+			"cooldown_reduction_items" 		"4"
+			"mana_cost_increase_pct"		"10"
+			"mana_cost_increase_duration"	"20"
 			"max_stacks"					"15"
 		}
 	}

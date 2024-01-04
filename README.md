@@ -8,7 +8,7 @@ This is a PVE Dota2 custom game. 10 Players vs 10 crazy Bots.<br>
 
 https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570
 
-## Table of Contents
+## Table of Contents 目录
 
 1. [Contributing 参与开发](#contributing)
 2. [Get Start 环境配置](#get-start)
@@ -25,27 +25,27 @@ If you would like to contribute to Windy10v10AI, please see our [contributing gu
 
 如果你想参与Windy10v10AI的开发，请参考我们的[参与指南](.github/CONTRIBUTING.md#参与开发-windy10v10ai)。
 
-# Get Start
+# Get Start 环境配置
 
-## Requirement
+## Requirement 环境要求
 
 `Windows 10/11`
 
-## Develop Tool
+## Develop Tool 开发工具
 
 - [Github Desktop](https://desktop.github.com/)
 - [VS Code](https://code.visualstudio.com/)
 - [VRF](https://vrf.steamdb.info/)
 
-## Install
+## Install 安装
 
 1. Install Dota2 and [Dota 2 Workshop Tools](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Installing_and_Launching_Tools).
 2. Install [node.js](https://nodejs.org/). `v20.10.0`
 3. Run `npm install` in root directory. Content and game folder will be linked to dota2 dota_addons directory.
 
-# Develop
+# Develop 开发
 
-## Dota2 vConsole2 Command
+## Dota2 vConsole2 Command 常用命令
 
 ```bash
 # load custom game
@@ -56,37 +56,57 @@ dota_custom_ui_debug_panel 7
 script_reload
 ```
 
-### How to compile item png to vtex_c
+### How to compile item png to vtex_c 如何编译物品图标为vtex_c
 
 Create item XML file in dota 2 content folder then run `tool/compile_item_png.bat`
 
 FYI: https://www.reddit.com/r/DotA2/comments/8yymx9/item_icons_mods_dont_work_since_one_of_latest/
 
-## NPM Command
+## Use typescript to develop 使用typescript开发
 
 ```bash
-# check code style
+# build typescript to lua and panorama js
+# 编译ts为lua和panorama js
+npm run dev
+```
+
+```bash
+# check code style and fix
+# 检查代码风格并修复
 npm run lint
 ```
 
-## Use typescript to develop
+## Troubleshooting 故障排除
 
-### Typescript to lua
+Reinstall solve most of the problems.<br>
+重新安装可以解决大部分问题。
 
+```bash
+rm -r ./node_modules
+npm install
 ```
-npm run dev:vscripts
-```
+
+If still not work, try to delete `game` and `content` folder in dota2 dota_addons directory.<br>
+如果还是不行，尝试删除dota2 dota_addons目录下的`game`和`content`文件夹。
+
+# Documentation 文档
+
+## Supported by ModDota template and x-template
+
+### ModDota template
+
+https://github.com/ModDota/TypeScriptAddonTemplate
+
+### X-Template
+
+https://github.com/XavierCHN/x-template
+
+## Typescript to lua
 
 - sample modifiers and abilities:
   https://github.com/ModDota/TypeScriptAddonTemplate/tree/master/src/vscripts
 
-### React to paranoma (not setted)
-
-```
-npm run dev:panorama
-```
-
-## Supported by ModDota template
+## ModDota template README
 
 Panorama UI with webpack, TypeScript and React.
 
@@ -94,13 +114,22 @@ Panorama UI with webpack, TypeScript and React.
 - [TypeScript for Panorama](https://moddota.com/panorama/introduction-to-panorama-ui-with-typescript)
 - [React in Panorama tutorial](https://moddota.com/panorama/react)
 
-### Contents:
+## Contents 文件夹内容说明
 
 - **[src/common]:** TypeScript .d.ts type declaration files with types that can be shared between Panorama and VScripts
 - **[src/vscripts]:** TypeScript code for Dota addon (Lua) vscripts. Compiles lua to game/scripts/vscripts.
 - **[src/panorama]:** TypeScript code for panorama UI. Compiles js to content/panorama/scripts/custom_game
-
---
-
+  <br>
+  <br>
 - **[game/*]:** Dota game directory containing files such as npc kv files and compiled lua scripts.
 - **[content/*]:** Dota content directory containing panorama sources other than scripts (xml, css, compiled js)
+
+---
+
+- **[src/vscripts]:** 用来写`tstl`代码，lua脚本会被编译到`game/scripts/vscripts`目录下
+  - **[src/vscripts/shared]:** 用来写`panorama ts`和`tstl`公用的声明，如`custom_net_tables`等
+- **[src/scripts]:** 各种 node 脚本，用来完成各种辅助功能
+  <br>
+  <br>
+- **[game/*]:** 会和 `dota 2 beta/game/dota_addons/your_addon_name` 同步更新
+- **[content/*]:** 会和 `dota 2 beta/content/dota_addons/your_addon_name` 同步更新

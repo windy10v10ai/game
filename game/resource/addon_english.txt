@@ -122,8 +122,15 @@
 		// "data_panel_season_end"			"Third Season end date: 2023/9/30"
 		// "data_panel_season_end_tooltip"			"Season level will be reset at the end of the season. <br><font color='#E8C07D'>Inherit 50%</font> season points to the next season"
 
+		"data_panel_link_charge"		"Charge Member Point"
+		"data_panel_link_rule"			"Point Rule"
+		"data_panel_member_point_rule_url"		"https://afdian.net/p/8d1e8ac8682711ed984b52540025c377"
+
 		"data_panel_player_property_label"		"Consume attribute points to enhance the hero, the upgrade attribute in time to take effect, and can not be modified."
-		// "data_panel_player_property_label_tooltip"		"At the end of the season, the attribute points will be reset"
+		"data_panel_player_property_label_2"		"Cannot add points on local host. Please use a server host to play the game."
+		"data_panel_player_property_label_3"		"Activates 1 level of attributes for every 2 hero levels"
+		"data_panel_player_property_label_3_tooltip"		"Hero will gain corresponding effects at levels 2, 4, 6, 8, 10, 12, 14, and 16.<br>For example, if you added 2 levels as +50 cast range, the hero will gain +25 at level 2 and +50 at level 4.<br>Except for certain attributes."
+
 		"data_panel_player_property_cooldown_percentage"		"Cooldown ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
 		"data_panel_player_property_spell_amplify_percentage"	"Spell Amplification ( % )"
@@ -138,18 +145,23 @@
 		"data_panel_player_property_stats_strength_bonus"		"Strength"
 		"data_panel_player_property_stats_agility_bonus"		"Agility"
 		"data_panel_player_property_stats_intellect_bonus"		"Intelligence"
-		"data_panel_player_property_health_regen_percentage"	"Max Health Regen Percentage ( % )"
-		"data_panel_player_property_mana_regen_total_percentage"	"Max Mana Regen Percentage ( % )"
+		"data_panel_player_property_health_regen_percentage"	"Max Health Regen ( % )"
+		"data_panel_player_property_mana_regen_total_percentage"	"Max Mana Regen ( % )"
 		"data_panel_player_property_lifesteal"					"Life Steal ( % )"
 		"data_panel_player_property_spell_lifesteal"			"Spell Life Steal ( % )"
 		"data_panel_player_property_movespeed_bonus_constant"	"Movement Speed"
-		"data_panel_player_property_ignore_movespeed_limit"		"Ignore the Movement Speed Limit"
+		"data_panel_player_property_ignore_movespeed_limit"		"Ignore Movement Speed Limit"
 		"data_panel_player_property_cannot_miss"				"True Strike"
+		"data_panel_player_property_skill_points_bonus"			"Bonus Skill Points"
+
+		"data_panel_player_property_tooltip"					"Hero will gain corresponding effects at levels 2, 4, 6, 8, 10, 12, 14, and 16."
+		"data_panel_player_property_skill_points_bonus_tooltip"	"Hero will gain corresponding effects at levels 4, 8, 12, and 16."
+		"data_panel_player_property_except_tooltip"				"Hero gains all effects at level 1"
 
 		"data_panel_player_property_value"				"Value"
 		"data_panel_player_property_level"				"Level"
 		"data_panel_player_property_level_up"			"Level Up"
-		"data_panel_player_property_level_up_8"			"Level Up with 8 Points"
+		"data_panel_player_property_level_up_X"			"Level Up with X Points"
 
 		///////////////////////////////////////////////////
 		//
@@ -159,6 +171,7 @@
 		"item_choice_header"										"Choose an item!"
 		"item_choice_shuffle"										"Click to reroll the items."
 		"item_choice_shuffle_used"									"Items rerolled."
+		"item_choice_shuffle_not_member"							"Members can reroll the items once, click to open the membership."
 
 		///////////////////////////////////////////////////
 		//
@@ -166,7 +179,10 @@
 		//
 		///////////////////////////////////////////////////
 		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Respawn time is reduced by 5 seconds.<br/> - Buyback CD is reduced to 2 minutes.<br/> - You can reroll the items lottery once.<br/> - Daily login grants 100 membership points.<br/> Membership is valid until {expireDate}."
-		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired since {expireDate}."
+		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired since {expireDate}, Click the button to renew."
+		"player_member_ship"			"Click to enable your membership."
+		"player_member_ship_url"		"https://afdian.net/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
+
 
 		///////////////////////////////////////////////////
 		//
@@ -242,7 +258,7 @@
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_membership"					"<font color='#FFCC66'>★ Membership Buff ★</font>"
-		"DOTA_Tooltip_modifier_membership_Description"	"Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplification, +%dMODIFIER_PROPERTY_HEALTH_BONUS% health, and+%dMODIFIER_PROPERTY_MANA_BONUS% mana."
+		"DOTA_Tooltip_modifier_membership_Description"	"- Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplification, +%dMODIFIER_PROPERTY_HEALTH_BONUS% health, and+%dMODIFIER_PROPERTY_MANA_BONUS% mana. <br>- Respawn time is reduced by 5 seconds.<br/>- Buyback CD is reduced to 2 minutes.<br/>"
 
 		///////////////////////////////////////////////////
 		//
@@ -1532,13 +1548,13 @@
 
 			// item_bloodstone_ultra Divine Bloodstone
 		    "DOTA_Tooltip_ability_item_bloodstone_ultra"						"<font color='#e03e2e'>Divine Bloodstone</font>"
-		    "DOTA_Tooltip_ability_item_bloodstone_ultra_Description"						"<h1>Active: Blood Pact</h1>Increases spell lifesteal of Bloodstone by %lifesteal_multiplier%x and converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
+		    //"DOTA_Tooltip_ability_item_bloodstone_ultra_Description"						"<h1>Active: Blood Pact</h1>Increases spell lifesteal of Bloodstone by %lifesteal_multiplier%x and converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
 			"DOTA_Tooltip_ability_item_bloodstone_ultra_Lore"								"The crimson color of the Bloodstone is unmistakable on the battlefield, granting its wielder seemingly infinite vitality and energy."
 			"DOTA_Tooltip_ability_item_bloodstone_ultra_Note0"							"Using Blood Pact leaves the user exhausted, lasting for 40 seconds, during which the effects of Blood Pact cannot be enjoyed again."
 			"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_aoe"						"+$aoe_bonus"
 			"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_health"						"+$health"
 			"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_mana"						"+$mana"
-			"DOTA_Tooltip_ability_item_bloodstone_ultra_spell_lifesteal"					"%+$spell_lifesteal"
+			//"DOTA_Tooltip_ability_item_bloodstone_ultra_spell_lifesteal"					"%+$spell_lifesteal"
 			"DOTA_Tooltip_modifier_item_bloodstone_ultra_active"							"Blood Pact"
 			"DOTA_Tooltip_modifier_item_bloodstone_ultra_active_Description"				"Restores %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health per second."
 			"DOTA_Tooltip_modifier_item_bloodstone_ultra_drained"							"Exhausted"

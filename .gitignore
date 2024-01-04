@@ -3,9 +3,19 @@ tool/reference
 game/*.bin
 game/panorama_debugger.cfg
 game/panorama/layout/custom_game/
+game/panorama/scripts/custom_game/
+game/panorama/styles/custom_game/
+
 game/resource/custom_game_whitelist.txt
 node_modules
 src/content/
 src/game/
 /.idea
 /official_scripts
+
+# Ignore tstl output
+game/scripts/vscripts/api/
+game/scripts/vscripts/modules/
+game/scripts/vscripts/server/
+game/scripts/vscripts/utils/
+game/scripts/vscripts/addon_game_mode.lua
