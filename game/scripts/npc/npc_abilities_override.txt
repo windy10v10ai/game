@@ -1439,6 +1439,7 @@
 		"ItemCost"						"850"
 	}
 
+	// 共享CD
 	"item_black_king_bar"
 	{
 		"AbilitySharedCooldown"			"bkb"
@@ -1458,6 +1459,14 @@
 	"item_gungir"
 	{
 		"AbilitySharedCooldown"			"gungir"
+	}
+	"item_sphere"
+	{
+		"AbilitySharedCooldown"			"sphere"
+	}
+	"item_lotus_orb"
+	{
+		"AbilitySharedCooldown"			"lotus_orb"
 	}
 
 	"item_smoke_of_deceit"
@@ -10090,7 +10099,7 @@
 			"duration"					"8 10 12 14"
 
 			"cooldown_reduction"			"4 5 6 7"
-			"cooldown_reduction_items" 		"4"
+			"cooldown_reduction_items" 		"0"
 			"mana_cost_increase_pct"		"10"
 			"mana_cost_increase_duration"	"20"
 			"max_stacks"					"15"

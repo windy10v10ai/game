@@ -1788,7 +1788,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"350"
+		"ItemCost"						"800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1817,7 +1817,7 @@
 		"AbilityTextureName"			"item_sphere_2"
 
 		"AbilityCastRange"				"900"
-		"AbilityCooldown"				"8.0"
+		"AbilityCooldown"				"6.0"
 		"AbilitySharedCooldown"			"sphere"
 
 		"AbilityValues"
@@ -1825,7 +1825,7 @@
 				"bonus_all_stats"		"20"
 				"bonus_health_regen"	"12"
 				"bonus_mana_regen"		"9"
-				"block_cooldown"		"8.0"
+				"block_cooldown"		"6.0"
 				"upgrade_absorb_duration"		"10.0"
 				"damage_absorb"		"300"
 				"bonus_damage"			"20"
@@ -6201,6 +6201,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"16"
+		"AbilitySharedCooldown"			"lotus_orb"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"300"
@@ -6853,7 +6854,7 @@
 		"AbilityTextureName"            "item_mjollnir_ultra"
 		"AbilityValues"
 		{
-			"bonus_damage"			"150"
+			"bonus_damage"			"100"
 			"bonus_attack_speed"	"540"
 			"static_duration"		"30.0"
 			"static_chance"			"65"
@@ -6864,7 +6865,7 @@
 			"static_radius"			"1200"
 			"static_cooldown"		"0.1"
 			"chain_chance"			"75"
-			"chain_damage"			"750"
+			"chain_damage"			"450"
 			"chain_strikes"			"12"
 			"chain_radius"			"800"
 			"chain_delay"			"0.2"
