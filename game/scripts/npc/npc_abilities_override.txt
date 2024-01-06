@@ -2984,17 +2984,17 @@
 	// 腐烂
 	"pudge_rot"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel"						"5"
 		"AbilityValues"
 		{
 				"rot_slow"
 				{
-					"value"				"-14 -20 -26 -32 -38 -44 -50"
+					"value"				"-14 -20 -26 -32 -38"
 					"LinkedSpecialBonus"			"special_bonus_unique_pudge_4"
 				}
 				"rot_damage"
 				{
-					"value"			"30 60 90 120 150 180 210"
+					"value"			"30 60 90 120 150"
 					"LinkedSpecialBonus"	"special_bonus_unique_pudge_2"
 				}
 		}
@@ -6313,7 +6313,7 @@
 	// 魂之挽歌
 	"nevermore_requiem"
 	{
-		"MaxLevel" "5"
+		"MaxLevel" "4"
 		"AbilityDamage"					"80 120 160 200"
 		"AbilityManaCost"				"175 200 225 250"
 		"AbilityValues"
@@ -7173,7 +7173,7 @@
 	"sniper_assassinate"
 	{
 		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-		"MaxLevel" "5"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"24 20 16 12"
 		"AbilityDamage"					"350 500 650 800"
 		"AbilityManaCost"				"175 225 275 325"
@@ -11959,7 +11959,7 @@
 	// 雷神之怒
 	"zuus_thundergods_wrath"
 	{
-		"MaxLevel" "5"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"120 110 100 90"
 		"AbilityManaCost"				"300 400 500 600"
 		"AbilityValues"
