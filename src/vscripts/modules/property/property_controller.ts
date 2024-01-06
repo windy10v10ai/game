@@ -135,7 +135,8 @@ export class PropertyController {
     const propertyValuePerLevel = PropertyController.propertyValuePerLevel.get(property.name);
     if (propertyValuePerLevel) {
       const value = propertyValuePerLevel * activeLevel;
-      if (value > 0) {
+      // 由于可能有负数，必须判断是否为0
+      if (value !== 0) {
         hero.RemoveModifierByName(property.name);
         hero.AddNewModifier(hero, undefined, property.name, {
           value,
