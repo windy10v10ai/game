@@ -246,7 +246,7 @@
 		"item"      "item_spirit_vessel_ultra"
 		"item"      "item_blade_mail_ultra"
 		"item"      "item_skadi_ultra"
-		"item"      "item_bloodstone_ultra"
+		// "item"      "item_bloodstone_ultra"
 	}
 
 	"sideshop1"
