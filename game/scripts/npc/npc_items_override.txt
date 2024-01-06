@@ -387,7 +387,7 @@
 		{
 				"bonus_gpm"			"600" //75
 				"bonus_mana"		"-800" //200
-				"bonus_damage"		"-250" //-30
+				"bonus_damage"		"-200" //-30
 		}
 	}
 	"item_vampire_fangs" //吸血鬼獠牙

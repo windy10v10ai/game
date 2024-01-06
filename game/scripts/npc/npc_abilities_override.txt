@@ -8475,7 +8475,7 @@
 	// 极寒领域
 	"crystal_maiden_freezing_field"
 	{
-		"MaxLevel" "5"
+		"MaxLevel" "4"
 		"AbilityValues"
 		{
 			"AbilityCooldown"				"90"
@@ -11865,7 +11865,7 @@
 	// 死亡守卫
 	"witch_doctor_death_ward"
 	{
-		"MaxLevel" "5"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"100 90 80 70"
 		"AbilityValues"
 		{
