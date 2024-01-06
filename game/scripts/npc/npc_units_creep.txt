@@ -1,0 +1,672 @@
+// 小兵和中立生物
+// creep and neutral
+"DOTAUnits"
+{
+	//=================================================================================
+	// Creeps: 小兵 普通
+	//=================================================================================
+	"npc_dota_creep_badguys_ranged"
+	{
+		"BountyXP"					"80"		// 69
+		"BountyGoldMin"				"60"		// 43
+		"BountyGoldMax"				"70"		// 52
+	}
+	"npc_dota_creep_goodguys_ranged"
+	{
+		"BountyXP"					"80"		// 69
+		"BountyGoldMin"				"60"		// 43
+		"BountyGoldMax"				"70"		// 52
+	}
+	"npc_dota_creep_badguys_melee"
+	{
+		"BountyXP"					"70"		// 57
+		"BountyGoldMin"				"50"		// 34
+		"BountyGoldMax"				"60"		// 39
+	}
+	"npc_dota_creep_goodguys_melee"
+	{
+		"BountyXP"					"70"		// 57
+		"BountyGoldMin"				"50"		// 34
+		"BountyGoldMax"				"60"		// 39
+	}
+	//=================================================================================
+	// Creeps: 小兵 高级
+	//=================================================================================
+	"npc_dota_creep_badguys_ranged_upgraded"
+	{
+		// General
+		"ModelScale"				"1.2" // 1.12
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// 1
+		"MagicalResistance"			"25"		// 0
+
+		// Attack
+		"AttackDamageMin"			"120"		// 41
+		"AttackDamageMax"			"140"		// 46
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"180"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"60"		// 22
+		"BountyGoldMin"				"45"		// 19
+		"BountyGoldMax"				"50"		// 25
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"355"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1000"		// 475
+		"StatusHealthRegen"			"5"			// 2
+	}
+
+	"npc_dota_creep_goodguys_ranged_upgraded"
+	{
+		// General
+		"ModelScale"				"1.2" // 1.12
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// 1
+		"MagicalResistance"			"25"		// 0
+
+		// Attack
+		"AttackDamageMin"			"120"		// 41
+		"AttackDamageMax"			"140"		// 46
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"180"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"60"		// 22
+		"BountyGoldMin"				"45"		// 19
+		"BountyGoldMax"				"50"		// 25
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"355"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1000"		// 475
+		"StatusHealthRegen"			"5"			// 2
+	}
+
+	"npc_dota_creep_badguys_melee_upgraded"
+	{
+		// General
+		"ModelScale"				"1.2" // 1.12
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"		// 3
+		"MagicalResistance"			"25"		// 0
+
+		// Attack
+		"AttackDamageMin"			"100"		// 36
+		"AttackDamageMax"			"120"		// 44
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"180"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"60"		// 25
+		"BountyGoldMin"				"45"		// 20
+		"BountyGoldMax"				"50"		// 26
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"355"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1200"		// 700
+		"StatusHealthRegen"			"5"			// 0.5
+	}
+	"npc_dota_creep_goodguys_melee_upgraded"
+	{
+		// General
+		"ModelScale"				"1.2" // 1.12
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"		// 3
+		"MagicalResistance"			"25"		// 0
+
+		// Attack
+		"AttackDamageMin"			"100"		// 36
+		"AttackDamageMax"			"120"		// 44
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"180"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"60"		// 25
+		"BountyGoldMin"				"45"		// 20
+		"BountyGoldMax"				"50"		// 26
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"355"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1200"		// 700
+		"StatusHealthRegen"			"5"			// 0.5
+	}
+
+	//=================================================================================
+	// Creeps: 小兵 投石车
+	//=================================================================================
+	"npc_dota_goodguys_siege_upgraded"
+	{
+		// General
+		"ModelScale"				"0.85" // .65
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"		// 0
+		"MagicalResistance"			"85"		// 80
+
+		// Attack
+		"AttackDamageMin"			"140"		// 51
+		"AttackDamageMax"			"160"		// 62
+		"AttackRate"				"3.0"		// 3.0
+		"BaseAttackSpeed"			"180"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"180"		// 88
+		"BountyGoldMin"				"150"		// 59
+		"BountyGoldMax"				"160"		// 72
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"355"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"		// 935
+		"StatusHealthRegen"			"5"			// 0
+	}
+	"npc_dota_badguys_siege_upgraded"
+	{
+		// General
+		"ModelScale"				"0.85" // .65
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"		// 0
+		"MagicalResistance"			"85"		// 80
+
+		// Attack
+		"AttackDamageMin"			"140"		// 51
+		"AttackDamageMax"			"160"		// 62
+		"AttackRate"				"3.0"		// 3.0
+		"BaseAttackSpeed"			"180"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"180"		// 88
+		"BountyGoldMin"				"150"		// 59
+		"BountyGoldMax"				"160"		// 72
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"355"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"		// 935
+		"StatusHealthRegen"			"5"			// 0
+	}
+
+	//=================================================================================
+	// Creeps: 小兵 超级兵
+	//=================================================================================
+	"npc_dota_creep_badguys_ranged_upgraded_mega"
+	{
+		// General
+		"ModelScale"				"1.5" // 1.12
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"		// 1
+		"MagicalResistance"			"50"		// 0
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"180"		// 41
+		"AttackDamageMax"			"200"		// 46
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"250"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"60"		// 22
+		"BountyGoldMin"				"45"		// 19
+		"BountyGoldMax"				"50"		// 25
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"375"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"		// 475
+		"StatusHealthRegen"			"5"			// 2
+	}
+	"npc_dota_creep_goodguys_ranged_upgraded_mega"
+	{
+		// General
+		"ModelScale"				"1.5" // 1.12
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"		// 1
+		"MagicalResistance"			"50"		// 0
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"180"		// 41
+		"AttackDamageMax"			"200"		// 46
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"250"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"60"		// 22
+		"BountyGoldMin"				"45"		// 19
+		"BountyGoldMax"				"50"		// 25
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"375"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"		// 475
+		"StatusHealthRegen"			"5"			// 2
+	}
+
+	"npc_dota_creep_badguys_melee_upgraded_mega"
+	{
+		// General
+		"ModelScale"				"1.5" // 1.12
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"		// 1
+		"MagicalResistance"			"50"		// 0
+
+		// Attack
+		"AttackDamageMin"			"140"		// 36
+		"AttackDamageMax"			"160"		// 44
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"250"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"60"		// 25
+		"BountyGoldMin"				"45"		// 20
+		"BountyGoldMax"				"50"		// 26
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"375"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2400"		// 700
+		"StatusHealthRegen"			"5"			// 0.5
+	}
+	"npc_dota_creep_goodguys_melee_upgraded_mega"
+	{
+		// General
+		"ModelScale"				"1.5" // 1.12
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"		// 1
+		"MagicalResistance"			"50"		// 0
+
+		// Attack
+		"AttackDamageMin"			"140"		// 36
+		"AttackDamageMax"			"160"		// 44
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"250"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"60"		// 25
+		"BountyGoldMin"				"45"		// 20
+		"BountyGoldMax"				"50"		// 26
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"375"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2400"		// 700
+		"StatusHealthRegen"			"5"			// 0.5
+	}
+	//=================================================================================
+	// Creeps: 小兵 投石车
+	//=================================================================================
+	"npc_dota_goodguys_siege_upgraded_mega"
+	{
+		// General
+		"ModelScale"				"1.1" // .65
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"40"		// 0
+		"MagicalResistance"			"90"		// 80
+
+		// Attack
+		"AttackDamageMin"			"200"		// 51
+		"AttackDamageMax"			"240"		// 62
+		"AttackRate"				"3.0"		// 3.0
+		"BaseAttackSpeed"			"250"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"180"		// 88
+		"BountyGoldMin"				"150"		// 59
+		"BountyGoldMax"				"160"		// 72
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"375"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"3000"		// 935
+		"StatusHealthRegen"			"10"		// 0
+	}
+	"npc_dota_badguys_siege_upgraded_mega"
+	{
+		// General
+		"ModelScale"				"1.1" // .65
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"40"		// 0
+		"MagicalResistance"			"90"		// 80
+
+		// Attack
+		"AttackDamageMin"			"200"		// 51
+		"AttackDamageMax"			"240"		// 62
+		"AttackRate"				"3.0"		// 3.0
+		"BaseAttackSpeed"			"250"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"180"		// 88
+		"BountyGoldMin"				"150"		// 59
+		"BountyGoldMax"				"160"		// 72
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"375"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"3000"		// 935
+		"StatusHealthRegen"			"10"		// 0
+	}
+
+
+	// 中立生物
+	// 远古
+	//=================================================================================
+	// Neutral: Ancient - Black Drake 远古小黑龙
+	//=================================================================================
+	"npc_dota_neutral_black_drake"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"3"			// 2
+		"MagicalResistance"			"40"		// 25
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"50"		// 20
+		"AttackDamageMax"			"60"		// 22
+		"AttackRate"				"1.6"		// 2
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"142"		// 95
+		"BountyGoldMin"				"80"		// 39
+		"BountyGoldMax"				"90"		// 45
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1900"		// 950
+		"StatusHealthRegen"			"5"			// 0.5
+
+	}
+	//===============================================================================
+	// Neutral: Ancient - Black Dragon 远古大黑龙
+	//===============================================================================
+	"npc_dota_neutral_black_dragon"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"6"			// 4
+		"MagicalResistance"			"50"		// 30
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"120"		// 62
+		"AttackDamageMax"			"130"		// 68
+		"AttackRate"				"1.6"		// 2
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"186"		// 124
+		"BountyGoldMin"				"150"		// 78
+		"BountyGoldMax"				"160"		// 82
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"4000"		// 2000
+		"StatusHealthRegen"			"10"		// 2
+		"StatusMana"				"1000"		// 500
+		"StatusManaRegen"			"5"			// 1
+	}
+
+	//=================================================================================
+	// Neutral: Ancient - Rock Golem 远古岩石傀儡
+	//=================================================================================
+	"npc_dota_neutral_rock_golem"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"		// 4
+		"MagicalResistance"			"50"		// 30
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"60"		// 22
+		"AttackDamageMax"			"68"		// 24
+		"AttackRate"				"1.6"		// 2
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"142"		// 95
+		"BountyGoldMin"				"80"		// 39
+		"BountyGoldMax"				"90"		// 45
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"290"		// 270
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1600"		// 800
+		"StatusHealthRegen"			"5"			// 0.5
+		"StatusMana"				"800"		// 400
+		"StatusManaRegen"			"2"			// 1
+	}
+
+	//=================================================================================
+	// Neutral: Ancient - Granite Golem 远古花岗岩傀儡
+	//=================================================================================
+	"npc_dota_neutral_granite_golem"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"		// 8
+		"MagicalResistance"			"50"		// 30
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"150"		// 80
+		"AttackDamageMax"			"170"		// 84
+		"AttackRate"				"1.6"		// 2
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"186"		// 124
+		"BountyGoldMin"				"150"		// 78
+		"BountyGoldMax"				"160"		// 82
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"290"		// 270
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"3000"		// 1500
+		"StatusHealthRegen"			"7"			// 1.5
+		"StatusMana"				"1200"		// 600
+		"StatusManaRegen"			"5"			// 1.5
+	}
+	//=================================================================================
+	// Neutral: Ancient - Big Thunder Lizard 远古雷霆蜥蜴
+	//=================================================================================
+	"npc_dota_neutral_big_thunder_lizard"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// 3
+		"MagicalResistance"			"50"		// 30
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"120"		// 60
+		"AttackDamageMax"			"130"		// 65
+		"AttackRate"				"1.6"		// 2
+		"BaseAttackSpeed"			"120"		// 100
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"186"		// 124
+		"BountyGoldMin"				"150"		// 78
+		"BountyGoldMax"				"160"		// 82
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"290"		// 270
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2800"		// 1400
+		"StatusHealthRegen"			"5"			// 0
+		"StatusMana"				"1600"		// 800
+		"StatusManaRegen"			"3"			// 0
+	}
+
+	//=================================================================================
+	// Neutral: Ancient - Small Thunder Lizard 远古小雷霆蜥蜴
+	//=================================================================================
+	"npc_dota_neutral_small_thunder_lizard"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// 3
+		"MagicalResistance"			"70"		// 50
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"80"		// 32
+		"AttackDamageMax"			"90"		// 34
+		"AttackRate"				"1.6"		// 1.8
+		"BaseAttackSpeed"			"120"		// 100
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"142"		// 95
+		"BountyGoldMin"				"90"		// 44
+		"BountyGoldMax"				"100"		// 51
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"290"		// 270
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1600"		// 800
+		"StatusHealthRegen"			"5"			// 0.5
+		"StatusMana"				"800"		// 400
+		"StatusManaRegen"			"3"			// 1.0
+	}
+
+	//=================================================================================
+	// Neutral: Pine Cone 远古寒冰萨满
+	//=================================================================================
+	"npc_dota_neutral_ice_shaman"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// 3
+		"MagicalResistance"			"50"		// 30
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"115"		// 58
+		"AttackDamageMax"			"125"		// 62
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"186"		// 124
+		"BountyGoldMin"				"150"		// 78
+		"BountyGoldMax"				"160"		// 82
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"3000"		// 1500
+		"StatusHealthRegen"			"5"			// 0.5
+		"StatusMana"				"800"		// 400
+		"StatusManaRegen"			"2"			// 1
+	}
+
+	//=================================================================================
+	// Neutral: Ancient - Rock Golem 远古寒冰萨满小
+	//=================================================================================
+	"npc_dota_neutral_frostbitten_golem"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"		// 7
+		"MagicalResistance"			"50"		// 30
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"60"		// 29
+		"AttackDamageMax"			"64"		// 31
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"142"		// 95
+		"BountyGoldMin"				"80"		// 39
+		"BountyGoldMax"				"90"		// 45
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1800"		// 900
+		"StatusHealthRegen"			"5"			// 2
+	}
+}
