@@ -1788,7 +1788,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"350"
+		"ItemCost"						"800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1817,7 +1817,7 @@
 		"AbilityTextureName"			"item_sphere_2"
 
 		"AbilityCastRange"				"900"
-		"AbilityCooldown"				"8.0"
+		"AbilityCooldown"				"6.0"
 		"AbilitySharedCooldown"			"sphere"
 
 		"AbilityValues"
@@ -1825,7 +1825,7 @@
 				"bonus_all_stats"		"20"
 				"bonus_health_regen"	"12"
 				"bonus_mana_regen"		"9"
-				"block_cooldown"		"8.0"
+				"block_cooldown"		"6.0"
 				"upgrade_absorb_duration"		"10.0"
 				"damage_absorb"		"300"
 				"bonus_damage"			"20"
@@ -1873,8 +1873,8 @@
 
 		"AbilityValues"
 		{
-			"bonus_spell_amp"		"66"
 			"bonus_damage"			"666"
+			"bonus_spell_amp"		"66"
 			"bonus_damage_percent"	"100"
 		}
 		"Modifiers"
@@ -6201,6 +6201,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"16"
+		"AbilitySharedCooldown"			"lotus_orb"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"300"
@@ -6643,13 +6644,13 @@
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
         "AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"10000"
+		"ItemCost"						"400"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra"
 		"ItemRequirements"
 		{
-			"01"						"item_rapier;item_rapier;item_rapier;item_rapier;item_rapier"
+			"01"						"item_excalibur;item_rapier"
 		}
 	}
 
@@ -6666,8 +6667,8 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"			"2000"
-			"bonus_spell_amp"		"200"
+			"bonus_damage"			"1666"
+			"bonus_spell_amp"		"166"
 		}
 		"Modifiers"
 		{
@@ -6700,7 +6701,7 @@
 		"BaseClass"                     "item_recipe_satanic"
 		"ID"						    "9619"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"9600"
+		"ItemCost"						"5800"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_ultra"
@@ -6726,9 +6727,9 @@
 		"AbilityTextureName"            "item_satanic_ultra"
 		"AbilityValues"
 		{
-			"bonus_strength"		"200"
-			"bonus_damage"			"200"
-			"lifesteal_percent"		"125"
+			"bonus_strength"		"160"
+			"bonus_damage"			"160"
+			"lifesteal_percent"		"100"
 			"creep_lifesteal_reduction_pct"	"40"
 			"unholy_lifesteal_percent"	"475"
 			"unholy_lifesteal_total_tooltip"	"600"
@@ -6745,7 +6746,7 @@
 		"ID"						    "9617"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"FightRecapLevel"				"1"
-		"ItemCost"						"8000"
+		"ItemCost"						"2844"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_blade_mail_ultra"
@@ -6767,11 +6768,11 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"100"
-				"bonus_armor"			"-120"
+				"bonus_armor"			"-50"
 				"bonus_intellect"		"100"
 				"duration"				"6"
-				"passive_reflection_constant"			"300"
-				"passive_reflection_pct"			"50"
+				"passive_reflection_constant"			"200"
+				"passive_reflection_pct"			"40"
 				"active_reflection_pct"			"200"
 		}
 	}
@@ -6779,44 +6780,44 @@
 	//=================================================================================================================
 	// 神圣血精石 bloodstone ultra
 	//=================================================================================================================
-	"item_recipe_bloodstone_ultra"
-	{
-		"BaseClass"                     "item_recipe_bloodstone"
-		"ID"						    "9615"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"6000"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_bloodstone_ultra"
-		"ItemRequirements"
-		{
-			"01"						"item_bloodstone;item_bloodstone"
-		}
-	}
-	"item_bloodstone_ultra"
-	{
-		"BaseClass"                     "item_bloodstone"
-		"ID"						    "9616"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"FightRecapLevel"				"3"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"35.0"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AllowedInBackpack"				"1"
-		"ShouldBeSuggested"				"1"
-		"AbilityTextureName"            "item_bloodstone_ultra"
-		"AbilityValues"
-		{
-			"bonus_aoe"				"300"
-			"bonus_health"			"6000"
-			"bonus_mana"			"6000"
-			"spell_lifesteal"		"300"
-			"buff_duration"			"12"
-			"lifesteal_multiplier"	"5"
-			"hp_cost"				"0"
-		}
-	}
+	// "item_recipe_bloodstone_ultra"
+	// {
+	// 	"BaseClass"                     "item_recipe_bloodstone"
+	// 	"ID"						    "9615"
+	// 	"Model"							"models/props_gameplay/recipe.vmdl"
+	// 	"ItemCost"						"6000"
+	// 	"ItemShopTags"					""
+	// 	"ItemRecipe"					"1"
+	// 	"ItemResult"					"item_bloodstone_ultra"
+	// 	"ItemRequirements"
+	// 	{
+	// 		"01"						"item_bloodstone;item_bloodstone"
+	// 	}
+	// }
+	// "item_bloodstone_ultra"
+	// {
+	// 	"BaseClass"                     "item_bloodstone"
+	// 	"ID"						    "9616"
+	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	// 	"FightRecapLevel"				"3"
+	// 	"AbilityCastPoint"				"0.0"
+	// 	"AbilityCooldown"				"35.0"
+	// 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	// 	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+	// 	"AllowedInBackpack"				"1"
+	// 	"ShouldBeSuggested"				"1"
+	// 	"AbilityTextureName"            "item_bloodstone_ultra"
+	// 	"AbilityValues"
+	// 	{
+	// 		"bonus_aoe"				"300"
+	// 		"bonus_health"			"6000"
+	// 		"bonus_mana"			"6000"
+	// 		"spell_lifesteal"		"300"
+	// 		"buff_duration"			"12"
+	// 		"lifesteal_multiplier"	"5"
+	// 		"hp_cost"				"0"
+	// 	}
+	// }
 
 	//=================================================================================================================
 	// 雷神重锤 mjollnir ultra
@@ -6845,7 +6846,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"20"
+		"AbilityCooldown"				"35"
 		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMY_YES"
 		"AbilityManaCost"				"250"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -6853,22 +6854,22 @@
 		"AbilityTextureName"            "item_mjollnir_ultra"
 		"AbilityValues"
 		{
-			"bonus_damage"			"150"
-			"bonus_attack_speed"	"540"
+			"bonus_damage"			"80"
+			"bonus_attack_speed"	"270"
 			"static_duration"		"30.0"
-			"static_chance"			"65"
+			"static_chance"			"45"
 			"static_strikes"		"8"
-			"static_damage"			"650"
+			"static_damage"			"450"
 			"static_primary_radius"	"800"
 			"static_seconary_radius""1200"
 			"static_radius"			"1200"
-			"static_cooldown"		"0.1"
-			"chain_chance"			"75"
-			"chain_damage"			"750"
+			"static_cooldown"		"0.2"
+			"chain_chance"			"65"
+			"chain_damage"			"400"
 			"chain_strikes"			"12"
 			"chain_radius"			"800"
 			"chain_delay"			"0.2"
-			"chain_cooldown"		"0.1"
+			"chain_cooldown"		"0.2"
 			"max_charges"			"0"
 			"illusion_multiplier_pct"	"150"
 		}
@@ -6882,7 +6883,7 @@
 		"BaseClass"                     "item_recipe_radiance"
 		"ID"						    "9609"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"9000"
+		"ItemCost"						"1000"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_radiance_ultra"
 		"ItemRequirements"
@@ -6900,12 +6901,12 @@
 		"AbilityTextureName"            "item_radiance_ultra"
 		"AbilityValues"
 		{
-				"bonus_damage"			"600"
-				"aura_damage"			"600"
-				"aura_damage_illusions"	"600"
+				"bonus_damage"			"300"
+				"aura_damage"			"300"
+				"aura_damage_illusions"	"300"
 				"upgrade_day_vision"	"800"
-				"evasion"				"99"
-				"blind_pct"				"99"
+				"evasion"				"90"
+				"blind_pct"				"90"
 				"aura_radius"			"700"
 				"illusion_multiplier_pct"	"300"
 		}
@@ -6953,7 +6954,7 @@
 				"soul_heal_amount"		"200"
 				"soul_damage_amount"	"200"
 				"duration"			"12.0"
-				"hp_regen_reduction_enemy"	"99"
+				"hp_regen_reduction_enemy"	"90"
 				"enemy_hp_drain"		"6"
 		}
 	}
@@ -6983,15 +6984,15 @@
 		"AbilityTextureName"            "item_skadi_ultra"
 		"AbilityValues"
 		{
-				"bonus_all_stats"		"200"
-				"bonus_health"			"2400"
-				"bonus_mana"			"2400"
+				"bonus_all_stats"		"120"
+				"bonus_health"			"1600"
+				"bonus_mana"			"1600"
 				"cold_slow_melee"	"-75"
 				"cold_attack_slow_melee"	"-90"
-				"cold_slow_ranged"	"-100"
+				"cold_slow_ranged"	"-80"
 				"cold_attack_slow_ranged"	"-90"
 				"cold_duration"	"3.0"
-				"heal_reduction"	"99"
+				"heal_reduction"	"90"
 		}
 	}
 }
