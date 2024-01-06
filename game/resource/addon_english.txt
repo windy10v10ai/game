@@ -1521,11 +1521,11 @@
 
 		// item_rapier_ultra 诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra"                        "<font color='#e03e2e'>Cursed Rapier</font>"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1><h1>Passive: True Strike</h1>Attacks will not miss due to evasion or other effects.\n<h1>Passive: <font color='#e03e2e'>Price of power</font></h1>Very great power always has its very great price. But its not on the table, since you are unstoppable now."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1><h1>Passive: True Strike</h1>Attacks will not miss due to evasion or other effects.\n<h1>Passive: <font color='#e03e2e'>Price of power</font></h1>Very great power always has its very great price. <br><font color='#e03e2e'>It has 90% to be ruined at death.</font>"
 		"DOTA_Tooltip_ability_item_rapier_ultra_Lore"					"Ruined at death."
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"It has 99% to be ruined at death, actually. So, will you be the lucky dog?"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"So, will you be the lucky dog?"
 
 			// item_satanic_ultra Ultra Satanic
 			"DOTA_Tooltip_Ability_item_satanic_ultra"				"<font color='#e03e2e'>Ultra Satanic</font>"

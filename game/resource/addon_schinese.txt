@@ -1672,11 +1672,11 @@
 
 		// item_rapier_ultra 诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra"                        "<font color='#e03e2e'>神器·诅咒圣剑</font>"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。\n<h1>被动：<font color='#e03e2e'>力量的代价</font></h1>过于强大力量总会有它的代价，至于是什么，这不重要，重要的是你无敌了。"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。\n<h1>被动：<font color='#e03e2e'>力量的代价</font></h1>过于强大力量总会有它的代价。<br><font color='#e03e2e'>死亡有90%概率摧毁。</font>"
 		"DOTA_Tooltip_ability_item_rapier_ultra_Lore"					"死亡摧毁。"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"其实是死亡99%概率摧毁，至于能不能幸免于难，施主且行且珍惜。"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"至于能不能幸免于难，施主且行且珍惜。"
 
 		// item_satanic_ultra 撒旦之神力
 		"DOTA_Tooltip_Ability_item_satanic_ultra"				"<font color='#e03e2e'>神器·撒旦之神力</font>"

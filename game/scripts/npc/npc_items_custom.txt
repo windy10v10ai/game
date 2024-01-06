@@ -1873,8 +1873,8 @@
 
 		"AbilityValues"
 		{
-			"bonus_spell_amp"		"66"
 			"bonus_damage"			"666"
+			"bonus_spell_amp"		"66"
 			"bonus_damage_percent"	"100"
 		}
 		"Modifiers"
@@ -6644,13 +6644,13 @@
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
         "AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"10000"
+		"ItemCost"						"400"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra"
 		"ItemRequirements"
 		{
-			"01"						"item_rapier;item_rapier;item_rapier;item_rapier;item_rapier"
+			"01"						"item_excalibur;item_rapier"
 		}
 	}
 
@@ -6667,8 +6667,8 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"			"2000"
-			"bonus_spell_amp"		"200"
+			"bonus_damage"			"1666"
+			"bonus_spell_amp"		"166"
 		}
 		"Modifiers"
 		{
@@ -6854,22 +6854,22 @@
 		"AbilityTextureName"            "item_mjollnir_ultra"
 		"AbilityValues"
 		{
-			"bonus_damage"			"100"
-			"bonus_attack_speed"	"540"
+			"bonus_damage"			"80"
+			"bonus_attack_speed"	"270"
 			"static_duration"		"30.0"
-			"static_chance"			"65"
+			"static_chance"			"45"
 			"static_strikes"		"8"
-			"static_damage"			"650"
+			"static_damage"			"500"
 			"static_primary_radius"	"800"
 			"static_seconary_radius""1200"
 			"static_radius"			"1200"
-			"static_cooldown"		"0.1"
-			"chain_chance"			"75"
+			"static_cooldown"		"0.2"
+			"chain_chance"			"65"
 			"chain_damage"			"450"
 			"chain_strikes"			"12"
 			"chain_radius"			"800"
 			"chain_delay"			"0.2"
-			"chain_cooldown"		"0.1"
+			"chain_cooldown"		"0.2"
 			"max_charges"			"0"
 			"illusion_multiplier_pct"	"150"
 		}
