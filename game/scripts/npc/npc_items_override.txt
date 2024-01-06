@@ -783,14 +783,14 @@
 	{
 		"AbilityValues"
 		{
-			"radius"					"900"	//600
+			"radius"					"800"	//600
 			"slow_duration"			    "0.4"	//0.2
 			"damage_reset_interval"		"7"		//7
 			"damage_threshold"			"600"	//180
 			"slow"			            "70"	//100
 			"projectile_speed"			"1000"	//1000
-			"projectile_damage"			"500"	//125
-			"target_count"				"4"		//2
+			"projectile_damage"			"450"	//125
+			"target_count"				"3"		//2
 			"bonus_armor"				"24"	//12
 		}
 	}
@@ -863,7 +863,7 @@
 		"AbilityValues"
 		{
 			"debuff_amp"		"40"	// 20
-			"spell_amp"			"60"	// 15
+			"spell_amp"			"45"	// 15
 		}
 	}
 	"item_force_boots" //原力鞋 推推鞋
@@ -924,7 +924,7 @@
 		{
 			"cast_range_bonus"		"400"  //350
 			"vision_bonus"			"700"  //350
-			"mana_regen"			"25"   //10
+			"mana_regen"			"20"   //10
 			"radius"
 			{
 				"value"		"1200"          //800
@@ -937,17 +937,17 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_strength"			"100" //35
+			"bonus_strength"			"80" //35
 			"movement_speed"			"100" //50
 			"model_scale"			    "0"   //50
-			"pct_str_damage_per_second"	"150" //100
-			"damage_radius"			    "250" //100
+			"pct_str_damage_per_second"	"120" //100
+			"damage_radius"			    "200" //100
 		}
 	}
 	"item_ex_machina"  //机械之心
 	{
-		"AbilityCooldown"				"20.0" //25
-		"AbilityManaCost"				"400"  //350
+		"AbilityCooldown"				"25.0" //25
+		"AbilityManaCost"				"450"  //350
 		"AbilityValues"
 		{
 				"bonus_armor"			"40"   //20
@@ -958,12 +958,12 @@
 		"AbilityCooldown"				"15"  //20
 		"AbilityValues"
 		{
-			"bonus_aoe_radius"			"1800"//1200
-			"bonus_aoe_armor"			"20"   //5
-			"self_armor"				"20"   //5
-			"self_mres"					"30"  //20
-			"bonus_aoe_mres"			"30"  //20
-			"active_reflection_pct"		"60"  //40
+			"bonus_aoe_radius"			"1800"	//1200
+			"bonus_aoe_armor"			"20"	//5
+			"self_armor"				"20"	//5
+			"self_mres"					"30"	//20
+			"bonus_aoe_mres"			"30"	//20
+			"active_reflection_pct"		"60"	//40
 		}
 	}
 	"item_pirate_hat"  //海盗帽
@@ -971,15 +971,15 @@
 		"AbilityCooldown"				"10.0" //40
 		"AbilityValues"
 		{
-			"bonus_attack_speed"		"1500"  //150
-			"bonus_ms"					"150"   //15
+			"bonus_attack_speed"		"450"	//150
+			"bonus_ms"					"150"	//15
 		}
 	}
 	"item_unwavering_condition" //坚毅之件
 	{
 		"AbilityValues"
 		{
-			"max_health"			"6000"  //1500
+			"max_health"			"10000"  //1500
 			"magic_resist"			"95"    //95
 		}
 	}
@@ -1007,7 +1007,7 @@
 	"item_fallen_sky" //天崩
 	{
 		"AbilityCastRange"				"1800"  //1800
-		"AbilityCooldown"				"7.5"  //15
+		"AbilityCooldown"				"10"  //15
 		"AbilityValues"
 		{
 			"bonus_strength"		"50"   //25

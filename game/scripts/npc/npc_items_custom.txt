@@ -6768,7 +6768,7 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"100"
-				"bonus_armor"			"-50"
+				"bonus_armor"			"-40"
 				"bonus_intellect"		"100"
 				"duration"				"6"
 				"passive_reflection_constant"			"200"
