@@ -1518,12 +1518,12 @@
 
 		"AbilityValues"
 		{
-			"bonus_strength"		"10 20"
-			"bonus_agility"			"5 10"
-			"bonus_intellect"		"5 10"
-			"bonus_damage"			"8 16"
-			"bonus_health_regen"	"3 6"
-			"clock_time"			"3"
+			"bonus_strength"		"10 20"		// 5 10
+			"bonus_agility"			"4 8"		// 2 4
+			"bonus_intellect"		"4 8"		// 2 4
+			"bonus_damage"			"6 12"		// 3 6
+			"bonus_health_regen"	"3 6"		// 0.75 1.5
+			"clock_time"			"3"			// 25
 		}
 	}
 
@@ -1567,12 +1567,12 @@
 
 		"AbilityValues"
 		{
-			"bonus_agility"			"10 20"
-			"bonus_strength"		"5 10"
-			"bonus_intellect"		"5 10"
-			"bonus_attack_speed"	"10 20"
-			"bonus_armor"			"5 10"
-			"clock_time"			"3"
+			"bonus_agility"			"10 20"		// 5 10
+			"bonus_strength"		"4 8"		// 2 4
+			"bonus_intellect"		"4 8"		// 2 4
+			"bonus_attack_speed"	"10 20"		// 5 10
+			"bonus_armor"			"5 10"		// 2 4
+			"clock_time"			"3"			// 25
 		}
 	}
 
@@ -1615,12 +1615,12 @@
 
 		"AbilityValues"
 		{
-			"bonus_intellect"		"10 20"
-			"bonus_strength"		"5 10"
-			"bonus_agility"			"5 10"
-			"bonus_max_mana_percentage"	"5 10"
-			"bonus_mana_regen"		"3 6"
-			"clock_time"			"3"
+			"bonus_intellect"		"10 20"		// 5 10
+			"bonus_strength"		"4 8"		// 2 4
+			"bonus_agility"			"4 8"		// 2 4
+			"bonus_max_mana_percentage"	"5 10"	// 3 6
+			"bonus_mana_regen"		"3 6"		// 0.75 1.5
+			"clock_time"			"3"			// 25
 		}
 	}
 	//=================================================================================================================

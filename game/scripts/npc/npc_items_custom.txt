@@ -4235,7 +4235,7 @@
 
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"20.0"
+		"AbilityCooldown"				"19.0"
 		"AbilitySharedCooldown"			"force"
 
 		"AbilityManaCost"				"250"
@@ -4256,7 +4256,7 @@
 			"bonus_strength"		"40"
 			"base_attack_range"		"250"
 			"push_length"			"1000"
-			"enemy_length"			"500"
+			"enemy_length"			"450"
 			"range_duration"		"6"
 			"cast_range_enemy"		"800"
 			"max_attacks"			"12"

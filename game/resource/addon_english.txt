@@ -1097,27 +1097,27 @@
 		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification"
 
 		// item_dragon_lance_plus 魔龙枪plus
-		"DOTA_Tooltip_Ability_item_dragon_lance_plus"							"Dragon Lance Plus"
-		"DOTA_Tooltip_Ability_item_dragon_lance_plus_Description"				"<h1>Active: Quick draw</h1> Grants %active_boost% attack speed for  %active_boost_duration% seconds."
-		"DOTA_Tooltip_Ability_item_dragon_lance_plus_Lore"						"（Attack range）become more longer and（bonus）become more strengther is the eternal pursuit of all people"
-		"DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_agility"		  		 "+$agi"
-		"DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_strength"		   "+$str"
-		"DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_attack_range"	   "+$attack_range"
-		"DOTA_Tooltip_Ability_item_recipe_dragon_lance_plus"					"Dragon Lance Plus Recipe"
+		// "DOTA_Tooltip_Ability_item_dragon_lance_plus"							"Dragon Lance Plus"
+		// "DOTA_Tooltip_Ability_item_dragon_lance_plus_Description"				"<h1>Active: Quick draw</h1> Grants %active_boost% attack speed for  %active_boost_duration% seconds."
+		// "DOTA_Tooltip_Ability_item_dragon_lance_plus_Lore"						"（Attack range）become more longer and（bonus）become more strengther is the eternal pursuit of all people"
+		// "DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_agility"		  		 "+$agi"
+		// "DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_strength"		   "+$str"
+		// "DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_attack_range"	   "+$attack_range"
+		// "DOTA_Tooltip_Ability_item_recipe_dragon_lance_plus"					"Dragon Lance Plus Recipe"
 
-		"DOTA_Tooltip_modifier_item_dragon_lance_plus_active"	                "Quick draw"
-		"DOTA_Tooltip_modifier_item_dragon_lance_plus_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
+		// "DOTA_Tooltip_modifier_item_dragon_lance_plus_active"	                "Quick draw"
+		// "DOTA_Tooltip_modifier_item_dragon_lance_plus_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
 
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max"						"Dragon Lance Pro Max"
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Description"			"<h1>Active: Quick draw</h1> Grants %active_boost% attack speed for  %active_boost_duration% seconds."
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Lore"					"（Attack range）become more longer and（bonus）become more strengther is the eternal pursuit of all people"
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_agility"		    "+$agi"
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_strength"		    "+$str"
-		"DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_attack_range"	    "+$attack_range"
-		"DOTA_Tooltip_Ability_item_recipe_dragon_lance_pro_max"					"Dragon Lance Pro Max Recipe"
+		// "DOTA_Tooltip_Ability_item_dragon_lance_pro_max"						"Dragon Lance Pro Max"
+		// "DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Description"			"<h1>Active: Quick draw</h1> Grants %active_boost% attack speed for  %active_boost_duration% seconds."
+		// "DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Lore"					"（Attack range）become more longer and（bonus）become more strengther is the eternal pursuit of all people"
+		// "DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_agility"		    "+$agi"
+		// "DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_strength"		    "+$str"
+		// "DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_attack_range"	    "+$attack_range"
+		// "DOTA_Tooltip_Ability_item_recipe_dragon_lance_pro_max"					"Dragon Lance Pro Max Recipe"
 
-		"DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active"	             "Quick draw"
-		"DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active_Description"	 "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
+		// "DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active"	             "Quick draw"
+		// "DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active_Description"	 "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
 
         // item_hurricane_pike_2 黄金魔龙枪
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2"			"Golden Hurricane Pike"
@@ -1130,6 +1130,7 @@
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2_bonus_health"					"+$health"
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2_bonus_agility"                  "+$agi"
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2_bonus_strength"                 "+$str"
+		"DOTA_Tooltip_Ability_item_hurricane_pike_2_base_attack_range"              "+$attack_range"
 
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_active"			"Golden Hurricane Pike Push"
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_active_Description"	"Being pushed by Golden Hurricane Pike."
