@@ -5,10 +5,9 @@ require('event/chat')
 require('event/kill')
 require('event/bot_herolist')
 
-local tSkillCustomNameList = { "npc_dota_hero_crystal_maiden", "npc_dota_hero_queenofpain", "npc_dota_hero_mirana",
-                               "npc_dota_hero_earthshaker", "npc_dota_hero_nevermore" }
+-- local tSkillCustomNameList = { }
 
-local tAPLevelList = { 17, 19, 21, 22, 23, 24, 26 }
+-- local tAPLevelList = { 17, 19, 21, 22, 23, 24, 26 }
 
 
 function AIGameMode:ArrayShuffle(array)
@@ -527,24 +526,24 @@ function AIGameMode:OnPlayerLevelUp(keys)
     end)
 
     -- Set Ability Points
-    local hero = EntIndexToHScript(keys.player):GetAssignedHero()
-    local level = keys.level
+    -- local hero = EntIndexToHScript(keys.player):GetAssignedHero()
+    -- local level = keys.level
 
-    for i, v in ipairs(tSkillCustomNameList) do
-        if v == hero:GetName() then
-            for _, lv in ipairs(tAPLevelList) do
-                if lv == level then
-                    print("-----------------debug-----------------", hero:GetName() .. "level:" .. level .. " Add AP")
-                    -- Save current unspend AP
-                    local unspendAP = hero:GetAbilityPoints()
-                    hero:SetAbilityPoints(1 + unspendAP)
-                    break
-                end
-            end
+    -- for i, v in ipairs(tSkillCustomNameList) do
+    --     if v == hero:GetName() then
+    --         for _, lv in ipairs(tAPLevelList) do
+    --             if lv == level then
+    --                 print("-----------------debug-----------------", hero:GetName() .. "level:" .. level .. " Add AP")
+    --                 -- Save current unspend AP
+    --                 local unspendAP = hero:GetAbilityPoints()
+    --                 hero:SetAbilityPoints(1 + unspendAP)
+    --                 break
+    --             end
+    --         end
 
-            break
-        end
-    end
+    --         break
+    --     end
+    -- end
 end
 
 function AIGameMode:OnItemPickedUp(event)

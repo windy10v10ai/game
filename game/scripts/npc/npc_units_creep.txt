@@ -5,29 +5,47 @@
 	//=================================================================================
 	// Creeps: 小兵 普通
 	//=================================================================================
+	// 近战远程 1.5x
 	"npc_dota_creep_badguys_ranged"
 	{
-		"BountyXP"					"80"		// 69
-		"BountyGoldMin"				"60"		// 43
-		"BountyGoldMax"				"70"		// 52
+		"BountyXP"					"104"		// 69
+		"BountyGoldMin"				"65"		// 43
+		"BountyGoldMax"				"78"		// 52
 	}
 	"npc_dota_creep_goodguys_ranged"
 	{
-		"BountyXP"					"80"		// 69
-		"BountyGoldMin"				"60"		// 43
-		"BountyGoldMax"				"70"		// 52
+		"BountyXP"					"104"		// 69
+		"BountyGoldMin"				"65"		// 43
+		"BountyGoldMax"				"78"		// 52
 	}
 	"npc_dota_creep_badguys_melee"
 	{
-		"BountyXP"					"70"		// 57
+		"BountyXP"					"85"		// 57
 		"BountyGoldMin"				"50"		// 34
 		"BountyGoldMax"				"60"		// 39
 	}
 	"npc_dota_creep_goodguys_melee"
 	{
-		"BountyXP"					"70"		// 57
+		"BountyXP"					"85"		// 57
 		"BountyGoldMin"				"50"		// 34
 		"BountyGoldMax"				"60"		// 39
+	}
+	// 旗手 2x
+	"npc_dota_creep_badguys_flagbearer"
+	{
+		"BountyXP"					"114"		// 57
+		"BountyGoldMin"				"68"		// 34
+		"BountyGoldMax"				"78"		// 39
+
+		"StatusHealth"				"800"		// 550
+	}
+	"npc_dota_creep_goodguys_flagbearer"
+	{
+		"BountyXP"					"114"		// 57
+		"BountyGoldMin"				"68"		// 34
+		"BountyGoldMax"				"78"		// 39
+
+		"StatusHealth"				"800"		// 550
 	}
 	//=================================================================================
 	// Creeps: 小兵 高级

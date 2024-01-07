@@ -156,7 +156,6 @@ function AIGameMode:PreGameOptions()
     local gameMode = GameRules:GetGameModeEntity()
     gameMode:SetModifyGoldFilter(Dynamic_Wrap(AIGameMode, "FilterGold"), self)
     gameMode:SetModifyExperienceFilter(Dynamic_Wrap(AIGameMode, "FilterXP"), self)
-    gameMode:SetHealingFilter(Dynamic_Wrap(AIGameMode, "FilterHeal"), self)
 
     GameRules:SetTimeOfDay(0.25)
 
@@ -240,9 +239,9 @@ function AIGameMode:PreGameOptions()
     elseif self.fBotGoldXpMultiplier <= 8 then
         self.botPushMin = RandomInt(10, 13)
     elseif self.fBotGoldXpMultiplier <= 10 then
-        self.botPushMin = RandomInt(8, 10)
+        self.botPushMin = RandomInt(7, 9)
     else
-        self.botPushMin = RandomInt(5, 7)
+        self.botPushMin = RandomInt(4, 6)
     end
 
     print("botPushMin: " .. self.botPushMin)
@@ -323,14 +322,6 @@ function AIGameMode:FilterXP(tXPFilter)
 
     tXPFilter["experience"] = math.floor(iXP * self:GetPlayerGoldXpMultiplier(iPlayerID))
 
-    return true
-end
-
-function AIGameMode:FilterHeal(tHealFilter)
-    local target = EntIndexToHScript(tHealFilter.entindex_target_const)
-    if target:HasModifier("modifier_sword_master_arbiter_no_heal") then
-        return false
-    end
     return true
 end
 

@@ -187,12 +187,10 @@ local function HeroKilled(keys)
             gold = 5 + iLevel * 0.5
         elseif iLevel <= 20 then
             gold = 10 + (iLevel - 10) * 1
-        elseif iLevel <= 30 then
-            gold = 20 + (iLevel - 20) * 2
         elseif iLevel <= 50 then
-            gold = 40 + (iLevel - 30) * 3
+            gold = 20 + (iLevel - 20) * 2
         else
-            gold = 100
+            gold = 80
         end
         gold = math.ceil(gold)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do

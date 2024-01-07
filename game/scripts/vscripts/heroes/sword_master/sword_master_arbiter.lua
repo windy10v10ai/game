@@ -321,3 +321,20 @@ end
 function modifier_sword_master_arbiter_resistance:GetModifierIncomingDamage_Percentage()
     return self.damage_reduction
 end
+
+
+function modifier_sword_master_arbiter_no_heal:DeclareFunctions()
+    local funcs = {
+        MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+        MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    }
+    return funcs
+end
+
+function modifier_sword_master_arbiter_no_heal:GetModifierHealAmplify_PercentageTarget()
+    return -100
+end
+
+function modifier_sword_master_arbiter_no_heal:GetModifierHPRegenAmplify_Percentage()
+    return -100
+end
