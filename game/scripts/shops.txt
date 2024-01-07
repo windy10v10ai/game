@@ -66,6 +66,7 @@
 		"item"		"item_javelin"
 		"item"		"item_claymore"
 		"item"		"item_mithril_hammer"
+		"item"      "item_glimmer_cape_ultra"
 	}
 
 	"misc"
@@ -211,6 +212,9 @@
 		"item"      "item_mjollnir_ultra"
 		"item"      "item_radiance_ultra"
 		"item"      "item_satanic_ultra"
+		"item"      "item_bfury_ultra"
+		"item"      "item_gungir_ultra"
+		"item"      "item_bloodthorn_ultra"
 	}
 
 	// Level 4 - Orange / Orb / Artifacts
@@ -247,6 +251,9 @@
 		"item"      "item_blade_mail_ultra"
 		"item"      "item_skadi_ultra"
 		// "item"      "item_bloodstone_ultra"
+		"item"      "item_vladmir_ultra"
+		"item"      "item_black_king_bar_ultra"
+		"item"      "item_shivas_guard_ultra"
 	}
 
 	"sideshop1"
