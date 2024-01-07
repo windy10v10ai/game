@@ -1643,13 +1643,13 @@
 
 	    // item_bloodstone_v2 血精神石
 	    "DOTA_Tooltip_ability_item_bloodstone"							"血精神石"
-	    "DOTA_Tooltip_ability_item_bloodstone_v2"						"血精石"
+	    "DOTA_Tooltip_ability_item_bloodstone_v2"						"迷你血精石"
 	    // "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
         "DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"这块魔石使人能够从魔法中吸取鲜血..."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_aoe"							"+$aoe_bonus"
         "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
         "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
-        "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
+        // "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
         "DOTA_Tooltip_modifier_item_bloodstone_v2_amp"					"血之契约"
 
         // item_refresh_core 大刷新
