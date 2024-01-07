@@ -1,4 +1,6 @@
-import { reloadable } from "../utils/tstl-utils";
+import { AI } from "../../ai/AI";
+import { reloadable } from "../../utils/tstl-utils";
+import { CMD } from "./debug-cmd";
 
 @reloadable
 export class Debug {
@@ -25,8 +27,6 @@ export class Debug {
     const cmd = strs[0];
     const args = strs.slice(1);
 
-    print(`[DEBUG] ${steamid} ${keys.playerid} ${keys.teamonly} ${keys.userid} ${keys.text}`);
-
     if (cmd === "-debug") {
       this.DebugEnabled = !this.DebugEnabled;
     }
@@ -35,17 +35,43 @@ export class Debug {
     // commands that only work in debug mode below:
     if (!this.DebugEnabled) return;
 
+    // v 获取当前vector
+    if (cmd === CMD.V) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      const pos = hero.GetAbsOrigin();
+      const vectorString = `Vector(${Math.floor(pos.x)}, ${Math.floor(pos.y)}, ${Math.floor(
+        pos.z,
+      )})`;
+      this.log(`当前位置: ${vectorString}`);
+    }
+
+    if (cmd === CMD.REFRESH_AI) {
+      this.log(`REFRESH_AI`);
+      GameRules.AI = new AI();
+      for (let i = -1; i < 24; i++) {
+        const hero = PlayerResource.GetSelectedHeroEntity(i as PlayerID);
+        if (hero && hero.GetTeamNumber() === DotaTeam.BADGUYS) {
+          GameRules.AI.EnableAI(hero);
+        }
+      }
+    }
+
     // 其他的测试指令写在下面
     if (cmd.startsWith("get_key_v3")) {
       const version = args[0];
       const key = GetDedicatedServerKeyV3(version);
-      Say(HeroList.GetHero(0), `${version}: ${key}`, false);
+      this.log(`${version}: ${key}`);
     }
 
     if (cmd.startsWith("get_key_v2")) {
       const version = args[0];
       const key = GetDedicatedServerKeyV2(version);
-      Say(HeroList.GetHero(0), `${version}: ${key}`, false);
+      this.log(`${version}: ${key}`);
     }
+  }
+
+  log(message: string) {
+    print(`[Debug] ${message}`);
+    Say(HeroList.GetHero(0), message, false);
   }
 }

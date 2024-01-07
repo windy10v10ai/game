@@ -1,10 +1,11 @@
 import type { PlayerProperty } from "../../api/player";
 import {
-  property_attackspeed_bonus_constant,
   property_attack_range_bonus,
+  property_attackspeed_bonus_constant,
   property_cannot_miss,
   property_cast_range_bonus_stacking,
   property_cooldown_percentage,
+  property_evasion_constant,
   property_health_regen_percentage,
   property_ignore_movespeed_limit,
   property_incoming_damage_percentage,
@@ -20,7 +21,6 @@ import {
   property_stats_intellect_bonus,
   property_stats_strength_bonus,
   property_status_resistance_stacking,
-  property_evasion_constant,
 } from "../../modifiers/property/property_declare";
 
 export class PropertyController {
@@ -103,7 +103,7 @@ export class PropertyController {
     for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
       if (PlayerResource.IsValidPlayer(i)) {
         const steamId = PlayerResource.GetSteamAccountID(i);
-        if (steamId == property.steamId) {
+        if (steamId === property.steamId) {
           const hero = PlayerResource.GetSelectedHeroEntity(i);
           if (hero) {
             PropertyController.setModifier(hero, property);
@@ -116,17 +116,18 @@ export class PropertyController {
   // 更新单条属性
   public static setModifier(hero: CDOTA_BaseNPC_Hero, property: PlayerProperty) {
     const name = property.name;
-    print(`[PropertyController] setModifier ${name} origin level ${property.level}`);
     let activeLevel = property.level;
     // 根据英雄等级设置点数
     if (PropertyController.limitPropertyNames.includes(name)) {
       const activeLevelMax = Math.floor(hero.GetLevel() / PropertyController.HERO_LEVEL_PER_POINT);
       activeLevel = Math.min(property.level, activeLevelMax);
-      print(`[PropertyController] setModifier ${name} ${activeLevel} limit`);
     }
+    // print(
+    //   `[PropertyController] setModifier ${name} origin level ${property.level}, activeLevel ${activeLevel}`,
+    // );
 
     // 设置额外技能点
-    if (name == "property_skill_points_bonus") {
+    if (name === "property_skill_points_bonus") {
       PropertyController.setBonusSkillPoints(hero, property, activeLevel);
       return;
     }
@@ -172,7 +173,7 @@ export class PropertyController {
     dataDrivenName: string,
     level: number,
   ) {
-    if (level == 0) {
+    if (level === 0) {
       return;
     }
 

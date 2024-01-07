@@ -486,18 +486,19 @@ function AIGameMode:OnNPCSpawned(keys)
 
         -- Bots modifier 机器人AI脚本
         if not self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
+            -- FIXME 用ts脚本替换
             if not hEntity:HasModifier("modifier_bot_think_strategy") then
                 hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_strategy", {})
             end
             if not hEntity:HasModifier("modifier_bot_think_item_use") then
                 hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_item_use", {})
             end
+
             if tBotItemData.wardHeroList[sName] then
                 if not hEntity:HasModifier("modifier_bot_think_ward") then
                     hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_ward", {})
                 end
             end
-            -- hEntity:SetControllableByPlayer(-1, true)
         end
 
         -- Player Buff

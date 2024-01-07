@@ -43,7 +43,8 @@ function AIGameMode:InitGameMode()
     AIGameMode:LinkLuaModifiers()
     AIGameMode:InitBotRecordTable()
     if IsInToolsMode() then
-        self:EnterDebugMode()
+        print("========Enter Debug Mode========")
+        self.DebugMode = true
     end
     print("DOTA 2 AI Wars Loaded.")
 end
@@ -53,25 +54,18 @@ function AIGameMode:InitBotRecordTable()
     AIGameMode.BotRecordSuccessiveDeathTable = {}
 end
 
-function AIGameMode:EnterDebugMode()
-    print("========Enter Debug Mode========")
-    self.DebugMode = true
-    GameRules:SetHeroSelectionTime(15)
-    GameRules:SetPreGameTime(30)
-end
-
 function AIGameMode:InitGameOptions()
-    GameRules:SetCustomGameSetupAutoLaunchDelay(AUTO_LAUNCH_DELAY)
-    GameRules:LockCustomGameSetupTeamAssignment(LOCK_TEAM_SETUP)
-    GameRules:EnableCustomGameSetupAutoLaunch(ENABLE_AUTO_LAUNCH)
-    GameRules:SetHeroSelectionTime(HERO_SELECTION_TIME)
-    GameRules:SetPreGameTime(PRE_GAME_TIME)
-    GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, RADIANT_PLAYER_COUNT)
-    GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, DIRE_PLAYER_COUNT)
-    GameRules:SetStrategyTime(STRATEGY_TIME)
-    GameRules:SetShowcaseTime(SHOWCASE_TIME)
-    GameRules:SetCustomGameEndDelay(GAME_END_DELAY)
-    GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
+    -- GameRules:SetCustomGameSetupAutoLaunchDelay(AUTO_LAUNCH_DELAY)
+    -- GameRules:LockCustomGameSetupTeamAssignment(LOCK_TEAM_SETUP)
+    -- GameRules:EnableCustomGameSetupAutoLaunch(ENABLE_AUTO_LAUNCH)
+    -- GameRules:SetHeroSelectionTime(HERO_SELECTION_TIME)
+    -- GameRules:SetPreGameTime(PRE_GAME_TIME)
+    -- GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, RADIANT_PLAYER_COUNT)
+    -- GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, DIRE_PLAYER_COUNT)
+    -- GameRules:SetStrategyTime(STRATEGY_TIME)
+    -- GameRules:SetShowcaseTime(SHOWCASE_TIME)
+    -- GameRules:SetCustomGameEndDelay(GAME_END_DELAY)
+    -- GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 
     -- 游戏选择项目初始化
     GameRules.GameOption = LoadKeyValues("scripts/kv/game_option.kv")
@@ -134,8 +128,6 @@ function AIGameMode:PreGameOptions()
     self.fPlayerGoldXpMultiplier = self.fPlayerGoldXpMultiplier or PLAYER_GOLD_XP_MULTIPLIER
     self.fBotGoldXpMultiplier = self.fBotGoldXpMultiplier or BOT_GOLD_XP_MULTIPLIER
 
-    self.iGoldPerTick = self.iGoldPerTick or GOLD_PER_TICK
-    self.iGoldTickTime = self.iGoldTickTime or GOLD_TICK_TIME
     self.iRespawnTimePercentage = self.iRespawnTimePercentage or 1
     self.iMaxLevel = self.iMaxLevel or MAX_LEVEL
 
@@ -148,8 +140,19 @@ function AIGameMode:PreGameOptions()
     self.bSameHeroSelection = self.bSameHeroSelection or 1
     self.bFastCourier = self.bFastCourier or 1
     self.fGameStartTime = 0
-    GameRules:SetGoldPerTick(self.iGoldPerTick)
-    GameRules:SetGoldTickTime(self.iGoldTickTime)
+
+    -- FIXME 测试代码
+    if IsInToolsMode() then
+        self.fPlayerGoldXpMultiplier = 2
+        self.fBotGoldXpMultiplier = 2
+        self.iTowerPower = 9
+        self.iTowerEndure = 9
+        self.bFastCourier = 1
+        self.bSameHeroSelection = 1
+    end
+
+    GameRules:SetGoldPerTick(GOLD_PER_TICK)
+    GameRules:SetGoldTickTime(GOLD_TICK_TIME)
     GameRules:SetUseUniversalShopMode(true)
     GameRules:SetFilterMoreGold(true)
 

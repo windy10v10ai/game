@@ -4,22 +4,22 @@
 function OnDifficultyDropDownChanged(difficulty) {
   const optionValue = "";
   const optionId = difficulty;
-  if (optionId == 0) {
+  if (optionId === 0) {
     UnLockOptionAll();
     InitSetting();
   } else {
     InitDifficultyCommonSetting();
-    if (optionId == 1) {
+    if (optionId === 1) {
       InitN1Setting();
-    } else if (optionId == 2) {
+    } else if (optionId === 2) {
       InitN2Setting();
-    } else if (optionId == 3) {
+    } else if (optionId === 3) {
       InitN3Setting();
-    } else if (optionId == 4) {
+    } else if (optionId === 4) {
       InitN4Setting();
-    } else if (optionId == 5) {
+    } else if (optionId === 5) {
       InitN5Setting();
-    } else if (optionId == 6) {
+    } else if (optionId === 6) {
       InitN6Setting();
     }
     LockOption();
@@ -132,10 +132,10 @@ function InitSetting() {
 
   // 开发模式
   if (Game.IsInToolsMode()) {
-    $("#player_gold_xp_multiplier_dropdown").SetSelected("5");
-    $("#bot_gold_xp_multiplier_dropdown").SetSelected("5");
-    $("#radiant_player_number_dropdown").SetSelected("5");
-    $("#dire_player_number_dropdown").SetSelected("5");
+    $("#player_gold_xp_multiplier_dropdown").SetSelected("2");
+    $("#bot_gold_xp_multiplier_dropdown").SetSelected("2");
+    $("#radiant_player_number_dropdown").SetSelected("10");
+    $("#dire_player_number_dropdown").SetSelected("10");
     $("#starting_gold_bot_dropdown").SetSelected("3000");
     $("#tower_power_dropdown").SetSelected("9");
     $("#tower_endure_dropdown").SetSelected("9");

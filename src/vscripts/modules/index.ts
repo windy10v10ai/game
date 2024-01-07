@@ -1,5 +1,6 @@
-import { Debug } from "./Debug";
+import { AI } from "../ai/AI";
 import { GameConfig } from "./GameConfig";
+import { Debug } from "./debug/Debug";
 import { Event } from "./event/event";
 import { PropertyController } from "./property/property_controller";
 import { XNetTable } from "./xnet-table";
@@ -8,6 +9,7 @@ declare global {
   interface CDOTAGameRules {
     // 声明所有的GameRules模块，这个主要是为了方便其他地方的引用（保证单例模式）
     XNetTable: XNetTable;
+    AI: AI;
   }
 }
 
@@ -28,4 +30,6 @@ export function ActivateModules() {
 
     new PropertyController();
   }
+
+  if (GameRules.AI == null) GameRules.AI = new AI();
 }

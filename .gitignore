@@ -13,9 +13,12 @@ src/game/
 /.idea
 /official_scripts
 
+
+game/scripts/vscripts/bots/
 # Ignore tstl output
+game/scripts/vscripts/addon_game_mode.lua
+game/scripts/vscripts/ai/
 game/scripts/vscripts/api/
 game/scripts/vscripts/modules/
 game/scripts/vscripts/server/
 game/scripts/vscripts/utils/
-game/scripts/vscripts/addon_game_mode.lua
