@@ -239,9 +239,9 @@ function AIGameMode:PreGameOptions()
     elseif self.fBotGoldXpMultiplier <= 8 then
         self.botPushMin = RandomInt(10, 13)
     elseif self.fBotGoldXpMultiplier <= 10 then
-        self.botPushMin = RandomInt(8, 10)
+        self.botPushMin = RandomInt(7, 9)
     else
-        self.botPushMin = RandomInt(5, 7)
+        self.botPushMin = RandomInt(4, 6)
     end
 
     print("botPushMin: " .. self.botPushMin)
