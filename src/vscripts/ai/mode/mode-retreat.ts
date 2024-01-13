@@ -9,7 +9,7 @@ export class ModeRetreat extends ModeBase {
   GetDesire(heroAI: BaseHeroAIModifier): number {
     let desire = 0;
     if (heroAI.mode === ModeEnum.RETREAT) {
-      desire += 0.4;
+      desire += 0.3;
     }
 
     // 血量减少时，desire从0开始递增至1
@@ -53,15 +53,12 @@ export class ModeRetreat extends ModeBase {
     let desire = 0;
     const distanceThanRange = HeroUtil.GetDistanceToAttackRange(tower, heroAI.GetHero());
 
-    const towerBufferRange = 600;
+    const towerBufferRange = 300;
     const distanceThanRangeWithBuffer = distanceThanRange - towerBufferRange;
-    // 靠近防御塔攻击范围+600以内时，每减少100，desire增加0.1
-    if (distanceThanRangeWithBuffer <= 0) {
+    // 靠近防御塔攻击范围+300以内时，每减少100，desire增加0.1
+    if (towerBufferRange <= 300) {
+      desire += 0.3;
       desire += (-distanceThanRangeWithBuffer / 100) * 0.1;
-    }
-    if (distanceThanRange <= towerBufferRange) {
-      print("[AI] 英雄靠近防御塔，撤退");
-      desire += 0.4;
     }
     return desire;
   }
