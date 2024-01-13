@@ -41,13 +41,23 @@ export class HeroUtil {
     return false;
   }
 
-  static GetDirectionAwayFromEnemies(
-    hero: CDOTA_BaseNPC_Hero,
-    enemyTower: CDOTA_BaseNPC,
-    _enemyHero: CDOTA_BaseNPC,
-  ): Vector {
+  static GetDirectionAwayFromEnemies(hero: CDOTA_BaseNPC_Hero, enemyTower: CDOTA_BaseNPC): Vector {
     let direction = Vector(0, 0, 0);
     if (enemyTower) {
+      const towerName = enemyTower.GetUnitName();
+      if (
+        towerName.includes("tower3") ||
+        towerName.includes("tower4") ||
+        towerName.includes("fort")
+      ) {
+        print("[AI] 从基地撤退");
+        direction = hero
+          .GetAbsOrigin()
+          .__sub(Vector(-7200, -6700, 386))
+          .Normalized();
+        return direction;
+      }
+
       const directionTower = hero.GetAbsOrigin().__sub(enemyTower.GetAbsOrigin()).Normalized();
       direction = direction.__add(directionTower).Normalized();
       // 如果在防御塔的攻击范围内，就往防御塔的反方向跑
@@ -55,10 +65,6 @@ export class HeroUtil {
         return direction;
       }
     }
-    // if (enemyHero) {
-    //   const directionHero = hero.GetAbsOrigin().__sub(enemyHero.GetAbsOrigin()).Normalized();
-    //   direction = direction.__add(directionHero).Normalized();
-    // }
     return direction;
   }
 

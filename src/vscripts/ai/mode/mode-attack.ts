@@ -36,7 +36,7 @@ export class ModeAttack extends ModeBase {
     if (!nearestHero) {
       return false;
     }
-    const nearestTower = heroAI.FindNearestEnemyBuildingsInvulnerable();
+    const nearestTower = heroAI.FindNearestEnemyTowerInvulnerable();
     if (nearestTower) {
       const isNearestHeroInTowerRange = HeroUtil.IsInAttackRange(nearestTower, nearestHero);
       if (isNearestHeroInTowerRange) {

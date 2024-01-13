@@ -77,12 +77,12 @@ export class BaseHeroAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   ThinkMode(): void {
     if (this.IsInAbilityPhase()) {
-      print(`[AI] HeroBase ThinkAttack 正在施法中 ${this.hero.GetUnitName()}`);
+      // print(`[AI] HeroBase Think break 正在施法中 ${this.hero.GetUnitName()}`);
       return;
     }
 
     if (this.IsInAttackPhase()) {
-      print(`[AI] HeroBase ThinkAttack 正在攻击中 ${this.hero.GetUnitName()}`);
+      // print(`[AI] HeroBase Think break 正在攻击中 ${this.hero.GetUnitName()}`);
       return;
     }
 
@@ -133,14 +133,11 @@ export class BaseHeroAIModifier extends BaseModifier {
   }
 
   ThinkRetreat(): void {
-    print(`[AI] HeroBase ThinkRetreat ${this.hero.GetUnitName()}`);
-
-    const enemyTower = this.FindNearestEnemyBuildingsInvulnerable();
-    const enemyHero = this.FindNearestEnemyHero();
-    if (enemyTower || enemyHero) {
-      print(`[AI] HeroBase ThinkRetreat ${this.hero.GetUnitName()} 逃离敌人`);
-      const direction = HeroUtil.GetDirectionAwayFromEnemies(this.hero, enemyTower, enemyHero);
-      ActionMove.MoveHeroToDirection(this.hero, direction, -100);
+    const enemyTower = this.FindNearestEnemyTowerInvulnerable();
+    if (enemyTower) {
+      print(`[AI] HeroBase ThinkRetreat ${this.hero.GetUnitName()} 撤退`);
+      const direction = HeroUtil.GetDirectionAwayFromEnemies(this.hero, enemyTower);
+      ActionMove.MoveHeroToDirection(this.hero, direction, 100);
       return;
     }
   }
@@ -150,7 +147,27 @@ export class BaseHeroAIModifier extends BaseModifier {
   }
 
   ThinkPush(): void {
-    // TODO
+    const enemyHero = this.FindNearestEnemyHero();
+    const enemyBuild = this.FindNearestEnemyBuildings();
+    if (enemyBuild) {
+      // TODO 偷塔保护时 不A塔
+      if (enemyBuild.HasModifier("backdoor_protection")) {
+        print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 塔有保护，不攻击`);
+        return;
+      }
+      const distanceToBuild = HeroUtil.GetDistanceToAttackRange(this.hero, enemyBuild);
+      if (enemyHero) {
+        const distanceToHero = HeroUtil.GetDistanceToAttackRange(this.hero, enemyHero);
+        if (distanceToHero < distanceToBuild) {
+          // 敌人更近，优先攻击英雄
+          return;
+        }
+      }
+      if (ActionAttack.Attack(this.hero, enemyBuild)) {
+        print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 攻击建筑`);
+        return;
+      }
+    }
   }
 
   NoAction(): boolean {
@@ -227,13 +244,36 @@ export class BaseHeroAIModifier extends BaseModifier {
     return target;
   }
 
-  public FindNearestEnemyBuildingsInvulnerable(): CDOTA_BaseNPC | undefined {
+  public FindNearestEnemyBuildings(): CDOTA_BaseNPC | undefined {
+    if (this.aroundEnemyBuildings.length === 0) {
+      return undefined;
+    }
+
+    // return 1st name contains tower
+    for (const building of this.aroundEnemyBuildingsInvulnerable) {
+      if (
+        building.GetUnitName().includes("tower") ||
+        building.GetUnitName().includes("rax") ||
+        building.GetUnitName().includes("fort")
+      ) {
+        return building;
+      }
+    }
+    return undefined;
+  }
+
+  public FindNearestEnemyTowerInvulnerable(): CDOTA_BaseNPC | undefined {
     if (this.aroundEnemyBuildingsInvulnerable.length === 0) {
       return undefined;
     }
 
-    const target = this.aroundEnemyBuildingsInvulnerable[0];
-    return target;
+    // return 1st name contains tower
+    for (const building of this.aroundEnemyBuildingsInvulnerable) {
+      if (building.GetUnitName().includes("tower") || building.GetUnitName().includes("fort")) {
+        return building;
+      }
+    }
+    return undefined;
   }
 
   // ---------------------------------------------------------

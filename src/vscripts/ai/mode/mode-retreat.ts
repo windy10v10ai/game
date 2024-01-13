@@ -17,24 +17,52 @@ export class ModeRetreat extends ModeBase {
     desire = (100 - curretHealthPercentage) / 100;
     // 英雄小于6级，在防御塔攻击范围内，desire为1
     if (heroAI.GetHero().GetLevel() < 6) {
-      const nearestTower = heroAI.FindNearestEnemyBuildingsInvulnerable();
+      const nearestTower = heroAI.FindNearestEnemyTowerInvulnerable();
       if (nearestTower) {
-        const distanceThanRange = HeroUtil.GetDistanceToAttackRange(nearestTower, heroAI.GetHero());
+        desire += this.GetIncreaseDesireNearTower(heroAI, nearestTower);
+      }
+    }
 
-        const towerBufferRange = 600;
-        const distanceThanRangeWithBuffer = distanceThanRange - towerBufferRange;
-
-        // 靠近防御塔攻击范围+600以内时，每减少100，desire增加0.1
-        if (distanceThanRangeWithBuffer <= 0) {
-          desire += Math.floor(-distanceThanRangeWithBuffer / 100) * 0.1;
-        }
-        // 进塔范围内，desire为1
-        if (distanceThanRange <= 0) {
-          desire += 0.4;
+    // 3塔和兵营在的情况下，不冲4塔
+    // if build name contains npc_dota_goodguys_melee_rax or npc_dota_goodguys_range_rax or npc_dota_goodguys_tower3
+    let isNear3Tower = false;
+    const buildings = heroAI.aroundEnemyBuildingsInvulnerable;
+    for (const building of buildings) {
+      if (
+        building.GetUnitName().includes("rax") ||
+        building.GetUnitName().includes("npc_dota_goodguys_tower3")
+      ) {
+        isNear3Tower = true;
+        break;
+      }
+    }
+    if (isNear3Tower) {
+      print("[AI] hero is near 3 tower, not retreat");
+      // is In tower4 attack range
+      for (const building of buildings) {
+        if (building.GetUnitName().includes("fort") || building.GetUnitName().includes("tower4")) {
+          desire += this.GetIncreaseDesireNearTower(heroAI, building);
         }
       }
     }
 
+    return desire;
+  }
+
+  GetIncreaseDesireNearTower(heroAI: BaseHeroAIModifier, tower: CDOTA_BaseNPC): number {
+    let desire = 0;
+    const distanceThanRange = HeroUtil.GetDistanceToAttackRange(tower, heroAI.GetHero());
+
+    const towerBufferRange = 600;
+    const distanceThanRangeWithBuffer = distanceThanRange - towerBufferRange;
+    // 靠近防御塔攻击范围+600以内时，每减少100，desire增加0.1
+    if (distanceThanRangeWithBuffer <= 0) {
+      desire += (-distanceThanRangeWithBuffer / 100) * 0.1;
+    }
+    if (distanceThanRange <= towerBufferRange) {
+      print("[AI] 英雄靠近防御塔，撤退");
+      desire += 0.4;
+    }
     return desire;
   }
 }
