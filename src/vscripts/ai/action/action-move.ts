@@ -34,7 +34,7 @@ export class ActionMove {
       towerName.includes("tower4") ||
       towerName.includes("fort")
     ) {
-      print("[AI] 从基地撤退");
+      print(`[AI] 从基地撤退 ${hero.GetUnitName()} `);
       ActionMove.MoveHeroToDirection(hero, direction, 100);
       return true;
     }
@@ -43,7 +43,7 @@ export class ActionMove {
     if (HeroUtil.GetDistanceToAttackRange(enemyTower, hero) <= 300) {
       const directionTower = hero.GetAbsOrigin().__sub(enemyTower.GetAbsOrigin()).Normalized();
       const newDirection = direction.__add(directionTower).Normalized();
-      print("[AI] 远离防御塔");
+      print(`[AI] 从防御塔撤退 ${hero.GetUnitName()} `);
       ActionMove.MoveHeroToDirection(hero, newDirection, 100);
       return true;
     }

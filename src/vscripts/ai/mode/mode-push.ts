@@ -11,12 +11,13 @@ export class ModePush extends ModeBase {
     let desire = 0;
     // 每过一分钟，增加0.1的desire
     desire = Math.floor(currentTime / 60) * 0.1;
-    desire = Math.min(desire, 0.6);
 
-    // if hero level > 6, desire + 0.2
-    if (heroAI.GetHero().GetLevel() > 6) {
-      desire += 0.2;
+    const heroLevel = heroAI.GetHero().GetLevel();
+    if (heroLevel >= heroAI.PushLevel) {
+      desire += 0.65;
     }
+
+    desire = Math.min(desire, 0.8);
 
     return desire;
   }

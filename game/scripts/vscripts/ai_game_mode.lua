@@ -302,10 +302,7 @@ function AIGameMode:FilterGold(tGoldFilter)
             iGold = iGold * 1
         end
 
-        local playerKill = PlayerResource:GetKills(iPlayerID)
-        local teamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(iPlayerID))
-        local teamCount = PlayerResource:GetPlayerCountForTeam(PlayerResource:GetTeam(iPlayerID))
-        iGold = iGold * AIGameMode:RewardFilterByKill(teamKill, playerKill, teamCount)
+        iGold = iGold * AIGameMode:RewardFilterByKill()
     end
 
     -- 通用金钱系数
@@ -324,12 +321,16 @@ function AIGameMode:FilterXP(tXPFilter)
     return true
 end
 
-function AIGameMode:RewardFilterByKill(teamKill, playerKill, teamCount)
+function AIGameMode:RewardFilterByKill()
+    local playerKill = PlayerResource:GetKills(iPlayerID)
+    local teamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(iPlayerID))
+    local teamCount = PlayerResource:GetPlayerCountForTeam(PlayerResource:GetTeam(iPlayerID))
+
     local rewardMulti = 1
     if teamKill < 10 then
         return rewardMulti
     end
-    rewardMulti = 1 - playerKill / teamKill + 1 / teamCount
+    rewardMulti = 1 - (playerKill / teamKill + 1 / teamCount) / 2
     return rewardMulti
 end
 

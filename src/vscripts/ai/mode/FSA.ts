@@ -9,7 +9,7 @@ import { ModeRune } from "./mode-rune";
 
 export class FSA {
   // 切换模式的阈值
-  public static readonly MODE_SWITCH_THRESHOLD = 0.6;
+  public static readonly MODE_SWITCH_THRESHOLD = 0.5;
 
   ModeList: ModeBase[] = [];
   constructor() {

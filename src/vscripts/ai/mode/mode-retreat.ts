@@ -9,14 +9,14 @@ export class ModeRetreat extends ModeBase {
   GetDesire(heroAI: BaseHeroAIModifier): number {
     let desire = 0;
     if (heroAI.mode === ModeEnum.RETREAT) {
-      desire += 0.3;
+      desire += 0.4;
     }
 
     // 血量减少时，desire从0开始递增至1
     const curretHealthPercentage = heroAI.GetHero().GetHealthPercent();
     desire = (100 - curretHealthPercentage) / 100;
-    // 英雄小于6级，在防御塔攻击范围内，desire为1
-    if (heroAI.GetHero().GetLevel() < 6) {
+    // 英雄小于推进等级，在防御塔攻击范围内，desire为1
+    if (heroAI.GetHero().GetLevel() < heroAI.PushLevel) {
       const nearestTower = heroAI.FindNearestEnemyTowerInvulnerable();
       if (nearestTower) {
         desire += this.GetIncreaseDesireNearTower(heroAI, nearestTower);

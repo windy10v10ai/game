@@ -11,6 +11,7 @@ export class BaseHeroAIModifier extends BaseModifier {
   protected readonly ThinkIntervalTool: number = 0.3;
 
   protected readonly FindRadius: number = 1600;
+  public readonly PushLevel: number = 8;
 
   protected hero: CDOTA_BaseNPC_Hero;
   public GetHero(): CDOTA_BaseNPC_Hero {
@@ -150,7 +151,7 @@ export class BaseHeroAIModifier extends BaseModifier {
     const enemyBuild = this.FindNearestEnemyBuildings();
     if (enemyBuild) {
       if (enemyBuild.HasModifier("modifier_backdoor_protection_active")) {
-        print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 偷塔保护，不攻击`);
+        // print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 偷塔保护，不攻击`);
         return;
       }
       const distanceToBuild = HeroUtil.GetDistanceToAttackRange(this.hero, enemyBuild);
