@@ -150,9 +150,11 @@ export class BaseHeroAIModifier extends BaseModifier {
     const enemyHero = this.FindNearestEnemyHero();
     const enemyBuild = this.FindNearestEnemyBuildings();
     if (enemyBuild) {
-      // TODO 偷塔保护时 不A塔
-      if (enemyBuild.HasModifier("backdoor_protection")) {
-        print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 塔有保护，不攻击`);
+      if (
+        enemyBuild.HasModifier("backdoor_protection") ||
+        enemyBuild.HasModifier("backdoor_protection_in_base")
+      ) {
+        print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 偷塔保护，不攻击`);
         return;
       }
       const distanceToBuild = HeroUtil.GetDistanceToAttackRange(this.hero, enemyBuild);
