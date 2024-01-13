@@ -15,7 +15,11 @@ export class ActionAttack {
       });
       return;
     } else {
-      // move to target
+      const distanceToTarget = HeroUtil.GetDistanceToAttackRange(hero, target);
+      if (distanceToTarget > 300) {
+        return;
+      }
+      // 300 range内，移动到目标处攻击
       print(`[AI] MoveToTargetToAttack ${hero.GetUnitName()} to ${target.GetUnitName()}`);
       hero.MoveToTargetToAttack(target);
     }
