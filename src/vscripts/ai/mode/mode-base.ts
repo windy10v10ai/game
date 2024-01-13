@@ -1,7 +1,8 @@
+import { BaseHeroAIModifier } from "../hero/hero-base";
 import { ModeEnum } from "./mode-enum";
 
 export abstract class ModeBase {
   abstract mode: ModeEnum;
 
-  abstract GetDesire(hero: CDOTA_BaseNPC): number;
+  abstract GetDesire(heroAI: BaseHeroAIModifier): number;
 }

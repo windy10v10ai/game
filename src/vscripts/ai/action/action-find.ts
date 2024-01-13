@@ -17,11 +17,28 @@ export class ActionFind {
     return enemies;
   }
 
+  static FindEnemyBuildingsInvulnerable(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
+    const enemies = this.FindEnemies(
+      self,
+      radius,
+      UnitTargetType.BUILDING,
+      UnitTargetFlags.INVULNERABLE,
+    );
+
+    return enemies;
+  }
+
   static FindEnemies(
     self: CDOTA_BaseNPC_Hero,
     radius: number,
     typeFilter: UnitTargetType,
+    flagFilterExtra?: UnitTargetFlags,
   ): CDOTA_BaseNPC[] {
+    let flagFilter = UnitTargetFlags.FOW_VISIBLE + UnitTargetFlags.NO_INVIS;
+
+    if (flagFilterExtra) {
+      flagFilter = flagFilter + flagFilterExtra;
+    }
     const enemies = FindUnitsInRadius(
       self.GetTeamNumber(),
       self.GetAbsOrigin(),
@@ -29,7 +46,7 @@ export class ActionFind {
       radius,
       UnitTargetTeam.ENEMY,
       typeFilter,
-      UnitTargetFlags.FOW_VISIBLE + UnitTargetFlags.NO_INVIS,
+      flagFilter,
       FindOrder.CLOSEST,
       false,
     );

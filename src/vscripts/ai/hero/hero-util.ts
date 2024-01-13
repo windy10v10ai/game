@@ -1,4 +1,4 @@
-export class HeroHelper {
+export class HeroUtil {
   static stunModifiers = [
     "modifier_axe_berserkers_call", // 战吼
     "modifier_legion_commander_duel", // 决斗

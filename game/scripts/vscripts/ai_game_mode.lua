@@ -143,10 +143,6 @@ function AIGameMode:PreGameOptions()
 
     -- FIXME 测试代码
     if IsInToolsMode() then
-        self.fPlayerGoldXpMultiplier = 2
-        self.fBotGoldXpMultiplier = 2
-        self.iTowerPower = 9
-        self.iTowerEndure = 9
         self.bFastCourier = 1
         self.bSameHeroSelection = 1
     end

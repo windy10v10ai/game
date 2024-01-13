@@ -1,8 +1,9 @@
 import { BaseModifier, registerModifier } from "../../utils/dota_ts_adapter";
 import { ActionAttack } from "../action/action-attack";
 import { ActionFind } from "../action/action-find";
+import { ActionMove } from "../action/action-move";
 import { ModeEnum } from "../mode/mode-enum";
-import { HeroHelper } from "./hero-helper";
+import { HeroUtil } from "./hero-util";
 
 @registerModifier()
 export class BaseHeroAIModifier extends BaseModifier {
@@ -10,8 +11,15 @@ export class BaseHeroAIModifier extends BaseModifier {
   protected readonly ThinkIntervalTool: number = 0.3;
 
   protected readonly FindRadius: number = 1600;
+
+  protected hero: CDOTA_BaseNPC_Hero;
+  public GetHero(): CDOTA_BaseNPC_Hero {
+    return this.hero;
+  }
+
   // 当前状态
-  protected mode: ModeEnum = ModeEnum.RUNE;
+  public gameTime: number = 0;
+  public mode: ModeEnum = ModeEnum.RUNE;
 
   // 技能
   protected ability_1: CDOTABaseAbility | undefined;
@@ -21,7 +29,6 @@ export class BaseHeroAIModifier extends BaseModifier {
   protected ability_5: CDOTABaseAbility | undefined;
   protected ability_utli: CDOTABaseAbility | undefined;
 
-  protected hero: CDOTA_BaseNPC_Hero;
   protected heroState = {
     currentHealth: 0,
     maxHealth: 0,
@@ -30,9 +37,10 @@ export class BaseHeroAIModifier extends BaseModifier {
     currentLevel: 0,
   };
 
-  protected aroundEnemyHeroes: CDOTA_BaseNPC[] = [];
-  protected aroundEnemyCreeps: CDOTA_BaseNPC[] = [];
-  protected aroundEnemyBuildings: CDOTA_BaseNPC[] = [];
+  public aroundEnemyHeroes: CDOTA_BaseNPC[] = [];
+  public aroundEnemyCreeps: CDOTA_BaseNPC[] = [];
+  public aroundEnemyBuildings: CDOTA_BaseNPC[] = [];
+  public aroundEnemyBuildingsInvulnerable: CDOTA_BaseNPC[] = [];
 
   Init() {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
@@ -54,6 +62,8 @@ export class BaseHeroAIModifier extends BaseModifier {
   }
 
   Think(): void {
+    this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
+    this.gameTime = GameRules.GetDOTATime(false, false);
     if (this.NoAction()) {
       return;
     }
@@ -62,17 +72,11 @@ export class BaseHeroAIModifier extends BaseModifier {
     this.ThinkMode();
   }
 
-  FindAround(): void {
-    this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindRadius);
-    this.aroundEnemyCreeps = ActionFind.FindEnemyCreeps(this.hero, this.FindRadius);
-    this.aroundEnemyBuildings = ActionFind.FindEnemyBuildings(this.hero, this.FindRadius);
-  }
-
   // ---------------------------------------------------------
   // Think Mode
   // ---------------------------------------------------------
   ThinkMode(): void {
-    this.mode = GameRules.AI.FSA.GetMode(this.mode, this.hero);
+    this.mode = GameRules.AI.FSA.GetMode(this);
     switch (this.mode) {
       case ModeEnum.RUNE:
         this.ThinkRune();
@@ -80,24 +84,34 @@ export class BaseHeroAIModifier extends BaseModifier {
       case ModeEnum.ATTACK:
         this.ThinkAttack();
         break;
+      case ModeEnum.LANING:
+        this.ThinkLaning();
+        break;
+      case ModeEnum.GANKING:
+        this.ThinkGanking();
+        break;
+      case ModeEnum.PUSH:
+        this.ThinkPush();
+        break;
+      case ModeEnum.RETREAT:
+        this.ThinkRetreat();
+        break;
       default:
+        print(`[AI] HeroBase ThinkMode ${this.hero.GetUnitName()} mode ${this.mode} not found`);
         break;
     }
   }
 
   ThinkRune(): void {
-    if (this.aroundEnemyHeroes.length > 0) {
-      this.ThinkAttack();
-      return;
-    }
+    // DO Nothing
+  }
+
+  ThinkLaning(): void {
+    // TODO
   }
 
   ThinkAttack(): void {
-    print(`[AI] HeroBase ThinkAttack ${this.hero.GetUnitName()}`);
-    if (this.aroundEnemyHeroes.length === 0) {
-      return;
-    }
-    const target = this.aroundEnemyHeroes[0];
+    const target = this.FindNearestEnemyHero();
     if (!target) {
       return;
     }
@@ -116,20 +130,30 @@ export class BaseHeroAIModifier extends BaseModifier {
     ActionAttack.Attack(this.hero, target);
   }
 
-  ThinkLaning(): void {
-    print(`[AI] HeroBase ThinkLaning ${this.hero.GetUnitName()}`);
+  ThinkRetreat(): void {
+    print(`[AI] HeroBase ThinkRetreat ${this.hero.GetUnitName()}`);
+
+    const tower = this.FindNearestEnemyBuildingsInvulnerable();
+    if (tower) {
+      // go away from tower
+      print(`[AI] HeroBase go away from tower ${this.hero.GetUnitName()}`);
+      const towerPos = tower.GetAbsOrigin();
+      const heroPos = this.hero.GetAbsOrigin();
+      const direction = heroPos.__sub(towerPos).Normalized();
+      ActionMove.MoveHeroToDirection(this.hero, direction, 100);
+    }
   }
 
   ThinkGanking(): void {
-    print(`[AI] HeroBase ThinkGanking ${this.hero.GetUnitName()}`);
+    // TODO
   }
 
   ThinkPush(): void {
-    print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()}`);
+    // TODO
   }
 
   NoAction(): boolean {
-    if (HeroHelper.NotActionable(this.hero)) {
+    if (HeroUtil.NotActionable(this.hero)) {
       return true;
     }
 
@@ -171,6 +195,47 @@ export class BaseHeroAIModifier extends BaseModifier {
   }
 
   // ---------------------------------------------------------
+  // Find
+  // ---------------------------------------------------------
+
+  private FindAround(): void {
+    this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindRadius);
+    this.aroundEnemyCreeps = ActionFind.FindEnemyCreeps(this.hero, this.FindRadius);
+    this.aroundEnemyBuildings = ActionFind.FindEnemyBuildings(this.hero, this.FindRadius);
+    this.aroundEnemyBuildingsInvulnerable = ActionFind.FindEnemyBuildingsInvulnerable(
+      this.hero,
+      this.FindRadius,
+    );
+  }
+
+  public FindNearestEnemyHero(): CDOTA_BaseNPC | undefined {
+    if (this.aroundEnemyHeroes.length === 0) {
+      return undefined;
+    }
+
+    const target = this.aroundEnemyHeroes[0];
+    return target;
+  }
+
+  public FindNearestEnemyCreep(): CDOTA_BaseNPC | undefined {
+    if (this.aroundEnemyCreeps.length === 0) {
+      return undefined;
+    }
+
+    const target = this.aroundEnemyCreeps[0];
+    return target;
+  }
+
+  public FindNearestEnemyBuildingsInvulnerable(): CDOTA_BaseNPC | undefined {
+    if (this.aroundEnemyBuildingsInvulnerable.length === 0) {
+      return undefined;
+    }
+
+    const target = this.aroundEnemyBuildingsInvulnerable[0];
+    return target;
+  }
+
+  // ---------------------------------------------------------
   // DotaModifierFunctions
   // ---------------------------------------------------------
   // modifier functions
@@ -179,7 +244,7 @@ export class BaseHeroAIModifier extends BaseModifier {
       return;
     }
 
-    const delay = RandomFloat(3, 4);
+    const delay = RandomFloat(1, 2);
     print(`[AI] HeroBase OnCreated delay ${delay}`);
     Timers.CreateTimer(delay, () => {
       this.Init();

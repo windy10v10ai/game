@@ -2,29 +2,29 @@ export enum ModeEnum {
   /**
    * 对线
    */
-  LANING = 1,
+  LANING = "LANING",
   /**
    * 进攻
    */
-  ATTACK = 2,
+  ATTACK = "ATTACK",
   /**
    * 游走 ROAM
    */
-  GANKING = 3,
+  GANKING = "GANKING",
   /**
    * 逃跑
    */
-  RETREAT = 4,
+  RETREAT = "RETREAT",
   //   SECRET_SHOP = 5,
   //   SIDE_SHOP = 6,
   /**
    * 吃符
    */
-  RUNE = 7,
+  RUNE = "RUNE",
   /**
    * 推线
    */
-  PUSH = 8,
+  PUSH = "PUSH",
   //   PUSH_TOWER_TOP = 8,
   //   PUSH_TOWER_MID = 9,
   //   PUSH_TOWER_BOT = 10,
