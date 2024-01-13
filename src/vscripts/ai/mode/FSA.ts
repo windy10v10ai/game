@@ -27,7 +27,7 @@ export class FSA {
     let desireMode: ModeEnum | undefined;
     for (const mode of this.ModeList) {
       const desire = mode.GetDesire(heroAI);
-      // print(`[FSA] hero ${heroAI.GetHero().GetUnitName()} desire for ${mode.mode} is ${desire}`);
+      print(`[FSA] hero ${heroAI.GetHero().GetUnitName()} desire for ${mode.mode} is ${desire}`);
       if (desire > maxDesire) {
         maxDesire = desire;
         desireMode = mode.mode;

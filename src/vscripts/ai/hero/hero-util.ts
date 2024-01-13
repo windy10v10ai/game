@@ -40,4 +40,41 @@ export class HeroUtil {
 
     return false;
   }
+
+  static GetDirectionAwayFromEnemies(
+    hero: CDOTA_BaseNPC_Hero,
+    enemyTower: CDOTA_BaseNPC,
+    _enemyHero: CDOTA_BaseNPC,
+  ): Vector {
+    let direction = Vector(0, 0, 0);
+    if (enemyTower) {
+      const directionTower = hero.GetAbsOrigin().__sub(enemyTower.GetAbsOrigin()).Normalized();
+      direction = direction.__add(directionTower).Normalized();
+      // 如果在防御塔的攻击范围内，就往防御塔的反方向跑
+      if (this.IsInAttackRange(enemyTower, hero)) {
+        return direction;
+      }
+    }
+    // if (enemyHero) {
+    //   const directionHero = hero.GetAbsOrigin().__sub(enemyHero.GetAbsOrigin()).Normalized();
+    //   direction = direction.__add(directionHero).Normalized();
+    // }
+    return direction;
+  }
+
+  static IsInAttackRange(attacker: CDOTA_BaseNPC, target: CDOTA_BaseNPC): boolean {
+    return this.GetDistanceToAttackRange(attacker, target) <= 0;
+  }
+
+  /**
+   * 小于等于0表示在攻击范围内
+   * @returns distance - attackRange
+   */
+  static GetDistanceToAttackRange(attacker: CDOTA_BaseNPC, target: CDOTA_BaseNPC): number {
+    const attackRange = attacker.GetBaseAttackRange();
+    const attackerCollision = attacker.GetHullRadius();
+    const targetCollision = target.GetHullRadius();
+    const distance = attacker.GetRangeToUnit(target) - attackerCollision - targetCollision;
+    return distance - attackRange;
+  }
 }

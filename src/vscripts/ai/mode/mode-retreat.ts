@@ -1,5 +1,5 @@
-import { ActionAttack } from "../action/action-attack";
 import { BaseHeroAIModifier } from "../hero/hero-base";
+import { HeroUtil } from "../hero/hero-util";
 import { ModeBase } from "./mode-base";
 import { ModeEnum } from "./mode-enum";
 
@@ -15,15 +15,11 @@ export class ModeRetreat extends ModeBase {
     // 血量减少时，desire从0开始递增至1
     const curretHealthPercentage = heroAI.GetHero().GetHealthPercent();
     desire = (100 - curretHealthPercentage) / 100;
-
     // 英雄小于6级，在防御塔攻击范围内，desire为1
     if (heroAI.GetHero().GetLevel() < 6) {
       const nearestTower = heroAI.FindNearestEnemyBuildingsInvulnerable();
       if (nearestTower) {
-        const distanceThanRange = ActionAttack.GetDistanceToAttackRange(
-          nearestTower,
-          heroAI.GetHero(),
-        );
+        const distanceThanRange = HeroUtil.GetDistanceToAttackRange(nearestTower, heroAI.GetHero());
 
         const towerBufferRange = 600;
         const distanceThanRangeWithBuffer = distanceThanRange - towerBufferRange;

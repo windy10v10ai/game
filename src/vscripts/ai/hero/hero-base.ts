@@ -76,6 +76,16 @@ export class BaseHeroAIModifier extends BaseModifier {
   // Think Mode
   // ---------------------------------------------------------
   ThinkMode(): void {
+    if (this.IsInAbilityPhase()) {
+      print(`[AI] HeroBase ThinkAttack 正在施法中 ${this.hero.GetUnitName()}`);
+      return;
+    }
+
+    if (this.IsInAttackPhase()) {
+      print(`[AI] HeroBase ThinkAttack 正在攻击中 ${this.hero.GetUnitName()}`);
+      return;
+    }
+
     this.mode = GameRules.AI.FSA.GetMode(this);
     switch (this.mode) {
       case ModeEnum.RUNE:
@@ -116,31 +126,22 @@ export class BaseHeroAIModifier extends BaseModifier {
       return;
     }
 
-    if (this.IsInAbilityPhase()) {
-      print(`[AI] HeroBase ThinkAttack 正在施法中 ${this.hero.GetUnitName()}`);
-      return;
-    }
-
     // TODO 使用技能
 
-    if (this.IsInAttackPhase()) {
-      print(`[AI] HeroBase ThinkAttack 正在攻击中 ${this.hero.GetUnitName()}`);
-      return;
-    }
+    // 攻击
     ActionAttack.Attack(this.hero, target);
   }
 
   ThinkRetreat(): void {
     print(`[AI] HeroBase ThinkRetreat ${this.hero.GetUnitName()}`);
 
-    const tower = this.FindNearestEnemyBuildingsInvulnerable();
-    if (tower) {
-      // go away from tower
-      print(`[AI] HeroBase go away from tower ${this.hero.GetUnitName()}`);
-      const towerPos = tower.GetAbsOrigin();
-      const heroPos = this.hero.GetAbsOrigin();
-      const direction = heroPos.__sub(towerPos).Normalized();
-      ActionMove.MoveHeroToDirection(this.hero, direction, 100);
+    const enemyTower = this.FindNearestEnemyBuildingsInvulnerable();
+    const enemyHero = this.FindNearestEnemyHero();
+    if (enemyTower || enemyHero) {
+      print(`[AI] HeroBase ThinkRetreat ${this.hero.GetUnitName()} 逃离敌人`);
+      const direction = HeroUtil.GetDirectionAwayFromEnemies(this.hero, enemyTower, enemyHero);
+      ActionMove.MoveHeroToDirection(this.hero, direction, -100);
+      return;
     }
   }
 

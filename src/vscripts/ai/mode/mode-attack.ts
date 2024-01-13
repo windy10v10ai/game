@@ -1,5 +1,5 @@
-import { ActionAttack } from "../action/action-attack";
 import { BaseHeroAIModifier } from "../hero/hero-base";
+import { HeroUtil } from "../hero/hero-util";
 import { ModeBase } from "./mode-base";
 import { ModeEnum } from "./mode-enum";
 
@@ -20,7 +20,7 @@ export class ModeAttack extends ModeBase {
       desire += 0.1;
     }
     if (heroAI.mode === ModeEnum.ATTACK) {
-      desire += 0.2;
+      desire += 0.1;
     }
 
     if (dotaTime < 180) {
@@ -38,12 +38,12 @@ export class ModeAttack extends ModeBase {
     }
     const nearestTower = heroAI.FindNearestEnemyBuildingsInvulnerable();
     if (nearestTower) {
-      const isNearestHeroInTowerRange = ActionAttack.IsInAttackRange(nearestTower, nearestHero);
+      const isNearestHeroInTowerRange = HeroUtil.IsInAttackRange(nearestTower, nearestHero);
       if (isNearestHeroInTowerRange) {
         return false;
       }
 
-      const distanceToTowerRange = ActionAttack.GetDistanceToAttackRange(
+      const distanceToTowerRange = HeroUtil.GetDistanceToAttackRange(
         nearestTower,
         heroAI.GetHero(),
       );
