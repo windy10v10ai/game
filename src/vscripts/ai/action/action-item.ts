@@ -32,4 +32,36 @@ export class ActionItem {
     // FIXME remove and give half gold
     hero.SellItem(item);
   }
+
+  // Use item
+  static UseTeleportScroll(hero: CDOTA_BaseNPC_Hero, pos: Vector) {
+    const item = hero.FindItemInInventory("item_tpscroll");
+    if (item) {
+      hero.CastAbilityOnPosition(pos, item, hero.GetPlayerOwnerID());
+    }
+  }
+
+  static UseItemOnPosition(hero: CDOTA_BaseNPC_Hero, itemName: string, pos: Vector): boolean {
+    const item = hero.FindItemInInventory(itemName);
+    if (this.IsItemCastable(hero, item) === false) {
+      return false;
+    }
+    hero.CastAbilityOnPosition(pos, item, hero.GetPlayerOwnerID());
+    return true;
+  }
+
+  static IsItemCastable(hero: CDOTA_BaseNPC_Hero, item: CDOTA_Item): boolean {
+    if (!item) {
+      return false;
+    }
+    if (item.GetCooldownTimeRemaining() > 0) {
+      return false;
+    }
+    // check mana
+    const manaCost = item.GetManaCost(-1);
+    if (manaCost > hero.GetMana()) {
+      return false;
+    }
+    return true;
+  }
 }

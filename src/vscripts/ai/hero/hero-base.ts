@@ -1,7 +1,7 @@
 import { BaseModifier, registerModifier } from "../../utils/dota_ts_adapter";
 import { ActionAttack } from "../action/action-attack";
 import { ActionFind } from "../action/action-find";
-import { ActionMove } from "../action/action-move";
+import { ActionItem } from "../action/action-item";
 import { ModeEnum } from "../mode/mode-enum";
 import { HeroUtil } from "./hero-util";
 
@@ -142,7 +142,23 @@ export class BaseHeroAIModifier extends BaseModifier {
   }
 
   ActionRune(): void {
-    // DO Nothing
+    // 出高低就 返回基地
+    const teamBuildings = ActionFind.FindTeamBuildingsInvulnerable(this.hero, 800);
+    for (const building of teamBuildings) {
+      const buildingName = building.GetUnitName();
+      if (
+        buildingName.includes("tower1") ||
+        buildingName.includes("tower2") ||
+        buildingName.includes("tower3")
+      ) {
+        print(`[AI] HeroBase ThinkRune ${this.hero.GetUnitName()} 返回基地`);
+        const item = this.hero.FindItemInInventory("item_tpscroll");
+        if (item) {
+          item.EndCooldown();
+        }
+        ActionItem.UseItemOnPosition(this.hero, "item_tpscroll", Vector(6671, 5951, 384));
+      }
+    }
   }
 
   ActionLaning(): void {
