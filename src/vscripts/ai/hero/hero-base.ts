@@ -167,15 +167,13 @@ export class BaseHeroAIModifier extends BaseModifier {
   }
 
   ActionAttack(): void {
-    const target = this.FindNearestEnemyHero();
-    if (!target) {
-      return;
-    }
-
-    // TODO 使用技能
-
-    // 攻击
-    ActionAttack.Attack(this.hero, target);
+    // const target = this.FindNearestEnemyHero();
+    // if (!target) {
+    //   return;
+    // }
+    // // TODO 使用技能
+    // // 攻击
+    // ActionAttack.Attack(this.hero, target);
   }
 
   ActionRetreat(): void {
