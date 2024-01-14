@@ -2,6 +2,7 @@ import { BaseModifier, registerModifier } from "../../utils/dota_ts_adapter";
 import { ActionAttack } from "../action/action-attack";
 import { ActionFind } from "../action/action-find";
 import { ActionItem } from "../action/action-item";
+import { ActionMove } from "../action/action-move";
 import { ModeEnum } from "../mode/mode-enum";
 import { HeroUtil } from "./hero-util";
 
