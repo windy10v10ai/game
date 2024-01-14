@@ -330,7 +330,7 @@ function AIGameMode:RewardFilterByKill(iPlayerID)
     if teamKill < 10 then
         return rewardMulti
     end
-    rewardMulti = 1 - (playerKill / teamKill + 1 / teamCount) / 2
+    rewardMulti = 1 + (1 / teamCount - playerKill / teamKill) / 2
     return rewardMulti
 end
 
