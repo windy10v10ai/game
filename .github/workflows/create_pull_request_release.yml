@@ -10,6 +10,16 @@ jobs:
   create_pull_request:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Reset promotion branch
+        run: |
+          git fetch origin develop:develop
+          git reset --hard develop
+
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v5
