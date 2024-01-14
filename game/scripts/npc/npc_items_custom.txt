@@ -6062,6 +6062,7 @@
 			"unholy_bonus_attack_speed"	"15"
 			"unholy_bonus_strength"	"35"
 			"unholy_bonus_armor"	"8"
+			"unholy_bonus_slow_resistance"	"35"
 			"unholy_health_drain_per_second"	"25"
 			"toggle_cooldown"		"0.036f"
 		}
@@ -6126,6 +6127,7 @@
 			"unholy_bonus_attack_speed"	"30"
 			"unholy_bonus_strength"	"45"
 			"unholy_bonus_armor"	"12"
+			"unholy_bonus_slow_resistance"	"45"
 			"unholy_health_drain_per_second"	"5"
 			"toggle_cooldown"		"0.036f"
 		}
