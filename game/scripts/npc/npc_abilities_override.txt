@@ -2878,7 +2878,7 @@
 		{
 			"knockback_damage"
 			{
-				"value"					"110 200 290 380 470"
+				"value"					"90 180 270 360 450"
 				"special_bonus_unique_primal_beast_onslaught_damage"	"+120"
 			}
 			"stun_duration"				"0.8 1.0 1.2 1.4 1.6"
@@ -2888,18 +2888,12 @@
 	"primal_beast_trample"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"80 75 70 65 60"
 		"AbilityValues"
 		{
-			"base_damage"				"40 50 60 70 80"
-			"attack_damage"
-			{
-				"value"					"40"
-				"special_bonus_unique_primal_beast_trample_attack_damage"	"+20"
-			}
+			"base_damage"				"15 30 45 60 75"
 			"AbilityCooldown"
 			{
-				"value"				"26 24 22 20 18"
+				"value"				"28 26 24 22 20"
 				"special_bonus_unique_primal_beast_trample_cooldown"	"-5"
 			}
 		}
@@ -2910,10 +2904,12 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
+			"bonus_damage"				"5 10 15 20 25"
+			"bonus_damage_per_stack"	"10 20 30 40 50"
 			"roared_bonus_armor"
 			{
-				"value"					"1 2 3 4 5"
-				"special_bonus_unique_primal_beast_uproar_armor"	"+3"
+				"value"					"2 3 4 5 6"
+				"special_bonus_unique_primal_beast_uproar_armor"	"+4"
 			}
 		}
 	}
@@ -2921,14 +2917,15 @@
 	"primal_beast_pulverize"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"34 32 30 28"
-		"AbilityManaCost"				"115 130 145 160"
+		"AbilityCooldown"				"38 36 34 32"
+		"AbilityManaCost"				"100 120 140 160"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"						"210 270 330 390"
+				"value"						"150 210 270 330"
 			}
+			"bonus_damage_per_hit"				"20 40 60 80"
 		}
 	}
 	//=================================================================================================================
@@ -6329,12 +6326,11 @@
 		"AbilityDraftPreAbility"		"nyx_assassin_jolt"
 		"AbilityCooldown"				"18 15 12 9 6"
 		"AbilityManaCost"				"70 90 110 130 150"
-		"AbilityCastRange"              "800 800 800 800 800"
 		"AbilityValues"
 		{
 			"float_multiplier"
 			{
-				"value"		"1.0 1.5 2.0 2.5 3.0"
+				"value"		"1.5 1.75 2.0 2.25 2.5"
 				"special_bonus_unique_nyx_5"			"+0.5"
 			}
 		}
@@ -6367,12 +6363,13 @@
 		"AbilityDraftPreAbility"		"nyx_assassin_mana_burn"
 		"MaxLevel" "5"
 		"AbilityCooldown"				"12 10 8 6 4"
+		"AbilityManaCost"				"100 120 140 160 180"
 		"AbilityValues"
 		{
 			"float_multiplier"
 			{
-				"value"		"1 2 3 4 5"
-				"special_bonus_unique_nyx_5"			"+1"
+				"value"		"1.5 2 2.5 3 3.5"
+				"special_bonus_unique_nyx_5"			"+0.5"
 			}
 		}
 	}
@@ -6421,7 +6418,6 @@
 			"impale_bonus_cast_range"			"525"
 			"jolt_bonus_cast_range"			"400"
 			"impale_cooldown_reduction"			"7.0"
-			"mana_burn_bonus_cast_range"    "400"
 			"carapace_radius"
 			{
 				"value"			"300"
@@ -8725,7 +8721,7 @@
 				"value"				"25 50 75 100 125"
 				"special_bonus_unique_death_prophet_3"	"+75"
 			}
-			"damage_pct"				"2 3 4 5 6"
+			"damage_pct"				"2"
 		}
 	}
 	// 巫术精研

@@ -896,7 +896,7 @@
 
         // item_ultimate_scepter_2
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"						"Aghanim's Regalia Synth"
-		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted all benefits from Aghanim's Regalia: Ultimate Upgrade, +%dMODIFIER_PROPERTY_HEALTH_BONUS% health, +%dMODIFIER_PROPERTY_MANA_BONUS% mana, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage."
+		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted all benefits from Aghanim's Regalia: Ultimate Upgrade. Gain bonus health, mana andspell damage."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2"									"Aghanim's Regalia"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"Use: Consume the Aghanim's Regalia to permanently gain Ultimate Upgrade, +%bonus_health% health, +%bonus_mana% mana, +%spell_amp%%% spell damage.\nPassive: Ultimate Upgrade - Upgrades the ultimate, and some abilities, of certain heroes. Can be used on allied heroes."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Lore"							"The regalia of a wizard with demigod-like powers."
@@ -914,7 +914,7 @@
 
         // wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Wings of Haste"
-		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% movement speed, %MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regen, %MODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen."
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants bonus movement speed, attack speed, health regen, mana regen."
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"Wings of Haste"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"Use: Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, %bonus_health_regen% health regen, %bonus_mana_regen% mana regen."
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
