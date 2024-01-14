@@ -10,8 +10,13 @@ export class BaseHeroAIModifier extends BaseModifier {
   protected readonly ThinkInterval: number = 0.3;
   protected readonly ThinkIntervalTool: number = 0.3;
 
+  // 持续动作结束时间
+  protected readonly continueActionTime: number = 8;
+  protected continueActionEndTime: number = 0;
+
   protected readonly FindRadius: number = 1600;
-  public readonly PushLevel: number = 8;
+  protected readonly PushNoAttactTowerIfHeroInDistance: number = 300;
+  public readonly PushLevel: number = 10;
 
   protected hero: CDOTA_BaseNPC_Hero;
   public GetHero(): CDOTA_BaseNPC_Hero {
@@ -65,12 +70,32 @@ export class BaseHeroAIModifier extends BaseModifier {
   Think(): void {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
     this.gameTime = GameRules.GetDOTATime(false, false);
-    if (this.NoAction()) {
+    if (this.StopAction()) {
       return;
     }
 
     this.FindAround();
     this.ThinkMode();
+    if (this.gameTime < this.continueActionEndTime) {
+      print(`[AI] HeroBase Think break 持续动作中 ${this.hero.GetUnitName()}`);
+      return;
+    }
+    this.ActionMode();
+  }
+
+  // ---------------------------------------------------------
+  // Need Override
+  // ---------------------------------------------------------
+  CastEnemy(): boolean {
+    return false;
+  }
+
+  CastTeam(): boolean {
+    return false;
+  }
+
+  CastCreep(): boolean {
+    return false;
   }
 
   // ---------------------------------------------------------
@@ -88,24 +113,27 @@ export class BaseHeroAIModifier extends BaseModifier {
     }
 
     this.mode = GameRules.AI.FSA.GetMode(this);
+  }
+
+  ActionMode(): void {
     switch (this.mode) {
       case ModeEnum.RUNE:
-        this.ThinkRune();
+        this.ActionRune();
         break;
       case ModeEnum.ATTACK:
-        this.ThinkAttack();
+        this.ActionAttack();
         break;
       case ModeEnum.LANING:
-        this.ThinkLaning();
+        this.ActionLaning();
         break;
       case ModeEnum.GANKING:
-        this.ThinkGanking();
+        this.ActionGanking();
         break;
       case ModeEnum.PUSH:
-        this.ThinkPush();
+        this.ActionPush();
         break;
       case ModeEnum.RETREAT:
-        this.ThinkRetreat();
+        this.ActionRetreat();
         break;
       default:
         print(`[AI] HeroBase ThinkMode ${this.hero.GetUnitName()} mode ${this.mode} not found`);
@@ -113,15 +141,15 @@ export class BaseHeroAIModifier extends BaseModifier {
     }
   }
 
-  ThinkRune(): void {
+  ActionRune(): void {
     // DO Nothing
   }
 
-  ThinkLaning(): void {
+  ActionLaning(): void {
     // TODO
   }
 
-  ThinkAttack(): void {
+  ActionAttack(): void {
     const target = this.FindNearestEnemyHero();
     if (!target) {
       return;
@@ -133,40 +161,86 @@ export class BaseHeroAIModifier extends BaseModifier {
     ActionAttack.Attack(this.hero, target);
   }
 
-  ThinkRetreat(): void {
+  ActionRetreat(): void {
+    // 撤离动作持续
+    this.continueActionEndTime = this.gameTime + this.continueActionTime;
+    this.ThinkRetreatGetAwayFromTower();
+  }
+
+  ThinkRetreatGetAwayFromTower(): void {
     const enemyTower = this.FindNearestEnemyTowerInvulnerable();
-    if (enemyTower) {
-      if (ActionMove.GetAwayFromTower(this.hero, enemyTower)) {
+    if (!enemyTower) {
+      // end
+      this.continueActionEndTime = this.gameTime;
+      return;
+    }
+    if (ActionMove.GetAwayFromTower(this.hero, enemyTower)) {
+      print(`[AI] HeroBase ThinkRetreatGetAwayFromTower ${this.hero.GetUnitName()} 撤退`);
+      if (this.gameTime > this.continueActionEndTime) {
         return;
       }
+      Timers.CreateTimer(0.03, () => {
+        this.ThinkRetreatGetAwayFromTower();
+      });
+      return;
+    } else {
+      // end
+      this.continueActionEndTime = this.gameTime;
     }
   }
 
-  ThinkGanking(): void {
+  ActionGanking(): void {
     // TODO
   }
 
-  ThinkPush(): void {
-    const enemyHero = this.FindNearestEnemyHero();
+  ActionPush(): void {
+    if (this.CastEnemy()) {
+      return;
+    }
+
+    if (this.CastTeam()) {
+      return;
+    }
+
+    if (this.ForceAttackTower()) {
+      return;
+    }
+
+    if (this.CastCreep()) {
+      return;
+    }
+  }
+
+  // 强制A塔
+  ForceAttackTower(): boolean {
     const enemyBuild = this.FindNearestEnemyBuildings();
-    if (enemyBuild) {
-      if (enemyBuild.HasModifier("modifier_backdoor_protection_active")) {
-        // print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 偷塔保护，不攻击`);
-        return;
+    if (!enemyBuild) {
+      return false;
+    }
+    if (enemyBuild.HasModifier("modifier_backdoor_protection_active")) {
+      // print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 偷塔保护，不攻击`);
+      return false;
+    }
+
+    const enemyHero = this.FindNearestEnemyHero();
+    if (enemyHero) {
+      // if hero in attack range
+      const distanceToAttackHero = HeroUtil.GetDistanceToAttackRange(this.hero, enemyHero);
+      if (distanceToAttackHero <= 0) {
+        return false;
       }
-      const distanceToBuild = HeroUtil.GetDistanceToAttackRange(this.hero, enemyBuild);
-      if (enemyHero) {
-        const distanceToHero = HeroUtil.GetDistanceToAttackRange(this.hero, enemyHero);
-        if (distanceToHero < distanceToBuild) {
-          // 敌人更近，优先攻击英雄
-          return;
-        }
-      }
-      if (ActionAttack.Attack(this.hero, enemyBuild)) {
-        print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 攻击建筑`);
-        return;
+
+      const distanceToHero = HeroUtil.GetDistanceToHero(this.hero, enemyHero);
+      if (distanceToHero <= this.PushNoAttactTowerIfHeroInDistance) {
+        return false;
       }
     }
+
+    if (ActionAttack.Attack(this.hero, enemyBuild)) {
+      print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 攻击建筑`);
+      return true;
+    }
+    return false;
   }
 
   ThinkPushKillCreep(): void {
@@ -180,7 +254,7 @@ export class BaseHeroAIModifier extends BaseModifier {
     // }
   }
 
-  NoAction(): boolean {
+  StopAction(): boolean {
     if (HeroUtil.NotActionable(this.hero)) {
       return true;
     }
