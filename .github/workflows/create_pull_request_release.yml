@@ -1,0 +1,28 @@
+name: Create Pull Request Release
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version like v3.00"
+        required: true
+
+jobs:
+  create_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          # input version
+          title: ${{ github.event.inputs.version }}
+          branch: develop
+          base: main
+          reviewers: windybirth
+          labels: release
+
+      - name: Enable Pull Request Automerge
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: merge
