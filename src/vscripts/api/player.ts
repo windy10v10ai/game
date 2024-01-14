@@ -216,7 +216,6 @@ export class Player {
       return;
     }
 
-    print(`[Player] onPlayerPropertyLevelup ${event.PlayerID} ${event.name} ${event.level}`);
     const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
 
     const apiParameter = {

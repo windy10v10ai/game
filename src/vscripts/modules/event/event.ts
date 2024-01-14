@@ -14,7 +14,7 @@ export class Event {
 
     // 更新玩家属性
     if (Helper.IsHumanPlayer(hero)) {
-      if (keys.level % PropertyController.HERO_LEVEL_PER_POINT == 0) {
+      if (keys.level % PropertyController.HERO_LEVEL_PER_POINT === 0) {
         print(`[Event] OnPlayerLevelUp SetPlayerProperty ${hero.GetUnitName()}`);
         Player.SetPlayerProperty(hero);
       }
@@ -34,11 +34,19 @@ export class Event {
       return;
     }
 
-    if (keys.is_respawn == 0) {
-      // is human player
-      if (Helper.IsHumanPlayer(npc)) {
-        print(`[Event] OnNpcSpawned SetPlayerProperty ${npc.GetUnitName()}`);
-        Player.SetPlayerProperty(npc as CDOTA_BaseNPC_Hero);
+    // 英雄出生
+    if (npc.IsRealHero() && keys.is_respawn === 0) {
+      // set npc as CDOTA_BaseNPC_Hero
+      const hero = npc as CDOTA_BaseNPC_Hero;
+
+      if (Helper.IsHumanPlayer(hero)) {
+        Player.SetPlayerProperty(hero);
+      } else {
+        // 机器人
+        // FIXME 天辉机器人未设置新AI
+        if (npc.GetTeamNumber() === DotaTeam.BADGUYS) {
+          GameRules.AI.EnableAI(hero);
+        }
       }
     }
   }
