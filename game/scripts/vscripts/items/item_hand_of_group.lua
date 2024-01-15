@@ -42,6 +42,14 @@ function item_hand_of_group:OnSpellStart()
             SendOverheadEventMessage(teammate, OVERHEAD_ALERT_GOLD, teammate, group_gold * AIGameMode:GetPlayerGoldXpMultiplier(teammate_playerid), caster)
         end
     end
+
+    -- 消耗充能点数
+    for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
+        local item = caster:GetItemInSlot(item_slot)
+        if item and item:GetName() == "item_hand_of_group" then
+            item:SpendCharge()
+        end
+    end
 end
 
 modifier_item_hand_of_group_pa=class({})
@@ -63,10 +71,23 @@ function modifier_item_hand_of_group_pa:GetAttributes()
 end
 
 function modifier_item_hand_of_group_pa:OnCreated()
-	self.stats_modifier_name = "modifier_item_hand_of_group_stats"
-	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
-	end
+    self.stats_modifier_name = "modifier_item_hand_of_group_stats"
+    if IsServer() then
+        RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+
+        -- 刷新充能点数
+        local current_item = self:GetAbility()
+        local caster = self:GetCaster()
+        for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
+            local item = caster:GetItemInSlot(item_slot)
+            if item and item:GetName() == "item_hand_of_group" then
+                local charges = item:GetCurrentCharges()
+                if charges < current_item:GetCurrentCharges() then
+                    current_item:SetCurrentCharges(charges)
+                end
+            end
+        end
+    end
 end
 
 function modifier_item_hand_of_group_pa:OnDestroy()

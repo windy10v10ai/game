@@ -6283,7 +6283,6 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"80.0"
 
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_hand_of_group"
@@ -6291,13 +6290,23 @@
 		"AbilityTextureName"			"item_hand_of_group"
 		"AbilitySharedCooldown"			"item_hand_of_midas"
 
+		// Charge
+		"AbilityCooldown"				"0"
+		"AbilityCharges"				"3"
+		"AbilityChargeRestoreTime"		"90"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"1"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 		"ItemCost"						"4800"
 		"ItemShopTags"					"attack_speed;hard_to_tag"
 		"ItemQuality"					"common"
-		"ItemAliases"					"hand of group"
+		"ItemAliases"					"hand of team"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
 		"ShouldBeSuggested"				"1"
@@ -6311,12 +6320,12 @@
 		"AbilityValues"
 		{
 			"attack_speed"		"80"	// tooltip, real value  in modifier_item_hand_of_group_stats
-			"self_xp"			"3.5"
+			"self_xp"			"3.6"
 			"self_gold"			"380"
 
 			"group_range"		"1800"
-			"group_xp"			"0.6"
-			"group_gold"		"60"
+			"group_xp"			"0.8"
+			"group_gold"		"80"
 		}
 	}
 

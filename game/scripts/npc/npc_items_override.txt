@@ -580,10 +580,10 @@
 			"bonus_strength"			"40"       //10
             "radius"
 			{
-				"value"				"450"          //275
+				"value"				"375"          //275
 				"affected_by_aoe_increase"	"1"
 			}
-            "flop_damage"               "450"      //150
+            "flop_damage"               "350"      //150
 	        "slow_duration"             "3.0"      //1.5
 	        "slow"           			"-100"     //-100
 	        "max_bounces"				"3"        //2
@@ -985,10 +985,10 @@
 	}
 	"item_panic_button"  //神妙明灯
 	{
-		"AbilityCooldown"				"60.0"  //75
+		"AbilityCooldown"				"45.0"  //75
 		"AbilityValues"
 		{
-				"bonus_health"			"1500"  //300
+				"bonus_health"			"3000"  //300
 				"heal"		            "5000" //1000
 				"health_threshold"		"20"   //20
 		}
@@ -1014,20 +1014,20 @@
 			"bonus_intellect"		"30"   //15
 			"bonus_health_regen"	"30.0" //15
 			"bonus_mana_regen"		"20.0" //10
-			"burn_dps_buildings"	"180"   //60
-			"burn_dps_units"		"180"   //60
+			"burn_dps_buildings"	"150"   //60
+			"burn_dps_units"		"150"   //60
 			"burn_duration"		    "6"    //6
 			"stun_duration"		    "2.4"  //1.6
 			"burn_interval"			"1.0"  //1.0
-			"land_time"				"0.5"    //1
+			"land_time"				"1"    //1 不能修改，会导致动画消失
 			"impact_radius"
 			{
-				"value"			"450"      //315
+				"value"			"425"      //315
 				"affected_by_aoe_increase"	"1"
 			}
 			"max_duration"		        "2.5" //2.5
-			"impact_damage_buildings"	"225"  //75
-			"impact_damage_units"		"450" //150
+			"impact_damage_buildings"	"200"  //75
+			"impact_damage_units"		"400" //150
 			"blink_damage_cooldown"	    "0" //3
 		}
 	}
@@ -1239,7 +1239,7 @@
 	//点金
 	"item_hand_of_midas"
 	{
-		"AbilityCharges"				"4"
+		"AbilityCharges"				"3"
 	}
 	// 跳刀卷轴
 	"item_recipe_overwhelming_blink"
