@@ -1442,7 +1442,7 @@
 
 		"AbilityValues"
 		{
-			"chance"					"35"
+			"chance"					"30"
 			"percentage"
 			{
 				"value"				"180 200 220 240 260"
@@ -1536,7 +1536,7 @@
 			}
 			"angle"				"80"
 			"attackspeed"				"20 40 60"
-			"movespeed"					"10 15 20"
+			"movespeed"					"8 12 16"
 		}
 	}
 

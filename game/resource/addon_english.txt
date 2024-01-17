@@ -793,7 +793,7 @@
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"A new battery here, another set of rockets there, Boush continually improves on existing technology."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Tome of Knowledge, Refresher Orb, (including the upgrade items like Black king bar 2, Aeon Pendant, Sphere Upgrade, Armor of Insight, Hand of Group, etc.) and any neutral items.<br>Rearm don't work on other heroes' ultimate."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Tome of Knowledge, Refresher Orb, (including the upgrade items like Black king bar 2, Aeon Pendant, Sphere Upgrade, Armor of Insight, Hand of team, etc.) and any neutral items.<br>Rearm don't work on other heroes' ultimate."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"TIME TO REARM:"
 
         // 电棍 razor
@@ -896,7 +896,7 @@
 
         // item_ultimate_scepter_2
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"						"Aghanim's Regalia Synth"
-		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted all benefits from Aghanim's Regalia: Ultimate Upgrade, +%dMODIFIER_PROPERTY_HEALTH_BONUS% health, +%dMODIFIER_PROPERTY_MANA_BONUS% mana, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage."
+		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted all benefits from Aghanim's Regalia: Ultimate Upgrade. Gain bonus health, mana andspell damage."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2"									"Aghanim's Regalia"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"Use: Consume the Aghanim's Regalia to permanently gain Ultimate Upgrade, +%bonus_health% health, +%bonus_mana% mana, +%spell_amp%%% spell damage.\nPassive: Ultimate Upgrade - Upgrades the ultimate, and some abilities, of certain heroes. Can be used on allied heroes."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Lore"							"The regalia of a wizard with demigod-like powers."
@@ -914,7 +914,7 @@
 
         // wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Wings of Haste"
-		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% movement speed, %MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regen, %MODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen."
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants bonus movement speed, attack speed, health regen, mana regen."
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"Wings of Haste"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"Use: Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, %bonus_health_regen% health regen, %bonus_mana_regen% mana regen."
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
@@ -948,7 +948,7 @@
 		"DOTA_Tooltip_modifier_item_blade_mail_2_reflect_Description"		"Returning damage to attacking units."
 
         // item_radiance_2
-		"DOTA_Tooltip_Ability_item_radiance_2"				"RADIANCE Upgrade"
+		"DOTA_Tooltip_Ability_item_radiance_2"				"Radiance of Light"
 		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second, and causes them to miss %blind_pct%%% of their attacks. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_radiance_2_Lore"								"A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
 		"DOTA_Tooltip_ability_item_radiance_2_bonus_damage"						"+$damage"
@@ -1070,7 +1070,7 @@
 		"DOTA_Tooltip_ability_item_aeon_pendant_cooldown_duration"					"COOLDOWN:"
 
         // item_monkey_king_bar_2 定海神针
-		"DOTA_Tooltip_Ability_item_monkey_king_bar_2"			"Re: Monkey King Bar"
+		"DOTA_Tooltip_Ability_item_monkey_king_bar_2"			"<font color='#FFCC66'>Monkey King Bar Ultra</font>"
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_Description"					"<h1>Passive: Pierce</h1>Grants each attack a %bonus_chance%%% chance to pierce through evasion and deal %bonus_chance_damage% bonus magical damage."
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_Lore"					"A powerful staff used by a master warrior."
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_damage"					"+$damage"
@@ -1394,10 +1394,11 @@
 		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"Cannot move while rooted."
 
 		"DOTA_Tooltip_Ability_item_satanic_2"				"Satanic Upgrade"
-		"DOTA_Tooltip_ability_item_satanic_2_Description"							"<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %unholy_lifesteal_total_tooltip%%% for %unholy_duration% seconds. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_percent%%% of attack damage dealt."
+		"DOTA_Tooltip_ability_item_satanic_2_Description"							"<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %unholy_lifesteal_total_tooltip%%% for %unholy_duration% seconds. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n\n<h1>Passive: Lifesteal</h1>Heals the attacker for a percentage of attack damage dealt. Lifesteal from creeps is reduced by %creep_lifesteal_reduction_pct%%%."
 		"DOTA_Tooltip_ability_item_satanic_2_Lore"								"Immense power at the cost of your soul."
 		"DOTA_Tooltip_ability_item_satanic_2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_satanic_2_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_satanic_2_lifesteal_percent"					"%+$lifesteal"
 
 		// Battle Fury 2 大狂战
 		"DOTA_Tooltip_Ability_item_bfury_2"				"Battle Fury Upgrade"
@@ -1436,7 +1437,7 @@
 		// 小鸡臂章
 		"DOTA_Tooltip_Ability_item_armlet_plus"				"Armlet of Mordiggian Plus"
 		"DOTA_Tooltip_Ability_item_recipe_armlet_plus"					"Armlet of Mordiggian Plus Recipe"
-	    "DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_attack_speed% attack speed, +%unholy_bonus_strength% strength and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		"DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
 		"DOTA_Tooltip_ability_item_armlet_plus_Lore"							    "Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
 		"DOTA_Tooltip_ability_item_armlet_plus_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
 		"DOTA_Tooltip_ability_item_armlet_plus_Note1"								"The strength change occurs over 0.6 seconds."
@@ -1449,7 +1450,7 @@
 
 		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"Armlet of Mordiggian Plus Pro Max"
 		"DOTA_Tooltip_Ability_item_recipe_armlet_pro_max"					"Armlet of Mordiggian Pro Max Recipe"
-	    "DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_attack_speed% attack speed, +%unholy_bonus_strength% strength and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note1"								"The strength change occurs over 0.6 seconds."
@@ -1483,8 +1484,8 @@
 		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "Diana, I love you so much! For you, I'm going to listen to Cat Addiction!"
 
 	    // 团队之手
-		"DOTA_Tooltip_ability_item_recipe_hand_of_group"								"Hand of group recipe"
-	    "DOTA_Tooltip_ability_item_hand_of_group"										"Hand of group"
+		"DOTA_Tooltip_ability_item_recipe_hand_of_group"								"Hand of team recipe"
+	    "DOTA_Tooltip_ability_item_hand_of_group"										"Hand of team"
 	    "DOTA_Tooltip_ability_item_hand_of_group_description"							"<h1>Active: Transmute</h1> Kills a non-hero target for %self_gold% gold and %self_xp%x experience. <br>Allies within %group_range% of the target gains %group_gold% gold and %group_xp%x experience.<br><br> Cannot be used on Ancient Creeps.<br><br>Range: %abilitycastrange%"
 	    "DOTA_Tooltip_ability_item_hand_of_group_attack_speed"			                "+$attack"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"A wise choice and Scientific investment."
@@ -1522,93 +1523,14 @@
 
 		// item_rapier_ultra 诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra"                        "<font color='#e03e2e'>Cursed Rapier</font>"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1><h1>Passive: True Strike</h1>Attacks will not miss due to evasion or other effects.\n<h1>Passive: <font color='#e03e2e'>Price of power</font></h1>Very great power always has its very great price. <br><font color='#e03e2e'>It has 90% to be ruined at death.</font>"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by Mars. Gaining <font color='#f15b47'>%bonus_damage_percent%%%</font> base damage bonus, Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will not miss due to evasion or other effects.\n<h1>Passive: <font color='#e03e2e'>Price of power</font></h1>Very great power always has its very great price. <br><font color='#e03e2e'>It has %ruin_chance_tooltip%%% to be ruined at death.</font>"
 		"DOTA_Tooltip_ability_item_rapier_ultra_Lore"					"Ruined at death."
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"So, will you be the lucky dog?"
 
-			// item_satanic_ultra Ultra Satanic
-			"DOTA_Tooltip_Ability_item_satanic_ultra"				"<font color='#e03e2e'>Ultra Satanic</font>"
-			"DOTA_Tooltip_ability_item_satanic_ultra_Description"							"<h1>Active: Satanic Frenzy</h1>Increases lifesteal to %unholy_lifesteal_total_tooltip%%%, lasting %unholy_duration% seconds.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Weak Dispel</span>\n<h1>Passive: Lifesteal</h1>Attacks heal the attacker for %lifesteal_percent%%% of the damage dealt."
-			"DOTA_Tooltip_ability_item_satanic_ultra_Lore"								"Feel the wrath of the gods"
-			"DOTA_Tooltip_ability_item_satanic_ultra_bonus_strength"						"+$str"
-			"DOTA_Tooltip_ability_item_satanic_ultra_bonus_damage"						"+$damage"
-
-			// item_blade_mail_ultra Eternal Blade Mail
-			"DOTA_Tooltip_Ability_item_blade_mail_ultra"	"<font color='#e03e2e'>Eternal Blade Mail</font>"
-			"DOTA_Tooltip_ability_item_blade_mail_ultra_Description"						"<h1>Active: Self-Detonation</h1>Increases damage reflection by %active_reflection_pct%%% for %duration% seconds.<br><br>Passive: Damage Reflection</h1>Reflects %passive_reflection_constant% + %passive_reflection_pct%%% of the damage taken."
-			"DOTA_Tooltip_ability_item_blade_mail_ultra_Lore"								"The pinnacle of damage reflection, condensed in armor."
-			"DOTA_Tooltip_ability_item_blade_mail_ultra_Note0"							"Reflected damage is calculated before reductions."
-			"DOTA_Tooltip_ability_item_blade_mail_ultra_Note1"							"Damage reflection does not reflect damage from other Blade Mails."
-			"DOTA_Tooltip_ability_item_blade_mail_ultra_Note2"							"Reflected damage type matches the damage received."
-			"DOTA_Tooltip_ability_item_blade_mail_ultra_bonus_damage"						"+$damage"
-			"DOTA_Tooltip_ability_item_blade_mail_ultra_bonus_armor"						"-$armor"
-
-			// item_bloodstone_ultra Divine Bloodstone
-		    "DOTA_Tooltip_ability_item_bloodstone_ultra"						"<font color='#e03e2e'>Divine Bloodstone</font>"
-		    //"DOTA_Tooltip_ability_item_bloodstone_ultra_Description"						"<h1>Active: Blood Pact</h1>Increases spell lifesteal of Bloodstone by %lifesteal_multiplier%x and converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
-			"DOTA_Tooltip_ability_item_bloodstone_ultra_Lore"								"The crimson color of the Bloodstone is unmistakable on the battlefield, granting its wielder seemingly infinite vitality and energy."
-			"DOTA_Tooltip_ability_item_bloodstone_ultra_Note0"							"Using Blood Pact leaves the user exhausted, lasting for 40 seconds, during which the effects of Blood Pact cannot be enjoyed again."
-			"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_aoe"						"+$aoe_bonus"
-			"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_health"						"+$health"
-			"DOTA_Tooltip_ability_item_bloodstone_ultra_bonus_mana"						"+$mana"
-			//"DOTA_Tooltip_ability_item_bloodstone_ultra_spell_lifesteal"					"%+$spell_lifesteal"
-			"DOTA_Tooltip_modifier_item_bloodstone_ultra_active"							"Blood Pact"
-			"DOTA_Tooltip_modifier_item_bloodstone_ultra_active_Description"				"Restores %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health per second."
-			"DOTA_Tooltip_modifier_item_bloodstone_ultra_drained"							"Exhausted"
-			"DOTA_Tooltip_modifier_item_bloodstone_ultra_drained_Description"				"The bonus effects of Blood Pact do not apply to exhausted units."
-
-			// item_mjollnir_ultra Thunder God's Hammer
-			"DOTA_Tooltip_ability_item_mjollnir_ultra"                                  "<font color='#e03e2e'>Thunder God's Hammer</font>"
-			"DOTA_Tooltip_ability_item_mjollnir_ultra_Description"						"<h1>Active: Lightning Strike</h1>Applies a static shield to the target unit for %static_duration% seconds. The shield has a %static_chance%%% chance to release a lightning strike that hits %static_strikes% enemy units within %static_radius% range, dealing %static_damage% magic damage.<br><br>Cast Range: %abilitycastrange%\n\n<h1>Passive: Chain Lightning</h1>Attacks have a %chain_chance%%% chance to release a chain lightning that jumps between %chain_strikes% targets within %chain_radius% range, dealing %chain_damage% magic damage. Lightning strikes ignore evasion. Deals %illusion_multiplier_pct%%% damage to illusions."
-			"DOTA_Tooltip_ability_item_mjollnir_ultra_Lore"								"A hammer imbued with godly power"
-			"DOTA_Tooltip_ability_item_mjollnir_ultra_Note0"								"The interval between Lightning Strikes is greater than 0.2 seconds."
-			"DOTA_Tooltip_ability_item_mjollnir_ultra_Note1"								"The lightning from Lightning Strikes will hit units around the hero with the shield, while Static Charge only releases lightning strikes on targets within %static_seconary_radius% range."
-			"DOTA_Tooltip_ability_item_mjollnir_ultra_Note2"								"Lightning Strikes will not jump to heroes in invisibility or within the fog of war."
-			"DOTA_Tooltip_ability_item_mjollnir_ultra_bonus_damage"						"+$damage"
-			"DOTA_Tooltip_ability_item_mjollnir_ultra_bonus_attack_speed"					"+$attack"
-			"DOTA_Tooltip_modifier_item_mjollnir_ultra_static"				"Thunder God's Hammer Lightning Strike"
-			"DOTA_Tooltip_modifier_item_mjollnir_ultra_static_Description"	"Has a %dMODIFIER_PROPERTY_TOOLTIP%%% chance to release a lightning strike on the attacker and %dMODIFIER_PROPERTY_TOOLTIP% other enemy units nearby when attacked."
-
-			// item_radiance_ultra Group Evasion
-			"DOTA_Tooltip_Ability_item_radiance_ultra"				"<font color='#e03e2e'>Ultra Radiance</font>"
-			"DOTA_Tooltip_ability_item_radiance_ultra_Description"						"<h1>Toggle: Aura of Light</h1>When active, Radiance Burn deals %aura_damage% magic damage per second to enemies and has a %blind_pct%%% chance to miss their attacks. Illusions deal %aura_damage_illusions% magic damage per second.<br><br>Aura Radius: %aura_radius%"
-			"DOTA_Tooltip_ability_item_radiance_ultra_Lore"								"Do you understand teamwork? Do you understand group evasion?"
-			"DOTA_Tooltip_ability_item_radiance_ultra_bonus_damage"						"+$damage"
-			"DOTA_Tooltip_ability_item_radiance_ultra_evasion"							"%+$evasion"
-			"DOTA_Tooltip_modifier_item_radiance_ultra_debuff"				"Radiance Burn"
-			"DOTA_Tooltip_modifier_item_radiance_ultra_debuff_Description"	"Takes 600 damage per second and has a %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% chance to miss attacks."
-
-			// item_spirit_vessel_ultra Remnants of the Sage
-			"DOTA_Tooltip_ability_item_spirit_vessel_ultra"                         "<font color='#e03e2e'>Remnants of the Sage</font>"
-			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_Description"					"<h1>Active: Light of the Sage</h1>When used on enemies, reduces their current health by %enemy_hp_drain%%% per second and reduces their healing, regeneration, lifesteal, and spell lifesteal effects by %hp_regen_reduction_enemy%%%. Deals %soul_damage_amount% damage per second.<br><br>When used on allies, provides %soul_heal_amount% health regeneration per second.<br><br>Lasts %duration% seconds.<br><br>Gain charges whenever an enemy hero dies within %soul_radius% range. Only the urn closest to the dying hero will gain a charge.<br><br>Cast Range: %abilitycastrange%"
-			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_lore"					"The remains of a renowned sage, capable of releasing tremendous energy."
-			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_bonus_health"                     "+$health"
-			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_bonus_mana_regen"                "+$mana_regen"
-			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_bonus_all_stats"                "+$all"
-			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_bonus_armor"					"+$armor"
-			"DOTA_Tooltip_ability_item_spirit_vessel_ultra_mana_regen"					"+$mana_regen"
-
-			"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_heal"							"Remnants of the Sage Heal"
-			"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_heal_Description"				"Restores %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health per second."
-			"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_damage"							"Remnants of the Sage Damage"
-			"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_damage_Description"				"Loses %dMODIFIER_PROPERTY_TOOLTIP% health per second +%dMODIFIER_PROPERTY_TOOLTIP%%% of current health. Reduces all healing effects by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%."
-
-			"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_aura"							"Remnants of the Sage Aura"
-			"DOTA_Tooltip_modifier_item_spirit_vessel_ultra_aura_Description"				"Reduces all healing effects by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%."
-
-			// item_skadi_ultra Absolute Zero
-			"DOTA_Tooltip_ability_item_skadi_ultra"                         "<font color='#e03e2e'>Absolute Zero</font>"
-			"DOTA_Tooltip_ability_item_skadi_ultra_Description"				"<h1>Passive: Absolute Zero</h1>Attacks apply a frost effect, reducing the movement and attack speed of enemies, and reducing their healing, regeneration, lifesteal, and spell lifesteal effects by %heal_reduction%%%, lasting %cold_duration% seconds. Slows ranged enemies by %cold_slow_ranged%%% movement speed and %cold_attack_slow_ranged%%% attack speed. Slows melee enemies by %cold_slow_melee%%% movement speed and %cold_attack_slow_melee%%% attack speed."
-			"DOTA_Tooltip_ability_item_skadi_ultra_Lore"					"Absolute Zero, that's all there is to it."
-			"DOTA_Tooltip_ability_item_skadi_ultra_bonus_all_stats"			"+$all"
-			"DOTA_Tooltip_ability_item_skadi_ultra_bonus_health"			"+$health"
-			"DOTA_Tooltip_ability_item_skadi_ultra_bonus_mana"				"+$mana"
-
-
 		// item_bfury_ultra 救世狂战
-		"DOTA_Tooltip_ability_item_bfury_ultra"                         "<font color='#e03e2e'>Artifact: Worldbreaker</font>"
+		"DOTA_Tooltip_ability_item_bfury_ultra"                         "<font color='#e03e2e'>Worldbreaker</font>"
 		"DOTA_Tooltip_Ability_item_bfury_ultra_Description"             "<h1>Passive: Worldsplitter</h1>Normal attacks cleave in a cone, dealing %cleave_damage_percent%%% physical damage to enemies within %cleave_distance% range. Deals %cleave_damage_percent_creep%%% physical damage to non-hero units. (Melee Only)"
 		"DOTA_Tooltip_Ability_item_bfury_ultra_Lore"                    "Have you heard that six battle fury can save the world?"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_damage"			"+$damage"
@@ -1616,109 +1538,9 @@
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_mana_regen"		"+$mana_regen"
 		"DOTA_Tooltip_Ability_item_bfury_ultra_Note0"					"Have you played the limited-time enhanced Tidebringer?"
 
-		// item_gungir_ultra Immortal Coil
-		"DOTA_Tooltip_ability_item_gungir_ultra"						"<font color='#e03e2e'>Artifact: Immortal Coil</font>"
-		"DOTA_Tooltip_ability_item_gungir_ultra_Description"						"<h1>Active: Binding Chains</h1>Entangles all enemies within %radius% range, dealing %active_damage% damage over %duration% seconds.<br><br>Cast Range: %abilitycastrange%\n\n<h1>Passive: Celestial Thunder</h1>Attacks have a %chain_chance%%% chance to release a celestial thunder that jumps between %chain_strikes% targets within %chain_radius% range, dealing %chain_damage% magic damage. Celestial thunder ignores evasion."
-		"DOTA_Tooltip_ability_item_gungir_ultra_Lore"								"Bold villain, surrender now!"
-		"DOTA_Tooltip_ability_item_gungir_ultra_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_item_gungir_ultra_bonus_intellect"					"+$int"
-		"DOTA_Tooltip_ability_item_gungir_ultra_bonus_attack_speed"				"+$attack"
-		"DOTA_Tooltip_ability_item_gungir_ultra_bonus_hp"						"+$health"
-
-		// item_black_king_bar_ultra Eternal Black and Gold Scepter
-		"DOTA_Tooltip_Ability_item_black_king_bar_ultra"			"<font color='#e03e2e'>Artifact: Eternal Black and Gold Scepter</font>"
-		"DOTA_Tooltip_ability_item_black_king_bar_ultra_Description"				"<h1>Active: Eternal Ascension</h1>Grants spell immunity and -%magic_resist%%% magic resistance, and immunity to pure and reflected damage. During the duration, negative effects from enemy abilities do not apply.<br><br>Duration: %duration%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Weak Dispel</span> \n<h1>Passive: The Price of Strength</h1>Great power always comes with a price, but what that price is doesn't matter, what matters is that you are invincible."
-		"DOTA_Tooltip_ability_item_black_king_bar_ultra_Lore"						"So what is the price?"
-		"DOTA_Tooltip_ability_item_black_king_bar_ultra_Note0"						"Death destroys, no free rides."
-		"DOTA_Tooltip_ability_item_black_king_bar_ultra_Note1"						"Fake spell immunity is still spell immunity, don't underestimate it."
-		"DOTA_Tooltip_ability_item_black_king_bar_ultra_bonus_strength"				"+$str"
-		"DOTA_Tooltip_ability_item_black_king_bar_ultra_bonus_damage"				"+$damage"
-
-		// item_vladmir_ultra 合金强袭
-		"DOTA_Tooltip_ability_item_vladmir_ultra"                               "<font color='#e03e2e'>Artifact: Alloy Assault Armor★</font>"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_Description"							"<h1>Passive: Alloy Assault Aura</h1>Provides %vampiric_aura%%% lifesteal, %damage_aura%%% attack damage bonus, and %mana_regen_aura% mana regeneration per second to nearby allies.<br>Increases %aura_attack_speed% attack speed and %aura_positive_armor% armor for nearby allied units and structures.<br>Reduces %aura_negative_armor% armor for nearby enemy units (excluding buildings).<br><br>Aura Radius: %aura_radius%"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_Lore"								"After absorbing the blood of the undead, this armor enhances the armor and attack speed of the entire army."
-		"DOTA_Tooltip_ability_item_vladmir_ultra_bonus_attack_speed"					"+$attack"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_general_aura"				"Alloy Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_general_aura_Description"	"Grants 25%% lifesteal, %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% attack damage bonus, %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration per second, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_building_aura"				"Alloy Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_building_aura_Description"	"Grants %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_enemy_aura"				"Alloy Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_enemy_aura_Description"	"Reduces armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
-		"DOTA_Tooltip_Ability_item_philosophers_stone_bonus_mana"				"-$mana"
-
-		// item_vladmir_ultra_2 Titanium Alloy Assault
-		"DOTA_Tooltip_ability_item_vladmir_ultra_2"                               "<font color='#e03e2e'>Artifact: Titanium Alloy Assault Armor★★</font>"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_2_Description"							"<h1>Passive: Titanium Alloy Assault Aura</h1>Provides %vampiric_aura%%% lifesteal, %damage_aura%%% attack damage bonus, and %mana_regen_aura% mana regeneration per second to nearby allies.<br>Increases %aura_attack_speed% attack speed and %aura_positive_armor% armor for nearby allied units and structures.<br>Reduces %aura_negative_armor% armor for nearby enemy units (excluding buildings).<br><br>Aura Radius: %aura_radius%"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_2_Lore"								"After absorbing the blood of the undead, this armor enhances the armor and attack speed of the entire army."
-		"DOTA_Tooltip_ability_item_vladmir_ultra_2_bonus_attack_speed"					"+$attack"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_2_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_2_general_aura"				"Titanium Alloy Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_2_general_aura_Description"	"Grants 25%% lifesteal, %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% attack damage bonus, %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration per second, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_2_building_aura"				"Titanium Alloy Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_2_building_aura_Description"	"Grants %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_2_enemy_aura"				"Titanium Alloy Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_2_enemy_aura_Description"	"Reduces armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
-		"DOTA_Tooltip_Ability_item_philosophers_stone_bonus_mana"				"-$mana"
-
-		// item_vladmir_ultra_3 Super Titanium Alloy Assault
-		"DOTA_Tooltip_ability_item_vladmir_ultra_3"                               "<font color='#e03e2e'>Artifact: Super Titanium Alloy Assault Armor★★★</font>"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_3_Description"							"<h1>Passive: Super Titanium Assault Aura</h1>Provides %vampiric_aura%%% lifesteal, %damage_aura%%% attack damage bonus, and %mana_regen_aura% mana regeneration per second to nearby allies.<br>Increases %aura_attack_speed% attack speed and %aura_positive_armor% armor for nearby allied units and structures.<br>Reduces %aura_negative_armor% armor for nearby enemy units (excluding buildings).<br><br>Aura Radius: %aura_radius%"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_3_Lore"								"After absorbing the blood of the undead, this armor enhances the armor and attack speed of the entire army."
-		"DOTA_Tooltip_ability_item_vladmir_ultra_3_bonus_attack_speed"					"+$attack"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_3_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_3_general_aura"				"Super Titanium Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_3_general_aura_Description"	"Grants 25%% lifesteal, %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% attack damage bonus, %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration per second, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_3_building_aura"				"Super Titanium Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_3_building_aura_Description"	"Grants %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_3_enemy_aura"				"Super Titanium Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_3_enemy_aura_Description"	"Reduces armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
-		"DOTA_Tooltip_Ability_item_philosophers_stone_bonus_mana"				"-$mana"
-
-		// item_vladmir_ultra_4 Tungsten Alloy Assault
-		"DOTA_Tooltip_ability_item_vladmir_ultra_4"                               "<font color='#e03e2e'>Artifact: Tungsten Alloy Assault Armor★★★★</font>"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_4_Description"							"<h1>Passive: Tungsten Alloy Assault Aura</h1>Provides %vampiric_aura%%% lifesteal, %damage_aura%%% attack damage bonus, and %mana_regen_aura% mana regeneration per second to nearby allies.<br>Increases %aura_attack_speed% attack speed and %aura_positive_armor% armor for nearby allied units and structures.<br>Reduces %aura_negative_armor% armor for nearby enemy units (excluding buildings).<br><br>Aura Radius: %aura_radius%"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_4_Lore"								"After absorbing the blood of the undead, this armor enhances the armor and attack speed of the entire army."
-		"DOTA_Tooltip_ability_item_vladmir_ultra_4_bonus_attack_speed"					"+$attack"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_4_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_4_general_aura"				"Tungsten Alloy Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_4_general_aura_Description"	"Grants 25%% lifesteal, %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% attack damage bonus, %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration per second, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_4_building_aura"				"Tungsten Alloy Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_4_building_aura_Description"	"Grants %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_4_enemy_aura"				"Tungsten Alloy Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_4_enemy_aura_Description"	"Reduces armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
-		"DOTA_Tooltip_Ability_item_philosophers_stone_bonus_mana"				"-$mana"
-
-		// item_vladmir_ultra_5 Super Tungsten Alloy Assault
-		"DOTA_Tooltip_ability_item_vladmir_ultra_5"                               "<font color='#e03e2e'>Artifact: Super Tungsten Alloy Assault Armor★★★★★</font>"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_5_Description"							"<h1>Passive: Super Tungsten Assault Aura</h1>Provides %vampiric_aura%%% lifesteal, %damage_aura%%% attack damage bonus, and %mana_regen_aura% mana regeneration per second to nearby allies.<br>Increases %aura_attack_speed% attack speed and %aura_positive_armor% armor for nearby allied units and structures.<br>Reduces %aura_negative_armor% armor for nearby enemy units (excluding buildings).<br><br>Aura Radius: %aura_radius%"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_5_Lore"								"After absorbing the blood of the undead, this armor enhances the armor and attack speed of the entire army."
-		"DOTA_Tooltip_ability_item_vladmir_ultra_5_bonus_attack_speed"					"+$attack"
-		"DOTA_Tooltip_ability_item_vladmir_ultra_5_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_5_general_aura"				"Super Tungsten Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_5_general_aura_Description"	"Grants 25%% lifesteal, %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% attack damage bonus, %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration per second, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_5_building_aura"				"Super Tungsten Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_5_building_aura_Description"	"Grants %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_5_enemy_aura"				"Super Tungsten Assault"
-		"DOTA_Tooltip_modifier_item_vladmir_ultra_5_enemy_aura_Description"	"Reduces armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
-		"DOTA_Tooltip_Ability_item_philosophers_stone_bonus_mana"				"-$mana"
-
-		//  item_shivas_guard_ultra 零度之甲
-		"DOTA_Tooltip_Ability_item_shivas_guard_ultra"				"<font color='#e03e2e'>Artifact: Shivas Guard Ultra</font>"
-		"DOTA_Tooltip_ability_item_shivas_guard_ultra_Description"					"<h1>Active: Arctic Blast</h1>Emits a wave of cold, increasing the damage taken from spells by %spell_amp%%%, lasting %resist_debuff_duration% seconds. Deals %blast_damage% magic damage and slows the movement speed of enemies by %blast_movement_speed%%%, lasting %blast_debuff_duration% seconds. Deals %illusion_multiplier_pct%%% damage to illusions.<br><br>Effect Radius: %blast_radius%\n\n<h1>Passive: Frost Aura</h1>Reduces the attack speed of enemies by %aura_attack_speed% and %hp_regen_degen_aura%%% reduces all healing, regeneration, and lifesteal effects.<br><br>Aura Radius: %aura_radius%"
-		"DOTA_Tooltip_ability_item_shivas_guard_ultra_Lore"							"Once belonged to a goddess, it still retains most of its divine power."
-		"DOTA_Tooltip_ability_item_shivas_guard_ultra_Note0"							"The expansion speed of Arctic Blast is %blast_speed%, with a maximum radius of %blast_radius%."
-		"DOTA_Tooltip_ability_item_shivas_guard_ultra_Note1"							"Arctic Blast originates from the caster."
-		"DOTA_Tooltip_ability_item_shivas_guard_ultra_Note2" 							"Multiple Frost Aura effects do not stack."
-		"DOTA_Tooltip_ability_item_shivas_guard_ultra_bonus_intellect"				"+$int"
-		"DOTA_Tooltip_ability_item_shivas_guard_ultra_bonus_agility"					"+$agi"
-		"DOTA_Tooltip_ability_item_shivas_guard_ultra_bonus_strength"					"+$str"
-		"DOTA_Tooltip_ability_item_shivas_guard_ultra_bonus_armor"					"+$armor"
-		"DOTA_Tooltip_ability_item_shivas_guard_ultra_bonus_hp_regen"					"+$hp_regen"
 
 		// item_bloodthorn_ultra 变态辣
-		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"				"<font color='#e03e2e'>Artifact: Bloodthorn</font>"
+		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"				"<font color='#e03e2e'>Bloodthorn Ultra</font>"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"                      "<h1>Active: Soul Rend</h1>Silences the target for %silence_duration% seconds. After the silence ends, %silence_damage_percent%%% of the damage taken during the silence will be dealt as additional magic damage.<br><br>All attacks against the target deal an additional %proc_damage% damage and have True Strike.<br><br>Cast Range: %abilitycastrange%\n\n<h1>Passive: Pierce</h1>Each attack has a %proc_chance%%% chance to ignore evasion and deal %proc_damage% additional magic damage."
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Lore"                             "Spicy to death"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_intellect"                  "+$int"
@@ -1732,15 +1554,6 @@
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_upgrade_bonuses"				"<b><font color='#7d7d7d'>Upgrade</font></b>: +30% Bloodthorn Critical Strike"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_upgrade_description"			"Soul Rend 10 enemy heroes."
 		"DOTA_Tooltip_modifier_bloodthorn_ultra_debuff"                       "Bloodthorn"
-		"DOTA_Tooltip_modifier_bloodthorn_ultra_debuff_Description"           "Silenced and takes 60%% additional damage, which is dealt as magic damage when the effect ends.\nAlso takes additional damage from all attacks and attacks cannot miss."
-
-		// item_glimmer_cape_ultra 隐形斗篷
-		"DOTA_Tooltip_Ability_item_glimmer_cape_ultra"				"<font color='#e03e2e'>Artifact: Glimmer Cape</font>"
-		"DOTA_Tooltip_ability_item_glimmer_cape_ultra_Description"						"<h1>Active: Invisibility</h1> After a %initial_fade_delay% second delay, makes self or target allied unit invisible, granting %active_movement_speed%%% movement speed bonus and a magic shield that can absorb up to %barrier_block% damage. Lasts %duration% seconds.<br><br>Cast Range: %abilitycastrange%<br><br>Can be cast during channeling."
-		"DOTA_Tooltip_ability_item_glimmer_cape_ultra_movement_speed"			"+$move_speed"
-		"DOTA_Tooltip_ability_item_glimmer_cape_ultra_bonus_magical_armor"			"%+$spell_resist"
-		"DOTA_Tooltip_ability_item_glimmer_cape_ultra_Lore"					"The pinnacle of invisibility technology"
-		"DOTA_Tooltip_modifier_item_glimmer_cape_ultra_fade"					"Glimmer Cape"
-		"DOTA_Tooltip_modifier_item_glimmer_cape_ultra_fade_Description"		"Absorbs magic damage. Increases movement speed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%%%."
+		"DOTA_Tooltip_modifier_bloodthorn_ultra_debuff_Description"           "Silenced and takes 120%% additional damage, which is dealt as magic damage when the effect ends.\nAlso takes additional damage from all attacks and attacks cannot miss."
 	}
 }

@@ -164,12 +164,6 @@ function BotItemThink:UseActiveItem(hHero)
             return true
         end
     end
-    -- item_blade_mail_ultra
-    if hHero:GetHealthPercent() < 99 then
-        if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_blade_mail_ultra") then
-            return true
-        end
-    end
 
     -- item_insight_armor
     if hHero:GetHealthPercent() < 90 then
@@ -229,13 +223,6 @@ function BotItemThink:UseActiveItem(hHero)
     -- 大撒旦
     if hHero:GetHealthPercent() < 60 then
         if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_satanic_2") then
-            return true
-        end
-    end
-
-    -- 神器撒旦
-    if hHero:GetHealthPercent() < 80 then
-        if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_satanic_ultra") then
             return true
         end
     end

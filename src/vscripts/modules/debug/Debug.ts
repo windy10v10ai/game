@@ -8,6 +8,7 @@ export class Debug {
   // 在线测试白名单
   OnlineDebugWhiteList = [
     136407523, // windy
+    916506173, // windy
   ];
 
   constructor() {

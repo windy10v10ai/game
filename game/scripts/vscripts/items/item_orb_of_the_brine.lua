@@ -109,9 +109,10 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_item_orb_of_the_brine_bubble:OnCreated( kv )
-	self.bubble_heal_per_tick = self:GetAbility():GetSpecialValueFor( "bubble_heal_per_tick" )
-	self.bubble_mana_per_tick = self:GetAbility():GetSpecialValueFor( "bubble_mana_per_tick" )
 	self.heal_tick_interval = self:GetAbility():GetSpecialValueFor( "heal_tick_interval" )
+	local tick_count = self:GetAbility():GetSpecialValueFor( "bubble_duration" ) / self.heal_tick_interval
+	self.bubble_heal_per_tick = self:GetAbility():GetSpecialValueFor( "bubble_total_heal_tip" ) / tick_count
+	self.bubble_mana_per_tick = self:GetAbility():GetSpecialValueFor( "bubble_total_mana_tip" ) / tick_count
 	self.bubble_move_speed = self:GetAbility():GetSpecialValueFor( "bubble_move_speed" )
 	if IsServer() then
 		self.nFXIndex = ParticleManager:CreateParticle( "particles/act_2/wand_of_the_brine_bubble.vpcf", PATTACH_CUSTOMORIGIN, nil )
@@ -126,6 +127,7 @@ end
 
 function modifier_item_orb_of_the_brine_bubble:OnIntervalThink()
 	if IsServer() then
+		print( "modifier_item_orb_of_the_brine_bubble:OnIntervalThink - healing"..self.bubble_heal_per_tick )
 		self:GetParent():Heal( self.bubble_heal_per_tick, self:GetAbility() )
 		self:GetParent():GiveMana( self.bubble_mana_per_tick )
 	end

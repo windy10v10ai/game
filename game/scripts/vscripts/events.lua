@@ -261,47 +261,47 @@ function AIGameMode:RefreshGameStatus()
     if AIGameMode.tower3PushedGood == 1 then
         buffLevelGood = buffLevelGood + 1
     elseif AIGameMode.tower3PushedGood > 1 then
-        buffLevelGood = buffLevelGood + 2
+        buffLevelGood = buffLevelGood + 3
     end
     if AIGameMode.tower3PushedBad == 1 then
         buffLevelBad = buffLevelBad + 1
     elseif AIGameMode.tower3PushedBad > 1 then
-        buffLevelBad = buffLevelBad + 2
+        buffLevelBad = buffLevelBad + 3
     end
 
     if AIGameMode.tower4PushedGood > 1 then
-        buffLevelGood = buffLevelGood + 1
+        buffLevelGood = buffLevelGood + 2
         buffLevelMegaGood = buffLevelMegaGood + 1
     end
     if AIGameMode.tower4PushedBad > 1 then
-        buffLevelBad = buffLevelBad + 1
+        buffLevelBad = buffLevelBad + 2
         buffLevelMegaBad = buffLevelMegaBad + 1
     end
 
     buffLevelMegaGood = buffLevelMegaGood + AIGameMode.creepBuffLevel
     buffLevelMegaBad = buffLevelMegaBad + AIGameMode.creepBuffLevel
 
-    if (GameTime >= (50 * 60)) then
+    if (GameTime >= (45 * 60)) then
         buffLevelGood = buffLevelGood + 5
         buffLevelBad = buffLevelBad + 5
         buffLevelMegaGood = buffLevelMegaGood + 5
         buffLevelMegaBad = buffLevelMegaBad + 5
-    elseif (GameTime >= (45 * 60)) then
+    elseif (GameTime >= (40 * 60)) then
         buffLevelGood = buffLevelGood + 4
         buffLevelBad = buffLevelBad + 4
         buffLevelMegaGood = buffLevelMegaGood + 4
         buffLevelMegaBad = buffLevelMegaBad + 4
-    elseif (GameTime >= (40 * 60)) then
+    elseif (GameTime >= (35 * 60)) then
         buffLevelGood = buffLevelGood + 3
         buffLevelBad = buffLevelBad + 3
         buffLevelMegaGood = buffLevelMegaGood + 3
         buffLevelMegaBad = buffLevelMegaBad + 3
-    elseif (GameTime >= (35 * 60)) then
+    elseif (GameTime >= (30 * 60)) then
         buffLevelGood = buffLevelGood + 2
         buffLevelBad = buffLevelBad + 2
         buffLevelMegaGood = buffLevelMegaGood + 2
         buffLevelMegaBad = buffLevelMegaBad + 2
-    elseif (GameTime >= (30 * 60)) then
+    elseif (GameTime >= (25 * 60)) then
         buffLevelGood = buffLevelGood + 1
         buffLevelBad = buffLevelBad + 1
         buffLevelMegaGood = buffLevelMegaGood + 1
@@ -955,7 +955,7 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
     elseif difficulty == 5 then
         points = points * 2.0
     elseif difficulty == 6 then
-        points = points * 2.5
+        points = points * 2.2
     end
     return math.ceil(points)
 end

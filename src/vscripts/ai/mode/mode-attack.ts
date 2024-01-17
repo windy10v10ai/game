@@ -8,7 +8,6 @@ export class ModeAttack extends ModeBase {
 
   GetDesire(heroAI: BaseHeroAIModifier): number {
     let desire = 0;
-    const dotaTime = heroAI.gameTime;
 
     if (heroAI.mode === ModeEnum.RETREAT) {
       desire -= 0.4;
@@ -23,11 +22,11 @@ export class ModeAttack extends ModeBase {
       desire += 0.1;
     }
 
-    if (dotaTime < 180) {
-      if (this.HasEnemyNotNearTower(heroAI)) {
-        desire += 0.7;
-      }
-    }
+    // if (heroAI.gameTime < 180) {
+    //   if (this.HasEnemyNotNearTower(heroAI)) {
+    //     desire += 0.7;
+    //   }
+    // }
     return desire;
   }
 

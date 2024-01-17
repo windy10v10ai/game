@@ -30,11 +30,10 @@
 							<Label text="2" id="2"/>
 							<Label text="3" id="3"/>
 							<Label text="4" id="4"/>
-							<Label text="5" id="5"/>
-							<Label text="6" id="6"/>
-							<Label text="8" id="8"/>
+							<Label text="5.5" id="5.5"/>
+							<Label text="7" id="7"/>
+							<Label text="8.5" id="8.5"/>
 							<Label text="10" id="10"/>
-							<Label text="15" id="15"/>
 						</DropDown>
 					</Panel>
 					<Panel id="RadiantPlayerNumberMultiplierPanel"	class="GameOptionsSubPanel">
@@ -147,7 +146,6 @@
 							<Label text="3000" id="3000"/>
 							<Label text="5000" id="5000"/>
 							<Label text="10000" id="10000"/>
-							<Label text="20000" id="20000"/>
 						</DropDown>
 					</Panel>
 					<Panel id="SameHeroSelectionPanel"	class="GameOptionsSubPanel">

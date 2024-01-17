@@ -83,4 +83,9 @@ export class HeroUtil {
     const distance = attacker.GetRangeToUnit(target) - attackerCollision - targetCollision;
     return distance - attackRange;
   }
+
+  static GetDistanceToHero(attacker: CDOTA_BaseNPC, target: CDOTA_BaseNPC): number {
+    const distance = attacker.GetRangeToUnit(target);
+    return distance;
+  }
 }
