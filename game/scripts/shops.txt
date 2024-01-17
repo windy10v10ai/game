@@ -66,7 +66,6 @@
 		"item"		"item_javelin"
 		"item"		"item_claymore"
 		"item"		"item_mithril_hammer"
-		"item"      "item_glimmer_cape_ultra"
 	}
 
 	"misc"
@@ -167,8 +166,8 @@
 	{
 		"item"		"item_vanguard"
 		"item"		"item_solar_crest"			// 炎阳纹章
+		"item"		"item_aeon_pendant"			// 大盘子（咸鱼之王）
 		"item"		"item_blade_mail_2"
-		"item"		"item_aeon_pendant"
 		"item"		"item_eternal_shroud"
 		"item"		"item_crimson_guard"
 		"item"		"item_insight_armor"
@@ -186,35 +185,29 @@
 
 	"weapons"
 	{
-		// "item"		"item_lesser_crit"
 		"item"		"item_basher"
 		"item"		"item_nullifier"			// 否决
-		"item"		"item_greater_crit"
+		"item"		"item_greater_crit"			// 大炮
 		"item"		"item_armlet_pro_max"		// 小鸡臂章
 		"item"		"item_ethereal_blade"		// 虚灵之刃
 		"item"		"item_revenants_brooch"		// 英灵胸针
 		"item"		"item_disperser"
 		"item"		"item_angels_demise"
 		// "item"		"item_invis_sword"
-		"item"		"item_bfury_2"
-		"item"		"item_bloodthorn"
-		"item"		"item_monkey_king_bar_2"
-		"item"		"item_shotgun_v2"
-		//"item"		"item_abyssal_blade"
-		"item"		"item_silver_edge_2"
-		"item"		"item_abyssal_blade_v2"
-		"item"		"item_hurricane_pike_2"
-		"item"		"item_radiance_2"
-		"item"		"item_infernal_desolator"
+		"item"		"item_radiance_2"			// 大辉耀
+		"item"		"item_silver_edge_2"		// 大隐刀
+		"item"		"item_abyssal_blade_v2"		// 一闪
+		"item"      "item_bfury_ultra"			// 救世狂战
+
+		"item"		"item_shotgun_v2"			// 霰弹枪
+		"item"		"item_hurricane_pike_2"		// 黄金魔龙枪
+		"item"		"item_monkey_king_bar_2"	// 大金箍棒
+		"item"		"item_bloodthorn_ultra"		// 大血棘
+
+		"item"		"item_infernal_desolator"	// 绝对破防之刃
 		"item"		"item_wasp_golden"
 		"item"		"item_excalibur"
-		"item"		"item_rapier_ultra"
-		"item"      "item_mjollnir_ultra"
-		"item"      "item_radiance_ultra"
-		"item"      "item_satanic_ultra"
-		"item"      "item_bfury_ultra"
-		"item"      "item_gungir_ultra"
-		"item"      "item_bloodthorn_ultra"
+		"item"		"item_rapier_ultra"			// 诅咒圣剑
 	}
 
 	// Level 4 - Orange / Orb / Artifacts
@@ -247,13 +240,6 @@
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
 		"item"		"item_tome_of_luoshu"
-		"item"      "item_spirit_vessel_ultra"
-		"item"      "item_blade_mail_ultra"
-		"item"      "item_skadi_ultra"
-		// "item"      "item_bloodstone_ultra"
-		"item"      "item_vladmir_ultra"
-		"item"      "item_black_king_bar_ultra"
-		"item"      "item_shivas_guard_ultra"
 	}
 
 	"sideshop1"

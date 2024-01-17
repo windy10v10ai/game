@@ -185,12 +185,12 @@ local function HeroKilled(keys)
         local gold = 0
         if iLevel <= 10 then
             gold = 5 + iLevel * 0.5
-        elseif iLevel <= 20 then
+        elseif iLevel <= 30 then
             gold = 10 + (iLevel - 10) * 1
         elseif iLevel <= 50 then
-            gold = 20 + (iLevel - 20) * 2
+            gold = 15 + (iLevel - 20) * 1.5
         else
-            gold = 80
+            gold = 60
         end
         gold = math.ceil(gold)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
@@ -244,7 +244,7 @@ local function HeroKilled(keys)
         end
 
         -- 连死次数补正
-        local extraFactor = math.max(1, deathCount - 3)
+        local extraFactor = math.max(1, deathCount - 2)
 
         -- 两边团队击杀数补正
         local playerTeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(attackerPlayerID))
@@ -256,7 +256,7 @@ local function HeroKilled(keys)
         totalFactor = math.max(totalFactor, 0)
         totalFactor = math.min(totalFactor, 10)
         -- 玩家数量减少时降低整倍率
-        totalFactor = totalFactor * (AIGameMode.playerNumber - 1) / 9
+        totalFactor = totalFactor * (AIGameMode.playerNumber) / 10
 
 
         gold = math.ceil(gold * totalFactor)

@@ -79,16 +79,12 @@
 	//=================================================================================================================
 	"creep_siege"
 	{
-		"ID"							"912"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"1"
-
-
 		"AbilityValues"
 		{
-				"bonus_building_damage"		"150"			// -150
+				"bonus_building_damage"		"150"			// 150
 				"incoming_hero_damage_penalty"		"-50"	// -50
 				"incoming_basic_damage_penalty"		"20"	// -30
+				"incoming_controlled_unit_penalty"	"-40"	// -40
 		}
 	}
 
@@ -97,26 +93,22 @@
 	//=================================================================================================================
 	"backdoor_protection"
 	{
-		"ID"							"5350"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"1"
-
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"900"
+				"radius"				"900"				// 900
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"activation_time"		"5.0"
+				"activation_time"		"5.0"				// 15.0
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"regen_rate"			"500"
+				"regen_rate"			"500"				// 90
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -127,27 +119,23 @@
 	//=================================================================================================================
 	"backdoor_protection_in_base"
 	{
-		"ID"							"5351"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"1"
-
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"activation_time"		"5.0"
+				"activation_time"		"5.0"				// 15.0
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"regen_rate"			"1000"
+				"regen_rate"			"1000"				// 90
 			}
 			// this is only used for event games
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"900"
+				"radius"				"900"				// 900
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
