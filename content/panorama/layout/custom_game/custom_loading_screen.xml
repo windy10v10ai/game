@@ -146,6 +146,7 @@
 							<Label text="3000" id="3000"/>
 							<Label text="5000" id="5000"/>
 							<Label text="10000" id="10000"/>
+							<Label text="20000" id="20000"/>
 						</DropDown>
 					</Panel>
 					<Panel id="SameHeroSelectionPanel"	class="GameOptionsSubPanel">

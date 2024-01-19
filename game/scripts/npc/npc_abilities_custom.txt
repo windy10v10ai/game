@@ -1745,7 +1745,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"100"
+		"AbilityCooldown"				"110"
 		"AbilityManaCost"				"100 200 300"
 
 		// Damage
@@ -1764,7 +1764,7 @@
 			"duration"
 			{
 				"value"						"30"
-				"special_bonus_unique_goku_7"	"+10"
+				"special_bonus_unique_goku_7"	"+6"
 			}
 		}
 	}

@@ -16,7 +16,9 @@ export class BaseHeroAIModifier extends BaseModifier {
   protected continueActionEndTime: number = 0;
 
   protected readonly FindRadius: number = 1600;
-  protected readonly PushNoAttactTowerIfHeroInDistance: number = 300;
+  protected readonly PushNoAttactTowerHeroDistanceBuff: number = 300;
+  protected readonly CastRange: number = 600;
+
   public readonly PushLevel: number = 10;
 
   protected hero: CDOTA_BaseNPC_Hero;
@@ -241,12 +243,12 @@ export class BaseHeroAIModifier extends BaseModifier {
     if (enemyHero) {
       // if hero in attack range
       const distanceToAttackHero = HeroUtil.GetDistanceToAttackRange(this.hero, enemyHero);
-      if (distanceToAttackHero <= 0) {
+      if (distanceToAttackHero <= this.PushNoAttactTowerHeroDistanceBuff) {
         return false;
       }
 
       const distanceToHero = HeroUtil.GetDistanceToHero(this.hero, enemyHero);
-      if (distanceToHero <= this.PushNoAttactTowerIfHeroInDistance) {
+      if (distanceToHero <= this.CastRange) {
         return false;
       }
     }
