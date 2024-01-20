@@ -43,6 +43,10 @@ export class ActionItem {
 
   static UseItemOnPosition(hero: CDOTA_BaseNPC_Hero, itemName: string, pos: Vector): boolean {
     const item = hero.FindItemInInventory(itemName);
+    if (!item) {
+      print(`[AI] ERROR UseItemOnPosition ${itemName} failed, not found`);
+      return false;
+    }
     if (this.IsItemCastable(hero, item) === false) {
       return false;
     }
@@ -51,9 +55,6 @@ export class ActionItem {
   }
 
   static IsItemCastable(hero: CDOTA_BaseNPC_Hero, item: CDOTA_Item): boolean {
-    if (!item) {
-      return false;
-    }
     if (item.GetCooldownTimeRemaining() > 0) {
       return false;
     }

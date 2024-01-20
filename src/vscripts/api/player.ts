@@ -1,3 +1,4 @@
+import { PlayerHelper } from "../helper/player-helper";
 import { PropertyController } from "../modules/property/property_controller";
 import { ApiClient, HttpMethod } from "./api_client";
 
@@ -73,12 +74,11 @@ export class Player {
       status: 1,
     });
     // get IsValidPlayer player's steamIds
-    const steamIds = [];
-    for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
-      if (PlayerResource.IsValidPlayer(i)) {
-        steamIds.push(PlayerResource.GetSteamAccountID(i));
-      }
-    }
+    const steamIds: number[] = [];
+    PlayerHelper.ForEachPlayer((playerId) => {
+      const steamId = PlayerResource.GetSteamAccountID(playerId);
+      steamIds.push(steamId);
+    });
     const matchId = GameRules.Script_GetMatchID().toString();
     const apiParameter = {
       method: HttpMethod.GET,
@@ -134,7 +134,7 @@ export class Player {
     }
 
     const steamId = PlayerResource.GetSteamAccountID(hero.GetPlayerOwnerID());
-    const playerInfo = Player.playerList.find((player) => player.id == steamId.toString());
+    const playerInfo = Player.playerList.find((player) => player.id === steamId.toString());
 
     if (playerInfo?.properties) {
       for (const property of playerInfo.properties) {
@@ -144,49 +144,43 @@ export class Player {
   }
 
   public static saveMemberToNetTable() {
-    for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
-      if (PlayerResource.IsValidPlayer(i)) {
-        // 32bit steamId
-        const steamId = PlayerResource.GetSteamAccountID(i);
-        const member = Player.memberList.find((m) => m.steamId == steamId);
-        if (member) {
-          // set key as short dotaId
-          CustomNetTables.SetTableValue("member_table", steamId.toString(), member);
-        }
+    PlayerHelper.ForEachPlayer((playerId) => {
+      // 32bit steamId
+      const steamId = PlayerResource.GetSteamAccountID(playerId);
+      const member = Player.memberList.find((m) => m.steamId === steamId);
+      if (member) {
+        // set key as short dotaId
+        CustomNetTables.SetTableValue("member_table", steamId.toString(), member);
       }
-    }
+    });
   }
 
   public static savePointInfoToNetTable() {
-    for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
-      if (PlayerResource.IsValidPlayer(i)) {
-        // 32bit steamId
-        const steamId = PlayerResource.GetSteamAccountID(i);
-        const steamIdPointInfoList = Player.pointInfoList.filter((p) => p.steamId == steamId);
-        if (steamIdPointInfoList.length > 0) {
-          // set key as short dotaId
-          CustomNetTables.SetTableValue("point_info", steamId.toString(), steamIdPointInfoList);
-        }
+    PlayerHelper.ForEachPlayer((playerId) => {
+      // 32bit steamId
+      const steamId = PlayerResource.GetSteamAccountID(playerId);
+      const steamIdPointInfoList = Player.pointInfoList.filter((p) => p.steamId === steamId);
+      if (steamIdPointInfoList.length > 0) {
+        // set key as short dotaId
+        CustomNetTables.SetTableValue("point_info", steamId.toString(), steamIdPointInfoList);
       }
-    }
+    });
   }
 
   public static savePlayerToNetTable() {
-    for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
-      if (PlayerResource.IsValidPlayer(i)) {
-        // 32bit steamId
-        const steamId = PlayerResource.GetSteamAccountID(i);
-        const player = Player.playerList.find((p) => p.id == steamId.toString());
-        if (player) {
-          // set key as short dotaId
-          CustomNetTables.SetTableValue("player_table", steamId.toString(), player);
-        }
+    PlayerHelper.ForEachPlayer((playerId) => {
+      // 32bit steamId
+      const steamId = PlayerResource.GetSteamAccountID(playerId);
+      const player = Player.playerList.find((p) => p.id === steamId.toString());
+      if (player) {
+        // set key as short dotaId
+        CustomNetTables.SetTableValue("player_table", steamId.toString(), player);
       }
-    }
+    });
   }
 
   public IsMember(steamId: number) {
-    const member = Player.memberList.find((m) => m.steamId == steamId);
+    const member = Player.memberList.find((m) => m.steamId === steamId);
     if (member) {
       return member.enable;
     }
@@ -194,7 +188,7 @@ export class Player {
   }
 
   public GetMember(steamId: number) {
-    const member = Player.memberList.find((m) => m.steamId == steamId);
+    const member = Player.memberList.find((m) => m.steamId === steamId);
     if (member) {
       return member;
     }
@@ -210,7 +204,7 @@ export class Player {
 
   public onPlayerPropertyLevelup(event: { PlayerID: PlayerID; name: string; level: string }) {
     if (
-      GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) == ApiClient.LOCAL_APIKEY &&
+      GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) === ApiClient.LOCAL_APIKEY &&
       !IsInToolsMode()
     ) {
       return;
@@ -241,12 +235,12 @@ export class Player {
     PropertyController.RefreshPlayerProperty(playerProperty);
 
     // 更新 nettable
-    const player = Player.playerList.find((p) => p.id == playerProperty.steamId.toString());
+    const player = Player.playerList.find((p) => p.id === playerProperty.steamId.toString());
     if (player) {
       if (!player.properties) {
         player.properties = [];
       }
-      const property = player.properties.find((p) => p.name == playerProperty.name);
+      const property = player.properties.find((p) => p.name === playerProperty.name);
       if (property) {
         property.level = playerProperty.level;
       } else {

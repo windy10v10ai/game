@@ -1,4 +1,5 @@
 import type { PlayerProperty } from "../../api/player";
+import { PlayerHelper } from "../../helper/player-helper";
 import {
   property_attack_range_bonus,
   property_attackspeed_bonus_constant,
@@ -100,17 +101,15 @@ export class PropertyController {
 
   // 属性加点后更新属性
   public static RefreshPlayerProperty(property: PlayerProperty) {
-    for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
-      if (PlayerResource.IsValidPlayer(i)) {
-        const steamId = PlayerResource.GetSteamAccountID(i);
-        if (steamId === property.steamId) {
-          const hero = PlayerResource.GetSelectedHeroEntity(i);
-          if (hero) {
-            PropertyController.setModifier(hero, property);
-          }
+    PlayerHelper.ForEachPlayer((playerId) => {
+      const steamId = PlayerResource.GetSteamAccountID(playerId);
+      if (steamId === property.steamId) {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (hero) {
+          PropertyController.setModifier(hero, property);
         }
       }
-    }
+    });
   }
 
   // 更新单条属性

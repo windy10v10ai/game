@@ -129,9 +129,6 @@ export class BaseHeroAIModifier extends BaseModifier {
       case ModeEnum.LANING:
         this.ActionLaning();
         break;
-      case ModeEnum.GANKING:
-        this.ActionGanking();
-        break;
       case ModeEnum.PUSH:
         this.ActionPush();
         break;
@@ -165,7 +162,7 @@ export class BaseHeroAIModifier extends BaseModifier {
   }
 
   ActionLaning(): void {
-    // TODO
+    // TODO 对线期攻击小兵，技能清兵，根据英雄继承后实装
   }
 
   ActionAttack(): void {
@@ -204,10 +201,6 @@ export class BaseHeroAIModifier extends BaseModifier {
       // end
       this.continueActionEndTime = this.gameTime;
     }
-  }
-
-  ActionGanking(): void {
-    // TODO
   }
 
   ActionPush(): void {

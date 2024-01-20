@@ -11,7 +11,7 @@
     "noImplicitReturns": true,
     // FIXME: 严格模式开启后，会有很多报错，需要逐个修复
     // "strict": true
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "strictPropertyInitialization": false,
     "strict": false
   },

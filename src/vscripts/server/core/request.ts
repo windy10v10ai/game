@@ -107,7 +107,7 @@ const throwError = (result: CScriptHTTPResponse): void => {
   };
 
   const __error = errors[result.StatusCode];
-  if (__error) {
+  if (__error !== undefined) {
     error(__error);
   }
 
@@ -180,7 +180,7 @@ export const request = <T>(config: OpenAPIConfig, options: ApiRequestOptions): P
       throwError(response);
 
       // 如果body包含error code，那么throw之
-      if (response.Body) {
+      if (response.Body !== undefined) {
         try {
           let data = JSON.decode(response.Body);
           if (data && data.state == `ERROR`) {
