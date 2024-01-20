@@ -15,7 +15,6 @@ export class FSA {
   constructor() {
     this.ModeList.push(new ModeLaning());
     this.ModeList.push(new ModeAttack());
-    // TODO ganking
     this.ModeList.push(new ModeRetreat());
     this.ModeList.push(new ModeRune());
     this.ModeList.push(new ModePush());

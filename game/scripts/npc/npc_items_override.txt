@@ -1484,17 +1484,7 @@
 	//=================================================================================================================
 	"item_recipe_bracer"
 	{
-		"ID"							"72"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-
-		"ItemCost"						"305"
-		"ItemShopTags"					""
-
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_bracer"
-		"ItemRequirements"
-		{
-			"01"						"item_circlet;item_gauntlets"
-		}
+		"ItemCost"						"355"
 	}
 
 	//=================================================================================================================
@@ -1502,23 +1492,13 @@
 	//=================================================================================================================
 	"item_bracer"
 	{
-		"ID"							"73"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
 		"ItemLevelByGameTime"			"3"
 
-		"ItemCost"						"600"
-		"ItemShopTags"					"damage;int;agi;str"
-		"ItemQuality"					"common"
-		"ItemAliases"					"bracer"
-		"ShouldBeInitiallySuggested"	"1"
-		"ShouldBeSuggested"				"1"
-
 		"AbilityValues"
 		{
-			"bonus_strength"		"10 20"		// 5 10
+			"bonus_strength"		"9 18"		// 5 10
 			"bonus_agility"			"4 8"		// 2 4
 			"bonus_intellect"		"4 8"		// 2 4
 			"bonus_damage"			"6 12"		// 3 6
@@ -1533,17 +1513,7 @@
 	//=================================================================================================================
 	"item_recipe_wraith_band"
 	{
-		"ID"							"74"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-
-		"ItemCost"						"305"
-		"ItemShopTags"					""
-
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_wraith_band"
-		"ItemRequirements"
-		{
-			"01"						"item_circlet;item_slippers"
-		}
+		"ItemCost"						"355"
 	}
 
 	//=================================================================================================================
@@ -1551,27 +1521,17 @@
 	//=================================================================================================================
 	"item_wraith_band"
 	{
-		"ID"							"75"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
 		"ItemLevelByGameTime"			"3"
 
-		"ItemCost"						"600"
-		"ItemShopTags"					"damage;int;agi;str"
-		"ItemQuality"					"common"
-		"ItemAliases"					"wraith band"
-		"ShouldBeInitiallySuggested"	"1"
-		"ShouldBeSuggested"				"1"
-
 		"AbilityValues"
 		{
-			"bonus_agility"			"10 20"		// 5 10
+			"bonus_agility"			"9 18"		// 5 10
 			"bonus_strength"		"4 8"		// 2 4
 			"bonus_intellect"		"4 8"		// 2 4
-			"bonus_attack_speed"	"10 20"		// 5 10
-			"bonus_armor"			"5 10"		// 2 4
+			"bonus_attack_speed"	"9 18"		// 5 10
+			"bonus_armor"			"4 8"		// 2 4
 			"clock_time"			"3"			// 25
 		}
 	}
@@ -1581,17 +1541,7 @@
 	//=================================================================================================================
 	"item_recipe_null_talisman"
 	{
-		"ID"							"76"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-
-		"ItemCost"						"305"
-		"ItemShopTags"					""
-
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_null_talisman"
-		"ItemRequirements"
-		{
-			"01"						"item_circlet;item_mantle"
-		}
+		"ItemCost"						"355"
 	}
 
 	//=================================================================================================================
@@ -1599,23 +1549,13 @@
 	//=================================================================================================================
 	"item_null_talisman"
 	{
-		"ID"							"77"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
 		"ItemLevelByGameTime"			"3"
 
-		"ItemCost"						"600"
-		"ItemShopTags"					"damage;int;agi;str"
-		"ItemQuality"					"common"
-		"ItemAliases"					"null talisman"
-		"ShouldBeInitiallySuggested"	"1"
-		"ShouldBeSuggested"				"1"
-
 		"AbilityValues"
 		{
-			"bonus_intellect"		"10 20"		// 5 10
+			"bonus_intellect"		"9 18"		// 5 10
 			"bonus_strength"		"4 8"		// 2 4
 			"bonus_agility"			"4 8"		// 2 4
 			"bonus_max_mana_percentage"	"5 10"	// 3 6

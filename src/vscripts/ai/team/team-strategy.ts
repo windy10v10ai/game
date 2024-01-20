@@ -20,7 +20,7 @@ export class TeamStrategy extends BaseModifier {
   }
 
   OnIntervalThink(): void {
-    // TODO: implement
+    // TODO 团队策略
   }
 
   IsPurgable(): boolean {

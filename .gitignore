@@ -19,6 +19,7 @@ game/scripts/vscripts/bots/
 game/scripts/vscripts/addon_game_mode.lua
 game/scripts/vscripts/ai/
 game/scripts/vscripts/api/
+game/scripts/vscripts/helper/
 game/scripts/vscripts/modules/
 game/scripts/vscripts/server/
 game/scripts/vscripts/utils/

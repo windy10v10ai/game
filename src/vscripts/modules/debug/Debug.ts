@@ -39,6 +39,7 @@ export class Debug {
     // v 获取当前vector
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
       const pos = hero.GetAbsOrigin();
       const vectorString = `Vector(${Math.floor(pos.x)}, ${Math.floor(pos.y)}, ${Math.floor(
         pos.z,

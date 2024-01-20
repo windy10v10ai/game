@@ -1,4 +1,4 @@
-export class Helper {
+export class PlayerHelper {
   static IsHumanPlayer(npc: CDOTA_BaseNPC): boolean {
     if (npc.IsRealHero()) {
       // is human player
@@ -13,5 +13,13 @@ export class Helper {
       }
     }
     return false;
+  }
+
+  static ForEachPlayer(callback: (playerId: PlayerID) => void) {
+    for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
+      if (PlayerResource.IsValidPlayer(i)) {
+        callback(i);
+      }
+    }
   }
 }

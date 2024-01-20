@@ -88,6 +88,7 @@ export class XNetTable {
     const key_name = tostring(key);
     this._data[tname] ??= {};
     value = value ?? ({} as TStruct[TKey]);
+    // @ts-expect-error Missing type information for value
     this._data[tname][key_name] = value;
     // @ts-expect-error Missing type information for value
     this._appendUpdateRequest(undefined, tname, key_name, value);
@@ -114,6 +115,7 @@ export class XNetTable {
     this._player_data[playerId] ??= {};
     this._player_data[playerId]![tname] ??= {};
     value = value ?? ({} as TStruct[TKey]);
+    // @ts-expect-error Missing type information for value
     this._player_data[playerId]![tname][key_name] = value;
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error

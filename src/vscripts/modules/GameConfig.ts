@@ -60,7 +60,7 @@ export class GameConfig {
       GameRules.SetHeroSelectionTime(5);
       GameRules.SetHeroSelectPenaltyTime(5); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(5);
-      GameRules.SetPreGameTime(60);
+      GameRules.SetPreGameTime(10);
     }
   }
 }

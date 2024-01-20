@@ -16,7 +16,9 @@ export class BaseHeroAIModifier extends BaseModifier {
   protected continueActionEndTime: number = 0;
 
   protected readonly FindRadius: number = 1600;
-  protected readonly PushNoAttactTowerIfHeroInDistance: number = 300;
+  protected readonly PushNoAttactTowerHeroDistanceBuff: number = 300;
+  protected readonly CastRange: number = 600;
+
   public readonly PushLevel: number = 10;
 
   protected hero: CDOTA_BaseNPC_Hero;
@@ -127,9 +129,6 @@ export class BaseHeroAIModifier extends BaseModifier {
       case ModeEnum.LANING:
         this.ActionLaning();
         break;
-      case ModeEnum.GANKING:
-        this.ActionGanking();
-        break;
       case ModeEnum.PUSH:
         this.ActionPush();
         break;
@@ -163,7 +162,7 @@ export class BaseHeroAIModifier extends BaseModifier {
   }
 
   ActionLaning(): void {
-    // TODO
+    // TODO 对线期攻击小兵，技能清兵，根据英雄继承后实装
   }
 
   ActionAttack(): void {
@@ -204,10 +203,6 @@ export class BaseHeroAIModifier extends BaseModifier {
     }
   }
 
-  ActionGanking(): void {
-    // TODO
-  }
-
   ActionPush(): void {
     if (this.CastEnemy()) {
       return;
@@ -241,12 +236,12 @@ export class BaseHeroAIModifier extends BaseModifier {
     if (enemyHero) {
       // if hero in attack range
       const distanceToAttackHero = HeroUtil.GetDistanceToAttackRange(this.hero, enemyHero);
-      if (distanceToAttackHero <= 0) {
+      if (distanceToAttackHero <= this.PushNoAttactTowerHeroDistanceBuff) {
         return false;
       }
 
       const distanceToHero = HeroUtil.GetDistanceToHero(this.hero, enemyHero);
-      if (distanceToHero <= this.PushNoAttactTowerIfHeroInDistance) {
+      if (distanceToHero <= this.CastRange) {
         return false;
       }
     }
