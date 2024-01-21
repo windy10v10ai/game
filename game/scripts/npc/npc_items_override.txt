@@ -1191,10 +1191,10 @@
 		"AbilityCooldown"				"6"			// 7
 		"AbilityValues"
 		{
-				"int_damage_multiplier"	"1.5"		// 1
-				"slow"	"35"						// 25
+				"int_damage_multiplier"	"1.25"		// 1
+				"slow"	"30"						// 25
 				"slow_duration"	"4"					// 4
-				"active_mres_reduction"		"30"	// 20
+				"active_mres_reduction"		"25"	// 20
 				"passive_cooldown"		"4"			// 4
 		}
 	}

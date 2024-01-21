@@ -132,16 +132,29 @@ function Snippet_Team(team) {
   panel.SetHasClass("IsRight", true);
   panel.SetHasClass("IsWinner", GAME_RESULT.isWinner);
 
+  const gameOptions = CustomNetTables.GetTableValue("game_options_table", "game_option");
+  const gameDifficulty = gameOptions.game_difficulty_dropdown.optionId;
   if (team === 2) {
-    panel.FindChildTraverse("GoldXpMultiplier").text =
-      $.Localize("#player_multiplier") + ": x" + GAME_RESULT.options.playerGoldXpMultiplier;
-    panel.FindChildTraverse("TowerPower").text =
-      $.Localize("#tower_power") + ": " + GAME_RESULT.options.towerPower;
+    const goldXpMultiplierPanel = panel.FindChildTraverse("GoldXpMultiplier");
+    if (gameDifficulty > 0) {
+      goldXpMultiplierPanel.text = $.Localize("#game_difficulty_title") + ` N${gameDifficulty}`;
+      goldXpMultiplierPanel.style.marginTop = "8px";
+      goldXpMultiplierPanel.style.fontSize = "26px";
+    } else {
+      panel.FindChildTraverse("GoldXpMultiplier").text =
+        $.Localize("#player_multiplier") + ": x" + GAME_RESULT.options.playerGoldXpMultiplier;
+      panel.FindChildTraverse("TowerPower").text =
+        $.Localize("#tower_power") + ": " + GAME_RESULT.options.towerPower;
+    }
   } else {
-    panel.FindChildTraverse("GoldXpMultiplier").text =
-      $.Localize("#bot_multiplier") + ": x" + GAME_RESULT.options.botGoldXpMultiplier;
-    panel.FindChildTraverse("TowerPower").text =
-      $.Localize("#tower_endure") + ": " + GAME_RESULT.options.towerEndure;
+    if (gameDifficulty > 0) {
+      //
+    } else {
+      panel.FindChildTraverse("GoldXpMultiplier").text =
+        $.Localize("#bot_multiplier") + `: x${GAME_RESULT.options.botGoldXpMultiplier}`;
+      panel.FindChildTraverse("TowerPower").text =
+        $.Localize("#tower_endure") + ": " + GAME_RESULT.options.towerEndure;
+    }
   }
   const teamDetails = Game.GetTeamDetails(team);
   panel.FindChildTraverse("TeamScore").text = teamDetails.team_score;
@@ -162,7 +175,7 @@ function OnGameResult(table, key, gameResult) {
     return;
   }
 
-  if (Game.GetGameWinner() == "2") {
+  if (Game.GetGameWinner() === "2") {
     gameResult.isWinner = true;
   } else {
     gameResult.isWinner = false;

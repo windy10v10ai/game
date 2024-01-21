@@ -277,19 +277,33 @@ function _ScoreboardUpdater_UpdateTeamPanel(
   }
 
   const GAME_RESULT = CustomNetTables.GetTableValue("ending_stats", "player_data");
+  const gameOptions = CustomNetTables.GetTableValue("game_options_table", "game_option");
+  const gameDifficulty = gameOptions.game_difficulty_dropdown.optionId;
   if (teamId === 2 && GAME_RESULT) {
     const radiantPanel = containerPanel.FindChildInLayoutFile("RadiantHeader");
-    radiantPanel.FindChildTraverse("GoldXpMultiplier").text =
-      $.Localize("#player_multiplier") + ": x" + GAME_RESULT.options.playerGoldXpMultiplier;
-    radiantPanel.FindChildTraverse("TowerPower").text =
-      $.Localize("#tower_power") + ": " + GAME_RESULT.options.towerPower;
+
+    const goldXpMultiplierPanel = radiantPanel.FindChildTraverse("GoldXpMultiplier");
+    if (gameDifficulty > 0) {
+      goldXpMultiplierPanel.text = $.Localize("#game_difficulty_title") + ` N${gameDifficulty}`;
+      goldXpMultiplierPanel.style.marginTop = "6px";
+      goldXpMultiplierPanel.style.fontSize = "22px";
+    } else {
+      goldXpMultiplierPanel.text =
+        $.Localize("#player_multiplier") + `: x${GAME_RESULT.options.playerGoldXpMultiplier}`;
+      radiantPanel.FindChildTraverse("TowerPower").text =
+        $.Localize("#tower_power") + ": " + GAME_RESULT.options.towerPower;
+    }
     radiantPanel.FindChildTraverse("TeamScoreSmall").text = teamDetails.team_score;
   } else {
     const direPanel = containerPanel.FindChildInLayoutFile("DireHeader");
-    direPanel.FindChildTraverse("GoldXpMultiplier").text =
-      $.Localize("#bot_multiplier") + ": x" + GAME_RESULT.options.botGoldXpMultiplier;
-    direPanel.FindChildTraverse("TowerPower").text =
-      $.Localize("#tower_endure") + ": " + GAME_RESULT.options.towerEndure;
+    if (gameDifficulty > 0) {
+      //
+    } else {
+      direPanel.FindChildTraverse("GoldXpMultiplier").text =
+        $.Localize("#bot_multiplier") + `: x${GAME_RESULT.options.botGoldXpMultiplier}`;
+      direPanel.FindChildTraverse("TowerPower").text =
+        $.Localize("#tower_endure") + ": " + GAME_RESULT.options.towerEndure;
+    }
     direPanel.FindChildTraverse("TeamScoreSmall").text = teamDetails.team_score;
   }
 
@@ -298,8 +312,8 @@ function _ScoreboardUpdater_UpdateTeamPanel(
   if (localPlayer) {
     localPlayerTeamId = localPlayer.player_team_id;
   }
-  teamPanel.SetHasClass("local_player_team", localPlayerTeamId == teamId);
-  teamPanel.SetHasClass("not_local_player_team", localPlayerTeamId != teamId);
+  teamPanel.SetHasClass("local_player_team", localPlayerTeamId === teamId);
+  teamPanel.SetHasClass("not_local_player_team", localPlayerTeamId !== teamId);
 
   var teamPlayers = Game.GetPlayerIDsOnTeam(teamId);
   var playersContainer = teamPanel.FindChildInLayoutFile("PlayersContainer");
@@ -315,8 +329,8 @@ function _ScoreboardUpdater_UpdateTeamPanel(
     }
   }
 
-  teamPanel.SetHasClass("no_players", teamPlayers.length == 0);
-  teamPanel.SetHasClass("one_player", teamPlayers.length == 1);
+  teamPanel.SetHasClass("no_players", teamPlayers.length === 0);
+  teamPanel.SetHasClass("one_player", teamPlayers.length === 1);
   teamPanel.SetHasClass("many_players", teamPlayers.length > 5);
 
   if (teamsInfo.max_team_players < teamPlayers.length) {

@@ -5889,7 +5889,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1525"
+		"ItemCost"						"1025"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5954,7 +5954,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1525"
+		"ItemCost"						"1025"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -6654,7 +6654,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2600"
+		"ItemCost"						"600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -6699,7 +6699,7 @@
 				"bonus_armor"			"16"
 				"bonus_mana_regen"		"3"
 				"projectile_speed"		"300"
-				"int_damage_multiplier"	"1.5"
+				"int_damage_multiplier"	"1.75"
 				"slow"	"50"
 				"slow_duration"	"4"
 				"active_mres_reduction"		"40"

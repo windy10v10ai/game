@@ -649,11 +649,11 @@ tBotItemData.purchaseItemList = {
 		'item_aether_lens_2',
 		'item_octarine_core',
 		'item_recipe_arcane_octarine_core',
-		'item_dagon_5',
-		'item_hallowed_scepter',
+		'item_abyssal_blade_v2',
 		'item_refresher',
 		'item_recipe_refresh_core',
 		'item_necronomicon_staff',
+		'item_angels_demise',		-- 绝刃
 	},
 	npc_dota_hero_omniknight = {
 		'item_magic_wand',

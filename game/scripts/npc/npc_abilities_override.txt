@@ -9205,22 +9205,22 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"images_do_damage_percent"	"200"
+				"images_do_damage_percent"	"150"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"images_do_damage_percent_tooltip"			"300"
+				"images_do_damage_percent_tooltip"			"250"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"images_take_damage_percent"	"-50"
+				"images_take_damage_percent"	"50"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"images_take_damage_percent_tooltip"			"50"
+				"images_take_damage_percent_tooltip"			"150"
 			}
 			"06"
 			{
