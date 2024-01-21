@@ -6002,7 +6002,7 @@
 			"unholy_bonus_armor"	"12"
 			"unholy_bonus_slow_resistance"	"45"
 			"unholy_health_drain_per_second"	"5"
-			"toggle_cooldown"		"0.036f"
+			"toggle_cooldown"		"0.036"
 		}
 	}
 	//=================================================================================================================
@@ -6578,8 +6578,8 @@
 				"quelling_bonus_ranged"	"60"
 
 				"cleave_starting_width"			"150"
-				"cleave_ending_width"			"650"
-				"cleave_distance"			"1200"
+				"cleave_ending_width"			"550"
+				"cleave_distance"			"1050"
 				"upgraded_cleave_bonus"			"25"
 				"upgraded_damage_bonus"			"15"
 		}
@@ -6637,6 +6637,73 @@
 				"spell_amp_debuff"			"70"
 				"proc_damage"				"120"
 				"proc_chance"				"50"
+		}
+	}
+
+
+	//=================================================================================================================
+	// Sacred Parasma 神圣斧
+	//=================================================================================================================
+	"item_recipe_devastator_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"						"item_recipe_devastator"
+		"AbilityTextureName"			"item_recipe_devastator_2"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"600"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_devastator_2"
+		"ItemRequirements"
+		{
+			"01"						"item_devastator;item_mystic_staff"
+		}
+	}
+
+	"item_devastator_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"BaseClass"						"item_devastator"
+		"AbilityTextureName"			"item_devastator_2"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5"
+
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"5575"
+		"ItemShopTags"					"int;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"staff;misery;sm"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_intellect"		"90"
+				"bonus_attack_speed"	"80"
+				"bonus_armor"			"16"
+				"bonus_mana_regen"		"3"
+				"projectile_speed"		"300"
+				"int_damage_multiplier"	"2"
+				"slow"	"50"
+				"slow_duration"	"4"
+				"active_mres_reduction"		"50"
+				"passive_cooldown"		"4"
 		}
 	}
 }

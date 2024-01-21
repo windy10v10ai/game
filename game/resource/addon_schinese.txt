@@ -1705,5 +1705,19 @@
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_upgrade_description"			"灵魂撕裂10名敌方英雄。"
 		"DOTA_Tooltip_modifier_bloodthorn_ultra_debuff"                       "血棘"
 		"DOTA_Tooltip_modifier_bloodthorn_ultra_debuff_Description"           "被沉默并受到120%%的额外伤害，伤害在效果结束时结算，类型为魔法伤害。\n受到所有攻击时还会受到额外伤害，并且攻击不会落空。"
+
+		// item_devastator_2 Sacred Parasma 神圣斧
+		"DOTA_Tooltip_Ability_item_devastator_2"				"神圣斧"
+		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>被动：巫师之刃</h1>使下次攻击具有克敌机先效果，并且会施加毒素，持续%slow_duration%秒，减缓%slow%%%移动速度，并且每秒造成%int_damage_multiplier%倍智力值的伤害。\n\n<h1>被动：法力腐蚀</h1>攻击会降低敌人%active_mres_reduction%%%魔法抗性，持续%passive_cooldown%秒。"
+		"DOTA_Tooltip_ability_item_devastator_2_Lore"						"极具毁灭性。"
+		"DOTA_Tooltip_ability_item_devastator_2_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_devastator_2_bonus_armor"					"+$armor"
+		"DOTA_Tooltip_ability_item_devastator_2_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_devastator_2_bonus_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_devastator_2_projectile_speed"			"+$projectile_speed"
+
+		"DOTA_Tooltip_modifier_devastator_2_debuff"						"法力腐蚀"
+		"DOTA_Tooltip_modifier_devastator_2_debuff_Description"  			"魔法抗性降低%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%"
+
 	}
 }

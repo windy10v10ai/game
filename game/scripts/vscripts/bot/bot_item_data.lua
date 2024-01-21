@@ -10,8 +10,9 @@ tBotItemData.purchaseItemList = {
 		'item_magic_wand',
 		'item_boots',
 		'item_bracer',
-		'item_holy_locket',
 		'item_bracer',
+		'item_bracer',
+		'item_holy_locket',
 		'item_vanguard',
 		'item_falcon_blade',	-- 猎鹰战刃
 		'item_echo_sabre',
@@ -62,9 +63,9 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_axe = {
 		'item_magic_wand',
 		'item_boots',
-		'item_bracer',
+		'item_bracer',				-- 护腕
+		'item_bracer',				-- 护腕
 		'item_power_treads',
-		'item_bracer',
 		'item_vanguard',
 		'item_blink',
 		'item_blade_mail_2',
@@ -84,9 +85,9 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_spectre = {
 		'item_magic_wand',
 		'item_boots',
-		'item_bracer',
+		'item_wraith_band',			-- 系带
+		'item_wraith_band',			-- 系带
 		'item_power_treads',
-		'item_bracer',
 		'item_vanguard',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
@@ -103,7 +104,8 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_bane = {
 		'item_magic_wand',
 		'item_boots',
-		'item_null_talisman',
+		'item_null_talisman',		-- 挂件
+		'item_null_talisman',		-- 挂件
 		'item_arcane_boots',
 		'item_glimmer_cape',
 		'item_force_staff',
@@ -124,7 +126,8 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_bounty_hunter = {
 		'item_magic_wand',
 		'item_boots',
-		'item_wraith_band',
+		'item_wraith_band',			-- 系带
+		'item_wraith_band',			-- 系带
 		'item_power_treads',
 		'item_orb_of_corrosion',
 		'item_wings_of_haste',
@@ -143,9 +146,8 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_bloodseeker = {
 		'item_magic_wand',
 		'item_boots',
-		'item_wraith_band',
-		'item_quelling_blade_2_datadriven',
-		'item_wraith_band',
+		'item_wraith_band',			-- 系带
+		'item_wraith_band',			-- 系带
 		'item_power_treads',
 		'item_orb_of_corrosion',
 		'item_vanguard',
@@ -171,7 +173,8 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_bristleback = {
 		'item_magic_wand',
 		'item_boots',
-		'item_wraith_band',
+		'item_bracer',				-- 护腕
+		'item_bracer',				-- 护腕
 		'item_power_treads',
 		'item_vanguard',
 		'item_falcon_blade',
@@ -191,10 +194,9 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_chaos_knight = {
 		'item_magic_wand',
 		'item_boots',
-		'item_quelling_blade_2_datadriven',
+		'item_bracer',
 		'item_bracer',
 		'item_power_treads',
-		'item_bracer',
 		'item_armlet',
 		'item_echo_sabre',
 		'item_falcon_blade',
@@ -214,7 +216,8 @@ tBotItemData.purchaseItemList = {
 		-- 出门装
 		'item_magic_wand',
 		'item_boots',
-		'item_null_talisman',
+		'item_null_talisman',		-- 挂件
+		'item_null_talisman',		-- 挂件
 		-- 过度
 		'item_glimmer_cape',
 		'item_phase_boots',
@@ -240,6 +243,7 @@ tBotItemData.purchaseItemList = {
 		-- 出门装
 		'item_magic_wand',
 		'item_boots',
+		'item_null_talisman',		-- 挂件
 		'item_holy_locket',
 		'item_arcane_boots',
 		'item_null_talisman',
@@ -292,8 +296,8 @@ tBotItemData.purchaseItemList = {
 		'item_magic_wand',
 		'item_boots',
 		'item_bracer',
-		'item_armlet',
 		'item_bracer',
+		'item_armlet',
 		'item_power_treads',
 		'item_heavens_halberd',
 		'item_wings_of_haste',
@@ -571,23 +575,6 @@ tBotItemData.purchaseItemList = {
 		'item_abyssal_blade_v2',
 		'item_wasp_despotic',
 		'item_jump_jump_jump',
-	},
-	-- 未启用
-	npc_dota_hero_mirana = {
-		'item_magic_wand',
-		'item_boots',
-		'item_null_talisman',
-		'item_arcane_boots',
-		'item_glimmer_cape',
-		'item_force_staff',
-		'item_wings_of_haste',
-		'item_aghanims_shard',
-		'item_ultimate_scepter',
-		'item_recipe_ultimate_scepter_2',
-		'item_dagon_5',
-		'item_arcane_octarine_core',
-		'item_hallowed_scepter',
-		'item_necronomicon_staff',
 	},
 	npc_dota_hero_nevermore = {
 		'item_magic_wand',
@@ -1256,9 +1243,6 @@ tBotItemData.sellItemList = {
 		'item_bfury',
 		'item_yasha_and_kaya',
 	},
-	npc_dota_hero_mirana = {
-		'item_force_staff',
-	},
 	npc_dota_hero_nevermore = {
 		'item_wraith_band',
 		'item_falcon_blade',
@@ -1383,16 +1367,16 @@ tBotItemData.sellItemCommonList = {
 	'item_bottle',
 
 	-- basic
-	'item_orb_of_venom',	-- 淬毒之珠
-	'item_slippers',		-- 敏捷便靴
-	'item_mantle',			-- 智力斗篷
-	'item_gauntlets',		-- 力量手套
-	'item_circlet',			-- 圆环
+	'item_orb_of_venom',		-- 淬毒之珠
+	'item_slippers',			-- 敏捷便靴
+	'item_mantle',				-- 智力斗篷
+	'item_gauntlets',			-- 力量手套
+	'item_circlet',				-- 圆环
 	'item_branches',
 	'item_magic_stick',
 	'item_recipe_magic_wand',
 	'item_magic_wand',
-	'item_wind_lace',		-- 风灵之纹
+	'item_wind_lace',			-- 风灵之纹
 
 	-- 补刀斧
 	'item_quelling_blade',
@@ -1405,19 +1389,14 @@ tBotItemData.sellItemCommonList = {
 	'item_recipe_ring_of_basilius',
 	'item_ring_of_basilius',
 
-	-- 草鞋
-	'item_boots',
 
-	-- 王冠
-	'item_crown',
-	-- 护腕
-	'item_bracer',
-	-- 挂件
-	'item_null_talisman',
-	-- 系带
-	'item_wraith_band',
-	-- 腐蚀之球
-	'item_orb_of_corrosion',
+	'item_boots',				-- 草鞋
+
+	'item_crown',				-- 王冠
+	'item_bracer',				-- 护腕
+	'item_null_talisman',		-- 挂件
+	'item_wraith_band',			-- 系带
+	'item_orb_of_corrosion',	-- 腐蚀之球
 
 	-- 相位
 	'item_phase_boots',
@@ -1718,9 +1697,6 @@ tBotItemData.addNeutralItemList = {
 	},
 	npc_dota_hero_meepo = {
 		'item_minotaur_horn',
-	},
-	npc_dota_hero_mirana = {
-		'item_ballista',
 	},
 	npc_dota_hero_nevermore = {
 		'item_desolator_2',

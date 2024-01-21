@@ -912,7 +912,7 @@
 		"AbilityValues"
 		{
 			"attack_range_bonus"		"250" //250
-			"knockback_distance"		"40"  //50
+			"knockback_distance"		"20"  //50
 			"knockback_duration"		"0.1" //0.2
 			"bonus_damage"		        "150"  //50
 		}
