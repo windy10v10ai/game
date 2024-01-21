@@ -13,8 +13,8 @@ tBotItemData.purchaseItemList = {
 		'item_bracer',
 		'item_bracer',
 		'item_holy_locket',
+		'item_hand_of_group',		-- 团队之手
 		'item_vanguard',
-		'item_falcon_blade',	-- 猎鹰战刃
 		'item_echo_sabre',
 		'item_blink',
 		'item_wings_of_haste',

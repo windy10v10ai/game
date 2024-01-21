@@ -4710,8 +4710,8 @@
 		{
 			"bonus_damage"
 			{
-				"value"			"60 100 150 200 250"
-				"special_bonus_unique_bounty_hunter_4"	"+50"
+				"value"			"60 100 140 180 220"
+				"special_bonus_unique_bounty_hunter_4"	"+40"
 			}
 			"gold_steal"
 			{
@@ -5730,8 +5730,9 @@
 			"damage_per_mana"
 			{
 				"value"								"2 2.5 3 3.5 4 4.5"
-				"special_bonus_unique_medusa_6"		"+1.7"
+				"special_bonus_unique_medusa_6"		"+2.5"
 			}
+			"absorption_pct"						"96"		// 98
 			"bonus_mana"			"100 200 300 400 600 800"
 		}
 	}
@@ -9117,7 +9118,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movement_slow_pct"		"30 40 50 60 70 80 90"
+				"movement_slow_pct"		"30 40 50 60 70"
 			}
 		}
 	}
@@ -10081,10 +10082,10 @@
 		{
 			"mana_pool_damage_pct"
 			{
-				"value"										"7 9 11 13 15"
+				"value"										"9 10 11 12 13"
 				"special_bonus_unique_outworld_devourer"	"+2"
 			}
-			"mana_cost_percentage"							"40"
+			"mana_cost_percentage"							"35"
 		}
 	}
 	// 星体禁锢
@@ -10111,7 +10112,7 @@
 		"AbilityValues"
 		{
 			"proc_chance"	"30"
-			"mana_restore"	"25 35 45 55 65"
+			"mana_restore"	"35 40 45 50 55"
 			"mana_capacity_duration"	"30 40 50 60 70"
 		}
 	}
