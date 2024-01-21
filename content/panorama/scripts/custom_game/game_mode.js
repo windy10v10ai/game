@@ -58,7 +58,7 @@ function CheckForHostPrivileges() {
 }
 
 function InitializeUI(keys) {
-  if (keys.PlayerID != Game.GetLocalPlayerID()) {
+  if (keys.PlayerID !== Game.GetLocalPlayerID()) {
     return;
   }
   var is_host = CheckForHostPrivileges();
@@ -326,7 +326,7 @@ function OnGameOptionsChange() {
 
 function OnGameDifficultyChoiceChange(table, key, value) {
   const difficulty = value.difficulty;
-  if (key != "all") {
+  if (key !== "all") {
     return;
   }
   OnDifficultyDropDownChanged(difficulty);

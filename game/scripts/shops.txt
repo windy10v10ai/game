@@ -134,7 +134,7 @@
 		"item"		"item_pipe"
 		"item"		"item_guardian_greaves"
 		"item"		"item_boots_of_bearing"
-		"item"		"item_devastator"
+		"item"		"item_devastator_2"			// 神圣斧
 		"item"		"item_orb_of_the_brine"
 		"item"		"item_adi_king"
 		"item"		"item_adi_king_plus"

@@ -18,8 +18,10 @@ export class ActionAbility {
     }
   }
 
-  // private methods
-  private static GetFullCastRange(self: CDOTA_BaseNPC_Hero, ability: CDOTABaseAbility): number {
+  /**
+   * @return 施法距离 + 施法距离加成
+   */
+  public static GetFullCastRange(self: CDOTA_BaseNPC_Hero, ability: CDOTABaseAbility): number {
     const range = ability.GetCastRange(self.GetAbsOrigin(), undefined);
     const castRangeIncrease = self.GetCastRangeBonus();
     return range + castRangeIncrease;
@@ -29,10 +31,5 @@ export class ActionAbility {
     const abilityBehavior = ability.GetBehavior() as Uint64;
     const isBitSet = abilityBehavior.IsBitSet(behavior);
     return !!isBitSet;
-  }
-
-  private static IsAbilityTargetTeam(ability: CDOTABaseAbility, team: UnitTargetTeam): boolean {
-    const abilityTargetTeam = ability.GetAbilityTargetTeam();
-    return abilityTargetTeam === team;
   }
 }

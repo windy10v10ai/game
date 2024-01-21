@@ -31,12 +31,12 @@ class EndGameInfo {
 }
 
 export class Game {
-  private static VERSION = "v3.09";
+  private static VERSION = "v3.10";
   constructor() {}
 
   public SendEndGameInfo(endData: EndGameInfo) {
     if (
-      GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) == ApiClient.LOCAL_APIKEY &&
+      GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) === ApiClient.LOCAL_APIKEY &&
       !IsInToolsMode()
     ) {
       return;
