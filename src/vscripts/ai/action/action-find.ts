@@ -7,7 +7,7 @@ export class ActionFind {
   }
 
   static FindEnemyCreeps(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
-    const enemies = this.FindEnemies(self, radius, UnitTargetType.BASIC);
+    const enemies = this.FindEnemies(self, radius, UnitTargetType.CREEP);
 
     return enemies;
   }
@@ -23,7 +23,7 @@ export class ActionFind {
       self,
       radius,
       UnitTargetType.BUILDING,
-      UnitTargetFlags.INVULNERABLE,
+      UnitTargetFlags.INVULNERABLE, // 无敌
     );
 
     return enemies;
@@ -35,7 +35,9 @@ export class ActionFind {
     typeFilter: UnitTargetType,
     flagFilterExtra?: UnitTargetFlags,
   ): CDOTA_BaseNPC[] {
-    let flagFilter = UnitTargetFlags.FOW_VISIBLE + UnitTargetFlags.NO_INVIS;
+    let flagFilter =
+      UnitTargetFlags.FOW_VISIBLE + // 战争迷雾
+      UnitTargetFlags.NO_INVIS; // 非隐身
 
     if (flagFilterExtra) {
       flagFilter = flagFilter + flagFilterExtra;
@@ -51,7 +53,7 @@ export class ActionFind {
       self,
       radius,
       UnitTargetType.BUILDING,
-      UnitTargetFlags.INVULNERABLE,
+      UnitTargetFlags.INVULNERABLE, // 无敌
     );
 
     return teams;
@@ -81,7 +83,7 @@ export class ActionFind {
     typeFilter: UnitTargetType,
     flagFilterExtra?: UnitTargetFlags,
   ): CDOTA_BaseNPC[] {
-    let flagFilter = UnitTargetFlags.NONE;
+    let flagFilter = UnitTargetFlags.NOT_ILLUSIONS; // 非幻象
 
     if (flagFilterExtra) {
       flagFilter = flagFilter + flagFilterExtra;

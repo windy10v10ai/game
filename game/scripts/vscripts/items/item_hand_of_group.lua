@@ -31,10 +31,16 @@ function item_hand_of_group:OnSpellStart()
     SendOverheadEventMessage(caster, OVERHEAD_ALERT_GOLD, target, self_gold * AIGameMode:GetPlayerGoldXpMultiplier(caster_playerid), caster)
 
     -- 团队增益
+    local playerId = caster:GetPlayerOwnerID()
     local team = caster:GetTeamNumber()
-    local all = FindUnitsInRadius(team, target_pos, nil, self:GetSpecialValueFor("group_range"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+    local self_pos = caster:GetAbsOrigin()
+    local all = FindUnitsInRadius(team, self_pos, nil, self:GetSpecialValueFor("group_range"),
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+        DOTA_UNIT_TARGET_HERO,
+        DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
+        FIND_ANY_ORDER, false)
     for _,teammate in pairs(all) do
-        if teammate:GetTeamNumber() == team then
+        if teammate:GetPlayerOwnerID() ~= playerId then
             local teammate_playerid = teammate:GetPlayerOwnerID()
             teammate:EmitSound( "DOTA_Item.Hand_Of_Midas" )
             teammate:ModifyGoldFiltered( group_gold , true, DOTA_ModifyGold_CreepKill)

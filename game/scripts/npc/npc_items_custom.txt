@@ -6193,8 +6193,8 @@
 		"AbilityValues"
 		{
 			"attack_speed"		"80"	// tooltip, real value  in modifier_item_hand_of_group_stats
-			"self_xp"			"3.6"
-			"self_gold"			"380"
+			"self_xp"			"4.0"
+			"self_gold"			"400"
 
 			"group_range"		"1800"
 			"group_xp"			"0.8"

@@ -88,6 +88,7 @@ tBotItemData.purchaseItemList = {
 		'item_wraith_band',			-- 系带
 		'item_wraith_band',			-- 系带
 		'item_power_treads',
+		'item_hand_of_group',		-- 团队之手
 		'item_vanguard',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
@@ -222,6 +223,7 @@ tBotItemData.purchaseItemList = {
 		'item_glimmer_cape',
 		'item_phase_boots',
 		'item_force_staff',
+		'item_hand_of_group',		-- 团队之手
 		'item_wings_of_haste',
 		'item_aether_lens_2',
 		'item_aghanims_shard',
@@ -469,6 +471,7 @@ tBotItemData.purchaseItemList = {
 		'item_arcane_boots',
 		'item_glimmer_cape',
 		'item_force_staff',
+		'item_hand_of_group',		-- 团队之手
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_ultimate_scepter',
@@ -493,6 +496,7 @@ tBotItemData.purchaseItemList = {
 		'item_arcane_boots',
 		'item_glimmer_cape',
 		'item_force_staff',
+		'item_hand_of_group',		-- 团队之手
 		'item_wings_of_haste',
 		'item_blink',
 		'item_aghanims_shard',
@@ -606,8 +610,8 @@ tBotItemData.purchaseItemList = {
 		'item_null_talisman',
 		'item_null_talisman',
 		'item_holy_locket',
+		'item_hand_of_group',		-- 团队之手
 		'item_arcane_boots',
-		'item_null_talisman',
 		'item_glimmer_cape',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
@@ -634,6 +638,7 @@ tBotItemData.purchaseItemList = {
 		'item_orb_of_corrosion',
 		'item_glimmer_cape',
 		'item_force_staff',
+		'item_hand_of_group',		-- 团队之手
 		'item_wings_of_haste',
 		'item_blink',
 		'item_aghanims_shard',
@@ -1434,6 +1439,7 @@ tBotItemData.sellItemCommonList = {
 	'item_bfury',
 	-- 羊刀
 	'item_sheepstick',
+	'item_hand_of_group',		-- 团队之手
 }
 
 -- Consume items
