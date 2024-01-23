@@ -88,7 +88,6 @@ tBotItemData.purchaseItemList = {
 		'item_wraith_band',			-- 系带
 		'item_wraith_band',			-- 系带
 		'item_power_treads',
-		'item_hand_of_group',		-- 团队之手
 		'item_vanguard',
 		'item_wings_of_haste',
 		'item_aghanims_shard',

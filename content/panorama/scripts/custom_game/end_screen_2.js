@@ -175,7 +175,7 @@ function OnGameResult(table, key, gameResult) {
     return;
   }
 
-  if (Game.GetGameWinner() === "2") {
+  if (Game.GetGameWinner() === 2) {
     gameResult.isWinner = true;
   } else {
     gameResult.isWinner = false;
