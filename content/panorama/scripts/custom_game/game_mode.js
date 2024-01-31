@@ -250,7 +250,7 @@ function InitN6Setting() {
   $("#tower_endure_dropdown").SetSelected("10");
 
   $("#starting_gold_player_dropdown").SetSelected("3000");
-  $("#starting_gold_bot_dropdown").SetSelected("15000");
+  $("#starting_gold_bot_dropdown").SetSelected("10000");
 }
 // -------- send to server --------
 function StateChange() {

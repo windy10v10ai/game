@@ -1260,11 +1260,6 @@
 				"extra_spell_damage_percent"	"-20"
 		}
 	}
-	//点金
-	"item_hand_of_midas"
-	{
-		"AbilityCharges"				"3"
-	}
 	// 跳刀卷轴
 	"item_recipe_overwhelming_blink"
 	{

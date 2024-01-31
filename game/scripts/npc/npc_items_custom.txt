@@ -6165,7 +6165,7 @@
 
 		// Charge
 		"AbilityCooldown"				"0"
-		"AbilityCharges"				"3"
+		"AbilityCharges"				"2"
 		"AbilityChargeRestoreTime"		"90"
 		"ItemInitialCharges"			"1"
 		"ItemRequiresCharges"			"1"
