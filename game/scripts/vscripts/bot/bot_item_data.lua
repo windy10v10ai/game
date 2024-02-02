@@ -80,7 +80,6 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_abyssal_blade_v2',
 		'item_jump_jump_jump',
-		'item_blade_mail_ultra',
 	},
 	npc_dota_hero_spectre = {
 		'item_magic_wand',
@@ -99,7 +98,6 @@ tBotItemData.purchaseItemList = {
 		'item_blue_fantasy',
 		'item_jump_jump_jump',
 		'item_moon_shard_datadriven',
-		'item_blade_mail_ultra',
 	},
 	npc_dota_hero_bane = {
 		'item_magic_wand',
@@ -189,7 +187,6 @@ tBotItemData.purchaseItemList = {
 		'item_saint_orb',
 		'item_undying_heart',
 		'item_moon_shard_datadriven',
-		'item_blade_mail_ultra',
 	},
 	npc_dota_hero_chaos_knight = {
 		'item_magic_wand',
@@ -364,7 +361,6 @@ tBotItemData.purchaseItemList = {
 		'item_undying_heart',
 		'item_moon_shard_datadriven',
 		'item_jump_jump_jump',
-		'item_blade_mail_ultra',
 	},
 	npc_dota_hero_jakiro = {
 		'item_magic_wand',
