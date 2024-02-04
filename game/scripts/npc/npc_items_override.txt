@@ -93,7 +93,7 @@
 	}
 
 	//=================================================================================================================
-	// 魂泪
+	// 魂泪 凝魂之露
 	//=================================================================================================================
 	"item_infused_raindrop"
 	{
@@ -112,6 +112,43 @@
 				"magic_damage_block"	"600"	// 120
 				"min_damage"			"120"	// 75
 				"initial_charges"		"6"
+		}
+	}
+	"item_faerie_fire" //仙灵之火
+	{
+		"ItemCost"						"80"
+		"AbilityValues"
+		{
+				"bonus_damage"			"6"				// 2
+				"hp_restore"			"240"			// 85
+		}
+	}
+	"item_blood_grenade" //血腥榴弹
+	{
+		"ItemCost"						"80"
+		"AbilityHealthCost"				"125"
+
+		"ItemStockInitial"				"3"				// 2
+		"ItemStockTime"					"120"			// 180
+		"AbilityValues"
+		{
+			"bonus_health"			"250"				// 50
+
+			"damage_over_time"		"45"				// 15
+			"impact_damage"			"250"				// 50
+		}
+	}
+	"item_bottle" //魔瓶
+	{
+		"ItemCost"						"800"
+		"ItemInitialCharges"			"5"				// 3
+		"AbilityValues"
+		{
+				"health_restore"		"240"			// 110
+				"mana_restore"			"130"			// 60
+				"restore_time"			"3.5"			// 2.7
+				"max_charges"			"5"				// 3
+				"rune_expire_time"		"120.0"			// 90
 		}
 	}
 	//=================================================================================================================
@@ -148,30 +185,6 @@
 				"bonus_health"			"300"			// 75
 				"spell_amp"				"10"			// 5
 				"manacost_reduction"	"10"			// 5
-		}
-	}
-	"item_faerie_fire" //仙灵之火
-	{
-		"ItemCost"						"80"
-		"AbilityValues"
-		{
-				"bonus_damage"			"6"				// 2
-				"hp_restore"			"240"			// 85
-		}
-	}
-	"item_blood_grenade" //血腥榴弹
-	{
-		"ItemCost"						"80"
-		"AbilityHealthCost"				"125"
-
-		"ItemStockInitial"				"3"				// 2
-		"ItemStockTime"					"120"			// 180
-		"AbilityValues"
-		{
-			"bonus_health"			"250"				// 50
-
-			"damage_over_time"		"45"				// 15
-			"impact_damage"			"250"				// 50
 		}
 	}
 	"item_unstable_wand" //豚杆
