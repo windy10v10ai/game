@@ -64,6 +64,7 @@ function AIGameMode:SpecialItemAdd(owner)
 	tier[3] =	{
 
 		---- 中立物品 lv3 ----
+		"item_titan_sliver",			-- 巨神残铁
 		"item_quickening_charm",        -- 加速护符
 		-- "item_quicksilver_amulet",		-- 银闪护符
 		"item_spider_legs",				-- 网虫腿
@@ -72,11 +73,8 @@ function AIGameMode:SpecialItemAdd(owner)
 		"item_horizon",					-- 视界
 		"item_witless_shako",           -- 无知小帽
 		"item_third_eye",               -- 第三只眼
-		"item_repair_kit",			    -- 修理工具
-		"item_princes_knife",			-- 亲王短刀
 		"item_the_leveller",			-- 平世剑
-		"item_titan_sliver",			-- 巨神残铁
-		"item_ogre_seal_totem",			-- 食人魔海豹图腾
+		-- "item_ogre_seal_totem",			-- 食人魔海豹图腾
 		"item_paladin_sword",			-- 骑士剑
 	}
 
@@ -88,12 +86,13 @@ function AIGameMode:SpecialItemAdd(owner)
 		---- 中立物品 lv4 ----
 		"item_penta_edged_sword",		-- 五锋长剑
 		"item_panic_button",            -- 神灯
-		"item_fallen_sky",				-- 天崩
 		-- "item_demonicon",				-- 大死灵书
 		"item_minotaur_horn",			-- 恶牛角
 		"item_spell_prism",				-- 法术棱镜
 		"item_helm_of_the_undying",		-- 不死头盔
 		"item_woodland_striders",		-- 丛林鞋
+		"item_princes_knife",			-- 亲王短刀
+		"item_repair_kit",			    -- 维修器具
 	}
 
 	tier[5] =	{
@@ -102,6 +101,7 @@ function AIGameMode:SpecialItemAdd(owner)
 		 "item_tome_of_strength_for_lottery",			-- 力量之书
 
 		 ---- 中立物品 lv5 ----
+		"item_fallen_sky",				-- 天崩
 		 "item_desolator_2",			-- 寂灭
 		 "item_mirror_shield",			-- 神镜盾
 		 "item_ballista",				-- 弩炮

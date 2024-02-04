@@ -410,7 +410,7 @@
 		"AbilityValues"
 		{
 				"bonus_gpm"			"600" //75
-				"bonus_mana"		"-800" //200
+				"bonus_mana"		"-300" //200
 				"bonus_damage"		"-200" //-30
 		}
 	}
