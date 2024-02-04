@@ -19,8 +19,8 @@
 						<Label id="RadiantLabel" class="TeamLabel" text="#DOTA_GoodGuysShort"/>
 						<Label id="TeamScoreSmall" class="TeamScoreSmall" text="999"/>
 						<Panel id="OptionValue" class="FlowDownPanel">
-							<Label id="GoldXpMultiplier" class="GameOptionValue" text="#player_multiplier" />
-							<Label id="TowerPower" class="GameOptionValue" text="#tower_power" />
+							<Label id="GoldXpMultiplier" class="GameOptionValue" text="" />
+							<Label id="TowerPower" class="GameOptionValue" text="" />
 						</Panel>
 					</Panel>
 				<Label class="LegendPanel ScoreCol_Kills" text="#custom_end_screen_legend_kills" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_kills_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
@@ -42,8 +42,8 @@
 						<Label id="DireLabel" class="TeamLabel" text="#DOTA_BadGuysShort"/>
 						<Label id="TeamScoreSmall" class="TeamScoreSmall" text="999"/>
 						<Panel id="OptionValue" class="FlowDownPanel">
-							<Label id="GoldXpMultiplier" class="GameOptionValue" text="#bot_multiplier" />
-							<Label id="TowerPower" class="GameOptionValue" text="#tower_endure" />
+							<Label id="GoldXpMultiplier" class="GameOptionValue" text="" />
+							<Label id="TowerPower" class="GameOptionValue" text="" />
 						</Panel>
 					</Panel>
 				<Label class="LegendPanel ScoreCol_Kills" text="#custom_end_screen_legend_kills" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_kills_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>

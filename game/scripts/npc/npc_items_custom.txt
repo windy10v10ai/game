@@ -5889,7 +5889,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1525"
+		"ItemCost"						"1025"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5927,13 +5927,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"25"
+			"bonus_damage"			"30"
 			"bonus_attack_speed"	"35"
-			"bonus_armor"			"9"
+			"bonus_armor"			"12"
 			"bonus_health_regen"	"10"
 			"unholy_bonus_damage"	"45"
 			"unholy_bonus_attack_speed"	"15"
-			"unholy_bonus_strength"	"35"
+			"unholy_bonus_strength"	"50"
 			"unholy_bonus_armor"	"8"
 			"unholy_bonus_slow_resistance"	"35"
 			"unholy_health_drain_per_second"	"25"
@@ -5954,7 +5954,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1525"
+		"ItemCost"						"1025"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5992,13 +5992,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"35"
+			"bonus_damage"			"45"
 			"bonus_attack_speed"	"45"
-			"bonus_armor"			"12"
+			"bonus_armor"			"18"
 			"bonus_health_regen"	"15"
 			"unholy_bonus_damage"	"55"
 			"unholy_bonus_attack_speed"	"30"
-			"unholy_bonus_strength"	"45"
+			"unholy_bonus_strength"	"75"
 			"unholy_bonus_armor"	"12"
 			"unholy_bonus_slow_resistance"	"45"
 			"unholy_health_drain_per_second"	"5"
@@ -6165,7 +6165,7 @@
 
 		// Charge
 		"AbilityCooldown"				"0"
-		"AbilityCharges"				"3"
+		"AbilityCharges"				"2"
 		"AbilityChargeRestoreTime"		"90"
 		"ItemInitialCharges"			"1"
 		"ItemRequiresCharges"			"1"
@@ -6699,10 +6699,10 @@
 				"bonus_armor"			"16"
 				"bonus_mana_regen"		"3"
 				"projectile_speed"		"300"
-				"int_damage_multiplier"	"2"
+				"int_damage_multiplier"	"1.75"
 				"slow"	"50"
 				"slow_duration"	"4"
-				"active_mres_reduction"		"50"
+				"active_mres_reduction"		"40"
 				"passive_cooldown"		"4"
 		}
 	}

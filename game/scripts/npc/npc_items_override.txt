@@ -150,6 +150,30 @@
 				"manacost_reduction"	"10"			// 5
 		}
 	}
+	"item_faerie_fire" //仙灵之火
+	{
+		"ItemCost"						"80"
+		"AbilityValues"
+		{
+				"bonus_damage"			"6"				// 2
+				"hp_restore"			"240"			// 85
+		}
+	}
+	"item_blood_grenade" //血腥榴弹
+	{
+		"ItemCost"						"80"
+		"AbilityHealthCost"				"125"
+
+		"ItemStockInitial"				"3"				// 2
+		"ItemStockTime"					"120"			// 180
+		"AbilityValues"
+		{
+			"bonus_health"			"250"				// 50
+
+			"damage_over_time"		"45"				// 15
+			"impact_damage"			"250"				// 50
+		}
+	}
 	"item_unstable_wand" //豚杆
 	{
 		"AbilityCooldown"				"15" //25
@@ -470,15 +494,15 @@
 	}
 	"item_repair_kit"  //维修器具
 	{
-		"ItemInitialCharges"			"9"		//3
+		"ItemInitialCharges"			"6"		//3
 		"AbilityCooldown"				"60.0"	//60
 		"AbilityCastRange"				"900"	//600
 		"AbilityValues"
 		{
 				"duration"		"20" //30
-				"heal_percent"	"40" //40
+				"heal_percent"	"50" //40
 				"armor_bonus"	"30" //10
-				"hp_regen"		"40" //25
+				"hp_regen"		"50" //25
 		}
 	}
 	"item_quickening_charm" //加速护符
@@ -1173,7 +1197,7 @@
 	{
 		"AbilityValues"
 		{
-				"manacost_per_hit"		"65"
+				"manacost_per_hit"		"85"			// 75
 		}
 	}
 	//=================================================================================================================
@@ -1191,10 +1215,10 @@
 		"AbilityCooldown"				"6"			// 7
 		"AbilityValues"
 		{
-				"int_damage_multiplier"	"1.5"		// 1
-				"slow"	"35"						// 25
+				"int_damage_multiplier"	"1.25"		// 1
+				"slow"	"30"						// 25
 				"slow_duration"	"4"					// 4
-				"active_mres_reduction"		"30"	// 20
+				"active_mres_reduction"		"25"	// 20
 				"passive_cooldown"		"4"			// 4
 		}
 	}
@@ -1235,11 +1259,6 @@
 				"duration"				"6.0"
 				"extra_spell_damage_percent"	"-20"
 		}
-	}
-	//点金
-	"item_hand_of_midas"
-	{
-		"AbilityCharges"				"3"
 	}
 	// 跳刀卷轴
 	"item_recipe_overwhelming_blink"

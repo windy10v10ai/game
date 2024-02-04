@@ -1,12 +1,14 @@
 import { Player } from "../../api/player";
 import { PlayerHelper } from "../../helper/player-helper";
 import { PropertyController } from "../property/property_controller";
+import { EventOnNpcSpawned } from "./event-on-npc-spawned";
 
 export class Event {
+  EventOnNpcSpawned: EventOnNpcSpawned;
   constructor() {
+    this.EventOnNpcSpawned = new EventOnNpcSpawned();
     ListenToGameEvent("dota_player_gained_level", (keys) => this.OnPlayerLevelUp(keys), this);
-    ListenToGameEvent("npc_spawned", (keys) => this.OnNpcSpawned(keys), this);
-    // game_rules_state_change
+    ListenToGameEvent("npc_spawned", (keys) => this.EventOnNpcSpawned.OnNpcSpawned(keys), this);
     ListenToGameEvent("game_rules_state_change", () => this.OnGameStateChanged(), this);
   }
 
@@ -22,37 +24,6 @@ export class Event {
       if (keys.level % PropertyController.HERO_LEVEL_PER_POINT === 0) {
         print(`[Event] OnPlayerLevelUp SetPlayerProperty ${hero.GetUnitName()}`);
         Player.SetPlayerProperty(hero);
-      }
-    }
-  }
-
-  // 单位出生
-  OnNpcSpawned(keys: GameEventProvidedProperties & NpcSpawnedEvent): void {
-    if (GameRules.State_Get() < GameState.PRE_GAME) {
-      Timers.CreateTimer(1, () => {
-        this.OnNpcSpawned(keys);
-      });
-      return;
-    }
-
-    const npc = EntIndexToHScript(keys.entindex) as CDOTA_BaseNPC | undefined;
-    if (!npc) {
-      return;
-    }
-
-    // 英雄出生
-    if (npc.IsRealHero() && keys.is_respawn === 0) {
-      // set npc as CDOTA_BaseNPC_Hero
-      const hero = npc as CDOTA_BaseNPC_Hero;
-
-      if (PlayerHelper.IsHumanPlayer(hero)) {
-        Player.SetPlayerProperty(hero);
-      } else {
-        // 机器人
-        // FIXME 天辉机器人未设置新AI
-        if (npc.GetTeamNumber() === DotaTeam.BADGUYS) {
-          GameRules.AI.EnableAI(hero);
-        }
       }
     }
   }

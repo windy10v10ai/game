@@ -45,48 +45,6 @@
 				</Panel>
 			</Panel>
 		</snippet>
-
-		<snippet name="BabyRoshanOption">
-			<Panel>
-				<Button id="ChooseRoshan" />
-			</Panel>
-		</snippet>
-		<snippet name="Emblem">
-			<Panel class="SnippetListItem">
-				<Panel class="ItemImagePanel">
-					<Image id="EmblemImage" />
-				</Panel>
-				<Label id="EmblemName" text="{s:EmblemName}" />
-				<Label id="EmblemTier" text="{s:EmblemTier}" />
-				<Button class="deactivated" id="EnableEmblem">
-					<Label id="EnableEmblemLabel" text="APPLY" />
-				</Button>
-				<Panel id="EmblemOptions" />
-			</Panel>
-		</snippet>
-		<snippet name="EmblemOption">
-			<Panel>
-				<Button id="ChooseEmblem" />
-			</Panel>
-		</snippet>
-		<snippet name="BpReward">
-			<Panel class="SnippetListItem">
-				<Panel class="ItemImagePanel">
-					<Image id="RewardImage" />
-				</Panel>
-				<Label id="RewardName" text="{s:RewardName}" />
-				<Label id="RewardTier" text="{s:RewardTier}" />
-				<Button class="deactivated" id="EnableReward">
-					<Label id="EnableRewardLabel" text="APPLY" />
-				</Button>
-				<Panel id="RewardOptions" />
-			</Panel>
-		</snippet>
-		<snippet name="RewardOption">
-			<Panel>
-				<Button id="ChooseReward" />
-			</Panel>
-		</snippet>
 	</snippets>
 
 	<Panel hittest="false" class="BPParent">

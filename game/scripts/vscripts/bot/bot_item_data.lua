@@ -13,8 +13,8 @@ tBotItemData.purchaseItemList = {
 		'item_bracer',
 		'item_bracer',
 		'item_holy_locket',
+		'item_hand_of_group',		-- 团队之手
 		'item_vanguard',
-		'item_falcon_blade',	-- 猎鹰战刃
 		'item_echo_sabre',
 		'item_blink',
 		'item_wings_of_haste',
@@ -80,7 +80,6 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_abyssal_blade_v2',
 		'item_jump_jump_jump',
-		'item_blade_mail_ultra',
 	},
 	npc_dota_hero_spectre = {
 		'item_magic_wand',
@@ -88,7 +87,6 @@ tBotItemData.purchaseItemList = {
 		'item_wraith_band',			-- 系带
 		'item_wraith_band',			-- 系带
 		'item_power_treads',
-		'item_hand_of_group',		-- 团队之手
 		'item_vanguard',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
@@ -100,7 +98,6 @@ tBotItemData.purchaseItemList = {
 		'item_blue_fantasy',
 		'item_jump_jump_jump',
 		'item_moon_shard_datadriven',
-		'item_blade_mail_ultra',
 	},
 	npc_dota_hero_bane = {
 		'item_magic_wand',
@@ -190,7 +187,6 @@ tBotItemData.purchaseItemList = {
 		'item_saint_orb',
 		'item_undying_heart',
 		'item_moon_shard_datadriven',
-		'item_blade_mail_ultra',
 	},
 	npc_dota_hero_chaos_knight = {
 		'item_magic_wand',
@@ -365,7 +361,6 @@ tBotItemData.purchaseItemList = {
 		'item_undying_heart',
 		'item_moon_shard_datadriven',
 		'item_jump_jump_jump',
-		'item_blade_mail_ultra',
 	},
 	npc_dota_hero_jakiro = {
 		'item_magic_wand',
@@ -649,11 +644,11 @@ tBotItemData.purchaseItemList = {
 		'item_aether_lens_2',
 		'item_octarine_core',
 		'item_recipe_arcane_octarine_core',
-		'item_dagon_5',
-		'item_hallowed_scepter',
+		'item_abyssal_blade_v2',
 		'item_refresher',
 		'item_recipe_refresh_core',
 		'item_necronomicon_staff',
+		'item_angels_demise',		-- 绝刃
 	},
 	npc_dota_hero_omniknight = {
 		'item_magic_wand',
