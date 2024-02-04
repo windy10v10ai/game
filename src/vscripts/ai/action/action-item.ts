@@ -97,11 +97,9 @@ export class ActionItem {
     const itemSlot = item.GetItemSlot();
     // 如果在备用物品栏中 则不可用
     if (itemSlot >= InventorySlot.SLOT_7 && itemSlot <= InventorySlot.SLOT_9) {
-      print(`[AI] FindItemInInventoryUseable ${itemName} failed, in backup slot`);
       return undefined;
     }
     if (this.IsItemCastable(hero, item) === false) {
-      print(`[AI] FindItemInInventoryUseable ${itemName} failed, not castable`);
       return undefined;
     }
     return item;

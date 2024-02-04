@@ -494,15 +494,15 @@
 	}
 	"item_repair_kit"  //维修器具
 	{
-		"ItemInitialCharges"			"9"		//3
+		"ItemInitialCharges"			"6"		//3
 		"AbilityCooldown"				"60.0"	//60
 		"AbilityCastRange"				"900"	//600
 		"AbilityValues"
 		{
 				"duration"		"20" //30
-				"heal_percent"	"40" //40
+				"heal_percent"	"50" //40
 				"armor_bonus"	"30" //10
-				"hp_regen"		"40" //25
+				"hp_regen"		"50" //25
 		}
 	}
 	"item_quickening_charm" //加速护符

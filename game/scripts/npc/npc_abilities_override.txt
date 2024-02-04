@@ -32,28 +32,40 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius"			"450"
+				"radius"			"450"				// 350
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"slow_duration_hero"	"3.0"
+				"slow_duration_hero"	"3.0"			// 2.0
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"slow_amount"		"80"
+				"slow_amount"		"80"				// 50
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"200"
+				"damage"			"200"				// 70
 			}
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_growth"		"30"
+				"damage_growth"		"30"				// 10
 			}
+		}
+	}
+	// 复仇咆哮
+	"roshan_revengeroar"
+	{
+		"AbilityCooldown"				"15.0"		// 20.0
+		"AbilityValues"
+		{
+			"damage"			"150"				// 50
+			"damage_pct"		"25"				// 25
+			"duration"			"8"					// 8
+			"damage_growth"		"30"				// 10
 		}
 	}
 	// 巨狼 致命一击
@@ -7776,7 +7788,7 @@
 	"venomancer_plague_ward"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"100 125 150 175 200"
+		"AbilityManaCost"				"80 100 120 140 160"
 		"AbilityCooldown"				"40"
 		"AbilitySpecial"
 		{

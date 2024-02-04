@@ -642,34 +642,6 @@ TextEntry.MonoFont {
   box-shadow: 0px 0px 2px 1px #b5ffbdaa;
 }
 
-#RoshanOptions,
-#EmblemOptions,
-#RewardOptions {
-  vertical-align: bottom;
-  horizontal-align: right;
-  width: 300px;
-  height: 80px;
-  margin-right: 175px;
-  flow-children: right-wrap;
-}
-#BabyRoshanOption,
-#EmblemOption,
-#RewardOption {
-  width: 30px;
-  height: 30px;
-  margin-left: 3px;
-  margin-top: 5px;
-}
-
-#ChooseRoshan,
-#ChooseEmblem,
-#ChooseReward {
-  vertical-align: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
 #SettingsWrap {
   flow-children: down;
 }

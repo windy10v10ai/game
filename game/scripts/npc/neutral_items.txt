@@ -153,12 +153,11 @@
 			"item_ninja_gear"				"1" //忍者用具
 			"item_spy_gadget"				"1" //望远镜
 			"item_trickster_cloak"			"1" //欺诈师斗篷
-			"item_stormcrafter"			    "1" //风暴宝器
-			"item_ancient_guardian"		    "1" //遗迹守护者
+			"item_stormcrafter"				"1" //风暴宝器
+			"item_ancient_guardian"			"1" //遗迹守护者
 			"item_mind_breaker"				"1" //智灭
 			"item_martyrs_plate"			"1" //烈士鳞甲
-			"item_rattlecage"				"1" //回响之笼
-			"item_repair_kit"               "1" //维修器具
+			"item_repair_kit"				"1" //维修器具
 		}
 	}
 	"5"
@@ -178,25 +177,26 @@
 
 		"items"
 		{
-			// "item_pirate_hat_custom"		  "1" //海盗帽 旧版
-			//"item_ballista"				  "1" //弩炮
-			//"item_fallen_sky"		  	      "1" //天崩
-			//"item_ex_machina"				  "1" //机械之心
-			//"item_vengeances_shadow"		  "1" //复仇之影
-			//"item_manacles_of_power"		  "1"
-			//"item_bottomless_chalice"		  "1"
-			//"item_wand_of_sanctitude"		  "1"
-			"item_timeless_relic"			  "1" //永恒遗物
-			"item_force_boots"				  "1" //原力鞋
-			"item_desolator_2"				  "1" //寂灭
-			"item_seer_stone"				  "1" //先哲之石
-			"item_mirror_shield"		 	  "1" //神镜盾
-			"item_force_field"				  "1" //秘术师铠甲
-			"item_pirate_hat"				  "1" //海盗帽
-			"item_giants_ring"				  "1" //巨人戒
-			"item_unwavering_condition"		  "1" //坚毅之件
-			"item_book_of_shadows"			  "1" //暗影邪典
-			"item_panic_button"				  "1" //神妙明灯
+			// "item_pirate_hat_custom"		"1" //海盗帽 旧版
+			//"item_ballista"				"1" //弩炮
+			//"item_fallen_sky"		  	    "1" //天崩
+			//"item_ex_machina"				"1" //机械之心
+			//"item_vengeances_shadow"		"1" //复仇之影
+			//"item_manacles_of_power"		"1"
+			//"item_bottomless_chalice"		"1"
+			//"item_wand_of_sanctitude"		"1"
+			"item_rattlecage"				"1" //回响之笼
+			"item_timeless_relic"			"1" //永恒遗物
+			"item_force_boots"				"1" //原力鞋
+			"item_desolator_2"				"1" //寂灭
+			"item_seer_stone"				"1" //先哲之石
+			"item_mirror_shield"			"1" //神镜盾
+			"item_force_field"				"1" //秘术师铠甲
+			"item_pirate_hat"				"1" //海盗帽
+			"item_giants_ring"				"1" //巨人戒
+			"item_unwavering_condition"		"1" //坚毅之件
+			"item_book_of_shadows"			"1" //暗影邪典
+			"item_panic_button"				"1" //神妙明灯
 		}
 	}
 }
