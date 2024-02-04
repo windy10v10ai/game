@@ -1036,11 +1036,11 @@
 			{
 				"1"		"dragon_knight_breathe_fire"
 				"2"		"dragon_knight_dragon_blood"
-				"3"		"dragon_knight_dragon_blood"
-				"4"		"dragon_knight_dragon_blood"
-				"5"		"dragon_knight_dragon_tail"
+				"3"		"dragon_knight_breathe_fire"
+				"4"		"dragon_knight_dragon_tail"
+				"5"		"dragon_knight_breathe_fire"
 				"6"		"dragon_knight_elder_dragon_form"
-				"7"		"dragon_knight_dragon_blood"
+				"7"		"dragon_knight_breathe_fire"
 				"8"		"dragon_knight_dragon_tail"
 				"9"		"dragon_knight_dragon_blood"
 				"10"		"special_bonus_unique_dragon_knight_3"
@@ -1065,9 +1065,9 @@
 				"29"		"special_bonus_unique_dragon_knight_9"
 				"30"		"special_bonus_unique_dragon_knight_8"
 				"31"		"dragon_knight_elder_dragon_form"
-				"32"		"dragon_knight_breathe_fire"
-				"33"		"dragon_knight_breathe_fire"
-				"34"		"dragon_knight_breathe_fire"
+				"32"		"dragon_knight_dragon_blood"
+				"33"		"dragon_knight_dragon_blood"
+				"34"		"dragon_knight_dragon_blood"
 			}
 		}
 	}
