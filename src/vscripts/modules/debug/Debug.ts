@@ -37,6 +37,16 @@ export class Debug {
     // commands that only work in debug mode below:
     if (!this.DebugEnabled) return;
 
+    if (cmd === CMD.G) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      // 获得金钱经验技能升满
+      hero.SetGold(99999, false);
+      hero.AddExperience(100000, ModifyXpReason.UNSPECIFIED, false, true);
+      // refresh teleport
+      hero.GetItemInSlot(15)?.EndCooldown();
+    }
+
     // v 获取当前vector
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);

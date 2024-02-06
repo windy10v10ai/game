@@ -5,6 +5,7 @@
 	{
 		"addon_game_name"		"Dota 10v10 AI Wars"
 		"DOTA_GameMode_15"		"Dota 10v10 AI Wars"
+		"DOTA_SHARD"			"赛季积分"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -998,6 +999,7 @@
 
 		// bag_of_gold
         "DOTA_Tooltip_ability_item_bag_of_gold"					"金袋"
+        "DOTA_Tooltip_ability_item_bag_of_season_point"			"赛季积分"
 
 		// Tomes
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"力量之书"

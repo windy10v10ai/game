@@ -106,6 +106,7 @@
 		"Ability8"					"roshan_buff"
 		"Ability9"					"giant_wolf_critical_strike"
 		"Ability10"					"generic_gold_bag_fountain"
+		"Ability11"					"generic_season_point_bag_fountain"
 
 		// Armor
 		//----------------------------------------------------------------

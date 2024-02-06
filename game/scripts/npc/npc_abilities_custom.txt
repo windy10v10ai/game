@@ -563,7 +563,6 @@
                     "Flags"     "DOTA_UNIT_TARGET_FLAG_DEAD"
                 }
             }
-
         }
 
         "Modifiers"
@@ -574,7 +573,7 @@
                 "ThinkInterval"         "%think_interval"
                 "OnIntervalThink"
                 {
-                     "CreateItem"
+                    "CreateItem"
                     {
                         "Target"
                         {
@@ -582,7 +581,7 @@
                         }
                         "ItemName"          "item_bag_of_gold"
                         "ItemCount"         "1"
-                        "SpawnRadius"       "25"
+                        "SpawnRadius"       "75"
                         "ItemChargeCount"   "%gold_value"
                         "AutoUse"           "1"
                         "LaunchHeight"      "300"
@@ -596,23 +595,73 @@
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
                 "gold_value"            "0"
-            }
-            "02"
+                "duration"              "0.15 0.6 1.2 1.8 2.7 3.6"	 // 1 4 8 12 18 24
+                "think_interval"        "0.15" // 1 3 5 10 15 20
+        }
+    }
+
+    "generic_season_point_bag_fountain"
+    {
+		"MaxLevel"						"6"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+        "BaseClass"                     "ability_datadriven"
+        "AbilityTextureName"            "item_hand_of_midas"
+
+        "IsOnCastBar"                   "0"
+
+        "OnOwnerDied"
+        {
+            "CreateThinker"
             {
-                "var_type"              "FIELD_FLOAT"
-                "duration"              "0.75"
+                "ModifierName"          "gold_bag_thinker"
+                "Target"
+                {
+                    "Center"    "CASTER"
+                    "Flags"     "DOTA_UNIT_TARGET_FLAG_DEAD"
+                }
             }
-            "03"
+        }
+
+        "Modifiers"
+        {
+            "gold_bag_thinker"
             {
-                "var_type"              "FIELD_FLOAT"
-                "think_interval"        "0.75 0.25 0.15 0.075 0.05 0.037" // 1 3 5 10 15 20
+                "Duration"              "%duration"
+                "ThinkInterval"         "%think_interval"
+                "OnIntervalThink"
+                {
+                    "CreateItem"
+                    {
+                        "Target"
+                        {
+                            "Center"    "TARGET"
+                        }
+                        "ItemName"          "item_bag_of_season_point"
+                        "ItemCount"         "1"
+                        "SpawnRadius"       "75"
+                        "ItemChargeCount"   "%gold_value"
+                        "AutoUse"           "1"
+                        "LaunchHeight"      "300"
+                        "LaunchDistance"    "?50 200"
+                        "LaunchDuration"    "0.5"
+                    }
+                }
             }
+        }
+
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+                "gold_value"            "0"
+                "duration"              "0.25 0.75 1.0 1.5 2.0 2.5 3.0"	// 1 3 4 6 8 10
+                "think_interval"        "0.25"	// 1 5 7 10 12 15
         }
     }
 	//==============================================================================
