@@ -42,7 +42,7 @@ function modifier_artoria_instinct:GetAbsorbSpell( params )
 		if params.ability:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
 		if self:GetAbility():IsFullyCastable() then
 			-- use resources
-			self:GetAbility():UseResources( false, false, true )
+			self:GetAbility():UseResources( false, false, false, true )
 
 			self:PlayEffects( true )
 			return 1

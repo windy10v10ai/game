@@ -134,7 +134,7 @@
 
 		"items"
 		{
-			//"item_spell_prism"			"1" //法术棱镜
+			"item_spell_prism"			"1" //法术棱镜
 			//"item_heavy_blade"			"1" //行巫之祸
 			//"item_flicker"				"1" //闪灵
 			//"item_illusionsts_cape"		"1" //幻术师披风
@@ -177,15 +177,15 @@
 
 		"items"
 		{
+			"item_rattlecage"				"1" //回响之笼
 			// "item_pirate_hat_custom"		"1" //海盗帽 旧版
-			//"item_ballista"				"1" //弩炮
-			//"item_fallen_sky"		  	    "1" //天崩
+			"item_ballista"				"1" //弩炮
+			"item_fallen_sky"		  	    "1" //天崩
 			//"item_ex_machina"				"1" //机械之心
 			//"item_vengeances_shadow"		"1" //复仇之影
 			//"item_manacles_of_power"		"1"
 			//"item_bottomless_chalice"		"1"
 			//"item_wand_of_sanctitude"		"1"
-			"item_rattlecage"				"1" //回响之笼
 			"item_timeless_relic"			"1" //永恒遗物
 			"item_force_boots"				"1" //原力鞋
 			"item_desolator_2"				"1" //寂灭

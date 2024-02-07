@@ -81,7 +81,7 @@
 		"AbilityCooldown"				"0"
 		"ItemCost"						"4000"	// 1000
 		"ItemStockInitial"				"1"
-		"ItemStockMax"					"3"
+		"ItemStockMax"					"1"
 		"ItemStockTime"					"300"
 		"ItemPurchasable"				"1"
 		"ItemSellable"                  "1"
@@ -93,7 +93,7 @@
 	}
 
 	//=================================================================================================================
-	// 魂泪
+	// 魂泪 凝魂之露
 	//=================================================================================================================
 	"item_infused_raindrop"
 	{
@@ -112,6 +112,85 @@
 				"magic_damage_block"	"600"	// 120
 				"min_damage"			"120"	// 75
 				"initial_charges"		"6"
+		}
+	}
+	// 树之祭祀
+	"item_tango"
+	{
+		"ItemCost"						"100"			// 90
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"health_regen"			"12.0"			// 7.0
+				"buff_duration"			"30.0"			// 16.0
+		}
+	}
+	// 净化药水
+	"item_clarity"
+	{
+		"ItemStockMax"					"8"
+		"ItemStockInitial"				"8"
+		"AbilityValues"
+		{
+				"mana_regen"			"12"			// 6
+				"buff_duration"			"25"			// 25
+		}
+	}
+	// 芒果
+	"item_enchanted_mango"
+	{
+		"ItemCost"						"85"			// 65
+
+		"ItemStackableMax"				"4"
+
+		"ItemStockMax"					"8"
+		"ItemStockInitial"				"8"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"hp_regen"		"1.2"
+				"replenish_amount"		"250"
+		}
+	}
+	"item_faerie_fire" //仙灵之火
+	{
+		"ItemCost"						"80"
+		"AbilityValues"
+		{
+				"bonus_damage"			"6"				// 2
+				"hp_restore"			"240"			// 85
+		}
+	}
+	"item_blood_grenade" //血腥榴弹
+	{
+		"ItemCost"						"80"
+		"AbilityHealthCost"				"125"
+
+		"ItemStockInitial"				"3"				// 2
+		"ItemStockTime"					"120"			// 180
+		"AbilityValues"
+		{
+			"bonus_health"			"250"				// 50
+
+			"damage_over_time"		"45"				// 15
+			"impact_damage"			"250"				// 50
+		}
+	}
+	"item_bottle" //魔瓶
+	{
+		"ItemCost"						"800"
+		"ItemInitialCharges"			"5"				// 3
+		"AbilityValues"
+		{
+				"health_restore"		"240"			// 110
+				"mana_restore"			"130"			// 60
+				"restore_time"			"3.5"			// 2.7
+				"max_charges"			"5"				// 3
+				"rune_expire_time"		"120.0"			// 90
 		}
 	}
 	//=================================================================================================================
@@ -148,30 +227,6 @@
 				"bonus_health"			"300"			// 75
 				"spell_amp"				"10"			// 5
 				"manacost_reduction"	"10"			// 5
-		}
-	}
-	"item_faerie_fire" //仙灵之火
-	{
-		"ItemCost"						"80"
-		"AbilityValues"
-		{
-				"bonus_damage"			"6"				// 2
-				"hp_restore"			"240"			// 85
-		}
-	}
-	"item_blood_grenade" //血腥榴弹
-	{
-		"ItemCost"						"80"
-		"AbilityHealthCost"				"125"
-
-		"ItemStockInitial"				"3"				// 2
-		"ItemStockTime"					"120"			// 180
-		"AbilityValues"
-		{
-			"bonus_health"			"250"				// 50
-
-			"damage_over_time"		"45"				// 15
-			"impact_damage"			"250"				// 50
 		}
 	}
 	"item_unstable_wand" //豚杆
@@ -410,7 +465,7 @@
 		"AbilityValues"
 		{
 				"bonus_gpm"			"600" //75
-				"bonus_mana"		"-800" //200
+				"bonus_mana"		"-300" //200
 				"bonus_damage"		"-200" //-30
 		}
 	}

@@ -216,6 +216,7 @@ function AIGameMode:PreGameOptions()
         self.creepBuffLevel = 4
     end
 
+    -- 初始化
     self.barrackPushedBad = 0
     self.barrackPushedGood = 0
 
@@ -228,7 +229,7 @@ function AIGameMode:PreGameOptions()
     self.tower4PushedBad = 0
     self.tower4PushedGood = 0
 
-    self.playerNumber = 10
+    self.playerNumber = 1
 
     if self.fBotGoldXpMultiplier <= 3 then
         self.botPushMin = RandomInt(16, 20)
@@ -247,6 +248,12 @@ function AIGameMode:PreGameOptions()
     BotThink:SetTome()
 
     self.PreGameOptionsSet = true
+
+    -- 肉山奖励赛季积分
+    self.playerBonusSeasonPoint = {}
+    for i = 0, 23 do
+        self.playerBonusSeasonPoint[i] = 0
+    end
 end
 
 ------------------------------------------------------------------

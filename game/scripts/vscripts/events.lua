@@ -545,6 +545,12 @@ function AIGameMode:OnItemPickedUp(event)
         hHero:ModifyGoldFiltered(iGold, true, DOTA_ModifyGold_RoshanKill)
         SendOverheadEventMessage(hHero, OVERHEAD_ALERT_GOLD, hHero, iGold * AIGameMode:GetPlayerGoldXpMultiplier(event.PlayerID), nil)
     end
+
+    if event.PlayerID ~= nil and item ~= nil and hHero ~= nil and item:GetAbilityName() == "item_bag_of_season_point" then
+        local iPoint = item:GetLevelSpecialValueFor("bonus_season_point", AIGameMode.playerNumber)
+        AIGameMode.playerBonusSeasonPoint[event.PlayerID] = AIGameMode.playerBonusSeasonPoint[event.PlayerID] + iPoint
+        SendOverheadEventMessage(hHero, OVERHEAD_ALERT_SHARD , hHero, iPoint, nil)
+    end
 end
 
 function AIGameMode:SetUnitShareMask(data)
@@ -788,7 +794,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                         mostTowerKillPlayerID_2 = playerID
                         mostTowerKill_2 = towerKills
                     end
-
                 end
 
                 data.players[playerID] = playerInfo
@@ -901,9 +906,26 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     if mostTowerKillPlayerID_2 ~= -1 then
         data.players[mostTowerKillPlayerID_2].points = data.players[mostTowerKillPlayerID_2].points + pointT3
     end
-    -- filter points
+
+    -- 根据难度积分加倍
     for _, playerInfo in pairs(data.players) do
-        playerInfo.points = AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
+        playerInfo.points = AIGameMode:FilterSeasonPointDifficulty(playerInfo.points)
+    end
+
+    -- 追加奖励赛季积分 不计算倍率
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+        if PlayerResource:IsValidPlayerID(playerID) and not PlayerResource:IsFakeClient(playerID) then
+            local playerInfo = data.players[playerID]
+            if playerInfo then
+                -- 追加奖励赛季积分
+                playerInfo.points = playerInfo.points + AIGameMode.playerBonusSeasonPoint[playerID]
+            end
+        end
+    end
+
+    -- 胜负等计算
+    for _, playerInfo in pairs(data.players) do
+        playerInfo.points = AIGameMode:FilterSeasonPoint(playerInfo.points, winnerTeamId)
     end
 
     local sTable = "ending_stats"
@@ -913,20 +935,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     return data
 end
 
-
-function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
-    local points = playerInfo.points
-
-    if AIGameMode:IsInvalidGame() then
-        return 0
-    end
-    if AIGameMode.iDesiredDire < 10 then
-        points = points * AIGameMode.iDesiredDire / 10
-    end
-
-    if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
-        points = points * 0.5
-    end
+function AIGameMode:FilterSeasonPointDifficulty(points)
     -- 根据难度积分加倍
     local difficulty = self.iGameDifficulty
     if difficulty == 1 then
@@ -942,6 +951,22 @@ function AIGameMode:FilterSeasonPoint(playerInfo, winnerTeamId)
     elseif difficulty == 6 then
         points = points * 2.2
     end
+    return points
+end
+
+function AIGameMode:FilterSeasonPoint(points, winnerTeamId)
+
+    if AIGameMode:IsInvalidGame() then
+        return 0
+    end
+    if AIGameMode.iDesiredDire < 10 then
+        points = points * AIGameMode.iDesiredDire / 10
+    end
+
+    if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
+        points = points * 0.5
+    end
+
     return math.ceil(points)
 end
 

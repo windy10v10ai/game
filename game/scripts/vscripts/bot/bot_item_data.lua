@@ -92,9 +92,9 @@ tBotItemData.purchaseItemList = {
 		'item_aghanims_shard',
 		'item_blade_mail_2',
 		'item_ultimate_scepter_2',
-		'item_undying_heart',
-		'item_shivas_guard_2',
-		'item_saint_orb',
+		'item_undying_heart',		-- 不朽之心
+		'item_shivas_guard_2',		-- 雅典娜之守护
+		'item_saint_orb',			-- 圣女白莲
 		'item_blue_fantasy',
 		'item_jump_jump_jump',
 		'item_moon_shard_datadriven',

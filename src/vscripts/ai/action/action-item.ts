@@ -79,7 +79,6 @@ export class ActionItem {
 
     // TODO 检测是否在施法范围内
     hero.CastAbilityOnPosition(pos, item, hero.GetPlayerOwnerID());
-    print(`[AI] UseItemOnPosition ${itemName} on ${pos.x}, ${pos.y}, ${pos.z}`);
     return true;
   }
 
@@ -110,7 +109,7 @@ export class ActionItem {
       return false;
     }
     // 确认有足够的充能
-    if (item.GetCurrentCharges() === 0) {
+    if (item.GetAbilityChargeRestoreTime(-1) > 0 && item.GetCurrentCharges() === 0) {
       return false;
     }
     // 确认魔法值足够
