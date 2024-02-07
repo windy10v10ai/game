@@ -81,7 +81,7 @@
 		"AbilityCooldown"				"0"
 		"ItemCost"						"4000"	// 1000
 		"ItemStockInitial"				"1"
-		"ItemStockMax"					"3"
+		"ItemStockMax"					"1"
 		"ItemStockTime"					"300"
 		"ItemPurchasable"				"1"
 		"ItemSellable"                  "1"
@@ -112,6 +112,48 @@
 				"magic_damage_block"	"600"	// 120
 				"min_damage"			"120"	// 75
 				"initial_charges"		"6"
+		}
+	}
+	// 树之祭祀
+	"item_tango"
+	{
+		"ItemCost"						"100"			// 90
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"health_regen"			"12.0"			// 7.0
+				"buff_duration"			"30.0"			// 16.0
+		}
+	}
+	// 净化药水
+	"item_clarity"
+	{
+		"ItemStockMax"					"8"
+		"ItemStockInitial"				"8"
+		"AbilityValues"
+		{
+				"mana_regen"			"12"			// 6
+				"buff_duration"			"25"			// 25
+		}
+	}
+	// 芒果
+	"item_enchanted_mango"
+	{
+		"ItemCost"						"85"			// 65
+
+		"ItemStackableMax"				"4"
+
+		"ItemStockMax"					"8"
+		"ItemStockInitial"				"8"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"hp_regen"		"1.2"
+				"replenish_amount"		"250"
 		}
 	}
 	"item_faerie_fire" //仙灵之火
