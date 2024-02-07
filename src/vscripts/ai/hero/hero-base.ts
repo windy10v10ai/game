@@ -303,7 +303,6 @@ export class BaseHeroAIModifier extends BaseModifier {
     }
 
     if (ActionAttack.Attack(this.hero, enemyBuild)) {
-      print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 攻击建筑`);
       return true;
     }
     return false;

@@ -1207,8 +1207,8 @@
 		// Ability Values		//------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"magic_res"					"8 12 16 20 24"
-			"status_res"				"8 12 16 20 24"
+			"magic_res"					"10 15 20 25 30"
+			"status_res"				"10 15 20 25 30"
 		}
 	}
 
@@ -1913,7 +1913,7 @@
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate"	"1.5"
 		"AbilityCooldown"	"8"
-		"AbilityManaCost"	"80 100 120 160 200"
+		"AbilityManaCost"	"80 100 120 160 180"
 		"AbilityCastRange"	"%cast_range"
 		"precache"
 		{
@@ -1925,13 +1925,13 @@
 		{
 			"damage"
 			{
-				"value"						"100 150 200 300 400"
+				"value"						"100 200 300 400 500"
 				"special_bonus_unique_yukari_01_damage"	"+100"
 			}
 			"stun_duration"
 			{
-				"value"						"0.4"
-				"special_bonus_unique_yukari_01_stun" "+0.6"
+				"value"						"0.7"
+				"special_bonus_unique_yukari_01_stun" "+0.8"
 			}
 			"speed"			"1200"
 			"radius"		"150"
@@ -1977,8 +1977,8 @@
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
 		// Ability Resource
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"20 19 18 16 14"
-		"AbilityManaCost"	"100 120 140 180 220"
+		"AbilityCooldown"	"20 19 18 17 16"
+		"AbilityManaCost"	"100 120 140 180 200"
 		"AbilityCastRange"	"1200"
 		// Damage
 		// -------------------------------------------------------------------------------------------------------------
@@ -1988,7 +1988,7 @@
 		{
 			"damage_per_second"
 			{
-				"value"						"50 75 100 150 200"
+				"value"						"50 100 150 200 250"
 				"special_bonus_unique_yukari_tentacles_damage"	"+50"
 			}
 			"radius"	"400"
@@ -2223,24 +2223,24 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"	"1"
 		// Ability General
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"	"5"
+		"MaxLevel"	"4"// 大招
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"5"
 		"AbilityCastPoint"	"0.1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
 		// Ability Resource
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"120"
-		"AbilityManaCost"	"200 300 400 500 600"
+		"AbilityCooldown"	"100"
+		"AbilityManaCost"	"200 300 400 500"
 		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
 		// Damage
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"		"200 275 350 425 500"
+		"AbilityDamage"		"275 350 425 500"
 		// Ability Casting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"	"2000"
@@ -2280,7 +2280,7 @@
 			"06"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"stun_time"	"1.2 1.4 1.6 1.8 2.0"
+				"stun_time"	"1.5 1.8 2.1 2.4"
 			}
 		}
 	}

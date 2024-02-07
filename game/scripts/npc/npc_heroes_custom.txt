@@ -324,7 +324,7 @@
 		"AttributeIntelligenceGain"		"1.4"
 
 		"MovementCapabilities"			"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"					"315"
+		"MovementSpeed"					"330"
 		"MovementTurnRate"				"0.8"
 
 		"VisionDaytimeRange"			"1000"
@@ -382,7 +382,7 @@
 
 	"npc_dota_hero_abyssal_underlord"
 	{
-		"Ability6"		"abyssal_underlord_dark_rift"
+		"Ability5"		"abyssal_underlord_dark_rift"
 	}
 
 	"npc_dota_hero_life_stealer"
@@ -415,11 +415,19 @@
 	"npc_dota_hero_hoodwink"
 	{
 		"AttackRate"    "1.7"
+		"Ability16"					"special_bonus_unique_hoodwink_sharpshooter_damage"
+		"Ability14"					"special_bonus_unique_hoodwink_acorn_shot_charges"
 	}
 
 	"npc_dota_hero_obsidian_destroyer"
 	{
 		"AttackRate"    "1.7"
+	}
+
+	"npc_dota_hero_crystal_maiden"
+	{
+		"Ability5"      "visage_silent_as_the_grave"
+		"Ability8"      "visage_gravekeepers_cloak"
 	}
 
 	"npc_dota_hero_tinker"
@@ -479,6 +487,12 @@
 	"npc_dota_hero_naga_siren"
 	{
 		"Ability5"		"naga_siren_crit"
+	}
+
+	"npc_dota_hero_night_stalker"
+	{
+		"VisionDaytimeRange"		"1200"// 800
+		"VisionNighttimeRange"		"2400"// 1800 电灯泡就要有电灯泡的样子，上限4000
 	}
 
 	"npc_dota_hero_keeper_of_the_light"
@@ -623,8 +637,8 @@
 	}
     "npc_dota_hero_antimage"
 	{
-		"Ability4"		"generic_hidden"
-		"Ability5"		"generic_hidden"
+		"Ability4"		"brewmaster_cinder_brew"
+		"Ability5"		"brewmaster_drunken_brawler"
 	}
 	"npc_dota_hero_axe"
 	{
@@ -711,6 +725,10 @@
 				"34"		"bane_nightmare"
 			}
 		}
+	}
+	"npc_dota_hero_batrider"
+	{
+		"Ability5"      "dark_seer_ion_shell"
 	}
 	"npc_dota_hero_bounty_hunter"
 	{
@@ -1158,6 +1176,11 @@
 			}
 		}
 	}
+	"npc_dota_hero_earth_spirit"
+	{
+		"Ability16"		"special_bonus_unique_earth_spirit_5"
+		"Ability15"		"special_bonus_unique_earth_spirit_2"
+	}
 	"npc_dota_hero_furion"
 	{
 		"Bot"
@@ -1200,6 +1223,15 @@
 				"34"		"furion_teleportation"
 			}
 		}
+	}
+	"npc_dota_hero_grimstroke"
+	{
+		"Ability4"              "visage_soul_assumption"
+		"Ability7"				"grimstroke_dark_portrait"
+	}
+	"npc_dota_hero_gyrocopter"
+	{
+		"Ability4"              "phantom_lancer_phantom_edge"
 	}
 	"npc_dota_hero_huskar"
 	{
@@ -1455,6 +1487,14 @@
 	}
 	"npc_dota_hero_lion"
 	{
+		"Ability10"		"special_bonus_unique_lion_6"
+		"Ability15"		"special_bonus_unique_lion_3"
+		"Ability12"		"special_bonus_unique_lion_5"
+		"Ability13"		"special_bonus_unique_lion_11"
+		"Ability17"		"special_bonus_unique_lion_8"
+		"Ability11"		"special_bonus_unique_lion_10"
+		"Ability16"		"special_bonus_unique_lion_manadrain_damage"
+		"Ability14"		"special_bonus_unique_lion_4"
 		"Bot"
 		{
 			"Build"
@@ -1539,6 +1579,10 @@
 				"34"		"luna_moon_glaive"
 			}
 		}
+	}
+	"npc_dota_hero_marci"
+	{
+		"Ability4"          "broodmother_insatiable_hunger"
 	}
 	"npc_dota_hero_medusa"
 	{
@@ -1720,6 +1764,9 @@
 	}
 	"npc_dota_hero_ogre_magi"
 	{
+		"AttackRate"                "1.4"
+		"AttributeStrengthGain"		"5.2"	// 4.2
+		"AttributeAgilityGain"		"2.0"	// 1.5
 		"Bot"
 		{
 			"Build"
@@ -1821,6 +1868,8 @@
 	}
 	"npc_dota_hero_oracle"
 	{
+		"Ability5"      "chen_hand_of_god"
+		"Ability12"     "special_bonus_unique_chen_12"
 		"Bot"
 		{
 			"Build"
@@ -1947,6 +1996,10 @@
 				"34"		"pudge_flesh_heap"
 			}
 		}
+	}
+	"npc_dota_hero_queenofpain"
+	{
+		"Ability4"      "dark_seer_vacuum"
 	}
 	"npc_dota_hero_razor"
 	{
@@ -2258,6 +2311,19 @@
 				"34"		"skywrath_mage_concussive_shot"
 			}
 		}
+	}
+	"npc_dota_hero_snapfire"
+	{
+		"Ability7"				"snapfire_mortimer_kisses"
+		"Ability6"              "chen_penitence"
+		"Ability10"				"special_bonus_unique_snapfire_7"
+		"Ability17"				"special_bonus_unique_snapfire_5"
+		"Ability16"				"special_bonus_unique_snapfire_2"
+		"Ability13"				"special_bonus_unique_snapfire_3"
+		"Ability14"				"special_bonus_unique_snapfire_8"
+		"Ability15"				"special_bonus_unique_snapfire_mortimer_kisses_impact_damage"
+		"Ability12"				"special_bonus_unique_snapfire_6"
+		"Ability11"				"special_bonus_unique_snapfire_1"
 	}
 	"npc_dota_hero_sniper"
 	{

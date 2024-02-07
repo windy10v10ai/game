@@ -27,6 +27,7 @@ export class ModeAttack extends ModeBase {
     //     desire += 0.7;
     //   }
     // }
+    desire = Math.min(desire, 0.8);
     return desire;
   }
 

@@ -17,7 +17,7 @@ export class ModeLaning extends ModeBase {
       // 不增加
     }
 
-    desire = Math.min(desire, 0.8);
+    desire = Math.min(desire, 0.7);
     desire = Math.max(desire, 0);
     return desire;
   }
