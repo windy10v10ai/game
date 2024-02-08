@@ -2,8 +2,30 @@ import { Player } from "../../api/player";
 import { PlayerHelper } from "../../helper/player-helper";
 
 export class EventNpcSpawned {
-  private roshanNumber = 1;
-  constructor() {}
+  private roshanLevelBase = 0;
+  private roshanLevelExtra = 0;
+  // abiliti name list of roshan
+  private roshanLevelupBaseAbilities = [
+    "tidehunter_kraken_shell",
+    "jack_surgery",
+    "ursa_fury_swipes",
+  ];
+
+  private roshanLevelupExtraAbilities = [
+    "roshan_buff",
+    "generic_gold_bag_fountain",
+    "generic_season_point_bag_fountain",
+  ];
+
+  constructor() {
+    // 0: 1-2, 1: 3-5, 2: 6-10
+    if (Player.GetPlayerCount() > 2) {
+      this.roshanLevelExtra++;
+    }
+    if (Player.GetPlayerCount() > 5) {
+      this.roshanLevelExtra++;
+    }
+  }
 
   // 单位出生
   public OnNpcSpawned(keys: GameEventProvidedProperties & NpcSpawnedEvent): void {
@@ -46,22 +68,24 @@ export class EventNpcSpawned {
     const creepName = creep.GetName();
 
     if (creepName === "npc_dota_roshan") {
-      print(`[EventOnNpcSpawned] OnCreepSpawned ${creepName}, roshanNumber: ${this.roshanNumber}`);
-      const abilityRoshanBuff = creep.FindAbilityByName("roshan_buff");
-      if (abilityRoshanBuff) {
-        abilityRoshanBuff.SetLevel(this.roshanNumber);
+      print(
+        `[EventOnNpcSpawned] OnCreepSpawned ${creepName}, roshanLevel: ${this.roshanLevelBase}`,
+      );
+      for (const abilityName of this.roshanLevelupBaseAbilities) {
+        const ability = creep.FindAbilityByName(abilityName);
+        if (ability) {
+          ability.SetLevel(this.roshanLevelBase);
+        }
       }
-      const abilityGoldBag = creep.FindAbilityByName("generic_gold_bag_fountain");
-      if (abilityGoldBag) {
-        abilityGoldBag.SetLevel(this.roshanNumber);
-      }
-      const abilitySeasonPointBag = creep.FindAbilityByName("generic_season_point_bag_fountain");
-      if (abilitySeasonPointBag) {
-        abilitySeasonPointBag.SetLevel(this.roshanNumber);
+      for (const abilityName of this.roshanLevelupExtraAbilities) {
+        const ability = creep.FindAbilityByName(abilityName);
+        if (ability) {
+          ability.SetLevel(this.roshanLevelBase + this.roshanLevelExtra);
+        }
       }
 
-      if (this.roshanNumber < 5) {
-        this.roshanNumber++;
+      if (this.roshanLevelBase < 5) {
+        this.roshanLevelBase++;
       }
     }
   }

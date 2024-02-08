@@ -53,6 +53,7 @@ export class Player {
   public static playerList: PlayerDto[] = [];
   // PointInfoDto
   public static pointInfoList: PointInfoDto[] = [];
+  static playerCount = 1;
   constructor() {
     this.RegisterListener();
     // if (IsInToolsMode()) {
@@ -69,16 +70,24 @@ export class Player {
     // }
   }
 
+  public static GetPlayerCount(): number {
+    return Player.playerCount;
+  }
+
   public Init() {
     CustomNetTables.SetTableValue("loading_status", "loading_status", {
       status: 1,
     });
     // get IsValidPlayer player's steamIds
     const steamIds: number[] = [];
+    let playerCount = 0;
     PlayerHelper.ForEachPlayer((playerId) => {
       const steamId = PlayerResource.GetSteamAccountID(playerId);
       steamIds.push(steamId);
+      playerCount++;
     });
+    Player.playerCount = playerCount;
+
     const matchId = GameRules.Script_GetMatchID().toString();
     const apiParameter = {
       method: HttpMethod.GET,

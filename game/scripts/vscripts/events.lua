@@ -547,7 +547,7 @@ function AIGameMode:OnItemPickedUp(event)
     end
 
     if event.PlayerID ~= nil and item ~= nil and hHero ~= nil and item:GetAbilityName() == "item_bag_of_season_point" then
-        local iPoint = item:GetLevelSpecialValueFor("bonus_season_point", AIGameMode.playerNumber)
+        local iPoint = item:GetSpecialValueFor("bonus_season_point")
         AIGameMode.playerBonusSeasonPoint[event.PlayerID] = AIGameMode.playerBonusSeasonPoint[event.PlayerID] + iPoint
         SendOverheadEventMessage(hHero, OVERHEAD_ALERT_SHARD , hHero, iPoint, nil)
     end
