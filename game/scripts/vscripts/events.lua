@@ -505,9 +505,9 @@ function AIGameMode:OnPlayerLevelUp(keys)
             return
         end
         if iLevel <= 30 then
-            hEntity:SetCustomDeathXP(40 + hEntity:GetCurrentXP() * 0.09)
+            hEntity:SetCustomDeathXP(40 + hEntity:GetCurrentXP() * 0.08)
         else
-            hEntity:SetCustomDeathXP(3500 + hEntity:GetCurrentXP() * 0.03)
+            hEntity:SetCustomDeathXP(3000 + hEntity:GetCurrentXP() * 0.03)
         end
     end)
 
