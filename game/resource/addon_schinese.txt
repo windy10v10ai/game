@@ -1682,6 +1682,14 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"至于能不能幸免于难，施主且行且珍惜。"
 
+		// item_rapier_ultra_bot ai用诅咒圣剑
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#e03e2e'>解放的诅咒圣剑</font>"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Description"            "<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。\n<h1>被动：<font color='#e03e2e'>力量的代价（解放）</font></h1>过于强大力量总会有它的代价。<br><font color='#e03e2e'>但是解放之后就没有代价了</font>"
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot_Lore"					"解放后的诅咒圣剑不会摧毁"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_spell_amp"           "%+$spell_amp"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note0"					"傻了吧，我的诅咒圣剑是永久的"
+
 		// item_bfury_ultra 救世狂战
 		"DOTA_Tooltip_ability_item_bfury_ultra"                         "<font color='#e03e2e'>救世狂战</font>"
 		"DOTA_Tooltip_Ability_item_bfury_ultra_Description"             "<h1>被动：斩断世界线</h1>知道Sccc斩断世界线的那一刀吗？普通攻击时对目标周围最远%cleave_distance%距离的锥形区域内敌人造成%cleave_damage_percent%%%物理伤害。对非英雄单位造成%cleave_damage_percent_creep%%%物理伤害。（仅近战有效）"
@@ -1721,5 +1729,82 @@
 		"DOTA_Tooltip_modifier_devastator_2_debuff"						"法力腐蚀"
 		"DOTA_Tooltip_modifier_devastator_2_debuff_Description"  			"魔法抗性降低%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%"
 
+		// item_blessing_of_dragon 神龙
+		"DOTA_Tooltip_Ability_item_blessing_of_dragon"				"<font color='#e03e2e'>神龙</font>"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_Description"		"恭喜你集齐了七颗龙珠，成功召唤了神龙，现在你可以在商店购买你要许下的愿望。"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_bonus_all_stats"					"+$all"
+
+		// item_blessing_of_dragon_1 神龙赐福·不死
+		"DOTA_Tooltip_Ability_item_blessing_of_dragon_1"				"<font color='#9f5f9f'>神龙赐福·不死</font>"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9f5f9f'>被动：不死之身</font></h1>字面意思。"
+		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active"			"<font color='#9f5f9f'>不死之身</font>"
+		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active_Description"			"<font color='#FFFF00'>求求你打死我</font>"
+
+		// item_blessing_of_dragon_2 神龙赐福·毁灭
+		"DOTA_Tooltip_Ability_item_blessing_of_dragon_2"				"<font color='#9f5f9f'>神龙赐福·毁灭</font>"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>主动：毁灭世界</h1>累了，毁灭吧。"
+
+		// item_blessing_of_dragon_3 神龙赐福·时间
+		"DOTA_Tooltip_Ability_item_blessing_of_dragon_3"				"<font color='#9f5f9f'>神龙赐福·时间</font>"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_3_Description"		"<h1>主动：时间操纵</h1>你掌控了时间，能够随意刷新你的冷却。"
+
+		// item_blessing_of_dragon_4 神龙赐福·空间
+		"DOTA_Tooltip_Ability_item_blessing_of_dragon_4"				"<font color='#9f5f9f'>神龙赐福·空间</font>"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_4_Description"		"<h1>主动：空间折跃</h1>来去自如，来无影去无踪，能够在落点引发空间震。"
+
+		// item_dragon_ball_1 一星珠
+		"DOTA_Tooltip_Ability_item_dragon_ball_1"				"<font color='#FFFF00'>一星珠</font>"
+		"DOTA_Tooltip_ability_item_dragon_ball_1_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有一颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_1_bonus_all_stats"					"+$all"
+
+		// item_dragon_ball_2 二星珠
+		"DOTA_Tooltip_Ability_item_dragon_ball_2"				"<font color='#FFFF00'>二星珠</font>"
+		"DOTA_Tooltip_ability_item_dragon_ball_2_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有两颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_2_bonus_all_stats"					"+$all"
+
+		// item_dragon_ball_3 三星珠
+		"DOTA_Tooltip_Ability_item_dragon_ball_3"				"<font color='#FFFF00'>三星珠</font>"
+		"DOTA_Tooltip_ability_item_dragon_ball_3_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有三颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_3_bonus_all_stats"					"+$all"
+
+		// item_dragon_ball_4 四星珠
+		"DOTA_Tooltip_Ability_item_dragon_ball_4"				"<font color='#FFFF00'>四星珠</font>"
+		"DOTA_Tooltip_ability_item_dragon_ball_4_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有四颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_4_bonus_all_stats"					"+$all"
+
+		// item_dragon_ball_5 五星珠
+		"DOTA_Tooltip_Ability_item_dragon_ball_5"				"<font color='#FFFF00'>五星珠</font>"
+		"DOTA_Tooltip_ability_item_dragon_ball_5_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有五颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_5_bonus_all_stats"					"+$all"
+
+		// item_dragon_ball_6 六星珠
+		"DOTA_Tooltip_Ability_item_dragon_ball_6"				"<font color='#FFFF00'>六星珠</font>"
+		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有六颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_6_bonus_all_stats"					"+$all"
+
+		// item_dragon_ball_7 七星珠
+		"DOTA_Tooltip_Ability_item_dragon_ball_7"				"<font color='#FFFF00'>七星珠</font>"
+		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有七颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_7_bonus_all_stats"					"+$all"
+
+		// item_wish_1 愿望1
+		"DOTA_Tooltip_Ability_item_wish_1"				"<font color='#FFFF00'>愿望1</font>"
+		"DOTA_Tooltip_ability_item_wish_1_Description"		"<h1>被动：许愿</h1>“我想要不死之身”你对神龙这样说道。"
+
+		// item_wish_2 愿望2
+		"DOTA_Tooltip_Ability_item_wish_2"				"<font color='#FFFF00'>愿望2</font>"
+		"DOTA_Tooltip_ability_item_wish_2_Description"		"<h1>被动：许愿</h1>“我想要毁灭世界”你对神龙这样说道。"
+
+		// item_wish_1 愿望3
+		"DOTA_Tooltip_Ability_item_wish_3"				"<font color='#FFFF00'>愿望3</font>"
+		"DOTA_Tooltip_ability_item_wish_3_Description"		"<h1>被动：许愿</h1>“我想要时间之力”你对神龙这样说道。"
+
+		// item_wish_1 愿望4
+		"DOTA_Tooltip_Ability_item_wish_4"				"<font color='#FFFF00'>愿望4</font>"
+		"DOTA_Tooltip_ability_item_wish_4_Description"		"<h1>被动：许愿</h1>“我想要空间之力”你对神龙这样说道。"
+
+		// item_radar_of_dragon 龙珠雷达
+		"DOTA_Tooltip_Ability_item_radar_of_dragon"				"<font color='#FFFF00'>龙珠雷达</font>"
+		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>被动：指引</h1>一星到五星珠在每一级中立代币中选取得到，六星珠，七星珠由肉山随机掉落得到。愿望一共有四种，在商店可以找到。"
 	}
 }

@@ -201,12 +201,12 @@ function CalculateActualDamage(keys, target)
 	local damage = keys.damage
 	local damage_type = keys.damage_type
 
-	print("damage: "..damage)
+	-- print("damage: "..damage)
 	local target_armor = target:GetPhysicalArmorValue(false)
-	print("target_armor: "..target_armor)
+	-- print("target_armor: "..target_armor)
 	damage = damage * (1 - target_armor * 0.06 / (1 + math.abs(target_armor) * 0.06))
 
-	print("damage after reduction: "..damage)
+	-- print("damage after reduction: "..damage)
 	return damage
 end
 

@@ -2,7 +2,20 @@ import { Player } from "../../api/player";
 import { PlayerHelper } from "../../helper/player-helper";
 
 export class EventNpcSpawned {
-  private roshanNumber = 1;
+  private roshanLevelBase = 0;
+  // abiliti name list of roshan
+  private roshanLevelupBaseAbilities = [
+    "tidehunter_kraken_shell",
+    "jack_surgery",
+    "ursa_fury_swipes",
+  ];
+
+  private roshanLevelupExtraAbilities = [
+    "roshan_buff",
+    "generic_gold_bag_fountain",
+    "generic_season_point_bag_fountain",
+  ];
+
   constructor() {}
 
   // 单位出生
@@ -46,23 +59,35 @@ export class EventNpcSpawned {
     const creepName = creep.GetName();
 
     if (creepName === "npc_dota_roshan") {
-      print(`[EventOnNpcSpawned] OnCreepSpawned ${creepName}, roshanNumber: ${this.roshanNumber}`);
-      const abilityRoshanBuff = creep.FindAbilityByName("roshan_buff");
-      if (abilityRoshanBuff) {
-        abilityRoshanBuff.SetLevel(this.roshanNumber);
+      for (const abilityName of this.roshanLevelupBaseAbilities) {
+        const ability = creep.FindAbilityByName(abilityName);
+        if (ability) {
+          ability.SetLevel(this.roshanLevelBase);
+        }
       }
-      const abilityGoldBag = creep.FindAbilityByName("generic_gold_bag_fountain");
-      if (abilityGoldBag) {
-        abilityGoldBag.SetLevel(this.roshanNumber);
-      }
-      const abilitySeasonPointBag = creep.FindAbilityByName("generic_season_point_bag_fountain");
-      if (abilitySeasonPointBag) {
-        abilitySeasonPointBag.SetLevel(this.roshanNumber);
+      for (const abilityName of this.roshanLevelupExtraAbilities) {
+        const ability = creep.FindAbilityByName(abilityName);
+        const level = this.getExtraRoshanLevel();
+        if (ability) {
+          ability.SetLevel(level);
+        }
       }
 
-      if (this.roshanNumber < 5) {
-        this.roshanNumber++;
+      if (this.roshanLevelBase < 5) {
+        this.roshanLevelBase++;
       }
     }
+  }
+
+  private getExtraRoshanLevel(): number {
+    let extra = 0;
+
+    if (Player.GetPlayerCount() >= 4) {
+      extra++;
+    }
+    if (Player.GetPlayerCount() >= 8) {
+      extra++;
+    }
+    return this.roshanLevelBase + extra;
   }
 }

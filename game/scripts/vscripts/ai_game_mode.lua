@@ -296,12 +296,10 @@ function AIGameMode:FilterGold(tGoldFilter)
 
     -- 通用击杀金钱调整
     if iReason == DOTA_ModifyGold_HeroKill then
-        if iGold > 4000 then
-            iGold = iGold / 20 + 800
-        elseif iGold > 2000 then
-            iGold = iGold / 10 + 600
-        elseif iGold > 1000 then
-            iGold = iGold / 5 + 400
+        if iGold > 2000 then
+            iGold = iGold / 8 + 650
+        elseif iGold > 1200 then
+            iGold = iGold / 4 + 400
         elseif iGold > 200 then
             iGold = iGold / 2 + 100
         else

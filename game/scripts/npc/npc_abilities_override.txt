@@ -744,20 +744,13 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-				"radius"
-				{
-					"value"			"700"
-					"affected_by_aoe_increase"	"1"
-				}
 				"quill_base_damage"		"25 45 65 85 105"
 				"quill_stack_damage"
 				{
 					"value"			"28 30 32 34 36"
 					"LinkedSpecialBonus"	"special_bonus_unique_bristleback_2"
 				}
-				"quill_stack_duration"	"20.0"
 				"max_damage"			"550"
-				"projectile_speed"		"2400"
 		}
 	}
 	// 钢毛后背
@@ -2387,14 +2380,13 @@
 		"LinkedAbility"                 "marci_guardian"
 		"AbilityDraftPreAbility"        "marci_guardian"
 		"MaxLevel"                      "5"
-		"AbilityCastPoint"				"0.0"// 0.2
-		"AbilityCooldown"				"45 40 35 30 25"
+		"AbilityCooldown"				"50 45 40 35 30"
 		"AbilityManaCost"				"80"
 		"AbilityValues"
 		{
 			"bonus_damage"
 			{
-				"value"					"40 50 60 70 80"
+				"value"					"30 40 50 60 70"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"lifesteal_pct"
@@ -2409,7 +2401,7 @@
 			}
 		}
 	}
-	// 怒券破
+	// 怒拳破
 	"marci_unleash"
 	{
 		"MaxLevel" "4"

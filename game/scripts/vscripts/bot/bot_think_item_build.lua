@@ -9,6 +9,15 @@ local function addTome(k, v)
 
   local amount = 2
   if AIGameMode.iGameDifficulty and AIGameMode.iGameDifficulty >= 6 then
+    -- if v contains item_excalibur
+    for i,vItem in ipairs(v) do
+      if vItem == "item_excalibur" then
+        -- remove excalibur
+        table.remove(v, i)
+        table.insert(v,"item_rapier_ultra_bot")
+        print("add item_rapier_ultra_bot"..k)
+      end
+    end
     amount = 20
   elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
     amount = 10
@@ -473,7 +482,7 @@ end
 
 -- 加钱
 function BotThink:AddMoney(hHero)
-  local iAddBase = 5 * AIGameMode.playerNumber / 10
+  local iAddBase = 10 * AIGameMode.playerNumber / 10
   local GameTime = GameRules:GetDOTATime(false, false)
   local totalGold = PlayerResource:GetTotalEarnedGold(hHero:GetPlayerID())
 
