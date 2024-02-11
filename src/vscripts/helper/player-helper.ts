@@ -1,6 +1,6 @@
 export class PlayerHelper {
-  static IsHumanPlayer(npc: CDOTA_BaseNPC): boolean {
-    if (npc.IsRealHero()) {
+  static IsHumanPlayer(npc: CDOTA_BaseNPC | undefined): boolean {
+    if (npc && npc.IsRealHero()) {
       // is human player
       if (npc.GetPlayerOwnerID() >= 0) {
         const player = PlayerResource.GetPlayer(npc.GetPlayerOwnerID());

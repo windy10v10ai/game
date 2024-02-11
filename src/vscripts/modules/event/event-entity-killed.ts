@@ -1,3 +1,5 @@
+import { PlayerHelper } from "../../helper/player-helper";
+
 export class EventEntityKilled {
   private readonly removeGoldBagDelay = 20;
   private roshanDropItemList: string[] = ["item_dragon_ball_6", "item_dragon_ball_7"];
@@ -12,7 +14,7 @@ export class EventEntityKilled {
     if (killedUnit.IsRealHero()) {
       this.OnHeroKilled(killedUnit as CDOTA_BaseNPC_Hero);
     } else if (killedUnit.IsCreep()) {
-      this.OnCreepKilled(killedUnit);
+      this.OnCreepKilled(killedUnit, keys);
     }
   }
 
@@ -20,7 +22,10 @@ export class EventEntityKilled {
     // TODO
   }
 
-  private OnCreepKilled(creep: CDOTA_BaseNPC): void {
+  private OnCreepKilled(
+    creep: CDOTA_BaseNPC,
+    keys: GameEventProvidedProperties & EntityKilledEvent,
+  ): void {
     const creepName = creep.GetName();
     if (creepName === "npc_dota_roshan") {
       // delay to remove item item_bag_of_gold and item_bag_of_season_point on map
@@ -34,7 +39,12 @@ export class EventEntityKilled {
         }
       });
 
-      this.roshanDropItem(creep);
+      const attacker = EntIndexToHScript(keys.entindex_attacker) as CDOTA_BaseNPC | undefined;
+      if (PlayerHelper.IsHumanPlayer(attacker)) {
+        this.roshanDropItem(creep);
+      } else {
+        print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);
+      }
     }
   }
 
