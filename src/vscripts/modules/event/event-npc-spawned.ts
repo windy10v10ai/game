@@ -3,7 +3,6 @@ import { PlayerHelper } from "../../helper/player-helper";
 
 export class EventNpcSpawned {
   private roshanLevelBase = 0;
-  private roshanLevelExtra = 0;
   // abiliti name list of roshan
   private roshanLevelupBaseAbilities = [
     "tidehunter_kraken_shell",
@@ -17,15 +16,7 @@ export class EventNpcSpawned {
     "generic_season_point_bag_fountain",
   ];
 
-  constructor() {
-    // 0: 1-2, 1: 3-5, 2: 6-10
-    if (Player.GetPlayerCount() > 2) {
-      this.roshanLevelExtra++;
-    }
-    if (Player.GetPlayerCount() > 5) {
-      this.roshanLevelExtra++;
-    }
-  }
+  constructor() {}
 
   // 单位出生
   public OnNpcSpawned(keys: GameEventProvidedProperties & NpcSpawnedEvent): void {
@@ -68,9 +59,6 @@ export class EventNpcSpawned {
     const creepName = creep.GetName();
 
     if (creepName === "npc_dota_roshan") {
-      print(
-        `[EventOnNpcSpawned] OnCreepSpawned ${creepName}, roshanLevel: ${this.roshanLevelBase}`,
-      );
       for (const abilityName of this.roshanLevelupBaseAbilities) {
         const ability = creep.FindAbilityByName(abilityName);
         if (ability) {
@@ -79,8 +67,9 @@ export class EventNpcSpawned {
       }
       for (const abilityName of this.roshanLevelupExtraAbilities) {
         const ability = creep.FindAbilityByName(abilityName);
+        const level = this.getExtraRoshanLevel();
         if (ability) {
-          ability.SetLevel(this.roshanLevelBase + this.roshanLevelExtra);
+          ability.SetLevel(level);
         }
       }
 
@@ -88,5 +77,17 @@ export class EventNpcSpawned {
         this.roshanLevelBase++;
       }
     }
+  }
+
+  private getExtraRoshanLevel(): number {
+    let extra = 0;
+
+    if (Player.GetPlayerCount() >= 4) {
+      extra++;
+    }
+    if (Player.GetPlayerCount() >= 8) {
+      extra++;
+    }
+    return this.roshanLevelBase + extra;
   }
 }

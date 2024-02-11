@@ -53,7 +53,7 @@ export class Player {
   public static playerList: PlayerDto[] = [];
   // PointInfoDto
   public static pointInfoList: PointInfoDto[] = [];
-  static playerCount = 1;
+  private static playerCount = 0;
   constructor() {
     this.RegisterListener();
     // if (IsInToolsMode()) {

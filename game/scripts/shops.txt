@@ -2,7 +2,7 @@
 {
 	"consumables"
 	{
-		"item"		"item_tpscroll"
+		// "item"		"item_tpscroll"
 		"item"		"item_clarity"
 		"item"		"item_faerie_fire"					// 仙灵之火
 		"item"		"item_smoke_of_deceit"

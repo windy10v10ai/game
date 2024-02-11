@@ -744,20 +744,13 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-				"radius"
-				{
-					"value"			"700"
-					"affected_by_aoe_increase"	"1"
-				}
 				"quill_base_damage"		"25 45 65 85 105"
 				"quill_stack_damage"
 				{
 					"value"			"28 30 32 34 36"
 					"LinkedSpecialBonus"	"special_bonus_unique_bristleback_2"
 				}
-				"quill_stack_duration"	"20.0"
 				"max_damage"			"550"
-				"projectile_speed"		"2400"
 		}
 	}
 	// 钢毛后背
