@@ -910,12 +910,12 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_attack_speed"			"200"
+				"bonus_attack_speed"			"240"// 现在一个振奋宝石是60
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_night_vision"			"300"
+				"bonus_night_vision"			"600"
 			}
 			"03"
 			{
@@ -925,12 +925,12 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"consumed_bonus_night_vision"	"150"	// tooltip only
+				"consumed_bonus_night_vision"	"300"	// tooltip only
 			}
 			"05"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"consumed_bonus_day_vision"		"150"	// tooltip only
+				"consumed_bonus_day_vision"		"300"	// tooltip only //满视野4000，除了夜魔吃8个6w获得满视野
 			}
 		}
 
@@ -973,8 +973,8 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"80"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"150"
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION"				"150"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"300"
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"				"300" //满视野4000，除了夜魔吃8个6w获得满视野
 				}
 			}
 		}
@@ -3396,7 +3396,7 @@
 		"AbilityTextureName"			"item_recipe_silver_edge_2"
 
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"450"
+		"ItemCost"						"250"// 现在总价5450+2000+2200+250=9900
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3405,7 +3405,7 @@
 		"ItemResult"					"item_silver_edge_2"
 		"ItemRequirements"
 		{
-			"01"						"item_silver_edge;item_relic"
+			"01"						"item_silver_edge;item_hyperstone;item_demon_edge"
 		}
 	}
 
@@ -3435,8 +3435,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage" "166"
-			"bonus_attack_speed"	"40"
+			"bonus_damage" "60"// 配方更改后的攻击力20+40
+			"bonus_attack_speed"	"160"// 配方更改后的攻速35+60+60+5
 			"bonus_strength"		"0"
 			"bonus_intellect"			"0"
 			"bonus_mana_regen"		"0"
@@ -6500,7 +6500,7 @@
 		"ItemCost"						"10000"
 		"ItemPurchasable"				"1"
 		"ItemSellable"				    "1"
-		"ItemIsNeutralDrop"				"0"
+		"ItemIsNeutralDrop"				"1"
 		"AbilityTextureName"			"item_black_king_bar_real"
 		"AbilitySharedCooldown"			"bkb"
 
@@ -6559,6 +6559,55 @@
 				"Passive"				"1"
 				"IsHidden"				"1"
 				"RemoveOnDeath"			"1"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%bonus_spell_amp"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"		"%bonus_damage_percent"
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+    // ai专用神器诅咒圣剑 rapier ultra bot
+    //=================================================================================================================
+	"item_rapier_ultra_bot"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ID"							"9595"
+		"AbilityTextureName"			"item_rapier_ultra"
+		"ItemCost"						"36000"
+
+		"ItemDroppable"                 "1"
+		"ItemKillable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemSellable"				    "0"
+		"AllowedInBackpack"				"1"
+
+		"AbilityValues"
+		{
+			"bonus_damage"			"1000"
+			"bonus_spell_amp"		"100"
+			"bonus_damage_percent"	"100"
+
+			"ruin_chance_tooltip"	"0"
+		}
+		"Modifiers"
+		{
+			"modifier_item_rapier_ultra_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
 
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
@@ -6735,6 +6784,464 @@
 				"slow_duration"	"4"
 				"active_mres_reduction"		"40"
 				"passive_cooldown"		"4"
+		}
+	}
+
+	//=================================================================================================================
+	// 龙珠系列 dragon ball blessing of dragon
+	//=================================================================================================================
+	"item_dragon_ball_1"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"						    "10001"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_dragon_ball_1"
+		"ItemCost"						"1111"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"				    "1"
+		"ShouldBeInitiallySuggested"	"1"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"11"
+		}
+	}
+	"item_dragon_ball_2"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"						    "10002"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_dragon_ball_2"
+		"ItemCost"						"2222"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"				    "1"
+		"ShouldBeInitiallySuggested"	"1"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"22"
+		}
+	}
+	"item_dragon_ball_3"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"						    "10003"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_dragon_ball_3"
+		"ItemCost"						"3333"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"				    "1"
+		"ShouldBeInitiallySuggested"	"1"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"33"
+		}
+	}
+	"item_dragon_ball_4"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"						    "10004"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_dragon_ball_4"
+		"ItemCost"						"4444"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"				    "1"
+		"ShouldBeInitiallySuggested"	"1"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"44"
+		}
+	}
+	"item_dragon_ball_5"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"						    "10005"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_dragon_ball_5"
+		"ItemCost"						"5555"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"				    "1"
+		"ShouldBeInitiallySuggested"	"1"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"55"
+		}
+	}
+	"item_dragon_ball_6"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"						    "10006"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_dragon_ball_6"
+		"ItemCost"						"6666"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"0"
+		"ItemKillable"					"0"
+		"ItemSellable"				    "0"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"66"
+		}
+	}
+	"item_dragon_ball_7"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"						    "10007"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_dragon_ball_7"
+		"ItemCost"						"7777"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"0"
+		"ItemKillable"					"0"
+		"ItemSellable"				    "0"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"77"
+		}
+	}
+	"item_wish_1"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"						    "10008"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_wish_1"
+		"ItemCost"						"1"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"				    "1"
+		"ShouldBeInitiallySuggested"	"1"
+
+		"ItemStockMax"					"1"
+		"ItemStockInitial"				"1"
+		"ItemStockTime"					"600"
+		"ItemInitialStockTime"			"30"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"1"
+		}
+	}
+	"item_wish_2"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"						    "10009"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_wish_2"
+		"ItemCost"						"1"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"				    "1"
+		"ShouldBeInitiallySuggested"	"1"
+
+		"ItemStockMax"					"1"
+		"ItemStockInitial"				"1"
+		"ItemStockTime"					"600"
+		"ItemInitialStockTime"			"30"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"1"
+		}
+	}
+	"item_wish_3"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"						    "10010"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_wish_3"
+		"ItemCost"						"1"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"				    "1"
+		"ShouldBeInitiallySuggested"	"1"
+
+		"ItemStockMax"					"1"
+		"ItemStockInitial"				"1"
+		"ItemStockTime"					"600"
+		"ItemInitialStockTime"			"30"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"1"
+		}
+	}
+	"item_wish_4"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"						    "10011"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_wish_4"
+		"ItemCost"						"1"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"				    "1"
+		"ShouldBeInitiallySuggested"	"1"
+
+		"ItemStockMax"					"1"
+		"ItemStockInitial"				"1"
+		"ItemStockTime"					"600"
+		"ItemInitialStockTime"			"30"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"1"
+		}
+	}
+	"item_recipe_blessing_of_dragon"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "9623"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_blessing_of_dragon"
+		"ItemRequirements"
+		{
+			"01"                        "item_dragon_ball_1;item_dragon_ball_2;item_dragon_ball_3;item_dragon_ball_4;item_dragon_ball_5;item_dragon_ball_6;item_dragon_ball_7"
+		}
+	}
+	"item_blessing_of_dragon"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"						    "10012"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_blessing_of_dragon"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"0"
+		"ItemKillable"					"0"
+		"ItemSellable"				    "0"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"308"
+		}
+	}
+	"item_recipe_blessing_of_dragon_1"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "9624"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_blessing_of_dragon_1"
+		"ItemRequirements"
+		{
+			"01"                        "item_blessing_of_dragon;item_wish_1"
+		}
+	}
+	"item_blessing_of_dragon_1"
+	{
+		"BaseClass"                     "item_helm_of_the_undying"
+		"ID"						    "9625"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_blessing_of_dragon_1"
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"0"
+		"ItemKillable"					"0"
+		"ItemSellable"				    "0"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityCooldown"				"0.0"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AbilityValues"
+		{
+			"bonus_armor"		"0"
+			"duration"			"7200"
+		}
+	}
+	"item_recipe_blessing_of_dragon_2"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "9626"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_blessing_of_dragon_2"
+		"ItemRequirements"
+		{
+			"01"                        "item_blessing_of_dragon;item_wish_2"
+		}
+	}
+	"item_blessing_of_dragon_2"
+	{
+		"BaseClass"                     "item_blood_grenade"
+		"ID"						    "9627"
+		"AbilityTextureName"            "item_blessing_of_dragon_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityCastRange"				"99999"
+		"AbilityCastPoint"				"0"
+		"AbilityHealthCost"				"0"
+		"AbilityCooldown"				"180"
+		"ItemCost"						"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"5"
+		"ItemPermanent"					"0"
+		"IsTempestDoubleClonable"		"0"
+		"ItemPurchasable"				"0"
+		"ItemKillable"					"0"
+		"ItemSellable"				    "0"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AbilityValues"
+		{
+			"speed"					"99999"
+			"radius"
+			{
+				"value"		"99999"
+				"affected_by_aoe_increase"	"1"
+			}
+			"movespeed_slow"		"-100"
+			"bonus_health"			"0"
+			"damage_over_time"		"999999"
+			"impact_damage"			"99999"
+			"tick_rate"				"1"
+			"debuff_duration"		"10"
+		}
+	}
+	"item_recipe_blessing_of_dragon_3"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "9628"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_blessing_of_dragon_3"
+		"ItemRequirements"
+		{
+			"01"                        "item_blessing_of_dragon;item_wish_3"
+		}
+	}
+	"item_blessing_of_dragon_3"
+	{
+		"BaseClass"                     "item_refresher"
+		"ID"						    "9629"
+		"AbilityTextureName"            "item_blessing_of_dragon_3"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemPurchasable"				"0"
+		"ItemKillable"					"0"
+		"ItemSellable"				    "0"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AbilityValues"
+		{
+			"bonus_health_regen"	"0"
+			"bonus_mana_regen"		"0"
+			"bonus_damage"			"0"
+		}
+	}
+	"item_recipe_blessing_of_dragon_4"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "9630"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_blessing_of_dragon_4"
+		"ItemRequirements"
+		{
+			"01"                        "item_blessing_of_dragon;item_wish_4"
+		}
+	}
+	"item_blessing_of_dragon_4"
+	{
+		"BaseClass"                     "item_fallen_sky"
+		"ID"						    "9631"
+		"AbilityTextureName"			"item_blessing_of_dragon_4"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityCastRange"				"99999"
+		"AbilityCooldown"				"1"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"0"
+		"ItemKillable"					"0"
+		"ItemSellable"				    "0"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AbilityValues"
+		{
+			"bonus_strength"		"0"
+			"bonus_intellect"		"0"
+			"bonus_health_regen"	"0.0"
+			"bonus_mana_regen"		"0.0"
+			"burn_dps_buildings"	"120"
+			"burn_dps_units"		"600"
+			"burn_duration"		    "6"
+			"stun_duration"		    "0.8"
+			"burn_interval"		    "1.0"
+			"land_time"				"0"
+			"impact_radius"
+			{
+				"value"			"350"
+				"affected_by_aoe_increase"	"1"
+			}
+			"max_duration"		"2.5"
+			"impact_damage_buildings"		"150"
+			"impact_damage_units"		"750"
+			"blink_damage_cooldown"	"0"
+		}
+	}
+	"item_radar_of_dragon"
+	{
+		"BaseClass"                     "item_circlet"
+		"ID"							"9632"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"item_radar_of_dragon"
+		"ItemCost"						"999999"
+		"ItemIsNeutralDrop"				"1"
+		"ItemShopTags"					""
+		"ItemQuality"					""
+		"ItemAliases"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+		"ItemInitialCharges"			"1"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"1"
 		}
 	}
 }

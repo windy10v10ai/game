@@ -9,6 +9,15 @@ local function addTome(k, v)
 
   local amount = 2
   if AIGameMode.iGameDifficulty and AIGameMode.iGameDifficulty >= 6 then
+    -- if v contains item_excalibur
+    for i,vItem in ipairs(v) do
+      if vItem == "item_excalibur" then
+        -- remove excalibur
+        table.remove(v, i)
+        table.insert(v,"item_rapier_ultra_bot")
+        print("add item_rapier_ultra_bot"..k)
+      end
+    end
     amount = 20
   elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
     amount = 10

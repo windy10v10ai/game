@@ -66,6 +66,15 @@
 		"item"		"item_javelin"
 		"item"		"item_claymore"
 		"item"		"item_mithril_hammer"
+
+		"item"		"item_ring_of_tarrasque"
+		"item"		"item_tiara_of_selemene"
+		"item"		"item_cornucopia"
+		"item"		"item_energy_booster"
+		"item"		"item_vitality_booster"
+		"item"		"item_point_booster"
+		"item"		"item_talisman_of_evasion"
+		"item"		"item_platemail"
 	}
 
 	"misc"
@@ -87,7 +96,13 @@
 		"item"		"item_ring_of_health"
 		"item"		"item_void_stone"
 
-		"item"		"item_recipe_greater_famango"
+		"item"		"item_hyperstone"
+		"item"		"item_ultimate_orb"
+		"item"		"item_demon_edge"
+		"item"		"item_mystic_staff"
+		"item"		"item_reaver"
+		"item"		"item_eagle"
+		"item"		"item_relic"
 	}
 
 	// Level 1 - Green Recipes
@@ -271,21 +286,13 @@
 
 	"secretshop"
 	{
-		"item"		"item_ring_of_tarrasque"
-		"item"		"item_tiara_of_selemene"
-		"item"		"item_cornucopia"
-		"item"		"item_energy_booster"
-		"item"		"item_vitality_booster"
-		"item"		"item_point_booster"
-		"item"		"item_talisman_of_evasion"
-		"item"		"item_platemail"
-		"item"		"item_hyperstone"
-		"item"		"item_ultimate_orb"
-		"item"		"item_demon_edge"
-		"item"		"item_mystic_staff"
-		"item"		"item_reaver"
-		"item"		"item_eagle"
-		"item"		"item_relic"
+		"item"      "item_wish_1"
+		"item"      "item_wish_2"
+		"item"      "item_wish_3"
+		"item"      "item_wish_4"
+
+		"item"      "item_radar_of_dragon"
+		"item"		"item_recipe_greater_famango"
 	}
 
 	"pregame"
