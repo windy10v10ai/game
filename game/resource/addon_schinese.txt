@@ -1805,6 +1805,6 @@
 
 		// item_radar_of_dragon 龙珠雷达
 		"DOTA_Tooltip_Ability_item_radar_of_dragon"				"<font color='#FFFF00'>龙珠雷达</font>"
-		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>被动：指引</h1>一星到五星珠在每一级中立代币中选取得到，六星珠，七星珠由肉山随机掉落得到。愿望一共有四种，在商店可以找到。"
+		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>被动：指引</h1>一星到五星珠在每一级中立代币中选取得到，六星珠，七星珠由肉山随机掉落得到。愿望一共有四种，在商店可以找到。\n<font color='#e03e2e'>注意：</font>龙珠无法合成时，请回到泉水，尝试从备用背包中移动至主背包或仓库。一星到五星珠无法与他人共享。"
 	}
 }

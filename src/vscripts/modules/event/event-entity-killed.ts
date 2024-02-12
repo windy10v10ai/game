@@ -5,6 +5,16 @@ export class EventEntityKilled {
   private roshanDropItemList: string[] = ["item_dragon_ball_6", "item_dragon_ball_7"];
   private roshanDropItemChance = 75;
 
+  private roshanDropItemList2: string[] = [
+    "item_dragon_ball_1",
+    "item_dragon_ball_2",
+    "item_dragon_ball_3",
+    "item_dragon_ball_4",
+    "item_dragon_ball_5",
+  ];
+
+  private roshanDropItemChance2 = 90;
+
   OnEntityKilled(keys: GameEventProvidedProperties & EntityKilledEvent): void {
     const killedUnit = EntIndexToHScript(keys.entindex_killed) as CDOTA_BaseNPC | undefined;
     if (!killedUnit) {
@@ -41,29 +51,45 @@ export class EventEntityKilled {
 
       const attacker = EntIndexToHScript(keys.entindex_attacker) as CDOTA_BaseNPC | undefined;
       if (PlayerHelper.IsHumanPlayer(attacker)) {
-        this.roshanDropItem(creep);
+        this.roshanDropItemList = this.roshanDropItem(
+          creep,
+          this.roshanDropItemList,
+          this.roshanDropItemChance,
+        );
+        this.roshanDropItemList2 = this.roshanDropItem(
+          creep,
+          this.roshanDropItemList2,
+          this.roshanDropItemChance2,
+        );
       } else {
         print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);
       }
     }
   }
 
-  private roshanDropItem(creep: CDOTA_BaseNPC): void {
-    if (this.roshanDropItemList.length === 0) {
-      print(`[EventEntityKilled] OnCreepKilled roshanDropItemList is empty`);
-      return;
+  private roshanDropItem(creep: CDOTA_BaseNPC, dropItemList: string[], dropChance = 100): string[] {
+    if (dropItemList.length === 0) {
+      print(`[EventEntityKilled] OnCreepKilled dropItemList is empty`);
+      return dropItemList;
     }
-    if (RandomInt(0, 100) <= this.roshanDropItemChance) {
-      const itemIndex = RandomInt(0, this.roshanDropItemList.length - 1);
-      const itemName = this.roshanDropItemList[itemIndex];
+    if (RandomInt(0, 100) <= dropChance) {
+      const itemIndex = RandomInt(0, dropItemList.length - 1);
+      const itemName = dropItemList[itemIndex];
       const item = CreateItem(itemName, undefined, undefined);
       if (item) {
         CreateItemOnPositionSync(creep.GetAbsOrigin(), item);
-        item.LaunchLoot(false, 300, 0.75, creep.GetAbsOrigin(), undefined);
+        item.LaunchLoot(
+          false,
+          300,
+          0.75,
+          creep.GetAbsOrigin().__add(Vector(RandomInt(-100, 100), RandomInt(-100, 100), 0)),
+          undefined,
+        );
       }
 
       print(`[EventEntityKilled] OnCreepKilled drop item ${itemName}`);
-      this.roshanDropItemList = this.roshanDropItemList.filter((v, i) => i !== itemIndex);
+      return dropItemList.filter((v, i) => i !== itemIndex);
     }
+    return dropItemList;
   }
 }
