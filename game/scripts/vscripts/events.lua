@@ -912,12 +912,11 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
         playerInfo.points = AIGameMode:FilterSeasonPointDifficulty(playerInfo.points)
     end
 
-    -- 追加奖励赛季积分 不计算倍率
+    -- 追加奖励勇士积分 不计算倍率
     for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidPlayerID(playerID) and not PlayerResource:IsFakeClient(playerID) then
             local playerInfo = data.players[playerID]
             if playerInfo then
-                -- 追加奖励赛季积分
                 playerInfo.points = playerInfo.points + AIGameMode.playerBonusSeasonPoint[playerID]
             end
         end

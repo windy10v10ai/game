@@ -5,7 +5,7 @@
 	{
 		"addon_game_name"		"Dota 10v10 AI Wars"
 		"DOTA_GameMode_15"		"Dota 10v10 AI Wars"
-		"DOTA_SHARD"			"Season Point"
+		"DOTA_SHARD"			"Battle Point"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -77,13 +77,6 @@
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
-		//            Hero Selection
-		//
-		// /////////////////////////////////////////////////////////////////////////////
-		"pick_button_season_level_text"	"Season level 15 unlock"
-
-		// /////////////////////////////////////////////////////////////////////////////
-		//
 		//            Scoreborad/Ending Screen
 		//
 		// /////////////////////////////////////////////////////////////////////////////
@@ -109,19 +102,17 @@
 		///////////////////////////////////////////////////
 		"data_panel_button"				"Player Profile"
 		"data_panel_member_point"		"Member Point"
-		"data_panel_season_point"		"Season Point"
+		"data_panel_season_point"		"Battle Point"
 		"data_panel_property_point"		"Attribute Point (Useable/Total)"
 
 		"data_panel_data_button"		"Data"
 		"data_panel_property_button"	"Player Attribute"
 
-		"data_panel_season_level"		"Season Level"
-		"data_panel_season_level_tooltip"		"After playing the game to get the season points, the season level will be raised.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>100</font> points."
+		"data_panel_season_level"		"Battle Level"
+		"data_panel_season_level_tooltip"		"After playing the game to get the Battle Points, the Battle level will be raised.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>100</font> points."
 		"data_panel_member_level"		"Member Level"
 		"data_panel_member_level_tooltip"		"Members can get 100 membership points for daily login.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>50</font> points."
 		"data_panel_level_progress"		"Level Progress"
-		// "data_panel_season_end"			"Third Season end date: 2023/9/30"
-		// "data_panel_season_end_tooltip"			"Season level will be reset at the end of the season. <br><font color='#E8C07D'>Inherit 50%</font> season points to the next season"
 
 		"data_panel_link_charge"		"Charge Member Point"
 		"data_panel_link_rule"			"Point Rule"
@@ -190,7 +181,7 @@
 		//            Leaderboard
 		//
 		///////////////////////////////////////////////////
-		"leaderboard_title"				"Season Leaderboard"
+		"leaderboard_title"				"Battle Leaderboard"
 		"leaderboard_rank"				"Rank"
 		"leaderboard_name"				"Name"
 
@@ -844,7 +835,7 @@
 
         // bag_of_gold
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"Bag of Gold"
-        "DOTA_Tooltip_ability_item_bag_of_season_point"			"Season Point"
+        "DOTA_Tooltip_ability_item_bag_of_season_point"			"Battle Point"
 
         // Tomes
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"Tome of Strength"

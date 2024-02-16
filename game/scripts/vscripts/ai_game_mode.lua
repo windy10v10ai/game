@@ -249,7 +249,7 @@ function AIGameMode:PreGameOptions()
 
     self.PreGameOptionsSet = true
 
-    -- 肉山奖励赛季积分
+    -- 肉山奖励勇士积分 初始化
     self.playerBonusSeasonPoint = {}
     for i = 0, 23 do
         self.playerBonusSeasonPoint[i] = 0
