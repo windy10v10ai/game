@@ -5346,7 +5346,7 @@
 		// Charge
 		"AbilityCooldown"				"0"
 		"AbilityCharges"				"2"
-		"AbilityChargeRestoreTime"		"90"
+		"AbilityChargeRestoreTime"		"100"
 		"ItemInitialCharges"			"1"
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
@@ -6307,7 +6307,7 @@
 		"AbilityTextureName"            "item_blessing_of_dragon_3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0.0"
+		"AbilityCooldown"				"0.1"
 		"AbilityManaCost"				"0"
 		"ItemShopTags"					""
 		"ItemQuality"					""

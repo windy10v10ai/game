@@ -1577,21 +1577,21 @@
 
 		// item_blessing_of_dragon_1 神龙赐福·不死
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_1"				"<font color='#9f5f9f'>Dragon's Blessing of Immortality</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9f5f9f'>Passive: Immortality</font></h1>Literal meaning."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9f5f9f'>Passive: Immortality</font></h1>Literal meaning.\n Shareable with teammate."
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active"			"<font color='#9f5f9f'>Immortality</font>"
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active_Description"			"<font color='#FFFF00'>Kill me please.</font>"
 
 		// item_blessing_of_dragon_2 神龙赐福·毁灭
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_2"				"<font color='#9f5f9f'>Dragon's Blessing of Destruction</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>Active: World Destruction</h1>Feeling tired? Let's bring destruction upon the world."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>Active: World Destruction</h1>Feeling tired? Let's bring destruction upon the world.\n Shareable with teammate."
 
 		// item_blessing_of_dragon_3 神龙赐福·时间
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_3"				"<font color='#9f5f9f'>Dragon's Blessing of Time</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_3_Description"		"<h1>Active: Time Manipulation</h1>You have control over time, allowing you to freely refresh your cooldowns."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_3_Description"		"<h1>Active: Time Manipulation</h1>You have control over time, allowing you to freely refresh your cooldowns.\n Shareable with teammate."
 
 		// item_blessing_of_dragon_4 神龙赐福·空间
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_4"				"<font color='#9f5f9f'>Dragon's Blessing of Space</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_4_Description"		"<h1>Active: Spatial Leap</h1>Move freely, appearing and disappearing at will, causing a spatial shockwave at the destination."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_4_Description"		"<h1>Active: Spatial Leap</h1>Move freely, appearing and disappearing at will, causing a spatial shockwave at the destination.\n Shareable with teammate."
 
 		// item_dragon_ball_1 一星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_1"				"<font color='#FFFF00'>One-Star Dragon Ball</font>"
@@ -1620,12 +1620,12 @@
 
 		// item_dragon_ball_6 六星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_6"				"<font color='#FFFF00'>Six-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"A glass bead that reveals six pentagrams from any angle. Collecting all seven will bring good fortune."
+		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"A glass bead that reveals six pentagrams from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate."
 		"DOTA_Tooltip_ability_item_dragon_ball_6_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_7 七星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_7"				"<font color='#FFFF00'>Seven-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"A glass bead that reveals seven pentagrams from any angle. Collecting all seven will bring good fortune."
+		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"A glass bead that reveals seven pentagrams from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate."
 		"DOTA_Tooltip_ability_item_dragon_ball_7_bonus_all_stats"					"+$all"
 
 		// item_wish_1 愿望1
@@ -1646,7 +1646,7 @@
 
 		// item_radar_of_dragon 龙珠雷达
 		"DOTA_Tooltip_Ability_item_radar_of_dragon"				"<font color='#FFFF00'>Dragon Ball Radar</font>"
-		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>Passive: Guidance</h1>One-Star to Five-Star Dragon Balls can be obtained from neutral items at each level. Six-Star and Seven-Star Dragon Balls are randomly dropped by Roshan. There are four different wishes that can be found in the shop.\n<font color='#e03e2e'>Note:</font> When Dragon Balls cannot be combined, please go back to fountain, move them from the backup slot to the main slot or stash. One-Star to Five-Star Dragon Balls cannot be shared with others."
+		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>Passive: Guidance</h1>One-Star to Five-Star Dragon Balls can be obtained from neutral items at each level. Six-Star and Seven-Star Dragon Balls are randomly dropped by Roshan. There are four different wishes that can be found in the shop.\n<font color='#e03e2e'>Note:</font> When Dragon Balls cannot be combined, please go back to fountain, move them from the backup slot to the main slot or stash. One-Star to Five-Star Dragon Balls cannot be shared with others. Six-Star, Seven-Star Dragon Balls and combined items can share with others。"
 
 	}
 }
