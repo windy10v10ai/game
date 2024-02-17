@@ -1,5 +1,7 @@
 import { AI } from "../../ai/AI";
 import { ActionItem } from "../../ai/action/action-item";
+import { ModifierHelper } from "../../helper/modifier-helper";
+import { PlayerHelper } from "../../helper/player-helper";
 import { reloadable } from "../../utils/tstl-utils";
 import { CMD } from "./debug-cmd";
 
@@ -93,6 +95,44 @@ export class Debug {
       const version = args[0];
       const key = GetDedicatedServerKeyV2(version);
       this.log(`${version}: ${key}`);
+    }
+
+    if (cmd.startsWith("-removeModifier")) {
+      const modifierName = args[0];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        // add modifier
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (hero) {
+          // remove all modifier
+          for (let i = 0; i < 100; i++) {
+            hero.RemoveModifierByName(modifierName);
+          }
+        }
+      });
+    }
+    if (cmd.startsWith("-addModifier")) {
+      const modifierName = args[0];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        // add modifier
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (hero) {
+          for (let i = 0; i < 100; i++) {
+            hero.AddNewModifier(hero, undefined, modifierName, {});
+          }
+        }
+      });
+    }
+    if (cmd.startsWith("-addDataDriveModifier")) {
+      const modifierName = args[0];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        // add modifier
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (hero) {
+          for (let i = 0; i < 100; i++) {
+            ModifierHelper.applyGlobalModifier(hero, modifierName);
+          }
+        }
+      });
     }
   }
 

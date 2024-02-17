@@ -27,40 +27,6 @@ local StackToPercentage = function (iStackCount)
 	end
 end
 
-
-modifier_courier_speed = class({})
-
-function modifier_courier_speed:IsPurgable() return false end
-function modifier_courier_speed:IsHidden() return true end
-function modifier_courier_speed:RemoveOnDeath() return false end
-
--- function modifier_courier_speed:CheckState() return {[MODIFIER_STATE_INVULNERABLE] = true} end
-
-function modifier_courier_speed:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_MOVESPEED_MAX,
-		MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-	}
-end
-
-function modifier_courier_speed:GetModifierMoveSpeed_Max()
-	return 3000
-end
-
-function modifier_courier_speed:GetModifierMoveSpeed_Limit()
-	return 3000
-end
-
-function modifier_courier_speed:GetModifierMoveSpeed_Absolute()
-	return 3000
-end
-
-function modifier_courier_speed:GetModifierPhysicalArmorBonus()
-	return 100
-end
-
 modifier_melee_resistance = class({})
 
 function modifier_melee_resistance:IsPurgable() return false end
@@ -111,7 +77,6 @@ function modifier_tower_endure:GetTexture() return "tower_endure" end
 
 function modifier_tower_endure:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_TOOLTIP
 	}
 end
@@ -127,14 +92,6 @@ function modifier_tower_endure:OnCreated()
 		hParent:SetBaseMaxHealth( newHealth )
 		hParent:SetHealth( newHealth )
 	end)
-end
-
-function modifier_tower_endure:GetModifierPhysicalArmorBonus()
-	local sArmor = self:GetParent():GetPhysicalArmorBaseValue()
-	local fPercent = StackToPercentage(self:GetStackCount())
-
-	local iArmor = math.floor(sArmor/4*(fPercent-1))
-	return iArmor
 end
 
 function modifier_tower_endure:OnTooltip()

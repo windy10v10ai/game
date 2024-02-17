@@ -16,8 +16,8 @@ export class BaseHeroAIModifier extends BaseModifier {
   protected continueActionEndTime: number = 0;
 
   protected readonly FindRadius: number = 1600;
-  protected readonly PushNoAttactTowerHeroDistanceBuff: number = 300;
-  protected readonly CastRange: number = 600;
+  protected readonly NotAttactTowerHeroAttackRangeBuff: number = 400;
+  protected readonly CastRange: number = 900;
 
   public readonly PushLevel: number = 10;
 
@@ -292,7 +292,7 @@ export class BaseHeroAIModifier extends BaseModifier {
     if (enemyHero) {
       // if hero in attack range
       const distanceToAttackHero = HeroUtil.GetDistanceToAttackRange(this.hero, enemyHero);
-      if (distanceToAttackHero <= this.PushNoAttactTowerHeroDistanceBuff) {
+      if (distanceToAttackHero <= this.NotAttactTowerHeroAttackRangeBuff) {
         return false;
       }
 

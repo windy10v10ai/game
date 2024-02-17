@@ -39,7 +39,7 @@
 		"starting_gold_player"	"玩家初始金钱"
 		"starting_gold_bot"	"电脑初始金钱"
 		"same_hero_selection"  "允许选择相同英雄"
-		"fast_courier"  "快速信使"
+		// "fast_courier"  "快速信使"
 		"radiant_bot_same_multi"  "天辉电脑使用玩家金钱倍率"
 		"hide_chat_team"  "隐藏聊天框"
 		"show_chat_team"  "显示聊天框"
@@ -197,7 +197,7 @@
 		"DOTA_Tooltip_modifier_tower_power_Description"			"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
 
 		"DOTA_Tooltip_modifier_tower_endure"						"建筑防御加成"
-		"DOTA_Tooltip_modifier_tower_endure_Description"		"建筑物的护甲增加 %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, 最大生命值设为 %dMODIFIER_PROPERTY_TOOLTIP%%%。"
+		"DOTA_Tooltip_modifier_tower_endure_Description"		"建筑物的最大生命值设为 %dMODIFIER_PROPERTY_TOOLTIP%%%。"
 
 		"DOTA_Tooltip_modifier_melee_resistance"					"威压"
 		"DOTA_Tooltip_modifier_melee_resistance_Description"	"近战英雄额外获得 %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 状态抗性，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性。"

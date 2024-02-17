@@ -127,15 +127,15 @@ function InitSetting() {
   $("#starting_gold_player_dropdown").SetSelected("3000");
   $("#starting_gold_bot_dropdown").SetSelected("1000");
   $("#same_hero_selection").checked = true;
-  $("#fast_courier").checked = true;
+  // $("#fast_courier").checked = true;
   $("#radiant_bot_same_multi").checked = true;
 
   // 开发模式
   if (Game.IsInToolsMode()) {
     $("#player_gold_xp_multiplier_dropdown").SetSelected("2");
-    $("#bot_gold_xp_multiplier_dropdown").SetSelected("10");
-    $("#radiant_player_number_dropdown").SetSelected("5");
-    $("#dire_player_number_dropdown").SetSelected("5");
+    $("#bot_gold_xp_multiplier_dropdown").SetSelected("2");
+    $("#radiant_player_number_dropdown").SetSelected("10");
+    $("#dire_player_number_dropdown").SetSelected("10");
     $("#starting_gold_bot_dropdown").SetSelected("10000");
     $("#tower_power_dropdown").SetSelected("5");
     $("#tower_endure_dropdown").SetSelected("5");
@@ -158,7 +158,7 @@ function LockOption() {
   $("#starting_gold_player_dropdown").enabled = false;
   $("#starting_gold_bot_dropdown").enabled = false;
   $("#same_hero_selection").enabled = false;
-  $("#fast_courier").enabled = false;
+  // $("#fast_courier").enabled = false;
   $("#radiant_bot_same_multi").enabled = false;
 }
 
@@ -176,7 +176,7 @@ function UnLockOptionAll() {
   $("#starting_gold_player_dropdown").enabled = true;
   $("#starting_gold_bot_dropdown").enabled = true;
   $("#same_hero_selection").enabled = true;
-  $("#fast_courier").enabled = true;
+  // $("#fast_courier").enabled = true;
   $("#radiant_bot_same_multi").enabled = true;
 }
 
@@ -188,7 +188,7 @@ function InitDifficultyCommonSetting() {
   $("#tower_heal_dropdown").SetSelected("10");
 
   $("#same_hero_selection").checked = true;
-  $("#fast_courier").checked = true;
+  // $("#fast_courier").checked = true;
   $("#radiant_bot_same_multi").checked = true;
 }
 
@@ -272,7 +272,7 @@ function StateChange() {
         starting_gold_bot: $("#starting_gold_bot_dropdown").GetSelected().id,
         max_level: $("#max_level_dropdown").GetSelected().id,
         same_hero_selection: $("#same_hero_selection").checked,
-        fast_courier: $("#fast_courier").checked,
+        // fast_courier: $("#fast_courier").checked,
         radiant_bot_same_multi: $("#radiant_bot_same_multi").checked,
       },
     });

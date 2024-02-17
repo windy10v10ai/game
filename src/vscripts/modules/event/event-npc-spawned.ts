@@ -1,4 +1,5 @@
 import { Player } from "../../api/player";
+import { ModifierHelper } from "../../helper/modifier-helper";
 import { PlayerHelper } from "../../helper/player-helper";
 
 export class EventNpcSpawned {
@@ -37,9 +38,14 @@ export class EventNpcSpawned {
       // set npc as CDOTA_BaseNPC_Hero
       const hero = npc as CDOTA_BaseNPC_Hero;
       this.OnRealHeroSpawned(hero);
-    } else if (npc.IsCreep()) {
+    }
+    if (npc.IsCreep()) {
       // 小兵出生
       this.OnCreepSpawned(npc);
+    }
+    if (npc.IsCourier() && keys.is_respawn === 0) {
+      // 信使出生
+      ModifierHelper.applyGlobalModifier(npc, "modifier_global_courier_speed");
     }
   }
 

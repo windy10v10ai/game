@@ -3,7 +3,7 @@ import { PlayerHelper } from "../../helper/player-helper";
 export class EventEntityKilled {
   private readonly removeGoldBagDelay = 20;
   private roshanDropItemList: string[] = ["item_dragon_ball_6", "item_dragon_ball_7"];
-  private roshanDropItemChance = 75;
+  private roshanDropItemChance = 70;
 
   private roshanDropItemList2: string[] = [
     "item_dragon_ball_1",
@@ -13,7 +13,7 @@ export class EventEntityKilled {
     "item_dragon_ball_5",
   ];
 
-  private roshanDropItemChance2 = 90;
+  private roshanDropItemChance2 = 85;
 
   OnEntityKilled(keys: GameEventProvidedProperties & EntityKilledEvent): void {
     const killedUnit = EntIndexToHScript(keys.entindex_killed) as CDOTA_BaseNPC | undefined;

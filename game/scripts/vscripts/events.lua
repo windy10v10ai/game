@@ -395,11 +395,6 @@ function AIGameMode:OnNPCSpawned(keys)
         end
     end
 
-    if hEntity:IsCourier() and self.bFastCourier == 1 then
-        hEntity:AddNewModifier(hEntity, nil, "modifier_courier_speed", {})
-        return
-    end
-
     local sName = hEntity:GetName()
     if sName == "npc_dota_creep_lane" or sName == "npc_dota_creep_siege" then
         local sUnitName = hEntity:GetUnitName()
