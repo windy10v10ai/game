@@ -3340,7 +3340,7 @@
 	}
 
 	//=================================================================================================================
-	// blue fantasy 大否决
+	// blue fantasy 大否决 苍蓝幻想
 	//=================================================================================================================
 	"item_blue_fantasy"
 	{
@@ -3379,63 +3379,19 @@
 		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"80"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"agi"					"50"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"int"					"25"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_armor"			"10"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_regen"			"10"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"mute_duration"			"4.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"projectile_speed"		"2000"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"slow_pct"				"-50"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"attsp"					"-200"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"max_hp_dmg_pct"		"4"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"mana_base"				"100"
-			}
 		}
 	}
 
@@ -5671,7 +5627,7 @@
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
         "AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"400"
+		"ItemCost"						"3400"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra"
@@ -5734,7 +5690,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9595"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"36000"
+		"ItemCost"						"39000"
 
 		"ItemDroppable"                 "1"
 		"ItemKillable"					"0"

@@ -766,7 +766,7 @@
 			}
 			"back_damage_reduction"
 			{
-				"value"			"16 24 32 40 48"
+				"value"			"16 23 30 37 44"				// 16 24 32 40 48
 				"special_bonus_unique_bristleback_6"						"+8"
 			}
 			"quill_release_threshold"				"300"
@@ -4913,10 +4913,10 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-				"target_crit_multiplier"	"200 230 260 290"
+				"target_crit_multiplier"	"170 200 230 260"		// 140 170 200 230
 				"bonus_gold_self"
 				{
-					"value"		"300 350 400 450"
+					"value"		"200 250 300 350"
 					"special_bonus_unique_bounty_hunter_3"	"+90"
 				}
 				"bonus_gold"
@@ -6505,7 +6505,7 @@
 		{
 			"presence_armor_reduction"
 			{
-				"value"		"-4 -5 -6 -7 -8"
+				"value"		"-4 -6 -8 -10 -12"
 				"special_bonus_unique_nevermore_5"			"-6"
 			}
 		}
@@ -6514,6 +6514,7 @@
 	"nevermore_requiem"
 	{
 		"MaxLevel" "4"
+		"AbilityCastPoint"				"1.33"				// 1.67
 		"AbilityDamage"					"80 120 160 200"
 		"AbilityManaCost"				"175 200 225 250"
 		"AbilityValues"
@@ -7435,8 +7436,7 @@
 	// 鬼影重重
 	"spectre_haunt"
 	{
-		"AbilityCooldown"				"300"
-		"AbilityManaCost"				"2000"
+		"AbilityManaCost"				"300"
 		"AbilityValues"
 		{
 				"duration"					"4.0"
