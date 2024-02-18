@@ -207,6 +207,41 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"70"
 				}
 			}
+			// 阿迪王
+			"modifier_item_adi_king_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				// 多个阿迪王不可叠加
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"60"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"30"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"10"
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"		"25"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"			"5"
+				}
+			}
+			"modifier_item_adi_king_plus_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				// 多个阿迪王不可叠加
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"100"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"60"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"20"
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"		"50"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"			"10"
+				}
+			}
 		}
 	}
 

@@ -76,16 +76,12 @@ function modifier_item_adi_king:GetAuraSearchType()
 end
 
 function modifier_item_adi_king:DeclareFunctions()
-    return {
-        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-        MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
-        MODIFIER_PROPERTY_EVASION_CONSTANT,
-    }
+    return {}
 end
 
-function modifier_item_adi_king:OnCreated()
+function modifier_item_adi_king:OnCreated(keys)
+	self:OnRefresh(keys)
+
     if self:GetAbility() == nil then
 		return
 	end
@@ -96,24 +92,24 @@ function modifier_item_adi_king:OnCreated()
     self.bonus_evasion=self:GetAbility():GetSpecialValueFor("bonus_evasion")
 end
 
-function modifier_item_adi_king:GetModifierMoveSpeedBonus_Constant()
-    return  self.sp
+function modifier_item_adi_king:OnRefresh(keys)
+	self.stats_modifier_name = "modifier_item_adi_king_stats"
+
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+			mod:GetAbility():SetSecondaryCharges(_)
+		end
+	end
 end
 
-function modifier_item_adi_king:GetModifierPreAttack_BonusDamage()
-    return self.att
-end
-
-function modifier_item_adi_king:GetModifierPhysicalArmorBonus()
-    return  self.ar
-end
-
-function modifier_item_adi_king:GetModifierTurnRate_Percentage()
-    return  self.rate
-end
-
-function modifier_item_adi_king:GetModifierEvasion_Constant()
-	return  self.bonus_evasion
+function modifier_item_adi_king:OnDestroy()
+	if IsServer() then
+		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+			mod:GetAbility():SetSecondaryCharges(_)
+		end
+	end
 end
 
 modifier_item_adi_king_buff=class({})

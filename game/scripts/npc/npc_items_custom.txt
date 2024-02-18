@@ -3073,58 +3073,21 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
+				// tooltip values, actual values in modifier_item_adi_king_stats
 				"sp"					"60"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"att"					"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"ar"					"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rate"					"30"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_sp"				"35"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dur"					"3"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_evasion"		"10"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"rate"					"25"
 				"bonus_evasion"		    "5"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
+				// actual values
+				"active_sp"				"35"
+				"active_evasion"		"10"
+				"dur"					"3"
+
 				"aura_sp"		   		"5"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"aura_rd"		   		"600"
-			}
 		}
 	}
 
@@ -3185,58 +3148,21 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"sp"					"80"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"att"					"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
+				// tooltip values, actual values in modifier_item_adi_king_plus_stats
+				"sp"					"100"
+				"att"					"60"
 				"ar"					"20"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rate"					"40"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_sp"				"50"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dur"					"3"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_evasion"		"20"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"rate"					"50"
 				"bonus_evasion"		    "10"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
+				// actual values
+				"active_sp"				"50"
+				"active_evasion"		"20"
+				"dur"					"3"
+
 				"aura_sp"		   		"8"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"aura_rd"		   		"600"
-			}
 		}
 	}
 	//=================================================================================================================
