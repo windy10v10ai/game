@@ -5132,7 +5132,7 @@
 			"mana_re"		"16"	//回蓝
 			"bonus_mana"	"400"	//加蓝
 			"heal_bonus"	"20"	//恢复增强
-			"duration"		"6"		//主动持续时间
+			"duration"		"5"		//主动持续时间
 			"heal"			"5"		//反制回血%
 		}
 	}

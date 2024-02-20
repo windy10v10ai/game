@@ -249,8 +249,8 @@
 		//            会员BUFF
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_modifier_membership"					"<font color='#FFCC66'>★ Membership Buff ★</font>"
-		"DOTA_Tooltip_modifier_membership_Description"	"- Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplification, +%dMODIFIER_PROPERTY_HEALTH_BONUS% health, and+%dMODIFIER_PROPERTY_MANA_BONUS% mana. <br>- Respawn time is reduced by 5 seconds.<br/>- Buyback CD is reduced to 2 minutes.<br/>"
+		"DOTA_Tooltip_modifier_global_member"					"<font color='#FFCC66'>★ Membership Buff ★</font>"
+		"DOTA_Tooltip_modifier_global_member_Description"	"- Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplification, +%dMODIFIER_PROPERTY_HEALTH_BONUS% health, and+%dMODIFIER_PROPERTY_MANA_BONUS% mana. <br>- Respawn time is reduced by 5 seconds.<br/>- Buyback CD is reduced to 2 minutes.<br/>"
 
 		///////////////////////////////////////////////////
 		//

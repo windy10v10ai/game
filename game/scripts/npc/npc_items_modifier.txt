@@ -909,10 +909,24 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_MAX"			"3000"
 					"MODIFIER_PROPERTY_MOVESPEED_LIMIT"			"3000"
 					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"		"3000"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"100"
+				}
+			}
+			"modifier_global_member"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"RemoveOnDeath"			"0"
+				"TextureName"			"modifier_global_member"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"10"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"5"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"300"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"200"
 				}
 			}
 		}

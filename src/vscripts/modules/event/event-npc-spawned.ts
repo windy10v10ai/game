@@ -35,7 +35,6 @@ export class EventNpcSpawned {
 
     // 英雄出生
     if (npc.IsRealHero() && keys.is_respawn === 0) {
-      // set npc as CDOTA_BaseNPC_Hero
       const hero = npc as CDOTA_BaseNPC_Hero;
       this.OnRealHeroSpawned(hero);
     }
@@ -49,8 +48,15 @@ export class EventNpcSpawned {
     }
   }
 
+  // 英雄出生
   private OnRealHeroSpawned(hero: CDOTA_BaseNPC_Hero): void {
     if (PlayerHelper.IsHumanPlayer(hero)) {
+      // 设置会员
+      const steamAccountId = PlayerResource.GetSteamAccountID(hero.GetPlayerID());
+      if (Player.IsMemberStatic(steamAccountId)) {
+        ModifierHelper.applyGlobalModifier(hero, "modifier_global_member");
+      }
+      // 设置玩家属性
       Player.SetPlayerProperty(hero);
     } else {
       // 机器人

@@ -188,7 +188,16 @@ export class Player {
     });
   }
 
+  // FIXME 移除lua中的调用
   public IsMember(steamId: number) {
+    const member = Player.memberList.find((m) => m.steamId === steamId);
+    if (member) {
+      return member.enable;
+    }
+    return false;
+  }
+
+  public static IsMemberStatic(steamId: number) {
     const member = Player.memberList.find((m) => m.steamId === steamId);
     if (member) {
       return member.enable;
