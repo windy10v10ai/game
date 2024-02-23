@@ -85,7 +85,7 @@ export class EventNpcSpawned {
         }
       }
 
-      if (this.roshanLevelBase < 5) {
+      if (this.roshanLevelBase < 5 - 1) {
         this.roshanLevelBase++;
       }
     }
@@ -94,10 +94,16 @@ export class EventNpcSpawned {
   private getExtraRoshanLevel(): number {
     let extra = 0;
 
+    if (Player.GetPlayerCount() >= 2) {
+      extra++;
+    }
     if (Player.GetPlayerCount() >= 4) {
       extra++;
     }
     if (Player.GetPlayerCount() >= 8) {
+      extra++;
+    }
+    if (Player.GetPlayerCount() >= 10) {
       extra++;
     }
     return this.roshanLevelBase + extra;

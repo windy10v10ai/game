@@ -508,7 +508,7 @@
 	//=================================================================================================================
 	"roshan_buff"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel"						"9"
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"tower_power"
@@ -516,13 +516,14 @@
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		// 实际生效的数值是2倍
+		// 收益预期 https://docs.google.com/spreadsheets/d/1FiBGurpuD74qQgmX8maBof-tkHmbBhai6jm9HcL5ymY/edit#gid=116224814
 		"AbilityValues"
 		{
-				"bonus_damage"			"100 100 200 300 400 500 600"
-				"bonus_armor"			"20 20 40 60 80 100 120"
-				"bonus_attack_speed"	"30 30 60 100 140 180 220"
-				"damage_reduction"		"-40 -25 -35 -40 -43 -45 -47"	// no damage when -50
-				// 收益预期 https://docs.google.com/spreadsheets/d/1FiBGurpuD74qQgmX8maBof-tkHmbBhai6jm9HcL5ymY/edit#gid=116224814
+				"bonus_damage"			"100 100 150 200 300 400 500 600 800"
+				"bonus_armor"			"20 20 30 40 60 80 100 120 140"
+				"bonus_magic_resistance"	"20 20 24 28 32 36 40 44 48"
+				"bonus_attack_speed"	"30 30 45 60 100 150 200 250 300"
+				"damage_reduction"		"-40 -25 -30 -35 -40 -43 -45 -47 -48"	// no damage when -50
 		}
 		"Modifiers"
 		{
@@ -536,6 +537,7 @@
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_magic_resistance"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%damage_reduction"
 				}
@@ -544,7 +546,7 @@
 	}
     "generic_gold_bag_fountain"
     {
-		"MaxLevel"						"7"
+		"MaxLevel"						"9"
         // General
         //-------------------------------------------------------------------------------------------------------------
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -599,14 +601,14 @@
         "AbilityValues"
         {
                 "gold_value"            "0"
-                "duration"              "0.4 0.8 1.2 1.8 2.4 3.0 3.6"	 // 4 8 12 18 24 30 36
+                "duration"              "0.4 0.6 0.8 1.2 1.8 2.4 3.0 3.6 4.0"	 // 4 6 8 12 18 24 30 36 40
                 "think_interval"        "0.1"
         }
     }
 
     "generic_season_point_bag_fountain"
     {
-		"MaxLevel"						"7"
+		"MaxLevel"						"9"
         // General
         //-------------------------------------------------------------------------------------------------------------
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -661,7 +663,7 @@
         "AbilityValues"
         {
                 "gold_value"            "0"
-                "duration"              "0.4 0.8 1.2 1.8 2.4 3.0 3.6"	 // 4 8 12 18 24 30 36
+                "duration"              "0.4 0.6 0.8 1.2 1.8 2.4 3.0 3.6 4.0"	 // 4 6 8 12 18 24 30 36 40
                 "think_interval"        "0.1"
         }
     }
