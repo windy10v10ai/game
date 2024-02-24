@@ -1024,7 +1024,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4200"
+		"ItemCost"						"4500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1083,7 +1083,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_evasion"			"12"
+				"bonus_evasion"			"20"
 			}
 			"05"
 			{
@@ -3080,7 +3080,7 @@
 				"att"					"30"
 				"ar"					"10"
 				"rate"					"25"
-				"bonus_evasion"		    "5"
+				"bonus_evasion"		    "10"
 				// actual values
 				"active_sp"				"35"
 				"active_evasion"		"10"
@@ -3155,7 +3155,7 @@
 				"att"					"60"
 				"ar"					"20"
 				"rate"					"50"
-				"bonus_evasion"		    "10"
+				"bonus_evasion"		    "20"
 				// actual values
 				"active_sp"				"50"
 				"active_evasion"		"20"
@@ -5396,7 +5396,7 @@
         "Model"							"models/props_gameplay/recipe.vmdl"
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"700"
+        "ItemCost"						"0"
         "ItemShopTags"					""
 
         // Recipe
@@ -5405,7 +5405,7 @@
         "ItemResult"					"item_bloodstone_v2"
         "ItemRequirements"
         {
-			"01"						"item_voodoo_mask;item_soul_booster"
+			"01"						"item_voodoo_mask;item_soul_booster;item_void_stone"
         }
     }
     "item_bloodstone_v2"
@@ -5765,7 +5765,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"600"
+		"ItemCost"						"1400"
 		"ItemShopTags"					""
 
 		// Recipe

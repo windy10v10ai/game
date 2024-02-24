@@ -236,7 +236,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"								"60 55 50 45"
+				"value"								"80 70 60 50"
 			}
 			"hp_threshold"							"600 800 1000 1200"
 			"duration"								"3.5 4.0 4.5 5.0"
@@ -1113,7 +1113,7 @@
 				}
 				"bonus_movement_speed_pct"
 				{
-					"value"			"8 9 10 11 12"
+					"value"			"7 8 9 10 11"
 					"special_bonus_unique_doom_6"	"+7"
 				}
 				"duration"				"10.0 12.0 14.0 16.0 18.0"
@@ -1188,7 +1188,7 @@
 		{
 			"duration"
 			{
-				"value"								"13.0"
+				"value"								"12 14 16 18"
 				"special_bonus_unique_doom_7"		"+3"
 			}
 			"damage"
@@ -1198,7 +1198,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"								"90"
+				"value"								"120"
 			}
 		}
 	}
@@ -1256,63 +1256,23 @@
 	// 变龙
 	"dragon_knight_elder_dragon_form"
 	{
-		"AbilityCooldown"				"105"
 		"AbilityManaCost"				"50 100 150"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_movement_speed"		"25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"bonus_attack_damage"		"60"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"corrosive_breath_damage"	"20 30 40 50"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"splash_radius"				"450"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"splash_damage_percent"		"70 80 90 100"
-				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight_6"
-			}
-			"09"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"frost_bonus_movement_speed"	"-40 -50 -60 -70"
-				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight_5"
-			}
-			"10"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"frost_bonus_attack_speed"		"-40 -50 -60 -70"
-				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight_5"
-			}
-			"12"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"frost_aoe"					"400"
-			}
-			"13"
-			{
-				"var_type"					"FIELD_INTEGER"
+				"frost_bonus_movement_speed"
+				{
+					"value"		"-40 -50 -60 -70"
+					"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight_5"
+				}
+				"frost_bonus_attack_speed"
+				{
+					"value"				"-40 -50 -60 -70"
+					"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight_5"
+				}
 				"magic_resistance"			"10 15 20 25"
-			}
-			"14"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"model_scale"				"10 20 30 40"
-			}
 		}
 	}
 	//=================================================================================================================
@@ -3279,7 +3239,7 @@
 		"AbilityValues"
 		{
 				"whirling_damage"			"120 160 200 260 320"
-				"tree_damage_scale"			"15 25 35 45 55 65 75"
+				"tree_damage_scale"			"15 25 35 45 55"
 				"duration"					"15"
 		}
 	}
@@ -6846,7 +6806,7 @@
 	"phantom_assassin_stifling_dagger"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"650 700 750 800 850"
+		"AbilityCastRange"				"700 750 800 850 900"
 		"AbilityManaCost"				"30 35 40 45 50"
 		"AbilityValues"
 		{
@@ -7823,12 +7783,12 @@
 	//=================================================================================================================
 	// Ability: Vengeful Spirit 复仇之魂/VS
 	//=================================================================================================================
-	// 魔法剑
+	// 魔法箭
 	"vengefulspirit_magic_missile"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel" "5"
-		"AbilityCooldown"				"12 11 10 9 8"
+		"AbilityCooldown"				"13 12 11 10 9"
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
@@ -7878,16 +7838,15 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel" "5"
 		"AbilityCooldown"				"16 14 12 10 8"
-		"AbilityDamage"					"85 100 115 130 145"
-		"AbilityManaCost"				"25 30 35 40 45"
-		"AbilitySpecial"
+		"AbilityManaCost"				"20 30 40 50 60"
+		"AbilityValues"
 		{
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_reduction"	"-6 -8 -10 -12 -14"
-				"LinkedSpecialBonus"	"special_bonus_unique_vengeful_spirit_4"
-			}
+				"damage"			"60 80 100 120 140"
+				"armor_reduction"
+				{
+					"value"			"-4 -6 -8 -10 -12"
+					"LinkedSpecialBonus"	"special_bonus_unique_vengeful_spirit_4"
+				}
 		}
 	}
 	"special_bonus_unique_vengeful_spirit_4"
@@ -8122,7 +8081,7 @@
 				}
 				"max_damage"
 				{
-					"value"			"50 75 100 125 150"
+					"value"			"35 65 95 125 155"
 					"LinkedSpecialBonus"	"special_bonus_unique_viper_3"
 				}
 				"attack_slow"		"30 40 50 60 70"
@@ -9091,6 +9050,9 @@
 			"min_damage"			"100 200 300 400"
 			"max_damage"			"100 200 300 400"
 			"average_damage"		"100 200 300 400"
+
+				"movement_base"					"12 16 20 24"
+				"movement_bonus"				"4 8 12 16"
 		}
 	}
 	"special_bonus_unique_death_prophet"
@@ -10287,7 +10249,7 @@
 				}
 				"movespeed"
 				{
-					"value"				"20 25 30 35 40"
+					"value"				"15 20 25 30 35"
 					"special_bonus_unique_lion_6"	"+10"
 				}
 		}
@@ -10422,7 +10384,7 @@
 				"value"										"9 10 11 12 13"
 				"special_bonus_unique_outworld_devourer"	"+2"
 			}
-			"mana_cost_percentage"							"35"
+			"mana_cost_percentage"							"30"
 		}
 	}
 	// 星体禁锢
