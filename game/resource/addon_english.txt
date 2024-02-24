@@ -197,14 +197,26 @@
 		//            Creep / Tower
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_modifier_tower_power"							"Tower power"
-		"DOTA_Tooltip_modifier_tower_power_Description"			"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_50"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_50_Description"		"The tower's attack damage is increased by -%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_100"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_100_Description"		"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_150"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_150_Description"		"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_200"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_200_Description"		"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_250"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_250_Description"		"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_300"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_300_Description"		"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_400"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_400_Description"		"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
 
-		"DOTA_Tooltip_modifier_tower_endure"						"Buildings Endurance"
-		"DOTA_Tooltip_modifier_tower_endure_Description"		"The building's max health is set to %dMODIFIER_PROPERTY_TOOLTIP%%%."
+		"DOTA_Tooltip_modifier_tower_endure"							"Buildings Endurance"
+		"DOTA_Tooltip_modifier_tower_endure_Description"				"The building's max health is set to %dMODIFIER_PROPERTY_TOOLTIP%%%."
 
-		"DOTA_Tooltip_modifier_melee_resistance"					"Bulldozer"
-		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% extra status resistance, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
+		"DOTA_Tooltip_modifier_global_melee_resistance"					"Bulldozer"
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"

@@ -131,18 +131,7 @@ function AIGameMode:OnGameStateChanged(keys)
         local iTowerLevel = math.max(self.iGameDifficulty, 1)
         for k, v in pairs(tTowers) do
             local towerName = v:GetName()
-            if string.find(towerName, "tower1") then
-                -- 一塔攻击最高200%
-                if self.iTowerPower > 7 then
-                    v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(7)
-                else
-                    v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
-                end
-            else
-                v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
-            end
             v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
-            v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
 
             -- add tower ability
             if string.find(towerName, "tower3") or string.find(towerName, "tower4") then
@@ -156,18 +145,14 @@ function AIGameMode:OnGameStateChanged(keys)
         local barracks = Entities:FindAllByClassname("npc_dota_barracks")
         for k, v in pairs(barracks) do
             v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
-            v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
         end
         local healer = Entities:FindAllByClassname("npc_dota_healer")
         for k, v in pairs(healer) do
             v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
-            v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
         end
         local fort = Entities:FindAllByClassname("npc_dota_fort")
         for k, v in pairs(fort) do
-            v:AddNewModifier(v, nil, "modifier_tower_power", {}):SetStackCount(self.iTowerPower)
             v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
-            v:AddNewModifier(v, nil, "modifier_tower_heal", {}):SetStackCount(self.iTowerHeal)
 
             -- add tower ability
             v:AddAbility("tower_ursa_fury_swipes"):SetLevel(iTowerLevel)
@@ -442,15 +427,8 @@ function AIGameMode:OnNPCSpawned(keys)
         end
     end
 
-    if sName == "npc_dota_lone_druid_bear" then
-        hEntity:AddNewModifier(hEntity, nil, "modifier_melee_resistance", {})
-    end
 
     if hEntity:IsRealHero() and not hEntity.bInitialized then
-        if hEntity:GetAttackCapability() == DOTA_UNIT_CAP_MELEE_ATTACK or sName == "npc_dota_hero_troll_warlord" or
-                sName == "npc_dota_hero_lone_druid" then
-            hEntity:AddNewModifier(hEntity, nil, "modifier_melee_resistance", {})
-        end
 
         if sName == "npc_dota_hero_sniper" and not self.bSniperScepterThinkerApplierSet then
             require('heroes/hero_sniper/sniper_init')
@@ -625,7 +603,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     data.options = {
         playerGoldXpMultiplier = tostring(self.fPlayerGoldXpMultiplier),
         botGoldXpMultiplier = tostring(self.fBotGoldXpMultiplier),
-        towerPower = AIGameMode:StackToPercentage(self.iTowerPower),
+        towerPower = self.iTowerPower.."%",
         towerEndure = AIGameMode:StackToPercentage(self.iTowerEndure)
     }
     -- send to api server

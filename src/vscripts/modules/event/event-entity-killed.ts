@@ -1,6 +1,10 @@
 import { PlayerHelper } from "../../helper/player-helper";
 
 export class EventEntityKilled {
+  constructor() {
+    ListenToGameEvent("entity_killed", (keys) => this.OnEntityKilled(keys), this);
+  }
+
   private readonly removeGoldBagDelay = 20;
   private roshanDropItemList: string[] = ["item_dragon_ball_6", "item_dragon_ball_7"];
   private roshanDropItemChance = 70;

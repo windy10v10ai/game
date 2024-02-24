@@ -5689,8 +5689,8 @@
 				"quelling_bonus_ranged"	"60"
 
 				"cleave_starting_width"			"150"
-				"cleave_ending_width"			"550"
-				"cleave_distance"			"1050"
+				"cleave_ending_width"			"500"
+				"cleave_distance"			"1000"
 				"upgraded_cleave_bonus"			"25"
 				"upgraded_damage_bonus"			"15"
 		}

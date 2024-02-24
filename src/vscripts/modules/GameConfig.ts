@@ -1,4 +1,7 @@
 export class GameConfig {
+  towerPower = 100;
+  towerHeal = 0;
+
   constructor() {
     SendToServerConsole("dota_max_physical_items_purchase_limit 9999"); // 用来解决物品数量限制问题
 

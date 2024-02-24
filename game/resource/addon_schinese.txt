@@ -193,14 +193,26 @@
 		//            Creep / Tower
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_modifier_tower_power"							"建筑攻击加成"
-		"DOTA_Tooltip_modifier_tower_power_Description"			"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_50"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_50_Description"		"建筑物的攻击增加 -%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_100"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_100_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_150"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_150_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_200"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_200_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_250"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_250_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_300"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_300_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_400"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_400_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
 
-		"DOTA_Tooltip_modifier_tower_endure"						"建筑防御加成"
-		"DOTA_Tooltip_modifier_tower_endure_Description"		"建筑物的最大生命值设为 %dMODIFIER_PROPERTY_TOOLTIP%%%。"
+		"DOTA_Tooltip_modifier_tower_endure"							"建筑防御加成"
+		"DOTA_Tooltip_modifier_tower_endure_Description"				"建筑物的最大生命值设为 %dMODIFIER_PROPERTY_TOOLTIP%%%。"
 
-		"DOTA_Tooltip_modifier_melee_resistance"					"威压"
-		"DOTA_Tooltip_modifier_melee_resistance_Description"	"近战英雄额外获得 %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 状态抗性，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性。"
+		"DOTA_Tooltip_modifier_global_melee_resistance"					"威压"
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"近战英雄额外获得 %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性。"
 
 		"DOTA_Tooltip_ability_creep_buff"								"小兵Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"

@@ -17,7 +17,9 @@ export class EventNpcSpawned {
     "generic_season_point_bag_fountain",
   ];
 
-  constructor() {}
+  constructor() {
+    ListenToGameEvent("npc_spawned", (keys) => this.OnNpcSpawned(keys), this);
+  }
 
   // 单位出生
   public OnNpcSpawned(keys: GameEventProvidedProperties & NpcSpawnedEvent): void {
@@ -50,6 +52,14 @@ export class EventNpcSpawned {
 
   // 英雄出生
   private OnRealHeroSpawned(hero: CDOTA_BaseNPC_Hero): void {
+    if (
+      hero.GetAttackCapability() === UnitAttackCapability.MELEE_ATTACK ||
+      hero.GetName() === "npc_dota_hero_troll_warlord" ||
+      hero.GetName() === "npc_dota_hero_lone_druid"
+    ) {
+      ModifierHelper.applyGlobalModifier(hero, "modifier_global_melee_resistance");
+    }
+
     if (PlayerHelper.IsHumanPlayer(hero)) {
       // 设置会员
       const steamAccountId = PlayerResource.GetSteamAccountID(hero.GetPlayerID());
