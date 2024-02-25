@@ -495,19 +495,22 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_blink',
 		'item_aghanims_shard',
+		'item_aether_lens_2', -- 以太之镜2
+		'item_phylactery', -- 灵匣
 		'item_ultimate_scepter',
-		'item_recipe_ultimate_scepter_2',
 		'item_mystic_staff',
 		'item_recipe_arcane_blink',
-		'item_aether_lens_2',
+		'item_recipe_ultimate_scepter_2',
 		'item_octarine_core',
 		'item_recipe_arcane_octarine_core',
 		'item_dagon_5',
+
 		'item_gungir_2',
-		'item_refresher',
+		'item_angels_demise', -- 绝刃
+		'item_necronomicon_staff',
 		'item_recipe_refresh_core',
 		'item_hallowed_scepter',
-		'item_necronomicon_staff',
+		'item_refresher',
 	},
 	npc_dota_hero_luna = {
 		'item_magic_wand',
@@ -956,7 +959,7 @@ tBotItemData.purchaseItemList = {
 		'item_recipe_dagon',
 		'item_recipe_dagon',
 		'item_recipe_dagon',
-		'item_phylactery',
+		'item_phylactery', -- 灵匣
 		'item_wings_of_haste',
 		'item_sheepstick',
 		'item_mystic_staff',
@@ -1343,7 +1346,6 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_tinker = {
 		'item_force_staff_3',
-		'item_phylactery',
 	},
 	npc_dota_hero_tiny = {
 		'item_vanguard',
@@ -1434,6 +1436,7 @@ tBotItemData.sellItemCommonList = {
 	'item_bfury',
 	-- 羊刀
 	'item_sheepstick',
+	'item_phylactery', -- 灵匣
 	'item_hand_of_group', -- 团队之手
 }
 
