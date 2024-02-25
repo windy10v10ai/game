@@ -12,10 +12,23 @@ export class ModeRetreat extends ModeBase {
       desire += 0.4;
     }
 
-    // 血量小于60时，desire从0开始递增至1，直到10
+    // 血量小于60%时，desire从0开始递增至1，直到10%
     const curretHealthPercentage = heroAI.GetHero().GetHealthPercent();
     if (curretHealthPercentage < 60) {
       desire += 0.02 * (60 - curretHealthPercentage);
+    }
+
+    // FIXME 修改成被塔攻击
+    // 在防御塔攻击范围内
+    const nearestTower = heroAI.FindNearestEnemyTowerInvulnerable();
+    if (nearestTower) {
+      const distanceThanTowerAttackRange = HeroUtil.GetDistanceToAttackRange(
+        nearestTower,
+        heroAI.GetHero(),
+      );
+      if (distanceThanTowerAttackRange <= 0) {
+        desire += 0.2;
+      }
     }
     // 英雄小于推进等级，在防御塔攻击范围内，desire为1
     if (heroAI.GetHero().GetLevel() < heroAI.PushLevel) {
@@ -59,10 +72,9 @@ export class ModeRetreat extends ModeBase {
     const distanceThanRangeWithBuffer = distanceThanRange - towerBufferRange;
     // 靠近防御塔攻击范围+300以内时，每减少100，desire增加0.1
     if (distanceThanRangeWithBuffer <= 0) {
-      desire += 0.3;
       desire += (-distanceThanRangeWithBuffer / 100) * 0.1;
     }
-    desire = Math.min(desire, 0.7);
+    desire = Math.min(desire, 0.6);
     return desire;
   }
 }

@@ -106,11 +106,7 @@ function AIGameMode:InitEvents()
 end
 
 function AIGameMode:LinkLuaModifiers()
-    LinkLuaModifier("modifier_courier_speed", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
-    LinkLuaModifier("modifier_melee_resistance", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
-    LinkLuaModifier("modifier_tower_power", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_tower_endure", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
-    LinkLuaModifier("modifier_tower_heal", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_sniper_assassinate_thinker", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_out_of_world", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -138,14 +134,7 @@ function AIGameMode:PreGameOptions()
     self.iStartingGoldPlayer = self.iStartingGoldPlayer or 600
     self.iStartingGoldBot = self.iStartingGoldBot or 600
     self.bSameHeroSelection = self.bSameHeroSelection or 1
-    self.bFastCourier = self.bFastCourier or 1
     self.fGameStartTime = 0
-
-    -- FIXME 测试代码
-    if IsInToolsMode() then
-        self.bFastCourier = 1
-        self.bSameHeroSelection = 1
-    end
 
     GameRules:SetGoldPerTick(GOLD_PER_TICK)
     GameRules:SetGoldTickTime(GOLD_TICK_TIME)
@@ -249,7 +238,7 @@ function AIGameMode:PreGameOptions()
 
     self.PreGameOptionsSet = true
 
-    -- 肉山奖励赛季积分
+    -- 肉山奖励勇士积分 初始化
     self.playerBonusSeasonPoint = {}
     for i = 0, 23 do
         self.playerBonusSeasonPoint[i] = 0

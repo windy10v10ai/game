@@ -14,10 +14,10 @@
 		"item"		"item_blood_grenade"
 		"item"		"item_dust"
 		"item"		"item_bottle"						// 魔瓶
-		"item"		"item_aghanims_shard"
-
-		"item"		"item_tome_of_knowledge"
 		"item"		"item_candy_candy"
+
+		"item"		"item_aghanims_shard"
+		"item"		"item_tome_of_knowledge"
 		"item"		"item_consumable_gem"
 		"item"		"item_cheese"
 	}

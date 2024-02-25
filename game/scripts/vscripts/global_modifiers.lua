@@ -27,82 +27,9 @@ local StackToPercentage = function (iStackCount)
 	end
 end
 
-
-modifier_courier_speed = class({})
-
-function modifier_courier_speed:IsPurgable() return false end
-function modifier_courier_speed:IsHidden() return true end
-function modifier_courier_speed:RemoveOnDeath() return false end
-
--- function modifier_courier_speed:CheckState() return {[MODIFIER_STATE_INVULNERABLE] = true} end
-
-function modifier_courier_speed:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_MOVESPEED_MAX,
-		MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-	}
-end
-
-function modifier_courier_speed:GetModifierMoveSpeed_Max()
-	return 3000
-end
-
-function modifier_courier_speed:GetModifierMoveSpeed_Limit()
-	return 3000
-end
-
-function modifier_courier_speed:GetModifierMoveSpeed_Absolute()
-	return 3000
-end
-
-function modifier_courier_speed:GetModifierPhysicalArmorBonus()
-	return 100
-end
-
-modifier_melee_resistance = class({})
-
-function modifier_melee_resistance:IsPurgable() return false end
-function modifier_melee_resistance:RemoveOnDeath() return false end
-function modifier_melee_resistance:GetTexture() return "bulldozer" end
-
-function modifier_melee_resistance:OnCreated()
-	self.iStatusResist = 20
-	self.iMagicalResist = 10
-end
-
-function modifier_melee_resistance:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
-		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
-	}
-end
-
-function modifier_melee_resistance:GetModifierStatusResistanceStacking()
-	return self.iStatusResist
-end
-
-function modifier_melee_resistance:GetModifierMagicalResistanceBonus()
-	return self.iMagicalResist
-end
-
 --------------------------------------------------------------------------------
 -- Tower modifier
 --------------------------------------------------------------------------------
-modifier_tower_heal = class({})
-
-function modifier_tower_heal:IsPurgable() return false end
-function modifier_tower_heal:IsHidden() return true end
-function modifier_tower_heal:IsDebuff() return false end
-
-function modifier_tower_heal:DeclareFunctions() return {MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT} end
-
-function modifier_tower_heal:GetModifierConstantHealthRegen()
-	return self:GetStackCount()
-end
-
-
 modifier_tower_endure = class({})
 
 function modifier_tower_endure:IsPurgable() return false end
@@ -111,7 +38,6 @@ function modifier_tower_endure:GetTexture() return "tower_endure" end
 
 function modifier_tower_endure:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_TOOLTIP
 	}
 end
@@ -129,34 +55,10 @@ function modifier_tower_endure:OnCreated()
 	end)
 end
 
-function modifier_tower_endure:GetModifierPhysicalArmorBonus()
-	local sArmor = self:GetParent():GetPhysicalArmorBaseValue()
-	local fPercent = StackToPercentage(self:GetStackCount())
-
-	local iArmor = math.floor(sArmor/4*(fPercent-1))
-	return iArmor
-end
-
 function modifier_tower_endure:OnTooltip()
 	return 100*StackToPercentage(self:GetStackCount())
 end
 
-
-modifier_tower_power = class({})
-
-function modifier_tower_power:IsPurgable() return false end
-function modifier_tower_power:IsDebuff() return false end
-function modifier_tower_power:GetTexture() return "tower_power" end
-
-function modifier_tower_power:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
-	}
-end
-
-function modifier_tower_power:GetModifierBaseDamageOutgoing_Percentage()
-	return 100*StackToPercentage(self:GetStackCount())-100
-end
 
 -------------------------------------------------
 -- NPC Think

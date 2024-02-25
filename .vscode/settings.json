@@ -32,5 +32,8 @@
     "editor.formatOnSave": true,
     "files.trimTrailingWhitespace": true,
     "editor.autoIndent": "full"
+  },
+  "[lua]": {
+    "editor.defaultFormatter": "Koihik.vscode-lua-format"
   }
 }

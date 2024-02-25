@@ -5,7 +5,7 @@
 	{
 		"addon_game_name"		"Dota 10v10 AI Wars"
 		"DOTA_GameMode_15"		"Dota 10v10 AI Wars"
-		"DOTA_SHARD"			"赛季积分"
+		"DOTA_SHARD"			"勇士积分"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -39,7 +39,7 @@
 		"starting_gold_player"	"玩家初始金钱"
 		"starting_gold_bot"	"电脑初始金钱"
 		"same_hero_selection"  "允许选择相同英雄"
-		"fast_courier"  "快速信使"
+		// "fast_courier"  "快速信使"
 		"radiant_bot_same_multi"  "天辉电脑使用玩家金钱倍率"
 		"hide_chat_team"  "隐藏聊天框"
 		"show_chat_team"  "显示聊天框"
@@ -77,13 +77,6 @@
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
-		//            Hero Selection
-		//
-		// /////////////////////////////////////////////////////////////////////////////
-		"pick_button_season_level_text"	"赛季等级15级解锁"
-
-		// /////////////////////////////////////////////////////////////////////////////
-		//
 		//            Scoreborad/Ending Screen
 		//
 		// /////////////////////////////////////////////////////////////////////////////
@@ -110,19 +103,17 @@
 		///////////////////////////////////////////////////
 		"data_panel_button"				"玩家主页"
 		"data_panel_member_point"		"会员积分"
-		"data_panel_season_point"		"赛季积分"
+		"data_panel_season_point"		"勇士积分"
 		"data_panel_property_point"		"属性点 (可用/总数)"
 
 		"data_panel_data_button"		"数据"
 		"data_panel_property_button"	"玩家属性"
 
-		"data_panel_season_level"		"赛季等级"
-		"data_panel_season_level_tooltip"		"进行游戏获得赛季积分后，赛季等级将提升。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>100</font>点。"
+		"data_panel_season_level"		"勇士等级"
+		"data_panel_season_level_tooltip"		"进行游戏获得勇士积分后，勇士等级将提升。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>100</font>点。"
 		"data_panel_member_level"		"会员等级"
 		"data_panel_member_level_tooltip"		"通过会员积分提升会员等级，升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>50</font>点。"
 		"data_panel_level_progress"		"升级进度"
-		// "data_panel_season_end"			"第三赛季结束时间：2023/9/30"
-		// "data_panel_season_end_tooltip"			"赛季结束后将重置赛季等级<br><font color='#E8C07D'>继承50%</font>赛季积分到下个赛季"
 
 		"data_panel_player_property_label"		"消耗属性点增强英雄，升级后属性及时生效。"
 		"data_panel_player_property_label_2"		"本地主机无法加点，请使用服务器主机进行游戏。"
@@ -186,7 +177,7 @@
 		//            Leaderboard
 		//
 		///////////////////////////////////////////////////
-		"leaderboard_title"				"赛季排行榜"
+		"leaderboard_title"				"勇士排行榜"
 		"leaderboard_rank"				"排名"
 		"leaderboard_name"				"玩家"
 
@@ -202,14 +193,26 @@
 		//            Creep / Tower
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_modifier_tower_power"							"建筑攻击加成"
-		"DOTA_Tooltip_modifier_tower_power_Description"			"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_50"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_50_Description"		"建筑物的攻击增加 -%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_100"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_100_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_150"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_150_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_200"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_200_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_250"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_250_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_300"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_300_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
+		"DOTA_Tooltip_modifier_global_tower_power_400"					"建筑攻击加成"
+		"DOTA_Tooltip_modifier_global_tower_power_400_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
 
-		"DOTA_Tooltip_modifier_tower_endure"						"建筑防御加成"
-		"DOTA_Tooltip_modifier_tower_endure_Description"		"建筑物的护甲增加 %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, 最大生命值设为 %dMODIFIER_PROPERTY_TOOLTIP%%%。"
+		"DOTA_Tooltip_modifier_tower_endure"							"建筑防御加成"
+		"DOTA_Tooltip_modifier_tower_endure_Description"				"建筑物的最大生命值设为 %dMODIFIER_PROPERTY_TOOLTIP%%%。"
 
-		"DOTA_Tooltip_modifier_melee_resistance"					"威压"
-		"DOTA_Tooltip_modifier_melee_resistance_Description"	"近战英雄额外获得 %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 状态抗性，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性。"
+		"DOTA_Tooltip_modifier_global_melee_resistance"					"威压"
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"近战英雄额外获得 %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性。"
 
 		"DOTA_Tooltip_ability_creep_buff"								"小兵Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
@@ -254,8 +257,8 @@
 		//            会员BUFF
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_modifier_membership"						"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
-		"DOTA_Tooltip_modifier_membership_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/>"
+		"DOTA_Tooltip_modifier_global_member"						"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
+		"DOTA_Tooltip_modifier_global_member_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/>"
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
 		"DOTA_Tooltip_modifier_player_xianyu"					"<font color='#FFCC66'>★ 咸鱼之王 ★</font>"
@@ -999,7 +1002,7 @@
 
 		// bag_of_gold
         "DOTA_Tooltip_ability_item_bag_of_gold"					"金袋"
-        "DOTA_Tooltip_ability_item_bag_of_season_point"			"赛季积分"
+        "DOTA_Tooltip_ability_item_bag_of_season_point"			"勇士积分"
 
 		// Tomes
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"力量之书"
@@ -1736,21 +1739,21 @@
 
 		// item_blessing_of_dragon_1 神龙赐福·不死
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_1"				"<font color='#9f5f9f'>神龙赐福·不死</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9f5f9f'>被动：不死之身</font></h1>字面意思。"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9f5f9f'>被动：不死之身</font></h1>字面意思。\n可以分享给队友"
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active"			"<font color='#9f5f9f'>不死之身</font>"
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active_Description"			"<font color='#FFFF00'>求求你打死我</font>"
 
 		// item_blessing_of_dragon_2 神龙赐福·毁灭
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_2"				"<font color='#9f5f9f'>神龙赐福·毁灭</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>主动：毁灭世界</h1>累了，毁灭吧。"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>主动：毁灭世界</h1>累了，毁灭吧。\n可以分享给队友"
 
 		// item_blessing_of_dragon_3 神龙赐福·时间
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_3"				"<font color='#9f5f9f'>神龙赐福·时间</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_3_Description"		"<h1>主动：时间操纵</h1>你掌控了时间，能够随意刷新你的冷却。"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_3_Description"		"<h1>主动：时间操纵</h1>你掌控了时间，能够随意刷新你的冷却。\n可以分享给队友"
 
 		// item_blessing_of_dragon_4 神龙赐福·空间
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_4"				"<font color='#9f5f9f'>神龙赐福·空间</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_4_Description"		"<h1>主动：空间折跃</h1>来去自如，来无影去无踪，能够在落点引发空间震。"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_4_Description"		"<h1>主动：空间折跃</h1>来去自如，来无影去无踪，能够在落点引发空间震。\n可以分享给队友"
 
 		// item_dragon_ball_1 一星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_1"				"<font color='#FFFF00'>一星珠</font>"
@@ -1779,12 +1782,12 @@
 
 		// item_dragon_ball_6 六星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_6"				"<font color='#FFFF00'>六星珠</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有六颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有六颗五角星。集齐七个会有好事发生。\n可以分享给队友"
 		"DOTA_Tooltip_ability_item_dragon_ball_6_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_7 七星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_7"				"<font color='#FFFF00'>七星珠</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有七颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有七颗五角星。集齐七个会有好事发生。\n可以分享给队友"
 		"DOTA_Tooltip_ability_item_dragon_ball_7_bonus_all_stats"					"+$all"
 
 		// item_wish_1 愿望1
@@ -1805,6 +1808,6 @@
 
 		// item_radar_of_dragon 龙珠雷达
 		"DOTA_Tooltip_Ability_item_radar_of_dragon"				"<font color='#FFFF00'>龙珠雷达</font>"
-		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>被动：指引</h1>一星到五星珠在每一级中立代币中选取得到，六星珠，七星珠由肉山随机掉落得到。愿望一共有四种，在商店可以找到。"
+		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>被动：指引</h1>一星到五星珠在每一级中立代币中选取得到，六星珠，七星珠由肉山随机掉落得到。愿望一共有四种，在商店可以找到。\n<font color='#e03e2e'>注意：</font>龙珠无法合成时，请回到泉水，尝试从备用背包中移动至主背包或仓库。一星到五星珠无法与他人共享，六星七星珠及合成后的装备可以与他人共享。"
 	}
 }

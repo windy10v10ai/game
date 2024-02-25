@@ -1,4 +1,6 @@
 import { BaseHeroAIModifier } from "./hero/hero-base";
+import { LionAIModifier } from "./hero/hero-lion";
+import { ViperAIModifier } from "./hero/hero-viper";
 import { FSA } from "./mode/FSA";
 
 export class AI {
@@ -7,14 +9,27 @@ export class AI {
     this.FSA = new FSA();
   }
 
-  // enable AI for hero
   public EnableAI(hero: CDOTA_BaseNPC_Hero) {
-    if (hero.HasModifier(BaseHeroAIModifier.name)) {
-      // remove old modifier
-      print(`[AI] EnableAI RemoveModifierByName ${hero.GetUnitName()}`);
-      hero.RemoveModifierByName(BaseHeroAIModifier.name);
+    this.appleAIModifier(hero, this.getModifierName(hero));
+  }
+
+  private getModifierName(hero: CDOTA_BaseNPC_Hero): string {
+    // if hero is npc_dota_hero_lion, return LionAIModifier.name
+    if (hero.GetUnitName() === "npc_dota_hero_lion") {
+      return LionAIModifier.name;
     }
-    hero.AddNewModifier(hero, undefined, BaseHeroAIModifier.name, {});
+    if (hero.GetUnitName() === "npc_dota_hero_viper") {
+      return ViperAIModifier.name;
+    }
+
+    return BaseHeroAIModifier.name;
+  }
+
+  private appleAIModifier(hero: CDOTA_BaseNPC_Hero, modifierName: string) {
+    if (hero.HasModifier(modifierName)) {
+      hero.RemoveModifierByName(modifierName);
+    }
+    hero.AddNewModifier(hero, undefined, modifierName, {});
   }
 
   // public InitTeamStrategy() {

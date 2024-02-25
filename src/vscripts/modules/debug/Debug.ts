@@ -1,5 +1,6 @@
-import { AI } from "../../ai/AI";
 import { ActionItem } from "../../ai/action/action-item";
+import { ModifierHelper } from "../../helper/modifier-helper";
+import { PlayerHelper } from "../../helper/player-helper";
 import { reloadable } from "../../utils/tstl-utils";
 import { CMD } from "./debug-cmd";
 
@@ -47,6 +48,16 @@ export class Debug {
       hero.GetItemInSlot(15)?.EndCooldown();
     }
 
+    if (cmd === CMD.G_ALL) {
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        // 获得金钱经验技能升满
+        hero.SetGold(20000, false);
+        hero.AddExperience(35000, ModifyXpReason.UNSPECIFIED, false, true);
+      });
+    }
+
     // v 获取当前vector
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
@@ -60,13 +71,11 @@ export class Debug {
 
     if (cmd === CMD.REFRESH_AI) {
       this.log(`REFRESH_AI`);
-      GameRules.AI = new AI();
-      for (let i = -1; i < 24; i++) {
-        const hero = PlayerResource.GetSelectedHeroEntity(i as PlayerID);
-        if (hero && hero.GetTeamNumber() === DotaTeam.BADGUYS) {
-          GameRules.AI.EnableAI(hero);
-        }
-      }
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        GameRules.AI.EnableAI(hero);
+      });
     }
 
     if (cmd.startsWith("-getUseableItemByName")) {
@@ -93,6 +102,44 @@ export class Debug {
       const version = args[0];
       const key = GetDedicatedServerKeyV2(version);
       this.log(`${version}: ${key}`);
+    }
+
+    if (cmd.startsWith("-removeModifier")) {
+      const modifierName = args[0];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        // add modifier
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (hero) {
+          // remove all modifier
+          for (let i = 0; i < 100; i++) {
+            hero.RemoveModifierByName(modifierName);
+          }
+        }
+      });
+    }
+    if (cmd.startsWith("-addModifier")) {
+      const modifierName = args[0];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        // add modifier
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (hero) {
+          for (let i = 0; i < 100; i++) {
+            hero.AddNewModifier(hero, undefined, modifierName, {});
+          }
+        }
+      });
+    }
+    if (cmd.startsWith("-addDataDriveModifier")) {
+      const modifierName = args[0];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        // add modifier
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (hero) {
+          for (let i = 0; i < 100; i++) {
+            ModifierHelper.applyGlobalModifier(hero, modifierName);
+          }
+        }
+      });
     }
   }
 

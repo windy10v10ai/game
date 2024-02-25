@@ -26,7 +26,7 @@ import {
 
 export class PropertyController {
   private static propertyValuePerLevel = new Map<string, number>();
-  private static propertyDataDrivenName = new Map<string, string>();
+  private static propertyDataDrivenModifierName = new Map<string, string>();
   private static bnusSkillPointsAdded = new Map<number, number>();
   constructor() {
     print("PropertyController init");
@@ -46,32 +46,32 @@ export class PropertyController {
     PropertyController.propertyValuePerLevel.set(property_cannot_miss.name, 0.125);
 
     // multi level property must end with '_level_'
-    PropertyController.propertyDataDrivenName.set(
+    PropertyController.propertyDataDrivenModifierName.set(
       property_movespeed_bonus_constant.name,
       "modifier_player_property_movespeed_bonus_constant_level_",
     );
 
-    PropertyController.propertyDataDrivenName.set(
+    PropertyController.propertyDataDrivenModifierName.set(
       property_physical_armor_bonus.name,
       "modifier_player_property_physical_armor_bonus_level_",
     );
-    PropertyController.propertyDataDrivenName.set(
+    PropertyController.propertyDataDrivenModifierName.set(
       property_preattack_bonus_damage.name,
       "modifier_player_property_preattack_bonus_damage_level_",
     );
-    PropertyController.propertyDataDrivenName.set(
+    PropertyController.propertyDataDrivenModifierName.set(
       property_attackspeed_bonus_constant.name,
       "modifier_player_property_attackspeed_bonus_constant_level_",
     );
-    PropertyController.propertyDataDrivenName.set(
+    PropertyController.propertyDataDrivenModifierName.set(
       property_stats_strength_bonus.name,
       "modifier_player_property_stats_strength_bonus_level_",
     );
-    PropertyController.propertyDataDrivenName.set(
+    PropertyController.propertyDataDrivenModifierName.set(
       property_stats_agility_bonus.name,
       "modifier_player_property_stats_agility_bonus_level_",
     );
-    PropertyController.propertyDataDrivenName.set(
+    PropertyController.propertyDataDrivenModifierName.set(
       property_stats_intellect_bonus.name,
       "modifier_player_property_stats_intellect_bonus_level_",
     );
@@ -143,9 +143,11 @@ export class PropertyController {
         });
       }
     } else {
-      const dataDrivenName = PropertyController.propertyDataDrivenName.get(property.name);
-      if (dataDrivenName) {
-        this.refreshDataDrivenPlayerProperty(hero, dataDrivenName, activeLevel);
+      const dataDrivenModifierName = PropertyController.propertyDataDrivenModifierName.get(
+        property.name,
+      );
+      if (dataDrivenModifierName) {
+        this.refreshDataDrivenPlayerProperty(hero, dataDrivenModifierName, activeLevel);
       }
     }
   }
@@ -169,31 +171,31 @@ export class PropertyController {
 
   private static refreshDataDrivenPlayerProperty(
     hero: CDOTA_BaseNPC_Hero,
-    dataDrivenName: string,
+    modifierName: string,
     level: number,
   ) {
     if (level === 0) {
       return;
     }
 
-    if (dataDrivenName.endsWith("_level_")) {
+    if (modifierName.endsWith("_level_")) {
       // for 1-8 level
       for (let i = 1; i <= 8; i++) {
-        hero.RemoveModifierByName(`${dataDrivenName}${i}`);
+        hero.RemoveModifierByName(`${modifierName}${i}`);
       }
-      dataDrivenName = dataDrivenName + level;
+      modifierName = modifierName + level;
     } else {
-      hero.RemoveModifierByName(dataDrivenName);
+      hero.RemoveModifierByName(modifierName);
     }
 
-    const modifierItem = CreateItem(
+    const dataDrivenItem = CreateItem(
       "item_player_modifiers",
       undefined,
       undefined,
     ) as CDOTA_Item_DataDriven;
-    modifierItem.ApplyDataDrivenModifier(hero, hero, dataDrivenName, {
+    dataDrivenItem.ApplyDataDrivenModifier(hero, hero, modifierName, {
       duration: -1,
     });
-    UTIL_RemoveImmediate(modifierItem);
+    UTIL_RemoveImmediate(dataDrivenItem);
   }
 }

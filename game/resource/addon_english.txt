@@ -5,7 +5,7 @@
 	{
 		"addon_game_name"		"Dota 10v10 AI Wars"
 		"DOTA_GameMode_15"		"Dota 10v10 AI Wars"
-		"DOTA_SHARD"			"Season Point"
+		"DOTA_SHARD"			"Battle Point"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -39,7 +39,7 @@
 		"starting_gold_player"	"Player Starting Gold"
 		"starting_gold_bot"	"Bot Starting Gold"
 		"same_hero_selection"  "Allow Same Hero Selection"
-		"fast_courier"  "Fast Invulnerable Courier"
+		// "fast_courier"  "Fast Invulnerable Courier"
 		"radiant_bot_same_multi"  "Radiant Bot Same Multiplier with Player"
 		"hide_chat_team"  "Hide Chat and Team"
 		"show_chat_team"  "Show Chat and Team"
@@ -77,13 +77,6 @@
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
-		//            Hero Selection
-		//
-		// /////////////////////////////////////////////////////////////////////////////
-		"pick_button_season_level_text"	"Season level 15 unlock"
-
-		// /////////////////////////////////////////////////////////////////////////////
-		//
 		//            Scoreborad/Ending Screen
 		//
 		// /////////////////////////////////////////////////////////////////////////////
@@ -109,19 +102,17 @@
 		///////////////////////////////////////////////////
 		"data_panel_button"				"Player Profile"
 		"data_panel_member_point"		"Member Point"
-		"data_panel_season_point"		"Season Point"
+		"data_panel_season_point"		"Battle Point"
 		"data_panel_property_point"		"Attribute Point (Useable/Total)"
 
 		"data_panel_data_button"		"Data"
 		"data_panel_property_button"	"Player Attribute"
 
-		"data_panel_season_level"		"Season Level"
-		"data_panel_season_level_tooltip"		"After playing the game to get the season points, the season level will be raised.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>100</font> points."
+		"data_panel_season_level"		"Battle Level"
+		"data_panel_season_level_tooltip"		"After playing the game to get the Battle Points, the Battle level will be raised.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>100</font> points."
 		"data_panel_member_level"		"Member Level"
 		"data_panel_member_level_tooltip"		"Members can get 100 membership points for daily login.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>50</font> points."
 		"data_panel_level_progress"		"Level Progress"
-		// "data_panel_season_end"			"Third Season end date: 2023/9/30"
-		// "data_panel_season_end_tooltip"			"Season level will be reset at the end of the season. <br><font color='#E8C07D'>Inherit 50%</font> season points to the next season"
 
 		"data_panel_link_charge"		"Charge Member Point"
 		"data_panel_link_rule"			"Point Rule"
@@ -190,7 +181,7 @@
 		//            Leaderboard
 		//
 		///////////////////////////////////////////////////
-		"leaderboard_title"				"Season Leaderboard"
+		"leaderboard_title"				"Battle Leaderboard"
 		"leaderboard_rank"				"Rank"
 		"leaderboard_name"				"Name"
 
@@ -206,14 +197,26 @@
 		//            Creep / Tower
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_modifier_tower_power"							"Tower power"
-		"DOTA_Tooltip_modifier_tower_power_Description"			"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_50"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_50_Description"		"The tower's attack damage is increased by -%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_100"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_100_Description"		"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_150"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_150_Description"		"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_200"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_200_Description"		"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_250"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_250_Description"		"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_300"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_300_Description"		"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_global_tower_power_400"					"Tower power"
+		"DOTA_Tooltip_modifier_global_tower_power_400_Description"		"The tower's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
 
-		"DOTA_Tooltip_modifier_tower_endure"						"Buildings Endurance"
-		"DOTA_Tooltip_modifier_tower_endure_Description"		"The building's armor is increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, and its max health is set to %dMODIFIER_PROPERTY_TOOLTIP%%%."
+		"DOTA_Tooltip_modifier_tower_endure"							"Buildings Endurance"
+		"DOTA_Tooltip_modifier_tower_endure_Description"				"The building's max health is set to %dMODIFIER_PROPERTY_TOOLTIP%%%."
 
-		"DOTA_Tooltip_modifier_melee_resistance"					"Bulldozer"
-		"DOTA_Tooltip_modifier_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% extra status resistance, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
+		"DOTA_Tooltip_modifier_global_melee_resistance"					"Bulldozer"
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"	"Melee heroes have %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
@@ -258,8 +261,8 @@
 		//            会员BUFF
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_modifier_membership"					"<font color='#FFCC66'>★ Membership Buff ★</font>"
-		"DOTA_Tooltip_modifier_membership_Description"	"- Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplification, +%dMODIFIER_PROPERTY_HEALTH_BONUS% health, and+%dMODIFIER_PROPERTY_MANA_BONUS% mana. <br>- Respawn time is reduced by 5 seconds.<br/>- Buyback CD is reduced to 2 minutes.<br/>"
+		"DOTA_Tooltip_modifier_global_member"					"<font color='#FFCC66'>★ Membership Buff ★</font>"
+		"DOTA_Tooltip_modifier_global_member_Description"	"- Gain extra +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplification, +%dMODIFIER_PROPERTY_HEALTH_BONUS% health, and+%dMODIFIER_PROPERTY_MANA_BONUS% mana. <br>- Respawn time is reduced by 5 seconds.<br/>- Buyback CD is reduced to 2 minutes.<br/>"
 
 		///////////////////////////////////////////////////
 		//
@@ -844,7 +847,7 @@
 
         // bag_of_gold
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"Bag of Gold"
-        "DOTA_Tooltip_ability_item_bag_of_season_point"			"Season Point"
+        "DOTA_Tooltip_ability_item_bag_of_season_point"			"Battle Point"
 
         // Tomes
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"Tome of Strength"
@@ -1586,21 +1589,21 @@
 
 		// item_blessing_of_dragon_1 神龙赐福·不死
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_1"				"<font color='#9f5f9f'>Dragon's Blessing of Immortality</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9f5f9f'>Passive: Immortality</font></h1>Literal meaning."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9f5f9f'>Passive: Immortality</font></h1>Literal meaning.\n Shareable with teammate."
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active"			"<font color='#9f5f9f'>Immortality</font>"
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active_Description"			"<font color='#FFFF00'>Kill me please.</font>"
 
 		// item_blessing_of_dragon_2 神龙赐福·毁灭
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_2"				"<font color='#9f5f9f'>Dragon's Blessing of Destruction</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>Active: World Destruction</h1>Feeling tired? Let's bring destruction upon the world."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>Active: World Destruction</h1>Feeling tired? Let's bring destruction upon the world.\n Shareable with teammate."
 
 		// item_blessing_of_dragon_3 神龙赐福·时间
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_3"				"<font color='#9f5f9f'>Dragon's Blessing of Time</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_3_Description"		"<h1>Active: Time Manipulation</h1>You have control over time, allowing you to freely refresh your cooldowns."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_3_Description"		"<h1>Active: Time Manipulation</h1>You have control over time, allowing you to freely refresh your cooldowns.\n Shareable with teammate."
 
 		// item_blessing_of_dragon_4 神龙赐福·空间
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_4"				"<font color='#9f5f9f'>Dragon's Blessing of Space</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_4_Description"		"<h1>Active: Spatial Leap</h1>Move freely, appearing and disappearing at will, causing a spatial shockwave at the destination."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_4_Description"		"<h1>Active: Spatial Leap</h1>Move freely, appearing and disappearing at will, causing a spatial shockwave at the destination.\n Shareable with teammate."
 
 		// item_dragon_ball_1 一星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_1"				"<font color='#FFFF00'>One-Star Dragon Ball</font>"
@@ -1629,12 +1632,12 @@
 
 		// item_dragon_ball_6 六星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_6"				"<font color='#FFFF00'>Six-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"A glass bead that reveals six pentagrams from any angle. Collecting all seven will bring good fortune."
+		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"A glass bead that reveals six pentagrams from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate."
 		"DOTA_Tooltip_ability_item_dragon_ball_6_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_7 七星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_7"				"<font color='#FFFF00'>Seven-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"A glass bead that reveals seven pentagrams from any angle. Collecting all seven will bring good fortune."
+		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"A glass bead that reveals seven pentagrams from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate."
 		"DOTA_Tooltip_ability_item_dragon_ball_7_bonus_all_stats"					"+$all"
 
 		// item_wish_1 愿望1
@@ -1655,7 +1658,7 @@
 
 		// item_radar_of_dragon 龙珠雷达
 		"DOTA_Tooltip_Ability_item_radar_of_dragon"				"<font color='#FFFF00'>Dragon Ball Radar</font>"
-		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>Passive: Guidance</h1>One-Star to Five-Star Dragon Balls can be obtained from neutral items at each level. Six-Star and Seven-Star Dragon Balls are randomly dropped by Roshan. There are four different wishes that can be found in the shop."
+		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>Passive: Guidance</h1>One-Star to Five-Star Dragon Balls can be obtained from neutral items at each level. Six-Star and Seven-Star Dragon Balls are randomly dropped by Roshan. There are four different wishes that can be found in the shop.\n<font color='#e03e2e'>Note:</font> When Dragon Balls cannot be combined, please go back to fountain, move them from the backup slot to the main slot or stash. One-Star to Five-Star Dragon Balls cannot be shared with others. Six-Star, Seven-Star Dragon Balls and combined items can share with others。"
 
 	}
 }

@@ -1,858 +1,7 @@
+#base "npc_items_modifier.txt"
+
 "DOTAAbilities"
 {
-	"item_apply_modifiers"
-	{
-		"ID"							"3001"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"BaseClass"						"item_datadriven"
-
-		"ItemPurchasable"				"0"
-		"ItemSellable"					"0"
-		"AbilityValues"
-		{
-			"item_jump_jump_jump_bonus_all_stats"		"35"
-
-			"item_undying_heart_bonus_strength"			"90"
-
-			"item_abyssal_blade_v2_bonus_strength"			"20"
-
-			"item_heavens_halberd_v2_bonus_strength"			"50"
-
-			"item_magic_scepter_bonus_intelligence"			"60"
-			"item_hallowed_scepter_bonus_intelligence"			"120"
-
-			"item_blue_fantasy_agi"			"50"
-			"item_blue_fantasy_int"			"25"
-
-			"item_saint_orb_bonus_all_stats"		"25"
-
-			"item_necronomicon_staff_bonus_intellect"		"60"
-			"item_necronomicon_staff_bonus_strength"		"15"
-			"item_necronomicon_staff_bonus_agility"			"15"
-
-			"item_orb_of_the_brine_bonus_all_stats"		"15"
-		}
-		"Modifiers"
-		{
-			"modifier_item_jump_jump_jump_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_jump_jump_jump_bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_jump_jump_jump_bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_jump_jump_jump_bonus_all_stats"
-				}
-			}
-			"modifier_item_undying_heart_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_undying_heart_bonus_strength"
-				}
-			}
-			"modifier_item_abyssal_blade_v2_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"80"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_abyssal_blade_v2_bonus_strength"
-				}
-			}
-			"modifier_item_heavens_halberd_v2_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_heavens_halberd_v2_bonus_strength"
-				}
-			}
-			"modifier_item_magic_scepter_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_magic_scepter_bonus_intelligence"
-				}
-			}
-			"modifier_item_hallowed_scepter_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_hallowed_scepter_bonus_intelligence"
-				}
-			}
-			"modifier_item_blue_fantasy_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"80"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_blue_fantasy_agi"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_blue_fantasy_int"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"10"
-				}
-			}
-			"modifier_item_saint_orb_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_saint_orb_bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_saint_orb_bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_saint_orb_bonus_all_stats"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"20"
-				}
-			}
-			"modifier_item_necronomicon_staff_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_necronomicon_staff_bonus_strength"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_necronomicon_staff_bonus_agility"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_necronomicon_staff_bonus_intellect"
-				}
-			}
-			"modifier_item_orb_of_the_brine_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%item_orb_of_the_brine_bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_orb_of_the_brine_bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_orb_of_the_brine_bonus_all_stats"
-				}
-			}
-			"modifier_item_hand_of_group_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"80"
-				}
-			}
-			"modifier_item_shotgun_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"25"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"70"
-				}
-			}
-			"modifier_item_shotgun_v2_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"50"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"70"
-				}
-			}
-		}
-	}
-
-	"item_player_modifiers"
-	{
-		"ID"							"3002"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"BaseClass"						"item_datadriven"
-
-		"ItemPurchasable"				"0"
-		"ItemSellable"					"0"
-		"Modifiers"
-		{
-			"modifier_player_property_movespeed_bonus_constant_level_1"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"25"
-				}
-			}
-			"modifier_player_property_movespeed_bonus_constant_level_2"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"50"
-				}
-			}
-			"modifier_player_property_movespeed_bonus_constant_level_3"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"75"
-				}
-			}
-			"modifier_player_property_movespeed_bonus_constant_level_4"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"100"
-				}
-			}
-			"modifier_player_property_movespeed_bonus_constant_level_5"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"125"
-				}
-			}
-			"modifier_player_property_movespeed_bonus_constant_level_6"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"150"
-				}
-			}
-			"modifier_player_property_movespeed_bonus_constant_level_7"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"175"
-				}
-			}
-			"modifier_player_property_movespeed_bonus_constant_level_8"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"200"
-				}
-			}
-
-			// 护甲
-			"modifier_player_property_physical_armor_bonus_level_1"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"5"
-				}
-			}
-			"modifier_player_property_physical_armor_bonus_level_2"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"10"
-				}
-			}
-			"modifier_player_property_physical_armor_bonus_level_3"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"15"
-				}
-			}
-			"modifier_player_property_physical_armor_bonus_level_4"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"20"
-				}
-			}
-			"modifier_player_property_physical_armor_bonus_level_5"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"25"
-				}
-			}
-			"modifier_player_property_physical_armor_bonus_level_6"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"30"
-				}
-			}
-			"modifier_player_property_physical_armor_bonus_level_7"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"35"
-				}
-			}
-			"modifier_player_property_physical_armor_bonus_level_8"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"40"
-				}
-			}
-
-			// 攻击力
-			"modifier_player_property_preattack_bonus_damage_level_1"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"15"
-				}
-			}
-			"modifier_player_property_preattack_bonus_damage_level_2"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"30"
-				}
-			}
-			"modifier_player_property_preattack_bonus_damage_level_3"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"45"
-				}
-			}
-			"modifier_player_property_preattack_bonus_damage_level_4"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"60"
-				}
-			}
-			"modifier_player_property_preattack_bonus_damage_level_5"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"75"
-				}
-			}
-			"modifier_player_property_preattack_bonus_damage_level_6"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"90"
-				}
-			}
-			"modifier_player_property_preattack_bonus_damage_level_7"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"105"
-				}
-			}
-			"modifier_player_property_preattack_bonus_damage_level_8"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"120"
-				}
-			}
-
-			// 攻击速度
-			"modifier_player_property_attackspeed_bonus_constant_level_1"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"15"
-				}
-			}
-			"modifier_player_property_attackspeed_bonus_constant_level_2"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"30"
-				}
-			}
-			"modifier_player_property_attackspeed_bonus_constant_level_3"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"45"
-				}
-			}
-			"modifier_player_property_attackspeed_bonus_constant_level_4"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"60"
-				}
-			}
-			"modifier_player_property_attackspeed_bonus_constant_level_5"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"75"
-				}
-			}
-			"modifier_player_property_attackspeed_bonus_constant_level_6"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"90"
-				}
-			}
-			"modifier_player_property_attackspeed_bonus_constant_level_7"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"105"
-				}
-			}
-			"modifier_player_property_attackspeed_bonus_constant_level_8"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"120"
-				}
-			}
-
-			// 力量
-			"modifier_player_property_stats_strength_bonus_level_1"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"10"
-				}
-			}
-			"modifier_player_property_stats_strength_bonus_level_2"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"20"
-				}
-			}
-			"modifier_player_property_stats_strength_bonus_level_3"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"30"
-				}
-			}
-			"modifier_player_property_stats_strength_bonus_level_4"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"40"
-				}
-			}
-			"modifier_player_property_stats_strength_bonus_level_5"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"50"
-				}
-			}
-			"modifier_player_property_stats_strength_bonus_level_6"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"60"
-				}
-			}
-			"modifier_player_property_stats_strength_bonus_level_7"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"70"
-				}
-			}
-			"modifier_player_property_stats_strength_bonus_level_8"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"80"
-				}
-			}
-
-			// 敏捷
-			"modifier_player_property_stats_agility_bonus_level_1"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"10"
-				}
-			}
-			"modifier_player_property_stats_agility_bonus_level_2"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"20"
-				}
-			}
-			"modifier_player_property_stats_agility_bonus_level_3"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"30"
-				}
-			}
-			"modifier_player_property_stats_agility_bonus_level_4"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"40"
-				}
-			}
-			"modifier_player_property_stats_agility_bonus_level_5"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"50"
-				}
-			}
-			"modifier_player_property_stats_agility_bonus_level_6"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"60"
-				}
-			}
-			"modifier_player_property_stats_agility_bonus_level_7"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"70"
-				}
-			}
-			"modifier_player_property_stats_agility_bonus_level_8"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"80"
-				}
-			}
-
-			// 智力
-			"modifier_player_property_stats_intellect_bonus_level_1"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"15"
-				}
-			}
-			"modifier_player_property_stats_intellect_bonus_level_2"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"30"
-				}
-			}
-			"modifier_player_property_stats_intellect_bonus_level_3"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"45"
-				}
-			}
-			"modifier_player_property_stats_intellect_bonus_level_4"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"60"
-				}
-			}
-			"modifier_player_property_stats_intellect_bonus_level_5"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"75"
-				}
-			}
-			"modifier_player_property_stats_intellect_bonus_level_6"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"90"
-				}
-			}
-			"modifier_player_property_stats_intellect_bonus_level_7"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"105"
-				}
-			}
-			"modifier_player_property_stats_intellect_bonus_level_8"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"120"
-				}
-			}
-		}
-	}
-
 	//=================================================================================================================
 	// Recipe: Moon Shard
 	//=================================================================================================================
@@ -1875,7 +1024,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4200"
+		"ItemCost"						"4500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1934,7 +1083,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_evasion"			"12"
+				"bonus_evasion"			"20"
 			}
 			"05"
 			{
@@ -3924,58 +3073,21 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
+				// tooltip values, actual values in modifier_item_adi_king_stats
 				"sp"					"60"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"att"					"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"ar"					"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rate"					"30"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"rate"					"25"
+				"bonus_evasion"		    "10"
+				// actual values
 				"active_sp"				"35"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dur"					"3"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"active_evasion"		"10"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_evasion"		    "5"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"dur"					"3"
+
 				"aura_sp"		   		"5"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"aura_rd"		   		"600"
-			}
 		}
 	}
 
@@ -4036,58 +3148,21 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"sp"					"80"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"att"					"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
+				// tooltip values, actual values in modifier_item_adi_king_plus_stats
+				"sp"					"100"
+				"att"					"60"
 				"ar"					"20"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rate"					"40"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"rate"					"50"
+				"bonus_evasion"		    "20"
+				// actual values
 				"active_sp"				"50"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dur"					"3"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"active_evasion"		"20"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_evasion"		    "10"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"dur"					"3"
+
 				"aura_sp"		   		"8"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"aura_rd"		   		"600"
-			}
 		}
 	}
 	//=================================================================================================================
@@ -4191,7 +3266,7 @@
 	}
 
 	//=================================================================================================================
-	// blue fantasy 大否决
+	// blue fantasy 大否决 苍蓝幻想
 	//=================================================================================================================
 	"item_blue_fantasy"
 	{
@@ -4230,63 +3305,19 @@
 		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"80"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"agi"					"50"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"int"					"25"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_armor"			"10"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_regen"			"10"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"mute_duration"			"4.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"projectile_speed"		"2000"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"slow_pct"				"-50"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"attsp"					"-200"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"max_hp_dmg_pct"		"4"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"mana_base"				"100"
-			}
 		}
 	}
 
@@ -6101,7 +5132,7 @@
 			"mana_re"		"16"	//回蓝
 			"bonus_mana"	"400"	//加蓝
 			"heal_bonus"	"20"	//恢复增强
-			"duration"		"6"		//主动持续时间
+			"duration"		"5"		//主动持续时间
 			"heal"			"5"		//反制回血%
 		}
 	}
@@ -6197,7 +5228,7 @@
 		// Charge
 		"AbilityCooldown"				"0"
 		"AbilityCharges"				"2"
-		"AbilityChargeRestoreTime"		"90"
+		"AbilityChargeRestoreTime"		"100"
 		"ItemInitialCharges"			"1"
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
@@ -6365,7 +5396,7 @@
         "Model"							"models/props_gameplay/recipe.vmdl"
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"700"
+        "ItemCost"						"0"
         "ItemShopTags"					""
 
         // Recipe
@@ -6374,7 +5405,7 @@
         "ItemResult"					"item_bloodstone_v2"
         "ItemRequirements"
         {
-			"01"						"item_voodoo_mask;item_soul_booster"
+			"01"						"item_voodoo_mask;item_soul_booster;item_void_stone"
         }
     }
     "item_bloodstone_v2"
@@ -6522,7 +5553,7 @@
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
         "AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"400"
+		"ItemCost"						"3400"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra"
@@ -6585,7 +5616,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9595"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"36000"
+		"ItemCost"						"39000"
 
 		"ItemDroppable"                 "1"
 		"ItemKillable"					"0"
@@ -6658,8 +5689,8 @@
 				"quelling_bonus_ranged"	"60"
 
 				"cleave_starting_width"			"150"
-				"cleave_ending_width"			"550"
-				"cleave_distance"			"1050"
+				"cleave_ending_width"			"500"
+				"cleave_distance"			"1000"
 				"upgraded_cleave_bonus"			"25"
 				"upgraded_damage_bonus"			"15"
 		}
@@ -6734,7 +5765,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"600"
+		"ItemCost"						"1400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -6797,7 +5828,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_1"
 		"ItemCost"						"1111"
-		"ItemIsNeutralDrop"				"1"
+		"ItemIsNeutralDrop"				"0"
 		"ItemShopTags"					""
 		"ItemQuality"					""
 		"ItemAliases"					""
@@ -6816,7 +5847,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_2"
 		"ItemCost"						"2222"
-		"ItemIsNeutralDrop"				"1"
+		"ItemIsNeutralDrop"				"0"
 		"ItemShopTags"					""
 		"ItemQuality"					""
 		"ItemAliases"					""
@@ -6835,7 +5866,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_3"
 		"ItemCost"						"3333"
-		"ItemIsNeutralDrop"				"1"
+		"ItemIsNeutralDrop"				"0"
 		"ItemShopTags"					""
 		"ItemQuality"					""
 		"ItemAliases"					""
@@ -6854,7 +5885,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_4"
 		"ItemCost"						"4444"
-		"ItemIsNeutralDrop"				"1"
+		"ItemIsNeutralDrop"				"0"
 		"ItemShopTags"					""
 		"ItemQuality"					""
 		"ItemAliases"					""
@@ -6873,7 +5904,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_5"
 		"ItemCost"						"5555"
-		"ItemIsNeutralDrop"				"1"
+		"ItemIsNeutralDrop"				"0"
 		"ItemShopTags"					""
 		"ItemQuality"					""
 		"ItemAliases"					""
@@ -6892,7 +5923,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_6"
 		"ItemCost"						"6666"
-		"ItemIsNeutralDrop"				"1"
+		"ItemIsNeutralDrop"				"0"
 		"ItemShopTags"					""
 		"ItemQuality"					""
 		"ItemAliases"					""
@@ -6912,7 +5943,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_7"
 		"ItemCost"						"7777"
-		"ItemIsNeutralDrop"				"1"
+		"ItemIsNeutralDrop"				"0"
 		"ItemShopTags"					""
 		"ItemQuality"					""
 		"ItemAliases"					""
@@ -7158,7 +6189,7 @@
 		"AbilityTextureName"            "item_blessing_of_dragon_3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0.0"
+		"AbilityCooldown"				"0.1"
 		"AbilityManaCost"				"0"
 		"ItemShopTags"					""
 		"ItemQuality"					""

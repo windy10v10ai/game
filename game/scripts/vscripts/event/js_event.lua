@@ -18,7 +18,6 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
     self.iStartingGoldPlayer = tonumber(args.game_options.starting_gold_player)
     self.iStartingGoldBot = tonumber(args.game_options.starting_gold_bot)
     self.bSameHeroSelection = args.game_options.same_hero_selection
-    self.bFastCourier = args.game_options.fast_courier
     if args.game_options.radiant_bot_same_multi == 1 or args.game_options.radiant_bot_same_multi == "1" then
         self.bRadiantBotSameMulti = true
     else

@@ -242,6 +242,7 @@
 		"Ability4"         "miku_dance"
 		"Ability5"         "get_down"
 		"Ability6"         "chibi_monster"
+		"Ability7"         "generic_hidden"
 		"Ability22"        "chibi_hit"
 
 		"Ability10"                 "special_bonus_unique_miku_101"
@@ -1500,9 +1501,9 @@
 			"Build"
 			{
 				"1"		"lion_impale"
-				"2"		"lion_voodoo"
+				"2"		"lion_mana_drain"
 				"3"		"lion_impale"
-				"4"		"lion_mana_drain"
+				"4"		"lion_voodoo"
 				"5"		"lion_impale"
 				"6"		"lion_finger_of_death"
 				"7"		"lion_impale"

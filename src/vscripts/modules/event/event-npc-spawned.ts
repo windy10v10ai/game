@@ -1,4 +1,5 @@
 import { Player } from "../../api/player";
+import { ModifierHelper } from "../../helper/modifier-helper";
 import { PlayerHelper } from "../../helper/player-helper";
 
 export class EventNpcSpawned {
@@ -16,7 +17,9 @@ export class EventNpcSpawned {
     "generic_season_point_bag_fountain",
   ];
 
-  constructor() {}
+  constructor() {
+    ListenToGameEvent("npc_spawned", (keys) => this.OnNpcSpawned(keys), this);
+  }
 
   // 单位出生
   public OnNpcSpawned(keys: GameEventProvidedProperties & NpcSpawnedEvent): void {
@@ -34,24 +37,40 @@ export class EventNpcSpawned {
 
     // 英雄出生
     if (npc.IsRealHero() && keys.is_respawn === 0) {
-      // set npc as CDOTA_BaseNPC_Hero
       const hero = npc as CDOTA_BaseNPC_Hero;
       this.OnRealHeroSpawned(hero);
-    } else if (npc.IsCreep()) {
+    }
+    if (npc.IsCreep()) {
       // 小兵出生
       this.OnCreepSpawned(npc);
     }
+    if (npc.IsCourier() && keys.is_respawn === 0) {
+      // 信使出生
+      ModifierHelper.applyGlobalModifier(npc, "modifier_global_courier_speed");
+    }
   }
 
+  // 英雄出生
   private OnRealHeroSpawned(hero: CDOTA_BaseNPC_Hero): void {
+    if (
+      hero.GetAttackCapability() === UnitAttackCapability.MELEE_ATTACK ||
+      hero.GetName() === "npc_dota_hero_troll_warlord" ||
+      hero.GetName() === "npc_dota_hero_lone_druid"
+    ) {
+      ModifierHelper.applyGlobalModifier(hero, "modifier_global_melee_resistance");
+    }
+
     if (PlayerHelper.IsHumanPlayer(hero)) {
+      // 设置会员
+      const steamAccountId = PlayerResource.GetSteamAccountID(hero.GetPlayerID());
+      if (Player.IsMemberStatic(steamAccountId)) {
+        ModifierHelper.applyGlobalModifier(hero, "modifier_global_member");
+      }
+      // 设置玩家属性
       Player.SetPlayerProperty(hero);
     } else {
       // 机器人
-      // FIXME 天辉机器人未设置新AI
-      if (hero.GetTeamNumber() === DotaTeam.BADGUYS) {
-        GameRules.AI.EnableAI(hero);
-      }
+      GameRules.AI.EnableAI(hero);
     }
   }
 
@@ -73,7 +92,7 @@ export class EventNpcSpawned {
         }
       }
 
-      if (this.roshanLevelBase < 5) {
+      if (this.roshanLevelBase < 5 - 1) {
         this.roshanLevelBase++;
       }
     }
@@ -82,10 +101,16 @@ export class EventNpcSpawned {
   private getExtraRoshanLevel(): number {
     let extra = 0;
 
+    if (Player.GetPlayerCount() >= 2) {
+      extra++;
+    }
     if (Player.GetPlayerCount() >= 4) {
       extra++;
     }
     if (Player.GetPlayerCount() >= 8) {
+      extra++;
+    }
+    if (Player.GetPlayerCount() >= 10) {
       extra++;
     }
     return this.roshanLevelBase + extra;
