@@ -98,8 +98,6 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_PhantomAssassin(hHero)
 	elseif sHeroName == "npc_dota_hero_zuus" then
 		self:ThinkUseAbility_Zuus(hHero)
-	elseif sHeroName == "npc_dota_hero_viper" then
-		self:ThinkUseAbility_Viper(hHero)
 	elseif sHeroName == "npc_dota_hero_juggernaut" then
 		self:ThinkUseAbility_Juggernaut(hHero)
 	elseif sHeroName == "npc_dota_hero_sniper" then
@@ -232,14 +230,6 @@ function BotAbilityThink:ThinkUseAbility_Zuus(hHero)
 				return true
 			end
 		end
-	end
-end
-
-function BotAbilityThink:ThinkUseAbility_Viper(hHero)
-	local hAbility2 = hHero:GetAbilityByIndex(1)
-
-	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility2) then
-		return true
 	end
 end
 

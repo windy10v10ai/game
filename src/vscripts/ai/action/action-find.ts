@@ -34,6 +34,7 @@ export class ActionFind {
     radius: number,
     typeFilter: UnitTargetType,
     flagFilterExtra?: UnitTargetFlags,
+    order = FindOrder.CLOSEST,
   ): CDOTA_BaseNPC[] {
     let flagFilter =
       UnitTargetFlags.FOW_VISIBLE + // 战争迷雾
@@ -42,7 +43,7 @@ export class ActionFind {
     if (flagFilterExtra) {
       flagFilter = flagFilter + flagFilterExtra;
     }
-    const enemies = this.Find(self, radius, UnitTargetTeam.ENEMY, typeFilter, flagFilter);
+    const enemies = this.Find(self, radius, UnitTargetTeam.ENEMY, typeFilter, flagFilter, order);
 
     return enemies;
   }
@@ -82,6 +83,7 @@ export class ActionFind {
     teamFilter: UnitTargetTeam,
     typeFilter: UnitTargetType,
     flagFilterExtra?: UnitTargetFlags,
+    order = FindOrder.CLOSEST,
   ): CDOTA_BaseNPC[] {
     let flagFilter = UnitTargetFlags.NOT_ILLUSIONS; // 非幻象
 
@@ -96,7 +98,7 @@ export class ActionFind {
       teamFilter,
       typeFilter,
       flagFilter,
-      FindOrder.CLOSEST,
+      order,
       false,
     );
 

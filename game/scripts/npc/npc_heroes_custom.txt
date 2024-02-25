@@ -1501,9 +1501,9 @@
 			"Build"
 			{
 				"1"		"lion_impale"
-				"2"		"lion_voodoo"
+				"2"		"lion_mana_drain"
 				"3"		"lion_impale"
-				"4"		"lion_mana_drain"
+				"4"		"lion_voodoo"
 				"5"		"lion_impale"
 				"6"		"lion_finger_of_death"
 				"7"		"lion_impale"
