@@ -17,7 +17,7 @@ export class LionAIModifier extends BaseHeroAIModifier {
     // 死亡一指
     if (
       ActionAbility.CastAbilityOnEnemyHero(this, "lion_finger_of_death", {
-        target: { healthPercentLessThan: 80 },
+        target: { healthPercentLessThan: 95 },
       })
     ) {
       return true;

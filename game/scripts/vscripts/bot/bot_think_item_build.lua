@@ -5,17 +5,17 @@
 
 
 local function addTome(k, v)
-  table.insert(v,"item_tome_of_luoshu")
+  table.insert(v, "item_tome_of_luoshu")
 
   local amount = 2
   if AIGameMode.iGameDifficulty and AIGameMode.iGameDifficulty >= 6 then
     -- if v contains item_excalibur
-    for i,vItem in ipairs(v) do
+    for i, vItem in ipairs(v) do
       if vItem == "item_excalibur" then
         -- remove excalibur
         table.remove(v, i)
-        table.insert(v,"item_rapier_ultra_bot")
-        print("add item_rapier_ultra_bot"..k)
+        table.insert(v, "item_rapier_ultra_bot")
+        print("add item_rapier_ultra_bot" .. k)
       end
     end
     amount = 20
@@ -29,28 +29,27 @@ local function addTome(k, v)
     amount = 4
   end
   for i = 1, amount do
-    table.insert(v,"item_tome_of_strength")
-    table.insert(v,"item_tome_of_agility")
+    table.insert(v, "item_tome_of_strength")
+    table.insert(v, "item_tome_of_agility")
     if i % 2 == 0 then
-      table.insert(v,"item_tome_of_intelligence")
+      table.insert(v, "item_tome_of_intelligence")
     end
-	end
+  end
 end
 --------------------
 -- Initial
 --------------------
 if BotThink == nil then
   print("Bot Think initialize!")
-	_G.BotThink = class({}) -- put in the global scope
+  _G.BotThink = class({}) -- put in the global scope
 end
 
 function BotThink:SetTome()
   local allPurchaseTable = tBotItemData.purchaseItemList
-  for k,v in pairs(allPurchaseTable) do
-    addTome(k,v)
+  for k, v in pairs(allPurchaseTable) do
+    addTome(k, v)
   end
 end
-
 
 --------------------
 -- common function
@@ -58,101 +57,105 @@ end
 
 -- find item
 function BotThink:FindItemByNameNotIncludeBackpack(hHero, sName)
-	for i = 0, 5 do
-		if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
-	end
-	return nil
+  for i = 0, 5 do
+    if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
+  end
+  return nil
 end
 
 function BotThink:FindItemByName(hHero, sName)
-	for i = 0, 8 do
-		if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
-	end
-	return nil
+  for i = 0, 8 do
+    if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
+  end
+  return nil
 end
 
 function BotThink:FindItemByNameIncludeStash(hHero, sName)
-	for i = 0, 15 do
-		if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
-	end
-	return nil
+  for i = 0, 15 do
+    if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
+  end
+  return nil
 end
 
 function BotThink:IsItemCanUse(hHero, sName)
-    if hHero:HasItemInInventory(sName) then
-        local item = BotThink:FindItemByNameNotIncludeBackpack(hHero, sName)
-        if item and item:IsCooldownReady() then
-            return true
-        end
+  if hHero:HasItemInInventory(sName) then
+    local item = BotThink:FindItemByNameNotIncludeBackpack(hHero, sName)
+    if item and item:IsCooldownReady() then
+      return true
     end
-    return false
+  end
+  return false
 end
+
 -- find enemy
 -- find many
 function BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-    local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-    AIGameMode:ArrayShuffle(tAllHeroes)
-    return tAllHeroes
+  local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+  AIGameMode:ArrayShuffle(tAllHeroes)
+  return tAllHeroes
 end
+
 -- find one
 function BotThink:FindNearestEnemyHeroesInRangeAndVisible(hHero, iRange)
-  local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)
+  local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)
   if #tAllHeroes > 0 then
     return tAllHeroes[1]
   end
   return nil
 end
+
 -- find team
 function BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
-    local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
-    AIGameMode:ArrayShuffle(tAllHeroes)
-    return tAllHeroes
+  local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
+  AIGameMode:ArrayShuffle(tAllHeroes)
+  return tAllHeroes
 end
 
 -- use item
 function BotThink:UseItemOnTarget(hHero, sItemName, hTarget)
-	if not hHero:HasItemInInventory(sItemName) then
-		return false
-	end
-    local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
-    if hItem then
-        if hItem:IsCooldownReady() then
-            hHero:CastAbilityOnTarget(hTarget, hItem, hHero:GetPlayerOwnerID())
-            return true
-        end
-	end
+  if not hHero:HasItemInInventory(sItemName) then
     return false
+  end
+  local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
+  if hItem then
+    if hItem:IsCooldownReady() then
+      hHero:CastAbilityOnTarget(hTarget, hItem, hHero:GetPlayerOwnerID())
+      return true
+    end
+  end
+  return false
 end
 
-
 function BotThink:UseItemOnPostion(hHero, sItemName, hTarget)
-	if not hHero:HasItemInInventory(sItemName) then
-		return false
-	end
-    local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
-    if hItem then
-        if hItem:IsCooldownReady() then
-            hHero:CastAbilityOnPosition(hTarget:GetOrigin(), hItem, hHero:GetPlayerOwnerID())
-            return true
-        end
-	end
+  if not hHero:HasItemInInventory(sItemName) then
     return false
+  end
+  local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
+  if hItem then
+    if hItem:IsCooldownReady() then
+      hHero:CastAbilityOnPosition(hTarget:GetOrigin(), hItem, hHero:GetPlayerOwnerID())
+      return true
+    end
+  end
+  return false
 end
 
 function BotThink:UseItem(hHero, sItemName)
-	if not hHero:HasItemInInventory(sItemName) then
-		return false
-	end
-    local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
-    if hItem then
-        if hItem:IsCooldownReady() then
-            hHero:CastAbilityNoTarget(hItem, hHero:GetPlayerOwnerID())
-            return true
-        end
-	end
+  if not hHero:HasItemInInventory(sItemName) then
     return false
+  end
+  local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
+  if hItem then
+    if hItem:IsCooldownReady() then
+      hHero:CastAbilityNoTarget(hItem, hHero:GetPlayerOwnerID())
+      return true
+    end
+  end
+  return false
 end
-
 
 function BotThink:GetCooldownTotal(hHero)
   local iCooldownTotal = 0
@@ -169,8 +172,8 @@ function BotThink:GetCooldownTotal(hHero)
       iCooldownTotal = iCooldownTotal + hItem:GetCooldownTimeRemaining()
     end
   end
-	local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT )
-	if itemNeutral then
+  local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  if itemNeutral then
     iCooldownTotal = iCooldownTotal + itemNeutral:GetCooldownTimeRemaining()
   end
   return iCooldownTotal
@@ -182,7 +185,7 @@ end
 function BotThink:IsBesideFriendTower(hHero, radius)
   local vHeroPos = hHero:GetAbsOrigin()
   local towers = Entities:FindAllByClassnameWithin("npc_dota_tower", vHeroPos, radius)
-  for i,vTower in ipairs(towers) do
+  for i, vTower in ipairs(towers) do
     if vTower:GetTeamNumber() == hHero:GetTeamNumber() then
       return true
     end
@@ -193,7 +196,7 @@ end
 function BotThink:IsBesideEnemyTower(hHero, radius)
   local vHeroPos = hHero:GetAbsOrigin()
   local towers = Entities:FindAllByClassnameWithin("npc_dota_tower", vHeroPos, radius)
-  for i,vTower in ipairs(towers) do
+  for i, vTower in ipairs(towers) do
     if vTower:GetTeamNumber() ~= hHero:GetTeamNumber() then
       return true
     end
@@ -209,9 +212,9 @@ local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
     -- hero not has purchase table
     return false
   end
-  if ( #iPurchaseTable == 0 ) then
-      -- no items to buy
-      return false
+  if (#iPurchaseTable == 0) then
+    -- no items to buy
+    return false
   end
   local iItemName = iPurchaseTable[1]
   if not iItemName then
@@ -220,17 +223,18 @@ local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
   end
   local iCost = GetItemCost(iItemName)
 
-  if(hHero:GetGold() > iCost) then
+  if (hHero:GetGold() > iCost) then
     if hHero:GetNumItemsInInventory() > 8 then
       -- print("Warn! Think purchase "..hHero:GetName().." add "..iItemName.." stop with item count "..hHero:GetNumItemsInInventory())
     else
       local addedItem = hHero:AddItemByName(iItemName)
       if addedItem then
         PlayerResource:SpendGold(hHero:GetPlayerID(), iCost, DOTA_ModifyGold_PurchaseItem)
-        table.remove(iPurchaseTable,1)
+        table.remove(iPurchaseTable, 1)
         return true
       else
-        print("Warn! Think purchase "..hHero:GetName().." add "..iItemName.." fail with item count "..hHero:GetNumItemsInInventory())
+        print("Warn! Think purchase " ..
+        hHero:GetName() .. " add " .. iItemName .. " fail with item count " .. hHero:GetNumItemsInInventory())
         return false
       end
     end
@@ -239,8 +243,8 @@ end
 
 -- return true if sell
 local function SellItemFromTable(hHero, iPurchaseTable)
-  for k,vName in ipairs(iPurchaseTable) do
-    local iCost = math.floor(GetItemCost(vName)/2)
+  for k, vName in ipairs(iPurchaseTable) do
+    local iCost = math.floor(GetItemCost(vName) / 2)
     local sellItem = BotThink:FindItemByNameIncludeStash(hHero, vName)
     if sellItem then
       hHero:RemoveItem(sellItem)
@@ -255,13 +259,13 @@ end
 -- Item Think
 --------------------
 function BotThink:IsControllable(hHero)
-	if hHero:IsNull() then return true end
-	-- if hero is dead, do nothing
-	if hHero:IsAlive() == false then return true end
+  if hHero:IsNull() then return true end
+  -- if hero is dead, do nothing
+  if hHero:IsAlive() == false then return true end
   -- 眩晕
-	if hHero:IsStunned() then return true end
+  if hHero:IsStunned() then return true end
   -- 变羊
-	if hHero:IsHexed() then return true end
+  if hHero:IsHexed() then return true end
   -- 噩梦
   if hHero:IsNightmared() then return true end
   -- 虚空大
@@ -274,7 +278,7 @@ function BotThink:IsControllable(hHero)
   if hHero:HasModifier("modifier_axe_berserkers_call") or hHero:HasModifier("modifier_legion_commander_duel") or hHero:HasModifier("modifier_winter_wyvern_winters_curse") then return true end
 
   -- TP
-	if hHero:HasModifier("modifier_teleporting") then return true end
+  if hHero:HasModifier("modifier_teleporting") then return true end
 
   return false
 end
@@ -289,7 +293,7 @@ end
 
 function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
   -- if hHero has neutral token
-  local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT )
+  local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
   if itemNeutral then
     if string.find(itemNeutral:GetName(), "item_tier") then
       -- remove item
@@ -308,17 +312,18 @@ function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
   local multiIndex = "x1"
   if AIGameMode.fBotGoldXpMultiplier < 5 then
     multiIndex = "x1"
-	elseif AIGameMode.fBotGoldXpMultiplier <= 5 then
+  elseif AIGameMode.fBotGoldXpMultiplier <= 5 then
     multiIndex = "x5"
-	elseif AIGameMode.fBotGoldXpMultiplier <= 8 then
+  elseif AIGameMode.fBotGoldXpMultiplier <= 8 then
     multiIndex = "x8"
-	elseif AIGameMode.fBotGoldXpMultiplier <= 10 then
+  elseif AIGameMode.fBotGoldXpMultiplier <= 10 then
     multiIndex = "x10"
-	else
+  else
     multiIndex = "x20"
-	end
+  end
 
-  local addNeutralItemTime = tBotItemData.addNeutralItemMultiTimeMap[multiIndex] or tBotItemData.addNeutralItemMultiTimeMap["x1"]
+  local addNeutralItemTime = tBotItemData.addNeutralItemMultiTimeMap[multiIndex] or
+  tBotItemData.addNeutralItemMultiTimeMap["x1"]
 
   if (GameTime > addNeutralItemTime[1]) then
     local iPurchaseTable = tBotItemData.addNeutralItemList[iHeroName]
@@ -351,16 +356,15 @@ function BotThink:ThinkSell(hHero)
   end
 end
 
-
 -- 物品消耗
 function BotThink:ThinkConsumeItem(hHero)
   local itemConsumeList = tBotItemData.itemConsumeList
-  for i,vItemUseName in ipairs(itemConsumeList) do
+  for i, vItemUseName in ipairs(itemConsumeList) do
     BotThink:UseItemOnTarget(hHero, vItemUseName, hHero)
   end
 
   local itemConsumeNoTargetList = tBotItemData.itemConsumeNoTargetList
-  for i,vItemUseName in ipairs(itemConsumeNoTargetList) do
+  for i, vItemUseName in ipairs(itemConsumeNoTargetList) do
     BotThink:UseItem(hHero, vItemUseName)
   end
 end
@@ -454,22 +458,23 @@ function BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassN
   end
   local wardItem = BotThink:FindItemByNameIncludeStash(hHero, sWardItemName)
   local vHeroPos = hHero:GetAbsOrigin()
-  for _,vWardPos in ipairs(wardPostionList) do
+  for _, vWardPos in ipairs(wardPostionList) do
     if wardItem then
-      local wardPosVector = vWardPos + Vector(RandomInt(-50, 50),RandomInt(-50, 50),0)
+      local wardPosVector = vWardPos + Vector(RandomInt(-50, 50), RandomInt(-50, 50), 0)
       local wardPosDistance = (wardPosVector - vHeroPos):Length()
       if wardPosDistance < iCastRange then
         -- find wards in wardPosVector
         local wards = Entities:FindAllByClassnameWithin(sUnitClassName, wardPosVector, iFindRange)
         -- for each wards, if not same team remove from list
-        for i=#wards,1,-1 do
+        for i = #wards, 1, -1 do
           if wards[i]:GetTeamNumber() ~= hHero:GetTeamNumber() then
             table.remove(wards, i)
           end
         end
         -- if no wards, put ward
         if #wards == 0 then
-          print("Think put ward "..hHero:GetName().." try to put "..sWardItemName.." at ["..vWardPos[1]..","..vWardPos[2].."]")
+          print("Think put ward " ..
+          hHero:GetName() .. " try to put " .. sWardItemName .. " at [" .. vWardPos[1] .. "," .. vWardPos[2] .. "]")
           hHero:CastAbilityOnPosition(wardPosVector, wardItem, hHero:GetPlayerOwnerID())
         else
           -- print("Think put ward "..hHero:GetName().." !Stop to put ward at "..vWardPos[1]..","..vWardPos[2])
@@ -486,14 +491,14 @@ function BotThink:AddMoney(hHero)
   local GameTime = GameRules:GetDOTATime(false, false)
   local totalGold = PlayerResource:GetTotalEarnedGold(hHero:GetPlayerID())
 
-  local goldPerSec = totalGold/GameTime
+  local goldPerSec = totalGold / GameTime
 
   local multiplier = AIGameMode.fBotGoldXpMultiplier
   if AIGameMode.bRadiantBotSameMulti and hHero:GetTeam() == DOTA_TEAM_GOODGUYS then
     multiplier = AIGameMode.fPlayerGoldXpMultiplier
   end
 
-  local iAddMoney = math.floor(multiplier*iAddBase)
+  local iAddMoney = math.floor(multiplier * iAddBase)
 
   if goldPerSec > iAddMoney then
     return false
@@ -503,5 +508,5 @@ function BotThink:AddMoney(hHero)
     hHero:ModifyGold(iAddMoney, true, DOTA_ModifyGold_GameTick)
     return true
   end
-	return false
+  return false
 end

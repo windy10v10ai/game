@@ -1,4 +1,3 @@
-
 --[[ ============================================================================================================
 	Author: Windy
 	Date: September 14, 2021
@@ -8,8 +7,8 @@
 -- Initial
 --------------------
 if BotItemThink == nil then
-	print("Bot Item Think initialize!")
-	_G.BotItemThink = class({}) -- put in the global scope
+    print("Bot Item Think initialize!")
+    _G.BotItemThink = class({}) -- put in the global scope
 end
 
 --------------------
@@ -153,10 +152,10 @@ function BotItemThink:UseActiveItem(hHero)
 
     ------------------ 无目标 长距离 ------------------
     local searchRange = 1200
-	local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
-	if #tAllHeroes == 0 then
+    local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
+    if #tAllHeroes == 0 then
         return false
-	end
+    end
 
     -- item_blade_mail_2
     if hHero:GetHealthPercent() < 99 then
@@ -292,7 +291,6 @@ function BotItemThink:UseActiveItem(hHero)
     return false
 end
 
-
 --
 -- 获取可用的物品，检测CD和蓝耗
 --
@@ -300,7 +298,7 @@ function BotItemThink:GetUsableItems(hHero)
     -- get hero current mana
     local nCurrentMana = hHero:GetMana()
     local tUsableItems = {}
-	for i = 0, 5 do
+    for i = 0, 5 do
         local hItem = hHero:GetItemInSlot(i)
         if hItem then
             -- is item in cooldown
@@ -314,8 +312,8 @@ function BotItemThink:GetUsableItems(hHero)
                 end
             end
         end
-		if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
-	end
+        if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
+    end
     return tUsableItems
 end
 
@@ -328,7 +326,7 @@ function BotItemThink:UseItemNoTarget(tUsableItems, hHero, sItemName)
     if hItem then
         hHero:CastAbilityNoTarget(hItem, hHero:GetPlayerOwnerID())
         return true
-	end
+    end
     return false
 end
 
@@ -341,7 +339,7 @@ function BotItemThink:UseItemOnPostion(tUsableItems, hHero, sItemName, hTarget)
     if hItem then
         hHero:CastAbilityOnPosition(hTarget:GetOrigin(), hItem, hHero:GetPlayerOwnerID())
         return true
-	end
+    end
     return false
 end
 
@@ -369,7 +367,7 @@ function BotItemThink:UseItemOnTarget(tUsableItems, hHero, sItemName, hTarget)
     if hItem then
         hHero:CastAbilityOnTarget(hTarget, hItem, hHero:GetPlayerOwnerID())
         return true
-	end
+    end
     return false
 end
 
@@ -377,6 +375,6 @@ function BotItemThink:IsItemCanUse(tUsableItems, sItemName)
     local hItem = tUsableItems[sItemName]
     if hItem then
         return true
-	end
+    end
     return false
 end

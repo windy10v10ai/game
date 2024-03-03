@@ -107,10 +107,10 @@ export class EventNpcSpawned {
     if (Player.GetPlayerCount() >= 4) {
       extra++;
     }
-    if (Player.GetPlayerCount() >= 8) {
+    if (Player.GetPlayerCount() >= 6) {
       extra++;
     }
-    if (Player.GetPlayerCount() >= 10) {
+    if (Player.GetPlayerCount() >= 8) {
       extra++;
     }
     return this.roshanLevelBase + extra;

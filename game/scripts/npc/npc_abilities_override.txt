@@ -238,7 +238,7 @@
 			{
 				"value"								"80 70 60 50"
 			}
-			"hp_threshold"							"600 800 1000 1200"
+			"hp_threshold"							"600 900 1200 1500"
 			"duration"								"3.5 4.0 4.5 5.0"
 			"duration_scepter"
 			{
@@ -1327,20 +1327,9 @@
 		{
 			"totem_damage_percentage"
 			{
-				"value"		"200 300 400 500 700"
+				"value"		"200 300 400 500 600"
 				"CalculateSpellDamageTooltip"	"0"
-				"special_bonus_unique_earthshaker_totem_damage"	"+300"
-			}
-			"distance_scepter"
-			{
-				"value"		"950"
-				"RequiresScepter"		"1"
-			}
-			"aftershock_range"
-			{
-				"value"		"300"
-				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_5"
-				"affected_by_aoe_increase"	"1"
+				"special_bonus_unique_earthshaker_totem_damage"	"+250"
 			}
 			"scepter_height"			"6000"
 			"scepter_height_arcbuffer"	"100"
@@ -1352,22 +1341,7 @@
 				"value"					"100"
 				"RequiresScepter"		"1"
 			}
-			"scepter_cleave_starting_width"
-			{
-				"value"					"150"
-				"RequiresScepter"		"1"
-			}
-			"scepter_cleave_ending_width"
-			{
-				"value"					"360"
-				"RequiresScepter"		"1"
-			}
-			"scepter_cleave_distance"
-			{
-				"value"					"650"
-				"RequiresScepter"		"1"
-			}
-			"bonus_attack_range"		"250"
+			"bonus_attack_range"		"200"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -5912,10 +5886,10 @@
 		{
 			"damage_per_mana"
 			{
-				"value"								"2 2.5 3 3.5 4 4.5"
-				"special_bonus_unique_medusa_6"		"+2.5"
+				"value"								"2 2.6 3.2 3.8 4.4 5.0" 	// 2 2.4 2.8 3.2 3.6 4.0
+				"special_bonus_unique_medusa_6"		"+2.5"				// +1.7
 			}
-			"absorption_pct"						"96"		// 98
+			"absorption_pct"						"94"		// 98
 			"bonus_mana"			"100 200 300 400 600 800"
 		}
 	}

@@ -4,7 +4,9 @@
 modifier_bot_think_item_use = class({})
 
 function modifier_bot_think_item_use:IsPurgable() return false end
+
 function modifier_bot_think_item_use:IsHidden() return true end
+
 function modifier_bot_think_item_use:RemoveOnDeath() return false end
 
 function modifier_bot_think_item_use:OnCreated()
@@ -53,7 +55,9 @@ end
 modifier_bot_think_strategy = class({})
 
 function modifier_bot_think_strategy:IsPurgable() return false end
+
 function modifier_bot_think_strategy:IsHidden() return true end
+
 function modifier_bot_think_strategy:RemoveOnDeath() return false end
 
 function modifier_bot_think_strategy:OnCreated()
@@ -89,7 +93,9 @@ end
 modifier_bot_think_ward = class({})
 
 function modifier_bot_think_ward:IsPurgable() return false end
+
 function modifier_bot_think_ward:IsHidden() return true end
+
 function modifier_bot_think_ward:RemoveOnDeath() return false end
 
 function modifier_bot_think_ward:OnCreated()

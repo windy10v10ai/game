@@ -1,5 +1,5 @@
 miku_dance = class({})
-LinkLuaModifier( "modifier_miku_dance", "modifiers/hero_miku/modifier_miku_dance", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_miku_dance", "modifiers/hero_miku/modifier_miku_dance", LUA_MODIFIER_MOTION_NONE)
 --------------------------------------------------------------------------------
 -- Ability Start
 function miku_dance:OnSpellStart()
@@ -10,8 +10,8 @@ function miku_dance:OnSpellStart()
 	local duration = self:GetSpecialValueFor("ability_duration")
 
 	caster:AddNewModifier(
-		caster, -- player source
-		self, -- ability source
+		caster,          -- player source
+		self,            -- ability source
 		"modifier_miku_dance", -- modifier name
 		{
 			duration = duration,
@@ -21,7 +21,7 @@ function miku_dance:OnSpellStart()
 
 	-- effects
 	local sound_cast = ""
-	EmitSoundOn( sound_cast, caster )
+	EmitSoundOn(sound_cast, caster)
 end
 
 --------------------------------------------------------------------------------
@@ -30,11 +30,11 @@ end
 
 -- end
 
-function miku_dance:OnChannelFinish( bInterrupted )
+function miku_dance:OnChannelFinish(bInterrupted)
 	local delay = self:GetSpecialValueFor("attack_interval")
 	self:GetCaster():AddNewModifier(
 		self:GetCaster(), -- player source
-		self, -- ability source
+		self,            -- ability source
 		"modifier_miku_dance", -- modifier name
 		{
 			duration = delay,
