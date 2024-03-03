@@ -6,18 +6,19 @@ export class EventEntityKilled {
   }
 
   private readonly removeGoldBagDelay = 20;
-  private roshanDropItemList: string[] = ["item_dragon_ball_6", "item_dragon_ball_7"];
-  private roshanDropItemChance = 70;
-
-  private roshanDropItemList2: string[] = [
+  private dropItemListDragonBall: string[] = [
     "item_dragon_ball_1",
     "item_dragon_ball_2",
     "item_dragon_ball_3",
     "item_dragon_ball_4",
     "item_dragon_ball_5",
+    "item_dragon_ball_6",
+    "item_dragon_ball_7",
   ];
 
-  private roshanDropItemChance2 = 85;
+  private dropItemChanceRoshan = 100;
+  private dropItemChanceAncient = 1.0;
+  private dropItemChanceNeutral = 0.1;
 
   OnEntityKilled(keys: GameEventProvidedProperties & EntityKilledEvent): void {
     const killedUnit = EntIndexToHScript(keys.entindex_killed) as CDOTA_BaseNPC | undefined;
@@ -33,7 +34,7 @@ export class EventEntityKilled {
   }
 
   private OnHeroKilled(_hero: CDOTA_BaseNPC_Hero): void {
-    // TODO
+    // FIXME 重写lua的OnHeroKilled
   }
 
   private OnCreepKilled(
@@ -41,8 +42,10 @@ export class EventEntityKilled {
     keys: GameEventProvidedProperties & EntityKilledEvent,
   ): void {
     const creepName = creep.GetName();
+    const attacker = EntIndexToHScript(keys.entindex_attacker) as CDOTA_BaseNPC | undefined;
+
     if (creepName === "npc_dota_roshan") {
-      // delay to remove item item_bag_of_gold and item_bag_of_season_point on map
+      // 移除无人捡取的金币袋
       Timers.CreateTimer(this.removeGoldBagDelay, () => {
         const goldBags = Entities.FindAllByClassname("dota_item_drop") as CDOTA_Item_Physical[];
         for (const goldBag of goldBags) {
@@ -53,30 +56,40 @@ export class EventEntityKilled {
         }
       });
 
-      const attacker = EntIndexToHScript(keys.entindex_attacker) as CDOTA_BaseNPC | undefined;
       if (PlayerHelper.IsHumanPlayer(attacker)) {
-        this.roshanDropItemList = this.roshanDropItem(
+        this.dropItemListDragonBall = this.dropItem(
           creep,
-          this.roshanDropItemList,
-          this.roshanDropItemChance,
-        );
-        this.roshanDropItemList2 = this.roshanDropItem(
-          creep,
-          this.roshanDropItemList2,
-          this.roshanDropItemChance2,
+          this.dropItemListDragonBall,
+          this.dropItemChanceRoshan,
         );
       } else {
         print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);
       }
+    } else if (creep.IsAncient()) {
+      if (PlayerHelper.IsHumanPlayer(attacker)) {
+        this.dropItemListDragonBall = this.dropItem(
+          creep,
+          this.dropItemListDragonBall,
+          this.dropItemChanceAncient,
+        );
+      }
+    } else if (creep.IsNeutralUnitType()) {
+      if (PlayerHelper.IsHumanPlayer(attacker)) {
+        this.dropItemListDragonBall = this.dropItem(
+          creep,
+          this.dropItemListDragonBall,
+          this.dropItemChanceNeutral,
+        );
+      }
     }
   }
 
-  private roshanDropItem(creep: CDOTA_BaseNPC, dropItemList: string[], dropChance = 100): string[] {
+  private dropItem(creep: CDOTA_BaseNPC, dropItemList: string[], dropChance = 100): string[] {
     if (dropItemList.length === 0) {
       print(`[EventEntityKilled] OnCreepKilled dropItemList is empty`);
       return dropItemList;
     }
-    if (RandomInt(0, 100) <= dropChance) {
+    if (RandomFloat(0, 100) <= dropChance) {
       const itemIndex = RandomInt(0, dropItemList.length - 1);
       const itemName = dropItemList[itemIndex];
       const item = CreateItem(itemName, undefined, undefined);

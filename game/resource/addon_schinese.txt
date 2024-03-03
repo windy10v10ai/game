@@ -1757,37 +1757,37 @@
 
 		// item_dragon_ball_1 一星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_1"				"<font color='#FFFF00'>一星珠</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_1_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有一颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_1_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有一颗五角星。集齐七个会有好事发生。\n可以分享给队友。 \n龙珠无法合成时，请尝试从备用背包中移动至主背包或仓库，或扔下再捡起。"
 		"DOTA_Tooltip_ability_item_dragon_ball_1_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_2 二星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_2"				"<font color='#FFFF00'>二星珠</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_2_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有两颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_2_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有两颗五角星。集齐七个会有好事发生。\n可以分享给队友。 \n龙珠无法合成时，请尝试从备用背包中移动至主背包或仓库，或扔下再捡起。"
 		"DOTA_Tooltip_ability_item_dragon_ball_2_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_3 三星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_3"				"<font color='#FFFF00'>三星珠</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_3_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有三颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_3_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有三颗五角星。集齐七个会有好事发生。\n可以分享给队友。 \n龙珠无法合成时，请尝试从备用背包中移动至主背包或仓库，或扔下再捡起。"
 		"DOTA_Tooltip_ability_item_dragon_ball_3_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_4 四星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_4"				"<font color='#FFFF00'>四星珠</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_4_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有四颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_4_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有四颗五角星。集齐七个会有好事发生。\n可以分享给队友。 \n龙珠无法合成时，请尝试从备用背包中移动至主背包或仓库，或扔下再捡起。"
 		"DOTA_Tooltip_ability_item_dragon_ball_4_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_5 五星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_5"				"<font color='#FFFF00'>五星珠</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_5_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有五颗五角星。集齐七个会有好事发生。"
+		"DOTA_Tooltip_ability_item_dragon_ball_5_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有五颗五角星。集齐七个会有好事发生。\n可以分享给队友。 \n龙珠无法合成时，请尝试从备用背包中移动至主背包或仓库，或扔下再捡起。"
 		"DOTA_Tooltip_ability_item_dragon_ball_5_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_6 六星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_6"				"<font color='#FFFF00'>六星珠</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有六颗五角星。集齐七个会有好事发生。\n可以分享给队友"
+		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有六颗五角星。集齐七个会有好事发生。\n可以分享给队友。 \n龙珠无法合成时，请尝试从备用背包中移动至主背包或仓库，或扔下再捡起。"
 		"DOTA_Tooltip_ability_item_dragon_ball_6_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_7 七星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_7"				"<font color='#FFFF00'>七星珠</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有七颗五角星。集齐七个会有好事发生。\n可以分享给队友"
+		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"一颗玻璃珠，无论从哪个角度看都可以看到里面有七颗五角星。集齐七个会有好事发生。\n可以分享给队友。 \n龙珠无法合成时，请尝试从备用背包中移动至主背包或仓库，或扔下再捡起。"
 		"DOTA_Tooltip_ability_item_dragon_ball_7_bonus_all_stats"					"+$all"
 
 		// item_wish_1 愿望1
@@ -1808,6 +1808,6 @@
 
 		// item_radar_of_dragon 龙珠雷达
 		"DOTA_Tooltip_Ability_item_radar_of_dragon"				"<font color='#FFFF00'>龙珠雷达</font>"
-		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>被动：指引</h1>一星到五星珠在每一级中立代币中选取得到，六星珠，七星珠由肉山随机掉落得到。愿望一共有四种，在商店可以找到。\n<font color='#e03e2e'>注意：</font>龙珠无法合成时，请回到泉水，尝试从备用背包中移动至主背包或仓库。一星到五星珠无法与他人共享，六星七星珠及合成后的装备可以与他人共享。"
+		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>被动：指引</h1>龙珠由击杀肉山和中立生物随机掉落得到。愿望一共有四种，在商店可以找到。\n<font color='#e03e2e'>注意：</font>龙珠无法合成时，请尝试从备用背包中移动至主背包或仓库，或扔下再捡起。所有龙珠及合成后的装备可以与他人共享。"
 	}
 }

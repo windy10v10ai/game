@@ -36,7 +36,6 @@
 			"item_royal_jelly"				"1" //蜂王浆
 			"item_faded_broach"				"1" //暗淡胸针
 			"item_spark_of_courage"			"1" //勇气之光
-			"item_dragon_ball_1"			"1" //一星珠
 		}
 	}
 	"2"
@@ -79,7 +78,6 @@
 			"item_light_collector"			"1" //集光器
 			// "item_doubloon"				"1" //双面币 没人选的垃圾放二级估计都没人选
 			"item_defiant_shell"			"1" //不羁甲壳
-			"item_dragon_ball_2"			"1" //二星珠
 		}
 	}
 	"3"
@@ -118,7 +116,6 @@
 			"item_havoc_hammer"				"1" //浩劫巨锤
 			"item_paladin_sword"			"1" //骑士剑
 			"item_apex"						"1" //极
-			"item_dragon_ball_3"			"1" //三星珠
 		}
 	}
 	"4"
@@ -162,7 +159,6 @@
 			"item_martyrs_plate"			"1" //烈士鳞甲
 			"item_repair_kit"				"1" //维修器具
 			"item_rattlecage"				"1" //回响之笼
-			"item_dragon_ball_4"			"1" //四星珠
 		}
 	}
 	"5"
@@ -201,7 +197,6 @@
 			"item_unwavering_condition"		"1" //坚毅之件
 			"item_book_of_shadows"			"1" //暗影邪典
 			"item_panic_button"				"1" //神妙明灯
-			"item_dragon_ball_5"			"1" //五星珠
 		}
 	}
 }

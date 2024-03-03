@@ -1607,37 +1607,37 @@
 
 		// item_dragon_ball_1 一星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_1"				"<font color='#FFFF00'>One-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_1_Description"		"A glass bead that reveals a pentagram from any angle. Collecting all seven will bring good fortune."
+		"DOTA_Tooltip_ability_item_dragon_ball_1_Description"		"A glass bead that reveals a pentagram from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate.\n When Dragon Balls cannot be combined, please try to move them from the backup slot to the main slot or stash, or drop and pick it again."
 		"DOTA_Tooltip_ability_item_dragon_ball_1_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_2 二星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_2"				"<font color='#FFFF00'>Two-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_2_Description"		"A glass bead that reveals two pentagrams from any angle. Collecting all seven will bring good fortune."
+		"DOTA_Tooltip_ability_item_dragon_ball_2_Description"		"A glass bead that reveals two pentagrams from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate.\n When Dragon Balls cannot be combined, please try to move them from the backup slot to the main slot or stash, or drop and pick it again."
 		"DOTA_Tooltip_ability_item_dragon_ball_2_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_3 三星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_3"				"<font color='#FFFF00'>Three-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_3_Description"		"A glass bead that reveals three pentagrams from any angle. Collecting all seven will bring good fortune."
+		"DOTA_Tooltip_ability_item_dragon_ball_3_Description"		"A glass bead that reveals three pentagrams from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate.\n When Dragon Balls cannot be combined, please try to move them from the backup slot to the main slot or stash, or drop and pick it again."
 		"DOTA_Tooltip_ability_item_dragon_ball_3_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_4 四星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_4"				"<font color='#FFFF00'>Four-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_4_Description"		"A glass bead that reveals four pentagrams from any angle. Collecting all seven will bring good fortune."
+		"DOTA_Tooltip_ability_item_dragon_ball_4_Description"		"A glass bead that reveals four pentagrams from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate.\n When Dragon Balls cannot be combined, please try to move them from the backup slot to the main slot or stash, or drop and pick it again."
 		"DOTA_Tooltip_ability_item_dragon_ball_4_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_5 五星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_5"				"<font color='#FFFF00'>Five-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_5_Description"		"A glass bead that reveals five pentagrams from any angle. Collecting all seven will bring good fortune."
+		"DOTA_Tooltip_ability_item_dragon_ball_5_Description"		"A glass bead that reveals five pentagrams from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate.\n When Dragon Balls cannot be combined, please try to move them from the backup slot to the main slot or stash, or drop and pick it again."
 		"DOTA_Tooltip_ability_item_dragon_ball_5_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_6 六星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_6"				"<font color='#FFFF00'>Six-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"A glass bead that reveals six pentagrams from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate."
+		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"A glass bead that reveals six pentagrams from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate.\n When Dragon Balls cannot be combined, please try to move them from the backup slot to the main slot or stash, or drop and pick it again."
 		"DOTA_Tooltip_ability_item_dragon_ball_6_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_7 七星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_7"				"<font color='#FFFF00'>Seven-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"A glass bead that reveals seven pentagrams from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate."
+		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"A glass bead that reveals seven pentagrams from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate.\n When Dragon Balls cannot be combined, please try to move them from the backup slot to the main slot or stash, or drop and pick it again."
 		"DOTA_Tooltip_ability_item_dragon_ball_7_bonus_all_stats"					"+$all"
 
 		// item_wish_1 愿望1
@@ -1658,7 +1658,7 @@
 
 		// item_radar_of_dragon 龙珠雷达
 		"DOTA_Tooltip_Ability_item_radar_of_dragon"				"<font color='#FFFF00'>Dragon Ball Radar</font>"
-		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>Passive: Guidance</h1>One-Star to Five-Star Dragon Balls can be obtained from neutral items at each level. Six-Star and Seven-Star Dragon Balls are randomly dropped by Roshan. There are four different wishes that can be found in the shop.\n<font color='#e03e2e'>Note:</font> When Dragon Balls cannot be combined, please go back to fountain, move them from the backup slot to the main slot or stash. One-Star to Five-Star Dragon Balls cannot be shared with others. Six-Star, Seven-Star Dragon Balls and combined items can share with others。"
+		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>Passive: Guidance</h1>Dragon Balls are randomly dropped by Roshan and neutral. There are four different wishes that can be found in the shop.\n<font color='#e03e2e'>Note:</font> When Dragon Balls cannot be combined, please try to move them from the backup slot to the main slot or stash, or drop and pick it again. All Dragon Balls can share with others."
 
 	}
 }
