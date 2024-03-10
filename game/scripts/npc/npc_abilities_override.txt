@@ -8561,7 +8561,6 @@
 	{
 		"LinkedAbility"                 "visage_gravekeepers_cloak"
 		"AbilityDraftPreAbility"        "visage_gravekeepers_cloak"
-		"SpellImmunityType"		            "SPELL_IMMUNITY_ENEMIES_YES"// 控制无视魔免
 		"MaxLevel" "5"
 		"AbilityValues"
 		{

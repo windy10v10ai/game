@@ -93,7 +93,7 @@ tBotAllStarRandom = {
         "npc_dota_hero_zuus",
         "npc_dota_hero_phantom_assassin",
         "npc_dota_hero_riki",
-        "npc_dota_hero_bloodseeker",
+        "npc_dota_hero_crystal_maiden",
     },
     team3 = {
         "npc_dota_hero_abaddon",
@@ -149,7 +149,7 @@ tBotAllStarRandom = {
         "npc_dota_hero_dragon_knight",
         "npc_dota_hero_omniknight",
         "npc_dota_hero_zuus",
-        "npc_dota_hero_bloodseeker",
+        "npc_dota_hero_crystal_maiden",
         "npc_dota_hero_sniper",
         "npc_dota_hero_phantom_assassin",
         "npc_dota_hero_riki",
@@ -168,7 +168,7 @@ tBotAllStarRandom = {
         "npc_dota_hero_ogre_magi",
     },
     team9 = {
-        "npc_dota_hero_abaddon",
+        "npc_dota_hero_shadow_shaman",
         "npc_dota_hero_spectre",
         "npc_dota_hero_dragon_knight",
         "npc_dota_hero_omniknight",
@@ -181,7 +181,7 @@ tBotAllStarRandom = {
     },
     team10 = {
         "npc_dota_hero_abaddon",
-        "npc_dota_hero_spectre",
+        "npc_dota_hero_shadow_shaman",
         "npc_dota_hero_dragon_knight",
         "npc_dota_hero_axe",
         "npc_dota_hero_earthshaker",
@@ -194,7 +194,7 @@ tBotAllStarRandom = {
     team11 = {
         "npc_dota_hero_earthshaker",
         "npc_dota_hero_ogre_magi",
-        "npc_dota_hero_bloodseeker",
+        "npc_dota_hero_crystal_maiden",
         "npc_dota_hero_bounty_hunter",
         "npc_dota_hero_phantom_assassin",
         "npc_dota_hero_viper",
