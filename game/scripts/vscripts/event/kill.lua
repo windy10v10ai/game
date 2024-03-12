@@ -21,7 +21,8 @@ local function RollDrops(hHero)
                 if item_name == hItem_name then
                     if RollPercentage(chance) then
                         -- Remove the item
-                        hHero:RemoveItem(hItem)
+                        -- hHero:RemoveItem(hItem)
+                        UTIL_RemoveImmediate(hItem)
                         -- Create the item
                         if item_name == "item_excalibur" then
                             CreateItemLocal(item_name, hHero)

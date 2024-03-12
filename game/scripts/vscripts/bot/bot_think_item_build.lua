@@ -247,7 +247,8 @@ local function SellItemFromTable(hHero, iPurchaseTable)
     local iCost = math.floor(GetItemCost(vName) / 2)
     local sellItem = BotThink:FindItemByNameIncludeStash(hHero, vName)
     if sellItem then
-      hHero:RemoveItem(sellItem)
+      -- hHero:RemoveItem(sellItem)
+      UTIL_RemoveImmediate(sellItem)
       PlayerResource:ModifyGold(hHero:GetPlayerID(), iCost, true, DOTA_ModifyGold_SellItem)
       return true
     end
@@ -297,12 +298,14 @@ function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
   if itemNeutral then
     if string.find(itemNeutral:GetName(), "item_tier") then
       -- remove item
-      hHero:RemoveItem(itemNeutral)
+      -- hHero:RemoveItem(itemNeutral)
+      UTIL_RemoveImmediate(itemNeutral)
       return
     end
     -- if owner not self, remove
     if itemNeutral:GetPurchaser() ~= hHero then
-      hHero:RemoveItem(itemNeutral)
+      -- hHero:RemoveItem(itemNeutral)
+      UTIL_RemoveImmediate(itemNeutral)
       return
     end
   end

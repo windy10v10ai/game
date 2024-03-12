@@ -52,7 +52,8 @@ function Scepter2OnSpell(keys)
 		keys.target:AddNewModifier(keys.caster, keys.ability, keys.modifier, {})
 
 		keys.target:EmitSound("Hero_Alchemist.Scepter.Cast")
-		keys.caster:RemoveItem(keys.ability)
+		-- keys.caster:RemoveItem(keys.ability)
+		UTIL_RemoveImmediate(keys.ability)
 	end
 end
 

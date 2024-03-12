@@ -7,6 +7,7 @@ function WingsOfHasteOnSpell(keys)
 		keys.ability:ApplyDataDrivenModifier(keys.caster, keys.target, modifierName, {})
 
 		keys.target:EmitSound("Hero_Alchemist.Scepter.Cast")
-		keys.caster:RemoveItem(keys.ability)
+		-- keys.caster:RemoveItem(keys.ability)
+		UTIL_RemoveImmediate(keys.ability)
 	end
 end
