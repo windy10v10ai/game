@@ -234,7 +234,7 @@ local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
         return true
       else
         print("Warn! Think purchase " ..
-        hHero:GetName() .. " add " .. iItemName .. " fail with item count " .. hHero:GetNumItemsInInventory())
+          hHero:GetName() .. " add " .. iItemName .. " fail with item count " .. hHero:GetNumItemsInInventory())
         return false
       end
     end
@@ -247,7 +247,8 @@ local function SellItemFromTable(hHero, iPurchaseTable)
     local iCost = math.floor(GetItemCost(vName) / 2)
     local sellItem = BotThink:FindItemByNameIncludeStash(hHero, vName)
     if sellItem then
-      hHero:RemoveItem(sellItem)
+      -- hHero:RemoveItem(sellItem)
+      UTIL_RemoveImmediate(sellItem)
       PlayerResource:ModifyGold(hHero:GetPlayerID(), iCost, true, DOTA_ModifyGold_SellItem)
       return true
     end
@@ -297,12 +298,14 @@ function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
   if itemNeutral then
     if string.find(itemNeutral:GetName(), "item_tier") then
       -- remove item
-      hHero:RemoveItem(itemNeutral)
+      -- hHero:RemoveItem(itemNeutral)
+      UTIL_RemoveImmediate(itemNeutral)
       return
     end
     -- if owner not self, remove
     if itemNeutral:GetPurchaser() ~= hHero then
-      hHero:RemoveItem(itemNeutral)
+      -- hHero:RemoveItem(itemNeutral)
+      UTIL_RemoveImmediate(itemNeutral)
       return
     end
   end
@@ -323,7 +326,7 @@ function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
   end
 
   local addNeutralItemTime = tBotItemData.addNeutralItemMultiTimeMap[multiIndex] or
-  tBotItemData.addNeutralItemMultiTimeMap["x1"]
+      tBotItemData.addNeutralItemMultiTimeMap["x1"]
 
   if (GameTime > addNeutralItemTime[1]) then
     local iPurchaseTable = tBotItemData.addNeutralItemList[iHeroName]
@@ -474,7 +477,7 @@ function BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassN
         -- if no wards, put ward
         if #wards == 0 then
           print("Think put ward " ..
-          hHero:GetName() .. " try to put " .. sWardItemName .. " at [" .. vWardPos[1] .. "," .. vWardPos[2] .. "]")
+            hHero:GetName() .. " try to put " .. sWardItemName .. " at [" .. vWardPos[1] .. "," .. vWardPos[2] .. "]")
           hHero:CastAbilityOnPosition(wardPosVector, wardItem, hHero:GetPlayerOwnerID())
         else
           -- print("Think put ward "..hHero:GetName().." !Stop to put ward at "..vWardPos[1]..","..vWardPos[2])

@@ -7,7 +7,7 @@ function Scepter2OnCreated(keys)
 		if keys.target:HasModifier("modifier_item_ultimate_scepter") then
 			keys.target:RemoveModifierByName("modifier_item_ultimate_scepter")
 		end
-		keys.caster:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", {duration = -1})
+		keys.caster:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", { duration = -1 })
 	end)
 end
 
@@ -20,7 +20,7 @@ end
 function Scepter2OnDestroy(keys)
 	Timers:CreateTimer(0.1, function()
 		local num_scepters_in_inventory = 0
-		for i=0, 5, 1 do --Search for Aghanim's Regalia in the player's inventory.
+		for i = 0, 5, 1 do --Search for Aghanim's Regalia in the player's inventory.
 			local current_item = keys.caster:GetItemInSlot(i)
 			if current_item ~= nil then
 				local item_name = current_item:GetName()
@@ -46,22 +46,26 @@ function Scepter2OnSpell(keys)
 		if keys.target:HasModifier("modifier_item_ultimate_scepter") then
 			keys.target:RemoveModifierByName("modifier_item_ultimate_scepter")
 		end
-		keys.target:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", {duration = -1})
+		keys.target:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", { duration = -1 })
 		-- if keys.target:GetUnitName() ~= "npc_dota_hero_bane" then
 		-- end
 		keys.target:AddNewModifier(keys.caster, keys.ability, keys.modifier, {})
 
 		keys.target:EmitSound("Hero_Alchemist.Scepter.Cast")
-		keys.caster:RemoveItem(keys.ability)
+		-- keys.caster:RemoveItem(keys.ability)
+		UTIL_RemoveImmediate(keys.ability)
 	end
 end
 
-LinkLuaModifier("modifier_item_ultimate_scepter_2_consumed", "items/item_ultimate_scepter_2.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_ultimate_scepter_2_consumed", "items/item_ultimate_scepter_2.lua",
+	LUA_MODIFIER_MOTION_NONE)
 
 if modifier_item_ultimate_scepter_2_consumed == nil then modifier_item_ultimate_scepter_2_consumed = class({}) end
 
 function modifier_item_ultimate_scepter_2_consumed:RemoveOnDeath() return false end
+
 function modifier_item_ultimate_scepter_2_consumed:IsPurgable() return false end
+
 function modifier_item_ultimate_scepter_2_consumed:IsPermanent() return true end
 
 function modifier_item_ultimate_scepter_2_consumed:OnCreated()

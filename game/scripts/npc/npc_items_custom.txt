@@ -5663,7 +5663,7 @@
 	{
 		"ID"                            "9590"
 		"BaseClass"                     "item_recipe_bfury"
-		"ItemCost"						"800"
+		"ItemCost"						"1600"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bfury_ultra"
 		"ItemRequirements"
@@ -5680,7 +5680,7 @@
 		"AbilityTextureName"            "bfury_ultra"
 		"AbilityValues"
 		{
-				"bonus_damage"			"180"
+				"bonus_damage"			"200"
 				"bonus_health_regen"	"30"
 				"bonus_mana_regen"		"10"
 				"cleave_damage_percent"	"100"
@@ -5765,7 +5765,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1400"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5794,7 +5794,6 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5575"
 		"ItemShopTags"					"int;hard_to_tag"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"staff;misery;sm"
