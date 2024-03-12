@@ -2,11 +2,11 @@ local dropTable = nil
 
 
 local function CreateItemLocal(sItemName, hEntity)
-   local item = CreateItem(sItemName, nil, nil)
-   local pos = hEntity:GetAbsOrigin()
-   CreateItemOnPositionSync(pos, item)
-   local pos_launch = pos + RandomVector(RandomFloat(150, 200))
-   item:LaunchLoot(false, 200, 0.75, pos_launch, nil)
+    local item = CreateItem(sItemName, nil, nil)
+    local pos = hEntity:GetAbsOrigin()
+    CreateItemOnPositionSync(pos, item)
+    local pos_launch = pos + RandomVector(RandomFloat(150, 200))
+    item:LaunchLoot(false, 200, 0.75, pos_launch, nil)
 end
 
 local function RollDrops(hHero)
@@ -162,7 +162,7 @@ local function HeroKilled(keys)
     -- NEC大招
     if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
         fRespawnTime = fRespawnTime +
-                hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel() * 6
+            hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel() * 6
     end
 
     -- 会员减少5s复活时间
@@ -193,10 +193,11 @@ local function HeroKilled(keys)
         gold = math.ceil(gold)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
             if attackerPlayerID ~= playerID and PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
-                    PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
+                PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
                 GameRules:ModifyGoldFiltered(playerID, gold, true, DOTA_ModifyGold_HeroKill)
                 local playerHero = PlayerResource:GetSelectedHeroEntity(playerID)
-                SendOverheadEventMessage(playerHero, OVERHEAD_ALERT_GOLD, playerHero, gold * AIGameMode:GetPlayerGoldXpMultiplier(playerID), playerHero)
+                SendOverheadEventMessage(playerHero, OVERHEAD_ALERT_GOLD, playerHero,
+                    gold * AIGameMode:GetPlayerGoldXpMultiplier(playerID), playerHero)
             end
         end
     end
@@ -218,9 +219,8 @@ local function HeroKilled(keys)
     -- AI连死补偿
     -- AI 50级后不再补偿
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) and
-            AIGameMode.BotRecordSuccessiveDeathTable[playerId] and AIGameMode.BotRecordSuccessiveDeathTable[playerId] >= 3 and
-            iLevel < 50 then
-
+        AIGameMode.BotRecordSuccessiveDeathTable[playerId] and AIGameMode.BotRecordSuccessiveDeathTable[playerId] >= 3 and
+        iLevel < 50 then
         -- 补偿的金钱和经验 设计上不应该超过AI通过击杀玩家获得的
         local deathCount = AIGameMode.BotRecordSuccessiveDeathTable[playerId]
         local gold = 0
@@ -258,7 +258,7 @@ local function HeroKilled(keys)
         xp = math.ceil(xp * AIGameMode:GetPlayerGoldXpMultiplier(playerId) * totalFactor)
 
         if PlayerResource:IsValidPlayerID(playerId) and PlayerResource:IsValidPlayer(playerId) and
-                PlayerResource:GetSelectedHeroEntity(playerId) then
+            PlayerResource:GetSelectedHeroEntity(playerId) then
             GameRules:ModifyGoldFiltered(playerId, gold, true, DOTA_ModifyGold_CreepKill)
             hHero:AddExperience(xp, DOTA_ModifyXP_CreepKill, false, false)
         end
@@ -276,7 +276,7 @@ function AIGameMode:OnEntityKilled(keys)
         HeroKilled(keys)
         -- drop items only when killed by hero
         -- if EntIndexToHScript(keys.entindex_attacker):GetPlayerOwner() then
-            RollDrops(EntIndexToHScript(keys.entindex_killed))
+        RollDrops(EntIndexToHScript(keys.entindex_killed))
         -- end
     end
     -- on barrack killed

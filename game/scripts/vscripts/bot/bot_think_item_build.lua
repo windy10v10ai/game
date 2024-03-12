@@ -234,7 +234,7 @@ local function BuyItemIfGoldEnough(hHero, iPurchaseTable)
         return true
       else
         print("Warn! Think purchase " ..
-        hHero:GetName() .. " add " .. iItemName .. " fail with item count " .. hHero:GetNumItemsInInventory())
+          hHero:GetName() .. " add " .. iItemName .. " fail with item count " .. hHero:GetNumItemsInInventory())
         return false
       end
     end
@@ -323,7 +323,7 @@ function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
   end
 
   local addNeutralItemTime = tBotItemData.addNeutralItemMultiTimeMap[multiIndex] or
-  tBotItemData.addNeutralItemMultiTimeMap["x1"]
+      tBotItemData.addNeutralItemMultiTimeMap["x1"]
 
   if (GameTime > addNeutralItemTime[1]) then
     local iPurchaseTable = tBotItemData.addNeutralItemList[iHeroName]
@@ -474,7 +474,7 @@ function BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassN
         -- if no wards, put ward
         if #wards == 0 then
           print("Think put ward " ..
-          hHero:GetName() .. " try to put " .. sWardItemName .. " at [" .. vWardPos[1] .. "," .. vWardPos[2] .. "]")
+            hHero:GetName() .. " try to put " .. sWardItemName .. " at [" .. vWardPos[1] .. "," .. vWardPos[2] .. "]")
           hHero:CastAbilityOnPosition(wardPosVector, wardItem, hHero:GetPlayerOwnerID())
         else
           -- print("Think put ward "..hHero:GetName().." !Stop to put ward at "..vWardPos[1]..","..vWardPos[2])
