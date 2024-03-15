@@ -149,7 +149,7 @@ tBotAllStarRandom = {
         "npc_dota_hero_zuus",
         "npc_dota_hero_phantom_assassin",
     },
-    -- Nowhere is Saft v2
+    -- Nowhere is Safe v2
     team7 = {
         "npc_dota_hero_abaddon",
         "npc_dota_hero_spectre",
@@ -229,7 +229,7 @@ tBotAllStarRandom = {
     -- Miku's Debut
     team13 = {
         "npc_dota_hero_abaddon",
-        "npc_dota_hero_spectre",
+        "npc_dota_hero_crystal_maiden",
         "npc_dota_hero_dragon_knight",
         "npc_dota_hero_sniper",
         "npc_dota_hero_earthshaker",
@@ -242,7 +242,7 @@ tBotAllStarRandom = {
     -- Rangers United v2
     team14 = {
         "npc_dota_hero_abaddon",
-        "npc_dota_hero_spectre",
+        "npc_dota_hero_lina",
         "npc_dota_hero_dragon_knight",
         "npc_dota_hero_viper",
         "npc_dota_hero_nevermore",
@@ -326,7 +326,7 @@ tBotAllStarRandom = {
         "npc_dota_hero_oracle",
         "npc_dota_hero_shadow_shaman",
         "npc_dota_hero_axe",
-        "npc_dota_hero_medusa",
+        "npc_dota_hero_crystal_maiden",
         "npc_dota_hero_abaddon",
         "npc_dota_hero_viper",
     },
