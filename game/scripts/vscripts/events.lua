@@ -124,7 +124,6 @@ function AIGameMode:OnGameStateChanged(keys)
         Timers:CreateTimer(1, function()
             self:EndScreenStats(1, false)
         end)
-
     elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
         -- modifier towers
         local tTowers = Entities:FindAllByClassname("npc_dota_tower")
@@ -136,6 +135,7 @@ function AIGameMode:OnGameStateChanged(keys)
             -- add tower ability
             if string.find(towerName, "tower3") or string.find(towerName, "tower4") then
                 v:AddAbility("tower_ursa_fury_swipes"):SetLevel(iTowerLevel)
+                v:AddAbility("tower_shredder_reactive_armor"):SetLevel(iTowerLevel)
                 if v:GetTeamNumber() == DOTA_TEAM_BADGUYS and iTowerLevel > 5 then
                     v:AddAbility("tower_troll_warlord_fervor"):SetLevel(iTowerLevel)
                     v:AddAbility("tower_antimage_mana_break"):SetLevel(iTowerLevel)
@@ -156,6 +156,7 @@ function AIGameMode:OnGameStateChanged(keys)
 
             -- add tower ability
             v:AddAbility("tower_ursa_fury_swipes"):SetLevel(iTowerLevel)
+            v:AddAbility("tower_shredder_reactive_armor"):SetLevel(iTowerLevel)
             v:AddAbility("tower_troll_warlord_fervor"):SetLevel(iTowerLevel)
             v:AddAbility("tower_antimage_mana_break"):SetLevel(iTowerLevel)
         end
@@ -166,7 +167,6 @@ function AIGameMode:OnGameStateChanged(keys)
             AIGameMode:RefreshGameStatus()
             return 10
         end)
-
     elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
         self.fGameStartTime = GameRules:GetGameTime()
 
@@ -185,14 +185,12 @@ function AIGameMode:OnGameStateChanged(keys)
 end
 
 function AIGameMode:SpawnNeutralCreeps30sec()
-
     local GameTime = GameRules:GetDOTATime(false, false)
     print("SpawnNeutral at GetDOTATime " .. GameTime)
     GameRules:SpawnNeutralCreeps()
 end
 
 function AIGameMode:RefreshGameStatus()
-
     -- save player info
     self:EndScreenStats(1, false)
 
@@ -313,7 +311,6 @@ function AIGameMode:RefreshGameStatus()
     AIGameMode.creepBuffLevelBad = buffLevelBad
     AIGameMode.creepBuffLevelMegaGood = buffLevelMegaGood
     AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
-
 end
 
 -- 买活时间设定
@@ -429,7 +426,6 @@ function AIGameMode:OnNPCSpawned(keys)
 
 
     if hEntity:IsRealHero() and not hEntity.bInitialized then
-
         if sName == "npc_dota_hero_sniper" and not self.bSniperScepterThinkerApplierSet then
             require('heroes/hero_sniper/sniper_init')
             SniperInit(hEntity, self)
@@ -437,7 +433,7 @@ function AIGameMode:OnNPCSpawned(keys)
 
         -- choose item 玩家抽选物品
         if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] and
-                not self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] then
+            not self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] then
             self:SpecialItemAdd(hEntity)
             self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] = true
         end
@@ -516,13 +512,14 @@ function AIGameMode:OnItemPickedUp(event)
     if event.PlayerID ~= nil and item ~= nil and hHero ~= nil and item:GetAbilityName() == "item_bag_of_gold" then
         local iGold = item:GetSpecialValueFor("bonus_gold")
         hHero:ModifyGoldFiltered(iGold, true, DOTA_ModifyGold_RoshanKill)
-        SendOverheadEventMessage(hHero, OVERHEAD_ALERT_GOLD, hHero, iGold * AIGameMode:GetPlayerGoldXpMultiplier(event.PlayerID), nil)
+        SendOverheadEventMessage(hHero, OVERHEAD_ALERT_GOLD, hHero,
+            iGold * AIGameMode:GetPlayerGoldXpMultiplier(event.PlayerID), nil)
     end
 
     if event.PlayerID ~= nil and item ~= nil and hHero ~= nil and item:GetAbilityName() == "item_bag_of_season_point" then
         local iPoint = item:GetSpecialValueFor("bonus_season_point")
         AIGameMode.playerBonusSeasonPoint[event.PlayerID] = AIGameMode.playerBonusSeasonPoint[event.PlayerID] + iPoint
-        SendOverheadEventMessage(hHero, OVERHEAD_ALERT_SHARD , hHero, iPoint, nil)
+        SendOverheadEventMessage(hHero, OVERHEAD_ALERT_SHARD, hHero, iPoint, nil)
     end
 end
 
@@ -603,7 +600,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     data.options = {
         playerGoldXpMultiplier = tostring(self.fPlayerGoldXpMultiplier),
         botGoldXpMultiplier = tostring(self.fBotGoldXpMultiplier),
-        towerPower = self.iTowerPower.."%",
+        towerPower = self.iTowerPower .. "%",
         towerEndure = AIGameMode:StackToPercentage(self.iTowerEndure)
     }
     -- send to api server
@@ -648,7 +645,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
 
     for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
-                PlayerResource:GetSelectedHeroEntity(playerID) then
+            PlayerResource:GetSelectedHeroEntity(playerID) then
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
@@ -658,7 +655,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                 local damagereceived = 0
                 for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
                     if PlayerResource:IsValidPlayerID(victimID) and PlayerResource:IsValidPlayer(victimID) and
-                            PlayerResource:GetSelectedHeroEntity(victimID) then
+                        PlayerResource:GetSelectedHeroEntity(victimID) then
                         if PlayerResource:GetTeam(victimID) ~= PlayerResource:GetTeam(playerID) then
                             damagereceived = damagereceived + PlayerResource:GetDamageDoneToHero(victimID, playerID)
                         end
@@ -725,10 +722,10 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     end
 
                     if damage > 0 then
-                        table.insert(mostDamagePlayerIdAndDamageList, {playerID = playerID, damage = damage})
+                        table.insert(mostDamagePlayerIdAndDamageList, { playerID = playerID, damage = damage })
                     end
                     if assists > 0 then
-                        table.insert(mostAssistsPlayerIdAndDamageList, {playerID = playerID, assists = assists})
+                        table.insert(mostAssistsPlayerIdAndDamageList, { playerID = playerID, assists = assists })
                     end
 
                     if damagereceived > mostDamageReceived_1 then
@@ -927,7 +924,6 @@ function AIGameMode:FilterSeasonPointDifficulty(points)
 end
 
 function AIGameMode:FilterSeasonPoint(points, winnerTeamId)
-
     if AIGameMode:IsInvalidGame() then
         return 0
     end
@@ -985,4 +981,3 @@ function AIGameMode:StackToPercentage(iStackCount)
         return "100%"
     end
 end
-

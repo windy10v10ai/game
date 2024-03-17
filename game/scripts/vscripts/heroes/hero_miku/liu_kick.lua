@@ -1,12 +1,15 @@
 LinkLuaModifier("modifier_liu_kick", "heroes/hero_miku/liu_kick",
-                LUA_MODIFIER_MOTION_HORIZONTAL)
+    LUA_MODIFIER_MOTION_HORIZONTAL)
 
 liu_kick = class({})
 
 function liu_kick:IsStealable() return true end
+
 function liu_kick:IsHiddenWhenStolen() return false end
+
 -- function liu_kick:IsHiddenAbilityCastable() return true end
 function liu_kick:GetAOERadius() return self:GetSpecialValueFor("radius") end
+
 function liu_kick:OnSpellStart()
     local caster = self:GetCaster()
     local target = self:GetCursorTarget()
@@ -19,18 +22,24 @@ function liu_kick:OnSpellStart()
         return nil
     end
 
-    caster:AddNewModifier(caster, self, "modifier_liu_kick", {damage = damage})
+    caster:AddNewModifier(caster, self, "modifier_liu_kick", { damage = damage })
     -- EmitSoundOn("miku.3_"..RandomInt(1, 3), self:GetCaster())
 end
 
 ---------------------------------------------------------------------------------------------------------------------
 modifier_liu_kick = class({})
 function modifier_liu_kick:IsHidden() return true end
+
 function modifier_liu_kick:IsDebuff() return false end
+
 function modifier_liu_kick:IsPurgable() return false end
+
 function modifier_liu_kick:IsPurgeException() return false end
+
 function modifier_liu_kick:RemoveOnDeath() return true end
+
 function modifier_liu_kick:GetPriority() return MODIFIER_PRIORITY_HIGH end
+
 function modifier_liu_kick:CheckState()
     local state = {
         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
@@ -46,6 +55,7 @@ function modifier_liu_kick:CheckState()
 
     return state
 end
+
 function modifier_liu_kick:OnCreated(hTable)
     self.caster = self:GetCaster()
     self.parent = self:GetParent()
@@ -71,15 +81,18 @@ function modifier_liu_kick:OnCreated(hTable)
         end
     end
 end
+
 function modifier_liu_kick:PlayEffects2()
     self.parent = self:GetParent()
     if not self.particle_time2 then
         self.particle_time2 = ParticleManager:CreateParticle(
-                                  "particles/calne_kick_trail.vpcf",
-                                  PATTACH_ABSORIGIN_FOLLOW, self.parent)
+            "particles/calne_kick_trail.vpcf",
+            PATTACH_ABSORIGIN_FOLLOW, self.parent)
     end
 end
+
 function modifier_liu_kick:OnRefresh(hTable) self:OnCreated(hTable) end
+
 function modifier_liu_kick:OnDestroy()
     if IsServer() then
         self.parent:InterruptMotionControllers(true)
@@ -90,11 +103,12 @@ function modifier_liu_kick:OnDestroy()
         end
     end
 end
+
 function modifier_liu_kick:UpdateHorizontalMotion(me, dt)
     local UFilter = UnitFilter(self.target, self.ability:GetAbilityTargetTeam(),
-                               self.ability:GetAbilityTargetType(),
-                               self.ability:GetAbilityTargetFlags(),
-                               self.parent:GetTeamNumber())
+        self.ability:GetAbilityTargetType(),
+        self.ability:GetAbilityTargetFlags(),
+        self.parent:GetTeamNumber())
 
     if UFilter ~= UF_SUCCESS then
         self:Destroy()
@@ -111,6 +125,7 @@ function modifier_liu_kick:UpdateHorizontalMotion(me, dt)
 
     self:Charge(me, dt)
 end
+
 function modifier_liu_kick:PlayEffects()
     local position = self.target:GetAbsOrigin()
     local damage = self.damage
@@ -122,22 +137,22 @@ function modifier_liu_kick:PlayEffects()
 
     if self.caster:HasModifier("modifier_miku_arcana") then
         local hit_fx = ParticleManager:CreateParticle(
-                           "particles/miku_3_calne_exp.vpcf",
-                           PATTACH_ABSORIGIN_FOLLOW, self.parent)
+            "particles/miku_3_calne_exp.vpcf",
+            PATTACH_ABSORIGIN_FOLLOW, self.parent)
         ParticleManager:SetParticleControlEnt(hit_fx, 0, self.target,
-                                              PATTACH_ABSORIGIN_FOLLOW,
-                                              "attach_hitloc",
-                                              self.target:GetAbsOrigin(), true)
+            PATTACH_ABSORIGIN_FOLLOW,
+            "attach_hitloc",
+            self.target:GetAbsOrigin(), true)
 
         ParticleManager:ReleaseParticleIndex(hit_fx)
     else
         local hit_fx = ParticleManager:CreateParticle(
-                           "particles/miku_3_exp.vpcf",
-                           PATTACH_ABSORIGIN_FOLLOW, self.parent)
+            "particles/miku_3_exp.vpcf",
+            PATTACH_ABSORIGIN_FOLLOW, self.parent)
         ParticleManager:SetParticleControlEnt(hit_fx, 0, self.target,
-                                              PATTACH_ABSORIGIN_FOLLOW,
-                                              "attach_hitloc",
-                                              self.target:GetAbsOrigin(), true)
+            PATTACH_ABSORIGIN_FOLLOW,
+            "attach_hitloc",
+            self.target:GetAbsOrigin(), true)
 
         ParticleManager:ReleaseParticleIndex(hit_fx)
     end
@@ -154,17 +169,17 @@ function modifier_liu_kick:PlayEffects()
     }
 
     self.target:AddNewModifier(self.parent, self.ability, "modifier_knockback",
-                               knockback)
+        knockback)
 
     local enemies = FindUnitsInRadius(self.parent:GetTeamNumber(), position,
-                                      nil, self.ability:GetAOERadius(),
-                                      self.ability:GetAbilityTargetTeam(),
-                                      self.ability:GetAbilityTargetType(),
-                                      self.ability:GetAbilityTargetFlags(),
-                                      FIND_ANY_ORDER, false)
+        nil, self.ability:GetAOERadius(),
+        self.ability:GetAbilityTargetTeam(),
+        self.ability:GetAbilityTargetType(),
+        self.ability:GetAbilityTargetFlags(),
+        FIND_ANY_ORDER, false)
 
     local blow_fx = ParticleManager:CreateParticle("", PATTACH_CUSTOMORIGIN,
-                                                   self.parent)
+        self.parent)
     ParticleManager:SetParticleControl(blow_fx, 0, position)
     --[[ParticleManager:SetParticleControlEnt(  blow_fx,
                                                                 0,
@@ -187,27 +202,28 @@ function modifier_liu_kick:PlayEffects()
 
             ApplyDamage(damage_table)
             -- normal attck
-            caster:AddNewModifier(caster, self,
-                                  "modifier_tidehunter_anchor_smash_caster", {})
+            --胜率低，暂时改回触发狂战 caster:AddNewModifier(caster, self,
+            --                       "modifier_tidehunter_anchor_smash_caster", {})
             caster:PerformAttack(enemy, true, true, true, false, true, false,
-                                 true)
-            caster:RemoveModifierByName(
-                "modifier_tidehunter_anchor_smash_caster")
+                true)
+            -- caster:RemoveModifierByName(
+            --     "modifier_tidehunter_anchor_smash_caster")
 
             if self:GetCaster():HasModifier("modifier_chibi_monster") then
                 -- stun the enemy
                 local duration = self.stunDuration *
-                                     (1 - enemy:GetStatusResistance())
+                    (1 - enemy:GetStatusResistance())
                 enemy:AddNewModifier(self:GetCaster(), -- player source
-                self, -- ability source
-                "modifier_stunned", -- modifier name
-                {duration = duration} -- kv
+                    self,                              -- ability source
+                    "modifier_stunned",                -- modifier name
+                    { duration = duration }            -- kv
                 )
             end
         end
     end
     -- EmitSoundOnLocationWithCaster(position, "miku.2", self.parent)
 end
+
 function modifier_liu_kick:Charge(me, dt)
     if self.parent:IsStunned() then return nil end
 
@@ -221,6 +237,7 @@ function modifier_liu_kick:Charge(me, dt)
     self.parent:SetOrigin(target)
     self.parent:FaceTowards(targetpos)
 end
+
 function modifier_liu_kick:OnHorizontalMotionInterrupted()
     if IsServer() then self:Destroy() end
 end

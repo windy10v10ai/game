@@ -193,8 +193,9 @@
 		// Attack
 		"AttackDamageMin"			"140"		// 51
 		"AttackDamageMax"			"160"		// 62
-		"AttackRate"				"3.0"		// 3.0
+		"AttackRate"				"2.5"		// 3.0
 		"BaseAttackSpeed"			"180"
+		"AttackRange"				"800"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -224,8 +225,9 @@
 		// Attack
 		"AttackDamageMin"			"140"		// 51
 		"AttackDamageMax"			"160"		// 62
-		"AttackRate"				"3.0"		// 3.0
+		"AttackRate"				"2.5"		// 3.0
 		"BaseAttackSpeed"			"180"
+		"AttackRange"				"800"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -389,8 +391,9 @@
 		// Attack
 		"AttackDamageMin"			"200"		// 51
 		"AttackDamageMax"			"240"		// 62
-		"AttackRate"				"3.0"		// 3.0
+		"AttackRate"				"2.0"		// 3.0
 		"BaseAttackSpeed"			"250"
+		"AttackRange"				"800"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -420,8 +423,9 @@
 		// Attack
 		"AttackDamageMin"			"200"		// 51
 		"AttackDamageMax"			"240"		// 62
-		"AttackRate"				"3.0"		// 3.0
+		"AttackRate"				"2.0"		// 3.0
 		"BaseAttackSpeed"			"250"
+		"AttackRange"				"800"
 
 		// Bounty
 		//----------------------------------------------------------------

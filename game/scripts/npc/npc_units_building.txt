@@ -664,8 +664,8 @@
 		"AttackDamageMin"			"240" 		// 170
 		"AttackDamageMax"			"260" 		// 174
 		"AttackRate"				"0.9"		// 0.9
-		"AttackAcquisitionRange"	"700"		// 700
-		"AttackRange"				"700"		// 700
+		"AttackAcquisitionRange"	"800"		// 700
+		"AttackRange"				"800"		// 700
 
 		// Status
 		//----------------------------------------------------------------
@@ -679,8 +679,8 @@
 		"AttackDamageMin"			"240" 		// 170
 		"AttackDamageMax"			"260" 		// 174
 		"AttackRate"				"0.9"		// 0.9
-		"AttackAcquisitionRange"	"700"		// 700
-		"AttackRange"				"700"		// 700
+		"AttackAcquisitionRange"	"800"		// 700
+		"AttackRange"				"800"		// 700
 
 		// Status
 		//----------------------------------------------------------------
@@ -707,8 +707,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.8"			// Speed of attack.
 		// "AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"700"			// Range within a target can be acquired.
-		"AttackRange"				"700"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"900"			// Range within a target can be acquired.
+		"AttackRange"				"900"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 
@@ -735,8 +735,8 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.8"			// Speed of attack.
 		// "AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"700"			// Range within a target can be acquired.
-		"AttackRange"				"700"			// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"900"			// Range within a target can be acquired.
+		"AttackRange"				"900"			// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_bad.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"850"			// Speed of projectile.
 

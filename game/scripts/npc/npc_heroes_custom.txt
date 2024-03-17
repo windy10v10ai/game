@@ -1816,6 +1816,16 @@
 		"AttackRange"		"675"
 	}
 
+	"npc_dota_hero_beastmaster"
+	{
+		"Ability16"		"special_bonus_unique_beastmaster_5"
+		"Ability13"		"special_bonus_unique_beastmaster_4"
+		"Ability14"		"special_bonus_unique_beastmaster_2"
+		"Ability17"		"special_bonus_unique_beastmaster_6"
+		"Ability12"		"special_bonus_unique_beastmaster_wild_axe_cooldown"
+		"Ability15"		"special_bonus_unique_beastmaster_7"
+	}
+
 	"npc_dota_hero_clinkz"
 	{
 		"Ability4"		"generic_hidden"
