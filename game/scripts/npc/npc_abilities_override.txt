@@ -93,9 +93,9 @@
 	{
 		"AbilityValues"
 		{
-				"bonus_building_damage"		"150"			// 150
-				"incoming_hero_damage_penalty"		"-50"	// -50
-				"incoming_basic_damage_penalty"		"20"	// -30
+				"bonus_building_damage"		"200"			// 150
+				"incoming_hero_damage_penalty"		"-60"	// -50
+				"incoming_basic_damage_penalty"		"30"	// -30
 				"incoming_controlled_unit_penalty"	"-40"	// -40
 		}
 	}
@@ -120,7 +120,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"regen_rate"			"500"				// 90
+				"regen_rate"			"5000"				// 90
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -141,7 +141,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"regen_rate"			"1000"				// 90
+				"regen_rate"			"5000"				// 90
 			}
 			// this is only used for event games
 			"03"
@@ -553,6 +553,7 @@
 	// 野性之斧
 	"beastmaster_wild_axes"
 	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"// 选择率低胜率低，暂时无视魔免（几乎一定会超模）
 		"MaxLevel" "5"
 		"AbilityManaCost"				"50 60 70 80 90"
 		"AbilityValues"
@@ -639,14 +640,14 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_ms"					"80"
+			"bonus_ms"					"120"// 现在是25级天赋
 		}
 	}
 	"special_bonus_unique_beastmaster_6"
 	{
 		"AbilityValues"
 		{
-			"bonus_hp"				"600"
+			"bonus_hp"				"1000"// 现在是25级天赋
 		}
 	}
 	// 野性之心
@@ -663,7 +664,7 @@
 			}
 		}
 	}
-	// 兽王吼
+	// 兽王吼 原始咆哮
 	"beastmaster_primal_roar"
 	{
 		"MaxLevel" "4"
@@ -1001,7 +1002,7 @@
 	//=================================================================================================================
 	// Ability: Dawnbreaker 破晓星辰/黄大锤
 	//=================================================================================================================
-	// 行破天惊
+	// 星破天惊
 	"dawnbreaker_fire_wreath"
 	{
 		"MaxLevel" "5"
@@ -1050,6 +1051,12 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
+			"attack_count"
+			{
+				"value"		"2"
+				"LinkedSpecialBonus"		"special_bonus_unique_dawnbreaker_luminosity_attack_count"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+			}
 			"heal_pct"					"30 40 50 60 70"
 			"bonus_damage"
 			{
@@ -1412,6 +1419,7 @@
 	// 踢
 	"earth_spirit_boulder_smash"
 	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" // 选择率垫底，直接下猛药
 		"MaxLevel" "5"
 		"AbilityCooldown"				"22.0 18.0 14.0 10.0 6.0"
 		"AbilityValues"
@@ -1427,6 +1435,7 @@
 	// 滚
 	"earth_spirit_rolling_boulder"
 	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel" "5"
 		"AbilityCooldown"				"11.0 9.0 7.0 5.0 3.0"
 		"AbilitySpecial"
@@ -1508,6 +1517,7 @@
 	// 变石头
 	"earth_spirit_petrify"
 	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastRange"				"350"// 175 变对面
 		"AbilityCooldown"				"25"// 45 救人
 		"AbilityValues"
@@ -2339,13 +2349,13 @@
 	"marci_unleash"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"80 70 60 50"
+		"AbilityCooldown"				"90 80 70 60"
 		"AbilityManaCost"				"100 125 150 175"
 		"AbilityValues"
 		{
-				"charges_per_flurry"	"8 10 12 14"	//4 5 6 7
+				"charges_per_flurry"	"6 8 10 12"	//4 5 6 7
 				"flurry_bonus_attack_speed"	"700 975 1325 1600"
-				"time_between_flurries"	"1.0"
+				"time_between_flurries"	"1.3"	// 1.5
 				"pulse_damage"			"50 100 150 200"
 				"pulse_attack_slow_pct"	"60.0 80.0 100.0 120.0"
 				"scepter_cooldown_reduction"
@@ -4571,7 +4581,7 @@
 		"AbilityValues"
 		{
 			"dodge_chance"		"15 20 25 30 35"
-			"crit_chance"				"25"// 20
+			"crit_chance"				"20"// 20
 			"active_multiplier"
 			{
 				"value"						"2.5"
@@ -4580,11 +4590,11 @@
 			"crit_multiplier"			"120 140 160 180 200"
 			"attack_speed"	"10 15 20 25 30"
 			"magic_resist"	"5 10 15 20 25"
-			"armor"		"1 5 9 13 17"// 1 3 5 7
+			"armor"		"1 3 5 7 9"// 1 3 5 7
 			"movespeed"				"10 15 20 25 30"
 			"slow_duration"				"2"
 			"bonus_move_speed"		"5 7 9 11 13"
-			"bonus_status_resist"	"10 15 20 25 30"// 5 10 15 20
+			"bonus_status_resist"	"5 10 15 20 25"// 5 10 15 20
 		}
 	}
 	// 法力虚空
@@ -4908,7 +4918,6 @@
 	"clinkz_wind_walk"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"17 16 15 14 13"
 		"AbilityValues"
 		{
 			"skeleton_count"
@@ -4917,13 +4926,13 @@
 			}
 		}
 	}
-	// 燃烧之军
+	// 炽烈火雨
 	"clinkz_burning_barrage"
 	{
 		"AbilityCastPoint"				"0.2"
 		"AbilityChannelTime"			"2.0"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-		"AbilityCooldown"				"13"
+		"AbilityCooldown"				"12"
 		"AbilityManaCost"				"90"
 		"AbilityValues"
 		{
@@ -4989,13 +4998,13 @@
 			}
 			"AbilityCharges"
 			{
-				"value"				"1 2 3 4 5"
+				"value"				"2 3 4 5 6"
 				"special_bonus_unique_clinkz_9"		"+1"
 			}
 			"health_gain"
 			{
 				"value"				"200 300 400 500 600"
-				"special_bonus_unique_clinkz_8"		"+200"
+				"special_bonus_unique_clinkz_8"		"+300"
 			}
 			"skeleton_duration"					"0"
 			"skeleton_health"
@@ -9368,6 +9377,7 @@
 	{
 		"LinkedAbility"                 "visage_soul_assumption"
 		"AbilityDraftPreAbility"        "visage_soul_assumption"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel" "5"
 		"AbilityCooldown"				"22 19 16 13 10"
 		"AbilityManaCost"				"80 100 120 140 160"
@@ -9393,6 +9403,7 @@
 	{
 		"LinkedAbility"                 "grimstroke_ink_creature"
 		"AbilityDraftPreAbility"        "grimstroke_ink_creature"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel"                      "5"
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
@@ -9472,12 +9483,12 @@
 	"grimstroke_soul_chain"
 	{
 		"MaxLevel"                      "4"
-		"AbilityCooldown"				"60"
+		"AbilityCooldown"				"60 55 50 45"
 		"AbilityCastRange"				"700 800 900 1000"
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
-			"chain_duration"		"6.0 7.0 8.0 9.0"
+			"chain_duration"		"6.0 8.0 10.0 12.0" // 6.0 7.0 8.0
 		}
 	}
 	//=================================================================================================================
@@ -11214,7 +11225,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"250 425 600"
+				"damage_tooltip"			"250 425 600"	// 50 85 120
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_4"
 				"CalculateSpellDamageTooltip"	"0"
 			}
@@ -11237,7 +11248,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"250"		// 25 守卫攻击力
+				"value"				"200"		// 25 守卫攻击力
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}

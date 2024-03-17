@@ -71,6 +71,7 @@ tBotAllStar = {
 }
 
 tBotAllStarRandom = {
+    -- Jack of All Trades
     team1 = {
         "npc_dota_hero_abaddon",
         "npc_dota_hero_spectre",
@@ -83,6 +84,7 @@ tBotAllStarRandom = {
         "npc_dota_hero_zuus",
         "npc_dota_hero_nevermore",
     },
+    -- Nowhere is Safe
     team2 = {
         "npc_dota_hero_abaddon",
         "npc_dota_hero_spectre",
@@ -93,8 +95,9 @@ tBotAllStarRandom = {
         "npc_dota_hero_zuus",
         "npc_dota_hero_phantom_assassin",
         "npc_dota_hero_riki",
-        "npc_dota_hero_crystal_maiden",
+        "npc_dota_hero_tinker",
     },
+    -- Literally Cannot Die
     team3 = {
         "npc_dota_hero_abaddon",
         "npc_dota_hero_spectre",
@@ -107,6 +110,7 @@ tBotAllStarRandom = {
         "npc_dota_hero_axe",
         "npc_dota_hero_medusa",
     },
+    -- Objective Gaming / Rangers United
     team4 = {
         "npc_dota_hero_abaddon",
         "npc_dota_hero_spectre",
@@ -119,6 +123,7 @@ tBotAllStarRandom = {
         "npc_dota_hero_medusa",
         "npc_dota_hero_drow_ranger",
     },
+    -- Nothing Hurts Anymore
     team5 = {
         "npc_dota_hero_abaddon",
         "npc_dota_hero_spectre",
@@ -131,6 +136,7 @@ tBotAllStarRandom = {
         "npc_dota_hero_viper",
         "npc_dota_hero_medusa",
     },
+    -- El Classico
     team6 = {
         "npc_dota_hero_abaddon",
         "npc_dota_hero_spectre",
@@ -143,18 +149,20 @@ tBotAllStarRandom = {
         "npc_dota_hero_zuus",
         "npc_dota_hero_phantom_assassin",
     },
+    -- Nowhere is Safe v2
     team7 = {
         "npc_dota_hero_abaddon",
         "npc_dota_hero_spectre",
-        "npc_dota_hero_dragon_knight",
-        "npc_dota_hero_omniknight",
+        "npc_dota_hero_shadow_shaman",
+        "npc_dota_hero_dazzle",
         "npc_dota_hero_zuus",
-        "npc_dota_hero_crystal_maiden",
+        "npc_dota_hero_necrolyte",
         "npc_dota_hero_sniper",
         "npc_dota_hero_phantom_assassin",
         "npc_dota_hero_riki",
         "npc_dota_hero_tinker",
     },
+    -- Jumping into your Heart
     team8 = {
         "npc_dota_hero_abaddon",
         "npc_dota_hero_spectre",
@@ -167,6 +175,7 @@ tBotAllStarRandom = {
         "npc_dota_hero_tinker",
         "npc_dota_hero_ogre_magi",
     },
+    -- Rangers United v2
     team9 = {
         "npc_dota_hero_shadow_shaman",
         "npc_dota_hero_spectre",
@@ -191,6 +200,7 @@ tBotAllStarRandom = {
         "npc_dota_hero_necrolyte",
         "npc_dota_hero_ogre_magi",
     },
+    -- Flash into your Eyes
     team11 = {
         "npc_dota_hero_earthshaker",
         "npc_dota_hero_ogre_magi",
@@ -203,4 +213,135 @@ tBotAllStarRandom = {
         "npc_dota_hero_necrolyte",
         "npc_dota_hero_zuus",
     },
+    -- Nowhere is Safe v3
+    team12 = {
+        "npc_dota_hero_spectre",
+        "npc_dota_hero_dragon_knight",
+        "npc_dota_hero_zuus",
+        "npc_dota_hero_bloodseeker",
+        "npc_dota_hero_sniper",
+        "npc_dota_hero_phantom_assassin",
+        "npc_dota_hero_riki",
+        "npc_dota_hero_tinker",
+        "npc_dota_hero_bounty_hunter",
+        "npc_dota_hero_ogre_magi",
+    },
+    -- Miku's Debut
+    team13 = {
+        "npc_dota_hero_abaddon",
+        "npc_dota_hero_crystal_maiden",
+        "npc_dota_hero_dragon_knight",
+        "npc_dota_hero_sniper",
+        "npc_dota_hero_earthshaker",
+        "npc_dota_hero_axe",
+        "npc_dota_hero_tinker",
+        "npc_dota_hero_bane",
+        "npc_dota_hero_pudge",
+        "npc_dota_hero_meepo",
+    },
+    -- Rangers United v2
+    team14 = {
+        "npc_dota_hero_abaddon",
+        "npc_dota_hero_lina",
+        "npc_dota_hero_dragon_knight",
+        "npc_dota_hero_viper",
+        "npc_dota_hero_nevermore",
+        "npc_dota_hero_medusa",
+        "npc_dota_hero_drow_ranger",
+        "npc_dota_hero_sniper",
+        "npc_dota_hero_vengefulspirit",
+        "npc_dota_hero_luna",
+    },
+    -- Nothing Hurts Anymore v3
+    team15 = {
+        "npc_dota_hero_abaddon",
+        "npc_dota_hero_dragon_knight",
+        "npc_dota_hero_skeleton_king",
+        "npc_dota_hero_juggernaut",
+        "npc_dota_hero_omniknight",
+        "npc_dota_hero_necrolyte",
+        "npc_dota_hero_death_prophet",
+        "npc_dota_hero_dazzle",
+        "npc_dota_hero_oracle",
+        "npc_dota_hero_drow_ranger",
+    },
+    -- Jumping into your Heart v2
+    team16 = {
+        "npc_dota_hero_abaddon",
+        "npc_dota_hero_spectre",
+        "npc_dota_hero_dragon_knight",
+        "npc_dota_hero_axe",
+        "npc_dota_hero_earthshaker",
+        "npc_dota_hero_pudge",
+        "npc_dota_hero_tiny",
+        "npc_dota_hero_shadow_shaman",
+        "npc_dota_hero_tinker",
+        "npc_dota_hero_ogre_magi",
+    },
+    -- Flash to your Eyes v2
+    team17 = {
+        "npc_dota_hero_earthshaker",
+        "npc_dota_hero_bloodseeker",
+        "npc_dota_hero_phantom_assassin",
+        "npc_dota_hero_juggernaut",
+        "npc_dota_hero_riki",
+        "npc_dota_hero_axe",
+        "npc_dota_hero_pudge",
+        "npc_dota_hero_bane",
+        "npc_dota_hero_kunkka",
+        "npc_dota_hero_zuus",
+    },
+    -- Solo Nightmare
+    team18 = {
+        "npc_dota_hero_abaddon",
+        "npc_dota_hero_shadow_shaman",
+        "npc_dota_hero_necrolyte",
+        "npc_dota_hero_zuus",
+        "npc_dota_hero_pudge",
+        "npc_dota_hero_bane",
+        "npc_dota_hero_tinker",
+        "npc_dota_hero_drow_ranger",
+        "npc_dota_hero_riki",
+        "npc_dota_hero_viper",
+    },
+    -- Solo Nightmare v2
+    team19 = {
+        "npc_dota_hero_abaddon",
+        "npc_dota_hero_spectre",
+        "npc_dota_hero_axe",
+        "npc_dota_hero_zuus",
+        "npc_dota_hero_necrolyte",
+        "npc_dota_hero_drow_ranger",
+        "npc_dota_hero_dazzle",
+        "npc_dota_hero_ogre_magi",
+        "npc_dota_hero_viper",
+        "npc_dota_hero_lion",
+    },
+    -- Aeon Dick Mada Faka
+    team20 = {
+        "npc_dota_hero_bane",
+        "npc_dota_hero_dazzle",
+        "npc_dota_hero_death_prophet",
+        "npc_dota_hero_omniknight",
+        "npc_dota_hero_oracle",
+        "npc_dota_hero_shadow_shaman",
+        "npc_dota_hero_axe",
+        "npc_dota_hero_crystal_maiden",
+        "npc_dota_hero_abaddon",
+        "npc_dota_hero_viper",
+    },
+    -- template
+    -- team1 = {
+    --     npc_dota_hero_,
+    --     npc_dota_hero_,
+    --     npc_dota_hero_,
+    --     npc_dota_hero_,
+    --     npc_dota_hero_,
+    --     npc_dota_hero_,
+    --     npc_dota_hero_,
+    --     npc_dota_hero_,
+    --     npc_dota_hero_,
+    --     npc_dota_hero_,
+    -- },
+
 }

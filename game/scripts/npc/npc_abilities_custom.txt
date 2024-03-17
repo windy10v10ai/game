@@ -481,6 +481,34 @@
 			"slow_duration"			"0.75"
 		}
 	}
+	"tower_shredder_reactive_armor" // 高地塔、四塔和基地加入活性护甲
+	{
+		"MaxLevel"						"6"
+		"BaseClass"                     "shredder_reactive_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityValues"
+		{
+			"bonus_armor"				"1 2 3 4 5 10"
+			"bonus_hp_regen"
+			{
+				"value"					"1 2 3 4 5 10"
+			}
+			"stack_limit"
+			{
+				"value"			"5"
+			}
+			"stack_duration"
+			{
+				"value"				"10"
+			}
+			"stacks_per_hero_attack"
+			{
+				"value"				"1 1 1 2 2 2" // 有利于高伤害攻击次数少短时间拆掉，不利于分身等手段的长时间一直磨
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
 	//=================================================================================================================
 	// 泉水击退
 	//=================================================================================================================
@@ -1293,7 +1321,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3_END"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" //胜率太低，暂时改成无视魔免
 		"AbilityTextureName"			"custom/artoria/artoria_excalibur"
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -1363,7 +1391,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3_END"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" // 胜率太低，暂时改成无视魔免
 		"AbilityTextureName"			"custom/artoria/artoria_ultimate_excalibur"
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"

@@ -5663,12 +5663,12 @@
 	{
 		"ID"                            "9590"
 		"BaseClass"                     "item_recipe_bfury"
-		"ItemCost"						"1600"
+		"ItemCost"						"600"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bfury_ultra"
 		"ItemRequirements"
 		{
-			"01"						"item_bfury_2;item_relic"
+			"01"						"item_bfury_2;item_relic;item_relic"
 		}
 	}
 
@@ -5680,7 +5680,7 @@
 		"AbilityTextureName"            "bfury_ultra"
 		"AbilityValues"
 		{
-				"bonus_damage"			"200"
+				"bonus_damage"			"300"
 				"bonus_health_regen"	"30"
 				"bonus_mana_regen"		"10"
 				"cleave_damage_percent"	"100"
@@ -5742,12 +5742,12 @@
 				"bonus_mana_regen"			"10"
 				"bonus_health_regen"		"16"
 				"silence_duration"			"5"
-				"silence_damage_percent"	"120"
+				"silence_damage_percent"	"150"	// 120
 				"bonus_damage"				"60"
 				"duration"					"6"
 				"spell_amp_debuff"			"70"
 				"proc_damage"				"120"
-				"proc_chance"				"50"
+				"proc_chance"				"80"
 		}
 	}
 
