@@ -40,7 +40,7 @@ function AIGameMode:InitGameMode()
     AIGameMode:InitGameOptions()
     AIGameMode:InitEvents()
     AIGameMode:LinkLuaModifiers()
-    AIGameMode:InitBotRecordTable()
+    AIGameMode:InitGlobalVariables()
     if IsInToolsMode() then
         print("========Enter Debug Mode========")
         self.DebugMode = true
@@ -48,24 +48,13 @@ function AIGameMode:InitGameMode()
     print("DOTA 2 AI Wars Loaded.")
 end
 
-function AIGameMode:InitBotRecordTable()
+function AIGameMode:InitGlobalVariables()
     -- AI连续死亡记录表
     AIGameMode.BotRecordSuccessiveDeathTable = {}
+    self.iGameDifficulty = 0
 end
 
 function AIGameMode:InitGameOptions()
-    -- GameRules:SetCustomGameSetupAutoLaunchDelay(AUTO_LAUNCH_DELAY)
-    -- GameRules:LockCustomGameSetupTeamAssignment(LOCK_TEAM_SETUP)
-    -- GameRules:EnableCustomGameSetupAutoLaunch(ENABLE_AUTO_LAUNCH)
-    -- GameRules:SetHeroSelectionTime(HERO_SELECTION_TIME)
-    -- GameRules:SetPreGameTime(PRE_GAME_TIME)
-    -- GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, RADIANT_PLAYER_COUNT)
-    -- GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, DIRE_PLAYER_COUNT)
-    -- GameRules:SetStrategyTime(STRATEGY_TIME)
-    -- GameRules:SetShowcaseTime(SHOWCASE_TIME)
-    -- GameRules:SetCustomGameEndDelay(GAME_END_DELAY)
-    -- GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
-
     -- 游戏选择项目初始化
     GameRules.GameOption = LoadKeyValues("scripts/kv/game_option.kv")
 end
@@ -203,8 +192,6 @@ function AIGameMode:PreGameOptions()
     end
 
     -- 初始化
-    self.iGameDifficulty = 0
-
     self.barrackPushedBad = 0
     self.barrackPushedGood = 0
 
