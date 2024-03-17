@@ -114,7 +114,10 @@ function ClearPlayerProperty() {
 
 // 设置重置属性按钮
 function SetResetPropertyButton(player) {
+  // 勇士积分重置
   const resetUseSeasonPointButton = $("#ResetUseSeasonPoint");
+  const text = $.Localize(`#reset_property_use_season_point`);
+  $("#ResetUseSeasonPointText").text = text.replace("{seasonPoint}", player.seasonNextLevelPoint);
   if (player.seasonPointTotal >= player.seasonNextLevelPoint) {
     resetUseSeasonPointButton.SetHasClass("deactivated", false);
     resetUseSeasonPointButton.SetHasClass("activated", true);
@@ -127,6 +130,7 @@ function SetResetPropertyButton(player) {
     resetUseSeasonPointButton.SetPanelEvent("onactivate", () => {});
   }
 
+  // 会员积分重置
   const resetUseMemberPointButton = $("#ResetUseMemberPoint");
   if (player.memberPointTotal >= 1000) {
     resetUseMemberPointButton.SetHasClass("deactivated", false);

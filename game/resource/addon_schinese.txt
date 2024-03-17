@@ -115,8 +115,8 @@
 		"data_panel_member_level_tooltip"		"通过会员积分提升会员等级，升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>50</font>点。"
 		"data_panel_level_progress"		"升级进度"
 
-		"reset_property_use_season_point"		"消耗当前勇士等级积分重置属性"
-		"reset_property_use_member_point"		"消耗1,000会员积分重置属性"
+		"reset_property_use_season_point"		"消耗{seasonPoint}勇士积分重置"
+		"reset_property_use_member_point"		"消耗1000会员积分重置"
 
 		"data_panel_player_property_label"		"使用属性点增强英雄，升级后属性及时生效。"
 		"data_panel_player_property_label_2"		"本地主机无法加点，请使用服务器主机进行游戏。"
