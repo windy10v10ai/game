@@ -114,9 +114,12 @@
 		"data_panel_member_level_tooltip"		"Members can get 100 membership points for daily login.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>50</font> points."
 		"data_panel_level_progress"		"Level Progress"
 
-		"data_panel_link_charge"		"Charge Member Point"
-		"data_panel_link_rule"			"Point Rule"
-		"data_panel_member_point_rule_url"		"https://afdian.net/p/8d1e8ac8682711ed984b52540025c377"
+		// "data_panel_link_charge"		"Charge Member Point"
+		// "data_panel_link_rule"			"Point Rule"
+		// "data_panel_member_point_rule_url"		"https://afdian.net/p/8d1e8ac8682711ed984b52540025c377"
+
+		"reset_property_use_season_point"		"Reset Property with current level battle points"
+		"reset_property_use_member_point"		"Reset Property use 1,000 member points"
 
 		"data_panel_player_property_label"		"Consume attribute points to enhance the hero, the upgrade attribute in time to take effect, and can not be modified."
 		"data_panel_player_property_label_2"		"Cannot add points on local host. Please use a server host to play the game."

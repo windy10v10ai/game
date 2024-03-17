@@ -99,6 +99,30 @@ export class PropertyController {
   // 每N级加点一次
   public static HERO_LEVEL_PER_POINT = 2;
 
+  // 重置属性
+  public static ResetPlayerProperty(steamId: number) {
+    PlayerHelper.ForEachPlayer((playerId) => {
+      if (steamId === PlayerResource.GetSteamAccountID(playerId)) {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (hero) {
+          // propertyValuePerLevel key
+          for (const key of PropertyController.propertyValuePerLevel.keys()) {
+            hero.RemoveModifierByName(key);
+          }
+          // propertyDataDrivenModifierName key
+          for (const key of PropertyController.propertyDataDrivenModifierName.keys()) {
+            const value = PropertyController.propertyDataDrivenModifierName.get(key);
+            if (value) {
+              for (let i = 1; i <= 8; i++) {
+                hero.RemoveModifierByName(`${value}${i}`);
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
   // 属性加点后更新属性
   public static RefreshPlayerProperty(property: PlayerProperty) {
     PlayerHelper.ForEachPlayer((playerId) => {

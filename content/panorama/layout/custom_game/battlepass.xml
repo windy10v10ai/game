@@ -132,6 +132,14 @@
 
 				<!-- 属性 -->
 				<Panel id="BpWindowMainProperty" class="BpWindowMainContainer">
+					<Panel class="ResetPropertyPanel">
+						<Button id="ResetUseSeasonPoint" class="LinkButton">
+							<Label id="ResetUseSeasonPointText" class="ButtonText" text="#reset_property_use_season_point" />
+						</Button>
+						<Button id="ResetUseMemberPoint" class="LinkButton">
+							<Label id="ResetUseMemberPointText" class="ButtonText" text="#reset_property_use_member_point" />
+						</Button>
+					</Panel>
 					<Panel id="PlayerPropertyContent" class="BpWindowSubContainer" />
 				</Panel>
 

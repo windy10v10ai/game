@@ -34,7 +34,6 @@ function Precache(context)
     PrecacheResource("soundfile", "soundevents/yukari_yakumo.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_themes.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_jack.vsndevts", context)
-
 end
 
 function AIGameMode:InitGameMode()
@@ -113,11 +112,9 @@ function AIGameMode:LinkLuaModifiers()
     LinkLuaModifier("modifier_bot_think_strategy", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_bot_think_item_use", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_bot_think_ward", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
-
 end
 
 function AIGameMode:PreGameOptions()
-
     self.iDesiredRadiant = self.iDesiredRadiant or RADIANT_PLAYER_COUNT
     self.iDesiredDire = self.iDesiredDire or DIRE_PLAYER_COUNT
 
@@ -169,8 +166,8 @@ function AIGameMode:PreGameOptions()
 
     if self.iMaxLevel ~= 30 then
         local tLevelRequire = { 0, 180, 510, 990, 1620, 2400, 3240, 4140, 5100, 6120, 7200, 8350, 9650, 11100, 12700,
-                                14450, 16350, 18350, 20450, 22650, 25050, 27650, 30450, 33450, 36950, 40950, 45450,
-                                50450, 55950, 61950 } -- value fixed
+            14450, 16350, 18350, 20450, 22650, 25050, 27650, 30450, 33450, 36950, 40950, 45450,
+            50450, 55950, 61950 } -- value fixed
         local iRequireLevel = tLevelRequire[30]
         for i = 31, self.iMaxLevel do
             iRequireLevel = iRequireLevel + i * 200
@@ -206,6 +203,8 @@ function AIGameMode:PreGameOptions()
     end
 
     -- 初始化
+    self.iGameDifficulty = 0
+
     self.barrackPushedBad = 0
     self.barrackPushedGood = 0
 
@@ -248,7 +247,7 @@ end
 ------------------------------------------------------------------
 --                        Gold/XP Filter                        --
 ------------------------------------------------------------------
-GOLD_REASON_FILTER = Set{
+GOLD_REASON_FILTER = Set {
     DOTA_ModifyGold_Unspecified,
     DOTA_ModifyGold_Death,
     DOTA_ModifyGold_Buyback,

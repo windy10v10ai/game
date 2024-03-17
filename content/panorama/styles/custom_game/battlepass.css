@@ -309,6 +309,14 @@ TextEntry.MonoFont {
   sound: "ui.tick";
 }
 
+.ResetPropertyPanel {
+  horizontal-align: center;
+  vertical-align: top;
+  width: 90%;
+  flow-children: right;
+  color: white;
+}
+
 .LinkPanel {
   horizontal-align: center;
   vertical-align: top;
@@ -318,11 +326,13 @@ TextEntry.MonoFont {
 }
 
 .LinkButton {
-  width: 180px;
-  height: 30px;
-  vertical-align: top;
+  width: 45%;
+  height: 45px;
+  vertical-align: center;
   horizontal-align: right;
   margin: 10px;
+  /* 文字自动换行 */
+  white-space: normal;
 }
 
 /* 英雄属性 */

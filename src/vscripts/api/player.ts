@@ -56,18 +56,6 @@ export class Player {
   private static playerCount = 0;
   constructor() {
     this.RegisterListener();
-    // if (IsInToolsMode()) {
-    // 	const developSteamAccountIds = [
-    // 		136407523, 1194383041, 143575444, 314757913, 385130282, 967052298, 1159610111, 353885092, 245559423, 916506173];
-
-    // 	for (const steamId of developSteamAccountIds) {
-    // 		Player.memberList.push({
-    // 			steamId: steamId,
-    // 			enable: true,
-    // 			expireDateString: "2099-12-31",
-    // 		});
-    // 	}
-    // }
   }
 
   public static GetPlayerCount(): number {
@@ -213,10 +201,15 @@ export class Player {
     return null;
   }
 
+  // 升级属性
   public RegisterListener() {
     CustomGameEventManager.RegisterListener<{ name: string; level: string }>(
       "player_property_levelup",
       (_, event) => this.onPlayerPropertyLevelup(event),
+    );
+    CustomGameEventManager.RegisterListener<{ useMemberPoint: number }>(
+      "player_property_reset",
+      (_, event) => this.onPlayerPropertyReset(event),
     );
   }
 
@@ -271,6 +264,57 @@ export class Player {
 
   private PropertyLevelupFailure(data: string) {
     print(`[Player] Property Levelup Failure data ${data}`);
+    Player.savePlayerToNetTable();
+  }
+
+  // 初始化属性，洗点
+  public onPlayerPropertyReset(event: { PlayerID: PlayerID; useMemberPoint: number }) {
+    if (
+      GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) === ApiClient.LOCAL_APIKEY &&
+      !IsInToolsMode()
+    ) {
+      return;
+    }
+
+    const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
+
+    const apiParameter = {
+      method: HttpMethod.POST,
+      path: ApiClient.RESET_PLAYER_PROPERTY_URL,
+      body: {
+        steamId,
+        useMemberPoint: event.useMemberPoint,
+      },
+      successFunc: this.PropertyResetSuccess,
+      failureFunc: this.PropertyResetFailure,
+    };
+
+    ApiClient.sendWithRetry(apiParameter);
+  }
+
+  private PropertyResetSuccess(data: string) {
+    print(`[Player] Property Reset Success data ${data}`);
+    const players = json.decode(data)[0] as PlayerDto[];
+    const player = players[0];
+    DeepPrintTable(player);
+
+    const steamId = player.id;
+
+    PropertyController.ResetPlayerProperty(Number(steamId));
+
+    // 更新 nettable
+    const index = Player.playerList.findIndex((p) => p.id === player.id);
+    if (index > -1) {
+      Player.playerList[index] = player;
+    } else {
+      Player.playerList.push(player);
+    }
+
+    Player.savePlayerToNetTable();
+  }
+
+  private PropertyResetFailure(data: string) {
+    print(`[Player] Property Reset Failure data ${data}`);
     Player.savePlayerToNetTable();
   }
 }
