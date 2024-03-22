@@ -188,6 +188,7 @@ tBotAllStarRandom = {
         "npc_dota_hero_sniper",
         "npc_dota_hero_vengefulspirit",
     },
+    -- Jumping into your Heart v2
     team10 = {
         "npc_dota_hero_abaddon",
         "npc_dota_hero_shadow_shaman",
@@ -329,6 +330,19 @@ tBotAllStarRandom = {
         "npc_dota_hero_crystal_maiden",
         "npc_dota_hero_abaddon",
         "npc_dota_hero_viper",
+    },
+    -- BKB CeBayed?
+    team21 = {
+        "npc_dota_hero_broodmother",
+        "npc_dota_hero_axe",
+        "npc_dota_hero_abaddon",
+        "npc_dota_hero_ogre_magi",
+        "npc_dota_hero_viper",
+        "npc_dota_hero_lion",
+        "npc_dota_hero_vengefulspirit",
+        "npc_dota_hero_lina",
+        "npc_dota_hero_bane",
+        "npc_dota_hero_pudge"
     },
     -- template
     -- team1 = {

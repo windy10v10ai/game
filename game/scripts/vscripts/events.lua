@@ -61,7 +61,7 @@ function AIGameMode:InitHeroSelection()
 
         if self.iGameDifficulty == 6 then
             print("[AIGameMode] Use all star hero list start")
-            local iRandomTeam = math.random(1, 11)
+            local iRandomTeam = math.random(1, 21)
             print("[AIGameMode] Random team: " .. tostring(iRandomTeam))
             for _, v in ipairs(tBotAllStarRandom["team" .. tostring(iRandomTeam)]) do
                 table.insert(tBotAllStar, v)
