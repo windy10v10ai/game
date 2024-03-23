@@ -45,6 +45,15 @@ If you would like to contribute to Windy10v10AI, please see our [contributing gu
 
 # Develop 开发
 
+```bash
+# Launch Dota2 devTools 启动Dota2开发工具
+npm run launch
+
+# build typescript to lua and panorama js
+# 编译ts为lua和panorama js
+npm run dev
+```
+
 ## Dota2 vConsole2 Command 常用命令
 
 ```bash
@@ -61,20 +70,6 @@ script_reload
 Create item XML file in dota 2 content folder then run `tool/compile_item_png.bat`
 
 FYI: https://www.reddit.com/r/DotA2/comments/8yymx9/item_icons_mods_dont_work_since_one_of_latest/
-
-## Use typescript to develop 使用typescript开发
-
-```bash
-# build typescript to lua and panorama js
-# 编译ts为lua和panorama js
-npm run dev
-```
-
-```bash
-# check code style and fix
-# 检查代码风格并修复
-npm run lint
-```
 
 ## Troubleshooting 故障排除
 

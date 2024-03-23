@@ -5822,7 +5822,7 @@
 	//=================================================================================================================
 	"item_dragon_ball_1"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10001"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_1"
@@ -5839,10 +5839,35 @@
 		{
 			"bonus_all_stats"		"11"
 		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_1"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
+		}
 	}
 	"item_dragon_ball_2"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10002"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_2"
@@ -5859,10 +5884,35 @@
 		{
 			"bonus_all_stats"		"22"
 		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_2"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
+		}
 	}
 	"item_dragon_ball_3"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10003"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_3"
@@ -5879,10 +5929,35 @@
 		{
 			"bonus_all_stats"		"33"
 		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_3"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
+		}
 	}
 	"item_dragon_ball_4"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10004"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_4"
@@ -5899,10 +5974,35 @@
 		{
 			"bonus_all_stats"		"44"
 		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_4"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
+		}
 	}
 	"item_dragon_ball_5"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10005"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_5"
@@ -5919,10 +6019,35 @@
 		{
 			"bonus_all_stats"		"55"
 		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_5"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
+		}
 	}
 	"item_dragon_ball_6"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10006"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_6"
@@ -5939,10 +6064,35 @@
 		{
 			"bonus_all_stats"		"66"
 		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_6"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
+		}
 	}
 	"item_dragon_ball_7"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10007"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_7"
@@ -5958,6 +6108,31 @@
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"77"
+		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_7"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
 		}
 	}
 	"item_wish_1"
