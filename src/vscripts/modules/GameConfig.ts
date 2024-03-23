@@ -16,7 +16,7 @@ export class GameConfig {
     GameRules.SetHeroSelectPenaltyTime(20); // 选择英雄超时惩罚时间
     GameRules.SetStrategyTime(10); // 选完英雄的策略阶段的持续时间
     GameRules.SetShowcaseTime(0); // 选完英雄进游戏前的展示时间
-    GameRules.SetPreGameTime(30); // 进入游戏后号角吹响前的准备时间
+    GameRules.SetPreGameTime(45); // 进入游戏后号角吹响前的准备时间
     // GameRules.SetPostGameTime(30); // 游戏结束后时长
     // GameRules.SetSameHeroSelectionEnabled(true); // 是否允许选择相同英雄
     // GameRules.SetStartingGold(0); // 设置初始金钱

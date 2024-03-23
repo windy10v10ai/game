@@ -18,7 +18,7 @@
 
 		"item"		"item_aghanims_shard"
 		"item"		"item_tome_of_knowledge"
-		"item"		"item_consumable_gem"
+		"item"		"item_consumable_gem"				// 幻影宝石
 		"item"		"item_cheese"
 	}
 
@@ -121,7 +121,6 @@
 		//"item"		"item_oblivion_staff"
 		//"item"		"item_pers"
  		"item"		"item_mask_of_madness"
-		"item"		"item_travel_boots"
 		"item"		"item_hand_of_group"  //"item"		"item_hand_of_midas"
 		"item"		"item_wings_of_haste"
 		"item"		"item_moon_shard_datadriven"
@@ -250,11 +249,10 @@
  		//"item"		"item_overwhelming_blink"
  		//"item"		"item_swift_blink"
  		//"item"		"item_arcane_blink"
-		"item"		"item_black_king_bar_real"			// 真bkb
+		"item"		"item_tome_of_luoshu"
 		"item"		"item_tome_of_strength"
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
-		"item"		"item_tome_of_luoshu"
 	}
 
 	"sideshop1"
@@ -290,9 +288,16 @@
 		"item"      "item_wish_2"
 		"item"      "item_wish_3"
 		"item"      "item_wish_4"
-
 		"item"      "item_radar_of_dragon"
 		"item"		"item_recipe_greater_famango"
+		"item"		"item_travel_boots"					// 飞鞋
+		"item"		"item_black_king_bar_real"			// 真bkb
+
+		"item"      "item_tier1_token"
+		"item"      "item_tier2_token"
+		"item"      "item_tier3_token"
+		"item"      "item_tier4_token"
+		"item"      "item_tier5_token"
 	}
 
 	"pregame"

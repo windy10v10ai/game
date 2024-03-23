@@ -691,4 +691,217 @@
 		"StatusHealth"				"1800"		// 900
 		"StatusHealthRegen"			"5"			// 2
 	}
+
+	//=================================================================================
+	// Neutral Creeps: 小野怪
+	//=================================================================================
+	"npc_dota_neutral_kobold"
+	{
+		"BountyXP"					"21" //14
+		"BountyGoldMin"				"4"  //3
+		"BountyGoldMax"				"7" //5
+	}
+
+	"npc_dota_neutral_kobold_tunneler"
+	{
+		"BountyXP"					"26"		//17
+		"BountyGoldMin"				"18"		//12
+		"BountyGoldMax"				"21"		//14
+	}
+
+	"npc_dota_neutral_kobold_taskmaster"
+	{
+		"BountyXP"					"45"		//30
+		"BountyGoldMin"				"28"		//19
+		"BountyGoldMax"				"31"		//21
+	}
+
+	"npc_dota_neutral_centaur_outrunner"
+	{
+		"BountyXP"					"48"		//32
+		"BountyGoldMin"				"24"		//16
+		"BountyGoldMax"				"27"		//18
+	}
+
+	"npc_dota_neutral_centaur_khan"
+	{
+		"BountyXP"					"135"		//90
+		"BountyGoldMin"				"81"		//54
+		"BountyGoldMax"				"90"		//60
+	}
+
+	"npc_dota_neutral_fel_beast"
+	{
+		"BountyXP"					"39"		//26
+		"BountyGoldMin"				"24"		//16
+		"BountyGoldMax"				"27"		//18
+	}
+
+	"npc_dota_neutral_polar_furbolg_champion"
+	{
+		"BountyXP"					"99"		//66
+		"BountyGoldMin"				"45"		//30
+		"BountyGoldMax"				"57"		//38
+	}
+
+	"npc_dota_neutral_polar_furbolg_ursa_warrior"
+	{
+		"BountyXP"					"135"		//90
+		"BountyGoldMin"				"93"		//62
+		"BountyGoldMax"				"99"		//66
+	}
+
+	"npc_dota_neutral_warpine_raider"
+	{
+		"BountyXP"					"114"		//76
+		"BountyGoldMin"				"72"		//48
+		"BountyGoldMax"				"75"		//50
+	}
+
+	"npc_dota_neutral_mud_golem"
+	{
+		"BountyXP"					"48"		//32
+		"BountyGoldMin"				"33"		//22
+		"BountyGoldMax"				"36"		//24
+	}
+
+	"npc_dota_neutral_mud_golem_split"
+	{
+		"BountyXP"					"27"		//18
+		"BountyGoldMin"				"9"			//6
+		"BountyGoldMax"				"15"		//10
+	}
+
+	"npc_dota_neutral_mud_golem_split_doom"
+	{
+		"BountyXP"					"27"		//18
+		"BountyGoldMin"				"9"			//6
+		"BountyGoldMax"				"15"		//10
+	}
+
+	"npc_dota_neutral_ogre_mauler"
+	{
+		"BountyXP"					"48"		//32
+		"BountyGoldMin"				"33"		//22
+		"BountyGoldMax"				"39"		//26
+	}
+
+	"npc_dota_neutral_ogre_magi"
+	{
+		"BountyXP"					"72"		//48
+		"BountyGoldMin"				"42"		//28
+		"BountyGoldMax"				"48"		//32
+	}
+
+	"npc_dota_neutral_giant_wolf"
+	{
+		"BountyXP"					"60"		//40
+		"BountyGoldMin"				"27"		//18
+		"BountyGoldMax"				"33"		//22
+	}
+
+	"npc_dota_neutral_alpha_wolf"
+	{
+		"BountyXP"					"90"		//60
+		"BountyGoldMin"				"48"		//32
+		"BountyGoldMax"				"51"		//34
+	}
+
+	"npc_dota_neutral_wildkin"
+	{
+		"BountyXP"					"39"		//26
+		"BountyGoldMin"				"24"		//16
+		"BountyGoldMax"				"27"		//18
+	}
+
+	"npc_dota_neutral_enraged_wildkin"
+	{
+		"BountyXP"					"135"		//90
+		"BountyGoldMin"				"87"		//58
+		"BountyGoldMax"				"96"		//64
+	}
+
+	"npc_dota_neutral_satyr_soulstealer"
+	{
+		"BountyXP"					"69"		//46
+		"BountyGoldMin"				"30"		//20
+		"BountyGoldMax"				"36"		//24
+	}
+
+	"npc_dota_neutral_satyr_hellcaller"
+	{
+		"BountyXP"					"135"		//90
+		"BountyGoldMin"				"90"		//60
+		"BountyGoldMax"				"99"		//66
+	}
+
+	"npc_dota_neutral_gnoll_assassin"
+	{
+		"BountyXP"					"45"		//30
+		"BountyGoldMin"				"24"		//16
+		"BountyGoldMax"				"27"		//18
+	}
+
+	"npc_dota_neutral_ghost"
+	{
+		"BountyXP"					"63"		//42
+		"BountyGoldMin"				"34"		//23
+		"BountyGoldMax"				"37"		//25
+	}
+
+	"npc_dota_wraith_ghost"
+	{
+		"BountyXP"					"21"		//14
+		"BountyGoldMin"				"18"		//12
+		"BountyGoldMax"				"19"		//13
+	}
+
+	"npc_dota_neutral_dark_troll"
+	{
+		"BountyXP"					"63"		//42
+		"BountyGoldMin"				"25"		//17
+		"BountyGoldMax"				"28"		//19
+	}
+
+	"npc_dota_neutral_dark_troll_warlord"
+	{
+		"BountyXP"					"135"		//90
+		"BountyGoldMin"				"60"		//40
+		"BountyGoldMax"				"69"		//46
+	}
+
+	"npc_dota_neutral_satyr_trickster"
+	{
+		"BountyXP"					"36"		//24
+		"BountyGoldMin"				"18"		//12
+		"BountyGoldMax"				"21"		//14
+	}
+
+	"npc_dota_neutral_forest_troll_berserker"
+	{
+		"BountyXP"					"42"		//28
+		"BountyGoldMax"				"27"		//18
+		"BountyGoldMax"				"30"		//20
+	}
+
+	"npc_dota_neutral_forest_troll_high_priest"
+	{
+		"BountyXP"					"42"		//28
+		"BountyGoldMax"				"27"		//18
+		"BountyGoldMax"				"30"		//20
+	}
+
+	"npc_dota_neutral_harpy_scout"
+	{
+		"BountyXP"					"39"		//26
+		"BountyGoldMin"				"21"		//14
+		"BountyGoldMax"				"24"		//16
+	}
+
+	"npc_dota_neutral_harpy_storm"
+	{
+		"BountyXP"					"63"		//42
+		"BountyGoldMin"				"37"		//25
+		"BountyGoldMax"				"40"		//27
+	}
 }
