@@ -845,8 +845,8 @@
 		//
 		// /////////////////////////////////////////////////////////////////////////////
 
-		// 贤者石
-		"DOTA_Tooltip_ability_item_philosophers_stone_bonus_mana"       "-$mana"
+		// item_travel_boots 飞鞋
+		"DOTA_Tooltip_Ability_item_travel_boots"				"Travel Boots (Neutral Item)"
 
         // bag_of_gold
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"Bag of Gold"
@@ -1522,7 +1522,7 @@
 		"DOTA_Tooltip_ability_item_refresh_core_Lore"					"At the core of spellcraft are spectrums only the very gifted can sense."
 
 		// item_black_king_bar_real 真·黑黄杖
-		"DOTA_Tooltip_Ability_item_black_king_bar_real"			                    "<font color='#e03e2e'>Real Black King Bar</font>"
+		"DOTA_Tooltip_Ability_item_black_king_bar_real"			                    "<font color='#e03e2e'>Real Black King Bar (neutral item)</font>"
 		"DOTA_Tooltip_ability_item_black_king_bar_real_Description"					"<h1>Active: Magic immunity</h1>Immune to most magic.<br><br>Duration：%duration%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_black_king_bar_real_Lore"						"The Real Black King Bar is back."
 		"DOTA_Tooltip_ability_item_black_king_bar_real_Note0"						"Repeat purchases do not refresh the cooldown."

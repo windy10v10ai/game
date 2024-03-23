@@ -493,7 +493,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bat_reduction"			"0.2"
+				"bat_reduction"			"0.3"
 			}
 		}
 	}
@@ -928,7 +928,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8800"
+		"ItemCost"						"5800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -960,7 +960,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"666"
-			"bonus_spell_amp"		"66"
+			"bonus_spell_amp"		"50"
 			"bonus_damage_percent"	"100"
 		}
 		"Modifiers"
@@ -2589,7 +2589,7 @@
 			"bonus_strength"		"0"
 			"bonus_intellect"			"0"
 			"bonus_mana_regen"		"0"
-			"windwalk_duration"		"14.0"
+			"windwalk_duration"		"17.0"
 			"windwalk_movement_speed"	"30"
 			"windwalk_fade_time"	"0.3"
 			"windwalk_bonus_damage"	"600"
@@ -4515,7 +4515,7 @@
 		{
 				"bonus_damage"			"60"
 				"bonus_attack_speed"	"120"
-				"chain_chance"			"40"
+				"chain_chance"			"35"
 				"chain_damage"			"360"
 				"chain_strikes"			"12"
 				"chain_radius"			"750"
@@ -5290,7 +5290,7 @@
 		"ItemStockMax"					"10"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"180.0"
-		"ItemInitialStockTime"			"210.0"
+		"ItemInitialStockTime"			"225.0"
 
         "ItemShareability"				"ITEM_FULLY_SHAREABLE"
         "AbilitySpecial"
@@ -5330,7 +5330,7 @@
 		"ItemStockMax"					"10"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"180.0"
-		"ItemInitialStockTime"			"210.0"
+		"ItemInitialStockTime"			"225.0"
 
         "ItemShareability"				"ITEM_FULLY_SHAREABLE"
         "AbilitySpecial"
@@ -5370,7 +5370,7 @@
 		"ItemStockMax"					"10"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"180.0"
-		"ItemInitialStockTime"			"210.0"
+		"ItemInitialStockTime"			"225.0"
 
         "ItemShareability"				"ITEM_FULLY_SHAREABLE"
         "AbilitySpecial"
@@ -5553,7 +5553,7 @@
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
         "AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"3400"
+		"ItemCost"						"4400"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra"
@@ -5578,7 +5578,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"1000"
-			"bonus_spell_amp"		"100"
+			"bonus_spell_amp"		"66"
 			"bonus_damage_percent"	"100"
 
 			"ruin_chance_tooltip"	"66"
@@ -5809,7 +5809,7 @@
 				"bonus_armor"			"16"
 				"bonus_mana_regen"		"3"
 				"projectile_speed"		"300"
-				"int_damage_multiplier"	"1.75"
+				"int_damage_multiplier"	"1.50"
 				"slow"	"50"
 				"slow_duration"	"4"
 				"active_mres_reduction"		"40"
@@ -5822,7 +5822,7 @@
 	//=================================================================================================================
 	"item_dragon_ball_1"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10001"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_1"
@@ -5839,10 +5839,35 @@
 		{
 			"bonus_all_stats"		"11"
 		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_1"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
+		}
 	}
 	"item_dragon_ball_2"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10002"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_2"
@@ -5859,10 +5884,35 @@
 		{
 			"bonus_all_stats"		"22"
 		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_2"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
+		}
 	}
 	"item_dragon_ball_3"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10003"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_3"
@@ -5879,10 +5929,35 @@
 		{
 			"bonus_all_stats"		"33"
 		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_3"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
+		}
 	}
 	"item_dragon_ball_4"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10004"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_4"
@@ -5899,10 +5974,35 @@
 		{
 			"bonus_all_stats"		"44"
 		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_4"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
+		}
 	}
 	"item_dragon_ball_5"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10005"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_5"
@@ -5919,10 +6019,35 @@
 		{
 			"bonus_all_stats"		"55"
 		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_5"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
+		}
 	}
 	"item_dragon_ball_6"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10006"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_6"
@@ -5939,10 +6064,35 @@
 		{
 			"bonus_all_stats"		"66"
 		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_6"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
+		}
 	}
 	"item_dragon_ball_7"
 	{
-		"BaseClass"                     "item_circlet"
+		"BaseClass"                     "item_datadriven"
 		"ID"						    "10007"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_7"
@@ -5958,6 +6108,31 @@
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"77"
+		}
+		"Modifiers"
+		{
+			"modifier_item_dragon_ball_7"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_dragon_ball"
+						"Function"			"OnDragonBallPicked"
+					}
+				}
+			}
 		}
 	}
 	"item_wish_1"
@@ -5978,7 +6153,6 @@
 		"ItemStockMax"					"1"
 		"ItemStockInitial"				"1"
 		"ItemStockTime"					"600"
-		"ItemInitialStockTime"			"30"
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"1"
@@ -6002,7 +6176,6 @@
 		"ItemStockMax"					"1"
 		"ItemStockInitial"				"1"
 		"ItemStockTime"					"600"
-		"ItemInitialStockTime"			"30"
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"1"
@@ -6026,7 +6199,6 @@
 		"ItemStockMax"					"1"
 		"ItemStockInitial"				"1"
 		"ItemStockTime"					"600"
-		"ItemInitialStockTime"			"30"
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"1"
@@ -6050,7 +6222,6 @@
 		"ItemStockMax"					"1"
 		"ItemStockInitial"				"1"
 		"ItemStockTime"					"600"
-		"ItemInitialStockTime"			"30"
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"1"
