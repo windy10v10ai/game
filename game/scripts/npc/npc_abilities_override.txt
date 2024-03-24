@@ -6587,6 +6587,11 @@
 					"LinkedSpecialBonus"	"special_bonus_unique_pangolier_3"
 					"CalculateSpellDamageTooltip"	"0"
 				}
+				"strikes"
+				{
+					"value"			"4"
+					"LinkedSpecialBonus"	"special_bonus_unique_pangolier_7"
+				}
 		}
 	}
 	"special_bonus_unique_pangolier_3"
@@ -6672,7 +6677,7 @@
 			"armor"
 			{
 				"value"					"2 4 6 8 10"
-				"special_bonus_unique_pangolier_luckyshot_armor"			"+2"
+				"special_bonus_unique_pangolier_luckyshot_armor"			"+3"
 			}
 		}
 	}

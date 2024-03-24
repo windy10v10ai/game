@@ -333,7 +333,7 @@ tBotAllStarRandom = {
     },
     -- BKB CeBayed?
     team21 = {
-        "npc_dota_hero_broodmother",
+        "npc_dota_hero_meepo",
         "npc_dota_hero_axe",
         "npc_dota_hero_abaddon",
         "npc_dota_hero_ogre_magi",
