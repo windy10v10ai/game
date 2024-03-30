@@ -1670,7 +1670,7 @@ tBotItemData.addNeutralItemList = {
 		'item_ballista',
 	},
 	npc_dota_hero_axe = {
-		'item_timeless_relic',
+		'item_timeless_relic_ai',
 	},
 	npc_dota_hero_spectre = {
 		'item_force_field',
@@ -1679,7 +1679,7 @@ tBotItemData.addNeutralItemList = {
 		'item_seer_stone',
 	},
 	npc_dota_hero_bounty_hunter = {
-		'item_timeless_relic',
+		'item_timeless_relic_ai',
 	},
 	npc_dota_hero_bloodseeker = {
 		'item_giants_ring',
@@ -1691,7 +1691,7 @@ tBotItemData.addNeutralItemList = {
 		'item_unwavering_condition',
 	},
 	npc_dota_hero_crystal_maiden = {
-		'item_timeless_relic',
+		'item_timeless_relic_ai',
 	},
 	npc_dota_hero_dazzle = {
 		'item_spell_prism',
@@ -1715,7 +1715,7 @@ tBotItemData.addNeutralItemList = {
 		'item_unwavering_condition',
 	},
 	npc_dota_hero_kunkka = {
-		'item_timeless_relic',
+		'item_timeless_relic_ai',
 	},
 	npc_dota_hero_lich = {
 		'item_demonicon',
@@ -1724,7 +1724,7 @@ tBotItemData.addNeutralItemList = {
 		'item_spell_prism',
 	},
 	npc_dota_hero_lion = {
-		'item_timeless_relic',
+		'item_timeless_relic_ai',
 	},
 	npc_dota_hero_luna = {
 		'item_ballista',

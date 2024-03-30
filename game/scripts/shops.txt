@@ -79,10 +79,10 @@
 
 	"misc"
 	{
-		"item"		"item_ring_of_regen"
-		"item"		"item_sobi_mask"
-		"item"		"item_magic_stick"
-		"item"		"item_fluffy_hat"
+		// "item"		"item_ring_of_regen"
+		// "item"		"item_sobi_mask"
+		// "item"		"item_magic_stick"
+		// "item"		"item_fluffy_hat"
 		"item"		"item_wind_lace"
 		"item"		"item_cloak"
 		"item"		"item_boots"
@@ -103,6 +103,16 @@
 		"item"		"item_reaver"
 		"item"		"item_eagle"
 		"item"		"item_relic"
+		"item"      "item_specialists_array_light"
+		"item"      "item_specialists_array_dark"
+		"item"		"item_timeless_relic_light"
+		"item"		"item_timeless_relic_dark"
+		"item"	    "item_defiant_shell_light"
+		"item"	    "item_defiant_shell_dark"
+		"item"      "item_ex_machina_light"
+		"item"      "item_ex_machina_dark"
+		"item"      "item_pirate_hat_light"
+		"item"      "item_pirate_hat_dark"
 	}
 
 	// Level 1 - Green Recipes
@@ -253,6 +263,9 @@
 		"item"		"item_tome_of_strength"
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
+		"item"      "item_overwhelming_blink_2"
+		"item"      "item_swift_blink_2"
+		"item"      "item_arcane_blink_2"
 	}
 
 	"sideshop1"
@@ -298,6 +311,9 @@
 		"item"      "item_tier3_token"
 		"item"      "item_tier4_token"
 		"item"      "item_tier5_token"
+		"item"      "item_light_part"
+		"item"      "item_dark_part"
+		"item"	    "item_exchange"
 	}
 
 	"pregame"
