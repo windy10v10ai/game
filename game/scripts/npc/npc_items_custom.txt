@@ -6600,39 +6600,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"				    "0"
         "ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"          "1230"// 体验阶段20分钟买（或调高爆率，30分钟买）
+		"ItemInitialStockTime"          "1545"// 25分钟买
 		"ItemStockInitial"				"0"
-		"ItemStockMax"					"5"
-		"ItemStockTime"					"30"
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"0"
-		}
-		"Modifiers"
-		{
-			"modifier_item_light_part"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"items/item_light_part"
-						"Function"			"OnDragonBallPicked"
-					}
-				}
-			}
-		}
+		"ItemStockMax"					"3"
+		"ItemStockTime"					"60"
 	}
 
 	//暗影组件
@@ -6651,39 +6622,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"				    "0"
         "ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"          "1230"// 体验阶段20分钟买（或调高爆率，30分钟买）
+		"ItemInitialStockTime"          "1545"// 25分钟买
 		"ItemStockInitial"				"0"
-		"ItemStockMax"					"5"
-		"ItemStockTime"					"30"
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"0"
-		}
-		"Modifiers"
-		{
-			"modifier_item_dark_part"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"items/item_dark_part"
-						"Function"			"OnDragonBallPicked"
-					}
-				}
-			}
-		}
+		"ItemStockMax"					"3"
+		"ItemStockTime"					"60"
 	}
 
 	//中立转换器
