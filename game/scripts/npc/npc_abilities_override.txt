@@ -1962,6 +1962,7 @@
 			}
 		}
 	}
+	// 强攻提供{s:value}秒 减益免疫
 	"special_bonus_unique_legion_commander_8"
     {
         "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
@@ -1978,14 +1979,25 @@
         }
     }
 	// 决斗
-	// FIXME 改成4级
 	"legion_commander_duel"
 	{
+		"MaxLevel" "4"
 		"AbilityValues"
 		{
+			"duration"				"3.75 4.5 5.25 6.0"
+			"duration_scepter"
+			{
+				"value"			"5.5 6.5 7.5 8.5"
+				"RequiresScepter"	"1"
+			}
+			"reward_damage"
+			{
+				"value"			"10 20 30 40"
+				"special_bonus_shard"	"+8"
+			}
 			"AbilityCooldown"
 			{
-				"value"					"60 50 40"
+				"value"					"60 55 50 45"
 				"special_bonus_scepter"			"-20"
 			}
 		}

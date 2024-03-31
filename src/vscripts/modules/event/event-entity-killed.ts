@@ -10,7 +10,7 @@ export class EventEntityKilled {
   // 神器碎片
   private dropItemListArtifactPart: string[] = ["item_light_part", "item_dark_part"];
   private dropItemChanceRoshanArtifactPart = 100;
-  private dropItemChanceCreepArtifactPart = 1.0;
+  private dropItemChanceCreepArtifactPart = 0.8;
 
   // 龙珠
   private dropItemListDragonBall: string[] = [
