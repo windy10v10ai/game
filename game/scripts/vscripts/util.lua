@@ -88,7 +88,6 @@ function ProcsAroundMagicStick(hUnit)
 			false
 		)
 	for i, v in ipairs(tUnits) do
-		-- FIXME 其他的技能物品施法 添加判断是否被看见
 		if v:CanEntityBeSeenByMyTeam(hUnit) then
 			for i = 0, 9 do
 				if v:GetItemInSlot(i) and v:GetItemInSlot(i):GetName() == "item_magic_stick" then

@@ -560,6 +560,7 @@ tBotItemData.purchaseItemList = {
 		'item_recipe_wasp_callous',
 		'item_wasp_despotic',
 		'item_excalibur',
+		'item_grove_bow_ai',
 		'item_excalibur',
 	},
 	npc_dota_hero_meepo = {
@@ -1260,6 +1261,7 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_medusa = {
 		'item_mask_of_madness',
+		'item_hurricane_pike_2',
 	},
 	npc_dota_hero_meepo = {
 		'item_wraith_band',
@@ -1670,7 +1672,7 @@ tBotItemData.addNeutralItemList = {
 		'item_ballista',
 	},
 	npc_dota_hero_axe = {
-		'item_timeless_relic',
+		'item_timeless_relic_ai_1',
 	},
 	npc_dota_hero_spectre = {
 		'item_force_field',
@@ -1679,7 +1681,7 @@ tBotItemData.addNeutralItemList = {
 		'item_seer_stone',
 	},
 	npc_dota_hero_bounty_hunter = {
-		'item_timeless_relic',
+		'item_timeless_relic_ai_1',
 	},
 	npc_dota_hero_bloodseeker = {
 		'item_giants_ring',
@@ -1691,7 +1693,7 @@ tBotItemData.addNeutralItemList = {
 		'item_unwavering_condition',
 	},
 	npc_dota_hero_crystal_maiden = {
-		'item_timeless_relic',
+		'item_timeless_relic_ai_1',
 	},
 	npc_dota_hero_dazzle = {
 		'item_spell_prism',
@@ -1700,10 +1702,10 @@ tBotItemData.addNeutralItemList = {
 		'item_demonicon',
 	},
 	npc_dota_hero_dragon_knight = {
-		'item_seer_stone',
+		'item_defiant_shell_ai_1',
 	},
 	npc_dota_hero_drow_ranger = {
-		'item_desolator_2',
+		'item_defiant_shell_ai_1',
 	},
 	npc_dota_hero_earthshaker = {
 		'item_giants_ring',
@@ -1715,7 +1717,7 @@ tBotItemData.addNeutralItemList = {
 		'item_unwavering_condition',
 	},
 	npc_dota_hero_kunkka = {
-		'item_timeless_relic',
+		'item_timeless_relic_ai_1',
 	},
 	npc_dota_hero_lich = {
 		'item_demonicon',
@@ -1724,13 +1726,13 @@ tBotItemData.addNeutralItemList = {
 		'item_spell_prism',
 	},
 	npc_dota_hero_lion = {
-		'item_timeless_relic',
+		'item_timeless_relic_ai_1',
 	},
 	npc_dota_hero_luna = {
-		'item_ballista',
+		'item_defiant_shell_ai_1',
 	},
 	npc_dota_hero_medusa = {
-		'item_ballista',
+		'item_mysterious_hat_ai',
 	},
 	npc_dota_hero_meepo = {
 		'item_minotaur_horn',
@@ -1745,7 +1747,7 @@ tBotItemData.addNeutralItemList = {
 		'item_seer_stone',
 	},
 	npc_dota_hero_omniknight = {
-		'item_giants_ring',
+		'item_ceremonial_robe_ai',
 	},
 	npc_dota_hero_oracle = {
 		'item_spell_prism',

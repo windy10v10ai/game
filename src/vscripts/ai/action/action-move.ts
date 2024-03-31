@@ -1,6 +1,8 @@
 import { HeroUtil } from "../hero/hero-util";
 
 export class ActionMove {
+  static readonly posRadiantBase: Vector = Vector(-7200, -6700, 386);
+  static readonly posDireBase: Vector = Vector(7200, 6624, 384);
   static MoveHero(hero: CDOTA_BaseNPC_Hero, pos: Vector) {
     hero.MoveToPosition(pos);
   }
@@ -27,15 +29,15 @@ export class ActionMove {
   }
 
   // MOVE_RELATIVE
-  static MoveRelative(hero: CDOTA_BaseNPC_Hero) {
+  static MoveRelative(hero: CDOTA_BaseNPC_Hero, pos: Vector) {
     ExecuteOrderFromTable({
       OrderType: UnitOrder.MOVE_TO_POSITION,
       UnitIndex: hero.GetEntityIndex(),
+      Position: pos,
       Queue: false,
     });
   }
 
-  static readonly GetAwayFromTowerDistance = 300;
   static GetAwayFromTower(hero: CDOTA_BaseNPC_Hero, enemyTower: CDOTA_BaseNPC): boolean {
     // 如果英雄残血，return false
     if (hero.GetHealthPercent() < 0.2) {
@@ -50,13 +52,15 @@ export class ActionMove {
       return false;
     }
     const towerName = enemyTower.GetUnitName();
+    // if hero is good go to radiant base, else go to dire base
+    const pos = hero.GetTeamNumber() === DotaTeam.GOODGUYS ? this.posRadiantBase : this.posDireBase;
     if (
       towerName.includes("tower3") ||
       towerName.includes("tower4") ||
       towerName.includes("fort")
     ) {
       // print(`[AI] 从基地撤退 ${hero.GetUnitName()} `);
-      ActionMove.MoveRelative(hero);
+      ActionMove.MoveRelative(hero, pos);
       return true;
     }
 
@@ -65,7 +69,7 @@ export class ActionMove {
       // const directionTower = hero.GetAbsOrigin().__sub(enemyTower.GetAbsOrigin()).Normalized();
       // const newDirection = direction.__add(directionTower).Normalized();
       // print(`[AI] 从防御塔撤退 ${hero.GetUnitName()} `);
-      ActionMove.MoveRelative(hero);
+      ActionMove.MoveRelative(hero, pos);
       return true;
     }
     return false;

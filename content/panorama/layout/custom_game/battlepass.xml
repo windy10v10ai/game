@@ -35,14 +35,21 @@
 			</Panel>
 		</snippet>
 		<snippet name="PlayerPropertyTooltip">
-			<Panel class="flowDown" style="horizontal-align: left;">
-				<Label class="LabelText" text="#data_panel_player_property_label" />
-				<Label class="LabelText" text="#data_panel_player_property_label_2" />
+			<Panel class="flowDown" style="horizontal-align: right;">
+				<!-- <Label class="LabelText" text="#data_panel_player_property_label" />
+				<Label class="LabelText" text="#data_panel_player_property_label_2" /> -->
 				<Panel class="flowRight">
 					<Label class="LabelText" text="#data_panel_player_property_label_3" />
 					<Image class="tooltipIcon" src="s2r://panorama/images/status_icons/information_psd.vtex"
 			onmouseover="UIShowTextTooltipStyled( #data_panel_player_property_label_3_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 				</Panel>
+			</Panel>
+		</snippet>
+
+		<!-- 点数提示 -->
+		<snippet name="PlayerPropertyUseableLevelTooltip">
+			<Panel class="notificationPanel">
+				<Label id="UseableLevel" class="notificationPanel-text" text="98" />
 			</Panel>
 		</snippet>
 	</snippets>
@@ -51,26 +58,27 @@
 		<Panel id="CosmeticSettings" hittest="false" />
 		<!-- 显示按钮 -->
 		<Panel id="BPButtonPanel">
-			<Button class="AnimatedLook" text="" id="BPButton" onactivate="ToggleBP()">
+			<Button id="BPButton" class="AnimatedLook" onactivate="ToggleBP()">
 				<Label id="BPButtonText" text="#data_panel_button" />
 			</Button>
+			<Panel id="BPButtonTooltip"> </Panel>
 		</Panel>
 		<!-- 主面板 -->
-		<Panel id="BPWindow" hitttest="false">
+		<Panel id="BPWindow" class="ToogleBPMinimize" hitttest="false">
 			<Panel id="LoadingFail">
 				<Label id="LoadingFailLabel" text="#loading_status_3" />
 			</Panel>
-			<!-- 积分 -->
+			<!-- 顶部积分 -->
 			<Panel id="PlayerPointStats">
 				<Panel id="SeasonPointContainer" class="pointParent">
 					<Image id="SeasonPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex"
 						onmouseover="UIShowTextTooltipStyled( #data_panel_season_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 					<Label id="SeasonPoint" class="pointNumber" text="18888" />
 				</Panel>
-				<Panel id="ChargePointContainer" class="pointParent">
-					<Image id="ChargePointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex"
+				<Panel id="MemberPointContainer" class="pointParent">
+					<Image id="MemberPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex"
 						onmouseover="UIShowTextTooltipStyled( #data_panel_member_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
-					<Label id="ChargePoint" class="pointNumber" text="18888" />
+					<Label id="MemberPoint" class="pointNumber" text="18888" />
 				</Panel>
 				<Panel id="PropertyPointContainer" class="pointParent">
 					<Image id="PropertyPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/levelup_plus_fill_psd.vtex"
@@ -79,7 +87,7 @@
 				</Panel>
 			</Panel>
 
-			<!-- 选项卡 -->
+			<!-- 选项卡 导航 -->
 			<Panel id="BpWindowNavBar">
 				<RadioButton group="MainBPWindow" id="BPNavButtonData" class="BpWindowNavButton" onactivate="SwitchToData()">
 					<Label class="BPNavButtonText" text="#data_panel_data_button" />
@@ -88,9 +96,10 @@
 					<Label class="BPNavButtonText" text="#data_panel_property_button" />
 				</RadioButton>
 			</Panel>
+
 			<Panel id="BpWindowMain" >
+				<!-- 数据页面 -->
 				<Panel id="BpWindowMainLevel" class="BpWindowMainContainer">
-					<!-- 等级 -->
 					<Panel id="SeasonWindowPlayerStats" class="WindowPlayerStats">
 						<Panel id="SeasonLevelImageContainer" class="LevelImageContainer">
 							<Panel class="flowRight">
@@ -130,9 +139,18 @@
 
 				</Panel>
 
-				<!-- 属性 -->
+				<!-- 属性 页面 -->
 				<Panel id="BpWindowMainProperty" class="BpWindowMainContainer">
-					<Panel class="ResetPropertyPanel">
+					<Panel id="BpPropertiesButtons">
+						<RadioButton group="BpPropertiesButtons" class="RadioBox" id="RBPropertyList" onactivate="SwitchToPropertyList()">
+							<Label id="PlayerPropertyListLabel" class="SwitchLabel" text="#data_panel_property_list" />
+						</RadioButton>
+						<RadioButton group="BpPropertiesButtons" class="RadioBox" id="RBPropertyReset" onactivate="SwitchToPropertyReset()">
+							<Label id="PlayerPropertyResetLabel" class="SwitchLabel" text="#data_panel_property_reset" />
+						</RadioButton>
+					</Panel>
+					<Panel id="PropertyListContainer" class="SubContainer" />
+					<Panel id="PropertyResetContainer" class="SubContainer">
 						<Button id="ResetUseSeasonPoint" class="LinkButton">
 							<Label id="ResetUseSeasonPointText" class="ButtonText" text="#reset_property_use_season_point" />
 						</Button>
@@ -140,22 +158,9 @@
 							<Label id="ResetUseMemberPointText" class="ButtonText" text="#reset_property_use_member_point" />
 						</Button>
 					</Panel>
-					<Panel id="PlayerPropertyContent" class="BpWindowSubContainer" />
 				</Panel>
 
 				<!-- <Panel id="BpWindowMainRewards">
-					<Panel id="BpRewardsButtons">
-						<RadioButton group="BpRewardsButtons" class="RadioBox" id="RBBpRewards" onactivate="SwitchToBpRewards()" onload="SetBpSelected()">
-							<Label id="RBBpRewardsLabel" text="Rewards" />
-						</RadioButton>
-						<RadioButton group="BpRewardsButtons" class="RadioBox" id="RBBpArmory" onactivate="SwitchToBpArmory()">
-							<Label id="RBBpArmoryLabel" text="Armory" />
-						</RadioButton>
-						<RadioButton group="BpRewardsButtons" class="RadioBox" id="RBBpSettings" onactivate="SwitchToBpSettings()">
-							<Label id="RBBpSettingsLabel" text="Settings" />
-						</RadioButton>
-					</Panel>
-					<Panel id="BpRewardsContent" />
 					<Panel id="BpArmoryContent" />
 					<Panel id="BpSettingsContent">
 						<Panel id="SettingsWrap">

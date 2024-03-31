@@ -28,7 +28,6 @@ export class ActionAbility {
     abilityName: string,
     condition?: CastCoindition,
   ): boolean {
-    // set default condition, manaPercentMoreThan: 50
     const defaultSelf = {
       manaPercentMoreThan: 50,
       healthPercentMoreThan: 50,
@@ -111,10 +110,11 @@ export class ActionAbility {
       flagFilter,
       FindOrder.ANY,
     );
-    if (enemies.length === 0) {
+    const target = this.findOneVisibleUnits(enemies, hero);
+
+    if (!target) {
       return false;
     }
-    const target = enemies[0];
 
     if (condition?.target) {
       if (this.IsConditionTargetBreak(condition, target)) {
@@ -147,6 +147,22 @@ export class ActionAbility {
     const range = ability.GetCastRange(self.GetAbsOrigin(), undefined);
     const castRangeIncrease = self.GetCastRangeBonus();
     return range + castRangeIncrease;
+  }
+
+  /**
+   * 检测是否在战争迷雾中
+   * @returns Check FoW to get an entity is visible
+   */
+  private static findOneVisibleUnits(
+    units: CDOTA_BaseNPC[],
+    self: CDOTA_BaseNPC_Hero,
+  ): CDOTA_BaseNPC | undefined {
+    for (const unit of units) {
+      if (unit.IsAlive() && unit.CanEntityBeSeenByMyTeam(self)) {
+        return unit;
+      }
+    }
+    return undefined;
   }
 
   private static IsAbilityBehavior(ability: CDOTABaseAbility, behavior: AbilityBehavior): boolean {

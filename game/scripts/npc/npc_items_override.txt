@@ -251,6 +251,20 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"                  "0"
 	}
+	// 肉山旗帜
+	"item_roshans_banner"
+	{
+		"AbilityValues"
+		{
+			"duration"				"300"
+			"radius"				"750"
+			"health"				"120"// 24
+			"hp_bonus"				"500"// 75
+			"damage_bonus"			"250"// 50
+			"model_scale"			"25"// 25
+			"buff_linger_duration"		"60"// 45
+		}
+	}
 	//=================================================================================================================
 	// Custom item Override 中立物品
 	//=================================================================================================================
@@ -1105,11 +1119,11 @@
 	}
 	"item_pirate_hat"  //海盗帽
 	{
-		"AbilityCooldown"				"10.0" //40
+		"AbilityCooldown"				"20.0" //40
 		"AbilityValues"
 		{
-			"bonus_attack_speed"		"450"	//150
-			"bonus_ms"					"150"	//15
+			"bonus_attack_speed"		"200"	//150
+			"bonus_ms"					"30"	//15
 		}
 	}
 	"item_unwavering_condition" //坚毅之件

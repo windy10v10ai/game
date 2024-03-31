@@ -27,21 +27,22 @@ TextEntry.MonoFont {
 
 #BPButtonPanel {
   vertical-align: top;
-  horizontal-align: right;
-  margin-top: 60px;
-  margin-right: 80px;
+  horizontal-align: left;
+  margin-top: 65px;
+  margin-left: 200px;
 }
 
+/* 主页按钮 */
 #BPButton {
-  width: 150px;
-  height: 35px;
+  width: 140px;
+  height: 40px;
   horizontal-align: center;
+  vertical-align: center;
   background-color: gradient(linear, 0% 0%, 100% 0%, from(#4856b288), to(#05033a88));
-  border: 1px solid #3c20da88;
+  border: 2px solid #3c20da88;
   border-radius: 5px;
-  font-size: 16px;
   color: white;
-  box-shadow: 0px 0px 5px 1px #3c20da22;
+  box-shadow: 0px 0px 5px 1px #3c20da44;
   border-top: 1px solid #00000055;
   border-bottom: 1px solid #00000055;
   transition-property: box-shadow, background-color, opacity;
@@ -51,11 +52,6 @@ TextEntry.MonoFont {
   background-repeat: no-repeat;
   background-position: 58.3% 35%;
   background-size: 22% 90%;
-}
-
-#BPButton.hasPoint {
-  box-shadow: 0px 0px 0px 0px #3c20dadd;
-  /* background-color: gradient(linear, 0% 0%, 100% 0%, from(#4856b2ee), to(#05033aee)); */
 }
 
 #BPButton:hover {
@@ -71,8 +67,33 @@ TextEntry.MonoFont {
   text-transform: uppercase;
   letter-spacing: 2px;
   text-overflow: shrink;
+  font-size: 18px;
   font-family: defaultFont;
   font-weight: semi-bold;
+}
+
+/* 点数提示 */
+.notificationPanel {
+  width: 16px;
+  height: 16px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 2px #3c20da22;
+  border-radius: 4px;
+  horizontal-align: right;
+  background-color: gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#ff4949),
+    to(hsv-transform(#ff7474, 0, 1, 0.4))
+  );
+}
+
+.notificationPanel-text {
+  font-size: 12px;
+  color: white;
+  vertical-align: center;
+  horizontal-align: center;
 }
 
 .tooltipIcon {
@@ -100,11 +121,11 @@ TextEntry.MonoFont {
 }
 
 #BPWindow {
-  margin-top: 150px;
-  margin-right: 20px;
+  margin-top: 120px;
+  margin-left: 20px;
   width: 30%;
   height: 65%;
-  horizontal-align: right;
+  horizontal-align: left;
   vertical-align: top;
   background-color: gradient(
     linear,
@@ -115,10 +136,11 @@ TextEntry.MonoFont {
     color-stop(0.6, #000000bb),
     to(#000000ee)
   );
+  flow-children: down;
+
   opacity: 0;
   visibility: collapse;
-  transform: translateX(400px);
-  flow-children: down;
+  transform: translateX(-400px);
   transition-property: transform, opacity, width, height;
   transition-delay: 0s;
   transition-duration: 0.3s;
@@ -164,7 +186,7 @@ TextEntry.MonoFont {
   vertical-align: center;
   margin: 0px 10px 0px 10px;
   color: white;
-  font-size: 32px;
+  font-size: 26px;
   margin-left: 1%;
 }
 
@@ -309,14 +331,6 @@ TextEntry.MonoFont {
   sound: "ui.tick";
 }
 
-.ResetPropertyPanel {
-  horizontal-align: center;
-  vertical-align: top;
-  width: 90%;
-  flow-children: right;
-  color: white;
-}
-
 .LinkPanel {
   horizontal-align: center;
   vertical-align: top;
@@ -326,11 +340,11 @@ TextEntry.MonoFont {
 }
 
 .LinkButton {
-  width: 45%;
-  height: 45px;
+  width: 60%;
+  height: 40px;
   vertical-align: center;
-  horizontal-align: right;
-  margin: 10px;
+  horizontal-align: center;
+  margin: 20px;
   /* 文字自动换行 */
   white-space: normal;
 }
@@ -346,15 +360,6 @@ TextEntry.MonoFont {
   height: 100%;
   padding: 10px;
   flow-children: down;
-  visibility: collapse;
-}
-
-.BpWindowSubContainer {
-  horizontal-align: center;
-  width: 95%;
-  height: 100%;
-  flow-children: down;
-  overflow: squish scroll;
   visibility: collapse;
 }
 
@@ -467,7 +472,7 @@ TextEntry.MonoFont {
   transition-timing-function: ease-in-out;
 }
 .activated:hover {
-  background-color: gradient(linear, 50% 0%, 100% 0%, from(#4f48b2), to(#0f033a));
+  background-color: gradient(linear, 80% 0%, 100% 0%, from(#4f48b2), to(#0f033a));
   box-shadow: 0px 0px 2px 1px #8e7affaa;
 }
 .activated-gold {
@@ -480,7 +485,7 @@ TextEntry.MonoFont {
   transition-timing-function: ease-in-out;
 }
 .activated-gold:hover {
-  background-color: gradient(linear, 50% 0%, 100% 0%, from(#ca9b3c), to(#91640b));
+  background-color: gradient(linear, 80% 0%, 100% 0%, from(#ca9b3c), to(#91640b));
   box-shadow: 0px 0px 2px 1px #ffcc6677;
 }
 
@@ -496,48 +501,30 @@ TextEntry.MonoFont {
 }
 
 #PatreonButtons,
-#BpRewardsButtons {
+#BpPropertiesButtons {
   width: 100%;
-  height: 10%;
+  height: 8%;
   flow-children: right;
 }
 
-#RBPatreonPets,
-#RBPatreonEmblems,
-#RBPatreonSettings,
-#RBBpRewards,
-#RBBpArmory,
-#RBBpSettings {
+.RadioBox {
   width: fill-parent-flow(1);
   height: 80%;
-  vertical-align: bottom;
+  vertical-align: top;
   horizontal-align: center;
 }
 
-#RBPatreonPets:selected,
-#RBBpRewards:selected {
+.RadioBox:selected {
   color: blue;
-}
-
-.RadioBox {
-  min-width: 20px;
-  min-height: 20px;
-  vertical-align: center;
-  horizontal-align: center;
 }
 .RadioBox:active {
   sound: "ui.tick";
 }
 
-#RBPatreonPetsLabel,
-#RBPatreonEmblemsLabel,
-#RBPatreonSettingsLabel,
-#RBBpRewardsLabel,
-#RBBpArmoryLabel,
-#RBBpSettingsLabel {
-  width: 52%;
+.SwitchLabel {
+  width: 55%;
   letter-spacing: 2px;
-  font-size: 14px;
+  font-size: 16px;
   color: #ffffff90;
   vertical-align: center;
   horizontal-align: center;
@@ -550,54 +537,34 @@ TextEntry.MonoFont {
   transition-timing-function: ease-in-out;
   background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333cc), to(#111111cc));
   border: 1px solid rgba(178, 137, 72, 0.3);
-  height: 21px;
+  height: 22px;
   background-color: rgba(100, 100, 100, 0.2);
   box-shadow: 0 3px 10px 0 rgba(31, 38, 135, 0.27);
   border-radius: 5px;
 }
 
-#RBPatreonPets:hover > #RBPatreonPetsLabel,
-#RBPatreonEmblems:hover > #RBPatreonEmblemsLabel,
-#RBPatreonSettings:hover > #RBPatreonSettingsLabel,
-#RBBpRewards:hover > #RBBpRewardsLabel,
-#RBBpArmory:hover > #RBBpArmoryLabel,
-#RBBpSettings:hover > #RBBpSettingsLabel {
+.RadioBox:hover > .SwitchLabel {
   color: #ffffffee;
   border: 1px solid rgba(178, 137, 72, 0.8);
 }
 
-#RBPatreonPets:selected > #RBPatreonPetsLabel,
-#RBPatreonEmblems:selected > #RBPatreonEmblemsLabel,
-#RBPatreonSettings:selected > #RBPatreonSettingsLabel,
-#RBBpRewards:selected > #RBBpRewardsLabel,
-#RBBpArmory:selected > #RBBpArmoryLabel,
-#RBBpSettings:selected > #RBBpSettingsLabel {
+.RadioBox:selected > .SwitchLabel {
   color: #edb55c;
   border: 1px solid rgba(178, 137, 72, 1);
   background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333ff), to(#111111ff));
   brightness: 1.5;
 }
 
-#PatreonPetsContent,
-#PatreonEmblemsContent,
-#PatreonSettingsContent,
-#BpRewardsContent,
-#BpArmoryContent,
-#BpRewardsSettings {
+.SubContainer {
   horizontal-align: center;
-  width: 97%;
+  width: 95%;
   height: 100%;
   flow-children: down;
   overflow: squish scroll;
   visibility: collapse;
 }
 
-#RewardImage,
-#EmblemImage {
-  horizontal-align: center;
-  vertical-align: center;
-}
-
+/* ---- Not Used ---- */
 #RewardTier {
   width: 12%;
   letter-spacing: 2px;

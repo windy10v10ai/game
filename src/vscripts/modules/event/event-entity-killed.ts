@@ -6,6 +6,18 @@ export class EventEntityKilled {
   }
 
   private readonly removeGoldBagDelay = 20;
+
+  // 神器碎片
+  private dropItemListArtifactPart: string[] = [
+    "item_light_part",
+    "item_dark_part",
+    "item_rapier_ultra_bot", // 愚人节圣剑
+  ];
+
+  private dropItemChanceRoshanArtifactPart = 100;
+  private dropItemChanceCreepArtifactPart = 1.2;
+
+  // 龙珠
   private dropItemListDragonBall: string[] = [
     "item_dragon_ball_1",
     "item_dragon_ball_2",
@@ -18,7 +30,7 @@ export class EventEntityKilled {
 
   private dropItemChanceRoshan = 100;
   private dropItemChanceAncient = 1.0;
-  private dropItemChanceNeutral = 0.2;
+  private dropItemChanceNeutral = 0.15;
 
   OnEntityKilled(keys: GameEventProvidedProperties & EntityKilledEvent): void {
     const killedUnit = EntIndexToHScript(keys.entindex_killed) as CDOTA_BaseNPC | undefined;
@@ -45,7 +57,20 @@ export class EventEntityKilled {
     const attacker = EntIndexToHScript(keys.entindex_attacker) as CDOTA_BaseNPC | undefined;
 
     if (creepName === "npc_dota_roshan") {
-      // 移除无人捡取的金币袋
+      // 击杀肉山
+      if (PlayerHelper.IsHumanPlayer(attacker)) {
+        this.dropItemListDragonBall = this.dropItem(
+          creep,
+          this.dropItemListDragonBall,
+          this.dropItemChanceRoshan,
+        );
+
+        this.dropItem(creep, this.dropItemListArtifactPart, this.dropItemChanceRoshanArtifactPart);
+      } else {
+        print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);
+      }
+
+      // 延迟移除无人捡取的金币袋
       Timers.CreateTimer(this.removeGoldBagDelay, () => {
         const goldBags = Entities.FindAllByClassname("dota_item_drop") as CDOTA_Item_Physical[];
         for (const goldBag of goldBags) {
@@ -55,16 +80,6 @@ export class EventEntityKilled {
           }
         }
       });
-
-      if (PlayerHelper.IsHumanPlayer(attacker)) {
-        this.dropItemListDragonBall = this.dropItem(
-          creep,
-          this.dropItemListDragonBall,
-          this.dropItemChanceRoshan,
-        );
-      } else {
-        print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);
-      }
     } else if (creep.IsAncient()) {
       if (PlayerHelper.IsHumanPlayer(attacker)) {
         this.dropItemListDragonBall = this.dropItem(
@@ -72,6 +87,8 @@ export class EventEntityKilled {
           this.dropItemListDragonBall,
           this.dropItemChanceAncient,
         );
+
+        this.dropItem(creep, this.dropItemListArtifactPart, this.dropItemChanceCreepArtifactPart);
       }
     } else if (creep.IsNeutralUnitType()) {
       if (PlayerHelper.IsHumanPlayer(attacker)) {
@@ -80,6 +97,8 @@ export class EventEntityKilled {
           this.dropItemListDragonBall,
           this.dropItemChanceNeutral,
         );
+
+        this.dropItem(creep, this.dropItemListArtifactPart, this.dropItemChanceCreepArtifactPart);
       }
     }
   }

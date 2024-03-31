@@ -181,7 +181,7 @@
 			// "item_pirate_hat_custom"		"1" //海盗帽 旧版
 			"item_ballista"					"1" //弩炮
 			"item_fallen_sky"				"1" //天崩
-			//"item_ex_machina"				"1" //机械之心
+			"item_ex_machina"				"1" //机械之心
 			//"item_vengeances_shadow"		"1" //复仇之影
 			//"item_manacles_of_power"		"1"
 			//"item_bottomless_chalice"		"1"
