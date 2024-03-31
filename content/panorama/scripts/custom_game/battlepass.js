@@ -3,8 +3,14 @@
 })();
 
 function PregameSetup() {
-  PlayerDataLoaded(GetPlayer());
+  const player = GetPlayer();
+  PlayerDataLoaded(player);
   SubscribePlayer(PlayerDataLoaded);
+  if (player.useableLevel > 1) {
+    SetPropertySelected();
+  } else {
+    SetDataSelected();
+  }
 }
 
 function PlayerDataLoaded(player) {
@@ -37,13 +43,11 @@ function PlayerDataLoaded(player) {
   // 英雄属性
   SetPlayerProperty(player);
 
-  $.Msg("BP Loaded!");
-
-  if (player.useableLevel > 1) {
+  if ((player.useableLevel = player.totalLevel)) {
     SetPropertySelected();
-  } else {
-    SetDataSelected();
   }
+
+  $.Msg("BP Loaded!");
 }
 
 // --------------------------------------------------------------------------------
