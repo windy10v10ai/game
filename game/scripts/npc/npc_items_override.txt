@@ -1119,11 +1119,11 @@
 	}
 	"item_pirate_hat"  //海盗帽
 	{
-		"AbilityCooldown"				"10.0" //40
+		"AbilityCooldown"				"20.0" //40
 		"AbilityValues"
 		{
-			"bonus_attack_speed"		"450"	//150
-			"bonus_ms"					"150"	//15
+			"bonus_attack_speed"		"200"	//150
+			"bonus_ms"					"30"	//15
 		}
 	}
 	"item_unwavering_condition" //坚毅之件

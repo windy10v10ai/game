@@ -1684,19 +1684,19 @@
 
 		// item_rapier_ultra 诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra"                        "<font color='#e03e2e'>诅咒圣剑</font>"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成，不能出售或销毁。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。\n<h1>被动：<font color='#e03e2e'>力量的代价</font></h1>过于强大力量总会有它的代价。<br><font color='#e03e2e'>死亡有%ruin_chance_tooltip%%%概率摧毁。</font>"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成，不能出售或销毁。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。\n<h1>被动：<font color='#e03e2e'>力量的代价</font></h1>过于强大力量总会有它的代价。<br><font color='#e03e2e'>死亡有%ruin_chance_tooltip%%%概率摧毁。</font> \n<h1>被动：可塑性</h1>能够通过任意两个光暗组件进行升级"
 		"DOTA_Tooltip_ability_item_rapier_ultra_Lore"					"死亡摧毁。"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"至于能不能幸免于难，施主且行且珍惜。"
 
 		// item_rapier_ultra_bot ai用诅咒圣剑
-		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#e03e2e'>解放的诅咒圣剑</font>"
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#e03e2e'>解放的愚人节圣剑</font>"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Description"            "<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。\n<h1>被动：<font color='#e03e2e'>力量的代价（解放）</font></h1>过于强大力量总会有它的代价。<br><font color='#e03e2e'>但是解放之后就没有代价了</font>"
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot_Lore"					"解放后的诅咒圣剑不会摧毁"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_spell_amp"           "%+$spell_amp"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note0"					"傻了吧，我的诅咒圣剑是永久的"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note0"					"融合了光暗之力获得解放的诅咒圣剑。"
 
 		// item_bfury_ultra 救世狂战
 		"DOTA_Tooltip_ability_item_bfury_ultra"                         "<font color='#e03e2e'>救世狂战</font>"
@@ -1866,19 +1866,33 @@
 		"DOTA_Tooltip_Ability_item_specialists_array_dark_Lore"					"加强扳机的出色器具，源自一位年迈的刺客闲暇时的想法。"
 		"DOTA_Tooltip_Ability_item_specialists_array_dark_Description"					"<h1>被动：破裂攻击</h1>只对远程英雄生效。下次攻击会向攻击范围+%secondary_target_range_bonus%额外距离内%count%个额外目标发射弹道，并且额外造成%proc_bonus_damage%点伤害。不会触发攻击特效。"
 
-		// item_specialists_array_light_1 圣光·行家阵列
-		"DOTA_Tooltip_Ability_item_specialists_array_light_1"				"<font color='#FFFF00'>圣光·行家阵列</font>"
+		// item_specialists_array_light_1 圣光·行家阵列(中立)
+		"DOTA_Tooltip_Ability_item_specialists_array_light_1"				"<font color='#FFFF00'>圣光·行家阵列（中立）</font>"
 		"DOTA_Tooltip_Ability_item_specialists_array_light_1_all_stats"					"+$all"
 		"DOTA_Tooltip_Ability_item_specialists_array_light_1_bonus_damage"					"+$damage"
 		"DOTA_Tooltip_Ability_item_specialists_array_light_1_Lore"					"加强扳机的出色器具，源自一位年迈的刺客闲暇时的想法。"
 		"DOTA_Tooltip_Ability_item_specialists_array_light_1_Description"					"<h1>被动：破裂攻击</h1>只对远程英雄生效。下次攻击会向攻击范围+%secondary_target_range_bonus%额外距离内%count%个额外目标发射弹道，并且额外造成%proc_bonus_damage%点伤害。不会触发攻击特效。"
 
-		// item_specialists_array_dark_1 暗影·行家阵列
-		"DOTA_Tooltip_Ability_item_specialists_array_dark_1"				"<font color='#8A2BE2'>暗影·行家阵列</font>"
+		// item_specialists_array_dark_1 暗影·行家阵列（中立）
+		"DOTA_Tooltip_Ability_item_specialists_array_dark_1"				"<font color='#8A2BE2'>暗影·行家阵列（中立）</font>"
 		"DOTA_Tooltip_Ability_item_specialists_array_dark_1_all_stats"					"+$all"
 		"DOTA_Tooltip_Ability_item_specialists_array_dark_1_bonus_damage"					"+$damage"
 		"DOTA_Tooltip_Ability_item_specialists_array_dark_1_Lore"					"加强扳机的出色器具，源自一位年迈的刺客闲暇时的想法。"
 		"DOTA_Tooltip_Ability_item_specialists_array_dark_1_Description"					"<h1>被动：破裂攻击</h1>只对远程英雄生效。下次攻击会向攻击范围+%secondary_target_range_bonus%额外距离内%count%个额外目标发射弹道，并且额外造成%proc_bonus_damage%点伤害。不会触发攻击特效。"
+
+		// item_specialists_array_ai 光暗·行家阵列
+		"DOTA_Tooltip_Ability_item_specialists_array_ai"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>行</font><font color='#8A2BE2'>家</font><font color='#00FF00'>阵</font><font color='#8A2BE2'>列</font>"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_all_stats"					"+$all"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_bonus_damage"					"+$damage"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_Lore"					"加强扳机的出色器具，源自一位年迈的刺客闲暇时的想法。"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_Description"					"<h1>被动：破裂攻击</h1>只对远程英雄生效。下次攻击会向攻击范围+%secondary_target_range_bonus%额外距离内%count%个额外目标发射弹道，并且额外造成%proc_bonus_damage%点伤害。不会触发攻击特效。"
+
+		// item_specialists_array_ai_1 光暗·行家阵列（中立）
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>行</font><font color='#8A2BE2'>家</font><font color='#00FF00'>阵</font><font color='#8A2BE2'>列</font>（中立）"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1_all_stats"					"+$all"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1_bonus_damage"					"+$damage"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1_Lore"					"加强扳机的出色器具，源自一位年迈的刺客闲暇时的想法。"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1_Description"					"<h1>被动：破裂攻击</h1>只对远程英雄生效。下次攻击会向攻击范围+%secondary_target_range_bonus%额外距离内%count%个额外目标发射弹道，并且额外造成%proc_bonus_damage%点伤害。不会触发攻击特效。"
 
 		// item_timeless_relic_light 圣光·永恒遗物
 		"DOTA_Tooltip_Ability_item_timeless_relic_light"				"<font color='#FFFF00'>圣光·永恒遗物</font>"
@@ -1894,26 +1908,33 @@
 		"DOTA_Tooltip_ability_item_timeless_relic_dark_debuff_amp"				"%+$debuff_amp"
 		"DOTA_Tooltip_ability_item_timeless_relic_dark_spell_amp"				"%+技能增强"
 
-		// item_timeless_relic_light_1 圣光·永恒遗物
-		"DOTA_Tooltip_Ability_item_timeless_relic_light_1"				"<font color='#FFFF00'>圣光·永恒遗物</font>"
+		// item_timeless_relic_light_1 圣光·永恒遗物（中立）
+		"DOTA_Tooltip_Ability_item_timeless_relic_light_1"				"<font color='#FFFF00'>圣光·永恒遗物（中立）</font>"
 		"DOTA_Tooltip_ability_item_timeless_relic_light_1_Description"				"提升技能伤害和负面状态的持续时间。"
 		"DOTA_Tooltip_ability_item_timeless_relic_light_1_Lore"				"一个完好无损的发现，出土自一座古老的巫师学院废墟。"
 		"DOTA_Tooltip_ability_item_timeless_relic_light_1_debuff_amp"				"%+$debuff_amp"
 		"DOTA_Tooltip_ability_item_timeless_relic_light_1_spell_amp"				"%+技能增强"
 
-		// item_timeless_relic_dark_1 暗影·永恒遗物
-		"DOTA_Tooltip_Ability_item_timeless_relic_dark_1"				"<font color='#8A2BE2'>暗影·永恒遗物</font>"
+		// item_timeless_relic_dark_1 暗影·永恒遗物（中立）
+		"DOTA_Tooltip_Ability_item_timeless_relic_dark_1"				"<font color='#8A2BE2'>暗影·永恒遗物（中立）</font>"
 		"DOTA_Tooltip_ability_item_timeless_relic_dark_1_Description"				"提升技能伤害和负面状态的持续时间。"
 		"DOTA_Tooltip_ability_item_timeless_relic_dark_1_Lore"				"一个完好无损的发现，出土自一座古老的巫师学院废墟。"
 		"DOTA_Tooltip_ability_item_timeless_relic_dark_1_debuff_amp"				"%+$debuff_amp"
 		"DOTA_Tooltip_ability_item_timeless_relic_dark_1_spell_amp"				"%+技能增强"
 
 		// item_timeless_relic_ai 光暗·永恒遗物
-		"DOTA_Tooltip_Ability_item_timeless_relic_ai"				"<font color='#00FF00'>光暗·永恒遗物</font>"
+		"DOTA_Tooltip_Ability_item_timeless_relic_ai"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>永</font><font color='#8A2BE2'>恒</font><font color='#00FF00'>遗</font><font color='#8A2BE2'>物</font>"
 		"DOTA_Tooltip_ability_item_timeless_relic_ai_Description"				"提升技能伤害和负面状态的持续时间。"
 		"DOTA_Tooltip_ability_item_timeless_relic_ai_Lore"				"一个完好无损的发现，出土自一座古老的巫师学院废墟。"
 		"DOTA_Tooltip_ability_item_timeless_relic_ai_debuff_amp"				"%+$debuff_amp"
 		"DOTA_Tooltip_ability_item_timeless_relic_ai_spell_amp"				"%+技能增强"
+
+		// item_timeless_relic_ai_1 光暗·永恒遗物（中立）
+		"DOTA_Tooltip_Ability_item_timeless_relic_ai_1"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>永</font><font color='#8A2BE2'>恒</font><font color='#00FF00'>遗</font><font color='#8A2BE2'>物</font>（中立）"
+		"DOTA_Tooltip_ability_item_timeless_relic_ai_1_Description"				"提升技能伤害和负面状态的持续时间。"
+		"DOTA_Tooltip_ability_item_timeless_relic_ai_1_Lore"				"一个完好无损的发现，出土自一座古老的巫师学院废墟。"
+		"DOTA_Tooltip_ability_item_timeless_relic_ai_1_debuff_amp"				"%+$debuff_amp"
+		"DOTA_Tooltip_ability_item_timeless_relic_ai_1_spell_amp"				"%+技能增强"
 
 		// item_defiant_shell_light 圣光·不羁甲壳
 		"DOTA_Tooltip_Ability_item_defiant_shell_light"				"<font color='#FFFF00'>圣光·不羁甲壳</font>"
@@ -1927,17 +1948,29 @@
 		"DOTA_Tooltip_Ability_item_defiant_shell_dark_bonus_armor"		"+$armor"
 		"DOTA_Tooltip_Ability_item_defiant_shell_dark_all_stats"			"+$all"
 
-		// item_defiant_shell_light_1 圣光·不羁甲壳
-		"DOTA_Tooltip_Ability_item_defiant_shell_light_1"				"<font color='#FFFF00'>圣光·不羁甲壳</font>"
+		// item_defiant_shell_light_1 圣光·不羁甲壳（中立）
+		"DOTA_Tooltip_Ability_item_defiant_shell_light_1"				"<font color='#FFFF00'>圣光·不羁甲壳（中立）</font>"
 		"DOTA_Tooltip_Ability_item_defiant_shell_light_1_Description" 		"<h1>被动：互换</h1> 被攻击后英雄会对攻击距离内的一个目标作出反击。冷却时间为%counter_cooldown%秒。"
 		"DOTA_Tooltip_Ability_item_defiant_shell_light_1_bonus_armor"		"+$armor"
 		"DOTA_Tooltip_Ability_item_defiant_shell_light_1_all_stats"			"+$all"
 
-		// item_defiant_shell_dark_1 暗影·不羁甲壳
-		"DOTA_Tooltip_Ability_item_defiant_shell_dark_1"				"<font color='#8A2BE2'>暗影·不羁甲壳</font>"
+		// item_defiant_shell_dark_1 暗影·不羁甲壳（中立）
+		"DOTA_Tooltip_Ability_item_defiant_shell_dark_1"				"<font color='#8A2BE2'>暗影·不羁甲壳（中立）</font>"
 		"DOTA_Tooltip_Ability_item_defiant_shell_dark_1_Description" 		"<h1>被动：互换</h1> 被攻击后英雄会对攻击距离内的一个目标作出反击。冷却时间为%counter_cooldown%秒。"
 		"DOTA_Tooltip_Ability_item_defiant_shell_dark_1_bonus_armor"		"+$armor"
 		"DOTA_Tooltip_Ability_item_defiant_shell_dark_1_all_stats"			"+$all"
+
+		// item_defiant_shell_ai 光暗·不羁甲壳
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>不</font><font color='#8A2BE2'>羁</font><font color='#00FF00'>甲</font><font color='#8A2BE2'>壳</font>"
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_Description" 		"<h1>被动：互换</h1> 被攻击后英雄会对攻击距离内的一个目标作出反击。冷却时间为%counter_cooldown%秒。"
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_bonus_armor"		"+$armor"
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_all_stats"			"+$all"
+
+		// item_defiant_shell_ai_1 光暗·不羁甲壳（中立）
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_1"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>不</font><font color='#8A2BE2'>羁</font><font color='#00FF00'>甲</font><font color='#8A2BE2'>壳</font>（中立）"
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_1_Description" 		"<h1>被动：互换</h1> 被攻击后英雄会对攻击距离内的一个目标作出反击。冷却时间为%counter_cooldown%秒。"
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_1_bonus_armor"		"+$armor"
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_1_all_stats"			"+$all"
 
 		// item_ex_machina_light 圣光·机械之心
 		"DOTA_Tooltip_Ability_item_ex_machina_light"				"<font color='#FFFF00'>圣光·机械之心</font>"
@@ -1951,17 +1984,29 @@
 		"DOTA_Tooltip_Ability_item_ex_machina_dark_Lore"		"一个上古宇宙的残余，保存在一个天球之内。"
 		"DOTA_Tooltip_Ability_item_ex_machina_dark_bonus_armor"		"+$armor"
 
-		// item_ex_machina_light_1 圣光·机械之心
-		"DOTA_Tooltip_Ability_item_ex_machina_light_1"				"<font color='#FFFF00'>圣光·机械之心</font>"
+		// item_ex_machina_light_1 圣光·机械之心（中立）
+		"DOTA_Tooltip_Ability_item_ex_machina_light_1"				"<font color='#FFFF00'>圣光·机械之心（中立）</font>"
 		"DOTA_Tooltip_Ability_item_ex_machina_light_1_Description"		"<h1>主动：重置冷却时间</h1>重置所有物品的冷却时间（刷新球除外）。"
 		"DOTA_Tooltip_Ability_item_ex_machina_light_1_Lore"		"一个上古宇宙的残余，保存在一个天球之内。"
 		"DOTA_Tooltip_Ability_item_ex_machina_light_1_bonus_armor"		"+$armor"
 
-		// item_ex_machina_dark_1 暗影·机械之心
-		"DOTA_Tooltip_Ability_item_ex_machina_dark_1"				"<font color='#8A2BE2'>暗影·机械之心</font>"
+		// item_ex_machina_dark_1 暗影·机械之心（中立）
+		"DOTA_Tooltip_Ability_item_ex_machina_dark_1"				"<font color='#8A2BE2'>暗影·机械之心（中立）</font>"
 		"DOTA_Tooltip_Ability_item_ex_machina_dark_1_Description"		"<h1>主动：重置冷却时间</h1>重置所有物品的冷却时间（刷新球除外）。"
 		"DOTA_Tooltip_Ability_item_ex_machina_dark_1_Lore"		"一个上古宇宙的残余，保存在一个天球之内。"
 		"DOTA_Tooltip_Ability_item_ex_machina_dark_1_bonus_armor"		"+$armor"
+
+		// item_ex_machina_ai 光暗·机械之心
+		"DOTA_Tooltip_Ability_item_ex_machina_ai"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>机</font><font color='#8A2BE2'>械</font><font color='#00FF00'>之</font><font color='#8A2BE2'>心</font>"
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_Description"		"<h1>主动：重置冷却时间</h1>重置所有物品的冷却时间（刷新球除外）。"
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_Lore"		"一个上古宇宙的残余，保存在一个天球之内。"
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_bonus_armor"		"+$armor"
+
+		// item_ex_machina_ai_1 光暗·机械之心（中立）
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_1"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>机</font><font color='#8A2BE2'>械</font><font color='#00FF00'>之</font><font color='#8A2BE2'>心</font>（中立）"
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_1_Description"		"<h1>主动：重置冷却时间</h1>重置所有物品的冷却时间（刷新球除外）。"
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_1_Lore"		"一个上古宇宙的残余，保存在一个天球之内。"
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_1_bonus_armor"		"+$armor"
 
 		// item_pirate_hat_light 圣光·海盗帽
 		"DOTA_Tooltip_Ability_item_pirate_hat_light"				"<font color='#FFFF00'>圣光·海盗帽</font>"
@@ -1972,21 +2017,205 @@
 
 		// item_pirate_hat_dark 暗影·海盗帽
 		"DOTA_Tooltip_Ability_item_pirate_hat_dark"				"<font color='#8A2BE2'>暗影·海盗帽</font>"
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_Description"					"<h1>被动: Agile Thief</h1> 减少 %bat_reduction% 攻击间隔。"
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_Note0"						"不与其他减少攻击间隔的装备叠加。"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_Description"		"<h1>主动：发掘</h1>持续施法%abilitychanneltime%秒。<br>一直都会找到赏金神符！"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_Lore"				"咸味颇重的骷髅礼帽，戴上后会深受财运无穷的诅咒。"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_bonus_ms"						"+$move_speed"
 
-		// item_pirate_hat_light_1 圣光·海盗帽
-		"DOTA_Tooltip_Ability_item_pirate_hat_light_1"				"<font color='#FFFF00'>圣光·海盗帽</font>"
+		// item_pirate_hat_light_1 圣光·海盗帽（中立）
+		"DOTA_Tooltip_Ability_item_pirate_hat_light_1"				"<font color='#FFFF00'>圣光·海盗帽（中立）</font>"
 		"DOTA_Tooltip_Ability_item_pirate_hat_light_1_Description"		"<h1>主动：发掘</h1>持续施法%abilitychanneltime%秒。<br>一直都会找到赏金神符！"
 		"DOTA_Tooltip_Ability_item_pirate_hat_light_1_Lore"				"咸味颇重的骷髅礼帽，戴上后会深受财运无穷的诅咒。"
 		"DOTA_Tooltip_Ability_item_pirate_hat_light_1_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_Ability_item_pirate_hat_light_1_bonus_ms"						"+$move_speed"
 
-		// item_pirate_hat_dark_1 暗影·海盗帽
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1"				"<font color='#8A2BE2'>暗影·海盗帽</font>"
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_Description"					"<h1>被动: Agile Thief</h1> 减少 %bat_reduction% 攻击间隔。"
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_Note0"						"不与其他减少攻击间隔的装备叠加。"
+		// item_pirate_hat_dark_1 暗影·海盗帽（中立）
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1"				"<font color='#8A2BE2'>暗影·海盗帽（中立）</font>"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_Description"		"<h1>主动：发掘</h1>持续施法%abilitychanneltime%秒。<br>一直都会找到赏金神符！"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_Lore"				"咸味颇重的骷髅礼帽，戴上后会深受财运无穷的诅咒。"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_bonus_ms"						"+$move_speed"
+
+		// item_pirate_hat_ai 光暗·海盗帽
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>海</font><font color='#8A2BE2'>盗</font><font color='#00FF00'>帽</font>"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_Description"		"<h1>主动：发掘</h1>持续施法%abilitychanneltime%秒。<br>一直都会找到赏金神符！"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_Lore"				"咸味颇重的骷髅礼帽，戴上后会深受财运无穷的诅咒。"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_bonus_ms"						"+$move_speed"
+
+		// item_pirate_hat_ai_1 光暗·海盗帽（中立）
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_1"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>海</font><font color='#8A2BE2'>盗</font><font color='#00FF00'>帽</font>（中立）"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_1_Description"		"<h1>主动：发掘</h1>持续施法%abilitychanneltime%秒。<br>一直都会找到赏金神符！"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_1_Lore"				"咸味颇重的骷髅礼帽，戴上后会深受财运无穷的诅咒。"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_1_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_1_bonus_ms"						"+$move_speed"
+
+		// item_mysterious_hat_light 圣光·仙灵饰品
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light"				"<font color='#FFFF00'>圣光·仙灵饰品</font>"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_Lore"			"较小的配饰，为了酬谢凡人不经意间流露出的善意而注入了仙灵的好运。"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_spell_amp"			"%+技能增强"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_manacost_reduction"	"%+$manacost_reduction"
+
+		// item_mysterious_hat_dark 暗影·仙灵饰品
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark"				"<font color='#8A2BE2'>暗影·仙灵饰品</font>"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_Lore"			"较小的配饰，为了酬谢凡人不经意间流露出的善意而注入了仙灵的好运。"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_spell_amp"			"%+技能增强"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_manacost_reduction"	"%+$manacost_reduction"
+
+		// item_mysterious_hat_light_1 圣光·仙灵饰品（中立）
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_1"				"<font color='#FFFF00'>圣光·仙灵饰品（中立）</font>"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_1_Lore"			"较小的配饰，为了酬谢凡人不经意间流露出的善意而注入了仙灵的好运。"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_1_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_1_spell_amp"			"%+技能增强"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_1_manacost_reduction"	"%+$manacost_reduction"
+
+		// item_mysterious_hat_dark_1 暗影·仙灵饰品（中立）
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_1"				"<font color='#8A2BE2'>暗影·仙灵饰品（中立）</font>"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_1_Lore"			"较小的配饰，为了酬谢凡人不经意间流露出的善意而注入了仙灵的好运。"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_1_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_1_spell_amp"			"%+技能增强"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_1_manacost_reduction"	"%+$manacost_reduction"
+
+		// item_mysterious_hat_ai 光暗·仙灵饰品
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai"				"<font color='#00FF00'>光暗·仙灵饰品</font>"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_Lore"			"较小的配饰，为了酬谢凡人不经意间流露出的善意而注入了仙灵的好运。"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_spell_amp"			"%+技能增强"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_manacost_reduction"	"%+$manacost_reduction"
+
+		// item_safety_bubble_light 圣光·安全泡泡
+		"DOTA_Tooltip_Ability_item_safety_bubble_light"				"<font color='#FFFF00'>圣光·安全泡泡</font>"
+		"DOTA_Tooltip_ability_item_safety_bubble_light_Description"				"<h1>被动：冒泡</h1>装备的英雄拥有一个可吸收敌方伤害的%shield%点生命的护盾。 %restore_time%秒内没有受到伤害后，护盾将恢复至满血。护盾不会吸收自残伤害。"
+		"DOTA_Tooltip_ability_item_safety_bubble_light_bonus_hp_regen"					"+$hp_regen"
+
+		// item_safety_bubble_dark 暗影·安全泡泡
+		"DOTA_Tooltip_Ability_item_safety_bubble_dark"				"<font color='#8A2BE2'>暗影·安全泡泡</font>"
+		"DOTA_Tooltip_ability_item_safety_bubble_dark_Description"				"<h1>被动：冒泡</h1>装备的英雄拥有一个可吸收敌方伤害的%shield%点生命的护盾。 %restore_time%秒内没有受到伤害后，护盾将恢复至满血。护盾不会吸收自残伤害。"
+		"DOTA_Tooltip_ability_item_safety_bubble_dark_bonus_hp_regen"					"+$hp_regen"
+
+		// item_safety_bubble_light_1 圣光·安全泡泡（中立）
+		"DOTA_Tooltip_Ability_item_safety_bubble_light_1"				"<font color='#FFFF00'>圣光·安全泡泡（中立）</font>"
+		"DOTA_Tooltip_ability_item_safety_bubble_light_1_Description"				"<h1>被动：冒泡</h1>装备的英雄拥有一个可吸收敌方伤害的%shield%点生命的护盾。 %restore_time%秒内没有受到伤害后，护盾将恢复至满血。护盾不会吸收自残伤害。"
+		"DOTA_Tooltip_ability_item_safety_bubble_light_1_bonus_hp_regen"					"+$hp_regen"
+
+		// item_safety_bubble_dark_1 暗影·安全泡泡（中立）
+		"DOTA_Tooltip_Ability_item_safety_bubble_dark_1"				"<font color='#8A2BE2'>暗影·安全泡泡（中立）</font>"
+		"DOTA_Tooltip_ability_item_safety_bubble_dark_1_Description"				"<h1>被动：冒泡</h1>装备的英雄拥有一个可吸收敌方伤害的%shield%点生命的护盾。 %restore_time%秒内没有受到伤害后，护盾将恢复至满血。护盾不会吸收自残伤害。"
+		"DOTA_Tooltip_ability_item_safety_bubble_dark_1_bonus_hp_regen"					"+$hp_regen"
+
+		// item_grove_bow_light 圣光·林野长弓
+		"DOTA_Tooltip_ability_item_grove_bow_light"				"<font color='#FFFF00'>圣光·林野长弓</font>"
+		"DOTA_Tooltip_ability_item_grove_bow_light_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
+		"DOTA_Tooltip_ability_item_grove_bow_light_Lore"                  "月之女神在许多年之前赐给了一名她珍视的信徒一件礼物。"
+		"DOTA_Tooltip_ability_item_grove_bow_light_attack_range_bonus"                  "+$attack_range"
+		"DOTA_Tooltip_ability_item_grove_bow_light_attack_speed_bonus"                  "+$attack"
+
+		// item_grove_bow_dark 暗影·林野长弓
+		"DOTA_Tooltip_ability_item_grove_bow_dark"				"<font color='#8A2BE2'>暗影·林野长弓</font>"
+		"DOTA_Tooltip_ability_item_grove_bow_dark_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
+		"DOTA_Tooltip_ability_item_grove_bow_dark_Lore"                  "月之女神在许多年之前赐给了一名她珍视的信徒一件礼物。"
+		"DOTA_Tooltip_ability_item_grove_bow_dark_attack_range_bonus"                  "+$attack_range"
+		"DOTA_Tooltip_ability_item_grove_bow_dark_attack_speed_bonus"                  "+$attack"
+
+		// item_grove_bow_light_1 圣光·林野长弓（中立）
+		"DOTA_Tooltip_ability_item_grove_bow_light_1"				"<font color='#FFFF00'>圣光·林野长弓（中立）</font>"
+		"DOTA_Tooltip_ability_item_grove_bow_light_1_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
+		"DOTA_Tooltip_ability_item_grove_bow_light_1_Lore"                  "月之女神在许多年之前赐给了一名她珍视的信徒一件礼物。"
+		"DOTA_Tooltip_ability_item_grove_bow_light_1_attack_range_bonus"                  "+$attack_range"
+		"DOTA_Tooltip_ability_item_grove_bow_light_1_attack_speed_bonus"                  "+$attack"
+
+		// item_grove_bow_dark_1 暗影·林野长弓（中立）
+		"DOTA_Tooltip_ability_item_grove_bow_dark_1"				"<font color='#8A2BE2'>暗影·林野长弓（中立）</font>"
+		"DOTA_Tooltip_ability_item_grove_bow_dark_1_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
+		"DOTA_Tooltip_ability_item_grove_bow_dark_1_Lore"                  "月之女神在许多年之前赐给了一名她珍视的信徒一件礼物。"
+		"DOTA_Tooltip_ability_item_grove_bow_dark_1_attack_range_bonus"                  "+$attack_range"
+		"DOTA_Tooltip_ability_item_grove_bow_dark_1_attack_speed_bonus"                  "+$attack"
+
+		// item_grove_bow_ai 光暗·林野长弓
+		"DOTA_Tooltip_ability_item_grove_bow_ai"				"<font color='#00FF00'>光暗·林野长弓</font>"
+		"DOTA_Tooltip_ability_item_grove_bow_ai_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
+		"DOTA_Tooltip_ability_item_grove_bow_ai_Lore"                  "月之女神在许多年之前赐给了一名她珍视的信徒一件礼物。"
+		"DOTA_Tooltip_ability_item_grove_bow_ai_attack_range_bonus"                  "+$attack_range"
+		"DOTA_Tooltip_ability_item_grove_bow_ai_attack_speed_bonus"                  "+$attack"
+
+		// item_ceremonial_robe_light 圣光·祭礼长袍
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light"				"<font color='#FFFF00'>圣光·祭礼长袍</font>"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_Description"						"<h1>被动：祭礼光环</h1>降低敌人%status_resistance%%%状态抗性和%magic_resistance%%%魔法抗性。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_Lore"						"泽伦维尔的圣物箱遭劫时遗失的其中一件物品。"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_bonus_mana"						"+$mana"
+
+		// item_ceremonial_robe_dark 暗影·祭礼长袍
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark"				"<font color='#8A2BE2'>暗影·祭礼长袍</font>"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_Description"						"<h1>被动：祭礼光环</h1>降低敌人%status_resistance%%%状态抗性和%magic_resistance%%%魔法抗性。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_Lore"						"泽伦维尔的圣物箱遭劫时遗失的其中一件物品。"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_bonus_mana"						"+$mana"
+
+		// item_ceremonial_robe_light_1 圣光·祭礼长袍（中立）
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_1"				"<font color='#FFFF00'>圣光·祭礼长袍（中立）</font>"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_1_Description"						"<h1>被动：祭礼光环</h1>降低敌人%status_resistance%%%状态抗性和%magic_resistance%%%魔法抗性。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_1_Lore"						"泽伦维尔的圣物箱遭劫时遗失的其中一件物品。"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_1_bonus_mana"						"+$mana"
+
+		// item_ceremonial_robe_dark_1 暗影·祭礼长袍（中立）
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_1"				"<font color='#8A2BE2'>暗影·祭礼长袍（中立）</font>"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_1_Description"						"<h1>被动：祭礼光环</h1>降低敌人%status_resistance%%%状态抗性和%magic_resistance%%%魔法抗性。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_1_Lore"						"泽伦维尔的圣物箱遭劫时遗失的其中一件物品。"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_1_bonus_mana"						"+$mana"
+
+		// item_ceremonial_robe_ai 光暗·祭礼长袍
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai"				"<font color='#00FF00'>光暗·祭礼长袍</font>"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_Description"						"<h1>被动：祭礼光环</h1>降低敌人%status_resistance%%%状态抗性和%magic_resistance%%%魔法抗性。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_Lore"						"泽伦维尔的圣物箱遭劫时遗失的其中一件物品。"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_bonus_mana"						"+$mana"
+
+		// item_havo_hammer_light 圣光·浩劫巨锤
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light"				"<font color='#FFFF00'>圣光·浩劫巨锤</font>"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_Description"		"<h1>主动：浩劫</h1>牵引自己身边%range%范围内的敌人，造成%slow%%%减速，持续%slow_duration%秒，并造成%nuke_base_dmg% + %nuke_str_dmg% x 自身力量值的魔法伤害。"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_bonus_damage"	"+$damage"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_bonus_strength"	"+$str"
+
+		// item_havo_hammer_dark 暗影·浩劫巨锤
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark"				"<font color='#8A2BE2'>暗影·浩劫巨锤</font>"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_Description"		"<h1>主动：浩劫</h1>牵引自己身边%range%范围内的敌人，造成%slow%%%减速，持续%slow_duration%秒，并造成%nuke_base_dmg% + %nuke_str_dmg% x 自身力量值的魔法伤害。"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_bonus_damage"	"+$damage"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_bonus_strength"	"+$str"
+
+		// item_havo_hammer_light_1 圣光·浩劫巨锤（中立）
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_1"				"<font color='#FFFF00'>圣光·浩劫巨锤（中立）</font>"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_1_Description"		"<h1>主动：浩劫</h1>牵引自己身边%range%范围内的敌人，造成%slow%%%减速，持续%slow_duration%秒，并造成%nuke_base_dmg% + %nuke_str_dmg% x 自身力量值的魔法伤害。"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_1_bonus_damage"	"+$damage"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_1_bonus_strength"	"+$str"
+
+		// item_havo_hammer_dark_1 暗影·浩劫巨锤（中立）
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_1"				"<font color='#8A2BE2'>暗影·浩劫巨锤（中立）</font>"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_1_Description"		"<h1>主动：浩劫</h1>牵引自己身边%range%范围内的敌人，造成%slow%%%减速，持续%slow_duration%秒，并造成%nuke_base_dmg% + %nuke_str_dmg% x 自身力量值的魔法伤害。"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_1_bonus_damage"	"+$damage"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_1_bonus_strength"	"+$str"
+
+		// item_apex_light 圣光·极
+		"DOTA_Tooltip_Ability_item_apex_light"				"<font color='#FFFF00'>圣光·极</font>"
+		"DOTA_Tooltip_Ability_item_apex_light_Lore"		"三个极具威力的宝珠附在一把权杖之上。"
+        "DOTA_Tooltip_Ability_item_apex_light_primary_stat"		"+$primary_attribute"
+        "DOTA_Tooltip_Ability_item_apex_light_Note0"				"对全才英雄提供半额全属性。"
+
+		// item_apex_dark 暗影·极
+		"DOTA_Tooltip_Ability_item_apex_dark"				"<font color='#8A2BE2'>暗影·极</font>"
+		"DOTA_Tooltip_Ability_item_apex_dark_Lore"		"三个极具威力的宝珠附在一把权杖之上。"
+		"DOTA_Tooltip_ability_item_apex_dark_Note0"				"对全才英雄提供半额全属性"
+		"DOTA_Tooltip_ability_item_apex_dark_secondary_stats"				"+次属性"
+
+		// item_apex_light_1 圣光·极（中立）
+		"DOTA_Tooltip_Ability_item_apex_light_1"				"<font color='#FFFF00'>圣光·极（中立）</font>"
+		"DOTA_Tooltip_Ability_item_apex_light_1_Lore"		"三个极具威力的宝珠附在一把权杖之上。"
+		"DOTA_Tooltip_Ability_item_apex_light_1_primary_stat"		"+$primary_attribute"
+		"DOTA_Tooltip_Ability_item_apex_light_1_Note0"				"对全才英雄提供半额全属性。"
+
+		// item_apex_dark_1 暗影·极（中立）
+		"DOTA_Tooltip_Ability_item_apex_dark_1"				"<font color='#8A2BE2'>暗影·极（中立）</font>"
+		"DOTA_Tooltip_Ability_item_apex_dark_1_Lore"		"三个极具威力的宝珠附在一把权杖之上。"
+		"DOTA_Tooltip_ability_item_apex_dark_1_Note0"				"对全才英雄提供半额全属性"
+		"DOTA_Tooltip_ability_item_apex_dark_1_secondary_stats"				"+次属性"
 	}
 }
