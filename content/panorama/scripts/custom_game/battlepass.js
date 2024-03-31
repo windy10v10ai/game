@@ -2,12 +2,9 @@
   $.Schedule(0.1, PregameSetup);
 })();
 
-var levelUseable = 0;
-
 function PregameSetup() {
   PlayerDataLoaded(GetPlayer());
   SubscribePlayer(PlayerDataLoaded);
-  SetDataSelected();
 }
 
 function PlayerDataLoaded(player) {
@@ -18,10 +15,6 @@ function PlayerDataLoaded(player) {
     $("#LoadingFail").visible = true;
     return;
   }
-
-  // 数据
-  $("#ChargePoint").text = player.memberPointTotal;
-  $("#SeasonPoint").text = player.seasonPointTotal;
 
   $("#SeasonLevelNumber").text = player.seasonLevel;
   $("#SeasonLevelNextRemainingNumber").text =
@@ -36,12 +29,21 @@ function PlayerDataLoaded(player) {
   $("#MemberLevelNextRemainingBarLeft").style.width = `${
     (player.memberCurrentLevelPoint / player.memberNextLevelPoint) * 100
   }%`;
+  // 点数提示
+  SetUseableLevelTooltip(player);
 
+  // 顶部积分
+  SetTopStatus(player);
   // 英雄属性
-  SetLevelUseable(player);
   SetPlayerProperty(player);
 
   $.Msg("BP Loaded!");
+
+  if (player.useableLevel > 1) {
+    SetPropertySelected();
+  } else {
+    SetDataSelected();
+  }
 }
 
 // --------------------------------------------------------------------------------
@@ -53,63 +55,77 @@ function SetDataSelected() {
   SwitchToData();
 }
 
+function SetPropertySelected() {
+  $("#BPNavButtonProperty").checked = true;
+  SwitchToProperty();
+}
+
 function SwitchToData() {
   $("#BpWindowMainLevel").visible = true;
   $("#BpWindowMainProperty").visible = false;
 }
 
 // 属性
-// function SetPropertySelected() {
-//   $("#BPNavButtonProperty").checked = true;
-//   SwitchToProperty();
-// }
 
 function SwitchToProperty() {
   $("#BpWindowMainProperty").visible = true;
-  $("#PlayerPropertyContent").visible = true;
 
   $("#BpWindowMainLevel").visible = false;
+  SwitchToPropertyList();
+}
+
+function SwitchToPropertyList() {
+  $("#RBPropertyList").checked = true;
+  $("#PropertyListContainer").visible = true;
+  $("#PropertyResetContainer").visible = false;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function SwitchToPropertyReset() {
+  $("#RBPropertyReset").checked = true;
+  $("#PropertyListContainer").visible = false;
+  $("#PropertyResetContainer").visible = true;
 }
 
 // --------------------------------------------------------------------------------
 // 设置数据页面
-function SetLevelUseable(player) {
-  const playerProperties = player.properties;
-  let levelUsed = 0;
-  const playerPropertiesValues = playerProperties ? Object.values(playerProperties) : [];
-  for (const property of Player_Property_List) {
-    const playerProperty = playerPropertiesValues.find((p) => p.name === property.name);
-    if (playerProperty) {
-      property.level = playerProperty.level;
-      levelUsed += playerProperty.level;
-    } else {
-      property.level = 0;
-    }
-  }
-  const totalLevel = player.memberLevel + player.seasonLevel;
-  levelUseable = totalLevel - levelUsed;
-  $("#PropertyPoint").text = `${levelUseable} / ${totalLevel}`;
-  if (levelUseable === 0) {
-    $("#BPButton").SetHasClass("hasPoint", false);
-  } else {
-    $("#BPButton").SetHasClass("hasPoint", true);
-  }
+function SetUseableLevelTooltip(player) {
+  const useableLevel = player.useableLevel;
+  SetUseableLevelTooltipSnippet($("#BPButtonTooltip"), useableLevel);
 }
 
-// 玩家属性
+function SetUseableLevelTooltipSnippet(panel, useableLevel) {
+  if (!useableLevel) {
+    panel.style.visibility = "collapse";
+    return;
+  }
+  panel.style.visibility = "visible";
+  panel.RemoveAndDeleteChildren();
+  panel.BLoadLayoutSnippet("PlayerPropertyUseableLevelTooltip");
+  panel.FindChildTraverse("UseableLevel").text = useableLevel;
+}
+
+function SetTopStatus(player) {
+  // 数据
+  $("#MemberPoint").text = player.memberPointTotal;
+  $("#SeasonPoint").text = player.seasonPointTotal;
+  $("#PropertyPoint").text = `${player.useableLevel} / ${player.totalLevel}`;
+}
+
+// 属性
 function SetPlayerProperty(player) {
   SetResetPropertyButton(player);
   ClearPlayerProperty();
 
-  const panel = $.CreatePanel("Panel", $("#PlayerPropertyContent"), "");
+  const panel = $.CreatePanel("Panel", $("#PropertyListContainer"), "");
   panel.BLoadLayoutSnippet("PlayerPropertyTooltip");
   for (const property of Player_Property_List) {
-    AddPlayerProperty(property);
+    AddPlayerProperty(player, property);
   }
 }
 
 function ClearPlayerProperty() {
-  $("#PlayerPropertyContent").RemoveAndDeleteChildren();
+  $("#PropertyListContainer").RemoveAndDeleteChildren();
 }
 
 // 设置重置属性按钮
@@ -146,10 +162,18 @@ function SetResetPropertyButton(player) {
   }
 }
 
-function AddPlayerProperty(property) {
+function AddPlayerProperty(player, property) {
+  const propertiesValues = player.properties ? Object.values(player.properties) : [];
+  const playerProperty = propertiesValues.find((p) => p.name === property.name);
+  if (playerProperty) {
+    property.level = playerProperty.level;
+  } else {
+    property.level = 0;
+  }
+
   const maxLevel = 8;
 
-  const panel = $.CreatePanel("Panel", $("#PlayerPropertyContent"), "");
+  const panel = $.CreatePanel("Panel", $("#PropertyListContainer"), "");
   panel.BLoadLayoutSnippet("Property");
 
   // 图标
@@ -203,7 +227,7 @@ function AddPlayerProperty(property) {
     panel.FindChildTraverse("PropertyTooltip").SetHasClass("hidden", false);
   }
 
-  if (property.level < maxLevel && levelUseable >= nextLevel - property.level) {
+  if (property.level < maxLevel && player.useableLevel >= nextLevel - property.level) {
     panel.FindChildTraverse("Levelup").SetHasClass("deactivated", false);
     panel.FindChildTraverse("Levelup").SetHasClass("activated", true);
     panel.FindChildTraverse("Levelup").SetPanelEvent("onactivate", () => {
@@ -394,25 +418,23 @@ const Player_Property_List = [
   },
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ToggleBP() {
   const state = $("#BPWindow");
-  if (state.style.opacity == "0.0" || state.style.opacity == null) {
+  // if has classe ToogleBPMinimize
+  if (state.style.opacity === "0.0" || state.style.opacity == null) {
     state.style.opacity = "0.98";
     state.style.transform = "none";
     state.style.visibility = "visible";
   } else {
     state.style.opacity = "0.0";
-    state.style.transform = "translateX(400px)";
+    state.style.transform = "translateX(-400px)";
     $.Schedule(0.3, CollapseBP);
   }
 }
 
 function CollapseBP() {
   $("#BPWindow").style.visibility = "collapse";
-}
-
-function ToggleSpraySettings() {
-  $.Msg("Toggl");
 }
 
 function GetDotaHud() {

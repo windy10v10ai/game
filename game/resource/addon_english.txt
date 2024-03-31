@@ -100,13 +100,15 @@
 		//            Data panel
 		//
 		///////////////////////////////////////////////////
-		"data_panel_button"				"Player Profile"
+		"data_panel_button"				"Home page"
 		"data_panel_member_point"		"Member Point"
 		"data_panel_season_point"		"Battle Point"
 		"data_panel_property_point"		"Attribute Point (Useable/Total)"
 
 		"data_panel_data_button"		"Data"
-		"data_panel_property_button"	"Player Attribute"
+		"data_panel_property_button"	"Attribute"
+		"data_panel_property_list"		"Add"
+		"data_panel_property_reset"		"Reset"
 
 		"data_panel_season_level"		"Battle Level"
 		"data_panel_season_level_tooltip"		"After playing the game to get the Battle Points, the Battle level will be raised.<br>Attribute points gains after level upgrading, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>For each level up, the points required for upgrade increases by <font color='#E8C07D'>100</font> points."
@@ -118,7 +120,7 @@
 		// "data_panel_link_rule"			"Point Rule"
 		// "data_panel_member_point_rule_url"		"https://afdian.net/p/8d1e8ac8682711ed984b52540025c377"
 
-		"reset_property_use_season_point"		"Reset Property with {seasonPoint} battle points"
+		"reset_property_use_season_point"		"Reset Property use {seasonPoint} battle points"
 		"reset_property_use_member_point"		"Reset Property use 1000 member points"
 
 		"data_panel_player_property_label"		"Consume attribute points to enhance the hero, the upgrade attribute in time to take effect, and can not be modified."

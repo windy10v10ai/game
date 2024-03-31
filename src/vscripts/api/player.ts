@@ -28,7 +28,10 @@ export class PlayerDto {
   memberLevel!: number;
   memberCurrentLevelPoint!: number;
   memberNextLevelPoint!: number;
-  properties?: PlayerProperty[];
+
+  totalLevel: number;
+  useableLevel: number;
+  properties: PlayerProperty[];
 }
 export class PointInfoDto {
   steamId!: number;
@@ -201,12 +204,14 @@ export class Player {
     return null;
   }
 
-  // 升级属性
+  // 监听JS事件
   public RegisterListener() {
+    // 玩家属性升级
     CustomGameEventManager.RegisterListener<{ name: string; level: string }>(
       "player_property_levelup",
       (_, event) => this.onPlayerPropertyLevelup(event),
     );
+    // 玩家属性重置
     CustomGameEventManager.RegisterListener<{ useMemberPoint: number }>(
       "player_property_reset",
       (_, event) => this.onPlayerPropertyReset(event),
@@ -240,26 +245,10 @@ export class Player {
 
   private PropertyLevelupSuccess(data: string) {
     print(`[Player] Property Levelup Success data ${data}`);
-    const playerProperty = json.decode(data)[0] as PlayerProperty;
-    DeepPrintTable(playerProperty);
+    const player = json.decode(data)[0] as PlayerDto;
+    DeepPrintTable(player);
 
-    PropertyController.RefreshPlayerProperty(playerProperty);
-
-    // 更新 nettable
-    const player = Player.playerList.find((p) => p.id === playerProperty.steamId.toString());
-    if (player) {
-      if (!player.properties) {
-        player.properties = [];
-      }
-      const property = player.properties.find((p) => p.name === playerProperty.name);
-      if (property) {
-        property.level = playerProperty.level;
-      } else {
-        player.properties.push(playerProperty);
-      }
-
-      CustomNetTables.SetTableValue("player_table", player.id, player);
-    }
+    Player.UpsertPlayerData(player);
   }
 
   private PropertyLevelupFailure(data: string) {
@@ -294,27 +283,32 @@ export class Player {
 
   private PropertyResetSuccess(data: string) {
     print(`[Player] Property Reset Success data ${data}`);
-    const players = json.decode(data)[0] as PlayerDto[];
-    const player = players[0];
+    const player = json.decode(data)[0] as PlayerDto;
     DeepPrintTable(player);
 
-    const steamId = player.id;
+    Player.UpsertPlayerData(player);
+  }
 
-    PropertyController.ResetPlayerProperty(Number(steamId));
+  private PropertyResetFailure(data: string) {
+    print(`[Player] Property Reset Failure data ${data}`);
+    Player.savePlayerToNetTable();
+  }
 
-    // 更新 nettable
+  /**
+   * 更新玩家数据，属性，nettable
+   */
+  private static UpsertPlayerData(player: PlayerDto) {
+    PropertyController.ResetPlayerProperty(Number(player.id));
+    for (const property of player.properties) {
+      PropertyController.RefreshPlayerProperty(property);
+    }
+
     const index = Player.playerList.findIndex((p) => p.id === player.id);
     if (index > -1) {
       Player.playerList[index] = player;
     } else {
       Player.playerList.push(player);
     }
-
-    Player.savePlayerToNetTable();
-  }
-
-  private PropertyResetFailure(data: string) {
-    print(`[Player] Property Reset Failure data ${data}`);
-    Player.savePlayerToNetTable();
+    CustomNetTables.SetTableValue("player_table", player.id, player);
   }
 }

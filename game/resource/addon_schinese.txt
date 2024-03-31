@@ -101,13 +101,15 @@
 		//            Data panel
 		//
 		///////////////////////////////////////////////////
-		"data_panel_button"				"玩家主页"
+		"data_panel_button"				"主页"
 		"data_panel_member_point"		"会员积分"
 		"data_panel_season_point"		"勇士积分"
 		"data_panel_property_point"		"属性点 (可用/总数)"
 
 		"data_panel_data_button"		"数据"
-		"data_panel_property_button"	"玩家属性"
+		"data_panel_property_button"	"属性"
+		"data_panel_property_list"		"添加属性"
+		"data_panel_property_reset"		"重置属性"
 
 		"data_panel_season_level"		"勇士等级"
 		"data_panel_season_level_tooltip"		"进行游戏获得勇士积分后，勇士等级将提升。<br>升级后获得属性点，可在<font color='#E8C07D'>玩家属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>100</font>点。"
@@ -120,7 +122,7 @@
 
 		"data_panel_player_property_label"		"使用属性点增强英雄，升级后属性及时生效。"
 		"data_panel_player_property_label_2"		"本地主机无法加点，请使用服务器主机进行游戏。"
-		"data_panel_player_property_label_3"		"英雄每升2级将激活1级属性"
+		"data_panel_player_property_label_3"		"英雄每2级将激活1级属性"
 		"data_panel_player_property_label_3_tooltip"		"英雄将在2，4，6，8，10，12，14，16级时，获得相应效果。<br>如，施法距离点了2次+50时，英雄在2级时获得+25，4级时获得+50的效果。<br>部分属性除外"
 
 		"data_panel_player_property_cooldown_percentage"		"冷却时间 ( % )"
