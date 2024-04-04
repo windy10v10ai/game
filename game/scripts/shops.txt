@@ -121,8 +121,8 @@
 		"item"      "item_grove_bow_dark"
 		"item"      "item_ceremonial_robe_light"
 		"item"      "item_ceremonial_robe_dark"
-		"item"      "item_havo_hammer_light"
-		"item"      "item_havo_hammer_dark"
+		"item"      "item_havoc_hammer_light"
+		"item"      "item_havoc_hammer_dark"
 		"item"      "item_apex_light"
 		"item"      "item_apex_dark"
 	}

@@ -6721,7 +6721,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_specialists_array_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -6755,7 +6755,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_specialists_array_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -6786,10 +6786,10 @@
 		"AbilityCooldown"				"1.5"		//8
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"0"
-		"ItemIsNeutralDrop"				"0"
+		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_specialists_array_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -6820,10 +6820,10 @@
 		"AbilityCooldown"				"0.03"		//8
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"0"
-		"ItemIsNeutralDrop"				"0"
+		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_specialists_array_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -6858,7 +6858,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
@@ -6880,6 +6880,8 @@
 		"ItemRequirements"
 		{
 			"01"                        "item_specialists_array_ai;item_exchange"
+			"02"						"item_specialists_array_light_1;item_dark_part"
+			"03"						"item_specialists_array_dark_1;item_light_part"
 		}
 	}
 	"item_specialists_array_ai_1"
@@ -6891,7 +6893,7 @@
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
@@ -6925,7 +6927,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_timeless_relic_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -6955,7 +6957,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_timeless_relic_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -6982,10 +6984,10 @@
 		"BaseClass" "item_timeless_relic"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"0"
-		"ItemIsNeutralDrop"				"0"
+		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_timeless_relic_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7012,10 +7014,10 @@
 		"BaseClass" "item_timeless_relic"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"0"
-		"ItemIsNeutralDrop"				"0"
+		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_timeless_relic_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7046,7 +7048,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
@@ -7065,6 +7067,8 @@
 		"ItemRequirements"
 		{
 			"01"                        "item_timeless_relic_ai;item_exchange"
+			"02"						"item_timeless_relic_light_1;item_dark_part"
+			"03"						"item_timeless_relic_dark_1;item_light_part"
 		}
 	}
 	"item_timeless_relic_ai_1"
@@ -7075,7 +7079,7 @@
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
@@ -7108,7 +7112,7 @@
 		"ItemCost"						"0"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_defiant_shell_light"
 		"AbilityValues"
 		{
@@ -7139,7 +7143,7 @@
 		"ItemCost"						"0"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_defiant_shell_dark"
 		"AbilityValues"
 		{
@@ -7165,12 +7169,12 @@
 	{
 		"BaseClass" "item_defiant_shell"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ItemIsNeutralDrop"				"0"
+		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemCost"						"0"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_defiant_shell_light"
 		"AbilityValues"
 		{
@@ -7196,12 +7200,12 @@
 	{
 		"BaseClass" "item_defiant_shell"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ItemIsNeutralDrop"				"0"
+		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemCost"						"0"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_defiant_shell_dark"
 		"AbilityValues"
 		{
@@ -7231,9 +7235,9 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemCost"						"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"0"
 		"AbilityValues"
 		{
 			"bonus_armor"				"100" //7
@@ -7252,6 +7256,8 @@
 		"ItemRequirements"
 		{
 			"01"                        "item_defiant_shell_ai;item_exchange"
+			"02"						"item_defiant_shell_light_1;item_dark_part"
+			"03"						"item_defiant_shell_dark_1;item_light_part"
 		}
 	}
 	"item_defiant_shell_ai_1"
@@ -7261,9 +7267,9 @@
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemCost"						"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"1"
 		"AbilityValues"
 		{
 			"bonus_armor"				"100" //7
@@ -7296,6 +7302,7 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
 		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_ex_machina_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7326,6 +7333,7 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
 		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_ex_machina_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7356,6 +7364,7 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
 		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_ex_machina_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7386,6 +7395,7 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
 		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_ex_machina_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7417,6 +7427,7 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
 		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
@@ -7434,6 +7445,8 @@
 		"ItemRequirements"
 		{
 			"01"                        "item_ex_machina_ai;item_exchange"
+			"02"						"item_ex_machina_light_1;item_dark_part"
+			"03"						"item_ex_machina_dark_1;item_light_part"
 		}
 	}
 	"item_ex_machina_ai_1"
@@ -7446,6 +7459,7 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
 		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
@@ -7480,6 +7494,7 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
 		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_pirate_hat_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7514,6 +7529,7 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
 		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_pirate_hat_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7548,6 +7564,7 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
 		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_pirate_hat_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7582,6 +7599,7 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
 		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_pirate_hat_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7617,6 +7635,7 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
 		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
@@ -7635,6 +7654,8 @@
 		"ItemRequirements"
 		{
 			"01"                        "item_pirate_hat_ai;item_exchange"
+			"02"						"item_pirate_hat_light_1;item_dark_part"
+			"03"						"item_pirate_hat_dark_1;item_light_part"
 		}
 	}
 	"item_pirate_hat_ai_1"
@@ -7650,6 +7671,7 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
 		"ItemIsNeutralDrop"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
@@ -7680,6 +7702,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_mysterious_hat_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7710,13 +7733,14 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_mysterious_hat_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
 			"bonus_health"			"2500"
 			"spell_amp"				"10"
-			"manacost_reduction"			"90"
+			"manacost_reduction"			"85"
 		}
 	}
 	"item_recipe_mysterious_hat_light_1"
@@ -7740,6 +7764,7 @@
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_mysterious_hat_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7770,13 +7795,14 @@
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_mysterious_hat_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
 			"bonus_health"			"2500"
 			"spell_amp"				"10"
-			"manacost_reduction"			"90"
+			"manacost_reduction"			"85"
 		}
 	}
 	"item_mysterious_hat_ai"
@@ -7792,7 +7818,7 @@
 		{
 			"bonus_health"			"2500"
 			"spell_amp"				"120"
-			"manacost_reduction"			"95"
+			"manacost_reduction"			"85"
 		}
 	}
 
@@ -7804,7 +7830,7 @@
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
 		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_mysterious_hat_light"
+		"ItemResult"                    "item_safety_bubble_light"
 		"ItemRequirements"
 		{
 			"01"                        "item_safety_bubble;item_light_part"
@@ -7818,6 +7844,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_safety_bubble_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7848,6 +7875,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_safety_bubble_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7878,6 +7906,7 @@
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_safety_bubble_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7908,6 +7937,7 @@
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_safety_bubble_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -7942,6 +7972,7 @@
 		"DisplayOverheadAlertOnReceived" "0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_grove_bow_light"
 		"AbilityValues"
 		{
@@ -7957,10 +7988,10 @@
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
 		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_mysterious_hat_dark"
+		"ItemResult"                    "item_grove_bow_dark"
 		"ItemRequirements"
 		{
-			"01"                        "item_mysterious_hat;item_dark_part"
+			"01"                        "item_grove_bow;item_dark_part"
 		}
 	}
 	"item_grove_bow_dark"
@@ -7973,6 +8004,7 @@
 		"DisplayOverheadAlertOnReceived" "0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_grove_bow_dark"
 		"AbilityValues"
 		{
@@ -8004,6 +8036,7 @@
 		"DisplayOverheadAlertOnReceived" "0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_grove_bow_light"
 		"AbilityValues"
 		{
@@ -8035,6 +8068,7 @@
 		"DisplayOverheadAlertOnReceived" "0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_grove_bow_dark"
 		"AbilityValues"
 		{
@@ -8083,6 +8117,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_ceremonial_robe_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -8114,6 +8149,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_ceremonial_robe_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -8145,6 +8181,7 @@
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_ceremonial_robe_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -8176,6 +8213,7 @@
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_ceremonial_robe_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -8227,6 +8265,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_havoc_hammer_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -8269,6 +8308,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_havoc_hammer_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -8311,6 +8351,7 @@
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_havoc_hammer_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -8353,6 +8394,7 @@
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_havoc_hammer_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -8396,6 +8438,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_apex_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -8425,6 +8468,7 @@
 		"ItemIsNeutralDrop"				"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_apex_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -8453,6 +8497,7 @@
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_apex_light"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
@@ -8476,12 +8521,13 @@
 	}
 	"item_apex_dark_1"
 	{
-		"BaseClass" "item_apex"
+		"BaseClass" "item_pupils_gift"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityTextureName"			"item_apex_dark"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
