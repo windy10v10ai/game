@@ -1539,8 +1539,8 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"So, will you be the lucky dog?"
 
-		// item_rapier_ultra_bot ai用诅咒圣剑
-		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#e03e2e'>Liberated Fool's Day Rapier</font>"
+		// item_rapier_ultra_bot 解放的诅咒圣剑
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#e03e2e'>Liberated Cursed Rapier</font>"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by Mars. Gaining <font color='#f15b47'>%bonus_damage_percent%%%</font> bonus base damage, Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will not miss due to evasion or other effects.\n<h1>Passive: <font color='#e03e2e'>Price of Power (Liberated)</font></h1>Great power always comes with a price. <br><font color='#e03e2e'>But there is no price after liberation.</font>"
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot_Lore"					"The liberated cursed rapier will not be destroyed."
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_damage"			"+$damage"

@@ -1690,8 +1690,8 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"至于能不能幸免于难，施主且行且珍惜。"
 
-		// item_rapier_ultra_bot ai用诅咒圣剑
-		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#e03e2e'>解放的愚人节圣剑</font>"
+		// item_rapier_ultra_bot 解放的诅咒圣剑
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#e03e2e'>解放的诅咒圣剑</font>"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Description"            "<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。\n<h1>被动：<font color='#e03e2e'>力量的代价（解放）</font></h1>过于强大力量总会有它的代价。<br><font color='#e03e2e'>但是解放之后就没有代价了</font>"
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot_Lore"					"解放后的诅咒圣剑不会摧毁"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_damage"			"+$damage"

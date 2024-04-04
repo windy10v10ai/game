@@ -8,14 +8,10 @@ export class EventEntityKilled {
   private readonly removeGoldBagDelay = 20;
 
   // 神器碎片
-  private dropItemListArtifactPart: string[] = [
-    "item_light_part",
-    "item_dark_part",
-    "item_rapier_ultra_bot", // 愚人节圣剑
-  ];
+  private dropItemListArtifactPart: string[] = ["item_light_part", "item_dark_part"];
 
   private dropItemChanceRoshanArtifactPart = 100;
-  private dropItemChanceCreepArtifactPart = 1.2;
+  private dropItemChanceCreepArtifactPart = 1.0;
 
   // 龙珠
   private dropItemListDragonBall: string[] = [

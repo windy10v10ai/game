@@ -5612,23 +5612,23 @@
 	//=================================================================================================================
     // 解放的诅咒圣剑 rapier ultra bot
     //=================================================================================================================
-	// "item_recipe_rapier_ultra_bot"
-	// {
-	// 	"BaseClass"						"item_datadriven"
-	// 	"ID"							"9597"
-	// 	"Model"							"models/props_gameplay/recipe.vmdl"
-    //     "AbilityTextureName" 			"item_recipe_rapier_ultra"
-	// 	"ItemCost"						"1400"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"					"1"
-	// 	"ItemResult"					"item_rapier_ultra_bot"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"						"item_rapier_ultra;item_dark_part;item_dark_part"
-	// 		"02"						"item_rapier_ultra;item_light_part;item_dark_part"
-	// 		"03"						"item_rapier_ultra;item_light_part;item_light_part"
-	// 	}
-	// }
+	"item_recipe_rapier_ultra_bot"
+	{
+		"BaseClass"						"item_datadriven"
+		"ID"							"9597"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+        "AbilityTextureName" 			"item_recipe_rapier_ultra"
+		"ItemCost"						"2000"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_rapier_ultra_bot"
+		"ItemRequirements"
+		{
+			"01"						"item_rapier_ultra;item_dark_part;item_dark_part"
+			"02"						"item_rapier_ultra;item_light_part;item_dark_part"
+			"03"						"item_rapier_ultra;item_light_part;item_light_part"
+		}
+	}
 	"item_rapier_ultra_bot"
 	{
 		"BaseClass"						"item_datadriven"
@@ -5639,15 +5639,15 @@
 
 		"ItemDroppable"                 "1"
 		"ItemKillable"					"0"
-		"ItemPurchasable"				"0"
+		"ItemPurchasable"				"1"
 		"ItemSellable"				    "1"
 		"AllowedInBackpack"				"1"
 
 		"AbilityValues"
 		{
-			"bonus_damage"			"1"
-			"bonus_spell_amp"		"1"
-			"bonus_damage_percent"	"1"
+			"bonus_damage"			"1000"
+			"bonus_spell_amp"		"100"
+			"bonus_damage_percent"	"100"
 
 			"ruin_chance_tooltip"	"0"
 		}
