@@ -616,7 +616,7 @@
 		"AbilityValues"
 		{
 			"duration"						"45"
-			"hawk_base_max_health"			"200 250 300 350 400"
+			"hawk_base_max_health"			"300 450 600 750 900"
 			"hawk_base_movespeed"			"420"
 			"hawk_base_gold_bounty"			"60"
 			"hawk_base_vision_range"		"800 900 1000 1100 1200"
@@ -624,16 +624,12 @@
 			{
 				"value"						"60"
 				"special_bonus_shard"		"-10"
-
 			}
-		}
-	}
-	// 战鹰俯冲
-	"beastmaster_hawk_dive"
-	{
-		"AbilityValues"
-		{
-			"damage"		"350"
+			"dive_damage"
+			{
+				"value"		"60 120 180 240 300"
+				"special_bonus_unique_beastmaster_2" "+30"
+			}
 		}
 	}
 	"special_bonus_unique_beastmaster_5"
