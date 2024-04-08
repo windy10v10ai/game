@@ -2078,12 +2078,12 @@
 		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_1_spell_amp"			"%+技能增强"
 		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_1_manacost_reduction"	"%+$manacost_reduction"
 
-		// item_mysterious_hat_ai 光暗·仙灵饰品
-		"DOTA_Tooltip_Ability_item_mysterious_hat_ai"				"<font color='#00FF00'>光暗·仙灵饰品</font>"
-		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_Lore"			"较小的配饰，为了酬谢凡人不经意间流露出的善意而注入了仙灵的好运。"
-		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_bonus_health"			"+$health"
-		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_spell_amp"			"%+技能增强"
-		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_manacost_reduction"	"%+$manacost_reduction"
+		// item_mysterious_hat_ai_1 光暗·仙灵饰品（中立）
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1"				"<font color='#00FF00'>光暗·仙灵饰品（中立）</font>"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1_Lore"			"较小的配饰，为了酬谢凡人不经意间流露出的善意而注入了仙灵的好运。"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1_spell_amp"			"%+技能增强"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1_manacost_reduction"	"%+$manacost_reduction"
 
 		// item_safety_bubble_light 圣光·安全泡泡
 		"DOTA_Tooltip_Ability_item_safety_bubble_light"				"<font color='#FFFF00'>圣光·安全泡泡</font>"
@@ -2164,13 +2164,13 @@
 		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_1_Lore"						"泽伦维尔的圣物箱遭劫时遗失的其中一件物品。"
 		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_1_bonus_mana"						"+$mana"
 
-		// item_ceremonial_robe_ai 光暗·祭礼长袍
-		"DOTA_Tooltip_ability_item_ceremonial_robe_ai"				"<font color='#00FF00'>光暗·祭礼长袍</font>"
-		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_Description"						"<h1>被动：祭礼光环</h1>降低敌人%status_resistance%%%状态抗性和%magic_resistance%%%魔法抗性。<br><br>作用范围：%aura_radius%"
-		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_Lore"						"泽伦维尔的圣物箱遭劫时遗失的其中一件物品。"
-		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_bonus_mana"						"+$mana"
+		// item_ceremonial_robe_ai_1 光暗·祭礼长袍（中立）
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_1"				"<font color='#00FF00'>光暗·祭礼长袍（中立）</font>"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_1_Description"						"<h1>被动：祭礼光环</h1>降低敌人%status_resistance%%%状态抗性和%magic_resistance%%%魔法抗性。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_1_Lore"						"泽伦维尔的圣物箱遭劫时遗失的其中一件物品。"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_1_bonus_mana"						"+$mana"
 
-		// item_havo_hammer_light 圣光·浩劫巨锤
+		// item_havoc_hammer_light 圣光·浩劫巨锤
 		"DOTA_Tooltip_Ability_item_havoc_hammer_light"				"<font color='#FFFF00'>圣光·浩劫巨锤</font>"
 		"DOTA_Tooltip_Ability_item_havoc_hammer_light_Description"		"<h1>主动：浩劫</h1>牵引自己身边%range%范围内的敌人，造成%slow%%%减速，持续%slow_duration%秒，并造成%nuke_base_dmg% + %nuke_str_dmg% x 自身力量值的魔法伤害。"
 		"DOTA_Tooltip_Ability_item_havoc_hammer_light_bonus_damage"	"+$damage"
@@ -2182,7 +2182,7 @@
 		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_bonus_damage"	"+$damage"
 		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_bonus_strength"	"+$str"
 
-		// item_havo_hammer_light_1 圣光·浩劫巨锤（中立）
+		// item_havoc_hammer_light_1 圣光·浩劫巨锤（中立）
 		"DOTA_Tooltip_Ability_item_havoc_hammer_light_1"				"<font color='#FFFF00'>圣光·浩劫巨锤（中立）</font>"
 		"DOTA_Tooltip_Ability_item_havoc_hammer_light_1_Description"		"<h1>主动：浩劫</h1>牵引自己身边%range%范围内的敌人，造成%slow%%%减速，持续%slow_duration%秒，并造成%nuke_base_dmg% + %nuke_str_dmg% x 自身力量值的魔法伤害。"
 		"DOTA_Tooltip_Ability_item_havoc_hammer_light_1_bonus_damage"	"+$damage"

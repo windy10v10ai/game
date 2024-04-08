@@ -824,7 +824,7 @@
 	}
 	"item_specialists_array" //行家阵列
 	{
-		"AbilityCooldown"				"0.8"		//8
+		"AbilityCooldown"				"1.5"		//8
 		"AbilityValues"
 		{
 			"all_stats"						"30"	//7
@@ -1013,8 +1013,8 @@
 	{
 		"AbilityValues"
 		{
-			"debuff_amp"		"40"	// 20
-			"spell_amp"			"45"	// 15
+			"debuff_amp"		"35"	// 20
+			"spell_amp"			"30"	// 15
 		}
 	}
 	"item_force_boots" //原力鞋 推推鞋
