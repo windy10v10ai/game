@@ -1509,12 +1509,12 @@
 
 	"item_smoke_of_deceit"
 	{
-		"ItemInitialCharges"			"1"
+		"ItemInitialCharges"			"2"
 		"ItemStockMax"					"5"
-		"ItemStockTime"					"180.0"
+		"ItemStockTime"					"120.0" // or 150
 		"AbilityValues"
 		{
-			"visibility_radius"		"900"	// 1025
+			"visibility_radius"		"750"	// 1025
 		}
 	}
 
