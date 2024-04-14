@@ -204,50 +204,50 @@
 	"item_tier1_token"
 	{
 		"ItemCost"                      "500"
-		"ItemInitialStockTime"          "105"
+		"ItemInitialStockTime"          "165"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
-		"ItemStockTime"					"60"
+		"ItemStockTime"					"120"
 		"ItemPurchasable"				"1"
 		"ItemSellable"                  "0"
 	}
 	"item_tier2_token"
 	{
 		"ItemCost"                      "1000"
-		"ItemInitialStockTime"          "465"
+		"ItemInitialStockTime"          "525"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
-		"ItemStockTime"					"60"
+		"ItemStockTime"					"120"
 		"ItemPurchasable"				"1"
 		"ItemSellable"                  "0"
 	}
 	"item_tier3_token"
 	{
 		"ItemCost"                      "1500"
-		"ItemInitialStockTime"          "825"
+		"ItemInitialStockTime"          "885"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
-		"ItemStockTime"					"60"
+		"ItemStockTime"					"120"
 		"ItemPurchasable"				"1"
 		"ItemSellable"                  "0"
 	}
 	"item_tier4_token"
 	{
 		"ItemCost"                      "2000"
-		"ItemInitialStockTime"          "1185"
+		"ItemInitialStockTime"          "1245"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
-		"ItemStockTime"					"60"
+		"ItemStockTime"					"120"
 		"ItemPurchasable"				"1"
 		"ItemSellable"                  "0"
 	}
 	"item_tier5_token"
 	{
 		"ItemCost"                      "2500"
-		"ItemInitialStockTime"          "1545"
+		"ItemInitialStockTime"          "1605"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
-		"ItemStockTime"					"60"
+		"ItemStockTime"					"120"
 		"ItemPurchasable"				"1"
 		"ItemSellable"                  "0"
 	}
@@ -507,7 +507,7 @@
 	}
 	"item_gossamer_cape" //蛛丝斗篷
 	{
-		"AbilityCooldown"				"1.5"  //4
+		"AbilityCooldown"				"2"		//4
 		"AbilityValues"
 		{
 			"movement_speed"			"40"   //20
@@ -805,9 +805,9 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_damage"			"80" //16
+			"bonus_damage"			"40" //16
 			"bonus_lifesteal"		"24" //16
-			"bonus_spell_lifesteal"	"24"  //8
+			"bonus_spell_lifesteal"	"16"  //8
 			"bonus_amp"			    "24" //14
 			"creep_lifesteal_reduction_pct"	"40" //40
 		}
@@ -839,11 +839,11 @@
 		"AbilityCooldown"		"25.0"  //25
 		"AbilityValues"
 		{
-			"status_resistance"	"60"	//40
-			"slow_resistance"	"60"	//40
-			"bonus_health"		"2500"	//250
+			"status_resistance"	"40"	//40
+			"slow_resistance"	"40"	//40
+			"bonus_health"		"2000"	//250
 			"duration"		"5"			//5
-			"hp_regen"		"40"		//20
+			"hp_regen"		"25"		//20
 		}
 	}
 	"item_avianas_feather" //艾维娜之羽
@@ -879,11 +879,11 @@
 	}
 	"item_trickster_cloak" //欺诈师斗篷
 	{
-		"AbilityCooldown"				"20.0" //25
+		"AbilityCooldown"				"25.0" //25
 		"AbilityValues"
 		{
-				"evasion"			"34" //17
-				"magic_resistance"	"34" //17
+				"evasion"			"30" //17
+				"magic_resistance"	"30" //17
 				"duration"			"8"  //6
 		}
 	}
@@ -906,7 +906,7 @@
 	{
 		"AbilityValues"
 		{
-			"extra_bonus_damage"	"500"    //50
+			"extra_bonus_damage"	"400"    //50
 			"bonus_damage"			"100"    //50
 			"radius"				"2000"  //2000
 		}

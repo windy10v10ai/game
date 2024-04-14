@@ -4994,7 +4994,6 @@
 			"bonus_armor"			"12"
 			"bonus_health_regen"	"10"
 			"unholy_bonus_damage"	"45"
-			"unholy_bonus_attack_speed"	"15"
 			"unholy_bonus_strength"	"50"
 			"unholy_bonus_armor"	"8"
 			"unholy_bonus_slow_resistance"	"35"
@@ -5059,7 +5058,6 @@
 			"bonus_armor"			"18"
 			"bonus_health_regen"	"15"
 			"unholy_bonus_damage"	"55"
-			"unholy_bonus_attack_speed"	"30"
 			"unholy_bonus_strength"	"75"
 			"unholy_bonus_armor"	"12"
 			"unholy_bonus_slow_resistance"	"45"
@@ -6619,7 +6617,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"				    "1"
         "ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"          "1485"// 24分钟买
+		"ItemInitialStockTime"          "1605"// 26分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"120"
@@ -6641,7 +6639,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"				    "1"
         "ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"          "1485"// 24分钟买
+		"ItemInitialStockTime"          "1605"// 26分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"120"
@@ -7357,7 +7355,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityCastAnimation"			"ACT_DOTA_GENERIC_CHANNEL_1"
 		"AbilityCastRange"				"250"
-		"AbilityCooldown"				"10.0"
+		"AbilityCooldown"				"20.0"
 		"AbilityCastPoint"				"0.0"
 		"AbilityChannelTime"			"0.5"
 		"ItemCost"						"0"
@@ -7370,7 +7368,7 @@
 		"AbilityValues"
 		{
 			"bonus_attack_speed"			"600"
-			"bonus_ms"						"400"
+			"bonus_ms"						"300"
 		}
 	}
 	"item_recipe_pirate_hat_dark"
@@ -7427,7 +7425,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityCastAnimation"			"ACT_DOTA_GENERIC_CHANNEL_1"
 		"AbilityCastRange"				"250"
-		"AbilityCooldown"				"10.0"
+		"AbilityCooldown"				"20.0"
 		"AbilityCastPoint"				"0.0"
 		"AbilityChannelTime"			"0.5"
 		"ItemCost"						"0"
@@ -7440,7 +7438,7 @@
 		"AbilityValues"
 		{
 			"bonus_attack_speed"			"600"
-			"bonus_ms"						"400"
+			"bonus_ms"						"300"
 		}
 	}
 	"item_recipe_pirate_hat_dark_1"
@@ -7510,7 +7508,7 @@
 		"AbilityValues"
 		{
 			"bonus_attack_speed"			"600"
-			"bonus_ms"						"400"
+			"bonus_ms"						"300"
 		}
 	}
 	"item_recipe_pirate_hat_ai_1"
@@ -7546,7 +7544,7 @@
 		"AbilityValues"
 		{
 			"bonus_attack_speed"			"600"
-			"bonus_ms"						"400"
+			"bonus_ms"						"300"
 		}
 	}
 
@@ -7766,7 +7764,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"8000"
+			"shield"			"8000"			//100
 			"restore_time"		"4"
 			"bonus_hp_regen"	"5"
 		}
@@ -7797,8 +7795,8 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"				"2000"
-			"restore_time"			"0.4"
+			"shield"				"2000"			//100
+			"restore_time"			"1"
 			"bonus_hp_regen"		"50"
 		}
 	}
@@ -7828,7 +7826,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"8000"
+			"shield"			"8000"			//100
 			"restore_time"		"4"
 			"bonus_hp_regen"	"5"
 		}
@@ -7859,8 +7857,8 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"				"2000"
-			"restore_time"			"0.4"
+			"shield"				"2000"			//100
+			"restore_time"			"1"
 			"bonus_hp_regen"		"50"
 		}
 	}
@@ -7956,7 +7954,7 @@
 		"AbilityTextureName"			"item_grove_bow_light"
 		"AbilityValues"
 		{
-			"attack_range_bonus"			"250"		// 75
+			"attack_range_bonus"			"200"		// 75
 			"attack_speed_bonus"			"100"		// 20
 			"magic_resistance_reduction"		"20"	// 15
 		}
@@ -8020,7 +8018,7 @@
 		"AbilityTextureName"			"item_grove_bow_light"
 		"AbilityValues"
 		{
-			"attack_range_bonus"			"250"		// 75
+			"attack_range_bonus"			"200"		// 75
 			"attack_speed_bonus"			"100"		// 20
 			"magic_resistance_reduction"		"20"	// 15
 		}
@@ -8084,7 +8082,7 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityValues"
 		{
-			"attack_range_bonus"			"250"		// 75
+			"attack_range_bonus"			"200"		// 75
 			"attack_speed_bonus"			"200"		// 20
 			"magic_resistance_reduction"		"100"	// 15
 		}
@@ -8117,7 +8115,7 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityValues"
 		{
-			"attack_range_bonus"			"250"		// 75
+			"attack_range_bonus"			"200"		// 75
 			"attack_speed_bonus"			"200"		// 20
 			"magic_resistance_reduction"		"100"	// 15
 		}
@@ -8634,7 +8632,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"secondary_stats"			"500" //15
+			"secondary_stats"			"400" //15
 		}
 	}
 	"item_recipe_apex_light_1"
@@ -8693,7 +8691,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"secondary_stats"			"500" //15
+			"secondary_stats"			"400" //15
 		}
 	}
 	"item_recipe_apex_ai"
@@ -8758,188 +8756,188 @@
 		}
 	}
 
-	// // 光暗蛛丝斗篷
-	// "item_recipe_gossamer_cape_light"
-	// {
-	// 	"BaseClass"                     "item_datadriven"
-	// 	"ID"						    "11007"
-	// 	"ItemCost"                      "0"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"                    "1"
-	// 	"ItemResult"                    "item_gossamer_cape_light"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"                        "item_gossamer_cape;item_light_part"
-	// 	}
-	// }
-	// "item_gossamer_cape_light"
-	// {
-	// 	"BaseClass" "item_gossamer_cape"
-	// 	"AbilityCooldown"				"1.5"  //4
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	// 	"ItemCost"						"0"
-	// 	"ItemIsNeutralDrop"				"0"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemSellable"					"0"
-	// 	"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-	// 	"AbilityTextureName"			"item_gossamer_cape_light"
-	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
-	// 	"AbilityValues"
-	// 	{
-	// 		"movement_speed"			"400"   //20
-	// 	}
-	// }
-	// "item_recipe_gossamer_cape_dark"
-	// {
-	// 	"BaseClass"                     "item_datadriven"
-	// 	"ID"						    "11008"
-	// 	"ItemCost"                      "0"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"                    "1"
-	// 	"ItemResult"                    "item_gossamer_cape_dark"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"                        "item_gossamer_cape;item_dark_part"
-	// 	}
-	// }
-	// "item_gossamer_cape_dark"
-	// {
-	// 	"BaseClass" "item_gossamer_cape"
-	// 	"AbilityCooldown"				"0.4"  //4
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	// 	"ItemCost"						"0"
-	// 	"ItemIsNeutralDrop"				"0"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemSellable"					"0"
-	// 	"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-	// 	"AbilityTextureName"			"item_gossamer_cape_dark"
-	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
-	// 	"AbilityValues"
-	// 	{
-	// 		"movement_speed"			"100"   //20
-	// 	}
-	// }
-	// "item_recipe_gossamer_cape_light_1"
-	// {
-	// 	"BaseClass"                     "item_datadriven"
-	// 	"ID"						    "12007"
-	// 	"ItemCost"                      "0"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"                    "1"
-	// 	"ItemResult"                    "item_gossamer_cape_light_1"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"                        "item_gossamer_cape_light;item_exchange"
-	// 	}
-	// }
-	// "item_gossamer_cape_light_1"
-	// {
-	// 	"BaseClass" "item_gossamer_cape"
-	// 	"AbilityCooldown"				"1.5"  //4
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	// 	"ItemCost"						"0"
-	// 	"ItemIsNeutralDrop"				"1"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemSellable"					"0"
-	// 	"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-	// 	"AbilityTextureName"			"item_gossamer_cape_light"
-	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
-	// 	"AbilityValues"
-	// 	{
-	// 		"movement_speed"			"400"   //20
-	// 	}
-	// }
-	// "item_recipe_gossamer_cape_dark_1"
-	// {
-	// 	"BaseClass"                     "item_datadriven"
-	// 	"ID"						    "12008"
-	// 	"ItemCost"                      "0"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"                    "1"
-	// 	"ItemResult"                    "item_gossamer_cape_dark_1"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"                        "item_gossamer_cape_dark;item_exchange"
-	// 	}
-	// }
-	// "item_gossamer_cape_dark_1"
-	// {
-	// 	"BaseClass" "item_gossamer_cape"
-	// 	"AbilityCooldown"				"0.4"  //4
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	// 	"ItemCost"						"0"
-	// 	"ItemIsNeutralDrop"				"1"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemSellable"					"0"
-	// 	"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-	// 	"AbilityTextureName"			"item_gossamer_cape_dark"
-	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
-	// 	"AbilityValues"
-	// 	{
-	// 		"movement_speed"			"100"   //20
-	// 	}
-	// }
-	// "item_recipe_gossamer_cape_ai"
-	// {
-	// 	"BaseClass"                     "item_datadriven"
-	// 	"ID"						    "13009"
-	// 	"ItemCost"                      "0"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"                    "1"
-	// 	"ItemResult"					"item_gossamer_cape_ai"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"                        "item_gossamer_cape_light;item_dark_part"
-	// 		"02"						"item_gossamer_cape_dark;item_light_part"
-	// 	}
-	// }
-	// "item_gossamer_cape_ai"
-	// {
-	// 	"BaseClass" "item_gossamer_cape"
-	// 	"AbilityCooldown"				"0.4"  //4
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	// 	"ItemCost"						"0"
-	// 	"ItemIsNeutralDrop"				"0"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemSellable"					"0"
-	// 	"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
-	// 	"AbilityValues"
-	// 	{
-	// 		"movement_speed"			"500"   //20
-	// 	}
-	// }
-	// "item_recipe_gossamer_cape_ai_1"
-	// {
-	// 	"BaseClass"                     "item_datadriven"
-	// 	"ID"						    "13010"
-	// 	"ItemCost"                      "0"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"                    "1"
-	// 	"ItemResult"					"item_gossamer_cape_ai_1"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"                        "item_gossamer_cape_ai;item_exchange"
-	// 		"02"						"item_gossamer_cape_light_1;item_dark_part"
-	// 		"03"						"item_gossamer_cape_dark_1;item_light_part"
-	// 	}
-	// }
-	// "item_gossamer_cape_ai_1"
-	// {
-	// 	"BaseClass" "item_gossamer_cape"
-	// 	"AbilityCooldown"				"0.4"  //4
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	// 	"ItemCost"						"0"
-	// 	"ItemIsNeutralDrop"				"1"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemSellable"					"0"
-	// 	"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
-	// 	"AbilityValues"
-	// 	{
-	// 		"movement_speed"			"500"   //20
-	// 	}
-	// }
+	// 光暗蛛丝斗篷
+	"item_recipe_gossamer_cape_light"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "11007"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_gossamer_cape_light"
+		"ItemRequirements"
+		{
+			"01"                        "item_gossamer_cape;item_light_part"
+		}
+	}
+	"item_gossamer_cape_light"
+	{
+		"BaseClass" "item_gossamer_cape"
+		"AbilityCooldown"				"2"  //4
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_gossamer_cape_light"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+			"movement_speed"			"300"   //20
+		}
+	}
+	"item_recipe_gossamer_cape_dark"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "11008"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_gossamer_cape_dark"
+		"ItemRequirements"
+		{
+			"01"                        "item_gossamer_cape;item_dark_part"
+		}
+	}
+	"item_gossamer_cape_dark"
+	{
+		"BaseClass" "item_gossamer_cape"
+		"AbilityCooldown"				"0.4"  //4
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_gossamer_cape_dark"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+			"movement_speed"			"40"   //20
+		}
+	}
+	"item_recipe_gossamer_cape_light_1"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "12007"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_gossamer_cape_light_1"
+		"ItemRequirements"
+		{
+			"01"                        "item_gossamer_cape_light;item_exchange"
+		}
+	}
+	"item_gossamer_cape_light_1"
+	{
+		"BaseClass" "item_gossamer_cape"
+		"AbilityCooldown"				"2"  //4
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_gossamer_cape_light"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+			"movement_speed"			"300"   //20
+		}
+	}
+	"item_recipe_gossamer_cape_dark_1"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "12008"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_gossamer_cape_dark_1"
+		"ItemRequirements"
+		{
+			"01"                        "item_gossamer_cape_dark;item_exchange"
+		}
+	}
+	"item_gossamer_cape_dark_1"
+	{
+		"BaseClass" "item_gossamer_cape"
+		"AbilityCooldown"				"0.4"  //4
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_gossamer_cape_dark"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+			"movement_speed"			"40"   //20
+		}
+	}
+	"item_recipe_gossamer_cape_ai"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "13009"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"					"item_gossamer_cape_ai"
+		"ItemRequirements"
+		{
+			"01"                        "item_gossamer_cape_light;item_dark_part"
+			"02"						"item_gossamer_cape_dark;item_light_part"
+		}
+	}
+	"item_gossamer_cape_ai"
+	{
+		"BaseClass" "item_gossamer_cape"
+		"AbilityCooldown"				"0.4"  //4
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+			"movement_speed"			"300"   //20
+		}
+	}
+	"item_recipe_gossamer_cape_ai_1"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "13010"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"					"item_gossamer_cape_ai_1"
+		"ItemRequirements"
+		{
+			"01"                        "item_gossamer_cape_ai;item_exchange"
+			"02"						"item_gossamer_cape_light_1;item_dark_part"
+			"03"						"item_gossamer_cape_dark_1;item_light_part"
+		}
+	}
+	"item_gossamer_cape_ai_1"
+	{
+		"BaseClass" "item_gossamer_cape"
+		"AbilityCooldown"				"0.4"  //4
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+			"movement_speed"			"300"   //20
+		}
+	}
 
 	//光暗骑士剑
 	"item_recipe_paladin_sword_light"
@@ -8969,9 +8967,9 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"200" //16
+			"bonus_lifesteal"		"100" //16
 			"bonus_spell_lifesteal"	"24"  //8
-			"bonus_amp"			    "100" //14
+			"bonus_amp"			    "24" //14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
 	}
@@ -9003,8 +9001,8 @@
 		{
 			"bonus_damage"			"200" //16
 			"bonus_lifesteal"		"24" //16
-			"bonus_spell_lifesteal"	"200"  //8
-			"bonus_amp"			    "200" //14
+			"bonus_spell_lifesteal"	"100"  //8
+			"bonus_amp"			    "100" //14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
 	}
@@ -9035,9 +9033,9 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"200" //16
+			"bonus_lifesteal"		"100" //16
 			"bonus_spell_lifesteal"	"24"  //8
-			"bonus_amp"			    "100" //14
+			"bonus_amp"			    "24" //14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
 	}
@@ -9069,8 +9067,8 @@
 		{
 			"bonus_damage"			"200" //16
 			"bonus_lifesteal"		"24" //16
-			"bonus_spell_lifesteal"	"200"  //8
-			"bonus_amp"			    "200" //14
+			"bonus_spell_lifesteal"	"100"  //8
+			"bonus_amp"			    "100" //14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
 	}
@@ -9101,9 +9099,9 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"200" //16
-			"bonus_spell_lifesteal"	"200"  //8
-			"bonus_amp"			    "200" //14
+			"bonus_lifesteal"		"100" //16
+			"bonus_spell_lifesteal"	"100"  //8
+			"bonus_amp"			    "100" //14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
 	}
@@ -9135,9 +9133,9 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"200" //16
-			"bonus_spell_lifesteal"	"200"  //8
-			"bonus_amp"			    "200" //14
+			"bonus_lifesteal"		"100" //16
+			"bonus_spell_lifesteal"	"100"  //8
+			"bonus_amp"			    "100" //14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
 	}
@@ -9173,7 +9171,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"intelligence_pct"		"100"	//15
+			"intelligence_pct"		"60"	//15
 			"cast_range"			"150"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
@@ -9210,7 +9208,7 @@
 		"AbilityValues"
 		{
 			"intelligence_pct"		"25"	//15
-			"cast_range"			"450"	//100
+			"cast_range"			"300"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
@@ -9245,7 +9243,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"intelligence_pct"		"100"	//15
+			"intelligence_pct"		"60"	//15
 			"cast_range"			"150"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
@@ -9282,7 +9280,7 @@
 		"AbilityValues"
 		{
 			"intelligence_pct"		"25"	//15
-			"cast_range"			"450"	//100
+			"cast_range"			"300"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
@@ -9317,8 +9315,8 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"intelligence_pct"		"100"	//15
-			"cast_range"			"450"	//100
+			"intelligence_pct"		"60"	//15
+			"cast_range"			"300"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
@@ -9354,8 +9352,8 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"intelligence_pct"		"100"	//15
-			"cast_range"			"450"	//100
+			"intelligence_pct"		"60"	//15
+			"cast_range"			"300"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
@@ -9392,9 +9390,9 @@
 		{
 			"status_resistance"	"40"	//40
 			"slow_resistance"	"40"	//40
-			"bonus_health"		"2500"	//250
+			"bonus_health"		"5000"	//250
 			"duration"		"5"			//5
-			"hp_regen"		"40"		//20
+			"hp_regen"		"50"		//20
 		}
 	}
 	"item_recipe_ascetic_cap_dark"
@@ -9413,7 +9411,7 @@
 	"item_ascetic_cap_dark"
 	{
 		"BaseClass" "item_ascetic_cap"
-		"AbilityCooldown"		"20.0"  //25
+		"AbilityCooldown"		"25.0"  //25
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"				"0"
 		"ItemIsNeutralDrop"		"0"
@@ -9425,11 +9423,11 @@
 		"Model"					"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"status_resistance"	"100"	//40
-			"slow_resistance"	"100"	//40
-			"bonus_health"		"2500"	//250
+			"status_resistance"	"90"	//40
+			"slow_resistance"	"90"	//40
+			"bonus_health"		"2000"	//250
 			"duration"		"5"			//5
-			"hp_regen"		"40"		//20
+			"hp_regen"		"50"		//20
 		}
 	}
 	"item_recipe_ascetic_cap_light_1"
@@ -9462,9 +9460,9 @@
 		{
 			"status_resistance"	"40"	//40
 			"slow_resistance"	"40"	//40
-			"bonus_health"		"2500"	//250
+			"bonus_health"		"5000"	//250
 			"duration"		"5"			//5
-			"hp_regen"		"40"		//20
+			"hp_regen"		"50"		//20
 		}
 	}
 	"item_recipe_ascetic_cap_dark_1"
@@ -9483,7 +9481,7 @@
 	"item_ascetic_cap_dark_1"
 	{
 		"BaseClass" "item_ascetic_cap"
-		"AbilityCooldown"		"20.0"  //25
+		"AbilityCooldown"		"25.0"  //25
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"				"0"
 		"ItemIsNeutralDrop"		"1"
@@ -9495,11 +9493,11 @@
 		"Model"					"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"status_resistance"	"100"	//40
-			"slow_resistance"	"100"	//40
-			"bonus_health"		"2500"	//250
+			"status_resistance"	"90"	//40
+			"slow_resistance"	"90"	//40
+			"bonus_health"		"2000"	//250
 			"duration"		"5"			//5
-			"hp_regen"		"40"		//20
+			"hp_regen"		"50"		//20
 		}
 	}
 	"item_recipe_ascetic_cap_ai"
@@ -9530,11 +9528,11 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"status_resistance"	"100"	//40
-			"slow_resistance"	"100"	//40
-			"bonus_health"		"2500"	//250
-			"duration"		"7"			//5
-			"hp_regen"		"40"		//20
+			"status_resistance"	"90"	//40
+			"slow_resistance"	"90"	//40
+			"bonus_health"		"5000"	//250
+			"duration"		"5"			//5
+			"hp_regen"		"50"		//20
 		}
 	}
 	"item_recipe_ascetic_cap_ai_1"
@@ -9566,208 +9564,208 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"status_resistance"	"100"	//40
-			"slow_resistance"	"100"	//40
-			"bonus_health"		"2500"	//250
-			"duration"		"7"			//5
-			"hp_regen"		"40"		//20
+			"status_resistance"	"90"	//40
+			"slow_resistance"	"90"	//40
+			"bonus_health"		"5000"	//250
+			"duration"		"5"			//5
+			"hp_regen"		"50"		//20
 		}
 	}
 
-	// // 光暗欺诈师斗篷
-	// "item_recipe_trickster_cloak_light"
-	// {
-	// 	"BaseClass"                     "item_datadriven"
-	// 	"ID"						    "11023"
-	// 	"ItemCost"                      "0"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"                    "1"
-	// 	"ItemResult"                    "item_trickster_cloak_light"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"                        "item_trickster_cloak;item_light_part"
-	// 	}
-	// }
-	// "item_trickster_cloak_light"
-	// {
-	// 	"BaseClass" "item_trickster_cloak"
-	// 	"AbilityCooldown"				"12.5" //25
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-	// 	"ItemCost"						"0"
-	// 	"ItemIsNeutralDrop"				"0"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemSellable"					"0"
-	// 	"item_disassemble_rule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-	// 	"AbilityTextureName"			"item_trickster_cloak_light"
-	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
-	// 	"AbilityValues"
-	// 	{
-	// 			"evasion"			"100" //17
-	// 			"magic_resistance"	"34" //17
-	// 			"duration"			"10"  //6
-	// 	}
-	// }
-	// "item_recipe_trickster_cloak_dark"
-	// {
-	// 	"BaseClass"                     "item_datadriven"
-	// 	"ID"						    "11024"
-	// 	"ItemCost"                      "0"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"                    "1"
-	// 	"ItemResult"                    "item_trickster_cloak_dark"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"                        "item_trickster_cloak;item_dark_part"
-	// 	}
-	// }
-	// "item_trickster_cloak_dark"
-	// {
-	// 	"BaseClass" "item_trickster_cloak"
-	// 	"AbilityCooldown"				"20.0" //25
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-	// 	"ItemCost"						"0"
-	// 	"ItemIsNeutralDrop"				"0"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemSellable"					"0"
-	// 	"item_disassemble_rule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-	// 	"AbilityTextureName"			"item_trickster_cloak_dark"
-	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
-	// 	"AbilityValues"
-	// 	{
-	// 			"evasion"			"34" //17
-	// 			"magic_resistance"	"100" //17
-	// 			"duration"			"8"  //6
-	// 	}
-	// }
-	// "item_recipe_trickster_cloak_light_1"
-	// {
-	// 	"BaseClass"                     "item_datadriven"
-	// 	"ID"						    "12023"
-	// 	"ItemCost"                      "0"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"                    "1"
-	// 	"ItemResult"                    "item_trickster_cloak_light_1"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"                        "item_trickster_cloak_light;item_exchange"
-	// 	}
-	// }
-	// "item_trickster_cloak_light_1"
-	// {
-	// 	"BaseClass" "item_trickster_cloak"
-	// 	"AbilityCooldown"				"12.5" //25
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-	// 	"ItemCost"						"0"
-	// 	"ItemIsNeutralDrop"				"1"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemSellable"					"0"
-	// 	"item_disassemble_rule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-	// 	"AbilityTextureName"			"item_trickster_cloak_light"
-	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
-	// 	"AbilityValues"
-	// 	{
-	// 			"evasion"			"100" //17
-	// 			"magic_resistance"	"34" //17
-	// 			"duration"			"10"  //6
-	// 	}
-	// }
-	// "item_recipe_trickster_cloak_dark_1"
-	// {
-	// 	"BaseClass"                     "item_datadriven"
-	// 	"ID"						    "12024"
-	// 	"ItemCost"                      "0"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"                    "1"
-	// 	"ItemResult"                    "item_trickster_cloak_dark_1"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"                        "item_trickster_cloak_dark;item_exchange"
-	// 	}
-	// }
-	// "item_trickster_cloak_dark_1"
-	// {
-	// 	"BaseClass" "item_trickster_cloak"
-	// 	"AbilityCooldown"				"20.0" //25
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-	// 	"ItemCost"						"0"
-	// 	"ItemIsNeutralDrop"				"1"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemSellable"					"0"
-	// 	"item_disassemble_rule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-	// 	"AbilityTextureName"			"item_trickster_cloak_dark"
-	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
-	// 	"AbilityValues"
-	// 	{
-	// 			"evasion"			"34" //17
-	// 			"magic_resistance"	"100" //17
-	// 			"duration"			"8"  //6
-	// 	}
-	// }
-	// "item_recipe_trickster_cloak_ai"
-	// {
-	// 	"BaseClass"                     "item_datadriven"
-	// 	"ID"						    "13025"
-	// 	"ItemCost"                      "0"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"                    "1"
-	// 	"ItemResult"					"item_trickster_cloak_ai"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"                        "item_trickster_cloak_light;item_dark_part"
-	// 		"02"						"item_trickster_cloak_dark;item_light_part"
-	// 	}
-	// }
-	// "item_trickster_cloak_ai"
-	// {
-	// 	"BaseClass" "item_trickster_cloak"
-	// 	"AbilityCooldown"				"12.5" //25
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-	// 	"ItemCost"						"0"
-	// 	"ItemIsNeutralDrop"				"0"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemSellable"					"0"
-	// 	"item_disassemble_rule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
-	// 	"AbilityValues"
-	// 	{
-	// 			"evasion"			"100" //17
-	// 			"magic_resistance"	"100" //17
-	// 			"duration"			"10"  //6
-	// 	}
-	// }
-	// "item_recipe_trickster_cloak_ai_1"
-	// {
-	// 	"BaseClass"                     "item_datadriven"
-	// 	"ID"						    "13026"
-	// 	"ItemCost"                      "0"
-	// 	"ItemShopTags"					""
-	// 	"ItemRecipe"                    "1"
-	// 	"ItemResult"					"item_trickster_cloak_ai_1"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"                        "item_trickster_cloak_ai;item_exchange"
-	// 		"02"						"item_trickster_cloak_light_1;item_dark_part"
-	// 		"03"						"item_trickster_cloak_dark_1;item_light_part"
-	// 	}
-	// }
-	// "item_trickster_cloak_ai_1"
-	// {
-	// 	"BaseClass" "item_trickster_cloak"
-	// 	"AbilityCooldown"				"12.5" //25
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-	// 	"ItemCost"						"0"
-	// 	"ItemIsNeutralDrop"				"1"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemSellable"					"0"
-	// 	"item_disassemble_rule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
-	// 	"AbilityValues"
-	// 	{
-	// 			"evasion"			"100" //17
-	// 			"magic_resistance"	"100" //17
-	// 			"duration"			"10"  //6
-	// 	}
-	// }
+	// 光暗欺诈师斗篷
+	"item_recipe_trickster_cloak_light"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "11023"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_trickster_cloak_light"
+		"ItemRequirements"
+		{
+			"01"                        "item_trickster_cloak;item_light_part"
+		}
+	}
+	"item_trickster_cloak_light"
+	{
+		"BaseClass" "item_trickster_cloak"
+		"AbilityCooldown"				"12" //25
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"item_disassemble_rule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_trickster_cloak_light"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+				"evasion"			"90" //17
+				"magic_resistance"	"30" //17
+				"duration"			"8"  //6
+		}
+	}
+	"item_recipe_trickster_cloak_dark"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "11024"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_trickster_cloak_dark"
+		"ItemRequirements"
+		{
+			"01"                        "item_trickster_cloak;item_dark_part"
+		}
+	}
+	"item_trickster_cloak_dark"
+	{
+		"BaseClass" "item_trickster_cloak"
+		"AbilityCooldown"				"20.0" //25
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"item_disassemble_rule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_trickster_cloak_dark"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+				"evasion"			"30" //17
+				"magic_resistance"	"90" //17
+				"duration"			"8"  //6
+		}
+	}
+	"item_recipe_trickster_cloak_light_1"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "12023"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_trickster_cloak_light_1"
+		"ItemRequirements"
+		{
+			"01"                        "item_trickster_cloak_light;item_exchange"
+		}
+	}
+	"item_trickster_cloak_light_1"
+	{
+		"BaseClass" "item_trickster_cloak"
+		"AbilityCooldown"				"12" //25
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"item_disassemble_rule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_trickster_cloak_light"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+				"evasion"			"90" //17
+				"magic_resistance"	"30" //17
+				"duration"			"8"  //6
+		}
+	}
+	"item_recipe_trickster_cloak_dark_1"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "12024"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_trickster_cloak_dark_1"
+		"ItemRequirements"
+		{
+			"01"                        "item_trickster_cloak_dark;item_exchange"
+		}
+	}
+	"item_trickster_cloak_dark_1"
+	{
+		"BaseClass" "item_trickster_cloak"
+		"AbilityCooldown"				"20.0" //25
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"item_disassemble_rule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_trickster_cloak_dark"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+				"evasion"			"30" //17
+				"magic_resistance"	"90" //17
+				"duration"			"8"  //6
+		}
+	}
+	"item_recipe_trickster_cloak_ai"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "13025"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"					"item_trickster_cloak_ai"
+		"ItemRequirements"
+		{
+			"01"                        "item_trickster_cloak_light;item_dark_part"
+			"02"						"item_trickster_cloak_dark;item_light_part"
+		}
+	}
+	"item_trickster_cloak_ai"
+	{
+		"BaseClass" "item_trickster_cloak"
+		"AbilityCooldown"				"12" //25
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"item_disassemble_rule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+				"evasion"			"90" //17
+				"magic_resistance"	"90" //17
+				"duration"			"8"  //6
+		}
+	}
+	"item_recipe_trickster_cloak_ai_1"
+	{
+		"BaseClass"                     "item_datadriven"
+		"ID"						    "13026"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"					"item_trickster_cloak_ai_1"
+		"ItemRequirements"
+		{
+			"01"                        "item_trickster_cloak_ai;item_exchange"
+			"02"						"item_trickster_cloak_light_1;item_dark_part"
+			"03"						"item_trickster_cloak_dark_1;item_light_part"
+		}
+	}
+	"item_trickster_cloak_ai_1"
+	{
+		"BaseClass" "item_trickster_cloak"
+		"AbilityCooldown"				"12" //25
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"item_disassemble_rule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+				"evasion"			"90" //17
+				"magic_resistance"	"90" //17
+				"duration"			"8"  //6
+		}
+	}
 
 	// 光暗遗迹守卫者
 	"item_recipe_ancient_guardian_light"
@@ -9796,8 +9794,8 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"extra_bonus_damage"	"500"    //50
-			"bonus_damage"			"1000"    //50
+			"extra_bonus_damage"	"400"    //50
+			"bonus_damage"			"400"    //50
 			"radius"				"2000"  //2000
 		}
 	}
@@ -9827,7 +9825,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"extra_bonus_damage"	"2500"    //50
+			"extra_bonus_damage"	"1000"    //50
 			"bonus_damage"			"100"    //50
 			"radius"				"2000"  //2000
 		}
@@ -9858,8 +9856,8 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"extra_bonus_damage"	"500"    //50
-			"bonus_damage"			"1000"    //50
+			"extra_bonus_damage"	"400"    //50
+			"bonus_damage"			"400"    //50
 			"radius"				"2000"  //2000
 		}
 	}
@@ -9889,7 +9887,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"extra_bonus_damage"	"2500"    //50
+			"extra_bonus_damage"	"1000"    //50
 			"bonus_damage"			"100"    //50
 			"radius"				"2000"  //2000
 		}
@@ -9920,8 +9918,8 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"extra_bonus_damage"	"2500"    //50
-			"bonus_damage"			"1000"    //50
+			"extra_bonus_damage"	"1000"    //50
+			"bonus_damage"			"400"    //50
 			"radius"				"2000"  //2000
 		}
 	}
@@ -9952,8 +9950,8 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"extra_bonus_damage"	"2500"    //50
-			"bonus_damage"			"1000"    //50
+			"extra_bonus_damage"	"1000"    //50
+			"bonus_damage"			"400"    //50
 			"radius"				"2000"  //2000
 		}
 	}
@@ -10838,7 +10836,6 @@
 			"bonus_armor"			"36"
 			"bonus_health_regen"	"30"
 			"unholy_bonus_damage"	"110"
-			"unholy_bonus_attack_speed"	"60"
 			"unholy_bonus_strength"	"150"
 			"unholy_bonus_armor"	"24"
 			"unholy_bonus_slow_resistance"	"45"
@@ -10873,13 +10870,12 @@
 			"bonus_damage"			"45"
 			"bonus_attack_speed"	"45"
 			"bonus_armor"			"18"
-			"bonus_health_regen"	"600"
-			"unholy_bonus_damage"	"55"
-			"unholy_bonus_attack_speed"	"30"
+			"bonus_health_regen"	"60"
+			"unholy_bonus_damage"	"220"
 			"unholy_bonus_strength"	"300"
-			"unholy_bonus_armor"	"12"
-			"unholy_bonus_slow_resistance"	"100"
-			"unholy_health_drain_per_second"	"2400"
+			"unholy_bonus_armor"	"48"
+			"unholy_bonus_slow_resistance"	"90"
+			"unholy_health_drain_per_second"	"1200"
 			"toggle_cooldown"		"0.036"
 		}
 	}
@@ -10913,7 +10909,6 @@
 			"bonus_armor"			"36"
 			"bonus_health_regen"	"30"
 			"unholy_bonus_damage"	"110"
-			"unholy_bonus_attack_speed"	"60"
 			"unholy_bonus_strength"	"150"
 			"unholy_bonus_armor"	"24"
 			"unholy_bonus_slow_resistance"	"45"
@@ -10949,13 +10944,12 @@
 			"bonus_damage"			"45"
 			"bonus_attack_speed"	"45"
 			"bonus_armor"			"18"
-			"bonus_health_regen"	"600"
-			"unholy_bonus_damage"	"55"
-			"unholy_bonus_attack_speed"	"30"
+			"bonus_health_regen"	"60"
+			"unholy_bonus_damage"	"220"
 			"unholy_bonus_strength"	"300"
-			"unholy_bonus_armor"	"12"
-			"unholy_bonus_slow_resistance"	"100"
-			"unholy_health_drain_per_second"	"2400"
+			"unholy_bonus_armor"	"48"
+			"unholy_bonus_slow_resistance"	"90"
+			"unholy_health_drain_per_second"	"1200"
 			"toggle_cooldown"		"0.036"
 		}
 	}
@@ -10999,8 +10993,8 @@
 			"aura_mana_regen_bonus"	"60"
 			"aura_armor_bonus"		"40"
 			"aura_bonus_threshold"	"75"
-			"replenish_health"		"2000"
-			"replenish_mana"		"1000"
+			"replenish_health"		"1000"
+			"replenish_mana"		"500"
 			"replenish_radius"
 			{
 				"value"		"1800"
@@ -11047,8 +11041,8 @@
 			"aura_mana_regen_bonus"	"30"
 			"aura_armor_bonus"		"20"
 			"aura_bonus_threshold"	"25"
-			"replenish_health"		"1000"
-			"replenish_mana"		"500"
+			"replenish_health"		"2000"
+			"replenish_mana"		"1000"
 			"replenish_radius"
 			{
 				"value"		"900"
@@ -11096,8 +11090,8 @@
 			"aura_mana_regen_bonus"	"60"
 			"aura_armor_bonus"		"40"
 			"aura_bonus_threshold"	"75"
-			"replenish_health"		"2000"
-			"replenish_mana"		"1000"
+			"replenish_health"		"1000"
+			"replenish_mana"		"500"
 			"replenish_radius"
 			{
 				"value"		"1800"
@@ -11145,8 +11139,8 @@
 			"aura_mana_regen_bonus"	"30"
 			"aura_armor_bonus"		"20"
 			"aura_bonus_threshold"	"25"
-			"replenish_health"		"1000"
-			"replenish_mana"		"500"
+			"replenish_health"		"2000"
+			"replenish_mana"		"1000"
 			"replenish_radius"
 			{
 				"value"		"900"
@@ -11298,8 +11292,8 @@
 			"bonus_agility"			"100"
 			"bonus_intellect"		"25"
 			"feedback_mana_burn"	"100"
-			"feedback_mana_burn_illusion_melee"	"100"
-			"feedback_mana_burn_illusion_ranged"	"100"
+			"feedback_mana_burn_illusion_melee"	"50"
+			"feedback_mana_burn_illusion_ranged"	"50"
 			"purge_rate"			"5"
 			"purge_root_duration"	"6.0"
 			"damage_per_burn"		"1.0"
@@ -11352,8 +11346,8 @@
 			"bonus_agility"			"100"
 			"bonus_intellect"		"25"
 			"feedback_mana_burn"	"100"
-			"feedback_mana_burn_illusion_melee"	"100"
-			"feedback_mana_burn_illusion_ranged"	"100"
+			"feedback_mana_burn_illusion_melee"	"50"
+			"feedback_mana_burn_illusion_ranged"	"50"
 			"purge_rate"			"5"
 			"purge_root_duration"	"6.0"
 			"damage_per_burn"		"1.0"
