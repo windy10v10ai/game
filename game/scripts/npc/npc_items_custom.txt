@@ -8632,7 +8632,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"secondary_stats"			"400" //15
+			"secondary_stats"			"300" //15
 		}
 	}
 	"item_recipe_apex_light_1"
@@ -8691,7 +8691,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"secondary_stats"			"400" //15
+			"secondary_stats"			"300" //15
 		}
 	}
 	"item_recipe_apex_ai"
@@ -8721,7 +8721,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-				"bonus_all_stats"		"400"
+				"bonus_all_stats"		"300"
 		}
 	}
 	"item_recipe_apex_ai_1"
@@ -8752,7 +8752,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-				"bonus_all_stats"		"400"
+				"bonus_all_stats"		"300"
 		}
 	}
 
