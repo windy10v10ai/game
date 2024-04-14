@@ -1539,8 +1539,8 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"So, will you be the lucky dog?"
 
-		// item_rapier_ultra_bot ai用诅咒圣剑
-		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#e03e2e'>Liberated Fool's Day Rapier</font>"
+		// item_rapier_ultra_bot 解放的诅咒圣剑
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#e03e2e'>Liberated Cursed Rapier</font>"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by Mars. Gaining <font color='#f15b47'>%bonus_damage_percent%%%</font> bonus base damage, Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will not miss due to evasion or other effects.\n<h1>Passive: <font color='#e03e2e'>Price of Power (Liberated)</font></h1>Great power always comes with a price. <br><font color='#e03e2e'>But there is no price after liberation.</font>"
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot_Lore"					"The liberated cursed rapier will not be destroyed."
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_damage"			"+$damage"
@@ -1706,138 +1706,922 @@
 		"DOTA_Tooltip_Ability_item_specialists_array_light"				"<font color='#FFFF00'>Light Specialists Array</font>"
 		"DOTA_Tooltip_Ability_item_specialists_array_light_all_stats"					"+$all"
 		"DOTA_Tooltip_Ability_item_specialists_array_light_bonus_damage"					"+$damage"
-		"DOTA_Tooltip_Ability_item_specialists_array_light_Lore"					"Enhanced trigger mechanism, inspired by the idle thoughts of an elderly assassin."
-		"DOTA_Tooltip_Ability_item_specialists_array_light_Description"					"<h1>Passive: Break Attack</h1>Only affects ranged heroes. The next attack will launch projectiles at %count% additional targets within +%secondary_target_range_bonus% attack range and deal an additional %proc_bonus_damage% damage. Does not trigger attack effects."
+		"DOTA_Tooltip_Ability_item_specialists_array_light_Lore"					"An impressive kit of trigger enhancements born in an aging assassin's idle mind."
+		"DOTA_Tooltip_Ability_item_specialists_array_light_Description"					"<h1>Passive: Crackshot</h1> Ranged Only. The next attack fires projectiles that deal %proc_bonus_damage% bonus damage at %count% additional targets within attack range plus a %secondary_target_range_bonus% range bonus. Does not trigger attack modifiers."
 
 		// item_specialists_array_dark 暗影·行家阵列
 		"DOTA_Tooltip_Ability_item_specialists_array_dark"				"<font color='#8A2BE2'>Dark Specialists Array</font>"
 		"DOTA_Tooltip_Ability_item_specialists_array_dark_all_stats"					"+$all"
 		"DOTA_Tooltip_Ability_item_specialists_array_dark_bonus_damage"					"+$damage"
-		"DOTA_Tooltip_Ability_item_specialists_array_dark_Lore"					"Enhanced trigger mechanism, inspired by the idle thoughts of an elderly assassin."
-		"DOTA_Tooltip_Ability_item_specialists_array_dark_Description"					"<h1>Passive: Break Attack</h1>Only affects ranged heroes. The next attack will launch projectiles at %count% additional targets within +%secondary_target_range_bonus% attack range and deal an additional %proc_bonus_damage% damage. Does not trigger attack effects."
+		"DOTA_Tooltip_Ability_item_specialists_array_dark_Lore"					"An impressive kit of trigger enhancements born in an aging assassin's idle mind."
+		"DOTA_Tooltip_Ability_item_specialists_array_dark_Description"					"<h1>Passive: Crackshot</h1> Ranged Only. The next attack fires projectiles that deal %proc_bonus_damage% bonus damage at %count% additional targets within attack range plus a %secondary_target_range_bonus% range bonus. Does not trigger attack modifiers."
 
-		// item_specialists_array_light_1 圣光·行家阵列
-		"DOTA_Tooltip_Ability_item_specialists_array_light_1"				"<font color='#FFFF00'>Light Specialists Array</font>"
+		// item_specialists_array_light_1 圣光·行家阵列(中立)
+		"DOTA_Tooltip_Ability_item_specialists_array_light_1"				"<font color='#FFFF00'>Light Specialists Array (Neutral)</font>"
 		"DOTA_Tooltip_Ability_item_specialists_array_light_1_all_stats"					"+$all"
 		"DOTA_Tooltip_Ability_item_specialists_array_light_1_bonus_damage"					"+$damage"
-		"DOTA_Tooltip_Ability_item_specialists_array_light_1_Lore"					"Enhanced trigger mechanism, inspired by the idle thoughts of an elderly assassin."
-		"DOTA_Tooltip_Ability_item_specialists_array_light_1_Description"					"<h1>Passive: Break Attack</h1>Only affects ranged heroes. The next attack will launch projectiles at %count% additional targets within +%secondary_target_range_bonus% attack range and deal an additional %proc_bonus_damage% damage. Does not trigger attack effects."
+		"DOTA_Tooltip_Ability_item_specialists_array_light_1_Lore"					"An impressive kit of trigger enhancements born in an aging assassin's idle mind."
+		"DOTA_Tooltip_Ability_item_specialists_array_light_1_Description"					"<h1>Passive: Crackshot</h1> Ranged Only. The next attack fires projectiles that deal %proc_bonus_damage% bonus damage at %count% additional targets within attack range plus a %secondary_target_range_bonus% range bonus. Does not trigger attack modifiers."
 
-		// item_specialists_array_dark_1 暗影·行家阵列
-		"DOTA_Tooltip_Ability_item_specialists_array_dark_1"				"<font color='#8A2BE2'>Dark Specialists Array</font>"
+		// item_specialists_array_dark_1 暗影·行家阵列（中立）
+		"DOTA_Tooltip_Ability_item_specialists_array_dark_1"				"<font color='#8A2BE2'>Dark Specialists Array (Neutral)</font>"
 		"DOTA_Tooltip_Ability_item_specialists_array_dark_1_all_stats"					"+$all"
 		"DOTA_Tooltip_Ability_item_specialists_array_dark_1_bonus_damage"					"+$damage"
-		"DOTA_Tooltip_Ability_item_specialists_array_dark_1_Lore"					"Enhanced trigger mechanism, inspired by the idle thoughts of an elderly assassin."
-		"DOTA_Tooltip_Ability_item_specialists_array_dark_1_Description"					"<h1>Passive: Break Attack</h1>Only affects ranged heroes. The next attack will launch projectiles at %count% additional targets within +%secondary_target_range_bonus% attack range and deal an additional %proc_bonus_damage% damage. Does not trigger attack effects."
+		"DOTA_Tooltip_Ability_item_specialists_array_dark_1_Lore"					"An impressive kit of trigger enhancements born in an aging assassin's idle mind."
+		"DOTA_Tooltip_Ability_item_specialists_array_dark_1_Description"					"<h1>Passive: Crackshot</h1> Ranged Only. The next attack fires projectiles that deal %proc_bonus_damage% bonus damage at %count% additional targets within attack range plus a %secondary_target_range_bonus% range bonus. Does not trigger attack modifiers."
+
+		// item_specialists_array_ai 光暗·行家阵列
+		"DOTA_Tooltip_Ability_item_specialists_array_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Specialists Array"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_all_stats"					"+$all"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_bonus_damage"					"+$damage"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_Lore"					"An impressive kit of trigger enhancements born in an aging assassin's idle mind."
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_Description"					"<h1>Passive: Crackshot</h1> Ranged Only. The next attack fires projectiles that deal %proc_bonus_damage% bonus damage at %count% additional targets within attack range plus a %secondary_target_range_bonus% range bonus. Does not trigger attack modifiers."
+
+		// item_specialists_array_ai_1 光暗·行家阵列（中立）
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Specialists Array (Neutral)"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1_all_stats"					"+$all"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1_bonus_damage"					"+$damage"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1_Lore"					"An impressive kit of trigger enhancements born in an aging assassin's idle mind."
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1_Description"					"<h1>Passive: Crackshot</h1> Ranged Only. The next attack fires projectiles that deal %proc_bonus_damage% bonus damage at %count% additional targets within attack range plus a %secondary_target_range_bonus% range bonus. Does not trigger attack modifiers."
 
 		// item_timeless_relic_light 圣光·永恒遗物
 		"DOTA_Tooltip_Ability_item_timeless_relic_light"				"<font color='#FFFF00'>Light Timeless Relic</font>"
-		"DOTA_Tooltip_ability_item_timeless_relic_light_Description"				"Increases spell damage and duration of negative status effects."
-		"DOTA_Tooltip_ability_item_timeless_relic_light_Lore"				"A pristine discovery unearthed from the ruins of an ancient wizard academy."
+		"DOTA_Tooltip_ability_item_timeless_relic_light_Description"				"Increases all outgoing spell damage and debuff duration."
+		"DOTA_Tooltip_ability_item_timeless_relic_light_Lore"				"An unmarred discovery from the excavated ruins of an ancient wizard's academy."
 		"DOTA_Tooltip_ability_item_timeless_relic_light_debuff_amp"				"%+$debuff_amp"
 		"DOTA_Tooltip_ability_item_timeless_relic_light_spell_amp"				"%+Spell Amplification"
 
 		// item_timeless_relic_dark 暗影·永恒遗物
 		"DOTA_Tooltip_Ability_item_timeless_relic_dark"				"<font color='#8A2BE2'>Dark Timeless Relic</font>"
-		"DOTA_Tooltip_ability_item_timeless_relic_dark_Description"				"Increases spell damage and duration of negative status effects."
-		"DOTA_Tooltip_ability_item_timeless_relic_dark_Lore"				"A pristine discovery unearthed from the ruins of an ancient wizard academy."
+		"DOTA_Tooltip_ability_item_timeless_relic_dark_Description"				"Increases all outgoing spell damage and debuff duration."
+		"DOTA_Tooltip_ability_item_timeless_relic_dark_Lore"				"An unmarred discovery from the excavated ruins of an ancient wizard's academy."
 		"DOTA_Tooltip_ability_item_timeless_relic_dark_debuff_amp"				"%+$debuff_amp"
 		"DOTA_Tooltip_ability_item_timeless_relic_dark_spell_amp"				"%+Spell Amplification"
 
-		// item_timeless_relic_light_1 圣光·永恒遗物
+		// item_timeless_relic_light_1 圣光·永恒遗物（中立）
 		"DOTA_Tooltip_Ability_item_timeless_relic_light_1"				"<font color='#FFFF00'>Light Timeless Relic</font>"
-		"DOTA_Tooltip_ability_item_timeless_relic_light_1_Description"				"Increases spell damage and duration of negative status effects."
-		"DOTA_Tooltip_ability_item_timeless_relic_light_1_Lore"				"A pristine discovery unearthed from the ruins of an ancient wizard academy."
+		"DOTA_Tooltip_ability_item_timeless_relic_light_1_Description"				"Increases all outgoing spell damage and debuff duration."
+		"DOTA_Tooltip_ability_item_timeless_relic_light_1_Lore"				"An unmarred discovery from the excavated ruins of an ancient wizard's academy."
 		"DOTA_Tooltip_ability_item_timeless_relic_light_1_debuff_amp"				"%+$debuff_amp"
 		"DOTA_Tooltip_ability_item_timeless_relic_light_1_spell_amp"				"%+Spell Amplification"
 
-		// item_timeless_relic_dark_1 暗影·永恒遗物
+		// item_timeless_relic_dark_1 暗影·永恒遗物（中立）
 		"DOTA_Tooltip_Ability_item_timeless_relic_dark_1"				"<font color='#8A2BE2'>Dark Timeless Relic</font>"
-		"DOTA_Tooltip_ability_item_timeless_relic_dark_1_Description"				"Increases spell damage and duration of negative status effects."
-		"DOTA_Tooltip_ability_item_timeless_relic_dark_1_Lore"				"A pristine discovery unearthed from the ruins of an ancient wizard academy."
+		"DOTA_Tooltip_ability_item_timeless_relic_dark_1_Description"				"Increases all outgoing spell damage and debuff duration."
+		"DOTA_Tooltip_ability_item_timeless_relic_dark_1_Lore"				"An unmarred discovery from the excavated ruins of an ancient wizard's academy."
 		"DOTA_Tooltip_ability_item_timeless_relic_dark_1_debuff_amp"				"%+$debuff_amp"
 		"DOTA_Tooltip_ability_item_timeless_relic_dark_1_spell_amp"				"%+Spell Amplification"
 
 		// item_timeless_relic_ai 光暗·永恒遗物
-		"DOTA_Tooltip_Ability_item_timeless_relic_ai"				"<font color='#00FF00'>Light and Dark Timeless Relic</font>"
-		"DOTA_Tooltip_ability_item_timeless_relic_ai_Description"				"Increases spell damage and duration of negative status effects."
-		"DOTA_Tooltip_ability_item_timeless_relic_ai_Lore"				"A pristine discovery unearthed from the ruins of an ancient wizard academy."
+		"DOTA_Tooltip_Ability_item_timeless_relic_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Timeless Relic"
+		"DOTA_Tooltip_ability_item_timeless_relic_ai_Description"				"Increases all outgoing spell damage and debuff duration."
+		"DOTA_Tooltip_ability_item_timeless_relic_ai_Lore"				"An unmarred discovery from the excavated ruins of an ancient wizard's academy."
 		"DOTA_Tooltip_ability_item_timeless_relic_ai_debuff_amp"				"%+$debuff_amp"
 		"DOTA_Tooltip_ability_item_timeless_relic_ai_spell_amp"				"%+Spell Amplification"
 
+		// item_timeless_relic_ai_1 光暗·永恒遗物（中立）
+		"DOTA_Tooltip_Ability_item_timeless_relic_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Timeless Relic (Neutral)"
+		"DOTA_Tooltip_ability_item_timeless_relic_ai_1_Description"				"Increases all outgoing spell damage and debuff duration."
+		"DOTA_Tooltip_ability_item_timeless_relic_ai_1_Lore"				"An unmarred discovery from the excavated ruins of an ancient wizard's academy."
+		"DOTA_Tooltip_ability_item_timeless_relic_ai_1_debuff_amp"				"%+$debuff_amp"
+		"DOTA_Tooltip_ability_item_timeless_relic_ai_1_spell_amp"				"%+Spell Amplification"
+
 		// item_defiant_shell_light 圣光·不羁甲壳
 		"DOTA_Tooltip_Ability_item_defiant_shell_light"				"<font color='#FFFF00'>Light Defiant Shell</font>"
-		"DOTA_Tooltip_Ability_item_defiant_shell_light_Description" 		"<h1>Passive: Counter</h1> After being attacked, the hero will counterattack a target within attack range. Cooldown: %counter_cooldown% seconds."
-		"DOTA_Tooltip_Ability_item_defiant_shell_light_bonus_armor"		"+$armor"
+		"DOTA_Tooltip_Ability_item_defiant_shell_light_Description" 			"<h1>Passive: Reciprocity </h1> When attacked, the hero counter-attacks a target within their attack range. %counter_cooldown%s Cooldown."
+		"DOTA_Tooltip_Ability_item_defiant_shell_light_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_Ability_item_defiant_shell_light_all_stats"			"+$all"
 
 		// item_defiant_shell_dark 暗影·不羁甲壳
 		"DOTA_Tooltip_Ability_item_defiant_shell_dark"				"<font color='#8A2BE2'>Dark Defiant Shell</font>"
-		"DOTA_Tooltip_Ability_item_defiant_shell_dark_Description" 		"<h1>Passive: Counter</h1> After being attacked, the hero will counterattack a target within attack range. Cooldown: %counter_cooldown% seconds."
-		"DOTA_Tooltip_Ability_item_defiant_shell_dark_bonus_armor"		"+$armor"
+		"DOTA_Tooltip_Ability_item_defiant_shell_dark_Description" 			"<h1>Passive: Reciprocity </h1> When attacked, the hero counter-attacks a target within their attack range. %counter_cooldown%s Cooldown."
+		"DOTA_Tooltip_Ability_item_defiant_shell_dark_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_Ability_item_defiant_shell_dark_all_stats"			"+$all"
 
-		// item_defiant_shell_light_1 圣光·不羁甲壳
-		"DOTA_Tooltip_Ability_item_defiant_shell_light_1"				"<font color='#FFFF00'>Light Defiant Shell</font>"
-		"DOTA_Tooltip_Ability_item_defiant_shell_light_1_Description" 		"<h1>Passive: Counter</h1> After being attacked, the hero will counterattack a target within attack range. Cooldown: %counter_cooldown% seconds."
-		"DOTA_Tooltip_Ability_item_defiant_shell_light_1_bonus_armor"		"+$armor"
+		// item_defiant_shell_light_1 圣光·不羁甲壳（中立）
+		"DOTA_Tooltip_Ability_item_defiant_shell_light_1"				"<font color='#FFFF00'>Light Defiant Shell (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_defiant_shell_light_1_Description" 			"<h1>Passive: Reciprocity </h1> When attacked, the hero counter-attacks a target within their attack range. %counter_cooldown%s Cooldown."
+		"DOTA_Tooltip_Ability_item_defiant_shell_light_1_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_Ability_item_defiant_shell_light_1_all_stats"			"+$all"
 
-		// item_defiant_shell_dark_1 暗影·不羁甲壳
-		"DOTA_Tooltip_Ability_item_defiant_shell_dark_1"				"<font color='#8A2BE2'>Dark Defiant Shell</font>"
-		"DOTA_Tooltip_Ability_item_defiant_shell_dark_1_Description" 		"<h1>Passive: Counter</h1> After being attacked, the hero will counterattack a target within attack range. Cooldown: %counter_cooldown% seconds."
-		"DOTA_Tooltip_Ability_item_defiant_shell_dark_1_bonus_armor"		"+$armor"
+		// item_defiant_shell_dark_1 暗影·不羁甲壳（中立）
+		"DOTA_Tooltip_Ability_item_defiant_shell_dark_1"				"<font color='#8A2BE2'>Dark Defiant Shell (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_defiant_shell_dark_1_Description" 			"<h1>Passive: Reciprocity </h1> When attacked, the hero counter-attacks a target within their attack range. %counter_cooldown%s Cooldown."
+		"DOTA_Tooltip_Ability_item_defiant_shell_dark_1_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_Ability_item_defiant_shell_dark_1_all_stats"			"+$all"
+
+		// item_defiant_shell_ai 光暗·不羁甲壳
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Defiant Shell"
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_Description" 			"<h1>Passive: Reciprocity </h1> When attacked, the hero counter-attacks a target within their attack range. %counter_cooldown%s Cooldown."
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_all_stats"			"+$all"
+
+		// item_defiant_shell_ai_1 光暗·不羁甲壳（中立）
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Defiant Shell (Neutral)"
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_1_Description" 			"<h1>Passive: Reciprocity </h1> When attacked, the hero counter-attacks a target within their attack range. %counter_cooldown%s Cooldown."
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_1_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_Ability_item_defiant_shell_ai_1_all_stats"			"+$all"
 
 		// item_ex_machina_light 圣光·机械之心
 		"DOTA_Tooltip_Ability_item_ex_machina_light"				"<font color='#FFFF00'>Light Ex Machina</font>"
-		"DOTA_Tooltip_Ability_item_ex_machina_light_Description"		"<h1>Active: Reset Cooldowns</h1> Resets the cooldowns of all items (except Refresher Orb)."
-		"DOTA_Tooltip_Ability_item_ex_machina_light_Lore"		"A relic of an ancient cosmos, preserved within a celestial sphere."
+		"DOTA_Tooltip_Ability_item_ex_machina_light_Description"		"<h1>Active: Reset Cooldowns</h1> Reset the cooldown on all items (except Refresher Orb)."
+		"DOTA_Tooltip_Ability_item_ex_machina_light_Lore"		"The remains of an ancient universe, preserved within a single sphere."
 		"DOTA_Tooltip_Ability_item_ex_machina_light_bonus_armor"		"+$armor"
 
 		// item_ex_machina_dark 暗影·机械之心
 		"DOTA_Tooltip_Ability_item_ex_machina_dark"				"<font color='#8A2BE2'>Dark Ex Machina</font>"
-		"DOTA_Tooltip_Ability_item_ex_machina_dark_Description"		"<h1>Active: Reset Cooldowns</h1> Resets the cooldowns of all items (except Refresher Orb)."
-		"DOTA_Tooltip_Ability_item_ex_machina_dark_Lore"		"A relic of an ancient cosmos, preserved within a celestial sphere."
+		"DOTA_Tooltip_Ability_item_ex_machina_dark_Description"		"<h1>Active: Reset Cooldowns</h1> Reset the cooldown on all items (except Refresher Orb)."
+		"DOTA_Tooltip_Ability_item_ex_machina_dark_Lore"		"The remains of an ancient universe, preserved within a single sphere."
 		"DOTA_Tooltip_Ability_item_ex_machina_dark_bonus_armor"		"+$armor"
 
-		// item_ex_machina_light_1 圣光·机械之心
-		"DOTA_Tooltip_Ability_item_ex_machina_light_1"				"<font color='#FFFF00'>Light Ex Machina</font>"
-		"DOTA_Tooltip_Ability_item_ex_machina_light_1_Description"		"<h1>Active: Reset Cooldowns</h1> Resets the cooldowns of all items (except Refresher Orb)."
-		"DOTA_Tooltip_Ability_item_ex_machina_light_1_Lore"		"A relic of an ancient cosmos, preserved within a celestial sphere."
+		// item_ex_machina_light_1 圣光·机械之心（中立）
+		"DOTA_Tooltip_Ability_item_ex_machina_light_1"				"<font color='#FFFF00'>Light Ex Machina (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_ex_machina_light_1_Description"		"<h1>Active: Reset Cooldowns</h1> Reset the cooldown on all items (except Refresher Orb)."
+		"DOTA_Tooltip_Ability_item_ex_machina_light_1_Lore"		"The remains of an ancient universe, preserved within a single sphere."
 		"DOTA_Tooltip_Ability_item_ex_machina_light_1_bonus_armor"		"+$armor"
 
-		// item_ex_machina_dark_1 暗影·机械之心
-		"DOTA_Tooltip_Ability_item_ex_machina_dark_1"				"<font color='#8A2BE2'>Dark Ex Machina</font>"
-		"DOTA_Tooltip_Ability_item_ex_machina_dark_1_Description"		"<h1>Active: Reset Cooldowns</h1> Resets the cooldowns of all items (except Refresher Orb)."
-		"DOTA_Tooltip_Ability_item_ex_machina_dark_1_Lore"		"A relic of an ancient cosmos, preserved within a celestial sphere."
+		// item_ex_machina_dark_1 暗影·机械之心（中立）
+		"DOTA_Tooltip_Ability_item_ex_machina_dark_1"				"<font color='#8A2BE2'>Dark Ex Machina (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_ex_machina_dark_1_Description"		"<h1>Active: Reset Cooldowns</h1> Reset the cooldown on all items (except Refresher Orb)."
+		"DOTA_Tooltip_Ability_item_ex_machina_dark_1_Lore"		"The remains of an ancient universe, preserved within a single sphere."
 		"DOTA_Tooltip_Ability_item_ex_machina_dark_1_bonus_armor"		"+$armor"
+
+		// item_ex_machina_ai 光暗·机械之心
+		"DOTA_Tooltip_Ability_item_ex_machina_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Ex Machina"
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_Description"		"<h1>Active: Reset Cooldowns</h1> Reset the cooldown on all items (except Refresher Orb)."
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_Lore"		"The remains of an ancient universe, preserved within a single sphere."
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_bonus_armor"		"+$armor"
+
+		// item_ex_machina_ai_1 光暗·机械之心（中立）
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Ex Machina (Neutral)"
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_1_Description"		"<h1>Active: Reset Cooldowns</h1> Reset the cooldown on all items (except Refresher Orb)."
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_1_Lore"		"The remains of an ancient universe, preserved within a single sphere."
+		"DOTA_Tooltip_Ability_item_ex_machina_ai_1_bonus_armor"		"+$armor"
 
 		// item_pirate_hat_light 圣光·海盗帽
 		"DOTA_Tooltip_Ability_item_pirate_hat_light"				"<font color='#FFFF00'>Light Pirate Hat</font>"
-		"DOTA_Tooltip_Ability_item_pirate_hat_light_Description"		"<h1>Active: Plunder</h1> Channels for %abilitychanneltime% seconds.<br>Always finds Bounty Runes!"
-		"DOTA_Tooltip_Ability_item_pirate_hat_light_Lore"				"A salty skullcap that brings a curse of boundless fortune."
+		"DOTA_Tooltip_Ability_item_pirate_hat_light_Description"		"<h1>Active: Dig</h1> Channel for %abilitychanneltime% second. <br>Always finds a Bounty Rune!"
+		"DOTA_Tooltip_Ability_item_pirate_hat_light_Lore"				"A salty skulltopper cursed with endless good fortune."
 		"DOTA_Tooltip_Ability_item_pirate_hat_light_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_Ability_item_pirate_hat_light_bonus_ms"						"+$move_speed"
 
 		// item_pirate_hat_dark 暗影·海盗帽
 		"DOTA_Tooltip_Ability_item_pirate_hat_dark"				"<font color='#8A2BE2'>Dark Pirate Hat</font>"
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_Description"					"<h1>Passive: Agile Thief</h1> Reduces attack interval by %bat_reduction%."
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_Note0"						"Does not stack with other attack interval reduction items."
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_Description"		"<h1>Active: Dig</h1> Channel for %abilitychanneltime% second. <br>Always finds a Bounty Rune!"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_Lore"				"A salty skulltopper cursed with endless good fortune."
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_bonus_ms"						"+$move_speed"
 
-		// item_pirate_hat_light_1 圣光·海盗帽
-		"DOTA_Tooltip_Ability_item_pirate_hat_light_1"				"<font color='#FFFF00'>Light Pirate Hat</font>"
-		"DOTA_Tooltip_Ability_item_pirate_hat_light_1_Description"		"<h1>Active: Plunder</h1> Channels for %abilitychanneltime% seconds.<br>Always finds Bounty Runes!"
-		"DOTA_Tooltip_Ability_item_pirate_hat_light_1_Lore"				"A salty skullcap that brings a curse of boundless fortune."
+
+		// item_pirate_hat_light_1 圣光·海盗帽（中立）
+		"DOTA_Tooltip_Ability_item_pirate_hat_light_1"				"<font color='#FFFF00'>Light Pirate Hat (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_pirate_hat_light_1_Description"		"<h1>Active: Dig</h1> Channel for %abilitychanneltime% second. <br>Always finds a Bounty Rune!"
+		"DOTA_Tooltip_Ability_item_pirate_hat_light_1_Lore"				"A salty skulltopper cursed with endless good fortune."
 		"DOTA_Tooltip_Ability_item_pirate_hat_light_1_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_Ability_item_pirate_hat_light_1_bonus_ms"						"+$move_speed"
 
-		// item_pirate_hat_dark_1 暗影·海盗帽
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1"				"<font color='#8A2BE2'>Dark Pirate Hat</font>"
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_Description"					"<h1>Passive: Agile Thief</h1> Reduces attack interval by %bat_reduction%."
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_Note0"						"Does not stack with other attack interval reduction items."
+		// item_pirate_hat_dark_1 暗影·海盗帽（中立）
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1"				"<font color='#8A2BE2'>Dark Pirate Hat (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_Description"		"<h1>Active: Dig</h1> Channel for %abilitychanneltime% second. <br>Always finds a Bounty Rune!"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_Lore"				"A salty skulltopper cursed with endless good fortune."
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_Ability_item_pirate_hat_dark_1_bonus_ms"						"+$move_speed"
+
+		// item_pirate_hat_ai 光暗·海盗帽
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Pirate Hat"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_Description"		"<h1>Active: Dig</h1> Channel for %abilitychanneltime% second. <br>Always finds a Bounty Rune!"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_Lore"				"A salty skulltopper cursed with endless good fortune."
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_bonus_ms"						"+$move_speed"
+
+		// item_pirate_hat_ai_1 光暗·海盗帽（中立）
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Pirate Hat (Neutral)"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_1_Description"		"<h1>Active: Dig</h1> Channel for %abilitychanneltime% second. <br>Always finds a Bounty Rune!"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_1_Lore"				"A salty skulltopper cursed with endless good fortune."
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_1_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_Ability_item_pirate_hat_ai_1_bonus_ms"						"+$move_speed"
+
+		// item_mysterious_hat_light 圣光·仙灵饰品
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light"				"<font color='#FFFF00'>Light Fairy's Trinket</font>"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_Lore"			"A small token imbued with the fortune of the fae in recognition of an intriguing display of mortal kindness."
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_spell_amp"			"%+Spell Amplification"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_manacost_reduction"	"%+$manacost_reduction"
+
+		// item_mysterious_hat_dark 暗影·仙灵饰品
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark"				"<font color='#8A2BE2'>Dark Fairy's Trinket</font>"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_Lore"			"A small token imbued with the fortune of the fae in recognition of an intriguing display of mortal kindness."
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_spell_amp"			"%+Spell Amplification"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_manacost_reduction"	"%+$manacost_reduction"
+
+		// item_mysterious_hat_light_1 圣光·仙灵饰品（中立）
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_1"				"<font color='#FFFF00'>Light Fairy's Trinket (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_1_Lore"			"A small token imbued with the fortune of the fae in recognition of an intriguing display of mortal kindness."
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_1_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_1_spell_amp"			"%+Spell Amplification"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_light_1_manacost_reduction"	"%+$manacost_reduction"
+
+		// item_mysterious_hat_dark_1 暗影·仙灵饰品（中立）
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_1"				"<font color='#8A2BE2'>Dark Fairy's Trinket (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_1_Lore"			"A small token imbued with the fortune of the fae in recognition of an intriguing display of mortal kindness."
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_1_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_1_spell_amp"			"%+Spell Amplification"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_dark_1_manacost_reduction"	"%+$manacost_reduction"
+
+		// item_mysterious_hat_ai 光暗·仙灵饰品
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Fairy's Trinket"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_Lore"			"A small token imbued with the fortune of the fae in recognition of an intriguing display of mortal kindness."
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_spell_amp"			"%+Spell Amplification"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_manacost_reduction"	"%+$manacost_reduction"
+
+		// item_mysterious_hat_ai_1 光暗·仙灵饰品（中立）
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Fairy's Trinket (Neutral)"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1_Lore"			"A small token imbued with the fortune of the fae in recognition of an intriguing display of mortal kindness."
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1_bonus_health"			"+$health"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1_spell_amp"			"%+Spell Amplification"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1_manacost_reduction"	"%+$manacost_reduction"
+
+		// item_safety_bubble_light 圣光·安全泡泡
+		"DOTA_Tooltip_Ability_item_safety_bubble_light"				"<font color='#FFFF00'>Light Safety Bubble</font>"
+		"DOTA_Tooltip_ability_item_safety_bubble_light_Description"				"<h1>Passive: Bubbled Up</h1> Equipped Hero has a %shield% HP Barrier. Barrier fully regenerates after not receiving damage for %restore_time% seconds"
+		"DOTA_Tooltip_ability_item_safety_bubble_light_bonus_hp_regen"					"+$hp_regen"
+
+		// item_safety_bubble_dark 暗影·安全泡泡
+		"DOTA_Tooltip_Ability_item_safety_bubble_dark"				"<font color='#8A2BE2'>Dark Safety Bubble</font>"
+		"DOTA_Tooltip_ability_item_safety_bubble_dark_Description"				"<h1>Passive: Bubbled Up</h1> Equipped Hero has a %shield% HP Barrier. Barrier fully regenerates after not receiving damage for %restore_time% seconds"
+		"DOTA_Tooltip_ability_item_safety_bubble_dark_bonus_hp_regen"					"+$hp_regen"
+
+		// item_safety_bubble_light_1 圣光·安全泡泡（中立）
+		"DOTA_Tooltip_Ability_item_safety_bubble_light_1"				"<font color='#FFFF00'>Light Safety Bubble (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_safety_bubble_light_1_Description"				"<h1>Passive: Bubbled Up</h1> Equipped Hero has a %shield% HP Barrier. Barrier fully regenerates after not receiving damage for %restore_time% seconds"
+		"DOTA_Tooltip_ability_item_safety_bubble_light_1_bonus_hp_regen"					"+$hp_regen"
+
+		// item_safety_bubble_dark_1 暗影·安全泡泡（中立）
+		"DOTA_Tooltip_Ability_item_safety_bubble_dark_1"				"<font color='#8A2BE2'>Dark Safety Bubble (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_safety_bubble_dark_1_Description"				"<h1>Passive: Bubbled Up</h1> Equipped Hero has a %shield% HP Barrier. Barrier fully regenerates after not receiving damage for %restore_time% seconds"
+		"DOTA_Tooltip_ability_item_safety_bubble_dark_1_bonus_hp_regen"					"+$hp_regen"
+
+		// item_safety_bubble_ai 光暗·安全泡泡
+		"DOTA_Tooltip_Ability_item_safety_bubble_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Safety Bubble"
+		"DOTA_Tooltip_ability_item_safety_bubble_ai_Description"				"<h1>Passive: Bubbled Up</h1> Equipped Hero has a %shield% HP Barrier. Barrier fully regenerates after not receiving damage for %restore_time% seconds"
+		"DOTA_Tooltip_ability_item_safety_bubble_ai_bonus_hp_regen"					"+$hp_regen"
+
+		// item_safety_bubble_ai_1 光暗·安全泡泡（中立）
+		"DOTA_Tooltip_Ability_item_safety_bubble_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Safety Bubble (Neutral)"
+		"DOTA_Tooltip_ability_item_safety_bubble_ai_1_Description"				"<h1>Passive: Bubbled Up</h1> Equipped Hero has a %shield% HP Barrier. Barrier fully regenerates after not receiving damage for %restore_time% seconds"
+		"DOTA_Tooltip_ability_item_safety_bubble_ai_1_bonus_hp_regen"					"+$hp_regen"
+
+		// item_grove_bow_light 圣光·林野长弓
+		"DOTA_Tooltip_Ability_item_grove_bow_light"				"<font color='#FFFF00'>Light Grove Bow</font>"
+		"DOTA_Tooltip_ability_item_grove_bow_light_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
+		"DOTA_Tooltip_ability_item_grove_bow_light_Lore"                  "A gift from the moon goddess to one of her prized disciples many memories ago."
+		"DOTA_Tooltip_ability_item_grove_bow_light_attack_range_bonus"                  "+$attack_range"
+		"DOTA_Tooltip_ability_item_grove_bow_light_attack_speed_bonus"                  "+$attack"
+
+		// item_grove_bow_dark 暗影·林野长弓
+		"DOTA_Tooltip_Ability_item_grove_bow_dark"				"<font color='#8A2BE2'>Dark Grove Bow</font>"
+		"DOTA_Tooltip_ability_item_grove_bow_dark_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
+		"DOTA_Tooltip_ability_item_grove_bow_dark_Lore"                  "A gift from the moon goddess to one of her prized disciples many memories ago."
+		"DOTA_Tooltip_ability_item_grove_bow_dark_attack_range_bonus"                  "+$attack_range"
+		"DOTA_Tooltip_ability_item_grove_bow_dark_attack_speed_bonus"                  "+$attack"
+
+		// item_grove_bow_light_1 圣光·林野长弓（中立）
+		"DOTA_Tooltip_Ability_item_grove_bow_light_1"				"<font color='#FFFF00'>Light Grove Bow (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_grove_bow_light_1_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
+		"DOTA_Tooltip_ability_item_grove_bow_light_1_Lore"                  "A gift from the moon goddess to one of her prized disciples many memories ago."
+		"DOTA_Tooltip_ability_item_grove_bow_light_1_attack_range_bonus"                  "+$attack_range"
+		"DOTA_Tooltip_ability_item_grove_bow_light_1_attack_speed_bonus"                  "+$attack"
+
+		// item_grove_bow_dark_1 暗影·林野长弓（中立）
+		"DOTA_Tooltip_Ability_item_grove_bow_dark_1"				"<font color='#8A2BE2'>Dark Grove Bow (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_grove_bow_dark_1_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
+		"DOTA_Tooltip_ability_item_grove_bow_dark_1_Lore"                  "A gift from the moon goddess to one of her prized disciples many memories ago."
+		"DOTA_Tooltip_ability_item_grove_bow_dark_1_attack_range_bonus"                  "+$attack_range"
+		"DOTA_Tooltip_ability_item_grove_bow_dark_1_attack_speed_bonus"                  "+$attack"
+
+		// item_grove_bow_ai 光暗·林野长弓
+		"DOTA_Tooltip_Ability_item_grove_bow_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Grove Bow"
+		"DOTA_Tooltip_ability_item_grove_bow_ai_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
+		"DOTA_Tooltip_ability_item_grove_bow_ai_Lore"                  "A gift from the moon goddess to one of her prized disciples many memories ago."
+		"DOTA_Tooltip_ability_item_grove_bow_ai_attack_range_bonus"                  "+$attack_range"
+		"DOTA_Tooltip_ability_item_grove_bow_ai_attack_speed_bonus"                  "+$attack"
+
+		// item_grove_bow_ai_1 光暗·林野长弓（中立）
+		"DOTA_Tooltip_Ability_item_grove_bow_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Grove Bow (Neutral)"
+		"DOTA_Tooltip_ability_item_grove_bow_ai_1_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
+		"DOTA_Tooltip_ability_item_grove_bow_ai_1_Lore"                  "A gift from the moon goddess to one of her prized disciples many memories ago."
+		"DOTA_Tooltip_ability_item_grove_bow_ai_1_attack_range_bonus"                  "+$attack_range"
+		"DOTA_Tooltip_ability_item_grove_bow_ai_1_attack_speed_bonus"                  "+$attack"
+
+		// item_ceremonial_robe_light 圣光·祭礼长袍
+		"DOTA_Tooltip_Ability_item_ceremonial_robe_light"				"<font color='#FFFF00'>Light Ceremonial Robe</font>"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_Description"						"<h1>Passive: Ceremonial Aura</h1>Lowers enemy Status Resistance by %status_resistance%%% and Magic Resistance by %magic_resistance%%%.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_Lore"						"One of many items lost in the looting of Zelenwyr's sacred reliquary."
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_bonus_mana"						"+$mana"
+
+		// item_ceremonial_robe_dark 暗影·祭礼长袍
+		"DOTA_Tooltip_Ability_item_ceremonial_robe_dark"				"<font color='#8A2BE2'>Dark Ceremonial Robe</font>"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_Description"						"<h1>Passive: Ceremonial Aura</h1>Lowers enemy Status Resistance by %status_resistance%%% and Magic Resistance by %magic_resistance%%%.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_Lore"						"One of many items lost in the looting of Zelenwyr's sacred reliquary."
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_bonus_mana"						"+$mana"
+
+		// item_ceremonial_robe_light_1 圣光·祭礼长袍（中立）
+		"DOTA_Tooltip_Ability_item_ceremonial_robe_light_1"				"<font color='#FFFF00'>Light Ceremonial Robe (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_1_Description"						"<h1>Passive: Ceremonial Aura</h1>Lowers enemy Status Resistance by %status_resistance%%% and Magic Resistance by %magic_resistance%%%.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_1_Lore"						"One of many items lost in the looting of Zelenwyr's sacred reliquary."
+		"DOTA_Tooltip_ability_item_ceremonial_robe_light_1_bonus_mana"						"+$mana"
+
+		// item_ceremonial_robe_dark_1 暗影·祭礼长袍（中立）
+		"DOTA_Tooltip_Ability_item_ceremonial_robe_dark_1"				"<font color='#8A2BE2'>Dark Ceremonial Robe (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_1_Description"						"<h1>Passive: Ceremonial Aura</h1>Lowers enemy Status Resistance by %status_resistance%%% and Magic Resistance by %magic_resistance%%%.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_1_Lore"						"One of many items lost in the looting of Zelenwyr's sacred reliquary."
+		"DOTA_Tooltip_ability_item_ceremonial_robe_dark_1_bonus_mana"						"+$mana"
+
+		// item_ceremonial_robe_ai 光暗·祭礼长袍
+		"DOTA_Tooltip_Ability_item_ceremonial_robe_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Ceremonial Robe"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_Description"						"<h1>Passive: Ceremonial Aura</h1>Lowers enemy Status Resistance by %status_resistance%%% and Magic Resistance by %magic_resistance%%%.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_Lore"						"One of many items lost in the looting of Zelenwyr's sacred reliquary."
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_bonus_mana"						"+$mana"
+
+		// item_ceremonial_robe_ai_1 光暗·祭礼长袍（中立）
+		"DOTA_Tooltip_Ability_item_ceremonial_robe_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Ceremonial Robe (Neutral)"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_1_Description"						"<h1>Passive: Ceremonial Aura</h1>Lowers enemy Status Resistance by %status_resistance%%% and Magic Resistance by %magic_resistance%%%.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_1_Lore"						"One of many items lost in the looting of Zelenwyr's sacred reliquary."
+		"DOTA_Tooltip_ability_item_ceremonial_robe_ai_1_bonus_mana"						"+$mana"
+
+		// item_havoc_hammer_light 圣光·浩劫巨锤
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light"				"<font color='#FFFF00'>Light Havoc Hammer</font>"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_Description"		"<h1>Active: Havoc</h1> Pulls enemies in a %range% range around you, slowing them by %slow%%% for %slow_duration% seconds and dealing %nuke_base_dmg% + %nuke_str_dmg%x your str as magical damage."
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_bonus_damage"	"+$damage"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_bonus_strength"	"+$str"
+
+		// item_havoc_hammer_dark 暗影·浩劫巨锤
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark"				"<font color='#8A2BE2'>Dark Havoc Hammer</font>"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_Description"		"<h1>Active: Havoc</h1> Pulls enemies in a %range% range around you, slowing them by %slow%%% for %slow_duration% seconds and dealing %nuke_base_dmg% + %nuke_str_dmg%x your str as magical damage."
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_bonus_damage"	"+$damage"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_bonus_strength"	"+$str"
+
+		// item_havoc_hammer_light_1 圣光·浩劫巨锤（中立）
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_1"				"<font color='#FFFF00'>Light Havoc Hammer (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_1_Description"		"<h1>Active: Havoc</h1> Pulls enemies in a %range% range around you, slowing them by %slow%%% for %slow_duration% seconds and dealing %nuke_base_dmg% + %nuke_str_dmg%x your str as magical damage."
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_1_bonus_damage"	"+$damage"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_light_1_bonus_strength"	"+$str"
+
+		// item_havoc_hammer_dark_1 暗影·浩劫巨锤（中立）
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_1"				"<font color='#8A2BE2'>Dark Havoc Hammer (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_1_Description"		"<h1>Active: Havoc</h1> Pulls enemies in a %range% range around you, slowing them by %slow%%% for %slow_duration% seconds and dealing %nuke_base_dmg% + %nuke_str_dmg%x your str as magical damage."
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_1_bonus_damage"	"+$damage"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_dark_1_bonus_strength"	"+$str"
+
+		// item_havoc_hammer_ai 光暗·浩劫巨锤
+		"DOTA_Tooltip_Ability_item_havoc_hammer_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Havoc Hammer"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_ai_Description"		"<h1>Active: Havoc</h1> Pulls enemies in a %range% range around you, slowing them by %slow%%% for %slow_duration% seconds and dealing %nuke_base_dmg% + %nuke_str_dmg%x your str as magical damage."
+		"DOTA_Tooltip_Ability_item_havoc_hammer_ai_bonus_damage"	"+$damage"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_ai_bonus_strength"	"+$str"
+
+		// iten_havoc_hammer_ai_1 光暗·浩劫巨锤（中立）
+		"DOTA_Tooltip_Ability_item_havoc_hammer_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Havoc Hammer (Neutral)"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_ai_1_Description"		"<h1>Active: Havoc</h1> Pulls enemies in a %range% range around you, slowing them by %slow%%% for %slow_duration% seconds and dealing %nuke_base_dmg% + %nuke_str_dmg%x your str as magical damage."
+		"DOTA_Tooltip_Ability_item_havoc_hammer_ai_1_bonus_damage"	"+$damage"
+		"DOTA_Tooltip_Ability_item_havoc_hammer_ai_1_bonus_strength"	"+$str"
+
+		// item_apex_light 圣光·极
+		"DOTA_Tooltip_Ability_item_apex_light"				"<font color='#FFFF00'>Light Apex</font>"
+        "DOTA_Tooltip_Ability_item_apex_light_Lore"		"Three orbs of remarkable power bound within a single scepter."
+        "DOTA_Tooltip_Ability_item_apex_light_primary_stat"		"+$primary_attribute"
+        "DOTA_Tooltip_Ability_item_apex_light_Note0"				"Grants +%primary_stat_universal% to each attribute for Universal Heroes."
+
+		// item_apex_dark 暗影·极
+		"DOTA_Tooltip_Ability_item_apex_dark"				"<font color='#8A2BE2'>Dark Apex</font>"
+		"DOTA_Tooltip_Ability_item_apex_dark_Lore"		"Three orbs of remarkable power bound within a single scepter."
+		"DOTA_Tooltip_Ability_item_apex_dark_secondary_stats"		"+ Secondary Attribute"
+		"DOTA_Tooltip_Ability_item_apex_dark_Note0"				"Grants half value to each attribute for Universal Heroes"
+
+		// item_apex_light_1 圣光·极（中立）
+		"DOTA_Tooltip_Ability_item_apex_light_1"				"<font color='#FFFF00'>Light Apex (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_apex_light_1_Lore"		"Three orbs of remarkable power bound within a single scepter."
+		"DOTA_Tooltip_Ability_item_apex_light_1_primary_stat"		"+$primary_attribute"
+		"DOTA_Tooltip_Ability_item_apex_light_1_Note0"				"Grants +%primary_stat_universal% to each attribute for Universal Heroes."
+
+		// item_apex_dark_1 暗影·极（中立）
+		"DOTA_Tooltip_Ability_item_apex_dark_1"				"<font color='#8A2BE2'>Dark Apex (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_apex_dark_1_Lore"		"Three orbs of remarkable power bound within a single scepter."
+		"DOTA_Tooltip_Ability_item_apex_dark_1_secondary_stats"		"+ Secondary Attribute"
+		"DOTA_Tooltip_Ability_item_apex_dark_1_Note0"				"Grants half value to each attribute for Universal Heroes"
+
+		// item_apex_ai 光暗·极
+		"DOTA_Tooltip_Ability_item_apex_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Apex"
+		"DOTA_Tooltip_Ability_item_apex_ai_Lore"		"Three orbs of remarkable power bound within a single scepter."
+		"DOTA_Tooltip_ability_item_apex_ai_bonus_all_stats"						"+$all"
+		"DOTA_Tooltip_Ability_item_apex_ai_Note0"				"Grants +%primary_stat_universal% to each attribute for Universal Heroes."
+
+		// item_apex_ai_1 光暗·极（中立）
+		"DOTA_Tooltip_Ability_item_apex_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Apex (Neutral)"
+		"DOTA_Tooltip_Ability_item_apex_ai_1_Lore"		"Three orbs of remarkable power bound within a single scepter."
+		"DOTA_Tooltip_ability_item_apex_ai_bonus_all_stats"						"+$all"
+		"DOTA_Tooltip_Ability_item_apex_ai_1_Note0"				"Grants +%primary_stat_universal% to each attribute for Universal Heroes."
+
+		// item_gossamer_cape_light 圣光·蛛丝斗篷
+		"DOTA_Tooltip_Ability_item_gossamer_cape_light"				"<font color='#FFFF00'>Light Gossamer Cape</font>"
+		"DOTA_Tooltip_ability_item_gossamer_cape_light_Description"			"<h1>Passive: Sixth Sense</h1> Automatically dodge an attack from an enemy hero."
+		"DOTA_Tooltip_ability_item_gossamer_cape_light_movement_speed"		"+$move_speed"
+
+		// item_gossamer_cape_dark 暗影·蛛丝斗篷
+		"DOTA_Tooltip_Ability_item_gossamer_cape_dark"				"<font color='#8A2BE2'>Dark Gossamer Cape</font>"
+		"DOTA_Tooltip_ability_item_gossamer_cape_dark_Description"			"<h1>Passive: Sixth Sense</h1> Automatically dodge an attack from an enemy hero."
+		"DOTA_Tooltip_ability_item_gossamer_cape_dark_movement_speed"		"+$move_speed"
+
+		// item_gossamer_cape_light_1 圣光·蛛丝斗篷（中立）
+		"DOTA_Tooltip_Ability_item_gossamer_cape_light_1"				"<font color='#FFFF00'>Light Gossamer Cape (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_gossamer_cape_light_1_Description"			"<h1>Passive: Sixth Sense</h1> Automatically dodge an attack from an enemy hero."
+		"DOTA_Tooltip_ability_item_gossamer_cape_light_1_movement_speed"		"+$move_speed"
+
+		// item_gossamer_cape_dark_1 暗影·蛛丝斗篷（中立）
+		"DOTA_Tooltip_Ability_item_gossamer_cape_dark_1"				"<font color='#8A2BE2'>Dark Gossamer Cape (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_gossamer_cape_dark_1_Description"			"<h1>Passive: Sixth Sense</h1> Automatically dodge an attack from an enemy hero."
+		"DOTA_Tooltip_ability_item_gossamer_cape_dark_1_movement_speed"		"+$move_speed"
+
+		// item_gossamer_cape_ai 光暗·蛛丝斗篷
+		"DOTA_Tooltip_Ability_item_gossamer_cape_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Gossamer Cape"
+		"DOTA_Tooltip_ability_item_gossamer_cape_ai_Description"			"<h1>Passive: Sixth Sense</h1> Automatically dodge an attack from an enemy hero."
+		"DOTA_Tooltip_ability_item_gossamer_cape_ai_movement_speed"		"+$move_speed"
+
+		// item_gossamer_cape_ai_1 光暗·蛛丝斗篷（中立）
+		"DOTA_Tooltip_Ability_item_gossamer_cape_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Gossamer Cape (Neutral)"
+		"DOTA_Tooltip_ability_item_gossamer_cape_ai_1_Description"			"<h1>Passive: Sixth Sense</h1> Automatically dodge an attack from an enemy hero."
+		"DOTA_Tooltip_ability_item_gossamer_cape_ai_1_movement_speed"		"+$move_speed"
+
+		// item_paladin_sword_light 圣光·骑士剑
+		"DOTA_Tooltip_Ability_item_paladin_sword_light"				"<font color='#FFFF00'>Light Paladin Sword</font>"
+		"DOTA_Tooltip_Ability_item_paladin_sword_light_Lore"		"The sigil blade of the legendary Brother Yhols of Gausra, stripped from its scabbard on the day of his controversial excommunication."
+		"DOTA_Tooltip_Ability_item_paladin_sword_light_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_Ability_item_paladin_sword_light_bonus_lifesteal"		"%+$lifesteal"
+		"DOTA_Tooltip_Ability_item_paladin_sword_light_bonus_spell_lifesteal"		"%+$spell_lifesteal"
+		"DOTA_Tooltip_Ability_item_paladin_sword_light_Description"		"<h1>Passive: Greater Healing</h1> Amplifies the wearer's Regeneration, Healing, Lifesteal and Spell Lifesteal by %bonus_amp%%%."
+
+		// item_paladin_sword_dark 暗影·骑士剑
+		"DOTA_Tooltip_Ability_item_paladin_sword_dark"				"<font color='#8A2BE2'>Dark Paladin Sword</font>"
+		"DOTA_Tooltip_Ability_item_paladin_sword_dark_Lore"		"The sigil blade of the legendary Brother Yhols of Gausra, stripped from its scabbard on the day of his controversial excommunication."
+		"DOTA_Tooltip_Ability_item_paladin_sword_dark_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_Ability_item_paladin_sword_dark_bonus_lifesteal"		"%+$lifesteal"
+		"DOTA_Tooltip_Ability_item_paladin_sword_dark_bonus_spell_lifesteal"		"%+$spell_lifesteal"
+		"DOTA_Tooltip_Ability_item_paladin_sword_dark_Description"		"<h1>Passive: Greater Healing</h1> Amplifies the wearer's Regeneration, Healing, Lifesteal and Spell Lifesteal by %bonus_amp%%%."
+
+		// item_paladin_sword_light_1 圣光·骑士剑（中立）
+		"DOTA_Tooltip_Ability_item_paladin_sword_light_1"				"<font color='#FFFF00'>Light Paladin Sword (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_paladin_sword_light_1_Lore"		"The sigil blade of the legendary Brother Yhols of Gausra, stripped from its scabbard on the day of his controversial excommunication."
+		"DOTA_Tooltip_Ability_item_paladin_sword_light_1_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_Ability_item_paladin_sword_light_1_bonus_lifesteal"		"%+$lifesteal"
+		"DOTA_Tooltip_Ability_item_paladin_sword_light_1_bonus_spell_lifesteal"		"%+$spell_lifesteal"
+		"DOTA_Tooltip_Ability_item_paladin_sword_light_1_Description"		"<h1>Passive: Greater Healing</h1> Amplifies the wearer's Regeneration, Healing, Lifesteal and Spell Lifesteal by %bonus_amp%%%."
+
+		// item_paladin_sword_dark_1 暗影·骑士剑（中立）
+		"DOTA_Tooltip_Ability_item_paladin_sword_dark_1"				"<font color='#8A2BE2'>Dark Paladin Sword (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_paladin_sword_dark_1_Lore"		"The sigil blade of the legendary Brother Yhols of Gausra, stripped from its scabbard on the day of his controversial excommunication."
+		"DOTA_Tooltip_Ability_item_paladin_sword_dark_1_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_Ability_item_paladin_sword_dark_1_bonus_lifesteal"		"%+$lifesteal"
+		"DOTA_Tooltip_Ability_item_paladin_sword_dark_1_bonus_spell_lifesteal"		"%+$spell_lifesteal"
+		"DOTA_Tooltip_Ability_item_paladin_sword_dark_1_Description"		"<h1>Passive: Greater Healing</h1> Amplifies the wearer's Regeneration, Healing, Lifesteal and Spell Lifesteal by %bonus_amp%%%."
+
+		// item_paladin_sword_ai 光暗·骑士剑
+		"DOTA_Tooltip_Ability_item_paladin_sword_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Paladin Sword"
+		"DOTA_Tooltip_Ability_item_paladin_sword_ai_Lore"		"The sigil blade of the legendary Brother Yhols of Gausra, stripped from its scabbard on the day of his controversial excommunication."
+		"DOTA_Tooltip_Ability_item_paladin_sword_ai_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_Ability_item_paladin_sword_ai_bonus_lifesteal"		"%+$lifesteal"
+		"DOTA_Tooltip_Ability_item_paladin_sword_ai_bonus_spell_lifesteal"		"%+$spell_lifesteal"
+		"DOTA_Tooltip_Ability_item_paladin_sword_ai_Description"		"<h1>Passive: Greater Healing</h1> Amplifies the wearer's Regeneration, Healing, Lifesteal and Spell Lifesteal by %bonus_amp%%%."
+
+		// item_paladin_sword_ai_1 光暗·骑士剑（中立）
+		"DOTA_Tooltip_Ability_item_paladin_sword_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Paladin Sword (Neutral)"
+		"DOTA_Tooltip_Ability_item_paladin_sword_ai_1_Lore"		"The sigil blade of the legendary Brother Yhols of Gausra, stripped from its scabbard on the day of his controversial excommunication."
+		"DOTA_Tooltip_Ability_item_paladin_sword_ai_1_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_Ability_item_paladin_sword_ai_1_bonus_lifesteal"		"%+$lifesteal"
+		"DOTA_Tooltip_Ability_item_paladin_sword_ai_1_bonus_spell_lifesteal"		"%+$spell_lifesteal"
+		"DOTA_Tooltip_Ability_item_paladin_sword_ai_1_Description"		"<h1>Passive: Greater Healing</h1> Amplifies the wearer's Regeneration, Healing, Lifesteal and Spell Lifesteal by %bonus_amp%%%."
+
+		// item_psychic_headband_light 圣光·通灵头带
+		"DOTA_Tooltip_Ability_item_psychic_headband_light"				"<font color='#FFFF00'>Light Psychic Headband</font>"
+		"DOTA_Tooltip_ability_item_psychic_headband_light_Description"						"<h1>Active: Psychic Push</h1>Pushes the target enemy unit away from you %push_length% distance."
+		"DOTA_Tooltip_ability_item_psychic_headband_light_intelligence_pct"						"%+$int"
+		"DOTA_Tooltip_ability_item_psychic_headband_light_cast_range"						"+$cast_range"
+
+		// item_psychic_headband_dark 暗影·通灵头带
+		"DOTA_Tooltip_Ability_item_psychic_headband_dark"				"<font color='#8A2BE2'>Dark Psychic Headband</font>"
+		"DOTA_Tooltip_ability_item_psychic_headband_dark_Description"						"<h1>Active: Psychic Push</h1>Pushes the target enemy unit away from you %push_length% distance."
+		"DOTA_Tooltip_ability_item_psychic_headband_dark_intelligence_pct"						"%+$int"
+		"DOTA_Tooltip_ability_item_psychic_headband_dark_cast_range"						"+$cast_range"
+
+		// item_psychic_headband_light_1 圣光·通灵头带（中立）
+		"DOTA_Tooltip_Ability_item_psychic_headband_light_1"				"<font color='#FFFF00'>Light Psychic Headband (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_psychic_headband_light_1_Description"						"<h1>Active: Psychic Push</h1>Pushes the target enemy unit away from you %push_length% distance."
+		"DOTA_Tooltip_ability_item_psychic_headband_light_1_intelligence_pct"						"%+$int"
+		"DOTA_Tooltip_ability_item_psychic_headband_light_1_cast_range"						"+$cast_range"
+
+		// item_psychic_headband_dark_1 暗影·通灵头带（中立）
+		"DOTA_Tooltip_Ability_item_psychic_headband_dark_1"				"<font color='#8A2BE2'>Dark Psychic Headband (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_psychic_headband_dark_1_Description"						"<h1>Active: Psychic Push</h1>Pushes the target enemy unit away from you %push_length% distance."
+		"DOTA_Tooltip_ability_item_psychic_headband_dark_1_intelligence_pct"						"%+$int"
+		"DOTA_Tooltip_ability_item_psychic_headband_dark_1_cast_range"						"+$cast_range"
+
+		// item_psychic_headband_ai 光暗·通灵头带
+		"DOTA_Tooltip_Ability_item_psychic_headband_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Psychic Headband"
+		"DOTA_Tooltip_ability_item_psychic_headband_ai_Description"						"<h1>Active: Psychic Push</h1>Pushes the target enemy unit away from you %push_length% distance."
+		"DOTA_Tooltip_ability_item_psychic_headband_ai_intelligence_pct"						"%+$int"
+		"DOTA_Tooltip_ability_item_psychic_headband_ai_cast_range"						"+$cast_range"
+
+		// item_psychic_headband_ai_1 光暗·通灵头带（中立）
+		"DOTA_Tooltip_Ability_item_psychic_headband_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Psychic Headband (Neutral)"
+		"DOTA_Tooltip_ability_item_psychic_headband_ai_1_Description"						"<h1>Active: Psychic Push</h1>Pushes the target enemy unit away from you %push_length% distance."
+		"DOTA_Tooltip_ability_item_psychic_headband_ai_1_intelligence_pct"						"%+$int"
+		"DOTA_Tooltip_ability_item_psychic_headband_ai_1_cast_range"						"+$cast_range"
+
+		// item_ascetic_cap_light 圣光·简朴短帽
+		"DOTA_Tooltip_Ability_item_ascetic_cap_light"				"<font color='#FFFF00'>Light Ascetic Cap</font>"
+		"DOTA_Tooltip_Ability_item_ascetic_cap_light_Description"				"<h1>Passive: Endurance</h1>Whenever a debuff would be applied to the owner, grant %status_resistance%%% Status resistance and %slow_resistance%%% Slow Resistance for %duration% seconds."
+		"DOTA_Tooltip_Ability_item_ascetic_cap_light_hp_regen"				"+$hp_regen"
+		"DOTA_Tooltip_Ability_item_ascetic_cap_light_bonus_health"			"+$health"
+
+		// item_ascetic_cap_dark 暗影·简朴短帽
+		"DOTA_Tooltip_Ability_item_ascetic_cap_dark"				"<font color='#8A2BE2'>Dark Ascetic Cap</font>"
+		"DOTA_Tooltip_Ability_item_ascetic_cap_dark_Description"				"<h1>Passive: Endurance</h1>Whenever a debuff would be applied to the owner, grant %status_resistance%%% Status resistance and %slow_resistance%%% Slow Resistance for %duration% seconds."
+		"DOTA_Tooltip_Ability_item_ascetic_cap_dark_hp_regen"				"+$hp_regen"
+		"DOTA_Tooltip_Ability_item_ascetic_cap_dark_bonus_health"			"+$health"
+
+		// item_ascetic_cap_light_1 圣光·简朴短帽（中立）
+		"DOTA_Tooltip_Ability_item_ascetic_cap_light_1"				"<font color='#FFFF00'>Light Ascetic Cap (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_ascetic_cap_light_1_Description"				"<h1>Passive: Endurance</h1>Whenever a debuff would be applied to the owner, grant %status_resistance%%% Status resistance and %slow_resistance%%% Slow Resistance for %duration% seconds."
+		"DOTA_Tooltip_Ability_item_ascetic_cap_light_1_hp_regen"				"+$hp_regen"
+		"DOTA_Tooltip_Ability_item_ascetic_cap_light_1_bonus_health"			"+$health"
+
+		// item_ascetic_cap_dark_1 暗影·简朴短帽（中立）
+		"DOTA_Tooltip_Ability_item_ascetic_cap_dark_1"				"<font color='#8A2BE2'>Dark Ascetic Cap (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_ascetic_cap_dark_1_Description"				"<h1>Passive: Endurance</h1>Whenever a debuff would be applied to the owner, grant %status_resistance%%% Status resistance and %slow_resistance%%% Slow Resistance for %duration% seconds."
+		"DOTA_Tooltip_Ability_item_ascetic_cap_dark_1_hp_regen"				"+$hp_regen"
+		"DOTA_Tooltip_Ability_item_ascetic_cap_dark_1_bonus_health"			"+$health"
+
+		// item_ascetic_cap_ai 光暗·简朴短帽
+		"DOTA_Tooltip_Ability_item_ascetic_cap_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Ascetic Cap"
+		"DOTA_Tooltip_Ability_item_ascetic_cap_ai_Description"				"<h1>Passive: Endurance</h1>Whenever a debuff would be applied to the owner, grant %status_resistance%%% Status resistance and %slow_resistance%%% Slow Resistance for %duration% seconds."
+		"DOTA_Tooltip_Ability_item_ascetic_cap_ai_hp_regen"				"+$hp_regen"
+		"DOTA_Tooltip_Ability_item_ascetic_cap_ai_bonus_health"			"+$health"
+
+		// item_ascetic_cap_ai_1 光暗·简朴短帽（中立）
+		"DOTA_Tooltip_Ability_item_ascetic_cap_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Ascetic Cap (Neutral)"
+		"DOTA_Tooltip_Ability_item_ascetic_cap_ai_1_Description"				"<h1>Passive: Endurance</h1>Whenever a debuff would be applied to the owner, grant %status_resistance%%% Status resistance and %slow_resistance%%% Slow Resistance for %duration% seconds."
+		"DOTA_Tooltip_Ability_item_ascetic_cap_ai_1_hp_regen"				"+$hp_regen"
+		"DOTA_Tooltip_Ability_item_ascetic_cap_ai_1_bonus_health"			"+$health"
+
+		// item_trickster_cloak_light 圣光·欺诈斗篷
+		"DOTA_Tooltip_Ability_item_trickster_cloak_light"				"<font color='#FFFF00'>Light Trickster Cloak</font>"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_light_evasion"			"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_light_magic_resistance"						"%+$evasion"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_light_Description"		"<h1>Active: Cloak</h1>Causes you to become invisible for %duration% seconds."
+
+		// item_trickster_cloak_dark 暗影·欺诈斗篷
+		"DOTA_Tooltip_Ability_item_trickster_cloak_dark"				"<font color='#8A2BE2'>Dark Trickster Cloak</font>"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_dark_evasion"			"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_dark_magic_resistance"						"%+$evasion"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_dark_Description"		"<h1>Active: Cloak</h1>Causes you to become invisible for %duration% seconds."
+
+		// item_trickster_cloak_light_1 圣光·欺诈斗篷（中立）
+		"DOTA_Tooltip_Ability_item_trickster_cloak_light_1"				"<font color='#FFFF00'>Light Trickster Cloak (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_light_1_evasion"			"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_light_1_magic_resistance"						"%+$evasion"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_light_1_Description"		"<h1>Active: Cloak</h1>Causes you to become invisible for %duration% seconds."
+
+		// item_trickster_cloak_dark_1 暗影·欺诈斗篷（中立）
+		"DOTA_Tooltip_Ability_item_trickster_cloak_dark_1"				"<font color='#8A2BE2'>Dark Trickster Cloak (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_dark_1_evasion"			"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_dark_1_magic_resistance"						"%+$evasion"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_dark_1_Description"		"<h1>Active: Cloak</h1>Causes you to become invisible for %duration% seconds."
+
+		// item_trickster_cloak_ai 光暗·欺诈斗篷
+		"DOTA_Tooltip_Ability_item_trickster_cloak_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Trickster Cloak"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_ai_evasion"			"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_ai_magic_resistance"						"%+$evasion"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_ai_Description"		"<h1>Active: Cloak</h1>Causes you to become invisible for %duration% seconds."
+
+		// item_trickster_cloak_ai_1 光暗·欺诈斗篷（中立）
+		"DOTA_Tooltip_Ability_item_trickster_cloak_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Trickster Cloak (Neutral)"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_ai_1_evasion"			"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_ai_1_magic_resistance"						"%+$evasion"
+		"DOTA_Tooltip_Ability_item_trickster_cloak_ai_1_Description"		"<h1>Active: Cloak</h1>Causes you to become invisible for %duration% seconds."
+
+		// item_ancient_guardian_light 圣光·遗迹守护者
+		"DOTA_Tooltip_Ability_item_ancient_guardian_light"				"<font color='#FFFF00'>Light Ancient Guardian</font>"
+		"DOTA_Tooltip_ability_item_ancient_guardian_light_Description"						"<h1>Passive: Ancient Power</h1> Grants %extra_bonus_damage% extra bonus damage as long as the unit is within %radius% range of an ancient."
+		"DOTA_Tooltip_ability_item_ancient_guardian_light_bonus_damage"						"+$damage"
+
+		// item_ancient_guardian_dark 暗影·遗迹守护者
+		"DOTA_Tooltip_Ability_item_ancient_guardian_dark"				"<font color='#8A2BE2'>Dark Ancient Guardian</font>"
+		"DOTA_Tooltip_ability_item_ancient_guardian_dark_Description"						"<h1>Passive: Ancient Power</h1> Grants %extra_bonus_damage% extra bonus damage as long as the unit is within %radius% range of an ancient."
+		"DOTA_Tooltip_ability_item_ancient_guardian_dark_bonus_damage"						"+$damage"
+
+		// item_ancient_guardian_light_1 圣光·遗迹守护者（中立）
+		"DOTA_Tooltip_Ability_item_ancient_guardian_light_1"				"<font color='#FFFF00'>Light Ancient Guardian (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_ancient_guardian_light_1_Description"						"<h1>Passive: Ancient Power</h1> Grants %extra_bonus_damage% extra bonus damage as long as the unit is within %radius% range of an ancient."
+		"DOTA_Tooltip_ability_item_ancient_guardian_light_1_bonus_damage"						"+$damage"
+
+		// item_ancient_guardian_dark_1 暗影·遗迹守护者（中立）
+		"DOTA_Tooltip_Ability_item_ancient_guardian_dark_1"				"<font color='#8A2BE2'>Dark Ancient Guardian (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_ancient_guardian_dark_1_Description"						"<h1>Passive: Ancient Power</h1> Grants %extra_bonus_damage% extra bonus damage as long as the unit is within %radius% range of an ancient."
+		"DOTA_Tooltip_ability_item_ancient_guardian_dark_1_bonus_damage"						"+$damage"
+
+		// item_ancient_guardian_ai 光暗·遗迹守护者
+		"DOTA_Tooltip_Ability_item_ancient_guardian_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Ancient Guardian"
+		"DOTA_Tooltip_ability_item_ancient_guardian_ai_Description"						"<h1>Passive: Ancient Power</h1> Grants %extra_bonus_damage% extra bonus damage as long as the unit is within %radius% range of an ancient."
+		"DOTA_Tooltip_ability_item_ancient_guardian_ai_bonus_damage"						"+$damage"
+
+		// item_ancient_guardian_ai_1 光暗·遗迹守护者（中立）
+		"DOTA_Tooltip_Ability_item_ancient_guardian_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Ancient Guardian (Neutral)"
+		"DOTA_Tooltip_ability_item_ancient_guardian_ai_1_Description"						"<h1>Passive: Ancient Power</h1> Grants %extra_bonus_damage% extra bonus damage as long as the unit is within %radius% range of an ancient."
+		"DOTA_Tooltip_ability_item_ancient_guardian_ai_1_bonus_damage"						"+$damage"
+
+		// item_mind_breaker_light 圣光·智灭
+		"DOTA_Tooltip_ability_item_mind_breaker_light"				"<font color='#FFFF00'>Light Mind Breaker</font>"
+		"DOTA_Tooltip_ability_item_mind_breaker_light_Description"				"<h1>Passive: Silence Strike</h1> The next attack silences the hit enemy for %duration% seconds."
+		"DOTA_Tooltip_ability_item_mind_breaker_light_Lore"				"A bewitching blade of indeterminate form capable of piercing the psyche of even the most willful foe."
+		"DOTA_Tooltip_ability_item_mind_breaker_light_magic_damage"				"+Magic Attack Damage"
+		"DOTA_Tooltip_ability_item_mind_breaker_light_attack_speed"				"+Attack Speed"
+
+		// item_mind_breaker_dark 暗影·智灭
+		"DOTA_Tooltip_ability_item_mind_breaker_dark"				"<font color='#8A2BE2'>Dark Mind Breaker</font>"
+		"DOTA_Tooltip_ability_item_mind_breaker_dark_Description"				"<h1>Passive: Silence Strike</h1> The next attack silences the hit enemy for %duration% seconds."
+		"DOTA_Tooltip_ability_item_mind_breaker_dark_Lore"				"A bewitching blade of indeterminate form capable of piercing the psyche of even the most willful foe."
+		"DOTA_Tooltip_ability_item_mind_breaker_dark_magic_damage"				"+Magic Attack Damage"
+		"DOTA_Tooltip_ability_item_mind_breaker_dark_attack_speed"				"+Attack Speed"
+
+		// item_mind_breaker_light_1 圣光·智灭（中立）
+		"DOTA_Tooltip_ability_item_mind_breaker_light_1"				"<font color='#FFFF00'>Light Mind Breaker (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_mind_breaker_light_1_Description"				"<h1>Passive: Silence Strike</h1> The next attack silences the hit enemy for %duration% seconds."
+		"DOTA_Tooltip_ability_item_mind_breaker_light_1_Lore"				"A bewitching blade of indeterminate form capable of piercing the psyche of even the most willful foe."
+		"DOTA_Tooltip_ability_item_mind_breaker_light_1_magic_damage"				"+Magic Attack Damage"
+		"DOTA_Tooltip_ability_item_mind_breaker_light_1_attack_speed"				"+Attack Speed"
+
+		// item_mind_breaker_dark_1 暗影·智灭（中立）
+		"DOTA_Tooltip_ability_item_mind_breaker_dark_1"				"<font color='#8A2BE2'>Dark Mind Breaker (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_mind_breaker_dark_1_Description"				"<h1>Passive: Silence Strike</h1> The next attack silences the hit enemy for %duration% seconds."
+		"DOTA_Tooltip_ability_item_mind_breaker_dark_1_Lore"				"A bewitching blade of indeterminate form capable of piercing the psyche of even the most willful foe."
+		"DOTA_Tooltip_ability_item_mind_breaker_dark_1_magic_damage"				"+Magic Attack Damage"
+		"DOTA_Tooltip_ability_item_mind_breaker_dark_1_attack_speed"				"+Attack Speed"
+
+		// item_mind_breaker_ai 光暗·智灭
+		"DOTA_Tooltip_ability_item_mind_breaker_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Mind Breaker"
+		"DOTA_Tooltip_ability_item_mind_breaker_ai_Description"				"<h1>Passive: Silence Strike</h1> The next attack silences the hit enemy for %duration% seconds."
+		"DOTA_Tooltip_ability_item_mind_breaker_ai_Lore"				"A bewitching blade of indeterminate form capable of piercing the psyche of even the most willful foe."
+		"DOTA_Tooltip_ability_item_mind_breaker_ai_magic_damage"				"+Magic Attack Damage"
+		"DOTA_Tooltip_ability_item_mind_breaker_ai_attack_speed"				"+Attack Speed"
+
+		// item_mind_breaker_ai_1 光暗·智灭（中立）
+		"DOTA_Tooltip_ability_item_mind_breaker_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Mind Breaker (Neutral)"
+		"DOTA_Tooltip_ability_item_mind_breaker_ai_1_Description"				"<h1>Passive: Silence Strike</h1> The next attack silences the hit enemy for %duration% seconds."
+		"DOTA_Tooltip_ability_item_mind_breaker_ai_1_Lore"				"A bewitching blade of indeterminate form capable of piercing the psyche of even the most willful foe."
+		"DOTA_Tooltip_ability_item_mind_breaker_ai_1_magic_damage"				"+Magic Attack Damage"
+		"DOTA_Tooltip_ability_item_mind_breaker_ai_1_attack_speed"				"+Attack Speed"
+
+		// item_seer_stone_light 圣光·先哲之石
+		"DOTA_Tooltip_ability_item_seer_stone_light"				"<font color='#FFFF00'>Light Seer Stone</font>"
+		"DOTA_Tooltip_ability_item_seer_stone_light_Description"               "<h1>Active: Reveal</h1> Reveal a target %radius% area of the map for %duration% seconds."
+		"DOTA_Tooltip_ability_item_seer_stone_light_Lore"               "The curious creation of a wizard who professed to hail from another time."
+		"DOTA_Tooltip_ability_item_seer_stone_light_cast_range_bonus"               "+$cast_range"
+		"DOTA_Tooltip_ability_item_seer_stone_light_vision_bonus"                "+Bonus Vision"
+		"DOTA_Tooltip_ability_item_seer_stone_light_mana_regen"					"+$mana_regen"
+
+
+		// item_seer_stone_dark 暗影·先哲之石
+		"DOTA_Tooltip_ability_item_seer_stone_dark"				"<font color='#8A2BE2'>Dark Seer Stone</font>"
+		"DOTA_Tooltip_ability_item_seer_stone_dark_Description"               "<h1>Active: Reveal</h1> Reveal a target %radius% area of the map for %duration% seconds."
+		"DOTA_Tooltip_ability_item_seer_stone_dark_Lore"               "The curious creation of a wizard who professed to hail from another time."
+		"DOTA_Tooltip_ability_item_seer_stone_dark_cast_range_bonus"               "+$cast_range"
+		"DOTA_Tooltip_ability_item_seer_stone_dark_vision_bonus"                "+Bonus Vision"
+		"DOTA_Tooltip_ability_item_seer_stone_dark_mana_regen"					"+$mana_regen"
+
+		// item_seer_stone_light_1 圣光·先哲之石（中立）
+		"DOTA_Tooltip_ability_item_seer_stone_light_1"				"<font color='#FFFF00'>Light Seer Stone (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_seer_stone_light_1_Description"               "<h1>Active: Reveal</h1> Reveal a target %radius% area of the map for %duration% seconds."
+		"DOTA_Tooltip_ability_item_seer_stone_light_1_Lore"               "The curious creation of a wizard who professed to hail from another time."
+		"DOTA_Tooltip_ability_item_seer_stone_light_1_cast_range_bonus"               "+$cast_range"
+		"DOTA_Tooltip_ability_item_seer_stone_light_1_vision_bonus"                "+Bonus Vision"
+		"DOTA_Tooltip_ability_item_seer_stone_light_1_mana_regen"					"+$mana_regen"
+
+		// item_seer_stone_dark_1 暗影·先哲之石（中立）
+		"DOTA_Tooltip_ability_item_seer_stone_dark_1"				"<font color='#8A2BE2'>Dark Seer Stone (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_seer_stone_dark_1_Description"               "<h1>Active: Reveal</h1> Reveal a target %radius% area of the map for %duration% seconds."
+		"DOTA_Tooltip_ability_item_seer_stone_dark_1_Lore"               "The curious creation of a wizard who professed to hail from another time."
+		"DOTA_Tooltip_ability_item_seer_stone_dark_1_cast_range_bonus"               "+$cast_range"
+		"DOTA_Tooltip_ability_item_seer_stone_dark_1_vision_bonus"                "+Bonus Vision"
+		"DOTA_Tooltip_ability_item_seer_stone_dark_1_mana_regen"					"+$mana_regen"
+
+		// item_seer_stone_ai 光暗·先哲之石
+		"DOTA_Tooltip_ability_item_seer_stone_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Seer Stone"
+		"DOTA_Tooltip_ability_item_seer_stone_ai_Description"               "<h1>Active: Reveal</h1> Reveal a target %radius% area of the map for %duration% seconds."
+		"DOTA_Tooltip_ability_item_seer_stone_ai_Lore"               "The curious creation of a wizard who professed to hail from another time."
+		"DOTA_Tooltip_ability_item_seer_stone_ai_cast_range_bonus"               "+$cast_range"
+		"DOTA_Tooltip_ability_item_seer_stone_ai_vision_bonus"                "+Bonus Vision"
+		"DOTA_Tooltip_ability_item_seer_stone_ai_mana_regen"					"+$mana_regen"
+
+		// item_seer_stone_ai_1 光暗·先哲之石（中立）
+		"DOTA_Tooltip_ability_item_seer_stone_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Seer Stone (Neutral)"
+		"DOTA_Tooltip_ability_item_seer_stone_ai_1_Description"               "<h1>Active: Reveal</h1> Reveal a target %radius% area of the map for %duration% seconds."
+		"DOTA_Tooltip_ability_item_seer_stone_ai_1_Lore"               "The curious creation of a wizard who professed to hail from another time."
+		"DOTA_Tooltip_ability_item_seer_stone_ai_1_cast_range_bonus"               "+$cast_range"
+		"DOTA_Tooltip_ability_item_seer_stone_ai_1_vision_bonus"                "+Bonus Vision"
+		"DOTA_Tooltip_ability_item_seer_stone_ai_1_mana_regen"					"+$mana_regen"
+
+		// item_force_field_light 圣光·秘术铠甲
+		"DOTA_Tooltip_ability_item_force_field_light"				"<font color='#FFFF00'>Light Arcanist's Armor</font>"
+		"DOTA_Tooltip_Ability_item_force_field_light_Description"		"<h1>Active: Mega Shield</h1> Force Field Aura Grants %active_reflection_pct%%% Damage Reflection for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants +%bonus_aoe_armor% armor and +%bonus_aoe_mres%%% Magic Resistance to all other allies within %bonus_aoe_radius% radius."
+		"DOTA_Tooltip_Ability_item_force_field_light_self_armor"		"+$armor"
+		"DOTA_Tooltip_Ability_item_force_field_light_self_mres"		"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_force_field_light_Lore"		"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
+
+		// item_force_field_dark 暗影·秘术铠甲
+		"DOTA_Tooltip_ability_item_force_field_dark"				"<font color='#8A2BE2'>Dark Arcanist's Armor</font>"
+		"DOTA_Tooltip_Ability_item_force_field_dark_Description"		"<h1>Active: Mega Shield</h1> Force Field Aura Grants %active_reflection_pct%%% Damage Reflection for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants +%bonus_aoe_armor% armor and +%bonus_aoe_mres%%% Magic Resistance to all other allies within %bonus_aoe_radius% radius."
+		"DOTA_Tooltip_Ability_item_force_field_dark_self_armor"		"+$armor"
+		"DOTA_Tooltip_Ability_item_force_field_dark_self_mres"		"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_force_field_dark_Lore"		"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
+
+		// item_force_field_light_1 圣光·秘术铠甲（中立）
+		"DOTA_Tooltip_ability_item_force_field_light_1"				"<font color='#FFFF00'>Light Arcanist's Armor (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_force_field_light_1_Description"		"<h1>Active: Mega Shield</h1> Force Field Aura Grants %active_reflection_pct%%% Damage Reflection for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants +%bonus_aoe_armor% armor and +%bonus_aoe_mres%%% Magic Resistance to all other allies within %bonus_aoe_radius% radius."
+		"DOTA_Tooltip_Ability_item_force_field_light_1_self_armor"		"+$armor"
+		"DOTA_Tooltip_Ability_item_force_field_light_1_self_mres"		"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_force_field_light_1_Lore"		"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
+
+		// item_force_field_dark_1 暗影·秘术铠甲（中立）
+		"DOTA_Tooltip_ability_item_force_field_dark_1"				"<font color='#8A2BE2'>Dark Arcanist's Armor (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_force_field_dark_1_Description"		"<h1>Active: Mega Shield</h1> Force Field Aura Grants %active_reflection_pct%%% Damage Reflection for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants +%bonus_aoe_armor% armor and +%bonus_aoe_mres%%% Magic Resistance to all other allies within %bonus_aoe_radius% radius."
+		"DOTA_Tooltip_Ability_item_force_field_dark_1_self_armor"		"+$armor"
+		"DOTA_Tooltip_Ability_item_force_field_dark_1_self_mres"		"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_force_field_dark_1_Lore"		"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
+
+		// item_force_field_ai 光暗·秘术铠甲
+		"DOTA_Tooltip_ability_item_force_field_ai"				"<font color='#00FF00'>Light</font><font color='#8A2BE2'>Dark</font> <font color='#00FF00'>Arcanist's Armor</font>"
+		"DOTA_Tooltip_Ability_item_force_field_ai_Description"		"<h1>Active: Mega Shield</h1> Force Field Aura Grants %active_reflection_pct%%% Damage Reflection for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants +%bonus_aoe_armor% armor and +%bonus_aoe_mres%%% Magic Resistance to all other allies within %bonus_aoe_radius% radius."
+		"DOTA_Tooltip_Ability_item_force_field_ai_self_armor"		"+$armor"
+		"DOTA_Tooltip_Ability_item_force_field_ai_self_mres"		"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_force_field_ai_Lore"		"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
+
+		// item_force_field_ai_1 光暗·秘术铠甲（中立）
+		"DOTA_Tooltip_ability_item_force_field_ai_1"				"<font color='#00FF00'>Light</font><font color='#8A2BE2'>Dark</font> <font color='#00FF00'>Arcanist's Armor (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_force_field_ai_1_Description"		"<h1>Active: Mega Shield</h1> Force Field Aura Grants %active_reflection_pct%%% Damage Reflection for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants +%bonus_aoe_armor% armor and +%bonus_aoe_mres%%% Magic Resistance to all other allies within %bonus_aoe_radius% radius."
+		"DOTA_Tooltip_Ability_item_force_field_ai_1_self_armor"		"+$armor"
+		"DOTA_Tooltip_Ability_item_force_field_ai_1_self_mres"		"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_force_field_ai_1_Lore"		"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
+
+		// item_ballista_light 圣光·弩炮
+		"DOTA_Tooltip_ability_item_ballista_light"				"<font color='#FFFF00'>Light Ballista</font>"
+		"DOTA_Tooltip_Ability_item_ballista_light_Description"			"<h1>Passive: Knockback</h1> Knocks back enemies %knockback_distance% distance and deals %bonus_damage% pure damage with every attack."
+		"DOTA_Tooltip_Ability_item_ballista_light_attack_range_bonus"		"+$attack_range"
+
+		// item_ballista_dark 暗影·弩炮
+		"DOTA_Tooltip_ability_item_ballista_dark"				"<font color='#8A2BE2'>Dark Ballista</font>"
+		"DOTA_Tooltip_Ability_item_ballista_dark_Description"			"<h1>Passive: Knockback</h1> Knocks back enemies %knockback_distance% distance and deals %bonus_damage% pure damage with every attack."
+		"DOTA_Tooltip_Ability_item_ballista_dark_attack_range_bonus"		"+$attack_range"
+
+		// item_ballista_light_1 圣光·弩炮（中立）
+		"DOTA_Tooltip_ability_item_ballista_light_1"				"<font color='#FFFF00'>Light Ballista (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_ballista_light_1_Description"			"<h1>Passive: Knockback</h1> Knocks back enemies %knockback_distance% distance and deals %bonus_damage% pure damage with every attack."
+		"DOTA_Tooltip_Ability_item_ballista_light_1_attack_range_bonus"		"+$attack_range"
+
+		// item_ballista_dark_1 暗影·弩炮（中立）
+		"DOTA_Tooltip_ability_item_ballista_dark_1"				"<font color='#8A2BE2'>Dark Ballista (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_ballista_dark_1_Description"			"<h1>Passive: Knockback</h1> Knocks back enemies %knockback_distance% distance and deals %bonus_damage% pure damage with every attack."
+		"DOTA_Tooltip_Ability_item_ballista_dark_1_attack_range_bonus"		"+$attack_range"
+
+		// item_ballista_ai 光暗·弩炮
+		"DOTA_Tooltip_ability_item_ballista_ai"				"<font color='#00FF00'>Light</font><font color='#8A2BE2'>Dark</font> <font color='#00FF00'>Ballista</font>"
+		"DOTA_Tooltip_Ability_item_ballista_ai_Description"			"<h1>Passive: Knockback</h1> Knocks back enemies %knockback_distance% distance and deals %bonus_damage% pure damage with every attack."
+		"DOTA_Tooltip_Ability_item_ballista_ai_attack_range_bonus"		"+$attack_range"
+
+		// item_ballista_ai_1 光暗·弩炮（中立）
+		"DOTA_Tooltip_ability_item_ballista_ai_1"				"<font color='#00FF00'>Light</font><font color='#8A2BE2'>Dark</font> <font color='#00FF00'>Ballista (Neutral)</font>"
+		"DOTA_Tooltip_Ability_item_ballista_ai_1_Description"			"<h1>Passive: Knockback</h1> Knocks back enemies %knockback_distance% distance and deals %bonus_damage% pure damage with every attack."
+		"DOTA_Tooltip_Ability_item_ballista_ai_1_attack_range_bonus"		"+$attack_range"
+
+		// item_armlet_light 圣光·臂章
+		"DOTA_Tooltip_ability_item_armlet_light"				"<font color='#FFFF00'>Light Armlet of Mordiggian</font>"
+		"DOTA_Tooltip_ability_item_armlet_light_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		"DOTA_Tooltip_ability_item_armlet_light_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
+		"DOTA_Tooltip_ability_item_armlet_light_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
+		"DOTA_Tooltip_ability_item_armlet_light_Note1"								"The strength change occurs over 0.6 seconds."
+		"DOTA_Tooltip_ability_item_armlet_light_Note2"								"Activating or deactivating Unholy Strength does not interrupt channeling."
+		"DOTA_Tooltip_ability_item_armlet_light_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_armlet_light_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_armlet_light_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_armlet_light_bonus_magical_armor"					"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_armlet_light_bonus_health_regen"					"+$hp_regen"
+
+
+		// item_armlet_dark 暗影·臂章
+		"DOTA_Tooltip_ability_item_armlet_dark"				"<font color='#8A2BE2'>Dark Armlet of Mordiggian</font>"
+		"DOTA_Tooltip_ability_item_armlet_dark_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		"DOTA_Tooltip_ability_item_armlet_dark_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
+		"DOTA_Tooltip_ability_item_armlet_dark_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
+		"DOTA_Tooltip_ability_item_armlet_dark_Note1"								"The strength change occurs over 0.6 seconds."
+		"DOTA_Tooltip_ability_item_armlet_dark_Note2"								"Activating or deactivating Unholy Strength does not interrupt channeling."
+		"DOTA_Tooltip_ability_item_armlet_dark_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_armlet_dark_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_armlet_dark_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_armlet_dark_bonus_magical_armor"					"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
+
+		// item_armlet_light_1 圣光·臂章（中立）
+		"DOTA_Tooltip_ability_item_armlet_light_1"				"<font color='#FFFF00'>Light Armlet of Mordiggian (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_armlet_light_1_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		"DOTA_Tooltip_ability_item_armlet_light_1_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
+		"DOTA_Tooltip_ability_item_armlet_light_1_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
+		"DOTA_Tooltip_ability_item_armlet_light_1_Note1"								"The strength change occurs over 0.6 seconds."
+		"DOTA_Tooltip_ability_item_armlet_light_1_Note2"								"Activating or deactivating Unholy Strength does not interrupt channeling."
+		"DOTA_Tooltip_ability_item_armlet_light_1_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_armlet_light_1_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_armlet_light_1_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_armlet_light_1_bonus_magical_armor"					"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_armlet_light_1_bonus_health_regen"					"+$hp_regen"
+
+		// item_armlet_dark_1 暗影·臂章（中立）
+		"DOTA_Tooltip_ability_item_armlet_dark_1"				"<font color='#8A2BE2'>Dark Armlet of Mordiggian (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_armlet_dark_1_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		"DOTA_Tooltip_ability_item_armlet_dark_1_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
+		"DOTA_Tooltip_ability_item_armlet_dark_1_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
+		"DOTA_Tooltip_ability_item_armlet_dark_1_Note1"								"The strength change occurs over 0.6 seconds."
+		"DOTA_Tooltip_ability_item_armlet_dark_1_Note2"								"Activating or deactivating Unholy Strength does not interrupt channeling."
+		"DOTA_Tooltip_ability_item_armlet_dark_1_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_armlet_dark_1_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_armlet_dark_1_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_armlet_dark_1_bonus_magical_armor"					"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_armlet_dark_1_bonus_health_regen"					"+$hp_regen"
+
+		// item_guardian_greaves_light 圣光·卫士胫甲
+		"DOTA_Tooltip_ability_item_guardian_greaves_light"				"<font color='#FFFF00'>Light Guardian Greaves</font>"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_bonus_mres"				"%+$spell_resist"
+
+		// item_guardian_greaves_dark 暗影·卫士胫甲
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark"				"<font color='#8A2BE2'>Dark Guardian Greaves</font>"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_mres"				"%+$spell_resist"
+
+		// item_guardian_greaves_light_1 圣光·卫士胫甲（中立）
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1"				"<font color='#FFFF00'>Light Guardian Greaves (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_mres"				"%+$spell_resist"
+
+		// item_guardian_greaves_dark_1 暗影·卫士胫甲（中立）
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1"				"<font color='#8A2BE2'>Dark Guardian Greaves (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_mres"				"%+$spell_resist"
+
+		// item_guardian_greaves_ai 光暗·卫士胫甲
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai"				"<font color='#00FF00'>Light</font><font color='#8A2BE2'>Dark</font> <font color='#00FF00'>Guardian Greaves</font>"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_mres"				"%+$spell_resist"
+
+		// item_guardian_greaves_ai_1 光暗·卫士胫甲（中立）
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1"				"<font color='#00FF00'>Light</font><font color='#8A2BE2'>Dark</font> <font color='#00FF00'>Guardian Greaves (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_mres"				"%+$spell_resist"
+
+		// item_disperser_chaos 混沌·散魂剑
+		"DOTA_Tooltip_ability_item_disperser_chaos"				"<font color='#FF4500'>Chaos Disperser</font>"
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>Active: Suppress</h1> Affects all units in a %radius% AoE around the target. All enemies around the target are slowed for %enemy_effect_duration% seconds.<br><br> All allies around the target receive a basic dispel, increase their movement speed, and are unslowable for %ally_effect_duration% seconds.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br><br>Range: %abilitycastrange%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"			"+$int"
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"
+
+		// item_disperser_chaos_1 混沌·散魂剑（中立）
+		"DOTA_Tooltip_ability_item_disperser_chaos_1"				"<font color='#FF4500'>Chaos Disperser (Neutral)</font>"
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_Description"				"<h1>Active: Suppress</h1> Affects all units in a %radius% AoE around the target. All enemies around the target are slowed for %enemy_effect_duration% seconds.<br><br> All allies around the target receive a basic dispel, increase their movement speed, and are unslowable for %ally_effect_duration% seconds.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br><br>Range: %abilitycastrange%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_intellect"			"+$int"
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_damage"				"+$damage"
 
 	}
 }

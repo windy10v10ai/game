@@ -616,7 +616,7 @@
 		"AbilityValues"
 		{
 			"duration"						"45"
-			"hawk_base_max_health"			"200 250 300 350 400"
+			"hawk_base_max_health"			"300 450 600 750 900"
 			"hawk_base_movespeed"			"420"
 			"hawk_base_gold_bounty"			"60"
 			"hawk_base_vision_range"		"800 900 1000 1100 1200"
@@ -624,16 +624,12 @@
 			{
 				"value"						"60"
 				"special_bonus_shard"		"-10"
-
 			}
-		}
-	}
-	// 战鹰俯冲
-	"beastmaster_hawk_dive"
-	{
-		"AbilityValues"
-		{
-			"damage"		"350"
+			"dive_damage"
+			{
+				"value"		"60 120 180 240 300"
+				"special_bonus_unique_beastmaster_2" "+30"
+			}
 		}
 	}
 	"special_bonus_unique_beastmaster_5"
@@ -4326,6 +4322,7 @@
 	// 抽力量
 	"undying_decay"
 	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"// FIXME 可能会超模，实战再看
 		"MaxLevel" "5"
 		"AbilityCooldown"				"8 7 6 5 4"
 		"AbilityManaCost"				"100 110 120 130 140"
@@ -4334,7 +4331,12 @@
 			"decay_damage"
 			{
 				"value"		"40 80 120 160 200"
-				"special_bonus_unique_undying_8" "+50"
+				"special_bonus_unique_undying_8" "+100"
+			}
+			"str_steal"
+			{
+				"value"		"4"
+				"special_bonus_scepter" "+8"// 4
 			}
 		}
 	}
@@ -5937,7 +5939,7 @@
 				"value"								"2 2.6 3.2 3.8 4.4 5.0" 	// 2 2.4 2.8 3.2 3.6 4.0
 				"special_bonus_unique_medusa_6"		"+2.5"				// +1.7
 			}
-			"absorption_pct"						"94"		// 98
+			"absorption_pct"						"90"		// 98
 			"bonus_mana"			"100 200 300 400 600 800"
 		}
 	}
@@ -7586,13 +7588,14 @@
 	"terrorblade_sunder"
 	{
 		"MaxLevel" "4"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCooldown"				"80.0 60.0 40.0 20.0"
 		"AbilityManaCost"				"100 75 50 25"
-		"AbilityCastRange"				"500 1000 1500 2000" // FIXME 暂时加强
+		"AbilityCastRange"				"600 800 1000 1200"	// 475
 		"AbilityCastPoint"				"0.35 0.25 0.15 0.0"
 		"AbilityValues"
 		{
-				"hit_point_minimum_pct"		"25 20 15 10" // 35 30 25
+				"hit_point_minimum_pct"		"20 15 10 5" // FIXME 调低配合暗臂章的 35 30 25
 		}
 	}
 	"special_bonus_unique_terrorblade"
