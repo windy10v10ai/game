@@ -4262,7 +4262,7 @@
 		"AbilityManaCost"				"200 250 300 350"
 		"AbilityValues"
 		{
-				"duration"						"3 4 5 6"
+				"duration"						"4 6 8 10" // 3 4 5
 				"radius"
 				{
 					"value"		"900"
@@ -4277,7 +4277,7 @@
 				}
 				"damage"
 				{
-					"value"					"85 120 155 190" // 85
+					"value"					"10" // FIXME 85 由于部分玩家恶意野区种树抢野，破坏队友游戏体验，暂且移除伤害，加长控制时间
 					"CalculateSpellDamageTooltip"	"1"
 				}
 				"AbilityCooldown"
