@@ -1820,9 +1820,12 @@ tBotItemData.addNeutralItemList = {
 -- default x1
 tBotItemData.addNeutralItemMultiTimeMap = {
 	x1 = {
+		2000, -- 33min
+	},
+	x4 = {
 		1800, -- 30min
 	},
-	x5 = {
+	x6 = {
 		1600, -- 26min
 	},
 	x8 = {

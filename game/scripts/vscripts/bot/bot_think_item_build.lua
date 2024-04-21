@@ -22,10 +22,11 @@ end
 local function addTome(k, v)
   -- N6替换
   if AIGameMode.iGameDifficulty and AIGameMode.iGameDifficulty >= 6 then
-    -- 诅咒圣剑
-    replaceItem(v, "item_excalibur", "item_rapier_ultra_bot")
     -- 光暗·秘术铠甲
     replaceItem(v, "item_blade_mail_2", "item_force_field_ai")
+
+    -- 诅咒圣剑
+    replaceItem(v, "item_excalibur", "item_rapier_ultra_bot")
   end
 
   -- 一组属性书
@@ -332,10 +333,12 @@ function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
   local iHeroName = hHero:GetName()
 
   local multiIndex = "x1"
-  if AIGameMode.fBotGoldXpMultiplier < 5 then
+  if AIGameMode.fBotGoldXpMultiplier < 4 then
     multiIndex = "x1"
-  elseif AIGameMode.fBotGoldXpMultiplier <= 5 then
-    multiIndex = "x5"
+  elseif AIGameMode.fBotGoldXpMultiplier <= 4 then
+    multiIndex = "x4"
+  elseif AIGameMode.fBotGoldXpMultiplier <= 6 then
+    multiIndex = "x6"
   elseif AIGameMode.fBotGoldXpMultiplier <= 8 then
     multiIndex = "x8"
   elseif AIGameMode.fBotGoldXpMultiplier <= 10 then
