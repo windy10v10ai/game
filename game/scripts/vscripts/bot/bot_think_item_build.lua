@@ -4,17 +4,28 @@
 ================================================================================================================= ]]
 
 
-local function addTome(k, v)
-  -- N6替换诅咒圣剑
-  if AIGameMode.iGameDifficulty and AIGameMode.iGameDifficulty >= 6 then
-    for i, vItem in ipairs(v) do
-      if vItem == "item_excalibur" then
-        -- remove excalibur
-        table.remove(v, i)
-        table.insert(v, "item_rapier_ultra_bot")
-        print("add item_rapier_ultra_bot" .. k)
-      end
+--------------------
+-- 初始化 修正出装列表
+--------------------
+
+local function replaceItem(v, oldItemName, newItemName)
+  for i, vItem in ipairs(v) do
+    if vItem == oldItemName then
+      -- remove excalibur
+      table.remove(v, i)
+      table.insert(v, newItemName)
+      print("replaceItem " .. oldItemName .. " to " .. newItemName)
     end
+  end
+end
+
+local function addTome(k, v)
+  -- N6替换
+  if AIGameMode.iGameDifficulty and AIGameMode.iGameDifficulty >= 6 then
+    -- 诅咒圣剑
+    replaceItem(v, "item_excalibur", "item_rapier_ultra_bot")
+    -- 光暗·秘术铠甲
+    replaceItem(v, "item_blade_mail_2", "item_force_field_ai")
   end
 
   -- 一组属性书

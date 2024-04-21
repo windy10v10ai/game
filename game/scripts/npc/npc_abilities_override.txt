@@ -692,6 +692,72 @@
 	//=================================================================================================================
 	//已经替换成新英雄 杰克
 	//=================================================================================================================
+	// 土猫魔免
+	"brewmaster_earth_spell_immunity"
+	{
+		"MaxLevel"						"1"
+	}
+	// 风猫群体驱散
+	"brewmaster_storm_dispel_magic"
+	{
+		"MaxLevel"						"1"
+		"AbilityCastRange"				"1000" // 500
+
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"750" // 600
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	// 风猫吹风
+	"brewmaster_storm_cyclone"
+	{
+		"MaxLevel"						"1"
+	}
+	// 风猫风步
+	"brewmaster_storm_wind_walk"
+	{
+		"MaxLevel"						"1"
+	}
+	// 火猫献祭
+	"brewmaster_fire_permanent_immolation"
+	{
+		"MaxLevel"						"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"50"	// 25 50 75
+			}
+		}
+	}
+	// 火猫相位和抗性
+	"brewmaster_fire_phase"
+	{
+		"MaxLevel"						"1"
+		"AbilityValues"
+		{
+			"status_resistance"				"50" // 30
+		}
+	}
+	// FIXME 没英雄使用
+	// 紫猫小颠勺
+	"brewmaster_void_astral_pull"
+	{
+		"MaxLevel"						"1"
+		"AbilityValues"
+		{
+			"AbilityCastRange"			"150"
+			"damage"					"50 100 150"
+			"pull_distance"				"300 500 700"
+			"pull_duration"				"0.5"
+		}
+	}
 
 	//=================================================================================================================
 	// Ability: Bristleback 钢背兽
@@ -4197,7 +4263,7 @@
 					"value"		"30 40 50 60 70"
 					"LinkedSpecialBonus"			"special_bonus_unique_treant_9"
 				}
-				"movement_slow"				"20 25 30 35 40"
+				"movement_slow"				"20 30 40 50 60"
 				"vines_duration"				"9 10 11 12 13"
 		}
 	}
@@ -4244,13 +4310,13 @@
 		{
 			"heal_per_second"
 			{
-				"value"		"3 4 5 6 7"
-				"special_bonus_unique_treant_8"			"+2"
+				"value"		"20 35 50 65 80" // 2 3 4 5
+				"special_bonus_unique_treant_8"			"+30" // 相当于加两级 2
 			}
 			"bonus_armor"
 			{
-				"value"		"6 8 10 12 14"
-				"special_bonus_unique_treant_13"			"+8"
+				"value"		"8 12 16 20 24" // 4 6 8 10
+				"special_bonus_unique_treant_13"			"+16" // 相当于加四级 8
 			}
 			"duration"			"15 20 25 30 35"
 		}
@@ -4262,10 +4328,10 @@
 		"AbilityManaCost"				"200 250 300 350"
 		"AbilityValues"
 		{
-				"duration"						"4 6 8 10" // 3 4 5
+				"duration"						"3 4 5 6" // 3 4 5
 				"radius"
 				{
-					"value"		"900"
+					"value"		"1000" // 800
 					"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
 					"affected_by_aoe_increase"	"1"
 				}
@@ -4277,13 +4343,13 @@
 				}
 				"damage"
 				{
-					"value"					"10" // FIXME 85 由于部分玩家恶意野区种树抢野，破坏队友游戏体验，暂且移除伤害，加长控制时间
+					"value"					"85 120 155 190" // 85
 					"CalculateSpellDamageTooltip"	"1"
 				}
 				"AbilityCooldown"
 				{
-					"value"						"120 110 100 90"
-					"special_bonus_unique_treant_14"	"-30"
+					"value"						"110 100 90 80" // 120 110 100
+					"special_bonus_unique_treant_14"	"-40" // -35
 				}
 		}
 	}
@@ -4315,6 +4381,28 @@
 				"RequiresScepter"				"1"
 			}
 		}
+	}
+	// 自然蔽护
+	"treant_natures_guise"
+	{
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"			"100" // 200
+				"affected_by_aoe_increase"	"1"
+			}
+			"grace_time"				"1.25" // 0.75 显形和攻击后渐隐延迟
+			"cooldown_time"				"0.1" // 3
+			"regen_amp"					"0"
+			"shard_cooldown"
+			{
+				"value"					"3" // 10
+				"RequiresShard"						"1"
+			}
+
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
 	// Ability: Undying 不朽尸王
@@ -8598,7 +8686,7 @@
 		"AbilityManaCost"				"150 175 200 225"
 		"AbilityValues"
 		{
-			"duration"				"2.25 2.75 3.25 3.75"
+			"duration"				"2.75 3.25 3.75 4.25" // +0.5
 			"damage"
 			{
 				"value"			"100 200 300 400"
@@ -8606,7 +8694,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"				"60"// 给喵星人一个面子
+				"value"				"60"
 				"special_bonus_unique_batrider_6"			"-20"
 			}
 
@@ -11534,23 +11622,10 @@
 				}
 		}
 	}
-	// 电子狂欢
-	"storm_spirit_electric_rave"
-	{
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"750"
-				"affected_by_aoe_increase"	"1"
-			}
-			"charges"				"9"
-			"duration"				"20"
-		}
-	}
 	// 超负荷
 	"storm_spirit_overload"
 	{
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_YES" // FIXME 无视bkb看看效果
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
@@ -11560,6 +11635,31 @@
 				"value"			"25 50 75 100 125"
 				"special_bonus_unique_storm_spirit_6"	"+24"
 			}
+			"shard_activation_charges"
+			{
+				"value"								"5" // 3
+				"RequiresShard"						"1"
+			}
+			"shard_manacost"
+			{
+				"value"								"250" // 150
+				"RequiresShard"						"1"
+			}
+			"shard_cooldown"
+			{
+				"value"								"20" // 30
+				"RequiresShard"						"1"
+			}
+			"shard_attack_speed_bonus"
+			{
+				"value"								"80" // 40
+				"RequiresShard"						"1"
+			}
+			"overload_cast_range"
+			{
+				"value"					"0"
+				"special_bonus_unique_storm_spirit_overload_aspd"		"+200.0" // 150
+			}
 		}
 	}
 	// 球状闪电
@@ -11567,6 +11667,7 @@
 	{
 		"MaxLevel" "4"
 		"AbilityDamage"					"8 12 16 24"
+		"AbilityCastPoint"				"0.3 0.2 0.1 0.1" // 0.3
 		"AbilityValues"
 		{
 				"ball_lightning_initial_mana_percentage"		"4.5"
@@ -11583,6 +11684,19 @@
 				"var_type"					"FIELD_FLOAT"
 				"value"				"800"	// 500
 				"ad_linked_abilities"			"storm_spirit_ball_lightning && storm_spirit_static_remnant"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+		}
+	}
+	// 超负荷弹射天赋
+	"special_bonus_unique_storm_spirit_7"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"4" // 2
+				"ad_linked_abilities"			"storm_spirit_overload"
 			}
 		}
 	}

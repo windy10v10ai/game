@@ -164,6 +164,21 @@ function BotItemThink:UseActiveItem(hHero)
         end
     end
 
+    -- 光暗秘术师铠甲
+    -- item_force_field_ai
+    if hHero:GetHealthPercent() < 99 then
+        if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_force_field_ai") then
+            return true
+        end
+    end
+
+    -- item_force_field_ai_1
+    if hHero:GetHealthPercent() < 99 then
+        if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_force_field_ai_1") then
+            return true
+        end
+    end
+
     -- item_insight_armor
     if hHero:GetHealthPercent() < 90 then
         if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_insight_armor") then

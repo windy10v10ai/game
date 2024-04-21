@@ -1601,13 +1601,21 @@
 		"DOTA_Tooltip_ability_item_swift_blink_2_Note0"                           "Double-clicking will teleport you towards your fountain."
 		"DOTA_Tooltip_ability_item_swift_blink_2_Note1"					        "If the Blink of Bolt distance exceeds the maximum cast range, it will only teleport you to 4/5 of the maximum distance."
         "DOTA_Tooltip_ability_item_swift_blink_2_bonus_agility"			        "+$agi"
-		// 智力跳2
-		"DOTA_Tooltip_ability_item_arcane_blink_2"                              "Blink of Einstein"
-		"DOTA_Tooltip_ability_item_arcane_blink_2_Description"         			"<h1>Active: Blink of Einstein</h1>Teleports to the farthest location within %blink_range% range.<br><br>Upon arrival, restores %heal_amount% health and %mana_amount% mana.<br><br>Cannot be used for %blink_damage_cooldown% seconds after being attacked by enemy heroes or Roshan."
-		"DOTA_Tooltip_ability_item_arcane_blink_2_Lore"                          "An invigorating tool that helps alleviate the mental strain of casting arcane spells."
-		"DOTA_Tooltip_ability_item_arcane_blink_2_Note0"                          "Double-clicking will teleport you towards your fountain."
-		"DOTA_Tooltip_ability_item_arcane_blink_2_Note1"      					"If the Blink of Einstein distance exceeds the maximum cast range, it will only teleport you to 4/5 of the maximum distance."
+		// 大小智力跳对调
+		// 小智力跳
+		"DOTA_Tooltip_ability_item_arcane_blink_2"                              "Arcane blink"
+		"DOTA_Tooltip_ability_item_arcane_blink_2_Description"         			"<h1>Active: Arcane Blink</h1> Teleport to a target point up to %blink_range% units away. <br><br>After teleportation, you restore %heal_amount% health and %mana_amount% mana.<br><br>Arcane Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
+        "DOTA_Tooltip_ability_item_arcane_blink_2_Lore"                          "A revitalizing tool to help bear the weight of arcane expenditure."
+        "DOTA_Tooltip_ability_item_arcane_blink_2_Note0"                          "Self-casting will cause you to teleport in the direction of your team's fountain."
+        "DOTA_Tooltip_ability_item_arcane_blink_2_Note1"      					"If you used Arcane Blink to teleport to a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
         "DOTA_Tooltip_ability_item_arcane_blink_2_bonus_intellect"                "+$int"
+		// 大智力跳
+		"DOTA_Tooltip_ability_item_arcane_blink"                              "Blink of Einstein"
+		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>Active: Blink of Einstein</h1> Teleport to a target point up to %blink_range% units away. <br><br>After teleportation, you restore %heal_amount% health and %mana_amount% mana.<br><br>Blink of Einstein cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
+        "DOTA_Tooltip_ability_item_arcane_blink_Lore"                          "A revitalizing tool to help bear the weight of arcane expenditure."
+        "DOTA_Tooltip_ability_item_arcane_blink_Note0"                          "Self-casting will cause you to teleport in the direction of your team's fountain."
+        "DOTA_Tooltip_ability_item_arcane_blink_Note1"      					"If you used Blink of Einstein to teleport to a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
+        "DOTA_Tooltip_ability_item_arcane_blink_bonus_intellect"                "+$int"
 
 		// item_blessing_of_dragon 神龙
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon"				"<font color='#e03e2e'>Dragon's Blessing</font>"
