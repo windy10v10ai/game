@@ -553,16 +553,13 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter',
 		'item_wings_of_haste',
 		'item_hurricane_pike_2',
-		'item_butterfly',
+		'item_wasp_callous',
 		'item_recipe_ultimate_scepter_2',
-		'item_lesser_crit',
 		'item_skadi_2',
 		'item_black_king_bar_2',
 		'item_mind_breaker_ai',
-		'item_recipe_wasp_callous',
 		'item_wasp_despotic',
 		'item_excalibur',
-		'item_ballista_ai',
 		'item_refresh_core',
 	},
 	npc_dota_hero_meepo = {
@@ -1048,9 +1045,9 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_monkey_king_bar_2',
 		-- 'item_shotgun_v2',
-		'item_ballista_ai',
 		'item_wasp_callous',
 		'item_black_king_bar_2',
+		'item_apex_ai',
 		'item_wasp_despotic',
 		'item_excalibur',
 		'item_refresh_core',
@@ -1738,7 +1735,7 @@ tBotItemData.addNeutralItemList = {
 		'item_ballista_ai_1',
 	},
 	npc_dota_hero_medusa = {
-		'item_mysterious_hat_ai_1',
+		'item_ballista_ai_1',
 	},
 	npc_dota_hero_meepo = {
 		'item_apex_ai_1',
@@ -1798,7 +1795,7 @@ tBotItemData.addNeutralItemList = {
 		'item_ballista_ai_1',
 	},
 	npc_dota_hero_viper = {
-		'item_apex_ai_1',
+		'item_ballista_ai_1',
 	},
 	npc_dota_hero_warlock = {
 		'item_demonicon',

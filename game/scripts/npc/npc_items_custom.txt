@@ -7768,7 +7768,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"8000"			//100
+			"shield"			"6000"			//100
 			"restore_time"		"4"
 			"bonus_hp_regen"	"5"
 		}
@@ -7830,7 +7830,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"8000"			//100
+			"shield"			"6000"			//100
 			"restore_time"		"4"
 			"bonus_hp_regen"	"5"
 		}
@@ -7892,7 +7892,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"				"8000"
+			"shield"			"6000"			//100
 			"restore_time"			"1"
 			"bonus_hp_regen"		"50"
 		}
@@ -7924,7 +7924,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"				"8000"
+			"shield"			"6000"			//100
 			"restore_time"			"1"
 			"bonus_hp_regen"		"50"
 		}
@@ -10674,7 +10674,7 @@
 			"attack_range_bonus"		"250"
 			"knockback_distance"		"0"
 			"knockback_duration"		"0.0"
-			"bonus_damage"		        "400"
+			"bonus_damage"		        "300"
 		}
 	}
 	"item_recipe_ballista_light_1"
@@ -10739,7 +10739,7 @@
 			"attack_range_bonus"		"250"
 			"knockback_distance"		"10"
 			"knockback_duration"		"0.1"
-			"bonus_damage"		        "400"
+			"bonus_damage"		        "300"
 		}
 	}
 	"item_recipe_ballista_ai"
@@ -10772,7 +10772,7 @@
 			"attack_range_bonus"		"500"
 			"knockback_distance"		"10"
 			"knockback_duration"		"0.3"
-			"bonus_damage"		        "400"
+			"bonus_damage"		        "300"
 		}
 	}
 	"item_recipe_ballista_ai_1"
@@ -10806,7 +10806,7 @@
 			"attack_range_bonus"		"500"
 			"knockback_distance"		"10"
 			"knockback_duration"		"0.3"
-			"bonus_damage"		        "400"
+			"bonus_damage"		        "300"
 		}
 	}
 
