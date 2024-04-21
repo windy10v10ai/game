@@ -1,3 +1,4 @@
+import { Player } from "../../api/player";
 import { PlayerHelper } from "../../helper/player-helper";
 
 export class EventEntityKilled {
@@ -61,7 +62,18 @@ export class EventEntityKilled {
           this.dropItemChanceRoshan,
         );
 
-        this.dropItem(creep, this.dropItemListArtifactPart, this.dropItemChanceRoshanArtifactPart);
+        // 神器组件掉落，掉落数量 2 ~ (玩家数量 + 2) 的随机数
+        const maxDropCount = Player.GetPlayerCount() + 2;
+        print(`[EventEntityKilled] OnCreepKilled maxDropCount is ${maxDropCount}`);
+        const dropCount = RandomInt(2, maxDropCount);
+        print(`[EventEntityKilled] OnCreepKilled dropCount is ${dropCount}`);
+        for (let i = 0; i < dropCount; i++) {
+          this.dropItem(
+            creep,
+            this.dropItemListArtifactPart,
+            this.dropItemChanceRoshanArtifactPart,
+          );
+        }
       } else {
         print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);
       }
@@ -71,7 +83,7 @@ export class EventEntityKilled {
         const goldBags = Entities.FindAllByClassname("dota_item_drop") as CDOTA_Item_Physical[];
         for (const goldBag of goldBags) {
           const itemName = goldBag.GetContainedItem().GetName();
-          if (itemName === "item_bag_of_gold" || itemName === "item_bag_of_season_point") {
+          if (itemName === "item_bag_of_gold") {
             goldBag.RemoveSelf();
           }
         }

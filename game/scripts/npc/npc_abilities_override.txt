@@ -11411,7 +11411,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"200"		// 25 守卫攻击力
+				"value"				"125"		// 25 守卫攻击力
 				"ad_linked_abilities"			"shadow_shaman_mass_serpent_ward"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 			}
 		}
@@ -11837,19 +11837,20 @@
 	{
 		"MaxLevel" "5"
 		"AbilityManaCost"				"95 105 115 125 135"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"damage"			"120 200 280 360 440"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"targets"			"2 3 4 5 6"
-				"LinkedSpecialBonus"	"special_bonus_unique_tinker_6"
-			}
+				"radius"
+				{
+					"value"	"1800"	// 1500
+					"affected_by_aoe_increase"	"1"
+				}
+				"targets"
+				{
+					"value"	"2 3 4 5 6"
+					"LinkedSpecialBonus"	"special_bonus_unique_tinker_6"
+				}
+				"speed"				"900"	// 700
 		}
 	}
 	// 传送

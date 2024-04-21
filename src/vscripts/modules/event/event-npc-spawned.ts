@@ -14,7 +14,7 @@ export class EventNpcSpawned {
   private roshanLevelupExtraAbilities = [
     "roshan_buff",
     "generic_gold_bag_fountain",
-    "generic_season_point_bag_fountain",
+    // "generic_season_point_bag_fountain",
   ];
 
   constructor() {
