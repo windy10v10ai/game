@@ -2484,6 +2484,13 @@
 			}
 		}
 	}
+	// 大树
+	"npc_dota_hero_treant"
+	{
+		"Ability4"		"brewmaster_storm_dispel_magic"
+		"Ability7"		"brewmaster_fire_phase"
+		"Ability8"		"brewmaster_fire_permanent_immolation"
+	}
 	"npc_dota_hero_undying"
 	{
 		"Ability15"		"special_bonus_unique_undying"

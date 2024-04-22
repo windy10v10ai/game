@@ -105,7 +105,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability9"					"generic_gold_bag_fountain"
-		"Ability10"					"generic_season_point_bag_fountain"
+		// "Ability10"					"generic_season_point_bag_fountain"
 		"Ability11"					"roshan_buff"
 		"Ability12"					"giant_wolf_critical_strike"
 		"Ability13"					"tidehunter_kraken_shell"			// 海妖外壳

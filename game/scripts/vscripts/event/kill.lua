@@ -241,8 +241,8 @@ local function HeroKilled(keys)
 
         -- 击杀者等级加成
         local killerLevel = attacker:GetLevel()
-        gold = gold + killerLevel * 0.5
-        xp = xp + killerLevel
+        gold = gold + killerLevel * 1
+        xp = xp + killerLevel * 2
 
         -- 连死次数补正
         local extraFactor = math.max(1, deathCount - 2)

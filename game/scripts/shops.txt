@@ -101,7 +101,6 @@
 		"item"	"item_armlet_dark"
 		"item"	"item_guardian_greaves_light"
 		"item"	"item_guardian_greaves_dark"
-		"item"			"item_disperser_chaos"
 	}
 
 	"misc"
@@ -152,6 +151,7 @@
 		"item"      "item_havoc_hammer_dark"
 		"item"      "item_apex_light"
 		"item"      "item_apex_dark"
+		"item"			"item_disperser_chaos"
 	}
 
 	// Level 1 - Green Recipes
@@ -296,7 +296,7 @@
 		"item"		"item_sacred_six_vein"
 		"item"      "item_overwhelming_blink_2"
 		"item"      "item_swift_blink_2"
-		"item"      "item_arcane_blink_2"
+		"item"      "item_arcane_blink"
 		"item"		"item_jump_jump_jump"
  		//"item"		"item_overwhelming_blink"
  		//"item"		"item_swift_blink"

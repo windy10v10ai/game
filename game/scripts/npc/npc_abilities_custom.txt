@@ -634,67 +634,68 @@
         }
     }
 
-    "generic_season_point_bag_fountain"
-    {
-		"MaxLevel"						"9"
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-        "BaseClass"                     "ability_datadriven"
-        "AbilityTextureName"            "item_hand_of_midas"
+	// 掉落勇士积分
+    // "generic_season_point_bag_fountain"
+    // {
+	// 	"MaxLevel"						"9"
+    //     // General
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    //     "BaseClass"                     "ability_datadriven"
+    //     "AbilityTextureName"            "item_hand_of_midas"
 
-        "IsOnCastBar"                   "0"
+    //     "IsOnCastBar"                   "0"
 
-        "OnOwnerDied"
-        {
-            "CreateThinker"
-            {
-                "ModifierName"          "gold_bag_thinker"
-                "Target"
-                {
-                    "Center"    "CASTER"
-                    "Flags"     "DOTA_UNIT_TARGET_FLAG_DEAD"
-                }
-            }
-        }
+    //     "OnOwnerDied"
+    //     {
+    //         "CreateThinker"
+    //         {
+    //             "ModifierName"          "gold_bag_thinker"
+    //             "Target"
+    //             {
+    //                 "Center"    "CASTER"
+    //                 "Flags"     "DOTA_UNIT_TARGET_FLAG_DEAD"
+    //             }
+    //         }
+    //     }
 
-        "Modifiers"
-        {
-            "gold_bag_thinker"
-            {
-                "Duration"              "%duration"
-                "ThinkInterval"         "%think_interval"
-                "OnIntervalThink"
-                {
-                    "CreateItem"
-                    {
-                        "Target"
-                        {
-                            "Center"    "TARGET"
-                        }
-                        "ItemName"          "item_bag_of_season_point"
-                        "ItemCount"         "1"
-                        "SpawnRadius"       "75"
-                        "ItemChargeCount"   "%gold_value"
-                        "AutoUse"           "1"
-                        "LaunchHeight"      "300"
-                        "LaunchDistance"    "?50 200"
-                        "LaunchDuration"    "0.5"
-                    }
-                }
-            }
-        }
+    //     "Modifiers"
+    //     {
+    //         "gold_bag_thinker"
+    //         {
+    //             "Duration"              "%duration"
+    //             "ThinkInterval"         "%think_interval"
+    //             "OnIntervalThink"
+    //             {
+    //                 "CreateItem"
+    //                 {
+    //                     "Target"
+    //                     {
+    //                         "Center"    "TARGET"
+    //                     }
+    //                     "ItemName"          "item_bag_of_season_point"
+    //                     "ItemCount"         "1"
+    //                     "SpawnRadius"       "75"
+    //                     "ItemChargeCount"   "%gold_value"
+    //                     "AutoUse"           "1"
+    //                     "LaunchHeight"      "300"
+    //                     "LaunchDistance"    "?50 200"
+    //                     "LaunchDuration"    "0.5"
+    //                 }
+    //             }
+    //         }
+    //     }
 
 
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityValues"
-        {
-                "gold_value"            "0"
-                "duration"              "0.4 0.6 0.8 1.2 1.8 2.4 3.0 3.6 4.0"	 // 4 6 8 12 18 24 30 36 40
-                "think_interval"        "0.1"
-        }
-    }
+    //     // Special
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "AbilityValues"
+    //     {
+    //             "gold_value"            "0"
+    //             "duration"              "0.4 0.6 0.8 1.2 1.8 2.4 3.0 3.6 4.0"	 // 4 6 8 12 18 24 30 36 40
+    //             "think_interval"        "0.1"
+    //     }
+    // }
 	//==============================================================================
     //Hatsune_Miku
     //==============================================================================

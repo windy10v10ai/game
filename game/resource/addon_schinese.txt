@@ -1007,7 +1007,7 @@
 
 		// bag_of_gold
         "DOTA_Tooltip_ability_item_bag_of_gold"					"金袋"
-        "DOTA_Tooltip_ability_item_bag_of_season_point"			"勇士积分"
+        // "DOTA_Tooltip_ability_item_bag_of_season_point"			"勇士积分"
 
 		// Tomes
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"力量之书"
@@ -1751,13 +1751,24 @@
         "DOTA_Tooltip_ability_item_swift_blink_2_Note0"                           "快速点击两次会将自己往己方泉水方向传送。"
         "DOTA_Tooltip_ability_item_swift_blink_2_Note1"					        "如果博尔特闪光传送的距离超过最长施法距离，那么只能传送到最长距离的4/5。"
         "DOTA_Tooltip_ability_item_swift_blink_2_bonus_agility"			        "+$agi"
-		// 智力跳2
-		"DOTA_Tooltip_ability_item_arcane_blink_2"                              "爱因斯坦闪光"
-		"DOTA_Tooltip_ability_item_arcane_blink_2_Description"         			"<h1>主动：爱因斯坦闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后回复%heal_amount%点生命和%mana_amount%点魔法。<br><br>受到来自敌方英雄或肉山的攻击时，秘奥闪光将在%blink_damage_cooldown%秒内无法使用。"
+		// 大小智力跳对调
+		// 小智力跳
+		"DOTA_Tooltip_ability_item_arcane_blink_2"                              "秘奥闪光"
+		"DOTA_Tooltip_ability_item_arcane_blink_2_Description"         			"<h1>主动：秘奥闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后回复%heal_amount%点生命和%mana_amount%点魔法。<br><br>受到来自敌方英雄或肉山的攻击时，秘奥闪光将在%blink_damage_cooldown%秒内无法使用。"
         "DOTA_Tooltip_ability_item_arcane_blink_2_Lore"                          "让人精神焕发的工具，可以帮忙分担施展奥术耗费的精力。"
         "DOTA_Tooltip_ability_item_arcane_blink_2_Note0"                          "快速点击两次会将自己往己方泉水方向传送。"
-        "DOTA_Tooltip_ability_item_arcane_blink_2_Note1"      					"如果爱因斯坦闪光传送的距离超过最长施法距离，那么只能传送到最长距离的4/5。"
+        "DOTA_Tooltip_ability_item_arcane_blink_2_Note1"      					"如果秘奥闪光传送的距离超过最长施法距离，那么只能传送到最长距离的4/5。"
         "DOTA_Tooltip_ability_item_arcane_blink_2_bonus_intellect"                "+$int"
+		// 大智力跳
+		"DOTA_Tooltip_ability_item_arcane_blink"								"爱因斯坦闪光"
+		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>主动：爱因斯坦闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后回复%heal_amount%点生命和%mana_amount%点魔法。<br><br>受到来自敌方英雄或肉山的攻击时，秘奥闪光将在%blink_damage_cooldown%秒内无法使用。"
+        "DOTA_Tooltip_ability_item_arcane_blink_Lore"                          "让人精神焕发的工具，可以帮忙分担施展奥术耗费的精力。"
+        "DOTA_Tooltip_ability_item_arcane_blink_Note0"                          "快速点击两次会将自己往己方泉水方向传送。"
+        "DOTA_Tooltip_ability_item_arcane_blink_Note1"      					"如果爱因斯坦闪光传送的距离超过最长施法距离，那么只能传送到最长距离的4/5。"
+        "DOTA_Tooltip_ability_item_arcane_blink_bonus_intellect"                "+$int"
+
+		"DOTA_Tooltip_modifier_item_arcane_blink_buff"         			"爱因斯坦闪光"
+        "DOTA_Tooltip_modifier_item_arcane_blink_buff_Description"      "施法距离提升%dMODIFIER_PROPERTY_CAST_RANGE_BONUS%%%。"
 
 		// item_blessing_of_dragon 神龙
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon"				"<font color='#e03e2e'>神龙</font>"

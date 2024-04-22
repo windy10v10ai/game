@@ -925,7 +925,7 @@
 		"AbilityCooldown"		"8.0"  //12
 		"AbilityValues"
 		{
-				"magic_damage"	"120"  //45
+				"magic_damage"	"90"  //45
 				"attack_speed"	"60"   //30
 				"duration"		"3.0"  //2
 		}
@@ -1063,9 +1063,9 @@
 		"AbilityValues"
 		{
 			"attack_range_bonus"		"250" //250
-			"knockback_distance"		"15"  //50
+			"knockback_distance"		"10"  //50
 			"knockback_duration"		"0.1" //0.2
-			"bonus_damage"		        "150"  //50
+			"bonus_damage"		        "100"  //50
 		}
 	}
 	"item_seer_stone" //先哲之石
@@ -1073,7 +1073,7 @@
 		"AbilityCooldown"				"30"  //60
 		"AbilityValues"
 		{
-			"cast_range_bonus"		"400"  //350
+			"cast_range_bonus"		"350"  //350
 			"vision_bonus"			"700"  //350
 			"mana_regen"			"20"   //10
 			"radius"
@@ -1106,7 +1106,7 @@
 	}
 	"item_force_field"  //秘术师铠甲
 	{
-		"AbilityCooldown"				"15"  //20
+		"AbilityCooldown"				"18"  //20
 		"AbilityValues"
 		{
 			"bonus_aoe_radius"			"1800"	//1200
@@ -1114,7 +1114,7 @@
 			"self_armor"				"20"	//5
 			"self_mres"					"30"	//20
 			"bonus_aoe_mres"			"30"	//20
-			"active_reflection_pct"		"60"	//40
+			"active_reflection_pct"		"40"	//40
 		}
 	}
 	"item_pirate_hat"  //海盗帽
@@ -1334,6 +1334,13 @@
 		}
 	}
 	//=================================================================================================================
+    // 散魂剑卷轴 Recipe: disperser
+    //=================================================================================================================
+	"item_recipe_disperser"
+	{
+		"ItemCost"						"0"	// 800 性价比太低，归零
+	}
+	//=================================================================================================================
     // 紫苑卷轴 Recipe: orchid
     //=================================================================================================================
 	"item_recipe_orchid"
@@ -1437,9 +1444,37 @@
 	{
 		"ItemCost"						"250"
 	}
+	// 大智力跳
 	"item_recipe_arcane_blink"
 	{
-		"ItemCost"						"250"
+		"ItemCost"						"0"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_arcane_blink"
+		"ItemRequirements"
+		{
+			"01"						"item_arcane_blink_2;item_arcane_blink_2"
+		}
+	}
+	"item_arcane_blink"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+		"AbilityCastRange"				"1800"			// If updating this, update AbilityOvershootCastRange to 4/5 of this value
+		"AbilityOvershootCastRange"     "1440"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"4.0"
+		"AbilityManaCost"				"0"
+		"AbilitySharedCooldown"			"blink"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		"AbilityValues"
+		{
+				"blink_range"			"1800"	//1400
+				"blink_damage_cooldown"	"0.0"	//3.0
+				"blink_range_clamp"		"1600"	//960
+				"bonus_intellect"		"50"	//25
+				"heal_amount"			"400"	//200
+				"mana_amount"			"200"	//100
+		}
 	}
 
 	// 血精石 替换为 血精神石
