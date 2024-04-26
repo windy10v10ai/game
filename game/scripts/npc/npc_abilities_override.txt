@@ -763,22 +763,14 @@
 	//=================================================================================================================
 	// Ability: Bristleback 钢背兽
 	//=================================================================================================================
-	// 毛球
+	// 毛团
 	"bristleback_hairball"
 	{
-		"AbilityCastRange"				"1500"
-		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"8" // 13
 		"AbilityValues"
 		{
-				"projectile_speed"		"1200"
-				"radius"
-				{
-					"value"		"700"
-					"affected_by_aoe_increase"	"1"
-				}
-				"quill_stacks"		"5"
-				"goo_stacks"		"3"
+				"quill_stacks"		"5" // 1
+				"goo_stacks"		"10" // 2
 		}
 	}
 	// 鼻涕
@@ -835,12 +827,12 @@
 			}
 			"quill_release_threshold"				"300"
 
-			"activation_cooldown"					"20"		// 20
-			"activation_manacost"					"200"		// 100
-			"activation_delay"						"0.5"		// 0.5
-			"activation_num_quill_sprays"			"8"			// 6
-			"activation_spray_interval"				"0.3"		// 0.35
-			"activation_movement_speed_pct"			"-20"
+			"activation_cooldown"					"16"		// 20
+			"activation_manacost"					"250"		// 100
+			"activation_delay"						"0.1"		// 0.5
+			"activation_num_quill_sprays"			"9"			// 6
+			"activation_spray_interval"				"0.2"		// 0.35
+			"activation_movement_speed_pct"			"-30"		// 20
 		}
 	}
 	// 战意
@@ -5894,6 +5886,41 @@
 				"value"							"50 45 40 35 30"
 				"special_bonus_unique_luna_7"	"-10"
 			}
+			"rotating_glaives"
+			{
+				"value"							"0"
+				"special_bonus_shard"			"+6" // 4
+			}
+
+			"rotating_glaives_hit_radius"
+			{
+				"value"							"0"
+				"special_bonus_shard"			"+150" // 115
+			}
+
+			"rotating_glaives_movement_radius"
+			{
+				"value"							"0"
+				"special_bonus_shard"			"+250" // 175
+			}
+
+			"rotating_glaives_damage_reduction"
+			{
+				"value"							"0"
+				"special_bonus_shard"			"+30" // 25
+			}
+
+			"AbilityCooldown"
+			{
+				"value"							"0"
+				"special_bonus_shard"			"+15" // 25
+			}
+
+			"AbilityManaCost"
+			{
+				"value"							"0"
+				"special_bonus_shard"			"+100" // 25
+			}
 		}
 	}
 	// 月之祝福
@@ -7723,12 +7750,12 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ensnare_chance"			"14 16 18 20 22"
+				"ensnare_chance"			"18 21 24 27 30" // 14 16 18 20 FIXME 英雄特色加强看看
 			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"ensnare_duration"			"1.2 1.4 1.6 1.8 2.0"
+				"ensnare_duration"			"0.8 1.2 1.6 2.0 2.4" // 0.8 1.2 1.6 2.0 同上
 			}
 		}
 	}
@@ -7769,13 +7796,23 @@
 		{
 			"attack_speed"
 			{
-				"value"		"20 30 40 50 60"
+				"value"		"40 50 60 70 80" // 15 20 25 30 保持最大攻速加成不变
 				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_5"
 			}
 			"max_stacks"
 			{
-				"value"		"8"
-				"special_bonus_shard"	"+3"
+				"value"		"5" // 12 减少层数加快节奏
+				"special_bonus_shard"	"+2" // 4
+			}
+			"extra_attack_chance_per_stack"
+			{
+				"value"	"10" // 4 满层数概率84→90
+				"RequiresShard"	"1"
+			}
+			"base_chance"
+			{
+				"value"	"20" // 20
+				"RequiresShard"	"1"
 			}
 		}
 	}
@@ -7783,16 +7820,16 @@
 	"troll_warlord_battle_trance"
 	{
 		"MaxLevel" "4"
-		"AbilityManaCost"				"150"
+		"AbilityManaCost"				"200" // 150
 		"AbilityValues"
         {
-			"trance_duration"		"6"
+			"trance_duration"		"6.5" // 6.5
             "AbilityCooldown"
             {
-                "value"			"85 80 75 70"
+                "value"			"90 80 70 60" // 90 80 70
                 "special_bonus_unique_troll_warlord_7"		"-15"
             }
-            "lifesteal"			"50 60 70 80"
+            "lifesteal"			"40 60 80 100" // 40 60 80
             "attack_speed"			"140 170 200 230"
             "movement_speed"
             {
@@ -7960,6 +7997,7 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"16 14 12 10 8"
 		"AbilityManaCost"				"20 30 40 50 60"
+		"AbilityDuration"				"16" // 8
 		"AbilityValues"
 		{
 				"damage"			"60 80 100 120 140"
@@ -12519,9 +12557,9 @@
 	// 越界
 	"muerta_pierce_the_veil"
 	{
-		"MaxLevel" "5"
+		"MaxLevel" "4"
 		"AbilityCooldown"				"65 60 55 50"
-		"AbilityManaCost"				"150 250 350"
+		"AbilityManaCost"				"150 250 350 450"
 		"AbilityValues"
 		{
 			"duration"					"4 5 6 7"

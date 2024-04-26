@@ -364,15 +364,15 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_attack_speed"	"40"   //20
-			"bonus_damage"			"24"   //12
+			"bonus_attack_speed"	"60"   //20
+			"bonus_damage"			"36"   //12
 		}
 	}
 	"item_broom_handle" //扫帚柄
 	{
 		"AbilityValues"
 		{
-				"melee_attack_range"			"75" //50
+				"melee_attack_range"			"100" //50
 				"bonus_damage"		"20" //8
 				"bonus_armor"		"8" //4
 		}
@@ -397,7 +397,7 @@
 		"AbilityValues"
 		{
 				"bonus_mana"			"400"  //150
-				"bonus_movement_speed"	"30"   //15
+				"bonus_movement_speed"	"45"   //15
 		}
 	}
 	"item_spark_of_courage" //勇气之光
@@ -415,7 +415,7 @@
 		"AbilityCooldown"				"6.0" //15
 		"AbilityValues"
 		{
-				"bonus_all_stats"	"12" //6
+				"bonus_all_stats"	"15" //6
 				"tree_duration"		"30" //20
 		}
 	}
@@ -434,7 +434,7 @@
 	{
 		"AbilityValues"
 		{
-			"hp_regen"			    "15"  //4
+			"hp_regen"			    "20"  //4
 			"damage_return_hero"	"60" //30
 			"damage_return_creep"	"40" //20
 		}
@@ -445,7 +445,7 @@
 		"AbilityValues"
 		{
 			"bonus_attack_speed"		"35"	//15
-			"creep_damage_pct"			"60"	//40
+			"creep_damage_pct"			"67"	//40
 			"bonus_armor"	            "6"		//2
 		}
 	}
@@ -454,7 +454,7 @@
 	{
 		"AbilityValues"
 		{
-			"all_stats"			"12"	//5
+			"all_stats"			"20"	//5
 			"water_hp_regen"	"25"	//10
 			"water_mp_regen"	"12"	//5
 		}
@@ -463,9 +463,9 @@
 	{
 		"AbilityValues"
 		{
-				"bonus_armor"			"10"	//5
+				"bonus_armor"			"15"	//5
 				"bonus_hp_regen"		"15"	//5
-				"damage_per_sec"		"66"	//22
+				"damage_per_sec"		"88"	//22
 				"duration"		        "5"		//3
 		}
 	}
@@ -482,12 +482,12 @@
 	{
 		"AbilityValues"
 		{
-				"secondary_stats"			"35" //15
+				"secondary_stats"			"45" //15
 		}
 	}
 	"item_bullwhip" //凌厉长鞭
 	{
-		"AbilityCooldown"				"8" //11
+		"AbilityCooldown"				"7" //11
 		"AbilityValues"
 		{
 				"bonus_health_regen"			"6"	//2.75
@@ -538,7 +538,7 @@
 		{
 				"bonus_gpm"			"600"	//75
 				"bonus_mana"		"300"	//200
-				"bonus_damage"		"-150"	//-30
+				"bonus_damage"		"-90"	//-30
 		}
 	}
 	"item_vampire_fangs" //吸血鬼獠牙
@@ -564,7 +564,7 @@
 	}
 	"item_imp_claw" //魔童之爪 暴击爪
 	{
-		"AbilityCooldown"				"1.6" //4
+		"AbilityCooldown"				"1.0" //4
 		"AbilityValues"
 		{
 				"crit_multiplier"			"160"	// 130
@@ -591,8 +591,8 @@
 	}
 	"item_essence_ring"  //精华指环
 	{
-		"AbilityCooldown"				"15"  //25
-		"AbilityManaCost"				"350"   //200
+		"AbilityCooldown"				"10"  //25
+		"AbilityManaCost"				"400"   //200
 		"AbilityValues"
 		{
 			"bonus_int"			"20"		//10
@@ -653,8 +653,8 @@
 	{
 		"AbilityValues"
 		{
-			"debuff_self"	"16"          //8
-			"debuff_enemy"	"24"         //12
+			"debuff_self"	"20"          //8
+			"debuff_enemy"	"30"         //12
 			"debuff_enemy_duration"	"5"  //5
 			"bonus_damage"			"70" //35
 		}
@@ -666,14 +666,14 @@
 		{
 				"armor_bonus"			"16"  //8
 				"move_speed"			"50" //30
-				"active_armor"			"36" //12
+				"active_armor"			"44" //12
 				"active_duration"		"8"  //8
 				"bonus_health"			"600"//150
 		}
 	}
 	"item_enchanted_quiver" //魔力箭袋
 	{
-		"AbilityCooldown"				"1.5"		//4
+		"AbilityCooldown"				"1.0"		//4
 		"AbilityValues"
 		{
 			"bonus_attack_range"	"100"			//75
@@ -725,19 +725,20 @@
 	}
 	"item_ogre_seal_totem" //食人魔海豹图腾
 	{
-		"AbilityCooldown"				"25.0" //40
+		"AbilityCooldown"				"20.0" //40
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 			"bonus_strength"			"40"       //10
             "radius"
 			{
-				"value"				"375"          //275
+				"value"				"450"          //275
 				"affected_by_aoe_increase"	"1"
 			}
             "flop_damage"               "350"      //150
 	        "slow_duration"             "3.0"      //1.5
 	        "slow"           			"-100"     //-100
-	        "max_bounces"				"3"        //2
+	        "max_bounces"				"4"        //2
 		}
 	}
 	"item_doubloon" //双面币
@@ -818,8 +819,8 @@
 	{
 		"AbilityValues"
 		{
-			"primary_stat"			 	"150"  //70
-			"primary_stat_universal"	"75"  //25
+			"primary_stat"			 	"100"  //70
+			"primary_stat_universal"	"50"  //25
 		}
 	}
 	"item_specialists_array" //行家阵列
@@ -906,7 +907,7 @@
 	{
 		"AbilityValues"
 		{
-			"extra_bonus_damage"	"400"    //50
+			"extra_bonus_damage"	"500"    //50
 			"bonus_damage"			"100"    //50
 			"radius"				"2000"  //2000
 		}
@@ -983,8 +984,8 @@
 		"AbilityValues"
 		{
 				"damage"			    "90"  //45
-				"melee_attack_range"	"150" //100
-				"maim_chance"			"40"  //25
+				"melee_attack_range"	"200" //100
+				"maim_chance"			"50"  //25
 				"maim_slow_movement"	"60"  //20
 				"maim_slow_attack"		"200"  //60
 				"maim_duration"			"3"   //3
@@ -1013,7 +1014,7 @@
 	{
 		"AbilityValues"
 		{
-			"debuff_amp"		"35"	// 20
+			"debuff_amp"		"30"	// 20
 			"spell_amp"			"30"	// 15
 		}
 	}
@@ -1023,7 +1024,7 @@
 		"AbilityCooldown"				"4.0"  //8
 		"AbilityValues"
 		{
-				"bonus_movement_speed"	"180"  //115
+				"bonus_movement_speed"	"230"  //115
 				"push_length"			"750"  //750
 				"push_duration"			"0.5"  //0.5
 				"hp_regen"			    "90"  //30
@@ -1034,7 +1035,7 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"200"  //60
-				"corruption_armor"		"-20" //-10
+				"corruption_armor"		"-25" //-10
 				"corruption_duration"	"7.0" //7
 		}
 	}
@@ -1044,7 +1045,7 @@
 		{
 			"reflect_chance"		"100"   //75
 			"all_stats"			    "40"   //10
-			"block_cooldown"		"8.0" //12
+			"block_cooldown"		"9.0" //12
 		}
 	}
 	"item_book_of_shadows" //暗影邪典
@@ -1110,10 +1111,10 @@
 		"AbilityValues"
 		{
 			"bonus_aoe_radius"			"1800"	//1200
-			"bonus_aoe_armor"			"20"	//5
-			"self_armor"				"20"	//5
-			"self_mres"					"30"	//20
-			"bonus_aoe_mres"			"30"	//20
+			"bonus_aoe_armor"			"10"	//5
+			"self_armor"				"10"	//5
+			"self_mres"					"20"	//20
+			"bonus_aoe_mres"			"20"	//20
 			"active_reflection_pct"		"40"	//40
 		}
 	}
@@ -1130,18 +1131,18 @@
 	{
 		"AbilityValues"
 		{
-			"max_health"			"10000"  //1500
+			"max_health"			"9000"  //1500
 			"magic_resist"			"95"    //95
 		}
 	}
 	"item_panic_button"  //神妙明灯
 	{
-		"AbilityCooldown"				"45.0"  //75
+		"AbilityCooldown"				"40.0"  //75
 		"AbilityValues"
 		{
 				"bonus_health"			"5000"	//500
 				"heal"		            "5000"	//1250
-				"health_threshold"		"20"	//20
+				"health_threshold"		"35"	//20
 		}
 	}
 	"item_woodland_striders" //丛林靴
@@ -1149,10 +1150,10 @@
 		"AbilityCooldown"				"60.0" //20
 		"AbilityValues"
 		{
-				"bonus_movement_speed"	"210" //140
+				"bonus_movement_speed"	"250" //140
 				"bonus_hp_regen"	"180"     //60
 				"active_duration"		"3"   //3
-				"tree_duration"		"15"      //15
+				"tree_duration"		"10"      //15
 		}
 	}
 	"item_fallen_sky" //天崩
@@ -1338,21 +1339,21 @@
     //=================================================================================================================
 	"item_recipe_disperser"
 	{
-		"ItemCost"						"0"	// 800 性价比太低，归零
+		"ItemCost"						"0"	// 800
 	}
 	//=================================================================================================================
     // 紫苑卷轴 Recipe: orchid
     //=================================================================================================================
 	"item_recipe_orchid"
 	{
-		"ItemCost"						"0" // 650 暂时归零
+		"ItemCost"						"0" // 650
 	}
 	//=================================================================================================================
     // 血辣卷轴 Recipe: Bloodthorn
     //=================================================================================================================
 	"item_recipe_bloodthorn"
 	{
-		"ItemCost"						"0"	// 450 暂时归零
+		"ItemCost"						"0"	// 450
 	}
 	//=================================================================================================================
 	// Parasma 圣斧
@@ -1411,6 +1412,7 @@
 	{
 		"AbilityCastRange"				"1000"
 		"AbilityCooldown"				"8.0"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 			"bonus_damage"			"50"
@@ -1419,7 +1421,7 @@
 			"bonus_intellect"		"15"
 			"bonus_mana_regen"		"2.0"
 
-			"passive_cooldown"		"3"
+			"passive_cooldown"		"2"
 			"movement_slow"			"100"
 			"slow_duration"			"1.5"
 		}

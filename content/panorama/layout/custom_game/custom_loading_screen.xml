@@ -38,7 +38,7 @@
 					<Panel id="RadiantPlayerNumberMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantPlayerNumberMultiplierTitle" class="GameOptionsLabel" text="#radiant_player_number" />
 						<DropDown id="radiant_player_number_dropdown" class="GameOptionsDropdown">
-							<Label text="10" id="10"/>
+							<Label text="#radiant_player_number_10" id="10"/>
 							<Label text="9" id="9"/>
 							<Label text="8" id="8"/>
 							<Label text="7" id="7"/>
@@ -47,7 +47,7 @@
 							<Label text="4" id="4"/>
 							<Label text="3" id="3"/>
 							<Label text="2" id="2"/>
-							<Label text="1" id="1"/>
+							<Label text="#radiant_player_number_1" id="1"/>
 						</DropDown>
 					</Panel>
 					<Panel id="DirePlayerNumberMultiplierPanel"	class="GameOptionsSubPanel">

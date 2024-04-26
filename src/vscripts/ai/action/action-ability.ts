@@ -8,22 +8,24 @@ export interface CastCoindition {
   };
   self?: {
     healthPercentMoreThan?: number;
+    healthPercentLessThan?: number;
     manaPercentMoreThan?: number;
     abilityLevel?: number;
     hasScepter?: boolean;
+    hasShard?: boolean;
   };
 }
 
 export class ActionAbility {
-  static CastAbilityOnEnemyHero(
+  static CastAbilityOnFindEnemyHero(
     ai: BaseHeroAIModifier,
     abilityName: string,
     condition?: CastCoindition,
   ): boolean {
-    return this.CastAbilityOnEnemy(ai, abilityName, condition, UnitTargetType.HERO);
+    return this.CastAbilityOnFindEnemy(ai, abilityName, condition, UnitTargetType.HERO);
   }
 
-  static CastAbilityOnEnemyCreep(
+  static CastAbilityOnFindEnemyCreep(
     ai: BaseHeroAIModifier,
     abilityName: string,
     condition?: CastCoindition,
@@ -53,7 +55,7 @@ export class ActionAbility {
       }
     }
 
-    return this.CastAbilityOnEnemy(
+    return this.CastAbilityOnFindEnemy(
       ai,
       abilityName,
       condition,
@@ -63,7 +65,7 @@ export class ActionAbility {
     );
   }
 
-  protected static CastAbilityOnEnemy(
+  protected static CastAbilityOnFindEnemy(
     ai: BaseHeroAIModifier,
     abilityName: string,
     condition: CastCoindition | undefined,
@@ -122,7 +124,6 @@ export class ActionAbility {
       }
     }
 
-    print(`[AI] CastAbilityOnEnemy ${abilityName} on ${target.GetUnitName()}`);
     if (this.IsAbilityBehavior(ability, AbilityBehavior.UNIT_TARGET)) {
       print(`[AI] CastAbilityOnEnemy ${abilityName} on target`);
       hero.CastAbilityOnTarget(target, ability, hero.GetPlayerOwnerID());
@@ -135,6 +136,12 @@ export class ActionAbility {
       print(`[AI] CastAbilityOnEnemy ${abilityName} on position`);
       hero.CastAbilityOnPosition(target.GetAbsOrigin(), ability, hero.GetPlayerOwnerID());
       return true;
+    } else if (this.IsAbilityBehavior(ability, AbilityBehavior.NO_TARGET)) {
+      print(`[AI] CastAbilityOnEnemy ${abilityName} no target`);
+      hero.CastAbilityNoTarget(ability, hero.GetPlayerOwnerID());
+      return true;
+    } else {
+      print(`[AI] ERROR CastAbilityOnEnemy ${abilityName} not found behavior`);
     }
 
     return false;
@@ -183,6 +190,11 @@ export class ActionAbility {
           return true;
         }
       }
+      if (condition.self.healthPercentLessThan) {
+        if (self.GetHealthPercent() > condition.self.healthPercentLessThan) {
+          return true;
+        }
+      }
       if (condition.self.manaPercentMoreThan) {
         if (self.GetManaPercent() < condition.self.manaPercentMoreThan) {
           return true;
@@ -195,6 +207,11 @@ export class ActionAbility {
       }
       if (condition.self.hasScepter) {
         if (!self.HasScepter()) {
+          return true;
+        }
+      }
+      if (condition.self.hasShard) {
+        if (!self.HasModifier("modifier_item_aghanims_shard")) {
           return true;
         }
       }

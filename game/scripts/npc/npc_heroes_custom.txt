@@ -1228,8 +1228,8 @@
 	}
 	"npc_dota_hero_grimstroke"
 	{
-		"Ability4"              "visage_soul_assumption"
-		"Ability7"				"grimstroke_dark_portrait"
+		"Ability7"				"grimstroke_dark_artistry"
+		"Ability1"              "visage_soul_assumption"
 	}
 	"npc_dota_hero_gyrocopter"
 	{
