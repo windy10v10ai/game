@@ -62,6 +62,9 @@
 		"player_gold_xp_multiplier_2"            	"2    (新手)"
 		"player_gold_xp_multiplier_5"               "5    (我要打10个)"
 
+		"radiant_player_number_1"		"1  (简单)"
+		"radiant_player_number_10"		"10 (困难)"
+
 		"respawn_time_percentage_slow"        "较慢"
 		"respawn_time_percentage_normal"        "普通"
 		"respawn_time_percentage_fast"         "快速"
@@ -2076,6 +2079,12 @@
 		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1_bonus_health"			"+$health"
 		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1_spell_amp"			"%+技能增强"
 		"DOTA_Tooltip_Ability_item_mysterious_hat_ai_1_manacost_reduction"	"%+$manacost_reduction"
+
+		// item_mysterious_hat_unrefined 次品·仙灵饰品
+		"DOTA_Tooltip_Ability_item_mysterious_hat_unrefined"				"仙灵次品（中立）"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_unrefined_Lore"			"较小的配饰，为了酬谢凡人不经意间流露出的善意而注入了仙灵的好运。"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_unrefined_spell_amp"			"%+技能增强"
+		"DOTA_Tooltip_Ability_item_mysterious_hat_unrefined_manacost_reduction"	"%+$manacost_reduction"
 
 		// item_safety_bubble_light 圣光·安全泡泡
 		"DOTA_Tooltip_Ability_item_safety_bubble_light"				"<font color='#FFFF00'>圣光·安全泡泡</font>"

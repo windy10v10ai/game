@@ -7,7 +7,7 @@ export class ViperAIModifier extends BaseHeroAIModifier {
   override UseAbilityEnemy(): boolean {
     // 幽冥剧毒
     if (
-      ActionAbility.CastAbilityOnEnemyHero(this, "viper_nethertoxin", {
+      ActionAbility.CastAbilityOnFindEnemyHero(this, "viper_nethertoxin", {
         target: { noModifier: "modifier_viper_nethertoxin" },
       })
     ) {
@@ -15,7 +15,7 @@ export class ViperAIModifier extends BaseHeroAIModifier {
     }
     // 蝮蛇突袭
     if (
-      ActionAbility.CastAbilityOnEnemyHero(this, "viper_viper_strike", {
+      ActionAbility.CastAbilityOnFindEnemyHero(this, "viper_viper_strike", {
         target: { noModifier: "modifier_viper_viper_strike" },
       })
     ) {
@@ -23,7 +23,7 @@ export class ViperAIModifier extends BaseHeroAIModifier {
     }
     // 极恶俯冲
     if (
-      ActionAbility.CastAbilityOnEnemyHero(this, "viper_nose_dive", {
+      ActionAbility.CastAbilityOnFindEnemyHero(this, "viper_nose_dive", {
         self: { healthPercentMoreThan: 50, hasScepter: true },
       })
     ) {
@@ -35,7 +35,7 @@ export class ViperAIModifier extends BaseHeroAIModifier {
   override UseAbilityCreep(): boolean {
     // 幽冥剧毒
     if (
-      ActionAbility.CastAbilityOnEnemyCreep(this, "viper_nethertoxin", {
+      ActionAbility.CastAbilityOnFindEnemyCreep(this, "viper_nethertoxin", {
         target: { noModifier: "modifier_viper_nethertoxin" },
       })
     ) {

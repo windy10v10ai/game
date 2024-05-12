@@ -175,6 +175,7 @@
 		"item"		"item_wings_of_haste"
 		"item"		"item_moon_shard_datadriven"
 		"item"		"item_consumable_gem"		// 幻影宝石
+		"item"		"item_mysterious_hat_unrefined"
 	}
 
 	// Level 2 - Blue Recipes
