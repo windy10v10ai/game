@@ -1639,9 +1639,9 @@
 	// 放魂
 	"elder_titan_ancestral_spirit"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"23 21 19 17 15"
-		"AbilityManaCost"				"80 90 100 110 120"
+		"MaxLevel" "6"
+		"AbilityCooldown"				"25 23 21 19 17 15"
+		"AbilityManaCost"				"70 80 90 100 110 120"
 		"AbilityValues"
 		{
 			"move_pct_heroes"
@@ -1680,6 +1680,7 @@
 				{
 					"value"		"350"
 					"special_bonus_unique_elder_titan_5"	"+450"
+					"affected_by_aoe_increase"	"1"
 				}
 				"armor_reduction_pct"	    "40 50 60 80 100"
 				"magic_resistance_pct"		"40 50 60 80 100"
