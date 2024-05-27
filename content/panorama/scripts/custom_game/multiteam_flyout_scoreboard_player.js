@@ -1,7 +1,22 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use strict";
 
 var current_tooltip_timer = null;
 var current_shown_tooltip_id = null;
+
+function ToggleMute() {
+  var playerId = $.GetContextPanel().GetAttributeInt("player_id", -1);
+  if (playerId !== -1) {
+    var newIsMuted = !Game.IsPlayerMuted(playerId);
+    Game.SetPlayerMuted(playerId, newIsMuted);
+    $.GetContextPanel().SetHasClass("player_muted", newIsMuted);
+  }
+}
+
+(function () {
+  var playerId = $.GetContextPanel().GetAttributeInt("player_id", -1);
+  $.GetContextPanel().SetHasClass("player_muted", Game.IsPlayerMuted(playerId));
+})();
 
 function GetLocalPlayerId() {
   var localPlayerId = 0;
@@ -80,18 +95,18 @@ function ShowToolTipDisableHelp() {
   );
 }
 
-function ToggleMute() {
-  var bol_reopen_tooltip = current_shown_tooltip_id == "#BtnMuteVoice";
-  HideToolTips();
-  var playerId = $.GetContextPanel().GetAttributeInt("player_id", -1);
-  if (Players.IsValidPlayerID(playerId)) {
-    var muteStatus = !Game.IsPlayerMuted(playerId);
-    Game.SetPlayerMuted(playerId, muteStatus);
-  }
-  if (bol_reopen_tooltip) {
-    ShowToolTipMute();
-  }
-}
+// function ToggleMute() {
+//   var bol_reopen_tooltip = current_shown_tooltip_id == "#BtnMuteVoice";
+//   HideToolTips();
+//   var playerId = $.GetContextPanel().GetAttributeInt("player_id", -1);
+//   if (Players.IsValidPlayerID(playerId)) {
+//     var muteStatus = !Game.IsPlayerMuted(playerId);
+//     Game.SetPlayerMuted(playerId, muteStatus);
+//   }
+//   if (bol_reopen_tooltip) {
+//     ShowToolTipMute();
+//   }
+// }
 
 function ToggleEvent(toggle_flag, disable) {
   HideToolTips();
