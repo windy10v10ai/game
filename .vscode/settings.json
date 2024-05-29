@@ -14,6 +14,7 @@
     "**/models": true,
     "**/particles": true
   },
+  "editor.renderWhitespace": "all",
   "editor.insertSpaces": true,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",

@@ -192,13 +192,18 @@
 	"abaddon_aphotic_shield"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"12 10 8 6 4"
 		"AbilityManaCost"				"95 110 125 140 155"
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"				"12 10 8 6 4"
+				"special_bonus_facet_abaddon_mephitic_shroud" "+2"
+			}
 			"damage_absorb"
 			{
-				"value"			"100 150 200 250 300"
+				"value"			"120 160 200 240 280"
+				"special_bonus_facet_abaddon_mephitic_shroud"		"60 100 140 180 220"
 				"special_bonus_unique_abaddon"		"+200"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
@@ -210,17 +215,16 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"movement_speed"
-			{
-				"value"						"10 15 20 25 30"
-				"special_bonus_shard" 		"+10"
-			}
 			"curse_slow"
 			{
-				"value"									"15 30 45 60 75"
+				"value"									"15 20 25 30 35"
 				"special_bonus_unique_abaddon_6"		"+15"
 			}
-			"curse_attack_speed"		"60 80 100 120 140"
+			"curse_attack_speed"
+			{
+				"value"				"20 40 60 80 100"	// x2
+				"special_bonus_unique_abaddon_3" "+80"
+			}
 			"curse_dps"
 			{
 				"value" "30 40 50 60 70"
@@ -1646,23 +1650,23 @@
 		{
 			"move_pct_heroes"
 			{
-				"value"		"5 6 7 8 9"
+				"value"		"4 5 6 7 8 9"
 				"special_bonus_unique_elder_titan_bonus_spirit_speed"	"+2"
 			}
 			"damage_creeps"
 			{
-				"value"	"5 10 15 20 25"
+				"value"	"3 5 10 15 20 25"
 				"CalculateSpellDamageTooltip"				"0"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
 			"damage_heroes"
 			{
-				"value"		"20 35 50 70 90"
+				"value"		"10 20 35 50 70 90"
 				"special_bonus_unique_elder_titan"	"+25"
 				"CalculateSpellDamageTooltip"	"0"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
-			"armor_heroes"					"2 3 4 5 6"
+			"armor_heroes"					"1 2 3 4 5 6"
 			"scepter_magic_immune_per_hero"
 			{
 				"value"				"1.35"
@@ -3284,17 +3288,19 @@
 	"shredder_whirling_death"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"80"
 		"AbilityCooldown"				"6"
 		"AbilityValues"
 		{
 				"whirling_damage"			"120 160 200 260 320"
-				"tree_damage_scale"			"15 25 35 45 55"
-				"duration"					"15"
-				"stat_loss_pct"
+				"tree_damage_scale"
 				{
-					"value"			"12 14 16 18 20"// 13 英雄特色理应加强
-					"special_bonus_unique_timbersaw_5"	"10"// 从15级天赋上调至25级天赋
+					"value"								"15 25 35 45 55"
+					"special_bonus_unique_timbersaw"	"+100"
+				}
+				"duration"
+				{
+					"value"				"11 12 13 14 15"
+
 				}
 		}
 	}
@@ -3306,13 +3312,29 @@
 		"AbilityManaCost"				"60 70 80 90 100"
 		"AbilityValues"
 		{
-				"range"
+				"AbilityCastRange"
 				{
 					"value"			"750 900 1050 1200 1350"
-					"LinkedSpecialBonus"	"special_bonus_unique_timbersaw_3"
+					"special_bonus_unique_timbersaw_3"	"+75%"
 				}
-				"speed"				"2200 2400 2600 2800 3000"
+				"speed"
+				{
+					"value"			"2200 2400 2600 2800 3000"
+					"special_bonus_unique_timbersaw_3"	"+75%"
+				}
 				"damage"			"50 95 140 185 230"
+				"tree_splinter_damage"
+				{
+					"value"						"0"
+					"special_bonus_facet_shredder_shredder"				"20 40 60 80 100"
+					"RequiresFacet"					"shredder_shredder"
+				}
+				"tree_splinter_slow_pct"
+				{
+					"value"						"0"
+					"special_bonus_facet_shredder_shredder"				"30 40 50 60 70"
+					"RequiresFacet"					"shredder_shredder"
+				}
 		}
 	}
 	// 活性活甲
@@ -3369,22 +3391,38 @@
 		"AbilityManaCost"				"75 125 175 225"
 		"AbilityValues"
 		{
-				"pass_damage"			"150 200 250 300"
-				"damage_per_second"		"50 100 150 200"
+				"pass_damage"
+				{
+					"value"						"150 200 250 300"
+				}
+				"damage_per_second"
+				{
+					"value"						"50 100 150 200"
+				}
 				"mana_per_second"		"14 22 30 38"
 		}
 	}
-	// 锯齿飞轮2
-	"shredder_chakram_2"
+	// 锯齿旋轮
+	"shredder_twisted_chakram"
 	{
-		"AbilityManaCost"				"75 125 175 225"
+		"MaxLevel" "4"
+		"AbilityCooldown"				"20 16 12 8"
 		"AbilityValues"
 		{
-				"pass_damage"			"150 200 250 300"
-				"damage_per_second"		"50 100 150 200"
-				"mana_per_second"		"14 22 30 38"
+				"damage"				"110 155 200 245"
 		}
 	}
+	// 暴露疗法
+	"shredder_exposure_therapy"
+	{
+		"MaxLevel"						"5"
+		"AbilityValues"
+		{
+			"mana_restore"					"3 4 5 6 7"
+		}
+	}
+
+
 	//=================================================================================================================
 	// Ability: Skeleton King 冥魂大帝/骷髅王
 	//=================================================================================================================
@@ -4433,7 +4471,7 @@
 			"damage_per_unit"
 			{
 				"value"			"15 25 35 45 55"
-				"LinkedSpecialBonus"			"special_bonus_unique_undying_6"
+				"special_bonus_unique_undying_6" "+15"
 			}
 			"max_units"					"30"
 			"radius"
@@ -4447,23 +4485,18 @@
 	// 墓碑
 	"undying_tombstone"
 	{
-		"AbilityCooldown"				"65"
-		"AbilityManaCost"				"200 300 400 500"
 		"AbilityValues"
 		{
 			"zombie_interval"
 			{
-				"value"		"80000"
+				"value"		"10"
 			}
 			"hits_to_destroy_tooltip"
 			{
 				"value"					"7 8 9 10"
 				"special_bonus_unique_undying_5"	"+20"
 			}
-
-			"duration"					"30.0"
-			"tombstone_grab_radius"		"650"
-			"tombstone_bunker_cd"		"0.33"
+			"health_threshold_pct_tooltip"	"60"	// 40
 		}
 	}
 	"undying_tombstone_zombie_aura"
@@ -4497,7 +4530,17 @@
 				"special_bonus_unique_undying_4" "+60"
 			}
 			"movement_bonus"			"30 40 50 70"
+			"spawn_zombie_on_attack"
+			{
+				"value"						"0"
+				"special_bonus_facet_undying_rotting_mitts"	"+0"	// 1
+			}
 		}
+	}
+	// 挽歌犹唱 复活
+	"undying_ceaseless_dirge"
+	{
+		"AbilityCooldown"				"240"	// 480
 	}
 	//=================================================================================================================
 	// Ability: Wisp 艾欧/小精灵
@@ -5658,7 +5701,6 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-				"blade_dance_crit_chance"	"20 25 30 35 40"
 				"blade_dance_crit_mult"
 				{
 					"value"		"180 200 220 240 260"
@@ -5706,25 +5748,13 @@
 		"MaxLevel" "4"
 		"AbilityCooldown"				"90"
 		"AbilityManaCost"				"250 300 350 400"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
+			"bonus_damage"				"30 40 50 60"
+			"duration"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"50 60 70 80"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_speed"				"50 60 70 80"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"3.0 3.3 3.6 4.0"
-				"LinkedSpecialBonus"		"special_bonus_unique_juggernaut_2"
+				"value"					"3.0 3.3 3.6 4.0"
+				"special_bonus_unique_juggernaut_omnislash_duration"			"+1"
 			}
 		}
 	}
@@ -9484,14 +9514,18 @@
 	"furion_teleportation"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"65 55 45 35 25"
 		"AbilityManaCost"				"50 75 100 125 150"
 		"AbilityValues"
 		{
-			"max_stacks"
+			"AbilityCooldown"
 			{
-				"value"				"3 6 9 12 15"
-				"special_bonus_unique_furion_teleportation_max_stacks"		"+4"
+				"value"										"70 65 50 35 20"
+				"special_bonus_unique_furion_3"				"-100%"
+			}
+			"barrier"
+			{
+				"value"					"50 100 150 200 250"
+				"special_bonus_unique_furion_teleportation_barrier"				"+100"
 			}
 		}
 	}
@@ -9503,23 +9537,26 @@
         {
 			"max_treants"
 			{
-				"value"							"1"
-				"special_bonus_unique_furion_2"	"+1"
+				"value"							"2"
+				"special_bonus_facet_furion_ironwood_treant"			"=1 =1 =1 =1"
 			}
 			"treant_duration"				"30"
 			"treant_health"
 			{
-				"value"								"1000 1500 2000 2500"
+				"value"								"1000 1000 1150 1150"
+				"special_bonus_facet_furion_ironwood_treant"	"=1500 =2000 =2500 =3000"
 				"special_bonus_unique_furion"			"x2.5"
 			}
 			"treant_damage_min"
 			{
 				"value"					"50 100 150 200"
+				"special_bonus_facet_furion_ironwood_treant"				"+100%"
 				"special_bonus_unique_furion"			"x2.5"
 			}
 			"treant_damage_max"
 			{
 				"value"					"50 100 150 200"
+				"special_bonus_facet_furion_ironwood_treant"				"+100%"
 				"special_bonus_unique_furion"			"x2.5"
 			}
 			"AbilityCooldown"
@@ -11837,7 +11874,7 @@
 	"tinker_defense_matrix"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"16"
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
@@ -11846,7 +11883,11 @@
 				"value"							"180 360 540 720 900"	// 100 180 240 320
 				"special_bonus_unique_tinker_7"	"+125"
 			}
-			"status_resistance"		"10 20 30 40 50"
+			"status_resistance"
+			{
+				"value"															"10 20 30 40 50"
+				"special_bonus_unique_tinker_defense_matrix_status_resistance"	"+10"
+			}
 		}
 	}
 	// 激光
@@ -11855,20 +11896,17 @@
 		"MaxLevel" "5"
 		"AbilityCastRange"				"1050"
 		"AbilityCooldown"				"22 20 18 16 14"
-		"AbilityManaCost"				"110 130 150 170 190"
-		"AbilitySpecial"
+		"AbilityManaCost"				"95 105 115 125 135"
+		"AbilityValues"
 		{
-			"02"
+			"duration"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration_hero"			"3 3.5 4 4.5 5.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_tinker_4"
+				"value"			"3.0 3.5 4.0 4.5 5.0"
 			}
-			"04"
+			"laser_damage"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"laser_damage"			"75 150 225 300 375"
-				"LinkedSpecialBonus"	"special_bonus_unique_tinker"
+				"value" "75 150 225 300 375"
+				"special_bonus_unique_tinker" "+80"
 			}
 		}
 	}
@@ -11888,26 +11926,22 @@
 				"targets"
 				{
 					"value"	"2 3 4 5 6"
-					"LinkedSpecialBonus"	"special_bonus_unique_tinker_6"
 				}
 				"speed"				"900"	// 700
 		}
 	}
-	// 传送
-	"tinker_keen_teleport"
+	// 机械行军
+	"tinker_march_of_the_machines"
 	{
-		"AbilityChannelTime"			"4.5 3.5 2.5"
-		"AbilityCastPoint"				"0.0"
-		"LinkedAbility"					"tinker_rearm_lua"
-		"AbilityDraftPreAbility"		"tinker_rearm_lua"
-		"AbilitySpecial"
+		"MaxLevel" "5"
+		"AbilityManaCost"				"90 110 130 150 170"
+		"AbilityValues"
 		{
-			"04"
+			"damage"				"17 26 35 44 53"
+			"heal_per_second"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"channel_time_tooltip"		"4.5 3.5 2.5"
-				"LinkedSpecialBonus"		"special_bonus_unique_tinker_5"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+				"value"									"0"
+				"special_bonus_facet_tinker_repair_bots"	"+16 +24 +32 +40 +48"	// x2
 			}
 		}
 	}
