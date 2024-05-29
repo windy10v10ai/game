@@ -15,7 +15,7 @@ export class Debug {
   ];
 
   constructor() {
-    // 工具模式下开启调试
+    // 工具模式下默认开启调试
     this.DebugEnabled = IsInToolsMode();
     ListenToGameEvent(`player_chat`, (keys) => this.OnPlayerChat(keys), this);
   }
@@ -77,6 +77,35 @@ export class Debug {
         if (!hero) return;
         GameRules.AI.EnableAI(hero);
       });
+    }
+
+    if (cmd === "-kill") {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+
+      print(`kill hero`);
+      hero.Kill(undefined, hero);
+    }
+
+    if (cmd === "-killall") {
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        hero.Kill(undefined, hero);
+      });
+    }
+
+    if (cmd.startsWith("-getUseableItemByName")) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const itemName = args[0];
+      const item = ActionItem.FindItemInInventoryUseable(hero, itemName);
+      if (!item) {
+        this.log(`没有找到物品: ${itemName}`);
+        return;
+      } else {
+        this.log(`找到物品: ${itemName}`);
+      }
     }
 
     if (cmd.startsWith("-getUseableItemByName")) {

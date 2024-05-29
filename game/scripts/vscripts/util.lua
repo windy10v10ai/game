@@ -246,9 +246,10 @@ function GetFullCastRange(hHero, hAbility)
 end
 
 function GetBuyBackCost(playerId)
-	local hHero = PlayerResource:GetSelectedHeroEntity(playerId)
+	-- local hHero = PlayerResource:GetSelectedHeroEntity(playerId)
+	-- local level = hHero:GetLevel()
+
 	local iNetWorth = PlayerResource:GetNetWorth(playerId)
-	local level = hHero:GetLevel()
 	local cost = math.floor(200 + iNetWorth / 20)
 	cost = math.min(cost, 50000)
 	return cost
