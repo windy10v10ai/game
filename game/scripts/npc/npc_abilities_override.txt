@@ -374,13 +374,11 @@
 			"radius"
 			{
 				"value"							"350"
-				"special_bonus_unique_axe_2"	"+100"
-				"affected_by_aoe_increase"	"1"
 			}
 			"bonus_armor"
 			{
-				"value"							"16 19 22 25 28"
-				"special_bonus_unique_axe_7"	"+10"
+				"value"							"14 16 18 20 22"
+				"special_bonus_facet_axe_call_out"			"+5 8 11 14 17"
 			}
 			"duration"				"1.8 2.2 2.6 3.0 3.4"
 		}
@@ -394,11 +392,9 @@
 		"AbilityCastRange"				"700 775 850 925 1000"
 		"AbilityValues"
 		{
-				"duration"					"12.0"
 				"slow"
 				{
 					"value"			"-11 -19 -27 -35 -43"
-					"special_bonus_unique_axe_6"	"-12"
 				}
 				"damage_per_second"			"10 15 20 25 30"
 		}
@@ -412,7 +408,6 @@
 			"damage"
 			{
 				"value"				"95 120 145 170 195"
-				"special_bonus_unique_axe_4" "+30"
 			}
 		}
 	}
@@ -431,11 +426,14 @@
 			}
 			"speed_bonus"				"20 25 30 35"
 			"armor_bonus"				"20 25 30 35"
-			"armor_per_stack"
-			{
-				"value"					"2"
-				"special_bonus_unique_axe_3"	"+1"
-			}
+		}
+	}
+	// 血色外衣
+	"axe_coat_of_blood"
+	{
+		"AbilityValues"
+		{
+			"armor_per_kill"						"0.4 0.6 0.8 1.0 1.2"
 		}
 	}
 	//=================================================================================================================

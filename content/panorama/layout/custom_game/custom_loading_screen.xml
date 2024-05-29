@@ -143,7 +143,7 @@
 					</Panel>
 					<Panel id="SameHeroSelectionPanel"	class="GameOptionsSubPanel">
 						<Label id="SameHeroSelectionTitle" class="GameOptionsLabel" text="#same_hero_selection" />
-						<ToggleButton checked="false" class="GameOptionsToggle" id="same_hero_selection"/>
+						<ToggleButton checked="true" class="GameOptionsToggle" id="same_hero_selection"/>
 					</Panel>
 					<!-- <Panel id="FastCourierPanel"	class="GameOptionsSubPanel">
 						<Label id="FastCourierTitle" class="GameOptionsLabel" text="#fast_courier" />

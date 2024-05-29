@@ -6,7 +6,7 @@ function PregameSetup() {
   const player = GetPlayer();
   PlayerDataLoaded(player);
   SubscribePlayer(PlayerDataLoaded);
-  if (player.useableLevel > 1) {
+  if (player && player.useableLevel > 1) {
     SetPropertySelected();
   } else {
     SetDataSelected();
@@ -454,65 +454,7 @@ function GetDotaHud() {
   return panel;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FindDotaHudElement(id) {
   return GetDotaHud().FindChildTraverse(id);
-}
-
-function SetEquipPetButton(button, label, name) {
-  unequipButtonEvents[name] = GameEvents.Subscribe("pet_unequipped", SetEquipButtonReady);
-
-  button.SetPanelEvent("onactivate", () => {});
-  button.SetHasClass("unequip", false);
-  button.SetHasClass("deactivated", true);
-  label.text = "EQUIP";
-}
-function SetEquipButtonReady(button) {
-  GameEvents.Unsubscribe(unequipButtonEvents[button.name]);
-  const name = button.name;
-  const petButton = buttonSaver[name];
-
-  petButton[0].SetPanelEvent("onactivate", () => {
-    EquipPet(name);
-    SetUnequipPetButton(petButton[0], petButton[1], name);
-  });
-  petButton[0].SetHasClass("deactivated", false);
-  petButton[0].SetHasClass("reequip", false);
-  petButton[0].SetHasClass("activated", true);
-}
-
-function defaultPreviousButton(button, label, name) {
-  button.SetPanelEvent("onactivate", () => {
-    EquipPet(name);
-    SetUnequipPetButton(button, label, name);
-  });
-  button.SetHasClass("unequip", false);
-  button.SetHasClass("reequip", false);
-  button.SetHasClass("activated", true);
-  label.text = "EQUIP";
-}
-
-function UpdateScoreboard() {
-  const hScoreboard = FindDotaHudElement("scoreboard");
-
-  if (hScoreboard) {
-    if (hScoreboard.BHasClass("ScoreboardClosed")) {
-      $("#ScoreboardTipPanel").style.visibility = "collapse";
-    } else {
-      $("#ScoreboardTipPanel").style.visibility = "visible";
-    }
-
-    if (!bTippingAvailable && bScoreTipping && FindDotaHudElement("Background")) {
-      for (let nID = 0; nID < 5; nID++) {
-        if (Players.IsValidPlayerID(nID) && nID != Game.GetLocalPlayerID()) {
-          const hScoreButton = $("#ScoreTipButton" + nID);
-
-          if (hScoreButton) {
-            if (!hScoreButton.BHasClass("GrayedTip")) hScoreButton.AddClass("GrayedTip");
-
-            hScoreButton.SetPanelEvent("onactivate", () => {});
-          }
-        }
-      }
-    }
-  }
 }

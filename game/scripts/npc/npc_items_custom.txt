@@ -5750,8 +5750,7 @@
 		"AbilityManaCost"				"300"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMY_YES"
-		"AbilityTextureName"            "bloodthorn_ultra"
+		"AbilityTextureName"			"bloodthorn_ultra"
 		"AbilityValues"
 		{
 				"bonus_intellect"			"60"
