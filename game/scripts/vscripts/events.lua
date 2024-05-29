@@ -684,7 +684,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     points = 0,
                     str = hero:GetStrength() or 0,
                     agi = hero:GetAgility() or 0,
-                    int = hero:GetIntellect() or 0,
+                    int = hero:GetIntellect(false) or 0,
                     items = {},
                     isDisconnect = false,
                 }

@@ -1,34 +1,37 @@
 yukari_tentacles = class({})
-LinkLuaModifier( "modifier_yukari_tentacles", "heroes/hero_yukari/yukari_tentacles", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_yukari_umb", "heroes/hero_yukari/yukari_tp", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_yukari_tentacles", "heroes/hero_yukari/yukari_tentacles", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_yukari_umb", "heroes/hero_yukari/yukari_tp", LUA_MODIFIER_MOTION_NONE)
 --------------------------------------------------------------------------------
 -- Custom KV
 -- AOE Radius
 function yukari_tentacles:GetAOERadius()
-	return self:GetSpecialValueFor( "radius" )
+	return self:GetSpecialValueFor("radius")
 end
+
 function yukari_tentacles:OnUpgrade()
-   local ability = self:GetCaster():FindAbilityByName("ability_thdots_yukari04")
-   if ability and ability:GetLevel() < self:GetLevel() then
-      ability:SetLevel(self:GetLevel())
-   end
+	local ability = self:GetCaster():FindAbilityByName("ability_thdots_yukari04")
+	if ability and ability:GetLevel() < self:GetLevel() then
+		ability:SetLevel(self:GetLevel())
+	end
 end
+
 function yukari_tentacles:GetIntrinsicModifierName()
-    return "modifier_yukari_umb"
+	return "modifier_yukari_umb"
 end
+
 function yukari_tentacles:OnSpellStart()
 	-- unit identifier
 	local caster = self:GetCaster()
 	local point = self:GetCursorPosition()
 
 	-- load data
-	local duration = self:GetSpecialValueFor( "duration" )
+	local duration = self:GetSpecialValueFor("duration")
 
 
 	-- create thinker
 	CreateModifierThinker(
-		caster, -- player source
-		self, -- ability source
+		caster,                -- player source
+		self,                  -- ability source
 		"modifier_yukari_tentacles", -- modifier name
 		{ duration = duration }, -- kv
 		point,
@@ -36,9 +39,6 @@ function yukari_tentacles:OnSpellStart()
 		false
 	)
 end
-
-
-
 
 modifier_yukari_tentacles = class({})
 
@@ -62,16 +62,17 @@ end
 
 --------------------------------------------------------------------------------
 -- Initializations
-function modifier_yukari_tentacles:OnCreated( kv )
+function modifier_yukari_tentacles:OnCreated(kv)
 	-- references
-	local interval = self:GetAbility():GetSpecialValueFor( "tick_rate" )
+	local interval = self:GetAbility():GetSpecialValueFor("tick_rate")
 	local caster = self:GetCaster()
-	local damage = (self:GetAbility():GetSpecialValueFor( "damage_per_second" ) + caster:GetIntellect() * self:GetAbility():GetSpecialValueFor( "intelligence_per_second" )) * interval -- 每interval伤害
+	local damage = (self:GetAbility():GetSpecialValueFor("damage_per_second") + caster:GetIntellect(false) * self:GetAbility():GetSpecialValueFor("intelligence_per_second")) *
+		interval -- 每interval伤害
 	local caster = self:GetCaster()
-	self.slowdown = self:GetAbility():GetSpecialValueFor( "root" )
-	self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
+	self.slowdown = self:GetAbility():GetSpecialValueFor("root")
+	self.radius = self:GetAbility():GetSpecialValueFor("radius")
 
-	self.thinker = kv.isProvidedByAura~=1
+	self.thinker = kv.isProvidedByAura ~= 1
 
 	if not IsServer() then return end
 	if not self.thinker then return end
@@ -79,7 +80,7 @@ function modifier_yukari_tentacles:OnCreated( kv )
 
 
 	-- precache damage
-		self.damageTable = {
+	self.damageTable = {
 		victim = target,
 		attacker = self:GetCaster(),
 		damage = damage,
@@ -89,7 +90,7 @@ function modifier_yukari_tentacles:OnCreated( kv )
 	-- ApplyDamage(damageTable)
 
 	-- Start interval
-	self:StartIntervalThink( interval )
+	self:StartIntervalThink(interval)
 
 	-- precache effects
 	self.sound_cast = "yukari.tentacles"
@@ -98,7 +99,7 @@ function modifier_yukari_tentacles:OnCreated( kv )
 	self:PlayEffects()
 end
 
-function modifier_yukari_tentacles:OnRefresh( kv )
+function modifier_yukari_tentacles:OnRefresh(kv)
 
 end
 
@@ -109,7 +110,7 @@ function modifier_yukari_tentacles:OnDestroy()
 	if not IsServer() then return end
 	if not self.thinker then return end
 
-	UTIL_Remove( self:GetParent() )
+	UTIL_Remove(self:GetParent())
 end
 
 --------------------------------------------------------------------------------
@@ -124,48 +125,51 @@ function modifier_yukari_tentacles:CheckState()
 
 	return state
 end
+
 function modifier_yukari_tentacles:DeclareFunctions()
-local func = {
- MODIFIER_PROPERTY_FIXED_DAY_VISION,
- MODIFIER_PROPERTY_FIXED_NIGHT_VISION,
- MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
- }
- return func
+	local func = {
+		MODIFIER_PROPERTY_FIXED_DAY_VISION,
+		MODIFIER_PROPERTY_FIXED_NIGHT_VISION,
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+	}
+	return func
 end
+
 function modifier_yukari_tentacles:GetModifierMoveSpeedBonus_Percentage()
 	return self.slowdown
 end
+
 function modifier_yukari_tentacles:GetFixedNightVision()
 	return 600
 end
+
 function modifier_yukari_tentacles:GetFixedDayVision()
 	return 600
 end
-
 
 --------------------------------------------------------------------------------
 -- Interval Effects
 function modifier_yukari_tentacles:OnIntervalThink()
 	-- find enemies
 	local enemies = FindUnitsInRadius(
-		self:GetCaster():GetTeamNumber(),	-- int, your team number
-		self:GetParent():GetOrigin(),	-- point, center point
-		nil,	-- handle, cacheUnit. (not known)
-		self.radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
-		DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
-		0,	-- int, flag filter
-		0,	-- int, order filter
-		false	-- bool, can grow cache
+		self:GetCaster():GetTeamNumber(),         -- int, your team number
+		self:GetParent():GetOrigin(),             -- point, center point
+		nil,                                      -- handle, cacheUnit. (not known)
+		self.radius,                              -- float, radius. or use FIND_UNITS_EVERYWHERE
+		DOTA_UNIT_TARGET_TEAM_ENEMY,              -- int, team filter
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, -- int, type filter
+		0,                                        -- int, flag filter
+		0,                                        -- int, order filter
+		false                                     -- bool, can grow cache
 	)
 
-	for _,enemy in pairs(enemies) do
+	for _, enemy in pairs(enemies) do
 		-- damage
 		self.damageTable.victim = enemy
-		ApplyDamage( self.damageTable )
+		ApplyDamage(self.damageTable)
 
 		-- play effects
-		EmitSoundOn( self.sound_cast, enemy )
+		EmitSoundOn(self.sound_cast, enemy)
 	end
 end
 
@@ -215,9 +219,9 @@ function modifier_yukari_tentacles:PlayEffects()
 	local sound_cast = "yukari.tentacles_cast"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
-	ParticleManager:SetParticleControl( effect_cast, 0, self:GetParent():GetOrigin() )
-	ParticleManager:SetParticleControl( effect_cast, 1, Vector( self.radius, 1, 1 ) )
+	local effect_cast = ParticleManager:CreateParticle(particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	ParticleManager:SetParticleControl(effect_cast, 0, self:GetParent():GetOrigin())
+	ParticleManager:SetParticleControl(effect_cast, 1, Vector(self.radius, 1, 1))
 
 	-- buff particle
 	self:AddParticle(
@@ -230,5 +234,5 @@ function modifier_yukari_tentacles:PlayEffects()
 	)
 
 	-- Create Sound
-	EmitSoundOn( sound_cast, self:GetParent() )
+	EmitSoundOn(sound_cast, self:GetParent())
 end
