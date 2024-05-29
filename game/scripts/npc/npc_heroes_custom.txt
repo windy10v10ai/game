@@ -519,18 +519,6 @@
         "Ability17"		"special_bonus_unique_slark_5"
     }
 
-	"npc_dota_hero_legion_commander"
-    {
-        "Ability10"		"special_bonus_unique_legion_commander_2"
-        "Ability11"		"special_bonus_unique_legion_commander_pta_movespeed"
-        "Ability12"		"special_bonus_unique_legion_commander_6"
-        "Ability17"		"special_bonus_unique_legion_commander_4"
-        "Ability14"		"special_bonus_unique_legion_commander_5"
-        "Ability15"		"special_bonus_unique_legion_commander_3"
-        "Ability16"		"special_bonus_unique_legion_commander"
-        "Ability13"		"special_bonus_unique_legion_commander_8"
-    }
-
 	"npc_dota_hero_nyx_assassin"
 	{
 		"Ability5"      "nyx_assassin_mana_burn"
@@ -1829,14 +1817,13 @@
 
 	"npc_dota_hero_clinkz"
 	{
-		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden" // Remove 烈焰之军
 		"Ability12"		"special_bonus_attack_range_100"
 	}
 	"npc_dota_hero_omniknight"
 	{
 		//"Ability5"		"omniknight_repel" 加强新版二技能的同时暂时移除老版二技能
-		"Ability4"		"omniknight_angelic_flight"
-		"Ability5"		"omniknight_degen_aura"
+		"Ability5"		"omniknight_angelic_flight"
 		"Bot"
 		{
 			"Build"

@@ -555,7 +555,6 @@
 	// 野性之斧
 	"beastmaster_wild_axes"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"// 选择率低胜率低，暂时无视魔免（几乎一定会超模）
 		"MaxLevel" "5"
 		"AbilityManaCost"				"50 60 70 80 90"
 		"AbilityValues"
@@ -619,7 +618,6 @@
 		{
 			"duration"						"45"
 			"hawk_base_max_health"			"300 450 600 750 900"
-			"hawk_base_movespeed"			"420"
 			"hawk_base_gold_bounty"			"60"
 			"hawk_base_vision_range"		"800 900 1000 1100 1200"
 			"AbilityCooldown"
@@ -651,14 +649,23 @@
 	// 野性之心
 	"beastmaster_inner_beast"
 	{
-		"MaxLevel" "5"
+		"MaxLevel" "6"
 		"AbilityValues"
 		{
-			"radius"				"1200"
 			"bonus_attack_speed"
 			{
-				"value"									"20 30 40 50 60"
+				"value"									"10 20 30 40 50 60"
 				"special_bonus_unique_beastmaster_4"		"+30"
+			}
+			"attack_speed_per_unit"
+			{
+				"value"									"0"
+				"special_bonus_facet_beastmaster_wild_hunt"		"1 2 3 4 5 6"
+			}
+			"berserk_bonus_attack_speed"
+			{
+				"value"								"0"
+				"special_bonus_facet_beastmaster_beast_mode"			"8 16 24 32 40 48"
 			}
 		}
 	}
@@ -1996,27 +2003,13 @@
 	// 勇气之霎
 	"legion_commander_moment_of_courage"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"1.4 1.1 0.8 0.5 0.2"
+		"MaxLevel" "6"
+		"AbilityCooldown"				"1.9 1.6 1.3 1.0 0.7 0.4"
 		"AbilityValues"
 		{
-			"buff_duration"				"1.0"
 			"hp_leech_percent"
 			{
-				"value"		"55 65 75 85 95"
-				"special_bonus_unique_legion_commander_7" "+50"
-			}
-		}
-	}
-	"special_bonus_unique_legion_commander_3"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"15"
-				"ad_linked_abilities"			"legion_commander_moment_of_courage"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"value"		"40 60 70 80 90 100"
 			}
 		}
 	}
@@ -2027,13 +2020,12 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"						"special_bonus_base"
         "ad_linked_abilities"			"legion_commander_press_the_attack"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"					"FIELD_FLOAT"
-                "value"				"3.0"	// 1.5
-            }
+			"value"
+			{
+				"value" "2.0"	// 1.5
+			}
         }
     }
 	// 决斗
@@ -2042,21 +2034,25 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-			"duration"				"3.75 4.5 5.25 6.0"
-			"duration_scepter"
+			"duration"
 			{
-				"value"			"5.5 6.5 7.5 8.5"
-				"RequiresScepter"	"1"
+				"value"				"3.75 4.5 5.25 6.0"
+				"special_bonus_scepter"		"+2.25"
 			}
 			"reward_damage"
 			{
 				"value"			"10 20 30 40"
 				"special_bonus_shard"	"+8"
 			}
+			"assist_reward_damage"
+			{
+				"value"			"0"
+				"special_bonus_facet_legion_commander_spoils_of_war"	"4 8 12 16"
+			}
 			"AbilityCooldown"
 			{
 				"value"					"60 55 50 45"
-				"special_bonus_scepter"			"-20"
+				"special_bonus_scepter"			"-15"
 			}
 		}
 	}
@@ -2614,7 +2610,7 @@
 	"omniknight_hammer_of_purity"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"40 45 50 55 60"
+		"AbilityManaCost"				"30 40 50 60 70"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -2624,12 +2620,10 @@
 			}
 			"base_damage"
 			{
-				"value"		"60 80 100 120 140"
+				"value"		"55 80 105 130 155"
 				"special_bonus_unique_omniknight_4"	"+75"
 			}
-			"bonus_damage"	"50 75 100 125 150"
-			"duration"	"5"
-			"movement_slow"				"14 22 30 38 46"
+			"bonus_damage"	"55 80 105 130 155"
 		}
 	}
 	// 洗礼
@@ -2638,65 +2632,18 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityManaCost"				"80 95 110 125 140"
-		"LinkedAbility"					"omniknight_repel"
-		"AbilityDraftPreAbility"		"omniknight_repel"
 		"AbilityValues"
 		{
 				"heal"
 				{
 					"value"		"90 160 230 300 370"
-					"LinkedSpecialBonus"	"special_bonus_unique_omniknight_1"
 					"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
 					"CalculateSpellDamageTooltip" "1"
+					"special_bonus_unique_omniknight_1" "+160"
 				}
 		}
 	}
 	// 驱逐
-	"omniknight_repel"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"26 23 20 17 14"
-		"AbilityManaCost"				"95 105 115 125 135"
-		"LinkedAbility"					"omniknight_purification"
-		"AbilityDraftPreAbility"		"omniknight_purification"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"status_resistance"		"35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_str"		"8 18 28 38 48"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_regen"		"8 12 16 20 24"
-			}
-		}
-	}
-	// 洗礼伤害/治疗
-	"special_bonus_unique_omniknight_1"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"230"
-				"ad_linked_abilities"			"omniknight_purification"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
-	// 天国恩赐
 	"omniknight_martyr"
 	{
 		"MaxLevel" "5"
@@ -2709,32 +2656,8 @@
 				"strength_bonus"
 				{
 					"value"			"9 12 15 18 21"
-					"LinkedSpecialBonus"	"special_bonus_unique_omniknight_2"
+					"special_bonus_unique_omniknight_2" "+3"
 				}
-		}
-	}
-	"special_bonus_unique_omniknight_2"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"3"
-				"ad_linked_abilities"			"omniknight_martyr"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
-	"special_bonus_unique_omniknight_5"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"2"
-				"ad_linked_abilities"			"omniknight_martyr"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
 		}
 	}
 	// 守护天使
@@ -2742,14 +2665,11 @@
 	{
 		"MaxLevel" "4"
 		"AbilityManaCost"				"100 150 200 250"
+		"AbilityCharges"				"3"
+
 		"AbilityValues"
 		{
 			"duration"					"5 6 7 8"
-			"AbilityCharges"
-			{
-				"value"		"3"
-				"special_bonus_scepter"		"+1"
-			}
 			"AbilityChargeRestoreTime"
 			{
 				"value"					"80 70 60 50"
@@ -2760,29 +2680,30 @@
 	// 单体飞行天使
 	"omniknight_angelic_flight"
 	{
-		"IsGrantedByScepter"			"1"
-		"HasScepterUpgrade"				"1"
-		"AbilityCastRange"				"400"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"40"
-		"AbilityManaCost"				"125"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"duration"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"6"
+				"value" "6"
 			}
-			"02"
+			"movement_speed"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_speed"		"25"
+				"value" "25"
 			}
-			"03"
+			"hp_regen"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_regen"		"30"
+				"value" "30"
 			}
+		}
+	}
+	// 退化光环
+	"omniknight_degen_aura"
+	{
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"speed_bonus"			"10 20 30 40 50"
 		}
 	}
 	//=================================================================================================================
@@ -5057,7 +4978,7 @@
 	"clinkz_strafe"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"75 80 85 90 95"
+		"AbilityManaCost"				"60 70 80 90 100"
 		"AbilityValues"
 		{
 			"attack_speed_bonus"
@@ -5066,11 +4987,10 @@
 				"special_bonus_unique_clinkz_7"			"+40"
 			}
 			"duration"						"9"
-			"attack_range_bonus"			"250"
 			"AbilityCooldown"
 			{
-				"value"								"30 25 20 15 15"
-				"special_bonus_unique_clinkz_4"		"-6"
+				"value"								"30 25 20 15 10"
+				"special_bonus_unique_clinkz_4"		"-5"
 			}
 		}
 	}
@@ -5078,13 +4998,11 @@
 	"clinkz_searing_arrows"
 	{
 		"MaxLevel" "5"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"damage_bonus"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"damage_bonus"					"24 36 48 60 72"
-				"LinkedSpecialBonus"			"special_bonus_unique_clinkz_1"
+				"value" "24 36 48 60 72"
 			}
 		}
 	}
@@ -5102,46 +5020,36 @@
 	// 炽烈火雨
 	"clinkz_burning_barrage"
 	{
-		"AbilityCastPoint"				"0.2"
-		"AbilityChannelTime"			"2.0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityCooldown"				"12"
 		"AbilityManaCost"				"90"
 		"AbilityValues"
 		{
 			"wave_count"		"9"
-			"range"	"850"
 			"damage_pct"			"90"
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	// 焦油
 	"clinkz_tar_bomb"
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"1500"
-		"AbilityCastPoint"				"0.2 0.2 0.2 0.2 0.2"
-		"AbilityCooldown"				"5 4 3 2 1"
+		"AbilityCooldown"				"7 6 5 4 3"
 		"AbilityManaCost"				"50 60 70 80 90"
-		"AbilityModifierSupportValue"	"0.5"
 		"AbilityValues"
 		{
 
-			"radius"		"1200"
-			"projectile_speed"					"1500"
+			"radius"
+			{
+				"value"		"600"
+				"affected_by_aoe_increase"	"1"
+			}
 			"damage_bonus"
 			{
 				"value"					"20 30 40 50 60"
 				"special_bonus_unique_clinkz_1"			"+30"
 			}
-			"ground_duration"				"15"
+			"ground_duration"				"10"
 			"slow_movement_speed"			"-16 -19 -22 -25 -28"
-			"slow_duration"					"2.5"
-			"has_multishot"
-			{
-				"value"						"0"
-				"special_bonus_unique_clinkz_3"		"+1"
-			}
 			"impact_damage"
 			{
 				"value"				"40 60 80 100 120"
@@ -5149,26 +5057,14 @@
 			}
 
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	// 死亡契约
 	"clinkz_death_pact"
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"900"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
-		"AbilityCooldown"				"0.0"
-		"AbilityChargeRestoreTime"		"40"
-		"AbilityManaCost"				"60"
 		"AbilityValues"
 		{
-
-			"duration"				"45"
-			"skeleton_count"
-			{
-				"value"					"0"
-			}
 			"AbilityCharges"
 			{
 				"value"				"2 3 4 5 6"
@@ -5179,21 +5075,19 @@
 				"value"				"200 300 400 500 600"
 				"special_bonus_unique_clinkz_8"		"+300"
 			}
-			"skeleton_duration"					"0"
-			"skeleton_health"
-			{
-				"value"					"12"
-
-			}
-			"skeleton_health_tooltip"
-			{
-				"value"					"3"
-
-			}
-			"skeleton_building_damage_reduction"			"25"
-			"attack_rate"			"1.6"
-			"damage_percent"		"20"
 			"creep_level"			"6 6 6 6"
+		}
+	}
+	// 骨头和箭头
+	"clinkz_bone_and_arrow"
+	{
+		"MaxLevel"						"5"
+		"AbilityValues"
+		{
+			"skeleton_duration"
+			{
+				"value"						"15 20 25 30 35"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -8232,10 +8126,8 @@
 	"viper_poison_attack"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"600 640 680 720 760"
 		"AbilityValues"
 		{
-				"duration"						"4"
 				"damage"
 				{
 					"value"					"4 8 12 16 20"
@@ -8265,57 +8157,36 @@
 				"min_damage"
 				{
 					"value"		"15 20 25 30 35"
-					"LinkedSpecialBonus"	"special_bonus_unique_viper_3"
+					"special_bonus_unique_viper_3"	"+40"
 				}
 				"max_damage"
 				{
 					"value"			"35 65 95 125 155"
-					"LinkedSpecialBonus"	"special_bonus_unique_viper_3"
+					"special_bonus_unique_viper_3"	"+40"
 				}
 				"attack_slow"		"30 40 50 60 70"
 				"duration"			"6.5 7 7.5 8 8.5"
 		}
 	}
-	"special_bonus_unique_viper_3"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"50"
-				"ad_linked_abilities"			"viper_nethertoxin"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
 	// 腐蚀皮肤
 	"viper_corrosive_skin"
 	{
-		"MaxLevel" "5"
+		"MaxLevel" "6"
 		"AbilityValues"
 		{
-			"duration"					"4.0"
-			"bonus_attack_speed"		"8 16 24 32 40"
+			"bonus_attack_speed"
+			{
+				"value"								"8 16 24 32 40 42"
+				"special_bonus_unique_viper_6"		"+20"
+			}
 			"bonus_magic_resistance"
 			{
-				"value"								"10 15 20 25 30"
-				"special_bonus_unique_viper_6"		"+20"
+				"value"								"10 15 20 25 30 35"
 			}
 			"damage"
 			{
-				"value"					"8 16 24 32 40"
+				"value"					"8 16 24 32 40 42"
 				"special_bonus_unique_viper_1"	"+20"
-			}
-			"max_range_tooltip"					"1400"
-			"effect_multiplier_distance"
-			{
-				"value"						"500"
-				"RequiresScepter"		"1"
-			}
-			"effect_multiplier"
-			{
-				"value"						"2"
-				"RequiresScepter"		"1"
 			}
 		}
 	}
@@ -8349,29 +8220,18 @@
 	// 极恶俯冲
 	"viper_nose_dive"
 	{
-		"AbilityCastPoint"				"0.0"
-		"AbilityCastRange"				"600"
 		"AbilityValues"
 		{
-			"radius"
-			{
-				"value"				"1000"// 500
-				"affected_by_aoe_increase"	"1"
-			}
 			"corrosive_radius"
 			{
-				"value"			"1800"// 1200
+				"value"			"900"	// 500
 				"affected_by_aoe_increase"	"1"
 			}
-			"duration"							"0.1"
-			"effect_duration"						"4"
 			"dive_speed"
 			{
-				"value"			"2000"// 500
+				"value"			"1500"	// 700
 			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_VIPER_DIVE"
-		"AbilityCastGestureSlot"	"DEFAULT"
 	}
 	//=================================================================================================================
 	// Ability: Weaver 编织者/蚂蚁

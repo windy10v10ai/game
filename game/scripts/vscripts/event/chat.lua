@@ -4,6 +4,7 @@ developerSteamAccountID[136407523] = "windy"
 developerSteamAccountID[1194383041] = "咸鱼"
 developerSteamAccountID[916506173] = "Arararara"
 developerSteamAccountID[353885092] = "76岁靠谱成年男性"
+developerSteamAccountID[385130282] = "mimihua"
 
 
 local function removeAllPlayerModifiers()

@@ -11,6 +11,7 @@ export class Debug {
   OnlineDebugWhiteList = [
     136407523, // windy
     916506173, // windy
+    385130282, // mimihua
   ];
 
   constructor() {
