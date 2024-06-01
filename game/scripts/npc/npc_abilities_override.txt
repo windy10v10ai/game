@@ -5062,13 +5062,28 @@
 		"AbilityManaCost"				"9 10 11 12 13"
 		"AbilityValues"
 		{
-			"frost_arrows_movement_speed"	"-10 -25 -40 -55 -70"
+			"frost_arrows_movement_speed"	"-10 -20 -30 -40 -50"
 			"damage"
 			{
 				"value"						"12 24 36 48 60"
-				"special_bonus_unique_drow_ranger_2"			"+15"
+				"special_bonus_unique_drow_ranger_2"			"+30"
 				"CalculateSpellDamageTooltip"	"0"
 			}
+		}
+	}
+	// 狂风
+	"drow_ranger_wave_of_silence"
+	{
+		"MaxLevel" "5"
+		"AbilityValues"
+		{
+				"silence_duration"	"3 4 5 6 7"
+				"knockback_duration"		"0.6 0.7 0.8 0.9 1.0"
+				"AbilityCooldown"
+				{
+					"value"											"19 17 15 13 11"
+					"special_bonus_unique_drow_ranger_7"			"-2"
+				}
 		}
 	}
 	// 数箭齐发
@@ -5083,7 +5098,6 @@
 				"value"										"120 140 160 180 200"
 				"special_bonus_unique_drow_ranger_1"		"+25"
 			}
-			"arrow_slow_duration"		"2 2.75 3.5 4.25 5"
 			"AbilityCooldown"
 			{
 				"value"											"22 20 18 16 14"
@@ -5102,20 +5116,7 @@
 				"value"										"10 20 30 40"
 				"special_bonus_unique_drow_ranger_3"		"+12"
 			}
-			"bonus_damage"
-			{
-				"value"										"20 40 60 80"
-			}
-			"agility_multiplier"							"20 30 40 50"
-			"agility_range"									"1200"
-			"agility_multiplier_ally"						"50"
-			"split_count"
-			{
-				"value"										"0"
-				"special_bonus_scepter"						"2"
-			}
-			"split_range"									"375"
-			"split_damage_reduction"						"50"
+			"bonus_damage"									"20 40 60 80"
 			"disable_range"									"300"
 		}
 	}
@@ -5884,7 +5885,7 @@
 	// 冷血动物
 	"medusa_cold_blooded"
 	{
-		"AbilityCooldown"				"10"
+		"AbilityCooldown"				"8"	// 12
 		"AbilityValues"
 		{
 			"damage"		"200"
@@ -5906,7 +5907,10 @@
 					"value"			"40 55 70 85 100"
 					"special_bonus_unique_medusa_2"	"+10"
 				}
-				"arrow_count"				"4 5 6 7 8"
+				"arrow_count"
+				{
+					"value"			"4 5 6 7 8"
+				}
 		}
 	}
 	// 秘术异蛇
@@ -5941,7 +5945,6 @@
 				"special_bonus_unique_medusa_6"		"+2.5"				// +1.7
 			}
 			"absorption_pct"						"90"		// 98
-			"bonus_mana"			"100 200 300 400 600 800"
 		}
 	}
 	// 石化凝视
@@ -5960,6 +5963,7 @@
 				"value"							"40 45 50 55"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_PHYSICAL"
 			}
+			"stone_duration"					"2 2.2 2.4 2.6"
 		}
 	}
 	//=================================================================================================================
@@ -12238,12 +12242,15 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"damage"					"50 75 100 125 150"
-			"range"				"700 800 900 1000 1100"
-			"targets"
+			"damage"
 			{
-				"value" "1"
-				"special_bonus_unique_zeus"	"+1"
+				"value"					"50 75 100 125 150"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"range"
+			{
+				"value"		"700 800 900 1000 1100"
+				"affected_by_aoe_increase"	"1"
 			}
 			"AbilityCooldown"
 			{
@@ -12264,11 +12271,6 @@
 				"value"			"110 135 160 185 210"
 			}
 			"jump_count"			"5 7 9 11 13"
-			"damage_health_pct"
-			{
-				"value"				"4 5 6 7 8"
-				"special_bonus_unique_zeus_2"	"+4"
-			}
 		}
 	}
 	// 雷击
@@ -12282,18 +12284,6 @@
 		"AbilityValues"
 		{
 				"sight_duration"		"6"
-		}
-	}
-	// 静电场（疑似失效）
-	"zuus_static_field"
-	{
-		"AbilityValues"
-		{
-				"damage_health_pct"
-				{
-					"value"	"6.5"
-					"CalculateSpellDamageTooltip"	"0"
-				}
 		}
 	}
 	// 雷神之怒

@@ -465,7 +465,7 @@ function AIGameMode:OnNPCSpawned(keys)
 end
 
 function AIGameMode:OnPlayerLevelUp(keys)
-    local iEntIndex = PlayerResource:GetPlayer(keys.player - 1):GetAssignedHero():entindex()
+    local iEntIndex = PlayerResource:GetPlayer(keys.PlayerID):GetAssignedHero():entindex()
     local iLevel = keys.level
     -- Set DeathXP 击杀经验
     Timers:CreateTimer(0.5, function()

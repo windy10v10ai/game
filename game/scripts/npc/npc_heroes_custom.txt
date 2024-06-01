@@ -1575,7 +1575,7 @@
 				"7"			"medusa_mystic_snake"
 				"8"			"medusa_split_shot"
 				"9"			"medusa_mystic_snake"
-				"10"		"special_bonus_unique_medusa_7"
+				"10"		"special_bonus_unique_medusa_snake_damage"
 				"11"		"medusa_split_shot"
 				"12"		"medusa_stone_gaze"
 				"13"		"medusa_split_shot"

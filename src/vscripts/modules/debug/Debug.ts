@@ -54,8 +54,8 @@ export class Debug {
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
         if (!hero) return;
         // 获得金钱经验技能升满
-        hero.SetGold(40000, false);
-        hero.AddExperience(40000, ModifyXpReason.UNSPECIFIED, false, true);
+        hero.SetGold(20000, false);
+        hero.AddExperience(20000, ModifyXpReason.UNSPECIFIED, false, true);
       });
     }
 
@@ -183,6 +183,18 @@ export class Debug {
           }
         }
       });
+    }
+
+    // 重置技能
+    if (cmd === "-resetAbility") {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      for (let i = 0; i < 16; i++) {
+        const ability = hero.GetAbilityByIndex(i);
+        if (ability) {
+          ability.SetLevel(0);
+        }
+      }
     }
   }
 
