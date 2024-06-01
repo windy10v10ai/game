@@ -1630,7 +1630,7 @@
 
         // 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"圣女白莲"
-		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>白莲花(主动):</font></h1>给予目标一个护盾，持续时间内反弹所有指向性法术(自身依然受到效果影响)，护盾施加后会免疫第一次触发的法术，并且恢复目标%heal%%的血量。\n<h1><font color='#FFFF00'>圣洁治愈(被动)：</font></h1>增加自身%heal_bonus%%的所有恢复效果。\n<h1><font color='#FFFF00'>淤而不染(被动)：</font></h1>自身移动速度不会被减少(锁移动依然会有效)。"
+		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>白莲花(主动):</font></h1>给予目标一个护盾，持续时间内反弹所有指向性法术(自身依然受到效果影响)，护盾施加后会免疫第一次触发的法术，并且恢复目标%heal%%的血量。\n<h1><font color='#FFFF00'>圣洁治愈(被动)：</font></h1>增加自身%heal_bonus%%的所有恢复效果。\n<h1><font color='#FFFF00'>"
 		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"你们不要再打啦，要打去练舞室打，你们这样是打不死人的。"
 		"DOTA_Tooltip_Ability_item_saint_orb_Note0"						"简单来说就是主动给目标套个一次林肯+莲花。"
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats"			"+$all"

@@ -3746,7 +3746,7 @@
 				"bolt_stun_duration"
 				{
 					"value"		"1.0 1.2 1.4 1.6 1.8"
-					"LinkedSpecialBonus"		"special_bonus_unique_sven_4"
+					"special_bonus_unique_sven_4" "+1.2"
 				}
 		}
 	}
@@ -3754,18 +3754,12 @@
 	"sven_great_cleave"
 	{
 		"MaxLevel" "5"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"04"
+			"great_cleave_damage"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"great_cleave_damage"	"40 60 80 100 120"
-				"LinkedSpecialBonus"		"special_bonus_unique_sven_8"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"strength_bonus"		"3 6 9 12 15"
+				"value"				"40 60 80 100 120"
+				"special_bonus_unique_sven_8" "+30"
 			}
 		}
 	}
@@ -3777,23 +3771,34 @@
 		"AbilityManaCost"				"40 45 50 55 60"
 		"AbilityValues"
 		{
-				"movespeed"
-				{
-					"value"		"10 14 18 22 26"
-					"LinkedSpecialBonus"		"special_bonus_unique_sven_6"
-				}
-				"bonus_armor"
-				{
-					"value"		"6 9 12 15 18"
-					"LinkedSpecialBonus"		"special_bonus_unique_sven_7"
-				}
+			"movespeed"
+			{
+				"value"		"10 14 18 22 26"
+			}
+			"bonus_armor"
+			{
+				"value"		"6 9 12 15 18"
+				"special_bonus_unique_sven_7"		"+10"
+			}
+			"base_barrier_amount"
+			{
+				"value"				"0"
+				"special_bonus_facet_sven_heavy_plate"		"=200 =400 =600 =800 =1000"
+				"RequiresFacet"					"sven_heavy_plate"
+			}
+			"barrier_per_strength"
+			{
+				"value"				"0"
+				"special_bonus_facet_sven_heavy_plate"		"=1 =1.5 =2 =2.5 =3"
+				"RequiresFacet"					"sven_heavy_plate"
+			}
 		}
 	}
 	// 神之力量
 	"sven_gods_strength"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"100"// 原版，刚好续不上，有真空期
+		"AbilityCooldown"				"100"	// 原版，刚好续不上，有真空期
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
@@ -3802,6 +3807,15 @@
 				"value"		"100 130 160 190"
 				"special_bonus_unique_sven_2"		"+50"
 			}
+		}
+	}
+	// 命石2 神之愤怒
+	"sven_wrath_of_god"
+	{
+		"AbilityValues"
+		{
+			"bonus_damage_per_str"				"0.4 0.5 0.6 0.7 0.8"
+			"base_damage_reduction"				"50"
 		}
 	}
     //=================================================================================================================
@@ -5274,19 +5288,7 @@
 			"AbilityCooldown"
 			{
 				"value"										"22 18 14 10 6"
-				"special_bonus_unique_faceless_void_5"		"-1"
 			}
-		}
-	}
-	// 回到过去
-	"faceless_void_backtrack"
-	{
-		"MaxLevel" "5"
-		"LinkedAbility"					"faceless_void_time_lock"
-		"AbilityDraftPreAbility"		"faceless_void_time_lock"
-		"AbilityValues"
-		{
-				"dodge_chance_pct"		"9 13 17 21 25"
 		}
 	}
 	// 时间锁定
@@ -5301,7 +5303,6 @@
 				"bonus_damage"
 				{
 					"value"				"20 25 30 35 40"
-					"LinkedSpecialBonus"	"special_bonus_unique_faceless_void_3"
 				}
 		}
 	}
@@ -5317,12 +5318,26 @@
 			"slow"
 			{
 				"value"					"7 8 9 10 11"
-				"special_bonus_unique_faceless_void_8"					"+12"
 			}
+			"cooldown_percentage"	"30 40 50 60 70"
 			"damage_per_stack"
 			{
-				"value"				"7 9 11 13 15"
-				"special_bonus_unique_faceless_void_6" "+7"
+				"value"				"14 18 22 26 30"	// x2
+				"special_bonus_unique_faceless_void_6" "+14"
+			}
+		}
+	}
+	// 扭曲力场（先天随大招升级）
+	"faceless_void_distortion_field"
+	{
+		"MaxLevel" "5"
+		"AbilityValues"
+		{
+			"attack_projectile_slow"		"25 30 35 40 45"
+			"slow_distance_max"
+			{
+				"value"			"750" // 500
+				"affected_by_aoe_increase"	"1"
 			}
 		}
 	}
@@ -5337,10 +5352,61 @@
 				"duration"				"3.75 4.25 4.75 5.25"
 				"vision_radius"
 				{
-					"value"	"475"
-					"affected_by_aoe_increase"	"1"
-
+					"value"	"600"
 				}
+				"bonus_attack_speed"
+				{
+					"value" "40"
+					"special_bonus_unique_faceless_void" "+120"
+				}
+		}
+	}
+	// 逆转时空（命石2） v社懂个p的逆转时空，还得看我
+	"faceless_void_time_zone"
+	{
+		"MaxLevel" "4"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.3 0.2 0.1 0.0"
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"150 300 450 600"
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"8000"
+				"affected_by_aoe_increase"	"1"
+				"special_bonus_unique_faceless_void_2" "+160"
+			}
+			"duration"
+			{
+				"value"			"5 6 7 8"
+			}
+			"vision_radius"
+			{
+				"value"	"800"
+				"affected_by_aoe_increase"	"1"
+			}
+			"bonus_attack_speed"
+			{
+				"value" "90 140 190 240"
+				"special_bonus_unique_faceless_void" "+160"
+			}
+			"bonus_move_speed"
+			{
+				"value" "50 100 150 200"
+			}
+			"bonus_cast_speed"
+			{
+				"value" "40 60 80 100"
+			}
+			"bonus_turn_speed"
+			{
+				"value" "40 60 80 100"
+			}
+			"bonus_projectile_speed"
+			{
+				"value" "50 60 70 80"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -6404,13 +6470,12 @@
 				"shadowraze_damage"
 				{
 					"value"				"90 180 270 360 450"
-					"LinkedSpecialBonus"	"special_bonus_unique_nevermore_2"
+					"special_bonus_unique_nevermore_2" "+150"
 				}
 				"stack_bonus_damage"
 				{
 					"value"				"60 70 80 90 100"
-					"CalculateSpellDamageTooltip"	"0"
-					"special_bonus_unique_nevermore_7"	"+25"
+					"special_bonus_unique_nevermore_7"	"+50" // 30
 				}
 		}
 	}
@@ -6424,13 +6489,12 @@
 				"shadowraze_damage"
 				{
 					"value"				"90 180 270 360 450"
-					"LinkedSpecialBonus"	"special_bonus_unique_nevermore_2"
+					"special_bonus_unique_nevermore_2" "+150"
 				}
 				"stack_bonus_damage"
 				{
 					"value"				"60 70 80 90 100"
-					"CalculateSpellDamageTooltip"	"0"
-					"special_bonus_unique_nevermore_7"	"+25"
+					"special_bonus_unique_nevermore_7"	"+50" // 30
 				}
 		}
 	}
@@ -6444,45 +6508,29 @@
 				"shadowraze_damage"
 				{
 					"value"				"90 180 270 360 450"
-					"LinkedSpecialBonus"	"special_bonus_unique_nevermore_2"
+					"special_bonus_unique_nevermore_2" "+150"
 				}
 				"stack_bonus_damage"
 				{
 					"value"				"60 70 80 90 100"
-					"CalculateSpellDamageTooltip"	"0"
-					"special_bonus_unique_nevermore_7"	"+25"
+					"special_bonus_unique_nevermore_7"	"+50" // 30
 				}
 		}
 	}
-	// 支配死灵
+	// 支配死灵（先天随大招升级）
 	"nevermore_necromastery"
 	{
 		"MaxLevel" "5"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"necromastery_damage_per_soul"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"necromastery_damage_per_soul"	"1 2 3 4 5"
-				"CalculateSpellDamageTooltip"	"0"
-				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_1"
-				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
+				"value"					"2 3 4 5 6"
+				"special_bonus_unique_nevermore_1"			"+3"
 			}
-			"02"
+			"necromastery_max_souls"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"necromastery_max_souls"	"11 14 17 20 23"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"necromastery_soul_release"		"0.8"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"necromastery_max_souls_scepter" "40"
-				"RequiresScepter"			"1"
+				"value"						"25"	// 20
 			}
 		}
 	}
@@ -6495,15 +6543,46 @@
 			"presence_armor_reduction"
 			{
 				"value"		"-4 -6 -8 -10 -12"
-				"special_bonus_unique_nevermore_5"			"-6"
 			}
+			"bonus_armor_per_stack"
+			{
+				"value"						"0"
+				"special_bonus_facet_nevermore_lasting_presence"	"+1" // 2
+			}
+			"kill_buff_duration"
+			{
+				"value"						"0"
+				"special_bonus_facet_nevermore_lasting_presence"	"+180" // 60
+			}
+		}
+	}
+	// 灵魂盛宴
+	"nevermore_frenzy"
+	{
+		"Maxlevel"						"5"
+		"AbilityValues"
+		{
+			"bonus_attack_speed"
+			{
+				"value"			"40 60 80 100 120"
+			}
+			"cast_speed_pct"
+			{
+				"value"													"100"
+				"special_bonus_unique_nevermore_frenzy_castspeed"		"+60" // 40
+			}
+			"cast_speed_pct_tooltip"
+			{
+				"value"													"0"
+				"special_bonus_unique_nevermore_frenzy_castspeed"		"=160" // =140
+			}
+			"soul_cost"				"2"
 		}
 	}
 	// 魂之挽歌
 	"nevermore_requiem"
 	{
 		"MaxLevel" "4"
-		"AbilityCastPoint"				"1.33"				// 1.67
 		"AbilityDamage"					"80 120 160 200"
 		"AbilityManaCost"				"175 200 225 250"
 		"AbilityValues"
@@ -6511,10 +6590,10 @@
 				"AbilityCooldown"
 				{
 					"value"		"120 110 100 90"
-					"special_bonus_scepter"	"-20"
+					"special_bonus_scepter"	"-30"
 				}
 				"requiem_reduction_ms"	"-25 -30 -35 -40"
-				"requiem_reduction_mres"	"-9 -12 -15 -18"
+				"requiem_reduction_mres"	"-5 -10 -15 -20"
 		}
 	}
 	//=================================================================================================================
@@ -6836,26 +6915,29 @@
 	//=================================================================================================================
 	// Ability: Phantom_Assassin 幻影刺客/PA
 	//=================================================================================================================
+	// 刀扇
+	"phantom_assassin_fan_of_knives"
+	{
+		"AbilityCastPoint"				"0.0"
+	}
 	// 窒碍短匕
 	"phantom_assassin_stifling_dagger"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"700 750 800 850 900"
-		"AbilityManaCost"				"30 35 40 45 50"
+		"AbilityCastRange"				"700 850 1000 1150 1300"
+		"AbilityManaCost"				"30 40 50 60 70"
 		"AbilityValues"
 		{
-			"move_slow"					"-50"
-			"dagger_speed"			"1200"
-			"duration"			"2.7 3.0 3.3 3.7 4.2"
-			"base_damage"			"60 70 80 90 100"
+			"duration"			"2.2 2.8 3.4 4 4.6"
+			"base_damage"			"65 70 75 80 85"
 			"attack_factor"
 			{
-				"value"				"-70 -60 -50 -40 -30"
+				"value"				"-70 -55 -40 -25 -10"
 				"special_bonus_unique_phantom_assassin_5"	"+20"
 			}
 			"attack_factor_tooltip"
 			{
-				"value"				"30 40 50 60 70"
+				"value"				"30 45 60 75 90"
 				"special_bonus_unique_phantom_assassin_5"	"+20"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
 			}
@@ -6865,13 +6947,13 @@
 	"phantom_assassin_phantom_strike"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"12 10 8 6 4"
+		"AbilityCooldown"				"11 9 7 5 3"
 		"AbilityManaCost"				"35 40 45 50 55"
 		"AbilityValues"
 		{
 			"bonus_attack_speed"
 			{
-				"value"													"75 100 125 150 175"
+				"value"													"100 130 160 190 220"
 				"special_bonus_unique_phantom_assassin_strike_aspd"		"+60"
 			}
 		}
@@ -6881,26 +6963,11 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"60 55 50 45 40"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_evasion"				"20 30 40 50 60"
-				"LinkedSpecialBonus"		"special_bonus_unique_phantom_assassin_3"
-			}
-		}
-	}
-	"special_bonus_unique_phantom_assassin_3"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"30"
-				"ad_linked_abilities"			"phantom_assassin_blur"
-			}
+
+			"radius"				"625 550 475 400 325"
+			"fade_duration"			"0.4 0.6 0.8 1.0 1.2"
 		}
 	}
 	// 恩赐解脱
@@ -6909,7 +6976,24 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-			"crit_bonus"				"200 325 450 575"
+			"crit_bonus"
+			{
+				"value"		"200 325 450 550"
+				"special_bonus_facet_phantom_assassin_methodical"		"+100"
+			}
+			"attacks_to_proc"
+			{
+				"special_bonus_facet_phantom_assassin_methodical"		"+4"
+				"special_bonus_unique_phantom_assassin_2"	"-1"
+				"RequiresFacet"				"phantom_assassin_methodical"
+			}
+			"attacks_to_proc_creeps"
+			{
+				"special_bonus_facet_phantom_assassin_methodical"		"+2"
+				"special_bonus_unique_phantom_assassin_2"	"-1"
+				"RequiresFacet"				"phantom_assassin_methodical"
+			}
+			"duration"				"6 8 10 12"
 		}
 	}
 	//=================================================================================================================
@@ -7744,16 +7828,20 @@
 		"AbilityDamage"					"75 125 175 225 275"
 		"AbilityValues"
 		{
-			"movement_slow"				"-16 -24 -32 -40 -48"
-			"shard_enrage_duration"
-			{
-				"value"				"1.2"
-				"RequiresShard"		"1"
-			}
+			"movement_slow"				"-25 -30 -35 -40 -45"
 			"AbilityCooldown"
 			{
-				"value"				"16 14 12 10 8"
-				"special_bonus_unique_ursa_2"			"-2"
+				"value"				"14 12 10 9 8"
+				"special_bonus_unique_ursa_3"	"=0.25"
+			}
+			"AbilityCharges"
+			{
+				"value"	"0"
+				"special_bonus_unique_ursa_3"	"+2"
+			}
+			"AbilityChargeRestoreTime"
+			{
+				"value"	"14 12 10 9 8"
 			}
 		}
 	}
@@ -7768,21 +7856,9 @@
 				"max_attacks"
 				{
 					"value"			"3 4 5 6 7"
-					"LinkedSpecialBonus"		"special_bonus_unique_ursa_7"
+					"special_bonus_unique_ursa_7" "+5"
 				}
 				"slow_resist"			"10 20 30 40 50"
-		}
-	}
-	"special_bonus_unique_ursa_7"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"5"
-				"ad_linked_abilities"			"ursa_overpower"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
 		}
 	}
 	// 怒意狂击
@@ -7800,20 +7876,7 @@
 				"damage_per_stack"
 				{
 					"value"					"15 25 35 45 55"
-					"LinkedSpecialBonus"			"special_bonus_unique_ursa"
 				}
-		}
-	}
-	"special_bonus_unique_ursa"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"20"
-				"ad_linked_abilities"			"ursa_fury_swipes"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
 		}
 	}
 	// 激怒
@@ -7825,13 +7888,21 @@
 		{
 			"duration"
 			{
-				"value"							"4 4.5 5 5.5"
+				"value"							"4 4.33 4.67 5"
 			}
 			"cooldown_scepter"
 			{
 				"value"						"30 26 22 18"
 				"RequiresScepter"			"1"
 			}
+		}
+	}
+	// 命石2 负面效果延长
+	"ursa_bear_down"
+	{
+		"AbilityValues"
+		{
+			"debuff_amp"				"50" // 20
 		}
 	}
 	//=================================================================================================================
