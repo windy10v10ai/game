@@ -54,9 +54,22 @@ export class Debug {
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
         if (!hero) return;
         // 获得金钱经验技能升满
-        hero.SetGold(20000, false);
-        hero.AddExperience(35000, ModifyXpReason.UNSPECIFIED, false, true);
+        hero.SetGold(40000, false);
+        hero.AddExperience(40000, ModifyXpReason.UNSPECIFIED, false, true);
       });
+    }
+
+    if (cmd === CMD.L_ALL) {
+      // loop 35 times time 1s
+      for (let i = 0; i < 35; i++) {
+        Timers.CreateTimer(i, () => {
+          PlayerHelper.ForEachPlayer((playerId) => {
+            const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+            if (!hero) return;
+            hero.HeroLevelUp(true);
+          });
+        });
+      }
     }
 
     // v 获取当前vector

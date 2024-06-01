@@ -101,8 +101,6 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_Zuus(hHero)
 	elseif sHeroName == "npc_dota_hero_juggernaut" then
 		self:ThinkUseAbility_Juggernaut(hHero)
-	elseif sHeroName == "npc_dota_hero_sniper" then
-		self:ThinkUseAbility_Sniper(hHero)
 	elseif sHeroName == "npc_dota_hero_kunkka" then
 		self:ThinkUseAbility_Kunkka(hHero)
 	elseif sHeroName == "npc_dota_hero_ogre_magi" then
@@ -249,16 +247,6 @@ function BotAbilityThink:ThinkUseAbility_Juggernaut(hHero)
 
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
 		if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility4) then
-			return true
-		end
-	end
-end
-
-function BotAbilityThink:ThinkUseAbility_Sniper(hHero)
-	local hAbility5 = hHero:GetAbilityByIndex(4)
-
-	if hHero:HasModifier("modifier_item_ultimate_scepter") then
-		if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility5) then
 			return true
 		end
 	end
@@ -430,7 +418,7 @@ end
 function BotAbilityThink:ThinkUseAbility_Medusa(hHero)
 	local hAbility1 = hHero:GetAbilityByIndex(0)
 	local hAbility2 = hHero:GetAbilityByIndex(1)
-	local hAbility3 = hHero:GetAbilityByIndex(2)
+	-- local hAbility3 = hHero:GetAbilityByIndex(2)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
 
 
@@ -453,17 +441,17 @@ function BotAbilityThink:ThinkUseAbility_Medusa(hHero)
 	end
 
 	-- 蓝量多于200时打开魔法盾，否则关闭
-	if hHero:GetMana() > 200 then
-		if hAbility3:IsFullyCastable() and not hAbility3:GetToggleState() then
-			hAbility3:ToggleAbility()
-			return true
-		end
-	else
-		if hAbility3:IsFullyCastable() and hAbility3:GetToggleState() then
-			hAbility3:ToggleAbility()
-			return true
-		end
-	end
+	-- if hHero:GetMana() > 200 then
+	-- 	if hAbility3:IsFullyCastable() and not hAbility3:GetToggleState() then
+	-- 		hAbility3:ToggleAbility()
+	-- 		return true
+	-- 	end
+	-- else
+	-- 	if hAbility3:IsFullyCastable() and hAbility3:GetToggleState() then
+	-- 		hAbility3:ToggleAbility()
+	-- 		return true
+	-- 	end
+	-- end
 
 
 	if hAbility6:IsFullyCastable() then

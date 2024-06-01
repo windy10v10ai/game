@@ -1,18 +1,49 @@
 import { BaseHeroAIModifier } from "../hero/hero-base";
 import { ActionFind } from "./action-find";
 
+/**
+ * 施法条件，必须满足所有条件才能施法
+ */
 export interface CastCoindition {
   target?: {
+    /**
+     * 敌人血量百分比 小于等于 该值，1-100的数字
+     */
     healthPercentLessThan?: number;
+    /**
+     * 敌人没有这个modifier
+     */
     noModifier?: string;
+    /**
+     * 敌人在范围内时
+     */
+    range?: number;
   };
   self?: {
+    /**
+     * 当前血量百分比 大于等于 该值，1-100的数字
+     */
     healthPercentMoreThan?: number;
+    /**
+     * 当前血量百分比 小于等于 该值，1-100的数字
+     */
     healthPercentLessThan?: number;
+    /**
+     * 当前魔法百分比 大于等于 该值，1-100的数字
+     */
     manaPercentMoreThan?: number;
-    abilityLevel?: number;
     hasScepter?: boolean;
     hasShard?: boolean;
+  };
+  ability?: {
+    /**
+     * 技能等级大于等于该值
+     */
+    level?: number;
+    /**
+     * 技能剩余次数大于等于该值
+     */
+    charges?: number;
   };
 }
 
@@ -33,7 +64,9 @@ export class ActionAbility {
     const defaultSelf = {
       manaPercentMoreThan: 50,
       healthPercentMoreThan: 50,
-      abilityLevel: 3,
+    };
+    const defaultAbility = {
+      level: 3,
     };
     if (!condition) {
       condition = {
@@ -49,8 +82,12 @@ export class ActionAbility {
         if (!condition.self.healthPercentMoreThan) {
           condition.self.healthPercentMoreThan = defaultSelf.healthPercentMoreThan;
         }
-        if (!condition.self.abilityLevel) {
-          condition.self.abilityLevel = defaultSelf.abilityLevel;
+      }
+      if (!condition.ability) {
+        condition.ability = defaultAbility;
+      } else {
+        if (!condition.ability.level) {
+          condition.ability.level = defaultAbility.level;
         }
       }
     }
@@ -105,13 +142,8 @@ export class ActionAbility {
     if (flagFilterExtra) {
       flagFilter = flagFilter + flagFilterExtra;
     }
-    const enemies = ActionFind.FindEnemies(
-      hero,
-      this.GetFullCastRange(hero, ability),
-      typeFilter,
-      flagFilter,
-      FindOrder.ANY,
-    );
+    const findRange = condition?.target?.range ?? this.GetFullCastRange(hero, ability);
+    const enemies = ActionFind.FindEnemies(hero, findRange, typeFilter, flagFilter, FindOrder.ANY);
     const target = this.findOneVisibleUnits(enemies, hero);
 
     if (!target) {
@@ -200,11 +232,6 @@ export class ActionAbility {
           return true;
         }
       }
-      if (condition.self.abilityLevel) {
-        if (ability && ability.GetLevel() < condition.self.abilityLevel) {
-          return true;
-        }
-      }
       if (condition.self.hasScepter) {
         if (!self.HasScepter()) {
           return true;
@@ -212,6 +239,19 @@ export class ActionAbility {
       }
       if (condition.self.hasShard) {
         if (!self.HasModifier("modifier_item_aghanims_shard")) {
+          return true;
+        }
+      }
+    }
+    if (condition.ability && ability) {
+      if (condition.ability.level) {
+        if (ability.GetLevel() < condition.ability.level) {
+          return true;
+        }
+      }
+      if (condition.ability.charges) {
+        const charges = ability.GetCurrentAbilityCharges();
+        if (charges < condition.ability.charges) {
           return true;
         }
       }
