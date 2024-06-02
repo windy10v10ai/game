@@ -97,21 +97,20 @@
 	//=================================================================================================================
 	"item_infused_raindrop"
 	{
-		"AbilityCastPoint"				"0.0"	// 225
 		"AbilityCooldown"				"1.0"
-		"ItemCost"						"800"
+		"ItemCost"						"650"
 		"ItemStockInitial"				"5"
-		"ItemStockMax"					"20"
+		"ItemStockMax"					"8"
 		"ItemStockTime"					"60"
 		"ItemInitialStockTime"			"0"
 		"ItemInitialStockTimeTurbo"		"0"
 		"ItemStackable"					"1"
 		"AbilityValues"
 		{
-				"mana_regen"			"3.5"	// 0.8
+				"mana_regen"			"3.0"	// 0.8
 				"magic_damage_block"	"600"	// 120
 				"min_damage"			"120"	// 75
-				"initial_charges"		"6"
+				"initial_charges"		"8"		// 6
 		}
 	}
 	// 树之祭祀
@@ -130,6 +129,7 @@
 	// 净化药水
 	"item_clarity"
 	{
+		"ItemInitialCharges"			"5"
 		"ItemStockMax"					"8"
 		"ItemStockInitial"				"8"
 		"AbilityValues"
@@ -572,7 +572,7 @@
 		"AbilityValues"
 		{
 			"attack_range_bonus"			"75"		// 75
-			"attack_speed_bonus"			"40"		// 20
+			"attack_speed_bonus"			"50"		// 20
 			"magic_resistance_reduction"		"20"	// 15
 		}
 	}
@@ -781,13 +781,13 @@
 					"value"						"450" //400
 					"affected_by_aoe_increase"	"1"
 				}
-				"slow"		"75"                   //50
+				"slow"		"60"                   //50
 				"slow_duration"		"3"            //3
 				"angle"						"360"  //360
 				"knockback_duration"		"0.2"  //0.2
 				"pull_distance"				"100"  //100
 				"nuke_base_dmg"		"350"          //175
-				"nuke_str_dmg"		"2.0"          //1.5
+				"nuke_str_dmg"		"1.5"          //1.5
 		}
 	}
 	"item_titan_sliver" //巨神残铁
@@ -828,7 +828,7 @@
 			"all_stats"						"30"	//7
 			"bonus_damage"					"90"	//12
 			"count"							"4"		//2
-			"secondary_target_range_bonus"	"450"	//225
+			"secondary_target_range_bonus"	"250"	//225
 			"proc_bonus_damage"				"120"	//20
 		}
 	}
@@ -1063,7 +1063,7 @@
 			"attack_range_bonus"		"250" //250
 			"knockback_distance"		"10"  //50
 			"knockback_duration"		"0.1" //0.2
-			"bonus_damage"		        "100"  //50
+			"bonus_damage"				"75"  //50
 		}
 	}
 	"item_seer_stone" //先哲之石
@@ -1099,7 +1099,7 @@
 		"AbilityManaCost"				"450"  //350
 		"AbilityValues"
 		{
-				"bonus_armor"			"40"   //20
+				"bonus_armor"			"30"   //20
 		}
 	}
 	"item_force_field"  //秘术师铠甲

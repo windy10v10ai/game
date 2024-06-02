@@ -2118,42 +2118,42 @@
 
 		// item_grove_bow_light 圣光·林野长弓
 		"DOTA_Tooltip_ability_item_grove_bow_light"				"<font color='#FFFF00'>圣光·林野长弓</font>"
-		"DOTA_Tooltip_ability_item_grove_bow_light_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
+		// "DOTA_Tooltip_ability_item_grove_bow_light_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
 		"DOTA_Tooltip_ability_item_grove_bow_light_Lore"                  "月之女神在许多年之前赐给了一名她珍视的信徒一件礼物。"
 		"DOTA_Tooltip_ability_item_grove_bow_light_attack_range_bonus"                  "+$attack_range"
 		"DOTA_Tooltip_ability_item_grove_bow_light_attack_speed_bonus"                  "+$attack"
 
 		// item_grove_bow_dark 暗影·林野长弓
 		"DOTA_Tooltip_ability_item_grove_bow_dark"				"<font color='#8A2BE2'>暗影·林野长弓</font>"
-		"DOTA_Tooltip_ability_item_grove_bow_dark_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
+		// "DOTA_Tooltip_ability_item_grove_bow_dark_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
 		"DOTA_Tooltip_ability_item_grove_bow_dark_Lore"                  "月之女神在许多年之前赐给了一名她珍视的信徒一件礼物。"
 		"DOTA_Tooltip_ability_item_grove_bow_dark_attack_range_bonus"                  "+$attack_range"
 		"DOTA_Tooltip_ability_item_grove_bow_dark_attack_speed_bonus"                  "+$attack"
 
 		// item_grove_bow_light_1 圣光·林野长弓（中立）
 		"DOTA_Tooltip_ability_item_grove_bow_light_1"				"<font color='#FFFF00'>圣光·林野长弓（中立）</font>"
-		"DOTA_Tooltip_ability_item_grove_bow_light_1_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
+		// "DOTA_Tooltip_ability_item_grove_bow_light_1_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
 		"DOTA_Tooltip_ability_item_grove_bow_light_1_Lore"                  "月之女神在许多年之前赐给了一名她珍视的信徒一件礼物。"
 		"DOTA_Tooltip_ability_item_grove_bow_light_1_attack_range_bonus"                  "+$attack_range"
 		"DOTA_Tooltip_ability_item_grove_bow_light_1_attack_speed_bonus"                  "+$attack"
 
 		// item_grove_bow_dark_1 暗影·林野长弓（中立）
 		"DOTA_Tooltip_ability_item_grove_bow_dark_1"				"<font color='#8A2BE2'>暗影·林野长弓（中立）</font>"
-		"DOTA_Tooltip_ability_item_grove_bow_dark_1_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
+		// "DOTA_Tooltip_ability_item_grove_bow_dark_1_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
 		"DOTA_Tooltip_ability_item_grove_bow_dark_1_Lore"                  "月之女神在许多年之前赐给了一名她珍视的信徒一件礼物。"
 		"DOTA_Tooltip_ability_item_grove_bow_dark_1_attack_range_bonus"                  "+$attack_range"
 		"DOTA_Tooltip_ability_item_grove_bow_dark_1_attack_speed_bonus"                  "+$attack"
 
 		// item_grove_bow_ai 光暗·林野长弓
 		"DOTA_Tooltip_ability_item_grove_bow_ai"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>林</font><font color='#8A2BE2'>野</font><font color='#00FF00'>长</font><font color='#8A2BE2'>弓</font>"
-		"DOTA_Tooltip_ability_item_grove_bow_ai_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
+		// "DOTA_Tooltip_ability_item_grove_bow_ai_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
 		"DOTA_Tooltip_ability_item_grove_bow_ai_Lore"                  "月之女神在许多年之前赐给了一名她珍视的信徒一件礼物。"
 		"DOTA_Tooltip_ability_item_grove_bow_ai_attack_range_bonus"                  "+$attack_range"
 		"DOTA_Tooltip_ability_item_grove_bow_ai_attack_speed_bonus"                  "+$attack"
 
 		// item_grove_bow_ai_1 光暗·林野长弓（中立）
 		"DOTA_Tooltip_ability_item_grove_bow_ai_1"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>林</font><font color='#8A2BE2'>野</font><font color='#00FF00'>长</font><font color='#8A2BE2'>弓</font><font color='e03e2e'>（中立）</font>"
-		"DOTA_Tooltip_ability_item_grove_bow_ai_1_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
+		// "DOTA_Tooltip_ability_item_grove_bow_ai_1_Description"                    "<h1>被动：魔力增强</h1>攻击敌人的同时降低其%magic_resistance_reduction%%%魔法抗性。"
 		"DOTA_Tooltip_ability_item_grove_bow_ai_1_Lore"                  "月之女神在许多年之前赐给了一名她珍视的信徒一件礼物。"
 		"DOTA_Tooltip_ability_item_grove_bow_ai_1_attack_range_bonus"                  "+$attack_range"
 		"DOTA_Tooltip_ability_item_grove_bow_ai_1_attack_speed_bonus"                  "+$attack"

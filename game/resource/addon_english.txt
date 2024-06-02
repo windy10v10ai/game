@@ -1992,42 +1992,42 @@
 
 		// item_grove_bow_light 圣光·林野长弓
 		"DOTA_Tooltip_Ability_item_grove_bow_light"				"<font color='#FFFF00'>Light Grove Bow</font>"
-		"DOTA_Tooltip_ability_item_grove_bow_light_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
+		// "DOTA_Tooltip_ability_item_grove_bow_light_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
 		"DOTA_Tooltip_ability_item_grove_bow_light_Lore"                  "A gift from the moon goddess to one of her prized disciples many memories ago."
 		"DOTA_Tooltip_ability_item_grove_bow_light_attack_range_bonus"                  "+$attack_range"
 		"DOTA_Tooltip_ability_item_grove_bow_light_attack_speed_bonus"                  "+$attack"
 
 		// item_grove_bow_dark 暗影·林野长弓
 		"DOTA_Tooltip_Ability_item_grove_bow_dark"				"<font color='#8A2BE2'>Dark Grove Bow</font>"
-		"DOTA_Tooltip_ability_item_grove_bow_dark_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
+		// "DOTA_Tooltip_ability_item_grove_bow_dark_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
 		"DOTA_Tooltip_ability_item_grove_bow_dark_Lore"                  "A gift from the moon goddess to one of her prized disciples many memories ago."
 		"DOTA_Tooltip_ability_item_grove_bow_dark_attack_range_bonus"                  "+$attack_range"
 		"DOTA_Tooltip_ability_item_grove_bow_dark_attack_speed_bonus"                  "+$attack"
 
 		// item_grove_bow_light_1 圣光·林野长弓（中立）
 		"DOTA_Tooltip_Ability_item_grove_bow_light_1"				"<font color='#FFFF00'>Light Grove Bow (Neutral)</font>"
-		"DOTA_Tooltip_ability_item_grove_bow_light_1_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
+		// "DOTA_Tooltip_ability_item_grove_bow_light_1_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
 		"DOTA_Tooltip_ability_item_grove_bow_light_1_Lore"                  "A gift from the moon goddess to one of her prized disciples many memories ago."
 		"DOTA_Tooltip_ability_item_grove_bow_light_1_attack_range_bonus"                  "+$attack_range"
 		"DOTA_Tooltip_ability_item_grove_bow_light_1_attack_speed_bonus"                  "+$attack"
 
 		// item_grove_bow_dark_1 暗影·林野长弓（中立）
 		"DOTA_Tooltip_Ability_item_grove_bow_dark_1"				"<font color='#8A2BE2'>Dark Grove Bow (Neutral)</font>"
-		"DOTA_Tooltip_ability_item_grove_bow_dark_1_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
+		// "DOTA_Tooltip_ability_item_grove_bow_dark_1_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
 		"DOTA_Tooltip_ability_item_grove_bow_dark_1_Lore"                  "A gift from the moon goddess to one of her prized disciples many memories ago."
 		"DOTA_Tooltip_ability_item_grove_bow_dark_1_attack_range_bonus"                  "+$attack_range"
 		"DOTA_Tooltip_ability_item_grove_bow_dark_1_attack_speed_bonus"                  "+$attack"
 
 		// item_grove_bow_ai 光暗·林野长弓
 		"DOTA_Tooltip_Ability_item_grove_bow_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Grove Bow"
-		"DOTA_Tooltip_ability_item_grove_bow_ai_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
+		// "DOTA_Tooltip_ability_item_grove_bow_ai_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
 		"DOTA_Tooltip_ability_item_grove_bow_ai_Lore"                  "A gift from the moon goddess to one of her prized disciples many memories ago."
 		"DOTA_Tooltip_ability_item_grove_bow_ai_attack_range_bonus"                  "+$attack_range"
 		"DOTA_Tooltip_ability_item_grove_bow_ai_attack_speed_bonus"                  "+$attack"
 
 		// item_grove_bow_ai_1 光暗·林野长弓（中立）
 		"DOTA_Tooltip_Ability_item_grove_bow_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Grove Bow (Neutral)"
-		"DOTA_Tooltip_ability_item_grove_bow_ai_1_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
+		// "DOTA_Tooltip_ability_item_grove_bow_ai_1_Description"                    "<h1>Passive: Magic Amp</h1> Reduces magic resistance of the attacked enemy by %magic_resistance_reduction%%%."
 		"DOTA_Tooltip_ability_item_grove_bow_ai_1_Lore"                  "A gift from the moon goddess to one of her prized disciples many memories ago."
 		"DOTA_Tooltip_ability_item_grove_bow_ai_1_attack_range_bonus"                  "+$attack_range"
 		"DOTA_Tooltip_ability_item_grove_bow_ai_1_attack_speed_bonus"                  "+$attack"
