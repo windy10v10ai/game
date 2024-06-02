@@ -317,7 +317,7 @@ end
 function AIGameMode:GetPlayerGoldXpMultiplier(iPlayerID)
     local mul = 1
 
-    if self.tHumanPlayerList[iPlayerID] then
+    if IsHumanPlayer(iPlayerID) then
         mul = self.fPlayerGoldXpMultiplier
     elseif self.bRadiantBotSameMulti and IsGoodTeamPlayer(iPlayerID) then
         mul = self.fPlayerGoldXpMultiplier

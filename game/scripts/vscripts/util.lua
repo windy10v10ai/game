@@ -303,3 +303,8 @@ function RefreshItemDataDrivenModifier(item, modifier)
 		end
 	end)
 end
+
+function IsHumanPlayer(playerID)
+	local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
+	return steamAccountID ~= 0
+end

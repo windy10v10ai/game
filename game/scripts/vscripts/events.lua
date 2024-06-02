@@ -5,10 +5,6 @@ require('event/chat')
 require('event/kill')
 require('event/bot_herolist')
 
--- local tSkillCustomNameList = { }
-
--- local tAPLevelList = { 17, 19, 21, 22, 23, 24, 26 }
-
 
 function AIGameMode:ArrayShuffle(array)
     local size = #array
@@ -32,24 +28,40 @@ function AIGameMode:GetFreeHeroName(isRadiant)
     return "npc_dota_hero_luna" -- Should never get here
 end
 
-function AIGameMode:InitHeroSelection()
+function AIGameMode:InitPlayerGold()
     if self.PreGameOptionsSet then
-        print("[AIGameMode] InitSettings")
-        -- 初始化玩家列表和初期金钱
-        self.tHumanPlayerList = {}
-        -- 是否选择了物品
-        self.tIfItemChosen = {}
-        self.tIfItemChooseInited = {}
+        print("[AIGameMode] InitPlayerGold")
         for i = 0, (DOTA_MAX_TEAM_PLAYERS - 1) do
-            if PlayerResource:GetConnectionState(i) ~= DOTA_CONNECTION_STATE_UNKNOWN then
-                -- set human player list
-                self.tHumanPlayerList[i] = true
-                self.tIfItemChosen[i] = false
-                self.tIfItemChooseInited[i] = false
-                -- set start gold
+            if IsHumanPlayer(i) then
                 PlayerResource:SetGold(i, (self.iStartingGoldPlayer - 600), true)
             end
         end
+    else
+        Timers:CreateTimer(0.5, function()
+            print("[AIGameMode] Try InitPlayerGold in 0.5s")
+            AIGameMode:InitPlayerGold()
+        end)
+    end
+end
+
+function AIGameMode:InitHeroSelection()
+    if self.PreGameOptionsSet then
+        print("[AIGameMode] InitHeroSelection")
+        -- -- 初始化玩家列表和初期金钱
+        -- -- self.tHumanPlayerList = {}
+        -- -- 是否选择了物品
+        -- -- self.tIfItemChosen = {}
+        -- -- self.tIfItemChooseInited = {}
+        -- for i = 0, (DOTA_MAX_TEAM_PLAYERS - 1) do
+        --     if PlayerResource:GetConnectionState(i) ~= DOTA_CONNECTION_STATE_UNKNOWN then
+        --         -- set human player list
+        --         -- self.tHumanPlayerList[i] = true
+        --         -- self.tIfItemChosen[i] = false
+        --         -- self.tIfItemChooseInited[i] = false
+        --         -- set start gold
+        --         PlayerResource:SetGold(i, (self.iStartingGoldPlayer - 600), true)
+        --     end
+        -- end
 
         -- 添加bot和初期金钱
         local iPlayerNumRadiant = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
@@ -84,14 +96,14 @@ function AIGameMode:InitHeroSelection()
         -- Tutorial:StartTutorialMode()
         for i = 0, (DOTA_MAX_TEAM_PLAYERS - 1) do
             if PlayerResource:IsValidPlayer(i) then
-                if not self.tHumanPlayerList[i] then
+                if not IsHumanPlayer(i) then
                     PlayerResource:SetGold(i, (self.iStartingGoldBot - 600), true)
                 end
             end
         end
     else
         Timers:CreateTimer(0.5, function()
-            print("[AIGameMode] Try InitSettings in 0.5s")
+            print("[AIGameMode] Try InitHeroSelection in 0.5s")
             AIGameMode:InitHeroSelection()
         end)
     end
@@ -106,12 +118,15 @@ function AIGameMode:OnGameStateChanged(keys)
         end
     elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
         if IsServer() then
-            self:InitHeroSelection()
+            self:InitPlayerGold()
         end
     elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
         if not self.PreGameOptionsSet then
             print("[AIGameMode] Setting pre-game options STRATEGY_TIME")
             self:PreGameOptions()
+        end
+        if IsServer() then
+            self:InitHeroSelection()
         end
         for i = 0, (DOTA_MAX_TEAM_PLAYERS - 1) do
             if PlayerResource:IsValidPlayer(i) then
@@ -432,14 +447,15 @@ function AIGameMode:OnNPCSpawned(keys)
         end
 
         -- choose item 玩家抽选物品
-        if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] and
-            not self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] then
+        if IsHumanPlayer(hEntity:GetPlayerOwnerID())
+        -- and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] and not self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()]
+        then
             self:SpecialItemAdd(hEntity)
-            self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] = true
+            -- self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] = true
         end
 
         -- Bots modifier 机器人AI脚本
-        if not self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
+        if not IsHumanPlayer(hEntity:GetPlayerOwnerID()) then
             -- FIXME 用ts脚本替换
             if not hEntity:HasModifier("modifier_bot_think_strategy") then
                 hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_strategy", {})
@@ -456,7 +472,7 @@ function AIGameMode:OnNPCSpawned(keys)
         end
 
         -- Player Buff
-        if self.tHumanPlayerList[hEntity:GetPlayerOwnerID()] then
+        if IsHumanPlayer(hEntity:GetPlayerOwnerID()) then
             EnablePlayerModifier(hEntity)
         end
 
@@ -479,26 +495,6 @@ function AIGameMode:OnPlayerLevelUp(keys)
             hEntity:SetCustomDeathXP(3000 + hEntity:GetCurrentXP() * 0.03)
         end
     end)
-
-    -- Set Ability Points
-    -- local hero = EntIndexToHScript(keys.player):GetAssignedHero()
-    -- local level = keys.level
-
-    -- for i, v in ipairs(tSkillCustomNameList) do
-    --     if v == hero:GetName() then
-    --         for _, lv in ipairs(tAPLevelList) do
-    --             if lv == level then
-    --                 print("-----------------debug-----------------", hero:GetName() .. "level:" .. level .. " Add AP")
-    --                 -- Save current unspend AP
-    --                 local unspendAP = hero:GetAbilityPoints()
-    --                 hero:SetAbilityPoints(1 + unspendAP)
-    --                 break
-    --             end
-    --         end
-
-    --         break
-    --     end
-    -- end
 end
 
 function AIGameMode:OnItemPickedUp(event)

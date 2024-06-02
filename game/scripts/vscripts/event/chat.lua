@@ -92,8 +92,8 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
         if sChatMsg:find('^-lottery$') then
-            AIGameMode.tIfItemChosen[iPlayerID] = false
-            AIGameMode.tIfItemChooseInited[iPlayerID] = false
+            -- AIGameMode.tIfItemChosen[iPlayerID] = false
+            -- AIGameMode.tIfItemChooseInited[iPlayerID] = false
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
             AIGameMode:SpecialItemAdd(hHero)
             return
