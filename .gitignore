@@ -5,6 +5,7 @@ game/panorama_debugger.cfg
 game/panorama/layout/custom_game/
 game/panorama/scripts/custom_game/
 game/panorama/styles/custom_game/
+game/panorama/images/heroes/**/*.vxml_c
 
 game/resource/custom_game_whitelist.txt
 node_modules
@@ -23,4 +24,4 @@ game/scripts/vscripts/helper/
 game/scripts/vscripts/modules/
 game/scripts/vscripts/server/
 game/scripts/vscripts/utils/
-game/panorama/images/heroes/**/*.vxml_c
+game/scripts/vscripts/modifiers/property

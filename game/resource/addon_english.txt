@@ -1303,7 +1303,7 @@
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Shoes"
-		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：Gotta Go Fast</font></h1>After use, you will get a movement speed bonus of %active_sp%%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active：Gotta Go Fast</font></h1>After use, you will get a movement speed bonus of %active_sp%%% in %dur% seconds. Break the movement speed limit (up to 2000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"Gotta go fast!"
 		"DOTA_Tooltip_ability_item_adi_king_sp"												"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
@@ -1317,7 +1317,7 @@
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Shoes plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：Gotta Go Fast</font></h1>After use, you will get a movement speed bonus of %active_sp%%% in %dur% seconds. Break the movement speed limit (up to 5000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active：Gotta Go Fast</font></h1>After use, you will get a movement speed bonus of %active_sp%%% in %dur% seconds. Break the movement speed limit (up to 2000) and move without collisions, regardless of the cliff terrain. Applies a dispel when used.<br><br>Dispel Type: Basic Dispel \n<h1><font color='#FFFF00'>Passive：Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"Gotta go fast!"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"

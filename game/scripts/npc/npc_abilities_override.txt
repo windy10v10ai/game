@@ -969,7 +969,7 @@
 	{
 		"AbilityValues"
 		{
-			"move_speed_limit"					"5000"
+			"move_speed_limit"					"2000"
 		}
 	}
 	//=================================================================================================================
@@ -12114,6 +12114,15 @@
 					"LinkedSpecialBonus"		"special_bonus_unique_windranger_8"
 				}
 				"focusfire_fire_on_the_move"	"1"
+		}
+	}
+	// 举步生风
+	"windrunner_easy_breezy"
+	{
+		"AbilityValues"
+		{
+			"min_movespeed"		"300"	// 240
+			"max_movespeed"		"2000"	// 600
 		}
 	}
 	//=================================================================================================================

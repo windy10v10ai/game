@@ -1,4 +1,4 @@
-item_adi_king=class({})
+item_adi_king = class({})
 
 LinkLuaModifier("modifier_item_adi_king", "items/item_adi_king.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_adi_king_aura", "items/item_adi_king.lua", LUA_MODIFIER_MOTION_NONE)
@@ -9,15 +9,15 @@ function item_adi_king:GetIntrinsicModifierName()
 end
 
 function item_adi_king:OnSpellStart()
-	local caster = self:GetCaster()
+    local caster = self:GetCaster()
     local dur = self:GetSpecialValueFor("dur")
-    caster:EmitSound( "DOTA_Item.PhaseBoots.Activate" )
-    caster:AddNewModifier( caster, self, "modifier_item_adi_king_buff", {duration=dur} )
-	-- remove debuff
-	caster:Purge(false, true, false, false, false)
+    caster:EmitSound("DOTA_Item.PhaseBoots.Activate")
+    caster:AddNewModifier(caster, self, "modifier_item_adi_king_buff", { duration = dur })
+    -- remove debuff
+    caster:Purge(false, true, false, false, false)
 end
 
-modifier_item_adi_king=class({})
+modifier_item_adi_king = class({})
 
 function modifier_item_adi_king:IsBuff()
     return true
@@ -80,39 +80,39 @@ function modifier_item_adi_king:DeclareFunctions()
 end
 
 function modifier_item_adi_king:OnCreated(keys)
-	self:OnRefresh(keys)
+    self:OnRefresh(keys)
 
     if self:GetAbility() == nil then
-		return
-	end
-    self.sp=self:GetAbility():GetSpecialValueFor("sp")
-    self.att=self:GetAbility():GetSpecialValueFor("att")
-    self.ar=self:GetAbility():GetSpecialValueFor("ar")
-    self.rate=self:GetAbility():GetSpecialValueFor("rate")
-    self.bonus_evasion=self:GetAbility():GetSpecialValueFor("bonus_evasion")
+        return
+    end
+    self.sp = self:GetAbility():GetSpecialValueFor("sp")
+    self.att = self:GetAbility():GetSpecialValueFor("att")
+    self.ar = self:GetAbility():GetSpecialValueFor("ar")
+    self.rate = self:GetAbility():GetSpecialValueFor("rate")
+    self.bonus_evasion = self:GetAbility():GetSpecialValueFor("bonus_evasion")
 end
 
 function modifier_item_adi_king:OnRefresh(keys)
-	self.stats_modifier_name = "modifier_item_adi_king_stats"
+    self.stats_modifier_name = "modifier_item_adi_king_stats"
 
-	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
-		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-			mod:GetAbility():SetSecondaryCharges(_)
-		end
-	end
+    if IsServer() then
+        RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+        for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+            mod:GetAbility():SetSecondaryCharges(_)
+        end
+    end
 end
 
 function modifier_item_adi_king:OnDestroy()
-	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
-		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-			mod:GetAbility():SetSecondaryCharges(_)
-		end
-	end
+    if IsServer() then
+        RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+        for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+            mod:GetAbility():SetSecondaryCharges(_)
+        end
+    end
 end
 
-modifier_item_adi_king_buff=class({})
+modifier_item_adi_king_buff = class({})
 
 
 function modifier_item_adi_king_buff:IsHidden()
@@ -131,7 +131,6 @@ function modifier_item_adi_king_buff:GetTexture()
     return "item_adi_king"
 end
 
-
 function modifier_item_adi_king_buff:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
 end
@@ -148,7 +147,6 @@ function modifier_item_adi_king_buff:CheckState()
     }
 end
 
-
 function modifier_item_adi_king_buff:DeclareFunctions()
     return
     {
@@ -161,18 +159,18 @@ end
 
 function modifier_item_adi_king_buff:OnCreated()
     if self:GetAbility() == nil then
-		return
-	end
-    self.active_sp=self:GetAbility():GetSpecialValueFor("active_sp")
-    self.active_evasion=self:GetAbility():GetSpecialValueFor("active_evasion")
+        return
+    end
+    self.active_sp = self:GetAbility():GetSpecialValueFor("active_sp")
+    self.active_evasion = self:GetAbility():GetSpecialValueFor("active_evasion")
 end
 
 function modifier_item_adi_king_buff:GetModifierMoveSpeedBonus_Percentage()
-        return self.active_sp
+    return self.active_sp
 end
 
 function modifier_item_adi_king_buff:GetModifierMoveSpeed_Limit()
-    return 5000
+    return 2000
 end
 
 function modifier_item_adi_king_buff:GetModifierIgnoreMovespeedLimit()
@@ -180,10 +178,10 @@ function modifier_item_adi_king_buff:GetModifierIgnoreMovespeedLimit()
 end
 
 function modifier_item_adi_king_buff:GetModifierEvasion_Constant()
-	return self.active_evasion
+    return self.active_evasion
 end
 
-modifier_item_adi_king_aura=class({})
+modifier_item_adi_king_aura = class({})
 
 function modifier_item_adi_king_aura:IsBuff()
     return true
@@ -205,12 +203,11 @@ function modifier_item_adi_king_aura:RemoveOnDeath()
     return true
 end
 
-
 function modifier_item_adi_king_aura:OnCreated()
-    if self:GetAbility()==nil then
+    if self:GetAbility() == nil then
         return
     end
-    self.aura_sp=self:GetAbility():GetSpecialValueFor("aura_sp")
+    self.aura_sp = self:GetAbility():GetSpecialValueFor("aura_sp")
 end
 
 function modifier_item_adi_king_aura:DeclareFunctions()
