@@ -168,14 +168,14 @@ function AIGameMode:StartItemPick(owner, items)
 end
 
 function AIGameMode:FinishItemPick(keys)
-	if AIGameMode.tIfItemChosen[keys.PlayerID] then return end
+	-- if AIGameMode.tIfItemChosen[keys.PlayerID] then return end
 	print("Choose item")
 	PrintTable(keys)
 	local owner = EntIndexToHScript(keys.owner_entindex)
 
 	-- Add the item to the inventory and broadcast
 	owner:AddItemByName(keys.item)
-	AIGameMode.tIfItemChosen[keys.PlayerID] = true
+	-- AIGameMode.tIfItemChosen[keys.PlayerID] = true
 end
 
 function AIGameMode:ItemChoiceShuffle(keys)

@@ -391,11 +391,6 @@
         "Ability17"		"special_bonus_attack_damage_150"
     }
 
-	"npc_dota_hero_faceless_void"
-	{
-		"Ability5"		"faceless_void_backtrack"
-	}
-
 	"npc_dota_hero_brewmaster"
 	{
 		"Ability4"		"brewmaster_drunken_haze"
@@ -439,18 +434,18 @@
             "Build"
             {
                 "1"		"tinker_laser"
-                "2"		"tinker_heat_seeking_missile"
+                "2"		"tinker_march_of_the_machines"
                 "3"		"tinker_laser"
-                "4"		"tinker_heat_seeking_missile"
+                "4"		"tinker_march_of_the_machines"
                 "5"		"tinker_laser"
                 "6"		"tinker_rearm_lua"
                 "7"		"tinker_laser"
-                "8"		"tinker_heat_seeking_missile"
+                "8"		"tinker_march_of_the_machines"
                 "9"		"tinker_laser"
                 "10"		"special_bonus_mana_reduction_8"
-                "11"		"tinker_heat_seeking_missile"
+                "11"		"tinker_march_of_the_machines"
                 "12"		"tinker_rearm_lua"
-                "13"		"tinker_heat_seeking_missile"
+                "13"		"tinker_march_of_the_machines"
                 "14"		"tinker_defense_matrix"
                 "15"		"special_bonus_unique_tinker_6"
                 "16"		"tinker_defense_matrix"
@@ -517,18 +512,6 @@
         "Ability15"		"special_bonus_magic_resistance_20"
         "Ability16"		"special_bonus_unique_slark_301"
         "Ability17"		"special_bonus_unique_slark_5"
-    }
-
-	"npc_dota_hero_legion_commander"
-    {
-        "Ability10"		"special_bonus_unique_legion_commander_2"
-        "Ability11"		"special_bonus_unique_legion_commander_pta_movespeed"
-        "Ability12"		"special_bonus_unique_legion_commander_6"
-        "Ability17"		"special_bonus_unique_legion_commander_4"
-        "Ability14"		"special_bonus_unique_legion_commander_5"
-        "Ability15"		"special_bonus_unique_legion_commander_3"
-        "Ability16"		"special_bonus_unique_legion_commander"
-        "Ability13"		"special_bonus_unique_legion_commander_8"
     }
 
 	"npc_dota_hero_nyx_assassin"
@@ -1293,20 +1276,6 @@
 	"npc_dota_hero_juggernaut"
 	{
 		"DisableWearables" 			"1"
-		"Ability1"		"juggernaut_blade_fury"
-		"Ability2"		"juggernaut_healing_ward"
-		"Ability3"		"juggernaut_blade_dance"
-		"Ability4"		"juggernaut_swift_slash"
-		"Ability5"		"generic_hidden"
-		"Ability6"		"juggernaut_omni_slash"
-		"Ability10"		"special_bonus_unique_juggernaut_2"
-		"Ability11"		"special_bonus_unique_juggernaut"
-		"Ability12"		"special_bonus_unique_juggernaut_5"
-		"Ability13"		"special_bonus_unique_juggernaut_4"
-		"Ability14"		"special_bonus_unique_juggernaut_blade_dance_lifesteal"
-		"Ability15"		"special_bonus_unique_juggernaut_3"
-		"Ability16"		"special_bonus_unique_juggernaut_omnislash_duration"
-		"Ability17"		"special_bonus_cleave_40"
 		"Bot"
 		{
 			"Build"
@@ -1320,17 +1289,17 @@
 				"7"		"juggernaut_blade_dance"
 				"8"		"juggernaut_healing_ward"
 				"9"		"juggernaut_blade_dance"
-				"10"		"special_bonus_unique_juggernaut_2"
+				"10"		"special_bonus_unique_juggernaut_4"
 				"11"		"juggernaut_healing_ward"
 				"12"		"juggernaut_omni_slash"
 				"13"		"juggernaut_healing_ward"
 				"14"		"juggernaut_healing_ward"
-				"15"		"special_bonus_unique_juggernaut_4"
+				"15"		"special_bonus_unique_juggernaut_blade_fury_movespeed"
 				"16"		"juggernaut_blade_fury"
 				"17"		""
 				"18"		"juggernaut_omni_slash"
 				"19"		""
-				"20"		"special_bonus_unique_juggernaut_3"
+				"20"		"special_bonus_unique_juggernaut_blade_fury_cooldown"
 				"21"		""
 				"22"		""
 				"23"		""
@@ -1340,7 +1309,7 @@
 				"27"		"special_bonus_unique_juggernaut"
 				"28"		"special_bonus_unique_juggernaut_5"
 				"29"		"special_bonus_unique_juggernaut_blade_dance_lifesteal"
-				"30"		"special_bonus_cleave_40"
+				"30"		"special_bonus_unique_juggernaut_2"
 				"31"		"juggernaut_omni_slash"
 				"32"		"juggernaut_blade_fury"
 				"33"		"juggernaut_blade_fury"
@@ -1601,7 +1570,7 @@
 				"7"			"medusa_mystic_snake"
 				"8"			"medusa_split_shot"
 				"9"			"medusa_mystic_snake"
-				"10"		"special_bonus_unique_medusa_7"
+				"10"		"special_bonus_unique_medusa_snake_damage"
 				"11"		"medusa_split_shot"
 				"12"		"medusa_stone_gaze"
 				"13"		"medusa_split_shot"
@@ -1681,15 +1650,15 @@
 			"Build"
 			{
 				"1"		"nevermore_shadowraze1"
-				"2"		"nevermore_necromastery"
+				"2"		"nevermore_frenzy"
 				"3"		"nevermore_shadowraze1"
 				"4"		"nevermore_dark_lord"
 				"5"		"nevermore_shadowraze1"
-				"6"		"nevermore_necromastery"
+				"6"		"nevermore_frenzy"
 				"7"		"nevermore_shadowraze1"
-				"8"		"nevermore_necromastery"
+				"8"		"nevermore_frenzy"
 				"9"		"nevermore_shadowraze1"
-				"10"		"special_bonus_attack_speed_25"
+				"10"		"special_bonus_unique_nevermore_7"
 				"11"		"nevermore_requiem"
 				"12"		"nevermore_requiem"
 				"13"		"nevermore_dark_lord"
@@ -1699,21 +1668,21 @@
 				"17"		""
 				"18"		"nevermore_requiem"
 				"19"		""
-				"20"		"special_bonus_unique_nevermore_1"
+				"20"		"special_bonus_unique_nevermore_6"
 				"21"		""
 				"22"		""
 				"23"		""
 				"24"		""
 				"25"		"special_bonus_unique_nevermore_raze_procsattacks"
 				"26"		""
-				"27"		"special_bonus_unique_nevermore_7"
+				"27"		"special_bonus_unique_nevermore_4"
 				"28"		"special_bonus_unique_nevermore_3"
-				"29"		"special_bonus_unique_nevermore_6"
-				"30"		"special_bonus_unique_nevermore_shadowraze_cooldown"
+				"29"		"special_bonus_unique_nevermore_1"
+				"30"		"special_bonus_unique_nevermore_frenzy_castspeed"
 				"31"		"nevermore_requiem"
 				"32"		"nevermore_dark_lord"
-				"33"		"nevermore_necromastery"
-				"34"		"nevermore_necromastery"
+				"33"		"nevermore_frenzy"
+				"34"		"nevermore_frenzy"
 			}
 		}
 	}
@@ -1829,14 +1798,13 @@
 
 	"npc_dota_hero_clinkz"
 	{
-		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden" // Remove 烈焰之军
 		"Ability12"		"special_bonus_attack_range_100"
 	}
 	"npc_dota_hero_omniknight"
 	{
 		//"Ability5"		"omniknight_repel" 加强新版二技能的同时暂时移除老版二技能
-		"Ability4"		"omniknight_angelic_flight"
-		"Ability5"		"omniknight_degen_aura"
+		"Ability5"		"omniknight_angelic_flight"
 		"Bot"
 		{
 			"Build"
@@ -2188,12 +2156,6 @@
 			}
 		}
 	}
-	"npc_dota_hero_shredder"
-	{
-		"Ability16"		"special_bonus_unique_timbersaw_5"
-		"Ability14"		"special_bonus_magic_resistance_20"
-		"Ability12"		"special_bonus_unique_timbersaw"
-	}
 	"npc_dota_hero_storm_spirit"
 	{
 		"Ability4"		"batrider_flaming_lasso"// FIXME 蝙蝠大，当个乐子看看玩家反映
@@ -2255,7 +2217,7 @@
 			"Build"
 			{
 				"1"		"skeleton_king_hellfire_blast"
-				"2"		"skeleton_king_vampiric_aura"
+				"2"		""//TODO 命石技能
 				"3"		"skeleton_king_hellfire_blast"
 				"4"		"skeleton_king_mortal_strike"
 				"5"		"skeleton_king_hellfire_blast"
@@ -2269,7 +2231,7 @@
 				"13"		"skeleton_king_mortal_strike"
 				"14"		"skeleton_king_hellfire_blast"
 				"15"		"special_bonus_unique_wraith_king_11"
-				"16"		"skeleton_king_vampiric_aura"
+				"16"		""
 				"17"		""
 				"18"		"skeleton_king_reincarnation"
 				"19"		""
@@ -2279,14 +2241,14 @@
 				"23"		""
 				"24"		""
 				"25"		"special_bonus_unique_wraith_king_4"
-				"26"		""
-				"27"		"special_bonus_unique_wraith_king_vampiric_skeleton_duration"
+				"26"		"skeleton_king_reincarnation"
+				"27"		"special_bonus_attack_speed_70"
 				"28"		"special_bonus_unique_wraith_king_6"
 				"29"		"special_bonus_unique_wraith_king_5"
 				"30"		"special_bonus_unique_wraith_king_10"
-				"31"		"skeleton_king_vampiric_aura"
-				"32"		"skeleton_king_vampiric_aura"
-				"33"		"skeleton_king_vampiric_aura"
+				"31"		""
+				"32"		""
+				"33"		""
 			}
 		}
 	}
@@ -2351,6 +2313,7 @@
 	"npc_dota_hero_sniper"
 	{
 		"Ability5"		"sniper_assassinate_upgrade"
+		"Ability7"		"sniper_keen_scope"
 		"Bot"
 		{
 			"Build"
@@ -2369,7 +2332,7 @@
 				"12"		"sniper_assassinate"
 				"13"		"sniper_headshot"
 				"14"		"sniper_headshot"
-				"15"		"special_bonus_unique_sniper_5"
+				"15"		"special_bonus_unique_sniper_4"
 				"16"		"sniper_take_aim"
 				"17"		""
 				"18"		"sniper_assassinate"
@@ -2381,9 +2344,9 @@
 				"24"		""
 				"25"		"special_bonus_attack_range_100"
 				"26"		""
-				"27"		"special_bonus_unique_sniper_4"
+				"27"		"special_bonus_unique_sniper_5"
 				"28"		"special_bonus_attack_speed_30"
-				"29"		"special_bonus_unique_sniper_1"
+				"29"		"special_bonus_unique_sniper_take_aim_armor"
 				"30"		"special_bonus_unique_sniper_2"
 				"31"		"sniper_assassinate"
 				"32"		"sniper_take_aim"

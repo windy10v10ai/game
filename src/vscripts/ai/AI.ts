@@ -1,6 +1,9 @@
 import { BaseHeroAIModifier } from "./hero/hero-base";
+import { DrowRangerAIModifier } from "./hero/hero-drow-ranger";
 import { LionAIModifier } from "./hero/hero-lion";
 import { LunaAIModifier } from "./hero/hero-luna";
+import { MedusaAIModifier } from "./hero/hero-medusa";
+import { SniperAIModifier } from "./hero/hero-sniper";
 import { ViperAIModifier } from "./hero/hero-viper";
 import { FSA } from "./mode/FSA";
 
@@ -15,7 +18,6 @@ export class AI {
   }
 
   private getModifierName(hero: CDOTA_BaseNPC_Hero): string {
-    // if hero is npc_dota_hero_lion, return LionAIModifier.name
     if (hero.GetUnitName() === "npc_dota_hero_lion") {
       return LionAIModifier.name;
     }
@@ -24,6 +26,15 @@ export class AI {
     }
     if (hero.GetUnitName() === "npc_dota_hero_luna") {
       return LunaAIModifier.name;
+    }
+    if (hero.GetUnitName() === "npc_dota_hero_sniper") {
+      return SniperAIModifier.name;
+    }
+    if (hero.GetUnitName() === "npc_dota_hero_medusa") {
+      return MedusaAIModifier.name;
+    }
+    if (hero.GetUnitName() === "npc_dota_hero_drow_ranger") {
+      return DrowRangerAIModifier.name;
     }
 
     return BaseHeroAIModifier.name;

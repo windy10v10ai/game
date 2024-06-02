@@ -256,13 +256,10 @@
 	{
 		"AbilityValues"
 		{
-			"duration"				"300"
-			"radius"				"750"
-			"health"				"120"// 24
-			"hp_bonus"				"500"// 75
-			"damage_bonus"			"250"// 50
-			"model_scale"			"25"// 25
-			"buff_linger_duration"		"60"// 45
+			"duration"				"180"	// 120
+			"radius"				"750"	// 600
+			"health"				"60"	// 24
+			"buff_linger_duration"		"30"// 0.1
 		}
 	}
 	//=================================================================================================================
@@ -315,7 +312,7 @@
 		"AbilityValues"
 		{
 			"shield"	"500"			//100
-			"restore_time"			"4"	//8
+			"restore_time"			"5"	//8
 			"bonus_hp_regen"	"5" 	//2
 		}
 	}

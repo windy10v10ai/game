@@ -5750,8 +5750,7 @@
 		"AbilityManaCost"				"300"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMY_YES"
-		"AbilityTextureName"            "bloodthorn_ultra"
+		"AbilityTextureName"			"bloodthorn_ultra"
 		"AbilityValues"
 		{
 				"bonus_intellect"			"60"
@@ -6733,7 +6732,7 @@
 			"bonus_damage"					"90"	//12
 			"count"							"4"		//2
 			"secondary_target_range_bonus"	"450"	//225
-			"proc_bonus_damage"				"1600"	//20
+			"proc_bonus_damage"				"1400"	//20
 		}
 	}
 	"item_recipe_specialists_array_dark"
@@ -6801,7 +6800,7 @@
 			"bonus_damage"					"90"	//12
 			"count"							"4"		//2
 			"secondary_target_range_bonus"	"450"	//225
-			"proc_bonus_damage"				"1600"	//20
+			"proc_bonus_damage"				"1400"	//20
 		}
 	}
 	"item_recipe_specialists_array_dark_1"
@@ -7755,7 +7754,7 @@
 		{
 			"bonus_health"			"0"
 			"spell_amp"				"10"
-			"manacost_reduction"			"35" // FIXME 过阵子砍到25或者更低，然后改成非中立
+			"manacost_reduction"			"30" // FIXME 过阵子砍到25或者更低，然后改成非中立
 		}
 	}
 
@@ -7786,7 +7785,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"6000"			//100
+			"shield"			"5000"			//100
 			"restore_time"		"4"
 			"bonus_hp_regen"	"5"
 		}
@@ -7818,7 +7817,7 @@
 		"AbilityValues"
 		{
 			"shield"				"2000"			//100
-			"restore_time"			"1"
+			"restore_time"			"2"
 			"bonus_hp_regen"		"50"
 		}
 	}
@@ -7848,7 +7847,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"6000"			//100
+			"shield"			"5000"			//100
 			"restore_time"		"4"
 			"bonus_hp_regen"	"5"
 		}
@@ -7880,7 +7879,7 @@
 		"AbilityValues"
 		{
 			"shield"				"2000"			//100
-			"restore_time"			"1"
+			"restore_time"			"2"
 			"bonus_hp_regen"		"50"
 		}
 	}
@@ -7910,8 +7909,8 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"6000"			//100
-			"restore_time"			"1"
+			"shield"			"5000"			//100
+			"restore_time"			"2"
 			"bonus_hp_regen"		"50"
 		}
 	}
@@ -7942,8 +7941,8 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"6000"			//100
-			"restore_time"			"1"
+			"shield"			"5000"			//100
+			"restore_time"			"2"
 			"bonus_hp_regen"		"50"
 		}
 	}
@@ -8172,7 +8171,7 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"100"	//10
+			"status_resistance"		"80"	//10
 			"magic_resistance"		"20"	//10
 		}
 	}
@@ -8205,7 +8204,7 @@
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
 			"status_resistance"		"20"	//10
-			"magic_resistance"		"90"	//10
+			"magic_resistance"		"80"	//10
 		}
 	}
 	"item_recipe_ceremonial_robe_light_1"
@@ -8236,7 +8235,7 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"100"	//10
+			"status_resistance"		"80"	//10
 			"magic_resistance"		"20"	//10
 		}
 	}
@@ -8269,7 +8268,7 @@
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
 			"status_resistance"		"20"	//10
-			"magic_resistance"		"90"	//10
+			"magic_resistance"		"80"	//10
 		}
 	}
 	"item_recipe_ceremonial_robe_ai"
@@ -8300,8 +8299,8 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"100"	//10
-			"magic_resistance"		"90"	//10
+			"status_resistance"		"80"	//10
+			"magic_resistance"		"80"	//10
 		}
 	}
 	"item_recipe_ceremonial_robe_ai_1"
@@ -8333,8 +8332,8 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"100"	//10
-			"magic_resistance"		"90"	//10
+			"status_resistance"		"80"	//10
+			"magic_resistance"		"80"	//10
 		}
 	}
 
@@ -8993,7 +8992,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"80" //16
+			"bonus_lifesteal"		"60" //16
 			"bonus_spell_lifesteal"	"24"  //8
 			"bonus_amp"			    "24" //14
 			"creep_lifesteal_reduction_pct"	"0" //40
@@ -9027,7 +9026,7 @@
 		{
 			"bonus_damage"			"200" //16
 			"bonus_lifesteal"		"24" //16
-			"bonus_spell_lifesteal"	"80"  //8
+			"bonus_spell_lifesteal"	"60"  //8
 			"bonus_amp"			    "80" //14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
@@ -9059,7 +9058,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"80" //16
+			"bonus_lifesteal"		"60" //16
 			"bonus_spell_lifesteal"	"24"  //8
 			"bonus_amp"			    "24" //14
 			"creep_lifesteal_reduction_pct"	"0" //40
@@ -9093,7 +9092,7 @@
 		{
 			"bonus_damage"			"200" //16
 			"bonus_lifesteal"		"24" //16
-			"bonus_spell_lifesteal"	"80"  //8
+			"bonus_spell_lifesteal"	"60"  //8
 			"bonus_amp"			    "80" //14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
@@ -9125,8 +9124,8 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"80" //16
-			"bonus_spell_lifesteal"	"80"  //8
+			"bonus_lifesteal"		"60" //16
+			"bonus_spell_lifesteal"	"60"  //8
 			"bonus_amp"			    "80" //14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
@@ -9159,8 +9158,8 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"80" //16
-			"bonus_spell_lifesteal"	"80"  //8
+			"bonus_lifesteal"		"60" //16
+			"bonus_spell_lifesteal"	"60"  //8
 			"bonus_amp"			    "80" //14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
@@ -9632,7 +9631,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-				"evasion"			"90" //17
+				"evasion"			"80" //17
 				"magic_resistance"	"30" //17
 				"duration"			"8"  //6
 		}
@@ -9665,7 +9664,7 @@
 		"AbilityValues"
 		{
 				"evasion"			"30" //17
-				"magic_resistance"	"90" //17
+				"magic_resistance"	"80" //17
 				"duration"			"8"  //6
 		}
 	}
@@ -9696,7 +9695,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-				"evasion"			"90" //17
+				"evasion"			"80" //17
 				"magic_resistance"	"30" //17
 				"duration"			"8"  //6
 		}
@@ -9729,7 +9728,7 @@
 		"AbilityValues"
 		{
 				"evasion"			"30" //17
-				"magic_resistance"	"90" //17
+				"magic_resistance"	"80" //17
 				"duration"			"8"  //6
 		}
 	}
@@ -9760,8 +9759,8 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-				"evasion"			"90" //17
-				"magic_resistance"	"90" //17
+				"evasion"			"80" //17
+				"magic_resistance"	"80" //17
 				"duration"			"8"  //6
 		}
 	}
@@ -9793,8 +9792,8 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-				"evasion"			"90" //17
-				"magic_resistance"	"90" //17
+				"evasion"			"80" //17
+				"magic_resistance"	"80" //17
 				"duration"			"8"  //6
 		}
 	}
@@ -10005,7 +10004,7 @@
 	"item_mind_breaker_light"
 	{
 		"BaseClass" "item_mind_breaker"
-		"AbilityCooldown"		"0.0"  //12
+		"AbilityCooldown"		"1.0"  //12
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"0"
@@ -10069,7 +10068,7 @@
 	"item_mind_breaker_light_1"
 	{
 		"BaseClass" "item_mind_breaker"
-		"AbilityCooldown"		"0.0"  //12
+		"AbilityCooldown"		"1.0"  //12
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"1"
@@ -10134,7 +10133,7 @@
 	"item_mind_breaker_ai"
 	{
 		"BaseClass" "item_mind_breaker"
-		"AbilityCooldown"		"0.0"  //12
+		"AbilityCooldown"		"1.0"  //12
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"0"
@@ -10167,7 +10166,7 @@
 	"item_mind_breaker_ai_1"
 	{
 		"BaseClass" "item_mind_breaker"
-		"AbilityCooldown"		"0.0"  //12
+		"AbilityCooldown"		"1.0"  //12
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"1"
@@ -10218,7 +10217,7 @@
 			"mana_regen"			"40"   //10
 			"radius"
 			{
-				"value"		"4000"          //800
+				"value"		"3000"	//800
 				"affected_by_aoe_increase"	"1"
 			}
 			"duration"			"9"  //6
@@ -10253,7 +10252,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"cast_range_bonus"		"600"  //350
+			"cast_range_bonus"		"500"  //350
 			"vision_bonus"			"700"  //350
 			"mana_regen"			"20"   //10
 			"radius"
@@ -10298,7 +10297,7 @@
 			"mana_regen"			"40"   //10
 			"radius"
 			{
-				"value"		"4000"          //800
+				"value"		"3000"	//800
 				"affected_by_aoe_increase"	"1"
 			}
 			"duration"			"9"  //6
@@ -10333,7 +10332,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"cast_range_bonus"		"600"  //350
+			"cast_range_bonus"		"500"  //350
 			"vision_bonus"			"700"  //350
 			"mana_regen"			"20"   //10
 			"radius"
@@ -10373,12 +10372,12 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"cast_range_bonus"		"600"  //350
+			"cast_range_bonus"		"500"  //350
 			"vision_bonus"			"2000"  //350
 			"mana_regen"			"40"   //10
 			"radius"
 			{
-				"value"		"4000"          //800
+				"value"		"3000"	//800
 				"affected_by_aoe_increase"	"1"
 			}
 			"duration"			"10"  //6
@@ -10414,12 +10413,12 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"cast_range_bonus"		"600"  //350
+			"cast_range_bonus"		"500"  //350
 			"vision_bonus"			"2000"  //350
 			"mana_regen"			"40"   //10
 			"radius"
 			{
-				"value"		"4000"          //800
+				"value"		"3000"	//800
 				"affected_by_aoe_increase"	"1"
 			}
 			"duration"			"10"  //6
@@ -10443,7 +10442,7 @@
 	"item_force_field_light"
 	{
 		"BaseClass" "item_force_field"
-		"AbilityCooldown"				"8"  //20
+		"AbilityCooldown"				"10"  //20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"0"
@@ -10494,7 +10493,7 @@
 			"self_armor"				"10"	//5
 			"self_mres"					"20"	//20
 			"bonus_aoe_mres"			"20"	//20
-			"active_reflection_pct"		"80"	//40
+			"active_reflection_pct"		"70"	//40
 		}
 	}
 	"item_recipe_force_field_light_1"
@@ -10513,7 +10512,7 @@
 	"item_force_field_light_1"
 	{
 		"BaseClass" "item_force_field"
-		"AbilityCooldown"				"8"  //20
+		"AbilityCooldown"				"10"  //20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"1"
@@ -10564,7 +10563,7 @@
 			"self_armor"				"10"	//5
 			"self_mres"					"20"	//20
 			"bonus_aoe_mres"			"20"	//20
-			"active_reflection_pct"		"80"	//40
+			"active_reflection_pct"		"70"	//40
 		}
 	}
 	"item_recipe_force_field_ai"
@@ -10584,7 +10583,7 @@
 	"item_force_field_ai"
 	{
 		"BaseClass" "item_force_field"
-		"AbilityCooldown"				"8"  //20
+		"AbilityCooldown"				"10"  //20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"0"
@@ -10599,7 +10598,7 @@
 			"self_armor"				"20"	//5
 			"self_mres"					"30"	//20
 			"bonus_aoe_mres"			"30"	//20
-			"active_reflection_pct"		"80"	//40
+			"active_reflection_pct"		"70"	//40
 		}
 	}
 	"item_recipe_force_field_ai_1"
@@ -10620,7 +10619,7 @@
 	"item_force_field_ai_1"
 	{
 		"BaseClass" "item_force_field"
-		"AbilityCooldown"				"8"  //20
+		"AbilityCooldown"				"10"  //20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"1"
@@ -10635,7 +10634,7 @@
 			"self_armor"				"20"	//5
 			"self_mres"					"30"	//20
 			"bonus_aoe_mres"			"30"	//20
-			"active_reflection_pct"		"80"	//40
+			"active_reflection_pct"		"70"	//40
 		}
 	}
 

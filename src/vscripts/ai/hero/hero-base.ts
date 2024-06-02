@@ -15,6 +15,7 @@ export class BaseHeroAIModifier extends BaseModifier {
   protected readonly continueActionTime: number = 8;
   protected continueActionEndTime: number = 0;
 
+  protected readonly FindHeroRadius: number = 1600;
   protected readonly FindRadius: number = 1600;
   protected readonly NotAttactTowerHeroAttackRangeBuff: number = 400;
   protected readonly CastRange: number = 900;
@@ -392,7 +393,7 @@ export class BaseHeroAIModifier extends BaseModifier {
   // ---------------------------------------------------------
 
   private FindAround(): void {
-    this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindRadius);
+    this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindHeroRadius);
     this.aroundEnemyCreeps = ActionFind.FindEnemyCreeps(this.hero, this.FindRadius);
     this.aroundEnemyBuildings = ActionFind.FindEnemyBuildings(this.hero, this.FindRadius);
     this.aroundEnemyBuildingsInvulnerable = ActionFind.FindEnemyBuildingsInvulnerable(

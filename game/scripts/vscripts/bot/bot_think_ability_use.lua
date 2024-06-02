@@ -101,8 +101,6 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_Zuus(hHero)
 	elseif sHeroName == "npc_dota_hero_juggernaut" then
 		self:ThinkUseAbility_Juggernaut(hHero)
-	elseif sHeroName == "npc_dota_hero_sniper" then
-		self:ThinkUseAbility_Sniper(hHero)
 	elseif sHeroName == "npc_dota_hero_kunkka" then
 		self:ThinkUseAbility_Kunkka(hHero)
 	elseif sHeroName == "npc_dota_hero_ogre_magi" then
@@ -113,8 +111,6 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_ShadowShaman(hHero)
 	elseif sHeroName == "npc_dota_hero_abaddon" then
 		self:ThinkUseAbility_Abaddon(hHero)
-	elseif sHeroName == "npc_dota_hero_medusa" then
-		self:ThinkUseAbility_Medusa(hHero)
 	elseif sHeroName == "npc_dota_hero_meepo" then
 		self:ThinkUseAbility_Meepo(hHero)
 	elseif sHeroName == "npc_dota_hero_chaos_knight" then
@@ -249,16 +245,6 @@ function BotAbilityThink:ThinkUseAbility_Juggernaut(hHero)
 
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
 		if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility4) then
-			return true
-		end
-	end
-end
-
-function BotAbilityThink:ThinkUseAbility_Sniper(hHero)
-	local hAbility5 = hHero:GetAbilityByIndex(4)
-
-	if hHero:HasModifier("modifier_item_ultimate_scepter") then
-		if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility5) then
 			return true
 		end
 	end
@@ -421,56 +407,6 @@ function BotAbilityThink:ThinkUseAbility_ChaosKnight(hHero)
 		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 		-- 范围内有1人以上时施法
 		if #tAllHeroes >= 1 then
-			hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
-			return true
-		end
-	end
-end
-
-function BotAbilityThink:ThinkUseAbility_Medusa(hHero)
-	local hAbility1 = hHero:GetAbilityByIndex(0)
-	local hAbility2 = hHero:GetAbilityByIndex(1)
-	local hAbility3 = hHero:GetAbilityByIndex(2)
-	local hAbility6 = hHero:GetAbilityByIndex(5)
-
-
-	if self:CastAbilityOnEnemyTarget(hHero, hAbility2) then return true end
-	if hAbility1:IsFullyCastable() then
-		local iRange = 900
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		if #tAllHeroes == 1 then
-			-- 范围内仅有1个敌人时关闭分裂箭
-			if hAbility1:GetToggleState() then
-				hAbility1:ToggleAbility()
-				return true
-			end
-		else
-			if not hAbility1:GetToggleState() then
-				hAbility1:ToggleAbility()
-				return true
-			end
-		end
-	end
-
-	-- 蓝量多于200时打开魔法盾，否则关闭
-	if hHero:GetMana() > 200 then
-		if hAbility3:IsFullyCastable() and not hAbility3:GetToggleState() then
-			hAbility3:ToggleAbility()
-			return true
-		end
-	else
-		if hAbility3:IsFullyCastable() and hAbility3:GetToggleState() then
-			hAbility3:ToggleAbility()
-			return true
-		end
-	end
-
-
-	if hAbility6:IsFullyCastable() then
-		local iRange = 900
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		-- 范围内有3人以上时施法
-		if #tAllHeroes >= 3 then
 			hHero:CastAbilityNoTarget(hAbility6, hHero:GetPlayerOwnerID())
 			return true
 		end

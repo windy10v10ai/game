@@ -34,7 +34,7 @@ export class LionAIModifier extends BaseHeroAIModifier {
     // 裂地尖刺
     if (
       ActionAbility.CastAbilityOnFindEnemyCreep(this, "lion_impale", {
-        self: { abilityLevel: 4 },
+        ability: { level: 4 },
       })
     ) {
       return true;

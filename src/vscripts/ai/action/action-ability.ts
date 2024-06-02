@@ -1,19 +1,77 @@
 import { BaseHeroAIModifier } from "../hero/hero-base";
 import { ActionFind } from "./action-find";
 
+/**
+ * 施法条件，必须满足所有条件才能施法
+ */
 export interface CastCoindition {
   target?: {
+    /**
+     * 敌人血量百分比 小于等于 该值，1-100的数字
+     */
     healthPercentLessThan?: number;
+    /**
+     * 敌人没有这个modifier
+     */
     noModifier?: string;
+    /**
+     * 敌人在范围内时
+     */
+    range?: number;
+    /**
+     * 敌人数量大于等于该值
+     */
+    count?: number;
+    /**
+     * 敌人数量小于等于该值
+     */
+    countLessThan?: number;
   };
   self?: {
+    /**
+     * 当前血量百分比 大于等于 该值，1-100的数字
+     */
     healthPercentMoreThan?: number;
+    /**
+     * 当前血量百分比 小于等于 该值，1-100的数字
+     */
     healthPercentLessThan?: number;
+    /**
+     * 当前魔法百分比 大于等于 该值，1-100的数字
+     */
     manaPercentMoreThan?: number;
-    abilityLevel?: number;
     hasScepter?: boolean;
     hasShard?: boolean;
   };
+  ability?: {
+    /**
+     * 技能等级大于等于该值
+     */
+    level?: number;
+    /**
+     * 技能等级小于等于该值
+     */
+    levelLessThan?: number;
+    /**
+     * 技能剩余次数大于等于该值
+     */
+    charges?: number;
+  };
+  action?: {
+    /**
+     * 满足条件后，开启技能
+     */
+    toggleOn?: boolean;
+    /**
+     * 满足条件后，关闭技能
+     */
+    toggleOff?: boolean;
+    /**
+     * 满足条件后，开启自动施法
+     */
+    autoCastOn?: boolean;
+  };
+  debug?: boolean;
 }
 
 export class ActionAbility {
@@ -33,7 +91,9 @@ export class ActionAbility {
     const defaultSelf = {
       manaPercentMoreThan: 50,
       healthPercentMoreThan: 50,
-      abilityLevel: 3,
+    };
+    const defaultAbility = {
+      level: 3,
     };
     if (!condition) {
       condition = {
@@ -49,8 +109,12 @@ export class ActionAbility {
         if (!condition.self.healthPercentMoreThan) {
           condition.self.healthPercentMoreThan = defaultSelf.healthPercentMoreThan;
         }
-        if (!condition.self.abilityLevel) {
-          condition.self.abilityLevel = defaultSelf.abilityLevel;
+      }
+      if (!condition.ability) {
+        condition.ability = defaultAbility;
+      } else {
+        if (!condition.ability.level) {
+          condition.ability.level = defaultAbility.level;
         }
       }
     }
@@ -82,12 +146,27 @@ export class ActionAbility {
       return false;
     }
 
+    // 判断施法条件是否满足
     if (condition?.self) {
-      if (this.IsConditionSelfBreak(condition, hero, ability)) {
+      if (this.IsConditionSelfBreak(condition, hero)) {
+        // FIXME debug
+        if (condition?.debug) {
+          print(`[AI] CastAbilityOnEnemy ${abilityName} self break`);
+        }
+        return false;
+      }
+    }
+    if (condition?.ability) {
+      if (this.IsConditionAbilityBreak(condition, ability)) {
+        // FIXME debug
+        if (condition?.debug) {
+          print(`[AI] CastAbilityOnEnemy ${abilityName} ability break`);
+        }
         return false;
       }
     }
 
+    // 寻找是否目标
     if (typeFilter === UnitTargetType.HERO) {
       if (ai.FindNearestEnemyHero() === undefined) {
         return false;
@@ -105,25 +184,28 @@ export class ActionAbility {
     if (flagFilterExtra) {
       flagFilter = flagFilter + flagFilterExtra;
     }
-    const enemies = ActionFind.FindEnemies(
-      hero,
-      this.GetFullCastRange(hero, ability),
-      typeFilter,
-      flagFilter,
-      FindOrder.ANY,
-    );
-    const target = this.findOneVisibleUnits(enemies, hero);
+    const findRange = condition?.target?.range ?? this.GetFullCastRange(hero, ability);
+    // FIXME debug
+    if (condition?.debug) {
+      print(`[AI] CastAbilityOnEnemy ${abilityName} findRange ${findRange}`);
+    }
+    const enemies = ActionFind.FindEnemies(hero, findRange, typeFilter, flagFilter, FindOrder.ANY);
+    const target = this.FindTargetWithCondition(condition, enemies, hero);
 
     if (!target) {
+      // FIXME debug
+      if (condition?.debug) {
+        print(`[AI] CastAbilityOnEnemy ${abilityName} target not found`);
+      }
       return false;
     }
 
-    if (condition?.target) {
-      if (this.IsConditionTargetBreak(condition, target)) {
-        return false;
-      }
+    // 指定技能行为时，优先执行技能行为
+    if (condition?.action) {
+      return this.doAction(condition, ability);
     }
 
+    // 未指定技能行为时，执行默认技能行为
     if (this.IsAbilityBehavior(ability, AbilityBehavior.UNIT_TARGET)) {
       print(`[AI] CastAbilityOnEnemy ${abilityName} on target`);
       hero.CastAbilityOnTarget(target, ability, hero.GetPlayerOwnerID());
@@ -157,7 +239,7 @@ export class ActionAbility {
   }
 
   /**
-   * 检测是否在战争迷雾中
+   *
    * @returns Check FoW to get an entity is visible
    */
   private static findOneVisibleUnits(
@@ -182,7 +264,6 @@ export class ActionAbility {
   private static IsConditionSelfBreak(
     condition: CastCoindition,
     self: CDOTA_BaseNPC_Hero,
-    ability: CDOTABaseAbility,
   ): boolean {
     if (condition.self) {
       if (condition.self.healthPercentMoreThan) {
@@ -197,11 +278,6 @@ export class ActionAbility {
       }
       if (condition.self.manaPercentMoreThan) {
         if (self.GetManaPercent() < condition.self.manaPercentMoreThan) {
-          return true;
-        }
-      }
-      if (condition.self.abilityLevel) {
-        if (ability && ability.GetLevel() < condition.self.abilityLevel) {
           return true;
         }
       }
@@ -220,20 +296,94 @@ export class ActionAbility {
     return false;
   }
 
-  private static IsConditionTargetBreak(condition: CastCoindition, target: CDOTA_BaseNPC): boolean {
-    if (condition.target) {
-      if (condition.target.healthPercentLessThan) {
-        if (target.GetHealthPercent() > condition.target.healthPercentLessThan) {
+  private static IsConditionAbilityBreak(
+    condition: CastCoindition,
+    ability: CDOTABaseAbility,
+  ): boolean {
+    if (condition.ability) {
+      if (condition.ability.level) {
+        if (ability.GetLevel() < condition.ability.level) {
           return true;
         }
       }
-      if (condition.target.noModifier) {
-        if (target.HasModifier(condition.target.noModifier)) {
+      if (condition.ability.charges) {
+        const charges = ability.GetCurrentAbilityCharges();
+        if (charges < condition.ability.charges) {
           return true;
         }
       }
     }
 
+    return false;
+  }
+
+  private static FindTargetWithCondition(
+    condition: CastCoindition | undefined,
+    units: CDOTA_BaseNPC[],
+    self: CDOTA_BaseNPC_Hero,
+  ): CDOTA_BaseNPC | undefined {
+    if (condition?.target?.count) {
+      if (units.length < condition.target.count) {
+        // FIXME debug
+        if (condition?.debug) {
+          print(`[AI] FindTargetWithCondition count ${units.length} < ${condition.target.count}`);
+        }
+        return undefined;
+      }
+    }
+    if (condition?.target?.countLessThan) {
+      if (units.length > condition.target.countLessThan) {
+        return undefined;
+      }
+    }
+
+    for (const unit of units) {
+      // 检测是否在战争迷雾中
+      if (unit.IsAlive() && unit.CanEntityBeSeenByMyTeam(self)) {
+        return unit;
+      }
+
+      if (condition?.target) {
+        if (condition.target.healthPercentLessThan) {
+          if (unit.GetHealthPercent() > condition.target.healthPercentLessThan) {
+            continue;
+          }
+        }
+        if (condition.target.noModifier) {
+          if (unit.HasModifier(condition.target.noModifier)) {
+            continue;
+          }
+        }
+      }
+    }
+
+    return undefined;
+  }
+
+  private static doAction(condition: CastCoindition, ability: CDOTABaseAbility): boolean {
+    if (condition?.action) {
+      if (condition?.action?.toggleOn) {
+        if (!ability.GetToggleState()) {
+          print(`[AI] toggleOn ${ability.GetName()}`);
+          ability.ToggleAbility();
+          return true;
+        }
+      }
+      if (condition?.action?.toggleOff) {
+        if (ability.GetToggleState()) {
+          print(`[AI] toggleOff ${ability.GetName()}`);
+          ability.ToggleAbility();
+          return true;
+        }
+      }
+      if (condition?.action?.autoCastOn) {
+        if (!ability.GetAutoCastState()) {
+          print(`[AI] autoCastOn ${ability.GetName()}`);
+          ability.ToggleAutoCast();
+          return true;
+        }
+      }
+    }
     return false;
   }
 }

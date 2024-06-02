@@ -4,6 +4,7 @@ developerSteamAccountID[136407523] = "windy"
 developerSteamAccountID[1194383041] = "咸鱼"
 developerSteamAccountID[916506173] = "Arararara"
 developerSteamAccountID[353885092] = "76岁靠谱成年男性"
+developerSteamAccountID[385130282] = "mimihua"
 
 
 local function removeAllPlayerModifiers()
@@ -68,23 +69,6 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
-        if sChatMsg:find('^-kill$') then
-            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-            hHero:ForceKill(true)
-            return
-        end
-
-        if sChatMsg:find('^-kill hero$') then
-            local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM,
-                Vector(0, 0, 0), nil, 99999,
-                DOTA_UNIT_TARGET_TEAM_BOTH,
-                DOTA_UNIT_TARGET_HERO,
-                DOTA_UNIT_TARGET_FLAG_NONE,
-                FIND_ANY_ORDER, false)
-            for _, hero in pairs(tAllHeroes) do hero:ForceKill(true) end
-            return
-        end
-
         if sChatMsg:find('^-kill creep$') then
             local tAllCreep = FindUnitsInRadius(DOTA_TEAM_NOTEAM,
                 Vector(0, 0, 0), nil, 99999,
@@ -108,8 +92,8 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
         if sChatMsg:find('^-lottery$') then
-            AIGameMode.tIfItemChosen[iPlayerID] = false
-            AIGameMode.tIfItemChooseInited[iPlayerID] = false
+            -- AIGameMode.tIfItemChosen[iPlayerID] = false
+            -- AIGameMode.tIfItemChooseInited[iPlayerID] = false
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
             AIGameMode:SpecialItemAdd(hHero)
             return

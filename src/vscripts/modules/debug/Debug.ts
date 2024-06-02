@@ -11,10 +11,11 @@ export class Debug {
   OnlineDebugWhiteList = [
     136407523, // windy
     916506173, // windy
+    385130282, // mimihua
   ];
 
   constructor() {
-    // 工具模式下开启调试
+    // 工具模式下默认开启调试
     this.DebugEnabled = IsInToolsMode();
     ListenToGameEvent(`player_chat`, (keys) => this.OnPlayerChat(keys), this);
   }
@@ -54,8 +55,21 @@ export class Debug {
         if (!hero) return;
         // 获得金钱经验技能升满
         hero.SetGold(20000, false);
-        hero.AddExperience(35000, ModifyXpReason.UNSPECIFIED, false, true);
+        hero.AddExperience(20000, ModifyXpReason.UNSPECIFIED, false, true);
       });
+    }
+
+    if (cmd === CMD.L_ALL) {
+      // loop 35 times time 1s
+      for (let i = 0; i < 35; i++) {
+        Timers.CreateTimer(i, () => {
+          PlayerHelper.ForEachPlayer((playerId) => {
+            const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+            if (!hero) return;
+            hero.HeroLevelUp(true);
+          });
+        });
+      }
     }
 
     // v 获取当前vector
@@ -76,6 +90,35 @@ export class Debug {
         if (!hero) return;
         GameRules.AI.EnableAI(hero);
       });
+    }
+
+    if (cmd === "-kill") {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+
+      print(`kill hero`);
+      hero.Kill(undefined, hero);
+    }
+
+    if (cmd === "-killall") {
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        hero.Kill(undefined, hero);
+      });
+    }
+
+    if (cmd.startsWith("-getUseableItemByName")) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const itemName = args[0];
+      const item = ActionItem.FindItemInInventoryUseable(hero, itemName);
+      if (!item) {
+        this.log(`没有找到物品: ${itemName}`);
+        return;
+      } else {
+        this.log(`找到物品: ${itemName}`);
+      }
     }
 
     if (cmd.startsWith("-getUseableItemByName")) {
@@ -140,6 +183,18 @@ export class Debug {
           }
         }
       });
+    }
+
+    // 重置技能
+    if (cmd === "-resetAbility") {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      for (let i = 0; i < 16; i++) {
+        const ability = hero.GetAbilityByIndex(i);
+        if (ability) {
+          ability.SetLevel(0);
+        }
+      }
     }
   }
 
