@@ -9325,6 +9325,14 @@
 			"eidolon_attack_range"		"500 550 600 650"
 		}
 	}
+	// 分割图像
+	"enigma_splitting_image"
+	{
+		"AbilityValues"
+		{
+				"damage_threshold"				"700"	// 350
+		}
+	}
 	// 午夜凋零
 	"enigma_midnight_pulse"
 	{
