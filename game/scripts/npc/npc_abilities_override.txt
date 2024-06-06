@@ -5807,6 +5807,11 @@
 				"value"					"80 160 240 320 400"
 				"special_bonus_unique_luna_1"	"+100"
 			}
+			"damage_buff_per_beam"
+			{
+				"value"						"0"
+				"special_bonus_facet_luna_moonstorm"			"+5 8 11 14 17"
+			}
 		}
 	}
 	// 月刃
@@ -5815,47 +5820,24 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"range"								"500"
-			"bounces"							"3 4 5 6 7"
+			"bounces"							"2 3 4 5 6"
 			"damage_reduction_percent"
 			{
 				"value"							"50 45 40 35 30"
 				"special_bonus_unique_luna_7"	"-10"
 			}
+
 			"rotating_glaives"
 			{
-				"value"							"0"
-				"special_bonus_shard"			"+6" // 4
-			}
-
-			"rotating_glaives_hit_radius"
-			{
-				"value"							"0"
-				"special_bonus_shard"			"+150" // 115
-			}
-
-			"rotating_glaives_movement_radius"
-			{
-				"value"							"0"
-				"special_bonus_shard"			"+250" // 175
+				"value"								"3"
+				"special_bonus_shard"				"+3"	// 1
 			}
 
 			"rotating_glaives_damage_reduction"
 			{
 				"value"							"0"
-				"special_bonus_shard"			"+30" // 25
-			}
-
-			"AbilityCooldown"
-			{
-				"value"							"0"
-				"special_bonus_shard"			"+15" // 25
-			}
-
-			"AbilityManaCost"
-			{
-				"value"							"0"
-				"special_bonus_shard"			"+100" // 25
+				"special_bonus_facet_luna_lunar_orbit"	"10 15 20 25 30"
+				"RequiresFacet"					"luna_lunar_orbit"
 			}
 		}
 	}
@@ -5867,7 +5849,6 @@
 		"AbilityDraftPreAbility"		"luna_lunar_grace"
 		"AbilityValues"
 		{
-				"radius"			"1200"
 				"bonus_damage"
 				{
 					"value"			"10 20 30 40 50"
@@ -5875,15 +5856,15 @@
 				}
 				"bonus_night_vision"
 				{
-					"value"			"250 500 750 1000 1250"
+					"value"			"400 600 800 1000 1200"
 				}
 		}
 	}
+	// 月之祝福（旧版 加攻击速度）
 	"luna_lunar_grace"
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"30 25 20 15 10"
-		"AbilityManaCost"				"20"
 		"LinkedAbility"					"luna_lunar_blessing"
 		"AbilityDraftPreAbility"		"luna_lunar_blessing"
 		"AbilityValues"
@@ -5911,7 +5892,6 @@
 				"special_bonus_scepter"	"-0.3"
 			}
 			"beam_interval_scepter"		"0.2" // purely for the tooltip Note, since the scepter tooltip doesn't show this.
-			"radius"					"675"
 			"hit_count"
 			{
 				"value"					"5"

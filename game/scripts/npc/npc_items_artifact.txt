@@ -1777,7 +1777,7 @@
 	{
 		"BaseClass" "item_mysterious_hat"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ItemCost"						"5000" // FIXME 暂定5000
+		"ItemCost"						"4000"
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
@@ -3269,7 +3269,7 @@
 		"AbilityValues"
 		{
 			"intelligence_pct"		"25"	//15
-			"cast_range"			"300"	//100
+			"cast_range"			"350"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
@@ -3343,7 +3343,7 @@
 		"AbilityValues"
 		{
 			"intelligence_pct"		"25"	//15
-			"cast_range"			"300"	//100
+			"cast_range"			"350"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
@@ -3380,7 +3380,7 @@
 		"AbilityValues"
 		{
 			"intelligence_pct"		"60"	//15
-			"cast_range"			"300"	//100
+			"cast_range"			"350"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
@@ -3418,7 +3418,7 @@
 		"AbilityValues"
 		{
 			"intelligence_pct"		"60"	//15
-			"cast_range"			"300"	//100
+			"cast_range"			"350"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
