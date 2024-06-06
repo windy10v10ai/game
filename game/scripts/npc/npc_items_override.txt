@@ -279,14 +279,14 @@
 			"kobold_duration"		"40"  //60
 		}
 	}
-	"item_arcane_ring" //小秘法
+	"item_arcane_ring" //小秘法 奥术指环
 	{
 		"AbilityCooldown"				"30.0"	//60
 		"AbilityValues"
 		{
 				"bonus_intelligence"	"12"	//7
 				"bonus_armor"			"6"		//2
-				"mana_restore"			"300"	//75
+				"mana_restore"			"250"	//65
 		}
 	}
 	"item_mysterious_hat" //仙灵饰品
