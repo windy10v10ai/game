@@ -129,6 +129,10 @@
 		// "item"		"item_reaver"
 		// "item"		"item_eagle"
 		// "item"		"item_relic"
+
+		"item"		"item_travel_boots"					// 飞鞋
+		"item"		"item_black_king_bar_real"			// 真bkb
+
 		"item"      "item_specialists_array_light"
 		"item"      "item_specialists_array_dark"
 		"item"		"item_timeless_relic_light"
@@ -343,8 +347,6 @@
 		"item"      "item_wish_4"
 		"item"      "item_radar_of_dragon"
 		"item"		"item_recipe_greater_famango"
-		"item"		"item_travel_boots"					// 飞鞋
-		"item"		"item_black_king_bar_real"			// 真bkb
 
 		"item"      "item_tier1_token"
 		"item"      "item_tier2_token"
@@ -403,7 +405,7 @@
 		"item"		"item_falcon_blade"					// 猎鹰战刃
 		"item"		"veil_of_discord"					// 纷争面纱
 		"item"		"item_echo_sabre"					// 回音战刃
-		"item"		"item_holy_locket"					// 圣洁吊坠
-		"item"		"item_hand_of_midas"				// 迈达斯之手
+		// "item"		"item_holy_locket"					// 圣洁吊坠
+		// "item"		"item_hand_of_midas"				// 迈达斯之手
 	}
 }

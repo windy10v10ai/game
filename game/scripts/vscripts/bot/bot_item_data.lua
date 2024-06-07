@@ -1702,7 +1702,7 @@ tBotItemData.addNeutralItemList = {
 		'item_apex_dark_1',
 	},
 	npc_dota_hero_drow_ranger = {
-		'item_ballista_dark_1',
+		'item_ballista_ai_1',
 	},
 	npc_dota_hero_earthshaker = {
 		'item_timeless_relic_ai_1',
@@ -1726,10 +1726,10 @@ tBotItemData.addNeutralItemList = {
 		'item_timeless_relic_ai_1',
 	},
 	npc_dota_hero_luna = {
-		'item_ballista_dark_1',
+		'item_ballista_ai_1',
 	},
 	npc_dota_hero_medusa = {
-		'item_ballista_dark_1',
+		'item_ballista_ai_1',
 	},
 	npc_dota_hero_meepo = {
 		'item_apex_ai_1',
@@ -1771,7 +1771,7 @@ tBotItemData.addNeutralItemList = {
 		'item_seer_stone_ai_1',
 	},
 	npc_dota_hero_sniper = {
-		'item_ballista_dark_1',
+		'item_ballista_ai_1',
 	},
 	npc_dota_hero_sven = {
 		'item_pirate_hat_custom',
@@ -1789,7 +1789,7 @@ tBotItemData.addNeutralItemList = {
 		'item_desolator_2',
 	},
 	npc_dota_hero_viper = {
-		'item_ballista_dark_1',
+		'item_ballista_ai_1',
 	},
 	npc_dota_hero_warlock = {
 		'item_demonicon',

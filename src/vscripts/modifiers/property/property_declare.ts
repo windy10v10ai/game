@@ -228,7 +228,7 @@ export class property_ignore_movespeed_limit extends PropertyBaseModifier {
   }
 
   GetModifierMoveSpeed_Limit(): number {
-    return 5000;
+    return 2000;
   }
 }
 
