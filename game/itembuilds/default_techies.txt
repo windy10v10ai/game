@@ -11,8 +11,8 @@
 			"item"		"item_ward_observer"  //假眼
 			"item"		"item_ward_sentry"  //真眼
 			"item"		"item_quelling_blade_2_datadriven"  //毒瘤之刃
-			"item"		"item_holy_locket"  //圣洁吊坠
-			"item"		"item_hand_of_midas"  //迈达斯之手
+			// "item"		"item_holy_locket"  //圣洁吊坠
+			// "item"		"item_hand_of_midas"  //迈达斯之手
 			// "item"		"item_power_treads"  //动力鞋
 			// "item"		"item_phase_boots"  //相位鞋
 			// "item"		"item_arcane_boots"  //奥术鞋

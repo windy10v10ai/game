@@ -405,7 +405,7 @@
 		"item"		"item_falcon_blade"					// 猎鹰战刃
 		"item"		"veil_of_discord"					// 纷争面纱
 		"item"		"item_echo_sabre"					// 回音战刃
-		"item"		"item_holy_locket"					// 圣洁吊坠
-		"item"		"item_hand_of_midas"				// 迈达斯之手
+		// "item"		"item_holy_locket"					// 圣洁吊坠
+		// "item"		"item_hand_of_midas"				// 迈达斯之手
 	}
 }
