@@ -428,11 +428,6 @@ function AIGameMode:OnNPCSpawned(keys)
 
 
     if hEntity:IsRealHero() and not hEntity.bInitialized then
-        if sName == "npc_dota_hero_sniper" and not self.bSniperScepterThinkerApplierSet then
-            require('heroes/hero_sniper/sniper_init')
-            SniperInit(hEntity, self)
-        end
-
         -- choose item 玩家抽选物品
         if IsHumanPlayer(hEntity:GetPlayerOwnerID())
         -- and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] and not self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()]
