@@ -477,24 +477,24 @@
 	"npc_dota_hero_pangolier"
 	{
 		"DisableWearables"	        "1"
-		"Ability8"					"pangolier_heartpiercer"
 	}
 
 	"npc_dota_hero_naga_siren"
 	{
-		"Ability5"		"naga_siren_crit"
+		"Ability17"		"special_bonus_unique_naga_siren"
+		"Ability15"		"special_bonus_unique_naga_siren_net_breaks"
 	}
 
 	"npc_dota_hero_night_stalker"
 	{
 		"VisionDaytimeRange"		"1200"// 800
-		"VisionNighttimeRange"		"2400"// 1800 电灯泡就要有电灯泡的样子，上限4000
+		"VisionNighttimeRange"		"2400"// 1800 电灯泡就要有电灯泡的样子，现在上限是全图
 	}
 
 	"npc_dota_hero_keeper_of_the_light"
 	{
-		"Ability6"		"keeper_of_the_light_mana_leak"
-		"Ability19"		"keeper_of_the_light_spirit_form"
+		"Ability6"		"keeper_of_the_light_mana_leak"		// 追加技能 法力流失
+		"Ability19"		"keeper_of_the_light_spirit_form"	// 移动 灵魂形态 不需要快捷键
 	}
 
 	"npc_dota_hero_rubick"
@@ -1209,8 +1209,8 @@
 	}
 	"npc_dota_hero_grimstroke"
 	{
-		"Ability7"				"grimstroke_dark_artistry"
-		"Ability1"              "visage_soul_assumption"
+		"Ability5"				"visage_soul_assumption"
+		"Ability8"				"grimstroke_return"
 	}
 	"npc_dota_hero_gyrocopter"
 	{
@@ -1218,7 +1218,7 @@
 	}
 	"npc_dota_hero_huskar"
 	{
-		"Ability4"		"huskar_inner_vitality"
+		"Ability5"		"huskar_inner_vitality"
 		"Ability10"		"special_bonus_unique_huskar_3"
 		"Ability17"		"special_bonus_unique_huskar_4"
 		"Ability12"		"special_bonus_unique_huskar_2"
@@ -1405,14 +1405,6 @@
 	}
 	"npc_dota_hero_lina"
 	{
-	    "Ability10"		"special_bonus_unique_lina_3"
-        "Ability11"		"special_bonus_unique_lina_1"
-        "Ability12"		"special_bonus_unique_lina_2"
-        "Ability13"		"special_bonus_unique_lina_dragon_slave_crits"
-        "Ability14"		"special_bonus_spell_amplify_12"
-        "Ability15"		"special_bonus_unique_lina_supercharge_stacks"
-        "Ability16"		"special_bonus_unique_lina_6"
-        "Ability17"		"special_bonus_unique_lina_7"
 		"Bot"
 		{
 			"Build"
@@ -1426,27 +1418,27 @@
 				"7"		"lina_dragon_slave"
 				"8"		"lina_light_strike_array"
 				"9"		"lina_dragon_slave"
-				"10"		"special_bonus_unique_lina_3"
+				"10"		"special_bonus_unique_lina_1"
 				"11"		"lina_light_strike_array"
 				"12"		"lina_laguna_blade"
 				"13"		"lina_light_strike_array"
 				"14"		"lina_light_strike_array"
-				"15"		"special_bonus_unique_lina_dragon_slave_crits"
+				"15"		"special_bonus_unique_lina_3"
 				"16"		"lina_fiery_soul"
 				"17"		""
 				"18"		"lina_laguna_blade"
 				"19"		""
-				"20"		"special_bonus_unique_lina_supercharge_stacks"
+				"20"		"special_bonus_unique_lina_6"
 				"21"		""
 				"22"		""
 				"23"		""
 				"24"		""
-				"25"		"special_bonus_unique_lina_7"
+				"25"		"special_bonus_unique_lina_crit_debuff"
 				"26"		""
-				"27"		"special_bonus_unique_lina_1"
-				"28"		"special_bonus_unique_lina_2"
-				"29"		"special_bonus_spell_amplify_12"
-				"30"		"special_bonus_unique_lina_6"
+				"27"		"special_bonus_attack_damage_25"
+				"28"		"special_bonus_unique_lina_4"
+				"29"		"special_bonus_unique_lina_2"
+				"30"		"special_bonus_unique_lina_7"
 				"31"		"lina_laguna_blade"
 				"32"		"lina_fiery_soul"
 				"33"		"lina_fiery_soul"
@@ -1675,10 +1667,6 @@
 				"34"		"nevermore_frenzy"
 			}
 		}
-	}
-	"npc_dota_hero_morphling"
-	{
-		"Ability17" "special_bonus_unique_morphling_6"
 	}
 	"npc_dota_hero_necrolyte"
 	{
@@ -2239,8 +2227,6 @@
 	}
 	"npc_dota_hero_skywrath_mage"
 	{
-		"AttributeBaseIntelligence"		"28"		// 25
-		"AttributeIntelligenceGain"		"3.800000"	// 4.1
 		"Bot"
 		{
 			"Build"
@@ -2297,8 +2283,8 @@
 	}
 	"npc_dota_hero_sniper"
 	{
-		"Ability5"		"sniper_assassinate_upgrade"
-		"Ability7"		"sniper_keen_scope"
+		// "Ability5"		"sniper_assassinate_upgrade"
+		// "Ability7"		"sniper_keen_scope"
 		"Bot"
 		{
 			"Build"
@@ -2390,7 +2376,6 @@
 	}
 	"npc_dota_hero_tiny"
 	{
-		"Ability5"					"tiny_craggy_exterior"
 		"Bot"
 		{
 			"Build"
@@ -2532,6 +2517,7 @@
 	}
 	"npc_dota_hero_windrunner"
 	{
+		"MovementSpeed"	"320"	// 290
 		"Bot"
 		{
 			"Build"
@@ -2575,6 +2561,7 @@
 	}
 	"npc_dota_hero_warlock"
 	{
+		"Ability4"		"generic_hidden"	// 移除 邪术召唤
 		"Bot"
 		{
 			"Build"
@@ -2616,11 +2603,7 @@
 			}
 		}
 	}
-	"npc_dota_hero_weaver"
-	{
-		"AttackRate"     "1.6"
-		"MovementSpeed"  "290"
-	}
+
 	"npc_dota_hero_witch_doctor"
 	{
 		"Bot"

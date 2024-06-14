@@ -449,7 +449,7 @@
 	"tower_troll_warlord_fervor"
 	{
 		"MaxLevel"						"6"
-		"BaseClass"                    "troll_warlord_fervor"
+		"BaseClass"						"troll_warlord_fervor"
 		"AbilityValues"
 		{
 			"attack_speed"
