@@ -6795,7 +6795,7 @@
 				"attack_damage"
 				{
 					"value"				"0"
-					"special_bonus_unique_pangolier_3"	"+100"
+					"special_bonus_unique_pangolier_3"	"+75"
 				}
 		}
 	}
@@ -6815,7 +6815,7 @@
 			"base_shield"	"0"
 			"hero_shield"
 			{
-				"value"	"100 200 300 400 500"	// 盾不计算双抗，稍高点
+				"value"	"100 200 300 400 500"	// x2
 				"special_bonus_unique_pangolier_shield_crash_herostacks"		"+200"
 			}
 			"AbilityCooldown"
@@ -6845,7 +6845,7 @@
 	{
 		"MaxLevel" "4"
 		"AbilityManaCost"				"100 150 200 250"
-		"AbilityDamage"					"180 260 340 420"
+		"AbilityDamage"					"160 240 320 400"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
@@ -6856,17 +6856,17 @@
 				"forward_move_speed"
 				{
 					"value"		"650"
-					"special_bonus_facet_pangolier_thunderbolt"	"+200" // 命石2
+					"special_bonus_facet_pangolier_thunderbolt"	"+150" // 命石2
 				}
 				"turn_rate_boosted"
 				{
 					"value"			"360"
-					"special_bonus_facet_pangolier_thunderbolt"	"+1080" // 命石2 加起来1440参考限时强化数据
+					"special_bonus_facet_pangolier_thunderbolt"	"+900" // 命石2
 				}
 				"turn_rate"
 				{
 					"value"		"270"
-					"special_bonus_facet_pangolier_thunderbolt"	"+810" // 命石2 加起来1080参考限时强化数据
+					"special_bonus_facet_pangolier_thunderbolt"	"+675" // 命石2
 				}
 				"radius"
 				{
@@ -6882,7 +6882,7 @@
 				"shield_crash_cooldown"			"8 6 4 2"
 		}
 	}
-    //=================================================================================================================
+	//=================================================================================================================
 	// Ability: Phantom Lancer 幻影长矛手/猴子 已替换成八云紫
 	//=================================================================================================================
 

@@ -129,7 +129,6 @@
 	// 净化药水
 	"item_clarity"
 	{
-		"ItemInitialCharges"			"5"
 		"ItemStockMax"					"8"
 		"ItemStockInitial"				"8"
 		"AbilityValues"
@@ -141,7 +140,7 @@
 	// 芒果
 	"item_enchanted_mango"
 	{
-		"ItemCost"						"85"			// 65
+		"ItemCost"						"90"			// 65
 
 		"ItemStackableMax"				"4"
 
@@ -152,24 +151,25 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"hp_regen"		"1.2"
-				"replenish_amount"		"250"
+				"hp_regen"		"1.5"	// 0.4
+				"replenish_amount"		"250"	// 100
 		}
 	}
 	"item_faerie_fire" //仙灵之火
 	{
-		"ItemCost"						"80"
+		"ItemCost"						"90"			// 65
 		"AbilityValues"
 		{
-				"bonus_damage"			"6"				// 2
-				"hp_restore"			"240"			// 85
+				"bonus_damage"			"8"				// 2
+				"hp_restore"			"320"			// 85
 		}
 	}
 	"item_blood_grenade" //血腥榴弹
 	{
 		"ItemCost"						"80"
-		"AbilityHealthCost"				"125"
+		"AbilityHealthCost"				"150"			// 50
 
+		"ItemStackableMax"				"3"				// 2
 		"ItemStockInitial"				"3"				// 2
 		"ItemStockTime"					"120"			// 180
 		"AbilityValues"
