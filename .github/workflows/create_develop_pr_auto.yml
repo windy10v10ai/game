@@ -1,6 +1,6 @@
 name: Create develop PR auto
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
   create_pull_request:
@@ -9,6 +9,10 @@ jobs:
       - name: Get branch name
         id: get_branch
         run: echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+
+      - name: Skip if branch is main or develop
+        if: ${{ steps.get_branch.outputs.branch == 'main' || steps.get_branch.outputs.branch == 'develop' }}
+        run: exit 0
 
       - name: Check out code
         uses: actions/checkout@v4
