@@ -1,4 +1,4 @@
-name: Create Pull Request to develop
+name: Create develop PR auto
 on:
   workflow_dispatch:
 
@@ -41,6 +41,7 @@ jobs:
           title: ${{ steps.fetch_issue.outputs.title }}
           branch: ${{ steps.get_branch.outputs.branch }}
           base: develop
+          committer: windybirth
           reviewers: windybirth
 
       - name: Enable Pull Request Automerge
