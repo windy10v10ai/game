@@ -58,6 +58,5 @@ jobs:
 
             - [ ] fix #${{ steps.get_issue.outputs.number }}
           base: develop
-          assignees: windybirth
           token: ${{ secrets.WINDY_PR_PAT }}
           draft: true

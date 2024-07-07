@@ -27,10 +27,6 @@ jobs:
           # input version
           title: ${{ github.event.inputs.version }}
           body: |
-            ## Issue
-
-            - [ ] #9999
-
             ## Checklist
 
             - [ ] 更新游戏版本号
@@ -39,7 +35,7 @@ jobs:
 
             [b]游戏性更新 ${{ github.event.inputs.version }}[/b]
 
-            一些bug修正和平衡性改动。
+            修正一些bug和平衡性改动。
 
             [b]Gameplay update ${{ github.event.inputs.version }}[/b]
 
