@@ -21,11 +21,7 @@ Choose the issue you want to work on and create a branch linked to the issue.
 
 ### Pull Requests
 
-Use [github actions](https://github.com/windybirth/windy10v10ai/actions/workflows/create_pr.yml) to create a pull request to develop.
-
-Run Workflow with your branch.
-
-![image](https://github.com/windybirth/windy10v10ai/assets/3445793/e7abb29a-ebfe-48dc-b5b7-ba9faf71e7ba)
+Create a pull request from your branch to develop.
 
 ## Conmuication
 
@@ -54,11 +50,7 @@ Run Workflow with your branch.
 
 ### Pull Requests
 
-使用[github actions](https://github.com/windybirth/windy10v10ai/actions/workflows/create_pr.yml)创建一个 pull request 到 develop 分支。
-
-运行 Workflow 并选择你的分支。
-
-![image](https://github.com/windybirth/windy10v10ai/assets/3445793/e7abb29a-ebfe-48dc-b5b7-ba9faf71e7ba)
+创建一个 pull request 从你开发的分支到 develop 分支。
 
 ## 沟通
 
