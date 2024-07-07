@@ -1,0 +1,97 @@
+# create pr when windybirth push to feature branch
+name: Auto Create Develop PR
+on:
+  push:
+
+jobs:
+  condition_check:
+    runs-on: ubuntu-latest
+    outputs:
+      proceed: ${{ steps.check_condition.outputs.proceed }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Check who triggered the action
+        id: check_trigger
+        run: |
+          if [ "${{ github.actor }}" = "windybirth" ]; then
+            echo "triggered_by_owner=true" >> $GITHUB_OUTPUT
+          else
+            echo "triggered_by_owner=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check if PR exists
+        id: check_pr
+        run: |
+          pr_exists=$(gh pr list --base develop --head ${{ github.ref_name }} --json number -q '.[0].number')
+          echo pr_exists=$pr_exists >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check branch not main or develop
+        id: check_branch
+        run: |
+          branch=${{ github.ref_name }}
+          echo $branch
+          if [ $branch = "main" ] || [ $branch = "develop" ]; then
+            echo "branch_ok=false" >> $GITHUB_OUTPUT
+          else
+            echo "branch_ok=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check Condition
+        id: check_condition
+        run: |
+          if [ "${{ steps.check_pr.outputs.pr_exists }}" = "" ] && [ ${{ steps.check_branch.outputs.branch_ok }} = "true" ] && [ ${{ steps.check_trigger.outputs.triggered_by_owner }} = "true" ]; then
+            echo "proceed=true" >> $GITHUB_OUTPUT
+          else
+            echo "proceed=false" >> $GITHUB_OUTPUT
+          fi
+
+  create_pull_request:
+    needs: condition_check
+    if: needs.condition_check.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out base code
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+
+      - name: Reset promotion branch
+        run: |
+          git fetch origin ${{ github.ref_name }}:${{ github.ref_name }}
+          git reset --hard ${{ github.ref_name }}
+
+      - name: Get related issue number from branch
+        id: get_issue
+        run: |
+          issue_number=$(echo ${{ github.ref_name }} | awk -F'[^0-9]+' '{{print ($1 ~ /^[0-9]+$/ ? $1 : $2)}}')
+          echo number=$issue_number >> $GITHUB_OUTPUT
+
+      - name: Fetch issue details
+        id: fetch_issue
+        run: |
+          response=$(curl --request GET --url https://api.github.com/repos/${{ github.repository }}/issues/${{ steps.get_issue.outputs.number }})
+          title=$(echo "$response" | jq -r .title)
+          if [ $title = "null" ]; then
+            title=$(echo ${{ github.ref_name }})
+            title=$(echo $title | sed 's/-/ /g')
+          fi
+          echo title=$title >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: ${{ steps.fetch_issue.outputs.title }}
+          branch: ${{ github.ref_name }}
+          body: |
+            ## Issue
+
+            - [ ] fix #${{ steps.get_issue.outputs.number }}
+          base: develop
+          assignees: windybirth
+          token: ${{ secrets.WINDY_PR_PAT }}
+          draft: true
