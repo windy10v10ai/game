@@ -7808,6 +7808,11 @@
 		"AbilityValues"
 		{
 			"movement_slow"				"-25 -30 -35 -40 -45"
+			"shard_enrage_duration"
+			{
+				"value"				"1"
+				"RequiresShard"		"1"
+			}
 			"AbilityCooldown"
 			{
 				"value"				"13 12 11 10 9"
@@ -7873,6 +7878,17 @@
 			{
 				"value"						"30 26 22 18"
 				"RequiresScepter"			"1"
+			}
+			// 命石1 伤害增加
+			"damage_increase"
+			{
+				"value"									"0"
+				"special_bonus_facet_ursa_grudge_bearer"	"=3"	// 5
+			}
+			"damage_increase_duration"
+			{
+				"value"									"0"
+				"special_bonus_facet_ursa_grudge_bearer"	"=3"	// 5
 			}
 		}
 	}
