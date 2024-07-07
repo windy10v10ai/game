@@ -195,7 +195,6 @@
 		"SoundSet"					"Hero_WarlockGolem"
 		"IsSummoned"				"1"
 		"IsAncient"					"1"
-		"ModelScale"					"1.2"
 		"ConsideredHero"			"1"
 		"UnitLabel"			"golem"
 		"wearable"				"8362"

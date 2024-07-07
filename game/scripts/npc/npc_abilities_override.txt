@@ -12049,7 +12049,7 @@
 			"tooltip_manahealthboost"
 			{
 				"value"			"0"
-				"special_bonus_facet_warlock_golem"			"+200"	// 100
+				"special_bonus_facet_warlock_golem"			"+100"	// 90
 			}
 		}
 	}
@@ -12082,11 +12082,13 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"aura_damage"				"30 50 70 90"
+			"tick_interval"				"0.25"	// 0.5
 			"manahealthboost"
 			{
 				"value"					"0"
-				"special_bonus_facet_warlock_golem" "+200"	// 100
+				"special_bonus_facet_warlock_golem" "+100"	// 90
 			}
+			"manaboost_scale_mult"		".10"	// .25 模型变大速度
 		}
 	}
 	//=================================================================================================================
