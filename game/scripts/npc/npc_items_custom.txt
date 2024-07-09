@@ -658,7 +658,7 @@
 			// General
 			//-------------------------------------------------------------------------------------------------------------
 			"ID"                            "9038"
-			"BaseClass"                     "item_aether_lens"
+			"BaseClass"						"item_aether_lens"
 			"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 			"AbilityTextureName"			"item_aether_lens_2"
 
@@ -1523,7 +1523,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"                            "9056"
 		"Model"                         "models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"            "item_recipe_insight_armor"
@@ -1547,7 +1547,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"                            "9057"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Model"                         "models/props_gameplay/red_box.vmdl"
@@ -2567,7 +2567,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3033"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_silver_edge"
+		"BaseClass"						"item_silver_edge"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"silver_edge_2"
 
@@ -5522,7 +5522,7 @@
 	"item_black_king_bar_real"
 	{
 		"ID"                            "9600"
-		"BaseClass"                     "item_minotaur_horn"
+		"BaseClass"						"item_minotaur_horn"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"90.0"
 		"AbilityManaCost"				"250"
@@ -5680,7 +5680,7 @@
 	"item_recipe_bfury_ultra"
 	{
 		"ID"                            "9590"
-		"BaseClass"                     "item_recipe_bfury"
+		"BaseClass"						"item_recipe_bfury"
 		"ItemCost"						"600"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bfury_ultra"
@@ -5694,7 +5694,7 @@
 	{
 		"ID"                            "9591"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"                     "item_bfury"
+		"BaseClass"						"item_bfury"
 		"AbilityTextureName"            "bfury_ultra"
 		"AbilityValues"
 		{
@@ -5725,7 +5725,7 @@
 	//=================================================================================================================
 	"item_recipe_bloodthorn_ultra"
 	{
-		"BaseClass"                     "item_recipe_bloodthorn"
+		"BaseClass"						"item_recipe_bloodthorn"
 		"ID"						    "9611"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"0"
@@ -5738,7 +5738,7 @@
 	}
 	"item_bloodthorn_ultra"
 	{
-		"BaseClass"                     "item_bloodthorn"
+		"BaseClass"						"item_bloodthorn"
 		"ID"						    "9612"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -5839,7 +5839,7 @@
 	//=================================================================================================================
 	"item_overwhelming_blink_2"
 	{
-		"BaseClass"                     "item_overwhelming_blink"
+		"BaseClass"						"item_overwhelming_blink"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1600"
@@ -5875,7 +5875,7 @@
 	//=================================================================================================================
 	"item_swift_blink_2"
 	{
-		"BaseClass"                     "item_swift_blink"
+		"BaseClass"						"item_swift_blink"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
 		"AbilityCastRange"				"1600"
 		"AbilityOvershootCastRange"     "1200"
@@ -5898,16 +5898,16 @@
 	}
 
 	//=================================================================================================================
-	// 小智跳 和大智力跳互换
+	// 秘奥闪光 小智跳 和大智力跳互换
 	//=================================================================================================================
 	"item_arcane_blink_2"
 	{
-		"BaseClass"                     "item_arcane_blink"
+		"BaseClass"						"item_arcane_blink"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
 		"AbilityCastRange"				"1400"			// If updating this, update AbilityOvershootCastRange to 4/5 of this value
-		"AbilityOvershootCastRange"     "1120"
+		"AbilityOvershootCastRange"		"1120"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"7.0"
+		"AbilityCooldown"				"9.0"
 		"AbilityManaCost"				"0"
 		"AbilitySharedCooldown"			"blink"
 		"ItemShopTags"					"teleport"
@@ -5929,7 +5929,7 @@
 
 	"item_recipe_arcane_blink_2"
 	{
-		"BaseClass"                     "item_recipe_arcane_blink"
+		"BaseClass"						"item_recipe_arcane_blink"
 		"ItemCost"						"0"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -5942,7 +5942,7 @@
 
 	"item_recipe_swift_blink_2"
 	{
-		"BaseClass"                     "item_recipe_swift_blink"
+		"BaseClass"						"item_recipe_swift_blink"
 		"ItemCost"						"0"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -5955,7 +5955,7 @@
 
 	"item_recipe_overwhelming_blink_2"
 	{
-		"BaseClass"                     "item_recipe_overwhelming_blink"
+		"BaseClass"						"item_recipe_overwhelming_blink"
 		"ItemCost"						"0"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
