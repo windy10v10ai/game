@@ -2270,16 +2270,8 @@
 	}
 	"npc_dota_hero_snapfire"
 	{
-		"Ability7"				"snapfire_mortimer_kisses"
-		"Ability6"              "chen_penitence"
-		"Ability10"				"special_bonus_unique_snapfire_7"
-		"Ability17"				"special_bonus_unique_snapfire_5"
-		"Ability16"				"special_bonus_unique_snapfire_2"
-		"Ability13"				"special_bonus_unique_snapfire_3"
-		"Ability14"				"special_bonus_unique_snapfire_8"
-		"Ability15"				"special_bonus_unique_snapfire_mortimer_kisses_impact_damage"
-		"Ability12"				"special_bonus_unique_snapfire_6"
-		"Ability11"				"special_bonus_unique_snapfire_1"
+		// "Ability7"				"snapfire_mortimer_kisses"
+		// "Ability6"				"chen_penitence"	// 设置此技能会导致先天技能失效
 	}
 	"npc_dota_hero_sniper"
 	{

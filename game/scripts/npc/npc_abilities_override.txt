@@ -3523,7 +3523,6 @@
 				"damage"
 				{
 					"value"		"100 160 220 280 340"
-					"LinkedSpecialBonus"		"special_bonus_unique_snapfire_7"
 				}
 		}
 	}
@@ -3531,6 +3530,7 @@
 	"snapfire_firesnap_cookie"
 	{
 		"MaxLevel" "5"
+		"AbilityManaCost"				"85 90 95 100 105"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
@@ -3540,43 +3540,40 @@
 				}
 				"impact_damage"
 				{
-					"value"					"140 210 280 380 480"
+					"value"					"70 140 210 280 380"
 					"CalculateSpellDamageTooltip"	"1"
 				}
-				"impact_stun_duration"	"1.2 1.4 1.6 1.8 2.0"
+				"impact_stun_duration"
+				{
+					"value"		"1.0 1.4 1.8 2.2 2.6"
+				}
 				"target_heal"
 				{
-					"value"			"150 200 250 300 350"
-					"special_bonus_unique_snapfire_5"	"+650"// FIXME 175 暂时从10级天赋调整到25级天赋，增加数值
+					"value"			"300"
+					"special_bonus_shard"	"+600"	// 200
 				}
 		}
 	}
 	// 霹雳铁手
 	"snapfire_lil_shredder"
 	{
-		"LinkedAbility"                 "chen_penitence"
-		"AbilityDraftPreAbility"        "chen_penitence"
+		"LinkedAbility"					"chen_penitence"
+		"AbilityDraftPreAbility"		"chen_penitence"
 		"MaxLevel" "5"
-		"AbilityCooldown"				"24 20 16 12 8"
-		"AbilityDuration"				"6"
-		"AbilityManaCost"				"50 65 80 95 110"
+		"AbilityCooldown"				"24 21 18 15 12"
+		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
 				"damage"					"20 45 70 95 120"
-				"attack_range_bonus"		"75 150 225 300 375"
-				"buffed_attacks"
-				{
-					"value"		"6"
-					"special_bonus_unique_snapfire_2"	"+6"// FIXME 暂时从15级天赋调整到25级天赋，增加数值
-				}
+				"attack_range_bonus"		"160 240 320 400 480"
 		}
 	}
 	// 赎罪（来自陈）
 	"chen_penitence"
 	{
-		"LinkedAbility"                 "snapfire_lil_shredder"
-		"AbilityDraftPreAbility"        "snapfire_lil_shredder"
-		"MaxLevel"                      "5"
+		"LinkedAbility"					"snapfire_lil_shredder"
+		"AbilityDraftPreAbility"		"snapfire_lil_shredder"
+		"MaxLevel"						"5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastRange"				"800"
 		"AbilityCooldown"				"14.0 13.0 12.0 11.0 10.0"
@@ -3610,19 +3607,21 @@
 		{
 			"damage_per_impact"
 			{
-				"value"		"200 280 360 440"
+				"value"		"180 270 360 450"
 				"special_bonus_unique_snapfire_mortimer_kisses_impact_damage"		"+80"
 			}
 			"impact_radius"
 			{
-				"value" "400"// 275
+				"value" "350"// 275
 				"affected_by_aoe_increase"	"1"
 			}
-			"burn_damage"			"80 100 120 140"
+			"burn_damage"
+			{
+				"value"					"60 80 100 120"
+			}
 			"move_slow_pct"
 			{
 				"value"			"20 25 30 35"
-				"special_bonus_unique_snapfire_4"	"+25"
 			}
 		}
 	}
@@ -3631,15 +3630,6 @@
 	{
 		"AbilityCastRange"				"600"// 150 作为救人手段
 		"AbilityCooldown"				"20"// 40
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_time_in_belly"		"5.0"// 3
-				"RequiresScepter"		"1"
-			}
-		}
 	}
 	//=================================================================================================================
 	// Ability: Spirit Breaker 裂魂人/白牛
