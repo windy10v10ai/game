@@ -3,10 +3,10 @@
   "Lua.workspace.library": ["/game/scripts"],
   "css.lint.unknownProperties": "ignore",
   "search.exclude": {
-    "**/materials": true,
-    "**/models": true,
+    // "**/materials": true,
+    // "**/models": true,
+    // "**/particles": true,
     "**/soundevents": true,
-    "**/particles": true,
     "game/itembuilds": true
   },
   "files.watcherExclude": {

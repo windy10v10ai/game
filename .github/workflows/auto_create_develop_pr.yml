@@ -1,0 +1,62 @@
+# create pr when windybirth push to feature branch
+name: Auto Create Develop PR
+on:
+  push:
+
+jobs:
+  create_pull_request:
+    if: |
+      github.actor == 'windybirth'
+      && github.ref_name != 'main'
+      && github.ref_name != 'develop'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out base code
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+
+      - name: Reset promotion branch
+        run: |
+          git fetch origin ${{ github.ref_name }}:${{ github.ref_name }}
+          git reset --hard ${{ github.ref_name }}
+
+      - name: Get related issue number from branch
+        id: get_issue
+        run: |
+          issue_number=$(echo ${{ github.ref_name }} | awk -F'[^0-9]+' '{{print ($1 ~ /^[0-9]+$/ ? $1 : $2)}}')
+          echo number=$issue_number >> $GITHUB_OUTPUT
+
+      - name: Fetch issue title
+        id: fetch_issue
+        run: |
+          response=$(curl --request GET --url https://api.github.com/repos/${{ github.repository }}/issues/${{ steps.get_issue.outputs.number }})
+          title=$(echo "$response" | jq -r .title)
+          if [ $title = "null" ]; then
+            title=$(echo ${{ github.ref_name }})
+            title=$(echo $title | sed 's/-/ /g')
+          fi
+          echo title=$title >> $GITHUB_OUTPUT
+
+      - name: Check if PR exists
+        id: check_pr
+        run: |
+          pr_exists=$(gh pr list --base develop --head ${{ github.ref_name }} --json number -q '.[0].number')
+          echo pr_exists=$pr_exists >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Pull Request if not exists
+        if: steps.check_pr.outputs.pr_exists == null
+        id: cpr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: ${{ steps.fetch_issue.outputs.title }}
+          branch: ${{ github.ref_name }}
+          body: |
+            ## Issue
+
+            - [ ] fix #${{ steps.get_issue.outputs.number }}
+          base: develop
+          token: ${{ secrets.WINDY_PR_PAT }}
+          draft: true

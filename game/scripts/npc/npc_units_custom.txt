@@ -195,7 +195,6 @@
 		"SoundSet"					"Hero_WarlockGolem"
 		"IsSummoned"				"1"
 		"IsAncient"					"1"
-		"ModelScale"					"1.2"
 		"ConsideredHero"			"1"
 		"UnitLabel"			"golem"
 		"wearable"				"8362"
@@ -476,9 +475,9 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"360"			// 50
-		"AttackDamageMax"			"360"			// 50
-		"AttackRate"				"0.7"
+		"AttackDamageMin"			"300"			// 50
+		"AttackDamageMax"			"300"			// 50
+		"AttackRate"				"1.0"			// 1.5
 	}
 
 	"npc_dota_shadow_shaman_ward_2"
@@ -487,9 +486,9 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"720"			// 85
-		"AttackDamageMax"			"720"			// 85
-		"AttackRate"				"0.7"
+		"AttackDamageMin"			"600"			// 85
+		"AttackDamageMax"			"600"			// 85
+		"AttackRate"				"1.0"			// 1.5
 	}
 
 	"npc_dota_shadow_shaman_ward_3"
@@ -498,9 +497,9 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"1080"			// 120
-		"AttackDamageMax"			"1080"			// 120
-		"AttackRate"				"0.7"
+		"AttackDamageMin"			"900"			// 120
+		"AttackDamageMax"			"900"			// 120
+		"AttackRate"				"1.0"			// 1.5
 	}
 
 	// beastmaster_boar 兽王野猪

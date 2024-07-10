@@ -129,7 +129,6 @@
 	// 净化药水
 	"item_clarity"
 	{
-		"ItemInitialCharges"			"5"
 		"ItemStockMax"					"8"
 		"ItemStockInitial"				"8"
 		"AbilityValues"
@@ -141,7 +140,7 @@
 	// 芒果
 	"item_enchanted_mango"
 	{
-		"ItemCost"						"85"			// 65
+		"ItemCost"						"90"			// 65
 
 		"ItemStackableMax"				"4"
 
@@ -152,24 +151,25 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"hp_regen"		"1.2"
-				"replenish_amount"		"250"
+				"hp_regen"		"1.5"	// 0.4
+				"replenish_amount"		"250"	// 100
 		}
 	}
 	"item_faerie_fire" //仙灵之火
 	{
-		"ItemCost"						"80"
+		"ItemCost"						"90"			// 65
 		"AbilityValues"
 		{
-				"bonus_damage"			"6"				// 2
-				"hp_restore"			"240"			// 85
+				"bonus_damage"			"8"				// 2
+				"hp_restore"			"320"			// 85
 		}
 	}
 	"item_blood_grenade" //血腥榴弹
 	{
 		"ItemCost"						"80"
-		"AbilityHealthCost"				"125"
+		"AbilityHealthCost"				"150"			// 50
 
+		"ItemStackableMax"				"3"				// 2
 		"ItemStockInitial"				"3"				// 2
 		"ItemStockTime"					"120"			// 180
 		"AbilityValues"
@@ -1443,7 +1443,7 @@
 	{
 		"ItemCost"						"250"
 	}
-	// 大智力跳
+	// 大智力跳 爱因斯坦闪光
 	"item_recipe_arcane_blink"
 	{
 		"ItemCost"						"0"
@@ -1458,9 +1458,9 @@
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
 		"AbilityCastRange"				"1800"			// If updating this, update AbilityOvershootCastRange to 4/5 of this value
-		"AbilityOvershootCastRange"     "1440"
+		"AbilityOvershootCastRange"		"1440"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"4.0"
+		"AbilityCooldown"				"6.0"
 		"AbilityManaCost"				"0"
 		"AbilitySharedCooldown"			"blink"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -1468,7 +1468,7 @@
 		"AbilityValues"
 		{
 				"blink_range"			"1800"	//1400
-				"blink_damage_cooldown"	"0.0"	//3.0
+				"blink_damage_cooldown"	"0.1"	//3.0
 				"blink_range_clamp"		"1600"	//960
 				"bonus_intellect"		"50"	//25
 				"heal_amount"			"400"	//200

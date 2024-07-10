@@ -128,3 +128,13 @@ Panorama UI with webpack, TypeScript and React.
   <br>
 - **[game/*]:** 会和 `dota 2 beta/game/dota_addons/your_addon_name` 同步更新
 - **[content/*]:** 会和 `dota 2 beta/content/dota_addons/your_addon_name` 同步更新
+
+# 维护指南
+
+## Console报错
+
+console中有如下报错时，技能特效会消失，需要删除对应的文件，然后重新启动Dota2即可。
+
+```
+Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare_ambient.vpcf_c" (ERROR_BADREQUEST: Code error - bad request)
+```
