@@ -386,11 +386,6 @@
 		"Ability5"		"abyssal_underlord_dark_rift"
 	}
 
-	"npc_dota_hero_life_stealer"
-    {
-        "Ability17"		"special_bonus_attack_damage_150"
-    }
-
 	"npc_dota_hero_brewmaster"
 	{
 		"Ability4"		"brewmaster_drunken_haze"
@@ -410,9 +405,7 @@
 
 	"npc_dota_hero_hoodwink"
 	{
-		"AttackRate"    "1.7"
-		"Ability16"					"special_bonus_unique_hoodwink_sharpshooter_damage"
-		"Ability14"					"special_bonus_unique_hoodwink_acorn_shot_charges"
+		"AttackRate"		"1.7"	// 2.0
 	}
 
 	"npc_dota_hero_obsidian_destroyer"
@@ -502,17 +495,6 @@
 		"Ability20"		"rubick_null_field"
 	}
 
-	"npc_dota_hero_slark"
-    {
-        "Ability10"		"special_bonus_unique_slark_2"
-        "Ability11"		"special_bonus_unique_slark"
-        "Ability12"		"special_bonus_lifesteal_15"
-        "Ability13"		"special_bonus_unique_slark_8"
-        "Ability14"		"special_bonus_unique_slark_4"
-        "Ability15"		"special_bonus_magic_resistance_20"
-        "Ability16"		"special_bonus_unique_slark_301"
-        "Ability17"		"special_bonus_unique_slark_5"
-    }
 
 	"npc_dota_hero_nyx_assassin"
 	{
@@ -1678,7 +1660,7 @@
 				"2"		"necrolyte_death_pulse"
 				"3"		"necrolyte_heartstopper_aura"
 				"4"		"necrolyte_death_pulse"
-				"5"		"necrolyte_sadist"
+				"5"		"necrolyte_ghost_shroud"
 				"6"		"necrolyte_reapers_scythe"
 				"7"		"necrolyte_heartstopper_aura"
 				"8"		"necrolyte_death_pulse"
@@ -1689,7 +1671,7 @@
 				"13"		"necrolyte_heartstopper_aura"
 				"14"		"necrolyte_death_pulse"
 				"15"		"special_bonus_unique_necrophos_3"
-				"16"		"necrolyte_sadist"
+				"16"		"necrolyte_ghost_shroud"
 				"17"		""
 				"18"		"necrolyte_reapers_scythe"
 				"19"		""
@@ -1705,9 +1687,9 @@
 				"29"		"special_bonus_unique_necrophos_5"
 				"30"		"special_bonus_unique_necrophos"
 				"31"		"necrolyte_reapers_scythe"
-				"32"		"necrolyte_sadist"
-				"33"		"necrolyte_sadist"
-				"34"		"necrolyte_sadist"
+				"32"		"necrolyte_ghost_shroud"
+				"33"		"necrolyte_ghost_shroud"
+				"34"		"necrolyte_ghost_shroud"
 			}
 		}
 	}
