@@ -2056,10 +2056,10 @@
 	"lycan_shapeshift"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"75 70 65 60"
+		"AbilityCooldown"				"90"
 		"AbilityValues"
 		{
-			"speed"				"1000"
+			"speed"				"850"
 			"crit_multiplier"		"160 200 240 280"
 			"health_bonus"		"500 700 900 1100" // x2
 		}
@@ -2068,7 +2068,7 @@
 	"lycan_wolf_bite"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"75 70 65 60"// 同步大招
+		"AbilityCooldown"				"90"
 		"AbilityValues"
 		{
 			"lifesteal_percent"		"60" // 40
@@ -7130,6 +7130,11 @@
 					"value"			"40 55 70 85 100"
 					"special_bonus_facet_sniper_scattershot"	"x4"
 				}
+				"duration"
+				{
+					"value"		"10.0"
+					"special_bonus_facet_sniper_scattershot"	"=3"	// 1
+				}
 		}
 	}
 	// 爆头
@@ -7141,7 +7146,7 @@
 			"damage"
 			{
 				"value"	"50 80 110 150 200"
-				"special_bonus_unique_sniper_headshot_damage"	"+40"
+				"special_bonus_unique_sniper_headshot_damage"	"+50"
 			}
 		}
 	}
@@ -7159,7 +7164,7 @@
 			}
 			"bonus_armor"
 			{
-				"value"												"5 10 15 20 25"
+				"value"												"10 20 30 40 50"	// x2
 				"special_bonus_unique_sniper_take_aim_armor"		"+25"	// 15
 			}
 		}
@@ -7170,16 +7175,16 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"bonus_range"				"100 150 200 250 300"
+			"bonus_range"				"80 160 240 320 400"
 		}
 	}
 	// 暗杀
 	"sniper_assassinate"
 	{
-		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel" "4"
-		"AbilityCooldown"				"24 20 16 12"
-		"AbilityDamage"					"350 500 650 800"
+		"AbilityCooldown"				"18 16 14 12"
+		"AbilityDamage"					"300 500 700 900"
 		"AbilityManaCost"				"175 225 275 325"
 		"AbilityValues"
 		{
@@ -11147,6 +11152,8 @@
 	"shadow_shaman_mass_serpent_ward"
 	{
 		"MaxLevel" "3"
+		"RequiredLevel"					"8"
+		"LevelsBetweenUpgrades"			"8"
 		"AbilityCooldown"				"140"
 		"AbilityValues"
 		{
@@ -11295,7 +11302,7 @@
 		"AbilityCooldown"				"4.0 3.5 3.0 2.5 2.0"
 		"AbilityValues"
 		{
-				"bolt_damage"			"75 95 115 135 155"
+				"bolt_damage"			"75 100 125 150 175"
 		}
 	}
 	// 震荡光弹
@@ -11303,7 +11310,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"15 14 13 12 11"
-		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilityManaCost"				"80 85 90 95 100"
 		"AbilityValues"
 		{
 				"damage"			"120 180 240 300 360"
@@ -11338,7 +11345,7 @@
 				"damage"
 				{
 					"value"			"800 1200 1600 2000"
-				"special_bonus_unique_skywrath_5" "+400"
+				"special_bonus_unique_skywrath_5" "+600"	// 400
 				}
 		}
 	}
@@ -11559,12 +11566,18 @@
 			"damage_absorb"
 			{
 				"value"							"180 360 540 720 900"	// 100 180 240 320
-				"special_bonus_unique_tinker_7"	"+125"
+				"special_bonus_unique_tinker_7"	"+250"	// 125
 			}
 			"status_resistance"
 			{
 				"value"															"10 20 30 40 50"
 				"special_bonus_unique_tinker_defense_matrix_status_resistance"	"+10"
+			}
+			"barrier_duration"		"30"	// 15
+			"flicker_range"
+			{
+				"value"											"0"
+				"special_bonus_facet_tinker_translocator"	"+700"	// 350
 			}
 		}
 	}
@@ -11572,8 +11585,8 @@
 	"tinker_laser"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"1050"
-		"AbilityCooldown"				"22 20 18 16 14"
+		"AbilityCastRange"				"1200"
+		"AbilityCooldown"				"19 18 17 16 15"
 		"AbilityManaCost"				"95 105 115 125 135"
 		"AbilityValues"
 		{
@@ -11584,7 +11597,7 @@
 			"laser_damage"
 			{
 				"value" "75 150 225 300 375"
-				"special_bonus_unique_tinker" "+75"	// 40
+				"special_bonus_unique_tinker" "+125"	// 40
 			}
 		}
 	}
@@ -11615,11 +11628,11 @@
 		"AbilityManaCost"				"90 110 130 150 170"
 		"AbilityValues"
 		{
-			"damage"				"17 26 35 44 53"
+			"damage"				"30 45 60 75 90"	// 17 26 35 44
 			"heal_per_second"
 			{
 				"value"									"0"
-				"special_bonus_facet_tinker_repair_bots"	"+16 +24 +32 +40 +48"	// x2
+				"special_bonus_facet_tinker_repair_bots"	"+30 +40 +50 +60 +70"	// x2
 			}
 		}
 	}
@@ -12192,7 +12205,7 @@
 		{
 			"damage"
 			{
-				"value"					"50 75 100 125 150"
+				"value"					"50 100 150 200 250"	// x2
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"range"
@@ -12211,12 +12224,13 @@
 	"zuus_arc_lightning"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"70 80 90 100 110"
+		"AbilityManaCost"				"75 80 85 90 95"
 		"AbilityValues"
 		{
 			"arc_damage"
 			{
-				"value"			"110 135 160 185 210"
+				"value"			"90 120 150 180 210"
+				"special_bonus_unique_zeus_2"	"+90"	// 60
 			}
 			"jump_count"			"5 7 9 11 13"
 		}
@@ -12244,8 +12258,8 @@
 		{
 			"damage"
 			{
-				"value"							"350 500 650 800"
-				"special_bonus_unique_zeus_4"		"+150"
+				"value"							"300 475 650 825"
+				"special_bonus_unique_zeus_4"		"+275"	// 150
 			}
 		}
 	}
@@ -12264,6 +12278,12 @@
 				{
 					"value"		"0"
 					"special_bonus_facet_zuus_livewire"	"=4 =5 =6 =7 =8"
+				}
+				"distance_threshold_max"
+				{
+					"value"		"0"
+					"special_bonus_facet_zuus_livewire"	"1600"	// 1200
+					"affected_by_aoe_increase"	"1"
 				}
 		}
 	}
