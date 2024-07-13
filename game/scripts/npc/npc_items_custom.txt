@@ -5764,6 +5764,7 @@
 				"duration"					"6"
 				"spell_amp_debuff"			"70"
 				"proc_damage"				"120"
+				"passive_proc_damage"		"120"
 				"proc_chance"				"80"
 		}
 	}
