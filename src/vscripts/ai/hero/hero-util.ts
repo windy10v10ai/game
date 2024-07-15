@@ -3,6 +3,7 @@ export class HeroUtil {
     "modifier_axe_berserkers_call", // 战吼
     "modifier_legion_commander_duel", // 决斗
     "modifier_winter_wyvern_winters_curse", // 冰龙大
+    "modifier_huskar_life_break_taunt", // 哈斯卡 A杖大
     "modifier_teleporting", // TP
   ];
 
@@ -27,7 +28,7 @@ export class HeroUtil {
     if (hero.IsFrozen()) {
       return true;
     }
-    // FIXME 禁用物品
+    // FIXME 禁用物品，修改成可以采取其他行动
     if (hero.IsMuted()) {
       return true;
     }

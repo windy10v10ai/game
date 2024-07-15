@@ -3286,7 +3286,7 @@
 		"AbilityCooldown"						"18.0"
 		"AbilityCastRange"						"900"
 		"AbilityManaCost"						"300"
-		"AbilitySharedCooldown"			        "bluefantasy"
+		"AbilitySharedCooldown"					"bluefantasy"
 
 
 		// Item Info
