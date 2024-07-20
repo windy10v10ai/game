@@ -708,7 +708,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2275"
+		"ItemCost"						"2475"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -841,7 +841,7 @@
 							"Aura" 					"modifier_item_vladmir_2_enemy_aura"
 							"Aura_Radius" 			"%aura_radius"
 							"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 							"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 							"Aura_ApplyToCaster" 	"0"
 					}
@@ -2739,7 +2739,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3850"
+		"ItemCost"						"4000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2780,12 +2780,12 @@
 			"bonus_strength"		"33"
 			"bonus_agility"			"33"
 			"bonus_intellect"		"33"
-			"status_resistance"		"20"
-			"bonus_attack_speed"	"20"
+			"status_resistance"		"25"
+			"bonus_attack_speed"	"33"
 			"movement_speed_percent_bonus"				"12"
-			"hp_regen_amp"			"18"
-			"spell_lifesteal_amp"	"18"
-			"mana_regen_multiplier"	"33"
+			"hp_regen_amp"			"30"
+			"spell_lifesteal_amp"	"30"
+			"mana_regen_multiplier"	"60"
 			"spell_amp"				"18"
 			"magic_damage_attack"	"33"
 		}
@@ -2843,12 +2843,12 @@
 			"bonus_strength"		"66"
 			"bonus_agility"			"66"
 			"bonus_intellect"		"66"
-			"status_resistance"		"30"
-			"bonus_attack_speed"	"30"
+			"status_resistance"		"36"
+			"bonus_attack_speed"	"66"
 			"movement_speed_percent_bonus"				"18"
-			"hp_regen_amp"			"36"
-			"spell_lifesteal_amp"	"36"
-			"mana_regen_multiplier"	"66"
+			"hp_regen_amp"			"60"
+			"spell_lifesteal_amp"	"60"
+			"mana_regen_multiplier"	"90"
 			"spell_amp"				"36"
 			"magic_damage_attack"	"66"
 		}
