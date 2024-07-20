@@ -130,7 +130,7 @@
 
 		"data_panel_player_property_cooldown_percentage"		"冷却时间 ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"施法距离"
-		"data_panel_player_property_spell_amplify_percentage"	"法术强度 ( % )"
+		"data_panel_player_property_spell_amplify_percentage"	"技能增强 ( % )"
 		"data_panel_player_property_status_resistance_stacking"	"状态抗性 ( % )"
 		"data_panel_player_property_evasion_constant"			"闪避 ( % )"
 		"data_panel_player_property_magical_resistance_bonus"	"魔法抗性 ( % )"
@@ -145,7 +145,7 @@
 		"data_panel_player_property_health_regen_percentage"	"最大生命回复 ( % )"
 		"data_panel_player_property_mana_regen_total_percentage"	"最大魔法回复 ( % )"
 		"data_panel_player_property_lifesteal"					"攻击吸血 ( % )"
-		"data_panel_player_property_spell_lifesteal"			"法术吸血 ( % )"
+		"data_panel_player_property_spell_lifesteal"			"技能吸血 ( % )"
 		"data_panel_player_property_movespeed_bonus_constant"	"移动速度"
 		"data_panel_player_property_ignore_movespeed_limit"		"无视移速上限"
 		"data_panel_player_property_cannot_miss"				"克敌机先"
@@ -1019,10 +1019,6 @@
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>使用: 力量之书</h1> 永久增加力量 %bonus% 点。\n可以分享给队友"
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Lore"				"Is it strength that you desire...?"
 
-		"DOTA_Tooltip_Ability_item_tome_of_strength_for_lottery"					"力量之书（特惠版）"
-        "DOTA_Tooltip_Ability_item_tome_of_strength_for_lottery_Description"		"<h1>使用: 力量之书</h1> 永久增加力量 %bonus% 点。\n可以分享给队友"
-        "DOTA_Tooltip_Ability_item_tome_of_strength_for_lottery_Lore"				"Is it strength that you desire...?"
-
 		"DOTA_Tooltip_modifier_str_tome"								"力量之书加成"
 		"DOTA_Tooltip_modifier_str_tome_Description"					"力量增加 <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
@@ -1031,10 +1027,6 @@
 		"DOTA_Tooltip_Ability_item_tome_of_agility_Description"			"<h1>使用: 敏捷之书</h1> 永久增加敏捷 %bonus% 点。\n可以分享给队友"
 		"DOTA_Tooltip_Ability_item_tome_of_agility_Lore"				"Is it swiftness that you seek...?"
 
-		"DOTA_Tooltip_Ability_item_tome_of_agility_for_lottery"						"敏捷之书（特惠版）"
-        "DOTA_Tooltip_Ability_item_tome_of_agility_for_lottery_Description"			"<h1>使用: 敏捷之书</h1> 永久增加敏捷 %bonus% 点。\n可以分享给队友"
-        "DOTA_Tooltip_Ability_item_tome_of_agility_for_lottery_Lore"				"Is it swiftness that you seek...?"
-
 		"DOTA_Tooltip_modifier_agi_tome"								"敏捷之书加成"
 		"DOTA_Tooltip_modifier_agi_tome_Description"					"敏捷增加 <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
@@ -1042,16 +1034,12 @@
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Description"	"<h1>使用: 智力之书</h1> 永久增加智力 %bonus% 点。\n可以分享给队友"
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Lore"			"Is it enlightenment that you aspire to...?"
 
-		"DOTA_Tooltip_Ability_item_tome_of_intelligence_for_lottery"				"智力之书（特惠版）"
-        "DOTA_Tooltip_Ability_item_tome_of_intelligence_for_lottery_Description"	"<h1>使用: 智力之书</h1> 永久增加智力 %bonus% 点。\n可以分享给队友"
-        "DOTA_Tooltip_Ability_item_tome_of_intelligence_for_lottery_Lore"			"Is it enlightenment that you aspire to...?"
-
 		"DOTA_Tooltip_modifier_int_tome"								"智力之书加成"
 		"DOTA_Tooltip_modifier_int_tome_Description"					"智力增加 <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
 		"DOTA_Tooltip_Ability_item_tome_of_luoshu"						"洛书"
-		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>使用: 洛书祝福</h1> 永久增加全属性 %bonus_all_stats% 点，%status_resistance%%%状态抗性，%spell_amp%%%技能增强，%bonus_base_damage_percent%%%基础攻击力，%bonus_cast_range%施法距离。\n只可使用一次\n可以分享给队友"
-		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Lore"					"Is it enlightenment that you aspire to...?"
+		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>使用: 洛书祝福</h1> 永久增加 <br>%bonus_all_stats% 点全属性，<br>%status_resistance%%% 状态抗性，<br>%spell_amp%%% 技能增强，<br>%bonus_base_damage_percent%%% 基础攻击力，<br>%bonus_cast_range% 施法距离。\n只可使用一次\n可以分享给队友"
+		"DOTA_Tooltip_ability_item_tome_of_luoshu_cast_error"			"洛书只能使用一次"
 
 		"DOTA_Tooltip_modifier_luoshu_tome"								"洛书看好你！"
 		"DOTA_Tooltip_modifier_luoshu_tome_Description"					"哥哥你为我花了这么多钱，你女朋友不会生气吧？"
@@ -1249,7 +1237,7 @@
 
 		// item_magic_scepter 紫杖
 		"DOTA_Tooltip_Ability_item_magic_scepter"								"魔渊法杖"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>主动: <font color='#a74abd'>魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续 %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int%%% 法术增强."
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>主动: <font color='#a74abd'>魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续 %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强."
 		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, mildly deteriorated.."
 		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_magic_scepter"						"魔渊法杖卷轴"
@@ -1259,7 +1247,7 @@
 
 		// item_hallowed_scepter 大紫杖
 		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"仙云法杖"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>主动: <font color='#a74abd'>仙力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续  %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int%%% 法术增强。"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>主动: <font color='#a74abd'>仙力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续  %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强。"
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_hallowed_scepter"						"仙云法杖卷轴"

@@ -2293,9 +2293,9 @@
 	{
 		"ID"						"3027"
 		"BaseClass"					"item_lua"
-		"ScriptFile"                    		"items/item_tome_of_agility"
-		"AbilityTextureName"		    		"tome_of_agility"
-		"ItemCost"					"19999"
+		"ScriptFile"				"items/item_tome_of_agility"
+		"AbilityTextureName"		"tome_of_agility"
+		"ItemCost"					"12000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"agility tome;agi"
 		"ItemShopTags"					"consumable"
@@ -2311,7 +2311,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bonus"         		"50"
+				"bonus"				"50"
 			}
 		}
 	}
@@ -2324,9 +2324,9 @@
 	{
 		"ID"						"3028"
 		"BaseClass"					"item_lua"
-		"ScriptFile"                    		"items/item_tome_of_intelligence"
-		"AbilityTextureName"		   		"tome_of_intelligence"
-		"ItemCost"					"19999"
+		"ScriptFile"				"items/item_tome_of_intelligence"
+		"AbilityTextureName"		"tome_of_intelligence"
+		"ItemCost"					"10000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"intelligence tome;int"
 		"ItemShopTags"					"consumable"
@@ -2342,7 +2342,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bonus"         		"50"
+				"bonus"				"50"
 			}
 		}
 	}
@@ -2355,9 +2355,9 @@
 	{
 		"ID"						"3029"
 		"BaseClass"					"item_lua"
-		"ScriptFile"                    		"items/item_tome_of_strength"
-		"AbilityTextureName"		    		"tome_of_strength"
-		"ItemCost"					"19999"
+		"ScriptFile"				"items/item_tome_of_strength"
+		"AbilityTextureName"		"tome_of_strength"
+		"ItemCost"					"12000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"strength tome;str"
 		"ItemShopTags"					"consumable"
@@ -2373,7 +2373,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bonus"         		"50"
+				"bonus"				"50"
 			}
 		}
 	}
@@ -4824,7 +4824,7 @@
 		"AbilityTextureName"			"item_recipe_tome_of_luoshu"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6003"
+		"ItemCost"						"26000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4861,9 +4861,10 @@
 		{
 			"bonus_all_stats"			"50"
 			"status_resistance"			"30"
-			"spell_amp"					"30"
-			"bonus_base_damage_percent"	"50"
 			"bonus_cast_range"			"200"
+			// tooltip values, actual values in modifier_item_tome_of_luoshu_stats
+			"spell_amp"					"50"
+			"bonus_base_damage_percent"	"80"
 		}
 	}
 
@@ -5262,125 +5263,6 @@
 			"group_gold"		"80"
 		}
 	}
-
-	//=================================================================================================================
-    // Item: Tome of Agility for lottery
-    //=================================================================================================================
-    "item_tome_of_agility_for_lottery"
-    {
-        "ID"						"3096"
-        "BaseClass"					"item_lua"
-        "ScriptFile"                    		"items/item_tome_of_agility_for_lottery"
-        "AbilityTextureName"		    		"tome_of_agility"
-        "ItemCost"					"6000"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "ItemAliases"					"agility tome;agi"
-        "ItemShopTags"					"consumable"
-        "ItemQuality"					"consumable"
-        "ItemStackable"					"1"
-        "ItemPermanent"					"0"
-        "IsTempestDoubleClonable"		"0"
-
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-
-        "ItemInitialCharges"			"1"
-		"ItemDisplayCharges"			"1"
-		"ItemStockMax"					"10"
-		"ItemStockInitial"				"0"
-		"ItemStockTime"					"180.0"
-		"ItemInitialStockTime"			"225.0"
-
-        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "bonus"         		"50"
-            }
-        }
-    }
-
-
-    //=================================================================================================================
-    // Item: Tome of Intelligence for lottery
-    //=================================================================================================================
-    "item_tome_of_intelligence_for_lottery"
-    {
-        "ID"						"3097"
-        "BaseClass"					"item_lua"
-        "ScriptFile"                    		"items/item_tome_of_intelligence_for_lottery"
-        "AbilityTextureName"		   		"tome_of_intelligence"
-        "ItemCost"					"6000"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "ItemAliases"					"intelligence tome;int"
-        "ItemShopTags"					"consumable"
-        "ItemQuality"					"consumable"
-        "ItemStackable"					"1"
-        "ItemPermanent"					"0"
-        "IsTempestDoubleClonable"		"0"
-
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-
-        "ItemInitialCharges"			"1"
-		"ItemDisplayCharges"			"1"
-		"ItemStockMax"					"10"
-		"ItemStockInitial"				"0"
-		"ItemStockTime"					"180.0"
-		"ItemInitialStockTime"			"225.0"
-
-        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "bonus"         		"50"
-            }
-        }
-    }
-
-
-    //=================================================================================================================
-    // Item: Tome of Strength for lottery
-    //=================================================================================================================
-    "item_tome_of_strength_for_lottery"
-    {
-        "ID"						"3098"
-        "BaseClass"					"item_lua"
-        "ScriptFile"                    		"items/item_tome_of_strength_for_lottery"
-        "AbilityTextureName"		    		"tome_of_strength"
-        "ItemCost"					"6000"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "ItemAliases"					"strength tome;str"
-        "ItemShopTags"					"consumable"
-        "ItemQuality"					"consumable"
-        "ItemStackable"					"1"
-        "ItemPermanent"					"0"
-        "IsTempestDoubleClonable"		"0"
-
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-
-        "ItemInitialCharges"			"1"
-		"ItemDisplayCharges"			"1"
-		"ItemStockMax"					"10"
-		"ItemStockInitial"				"0"
-		"ItemStockTime"					"180.0"
-		"ItemInitialStockTime"			"225.0"
-
-        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "bonus"         		"50"
-            }
-        }
-    }
 
     //=================================================================================================================
     // Bloodstone v2 替换为小血精石
