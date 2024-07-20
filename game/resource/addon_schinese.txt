@@ -430,9 +430,12 @@
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
 		// 混沌骑士
+		"DOTA_Tooltip_ability_chaos_knight_chaos_bolt_shard_description"		"混乱之箭施法距离提升至%AbilityCastRange%。"
+
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"混沌之军"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战，持续%duration%秒。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_duration"								"混沌之军持续时间："
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
 		// "DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
@@ -972,6 +975,7 @@
         "DOTA_Tooltip_ability_lina_fiery_soul_Description"		"莉娜每次利用技能击中一个敌人都会使她获得攻击和移动速度、技能伤害加成。可以叠加。持续%fiery_soul_stack_duration%秒。"
         "DOTA_Tooltip_ability_lina_fiery_soul_shard_description"	"+%shard_bonus_spell_damage%点每层炽魂技能伤害增加"
         "DOTA_Tooltip_ability_lina_fiery_soul_bonus_spell_damage"			"技能伤害增加："
+		"DOTA_Tooltip_ability_special_bonus_unique_lina_dragon_slave_damage"	"+{s:bonus_dragon_slave_damage} 龙破斩伤害"
 
         // 幽鬼 spe
         "DOTA_Tooltip_ability_spectre_desolate_Description"		"幽鬼的攻击对敌人造成额外的纯粹伤害。"
@@ -993,6 +997,9 @@
 
         // 巫妖
         "DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} 连环霜冻弹跳次数"
+
+		// Alchemist 炼金术士
+		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"额外生命值："
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
