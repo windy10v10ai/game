@@ -304,6 +304,12 @@ function RefreshItemDataDrivenModifier(item, modifier)
 	end)
 end
 
+function ApplyItemDataDrivenModifier(target, dataDrivenItemName, modifierName, modifierTable)
+	local item = CreateItem(dataDrivenItemName, nil, nil)
+	item:ApplyDataDrivenModifier(target, target, modifierName, modifierTable)
+	UTIL_RemoveImmediate(item)
+end
+
 function IsHumanPlayer(playerID)
 	local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
 	return steamAccountID ~= 0

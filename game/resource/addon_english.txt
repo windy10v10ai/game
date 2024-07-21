@@ -121,7 +121,7 @@
 
 		// "data_panel_link_charge"		"Charge Member Point"
 		// "data_panel_link_rule"			"Point Rule"
-		// "data_panel_member_point_rule_url"		"https://afdian.net/p/8d1e8ac8682711ed984b52540025c377"
+		// "data_panel_member_point_rule_url"		"https://afdian.com/p/8d1e8ac8682711ed984b52540025c377"
 
 		"reset_property_use_season_point"		"Reset Property use {seasonPoint} battle points"
 		"reset_property_use_member_point"		"Reset Property use 1000 member points"
@@ -181,7 +181,7 @@
 		"player_member_button"		"Thank you for your membership!<br/>Member Benefits<br/> - Respawn time is reduced by 5 seconds.<br/> - Buyback CD is reduced to 2 minutes.<br/> - You can reroll the items lottery once.<br/> - Daily login grants 100 membership points.<br/> Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired since {expireDate}, Click the button to renew."
 		"player_member_ship"			"Click to enable your membership."
-		"player_member_ship_url"		"https://afdian.net/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
+		"player_member_ship_url"		"https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
 
 
 		///////////////////////////////////////////////////
@@ -545,9 +545,11 @@
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"Health Regen: "
 
 		// 混沌骑士
+		"DOTA_Tooltip_ability_chaos_knight_chaos_bolt_shard_description"		"Causes Chaos Bolt cast range to be increased to %AbilityCastRange%."
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"Army of Chaos"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"Summons Chaos Knights from other dimensions to this world and fight with Chaos Knights here for %duration% seconds. Whenever Chaos Knight attacks, other Chaos Knights will also carry out additional attacks on the target, and other Chaos Knights' attacks have a short cooldown."
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"Summons Chaos Knights from other dimensions to this world and fight with Chaos Knights here. Whenever Chaos Knight attacks, other Chaos Knights will also carry out additional attacks on the target, and other Chaos Knights' attacks have a short cooldown."
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"With the Chaos Knight's rich combat experience in various worlds, his illusions are enough to suppress anyone who dares to oppose him."
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_duration"								"Duration:"
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"Additional Attacks:"
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"Attack Cooldown:"
 		// "DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"Army of Chaos can be cast on an allied hero, granting the target hero the effect of Army of Chaos."
@@ -817,6 +819,7 @@
         "DOTA_Tooltip_ability_lina_fiery_soul_Description"		"Grants bonus attack and movement speed, and spell damage increase each time Lina hits an enemy with a spell. Stacks with itself. Lasts %fiery_soul_stack_duration% seconds."
         "DOTA_Tooltip_ability_lina_fiery_soul_shard_description"	"+%shard_bonus_spell_damage% each fiery soul spell damage increase."
         "DOTA_Tooltip_ability_lina_fiery_soul_bonus_spell_damage"			"SPELL DAMAGE INCREASE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_lina_dragon_slave_damage"	"+{s:bonus_dragon_slave_damage} Dragon Slave Damage"
 
         // 幽鬼 spe
         "DOTA_Tooltip_ability_spectre_desolate_Description"		"Deals bonus pure damage whenever Spectre attacks an enemy."
@@ -839,6 +842,9 @@
         // 巫妖
         "DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} Chain Frost Jumps"
 
+		// Alchemist 炼金术士
+		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"HEALTH BONUS:"
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
@@ -857,20 +863,12 @@
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>Use: Bulk</h1> Permanently increases your strength by %bonus%.\n Shareable with teammate."
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Lore"				"Is it strength that you desire...?"
 
-		"DOTA_Tooltip_Ability_item_tome_of_strength_for_lottery"					"Tome of Strength(50% OFF)"
-        "DOTA_Tooltip_Ability_item_tome_of_strength_for_lottery_Description"		"<h1>Use: Bulk</h1> Permanently increases your strength by %bonus%.\n Shareable with teammate."
-        "DOTA_Tooltip_Ability_item_tome_of_strength_for_lottery_Lore"				"Is it strength that you desire...?"
-
 		"DOTA_Tooltip_modifier_str_tome"								"Strength Tomes Consumed"
 		"DOTA_Tooltip_modifier_str_tome_Description"					"Strength increased by <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
 		"DOTA_Tooltip_Ability_item_tome_of_agility"						"Tome of Agility"
 		"DOTA_Tooltip_Ability_item_tome_of_agility_Description"			"<h1>Use: Lighten</h1> Permanently increases your agility by %bonus%.\n Shareable with teammate."
 		"DOTA_Tooltip_Ability_item_tome_of_agility_Lore"				"Is it swiftness that you seek...?"
-
-		"DOTA_Tooltip_Ability_item_tome_of_agility_for_lottery"						"Tome of Agility(50% OFF)"
-        "DOTA_Tooltip_Ability_item_tome_of_agility_for_lottery_Description"			"<h1>Use: Lighten</h1> Permanently increases your agility by %bonus%.\n Shareable with teammate."
-        "DOTA_Tooltip_Ability_item_tome_of_agility_for_lottery_Lore"				"Is it swiftness that you seek...?"
 
 		"DOTA_Tooltip_modifier_agi_tome"								"Agility Tomes Consumed"
 		"DOTA_Tooltip_modifier_agi_tome_Description"					"Agility increased by <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
@@ -879,16 +877,12 @@
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Description"	"<h1>Use: Learn</h1> Permanently increases your intelligence by %bonus%.\n Shareable with teammate."
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Lore"			"Is it enlightenment that you aspire to...?"
 
-		"DOTA_Tooltip_Ability_item_tome_of_intelligence_for_lottery"				"Tome of Intelligence(50% OFF)"
-        "DOTA_Tooltip_Ability_item_tome_of_intelligence_for_lottery_Description"	"<h1>Use: Learn</h1> Permanently increases your intelligence by %bonus%.\n Shareable with teammate."
-        "DOTA_Tooltip_Ability_item_tome_of_intelligence_for_lottery_Lore"			"Is it enlightenment that you aspire to...?"
-
 		"DOTA_Tooltip_modifier_int_tome"								"Intelligence Tomes Consumed"
 		"DOTA_Tooltip_modifier_int_tome_Description"					"Intelligence increased by <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
 		"DOTA_Tooltip_Ability_item_tome_of_luoshu"						"Tome of Luoshu"
-		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>Use: Luoshu</h1> Permanently increases your all stats by %bonus_all_stats%, and provides %status_resistance%%% status resistance, %spell_amp%%% spell amplify, %bonus_base_damage_percent%%% base damage, %bonus_cast_range% cast range.\n Can only use once.\n Shareable with teammate."
-		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Lore"					"Is it enlightenment that you aspire to...?"
+		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>Use: Luoshu</h1> Permanently increases <br>%bonus_all_stats% all stats, <br>%status_resistance%%% status resistance, <br> %spell_amp%%% spell amplify, <br>%bonus_base_damage_percent%%% base damage, <br>%bonus_cast_range% cast range.\n Can only use once.\n Shareable with teammate."
+		"DOTA_Tooltip_ability_item_tome_of_luoshu_cast_error"			"Luoshu can only be used once."
 
 		"DOTA_Tooltip_modifier_luoshu_tome"								"Luoshu's Tomes Consumed"
 		"DOTA_Tooltip_modifier_luoshu_tome_Description"					""

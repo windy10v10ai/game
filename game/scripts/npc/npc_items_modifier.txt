@@ -242,6 +242,23 @@
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"			"20"
 				}
 			}
+			// 洛书
+			"modifier_item_tome_of_luoshu_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+
+				"IsPermanent"			"1"
+				"RemoveOnDeath"			"0"
+
+				// 不可叠加
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"		"50"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"80"
+				}
+			}
 		}
 	}
 

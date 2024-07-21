@@ -2,4 +2,8 @@
 
 - [ ] fix #9999
 
-## Release Note 更新内容
+## Checklist
+
+- [ ] I have tested the changes works well.
+
+## Release Note

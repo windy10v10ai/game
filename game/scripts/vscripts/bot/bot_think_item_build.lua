@@ -298,6 +298,9 @@ function BotThink:IsControllable(hHero)
   -- 战吼，决斗，冰龙大
   if hHero:HasModifier("modifier_axe_berserkers_call") or hHero:HasModifier("modifier_legion_commander_duel") or hHero:HasModifier("modifier_winter_wyvern_winters_curse") then return true end
 
+  -- 哈斯卡 A杖大
+  if hHero:HasModifier("modifier_huskar_life_break_taunt") then return true end
+
   -- TP
   if hHero:HasModifier("modifier_teleporting") then return true end
 

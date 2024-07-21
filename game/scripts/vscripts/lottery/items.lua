@@ -98,9 +98,9 @@ function AIGameMode:SpecialItemAdd(owner)
 	}
 
 	tier[5] = {
-		"item_tome_of_agility_for_lottery", -- 敏捷之书
-		"item_tome_of_intelligence_for_lottery", -- 智力之书
-		"item_tome_of_strength_for_lottery", -- 力量之书
+		"item_tome_of_agility", -- 敏捷之书
+		"item_tome_of_intelligence", -- 智力之书
+		"item_tome_of_strength", -- 力量之书
 
 		---- 中立物品 lv5 ----
 		"item_fallen_sky", -- 天崩

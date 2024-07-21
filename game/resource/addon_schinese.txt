@@ -130,7 +130,7 @@
 
 		"data_panel_player_property_cooldown_percentage"		"冷却时间 ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"施法距离"
-		"data_panel_player_property_spell_amplify_percentage"	"法术强度 ( % )"
+		"data_panel_player_property_spell_amplify_percentage"	"技能增强 ( % )"
 		"data_panel_player_property_status_resistance_stacking"	"状态抗性 ( % )"
 		"data_panel_player_property_evasion_constant"			"闪避 ( % )"
 		"data_panel_player_property_magical_resistance_bonus"	"魔法抗性 ( % )"
@@ -145,7 +145,7 @@
 		"data_panel_player_property_health_regen_percentage"	"最大生命回复 ( % )"
 		"data_panel_player_property_mana_regen_total_percentage"	"最大魔法回复 ( % )"
 		"data_panel_player_property_lifesteal"					"攻击吸血 ( % )"
-		"data_panel_player_property_spell_lifesteal"			"法术吸血 ( % )"
+		"data_panel_player_property_spell_lifesteal"			"技能吸血 ( % )"
 		"data_panel_player_property_movespeed_bonus_constant"	"移动速度"
 		"data_panel_player_property_ignore_movespeed_limit"		"无视移速上限"
 		"data_panel_player_property_cannot_miss"				"克敌机先"
@@ -178,7 +178,7 @@
 		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得100会员积分<br/> 会员有效期：{expireDate}"
 		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 		"player_member_ship"			"点击开通会员"
-		"player_member_ship_url"		"https://afdian.net/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
+		"player_member_ship_url"		"https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
 
 		///////////////////////////////////////////////////
 		//
@@ -430,9 +430,12 @@
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
 		// 混沌骑士
+		"DOTA_Tooltip_ability_chaos_knight_chaos_bolt_shard_description"		"混乱之箭施法距离提升至%AbilityCastRange%。"
+
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"混沌之军"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战，持续%duration%秒。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_duration"								"混沌之军持续时间："
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
 		// "DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"混沌之军可以对友方英雄施放，使目标英雄获得混沌之军的效果。"
@@ -972,6 +975,7 @@
         "DOTA_Tooltip_ability_lina_fiery_soul_Description"		"莉娜每次利用技能击中一个敌人都会使她获得攻击和移动速度、技能伤害加成。可以叠加。持续%fiery_soul_stack_duration%秒。"
         "DOTA_Tooltip_ability_lina_fiery_soul_shard_description"	"+%shard_bonus_spell_damage%点每层炽魂技能伤害增加"
         "DOTA_Tooltip_ability_lina_fiery_soul_bonus_spell_damage"			"技能伤害增加："
+		"DOTA_Tooltip_ability_special_bonus_unique_lina_dragon_slave_damage"	"+{s:bonus_dragon_slave_damage} 龙破斩伤害"
 
         // 幽鬼 spe
         "DOTA_Tooltip_ability_spectre_desolate_Description"		"幽鬼的攻击对敌人造成额外的纯粹伤害。"
@@ -994,6 +998,9 @@
         // 巫妖
         "DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} 连环霜冻弹跳次数"
 
+		// Alchemist 炼金术士
+		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"额外生命值："
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items
@@ -1012,10 +1019,6 @@
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>使用: 力量之书</h1> 永久增加力量 %bonus% 点。\n可以分享给队友"
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Lore"				"Is it strength that you desire...?"
 
-		"DOTA_Tooltip_Ability_item_tome_of_strength_for_lottery"					"力量之书（特惠版）"
-        "DOTA_Tooltip_Ability_item_tome_of_strength_for_lottery_Description"		"<h1>使用: 力量之书</h1> 永久增加力量 %bonus% 点。\n可以分享给队友"
-        "DOTA_Tooltip_Ability_item_tome_of_strength_for_lottery_Lore"				"Is it strength that you desire...?"
-
 		"DOTA_Tooltip_modifier_str_tome"								"力量之书加成"
 		"DOTA_Tooltip_modifier_str_tome_Description"					"力量增加 <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
@@ -1024,10 +1027,6 @@
 		"DOTA_Tooltip_Ability_item_tome_of_agility_Description"			"<h1>使用: 敏捷之书</h1> 永久增加敏捷 %bonus% 点。\n可以分享给队友"
 		"DOTA_Tooltip_Ability_item_tome_of_agility_Lore"				"Is it swiftness that you seek...?"
 
-		"DOTA_Tooltip_Ability_item_tome_of_agility_for_lottery"						"敏捷之书（特惠版）"
-        "DOTA_Tooltip_Ability_item_tome_of_agility_for_lottery_Description"			"<h1>使用: 敏捷之书</h1> 永久增加敏捷 %bonus% 点。\n可以分享给队友"
-        "DOTA_Tooltip_Ability_item_tome_of_agility_for_lottery_Lore"				"Is it swiftness that you seek...?"
-
 		"DOTA_Tooltip_modifier_agi_tome"								"敏捷之书加成"
 		"DOTA_Tooltip_modifier_agi_tome_Description"					"敏捷增加 <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
@@ -1035,16 +1034,12 @@
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Description"	"<h1>使用: 智力之书</h1> 永久增加智力 %bonus% 点。\n可以分享给队友"
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Lore"			"Is it enlightenment that you aspire to...?"
 
-		"DOTA_Tooltip_Ability_item_tome_of_intelligence_for_lottery"				"智力之书（特惠版）"
-        "DOTA_Tooltip_Ability_item_tome_of_intelligence_for_lottery_Description"	"<h1>使用: 智力之书</h1> 永久增加智力 %bonus% 点。\n可以分享给队友"
-        "DOTA_Tooltip_Ability_item_tome_of_intelligence_for_lottery_Lore"			"Is it enlightenment that you aspire to...?"
-
 		"DOTA_Tooltip_modifier_int_tome"								"智力之书加成"
 		"DOTA_Tooltip_modifier_int_tome_Description"					"智力增加 <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
 		"DOTA_Tooltip_Ability_item_tome_of_luoshu"						"洛书"
-		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>使用: 洛书祝福</h1> 永久增加全属性 %bonus_all_stats% 点，%status_resistance%%%状态抗性，%spell_amp%%%技能增强，%bonus_base_damage_percent%%%基础攻击力，%bonus_cast_range%施法距离。\n只可使用一次\n可以分享给队友"
-		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Lore"					"Is it enlightenment that you aspire to...?"
+		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>使用: 洛书祝福</h1> 永久增加 <br>%bonus_all_stats% 点全属性，<br>%status_resistance%%% 状态抗性，<br>%spell_amp%%% 技能增强，<br>%bonus_base_damage_percent%%% 基础攻击力，<br>%bonus_cast_range% 施法距离。\n只可使用一次\n可以分享给队友"
+		"DOTA_Tooltip_ability_item_tome_of_luoshu_cast_error"			"洛书只能使用一次"
 
 		"DOTA_Tooltip_modifier_luoshu_tome"								"洛书看好你！"
 		"DOTA_Tooltip_modifier_luoshu_tome_Description"					"哥哥你为我花了这么多钱，你女朋友不会生气吧？"
@@ -1130,7 +1125,7 @@
 
         // item_vladmir_2
 		"DOTA_Tooltip_ability_item_vladmir_2"                               "强袭祭品"
-		"DOTA_Tooltip_ability_item_vladmir_2_Description"							"<h1>被动：强袭祭品光环</h1>向周围队友提供%vampiric_aura%%%吸血，%damage_aura%%%攻击力加成，%mana_regen_aura%点/秒魔法恢复。<br>附近友军单位和建筑提升%aura_attack_speed%攻击速度和%aura_positive_armor%点护甲。<br>削弱附近敌军%aura_negative_armor%点护甲（不包含建筑物）。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_vladmir_2_Description"							"<h1>被动：强袭祭品光环</h1>向周围队友提供%vampiric_aura%%%吸血，%damage_aura%%%攻击力加成，%mana_regen_aura%点/秒魔法恢复。<br>附近友军单位和建筑提升%aura_attack_speed%攻击速度和%aura_positive_armor%点护甲。<br>削弱附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_vladmir_2_Lore"								"在幽冥地带的深渊锻造，这件地狱盔甲提高整支军队的护甲和攻击速度。"
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_armor"							"+$armor"
@@ -1242,7 +1237,7 @@
 
 		// item_magic_scepter 紫杖
 		"DOTA_Tooltip_Ability_item_magic_scepter"								"魔渊法杖"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>主动: <font color='#a74abd'>魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续 %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int%%% 法术增强."
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>主动: <font color='#a74abd'>魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续 %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强."
 		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, mildly deteriorated.."
 		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_magic_scepter"						"魔渊法杖卷轴"
@@ -1252,7 +1247,7 @@
 
 		// item_hallowed_scepter 大紫杖
 		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"仙云法杖"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>主动: <font color='#a74abd'>仙力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 法术增强 持续  %active_boost_duration% 秒.\n<h1>被动: 法术增强</h1>每点智力获得 %spell_amp_per_int%%% 法术增强。"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>主动: <font color='#a74abd'>仙力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续  %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强。"
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_hallowed_scepter"						"仙云法杖卷轴"
