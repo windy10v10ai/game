@@ -35,13 +35,6 @@ export class Game {
   constructor() {}
 
   public SendEndGameInfo(endData: EndGameInfo) {
-    if (
-      GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) === ApiClient.LOCAL_APIKEY &&
-      !IsInToolsMode()
-    ) {
-      return;
-    }
-
     CustomNetTables.SetTableValue("ending_status", "ending_status", {
       status: 1,
     });

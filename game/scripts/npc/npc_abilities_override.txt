@@ -3696,7 +3696,7 @@
 		{
 				"shard_damage"
 				{
-					"value"					"75 150 225 300 375"
+					"value"					"150 225 300 375 450"	// 75 150 225 300 375
 					"CalculateSpellDamageTooltip"	"1"
 				}
 				"shard_duration"			"4 5 6 7 8"

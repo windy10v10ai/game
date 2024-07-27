@@ -219,13 +219,6 @@ export class Player {
   }
 
   public onPlayerPropertyLevelup(event: { PlayerID: PlayerID; name: string; level: string }) {
-    if (
-      GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) === ApiClient.LOCAL_APIKEY &&
-      !IsInToolsMode()
-    ) {
-      return;
-    }
-
     const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
 
     const apiParameter = {
@@ -258,13 +251,6 @@ export class Player {
 
   // 初始化属性，洗点
   public onPlayerPropertyReset(event: { PlayerID: PlayerID; useMemberPoint: number }) {
-    if (
-      GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) === ApiClient.LOCAL_APIKEY &&
-      !IsInToolsMode()
-    ) {
-      return;
-    }
-
     const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
 
     const apiParameter = {
