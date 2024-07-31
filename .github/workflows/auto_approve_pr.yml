@@ -1,4 +1,4 @@
-name: Auto Approve Owner PR
+name: Auto Approve PR
 on:
   pull_request:
     types:

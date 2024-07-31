@@ -1195,7 +1195,7 @@
 	}
 	"npc_dota_hero_gyrocopter"
 	{
-		"Ability4"              "phantom_lancer_phantom_edge"
+		"Ability5"		"phantom_lancer_phantom_edge"
 	}
 	"npc_dota_hero_huskar"
 	{
@@ -1808,8 +1808,7 @@
 	}
 	"npc_dota_hero_oracle"
 	{
-		"Ability5"      "chen_hand_of_god"
-		"Ability12"     "special_bonus_unique_chen_12"
+		"Ability9"		"chen_hand_of_god"
 		"Bot"
 		{
 			"Build"
@@ -1939,7 +1938,7 @@
 	}
 	"npc_dota_hero_queenofpain"
 	{
-		"Ability4"      "dark_seer_vacuum"
+		"Ability5"		"dark_seer_vacuum"
 	}
 	"npc_dota_hero_razor"
 	{
