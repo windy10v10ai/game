@@ -1,5 +1,4 @@
-# create pr when windybirth push to feature branch
-name: Auto Create Develop PR
+name: Create Develop PR
 on:
   push:
 
@@ -46,17 +45,17 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create Pull Request if not exists
-        if: steps.check_pr.outputs.pr_exists == null
+      - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v5
+        if: steps.check_pr.outputs.pr_exists == null
+        uses: peter-evans/create-pull-request@v6
         with:
           title: ${{ steps.fetch_issue.outputs.title }}
           branch: ${{ github.ref_name }}
+          base: develop
           body: |
             ## Issue
 
             - [ ] fix #${{ steps.get_issue.outputs.number }}
-          base: develop
           token: ${{ secrets.WINDY_PR_PAT }}
           draft: true
