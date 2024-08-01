@@ -8,7 +8,9 @@ function item_royal_jelly_custom:CastFilterResultTarget(hTarget)
 	if hTarget:HasModifier("modifier_arc_warden_tempest_double") then
 		return UF_FAIL_NOT_PLAYER_CONTROLLED
 	end
-	local nResult = UnitFilter( hTarget, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS + DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED, self:GetCaster():GetTeamNumber() )
+	local nResult = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS +
+		DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED, self:GetCaster():GetTeamNumber())
 	if nResult ~= UF_SUCCESS then
 		return nResult
 	end
@@ -26,10 +28,10 @@ if IsServer() then
 			return
 		else
 			target:AddNewModifier(target, self, "modifier_royal_jelly_custom", {})
-			EmitSoundOn( "Royal_Jelly.Consume", target )
+			EmitSoundOn("Royal_Jelly.Consume", target)
 		end
 
-		self:SpendCharge()
+		self:SpendCharge(1)
 	end
 end
 
@@ -37,6 +39,7 @@ end
 if modifier_royal_jelly_custom == nil then modifier_royal_jelly_custom = class({}) end
 
 function modifier_royal_jelly_custom:RemoveOnDeath() return false end
+
 function modifier_royal_jelly_custom:IsPermanent() return true end
 
 function modifier_royal_jelly_custom:OnCreated()

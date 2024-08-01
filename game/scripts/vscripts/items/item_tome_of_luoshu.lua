@@ -15,7 +15,7 @@ if IsServer() then
 			ApplyItemDataDrivenModifier(caster, "item_apply_modifiers", "modifier_item_tome_of_luoshu_stats", {})
 			EmitSoundOnClient("Item.TomeOfKnowledge", caster)
 		end
-		self:SpendCharge()
+		self:SpendCharge(1)
 	end
 end
 

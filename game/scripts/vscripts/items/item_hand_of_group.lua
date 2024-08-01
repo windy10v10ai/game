@@ -63,7 +63,7 @@ function item_hand_of_group:OnSpellStart()
     for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
         local item = caster:GetItemInSlot(item_slot)
         if item and item:GetName() == "item_hand_of_group" then
-            item:SpendCharge()
+            item:SpendCharge(1)
         end
     end
 end
