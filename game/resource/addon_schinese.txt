@@ -3,8 +3,8 @@
 	"Language"		"English"
 	"Tokens"
 	{
-		"addon_game_name"		"Dota 10v10 AI Wars"
-		"DOTA_GameMode_15"		"Dota 10v10 AI Wars"
+		"addon_game_name"		"Dota 10v10 Custom AI by Windy"
+		"DOTA_GameMode_15"		"Dota 10v10 Custom AI by Windy"
 		"DOTA_SHARD"			"勇士积分"
 
 		// /////////////////////////////////////////////////////////////////////////////
@@ -241,7 +241,7 @@
 		"DOTA_Tooltip_ability_tower_armor_aura"							"高地防御力光环"
 		"DOTA_Tooltip_ability_tower_armor_aura_Description"				"增加附近友军%bonus_armor%的防御力。"
 		"DOTA_Tooltip_ability_tower_magical_armor_aura"					"高地魔抗光环"
-		"DOTA_Tooltip_ability_tower_magical_armor_aura_Description"		"增加附近友军%bonus_magical_armor%的魔法抗性。"
+		"DOTA_Tooltip_ability_tower_magical_armor_aura_Description"		"增加附近友军%bonus_magical_armor%%%的魔法抗性。"
 
 		"DOTA_Tooltip_ability_tower_split_shot"							"防御塔分裂箭"
 		"DOTA_Tooltip_ability_tower_split_shot_Description"				"当高地被破之后自动习得此技能。"
@@ -462,12 +462,14 @@
 
         // 全能骑士
         "DOTA_Tooltip_ability_omniknight_repel"			"咸鱼恩赐"
-		"DOTA_Tooltip_ability_omniknight_angelic_flight"			"奶飞天"
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"			"全能骑士召唤出咸鱼之王的替身使者，提升目标的移动速度和生命恢复，并且使目标飞行。"
-        "DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"			"你被奶了，你飞天了，快去送。"
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"							"持续时间："
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"						"移动速度："
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"							"生命恢复："
+		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"奶飞天"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"全能骑士召唤出咸鱼之王的替身使者，提升目标的移动速度和生命恢复，并且使目标飞行。"
+        "DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"				"你被奶了，你飞天了，快去送。"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"			"持续时间："
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"		"%移动速度："
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"生命恢复："
+		"DOTA_Tooltip_modifier_omninight_angelic_flight"					"奶飞天"
+		"DOTA_Tooltip_modifier_omninight_angelic_flight_description"		"获得飞行移动状态，%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复，%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% 移动速度。"
 
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"治疗："
@@ -700,7 +702,7 @@
         "DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "变身时伤害:"
 		"DOTA_Tooltip_ability_miku_hadouken_Lore"           "香醇浓厚的蔬菜果汁！香软绵柔的蔬菜果汁！"
 		"DOTA_Tooltip_ability_special_bonus_unique_miku_101" "-{s:bonus_AbilityCooldown}s 蔬菜汁Popipo 冷却时间"
-		"DOTA_Tooltip_ability_special_bonus_unique_miku_201" "+{s:value}% 脑浆炸裂女孩 暴击倍率"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_201" "+{s:bonus_crit_bonus}% 脑浆炸裂女孩 暴击倍率"
 		"DOTA_Tooltip_ability_special_bonus_unique_miku_301" "-{s:bonus_AbilityCooldown}s 初音飞踢 冷却时间"
 		"DOTA_Tooltip_ability_special_bonus_unique_miku_302" "+{s:bonus_AbilityCastRange} 初音飞踢 施法距离"
 
@@ -830,8 +832,9 @@
 
         "DOTA_Tooltip_ability_special_bonus_unique_artoria_strike_air_1"			"+{s:bonus_damage} 风王铁锤伤害"
         "DOTA_Tooltip_ability_special_bonus_unique_artoria_strike_air_2"			"-{s:bonus_AbilityCooldown}秒 风王铁锤冷却"
-        "DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1"			"魔力放出驱散自身负面效果"
-        "DOTA_Tooltip_ability_special_bonus_unique_excalibur_1"					"-{s:bonus_AbilityCooldown}秒 誓约胜利之剑冷却"
+        "DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1"					"魔力放出驱散自身负面效果"
+		"DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1_description"		"魔力放出会对阿尔托莉雅自身进行一次基础驱散，移除各种负面效果。"
+        "DOTA_Tooltip_ability_special_bonus_unique_excalibur_1"						"-{s:bonus_AbilityCooldown}秒 誓约胜利之剑冷却"
 
 		//沉渊之剑
 		"npc_dota_hero_visage"									"沉渊之剑"
@@ -1050,8 +1053,7 @@
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven"								"真·银月之晶"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Description"				"使用: 消耗真·银月之晶以永久获得 %consumed_bonus_attack_speed% 攻击速度, %consumed_bonus_day_vision% 白天视野 和 %consumed_bonus_night_vision% 夜间视野，可以重复使用。\n被动: 夜视 - 获得 %bonus_night_vision% 夜间视野。"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_bonus_attack_speed"		"+$attack"
-		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Note0"						"The bonus night vision works during Night Stalker's Darkness ability."
-		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"Said to be a tear from the lunar goddess Selemene."
+		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"据说这是月亮女神塞莉墨涅的眼泪。"
 
         // item_ultimate_scepter_2
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"						"真·阿哈利姆神杖"
@@ -1204,10 +1206,10 @@
 		"DOTA_Tooltip_Ability_item_recipe_insight_armor"						"洞察盔甲卷轴"
 
 		"DOTA_Tooltip_modifier_insight_armor_aura"								"洞察盔甲光环"
-		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"获得 <font color='#49bf57'>%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%</font> 生命恢复，和 <font color='#49bf57'>%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%</font> 伤害减免。"
+		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复，和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
 
 		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"<font color='#f15b47'>高阶洞察盔甲光环</font>"
-		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"获得 <font color='#49bf57'>%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%</font> 生命恢复，和 <font color='#49bf57'>%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%</font> 伤害减免。"
+		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复，和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
 
         // item_arcane_octarine_core 奥术之心
 		"DOTA_Tooltip_Ability_item_arcane_octarine_core"			"奥术之心"
@@ -1323,9 +1325,7 @@
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note0"							"极寒冲击的扩张速度为%blast_speed%，最大半径为%blast_radius%。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note1"							"极寒冲击将以施放者为中心。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note2" 							"多个霜冷光环效果不会叠加。"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_intellect"				"+$int"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_agility"					"+$agi"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_strength"					"+$str"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_intellect"				"+$all"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_armor"					"+$armor"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"					"+$hp_regen"
 
@@ -1343,8 +1343,8 @@
 		// item_manta_1 分身2
 		"DOTA_Tooltip_Ability_item_manta_1"				"幻身斧"
 		"DOTA_Tooltip_Ability_item_recipe_manta_1"					"图纸（幻身斧）"
-		"DOTA_Tooltip_ability_item_manta_1_Description"							"<h1>主动：镜像</h1>制造%images_count%个你的幻象，持续%tooltip_illusion_duration%秒。<br><br>近战英雄的幻象继承%tooltip_damage_outgoing_melee%%%的攻击力，承受%tooltip_damage_incoming_melee_total_pct%%%的伤害；远程英雄的幻象继承%tooltip_damage_outgoing_ranged%%%的攻击力，承受%tooltip_damage_incoming_ranged_total_pct%%%的伤害。</font><br><br> 驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
-		"DOTA_Tooltip_ability_item_manta_1_Lore"								    "分身屁用没有，除了带线打野，生气气。"
+		"DOTA_Tooltip_ability_item_manta_1_Description"							"<h1>主动：镜像</h1>制造%images_count%个你的幻象，持续%tooltip_illusion_duration%秒。<br><br>近战英雄的幻象继承%tooltip_damage_outgoing_melee%%%的攻击力，远程英雄的幻象继承%tooltip_damage_outgoing_ranged%%%的攻击力。幻象承受%tooltip_damage_incoming_total_pct%%%的伤害。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		"DOTA_Tooltip_ability_item_manta_1_Lore"								"分身屁用没有，除了带线打野，生气气。"
 		"DOTA_Tooltip_ability_item_manta_1_Note0"									"有%invuln_duration%秒的施法时间，其间处于无敌状态。"
 		"DOTA_Tooltip_ability_item_manta_1_Note1"									"可以使用幻影斧移除多种负面效果。"
 		"DOTA_Tooltip_ability_item_manta_1_Note2"									"不会与其他夜叉、散夜对剑以及幻影斧提供的移动速度加成叠加。"
@@ -1480,6 +1480,7 @@
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_regen"						"+生命恢复"
 		"DOTA_Tooltip_ability_item_blue_fantasy_Lore" 								"黄泉之音，闻者命不久矣"
 		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff"  							"残响震荡"
+		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff_Description"  				"装备被禁用，被动技能被禁用，持续驱散增益效果。移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
 
 		// item_wasp_despotic 大核荣耀
 		"DOTA_Tooltip_ability_item_wasp_despotic"					"大核荣耀暴虐"
@@ -1489,7 +1490,6 @@
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_chance"		"%致命一击概率:"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_multiplier"	"%致命一击伤害:"
-		"DOTA_Tooltip_Ability_item_recipe_wasp_despotic"				 "大核荣耀暴虐卷轴"
 
 		// item_wasp_callous
 		"DOTA_Tooltip_ability_item_wasp_callous"						"大核荣耀冷酷"
@@ -1501,7 +1501,6 @@
 		"DOTA_Tooltip_ability_item_wasp_callous_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_wasp_callous_crit_chance"			"%致命一击概率:"
 		"DOTA_Tooltip_ability_item_wasp_callous_crit_multiplier"		"%致命一击伤害:"
-		"DOTA_Tooltip_Ability_item_recipe_wasp_callous"				"大核荣耀冷酷卷轴"
 
         // item_wasp_golden
 		"DOTA_Tooltip_ability_item_wasp_golden"							"黄金大核荣耀"
@@ -1513,7 +1512,6 @@
 		"DOTA_Tooltip_ability_item_wasp_golden_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_wasp_golden_crit_chance"				"%致命一击概率:"
 		"DOTA_Tooltip_ability_item_wasp_golden_crit_multiplier"			"%致命一击伤害:"
-		"DOTA_Tooltip_Ability_item_recipe_wasp_golden"				 	"黄金大核荣耀卷轴"
 
         // item_shotgun 霰弹枪
  		"DOTA_Tooltip_ability_item_shotgun"                     "双管霰弹枪"
@@ -1586,7 +1584,7 @@
 		"DOTA_Tooltip_ability_item_necronomicon_staff_mp_regen_amp"				"%+魔法恢复增强"
 
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"死灵冲击"
-		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"死灵形态。受到%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%%%法术攻击加成。"
+		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"变成一只羊。不能攻击，释放技能或使用物品。失去60%%的智力。"
 
 		// 小鸡臂章
 		"DOTA_Tooltip_Ability_item_armlet_plus"				"小鸡臂章Plus"
@@ -1614,9 +1612,6 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
-
-		"DOTA_Tooltip_modifier_item_armlet_unholy_strength"				"邪恶之力"
-		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"攻击力提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点。\n攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点。\n力量增加%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点。\n护甲提升%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。\n每秒损失%dMODIFIER_PROPERTY_TOOLTIP%点生命值"
 
         // 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"圣女白莲"
@@ -1843,12 +1838,12 @@
 
 		// item_light_part 圣光组件
 		"DOTA_Tooltip_Ability_item_light_part"					"圣光组件"
-		"DOTA_Tooltip_ability_item_light_part_Description"		"可以用来将装备进行圣光改造。"
+		"DOTA_Tooltip_ability_item_light_part_Description"		"可以用来将装备进行圣光改造。升级后的装备将放在主背包中。"
 		"DOTA_Tooltip_Ability_item_light_part_Lore"				"击杀肉山和中立生物时，有几率随机掉落。"
 
 		// item_dark_part 暗影组件
 		"DOTA_Tooltip_Ability_item_dark_part"					"暗影组件"
-		"DOTA_Tooltip_ability_item_dark_part_Description"		"可以用来将装备进行暗影改造。"
+		"DOTA_Tooltip_ability_item_dark_part_Description"		"可以用来将装备进行暗影改造。升级后的装备将放在主背包中。"
 		"DOTA_Tooltip_Ability_item_dark_part_Lore"				"击杀肉山和中立生物时，有几率随机掉落。"
 
 		// item_exchange 光暗装备转换器

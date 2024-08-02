@@ -1,4 +1,4 @@
-name: Auto Approve Owner PR
+name: Auto Approve PR
 on:
   pull_request:
     types:
@@ -16,4 +16,4 @@ jobs:
       pull-requests: write
     steps:
       - name: Auto Approve
-        uses: hmarr/auto-approve-action@v3
+        uses: hmarr/auto-approve-action@v4

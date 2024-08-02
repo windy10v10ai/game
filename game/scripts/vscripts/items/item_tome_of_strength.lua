@@ -21,14 +21,14 @@ if IsServer() then
                 tomeValue = tome_table.str
             end
             local newValue = tomeValue + str
-            CustomNetTables:SetTableValue("player_tome_table", "str_tome_" .. caster:GetUnitName(), {str = newValue})
+            CustomNetTables:SetTableValue("player_tome_table", "str_tome_" .. caster:GetUnitName(), { str = newValue })
         else
             caster:AddNewModifier(caster, self, "modifier_str_tome", {})
             caster:FindModifierByName("modifier_str_tome"):SetStackCount(1)
-            CustomNetTables:SetTableValue("player_tome_table", "str_tome_" .. caster:GetUnitName(), {str = str})
+            CustomNetTables:SetTableValue("player_tome_table", "str_tome_" .. caster:GetUnitName(), { str = str })
         end
 
-        self:SpendCharge()
+        self:SpendCharge(1)
         PopupStrTome(caster, str)
     end
 end
@@ -46,7 +46,6 @@ function modifier_str_tome:AllowIllusionDuplicate()
     return false
 end
 
-
 function modifier_str_tome:IsPermanent()
     return true
 end
@@ -55,13 +54,14 @@ function modifier_str_tome:OnCreated(kv)
     if IsServer() then
         local parent = self:GetParent()
         if parent:IsIllusion() or parent:IsTempestDouble() then
-            local tome_table = CustomNetTables:GetTableValue("player_tome_table", "str_tome_" .. self:GetParent():GetUnitName())
+            local tome_table = CustomNetTables:GetTableValue("player_tome_table",
+                "str_tome_" .. self:GetParent():GetUnitName())
             local mod = parent:FindModifierByName("modifier_str_tome")
             local tomeValue = 0
             if tome_table then
                 tomeValue = tome_table.str
             end
-            mod:SetStackCount(tomeValue/50)
+            mod:SetStackCount(tomeValue / 50)
             if parent:IsIllusion() then
                 parent:ModifyStrength(tomeValue)
             end
@@ -73,13 +73,14 @@ function modifier_str_tome:OnRefresh(kv)
     if IsServer() then
         local parent = self:GetParent()
         if parent:IsIllusion() or parent:IsTempestDouble() then
-            local tome_table = CustomNetTables:GetTableValue("player_tome_table", "str_tome_" .. self:GetParent():GetUnitName())
+            local tome_table = CustomNetTables:GetTableValue("player_tome_table",
+                "str_tome_" .. self:GetParent():GetUnitName())
             local mod = parent:FindModifierByName("modifier_str_tome")
             local tomeValue = 0
             if tome_table then
                 tomeValue = tome_table.str
             end
-            mod:SetStackCount(tomeValue/50)
+            mod:SetStackCount(tomeValue / 50)
             if parent:IsIllusion() then
                 parent:ModifyStrength(tomeValue)
             end
@@ -88,13 +89,11 @@ function modifier_str_tome:OnRefresh(kv)
 end
 
 function modifier_str_tome:DeclareFunctions()
-	local funcs = {
+    local funcs = {
         MODIFIER_PROPERTY_TOOLTIP,
     }
     return funcs
 end
-
-
 
 function modifier_str_tome:OnTooltip()
     return self:GetStackCount() * 50

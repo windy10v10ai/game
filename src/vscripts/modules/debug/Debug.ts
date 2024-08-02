@@ -141,12 +141,6 @@ export class Debug {
       this.log(`${version}: ${key}`);
     }
 
-    if (cmd.startsWith("-get_key_v2")) {
-      const version = args[0];
-      const key = GetDedicatedServerKeyV2(version);
-      this.log(`${version}: ${key}`);
-    }
-
     if (cmd.startsWith("-removeModifier")) {
       const modifierName = args[0];
       PlayerHelper.ForEachPlayer((playerId) => {

@@ -22,16 +22,22 @@ export class ApiClient {
   public static RESET_PLAYER_PROPERTY_URL = "/game/resetPlayerProperty";
   public static POST_GAME_URL = "/game/end";
 
-  public static LOCAL_APIKEY = "Invalid_NotOnDedicatedServer";
   private static TIMEOUT_SECONDS = 15;
   private static RETRY_TIMES = 4;
-  // dont change this version, it is used to identify the server
-  public static SERVER_KEY = "v1.43";
 
   private static HOST_NAME: string = (() => {
-    return IsInToolsMode() ? "http://localhost:5000/api" : "https://windy10v10ai.web.app/api";
+    return IsInToolsMode()
+      ? "http://localhost:5001/windy10v10ai/asia-northeast1/admin/api"
+      : "https://windy10v10ai.web.app/api";
   })();
   // private static HOST_NAME: string = "https://windy10v10ai.web.app/api";
+
+  public static LOCAL_APIKEY = "Invalid_NotOnDedicatedServer";
+  // dont change this version, it is used to identify the server
+  public static GetServerAuthKey() {
+    const keyVersion = "v2";
+    return GetDedicatedServerKeyV3(keyVersion);
+  }
 
   public static send(
     method: HttpMethod,
@@ -46,16 +52,21 @@ export class ApiClient {
       )} body ${json.encode(body)}`,
     );
     const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + path);
-    const key = GetDedicatedServerKeyV2(ApiClient.SERVER_KEY);
+    const apiKey = this.GetServerAuthKey();
 
-    // if (key == ApiClient.LOCAL_APIKEY && !IsInToolsMode()) {
-    // 	callbackFunc({
-    // 		StatusCode: 401,
-    // 		Body: ApiClient.LOCAL_APIKEY,
-    // 		Request: request,
-    // 	});
-    // 	return;
-    // }
+    // 本地主机只发送开局请求
+    if (
+      apiKey === ApiClient.LOCAL_APIKEY &&
+      !IsInToolsMode() &&
+      path !== ApiClient.GAME_START_URL
+    ) {
+      callbackFunc({
+        StatusCode: 401,
+        Body: ApiClient.LOCAL_APIKEY,
+        Request: request,
+      });
+      return;
+    }
 
     if (querys) {
       for (const key in querys) {
@@ -63,7 +74,7 @@ export class ApiClient {
       }
     }
     request.SetHTTPRequestNetworkActivityTimeout(ApiClient.TIMEOUT_SECONDS);
-    request.SetHTTPRequestHeaderValue("x-api-key", key);
+    request.SetHTTPRequestHeaderValue("x-api-key", apiKey);
     if (body) {
       request.SetHTTPRequestRawPostBody("application/json", json.encode(body));
     }

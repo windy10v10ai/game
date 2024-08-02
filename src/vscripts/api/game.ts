@@ -31,17 +31,10 @@ class EndGameInfo {
 }
 
 export class Game {
-  private static VERSION = "v3.28";
+  private static VERSION = "v3.29";
   constructor() {}
 
   public SendEndGameInfo(endData: EndGameInfo) {
-    if (
-      GetDedicatedServerKeyV2(ApiClient.SERVER_KEY) === ApiClient.LOCAL_APIKEY &&
-      !IsInToolsMode()
-    ) {
-      return;
-    }
-
     CustomNetTables.SetTableValue("ending_status", "ending_status", {
       status: 1,
     });
