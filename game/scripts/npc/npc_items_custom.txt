@@ -5132,7 +5132,8 @@
 				"bonus_damage"				"60"
 				"duration"					"6"
 				"spell_amp_debuff"			"70"
-				"proc_damage"				"120"
+				"proc_damage_heroes"				"100"
+				"proc_damage_creeps"				"50"
 				"passive_proc_damage"		"120"
 				"proc_chance"				"80"
 		}

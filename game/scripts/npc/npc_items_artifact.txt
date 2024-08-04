@@ -1777,7 +1777,7 @@
 	{
 		"BaseClass" "item_mysterious_hat"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ItemCost"						"4000"
+		"ItemCost"						"3000"
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
@@ -1788,7 +1788,7 @@
 		{
 			"bonus_health"			"0"
 			"spell_amp"				"10"
-			"manacost_reduction"			"30" // FIXME 过阵子砍到25或者更低，然后改成非中立
+			"manacost_reduction"			"25"
 		}
 	}
 
