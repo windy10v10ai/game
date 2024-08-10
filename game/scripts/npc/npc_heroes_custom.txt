@@ -1140,11 +1140,6 @@
 			}
 		}
 	}
-	"npc_dota_hero_earth_spirit"
-	{
-		"Ability16"		"special_bonus_unique_earth_spirit_5"
-		"Ability15"		"special_bonus_unique_earth_spirit_2"
-	}
 	"npc_dota_hero_furion"
 	{
 		"Bot"

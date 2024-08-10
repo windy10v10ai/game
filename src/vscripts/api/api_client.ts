@@ -25,12 +25,12 @@ export class ApiClient {
   private static TIMEOUT_SECONDS = 15;
   private static RETRY_TIMES = 4;
 
-  private static HOST_NAME: string = (() => {
-    return IsInToolsMode()
-      ? "http://localhost:5001/windy10v10ai/asia-northeast1/admin/api"
-      : "https://windy10v10ai.web.app/api";
-  })();
-  // private static HOST_NAME: string = "https://windy10v10ai.web.app/api";
+  // private static HOST_NAME: string = (() => {
+  //   return IsInToolsMode()
+  //     ? "http://localhost:5001/windy10v10ai/asia-northeast1/admin/api"
+  //     : "https://windy10v10ai.web.app/api";
+  // })();
+  private static HOST_NAME: string = "https://windy10v10ai.web.app/api";
 
   public static LOCAL_APIKEY = "Invalid_NotOnDedicatedServer";
   // dont change this version, it is used to identify the server

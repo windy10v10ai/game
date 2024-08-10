@@ -681,15 +681,13 @@
 		"MaxLevel"						"1"
 		"AbilityCastRange"				"1000" // 500
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"02"
+			"radius"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"750" // 600
+				"value" "750" // 600
 			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	// 风猫吹风
 	"brewmaster_storm_cyclone"
@@ -705,12 +703,11 @@
 	"brewmaster_fire_permanent_immolation"
 	{
 		"MaxLevel"						"1"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"damage"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"50"	// 25 50 75
+				"value" "50"	// 25 50 75
 			}
 		}
 	}
@@ -1152,43 +1149,65 @@
 		"AbilityManaCost"				"90 95 100 105 110"
 		"AbilityValues"
 		{
-			"damage"							"80 160 240 320 400"
+			"damage"
+			{
+				"value"			"80 160 240 320 400"
+			}
 		}
 	}
-	// duang
+	// 神龙摆尾 duang
 	"dragon_knight_dragon_tail"
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"16 14 12 10 8"
-		"AbilityDamage"					"70 100 130 160 190"
 		"AbilityManaCost"				"70 80 90 100 110"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"stun_duration"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.8 2.0 2.2 2.4 2.6"
-				"LinkedSpecialBonus"		"special_bonus_unique_dragon_knight_2"
+				"value"				"1.8 2.0 2.2 2.4 2.6"
 			}
+			"damage"					"60 90 120 150 180"
 		}
 	}
-	// 龙血
+	// 飞龙之怒
 	"dragon_knight_dragon_blood"
 	{
 		"MaxLevel" "5"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			// GREEN DRAGON
+			"corrosive_breath_damage"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_health_regen"			"6 9 12 15 18"
-				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight"
+				"value"							"5 10 15 20 25"
+				"RequiresFacet"				"dragon_knight_corrosive_dragon"
 			}
-			"02"
+			"corrosive_breath_armor_reduction"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_armor"					"6 9 12 15 18"
-				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight"
+				"value"							"0 1 2 3 4"
+				"RequiresFacet"				"dragon_knight_corrosive_dragon"
+			}
+			// RED DRAGON
+			"cleave_damage"
+			{
+				"value"							"30 40 50 60 70"
+				"RequiresFacet"				"dragon_knight_fire_dragon"
+			}
+			// BLUE DRAGON
+			"frost_bonus_movement_speed"
+			{
+				"value"				"-14 -21 -28 -35 -42"
+				"RequiresFacet"	"dragon_knight_frost_dragon"
+			}
+			"frost_bonus_attack_speed"
+			{
+				"value"				"-14 -21 -28 -35 -42"
+				"RequiresFacet"	"dragon_knight_frost_dragon"
+			}
+			"frost_healing_reduction"
+			{
+				"value"				"14 21 28 35 42"
+				"RequiresFacet"	"dragon_knight_frost_dragon"
 			}
 		}
 	}
@@ -1198,20 +1217,8 @@
 		"AbilityManaCost"				"50 100 150"
 		"AbilityValues"
 		{
-				"bonus_attack_damage"		"60"
-				"corrosive_breath_damage"	"20 30 40 50"
-				"frost_bonus_movement_speed"
-				{
-					"value"		"-40 -50 -60 -70"
-					"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight_5"
-				}
-				"frost_bonus_attack_speed"
-				{
-					"value"				"-40 -50 -60 -70"
-					"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight_5"
-				}
+				"bonus_attack_damage"		"60 120 180 240"	// 20 60 100 140
 				"magic_resistance"			"10 15 20 25"
-				"model_scale"				"10 20 30 40"
 		}
 	}
 	//=================================================================================================================
@@ -1316,7 +1323,6 @@
 	// 踢
 	"earth_spirit_boulder_smash"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" // 选择率垫底，直接下猛药
 		"MaxLevel" "5"
 		"AbilityCooldown"				"22.0 18.0 14.0 10.0 6.0"
 		"AbilityValues"
@@ -1324,9 +1330,9 @@
 				"rock_damage"
 				{
 					"value"			"120 240 300 420 480"
-					"special_bonus_unique_earth_spirit_6"	"+125"
+					"special_bonus_unique_earth_spirit_6"	"+180"
 				}
-				"duration"			"1.5 3.0 4.5 6 7.5"
+				"duration"			"2 3 4 5 6"
 		}
 	}
 	// 滚
@@ -1334,42 +1340,43 @@
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel" "5"
-		"AbilityCooldown"				"11.0 9.0 7.0 5.0 3.0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"240"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"distance"				"950.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_4"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"300"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.9 1.2 1.4 1.8 2.2"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_3"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"rock_bonus_duration"	"0.9 1.2 1.4 1.8 2.2"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"radius"
+				{
+					"value"		"260"	// 160
+				}
+				"distance"
+				{
+					"value"		"950.0"	// 750
+					"special_bonus_unique_earth_spirit_4" "+200"
+				}
+				"damage"
+				{
+					"value"		"60 120 180 240 300"
+				"special_bonus_unique_earth_spirit" "+120"
+				}
 				"damage_str"			"150"
-			}
+
+				"stun_duration"
+				{
+					"value"		"0.6 0.9 1.2 1.5 1.8"	// x2
+				}
+				"rock_bonus_duration"	"0.6 0.9 1.2 1.5 1.8"	// x2
+				"AbilityCooldown"
+				{
+					"value"				"16.0 13.0 10.0 7.0 4.0"
+				}
+				"allied_bonus_movespeed"
+				{
+					"value"											"0 0 0 0"
+					"special_bonus_facet_earth_spirit_ready_to_roll"	"15 20 25 30 35"
+				}
+				"allied_bonus_stun_duration"
+				{
+					"value"											"0"
+					"special_bonus_facet_earth_spirit_ready_to_roll"	"0.3 0.5 0.7 0.9 1.1"
+				}
 		}
 	}
 	// 拉
@@ -1378,36 +1385,52 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-				"rock_damage"			"150 200 250 300 350"
+				"rock_damage"			"120 240 300 420 480"
 				"duration"			"2.5 3 3.5 4 5"
 				"AbilityCooldown"
 				{
 					"value"		"13"
-					"special_bonus_unique_earth_spirit_5"	"-4"// 2 天赋等级20变25增加数值
 				}
 		}
 	}
-	// 放石头
+	// 残岩 放石头
 	"earth_spirit_stone_caller"
 	{
-		"AbilityChargeRestoreTime"		"15"
 		"AbilityValues"
 		{
-			"duration"				"15.0"
+			"duration"
+			{
+				"value"						"40.0"		// 2/3
+				"special_bonus_facet_earth_spirit_stepping_stone"	"=15.0"		// 3/4
+			}
+			"AbilityCharges"
+			{
+				"value"							"7 8 9 10 11 12 13 14 15 16 17"	// 50级为止
+				"special_bonus_facet_earth_spirit_stepping_stone"		"=0 =0 =0 =0 =0 =0 =0 =0 =0 =0 =0"
+			}
+			"AbilityChargeRestoreTime"
+			{
+				"value"							"12"	// 2/3
+				"special_bonus_facet_earth_spirit_stepping_stone"		"=3"	// 3/4
+			}
 		}
 	}
 	// 磁化
 	"earth_spirit_magnetize"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"65 55 45 35"
+		"AbilityCooldown"				"90 80 70 60"
 		"AbilityValues"
 		{
-			"cast_radius"			"600"// 450 反正没人玩多给点
+			"cast_radius"
+			{
+				"value"	"600"		// 450
+				"affected_by_aoe_increase"	"1"
+			}
 			"damage_per_second"
 			{
-				"value"									"160 240 320 400"
-				"special_bonus_unique_earth_spirit_8"			"+50%"// 30
+				"value"									"160 240 320 400"	// 45 85 125
+				"special_bonus_unique_earth_spirit_8"			"+50%"		// 30
 			}
 		}
 	}
@@ -1415,11 +1438,20 @@
 	"earth_spirit_petrify"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastRange"				"350"// 175 变对面
-		"AbilityCooldown"				"25"// 45 救人
+		"AbilityCastRange"				"600"	// 175 变对面
+		"AbilityCooldown"				"25"	// 45
 		"AbilityValues"
 		{
-				"ally_cast_range"	"800"// 500 救人
+				"duration"		"3"			// 2.4
+				"damage"
+				{
+					"value"			"600"	// 450
+				}
+				"aoe"
+				{
+					"value"		"600"		// 450
+				}
+				"ally_cast_range"	"900"	// 500
 		}
 	}
 	//=================================================================================================================
