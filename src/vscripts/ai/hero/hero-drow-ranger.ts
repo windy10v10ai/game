@@ -4,8 +4,6 @@ import { BaseHeroAIModifier } from "./hero-base";
 
 @registerModifier()
 export class DrowRangerAIModifier extends BaseHeroAIModifier {
-  protected override FindHeroRadius: number = 3000;
-
   override UseAbilityEnemy(): boolean {
     const attackRange = this.hero.Script_GetAttackRange();
     // 狂风
