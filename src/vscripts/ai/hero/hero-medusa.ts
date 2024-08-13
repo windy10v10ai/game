@@ -4,11 +4,14 @@ import { BaseHeroAIModifier } from "./hero-base";
 
 @registerModifier()
 export class MedusaAIModifier extends BaseHeroAIModifier {
-  protected override FindHeroRadius: number = 3000;
-
   override UseAbilityEnemy(): boolean {
     // 秘术异蛇
     if (ActionAbility.CastAbilityOnFindEnemyHero(this, "medusa_mystic_snake")) {
+      return true;
+    }
+
+    // 罗网箭阵
+    if (ActionAbility.CastAbilityOnFindEnemyHero(this, "medusa_gorgon_grasp")) {
       return true;
     }
 
@@ -51,6 +54,16 @@ export class MedusaAIModifier extends BaseHeroAIModifier {
     ) {
       return true;
     }
+
+    // 罗网箭阵
+    if (
+      ActionAbility.CastAbilityOnFindEnemyCreep(this, "medusa_gorgon_grasp", {
+        target: { count: 2 },
+      })
+    ) {
+      return true;
+    }
+
     // 分裂箭 开启
     if (
       ActionAbility.CastAbilityOnFindEnemyCreep(this, "medusa_split_shot", {

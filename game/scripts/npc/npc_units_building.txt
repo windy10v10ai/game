@@ -752,13 +752,16 @@
 	{
 		// Abilities
 		"Ability2"					"tower_headshot"			// none
-		"Ability4"					"tower_ursa_fury_swipes"
+		"Ability3"					"tower_ursa_fury_swipes"
+		"Ability4"					"tower_antimage_mana_break"
+
+		"Ability6"					"fountain_hp_aura"
 
 		"AttackDamageMin"			"390"		// 290
 		"AttackDamageMax"			"410"		// 310
-		"AttackRate"				"0.03"		// 0.15
-		"AttackAcquisitionRange"	"1400"		// 1200
-		"AttackRange"				"1400"		// 1200
-		"ProjectileSpeed"			"1800"		// 1400
+		"AttackRate"				"0.04"		// 0.15
+		"AttackAcquisitionRange"	"1300"		// 1200
+		"AttackRange"				"1300"		// 1200
+		"ProjectileSpeed"			"2100"		// 1400
 	}
 }

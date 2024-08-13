@@ -429,11 +429,10 @@ function AIGameMode:OnNPCSpawned(keys)
 
     if hEntity:IsRealHero() and not hEntity.bInitialized then
         -- choose item 玩家抽选物品
-        if IsHumanPlayer(hEntity:GetPlayerOwnerID())
-        -- and not self.tIfItemChosen[hEntity:GetPlayerOwnerID()] and not self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()]
+        -- 并且不是德鲁伊的胸
+        if IsHumanPlayer(hEntity:GetPlayerOwnerID()) and hEntity:GetName() ~= "npc_dota_lone_druid_bear"
         then
             self:SpecialItemAdd(hEntity)
-            -- self.tIfItemChooseInited[hEntity:GetPlayerOwnerID()] = true
         end
 
         -- Bots modifier 机器人AI脚本

@@ -166,6 +166,7 @@
 		"item"		"item_wish_4"
 		"item"		"item_radar_of_dragon"
 		"item"		"item_recipe_greater_famango"
+		"item"		"item_mysterious_hat_unrefined"	// 仙灵次品
 
 		"item"		"item_tier1_token"
 		"item"		"item_tier2_token"
@@ -196,7 +197,6 @@
 		"item"		"item_wings_of_haste"
 		"item"		"item_moon_shard_datadriven"
 		"item"		"item_consumable_gem"		// 幻影宝石
-		"item"		"item_mysterious_hat_unrefined"
 	}
 
 	// Level 2 - Blue Recipes 辅助

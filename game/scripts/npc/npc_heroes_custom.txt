@@ -601,10 +601,10 @@
 			}
 		}
 	}
-    "npc_dota_hero_antimage"
+	"npc_dota_hero_antimage"
 	{
-		"Ability4"		"brewmaster_cinder_brew"
-		"Ability5"		"brewmaster_drunken_brawler"
+		// "Ability4"		"brewmaster_cinder_brew"
+		// "Ability5"		"brewmaster_drunken_brawler"
 	}
 	"npc_dota_hero_axe"
 	{
@@ -919,13 +919,13 @@
 	}
 	"npc_dota_hero_dazzle"
 	{
-		"Ability4"		"dazzle_weave"
-		"Ability5"      "dazzle_good_juju"	// 需要额外加点
+		// "Ability4"		"dazzle_weave"
+		"Ability5"		"dazzle_good_juju"
 		"Bot"
 		{
 			"Build"
 			{
-                "1"		"dazzle_poison_touch"
+				"1"		"dazzle_poison_touch"
 				"2"		"dazzle_shallow_grave"
 				"3"		"dazzle_poison_touch"
 				"4"		"dazzle_shadow_wave"
@@ -968,7 +968,6 @@
 	}
 	"npc_dota_hero_death_prophet"
 	{
-		"Ability4"		"death_prophet_witchcraft"
 		"Bot"
 		{
 			"Build"
@@ -1139,11 +1138,6 @@
 				"34"		"earthshaker_enchant_totem"
 			}
 		}
-	}
-	"npc_dota_hero_earth_spirit"
-	{
-		"Ability16"		"special_bonus_unique_earth_spirit_5"
-		"Ability15"		"special_bonus_unique_earth_spirit_2"
 	}
 	"npc_dota_hero_furion"
 	{
@@ -1474,26 +1468,27 @@
 	"npc_dota_hero_luna"
 	{
 		"Ability4"		"luna_lunar_grace"
+		"Ability9"		"luna_lunar_blessing"	// 月之祝福 先天技能
 		"Bot"
 		{
 			"Build"
 			{
 				"1"		"luna_lucent_beam"
-				"2"		"luna_lunar_blessing"
+				"2"		"luna_lunar_orbit"
 				"3"		"luna_lucent_beam"
 				"4"		"luna_moon_glaive"
 				"5"		"luna_lucent_beam"
 				"6"		"luna_eclipse"
 				"7"		"luna_lucent_beam"
-				"8"		"luna_lunar_blessing"
+				"8"		"luna_lunar_orbit"
 				"9"		"luna_lucent_beam"
 				"10"		"special_bonus_unique_luna_4"
 				"11"		"luna_moon_glaive"
 				"12"		"luna_eclipse"
 				"13"		"luna_moon_glaive"
-				"14"		"luna_lunar_blessing"
+				"14"		"luna_lunar_orbit"
 				"15"		"special_bonus_unique_luna_2"
-				"16"		"luna_lunar_blessing"
+				"16"		"luna_lunar_orbit"
 				"17"		""
 				"18"		"luna_eclipse"
 				"19"		""
@@ -1510,14 +1505,10 @@
 				"30"		"special_bonus_unique_luna_3"
 				"31"		"luna_eclipse"
 				"32"		"luna_moon_glaive"
-				"33"		"luna_lunar_blessing"
+				"33"		"luna_lunar_orbit"
 				"34"		"luna_moon_glaive"
 			}
 		}
-	}
-	"npc_dota_hero_marci"
-	{
-		"Ability4"          "broodmother_insatiable_hunger"
 	}
 	"npc_dota_hero_medusa"
 	{
@@ -1525,10 +1516,10 @@
 		{
 			"Build"
 			{
-                "1"			"medusa_mystic_snake"
+				"1"			"medusa_mystic_snake"
 				"2"			"medusa_split_shot"
 				"3"			"medusa_mystic_snake"
-				"4"			"medusa_mana_shield"
+				"4"			"medusa_split_shot"
 				"5"			"medusa_mystic_snake"
 				"6"			"medusa_stone_gaze"
 				"7"			"medusa_mystic_snake"
@@ -1538,9 +1529,9 @@
 				"11"		"medusa_split_shot"
 				"12"		"medusa_stone_gaze"
 				"13"		"medusa_split_shot"
-				"14"		"medusa_mana_shield"
+				"14"		"medusa_gorgon_grasp"
 				"15"		"special_bonus_unique_medusa_5"
-				"16"		"medusa_split_shot"
+				"16"		"medusa_gorgon_grasp"
 				"17"		""
 				"18"		"medusa_stone_gaze"
 				"19"		""
@@ -1556,15 +1547,15 @@
 				"29"		"special_bonus_unique_medusa"
 				"30"		"special_bonus_unique_medusa_4"
                 "31"		"medusa_stone_gaze"
-				"32"		"medusa_mana_shield"
-				"33"		"medusa_mana_shield"
-				"34"		"medusa_mana_shield"
+				"32"		"medusa_gorgon_graso"
+				"33"		"medusa_gorgon_grasp"
+				"34"		"medusa_gorgon_grasp"
 			}
 		}
 	}
 	// 初音未来
-    "npc_dota_hero_meepo"
-    {
+	"npc_dota_hero_meepo"
+	{
 		"Bot"
 		{
 			"Build"
@@ -1695,8 +1686,8 @@
 	}
 	"npc_dota_hero_ogre_magi"
 	{
-		"AttackRate"                "1.4"
-		"AttributeStrengthGain"		"5.2"	// 4.2
+		"AttackRate"				"1.6"
+		"AttributeStrengthGain"		"4.7"	// 4.2
 		"AttributeAgilityGain"		"2.0"	// 1.5
 		"Bot"
 		{
@@ -1808,7 +1799,8 @@
 	}
 	"npc_dota_hero_oracle"
 	{
-		"Ability9"		"chen_hand_of_god"
+		"Ability5"		"chen_hand_of_god"
+		"Ability9"		"oracle_prognosticate"	// 预言 先天技能
 		"Bot"
 		{
 			"Build"
@@ -1911,8 +1903,8 @@
 				"10"		"special_bonus_unique_pudge_4"
 				"11"		"pudge_rot"
 				"12"		"pudge_dismember"
-				"13"		"pudge_flesh_heap"
-				"14"		"pudge_meat_hook"
+				"13"		"pudge_meat_hook"
+				"14"		"pudge_flesh_heap"
 				"15"		"special_bonus_unique_pudge_7"
 				"16"		"pudge_flesh_heap"
 				"17"		""
@@ -1987,7 +1979,7 @@
 	}
 	"npc_dota_hero_riki"
 	{
-		"Ability5"		"riki_permanent_invisibility"
+		"Ability9"		"riki_permanent_invisibility"
 		"Bot"
 		{
 			"Build"
@@ -2117,9 +2109,6 @@
 	}
 	"npc_dota_hero_silencer"
 	{
-		"override_hero"		"npc_dota_hero_silencer"
-		"AttackRange"		"600"					// 600
-		"AttributeStrengthGain"		"2.000000"		// 2.4
 		"AttributeAgilityGain"		"2.000000"		// 2.4
 		"AttributeIntelligenceGain"		"2.500000"	// 2.9
 		"Bot"
@@ -2301,7 +2290,8 @@
 	}
 	"npc_dota_hero_spirit_breaker"
 	{
-	    "Ability5"		"spirit_breaker_empowering_haste"
+		"Ability3"		"spirit_breaker_empowering_haste"
+		"Ability9"		"spirit_breaker_greater_bash"	// 巨力重击 被动不需要快捷键
 	}
 	"npc_dota_hero_sven"
 	{
@@ -2489,7 +2479,6 @@
 	}
 	"npc_dota_hero_windrunner"
 	{
-		"MovementSpeed"	"320"	// 290
 		"Bot"
 		{
 			"Build"

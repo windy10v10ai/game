@@ -251,15 +251,15 @@
 		"ItemPurchasable"				"1"
 		"ItemSellable"                  "0"
 	}
-	// 肉山旗帜
+	// 肉山的战旗 旗帜
 	"item_roshans_banner"
 	{
 		"AbilityValues"
 		{
 			"duration"				"180"	// 120
-			"radius"				"750"	// 600
+			"radius"				"750"	// 650
 			"health"				"60"	// 24
-			"buff_linger_duration"		"30"// 0.1
+			"buff_linger_duration"		"15"// 0.1
 		}
 	}
 	//=================================================================================================================
@@ -438,12 +438,11 @@
 	}
 	"item_iron_talon" //打野爪
 	{
-		"AbilityCooldown"				"15.0" //25
+		"AbilityCooldown"				"15.0"	//20
 		"AbilityValues"
 		{
-			"bonus_attack_speed"		"35"	//15
-			"creep_damage_pct"			"67"	//40
-			"bonus_armor"	            "6"		//2
+			"bonus_attack_speed"		"35"	//20
+			"bonus_armor"				"6"		//4
 		}
 	}
 	// level 2
@@ -531,11 +530,14 @@
 	}
 	"item_philosophers_stone" //贤者石
 	{
+		"ItemInitialCharges"			"1200"
 		"AbilityValues"
 		{
 				"bonus_gpm"			"600"	//75
 				"bonus_mana"		"300"	//200
 				"bonus_damage"		"-90"	//-30
+				"gold_on_expire"		"1000"	// 收金钱倍率影响
+				"charges_tooltip"		"1200"	// 2分钟
 		}
 	}
 	"item_vampire_fangs" //吸血鬼獠牙
@@ -552,11 +554,11 @@
 	{
 		"AbilityValues"
 		{
-				"bonus_primary_stat"		"12"    //8
-				"bonus_secondary_stat"			"3" //2
-				"bonus_spell_amp"		"15"        //6
-				"bonus_magic_resistance"	"16"    //8
-				"bonus_attack_speed"	"30"        //10
+				"bonus_primary_stat"		"16"	//10
+				"bonus_secondary_stat"		"6"		//4
+				"bonus_spell_amp"			"16"	//8
+				"bonus_magic_resistance"	"16"	//10
+				"bonus_attack_speed"		"30"	//15
 		}
 	}
 	"item_imp_claw" //魔童之爪 暴击爪
@@ -722,20 +724,17 @@
 	}
 	"item_ogre_seal_totem" //食人魔海豹图腾
 	{
-		"AbilityCooldown"				"20.0" //40
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCooldown"				"25.0"		//35
 		"AbilityValues"
 		{
-			"bonus_strength"			"40"       //10
-            "radius"
+			"bonus_strength"			"35"		//12
+			"radius"
 			{
-				"value"				"450"          //275
-				"affected_by_aoe_increase"	"1"
+				"value"				"400"			//275
 			}
-            "flop_damage"               "350"      //150
-	        "slow_duration"             "3.0"      //1.5
-	        "slow"           			"-100"     //-100
-	        "max_bounces"				"4"        //2
+			"flop_damage"				"350"		//250
+			"slow_duration"				"2.5"		//1.5
+			"max_bounces"				"4"			//2
 		}
 	}
 	"item_doubloon" //双面币
@@ -1493,16 +1492,13 @@
 	"item_bloodstone"
 	{
 		"AbilitySharedCooldown"			"bloodstone"
-        "AbilityTextureName"			"item_bloodstone_v2"
+		"AbilityTextureName"			"item_bloodstone_v2"
 		"AbilityValues"
 		{
 				"bonus_aoe"				"150"
 				"bonus_health"			"1200"
 				"bonus_mana"			"1200"
-				"spell_lifesteal"		"50"
-				"buff_duration"			"6"
-				"lifesteal_multiplier"	"2.5"
-				"hp_cost"				"0"
+				"spell_lifesteal"		"30"	// 20
 		}
 	}
 	// 以太卷轴
@@ -1559,14 +1555,17 @@
 	{
 		"AbilityCastRange"				"600"
 		"ItemStockTime"					"90.0"	// 135.0
+		"AbilityValues"
+		{
+			"lifetime"				"480"					// 360
+			"duration_minutes_tooltip"				"8"		// 6
+		}
 	}
 	//=================================================================================================================
 	// Sentry Ward
 	//=================================================================================================================
 	"item_ward_sentry"
 	{
-
-
 		"ItemCost"						"40"
 		"ItemStockMax"					"20"
 		"ItemStockInitial"				"3"
@@ -1574,18 +1573,10 @@
 	}
 	"item_ward_dispenser"
 	{
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"lifetime_observer"				"600"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"observer_duration_minutes_tooltip"		"10"
-			}
+				"lifetime_observer"				"480"			// 360
+				"observer_duration_minutes_tooltip"		"8"		// 6
 		}
 	}
 	//=================================================================================================================
@@ -1600,18 +1591,9 @@
 		"ItemInitialStockTime"			"225.0"
 		"IsObsolete"					"0"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"xp_bonus"				"700"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"xp_per_use"			"300"
-			}
+				"xp_per_use"			"300"	// 135
 		}
 	}
 	//=================================================================================================================
@@ -1619,31 +1601,10 @@
 	//=================================================================================================================
 	"item_magic_stick"
 	{
-		"ID"							"34"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"Model"							"models/props_gameplay/magic_wand.vmdl"
-
 		"AbilityCooldown"				"10.0"
-		"AbilitySharedCooldown"			"magicwand"
-		"AbilityCastRange"				"1800"
-
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"max_charges"			"15"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"charge_radius"			"1800"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"restore_per_charge"	"15"
-			}
 		}
 	}
 	//=================================================================================================================
@@ -1651,37 +1612,11 @@
 	//=================================================================================================================
 	"item_magic_wand"
 	{
-		"ID"							"36"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"Model"							"models/props_gameplay/magic_wand.vmdl"
-
 		"AbilityCooldown"				"10.0"
-		"AbilitySharedCooldown"			"magicwand"
-		"AbilityCastRange"				"1800"
-
-
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_charges"			"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"charge_radius"			"1800"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"restore_per_charge"	"20"
-			}
+				"bonus_all_stats"		"5"		// 3
+				"restore_per_charge"	"20"	// 15
 		}
 	}
 	//=================================================================================================================
@@ -1690,33 +1625,25 @@
 	"item_holy_locket"
 	{
 		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.0"
-
-		"AbilitySharedCooldown"			"magicwand"
 
 		"AbilityValues"
 		{
 				"heal_increase"			"30"	// 30
 				"max_charges"			"30"	// 20
-				"charge_radius"			"1200"	// 1200
 				"bonus_all_stats"		"15"	// 9
-				"restore_per_charge"	"30"	// 15
+				"restore_per_charge"	"30"	// 17
 				"charge_gain_timer"		"5"		// 10
 				"use_cooldown"			"10"	// 13
 		}
 	}
 
 	//=================================================================================================================
-	// Recipe: Bracer 护腕
+	// Bracer 护腕
 	//=================================================================================================================
 	"item_recipe_bracer"
 	{
 		"ItemCost"						"355"
 	}
-
-	//=================================================================================================================
-	// Bracer
-	//=================================================================================================================
 	"item_bracer"
 	{
 		"MaxUpgradeLevel"				"2"
@@ -1728,24 +1655,20 @@
 			"bonus_strength"		"9 18"		// 5 10
 			"bonus_agility"			"4 8"		// 2 4
 			"bonus_intellect"		"4 8"		// 2 4
-			"bonus_damage"			"6 12"		// 3 6
 			"bonus_health_regen"	"3 6"		// 0.75 1.5
+			"bonus_health"			"100 200"	// 50 100
 			"clock_time"			"3"			// 25
 		}
 	}
 
 
 	//=================================================================================================================
-	// Recipe: Wraith Band 系带
+	// Wraith Band 系带
 	//=================================================================================================================
 	"item_recipe_wraith_band"
 	{
 		"ItemCost"						"355"
 	}
-
-	//=================================================================================================================
-	// Wraith Band
-	//=================================================================================================================
 	"item_wraith_band"
 	{
 		"MaxUpgradeLevel"				"2"
@@ -1764,16 +1687,12 @@
 	}
 
 	//=================================================================================================================
-	// Recipe: Null Talisman 挂件
+	// Null Talisman 挂件
 	//=================================================================================================================
 	"item_recipe_null_talisman"
 	{
 		"ItemCost"						"355"
 	}
-
-	//=================================================================================================================
-	// Null Talisman
-	//=================================================================================================================
 	"item_null_talisman"
 	{
 		"MaxUpgradeLevel"				"2"
@@ -1856,6 +1775,24 @@
 		}
 	}
 
+	// 长盾
+	"item_pavise"
+	{
+		"AbilityValues"
+		{
+			"absorb_amount"				"600"	// 300
+		}
+	}
+	// 炎阳纹章
+	"item_solar_crest"
+	{
+		"AbilityValues"
+		{
+			"absorb_amount"			"800"	// 400
+		}
+	}
+
+	// 宝石
     "item_gem"
     {
         "AbilityCastRange"				"600"
@@ -1864,6 +1801,7 @@
         "AllowedInBackpack"				"1"
     }
 
+	// 圣剑
     "item_rapier"
     {
         "AllowedInBackpack"				"1"

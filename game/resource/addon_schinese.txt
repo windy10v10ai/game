@@ -3,8 +3,8 @@
 	"Language"		"English"
 	"Tokens"
 	{
-		"addon_game_name"		"Dota 10v10 Custom AI by Windy"
-		"DOTA_GameMode_15"		"Dota 10v10 Custom AI by Windy"
+		"addon_game_name"		"Dota 10v10 AI Custom by Windy"
+		"DOTA_GameMode_15"		"Dota 10v10 AI Custom by Windy"
 		"DOTA_SHARD"			"勇士积分"
 
 		// /////////////////////////////////////////////////////////////////////////////
@@ -224,17 +224,17 @@
 
 		"DOTA_Tooltip_ability_creep_buff"								"小兵Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
-		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%伤害降低："
+		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"+%伤害降低："
 
 		"DOTA_Tooltip_ability_creep_buff_upgraded"						"大兵Buff"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%伤害降低："
+		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"+%伤害降低："
 
 		"DOTA_Tooltip_ability_creep_buff_mega"							"超级兵Buff"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"+$armor"
-		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%伤害降低："
+		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"+%伤害降低："
 
 		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%非英雄攻击额外伤害："
 
@@ -247,9 +247,44 @@
 		"DOTA_Tooltip_ability_tower_split_shot_Description"				"当高地被破之后自动习得此技能。"
 		"DOTA_Tooltip_ability_tower_split_shot_arrow_count"				"额外目标数："
 
-        ///////////////////////////////////////////////////
+		"DOTA_Tooltip_ability_tower_ursa_fury_swipes"					"建筑狂暴重击"
+		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_Description"				"这座建筑对同一目标的每次连续攻击都会造成更多伤害。"
+		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_damage_per_stack"			"每次攻击伤害："
+		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_bonus_reset_time"			"重置时间："
+
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor"				"建筑狂热"
+		"DOTA_Tooltip_ability_tower_troll_wardlord_fervor_Description"			"这座建筑对同一目标的攻击速度会逐渐增加。如果建筑攻击新目标，堆叠将重置为零。多重射击不计算在内。"
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_attack_speed"			"每层攻击速度："
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_max_stacks"			"最大堆叠："
+
+		"DOTA_Tooltip_ability_tower_antimage_mana_break"				"建筑法力破坏"
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_Description"			"这座建筑每次攻击都会燃烧目标的法力，并造成等于燃烧法力百分比的额外伤害。"
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_attack_speed"			"每层攻击速度："
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_percent_damage_per_burn"	"燃烧法力作为伤害的百分比："
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit"			"每次攻击燃烧法力："
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit_pct"		"每次攻击燃烧最大法力的百分比："
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_move_slow"			"完全燃烧时的移动速度减缓百分比："
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_slow_duration"			"减速持续时间："
+
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor"				"建筑反应护甲"
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_Description"		"这座建筑每次被攻击时会获得额外的护甲和生命恢复。英雄攻击计为%stacks_per_hero_attack%次攻击。"
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_armor"		"额外护甲："
+		"DOTA_Tooltip_ability_tower_shredder_bonus_hp_regen"				"额外生命恢复："
+		"DOTA_Tooltip_ability_tower_shredder_stack_duration"				"堆叠持续时间："
+
+		"DOTA_Tooltip_ability_tower_headshot"				"建筑爆头"
+		"DOTA_Tooltip_ability_tower_headshot_Description"		"这座建筑在攻击时有几率减缓敌人的移动和攻击速度%slow%%，并将其击退。"
+		"DOTA_Tooltip_ability_tower_headshot_proc_chance"		"几率："
+		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"	"击退距离："
+		"DOTA_Tooltip_ability_tower_headshot_slow_duration"		"减速持续时间："
+
+		"DOTA_Tooltip_ability_fountain_hp_aura"								"泉水生命光环"
+		"DOTA_Tooltip_ability_fountain_hp_aura_Description"					"提高周围单位的生命值上限。"
+		"DOTA_Tooltip_ability_fountain_hp_aura_bonus_hp"					"%额外生命值加成："
+		"DOTA_Tooltip_ability_fountain_hp_aura_radius"						"作用范围："
+		///////////////////////////////////////////////////
 		//
-		//            itembuilds
+		//			itembuilds
 		//
 		///////////////////////////////////////////////////
 		"dota_item_build_windy_consumables_items"	"10v10消耗物品"
@@ -449,10 +484,6 @@
         // 虚空假面
         "DOTA_Tooltip_ability_faceless_void_backtrack"			"回到过去"
 		"DOTA_Tooltip_ability_faceless_void_backtrack_description"			"虚空假面通过将时间向回移动一小段，来闪避一切（包括物理和魔法）伤害。<br/>回到过去概率：10/15/20/25/30"
-
-		// 死亡先知
-		"DOTA_Tooltip_ability_death_prophet_witchcraft"			"巫术精研"
-		"DOTA_Tooltip_ability_death_prophet_witchcraft_description"			"提升死亡先知克萝贝露丝Krobelus使用巫术的能力，被动提升移动速度。<br/>移动速度加成：10/15/20/25/30,<br/>地穴虫群魔法消耗降低：10/15/20/25/30,<br/>地穴虫群冷却时间降低：1,<br/>沉默魔法魔法消耗降低:20,<br/>沉默魔法冷却时间降低：1。"
 
         // 美杜莎
 		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "每次美杜莎受到指向性技能作用时都会朝该敌人放出一条单体的秘术异蛇。冷却时间：10。"
@@ -1041,7 +1072,7 @@
 		"DOTA_Tooltip_modifier_int_tome_Description"					"智力增加 <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
 		"DOTA_Tooltip_Ability_item_tome_of_luoshu"						"洛书"
-		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>使用: 洛书祝福</h1> 永久增加 <br>%bonus_all_stats% 点全属性，<br>%status_resistance%%% 状态抗性，<br>%spell_amp%%% 技能增强，<br>%bonus_base_damage_percent%%% 基础攻击力，<br>%bonus_cast_range% 施法距离。\n只可使用一次\n可以分享给队友"
+		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>使用: 洛书祝福</h1> 永久获得 <br>+%bonus_all_stats% 点全属性<br>+%status_resistance%%% 状态抗性<br>+%spell_amp%%% 技能增强<br>+%bonus_base_damage_percent%%% 基础攻击力<br>+%bonus_cast_range% 施法距离。\n只可使用一次\n可以分享给队友"
 		"DOTA_Tooltip_ability_item_tome_of_luoshu_cast_error"			"洛书只能使用一次"
 
 		"DOTA_Tooltip_modifier_luoshu_tome"								"洛书看好你！"
@@ -1133,7 +1164,7 @@
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_armor"							"+$armor"
 
 		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura"				"强袭祭品"
-		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura_Description"	"获得20%%吸血效果，%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%攻击力加成，%fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点/秒魔法恢复，%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点护甲，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度。"
+		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura_Description"	"获得25%%吸血效果，%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%攻击力加成，%fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点/秒魔法恢复，%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点护甲，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度。"
 
 		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura"				"强袭祭品"
 		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura_Description"	"获得%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点护甲，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度。"
@@ -1169,9 +1200,10 @@
 		"DOTA_Tooltip_ability_item_undying_heart_Lore"									"保存完好的心脏，来自早已绝种的怪兽，能提升携带者的耐久力。"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_health"							"+$health"
-		"DOTA_Tooltip_ability_item_undying_heart_health_regen_pct"						"%+最大生命恢复（无法叠加）"
+		"DOTA_Tooltip_ability_item_undying_heart_health_regen_pct"						"%+最大生命恢复"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_evasion"							"%+$evasion"
 		"DOTA_Tooltip_ability_item_undying_heart_status_resistance"						"%+状态抗性"
+		"DOTA_Tooltip_ability_item_undying_heart_note0"									"多个不朽之心的最大生命恢复效果不叠加。"
 		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"Buff：巨龙复苏"
 
         // item_force_staff_2 推推2
@@ -1209,7 +1241,7 @@
 		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复，和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
 
 		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"<font color='#f15b47'>高阶洞察盔甲光环</font>"
-		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复，和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
+		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, 和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
 
         // item_arcane_octarine_core 奥术之心
 		"DOTA_Tooltip_Ability_item_arcane_octarine_core"			"奥术之心"
@@ -1480,7 +1512,7 @@
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_regen"						"+生命恢复"
 		"DOTA_Tooltip_ability_item_blue_fantasy_Lore" 								"黄泉之音，闻者命不久矣"
 		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff"  							"残响震荡"
-		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff_Description"  				"装备被禁用，被动技能被禁用，持续驱散增益效果。移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
+		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff_Description"  				"装备被禁用，被动技能被禁用，持续驱散增益效果。移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。每秒受到自身4%%的最大生命值的魔法伤害。"
 
 		// item_wasp_despotic 大核荣耀
 		"DOTA_Tooltip_ability_item_wasp_despotic"					"大核荣耀暴虐"
@@ -1615,7 +1647,7 @@
 
         // 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"圣女白莲"
-		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>白莲花(主动):</font></h1>给予目标一个护盾，持续时间内反弹所有指向性法术(自身依然受到效果影响)，护盾施加后会免疫第一次触发的法术，并且恢复目标%heal%%的血量。\n<h1><font color='#FFFF00'>圣洁治愈(被动)：</font></h1>增加自身%heal_bonus%%的所有恢复效果。\n<h1><font color='#FFFF00'>"
+		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>白莲花(主动):</font></h1>给予目标一个护盾，持续时间内反弹所有指向性法术(自身依然受到效果影响)，护盾施加后会免疫第一次触发的法术，并且恢复目标%heal%%的血量。\n<h1><font color='#FFFF00'>圣洁治愈(被动)：</font></h1>增加自身%heal_bonus%%的所有恢复效果。"
 		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"你们不要再打啦，要打去练舞室打，你们这样是打不死人的。"
 		"DOTA_Tooltip_Ability_item_saint_orb_Note0"						"简单来说就是主动给目标套个一次林肯+莲花。"
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats"			"+$all"
@@ -1693,7 +1725,8 @@
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_health_regen"		"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_mana_regen"		"+$mana_regen"
-		"DOTA_Tooltip_Ability_item_bfury_ultra_Note0"					"你玩过曾经的限时强化版水刀吗？"
+		"DOTA_Tooltip_ability_item_bfury_ultra_Note0"					"分裂伤害无视减益免疫。"
+		"DOTA_Tooltip_ability_item_bfury_ultra_Note1"					"如果存在多个分裂效果，每个分裂的伤害都会单独计算。"
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"				"<font color='#e03e2e'>变态辣</font>"
