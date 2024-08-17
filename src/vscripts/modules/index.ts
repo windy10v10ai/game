@@ -2,6 +2,7 @@ import { AI } from "../ai/AI";
 import { GameConfig } from "./GameConfig";
 import { Debug } from "./debug/Debug";
 import { Event } from "./event/event";
+import { Option } from "./option";
 import { PropertyController } from "./property/property_controller";
 import { XNetTable } from "./xnet-table";
 
@@ -11,6 +12,7 @@ declare global {
     XNetTable: XNetTable;
     AI: AI;
     GameConfig: GameConfig;
+    Option: Option;
   }
 }
 
@@ -34,4 +36,6 @@ export function ActivateModules() {
   if (GameRules.AI == null) GameRules.AI = new AI();
 
   if (GameRules.GameConfig == null) GameRules.GameConfig = new GameConfig();
+
+  if (GameRules.Option == null) GameRules.Option = new Option();
 }

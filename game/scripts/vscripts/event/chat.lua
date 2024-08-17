@@ -47,17 +47,6 @@ function AIGameMode:OnPlayerChat(event)
 
     -- 开发测试代码
     if developerSteamAccountID[steamAccountID] then
-        -- if AIGameMode.DebugMode and developerSteamAccountID[steamAccountID] then
-        if sChatMsg:find('^-pos$') then
-            -- get position
-            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-            -- print position
-            local pos = hHero:GetAbsOrigin()
-            Printf("开发者:" .. developerSteamAccountID[steamAccountID] ..
-                " 的位置是:" .. pos.x .. "," .. pos.y .. "," .. pos.z)
-            return
-        end
-
         if sChatMsg:find('^-modifier$') then
             -- get position
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)

@@ -3,8 +3,8 @@ import { PlayerHelper } from "../../helper/player-helper";
 import { PropertyController } from "../property/property_controller";
 import { CustomEvent } from "./custom-event";
 import { EventEntityKilled } from "./event-entity-killed";
+import { EventGameStateChange } from "./event-game-state-change";
 import { EventNpcSpawned } from "./event-npc-spawned";
-import { EventGameStateChange } from "./evnet-game-state-change";
 
 export class Event {
   EventNpcSpawned: EventNpcSpawned;

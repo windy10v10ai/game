@@ -153,7 +153,7 @@ function Snippet_Team(team) {
       panel.FindChildTraverse("GoldXpMultiplier").text =
         $.Localize("#bot_multiplier") + `: x${GAME_RESULT.options.botGoldXpMultiplier}`;
       panel.FindChildTraverse("TowerPower").text =
-        $.Localize("#tower_endure") + ": " + GAME_RESULT.options.towerEndure;
+        $.Localize("#tower_power") + ": " + GAME_RESULT.options.towerPower;
     }
   }
   const teamDetails = Game.GetTeamDetails(team);

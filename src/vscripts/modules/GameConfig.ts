@@ -1,7 +1,4 @@
 export class GameConfig {
-  towerPower = 100;
-  towerHeal = 0;
-
   constructor() {
     SendToServerConsole("dota_max_physical_items_purchase_limit 9999"); // 用来解决物品数量限制问题
 
@@ -59,8 +56,8 @@ export class GameConfig {
 
     if (IsInToolsMode()) {
       print("[GameConfig] IsInToolsMode set");
-      GameRules.SetCustomGameSetupAutoLaunchDelay(5);
-      GameRules.SetHeroSelectionTime(300);
+      // GameRules.SetCustomGameSetupAutoLaunchDelay(30);
+      // GameRules.SetHeroSelectionTime(300);
       GameRules.SetHeroSelectPenaltyTime(5); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(10);
       // GameRules.SetPreGameTime(300);

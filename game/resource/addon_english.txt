@@ -33,9 +33,7 @@
 		"show_game_options"  "Show Game Options"
 		"respawn_time_percentage"	"Respawn Time"
 		"max_level"	"Max Level"
-		"tower_power"	"Tower Damage"
-		"tower_endure"	"Tower Durability"
-		"tower_heal"	"Tower HP Regeneration"
+		"tower_power"	"Tower Power"
 		"starting_gold_player"	"Player Starting Gold"
 		"starting_gold_bot"	"Bot Starting Gold"
 		"same_hero_selection"  "Allow Same Hero Selection"
@@ -205,23 +203,8 @@
 		//            Creep / Tower
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_modifier_global_tower_power_50"					"Building Damage"
-		"DOTA_Tooltip_modifier_global_tower_power_50_Description"		"This building's attack damage is decreased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
-		"DOTA_Tooltip_modifier_global_tower_power_100"					"Building Damage"
-		"DOTA_Tooltip_modifier_global_tower_power_100_Description"		"This building's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
-		"DOTA_Tooltip_modifier_global_tower_power_150"					"Building Damage"
-		"DOTA_Tooltip_modifier_global_tower_power_150_Description"		"This building's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
-		"DOTA_Tooltip_modifier_global_tower_power_200"					"Building Damage"
-		"DOTA_Tooltip_modifier_global_tower_power_200_Description"		"This building's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
-		"DOTA_Tooltip_modifier_global_tower_power_250"					"Building Damage"
-		"DOTA_Tooltip_modifier_global_tower_power_250_Description"		"This building's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
-		"DOTA_Tooltip_modifier_global_tower_power_300"					"Building Damage"
-		"DOTA_Tooltip_modifier_global_tower_power_300_Description"		"This building's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
-		"DOTA_Tooltip_modifier_global_tower_power_400"					"Building Damage"
-		"DOTA_Tooltip_modifier_global_tower_power_400_Description"		"This building's attack damage is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
-
-		"DOTA_Tooltip_modifier_tower_endure"							"Building Durability"
-		"DOTA_Tooltip_modifier_tower_endure_Description"				"This building's max health is %dMODIFIER_PROPERTY_TOOLTIP%%% of its normal value."
+		"DOTA_Tooltip_modifier_tower_power"					"Building Power"
+		"DOTA_Tooltip_modifier_tower_power_Description"		"This building's attack damage and max health is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%.<br>Gaining %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration"
 
 		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonuses"
 		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance, %dMODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING%%% slow resistance, and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance."

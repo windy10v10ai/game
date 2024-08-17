@@ -33,9 +33,7 @@
 		"show_game_options"  "Show Game Options"
 		"respawn_time_percentage"	"复活时间"
 		"max_level"	"等级上限"
-		"tower_power"	"防御塔攻击"
-		"tower_endure"	"防御塔防御"
-		"tower_heal"	"防御塔生命恢复"
+		"tower_power"	"防御塔增强"
 		"starting_gold_player"	"玩家初始金钱"
 		"starting_gold_bot"	"电脑初始金钱"
 		"same_hero_selection"  "允许选择相同英雄"
@@ -201,23 +199,8 @@
 		//            Creep / Tower
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_modifier_global_tower_power_50"					"建筑攻击加成"
-		"DOTA_Tooltip_modifier_global_tower_power_50_Description"		"建筑物的攻击增加 -%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
-		"DOTA_Tooltip_modifier_global_tower_power_100"					"建筑攻击加成"
-		"DOTA_Tooltip_modifier_global_tower_power_100_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
-		"DOTA_Tooltip_modifier_global_tower_power_150"					"建筑攻击加成"
-		"DOTA_Tooltip_modifier_global_tower_power_150_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
-		"DOTA_Tooltip_modifier_global_tower_power_200"					"建筑攻击加成"
-		"DOTA_Tooltip_modifier_global_tower_power_200_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
-		"DOTA_Tooltip_modifier_global_tower_power_250"					"建筑攻击加成"
-		"DOTA_Tooltip_modifier_global_tower_power_250_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
-		"DOTA_Tooltip_modifier_global_tower_power_300"					"建筑攻击加成"
-		"DOTA_Tooltip_modifier_global_tower_power_300_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
-		"DOTA_Tooltip_modifier_global_tower_power_400"					"建筑攻击加成"
-		"DOTA_Tooltip_modifier_global_tower_power_400_Description"		"建筑物的攻击增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。"
-
-		"DOTA_Tooltip_modifier_tower_endure"							"建筑防御加成"
-		"DOTA_Tooltip_modifier_tower_endure_Description"				"建筑物的最大生命值设为 %dMODIFIER_PROPERTY_TOOLTIP%%%。"
+		"DOTA_Tooltip_modifier_tower_power"					"建筑增强"
+		"DOTA_Tooltip_modifier_tower_power_Description"		"建筑物的攻击和最大生命值增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。<br>获得额外 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复。"
 
 		"DOTA_Tooltip_modifier_global_melee_resistance"					"威压"
 		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"近战英雄额外获得 %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性。"
@@ -500,7 +483,7 @@
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"		"%移动速度："
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"生命恢复："
 		"DOTA_Tooltip_modifier_omninight_angelic_flight"					"奶飞天"
-		"DOTA_Tooltip_modifier_omninight_angelic_flight_description"		"获得飞行移动状态，%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复，%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% 移动速度。"
+		"DOTA_Tooltip_modifier_omninight_angelic_flight_description"		"获得飞行移动状态，%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% 移动速度。"
 
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"治疗："
@@ -1238,10 +1221,10 @@
 		"DOTA_Tooltip_Ability_item_recipe_insight_armor"						"洞察盔甲卷轴"
 
 		"DOTA_Tooltip_modifier_insight_armor_aura"								"洞察盔甲光环"
-		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复，和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
+		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
 
 		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"<font color='#f15b47'>高阶洞察盔甲光环</font>"
-		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% 生命恢复，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, 和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
+		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, 和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
 
         // item_arcane_octarine_core 奥术之心
 		"DOTA_Tooltip_Ability_item_arcane_octarine_core"			"奥术之心"

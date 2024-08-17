@@ -94,7 +94,6 @@ function AIGameMode:InitEvents()
 end
 
 function AIGameMode:LinkLuaModifiers()
-    LinkLuaModifier("modifier_tower_endure", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_out_of_world", "global_modifiers.lua", LUA_MODIFIER_MOTION_NONE)
 
     LinkLuaModifier("modifier_bot_think_strategy", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
@@ -113,8 +112,6 @@ function AIGameMode:PreGameOptions()
     self.iMaxLevel = self.iMaxLevel or MAX_LEVEL
 
     self.iTowerPower = self.iTowerPower or 3
-    self.iTowerEndure = self.iTowerEndure or 3
-    self.iTowerHeal = self.iTowerHeal or 0
 
     self.iStartingGoldPlayer = self.iStartingGoldPlayer or 600
     self.iStartingGoldBot = self.iStartingGoldBot or 600

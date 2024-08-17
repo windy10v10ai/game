@@ -48,7 +48,7 @@ export class EventGameStateChange {
 
   private addModifierToTowers(building: CDOTA_BaseNPC) {
     // 防御塔攻击
-    let towerPower = GameRules.GameConfig.towerPower;
+    let towerPower = GameRules.Option.towerPower;
 
     // 1塔最高200%攻击
     const towerName = building.GetName();
@@ -57,10 +57,33 @@ export class EventGameStateChange {
         towerPower = 200;
       }
     }
-    ModifierHelper.applyGlobalModifier(building, `modifier_global_tower_power_${towerPower}`);
+    ModifierHelper.appleTowerModifier(
+      building,
+      `modifier_tower_power`,
+      this.getTowerLevel(towerPower),
+    );
 
-    // 防御塔回血
-    const towerHeal = GameRules.GameConfig.towerHeal;
-    ModifierHelper.applyGlobalModifier(building, `modifier_global_tower_heal_${towerHeal}`);
+    // 防御塔血量
+    const newHealth = Math.floor((towerPower / 100) * building.GetMaxHealth());
+    building.SetMaxHealth(newHealth);
+    building.SetBaseMaxHealth(newHealth);
+    building.SetHealth(newHealth);
+  }
+
+  private getTowerLevel(percent: number): number {
+    if (percent <= 100) {
+      return 1;
+    } else if (percent <= 150) {
+      return 2;
+    } else if (percent <= 200) {
+      return 3;
+    } else if (percent <= 250) {
+      return 4;
+    } else if (percent <= 300) {
+      return 5;
+    } else if (percent <= 400) {
+      return 6;
+    }
+    return 1;
   }
 }
