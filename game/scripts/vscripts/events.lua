@@ -44,58 +44,6 @@ function AIGameMode:InitPlayerGold()
     end
 end
 
-function AIGameMode:InitHeroSelection()
-    if self.PreGameOptionsSet then
-        print("[AIGameMode] InitHeroSelection")
-
-        -- 添加bot和初期金钱
-        local iPlayerNumRadiant = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-        local iPlayerNumDire = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
-        math.randomseed(math.floor(Time() * 1000000))
-        -- 随机英雄列表
-        print("[AIGameMode] Random hero list")
-        self:ArrayShuffle(tBotNameList)
-
-        if self.iGameDifficulty == 6 then
-            print("[AIGameMode] Use all star hero list start")
-            local iRandomTeam = math.random(1, 21)
-            print("[AIGameMode] Random team: " .. tostring(iRandomTeam))
-            for _, v in ipairs(tBotAllStarRandom["team" .. tostring(iRandomTeam)]) do
-                table.insert(tBotAllStar, v)
-            end
-            self:ArrayShuffle(tBotAllStar)
-        end
-
-        local sDifficulty = "unfair"
-        if self.iDesiredDire > iPlayerNumDire then
-            for i = 1, self.iDesiredDire - iPlayerNumDire do
-                Tutorial:AddBot(self:GetFreeHeroName(false), "", sDifficulty, false)
-            end
-        end
-        if self.iDesiredRadiant > iPlayerNumRadiant then
-            for i = 1, self.iDesiredRadiant - iPlayerNumRadiant do
-                Tutorial:AddBot(self:GetFreeHeroName(true), "", sDifficulty, true)
-            end
-        end
-        -- 必须在创建AI后启用
-        GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
-        Tutorial:StartTutorialMode()
-
-        for i = 0, (DOTA_MAX_TEAM_PLAYERS - 1) do
-            if PlayerResource:IsValidPlayer(i) then
-                if not IsHumanPlayer(i) then
-                    PlayerResource:SetGold(i, (self.iStartingGoldBot - 600), true)
-                end
-            end
-        end
-    else
-        Timers:CreateTimer(0.5, function()
-            print("[AIGameMode] Try InitHeroSelection in 0.5s")
-            AIGameMode:InitHeroSelection()
-        end)
-    end
-end
-
 function AIGameMode:OnGameStateChanged(keys)
     local state = GameRules:State_Get()
 
@@ -111,9 +59,6 @@ function AIGameMode:OnGameStateChanged(keys)
         if not self.PreGameOptionsSet then
             print("[AIGameMode] Setting pre-game options STRATEGY_TIME")
             self:PreGameOptions()
-        end
-        if IsServer() then
-            self:InitHeroSelection()
         end
 
         Timers:CreateTimer(1, function()

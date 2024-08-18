@@ -4,12 +4,10 @@ import { Debug } from "./debug/Debug";
 import { Event } from "./event/event";
 import { Option } from "./option";
 import { PropertyController } from "./property/property_controller";
-import { XNetTable } from "./xnet-table";
 
 declare global {
   interface CDOTAGameRules {
     // 声明所有的GameRules模块，这个主要是为了方便其他地方的引用（保证单例模式）
-    XNetTable: XNetTable;
     AI: AI;
     GameConfig: GameConfig;
     Option: Option;
@@ -23,8 +21,7 @@ declare global {
 export function ActivateModules() {
   // 初始化所有的GameRules模块
 
-  if (GameRules.XNetTable == null) {
-    GameRules.XNetTable = new XNetTable();
+  if (GameRules.GameConfig == null) {
     // 如果某个模块不需要在其他地方使用，那么直接在这里使用即可
     new Debug();
 

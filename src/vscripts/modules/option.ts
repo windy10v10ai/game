@@ -11,7 +11,14 @@ export class Option {
   //    max_level                       	= "30" (string)
   //    tower_power                     	= "50" (string)
 
+  radiantPlayerNumber = 10;
+  direPlayerNumber = 10;
+
   towerPower = 100;
+  startingGoldPlayer = 1000;
+  startingGoldBot = 1000;
+
+  gameDifficulty = 0;
 
   constructor() {}
 }
