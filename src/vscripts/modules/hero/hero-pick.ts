@@ -1,6 +1,17 @@
-import { PlayerHelper } from "../helper/player-helper";
+import { PlayerHelper } from "../../helper/player-helper";
 
 export class HeroPick {
+  static PickHumanHeroes() {
+    PlayerHelper.ForEachPlayer((playerId) => {
+      if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
+        if (PlayerResource.HasSelectedHero(playerId)) {
+          return;
+        }
+        PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
+      }
+    });
+  }
+
   static PickBotHeroes() {
     math.randomseed(GameRules.GetGameTime());
 

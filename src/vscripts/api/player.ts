@@ -65,7 +65,7 @@ export class Player {
     return Player.playerCount;
   }
 
-  public Init() {
+  public static LoadPlayerInfo() {
     CustomNetTables.SetTableValue("loading_status", "loading_status", {
       status: 1,
     });
@@ -89,13 +89,10 @@ export class Player {
       retryTimes: 6,
     };
 
-    // Controller初期化
-    new PropertyController();
-
     ApiClient.sendWithRetry(apiParameter);
   }
 
-  private InitSuccess(data: string) {
+  private static InitSuccess(data: string) {
     print(`[Player] Init callback data ${data}`);
     const gameStart = json.decode(data)[0] as GameStart;
     DeepPrintTable(gameStart);
@@ -118,7 +115,7 @@ export class Player {
     });
   }
 
-  private InitFailure(_: string) {
+  private static InitFailure(_: string) {
     if (IsInToolsMode()) {
       Player.saveMemberToNetTable();
     }

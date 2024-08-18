@@ -48,9 +48,6 @@ function AIGameMode:OnGameStateChanged(keys)
     local state = GameRules:State_Get()
 
     if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
-        if IsServer() then
-            PlayerController:Init()
-        end
     elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
         if IsServer() then
             self:InitPlayerGold()
@@ -60,18 +57,8 @@ function AIGameMode:OnGameStateChanged(keys)
             print("[AIGameMode] Setting pre-game options STRATEGY_TIME")
             self:PreGameOptions()
         end
-
-        Timers:CreateTimer(1, function()
-            for i = 0, (DOTA_MAX_TEAM_PLAYERS - 1) do
-                if PlayerResource:IsValidPlayer(i) then
-                    if PlayerResource:GetPlayer(i) and not PlayerResource:HasSelectedHero(i) then
-                        PlayerResource:GetPlayer(i):MakeRandomHeroSelection()
-                    end
-                end
-            end
-            self:EndScreenStats(1, false)
-        end)
     elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
+        self:EndScreenStats(1, false)
         -- modifier towers
         local tTowers = Entities:FindAllByClassname("npc_dota_tower")
         local iTowerLevel = math.max(self.iGameDifficulty, 1)
@@ -626,7 +613,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
 
                     if teamKills > 0 then
                         local battleParticipation = math.floor(battleParticipationBase * ((kills + assists) / teamKills))
-                        print("battleParticipation", battleParticipation)
                         playerInfo.points = playerInfo.points + battleParticipation
                     end
 
