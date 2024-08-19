@@ -1,4 +1,3 @@
-import { ActionItem } from "../../ai/action/action-item";
 import { ModifierHelper } from "../../helper/modifier-helper";
 import { PlayerHelper } from "../../helper/player-helper";
 import { reloadable } from "../../utils/tstl-utils";
@@ -49,6 +48,14 @@ export class Debug {
       hero.GetItemInSlot(15)?.EndCooldown();
     }
 
+    if (cmd.startsWith("-test")) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      this.log(`test command: ${cmd}`);
+      ModifierHelper.appleTowerModifier(hero, `modifier_tower_power`, 3);
+    }
+
+    // 常用命令
     if (cmd === CMD.G_ALL) {
       PlayerHelper.ForEachPlayer((playerId) => {
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
@@ -72,7 +79,6 @@ export class Debug {
       }
     }
 
-    // v 获取当前vector
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
@@ -92,15 +98,14 @@ export class Debug {
       });
     }
 
-    if (cmd === "-kill") {
+    if (cmd === CMD.KILL) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
 
-      print(`kill hero`);
       hero.Kill(undefined, hero);
     }
 
-    if (cmd === "-killall") {
+    if (cmd === CMD.KILL_ALL) {
       PlayerHelper.ForEachPlayer((playerId) => {
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
         if (!hero) return;
@@ -108,40 +113,40 @@ export class Debug {
       });
     }
 
-    if (cmd.startsWith("-getUseableItemByName")) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      const itemName = args[0];
-      const item = ActionItem.FindItemInInventoryUseable(hero, itemName);
-      if (!item) {
-        this.log(`没有找到物品: ${itemName}`);
-        return;
-      } else {
-        this.log(`找到物品: ${itemName}`);
-      }
-    }
-
-    if (cmd.startsWith("-getUseableItemByName")) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      const itemName = args[0];
-      const item = ActionItem.FindItemInInventoryUseable(hero, itemName);
-      if (!item) {
-        this.log(`没有找到物品: ${itemName}`);
-        return;
-      } else {
-        this.log(`找到物品: ${itemName}`);
-      }
-    }
-
-    // 其他的测试指令写在下面
-    if (cmd.startsWith("-get_key_v3")) {
+    if (cmd.startsWith(CMD.GET_KEY_V3)) {
       const version = args[0];
       const key = GetDedicatedServerKeyV3(version);
       this.log(`${version}: ${key}`);
     }
 
-    if (cmd.startsWith("-removeModifier")) {
+    if (cmd.startsWith(CMD.ADD_MODIFIER)) {
+      const modifierName = args[0];
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (hero) {
+        hero.AddNewModifier(hero, undefined, modifierName, {});
+      }
+    }
+    if (cmd.startsWith(CMD.REMOVE_MODIFIER)) {
+      const modifierName = args[0];
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (hero) {
+        hero.RemoveModifierByName(modifierName);
+      }
+    }
+
+    if (cmd.startsWith(CMD.ADD_MODIFIER_All_100)) {
+      const modifierName = args[0];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        // add modifier
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (hero) {
+          for (let i = 0; i < 100; i++) {
+            hero.AddNewModifier(hero, undefined, modifierName, {});
+          }
+        }
+      });
+    }
+    if (cmd.startsWith(CMD.REMOVE_MODIFIER_ALL_100)) {
       const modifierName = args[0];
       PlayerHelper.ForEachPlayer((playerId) => {
         // add modifier
@@ -154,19 +159,7 @@ export class Debug {
         }
       });
     }
-    if (cmd.startsWith("-addModifier")) {
-      const modifierName = args[0];
-      PlayerHelper.ForEachPlayer((playerId) => {
-        // add modifier
-        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-        if (hero) {
-          for (let i = 0; i < 100; i++) {
-            hero.AddNewModifier(hero, undefined, modifierName, {});
-          }
-        }
-      });
-    }
-    if (cmd.startsWith("-addDataDriveModifier")) {
+    if (cmd.startsWith(CMD.ADD_DATADRIVE_MODIFIER_All_100)) {
       const modifierName = args[0];
       PlayerHelper.ForEachPlayer((playerId) => {
         // add modifier
@@ -179,8 +172,7 @@ export class Debug {
       });
     }
 
-    // 重置技能
-    if (cmd === "-resetAbility") {
+    if (cmd === CMD.RESET_ABILITY) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
       for (let i = 0; i < 16; i++) {
@@ -191,14 +183,14 @@ export class Debug {
       }
     }
     // 获取状态抗性
-    if (cmd === "-getSR") {
+    if (cmd === CMD.GET_SR) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
       const sr = hero.GetStatusResistance();
       this.log(`status resistance: ${sr}`);
     }
-    // 造成伤害
-    if (cmd === "-damage") {
+    // 造成存粹伤害
+    if (cmd === CMD.DAMAGE_PURE) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
       const damage = Number(args[0]);

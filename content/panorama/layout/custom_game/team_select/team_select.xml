@@ -80,7 +80,7 @@
 
 				<!--API Loading Status-->
 				<Panel id="GameLoadingStatus" class="DisplayOptionsSubPanel">
-					<Label id="GameLoadingStatusText" class="DisplayOptionsLableTitle" text="#loading_status_1" />
+					<Label id="GameLoadingStatusText" class="DisplayOptionsLableTitle" text="#loading_status_1" style="color:#FD841F;" />
 				</Panel>
 
 				<!--Start and lock button-->

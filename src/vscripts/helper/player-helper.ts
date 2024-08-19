@@ -1,15 +1,20 @@
 export class PlayerHelper {
   static IsHumanPlayer(npc: CDOTA_BaseNPC | undefined): boolean {
     if (npc && npc.IsRealHero()) {
-      // is human player
-      if (npc.GetPlayerOwnerID() >= 0) {
-        const player = PlayerResource.GetPlayer(npc.GetPlayerOwnerID());
-        if (player) {
-          const steamAccountID = PlayerResource.GetSteamAccountID(npc.GetPlayerOwnerID());
-          if (steamAccountID > 0) {
-            return true;
-          }
-        }
+      const playerId = npc.GetPlayerOwnerID();
+      if (playerId >= 0) {
+        return this.IsHumanPlayerByPlayerId(playerId);
+      }
+    }
+    return false;
+  }
+
+  static IsHumanPlayerByPlayerId(playerId: PlayerID): boolean {
+    const player = PlayerResource.GetPlayer(playerId);
+    if (player) {
+      const steamAccountID = PlayerResource.GetSteamAccountID(playerId);
+      if (steamAccountID > 0) {
+        return true;
       }
     }
     return false;

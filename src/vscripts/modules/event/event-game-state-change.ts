@@ -1,4 +1,6 @@
+import { Player } from "../../api/player";
 import { ModifierHelper } from "../../helper/modifier-helper";
+import { HeroPick } from "../hero/hero-pick";
 
 export class EventGameStateChange {
   constructor() {
@@ -7,10 +9,16 @@ export class EventGameStateChange {
 
   OnGameStateChanged(): void {
     const state = GameRules.State_Get();
-    if (state === GameState.GAME_IN_PROGRESS) {
+    if (state === GameState.CUSTOM_GAME_SETUP) {
+      Timers.CreateTimer(1, () => {
+        Player.LoadPlayerInfo();
+      });
+    } else if (state === GameState.GAME_IN_PROGRESS) {
       this.OnGameInProgress();
     } else if (state === GameState.HERO_SELECTION) {
       this.OnHeroSelection();
+    } else if (state === GameState.STRATEGY_TIME) {
+      this.OnStrategyTime();
     } else if (state === GameState.PRE_GAME) {
       this.OnPreGame();
     }
@@ -18,8 +26,22 @@ export class EventGameStateChange {
 
   private OnGameInProgress(): void {}
 
+  /**
+   * 选择英雄时间
+   */
   private OnHeroSelection(): void {}
 
+  /**
+   * 策略时间
+   */
+  private OnStrategyTime(): void {
+    HeroPick.PickHumanHeroes();
+    HeroPick.PickBotHeroes();
+  }
+
+  /**
+   * 地图载入后，游戏开始前
+   */
   private OnPreGame(): void {
     // 初始化游戏
     print(`[EventGameStateChange] OnPreGame`);
@@ -48,7 +70,7 @@ export class EventGameStateChange {
 
   private addModifierToTowers(building: CDOTA_BaseNPC) {
     // 防御塔攻击
-    let towerPower = GameRules.GameConfig.towerPower;
+    let towerPower = GameRules.Option.towerPower;
 
     // 1塔最高200%攻击
     const towerName = building.GetName();
@@ -57,10 +79,33 @@ export class EventGameStateChange {
         towerPower = 200;
       }
     }
-    ModifierHelper.applyGlobalModifier(building, `modifier_global_tower_power_${towerPower}`);
+    ModifierHelper.appleTowerModifier(
+      building,
+      `modifier_tower_power`,
+      this.getTowerLevel(towerPower),
+    );
 
-    // 防御塔回血
-    const towerHeal = GameRules.GameConfig.towerHeal;
-    ModifierHelper.applyGlobalModifier(building, `modifier_global_tower_heal_${towerHeal}`);
+    // 防御塔血量
+    const newHealth = Math.floor((towerPower / 100) * building.GetMaxHealth());
+    building.SetMaxHealth(newHealth);
+    building.SetBaseMaxHealth(newHealth);
+    building.SetHealth(newHealth);
+  }
+
+  private getTowerLevel(percent: number): number {
+    if (percent <= 100) {
+      return 1;
+    } else if (percent <= 150) {
+      return 2;
+    } else if (percent <= 200) {
+      return 3;
+    } else if (percent <= 250) {
+      return 4;
+    } else if (percent <= 300) {
+      return 5;
+    } else if (percent <= 400) {
+      return 6;
+    }
+    return 1;
   }
 }

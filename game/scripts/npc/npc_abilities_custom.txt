@@ -303,6 +303,7 @@
 			}
 		}
 	}
+	// 泉水最大生命值
 	"fountain_hp_aura"
 	{
 		"BaseClass"						"granite_golem_hp_aura"
@@ -311,7 +312,7 @@
 		{
 			"bonus_hp"
 			{
-				"value" "20"
+				"value" "50"
 			}
 			"radius"
 			{

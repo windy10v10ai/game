@@ -514,18 +514,15 @@
 		"AbilityCooldown"				"12" //30
 		"AbilityValues"
 		{
-			"health_regen"			"24"           //12
-			"mana_regen"			"12"            //6
-			"penalty"				"0.5"          //0.5
-			"movespeed_pct"				"15"       //10
-			"radius"					"300"      //200
+			"health_regen"			"20"		//10
+			"mana_regen"			"12"		//6
+			"radius"					"300"	//200
 			"tree_destruction_radius"
 			{
-				"value"						"650"  //325
-				"affected_by_aoe_increase"	"1"    //1
+				"value"						"600"	//325
+				"affected_by_aoe_increase"	"1"		//1
 			}
-			"miss_rate"					"50"       //30
-			"duration"					"2.5"      //2.5
+			"miss_rate"					"50"		//30
 		}
 	}
 	"item_philosophers_stone" //贤者石

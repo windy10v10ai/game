@@ -26,8 +26,6 @@ interface LoadingSetOptionsEventData {
     dire_player_number: string;
     respawn_time_percentage: string;
     tower_power: string;
-    tower_endure: string;
-    tower_heal: string;
     starting_gold_player: string;
     starting_gold_bot: string;
     max_level: string;

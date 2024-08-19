@@ -23,45 +23,53 @@ function item_jump_jump_jump:OnSpellStart()
 	-- Play start point effects
 	caster:EmitSound("DOTA_Item.BlinkDagger.Activate")
 
-	local blink_pfx = ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local blink_pfx = ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_CUSTOMORIGIN,
+		caster)
 	ParticleManager:ReleaseParticleIndex(blink_pfx)
 
 	-- Blink and disjoint projectiles
 	FindClearSpaceForUnit(caster, target_loc, true)
-	ProjectileManager:ProjectileDodge( caster )
+	ProjectileManager:ProjectileDodge(caster)
 
 	-- Play end point effects
 	caster:EmitSound("DOTA_Item.MeteorHammer.Cast")
 	caster:EmitSound("Blink_Layer.Swift")
 	caster:EmitSound("Blink_Layer.Arcane")
 
-	local blink_end_pfx = ParticleManager:CreateParticle("particles/items_fx/blink_dagger_end.vpcf", PATTACH_ABSORIGIN, caster)
+	local blink_end_pfx = ParticleManager:CreateParticle("particles/items_fx/blink_dagger_end.vpcf", PATTACH_ABSORIGIN,
+		caster)
 	ParticleManager:ReleaseParticleIndex(blink_end_pfx)
 
 	-- Meteor drop
 	local meteor_land_time = self:GetSpecialValueFor("meteor_fall_time")
-	local buff_duration = self:GetSpecialValueFor("buff_duration") + meteor_land_time -- Duration is wasted while caster is in meteor
+	local buff_duration = self:GetSpecialValueFor("buff_duration") +
+		meteor_land_time -- Duration is wasted while caster is in meteor
 
-	local meteor_pfx = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_WORLDORIGIN, caster)
+	local meteor_pfx = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_WORLDORIGIN,
+		caster)
 	ParticleManager:SetParticleControl(meteor_pfx, 0, target_loc + Vector(0, 0, 1000)) -- 1000 feels kinda arbitrary but it also feels correct
 	ParticleManager:SetParticleControl(meteor_pfx, 1, target_loc)
 	ParticleManager:SetParticleControl(meteor_pfx, 2, Vector(meteor_land_time, 0, 0))
 	ParticleManager:ReleaseParticleIndex(meteor_pfx)
 
-	caster:AddNewModifier(caster, self, "modifier_item_arcane_blink_buff", {duration = buff_duration})
-	caster:AddNewModifier(caster, self, "modifier_item_swift_blink_buff", {duration = buff_duration})
-	caster:AddNewModifier(caster, self, "modifier_item_jump_jump_jump_meteor_form", {duration = meteor_land_time})
+	caster:AddNewModifier(caster, self, "modifier_item_arcane_blink_buff", { duration = buff_duration })
+	caster:AddNewModifier(caster, self, "modifier_item_swift_blink_buff", { duration = buff_duration })
+	caster:AddNewModifier(caster, self, "modifier_item_jump_jump_jump_meteor_form", { duration = meteor_land_time })
 end
-
-
 
 -- Item Stats
 modifier_item_jump_jump_jump = class({})
 
 function modifier_item_jump_jump_jump:IsDebuff() return false end
+
 function modifier_item_jump_jump_jump:IsHidden() return true end
+
 function modifier_item_jump_jump_jump:IsPurgable() return false end
-function modifier_item_jump_jump_jump:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+
+function modifier_item_jump_jump_jump:GetAttributes()
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE +
+		MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
 
 function modifier_item_jump_jump_jump:OnCreated(keys)
 	self:OnRefresh(keys)
@@ -99,7 +107,7 @@ end
 
 function modifier_item_jump_jump_jump:GetModifierIncomingDamage_Percentage(keys)
 	if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
-		if keys.attacker == keys.target or keys.original_damage <= 0 then return end
+		if keys.attacker == keys.target or keys.damage <= 0 then return end
 
 		if (not keys.attacker:IsHero()) then return end
 		-- if attacker has same team as target, return
@@ -114,15 +122,19 @@ function modifier_item_jump_jump_jump:GetModifierIncomingDamage_Percentage(keys)
 	end
 end
 
-
-
 -- Meteor Form
 modifier_item_jump_jump_jump_meteor_form = class({})
 
 function modifier_item_jump_jump_jump_meteor_form:IsDebuff() return false end
+
 function modifier_item_jump_jump_jump_meteor_form:IsHidden() return true end
+
 function modifier_item_jump_jump_jump_meteor_form:IsPurgable() return false end
-function modifier_item_jump_jump_jump_meteor_form:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+
+function modifier_item_jump_jump_jump_meteor_form:GetAttributes()
+	return MODIFIER_ATTRIBUTE_PERMANENT +
+		MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
 
 function modifier_item_jump_jump_jump_meteor_form:CheckState()
 	if IsServer() then
@@ -184,14 +196,15 @@ function modifier_item_jump_jump_jump_meteor_form:OnDestroy()
 		attacker = caster,
 		damage_type = DAMAGE_TYPE_MAGICAL,
 		ability = ability,
-		damage = start_damage/2
+		damage = start_damage / 2
 	}
 
 	-- Effects
 	caster:EmitSound("DOTA_Item.MeteorHammer.Impact")
 	caster:EmitSound("Blink_Layer.Overwhelming")
 
-	local overwhelming_pfx = ParticleManager:CreateParticle("particles/items3_fx/blink_overwhelming_burst.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local overwhelming_pfx = ParticleManager:CreateParticle("particles/items3_fx/blink_overwhelming_burst.vpcf",
+		PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(overwhelming_pfx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(overwhelming_pfx, 1, Vector(effect_radius, effect_radius, effect_radius))
 	ParticleManager:ReleaseParticleIndex(overwhelming_pfx)
@@ -211,9 +224,9 @@ function modifier_item_jump_jump_jump_meteor_form:OnDestroy()
 		enemy:EmitSound("DOTA_Item.MeteorHammer.Damage")
 
 		local slow_duration = slow_duration * (1 - enemy:GetStatusResistance())
-		enemy:AddNewModifier(caster, ability, "modifier_item_overwhelming_blink_debuff", {duration = slow_duration})
+		enemy:AddNewModifier(caster, ability, "modifier_item_overwhelming_blink_debuff", { duration = slow_duration })
 		local burn_duration = burn_duration * (1 - enemy:GetStatusResistance())
-		enemy:AddNewModifier(caster, ability, "modifier_item_jump_jump_jump_meteor_burn", {duration = burn_duration})
+		enemy:AddNewModifier(caster, ability, "modifier_item_jump_jump_jump_meteor_burn", { duration = burn_duration })
 
 		damage_table.victim = enemy
 
@@ -223,17 +236,17 @@ function modifier_item_jump_jump_jump_meteor_form:OnDestroy()
 		else
 			ApplyDamage(damage_table)
 		end
-		enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
+		enemy:AddNewModifier(caster, ability, "modifier_stunned", { duration = stun_duration })
 	end
 end
-
-
 
 -- Meteor Burn
 modifier_item_jump_jump_jump_meteor_burn = class({})
 
 function modifier_item_jump_jump_jump_meteor_burn:IsHidden() return false end
+
 function modifier_item_jump_jump_jump_meteor_burn:IsDebuff() return true end
+
 function modifier_item_jump_jump_jump_meteor_burn:IsPurgable() return true end
 
 function modifier_item_jump_jump_jump_meteor_burn:OnCreated()
@@ -254,14 +267,17 @@ function modifier_item_jump_jump_jump_meteor_burn:OnIntervalThink()
 	local parent = self:GetParent()
 	local ability = self:GetAbility()
 
-	if (not caster) or (not parent) or (not ability) or caster:IsNull() or parent:IsNull() or ability:IsNull() then self:Destroy() return end
+	if (not caster) or (not parent) or (not ability) or caster:IsNull() or parent:IsNull() or ability:IsNull() then
+		self:Destroy()
+		return
+	end
 
 	local actual_damage = ApplyDamage({
 		ability = ability,
 		attacker = caster,
 		victim = parent,
 		damage = self.burn_dps,
-		damage_type	= DAMAGE_TYPE_MAGICAL
+		damage_type = DAMAGE_TYPE_MAGICAL
 	})
 
 	SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, parent, actual_damage, nil)
@@ -271,13 +287,14 @@ function modifier_item_jump_jump_jump_meteor_burn:GetEffectName()
 	return "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
 end
 
-
-
 modifier_item_arcane_blink_buff = class({})
 
 function modifier_item_arcane_blink_buff:IsHidden() return false end
+
 function modifier_item_arcane_blink_buff:IsPurgable() return true end
+
 function modifier_item_arcane_blink_buff:IsDebuff() return false end
+
 function modifier_item_arcane_blink_buff:GetAbilityTextureName() return "item_arcane_blink" end
 
 function modifier_item_arcane_blink_buff:DeclareFunctions()
@@ -291,7 +308,10 @@ end
 
 function modifier_item_arcane_blink_buff:OnCreated()
 	local ability = self:GetAbility()
-	if not ability or ability:IsNull() then self:Destroy() return end
+	if not ability or ability:IsNull() then
+		self:Destroy()
+		return
+	end
 	self.cast_pct_improvement = ability:GetSpecialValueFor("cast_pct_improvement") or 0
 	self.base_cooldown = ability:GetSpecialValueFor("base_cooldown") or 0
 end
@@ -308,4 +328,3 @@ end
 function modifier_item_arcane_blink_buff:OnTooltip()
 	return self.cast_pct_improvement
 end
-

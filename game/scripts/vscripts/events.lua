@@ -44,65 +44,10 @@ function AIGameMode:InitPlayerGold()
     end
 end
 
-function AIGameMode:InitHeroSelection()
-    if self.PreGameOptionsSet then
-        print("[AIGameMode] InitHeroSelection")
-
-        -- 添加bot和初期金钱
-        local iPlayerNumRadiant = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-        local iPlayerNumDire = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
-        math.randomseed(math.floor(Time() * 1000000))
-        -- 随机英雄列表
-        print("[AIGameMode] Random hero list")
-        self:ArrayShuffle(tBotNameList)
-
-        if self.iGameDifficulty == 6 then
-            print("[AIGameMode] Use all star hero list start")
-            local iRandomTeam = math.random(1, 21)
-            print("[AIGameMode] Random team: " .. tostring(iRandomTeam))
-            for _, v in ipairs(tBotAllStarRandom["team" .. tostring(iRandomTeam)]) do
-                table.insert(tBotAllStar, v)
-            end
-            self:ArrayShuffle(tBotAllStar)
-        end
-
-        local sDifficulty = "unfair"
-        if self.iDesiredDire > iPlayerNumDire then
-            for i = 1, self.iDesiredDire - iPlayerNumDire do
-                Tutorial:AddBot(self:GetFreeHeroName(false), "", sDifficulty, false)
-            end
-        end
-        if self.iDesiredRadiant > iPlayerNumRadiant then
-            for i = 1, self.iDesiredRadiant - iPlayerNumRadiant do
-                Tutorial:AddBot(self:GetFreeHeroName(true), "", sDifficulty, true)
-            end
-        end
-        -- 必须在创建AI后启用
-        GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
-        Tutorial:StartTutorialMode()
-
-        for i = 0, (DOTA_MAX_TEAM_PLAYERS - 1) do
-            if PlayerResource:IsValidPlayer(i) then
-                if not IsHumanPlayer(i) then
-                    PlayerResource:SetGold(i, (self.iStartingGoldBot - 600), true)
-                end
-            end
-        end
-    else
-        Timers:CreateTimer(0.5, function()
-            print("[AIGameMode] Try InitHeroSelection in 0.5s")
-            AIGameMode:InitHeroSelection()
-        end)
-    end
-end
-
 function AIGameMode:OnGameStateChanged(keys)
     local state = GameRules:State_Get()
 
     if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
-        if IsServer() then
-            PlayerController:Init()
-        end
     elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
         if IsServer() then
             self:InitPlayerGold()
@@ -112,27 +57,13 @@ function AIGameMode:OnGameStateChanged(keys)
             print("[AIGameMode] Setting pre-game options STRATEGY_TIME")
             self:PreGameOptions()
         end
-        if IsServer() then
-            self:InitHeroSelection()
-        end
-
-        Timers:CreateTimer(1, function()
-            for i = 0, (DOTA_MAX_TEAM_PLAYERS - 1) do
-                if PlayerResource:IsValidPlayer(i) then
-                    if PlayerResource:GetPlayer(i) and not PlayerResource:HasSelectedHero(i) then
-                        PlayerResource:GetPlayer(i):MakeRandomHeroSelection()
-                    end
-                end
-            end
-            self:EndScreenStats(1, false)
-        end)
     elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
+        self:EndScreenStats(1, false)
         -- modifier towers
         local tTowers = Entities:FindAllByClassname("npc_dota_tower")
         local iTowerLevel = math.max(self.iGameDifficulty, 1)
         for k, v in pairs(tTowers) do
             local towerName = v:GetName()
-            v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
 
             -- add tower ability
             if string.find(towerName, "tower3") or string.find(towerName, "tower4") then
@@ -144,18 +75,8 @@ function AIGameMode:OnGameStateChanged(keys)
                 end
             end
         end
-        local barracks = Entities:FindAllByClassname("npc_dota_barracks")
-        for k, v in pairs(barracks) do
-            v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
-        end
-        local healer = Entities:FindAllByClassname("npc_dota_healer")
-        for k, v in pairs(healer) do
-            v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
-        end
         local fort = Entities:FindAllByClassname("npc_dota_fort")
         for k, v in pairs(fort) do
-            v:AddNewModifier(v, nil, "modifier_tower_endure", {}):SetStackCount(self.iTowerEndure)
-
             -- add tower ability
             v:AddAbility("tower_ursa_fury_swipes"):SetLevel(iTowerLevel)
             v:AddAbility("tower_shredder_reactive_armor"):SetLevel(iTowerLevel)
@@ -578,7 +499,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
         playerGoldXpMultiplier = tostring(self.fPlayerGoldXpMultiplier),
         botGoldXpMultiplier = tostring(self.fBotGoldXpMultiplier),
         towerPower = self.iTowerPower .. "%",
-        towerEndure = AIGameMode:StackToPercentage(self.iTowerEndure)
     }
     -- send to api server
     data.gameOption = {
@@ -586,7 +506,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
         playerGoldXpMultiplier = self.fPlayerGoldXpMultiplier,
         botGoldXpMultiplier = self.fBotGoldXpMultiplier,
         towerPower = self.iTowerPower,
-        towerEndure = self.iTowerEndure,
     }
 
     local basePoint = 0
@@ -694,7 +613,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
 
                     if teamKills > 0 then
                         local battleParticipation = math.floor(battleParticipationBase * ((kills + assists) / teamKills))
-                        print("battleParticipation", battleParticipation)
                         playerInfo.points = playerInfo.points + battleParticipation
                     end
 
@@ -928,33 +846,4 @@ function AIGameMode:IsInvalidGame()
         return true
     end
     return false
-end
-
-function AIGameMode:StackToPercentage(iStackCount)
-    if iStackCount == 1 then
-        return "50%"
-    elseif iStackCount == 2 then
-        return "75%"
-    elseif iStackCount == 3 then
-        return "100%"
-    elseif iStackCount == 4 then
-        return "125%"
-    elseif iStackCount == 5 then
-        return "150%"
-    elseif iStackCount == 6 then
-        return "175%"
-    elseif iStackCount == 7 then
-        return "200%"
-    elseif iStackCount == 8 then
-        return "250%"
-    elseif iStackCount == 9 then
-        return "300%"
-    elseif iStackCount == 10 then
-        return "400%"
-    elseif iStackCount == 11 then
-        -- for test
-        return "500%"
-    else
-        return "100%"
-    end
 end

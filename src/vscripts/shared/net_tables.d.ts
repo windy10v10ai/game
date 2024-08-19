@@ -1,20 +1,27 @@
-declare interface CustomNetTableDeclarations {
-    game_timer: {
-        game_timer: {
-            current_time: number;
-            current_state: 1 | 2 | 3 | 4 | 5;
-            current_round: number;
-        };
+import { MemberDto, PlayerDto, PointInfoDto } from "../api/player";
+
+declare global {
+  interface CustomNetTableDeclarations {
+    loading_status: {
+      loading_status: { status: number };
     };
-    hero_list: {
-        hero_list: Record<string, string> | string[];
+    ending_status: {
+      ending_status: { status: number };
     };
-    custom_net_table_1: {
-        key_1: number;
-        key_2: string;
+    member_table: {
+      [steamId: string]: MemberDto;
     };
-    custom_net_table_3: {
-        key_1: number;
-        key_2: string;
+    player_table: {
+      [steamId: string]: PlayerDto;
     };
+    leader_board: {
+      top100SteamIds: string[];
+    };
+    point_info: {
+      [steamId: string]: PointInfoDto[];
+    };
+    game_difficulty: {
+      all: { difficulty: number };
+    };
+  }
 }
