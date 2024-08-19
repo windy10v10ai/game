@@ -8711,7 +8711,7 @@
 	"disruptor_thunder_strike"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"14 12 10 8 6"
+		"AbilityCooldown"				"16 14 12 10 8"
 		"AbilityManaCost"				"120 130 140 150 160"
 		"AbilityValues"
 		{
@@ -8734,8 +8734,11 @@
 			}
 			"max_damage"
 			{
-				"value"											"125 175 225 275 325"
-				"special_bonus_unique_disruptor_9"				"275"
+				"value"											"100 160 220 280 340"
+			}
+			"damage_to_distance_pct"
+			{
+				"value"					"20 25 30 35 40"
 			}
 		}
 	}
@@ -8744,39 +8747,36 @@
 	{
 		"MaxLevel" "5"
 		"AbilityManaCost"				"70 80 90 100 110"
-		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityValues"
 		{
-				"duration"
-				{
-					"value"				"2.5 3.0 3.5 4.0 4.5"
-					"LinkedSpecialBonus"		"special_bonus_unique_disruptor_5"
-				}
-		}
-	}
-	// 动能立场持续时间
-	"special_bonus_unique_disruptor_5"
-	{
-		"AbilitySpecial"
-		{
-			"01"
+			"AbilityCooldown"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"0.5"
-				"ad_linked_abilities"			"disruptor_kinetic_field"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"value"					"22 20 18 16 14"
+				"special_bonus_unique_disruptor_2" "-1"
+			}
+			"duration"
+			{
+				"value"					"2.6 3.2 3.8 4.4 5.0"
+				"special_bonus_unique_disruptor_5"	"+1"
 			}
 		}
 	}
-	// 动能立场冷却
-	"special_bonus_unique_disruptor_2"
+	// 动能栅栏
+	"disruptor_kinetic_fence"
 	{
-		"AbilitySpecial"
+		"MaxLevel" "5"
+
+		"AbilityValues"
 		{
-			"01"
+			"AbilityChargeRestoreTime"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"1"
-				"ad_linked_abilities"			"disruptor_kinetic_field"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+				"value"					"22 20 18 16 14"
+				"special_bonus_unique_disruptor_2" "-1"
+			}
+			"duration"
+			{
+				"value"					"2.6 3.2 3.8 4.4 5.0"
+				"special_bonus_unique_disruptor_5"	"+1"
 			}
 		}
 	}
@@ -8798,13 +8798,11 @@
 	"enchantress_untouchable"
 	{
 		"MaxLevel" "4"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"slow_attack_speed"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-100 -200 -300 -400"
-				"LinkedSpecialBonus"	"special_bonus_unique_enchantress_3"
+				"value" "-100 -200 -300 -400"
 			}
 		}
 	}
@@ -8814,10 +8812,11 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
+			"heal_duration"			"10 11 12 13 14"
 			"heal"
 			{
-				"value"				"10 15 20 25 30"
-				"LinkedSpecialBonus"	"special_bonus_unique_enchantress_5"
+				"value"				"8 16 24 32 40"				// x2
+				"special_bonus_unique_enchantress_5"	"+16"	// x2
 			}
 		}
 	}
@@ -8936,7 +8935,7 @@
 		"AbilityManaCost"				"70 90 110 130 150"
 		"AbilityValues"
 		{
-			"duration"						"3 4 5 6 7"
+			"duration"						"2.5 3 3.5 4 4.5"
 			"sprout_damage"
 			{
 				"value"		"70 140 210 280 350"
@@ -8944,7 +8943,7 @@
 			"sprout_heal_per_second"
 			{
 				"value"						"0"
-				"special_bonus_facet_furion_soothing_saplings"	"=10 =20 =30 =40 =50"
+				"special_bonus_facet_furion_soothing_saplings"	"=20 =40 =60 =80 =100"	// x2
 			}
 		}
 	}
@@ -8962,8 +8961,8 @@
 			}
 			"barrier"
 			{
-				"value"					"50 100 150 200 250"
-				"special_bonus_unique_furion_teleportation_barrier"				"+100"
+				"value"					"200 300 400 500 600"	// x2
+				"special_bonus_unique_furion_teleportation_barrier"				"+200"
 			}
 		}
 	}
@@ -8972,7 +8971,7 @@
 	{
 		"AbilityManaCost"				"100 140 180 220"
 		"AbilityValues"
-        {
+		{
 			"max_treants"
 			{
 				"value"							"2"
@@ -8982,25 +8981,22 @@
 			"treant_health"
 			{
 				"value"								"750 1000 1250 1500"
-				"special_bonus_facet_furion_ironwood_treant"	"=1500 =2000 =2500 =3000"
-				"special_bonus_unique_furion"			"x2.5"
+				"special_bonus_facet_furion_ironwood_treant"				"+100%"
 			}
 			"treant_damage_min"
 			{
 				"value"					"50 100 150 200"
 				"special_bonus_facet_furion_ironwood_treant"				"+100%"
-				"special_bonus_unique_furion"			"x2.5"
 			}
 			"treant_damage_max"
 			{
 				"value"					"50 100 150 200"
 				"special_bonus_facet_furion_ironwood_treant"				"+100%"
-				"special_bonus_unique_furion"			"x2.5"
 			}
 			"treant_movespeed"
 			{
 				"value"						"300 320 340 360"
-				"special_bonus_unique_furion_2"				"+60"
+				"special_bonus_facet_furion_ironwood_treant"						"+50"
 			}
 			"AbilityCooldown"
 			{
@@ -9013,14 +9009,12 @@
 	"furion_wrath_of_nature"
 	{
 		"MaxLevel" "4"
-		"AbilityManaCost"				"175 225 275 325"
+		"AbilityManaCost"				"130 190 250 310"
 		"AbilityValues"
 		{
-
 			"damage"
 			{
-				"value"				"105 145 185 225"
-				"special_bonus_unique_furion_5"			"+30"
+				"value"				"120 155 190 225"
 			}
 		}
 	}
@@ -10787,35 +10781,33 @@
     //=================================================================================================================
 	// Ability: Shadow Demon 暗影恶魔/毒狗
 	//=================================================================================================================
-	// 散播
-	"shadow_demon_disseminate"
-	{
-		"MaxLevel" "5"
-		"AbilityValues"
-		{
-			"duration"						"10"
-			"damage_reflection_pct"
-			{
-				"value"						"20 25 30 35 40"
-				"special_bonus_unique_shadow_demon_disseminate_damage"		"+20"
-			}
-			"radius"
-			{
-				"value"			"750"
-					"affected_by_aoe_increase"	"1"
-			}
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
 	// 崩裂禁锢
 	"shadow_demon_disruption"
 	{
-		"AbilityCooldown"				"26"
 		"AbilityManaCost"				"180"
 		"AbilityValues"
 		{
 				"illusion_duration"			"5"
+				"AbilityCooldown"
+				{
+					"value"			"26"
+				}
+				"AbilityChargeRestoreTime"		"26"
 		}
+	}
+	// 散播
+	"shadow_demon_disseminate"
+	{
+		"MaxLevel" "5"
+		"AbilityCooldown"				"30 26 22 18 14"
+		"AbilityValues"
+		{
+			"damage_reflection_pct"
+			{
+				"value"						"20 25 30 35 40"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	// 漂毒
 	"shadow_demon_shadow_poison"
@@ -10826,14 +10818,10 @@
 				"stack_damage"
 				{
 					"value"			"24 36 48 60 72"
-					"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_4"
-					"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
 				}
 				"hit_damage"
 				{
 					"value"			"30 40 50 60 70"
-					"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_4"
-					"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
 				}
 		}
 	}
@@ -10843,66 +10831,36 @@
 		"MaxLevel" "4"
 		"AbilityDuration"				"10.0"
 		"AbilityCooldown"				"40"
-		"AbilityCastRange"				"1500"
-		"AbilityCastPoint"				"0.3 0.2 0.1 0.0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+		"AbilityCastRange"				"1200"
+
 		"AbilityManaCost"				"150 175 200 225"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"purge_damage"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"purge_damage"		"600 900 1200 1500"
-				"LinkedSpecialBonus"	"special_bonus_unique_shadow_demon_1"
+				"value" "600 900 1200 1500"	// x2
+				"special_bonus_unique_shadow_demon_1" "+300"
 			}
-			"02"
+			"charge_restore_time"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"max_charges"		"3"
-				"RequiresScepter"			"1"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"charge_restore_time"		"40"
-				"RequiresScepter"			"1"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"charge_restore_time_tooltip_scepter"		"40"
-				"RequiresScepter"			"1"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"max_slow"			"100.0"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"min_slow"			"20.0"
+				"value" "40"
+				"RequiresScepter" "1"
 			}
 		}
 	}
 	// 邪恶净愈
 	"shadow_demon_demonic_cleanse"
 	{
-		"AbilityDuration"				"12.0"
 		"MaxLevel" "4"
+		"AbilityDuration"				"10.0"
 		"AbilityCooldown"				"40"
 		"AbilityManaCost"				"150 175 200 225"
 		"AbilityValues"
 		{
 				"purge_damage"
 				{
-					"value"	"300 400 500 600"
-					"LinkedSpecialBonus"	"special_bonus_unique_shadow_demon_1"
-				}
-				"max_charges"
-				{
-					"value"					"3"
-					"RequiresScepter"			"1"
+					"value" "600 900 1200 1500"	// x2
+					"special_bonus_unique_shadow_demon_1" "+300"
 				}
 				"charge_restore_time"
 				{
@@ -10916,6 +10874,20 @@
 				}
 		}
 	}
+	// 暗影仆从 命石2
+	"shadow_demon_shadow_servant"
+	{
+		"AbilityValues"
+		{
+				"radius"
+				{
+					"value"		"1200"
+				}
+				"illusion_incoming_damage"	"200"
+				"illusion_incoming_damage_tooltip"	"300"
+		}
+	}
+
 	//=================================================================================================================
 	// Ability: Shadow Shaman 暗影萨满/小y
 	//=================================================================================================================
@@ -11522,18 +11494,19 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-				"radius"				"200"
+				"radius"
+				{
+					"value"	"200"	// 170
+					"affected_by_aoe_increase"	"1"
+				}
 				"AbilityChargeRestoreTime"
 				{
-					"value"			"24 21 18 16"
-					"special_bonus_unique_void_spirit_1"	"-2"
+					"value"			"24 21 18 15"
 				}
-				"min_travel_distance"	"200"
 				"max_travel_distance"	"800 1000 1300 1700"
 				"pop_damage"
 				{
 					"value"					"250 350 450 550"
-					"CalculateSpellDamageTooltip"	"1"
 				}
 				"movement_slow_pct"		"50 60 70 80"
 		}
@@ -11548,23 +11521,15 @@
 				"damage"
 				{
 					"value"			"120 210 300 390 480"
-					"LinkedSpecialBonus"	"special_bonus_unique_void_spirit_4"
+					"special_bonus_unique_void_spirit_4"	"+210"
 				}
 				"buff_duration"			"10.0"
 				"base_absorb_amount"	"160 240 320 400 480"
-				"absorb_per_hero_hit"	"80 120 160 200 240"
-		}
-	}
-	"special_bonus_unique_void_spirit_4"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"value"					"210"
-				"ad_linked_abilities"		"void_spirit_resonant_pulse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
+				"absorb_per_hero_hit"
+				{
+					"value"												"70 100 130 160 190"	// x2
+					"special_bonus_facet_void_spirit_sanctuary"			"+30 +40 +50 +60"
+				}
 		}
 	}
 	//=================================================================================================================

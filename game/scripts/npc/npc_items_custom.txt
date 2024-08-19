@@ -58,10 +58,10 @@
 		"AbilityValues"
 		{
 				"bonus_attack_speed"			"240"// 现在一个振奋宝石是60
-				"bonus_night_vision"			"600"
-				"consumed_bonus_attack_speed"	"80"	// tooltip only
-				"consumed_bonus_night_vision"	"300"	// tooltip only
-				"consumed_bonus_day_vision"		"300"	// tooltip only //满视野4000，除了夜魔吃8个6w获得满视野
+				"bonus_night_vision"			"400"
+				"consumed_bonus_attack_speed"	"60"	// tooltip only
+				"consumed_bonus_night_vision"	"200"	// tooltip only
+				"consumed_bonus_day_vision"		"200"	// tooltip only
 		}
 
 		// Data driven
@@ -102,9 +102,9 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"80"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"300"
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION"				"300" //满视野4000，除了夜魔吃8个6w获得满视野
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"60"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"200"
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"				"200"
 				}
 			}
 		}
