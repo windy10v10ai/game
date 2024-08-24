@@ -1659,7 +1659,7 @@
 
 		// item_dragon_ball_1 一星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_1"				"<font color='#FFFF00'>One-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_1_Description"		"A glass bead that reveals a pentagram from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate.\n When Dragon Balls cannot be combined, please try to move them from the backup slot to the main slot or stash, or drop and pick it again."
+		"DOTA_Tooltip_ability_item_dragon_ball_1_Description"		"A glass bead that reveals a pentagram from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate.\nIf Dragon Balls cannot be combined, try to moving them from the backpack to the main invtory or stash, or drop it and pick it up again."
 		"DOTA_Tooltip_ability_item_dragon_ball_1_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_2 二星珠
@@ -1702,7 +1702,7 @@
 
 		// item_wish_1 愿望3
 		"DOTA_Tooltip_Ability_item_wish_3"				"<font color='#FFFF00'>Wish 3</font>"
-		"DOTA_Tooltip_ability_item_wish_3_Description"		"<h1>Passive: Wish</h1>I wish for the power of time, you say to the Dragon".
+		"DOTA_Tooltip_ability_item_wish_3_Description"		"<h1>Passive: Wish</h1>I wish for the power of time, you say to the Dragon."
 
 		// item_wish_1 愿望4
 		"DOTA_Tooltip_Ability_item_wish_4"				"<font color='#FFFF00'>Wish 4</font>"
