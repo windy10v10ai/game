@@ -12236,10 +12236,15 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCharges"				"1 2 3 4 5"
+		"AbilityChargeRestoreTime"		"17 16 15 14 13"
+		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
+			"damage_impact"				"75 125 175 225 275"
 			"bleed_health_pct"			"3.5 4 4.5 5.0 5.5"
 			"bleed_creep_dps"			"100 150 200 250 300"
+			"dagger_width"				"150"	// 130
+			"dagger_vision"				"300"	// 200
 		}
 	}
 	// 奇观轮
