@@ -19,7 +19,7 @@
     "@moddota/find-steam-app": "^1.1.0",
     "@moddota/panorama-types": "^1.34.0",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
-    "@typescript-eslint/parser": "^8.1.0",
+    "@typescript-eslint/parser": "^8.3.0",
     "easy-keyvalues": "^1.2.3",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
