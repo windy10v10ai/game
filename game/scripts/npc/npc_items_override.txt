@@ -140,9 +140,9 @@
 	// 芒果
 	"item_enchanted_mango"
 	{
-		"ItemCost"						"90"			// 65
+		"ItemCost"						"130"			// 65
 
-		"ItemStackableMax"				"4"
+		"ItemStackableMax"				"6"
 
 		"ItemStockMax"					"8"
 		"ItemStockInitial"				"8"
@@ -157,16 +157,16 @@
 	}
 	"item_faerie_fire" //仙灵之火
 	{
-		"ItemCost"						"90"			// 65
+		"ItemCost"						"130"			// 65
 		"AbilityValues"
 		{
-				"bonus_damage"			"8"				// 2
-				"hp_restore"			"320"			// 85
+				"bonus_damage"			"10"			// 2
+				"hp_restore"			"425"			// 85
 		}
 	}
 	"item_blood_grenade" //血腥榴弹
 	{
-		"ItemCost"						"80"
+		"ItemCost"						"80"			// 50
 		"AbilityHealthCost"				"150"			// 50
 
 		"ItemStackableMax"				"3"				// 2
@@ -177,7 +177,7 @@
 			"bonus_health"			"250"				// 50
 
 			"damage_over_time"		"45"				// 15
-			"impact_damage"			"250"				// 50
+			"impact_damage"			"150"				// 50
 		}
 	}
 	"item_bottle" //魔瓶
@@ -195,7 +195,7 @@
 	}
 	"item_travel_boots" // 飞鞋
 	{
-		"ItemIsNeutralDrop"             "1" // 改到中立格子
+		"ItemIsNeutralDrop"				"1" // 改到中立格子
 		"AbilityValues"
 		{
 				"tp_cooldown"			"30" // cd与回城卷轴同步
@@ -1532,6 +1532,10 @@
 	"item_lotus_orb"
 	{
 		"AbilitySharedCooldown"			"lotus_orb"
+	}
+	"item_shivas_guard_2"
+	{
+		"AbilitySharedCooldown"			"shivas_guard"
 	}
 
 	"item_smoke_of_deceit"

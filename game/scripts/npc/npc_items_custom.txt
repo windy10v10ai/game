@@ -3571,7 +3571,7 @@
 		"FightRecapLevel"				"1"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilityCooldown"				"27"
-		"AbilityCastRange"				"900"
+
 		"AbilityManaCost"				"300"
 		"ItemCost"						"9850"
 		"AbilitySharedCooldown"			"shivas_guard"
@@ -3586,7 +3586,12 @@
 				"bonus_agility"			"30"
 				"bonus_hp_regen"		"15"
 				"bonus_armor"			"40"
-
+				"aura_radius"
+				{
+					"value"	"1200"
+					"affected_by_aoe_increase"	"1"
+				}
+				"aura_attack_speed"		"-80"
 				"blast_damage"			"600"
 				"blast_movement_speed"	"-60"
 				"blast_debuff_duration"	"4.0"
@@ -3596,9 +3601,6 @@
 					"affected_by_aoe_increase"	"1"
 				}
 				"blast_speed"			"500"
-
-				"aura_radius"			"1200"
-				"aura_attack_speed"		"-80"
 				"hp_regen_degen_aura"	"40"
 				"illusion_multiplier_pct"	"150"
 				"spell_amp"			"40"

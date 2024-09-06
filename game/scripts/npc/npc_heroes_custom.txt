@@ -505,8 +505,9 @@
 
 	"npc_dota_hero_monkey_king"
 	{
+		// 禁用猴子猴孙，存在卡顿，开局多次抽奖的问题
 		"Ability6"		"spectre_ursa_enrage"
-		"Ability17"     "special_bonus_unique_spectre_401"
+		"Ability17"		"special_bonus_unique_spectre_401"
 	}
 
 	// 幽鬼
@@ -694,7 +695,8 @@
 	}
 	"npc_dota_hero_batrider"
 	{
-		"Ability5"      "dark_seer_ion_shell"
+		"Ability5"		"dark_seer_ion_shell"
+		"Ability9"		"batrider_smoldering_resin"	// 闷烧树脂 先天技能
 	}
 	"npc_dota_hero_bounty_hunter"
 	{
@@ -1934,12 +1936,9 @@
 	}
 	"npc_dota_hero_razor"
 	{
-	    "Ability11"		"special_bonus_unique_razor_101"
-        "Ability13"		"special_bonus_spell_amplify_12"
-        "Ability14"		"special_bonus_unique_razor_401"
-        "Ability15"		"special_bonus_unique_razor_static_link_aspd"
-        "Ability16"		"special_bonus_unique_razor_402"
-        "Ability17"		"special_bonus_unique_razor_plasmafield_second_ring"
+		"Ability11"		"special_bonus_unique_razor_101"
+		"Ability13"		"special_bonus_unique_razor_402"
+		// "Ability16"		"special_bonus_unique_razor_401"
 		"Bot"
 		{
 			"Build"

@@ -841,7 +841,7 @@
         // 电棍 razor
         "DOTA_Tooltip_ability_special_bonus_unique_razor_101"   "+{s:bonus_radius} Plasma Field Radius"
         "DOTA_Tooltip_ability_special_bonus_unique_razor_401"   "+{s:bonus_duration}s Eye of the Storm Duration"
-        "DOTA_Tooltip_ability_special_bonus_unique_razor_402"   "+{s:value} Eye of the Storm Damage"
+        "DOTA_Tooltip_ability_special_bonus_unique_razor_402"   "+{s:bonus_damage} Eye of the Storm Damage"
 
         // 火女 lina
         "DOTA_Tooltip_ability_lina_fiery_soul_Description"		"Grants bonus attack speed, movement speed, and spell damage each time Lina hits an enemy with a spell. Stacks with itself. Lasts %fiery_soul_stack_duration% seconds."
