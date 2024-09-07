@@ -2019,7 +2019,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_agility"
 		"AbilityTextureName"		"tome_of_agility"
-		"ItemCost"					"12000"
+		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"agility tome;agi"
 		"ItemShopTags"					"consumable"
@@ -2032,7 +2032,7 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilityValues"
 		{
-				"bonus"				"50"
+				"bonus"				"100"
 		}
 	}
 
@@ -2046,7 +2046,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_intelligence"
 		"AbilityTextureName"		"tome_of_intelligence"
-		"ItemCost"					"10000"
+		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"intelligence tome;int"
 		"ItemShopTags"					"consumable"
@@ -2059,7 +2059,7 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilityValues"
 		{
-				"bonus"				"50"
+				"bonus"				"100"
 		}
 	}
 
@@ -2073,7 +2073,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_strength"
 		"AbilityTextureName"		"tome_of_strength"
-		"ItemCost"					"12000"
+		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"strength tome;str"
 		"ItemShopTags"					"consumable"
@@ -2086,7 +2086,7 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilityValues"
 		{
-				"bonus"				"50"
+				"bonus"				"100"
 		}
 	}
 
@@ -4313,7 +4313,7 @@
 		"AbilityTextureName"			"item_recipe_tome_of_luoshu"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"26000"
+		"ItemCost"						"0"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4348,7 +4348,7 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilityValues"
 		{
-			"bonus_all_stats"			"50"
+			"bonus_all_stats"			"100"
 			"status_resistance"			"30"
 			"bonus_cast_range"			"200"
 			// tooltip values, actual values in modifier_item_tome_of_luoshu_stats
