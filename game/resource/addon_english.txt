@@ -2558,32 +2558,6 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
 
-		// item_armlet_light_1 圣光·臂章（中立）
-		"DOTA_Tooltip_ability_item_armlet_light_1"				"<font color='#FFFF00'>Light</font> Armlet of Mordiggian (Neutral)"
-		"DOTA_Tooltip_ability_item_armlet_light_1_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
-		"DOTA_Tooltip_ability_item_armlet_light_1_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
-		"DOTA_Tooltip_ability_item_armlet_light_1_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
-		"DOTA_Tooltip_ability_item_armlet_light_1_Note1"								"The strength change occurs over 0.6 seconds."
-		"DOTA_Tooltip_ability_item_armlet_light_1_Note2"								"Activating or deactivating Unholy Strength does not interrupt channeling."
-		"DOTA_Tooltip_ability_item_armlet_light_1_bonus_damage"							"+$damage"
-		"DOTA_Tooltip_ability_item_armlet_light_1_bonus_attack_speed"					"+$attack"
-		"DOTA_Tooltip_ability_item_armlet_light_1_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_ability_item_armlet_light_1_bonus_magical_armor"					"%+$spell_resist"
-		"DOTA_Tooltip_ability_item_armlet_light_1_bonus_health_regen"					"+$hp_regen"
-
-		// item_armlet_dark_1 暗影·臂章（中立）
-		"DOTA_Tooltip_ability_item_armlet_dark_1"				"<font color='#8A2BE2'>Dark</font> Armlet of Mordiggian (Neutral)"
-		"DOTA_Tooltip_ability_item_armlet_dark_1_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
-		"DOTA_Tooltip_ability_item_armlet_dark_1_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
-		"DOTA_Tooltip_ability_item_armlet_dark_1_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
-		"DOTA_Tooltip_ability_item_armlet_dark_1_Note1"								"The strength change occurs over 0.6 seconds."
-		"DOTA_Tooltip_ability_item_armlet_dark_1_Note2"								"Activating or deactivating Unholy Strength does not interrupt channeling."
-		"DOTA_Tooltip_ability_item_armlet_dark_1_bonus_damage"							"+$damage"
-		"DOTA_Tooltip_ability_item_armlet_dark_1_bonus_attack_speed"					"+$attack"
-		"DOTA_Tooltip_ability_item_armlet_dark_1_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_ability_item_armlet_dark_1_bonus_magical_armor"					"%+$spell_resist"
-		"DOTA_Tooltip_ability_item_armlet_dark_1_bonus_health_regen"					"+$hp_regen"
-
 		// item_guardian_greaves_light 圣光·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_light"				"<font color='#FFFF00'>Light</font> Guardian Greaves"
 		"DOTA_Tooltip_ability_item_guardian_greaves_light_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
@@ -2602,24 +2576,6 @@
 		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_mres"				"%+$spell_resist"
 
-		// item_guardian_greaves_light_1 圣光·卫士胫甲（中立）
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1"				"<font color='#FFFF00'>Light</font> Guardian Greaves (Neutral)"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_movement"			"+$move_speed"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_mana"				"+$mana"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_mres"				"%+$spell_resist"
-
-		// item_guardian_greaves_dark_1 暗影·卫士胫甲（中立）
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1"				"<font color='#8A2BE2'>Dark</font> Guardian Greaves (Neutral)"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_movement"			"+$move_speed"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_mana"				"+$mana"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_mres"				"%+$spell_resist"
-
 		// item_guardian_greaves_ai 光暗·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Guardian Greaves"
 		"DOTA_Tooltip_ability_item_guardian_greaves_ai_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
@@ -2629,28 +2585,12 @@
 		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_mres"				"%+$spell_resist"
 
-		// item_guardian_greaves_ai_1 光暗·卫士胫甲（中立）
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Guardian Greaves (Neutral)"
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_movement"			"+$move_speed"
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_mana"				"+$mana"
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_mres"				"%+$spell_resist"
-
 		// item_disperser_chaos 混沌·散魂剑
 		"DOTA_Tooltip_ability_item_disperser_chaos"				"<font color='#FF4500'>Chaotic Disperser</font>"
 		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>Active: Suppress</h1> Affects all units in a %radius% AoE around the target. All enemies around the target are slowed for %enemy_effect_duration% seconds.<br><br> All allies around the target receive a basic dispel, increase their movement speed, and are unslowable for %ally_effect_duration% seconds.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br><br>Range: %abilitycastrange%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"
-
-		// item_disperser_chaos_1 混沌·散魂剑（中立）
-		"DOTA_Tooltip_ability_item_disperser_chaos_1"				"<font color='#FF4500'>Chaotic Disperser</font> (Neutral)"
-		"DOTA_Tooltip_ability_item_disperser_chaos_1_Description"				"<h1>Active: Suppress</h1> Affects all units in a %radius% AoE around the target. All enemies around the target are slowed for %enemy_effect_duration% seconds.<br><br> All allies around the target receive a basic dispel, increase their movement speed, and are unslowable for %ally_effect_duration% seconds.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br><br>Range: %abilitycastrange%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
-		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_agility"				"+$agi"
-		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_intellect"			"+$int"
-		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_damage"				"+$damage"
 
 	}
 }
