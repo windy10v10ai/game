@@ -97,8 +97,8 @@
 		"item"	"item_force_field_dark"
 		"item"	"item_ballista_light"
 		"item"	"item_ballista_dark"
-		"item"	"item_armlet_light"
-		"item"	"item_armlet_dark"
+		"item"	"item_armlet_light"						// 圣光臂章
+		"item"	"item_armlet_dark"						// 暗影臂章
 		"item"	"item_guardian_greaves_light"
 		"item"	"item_guardian_greaves_dark"
 	}
@@ -155,7 +155,7 @@
 		"item"		"item_havoc_hammer_dark"
 		"item"		"item_apex_light"
 		"item"		"item_apex_dark"
-		"item"			"item_disperser_chaos"
+		"item"		"item_disperser_chaos"			// 混沌散魂剑
 	}
 	// 神秘商店
 	"secretshop"

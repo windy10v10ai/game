@@ -140,9 +140,9 @@
 	// 芒果
 	"item_enchanted_mango"
 	{
-		"ItemCost"						"90"			// 65
+		"ItemCost"						"130"			// 65
 
-		"ItemStackableMax"				"4"
+		"ItemStackableMax"				"6"
 
 		"ItemStockMax"					"8"
 		"ItemStockInitial"				"8"
@@ -157,16 +157,16 @@
 	}
 	"item_faerie_fire" //仙灵之火
 	{
-		"ItemCost"						"90"			// 65
+		"ItemCost"						"130"			// 65
 		"AbilityValues"
 		{
-				"bonus_damage"			"8"				// 2
-				"hp_restore"			"320"			// 85
+				"bonus_damage"			"10"			// 2
+				"hp_restore"			"425"			// 85
 		}
 	}
 	"item_blood_grenade" //血腥榴弹
 	{
-		"ItemCost"						"80"
+		"ItemCost"						"80"			// 50
 		"AbilityHealthCost"				"150"			// 50
 
 		"ItemStackableMax"				"3"				// 2
@@ -177,7 +177,7 @@
 			"bonus_health"			"250"				// 50
 
 			"damage_over_time"		"45"				// 15
-			"impact_damage"			"250"				// 50
+			"impact_damage"			"150"				// 50
 		}
 	}
 	"item_bottle" //魔瓶
@@ -195,7 +195,8 @@
 	}
 	"item_travel_boots" // 飞鞋
 	{
-		"ItemIsNeutralDrop"             "1" // 改到中立格子
+		"ItemIsNeutralDrop"				"1" // 改到中立格子
+		"ItemSellable"					"0"
 		"AbilityValues"
 		{
 				"tp_cooldown"			"30" // cd与回城卷轴同步
@@ -209,7 +210,7 @@
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
 		"ItemPurchasable"				"1"
-		"ItemSellable"                  "0"
+		"ItemSellable"					"0"
 	}
 	"item_tier2_token"
 	{
@@ -219,7 +220,7 @@
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
 		"ItemPurchasable"				"1"
-		"ItemSellable"                  "0"
+		"ItemSellable"					"0"
 	}
 	"item_tier3_token"
 	{
@@ -229,7 +230,7 @@
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
 		"ItemPurchasable"				"1"
-		"ItemSellable"                  "0"
+		"ItemSellable"					"0"
 	}
 	"item_tier4_token"
 	{
@@ -239,7 +240,7 @@
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
 		"ItemPurchasable"				"1"
-		"ItemSellable"                  "0"
+		"ItemSellable"					"0"
 	}
 	"item_tier5_token"
 	{
@@ -249,7 +250,7 @@
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
 		"ItemPurchasable"				"1"
-		"ItemSellable"                  "0"
+		"ItemSellable"					"0"
 	}
 	// 肉山的战旗 旗帜
 	"item_roshans_banner"
@@ -1532,6 +1533,10 @@
 	"item_lotus_orb"
 	{
 		"AbilitySharedCooldown"			"lotus_orb"
+	}
+	"item_shivas_guard"
+	{
+		"AbilitySharedCooldown"			"shivas_guard"
 	}
 
 	"item_smoke_of_deceit"

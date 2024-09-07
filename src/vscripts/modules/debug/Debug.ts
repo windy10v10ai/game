@@ -62,7 +62,7 @@ export class Debug {
         if (!hero) return;
         // 获得金钱经验技能升满
         hero.SetGold(20000, false);
-        hero.AddExperience(20000, ModifyXpReason.UNSPECIFIED, false, true);
+        hero.AddExperience(30000, ModifyXpReason.UNSPECIFIED, false, true);
       });
     }
 

@@ -4946,80 +4946,6 @@
 			"toggle_cooldown"		"0.036"
 		}
 	}
-	"item_recipe_armlet_light_1"
-	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "12045"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_armlet_light_1"
-		"ItemRequirements"
-		{
-			"01"                        "item_armlet_light;item_exchange"
-		}
-	}
-	"item_armlet_light_1"
-	{
-		"BaseClass" 					"item_armlet"
-		"AbilityCooldown"				"0.0"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_armlet_light"
-		"ItemIsNeutralDrop"				"1"
-		"AbilityValues"
-		{
-			"bonus_damage"			"90"
-			"bonus_attack_speed"	"90"
-			"bonus_armor"			"36"
-			"bonus_health_regen"	"30"
-			"unholy_bonus_damage"	"110"
-			"unholy_bonus_strength"	"150"
-			"unholy_bonus_armor"	"24"
-			"unholy_bonus_slow_resistance"	"45"
-			"unholy_health_drain_per_second"	"5"
-			"toggle_cooldown"		"0.036"
-		}
-	}
-	"item_recipe_armlet_dark_1"
-	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "12046"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_armlet_dark_1"
-		"ItemRequirements"
-		{
-			"01"                        "item_armlet_dark;item_exchange"
-		}
-	}
-	"item_armlet_dark_1"
-	{
-		"BaseClass" 					"item_armlet"
-		"AbilityCooldown"				"0.0"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_armlet_dark"
-		"ItemIsNeutralDrop"				"1"
-		"AbilityValues"
-		{
-			"bonus_damage"			"45"
-			"bonus_attack_speed"	"45"
-			"bonus_armor"			"18"
-			"bonus_health_regen"	"60"
-			"unholy_bonus_damage"	"220"
-			"unholy_bonus_strength"	"300"
-			"unholy_bonus_armor"	"48"
-			"unholy_bonus_slow_resistance"	"90"
-			"unholy_health_drain_per_second"	"900"
-			"toggle_cooldown"		"0.036"
-		}
-	}
 
 	// 光暗卫士径甲
 	"item_recipe_guardian_greaves_light"
@@ -5118,104 +5044,6 @@
 			"max_health_pct_heal_amount"		"3"
 		}
 	}
-	"item_recipe_guardian_greaves_light_1"
-	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "12049"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_guardian_greaves_light_1"
-		"ItemRequirements"
-		{
-			"01"                        "item_guardian_greaves_light;item_exchange"
-		}
-	}
-	"item_guardian_greaves_light_1"
-	{
-		"BaseClass"                     "item_guardian_greaves"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"30"
-		"AbilityManaCost"				"0"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemAlertable"					"1"
-		"ShouldBeSuggested"				"1"
-		"ItemIsNeutralDrop"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_guardian_greaves_light"
-		"AbilityValues"
-		{
-			"bonus_movement"		"100"
-			"bonus_armor"			"20"
-			"mana_regen"			"10"
-			"aura_health_regen"		"50"
-			"aura_armor"			"20"
-			"aura_mana_regen"		"30"
-			"aura_radius"			"1800"
-			"aura_health_regen_bonus"	"150"
-			"aura_mana_regen_bonus"	"60"
-			"aura_armor_bonus"		"40"
-			"aura_bonus_threshold"	"75"
-			"replenish_health"		"1000"
-			"replenish_mana"		"500"
-			"replenish_radius"
-			{
-				"value"		"1800"
-				"affected_by_aoe_increase"	"1"
-			}
-			"max_health_pct_heal_amount"		"8"
-		}
-	}
-	"item_recipe_guardian_greaves_dark_1"
-	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "12050"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_guardian_greaves_dark_1"
-		"ItemRequirements"
-		{
-			"01"                        "item_guardian_greaves_dark;item_exchange"
-		}
-	}
-	"item_guardian_greaves_dark_1"
-	{
-		"BaseClass"                     "item_guardian_greaves"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"10"
-		"AbilityManaCost"				"0"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemAlertable"					"1"
-		"ShouldBeSuggested"				"1"
-		"ItemIsNeutralDrop"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_guardian_greaves_dark"
-		"AbilityValues"
-		{
-			"bonus_movement"		"200"
-			"bonus_armor"			"40"
-			"mana_regen"			"20"
-			"aura_health_regen"		"25"
-			"aura_armor"			"10"
-			"aura_mana_regen"		"15"
-			"aura_radius"			"900"
-			"aura_health_regen_bonus"	"50"
-			"aura_mana_regen_bonus"	"30"
-			"aura_armor_bonus"		"20"
-			"aura_bonus_threshold"	"25"
-			"replenish_health"		"2000"
-			"replenish_mana"		"1000"
-			"replenish_radius"
-			{
-				"value"		"900"
-				"affected_by_aoe_increase"	"1"
-			}
-			"max_health_pct_heal_amount"		"3"
-		}
-	}
 	"item_recipe_guardian_greaves_ai"
 	{
 		"BaseClass"                     "item_datadriven"
@@ -5235,62 +5063,12 @@
 		"BaseClass"                     "item_guardian_greaves"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"0"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemAlertable"					"1"
 		"ShouldBeSuggested"				"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityValues"
-		{
-			"bonus_movement"		"200"
-			"bonus_armor"			"40"
-			"mana_regen"			"20"
-			"aura_health_regen"		"50"
-			"aura_armor"			"20"
-			"aura_mana_regen"		"30"
-			"aura_radius"			"1800"
-			"aura_health_regen_bonus"	"200"
-			"aura_mana_regen_bonus"	"60"
-			"aura_armor_bonus"		"40"
-			"aura_bonus_threshold"	"100"
-			"replenish_health"		"3000"
-			"replenish_mana"		"1500"
-			"replenish_radius"
-			{
-				"value"		"1800"
-				"affected_by_aoe_increase"	"1"
-			}
-			"max_health_pct_heal_amount"		"8"
-		}
-	}
-	"item_recipe_guardian_greaves_ai_1"
-	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "13052"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"					"item_guardian_greaves_ai_1"
-		"ItemRequirements"
-		{
-			"01"                        "item_guardian_greaves_ai;item_exchange"
-			"02"						"item_guardian_greaves_light_1;item_dark_part"
-			"03"						"item_guardian_greaves_dark_1;item_light_part"
-		}
-	}
-	"item_guardian_greaves_ai_1"
-	{
-		"BaseClass"                     "item_guardian_greaves"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"8"
-		"AbilityManaCost"				"0"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemAlertable"					"1"
-		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemIsNeutralDrop"				"1"
 		"AbilityValues"
 		{
 			"bonus_movement"		"200"
@@ -5327,7 +5105,8 @@
 		"ItemResult"					"item_disperser_chaos"
 		"ItemRequirements"
 		{
-			"01"						"item_disperser;item_disperser"
+			"01"						"item_disperser;item_light_part"
+			"02"						"item_disperser;item_dark_part"
 		}
 	}
 
@@ -5353,60 +5132,6 @@
 		"UpgradeRecipe"					"item_recipe_diffusal_blade"
 		"ShouldBeSuggested"				"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityValues"
-		{
-			"bonus_agility"			"100"
-			"bonus_intellect"		"25"
-			"feedback_mana_burn"	"150"
-			"feedback_mana_burn_illusion_melee"	"50"
-			"feedback_mana_burn_illusion_ranged"	"50"
-			"purge_rate"			"5"
-			"purge_root_duration"	"6.0"
-			"damage_per_burn"		"1.0"
-			"enemy_effect_duration"	"8.0"
-			"ally_effect_duration"	"5.0"
-			"movement_speed_buff_rate"	"6"
-			"phase_movement_speed"		"100"
-		}
-	}
-	"item_recipe_disperser_chaos_1"
-	{
-		"BaseClass"					"item_datadriven"
-		"ID"						"12047"
-		"ItemCost"					"0"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_disperser_chaos_1"
-		"ItemRequirements"
-		{
-			"01"						"item_disperser_chaos;item_exchange"
-		}
-	}
-
-	"item_disperser_chaos_1"
-	{
-		"BaseClass"						"item_disperser"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"10.0"
-		"AbilityManaCost"				"75"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemCost"						"6100"
-		"ItemShopTags"					"agi;int;unique;hard_to_tag"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"diffusal blade 1"
-		"ItemPermanent"					"1"
-		"UpgradesItems"					"item_diffusal_blade"
-		"UpgradeRecipe"					"item_recipe_diffusal_blade"
-		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemIsNeutralDrop"				"1"
 		"AbilityValues"
 		{
 			"bonus_agility"			"100"

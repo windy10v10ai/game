@@ -1,7 +1,6 @@
 name: Create Develop PR
 on:
-  # push:
-  workflow_dispatch:
+  push:
 
 jobs:
   create_pull_request:
