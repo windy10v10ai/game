@@ -98,7 +98,7 @@ function modifier_int_tome:DeclareFunctions()
 end
 
 function modifier_int_tome:OnTooltip()
-    return self:GetStackCount() * 50
+    return self:GetStackCount() * 100
 end
 
 function modifier_int_tome:GetTexture()

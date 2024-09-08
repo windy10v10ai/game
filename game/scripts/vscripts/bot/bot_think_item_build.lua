@@ -36,17 +36,17 @@ local function addTome(k, v)
   -- 洛书
   table.insert(v, "item_tome_of_luoshu")
 
-  local amount = 2
+  local amount = 0
   if AIGameMode.iGameDifficulty and AIGameMode.iGameDifficulty >= 6 then
-    amount = 16
-  elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
     amount = 10
-  elseif AIGameMode.fBotGoldXpMultiplier >= 4 then
+  elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
     amount = 8
-  elseif AIGameMode.fBotGoldXpMultiplier >= 3 then
+  elseif AIGameMode.fBotGoldXpMultiplier >= 4 then
     amount = 6
-  elseif AIGameMode.fBotGoldXpMultiplier >= 2 then
+  elseif AIGameMode.fBotGoldXpMultiplier >= 3 then
     amount = 4
+  elseif AIGameMode.fBotGoldXpMultiplier >= 2 then
+    amount = 2
   end
   for i = 1, amount do
     table.insert(v, "item_tome_of_strength")

@@ -95,7 +95,7 @@ function modifier_agi_tome:DeclareFunctions()
 end
 
 function modifier_agi_tome:OnTooltip()
-    return self:GetStackCount() * 50
+    return self:GetStackCount() * 100
 end
 
 function modifier_agi_tome:GetTexture()

@@ -1819,7 +1819,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"5000"			//100
+			"shield"			"4000"			//100
 			"restore_time"		"4"
 			"bonus_hp_regen"	"5"
 		}
@@ -1850,7 +1850,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"				"2000"			//100
+			"shield"				"1000"			//100
 			"restore_time"			"2"
 			"bonus_hp_regen"		"50"
 		}
@@ -1881,7 +1881,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"5000"			//100
+			"shield"			"4000"			//100
 			"restore_time"		"4"
 			"bonus_hp_regen"	"5"
 		}
@@ -1912,7 +1912,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"				"2000"			//100
+			"shield"				"1000"			//100
 			"restore_time"			"2"
 			"bonus_hp_regen"		"50"
 		}
@@ -1943,7 +1943,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"5000"			//100
+			"shield"			"4000"			//100
 			"restore_time"			"2"
 			"bonus_hp_regen"		"50"
 		}
@@ -1975,7 +1975,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"5000"			//100
+			"shield"			"4000"			//100
 			"restore_time"			"2"
 			"bonus_hp_regen"		"50"
 		}
