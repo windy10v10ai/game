@@ -1717,11 +1717,13 @@
 		"DOTA_Tooltip_Ability_item_light_part"				"Light Part"
 		"DOTA_Tooltip_ability_item_light_part_Description"		"Can be used to transform items into light-themed upgrades.\nUpgraded items must be used in the main inventory, even if they were once neutral items."
 		"DOTA_Tooltip_Ability_item_light_part_Lore"				"Drops randomly when killing Roshan and neutral creeps."
+		"DOTA_Tooltip_Ability_item_light_part_bonus_damage"		"+$damage"
 
 		// item_dark_part 暗影组件
 		"DOTA_Tooltip_Ability_item_dark_part"				"Dark Part"
 		"DOTA_Tooltip_ability_item_dark_part_Description"		"Can be used to transform items into light-themed upgrades.\nUpgraded items must be used in the main inventory, even if they were once neutral items."
 		"DOTA_Tooltip_Ability_item_dark_part_Lore"				"Drops randomly when killing Roshan and neutral creeps."
+		"DOTA_Tooltip_Ability_item_dark_part_bonus_spell_amp"	"%+$spell_amp"
 
 		// item_exchange 光暗装备转换器
 		"DOTA_Tooltip_Ability_item_exchange"				"Light/Dark Neutral Converter"

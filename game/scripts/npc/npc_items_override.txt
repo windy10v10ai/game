@@ -204,8 +204,8 @@
 	}
 	"item_tier1_token"
 	{
-		"ItemCost"                      "500"
-		"ItemInitialStockTime"          "165"
+		"ItemCost"						"1000"
+		"ItemInitialStockTime"			"165"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -214,8 +214,8 @@
 	}
 	"item_tier2_token"
 	{
-		"ItemCost"                      "1000"
-		"ItemInitialStockTime"          "525"
+		"ItemCost"						"2000"
+		"ItemInitialStockTime"			"525"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -224,8 +224,8 @@
 	}
 	"item_tier3_token"
 	{
-		"ItemCost"                      "1500"
-		"ItemInitialStockTime"          "885"
+		"ItemCost"						"3000"
+		"ItemInitialStockTime"			"885"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -234,8 +234,8 @@
 	}
 	"item_tier4_token"
 	{
-		"ItemCost"                      "2000"
-		"ItemInitialStockTime"          "1245"
+		"ItemCost"						"4000"
+		"ItemInitialStockTime"			"1245"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -244,8 +244,8 @@
 	}
 	"item_tier5_token"
 	{
-		"ItemCost"                      "2500"
-		"ItemInitialStockTime"          "1605"
+		"ItemCost"						"5000"
+		"ItemInitialStockTime"			"1605"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
