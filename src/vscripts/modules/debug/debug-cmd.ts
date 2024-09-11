@@ -7,7 +7,7 @@ export enum CMD {
   KILL = "-kill",
   KILL_ALL = "-killall",
   G = "-g", // 加钱升级
-  G_ALL = "-gall", // 所有人加钱升级
+  G_ALL = "-gall", // 所有人升级加钱
   L_ALL = "-lall", // 所有人逐级升级
 
   // ---- 当前英雄相关 ----

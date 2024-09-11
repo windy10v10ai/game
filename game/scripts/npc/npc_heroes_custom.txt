@@ -413,11 +413,6 @@
 		"AttackRate"    "1.7"
 	}
 
-	"npc_dota_hero_crystal_maiden"
-	{
-		"Ability5"      "visage_silent_as_the_grave"
-		"Ability8"      "visage_gravekeepers_cloak"
-	}
 
 	"npc_dota_hero_tinker"
 	{
@@ -878,6 +873,8 @@
 	// 水晶室女 冰女
 	"npc_dota_hero_crystal_maiden"
 	{
+		"Ability5"      "visage_silent_as_the_grave"
+		"Ability8"      "visage_gravekeepers_cloak"
 		"Bot"
 		{
 			"Build"
@@ -908,7 +905,7 @@
 				"24"		""
 				"25"		"special_bonus_unique_crystal_maiden_1"
 				"26"		""
-				"27"		"special_bonus_hp_250"
+				"27"		"special_bonus_hp_200"
 				"28"		"special_bonus_unique_crystal_maiden_5"
 				"29"		"special_bonus_attack_speed_225"
 				"30"		"special_bonus_unique_crystal_maiden_2"
