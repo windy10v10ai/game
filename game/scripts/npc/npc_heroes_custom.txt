@@ -1469,8 +1469,6 @@
 	}
 	"npc_dota_hero_luna"
 	{
-		"Ability4"		"luna_lunar_grace"
-		"Ability9"		"luna_lunar_blessing"	// 月之祝福 先天技能
 		"Bot"
 		{
 			"Build"

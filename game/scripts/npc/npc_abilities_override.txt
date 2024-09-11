@@ -5694,20 +5694,6 @@
 			}
 		}
 	}
-	// 月之祝福（旧版 加攻击速度）
-	"luna_lunar_grace"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"30 25 20 15 10"
-		"LinkedAbility"					"luna_moon_glaive"
-		"AbilityDraftPreAbility"		"luna_moon_glaive"
-		"AbilityValues"
-		{
-			"attack_speed"					"30 45 60 75 90"
-			"night_multiplier"				"2.0"
-			"duration"						"5.0"
-		}
-	}
 	// 月蚀
 	"luna_eclipse"
 	{
