@@ -228,7 +228,7 @@ function BotAbilityThink:ThinkUseAbility_Zuus(hHero)
 	end
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
 		if hAbility4:IsFullyCastable() then
-			local iRange = 5000
+			local iRange = 3000
 			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange,
 				DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO,
 				DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_FARTHEST, false)
@@ -256,10 +256,6 @@ function BotAbilityThink:ThinkUseAbility_Kunkka(hHero)
 	local hAbility5 = hHero:GetAbilityByIndex(4)
 
 	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility3) then
-		return true
-	end
-	-- kunkka_torrent_storm
-	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility4) then
 		return true
 	end
 	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility5) then

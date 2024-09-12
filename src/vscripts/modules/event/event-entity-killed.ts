@@ -9,10 +9,11 @@ export class EventEntityKilled {
   private readonly removeGoldBagDelay = 20;
 
   // 神器碎片
+  private itemLightPartName = "item_light_part";
+  private itemDarkPartName = "item_dark_part";
   private dropItemListArtifactPart: string[] = ["item_light_part", "item_dark_part"];
 
   private dropItemChanceRoshanArtifactPart = 100;
-  private dropItemChanceCreepArtifactPart = 1.0;
 
   // 龙珠
   private dropItemListDragonBall: string[] = [
@@ -88,6 +89,7 @@ export class EventEntityKilled {
         }
       });
     } else if (creep.IsAncient()) {
+      // 击杀远古
       if (PlayerHelper.IsHumanPlayer(attacker)) {
         this.dropItemListDragonBall = this.dropItem(
           creep,
@@ -95,9 +97,10 @@ export class EventEntityKilled {
           this.dropItemChanceAncient,
         );
 
-        this.dropItem(creep, this.dropItemListArtifactPart, this.dropItemChanceCreepArtifactPart);
+        this.dropParts(creep);
       }
     } else if (creep.IsNeutralUnitType()) {
+      // 击杀中立单位
       if (PlayerHelper.IsHumanPlayer(attacker)) {
         this.dropItemListDragonBall = this.dropItem(
           creep,
@@ -105,11 +108,39 @@ export class EventEntityKilled {
           this.dropItemChanceNeutral,
         );
 
-        this.dropItem(creep, this.dropItemListArtifactPart, this.dropItemChanceCreepArtifactPart);
+        this.dropParts(creep);
       }
     }
   }
 
+  private dropParts(creep: CDOTA_BaseNPC): void {
+    // 组件掉落概率随游戏时长而增加
+    const dotaTime = GameRules.GetDOTATime(false, false);
+    let dropItemChanceCreepArtifactPart = 0;
+    if (dotaTime < 600) {
+      dropItemChanceCreepArtifactPart = 0.5;
+    } else if (dotaTime < 1200) {
+      dropItemChanceCreepArtifactPart = 1;
+    } else if (dotaTime < 1800) {
+      dropItemChanceCreepArtifactPart = 1.5;
+    } else {
+      dropItemChanceCreepArtifactPart = 2;
+    }
+
+    // 获取白天夜晚
+    const isDaytime = GameRules.IsDaytime();
+    if (isDaytime) {
+      // 白天掉落圣光组件
+      this.dropItem(creep, [this.itemLightPartName], dropItemChanceCreepArtifactPart);
+    } else {
+      // 夜晚掉落暗影组件
+      this.dropItem(creep, [this.itemDarkPartName], dropItemChanceCreepArtifactPart);
+    }
+  }
+
+  /**
+   * 从指定list中随机掉落一件物品
+   */
   private dropItem(creep: CDOTA_BaseNPC, dropItemList: string[], dropChance = 100): string[] {
     if (dropItemList.length === 0) {
       print(`[EventEntityKilled] OnCreepKilled dropItemList is empty`);

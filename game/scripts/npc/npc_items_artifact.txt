@@ -6,7 +6,7 @@
 	//=================================================================================================================
 	"item_dragon_ball_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "10001"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_1"
@@ -51,7 +51,7 @@
 	}
 	"item_dragon_ball_2"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "10002"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_2"
@@ -96,7 +96,7 @@
 	}
 	"item_dragon_ball_3"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "10003"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_3"
@@ -141,7 +141,7 @@
 	}
 	"item_dragon_ball_4"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "10004"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_4"
@@ -186,7 +186,7 @@
 	}
 	"item_dragon_ball_5"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "10005"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_5"
@@ -231,7 +231,7 @@
 	}
 	"item_dragon_ball_6"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "10006"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_6"
@@ -276,7 +276,7 @@
 	}
 	"item_dragon_ball_7"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "10007"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_7"
@@ -413,7 +413,7 @@
 	}
 	"item_recipe_blessing_of_dragon"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "9623"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -447,7 +447,7 @@
 	}
 	"item_recipe_blessing_of_dragon_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "9624"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -481,7 +481,7 @@
 	}
 	"item_recipe_blessing_of_dragon_2"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "9626"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -531,7 +531,7 @@
 	}
 	"item_recipe_blessing_of_dragon_3"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "9628"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -568,7 +568,7 @@
 	}
 	"item_recipe_blessing_of_dragon_4"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "9630"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -641,10 +641,10 @@
 	//圣光组件
 	"item_light_part"
 	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "10999"
+		"BaseClass"						"item_datadriven"
+		"ID"							"10999"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_light_part"
+		"AbilityTextureName"			"item_light_part"
 		"ItemCost"						"6000"
 		"ItemIsNeutralDrop"				"0"
 		"ItemShopTags"					""
@@ -654,19 +654,39 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"1245"// 20分钟买
+		"ItemInitialStockTime"			"1545"// 25分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"120"
+
+		"AbilityValues"
+		{
+			"bonus_damage"		"60"
+		}
+		"Modifiers"
+		{
+			"modifier_item_light_part"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"1"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+				}
+			}
+		}
 	}
 
 	//暗影组件
 	"item_dark_part"
 	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "11000"
+		"BaseClass"						"item_datadriven"
+		"ID"							"11000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_dark_part"
+		"AbilityTextureName"			"item_dark_part"
 		"ItemCost"						"6000"
 		"ItemIsNeutralDrop"				"0"
 		"ItemShopTags"					""
@@ -676,16 +696,36 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"1245"// 20分钟买
+		"ItemInitialStockTime"			"1545"// 25分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"120"
+
+		"AbilityValues"
+		{
+			"bonus_spell_amp"		"25"
+		}
+		"Modifiers"
+		{
+			"modifier_item_dark_part"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"1"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"		"%bonus_spell_amp"
+				}
+			}
+		}
 	}
 
 	//中立转换器
 	"item_exchange"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "10998"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_exchange"
@@ -737,7 +777,7 @@
 	// 光暗行家阵列
 	"item_recipe_specialists_array_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11009"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -771,7 +811,7 @@
 	}
 	"item_recipe_specialists_array_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11010"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -805,7 +845,7 @@
 	}
 	"item_recipe_specialists_array_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12009"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -839,7 +879,7 @@
 	}
 	"item_recipe_specialists_array_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12010"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -876,7 +916,7 @@
 	// 光暗永恒遗物
 	"item_recipe_timeless_relic_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11019"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -906,7 +946,7 @@
 	}
 	"item_recipe_timeless_relic_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11020"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -936,7 +976,7 @@
 	}
 	"item_recipe_timeless_relic_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12019"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -966,7 +1006,7 @@
 	}
 	"item_recipe_timeless_relic_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11020"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -996,7 +1036,7 @@
 	}
 	"item_recipe_timeless_relic_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13021"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1026,7 +1066,7 @@
 	}
 	"item_recipe_timeless_relic_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13022"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1060,7 +1100,7 @@
 	//光暗不羁甲壳
 	"item_recipe_defiant_shell_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11011"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1085,44 +1125,13 @@
 		"AbilityValues"
 		{
 			"bonus_armor"				"60" //7
-			"all_stats"			        "60" //7
+			"all_stats"					"20" //7
 			"counter_cooldown"			"1.0" //5
-		}
-	}
-	"item_recipe_defiant_shell_dark"
-	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "11012"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_defiant_shell_dark"
-		"ItemRequirements"
-		{
-			"01"                        "item_defiant_shell;item_dark_part"
-		}
-	}
-	"item_defiant_shell_dark"
-	{
-		"BaseClass" "item_defiant_shell"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ItemIsNeutralDrop"				"0"
-		"ItemPurchasable"				"1"
-		"ItemCost"						"0"
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
-		"ItemSellable"					"0"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_defiant_shell_dark"
-		"AbilityValues"
-		{
-			"bonus_armor"				"20" //7
-			"all_stats"			        "20" //7
-			"counter_cooldown"			"0.3" //5
 		}
 	}
 	"item_recipe_defiant_shell_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11011"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1147,13 +1156,45 @@
 		"AbilityValues"
 		{
 			"bonus_armor"				"60" //7
-			"all_stats"			        "60" //7
+			"all_stats"					"20" //7
 			"counter_cooldown"			"1.0" //5
+		}
+	}
+
+	"item_recipe_defiant_shell_dark"
+	{
+		"BaseClass"						"item_datadriven"
+		"ID"						    "11012"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_defiant_shell_dark"
+		"ItemRequirements"
+		{
+			"01"                        "item_defiant_shell;item_dark_part"
+		}
+	}
+	"item_defiant_shell_dark"
+	{
+		"BaseClass" "item_defiant_shell"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"1"
+		"ItemCost"						"0"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_defiant_shell_dark"
+		"AbilityValues"
+		{
+			"bonus_armor"				"20" //7
+			"all_stats"					"60" //7
+			"counter_cooldown"			"0.3" //5
 		}
 	}
 	"item_recipe_defiant_shell_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11012"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1178,13 +1219,13 @@
 		"AbilityValues"
 		{
 			"bonus_armor"				"20" //7
-			"all_stats"			        "20" //7
+			"all_stats"					"60" //7
 			"counter_cooldown"			"0.3" //5
 		}
 	}
 	"item_recipe_defiant_shell_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13013"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1209,13 +1250,13 @@
 		"AbilityValues"
 		{
 			"bonus_armor"				"60" //7
-			"all_stats"			        "60" //7
+			"all_stats"					"60" //7
 			"counter_cooldown"			"0.3" //5
 		}
 	}
 	"item_recipe_defiant_shell_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13014"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1241,7 +1282,7 @@
 		"AbilityValues"
 		{
 			"bonus_armor"				"60" //7
-			"all_stats"			        "60" //7
+			"all_stats"					"60" //7
 			"counter_cooldown"			"0.3" //5
 		}
 	}
@@ -1249,7 +1290,7 @@
 	//光暗机械之心
 	"item_recipe_ex_machina_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11039"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1280,7 +1321,7 @@
 	}
 	"item_recipe_ex_machina_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11040"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1311,7 +1352,7 @@
 	}
 	"item_recipe_ex_machina_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12039"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1342,7 +1383,7 @@
 	}
 	"item_recipe_ex_machina_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12040"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1375,7 +1416,7 @@
 	//光暗海盗帽
 	"item_recipe_pirate_hat_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11037"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1391,8 +1432,8 @@
 		"BaseClass" "item_pirate_hat"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityCastAnimation"			"ACT_DOTA_GENERIC_CHANNEL_1"
-		"AbilityCastRange"				"250"
-		"AbilityCooldown"				"20.0"
+		"AbilityCastRange"				"8000"
+		"AbilityCooldown"				"1.0"
 		"AbilityCastPoint"				"0.0"
 		"AbilityChannelTime"			"0.5"
 		"ItemCost"						"0"
@@ -1404,48 +1445,13 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_attack_speed"			"600"
-			"bonus_ms"						"300"
-		}
-	}
-	"item_recipe_pirate_hat_dark"
-	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "11038"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_pirate_hat_dark"
-		"ItemRequirements"
-		{
-			"01"                        "item_pirate_hat;item_dark_part"
-		}
-	}
-	"item_pirate_hat_dark"
-	{
-		"BaseClass" "item_pirate_hat"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityCastAnimation"			"ACT_DOTA_GENERIC_CHANNEL_1"
-		"AbilityCastRange"				"80000"
-		"AbilityCooldown"				"1.0"
-		"AbilityCastPoint"				"0.0"
-		"AbilityChannelTime"			"0.1"
-		"ItemCost"						"0"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-		"ItemIsNeutralDrop"				"0"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_pirate_hat_dark"
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
-		"AbilityValues"
-		{
-			"bonus_attack_speed"			"200"
+			"bonus_attack_speed"			"450"
 			"bonus_ms"						"30"
 		}
 	}
 	"item_recipe_pirate_hat_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12037"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1461,8 +1467,8 @@
 		"BaseClass" "item_pirate_hat"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityCastAnimation"			"ACT_DOTA_GENERIC_CHANNEL_1"
-		"AbilityCastRange"				"250"
-		"AbilityCooldown"				"20.0"
+		"AbilityCastRange"				"8000"
+		"AbilityCooldown"				"1.0"
 		"AbilityCastPoint"				"0.0"
 		"AbilityChannelTime"			"0.5"
 		"ItemCost"						"0"
@@ -1474,13 +1480,49 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_attack_speed"			"600"
+			"bonus_attack_speed"			"450"
+			"bonus_ms"						"30"
+		}
+	}
+
+	"item_recipe_pirate_hat_dark"
+	{
+		"BaseClass"						"item_datadriven"
+		"ID"						    "11038"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_pirate_hat_dark"
+		"ItemRequirements"
+		{
+			"01"                        "item_pirate_hat;item_dark_part"
+		}
+	}
+	"item_pirate_hat_dark"
+	{
+		"BaseClass" "item_pirate_hat"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityCastAnimation"			"ACT_DOTA_GENERIC_CHANNEL_1"
+		"AbilityCastRange"				"250"
+		"AbilityCooldown"				"20.0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityChannelTime"			"0.5"
+		"ItemCost"						"0"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_pirate_hat_dark"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+			"bonus_attack_speed"			"200"
 			"bonus_ms"						"300"
 		}
 	}
 	"item_recipe_pirate_hat_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12038"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1496,10 +1538,10 @@
 		"BaseClass" "item_pirate_hat"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityCastAnimation"			"ACT_DOTA_GENERIC_CHANNEL_1"
-		"AbilityCastRange"				"80000"
-		"AbilityCooldown"				"1.0"
+		"AbilityCastRange"				"250"
+		"AbilityCooldown"				"20.0"
 		"AbilityCastPoint"				"0.0"
-		"AbilityChannelTime"			"0.1"
+		"AbilityChannelTime"			"0.5"
 		"ItemCost"						"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
@@ -1510,12 +1552,12 @@
 		"AbilityValues"
 		{
 			"bonus_attack_speed"			"200"
-			"bonus_ms"						"30"
+			"bonus_ms"						"300"
 		}
 	}
 	"item_recipe_pirate_hat_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13039"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1532,10 +1574,10 @@
 		"BaseClass" "item_pirate_hat"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityCastAnimation"			"ACT_DOTA_GENERIC_CHANNEL_1"
-		"AbilityCastRange"				"80000"
+		"AbilityCastRange"				"8000"
 		"AbilityCooldown"				"1.0"
 		"AbilityCastPoint"				"0.0"
-		"AbilityChannelTime"			"0.1"
+		"AbilityChannelTime"			"0.5"
 		"ItemCost"						"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
@@ -1544,13 +1586,13 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_attack_speed"			"600"
+			"bonus_attack_speed"			"450"
 			"bonus_ms"						"300"
 		}
 	}
 	"item_recipe_pirate_hat_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13040"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1568,10 +1610,10 @@
 		"BaseClass" "item_pirate_hat"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityCastAnimation"			"ACT_DOTA_GENERIC_CHANNEL_1"
-		"AbilityCastRange"				"80000"
+		"AbilityCastRange"				"8000"
 		"AbilityCooldown"				"1.0"
 		"AbilityCastPoint"				"0.0"
-		"AbilityChannelTime"			"0.1"
+		"AbilityChannelTime"			"0.5"
 		"ItemCost"						"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
@@ -1580,7 +1622,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_attack_speed"			"600"
+			"bonus_attack_speed"			"450"
 			"bonus_ms"						"300"
 		}
 	}
@@ -1588,7 +1630,7 @@
 	// 光暗仙灵饰品
 	"item_recipe_mysterious_hat_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11001"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1613,44 +1655,13 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"1500"
-			"spell_amp"				"80"
-			"manacost_reduction"			"10"
-		}
-	}
-	"item_recipe_mysterious_hat_dark"
-	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "11002"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_mysterious_hat_dark"
-		"ItemRequirements"
-		{
-			"01"                        "item_mysterious_hat;item_dark_part"
-		}
-	}
-	"item_mysterious_hat_dark"
-	{
-		"BaseClass" "item_mysterious_hat"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ItemCost"						"0"
-		"ItemIsNeutralDrop"				"0"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_mysterious_hat_dark"
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
-		"AbilityValues"
-		{
-			"bonus_health"			"1500"
-			"spell_amp"				"10"
+			"spell_amp"				"20"
 			"manacost_reduction"			"60"
 		}
 	}
 	"item_recipe_mysterious_hat_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12001"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1675,13 +1686,45 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"1500"
+			"spell_amp"				"20"
+			"manacost_reduction"			"60"
+		}
+	}
+
+	"item_recipe_mysterious_hat_dark"
+	{
+		"BaseClass"						"item_datadriven"
+		"ID"						    "11002"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_mysterious_hat_dark"
+		"ItemRequirements"
+		{
+			"01"                        "item_mysterious_hat;item_dark_part"
+		}
+	}
+	"item_mysterious_hat_dark"
+	{
+		"BaseClass" "item_mysterious_hat"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_mysterious_hat_dark"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+			"bonus_health"			"1500"
 			"spell_amp"				"80"
-			"manacost_reduction"			"10"
+			"manacost_reduction"			"20"
 		}
 	}
 	"item_recipe_mysterious_hat_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12002"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1706,13 +1749,13 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"1500"
-			"spell_amp"				"10"
-			"manacost_reduction"			"60"
+			"spell_amp"				"80"
+			"manacost_reduction"			"20"
 		}
 	}
 	"item_recipe_mysterious_hat_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13001"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1743,7 +1786,7 @@
 	}
 	"item_recipe_mysterious_hat_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13002"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1795,7 +1838,7 @@
 	// 光暗安全泡泡
 	"item_recipe_safety_bubble_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11003"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1819,14 +1862,14 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"5000"			//100
-			"restore_time"		"4"
+			"shield"			"4000"			//100
+			"restore_time"		"5"
 			"bonus_hp_regen"	"5"
 		}
 	}
 	"item_recipe_safety_bubble_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11004"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1850,14 +1893,14 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"				"2000"			//100
+			"shield"				"1000"			//100
 			"restore_time"			"2"
 			"bonus_hp_regen"		"50"
 		}
 	}
 	"item_recipe_safety_bubble_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12003"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1881,14 +1924,14 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"5000"			//100
-			"restore_time"		"4"
+			"shield"			"4000"			//100
+			"restore_time"		"5"
 			"bonus_hp_regen"	"5"
 		}
 	}
 	"item_recipe_safety_bubble_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12004"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1912,14 +1955,14 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"				"2000"			//100
+			"shield"				"1000"			//100
 			"restore_time"			"2"
 			"bonus_hp_regen"		"50"
 		}
 	}
 	"item_recipe_safety_bubble_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13003"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1943,14 +1986,14 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"5000"			//100
+			"shield"			"4000"			//100
 			"restore_time"			"2"
 			"bonus_hp_regen"		"50"
 		}
 	}
 	"item_recipe_safety_bubble_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13004"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -1975,7 +2018,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"shield"			"5000"			//100
+			"shield"			"4000"			//100
 			"restore_time"			"2"
 			"bonus_hp_regen"		"50"
 		}
@@ -1984,7 +2027,7 @@
 	// 光暗林野长弓
 	"item_recipe_grove_bow_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11005"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2016,7 +2059,7 @@
 	}
 	"item_recipe_grove_bow_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11006"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2048,7 +2091,7 @@
 	}
 	"item_recipe_grove_bow_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12005"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2080,7 +2123,7 @@
 	}
 	"item_recipe_grove_bow_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12006"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2112,7 +2155,7 @@
 	}
 	"item_recipe_grove_bow_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13007"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2144,7 +2187,7 @@
 	}
 	"item_recipe_grove_bow_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13008"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2179,7 +2222,7 @@
 	// 光暗祭礼长袍
 	"item_recipe_ceremonial_robe_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11015"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2205,45 +2248,13 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"80"	//10
-			"magic_resistance"		"20"	//10
-		}
-	}
-	"item_recipe_ceremonial_robe_dark"
-	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "11016"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_ceremonial_robe_dark"
-		"ItemRequirements"
-		{
-			"01"                        "item_ceremonial_robe;item_dark_part"
-		}
-	}
-	"item_ceremonial_robe_dark"
-	{
-		"BaseClass" "item_ceremonial_robe"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ItemCost"						"0"
-		"ItemIsNeutralDrop"				"0"
-		"ItemPurchasable"				"1"
-		"ItemSellable"				"0"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_ceremonial_robe_dark"
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
-		"AbilityValues"
-		{
-			"bonus_mana"			"900"	//300
-			"aura_radius"			"1200"	//1200
 			"status_resistance"		"20"	//10
 			"magic_resistance"		"80"	//10
 		}
 	}
 	"item_recipe_ceremonial_robe_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12015"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2269,13 +2280,46 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
+			"status_resistance"		"20"	//10
+			"magic_resistance"		"80"	//10
+		}
+	}
+
+	"item_recipe_ceremonial_robe_dark"
+	{
+		"BaseClass"						"item_datadriven"
+		"ID"						    "11016"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_ceremonial_robe_dark"
+		"ItemRequirements"
+		{
+			"01"                        "item_ceremonial_robe;item_dark_part"
+		}
+	}
+	"item_ceremonial_robe_dark"
+	{
+		"BaseClass" "item_ceremonial_robe"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"1"
+		"ItemSellable"				"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_ceremonial_robe_dark"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+			"bonus_mana"			"900"	//300
+			"aura_radius"			"1200"	//1200
 			"status_resistance"		"80"	//10
 			"magic_resistance"		"20"	//10
 		}
 	}
 	"item_recipe_ceremonial_robe_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12016"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2301,13 +2345,13 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"20"	//10
-			"magic_resistance"		"80"	//10
+			"status_resistance"		"80"	//10
+			"magic_resistance"		"20"	//10
 		}
 	}
 	"item_recipe_ceremonial_robe_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13017"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2339,7 +2383,7 @@
 	}
 	"item_recipe_ceremonial_robe_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13018"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2374,7 +2418,7 @@
 	// 光暗浩劫巨锤
 	"item_recipe_havoc_hammer_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11027"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2417,7 +2461,7 @@
 	}
 	"item_recipe_havoc_hammer_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11028"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2461,7 +2505,7 @@
 	}
 	"item_recipe_havoc_hammer_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12027"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2504,7 +2548,7 @@
 	}
 	"item_recipe_havoc_hammer_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12028"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2548,7 +2592,7 @@
 	}
 	"item_recipe_havoc_hammer_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13029"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2591,7 +2635,7 @@
 	}
 	"item_recipe_havoc_hammer_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13030"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2637,7 +2681,7 @@
 	// 光暗极
 	"item_recipe_apex_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11033"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2667,7 +2711,7 @@
 	}
 	"item_recipe_apex_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11034"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2696,7 +2740,7 @@
 	}
 	"item_recipe_apex_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12033"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2726,7 +2770,7 @@
 	}
 	"item_recipe_apex_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12034"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2755,7 +2799,7 @@
 	}
 	"item_recipe_apex_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13035"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2785,7 +2829,7 @@
 	}
 	"item_recipe_apex_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13036"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2818,7 +2862,7 @@
 	// 光暗蛛丝斗篷
 	"item_recipe_gossamer_cape_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11007"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2843,12 +2887,12 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"movement_speed"			"250"   //20
+			"movement_speed"			"200"	//20
 		}
 	}
 	"item_recipe_gossamer_cape_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11008"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2873,12 +2917,12 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"movement_speed"			"40"   //20
+			"movement_speed"			"40"	//20
 		}
 	}
 	"item_recipe_gossamer_cape_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12007"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2903,12 +2947,12 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"movement_speed"			"250"   //20
+			"movement_speed"			"200"	//20
 		}
 	}
 	"item_recipe_gossamer_cape_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12008"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2933,12 +2977,12 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"movement_speed"			"40"   //20
+			"movement_speed"			"40"	//20
 		}
 	}
 	"item_recipe_gossamer_cape_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13009"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2963,12 +3007,12 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"movement_speed"			"250"   //20
+			"movement_speed"			"200"	//20
 		}
 	}
 	"item_recipe_gossamer_cape_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13010"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -2994,14 +3038,15 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"movement_speed"			"250"   //20
+			"movement_speed"			"200"	//20
 		}
 	}
 
-	//光暗骑士剑
+	// 光暗骑士剑
+	// 圣光
 	"item_recipe_paladin_sword_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11013"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3025,49 +3070,16 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"60" //16
-			"bonus_spell_lifesteal"	"24"  //8
-			"bonus_amp"			    "24" //14
-			"creep_lifesteal_reduction_pct"	"0" //40
-		}
-	}
-	"item_recipe_paladin_sword_dark"
-	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "11014"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_paladin_sword_dark"
-		"ItemRequirements"
-		{
-			"01"                        "item_paladin_sword;item_dark_part"
-		}
-	}
-	"item_paladin_sword_dark"
-	{
-		"BaseClass" "item_paladin_sword"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ItemCost"						"0"
-		"ItemIsNeutralDrop"				"0"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_paladin_sword_dark"
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
-		"AbilityValues"
-		{
-			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"24" //16
-			"bonus_spell_lifesteal"	"60"  //8
-			"bonus_amp"			    "80" //14
+			"bonus_damage"			"200"	//16
+			"bonus_lifesteal"		"24"	//16
+			"bonus_spell_lifesteal"	"24"	//8
+			"bonus_amp"				"24"	//14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
 	}
 	"item_recipe_paladin_sword_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12013"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3091,16 +3103,51 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"60" //16
-			"bonus_spell_lifesteal"	"24"  //8
-			"bonus_amp"			    "24" //14
+			"bonus_damage"			"200"	//16
+			"bonus_lifesteal"		"24"	//16
+			"bonus_spell_lifesteal"	"24"	//8
+			"bonus_amp"				"24"	//14
+			"creep_lifesteal_reduction_pct"	"0" //40
+		}
+	}
+
+	// 暗影
+	"item_recipe_paladin_sword_dark"
+	{
+		"BaseClass"						"item_datadriven"
+		"ID"						    "11014"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_paladin_sword_dark"
+		"ItemRequirements"
+		{
+			"01"                        "item_paladin_sword;item_dark_part"
+		}
+	}
+	"item_paladin_sword_dark"
+	{
+		"BaseClass" "item_paladin_sword"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_paladin_sword_dark"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+			"bonus_damage"			"100"	//16
+			"bonus_lifesteal"		"60"	//16
+			"bonus_spell_lifesteal"	"60"	//8
+			"bonus_amp"				"60"	//14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
 	}
 	"item_recipe_paladin_sword_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12014"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3124,16 +3171,17 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"24" //16
-			"bonus_spell_lifesteal"	"60"  //8
-			"bonus_amp"			    "80" //14
+			"bonus_damage"			"100"	//16
+			"bonus_lifesteal"		"60"	//16
+			"bonus_spell_lifesteal"	"60"	//8
+			"bonus_amp"				"60"	//14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
 	}
+	// 光暗
 	"item_recipe_paladin_sword_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13015"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3157,16 +3205,16 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"60" //16
-			"bonus_spell_lifesteal"	"60"  //8
-			"bonus_amp"			    "80" //14
+			"bonus_damage"			"200"	//16
+			"bonus_lifesteal"		"60"	//16
+			"bonus_spell_lifesteal"	"60"	//8
+			"bonus_amp"				"60"	//14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
 	}
 	"item_recipe_paladin_sword_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13016"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3191,10 +3239,10 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_damage"			"200" //16
-			"bonus_lifesteal"		"60" //16
-			"bonus_spell_lifesteal"	"60"  //8
-			"bonus_amp"			    "80" //14
+			"bonus_damage"			"200"	//16
+			"bonus_lifesteal"		"60"	//16
+			"bonus_spell_lifesteal"	"60"	//8
+			"bonus_amp"				"60"	//14
 			"creep_lifesteal_reduction_pct"	"0" //40
 		}
 	}
@@ -3202,7 +3250,7 @@
 	// 光暗通灵头带
 	"item_recipe_psychic_headband_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11017"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3231,43 +3279,6 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
-			"intelligence_pct"		"60"	//15
-			"cast_range"			"150"	//100
-			"push_length"			"600"	//400
-			"push_duration"			"0.3"	//0.3
-		}
-	}
-	"item_recipe_psychic_headband_dark"
-	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "11018"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_psychic_headband_dark"
-		"ItemRequirements"
-		{
-			"01"                        "item_psychic_headband;item_dark_part"
-		}
-	}
-	"item_psychic_headband_dark"
-	{
-		"BaseClass" "item_psychic_headband"
-		"AbilityCastRange"				"1500"	//600
-		"AbilityCooldown"				"4.0"	//20
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"ItemCost"						"0"
-		"ItemIsNeutralDrop"				"0"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_psychic_headband_dark"
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityValues"
-		{
 			"intelligence_pct"		"25"	//15
 			"cast_range"			"350"	//100
 			"push_length"			"600"	//400
@@ -3276,7 +3287,7 @@
 	}
 	"item_recipe_psychic_headband_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12017"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3305,6 +3316,45 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
+			"intelligence_pct"		"25"	//15
+			"cast_range"			"350"	//100
+			"push_length"			"600"	//400
+			"push_duration"			"0.3"	//0.3
+		}
+	}
+
+	// 暗影
+	"item_recipe_psychic_headband_dark"
+	{
+		"BaseClass"						"item_datadriven"
+		"ID"						    "11018"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_psychic_headband_dark"
+		"ItemRequirements"
+		{
+			"01"                        "item_psychic_headband;item_dark_part"
+		}
+	}
+	"item_psychic_headband_dark"
+	{
+		"BaseClass" "item_psychic_headband"
+		"AbilityCastRange"				"1500"	//600
+		"AbilityCooldown"				"4.0"	//20
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_psychic_headband_dark"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityValues"
+		{
 			"intelligence_pct"		"60"	//15
 			"cast_range"			"150"	//100
 			"push_length"			"600"	//400
@@ -3313,7 +3363,7 @@
 	}
 	"item_recipe_psychic_headband_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12018"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3342,15 +3392,15 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
-			"intelligence_pct"		"25"	//15
-			"cast_range"			"350"	//100
+			"intelligence_pct"		"60"	//15
+			"cast_range"			"150"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
 	}
 	"item_recipe_psychic_headband_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13019"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3387,7 +3437,7 @@
 	}
 	"item_recipe_psychic_headband_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13020"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3427,7 +3477,7 @@
 	// 光暗简朴短帽
 	"item_recipe_ascetic_cap_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11021"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3462,7 +3512,7 @@
 	}
 	"item_recipe_ascetic_cap_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11022"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3497,7 +3547,7 @@
 	}
 	"item_recipe_ascetic_cap_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12021"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3532,7 +3582,7 @@
 	}
 	"item_recipe_ascetic_cap_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12022"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3567,7 +3617,7 @@
 	}
 	"item_recipe_ascetic_cap_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13023"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3602,7 +3652,7 @@
 	}
 	"item_recipe_ascetic_cap_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13024"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3640,7 +3690,7 @@
 	// 光暗欺诈师斗篷
 	"item_recipe_trickster_cloak_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11023"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3672,7 +3722,7 @@
 	}
 	"item_recipe_trickster_cloak_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11024"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3704,7 +3754,7 @@
 	}
 	"item_recipe_trickster_cloak_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12023"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3736,7 +3786,7 @@
 	}
 	"item_recipe_trickster_cloak_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12024"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3768,7 +3818,7 @@
 	}
 	"item_recipe_trickster_cloak_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13025"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3800,7 +3850,7 @@
 	}
 	"item_recipe_trickster_cloak_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13026"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3835,7 +3885,7 @@
 	// 光暗遗迹守卫者
 	"item_recipe_ancient_guardian_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11025"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3859,45 +3909,14 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"extra_bonus_damage"	"500"    //50
-			"bonus_damage"			"500"    //50
-			"radius"				"2000"  //2000
-		}
-	}
-	"item_recipe_ancient_guardian_dark"
-	{
-		"BaseClass"                     "item_datadriven"
-		"ID"						    "11026"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_ancient_guardian_dark"
-		"ItemRequirements"
-		{
-			"01"                        "item_ancient_guardian;item_dark_part"
-		}
-	}
-	"item_ancient_guardian_dark"
-	{
-		"BaseClass" "item_ancient_guardian"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ItemCost"						"0"
-		"ItemIsNeutralDrop"				"0"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-		"ItemDisassembleRule"	"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_ancient_guardian_dark"
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
-		"AbilityValues"
-		{
-			"extra_bonus_damage"	"1500"    //50
-			"bonus_damage"			"100"    //50
-			"radius"				"2000"  //2000
+			"extra_bonus_damage"	"1000"	//50
+			"bonus_damage"			"100"	//50
+			"radius"				"2000"	//2000
 		}
 	}
 	"item_recipe_ancient_guardian_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12027"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3921,14 +3940,46 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
+			"extra_bonus_damage"	"1000"	//50
+			"bonus_damage"			"100"	//50
+			"radius"				"2000"	//2000
+		}
+	}
+
+	"item_recipe_ancient_guardian_dark"
+	{
+		"BaseClass"						"item_datadriven"
+		"ID"						    "11026"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_ancient_guardian_dark"
+		"ItemRequirements"
+		{
+			"01"                        "item_ancient_guardian;item_dark_part"
+		}
+	}
+	"item_ancient_guardian_dark"
+	{
+		"BaseClass" "item_ancient_guardian"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"0"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
+		"ItemDisassembleRule"	"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_ancient_guardian_dark"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
 			"extra_bonus_damage"	"500"    //50
-			"bonus_damage"			"500"    //50
-			"radius"				"2000"  //2000
+			"bonus_damage"			"500"	//50
+			"radius"				"2000"	//2000
 		}
 	}
 	"item_recipe_ancient_guardian_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12028"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3952,14 +4003,14 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"extra_bonus_damage"	"1500"    //50
-			"bonus_damage"			"100"    //50
-			"radius"				"2000"  //2000
+			"extra_bonus_damage"	"500"    //50
+			"bonus_damage"			"500"	//50
+			"radius"				"2000"	//2000
 		}
 	}
 	"item_recipe_ancient_guardian_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13027"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -3983,14 +4034,14 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"extra_bonus_damage"	"1500"    //50
-			"bonus_damage"			"500"    //50
-			"radius"				"2000"  //2000
+			"extra_bonus_damage"	"1000"	//50
+			"bonus_damage"			"500"	//50
+			"radius"				"2000"	//2000
 		}
 	}
 	"item_recipe_ancient_guardian_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13028"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4015,16 +4066,16 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"extra_bonus_damage"	"1500"    //50
-			"bonus_damage"			"500"    //50
-			"radius"				"2000"  //2000
+			"extra_bonus_damage"	"1000"	//50
+			"bonus_damage"			"500"	//50
+			"radius"				"2000"	//2000
 		}
 	}
 
 	// 光暗智灭
 	"item_recipe_mind_breaker_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11029"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4056,7 +4107,7 @@
 	}
 	"item_recipe_mind_breaker_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11030"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4088,7 +4139,7 @@
 	}
 	"item_recipe_mind_breaker_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12029"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4120,7 +4171,7 @@
 	}
 	"item_recipe_mind_breaker_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12030"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4152,7 +4203,7 @@
 	}
 	"item_recipe_mind_breaker_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13031"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4184,7 +4235,7 @@
 	}
 	"item_recipe_mind_breaker_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13032"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4219,7 +4270,7 @@
 	// 光暗先哲之石
 	"item_recipe_seer_stone_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11031"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4254,12 +4305,12 @@
 				"value"		"3000"	//800
 				"affected_by_aoe_increase"	"1"
 			}
-			"duration"			"9"  //6
+			"duration"			"9"	//6
 		}
 	}
 	"item_recipe_seer_stone_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11032"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4273,7 +4324,7 @@
 	"item_seer_stone_dark"
 	{
 		"BaseClass" "item_seer_stone"
-		"AbilityCooldown"				"20"  //60
+		"AbilityCooldown"				"30"  //60
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
 		"AbilityCastRange"				"0"
@@ -4291,15 +4342,15 @@
 			"mana_regen"			"20"   //10
 			"radius"
 			{
-				"value"		"1200"          //800
+				"value"		"1000"			//800
 				"affected_by_aoe_increase"	"1"
 			}
-			"duration"			"9"  //6
+			"duration"			"9"	//6
 		}
 	}
 	"item_recipe_seer_stone_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12031"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4334,12 +4385,12 @@
 				"value"		"3000"	//800
 				"affected_by_aoe_increase"	"1"
 			}
-			"duration"			"9"  //6
+			"duration"			"9"	//6
 		}
 	}
 	"item_recipe_seer_stone_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12032"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4371,15 +4422,15 @@
 			"mana_regen"			"20"   //10
 			"radius"
 			{
-				"value"		"1200"          //800
+				"value"		"1000"			//800
 				"affected_by_aoe_increase"	"1"
 			}
-			"duration"			"9"  //6
+			"duration"			"9"	//6
 		}
 	}
 	"item_recipe_seer_stone_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13033"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4414,12 +4465,12 @@
 				"value"		"3000"	//800
 				"affected_by_aoe_increase"	"1"
 			}
-			"duration"			"10"  //6
+			"duration"			"9"	//6
 		}
 	}
 	"item_recipe_seer_stone_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13034"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4455,14 +4506,14 @@
 				"value"		"3000"	//800
 				"affected_by_aoe_increase"	"1"
 			}
-			"duration"			"10"  //6
+			"duration"			"9"	//6
 		}
 	}
 
 	// 光暗秘术师铠甲
 	"item_recipe_force_field_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11035"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4497,7 +4548,7 @@
 	}
 	"item_recipe_force_field_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11036"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4532,7 +4583,7 @@
 	}
 	"item_recipe_force_field_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12035"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4567,7 +4618,7 @@
 	}
 	"item_recipe_force_field_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12036"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4602,7 +4653,7 @@
 	}
 	"item_recipe_force_field_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13037"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4637,7 +4688,7 @@
 	}
 	"item_recipe_force_field_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13038"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4675,7 +4726,7 @@
 	// 光暗弩炮
 	"item_recipe_ballista_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11041"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4708,7 +4759,7 @@
 	}
 	"item_recipe_ballista_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11042"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4741,7 +4792,7 @@
 	}
 	"item_recipe_ballista_light_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12041"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4774,7 +4825,7 @@
 	}
 	"item_recipe_ballista_dark_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "12042"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4807,7 +4858,7 @@
 	}
 	"item_recipe_ballista_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13043"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4840,7 +4891,7 @@
 	}
 	"item_recipe_ballista_ai_1"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13044"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4876,7 +4927,7 @@
 	// 光暗臂章
 	"item_recipe_armlet_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11045"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4912,7 +4963,7 @@
 	}
 	"item_recipe_armlet_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11046"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4950,7 +5001,7 @@
 	// 光暗卫士径甲
 	"item_recipe_guardian_greaves_light"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11049"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -4998,7 +5049,7 @@
 	}
 	"item_recipe_guardian_greaves_dark"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "11050"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
@@ -5046,7 +5097,7 @@
 	}
 	"item_recipe_guardian_greaves_ai"
 	{
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"						"item_datadriven"
 		"ID"						    "13051"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
