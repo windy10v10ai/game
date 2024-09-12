@@ -11,7 +11,6 @@ export class EventEntityKilled {
   // 神器碎片
   private itemLightPartName = "item_light_part";
   private itemDarkPartName = "item_dark_part";
-  private dropItemListArtifactPart: string[] = ["item_light_part", "item_dark_part"];
 
   private dropItemChanceRoshanArtifactPart = 100;
 
@@ -68,11 +67,14 @@ export class EventEntityKilled {
         const dropCount = RandomInt(2, maxDropCount);
         print(`[EventEntityKilled] OnCreepKilled dropCount is ${dropCount}`);
         for (let i = 0; i < dropCount; i++) {
-          this.dropItem(
-            creep,
-            this.dropItemListArtifactPart,
-            this.dropItemChanceRoshanArtifactPart,
-          );
+          const isDaytime = GameRules.IsDaytime();
+          if (isDaytime) {
+            // 白天掉落圣光组件
+            this.dropItem(creep, [this.itemLightPartName], this.dropItemChanceRoshanArtifactPart);
+          } else {
+            // 夜晚掉落暗影组件
+            this.dropItem(creep, [this.itemDarkPartName], this.dropItemChanceRoshanArtifactPart);
+          }
         }
       } else {
         print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);

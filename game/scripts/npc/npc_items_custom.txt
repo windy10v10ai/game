@@ -4942,7 +4942,7 @@
 		"ID"							"9595"
 		"AbilityTextureName"			"item_rapier_ultra"
 
-		"ItemDroppable"                 "0"
+		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"AllowedInBackpack"				"0"
@@ -5007,11 +5007,10 @@
 		"AbilityTextureName"			"item_rapier_ultra"
 		"ItemCost"						"8282"
 
-		"ItemDroppable"                 "1"
+		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
-		"ItemPurchasable"				"1"
-		"ItemSellable"				    "1"
-		"AllowedInBackpack"				"1"
+		"ItemSellable"					"0"
+		"AllowedInBackpack"				"0"
 
 		"AbilityValues"
 		{
