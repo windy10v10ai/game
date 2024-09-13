@@ -17,6 +17,7 @@ export class Option {
   towerPower = 100;
   startingGoldPlayer = 1000;
   startingGoldBot = 1000;
+  respawnTimePercentage = 100;
 
   gameDifficulty = 0;
 

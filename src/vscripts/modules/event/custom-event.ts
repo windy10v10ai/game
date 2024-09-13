@@ -34,9 +34,10 @@ export class CustomEvent {
     GameRules.Option.towerPower = Number(args.game_options.tower_power);
     GameRules.Option.startingGoldPlayer = Number(args.game_options.starting_gold_player);
     GameRules.Option.startingGoldBot = Number(args.game_options.starting_gold_bot);
+    GameRules.Option.respawnTimePercentage = Number(args.game_options.respawn_time_percentage);
 
     // FIXME 移动到更合适的位置
     GameRules.Option.gameDifficulty =
-      CustomNetTables.GetTableValue("game_difficulty", "all").difficulty ?? 0;
+      CustomNetTables.GetTableValue("game_difficulty", "all")?.difficulty ?? 0;
   }
 }
