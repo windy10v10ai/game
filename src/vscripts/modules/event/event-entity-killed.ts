@@ -34,16 +34,20 @@ export class EventEntityKilled {
     64,
   ];
 
+  private readonly respawnTimeDefault = 60;
   private readonly respawnTimeMin = 2;
   private readonly respawnTimeMax = 100;
 
   private setRespawnTime(hero: CDOTA_BaseNPC_Hero): void {
+    hero.SetTimeUntilRespawn(this.respawnTimeDefault);
+
     const level = hero.GetLevel();
     const respawnTimeRate = GameRules.Option.respawnTimePercentage / 100;
 
     let respawnTime = 0;
-    if (level <= 50) {
-      respawnTime = Math.ceil(this.dotaRespawnTime[level] * respawnTimeRate);
+    const levelIndex = level - 1;
+    if (levelIndex < this.dotaRespawnTime.length) {
+      respawnTime = Math.ceil(this.dotaRespawnTime[levelIndex] * respawnTimeRate);
     } else {
       respawnTime = Math.ceil((level / 4 + 52) * respawnTimeRate);
     }
