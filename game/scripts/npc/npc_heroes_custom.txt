@@ -477,6 +477,7 @@
 	{
 		"VisionDaytimeRange"		"1200"// 800
 		"VisionNighttimeRange"		"2400"// 1800 电灯泡就要有电灯泡的样子，现在上限是全图
+		"Ability17"		"special_bonus_unique_night_stalker_301"	// // 暗夜猎影 移动速度 替代大招减CD
 	}
 
 	"npc_dota_hero_keeper_of_the_light"

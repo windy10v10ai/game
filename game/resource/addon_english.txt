@@ -873,6 +873,9 @@
 		// Alchemist 炼金术士
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"HEALTH BONUS:"
 
+		// 夜魔
+		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% Hunter In The Night Move Speed"
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items

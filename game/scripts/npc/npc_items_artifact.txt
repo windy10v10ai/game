@@ -3071,7 +3071,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"200"	//16
-			"bonus_lifesteal"		"24"	//16
+			"bonus_lifesteal"		"30"	//16
 			"bonus_spell_lifesteal"	"24"	//8
 			"bonus_amp"				"24"	//14
 			"creep_lifesteal_reduction_pct"	"0" //40
@@ -3104,7 +3104,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"200"	//16
-			"bonus_lifesteal"		"24"	//16
+			"bonus_lifesteal"		"30"	//16
 			"bonus_spell_lifesteal"	"24"	//8
 			"bonus_amp"				"24"	//14
 			"creep_lifesteal_reduction_pct"	"0" //40

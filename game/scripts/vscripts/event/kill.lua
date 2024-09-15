@@ -139,7 +139,7 @@ local function RecordTowerKilled(hEntity)
     end
 end
 
-local tDOTARespawnTime = { 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 23, 25, 26, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64 }
+-- local tDOTARespawnTime = { 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 23, 25, 26, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64 }
 local function HeroKilled(keys)
     local hHero = EntIndexToHScript(keys.entindex_killed)
     local attacker = EntIndexToHScript(keys.entindex_attacker)
@@ -149,34 +149,34 @@ local function HeroKilled(keys)
     if attackerPlayer then
         attackerPlayerID = attackerPlayer:GetPlayerID()
     end
-    local fRespawnTime = 0
     local iLevel = hHero:GetLevel()
     local GameTime = GameRules:GetDOTATime(false, false)
 
+    -- local fRespawnTime = 0
     ---- 复活时间逻辑
-    if iLevel <= 50 then
-        fRespawnTime = math.ceil(tDOTARespawnTime[iLevel] * AIGameMode.iRespawnTimePercentage / 100.0)
-    else
-        fRespawnTime = math.ceil((iLevel / 4 + 52) * AIGameMode.iRespawnTimePercentage / 100.0)
-    end
+    -- if iLevel <= 50 then
+    --     fRespawnTime = math.ceil(tDOTARespawnTime[iLevel] * AIGameMode.iRespawnTimePercentage / 100.0)
+    -- else
+    --     fRespawnTime = math.ceil((iLevel / 4 + 52) * AIGameMode.iRespawnTimePercentage / 100.0)
+    -- end
 
-    -- NEC大招
-    if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
-        fRespawnTime = fRespawnTime +
-            hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel() * 6
-    end
+    -- -- NEC大招
+    -- if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
+    --     fRespawnTime = fRespawnTime +
+    --         hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel() * 6
+    -- end
 
-    -- 会员减少5s复活时间
-    if PlayerController:IsMember(PlayerResource:GetSteamAccountID(playerId)) then
-        fRespawnTime = fRespawnTime - 5
-    end
+    -- -- 会员减少5s复活时间
+    -- if PlayerController:IsMember(PlayerResource:GetSteamAccountID(playerId)) then
+    --     fRespawnTime = fRespawnTime - 5
+    -- end
 
-    -- 复活时间至少1s
-    if fRespawnTime < 1 then
-        fRespawnTime = 1
-    end
+    -- -- 复活时间至少1s
+    -- if fRespawnTime < 1 then
+    --     fRespawnTime = 1
+    -- end
 
-    hHero:SetTimeUntilRespawn(fRespawnTime)
+    -- hHero:SetTimeUntilRespawn(fRespawnTime)
 
     -- 玩家团队奖励逻辑
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then

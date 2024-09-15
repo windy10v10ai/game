@@ -1018,6 +1018,9 @@
 		// Alchemist 炼金术士
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"额外生命值："
 
+		// 夜魔
+		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% 暗夜猎影移动速度"
+
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					              Items

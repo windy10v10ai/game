@@ -2421,6 +2421,7 @@
 			"bonus_movement_speed_pct_night"
 			{
 				"value"			"22 28 34 40 46"
+				"special_bonus_unique_night_stalker_301"	"+20"
 			}
 			"bonus_attack_speed_night"
 			{
@@ -2444,18 +2445,25 @@
 			}
 		}
 	}
+	// 暗夜猎影 移动速度
+	"special_bonus_unique_night_stalker_301"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
 	// 黑暗飞升
 	"night_stalker_darkness"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"120 110 100 90"
+		"AbilityCooldown"				"140 130 120 110"
 		"AbilityManaCost"				"125 175 225 275"
 		"AbilityValues"
 		{
 			"bonus_damage"
 			{
 				"value"			"50 100 150 200"
-				"special_bonus_unique_night_stalker_3"	"+50"
+				"special_bonus_unique_night_stalker_3"	"+50"	// 25
 			}
 		}
 	}
@@ -7958,7 +7966,7 @@
 			"armor_reduction"
 			{
 				"value"		"1 1 1.5 1.5 2"
-				"special_bonus_unique_weaver_3"	"+0.5"
+				"special_bonus_unique_weaver_3"	"+1.0"	// 0.5
 			}
 			"destroy_attacks"
 			{
@@ -8025,11 +8033,12 @@
 			"extra_attack"
 			{
 				"value" "1"
-				"special_bonus_unique_weaver_5" "+2" // 1
+				"special_bonus_unique_weaver_5" "+1" // 1 增加次数会导致无线连击
 			}
 			"bonus_damage"
 			{
 				"value" "20 35 50 65 80"
+				"special_bonus_unique_weaver_2" "+120"	// 70
 			}
 			"shard_beetle_search_range"
 			{
