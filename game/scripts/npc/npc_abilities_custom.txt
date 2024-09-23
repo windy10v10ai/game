@@ -2829,4 +2829,66 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
+
+
+	//=================================================================================================================
+	// Brewmaster: Primal Split
+	//=================================================================================================================
+	"brewmaster_primal_split_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_brewmaster/primal_split"
+		"AbilityTextureName"			"brewmaster_primal_split"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Brewmaster.PrimalSplit.Spawn"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"HasShardUpgrade"				"1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"140 130 120"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.55"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150 200 250"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value"					"16 18 20"
+				"special_bonus_shard"	"+8"
+			}
+
+			"split_duration"			"0.6"
+
+			"bonus_move_speed"			"5 7 9"
+			"bonus_status_resist"		"10 15 20"
+			"magic_resist"				"10 15 20"
+
+			"armor"						"4 6 8"
+			"dodge_chance"				"15 20 25"
+
+			// red
+			"crit_chance"				"25"
+			"crit_multiplier"			"150 200 250"
+			"attack_speed"				"20 30 40"
+			"movespeed"					"10 15 20"
+			"slow_duration"				"2"
+		}
+	}
+
 }
