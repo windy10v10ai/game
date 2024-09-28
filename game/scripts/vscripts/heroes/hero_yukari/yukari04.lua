@@ -206,7 +206,7 @@ function Yukari04_OnSpellStart(keys)
 					---end
 					return nil
 				end
-			end, 0)
+			end, 0.1)
 	else
 		caster:SetContextThink(
 			"yukari04_end_channel",
@@ -218,7 +218,7 @@ function Yukari04_OnSpellStart(keys)
 				ability:RefundManaCost()
 				ability:EndCooldown()
 				return nil
-			end, 0)
+			end, 0.1)
 	end
 	local exradius = keys.BarrageRadius
 	caster:SetContextThink(
@@ -272,10 +272,4 @@ function Yukari04_OnProjectileHitUnit(keys)
 		}
 		UnitDamageTarget(damage_table)
 	end
-end
-
-ability_yukari_01 = {}
-
-function ability_yukari_01:GetCastRange()
-	return self:GetSpecialValueFor("cast_range")
 end

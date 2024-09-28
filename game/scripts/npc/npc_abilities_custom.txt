@@ -1758,7 +1758,7 @@
 	{
 		"BaseClass"	"ability_lua"
 		"AbilityTextureName"	"yukari_01"
-		"ScriptFile"	"scripts/vscripts/heroes/hero_yukari/yukari01.lua"
+		"ScriptFile"	"heroes/hero_yukari/yukari01"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -1769,7 +1769,7 @@
 		"AbilityCastPoint"	"0.1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate"	"1.5"
-		"AbilityCooldown"	"8"
+		"AbilityCooldown"	"9"
 		"AbilityManaCost"	"80 100 120 160 180"
 		"AbilityCastRange"	"%cast_range"
 		"precache"
@@ -1835,7 +1835,7 @@
 		// Ability Resource
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"20 19 18 17 16"
-		"AbilityManaCost"	"100 120 140 180 200"
+		"AbilityManaCost"	"100 120 140 160 180"
 		"AbilityCastRange"	"1200"
 		// Damage
 		// -------------------------------------------------------------------------------------------------------------
@@ -1890,7 +1890,7 @@
 		"AbilityCooldown"	"36 32 28 24 20"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"120 140 160 180 200"
+		"AbilityManaCost"	"100 120 140 160 180"
 
 		"AbilityValues"
 		{
@@ -1902,12 +1902,12 @@
 			"max_height"	"600"
 		}
 	}
-
+	// 「深弹幕结界 -梦幻泡影-」
 	"ability_thdots_yukari04"
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"yukari_04"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -1933,7 +1933,7 @@
 			"DeleteOnHit"	"false"
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/hero_yukari/yukari04.lua"
+				"ScriptFile"	"heroes/hero_yukari/yukari04"
 				"Function"	"Yukari04_OnProjectileHitUnit"
 				"Caster"	"CASTER"
 				"Target"	"TARGET"
@@ -1944,7 +1944,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/hero_yukari/yukari04.lua"
+				"ScriptFile"	"heroes/hero_yukari/yukari04"
 				"Function"	"Yukari04_OnSpellStart"
 				"Target"	"POINT"
 				"MinRadius"	"%min_radius"
