@@ -12266,6 +12266,7 @@
 	"muerta_ofrenda"
 	{
 		"MaxLevel"						"5"
+		"AbilityManaCost"				"1000 50"	// 防止1级送泉水
 		"AbilityValues"
 		{
 			"attackspeed_bonus"							"15 30 45 60 75"	// 15 25 35 45
