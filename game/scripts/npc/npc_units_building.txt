@@ -267,7 +267,7 @@
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"40"		// 15
+		"ArmorPhysical"				"50"		// 15
 		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
@@ -300,7 +300,7 @@
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"40"		// 15
+		"ArmorPhysical"				"50"		// 15
 		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
@@ -333,7 +333,7 @@
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"40"		// 15
+		"ArmorPhysical"				"50"		// 15
 		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
@@ -367,7 +367,7 @@
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"40"		// 15
+		"ArmorPhysical"				"50"		// 15
 		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
@@ -400,7 +400,7 @@
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"40"		// 15
+		"ArmorPhysical"				"50"		// 15
 		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
@@ -433,7 +433,7 @@
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"40"		// 15
+		"ArmorPhysical"				"50"		// 15
 		"MagicalResistance"			"0"			// Magical protection.
 
 		// Attack
@@ -469,7 +469,7 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// 9
+		"ArmorPhysical"				"40"		// 9
 		"MagicalResistance"			"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
@@ -501,7 +501,7 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// 9
+		"ArmorPhysical"				"40"		// 9
 		"MagicalResistance"			"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
@@ -533,7 +533,7 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// 9
+		"ArmorPhysical"				"40"		// 9
 		"MagicalResistance"			"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
@@ -567,7 +567,7 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// 9
+		"ArmorPhysical"				"40"		// 9
 		"MagicalResistance"			"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
@@ -599,7 +599,7 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// 9
+		"ArmorPhysical"				"40"		// 9
 		"MagicalResistance"			"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
@@ -631,7 +631,7 @@
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// 9
+		"ArmorPhysical"				"40"		// 9
 		"MagicalResistance"			"0"			// Magical protection.
 		// Attack
 		//----------------------------------------------------------------
@@ -669,7 +669,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"50"		// 21
+		"ArmorPhysical"				"60"		// 21
 		"MagicalResistance"			"30"		// 0
 		"StatusHealth"				"10000"		// 2600
 		"StatusHealthRegen"			"10"		// 0
@@ -684,7 +684,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"50"		// 21
+		"ArmorPhysical"				"60"		// 21
 		"MagicalResistance"			"30"		// 0
 		"StatusHealth"				"10000"		// 2600
 		"StatusHealthRegen"			"10"		// 0
