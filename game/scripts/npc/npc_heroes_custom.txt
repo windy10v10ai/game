@@ -74,7 +74,7 @@
 		"Ability2"				"jack_murderer_of_the_misty_night"
 		"Ability3"				"jack_surgery"
 		"Ability4"				"jack_the_mist"
-		"Ability5"				"generic_hidden"
+		"Ability5"				"brewmaster_primal_split_lua"
 		"Ability6"				"jack_maria_the_ripper"
 
 		"Ability10"				"special_bonus_attack_damage_10"

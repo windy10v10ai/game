@@ -20,11 +20,19 @@ jobs:
           git fetch origin develop:develop
           git reset --hard develop
 
+      - name: Check if PR exist_pr_number
+        id: check_pr
+        run: |
+          pr_number=$(gh pr list --base main --head develop --json number -q '.[0].number')
+          echo exist_pr_number=$pr_number >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create Pull Request
         id: cpr
+        if: steps.check_pr.outputs.exists == ''
         uses: peter-evans/create-pull-request@v6
         with:
-          # input version
           title: ${{ github.event.inputs.version }}
           body: |
             ## Checklist
@@ -44,6 +52,12 @@ jobs:
           base: main
           reviewers: windybirth
           labels: release
+          draft: true
+
+      - name: Ready Pull Request
+        run: gh pr ready ${{ steps.cpr.outputs.pull-request-number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.WINDY_PR_PAT }}
 
       - name: Enable Pull Request Automerge
         uses: peter-evans/enable-pull-request-automerge@v3

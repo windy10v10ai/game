@@ -43,11 +43,9 @@ function yukari_01CreateProjectile(caster, ability, start_position, end_position
 	-- local distance 			= ability:GetSpecialValueFor("cast_range")
 	local distance    = (end_position - start_position):Length2D()
 	local DeleteOnHit = ture
-	local particle    = "particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_merry_wanderer.vpcf"
+	-- local particle    = "particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_merry_wanderer.vpcf"
+	local particle    = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
 	if speed == ability.low_speed then
-		particle = "particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_merry_wanderer.vpcf"
-
-
 		distance = 0
 	end
 	local barrage = ProjectileManager:CreateLinearProjectile({
