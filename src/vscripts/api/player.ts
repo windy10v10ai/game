@@ -1,6 +1,6 @@
 import { PlayerHelper } from "../helper/player-helper";
 import { PropertyController } from "../modules/property/property_controller";
-import { ApiClient, HttpMethod } from "./api_client";
+import { ApiClient, HttpMethod } from "./api-client";
 
 export class MemberDto {
   steamId!: number;

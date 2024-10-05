@@ -1,4 +1,4 @@
-import { ApiClient, HttpMethod } from "./api_client";
+import { ApiClient, HttpMethod } from "./api-client";
 
 class Player {
   teamId!: number;
@@ -15,6 +15,7 @@ class GameInfo {
   matchId!: string;
   gameOption!: object;
   version!: string;
+  gameTimeMsec!: number;
   constructor() {
     print("[Game] constructor in TS");
     this.players = [];
@@ -44,6 +45,7 @@ export class Game {
     gameInfo.matchId = GameRules.Script_GetMatchID().toString();
     gameInfo.version = Game.VERSION;
     gameInfo.gameOption = endData.gameOption;
+    gameInfo.gameTimeMsec = Math.round(GameRules.GetGameTime() * 1000);
 
     DeepPrintTable(endData);
 
