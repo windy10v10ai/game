@@ -63,6 +63,8 @@ dota_launch_custom_game windy10v10ai dota
 dota_custom_ui_debug_panel 7
 # reload lua
 script_reload
+# Speeds the game up to that number 加速游戏到指定倍速
+host_timescale <float>
 ```
 
 ### How to compile item png to vtex_c 如何编译物品图标为vtex_c

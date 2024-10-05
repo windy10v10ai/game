@@ -464,7 +464,7 @@
 	}
 	"npc_dota_hero_pangolier"
 	{
-		"DisableWearables"	        "1"
+		"DisableWearables"			"1"
 	}
 
 	"npc_dota_hero_naga_siren"
