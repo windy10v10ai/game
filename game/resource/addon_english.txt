@@ -207,7 +207,7 @@
 		"DOTA_Tooltip_modifier_tower_power_Description"		"This building's attack damage and max health is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%.<br>Gaining %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration"
 
 		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonuses"
-		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance, %dMODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING%%% slow resistance, and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance."
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
