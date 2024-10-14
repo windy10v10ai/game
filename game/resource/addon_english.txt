@@ -1369,7 +1369,7 @@
 
 		// item_blue_fantasy 苍蓝幻想
 		"DOTA_Tooltip_ability_item_blue_fantasy"									"Blue Fantasy"
-		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1>Active: <font color='#FFFF00'>Song of Destruction</font></h1>Dispels, Breaks, Mutes, and applies a debuff for %mute_duration% seconds.<br><br>The debuff continuously dispels the target, while also slowing its movement speed by %slow_pct%%%, attack speed by %attsp%, and deals %max_hp_dmg_pct%%% of its maximum health as magical damage every second.\n<h1>Passive: <font color='#FFFF00'>Manabreak</font></h1>Each attack burns %mana_base% mana, and deals 1 physical damage per burned mana."
+		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1>Active: <font color='#FFFF00'>Destruction</font></h1> Applies a debuff for %mute_duration% seconds with <font color='#f15b47'>Dispels, Breaks, Mutes and Evasion disable.</font><br><br>The debuff continuously dispels the target, slowing movement speed by %slow_pct%%%, attack speed by %attack_slow%, and reduces HP regeneration, healing, lifesteal and spell lifesteal by %hp_regen_reduction%%%. <br><br> Deals <font color='#FFFF00'>%max_hp_dmg_pct%%%</font> maximum health Pure Damage every second.\n<h1>Passive: Manabreak</h1>Each attack burns %mana_base% mana, and deals 1 physical damage per burned mana."
 		"DOTA_Tooltip_ability_item_blue_fantasy_int"								"+$int"
 		"DOTA_Tooltip_ability_item_blue_fantasy_agi"								"+$agi"
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_damage"						"+$damage"

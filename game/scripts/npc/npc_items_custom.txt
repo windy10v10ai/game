@@ -2942,7 +2942,7 @@
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"							"5000"
+		"ItemCost"							"4345"
 		"ItemShopTags"						""
 
 		// Recipe
@@ -2951,7 +2951,7 @@
 		"ItemResult"						"item_blue_fantasy"
 		"ItemRequirements"
 		{
-			"01"							"item_nullifier;item_disperser"
+			"01"							"item_nullifier;item_disperser;item_spirit_vessel"
 		}
 	}
 
@@ -2980,7 +2980,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"16025"
+		"ItemCost"						"16800"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bluefantasy"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -3002,12 +3002,15 @@
 				"int"					"25"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
 				"bonus_armor"			"10"	// tooltip, real value is set in modifier_item_blue_fantasy_stats
 				"bonus_regen"			"10"
-				"mute_duration"			"4.0"
-				"projectile_speed"		"2000"
-				"slow_pct"				"-50"
-				"attsp"					"-200"
-				"max_hp_dmg_pct"		"4"
+
 				"mana_base"				"100"
+				// debuff
+				"mute_duration"			"4.0"
+				"projectile_speed"		"1800"
+				"slow_pct"				"-60"
+				"attack_slow"			"-200"
+				"max_hp_dmg_pct"		"4"
+				"hp_regen_reduction"	"-80"
 		}
 	}
 
