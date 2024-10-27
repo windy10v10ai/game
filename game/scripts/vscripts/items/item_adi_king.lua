@@ -152,7 +152,7 @@ function modifier_item_adi_king_buff:DeclareFunctions()
     {
         MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
         MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
-        MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+        -- MODIFIER_PROPERTY_MOVESPEED_LIMIT,
         MODIFIER_PROPERTY_EVASION_CONSTANT,
     }
 end
@@ -169,9 +169,9 @@ function modifier_item_adi_king_buff:GetModifierMoveSpeedBonus_Percentage()
     return self.active_sp
 end
 
-function modifier_item_adi_king_buff:GetModifierMoveSpeed_Limit()
-    return 2000
-end
+-- function modifier_item_adi_king_buff:GetModifierMoveSpeed_Limit()
+--     return 2000
+-- end
 
 function modifier_item_adi_king_buff:GetModifierIgnoreMovespeedLimit()
     return 1

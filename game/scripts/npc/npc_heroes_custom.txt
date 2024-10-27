@@ -603,6 +603,18 @@
 		// "Ability4"		"brewmaster_cinder_brew"
 		// "Ability5"		"brewmaster_drunken_brawler"
 	}
+	"npc_dota_hero_terrorblade"
+	{
+		"Ability1"		"brewmaster_cinder_brew"
+		"Ability2"		"brewmaster_drunken_brawler"
+		"Ability8"		"brewmaster_primal_split_lua"
+		"Ability14"		"special_bonus_unique_terrorblade_metamorphosis_cooldown"
+		"Ability12"		"special_bonus_unique_terrorblade"
+		"Ability16"		"special_bonus_all_stats_20"
+		"AttributeStrengthGain"		"3.0" // 2
+		"AttributeIntelligenceGain"	"2.40000" // 1.6
+		"AttributeAgilityGain"		"7.000000" // 4
+	}
 	"npc_dota_hero_axe"
 	{
 		"Bot"
@@ -1464,6 +1476,13 @@
 				"34"		"lion_mana_drain"
 			}
 		}
+	}
+	"npc_dota_hero_lone_druid"
+	{
+		"Ability1"		"broodmother_insatiable_hunger"
+		"Ability5"		"lone_druid_entangling_claws"
+		"Ability16"		"special_bonus_hp_200"
+		"Ability10"		"special_bonus_unique_lone_druid_8"
 	}
 	"npc_dota_hero_luna"
 	{

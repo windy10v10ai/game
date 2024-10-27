@@ -5046,6 +5046,53 @@
 		}
 	}
 
+	// ai独立解放剑
+	"item_rapier_ultra_bot_1"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ID"							"19596"
+		"AbilityTextureName"			"item_rapier_ultra"
+		"ItemCost"						"8282"
+
+		"ItemPurchasable"				"0"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemSellable"					"0"
+		"AllowedInBackpack"				"1"
+
+		"AbilityValues"
+		{
+			"bonus_damage"			"1000"
+			"bonus_spell_amp"		"100"
+			"bonus_damage_percent"	"100"
+
+			"ruin_chance_tooltip"	"0"
+		}
+		"Modifiers"
+		{
+			"modifier_item_rapier_ultra_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%bonus_spell_amp"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"		"%bonus_damage_percent"
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
 	//=================================================================================================================
     // 神器救世狂战 bfury ultra
     //=================================================================================================================
@@ -5337,6 +5384,107 @@
 		"ItemRequirements"
 		{
 			"01"						"item_overwhelming_blink;item_overwhelming_blink"
+		}
+	}
+
+	//=================================================================================================================
+	// 神器散慧
+	//=================================================================================================================
+	"item_recipe_kaya_and_sange_1"
+	{
+		"BaseClass"						"item_recipe_kaya_and_sange"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_kaya_and_sange_1"
+		"ItemRequirements"
+		{
+			"01"						"item_kaya_and_sange;item_kaya_and_sange;item_ultimate_orb"
+		}
+	}
+
+	"item_kaya_and_sange_1"
+	{
+		"BaseClass"						"item_kaya_and_sange"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"AbilityValues"
+		{
+				"bonus_strength"		"50"
+				"bonus_intellect"			"50"
+				"slow_resistance"			"60"
+				"mana_regen_multiplier"		"150"
+				"spell_amp"				"30" // 12
+				"hp_regen_amp"			"60" // 25
+				"spell_lifesteal_amp"	"60" // 25
+				"manacost_reduction"	"60" // 25
+		}
+	}
+
+	//=================================================================================================================
+	// 神器散夜
+	//=================================================================================================================
+	"item_recipe_sange_and_yasha_1"
+	{
+		"BaseClass"						"item_recipe_sange_and_yasha"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_sange_and_yasha_1"
+		"ItemRequirements"
+		{
+			"01"						"item_sange_and_yasha;item_sange_and_yasha;item_ultimate_orb"
+		}
+	}
+
+	"item_sange_and_yasha_1"
+	{
+		"BaseClass"						"item_sange_and_yasha"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"AbilityValues"
+		{
+				"bonus_strength"		"50"
+				"bonus_agility"			"50"
+				"status_resistance"		"60" // 25
+				"bonus_attack_speed"	"60" // 20
+				"movement_speed_percent_bonus"	"30" // 12
+				"hp_regen_amp"			"60" // 25
+				"slow_resistance"		"60" // 25
+		}
+	}
+
+	//=================================================================================================================
+	// 神器慧夜
+	//=================================================================================================================
+	"item_recipe_yasha_and_kaya_1"
+	{
+		"BaseClass"						"item_recipe_yasha_and_kaya"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_yasha_and_kaya_1"
+		"ItemRequirements"
+		{
+			"01"						"item_yasha_and_kaya;item_yasha_and_kaya;item_ultimate_orb"
+		}
+	}
+
+	"item_yasha_and_kaya_1"
+	{
+		"BaseClass"						"item_yasha_and_kaya"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"AbilityValues"
+		{
+				"bonus_agility"			"50"
+				"bonus_intellect"		"50"
+				"bonus_attack_speed"	"60" // 20
+				"mana_regen_multiplier"	"100" // 50
+				"movement_speed_percent_bonus"	"30" // 12
+				"spell_amp"				"30" // 12
+				"spell_lifesteal_amp"	"60" // 25
+				"cast_speed_pct"		"60" // 25
 		}
 	}
 }

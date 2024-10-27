@@ -1585,6 +1585,14 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note0"					"You're silly, my cursed rapier is permanent."
 
+		// item_rapier_ultra_bot_1 解放的诅咒圣剑
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot_1"                        "<font color='#e03e2e'>Liberated Rapier</font>"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by Mars. Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> bonus base attack damage. Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will not miss due to evasion or other effects.\n<h1>Passive: <font color='#e03e2e'>Price of Power (Liberated)</font></h1>Great power always comes with a price. <br><font color='#e03e2e'>But there is no price after liberation.</font>"
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot_1_Lore"					"The liberated cursed rapier can never be destroyed."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_bonus_spell_amp"           "%+$spell_amp"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Note0"					"You're silly, my cursed rapier is permanent."
+
 		// item_bfury_ultra 救世狂战
 		"DOTA_Tooltip_ability_item_bfury_ultra"                         "<font color='#e03e2e'>Worldbreaker</font>"
 		"DOTA_Tooltip_Ability_item_bfury_ultra_Description"             "<h1>Passive: Quell</h1>Increases attack damage against non-hero units by %quelling_bonus% for melee heroes, and %quelling_bonus_ranged% for ranged.\n<h1>Passive: Worldsplitter</h1>Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% range. Deals %cleave_damage_percent_creep%%% physical damage against non-hero units. (Melee Only)"
@@ -1625,6 +1633,41 @@
 
 		"DOTA_Tooltip_modifier_devastator_2_debuff"						"Magic Corruption"
 		"DOTA_Tooltip_modifier_devastator_2_debuff_Description"  			"Magic resistance reduced by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
+
+		// 三种双刀
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1"							"<font color='#e03e2e'>Sange and Yasha Ultra</font>"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_Note0"						"Yasha-based movement speed bonuses from multiple items do not stack."
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_Lore"						"Sange and Yasha, when attuned by the moonlight and used together, become a very powerful combination."
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_bonus_strength"				"+$str"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_bonus_attack_speed"			"+$attack"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_movement_speed_percent_bonus"	"%+$move_speed"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_status_resistance"					"%+Status Resistance"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_hp_regen_amp"							"%+Health Regen and Lifesteal Amp"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_slow_resistance"							"%+Slow Resistance"
+
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1"							"<font color='#e03e2e'>Kaya and Sange Ultra</font>"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_Lore"							"Two of three known items of unimaginable power that many believe were crafted at the same enchanter's forge."
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_spell_amp"					"%+Spell Amplification"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_mana_regen_multiplier"				"%+Mana Regen Amplification"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_slow_resistance"					"%+Slow Resistance"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_hp_regen_amp"							"%+Health Regen and Lifesteal Amp"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_spell_lifesteal_amp"				"%+Spell Lifesteal Amplification"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_manacost_reduction"				"%+Mana Cost/Mana Loss Reduction"
+
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1"							"<font color='#e03e2e'>Yasha and Kaya Ultra</font>"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_Lore"					"Yasha and Kaya when paired together share a natural resonance."
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_spell_amp"					"%+Spell Amplification"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_mana_regen_multiplier"				"%+Mana Regen Amplification"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_agility"							"+$agi"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_spell_lifesteal_amp"				"%+Spell Lifesteal Amplification"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+Cast Speed Bonus"
 
 		// 力量跳2
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2"                            "Tyson's Flash"
@@ -2591,6 +2634,14 @@
 		"DOTA_Tooltip_ability_item_guardian_greaves_light_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_light_bonus_mres"				"%+$spell_resist"
 
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1"				"<font color='#FFFF00'>Light</font> Guardian Greaves(Neutral)"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_mres"				"%+$spell_resist"
+
 		// item_guardian_greaves_dark 暗影·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_dark"				"<font color='#8A2BE2'>Dark</font> Guardian Greaves"
 		"DOTA_Tooltip_ability_item_guardian_greaves_dark_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
@@ -2599,6 +2650,14 @@
 		"DOTA_Tooltip_ability_item_guardian_greaves_dark_mana_regen"				"+$mana_regen"
 		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_mres"				"%+$spell_resist"
+
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark"				"<font color='#8A2BE2'>Dark</font> Guardian Greaves(Neutral)"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_mres"				"%+$spell_resist"
 
 		// item_guardian_greaves_ai 光暗·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_ai"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Guardian Greaves"
@@ -2609,12 +2668,26 @@
 		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_mres"				"%+$spell_resist"
 
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1"				"<font color='#00FF00'>Light</font> <font color='#8A2BE2'>Dark</font> Guardian Greaves(Neutral)"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_mres"				"%+$spell_resist"
+
 		// item_disperser_chaos 混沌·散魂剑
 		"DOTA_Tooltip_ability_item_disperser_chaos"				"<font color='#FF4500'>Chaotic Disperser</font>"
 		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>Active: Suppress</h1> Affects all units in a %radius% AoE around the target. All enemies around the target are slowed for %enemy_effect_duration% seconds.<br><br> All allies around the target receive a basic dispel, increase their movement speed, and are unslowable for %ally_effect_duration% seconds.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br><br>Range: %abilitycastrange%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"
+
+		"DOTA_Tooltip_ability_item_disperser_chaos_1"				"<font color='#FF4500'>Chaotic Disperser（Neutral）</font>"
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_Description"				"<h1>Active: Suppress</h1> Affects all units in a %radius% AoE around the target. All enemies around the target are slowed for %enemy_effect_duration% seconds.<br><br> All allies around the target receive a basic dispel, increase their movement speed, and are unslowable for %ally_effect_duration% seconds.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br><br>Range: %abilitycastrange%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_intellect"			"+$int"
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_damage"				"+$damage"
 
 	}
 }
