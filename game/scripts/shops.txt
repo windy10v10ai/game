@@ -312,9 +312,9 @@
 		"item"		"item_blue_fantasy"			// 苍蓝幻想
  		"item"		"item_satanic_2"
  		"item"		"item_skadi_2"
- 		"item"		"item_kaya_and_sange"
- 		"item"		"item_sange_and_yasha"
- 		"item"		"item_yasha_and_kaya"
+ 		"item"		"item_kaya_and_sange_1"
+ 		"item"		"item_sange_and_yasha_1"
+ 		"item"		"item_yasha_and_kaya_1"
 		"item"		"item_sacred_six_vein"
 		"item"		"item_overwhelming_blink_2"
 		"item"		"item_swift_blink_2"

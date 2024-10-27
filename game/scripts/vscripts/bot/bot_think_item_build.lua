@@ -26,7 +26,7 @@ local function addTome(k, v)
     replaceItem(v, "item_blade_mail_2", "item_force_field_ai")
 
     -- 诅咒圣剑
-    replaceItem(v, "item_excalibur", "item_rapier_ultra_bot")
+    replaceItem(v, "item_excalibur", "item_rapier_ultra_bot_1")
   end
 
   -- 一组属性书

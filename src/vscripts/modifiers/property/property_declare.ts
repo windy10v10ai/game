@@ -220,16 +220,16 @@ export class property_movespeed_bonus_constant extends PropertyBaseModifier {
 @registerModifier()
 export class property_ignore_movespeed_limit extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.IGNORE_MOVESPEED_LIMIT, ModifierFunction.MOVESPEED_LIMIT];
+    return [ModifierFunction.IGNORE_MOVESPEED_LIMIT]; // , ModifierFunction.MOVESPEED_LIMIT
   }
 
   GetModifierIgnoreMovespeedLimit(): 0 | 1 {
     return 1;
   }
 
-  GetModifierMoveSpeed_Limit(): number {
-    return 2000;
-  }
+  // GetModifierMoveSpeed_Limit(): number {
+  //   return 2000;
+  // }
 }
 
 @registerModifier()

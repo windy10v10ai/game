@@ -1723,6 +1723,14 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note0"					"融合了光暗之力获得解放的诅咒圣剑。"
 
+		// item_rapier_ultra_bot_1 解放的诅咒圣剑
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot_1"                        "<font color='#e03e2e'>解放的诅咒圣剑</font>"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Description"            "<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。\n<h1>被动：<font color='#e03e2e'>力量的代价（解放）</font></h1>过于强大力量总会有它的代价。<br><font color='#e03e2e'>但是解放之后就没有代价了</font>"
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot_1_Lore"					"解放后的诅咒圣剑不会摧毁"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_bonus_spell_amp"           "%+$spell_amp"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Note0"					"融合了光暗之力获得解放的诅咒圣剑。"
+
 		// item_bfury_ultra 救世狂战
 		"DOTA_Tooltip_ability_item_bfury_ultra"                         "<font color='#e03e2e'>救世狂战</font>"
 		"DOTA_Tooltip_Ability_item_bfury_ultra_Description"             "<h1>被动：斩断世界线</h1>知道Sccc斩断世界线的那一刀吗？普通攻击时对目标周围最远%cleave_distance%距离的锥形区域内敌人造成%cleave_damage_percent%%%物理伤害。对非英雄单位造成%cleave_damage_percent_creep%%%物理伤害。（仅近战有效）"
@@ -1762,6 +1770,43 @@
 
 		"DOTA_Tooltip_modifier_devastator_2_debuff"						"法力腐蚀"
 		"DOTA_Tooltip_modifier_devastator_2_debuff_Description"  			"魔法抗性降低%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%"
+
+		// item_sange_and_yasha_1 神散夜
+		"DOTA_Tooltip_Ability_item_sange_and_yasha_1"			"<font color='#e03e2e'>神器·散夜对剑</font>"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_Note0"						"不会与其他夜叉、散夜对剑以及幻影斧提供的移动速度加成叠加。"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_Lore"						"在神力的恩泽之下，这把双剑的力量有了质的飞跃"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_bonus_strength"				"+$str"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_bonus_attack_speed"			"+$attack"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_movement_speed_percent_bonus"	"%+$move_speed"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_status_resistance"					"%+状态抗性"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_hp_regen_amp"							"%+生命恢复和吸血增强"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_slow_resistance"							"%+减速抗性"
+
+		// item_kaya_and_sange_1 神散慧
+		"DOTA_Tooltip_Ability_item_kaya_and_sange_1"				"<font color='#e03e2e'>神器·散慧对剑</font>"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_Lore"							"在神力的恩泽之下，这把双剑的力量有了质的飞跃。"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_spell_amp"					"%+技能增强"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_mana_regen_multiplier"				"%+魔法恢复增强"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_slow_resistance"					"%+减速抗性"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_hp_regen_amp"							"%+生命恢复和吸血增强"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_spell_lifesteal_amp"				"%+技能吸血增强"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_manacost_reduction"				"%+魔法消耗/魔法损失降低"
+
+		// item_yasha_and_kaya_1 神慧夜
+		"DOTA_Tooltip_Ability_item_yasha_and_kaya_1"				"<font color='#e03e2e'>神器·慧夜对剑</font>"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_Lore"					"在神力的恩泽之下，这把双剑的力量有了质的飞跃"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_spell_amp"					"%+技能增强"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_mana_regen_multiplier"				"%+魔法恢复增强"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_agility"							"+$agi"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_spell_lifesteal_amp"				"%+技能吸血增强"
+		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+施法速度加成"
 
 		// 力量跳2
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2"                            "泰森闪光"
@@ -2713,6 +2758,14 @@
 		"DOTA_Tooltip_ability_item_guardian_greaves_light_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_light_bonus_mres"				"%+$spell_resist"
 
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1"				"<font color='#FFFF00'>圣光·卫士胫甲（中立）</font>"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_Description"			"<h1>主动：修复</h1>使周围友军回复%replenish_health%点生命和%replenish_mana%点魔法，并移除施法者身上大部分的负面效果。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：卫士光环</h1> 为周围友军提供%aura_health_regen%点/秒生命恢复，%aura_mana_regen%点/秒魔法恢复和%aura_armor%点护甲。如果友方英雄的生命值低于%aura_bonus_threshold%%%，光环效果将提升至%aura_health_regen_bonus%点/秒生命恢复，%aura_mana_regen_bonus%点/秒魔法恢复和%aura_armor_bonus%点护甲。<br><br>作用范围：%aura_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_mres"				"%+$spell_resist"
+
 		// item_guardian_greaves_dark 暗影·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_dark"				"<font color='#8A2BE2'>暗影·卫士胫甲</font>"
 		"DOTA_Tooltip_ability_item_guardian_greaves_dark_Description"			"<h1>主动：修复</h1>使周围友军回复%replenish_health%点生命和%replenish_mana%点魔法，并移除施法者身上大部分的负面效果。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：卫士光环</h1> 为周围友军提供%aura_health_regen%点/秒生命恢复，%aura_mana_regen%点/秒魔法恢复和%aura_armor%点护甲。如果友方英雄的生命值低于%aura_bonus_threshold%%%，光环效果将提升至%aura_health_regen_bonus%点/秒生命恢复，%aura_mana_regen_bonus%点/秒魔法恢复和%aura_armor_bonus%点护甲。<br><br>作用范围：%aura_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
@@ -2721,6 +2774,14 @@
 		"DOTA_Tooltip_ability_item_guardian_greaves_dark_mana_regen"				"+$mana_regen"
 		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_mres"				"%+$spell_resist"
+
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1"				"<font color='#8A2BE2'>暗影·卫士胫甲（中立）</font>"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_Description"			"<h1>主动：修复</h1>使周围友军回复%replenish_health%点生命和%replenish_mana%点魔法，并移除施法者身上大部分的负面效果。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：卫士光环</h1> 为周围友军提供%aura_health_regen%点/秒生命恢复，%aura_mana_regen%点/秒魔法恢复和%aura_armor%点护甲。如果友方英雄的生命值低于%aura_bonus_threshold%%%，光环效果将提升至%aura_health_regen_bonus%点/秒生命恢复，%aura_mana_regen_bonus%点/秒魔法恢复和%aura_armor_bonus%点护甲。<br><br>作用范围：%aura_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_mres"				"%+$spell_resist"
 
 		// item_guardian_greaves_ai 光暗·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_ai"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>卫</font><font color='#8A2BE2'>士</font><font color='#00FF00'>胫</font><font color='#8A2BE2'>甲</font>"
@@ -2731,12 +2792,26 @@
 		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_mres"				"%+$spell_resist"
 
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>卫</font><font color='#8A2BE2'>士</font><font color='#00FF00'>胫</font><font color='#8A2BE2'>甲（中立）</font>"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_Description"			"<h1>主动：修复</h1>使周围友军回复%replenish_health%点生命和%replenish_mana%点魔法，并移除施法者身上大部分的负面效果。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：卫士光环</h1> 为周围友军提供%aura_health_regen%点/秒生命恢复，%aura_mana_regen%点/秒魔法恢复和%aura_armor%点护甲。如果友方英雄的生命值低于%aura_bonus_threshold%%%，光环效果将提升至%aura_health_regen_bonus%点/秒生命恢复，%aura_mana_regen_bonus%点/秒魔法恢复和%aura_armor_bonus%点护甲。<br><br>作用范围：%aura_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_ai_1_bonus_mres"				"%+$spell_resist"
+
 		// item_disperser_chaos 混沌·散魂剑
 		"DOTA_Tooltip_ability_item_disperser_chaos"				"<font color='#FF4500'>混沌·散魂剑</font>"
 		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>主动：抑制</h1>若目标是敌军，会被减速%enemy_effect_duration%秒，若目标是友军则会提升移动速度，施加弱驱散效果并且无法被减速，持续%ally_effect_duration%秒。施法者总是会获得友军的加成效果。<br><br>移动速度减缓和提升效果在状态持续时间内初始均为%phase_movement_speed%%%，并且逐渐减少至0。<br><br>施法距离：%abilitycastrange%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：破法</h1>每次攻击将燃烧目标%feedback_mana_burn%点魔法，而且每燃烧一点魔法都会造成%damage_per_burn%点物理伤害。<br><br>近战英雄的幻象每次攻击将燃烧%feedback_mana_burn_illusion_melee%点魔法。远程英雄的幻象每次攻击将燃烧%feedback_mana_burn_illusion_ranged%点魔法。"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"
+
+		"DOTA_Tooltip_ability_item_disperser_chaos_1"				"<font color='#FF4500'>混沌·散魂剑（中立）</font>"
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_Description"				"<h1>主动：抑制</h1>若目标是敌军，会被减速%enemy_effect_duration%秒，若目标是友军则会提升移动速度，施加弱驱散效果并且无法被减速，持续%ally_effect_duration%秒。施法者总是会获得友军的加成效果。<br><br>移动速度减缓和提升效果在状态持续时间内初始均为%phase_movement_speed%%%，并且逐渐减少至0。<br><br>施法距离：%abilitycastrange%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：破法</h1>每次攻击将燃烧目标%feedback_mana_burn%点魔法，而且每燃烧一点魔法都会造成%damage_per_burn%点物理伤害。<br><br>近战英雄的幻象每次攻击将燃烧%feedback_mana_burn_illusion_melee%点魔法。远程英雄的幻象每次攻击将燃烧%feedback_mana_burn_illusion_ranged%点魔法。"
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_intellect"			"+$int"
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_damage"				"+$damage"
 
 	}
 }
