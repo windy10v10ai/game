@@ -1251,7 +1251,7 @@
 			"cast_delay"			"1.0"
 			"duration"				"3.0"
 			"range"					"4000"
-			"width"					"450"
+			"width"					"400"
 			"speed"					"4000.0"
 			"interval"				"0.2"
 			"AbilityCooldown"
@@ -1261,7 +1261,7 @@
 			}
 			"damage"
 			{
-				"value"				"1500"
+				"value"				"1300"
 			}
 			"slow_amount"
 			{

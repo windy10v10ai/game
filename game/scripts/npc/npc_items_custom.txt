@@ -2428,7 +2428,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4000"
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5412,12 +5412,12 @@
 		{
 				"bonus_strength"		"50"
 				"bonus_intellect"			"50"
-				"slow_resistance"			"60"
-				"mana_regen_multiplier"		"150"
+				"slow_resistance"			"50"
+				"mana_regen_multiplier"		"100" // 50
 				"spell_amp"				"30" // 12
-				"hp_regen_amp"			"60" // 25
-				"spell_lifesteal_amp"	"60" // 25
-				"manacost_reduction"	"60" // 25
+				"hp_regen_amp"			"50" // 25
+				"spell_lifesteal_amp"	"50" // 25
+				"manacost_reduction"	"50" // 25
 		}
 	}
 
@@ -5446,11 +5446,11 @@
 		{
 				"bonus_strength"		"50"
 				"bonus_agility"			"50"
-				"status_resistance"		"60" // 25
-				"bonus_attack_speed"	"60" // 20
+				"status_resistance"		"50" // 25
+				"bonus_attack_speed"	"50" // 20
 				"movement_speed_percent_bonus"	"30" // 12
-				"hp_regen_amp"			"60" // 25
-				"slow_resistance"		"60" // 25
+				"hp_regen_amp"			"50" // 25
+				"slow_resistance"		"50" // 25
 		}
 	}
 
@@ -5479,12 +5479,12 @@
 		{
 				"bonus_agility"			"50"
 				"bonus_intellect"		"50"
-				"bonus_attack_speed"	"60" // 20
+				"bonus_attack_speed"	"50" // 20
 				"mana_regen_multiplier"	"100" // 50
 				"movement_speed_percent_bonus"	"30" // 12
 				"spell_amp"				"30" // 12
-				"spell_lifesteal_amp"	"60" // 25
-				"cast_speed_pct"		"60" // 25
+				"spell_lifesteal_amp"	"50" // 25
+				"cast_speed_pct"		"50" // 25
 		}
 	}
 }
