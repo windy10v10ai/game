@@ -60,6 +60,8 @@
 		"Ability22"		"special_bonus_unique_sword_master_4"
 		"Ability23"		"special_bonus_unique_sword_master_5"
 		"Ability24"		"special_bonus_unique_sword_master_6"
+
+		"Facets"  ""
 	}
 	//杰克
 	"npc_dota_hero_jack"
@@ -86,6 +88,9 @@
 		"Ability16"				"special_bonus_unique_jack_5"
 		"Ability17"				"special_bonus_unique_jack_6"
 		"Ability32"				"Hero_vo_player"
+
+		"Facets"  ""
+
 		"SoundSet"				"Hero_PhantomAssassin"
 		"AttackRate"				"1.400000"
 		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
@@ -128,6 +133,8 @@
 
 		"Ability16"					 "special_bonus_unique_goku_6"	// 龟派气功持续时间
 		"Ability17"					 "special_bonus_unique_goku_7"
+
+		"Facets"  ""
 
 		"ItemSlots"
   		{ }
@@ -181,6 +188,9 @@
 		"Ability16"					"special_bonus_unique_abyss_sword_3"
 		"Ability17"					"special_bonus_unique_abyss_sword_5"
 		"Ability32"					"Hero_vo_player"
+
+		"Facets"  ""
+
 		"ArmorPhysical"				"-1"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"30"
@@ -254,6 +264,7 @@
 		"Ability16"					"special_bonus_attack_damage_160"
 		"Ability17"					"special_bonus_cleave_60"
 
+		"Facets"  ""
 
 		"ItemSlots"
   		{ }
@@ -300,6 +311,8 @@
 		"Ability15"					"special_bonus_all_stats_20"
 		"Ability16"					"special_bonus_unique_excalibur_1"
 		"Ability17"					"special_bonus_cleave_60"
+
+		"Facets"  ""
 
 		"StatusHealth"					"300"
 		"StatusHealthRegen"				"1.5"
@@ -360,6 +373,9 @@
 		"Ability15"	"special_bonus_intelligence_30"
 		"Ability16"	"special_bonus_unique_yukari_tentacles_damage"
 		"Ability17"	"special_bonus_spell_amplify_20"
+
+		"Facets"  ""
+
 		"ItemSlots"	{}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"		"28"
