@@ -1009,7 +1009,6 @@
 			"particle"				"particles/units/heroes/hero_invoker/invoker_tornado_trail.vpcf"
 			"particle"				"particles/units/heroes/hero_invoker/invoker_tornado_base.vpcf"
 			"particle"				"particles/custom/artoria/artoria_wind_blow.vpcf"
-			"particle"				"particles/custom/artoria/invisible_air/artoria_strike_air.vpcf"
 			"soundfile"				"soundevents/hero_artoria.vsndevts"
 		}
 
@@ -1047,13 +1046,14 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
-
+	// 直感
 	"artoria_instinct"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/artoria/artoria_instinct"
-		"MaxLevel"						"5"
+		"MaxLevel"						"6"
+		"Innate"						"1"
 		"RequiredLevel"					"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/artoria/artoria_instinct"
@@ -1061,18 +1061,23 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1_END"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"14.0 12.0 10.0 8.0 6.0"
+		"AbilityCooldown"				"14.0 12.0 10.0 8.0 6.0 4.0"
 		"AbilityManaCost"				"0"
-
+		// Precache		//------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_antimage/antimage_spellshield.vpcf"
+			"particle"				"particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf"
+		}
 
 		// Ability Values		//------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"magic_res"					"10 15 20 25 30"
-			"status_res"				"10 15 20 25 30"
+			"magic_res"					"5 10 15 20 25 30"
+			"status_res"				"5 10 15 20 25 30"
 		}
 	}
-
+	// 魔力放出
 	"artoria_mana_burst"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
@@ -1147,7 +1152,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3_END"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" //胜率太低，暂时改成无视魔免
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"custom/artoria/artoria_excalibur"
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -1155,9 +1160,9 @@
 		"HasScepterUpgrade"				"1"
 
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"2000"
+		"AbilityCastRange"				"%range"
 		"AbilityCastPoint"				"0.6"
-		"AbilityChannelTime"			"2.0"
+		"AbilityChannelTime"			"3.0"
 		"AbilityCooldown"				"75.0"
 		"AbilityManaCost"				"300 450 600"
 
@@ -1177,12 +1182,12 @@
 		// Ability Values		//------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"cast_delay"			"0.5"
-			"duration"				"1.5"
+			"cast_delay"			"1.0"
+			"duration"				"2.0"
 			"range"					"2000"
 			"width"					"350"
 			"speed"					"2000.0"
-			"interval"				"0.25"
+			"interval"				"0.2"
 			"AbilityCooldown"
 			{
 				"value"				"75"
@@ -1196,11 +1201,6 @@
 			{
 				"value"				"-60"
 				"RequiresScepter"	"1"
-			}
-			"damage_scepter"
-			{
-				"value"					"800 1000 1200"
-				"RequiresScepter"		"1"
 			}
 		}
 	}
@@ -1217,7 +1217,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3_END"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" // 胜率太低，暂时改成无视魔免
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"custom/artoria/artoria_ultimate_excalibur"
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -1225,36 +1225,35 @@
 		"HasScepterUpgrade"				"1"
 
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"6000"
+		"AbilityCastRange"				"%range"
 		"AbilityCastPoint"				"0.6"
-		"AbilityChannelTime"			"3.0"
+		"AbilityChannelTime"			"4.0"
 		"AbilityCooldown"				"75.0"
-		"AbilityManaCost"				"1200"
+		"AbilityManaCost"				"900"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
 			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_cast.vpcf"
 			"particle"				"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
-			"parictle"				"particles/custom/saber_excalibur_max_rock_emitter.vpcf"
-			"particle"				"particles/custom/screen_yellow_splash.vpcf"
-			"particle"				"particles/custom/saber/max_excalibur/charge.vpcf"
-			"particle"				"particles/custom/saber/max_excalibur/shockwave_2_versiona.vpcf"
-			"particle"				"particles/custom/saber/max_excalibur/shockwave_2_versionc.vpcf"
 			"particle"				"particles/custom/saber/excalibur/hit.vpcf"
 			"particle"				"particles/custom/artoria/artoria_ultimate_excalibur_charge.vpcf"
 			"particle"				"particles/custom/artoria/large_excalibur_ambient.vpcf"
+			"particle"				"particles/custom/saber/max_excalibur/shockwave.vpcf"
+			"particle"				"particles/custom/saber/max_excalibur/charge.vpcf"
+			"particle"				"particles/custom/saber/max_excalibur/shockwave_2_versiona.vpcf"
+			"particle"				"particles/custom/saber/max_excalibur/shockwave_2_versionc.vpcf"
 		}
 
 		// Ability Values		//------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"cast_delay"			"1.5"
-			"duration"				"1.5"
+			"cast_delay"			"1.0"
+			"duration"				"3.0"
 			"range"					"4000"
 			"width"					"450"
 			"speed"					"4000.0"
-			"interval"				"0.25"
+			"interval"				"0.2"
 			"AbilityCooldown"
 			{
 				"value"				"75"
@@ -1267,11 +1266,6 @@
 			"slow_amount"
 			{
 				"value"				"-60"
-				"RequiresScepter"	"1"
-			}
-			"damage_scepter"
-			{
-				"value"				"1800"
 				"RequiresScepter"	"1"
 			}
 		}
@@ -1885,6 +1879,7 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"	"0.1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"	"%cast_range"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"36 32 28 24 20"
