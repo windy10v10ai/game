@@ -425,6 +425,8 @@
 		"DOTA_Tooltip_modifier_player_bansheng_3"				"<font color='#FFCC66'>★ 黄钻贵族 ★</font>"
 		"DOTA_Tooltip_modifier_player_pipilu"					"<font color='#FFCC66'>★ 皮皮鲁 ★</font>"
 		"DOTA_Tooltip_modifier_player_pipilu_Description"		"<font color='#FFCC66'>童话大王</font>"
+		"DOTA_Tooltip_modifier_player_nemesis"					"<font color='#00FF00'>Nemesis 1941</font>"
+		"DOTA_Tooltip_modifier_player_nemesis_Description"		"<font color='#00FF00'>Not the malevolent kind of Nemesis. Really loves Marci.</font>"
 
 		///////////////////////////////////////////////////
 		//
@@ -690,10 +692,10 @@
 		"DOTA_Tooltip_ability_jack_surgery_description"											"被杰克攻击的敌人将会获得解体效果，每层解体都会降低敌人的治疗，生命恢复，攻击吸血和技能吸血\n每个敌人身上最大解体层数为%max_count%，当达到最大层数时，敌人将受到破坏效果\n敌人失去的属性将会附加给杰克"
 		"DOTA_Tooltip_ability_jack_surgery_Lore"												"可以使用沾满血的手术刀为Master以及自己治疗。开膛手杰克的牺牲者是以“摘除特定脏器”这种需要解剖学知识的方式被杀的。"
 		"DOTA_Tooltip_ability_jack_surgery_duration"											"持续时间："
-		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%每层治疗降低："
-		"DOTA_Tooltip_ability_jack_surgery_regen_down"											"%每层生命恢复降低："
-		"DOTA_Tooltip_ability_jack_surgery_attack_lifesteal_down"								"%每层攻击吸血降低："
-		"DOTA_Tooltip_ability_jack_surgery_spell_lifesteal_down"								"%每层技能吸血降低："
+		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%每层治疗/恢复/吸血降低："
+		// "DOTA_Tooltip_ability_jack_surgery_regen_down"											"%每层生命恢复降低："
+		// "DOTA_Tooltip_ability_jack_surgery_attack_lifesteal_down"								"%每层攻击吸血降低："
+		// "DOTA_Tooltip_ability_jack_surgery_spell_lifesteal_down"								"%每层技能吸血降低："
 
 		"DOTA_Tooltip_ability_jack_the_mist"													"暗夜雾都"
 		"DOTA_Tooltip_ability_jack_the_mist_description"										"主动使用可以立刻变成夜晚，并使杰克身边始终围绕着迷雾，在迷雾中的敌人将会受到和雾夜凶杀中的迷雾一样的效果。"

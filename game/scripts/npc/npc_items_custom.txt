@@ -558,7 +558,7 @@
 		"ItemCost"						"8600"
 		"ItemShopTags"					"damage"
 		"ItemQuality"					"artifact"
-		"ItemAliases"					"radiance"
+		"ItemAliases"					"radiance;radiance of light;fiery radiance"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
 		// Special
@@ -2206,6 +2206,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"250"
+		"ItemAliases"				"shadow blade;silver edge;edge of lothar;lothar's blade;lothar's edge;lothars edge;lothars blade"
 
 
 		// Special
@@ -2458,7 +2459,7 @@
 
 		"ItemShopTags"					"damage;str;agi;unique"
 		"ItemQuality"					"epic"
-		"ItemAliases"					"sacred trident"
+		"ItemAliases"					"sacred trident;holy trinity;sacred trinity;holy trident"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 
@@ -2521,7 +2522,7 @@
 
 		"ItemShopTags"					"damage;str;agi;attack_speed;unique"
 		"ItemQuality"					"epic"
-		"ItemAliases"					"sacred six vein"
+		"ItemAliases"					"sacred six vein;sacred six vain;legendary hexad;legendary hexed;sacred hexad;sacred hexed;legendary six vein;legendary six vain"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 
@@ -2560,6 +2561,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"4550"
 		"ItemShopTags"					""
+		
 
 
 		// Recipe
@@ -2604,7 +2606,7 @@
 		"ItemCost"						"10800"
 		"ItemShopTags"					"damage;str;hard_to_tag"
 		"ItemQuality"					"epic"
-		"ItemAliases"					"abyssal blade"
+		"ItemAliases"					"basher;abyssal blade;flash"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 
@@ -2679,7 +2681,7 @@
 		"ItemCost"						"10100"
 		"ItemShopTags"					"armor;boost_armor"
 		"ItemQuality"					"rare"
-		"ItemAliases"					"jinkela"
+		"ItemAliases"					"jinkela;heaven's halberd;heaven's lament;heavens halberd;heavens lament"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"precache"
@@ -2982,7 +2984,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"16800"
 		"ItemQuality"					"epic"
-		"ItemAliases"					"bluefantasy"
+		"ItemAliases"					"bluefantasy;blue fantasy;diffusal blade;disperser;nullifier;spirit vessel"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		"precache"
@@ -3066,7 +3068,7 @@
 		"ItemCost"						"11000"
 		"ItemShopTags"					"damage"
 		"ItemQuality"					"arcane"
-		"ItemAliases"					"DMD"
+		"ItemAliases"					"DMD;daedalus;greater crit;"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequiresCharges"			"0"
 
@@ -3252,7 +3254,7 @@
 		"ItemCost"						"9000"
 		"ItemShopTags"					"speed"
 		"ItemQuality"					"arcane"
-		"ItemAliases"					"DMC"
+		"ItemAliases"					"DMC;butterfly;crystalis;lesser crit"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequiresCharges"			"0"
 
@@ -3410,7 +3412,7 @@
 		"ItemCost"						"20000"
 		"ItemShopTags"					"speed"
 		"ItemQuality"					"arcane"
-		"ItemAliases"					"DMC"
+		"ItemAliases"					"DMC;butterfly;daedalus;greater crit"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequiresCharges"			"0"
 
@@ -3639,6 +3641,7 @@
 
 		"AbilityManaCost"				"300"
 		"ItemCost"						"9850"
+		"ItemAliases"				"shiva's guard;shivas guard;shiva guard;athena's guard;athenas guard;athena guard"
 		"AbilitySharedCooldown"			"shivas_guard"
 		"AbilityTextureName"			"item_shivas_guard_2"
 
@@ -3856,7 +3859,7 @@
 		"ItemCost"						"7000"
 		"ItemShopTags"					"damage;attack_speed"
 		"ItemQuality"					"arcane"
-		"ItemAliases"					"shotgun"
+		"ItemAliases"					"shotgun;double barrel;double-barrel"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequiresCharges"			"0"
 
@@ -3916,7 +3919,7 @@
 		"ItemCost"						"9200"
 		"ItemShopTags"					"damage;attack_speed"
 		"ItemQuality"					"arcane"
-		"ItemAliases"					"shotgun"
+		"ItemAliases"					"shotgun;triple barrel;triple-barrel;bullet filled shotgun;bullet-filled shotgun"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequiresCharges"			"0"
 
@@ -3976,6 +3979,7 @@
 		"AbilitySharedCooldown"			"blink"
 
 		"ItemCost"						"21000"
+		"ItemAliases"				"blink dagger;arcane blink;swift blink;overwhelming blink;fallen sky;meteor hammer"
 		//"ItemSellable"					"1"
 		//"ItemPurchasable"				"0"
 		//"ItemIsNeutralDrop"				"1"
@@ -4607,6 +4611,7 @@
 		"ItemCost"	"0"
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemShopTags"	"armor"
+		"ItemAliases"	"saint white lotus orb;"
 
 		"precache"
 		{
@@ -4732,7 +4737,7 @@
 		"ItemCost"						"4800"
 		"ItemShopTags"					"attack_speed;hard_to_tag"
 		"ItemQuality"					"common"
-		"ItemAliases"					"hand of team"
+		"ItemAliases"					"hand of team;hand of midas"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
 		"ShouldBeSuggested"				"1"
@@ -4870,7 +4875,7 @@
         "ItemCost"						"19600"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
-		"ItemAliases"					"mana;mb;refresh core"
+		"ItemAliases"					"mana;mb;refresh core;refresher orb;octarine core"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ShouldBeSuggested"				"1"
@@ -5114,6 +5119,7 @@
 		"ID"                            "9591"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"item_bfury"
+		"ItemAliases"					"battle fury;bfury;worldbreaker;worldcleaver"
 		"AbilityTextureName"            "bfury_ultra"
 		"AbilityValues"
 		{
