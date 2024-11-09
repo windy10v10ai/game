@@ -6,7 +6,7 @@
 
 var imagefile = {
   npc_dota_hero_meepo: "file://{images}/heroes/npc_dota_hero_meepo_custom.png",
-  npc_dota_hero_juggernaut: "file://{images}/heroes/npc_dota_hero_juggernaut_custom.png",
+  // npc_dota_hero_juggernaut: "file://{images}/heroes/npc_dota_hero_juggernaut_custom.png",
   npc_dota_hero_techies: "file://{images}/heroes/npc_dota_hero_techies_custom.png",
   npc_dota_hero_broodmother: "file://{images}/heroes/npc_dota_hero_broodmother_custom.png",
   npc_dota_hero_visage: "file://{images}/heroes/npc_dota_hero_visage_custom.png",

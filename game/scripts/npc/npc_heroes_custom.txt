@@ -1276,7 +1276,7 @@
 	}
 	"npc_dota_hero_juggernaut"
 	{
-		"DisableWearables" 			"1"
+		// "DisableWearables" 			"1"
 		"Bot"
 		{
 			"Build"
