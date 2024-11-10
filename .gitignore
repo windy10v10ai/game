@@ -25,4 +25,5 @@ game/scripts/vscripts/modules/
 game/scripts/vscripts/server/
 game/scripts/vscripts/utils/
 game/scripts/vscripts/modifiers/property
+game/scripts/vscripts/modifiers/global
 game/maps/dota.vpk

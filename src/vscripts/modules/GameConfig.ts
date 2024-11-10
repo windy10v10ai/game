@@ -47,6 +47,9 @@ export class GameConfig {
     // game.SetDaynightCycleDisabled(true); // 是否禁用白天黑夜循环
     // game.SetDeathOverlayDisabled(true); // 是否禁用死亡遮罩（灰色的遮罩）
 
+    // 每点智力魔抗加成在modifier intelect_magic_resist.ts中控制
+    game.SetCustomAttributeDerivedStatValue(AttributeDerivedStats.AGILITY_ARMOR, 0.133);
+
     // 设置自定义的队伍人数上限，这里的设置是10个队伍，每个队伍1人
     // GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 1);
     // GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 1);
