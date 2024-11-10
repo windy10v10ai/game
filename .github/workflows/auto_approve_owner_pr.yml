@@ -8,9 +8,7 @@ on:
       - ready_for_review
 jobs:
   approve:
-    if: |
-      github.event.pull_request.user.login == github.repository_owner
-      && ! github.event.pull_request.draft
+    if: github.event.pull_request.user.login == 'windybirth' && !github.event.pull_request.draft
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write

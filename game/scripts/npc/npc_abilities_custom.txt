@@ -1251,7 +1251,7 @@
 			"cast_delay"			"1.0"
 			"duration"				"3.0"
 			"range"					"4000"
-			"width"					"450"
+			"width"					"400"
 			"speed"					"4000.0"
 			"interval"				"0.2"
 			"AbilityCooldown"
@@ -1261,7 +1261,7 @@
 			}
 			"damage"
 			{
-				"value"				"1500"
+				"value"				"1300"
 			}
 			"slow_amount"
 			{
@@ -2667,26 +2667,26 @@
 	//=================================================================================================================
     // Juggernaut 主宰/剑圣
     //=================================================================================================================
-    "juggernaut_blade_dance"
-	{
-		"AbilityTextureName"			"jugg_blade_dance"
-	}
-	"juggernaut_blade_fury"
-	{
-		"AbilityTextureName"			"jugg_blade_fury"
-	}
-	"juggernaut_healing_ward"
-	{
-		"AbilityTextureName"			"jugg_healing_ward"
-	}
-	"juggernaut_omni_slash"
-	{
-		"AbilityTextureName"			"jugg_omni_slash"
-	}
-	"juggernaut_swift_slash"
-	{
-		"AbilityTextureName"			"jugg_swift_slash"
-	}
+    // "juggernaut_blade_dance"
+	// {
+	// 	"AbilityTextureName"			"jugg_blade_dance"
+	// }
+	// "juggernaut_blade_fury"
+	// {
+	// 	"AbilityTextureName"			"jugg_blade_fury"
+	// }
+	// "juggernaut_healing_ward"
+	// {
+	// 	"AbilityTextureName"			"jugg_healing_ward"
+	// }
+	// "juggernaut_omni_slash"
+	// {
+	// 	"AbilityTextureName"			"jugg_omni_slash"
+	// }
+	// "juggernaut_swift_slash"
+	// {
+	// 	"AbilityTextureName"			"jugg_swift_slash"
+	// }
 	//=================================================================================================================
 	// Ability: Pangolier 石鳞剑士
 	//=================================================================================================================
