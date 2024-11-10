@@ -1,6 +1,6 @@
 "lang"
 {
-	"Language"		"English"
+	"Language"		"english"
 	"Tokens"
 	{
 		"addon_game_name"		"Dota 10v10 AI Custom by Windy"
@@ -9,7 +9,7 @@
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
-		// 					              Options
+		// 					Options
 		//
 		// /////////////////////////////////////////////////////////////////////////////
 		"addon_option_title"	"Game Options"
@@ -37,7 +37,6 @@
 		"starting_gold_player"	"Player Starting Gold"
 		"starting_gold_bot"	"Bot Starting Gold"
 		"same_hero_selection"  "Allow Same Hero Selection"
-		// "fast_courier"  "Fast and Invulnerable Courier"
 		"radiant_bot_same_multi"  "Radiant Bots Share Gold/XP Mult with Players"
 		"hide_chat_team"  "Hide Chat and Team"
 		"show_chat_team"  "Show Chat and Team"
@@ -117,10 +116,6 @@
 		"data_panel_member_level_tooltip"		"Members get 100 membership points for playing every day.<br>Member Points are gained separetely from Battle Points, but are functionally identical, and grant the same Attribute Points for use in the <font color='#E8C07D'>Player Attributes</font> panel.<br>Points required for subsequent levels increase by <font color='#E8C07D'>50</font> points."
 		"data_panel_level_progress"		"Level Progress"
 
-		// "data_panel_link_charge"		"Charge Member Point"
-		// "data_panel_link_rule"			"Point Rule"
-		// "data_panel_member_point_rule_url"		"https://afdian.com/p/8d1e8ac8682711ed984b52540025c377"
-
 		"reset_property_use_season_point"		"Reset Attribute Points for {seasonPoint} Battle Points"
 		"reset_property_use_member_point"		"Reset Attribute Points for 1000 Member Points"
 
@@ -181,7 +176,6 @@
 		"player_member_ship"			"Click to enable your membership."
 		"player_member_ship_url"		"https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
 
-
 		///////////////////////////////////////////////////
 		//
 		//            Leaderboard
@@ -204,24 +198,24 @@
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_tower_power"					"Building Power"
-		"DOTA_Tooltip_modifier_tower_power_Description"		"This building's attack damage and max health is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%.<br>Gaining %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration"
+		"DOTA_Tooltip_modifier_tower_power_Description"		"This structure's attack damage and max health is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%.<br>This structure also has %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% extra health regeneration."
 
-		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonuses"
+		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonus"
 		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"ATTACK DAMAGE BONUS"
-		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"INCOMING DAMAGE REDUCTION BONUS:"
+		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_buff_upgraded"						"Super Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"ATTACK DAMAGE BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"ARMOR BONUS:"
-		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"INCOMING DAMAGE REDUCTION BONUS:"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_buff_mega"							"Mega Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"ATTACK DAMAGE BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"ARMOR BONUS"
-		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"INCOMING DAMAGE REDUCTION BONUS:"
+		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%NON-HERO BONUS ATTACK DAMAGE:"
 
@@ -284,11 +278,155 @@
 
 		///////////////////////////////////////////////////
 		//
-		//            会员BUFF
+		//            会员BUFF MemberShip
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_global_member"					"<font color='#FFCC66'>★ Membership Buff! ★</font>"
-		"DOTA_Tooltip_modifier_global_member_Description"	"As a member, you gain the following bonuses:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>Respawn time reduced by 5 seconds.<br/>Buyback cooldown reduced to 2 minutes.<br/>"
+		"DOTA_Tooltip_modifier_global_member_Description"	"<font color='#FFCC66'>Thank you for your membership!</font><br>As a member, you gain the following bonuses:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>Respawn time reduced by 5 seconds.<br/>Buyback cooldown reduced to 2 minutes.<br/>"
+		// 定制BUFF donnot translate
+		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
+		"DOTA_Tooltip_modifier_player_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
+		"DOTA_Tooltip_modifier_player_xianyu"					"<font color='#FFCC66'>★ 咸鱼之王 ★</font>"
+		"DOTA_Tooltip_modifier_player_xianyu_Description"		"<font color='#FFCC66'> 恭喜你遇到了真正的咸鱼之王。<br/>感谢您对游戏的支持与喜爱。<br/>玩家交流QQ群：836436993。</font>"
+		"DOTA_Tooltip_modifier_player_mimihua"					"<font color='#FFCC66'>★ 一次性消耗品 ★</font>"
+		"DOTA_Tooltip_modifier_player_mimihua_Description"		"<font color='#FFCC66'> 别想了，你得不到的。</font>"
+		"DOTA_Tooltip_modifier_player_bulangya"					"<font color='#5534A5'>★ 迷城骇兔 ★</font>"
+		"DOTA_Tooltip_modifier_player_76"						"<font color='#F66B0E'>★ 克林克兹之馈赠 ★</font>"
+		"DOTA_Tooltip_modifier_player_76_Description"			"<font color='#FFCC66'> 如果你看到这个B玩小骷髅，那你可以躺了，记得给点控制哦~</font>"
+		"DOTA_Tooltip_modifier_player_hunzhuo"					"<font color='#A85CF9'>★ 我的口袋只剩玫瑰一片，此行又山高路远 ★</font>"
+		"DOTA_Tooltip_modifier_player_hunzhuo_Description"		"<font color='#A85CF9'>蹉跎错，消磨过，最是光阴化浮沫。</font>"
+		"DOTA_Tooltip_modifier_player_chashaobao"				"<font color='#E8C07D'>★ 叉烧包之王 ★</font>"
+		"DOTA_Tooltip_modifier_player_menglihua"				"<font color='#A85CF9'>★ 我不做人了！！！！！ ★</font>"
+		"DOTA_Tooltip_modifier_player_menglihua_Description"	"<font color='#A85CF9'>人类是有极限的！所以我不做人了！JOJO！！！</font>"
+		"DOTA_Tooltip_modifier_player_dabuguo"					"<font color='#FFCC66'>★ 天龙人 ★</font>"
+		"DOTA_Tooltip_modifier_player_dabuguo_Description"		"<font color='#FFCC66'>天龙人咸鱼为了廉价的赏金！献祭出了自己的珍宝皮燕子！（请勿模仿不值得啊）</font>"
+		"DOTA_Tooltip_modifier_player_dabuguo_1"				"<font color='#FFCC66'></font>"
+		"DOTA_Tooltip_modifier_player_dabuguo_2"				"<font color='#FFCC66'></font>"
+		"DOTA_Tooltip_modifier_player_dabuguo_3"				"<font color='#FFCC66'></font>"
+		"DOTA_Tooltip_modifier_player_dabuguo_4"				"<font color='#FFCC66'>哥哥你为我花了这么多钱，你女朋友不会生气吧？</font>"
+		"DOTA_Tooltip_modifier_player_shapu"					"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_kfw6"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_dalaogongji"				"<font color='#FFCC66'>★ 大佬，请问攻击是哪个按键呀？ ★</font>"
+		"DOTA_Tooltip_modifier_player_dalaogongji_Description"	"<font color='#FFCC66'> 当你拉氪金大佬入坑游戏时... </font>"
+		"DOTA_Tooltip_modifier_player_jiangcai"					"<font color='#FFCC66'>★ 意面神教葱油拌面分教教主 ★</font>"
+		"DOTA_Tooltip_modifier_player_rwby"						"<font color='#5FD068'>★ Rwby伤害王！ ★</font>"
+		"DOTA_Tooltip_modifier_player_rwby_Description"			"<font color='#5FD068'> 被我指到的人都要好运！ </font>"
+		"DOTA_Tooltip_modifier_player_sun"						"<font color='#FFCC66'>★ 天下第一砍王 ★</font>"
+		"DOTA_Tooltip_modifier_player_cyn1"						"<font color='#FFCC66'>♥ Cherries ♥</font>"
+		"DOTA_Tooltip_modifier_player_cyn2"						"<font color='#FFCC66'>★ Cherries ★</font>"
+		"DOTA_Tooltip_modifier_player_cyn3"						"<font color='#FFCC66'>♥ ★ ♥ ★ ♥ ★ Cherries ★ ♥ ★ ♥ ★ ♥ </font>"
+		"DOTA_Tooltip_modifier_player_adolphzero"				"<font color='#FFCC66'>★ 在下千里马 ★</font>"
+		"DOTA_Tooltip_modifier_player_adolphzero_Description"	"<font color='#FFCC66'> 还好老子跑得快 </font>"
+		"DOTA_Tooltip_modifier_player_j3e9"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin"						"<font color='#FFCC66'>★ 鲨鱼辣椒 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_Description"			"<font color='#FFCC66'> 鲨鱼辣椒不吃辣~ </font>"
+		"DOTA_Tooltip_modifier_player_xin_2"					"<font color='#FFCC66'>★ 蝎子莱莱 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_2_Description"		"<font color='#FFCC66'>★ 尊贵的心悦1会员福利 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_3"					"<font color='#FFCC66'>★ 蜘蛛侦探 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_3_Description"		"<font color='#FFCC66'>★ 尊贵的心悦2会员福利 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_4"					"<font color='#FFCC66'>★ 蟑螂恶霸 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_4_Description"		"<font color='#FFCC66'>★ 尊贵的心悦3会员福利 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_5"					"<font color='#FFCC66'>★ 鲨鱼巨人 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_5_Description"		"<font color='#FFCC66'>★ 双重超级变换形态 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_6"					"<font color='#FFCC66'>★ 蜻蜓队长 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_6_Description"		"<font color='#FFCC66'>★ 裁判机器人蜻蜓队长前来觐见！ ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian"					"<font color='#FFCC66'>★ 新人光环 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_2"				"<font color='#FFCC66'>★ 狂风向前 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_3"				"<font color='#FFCC66'>★ 你看不见我 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_4"				"<font color='#FFCC66'>★ 全场最帅 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_5"				"<font color='#FFCC66'>★ 不服打我 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_6"				"<font color='#FFCC66'>★ 贪狼 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_7"				"<font color='#FFCC66'>★ 破军 ★</font>"
+		"DOTA_Tooltip_modifier_player_qiannian_8"				"<font color='#FFCC66'>★ 七杀 ★</font>"
+		"DOTA_Tooltip_modifier_player_feiji"					"<font color='#A149FA'>★ 贝伦卡斯泰露的庇佑 ★</font>"
+		"DOTA_Tooltip_modifier_player_feiji_Description"		"<font color='#A149FA'> 古户绘梨花受到了奇迹的魔女贝伦卡斯泰露的庇佑 </font>"
+		"DOTA_Tooltip_modifier_player_pns"						"<font color='#FFCC66'>★ 苟圣 ★</font>"
+		"DOTA_Tooltip_modifier_player_taikong"					"<font color='#FFCC66'>★ 太阳轰炸准备就绪 ★</font>"
+		"DOTA_Tooltip_modifier_player_wonderpis"				"<font color='#FFCC66'>★ 局外人 ★</font>"
+		"DOTA_Tooltip_modifier_player_wonderpis_Description"	"<font color='#FFCC66'> 壮士，请先打我队友！ </font>"
+		"DOTA_Tooltip_modifier_player_xiayibing"				"<font color='#0096FF'>★ 冰神 ★</font>"
+		"DOTA_Tooltip_modifier_player_xiayibing_Description"	"<font color='#0096FF'> 2009级卡尔亡 </font>"
+		"DOTA_Tooltip_modifier_player_abyss"					"<font color='#55D8C1'>★ 万物塑造之主 ★</font>"
+		"DOTA_Tooltip_modifier_player_abyss_Description"		"<font color='#55D8C1'>掌控元素塑造形体的万物之主。<br>当前已塑造形体：<br>SABER、沉渊之剑、超级赛亚人、开膛手杰克</font>"
+		"DOTA_Tooltip_modifier_player_luoshu"					"<font color='#FFCC66'>★ 洛书 ★</font>"
+		"DOTA_Tooltip_modifier_player_luoshu_Description"		"<font color='#FFCC66'> 然而和我洛书有什么关系呢？ </font>"
+		"DOTA_Tooltip_modifier_player_luoshu_2"					"<font color='#FFCC66'>★ 天神下凡 ★</font>"
+		"DOTA_Tooltip_modifier_player_luoshu_2_Description"		"<font color='#FFCC66'> 天神下凡刹那，风云为之色变，大地为之双分。天辉与夜魇因此诞生，也因此永世不得停息，争斗不止。 </font>"
+		"DOTA_Tooltip_modifier_player_m5xw"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_mingri"					"<font color='#FFCC66'>★ 这车能坐吗 ★</font>"
+		"DOTA_Tooltip_modifier_player_liaoran"					"<font color='#FFCC66'>★ 比队友跑的快！ ★</font>"
+		"DOTA_Tooltip_modifier_player_lani"						"<font color='#FFCC66'>★ 褪色者 ★</font>"
+		"DOTA_Tooltip_modifier_player_lani_Description"			"<font color='#FFCC66'> 菈妮唯一的王 </font>"
+		"DOTA_Tooltip_modifier_player_li123"					"<font color='#FFCC66'>★ 力中暴力 ★</font>"
+		"DOTA_Tooltip_modifier_player_yangqi"					"<font color='#FFCC66'>★ 喵车乘客29 ★</font>"
+		"DOTA_Tooltip_modifier_player_kudo"						"<font color='#FFCC66'>★ kudo ★</font>"
+		"DOTA_Tooltip_modifier_player_arrayzoneyour"			"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_nmjb"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609"					"<font color='#FFCC66'>★ 魔剑莱瓦汀 ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_Description"		"<font color='#FFCC66'> Scarlet Laevatain </font>"
+		"DOTA_Tooltip_modifier_player_puck1609_2"				"<font color='#FFCC66'>★ 梦想天生 ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_2_Description"	"<font color='#FFCC66'> Gensokyo Miko </font>"
+		"DOTA_Tooltip_modifier_player_puck1609_3"				"<font color='#FFCC66'>★ 无双风神 ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_3_Description"	"<font color='#FFCC66'> Windstorm Wing </font>"
+		"DOTA_Tooltip_modifier_player_puck1609_4"				"<font color='#FFCC66'>★ 枫叶白狼 ★</font>"
+		"DOTA_Tooltip_modifier_player_puck1609_4_Description"	"<font color='#FFCC66'> Momiji Shield </font>"
+		"DOTA_Tooltip_modifier_player_dky190"					"<font color='#FFCC66'>★ Tiny ★</font>"
+		"DOTA_Tooltip_modifier_player_dky190_2"					"<font color='#FFCC66'>★ 極速之翼 ★</font>"
+		"DOTA_Tooltip_modifier_player_dky190_2_Description"		"<font color='#FFCC66'> 快的飞起 </font>"
+		"DOTA_Tooltip_modifier_player_dky190_3"					"<font color='#FFCC66'>★ Tiny的魔法书 ★</font>"
+		"DOTA_Tooltip_modifier_player_dky190_4"					"<font color='#FFCC66'>★ Tiny这把想躺赢 ★</font>"
+		"DOTA_Tooltip_modifier_player_dky190_5"					"<font color='#FFCC66'>★ Tiny摆不动了 ★</font>"
+		"DOTA_Tooltip_modifier_player_kele"						"<font color='#FFCC66'>★ 我一定会回来的！！！！ ★</font>"
+		"DOTA_Tooltip_modifier_player_kele_Description"			"<font color='#FFCC66'> 我一定会回来的！！！！ </font>"
+		"DOTA_Tooltip_modifier_player_loset12"					"<font color='#FA9494'>★ 猪 ★</font>"
+		"DOTA_Tooltip_modifier_player_loset12_2"				"<font color='#FA9494'>★ 猪队友 ★</font>"
+		"DOTA_Tooltip_modifier_player_chuyin"					"<font color='#FFCC66'>★ 射爆AI全家 ★</font>"
+		"DOTA_Tooltip_modifier_player_chuyin_2"					"<font color='#FFCC66'>★ 奥法之怒 ★</font>"
+		"DOTA_Tooltip_modifier_player_chuyin_3"					"<font color='#FFCC66'>★ 致命箭雨 ★</font>"
+		"DOTA_Tooltip_modifier_player_chuyin_4"					"<font color='#FFCC66'>★ 雷霆爆发 ★</font>"
+		"DOTA_Tooltip_modifier_player_chuyin_5"					"<font color='#FFCC66'>★ 魔龙 ★</font>"
+		"DOTA_Tooltip_modifier_player_sushi"					"<font color='#FFCC66'>★ 基神的强袭自由 ★</font>"
+		"DOTA_Tooltip_modifier_player_sushi_Description"		"<font color='#FFCC66'> 天苍茫镜花水月之像，今朝我粉墨登场~ </font>"
+		"DOTA_Tooltip_modifier_player_sushi_2"					"<font color='#FFCC66'>★ 基神的强袭自由 ★</font>"
+		"DOTA_Tooltip_modifier_player_sushi_2_Description"		"<font color='#FFCC66'> 爱佑[浮生]，从一而终 </font>"
+		"DOTA_Tooltip_modifier_player_sushi_3"					"<font color='#FFCC66'>★ 基神的强袭自由 ★</font>"
+		"DOTA_Tooltip_modifier_player_sushi_3_Description"		"<font color='#FFCC66'> 千般[鏖灭]，心未成灰 </font>"
+		"DOTA_Tooltip_modifier_player_sushi_4"					"<font color='#FFCC66'>★ 基神的强袭自由 ★</font>"
+		"DOTA_Tooltip_modifier_player_sushi_4_Description"		"<font color='#FFCC66'> 纵承[天慧]，真意难解 </font>"
+		"DOTA_Tooltip_modifier_player_kdvh_1"					"<font color='#FFCC66'>★ 男人的加油站 ★</font>"
+		"DOTA_Tooltip_modifier_player_kdvh_2"					"<font color='#FFCC66'>★ 快男也可以很骄傲 ★</font>"
+		"DOTA_Tooltip_modifier_player_kdvh_3"					"<font color='#FFCC66'>★ 浴血奋战才是真男人 ★</font>"
+		"DOTA_Tooltip_modifier_player_YYL"						"<font color='#FFCC66'>★ 游戏开发者 ★</font>"
+		"DOTA_Tooltip_modifier_player_aoliao"					"<font color='#FFCC66'>★ 奥利奥夹心饼 ★</font>"
+		"DOTA_Tooltip_modifier_player_aoliao_2"					"<font color='#FFCC66'>★ 雷电法王 ★</font>"
+		"DOTA_Tooltip_modifier_player_vjes"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh"					"<font color='#FFCC66'>★ 至圣 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_1"					"<font color='#FFCC66'>★ 至圣先师 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_2"					"<font color='#FFCC66'>★ 万世师表 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_3"					"<font color='#FFCC66'>★ 天不生仲尼 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_4"					"<font color='#FFCC66'>★ 万古如长夜 ★</font>"
+		"DOTA_Tooltip_modifier_player_laugh_5"					"<font color='#FFCC66'>★ 风驰电掣 ★</font>"
+		"DOTA_Tooltip_modifier_player_asprose"					"<font color='#FFCC66'>★ 超人会发光 ★</font>"
+		"DOTA_Tooltip_modifier_player_xys"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_yuliang"					"<font color='#FFCC66'>★ AE86 ★</font>"
+		"DOTA_Tooltip_modifier_player_yuliang_Description"		"<font color='#FFCC66'> 洗车，今晚上秋名山。 </font>"
+		"DOTA_Tooltip_modifier_player_weilan"					"<font color='#FFCC66'>★ 举杯吧！敬那些想杀死我的人 ★</font>"
+		"DOTA_Tooltip_modifier_player_ekxn"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_uh9g"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_xibaibai"					"<font color='#FFCC66'>★ 能者多牢 ★</font>"
+		"DOTA_Tooltip_modifier_player_dacapo"					"<font color='#FFCC66'>★ Da丨Capo  ★</font>"
+		"DOTA_Tooltip_modifier_player_xingguang"				"<font color='#FFCC66'>★ 星光灿烂 ★</font>"
+		"DOTA_Tooltip_modifier_player_hjauin"					"<font color='#FFCC66'>★ BILIBILI直播间1426674 ★</font>"
+		"DOTA_Tooltip_modifier_player_hjauin_Description"		"<font color='#FFCC66'>https://live.bilibili.com/1426674</font>"
+		"DOTA_Tooltip_modifier_player_eygc"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
+		"DOTA_Tooltip_modifier_player_eesama"					"<font color='#FFCC66'>★ EEsama ★</font>"
+		"DOTA_Tooltip_modifier_player_bansheng_1"				"<font color='#FF0000'>★ 红钻贵族 ★</font>"
+		"DOTA_Tooltip_modifier_player_bansheng_2"				"<font color='#00BFFF'>★ 蓝钻贵族 ★</font>"
+		"DOTA_Tooltip_modifier_player_bansheng_3"				"<font color='#FFCC66'>★ 黄钻贵族 ★</font>"
+		"DOTA_Tooltip_modifier_player_pipilu"					"<font color='#FFCC66'>★ 皮皮鲁 ★</font>"
+		"DOTA_Tooltip_modifier_player_pipilu_Description"		"<font color='#FFCC66'>童话大王</font>"
+		"DOTA_Tooltip_modifier_player_nemesis"					"<font color='#00FF00'>Nemesis 1941</font>"
+		"DOTA_Tooltip_modifier_player_nemesis_Description"		"<font color='#00FF00'>Not the malevolent kind of Nemesis. Really loves Marci.</font>"
 
 		///////////////////////////////////////////////////
 		//
@@ -310,13 +448,107 @@
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"Assassinate"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
+		// 混沌骑士
+		"DOTA_Tooltip_ability_chaos_knight_chaos_bolt_shard_description" 						"Increases the cast range to %AbilityCastRange%."
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"Army of Chaos"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"Summons other Chaos Knights from other dimensions to Chaos Knight's side and fight with alongside him as a part of his being. Whenever Chaos Knight attacks, the other Chaos Knights will also deliver their own attacks on the target. The additional Chaos Knights' attacks have a short cooldown before they can strike again."
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"With the Chaos Knight's rich combat experience in various worlds, his very being brings enough strength to suppress anyone who dares to oppose him. And any copies of him."
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_duration"								"DURATION:"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"EXTRA ATTACKS:"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"EXTRA ATTACKS COOLDOWN:"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"Increases the number of extra attacks and reduces the cooldown between the extra attacks."
+
+		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"Army of Chaos"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"Multiple shadow clones are imbued within you! They will attack when you do with a cooldown."
+
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"
 
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"COOKIE HEAL:"
+
+		// 谜团
+		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"					"Black Hole deals additional damage equivalent to 3%% of the unit's Max Health per second."
+
+		// 全能骑士
+		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"Increases the target's movement speed and health regeneration, and grants flying movement, allowing them to move over any terrain."
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_Note0"			"Angelic Flight does not grant targets the ability to path over some player-made obstacles, such as Kinetic Field/Fence and Arena of Blood."
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"				"'Forward without fear, my friends!'"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"			"DURATION:"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"		"%MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"HEALTH REGENERATION:"
+		"DOTA_Tooltip_modifier_omninight_angelic_flight"					"Angelic Flight"
+		"DOTA_Tooltip_modifier_omninight_angelic_flight_description"		"Gaining flying movement, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed."
+
+	    // 修补匠 刷新
+	    "DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"A new battery here, another set of rockets there, Boush continually improves on existing technology."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Refresher Orb, (including upgrades like Black King Bar Upgrade, Aeon Pendant, Linken's Sphere Upgrade, Armor of Insight, Hand of Team, etc.) and any items in the neutral slot, regardless of what they are."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"										"If Rubick Spell Steals Rearm, he cannot Rearm other heroes' ultimates."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"TIME TO REARM:"
+
+		// 电棍 razor
+		"DOTA_Tooltip_ability_special_bonus_unique_razor_101"   "+{s:bonus_radius} Plasma Field Radius"
+		"DOTA_Tooltip_ability_special_bonus_unique_razor_401"   "+{s:bonus_duration}s Eye of the Storm Duration"
+		"DOTA_Tooltip_ability_special_bonus_unique_razor_402"   "+{s:bonus_damage} Eye of the Storm Damage"
+
+		// 火女 lina
+		"DOTA_Tooltip_ability_special_bonus_unique_lina_dragon_slave_damage"	"+{s:bonus_dragon_slave_damage} Dragon Slave Damage"
+
+		// 幽鬼 spe
+		"DOTA_Tooltip_ability_spectre_desolate_Description"		"Deals bonus pure damage whenever Spectre attacks an enemy."
+		"DOTA_Tooltip_ability_spectre_desolate_radius"						""
+		"DOTA_Tooltip_ability_spectre_ursa_enrage"												"Intangible Shadow"
+		"DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"											"At this moment, Spectre jumped out of the Three Realms and was not in the Five Elements."
+		"DOTA_Tooltip_ability_spectre_ursa_enrage_Description"									"Spectre reverses causation, providing herself with Damage Reduction and Status Resistance. Removes any existing debuffs on her.\n\nDISPEL TYPE: Strong Dispel"
+		"DOTA_Tooltip_ability_spectre_ursa_enrage_scepter_description"							"Reduces cooldown and allows Spectre to use Intangible Shadow while disabled."
+		"DOTA_Tooltip_ability_spectre_ursa_enrage_damage_reduction"		                        "%DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_spectre_ursa_enrage_status_resistance"		                     "%STATUS RESISTANCE:"
+		"DOTA_Tooltip_ability_spectre_ursa_enrage_duration"					                    "DURATION:"
+		"DOTA_Tooltip_ability_spectre_ursa_enrage_cooldown_scepter"					            "COOLDOWN:"
+		"DOTA_Tooltip_ability_special_bonus_unique_spectre_401"    "+{s:bonus_duration} Intangible Shadow duration"
+		"DOTA_Tooltip_modifier_spectre_ursa_enrage" "Intangible Shadow"
+		"DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"Gained %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming Damage Reduction and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% Status Resistance"
+
+		// 剧毒
+		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} Poison Sting Damage"
+
+		// 巫妖
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} Chain Frost Bounces"
+
+		// Alchemist 炼金术士
+		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"HEALTH BONUS:"
+
+		// 夜魔
+		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% Hunter In The Night Move Speed"
+
+		// 酒仙
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"Primal Split"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Lore"							"It isn't clear whether Mangix is consciously aware of his potent bond with nature, as it often occurs in the midst of a drunken stupor."
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Description"					"Brewmaster is now awesome, gaining the effects of four different fighting styles."
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_shard_Description"			"Increases Primal Split duration."
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_duration"						"DURATION:"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_bonus_move_speed"				"%MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_bonus_status_resist"			"%STATUS RESISTANCE:"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_magic_resist"					"%MAGIC RESISTANCE:"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_armor"						"<font color=\"#87ceeb\">ARMOR</font>:"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_dodge_chance"					"%<font color=\"#87ceeb\">EVASION</font>:"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_crit_chance"					"%<font color=\"#FF0000\">CRITICAL CHANCE</font>:"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_crit_multiplier"				"<font color=\"#FF0000\">CRITICAL DAMAGE</font>:"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_attack_speed"					"<font color=\"#FF0000\">ATTACK SPEED</font>:"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_movespeed"					"%<font color=\"#662375\">ATTACK/MOVEMENT SLOW</font>:"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_slow_duration"				"<font color=\"#662375\">SLOW DURATION</font>:"
+
+		"DOTA_Tooltip_modifier_brewmaster_primal_split_lua_duration"					"Primal Split"
+
 		///////////////////////////////////////////////////
-		// 自定义英雄
+		//
+		// 自定义英雄 Custom Heroes
+		//
+		///////////////////////////////////////////////////
 
 		//执剑泰斗
 		"npc_dota_hero_dark_seer"																"Sword Master"
@@ -453,13 +685,13 @@
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_visionrange_down"				"%VISION REDUCTION:"
 
 		"DOTA_Tooltip_ability_jack_surgery"														"Surgical Procedures"
-		"DOTA_Tooltip_ability_jack_surgery_description"											"Enemies attacked by Jack will gain stacks of Dissolution. Each stack of Dissolution will reduce healing, health regeneration, lifesteal, and spell lifesteal, up to %max_count% stacks.\nWhen at max stacks, enemies have their passives disabled for %duration% second(s). Subsequent attacks on the same broken enemy will refresh the Break duration. Attacking enemies that are in the mist while also affected by Aura Masking will instantly apply max Dissolution stacks.\nJack will also gain stacks of Treatment, which improves her healing, health regeneration, lifesteal, and spell lifesteal, based on how many Dissolution stacks the enemy currently has."
+		"DOTA_Tooltip_ability_jack_surgery_description"											"Enemies attacked by Jack will gain stacks of Dissolution. Each stack of Dissolution will reduce healing, health regeneration, lifesteal, and spell lifesteal, up to %max_count% stacks.\nWhen at max stacks, enemies have their passives disabled for %duration% second(s). Subsequent attacks on the same broken enemy will refresh the Break duration. Attacking enemies that are in the mist while also affected by Aura Masking will instantly apply max Dissolution stacks.\nJack will also gain stacks of Treatment, which improves her own healing, health regeneration, lifesteal, and spell lifesteal, based on how many Dissolution stacks the enemy currently has."
 		"DOTA_Tooltip_ability_jack_surgery_Lore"												"A blood-stained scalpel can be used to heal the Master as well as herself. Jack the Ripper's victims are killed in a way that requires anatomical knowledge, such as removal of specific organs."
 		"DOTA_Tooltip_ability_jack_surgery_duration"											"DURATION:"
-		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%HEAL REDUCTION PER STACK:"
-		"DOTA_Tooltip_ability_jack_surgery_regen_down"											"%HP REGEN REDUCTION PER STACK:"
-		"DOTA_Tooltip_ability_jack_surgery_attack_lifesteal_down"								"%LIFESTEAL REDUCTION PER STACK:"
-		"DOTA_Tooltip_ability_jack_surgery_spell_lifesteal_down"								"%SPELL LIFESTEAL REDUCTION PER STACK:"
+		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%HEALTH RESTORATION REDUCTION PER STACK:"
+		// "DOTA_Tooltip_ability_jack_surgery_regen_down"											"%HP REGEN REDUCTION PER STACK:"
+		// "DOTA_Tooltip_ability_jack_surgery_attack_lifesteal_down"								"%LIFESTEAL REDUCTION PER STACK:"
+		// "DOTA_Tooltip_ability_jack_surgery_spell_lifesteal_down"								"%SPELL LIFESTEAL REDUCTION PER STACK:"
 
 		"DOTA_Tooltip_ability_jack_the_mist"													"Dark Fog City"
 		"DOTA_Tooltip_ability_jack_the_mist_description"										"Immediately turns day into night and instantly surround Jack in the mist. Enemies in the mist will be subject to the same effect as the mist in Misty Night Murder."
@@ -474,7 +706,7 @@
 		"DOTA_Tooltip_ability_jack_maria_the_ripper_stun_duration"								"STUN DURATION:"
 		"DOTA_Tooltip_ability_jack_maria_the_ripper_attacktimes_count"							"ATTACKS PER DISSOLUTION STACK:"
 
-		"DOTA_Tooltip_Ability_special_bonus_unique_jack_1"										"+{s:bonus_heal_down}% Dissolution Effect per Stack"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_1"										"+{s:bonus_heal_down}% Dissolution Reduction Per Stack"
 		"DOTA_Tooltip_Ability_special_bonus_unique_jack_2"										"+{s:bonus_radius} Misty Night Murder Radius"
 		"DOTA_Tooltip_Ability_special_bonus_unique_jack_3"										"+{s:bonus_dmg_add_agility} Aura Masking Agi Mult"
 		"DOTA_Tooltip_Ability_special_bonus_unique_jack_4"										"-{s:bonus_invision_time}s Aura Masking Fade Time"
@@ -501,83 +733,51 @@
 		"npc_dota_hero_meepo"					"Miku"
 		"npc_dota_hero_meepo_npedesc1"		"Hatsune Miku Princess"
 		"DOTA_Tooltip_ability_get_down" "GET DOWN!!!"
-        "DOTA_Tooltip_ability_get_down_Description" "Miku dances, attacking each enemy around her every second for the duration of the dance. These attacks have True Strike, deal bonus magical damage, but do not pierce Debuff Immunity."
-        "DOTA_Tooltip_ability_get_down_dance_radius" "RADIUS:"
-        "DOTA_Tooltip_ability_get_down_dance_damage" "BONUS MAGIC DAMAGE PER HIT:"
+		"DOTA_Tooltip_ability_get_down_Description" "Miku dances, attacking each enemy around her every second for the duration of the dance. These attacks have True Strike, deal bonus magical damage, but do not pierce Debuff Immunity."
+		"DOTA_Tooltip_ability_get_down_dance_radius" "RADIUS:"
+		"DOTA_Tooltip_ability_get_down_dance_damage" "BONUS MAGIC DAMAGE PER HIT:"
 		"DOTA_Tooltip_ability_get_down_Lore"  "Is this enough?"
 		"DOTA_Tooltip_ability_get_down_scepter_description"    "Miku uses a secret dance, attacking each enemy around her every second for the duration of the dance. Attacks deal bonus magic damage per hit. These attacks have True Strike, but do not pierce Debuff Immunity."
-        "DOTA_Tooltip_ability_chibi_hit" "CHIBI STRIKE"
-        "DOTA_Tooltip_ability_chibi_hit_Description" "Performs a devastating blow to the target enemy, dealing colossal damage and stunning them."
-        "DOTA_Tooltip_ability_chibi_hit_AbilityDamage" "DAMAGE:"
-        "DOTA_Tooltip_ability_chibi_hit_stun_duration" "STUN DURATION:"
-        "DOTA_Tooltip_ability_chibi_monster" "Chibi Miku"
-        "DOTA_Tooltip_ability_chibi_monster_Description" "Miku transforms into a large Chibi version of herself, gaining additional stats as well as a new ability, Chibi Strike.<br>Increases the damage of <font color='#FFFFFF'>Popipo</font>.<br/><font color='#FFFFFF'>Liu-kick</font> can now stun enemy units."
-        "DOTA_Tooltip_ability_chibi_monster_damage" "BONUS DAMAGE:"
-        "DOTA_Tooltip_ability_chibi_monster_agility" "BONUS AGILITY:"
-        "DOTA_Tooltip_ability_chibi_monster_hp" "BONUS HEALTH:"
-        "DOTA_Tooltip_ability_chibi_monster_fixed_duration" "DURATION:"
-        "DOTA_Tooltip_ability_miku_dance" "Dancing"
-        "DOTA_Tooltip_ability_miku_dance_Description" "Miku begins to sing and dance, inflicting basic attacks around her that deal bonus magic damage to all enemies, and stunning them for %stun_duration% second at intervals of %attack_interval% seconds.<br/>Miku takes significantly less damage while dancing."
-        "DOTA_Tooltip_ability_miku_dance_dance_radius" "RADIUS:"
-        "DOTA_Tooltip_ability_miku_dance_dance_damage" "INTERVAL DAMAGE:"
-        "DOTA_Tooltip_ability_miku_dance_damage_reduction" "%INCOMING DAMAGE REDUCTION:"
-        "DOTA_Tooltip_ability_liu_kick" "Liu-kick"
-        "DOTA_Tooltip_ability_liu_kick_Description" "Miku leaps from her feet to the target enemy. Any enemies in a %radius% radius suffer magical damage, knockback, stun and an instant attack from Miku. This attack has True Strike and can proc attack modifiers."
-        "DOTA_Tooltip_ability_liu_kick_damage" "DAMAGE:"
-        "DOTA_Tooltip_ability_liu_kick_range" "CAST RANGE:"
-        "DOTA_Tooltip_ability_liu_kick_stun_duration" "STUN DURATION (CHIBI):"
+		"DOTA_Tooltip_ability_chibi_hit" "CHIBI STRIKE"
+		"DOTA_Tooltip_ability_chibi_hit_Description" "Performs a devastating blow to the target enemy, dealing colossal damage and stunning them."
+		"DOTA_Tooltip_ability_chibi_hit_AbilityDamage" "DAMAGE:"
+		"DOTA_Tooltip_ability_chibi_hit_stun_duration" "STUN DURATION:"
+		"DOTA_Tooltip_ability_chibi_monster" "Chibi Miku"
+		"DOTA_Tooltip_ability_chibi_monster_Description" "Miku transforms into a large Chibi version of herself, gaining additional stats as well as a new ability, Chibi Strike.<br>Increases the damage of <font color='#FFFFFF'>Popipo</font>.<br/><font color='#FFFFFF'>Liu-kick</font> can now stun enemy units."
+		"DOTA_Tooltip_ability_chibi_monster_damage" "BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_chibi_monster_agility" "BONUS AGILITY:"
+		"DOTA_Tooltip_ability_chibi_monster_hp" "BONUS HEALTH:"
+		"DOTA_Tooltip_ability_chibi_monster_fixed_duration" "DURATION:"
+		"DOTA_Tooltip_ability_miku_dance" "Dancing"
+		"DOTA_Tooltip_ability_miku_dance_Description" "Miku begins to sing and dance, inflicting basic attacks around her that deal bonus magic damage to all enemies, and stunning them for %stun_duration% second at intervals of %attack_interval% seconds.<br/>Miku takes significantly less damage while dancing."
+		"DOTA_Tooltip_ability_miku_dance_dance_radius" "RADIUS:"
+		"DOTA_Tooltip_ability_miku_dance_dance_damage" "INTERVAL DAMAGE:"
+		"DOTA_Tooltip_ability_miku_dance_damage_reduction" "%INCOMING DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_liu_kick" "Liu-kick"
+		"DOTA_Tooltip_ability_liu_kick_Description" "Miku leaps from her feet to the target enemy. Any enemies in a %radius% radius suffer magical damage, knockback, stun and an instant attack from Miku. This attack has True Strike and can proc attack modifiers."
+		"DOTA_Tooltip_ability_liu_kick_damage" "DAMAGE:"
+		"DOTA_Tooltip_ability_liu_kick_range" "CAST RANGE:"
+		"DOTA_Tooltip_ability_liu_kick_stun_duration" "STUN DURATION (CHIBI):"
 		"DOTA_Tooltip_ability_liu_kick_Lore" "Miku~miku~Kick! Who would reject her exquisite and fragrant foot!? -- It was a hentai named BM's last word before he got one-shotted by Liu-kick."
-        "DOTA_Tooltip_ability_pantsushot" "Pantsu Shot"
-        "DOTA_Tooltip_ability_pantsushot_Description" "Miku passively has a chance to inflict a crushing kick from a 720 degree roundabout, dealing critical damage and mini-stunning the enemy."
-        "DOTA_Tooltip_ability_pantsushot_crit_chance" "%CHANCE:"
-        "DOTA_Tooltip_ability_pantsushot_crit_bonus" "%CRITICAL DAMAGE:"
-        "DOTA_Tooltip_ability_pantsushot_stun_duration" "STUN DURATION:"
+		"DOTA_Tooltip_ability_pantsushot" "Pantsu Shot"
+		"DOTA_Tooltip_ability_pantsushot_Description" "Miku passively has a chance to inflict a crushing kick from a 720 degree roundabout, dealing critical damage and mini-stunning the enemy."
+		"DOTA_Tooltip_ability_pantsushot_crit_chance" "%CHANCE:"
+		"DOTA_Tooltip_ability_pantsushot_crit_bonus" "%CRITICAL DAMAGE:"
+		"DOTA_Tooltip_ability_pantsushot_stun_duration" "STUN DURATION:"
 		"DOTA_Tooltip_ability_pantsushot_Lore" "Nyanyanyanyanyanyanya!"
-        "DOTA_Tooltip_ability_miku_hadouken" "Popipo"
-        "DOTA_Tooltip_ability_miku_hadouken_Description" "Miku launches a wave of music in the specified direction, damaging all enemies in its path."
-        "DOTA_Tooltip_ability_miku_hadouken_damage" "DAMAGE:"
-        "DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "DAMAGE (CHIBI):"
+		"DOTA_Tooltip_ability_miku_hadouken" "Popipo"
+		"DOTA_Tooltip_ability_miku_hadouken_Description" "Miku launches a wave of music in the specified direction, damaging all enemies in its path."
+		"DOTA_Tooltip_ability_miku_hadouken_damage" "DAMAGE:"
+		"DOTA_Tooltip_ability_miku_hadouken_damage_calne"   "DAMAGE (CHIBI):"
 		"DOTA_Tooltip_ability_miku_hadouken_Lore"           "Rich and fragrant vegetable juice! Fragrant and soft vegetable juice!"
 		"DOTA_Tooltip_modifier_chibi_monster"				"Chibi Miku!!!"
 		"DOTA_Tooltip_modifier_chibi_monster_description"	"Transformed into a chibi version of yourself! Gaining %dMODIFIER_PROPERTY_HEALTH_BONUS% bonus health, %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility, and %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage. Some of your abilities have also been improved."
 		"DOTA_Tooltip_ability_special_bonus_unique_miku_101" "-{s:bonus_AbilityCooldown}s Popipo Cooldown"
 		"DOTA_Tooltip_ability_special_bonus_unique_miku_201" "+{s:bonus_crit_bonus}% Pantsu Shot Critical Damage"
-        "DOTA_Tooltip_ability_special_bonus_unique_miku_301" "-{s:bonus_AbilityCooldown}s Liu-kick Cooldown"
-        "DOTA_Tooltip_ability_special_bonus_unique_miku_302" "+{s:bonus_AbilityCastRange} Liu-kick Cast Range"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_301" "-{s:bonus_AbilityCooldown}s Liu-kick Cooldown"
+		"DOTA_Tooltip_ability_special_bonus_unique_miku_302" "+{s:bonus_AbilityCastRange} Liu-kick Cast Range"
 
 		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"Popipo stuns enemies for %shard_stun% second(s)."
-
-        // 美杜莎
-		"DOTA_Tooltip_ability_medusa_cold_blooded_Description"			        "When Medusa is targeted with a spell, a single-target Mystic Snake is sent back towards the enemy. Cooldown: 10s."
-
-		// 谜团
-		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"					"Black Hole deals additional damage equivalent to 3%% of the unit's Max Health per second."
-
-        // 全能骑士
-		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"Increases the target's movement speed and health regeneration, and grants flying movement, allowing them to move over any terrain."
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_Note0"			"Angelic Flight does not grant targets the ability to path over some player-made obstacles, such as Kinetic Field/Fence and Arena of Blood."
-        "DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"				"'Forward without fear, my friends!'"
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"			"DURATION:"
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"		"%MOVEMENT SPEED:"
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"HEALTH REGENERATION:"
-		"DOTA_Tooltip_modifier_omninight_angelic_flight"					"Angelic Flight"
-		"DOTA_Tooltip_modifier_omninight_angelic_flight_description"		"Gaining flying movement, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed."
-
-		// 混沌骑士
-		"DOTA_Tooltip_ability_chaos_knight_chaos_bolt_shard_description" 						"Increases the cast range to %AbilityCastRange%."
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"Army of Chaos"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"Summons other Chaos Knights from other dimensions to Chaos Knight's side and fight with alongside him as a part of his being. Whenever Chaos Knight attacks, the other Chaos Knights will also deliver their own attacks on the target. The additional Chaos Knights' attacks have a short cooldown before they can strike again."
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"With the Chaos Knight's rich combat experience in various worlds, his very being brings enough strength to suppress anyone who dares to oppose him. And any copies of him."
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_duration"								"DURATION:"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"EXTRA ATTACKS:"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"EXTRA ATTACKS COOLDOWN:"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"Increases the number of extra attacks and reduces the cooldown between the extra attacks."
-
-		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"Army of Chaos"
-		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"Multiple shadow clones are imbued within you! They will attack when you do with a cooldown."
-
-		// "DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"				"Increases the number of extra attacks and reduces the cooldown between the extra attacks."
 
 		// Saber
 		"npc_dota_hero_broodmother"						"Artoria Pendragon"
@@ -759,122 +959,60 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_yukari_tentacles_damage"	"+{s:bonus_damage_per_second} Tentacles Portal Damage Per Second"
 		"DOTA_Tooltip_ability_special_bonus_unique_thdots_yukari04_stun"		"+{s:bonus_stun_duration}s Deep Danmaku Barrier -Transient Dreams- Stun"
 		"npc_dota_hero_phantom_lancer"	"Yukari Yakumo"
-        "DOTA_Tooltip_ability_yukari_dark" "Darkness Falls"
-        "DOTA_Tooltip_ability_yukari_dark_Description" "Creates a dimensional rift in the air. Huge cross will wall at the selected area, dealing damage to all enemies"
-        "DOTA_Tooltip_ability_yukari_dark_damage" "DAMAGE:"
-        "DOTA_Tooltip_ability_yukari_dark_delay" "DELAY:"
-        "DOTA_Tooltip_ability_yukari_portal_hand" "Yukari's Special: Hand From Abyss"
-        "DOTA_Tooltip_ability_yukari_portal_hand_Description" "Creates a portal near from target that summons huge hand that crush selected target. Target will be stunned while hand exists."
-        "DOTA_Tooltip_ability_yukari_portal_hand_stun_duration" "DURATION:"
-        "DOTA_Tooltip_ability_yukari_portal_hand_interval" "INTERVAL:"
-        "DOTA_Tooltip_ability_yukari_portal_hand_damage" "DAMAGE PER INTERVAL:"
-        "DOTA_Tooltip_ability_yukari_mass_tp" "Moon Portal"
-        "DOTA_Tooltip_ability_yukari_mass_tp_Description" "After cast, all enemies around Yukari will be imprisoned in a dark portal, and then take magical damage."
-        "DOTA_Tooltip_ability_yukari_mass_tp_damage" "DAMAGE:"
-        "DOTA_Tooltip_ability_yukari_mass_tp_silence_duration" "IMPRISONMENT DURATION:"
-        "DOTA_Tooltip_ability_yukari_mass_tp_scepter_Description" "Adds a new ability: Moon Portal, which instantly puts all enemies around Yukari into a portal, damaging them."
-        "DOTA_Tooltip_ability_yukari_moon_portal" "Evil Spirits Yukari Yakumo's Spiriting Away"
-        "DOTA_Tooltip_ability_yukari_moon_portal_Description" "Imprisons a unit in the gap, banishing them, rending them invulnerable, untargetable, and unable to act. When the unit is banished, the spell may be used again to select the location upon where they will emerge from when the imprisonment ends. If no location was chosen, the target will appear where it originally was banished from. When the spell is cast on Yukari herself, she can cast her other spells while banished and choose the landing location anywhere on map. Otherwise, the landing location is limited by the cast range of the spell and Yukari will be leashed while the unit is banished, preventing her from using other blinks or teleports."
-        "DOTA_Tooltip_ability_yukari_moon_portal_damage" "DAMAGE:"
-        "DOTA_Tooltip_ability_yukari_moon_portal_lift_duration" "BANISH DURATION:"
-        "DOTA_Tooltip_ability_yukari_tentacles" "Tentacle Portal"
-        "DOTA_Tooltip_ability_yukari_tentacles_Description" "Opens a portal filled with dire tentacles in the target area, dealing damage over time, slowing movement speed, and reducing vision to a consistent 600."
-        "DOTA_Tooltip_ability_yukari_tentacles_damage_per_second" "DAMAGE PER SECOND:"
-        "DOTA_Tooltip_ability_yukari_tentacles_intelligence_per_second"	"BONUS DAMAGE PER INT:"
-        "DOTA_Tooltip_ability_yukari_tentacles_duration" "DURATION:"
-        "DOTA_Tooltip_ability_yukari_tentacles_root"	"%MOVEMENT SPEED SLOW:"
+		"DOTA_Tooltip_ability_yukari_dark" "Darkness Falls"
+		"DOTA_Tooltip_ability_yukari_dark_Description" "Creates a dimensional rift in the air. Huge cross will wall at the selected area, dealing damage to all enemies"
+		"DOTA_Tooltip_ability_yukari_dark_damage" "DAMAGE:"
+		"DOTA_Tooltip_ability_yukari_dark_delay" "DELAY:"
+		"DOTA_Tooltip_ability_yukari_portal_hand" "Yukari's Special: Hand From Abyss"
+		"DOTA_Tooltip_ability_yukari_portal_hand_Description" "Creates a portal near from target that summons huge hand that crush selected target. Target will be stunned while hand exists."
+		"DOTA_Tooltip_ability_yukari_portal_hand_stun_duration" "DURATION:"
+		"DOTA_Tooltip_ability_yukari_portal_hand_interval" "INTERVAL:"
+		"DOTA_Tooltip_ability_yukari_portal_hand_damage" "DAMAGE PER INTERVAL:"
+		"DOTA_Tooltip_ability_yukari_mass_tp" "Moon Portal"
+		"DOTA_Tooltip_ability_yukari_mass_tp_Description" "After cast, all enemies around Yukari will be imprisoned in a dark portal, and then take magical damage."
+		"DOTA_Tooltip_ability_yukari_mass_tp_damage" "DAMAGE:"
+		"DOTA_Tooltip_ability_yukari_mass_tp_silence_duration" "IMPRISONMENT DURATION:"
+		"DOTA_Tooltip_ability_yukari_mass_tp_scepter_Description" "Adds a new ability: Moon Portal, which instantly puts all enemies around Yukari into a portal, damaging them."
+		"DOTA_Tooltip_ability_yukari_moon_portal" "Evil Spirits Yukari Yakumo's Spiriting Away"
+		"DOTA_Tooltip_ability_yukari_moon_portal_Description" "Imprisons a unit in the gap, banishing them, rending them invulnerable, untargetable, and unable to act. When the unit is banished, the spell may be used again to select the location upon where they will emerge from when the imprisonment ends. If no location was chosen, the target will appear where it originally was banished from. When the spell is cast on Yukari herself, she can cast her other spells while banished and choose the landing location anywhere on map. Otherwise, the landing location is limited by the cast range of the spell and Yukari will be leashed while the unit is banished, preventing her from using other blinks or teleports."
+		"DOTA_Tooltip_ability_yukari_moon_portal_damage" "DAMAGE:"
+		"DOTA_Tooltip_ability_yukari_moon_portal_lift_duration" "BANISH DURATION:"
+		"DOTA_Tooltip_ability_yukari_tentacles" "Tentacle Portal"
+		"DOTA_Tooltip_ability_yukari_tentacles_Description" "Opens a portal filled with dire tentacles in the target area, dealing damage over time, slowing movement speed, and reducing vision to a consistent 600."
+		"DOTA_Tooltip_ability_yukari_tentacles_damage_per_second" "DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_yukari_tentacles_intelligence_per_second"	"BONUS DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_yukari_tentacles_duration" "DURATION:"
+		"DOTA_Tooltip_ability_yukari_tentacles_root"	"%MOVEMENT SPEED SLOW:"
 
-        "DOTA_Tooltip_ability_yukari_morph"							"Moon Phase"
-        "DOTA_Tooltip_ability_yukari_morph_Description" 			"Uses her hidden potential to unleash true power."
+		"DOTA_Tooltip_ability_yukari_morph"							"Moon Phase"
+		"DOTA_Tooltip_ability_yukari_morph_Description" 			"Uses her hidden potential to unleash true power."
 		"DOTA_Tooltip_ability_yukari_morph_amp"					"%SPELL AMP:"
-        "DOTA_Tooltip_ability_yukari_morph_bonus_movespeed"						"MOVEMENT SPEED:"
-        "DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"DURATION:"
+		"DOTA_Tooltip_ability_yukari_morph_bonus_movespeed"						"MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"DURATION:"
 		"DOTA_Tooltip_modifier_yukari_morph"						"Moon Phase"
 		"DOTA_Tooltip_modifier_yukari_morph_real"					"Moon Phase"
 
-        "DOTA_Tooltip_ability_yukari_train" "Yukari's special: Train"
-        "DOTA_Tooltip_ability_yukari_train_Description" "Summons the train from portal that rides to selected direction. Deals enormous damage to all enemies in the train cars collide."
-        "DOTA_Tooltip_ability_yukari_train_AbilityDamage" "DAMAGE:"
-        "DOTA_Tooltip_ability_yukari_train_Lore" "I like trains."
-        "DOTA_Tooltip_ability_yukari_twin_trains" "Yukari's Special: Double Train"
-        "DOTA_Tooltip_ability_yukari_twin_trains_Description" "Generates one portal, and releases it again within 4 seconds to generate a second portal. Each entrance spawns a train which speeds towards the other. The trains deals massive damage and stun enemies in their path. When the trains collide, they will create a massive explosion that deals additional damage and stuns enemies caught in their wake."
-        "DOTA_Tooltip_ability_yukari_twin_trains_AbilityDamage" "DAMAGE:"
-        "DOTA_Tooltip_ability_yukari_twin_trains_Lore" "What can be better that one train? TWO trains!"
-        "DOTA_Tooltip_ability_ability_yukari_01"	"Aerial Bait Hyperactive High Speed Flying Object"
-        "DOTA_Tooltip_ability_ability_yukari_01_Description"	"Fires an array of damaging projectiles in a spread towards the designated direction. Enemies hit take damage, as well as extra damage based on Yukari's intelligence, and are stunned. The same enemy can be hit multiple times, however subsequent hits deal significantly reduced damage to the same target."
-        "DOTA_Tooltip_ability_ability_yukari_01_damage"	"DAMAGE:"
+		"DOTA_Tooltip_ability_yukari_train" "Yukari's special: Train"
+		"DOTA_Tooltip_ability_yukari_train_Description" "Summons the train from portal that rides to selected direction. Deals enormous damage to all enemies in the train cars collide."
+		"DOTA_Tooltip_ability_yukari_train_AbilityDamage" "DAMAGE:"
+		"DOTA_Tooltip_ability_yukari_train_Lore" "I like trains."
+		"DOTA_Tooltip_ability_yukari_twin_trains" "Yukari's Special: Double Train"
+		"DOTA_Tooltip_ability_yukari_twin_trains_Description" "Generates one portal, and releases it again within 4 seconds to generate a second portal. Each entrance spawns a train which speeds towards the other. The trains deals massive damage and stun enemies in their path. When the trains collide, they will create a massive explosion that deals additional damage and stuns enemies caught in their wake."
+		"DOTA_Tooltip_ability_yukari_twin_trains_AbilityDamage" "DAMAGE:"
+		"DOTA_Tooltip_ability_yukari_twin_trains_Lore" "What can be better that one train? TWO trains!"
+		"DOTA_Tooltip_ability_ability_yukari_01"	"Aerial Bait Hyperactive High Speed Flying Object"
+		"DOTA_Tooltip_ability_ability_yukari_01_Description"	"Fires an array of damaging projectiles in a spread towards the designated direction. Enemies hit take damage, as well as extra damage based on Yukari's intelligence, and are stunned. The same enemy can be hit multiple times, however subsequent hits deal significantly reduced damage to the same target."
+		"DOTA_Tooltip_ability_ability_yukari_01_damage"	"DAMAGE:"
 		"DOTA_Tooltip_ability_ability_yukari_01_stun_duration"	"STUN DURATION:"
-        "DOTA_Tooltip_ability_ability_yukari_01_damage_add"	"BONUS DAMAGE PER INT:"
-        "DOTA_Tooltip_ability_ability_yukari_01_factor"		"REPEAT HIT FACTOR:"
-        "DOTA_Tooltip_ability_ability_yukari_01_speed"  "SPEED:"
-        "DOTA_Tooltip_ability_ability_thdots_yukari04"	"Deep Danmaku Barrier -Transient Dreams-"
-        "DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"A large teleportation enchantment is channeled at any targeted location across the map. Yukari will be teleported to the target location after channeling. The longer the channeling time, the greater the damage upon arrival. The maximum channel time is 4 seconds, and the radius of the enchantment is 750. No matter how long the channel is and even if interrupted, as soon as the channel ends, Yukari will be teleported to the target location. \nWhile channeling, several magical barrages are scattered at the target location, damaging surrounding enemy units. The teleportation generates spatial shock, inflicting up to %int_bonus% * Yukari's intelligence as magical damage to all enemy units within %wanbaochui_radius% radius and stunning them for %stun_duration% seconds."
-        "DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"BARRAGE RADIUS:"
-        "DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"BARRAGE DAMAGE PER INTERVAL:"
-        "DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"INTERVAL:"
-        "DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"Add a new skill:「Deep Danmaku Barrier -Transient Dreams-」"
-	    // 修补匠 刷新
-	    "DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"A new battery here, another set of rockets there, Boush continually improves on existing technology."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Refresher Orb, (including upgrades like Black King Bar Upgrade, Aeon Pendant, Linken's Sphere Upgrade, Armor of Insight, Hand of Team, etc.) and any items in the neutral slot, regardless of what they are."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"										"If Rubick Spell Steals Rearm, he cannot Rearm other heroes' ultimates."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"TIME TO REARM:"
-
-        // 电棍 razor
-        "DOTA_Tooltip_ability_special_bonus_unique_razor_101"   "+{s:bonus_radius} Plasma Field Radius"
-        "DOTA_Tooltip_ability_special_bonus_unique_razor_401"   "+{s:bonus_duration}s Eye of the Storm Duration"
-        "DOTA_Tooltip_ability_special_bonus_unique_razor_402"   "+{s:bonus_damage} Eye of the Storm Damage"
-
-        // 火女 lina
-		"DOTA_Tooltip_ability_special_bonus_unique_lina_dragon_slave_damage"	"+{s:bonus_dragon_slave_damage} Dragon Slave Damage"
-
-        // 幽鬼 spe
-        "DOTA_Tooltip_ability_spectre_desolate_Description"		"Deals bonus pure damage whenever Spectre attacks an enemy."
-        "DOTA_Tooltip_ability_spectre_desolate_radius"						""
-        "DOTA_Tooltip_ability_spectre_ursa_enrage"												"Intangible Shadow"
-        "DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"											"At this moment, Spectre jumped out of the Three Realms and was not in the Five Elements."
-        "DOTA_Tooltip_ability_spectre_ursa_enrage_Description"									"Spectre reverses causation, providing herself with Damage Reduction and Status Resistance. Removes any existing debuffs on her.\n\nDISPEL TYPE: Strong Dispel"
-        "DOTA_Tooltip_ability_spectre_ursa_enrage_scepter_description"							"Reduces cooldown and allows Spectre to use Intangible Shadow while disabled."
-        "DOTA_Tooltip_ability_spectre_ursa_enrage_damage_reduction"		                        "%DAMAGE REDUCTION:"
-        "DOTA_Tooltip_ability_spectre_ursa_enrage_status_resistance"		                     "%STATUS RESISTANCE:"
-        "DOTA_Tooltip_ability_spectre_ursa_enrage_duration"					                    "DURATION:"
-        "DOTA_Tooltip_ability_spectre_ursa_enrage_cooldown_scepter"					            "COOLDOWN:"
-        "DOTA_Tooltip_ability_special_bonus_unique_spectre_401"    "+{s:bonus_duration} Intangible Shadow duration"
-        "DOTA_Tooltip_modifier_spectre_ursa_enrage" "Intangible Shadow"
-        "DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"Gained %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming Damage Reduction and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% Status Resistance"
-
-        // 剧毒
-        "DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} Poison Sting Damage"
-
-        // 巫妖
-        "DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} Chain Frost Bounces"
-
-		// Alchemist 炼金术士
-		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"HEALTH BONUS:"
-
-		// 夜魔
-		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% Hunter In The Night Move Speed"
-
-		// 酒仙
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"Primal Split"
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Lore"							"It isn't clear whether Mangix is consciously aware of his potent bond with nature, as it often occurs in the midst of a drunken stupor."
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Description"					"Brewmaster is now awesome, gaining the effects of four different fighting styles."
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_shard_Description"			"Increases Primal Split duration."
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_duration"						"DURATION:"
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_bonus_move_speed"				"%Movement Speed Bonus:"
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_bonus_status_resist"			"%Status Resistance Bonus:"
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_magic_resist"					"%Magic Resistance:"
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_armor"						"<font color=\"#87ceeb\">Armor</font>:"
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_dodge_chance"					"%<font color=\"#87ceeb\">Evasion</font>:"
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_crit_chance"					"%<font color=\"#FF0000\">Critical Hit Chance</font>:"
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_crit_multiplier"				"<font color=\"#FF0000\">Critical Hit Damage</font>:"
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_attack_speed"					"<font color=\"#FF0000\">Attack Speed</font>:"
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_movespeed"					"%<font color=\"#662375\">Attack Movespeed Slow</font>:"
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_slow_duration"				"<font color=\"#662375\">Slow Duration</font>:"
-
-		"DOTA_Tooltip_modifier_brewmaster_primal_split_lua_duration"					"Primal Split"
+		"DOTA_Tooltip_ability_ability_yukari_01_damage_add"	"BONUS DAMAGE PER INT:"
+		"DOTA_Tooltip_ability_ability_yukari_01_factor"		"REPEAT HIT FACTOR:"
+		"DOTA_Tooltip_ability_ability_yukari_01_speed"  "SPEED:"
+		"DOTA_Tooltip_ability_ability_thdots_yukari04"	"Deep Danmaku Barrier -Transient Dreams-"
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"A large teleportation enchantment is channeled at any targeted location across the map. Yukari will be teleported to the target location after channeling. The longer the channeling time, the greater the damage upon arrival. The maximum channel time is 4 seconds, and the radius of the enchantment is 750. No matter how long the channel is and even if interrupted, as soon as the channel ends, Yukari will be teleported to the target location. \nWhile channeling, several magical barrages are scattered at the target location, damaging surrounding enemy units. The teleportation generates spatial shock, inflicting up to %int_bonus% * Yukari's intelligence as magical damage to all enemy units within %wanbaochui_radius% radius and stunning them for %stun_duration% seconds."
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"BARRAGE RADIUS:"
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"BARRAGE DAMAGE PER INTERVAL:"
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"INTERVAL:"
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"Add a new skill:「Deep Danmaku Barrier -Transient Dreams-」"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -885,31 +1023,31 @@
 		// item_travel_boots 飞鞋
 		"DOTA_Tooltip_Ability_item_travel_boots"				"Boots of Travel <font color='#4d4dff'>(Neutral)</font>"
 
-        // bag_of_gold
+		// bag_of_gold
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"Bag of Gold"
-        // "DOTA_Tooltip_ability_item_bag_of_season_point"			"Battle Points"
+		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"Battle Points"
 
-        // Tomes
+		// Tomes
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"Tome of Strength"
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Description"		"<h1>Use: Bulk</h1> Permanently increases your strength by %bonus%.\nShareable with teammates."
 		"DOTA_Tooltip_Ability_item_tome_of_strength_Lore"				"Is it strength that you desire...?"
 
 		"DOTA_Tooltip_modifier_str_tome"								"Strength Tomes Consumed"
-		"DOTA_Tooltip_modifier_str_tome_Description"					"Strength increased by <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
+		"DOTA_Tooltip_modifier_str_tome_Description"					"Strength increased by <font color='#FF0000'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
 		"DOTA_Tooltip_Ability_item_tome_of_agility"						"Tome of Agility"
 		"DOTA_Tooltip_Ability_item_tome_of_agility_Description"			"<h1>Use: Lighten</h1> Permanently increases your agility by %bonus%.\nShareable with teammates."
 		"DOTA_Tooltip_Ability_item_tome_of_agility_Lore"				"Is it swiftness that you seek...?"
 
 		"DOTA_Tooltip_modifier_agi_tome"								"Agility Tomes Consumed"
-		"DOTA_Tooltip_modifier_agi_tome_Description"					"Agility increased by <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
+		"DOTA_Tooltip_modifier_agi_tome_Description"					"Agility increased by <font color='#00FF00'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence"				"Tome of Intelligence"
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Description"	"<h1>Use: Learn</h1> Permanently increases your intelligence by %bonus%.\nShareable with teammates."
 		"DOTA_Tooltip_Ability_item_tome_of_intelligence_Lore"			"Is it enlightenment that you aspire to...?"
 
 		"DOTA_Tooltip_modifier_int_tome"								"Intelligence Tomes Consumed"
-		"DOTA_Tooltip_modifier_int_tome_Description"					"Intelligence increased by <font color='#49bf57'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
+		"DOTA_Tooltip_modifier_int_tome_Description"					"Intelligence increased by <font color='#0044FF'>%dMODIFIER_PROPERTY_TOOLTIP%</font>."
 
 		"DOTA_Tooltip_Ability_item_tome_of_luoshu"						"Tome of Luoshu"
 		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>Use: Luoshu</h1> Permanently grants: <br>+%bonus_all_stats% all attributes<br>+%bonus_base_damage_percent%%% Base Attack Damage<br>+%status_resistance%%% Status Resistance<br>+%spell_amp%%% Spell Amplification<br>+%bonus_cast_range% Cast Range<br>\nA hero can only use one.\nShareable with teammates."
@@ -919,7 +1057,7 @@
 		"DOTA_Tooltip_modifier_luoshu_tome"								"Tome of Luoshu"
 		"DOTA_Tooltip_modifier_luoshu_tome_Description"					"Gained a lot of bonuses from Luoshu's Tome."
 
-        // item_moon_shard_datadriven
+		// item_moon_shard_datadriven
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"Moon Shard"
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed_Description"		"Permanently granted %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed and %dMODIFIER_PROPERTY_BONUS_DAY_VISION% day and night vision."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven"								"Moon Shard"
@@ -927,9 +1065,9 @@
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"Said to be a tear from the lunar goddess Selemene."
 
-        // item_ultimate_scepter_2
+		// item_ultimate_scepter_2
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"						"Aghanim's Regalia"
-		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted all benefits from Aghanim's Regalia, including your Ultimate Upgrade as well as %dMODIFIER_PROPERTY_HEALTH_BONUS% bonus health, %dMODIFIER_PROPERTY_MANA_BONUS% bonus mana, and %dMODIFIER_PREPORTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage."
+		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted all benefits from Aghanim's Regalia, including your Ultimate Upgrade as well as %dMODIFIER_PROPERTY_HEALTH_BONUS% bonus health, %dMODIFIER_PROPERTY_MANA_BONUS% bonus mana, and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2"									"Aghanim's Regalia"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"<h1>Use: Permanently Upgrade</h1> Consume the Aghanim's Regalia to permanently gain your Ultimate Upgrade, +%bonus_health% health, +%bonus_mana% mana, and +%spell_amp%%% spell damage.\n<h1>Passive: Ultimate Upgrade</h1> Upgrades the ultimate, and some abilities, of certain heroes.\nThis item may be used on allied heroes who have not consumed this item yet."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Lore"							"The regalia of a wizard with demigod-like powers."
@@ -945,9 +1083,9 @@
 		"DOTA_Tooltip_modifier_consumable_gem_aura"						"True Sight"
 		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"Gained the ability to see invisible units and wards to any allied vision within 900 range."
 
-        // wings_of_haste
+		// wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Wings of Haste"
-		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_MOVESPEED_BONUS_UNIQUE% bonus movement speed, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration."
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE% bonus movement speed, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration."
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"Wings of Haste"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>Use: Hasten</h1> Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, %bonus_health_regen% health regeneration, and %bonus_mana_regen% mana regeneration.\nThis item may be used on allied heroes who have not consumed this item yet."
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
@@ -966,8 +1104,8 @@
 		"DOTA_Tooltip_Ability_item_pirate_hat_custom_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_Ability_item_pirate_hat_custom_Note0"							"Does not stack with other BAT reducing modifiers."
 
-        // item_blade_mail_2
-		"DOTA_Tooltip_Ability_item_blade_mail_2"	"<font color='#00FFFF'>Upgraded</font> Blade Mail"
+		// item_blade_mail_2
+		"DOTA_Tooltip_Ability_item_blade_mail_2"	"<font color='#33342F'>Upgraded</font> Blade Mail"
 		"DOTA_Tooltip_Ability_item_recipe_blade_mail_2"				"Upgraded Blade Mail Recipe"
 		"DOTA_Tooltip_ability_item_blade_mail_2_Description"						"<h1>Active: Damage Return</h1>For %duration% seconds, the damage returned from all sources is increased by %active_reflection_pct%%%.\n<h1>Passive: Damage Return</h1>Everytime you are attacked, you return %passive_reflection_constant% damage plus %passive_reflection_pct%%% of the attack damage dealt to you."
 		"DOTA_Tooltip_ability_item_blade_mail_2_Lore"								"A razor-sharp coat of mail, it is the choice of selfless martyrs in combat."
@@ -980,8 +1118,8 @@
 		"DOTA_Tooltip_modifier_item_blade_mail_2_reflect"					"Blade Mail Reflection"
 		"DOTA_Tooltip_modifier_item_blade_mail_2_reflect_Description"		"Returning damage to attacking units."
 
-        // item_radiance_2
-		"DOTA_Tooltip_Ability_item_radiance_2"				"Radiance of Light"
+		// item_radiance_2
+		"DOTA_Tooltip_Ability_item_radiance_2"				"<font color='#C84F07'>Fiery</font> Radiance"
 		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second, and causes them to miss %blind_pct%%% of their attacks. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_radiance_2_Lore"								"A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
 		"DOTA_Tooltip_ability_item_radiance_2_bonus_damage"						"+$damage"
@@ -989,15 +1127,15 @@
 		"DOTA_Tooltip_modifier_item_radiance_2_debuff"				"Burn Damage"
 		"DOTA_Tooltip_modifier_item_radiance_2_debuff_Description"	"Taking 120 damage per second, and missing %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% of attacks."
 
-        // item_aether_lens_2
-		"DOTA_Tooltip_Ability_item_aether_lens_2"				"<font color='#00FFFF'>Upgraded</font> Aether Lens"
+		// item_aether_lens_2
+		"DOTA_Tooltip_Ability_item_aether_lens_2"				"<font color='#0044FF'>Upgraded</font> Aether Lens"
 		"DOTA_Tooltip_ability_item_aether_lens_2_Description"                     "<h1>Passive: Aethereal Focus</h1> Increases targeted spell and item cast range."
 		"DOTA_Tooltip_ability_item_aether_lens_2_Note0"                           "Passive does not stack."
 		"DOTA_Tooltip_ability_item_aether_lens_2_bonus_mana"                      "+$mana"
 		"DOTA_Tooltip_ability_item_aether_lens_2_bonus_mana_regen"                "+$mana_regen"
 		"DOTA_Tooltip_ability_item_aether_lens_2_cast_range_bonus"                "+$cast_range"
 
-        // item_vladmir_2
+		// item_vladmir_2
 		"DOTA_Tooltip_ability_item_vladmir_2"								"Vladmir's Assault Cuirass"
 		"DOTA_Tooltip_ability_item_vladmir_2_Description"					"<h1>Passive: Vladmir's Assault Aura</h1>Grants %vampiric_aura%%% lifesteal, %damage_aura%%% bonus damage, %mana_regen_aura% mana regeneration, %aura_attack_speed% attack speed, and %aura_positive_armor% armor to nearby allies and structures.<br>Allied structures only gain the attack speed and armor.<br>Decreases nearby enemy unit and structure armor by %aura_negative_armor%.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_vladmir_2_Lore"							"Forged in the depths of the nether reaches, this hellish mail is imbued with the malice of a fallen vampire."
@@ -1013,15 +1151,15 @@
 		"DOTA_Tooltip_modifier_item_vladmir_2_enemy_aura"					"Vladmir's Assault Aura"
 		"DOTA_Tooltip_modifier_item_vladmir_2_enemy_aura_Description"		"Armor decreased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
-        // item_sphere_2 真林肯
-		"DOTA_Tooltip_Ability_item_sphere_2"				"<font color='#333373'>Upgraded</font> Linken's Sphere"
+		// item_sphere_2 真林肯
+		"DOTA_Tooltip_Ability_item_sphere_2"				"<font color='#82B8D2'>Upgraded</font> Linken's Sphere"
 		"DOTA_Tooltip_ability_item_sphere_2_Description"							"<h1>Passive: Spellblock</h1>Blocks most targeted spells once every %block_cooldown% seconds.\n<h1>Active: Transfer Spellblock</h1>Temporarily removes Spellblock from the item's owner and transfers it to an allied unit for %block_cooldown% seconds.<br><br>Range: %abilitycastrange%"
 		"DOTA_Tooltip_ability_item_sphere_2_Lore"									"This magical sphere once protected one of the most famous heroes in history."
 		"DOTA_Tooltip_ability_item_sphere_2_bonus_all_stats"						"+$all"
 		"DOTA_Tooltip_ability_item_sphere_2_bonus_health_regen"					"+$hp_regen"
 		"DOTA_Tooltip_ability_item_sphere_2_bonus_mana_regen"						"+$mana_regen"
 
-        // item_excalibur 咖喱棒
+		// item_excalibur 咖喱棒
 		"DOTA_Tooltip_Ability_item_excalibur"				"Excalibur"
 		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> Base Attack Damage. This item cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures.\n<h1>Passive: The Late king</h1> <font color='#e03e2e'>Excalibur has a 6% chance to drop on death.</font>"
 		"DOTA_Tooltip_Ability_item_excalibur_Note0"									"The first hero to pick up a dropped Excalibur and have it in their main inventory becomes the new owner of that Excalibur, and may upgrade it."
@@ -1029,13 +1167,13 @@
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_spell_amp"						"%+$spell_amp"
 
-        // item_quelling_blade_2_datadriven 毒瘤之刃
+		// item_quelling_blade_2_datadriven 毒瘤之刃
 		"DOTA_Tooltip_Ability_item_quelling_blade_2_datadriven"			"Toxic Blade"
 		"DOTA_Tooltip_ability_item_quelling_blade_2_datadriven_Description"					"<h1>Active: Chop Tree</h1> Destroy a target tree.\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %damage_bonus% for melee heroes, and %damage_bonus_ranged% for ranged."
 		"DOTA_Tooltip_ability_item_quelling_blade_2_datadriven_Lore"							"The Axe of the Corrupted Junglerm, it allows you to effectively... farm faster."
 		"DOTA_Tooltip_ability_item_quelling_blade_2_datadriven_Note0"						"Effects of multiple Toxic blades do not stack."
 
-        // item_undying_heart 不朽之心
+		// item_undying_heart 不朽之心
 		"DOTA_Tooltip_Ability_item_undying_heart"				"<font color='#FFFF00'>Undying Heart</font>"
 		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>Active: Draconic Recovery</font></h1>Heal %active_hp_regen% + %active_hp_regen_pct%%% of max health and applies a dispel, then receive %buff_hp_regen% + %buff_hp_regen_pct%%% max health as health regeneration for %dur% seconds afterward.<br><br>Dispel Type:<span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_undying_heart_Lore"								"The powerful heart of a dead necromancer."
@@ -1047,7 +1185,7 @@
 		"DOTA_Tooltip_ability_item_undying_heart_note0"								"Max health regens from multiple Undying Hearts do not stack."
 		"DOTA_Tooltip_modifier_item_undying_heart_buff"								"Dragonic Recovery"
 
-        // item_force_staff_2 推推2
+		// item_force_staff_2 推推2
 		"DOTA_Tooltip_Ability_item_force_staff_2"			"Wind Force Staff"
 		"DOTA_Tooltip_Ability_item_force_staff_2_Description"						"<h1>Active: Wind Force</h1>Pushes any target unit %push_length% units in the direction it is facing.<br><br>Cast Range: %abilitycastrange%"
 		"DOTA_Tooltip_Ability_item_force_staff_2_Lore"						"Allows you to manipulate others, for good or evil."
@@ -1058,8 +1196,8 @@
 		"DOTA_Tooltip_Ability_item_force_staff_2_bonus_mana_regen"					"+$mana_regen"
 		"DOTA_Tooltip_Ability_item_force_staff_2_spell_amp"			"%+$spell_amp"
 
-        // item_force_staff_3 推推3
-		"DOTA_Tooltip_Ability_item_force_staff_3"			"Golden Force Staff"
+		// item_force_staff_3 推推3
+		"DOTA_Tooltip_Ability_item_force_staff_3"			"<font color='#FFD700'>Golden Force Staff</font>"
 		"DOTA_Tooltip_Ability_item_force_staff_3_Description"						"<h1>Active: Golden Force</h1>Pushes any target unit %push_length% units in the direction it is facing.<br><br>Cast Range: %abilitycastrange%"
 		"DOTA_Tooltip_Ability_item_force_staff_3_Lore"						"Allows you to manipulate others, for good or evil."
 		"DOTA_Tooltip_Ability_item_force_staff_3_Note0"							"Self-cast will cause you to use Force on yourself."
@@ -1069,7 +1207,7 @@
 		"DOTA_Tooltip_Ability_item_force_staff_3_bonus_mana_regen"					"+$mana_regen"
 		"DOTA_Tooltip_Ability_item_force_staff_3_spell_amp"			"%+$spell_amp"
 
-        // item_insight_armor 洞察盔甲
+		// item_insight_armor 洞察盔甲
 		"DOTA_Tooltip_ability_item_insight_armor"                               "Armor of Insight"
 		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>Active: Stroke of Insight</h1>Boosts the strength of the Aura of Insight for %duration% seconds and additionally grants extra magical resistance.<br><br>Additional HP Regen: %aura_regen_buff%<br>Additional Damage Reduction: %aura_damage_reduction_buff%%%<br>Additional Magic Resistance: %aura_magical_resis_buff%%%\n<h1>Passive: Aura of Insight</h1>Gives nearby allied units %aura_regen_base% health regeneration and %aura_damage_reduction_base%%% incoming damage reduction.<br><br>Radius: %radius%"
 		"DOTA_Tooltip_ability_item_insight_armor_Lore"							"An exquisitely crafted suit of armor that bestows secret wisdom upon the wearer."
@@ -1084,7 +1222,7 @@
 		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"Greater Aura of Insight"
 		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"Gaining %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%</font> additional health regeneration, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% bonus magical resistance, and %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% additional incoming damage reduction."
 
-        // item_arcane_octarine_core 奥术之心
+		// item_arcane_octarine_core 奥术之心
 		"DOTA_Tooltip_Ability_item_arcane_octarine_core"			"Arcane Core"
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_Description"				"<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items."
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_cast_range_bonus"             "+$cast_range"
@@ -1095,7 +1233,7 @@
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_bonus_cooldown"				"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_Lore"						"At the core of spellcraft are spectrums only the very gifted can sense."
 
-        // item_aeon_pendant 咸鱼之王
+		// item_aeon_pendant 咸鱼之王
 		"DOTA_Tooltip_Ability_item_aeon_pendant"				"Aeon Pendant"
 		"DOTA_Tooltip_ability_item_aeon_pendant_Description"					"<h1>Passive: Combo Breaker</h1> When you take damage and your health falls below %health_threshold_pct%%, a strong dispel is applied and you gain a %buff_duration% second buff that provides +%status_resistance%%% Status Resistance and causes all damage you deal and are dealt to be reduced to zero. Only triggers on player based damage. Cooldown increases every time it triggers."
 		"DOTA_Tooltip_ability_item_aeon_pendant_lore"					"A powerful artifact long ago smuggled out of the Ivory Incubarium. Or so many believe."
@@ -1103,32 +1241,32 @@
 		"DOTA_Tooltip_ability_item_aeon_pendant_bonus_mana"					"+$mana"
 		"DOTA_Tooltip_ability_item_aeon_pendant_cooldown_duration"					"COOLDOWN:"
 
-        // item_monkey_king_bar_2 定海神针
-		"DOTA_Tooltip_Ability_item_monkey_king_bar_2"			"<font color='#FFCC66'>Ultra</font> Monkey King Bar"
+		// item_monkey_king_bar_2 定海神针
+		"DOTA_Tooltip_Ability_item_monkey_king_bar_2"			"<font color='#F9D60E'>Ultra</font> Monkey King Bar"
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_Description"					"<h1>Passive: Pierce</h1>Grants each attack a %bonus_chance%%% chance to pierce through evasion and deal %bonus_chance_damage% bonus magical damage."
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_Lore"					"A powerful staff used by a master warrior."
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_damage"					"+$damage"
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_attack_speed"					"+$attack"
 
-        // item_magic_scepter 紫杖
-		"DOTA_Tooltip_Ability_item_magic_scepter"								"Magic Scepter"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>Active: <font color='#a74abd'>Spell Boost</font></h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
+		// item_magic_scepter 紫杖
+		"DOTA_Tooltip_Ability_item_magic_scepter"								"<font color='#a74abd'>Magic Scepter</font>"
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>Active: Spell Boost</h1> Imbues the wielder with enhanced magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
 		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, though mildly deteriorated."
 		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_magic_scepter"						"Magic Scepter Recipe"
 
 		"DOTA_Tooltip_modifier_item_magic_scepter_active"	                	"Spell Boost"
-		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"	        "Gaining <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification"
+		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"	        "Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% Spell Amplification"
 
 		// item_hallowed_scepter 大紫杖
-		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"Hallowed Scepter"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>Active: <font color='#a74abd'>Hallowed Spell Boost</font></h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"<font color='#a74abd'>Hallowed Scepter</font>"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>Active: <font color='#a74abd'>Hallowed Spell Boost</h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
 		"DOTA_Tooltip_Ability_item_recipe_hallowed_scepter"						"Hallowed Scepter Recipe"
 
 		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"	                "Hallowed Spell Boost"
-		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"	    "Gaining <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification"
+		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"	    "Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% Spell Amplification"
 
 		// item_dragon_lance_plus 魔龙枪plus
 		// "DOTA_Tooltip_Ability_item_dragon_lance_plus"							"Dragon Lance Plus"
@@ -1153,8 +1291,8 @@
 		// "DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active"	             "Quick Draw"
 		// "DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active_Description"	 "Granting <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
 
-        // item_hurricane_pike_2 黄金魔龙枪
-		"DOTA_Tooltip_Ability_item_hurricane_pike_2"			"Golden Hurricane Pike"
+		// item_hurricane_pike_2 黄金魔龙枪
+		"DOTA_Tooltip_Ability_item_hurricane_pike_2"			"<font color='#FFD700'>Golden Hurricane Pike</font>"
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Description"                    "<h1>Active: Hurricane Thrust</h1> Pushes you and target enemy %enemy_length% units away from each other, and for %range_duration% seconds, allows you to make %max_attacks% attacks against the target without range restrictions and with +%bonus_attack_speed% attack speed.<br><br>Works like Force Staff when used on self or allies.<br><br>Allied Range: %abilitycastrange%<br>Enemy Range: %cast_range_enemy%\n<h1>Passive: Dragon's Reach</h1> Increases attack range of ranged heroes by %base_attack_range%."
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Lore"                           "A legendary pike once held as royal sigil of the ancient wyvern riders."
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2_Note0"                          "Self-cast will use Golden Hurricane Pike on yourself."
@@ -1173,8 +1311,8 @@
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range"			"Golden Hurricane Pike Range"
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range_Description"	"Can attack the target without range restrictions."
 
-        // item_skadi_2 冰眼2
-		"DOTA_Tooltip_Ability_item_skadi_2"				"<font color='#'>Upgraded</font> Eye of Skadi"
+		// item_skadi_2 冰眼2
+		"DOTA_Tooltip_Ability_item_skadi_2"				"<font color='#B1AEA5'>Upgraded</font> Eye of Skadi"
 		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>Passive: Cold Attack</h1> Attacks lower enemy movement by %cold_slow_melee%%% if they are melee and %cold_slow_ranged%%% if they are ranged, as well as their attack speed by %cold_attack_slow_melee%%% if they are melee and %cold_attack_slow_ranged%%% if they are ranged. Additionally it reduces all healing, lifesteal and regen by %heal_reduction%%% Lasts for %cold_duration% seconds."
 		"DOTA_Tooltip_ability_item_skadi_2_Lore"									"Extremely rare artifact, guarded by the azure dragons."
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_all_stats"						"+$all"
@@ -1182,7 +1320,7 @@
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_mana"							"+$mana"
 
 		// item_echo_sabre_2 回音刀2
-		"DOTA_Tooltip_Ability_item_echo_sabre_2"				"<font color='#A0DEDE'>Upgraded</font> Echo Sabre"
+		"DOTA_Tooltip_Ability_item_echo_sabre_2"				"<font color='#67188B'>Upgraded</font> Echo Sabre"
 		"DOTA_Tooltip_Ability_item_echo_sabre_2_Description"			        "<h1>Passive: Echo Strike</h1> Causes melee attacks to attack twice in quick succession. The double attacks apply a %movement_slow%%% movement slow for %slow_duration% seconds on each strike."
 		"DOTA_Tooltip_Ability_item_echo_sabre_2_Lore"			                "A deceptively swift blade imbued with resonant magic."
 		"DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_strength"                "+$str"
@@ -1203,7 +1341,7 @@
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"					"+$hp_regen"
 
 		//  veil_of_discord_2 纷争2
-		"DOTA_Tooltip_Ability_item_veil_of_discord_2"				"<font color='#D788B4'>Upgraded</font> Veil of Discord"
+		"DOTA_Tooltip_Ability_item_veil_of_discord_2"				"<font color='#941852'>Upgraded</font> Veil of Discord"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>Active: Magic Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes to take %spell_amp%%% increased damage from spells.<br><br>Duration: %resist_debuff_duration% seconds."
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"The headwear of corrupt magi."
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_all_stats"			"+$all"
@@ -1214,8 +1352,8 @@
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"Spell damage taken increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 
 		// item_manta_1 分身2
-		"DOTA_Tooltip_Ability_item_manta_1"										"Manta Style Upgrade"
-		"DOTA_Tooltip_Ability_item_recipe_manta_1"								"Manta Style Upgrade Recipe"
+		"DOTA_Tooltip_Ability_item_manta_1"										"<font color='#DFCAFB'>Upgraded</font> Manta Style"
+		"DOTA_Tooltip_Ability_item_recipe_manta_1"								"Upgraded Manta Style Recipe"
 		"DOTA_Tooltip_ability_item_manta_1_Description"							"<h1>Active: Mirror Image</h1>Creates %images_count% images of your hero that last %tooltip_illusion_duration% seconds. <br><br>Melee images deal %tooltip_damage_outgoing_melee%%% damage, while Ranged images deal %tooltip_damage_outgoing_ranged%%%. Illusions take %tooltip_damage_incoming_total_pct%%% damage. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_manta_1_Lore"									"Manta Style Upgrade"
 		"DOTA_Tooltip_ability_item_manta_1_Note0"									"Has a %invuln_duration% second cast time during which you are invulnerable."
@@ -1237,8 +1375,8 @@
 		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk"	"Shadow Walk"
 		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk_Description"	"Invisible. Movement speed is increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and you can move through units. Attacking to break invisibility will deal %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT% bonus damage, slow the target and disable their passives."
 
-        // item_black_king_bar_2 黑皇杖2
-		"DOTA_Tooltip_Ability_item_black_king_bar_2"			"<font color='#E6B400'>Upgraded</font> Black King Bar"
+		// item_black_king_bar_2 黑皇杖2
+		"DOTA_Tooltip_Ability_item_black_king_bar_2"			"<font color='#C59C0C'>Upgraded</font> Black King Bar"
 		"DOTA_Tooltip_Ability_item_recipe_black_king_bar"			"Upgraded Black King Bar Recipe"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>Active: Upgraded Avatar</h1> Applies a basic dispel. Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect. <br><br>Duration: %duration% <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Lore"							"A powerful staff imbued with the strength of giants."
@@ -1249,14 +1387,14 @@
 
 		// item_dodo_desolator 黯灭头
 		"DOTA_Tooltip_Ability_item_dodo_desolator"				"Dodo Desolator"
-		"DOTA_Tooltip_ability_item_dodo_desolator_Description"						"<h1>Passive: Super Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds.\n<h1>Passive: Soul Stealer</h1> Desolator gains +%bonus_damage_per_kill% damage every time an enemy hero dies while affected by Corruption, to a maximum of %max_damage%."
+		"DOTA_Tooltip_ability_item_dodo_desolator_Description"						"<h1>Passive: Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds.\n<h1>Passive: Soul Stealer</h1> Desolator gains +%bonus_damage_per_kill% damage every time an enemy hero dies while affected by Corruption, to a maximum of %max_damage%."
 		"DOTA_Tooltip_ability_item_dodo_desolator_Lore"							"A woman's haircut?"
 		"DOTA_Tooltip_ability_item_dodo_desolator_Note0"								"Armor reduction works on buildings."
 		//"DOTA_Tooltip_ability_item_dodo_desolator_corruption_armor"					"ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_item_dodo_desolator_bonus_damage"						"+$damage"
 
 		// item_infernal_desolator 绝对破防之刃
-		"DOTA_Tooltip_Ability_item_infernal_desolator"				"<font color='#FFCC66'>Infernal</font> Desolator"
+		"DOTA_Tooltip_Ability_item_infernal_desolator"				"<font color='#D00200'>Infernal</font> Desolator"
 		"DOTA_Tooltip_ability_item_infernal_desolator_Description"						"<h1>Passive: Ultra Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds.\n<h1>Passive: Soul Stealer</h1> Desolator gains +%bonus_damage_per_kill% damage every time an enemy hero dies while affected by Corruption, to a maximum of %max_damage%."
 		"DOTA_Tooltip_ability_item_infernal_desolator_Lore"							"SUPER Desolator."
 		"DOTA_Tooltip_ability_item_infernal_desolator_Note0"								"Armor reduction works on buildings."
@@ -1267,7 +1405,7 @@
 		"DOTA_Tooltip_modifier_infernal_desolator_buff_Description"		"Infernal Desolator attacks reduced your armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
 		// item_sacred_trident 三叉戟
-		"DOTA_Tooltip_Ability_item_sacred_trident"										"Sacred Trinity"
+		"DOTA_Tooltip_Ability_item_sacred_trident"										"Holy Trinity"
 		"DOTA_Tooltip_Ability_item_sacred_trident_Description"					""
 		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_intellect"				"+$all"
 		// "DOTA_Tooltip_Ability_item_sacred_trident_bonus_strength"				"+$str"
@@ -1278,12 +1416,12 @@
 		"DOTA_Tooltip_Ability_item_sacred_trident_movement_speed_percent_bonus"	"%+$move_speed"
 		"DOTA_Tooltip_Ability_item_sacred_trident_status_resistance"					"%+Status Resistance"
 		"DOTA_Tooltip_Ability_item_sacred_trident_hp_regen_amp"							"%+Health Regen and Lifesteal Amp"
-		"DOTA_Tooltip_Ability_item_sacred_trident_magic_damage_attack"				"+Magic Damage Attack"
+		"DOTA_Tooltip_Ability_item_sacred_trident_magic_damage_attack"				"+Magic Attack Damage"
 		"DOTA_Tooltip_Ability_item_sacred_trident_spell_lifesteal_amp"				"%+Spell Lifesteal Amplification"
 
 		"DOTA_Tooltip_ability_item_sacred_trident_Lore"						"The three mythical blades that were never seen all together in harmony, now combined as one."
 
-        // item_six_vein 六脉神剑
+		// item_six_vein 六脉神剑
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"Legendary Hexad"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_Description"					""
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_intellect"					"+$int"
@@ -1295,7 +1433,7 @@
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_movement_speed_percent_bonus"	"%+$move_speed"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_status_resistance"					"%+Status Resistance"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_hp_regen_amp"							"%+Health Regen and Lifesteal Amp"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_magic_damage_attack"				"+Magic Damage Attack"
+		"DOTA_Tooltip_Ability_item_sacred_six_vein_magic_damage_attack"				"+Magic Attack Damage"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_lifesteal_amp"				"%+Spell Lifesteal Amplification"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"					"It would be insane to find a pair of each of the three swords of legends and combine them all, but the power found in them all would be unmatched..."
 
@@ -1364,51 +1502,51 @@
 		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff_Description"  				"Items muted, passives and evasion disabled, all forms of health restoration reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%, and being constantly dispelled of buffs. Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. Attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%. Losing 4%% of maximum health per second."
 
 		// item_wasp_despotic 大核荣耀
-		"DOTA_Tooltip_ability_item_wasp_despotic"					"Wasp Despotic"
+		"DOTA_Tooltip_ability_item_wasp_despotic"					"Despotic Wasp"
 		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"The product of the ancient moon soul, it represents despotism."
-		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active: Critcal Ruling</h1>Critical Chance increases to %active_crit_chance%%% for %active_boost_duration% seconds, but Critical Damage decreases to %active_crit_multiplier%%%.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active: Critical Ruling</h1>Critical Chance increases to %active_crit_chance%%% for %active_boost_duration% seconds, but Critical Damage decreases to %active_crit_multiplier%%%.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
-		"DOTA_Tooltip_modifier_item_despotic_active"			"Sting Like a Bee"
+		"DOTA_Tooltip_modifier_item_despotic_active"			"Critical Ruling"
 		"DOTA_Tooltip_modifier_item_despotic_active_Description"	"Critical chance increased, but critical damage decreased."
 
 		// item_wasp_callous
-		"DOTA_Tooltip_ability_item_wasp_callous"						"Wasp Callous"
+		"DOTA_Tooltip_ability_item_wasp_callous"						"Callous Wasp"
 		"DOTA_Tooltip_ability_item_wasp_callous_Lore"				"The product of the ancient moon soul, it represents callousness."
 		"DOTA_Tooltip_ability_item_wasp_callous_Description"			"<h1>Active: Hastened Judgment</h1>Evasion is increased to %active_dodge_chance%%% and Movement Speed is increased by %move_speed%%% for %active_boost_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_agile"			"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_callous_dodge_chance"		"%+$evasion"
 		"DOTA_Tooltip_ability_item_wasp_callous_attack_speed"		"+$attack"
-		"DOTA_Tooltip_modifier_item_callous_active"			"Float Like a Butterfly"
+		"DOTA_Tooltip_modifier_item_callous_active"			"Hastened Judgment"
 		"DOTA_Tooltip_modifier_item_callous_active_Description"		"Evasion and movement speed increased."
 
-        // item_wasp_golden
-		"DOTA_Tooltip_ability_item_wasp_golden"							"Golden Wasp"
+		// item_wasp_golden
+		"DOTA_Tooltip_ability_item_wasp_golden"							"<font color='#FFD700'>Golden Wasp</font>"
 		"DOTA_Tooltip_ability_item_wasp_golden_Lore"						"A faint whisper dances around your ears, 'Do you want absolute power?'"
-		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>Active: Crass Tyranny</h1>Critical Chance and Evasion increases to %active_crit_chance%%%, but Critical Damage decreases to %active_crit_multiplier%%%. Movement speed is increased by %move_speed%%%. Lasts for %active_boost_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>Active: Overwhelming Tyranny</h1>Critical Chance and Evasion increases to %active_crit_chance%%%, but Critical Damage decreases to %active_crit_multiplier%%%. Movement speed is increased by %move_speed%%%. Lasts for %active_boost_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_agile"				"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_golden_dodge_chance"				"%+$evasion"
 		"DOTA_Tooltip_ability_item_wasp_golden_attack_speed"				"+$attack"
-		"DOTA_Tooltip_modifier_item_soul_active"					"Crass Tyranny"
+		"DOTA_Tooltip_modifier_item_soul_active"					"Overwhelming Tyranny"
 		"DOTA_Tooltip_modifier_item_soul_active_Description"				"Evasion, movement speed, and critical chance increased, but critical damage decreased."
 
-        // item_shotgun 霰弹枪
-		"DOTA_Tooltip_ability_item_shotgun"                                  "Double Barrel"
+		// item_shotgun 霰弹枪
+		"DOTA_Tooltip_ability_item_shotgun"                                  "Double-Barrel"
     	"DOTA_Tooltip_ability_item_shotgun_Description"                      "<h1>Passive: Scatterblast (Ranged Only)</h1>Attacks deal %attack_percent%%% splash damage in a %attack_radius% radius of the attacked unit.<br>Scatterblast cannot stack with itself and has 0.1s internal cooldown."
-        "DOTA_Tooltip_ability_item_shotgun_attack_speed"           "+$attack"
-        "DOTA_Tooltip_ability_item_shotgun_bonus_damage"           "+$damage"
+		"DOTA_Tooltip_ability_item_shotgun_attack_speed"           "+$attack"
+		"DOTA_Tooltip_ability_item_shotgun_bonus_damage"           "+$damage"
 		"DOTA_Tooltip_ability_item_shotgun_lore"                             "Bang! Bang!"
 
-        // item_shotgun_v2
-		"DOTA_Tooltip_ability_item_shotgun_v2"                                "Bullet Filled Shotgun"
+		// item_shotgun_v2
+		"DOTA_Tooltip_ability_item_shotgun_v2"                                "Bullet-Filled Shotgun"
 		"DOTA_Tooltip_ability_item_shotgun_v2_Description"                    "<h1>Passive: Greater Scatterblast (Ranged only)</h1>Attacks deal %attack_percent%%% splash damage in a %attack_radius% radius of the attack unit.<br>Scatterblast cannot stack with itself, has a 0.1s built-in cooldown, and the splash damage is magical."
-        "DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"           "+$attack"
-        "DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"           "+$damage"
+		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"           "+$attack"
+		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"           "+$damage"
 		"DOTA_Tooltip_ability_item_shotgun_v2_lore"                           "Aim? What's that?"
 
-        // item_jump_jump_jump 跳刀3
+		// item_jump_jump_jump 跳刀3
 		"DOTA_Tooltip_ability_item_jump_jump_jump"						"Jump! Jump! Jump!"
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Description"			"<h1>Active: Megablink</h1>Combines the effects of Fallen Sky and all three Blink Dagger upgrades.<br><br>Transforms into a meteor, which lands at the target point, stunning enemies in %meteor_land_radius% radius for %meteor_stun_duration% seconds.<br>Affected enemies take %base_damage% + %str_damage%%% of the caster's strength as magical damage on impact, then burn for a further %meteor_burn_dps% damage per second for %meteor_burn_duration% seconds.<br>This deals less damage to buildings.<br><br>After all this calamity happens, the caster receives the benefits of Swift and Arcane Blinks. Enemies suffer the effect of Overwhelming Blink after the stun duration ends."
 		"DOTA_Tooltip_Ability_item_jump_jump_jump_bonus_all_stats"		"+$all"
@@ -1416,8 +1554,8 @@
 		"DOTA_Tooltip_modifier_item_jump_jump_jump_meteor_burn"			"Meteor Burn"
 		"DOTA_Tooltip_modifier_item_jump_jump_jump_meteor_burn_description"	"Taking damage over time."
 
-        // item_gungir_2 大缚灵索
-		"DOTA_Tooltip_ability_item_gungir_2"							"<font color='#CFFCFC'>Advanced</font> Gleipnir"
+		// item_gungir_2 大缚灵索
+		"DOTA_Tooltip_ability_item_gungir_2"							"<font color='#91EACE'>Advanced</font> Gleipnir"
 		"DOTA_Tooltip_ability_item_gungir_2_Description"						"<h1>Active: Lightning Storm</h1>Roots all enemies in a target %radius% radius for %duration% seconds and deals %active_damage% damage.<br><br>Range: %abilitycastrange% \n\n<h1>Passive: Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion. Deals %illusion_multiplier_pct%%% damage to illusions."
 		"DOTA_Tooltip_ability_item_gungir_2_Lore"							"WARNING: Weather control device detected. Lightning Storm Ready."
 		"DOTA_Tooltip_ability_item_gungir_2_bonus_damage"					"+$damage"
@@ -1428,7 +1566,7 @@
 		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"Lightning Storm"
 		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"Cannot move while rooted."
 
-		"DOTA_Tooltip_Ability_item_satanic_2"				"<font color='#FFCC66'>Upgraded</font> Satanic"
+		"DOTA_Tooltip_Ability_item_satanic_2"				"<font color='#FFE44D'>Upgraded</font> Satanic"
 		"DOTA_Tooltip_ability_item_satanic_2_Description"							"<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %unholy_lifesteal_total_tooltip%%% for %unholy_duration% seconds. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n\n<h1>Passive: Lifesteal</h1>Heals the attacker for a percentage of attack damage dealt. Lifesteal from creeps is reduced by %creep_lifesteal_reduction_pct%%%."
 		"DOTA_Tooltip_ability_item_satanic_2_Lore"								"Immense power at the cost of your soul."
 		"DOTA_Tooltip_ability_item_satanic_2_bonus_strength"						"+$str"
@@ -1523,18 +1661,18 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"A wise choice and scientific investment."
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
 
-        // item_bloodstone_v2 血精神石
-        "DOTA_Tooltip_ability_item_bloodstone"							"Godness Bloodstone"
-        "DOTA_Tooltip_ability_item_bloodstone_v2"						"Mini Bloodstone"
+		// item_bloodstone_v2 血精神石
+		"DOTA_Tooltip_ability_item_bloodstone"							"Godness Bloodstone"
+		"DOTA_Tooltip_ability_item_bloodstone_v2"						"Mini Bloodstone"
 		// "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>Active: Bloodpact</h1> Increases Godness Bloodstone's Spell Lifesteal by %lifesteal_multiplier%x and also converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"It's like a Bloodstone except one-eighth the size!"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_aoe"							"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
-        "DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
-        // "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
-        "DOTA_Tooltip_modifier_item_bloodstone_v2_amp"					"Bloodpact"
+		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
+		// "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
+		"DOTA_Tooltip_modifier_item_bloodstone_v2_amp"					"Bloodpact"
 
-        // item_refresh_core 大刷新
+		// item_refresh_core 大刷新
 		"DOTA_Tooltip_Ability_item_refresh_core"						"Refresher Core"
 		"DOTA_Tooltip_ability_item_refresh_core_Description"			"<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities.\n<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items."
 		"DOTA_Tooltip_ability_item_refresh_core_cast_range_bonus"		"+$cast_range"
@@ -1577,7 +1715,7 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Note0"					"Liberated Rapiers can never be destroyed, sold, or moved into the backpack."
 
 		// item_bfury_ultra 救世狂战
-		"DOTA_Tooltip_ability_item_bfury_ultra"                         "<font color='#e03e2e'>Worldbreaker</font>"
+		"DOTA_Tooltip_ability_item_bfury_ultra"                         "<font color='#F24332'>Worldcleaver</font>"
 		"DOTA_Tooltip_Ability_item_bfury_ultra_Description"             "<h1>Passive: Quell</h1>Increases attack damage against non-hero units by %quelling_bonus% for melee heroes, and %quelling_bonus_ranged% for ranged.\n<h1>Passive: Worldsplitter</h1>Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% range. Deals %cleave_damage_percent_creep%%% physical damage against non-hero units. (Melee Only)"
 		"DOTA_Tooltip_Ability_item_bfury_ultra_Lore"                    "You feel like you could break the world in two... WITH YOUR BARE HANDS!"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_damage"			"+$damage"
@@ -1588,7 +1726,7 @@
 
 
 		// item_bloodthorn_ultra 变态辣
-		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"				"<font color='#ff8080'>Ultra</font> Bloodthorn"
+		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"				"<font color='#F74042'>Ultra</font> Bloodthorn"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"                      "<h1>Active: Soul Tear</h1>Silences the target for %silence_duration% seconds. After the silence ends, %silence_damage_percent%%% of the damage taken during the silence will be dealt as additional magic damage.<br><br>All attacks against the target deal an additional %proc_damage% damage and have True Strike.<br><br>Cast Range: %abilitycastrange%\n\n<h1>Passive: Pierce</h1>Each attack has a %proc_chance%%% chance to ignore evasion and deal %proc_damage% additional magic damage."
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Lore"                             "So Spiiicey Ninja Kiwi!"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_intellect"                  "+$int"
@@ -1601,11 +1739,11 @@
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_health_regen"							"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_upgrade_bonuses"				"<b><font color='#7d7d7d'>Upgrade</font></b>: +30% Bloodthorn Critical Strike"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_upgrade_description"			"Soul Tear 10 enemy heroes."
-		"DOTA_Tooltip_modifier_bloodthorn_ultra_debuff"                       "Bloodthorn"
+		"DOTA_Tooltip_modifier_bloodthorn_ultra_debuff"                       "Soul Tear"
 		"DOTA_Tooltip_modifier_bloodthorn_ultra_debuff_Description"           "Silenced and taking 120%% additional damage, which is dealt as magic damage when the effect ends.\nAlso taking additional damage from all attacks and attacks cannot miss."
 
 		// item_devastator_2 Sacred Parasma 神圣斧
-		"DOTA_Tooltip_Ability_item_devastator_2"							"<font color='#800080'>Sacred</font> Parasma"
+		"DOTA_Tooltip_Ability_item_devastator_2"							"<font color='#87013F'>Sacred</font> Parasma"
 		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>Passive: Witch Blade</h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.\n\n<h1>Passive: Magic Corruption</h1> Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds."
 		"DOTA_Tooltip_ability_item_devastator_2_Lore"						"Devastating."
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_attack_speed"				"+$attack"
@@ -1618,7 +1756,7 @@
 		"DOTA_Tooltip_modifier_devastator_2_debuff_Description"  			"Magic resistance reduced by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
 
 		// 三种双刀
-		"DOTA_Tooltip_ability_item_sange_and_yasha_1"							"<font color='#e03e2e'>Ultra</font> Sange and Yasha"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1"							"<font color='#e67300'>Ultra</font> Sange and Yasha"
 		"DOTA_Tooltip_ability_item_sange_and_yasha_1_Note0"						"Yasha-based movement speed bonuses from multiple items do not stack."
 		"DOTA_Tooltip_ability_item_sange_and_yasha_1_Lore"						"Sange and Yasha, when attuned by the moonlight and used together, become a very powerful combination."
 		"DOTA_Tooltip_ability_item_sange_and_yasha_1_bonus_strength"				"+$str"
@@ -1658,29 +1796,29 @@
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Lore"                    "(Not associated at all with the world-famous Mike Tyson. Any correlation with Mike Tyson is purely coincidental.)"
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Note0"                    "Self-casting will cause you to teleport towards your fountain."
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Note1"					"If you used Tyson's Flash to teleport to a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
-        "DOTA_Tooltip_ability_item_overwhelming_blink_2_bonus_strength"			"+$str"
+		"DOTA_Tooltip_ability_item_overwhelming_blink_2_bonus_strength"			"+$str"
 		// 敏捷跳2
 		"DOTA_Tooltip_ability_item_swift_blink_2"                               "Blink of Bolt"
 		"DOTA_Tooltip_ability_item_swift_blink_2_Description"         			"<h1>Active: Blink of Bolt</h1>Teleport to a target point up to %blink_range% units away.<br><br>After teleportation, you gain %bonus_movement%%% phased movement speed and +%bonus_agi_active% Agility for %duration% seconds. <br><br>Swift Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
 		"DOTA_Tooltip_ability_item_swift_blink_2_Lore"                           "Become faster than the speed of light and electricity!"
 		"DOTA_Tooltip_ability_item_swift_blink_2_Note0"                           "Self-casting will cause you to teleport towards your fountain."
 		"DOTA_Tooltip_ability_item_swift_blink_2_Note1"					        "If you used Blink of Bolt to teleport to a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
-        "DOTA_Tooltip_ability_item_swift_blink_2_bonus_agility"			        "+$agi"
+		"DOTA_Tooltip_ability_item_swift_blink_2_bonus_agility"			        "+$agi"
 		// 大小智力跳对调
 		// 小智力跳
 		"DOTA_Tooltip_ability_item_arcane_blink_2"                              "Arcane Blink"
 		"DOTA_Tooltip_ability_item_arcane_blink_2_Description"         			"<h1>Active: Arcane Blink</h1>Teleport to a target point up to %blink_range% units away. <br><br>After teleportation, you restore %heal_amount% health and %mana_amount% mana.<br><br>Arcane Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
-        "DOTA_Tooltip_ability_item_arcane_blink_2_Lore"                          "A revitalizing tool to help bear the weight of arcane expenditure."
-        "DOTA_Tooltip_ability_item_arcane_blink_2_Note0"                          "Self-casting will cause you to teleport in the direction of your team's fountain."
-        "DOTA_Tooltip_ability_item_arcane_blink_2_Note1"      					"If you used Arcane Blink to teleport a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
-        "DOTA_Tooltip_ability_item_arcane_blink_2_bonus_intellect"                "+$int"
+		"DOTA_Tooltip_ability_item_arcane_blink_2_Lore"                          "A revitalizing tool to help bear the weight of arcane expenditure."
+		"DOTA_Tooltip_ability_item_arcane_blink_2_Note0"                          "Self-casting will cause you to teleport in the direction of your team's fountain."
+		"DOTA_Tooltip_ability_item_arcane_blink_2_Note1"      					"If you used Arcane Blink to teleport a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
+		"DOTA_Tooltip_ability_item_arcane_blink_2_bonus_intellect"                "+$int"
 		// 大智力跳
 		"DOTA_Tooltip_ability_item_arcane_blink"                              "Blink of Einstein"
 		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>Active: Blink of Einstein</h1> Teleport to a target point up to %blink_range% units away. <br><br>After teleportation, you restore %heal_amount% health and %mana_amount% mana.<br><br>Arcane Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
-        "DOTA_Tooltip_ability_item_arcane_blink_Lore"                          "The arcane arts' greatest contribution to assassination."
-        "DOTA_Tooltip_ability_item_arcane_blink_Note0"                          "Self-casting will cause you to teleport in the direction of your team's fountain."
-        "DOTA_Tooltip_ability_item_arcane_blink_Note1"      					"If you used Blink of Einstein to teleport to a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
-        "DOTA_Tooltip_ability_item_arcane_blink_bonus_intellect"                "+$int"
+		"DOTA_Tooltip_ability_item_arcane_blink_Lore"                          "The arcane arts' greatest contribution to assassination."
+		"DOTA_Tooltip_ability_item_arcane_blink_Note0"                          "Self-casting will cause you to teleport in the direction of your team's fountain."
+		"DOTA_Tooltip_ability_item_arcane_blink_Note1"      					"If you used Blink of Einstein to teleport to a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
+		"DOTA_Tooltip_ability_item_arcane_blink_bonus_intellect"                "+$int"
 
 		// item_blessing_of_dragon 神龙
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon"				"<font color='#FFFF00'>Dragon's Blessing</font>"
@@ -2172,9 +2310,9 @@
 
 		// item_apex_light 圣光·极
 		"DOTA_Tooltip_Ability_item_apex_light"				"<font color='#FFFF00'>Light</font> Apex"
-        "DOTA_Tooltip_Ability_item_apex_light_Lore"		"Three orbs of remarkable power bound within a single scepter."
-        "DOTA_Tooltip_Ability_item_apex_light_primary_stat"		"+$primary_attribute"
-        "DOTA_Tooltip_Ability_item_apex_light_Note0"				"Grants +%primary_stat_universal% to each attribute for Universal Heroes."
+		"DOTA_Tooltip_Ability_item_apex_light_Lore"		"Three orbs of remarkable power bound within a single scepter."
+		"DOTA_Tooltip_Ability_item_apex_light_primary_stat"		"+$primary_attribute"
+		"DOTA_Tooltip_Ability_item_apex_light_Note0"				"Grants +%primary_stat_universal% to each attribute for Universal Heroes."
 
 		// item_apex_dark 暗影·极
 		"DOTA_Tooltip_Ability_item_apex_dark"				"<font color='#8A2BE2'>Dark</font> Apex"
@@ -2663,7 +2801,7 @@
 
 		// item_disperser_chaos 混沌·散魂剑
 		"DOTA_Tooltip_ability_item_disperser_chaos"				"<font color='#80FFF4'>Chaotic</font> Disperser</font>"
-		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>Active: Suppress</h1> Slows the target for %enemy_effect_duration% seconds if they are an enemy or applies a basic dispell and grants bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds if they are an ally. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions.""
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>Active: Suppress</h1> Slows the target for %enemy_effect_duration% seconds if they are an enemy or applies a basic dispell and grants bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds if they are an ally. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"

@@ -265,6 +265,10 @@ local pipiluSteamAccountID = Set {
 	-- 皮皮撸
 	112829917,
 }
+local nemesisSteamAccountID = Set {
+	-- nemesis
+	82525914,
+}
 -- 称号属性 END
 
 function EnablePlayerModifier(hEntity)
@@ -300,11 +304,13 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_hunzhuo", {})
 	end
 	if chashaobaoSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_chashaobao", "modifiers/player/modifier_player_chashaobao", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_chashaobao", "modifiers/player/modifier_player_chashaobao",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_chashaobao", {})
 	end
 	if menglihuaSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_menglihua", "modifiers/player/modifier_player_menglihua", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_menglihua", "modifiers/player/modifier_player_menglihua",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_menglihua", {})
 	end
 	-- FIXME remove
@@ -329,7 +335,8 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_kfw6", {})
 	end
 	if dalaogongjiSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_dalaogongji", "modifiers/player/modifier_player_dalaogongji", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_dalaogongji", "modifiers/player/modifier_player_dalaogongji",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dalaogongji", {})
 	end
 	if jiangcaiSteamAccountID[steamAccountID] then
@@ -353,7 +360,8 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_cyn3", {})
 	end
 	if adolphzeroSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_adolphzero", "modifiers/player/modifier_player_adolphzero", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_adolphzero", "modifiers/player/modifier_player_adolphzero",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_adolphzero", {})
 	end
 	if j3e9SteamAccountID[steamAccountID] then
@@ -377,19 +385,26 @@ function EnablePlayerModifier(hEntity)
 	if qiannianSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_qiannian", "modifiers/player/modifier_player_qiannian", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_qiannian", {})
-		LinkLuaModifier("modifier_player_qiannian_2", "modifiers/player/modifier_player_qiannian_2", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_qiannian_2", "modifiers/player/modifier_player_qiannian_2",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_qiannian_2", {})
-		LinkLuaModifier("modifier_player_qiannian_3", "modifiers/player/modifier_player_qiannian_3", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_qiannian_3", "modifiers/player/modifier_player_qiannian_3",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_qiannian_3", {})
-		LinkLuaModifier("modifier_player_qiannian_4", "modifiers/player/modifier_player_qiannian_4", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_qiannian_4", "modifiers/player/modifier_player_qiannian_4",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_qiannian_4", {})
-		LinkLuaModifier("modifier_player_qiannian_5", "modifiers/player/modifier_player_qiannian_5", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_qiannian_5", "modifiers/player/modifier_player_qiannian_5",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_qiannian_5", {})
-		LinkLuaModifier("modifier_player_qiannian_6", "modifiers/player/modifier_player_qiannian_6", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_qiannian_6", "modifiers/player/modifier_player_qiannian_6",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_qiannian_6", {})
-		LinkLuaModifier("modifier_player_qiannian_7", "modifiers/player/modifier_player_qiannian_7", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_qiannian_7", "modifiers/player/modifier_player_qiannian_7",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_qiannian_7", {})
-		LinkLuaModifier("modifier_player_qiannian_8", "modifiers/player/modifier_player_qiannian_8", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_qiannian_8", "modifiers/player/modifier_player_qiannian_8",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_qiannian_8", {})
 	end
 	if feijiSteamAccountID[steamAccountID] then
@@ -405,11 +420,13 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_taikong", {})
 	end
 	if wonderpisSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_wonderpis", "modifiers/player/modifier_player_wonderpis", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_wonderpis", "modifiers/player/modifier_player_wonderpis",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_wonderpis", {})
 	end
 	if xiayibingSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_xiayibing", "modifiers/player/modifier_player_xiayibing", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_xiayibing", "modifiers/player/modifier_player_xiayibing",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_xiayibing", {})
 	end
 	if luoshuBuffSteamAccountID[steamAccountID] then
@@ -450,7 +467,8 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_kudo", {})
 	end
 	if arrayZoneYourSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_arrayzoneyour", "modifiers/player/modifier_player_arrayzoneyour", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_arrayzoneyour", "modifiers/player/modifier_player_arrayzoneyour",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_arrayzoneyour", {})
 	end
 	if nmjbSteamAccountID[steamAccountID] then
@@ -486,7 +504,8 @@ function EnablePlayerModifier(hEntity)
 	if loset12SteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_loset12", "modifiers/player/modifier_player_loset12", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_loset12", {})
-		LinkLuaModifier("modifier_player_loset12_2", "modifiers/player/modifier_player_loset12_2", LUA_MODIFIER_MOTION_NONE)
+		LinkLuaModifier("modifier_player_loset12_2", "modifiers/player/modifier_player_loset12_2",
+			LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_loset12_2", {})
 	end
 	if chuyinSteamAccountID[steamAccountID] then
@@ -548,63 +567,71 @@ function EnablePlayerModifier(hEntity)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_laugh_5", {})
 	end
 	if asproseSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_asprose","modifiers/player/modifier_player_asprose",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_asprose",{})
+		LinkLuaModifier("modifier_player_asprose", "modifiers/player/modifier_player_asprose", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_asprose", {})
 	end
 	if xysSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_xys","modifiers/player/modifier_player_xys",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_xys",{})
+		LinkLuaModifier("modifier_player_xys", "modifiers/player/modifier_player_xys", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_xys", {})
 	end
 	if yuliangSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_yuliang","modifiers/player/modifier_player_yuliang",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_yuliang",{})
+		LinkLuaModifier("modifier_player_yuliang", "modifiers/player/modifier_player_yuliang", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_yuliang", {})
 	end
 	if weilanSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_weilan","modifiers/player/modifier_player_weilan",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_weilan",{})
+		LinkLuaModifier("modifier_player_weilan", "modifiers/player/modifier_player_weilan", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_weilan", {})
 	end
 	if ekxnSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_ekxn","modifiers/player/modifier_player_ekxn",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_ekxn",{})
+		LinkLuaModifier("modifier_player_ekxn", "modifiers/player/modifier_player_ekxn", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_ekxn", {})
 	end
 	if uh9gSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_uh9g","modifiers/player/modifier_player_uh9g",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_uh9g",{})
+		LinkLuaModifier("modifier_player_uh9g", "modifiers/player/modifier_player_uh9g", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_uh9g", {})
 	end
 	if xibaibaiSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_xibaibai","modifiers/player/modifier_player_xibaibai",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_xibaibai",{})
+		LinkLuaModifier("modifier_player_xibaibai", "modifiers/player/modifier_player_xibaibai", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_xibaibai", {})
 	end
 	if dacapoSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_dacapo","modifiers/player/modifier_player_dacapo",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dacapo",{})
+		LinkLuaModifier("modifier_player_dacapo", "modifiers/player/modifier_player_dacapo", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_dacapo", {})
 	end
 	if xingguangSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_xingguang","modifiers/player/modifier_player_xingguang",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_xingguang",{})
+		LinkLuaModifier("modifier_player_xingguang", "modifiers/player/modifier_player_xingguang",
+			LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_xingguang", {})
 	end
 	if hjauinSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_hjauin","modifiers/player/modifier_player_hjauin",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_hjauin",{})
+		LinkLuaModifier("modifier_player_hjauin", "modifiers/player/modifier_player_hjauin", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_hjauin", {})
 	end
 	if eygcSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_eygc","modifiers/player/modifier_player_eygc",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_eygc",{})
+		LinkLuaModifier("modifier_player_eygc", "modifiers/player/modifier_player_eygc", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_eygc", {})
 	end
 	if eesamaSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_eesama","modifiers/player/modifier_player_eesama",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_eesama",{})
+		LinkLuaModifier("modifier_player_eesama", "modifiers/player/modifier_player_eesama", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_eesama", {})
 	end
 	if banshengSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_bansheng_1","modifiers/player/modifier_player_bansheng_1",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_bansheng_1",{})
-		LinkLuaModifier("modifier_player_bansheng_2","modifiers/player/modifier_player_bansheng_2",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_bansheng_2",{})
-		LinkLuaModifier("modifier_player_bansheng_3","modifiers/player/modifier_player_bansheng_3",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_bansheng_3",{})
+		LinkLuaModifier("modifier_player_bansheng_1", "modifiers/player/modifier_player_bansheng_1",
+			LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_bansheng_1", {})
+		LinkLuaModifier("modifier_player_bansheng_2", "modifiers/player/modifier_player_bansheng_2",
+			LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_bansheng_2", {})
+		LinkLuaModifier("modifier_player_bansheng_3", "modifiers/player/modifier_player_bansheng_3",
+			LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_bansheng_3", {})
 	end
 	if pipiluSteamAccountID[steamAccountID] then
-		LinkLuaModifier("modifier_player_pipilu","modifiers/player/modifier_player_pipilu",LUA_MODIFIER_MOTION_NONE)
-		hEntity:AddNewModifier(hEntity, nil, "modifier_player_pipilu",{})
+		LinkLuaModifier("modifier_player_pipilu", "modifiers/player/modifier_player_pipilu", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_pipilu", {})
+	end
+	if nemesisSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_nemesis", "modifiers/player/modifier_player_nemesis", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_nemesis", {})
 	end
 end
