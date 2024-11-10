@@ -1,6 +1,7 @@
 import { Player } from "../../api/player";
 import { ModifierHelper } from "../../helper/modifier-helper";
 import { PlayerHelper } from "../../helper/player-helper";
+import { modifier_intelect_magic_resist } from "../../modifiers/global/intelect_magic_resist";
 
 export class EventNpcSpawned {
   private roshanLevelBase = 0;
@@ -52,6 +53,7 @@ export class EventNpcSpawned {
 
   // 英雄出生
   private OnRealHeroSpawned(hero: CDOTA_BaseNPC_Hero): void {
+    // 近战buff
     if (
       hero.GetAttackCapability() === UnitAttackCapability.MELEE_ATTACK ||
       hero.GetName() === "npc_dota_hero_troll_warlord" ||
@@ -59,6 +61,8 @@ export class EventNpcSpawned {
     ) {
       ModifierHelper.applyGlobalModifier(hero, "modifier_global_melee_resistance");
     }
+    // 魔抗修正
+    hero.AddNewModifier(hero, undefined, modifier_intelect_magic_resist.name, {});
 
     if (PlayerHelper.IsHumanPlayer(hero)) {
       // 设置会员
