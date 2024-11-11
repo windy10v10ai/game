@@ -12437,20 +12437,19 @@
 				"value"		"40 32 24 16"
 			}
 
-			"strike_interval"										"0.25"
-			"strikes"												"3 4 5 6"
+			"strikes"												"2 3 4 5"
 			"radius"
 			{
 				"value"												"500"
-				"special_bonus_unique_kez_raptor_dance_radius"		"+150"
+				"special_bonus_unique_kez_raptor_dance_radius"		"+100"
 			}
 			"base_damage"
 			{
-				"value"				 "200"
+				"value"				 "200"	// 75
 			}
 			"max_health_damage_pct"
 			{
-				"value"				 "8"
+				"value"				 "6"	// 4
 			}
 		}
 	}

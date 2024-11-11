@@ -52,7 +52,7 @@ local function addTome(k, v)
     table.insert(v, "item_tome_of_strength")
     table.insert(v, "item_tome_of_agility")
     -- 最大吃N本智力书，防止魔抗溢出
-    if i < 4 then
+    if i < 8 then
       table.insert(v, "item_tome_of_intelligence")
     end
   end
