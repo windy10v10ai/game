@@ -15,10 +15,7 @@ export class HeroPick {
   static PickBotHeroes() {
     math.randomseed(GameRules.GetGameTime());
 
-    let nameList = HeroPick.BotNameList;
-    if (GameRules.Option.gameDifficulty === 6) {
-      nameList = HeroPick.BotNameN6List;
-    }
+    const nameList = HeroPick.BotNameList;
 
     const radiantPlayerNumberCurrent = PlayerResource.GetPlayerCountForTeam(DotaTeam.GOODGUYS);
     const direPlayerNumberCurrent = PlayerResource.GetPlayerCountForTeam(DotaTeam.BADGUYS);
@@ -117,7 +114,7 @@ export class HeroPick {
     "npc_dota_hero_lion",
     "npc_dota_hero_luna",
     "npc_dota_hero_medusa",
-    "npc_dota_hero_meepo",
+    // "npc_dota_hero_meepo",
     "npc_dota_hero_necrolyte",
     "npc_dota_hero_nevermore",
     "npc_dota_hero_ogre_magi",
@@ -140,31 +137,5 @@ export class HeroPick {
     "npc_dota_hero_witch_doctor",
     "npc_dota_hero_skeleton_king",
     "npc_dota_hero_zuus",
-  ];
-
-  static BotNameN6List = [
-    "npc_dota_hero_medusa",
-    "npc_dota_hero_abaddon",
-    "npc_dota_hero_drow_ranger",
-    "npc_dota_hero_necrolyte",
-    "npc_dota_hero_omniknight",
-    "npc_dota_hero_viper",
-    "npc_dota_hero_spectre",
-    "npc_dota_hero_bristleback",
-    "npc_dota_hero_skeleton_king",
-    "npc_dota_hero_meepo",
-    "npc_dota_hero_sniper",
-    "npc_dota_hero_death_prophet",
-    "npc_dota_hero_chaos_knight",
-    "npc_dota_hero_lina",
-    "npc_dota_hero_kunkka",
-    "npc_dota_hero_dragon_knight",
-    "npc_dota_hero_shadow_shaman",
-    "npc_dota_hero_lich",
-    "npc_dota_hero_warlock",
-    "npc_dota_hero_crystal_maiden",
-
-    "npc_dota_hero_zuus",
-    "npc_dota_hero_oracle",
   ];
 }
