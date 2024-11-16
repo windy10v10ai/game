@@ -45,19 +45,20 @@ If you would like to contribute to Windy10v10AI, please see our [contributing gu
 
 # Develop 开发
 
-```bash
-# Launch Dota2 devTools 启动Dota2开发工具
-npm run launch
+## Launch Dota2 devTools and build the project
 
-# build typescript to lua and panorama js
-# 编译ts为lua和panorama js
-npm run dev
+> Run in windows powershell/cmd
+
+```bash
+npm run start
 ```
 
-## Dota2 vConsole2 Command 常用命令
+## Optional Command
+
+> Run in Dota2 Console
 
 ```bash
-# load custom game
+# launch/relaunch custom game
 dota_launch_custom_game windy10v10ai dota
 # show game end panel
 dota_custom_ui_debug_panel 7

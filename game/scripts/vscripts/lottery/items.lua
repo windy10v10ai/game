@@ -49,7 +49,7 @@ function AIGameMode:SpecialItemAdd(owner)
 
 		---- 中立物品 lv2 ----
 		"item_imp_claw", -- 魔童之爪
-		"item_ocean_heart", -- 海洋之心
+		-- "item_ocean_heart",			-- 海洋之心 河道恢复无效果
 		-- "item_faded_broach",			-- 暗淡胸针
 		-- "item_dimensional_doorway",	-- 空间之门
 		"item_vampire_fangs", -- 吸血鬼獠牙
