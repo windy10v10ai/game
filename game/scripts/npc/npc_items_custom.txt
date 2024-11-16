@@ -1836,7 +1836,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3150"
+		"ItemCost"						"3100"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1865,7 +1865,7 @@
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
-		"AbilityManaCost"				"650"
+		"AbilityManaCost"				"600"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -1933,7 +1933,7 @@
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
-		"AbilityManaCost"				"1200"
+		"AbilityManaCost"				"1000"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2272,7 +2272,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60"
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"150"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2561,7 +2561,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"4550"
 		"ItemShopTags"					""
-		
+
 
 
 		// Recipe
@@ -5012,7 +5012,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9596"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"8282"
+		"ItemCost"						"40000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -5058,7 +5058,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"19596"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"8282"
+		"ItemCost"						"40000"
 
 		"ItemPurchasable"				"0"
 		"ItemDroppable"					"1"
@@ -5253,7 +5253,7 @@
 				"bonus_armor"			"16"
 				"bonus_mana_regen"		"3"
 				"projectile_speed"		"300"
-				"int_damage_multiplier"	"1.50"
+				"int_damage_multiplier"	"1.25"
 				"slow"	"50"
 				"slow_duration"	"4"
 				"active_mres_reduction"		"40"
