@@ -446,6 +446,7 @@
 
 	// 中立生物
 	// 远古
+	// Armor x2 Attack x4 Bounty x2 Status x2
 	//=================================================================================
 	// Neutral: Ancient - Black Drake 远古小黑龙
 	//=================================================================================
@@ -453,18 +454,18 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"3"			// 2
-		"MagicalResistance"			"40"		// 25
+		"ArmorPhysical"				"4"			// 2
+		"MagicalResistance"			"50"		// 25
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"50"		// 20
-		"AttackDamageMax"			"60"		// 22
+		"AttackDamageMin"			"80"		// 20
+		"AttackDamageMax"			"88"		// 22
 		"AttackRate"				"1.6"		// 2
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"142"		// 95
+		"BountyXP"					"190"		// 95
 		"BountyGoldMin"				"80"		// 39
 		"BountyGoldMax"				"90"		// 45
 
@@ -481,18 +482,18 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"6"			// 4
-		"MagicalResistance"			"50"		// 30
+		"ArmorPhysical"				"8"			// 4
+		"MagicalResistance"			"60"		// 30
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"120"		// 62
-		"AttackDamageMax"			"130"		// 68
+		"AttackDamageMin"			"180"		// 62
+		"AttackDamageMax"			"200"		// 68
 		"AttackRate"				"1.6"		// 2
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"186"		// 124
+		"BountyXP"					"240"		// 124
 		"BountyGoldMin"				"150"		// 78
 		"BountyGoldMax"				"160"		// 82
 
@@ -511,8 +512,8 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"		// 4
-		"MagicalResistance"			"50"		// 30
+		"ArmorPhysical"				"8"		// 4
+		"MagicalResistance"			"60"		// 30
 		// Attack
 		//----------------------------------------------------------------
 		"AttackDamageMin"			"60"		// 22
@@ -672,8 +673,8 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// 7
-		"MagicalResistance"			"50"		// 30
+		"ArmorPhysical"				"14"		// 7
+		"MagicalResistance"			"60"		// 30
 
 		// Attack
 		//----------------------------------------------------------------
@@ -682,7 +683,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"142"		// 95
+		"BountyXP"					"190"		// 95
 		"BountyGoldMin"				"80"		// 39
 		"BountyGoldMax"				"90"		// 45
 
