@@ -1,0 +1,16 @@
+{
+    "include": ["src"],
+    "compilerOptions": {
+        "target": "es2017",
+        "lib": ["es2017"],
+        "resolveJsonModule": true,
+        "types": ["@moddota/panorama-types"],
+        "moduleResolution": "node",
+        "strict": true,
+        "preserveSymlinks": false,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "jsx": "react-jsx",
+        "jsxImportSource": "react",
+    }
+}
