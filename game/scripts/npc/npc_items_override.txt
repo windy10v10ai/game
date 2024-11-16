@@ -447,15 +447,6 @@
 		}
 	}
 	// level 2
-	"item_ocean_heart" //海洋之心
-	{
-		"AbilityValues"
-		{
-			"all_stats"			"20"	//5
-			"water_hp_regen"	"25"	//10
-			"water_mp_regen"	"12"	//5
-		}
-	}
 	"item_dragon_scale" //炎龙之鳞
 	{
 		"AbilityValues"
