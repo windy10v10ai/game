@@ -219,9 +219,9 @@
 
 		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%NON-HERO BONUS ATTACK DAMAGE:"
 
-		"DOTA_Tooltip_ability_tower_armor_aura"						"High Ground Armor Aura"
+		"DOTA_Tooltip_ability_tower_armor_aura"						"Armor Aura"
 		"DOTA_Tooltip_ability_tower_armor_aura_Description"				"Provides %bonus_armor% armor to all nearby allied heroes."
-		"DOTA_Tooltip_ability_tower_magical_armor_aura"					"High Ground Magical Resistance Aura"
+		"DOTA_Tooltip_ability_tower_magical_armor_aura"					"Magical Resistance Aura"
 		"DOTA_Tooltip_ability_tower_magical_armor_aura_Description"			"Provides %bonus_magical_armor%%% magical resistance to all nearby allied heroes."
 
 		"DOTA_Tooltip_ability_tower_split_shot"						"Structure Split Shot"
