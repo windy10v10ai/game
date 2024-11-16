@@ -263,7 +263,6 @@
 	"npc_dota_goodguys_melee_rax_top"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -296,7 +295,6 @@
 	"npc_dota_goodguys_melee_rax_mid"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -329,7 +327,6 @@
 	"npc_dota_goodguys_melee_rax_bot"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -363,7 +360,6 @@
 	"npc_dota_badguys_melee_rax_top"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -396,7 +392,6 @@
 	"npc_dota_badguys_melee_rax_mid"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -429,7 +424,6 @@
 	"npc_dota_badguys_melee_rax_bot"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -465,7 +459,6 @@
 	"npc_dota_goodguys_range_rax_top"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -497,7 +490,6 @@
 	"npc_dota_goodguys_range_rax_mid"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -529,7 +521,6 @@
 	"npc_dota_goodguys_range_rax_bot"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -563,7 +554,6 @@
 	"npc_dota_badguys_range_rax_top"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -595,7 +585,6 @@
 	"npc_dota_badguys_range_rax_mid"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -627,7 +616,6 @@
 	"npc_dota_badguys_range_rax_bot"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
