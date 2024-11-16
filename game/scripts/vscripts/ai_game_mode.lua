@@ -118,9 +118,9 @@ function AIGameMode:PreGameOptions()
     self.bSameHeroSelection = self.bSameHeroSelection or 1
     self.fGameStartTime = 0
 
-    GameRules:SetGoldPerTick(GOLD_PER_TICK)
-    GameRules:SetGoldTickTime(GOLD_TICK_TIME)
-    GameRules:SetUseUniversalShopMode(true)
+    -- GameRules:SetGoldPerTick(GOLD_PER_TICK)
+    -- GameRules:SetGoldTickTime(GOLD_TICK_TIME)
+    -- GameRules:SetUseUniversalShopMode(true)
     GameRules:SetFilterMoreGold(true)
 
     local gameMode = GameRules:GetGameModeEntity()
