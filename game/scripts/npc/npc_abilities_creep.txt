@@ -1,0 +1,229 @@
+#base "npc_items_override.txt"
+
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// 中立单位升级
+	//=================================================================================================================
+	"neutral_upgrade"
+	{
+		"AbilityValues"
+		{
+			"max_level"				"60"	// 30
+			"increase_time"			"150"	// 450
+			"increase_damage"		"6"		// 3
+			"increase_aspd"			"8"		// 5
+			"increase_health"		"80"	// 30
+			"increase_armor"		"1"		// 0.5
+			"increase_gold"			"5"		// 1
+			"increase_xp"			"12"	// 5
+		}
+	}
+
+	//=================================================================================================================
+	// Heavy (Replacing legacy Siege Attack Type / Structure Defend type) 坚锐 (替换旧版投石车 / 防御塔类型)
+	//=================================================================================================================
+	"creep_siege"
+	{
+		"AbilityValues"
+		{
+				"bonus_building_damage"		"200"			// 150
+				"incoming_hero_damage_penalty"		"-60"	// -50
+				"incoming_basic_damage_penalty"		"30"	// -30
+				"incoming_controlled_unit_penalty"	"-40"	// -40
+		}
+	}
+
+	//=================================================================================================================
+	// Backdoor Protection 偷塔保护
+	//=================================================================================================================
+	"backdoor_protection"
+	{
+		"AbilityValues"
+		{
+			"activation_time"
+			{
+				"value" "5"		// 15
+			}
+			"regen_rate"
+			{
+				"value" "5000"	// 90
+			}
+		}
+	}
+	//=================================================================================================================
+	// Backdoor Protection In Base 偷塔保护在基地
+	//=================================================================================================================
+	"backdoor_protection_in_base"
+	{
+		"AbilityValues"
+		{
+			"activation_time"
+			{
+				"value" "5"		// 15
+			}
+			"regen_rate"
+			{
+				"value" "5000"	// 90
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Roshan 肉山
+	//=================================================================================================================
+	// Slam 震击
+	"roshan_slam"
+	{
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value" "450"
+			}
+			"slow_duration_hero"
+			{
+				"value" "3"
+			}
+			"slow_amount"
+			{
+				"value" "80"
+			}
+			"damage"
+			{
+				"value" "300"
+			}
+			"damage_growth"
+			{
+				"value" "50"
+			}
+		}
+	}
+	// 复仇咆哮
+	"roshan_revengeroar"
+	{
+		"AbilityCooldown"				"15.0"		// 20.0
+		"AbilityValues"
+		{
+			"damage"			"150"				// 50
+			"damage_pct"		"25"				// 25
+			"duration"			"8"					// 8
+			"damage_growth"		"30"				// 10
+		}
+	}
+
+	//=================================================================================================================
+	// Creep Neutral Abilities 中立单位技能
+	//=================================================================================================================
+
+	// 巨狼 致命一击
+	"giant_wolf_critical_strike"
+	{
+		"AbilityValues"
+		{
+			"crit_chance"
+			{
+				"value" "25"
+			}
+			"crit_mult"
+			{
+				"value" "350"
+			}
+		}
+	}
+
+	// 狗头人
+	// 淘金光环
+	"kobold_tunneler_prospecting"
+	{
+		"AbilityValues"
+		{
+			"gpm_aura"
+			{
+				"value" "240"	// 20 25 30 40
+			}
+		}
+	}
+	// 速度光环
+	"kobold_taskmaster_speed_aura"
+	{
+		"AbilityValues"
+		{
+			"bonus_movement_speed"
+			{
+				"value" "16 17 18 20"	// 12 13 14 16
+			}
+		}
+	}
+
+	// 萨特
+	// 魔法光环
+	"forest_troll_high_priest_mana_aura"
+	{
+		"AbilityValues"
+		{
+			"mana_regen"
+			{
+				"value" "3"	// 1.75
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ancient Neutral Abilities 远古单位技能
+	//=================================================================================================================
+
+	// 岩石傀儡
+	// 弱化光环
+	"ancient_rock_golem_weakening_aura"
+	{
+		"AbilityValues"
+		{
+			"armor_reduction"	"6 8 10 12"	// x2
+		}
+	}
+
+	// 雷肤兽
+	// 战鼓光环
+	"big_thunder_lizard_wardrums_aura"
+	{
+		"AbilityValues"
+		{
+			"speed_bonus"
+			{
+				"value" "50"	// 25
+			}
+		}
+	}
+
+	// 黑龙
+	// 龙肤光环
+	"black_dragon_dragonhide_aura"
+	{
+		"AbilityValues"
+		{
+			"bonus_armor"
+			{
+				"value" "5"	// 3
+			}
+		}
+	}
+	// 魔法增强光环
+	"black_drake_magic_amplification_aura"
+	{
+		"AbilityValues"
+		{
+			"spell_amp"			"10 13 16 20"	// 5 6 7 9
+		}
+	}
+
+	// 萨满
+	// 时间扭曲光环
+	"frostbitten_golem_time_warp_aura"
+	{
+		"AbilityValues"
+		{
+			"bonus_cdr"			"20 23 26 30"	// 10 11 12 14
+		}
+	}
+}

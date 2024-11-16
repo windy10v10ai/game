@@ -7,6 +7,14 @@
 	//=========================================================
 	"npc_dota_goodguys_tower1_top"
 	{
+		"Ability3"					"kobold_tunneler_prospecting"	// 淘金光环
+		"Ability4"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+		"Ability5"					"black_dragon_dragonhide_aura"	// 龙肤光环 防御力
+		"Ability6"					"black_drake_magic_amplification_aura"	// 魔法增强光环 伤害增加
+		"Ability7"					"frostbitten_golem_time_warp_aura"		// 时间扭曲光环 CD减少
+		"Ability8"					"big_thunder_lizard_wardrums_aura"	// 战鼓光环 攻击速度/必中
+		"Ability9"					"alpha_wolf_command_aura"			// 头狼光环 攻击力
+
 		"AttackDamageMin"			"90"		// 88
 		"AttackDamageMax"			"100"		// 92
 		"AttackRate"				"0.9"		// 1
@@ -18,6 +26,14 @@
 	}
 	"npc_dota_badguys_tower1_top"
 	{
+		"Ability3"					"kobold_tunneler_prospecting"	// 淘金光环
+		"Ability4"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+		"Ability5"					"black_dragon_dragonhide_aura"	// 龙肤光环 防御力
+		"Ability6"					"black_drake_magic_amplification_aura"	// 魔法增强光环 伤害增加
+		"Ability7"					"frostbitten_golem_time_warp_aura"		// 时间扭曲光环 CD减少
+		"Ability8"					"big_thunder_lizard_wardrums_aura"	// 战鼓光环 攻击速度/必中
+		"Ability9"					"alpha_wolf_command_aura"			// 头狼光环 攻击力
+
 		"AttackDamageMin"			"90"		// 88
 		"AttackDamageMax"			"100"		// 92
 		"AttackRate"				"0.9"		// 1
@@ -29,6 +45,14 @@
 	}
 	"npc_dota_goodguys_tower1_bot"
 	{
+		"Ability3"					"kobold_tunneler_prospecting"	// 淘金光环
+		"Ability4"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+		"Ability5"					"black_dragon_dragonhide_aura"	// 龙肤光环 防御力
+		"Ability6"					"black_drake_magic_amplification_aura"	// 魔法增强光环 伤害增加
+		"Ability7"					"frostbitten_golem_time_warp_aura"		// 时间扭曲光环 CD减少
+		"Ability8"					"big_thunder_lizard_wardrums_aura"	// 战鼓光环 攻击速度/必中
+		"Ability9"					"alpha_wolf_command_aura"			// 头狼光环 攻击力
+
 		"AttackDamageMin"			"90"		// 88
 		"AttackDamageMax"			"100"		// 92
 		"AttackRate"				"0.9"		// 1
@@ -40,6 +64,14 @@
 	}
 	"npc_dota_badguys_tower1_bot"
 	{
+		"Ability3"					"kobold_tunneler_prospecting"	// 淘金光环
+		"Ability4"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+		"Ability5"					"black_dragon_dragonhide_aura"	// 龙肤光环 防御力
+		"Ability6"					"black_drake_magic_amplification_aura"	// 魔法增强光环 伤害增加
+		"Ability7"					"frostbitten_golem_time_warp_aura"		// 时间扭曲光环 CD减少
+		"Ability8"					"big_thunder_lizard_wardrums_aura"	// 战鼓光环 攻击速度/必中
+		"Ability9"					"alpha_wolf_command_aura"			// 头狼光环 攻击力
+
 		"AttackDamageMin"			"90"		// 88
 		"AttackDamageMax"			"100"		// 92
 		"AttackRate"				"0.9"		// 1
@@ -51,6 +83,14 @@
 	}
 	"npc_dota_goodguys_tower1_mid"
 	{
+		"Ability3"					"kobold_tunneler_prospecting"	// 淘金光环
+		"Ability4"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+		"Ability5"					"black_dragon_dragonhide_aura"	// 龙肤光环 防御力
+		"Ability6"					"black_drake_magic_amplification_aura"	// 魔法增强光环 伤害增加
+		"Ability7"					"frostbitten_golem_time_warp_aura"		// 时间扭曲光环 CD减少
+		"Ability8"					"big_thunder_lizard_wardrums_aura"	// 战鼓光环 攻击速度/必中
+		"Ability9"					"alpha_wolf_command_aura"			// 头狼光环 攻击力
+
 		"AttackDamageMin"			"90"		// 88
 		"AttackDamageMax"			"100"		// 92
 		"AttackRate"				"0.9"		// 1
@@ -62,6 +102,14 @@
 	}
 	"npc_dota_badguys_tower1_mid"
 	{
+		"Ability3"					"kobold_tunneler_prospecting"	// 淘金光环
+		"Ability4"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+		"Ability5"					"black_dragon_dragonhide_aura"	// 龙肤光环 防御力
+		"Ability6"					"black_drake_magic_amplification_aura"	// 魔法增强光环 伤害增加
+		"Ability7"					"frostbitten_golem_time_warp_aura"		// 时间扭曲光环 CD减少
+		"Ability8"					"big_thunder_lizard_wardrums_aura"	// 战鼓光环 攻击速度/必中
+		"Ability9"					"alpha_wolf_command_aura"			// 头狼光环 攻击力
+
 		"AttackDamageMin"			"90"		// 88
 		"AttackDamageMax"			"100"		// 92
 		"AttackRate"				"0.9"		// 1
@@ -76,6 +124,14 @@
 	//=========================================================
 	"npc_dota_goodguys_tower2_top"
 	{
+		"Ability3"					"kobold_tunneler_prospecting"	// 淘金光环
+		"Ability4"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+		"Ability5"					"black_dragon_dragonhide_aura"	// 龙肤光环 防御力
+		"Ability6"					"black_drake_magic_amplification_aura"	// 魔法增强光环 伤害增加
+		"Ability7"					"frostbitten_golem_time_warp_aura"		// 时间扭曲光环 CD减少
+		"Ability8"					"big_thunder_lizard_wardrums_aura"	// 战鼓光环 攻击速度/必中
+		"Ability9"					"alpha_wolf_command_aura"			// 头狼光环 攻击力
+
 		"AttackDamageMin"			"160"	// 170
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
@@ -90,12 +146,20 @@
 	}
 	"npc_dota_badguys_tower2_top"
 	{
+		"Ability3"					"kobold_tunneler_prospecting"	// 淘金光环
+		"Ability4"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+		"Ability5"					"black_dragon_dragonhide_aura"	// 龙肤光环 防御力
+		"Ability6"					"black_drake_magic_amplification_aura"	// 魔法增强光环 伤害增加
+		"Ability7"					"frostbitten_golem_time_warp_aura"		// 时间扭曲光环 CD减少
+		"Ability8"					"big_thunder_lizard_wardrums_aura"	// 战鼓光环 攻击速度/必中
+		"Ability9"					"alpha_wolf_command_aura"			// 头狼光环 攻击力
+
 		"AttackDamageMin"			"160"	// 170
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
-		"AttackAcquisitionRange"	"1100"		// Range within a target can be acquired.
-		"AttackRange"				"1100"		// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
+		"AttackRange"				"900"		// Range within a target can be attacked.
 
 		"StatusHealth"				"4000"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
@@ -104,12 +168,20 @@
 	}
 	"npc_dota_goodguys_tower2_bot"
 	{
+		"Ability3"					"kobold_tunneler_prospecting"	// 淘金光环
+		"Ability4"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+		"Ability5"					"black_dragon_dragonhide_aura"	// 龙肤光环 防御力
+		"Ability6"					"black_drake_magic_amplification_aura"	// 魔法增强光环 伤害增加
+		"Ability7"					"frostbitten_golem_time_warp_aura"		// 时间扭曲光环 CD减少
+		"Ability8"					"big_thunder_lizard_wardrums_aura"	// 战鼓光环 攻击速度/必中
+		"Ability9"					"alpha_wolf_command_aura"			// 头狼光环 攻击力
+
 		"AttackDamageMin"			"160"	// 170
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
-		"AttackAcquisitionRange"	"1100"		// Range within a target can be acquired.
-		"AttackRange"				"1100"		// Range within a target can be attacked.
+		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
+		"AttackRange"				"900"		// Range within a target can be attacked.
 
 		"StatusHealth"				"4000"		// 2500
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
@@ -118,6 +190,14 @@
 	}
 	"npc_dota_badguys_tower2_bot"
 	{
+		"Ability3"					"kobold_tunneler_prospecting"	// 淘金光环
+		"Ability4"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+		"Ability5"					"black_dragon_dragonhide_aura"	// 龙肤光环 防御力
+		"Ability6"					"black_drake_magic_amplification_aura"	// 魔法增强光环 伤害增加
+		"Ability7"					"frostbitten_golem_time_warp_aura"		// 时间扭曲光环 CD减少
+		"Ability8"					"big_thunder_lizard_wardrums_aura"	// 战鼓光环 攻击速度/必中
+		"Ability9"					"alpha_wolf_command_aura"			// 头狼光环 攻击力
+
 		"AttackDamageMin"			"160"	// 170
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
@@ -132,6 +212,14 @@
 	}
 	"npc_dota_goodguys_tower2_mid"
 	{
+		"Ability3"					"kobold_tunneler_prospecting"	// 淘金光环
+		"Ability4"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+		"Ability5"					"black_dragon_dragonhide_aura"	// 龙肤光环 防御力
+		"Ability6"					"black_drake_magic_amplification_aura"	// 魔法增强光环 伤害增加
+		"Ability7"					"frostbitten_golem_time_warp_aura"		// 时间扭曲光环 CD减少
+		"Ability8"					"big_thunder_lizard_wardrums_aura"	// 战鼓光环 攻击速度/必中
+		"Ability9"					"alpha_wolf_command_aura"			// 头狼光环 攻击力
+
 		"AttackDamageMin"			"160"	// 170
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
@@ -146,6 +234,14 @@
 	}
 	"npc_dota_badguys_tower2_mid"
 	{
+		"Ability3"					"kobold_tunneler_prospecting"	// 淘金光环
+		"Ability4"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+		"Ability5"					"black_dragon_dragonhide_aura"	// 龙肤光环 防御力
+		"Ability6"					"black_drake_magic_amplification_aura"	// 魔法增强光环 伤害增加
+		"Ability7"					"frostbitten_golem_time_warp_aura"		// 时间扭曲光环 CD减少
+		"Ability8"					"big_thunder_lizard_wardrums_aura"	// 战鼓光环 攻击速度/必中
+		"Ability9"					"alpha_wolf_command_aura"			// 头狼光环 攻击力
+
 		"AttackDamageMin"			"160"	// 170
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
@@ -263,7 +359,6 @@
 	"npc_dota_goodguys_melee_rax_top"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -296,7 +391,6 @@
 	"npc_dota_goodguys_melee_rax_mid"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -329,7 +423,6 @@
 	"npc_dota_goodguys_melee_rax_bot"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -363,7 +456,6 @@
 	"npc_dota_badguys_melee_rax_top"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -396,7 +488,6 @@
 	"npc_dota_badguys_melee_rax_mid"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -429,7 +520,6 @@
 	"npc_dota_badguys_melee_rax_bot"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_armor_aura"					// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -465,7 +555,6 @@
 	"npc_dota_goodguys_range_rax_top"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -497,7 +586,6 @@
 	"npc_dota_goodguys_range_rax_mid"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -529,7 +617,6 @@
 	"npc_dota_goodguys_range_rax_bot"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -563,7 +650,6 @@
 	"npc_dota_badguys_range_rax_top"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -595,7 +681,6 @@
 	"npc_dota_badguys_range_rax_mid"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
@@ -627,7 +712,6 @@
 	"npc_dota_badguys_range_rax_bot"
 	{
 		// Ability
-		"Ability1"					"backdoor_protection_in_base"		// Ability 1.
 		"Ability3"					"tower_magical_armor_aura"			// Ability 3.
 		// Armor
 		//----------------------------------------------------------------
