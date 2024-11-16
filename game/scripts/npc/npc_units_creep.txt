@@ -435,14 +435,13 @@
 
 		// Movement
 		//----------------------------------------------------------------
-		"MovementSpeed"				"375"		// 325
+			"MovementSpeed"				"375"		// 325
 
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"3000"		// 935
 		"StatusHealthRegen"			"10"		// 0
 	}
-
 
 	// 中立生物
 	// 远古
@@ -487,8 +486,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"180"		// 62
-		"AttackDamageMax"			"200"		// 68
+		"AttackDamageMin"			"248"		// 62
+		"AttackDamageMax"			"272"		// 68
 		"AttackRate"				"1.6"		// 2
 
 		// Bounty
@@ -516,8 +515,8 @@
 		"MagicalResistance"			"60"		// 30
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"60"		// 22
-		"AttackDamageMax"			"68"		// 24
+		"AttackDamageMin"			"88"		// 22
+		"AttackDamageMax"			"96"		// 24
 		"AttackRate"				"1.6"		// 2
 
 		// Bounty
@@ -549,8 +548,8 @@
 		"MagicalResistance"			"50"		// 30
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"150"		// 80
-		"AttackDamageMax"			"170"		// 84
+		"AttackDamageMin"			"320"		// 80
+		"AttackDamageMax"			"336"		// 84
 		"AttackRate"				"1.6"		// 2
 
 		// Bounty
@@ -582,8 +581,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"120"		// 60
-		"AttackDamageMax"			"130"		// 65
+		"AttackDamageMin"			"240"		// 60
+		"AttackDamageMax"			"260"		// 65
 		"AttackRate"				"1.6"		// 2
 		"BaseAttackSpeed"			"120"		// 100
 
@@ -617,8 +616,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"80"		// 32
-		"AttackDamageMax"			"90"		// 34
+		"AttackDamageMin"			"128"		// 32
+		"AttackDamageMax"			"136"		// 34
 		"AttackRate"				"1.6"		// 1.8
 		"BaseAttackSpeed"			"120"		// 100
 
@@ -651,8 +650,8 @@
 		"MagicalResistance"			"50"		// 30
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"115"		// 58
-		"AttackDamageMax"			"125"		// 62
+		"AttackDamageMin"			"232"		// 58
+		"AttackDamageMax"			"248"		// 62
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"186"		// 124
@@ -678,8 +677,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"60"		// 29
-		"AttackDamageMax"			"64"		// 31
+		"AttackDamageMin"			"116"		// 29
+		"AttackDamageMax"			"124"		// 31
 
 		// Bounty
 		//----------------------------------------------------------------
