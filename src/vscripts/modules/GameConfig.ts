@@ -17,13 +17,13 @@ export class GameConfig {
     // GameRules.SetPostGameTime(30); // 游戏结束后时长
     // GameRules.SetSameHeroSelectionEnabled(true); // 是否允许选择相同英雄
     // GameRules.SetStartingGold(0); // 设置初始金钱
-    // GameRules.SetGoldTickTime(0); // 设置工资发放间隔
-    // GameRules.SetGoldPerTick(0); // 设置工资发放数额
+    GameRules.SetGoldTickTime(1); // 设置工资发放间隔
+    GameRules.SetGoldPerTick(3); // 设置工资发放数额
     // GameRules.SetHeroRespawnEnabled(false); // 是否允许英雄重生
     // GameRules.SetCustomGameAllowMusicAtGameStart(false); // 是否允许游戏开始时的音乐
     // GameRules.SetCustomGameAllowHeroPickMusic(false); // 是否允许英雄选择阶段的音乐
     // GameRules.SetCustomGameAllowBattleMusic(false); // 是否允许战斗阶段音乐
-    // GameRules.SetUseUniversalShopMode(true); // 是否启用全地图商店模式（在基地也可以购买神秘商店的物品）* 这个不是设置在任何地方都可以购买，如果要设置这个，需要将购买区域覆盖全地图
+    GameRules.SetUseUniversalShopMode(true); // 是否启用全地图商店模式（在基地也可以购买神秘商店的物品）* 这个不是设置在任何地方都可以购买，如果要设置这个，需要将购买区域覆盖全地图
     // GameRules.SetHideKillMessageHeaders(true); // 是否隐藏顶部的英雄击杀信息
     GameRules.SetCustomGameEndDelay(30);
 

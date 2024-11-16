@@ -1,134 +1,8 @@
 #base "npc_items_override.txt"
+#base "npc_abilities_creep.txt"
 
 "DOTAAbilities"
 {
-
-	//=================================================================================================================
-	// Creep
-	//=================================================================================================================
-
-	"neutral_upgrade"
-	{
-		"AbilityValues"
-		{
-			"max_level"				"60"	// 30
-			"increase_time"			"150"	// 450
-			"increase_damage"		"6"		// 3
-			"increase_aspd"			"8"		// 5
-			"increase_health"		"80"	// 30
-			"increase_armor"		"1"		// 0.5
-			"increase_gold"			"5"		// 1
-			"increase_xp"			"12"	// 5
-		}
-	}
-
-	//=================================================================================================================
-	// Roshan: Slam 震击
-	//=================================================================================================================
-	"roshan_slam"
-	{
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value" "450"
-			}
-			"slow_duration_hero"
-			{
-				"value" "3"
-			}
-			"slow_amount"
-			{
-				"value" "80"
-			}
-			"damage"
-			{
-				"value" "300"
-			}
-			"damage_growth"
-			{
-				"value" "50"
-			}
-		}
-	}
-	// 复仇咆哮
-	"roshan_revengeroar"
-	{
-		"AbilityCooldown"				"15.0"		// 20.0
-		"AbilityValues"
-		{
-			"damage"			"150"				// 50
-			"damage_pct"		"25"				// 25
-			"duration"			"8"					// 8
-			"damage_growth"		"30"				// 10
-		}
-	}
-	// 巨狼 致命一击
-	"giant_wolf_critical_strike"
-	{
-		"AbilityValues"
-		{
-			"crit_chance"
-			{
-				"value" "25"
-			}
-			"crit_mult"
-			{
-				"value" "350"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Heavy (Replacing legacy Siege Attack Type / Structure Defend type) 坚锐 (替换旧版投石车 / 防御塔类型)
-	//=================================================================================================================
-	"creep_siege"
-	{
-		"AbilityValues"
-		{
-				"bonus_building_damage"		"200"			// 150
-				"incoming_hero_damage_penalty"		"-60"	// -50
-				"incoming_basic_damage_penalty"		"30"	// -30
-				"incoming_controlled_unit_penalty"	"-40"	// -40
-		}
-	}
-
-	//=================================================================================================================
-	// Backdoor Protection 偷塔保护
-	//=================================================================================================================
-	"backdoor_protection"
-	{
-		"AbilityValues"
-		{
-			"activation_time"
-			{
-				"value" "5"		// 15
-			}
-			"regen_rate"
-			{
-				"value" "5000"	// 90
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Backdoor Protection In Base 偷塔保护在基地
-	//=================================================================================================================
-	"backdoor_protection_in_base"
-	{
-		"AbilityValues"
-		{
-			"activation_time"
-			{
-				"value" "5"		// 15
-			}
-			"regen_rate"
-			{
-				"value" "5000"	// 90
-			}
-		}
-	}
-
 	//=================================================================================================================
 	// HERO ABILITIES 英雄技能
 	//=================================================================================================================
@@ -12437,20 +12311,19 @@
 				"value"		"40 32 24 16"
 			}
 
-			"strike_interval"										"0.25"
-			"strikes"												"3 4 5 6"
+			"strikes"												"2 3 4 5"
 			"radius"
 			{
 				"value"												"500"
-				"special_bonus_unique_kez_raptor_dance_radius"		"+150"
+				"special_bonus_unique_kez_raptor_dance_radius"		"+100"
 			}
 			"base_damage"
 			{
-				"value"				 "200"
+				"value"				 "200"	// 75
 			}
 			"max_health_damage_pct"
 			{
-				"value"				 "8"
+				"value"				 "6"	// 4
 			}
 		}
 	}
