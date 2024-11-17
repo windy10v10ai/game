@@ -1,5 +1,8 @@
 
 tool/reference
+
+content/panorama/layout/custom_game/react
+
 game/*.bin
 game/panorama_debugger.cfg
 game/panorama/layout/custom_game/
