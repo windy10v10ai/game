@@ -1,5 +1,6 @@
 name: Create Develop PR
 on:
+  workflow_dispatch:
   push:
     branches:
       - "feature/*"
