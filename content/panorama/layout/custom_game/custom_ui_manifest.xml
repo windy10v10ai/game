@@ -18,6 +18,6 @@
 		<CustomUIElement type="EndScreen" 			layoutfile="file://{resources}/layout/custom_game/end_screen_2.xml" />
 
 		<!-- Layout of paranoma-react -->
-		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/react/hud/layout.xml" />
+		<!-- <CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/react/hud/layout.xml" /> -->
 	</Panel>
 </root>
