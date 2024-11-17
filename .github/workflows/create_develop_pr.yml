@@ -1,6 +1,8 @@
 name: Create Develop PR
 on:
   push:
+    branches:
+      - "feature/*"
 
 jobs:
   create_pull_request:
