@@ -20,7 +20,8 @@
     "prettier/prettier": [
       "error",
       {
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "singleQuote": true // 使用单引号
       }
     ],
     "no-restricted-imports": [
