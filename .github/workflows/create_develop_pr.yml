@@ -6,10 +6,7 @@ on:
 
 jobs:
   create_pull_request:
-    if: |
-      github.actor == 'windybirth'
-      && github.ref_name != 'main'
-      && github.ref_name != 'develop'
+    if: github.actor == 'windybirth'
     runs-on: ubuntu-latest
     steps:
       - name: Check out base code
@@ -34,7 +31,7 @@ jobs:
           response=$(curl --request GET --url https://api.github.com/repos/${{ github.repository }}/issues/${{ steps.get_issue.outputs.number }})
           title=$(echo "$response" | jq -r .title)
           if [ $title = "null" ]; then
-            title=$(echo ${{ github.ref_name }})
+            title=$(echo ${{ github.ref_name }} | sed 's|feature/||')
             title=$(echo $title | sed 's/-/ /g')
           fi
           echo title=$title >> $GITHUB_OUTPUT
