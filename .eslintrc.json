@@ -45,8 +45,16 @@
     "no-eval": "error",
     "no-redeclare": "off",
     "import/no-anonymous-default-export": "off",
-    "@typescript-eslint/no-redeclare": ["off"],
+    "@typescript-eslint/no-redeclare": ["off", {}],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-require-imports": "off" // 在 JavaScript 文件中禁用该规则
+      }
+    }
+  ]
 }
