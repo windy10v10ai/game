@@ -1,14 +1,17 @@
 const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const { PanoramaManifestPlugin, PanoramaTargetPlugin } = require('webpack-panorama-x');
+const { PanoramaTargetPlugin } = require('webpack-panorama-x');
 const { WatchIgnorePlugin } = require('webpack');
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
+  entry: {
+    hud: { filename: 'hud/layout.xml', import: './hud/layout.xml' },
+  },
   mode: 'development',
-  context: path.resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, '.'),
   output: {
-    path: path.resolve(__dirname, 'layout/custom_game'),
+    path: path.resolve(__dirname, '../../content/panorama/layout/custom_game'),
     publicPath: 'file://{resources}/layout/custom_game/',
     chunkFormat: 'commonjs',
   },
@@ -88,34 +91,6 @@ module.exports = {
       typescript: {
         configFile: path.resolve(__dirname, 'tsconfig.json'),
       },
-    }),
-    new PanoramaManifestPlugin({
-      entries: [
-        // // js entires will be loaded in the scripts tag in the manifest
-        // { import: './utils/x-nettable-dispatcher.ts', filename: 'x-nettable-dispatcher.js' },
-
-        // // if type is not set, it will not be included in the manifest
-        // // usually used for loading screen, tooltips and popups which loaded
-        // // by engine or BLoadLayout etc.
-        // { import: './loading-screen/layout.xml', filename: 'custom_loading_screen.xml' },
-
-        // // provide type and filename to include in the manifest
-        // { import: './end_screen/layout.xml', type: 'EndScreen', filename: 'end_screen.xml' },
-
-        // if filename is not set, it will use the name of the entry
-        // { import: './team_select/team_select.xml', type: 'GameSetup' },
-        // HeroSelection
-        // { import: './hero_select/board/multiteam_hero_select_overlay.xml', type: 'HeroSelection' },
-        // FlyoutScoreboard
-        // { import: './hero_select/board/multiteam_hero_select_overlay.xml', type: 'HeroSelection' },
-        // { import: './board/boards.xml', type: 'Hud' },
-        // { import: './button/button.xml', type: 'Hud' },
-        // { import: './item_choice/item_choice.xml', type: 'Hud' },
-        // { import: './battlepass/battlepass.xml', type: 'Hud' },
-        // { import: './point_info/point_info.xml', type: 'Hud' },
-        { import: './hud/layout.xml', type: 'Hud' },
-        // { import: './end_screen_2/end_screen_2.xml', type: 'EndScreen' },
-      ],
     }),
     // use ignore plugin to ignore less files changes
     new WatchIgnorePlugin({ paths: [/\.less$/] }),

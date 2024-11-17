@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "../../../node_modules/object-assign/index.js":
-/*!****************************************************!*\
-  !*** ../../../node_modules/object-assign/index.js ***!
-  \****************************************************/
+/***/ "../../node_modules/object-assign/index.js":
+/*!*************************************************!*\
+  !*** ../../node_modules/object-assign/index.js ***!
+  \*************************************************/
 /***/ ((module) => {
 
 "use strict";
@@ -102,10 +102,10 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 /***/ }),
 
-/***/ "../../../node_modules/object-inspect/index.js":
-/*!*****************************************************!*\
-  !*** ../../../node_modules/object-inspect/index.js ***!
-  \*****************************************************/
+/***/ "../../node_modules/object-inspect/index.js":
+/*!**************************************************!*\
+  !*** ../../node_modules/object-inspect/index.js ***!
+  \**************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var hasMap = typeof Map === 'function' && Map.prototype;
@@ -175,7 +175,7 @@ function addNumericSeparator(num, str) {
     return $replace.call(str, sepRegex, '$&_');
 }
 
-var utilInspect = __webpack_require__(/*! ./util.inspect */ "?4860");
+var utilInspect = __webpack_require__(/*! ./util.inspect */ "?c95a");
 var inspectCustom = utilInspect.custom;
 var inspectSymbol = isSymbol(inspectCustom) ? inspectCustom : null;
 
@@ -639,28 +639,28 @@ function arrObjKeys(obj, inspect) {
 
 /***/ }),
 
-/***/ "../../../node_modules/panorama-polyfill-x/lib/console.js":
-/*!****************************************************************!*\
-  !*** ../../../node_modules/panorama-polyfill-x/lib/console.js ***!
-  \****************************************************************/
+/***/ "../../node_modules/panorama-polyfill-x/lib/console.js":
+/*!*************************************************************!*\
+  !*** ../../node_modules/panorama-polyfill-x/lib/console.js ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 "use strict";
-/* harmony import */ var _utils_console__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/console */ "../../../node_modules/panorama-polyfill-x/lib/utils/console.js");
+/* harmony import */ var _utils_console__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/console */ "../../node_modules/panorama-polyfill-x/lib/utils/console.js");
 
 globalThis.console = _utils_console__WEBPACK_IMPORTED_MODULE_0__.console;
 
 
 /***/ }),
 
-/***/ "../../../node_modules/panorama-polyfill-x/lib/timers.js":
-/*!***************************************************************!*\
-  !*** ../../../node_modules/panorama-polyfill-x/lib/timers.js ***!
-  \***************************************************************/
+/***/ "../../node_modules/panorama-polyfill-x/lib/timers.js":
+/*!************************************************************!*\
+  !*** ../../node_modules/panorama-polyfill-x/lib/timers.js ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 "use strict";
-/* harmony import */ var _utils_timers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/timers */ "../../../node_modules/panorama-polyfill-x/lib/utils/timers.js");
+/* harmony import */ var _utils_timers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/timers */ "../../node_modules/panorama-polyfill-x/lib/utils/timers.js");
 
 globalThis.setInterval = _utils_timers__WEBPACK_IMPORTED_MODULE_0__.setInterval;
 globalThis.clearInterval = _utils_timers__WEBPACK_IMPORTED_MODULE_0__.clearInterval;
@@ -672,17 +672,17 @@ globalThis.clearImmediate = _utils_timers__WEBPACK_IMPORTED_MODULE_0__.clearImme
 
 /***/ }),
 
-/***/ "../../../node_modules/panorama-polyfill-x/lib/utils/console.js":
-/*!**********************************************************************!*\
-  !*** ../../../node_modules/panorama-polyfill-x/lib/utils/console.js ***!
-  \**********************************************************************/
+/***/ "../../node_modules/panorama-polyfill-x/lib/utils/console.js":
+/*!*******************************************************************!*\
+  !*** ../../node_modules/panorama-polyfill-x/lib/utils/console.js ***!
+  \*******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   console: () => (/* binding */ console)
 /* harmony export */ });
-/* harmony import */ var _format__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./format */ "../../../node_modules/panorama-polyfill-x/lib/utils/format.js");
+/* harmony import */ var _format__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./format */ "../../node_modules/panorama-polyfill-x/lib/utils/format.js");
 
 function write(text) {
     for (const line of text.split('\n')) {
@@ -798,17 +798,17 @@ const console = {
 
 /***/ }),
 
-/***/ "../../../node_modules/panorama-polyfill-x/lib/utils/format.js":
-/*!*********************************************************************!*\
-  !*** ../../../node_modules/panorama-polyfill-x/lib/utils/format.js ***!
-  \*********************************************************************/
+/***/ "../../node_modules/panorama-polyfill-x/lib/utils/format.js":
+/*!******************************************************************!*\
+  !*** ../../node_modules/panorama-polyfill-x/lib/utils/format.js ***!
+  \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   format: () => (/* binding */ format)
 /* harmony export */ });
-/* harmony import */ var object_inspect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! object-inspect */ "../../../node_modules/object-inspect/index.js");
+/* harmony import */ var object_inspect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! object-inspect */ "../../node_modules/object-inspect/index.js");
 /* harmony import */ var object_inspect__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(object_inspect__WEBPACK_IMPORTED_MODULE_0__);
 
 // Based on https://github.com/browserify/node-util/blob/4b1c0c79790d9968eabecd2e9c786454713e200f/util.js#L33
@@ -889,10 +889,10 @@ const isPanelBase = (value) => 'paneltype' in value &&
 
 /***/ }),
 
-/***/ "../../../node_modules/panorama-polyfill-x/lib/utils/timers.js":
-/*!*********************************************************************!*\
-  !*** ../../../node_modules/panorama-polyfill-x/lib/utils/timers.js ***!
-  \*********************************************************************/
+/***/ "../../node_modules/panorama-polyfill-x/lib/utils/timers.js":
+/*!******************************************************************!*\
+  !*** ../../node_modules/panorama-polyfill-x/lib/utils/timers.js ***!
+  \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -938,10 +938,10 @@ function clearTimer(handle) {
 
 /***/ }),
 
-/***/ "../../../node_modules/prop-types/checkPropTypes.js":
-/*!**********************************************************!*\
-  !*** ../../../node_modules/prop-types/checkPropTypes.js ***!
-  \**********************************************************/
+/***/ "../../node_modules/prop-types/checkPropTypes.js":
+/*!*******************************************************!*\
+  !*** ../../node_modules/prop-types/checkPropTypes.js ***!
+  \*******************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -957,9 +957,9 @@ function clearTimer(handle) {
 var printWarning = function() {};
 
 if (true) {
-  var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "../../../node_modules/prop-types/lib/ReactPropTypesSecret.js");
+  var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "../../node_modules/prop-types/lib/ReactPropTypesSecret.js");
   var loggedTypeFailures = {};
-  var has = __webpack_require__(/*! ./lib/has */ "../../../node_modules/prop-types/lib/has.js");
+  var has = __webpack_require__(/*! ./lib/has */ "../../node_modules/prop-types/lib/has.js");
 
   printWarning = function(text) {
     var message = 'Warning: ' + text;
@@ -1052,10 +1052,10 @@ module.exports = checkPropTypes;
 
 /***/ }),
 
-/***/ "../../../node_modules/prop-types/lib/ReactPropTypesSecret.js":
-/*!********************************************************************!*\
-  !*** ../../../node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
-  \********************************************************************/
+/***/ "../../node_modules/prop-types/lib/ReactPropTypesSecret.js":
+/*!*****************************************************************!*\
+  !*** ../../node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
+  \*****************************************************************/
 /***/ ((module) => {
 
 "use strict";
@@ -1075,10 +1075,10 @@ module.exports = ReactPropTypesSecret;
 
 /***/ }),
 
-/***/ "../../../node_modules/prop-types/lib/has.js":
-/*!***************************************************!*\
-  !*** ../../../node_modules/prop-types/lib/has.js ***!
-  \***************************************************/
+/***/ "../../node_modules/prop-types/lib/has.js":
+/*!************************************************!*\
+  !*** ../../node_modules/prop-types/lib/has.js ***!
+  \************************************************/
 /***/ ((module) => {
 
 module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
@@ -1086,10 +1086,10 @@ module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
 
 /***/ }),
 
-/***/ "../../../node_modules/react-panorama-x/dist/esm/react-panorama.development.js":
-/*!*************************************************************************************!*\
-  !*** ../../../node_modules/react-panorama-x/dist/esm/react-panorama.development.js ***!
-  \*************************************************************************************/
+/***/ "../../node_modules/react-panorama-x/dist/esm/react-panorama.development.js":
+/*!**********************************************************************************!*\
+  !*** ../../node_modules/react-panorama-x/dist/esm/react-panorama.development.js ***!
+  \**********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1097,9 +1097,9 @@ module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
 /* harmony export */   render: () => (/* binding */ render)
 /* harmony export */ });
 /* unused harmony exports createPortal, useGameEvent, useNetTableKey, useNetTableValues, useRegisterForUnhandledEvent */
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../node_modules/react/index.js");
-/* harmony import */ var panorama_polyfill_x_lib_console__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! panorama-polyfill-x/lib/console */ "../../../node_modules/panorama-polyfill-x/lib/console.js");
-/* harmony import */ var panorama_polyfill_x_lib_timers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! panorama-polyfill-x/lib/timers */ "../../../node_modules/panorama-polyfill-x/lib/timers.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../node_modules/react/index.js");
+/* harmony import */ var panorama_polyfill_x_lib_console__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! panorama-polyfill-x/lib/console */ "../../node_modules/panorama-polyfill-x/lib/console.js");
+/* harmony import */ var panorama_polyfill_x_lib_timers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! panorama-polyfill-x/lib/timers */ "../../node_modules/panorama-polyfill-x/lib/timers.js");
 /**
  * React Panorama (https://github.com/XavierCHN/react-panorama)
  * @version 0.4.0
@@ -19604,10 +19604,10 @@ function createPortal(children, container, key) {
 
 /***/ }),
 
-/***/ "../../../node_modules/react/cjs/react-jsx-runtime.development.js":
-/*!************************************************************************!*\
-  !*** ../../../node_modules/react/cjs/react-jsx-runtime.development.js ***!
-  \************************************************************************/
+/***/ "../../node_modules/react/cjs/react-jsx-runtime.development.js":
+/*!*********************************************************************!*\
+  !*** ../../node_modules/react/cjs/react-jsx-runtime.development.js ***!
+  \*********************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -19626,7 +19626,7 @@ if (true) {
   (function() {
 'use strict';
 
-var React = __webpack_require__(/*! react */ "../../../node_modules/react/index.js");
+var React = __webpack_require__(/*! react */ "../../node_modules/react/index.js");
 
 // ATTENTION
 // When adding new symbols to this file,
@@ -20526,10 +20526,10 @@ exports.jsxs = jsxs;
 
 /***/ }),
 
-/***/ "../../../node_modules/react/cjs/react.development.js":
-/*!************************************************************!*\
-  !*** ../../../node_modules/react/cjs/react.development.js ***!
-  \************************************************************/
+/***/ "../../node_modules/react/cjs/react.development.js":
+/*!*********************************************************!*\
+  !*** ../../node_modules/react/cjs/react.development.js ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -20550,8 +20550,8 @@ if (true) {
   (function() {
 'use strict';
 
-var _assign = __webpack_require__(/*! object-assign */ "../../../node_modules/object-assign/index.js");
-var checkPropTypes = __webpack_require__(/*! prop-types/checkPropTypes */ "../../../node_modules/prop-types/checkPropTypes.js");
+var _assign = __webpack_require__(/*! object-assign */ "../../node_modules/object-assign/index.js");
+var checkPropTypes = __webpack_require__(/*! prop-types/checkPropTypes */ "../../node_modules/prop-types/checkPropTypes.js");
 
 var ReactVersion = '16.14.0';
 
@@ -22449,39 +22449,39 @@ exports.version = ReactVersion;
 
 /***/ }),
 
-/***/ "../../../node_modules/react/index.js":
-/*!********************************************!*\
-  !*** ../../../node_modules/react/index.js ***!
-  \********************************************/
+/***/ "../../node_modules/react/index.js":
+/*!*****************************************!*\
+  !*** ../../node_modules/react/index.js ***!
+  \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
 if (false) {} else {
-  module.exports = __webpack_require__(/*! ./cjs/react.development.js */ "../../../node_modules/react/cjs/react.development.js");
+  module.exports = __webpack_require__(/*! ./cjs/react.development.js */ "../../node_modules/react/cjs/react.development.js");
 }
 
 
 /***/ }),
 
-/***/ "../../../node_modules/react/jsx-runtime.js":
-/*!**************************************************!*\
-  !*** ../../../node_modules/react/jsx-runtime.js ***!
-  \**************************************************/
+/***/ "../../node_modules/react/jsx-runtime.js":
+/*!***********************************************!*\
+  !*** ../../node_modules/react/jsx-runtime.js ***!
+  \***********************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
 if (false) {} else {
-  module.exports = __webpack_require__(/*! ./cjs/react-jsx-runtime.development.js */ "../../../node_modules/react/cjs/react-jsx-runtime.development.js");
+  module.exports = __webpack_require__(/*! ./cjs/react-jsx-runtime.development.js */ "../../node_modules/react/cjs/react-jsx-runtime.development.js");
 }
 
 
 /***/ }),
 
-/***/ "?4860":
+/***/ "?c95a":
 /*!********************************!*\
   !*** ./util.inspect (ignored) ***!
   \********************************/
@@ -22567,10 +22567,10 @@ var __webpack_exports__ = {};
 /*!************************!*\
   !*** ./hud/script.tsx ***!
   \************************/
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "../../../node_modules/react/jsx-runtime.js");
-/* harmony import */ var panorama_polyfill_x_lib_console__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! panorama-polyfill-x/lib/console */ "../../../node_modules/panorama-polyfill-x/lib/console.js");
-/* harmony import */ var panorama_polyfill_x_lib_timers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! panorama-polyfill-x/lib/timers */ "../../../node_modules/panorama-polyfill-x/lib/timers.js");
-/* harmony import */ var react_panorama_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-panorama-x */ "../../../node_modules/react-panorama-x/dist/esm/react-panorama.development.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "../../node_modules/react/jsx-runtime.js");
+/* harmony import */ var panorama_polyfill_x_lib_console__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! panorama-polyfill-x/lib/console */ "../../node_modules/panorama-polyfill-x/lib/console.js");
+/* harmony import */ var panorama_polyfill_x_lib_timers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! panorama-polyfill-x/lib/timers */ "../../node_modules/panorama-polyfill-x/lib/timers.js");
+/* harmony import */ var react_panorama_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-panorama-x */ "../../node_modules/react-panorama-x/dist/esm/react-panorama.development.js");
 
 
 

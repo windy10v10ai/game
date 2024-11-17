@@ -9,13 +9,11 @@
     "build:panorama": "tsc --project src/panorama/tsconfig.json",
     "build:vscripts": "tstl --project src/vscripts/tsconfig.json",
     "dev": "run-p dev:*",
-    "dev:panorama:tsc": "tsc --project src/panorama/tsconfig.json --watch",
-    "dev:panorama:webpack": "node --preserve-symlinks node_modules/webpack/bin/webpack.js --config content/panorama/webpack.dev.js --watch",
-    "dev:panorama": "run-p dev:panorama:*",
+    "dev:panorama": "node --preserve-symlinks node_modules/webpack/bin/webpack.js --config src/panorama/webpack.dev.js --watch",
     "dev:vscripts": "tstl --project src/vscripts/tsconfig.json --watch",
     "start": "npm run launch && npm run dev",
     "prettier-check": "prettier --check .",
-    "lint": "eslint --ext .js,.ts,.tsx --quiet --fix  \"./src/**/*.{js,ts,tsx}\" \"./content/panorama/src/**/*.{js,ts,tsx}\" \"./game/scripts/src/**/*.{js,ts,tsx}\" \"./scripts/**/*.{js,ts,tsx}\""
+    "lint": "eslint --ext .js,.ts,.tsx --quiet --fix  \"./src/**/*.{js,ts,tsx}\""
   },
   "devDependencies": {
     "@moddota/dota-lua-types": "^4.35.0",
