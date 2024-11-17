@@ -15,7 +15,9 @@
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/item_choice.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/battlepass.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/point_info/point_info.xml" />
-		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/hud/layout.xml" />
 		<CustomUIElement type="EndScreen" 			layoutfile="file://{resources}/layout/custom_game/end_screen_2.xml" />
+
+		<!-- Layout of paranoma-react -->
+		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/react/hud/layout.xml" />
 	</Panel>
 </root>

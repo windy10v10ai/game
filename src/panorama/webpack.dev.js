@@ -9,10 +9,10 @@ module.exports = {
     hud: { filename: 'hud/layout.xml', import: './hud/layout.xml' },
   },
   mode: 'development',
-  context: path.resolve(__dirname, '.'),
+  context: path.resolve(__dirname, 'react'),
   output: {
-    path: path.resolve(__dirname, '../../content/panorama/layout/custom_game'),
-    publicPath: 'file://{resources}/layout/custom_game/',
+    path: path.resolve(__dirname, '../../content/panorama/layout/custom_game/react/'),
+    publicPath: 'file://{resources}/layout/custom_game/react/',
     chunkFormat: 'commonjs',
   },
 
