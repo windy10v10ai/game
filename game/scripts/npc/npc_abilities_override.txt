@@ -9384,17 +9384,14 @@
 			"stun_duration"
 			{
 				"value"					"1.25 1.50 1.75 2.0 2.25"
-				"special_bonus_unique_jakiro"		"+0.4"
 			}
 			"path_duration"
 			{
 				"value"					"3 3.5 4 4.5 5"
-				"special_bonus_unique_jakiro"		"+0.5"
 			}
 			"AbilityCooldown"
 			{
 				"value"								"21 18 15 12 9"
-				"special_bonus_unique_jakiro_6"		"-2.5"
 			}
 		}
 	}
