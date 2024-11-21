@@ -14,6 +14,7 @@ export interface ApiParameter {
   successFunc: (data: string) => void;
   failureFunc?: (data: string) => void;
   retryTimes?: number;
+  timeoutSeconds?: number;
 }
 
 export class ApiClient {
@@ -26,9 +27,7 @@ export class ApiClient {
   private static RETRY_TIMES = 4;
 
   private static HOST_NAME: string = (() => {
-    return IsInToolsMode()
-      ? 'http://localhost:5001/windy10v10ai/asia-northeast1/admin/api'
-      : 'https://windy10v10ai.web.app/api';
+    return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.web.app/api';
   })();
   // private static HOST_NAME: string = "https://windy10v10ai.web.app/api";
 
@@ -39,13 +38,16 @@ export class ApiClient {
     return GetDedicatedServerKeyV3(keyVersion);
   }
 
-  public static send(
-    method: HttpMethod,
-    path: string,
-    querys: { [key: string]: string } | undefined,
-    body: object | undefined,
+  public static async send(
+    apiParameter: ApiParameter,
     callbackFunc: (result: CScriptHTTPResponse) => void,
   ) {
+    const method = apiParameter.method;
+    const path = apiParameter.path;
+    const querys = apiParameter.querys;
+    const body = apiParameter.body;
+    const timeoutSeconds = apiParameter.timeoutSeconds || ApiClient.TIMEOUT_SECONDS;
+
     print(
       `[ApiClient] ${method} ${ApiClient.HOST_NAME}${path} with querys ${json.encode(
         querys,
@@ -73,7 +75,7 @@ export class ApiClient {
         request.SetHTTPRequestGetOrPostParameter(key, querys[key]);
       }
     }
-    request.SetHTTPRequestNetworkActivityTimeout(ApiClient.TIMEOUT_SECONDS);
+    request.SetHTTPRequestNetworkActivityTimeout(timeoutSeconds);
     request.SetHTTPRequestHeaderValue('x-api-key', apiKey);
     if (body) {
       request.SetHTTPRequestRawPostBody('application/json', json.encode(body));
@@ -87,33 +89,27 @@ export class ApiClient {
     let retryCount = 0;
     const maxRetryTimes = apiParameter.retryTimes || ApiClient.RETRY_TIMES;
     const retry = () => {
-      this.send(
-        apiParameter.method,
-        apiParameter.path,
-        apiParameter.querys,
-        apiParameter.body,
-        (result: CScriptHTTPResponse) => {
-          // if 20X
-          print(`[ApiClient] return with status code: ${result.StatusCode}`);
-          if (result.StatusCode >= 200 && result.StatusCode < 300) {
-            apiParameter.successFunc(result.Body);
-          } else if (result.StatusCode === 401) {
+      this.send(apiParameter, (result: CScriptHTTPResponse) => {
+        // if 20X
+        print(`[ApiClient] return with status code: ${result.StatusCode}`);
+        if (result.StatusCode >= 200 && result.StatusCode < 300) {
+          apiParameter.successFunc(result.Body);
+        } else if (result.StatusCode === 401) {
+          if (apiParameter.failureFunc) {
+            apiParameter.failureFunc(result.Body);
+          }
+        } else {
+          retryCount++;
+          if (retryCount < maxRetryTimes) {
+            print(`[ApiClient] getWithRetry retry ${retryCount}`);
+            retry();
+          } else {
             if (apiParameter.failureFunc) {
               apiParameter.failureFunc(result.Body);
             }
-          } else {
-            retryCount++;
-            if (retryCount < maxRetryTimes) {
-              print(`[ApiClient] getWithRetry retry ${retryCount}`);
-              retry();
-            } else {
-              if (apiParameter.failureFunc) {
-                apiParameter.failureFunc(result.Body);
-              }
-            }
           }
-        },
-      );
+        }
+      });
     };
     retry();
   }
