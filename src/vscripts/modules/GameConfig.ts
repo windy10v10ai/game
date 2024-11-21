@@ -1,6 +1,6 @@
 export class GameConfig {
   constructor() {
-    SendToServerConsole("dota_max_physical_items_purchase_limit 9999"); // 用来解决物品数量限制问题
+    SendToServerConsole('dota_max_physical_items_purchase_limit 9999'); // 用来解决物品数量限制问题
 
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 10); // 设置天辉队伍人数上限
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 10); // 设置夜魇队伍人数上限
@@ -58,7 +58,7 @@ export class GameConfig {
     // }
 
     if (IsInToolsMode()) {
-      print("[GameConfig] IsInToolsMode set");
+      print('[GameConfig] IsInToolsMode set');
       GameRules.SetCustomGameSetupAutoLaunchDelay(1);
       GameRules.SetHeroSelectionTime(30);
       GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间

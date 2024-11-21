@@ -1,9 +1,9 @@
 // enum http methods
 export enum HttpMethod {
-  GET = "GET",
-  POST = "POST",
-  PUT = "PUT",
-  DELETE = "DELETE",
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  DELETE = 'DELETE',
 }
 
 export interface ApiParameter {
@@ -17,25 +17,25 @@ export interface ApiParameter {
 }
 
 export class ApiClient {
-  public static GAME_START_URL = "/game/start";
-  public static ADD_PLAYER_PROPERTY_URL = "/game/addPlayerProperty";
-  public static RESET_PLAYER_PROPERTY_URL = "/game/resetPlayerProperty";
-  public static POST_GAME_URL = "/game/end";
+  public static GAME_START_URL = '/game/start';
+  public static ADD_PLAYER_PROPERTY_URL = '/game/addPlayerProperty';
+  public static RESET_PLAYER_PROPERTY_URL = '/game/resetPlayerProperty';
+  public static POST_GAME_URL = '/game/end';
 
   private static TIMEOUT_SECONDS = 15;
   private static RETRY_TIMES = 4;
 
   private static HOST_NAME: string = (() => {
     return IsInToolsMode()
-      ? "http://localhost:5001/windy10v10ai/asia-northeast1/admin/api"
-      : "https://windy10v10ai.web.app/api";
+      ? 'http://localhost:5001/windy10v10ai/asia-northeast1/admin/api'
+      : 'https://windy10v10ai.web.app/api';
   })();
   // private static HOST_NAME: string = "https://windy10v10ai.web.app/api";
 
-  public static LOCAL_APIKEY = "Invalid_NotOnDedicatedServer";
+  public static LOCAL_APIKEY = 'Invalid_NotOnDedicatedServer';
   // dont change this version, it is used to identify the server
   public static GetServerAuthKey() {
-    const keyVersion = "v2";
+    const keyVersion = 'v2';
     return GetDedicatedServerKeyV3(keyVersion);
   }
 
@@ -74,9 +74,9 @@ export class ApiClient {
       }
     }
     request.SetHTTPRequestNetworkActivityTimeout(ApiClient.TIMEOUT_SECONDS);
-    request.SetHTTPRequestHeaderValue("x-api-key", apiKey);
+    request.SetHTTPRequestHeaderValue('x-api-key', apiKey);
     if (body) {
-      request.SetHTTPRequestRawPostBody("application/json", json.encode(body));
+      request.SetHTTPRequestRawPostBody('application/json', json.encode(body));
     }
     request.Send((result: CScriptHTTPResponse) => {
       callbackFunc(result);

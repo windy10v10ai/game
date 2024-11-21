@@ -1,9 +1,9 @@
-import { AI } from "../ai/AI";
-import { GameConfig } from "./GameConfig";
-import { Debug } from "./debug/Debug";
-import { Event } from "./event/event";
-import { Option } from "./option";
-import { PropertyController } from "./property/property_controller";
+import { AI } from '../ai/AI';
+import { GameConfig } from './GameConfig';
+import { Debug } from './debug/Debug';
+import { Event } from './event/event';
+import { Option } from './option';
+import { PropertyController } from './property/property_controller';
 
 declare global {
   interface CDOTAGameRules {

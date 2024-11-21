@@ -1,11 +1,11 @@
-import { BaseHeroAIModifier } from "../hero/hero-base";
-import { ModeAttack } from "./mode-attack";
-import { ModeBase } from "./mode-base";
-import { ModeEnum } from "./mode-enum";
-import { ModeLaning } from "./mode-laning";
-import { ModePush } from "./mode-push";
-import { ModeRetreat } from "./mode-retreat";
-import { ModeRune } from "./mode-rune";
+import { BaseHeroAIModifier } from '../hero/hero-base';
+import { ModeAttack } from './mode-attack';
+import { ModeBase } from './mode-base';
+import { ModeEnum } from './mode-enum';
+import { ModeLaning } from './mode-laning';
+import { ModePush } from './mode-push';
+import { ModeRetreat } from './mode-retreat';
+import { ModeRune } from './mode-rune';
 
 export class FSA {
   // 切换模式的阈值

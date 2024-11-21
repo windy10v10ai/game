@@ -1,6 +1,6 @@
-import { BaseHeroAIModifier } from "../hero/hero-base";
-import { ModeBase } from "./mode-base";
-import { ModeEnum } from "./mode-enum";
+import { BaseHeroAIModifier } from '../hero/hero-base';
+import { ModeBase } from './mode-base';
+import { ModeEnum } from './mode-enum';
 
 export class ModeLaning extends ModeBase {
   mode: ModeEnum = ModeEnum.LANING;

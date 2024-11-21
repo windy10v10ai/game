@@ -1,10 +1,10 @@
 export class HeroUtil {
   static stunModifiers = [
-    "modifier_axe_berserkers_call", // 战吼
-    "modifier_legion_commander_duel", // 决斗
-    "modifier_winter_wyvern_winters_curse", // 冰龙大
-    "modifier_huskar_life_break_taunt", // 哈斯卡 A杖大
-    "modifier_teleporting", // TP
+    'modifier_axe_berserkers_call', // 战吼
+    'modifier_legion_commander_duel', // 决斗
+    'modifier_winter_wyvern_winters_curse', // 冰龙大
+    'modifier_huskar_life_break_taunt', // 哈斯卡 A杖大
+    'modifier_teleporting', // TP
   ];
 
   static NotActionable(hero: CDOTA_BaseNPC): boolean {

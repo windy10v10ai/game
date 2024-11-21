@@ -13,7 +13,8 @@
     "dev:vscripts": "tstl --project src/vscripts/tsconfig.json --watch",
     "start": "npm run launch && npm run dev",
     "prettier-check": "prettier --check .",
-    "lint": "eslint --ext .js,.ts,.tsx --quiet --fix  \"./src/**/*.{js,ts,tsx}\""
+    "lint": "eslint --ext .js,.ts,.tsx \"./src/**/*.{js,ts,tsx}\"",
+    "lint:fix": "eslint --ext .js,.ts,.tsx --fix  \"./src/**/*.{js,ts,tsx}\""
   },
   "devDependencies": {
     "@moddota/dota-lua-types": "^4.35.0",
