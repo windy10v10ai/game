@@ -1,7 +1,7 @@
-import { BaseHeroAIModifier } from "../hero/hero-base";
-import { HeroUtil } from "../hero/hero-util";
-import { ModeBase } from "./mode-base";
-import { ModeEnum } from "./mode-enum";
+import { BaseHeroAIModifier } from '../hero/hero-base';
+import { HeroUtil } from '../hero/hero-util';
+import { ModeBase } from './mode-base';
+import { ModeEnum } from './mode-enum';
 
 export class ModeRetreat extends ModeBase {
   mode: ModeEnum = ModeEnum.RETREAT;
@@ -44,8 +44,8 @@ export class ModeRetreat extends ModeBase {
     const buildings = heroAI.aroundEnemyBuildingsInvulnerable;
     for (const building of buildings) {
       if (
-        building.GetUnitName().includes("rax") ||
-        building.GetUnitName().includes("npc_dota_goodguys_tower3")
+        building.GetUnitName().includes('rax') ||
+        building.GetUnitName().includes('npc_dota_goodguys_tower3')
       ) {
         isNear3Tower = true;
         break;
@@ -54,7 +54,7 @@ export class ModeRetreat extends ModeBase {
     if (isNear3Tower) {
       // is In tower4 attack range
       for (const building of buildings) {
-        if (building.GetUnitName().includes("fort") || building.GetUnitName().includes("tower4")) {
+        if (building.GetUnitName().includes('fort') || building.GetUnitName().includes('tower4')) {
           desire += this.GetIncreaseDesireNearTower(heroAI, building);
         }
       }

@@ -1,5 +1,5 @@
-import { BaseHeroAIModifier } from "../hero/hero-base";
-import { ActionFind } from "./action-find";
+import { BaseHeroAIModifier } from '../hero/hero-base';
+import { ActionFind } from './action-find';
 
 /**
  * 施法条件，必须满足所有条件才能施法
@@ -287,7 +287,7 @@ export class ActionAbility {
         }
       }
       if (condition.self.hasShard) {
-        if (!self.HasModifier("modifier_item_aghanims_shard")) {
+        if (!self.HasModifier('modifier_item_aghanims_shard')) {
           return true;
         }
       }

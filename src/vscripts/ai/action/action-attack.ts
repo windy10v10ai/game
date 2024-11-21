@@ -1,4 +1,4 @@
-import { HeroUtil } from "../hero/hero-util";
+import { HeroUtil } from '../hero/hero-util';
 
 export class ActionAttack {
   static Attack(hero: CDOTA_BaseNPC_Hero, target: CDOTA_BaseNPC): boolean {

@@ -1,4 +1,4 @@
-import { ApiClient, HttpMethod } from "./api-client";
+import { ApiClient, HttpMethod } from './api-client';
 
 class Player {
   teamId!: number;
@@ -17,7 +17,7 @@ class GameInfo {
   version!: string;
   gameTimeMsec!: number;
   constructor() {
-    print("[Game] constructor in TS");
+    print('[Game] constructor in TS');
     this.players = [];
   }
 }
@@ -32,11 +32,11 @@ class EndGameInfo {
 }
 
 export class Game {
-  private static VERSION = "v3.42";
+  private static VERSION = 'v3.42';
   constructor() {}
 
   public SendEndGameInfo(endData: EndGameInfo) {
-    CustomNetTables.SetTableValue("ending_status", "ending_status", {
+    CustomNetTables.SetTableValue('ending_status', 'ending_status', {
       status: 1,
     });
 
@@ -67,13 +67,13 @@ export class Game {
       path: ApiClient.POST_GAME_URL,
       body: gameInfo,
       successFunc: (data: string) => {
-        CustomNetTables.SetTableValue("ending_status", "ending_status", {
+        CustomNetTables.SetTableValue('ending_status', 'ending_status', {
           status: 2,
         });
         print(`[Game] end game callback data ${data}`);
       },
       failureFunc: (data: string) => {
-        CustomNetTables.SetTableValue("ending_status", "ending_status", {
+        CustomNetTables.SetTableValue('ending_status', 'ending_status', {
           status: 3,
         });
         print(`[Game] end game callback data ${data}`);
