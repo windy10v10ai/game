@@ -475,8 +475,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"300"			// 50
-		"AttackDamageMax"			"300"			// 50
+		"AttackDamageMin"			"250"			// 50
+		"AttackDamageMax"			"250"			// 50
 		"AttackRate"				"1.0"			// 1.5
 	}
 
@@ -486,8 +486,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"600"			// 85
-		"AttackDamageMax"			"600"			// 85
+		"AttackDamageMin"			"500"			// 85
+		"AttackDamageMax"			"500"			// 85
 		"AttackRate"				"1.0"			// 1.5
 	}
 
@@ -497,8 +497,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"900"			// 120
-		"AttackDamageMax"			"900"			// 120
+		"AttackDamageMin"			"800"			// 120
+		"AttackDamageMax"			"800"			// 120
 		"AttackRate"				"1.0"			// 1.5
 	}
 
