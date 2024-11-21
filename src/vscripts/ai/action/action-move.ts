@@ -1,4 +1,4 @@
-import { HeroUtil } from "../hero/hero-util";
+import { HeroUtil } from '../hero/hero-util';
 
 export class ActionMove {
   static readonly posRadiantBase: Vector = Vector(-7200, -6700, 386);
@@ -55,9 +55,9 @@ export class ActionMove {
     // if hero is good go to radiant base, else go to dire base
     const pos = hero.GetTeamNumber() === DotaTeam.GOODGUYS ? this.posRadiantBase : this.posDireBase;
     if (
-      towerName.includes("tower3") ||
-      towerName.includes("tower4") ||
-      towerName.includes("fort")
+      towerName.includes('tower3') ||
+      towerName.includes('tower4') ||
+      towerName.includes('fort')
     ) {
       // print(`[AI] 从基地撤退 ${hero.GetUnitName()} `);
       ActionMove.MoveRelative(hero, pos);

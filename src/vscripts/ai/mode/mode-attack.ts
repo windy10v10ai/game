@@ -1,7 +1,7 @@
-import { BaseHeroAIModifier } from "../hero/hero-base";
-import { HeroUtil } from "../hero/hero-util";
-import { ModeBase } from "./mode-base";
-import { ModeEnum } from "./mode-enum";
+import { BaseHeroAIModifier } from '../hero/hero-base';
+import { HeroUtil } from '../hero/hero-util';
+import { ModeBase } from './mode-base';
+import { ModeEnum } from './mode-enum';
 
 export class ModeAttack extends ModeBase {
   mode: ModeEnum = ModeEnum.ATTACK;
