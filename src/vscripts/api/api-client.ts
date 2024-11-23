@@ -28,7 +28,7 @@ export class ApiClient {
 
   private static HOST_NAME: string = (() => {
     return IsInToolsMode()
-      ? 'http://localhost:5001/windy10v10ai/asia-northeast1/admin/api'
+      ? 'http://192.168.0.8:5001/windy10v10ai/asia-northeast1/admin/api'
       : 'https://windy10v10ai.web.app/api';
   })();
   // private static HOST_NAME: string = "https://windy10v10ai.web.app/api";
