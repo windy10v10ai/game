@@ -8,7 +8,7 @@ declare global {
     ending_status: {
       ending_status: { status: number };
     };
-    member_tablea: {
+    member_table: {
       [steamId: string]: MemberDto;
     };
     player_table: {
