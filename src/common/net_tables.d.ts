@@ -1,4 +1,4 @@
-import { MemberDto, PlayerDto, PointInfoDto } from "../api/player";
+import { MemberDto, PlayerDto, PointInfoDto } from '../vscripts/api/player';
 
 declare global {
   interface CustomNetTableDeclarations {
@@ -8,7 +8,7 @@ declare global {
     ending_status: {
       ending_status: { status: number };
     };
-    member_table: {
+    member_tablea: {
       [steamId: string]: MemberDto;
     };
     player_table: {

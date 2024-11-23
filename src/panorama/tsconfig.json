@@ -1,5 +1,4 @@
 {
-  "include": ["."],
   "compilerOptions": {
     "target": "es2017",
     "lib": ["es2017"],
@@ -12,5 +11,6 @@
     "sourceMap": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react"
-  }
+  },
+  "include": [".", "../common/**/*.ts"]
 }
