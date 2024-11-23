@@ -6,7 +6,7 @@
     "launch": "node src/scripts/launch.js",
     "predeploy": "node src/scripts/deploy.js",
     "build": "run-p build:*",
-    "build:panorama": "tsc --project src/panorama/tsconfig.json",
+    "build:panorama": "node --preserve-symlinks node_modules/webpack/bin/webpack.js --config src/panorama/webpack.prod.js",
     "build:vscripts": "tstl --project src/vscripts/tsconfig.json",
     "dev": "run-p dev:*",
     "dev:panorama": "node --preserve-symlinks node_modules/webpack/bin/webpack.js --config src/panorama/webpack.dev.js --watch",
