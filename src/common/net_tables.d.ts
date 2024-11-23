@@ -1,4 +1,4 @@
-import { MemberDto, PlayerDto, PointInfoDto } from "../api/player";
+import { MemberDto, PlayerDto, PointInfoDto } from '../vscripts/api/player';
 
 declare global {
   interface CustomNetTableDeclarations {
