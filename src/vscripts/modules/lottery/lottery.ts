@@ -1,3 +1,4 @@
+import { LotteryDto } from '../../../common/dto/lottery';
 import { PlayerHelper } from '../../helper/player-helper';
 import { reloadable } from '../../utils/tstl-utils';
 
@@ -34,14 +35,11 @@ export class Lottery {
       if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
         return;
       }
-      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-      if (hero) {
-        this.SpecialItemAdd(hero);
-      }
+      this.SpecialItemAdd(playerId);
     });
   }
 
-  SpecialItemAdd(owner: CDOTA_BaseNPC_Hero) {
+  SpecialItemAdd(playerId: PlayerID) {
     const tierRate = [100, 40, 12, 2, 0.5];
     const tier: { [key: number]: string[] } = {};
 
@@ -141,9 +139,9 @@ export class Lottery {
         let repeated_item = false;
         const potential_item = tier[item_tier][Math.floor(Math.random() * tier[item_tier].length)];
 
-        if (owner.HasItemInInventory(potential_item)) {
-          repeated_item = true;
-        }
+        // if (owner.HasItemInInventory(potential_item)) {
+        //   repeated_item = true;
+        // }
 
         for (const previous_item of spawnedItem) {
           if (previous_item === potential_item) {
@@ -162,15 +160,23 @@ export class Lottery {
       }
     }
 
+    // 将抽选结果放到nettable lottery中
+    const lotteryDto: LotteryDto = {
+      itemNamesNormal: spawnedItem,
+      itemNamesMember: [],
+      pickItemName: undefined,
+    };
+    const steamIdString = PlayerResource.GetSteamID(playerId).toString();
+    CustomNetTables.SetTableValue('lottery', steamIdString, lotteryDto);
+
     // present item choices to the player
-    this.StartItemPick(owner, spawnedItem);
+    this.StartItemPick(playerId, spawnedItem);
   }
 
-  StartItemPick(owner: CDOTA_BaseNPC_Hero, items: string[]) {
-    const player_id = owner.GetPlayerID();
-    if (PlayerResource.IsValidPlayer(player_id)) {
+  StartItemPick(playerId: PlayerID, items: string[]) {
+    if (PlayerResource.IsValidPlayer(playerId)) {
       CustomGameEventManager.Send_ServerToPlayer(
-        PlayerResource.GetPlayer(player_id) as CDOTAPlayerController,
+        PlayerResource.GetPlayer(playerId) as CDOTAPlayerController,
         'item_choice',
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
