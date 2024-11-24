@@ -1,24 +1,24 @@
 (function () {
-  $.Msg("item_choice.js loaded");
-  GameEvents.Subscribe("item_choice", SetItemChoice);
+  $.Msg('item_choice.js loaded');
+  GameEvents.Subscribe('item_choice', SetItemChoice);
   const member = GetMember();
-  const button = $("#item_choice_shuffle");
+  const button = $('#item_choice_shuffle');
   if (member && member.enable) {
-    button.SetHasClass("IsEnable", true);
-    button.SetPanelEvent("onactivate", OnShuffleButtonPressed);
-    button.SetPanelEvent("onmouseover", () => {
-      $.DispatchEvent("DOTAShowTextTooltip", button, $.Localize("#item_choice_shuffle"));
+    button.SetHasClass('IsEnable', true);
+    button.SetPanelEvent('onactivate', OnShuffleButtonPressed);
+    button.SetPanelEvent('onmouseover', () => {
+      $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#item_choice_shuffle'));
     });
   } else {
-    button.SetPanelEvent("onactivate", () => {
-      $.DispatchEvent("ExternalBrowserGoToURL", GetOpenMemberUrl());
+    button.SetPanelEvent('onactivate', () => {
+      $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl());
     });
-    button.SetPanelEvent("onmouseover", () => {
-      $.DispatchEvent("DOTAShowTextTooltip", button, $.Localize("#item_choice_shuffle_not_member"));
+    button.SetPanelEvent('onmouseover', () => {
+      $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#item_choice_shuffle_not_member'));
     });
   }
-  button.SetPanelEvent("onmouseout", () => {
-    $.DispatchEvent("DOTAHideTextTooltip");
+  button.SetPanelEvent('onmouseout', () => {
+    $.DispatchEvent('DOTAHideTextTooltip');
   });
 })();
 
@@ -29,53 +29,53 @@ function SetItemChoice(keys) {
 }
 
 function ShowItemChoice(keys) {
-  $.Msg("ShowItemChoice");
+  $.Msg('ShowItemChoice');
   for (var i = 1; i <= 4; i++) {
-    $("#item_choice_" + i).itemname = keys[i];
+    $('#item_choice_' + i).itemname = keys[i];
   }
-  $("#remaining_time").value = 400;
-  $("#item_choice_container").style.visibility = "visible";
+  $('#remaining_time').value = 400;
+  $('#item_choice_container').style.visibility = 'visible';
   $.Schedule(0.03, TickItemTime);
 }
 
 function TickItemTime() {
-  if ($("#item_choice_container").style.visibility == "visible") {
-    $("#remaining_time").value = $("#remaining_time").value - 1;
+  if ($('#item_choice_container').style.visibility == 'visible') {
+    $('#remaining_time').value = $('#remaining_time').value - 1;
 
-    if ($("#remaining_time").value <= 0) {
+    if ($('#remaining_time').value <= 0) {
       MakeItemChoice(Math.floor(Math.random() * 3) + 1);
     } else {
-      $("#remaining_time").style.width = $("#remaining_time").value / 4 + "%";
+      $('#remaining_time').style.width = $('#remaining_time').value / 4 + '%';
       $.Schedule(0.03, TickItemTime);
     }
   }
 }
 
 function MakeItemChoice(slot) {
-  var item = $("#item_choice_" + slot).itemname;
+  var item = $('#item_choice_' + slot).itemname;
   var owner_index = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
 
-  GameEvents.SendCustomGameEventToServer("item_choice_made", {
+  GameEvents.SendCustomGameEventToServer('finish_item_pick', {
     owner_entindex: owner_index,
     item: item,
   });
 
-  $("#remaining_time").value = 400;
-  $("#remaining_time").style.width = "100%";
-  $("#item_choice_container").style.visibility = "collapse";
+  $('#remaining_time').value = 400;
+  $('#remaining_time').style.width = '100%';
+  $('#item_choice_container').style.visibility = 'collapse';
 }
 
 function OnShuffleButtonPressed() {
-  $.Msg("OnShuffleButtonPressed");
-  const button = $("#item_choice_shuffle");
+  $.Msg('OnShuffleButtonPressed');
+  const button = $('#item_choice_shuffle');
   button.enabled = false;
-  button.SetHasClass("IsEnable", false);
-  button.SetPanelEvent("onmouseover", () => {
-    $.DispatchEvent("DOTAShowTextTooltip", button, $.Localize("#item_choice_shuffle_used"));
+  button.SetHasClass('IsEnable', false);
+  button.SetPanelEvent('onmouseover', () => {
+    $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#item_choice_shuffle_used'));
   });
   const member = GetMember();
   if (member && member.enable) {
-    GameEvents.SendCustomGameEventToServer("item_choice_shuffle", {});
+    GameEvents.SendCustomGameEventToServer('item_choice_shuffle', {});
   }
 }
 
@@ -86,12 +86,12 @@ function FindDotaHudElement(id) {
 
 function GetDotaHud() {
   var p = $.GetContextPanel();
-  while (p !== null && p.id !== "Hud") {
+  while (p !== null && p.id !== 'Hud') {
     p = p.GetParent();
   }
   if (p === null) {
     throw new HudNotFoundException(
-      "Could not find Hud root as parent of panel with id: " + $.GetContextPanel().id,
+      'Could not find Hud root as parent of panel with id: ' + $.GetContextPanel().id,
     );
   } else {
     return p;
