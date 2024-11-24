@@ -79,6 +79,10 @@ export class Debug {
       }
     }
 
+    if (cmd === CMD.LOTTERY) {
+      GameRules.Lottery.StartItemLottery();
+    }
+
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;

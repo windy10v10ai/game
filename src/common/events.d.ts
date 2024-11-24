@@ -15,6 +15,7 @@
 interface CustomGameEventDeclarations {
   loading_set_options: LoadingSetOptionsEventData;
   ui_panel_closed: UIPanelClosedEventData;
+  finish_item_pick: FinishItemPickEventData;
 }
 
 interface LoadingSetOptionsEventData {
@@ -36,3 +37,11 @@ interface LoadingSetOptionsEventData {
 
 // This event has no data
 interface UIPanelClosedEventData {}
+
+interface FinishItemPickEventData extends CustomGameEventDataBase {
+  item: string;
+}
+
+interface CustomGameEventDataBase {
+  PlayerID: PlayerID;
+}

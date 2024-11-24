@@ -2,6 +2,7 @@ import { AI } from '../ai/AI';
 import { GameConfig } from './GameConfig';
 import { Debug } from './debug/Debug';
 import { Event } from './event/event';
+import { Lottery } from './lottery/lottery';
 import { Option } from './option';
 import { PropertyController } from './property/property_controller';
 
@@ -11,6 +12,7 @@ declare global {
     AI: AI;
     GameConfig: GameConfig;
     Option: Option;
+    Lottery: Lottery;
   }
 }
 
@@ -35,4 +37,6 @@ export function ActivateModules() {
   if (GameRules.GameConfig == null) GameRules.GameConfig = new GameConfig();
 
   if (GameRules.Option == null) GameRules.Option = new Option();
+
+  if (GameRules.Lottery == null) GameRules.Lottery = new Lottery();
 }
