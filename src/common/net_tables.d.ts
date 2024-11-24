@@ -10,22 +10,22 @@ declare global {
       ending_status: { status: number };
     };
     member_table: {
-      [steamId: string]: MemberDto;
+      [steamAccountID: string]: MemberDto;
     };
     player_table: {
-      [steamId: string]: PlayerDto;
+      [steamAccountID: string]: PlayerDto;
     };
     leader_board: {
       top100SteamIds: string[];
     };
     point_info: {
-      [steamId: string]: PointInfoDto[];
+      [steamAccountID: string]: PointInfoDto[];
     };
     game_difficulty: {
       all: { difficulty: number };
     };
     lottery: {
-      [steamId: string]: LotteryDto;
+      [steamAccountID: string]: LotteryDto;
     };
   }
 }
