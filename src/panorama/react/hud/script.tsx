@@ -30,7 +30,13 @@ function ItemOrAbilityRow({
   return (
     <Panel style={{ flowChildren: 'right' }}>
       {data.map((item, index) => (
-        <Panel key={index} className={className}>
+        // 如果index 是 4，5 的话，就加上一个style 是金边
+        <Panel
+          key={index}
+          className={className}
+          style={index >= 3 ? { boxShadow: '0 0 5px #ffd700' } : { boxShadow: '0 0 5px #a029af' }}
+          // onmouseover={() => ref.current?.AddClass(prefix + 'hover')}
+        >
           <DOTAAbilityImage abilityname={item.name} />
         </Panel>
       ))}

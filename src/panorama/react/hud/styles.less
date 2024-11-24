@@ -5,22 +5,28 @@
   height: 100%;
 }
 
-#DrawAbility {
-  /* width: 80%; */
-  /* 固定宽度 */
-  /* height: 40%; */
-  /* 固定高度 */
-  horizontal-align: center;
-  vertical-align: center;
-  margin: 0 auto;
-  padding: 20px;
-  border: 2px solid #000;
+#CollapseContainer {
+  padding: 10px;
+  border-radius: 10px; /* 圆角 */
+  margin-top: 65px;
+  margin-left: 350px;
   /* 深蓝色背景 */
   background-color: #0a0a0a;
   border: 2px solid #ffd700;
   /* 金色边框 */
   border-radius: 15px;
-  /* 圆角 */
+}
+
+.CollapseButton {
+  color: white;
+}
+
+#DrawAbility {
+  horizontal-align: center;
+  vertical-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #000;
 }
 #DrawAbility #DrawAbilityTitle {
   horizontal-align: center;
@@ -56,7 +62,6 @@
 .RowGrid,
 .Item {
   width: 80px; /* 固定宽度 */
-  height: 80px; /* 固定高度 */
   flow-children: down;
   margin-right: 20px; /* 保持子元素之间的空白 */
   margin-top: 20px; /* 保持子元素之间的空白 */
