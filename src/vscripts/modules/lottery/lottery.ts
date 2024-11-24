@@ -1,7 +1,10 @@
 import { PlayerHelper } from '../../helper/player-helper';
+import { reloadable } from '../../utils/tstl-utils';
 
+@reloadable
 export class Lottery {
   constructor() {
+    // 启动物品抽奖
     ListenToGameEvent(
       'game_rules_state_change',
       () => {
@@ -18,6 +21,11 @@ export class Lottery {
       },
       undefined,
     );
+
+    // 监听玩家选择物品
+    CustomGameEventManager.RegisterListener('finish_item_pick', (userId, event) => {
+      this.FinishItemPick(userId, event);
+    });
   }
 
   StartItemLottery() {
@@ -171,19 +179,18 @@ export class Lottery {
     }
   }
 
-  //   FinishItemPick(keys: { PlayerID: number; owner_entindex: number; item: string }) {
-  //     console.log('Choose item');
-  //     console.table(keys);
-  //     const owner = EntIndexToHScript(keys.owner_entindex) as CDOTA_BaseNPC_Hero;
+  FinishItemPick(userId: EntityIndex, event: FinishItemPickEventData) {
+    print('Choose item');
+    print('userId', userId);
+    DeepPrintTable(event);
+    const hero = PlayerResource.GetSelectedHeroEntity(event.PlayerID);
+    DeepPrintTable(hero);
+    print('event.item', event.item);
 
-  //     // Add the item to the inventory and broadcast
-  //     owner.AddItemByName(keys.item);
-  //   }
-
-  //   ItemChoiceShuffle(keys: { PlayerID: number }) {
-  //     if (PlayerController.IsMember(PlayerResource.GetSteamAccountID(keys.PlayerID))) {
-  //       const owner = PlayerResource.GetSelectedHeroEntity(keys.PlayerID) as CDOTA_BaseNPC_Hero;
-  //       this.SpecialItemAdd(owner);
-  //     }
-  //   }
+    if (!hero) {
+      return;
+    }
+    hero.AddItemByName(event.item);
+    // TODO 更新nettable
+  }
 }

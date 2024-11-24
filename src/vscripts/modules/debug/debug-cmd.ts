@@ -10,6 +10,9 @@ export enum CMD {
   G_ALL = '-gall', // 所有人升级加钱
   L_ALL = '-lall', // 所有人逐级升级
 
+  /** 抽奖 */
+  LOTTERY = '-lottery',
+
   // ---- 当前英雄相关 ----
   /** 重置当前英雄技能 */
   RESET_ABILITY = '-resetAbility',

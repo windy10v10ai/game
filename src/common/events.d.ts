@@ -38,7 +38,10 @@ interface LoadingSetOptionsEventData {
 // This event has no data
 interface UIPanelClosedEventData {}
 
-interface FinishItemPickEventData {
-  playerId: PlayerID;
+interface FinishItemPickEventData extends CustomGameEventDataBase {
   item: string;
+}
+
+interface CustomGameEventDataBase {
+  PlayerID: PlayerID;
 }

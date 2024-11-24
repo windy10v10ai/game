@@ -53,11 +53,9 @@ function TickItemTime() {
 
 function MakeItemChoice(slot) {
   var item = $('#item_choice_' + slot).itemname;
-  var owner_index = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
 
   GameEvents.SendCustomGameEventToServer('finish_item_pick', {
-    owner_entindex: owner_index,
-    item: item,
+    item,
   });
 
   $('#remaining_time').value = 400;
