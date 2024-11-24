@@ -1,6 +1,14 @@
 (function () {
   $.Msg('item_choice.js loaded');
-  GameEvents.Subscribe('item_choice', SetItemChoice);
+  // GameEvents.Subscribe('item_choice', SetItemChoice);
+  // 监听nettable数据变化
+  CustomNetTables.SubscribeNetTableListener('lottery', LotteryDataChanged);
+
+  const steamAccountID = GetSteamAccountID();
+  const lotteryData = CustomNetTables.GetTableValue('lottery', steamAccountID);
+  $.Msg('lotteryData:', lotteryData);
+  drawItemChoice(lotteryData);
+
   const member = GetMember();
   const button = $('#item_choice_shuffle');
   if (member && member.enable) {
@@ -22,16 +30,31 @@
   });
 })();
 
-var loadDelayTime = 1;
-function SetItemChoice(keys) {
-  $.Schedule(loadDelayTime, () => ShowItemChoice(keys));
-  loadDelayTime = 0;
+function LotteryDataChanged(_tableName, key, value) {
+  $.Msg('SetItemChoice');
+  // if key equal steamId, then show item choice
+  const steamAccountID = GetSteamAccountID();
+  $.Msg('SteamId:', steamAccountID, ' Key:', key, ' Value:', value);
+  if (key !== steamAccountID) {
+    return;
+  }
+  drawItemChoice(value);
 }
 
-function ShowItemChoice(keys) {
-  $.Msg('ShowItemChoice');
-  for (var i = 1; i <= 4; i++) {
-    $('#item_choice_' + i).itemname = keys[i];
+function drawItemChoice(value) {
+  if (!value) {
+    return;
+  }
+  if (value.pickItemName) {
+    return;
+  }
+
+  const names = Object.values(value.itemNamesNormal);
+  $.Msg('Names:', names);
+  let i = 1;
+  for (const name of names) {
+    $('#item_choice_' + i).itemname = name;
+    i++;
   }
   $('#remaining_time').value = 400;
   $('#item_choice_container').style.visibility = 'visible';
@@ -54,7 +77,7 @@ function TickItemTime() {
 function MakeItemChoice(slot) {
   var item = $('#item_choice_' + slot).itemname;
 
-  GameEvents.SendCustomGameEventToServer('finish_item_pick', {
+  GameEvents.SendCustomGameEventToServer('lottery_pick_item', {
     item,
   });
 
@@ -73,7 +96,7 @@ function OnShuffleButtonPressed() {
   });
   const member = GetMember();
   if (member && member.enable) {
-    GameEvents.SendCustomGameEventToServer('item_choice_shuffle', {});
+    GameEvents.SendCustomGameEventToServer('lottery_refresh_item', {});
   }
 }
 
