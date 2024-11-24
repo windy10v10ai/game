@@ -88,9 +88,6 @@ function AIGameMode:InitEvents()
     CustomGameEventManager:RegisterListener("set_unit_share_mask", function(_, keys)
         return AIGameMode:SetUnitShareMask(keys)
     end)
-    -- 选择道具
-    CustomGameEventManager:RegisterListener("item_choice_made", Dynamic_Wrap(AIGameMode, "FinishItemPick"))
-    CustomGameEventManager:RegisterListener("item_choice_shuffle", Dynamic_Wrap(AIGameMode, "ItemChoiceShuffle"))
 end
 
 function AIGameMode:LinkLuaModifiers()
