@@ -15,7 +15,12 @@
 interface CustomGameEventDeclarations {
   loading_set_options: LoadingSetOptionsEventData;
   ui_panel_closed: UIPanelClosedEventData;
-  finish_item_pick: FinishItemPickEventData;
+  lottery_pick_item: LotteryPickItemEventData;
+  lottery_refresh_item: LotteryRefreshItemEventData;
+}
+
+interface CustomGameEventDataBase {
+  PlayerID: PlayerID;
 }
 
 interface LoadingSetOptionsEventData {
@@ -38,10 +43,8 @@ interface LoadingSetOptionsEventData {
 // This event has no data
 interface UIPanelClosedEventData {}
 
-interface FinishItemPickEventData extends CustomGameEventDataBase {
+interface LotteryPickItemEventData extends CustomGameEventDataBase {
   item: string;
 }
 
-interface CustomGameEventDataBase {
-  PlayerID: PlayerID;
-}
+interface LotteryRefreshItemEventData extends CustomGameEventDataBase {}

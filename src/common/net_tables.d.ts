@@ -1,5 +1,5 @@
 import { MemberDto, PlayerDto, PointInfoDto } from '../vscripts/api/player';
-import { LotteryItem } from './dto/lottery-item';
+import { LotteryDto } from './dto/lottery';
 
 declare global {
   interface CustomNetTableDeclarations {
@@ -10,22 +10,22 @@ declare global {
       ending_status: { status: number };
     };
     member_table: {
-      [steamId: string]: MemberDto;
+      [steamAccountID: string]: MemberDto;
     };
     player_table: {
-      [steamId: string]: PlayerDto;
+      [steamAccountID: string]: PlayerDto;
     };
     leader_board: {
       top100SteamIds: string[];
     };
     point_info: {
-      [steamId: string]: PointInfoDto[];
+      [steamAccountID: string]: PointInfoDto[];
     };
     game_difficulty: {
       all: { difficulty: number };
     };
-    lottery_item: {
-      [steamId: string]: LotteryItem[];
+    lottery: {
+      [steamAccountID: string]: LotteryDto;
     };
   }
 }
