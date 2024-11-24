@@ -1,15 +1,79 @@
 @import "test.less";
 
 .root {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-@keyframes my_test {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(100%);
-    }
+#DrawAbility {
+  /* width: 80%; */
+  /* 固定宽度 */
+  /* height: 40%; */
+  /* 固定高度 */
+  horizontal-align: center;
+  vertical-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #000;
+  /* 深蓝色背景 */
+  background-color: #0a0a0a;
+  border: 2px solid #ffd700;
+  /* 金色边框 */
+  border-radius: 15px;
+  /* 圆角 */
+}
+#DrawAbility #DrawAbilityTitle {
+  horizontal-align: center;
+  /* 标题居中 */
+  font-size: 30px;
+  margin-top: 0px;
+  /* 标题背景 */
+  margin-bottom: 20px;
+  color: #ffffff;
+  /* 粗体 */
+  font-weight: bold;
+}
+
+#Content {
+  flow-children: right;
+  /* 确保内容按顺序排列 */
+  margin-top: 50px;
+}
+#LeftColumn {
+  flow-children: down;
+  /* 左侧项目名垂直排列 */
+  margin-right: 20px;
+}
+.ProjectName {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+#MiddleGrid {
+  flow-children: right;
+  /* 中间区域按顺序显示 */
+}
+.RowGrid,
+.Item {
+  width: 80px; /* 固定宽度 */
+  height: 80px; /* 固定高度 */
+  flow-children: down;
+  margin-right: 20px; /* 保持子元素之间的空白 */
+  margin-top: 20px; /* 保持子元素之间的空白 */
+}
+.CommonButton {
+  border: 2px solid #ffd700;
+  border-radius: 10px; /* 圆角 */
+  background-color: #02112c;
+  padding: 5px;
+  /* 靠右 */
+  margin-left: 20px;
+  margin-top: 20px; /* 保持子元素之间的空白 */
+  horizontal-align: right;
+}
+.CommonButton Label {
+  align: center center;
+  color: #e9e9e9;
+  font-size: 17px;
+  text-shadow: 0px 0px 1px 3 #000000;
 }
