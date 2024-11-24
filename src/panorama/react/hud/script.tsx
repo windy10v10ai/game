@@ -2,26 +2,99 @@ import 'panorama-polyfill-x/lib/console';
 import 'panorama-polyfill-x/lib/timers';
 
 import { render } from 'react-panorama-x';
+import * as React from 'react';
 
-function HeroRow({ heroName }: { heroName: string }) {
+const abilities = [
+  { name: 'rattletrap_hookshot', displayName: 'Ability 1' },
+  { name: 'sandking_burrowstrike', displayName: 'Ability 2' },
+  { name: 'sandking_sand_storm', displayName: 'Ability 3' },
+  { name: 'shredder_chakram', displayName: 'Ability 4' },
+  { name: 'crystal_maiden_frostbite', displayName: 'Ability 5' },
+];
+
+const items = [
+  { name: 'item_great_famango', displayName: 'items 1' },
+  { name: 'item_great_famango', displayName: 'items 2' },
+  { name: 'item_great_famango', displayName: 'items 3' },
+  { name: 'item_great_famango', displayName: 'items 4' },
+  { name: 'item_great_famango', displayName: 'items 5' },
+];
+
+function ItemOrAbilityRow({
+  data,
+  className,
+}: {
+  data: { name: string; displayName: string }[];
+  className: string;
+}) {
   return (
     <Panel style={{ flowChildren: 'right' }}>
-      <DOTAHeroImage heroimagestyle="icon" heroname={heroName} />
-      <Label style={{ marginLeft: '5px' }} localizedText={heroName} />
+      {data.map((item, index) => (
+        // 如果index 是 4，5 的话，就加上一个style 是金边
+        <Panel
+          key={index}
+          className={className}
+          style={index >= 3 ? { boxShadow: '0 0 5px #ffd700' } : { boxShadow: '0 0 5px #a029af' }}
+          // onmouseover={() => ref.current?.AddClass(prefix + 'hover')}
+        >
+          <DOTAAbilityImage abilityname={item.name} />
+        </Panel>
+      ))}
     </Panel>
   );
 }
 
-function HeroList() {
+function DrawAbilities() {
   return (
-    <Panel style={{ flowChildren: 'down' }}>
-      <HeroRow heroName="npc_dota_hero_abaddon" />
-      <HeroRow heroName="npc_dota_hero_abyssal_underlord" />
-      <HeroRow heroName="npc_dota_hero_alchemist" />
+    <Panel id="DrawAbility">
+      <Label id="DrawAbilityTitle" text="Choose Your Ability" />
+      <Panel id="Content">
+        {/* <!-- 中间技能和物品区域 --> */}
+        <Panel id="LeftColumn">
+          {/* <!-- 技能区域 --> */}
+          <Panel style={{ flowChildren: 'right' }}>
+            <Label className="ProjectName" text="项目1" />
+            <ItemOrAbilityRow data={abilities} className="Item" />
+          </Panel>
+          <Button className="CommonButton">
+            <Label text={$.Localize('#item_choice_shuffle')} />
+          </Button>
+
+          {/* <!-- 物品区域 --> */}
+          <Panel style={{ flowChildren: 'right' }}>
+            <Label className="ProjectName" text="项目2" />
+            <ItemOrAbilityRow data={items} className="Item" />
+          </Panel>
+          <Button className="CommonButton">
+            <Label text={$.Localize('#item_choice_shuffle')} />
+          </Button>
+        </Panel>
+      </Panel>
+    </Panel>
+  );
+}
+function DrawAbility() {
+  const [isCollapsed, setIsCollapsed] = React.useState(true);
+
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+  return (
+    <Panel id="CollapseContainer" className={isCollapsed ? 'collapsed' : 'expanded'}>
+      <Button className="CollapseButton" onactivate={toggleCollapse}>
+        <Label text={isCollapsed ? '展开' : '折叠'} />
+      </Button>
+
+      {!isCollapsed && (
+        <Panel id="Content">
+          {/* 展开后显示的内容 */}
+          <DrawAbilities />
+        </Panel>
+      )}
     </Panel>
   );
 }
 
-render(<HeroList />, $.GetContextPanel());
+render(<DrawAbility />, $.GetContextPanel());
 
 console.log(`Hello, world!`);
