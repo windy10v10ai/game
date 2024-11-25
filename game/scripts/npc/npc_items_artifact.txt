@@ -1718,7 +1718,7 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"1500"
-			"spell_amp"				"80"
+			"spell_amp"				"70"
 			"manacost_reduction"			"20"
 		}
 	}
@@ -1749,7 +1749,7 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"1500"
-			"spell_amp"				"80"
+			"spell_amp"				"70"
 			"manacost_reduction"			"20"
 		}
 	}
@@ -1780,7 +1780,7 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"1500"
-			"spell_amp"				"80"
+			"spell_amp"				"70"
 			"manacost_reduction"			"60"
 		}
 	}
@@ -1812,7 +1812,7 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"1500"
-			"spell_amp"				"80"
+			"spell_amp"				"70"
 			"manacost_reduction"			"60"
 		}
 	}

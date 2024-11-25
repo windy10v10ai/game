@@ -1523,7 +1523,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2200"
+		"ItemCost"						"2600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1563,7 +1563,7 @@
 		{
 			"bonus_cooldown"		"25"
 			"cast_range_bonus"		"275"
-			"bonus_health"			"800"
+			"bonus_health"			"1000"
 			"bonus_mana"			"1000"
 			"bonus_health_regen"	"8.0"
 			"bonus_mana_regen"		"8.0"
@@ -3619,7 +3619,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"BaseClass"						"item_recipe_shivas_guard"
 		"AbilityTextureName" 			"item_recipe_shivas_guard_2"
-		"ItemCost"						"775"
+		"ItemCost"						"1625"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_shivas_guard_2"
 		"ItemRequirements"
@@ -4377,7 +4377,7 @@
 		"AbilityTextureName"			"item_recipe_necronomicon_staff"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4400"
+		"ItemCost"						"5350"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4841,7 +4841,7 @@
         "Model"							"models/props_gameplay/recipe.vmdl"
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"4600"
+        "ItemCost"						"4200"
         "ItemShopTags"					""
 
         // Recipe
@@ -4872,7 +4872,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"19600"
+        "ItemCost"						"19800"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mana;mb;refresh core;refresher orb;octarine core"
@@ -4887,9 +4887,9 @@
 			"bonus_cooldown"		"34"
 			"bonus_cooldown_stack"	"12"
 			"cast_range_bonus"		"300"
-			"bonus_health"			"1200"
+			"bonus_health"			"1600"
 			"bonus_mana"			"1600"
-			"bonus_health_regen"	"20.0"
+			"bonus_health_regen"	"30.0"
 			"bonus_mana_regen"		"20.0"
 		}
     }
@@ -4930,7 +4930,7 @@
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
         "AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"1200"
+		"ItemCost"						"7200"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra"
@@ -5058,7 +5058,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"19596"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"40000"
+		"ItemCost"						"60000"
 
 		"ItemPurchasable"				"0"
 		"ItemDroppable"					"1"
