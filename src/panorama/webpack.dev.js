@@ -1,7 +1,6 @@
 const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { PanoramaTargetPlugin } = require('webpack-panorama-x');
-const { WatchIgnorePlugin } = require('webpack');
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
@@ -57,7 +56,6 @@ module.exports = {
         options: { presets: ['@babel/preset-react', '@babel/preset-env'] },
       },
       {
-        test: /\.css$/,
         test: /\.(css|less)$/,
         issuer: /\.xml$/,
         loader: 'file-loader',
@@ -92,7 +90,5 @@ module.exports = {
         configFile: path.resolve(__dirname, 'tsconfig.json'),
       },
     }),
-    // use ignore plugin to ignore less files changes
-    new WatchIgnorePlugin({ paths: [/\.less$/] }),
   ],
 };
