@@ -3,6 +3,7 @@ import 'panorama-polyfill-x/lib/timers';
 
 import { render } from 'react-panorama-x';
 import * as React from 'react';
+import ItemOrAbilityList from './component/ItemOrAbilityList';
 
 const abilities = [
   { name: 'rattletrap_hookshot', displayName: 'Ability 1' },
@@ -20,30 +21,6 @@ const items = [
   { name: 'item_great_famango', displayName: 'items 5' },
 ];
 
-function ItemOrAbilityRow({
-  data,
-  className,
-}: {
-  data: { name: string; displayName: string }[];
-  className: string;
-}) {
-  return (
-    <Panel style={{ flowChildren: 'right' }}>
-      {data.map((item, index) => (
-        // 如果index 是 4，5 的话，就加上一个style 是金边
-        <Panel
-          key={index}
-          className={className}
-          style={index >= 3 ? { boxShadow: '0 0 5px #ffd700' } : { boxShadow: '0 0 5px #a029af' }}
-          // onmouseover={() => ref.current?.AddClass(prefix + 'hover')}
-        >
-          <DOTAAbilityImage abilityname={item.name} />
-        </Panel>
-      ))}
-    </Panel>
-  );
-}
-
 function DrawAbilities() {
   return (
     <Panel id="DrawAbility">
@@ -54,7 +31,7 @@ function DrawAbilities() {
           {/* <!-- 技能区域 --> */}
           <Panel style={{ flowChildren: 'right' }}>
             <Label className="ProjectName" text="项目1" />
-            <ItemOrAbilityRow data={abilities} className="Item" />
+            <ItemOrAbilityList data={abilities} type="ability" />
           </Panel>
           <Button className="CommonButton">
             <Label text={$.Localize('#item_choice_shuffle')} />
@@ -63,7 +40,7 @@ function DrawAbilities() {
           {/* <!-- 物品区域 --> */}
           <Panel style={{ flowChildren: 'right' }}>
             <Label className="ProjectName" text="项目2" />
-            <ItemOrAbilityRow data={items} className="Item" />
+            <ItemOrAbilityList data={items} type="item" />
           </Panel>
           <Button className="CommonButton">
             <Label text={$.Localize('#item_choice_shuffle')} />
