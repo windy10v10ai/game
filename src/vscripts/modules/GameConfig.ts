@@ -49,6 +49,7 @@ export class GameConfig {
 
     // 每点智力魔抗加成在modifier intelect_magic_resist.ts中控制
     game.SetCustomAttributeDerivedStatValue(AttributeDerivedStats.AGILITY_ARMOR, 0.133);
+    game.SetCustomAttributeDerivedStatValue(AttributeDerivedStats.STRENGTH_HP, 25);
 
     // 设置自定义的队伍人数上限，这里的设置是10个队伍，每个队伍1人
     // GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 1);
