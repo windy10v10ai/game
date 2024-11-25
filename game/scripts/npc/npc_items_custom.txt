@@ -30,7 +30,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Moon Shard
+	// Moon Shard 银月
 	//=================================================================================================================
 	"item_moon_shard_datadriven"
 	{
@@ -110,7 +110,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Recipe: Scepter 2
+	// Scepter 2 大A杖
 	//=================================================================================================================
 	"item_recipe_ultimate_scepter_2"
 	{
@@ -123,7 +123,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3800"
+		"ItemCost"						"4400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -135,9 +135,6 @@
 			"01"						"item_ultimate_scepter"
 		}
 	}
-	//=================================================================================================================
-	// Scepter 2
-	//=================================================================================================================
 	"item_ultimate_scepter_2"
 	{
 		// General
@@ -153,7 +150,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"8000"
+		"ItemCost"					"8600"
 		"ItemShopTags"				"int;str;agi;mana_pool;health_pool;hard_to_tag"
 		"ItemQuality"				"epic"
 		"ItemAliases"				"ultimate;aghanim's scepter"
@@ -165,8 +162,8 @@
 		"AbilityValues"
 		{
 				"bonus_all_stats"		"10"
-				"bonus_health"			"500"
-				"bonus_mana"			"500"
+				"bonus_health"			"600"
+				"bonus_mana"			"600"
 				"spell_amp"				"24"
 		}
 
@@ -997,19 +994,19 @@
 		"ItemAliases"					"hot;heart of tarrasque"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"ScriptFile"                    "items/item_undying_heart"
+		"ScriptFile"					"items/item_undying_heart"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 				"bonus_strength"		"120"	// Tooltip, real value in item_undying_heart_bonus_strength
-				"bonus_health"			"1000"
+				"bonus_health"			"1600"
 				"health_regen_pct"		"2.2"
 				"bonus_evasion"			"20"
 				"status_resistance"		"8"
-				"dur"		            "5"
-				"active_hp_regen"		"800"
+				"dur"					"5"
+				"active_hp_regen"		"1000"
 				"active_hp_regen_pct"	"4"
 				"buff_hp_regen"			"200"
 				"buff_hp_regen_pct"		"2"
@@ -2242,7 +2239,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3350"
+		"ItemCost"						"3150"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2251,7 +2248,7 @@
 		"ItemResult"					"item_black_king_bar_2"
 		"ItemRequirements"
 		{
-			"01"						"item_black_king_bar;item_ogre_axe;item_mithril_hammer"
+			"01"						"item_black_king_bar;item_reaver;item_demon_edge"
 		}
 	}
 
@@ -2281,8 +2278,8 @@
 
 		"AbilityValues"
 		{
-			"bonus_strength"		"50"
-			"bonus_damage"			"90"
+			"bonus_strength"		"60"
+			"bonus_damage"			"100"
 			"duration"				"12 12 11 11 10"
 			"max_level"				"5"
 			"model_scale"			"50"     // Percentage over model scale
@@ -2562,8 +2559,6 @@
 		"ItemCost"						"4550"
 		"ItemShopTags"					""
 
-
-
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -2596,7 +2591,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"35"
-		"AbilityCastRange"				"300"
+		"AbilityCastRange"				"450"
 		"AbilityCastPoint"				"0.0"
 
 
@@ -2613,7 +2608,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"80"	// tooltip, real value in modifier_item_abyssal_blade_v2_stats
-			"bonus_health"			"400"
+			"bonus_health"			"600"
 			"bonus_health_regen"	"20"
 			"bonus_strength"		"20"	// tooltip, real value in modifier_item_abyssal_blade_v2_stats
 			// active
@@ -2871,7 +2866,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3550"
+		"ItemCost"						"4250"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2894,7 +2889,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
 		"FightRecapLevel"				"1"
-		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
@@ -2913,9 +2908,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_health"			"400"
-			"bonus_intellect"		"20"
-			"bonus_agility"			"70"
+			"bonus_health"			"800"
+			"bonus_intellect"		"40"
+			"bonus_agility"			"80"
 			"bonus_strength"		"40"
 			"base_attack_range"		"250"
 			"push_length"			"1000"
@@ -3619,7 +3614,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"BaseClass"						"item_recipe_shivas_guard"
 		"AbilityTextureName" 			"item_recipe_shivas_guard_2"
-		"ItemCost"						"1625"
+		"ItemCost"						"1425"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_shivas_guard_2"
 		"ItemRequirements"
@@ -4025,7 +4020,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1450"
+		"ItemCost"						"1550"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4081,7 +4076,7 @@
 				"chain_delay"			"0.15"
 				"chain_cooldown"		"0.1"
 				"bonus_intellect"		"30"
-				"bonus_hp"				"500"
+				"bonus_hp"				"600"
 				"duration"				"2.0"
 				"radius"
 				{
@@ -4246,7 +4241,7 @@
 		"AbilityTextureName"			"item_recipe_orb_of_the_brine"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
+		"ItemCost"						"3600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4292,9 +4287,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"15"	// tooltip, real value in item_orb_of_the_brine_bonus_all_stats
-			"bonus_health"			"500"
-			"bonus_mana"			"500"
+			"bonus_all_stats"		"20"	// tooltip, real value in item_orb_of_the_brine_bonus_all_stats
+			"bonus_health"			"600"
+			"bonus_mana"			"600"
 			"heal_increase"			"50"
 
 			"bubble_duration"		"1.5"
@@ -4648,7 +4643,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3600"
+		"ItemCost"						"3000"
 		"ItemAliases"					"diana candy"
 		"ItemPurchasable"				"1"
 		"ItemStackable"					"1"
@@ -4724,7 +4719,7 @@
 		// Charge
 		"AbilityCooldown"				"0"
 		"AbilityCharges"				"2"
-		"AbilityChargeRestoreTime"		"100"
+		"AbilityChargeRestoreTime"		"110"
 		"ItemInitialCharges"			"1"
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
