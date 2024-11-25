@@ -32,7 +32,7 @@
 			"item_necronomicon_staff_bonus_strength"		"15"
 			"item_necronomicon_staff_bonus_agility"			"15"
 
-			"item_orb_of_the_brine_bonus_all_stats"		"15"
+			"item_orb_of_the_brine_bonus_all_stats"		"20"
 		}
 		"Modifiers"
 		{
