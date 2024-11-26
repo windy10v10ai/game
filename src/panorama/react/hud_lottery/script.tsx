@@ -73,5 +73,3 @@ function DrawAbility() {
 }
 
 render(<DrawAbility />, $.GetContextPanel());
-
-console.log(`Hello, world!`);

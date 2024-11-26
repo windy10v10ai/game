@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GetLocalPlayerSteamAccountID } from '../../../utils';
 import { LotteryDto } from '../../../../common/dto/lottery';
 
@@ -15,15 +15,40 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ data, type }) => {
   // 从nettable中获取数据
   const steamAccountId = GetLocalPlayerSteamAccountID();
   const getLotteryData = () => {
-    const data = CustomNetTables.GetTableValue('lottery', steamAccountId);
-    return data;
+    if (type === 'item') {
+      $.Msg('getLotteryData of ', steamAccountId);
+      const data = CustomNetTables.GetTableValue('lottery', steamAccountId);
+      return data;
+    }
+    return null;
   };
 
-  const [lotteryData, setlotteryData] = useState<NetworkedData<LotteryDto> | null>(
+  const [lotteryData, setLotteryData] = useState<NetworkedData<LotteryDto> | null>(
     getLotteryData(),
   );
 
-  // TODO 监听nettable数据变化
+  // 监听nettable数据变化
+  useEffect(() => {
+    const listenerId = CustomNetTables.SubscribeNetTableListener(
+      'lottery',
+      (tableName, key, value) => {
+        if (key === steamAccountId) {
+          setLotteryData(value);
+        }
+      },
+    );
+
+    return () => {
+      CustomNetTables.UnsubscribeNetTableListener(listenerId);
+    };
+  }, [steamAccountId]);
+
+  // let content;
+  // if (type === 'item') {
+  //   content = <DOTAItemImage />;
+  // } else {
+  //   content = <DOTAAbilityImage />;
+  // }
 
   return (
     <Panel style={{ flowChildren: 'right' }}>
@@ -41,7 +66,6 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ data, type }) => {
 
       {type === 'item' && lotteryData?.itemNamesNormal && (
         <>
-          {$.Msg('lotteryData.itemNamesNormal', lotteryData.itemNamesNormal)}
           {$.Msg('lotteryData.itemNamesNormal', Object.values(lotteryData.itemNamesNormal))}
           <Panel style={{ flowChildren: 'right' }}>
             {Object.values(lotteryData.itemNamesNormal).map((item, index) => (
