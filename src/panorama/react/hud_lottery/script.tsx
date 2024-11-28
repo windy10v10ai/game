@@ -22,6 +22,12 @@ const items = [
 ];
 
 function DrawAbilities() {
+  const handleShuffleClick = () => {
+    GameEvents.SendCustomGameEventToServer('lottery_refresh_item', {
+      PlayerID: Game.GetLocalPlayerID(),
+    });
+  };
+
   return (
     <Panel id="DrawAbility">
       <Label id="DrawAbilityTitle" text="Choose Your Ability" />
@@ -42,7 +48,7 @@ function DrawAbilities() {
             <Label className="ProjectName" text="项目2" />
             <ItemOrAbilityList data={items} type="item" />
           </Panel>
-          <Button className="CommonButton">
+          <Button className="CommonButton" onactivate={handleShuffleClick}>
             <Label text={$.Localize('#item_choice_shuffle')} />
           </Button>
         </Panel>

@@ -77,11 +77,11 @@ export class BaseHeroAIModifier extends BaseModifier {
     // update state
     this.mode = GameRules.AI.FSA.GetMode(this);
     if (this.gameTime < this.continueActionEndTime) {
-      print(`[AI] HeroBase Think break 持续动作中 ${this.hero.GetUnitName()}`);
+      // print(`[AI] HeroBase Think break 持续动作中 ${this.hero.GetUnitName()}`);
       return;
     }
     if (this.IsInAbilityPhase()) {
-      print(`[AI] HeroBase Think break 正在施法中 ${this.hero.GetUnitName()}`);
+      // print(`[AI] HeroBase Think break 正在施法中 ${this.hero.GetUnitName()}`);
       return;
     }
     this.ActionMode();
@@ -316,7 +316,7 @@ export class BaseHeroAIModifier extends BaseModifier {
     }
 
     if (this.IsInAttackPhase()) {
-      print(`[AI] HeroBase Think break 正在攻击中 ${this.hero.GetUnitName()}`);
+      // print(`[AI] HeroBase Think break 正在攻击中 ${this.hero.GetUnitName()}`);
       return false;
     }
     const enemyHero = this.FindNearestEnemyHero();

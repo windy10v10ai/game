@@ -50,9 +50,6 @@ export class Lottery {
   // 随机决定tier
   private getRandomTier(tiers: Tier[]): Tier {
     const draw = Math.random() * 100;
-    // 获取level最高，draw小于rate的tier
-    print(`Draw rate ${draw}`);
-    DeepPrintTable(tiers);
 
     for (const tier of tiers) {
       if (draw <= tier.rate) {
@@ -100,8 +97,6 @@ export class Lottery {
       itemNamesMember,
       pickItemName: undefined,
     };
-    print('RandomItemForPlayer');
-    DeepPrintTable(lotteryDto);
     CustomNetTables.SetTableValue(
       'lottery',
       PlayerResource.GetSteamAccountID(playerId).toString(),
@@ -141,14 +136,11 @@ export class Lottery {
 
     print('lotteryRaw');
     DeepPrintTable(lotteryRaw);
-    const lotteryDto: LotteryDto = Object.assign(
-      {
-        itemNamesNormal: [],
-        itemNamesMember: [],
-        pickItemName: undefined,
-      },
-      lotteryRaw,
-    );
+    const lotteryDto: LotteryDto = {
+      itemNamesNormal: Object.values(lotteryRaw?.itemNamesNormal) || [],
+      itemNamesMember: Object.values(lotteryRaw?.itemNamesMember) || [],
+      pickItemName: lotteryRaw?.pickItemName,
+    };
 
     print('lotteryDto');
     DeepPrintTable(lotteryDto);
@@ -157,9 +149,11 @@ export class Lottery {
     print('lotteryDto add');
     DeepPrintTable(lotteryDto);
 
-    if (lotteryDto.pickItemName) {
-      return;
-    }
+    // 如果已经抽取了，不再刷新
+    // TODO 测试时注释掉
+    // if (lotteryDto.pickItemName) {
+    //   return;
+    // }
 
     this.RandomItemForPlayer(event.PlayerID);
   }
