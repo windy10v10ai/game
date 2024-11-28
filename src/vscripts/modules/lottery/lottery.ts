@@ -1,6 +1,6 @@
 import { LotteryDto } from '../../../common/dto/lottery';
-import { PlayerHelper } from '../../helper/player-helper';
 import { reloadable } from '../../utils/tstl-utils';
+import { PlayerHelper } from '../helper/player-helper';
 import { itemTier, Tier } from './tier-data';
 
 @reloadable

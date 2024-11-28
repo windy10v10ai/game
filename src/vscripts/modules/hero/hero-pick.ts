@@ -1,4 +1,4 @@
-import { PlayerHelper } from '../../helper/player-helper';
+import { PlayerHelper } from '../helper/player-helper';
 
 export class HeroPick {
   static PickHumanHeroes() {

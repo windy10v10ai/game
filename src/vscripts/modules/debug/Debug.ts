@@ -1,6 +1,6 @@
-import { ModifierHelper } from '../../helper/modifier-helper';
-import { PlayerHelper } from '../../helper/player-helper';
 import { reloadable } from '../../utils/tstl-utils';
+import { ModifierHelper } from '../helper/modifier-helper';
+import { PlayerHelper } from '../helper/player-helper';
 import { CMD } from './debug-cmd';
 
 @reloadable
