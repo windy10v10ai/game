@@ -3,7 +3,7 @@ import 'panorama-polyfill-x/lib/timers';
 
 import { render } from 'react-panorama-x';
 import * as React from 'react';
-import ItemOrAbilityList from './component/ItemOrAbilityList';
+import ItemOrAbilityList from './component/LotteryGroup';
 
 const abilities = [
   { name: 'rattletrap_hookshot', displayName: 'Ability 1' },

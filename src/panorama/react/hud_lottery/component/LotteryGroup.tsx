@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GetLocalPlayerSteamAccountID } from '../../../utils';
+import LotteryAbilityItem from './LotteryAbilityItem';
 
 // type item or ability
 export type ItemOrAbility = 'item' | 'ability';
@@ -40,13 +41,6 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ data, type }) => {
     };
   }, [steamAccountId]);
 
-  // let content;
-  // if (type === 'item') {
-  //   content = <DOTAItemImage />;
-  // } else {
-  //   content = <DOTAAbilityImage />;
-  // }
-
   return (
     <Panel style={{ flowChildren: 'right' }}>
       {type === 'ability' &&
@@ -67,9 +61,7 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ data, type }) => {
           {$.Msg('lotteryData Object', Object.values(lotteryData))}
           <Panel style={{ flowChildren: 'right' }}>
             {Object.values(lotteryData).map((itemName, index) => (
-              <Panel key={index} className={'Item'}>
-                <DOTAItemImage itemname={itemName} />
-              </Panel>
+              <LotteryAbilityItem index={index} name={itemName} type={type} />
             ))}
           </Panel>
         </>
