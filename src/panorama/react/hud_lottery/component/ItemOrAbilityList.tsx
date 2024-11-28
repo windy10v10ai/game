@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { GetLocalPlayerSteamAccountID } from '../../../utils';
-import { LotteryDto } from '../../../../common/dto/lottery';
 
 // type item or ability
 export type ItemOrAbility = 'item' | 'ability';
@@ -17,20 +16,18 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ data, type }) => {
   const getLotteryData = () => {
     if (type === 'item') {
       $.Msg('getLotteryData of ', steamAccountId);
-      const data = CustomNetTables.GetTableValue('lottery', steamAccountId);
+      const data = CustomNetTables.GetTableValue('lottery_items', steamAccountId);
       return data;
     }
     return null;
   };
 
-  const [lotteryData, setLotteryData] = useState<NetworkedData<LotteryDto> | null>(
-    getLotteryData(),
-  );
+  const [lotteryData, setLotteryData] = useState<NetworkedData<string[]> | null>(getLotteryData());
 
   // 监听nettable数据变化
   useEffect(() => {
     const listenerId = CustomNetTables.SubscribeNetTableListener(
-      'lottery',
+      'lottery_items',
       (tableName, key, value) => {
         if (key === steamAccountId) {
           setLotteryData(value);
@@ -64,13 +61,14 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ data, type }) => {
           </Panel>
         ))}
 
-      {type === 'item' && lotteryData?.itemNamesNormal && (
+      {type === 'item' && lotteryData && (
         <>
-          {$.Msg('lotteryData.itemNamesNormal', Object.values(lotteryData.itemNamesNormal))}
+          {$.Msg('lotteryData raw', lotteryData)}
+          {$.Msg('lotteryData Object', Object.values(lotteryData))}
           <Panel style={{ flowChildren: 'right' }}>
-            {Object.values(lotteryData.itemNamesNormal).map((item, index) => (
+            {Object.values(lotteryData).map((itemName, index) => (
               <Panel key={index} className={'Item'}>
-                <DOTAItemImage itemname={item} />
+                <DOTAItemImage itemname={itemName} />
               </Panel>
             ))}
           </Panel>

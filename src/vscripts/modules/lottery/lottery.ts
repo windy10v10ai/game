@@ -1,12 +1,10 @@
-import { LotteryDto } from '../../../common/dto/lottery';
 import { reloadable } from '../../utils/tstl-utils';
 import { PlayerHelper } from '../helper/player-helper';
-import { itemTier, Tier } from './tier-data';
+import { itemTier, Tier } from './lottery-tier';
 
 @reloadable
 export class Lottery {
-  readonly normalItemCount = 3;
-  readonly memberItemCount = 1;
+  readonly randomItemCountBase = 3;
 
   constructor() {
     // 启动物品抽奖
@@ -19,7 +17,7 @@ export class Lottery {
           Timers.CreateTimer({
             endTime: 1,
             callback: () => {
-              this.StartItemLottery();
+              this.initItemLotteryAll();
             },
           });
         }
@@ -37,16 +35,52 @@ export class Lottery {
     });
   }
 
-  StartItemLottery() {
+  initItemLotteryAll() {
     print('StartItemLottery');
     PlayerHelper.ForEachPlayer((playerId) => {
       if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
         return;
       }
-      this.RandomItemForPlayer(playerId);
+      this.initItemLottery(playerId);
     });
   }
 
+  initItemLottery(playerId: PlayerID) {
+    this.randomItemForPlayer(playerId);
+    // TODO 初始化抽选状态
+  }
+
+  randomItemForPlayer(playerId: PlayerID) {
+    const itemNames = this.getRandomNames(itemTier, this.randomItemCountBase, 'item_branches');
+
+    CustomNetTables.SetTableValue(
+      'lottery_items',
+      PlayerResource.GetSteamAccountID(playerId).toString(),
+      itemNames,
+    );
+  }
+
+  pickItem(userId: EntityIndex, event: LotteryPickItemEventData) {
+    const hero = PlayerResource.GetSelectedHeroEntity(event.PlayerID);
+
+    if (!hero) {
+      return;
+    }
+
+    // 添加物品
+    hero.AddItemByName(event.item);
+
+    // TODO 记录选择的物品
+  }
+
+  // 刷新物品
+  refreshItem(userId: EntityIndex, event: LotteryRefreshItemEventData) {
+    // TODO 如果已经抽取了，不再刷新
+
+    this.randomItemForPlayer(event.PlayerID);
+  }
+
+  // ----------------- private -----------------
   // 随机决定tier
   private getRandomTier(tiers: Tier[]): Tier {
     const draw = Math.random() * 100;
@@ -79,82 +113,5 @@ export class Lottery {
       names.push(name);
     }
     return names;
-  }
-
-  RandomItemForPlayer(playerId: PlayerID) {
-    // 抽取3个普通物品和1个会员物品，如果有重复的，重新抽取
-    const items = this.getRandomNames(
-      itemTier,
-      this.normalItemCount + this.memberItemCount,
-      'item_branches',
-    );
-    const itemNamesNormal = items.slice(0, this.normalItemCount);
-    const itemNamesMember = items.slice(this.normalItemCount);
-
-    // 将抽选结果放到nettable lottery中
-    const lotteryDto: LotteryDto = {
-      itemNamesNormal,
-      itemNamesMember,
-      pickItemName: undefined,
-    };
-    CustomNetTables.SetTableValue(
-      'lottery',
-      PlayerResource.GetSteamAccountID(playerId).toString(),
-      lotteryDto,
-    );
-  }
-
-  pickItem(userId: EntityIndex, event: LotteryPickItemEventData) {
-    print('Choose item');
-    const hero = PlayerResource.GetSelectedHeroEntity(event.PlayerID);
-
-    if (!hero) {
-      return;
-    }
-
-    const steamAccountId = PlayerResource.GetSteamAccountID(event.PlayerID);
-    const lotteryDto = CustomNetTables.GetTableValue(
-      'lottery',
-      steamAccountId.toString(),
-    ) as LotteryDto;
-
-    if (lotteryDto.pickItemName) {
-      return;
-    }
-
-    // 添加物品
-    hero.AddItemByName(event.item);
-    lotteryDto.pickItemName = event.item;
-    CustomNetTables.SetTableValue('lottery', steamAccountId.toString(), lotteryDto);
-  }
-
-  // 刷新物品
-  refreshItem(userId: EntityIndex, event: LotteryRefreshItemEventData) {
-    print('Refresh item');
-    const steamAccountId = PlayerResource.GetSteamAccountID(event.PlayerID);
-    const lotteryRaw = CustomNetTables.GetTableValue('lottery', steamAccountId.toString());
-
-    print('lotteryRaw');
-    DeepPrintTable(lotteryRaw);
-    const lotteryDto: LotteryDto = {
-      itemNamesNormal: Object.values(lotteryRaw?.itemNamesNormal) || [],
-      itemNamesMember: Object.values(lotteryRaw?.itemNamesMember) || [],
-      pickItemName: lotteryRaw?.pickItemName,
-    };
-
-    print('lotteryDto');
-    DeepPrintTable(lotteryDto);
-    lotteryDto.itemNamesNormal.push(lotteryDto.itemNamesMember[0]);
-
-    print('lotteryDto add');
-    DeepPrintTable(lotteryDto);
-
-    // 如果已经抽取了，不再刷新
-    // TODO 测试时注释掉
-    // if (lotteryDto.pickItemName) {
-    //   return;
-    // }
-
-    this.RandomItemForPlayer(event.PlayerID);
   }
 }

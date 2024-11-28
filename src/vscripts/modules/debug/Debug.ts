@@ -80,7 +80,7 @@ export class Debug {
     }
 
     if (cmd === CMD.LOTTERY) {
-      GameRules.Lottery.StartItemLottery();
+      GameRules.Lottery.initItemLotteryAll();
     }
 
     if (cmd === CMD.V) {
