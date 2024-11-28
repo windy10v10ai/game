@@ -10,7 +10,11 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@utils/*": ["utils/*"]
+    }
   },
   "include": [".", "../common/**/*.ts"]
 }

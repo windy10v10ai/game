@@ -1,10 +1,10 @@
 import React from 'react';
-// import colors from './colors.less';
+import { colors } from '@utils/colors';
 
 export type AbilityOrItem = 'ability' | 'item';
 
 interface LotteryAbilityItemProps {
-  index: number;
+  level: number;
   name: string;
   type: AbilityOrItem;
 }
@@ -15,14 +15,32 @@ const itemStyle = {
   marginTop: '20px',
 };
 
-const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({ index, name, type }) => {
-  const boxShadow = index >= 2 ? '0 0 5px #ffd700' : '0 0 5px #a029af';
-  //   const boxColor = index >= 2 ? colors.gold : colors.purple;
-  //   const boxShadow = `0 0 5px ${boxColor}`;
+const getBoxColor = (level: number) => {
+  switch (level) {
+    case 1:
+      return colors.grey;
+    case 2:
+      return colors.blue;
+    case 3:
+      return colors.purple;
+    case 4:
+      return colors.gold;
+    case 5:
+      return colors.orange;
+    default:
+      return colors.grey;
+  }
+};
+
+const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({ level, name, type }) => {
+  const imageStyle = {
+    boxShadow: `0 0 5px ${getBoxColor(level)}`,
+  };
+
   return (
     <Panel style={itemStyle}>
       {type === 'item' ? (
-        <DOTAItemImage itemname={name} style={{ boxShadow }} />
+        <DOTAItemImage itemname={name} style={imageStyle} />
       ) : (
         <DOTAAbilityImage abilityname={name} />
       )}

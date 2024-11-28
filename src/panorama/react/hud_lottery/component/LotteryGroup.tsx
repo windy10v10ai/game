@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { GetLocalPlayerSteamAccountID } from '../../../utils';
+import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import LotteryAbilityItem from './LotteryAbilityItem';
 
 // type item or ability
@@ -61,7 +61,8 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ data, type }) => {
           {$.Msg('lotteryData Object', Object.values(lotteryData))}
           <Panel style={{ flowChildren: 'right' }}>
             {Object.values(lotteryData).map((itemName, index) => (
-              <LotteryAbilityItem index={index} name={itemName} type={type} />
+              // TODO 获取物品的tier
+              <LotteryAbilityItem level={index + 1} name={itemName} type={type} />
             ))}
           </Panel>
         </>
