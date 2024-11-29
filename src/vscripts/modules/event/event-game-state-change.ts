@@ -1,5 +1,5 @@
 import { Player } from '../../api/player';
-import { ModifierHelper } from '../../helper/modifier-helper';
+import { ModifierHelper } from '../helper/modifier-helper';
 import { HeroPick } from '../hero/hero-pick';
 
 export class EventGameStateChange {

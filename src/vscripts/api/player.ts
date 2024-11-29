@@ -1,4 +1,4 @@
-import { PlayerHelper } from '../helper/player-helper';
+import { PlayerHelper } from '../modules/helper/player-helper';
 import { PropertyController } from '../modules/property/property_controller';
 import { ApiClient, HttpMethod } from './api-client';
 
