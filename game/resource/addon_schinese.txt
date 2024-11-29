@@ -158,17 +158,21 @@
 
 		///////////////////////////////////////////////////
 		//
-		//            Choose Item
+		//			Lottery Item/Ability
 		//
 		///////////////////////////////////////////////////
-		"item_choice_header"										"选择一个道具！"
-		"item_choice_shuffle"										"点击刷新道具"
-		"item_choice_shuffle_used"									"道具已刷新"
-		"item_choice_shuffle_not_member"							"会员可刷新一次道具，点击开通会员"
+		"lottery_header"										"选择一个道具！"
+
+		"lottery_item_refresh"									"点击刷新道具"
+		"lottery_item_refresh_used"								"道具已刷新"
+		"lottery_item_refresh_not_member"						"会员每日可刷新一次道具，点击开通会员"
+		"lottery_ability_refresh"								"点击刷新技能"
+		"lottery_ability_refresh_used"							"技能已刷新"
+		"lottery_ability_refresh_not_member"					"会员每日可刷新一次技能，点击开通会员"
 
 		///////////////////////////////////////////////////
 		//
-		//            Member
+		//			Member
 		//
 		///////////////////////////////////////////////////
 		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得100会员积分<br/> 会员有效期：{expireDate}"
@@ -178,7 +182,7 @@
 
 		///////////////////////////////////////////////////
 		//
-		//            Leaderboard
+		//			Leaderboard
 		//
 		///////////////////////////////////////////////////
 		"leaderboard_title"				"勇士排行榜"
@@ -187,14 +191,14 @@
 
 		///////////////////////////////////////////////////
 		//
-		//            pointInfo
+		//			pointInfo
 		//
 		///////////////////////////////////////////////////
 		"point_header_text"				"通知"
 
 		///////////////////////////////////////////////////
 		//
-		//            Creep / Tower
+		//			Creep / Tower
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_tower_power"					"建筑增强"

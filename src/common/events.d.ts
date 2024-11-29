@@ -17,7 +17,8 @@ interface CustomGameEventDeclarations {
   ui_panel_closed: UIPanelClosedEventData;
   lottery_pick_item: LotteryPickEventData;
   lottery_pick_ability: LotteryPickEventData;
-  lottery_refresh_item: LotteryRefreshItemEventData;
+  lottery_refresh_item: LotteryRefreshEventData;
+  lottery_refresh_ability: LotteryRefreshEventData;
 }
 
 interface CustomGameEventDataBase {
@@ -49,4 +50,7 @@ interface LotteryPickEventData {
 }
 interface LotteryPickEventDataWithPlayer extends LotteryPickEventData, CustomGameEventDataBase {}
 
-interface LotteryRefreshItemEventData extends CustomGameEventDataBase {}
+interface LotteryRefreshEventData {}
+interface LotteryRefreshEventDataWithPlayer
+  extends LotteryRefreshEventData,
+    CustomGameEventDataBase {}
