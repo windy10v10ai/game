@@ -1,14 +1,10 @@
-export interface Tier {
-  level: number;
-  rate: number;
-  names: string[];
-}
+import { Tier } from './tier';
 
 /**
  * 物品抽选概率，Tier 5-1
  * 确保概率从低到高排列
  */
-export const itemTier: Tier[] = [
+export const itemTiers: Tier[] = [
   {
     level: 5,
     rate: 0.5,
