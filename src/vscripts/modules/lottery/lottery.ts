@@ -4,7 +4,8 @@ import { itemTier, Tier } from './lottery-tier';
 
 @reloadable
 export class Lottery {
-  readonly randomItemCountBase = 3;
+  // TODO 改回3个
+  readonly randomItemCountBase = 5;
 
   constructor() {
     // 启动物品抽奖
@@ -60,7 +61,8 @@ export class Lottery {
     );
   }
 
-  pickItem(userId: EntityIndex, event: LotteryPickItemEventData) {
+  pickItem(userId: EntityIndex, event: LotteryPickEventDataWithPlayer) {
+    print('pickItem');
     const hero = PlayerResource.GetSelectedHeroEntity(event.PlayerID);
 
     if (!hero) {
@@ -68,7 +70,7 @@ export class Lottery {
     }
 
     // 添加物品
-    hero.AddItemByName(event.item);
+    hero.AddItemByName(event.name);
 
     // TODO 记录选择的物品
   }

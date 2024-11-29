@@ -37,12 +37,17 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({ level, name, ty
     boxShadow: `0 0 5px ${getBoxColor(level)}`,
   };
 
+  const handleClick = () => {
+    const eventName = type === 'item' ? 'lottery_pick_item' : 'lottery_pick_ability';
+    GameEvents.SendCustomGameEventToServer(eventName, { name });
+  };
+
   return (
-    <Panel style={itemStyle}>
+    <Panel style={itemStyle} onactivate={handleClick}>
       {type === 'item' ? (
         <DOTAItemImage itemname={name} style={imageStyle} />
       ) : (
-        <DOTAAbilityImage abilityname={name} />
+        <DOTAAbilityImage abilityname={name} style={imageStyle} />
       )}
     </Panel>
   );
