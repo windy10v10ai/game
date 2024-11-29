@@ -1,4 +1,5 @@
 export interface Tier {
+  level: number;
   rate: number;
   names: string[];
 }
@@ -9,6 +10,7 @@ export interface Tier {
  */
 export const itemTier: Tier[] = [
   {
+    level: 5,
     rate: 0.5,
     names: [
       'item_tome_of_agility', // 敏捷之书
@@ -26,6 +28,7 @@ export const itemTier: Tier[] = [
     ],
   },
   {
+    level: 4,
     rate: 2,
     names: [
       'item_light_part', // 圣光组件
@@ -43,6 +46,7 @@ export const itemTier: Tier[] = [
     ],
   },
   {
+    level: 3,
     rate: 12,
     names: [
       // ---- 中立物品 lv3 ----
@@ -57,6 +61,7 @@ export const itemTier: Tier[] = [
     ],
   },
   {
+    level: 2,
     rate: 40,
     names: [
       'item_hand_of_midas', // 点金手
@@ -77,6 +82,7 @@ export const itemTier: Tier[] = [
     ],
   },
   {
+    level: 1,
     rate: 100,
     names: [
       'item_bottle', // 魔瓶

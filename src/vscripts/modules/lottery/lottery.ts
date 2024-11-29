@@ -1,3 +1,4 @@
+import { LotteryDto } from '../../../common/dto/lottery';
 import { reloadable } from '../../utils/tstl-utils';
 import { PlayerHelper } from '../helper/player-helper';
 import { itemTier, Tier } from './lottery-tier';
@@ -52,12 +53,16 @@ export class Lottery {
   }
 
   randomItemForPlayer(playerId: PlayerID) {
-    const itemNames = this.getRandomNames(itemTier, this.randomItemCountBase, 'item_branches');
+    const itemLotteryResults = this.randomAllLotteryResults(
+      itemTier,
+      this.randomItemCountBase,
+      'item_branches',
+    );
 
     CustomNetTables.SetTableValue(
       'lottery_items',
       PlayerResource.GetSteamAccountID(playerId).toString(),
-      itemNames,
+      itemLotteryResults,
     );
   }
 
@@ -96,24 +101,29 @@ export class Lottery {
   }
 
   // 随机抽选一个name
-  private getRandomName(tiers: Tier[]): string {
-    const names = this.getRandomTier(tiers).names;
-    return names[Math.floor(Math.random() * names.length)];
+  private randomOneLotteryDto(tiers: Tier[]): LotteryDto {
+    const tier = this.getRandomTier(tiers);
+    const name = tier.names[Math.floor(Math.random() * tier.names.length)];
+    const level = tier.level;
+    return { name, level };
   }
 
   // 随机抽选count个name
-  private getRandomNames(tiers: Tier[], count: number, defaultName: string): string[] {
-    const names: string[] = [];
+  private randomAllLotteryResults(tiers: Tier[], count: number, defaultName: string): LotteryDto[] {
+    const lotteryResults: LotteryDto[] = [];
     const maxAttempts = 10; // 最大尝试次数，避免无限循环
     for (let i = 0; i < count; i++) {
-      let name = defaultName; // 默认物品，不应该被抽到
+      let lotteryDto = { name: defaultName, level: 1 };
       let attempts = 0;
       do {
-        name = this.getRandomName(tiers);
+        lotteryDto = this.randomOneLotteryDto(tiers);
         attempts++;
-      } while (names.includes(name) && attempts < maxAttempts);
-      names.push(name);
+      } while (
+        lotteryResults.map((lotteryDto) => lotteryDto.name).includes(lotteryDto.name) &&
+        attempts < maxAttempts
+      );
+      lotteryResults.push(lotteryDto);
     }
-    return names;
+    return lotteryResults;
   }
 }

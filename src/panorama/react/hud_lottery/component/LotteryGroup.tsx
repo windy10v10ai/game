@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import LotteryAbilityItem from './LotteryAbilityItem';
+import { LotteryDto } from '../../../../common/dto/lottery';
 
 // type item or ability
 export type ItemOrAbility = 'item' | 'ability';
@@ -13,25 +14,27 @@ interface ItemOrAbilityRowProps {
 const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ data, type }) => {
   // const [pickName, setPickName] = useState<string | undefined>(undefined);
   // 从nettable中获取数据
+  const nettableName = type === 'item' ? 'lottery_items' : 'lottery_abilities';
   const steamAccountId = GetLocalPlayerSteamAccountID();
   const getLotteryData = () => {
     if (type === 'item') {
-      $.Msg('getLotteryData of ', steamAccountId);
-      const data = CustomNetTables.GetTableValue('lottery_items', steamAccountId);
-      return data;
+      const rawData = CustomNetTables.GetTableValue(nettableName, steamAccountId);
+      if (rawData) {
+        return Object.values(rawData);
+      }
     }
     return null;
   };
 
-  const [lotteryData, setLotteryData] = useState<NetworkedData<string[]> | null>(getLotteryData());
+  const [lotteryData, setLotteryData] = useState<LotteryDto[] | null>(getLotteryData());
 
   // 监听nettable数据变化
   useEffect(() => {
     const listenerId = CustomNetTables.SubscribeNetTableListener(
-      'lottery_items',
+      nettableName,
       (tableName, key, value) => {
-        if (key === steamAccountId) {
-          setLotteryData(value);
+        if (key === steamAccountId && value) {
+          setLotteryData(Object.values(value));
         }
       },
     );
@@ -39,7 +42,7 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ data, type }) => {
     return () => {
       CustomNetTables.UnsubscribeNetTableListener(listenerId);
     };
-  }, [steamAccountId]);
+  }, [nettableName, steamAccountId]);
 
   return (
     <Panel style={{ flowChildren: 'right' }}>
@@ -57,12 +60,14 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ data, type }) => {
 
       {type === 'item' && lotteryData && (
         <>
-          {$.Msg('lotteryData raw', lotteryData)}
-          {$.Msg('lotteryData Object', Object.values(lotteryData))}
           <Panel style={{ flowChildren: 'right' }}>
-            {Object.values(lotteryData).map((itemName, index) => (
-              // TODO 获取物品的tier
-              <LotteryAbilityItem level={index + 1} name={itemName} type={type} />
+            {lotteryData.map((lotteryDto) => (
+              <LotteryAbilityItem
+                key={lotteryDto.name}
+                level={lotteryDto.level}
+                name={lotteryDto.name}
+                type={type}
+              />
             ))}
           </Panel>
         </>
