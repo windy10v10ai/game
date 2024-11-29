@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import LotteryAbilityItem from './LotteryAbilityItem';
 import { LotteryDto } from '../../../../common/dto/lottery';
+import RefreshButton from './RefreshButton';
 
 export type ItemOrAbility = 'item' | 'ability';
 
@@ -39,14 +40,6 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ type }) => {
     };
   }, [nettableName, steamAccountId]);
 
-  // 刷新物品/技能
-  const refreshEventName = type === 'item' ? 'lottery_refresh_item' : 'lottery_refresh_ability';
-  const handleRefreshClick = () => {
-    GameEvents.SendCustomGameEventToServer(refreshEventName, {
-      PlayerID: Game.GetLocalPlayerID(),
-    });
-  };
-
   return (
     <Panel style={{ flowChildren: 'right' }}>
       <Label className="ProjectName" text={labelText} />
@@ -64,9 +57,7 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ type }) => {
           </Panel>
         </>
       )}
-      <Button className="CommonButton" onactivate={handleRefreshClick}>
-        <Label text={$.Localize('#item_choice_shuffle')} />
-      </Button>
+      <RefreshButton type={type} />
     </Panel>
   );
 };
