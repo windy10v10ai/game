@@ -1,5 +1,6 @@
 import { MemberDto, PlayerDto, PointInfoDto } from '../vscripts/api/player';
 import { LotteryDto } from './dto/lottery';
+import { LotteryStatusDto } from './dto/lottery-status';
 
 declare global {
   interface CustomNetTableDeclarations {
@@ -29,6 +30,9 @@ declare global {
     };
     lottery_abilities: {
       [steamAccountID: string]: LotteryDto[];
+    };
+    lottery_status: {
+      [steamAccountID: string]: LotteryStatusDto;
     };
   }
 }
