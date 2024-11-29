@@ -26,6 +26,14 @@ export class Lottery {
       undefined,
     );
 
+    // 玩家选择额能
+    CustomGameEventManager.RegisterListener('lottery_pick_ability', (userId, event) => {
+      this.pickAbility(userId, event);
+    });
+    // 玩家刷新技能
+    CustomGameEventManager.RegisterListener('lottery_refresh_ability', (userId, event) => {
+      this.refreshAbility(userId, event);
+    });
     // 玩家选择物品
     CustomGameEventManager.RegisterListener('lottery_pick_item', (userId, event) => {
       this.pickItem(userId, event);
