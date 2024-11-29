@@ -158,17 +158,21 @@
 
 		///////////////////////////////////////////////////
 		//
-		//            Choose Item
+		//			Lottery Item/Ability
 		//
 		///////////////////////////////////////////////////
-		"item_choice_header"										"Select a bonus item!"
-		"item_choice_shuffle"										"Click to reroll bonus items."
-		"item_choice_shuffle_used"									"Only one reroll per game."
-		"item_choice_shuffle_not_member"							"Members can reroll items once. Click this button to open the membership page in your browser."
+		"lottery_header"										"Select a bonus item!"
+
+		"lottery_item_refresh"									"Click to reroll bonus items."
+		"lottery_item_refresh_used"								"Only one reroll per game."
+		"lottery_item_refresh_not_member"						"Members can reroll items once. Click this button to open the membership page in your browser."
+		"lottery_ability_refresh"								"Click to reroll bonus abilities."
+		"lottery_ability_refresh_used"							"Only one reroll per game."
+		"lottery_ability_refresh_not_member"					"Members can reroll abilities once. Click this button to open the membership page in your browser."
 
 		///////////////////////////////////////////////////
 		//
-		//            Member
+		//			Member
 		//
 		///////////////////////////////////////////////////
 		"player_member_button"		"Thank you for your membership!<br/>Member Benefits:<br/>Respawn time is reduced by 5 seconds.<br/>Buyback cooldown is reduced to 2 minutes.<br/>You may reroll the bonus starting items once.<br/>Gain 100 membership points for playing every day.<br/> Membership is valid until {expireDate}."
@@ -178,7 +182,7 @@
 
 		///////////////////////////////////////////////////
 		//
-		//            Leaderboard
+		//			Leaderboard
 		//
 		///////////////////////////////////////////////////
 		"leaderboard_title"				"Battle Leaderboard"
@@ -187,14 +191,14 @@
 
 		///////////////////////////////////////////////////
 		//
-		//            pointInfo
+		//			pointInfo
 		//
 		///////////////////////////////////////////////////
 		"point_header_text"				"Notice"
 
 		///////////////////////////////////////////////////
 		//
-		//            Creep / Tower
+		//			Creep / Tower
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_tower_power"					"Building Power"

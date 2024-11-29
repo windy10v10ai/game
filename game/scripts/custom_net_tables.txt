@@ -16,5 +16,6 @@
     "leader_board",
     "point_info",
     "lottery_items",
+    "lottery_abilities",
   ]
 }

@@ -1,11 +1,11 @@
 import { reloadable } from '../../utils/tstl-utils';
 import { PlayerHelper } from '../helper/player-helper';
-import { itemTier, Tier } from './lottery-tier';
+import { LotteryHelper } from './lottery-helper';
 
 @reloadable
 export class Lottery {
   // TODO 改回3个
-  readonly randomItemCountBase = 5;
+  readonly randomCountBase = 5;
 
   constructor() {
     // 启动物品抽奖
@@ -13,19 +13,20 @@ export class Lottery {
       'game_rules_state_change',
       () => {
         if (GameRules.State_Get() === GameState.PRE_GAME) {
-          // TODO remove this
-          // wait 1 second before starting the item lottery
-          Timers.CreateTimer({
-            endTime: 1,
-            callback: () => {
-              this.initItemLotteryAll();
-            },
-          });
+          this.initItemLotteryAll();
         }
       },
       undefined,
     );
 
+    // 玩家选择额能
+    CustomGameEventManager.RegisterListener('lottery_pick_ability', (userId, event) => {
+      this.pickAbility(userId, event);
+    });
+    // 玩家刷新技能
+    CustomGameEventManager.RegisterListener('lottery_refresh_ability', (userId, event) => {
+      this.refreshAbility(userId, event);
+    });
     // 玩家选择物品
     CustomGameEventManager.RegisterListener('lottery_pick_item', (userId, event) => {
       this.pickItem(userId, event);
@@ -48,21 +49,23 @@ export class Lottery {
 
   initItemLottery(playerId: PlayerID) {
     this.randomItemForPlayer(playerId);
+    this.randomAbilityForPlayer(playerId);
     // TODO 初始化抽选状态
   }
 
+  // ---- 物品逻辑 ----
   randomItemForPlayer(playerId: PlayerID) {
-    const itemNames = this.getRandomNames(itemTier, this.randomItemCountBase, 'item_branches');
+    const itemLotteryResults = LotteryHelper.getRandomItems(this.randomCountBase);
 
     CustomNetTables.SetTableValue(
       'lottery_items',
       PlayerResource.GetSteamAccountID(playerId).toString(),
-      itemNames,
+      itemLotteryResults,
     );
   }
 
   pickItem(userId: EntityIndex, event: LotteryPickEventDataWithPlayer) {
-    print('pickItem');
+    print(`pickItem ${event.name}`);
     const hero = PlayerResource.GetSelectedHeroEntity(event.PlayerID);
 
     if (!hero) {
@@ -75,45 +78,40 @@ export class Lottery {
     // TODO 记录选择的物品
   }
 
-  // 刷新物品
-  refreshItem(userId: EntityIndex, event: LotteryRefreshItemEventData) {
+  refreshItem(userId: EntityIndex, event: LotteryRefreshEventDataWithPlayer) {
     // TODO 如果已经抽取了，不再刷新
 
     this.randomItemForPlayer(event.PlayerID);
   }
 
-  // ----------------- private -----------------
-  // 随机决定tier
-  private getRandomTier(tiers: Tier[]): Tier {
-    const draw = Math.random() * 100;
+  // ---- 技能逻辑 ----
+  randomAbilityForPlayer(playerId: PlayerID) {
+    const abilityLotteryResults = LotteryHelper.getRandomAbilities(this.randomCountBase);
 
-    for (const tier of tiers) {
-      if (draw <= tier.rate) {
-        return tier;
-      }
-    }
-    return tiers[tiers.length - 1];
+    CustomNetTables.SetTableValue(
+      'lottery_abilities',
+      PlayerResource.GetSteamAccountID(playerId).toString(),
+      abilityLotteryResults,
+    );
   }
 
-  // 随机抽选一个name
-  private getRandomName(tiers: Tier[]): string {
-    const names = this.getRandomTier(tiers).names;
-    return names[Math.floor(Math.random() * names.length)];
+  pickAbility(userId: EntityIndex, event: LotteryPickEventDataWithPlayer) {
+    print(`pickAbility ${event.name}`);
+    const hero = PlayerResource.GetSelectedHeroEntity(event.PlayerID);
+
+    if (!hero) {
+      return;
+    }
+
+    // 添加技能
+    hero.AddAbility(event.name);
+
+    // TODO 记录选择的技能
   }
 
-  // 随机抽选count个name
-  private getRandomNames(tiers: Tier[], count: number, defaultName: string): string[] {
-    const names: string[] = [];
-    const maxAttempts = 10; // 最大尝试次数，避免无限循环
-    for (let i = 0; i < count; i++) {
-      let name = defaultName; // 默认物品，不应该被抽到
-      let attempts = 0;
-      do {
-        name = this.getRandomName(tiers);
-        attempts++;
-      } while (names.includes(name) && attempts < maxAttempts);
-      names.push(name);
-    }
-    return names;
+  refreshAbility(userId: EntityIndex, event: LotteryRefreshEventDataWithPlayer) {
+    // TODO 如果已经抽取了，不再刷新
+
+    this.randomAbilityForPlayer(event.PlayerID);
   }
 }
