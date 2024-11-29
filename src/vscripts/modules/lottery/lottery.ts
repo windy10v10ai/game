@@ -13,14 +13,7 @@ export class Lottery {
       'game_rules_state_change',
       () => {
         if (GameRules.State_Get() === GameState.PRE_GAME) {
-          // TODO remove this
-          // wait 1 second before starting the item lottery
-          Timers.CreateTimer({
-            endTime: 1,
-            callback: () => {
-              this.initItemLotteryAll();
-            },
-          });
+          this.initItemLotteryAll();
         }
       },
       undefined,
