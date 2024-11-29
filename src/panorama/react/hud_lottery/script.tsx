@@ -3,7 +3,7 @@ import 'panorama-polyfill-x/lib/timers';
 
 import { render } from 'react-panorama-x';
 import * as React from 'react';
-import ItemOrAbilityList from './component/LotteryGroup';
+import ItemOrAbilityList from './components/LotteryGroup';
 
 function DrawAbilities() {
   return (
