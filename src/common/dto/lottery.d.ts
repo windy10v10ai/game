@@ -1,7 +1,6 @@
 export interface LotteryDto {
   // 物品抽选
-  itemNamesNormal: string[];
-  itemNamesMember: string[];
+  itemNames: string[];
   pickItemName: string | undefined;
 
   // 技能抽选

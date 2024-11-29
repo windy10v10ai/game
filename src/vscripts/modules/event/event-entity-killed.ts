@@ -1,5 +1,5 @@
 import { Player } from '../../api/player';
-import { PlayerHelper } from '../../helper/player-helper';
+import { PlayerHelper } from '../helper/player-helper';
 
 export class EventEntityKilled {
   constructor() {

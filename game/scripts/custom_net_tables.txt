@@ -15,6 +15,6 @@
     "player_table",
     "leader_board",
     "point_info",
-    "lottery",
+    "lottery_items",
   ]
 }

@@ -1,5 +1,4 @@
 import type { PlayerProperty } from '../../api/player';
-import { PlayerHelper } from '../../helper/player-helper';
 import {
   property_attack_range_bonus,
   property_attackspeed_bonus_constant,
@@ -23,6 +22,7 @@ import {
   property_stats_strength_bonus,
   property_status_resistance_stacking,
 } from '../../modifiers/property/property_declare';
+import { PlayerHelper } from '../helper/player-helper';
 
 export class PropertyController {
   private static propertyValuePerLevel = new Map<string, number>();

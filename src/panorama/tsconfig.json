@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "lib": ["es2017"],
+    "target": "es2020",
+    "lib": ["es2020"],
     "resolveJsonModule": true,
     "types": ["@moddota/panorama-types"],
     "moduleResolution": "node",
@@ -10,7 +10,11 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@utils/*": ["utils/*"]
+    }
   },
   "include": [".", "../common/**/*.ts"]
 }

@@ -1,6 +1,6 @@
 <root>
 	<scripts>
-        <include src="file://{resources}/scripts/custom_game/main.js" />
+		<include src="file://{resources}/scripts/custom_game/main.js" />
 		<include src="file://{resources}/scripts/custom_game/replaceHeroImage.js"/>
 	</scripts>
 

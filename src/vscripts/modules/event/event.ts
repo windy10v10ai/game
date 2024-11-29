@@ -1,5 +1,5 @@
 import { Player } from '../../api/player';
-import { PlayerHelper } from '../../helper/player-helper';
+import { PlayerHelper } from '../helper/player-helper';
 import { PropertyController } from '../property/property_controller';
 import { CustomEvent } from './custom-event';
 import { EventEntityKilled } from './event-entity-killed';
