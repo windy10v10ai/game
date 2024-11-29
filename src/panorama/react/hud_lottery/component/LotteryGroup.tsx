@@ -12,6 +12,7 @@ interface ItemOrAbilityRowProps {
 const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ type }) => {
   // 初始化 从nettable中获取数据
   const nettableName = type === 'item' ? 'lottery_items' : 'lottery_abilities';
+  const labelText = type === 'item' ? '物品' : '技能';
   const steamAccountId = GetLocalPlayerSteamAccountID();
   const getLotteryData = () => {
     const rawData = CustomNetTables.GetTableValue(nettableName, steamAccountId);
@@ -38,8 +39,17 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ type }) => {
     };
   }, [nettableName, steamAccountId]);
 
+  // 刷新物品/技能
+  const refreshEventName = type === 'item' ? 'lottery_refresh_item' : 'lottery_refresh_ability';
+  const handleRefreshClick = () => {
+    GameEvents.SendCustomGameEventToServer(refreshEventName, {
+      PlayerID: Game.GetLocalPlayerID(),
+    });
+  };
+
   return (
     <Panel style={{ flowChildren: 'right' }}>
+      <Label className="ProjectName" text={labelText} />
       {lotteryData && (
         <>
           <Panel style={{ flowChildren: 'right' }}>
@@ -54,6 +64,9 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ type }) => {
           </Panel>
         </>
       )}
+      <Button className="CommonButton" onactivate={handleRefreshClick}>
+        <Label text={$.Localize('#item_choice_shuffle')} />
+      </Button>
     </Panel>
   );
 };

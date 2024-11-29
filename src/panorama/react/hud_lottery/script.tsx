@@ -6,12 +6,6 @@ import * as React from 'react';
 import ItemOrAbilityList from './component/LotteryGroup';
 
 function DrawAbilities() {
-  const handleShuffleClick = () => {
-    GameEvents.SendCustomGameEventToServer('lottery_refresh_item', {
-      PlayerID: Game.GetLocalPlayerID(),
-    });
-  };
-
   return (
     <Panel id="DrawAbility">
       <Label id="DrawAbilityTitle" text="Choose Your Ability" />
@@ -19,22 +13,10 @@ function DrawAbilities() {
         {/* <!-- 中间技能和物品区域 --> */}
         <Panel id="LeftColumn">
           {/* <!-- 技能区域 --> */}
-          <Panel style={{ flowChildren: 'right' }}>
-            <Label className="ProjectName" text="项目1" />
-            <ItemOrAbilityList type="ability" />
-          </Panel>
-          <Button className="CommonButton">
-            <Label text={$.Localize('#item_choice_shuffle')} />
-          </Button>
+          <ItemOrAbilityList type="ability" />
 
           {/* <!-- 物品区域 --> */}
-          <Panel style={{ flowChildren: 'right' }}>
-            <Label className="ProjectName" text="项目2" />
-            <ItemOrAbilityList type="item" />
-          </Panel>
-          <Button className="CommonButton" onactivate={handleShuffleClick}>
-            <Label text={$.Localize('#item_choice_shuffle')} />
-          </Button>
+          <ItemOrAbilityList type="item" />
         </Panel>
       </Panel>
     </Panel>
