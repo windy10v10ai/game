@@ -5,22 +5,6 @@ interface ContentPanelProps {
   isCollapsed: boolean;
 }
 
-const titleStyle: Partial<VCSSStyleDeclaration> = {
-  horizontalAlign: 'center', // 标题居中
-  fontSize: '30px',
-  margin: '10px',
-  color: 'gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), color-stop(0.6, #FFE982), to(#CA8E25))',
-
-  textOverflow: 'shrink',
-  textAlign: 'center',
-  fontWeight: 'bold', // 粗体
-};
-
-const contentStyle: Partial<VCSSStyleDeclaration> = {
-  flowChildren: 'down',
-  margin: '10px',
-};
-
 const ContentContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
   const containerStyle: Partial<VCSSStyleDeclaration> = {
     // 位置
@@ -39,12 +23,9 @@ const ContentContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
 
   return (
     <Panel style={containerStyle} className="content-container">
-      <Label style={titleStyle} text={$.Localize('#lottery_title')} />
-      <Panel style={contentStyle}>
-        {/* <!-- 中间技能和物品区域 --> */}
-        <LotteryRow type="ability" />
-        <LotteryRow type="item" />
-      </Panel>
+      {/* <!-- 中间技能和物品区域 --> */}
+      <LotteryRow type="ability" />
+      <LotteryRow type="item" />
     </Panel>
   );
 };

@@ -10,12 +10,22 @@ interface LotteryRowProps {
   type: ItemOrAbility;
 }
 
-const containerStyle: Partial<VCSSStyleDeclaration> = {
+const rowStyle: Partial<VCSSStyleDeclaration> = {
   // 位置
-  flowChildren: 'right',
   padding: '10px',
   horizontalAlign: 'center',
   verticalAlign: 'center',
+  flowChildren: 'down',
+};
+
+const titleStyle: Partial<VCSSStyleDeclaration> = {
+  horizontalAlign: 'center', // 标题居中
+  fontSize: '24px',
+  color: 'gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), color-stop(0.6, #FFE982), to(#CA8E25))',
+
+  textOverflow: 'shrink',
+  textAlign: 'center',
+  fontWeight: 'bold', // 粗体
 };
 
 const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
@@ -47,11 +57,15 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
     };
   }, [nettableName, steamAccountId]);
 
+  // 标题
+  const titleToken = type === 'item' ? '#lottery_item_title' : '#lottery_ability_title';
+
   return (
-    <Panel style={containerStyle}>
-      {lotteryData && (
-        <>
-          <Panel style={{ flowChildren: 'right' }}>
+    <Panel style={rowStyle}>
+      <Label style={titleStyle} text={$.Localize(titleToken)} />
+      <Panel style={{ flowChildren: 'right' }}>
+        {lotteryData && (
+          <>
             {lotteryData.map((lotteryDto) => (
               <LotteryAbilityItem
                 key={lotteryDto.name}
@@ -60,10 +74,10 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
                 type={type}
               />
             ))}
-          </Panel>
-        </>
-      )}
-      <RefreshButton type={type} />
+          </>
+        )}
+        <RefreshButton type={type} />
+      </Panel>
     </Panel>
   );
 };

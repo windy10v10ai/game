@@ -22,9 +22,17 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type }) => {
     verticalAlign: 'center',
   };
 
+  const imageStyle: Partial<VCSSStyleDeclaration> = {
+    width: '100px',
+    height: '100px',
+  };
+
   return (
-    <Button className="CommonButton" onactivate={handleRefreshClick} style={buttonStyle}>
-      <Label text={labelText} />
+    <Button onactivate={handleRefreshClick} style={buttonStyle}>
+      <Image
+        src="file://{images}/compendium/international2023/icon_rerolltoken.png"
+        style={imageStyle}
+      />
     </Button>
   );
 };
