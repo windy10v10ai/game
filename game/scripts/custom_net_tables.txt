@@ -17,5 +17,6 @@
     "point_info",
     "lottery_items",
     "lottery_abilities",
+    "lottery_status",
   ]
 }
