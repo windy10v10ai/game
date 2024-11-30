@@ -21,10 +21,10 @@ const contentStyle: Partial<VCSSStyleDeclaration> = {
   margin: '10px',
 };
 
-const ContentPanel: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
+const ContentContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
   const containerStyle: Partial<VCSSStyleDeclaration> = {
     // 位置
-    marginTop: '25%',
+    marginTop: '20%',
     padding: '30px',
     horizontalAlign: 'center',
     verticalAlign: 'center',
@@ -49,4 +49,4 @@ const ContentPanel: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
   );
 };
 
-export default ContentPanel;
+export default ContentContainer;
