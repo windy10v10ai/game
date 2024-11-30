@@ -3,6 +3,10 @@
 import { LotteryStatusDto } from '../../../common/dto/lottery-status';
 import { MemberDto } from '../../api/player';
 
+function Boolean(value: number): boolean {
+  return value === 1;
+}
+
 export class NetTableHelper {
   public static GetLotteryStatus(steamAccountID: string): LotteryStatusDto {
     const lotteryStatusData = CustomNetTables.GetTableValue('lottery_status', steamAccountID);
@@ -13,8 +17,8 @@ export class NetTableHelper {
     return {
       pickItemName: lotteryStatusData.pickItemName,
       pickAbilityName: lotteryStatusData.pickAbilityName,
-      isItemRefreshed: this.Boolean(lotteryStatusData.isItemRefreshed),
-      isAbilityRefreshed: this.Boolean(lotteryStatusData.isAbilityRefreshed),
+      isItemRefreshed: Boolean(lotteryStatusData.isItemRefreshed),
+      isAbilityRefreshed: Boolean(lotteryStatusData.isAbilityRefreshed),
     };
   }
 
@@ -26,12 +30,8 @@ export class NetTableHelper {
 
     return {
       steamId: memberData.steamId,
-      enable: this.Boolean(memberData.enable),
+      enable: Boolean(memberData.enable),
       expireDateString: memberData.expireDateString,
     };
-  }
-
-  private static Boolean(value: number): boolean {
-    return value === 1;
   }
 }
