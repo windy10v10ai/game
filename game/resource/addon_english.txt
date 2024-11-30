@@ -161,7 +161,7 @@
 		//			Lottery Item/Ability
 		//
 		///////////////////////////////////////////////////
-		"lottery_header"										"Select a bonus item!"
+		"lottery_title"											"Select a bonus item"
 
 		"lottery_item_refresh"									"Click to reroll bonus items."
 		"lottery_item_refresh_used"								"Only one reroll per game."

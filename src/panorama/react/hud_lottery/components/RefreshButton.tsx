@@ -1,5 +1,5 @@
 import React from 'react';
-import { ItemOrAbility } from './LotteryGroup';
+import { ItemOrAbility } from './LotteryRow';
 
 interface RefreshButtonProps {
   type: ItemOrAbility;

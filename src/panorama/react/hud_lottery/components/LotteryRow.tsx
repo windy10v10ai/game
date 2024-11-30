@@ -6,14 +6,13 @@ import RefreshButton from './RefreshButton';
 
 export type ItemOrAbility = 'item' | 'ability';
 
-interface ItemOrAbilityRowProps {
+interface LotteryRowProps {
   type: ItemOrAbility;
 }
 
-const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ type }) => {
+const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
   // 初始化 从nettable中获取数据
   const nettableName = type === 'item' ? 'lottery_items' : 'lottery_abilities';
-  const labelText = type === 'item' ? '物品' : '技能';
   const steamAccountId = GetLocalPlayerSteamAccountID();
   const getLotteryData = () => {
     const rawData = CustomNetTables.GetTableValue(nettableName, steamAccountId);
@@ -42,7 +41,6 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ type }) => {
 
   return (
     <Panel style={{ flowChildren: 'right' }}>
-      <Label className="ProjectName" text={labelText} />
       {lotteryData && (
         <>
           <Panel style={{ flowChildren: 'right' }}>
@@ -62,4 +60,4 @@ const ItemOrAbilityList: React.FC<ItemOrAbilityRowProps> = ({ type }) => {
   );
 };
 
-export default ItemOrAbilityList;
+export default LotteryRow;
