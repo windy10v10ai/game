@@ -45,9 +45,14 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({ level, name, ty
   return (
     <Panel style={itemStyle} onactivate={handleClick}>
       {type === 'item' ? (
-        <DOTAItemImage itemname={name} style={imageStyle} />
+        <DOTAItemImage itemname={name} style={imageStyle} className="bright-hover" />
       ) : (
-        <DOTAAbilityImage abilityname={name} style={imageStyle} showtooltip={true} />
+        <DOTAAbilityImage
+          abilityname={name}
+          style={imageStyle}
+          showtooltip={true}
+          className="bright-hover"
+        />
       )}
     </Panel>
   );
