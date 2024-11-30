@@ -47,7 +47,7 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({ level, name, ty
       {type === 'item' ? (
         <DOTAItemImage itemname={name} style={imageStyle} />
       ) : (
-        <DOTAAbilityImage abilityname={name} style={imageStyle} />
+        <DOTAAbilityImage abilityname={name} style={imageStyle} showtooltip={true} />
       )}
     </Panel>
   );
