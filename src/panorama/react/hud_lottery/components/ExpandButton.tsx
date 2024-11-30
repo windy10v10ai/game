@@ -20,7 +20,7 @@ const ExpandButton: React.FC<ExpandButtonProps> = ({ isCollapsed, toggleCollapse
   };
 
   return (
-    <Button style={buttonStyle} onactivate={toggleCollapse} className="button-play">
+    <Button style={buttonStyle} onactivate={toggleCollapse} className="PlayButton">
       <Label style={labelStyle} text={isCollapsed ? '显示' : '隐藏'} />
     </Button>
   );

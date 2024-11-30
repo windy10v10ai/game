@@ -11,8 +11,7 @@ interface LotteryAbilityItemProps {
 const itemStyle = {
   width: '80px',
   flowChildren: 'down',
-  marginRight: '20px',
-  marginTop: '20px',
+  margin: '20px',
 };
 
 const getBoxColor = (level: number) => {
@@ -45,13 +44,13 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({ level, name, ty
   return (
     <Panel style={itemStyle} onactivate={handleClick}>
       {type === 'item' ? (
-        <DOTAItemImage itemname={name} style={imageStyle} className="bright-hover" />
+        <DOTAItemImage itemname={name} style={imageStyle} className="BrightHover" />
       ) : (
         <DOTAAbilityImage
           abilityname={name}
           style={imageStyle}
           showtooltip={true}
-          className="bright-hover"
+          className="BrightHover"
         />
       )}
     </Panel>

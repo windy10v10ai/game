@@ -17,8 +17,13 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type }) => {
     });
   };
 
+  const buttonStyle: Partial<VCSSStyleDeclaration> = {
+    horizontalAlign: 'center',
+    verticalAlign: 'center',
+  };
+
   return (
-    <Button className="CommonButton" onactivate={handleRefreshClick}>
+    <Button className="CommonButton" onactivate={handleRefreshClick} style={buttonStyle}>
       <Label text={labelText} />
     </Button>
   );

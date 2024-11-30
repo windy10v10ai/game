@@ -10,6 +10,14 @@ interface LotteryRowProps {
   type: ItemOrAbility;
 }
 
+const containerStyle: Partial<VCSSStyleDeclaration> = {
+  // 位置
+  flowChildren: 'right',
+  padding: '20px',
+  horizontalAlign: 'center',
+  verticalAlign: 'center',
+};
+
 const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
   // 初始化 从nettable中获取数据
   const nettableName = type === 'item' ? 'lottery_items' : 'lottery_abilities';
@@ -40,7 +48,7 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
   }, [nettableName, steamAccountId]);
 
   return (
-    <Panel style={{ flowChildren: 'right' }}>
+    <Panel style={containerStyle}>
       {lotteryData && (
         <>
           <Panel style={{ flowChildren: 'right' }}>
