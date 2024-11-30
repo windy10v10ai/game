@@ -5,10 +5,18 @@ interface RefreshButtonProps {
   type: ItemOrAbility;
 }
 
-const RefreshButton: React.FC<RefreshButtonProps> = ({ type }) => {
-  const labelTextToken = type === 'item' ? '#lottery_item_refresh' : '#lottery_ability_refresh';
-  const labelText = $.Localize(labelTextToken);
+const buttonStyle: Partial<VCSSStyleDeclaration> = {
+  horizontalAlign: 'center',
+  verticalAlign: 'center',
+};
 
+const imageStyle: Partial<VCSSStyleDeclaration> = {
+  width: '90px',
+  height: '90px',
+};
+
+const RefreshButton: React.FC<RefreshButtonProps> = ({ type }) => {
+  // 刷新事件
   const refreshEventName = type === 'item' ? 'lottery_refresh_item' : 'lottery_refresh_ability';
 
   const handleRefreshClick = () => {
@@ -17,22 +25,16 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type }) => {
     });
   };
 
-  const buttonStyle: Partial<VCSSStyleDeclaration> = {
-    horizontalAlign: 'center',
-    verticalAlign: 'center',
-  };
-
-  const imageStyle: Partial<VCSSStyleDeclaration> = {
-    width: '100px',
-    height: '100px',
-  };
-
+  // TODO 根据会员 抽选状态判断是否禁用
+  const isMember = false;
+  const isRefreshed = false;
+  const enabled = isMember && !isRefreshed;
+  const imageSrc = enabled
+    ? 'file://{images}/custom_game/lottery/icon_rerolltoken.png'
+    : 'file://{images}/custom_game/lottery/icon_rerolltoken_disabled.png';
   return (
     <Button onactivate={handleRefreshClick} style={buttonStyle}>
-      <Image
-        src="file://{images}/compendium/international2023/icon_rerolltoken.png"
-        style={imageStyle}
-      />
+      <Image src={imageSrc} style={imageStyle} />
     </Button>
   );
 };

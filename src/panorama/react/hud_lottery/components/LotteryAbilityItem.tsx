@@ -34,6 +34,7 @@ const getBoxColor = (level: number) => {
 const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({ level, name, type }) => {
   const imageStyle = {
     boxShadow: `0 0 5px ${getBoxColor(level)}`,
+    borderRadius: '5px',
   };
 
   const handleClick = () => {
