@@ -3,7 +3,8 @@ import 'panorama-polyfill-x/lib/timers';
 
 import { render } from 'react-panorama-x';
 import * as React from 'react';
-import DrawAbilities from './components/DrawAbilities';
+import ExpandButton from './components/ExpandButton';
+import ContentPanel from './components/ContentPanel';
 
 function DrawAbility() {
   const [isCollapsed, setIsCollapsed] = React.useState(true);
@@ -13,36 +14,15 @@ function DrawAbility() {
   };
 
   const collapseContainerStyle: Partial<VCSSStyleDeclaration> = {
-    padding: '10px',
-    borderRadius: '15px', // 圆角
-    marginTop: '65px',
-    marginLeft: '350px',
-    backgroundColor: '#1b1e28f2', // 深蓝色背景
-    boxShadow: 'inset 0 0 1px #62758B', // 内阴影
-    border: '2px solid #ffd700', // 金色边框
-  };
-
-  const CollapseButtonStyle: Partial<VCSSStyleDeclaration> = {
-    color: 'white',
-  };
-
-  const ContentStyle: Partial<VCSSStyleDeclaration> = {
-    flowChildren: 'right' /* 确保内容按顺序排列 */,
-    marginTop: '50px',
+    // 水平居中
+    horizontalAlign: 'center',
   };
 
   return (
-    <Panel style={collapseContainerStyle} className={isCollapsed ? 'collapsed' : 'expanded'}>
-      <Button style={CollapseButtonStyle} onactivate={toggleCollapse}>
-        <Label text={isCollapsed ? '展开' : '折叠'} />
-      </Button>
+    <Panel style={collapseContainerStyle}>
+      <ExpandButton isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
 
-      {!isCollapsed && (
-        <Panel style={ContentStyle}>
-          {/* 展开后显示的内容 */}
-          <DrawAbilities />
-        </Panel>
-      )}
+      <ContentPanel isCollapsed={isCollapsed} />
     </Panel>
   );
 }
