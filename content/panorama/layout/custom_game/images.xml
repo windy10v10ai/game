@@ -1,5 +1,7 @@
 <root>
-	<Panel class="AddonLoadingRoot">
+	<!-- This file is only used to auto compile images. It should not show in hud. -->
+	<!-- 这个文件只用于自动编译图片，不应该在HUD中显示。 -->
+	<Panel class="AddonLoadingRoot" style="visibility: collapse;">
 		<Image id="lotteryContentBg" class="SeqImg" src="file://{images}/custom_game/lottery/content_bg.png" />
 	</Panel>
 </root>
