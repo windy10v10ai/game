@@ -8,10 +8,10 @@ interface ContentPanelProps {
 const ContentContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
   const containerStyle: Partial<VCSSStyleDeclaration> = {
     // 位置
-    marginTop: '20%',
+    marginTop: '120px',
     padding: '30px',
     horizontalAlign: 'center',
-    verticalAlign: 'center',
+    verticalAlign: 'top',
     visibility: isCollapsed ? 'collapse' : 'visible',
     flowChildren: 'down',
 

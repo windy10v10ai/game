@@ -7,9 +7,10 @@
   opacity: 0;
   visibility: collapse;
   vertical-align: top;
-  horizontal-align: center;
+  horizontal-align: right;
   flow-children: down;
-  margin-top: 80px;
+  margin-top: 120px;
+  margin-right: 150px;
   width: 20%;
   border-radius: 10px;
   background-color: gradient(
