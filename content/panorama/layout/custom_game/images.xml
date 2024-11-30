@@ -1,0 +1,5 @@
+<root>
+	<Panel class="AddonLoadingRoot">
+		<Image id="lotteryContentBg" class="SeqImg" src="file://{images}/custom_game/lottery/content_bg.png" />
+	</Panel>
+</root>
