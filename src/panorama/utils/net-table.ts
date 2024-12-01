@@ -1,31 +1,56 @@
 import { LotteryStatusDto } from '../../common/dto/lottery-status';
 import { MemberDto } from '../../vscripts/api/player';
 
-export function GetLotteryStatus(steamAccountID: string): LotteryStatusDto | undefined {
-  const lotteryStatusData = CustomNetTables.GetTableValue('lottery_status', steamAccountID);
-  if (!lotteryStatusData) {
-    return undefined;
-  }
-
+const lotteryStatusTable = 'lottery_status';
+function TransLotteryStatusData(data: NetworkedData<LotteryStatusDto>): LotteryStatusDto {
   return {
-    pickItemName: lotteryStatusData.pickItemName,
-    pickAbilityName: lotteryStatusData.pickAbilityName,
-    isItemRefreshed: Boolean(lotteryStatusData.isItemRefreshed),
-    isAbilityRefreshed: Boolean(lotteryStatusData.isAbilityRefreshed),
+    pickItemName: data.pickItemName,
+    pickAbilityName: data.pickAbilityName,
+    isItemRefreshed: Boolean(data.isItemRefreshed),
+    isAbilityRefreshed: Boolean(data.isAbilityRefreshed),
   };
 }
-
-export function GetMember(steamAccountID: string): MemberDto | undefined {
-  const memberData = CustomNetTables.GetTableValue('member_table', steamAccountID);
-  if (!memberData) {
-    return undefined;
+export function GetLotteryStatus(steamAccountID: string): LotteryStatusDto | null {
+  const lotteryStatusData = CustomNetTables.GetTableValue(lotteryStatusTable, steamAccountID);
+  if (!lotteryStatusData) {
+    return null;
   }
 
+  return TransLotteryStatusData(lotteryStatusData);
+}
+export function SubscribeLotteryStatus(
+  steamAccountID: string,
+  callback: (data: LotteryStatusDto) => void,
+) {
+  return CustomNetTables.SubscribeNetTableListener(lotteryStatusTable, (_tableName, key, value) => {
+    if (key === steamAccountID && value) {
+      callback(TransLotteryStatusData(value));
+    }
+  });
+}
+
+const memberTable = 'member_table';
+function TransMemberData(data: NetworkedData<MemberDto>): MemberDto {
   return {
-    steamId: memberData.steamId,
-    enable: Boolean(memberData.enable),
-    expireDateString: memberData.expireDateString,
+    steamId: data.steamId,
+    enable: Boolean(data.enable),
+    expireDateString: data.expireDateString,
   };
+}
+export function GetMember(steamAccountID: string): MemberDto | null {
+  const memberData = CustomNetTables.GetTableValue(memberTable, steamAccountID);
+  if (!memberData) {
+    return null;
+  }
+
+  return TransMemberData(memberData);
+}
+export function SubscribeMember(steamAccountID: string, callback: (data: MemberDto) => void) {
+  return CustomNetTables.SubscribeNetTableListener(memberTable, (_tableName, key, value) => {
+    if (key === steamAccountID && value) {
+      callback(TransMemberData(value));
+    }
+  });
 }
 
 function Boolean(value: number): boolean {

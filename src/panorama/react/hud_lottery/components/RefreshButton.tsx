@@ -1,10 +1,12 @@
 import React from 'react';
 import { ItemOrAbility } from './LotteryRow';
-import { GetLotteryStatus, GetMember } from '@utils/net-table';
-import { GetLocalPlayerSteamAccountID } from '@utils/utils';
+import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
+import { MemberDto } from '../../../../vscripts/api/player';
 
 interface RefreshButtonProps {
   type: ItemOrAbility;
+  lotteryStatus: LotteryStatusDto | null;
+  member: MemberDto | null;
 }
 
 const buttonStyle: Partial<VCSSStyleDeclaration> = {
@@ -17,7 +19,7 @@ const imageStyle: Partial<VCSSStyleDeclaration> = {
   height: '90px',
 };
 
-const RefreshButton: React.FC<RefreshButtonProps> = ({ type }) => {
+const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, member }) => {
   // 刷新事件
   const refreshEventName = type === 'item' ? 'lottery_refresh_item' : 'lottery_refresh_ability';
 
@@ -29,9 +31,6 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type }) => {
 
   // 根据会员 抽选状态判断是否禁用
   // FIXME 监听事件变化
-  const steamAccountId = GetLocalPlayerSteamAccountID();
-  const member = GetMember(steamAccountId);
-  const lotteryStatus = GetLotteryStatus(steamAccountId);
   const isMember = member?.enable;
   const isRefreshed =
     type === 'item' ? lotteryStatus?.isItemRefreshed : lotteryStatus?.isAbilityRefreshed;

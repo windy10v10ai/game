@@ -3,6 +3,14 @@ import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import LotteryAbilityItem from './LotteryAbilityItem';
 import { LotteryDto } from '../../../../common/dto/lottery';
 import RefreshButton from './RefreshButton';
+import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
+import {
+  GetLotteryStatus,
+  GetMember,
+  SubscribeLotteryStatus,
+  SubscribeMember,
+} from '@utils/net-table';
+import { MemberDto } from '../../../../vscripts/api/player';
 
 export type ItemOrAbility = 'item' | 'ability';
 
@@ -30,21 +38,26 @@ const titleStyle: Partial<VCSSStyleDeclaration> = {
 
 const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
   // 初始化 从nettable中获取数据
-  const nettableName = type === 'item' ? 'lottery_items' : 'lottery_abilities';
+  const lotteryDataTableName = type === 'item' ? 'lottery_items' : 'lottery_abilities';
   const steamAccountId = GetLocalPlayerSteamAccountID();
   const getLotteryData = () => {
-    const rawData = CustomNetTables.GetTableValue(nettableName, steamAccountId);
+    const rawData = CustomNetTables.GetTableValue(lotteryDataTableName, steamAccountId);
     if (rawData) {
       return Object.values(rawData);
     }
     return null;
   };
+
   const [lotteryData, setLotteryData] = useState<LotteryDto[] | null>(getLotteryData());
+  const [lotteryStatus, setLotteryStatus] = useState<LotteryStatusDto | null>(
+    GetLotteryStatus(steamAccountId),
+  );
+  const [member, setMember] = useState<MemberDto | null>(GetMember(steamAccountId));
 
   // 监听nettable数据变化
   useEffect(() => {
-    const listenerId = CustomNetTables.SubscribeNetTableListener(
-      nettableName,
+    const dataListenerId = CustomNetTables.SubscribeNetTableListener(
+      lotteryDataTableName,
       (_tableName, key, value) => {
         if (key === steamAccountId && value) {
           setLotteryData(Object.values(value));
@@ -52,10 +65,19 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
       },
     );
 
+    const statusListenerId = SubscribeLotteryStatus(steamAccountId, (data) => {
+      setLotteryStatus(data);
+    });
+    const memberListenerId = SubscribeMember(steamAccountId, (data) => {
+      setMember(data);
+    });
+
     return () => {
-      CustomNetTables.UnsubscribeNetTableListener(listenerId);
+      CustomNetTables.UnsubscribeNetTableListener(dataListenerId);
+      CustomNetTables.UnsubscribeNetTableListener(statusListenerId);
+      CustomNetTables.UnsubscribeNetTableListener(memberListenerId);
     };
-  }, [nettableName, steamAccountId]);
+  }, [lotteryDataTableName, steamAccountId]);
 
   // 标题
   const titleToken = type === 'item' ? '#lottery_item_title' : '#lottery_ability_title';
@@ -76,7 +98,7 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
             ))}
           </>
         )}
-        <RefreshButton type={type} />
+        <RefreshButton type={type} lotteryStatus={lotteryStatus} member={member} />
       </Panel>
     </Panel>
   );
