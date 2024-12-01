@@ -2009,7 +2009,6 @@
 	}
 	"npc_dota_hero_riki"
 	{
-		"Ability9"		"riki_permanent_invisibility"
 		"Bot"
 		{
 			"Build"
@@ -2413,8 +2412,6 @@
 	"npc_dota_hero_treant"
 	{
 		"Ability4"		"brewmaster_storm_dispel_magic"	// 替代 树眼
-		"Ability8"		"brewmaster_fire_phase"
-		"Ability9"		"brewmaster_fire_permanent_immolation"
 	}
 	"npc_dota_hero_undying"
 	{

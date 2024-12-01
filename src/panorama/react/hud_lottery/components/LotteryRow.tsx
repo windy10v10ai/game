@@ -89,9 +89,9 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
       <Panel style={{ flowChildren: 'right' }}>
         {lotteryData && (
           <>
-            {lotteryData.map((lotteryDto) => (
+            {lotteryData.map((lotteryDto, index) => (
               <LotteryAbilityItem
-                key={lotteryDto.name}
+                key={`${type}-${index}`}
                 level={lotteryDto.level}
                 name={lotteryDto.name}
                 type={type}

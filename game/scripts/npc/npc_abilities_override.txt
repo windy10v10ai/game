@@ -604,16 +604,6 @@
 			}
 		}
 	}
-	// 火猫相位和抗性
-	"brewmaster_fire_phase"
-	{
-		"MaxLevel"						"1"
-		"AbilityValues"
-		{
-			"status_resistance"				"50" // 30
-		}
-	}
-	// FIXME 没英雄使用
 	// 紫猫小颠勺
 	"brewmaster_void_astral_pull"
 	{
@@ -1571,7 +1561,7 @@
 
 		}
 	}
-	// 狂血
+	// 狂战士之血 狂血
 	"huskar_berserkers_blood"
 	{
 		"MaxLevel" "5"
@@ -1930,6 +1920,7 @@
 			"bonus_damage"
 			{
 				"value"			"10 20 30 40 50"
+				"special_bonus_unique_lycan_4"	"+15"
 			}
 			"bonus_hp_regen"
 			{
@@ -7634,7 +7625,7 @@
 			}
 		}
 	}
-	// 毒刺（先天可升级）
+	// 毒刺
 	"venomancer_poison_sting"
 	{
 		"MaxLevel"					"5"
