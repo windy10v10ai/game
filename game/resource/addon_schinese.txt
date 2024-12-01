@@ -1228,8 +1228,8 @@
 		"DOTA_Tooltip_Ability_item_force_staff_3_spell_amp"			"%+$spell_amp"
 
 		// item_insight_armor 洞察盔甲
-		"DOTA_Tooltip_ability_item_insight_armor"                               "洞察盔甲"
-		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>主动: <font color='#f15b47'>高阶洞察盔甲光环</font></h1>强化洞察光环的力量持续 %duration% 秒。<br><br>生命恢复: %aura_regen_buff%<br>伤害减免: %aura_damage_reduction_buff%%%<br>魔法抗性: %aura_magical_resis_buff%%%<br><br>作用范围: %radius%\n<h1>被动: 洞察盔甲光环</h1>附近友军单位获得 %aura_regen_base% 生命恢复和 %aura_damage_reduction_base%%% 伤害减免。<br><br>作用范围: %radius%"
+		"DOTA_Tooltip_ability_item_insight_armor"								"洞察盔甲"
+		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>主动: <font color='#f15b47'>高阶洞察盔甲光环</font></h1>强化洞察光环的力量持续 %duration% 秒。<br><br>生命恢复: %aura_regen_buff%<br>魔法抗性: %aura_magical_resis_buff%%%<br>伤害减免: %aura_damage_reduction_buff%%%<br><br>作用范围: %radius%\n<h1>被动: 洞察盔甲光环</h1>附近友军单位获得 <br><br>生命恢复: %aura_regen_base%<br>魔法抗性: %aura_magical_resis_base%%%<br>伤害减免: %aura_damage_reduction_base%%%<br><br>作用范围: %radius%"
 		"DOTA_Tooltip_ability_item_insight_armor_Lore"							"精心制作的盔甲，可为穿戴者带来神秘的智慧。"
 		"DOTA_Tooltip_ability_item_insight_armor_magical_resis"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_health"					"+$health"
@@ -1237,10 +1237,10 @@
 		"DOTA_Tooltip_Ability_item_recipe_insight_armor"						"洞察盔甲卷轴"
 
 		"DOTA_Tooltip_modifier_insight_armor_aura"								"洞察盔甲光环"
-		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
+		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性，%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
 
 		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"<font color='#f15b47'>高阶洞察盔甲光环</font>"
-		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, 和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
+		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性，%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
 
 		// item_arcane_octarine_core 奥术之心
 		"DOTA_Tooltip_Ability_item_arcane_octarine_core"			"奥术之心"
