@@ -1,0 +1,10 @@
+<root>
+    <scripts>
+        <include src="file://{resources}/layout/custom_game/react/hud_lottery/script.js"></include>
+    </scripts>
+    <styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c"></include>
+        <include src="file://{resources}/layout/custom_game/react/hud_lottery/styles.css"></include>
+    </styles>
+    <Panel class="root" hittest="false"></Panel>
+</root>
