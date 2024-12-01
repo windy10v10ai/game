@@ -1,9 +1,9 @@
-import { Player } from "../../api/player";
-import { PlayerHelper } from "../../helper/player-helper";
+import { Player } from '../../api/player';
+import { PlayerHelper } from '../helper/player-helper';
 
 export class EventEntityKilled {
   constructor() {
-    ListenToGameEvent("entity_killed", (keys) => this.OnEntityKilled(keys), this);
+    ListenToGameEvent('entity_killed', (keys) => this.OnEntityKilled(keys), this);
   }
 
   OnEntityKilled(keys: GameEventProvidedProperties & EntityKilledEvent): void {
@@ -53,7 +53,7 @@ export class EventEntityKilled {
     }
 
     // NEC大招 每一级增加6秒
-    const necrolyteReapersScythe = hero.FindModifierByName("modifier_necrolyte_reapers_scythe");
+    const necrolyteReapersScythe = hero.FindModifierByName('modifier_necrolyte_reapers_scythe');
     if (necrolyteReapersScythe) {
       respawnTime += (necrolyteReapersScythe.GetAbility()?.GetLevel() ?? 0) * 6;
     }
@@ -76,20 +76,20 @@ export class EventEntityKilled {
   private readonly removeGoldBagDelay = 20;
 
   // 神器碎片
-  private itemLightPartName = "item_light_part";
-  private itemDarkPartName = "item_dark_part";
+  private itemLightPartName = 'item_light_part';
+  private itemDarkPartName = 'item_dark_part';
 
   private dropItemChanceRoshanArtifactPart = 100;
 
   // 龙珠
   private dropItemListDragonBall: string[] = [
-    "item_dragon_ball_1",
-    "item_dragon_ball_2",
-    "item_dragon_ball_3",
-    "item_dragon_ball_4",
-    "item_dragon_ball_5",
-    "item_dragon_ball_6",
-    "item_dragon_ball_7",
+    'item_dragon_ball_1',
+    'item_dragon_ball_2',
+    'item_dragon_ball_3',
+    'item_dragon_ball_4',
+    'item_dragon_ball_5',
+    'item_dragon_ball_6',
+    'item_dragon_ball_7',
   ];
 
   private dropItemChanceRoshan = 100;
@@ -99,7 +99,7 @@ export class EventEntityKilled {
   private onCreepKilled(creep: CDOTA_BaseNPC, attacker: CDOTA_BaseNPC | undefined): void {
     const creepName = creep.GetName();
 
-    if (creepName === "npc_dota_roshan") {
+    if (creepName === 'npc_dota_roshan') {
       // 击杀肉山
       if (PlayerHelper.IsHumanPlayer(attacker)) {
         this.dropItemListDragonBall = this.dropItem(
@@ -128,10 +128,10 @@ export class EventEntityKilled {
 
       // 延迟移除无人捡取的金币袋
       Timers.CreateTimer(this.removeGoldBagDelay, () => {
-        const goldBags = Entities.FindAllByClassname("dota_item_drop") as CDOTA_Item_Physical[];
+        const goldBags = Entities.FindAllByClassname('dota_item_drop') as CDOTA_Item_Physical[];
         for (const goldBag of goldBags) {
           const itemName = goldBag.GetContainedItem().GetName();
-          if (itemName === "item_bag_of_gold") {
+          if (itemName === 'item_bag_of_gold') {
             goldBag.RemoveSelf();
           }
         }

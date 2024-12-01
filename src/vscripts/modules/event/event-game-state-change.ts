@@ -1,10 +1,10 @@
-import { Player } from "../../api/player";
-import { ModifierHelper } from "../../helper/modifier-helper";
-import { HeroPick } from "../hero/hero-pick";
+import { Player } from '../../api/player';
+import { ModifierHelper } from '../helper/modifier-helper';
+import { HeroPick } from '../hero/hero-pick';
 
 export class EventGameStateChange {
   constructor() {
-    ListenToGameEvent("game_rules_state_change", () => this.OnGameStateChanged(), this);
+    ListenToGameEvent('game_rules_state_change', () => this.OnGameStateChanged(), this);
   }
 
   OnGameStateChanged(): void {
@@ -47,22 +47,22 @@ export class EventGameStateChange {
     print(`[EventGameStateChange] OnPreGame`);
 
     // 防御塔BUFF
-    const towers = Entities.FindAllByClassname("npc_dota_tower") as CDOTA_BaseNPC[];
+    const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
     for (const tower of towers) {
       this.addModifierToTowers(tower);
     }
     // 兵营BUFF
-    const barracks = Entities.FindAllByClassname("npc_dota_barracks") as CDOTA_BaseNPC[];
+    const barracks = Entities.FindAllByClassname('npc_dota_barracks') as CDOTA_BaseNPC[];
     for (const barrack of barracks) {
       this.addModifierToTowers(barrack);
     }
-    const healer = Entities.FindAllByClassname("npc_dota_healer") as CDOTA_BaseNPC[];
+    const healer = Entities.FindAllByClassname('npc_dota_healer') as CDOTA_BaseNPC[];
     for (const heal of healer) {
       this.addModifierToTowers(heal);
     }
 
     // 基地BUFF
-    const bases = Entities.FindAllByClassname("npc_dota_fort") as CDOTA_BaseNPC[];
+    const bases = Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[];
     for (const base of bases) {
       this.addModifierToTowers(base);
     }
@@ -74,7 +74,7 @@ export class EventGameStateChange {
 
     // 1塔最高200%攻击
     const towerName = building.GetName();
-    if (towerName.includes("tower1")) {
+    if (towerName.includes('tower1')) {
       if (towerPower > 200) {
         towerPower = 200;
       }

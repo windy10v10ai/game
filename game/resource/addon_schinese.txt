@@ -158,27 +158,38 @@
 
 		///////////////////////////////////////////////////
 		//
-		//            Choose Item
+		//			Lottery Item/Ability
 		//
 		///////////////////////////////////////////////////
-		"item_choice_header"										"选择一个道具！"
-		"item_choice_shuffle"										"点击刷新道具"
-		"item_choice_shuffle_used"									"道具已刷新"
-		"item_choice_shuffle_not_member"							"会员可刷新一次道具，点击开通会员"
+		"lottery_expand"										"展开"
+		"lottery_collapsed"										"折叠"
+		"lottery_ability_title"									"选择一个技能"
+		"lottery_ability_title"									"选择一个技能"
+		"lottery_item_title"									"选择一个物品"
+
+		"lottery_tooltip_ability_refresh"						"点击刷新技能"
+		"lottery_tooltip_ability_refresh_used"					"技能已刷新"
+		"lottery_tooltip_ability_refresh_picked"				"技能已选择"
+		"lottery_tooltip_ability_refresh_not_member"			"会员每日可刷新一次技能，点击开通会员"
+		"lottery_tooltip_item_refresh"							"点击刷新物品"
+		"lottery_tooltip_item_refresh_used"						"物品已刷新"
+		"lottery_tooltip_item_refresh_picked"					"物品已选择"
+		"lottery_tooltip_item_refresh_not_member"				"会员每日可刷新一次物品，点击开通会员"
 
 		///////////////////////////////////////////////////
 		//
-		//            Member
+		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得100会员积分<br/> 会员有效期：{expireDate}"
-		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
+		"player_member_button"			"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得100会员积分<br/> 会员有效期：{expireDate}"
+		"player_member_button_expire"	"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 		"player_member_ship"			"点击开通会员"
 		"player_member_ship_url"		"https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
+		"player_member_null"			"会员信息获取失败，请重新加载游戏。"
 
 		///////////////////////////////////////////////////
 		//
-		//            Leaderboard
+		//			Leaderboard
 		//
 		///////////////////////////////////////////////////
 		"leaderboard_title"				"勇士排行榜"
@@ -187,14 +198,14 @@
 
 		///////////////////////////////////////////////////
 		//
-		//            pointInfo
+		//			pointInfo
 		//
 		///////////////////////////////////////////////////
 		"point_header_text"				"通知"
 
 		///////////////////////////////////////////////////
 		//
-		//            Creep / Tower
+		//			Creep / Tower
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_modifier_tower_power"					"建筑增强"
@@ -872,7 +883,7 @@
 		"DOTA_Tooltip_ability_artoria_mana_burst_duration"		"减速持续时间："
 
 		"DOTA_Tooltip_Ability_artoria_excalibur"				"<font color='#FFE56E'>誓约胜利之剑</font>"
-		"DOTA_Tooltip_ability_artoria_excalibur_description"	"阿尔托莉雅将魔力转化为'光'，通过压缩、加速增加运动能量，使神灵级魔术的行使成为可能。对剑光路径上的每个敌人造成伤害。\n\n<font color='#FF3399' >道具EX咖喱棒强化：誓约胜利之剑。</font>"
+		"DOTA_Tooltip_ability_artoria_excalibur_description"	"阿尔托莉雅将魔力转化为'光'，通过压缩、加速增加运动能量，使神灵级魔术的行使成为可能。对剑光路径上的每个敌人造成伤害。\n\n<font color='#FF3399' >物品EX咖喱棒强化：誓约胜利之剑。</font>"
 		"DOTA_Tooltip_ability_artoria_excalibur_Lore"	"孤傲之王的念想灼耀星夜。"
 		"DOTA_Tooltip_ability_artoria_excalibur_cast_delay"		"施法延迟："
 		"DOTA_Tooltip_ability_artoria_excalibur_width"		"宽度："
@@ -1217,8 +1228,8 @@
 		"DOTA_Tooltip_Ability_item_force_staff_3_spell_amp"			"%+$spell_amp"
 
 		// item_insight_armor 洞察盔甲
-		"DOTA_Tooltip_ability_item_insight_armor"                               "洞察盔甲"
-		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>主动: <font color='#f15b47'>高阶洞察盔甲光环</font></h1>强化洞察光环的力量持续 %duration% 秒。<br><br>生命恢复: %aura_regen_buff%<br>伤害减免: %aura_damage_reduction_buff%%%<br>魔法抗性: %aura_magical_resis_buff%%%<br><br>作用范围: %radius%\n<h1>被动: 洞察盔甲光环</h1>附近友军单位获得 %aura_regen_base% 生命恢复和 %aura_damage_reduction_base%%% 伤害减免。<br><br>作用范围: %radius%"
+		"DOTA_Tooltip_ability_item_insight_armor"								"洞察盔甲"
+		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>主动: <font color='#f15b47'>高阶洞察盔甲光环</font></h1>强化洞察光环的力量持续 %duration% 秒。<br><br>生命恢复: %aura_regen_buff%<br>魔法抗性: %aura_magical_resis_buff%%%<br>伤害减免: %aura_damage_reduction_buff%%%<br><br>作用范围: %radius%\n<h1>被动: 洞察盔甲光环</h1>附近友军单位获得 <br><br>生命恢复: %aura_regen_base%<br>魔法抗性: %aura_magical_resis_base%%%<br>伤害减免: %aura_damage_reduction_base%%%<br><br>作用范围: %radius%"
 		"DOTA_Tooltip_ability_item_insight_armor_Lore"							"精心制作的盔甲，可为穿戴者带来神秘的智慧。"
 		"DOTA_Tooltip_ability_item_insight_armor_magical_resis"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_health"					"+$health"
@@ -1226,10 +1237,10 @@
 		"DOTA_Tooltip_Ability_item_recipe_insight_armor"						"洞察盔甲卷轴"
 
 		"DOTA_Tooltip_modifier_insight_armor_aura"								"洞察盔甲光环"
-		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
+		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性，%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
 
 		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"<font color='#f15b47'>高阶洞察盔甲光环</font>"
-		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, 和 %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
+		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性，%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
 
 		// item_arcane_octarine_core 奥术之心
 		"DOTA_Tooltip_Ability_item_arcane_octarine_core"			"奥术之心"
@@ -1492,7 +1503,7 @@
 
 		// item_blue_fantasy 苍蓝幻想
 		"DOTA_Tooltip_ability_item_blue_fantasy"									"苍蓝幻想"
-		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1><font color='#FFFF00'>主动：毁灭终曲</font></h1>施加持续%mute_duration%秒的<font color='#f15b47'>被动破坏，装备禁用，闪避失效</font>的负面效果。<br><br>持续驱散目标身上的增益效果，降低%slow_pct%%%移速，%attack_slow%攻速，生命恢复、治疗、吸血和技能吸血效果降低%hp_regen_reduction%%%。<br><br>目标每秒受到自身最大生命值<font color='#ffcc33'>%max_hp_dmg_pct%%%</font>的纯粹伤害。\n<h1>被动：蚕食进行曲</h1>每次攻击燃烧目标 %mana_base% 点魔法并造成等量的物理伤害。(多件道具不叠加)"
+		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1><font color='#FFFF00'>主动：毁灭终曲</font></h1>施加持续%mute_duration%秒的<font color='#f15b47'>被动破坏，装备禁用，闪避失效</font>的负面效果。<br><br>持续驱散目标身上的增益效果，降低%slow_pct%%%移速，%attack_slow%攻速，生命恢复、治疗、吸血和技能吸血效果降低%hp_regen_reduction%%%。<br><br>目标每秒受到自身最大生命值<font color='#ffcc33'>%max_hp_dmg_pct%%%</font>的纯粹伤害。\n<h1>被动：蚕食进行曲</h1>每次攻击燃烧目标 %mana_base% 点魔法并造成等量的物理伤害。(多件物品不叠加)"
 		"DOTA_Tooltip_ability_item_blue_fantasy_int"								"+智力"
 		"DOTA_Tooltip_ability_item_blue_fantasy_agi"								"+敏捷"
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_damage"						"+攻击力"
@@ -1585,7 +1596,7 @@
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"苍洋魔珠"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"						"要不是这颗尊崇的魔珠，教团在石鱼门一役就全军覆没。"
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有无敌效果的疗伤泡泡，移动速度降低至%bubble_move_speed%，无法攻击释放技能和道具持续%bubble_duration%秒。<br/>回复%bubble_total_heal_tip%点生命，%bubble_total_mana_tip%点魔法。\n\n<h1>被动：苍洋福佑</h1>自身提供的治疗效果提升%heal_increase%%%。"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>主动：苍洋泡沫</h1> 使一个友方单位进入具有无敌效果的疗伤泡泡，移动速度降低至%bubble_move_speed%，无法攻击释放技能和物品持续%bubble_duration%秒。<br/>回复%bubble_total_heal_tip%点生命，%bubble_total_mana_tip%点魔法。\n\n<h1>被动：苍洋福佑</h1>自身提供的治疗效果提升%heal_increase%%%。"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_health"			"+$health"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana"				"+$mana"

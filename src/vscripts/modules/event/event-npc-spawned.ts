@@ -1,25 +1,25 @@
-import { Player } from "../../api/player";
-import { ModifierHelper } from "../../helper/modifier-helper";
-import { PlayerHelper } from "../../helper/player-helper";
-import { modifier_intelect_magic_resist } from "../../modifiers/global/intelect_magic_resist";
+import { Player } from '../../api/player';
+import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
+import { ModifierHelper } from '../helper/modifier-helper';
+import { PlayerHelper } from '../helper/player-helper';
 
 export class EventNpcSpawned {
   private roshanLevelBase = 0;
   // abiliti name list of roshan
   private roshanLevelupBaseAbilities = [
-    "tidehunter_kraken_shell",
-    "jack_surgery",
-    "ursa_fury_swipes",
+    'tidehunter_kraken_shell',
+    'jack_surgery',
+    'ursa_fury_swipes',
   ];
 
   private roshanLevelupExtraAbilities = [
-    "roshan_buff",
-    "generic_gold_bag_fountain",
+    'roshan_buff',
+    'generic_gold_bag_fountain',
     // "generic_season_point_bag_fountain",
   ];
 
   constructor() {
-    ListenToGameEvent("npc_spawned", (keys) => this.OnNpcSpawned(keys), this);
+    ListenToGameEvent('npc_spawned', (keys) => this.OnNpcSpawned(keys), this);
   }
 
   // 单位出生
@@ -47,7 +47,7 @@ export class EventNpcSpawned {
     }
     if (npc.IsCourier() && keys.is_respawn === 0) {
       // 信使出生
-      ModifierHelper.applyGlobalModifier(npc, "modifier_global_courier_speed");
+      ModifierHelper.applyGlobalModifier(npc, 'modifier_global_courier_speed');
     }
   }
 
@@ -56,10 +56,10 @@ export class EventNpcSpawned {
     // 近战buff
     if (
       hero.GetAttackCapability() === UnitAttackCapability.MELEE_ATTACK ||
-      hero.GetName() === "npc_dota_hero_troll_warlord" ||
-      hero.GetName() === "npc_dota_hero_lone_druid"
+      hero.GetName() === 'npc_dota_hero_troll_warlord' ||
+      hero.GetName() === 'npc_dota_hero_lone_druid'
     ) {
-      ModifierHelper.applyGlobalModifier(hero, "modifier_global_melee_resistance");
+      ModifierHelper.applyGlobalModifier(hero, 'modifier_global_melee_resistance');
     }
     // 魔抗修正
     hero.AddNewModifier(hero, undefined, modifier_intelect_magic_resist.name, {});
@@ -68,7 +68,7 @@ export class EventNpcSpawned {
       // 设置会员
       const steamAccountId = PlayerResource.GetSteamAccountID(hero.GetPlayerID());
       if (Player.IsMemberStatic(steamAccountId)) {
-        ModifierHelper.applyGlobalModifier(hero, "modifier_global_member");
+        ModifierHelper.applyGlobalModifier(hero, 'modifier_global_member');
       }
       // 设置玩家属性
       Player.SetPlayerProperty(hero);
@@ -81,7 +81,7 @@ export class EventNpcSpawned {
   private OnCreepSpawned(creep: CDOTA_BaseNPC): void {
     const creepName = creep.GetName();
 
-    if (creepName === "npc_dota_roshan") {
+    if (creepName === 'npc_dota_roshan') {
       for (const abilityName of this.roshanLevelupBaseAbilities) {
         const ability = creep.FindAbilityByName(abilityName);
         if (ability) {

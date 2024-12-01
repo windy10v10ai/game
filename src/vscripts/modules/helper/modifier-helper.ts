@@ -1,12 +1,12 @@
 export class ModifierHelper {
   static ITEM_GLOBAL_MODIFIERS: CDOTA_Item_DataDriven = CreateItem(
-    "item_global_modifiers",
+    'item_global_modifiers',
     undefined,
     undefined,
   ) as CDOTA_Item_DataDriven;
 
   static ITEM_TOWER_MODIFIER: CDOTA_Item_DataDriven = CreateItem(
-    "item_tower_modifiers",
+    'item_tower_modifiers',
     undefined,
     undefined,
   ) as CDOTA_Item_DataDriven;

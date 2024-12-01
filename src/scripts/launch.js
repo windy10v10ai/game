@@ -1,29 +1,42 @@
-const { spawn } = require("child_process");
-const path = require("path");
-const { getAddonName, getDotaPath } = require("./utils");
+const { exec, spawn } = require('child_process');
+const path = require('path');
+const { getAddonName, getDotaPath } = require('./utils');
 
 (async () => {
   const dotaPath = await getDotaPath();
-  const win64 = path.join(dotaPath, "game", "bin", "win64");
+  const win64 = path.join(dotaPath, 'game', 'bin', 'win64');
+  const addonName = getAddonName();
 
-  // You can add any arguments there
-  // For example `+dota_launch_custom_game ${getAddonName()} dota` would automatically load "dota" map
-  const args = [
-    "-novid",
-    "-tools",
-    "-addon",
-    getAddonName(),
-    "+dota_launch_custom_game",
-    getAddonName(),
-    "dota",
-  ];
+  exec('tasklist', (err, stdout, stderr) => {
+    if (err) {
+      console.error(`exec error: ${err}`);
+      return;
+    }
 
-  const child = spawn(path.join(win64, "dota2.exe"), args, {
-    detached: true,
-    cwd: win64,
-    stdio: "ignore", // 忽略子进程的输出
+    if (!stdout.toLowerCase().includes('dota2.exe')) {
+      // 启动 Dota 2 并传递控制台命令
+      console.log('Dota 2 is not running. Starting Dota 2...');
+      const args = [
+        '-novid',
+        '-tools',
+        '-addon',
+        addonName,
+        '+dota_launch_custom_game',
+        addonName,
+        'dota',
+      ];
+
+      const child = spawn(path.join(win64, 'dota2.exe'), args, {
+        detached: true,
+        cwd: win64,
+        stdio: 'ignore',
+      });
+
+      child.unref();
+    } else {
+      console.log('Dota 2 is already running.');
+    }
   });
-  child.unref(); // 使父进程不等待子进程退出
 })().catch((error) => {
   console.error(error);
   process.exit(1);

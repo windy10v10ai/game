@@ -1,12 +1,20 @@
 {
-    "compilerOptions": {
-        "rootDir": ".",
-        "outDir": "../content/panorama/scripts/custom_game",
-        "target": "es2017",
-        "lib": ["es2017"],
-        "types": ["@moddota/panorama-types"],
-        "moduleResolution": "node",
-        "strict": true
-    },
-    "include": ["**/*.ts", "../common/**/*.ts"]
+  "compilerOptions": {
+    "target": "es2020",
+    "lib": ["es2020"],
+    "resolveJsonModule": true,
+    "types": ["@moddota/panorama-types"],
+    "moduleResolution": "node",
+    "strict": true,
+    "preserveSymlinks": false,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@utils/*": ["utils/*"]
+    }
+  },
+  "include": [".", "../common/**/*.ts"]
 }
