@@ -1368,7 +1368,7 @@
 		"BaseClass" "item_ex_machina"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"20.0"
-		"AbilityManaCost"				"300"
+		"AbilityManaCost"				"450"
 		"ItemCost"						"0"
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"0"
