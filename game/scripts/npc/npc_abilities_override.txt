@@ -9,13 +9,13 @@
 	// 幻影冲锋（来自猴子）
 	"phantom_lancer_phantom_edge"
 	{
-		"MaxLevel"						"6"
-		"AbilityCooldown"				"16 13 10 7 4 1"
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"16 13 10 7 4"
 		"AbilityValues"
 		{
 				"max_distance"
 				{
-					"value"				"600 700 800 900 1000 1100"
+					"value"				"600 700 800 900 1000"
 				}
 				"bonus_agility"
 				{
@@ -5812,7 +5812,7 @@
 			}
 		}
 	}
-	// 金箍棒法
+	// 如意棒法 金箍棒法
 	"monkey_king_jingu_mastery"
 	{
 		"MaxLevel" "5"
@@ -7904,7 +7904,7 @@
 			}
 		}
 	}
-	// 连击（先天可升级）
+	// 连击
 	"weaver_geminate_attack"
 	{
 		"MaxLevel" "5"
