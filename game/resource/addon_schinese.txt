@@ -161,6 +161,9 @@
 		//			Lottery Item/Ability
 		//
 		///////////////////////////////////////////////////
+		"lottery_expand"										"展开"
+		"lottery_collapsed"										"折叠"
+		"lottery_ability_title"									"选择一个技能"
 		"lottery_ability_title"									"选择一个技能"
 		"lottery_item_title"									"选择一个物品"
 

@@ -161,6 +161,8 @@
 		//			Lottery Item/Ability
 		//
 		///////////////////////////////////////////////////
+		"lottery_expand"										"Expand"
+		"lottery_collapsed"										"Collapse"
 		"lottery_item_title"									"Select a bonus item"
 		"lottery_ability_title"									"Select a bonus ability"
 

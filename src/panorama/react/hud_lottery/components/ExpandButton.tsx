@@ -19,9 +19,11 @@ const ExpandButton: React.FC<ExpandButtonProps> = ({ isCollapsed, toggleCollapse
     fontSize: '20px', // 字体大小
   };
 
+  const textToken = isCollapsed ? '#lottery_expand' : '#lottery_collapsed';
+
   return (
     <Button style={buttonStyle} onactivate={toggleCollapse} className="PlayButton">
-      <Label style={labelStyle} text={isCollapsed ? '显示' : '折叠'} />
+      <Label style={labelStyle} text={$.Localize(textToken)} />
     </Button>
   );
 };
