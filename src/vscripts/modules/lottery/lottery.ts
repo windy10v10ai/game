@@ -70,7 +70,8 @@ export class Lottery {
   }
 
   randomAbilityForPlayer(playerId: PlayerID) {
-    const abilityLotteryResults = LotteryHelper.getRandomAbilities(this.randomCountBase);
+    const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+    const abilityLotteryResults = LotteryHelper.getRandomAbilities(this.randomCountBase, hero);
 
     CustomNetTables.SetTableValue(
       'lottery_abilities',
