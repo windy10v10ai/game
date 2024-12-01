@@ -13,7 +13,10 @@ export class Lottery {
       'game_rules_state_change',
       () => {
         if (GameRules.State_Get() === GameState.PRE_GAME) {
-          this.initLotteryAll();
+          // 延迟1秒，等待英雄加载（为了排除相同英雄的技能）
+          Timers.CreateTimer(1, () => {
+            this.initLotteryAll();
+          });
         }
       },
       undefined,
