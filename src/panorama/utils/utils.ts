@@ -17,3 +17,7 @@ export function ConvertSteamIdTo32Bit(steamId64: string): string {
   const steamId32 = (BigInt(steamId64) - BigInt('76561197960265728')).toString();
   return steamId32;
 }
+
+export function GetOpenMemberUrl(): string {
+  return $.Localize('#player_member_ship_url') + GetLocalPlayerSteamAccountID();
+}
