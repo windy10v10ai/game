@@ -1125,7 +1125,7 @@
 		"AbilityValues"
 		{
 			"bonus_armor"				"60" //7
-			"all_stats"					"20" //7
+			"all_stats"					"14" //7
 			"counter_cooldown"			"1.0" //5
 		}
 	}
@@ -1156,7 +1156,7 @@
 		"AbilityValues"
 		{
 			"bonus_armor"				"60" //7
-			"all_stats"					"20" //7
+			"all_stats"					"14" //7
 			"counter_cooldown"			"1.0" //5
 		}
 	}
@@ -1187,9 +1187,9 @@
 		"AbilityTextureName"			"item_defiant_shell_dark"
 		"AbilityValues"
 		{
-			"bonus_armor"				"20" //7
+			"bonus_armor"				"14" //7
 			"all_stats"					"60" //7
-			"counter_cooldown"			"0.3" //5
+			"counter_cooldown"			"3.0" //5
 		}
 	}
 	"item_recipe_defiant_shell_dark_1"
@@ -1218,9 +1218,9 @@
 		"AbilityTextureName"			"item_defiant_shell_dark"
 		"AbilityValues"
 		{
-			"bonus_armor"				"20" //7
+			"bonus_armor"				"14" //7
 			"all_stats"					"60" //7
-			"counter_cooldown"			"0.3" //5
+			"counter_cooldown"			"3.0" //5
 		}
 	}
 	"item_recipe_defiant_shell_ai"
@@ -1251,7 +1251,7 @@
 		{
 			"bonus_armor"				"60" //7
 			"all_stats"					"60" //7
-			"counter_cooldown"			"0.3" //5
+			"counter_cooldown"			"1" //5
 		}
 	}
 	"item_recipe_defiant_shell_ai_1"
@@ -1283,7 +1283,7 @@
 		{
 			"bonus_armor"				"60" //7
 			"all_stats"					"60" //7
-			"counter_cooldown"			"0.3" //5
+			"counter_cooldown"			"1" //5
 		}
 	}
 
