@@ -14,14 +14,12 @@ function DrawAbility() {
   };
 
   const collapseContainerStyle: Partial<VCSSStyleDeclaration> = {
-    // 水平居中
     horizontalAlign: 'center',
   };
 
   return (
     <Panel style={collapseContainerStyle}>
       <ExpandButton isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
-
       <ContentContainer isCollapsed={isCollapsed} />
     </Panel>
   );

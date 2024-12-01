@@ -161,15 +161,15 @@
 		//			Lottery Item/Ability
 		//
 		///////////////////////////////////////////////////
-		"lottery_item_title"											"Select a bonus item"
-		"lottery_ability_title"											"Select a bonus ability"
+		"lottery_item_title"									"Select a bonus item"
+		"lottery_ability_title"									"Select a bonus ability"
 
-		"lottery_ability_refresh"								"Click to reroll bonus abilities."
-		"lottery_ability_refresh_used"							"Only one reroll per game."
-		"lottery_ability_refresh_not_member"					"Members can reroll abilities once. Click this button to open the membership page in your browser."
-		"lottery_item_refresh"									"Click to reroll bonus items."
-		"lottery_item_refresh_used"								"Only one reroll per game."
-		"lottery_item_refresh_not_member"						"Members can reroll items once. Click this button to open the membership page in your browser."
+		"lottery_tooltip_ability_refresh"						"Click to reroll bonus abilities."
+		"lottery_tooltip_ability_refresh_used"					"Only one reroll per game."
+		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll abilities once. Click this button to open the membership page in your browser."
+		"lottery_tooltip_item_refresh"							"Click to reroll bonus items."
+		"lottery_tooltip_item_refresh_used"						"Only one reroll per game."
+		"lottery_tooltip_item_refresh_not_member"				"Members can reroll items once. Click this button to open the membership page in your browser."
 
 		///////////////////////////////////////////////////
 		//
@@ -180,6 +180,7 @@
 		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired as of {expireDate}. Click this button to renew."
 		"player_member_ship"			"Click to enable your membership."
 		"player_member_ship_url"		"https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
+		"player_member_null"			"Membership information failed to load. Please reload the game."
 
 		///////////////////////////////////////////////////
 		//

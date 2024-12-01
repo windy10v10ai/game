@@ -161,25 +161,26 @@
 		//			Lottery Item/Ability
 		//
 		///////////////////////////////////////////////////
-		"lottery_ability_title"											"选择一个技能"
-		"lottery_item_title"											"选择一个物品"
+		"lottery_ability_title"									"选择一个技能"
+		"lottery_item_title"									"选择一个物品"
 
-		"lottery_ability_refresh"								"点击刷新技能"
-		"lottery_ability_refresh_used"							"技能已刷新"
-		"lottery_ability_refresh_not_member"					"会员每日可刷新一次技能，点击开通会员"
-		"lottery_item_refresh"									"点击刷新物品"
-		"lottery_item_refresh_used"								"物品已刷新"
-		"lottery_item_refresh_not_member"						"会员每日可刷新一次物品，点击开通会员"
+		"lottery_tooltip_ability_refresh"						"点击刷新技能"
+		"lottery_tooltip_ability_refresh_used"					"技能已刷新"
+		"lottery_tooltip_ability_refresh_not_member"			"会员每日可刷新一次技能，点击开通会员"
+		"lottery_tooltip_item_refresh"							"点击刷新物品"
+		"lottery_tooltip_item_refresh_used"						"物品已刷新"
+		"lottery_tooltip_item_refresh_not_member"				"会员每日可刷新一次物品，点击开通会员"
 
 		///////////////////////////////////////////////////
 		//
 		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button"		"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得100会员积分<br/> 会员有效期：{expireDate}"
-		"player_member_button_expire"		"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
+		"player_member_button"			"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 抽选物品可刷新一次<br/> - 每日登陆获得100会员积分<br/> 会员有效期：{expireDate}"
+		"player_member_button_expire"	"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 		"player_member_ship"			"点击开通会员"
 		"player_member_ship_url"		"https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
+		"player_member_null"			"会员信息获取失败，请重新加载游戏。"
 
 		///////////////////////////////////////////////////
 		//

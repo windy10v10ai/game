@@ -23,7 +23,6 @@ const ContentContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
 
   return (
     <Panel style={containerStyle} className="content-container">
-      {/* <!-- 中间技能和物品区域 --> */}
       <LotteryRow type="ability" />
       <LotteryRow type="item" />
     </Panel>
