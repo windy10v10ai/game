@@ -8,7 +8,7 @@ interface ExpandButtonProps {
 const ExpandButton: React.FC<ExpandButtonProps> = ({ isCollapsed, toggleCollapse }) => {
   const buttonStyle: Partial<VCSSStyleDeclaration> = {
     horizontalAlign: 'center',
-    marginTop: '80px',
+    marginTop: '60px',
     padding: '5px', // 内边距
     width: '100px', // 宽度
     borderRadius: '5px', // 圆角
@@ -19,9 +19,11 @@ const ExpandButton: React.FC<ExpandButtonProps> = ({ isCollapsed, toggleCollapse
     fontSize: '20px', // 字体大小
   };
 
+  const textToken = isCollapsed ? '#lottery_expand' : '#lottery_collapsed';
+
   return (
-    <Button style={buttonStyle} onactivate={toggleCollapse} className="button-play">
-      <Label style={labelStyle} text={isCollapsed ? '显示' : '隐藏'} />
+    <Button style={buttonStyle} onactivate={toggleCollapse} className="PlayButton">
+      <Label style={labelStyle} text={$.Localize(textToken)} />
     </Button>
   );
 };
