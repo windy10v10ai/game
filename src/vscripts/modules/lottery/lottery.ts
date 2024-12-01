@@ -19,7 +19,7 @@ export class Lottery {
       undefined,
     );
 
-    // 玩家选择额能
+    // 玩家选择技能
     CustomGameEventManager.RegisterListener('lottery_pick_ability', (userId, event) => {
       this.pickAbility(userId, event);
     });
