@@ -7,21 +7,21 @@ import { Tier } from './tier';
 export const abilityTiers: Tier[] = [
   {
     level: 5,
-    rate: 0.5,
+    rate: 1,
     names: [
       'phantom_assassin_coup_de_grace', // 恩赐解脱
     ],
   },
   {
     level: 4,
-    rate: 2,
+    rate: 5,
     names: [
       'chaos_knight_chaos_strike', // 混沌一击
     ],
   },
   {
     level: 3,
-    rate: 12,
+    rate: 20,
     names: [
       'bloodseeker_thirst', // 焦渴
       'axe_counter_helix', // 反击螺旋
@@ -29,7 +29,7 @@ export const abilityTiers: Tier[] = [
   },
   {
     level: 2,
-    rate: 40,
+    rate: 50,
     names: [
       'bounty_hunter_jinada', // 忍术
       'abaddon_frostmourne', // 魔霭诅咒

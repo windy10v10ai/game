@@ -23,7 +23,7 @@ const ContentContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
 
   return (
     <Panel style={containerStyle} className="content-container">
-      {/* <LotteryRow type="ability" /> */}
+      <LotteryRow type="ability" />
       <LotteryRow type="item" />
     </Panel>
   );
