@@ -902,8 +902,7 @@
 	// 水晶室女 冰女
 	"npc_dota_hero_crystal_maiden"
 	{
-		"Ability5"      "visage_silent_as_the_grave"
-		"Ability8"      "visage_gravekeepers_cloak"
+		"Ability5"		"visage_silent_as_the_grave"
 		"Bot"
 		{
 			"Build"
@@ -1214,10 +1213,6 @@
 	{
 		"Ability5"				"visage_soul_assumption"
 		"Ability8"				"grimstroke_return"
-	}
-	"npc_dota_hero_gyrocopter"
-	{
-		"Ability5"		"phantom_lancer_phantom_edge"
 	}
 	"npc_dota_hero_huskar"
 	{
