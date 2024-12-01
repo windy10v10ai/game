@@ -1,8 +1,8 @@
 import { Player } from '../../api/player';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
+import { BotPower } from '../helper/bot-power';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
-import { BotPower } from './bot-power';
 
 export class EventNpcSpawned {
   private roshanLevelBase = 0;
