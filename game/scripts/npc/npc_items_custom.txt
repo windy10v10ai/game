@@ -5158,7 +5158,7 @@
 		"ItemResult"					"item_bloodthorn_ultra"
 		"ItemRequirements"
 		{
-			"01"						"item_bloodthorn;item_bloodthorn"
+			"01"						"item_bloodthorn;item_orchid"
 		}
 	}
 	"item_bloodthorn_ultra"
