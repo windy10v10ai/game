@@ -26,6 +26,7 @@ export class LotteryHelper {
     tiers: Tier[],
     count: number,
     defaultName: string,
+    executedNames: string[] = [],
   ): LotteryDto[] {
     const lotteryResults: LotteryDto[] = [];
     const maxAttempts = 10; // 最大尝试次数，避免无限循环
@@ -35,11 +36,9 @@ export class LotteryHelper {
       do {
         lotteryDto = this.getRandomLotteryDto(tiers);
         attempts++;
-      } while (
-        lotteryResults.map((lotteryDto) => lotteryDto.name).includes(lotteryDto.name) &&
-        attempts < maxAttempts
-      );
+      } while (executedNames.includes(lotteryDto.name) && attempts < maxAttempts);
       lotteryResults.push(lotteryDto);
+      executedNames.push(lotteryDto.name);
     }
     return lotteryResults;
   }
@@ -49,8 +48,21 @@ export class LotteryHelper {
     return this.getRandomLotteryDtos(itemTiers, count, defaultName);
   }
 
-  static getRandomAbilities(count: number): LotteryDto[] {
+  static getRandomAbilities(
+    count: number,
+    currentHero: CDOTA_BaseNPC_Hero | undefined,
+  ): LotteryDto[] {
+    // 获取英雄的技能
+    const heroAbilities: string[] = [];
+    if (currentHero) {
+      for (let i = 0; i < currentHero.GetAbilityCount(); i++) {
+        const ability = currentHero.GetAbilityByIndex(i);
+        if (ability) {
+          heroAbilities.push(ability.GetAbilityName());
+        }
+      }
+    }
     const defaultName = 'earthshaker_aftershock';
-    return this.getRandomLotteryDtos(abilityTiers, count, defaultName);
+    return this.getRandomLotteryDtos(abilityTiers, count, defaultName, heroAbilities);
   }
 }
