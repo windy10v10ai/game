@@ -258,8 +258,8 @@ local function HeroKilled(keys)
         -- 补正之和在0-10之间
         local totalFactor = extraFactor + teamKillFactor
         totalFactor = math.max(totalFactor, 0)
-        totalFactor = math.min(totalFactor, AIGameMode.playerNumber)
-        -- 玩家数量减少时降低整倍率
+        totalFactor = math.min(totalFactor, 10)
+        -- 玩家数量减少时降低倍率
         totalFactor = totalFactor * (AIGameMode.playerNumber) / 10
 
 
