@@ -1,7 +1,7 @@
-import { ModifierHelper } from "../../helper/modifier-helper";
-import { PlayerHelper } from "../../helper/player-helper";
-import { reloadable } from "../../utils/tstl-utils";
-import { CMD } from "./debug-cmd";
+import { reloadable } from '../../utils/tstl-utils';
+import { ModifierHelper } from '../helper/modifier-helper';
+import { PlayerHelper } from '../helper/player-helper';
+import { CMD } from './debug-cmd';
 
 @reloadable
 export class Debug {
@@ -26,11 +26,11 @@ export class Debug {
       return;
     }
 
-    const strs = keys.text.split(" ");
+    const strs = keys.text.split(' ');
     const cmd = strs[0];
     const args = strs.slice(1);
 
-    if (cmd === "-debug") {
+    if (cmd === '-debug') {
       this.DebugEnabled = !this.DebugEnabled;
     }
 
@@ -48,7 +48,7 @@ export class Debug {
       hero.GetItemInSlot(15)?.EndCooldown();
     }
 
-    if (cmd.startsWith("-test")) {
+    if (cmd.startsWith('-test')) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
       this.log(`test command: ${cmd}`);
@@ -77,6 +77,10 @@ export class Debug {
           });
         });
       }
+    }
+
+    if (cmd === CMD.LOTTERY) {
+      GameRules.Lottery.initLotteryAll();
     }
 
     if (cmd === CMD.V) {

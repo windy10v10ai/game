@@ -1,5 +1,5 @@
-import { registerModifier } from "../../utils/dota_ts_adapter";
-import { PropertyBaseModifier } from "./property_base";
+import { registerModifier } from '../../utils/dota_ts_adapter';
+import { PropertyBaseModifier } from './property_base';
 
 @registerModifier()
 export class property_cooldown_percentage extends PropertyBaseModifier {

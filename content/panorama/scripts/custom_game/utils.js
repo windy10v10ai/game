@@ -1,6 +1,6 @@
 function get_hud() {
   var p = $.GetContextPanel();
-  while (p !== null && p.id !== "Hud") {
+  while (p !== null && p.id !== 'Hud') {
     p = p.GetParent();
   }
   return p;
@@ -58,12 +58,12 @@ function SubscribeToNetTableKey(tableName, key, callback) {
 
 function GetDotaHud() {
   var panel = $.GetContextPanel();
-  while (panel && panel.id !== "Hud") {
+  while (panel && panel.id !== 'Hud') {
     panel = panel.GetParent();
   }
 
   if (!panel) {
-    throw new Error("Could not find Hud root from panel with id: " + $.GetContextPanel().id);
+    throw new Error('Could not find Hud root from panel with id: ' + $.GetContextPanel().id);
   }
 
   return panel;
@@ -74,30 +74,25 @@ function FindDotaHudElement(id) {
 }
 
 function ConvertSteamIdTo32Bit(steamId64) {
-  return Long.fromString(steamId64).sub("76561197960265728").toString();
+  return Long.fromString(steamId64).sub('76561197960265728').toString();
 }
 
 function GetSteamAccountID() {
-  const player_info = Game.GetLocalPlayerInfo();
-  if (!player_info) {
-    return "";
-  } else {
-    const steamId64 = player_info.player_steamid;
-    const steamId32 = ConvertSteamIdTo32Bit(steamId64);
-    return steamId32;
-  }
+  const steamId64 = Game.GetLocalPlayerInfo().player_steamid;
+  const steamId32 = ConvertSteamIdTo32Bit(steamId64);
+  return steamId32;
 }
 
 function GetMember() {
-  return CustomNetTables.GetTableValue("member_table", GetSteamAccountID());
+  return CustomNetTables.GetTableValue('member_table', GetSteamAccountID());
 }
 
 function GetPlayer() {
-  return CustomNetTables.GetTableValue("player_table", GetSteamAccountID());
+  return CustomNetTables.GetTableValue('player_table', GetSteamAccountID());
 }
 
 function SubscribePlayer(callbackFunction) {
-  CustomNetTables.SubscribeNetTableListener("player_table", function (tableName, key, data) {
+  CustomNetTables.SubscribeNetTableListener('player_table', function (tableName, key, data) {
     if (key === GetSteamAccountID()) {
       callbackFunction(data);
     }
@@ -105,13 +100,13 @@ function SubscribePlayer(callbackFunction) {
 }
 
 function GetOpenMemberUrl() {
-  return $.Localize("#player_member_ship_url") + GetSteamAccountID();
+  return $.Localize('#player_member_ship_url') + GetSteamAccountID();
 }
 
-var useChineseDateFormat = $.Language() === "schinese" || $.Language() === "tchinese";
+var useChineseDateFormat = $.Language() === 'schinese' || $.Language() === 'tchinese';
 /** @param {Date} date */
 function formatDate(date) {
   return useChineseDateFormat
-    ? date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
-    : date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
+    ? date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate()
+    : date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear();
 }

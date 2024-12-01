@@ -1,6 +1,6 @@
-import { PlayerHelper } from "../helper/player-helper";
-import { PropertyController } from "../modules/property/property_controller";
-import { ApiClient, HttpMethod } from "./api-client";
+import { PlayerHelper } from '../modules/helper/player-helper';
+import { PropertyController } from '../modules/property/property_controller';
+import { ApiClient, HttpMethod } from './api-client';
 
 export class MemberDto {
   steamId!: number;
@@ -66,7 +66,7 @@ export class Player {
   }
 
   public static LoadPlayerInfo() {
-    CustomNetTables.SetTableValue("loading_status", "loading_status", {
+    CustomNetTables.SetTableValue('loading_status', 'loading_status', {
       status: 1,
     });
     // get IsValidPlayer player's steamIds
@@ -83,7 +83,7 @@ export class Player {
     const apiParameter = {
       method: HttpMethod.GET,
       path: ApiClient.GAME_START_URL,
-      querys: { steamIds: steamIds.join(","), matchId },
+      querys: { steamIds: steamIds.join(','), matchId },
       successFunc: this.InitSuccess,
       failureFunc: this.InitFailure,
       retryTimes: 6,
@@ -101,7 +101,7 @@ export class Player {
     Player.pointInfoList = gameStart.pointInfo;
     const top100SteamIds = gameStart.top100SteamIds;
 
-    CustomNetTables.SetTableValue("leader_board", "top100SteamIds", top100SteamIds);
+    CustomNetTables.SetTableValue('leader_board', 'top100SteamIds', top100SteamIds);
 
     // set member to member table
     Player.savePlayerToNetTable();
@@ -110,7 +110,7 @@ export class Player {
     Player.savePointInfoToNetTable();
 
     const status = Player.playerList.length > 0 ? 2 : 3;
-    CustomNetTables.SetTableValue("loading_status", "loading_status", {
+    CustomNetTables.SetTableValue('loading_status', 'loading_status', {
       status,
     });
   }
@@ -119,7 +119,7 @@ export class Player {
     if (IsInToolsMode()) {
       Player.saveMemberToNetTable();
     }
-    CustomNetTables.SetTableValue("loading_status", "loading_status", {
+    CustomNetTables.SetTableValue('loading_status', 'loading_status', {
       status: 3,
     });
   }
@@ -147,7 +147,7 @@ export class Player {
       const member = Player.memberList.find((m) => m.steamId === steamId);
       if (member) {
         // set key as short dotaId
-        CustomNetTables.SetTableValue("member_table", steamId.toString(), member);
+        CustomNetTables.SetTableValue('member_table', steamId.toString(), member);
       }
     });
   }
@@ -159,7 +159,7 @@ export class Player {
       const steamIdPointInfoList = Player.pointInfoList.filter((p) => p.steamId === steamId);
       if (steamIdPointInfoList.length > 0) {
         // set key as short dotaId
-        CustomNetTables.SetTableValue("point_info", steamId.toString(), steamIdPointInfoList);
+        CustomNetTables.SetTableValue('point_info', steamId.toString(), steamIdPointInfoList);
       }
     });
   }
@@ -171,7 +171,7 @@ export class Player {
       const player = Player.playerList.find((p) => p.id === steamId.toString());
       if (player) {
         // set key as short dotaId
-        CustomNetTables.SetTableValue("player_table", steamId.toString(), player);
+        CustomNetTables.SetTableValue('player_table', steamId.toString(), player);
       }
     });
   }
@@ -205,12 +205,12 @@ export class Player {
   public RegisterListener() {
     // 玩家属性升级
     CustomGameEventManager.RegisterListener<{ name: string; level: string }>(
-      "player_property_levelup",
+      'player_property_levelup',
       (_, event) => this.onPlayerPropertyLevelup(event),
     );
     // 玩家属性重置
     CustomGameEventManager.RegisterListener<{ useMemberPoint: number }>(
-      "player_property_reset",
+      'player_property_reset',
       (_, event) => this.onPlayerPropertyReset(event),
     );
   }
@@ -292,6 +292,6 @@ export class Player {
     } else {
       Player.playerList.push(player);
     }
-    CustomNetTables.SetTableValue("player_table", player.id, player);
+    CustomNetTables.SetTableValue('player_table', player.id, player);
   }
 }

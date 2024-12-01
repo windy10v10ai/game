@@ -1,6 +1,6 @@
 export class CustomEvent {
   constructor() {
-    CustomGameEventManager.RegisterListener("loading_set_options", (userId, args) =>
+    CustomGameEventManager.RegisterListener('loading_set_options', (userId, args) =>
       this.OnGetLoadingSetOptions(userId, args),
     );
   }
@@ -38,6 +38,6 @@ export class CustomEvent {
 
     // FIXME 移动到更合适的位置
     GameRules.Option.gameDifficulty =
-      CustomNetTables.GetTableValue("game_difficulty", "all")?.difficulty ?? 0;
+      CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty ?? 0;
   }
 }

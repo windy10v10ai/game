@@ -1,6 +1,6 @@
 export class GameConfig {
   constructor() {
-    SendToServerConsole("dota_max_physical_items_purchase_limit 9999"); // 用来解决物品数量限制问题
+    SendToServerConsole('dota_max_physical_items_purchase_limit 9999'); // 用来解决物品数量限制问题
 
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 10); // 设置天辉队伍人数上限
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 10); // 设置夜魇队伍人数上限
@@ -17,13 +17,13 @@ export class GameConfig {
     // GameRules.SetPostGameTime(30); // 游戏结束后时长
     // GameRules.SetSameHeroSelectionEnabled(true); // 是否允许选择相同英雄
     // GameRules.SetStartingGold(0); // 设置初始金钱
-    // GameRules.SetGoldTickTime(0); // 设置工资发放间隔
-    // GameRules.SetGoldPerTick(0); // 设置工资发放数额
+    GameRules.SetGoldTickTime(1); // 设置工资发放间隔
+    GameRules.SetGoldPerTick(3); // 设置工资发放数额
     // GameRules.SetHeroRespawnEnabled(false); // 是否允许英雄重生
     // GameRules.SetCustomGameAllowMusicAtGameStart(false); // 是否允许游戏开始时的音乐
     // GameRules.SetCustomGameAllowHeroPickMusic(false); // 是否允许英雄选择阶段的音乐
     // GameRules.SetCustomGameAllowBattleMusic(false); // 是否允许战斗阶段音乐
-    // GameRules.SetUseUniversalShopMode(true); // 是否启用全地图商店模式（在基地也可以购买神秘商店的物品）* 这个不是设置在任何地方都可以购买，如果要设置这个，需要将购买区域覆盖全地图
+    GameRules.SetUseUniversalShopMode(true); // 是否启用全地图商店模式（在基地也可以购买神秘商店的物品）* 这个不是设置在任何地方都可以购买，如果要设置这个，需要将购买区域覆盖全地图
     // GameRules.SetHideKillMessageHeaders(true); // 是否隐藏顶部的英雄击杀信息
     GameRules.SetCustomGameEndDelay(30);
 
@@ -47,6 +47,10 @@ export class GameConfig {
     // game.SetDaynightCycleDisabled(true); // 是否禁用白天黑夜循环
     // game.SetDeathOverlayDisabled(true); // 是否禁用死亡遮罩（灰色的遮罩）
 
+    // 每点智力魔抗加成在modifier intelect_magic_resist.ts中控制
+    game.SetCustomAttributeDerivedStatValue(AttributeDerivedStats.AGILITY_ARMOR, 0.133);
+    game.SetCustomAttributeDerivedStatValue(AttributeDerivedStats.STRENGTH_HP, 25);
+
     // 设置自定义的队伍人数上限，这里的设置是10个队伍，每个队伍1人
     // GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 1);
     // GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 1);
@@ -55,11 +59,11 @@ export class GameConfig {
     // }
 
     if (IsInToolsMode()) {
-      print("[GameConfig] IsInToolsMode set");
-      GameRules.SetCustomGameSetupAutoLaunchDelay(10);
-      GameRules.SetHeroSelectionTime(10);
-      GameRules.SetHeroSelectPenaltyTime(10); // 选择英雄超时惩罚时间
-      GameRules.SetStrategyTime(10);
+      print('[GameConfig] IsInToolsMode set');
+      GameRules.SetCustomGameSetupAutoLaunchDelay(1);
+      GameRules.SetHeroSelectionTime(30);
+      GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
+      GameRules.SetStrategyTime(1);
       // GameRules.SetPreGameTime(300);
     }
   }

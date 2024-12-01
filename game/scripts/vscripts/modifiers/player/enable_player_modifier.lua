@@ -269,6 +269,10 @@ local pipiluSteamAccountID = Set {
 	-- 皮皮撸
 	112829917,
 }
+local nemesisSteamAccountID = Set {
+	-- nemesis
+	82525914,
+}
 -- 称号属性 END
 
 function EnablePlayerModifier(hEntity)
@@ -637,5 +641,9 @@ function EnablePlayerModifier(hEntity)
 	if pipiluSteamAccountID[steamAccountID] then
 		LinkLuaModifier("modifier_player_pipilu", "modifiers/player/modifier_player_pipilu", LUA_MODIFIER_MOTION_NONE)
 		hEntity:AddNewModifier(hEntity, nil, "modifier_player_pipilu", {})
+	end
+	if nemesisSteamAccountID[steamAccountID] then
+		LinkLuaModifier("modifier_player_nemesis", "modifiers/player/modifier_player_nemesis", LUA_MODIFIER_MOTION_NONE)
+		hEntity:AddNewModifier(hEntity, nil, "modifier_player_nemesis", {})
 	end
 end

@@ -443,9 +443,9 @@
 		"StatusHealthRegen"			"10"		// 0
 	}
 
-
 	// 中立生物
 	// 远古
+	// Armor x2 Attack x4 Bounty x2 Status x2
 	//=================================================================================
 	// Neutral: Ancient - Black Drake 远古小黑龙
 	//=================================================================================
@@ -453,19 +453,19 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"3"			// 2
-		"MagicalResistance"			"40"		// 25
+		"ArmorPhysical"				"4"			// 2
+		"MagicalResistance"			"50"		// 25
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"50"		// 20
-		"AttackDamageMax"			"60"		// 22
+		"AttackDamageMin"			"80"		// 20
+		"AttackDamageMax"			"88"		// 22
 		"AttackRate"				"1.6"		// 2
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"142"		// 95
-		"BountyGoldMin"				"80"		// 39
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"78"		// 39
 		"BountyGoldMax"				"90"		// 45
 
 		// Status
@@ -481,20 +481,20 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"6"			// 4
-		"MagicalResistance"			"50"		// 30
+		"ArmorPhysical"				"8"			// 4
+		"MagicalResistance"			"60"		// 30
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"120"		// 62
-		"AttackDamageMax"			"130"		// 68
+		"AttackDamageMin"			"248"		// 62
+		"AttackDamageMax"			"272"		// 68
 		"AttackRate"				"1.6"		// 2
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"186"		// 124
-		"BountyGoldMin"				"150"		// 78
-		"BountyGoldMax"				"160"		// 82
+		"BountyXP"					"248"		// 124
+		"BountyGoldMin"				"156"		// 78
+		"BountyGoldMax"				"164"		// 82
 
 		// Status
 		//----------------------------------------------------------------
@@ -511,18 +511,18 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"		// 4
-		"MagicalResistance"			"50"		// 30
+		"ArmorPhysical"				"8"			// 4
+		"MagicalResistance"			"60"		// 30
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"60"		// 22
-		"AttackDamageMax"			"68"		// 24
+		"AttackDamageMin"			"88"		// 22
+		"AttackDamageMax"			"96"		// 24
 		"AttackRate"				"1.6"		// 2
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"142"		// 95
-		"BountyGoldMin"				"80"		// 39
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"78"		// 39
 		"BountyGoldMax"				"90"		// 45
 
 		// Movement
@@ -544,19 +544,19 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// 8
-		"MagicalResistance"			"50"		// 30
+		"ArmorPhysical"				"16"		// 8
+		"MagicalResistance"			"60"		// 30
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"150"		// 80
-		"AttackDamageMax"			"170"		// 84
+		"AttackDamageMin"			"320"		// 80
+		"AttackDamageMax"			"336"		// 84
 		"AttackRate"				"1.6"		// 2
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"186"		// 124
-		"BountyGoldMin"				"150"		// 78
-		"BountyGoldMax"				"160"		// 82
+		"BountyXP"					"248"		// 124
+		"BountyGoldMin"				"156"		// 78
+		"BountyGoldMax"				"164"		// 82
 
 		// Movement
 		//----------------------------------------------------------------
@@ -576,21 +576,21 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 3
-		"MagicalResistance"			"50"		// 30
+		"ArmorPhysical"				"6"			// 3
+		"MagicalResistance"			"60"		// 30
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"120"		// 60
-		"AttackDamageMax"			"130"		// 65
+		"AttackDamageMin"			"240"		// 60
+		"AttackDamageMax"			"260"		// 65
 		"AttackRate"				"1.6"		// 2
 		"BaseAttackSpeed"			"120"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"186"		// 124
-		"BountyGoldMin"				"150"		// 78
-		"BountyGoldMax"				"160"		// 82
+		"BountyXP"					"248"		// 124
+		"BountyGoldMin"				"156"		// 78
+		"BountyGoldMax"				"164"		// 82
 
 		// Movement
 		//----------------------------------------------------------------
@@ -611,21 +611,21 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 3
-		"MagicalResistance"			"70"		// 50
+		"ArmorPhysical"				"6"			// 3
+		"MagicalResistance"			"80"		// 50
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"80"		// 32
-		"AttackDamageMax"			"90"		// 34
+		"AttackDamageMin"			"128"		// 32
+		"AttackDamageMax"			"136"		// 34
 		"AttackRate"				"1.6"		// 1.8
 		"BaseAttackSpeed"			"120"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"142"		// 95
-		"BountyGoldMin"				"90"		// 44
-		"BountyGoldMax"				"100"		// 51
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"88"		// 44
+		"BountyGoldMax"				"102"		// 51
 
 		// Movement
 		//----------------------------------------------------------------
@@ -646,17 +646,17 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 3
-		"MagicalResistance"			"50"		// 30
+		"ArmorPhysical"				"6"			// 3
+		"MagicalResistance"			"60"		// 30
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"115"		// 58
-		"AttackDamageMax"			"125"		// 62
+		"AttackDamageMin"			"232"		// 58
+		"AttackDamageMax"			"248"		// 62
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"186"		// 124
-		"BountyGoldMin"				"150"		// 78
-		"BountyGoldMax"				"160"		// 82
+		"BountyXP"					"248"		// 124
+		"BountyGoldMin"				"156"		// 78
+		"BountyGoldMax"				"164"		// 82
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"3000"		// 1500
@@ -672,18 +672,18 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// 7
-		"MagicalResistance"			"50"		// 30
+		"ArmorPhysical"				"14"		// 7
+		"MagicalResistance"			"60"		// 30
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"60"		// 29
-		"AttackDamageMax"			"64"		// 31
+		"AttackDamageMin"			"116"		// 29
+		"AttackDamageMax"			"124"		// 31
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"142"		// 95
-		"BountyGoldMin"				"80"		// 39
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"78"		// 39
 		"BountyGoldMax"				"90"		// 45
 
 		// Status

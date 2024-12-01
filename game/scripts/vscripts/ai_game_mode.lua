@@ -12,7 +12,6 @@ require('util')
 require('settings')
 require('bot/bot_item_data')
 require('events')
-require('lottery/items')
 require('bot/bot_think_item_build')
 require('bot/bot_think_item_use')
 require('bot/bot_think_ability_use')
@@ -88,9 +87,6 @@ function AIGameMode:InitEvents()
     CustomGameEventManager:RegisterListener("set_unit_share_mask", function(_, keys)
         return AIGameMode:SetUnitShareMask(keys)
     end)
-    -- 选择道具
-    CustomGameEventManager:RegisterListener("item_choice_made", Dynamic_Wrap(AIGameMode, "FinishItemPick"))
-    CustomGameEventManager:RegisterListener("item_choice_shuffle", Dynamic_Wrap(AIGameMode, "ItemChoiceShuffle"))
 end
 
 function AIGameMode:LinkLuaModifiers()
@@ -118,9 +114,9 @@ function AIGameMode:PreGameOptions()
     self.bSameHeroSelection = self.bSameHeroSelection or 1
     self.fGameStartTime = 0
 
-    GameRules:SetGoldPerTick(GOLD_PER_TICK)
-    GameRules:SetGoldTickTime(GOLD_TICK_TIME)
-    GameRules:SetUseUniversalShopMode(true)
+    -- GameRules:SetGoldPerTick(GOLD_PER_TICK)
+    -- GameRules:SetGoldTickTime(GOLD_TICK_TIME)
+    -- GameRules:SetUseUniversalShopMode(true)
     GameRules:SetFilterMoreGold(true)
 
     local gameMode = GameRules:GetGameModeEntity()
@@ -135,15 +131,6 @@ function AIGameMode:PreGameOptions()
     gameMode:SetTowerBackdoorProtectionEnabled(true)
     gameMode:SetMaximumAttackSpeed(MAXIMUM_ATTACK_SPEED)
     gameMode:SetMinimumAttackSpeed(MINIMUM_ATTACK_SPEED)
-
-    -- 死亡不扣钱
-    -- gameMode:SetLoseGoldOnDeath(LOSE_GOLD_ON_DEATH)
-
-    -- 启用自定义买活
-    -- gameMode:SetCustomBuybackCostEnabled(true)
-
-    -- 每点敏捷提供护甲
-    gameMode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.133)
 
     if self.bSameHeroSelection == 1 then
         GameRules:SetSameHeroSelectionEnabled(true)

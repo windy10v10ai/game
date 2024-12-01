@@ -2,11 +2,11 @@ export enum ModeEnum {
   /**
    * 对线
    */
-  LANING = "LANING",
+  LANING = 'LANING',
   /**
    * 进攻
    */
-  ATTACK = "ATTACK",
+  ATTACK = 'ATTACK',
   /**
    * 游走 ROAM
    */
@@ -14,17 +14,17 @@ export enum ModeEnum {
   /**
    * 逃跑
    */
-  RETREAT = "RETREAT",
+  RETREAT = 'RETREAT',
   //   SECRET_SHOP = 5,
   //   SIDE_SHOP = 6,
   /**
    * 吃符
    */
-  RUNE = "RUNE",
+  RUNE = 'RUNE',
   /**
    * 推线
    */
-  PUSH = "PUSH",
+  PUSH = 'PUSH',
   //   PUSH_TOWER_TOP = 8,
   //   PUSH_TOWER_MID = 9,
   //   PUSH_TOWER_BOT = 10,
