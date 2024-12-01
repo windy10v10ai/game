@@ -43,7 +43,7 @@ export const itemTiers: Tier[] = [
   },
   {
     level: 3,
-    rate: 12,
+    rate: 15,
     names: [
       // ---- 中立物品 lv3 ----
       'item_titan_sliver', // 巨神残铁
@@ -58,7 +58,7 @@ export const itemTiers: Tier[] = [
   },
   {
     level: 2,
-    rate: 40,
+    rate: 50,
     names: [
       'item_hand_of_midas', // 点金手
       'item_holy_locket', // 圣洁吊坠
