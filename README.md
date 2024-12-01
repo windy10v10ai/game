@@ -68,13 +68,23 @@ script_reload
 host_timescale <float>
 ```
 
-### How to compile item png to vtex_c 如何编译物品图标为vtex_c
+### How to compile item png to vtex_c (Deprecated)
 
 Create item XML file in dota 2 content folder then run `tool/compile_item_png.bat`
 
 FYI: https://www.reddit.com/r/DotA2/comments/8yymx9/item_icons_mods_dont_work_since_one_of_latest/
 
+### How to compile png to vtex_c (Recommended) 如何编译图片png文件
+
+1. Add png file to [`content/panorama/images`](/content/panorama/images) folder.
+2. Add image to [`content/panorama/layout/custom_game/images.xml`](/content/panorama/layout/custom_game/images.xml) file.
+
+png will be compiled to vtex_c automatically when you run `npm run start`.
+
 ## Troubleshooting 故障排除
+
+This code needs to be on the same hard drive partition as dota2.<br>
+代码需要和dota2在同一块硬盘分区上。
 
 Reinstall solve most of the problems.<br>
 重新安装可以解决大部分问题。
@@ -83,9 +93,6 @@ Reinstall solve most of the problems.<br>
 rm -r ./node_modules
 npm install
 ```
-
-If still not work, try to delete `game` and `content` folder in dota2 dota_addons directory.<br>
-如果还是不行，尝试删除dota2 dota_addons目录下的`game`和`content`文件夹。
 
 # Documentation 文档
 

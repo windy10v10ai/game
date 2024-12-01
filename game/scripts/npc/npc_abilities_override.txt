@@ -244,7 +244,7 @@
 		{
 				"slow"
 				{
-					"value"			"-11 -19 -27 -35 -43"
+					"value"			"-15 -20 -25 -30 -35"
 				}
 				"damage_per_second"			"10 15 20 25 30"
 		}
@@ -1365,15 +1365,10 @@
 			"stomp_damage"
 			{
 				"value"					"70 110 150 190 230"
-				"special_bonus_unique_elder_titan_2"			"+75"
-				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
 			"wake_damage_limit"
 			{
-				"value"				"110 240 370 500 630"
-				"special_bonus_unique_elder_titan_4"			"+450"
-				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
-				"CalculateSpellDamageTooltip"				"0"
+				"value"				"200 300 400 500 600"
 			}
 			"AbilityCooldown"
 			{
@@ -2576,7 +2571,6 @@
 			"knockback_damage"
 			{
 				"value"					"75 170 265 360 455"
-				"special_bonus_unique_primal_beast_onslaught_damage"	"+145"	// 90
 			}
 			"stun_duration"				"0.8 1.0 1.2 1.4 1.6"
 		}
@@ -2590,6 +2584,10 @@
 			"base_damage"
 			{
 				"value"							"30 45 60 75 90"	// +15
+			}
+			"attack_damage"
+			{
+				"value"					"30"	// 35
 			}
 			"AbilityCooldown"
 			{
@@ -2626,7 +2624,7 @@
 		{
 			"damage"
 			{
-				"value"						"150 210 270 330"	// 125 175 225
+				"value"						"100 175 250 325"
 			}
 			"bonus_damage_per_hit"				"20 40 60 80"
 		}
@@ -2851,13 +2849,12 @@
 		{
 			"sand_storm_radius"
 			{
-				"value"		"450 500 550 600 650"
+				"value"		"350 400 450 500 550"
 				"special_bonus_facet_sand_king_sandshroud"			"=575 =650 =725 =800 =875"
 			}
 			"sand_storm_damage"
 			{
-				"value"		"25 50 75 100 125"
-				"special_bonus_unique_sand_king_2"	"+25"	// +10
+				"value"		"30 50 70 90 110"
 			}
 		}
 	}
@@ -3143,7 +3140,7 @@
 		{
 			"vampiric_aura"
 			{
-				"value"									"26 34 42 50 58"
+				"value"									"16 24 32 40 48"
 			}
 			"duration"
 			{
@@ -5108,7 +5105,6 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"7 6.5 6 5.5 5"
-		"AbilityManaCost"				"60 70 80 90 100"
 		"AbilityValues"
 		{
 			"rocket_damage"
@@ -5548,7 +5544,6 @@
 			"beam_damage"
 			{
 				"value"					"80 160 240 320 400"
-				"special_bonus_unique_luna_1"	"+100"
 			}
 			"damage_buff_per_beam"
 			{
@@ -5656,12 +5651,12 @@
 		{
 				"damage_modifier"
 				{
-					"value"		"-60 -45 -30 -15 0"
+					"value"		"-50 -40 -30 -20 -10"
 					"special_bonus_unique_medusa_2"	"+10"
 				}
 				"damage_modifier_tooltip"
 				{
-					"value"			"40 55 70 85 100"
+					"value"			"50 60 70 80 90"
 					"special_bonus_unique_medusa_2"	"+10"
 				}
 				"arrow_count"
@@ -6157,8 +6152,6 @@
 	"naga_siren_deluge"
 	{
 		"Maxlevel"						"5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityCooldown"				"10 9 8 7 6"
 		"AbilityValues"
 		{
@@ -6189,11 +6182,11 @@
 			"heal_pct"
 			{
 				"value"									"2 4 6 8"
-				"special_bonus_shard"					"+6"	// 4
+				"special_bonus_shard"					"+4"	// 3
 			}
 			"mana_pct"
 			{
-				"special_bonus_shard"					"+6"	// 4
+				"special_bonus_shard"					"+4"	// 3
 			}
 			"AbilityCooldown"
 			{
@@ -6302,7 +6295,7 @@
 		{
 			"necromastery_damage_per_soul"
 			{
-				"value"					"2 3 4 5 6"
+				"value"					"1 2 3 4 5"
 			}
 			"necromastery_max_souls"
 			{
@@ -6337,7 +6330,7 @@
 		{
 			"bonus_attack_speed"
 			{
-				"value"			"40 60 80 100 120"
+				"value"			"30 50 70 90 110"
 			}
 			"cast_speed_pct"
 			{
@@ -6578,12 +6571,12 @@
 				"turn_rate_boosted"
 				{
 					"value"			"360"
-					"special_bonus_facet_pangolier_thunderbolt"	"+900" // 命石2
+					"special_bonus_facet_pangolier_thunderbolt"	"+40%" // 命石2
 				}
 				"turn_rate"
 				{
 					"value"		"270"
-					"special_bonus_facet_pangolier_thunderbolt"	"+675" // 命石2
+					"special_bonus_facet_pangolier_thunderbolt"	"+40%" // 命石2
 				}
 				"radius"
 				{
@@ -8086,7 +8079,7 @@
 		"MaxLevel" "5"
 		"AbilityCastRange"				"800 900 1000 1100 1200"
 		"AbilityCooldown"				"24 20 16 12 8"
-		"AbilityManaCost"				"120 130 140 150 160"
+		"AbilityManaCost"				"100 110 120 130 140"
 
 		"AbilityValues"
 		{
@@ -8119,7 +8112,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"550 600 650 700 750"
-		"AbilityDuration"				"3.5 4.5 5.5 6.5 7.5"
+		"AbilityDuration"				"4.0 4.5 5.0 5.5 6.0"
 		"AbilityManaCost"				"120 130 140 150 160"
 		"AbilityValues"
 		{
@@ -8143,15 +8136,16 @@
 		{
 			"AbilityChannelTime"
 			{
-				"value"					"4.75 5.25 5.75 6.25"
+				"value"					"4 4.5 5 5.5"
+				"special_bonus_unique_bane_3"		"+2.5"
 			}
 			"fiend_grip_damage"
 			{
-				"value"			"70 110 150 190"
+				"value"			"100 150 200 250"	// 70 110 150 190
 			}
 			"AbilityCooldown"
 			{
-				"value"	"80 70 60 50"
+				"value"	"90 80 70 60"
 				"special_bonus_scepter"	"-20"
 			}
 			"illusion_count"
@@ -9384,17 +9378,14 @@
 			"stun_duration"
 			{
 				"value"					"1.25 1.50 1.75 2.0 2.25"
-				"special_bonus_unique_jakiro"		"+0.4"
 			}
 			"path_duration"
 			{
 				"value"					"3 3.5 4 4.5 5"
-				"special_bonus_unique_jakiro"		"+0.5"
 			}
 			"AbilityCooldown"
 			{
 				"value"								"21 18 15 12 9"
-				"special_bonus_unique_jakiro_6"		"-2.5"
 			}
 		}
 	}
@@ -10863,7 +10854,12 @@
 			}
 			"charge_restore_time"
 			{
-				"value" "40"
+				"value" "45"
+				"RequiresScepter" "1"
+			}
+			"charge_restore_time_tooltip_scepter"
+			{
+				"value" "45"
 				"RequiresScepter" "1"
 			}
 		}
@@ -10937,7 +10933,7 @@
 		"MaxLevel" "5"
 		"AbilityCastRange"				"800"
 		"AbilityCooldown"				"20 18 16 14 12"
-		"AbilityManaCost"				"110 140 170 200 230"
+		"AbilityManaCost"				"130 150 170 190 210"
 		"AbilityValues"
 		{
 				"duration"					"2 2.3 2.6 2.9 3.2"
@@ -12131,7 +12127,6 @@
 		{
 			"damage"						"45 90 135 180 225"
 			"duration"						"4 5 6 7 8"
-			"aura_movespeed_slow"			"-15 -20 -25 -30 -35"
 			"aura_attackspeed_slow"			"-30 -40 -50 -60 -70"
 			"silence_duration"				"1.5 2 2.5 3 3.5"
 		}
@@ -12193,15 +12188,16 @@
 		{
 			"damage_min"
 			{
-				"value"		"45 70 95 120 145"
+				"value"		"50 80 110 140 170"
+				"special_bonus_unique_ringmaster_whip_damage"	"+100"
 			}
 			"damage_max"
 			{
-				"value"		"180 280 380 480 580" // Real max damage is 4x damage min. Adjusting this only affects tooltips.
-				"special_bonus_unique_ringmaster_whip_damage"	"+300"
+				"value"		"200 320 440 560 680" // Real max damage is 4x damage min. Adjusting this only affects tooltips.
+				"special_bonus_unique_ringmaster_whip_damage"	"+400"
 			}
-			"fear_duration_min"				"0.1 0.2 0.3 0.4 0.5"
-			"fear_duration_max"				"0.6 0.8 1.0 1.2 1.4"
+			"fear_duration_min"				"0.2 0.4 0.6 0.8 1.0"	// x2
+			"fear_duration_max"				"1.2 1.6 2.0 2.4 2.8"	// x2
 		}
 	}
 	// 逃生技
@@ -12212,8 +12208,14 @@
 		"AbilityValues"
 		{
 			"invis_duration"			"2.0 2.4 2.8 3.2 3.6"
-			"move_speed"				"5 10 15 20 25"
+			"move_speed"				"10 15 20 25 30"	// +5
 			"magic_resist"				"50 60 70 80 90"
+			"leash_radius"				"800"	// 500
+			"AbilityCooldown"
+			{
+				"value"								"36 32 28 24 20"
+				"special_bonus_scepter"				"-100%"
+			}
 		}
 	}
 	// 尖刀戏
@@ -12242,7 +12244,7 @@
 		{
 			"trap_duration"				"8"
 			"wheel_stun"			"2.75 3.0 3.25 3.5"
-			"aura_damage"			"50 75 100 125"
+			"aura_damage"			"100 150 200 250"	// x2
 			"explosion_damage"		"300 450 600 750"
 		}
 	}
@@ -12308,7 +12310,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"		"40 32 24 16"
+				"value"		"40 35 30 25"
 			}
 
 			"strikes"												"2 3 4 5"

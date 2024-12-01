@@ -1718,7 +1718,7 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"1500"
-			"spell_amp"				"80"
+			"spell_amp"				"70"
 			"manacost_reduction"			"20"
 		}
 	}
@@ -1749,7 +1749,7 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"1500"
-			"spell_amp"				"80"
+			"spell_amp"				"70"
 			"manacost_reduction"			"20"
 		}
 	}
@@ -1780,7 +1780,7 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"1500"
-			"spell_amp"				"80"
+			"spell_amp"				"70"
 			"manacost_reduction"			"60"
 		}
 	}
@@ -1812,7 +1812,7 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"1500"
-			"spell_amp"				"80"
+			"spell_amp"				"70"
 			"manacost_reduction"			"60"
 		}
 	}
@@ -3070,7 +3070,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_damage"			"200"	//16
+			"bonus_damage"			"160"	//16
 			"bonus_lifesteal"		"30"	//16
 			"bonus_spell_lifesteal"	"24"	//8
 			"bonus_amp"				"24"	//14
@@ -3103,7 +3103,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_damage"			"200"	//16
+			"bonus_damage"			"160"	//16
 			"bonus_lifesteal"		"30"	//16
 			"bonus_spell_lifesteal"	"24"	//8
 			"bonus_amp"				"24"	//14
@@ -3138,7 +3138,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_damage"			"100"	//16
+			"bonus_damage"			"80"	//16
 			"bonus_lifesteal"		"60"	//16
 			"bonus_spell_lifesteal"	"60"	//8
 			"bonus_amp"				"60"	//14
@@ -3171,7 +3171,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_damage"			"100"	//16
+			"bonus_damage"			"80"	//16
 			"bonus_lifesteal"		"60"	//16
 			"bonus_spell_lifesteal"	"60"	//8
 			"bonus_amp"				"60"	//14
@@ -3205,7 +3205,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_damage"			"200"	//16
+			"bonus_damage"			"160"	//16
 			"bonus_lifesteal"		"60"	//16
 			"bonus_spell_lifesteal"	"60"	//8
 			"bonus_amp"				"60"	//14
@@ -3239,7 +3239,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_damage"			"200"	//16
+			"bonus_damage"			"160"	//16
 			"bonus_lifesteal"		"60"	//16
 			"bonus_spell_lifesteal"	"60"	//8
 			"bonus_amp"				"60"	//14
@@ -3280,7 +3280,7 @@
 		"AbilityValues"
 		{
 			"intelligence_pct"		"25"	//15
-			"cast_range"			"350"	//100
+			"cast_range"			"300"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
@@ -3317,7 +3317,7 @@
 		"AbilityValues"
 		{
 			"intelligence_pct"		"25"	//15
-			"cast_range"			"350"	//100
+			"cast_range"			"300"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
@@ -3355,7 +3355,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
-			"intelligence_pct"		"60"	//15
+			"intelligence_pct"		"50"	//15
 			"cast_range"			"150"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
@@ -3392,7 +3392,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
-			"intelligence_pct"		"60"	//15
+			"intelligence_pct"		"50"	//15
 			"cast_range"			"150"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
@@ -3429,8 +3429,8 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
-			"intelligence_pct"		"60"	//15
-			"cast_range"			"350"	//100
+			"intelligence_pct"		"50"	//15
+			"cast_range"			"300"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
@@ -3467,8 +3467,8 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
-			"intelligence_pct"		"60"	//15
-			"cast_range"			"350"	//100
+			"intelligence_pct"		"50"	//15
+			"cast_range"			"300"	//100
 			"push_length"			"600"	//400
 			"push_duration"			"0.3"	//0.3
 		}
@@ -4132,7 +4132,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"magic_damage"	"450"  //45
+			"magic_damage"	"300"  //45
 			"attack_speed"	"150"   //30
 			"duration"		"3.0"  //2
 		}
@@ -4196,7 +4196,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"magic_damage"	"450"  //45
+			"magic_damage"	"300"  //45
 			"attack_speed"	"150"   //30
 			"duration"		"3.0"  //2
 		}
@@ -4228,7 +4228,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"magic_damage"	"450"  //45
+			"magic_damage"	"300"  //45
 			"attack_speed"	"150"   //30
 			"duration"		"4.0"  //2
 		}
@@ -4261,7 +4261,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"magic_damage"	"450"  //45
+			"magic_damage"	"300"  //45
 			"attack_speed"	"150"   //30
 			"duration"		"4.0"  //2
 		}
@@ -4298,11 +4298,11 @@
 		"AbilityValues"
 		{
 			"cast_range_bonus"		"350"  //350
-			"vision_bonus"			"2000"  //350
+			"vision_bonus"			"1600"  //350
 			"mana_regen"			"40"   //10
 			"radius"
 			{
-				"value"		"3000"	//800
+				"value"		"2000"	//800
 				"affected_by_aoe_increase"	"1"
 			}
 			"duration"			"9"	//6
@@ -4338,7 +4338,7 @@
 		"AbilityValues"
 		{
 			"cast_range_bonus"		"500"  //350
-			"vision_bonus"			"700"  //350
+			"vision_bonus"			"600"  //350
 			"mana_regen"			"20"   //10
 			"radius"
 			{
@@ -4378,11 +4378,11 @@
 		"AbilityValues"
 		{
 			"cast_range_bonus"		"350"  //350
-			"vision_bonus"			"2000"  //350
+			"vision_bonus"			"1600"  //350
 			"mana_regen"			"40"   //10
 			"radius"
 			{
-				"value"		"3000"	//800
+				"value"		"2000"	//800
 				"affected_by_aoe_increase"	"1"
 			}
 			"duration"			"9"	//6
@@ -4418,7 +4418,7 @@
 		"AbilityValues"
 		{
 			"cast_range_bonus"		"500"  //350
-			"vision_bonus"			"700"  //350
+			"vision_bonus"			"600"  //350
 			"mana_regen"			"20"   //10
 			"radius"
 			{
@@ -4458,11 +4458,11 @@
 		"AbilityValues"
 		{
 			"cast_range_bonus"		"500"  //350
-			"vision_bonus"			"2000"  //350
+			"vision_bonus"			"1600"  //350
 			"mana_regen"			"40"   //10
 			"radius"
 			{
-				"value"		"3000"	//800
+				"value"		"2000"	//800
 				"affected_by_aoe_increase"	"1"
 			}
 			"duration"			"9"	//6
@@ -4499,11 +4499,11 @@
 		"AbilityValues"
 		{
 			"cast_range_bonus"		"500"  //350
-			"vision_bonus"			"2000"  //350
+			"vision_bonus"			"1600"  //350
 			"mana_regen"			"40"   //10
 			"radius"
 			{
-				"value"		"3000"	//800
+				"value"		"2000"	//800
 				"affected_by_aoe_increase"	"1"
 			}
 			"duration"			"9"	//6

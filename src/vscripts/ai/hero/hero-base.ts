@@ -1,10 +1,10 @@
-import { BaseModifier, registerModifier } from "../../utils/dota_ts_adapter";
-import { ActionAttack } from "../action/action-attack";
-import { ActionFind } from "../action/action-find";
-import { ActionItem } from "../action/action-item";
-import { ActionMove } from "../action/action-move";
-import { ModeEnum } from "../mode/mode-enum";
-import { HeroUtil } from "./hero-util";
+import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
+import { ActionAttack } from '../action/action-attack';
+import { ActionFind } from '../action/action-find';
+import { ActionItem } from '../action/action-item';
+import { ActionMove } from '../action/action-move';
+import { ModeEnum } from '../mode/mode-enum';
+import { HeroUtil } from './hero-util';
 
 @registerModifier()
 export class BaseHeroAIModifier extends BaseModifier {
@@ -77,11 +77,11 @@ export class BaseHeroAIModifier extends BaseModifier {
     // update state
     this.mode = GameRules.AI.FSA.GetMode(this);
     if (this.gameTime < this.continueActionEndTime) {
-      print(`[AI] HeroBase Think break 持续动作中 ${this.hero.GetUnitName()}`);
+      // print(`[AI] HeroBase Think break 持续动作中 ${this.hero.GetUnitName()}`);
       return;
     }
     if (this.IsInAbilityPhase()) {
-      print(`[AI] HeroBase Think break 正在施法中 ${this.hero.GetUnitName()}`);
+      // print(`[AI] HeroBase Think break 正在施法中 ${this.hero.GetUnitName()}`);
       return;
     }
     this.ActionMode();
@@ -133,7 +133,7 @@ export class BaseHeroAIModifier extends BaseModifier {
   UseItemSelf(): boolean {
     const creep = this.FindNearestEnemyCreep();
     if (
-      ActionItem.UseItemOnTarget(this.hero, "item_hand_of_group", creep, (target) => {
+      ActionItem.UseItemOnTarget(this.hero, 'item_hand_of_group', creep, (target) => {
         // 点金手目标不能是远古
         if (target.IsAncient()) {
           return false;
@@ -198,16 +198,16 @@ export class BaseHeroAIModifier extends BaseModifier {
     for (const building of teamBuildings) {
       const buildingName = building.GetUnitName();
       if (
-        buildingName.includes("tower1") ||
-        buildingName.includes("tower2") ||
-        buildingName.includes("tower3")
+        buildingName.includes('tower1') ||
+        buildingName.includes('tower2') ||
+        buildingName.includes('tower3')
       ) {
         // print(`[AI] HeroBase ThinkRune ${this.hero.GetUnitName()} 返回基地`);
-        const item = this.hero.FindItemInInventory("item_tpscroll");
+        const item = this.hero.FindItemInInventory('item_tpscroll');
         if (item) {
           item.EndCooldown();
         }
-        ActionItem.UseItemOnPosition(this.hero, "item_tpscroll", Vector(6671, 5951, 384));
+        ActionItem.UseItemOnPosition(this.hero, 'item_tpscroll', Vector(6671, 5951, 384));
       }
     }
   }
@@ -310,13 +310,13 @@ export class BaseHeroAIModifier extends BaseModifier {
     if (!enemyBuild) {
       return false;
     }
-    if (enemyBuild.HasModifier("modifier_backdoor_protection_active")) {
+    if (enemyBuild.HasModifier('modifier_backdoor_protection_active')) {
       // print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 偷塔保护，不攻击`);
       return false;
     }
 
     if (this.IsInAttackPhase()) {
-      print(`[AI] HeroBase Think break 正在攻击中 ${this.hero.GetUnitName()}`);
+      // print(`[AI] HeroBase Think break 正在攻击中 ${this.hero.GetUnitName()}`);
       return false;
     }
     const enemyHero = this.FindNearestEnemyHero();
@@ -428,9 +428,9 @@ export class BaseHeroAIModifier extends BaseModifier {
     // return 1st name contains tower
     for (const building of this.aroundEnemyBuildingsInvulnerable) {
       if (
-        building.GetUnitName().includes("tower") ||
-        building.GetUnitName().includes("rax") ||
-        building.GetUnitName().includes("fort")
+        building.GetUnitName().includes('tower') ||
+        building.GetUnitName().includes('rax') ||
+        building.GetUnitName().includes('fort')
       ) {
         return building;
       }
@@ -445,7 +445,7 @@ export class BaseHeroAIModifier extends BaseModifier {
 
     // return 1st name contains tower
     for (const building of this.aroundEnemyBuildingsInvulnerable) {
-      if (building.GetUnitName().includes("tower") || building.GetUnitName().includes("fort")) {
+      if (building.GetUnitName().includes('tower') || building.GetUnitName().includes('fort')) {
         return building;
       }
     }

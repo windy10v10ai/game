@@ -1,5 +1,4 @@
-import type { PlayerProperty } from "../../api/player";
-import { PlayerHelper } from "../../helper/player-helper";
+import type { PlayerProperty } from '../../api/player';
 import {
   property_attack_range_bonus,
   property_attackspeed_bonus_constant,
@@ -22,14 +21,15 @@ import {
   property_stats_intellect_bonus,
   property_stats_strength_bonus,
   property_status_resistance_stacking,
-} from "../../modifiers/property/property_declare";
+} from '../../modifiers/property/property_declare';
+import { PlayerHelper } from '../helper/player-helper';
 
 export class PropertyController {
   private static propertyValuePerLevel = new Map<string, number>();
   private static propertyDataDrivenModifierName = new Map<string, string>();
   private static bnusSkillPointsAdded = new Map<number, number>();
   constructor() {
-    print("PropertyController init");
+    print('PropertyController init');
     PropertyController.propertyValuePerLevel.set(property_cooldown_percentage.name, 4);
     PropertyController.propertyValuePerLevel.set(property_cast_range_bonus_stacking.name, 25);
     PropertyController.propertyValuePerLevel.set(property_spell_amplify_percentage.name, 5);
@@ -48,52 +48,52 @@ export class PropertyController {
     // multi level property must end with '_level_'
     PropertyController.propertyDataDrivenModifierName.set(
       property_movespeed_bonus_constant.name,
-      "modifier_player_property_movespeed_bonus_constant_level_",
+      'modifier_player_property_movespeed_bonus_constant_level_',
     );
 
     PropertyController.propertyDataDrivenModifierName.set(
       property_physical_armor_bonus.name,
-      "modifier_player_property_physical_armor_bonus_level_",
+      'modifier_player_property_physical_armor_bonus_level_',
     );
     PropertyController.propertyDataDrivenModifierName.set(
       property_preattack_bonus_damage.name,
-      "modifier_player_property_preattack_bonus_damage_level_",
+      'modifier_player_property_preattack_bonus_damage_level_',
     );
     PropertyController.propertyDataDrivenModifierName.set(
       property_attackspeed_bonus_constant.name,
-      "modifier_player_property_attackspeed_bonus_constant_level_",
+      'modifier_player_property_attackspeed_bonus_constant_level_',
     );
     PropertyController.propertyDataDrivenModifierName.set(
       property_stats_strength_bonus.name,
-      "modifier_player_property_stats_strength_bonus_level_",
+      'modifier_player_property_stats_strength_bonus_level_',
     );
     PropertyController.propertyDataDrivenModifierName.set(
       property_stats_agility_bonus.name,
-      "modifier_player_property_stats_agility_bonus_level_",
+      'modifier_player_property_stats_agility_bonus_level_',
     );
     PropertyController.propertyDataDrivenModifierName.set(
       property_stats_intellect_bonus.name,
-      "modifier_player_property_stats_intellect_bonus_level_",
+      'modifier_player_property_stats_intellect_bonus_level_',
     );
   }
 
   private static limitPropertyNames = [
-    "property_skill_points_bonus",
-    "property_cast_range_bonus_stacking",
-    "property_spell_amplify_percentage",
-    "property_status_resistance_stacking",
-    "property_evasion_constant",
-    "property_magical_resistance_bonus",
-    "property_incoming_damage_percentage",
-    "property_attack_range_bonus",
-    "property_physical_armor_bonus",
-    "property_preattack_bonus_damage",
-    "property_attackspeed_bonus_constant",
-    "property_stats_strength_bonus",
-    "property_stats_agility_bonus",
-    "property_stats_intellect_bonus",
-    "property_lifesteal",
-    "property_spell_lifesteal",
+    'property_skill_points_bonus',
+    'property_cast_range_bonus_stacking',
+    'property_spell_amplify_percentage',
+    'property_status_resistance_stacking',
+    'property_evasion_constant',
+    'property_magical_resistance_bonus',
+    'property_incoming_damage_percentage',
+    'property_attack_range_bonus',
+    'property_physical_armor_bonus',
+    'property_preattack_bonus_damage',
+    'property_attackspeed_bonus_constant',
+    'property_stats_strength_bonus',
+    'property_stats_agility_bonus',
+    'property_stats_intellect_bonus',
+    'property_lifesteal',
+    'property_spell_lifesteal',
   ];
 
   // 每N级加点一次
@@ -150,7 +150,7 @@ export class PropertyController {
     // );
 
     // 设置额外技能点
-    if (name === "property_skill_points_bonus") {
+    if (name === 'property_skill_points_bonus') {
       PropertyController.setBonusSkillPoints(hero, property, activeLevel);
       return;
     }
@@ -202,7 +202,7 @@ export class PropertyController {
       return;
     }
 
-    if (modifierName.endsWith("_level_")) {
+    if (modifierName.endsWith('_level_')) {
       // for 1-8 level
       for (let i = 1; i <= 8; i++) {
         hero.RemoveModifierByName(`${modifierName}${i}`);
@@ -213,7 +213,7 @@ export class PropertyController {
     }
 
     const dataDrivenItem = CreateItem(
-      "item_player_modifiers",
+      'item_player_modifiers',
       undefined,
       undefined,
     ) as CDOTA_Item_DataDriven;

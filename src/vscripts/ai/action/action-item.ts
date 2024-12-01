@@ -1,4 +1,4 @@
-import { ActionAbility } from "./action-ability";
+import { ActionAbility } from './action-ability';
 
 export class ActionItem {
   // ---------------------------------------------------------

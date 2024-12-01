@@ -80,13 +80,6 @@ function AIGameMode:OnPlayerChat(event)
             hHero:AddItemByName('item_aghanims_shard')
             return
         end
-        if sChatMsg:find('^-lottery$') then
-            -- AIGameMode.tIfItemChosen[iPlayerID] = false
-            -- AIGameMode.tIfItemChooseInited[iPlayerID] = false
-            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-            AIGameMode:SpecialItemAdd(hHero)
-            return
-        end
 
         -- player info all
         if sChatMsg:find('^-player info all$') then

@@ -1246,7 +1246,7 @@
 	//=================================================================================================================
 	"item_recipe_angels_demise"
 	{
-		"ItemCost"						"1500"
+		"ItemCost"						"2500"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_angels_demise"
 		"ItemRequirements"
@@ -1261,8 +1261,8 @@
 		{
 			"bonus_damage"			"100"		// 50
 			"crit_chance"			"30"		// 30
-			"spell_crit_multiplier"		"80"	// 75
-			"spell_crit_flat"			"800"	// 100
+			"spell_crit_multiplier"		"75"	// 60
+			"spell_crit_flat"			"600"	// 150
 			"crit_multiplier"		"250"		// 160
 			"tooltip_crit_damage"	"150"		// 60
 
@@ -1639,18 +1639,13 @@
 	}
 	"item_bracer"
 	{
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"3"
-
 		"AbilityValues"
 		{
-			"bonus_strength"		"9 18"		// 5 10
-			"bonus_agility"			"4 8"		// 2 4
-			"bonus_intellect"		"4 8"		// 2 4
-			"bonus_health_regen"	"3 6"		// 0.75 1.5
-			"bonus_health"			"100 200"	// 50 100
-			"clock_time"			"3"			// 25
+			"bonus_strength"		"10"		// 5
+			"bonus_agility"			"4"			// 2
+			"bonus_intellect"		"4"			// 2
+			"bonus_health_regen"	"3"			// 0.75
+			"bonus_health"			"100"		// 50
 		}
 	}
 
@@ -1664,18 +1659,13 @@
 	}
 	"item_wraith_band"
 	{
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"3"
-
 		"AbilityValues"
 		{
-			"bonus_agility"			"9 18"		// 5 10
-			"bonus_strength"		"4 8"		// 2 4
-			"bonus_intellect"		"4 8"		// 2 4
-			"bonus_attack_speed"	"9 18"		// 5 10
-			"bonus_armor"			"3.5 7"		// 1.75 3.5
-			"clock_time"			"3"			// 25
+			"bonus_agility"			"10"		// 5
+			"bonus_strength"		"4"			// 2
+			"bonus_intellect"		"4"			// 2
+			"bonus_attack_speed"	"10"		// 5
+			"bonus_armor"			"3.5"		// 1.75
 		}
 	}
 
@@ -1688,18 +1678,13 @@
 	}
 	"item_null_talisman"
 	{
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"1"
-		"ItemLevelByGameTime"			"3"
-
 		"AbilityValues"
 		{
-			"bonus_intellect"		"9 18"		// 5 10
-			"bonus_strength"		"4 8"		// 2 4
-			"bonus_agility"			"4 8"		// 2 4
-			"bonus_max_mana_percentage"	"5 10"	// 3 6
-			"bonus_mana_regen"		"3 6"		// 1 2
-			"clock_time"			"3"			// 25
+			"bonus_intellect"		"10"		// 5
+			"bonus_strength"		"4"			// 2
+			"bonus_agility"			"4"			// 2
+			"bonus_max_mana_percentage"	"6"		// 3
+			"bonus_mana_regen"		"2"			// 1
 		}
 	}
 	//=================================================================================================================

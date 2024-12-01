@@ -1,10 +1,10 @@
-import { Player } from "../../api/player";
-import { PlayerHelper } from "../../helper/player-helper";
-import { PropertyController } from "../property/property_controller";
-import { CustomEvent } from "./custom-event";
-import { EventEntityKilled } from "./event-entity-killed";
-import { EventGameStateChange } from "./event-game-state-change";
-import { EventNpcSpawned } from "./event-npc-spawned";
+import { Player } from '../../api/player';
+import { PlayerHelper } from '../helper/player-helper';
+import { PropertyController } from '../property/property_controller';
+import { CustomEvent } from './custom-event';
+import { EventEntityKilled } from './event-entity-killed';
+import { EventGameStateChange } from './event-game-state-change';
+import { EventNpcSpawned } from './event-npc-spawned';
 
 export class Event {
   EventNpcSpawned: EventNpcSpawned;
@@ -16,7 +16,7 @@ export class Event {
     this.EventNpcSpawned = new EventNpcSpawned();
     this.EventEntityKilled = new EventEntityKilled();
     this.EventGameStateChange = new EventGameStateChange();
-    ListenToGameEvent("dota_player_gained_level", (keys) => this.OnPlayerLevelUp(keys), this);
+    ListenToGameEvent('dota_player_gained_level', (keys) => this.OnPlayerLevelUp(keys), this);
 
     this.CustomEvent = new CustomEvent();
   }
