@@ -2,6 +2,7 @@ import { Player } from '../../api/player';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
+import { BotPower } from './bot-power';
 
 export class EventNpcSpawned {
   private roshanLevelBase = 0;
@@ -75,6 +76,7 @@ export class EventNpcSpawned {
     } else {
       // 机器人
       GameRules.AI.EnableAI(hero);
+      BotPower.AddBotPower(hero);
     }
   }
 

@@ -1,5 +1,44 @@
 "DOTAAbilities"
 {
+	"bot_power"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"4"
+		"IsBreakable"					"1"
+		"MaxLevel"						"10"
+
+		"AbilityTextureName"			"bot_power"
+
+		"AbilityValues"
+		{
+			"bonus_cooldown"			"2 4 6 8 10 12 14 16 18 20"
+			"bonus_move_speed"			"10 20 30 40 50 60 70 80 90 100"
+			"bonus_armor"				"5 10 15 20 25 30 35 40 45 50"
+			"bonus_magic_resistance"	"5 10 15 20 25 30 35 40 45 50"
+		}
+
+		"Modifiers"
+		{
+			"modifier_bot_power"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"RemoveOnDeath"				"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"			"%bonus_cooldown"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_move_speed"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_magic_resistance"
+				}
+			}
+		}
+	}
+
 
 	//================================================
 	// dummy unit passive (collection of global modifiers)
