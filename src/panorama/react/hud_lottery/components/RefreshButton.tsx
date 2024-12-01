@@ -12,18 +12,20 @@ interface RefreshButtonProps {
 
 const buttonStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'center',
-  verticalAlign: 'center',
+  verticalAlign: 'bottom',
 };
 
 const imageStyle: Partial<VCSSStyleDeclaration> = {
-  width: '90px',
-  height: '90px',
+  marginBottom: '20px',
+  width: '50px',
+  height: '50px',
 };
 
 const getTooltipTextToken = (
   type: ItemOrAbility,
   isMember: boolean | undefined,
   isRefreshed: boolean | undefined,
+  pickedName: string | undefined,
 ) => {
   if (!isMember) {
     return type === 'item'
@@ -35,6 +37,11 @@ const getTooltipTextToken = (
       ? '#lottery_tooltip_item_refresh_used'
       : '#lottery_tooltip_ability_refresh_used';
   }
+  if (pickedName) {
+    return type === 'item'
+      ? '#lottery_tooltip_item_refresh_picked'
+      : '#lottery_tooltip_ability_refresh_picked';
+  }
   return type === 'item' ? '#lottery_tooltip_item_refresh' : '#lottery_tooltip_ability_refresh';
 };
 
@@ -43,13 +50,14 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, memb
   const isMember = member?.enable;
   const isRefreshed =
     type === 'item' ? lotteryStatus?.isItemRefreshed : lotteryStatus?.isAbilityRefreshed;
-  const enabled = isMember && !isRefreshed;
+  const pickedName = type === 'item' ? lotteryStatus?.pickItemName : lotteryStatus?.pickAbilityName;
+  const enabled = isMember && !isRefreshed && !pickedName;
   const imageSrc = enabled
     ? 'file://{images}/custom_game/lottery/icon_rerolltoken.png'
     : 'file://{images}/custom_game/lottery/icon_rerolltoken_disabled.png';
 
   // 提示文本
-  const tooltipTextToken = getTooltipTextToken(type, isMember, isRefreshed);
+  const tooltipTextToken = getTooltipTextToken(type, isMember, isRefreshed, pickedName);
   const tooltipText = $.Localize(tooltipTextToken);
 
   // 刷新事件

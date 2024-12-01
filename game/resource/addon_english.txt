@@ -165,10 +165,12 @@
 		"lottery_ability_title"									"Select a bonus ability"
 
 		"lottery_tooltip_ability_refresh"						"Click to reroll bonus abilities."
-		"lottery_tooltip_ability_refresh_used"					"Only one reroll per game."
+		"lottery_tooltip_ability_refresh_used"					"Ability is rerolled."
+		"lottery_tooltip_ability_refresh_picked"				"Ability is selected."
 		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll abilities once. Click this button to open the membership page in your browser."
 		"lottery_tooltip_item_refresh"							"Click to reroll bonus items."
-		"lottery_tooltip_item_refresh_used"						"Only one reroll per game."
+		"lottery_tooltip_item_refresh_used"						"Item is rerolled."
+		"lottery_tooltip_item_refresh_picked"					"Item is selected."
 		"lottery_tooltip_item_refresh_not_member"				"Members can reroll items once. Click this button to open the membership page in your browser."
 
 		///////////////////////////////////////////////////

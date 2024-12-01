@@ -81,6 +81,7 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
 
   // 标题
   const titleToken = type === 'item' ? '#lottery_item_title' : '#lottery_ability_title';
+  const pickedName = type === 'item' ? lotteryStatus?.pickItemName : lotteryStatus?.pickAbilityName;
 
   return (
     <Panel style={rowStyle}>
@@ -94,6 +95,7 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
                 level={lotteryDto.level}
                 name={lotteryDto.name}
                 type={type}
+                pickedName={pickedName}
               />
             ))}
           </>
