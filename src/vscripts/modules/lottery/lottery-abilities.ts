@@ -96,7 +96,6 @@ export const abilityTiers: Tier[] = [
       'brewmaster_fire_phase', // 永久相位
       'brewmaster_fire_permanent_immolation', // 永久献祭
       'silencer_last_word', // 遗言
-      'sandking_scorpion_strike', // 尾刺
       'tidehunter_kraken_shell', // 海妖外壳
       'crystal_maiden_brilliance_aura', // 奥术光环 冰女
       'pangolier_lucky_shot', // 幸运一击
