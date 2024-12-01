@@ -1368,7 +1368,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"                      "1325"
+		"ItemCost"                      "1950"
 		"ItemShopTags"                  ""
 
 		// Recipe
@@ -1395,7 +1395,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"                      "9800"
+		"ItemCost"                      "10800"
 		"ItemShopTags"                  "armor;resist"
 		"ItemQuality"                   "epic"
 		"ItemAliases"                   "armor of insight"
@@ -1408,13 +1408,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_health"          "800"
-				"radius"				"900"
+				"bonus_health"			"1000"
 				"bonus_armor"			"20"
-				"magical_resis"      	"25"
+				"magical_resis"			"20"
+
+				"radius"				"900"
+
+				"aura_magical_resis_base"		"15"
 				"aura_regen_base"               "20"
 				"aura_damage_reduction_base"    "-6"
-				"aura_magical_resis_buff"		"10"
+
+				"aura_magical_resis_buff"		"15"
 				"aura_regen_buff"               "30"
 				"aura_damage_reduction_buff"    "-9"
 				"duration"                      "9"
@@ -1458,7 +1462,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"%magical_resis"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"                    "%bonus_health"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"					"%bonus_health"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
 				}
 			}
@@ -1470,8 +1474,9 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"        "%aura_regen_base"
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"   "%aura_damage_reduction_base"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"			"%aura_regen_base"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%aura_damage_reduction_base"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"%aura_magical_resis_base"
 				}
 			}
 

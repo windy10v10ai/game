@@ -130,7 +130,7 @@
 		"data_panel_player_property_status_resistance_stacking"	"Status Resistance (%)"
 		"data_panel_player_property_evasion_constant"			"Evasion (%)"
 		"data_panel_player_property_magical_resistance_bonus"	"Magic Resistance (%)"
-		"data_panel_player_property_incoming_damage_percentage"	"Incoming Damage Reduction (%)"
+		"data_panel_player_property_incoming_damage_percentage"	"Damage Reduction (%)"
 		"data_panel_player_property_attack_range_bonus"			"Attack Range (Ranged Only)"
 		"data_panel_player_property_physical_armor_bonus"		"Physical Armor"
 		"data_panel_player_property_preattack_bonus_damage"		"Attack Damage"
@@ -143,7 +143,7 @@
 		"data_panel_player_property_lifesteal"					"Lifesteal (%)"
 		"data_panel_player_property_spell_lifesteal"			"Spell Lifesteal (%)"
 		"data_panel_player_property_movespeed_bonus_constant"	"Movement Speed"
-		"data_panel_player_property_ignore_movespeed_limit"		"Increase Movement Speed Limit (2000)"
+		"data_panel_player_property_ignore_movespeed_limit"		"Unlimited Movement Speed"
 		"data_panel_player_property_cannot_miss"				"True Strike"
 		"data_panel_player_property_skill_points_bonus"			"Bonus Skill Points"
 
@@ -1218,19 +1218,18 @@
 		"DOTA_Tooltip_Ability_item_force_staff_3_spell_amp"			"%+$spell_amp"
 
 		// item_insight_armor 洞察盔甲
-		"DOTA_Tooltip_ability_item_insight_armor"                               "Armor of Insight"
-		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>Active: Stroke of Insight</h1>Boosts the strength of the Aura of Insight for %duration% seconds and additionally grants extra magical resistance.<br><br>Additional HP Regen: %aura_regen_buff%<br>Additional Damage Reduction: %aura_damage_reduction_buff%%%<br>Additional Magic Resistance: %aura_magical_resis_buff%%%\n<h1>Passive: Aura of Insight</h1>Gives nearby allied units %aura_regen_base% health regeneration and %aura_damage_reduction_base%%% incoming damage reduction.<br><br>Radius: %radius%"
-		"DOTA_Tooltip_ability_item_insight_armor_Lore"							"An exquisitely crafted suit of armor that bestows secret wisdom upon the wearer."
+		"DOTA_Tooltip_ability_item_insight_armor"								"Armor of Insight"
+		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>Active: Greater</h1>Gives nearby allied units extra aura for %duration% seconds.<br><br>Additional HP Regen: %aura_regen_buff%<br>Additional Magic Resistance: %aura_magical_resis_buff%%%<br>Additional Damage Reduction: %aura_damage_reduction_buff%%%<br><br>Radius: %radius%\n<h1>Passive: Aura of Insight</h1>Gives nearby allied units <br>HP Regen: %aura_regen_base%<br>Magic Resistance: %aura_magical_resis_base%%%<br>Damage reduction: %aura_damage_reduction_base%%%<br><br>Radius: %radius%"		"DOTA_Tooltip_ability_item_insight_armor_Lore"							"An exquisitely crafted suit of armor that bestows secret wisdom upon the wearer."
 		"DOTA_Tooltip_ability_item_insight_armor_magical_resis"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_health"					"+$health"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_armor"					"+$armor"
 		"DOTA_Tooltip_Ability_item_recipe_insight_armor"						"Armor of Insight Recipe"
 
 		"DOTA_Tooltip_modifier_insight_armor_aura"								"Aura of Insight"
-		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"Gaining %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration and %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming damage reduction."
+		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"Gaining %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% bonus magical resistance, and %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% damage reduction."
 
-		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"Greater Aura of Insight"
-		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"Gaining %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%</font> additional health regeneration, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% bonus magical resistance, and %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% additional incoming damage reduction."
+		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"<font color='#f15b47'>Greater Aura of Insight</font>"
+		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"Gaining %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% bonus magical resistance, and %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% damage reduction."
 
 		// item_arcane_octarine_core 奥术之心
 		"DOTA_Tooltip_Ability_item_arcane_octarine_core"			"Arcane Core"
