@@ -13,13 +13,16 @@ export class Lottery {
       'game_rules_state_change',
       () => {
         if (GameRules.State_Get() === GameState.PRE_GAME) {
-          this.initLotteryAll();
+          // 延迟1秒，等待英雄加载（为了排除相同英雄的技能）
+          Timers.CreateTimer(1, () => {
+            this.initLotteryAll();
+          });
         }
       },
       undefined,
     );
 
-    // 玩家选择额能
+    // 玩家选择技能
     CustomGameEventManager.RegisterListener('lottery_pick_ability', (userId, event) => {
       this.pickAbility(userId, event);
     });
@@ -70,7 +73,8 @@ export class Lottery {
   }
 
   randomAbilityForPlayer(playerId: PlayerID) {
-    const abilityLotteryResults = LotteryHelper.getRandomAbilities(this.randomCountBase);
+    const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+    const abilityLotteryResults = LotteryHelper.getRandomAbilities(this.randomCountBase, hero);
 
     CustomNetTables.SetTableValue(
       'lottery_abilities',

@@ -29,15 +29,13 @@ local function addTome(k, v)
     replaceItem(v, "item_excalibur", "item_rapier_ultra_bot_1")
   end
 
-  -- 一组属性书
-  table.insert(v, "item_tome_of_strength")
-  table.insert(v, "item_tome_of_agility")
-  table.insert(v, "item_tome_of_intelligence")
   -- 洛书
   table.insert(v, "item_tome_of_luoshu")
 
   local amount = 0
-  if AIGameMode.iGameDifficulty and AIGameMode.iGameDifficulty >= 6 then
+  if AIGameMode.fBotGoldXpMultiplier >= 10 then
+    amount = 15
+  elseif AIGameMode.fBotGoldXpMultiplier >= 8 then
     amount = 10
   elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
     amount = 8

@@ -11,6 +11,11 @@ export class Option {
   //    max_level                       	= "30" (string)
   //    tower_power                     	= "50" (string)
 
+  // 金钱经验倍率
+  radiantGoldXpMultiplier = 1;
+  direGoldXpMultiplier = 1;
+
+  // 玩家数量
   radiantPlayerNumber = 10;
   direPlayerNumber = 10;
 

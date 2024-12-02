@@ -1,5 +1,6 @@
 import { Player } from '../../api/player';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
+import { BotPower } from '../helper/bot-power';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 
@@ -75,6 +76,7 @@ export class EventNpcSpawned {
     } else {
       // 机器人
       GameRules.AI.EnableAI(hero);
+      BotPower.AddBotPower(hero);
     }
   }
 

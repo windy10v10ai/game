@@ -4,7 +4,7 @@
     "outDir": "../../game/scripts/vscripts",
     "target": "esnext",
     "lib": ["esnext"],
-    "types": ["@moddota/dota-lua-types/normalized"],
+    "types": ["@moddota/dota-lua-types/normalized", "jest"],
     "plugins": [{ "transform": "@moddota/dota-lua-types/transformer" }],
     "moduleResolution": "node",
     "experimentalDecorators": true,
