@@ -5634,10 +5634,10 @@
 				"land_time"				".5"//0.5
 				"impact_radius"
 				{
-					"value"		"400"
+					"value"		"500"
 					"affected_by_aoe_increase"	"1"
 				}
-				"max_duration"		"3"//2
+				"max_duration"		"1.5"//2
 				"impact_damage_buildings"		"0"//90
 				"impact_damage_units"		"260"//130
 				"enemy_particles_visible"		"0"
@@ -5674,7 +5674,7 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"AbilityTextureName"            "ethereal_blade_ultra"
+		"AbilityTextureName"            "ethereal_blade"
 		"AbilityValues"
 		{
 				"bonus_agility"			"40"//8
