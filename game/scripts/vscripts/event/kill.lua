@@ -234,9 +234,12 @@ local function HeroKilled(keys)
         elseif GameTime <= 10 * 60 then
             gold = 40
             xp = 80
-        else
+        elseif GameTime <= 15 * 60 then
             gold = 60
             xp = 120
+        else
+            gold = 80
+            xp = 160
         end
 
         -- 击杀者等级加成
@@ -255,8 +258,8 @@ local function HeroKilled(keys)
         -- 补正之和在0-10之间
         local totalFactor = extraFactor + teamKillFactor
         totalFactor = math.max(totalFactor, 0)
-        totalFactor = math.min(totalFactor, AIGameMode.playerNumber)
-        -- 玩家数量减少时降低整倍率
+        totalFactor = math.min(totalFactor, 10)
+        -- 玩家数量减少时降低倍率
         totalFactor = totalFactor * (AIGameMode.playerNumber) / 10
 
 

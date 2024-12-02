@@ -3,7 +3,6 @@ require('event/js_event')
 require('event/creep')
 require('event/chat')
 require('event/kill')
-require('event/bot_herolist')
 
 
 function AIGameMode:ArrayShuffle(array)
@@ -13,19 +12,6 @@ function AIGameMode:ArrayShuffle(array)
         array[i], array[rand] = array[rand], array[i]
     end
     return array
-end
-
-function AIGameMode:GetFreeHeroName(isRadiant)
-    local tFreeHeroName = tBotNameList
-    if not isRadiant and self.iGameDifficulty == 6 then
-        tFreeHeroName = tBotAllStar
-    end
-    for i, v in ipairs(tFreeHeroName) do
-        if PlayerResource:WhoSelectedHero(v, false) < 0 then
-            return v
-        end
-    end
-    return "npc_dota_hero_luna" -- Should never get here
 end
 
 function AIGameMode:InitPlayerGold()

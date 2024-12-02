@@ -633,18 +633,18 @@
 		"AbilityValues"
 		{
 			"bonus_armor"				"14" //7
-			"all_stats"			        "14" //7
-			"counter_cooldown"			"1.0" //5
+			"all_stats"					"14" //7
+			"counter_cooldown"			"3.0" //5
 		}
 	}
 	"item_nemesis_curse" //天珠之咒
 	{
 		"AbilityValues"
 		{
-			"debuff_self"	"20"          //8
-			"debuff_enemy"	"30"         //12
-			"debuff_enemy_duration"	"5"  //5
-			"bonus_damage"			"70" //35
+			"debuff_self"	"20"			//8
+			"debuff_enemy"	"30"			//12
+			"debuff_enemy_duration"	"5"		//5
+			"bonus_damage"			"70"	//35
 		}
 	}
 	"item_craggy_coat" //崎岖外衣

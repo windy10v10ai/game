@@ -5399,11 +5399,12 @@
 	"item_recipe_kaya_and_sange_1"
 	{
 		"BaseClass"						"item_recipe_kaya_and_sange"
+		"ItemCost"						"3600"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_kaya_and_sange_1"
 		"ItemRequirements"
 		{
-			"01"						"item_kaya_and_sange;item_kaya_and_sange;item_ultimate_orb"
+			"01"						"item_kaya_and_sange;item_kaya_and_sange"
 		}
 	}
 
@@ -5433,11 +5434,12 @@
 	"item_recipe_sange_and_yasha_1"
 	{
 		"BaseClass"						"item_recipe_sange_and_yasha"
+		"ItemCost"						"3600"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sange_and_yasha_1"
 		"ItemRequirements"
 		{
-			"01"						"item_sange_and_yasha;item_sange_and_yasha;item_ultimate_orb"
+			"01"						"item_sange_and_yasha;item_sange_and_yasha"
 		}
 	}
 
@@ -5466,11 +5468,12 @@
 	"item_recipe_yasha_and_kaya_1"
 	{
 		"BaseClass"						"item_recipe_yasha_and_kaya"
+		"ItemCost"						"3600"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_yasha_and_kaya_1"
 		"ItemRequirements"
 		{
-			"01"						"item_yasha_and_kaya;item_yasha_and_kaya;item_ultimate_orb"
+			"01"						"item_yasha_and_kaya;item_yasha_and_kaya"
 		}
 	}
 

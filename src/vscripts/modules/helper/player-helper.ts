@@ -27,4 +27,8 @@ export class PlayerHelper {
       }
     }
   }
+
+  static IsGoodTeamPlayer(playerId: PlayerID): boolean {
+    return PlayerResource.GetTeam(playerId) === DotaTeam.GOODGUYS;
+  }
 }
