@@ -5399,7 +5399,7 @@
 	"item_recipe_kaya_and_sange_1"
 	{
 		"BaseClass"						"item_recipe_kaya_and_sange"
-		"ItemCost"						"1000"
+		"ItemCost"						"0"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_kaya_and_sange_1"
 		"ItemRequirements"
@@ -5434,7 +5434,7 @@
 	"item_recipe_sange_and_yasha_1"
 	{
 		"BaseClass"						"item_recipe_sange_and_yasha"
-		"ItemCost"						"1000"
+		"ItemCost"						"0"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sange_and_yasha_1"
 		"ItemRequirements"
@@ -5468,7 +5468,7 @@
 	"item_recipe_yasha_and_kaya_1"
 	{
 		"BaseClass"						"item_recipe_yasha_and_kaya"
-		"ItemCost"						"1000"
+		"ItemCost"						"0"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_yasha_and_kaya_1"
 		"ItemRequirements"
@@ -5599,7 +5599,7 @@
 		"ItemResult"					"item_meteor_hammer_2"
 		"ItemRequirements"
 		{
-			"01"						"item_meteor_hammer;item_meteor_hammer;item_ultimate_orb;item_ultimate_orb"
+			"01"						"item_meteor_hammer;item_ultimate_orb;item_ultimate_orb"
 		}
 	}
 	"item_meteor_hammer_2"
@@ -5618,9 +5618,9 @@
 		"ShouldBeSuggested"				"1"
 		"AbilityValues"
 		{
-				"bonus_strength"		"45"//6 根据配方
-				"bonus_agility"		"45"//6 根据配方
-				"bonus_intellect"			"90"//24 根据配方
+				"bonus_strength"		"40"//6 根据配方
+				"bonus_agility"		"40"//6 根据配方
+				"bonus_intellect"			"60"//24 根据配方
 				"spell_amp"			"50"//10
 				"mana_regen_multiplier"		"200"//50
 				"spell_lifesteal_amp"	"120"//24
