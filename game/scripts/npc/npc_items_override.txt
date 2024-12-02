@@ -1367,7 +1367,7 @@
 	//=================================================================================================================
 	"item_recipe_silver_edge"
 	{
-		"ItemCost"						"450"// 恶魔刀锋换成振奋宝石，价格不变
+		"ItemCost"						"0"// 降价到5000总价
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_silver_edge"
 		"ItemRequirements"
