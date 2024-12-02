@@ -1500,6 +1500,10 @@
 	"item_black_king_bar"
 	{
 		"AbilitySharedCooldown"			"bkb"
+		"AbilityValues"
+		{
+			"bonus_strength"		"40"// fixme前期小节奏，也许高了
+		}
 	}
 	"item_aeon_disk"
 	{

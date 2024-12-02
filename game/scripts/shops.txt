@@ -77,30 +77,19 @@
 		// "item"		"item_platemail"
 		"item"	"item_lifesteal" // 吸血面具
 		"item"	"item_voodoo_mask" // 巫毒面具
-		"item"	"item_gossamer_cape_light"
-		"item"	"item_gossamer_cape_dark"
-		"item"	"item_paladin_sword_light"
-		"item"	"item_paladin_sword_dark"
-		"item"	"item_psychic_headband_light"
-		"item"	"item_psychic_headband_dark"
-		"item"	"item_ascetic_cap_light"
-		"item"	"item_ascetic_cap_dark"
-		"item"	"item_trickster_cloak_light"
-		"item"	"item_trickster_cloak_dark"
-		"item"	"item_ancient_guardian_light"
-		"item"	"item_ancient_guardian_dark"
-		"item"	"item_mind_breaker_light"
-		"item"	"item_mind_breaker_dark"
-		"item"	"item_seer_stone_light"
-		"item"	"item_seer_stone_dark"
-		"item"	"item_force_field_light"
-		"item"	"item_force_field_dark"
-		"item"	"item_ballista_light"
-		"item"	"item_ballista_dark"
+		"item"	"item_gossamer_cape_ai"
+		"item"	"item_paladin_sword_ai"
+		"item"	"item_psychic_headband_ai"
+		"item"	"item_ascetic_cap_ai"
+		"item"	"item_trickster_cloak_ai"
+		"item"	"item_ancient_guardian_ai"
+		"item"	"item_mind_breaker_ai"
+		"item"	"item_seer_stone_ai"
+		"item"	"item_force_field_ai"
+		"item"	"item_ballista_ai"
 		"item"	"item_armlet_light"						// 圣光臂章
 		"item"	"item_armlet_dark"						// 暗影臂章
-		"item"	"item_guardian_greaves_light"
-		"item"	"item_guardian_greaves_dark"
+		"item"	"item_guardian_greaves_ai"
 	}
 	// 其他
 	"misc"
@@ -135,27 +124,19 @@
 
 		"item"		"item_specialists_array_light"
 		"item"		"item_specialists_array_dark"
-		"item"		"item_timeless_relic_light"
-		"item"		"item_timeless_relic_dark"
-		"item"	    "item_defiant_shell_light"
-		"item"	    "item_defiant_shell_dark"
+		"item"		"item_timeless_relic_ai"
+		"item"	    "item_defiant_shell_ai"
 		"item"		"item_ex_machina_light"
 		"item"		"item_ex_machina_dark"
-		"item"		"item_pirate_hat_light"
-		"item"		"item_pirate_hat_dark"
-		"item"		"item_mysterious_hat_light"
-		"item"		"item_mysterious_hat_dark"
-		"item"		"item_safety_bubble_light"
-		"item"		"item_safety_bubble_dark"
-		"item"		"item_grove_bow_light"
-		"item"		"item_grove_bow_dark"
-		"item"		"item_ceremonial_robe_light"
-		"item"		"item_ceremonial_robe_dark"
-		"item"		"item_havoc_hammer_light"
-		"item"		"item_havoc_hammer_dark"
-		"item"		"item_apex_light"
-		"item"		"item_apex_dark"
+		"item"		"item_pirate_hat_ai"
+		"item"		"item_mysterious_hat_ai"
+		"item"		"item_safety_bubble_ai"
+		"item"		"item_grove_bow_ai"
+		"item"		"item_ceremonial_robe_ai"
+		"item"		"item_havoc_hammer_ai"
+		"item"		"item_apex_ai"
 		"item"		"item_disperser_chaos"			// 混沌散魂剑
+		"item"		"item_soul_ring_2"//混沌魂戒
 	}
 	// 神秘商店
 	"secretshop"
@@ -279,6 +260,7 @@
 		"item"		"item_disperser"
 		"item"		"item_angels_demise"
 		// "item"		"item_invis_sword"
+		"item"		"item_heavens_halberd_2"
 		"item"		"item_radiance_2"			// 大辉耀
 		"item"		"item_silver_edge_2"		// 大隐刀
 		"item"		"item_abyssal_blade_v2"		// 一闪
