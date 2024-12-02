@@ -121,7 +121,7 @@ function AIGameMode:PreGameOptions()
 
     local gameMode = GameRules:GetGameModeEntity()
     -- gameMode:SetModifyGoldFilter(Dynamic_Wrap(AIGameMode, "FilterGold"), self)
-    gameMode:SetModifyExperienceFilter(Dynamic_Wrap(AIGameMode, "FilterXP"), self)
+    -- gameMode:SetModifyExperienceFilter(Dynamic_Wrap(AIGameMode, "FilterXP"), self)
 
     GameRules:SetTimeOfDay(0.25)
 
@@ -273,15 +273,15 @@ end
 --     return true
 -- end
 
-function AIGameMode:FilterXP(tXPFilter)
-    local iXP = tXPFilter["experience"]
-    local iPlayerID = tXPFilter["player_id_const"]
-    local iReason = tXPFilter["reason_const"]
+-- function AIGameMode:FilterXP(tXPFilter)
+--     local iXP = tXPFilter["experience"]
+--     local iPlayerID = tXPFilter["player_id_const"]
+--     local iReason = tXPFilter["reason_const"]
 
-    tXPFilter["experience"] = math.floor(iXP * self:GetPlayerGoldXpMultiplier(iPlayerID))
+--     tXPFilter["experience"] = math.floor(iXP * self:GetPlayerGoldXpMultiplier(iPlayerID))
 
-    return true
-end
+--     return true
+-- end
 
 -- function AIGameMode:RewardFilterByKill(iPlayerID)
 --     local playerKill = PlayerResource:GetKills(iPlayerID)

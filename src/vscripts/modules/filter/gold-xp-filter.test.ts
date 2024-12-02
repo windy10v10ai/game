@@ -5,6 +5,7 @@ declare let global: any;
 global.GameRules = {
   GetGameModeEntity: jest.fn().mockReturnValue({
     SetModifyGoldFilter: jest.fn(),
+    SetModifyExperienceFilter: jest.fn(),
   }),
 };
 describe('GoldFilter', () => {

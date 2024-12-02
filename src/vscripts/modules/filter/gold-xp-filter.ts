@@ -5,6 +5,7 @@ import { PlayerHelper } from '../helper/player-helper';
 export class GoldXPFilter {
   constructor() {
     GameRules.GetGameModeEntity().SetModifyGoldFilter((args) => this.filterGold(args), this);
+    GameRules.GetGameModeEntity().SetModifyExperienceFilter((args) => this.filterXP(args), this);
   }
 
   readonly GOLD_REASON_NOT_FILTER: ModifyGoldReason[] = [
@@ -59,6 +60,21 @@ export class GoldXPFilter {
     }
 
     args.gold = Math.floor(gold * mul);
+
+    return true;
+  }
+
+  private filterXP(args: ModifyExperienceFilterEvent): boolean {
+    const xp = args.experience;
+    const playerID = args.player_id_const;
+    const reason = args.reason_const;
+    let mul = this.getPlayerGoldXpMultiplier(playerID);
+
+    if (reason === ModifyXpReason.HERO_KILL) {
+      mul = this.filterHeroKillGoldByMultiplier(mul);
+    }
+
+    args.experience = Math.floor(xp * mul);
 
     return true;
   }
