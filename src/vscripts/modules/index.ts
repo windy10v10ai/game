@@ -2,6 +2,7 @@ import { AI } from '../ai/AI';
 import { GameConfig } from './GameConfig';
 import { Debug } from './debug/Debug';
 import { Event } from './event/event';
+import { GoldXPFilter } from './filter/gold-xp-filter';
 import { Lottery } from './lottery/lottery';
 import { Option } from './option';
 import { PropertyController } from './property/property_controller';
@@ -30,6 +31,8 @@ export function ActivateModules() {
     new Event();
 
     new PropertyController();
+
+    new GoldXPFilter();
   }
 
   if (GameRules.AI == null) GameRules.AI = new AI();

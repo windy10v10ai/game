@@ -1,4 +1,4 @@
-export class CustomEvent {
+export class LoadingSetOptions {
   constructor() {
     CustomGameEventManager.RegisterListener('loading_set_options', (userId, args) =>
       this.OnGetLoadingSetOptions(userId, args),
@@ -28,6 +28,9 @@ export class CustomEvent {
     // max_level: string;
     // same_hero_selection: boolean;
     // radiant_bot_same_multi: boolean;
+
+    GameRules.Option.radiantGoldXpMultiplier = Number(args.game_options.player_gold_xp_multiplier);
+    GameRules.Option.direGoldXpMultiplier = Number(args.game_options.bot_gold_xp_multiplier);
     GameRules.Option.radiantPlayerNumber = Number(args.game_options.radiant_player_number);
     GameRules.Option.direPlayerNumber = Number(args.game_options.dire_player_number);
 
@@ -36,7 +39,9 @@ export class CustomEvent {
     GameRules.Option.startingGoldBot = Number(args.game_options.starting_gold_bot);
     GameRules.Option.respawnTimePercentage = Number(args.game_options.respawn_time_percentage);
 
-    // FIXME 移动到更合适的位置
+    print('GameRules.Option.radiantGoldXpMultiplier', GameRules.Option.radiantGoldXpMultiplier);
+    print('GameRules.Option.direGoldXpMultiplier', GameRules.Option.direGoldXpMultiplier);
+
     GameRules.Option.gameDifficulty =
       CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty ?? 0;
   }

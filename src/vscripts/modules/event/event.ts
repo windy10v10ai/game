@@ -1,39 +1,23 @@
-import { Player } from '../../api/player';
-import { PlayerHelper } from '../helper/player-helper';
-import { PropertyController } from '../property/property_controller';
-import { CustomEvent } from './custom-event';
+import { LoadingSetOptions } from './custom/loading-set-options';
 import { EventEntityKilled } from './event-entity-killed';
 import { EventGameStateChange } from './event-game-state-change';
 import { EventNpcSpawned } from './event-npc-spawned';
+import { EventPlayerLevelUp } from './event-player-level-up';
 
 export class Event {
   EventNpcSpawned: EventNpcSpawned;
   EventEntityKilled: EventEntityKilled;
   EventGameStateChange: EventGameStateChange;
+  EventPlayerLevelUp: EventPlayerLevelUp;
 
-  CustomEvent: CustomEvent;
+  // register custom event
+  loadingSetOptions: LoadingSetOptions;
   constructor() {
     this.EventNpcSpawned = new EventNpcSpawned();
     this.EventEntityKilled = new EventEntityKilled();
     this.EventGameStateChange = new EventGameStateChange();
-    ListenToGameEvent('dota_player_gained_level', (keys) => this.OnPlayerLevelUp(keys), this);
+    this.EventPlayerLevelUp = new EventPlayerLevelUp();
 
-    this.CustomEvent = new CustomEvent();
-  }
-
-  OnPlayerLevelUp(keys: GameEventProvidedProperties & DotaPlayerGainedLevelEvent): void {
-    const hero = EntIndexToHScript(keys.hero_entindex) as CDOTA_BaseNPC_Hero | undefined;
-    if (!hero) {
-      print(`[Event] ERROR: OnPlayerLevelUp hero is undefined`);
-      return;
-    }
-
-    // 更新玩家属性
-    if (PlayerHelper.IsHumanPlayer(hero)) {
-      if (keys.level % PropertyController.HERO_LEVEL_PER_POINT === 0) {
-        print(`[Event] OnPlayerLevelUp SetPlayerProperty ${hero.GetUnitName()}`);
-        Player.SetPlayerProperty(hero);
-      }
-    }
+    this.loadingSetOptions = new LoadingSetOptions();
   }
 }

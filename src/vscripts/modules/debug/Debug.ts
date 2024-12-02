@@ -48,13 +48,6 @@ export class Debug {
       hero.GetItemInSlot(15)?.EndCooldown();
     }
 
-    if (cmd.startsWith('-test')) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      this.log(`test command: ${cmd}`);
-      ModifierHelper.appleTowerModifier(hero, `modifier_tower_power`, 3);
-    }
-
     // 常用命令
     if (cmd === CMD.G_ALL) {
       PlayerHelper.ForEachPlayer((playerId) => {

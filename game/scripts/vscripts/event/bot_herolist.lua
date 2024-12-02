@@ -1,3 +1,4 @@
+-- TODO 未使用 删除
 tBotNameList = {
     --"npc_dota_hero_invoker",
     --"npc_dota_hero_antimage", // 不会放技能，只会物品和A人
