@@ -2,7 +2,7 @@ import { reloadable } from '../../utils/tstl-utils';
 import { PlayerHelper } from '../helper/player-helper';
 
 @reloadable
-export class GoldFilter {
+export class GoldXPFilter {
   constructor() {
     GameRules.GetGameModeEntity().SetModifyGoldFilter((args) => this.filterGold(args), this);
   }
@@ -66,9 +66,6 @@ export class GoldFilter {
   /**
    * 根据玩家的击杀数相对于团队总击杀数计算奖励倍数。
    * 击杀数较多的玩家获得的奖励更少，击杀数较少的玩家获得的奖励更多。
-   * 如果10人团队中，0击杀，则额外奖励5%
-   * 如果10人团队中，所有人击杀数相等，则额外奖励0%
-   * 如果10人团队中，拿了一半人头，则额外奖励-25%
    *
    * @param playerID - 要计算奖励倍数的玩家ID。
    * @returns 玩家奖励倍数。如果团队总击杀数小于10，倍数为1；
@@ -101,9 +98,6 @@ export class GoldFilter {
 
   /**
    * 降低高倍率时，击杀英雄的金钱奖励。
-   * input: 1.5, output: 2
-   * input: 4, output: 3
-   * input: 10, output: 6
    *
    * @param mul - The original gold multiplier.
    * @returns The adjusted gold multiplier.

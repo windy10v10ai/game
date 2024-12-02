@@ -1,4 +1,4 @@
-import { GoldFilter } from './gold-filter';
+import { GoldXPFilter } from './gold-xp-filter';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare let global: any;
@@ -8,10 +8,10 @@ global.GameRules = {
   }),
 };
 describe('GoldFilter', () => {
-  let goldFilter: GoldFilter;
+  let goldFilter: GoldXPFilter;
 
   beforeEach(() => {
-    goldFilter = new GoldFilter();
+    goldFilter = new GoldXPFilter();
   });
 
   describe('filterHeroKillGoldByMultiplier', () => {
