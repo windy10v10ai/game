@@ -1,4 +1,4 @@
-export class CustomEvent {
+export class LoadingSetOptions {
   constructor() {
     CustomGameEventManager.RegisterListener('loading_set_options', (userId, args) =>
       this.OnGetLoadingSetOptions(userId, args),
@@ -36,7 +36,6 @@ export class CustomEvent {
     GameRules.Option.startingGoldBot = Number(args.game_options.starting_gold_bot);
     GameRules.Option.respawnTimePercentage = Number(args.game_options.respawn_time_percentage);
 
-    // FIXME 移动到更合适的位置
     GameRules.Option.gameDifficulty =
       CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty ?? 0;
   }
