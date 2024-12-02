@@ -40,7 +40,7 @@ export class GoldXPFilter {
     let mul = this.getPlayerGoldXpMultiplier(playerID);
 
     if (this.GOLD_REASON_NOT_FILTER.includes(reason)) {
-      return false;
+      return true;
     }
 
     if (reason === ModifyGoldReason.HERO_KILL) {
