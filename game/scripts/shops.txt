@@ -215,10 +215,10 @@
 		"item"		"item_vladmir"
 		"item"		"item_wraith_pact"
 		"item"		"item_spirit_vessel"
-		"item"		"item_meteor_hammer"
+		"item"		"item_meteor_hammer_2"
 		"item"		"item_pipe"
 		"item"		"item_guardian_greaves"
-		"item"		"item_boots_of_bearing"
+		"item"		"item_boots_of_bearing_2"
 		"item"		"item_devastator_2"			// 神圣斧
 		"item"		"item_orb_of_the_brine"
 		"item"		"item_adi_king"
@@ -260,7 +260,7 @@
 		"item"		"item_black_king_bar_2"
 		// "item"		"item_hurricane_pike"
 		"item"		"item_heavens_halberd_v2"
-		"item"		"item_manta_1"
+		"item"		"item_manta_2"
 		"item"		"item_sphere_2"
 		"item"		"item_shivas_guard_2"
 		"item"		"item_undying_heart"
@@ -274,7 +274,7 @@
 		"item"		"item_nullifier"			// 否决
 		"item"		"item_greater_crit"			// 大炮
 		"item"		"item_armlet_pro_max"		// 小鸡臂章
-		"item"		"item_ethereal_blade"		// 虚灵之刃
+		"item"		"item_ethereal_blade_2"		// 虚灵之刃
 		"item"		"item_revenants_brooch"		// 英灵胸针
 		"item"		"item_disperser"
 		"item"		"item_angels_demise"
