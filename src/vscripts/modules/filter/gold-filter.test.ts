@@ -24,8 +24,7 @@ describe('GoldFilter', () => {
       expect(goldFilter.filterHeroKillGoldByMultiplier(1.5)).toBe(1.4);
       expect(goldFilter.filterHeroKillGoldByMultiplier(2)).toBe(1.8);
       expect(goldFilter.filterHeroKillGoldByMultiplier(6)).toBe(5);
-      // expect(goldFilter.filterHeroKillGoldByMultiplier(10)).toBe(8.2);
-      expect(goldFilter.filterHeroKillGoldByMultiplier(10)).toBe(8);
+      expect(goldFilter.filterHeroKillGoldByMultiplier(10)).toBe(8.2);
     });
   });
 });
