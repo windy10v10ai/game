@@ -17,8 +17,8 @@
 			"bonus_cooldown"			"12 14 16 18 20 22 24 26 28 30"
 
 			"bonus_move_speed"			"10 20 30 40 50 60 70 80 90 100"
-			"bonus_armor"				"10 20 30 40 50 60 70 80 90 100"
-			"bonus_magic_resistance"	"15 20 25 30 35 40 45 50 55 60"
+			"bonus_armor"				"6 12 18 24 30 36 42 48 54 60"
+			"bonus_magic_resistance"	"5 10 15 20 25 30 35 40 45 50"
 			// 全属性
 			"bonus_attributes"			"10 20 30 40 50 60 70 80 90 100"
 		}
