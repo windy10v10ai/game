@@ -64,6 +64,7 @@
   margin-right: 12px;
 }
 .pointTitleText {
+  text-align: center;
   font-size: 22px;
   color: #39a7ff;
   text-shadow: 2px 2px 8px 3 black;
