@@ -4,7 +4,6 @@
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"4"
 		"IsBreakable"					"1"
 		"MaxLevel"						"10"
 
