@@ -5495,7 +5495,7 @@
 	//=================================================================================================================
 	"item_recipe_manta_2"
 	{
-		"BaseClass"                     "item_recipe_manta"
+		"BaseClass"						"item_recipe_manta"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"0"
@@ -5509,11 +5509,11 @@
 	}
 	"item_manta_2"
 	{
-		"BaseClass"                     "item_manta"
+		"BaseClass"						"item_manta"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityCooldown"				"10.0"//34
+		"AbilityCooldown"				"10.0"	//34
 		"AbilityCastPoint"				"0.0"
-		"AbilityManaCost"				"200"//125
+		"AbilityManaCost"				"250"	//125
 		"ItemShopTags"					"agi;str;int;attack_speed;move_speed;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"manta style"
@@ -5521,13 +5521,13 @@
 		"SuggestLategame"				"1"
 		"AbilityValues"
 		{
-				"bonus_strength"		"60"//10
-				"bonus_agility"			"90"//26
-				"bonus_intellect"		"60"//10
-				"bonus_attack_speed"	"150"//15
-				"bonus_movement_speed"	"50"//10
-				"images_count"			"0"//2 移除幻象
-				"illusion_duration"			"0"//18
+				"bonus_strength"		"50"	//10
+				"bonus_agility"			"90"	//26
+				"bonus_intellect"		"50"	//10
+				"bonus_attack_speed"	"90"	//15
+				"bonus_movement_speed"	"30"	//10
+				"images_count"			"0"		//2 移除幻象
+				"illusion_duration"			"0"	//18
 				"images_do_damage_percent_melee"	"-67"//-67
 				"tooltip_damage_outgoing_melee"			"33"//33
 				"images_take_damage_percent"	"200"//200
@@ -5543,24 +5543,24 @@
 	//=================================================================================================================
 	"item_recipe_heavens_halberd_2"
 	{
-		"BaseClass"                     "item_recipe_heavens_halberd"
-		"ItemCost"						"0"
+		"BaseClass"						"item_recipe_heavens_halberd"
+		"ItemCost"						"3000"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_heavens_halberd_2"
 		"ItemRequirements"
 		{
-			"01"						"item_heavens_halberd;item_heavens_halberd;item_heavens_halberd"
+			"01"						"item_heavens_halberd;item_heavens_halberd"
 		}
 	}
 	"item_heavens_halberd_2"
 	{
-		"BaseClass"                     "item_heavens_halberd"
+		"BaseClass"						"item_heavens_halberd"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
 		"AbilityCooldown"				"18"
-		"AbilityCastRange"				"900"//650
+		"AbilityCastRange"				"900"	//650
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"150"
 		"ItemShopTags"					"str;damage;evasion"
@@ -5572,12 +5572,12 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
-				"bonus_evasion"				"75"//25
-				"bonus_strength"		"80"//20
-				"disarm_range"				"10.0"//5
-				"disarm_melee"				"6.0"//3
-				"slow_resistance"				"75"//25
-				"hp_regen_amp"			"75"//25
+				"bonus_evasion"				"60"	//25
+				"bonus_strength"			"60"	//20
+				"disarm_range"				"10.0"	//5
+				"disarm_melee"				"6.0"	//3
+				"slow_resistance"			"60"	//25
+				"hp_regen_amp"				"60"	//25
 		}
 	}
 	//=================================================================================================================
@@ -5585,54 +5585,54 @@
 	//=================================================================================================================
 	"item_recipe_meteor_hammer_2"
 	{
-		"BaseClass"                     "item_recipe_meteor_hammer"
-		"ItemCost"						"0"
+		"BaseClass"						"item_recipe_meteor_hammer"
+		"ItemCost"						"2350"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_meteor_hammer_2"
 		"ItemRequirements"
 		{
-			"01"						"item_meteor_hammer;item_ultimate_orb;item_ultimate_orb"
+			"01"						"item_meteor_hammer;item_ultimate_orb"
 		}
 	}
 	"item_meteor_hammer_2"
 	{
-		"BaseClass"                     "item_meteor_hammer"
+		"BaseClass"						"item_meteor_hammer"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
-		"AbilityChannelTime"			"1.5"//2
-		"AbilityCastRange"				"900"//600
+		"AbilityChannelTime"			"1.5"	//2
+		"AbilityCastRange"				"900"	//600
 		"AbilityCooldown"				"20"
 		"AbilityManaCost"				"300"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		"AbilityValues"
 		{
-				"bonus_strength"		"40"//6 根据配方
-				"bonus_agility"		"40"//6 根据配方
-				"bonus_intellect"			"60"//24 根据配方
-				"spell_amp"			"50"//10
-				"mana_regen_multiplier"		"200"//50
-				"spell_lifesteal_amp"	"120"//24
+				"bonus_strength"		"30"	//6
+				"bonus_agility"			"30"	//6
+				"bonus_intellect"		"60"	//24
+				"spell_amp"				"30"	//10
+				"mana_regen_multiplier"	"150"	//50
+				"spell_lifesteal_amp"	"60"	//24
 
-				"burn_dps_buildings"		"0"//50
-				"burn_dps_units"		"250"//50
-				"burn_slow"			"100"//20
-				"burn_duration"		"6"//6
-				"stun_duration"		"1.5"//0.5
-				"burn_interval"				"1.0"//1.0
-				"land_time"				".5"//0.5
+				"burn_dps_buildings"	"50"	//50
+				"burn_dps_units"		"200"	//50
+				"burn_slow"			"50"		//20
+				"burn_duration"		"6"			//6
+				"stun_duration"		"1.0"		//0.5
+				"burn_interval"			"1.0"	//1.0
+				"land_time"				".5"	//0.5
 				"impact_radius"
 				{
 					"value"		"500"
 					"affected_by_aoe_increase"	"1"
 				}
-				"max_duration"		"1.5"//2
-				"impact_damage_buildings"		"0"//90
-				"impact_damage_units"		"260"//130
+				"max_duration"		"1.5"			//2
+				"impact_damage_buildings"	"100"	//90
+				"impact_damage_units"		"500"	//130
 				"enemy_particles_visible"		"0"
 		}
 	}
@@ -5641,7 +5641,7 @@
 	//=================================================================================================================
 	"item_recipe_ethereal_blade_ultra"
 	{
-		"BaseClass"                     "item_recipe_ethereal_blade"
+		"BaseClass"						"item_recipe_ethereal_blade"
 		"ItemCost"						"0"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -5653,36 +5653,36 @@
 	}
 	"item_ethereal_blade_ultra"
 	{
-		"BaseClass"                     "item_ethereal_blade"
+		"BaseClass"						"item_ethereal_blade"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"FightRecapLevel"				"1"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityCastRange"				"1000"//800
+		"AbilityCastRange"				"1000"	//800
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"10.0"//22
+		"AbilityCooldown"				"10.0"	//22
 		"AbilitySharedCooldown"			"ethereal"
-		"AbilityManaCost"				"500"//100
+		"AbilityManaCost"				"500"	//100
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"AbilityTextureName"            "ethereal_blade"
+		"AbilityTextureName"			"ethereal_blade"
 		"AbilityValues"
 		{
-				"bonus_agility"			"40"//8
-				"bonus_strength"		"40"//8
-				"bonus_intellect"		"40"//8
-				"bonus_mana"			"900"//300
-				"bonus_cast_range"		"500"//250
-				"bonus_mana_regen"		"30"//3
-				"blast_movement_slow"	"-100"//-80
-				"duration"				"30"//4
-				"blast_agility_multiplier"			"3.5"//1.5
+				"bonus_agility"			"20"	//8
+				"bonus_strength"		"20"	//8
+				"bonus_intellect"		"20"	//8
+				"bonus_mana"			"500"	//300
+				"bonus_cast_range"		"300"	//250
+				"bonus_mana_regen"		"6"		//3
+				"blast_movement_slow"	"-90"	//-80
+				"duration"				"20"	//4
+				"blast_agility_multiplier"	"3.0"//1.5
 				"blast_damage_base"			"500"//50
-				"duration_ally"				"10"//4.0
-				"ethereal_damage_bonus"	"-100"//-40
-				"projectile_speed"	"2000"//1400
+				"duration_ally"				"8"	//4.0
+				"ethereal_damage_bonus"	"-80"	//-40
+				"projectile_speed"	"2000"		//1400
 		}
 	}
 	//=================================================================================================================
@@ -5690,42 +5690,42 @@
 	//=================================================================================================================
 	"item_recipe_boots_of_bearing_2"
 	{
-		"BaseClass"                     "item_recipe_boots_of_bearing"
+		"BaseClass"						"item_recipe_boots_of_bearing"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"2000"
+		"ItemCost"						"5725"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_boots_of_bearing_2"
 		"ItemRequirements"
 		{
-			"01"						"item_boots_of_bearing;item_boots_of_bearing"
+			"01"						"item_boots_of_bearing"
 		}
 	}
 	"item_boots_of_bearing_2"
 	{
-		"BaseClass"                     "item_boots_of_bearing"
+		"BaseClass"						"item_boots_of_bearing"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"ItemPermanent"					"1"
 		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"15.0"//30
+		"AbilityCooldown"				"15.0"	//30
 		//"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		"AbilityValues"
 		{
-			"aura_movement_speed"	"50"//20
-			"bonus_str"				"20"//8
-			"bonus_int"				"20"//8
-			"bonus_attack_speed_pct"	"100"//50
-			"bonus_movement_speed_pct"	"30"//15
-			"duration"				"8"//6
+			"aura_movement_speed"	"50"	//20
+			"bonus_str"				"20"	//8
+			"bonus_int"				"20"	//8
+			"bonus_attack_speed_pct"	"100"	//50
+			"bonus_movement_speed_pct"	"30"	//15
+			"duration"				"6"		//6
 			"radius"
 			{
-				"value"				"1800"//1200
+				"value"				"1800"	//1200
 				"affected_by_aoe_increase"	"1"
 			}
-			"bonus_movement_speed"	"150"//65
-			"bonus_health_regen"	"90"//15
-			"bonus_ms_duration"		"4"//1.5
+			"bonus_movement_speed"	"120"	//65
+			"bonus_health_regen"	"50"	//15
+			"bonus_ms_duration"		"3"		//1.5
 		}
 	}
 }
