@@ -178,6 +178,7 @@
 		"item"		"item_wings_of_haste"
 		"item"		"item_moon_shard_datadriven"
 		"item"		"item_consumable_gem"		// 幻影宝石
+		"item"		"item_ethereal_blade_ultra"	// 永恒虚灵刀
 	}
 
 	// Level 2 - Blue Recipes 辅助
@@ -255,7 +256,6 @@
 		"item"		"item_nullifier"			// 否决
 		"item"		"item_greater_crit"			// 大炮
 		"item"		"item_armlet_pro_max"		// 小鸡臂章
-		"item"		"item_ethereal_blade_2"		// 虚灵之刃
 		"item"		"item_revenants_brooch"		// 英灵胸针
 		"item"		"item_disperser"
 		"item"		"item_angels_demise"
