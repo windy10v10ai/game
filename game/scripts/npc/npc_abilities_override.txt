@@ -27,6 +27,23 @@
 				}
 		}
 	}
+	// 永久献祭
+	"brewmaster_fire_permanent_immolation"
+	{
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"damage"
+			{
+				"value" "25 50 75 100"
+			}
+		}
+	}
+	// 永久相位
+	"brewmaster_fire_phase"
+	{
+		"MaxLevel"						"1"
+	}
 	// ---------------------------------
 	// ---- Strength Heroes 力量英雄----
 	// ---------------------------------
@@ -612,18 +629,6 @@
 	"brewmaster_storm_wind_walk"
 	{
 		"MaxLevel"						"1"
-	}
-	// 火猫献祭
-	"brewmaster_fire_permanent_immolation"
-	{
-		"MaxLevel"						"1"
-		"AbilityValues"
-		{
-			"damage"
-			{
-				"value" "50"	// 25 50 75
-			}
-		}
 	}
 	// 紫猫小颠勺
 	"brewmaster_void_astral_pull"

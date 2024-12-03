@@ -13,20 +13,19 @@ export const abilityTiers: Tier[] = [
       'bristleback_bristleback', // 钢毛后背
       'spectre_dispersion', // 折射
       'drow_ranger_marksmanship', // 射手天赋
-      'ogre_magi_multicast', // 多重施法
     ],
   },
   {
     level: 4,
     rate: 5,
     names: [
+      'ogre_magi_multicast', // 多重施法
       'phantom_assassin_coup_de_grace', // 恩赐解脱
       'huskar_berserkers_blood', // 狂战士之血
       'templar_assassin_psi_blades', // 灵能之刃
       'troll_warlord_fervor', // 热血战魂
       'dazzle_good_juju', // 善咒
       'rubick_arcane_supremacy', // 奥术至尊
-      'slark_essence_shift', // 能量转移
       'sven_great_cleave', // 巨力挥舞
       'ursa_fury_swipes', // 怒意狂击
       'medusa_split_shot', // 分裂箭
@@ -38,16 +37,15 @@ export const abilityTiers: Tier[] = [
     level: 3,
     rate: 20,
     names: [
+      'slark_essence_shift', // 能量转移
       'chaos_knight_chaos_strike', // 混沌一击
       'axe_counter_helix', // 反击螺旋
       'bloodseeker_thirst', // 焦渴
       'legion_commander_moment_of_courage', // 勇气之霎
       'centaur_return', // 人马 反伤
       'riki_permanent_invisibility', // 永久隐身（旧版）
-      'lich_frost_aura', // 冰霜光环
       'spectre_desolate', // 荒芜
       'slardar_bash', // 深海重击
-      'spirit_breaker_greater_bash', // 巨力重击
       'kunkka_tidebringer', // 潮汐使者 水刀
       'lycan_feral_impulse', // 野性驱使
       'muerta_gunslinger', // 神枪在手
@@ -55,14 +53,17 @@ export const abilityTiers: Tier[] = [
       'necrolyte_heartstopper_aura', // 竭心光环
       'enchantress_untouchable', // 不可侵犯
       'monkey_king_jingu_mastery', // 如意棒法
+      'earthshaker_aftershock', // 余震
+      'obsidian_destroyer_equilibrium', // 精华变迁
     ],
   },
   {
     level: 2,
     rate: 50,
     names: [
+      'lich_frost_aura', // 冰霜光环
+      'spirit_breaker_greater_bash', // 巨力重击
       'tiny_grow', // 长大
-      'earthshaker_aftershock', // 余震
       'antimage_mana_break', // 法力损毁
       'bounty_hunter_jinada', // 忍术
       'abaddon_frostmourne', // 魔霭诅咒
@@ -71,7 +72,6 @@ export const abilityTiers: Tier[] = [
       'skeleton_king_mortal_strike', // 本命一击
       'life_stealer_ghoul_frenzy', // 尸鬼狂怒
       'night_stalker_hunter_in_the_night', // 暗夜猎影
-      'obsidian_destroyer_equilibrium', // 精华变迁
       'visage_gravekeepers_cloak', // 陵卫斗篷
       'alchemist_corrosive_weaponry', // 腐蚀兵械
       'sniper_headshot', // 爆头
