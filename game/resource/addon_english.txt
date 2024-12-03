@@ -1808,6 +1808,79 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_spell_lifesteal_amp"				"%+Spell Lifesteal Amplification"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+Cast Speed Bonus"
 
+		// 神器除你武器
+		"DOTA_Tooltip_Ability_item_heavens_halberd_2"				"<font color='#e03e2e'>Artifact: Heaven's Halberd</font>"
+		"DOTA_Tooltip_ability_item_heavens_halberd_2_Description"	"<h1>Active: Disarm</h1> Prevents the target unit from making physical attacks for %disarm_range%/%disarm_melee% (ranged/melee) seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_2_Lore"			"Meow Star: Now go!"
+		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_evasion"	"%+$evasion"
+		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_strength"	"+$str"
+		"DOTA_Tooltip_Ability_item_heavens_halberd_2_slow_resistance"	"%+ Slow Resistance"
+		"DOTA_Tooltip_ability_item_heavens_halberd_2_hp_regen_amp"	"%+ Health Regen and Lifesteal Amplification"
+
+		"DOTA_Tooltip_modifier_heavens_halberd_2_buff"				"Cripple"
+		"DOTA_Tooltip_modifier_heavens_halberd_2_buff_Description"	"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%"
+		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff"				"Disarmed"
+		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff_Description"	"Disarmed by Heaven's Halberd, unable to attack."
+
+		//神器相位斧
+		"DOTA_Tooltip_Ability_item_manta_2"				"<font color='#e03e2e'>Artifact: Phase Axe</font>"
+		"DOTA_Tooltip_ability_item_manta_2_Description"	"<h1>Active: Phase Shift</h1> 1 second of phase shift, cannot be canceled<br><br>Dispellable: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_manta_2_Lore"			"Lost the ability to create illusions but gained a 1-second invisibility."
+		"DOTA_Tooltip_ability_item_manta_2_Note0"			"Has a %invuln_duration% second cast time during which it is invulnerable."
+		"DOTA_Tooltip_ability_item_manta_2_Note1"			"Can use Manta Style to remove many negative effects."
+		"DOTA_Tooltip_ability_item_manta_2_Note2"			"Does not stack with other Yasha, Sange and Yasha, or Manta Style movement speed bonuses."
+		"DOTA_Tooltip_ability_item_manta_2_bonus_agility"	"+$agi"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_strength"	"+$str"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_intellect"	"+$int"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_attack_speed"	"+$attack"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_movement_speed"	"%+$move_speed"
+
+		// 神器星落
+		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>Artifact: Meteor Hammer</font>"
+		"DOTA_Tooltip_ability_item_meteor_hammer_2_Description"                   "<h1>Active: Meteor</h1> CHANNELED - After a successful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds and dealing impact damage. Continues to deal damage over time to enemies units and buildings for %burn_duration% seconds. Non-building units are also slowed for %burn_slow%%% for the duration of the burn. <BR><BR>Building Impact Damage: %impact_damage_buildings% <BR>Building Over Time Damage: %burn_dps_buildings% <BR><BR>Non-Building Impact Damage: %impact_damage_units% <BR>Non-Building Over Time Damage: %burn_dps_units% <BR><BR>Channel Duration: %max_duration% seconds.<BR>Landing Time: %land_time% seconds."
+		"DOTA_Tooltip_ability_item_meteor_hammer_2_lore"                   "An artifact that stuns regardless of magic immunity."
+		"DOTA_Tooltip_ability_item_meteor_hammer_2_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_meteor_hammer_2_bonus_agility"						"+$agi"
+		"DOTA_Tooltip_ability_item_meteor_hammer_2_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_meteor_hammer_2_spell_amp"						"%+ Spell Amplification"
+		"DOTA_Tooltip_ability_item_meteor_hammer_2_mana_regen_multiplier"				"%+ Mana Regeneration Amplification"
+		"DOTA_Tooltip_ability_item_meteor_hammer_2_spell_lifesteal_amp"				"%+ Spell Lifesteal Amplification"
+		"DOTA_Tooltip_modifier_item_meteor_hammer_2_burn"						"Meteor Hammer Burn"
+		"DOTA_Tooltip_modifier_item_meteor_hammer_2_burn_Description"			"Slowed and taking %dMODIFIER_PROPERTY_TOOLTIP% damage every %dMODIFIER_PROPERTY_TOOLTIP2% seconds."
+
+		// 神器蹦迪鞋
+		"DOTA_Tooltip_ability_item_boots_of_bearing_2"                          "<font color='#e03e2e'>Artifact: Boots of Bearing</font>"
+		"DOTA_Tooltip_ability_item_boots_of_bearing_2_Description"					"<h1>Active: Get Hyped</h1> Gives +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to nearby allies for %duration% seconds. For the first %bonus_ms_duration% seconds allies are immune to slows.<br><br> Radius: %radius%  \n\n<h1>Passive: Swiftness Aura</h1>Grants %aura_movement_speed% movement speed to allies.  <br><br>Radius: %radius%"
+		"DOTA_Tooltip_ability_item_boots_of_bearing_2_Lore"						"Let's dance!"
+		"DOTA_Tooltip_ability_item_boots_of_bearing_2_bonus_str"					"+$str"
+		"DOTA_Tooltip_ability_item_boots_of_bearing_2_bonus_int"					"+$int"
+		"DOTA_Tooltip_ability_item_boots_of_bearing_2_bonus_movement_speed"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_boots_of_bearing_2_bonus_health_regen"			"+$hp_regen"
+		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_aura"				"Swift Aura"
+		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_aura_Description"	"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%."
+		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active"				"Resilient"
+		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active_Description"	"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%. Attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+
+		// 神器永恒虚灵刀
+		"DOTA_Tooltip_Ability_item_ethereal_blade_ultra"				"<font color='#e03e2e'>Artifact: Eternal Ethereal Blade</font>"
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Description"					"<h1>Active: Ethereal Shock</h1> Fires an energy wave, turning the target into an ethereal state, increasing the magic damage they take by %ethereal_damage_bonus%%, and making them unable to attack or be attacked.<br><br>If the target is an enemy, they are also slowed by %blast_movement_slow%% and take additional magic damage equal to %blast_agility_multiplier%x[the target's main attribute] + %blast_damage_base%.<br><br>Cast range: %abilitycastrange%<br>Duration: %duration% seconds"
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note0"						"Shares cooldown with Ghost Scepter."
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note1"						"Units in ethereal state take an additional %ethereal_damage_bonus%% magic damage."
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note2"						"For versatile heroes, their main attribute value is 60%% of the sum of all attributes."
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note3"						"Using Town Portal Scroll or Boots of Travel will not dispel ethereal state."
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_agility"				"+$all"
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_mana"                      "+$mana"
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_mana_regen"                "+$mana_regen"
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_cast_range"                "+$cast_range"
+
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_mana_regen_multiplier"		"%+ Mana Regeneration Amplification"
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Lore"						"A sinister blade that flickers in and out of existence, dealing damage in both the physical and magical realms."
+
+		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_ethereal"				"Ethereal Shock"
+		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_ethereal_Description"	"In ethereal form. Takes %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%% increased magic damage and cannot perform or receive physical attacks."
+		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow"				"Ethereal Blade Slow"
+		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow_Description"	"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%."
+
 		// 力量跳2
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2"                            "Tyson's Flash"
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Description"			    "<h1>Active: Tyson's Flash</h1>Teleport to a target point up to %blink_range% units away.<br><br>After teleportation, all enemies in a %radius% AoE take damage equal to %damage_base% + %damage_pct_instant%%% of your strength and an additional %damage_pct_over_time%%% over time, and have %movement_slow%%% movement speed slow and %attack_slow% attack speed slow for %duration% seconds. <br><br>Overwhelming Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
@@ -2825,10 +2898,18 @@
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"
 
 		"DOTA_Tooltip_ability_item_disperser_chaos_1"				"<font color='#80FFF4'>Chaotic</font> Disperser <font color='#4d4dff'>(Neutral)</font>"
-		"DOTA_Tooltip_ability_item_disperser_chaos_1_Description"				"<h1>Active: Suppress</h1> Slows the target for %enemy_effect_duration% seconds if they are an enemy or applies a basic dispell and grants bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds if they are an ally. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions.""
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_Description"				"<h1>Active: Suppress</h1> Slows the target for %enemy_effect_duration% seconds if they are an enemy or applies a basic dispell and grants bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds if they are an ally. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
 		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_damage"				"+$damage"
+
+		// 混沌魂戒
+		"DOTA_Tooltip_Ability_item_soul_ring_1"				"<font color='#FF4500'>Chaotic Soul Ring</font>"
+		"DOTA_Tooltip_ability_item_soul_ring_1_Description"						"<h1>Active: Sacrifice</h1> Consume %AbilityHealthCost% health to temporarily gain %mana_gain% mana.  Lasts %duration% seconds.<br><br>If the mana gained cannot fit in your mana pool, it creates a buffer of mana that will be used before your mana pool."
+		"DOTA_Tooltip_ability_item_soul_ring_1_Lore"								"A ring that feeds on the souls of those who wear it."
+		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"If this mana is not used before the duration ends, the extra mana is lost."
+		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
 
 	}
 }

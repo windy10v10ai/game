@@ -17,7 +17,7 @@ const containerStyleBase: Partial<VCSSStyleDeclaration> = {
   transitionTimingFunction: 'ease-in-out',
 };
 
-const containerStyleCollapse: Partial<VCSSStyleDeclaration> = {
+const containerStyleInit: Partial<VCSSStyleDeclaration> = {
   ...containerStyleBase,
   visibility: 'collapse',
   opacity: '0',
@@ -31,7 +31,7 @@ const containerStyleFadeout: Partial<VCSSStyleDeclaration> = {
   transform: 'translateY(-50%)',
 };
 
-const containerStyleExpand: Partial<VCSSStyleDeclaration> = {
+const containerStyleShow: Partial<VCSSStyleDeclaration> = {
   ...containerStyleBase,
   visibility: 'visible',
   opacity: '1',
@@ -61,14 +61,14 @@ function Lottery() {
   const [containerStyle, setContainerStyle] = useState<Partial<VCSSStyleDeclaration>>(() => {
     const lotteryStatus = GetLotteryStatus(steamAccountId);
     const isVisible = getIsVisible(lotteryStatus);
-    return isVisible ? containerStyleExpand : containerStyleCollapse;
+    return isVisible ? containerStyleShow : containerStyleInit;
   });
   // 监听nettable数据变化
   useEffect(() => {
     const statusListenerId = SubscribeLotteryStatus(steamAccountId, (data) => {
       const isVisible = getIsVisible(data);
       if (isVisible) {
-        setContainerStyle(containerStyleExpand);
+        setContainerStyle(containerStyleShow);
       } else {
         setContainerStyle(containerStyleFadeout);
       }
