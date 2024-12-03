@@ -9,22 +9,69 @@ import { LotteryStatusDto } from '../../../common/dto/lottery-status';
 import { GetLotteryStatus, SubscribeLotteryStatus } from '@utils/net-table';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 
+const containerStyleBase: Partial<VCSSStyleDeclaration> = {
+  horizontalAlign: 'center',
+  transitionProperty: 'transform, opacity, width, height',
+  transitionDelay: '0s',
+  transitionDuration: '1s',
+  transitionTimingFunction: 'ease-in-out',
+};
+
+const containerStyleCollapse: Partial<VCSSStyleDeclaration> = {
+  ...containerStyleBase,
+  visibility: 'collapse',
+  opacity: '0',
+  transform: 'translateY(-50%)',
+};
+
+const containerStyleFadeout: Partial<VCSSStyleDeclaration> = {
+  ...containerStyleBase,
+  visibility: 'visible',
+  opacity: '0',
+  transform: 'translateY(-50%)',
+};
+
+const containerStyleExpand: Partial<VCSSStyleDeclaration> = {
+  ...containerStyleBase,
+  visibility: 'visible',
+  opacity: '1',
+  transform: 'translateY(0)',
+};
+
+const getIsVisible = (lotteryStatus: LotteryStatusDto | null) => {
+  if (!lotteryStatus) {
+    return false;
+  }
+
+  if (lotteryStatus.pickAbilityName && lotteryStatus.pickItemName) {
+    return false;
+  }
+
+  return true;
+};
+
 function Lottery() {
   const steamAccountId = GetLocalPlayerSteamAccountID();
 
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [lotteryStatus, setLotteryStatus] = useState<LotteryStatusDto | null>(
-    GetLotteryStatus(steamAccountId),
-  );
-
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
   };
 
+  const [containerStyle, setContainerStyle] = useState<Partial<VCSSStyleDeclaration>>(() => {
+    const lotteryStatus = GetLotteryStatus(steamAccountId);
+    const isVisible = getIsVisible(lotteryStatus);
+    return isVisible ? containerStyleExpand : containerStyleCollapse;
+  });
   // 监听nettable数据变化
   useEffect(() => {
     const statusListenerId = SubscribeLotteryStatus(steamAccountId, (data) => {
-      setLotteryStatus(data);
+      const isVisible = getIsVisible(data);
+      if (isVisible) {
+        setContainerStyle(containerStyleExpand);
+      } else {
+        setContainerStyle(containerStyleFadeout);
+      }
     });
 
     return () => {
@@ -32,21 +79,8 @@ function Lottery() {
     };
   }, [steamAccountId]);
 
-  let isVisible = true;
-
-  if (!lotteryStatus) {
-    isVisible = false;
-  } else if (lotteryStatus.pickAbilityName && lotteryStatus.pickItemName) {
-    isVisible = false;
-  }
-
-  const collapseContainerStyle: Partial<VCSSStyleDeclaration> = {
-    horizontalAlign: 'center',
-    visibility: isVisible ? 'visible' : 'collapse',
-  };
-
   return (
-    <Panel style={collapseContainerStyle}>
+    <Panel style={containerStyle}>
       <ExpandButton isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
       <ContentContainer isCollapsed={isCollapsed} />
     </Panel>
