@@ -2892,10 +2892,10 @@
 		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_damage"				"+$damage"
 
 		// 混沌魂戒
-		"DOTA_Tooltip_Ability_item_soul_ring_1"				"<font color='#FF4500'>混沌·魂戒</font>"
-		"DOTA_Tooltip_ability_item_soul_ring_1_Description"						"<h1>主动：献身</h1> 消耗%AbilityHealthCost%点生命值来暂时获取%mana_gain%点魔法值。持续%duration%秒。<br><br>如果获得魔法后超过了自身的魔法上限，多出来的魔法会加入上限，并优先被使用。"
-		"DOTA_Tooltip_ability_item_soul_ring_1_Lore"								"一枚能吞噬佩带者灵魂的戒指。"
-		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"如果在持续时间结束时没有使用，额外的魔法将会消失。"
+		"DOTA_Tooltip_Ability_item_soul_ring_1"				"<font color='#FF4500'>Chaotic Soul Ring</font>"
+		"DOTA_Tooltip_ability_item_soul_ring_1_Description"						"<h1>Active: Sacrifice</h1> Consume %AbilityHealthCost% health to temporarily gain %mana_gain% mana.  Lasts %duration% seconds.<br><br>If the mana gained cannot fit in your mana pool, it creates a buffer of mana that will be used before your mana pool."
+		"DOTA_Tooltip_ability_item_soul_ring_1_Lore"								"A ring that feeds on the souls of those who wear it."
+		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"If this mana is not used before the duration ends, the extra mana is lost."
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
 

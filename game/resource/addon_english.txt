@@ -2898,7 +2898,7 @@
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"
 
 		"DOTA_Tooltip_ability_item_disperser_chaos_1"				"<font color='#80FFF4'>Chaotic</font> Disperser <font color='#4d4dff'>(Neutral)</font>"
-		"DOTA_Tooltip_ability_item_disperser_chaos_1_Description"				"<h1>Active: Suppress</h1> Slows the target for %enemy_effect_duration% seconds if they are an enemy or applies a basic dispell and grants bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds if they are an ally. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions.""
+		"DOTA_Tooltip_ability_item_disperser_chaos_1_Description"				"<h1>Active: Suppress</h1> Slows the target for %enemy_effect_duration% seconds if they are an enemy or applies a basic dispell and grants bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds if they are an ally. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
 		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_1_bonus_damage"				"+$damage"
@@ -2910,5 +2910,6 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"If this mana is not used before the duration ends, the extra mana is lost."
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
+
 	}
 }

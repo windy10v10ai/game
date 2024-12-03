@@ -5571,6 +5571,7 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SuggestLategame"				"1"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"heavens_halberd_2"
 		"AbilityValues"
 		{
 				"bonus_evasion"				"60"	//25
@@ -5610,6 +5611,7 @@
 		"AbilityManaCost"				"300"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"AbilityTextureName"			"meteor_hammer_2"
 		"AbilityValues"
 		{
 				"bonus_strength"		"30"	//6
@@ -5668,7 +5670,7 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"AbilityTextureName"			"ethereal_blade"
+		"AbilityTextureName"			"ethereal_blade_ultra"
 		"AbilityValues"
 		{
 				"bonus_agility"			"20"	//8
@@ -5711,6 +5713,7 @@
 		//"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"AbilityTextureName"			"boots_of_bearing_2"
 		"AbilityValues"
 		{
 			"aura_movement_speed"	"50"	//20
