@@ -5211,7 +5211,7 @@
 		"ItemResult"					"item_devastator_2"
 		"ItemRequirements"
 		{
-			"01"						"item_devastator;item_devastator_2"
+			"01"						"item_devastator;item_devastator"
 		}
 	}
 
