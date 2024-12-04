@@ -444,7 +444,7 @@
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_ability_bot_power"						"Bot Salvation"
-		"DOTA_Tooltip_ability_bot_power_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as cooldown reduction and movement speed."
+		"DOTA_Tooltip_ability_bot_power_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
 		"DOTA_Tooltip_ability_bot_power_Lore"					"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
 
 		///////////////////////////////////////////////////
