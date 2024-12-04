@@ -27,6 +27,9 @@
 				}
 		}
 	}
+	//=================================================================================================================
+	// 熊猫酒仙
+	//=================================================================================================================
 	// 永久献祭
 	"brewmaster_fire_permanent_immolation"
 	{
@@ -43,6 +46,35 @@
 	"brewmaster_fire_phase"
 	{
 		"MaxLevel"						"1"
+	}
+	//=================================================================================================================
+	// 死灵龙
+	//=================================================================================================================
+	// 陵卫斗篷
+	"visage_gravekeepers_cloak"
+	{
+		"LinkedAbility"					"crystal_maiden_frostbite"
+		"AbilityDraftPreAbility"		"crystal_maiden_frostbite"
+		"MaxLevel"						"5"
+		"AbilityValues"
+		{
+			"max_layers"
+			{
+				"value" "6"
+			}
+			"damage_reduction"
+			{
+				"value" "15 20 25 30 35"
+			}
+			"recovery_time"
+			{
+				"value" "7 6 5 4 3"
+			}
+			"max_damage_reduction"
+			{
+				"value" "90"
+			}
+		}
 	}
 	// ---------------------------------
 	// ---- Strength Heroes 力量英雄----
@@ -8295,32 +8327,6 @@
 			"duration"
 			{
 				"value"										"1.5 2 2.5 3 3.5"
-			}
-		}
-	}
-	// 陵卫斗篷（来自死灵龙）
-	"visage_gravekeepers_cloak"
-	{
-		"LinkedAbility"					"crystal_maiden_frostbite"
-		"AbilityDraftPreAbility"		"crystal_maiden_frostbite"
-		"MaxLevel"						"5"
-		"AbilityValues"
-		{
-			"max_layers"
-			{
-				"value" "6"
-			}
-			"damage_reduction"
-			{
-				"value" "15 20 25 30 35"
-			}
-			"recovery_time"
-			{
-				"value" "7 6 5 4 3"
-			}
-			"max_damage_reduction"
-			{
-				"value" "90"
 			}
 		}
 	}
