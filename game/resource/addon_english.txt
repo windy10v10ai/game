@@ -100,22 +100,22 @@
 		//            Data panel
 		//
 		///////////////////////////////////////////////////
-		"data_panel_button"				"Home page"
+		"data_panel_button"				"Home"
 		"data_panel_member_point"		"Member Points"
 		"data_panel_season_point"		"Battle Points"
 		"data_panel_property_point"		"Attribute Points (Available/Total)"
 
 		"data_panel_data_button"		"Data"
-		"data_panel_property_button"	"Attributes"
+		"data_panel_property_button"	"Attribute"
 		"data_panel_property_list"		"Add"
 		"data_panel_property_reset"		"Reset"
 
 		"data_panel_season_level"		"Battle Level"
-		"data_panel_season_level_tooltip"		"After a game, you earn Battle Points. Earn enough Points to gain a Battle Level.<br>Gaining Battle Levels grants Attribute Points, which can be used to upgrade hero attributes in the <font color='#E8C07D'>Player Attributes</font> panel.<br>Points required for subsequent levels increase by <font color='#E8C07D'>100</font> points."
+		"data_panel_season_level_tooltip"		"Level up using Battle Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>100</font> for each level up."
 		"data_panel_member_level"		"Member Level"
-		"data_panel_member_level_tooltip"		"Members get 100 membership points for playing every day.<br>Member Points are gained separetely from Battle Points, but are functionally identical, and grant the same Attribute Points for use in the <font color='#E8C07D'>Player Attributes</font> panel.<br>Points required for subsequent levels increase by <font color='#E8C07D'>50</font> points."
+		"data_panel_member_level_tooltip"		"Level up using Member Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>50</font> for each level up."
 		"data_panel_level_progress"		"Level Progress"
-		"data_panel_link_rule"			"Points Attributes Rule"
+		"data_panel_link_rule"			"Points and Attribute Rule"
 		"data_panel_member_point_rule_url"		"https://afdian.com/p/8d1e8ac8682711ed984b52540025c377"
 
 		"reset_property_use_season_point"		"Reset Attribute Points for {seasonPoint} Battle Points"
