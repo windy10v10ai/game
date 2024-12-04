@@ -329,6 +329,11 @@
 			{
 				"value" "20"
 			}
+			"radius"
+			{
+				"value" "1200"
+				"affected_by_aoe_increase"	"1"
+			}
 		}
 	}
 	"tower_magical_armor_aura"
@@ -344,6 +349,11 @@
 			"bonus_magical_armor_creeps"
 			{
 				"value" "30"
+			}
+			"radius"
+			{
+				"value" "1200"
+				"affected_by_aoe_increase"	"1"
 			}
 		}
 	}
@@ -361,6 +371,7 @@
 			"radius"
 			{
 				"value" "1600"
+				"affected_by_aoe_increase"	"1"
 			}
 		}
 	}
