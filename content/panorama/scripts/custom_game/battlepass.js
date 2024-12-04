@@ -15,7 +15,7 @@ function PregameSetup() {
       // 8级以上可用属性点，默认显示属性
       SetPropertySelected();
     } else if (player.useableLevel > 1 && totalLevel < 8) {
-      // 新手玩家，1级以上，总等级小于5默认显示属性
+      // 新手玩家，2点以上可用属性点，默认显示属性
       SetPropertySelected();
     }
   }
