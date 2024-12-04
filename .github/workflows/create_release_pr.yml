@@ -47,7 +47,7 @@ jobs:
 
             [b]Gameplay update ${{ github.event.inputs.version }}[/b]
 
-            Fixed some bug and balance.
+            Fixed some bugs and balance.
           branch: develop
           base: main
           reviewers: windybirth
