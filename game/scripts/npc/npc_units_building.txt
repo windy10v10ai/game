@@ -259,6 +259,8 @@
 	//=========================================================
 	"npc_dota_goodguys_tower3_top"
 	{
+		"Ability3"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+
 		"AttackDamageMin"			"190"		// 170
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
@@ -275,6 +277,8 @@
 	}
 	"npc_dota_badguys_tower3_top"
 	{
+		"Ability3"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+
 		"AttackDamageMin"			"190"		// 170
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
@@ -291,6 +295,8 @@
 	}
 	"npc_dota_goodguys_tower3_bot"
 	{
+		"Ability3"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+
 		"AttackDamageMin"			"190"		// 170
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
@@ -307,6 +313,8 @@
 	}
 	"npc_dota_badguys_tower3_bot"
 	{
+		"Ability3"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+
 		"AttackDamageMin"			"190"		// 170
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
@@ -323,6 +331,8 @@
 	}
 	"npc_dota_goodguys_tower3_mid"
 	{
+		"Ability3"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+
 		"AttackDamageMin"			"190"		// 170
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
@@ -339,6 +349,8 @@
 	}
 	"npc_dota_badguys_tower3_mid"
 	{
+		"Ability3"					"kobold_taskmaster_speed_aura"	// 速度光环 移动速度
+
 		"AttackDamageMin"			"190"		// 170
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
