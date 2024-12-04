@@ -73,7 +73,8 @@ export class EventNpcSpawned {
       }
       // 设置玩家属性
       Player.SetPlayerProperty(hero);
-    } else {
+    }
+    if (PlayerHelper.IsBotPlayer(hero)) {
       // 机器人
       GameRules.AI.EnableAI(hero);
       BotPower.AddBotPower(hero);

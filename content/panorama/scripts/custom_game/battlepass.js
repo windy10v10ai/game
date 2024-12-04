@@ -6,35 +6,51 @@ function PregameSetup() {
   const player = GetPlayer();
   PlayerDataLoaded(player);
   SubscribePlayer(PlayerDataLoaded);
-  if (player && player.useableLevel > 1) {
-    SetPropertySelected();
-  } else {
-    SetDataSelected();
+
+  SetDataSelected();
+  if (player) {
+    const totalLevel = player.seasonLevel + player.memberLevel;
+    $.Msg(`useableLevel: ${player.useableLevel}`);
+    if (player.useableLevel >= 8) {
+      // 8级以上可用属性点，默认显示属性
+      SetPropertySelected();
+    } else if (player.useableLevel > 1 && totalLevel < 8) {
+      // 新手玩家，2点以上可用属性点，默认显示属性
+      SetPropertySelected();
+    }
   }
 }
 
 function PlayerDataLoaded(player) {
-  $.Msg("LocalDataLoaded");
+  $.Msg('LocalDataLoaded');
   $.Msg(player);
 
   if (player == null) {
-    $("#LoadingFail").visible = true;
+    $('#LoadingFail').visible = true;
     return;
   }
 
-  $("#SeasonLevelNumber").text = player.seasonLevel;
-  $("#SeasonLevelNextRemainingNumber").text =
+  $('#SeasonLevelNumber').text = player.seasonLevel;
+  $('#SeasonLevelNextRemainingNumber').text =
     `${player.seasonCurrrentLevelPoint} / ${player.seasonNextLevelPoint}`;
-  $("#MemberLevelNumber").text = player.memberLevel;
-  $("#MemberLevelNextRemainingNumber").text =
+  $('#MemberLevelNumber').text = player.memberLevel;
+  $('#MemberLevelNextRemainingNumber').text =
     `${player.memberCurrentLevelPoint} / ${player.memberNextLevelPoint}`;
 
-  $("#SeasonLevelNextRemainingBarLeft").style.width = `${
+  $('#SeasonLevelNextRemainingBarLeft').style.width = `${
     (player.seasonCurrrentLevelPoint / player.seasonNextLevelPoint) * 100
   }%`;
-  $("#MemberLevelNextRemainingBarLeft").style.width = `${
+  $('#MemberLevelNextRemainingBarLeft').style.width = `${
     (player.memberCurrentLevelPoint / player.memberNextLevelPoint) * 100
   }%`;
+
+  $('#RuleLink').SetPanelEvent('onactivate', () => {
+    $.DispatchEvent('ExternalBrowserGoToURL', $.Localize(`#data_panel_member_point_rule_url`));
+  });
+  // $('#ChargeLink').SetPanelEvent('onactivate', () => {
+  //   $.DispatchEvent('ExternalBrowserGoToURL', 'https://afdian.com/a/windy10v10?tab=shop');
+  // });
+
   // 点数提示
   SetUseableLevelTooltip(player);
 
@@ -43,11 +59,11 @@ function PlayerDataLoaded(player) {
   // 英雄属性
   SetPlayerProperty(player);
 
-  if ((player.useableLevel = player.totalLevel)) {
+  if (player.useableLevel === player.totalLevel) {
     SetPropertySelected();
   }
 
-  $.Msg("BP Loaded!");
+  $.Msg('BP Loaded!');
 }
 
 // --------------------------------------------------------------------------------
@@ -55,65 +71,65 @@ function PlayerDataLoaded(player) {
 
 // 数据
 function SetDataSelected() {
-  $("#BPNavButtonData").checked = true;
+  $('#BPNavButtonData').checked = true;
   SwitchToData();
 }
 
 function SetPropertySelected() {
-  $("#BPNavButtonProperty").checked = true;
+  $('#BPNavButtonProperty').checked = true;
   SwitchToProperty();
 }
 
 function SwitchToData() {
-  $("#BpWindowMainLevel").visible = true;
-  $("#BpWindowMainProperty").visible = false;
+  $('#BpWindowMainLevel').visible = true;
+  $('#BpWindowMainProperty').visible = false;
 }
 
 // 属性
 
 function SwitchToProperty() {
-  $("#BpWindowMainProperty").visible = true;
+  $('#BpWindowMainProperty').visible = true;
 
-  $("#BpWindowMainLevel").visible = false;
+  $('#BpWindowMainLevel').visible = false;
   SwitchToPropertyList();
 }
 
 function SwitchToPropertyList() {
-  $("#RBPropertyList").checked = true;
-  $("#PropertyListContainer").visible = true;
-  $("#PropertyResetContainer").visible = false;
+  $('#RBPropertyList').checked = true;
+  $('#PropertyListContainer').visible = true;
+  $('#PropertyResetContainer').visible = false;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function SwitchToPropertyReset() {
-  $("#RBPropertyReset").checked = true;
-  $("#PropertyListContainer").visible = false;
-  $("#PropertyResetContainer").visible = true;
+  $('#RBPropertyReset').checked = true;
+  $('#PropertyListContainer').visible = false;
+  $('#PropertyResetContainer').visible = true;
 }
 
 // --------------------------------------------------------------------------------
 // 设置数据页面
 function SetUseableLevelTooltip(player) {
   const useableLevel = player.useableLevel;
-  SetUseableLevelTooltipSnippet($("#BPButtonTooltip"), useableLevel);
+  SetUseableLevelTooltipSnippet($('#BPButtonTooltip'), useableLevel);
 }
 
 function SetUseableLevelTooltipSnippet(panel, useableLevel) {
   if (!useableLevel) {
-    panel.style.visibility = "collapse";
+    panel.style.visibility = 'collapse';
     return;
   }
-  panel.style.visibility = "visible";
+  panel.style.visibility = 'visible';
   panel.RemoveAndDeleteChildren();
-  panel.BLoadLayoutSnippet("PlayerPropertyUseableLevelTooltip");
-  panel.FindChildTraverse("UseableLevel").text = useableLevel;
+  panel.BLoadLayoutSnippet('PlayerPropertyUseableLevelTooltip');
+  panel.FindChildTraverse('UseableLevel').text = useableLevel;
 }
 
 function SetTopStatus(player) {
   // 数据
-  $("#MemberPoint").text = player.memberPointTotal;
-  $("#SeasonPoint").text = player.seasonPointTotal;
-  $("#PropertyPoint").text = `${player.useableLevel} / ${player.totalLevel}`;
+  $('#MemberPoint').text = player.memberPointTotal;
+  $('#SeasonPoint').text = player.seasonPointTotal;
+  $('#PropertyPoint').text = `${player.useableLevel} / ${player.totalLevel}`;
 }
 
 // 属性
@@ -121,48 +137,48 @@ function SetPlayerProperty(player) {
   SetResetPropertyButton(player);
   ClearPlayerProperty();
 
-  const panel = $.CreatePanel("Panel", $("#PropertyListContainer"), "");
-  panel.BLoadLayoutSnippet("PlayerPropertyTooltip");
+  const panel = $.CreatePanel('Panel', $('#PropertyListContainer'), '');
+  panel.BLoadLayoutSnippet('PlayerPropertyTooltip');
   for (const property of Player_Property_List) {
     AddPlayerProperty(player, property);
   }
 }
 
 function ClearPlayerProperty() {
-  $("#PropertyListContainer").RemoveAndDeleteChildren();
+  $('#PropertyListContainer').RemoveAndDeleteChildren();
 }
 
 // 设置重置属性按钮
 function SetResetPropertyButton(player) {
   // 勇士积分重置
-  const resetUseSeasonPointButton = $("#ResetUseSeasonPoint");
+  const resetUseSeasonPointButton = $('#ResetUseSeasonPoint');
   const text = $.Localize(`#reset_property_use_season_point`);
-  $("#ResetUseSeasonPointText").text = text.replace("{seasonPoint}", player.seasonNextLevelPoint);
+  $('#ResetUseSeasonPointText').text = text.replace('{seasonPoint}', player.seasonNextLevelPoint);
   if (player.seasonPointTotal >= player.seasonNextLevelPoint) {
-    resetUseSeasonPointButton.SetHasClass("deactivated", false);
-    resetUseSeasonPointButton.SetHasClass("activated", true);
-    resetUseSeasonPointButton.SetPanelEvent("onactivate", () => {
+    resetUseSeasonPointButton.SetHasClass('deactivated', false);
+    resetUseSeasonPointButton.SetHasClass('activated', true);
+    resetUseSeasonPointButton.SetPanelEvent('onactivate', () => {
       OnPlayerPropertyResetActive(resetUseSeasonPointButton, false);
     });
   } else {
-    resetUseSeasonPointButton.SetHasClass("deactivated", true);
-    resetUseSeasonPointButton.SetHasClass("activated", false);
-    resetUseSeasonPointButton.SetPanelEvent("onactivate", () => {});
+    resetUseSeasonPointButton.SetHasClass('deactivated', true);
+    resetUseSeasonPointButton.SetHasClass('activated', false);
+    resetUseSeasonPointButton.SetPanelEvent('onactivate', () => {});
   }
 
   // 会员积分重置
-  const resetUseMemberPointButton = $("#ResetUseMemberPoint");
+  const resetUseMemberPointButton = $('#ResetUseMemberPoint');
   if (player.memberPointTotal >= 1000) {
-    resetUseMemberPointButton.SetHasClass("deactivated", false);
-    resetUseMemberPointButton.SetHasClass("activated-gold", true);
-    resetUseMemberPointButton.SetPanelEvent("onactivate", () => {
+    resetUseMemberPointButton.SetHasClass('deactivated', false);
+    resetUseMemberPointButton.SetHasClass('activated-gold', true);
+    resetUseMemberPointButton.SetPanelEvent('onactivate', () => {
       OnPlayerPropertyResetActive(resetUseMemberPointButton, true);
     });
   } else {
-    resetUseMemberPointButton.SetHasClass("deactivated", true);
-    resetUseMemberPointButton.SetHasClass("activated", false);
-    resetUseMemberPointButton.SetHasClass("activated-gold", false);
-    resetUseMemberPointButton.SetPanelEvent("onactivate", () => {});
+    resetUseMemberPointButton.SetHasClass('deactivated', true);
+    resetUseMemberPointButton.SetHasClass('activated', false);
+    resetUseMemberPointButton.SetHasClass('activated-gold', false);
+    resetUseMemberPointButton.SetPanelEvent('onactivate', () => {});
   }
 }
 
@@ -177,246 +193,246 @@ function AddPlayerProperty(player, property) {
 
   const maxLevel = 8;
 
-  const panel = $.CreatePanel("Panel", $("#PropertyListContainer"), "");
-  panel.BLoadLayoutSnippet("Property");
+  const panel = $.CreatePanel('Panel', $('#PropertyListContainer'), '');
+  panel.BLoadLayoutSnippet('Property');
 
   // 图标
   let imageSrc = property.imageSrc;
   if (!imageSrc) {
-    imageSrc = "s2r://panorama/images/cavern/icon_custom_challenge_png.vtex";
+    imageSrc = 's2r://panorama/images/cavern/icon_custom_challenge_png.vtex';
   }
-  panel.FindChildTraverse("PropertyImage").SetImage(imageSrc);
+  panel.FindChildTraverse('PropertyImage').SetImage(imageSrc);
   // 标题
   const propertyName = $.Localize(`#data_panel_player_${property.name}`);
-  panel.SetDialogVariable("PropertyName", propertyName);
+  panel.SetDialogVariable('PropertyName', propertyName);
   // 数值
   const propertyLevelString =
-    $.Localize(`#data_panel_player_property_level`) + " " + property.level + "/" + maxLevel;
+    $.Localize(`#data_panel_player_property_level`) + ' ' + property.level + '/' + maxLevel;
   let propertyValue = property.level * property.valuePerLevel;
   // 如果不为整数，小数点一位以内
   if (propertyValue % 1 !== 0) {
     propertyValue = propertyValue.toFixed(1);
   }
-  const propertyValueString = $.Localize(`#data_panel_player_property_value`) + " " + propertyValue;
-  panel.SetDialogVariable("PropertyLevel", propertyLevelString);
-  panel.SetDialogVariable("PropertyValue", propertyValueString);
-  panel.FindChildTraverse("PropertyLevel").style.color = "#2cba75";
+  const propertyValueString = $.Localize(`#data_panel_player_property_value`) + ' ' + propertyValue;
+  panel.SetDialogVariable('PropertyLevel', propertyLevelString);
+  panel.SetDialogVariable('PropertyValue', propertyValueString);
+  panel.FindChildTraverse('PropertyLevel').style.color = '#2cba75';
   // 升级按钮
   let levelupText =
     $.Localize(`#data_panel_player_property_level_up`) + ` (+${property.valuePerLevel})`;
   let nextLevel = property.level + 1;
   // 特殊属性
   if (
-    property.name === "property_skill_points_bonus" ||
-    property.name === "property_ignore_movespeed_limit" ||
-    property.name === "property_cannot_miss"
+    property.name === 'property_skill_points_bonus' ||
+    property.name === 'property_ignore_movespeed_limit' ||
+    property.name === 'property_cannot_miss'
   ) {
     levelupText = $.Localize(`#data_panel_player_property_level_up_X`).replace(
-      "X",
+      'X',
       property.pointCostPerLevel,
     );
     nextLevel = property.level + property.pointCostPerLevel;
-    panel.FindChildTraverse("Levelup").SetHasClass("LevelupButtonLong", true);
+    panel.FindChildTraverse('Levelup').SetHasClass('LevelupButtonLong', true);
   }
 
-  panel.FindChildTraverse("Levelup").name = property.name;
-  panel.FindChildTraverse("Levelup").nextLevel = nextLevel;
-  panel.FindChildTraverse("LevelupText").text = levelupText;
+  panel.FindChildTraverse('Levelup').name = property.name;
+  panel.FindChildTraverse('Levelup').nextLevel = nextLevel;
+  panel.FindChildTraverse('LevelupText').text = levelupText;
 
   if (Player_Propertys_Show_Tooltip_1.includes(property.name)) {
-    panel.FindChildTraverse("PropertyTooltip1").SetHasClass("hidden", false);
+    panel.FindChildTraverse('PropertyTooltip1').SetHasClass('hidden', false);
   } else if (Player_Propertys_Show_Tooltip_2.includes(property.name)) {
-    panel.FindChildTraverse("PropertyTooltip2").SetHasClass("hidden", false);
+    panel.FindChildTraverse('PropertyTooltip2').SetHasClass('hidden', false);
   } else {
-    panel.FindChildTraverse("PropertyTooltip").SetHasClass("hidden", false);
+    panel.FindChildTraverse('PropertyTooltip').SetHasClass('hidden', false);
   }
 
   if (property.level < maxLevel && player.useableLevel >= nextLevel - property.level) {
-    panel.FindChildTraverse("Levelup").SetHasClass("deactivated", false);
-    panel.FindChildTraverse("Levelup").SetHasClass("activated", true);
-    panel.FindChildTraverse("Levelup").SetPanelEvent("onactivate", () => {
+    panel.FindChildTraverse('Levelup').SetHasClass('deactivated', false);
+    panel.FindChildTraverse('Levelup').SetHasClass('activated', true);
+    panel.FindChildTraverse('Levelup').SetPanelEvent('onactivate', () => {
       OnLevelupActive(panel);
     });
   }
 }
 
 function OnLevelupActive(panel) {
-  $.Msg("Levelup");
-  $.Msg(panel.FindChildTraverse("Levelup").name);
-  $.Msg(panel.FindChildTraverse("Levelup").nextLevel);
+  $.Msg('Levelup');
+  $.Msg(panel.FindChildTraverse('Levelup').name);
+  $.Msg(panel.FindChildTraverse('Levelup').nextLevel);
   // disable button
-  panel.FindChildTraverse("Levelup").SetHasClass("deactivated", true);
-  panel.FindChildTraverse("Levelup").SetHasClass("activated", false);
-  panel.FindChildTraverse("Levelup").SetPanelEvent("onactivate", () => {});
+  panel.FindChildTraverse('Levelup').SetHasClass('deactivated', true);
+  panel.FindChildTraverse('Levelup').SetHasClass('activated', false);
+  panel.FindChildTraverse('Levelup').SetPanelEvent('onactivate', () => {});
   // send request to server
-  GameEvents.SendCustomGameEventToServer("player_property_levelup", {
-    name: panel.FindChildTraverse("Levelup").name,
-    level: panel.FindChildTraverse("Levelup").nextLevel,
+  GameEvents.SendCustomGameEventToServer('player_property_levelup', {
+    name: panel.FindChildTraverse('Levelup').name,
+    level: panel.FindChildTraverse('Levelup').nextLevel,
   });
 }
 
 function OnPlayerPropertyResetActive(panel, useMemberPoint) {
-  $.Msg("OnPlayerPropertyResetActive");
+  $.Msg('OnPlayerPropertyResetActive');
   // disable button
-  panel.SetHasClass("deactivated", true);
-  panel.SetHasClass("activated", false);
-  panel.SetHasClass("activated-gold", false);
-  panel.SetPanelEvent("onactivate", () => {});
+  panel.SetHasClass('deactivated', true);
+  panel.SetHasClass('activated', false);
+  panel.SetHasClass('activated-gold', false);
+  panel.SetPanelEvent('onactivate', () => {});
   // send request to server
-  GameEvents.SendCustomGameEventToServer("player_property_reset", {
+  GameEvents.SendCustomGameEventToServer('player_property_reset', {
     useMemberPoint,
   });
 }
 
 const Player_Propertys_Show_Tooltip_1 = [
-  "property_cooldown_percentage",
-  "property_movespeed_bonus_constant",
-  "property_health_regen_percentage",
-  "property_mana_regen_total_percentage",
-  "property_ignore_movespeed_limit",
-  "property_cannot_miss",
+  'property_cooldown_percentage',
+  'property_movespeed_bonus_constant',
+  'property_health_regen_percentage',
+  'property_mana_regen_total_percentage',
+  'property_ignore_movespeed_limit',
+  'property_cannot_miss',
 ];
 
-const Player_Propertys_Show_Tooltip_2 = ["property_skill_points_bonus"];
+const Player_Propertys_Show_Tooltip_2 = ['property_skill_points_bonus'];
 
 const Player_Property_List = [
   {
-    name: "property_cooldown_percentage",
+    name: 'property_cooldown_percentage',
     level: 0,
-    imageSrc: "s2r://panorama/images/cavern/icon_shovel_png.vtex",
+    imageSrc: 's2r://panorama/images/cavern/icon_shovel_png.vtex',
     valuePerLevel: 4,
   },
   {
-    name: "property_movespeed_bonus_constant",
+    name: 'property_movespeed_bonus_constant',
     level: 0,
-    imageSrc: "s2r://panorama/images/cavern/icon_cc_steed_png.vtex",
+    imageSrc: 's2r://panorama/images/cavern/icon_cc_steed_png.vtex',
     valuePerLevel: 25,
   },
   {
-    name: "property_skill_points_bonus",
+    name: 'property_skill_points_bonus',
     level: 0,
-    imageSrc: "s2r://panorama/images/hud/reborn/levelup_plus_fill_psd.vtex",
+    imageSrc: 's2r://panorama/images/hud/reborn/levelup_plus_fill_psd.vtex',
     valuePerLevel: 0.5,
     pointCostPerLevel: 2,
   },
   {
-    name: "property_cast_range_bonus_stacking",
+    name: 'property_cast_range_bonus_stacking',
     level: 0,
-    imageSrc: "s2r://panorama/images/cavern/icon_cc_aghs_png.vtex",
+    imageSrc: 's2r://panorama/images/cavern/icon_cc_aghs_png.vtex',
     valuePerLevel: 25,
   },
   {
-    name: "property_spell_amplify_percentage",
+    name: 'property_spell_amplify_percentage',
     level: 0,
-    imageSrc: "s2r://panorama/images/challenges/icon_challenges_magicdamage_png.vtex",
+    imageSrc: 's2r://panorama/images/challenges/icon_challenges_magicdamage_png.vtex',
     valuePerLevel: 5,
   },
   {
-    name: "property_status_resistance_stacking",
+    name: 'property_status_resistance_stacking',
     level: 0,
-    imageSrc: "s2r://panorama/images/cavern/icon_cc_fuzzy_png.vtex",
+    imageSrc: 's2r://panorama/images/cavern/icon_cc_fuzzy_png.vtex',
     valuePerLevel: 4,
   },
   {
-    name: "property_evasion_constant",
+    name: 'property_evasion_constant',
     level: 0,
-    imageSrc: "s2r://panorama/images/spellicons/blue_dragonspawn_overseer_evasion_png.vtex",
+    imageSrc: 's2r://panorama/images/spellicons/blue_dragonspawn_overseer_evasion_png.vtex',
     valuePerLevel: 4,
   },
   {
-    name: "property_magical_resistance_bonus",
+    name: 'property_magical_resistance_bonus',
     level: 0,
     imageSrc:
-      "s2r://panorama/images/events/aghanim/blessing_icons/blessing_magic_resist_icon_png.vtex",
+      's2r://panorama/images/events/aghanim/blessing_icons/blessing_magic_resist_icon_png.vtex',
     valuePerLevel: 4,
   },
   {
-    name: "property_incoming_damage_percentage",
+    name: 'property_incoming_damage_percentage',
     level: 0,
-    imageSrc: "s2r://panorama/images/cavern/map_unlock_support_psd.vtex",
+    imageSrc: 's2r://panorama/images/cavern/map_unlock_support_psd.vtex',
     valuePerLevel: 4,
   },
   {
-    name: "property_attack_range_bonus",
+    name: 'property_attack_range_bonus',
     level: 0,
-    imageSrc: "s2r://panorama/images/challenges/icon_challenges_spelldisjointed_png.vtex",
+    imageSrc: 's2r://panorama/images/challenges/icon_challenges_spelldisjointed_png.vtex',
     valuePerLevel: 25,
   },
   {
-    name: "property_physical_armor_bonus",
+    name: 'property_physical_armor_bonus',
     level: 0,
-    imageSrc: "s2r://panorama/images/cavern/icon_cc_ti2021final_png.vtex",
+    imageSrc: 's2r://panorama/images/cavern/icon_cc_ti2021final_png.vtex',
     valuePerLevel: 5,
   },
   {
-    name: "property_preattack_bonus_damage",
+    name: 'property_preattack_bonus_damage',
     level: 0,
-    imageSrc: "s2r://panorama/images/challenges/icon_challenges_physicaldamage_png.vtex",
+    imageSrc: 's2r://panorama/images/challenges/icon_challenges_physicaldamage_png.vtex',
     valuePerLevel: 15,
   },
   {
-    name: "property_attackspeed_bonus_constant",
+    name: 'property_attackspeed_bonus_constant',
     level: 0,
     imageSrc:
-      "s2r://panorama/images/events/aghanim/blessing_icons/blessing_attack_speed_icon_dormant_png.vtex",
+      's2r://panorama/images/events/aghanim/blessing_icons/blessing_attack_speed_icon_dormant_png.vtex',
     valuePerLevel: 15,
   },
   {
-    name: "property_stats_strength_bonus",
+    name: 'property_stats_strength_bonus',
     level: 0,
     imageSrc:
-      "s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex",
+      's2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex',
     valuePerLevel: 10,
   },
   {
-    name: "property_stats_agility_bonus",
+    name: 'property_stats_agility_bonus',
     level: 0,
     imageSrc:
-      "s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex",
+      's2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex',
     valuePerLevel: 10,
   },
   {
-    name: "property_stats_intellect_bonus",
+    name: 'property_stats_intellect_bonus',
     level: 0,
     imageSrc:
-      "s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex",
+      's2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex',
     valuePerLevel: 15,
   },
   {
-    name: "property_lifesteal",
+    name: 'property_lifesteal',
     level: 0,
-    imageSrc: "s2r://panorama/images/challenges/icon_challenges_lifestolen_png.vtex",
+    imageSrc: 's2r://panorama/images/challenges/icon_challenges_lifestolen_png.vtex',
     valuePerLevel: 10,
   },
   {
-    name: "property_spell_lifesteal",
+    name: 'property_spell_lifesteal',
     level: 0,
-    imageSrc: "s2r://panorama/images/challenges/icon_challenges_creepkillswithabilities_png.vtex",
+    imageSrc: 's2r://panorama/images/challenges/icon_challenges_creepkillswithabilities_png.vtex',
     valuePerLevel: 8,
   },
   {
-    name: "property_health_regen_percentage",
+    name: 'property_health_regen_percentage',
     level: 0,
-    imageSrc: "s2r://panorama/images/challenges/icon_challenges_totalhealing_png.vtex",
+    imageSrc: 's2r://panorama/images/challenges/icon_challenges_totalhealing_png.vtex',
     valuePerLevel: 0.3,
   },
   {
-    name: "property_mana_regen_total_percentage",
+    name: 'property_mana_regen_total_percentage',
     level: 0,
-    imageSrc: "s2r://panorama/images/challenges/icon_challenges_manareduction_png.vtex",
+    imageSrc: 's2r://panorama/images/challenges/icon_challenges_manareduction_png.vtex',
     valuePerLevel: 0.3,
   },
   {
-    name: "property_ignore_movespeed_limit",
+    name: 'property_ignore_movespeed_limit',
     level: 0,
-    imageSrc: "s2r://panorama/images/cavern/icon_cc_wings_png.vtex",
+    imageSrc: 's2r://panorama/images/cavern/icon_cc_wings_png.vtex',
     valuePerLevel: 0.125,
     pointCostPerLevel: 8,
   },
   {
-    name: "property_cannot_miss",
+    name: 'property_cannot_miss',
     level: 0,
-    imageSrc: "s2r://panorama/images/cavern/icon_swap_png.vtex",
+    imageSrc: 's2r://panorama/images/cavern/icon_swap_png.vtex',
     valuePerLevel: 0.125,
     pointCostPerLevel: 8,
   },
@@ -424,31 +440,31 @@ const Player_Property_List = [
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ToggleBP() {
-  const state = $("#BPWindow");
+  const state = $('#BPWindow');
   // if has classe ToogleBPMinimize
-  if (state.style.opacity === "0.0" || state.style.opacity == null) {
-    state.style.opacity = "0.98";
-    state.style.transform = "none";
-    state.style.visibility = "visible";
+  if (state.style.opacity === '0.0' || state.style.opacity == null) {
+    state.style.opacity = '0.98';
+    state.style.transform = 'none';
+    state.style.visibility = 'visible';
   } else {
-    state.style.opacity = "0.0";
-    state.style.transform = "translateX(-400px)";
+    state.style.opacity = '0.0';
+    state.style.transform = 'translateX(-400px)';
     $.Schedule(0.3, CollapseBP);
   }
 }
 
 function CollapseBP() {
-  $("#BPWindow").style.visibility = "collapse";
+  $('#BPWindow').style.visibility = 'collapse';
 }
 
 function GetDotaHud() {
   var panel = $.GetContextPanel();
-  while (panel && panel.id !== "Hud") {
+  while (panel && panel.id !== 'Hud') {
     panel = panel.GetParent();
   }
 
   if (!panel) {
-    throw new Error("Could not find Hud root from panel with id: " + $.GetContextPanel().id);
+    throw new Error('Could not find Hud root from panel with id: ' + $.GetContextPanel().id);
   }
 
   return panel;

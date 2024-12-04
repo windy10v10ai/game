@@ -137,6 +137,14 @@
 						</Panel>
 					</Panel>
 
+					<Panel class="LinkPanel">
+						<Button id="RuleLink" class="LinkButton activated">
+							<Label id="RuleText" class="ButtonText" text="#data_panel_link_rule" />
+						</Button>
+						<!-- <Button id="ChargeLink" class="LinkButton activated-gold">
+							<Label id="ChargeText" class="ButtonText" text="#data_panel_link_charge" />
+						</Button> -->
+					</Panel>
 				</Panel>
 
 				<!-- 属性 页面 -->
@@ -159,78 +167,6 @@
 						</Button>
 					</Panel>
 				</Panel>
-
-				<!-- <Panel id="BpWindowMainRewards">
-					<Panel id="BpArmoryContent" />
-					<Panel id="BpSettingsContent">
-						<Panel id="SettingsWrap">
-							<Panel id="TeleportStopPanel">
-								<Label id="TeleportStopLabel" text="Teleport Requires Hold/Stop" />
-								<Panel id="TeleportStopButtonContainer">
-									<Panel id="TeleportStopButtonContainerActive" />
-									<Button id="TeleportStopButton" onactivate="SwitchTeleportStop()" />
-									<Panel id="TeleportStopButtonCircle" />
-								</Panel>
-								<Panel id="TeleportHelpIcon" />
-							</Panel>
-							<Panel id="QuickCastPanel">
-								<Label id="QuickCastLabel" text="Inventory Slot 1 Quickcast" />
-								<Panel id="QuickCastButtonContainer">
-									<Panel id="QuickCastButtonContainerActive" />
-									<Button id="QuickCastButton" onactivate="SwitchQuickCast()" />
-									<Panel id="QuickCastButtonCircle" />
-								</Panel>
-								<Panel id="QuickCastHelpIcon" />
-							</Panel>
-							<Panel id="QuickCastPanel2">
-								<Label id="QuickCastLabel2" text="Inventory Slot 2 Quickcast" />
-								<Panel id="QuickCastButtonContainer2">
-									<Panel id="QuickCastButtonContainerActive2" />
-									<Button id="QuickCastButton2" onactivate="SwitchQuickCast2()" />
-									<Panel id="QuickCastButtonCircle2" />
-								</Panel>
-								<Panel id="QuickCastHelpIcon2" />
-							</Panel>
-						</Panel>
-					</Panel>
-				</Panel>
-
-				<Panel id="BpWindowMainPatreon">
-					<Panel id="PatreonButtons">
-						<RadioButton group="PatreonButtons" class="RadioBox" id="RBPatreonPets" onactivate="SwitchToPatreonPets()">
-							<Label id="RBPatreonPetsLabel" text="Pets" />
-						</RadioButton>
-						<RadioButton group="PatreonButtons" class="RadioBox" id="RBPatreonEmblems" onactivate="SwitchToPatreonEmblems()">
-							<Label id="RBPatreonEmblemsLabel" text="Effects" />
-						</RadioButton>
-						<RadioButton group="PatreonButtons" class="RadioBox" id="RBPatreonSettings" onactivate="SwitchToPatreonSettings()">
-							<Label id="RBPatreonSettingsLabel" text="Settings" />
-						</RadioButton>
-					</Panel>
-					<Panel id="PatreonPetsContent" />
-					<Panel id="PatreonEmblemsContent" />
-					<Panel id="PatreonSettingsContent">
-						<Panel id="SettingsWrap">
-							<Panel id="AllowPetEffectsPanel">
-								<Label id="AllowPetEffectsLabel" text="Enable Pet Effects" />
-								<Panel id="AllowPetEffectsButtonContainer">
-									<Panel id="AllowPetEffectsButtonContainerActive" />
-									<Button id="AllowPetEffectsButton" onactivate="SwitchPetEffects()" />
-									<Panel id="AllowPetEffectsButtonCircle" />
-								</Panel>
-							</Panel>
-							<Panel id="AllowPetFlyPanel">
-								<Label id="AllowPetFlyLabel" text="Allow Pet Flight" />
-								<Panel id="AllowPetFlyButtonContainer">
-									<Panel id="AllowPetFlyButtonContainerActive" />
-									<Button id="AllowPetFlyButton" onactivate="SwitchPetFly()" />
-									<Panel id="AllowPetFlyButtonCircle" />
-								</Panel>
-								<Panel id="HelpIcon" />
-							</Panel>
-						</Panel>
-					</Panel>
-				</Panel> -->
 
 			</Panel>
 		</Panel>
