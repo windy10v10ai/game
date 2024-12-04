@@ -39,9 +39,9 @@ function PlayerDataLoaded(player) {
   $('#RuleLink').SetPanelEvent('onactivate', () => {
     $.DispatchEvent('ExternalBrowserGoToURL', $.Localize(`#data_panel_member_point_rule_url`));
   });
-  $('#ChargeLink').SetPanelEvent('onactivate', () => {
-    $.DispatchEvent('ExternalBrowserGoToURL', 'https://afdian.net/a/windy10v10?tab=shop');
-  });
+  // $('#ChargeLink').SetPanelEvent('onactivate', () => {
+  //   $.DispatchEvent('ExternalBrowserGoToURL', 'https://afdian.com/a/windy10v10?tab=shop');
+  // });
 
   // 点数提示
   SetUseableLevelTooltip(player);
