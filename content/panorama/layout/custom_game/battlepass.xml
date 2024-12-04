@@ -137,6 +137,14 @@
 						</Panel>
 					</Panel>
 
+					<Panel class="LinkPanel">
+						<Button id="RuleLink" class="LinkButton activated">
+							<Label id="RuleText" class="ButtonText" text="#data_panel_link_rule" />
+						</Button>
+						<!-- <Button id="ChargeLink" class="LinkButton activated-gold">
+							<Label id="ChargeText" class="ButtonText" text="#data_panel_link_charge" />
+						</Button> -->
+					</Panel>
 				</Panel>
 
 				<!-- 属性 页面 -->
