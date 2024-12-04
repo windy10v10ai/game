@@ -7298,7 +7298,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCooldown"				"60.0 50.0 40.0 30.0"
 		"AbilityManaCost"				"100 75 50 25"
-		"AbilityCastRange"				"900 1200 1500 1800"	// 475
+		"AbilityCastRange"				"900 1100 1300 1500"	// 475
 		"AbilityValues"
 		{
 				"hit_point_minimum_pct"		"30 25 20 15"
