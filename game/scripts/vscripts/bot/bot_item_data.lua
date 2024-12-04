@@ -847,7 +847,7 @@ tBotItemData.purchaseItemList = {
 		'item_aghanims_shard',
 		'item_ultimate_scepter_2',
 		'item_sacred_trident',
-		'item_dagon_5',
+		'item_angels_demise', -- 绝刃
 		'item_sacred_trident',
 		'item_arcane_octarine_core',
 		'item_hallowed_scepter',
