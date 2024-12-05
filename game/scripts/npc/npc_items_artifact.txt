@@ -4337,7 +4337,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"cast_range_bonus"		"500"  //350
+			"cast_range_bonus"		"450"  //350
 			"vision_bonus"			"600"  //350
 			"mana_regen"			"20"   //10
 			"radius"
@@ -4417,7 +4417,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"cast_range_bonus"		"500"  //350
+			"cast_range_bonus"		"450"  //350
 			"vision_bonus"			"600"  //350
 			"mana_regen"			"20"   //10
 			"radius"
@@ -4457,7 +4457,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"cast_range_bonus"		"500"  //350
+			"cast_range_bonus"		"450"  //350
 			"vision_bonus"			"1600"  //350
 			"mana_regen"			"40"   //10
 			"radius"
@@ -4498,7 +4498,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"cast_range_bonus"		"500"  //350
+			"cast_range_bonus"		"450"  //350
 			"vision_bonus"			"1600"  //350
 			"mana_regen"			"40"   //10
 			"radius"

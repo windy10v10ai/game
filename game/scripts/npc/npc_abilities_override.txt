@@ -9801,7 +9801,7 @@
 			"jumps"					"10 15 20 25"
 			"jump_range"
 			{
-				"value"			"900" // 600
+				"value"			"800" // 600
 				"affected_by_aoe_increase"	"1"
 			}
 			"bonus_jumps_per_hero_killed"
