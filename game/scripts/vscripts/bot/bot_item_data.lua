@@ -955,7 +955,6 @@ tBotItemData.purchaseItemList = {
 		'item_angels_demise', -- 绝刃
 		'item_blue_fantasy', -- 苍蓝幻想
 		'item_hallowed_scepter',
-		'item_recipe_refresh_core',
 		'item_psychic_headband_ai',
 	},
 	npc_dota_hero_tiny = {
