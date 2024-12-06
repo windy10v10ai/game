@@ -3264,7 +3264,7 @@
 	"item_psychic_headband_light"
 	{
 		"BaseClass" "item_psychic_headband"
-		"AbilityCastRange"				"1500"	//600
+		"AbilityCastRange"				"900"	//600
 		"AbilityCooldown"				"4.0"	//20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -3301,7 +3301,7 @@
 	"item_psychic_headband_light_1"
 	{
 		"BaseClass" "item_psychic_headband"
-		"AbilityCastRange"				"1500"	//600
+		"AbilityCastRange"				"900"	//600
 		"AbilityCooldown"				"4.0"	//20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -3340,7 +3340,7 @@
 	"item_psychic_headband_dark"
 	{
 		"BaseClass" "item_psychic_headband"
-		"AbilityCastRange"				"1500"	//600
+		"AbilityCastRange"				"900"	//600
 		"AbilityCooldown"				"4.0"	//20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -3377,7 +3377,7 @@
 	"item_psychic_headband_dark_1"
 	{
 		"BaseClass" "item_psychic_headband"
-		"AbilityCastRange"				"1500"	//600
+		"AbilityCastRange"				"900"	//600
 		"AbilityCooldown"				"4.0"	//20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -3415,7 +3415,7 @@
 	"item_psychic_headband_ai"
 	{
 		"BaseClass" "item_psychic_headband"
-		"AbilityCastRange"				"1500"	//600
+		"AbilityCastRange"				"900"	//600
 		"AbilityCooldown"				"4.0"	//20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -3453,7 +3453,7 @@
 	"item_psychic_headband_ai_1"
 	{
 		"BaseClass" "item_psychic_headband"
-		"AbilityCastRange"				"1500"	//600
+		"AbilityCastRange"				"900"	//600
 		"AbilityCooldown"				"4.0"	//20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
