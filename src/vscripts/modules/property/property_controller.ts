@@ -1,4 +1,4 @@
-import type { PlayerProperty } from '../../api/player';
+import { type PlayerProperty } from '../../api/player';
 import {
   property_attack_range_bonus,
   property_attackspeed_bonus_constant,
@@ -25,53 +25,63 @@ import {
 import { PlayerHelper } from '../helper/player-helper';
 
 export class PropertyController {
-  private static propertyValuePerLevel = new Map<string, number>();
-  private static propertyDataDrivenModifierName = new Map<string, string>();
+  /**
+   * DataDriven modifier Map
+   * key: property name (property_cooldown_percentage)
+   * value: value per level (4)
+   */
+  private static propertyLuaModiferMap = new Map<string, number>();
+  /**
+   * DataDriven modifier Map
+   * key: property name (property_movespeed_bonus_constant)
+   * value: data-driven modifier name
+   */
+  private static propertyDataDrivenModifierMap = new Map<string, string>();
   private static bnusSkillPointsAdded = new Map<number, number>();
   constructor() {
     print('PropertyController init');
-    PropertyController.propertyValuePerLevel.set(property_cooldown_percentage.name, 4);
-    PropertyController.propertyValuePerLevel.set(property_cast_range_bonus_stacking.name, 25);
-    PropertyController.propertyValuePerLevel.set(property_spell_amplify_percentage.name, 5);
-    PropertyController.propertyValuePerLevel.set(property_status_resistance_stacking.name, 4);
-    PropertyController.propertyValuePerLevel.set(property_evasion_constant.name, 4);
-    PropertyController.propertyValuePerLevel.set(property_magical_resistance_bonus.name, 4);
-    PropertyController.propertyValuePerLevel.set(property_incoming_damage_percentage.name, -4);
-    PropertyController.propertyValuePerLevel.set(property_attack_range_bonus.name, 25);
-    PropertyController.propertyValuePerLevel.set(property_health_regen_percentage.name, 0.3);
-    PropertyController.propertyValuePerLevel.set(property_mana_regen_total_percentage.name, 0.3);
-    PropertyController.propertyValuePerLevel.set(property_lifesteal.name, 10);
-    PropertyController.propertyValuePerLevel.set(property_spell_lifesteal.name, 8);
-    PropertyController.propertyValuePerLevel.set(property_ignore_movespeed_limit.name, 0.125);
-    PropertyController.propertyValuePerLevel.set(property_cannot_miss.name, 0.125);
+    PropertyController.propertyLuaModiferMap.set(property_cooldown_percentage.name, 4);
+    PropertyController.propertyLuaModiferMap.set(property_cast_range_bonus_stacking.name, 25);
+    PropertyController.propertyLuaModiferMap.set(property_spell_amplify_percentage.name, 5);
+    PropertyController.propertyLuaModiferMap.set(property_status_resistance_stacking.name, 4);
+    PropertyController.propertyLuaModiferMap.set(property_evasion_constant.name, 4);
+    PropertyController.propertyLuaModiferMap.set(property_magical_resistance_bonus.name, 4);
+    PropertyController.propertyLuaModiferMap.set(property_incoming_damage_percentage.name, -4);
+    PropertyController.propertyLuaModiferMap.set(property_attack_range_bonus.name, 25);
+    PropertyController.propertyLuaModiferMap.set(property_health_regen_percentage.name, 0.3);
+    PropertyController.propertyLuaModiferMap.set(property_mana_regen_total_percentage.name, 0.3);
+    PropertyController.propertyLuaModiferMap.set(property_lifesteal.name, 10);
+    PropertyController.propertyLuaModiferMap.set(property_spell_lifesteal.name, 8);
+    PropertyController.propertyLuaModiferMap.set(property_ignore_movespeed_limit.name, 0.125);
+    PropertyController.propertyLuaModiferMap.set(property_cannot_miss.name, 0.125);
 
     // multi level property must end with '_level_'
-    PropertyController.propertyDataDrivenModifierName.set(
+    PropertyController.propertyDataDrivenModifierMap.set(
       property_movespeed_bonus_constant.name,
       'modifier_player_property_movespeed_bonus_constant_level_',
     );
 
-    PropertyController.propertyDataDrivenModifierName.set(
+    PropertyController.propertyDataDrivenModifierMap.set(
       property_physical_armor_bonus.name,
       'modifier_player_property_physical_armor_bonus_level_',
     );
-    PropertyController.propertyDataDrivenModifierName.set(
+    PropertyController.propertyDataDrivenModifierMap.set(
       property_preattack_bonus_damage.name,
       'modifier_player_property_preattack_bonus_damage_level_',
     );
-    PropertyController.propertyDataDrivenModifierName.set(
+    PropertyController.propertyDataDrivenModifierMap.set(
       property_attackspeed_bonus_constant.name,
       'modifier_player_property_attackspeed_bonus_constant_level_',
     );
-    PropertyController.propertyDataDrivenModifierName.set(
+    PropertyController.propertyDataDrivenModifierMap.set(
       property_stats_strength_bonus.name,
       'modifier_player_property_stats_strength_bonus_level_',
     );
-    PropertyController.propertyDataDrivenModifierName.set(
+    PropertyController.propertyDataDrivenModifierMap.set(
       property_stats_agility_bonus.name,
       'modifier_player_property_stats_agility_bonus_level_',
     );
-    PropertyController.propertyDataDrivenModifierName.set(
+    PropertyController.propertyDataDrivenModifierMap.set(
       property_stats_intellect_bonus.name,
       'modifier_player_property_stats_intellect_bonus_level_',
     );
@@ -100,27 +110,25 @@ export class PropertyController {
   public static HERO_LEVEL_PER_POINT = 2;
 
   // 重置属性
-  public static ResetPlayerProperty(steamId: number) {
-    PlayerHelper.ForEachPlayer((playerId) => {
-      if (steamId === PlayerResource.GetSteamAccountID(playerId)) {
-        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-        if (hero) {
-          // propertyValuePerLevel key
-          for (const key of PropertyController.propertyValuePerLevel.keys()) {
-            hero.RemoveModifierByName(key);
-          }
-          // propertyDataDrivenModifierName key
-          for (const key of PropertyController.propertyDataDrivenModifierName.keys()) {
-            const value = PropertyController.propertyDataDrivenModifierName.get(key);
-            if (value) {
-              for (let i = 1; i <= 8; i++) {
-                hero.RemoveModifierByName(`${value}${i}`);
-              }
-            }
-          }
+  public static RemoveAllPlayerProperty(steamAccountId: number) {
+    const hero = PlayerHelper.FindHeroBySteeamAccountId(steamAccountId);
+    if (!hero) {
+      return;
+    }
+
+    // propertyValuePerLevel key
+    for (const key of PropertyController.propertyLuaModiferMap.keys()) {
+      hero.RemoveModifierByName(key);
+    }
+    // propertyDataDrivenModifierName key
+    for (const key of PropertyController.propertyDataDrivenModifierMap.keys()) {
+      const value = PropertyController.propertyDataDrivenModifierMap.get(key);
+      if (value) {
+        for (let i = 1; i <= 8; i++) {
+          hero.RemoveModifierByName(`${value}${i}`);
         }
       }
-    });
+    }
   }
 
   // 属性加点后更新属性
@@ -156,7 +164,7 @@ export class PropertyController {
     }
 
     // 设置属性
-    const propertyValuePerLevel = PropertyController.propertyValuePerLevel.get(property.name);
+    const propertyValuePerLevel = PropertyController.propertyLuaModiferMap.get(property.name);
     if (propertyValuePerLevel) {
       const value = propertyValuePerLevel * activeLevel;
       // 由于可能有负数，必须判断是否为0
@@ -167,7 +175,7 @@ export class PropertyController {
         });
       }
     } else {
-      const dataDrivenModifierName = PropertyController.propertyDataDrivenModifierName.get(
+      const dataDrivenModifierName = PropertyController.propertyDataDrivenModifierMap.get(
         property.name,
       );
       if (dataDrivenModifierName) {

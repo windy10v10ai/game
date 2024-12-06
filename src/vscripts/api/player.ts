@@ -281,7 +281,7 @@ export class Player {
    * 更新玩家数据，属性，nettable
    */
   private static UpsertPlayerData(player: PlayerDto) {
-    PropertyController.ResetPlayerProperty(Number(player.id));
+    PropertyController.RemoveAllPlayerProperty(Number(player.id));
     for (const property of player.properties) {
       PropertyController.RefreshPlayerProperty(property);
     }
