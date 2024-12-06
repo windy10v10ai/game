@@ -2249,7 +2249,7 @@
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
 			"status_resistance"		"20"	//10
-			"magic_resistance"		"80"	//10
+			"magic_resistance"		"68"	//10
 		}
 	}
 	"item_recipe_ceremonial_robe_light_1"
@@ -2281,7 +2281,7 @@
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
 			"status_resistance"		"20"	//10
-			"magic_resistance"		"80"	//10
+			"magic_resistance"		"68"	//10
 		}
 	}
 
@@ -2313,7 +2313,7 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"80"	//10
+			"status_resistance"		"68"	//10
 			"magic_resistance"		"20"	//10
 		}
 	}
@@ -2345,7 +2345,7 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"80"	//10
+			"status_resistance"		"68"	//10
 			"magic_resistance"		"20"	//10
 		}
 	}
@@ -2377,8 +2377,8 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"80"	//10
-			"magic_resistance"		"80"	//10
+			"status_resistance"		"68"	//10
+			"magic_resistance"		"68"	//10
 		}
 	}
 	"item_recipe_ceremonial_robe_ai_1"
@@ -2410,8 +2410,8 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"80"	//10
-			"magic_resistance"		"80"	//10
+			"status_resistance"		"68"	//10
+			"magic_resistance"		"68"	//10
 		}
 	}
 
@@ -4527,7 +4527,7 @@
 	"item_force_field_light"
 	{
 		"BaseClass" "item_force_field"
-		"AbilityCooldown"				"15"  //20
+		"AbilityCooldown"				"20"  //20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"0"
@@ -4538,7 +4538,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_aoe_radius"			"1800"	//1200
+			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"20"	//5
 			"self_armor"				"20"	//5
 			"self_mres"					"30"	//20
@@ -4573,7 +4573,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_aoe_radius"			"1800"	//1200
+			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"10"	//5
 			"self_armor"				"10"	//5
 			"self_mres"					"20"	//20
@@ -4597,7 +4597,7 @@
 	"item_force_field_light_1"
 	{
 		"BaseClass" "item_force_field"
-		"AbilityCooldown"				"15"  //20
+		"AbilityCooldown"				"20"  //20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"1"
@@ -4608,7 +4608,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_aoe_radius"			"1800"	//1200
+			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"20"	//5
 			"self_armor"				"20"	//5
 			"self_mres"					"30"	//20
@@ -4643,7 +4643,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_aoe_radius"			"1800"	//1200
+			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"10"	//5
 			"self_armor"				"10"	//5
 			"self_mres"					"20"	//20
@@ -4668,7 +4668,7 @@
 	"item_force_field_ai"
 	{
 		"BaseClass" "item_force_field"
-		"AbilityCooldown"				"15"  //20
+		"AbilityCooldown"				"20"  //20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"0"
@@ -4678,7 +4678,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_aoe_radius"			"1800"	//1200
+			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"20"	//5
 			"self_armor"				"20"	//5
 			"self_mres"					"30"	//20
@@ -4704,7 +4704,7 @@
 	"item_force_field_ai_1"
 	{
 		"BaseClass" "item_force_field"
-		"AbilityCooldown"				"15"  //20
+		"AbilityCooldown"				"20"  //20
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"1"
@@ -4714,7 +4714,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"bonus_aoe_radius"			"1800"	//1200
+			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"20"	//5
 			"self_armor"				"20"	//5
 			"self_mres"					"30"	//20
@@ -5402,6 +5402,45 @@
 			"ally_effect_duration"	"5.0"
 			"movement_speed_buff_rate"	"6"
 			"phase_movement_speed"		"100"
+		}
+	}
+	//=================================================================================================================
+	// 混沌魂戒 娱乐道具
+	//=================================================================================================================
+	"item_recipe_soul_ring_1"
+	{
+		"BaseClass"						"item_recipe_soul_ring"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_soul_ring_1"
+		"ItemRequirements"
+		{
+			"01"						"item_soul_ring;item_reaver;item_platemail"
+		}
+	}
+
+	"item_soul_ring_1"
+	{
+		"BaseClass"						"item_soul_ring"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCooldown"				"8.0"
+		"AbilityHealthCost"				"2000"
+		"ItemShopTags"					"regen_health;boost_mana"
+		"ItemQuality"					"common"
+		"ItemAliases"					"soul ring"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestEarlygame"				"1"
+		"UIPickupSound"					"Item.PickUpRingShop"
+		"UIDropSound"					"Item.DropRingShop"
+		"WorldDropSound"				"Item.DropRingWorld"
+		"AbilityValues"
+		{
+				"bonus_strength"		"30"
+				"bonus_armor"			"10"
+				"mana_gain"				"2000"
+				"duration"				"10"
 		}
 	}
 }
