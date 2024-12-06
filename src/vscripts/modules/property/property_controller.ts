@@ -22,8 +22,10 @@ import {
   property_stats_strength_bonus,
   property_status_resistance_stacking,
 } from '../../modifiers/property/property_declare';
+import { reloadable } from '../../utils/tstl-utils';
 import { PlayerHelper } from '../helper/player-helper';
 
+@reloadable
 export class PropertyController {
   /**
    * DataDriven modifier Map
@@ -116,11 +118,12 @@ export class PropertyController {
       return;
     }
 
-    // propertyValuePerLevel key
+    // 移除Lua modifier
     for (const key of PropertyController.propertyLuaModiferMap.keys()) {
       hero.RemoveModifierByName(key);
     }
-    // propertyDataDrivenModifierName key
+
+    // 移除DataDriven modifier
     for (const key of PropertyController.propertyDataDrivenModifierMap.keys()) {
       const value = PropertyController.propertyDataDrivenModifierMap.get(key);
       if (value) {
@@ -132,30 +135,27 @@ export class PropertyController {
   }
 
   // 属性加点后更新属性
-  public static RefreshPlayerProperty(property: PlayerProperty) {
-    PlayerHelper.ForEachPlayer((playerId) => {
-      const steamId = PlayerResource.GetSteamAccountID(playerId);
-      if (steamId === property.steamId) {
-        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-        if (hero) {
-          PropertyController.setModifier(hero, property);
-        }
-      }
-    });
+  public static LevelupPlayerProperty(property: PlayerProperty) {
+    const hero = PlayerHelper.FindHeroBySteeamAccountId(property.steamId);
+    if (!hero) {
+      return;
+    }
+    PropertyController.LevelupHeroProperty(hero, property);
   }
 
-  // 更新单条属性
-  public static setModifier(hero: CDOTA_BaseNPC_Hero, property: PlayerProperty) {
-    const name = property.name;
-    let activeLevel = property.level;
-    // 根据英雄等级设置点数
-    if (PropertyController.limitPropertyNames.includes(name)) {
+  // 根据英雄等级和加点点数，计算当前应该生效的属性等级
+  private static GetPropertyActiveLevel(hero: CDOTA_BaseNPC_Hero, property: PlayerProperty) {
+    if (PropertyController.limitPropertyNames.includes(property.name)) {
       const activeLevelMax = Math.floor(hero.GetLevel() / PropertyController.HERO_LEVEL_PER_POINT);
-      activeLevel = Math.min(property.level, activeLevelMax);
+      return Math.min(property.level, activeLevelMax);
     }
-    // print(
-    //   `[PropertyController] setModifier ${name} origin level ${property.level}, activeLevel ${activeLevel}`,
-    // );
+    return property.level;
+  }
+
+  // 升级单条属性
+  public static LevelupHeroProperty(hero: CDOTA_BaseNPC_Hero, property: PlayerProperty) {
+    const name = property.name;
+    const activeLevel = PropertyController.GetPropertyActiveLevel(hero, property);
 
     // 设置额外技能点
     if (name === 'property_skill_points_bonus') {
@@ -163,17 +163,33 @@ export class PropertyController {
       return;
     }
 
+    // 如果英雄死亡，不更新属性 (死亡时无法添加modifier)
+    const modifiers = hero.FindAllModifiers();
+    for (const modifier of modifiers) {
+      print(modifier.GetName());
+    }
+
+    if (!hero.IsAlive()) {
+      print(`[PropertyController] LevelupHeroProperty hero is dead ${name} ${activeLevel}`);
+      return;
+    }
+
+    print(`[PropertyController] LevelupHeroProperty ${name} ${activeLevel}`);
     // 设置属性
     const propertyValuePerLevel = PropertyController.propertyLuaModiferMap.get(property.name);
     if (propertyValuePerLevel) {
       const value = propertyValuePerLevel * activeLevel;
-      // 由于可能有负数，必须判断是否为0
-      if (value !== 0) {
-        hero.RemoveModifierByName(property.name);
-        hero.AddNewModifier(hero, undefined, property.name, {
-          value,
-        });
+      if (value === 0) {
+        // 属性不生效时，跳过。由于可能有负数，必须判断是否为0
+        return;
       }
+      hero.RemoveModifierByName(property.name);
+      const addedModifier = hero.AddNewModifier(hero, undefined, property.name, {
+        value,
+      });
+      print(
+        `[PropertyController] UpgradeHeroProperty ${property.name} ${addedModifier.GetName()} ${value}`,
+      );
     } else {
       const dataDrivenModifierName = PropertyController.propertyDataDrivenModifierMap.get(
         property.name,
