@@ -23,7 +23,8 @@ export class EventPlayerLevelUp {
         print(`[Event] OnPlayerLevelUp SetPlayerProperty ${hero.GetUnitName()}`);
         Player.SetPlayerProperty(hero);
       }
-    } else {
+    }
+    if (PlayerHelper.IsBotPlayer(hero)) {
       BotPower.LevelUpBotPower(hero);
     }
   }

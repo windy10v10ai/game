@@ -50,9 +50,9 @@ export class HeroPick {
     GameRules.GetGameModeEntity().SetBotThinkingEnabled(true);
     Tutorial.StartTutorialMode();
 
-    // 添加金钱
+    // 添加初始金钱 bot
     PlayerHelper.ForEachPlayer((playerId) => {
-      if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
+      if (PlayerHelper.IsBotPlayerByPlayerId(playerId)) {
         const startGold = GameRules.Option.startingGoldBot;
         PlayerResource.SetGold(playerId, startGold - 600, true);
       }
