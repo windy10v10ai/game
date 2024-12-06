@@ -952,9 +952,9 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_necronomicon_staff',
 		'item_angels_demise', -- 绝刃
-		'item_blue_fantasy', -- 苍蓝幻想
 		'item_hallowed_scepter',
-		'item_psychic_headband_ai',
+		'item_black_king_bar_2',
+		'item_blue_fantasy', -- 苍蓝幻想
 	},
 	npc_dota_hero_tiny = {
 		'item_magic_wand',
@@ -1742,7 +1742,7 @@ tBotItemData.addNeutralItemList = {
 		'item_mirror_shield',
 	},
 	npc_dota_hero_tinker = {
-		'item_seer_stone_ai_1',
+		'item_psychic_headband_ai_1',
 	},
 	npc_dota_hero_tiny = {
 		'item_ceremonial_robe_ai_1',
