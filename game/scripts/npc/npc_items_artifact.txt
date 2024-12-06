@@ -654,10 +654,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"1545"// 25分钟买
+		"ItemInitialStockTime"			"1245"// 20分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"120"
+		"ItemStockTime"					"180"
 
 		"AbilityValues"
 		{
@@ -696,10 +696,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"1545"// 25分钟买
+		"ItemInitialStockTime"			"1245"// 25分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"120"
+		"ItemStockTime"					"180"
 
 		"AbilityValues"
 		{
