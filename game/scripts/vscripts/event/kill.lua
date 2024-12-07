@@ -229,17 +229,17 @@ local function HeroKilled(keys)
 
         -- 基础值
         if GameTime <= 5 * 60 then
-            gold = 20
-            xp = 40
+            gold = 30
+            xp = 60
         elseif GameTime <= 10 * 60 then
             gold = 40
             xp = 80
         elseif GameTime <= 15 * 60 then
+            gold = 50
+            xp = 100
+        else
             gold = 60
             xp = 120
-        else
-            gold = 80
-            xp = 160
         end
 
         -- 击杀者等级加成
