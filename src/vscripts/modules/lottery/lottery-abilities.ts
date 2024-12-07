@@ -87,7 +87,6 @@ export const abilityTiers: Tier[] = [
     rate: 100,
     names: [
       'venomancer_poison_sting', // 剧毒术士 毒刺
-      'broodmother_poison_sting', // 蜘蛛 毒刺
       'broodmother_incapacitating_bite', // 麻痹之咬
       'shredder_reactive_armor', // 活性活甲
       'viper_corrosive_skin', // 腐蚀皮肤

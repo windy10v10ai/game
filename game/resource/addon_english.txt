@@ -124,7 +124,7 @@
 		"data_panel_player_property_label"		"Spend Attribute Points to upgrade your hero. Upgrades are permanent and persist between games."
 		"data_panel_player_property_label_2"		"Points cannot be spent on local host. Please play on a dedicated server to spend and benefit from upgrades."
 		"data_panel_player_property_label_3"		"One level of the attribute will take effect every 2 hero levels, unless otherwise noted."
-		"data_panel_player_property_label_3_tooltip"		"For example, if you added levels into Cast Range, all heroes you play will gain +25 at level 2, +50 at level 4, +75 at level 6, and so on."
+		"data_panel_player_property_label_3_tooltip"		"Hero will gain the effect at levels 2, 4, 6, 8, 10, 12, 14, and 16, up to the maximum upgrade level.<br>For example, if you added 2 levels into Cast Range as +50, all heroes you play will gain +25 at level 2, +50 at level 4."
 
 		"data_panel_player_property_cooldown_percentage"		"Cooldown (%)"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
@@ -149,8 +149,8 @@
 		"data_panel_player_property_cannot_miss"				"True Strike"
 		"data_panel_player_property_skill_points_bonus"			"Bonus Skill Points"
 
-		"data_panel_player_property_tooltip"					"Hero will gain this effect progressively every 2nd level."
-		"data_panel_player_property_skill_points_bonus_tooltip"	"Hero will gain this effect progressively every 4th level."
+		"data_panel_player_property_tooltip"					"Hero will gain this effect every 2 levels, up to the maximum upgrade level."
+		"data_panel_player_property_skill_points_bonus_tooltip"	"Hero will gain this effect every 4 levels, up to the maximum upgrade level."
 		"data_panel_player_property_except_tooltip"				"Hero will gain this full effect immediately at level 1."
 
 		"data_panel_player_property_value"				"Value"

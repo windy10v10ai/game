@@ -47,37 +47,9 @@ function AIGameMode:OnPlayerChat(event)
 
     -- 开发测试代码
     if developerSteamAccountID[steamAccountID] then
-        if sChatMsg:find('^-modifier$') then
-            -- get position
-            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-            -- print all modifiers
-            local modifiers = hHero:FindAllModifiers()
-            for _, modifier in pairs(modifiers) do
-                Printf("Get here modifiers: " .. modifier:GetName())
-            end
-            return
-        end
-
-        if sChatMsg:find('^-kill creep$') then
-            local tAllCreep = FindUnitsInRadius(DOTA_TEAM_NOTEAM,
-                Vector(0, 0, 0), nil, 99999,
-                DOTA_UNIT_TARGET_TEAM_BOTH,
-                DOTA_UNIT_TARGET_CREEP,
-                DOTA_UNIT_TARGET_FLAG_NONE,
-                FIND_ANY_ORDER, false)
-            for _, creep in pairs(tAllCreep) do creep:ForceKill(true) end
-            return
-        end
-
         if sChatMsg:find('^-refresh buyback$') then
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
             hHero:SetBuybackCooldownTime(0)
-            return
-        end
-
-        if sChatMsg:find('^-shard$') then
-            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-            hHero:AddItemByName('item_aghanims_shard')
             return
         end
 
