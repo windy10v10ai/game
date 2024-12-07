@@ -164,11 +164,6 @@ export class PropertyController {
     }
 
     // 如果英雄死亡，不更新属性 (死亡时无法添加modifier)
-    const modifiers = hero.FindAllModifiers();
-    for (const modifier of modifiers) {
-      print(modifier.GetName());
-    }
-
     if (!hero.IsAlive()) {
       print(`[PropertyController] LevelupHeroProperty hero is dead ${name} ${activeLevel}`);
       return;
