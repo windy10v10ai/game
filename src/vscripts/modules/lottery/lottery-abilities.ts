@@ -25,10 +25,8 @@ export const abilityTiers: Tier[] = [
     rate: 5,
     names: [
       // 法球/开关技能
-      'viper_poison_attack', // 毒性攻击
       'doom_bringer_infernal_blade', // 阎刃
       'obsidian_destroyer_arcane_orb', // 奥术天球
-      'silencer_glaives_of_wisdom', // 智慧之刃
       'enchantress_impetus', // 推进
 
       // 被动技能
@@ -51,6 +49,7 @@ export const abilityTiers: Tier[] = [
     rate: 20,
     names: [
       // 法球/开关技能
+      'silencer_glaives_of_wisdom', // 智慧之刃
       'ancient_apparition_chilling_touch', // 极寒之触
       'gyrocopter_flak_cannon', // 高射火炮
 
@@ -80,7 +79,7 @@ export const abilityTiers: Tier[] = [
     rate: 50,
     names: [
       // 法球/开关技能
-      'drow_ranger_frost_arrows', // 霜冻之箭
+      'viper_poison_attack', // 毒性攻击
       'jakiro_liquid_fire', // 液态火
       'jakiro_liquid_ice', // 液态冰
 
@@ -111,7 +110,7 @@ export const abilityTiers: Tier[] = [
     rate: 100,
     names: [
       // 法球/开关技能
-      'ogre_magi_bloodlust', // 嗜血术
+      'drow_ranger_frost_arrows', // 霜冻之箭
       'witch_doctor_voodoo_restoration', // 巫毒疗法
 
       // 被动技能
