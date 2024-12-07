@@ -13,7 +13,7 @@ const containerStyleBase: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'center',
   transitionProperty: 'transform, opacity, width, height',
   transitionDelay: '0s',
-  transitionDuration: '0.8s',
+  transitionDuration: '1s',
   transitionTimingFunction: 'ease-in-out',
 };
 
