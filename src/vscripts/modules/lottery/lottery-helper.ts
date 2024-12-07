@@ -43,26 +43,27 @@ export class LotteryHelper {
     return lotteryResults;
   }
 
-  static getRandomItems(count: number): LotteryDto[] {
+  static getRandomItems(count: number, executedNames: string[] = []): LotteryDto[] {
     const defaultName = 'item_branches';
-    return this.getRandomLotteryDtos(itemTiers, count, defaultName);
+    return this.getRandomLotteryDtos(itemTiers, count, defaultName, executedNames);
   }
 
   static getRandomAbilities(
     count: number,
     currentHero: CDOTA_BaseNPC_Hero | undefined,
+    executedNames: string[] = [],
   ): LotteryDto[] {
     // 获取英雄的技能
-    const heroAbilities: string[] = [];
     if (currentHero) {
       for (let i = 0; i < currentHero.GetAbilityCount(); i++) {
         const ability = currentHero.GetAbilityByIndex(i);
         if (ability) {
-          heroAbilities.push(ability.GetAbilityName());
+          executedNames.push(ability.GetAbilityName());
         }
       }
     }
+
     const defaultName = 'earthshaker_aftershock';
-    return this.getRandomLotteryDtos(abilityTiers, count, defaultName, heroAbilities);
+    return this.getRandomLotteryDtos(abilityTiers, count, defaultName, executedNames);
   }
 }

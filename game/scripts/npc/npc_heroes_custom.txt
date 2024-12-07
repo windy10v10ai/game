@@ -1574,8 +1574,8 @@
 				"28"		"special_bonus_unique_medusa_2"
 				"29"		"special_bonus_unique_medusa"
 				"30"		"special_bonus_unique_medusa_4"
-                "31"		"medusa_stone_gaze"
-				"32"		"medusa_gorgon_graso"
+				"31"		"medusa_stone_gaze"
+				"32"		"medusa_gorgon_grasp"
 				"33"		"medusa_gorgon_grasp"
 				"34"		"medusa_gorgon_grasp"
 			}

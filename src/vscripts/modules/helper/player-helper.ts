@@ -46,6 +46,20 @@ export class PlayerHelper {
     }
   }
 
+  static FindHeroBySteeamAccountId(steamAccountId: number): CDOTA_BaseNPC_Hero | undefined {
+    for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
+      if (PlayerResource.IsValidPlayer(i)) {
+        const player = PlayerResource.GetPlayer(i);
+        if (player) {
+          if (PlayerResource.GetSteamAccountID(i) === steamAccountId) {
+            return player.GetAssignedHero();
+          }
+        }
+      }
+    }
+    return undefined;
+  }
+
   static IsGoodTeamPlayer(playerId: PlayerID): boolean {
     return PlayerResource.GetTeam(playerId) === DotaTeam.GOODGUYS;
   }
