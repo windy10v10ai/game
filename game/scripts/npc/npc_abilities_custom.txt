@@ -1282,7 +1282,7 @@
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"%range"
 		"AbilityCastPoint"				"0.6"
-		"AbilityChannelTime"			"4.0"
+		"AbilityChannelTime"			"3.5"
 		"AbilityCooldown"				"75.0"
 		"AbilityManaCost"				"900"
 
@@ -1304,7 +1304,7 @@
 		"AbilityValues"
 		{
 			"cast_delay"			"1.0"
-			"duration"				"3.0"
+			"duration"				"2.5"
 			"range"					"4000"
 			"width"					"400"
 			"speed"					"4000.0"
