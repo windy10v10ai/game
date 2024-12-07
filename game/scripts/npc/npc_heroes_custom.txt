@@ -902,7 +902,7 @@
 	// 水晶室女 冰女
 	"npc_dota_hero_crystal_maiden"
 	{
-		"Ability5"		"visage_silent_as_the_grave"
+		"Ability9"		"visage_silent_as_the_grave"
 		"Bot"
 		{
 			"Build"
