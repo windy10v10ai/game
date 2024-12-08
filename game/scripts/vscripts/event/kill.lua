@@ -233,13 +233,13 @@ local function HeroKilled(keys)
             xp = 40
         elseif GameTime <= 10 * 60 then
             gold = 40
-            xp = 80
+            xp = 60
         elseif GameTime <= 15 * 60 then
             gold = 60
-            xp = 120
+            xp = 80
         else
             gold = 80
-            xp = 160
+            xp = 120
         end
 
         -- 击杀者等级加成
@@ -253,7 +253,7 @@ local function HeroKilled(keys)
         -- 两边团队击杀数补正
         local playerTeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(attackerPlayerID))
         local AITeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(playerId))
-        local teamKillFactor = playerTeamKill / (AITeamKill + 1) - 1
+        local teamKillFactor = playerTeamKill / (AITeamKill + 3) - 1
 
         -- 补正之和在0-10之间
         local totalFactor = extraFactor + teamKillFactor
