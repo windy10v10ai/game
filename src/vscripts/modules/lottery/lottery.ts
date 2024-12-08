@@ -1,4 +1,6 @@
+import { Analytic } from '../../api/analytics';
 import { reloadable } from '../../utils/tstl-utils';
+import { GameConfig } from '../GameConfig';
 import { NetTableHelper } from '../helper/net-table-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { LotteryHelper } from './lottery-helper';
@@ -121,8 +123,8 @@ export class Lottery {
   }
 
   pickAbility(userId: EntityIndex, event: LotteryPickEventDataWithPlayer) {
-    const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
-    const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
+    const steamAccountId = PlayerResource.GetSteamAccountID(event.PlayerID);
+    const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountId.toString());
     if (lotteryStatus.pickAbilityName) {
       print('已经抽取过技能');
       return;
@@ -137,7 +139,22 @@ export class Lottery {
 
     // 记录选择的技能
     lotteryStatus.pickAbilityName = event.name;
-    CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
+    CustomNetTables.SetTableValue('lottery_status', steamAccountId.toString(), lotteryStatus);
+
+    // 发送分析事件
+    const lotteryAbilitiesRaw = CustomNetTables.GetTableValue('lottery_abilities', steamAccountId);
+    const level =
+      Object.values(lotteryAbilitiesRaw).find((item) => item.name === event.name)?.level ?? 1;
+    // find rate by event name
+
+    Analytic.SendPickAbilityEvent({
+      steamAccountId,
+      matchId: Number(GameRules.Script_GetMatchID()),
+      name: event.name,
+      level,
+      difficulty: GameRules.Option.gameDifficulty,
+      version: GameConfig.GAME_VERSION,
+    });
   }
 
   // ---- 玩家刷新 ----

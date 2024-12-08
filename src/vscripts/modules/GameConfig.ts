@@ -1,4 +1,5 @@
 export class GameConfig {
+  public static readonly GAME_VERSION = 'v4.03';
   constructor() {
     SendToServerConsole('dota_max_physical_items_purchase_limit 9999'); // 用来解决物品数量限制问题
 

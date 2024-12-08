@@ -1,3 +1,4 @@
+import { GameConfig } from '../modules/GameConfig';
 import { ApiClient, HttpMethod } from './api-client';
 
 class Player {
@@ -32,7 +33,6 @@ class EndGameInfo {
 }
 
 export class Game {
-  private static VERSION = 'v4.03';
   constructor() {}
 
   public SendEndGameInfo(endData: EndGameInfo) {
@@ -43,7 +43,7 @@ export class Game {
     const gameInfo = new GameInfo();
     gameInfo.winnerTeamId = endData.winnerTeamId;
     gameInfo.matchId = GameRules.Script_GetMatchID().toString();
-    gameInfo.version = Game.VERSION;
+    gameInfo.version = GameConfig.GAME_VERSION;
     gameInfo.gameOption = endData.gameOption;
     gameInfo.gameTimeMsec = Math.round(GameRules.GetGameTime() * 1000);
 
