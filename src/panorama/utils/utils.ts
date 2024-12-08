@@ -3,7 +3,11 @@
  * @returns Steam 账号 ID
  */
 export function GetLocalPlayerSteamAccountID(): string {
-  const steamId64 = Game.GetLocalPlayerInfo().player_steamid;
+  const localPlayerInfo = Game.GetLocalPlayerInfo();
+  if (!localPlayerInfo) {
+    return '';
+  }
+  const steamId64 = localPlayerInfo.player_steamid;
   const steamId32 = ConvertSteamIdTo32Bit(steamId64);
   return steamId32;
 }
