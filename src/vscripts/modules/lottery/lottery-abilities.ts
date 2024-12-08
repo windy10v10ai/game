@@ -62,10 +62,8 @@ export const abilityTiers: Tier[] = [
       'legion_commander_moment_of_courage', // 勇气之霎
       'centaur_return', // 人马 反伤
       'riki_permanent_invisibility', // 永久隐身（旧版）
-      'spectre_desolate', // 荒芜
       'slardar_bash', // 深海重击
       'kunkka_tidebringer', // 潮汐使者 水刀
-      'lycan_feral_impulse', // 野性驱使
       'muerta_gunslinger', // 神枪在手
       'vengefulspirit_command_aura', // 复仇光环
       'necrolyte_heartstopper_aura', // 竭心光环
@@ -85,6 +83,7 @@ export const abilityTiers: Tier[] = [
 
       // 被动技能
       'tiny_grow', // 长大
+      'spectre_desolate', // 荒芜
       'monkey_king_jingu_mastery', // 如意棒法
       'spirit_breaker_greater_bash', // 巨力重击
       'antimage_mana_break', // 法力损毁
@@ -93,15 +92,14 @@ export const abilityTiers: Tier[] = [
       'abyssal_underlord_atrophy_aura', // 衰退光环
       'juggernaut_blade_dance', // 剑舞
       'skeleton_king_mortal_strike', // 本命一击
-      'life_stealer_ghoul_frenzy', // 尸鬼狂怒
       'night_stalker_hunter_in_the_night', // 暗夜猎影
-      'visage_gravekeepers_cloak', // 陵卫斗篷
       'alchemist_corrosive_weaponry', // 腐蚀兵械
       'sniper_headshot', // 爆头
       'nevermore_dark_lord', // 魔王降临
       'dawnbreaker_luminosity', // 熠熠生辉
       'lina_fiery_soul', // 炽魂
-      'storm_spirit_overload', // 超负荷
+      'mars_bulwark', // 护身甲盾
+      'lycan_feral_impulse', // 野性驱使
     ],
   },
   {
@@ -112,8 +110,11 @@ export const abilityTiers: Tier[] = [
       'witch_doctor_voodoo_restoration', // 巫毒疗法
 
       // 被动技能
+      'visage_gravekeepers_cloak', // 陵卫斗篷
+      'storm_spirit_overload', // 超负荷
+      'life_stealer_ghoul_frenzy', // 尸鬼狂怒
       'weaver_geminate_attack', // 连击
-      'venomancer_poison_sting', // 剧毒术士 毒刺
+      // 'venomancer_poison_sting', // 剧毒术士 毒刺
       'broodmother_incapacitating_bite', // 麻痹之咬
       'shredder_reactive_armor', // 活性活甲
       'viper_corrosive_skin', // 腐蚀皮肤
