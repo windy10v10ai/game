@@ -1,4 +1,6 @@
+import { Analytic } from '../../api/analytics';
 import { reloadable } from '../../utils/tstl-utils';
+import { GameConfig } from '../GameConfig';
 import { NetTableHelper } from '../helper/net-table-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { LotteryHelper } from './lottery-helper';
@@ -138,6 +140,21 @@ export class Lottery {
     // 记录选择的技能
     lotteryStatus.pickAbilityName = event.name;
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
+
+    // 发送分析事件
+    const lotteryAbilitiesRaw = CustomNetTables.GetTableValue('lottery_abilities', steamAccountID);
+    const level =
+      Object.values(lotteryAbilitiesRaw).find((item) => item.name === event.name)?.level ?? 1;
+    // find rate by event name
+
+    Analytic.SendPickAbilityEvent({
+      steamId: PlayerResource.GetSteamAccountID(event.PlayerID),
+      matchId: GameRules.Script_GetMatchID().toString(),
+      name: event.name,
+      level,
+      difficulty: GameRules.Option.gameDifficulty,
+      version: GameConfig.GAME_VERSION,
+    });
   }
 
   // ---- 玩家刷新 ----
