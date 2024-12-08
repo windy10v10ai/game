@@ -2,7 +2,7 @@ import { reloadable } from '../utils/tstl-utils';
 import { ApiClient, ApiParameter, HttpMethod } from './api-client';
 
 class EventBaseDto {
-  steamAccountId: number;
+  steamId: number;
   matchId: string;
 }
 

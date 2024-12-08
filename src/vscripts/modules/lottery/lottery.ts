@@ -148,7 +148,7 @@ export class Lottery {
     // find rate by event name
 
     Analytic.SendPickAbilityEvent({
-      steamAccountId: PlayerResource.GetSteamAccountID(event.PlayerID),
+      steamId: PlayerResource.GetSteamAccountID(event.PlayerID),
       matchId: GameRules.Script_GetMatchID().toString(),
       name: event.name,
       level,
