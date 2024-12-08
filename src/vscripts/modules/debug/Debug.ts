@@ -38,6 +38,29 @@ export class Debug {
     // commands that only work in debug mode below:
     if (!this.DebugEnabled) return;
 
+    if (cmd === CMD.V) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const pos = hero.GetAbsOrigin();
+      const vectorString = `Vector(${Math.floor(pos.x)}, ${Math.floor(pos.y)}, ${Math.floor(
+        pos.z,
+      )})`;
+      this.log(`当前位置: ${vectorString}`);
+    }
+    if (cmd === CMD.M) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const modifiers = hero.FindAllModifiers();
+      for (const modifier of modifiers) {
+        this.log(modifier.GetName());
+      }
+    }
+    if (cmd === CMD.SHARD) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      hero.AddItemByName('item_aghanims_shard');
+    }
+
     if (cmd === CMD.G) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
@@ -74,16 +97,6 @@ export class Debug {
 
     if (cmd === CMD.LOTTERY) {
       GameRules.Lottery.initLotteryAll();
-    }
-
-    if (cmd === CMD.V) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      const pos = hero.GetAbsOrigin();
-      const vectorString = `Vector(${Math.floor(pos.x)}, ${Math.floor(pos.y)}, ${Math.floor(
-        pos.z,
-      )})`;
-      this.log(`当前位置: ${vectorString}`);
     }
 
     if (cmd === CMD.REFRESH_AI) {

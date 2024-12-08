@@ -124,6 +124,7 @@ export class Player {
     });
   }
 
+  // 英雄出生/升级时，设置玩家属性
   public static SetPlayerProperty(hero: CDOTA_BaseNPC_Hero) {
     print(`[Player] SetPlayerProperty ${hero.GetUnitName()}`);
     if (!hero) {
@@ -135,7 +136,7 @@ export class Player {
 
     if (playerInfo?.properties) {
       for (const property of playerInfo.properties) {
-        PropertyController.setModifier(hero, property);
+        PropertyController.LevelupHeroProperty(hero, property);
       }
     }
   }
@@ -234,15 +235,15 @@ export class Player {
   }
 
   private PropertyLevelupSuccess(data: string) {
-    print(`[Player] Property Levelup Success data ${data}`);
     const player = json.decode(data)[0] as PlayerDto;
     DeepPrintTable(player);
 
     Player.UpsertPlayerData(player);
   }
 
-  private PropertyLevelupFailure(data: string) {
-    print(`[Player] Property Levelup Failure data ${data}`);
+  private PropertyLevelupFailure(_data: string) {
+    // 刷新状态
+    // FIXME 有不必要的更新
     Player.savePlayerToNetTable();
   }
 
@@ -264,11 +265,12 @@ export class Player {
     ApiClient.sendWithRetry(apiParameter);
   }
 
+  // 洗点成功
   private PropertyResetSuccess(data: string) {
     print(`[Player] Property Reset Success data ${data}`);
     const player = json.decode(data)[0] as PlayerDto;
-    DeepPrintTable(player);
 
+    PropertyController.RemoveAllPlayerProperty(Number(player.id));
     Player.UpsertPlayerData(player);
   }
 
@@ -281,9 +283,8 @@ export class Player {
    * 更新玩家数据，属性，nettable
    */
   private static UpsertPlayerData(player: PlayerDto) {
-    PropertyController.ResetPlayerProperty(Number(player.id));
     for (const property of player.properties) {
-      PropertyController.RefreshPlayerProperty(property);
+      PropertyController.LevelupPlayerProperty(property);
     }
 
     const index = Player.playerList.findIndex((p) => p.id === player.id);

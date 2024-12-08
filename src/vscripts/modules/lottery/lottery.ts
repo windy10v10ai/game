@@ -63,7 +63,13 @@ export class Lottery {
 
   // ---- 随机抽选 ----
   randomItemForPlayer(playerId: PlayerID) {
-    const itemLotteryResults = LotteryHelper.getRandomItems(this.randomCountBase);
+    // 排除刷新前抽取的
+    const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
+    const lotteryItemsRaw = CustomNetTables.GetTableValue('lottery_items', steamAccountID);
+    const executedNames = !!lotteryItemsRaw
+      ? Object.values(lotteryItemsRaw).map((item) => item.name)
+      : [];
+    const itemLotteryResults = LotteryHelper.getRandomItems(this.randomCountBase, executedNames);
 
     CustomNetTables.SetTableValue(
       'lottery_items',
@@ -73,8 +79,18 @@ export class Lottery {
   }
 
   randomAbilityForPlayer(playerId: PlayerID) {
+    // 排除刷新前抽取的
+    const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
+    const lotteryAbilitiesRaw = CustomNetTables.GetTableValue('lottery_abilities', steamAccountID);
+    const executedNames = !!lotteryAbilitiesRaw
+      ? Object.values(lotteryAbilitiesRaw).map((item) => item.name)
+      : [];
     const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-    const abilityLotteryResults = LotteryHelper.getRandomAbilities(this.randomCountBase, hero);
+    const abilityLotteryResults = LotteryHelper.getRandomAbilities(
+      this.randomCountBase,
+      hero,
+      executedNames,
+    );
 
     CustomNetTables.SetTableValue(
       'lottery_abilities',

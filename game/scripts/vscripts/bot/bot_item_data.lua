@@ -16,6 +16,7 @@ tBotItemData.purchaseItemList = {
 		'item_hand_of_group', -- 团队之手
 		'item_vanguard',
 		'item_echo_sabre',
+		'item_basher', -- 碎骨锤
 		'item_blink',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
@@ -88,7 +89,7 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_blade_mail_2',
-		'item_blue_fantasy',
+		'item_blue_fantasy', -- 苍蓝幻想
 		'item_undying_heart', -- 不朽之心
 		-- 'item_saint_orb', -- 圣女白莲
 		'item_ultimate_scepter_2',
@@ -130,8 +131,8 @@ tBotItemData.purchaseItemList = {
 		'item_sange_and_yasha',
 		'item_echo_sabre_2',
 		-- 'item_aghanims_shard',
-		'item_infernal_desolator',
-		'item_blue_fantasy',
+		'item_infernal_desolator', -- 绝对破防之刃
+		'item_blue_fantasy', -- 苍蓝幻想
 		'item_ultimate_scepter_2',
 		'item_wasp_callous',
 		'item_abyssal_blade', -- 可以与一闪叠加，分开作用几乎永晕
@@ -146,22 +147,22 @@ tBotItemData.purchaseItemList = {
 		'item_wraith_band', -- 系带
 		'item_power_treads',
 		'item_orb_of_corrosion',
-		'item_vanguard',
-		'item_maelstrom',
+		'item_vanguard', -- 先锋盾
+		'item_maelstrom', -- 电锤
 		'item_wings_of_haste',
+		'item_basher', -- 碎骨锤
 		'item_hyperstone',
 		'item_recipe_mjollnir',
 		'item_echo_sabre_2',
 		'item_sange_and_yasha',
 		'item_aghanims_shard',
 		'item_ultimate_scepter_2',
-		'item_basher',
 
-		'item_blue_fantasy',
+		'item_blue_fantasy', -- 苍蓝幻想
 		'item_monkey_king_bar_2',
 		'item_abyssal_blade_v2',
 		'item_wasp_callous',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_wasp_despotic',
 		'item_black_king_bar_2',
 		'item_excalibur',
@@ -197,6 +198,7 @@ tBotItemData.purchaseItemList = {
 		'item_armlet',
 		'item_echo_sabre',
 		'item_falcon_blade',
+		'item_basher', -- 碎骨锤
 		'item_wings_of_haste',
 		'item_sange_and_yasha',
 		'item_aghanims_shard',
@@ -204,7 +206,7 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_insight_armor',
 		'item_undying_heart',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_moon_shard_datadriven',
 		'item_abyssal_blade_v2',
 		'item_excalibur',
@@ -327,7 +329,7 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_butterfly',
 		-- 'item_silver_edge_2',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_black_king_bar_2',
 		'item_lesser_crit',
 		'item_recipe_wasp_callous',
@@ -393,13 +395,14 @@ tBotItemData.purchaseItemList = {
 		'item_bfury',
 		'item_wings_of_haste',
 		'item_echo_sabre',
+		'item_basher', -- 碎骨锤
 		'item_sange_and_yasha',
 		'item_aghanims_shard',
 		'item_black_king_bar_2',
 		'item_monkey_king_bar_2',
 		'item_ultimate_scepter_2',
 		-- 'item_adi_king_plus',
-		'item_blue_fantasy',
+		'item_blue_fantasy', -- 苍蓝幻想
 		'item_abyssal_blade_v2',
 		'item_moon_shard_datadriven',
 		'item_seer_stone_ai',
@@ -424,7 +427,7 @@ tBotItemData.purchaseItemList = {
 		'item_assault',
 		'item_recipe_vladmir_2',
 		'item_abyssal_blade_v2',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_silver_edge_2',
 		'item_moon_shard_datadriven',
 		'item_wasp_despotic',
@@ -521,9 +524,9 @@ tBotItemData.purchaseItemList = {
 		'item_hurricane_pike_2',
 		'item_monkey_king_bar_2',
 		'item_ultimate_scepter_2',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_wasp_callous',
-		'item_skadi_2',
+		'item_skadi_2',      -- 大冰眼
 		'item_wasp_despotic',
 		-- 'item_satanic_2',
 		'item_paladin_sword_ai',
@@ -543,7 +546,7 @@ tBotItemData.purchaseItemList = {
 		'item_hurricane_pike_2',
 		'item_wasp_callous',
 		'item_ultimate_scepter_2',
-		'item_skadi_2',
+		'item_skadi_2', -- 大冰眼
 		'item_black_king_bar_2',
 		'item_mind_breaker_ai',
 		'item_wasp_despotic',
@@ -563,7 +566,7 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_yasha_and_kaya',
 		'item_black_king_bar_2',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_wasp_callous',
 		'item_moon_shard_datadriven',
 		'item_abyssal_blade_v2',
@@ -583,8 +586,8 @@ tBotItemData.purchaseItemList = {
 		'item_aghanims_shard',
 		'item_black_king_bar_2',
 		'item_ultimate_scepter_2',
-		'item_skadi_2',
-		'item_infernal_desolator',
+		'item_skadi_2',      -- 大冰眼
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_monkey_king_bar_2',
 		'item_arcane_blink',
 		'item_wasp_callous',
@@ -640,7 +643,7 @@ tBotItemData.purchaseItemList = {
 		'item_recipe_refresh_core',
 		'item_necronomicon_staff',
 		'item_angels_demise', -- 绝刃
-		'item_blue_fantasy',
+		'item_blue_fantasy', -- 苍蓝幻想
 	},
 	npc_dota_hero_omniknight = {
 		'item_magic_wand',
@@ -698,9 +701,10 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_desolator',
+		'item_basher', -- 碎骨锤
 		-- 最终装备
 		'item_black_king_bar_2',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_ultimate_scepter_2',
 		'item_abyssal_blade_v2',
 		-- 'item_satanic_2',
@@ -747,7 +751,7 @@ tBotItemData.purchaseItemList = {
 		'item_black_king_bar_2',
 		'item_ultimate_scepter_2',
 		'item_monkey_king_bar_2',
-		'item_skadi_2',
+		'item_skadi_2', -- 大冰眼
 		'item_moon_shard_datadriven',
 		'item_undying_heart',
 		'item_insight_armor',
@@ -763,15 +767,16 @@ tBotItemData.purchaseItemList = {
 		'item_wraith_band',
 		'item_falcon_blade', -- 猎鹰战刃
 		'item_echo_sabre',
+		'item_basher', -- 碎骨锤
 		'item_bfury',
 		'item_wings_of_haste',
 		'item_sange_and_yasha',
 		'item_aghanims_shard',
 		'item_greater_crit',
 		'item_monkey_king_bar_2',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_ultimate_scepter_2',
-		'item_blue_fantasy',
+		'item_blue_fantasy', -- 苍蓝幻想
 		'item_moon_shard_datadriven',
 		'item_angels_demise',
 		'item_abyssal_blade_v2',
@@ -868,10 +873,9 @@ tBotItemData.purchaseItemList = {
 		'item_sange_and_yasha',
 		'item_ultimate_scepter_2',
 		'item_hurricane_pike_2',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_black_king_bar_2',
 		'item_angels_demise',
-		'item_skadi_2',
 		'item_shotgun_v2',
 		-- 'item_satanic_2',
 		'item_excalibur',
@@ -897,7 +901,7 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_wasp_despotic',
 		'item_undying_heart',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_wasp_callous',
 		'item_sacred_six_vein',
 	},
@@ -919,10 +923,10 @@ tBotItemData.purchaseItemList = {
 		'item_overwhelming_blink',
 		'item_sange_and_yasha',
 		'item_adi_king_plus',
-		'item_blue_fantasy',
+		'item_blue_fantasy', -- 苍蓝幻想
 		'item_monkey_king_bar_2',
 		'item_ultimate_scepter_2',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_saint_orb',
 		'item_moon_shard_datadriven',
 		'item_jump_jump_jump',
@@ -947,13 +951,10 @@ tBotItemData.purchaseItemList = {
 		'item_arcane_blink',
 		'item_ultimate_scepter_2',
 		'item_necronomicon_staff',
-		'item_hallowed_scepter',
 		'item_angels_demise', -- 绝刃
-		'item_octarine_core',
-		'item_recipe_arcane_octarine_core',
-		'item_refresher',
-		'item_recipe_refresh_core',
-		'item_psychic_headband_ai',
+		'item_hallowed_scepter',
+		'item_black_king_bar_2',
+		'item_blue_fantasy', -- 苍蓝幻想
 	},
 	npc_dota_hero_tiny = {
 		'item_magic_wand',
@@ -992,8 +993,8 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_monkey_king_bar_2',
 		'item_wasp_callous',
-		'item_infernal_desolator',
-		'item_skadi_2',
+		'item_infernal_desolator', -- 绝对破防之刃
+		'item_skadi_2',      -- 大冰眼
 		'item_shivas_guard_2',
 		'item_wasp_despotic',
 		'item_excalibur',
@@ -1054,9 +1055,9 @@ tBotItemData.purchaseItemList = {
 		'item_recipe_monkey_king_bar_2',
 		'item_wasp_despotic',
 		'item_black_king_bar_2',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_ultimate_scepter_2',
-		'item_skadi_2',
+		'item_skadi_2',      -- 大冰眼
 		'item_wasp_callous',
 	},
 	npc_dota_hero_witch_doctor = {
@@ -1111,7 +1112,6 @@ tBotItemData.purchaseItemList = {
 -- same item only need set once
 tBotItemData.sellItemList = {
 	npc_dota_hero_abaddon = {
-		'item_vanguard',
 		'item_overwhelming_blink',
 		'item_echo_sabre_2',
 		-- local
@@ -1121,13 +1121,11 @@ tBotItemData.sellItemList = {
 		'item_monkey_king_bar_2',
 	},
 	npc_dota_hero_axe = {
-		'item_vanguard',
 		'item_overwhelming_blink',
 
 		-- local
 	},
 	npc_dota_hero_spectre = {
-		'item_vanguard',
 		'item_reaver',
 	},
 	npc_dota_hero_bane = {
@@ -1135,7 +1133,6 @@ tBotItemData.sellItemList = {
 		'item_force_staff',
 	},
 	npc_dota_hero_bounty_hunter = {
-		'item_vanguard',
 		'item_sange_and_yasha',
 		'item_echo_sabre_2',
 
@@ -1154,7 +1151,6 @@ tBotItemData.sellItemList = {
 		'item_recipe_black_king_bar',
 	},
 	npc_dota_hero_bristleback = {
-		'item_vanguard',
 		'item_echo_sabre_2',
 		'item_eternal_shroud',
 
@@ -1183,7 +1179,7 @@ tBotItemData.sellItemList = {
 		'item_wraith_band',
 		'item_mask_of_madness',
 		'item_monkey_king_bar_2',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 	},
 	npc_dota_hero_earthshaker = {
 		'item_force_staff',
@@ -1205,7 +1201,7 @@ tBotItemData.sellItemList = {
 		'item_armlet',
 		'item_black_king_bar_2',
 		'item_bfury',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 		'item_silver_edge_2',
 	},
 	npc_dota_hero_lich = {
@@ -1241,7 +1237,7 @@ tBotItemData.sellItemList = {
 		'item_mask_of_madness',
 		'item_swift_blink',
 		'item_monkey_king_bar_2',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 	},
 	npc_dota_hero_necrolyte = {
 	},
@@ -1249,7 +1245,6 @@ tBotItemData.sellItemList = {
 		'item_overwhelming_blink',
 	},
 	npc_dota_hero_omniknight = {
-		'item_vanguard',
 		'item_echo_sabre_2',
 	},
 	npc_dota_hero_oracle = {
@@ -1260,12 +1255,10 @@ tBotItemData.sellItemList = {
 		'item_echo_sabre_2',
 	},
 	npc_dota_hero_pudge = {
-		'item_vanguard',
 		'item_eternal_shroud',
 		'item_overwhelming_blink',
 	},
 	npc_dota_hero_razor = {
-		'item_vanguard',
 		'item_falcon_blade',
 		'item_mask_of_madness',
 		'item_sange_and_yasha',
@@ -1278,7 +1271,7 @@ tBotItemData.sellItemList = {
 		'item_bfury',
 		'item_monkey_king_bar_2',
 		'item_greater_crit',
-		'item_infernal_desolator',
+		'item_infernal_desolator', -- 绝对破防之刃
 	},
 	npc_dota_hero_shadow_shaman = {
 		'item_magic_wand',
@@ -1300,10 +1293,8 @@ tBotItemData.sellItemList = {
 		'item_mask_of_madness',
 		'item_sange_and_yasha',
 		'item_maelstrom',
-		'item_infernal_desolator',
 	},
 	npc_dota_hero_sven = {
-		'item_vanguard',
 		'item_mask_of_madness',
 		'item_sange_and_yasha',
 		'item_echo_sabre_2',
@@ -1313,13 +1304,11 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_vengefulspirit = {
 		'item_falcon_blade',
-		'item_vanguard',
 		'item_desolator',
 		'item_monkey_king_bar_2',
 	},
 	npc_dota_hero_viper = {
 		'item_falcon_blade',
-		'item_vanguard',
 		'item_sange_and_yasha',
 		'item_monkey_king_bar_2',
 	},
@@ -1345,7 +1334,6 @@ tBotItemData.sellItemList = {
 		'item_dagon_5',
 	},
 	npc_dota_hero_tiny = {
-		'item_vanguard',
 		'item_sange_and_yasha',
 		'item_echo_sabre_2',
 		'item_overwhelming_blink',
@@ -1421,6 +1409,8 @@ tBotItemData.sellItemCommonList = {
 	'item_holy_locket',  -- 圣洁吊坠
 	'item_blink',        -- 跳刀
 	'item_solar_crest',  -- 炎阳纹章
+	'item_vanguard',     -- 先锋盾
+	'item_basher',       -- 碎骨锤
 
 
 	-- 高级道具
@@ -1752,7 +1742,7 @@ tBotItemData.addNeutralItemList = {
 		'item_mirror_shield',
 	},
 	npc_dota_hero_tinker = {
-		'item_seer_stone_ai_1',
+		'item_psychic_headband_ai_1',
 	},
 	npc_dota_hero_tiny = {
 		'item_ceremonial_robe_ai_1',
