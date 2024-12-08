@@ -119,8 +119,8 @@ export const abilityTiers: Tier[] = [
       'viper_corrosive_skin', // 腐蚀皮肤
       'beastmaster_inner_beast', // 野性之心
       'rubick_null_field', // 失效立场
-      'brewmaster_fire_phase', // 永久相位
-      'brewmaster_fire_permanent_immolation', // 永久献祭
+      // 'brewmaster_fire_phase', // 永久相位
+      // 'brewmaster_fire_permanent_immolation', // 永久献祭
       'silencer_last_word', // 遗言
       'tidehunter_kraken_shell', // 海妖外壳
       'pangolier_lucky_shot', // 幸运一击
