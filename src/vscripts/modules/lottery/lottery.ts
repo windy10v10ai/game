@@ -149,7 +149,7 @@ export class Lottery {
 
     Analytic.SendPickAbilityEvent({
       steamAccountId: PlayerResource.GetSteamAccountID(event.PlayerID),
-      matchId: Number(GameRules.Script_GetMatchID()),
+      matchId: GameRules.Script_GetMatchID().toString(),
       name: event.name,
       level,
       difficulty: GameRules.Option.gameDifficulty,

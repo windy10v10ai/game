@@ -3,7 +3,7 @@ import { ApiClient, ApiParameter, HttpMethod } from './api-client';
 
 class EventBaseDto {
   steamAccountId: number;
-  matchId: number;
+  matchId: string;
 }
 
 class PickDto extends EventBaseDto {
