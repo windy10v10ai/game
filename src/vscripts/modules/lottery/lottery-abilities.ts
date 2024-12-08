@@ -32,7 +32,6 @@ export const abilityTiers: Tier[] = [
       // 被动技能
       'ogre_magi_multicast', // 多重施法
       'phantom_assassin_coup_de_grace', // 恩赐解脱
-      'huskar_berserkers_blood', // 狂战士之血
       'templar_assassin_psi_blades', // 灵能之刃
       'troll_warlord_fervor', // 热血战魂
       'dazzle_good_juju', // 善咒
@@ -49,11 +48,13 @@ export const abilityTiers: Tier[] = [
     rate: 20,
     names: [
       // 法球/开关技能
+      'viper_poison_attack', // 毒性攻击
       'silencer_glaives_of_wisdom', // 智慧之刃
       'ancient_apparition_chilling_touch', // 极寒之触
       'gyrocopter_flak_cannon', // 高射火炮
 
       // 被动技能
+      'huskar_berserkers_blood', // 狂战士之血
       'slark_essence_shift', // 能量转移
       'chaos_knight_chaos_strike', // 混沌一击
       'axe_counter_helix', // 反击螺旋
@@ -69,7 +70,6 @@ export const abilityTiers: Tier[] = [
       'vengefulspirit_command_aura', // 复仇光环
       'necrolyte_heartstopper_aura', // 竭心光环
       'enchantress_untouchable', // 不可侵犯
-      'monkey_king_jingu_mastery', // 如意棒法
       'earthshaker_aftershock', // 余震
       'obsidian_destroyer_equilibrium', // 精华变迁
     ],
@@ -79,14 +79,14 @@ export const abilityTiers: Tier[] = [
     rate: 50,
     names: [
       // 法球/开关技能
-      'viper_poison_attack', // 毒性攻击
+      'drow_ranger_frost_arrows', // 霜冻之箭
       'jakiro_liquid_fire', // 液态火
       'jakiro_liquid_ice', // 液态冰
 
       // 被动技能
-      'lich_frost_aura', // 冰霜光环
-      'spirit_breaker_greater_bash', // 巨力重击
       'tiny_grow', // 长大
+      'monkey_king_jingu_mastery', // 如意棒法
+      'spirit_breaker_greater_bash', // 巨力重击
       'antimage_mana_break', // 法力损毁
       'bounty_hunter_jinada', // 忍术
       'abaddon_frostmourne', // 魔霭诅咒
@@ -100,7 +100,6 @@ export const abilityTiers: Tier[] = [
       'sniper_headshot', // 爆头
       'nevermore_dark_lord', // 魔王降临
       'dawnbreaker_luminosity', // 熠熠生辉
-      'weaver_geminate_attack', // 连击
       'lina_fiery_soul', // 炽魂
       'storm_spirit_overload', // 超负荷
     ],
@@ -110,10 +109,10 @@ export const abilityTiers: Tier[] = [
     rate: 100,
     names: [
       // 法球/开关技能
-      'drow_ranger_frost_arrows', // 霜冻之箭
       'witch_doctor_voodoo_restoration', // 巫毒疗法
 
       // 被动技能
+      'weaver_geminate_attack', // 连击
       'venomancer_poison_sting', // 剧毒术士 毒刺
       'broodmother_incapacitating_bite', // 麻痹之咬
       'shredder_reactive_armor', // 活性活甲
@@ -124,10 +123,11 @@ export const abilityTiers: Tier[] = [
       'brewmaster_fire_permanent_immolation', // 永久献祭
       'silencer_last_word', // 遗言
       'tidehunter_kraken_shell', // 海妖外壳
-      'crystal_maiden_brilliance_aura', // 奥术光环 冰女
       'pangolier_lucky_shot', // 幸运一击
       'phantom_lancer_phantom_edge', // 幻影冲锋
       'razor_storm_surge', // 风暴涌动
+      'lich_frost_aura', // 冰霜光环
+      'crystal_maiden_brilliance_aura', // 奥术光环 冰女
     ],
   },
 ];
