@@ -2,11 +2,13 @@
 
 export enum CMD {
   V = '-v', // 获取当前vector
+  M = '-m', // 获取当前modifier
   REFRESH_AI = '-r', // 刷新AI
 
-  KILL = '-kill',
-  KILL_ALL = '-killall',
+  KILL = '-k',
+  KILL_ALL = '-kall',
   G = '-g', // 加钱升级
+  SHARD = '-shard', // 给自己碎片
   G_ALL = '-gall', // 所有人升级加钱
   L_ALL = '-lall', // 所有人逐级升级
 

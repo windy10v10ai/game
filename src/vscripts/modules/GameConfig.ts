@@ -48,8 +48,8 @@ export class GameConfig {
     // game.SetDeathOverlayDisabled(true); // 是否禁用死亡遮罩（灰色的遮罩）
 
     // 每点智力魔抗加成在modifier intelect_magic_resist.ts中控制
-    game.SetCustomAttributeDerivedStatValue(AttributeDerivedStats.AGILITY_ARMOR, 0.133);
-    game.SetCustomAttributeDerivedStatValue(AttributeDerivedStats.STRENGTH_HP, 25);
+    game.SetCustomAttributeDerivedStatValue(AttributeDerivedStats.AGILITY_ARMOR, 0.125); // 0.166 1/6
+    game.SetCustomAttributeDerivedStatValue(AttributeDerivedStats.STRENGTH_HP, 25); // 22
 
     // 设置自定义的队伍人数上限，这里的设置是10个队伍，每个队伍1人
     // GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 1);
@@ -60,8 +60,8 @@ export class GameConfig {
 
     if (IsInToolsMode()) {
       print('[GameConfig] IsInToolsMode set');
-      // GameRules.SetCustomGameSetupAutoLaunchDelay(1);
-      GameRules.SetHeroSelectionTime(30);
+      GameRules.SetCustomGameSetupAutoLaunchDelay(1);
+      GameRules.SetHeroSelectionTime(15);
       GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(5);
       // GameRules.SetPreGameTime(300);

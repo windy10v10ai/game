@@ -27,6 +27,76 @@
 				}
 		}
 	}
+	//=================================================================================================================
+	// 熊猫酒仙
+	//=================================================================================================================
+	// 永久献祭
+	"brewmaster_fire_permanent_immolation"
+	{
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"damage"
+			{
+				"value" "25 50 75 100"
+			}
+		}
+	}
+	// 永久相位
+	"brewmaster_fire_phase"
+	{
+		"MaxLevel"						"1"
+	}
+	//=================================================================================================================
+	// Visage 死灵龙
+	//=================================================================================================================
+	// 陵卫斗篷
+	"visage_gravekeepers_cloak"
+	{
+		"MaxLevel"						"5"
+		"AbilityValues"
+		{
+			"max_layers"
+			{
+				"value" "6"
+			}
+			"damage_reduction"
+			{
+				"value" "15 20 25 30 35"
+			}
+			"recovery_time"
+			{
+				"value" "7 6 5 4 3"
+			}
+			"max_damage_reduction"
+			{
+				"value" "90"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Brood Mother 育母蜘蛛
+	//=================================================================================================================
+	// 麻痹之咬
+	"broodmother_incapacitating_bite"
+	{
+		"MaxLevel"						"5"
+		"AbilityValues"
+		{
+			"miss_chance"
+			{
+				"value"		"30 40 50 60 70"
+			}
+			"bonus_movespeed"
+			{
+				"value"		"-15 -20 -25 -30 -35"
+			}
+			"attack_damage"
+			{
+				"value"				"4 8 12 16 20" // x2
+			}
+		}
+	}
 	// ---------------------------------
 	// ---- Strength Heroes 力量英雄----
 	// ---------------------------------
@@ -612,18 +682,6 @@
 	"brewmaster_storm_wind_walk"
 	{
 		"MaxLevel"						"1"
-	}
-	// 火猫献祭
-	"brewmaster_fire_permanent_immolation"
-	{
-		"MaxLevel"						"1"
-		"AbilityValues"
-		{
-			"damage"
-			{
-				"value" "50"	// 25 50 75
-			}
-		}
 	}
 	// 紫猫小颠勺
 	"brewmaster_void_astral_pull"
@@ -7293,7 +7351,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCooldown"				"60.0 50.0 40.0 30.0"
 		"AbilityManaCost"				"100 75 50 25"
-		"AbilityCastRange"				"900 1200 1500 1800"	// 475
+		"AbilityCastRange"				"900 1100 1300 1500"	// 475
 		"AbilityValues"
 		{
 				"hit_point_minimum_pct"		"30 25 20 15"
@@ -8275,8 +8333,6 @@
 	// 冰封禁制
 	"crystal_maiden_frostbite"
 	{
-		"LinkedAbility"					"visage_gravekeepers_cloak"
-		"AbilityDraftPreAbility"		"visage_gravekeepers_cloak"
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
@@ -8290,32 +8346,6 @@
 			"duration"
 			{
 				"value"										"1.5 2 2.5 3 3.5"
-			}
-		}
-	}
-	// 陵卫斗篷（来自死灵龙）
-	"visage_gravekeepers_cloak"
-	{
-		"LinkedAbility"					"crystal_maiden_frostbite"
-		"AbilityDraftPreAbility"		"crystal_maiden_frostbite"
-		"MaxLevel"						"5"
-		"AbilityValues"
-		{
-			"max_layers"
-			{
-				"value" "6"
-			}
-			"damage_reduction"
-			{
-				"value" "15 20 25 30 35"
-			}
-			"recovery_time"
-			{
-				"value" "7 6 5 4 3"
-			}
-			"max_damage_reduction"
-			{
-				"value" "90"
 			}
 		}
 	}
@@ -8378,17 +8408,6 @@
 			{
 				"value"													"0"
 				"special_bonus_facet_crystal_maiden_frozen_expanse"		"6 11 14 15"
-			}
-		}
-	}
-	// 静如古墓（来自死灵龙）纯原版
-	"visage_silent_as_the_grave"
-	{
-		"AbilityValues"
-		{
-			"invis_duration"
-			{
-				"value" "15.0"	// 35.0	buff持续覆盖大招
 			}
 		}
 	}
@@ -9790,7 +9809,7 @@
 			"jumps"					"10 15 20 25"
 			"jump_range"
 			{
-				"value"			"900" // 600
+				"value"			"800" // 600
 				"affected_by_aoe_increase"	"1"
 			}
 			"bonus_jumps_per_hero_killed"
@@ -11019,8 +11038,7 @@
 		{
 			"intellect_damage_pct"
 			{
-				"value"					"20 30 40 50 60"
-				"special_bonus_unique_silencer_3"	"+10"
+				"value"					"20 35 50 65 80"
 			}
 			"int_steal"
 			{
@@ -11030,6 +11048,7 @@
 			"int_steal_duration"
 			{
 				"value"			"15 20 25 30 35"
+				"special_bonus_shard"		"+25"
 			}
 		}
 	}
@@ -12258,7 +12277,7 @@
 			}
 			"echo_hero_damage"
 			{
-				"value"													"30 45 60 75 90"
+				"value"													"25 45 65 85 105"
 			}
 		}
 	}
@@ -12295,22 +12314,17 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"		"40 35 30 25"
+				"value"		"45 40 35 30"
 			}
 
 			"strikes"												"2 3 4 5"
-			"radius"
-			{
-				"value"												"500"
-				"special_bonus_unique_kez_raptor_dance_radius"		"+100"
-			}
 			"base_damage"
 			{
 				"value"				 "200"	// 75
 			}
 			"max_health_damage_pct"
 			{
-				"value"				 "6"	// 4
+				"value"				 "5"	// 4
 			}
 		}
 	}
@@ -12333,7 +12347,7 @@
 		{
 			"damage"
 			{
-				"value"					"75 125 175 225 275"
+				"value"					"75 150 225 300 375"	// 75 125 175 225
 			}
 			"silence_duration"			"1.75 2.0 2.25 2.5 2.75"
 		}

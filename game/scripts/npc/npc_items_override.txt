@@ -1144,7 +1144,7 @@
 	"item_fallen_sky" //天崩
 	{
 		"AbilityCastRange"				"1800"  //1800
-		"AbilityCooldown"				"10"  //15
+		"AbilityCooldown"				"12"  //15
 		"AbilityValues"
 		{
 			"bonus_strength"		"50"   //25
@@ -1165,7 +1165,7 @@
 			"max_duration"		        "2.5" //2.5
 			"impact_damage_buildings"	"200"  //75
 			"impact_damage_units"		"400" //150
-			"blink_damage_cooldown"	    "0" //3
+			"blink_damage_cooldown"	    "0.1" //3
 		}
 	}
 	//其他中立
@@ -1261,7 +1261,7 @@
 		{
 			"bonus_damage"			"100"		// 50
 			"crit_chance"			"30"		// 30
-			"spell_crit_multiplier"		"75"	// 60
+			"spell_crit_multiplier"		"70"	// 60
 			"spell_crit_flat"			"600"	// 150
 			"crit_multiplier"		"250"		// 160
 			"tooltip_crit_damage"	"150"		// 60
@@ -1367,7 +1367,7 @@
 	//=================================================================================================================
 	"item_recipe_silver_edge"
 	{
-		"ItemCost"						"450"// 恶魔刀锋换成振奋宝石，价格不变
+		"ItemCost"						"0"// 降价到5000总价
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_silver_edge"
 		"ItemRequirements"
@@ -1500,6 +1500,10 @@
 	"item_black_king_bar"
 	{
 		"AbilitySharedCooldown"			"bkb"
+		"AbilityValues"
+		{
+			"bonus_strength"		"25"
+		}
 	}
 	"item_aeon_disk"
 	{
@@ -1635,7 +1639,7 @@
 	//=================================================================================================================
 	"item_recipe_bracer"
 	{
-		"ItemCost"						"355"
+		"ItemCost"						"205"
 	}
 	"item_bracer"
 	{
@@ -1655,7 +1659,7 @@
 	//=================================================================================================================
 	"item_recipe_wraith_band"
 	{
-		"ItemCost"						"355"
+		"ItemCost"						"205"
 	}
 	"item_wraith_band"
 	{
@@ -1674,7 +1678,7 @@
 	//=================================================================================================================
 	"item_recipe_null_talisman"
 	{
-		"ItemCost"						"355"
+		"ItemCost"						"205"
 	}
 	"item_null_talisman"
 	{

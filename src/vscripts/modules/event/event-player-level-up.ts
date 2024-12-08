@@ -2,7 +2,6 @@ import { Player } from '../../api/player';
 import { reloadable } from '../../utils/tstl-utils';
 import { BotPower } from '../helper/bot-power';
 import { PlayerHelper } from '../helper/player-helper';
-import { PropertyController } from '../property/property_controller';
 
 @reloadable
 export class EventPlayerLevelUp {
@@ -19,11 +18,10 @@ export class EventPlayerLevelUp {
 
     if (PlayerHelper.IsHumanPlayer(hero)) {
       // 更新玩家属性
-      if (keys.level % PropertyController.HERO_LEVEL_PER_POINT === 0) {
-        print(`[Event] OnPlayerLevelUp SetPlayerProperty ${hero.GetUnitName()}`);
-        Player.SetPlayerProperty(hero);
-      }
-    } else {
+      print(`[Event] OnPlayerLevelUp SetPlayerProperty ${hero.GetUnitName()}`);
+      Player.SetPlayerProperty(hero);
+    }
+    if (PlayerHelper.IsBotPlayer(hero)) {
       BotPower.LevelUpBotPower(hero);
     }
   }
