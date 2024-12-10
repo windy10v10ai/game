@@ -15,7 +15,8 @@ class PickDto extends EventBaseDto {
 
 @reloadable
 export class Analytic {
-  public static readonly POST_ANALYTICS_PICK_ABILITY_URL = '/analytics/pick/ability';
+  public static readonly POST_ANALYTICS_PICK_ABILITY_URL = '/analytics/lottery/pick/ability';
+  public static readonly POST_ANALYTICS_PICK_ITEM_URL = '/analytics/lottery/pick/item';
 
   public static async SendPickAbilityEvent(pickDto: PickDto) {
     const apiParameter: ApiParameter = {
@@ -23,7 +24,20 @@ export class Analytic {
       path: this.POST_ANALYTICS_PICK_ABILITY_URL,
       body: pickDto,
       successFunc: () => {
-        print(`[Analytic] sendPickEvent success`);
+        print(`[Analytic] sendPickAbilityEvent success`);
+      },
+    };
+
+    ApiClient.sendWithRetry(apiParameter);
+  }
+
+  public static async SendPickItemEvent(pickDto: PickDto) {
+    const apiParameter: ApiParameter = {
+      method: HttpMethod.POST,
+      path: this.POST_ANALYTICS_PICK_ITEM_URL,
+      body: pickDto,
+      successFunc: () => {
+        print(`[Analytic] sendPickItemEvent success`);
       },
     };
 
