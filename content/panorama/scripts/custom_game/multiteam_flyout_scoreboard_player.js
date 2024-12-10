@@ -1,27 +1,27 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-"use strict";
+'use strict';
 
 var current_tooltip_timer = null;
 var current_shown_tooltip_id = null;
 
 function ToggleMute() {
-  var playerId = $.GetContextPanel().GetAttributeInt("player_id", -1);
+  var playerId = $.GetContextPanel().GetAttributeInt('player_id', -1);
   if (playerId !== -1) {
     var newIsMuted = !Game.IsPlayerMuted(playerId);
     Game.SetPlayerMuted(playerId, newIsMuted);
-    $.GetContextPanel().SetHasClass("player_muted", newIsMuted);
+    $.GetContextPanel().SetHasClass('player_muted', newIsMuted);
   }
 }
 
 (function () {
-  var playerId = $.GetContextPanel().GetAttributeInt("player_id", -1);
-  $.GetContextPanel().SetHasClass("player_muted", Game.IsPlayerMuted(playerId));
+  var playerId = $.GetContextPanel().GetAttributeInt('player_id', -1);
+  $.GetContextPanel().SetHasClass('player_muted', Game.IsPlayerMuted(playerId));
 })();
 
 function GetLocalPlayerId() {
   var localPlayerId = 0;
   var localPlayerInfo = Game.GetLocalPlayerInfo();
-  if (typeof localPlayerInfo !== "undefined") {
+  if (typeof localPlayerInfo !== 'undefined') {
     localPlayerId = localPlayerInfo.player_id;
   }
   return localPlayerId;
@@ -34,7 +34,7 @@ function HideToolTips() {
   }
   current_shown_tooltip_id = null;
 
-  $.DispatchEvent("DOTAHideTextTooltip");
+  $.DispatchEvent('DOTAHideTextTooltip');
 }
 
 function ShowToolTip(button_id, text_normal, text_activated) {
@@ -44,11 +44,11 @@ function ShowToolTip(button_id, text_normal, text_activated) {
     current_shown_tooltip_id = button_id;
 
     var show_text = $.Localize(text_normal);
-    if (button.BHasClass("Activated")) {
-      show_text += " " + $.Localize(text_activated);
+    if (button.BHasClass('Activated')) {
+      show_text += ' ' + $.Localize(text_activated);
     }
 
-    $.DispatchEvent("DOTAShowTextTooltip", button, show_text);
+    $.DispatchEvent('DOTAShowTextTooltip', button, show_text);
   }
 }
 
@@ -65,33 +65,33 @@ function DelayedShowToolTipHelper(button_id, text_normal, text_activated) {
 
 function ShowToolTipMute() {
   DelayedShowToolTipHelper(
-    "#BtnMuteVoice",
-    "#scoreboard_tool_tip_mute_player",
-    "#scoreboard_tool_tip_actived",
+    '#BtnMuteVoice',
+    '#scoreboard_tool_tip_mute_player',
+    '#scoreboard_tool_tip_actived',
   );
 }
 
 function ShowToolTipShareUnit() {
   DelayedShowToolTipHelper(
-    "#BtnShareUnit",
-    "#scoreboard_tool_tip_share_unit",
-    "#scoreboard_tool_tip_actived",
+    '#BtnShareUnit',
+    '#scoreboard_tool_tip_share_unit',
+    '#scoreboard_tool_tip_actived',
   );
 }
 
 function ShowToolTipShareHero() {
   DelayedShowToolTipHelper(
-    "#BtnShareHero",
-    "#scoreboard_tool_tip_share_hero",
-    "#scoreboard_tool_tip_actived",
+    '#BtnShareHero',
+    '#scoreboard_tool_tip_share_hero',
+    '#scoreboard_tool_tip_actived',
   );
 }
 
 function ShowToolTipDisableHelp() {
   DelayedShowToolTipHelper(
-    "#BtnDisableHelp",
-    "#scoreboard_tool_tip_disable_help",
-    "#scoreboard_tool_tip_actived",
+    '#BtnDisableHelp',
+    '#scoreboard_tool_tip_disable_help',
+    '#scoreboard_tool_tip_actived',
   );
 }
 
@@ -110,9 +110,9 @@ function ShowToolTipDisableHelp() {
 
 function ToggleEvent(toggle_flag, disable) {
   HideToolTips();
-  var playerId = $.GetContextPanel().GetAttributeInt("player_id", -1);
+  var playerId = $.GetContextPanel().GetAttributeInt('player_id', -1);
   if (Players.IsValidPlayerID(playerId)) {
-    GameEvents.SendCustomGameEventToServer("set_unit_share_mask", {
+    GameEvents.SendCustomGameEventToServer('set_unit_share_mask', {
       flag: toggle_flag,
       toPlayerID: playerId,
       disable: disable,
@@ -121,7 +121,7 @@ function ToggleEvent(toggle_flag, disable) {
 }
 
 function ToggleShareUnit() {
-  var bol_reopen_tooltip = current_shown_tooltip_id == "#BtnShareUnit";
+  var bol_reopen_tooltip = current_shown_tooltip_id == '#BtnShareUnit';
   ToggleEvent(2, true);
   if (bol_reopen_tooltip) {
     ShowToolTipShareUnit();
@@ -129,7 +129,7 @@ function ToggleShareUnit() {
 }
 
 function ToggleShareHero() {
-  var bol_reopen_tooltip = current_shown_tooltip_id == "#BtnShareHero";
+  var bol_reopen_tooltip = current_shown_tooltip_id == '#BtnShareHero';
   ToggleEvent(1, true);
   if (bol_reopen_tooltip) {
     ShowToolTipShareHero();
@@ -137,7 +137,7 @@ function ToggleShareHero() {
 }
 
 function ToggleDisableHelp() {
-  var bol_reopen_tooltip = current_shown_tooltip_id == "#BtnDisableHelp";
+  var bol_reopen_tooltip = current_shown_tooltip_id == '#BtnDisableHelp';
   ToggleEvent(4, true);
   if (bol_reopen_tooltip) {
     ShowToolTipDisableHelp();
