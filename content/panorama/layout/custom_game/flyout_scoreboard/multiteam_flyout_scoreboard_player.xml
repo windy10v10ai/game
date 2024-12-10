@@ -2,10 +2,10 @@
     <styles>
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="file://{resources}/styles/custom_game/shared_scoreboard_styles.css" />
-        <include src="file://{resources}/styles/custom_game/multiteam_flyout_scoreboard.css" />
+        <include src="file://{resources}/layout/custom_game/flyout_scoreboard/multiteam_flyout_scoreboard.css" />
     </styles>
 	<scripts>
-		<include src="file://{resources}/scripts/custom_game/multiteam_flyout_scoreboard_player.js" />
+		<include src="file://{resources}/layout/custom_game/flyout_scoreboard/multiteam_flyout_scoreboard_player.js" />
 	</scripts>
 	<Panel class="PlayerRow">
 		<Panel id="PlayerRowContainer">
