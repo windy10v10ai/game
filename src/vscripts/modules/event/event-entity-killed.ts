@@ -66,7 +66,6 @@ export class EventEntityKilled {
     // 复活时间限制
     respawnTime = Math.max(this.respawnTimeMin, Math.min(this.respawnTimeMax, respawnTime));
 
-    print(`[EventEntityKilled] ${hero.GetName()} respawnTime is ${respawnTime}`);
     hero.SetTimeUntilRespawn(respawnTime);
   }
 
