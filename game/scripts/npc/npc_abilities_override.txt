@@ -6852,7 +6852,7 @@
 				"miss_rate"					"30 45 60 75 90"
 		}
 	}
-	// 永久隐身
+	// 永久隐身（旧版）
 	"riki_permanent_invisibility"
 	{
 		"MaxLevel" "5"
