@@ -18,7 +18,8 @@ function SetFlyoutScoreboardVisible(bVisible) {
 
   var scoreboardConfig = {
     teamXmlName: 'file://{resources}/layout/custom_game/multiteam_flyout_scoreboard_team.xml',
-    playerXmlName: 'file://{resources}/layout/custom_game/multiteam_flyout_scoreboard_player.xml',
+    playerXmlName:
+      'file://{resources}/layout/custom_game/flyout_scoreboard/multiteam_flyout_scoreboard_player.xml',
   };
   g_ScoreboardHandle = ScoreboardUpdater_InitializeScoreboard(
     scoreboardConfig,
