@@ -10017,7 +10017,7 @@
 		{
 				"mana_per_second"
 				{
-					"value"		"50 100 150 200 300"	// x2.5
+					"value"		"50 100 150 300 450"	// x2.5
 				}
 				"movespeed"
 				{
