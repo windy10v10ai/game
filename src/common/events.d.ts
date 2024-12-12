@@ -47,9 +47,5 @@ interface UIPanelClosedEventData {}
 interface LotteryPickEventData {
   name: string;
 }
-interface LotteryPickEventDataWithPlayer extends LotteryPickEventData, CustomGameEventDataBase {}
 
 interface LotteryRefreshEventData {}
-interface LotteryRefreshEventDataWithPlayer
-  extends LotteryRefreshEventData,
-    CustomGameEventDataBase {}

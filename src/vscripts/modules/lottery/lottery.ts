@@ -102,7 +102,7 @@ export class Lottery {
   }
 
   // ---- 玩家选择 ----
-  pickItem(userId: EntityIndex, event: LotteryPickEventDataWithPlayer) {
+  pickItem(userId: EntityIndex, event: LotteryPickEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
     if (lotteryStatus.pickItemName) {
@@ -136,7 +136,7 @@ export class Lottery {
     });
   }
 
-  pickAbility(userId: EntityIndex, event: LotteryPickEventDataWithPlayer) {
+  pickAbility(userId: EntityIndex, event: LotteryPickEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
     if (lotteryStatus.pickAbilityName) {
@@ -171,7 +171,7 @@ export class Lottery {
   }
 
   // ---- 玩家刷新 ----
-  refreshItem(userId: EntityIndex, event: LotteryRefreshEventDataWithPlayer) {
+  refreshItem(userId: EntityIndex, event: LotteryRefreshEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
     if (lotteryStatus.isItemRefreshed || lotteryStatus.pickItemName) {
@@ -192,7 +192,7 @@ export class Lottery {
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
   }
 
-  refreshAbility(userId: EntityIndex, event: LotteryRefreshEventDataWithPlayer) {
+  refreshAbility(userId: EntityIndex, event: LotteryRefreshEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
     if (lotteryStatus.isAbilityRefreshed || lotteryStatus.pickAbilityName) {
