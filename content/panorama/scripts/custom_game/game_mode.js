@@ -124,7 +124,6 @@ function InitSetting() {
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('1000');
   $('#same_hero_selection').checked = true;
-  // $("#fast_courier").checked = true;
 
   // 开发模式
   if (Game.IsInToolsMode()) {
@@ -151,7 +150,6 @@ function LockOption() {
   $('#starting_gold_player_dropdown').enabled = false;
   $('#starting_gold_bot_dropdown').enabled = false;
   $('#same_hero_selection').enabled = false;
-  // $("#fast_courier").enabled = false;
 }
 
 function UnLockOptionAll() {
@@ -166,7 +164,6 @@ function UnLockOptionAll() {
   $('#starting_gold_player_dropdown').enabled = true;
   $('#starting_gold_bot_dropdown').enabled = true;
   $('#same_hero_selection').enabled = true;
-  // $("#fast_courier").enabled = true;
 }
 
 function InitDifficultyCommonSetting() {
@@ -176,7 +173,6 @@ function InitDifficultyCommonSetting() {
   $('#max_level_dropdown').SetSelected('50');
 
   $('#same_hero_selection').checked = true;
-  // $("#fast_courier").checked = true;
 }
 
 function InitN1Setting() {
@@ -251,7 +247,6 @@ function StateChange() {
         starting_gold_bot: $('#starting_gold_bot_dropdown').GetSelected().id,
         max_level: $('#max_level_dropdown').GetSelected().id,
         same_hero_selection: $('#same_hero_selection').checked,
-        // fast_courier: $("#fast_courier").checked,
       },
     });
   }

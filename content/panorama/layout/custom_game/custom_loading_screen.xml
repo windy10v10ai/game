@@ -120,10 +120,6 @@
 						<Label id="SameHeroSelectionTitle" class="GameOptionsLabel" text="#same_hero_selection" />
 						<ToggleButton checked="true" class="GameOptionsToggle" id="same_hero_selection"/>
 					</Panel>
-					<!-- <Panel id="FastCourierPanel"	class="GameOptionsSubPanel">
-						<Label id="FastCourierTitle" class="GameOptionsLabel" text="#fast_courier" />
-						<ToggleButton checked="true" class="GameOptionsToggle" id="fast_courier"/>
-					</Panel> -->
 				</Panel>
 			</Panel>
 			<!-- 游戏选项显示 START-->
