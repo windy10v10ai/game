@@ -1095,7 +1095,6 @@
 		"AbilityCooldown"				"18"  //20
 		"AbilityValues"
 		{
-			"bonus_aoe_radius"			"1800"	//1200
 			"bonus_aoe_armor"			"10"	//5
 			"self_armor"				"10"	//5
 			"self_mres"					"20"	//20

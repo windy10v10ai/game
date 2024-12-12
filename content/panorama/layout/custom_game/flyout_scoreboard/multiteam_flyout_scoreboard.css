@@ -1,505 +1,430 @@
 @define BACKGROUND_COLOR: #000000;
 @define BACKGROUND_COLOR_WHITE: #FFFFFF28;
 
-.FlyoutScoreboardRoot
-{
-	horizontal-align: left;
-	vertical-align: top;
-	margin-top: 105px;
-	margin-left: 30px;
-    flow-children: down;
-    padding: 0px;
-	/* background-color: #666666CC; */
+.FlyoutScoreboardRoot {
+  horizontal-align: left;
+  vertical-align: top;
+  margin-top: 105px;
+  margin-left: 30px;
+  flow-children: down;
+  padding: 0px;
+  /* background-color: #666666CC; */
 
-    transform: translatex( -800px );
-    transition-property: transform;
-    transition-duration: 0.1s;
+  transform: translatex(-800px);
+  transition-property: transform;
+  transition-duration: 0.1s;
 }
 
-.FlyoutScoreboardRoot.flyout_scoreboard_visible
-{
-    transform: translatey( 0px );
+.FlyoutScoreboardRoot.flyout_scoreboard_visible {
+  transform: translatey(0px);
 }
 
-#TeamsContainer
-{
-    flow-children: down;
-    horizontal-align: center;
+#TeamsContainer {
+  flow-children: down;
+  horizontal-align: center;
 }
 
-
-.Legend
-{
-	width: 100%;
-	background-color: rgba(20, 20, 20, 0.5);
-	background-color: gradient(linear, 0% 0%, 0% 100%, from(#222424), to(#121a1f));
-	margin-bottom: -1px;
-	height: 40px;
+.Legend {
+  width: 100%;
+  background-color: rgba(20, 20, 20, 0.5);
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#222424), to(#121a1f));
+  margin-bottom: -1px;
+  height: 40px;
 }
 
-#RadiantHeader
-{
-	border-bottom: 1px solid #4a9820;
+#RadiantHeader {
+  border-bottom: 1px solid #4a9820;
 }
 
-#DireHeader
-{
-	border-bottom: 1px solid #a52500;
+#DireHeader {
+  border-bottom: 1px solid #a52500;
 }
 
-.LegendPanel .TeamLabel
-{
-	margin-top: 3px;
-	margin-left: 4px;
-	letter-spacing: -3px;
-	font-size: 20px;
-	text-transform: uppercase;
-	text-align: center;
-	vertical-align: middle;
-	min-width: 55px;
+.LegendPanel .TeamLabel {
+  letter-spacing: -1px;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+  min-width: 80px;
 }
 
-#RadiantLabel
-{
-	color: #4a9820;
+#RadiantLabel {
+  color: #4a9820;
 }
 
-#DireLabel
-{
-	color: #a52500;
+#DireLabel {
+  color: #a52500;
 }
 
-
-.FlyoutTeam
-{
+.FlyoutTeam {
 }
 
-.FlyoutTeam.no_players
-{
-	visibility: collapse;
+.FlyoutTeam.no_players {
+  visibility: collapse;
 }
 
-.local_player_team.FlyoutTeam
-{
-	z-index: 99;
+.local_player_team.FlyoutTeam {
+  z-index: 99;
 }
 
-.FlyoutTeamData
-{
-    flow-children: right;
+.FlyoutTeamData {
+  flow-children: right;
 }
 
-.TeamInfo
-{
-	margin-top: 1px;
-	height: 100%;
+.TeamInfo {
+  margin-top: 1px;
+  height: 100%;
 }
 
-#TeamColor_GradentFromTransparentLeft
-{
-	width: 100%;
-	height: 100%;
+#TeamColor_GradentFromTransparentLeft {
+  width: 100%;
+  height: 100%;
 }
 
-#TeamColorOverlay
-{
-	background-color: gradient( linear, 80% 0%, 100% 0%, from( #00000000 ), to( #000000FF ) );
-	width: 100%;
-	height: 100%;
+#TeamColorOverlay {
+  background-color: gradient(linear, 80% 0%, 100% 0%, from(#00000000), to(#000000ff));
+  width: 100%;
+  height: 100%;
 }
 
-.FlyoutPlayer
-{
-    flow-children: right;
+.FlyoutPlayer {
+  flow-children: right;
 }
 
-.TeamCloseSpacer
-{
+.TeamCloseSpacer {
 }
 
-#PlayersContainer
-{
-    flow-children: down;
+#PlayersContainer {
+  flow-children: down;
 }
 
-.local_player_team #PlayersContainer
-{
-    /* box-shadow: fill #ffffff40 -3px -3px 3px 6px; */
+.local_player_team #PlayersContainer {
+  /* box-shadow: fill #ffffff40 -3px -3px 3px 6px; */
 }
 
-.TeamId
-{
-    flow-children: right;
+.TeamId {
+  flow-children: right;
 }
 
-#TeamLogo
-{
-	vertical-align: top;
-	horizontal-align: right;
-    height: 30px;
-    width: 30px;
-	margin-top: 2px;
-	margin-right: 2px;
+#TeamLogo {
+  vertical-align: top;
+  horizontal-align: right;
+  height: 30px;
+  width: 30px;
+  margin-top: 2px;
+  margin-right: 2px;
 }
 
-#TeamScore
-{
-	vertical-align: center;
-	horizontal-align: center;
-	color: #cccccc;
-	font-size: 36px;
-	text-shadow: 2px 2px 2px black;
-	font-weight: bold;
-	margin-top: -3px;
-	text-overflow: clip;
+#TeamScore {
+  vertical-align: center;
+  horizontal-align: center;
+  color: #cccccc;
+  font-size: 36px;
+  text-shadow: 2px 2px 2px black;
+  font-weight: bold;
+  margin-top: -3px;
+  text-overflow: clip;
 }
 
-#TeamScoreSmall
-{
-	margin-top: 2px;
-	min-width: 50px;
-	vertical-align: center;
-	horizontal-align: center;
-	color: #cccccc;
-	font-size: 24px;
-	text-shadow: 2px 2px 2px black;
-	font-weight: bold;
-	text-align: center;
-	vertical-align: middle;
+#TeamScoreSmall {
+  margin-top: 2px;
+  min-width: 50px;
+  vertical-align: center;
+  horizontal-align: center;
+  color: #cccccc;
+  font-size: 24px;
+  text-shadow: 2px 2px 2px black;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
 }
 
-#TeamScorePanel
-{
-	margin-top: 1px;
-	margin-left: 226px;
-	width: 79px;
-	height: 100%;
-    background-color: BACKGROUND_COLOR;
+#TeamScorePanel {
+  margin-top: 1px;
+  margin-left: 226px;
+  width: 79px;
+  height: 100%;
+  background-color: BACKGROUND_COLOR;
 }
 
-.Legend
-{
-	flow-children: right;
+.Legend {
+  flow-children: right;
 }
 
-.Legend Label
-{
-	vertical-align: bottom;
-	text-shadow: 2px 2px 2px black;
-	text-transform: uppercase;
-	font-size: 14px;
-	color: #bdc1c4;
+.Legend Label {
+  vertical-align: bottom;
+  text-shadow: 2px 2px 2px black;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #bdc1c4;
 }
 
-.PlayerRow
-{
-	height: 32px;
+.PlayerRow {
+  height: 32px;
 }
 
-#PlayerRowContainer
-{
-	background-color: rgba(0, 0, 0, 0.9);
-	border: 1px solid rgb(32, 32, 32);
-	flow-children: right;
-	height: 32px;
+#PlayerRowContainer {
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgb(32, 32, 32);
+  flow-children: right;
+  height: 32px;
 }
 
-#HeroIcon
-{
-    vertical-align: middle;
+#HeroIcon {
+  vertical-align: middle;
 }
 
 #LevelContainer,
 #KillsContainer,
 #DeathsContainer,
-#AssistsContainer
-{
-	height: 100%;
+#AssistsContainer {
+  height: 100%;
 }
 
-.ScoreboardPanel
-{
+.ScoreboardPanel {
 }
 
-.LegendPanel
-{
-	margin-top: 1px;
-	margin-left: 1px;
+.LegendPanel {
+  margin-top: 1px;
+  margin-left: 1px;
 }
 
-.is_local_player #PlayerRowContainer
-{
-    background-color: #666666;
+.is_local_player #PlayerRowContainer {
+  background-color: #666666;
 }
 
-.ScoreboardPanel Label
-{
-	font-size: 30px;
-	text-shadow: 2px 2px 2px black;
+.ScoreboardPanel Label {
+  font-size: 30px;
+  text-shadow: 2px 2px 2px black;
 }
 
-.UltimateIndicatorShared
-{
-	margin-left: 44px;
-	margin-top: 2px;
-	vertical-align: center;
-	width: 20px;
-	height: 20px;
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+.UltimateIndicatorShared {
+  margin-left: 44px;
+  margin-top: 2px;
+  vertical-align: center;
+  width: 20px;
+  height: 20px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
-#Level
-{
-	vertical-align: center;
-	horizontal-align: center;
-	color: #898b8c;
+#Level {
+  vertical-align: center;
+  horizontal-align: center;
+  color: #898b8c;
 }
 
 #Kills,
 #Deaths,
-#Assists
-{
-	vertical-align: center;
-	font-size: 18px;
-	text-align: center;
-	margin-top: 3px;
-	width: 100%;
+#Assists {
+  vertical-align: center;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 3px;
+  width: 100%;
 }
 
-#PlayerName
-{
-	color: white;
-	font-size: 14px;
-	margin-bottom: -4px;
-	margin-top: 0px;
-	white-space: nowrap;
+#PlayerName {
+  color: white;
+  font-size: 14px;
+  margin-bottom: -4px;
+  margin-top: 0px;
+  white-space: nowrap;
 }
 
-#HeroNameAndDescription
-{
-	color: #898b8c;
-	font-size: 13px;
-	text-shadow: 2px 2px 2px black;
-	margin-top: -1px;
+#HeroNameAndDescription {
+  color: #898b8c;
+  font-size: 13px;
+  text-shadow: 2px 2px 2px black;
+  margin-top: -1px;
 }
 
-.is_local_player #HeroNameAndDescription
-{
-	color: white;
+.is_local_player #HeroNameAndDescription {
+  color: white;
 }
 
-#MuteButton
-{
-	margin-right: 0px;
-	margin-top: 0px;
-	horizontal-align: right;
-	vertical-align: top;
-	width: 18px;
-	height: 18px;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-image: url("s2r://panorama/images/custom_game/button_audio_on_psd.vtex");
-	visibility: collapse;
-	opacity: 0.8;
+#MuteButton {
+  margin-right: 0px;
+  margin-top: 0px;
+  horizontal-align: right;
+  vertical-align: top;
+  width: 18px;
+  height: 18px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: url("s2r://panorama/images/custom_game/button_audio_on_psd.vtex");
+  visibility: collapse;
+  opacity: 0.8;
 }
 
-.local_player_teammate #MuteButton
-{
-	visibility: visible;
+.local_player_teammate #MuteButton {
+  visibility: visible;
 }
 
-#MuteButton:hover
-{
-	opacity: 1;
+#MuteButton:hover {
+  opacity: 1;
 }
 
-.player_muted #MuteButton
-{
-    background-image: url("s2r://panorama/images/custom_game/button_audio_off_psd.vtex");
+.player_muted #MuteButton {
+  background-image: url("s2r://panorama/images/custom_game/button_audio_off_psd.vtex");
 }
 
-#TeammateGoldAmount
-{
-	margin-right: -1px;
-	margin-bottom: -2px;
-	vertical-align: bottom;
-	horizontal-align: right;
-	color: #ffd300;
-	font-size: 13px;
-	text-shadow: 2px 2px 2px black;
-	visibility: collapse;
+#TeammateGoldAmount {
+  margin-right: -1px;
+  margin-bottom: -2px;
+  vertical-align: bottom;
+  horizontal-align: right;
+  color: #ffd300;
+  font-size: 13px;
+  text-shadow: 2px 2px 2px black;
+  visibility: collapse;
 }
 
-.local_player_team #TeammateGoldAmount
-{
-	visibility: visible;
+.local_player_team #TeammateGoldAmount {
+  visibility: visible;
 }
 
-#PlayerDetailsContainer
-{
-	height: 100%;
+#PlayerDetailsContainer {
+  height: 100%;
 }
 
-#PlayerAndHeroName
-{
-	flow-children: down;
-	padding-left: 8px;
+#PlayerAndHeroName {
+  flow-children: down;
+  padding-left: 8px;
 }
 
 .is_local_player #Kills,
 .is_local_player #Deaths,
 .is_local_player #Assists,
 .is_local_player #Level,
-.is_local_player #HeroName
-{
-	color: white;
+.is_local_player #HeroName {
+  color: white;
 }
 
 .ScoreCol_TeamInfoAndHero,
-.PlayerHeader
-{
-	width: 300px;
+.PlayerHeader {
+  width: 300px;
 }
 
-.ScoreCol_TeamInfo
-{
-	width: 0px;
+.ScoreCol_TeamInfo {
+  width: 0px;
 }
 
-.ScoreCol_PlayerDetails
-{
-	width: 185px;
+.ScoreCol_PlayerDetails {
+  width: 185px;
 }
 
-.ScoreCol_Hero
-{
-	width: 55px;
+.ScoreCol_Hero {
+  width: 55px;
 }
 
-.ScoreCol_TeamScore
-{
-	width: 80px;
-	text-align: center;
+.ScoreCol_TeamScore {
+  width: 80px;
+  text-align: center;
 }
 
 .ScoreCol_Kills,
 .ScoreCol_Deaths,
-.ScoreCol_Assists
-{
-	width: 50px;
-	text-align: center;
+.ScoreCol_Assists {
+  width: 50px;
+  text-align: center;
 }
 
-#TeamInfo{
-	min-width: 55px;
+#TeamInfo {
+  min-width: 55px;
 }
-.FlowRightPanel{
-    horizontal-align: left;
-	flow-children: right;
-}
-
-.FlowDownPanel{
-    horizontal-align: left;
-	flow-children: down;
+.FlowRightPanel {
+  horizontal-align: left;
+  flow-children: right;
 }
 
-.GameOptionValue
-{
-	margin-top: 2px;
-	margin-left: 2px;
+.FlowDownPanel {
+  horizontal-align: left;
+  flow-children: down;
 }
 
-#PlayerAvatar{
-	width: 32px;
-	height: 32px;
-	vertical-align: center;
+.GameOptionValue {
+  margin-top: 2px;
+  margin-left: 2px;
 }
 
-
-#PlayerMemberShip{
-   width: 24px;
-   height: 24px;
-   margin: 2px;
-   vertical-align: center;
+#PlayerAvatar {
+  width: 32px;
+  height: 32px;
+  vertical-align: center;
 }
-.IsMemberShip #PlayerMemberShip{
-   background-image: url('s2r://panorama/images/custom_game/golden_crown_png.vtex');
-   background-repeat: no-repeat;
-   background-position: 5% 5%;
-   background-size: 100% 100%;
+
+#PlayerMemberShip {
+  width: 24px;
+  height: 24px;
+  margin: 2px;
+  vertical-align: center;
+}
+.IsMemberShip #PlayerMemberShip {
+  background-image: url("s2r://panorama/images/custom_game/golden_crown_png.vtex");
+  background-repeat: no-repeat;
+  background-position: 5% 5%;
+  background-size: 100% 100%;
 }
 
 .PlayerHeader {
-	flow-children: right;
+  flow-children: right;
 }
 
-.ScoreCol_Buttons
-{
-	width: 60px;
-	vertical-align: center;
-	flow-children: right;
+.ScoreCol_Buttons {
+  width: 60px;
+  vertical-align: center;
+  flow-children: right;
 }
 
-.ScoreCol_Buttons Button
-{
-	width: 15px;
-	height: 15px;
-	margin-right: 5px;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	background-size: contain;
-	vertical-align: middle;
-	visibility: collapse;
+.ScoreCol_Buttons Button {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+  vertical-align: middle;
+  visibility: collapse;
 }
-.local_player_teammate .ScoreCol_Buttons Button
-{
-	visibility: visible;
+.local_player_teammate .ScoreCol_Buttons Button {
+  visibility: visible;
 }
-.is_local_player .ScoreCol_Buttons Button
-{
-	visibility: collapse;
+.is_local_player .ScoreCol_Buttons Button {
+  visibility: collapse;
 }
 
-
-#BtnMuteVoice
-{
-	background-image: url("s2r://panorama/images/custom_game/mute_voice_off_png.vtex");
+#BtnMuteVoice {
+  background-image: url("s2r://panorama/images/custom_game/mute_voice_off_png.vtex");
 }
 
-#BtnShareUnit
-{
-	background-image: url("s2r://panorama/images/custom_game/share_unit_off_png.vtex");
+#BtnShareUnit {
+  background-image: url("s2r://panorama/images/custom_game/share_unit_off_png.vtex");
 }
 
-#BtnShareHero
-{
-	background-image: url("s2r://panorama/images/custom_game/share_hero_off_png.vtex");
+#BtnShareHero {
+  background-image: url("s2r://panorama/images/custom_game/share_hero_off_png.vtex");
 }
 
-#BtnDisableHelp
-{
-	background-image: url("s2r://panorama/images/custom_game/disable_help_off_png.vtex");
+#BtnDisableHelp {
+  background-image: url("s2r://panorama/images/custom_game/disable_help_off_png.vtex");
 }
 
-#BtnMuteVoice.Activated
-{
-	background-image: url("s2r://panorama/images/custom_game/mute_voice_on_png.vtex");
+#BtnMuteVoice.Activated {
+  background-image: url("s2r://panorama/images/custom_game/mute_voice_on_png.vtex");
 }
 
-#BtnShareUnit.Activated
-{
-	background-image: url("s2r://panorama/images/custom_game/share_unit_on_png.vtex");
+#BtnShareUnit.Activated {
+  background-image: url("s2r://panorama/images/custom_game/share_unit_on_png.vtex");
 }
 
-#BtnShareHero.Activated
-{
-	background-image: url("s2r://panorama/images/custom_game/share_hero_on_png.vtex");
+#BtnShareHero.Activated {
+  background-image: url("s2r://panorama/images/custom_game/share_hero_on_png.vtex");
 }
 
-#BtnDisableHelp.Activated
-{
-	background-image: url("s2r://panorama/images/custom_game/disable_help_on_png.vtex");
+#BtnDisableHelp.Activated {
+  background-image: url("s2r://panorama/images/custom_game/disable_help_on_png.vtex");
 }
