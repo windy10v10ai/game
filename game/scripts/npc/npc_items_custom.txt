@@ -5668,10 +5668,10 @@
 				"bonus_cast_range"		"300"	//250
 				"bonus_mana_regen"		"6"		//3
 				"blast_movement_slow"	"-90"	//-80
-				"duration"				"20"	//4
+				"duration"				"10"	//4
 				"blast_agility_multiplier"	"3.0"//1.5
 				"blast_damage_base"			"500"//50
-				"duration_ally"				"8"	//4.0
+				"duration_ally"				"4"	//4.0
 				"ethereal_damage_bonus"	"-80"	//-40
 				"projectile_speed"	"2000"		//1400
 		}

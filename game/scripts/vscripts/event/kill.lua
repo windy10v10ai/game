@@ -152,32 +152,6 @@ local function HeroKilled(keys)
     local iLevel = hHero:GetLevel()
     local GameTime = GameRules:GetDOTATime(false, false)
 
-    -- local fRespawnTime = 0
-    ---- 复活时间逻辑
-    -- if iLevel <= 50 then
-    --     fRespawnTime = math.ceil(tDOTARespawnTime[iLevel] * AIGameMode.iRespawnTimePercentage / 100.0)
-    -- else
-    --     fRespawnTime = math.ceil((iLevel / 4 + 52) * AIGameMode.iRespawnTimePercentage / 100.0)
-    -- end
-
-    -- -- NEC大招
-    -- if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
-    --     fRespawnTime = fRespawnTime +
-    --         hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel() * 6
-    -- end
-
-    -- -- 会员减少5s复活时间
-    -- if PlayerController:IsMember(PlayerResource:GetSteamAccountID(playerId)) then
-    --     fRespawnTime = fRespawnTime - 5
-    -- end
-
-    -- -- 复活时间至少1s
-    -- if fRespawnTime < 1 then
-    --     fRespawnTime = 1
-    -- end
-
-    -- hHero:SetTimeUntilRespawn(fRespawnTime)
-
     -- 玩家团队奖励逻辑
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
         -- 前期增长慢，电脑等级较高时，增长快
