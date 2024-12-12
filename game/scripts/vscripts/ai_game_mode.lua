@@ -302,7 +302,7 @@ function AIGameMode:GetPlayerGoldXpMultiplier(iPlayerID)
 
     if IsHumanPlayer(iPlayerID) then
         mul = self.fPlayerGoldXpMultiplier
-    elseif self.bRadiantBotSameMulti and IsGoodTeamPlayer(iPlayerID) then
+    elseif IsGoodTeamPlayer(iPlayerID) then
         mul = self.fPlayerGoldXpMultiplier
     else
         mul = self.fBotGoldXpMultiplier

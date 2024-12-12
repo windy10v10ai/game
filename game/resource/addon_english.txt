@@ -37,7 +37,6 @@
 		"starting_gold_player"	"Player Starting Gold"
 		"starting_gold_bot"	"Bot Starting Gold"
 		"same_hero_selection"  "Allow Same Hero Selection"
-		"radiant_bot_same_multi"  "Radiant Bots Share Gold/XP Mult with Players"
 		"hide_chat_team"  "Hide Chat and Team"
 		"show_chat_team"  "Show Chat and Team"
 

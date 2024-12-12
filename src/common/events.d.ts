@@ -38,7 +38,6 @@ interface LoadingSetOptionsEventData {
     starting_gold_bot: string;
     max_level: string;
     same_hero_selection: boolean;
-    radiant_bot_same_multi: boolean;
   };
 }
 

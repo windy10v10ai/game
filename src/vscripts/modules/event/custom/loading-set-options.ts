@@ -27,7 +27,6 @@ export class LoadingSetOptions {
     // starting_gold_bot: string;
     // max_level: string;
     // same_hero_selection: boolean;
-    // radiant_bot_same_multi: boolean;
 
     GameRules.Option.radiantGoldXpMultiplier = Number(args.game_options.player_gold_xp_multiplier);
     GameRules.Option.direGoldXpMultiplier = Number(args.game_options.bot_gold_xp_multiplier);
