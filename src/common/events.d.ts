@@ -13,6 +13,7 @@
 
 // To declare an event for use, add it to this table with the type of its data
 interface CustomGameEventDeclarations {
+  game_options_change: GameOptionsChangeEventData;
   loading_set_options: LoadingSetOptionsEventData;
   ui_panel_closed: UIPanelClosedEventData;
   lottery_pick_item: LotteryPickEventData;
@@ -23,6 +24,11 @@ interface CustomGameEventDeclarations {
 
 interface CustomGameEventDataBase {
   PlayerID: PlayerID;
+}
+
+interface GameOptionsChangeEventData {
+  key: string;
+  value: string | number;
 }
 
 interface LoadingSetOptionsEventData {

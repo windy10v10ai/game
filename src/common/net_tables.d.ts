@@ -4,6 +4,7 @@ import { LotteryStatusDto } from './dto/lottery-status';
 
 declare global {
   interface CustomNetTableDeclarations {
+    game_options: GameOptions;
     loading_status: {
       loading_status: { status: number };
     };
@@ -35,4 +36,21 @@ declare global {
       [steamAccountID: string]: LotteryStatusDto;
     };
   }
+}
+
+export interface GameOptions {
+  // TODO use it
+  difficulty: number;
+  multiplier_radiant: number;
+  multiplier_dire: number;
+  tower_power_pct: number;
+
+  // currently not used
+  radiant_player_number: string;
+  dire_player_number: string;
+  respawn_time_pct: string;
+  starting_gold_player: string;
+  starting_gold_bot: string;
+  max_level: string;
+  same_hero_selection: number;
 }
