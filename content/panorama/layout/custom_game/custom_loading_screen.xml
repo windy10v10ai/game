@@ -13,7 +13,7 @@
 					<Label id="GameOptionsPanelTitle" text="#addon_option_title" />
 					<Panel id="RadiantGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantGoldXPMultiplierTitle" class="GameOptionsLabel" text="#player_gold_xp_multiplier" />
-						<DropDown id="player_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('player_gold_xp_multiplier_dropdown')">
+						<DropDown id="player_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
 							<Label text="1" id="1"/>
 							<Label text="1.2" id="1.2"/>
 							<Label text="1.5" id="1.5"/>
@@ -23,7 +23,7 @@
 					</Panel>
 					<Panel id="DireGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="DireGoldXPMultiplierTitle" class="GameOptionsLabel" text="#bot_gold_xp_multiplier" />
-						<DropDown id="bot_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('bot_gold_xp_multiplier_dropdown')">
+						<DropDown id="bot_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
 							<Label text="1" id="1"/>
 							<Label text="2" id="2"/>
 							<Label text="3" id="3"/>
@@ -67,7 +67,7 @@
 					<Label id="GameOptionsPanelBr" text="#addon_option_title_br" />
 					<Panel id="RespawnTimePercentagePanel"	class="GameOptionsSubPanel">
 						<Label id="RespawnTimePercentagePanelTitle" class="GameOptionsLabel" text="#respawn_time_percentage" />
-						<DropDown id="respawn_time_percentage_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('respawn_time_percentage_dropdown')">
+						<DropDown id="respawn_time_percentage_dropdown" class="GameOptionsDropdown">
 							<Label text="#respawn_time_percentage_slow" id="120"/>
 							<Label text="#respawn_time_percentage_normal" id="100"/>
 							<Label text="#respawn_time_percentage_fast" id="80"/>
@@ -76,7 +76,7 @@
 					</Panel>
 					<Panel id="MaxLevelPanel"	class="GameOptionsSubPanel">
 						<Label id="MaxLevelTitle" class="GameOptionsLabel" text="#max_level" />
-						<DropDown id="max_level_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('max_level_dropdown')">
+						<DropDown id="max_level_dropdown" class="GameOptionsDropdown">
 							<Label text="30" id="30"/>
 							<Label text="50" id="50"/>
 							<Label text="75" id="75"/>
@@ -88,7 +88,7 @@
 					<!-- 防御塔增强 -->
 					<Panel id="TowerPowerPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantTowerPowerTitle" class="GameOptionsLabel" text="#tower_power" />
-						<DropDown id="tower_power_dropdown" class="GameOptionsDropdown" oninputsubmit="OnDropDownChanged('tower_power_dropdown')">
+						<DropDown id="tower_power_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
 							<Label text="100%" id="100"/>
 							<Label text="150%" id="150"/>
 							<Label text="200%" id="200"/>

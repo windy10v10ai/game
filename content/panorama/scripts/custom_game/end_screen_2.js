@@ -71,7 +71,7 @@ function Snippet_Player(playerId, rootPanel, index) {
   $.Schedule(index * 0.3, function () {
     try {
       panel.AddClass('AnimationEnd');
-    } catch (e) {}
+    } catch {}
   });
 
   if (imagefile[playerData.heroName]) {
@@ -132,8 +132,8 @@ function Snippet_Team(team) {
   panel.SetHasClass('IsRight', true);
   panel.SetHasClass('IsWinner', GAME_RESULT.isWinner);
 
-  const gameOptions = CustomNetTables.GetTableValue('game_options_table', 'game_option');
-  const gameDifficulty = gameOptions.game_difficulty_dropdown.optionId;
+  const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
+  const gameDifficulty = CustomNetTables.GetTableValue('game_options', 'game_difficulty').all;
   if (team === 2) {
     const goldXpMultiplierPanel = panel.FindChildTraverse('GoldXpMultiplier');
     if (gameDifficulty > 0) {
@@ -142,18 +142,18 @@ function Snippet_Team(team) {
       goldXpMultiplierPanel.style.fontSize = '26px';
     } else {
       panel.FindChildTraverse('GoldXpMultiplier').text =
-        $.Localize('#player_multiplier') + ': x' + GAME_RESULT.options.playerGoldXpMultiplier;
+        $.Localize('#player_multiplier') + `: x${gameOptions.multiplier_radiant}`;
       panel.FindChildTraverse('TowerPower').text =
-        $.Localize('#tower_power') + ': ' + GAME_RESULT.options.towerPower;
+        $.Localize('#tower_power') + `: ${gameOptions.tower_power_pct}%`;
     }
   } else {
     if (gameDifficulty > 0) {
       //
     } else {
       panel.FindChildTraverse('GoldXpMultiplier').text =
-        $.Localize('#bot_multiplier') + `: x${GAME_RESULT.options.botGoldXpMultiplier}`;
+        $.Localize('#player_multiplier') + `: x${gameOptions.multiplier_dire}`;
       panel.FindChildTraverse('TowerPower').text =
-        $.Localize('#tower_power') + ': ' + GAME_RESULT.options.towerPower;
+        $.Localize('#tower_power') + `: ${gameOptions.tower_power_pct}%`;
     }
   }
   const teamDetails = Game.GetTeamDetails(team);

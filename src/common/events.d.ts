@@ -27,8 +27,9 @@ interface CustomGameEventDataBase {
 }
 
 interface GameOptionsChangeEventData {
-  key: string;
-  value: string | number;
+  multiplier_radiant: number;
+  multiplier_dire: number;
+  tower_power_pct: number;
 }
 
 interface LoadingSetOptionsEventData {
