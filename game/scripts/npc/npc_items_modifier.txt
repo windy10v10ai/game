@@ -930,6 +930,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"100"
 				}
 			}
+			// 会员BUFF
 			"modifier_global_member"
 			{
 				"Passive"				"1"
@@ -945,6 +946,21 @@
 					"MODIFIER_PROPERTY_MANA_BONUS"					"200"
 				}
 			}
+			// 新手BUFF
+			"modifier_global_newbie"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"RemoveOnDeath"			"0"
+				"TextureName"			"newbie"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"100"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"500"
+				}
+			}
+			// 近战BUFF
 			"modifier_global_melee_resistance"
 			{
 				"Passive"				"1"

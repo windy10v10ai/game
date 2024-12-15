@@ -71,6 +71,10 @@ export class EventNpcSpawned {
       if (Player.IsMemberStatic(steamAccountId)) {
         ModifierHelper.applyGlobalModifier(hero, 'modifier_global_member');
       }
+      // 设置新手BUFF
+      if (Player.IsNewbie(steamAccountId)) {
+        ModifierHelper.applyGlobalModifier(hero, 'modifier_global_newbie');
+      }
       // 设置玩家属性
       Player.SetPlayerProperty(hero);
     }
