@@ -36,7 +36,6 @@ function Precache(context)
 end
 
 function AIGameMode:InitGameMode()
-    AIGameMode:InitGameOptions()
     AIGameMode:InitEvents()
     AIGameMode:LinkLuaModifiers()
     AIGameMode:InitGlobalVariables()
@@ -51,11 +50,6 @@ function AIGameMode:InitGlobalVariables()
     -- AI连续死亡记录表
     AIGameMode.BotRecordSuccessiveDeathTable = {}
     self.iGameDifficulty = 0
-end
-
-function AIGameMode:InitGameOptions()
-    -- 游戏选择项目初始化
-    GameRules.GameOption = LoadKeyValues("scripts/kv/game_option.kv")
 end
 
 function AIGameMode:InitEvents()
@@ -73,9 +67,6 @@ function AIGameMode:InitEvents()
     -- 游戏选项事件
     CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
         return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
-    end)
-    CustomGameEventManager:RegisterListener("game_options_change", function(_, keys)
-        return AIGameMode:OnGameOptionChange(keys)
     end)
     CustomGameEventManager:RegisterListener("choose_difficulty", function(_, keys)
         return AIGameMode:OnChooseDifficulty(keys)

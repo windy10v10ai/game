@@ -18,15 +18,6 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
     self:PreGameOptions()
 end
 
-function AIGameMode:OnGameOptionChange(keys)
-    local optionName = keys.optionName
-    local optionValue = keys.optionValue
-    local optionId = keys.optionId
-    -- 对应的游戏选择项目设定
-    GameRules.GameOption[optionName] = { optionValue = optionValue, optionId = optionId }
-    CustomNetTables:SetTableValue('game_options_table', 'game_option', GameRules.GameOption)
-end
-
 function AIGameMode:OnChooseDifficulty(keys)
     local playerId = keys.PlayerID
     local difficulty = keys.difficulty
