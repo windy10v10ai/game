@@ -59,7 +59,6 @@ export const abilityTiers: Tier[] = [
       'axe_counter_helix', // 反击螺旋
       'bloodseeker_thirst', // 焦渴
       'legion_commander_moment_of_courage', // 勇气之霎
-      'centaur_return', // 人马 反伤
       'riki_permanent_invisibility', // 永久隐身（旧版）
       'slardar_bash', // 深海重击
       'kunkka_tidebringer', // 潮汐使者 水刀
@@ -68,7 +67,6 @@ export const abilityTiers: Tier[] = [
       'necrolyte_heartstopper_aura', // 竭心光环
       'enchantress_untouchable', // 不可侵犯
       'earthshaker_aftershock', // 余震
-      'obsidian_destroyer_equilibrium', // 精华变迁
     ],
   },
   {
@@ -76,10 +74,11 @@ export const abilityTiers: Tier[] = [
     rate: 50,
     names: [
       // 法球/开关技能
-      'drow_ranger_frost_arrows', // 霜冻之箭
       'viper_poison_attack', // 毒性攻击
 
       // 被动技能
+      'centaur_return', // 人马 反伤
+      'obsidian_destroyer_equilibrium', // 精华变迁
       'tiny_grow', // 长大
       'spectre_desolate', // 荒芜
       'monkey_king_jingu_mastery', // 如意棒法
@@ -91,7 +90,6 @@ export const abilityTiers: Tier[] = [
       'juggernaut_blade_dance', // 剑舞
       'skeleton_king_mortal_strike', // 本命一击
       'night_stalker_hunter_in_the_night', // 暗夜猎影
-      'sniper_headshot', // 爆头
       'nevermore_dark_lord', // 魔王降临
       'dawnbreaker_luminosity', // 熠熠生辉
       'lina_fiery_soul', // 炽魂
@@ -105,11 +103,13 @@ export const abilityTiers: Tier[] = [
     rate: 100,
     names: [
       // 法球/开关技能
+      'drow_ranger_frost_arrows', // 霜冻之箭
       'jakiro_liquid_fire', // 液态火
       'jakiro_liquid_ice', // 液态冰
       'witch_doctor_voodoo_restoration', // 巫毒疗法
 
       // 被动技能
+      'sniper_headshot', // 爆头
       'alchemist_corrosive_weaponry', // 腐蚀兵械
       'visage_gravekeepers_cloak', // 陵卫斗篷
       'storm_spirit_overload', // 超负荷
