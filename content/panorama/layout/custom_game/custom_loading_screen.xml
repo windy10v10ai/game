@@ -128,22 +128,22 @@
 					<Panel id="DifficultyContainer">
 						<Panel id="DifficultyPanel" class="DisplayOptionsSubPanel">
 							<Label id="DisplayGameDifficultyTitle" class="DisplayOptionsLableTitle" text="#game_difficulty_title" />
-							<Label id="DisplayGameDifficulty" class="DisplayOptionsLable" text="" />
+							<Label id="DisplayGameDifficulty" class="DisplayOptionsLable" text="#game_difficulty_voting" />
 						</Panel>
 						<Image class="PtsColumnImg DisplayOptionsLable" src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex" onmouseover="UIShowTextTooltipStyled( #data_panel_season_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 						<Label id="DisplaySeasonPointMulti"  text="" />
 					</Panel>
 					<Panel id="PlayerGoldXpPanel" class="DisplayOptionsSubPanel">
 						<Label id="DisplayOptionsPlayerGoldXpTitle" class="DisplayOptionsLableTitle" text="#player_gold_xp_multiplier" />
-						<Label id="DisplayOptionsPlayerGoldXp" class="DisplayOptionsLable" text="" />
+						<Label id="DisplayOptionsPlayerGoldXp" class="DisplayOptionsLable" text="#game_difficulty_voting" />
 					</Panel>
 					<Panel id="BotGoldXpPanel" class="DisplayOptionsSubPanel">
 						<Label id="DisplayOptionsBotGoldXpTitle" class="DisplayOptionsLableTitle" text="#bot_gold_xp_multiplier" />
-						<Label id="DisplayOptionsBotGoldXp" class="DisplayOptionsLable" text="" />
+						<Label id="DisplayOptionsBotGoldXp" class="DisplayOptionsLable" text="#game_difficulty_voting" />
 					</Panel>
 					<Panel id="RadiantTowerPanel" class="DisplayOptionsSubPanel">
 						<Label id="DisplayOptionsTowerPowerTitle" class="DisplayOptionsLableTitle" text="#tower_power" />
-						<Label id="DisplayOptionsTowerPower" class="DisplayOptionsLable" text="" />
+						<Label id="DisplayOptionsTowerPower" class="DisplayOptionsLable" text="#game_difficulty_voting" />
 					</Panel>
 				</Panel>
 			</Panel>

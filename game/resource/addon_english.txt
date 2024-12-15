@@ -15,6 +15,7 @@
 		"addon_option_title"	"Game Options"
 		"addon_option_title_br"	""
 
+		"game_difficulty_voting"	"Voting"
 		"game_difficulty_title"	"Difficulty"
 		"game_difficulty_n0"	"Custom"
 		"game_difficulty_n1"	"N1"

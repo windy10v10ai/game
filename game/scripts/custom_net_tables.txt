@@ -4,14 +4,13 @@
   [
     // Lua tables
     "player_tome_table",
-    "game_options_table",
     "ending_stats",
     "disable_help",
-    "game_difficulty",  // FIXME: game_options_table has this info
     "difficulty_choice",
 
     // Lua/TS tables
     "game_options",
+    "game_difficulty",
 
     // TS tables
     "loading_status",

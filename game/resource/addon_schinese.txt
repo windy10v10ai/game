@@ -15,6 +15,7 @@
 		"addon_option_title"	"游戏选项"
 		"addon_option_title_br"	""
 
+		"game_difficulty_voting"	"投票中"
 		"game_difficulty_title"	"难度"
 		"game_difficulty_n0"	"自定义"
 		"game_difficulty_n1"	"N1"

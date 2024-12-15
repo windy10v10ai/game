@@ -133,7 +133,7 @@ function Snippet_Team(team) {
   panel.SetHasClass('IsWinner', GAME_RESULT.isWinner);
 
   const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
-  const gameDifficulty = CustomNetTables.GetTableValue('game_options', 'game_difficulty').all;
+  const gameDifficulty = CustomNetTables.GetTableValue('game_difficulty', 'all').difficulty;
   if (team === 2) {
     const goldXpMultiplierPanel = panel.FindChildTraverse('GoldXpMultiplier');
     if (gameDifficulty > 0) {
@@ -142,7 +142,8 @@ function Snippet_Team(team) {
       goldXpMultiplierPanel.style.fontSize = '26px';
     } else {
       panel.FindChildTraverse('GoldXpMultiplier').text =
-        $.Localize('#player_multiplier') + `: x${gameOptions.multiplier_radiant}`;
+        $.Localize('#player_multiplier') +
+        `: x${gameOptions.multiplier_radiant.toFixed(1).replace(/\.0+$/, '')}`;
       panel.FindChildTraverse('TowerPower').text =
         $.Localize('#tower_power') + `: ${gameOptions.tower_power_pct}%`;
     }
@@ -151,7 +152,8 @@ function Snippet_Team(team) {
       //
     } else {
       panel.FindChildTraverse('GoldXpMultiplier').text =
-        $.Localize('#player_multiplier') + `: x${gameOptions.multiplier_dire}`;
+        $.Localize('#player_multiplier') +
+        `: x${gameOptions.multiplier_dire.toFixed(1).replace(/\.0+$/, '')}`;
       panel.FindChildTraverse('TowerPower').text =
         $.Localize('#tower_power') + `: ${gameOptions.tower_power_pct}%`;
     }
