@@ -40,7 +40,7 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
     playerPanel.BLoadLayout(scoreboardConfig.playerXmlName, false, false);
   }
 
-  playerPanel.SetHasClass('is_local_player', playerId == Game.GetLocalPlayerID());
+  playerPanel.SetHasClass('is_local_player', playerId === Game.GetLocalPlayerID());
 
   var ultStateOrTime = PlayerUltimateStateOrTime_t.PLAYER_ULTIMATE_STATE_HIDDEN; // values > 0 mean on cooldown for that many seconds
   var goldValue = -1;
@@ -48,7 +48,7 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
 
   var playerInfo = Game.GetPlayerInfo(playerId);
   if (playerInfo) {
-    isTeammate = playerInfo.player_team_id == localPlayerTeamId;
+    isTeammate = playerInfo.player_team_id === localPlayerTeamId;
     if (isTeammate) {
       ultStateOrTime = Game.GetPlayerUltimateStateOrTime(playerId);
     }
@@ -87,7 +87,7 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
       }
     }
 
-    if (playerInfo.player_selected_hero_id == -1) {
+    if (playerInfo.player_selected_hero_id === -1) {
       _ScoreboardUpdater_SetTextSafe(
         playerPanel,
         'HeroName',
@@ -103,7 +103,7 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
 
     var heroNameAndDescription = playerPanel.FindChildInLayoutFile('HeroNameAndDescription');
     if (heroNameAndDescription) {
-      if (playerInfo.player_selected_hero_id == -1) {
+      if (playerInfo.player_selected_hero_id === -1) {
         heroNameAndDescription.SetDialogVariable(
           'hero_name',
           $.Localize('#DOTA_Scoreboard_Picking_Hero'),
@@ -119,11 +119,11 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
 
     playerPanel.SetHasClass(
       'player_connection_abandoned',
-      playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_ABANDONED,
+      playerInfo.player_connection_state === DOTAConnectionState_t.DOTA_CONNECTION_STATE_ABANDONED,
     );
     playerPanel.SetHasClass(
       'player_connection_failed',
-      playerInfo.player_connection_state == DOTAConnectionState_t.DOTA_CONNECTION_STATE_FAILED,
+      playerInfo.player_connection_state === DOTAConnectionState_t.DOTA_CONNECTION_STATE_FAILED,
     );
     playerPanel.SetHasClass(
       'player_connection_disconnected',
@@ -227,19 +227,19 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
 
   playerPanel.SetHasClass(
     'player_ultimate_ready',
-    ultStateOrTime == PlayerUltimateStateOrTime_t.PLAYER_ULTIMATE_STATE_READY,
+    ultStateOrTime === PlayerUltimateStateOrTime_t.PLAYER_ULTIMATE_STATE_READY,
   );
   playerPanel.SetHasClass(
     'player_ultimate_no_mana',
-    ultStateOrTime == PlayerUltimateStateOrTime_t.PLAYER_ULTIMATE_STATE_NO_MANA,
+    ultStateOrTime === PlayerUltimateStateOrTime_t.PLAYER_ULTIMATE_STATE_NO_MANA,
   );
   playerPanel.SetHasClass(
     'player_ultimate_not_leveled',
-    ultStateOrTime == PlayerUltimateStateOrTime_t.PLAYER_ULTIMATE_STATE_NOT_LEVELED,
+    ultStateOrTime === PlayerUltimateStateOrTime_t.PLAYER_ULTIMATE_STATE_NOT_LEVELED,
   );
   playerPanel.SetHasClass(
     'player_ultimate_hidden',
-    ultStateOrTime == PlayerUltimateStateOrTime_t.PLAYER_ULTIMATE_STATE_HIDDEN,
+    ultStateOrTime === PlayerUltimateStateOrTime_t.PLAYER_ULTIMATE_STATE_HIDDEN,
   );
   playerPanel.SetHasClass('player_ultimate_cooldown', ultStateOrTime > 0);
   _ScoreboardUpdater_SetTextSafe(playerPanel, 'PlayerUltimateCooldown', ultStateOrTime);
@@ -276,10 +276,15 @@ function _ScoreboardUpdater_UpdateTeamPanel(
     }
   }
 
-  const GAME_RESULT = CustomNetTables.GetTableValue('ending_stats', 'player_data');
-  const gameOptions = CustomNetTables.GetTableValue('game_options_table', 'game_option');
-  const gameDifficulty = gameOptions.game_difficulty_dropdown.optionId;
-  if (teamId === 2 && GAME_RESULT) {
+  const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
+  const gameDifficulty = CustomNetTables.GetTableValue('game_difficulty', 'all').difficulty;
+
+  if (!gameOptions) {
+    $.Msg('[ERROR] game_options not found');
+    return;
+  }
+
+  if (teamId === 2 && gameOptions) {
     const radiantPanel = containerPanel.FindChildInLayoutFile('RadiantHeader');
 
     const goldXpMultiplierPanel = radiantPanel.FindChildTraverse('GoldXpMultiplier');
@@ -289,9 +294,10 @@ function _ScoreboardUpdater_UpdateTeamPanel(
       goldXpMultiplierPanel.style.fontSize = '22px';
     } else {
       goldXpMultiplierPanel.text =
-        $.Localize('#player_multiplier') + `: x${GAME_RESULT.options.playerGoldXpMultiplier}`;
+        $.Localize('#player_multiplier') +
+        `: x${gameOptions.multiplier_radiant.toFixed(1).replace(/\.0+$/, '')}`;
       radiantPanel.FindChildTraverse('TowerPower').text =
-        $.Localize('#tower_power') + ': ' + GAME_RESULT.options.towerPower;
+        $.Localize('#tower_power') + `: ${gameOptions.tower_power_pct}%`;
     }
     radiantPanel.FindChildTraverse('TeamScoreSmall').text = teamDetails.team_score;
   } else {
@@ -300,9 +306,10 @@ function _ScoreboardUpdater_UpdateTeamPanel(
       //
     } else {
       direPanel.FindChildTraverse('GoldXpMultiplier').text =
-        $.Localize('#bot_multiplier') + `: x${GAME_RESULT.options.botGoldXpMultiplier}`;
+        $.Localize('#player_multiplier') +
+        `: x${gameOptions.multiplier_dire.toFixed(1).replace(/\.0+$/, '')}`;
       direPanel.FindChildTraverse('TowerPower').text =
-        $.Localize('#tower_power') + ': ' + GAME_RESULT.options.towerPower;
+        $.Localize('#tower_power') + `: ${gameOptions.tower_power_pct}%`;
     }
     direPanel.FindChildTraverse('TeamScoreSmall').text = teamDetails.team_score;
   }

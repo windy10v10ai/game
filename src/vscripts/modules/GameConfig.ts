@@ -62,7 +62,7 @@ export class GameConfig {
 
     if (IsInToolsMode()) {
       print('[GameConfig] IsInToolsMode set');
-      // GameRules.SetCustomGameSetupAutoLaunchDelay(1);
+      GameRules.SetCustomGameSetupAutoLaunchDelay(300);
       GameRules.SetHeroSelectionTime(15);
       GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(5);
