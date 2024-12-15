@@ -13,6 +13,7 @@
 
 // To declare an event for use, add it to this table with the type of its data
 interface CustomGameEventDeclarations {
+  game_options_change: GameOptionsChangeEventData;
   loading_set_options: LoadingSetOptionsEventData;
   ui_panel_closed: UIPanelClosedEventData;
   lottery_pick_item: LotteryPickEventData;
@@ -23,6 +24,12 @@ interface CustomGameEventDeclarations {
 
 interface CustomGameEventDataBase {
   PlayerID: PlayerID;
+}
+
+interface GameOptionsChangeEventData {
+  multiplier_radiant: number;
+  multiplier_dire: number;
+  tower_power_pct: number;
 }
 
 interface LoadingSetOptionsEventData {
@@ -38,7 +45,6 @@ interface LoadingSetOptionsEventData {
     starting_gold_bot: string;
     max_level: string;
     same_hero_selection: boolean;
-    radiant_bot_same_multi: boolean;
   };
 }
 
@@ -48,9 +54,5 @@ interface UIPanelClosedEventData {}
 interface LotteryPickEventData {
   name: string;
 }
-interface LotteryPickEventDataWithPlayer extends LotteryPickEventData, CustomGameEventDataBase {}
 
 interface LotteryRefreshEventData {}
-interface LotteryRefreshEventDataWithPlayer
-  extends LotteryRefreshEventData,
-    CustomGameEventDataBase {}

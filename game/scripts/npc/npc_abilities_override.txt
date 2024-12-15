@@ -10824,15 +10824,20 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
-	// 漂毒
+	// 暗影剧毒 漂毒
 	"shadow_demon_shadow_poison"
 	{
 		"MaxLevel" "5"
+		"AbilityManaCost"				"35 40 45 50 55"
 		"AbilityValues"
 		{
 				"stack_damage"
 				{
 					"value"			"24 36 48 60 72"
+				}
+				"bonus_stack_damage"
+				{
+					"value"				"250"	// 50
 				}
 				"hit_damage"
 				{
