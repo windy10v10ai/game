@@ -1,15 +1,15 @@
+import { GameOptions } from '../../common/net_tables';
+
 export class Option {
-  //    starting_gold_player            	= "1000" (string)
-  //    starting_gold_bot               	= "1000" (string)
-  //    same_hero_selection             	= 0 (number)
-  //    radiant_bot_same_multi          	= 0 (number)
-  //    radiant_player_number           	= "1" (string)
-  //    dire_player_number              	= "10" (string)
-  //    player_gold_xp_multiplier       	= "1" (string)
-  //    bot_gold_xp_multiplier          	= "1" (string)
-  //    respawn_time_percentage         	= "120" (string)
-  //    max_level                       	= "30" (string)
-  //    tower_power                     	= "50" (string)
+  constructor() {
+    CustomGameEventManager.RegisterListener('game_options_change', (_, keys) => {
+      return this.onGameOptionChange(keys);
+    });
+  }
+
+  onGameOptionChange(keys: GameOptions & CustomGameEventDataBase) {
+    CustomNetTables.SetTableValue('game_options', 'game_options', keys);
+  }
 
   // 金钱经验倍率
   radiantGoldXpMultiplier = 1;
@@ -23,8 +23,8 @@ export class Option {
   startingGoldPlayer = 1000;
   startingGoldBot = 1000;
   respawnTimePercentage = 100;
+  maxLevel = 50;
+  sameHeroSelection = false;
 
   gameDifficulty = 0;
-
-  constructor() {}
 }

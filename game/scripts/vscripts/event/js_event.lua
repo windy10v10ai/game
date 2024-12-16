@@ -15,21 +15,7 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
     self.iStartingGoldPlayer = tonumber(args.game_options.starting_gold_player)
     self.iStartingGoldBot = tonumber(args.game_options.starting_gold_bot)
     self.bSameHeroSelection = args.game_options.same_hero_selection
-    if args.game_options.radiant_bot_same_multi == 1 or args.game_options.radiant_bot_same_multi == "1" then
-        self.bRadiantBotSameMulti = true
-    else
-        self.bRadiantBotSameMulti = false
-    end
     self:PreGameOptions()
-end
-
-function AIGameMode:OnGameOptionChange(keys)
-    local optionName = keys.optionName
-    local optionValue = keys.optionValue
-    local optionId = keys.optionId
-    -- 对应的游戏选择项目设定
-    GameRules.GameOption[optionName] = { optionValue = optionValue, optionId = optionId }
-    CustomNetTables:SetTableValue('game_options_table', 'game_option', GameRules.GameOption)
 end
 
 function AIGameMode:OnChooseDifficulty(keys)

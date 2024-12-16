@@ -36,7 +36,6 @@ function Precache(context)
 end
 
 function AIGameMode:InitGameMode()
-    AIGameMode:InitGameOptions()
     AIGameMode:InitEvents()
     AIGameMode:LinkLuaModifiers()
     AIGameMode:InitGlobalVariables()
@@ -53,11 +52,6 @@ function AIGameMode:InitGlobalVariables()
     self.iGameDifficulty = 0
 end
 
-function AIGameMode:InitGameOptions()
-    -- 游戏选择项目初始化
-    GameRules.GameOption = LoadKeyValues("scripts/kv/game_option.kv")
-end
-
 function AIGameMode:InitEvents()
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(AIGameMode, "OnGameStateChanged"), self)
     ListenToGameEvent("dota_player_gained_level", Dynamic_Wrap(AIGameMode, "OnPlayerLevelUp"), self)
@@ -67,15 +61,12 @@ function AIGameMode:InitEvents()
     ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(AIGameMode, "OnItemPickedUp"), self)
     ListenToGameEvent("player_chat", Dynamic_Wrap(AIGameMode, "OnPlayerChat"), self)
     ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
-    ListenToGameEvent("dota_buyback", Dynamic_Wrap(AIGameMode, 'OnBuyback'), self)
+    -- ListenToGameEvent("dota_buyback", Dynamic_Wrap(AIGameMode, 'OnBuyback'), self)
     ListenToGameEvent("last_hit", Dynamic_Wrap(AIGameMode, 'OnLastHit'), self)
 
     -- 游戏选项事件
     CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
         return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
-    end)
-    CustomGameEventManager:RegisterListener("game_options_change", function(_, keys)
-        return AIGameMode:OnGameOptionChange(keys)
     end)
     CustomGameEventManager:RegisterListener("choose_difficulty", function(_, keys)
         return AIGameMode:OnChooseDifficulty(keys)
@@ -302,7 +293,7 @@ function AIGameMode:GetPlayerGoldXpMultiplier(iPlayerID)
 
     if IsHumanPlayer(iPlayerID) then
         mul = self.fPlayerGoldXpMultiplier
-    elseif self.bRadiantBotSameMulti and IsGoodTeamPlayer(iPlayerID) then
+    elseif IsGoodTeamPlayer(iPlayerID) then
         mul = self.fPlayerGoldXpMultiplier
     else
         mul = self.fBotGoldXpMultiplier

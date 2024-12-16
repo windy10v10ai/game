@@ -1,4 +1,6 @@
+import { Analytic } from '../../api/analytics';
 import { reloadable } from '../../utils/tstl-utils';
+import { GameConfig } from '../GameConfig';
 import { NetTableHelper } from '../helper/net-table-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { LotteryHelper } from './lottery-helper';
@@ -100,7 +102,7 @@ export class Lottery {
   }
 
   // ---- 玩家选择 ----
-  pickItem(userId: EntityIndex, event: LotteryPickEventDataWithPlayer) {
+  pickItem(userId: EntityIndex, event: LotteryPickEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
     if (lotteryStatus.pickItemName) {
@@ -118,9 +120,23 @@ export class Lottery {
     // 记录选择的物品
     lotteryStatus.pickItemName = event.name;
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
+
+    // 发送分析事件
+    const lotteryItemsRaw = CustomNetTables.GetTableValue('lottery_items', steamAccountID);
+    const level =
+      Object.values(lotteryItemsRaw).find((item) => item.name === event.name)?.level ?? 0;
+
+    Analytic.SendPickItemEvent({
+      steamId: PlayerResource.GetSteamAccountID(event.PlayerID),
+      matchId: GameRules.Script_GetMatchID().toString(),
+      name: event.name,
+      level,
+      difficulty: GameRules.Option.gameDifficulty,
+      version: GameConfig.GAME_VERSION,
+    });
   }
 
-  pickAbility(userId: EntityIndex, event: LotteryPickEventDataWithPlayer) {
+  pickAbility(userId: EntityIndex, event: LotteryPickEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
     if (lotteryStatus.pickAbilityName) {
@@ -138,10 +154,24 @@ export class Lottery {
     // 记录选择的技能
     lotteryStatus.pickAbilityName = event.name;
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
+
+    // 发送分析事件
+    const lotteryAbilitiesRaw = CustomNetTables.GetTableValue('lottery_abilities', steamAccountID);
+    const level =
+      Object.values(lotteryAbilitiesRaw).find((item) => item.name === event.name)?.level ?? 0;
+
+    Analytic.SendPickAbilityEvent({
+      steamId: PlayerResource.GetSteamAccountID(event.PlayerID),
+      matchId: GameRules.Script_GetMatchID().toString(),
+      name: event.name,
+      level,
+      difficulty: GameRules.Option.gameDifficulty,
+      version: GameConfig.GAME_VERSION,
+    });
   }
 
   // ---- 玩家刷新 ----
-  refreshItem(userId: EntityIndex, event: LotteryRefreshEventDataWithPlayer) {
+  refreshItem(userId: EntityIndex, event: LotteryRefreshEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
     if (lotteryStatus.isItemRefreshed || lotteryStatus.pickItemName) {
@@ -162,7 +192,7 @@ export class Lottery {
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
   }
 
-  refreshAbility(userId: EntityIndex, event: LotteryRefreshEventDataWithPlayer) {
+  refreshAbility(userId: EntityIndex, event: LotteryRefreshEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
     if (lotteryStatus.isAbilityRefreshed || lotteryStatus.pickAbilityName) {

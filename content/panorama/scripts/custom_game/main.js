@@ -8,13 +8,13 @@ GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ENDGAME, false
 // Fix for Valve overlay covering team select
 function UpdateHeroSelection() {
   if (Game.GameStateIsBefore(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
-    $.GetContextPanel().GetParent().GetParent().FindChild("PreGame").visible = false;
+    $.GetContextPanel().GetParent().GetParent().FindChild('PreGame').visible = false;
   } else if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
-    $.GetContextPanel().GetParent().GetParent().FindChild("PreGame").visible = true;
+    $.GetContextPanel().GetParent().GetParent().FindChild('PreGame').visible = true;
   } else if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME)) {
-    $.GetContextPanel().GetParent().GetParent().FindChild("PreGame").visible = false;
+    $.GetContextPanel().GetParent().GetParent().FindChild('PreGame').visible = false;
   }
 }
 (function () {
-  GameEvents.Subscribe("game_rules_state_change", UpdateHeroSelection);
+  GameEvents.Subscribe('game_rules_state_change', UpdateHeroSelection);
 })();
