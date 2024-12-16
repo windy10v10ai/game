@@ -78,7 +78,12 @@ function ConvertSteamIdTo32Bit(steamId64) {
 }
 
 function GetSteamAccountID() {
-  const steamId64 = Game.GetLocalPlayerInfo().player_steamid;
+  const localPlayerInfo = Game.GetLocalPlayerInfo();
+  if (!localPlayerInfo) {
+    return '';
+  }
+
+  const steamId64 = localPlayerInfo.player_steamid;
   const steamId32 = ConvertSteamIdTo32Bit(steamId64);
   return steamId32;
 }

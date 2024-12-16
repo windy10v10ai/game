@@ -4,6 +4,12 @@ import { LotteryStatusDto } from './dto/lottery-status';
 
 declare global {
   interface CustomNetTableDeclarations {
+    game_options: {
+      game_options: GameOptions;
+    };
+    game_difficulty: {
+      all: { difficulty: number };
+    };
     loading_status: {
       loading_status: { status: number };
     };
@@ -22,9 +28,6 @@ declare global {
     point_info: {
       [steamAccountID: string]: PointInfoDto[];
     };
-    game_difficulty: {
-      all: { difficulty: number };
-    };
     lottery_items: {
       [steamAccountID: string]: LotteryDto[];
     };
@@ -35,4 +38,19 @@ declare global {
       [steamAccountID: string]: LotteryStatusDto;
     };
   }
+}
+
+export interface GameOptions {
+  multiplier_radiant: number;
+  multiplier_dire: number;
+  tower_power_pct: number;
+
+  // FIXME currently not used
+  // radiant_player_number: string;
+  // dire_player_number: string;
+  // respawn_time_pct: string;
+  // starting_gold_player: string;
+  // starting_gold_bot: string;
+  // max_level: string;
+  // same_hero_selection: number;
 }

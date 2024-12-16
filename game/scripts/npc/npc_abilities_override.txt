@@ -6852,7 +6852,7 @@
 				"miss_rate"					"30 45 60 75 90"
 		}
 	}
-	// 永久隐身
+	// 永久隐身（旧版）
 	"riki_permanent_invisibility"
 	{
 		"MaxLevel" "5"
@@ -10017,7 +10017,7 @@
 		{
 				"mana_per_second"
 				{
-					"value"		"50 100 150 200 300"	// x2.5
+					"value"		"50 100 150 300 450"	// x2.5
 				}
 				"movespeed"
 				{
@@ -10824,15 +10824,20 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
-	// 漂毒
+	// 暗影剧毒 漂毒
 	"shadow_demon_shadow_poison"
 	{
 		"MaxLevel" "5"
+		"AbilityManaCost"				"35 40 45 50 55"
 		"AbilityValues"
 		{
 				"stack_damage"
 				{
 					"value"			"24 36 48 60 72"
+				}
+				"bonus_stack_damage"
+				{
+					"value"				"250"	// 50
 				}
 				"hit_damage"
 				{
