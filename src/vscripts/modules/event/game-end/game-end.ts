@@ -78,10 +78,10 @@ export class GameEnd {
       version: GameConfig.GAME_VERSION,
       difficulty,
       steamId: 0, // 非玩家单位的事件，固定0
-      winnerTeamId: winnerTeamId,
       gameOptions,
-      players,
+      winnerTeamId: winnerTeamId,
       gameTimeMsec: Math.round(gameTime * 1000),
+      players,
     };
 
     return gameEndDto;
