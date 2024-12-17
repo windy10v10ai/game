@@ -27,6 +27,8 @@ export class GameEnd {
       playerNumberDire: gameOptionsData.player_number_dire,
       towerPowerPct: gameOptionsData.tower_power_pct,
     };
+
+    const gameTime = GameRules.GetGameTime();
     const players: GameEndPlayerDto[] = [];
     PlayerHelper.ForEachPlayer((playerId) => {
       const player = PlayerResource.GetPlayer(playerId);
@@ -79,6 +81,7 @@ export class GameEnd {
       winnerTeamId: winnerTeamId,
       gameOptions,
       players,
+      gameTimeMsec: Math.round(gameTime * 1000),
     };
 
     return gameEndDto;
