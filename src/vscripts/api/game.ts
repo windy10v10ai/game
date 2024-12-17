@@ -18,7 +18,6 @@ class GameInfo {
   version!: string;
   gameTimeMsec!: number;
   constructor() {
-    print('[Game] constructor in TS');
     this.players = [];
   }
 }
@@ -46,8 +45,6 @@ export class Game {
     gameInfo.version = GameConfig.GAME_VERSION;
     gameInfo.gameOption = endData.gameOption;
     gameInfo.gameTimeMsec = Math.round(GameRules.GetGameTime() * 1000);
-
-    DeepPrintTable(endData);
 
     for (let i = -1; i < endData.players.length; i++) {
       const player = endData.players[i];
