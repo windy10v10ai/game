@@ -213,8 +213,8 @@ function SendGameOptionsToServer() {
   const botGoldXpMultiplier = $('#bot_gold_xp_multiplier_dropdown').GetSelected().id;
   const radiantPlayerNumber = $('#radiant_player_number_dropdown').GetSelected().id;
   const direPlayerNumber = $('#dire_player_number_dropdown').GetSelected().id;
-  const respawnTimePercentage = $('#respawn_time_percentage_dropdown').GetSelected().id;
   const towerPower = $('#tower_power_dropdown').GetSelected().id;
+  const respawnTimePercentage = $('#respawn_time_percentage_dropdown').GetSelected().id;
   const startingGoldPlayer = $('#starting_gold_player_dropdown').GetSelected().id;
   const startingGoldBot = $('#starting_gold_bot_dropdown').GetSelected().id;
   const maxLevel = $('#max_level_dropdown').GetSelected().id;
