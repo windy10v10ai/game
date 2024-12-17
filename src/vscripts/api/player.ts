@@ -211,14 +211,6 @@ export class Player {
     return true;
   }
 
-  public GetMember(steamId: number) {
-    const member = Player.memberList.find((m) => m.steamId === steamId);
-    if (member) {
-      return member;
-    }
-    return null;
-  }
-
   // 监听JS事件
   public RegisterListener() {
     // 玩家属性升级
