@@ -29,7 +29,14 @@ interface CustomGameEventDataBase {
 interface GameOptionsChangeEventData {
   multiplier_radiant: number;
   multiplier_dire: number;
+  player_number_radiant: number;
+  player_number_dire: number;
   tower_power_pct: number;
+  respawn_time_pct: number;
+  starting_gold_player: number;
+  starting_gold_bot: number;
+  max_level: number;
+  same_hero_selection: number;
 }
 
 interface LoadingSetOptionsEventData {
