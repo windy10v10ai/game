@@ -213,8 +213,8 @@ function SendGameOptionsToServer() {
   const botGoldXpMultiplier = $('#bot_gold_xp_multiplier_dropdown').GetSelected().id;
   const radiantPlayerNumber = $('#radiant_player_number_dropdown').GetSelected().id;
   const direPlayerNumber = $('#dire_player_number_dropdown').GetSelected().id;
-  const respawnTimePercentage = $('#respawn_time_percentage_dropdown').GetSelected().id;
   const towerPower = $('#tower_power_dropdown').GetSelected().id;
+  const respawnTimePercentage = $('#respawn_time_percentage_dropdown').GetSelected().id;
   const startingGoldPlayer = $('#starting_gold_player_dropdown').GetSelected().id;
   const startingGoldBot = $('#starting_gold_bot_dropdown').GetSelected().id;
   const maxLevel = $('#max_level_dropdown').GetSelected().id;
@@ -225,8 +225,8 @@ function SendGameOptionsToServer() {
     multiplier_dire: Number(botGoldXpMultiplier),
     player_number_radiant: Number(radiantPlayerNumber),
     player_number_dire: Number(direPlayerNumber),
-    respawn_time_pct: Number(respawnTimePercentage),
     tower_power_pct: Number(towerPower),
+    respawn_time_pct: Number(respawnTimePercentage),
     starting_gold_player: Number(startingGoldPlayer),
     starting_gold_bot: Number(startingGoldBot),
     max_level: Number(maxLevel),

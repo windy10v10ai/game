@@ -43,14 +43,12 @@ declare global {
 export interface GameOptions {
   multiplier_radiant: number;
   multiplier_dire: number;
+  player_number_radiant: number;
+  player_number_dire: number;
   tower_power_pct: number;
-
-  // FIXME currently not used
-  // radiant_player_number: string;
-  // dire_player_number: string;
-  // respawn_time_pct: string;
-  // starting_gold_player: string;
-  // starting_gold_bot: string;
-  // max_level: string;
-  // same_hero_selection: number;
+  respawn_time_pct: number;
+  starting_gold_player: number;
+  starting_gold_bot: number;
+  max_level: number;
+  same_hero_selection: number;
 }

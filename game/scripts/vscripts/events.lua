@@ -525,7 +525,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
                 local membership = PlayerController:IsMember(steamAccountID)
-                local memberInfo = PlayerController:GetMember(steamAccountID)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
                 for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
@@ -547,7 +546,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     steamAccountID = tostring(PlayerResource:GetSteamAccountID(playerID)),
                     teamId = PlayerResource:GetTeam(playerID),
                     membership = membership,
-                    memberInfo = memberInfo,
                     kills = kills or 0,
                     deaths = deaths or 0,
                     assists = assists or 0,

@@ -1,4 +1,4 @@
-import { Analytic } from '../../api/analytics';
+import { Analytic } from '../../api/analytics/analytics';
 import { reloadable } from '../../utils/tstl-utils';
 import { GameConfig } from '../GameConfig';
 import { NetTableHelper } from '../helper/net-table-helper';
