@@ -38,6 +38,19 @@ export class GameEnd {
         return;
       }
 
+      let damageTaken = 0;
+      for (let victimID = 0; victimID < DOTA_MAX_TEAM_PLAYERS; victimID++) {
+        if (
+          PlayerResource.IsValidPlayerID(victimID) &&
+          PlayerResource.IsValidPlayer(victimID) &&
+          PlayerResource.GetSelectedHeroEntity(victimID)
+        ) {
+          if (PlayerResource.GetTeam(victimID) !== PlayerResource.GetTeam(playerId)) {
+            damageTaken += PlayerResource.GetDamageDoneToHero(victimID, playerId);
+          }
+        }
+      }
+
       const playerDto: GameEndPlayerDto = {
         heroName: PlayerResource.GetSelectedHeroName(playerId),
         steamId: PlayerResource.GetSteamAccountID(playerId),
@@ -48,7 +61,12 @@ export class GameEnd {
         kills: PlayerResource.GetKills(playerId),
         deaths: PlayerResource.GetDeaths(playerId),
         assists: PlayerResource.GetAssists(playerId),
-        points: 0,
+        points: 0, // TODO: 计算玩家得分
+        damage: PlayerResource.GetRawPlayerDamage(playerId),
+        damageTaken,
+        healing: PlayerResource.GetHealing(playerId),
+        lastHits: PlayerResource.GetLastHits(playerId),
+        towerKills: PlayerResource.GetTowerKills(playerId),
       };
       players.push(playerDto);
     });
