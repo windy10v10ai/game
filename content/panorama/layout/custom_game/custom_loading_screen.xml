@@ -64,7 +64,21 @@
 							<Label text="1" id="1"/>
 						</DropDown>
 					</Panel>
+					<!-- 防御塔增强 -->
+					<Panel id="TowerPowerPanel"	class="GameOptionsSubPanel">
+						<Label id="RadiantTowerPowerTitle" class="GameOptionsLabel" text="#tower_power" />
+						<DropDown id="tower_power_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
+							<Label text="100%" id="100"/>
+							<Label text="150%" id="150"/>
+							<Label text="200%" id="200"/>
+							<Label text="250%" id="250"/>
+							<Label text="300%" id="300"/>
+							<Label text="400%" id="400"/>
+						</DropDown>
+					</Panel>
+
 					<Label id="GameOptionsPanelBr" text="#addon_option_title_br" />
+
 					<Panel id="RespawnTimePercentagePanel"	class="GameOptionsSubPanel">
 						<Label id="RespawnTimePercentagePanelTitle" class="GameOptionsLabel" text="#respawn_time_percentage" />
 						<DropDown id="respawn_time_percentage_dropdown" class="GameOptionsDropdown">
@@ -82,19 +96,6 @@
 							<Label text="75" id="75"/>
 							<Label text="100" id="100"/>
 							<Label text="200" id="200"/>
-						</DropDown>
-					</Panel>
-
-					<!-- 防御塔增强 -->
-					<Panel id="TowerPowerPanel"	class="GameOptionsSubPanel">
-						<Label id="RadiantTowerPowerTitle" class="GameOptionsLabel" text="#tower_power" />
-						<DropDown id="tower_power_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
-							<Label text="100%" id="100"/>
-							<Label text="150%" id="150"/>
-							<Label text="200%" id="200"/>
-							<Label text="250%" id="250"/>
-							<Label text="300%" id="300"/>
-							<Label text="400%" id="400"/>
 						</DropDown>
 					</Panel>
 

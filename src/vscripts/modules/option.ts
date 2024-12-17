@@ -1,5 +1,3 @@
-import { GameOptions } from '../../common/net_tables';
-
 export class Option {
   constructor() {
     CustomGameEventManager.RegisterListener('game_options_change', (_, keys) => {
@@ -7,7 +5,7 @@ export class Option {
     });
   }
 
-  onGameOptionChange(keys: GameOptions & CustomGameEventDataBase) {
+  onGameOptionChange(keys: GameOptionsChangeEventData & CustomGameEventDataBase) {
     CustomNetTables.SetTableValue('game_options', 'game_options', keys);
   }
 
