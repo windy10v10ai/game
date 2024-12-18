@@ -72,8 +72,11 @@ export class EventNpcSpawned {
         ModifierHelper.applyGlobalModifier(hero, 'modifier_global_member');
       }
       // 设置新手BUFF
-      if (Player.IsNewbie(steamAccountId)) {
+      const playerSeasonLevel = Player.GetSeasonLevel(steamAccountId);
+      if (playerSeasonLevel <= 5) {
         ModifierHelper.applyGlobalModifier(hero, 'modifier_global_newbie');
+      } else if (playerSeasonLevel <= 8) {
+        ModifierHelper.applyGlobalModifier(hero, 'modifier_global_newbie_2');
       }
       // 设置玩家属性
       Player.SetPlayerProperty(hero);
