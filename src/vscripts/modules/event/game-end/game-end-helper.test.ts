@@ -80,7 +80,7 @@ describe('GameEndHelper', () => {
     it('should return correct points for game time equal to 0', () => {
       const gameTime = 0;
       const points = GameEndHelper.GetGameTimePoints(gameTime);
-      expect(points).toBe(12);
+      expect(points).toBe(0);
     });
 
     it('should return correct points for game time less than 2400', () => {
@@ -96,9 +96,9 @@ describe('GameEndHelper', () => {
     });
 
     it('should return correct points for game time greater than 2400', () => {
-      const gameTime = 3000;
+      const gameTime = 3600;
       const points = GameEndHelper.GetGameTimePoints(gameTime);
-      expect(points).toBe(32);
+      expect(points).toBe(39);
     });
   });
 });

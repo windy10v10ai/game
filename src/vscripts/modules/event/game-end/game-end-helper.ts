@@ -25,10 +25,8 @@ export class GameEndHelper {
   }
 
   static GetGameTimePoints(gameTime: number): number {
-    if (gameTime > 2400) {
-      gameTime = 2400;
-    }
-    const basePoints = 12;
-    return basePoints + gameTime / 120;
+    const min = gameTime / 60;
+    const points = Math.sqrt(min) * 5;
+    return Math.round(points);
   }
 }
