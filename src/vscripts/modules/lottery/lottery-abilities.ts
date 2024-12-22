@@ -15,7 +15,7 @@ export const abilityTiers: Tier[] = [
       // 被动技能
       'omniknight_hammer_of_purity', // 纯洁之锤
       'elder_titan_natural_order', // 自然秩序
-      'spectre_dispersion', // 折射
+      // 'spectre_dispersion', // 折射
       'drow_ranger_marksmanship', // 射手天赋
     ],
   },
