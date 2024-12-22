@@ -100,29 +100,27 @@ function Snippet_Player(playerId, rootPanel, index) {
 
   // 绘制物品栏
   const items = Game.GetPlayerItems(playerId);
-  if (items) {
-    const inventoryItems = items.inventory;
-    for (var i = 0; i < 6; i++) {
-      var item = inventoryItems[i];
-      var itemPanel = $.CreatePanel(
-        'DOTAItemImage',
-        panel.FindChildTraverse(i >= 6 ? 'BackpackItemsContainer' : 'ItemsContainer'),
-        '',
-      );
-      if (item) {
-        itemPanel.itemname = item.item_name;
-      }
-    }
-
-    const neutralItem = items.neutral_item;
+  $.Msg('items player', playerId, items);
+  for (var i = 0; i < 6; i++) {
     var itemPanel = $.CreatePanel(
       'DOTAItemImage',
-      panel.FindChildTraverse('NeutralItemContainer'),
+      panel.FindChildTraverse(i >= 6 ? 'BackpackItemsContainer' : 'ItemsContainer'),
       '',
     );
-    if (neutralItem) {
-      itemPanel.itemname = neutralItem.item_name;
+    var item = items?.inventory[i];
+    if (item) {
+      itemPanel.itemname = item.item_name;
     }
+  }
+
+  const neutralItem = items.neutral_item;
+  var itemPanel = $.CreatePanel(
+    'DOTAItemImage',
+    panel.FindChildTraverse('NeutralItemContainer'),
+    '',
+  );
+  if (neutralItem) {
+    itemPanel.itemname = neutralItem.item_name;
   }
 }
 
