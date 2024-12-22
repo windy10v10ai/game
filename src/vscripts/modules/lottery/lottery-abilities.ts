@@ -52,7 +52,7 @@ export const abilityTiers: Tier[] = [
 
       // 被动技能
       'troll_warlord_fervor', // 热血战魂
-      'ogre_magi_multicast', // 多重施法
+      // 'ogre_magi_multicast', // 多重施法
       'huskar_berserkers_blood', // 狂战士之血
       'slark_essence_shift', // 能量转移
       'chaos_knight_chaos_strike', // 混沌一击

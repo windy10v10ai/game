@@ -204,6 +204,7 @@ function StateChange() {
         same_hero_selection: $('#same_hero_selection').checked,
       },
     });
+    SendGameOptionsToServer();
   }
 }
 
