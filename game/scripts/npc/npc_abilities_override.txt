@@ -7135,7 +7135,7 @@
 			}
 			"radius"
 			{
-				"value"				"200"
+				"value"				"150"
 			}
 			"only_creep_allies_damage_pct"
 			{
