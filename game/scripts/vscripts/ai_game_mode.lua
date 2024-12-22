@@ -49,7 +49,6 @@ end
 function AIGameMode:InitGlobalVariables()
     -- AI连续死亡记录表
     AIGameMode.BotRecordSuccessiveDeathTable = {}
-    self.iGameDifficulty = 0
 end
 
 function AIGameMode:InitEvents()
@@ -68,12 +67,12 @@ function AIGameMode:InitEvents()
     CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
         return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
     end)
-    CustomGameEventManager:RegisterListener("choose_difficulty", function(_, keys)
-        return AIGameMode:OnChooseDifficulty(keys)
-    end)
-    CustomGameEventManager:RegisterListener("vote_end", function(_, keys)
-        return AIGameMode:CalculateDifficulty(true)
-    end)
+    -- CustomGameEventManager:RegisterListener("choose_difficulty", function(_, keys)
+    --     return AIGameMode:OnChooseDifficulty(keys)
+    -- end)
+    -- CustomGameEventManager:RegisterListener("vote_end", function(_, keys)
+    --     return AIGameMode:CalculateDifficulty(true)
+    -- end)
     -- 共享单位，禁用帮助
     CustomGameEventManager:RegisterListener("set_unit_share_mask", function(_, keys)
         return AIGameMode:SetUnitShareMask(keys)

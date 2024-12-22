@@ -63,4 +63,14 @@ export class PlayerHelper {
   static IsGoodTeamPlayer(playerId: PlayerID): boolean {
     return PlayerResource.GetTeam(playerId) === DotaTeam.GOODGUYS;
   }
+
+  static GetHumamPlayerCount(): number {
+    let count = 0;
+    this.ForEachPlayer((playerId) => {
+      if (this.IsHumanPlayerByPlayerId(playerId)) {
+        count++;
+      }
+    });
+    return count;
+  }
 }

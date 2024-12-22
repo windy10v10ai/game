@@ -44,10 +44,11 @@ function AIGameMode:OnGameStateChanged(keys)
             self:PreGameOptions()
         end
     elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
+        local gameDifficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty
         self:EndScreenStats(1, false)
         -- modifier towers
         local tTowers = Entities:FindAllByClassname("npc_dota_tower")
-        local iTowerLevel = math.max(self.iGameDifficulty, 1)
+        local iTowerLevel = math.max(gameDifficulty, 1)
         for k, v in pairs(tTowers) do
             local towerName = v:GetName()
 
@@ -481,7 +482,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     }
     -- send to api server
     data.gameOption = {
-        gameDifficulty = self.iGameDifficulty,
+        gameDifficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty,
         playerGoldXpMultiplier = self.fPlayerGoldXpMultiplier,
         botGoldXpMultiplier = self.fBotGoldXpMultiplier,
         towerPower = self.iTowerPower,
@@ -778,7 +779,7 @@ end
 
 function AIGameMode:FilterSeasonPointDifficulty(points)
     -- 根据难度积分加倍
-    local difficulty = self.iGameDifficulty
+    local difficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty
     if difficulty == 1 then
         points = points * 1.2
     elseif difficulty == 2 then

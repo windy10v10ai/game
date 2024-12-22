@@ -4,6 +4,9 @@ import { LotteryStatusDto } from './dto/lottery-status';
 
 declare global {
   interface CustomNetTableDeclarations {
+    difficulty_choice: {
+      [playerId: string]: { difficulty: number };
+    };
     game_options: {
       game_options: GameOptions;
     };
