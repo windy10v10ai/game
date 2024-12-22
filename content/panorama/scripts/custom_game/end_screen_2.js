@@ -17,7 +17,6 @@ var imagefile = {
   npc_dota_hero_dark_seer: 'file://{images}/heroes/npc_dota_hero_dark_seer_custom.png',
 };
 
-var GAME_RESULT = {};
 var _ = GameUI.CustomUIConfig()._;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -36,7 +35,7 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.BLoadLayoutSnippet('Player');
   panel.SetHasClass('IsLocalPlayer', playerId === Game.GetLocalPlayerID());
 
-  var playerData = GAME_RESULT.players[playerId];
+  var playerData = CustomNetTables.GetTableValue('ending_stats', playerId.toString());
   var playerInfo = Game.GetPlayerInfo(playerId);
   if (playerInfo.player_steamid && playerInfo.player_steamid !== '0') {
     panel.FindChildTraverse('PlayerAvatar').steamid = playerInfo.player_steamid;
@@ -47,7 +46,7 @@ function Snippet_Player(playerId, rootPanel, index) {
     panel.FindChildTraverse('BotNameScoreboard').visible = true;
   }
 
-  if (playerData.membership) {
+  if (IsMemberByPlayerId(playerId)) {
     panel.AddClass('IsMemberShip');
     const membershipString = $.Localize('#player_member_ship');
     const membershipUrl = GetOpenMemberUrl();
@@ -74,50 +73,53 @@ function Snippet_Player(playerId, rootPanel, index) {
     } catch {}
   });
 
-  if (imagefile[playerData.heroName]) {
-    panel.FindChildTraverse('HeroIcon').SetImage(imagefile[playerData.heroName]);
+  const heroName = Players.GetPlayerSelectedHero(playerId);
+
+  if (imagefile[heroName]) {
+    panel.FindChildTraverse('HeroIcon').SetImage(imagefile[heroName]);
   } else {
-    panel
-      .FindChildTraverse('HeroIcon')
-      .SetImage('file://{images}/heroes/' + playerData.heroName + '.png');
+    panel.FindChildTraverse('HeroIcon').SetImage('file://{images}/heroes/' + heroName + '.png');
   }
   panel.SetDialogVariableInt('hero_level', Players.GetLevel(playerId));
-  panel.SetDialogVariable('hero_name', $.Localize('#' + playerData.heroName));
+  panel.SetDialogVariable('hero_name', $.Localize('#' + heroName));
 
   panel.SetDialogVariableInt('kills', Players.GetKills(playerId));
   panel.SetDialogVariableInt('deaths', Players.GetDeaths(playerId));
   panel.SetDialogVariableInt('assists', Players.GetAssists(playerId));
   panel.SetDialogVariableInt('lasthits', Players.GetLastHits(playerId));
   panel.SetDialogVariableInt('money', Players.GetTotalEarnedGold(playerId));
-  panel.SetDialogVariableInt('damage', playerData.damage);
-  panel.SetDialogVariableInt('damagereceived', playerData.damagereceived);
-  panel.SetDialogVariableInt('heroHealing', playerData.heroHealing);
-  panel.SetDialogVariableInt('points', playerData.points);
+  // TODO 使用新game end数据
+  panel.SetDialogVariableInt('damage', playerData?.damage ?? 0);
+  panel.SetDialogVariableInt('damagereceived', playerData?.damagereceived ?? 0);
+  panel.SetDialogVariableInt('heroHealing', playerData?.heroHealing ?? 0);
+  panel.SetDialogVariableInt('points', playerData?.points ?? 0);
 
-  panel.SetDialogVariableInt('strength', playerData.str);
-  panel.SetDialogVariableInt('agility', playerData.agi);
-  panel.SetDialogVariableInt('intellect', playerData.int);
+  panel.SetDialogVariableInt('strength', playerData?.str ?? 0);
+  panel.SetDialogVariableInt('agility', playerData?.agi ?? 0);
+  panel.SetDialogVariableInt('intellect', playerData?.int ?? 0);
 
+  // 绘制物品栏
+  const items = Game.GetPlayerItems(playerId);
   for (var i = 0; i < 6; i++) {
-    var item = playerData.items[i];
     var itemPanel = $.CreatePanel(
       'DOTAItemImage',
       panel.FindChildTraverse(i >= 6 ? 'BackpackItemsContainer' : 'ItemsContainer'),
       '',
     );
+    var item = items?.inventory[i];
     if (item) {
-      itemPanel.itemname = item;
+      itemPanel.itemname = item.item_name;
     }
   }
 
-  var neutral = playerData.items[16];
   var itemPanel = $.CreatePanel(
     'DOTAItemImage',
     panel.FindChildTraverse('NeutralItemContainer'),
     '',
   );
-  if (neutral) {
-    itemPanel.itemname = neutral;
+  const neutralItem = items?.neutral_item;
+  if (neutralItem) {
+    itemPanel.itemname = neutralItem.item_name;
   }
 }
 
@@ -130,7 +132,7 @@ function Snippet_Team(team) {
   var panel = $.CreatePanel('Panel', $('#TeamsContainer'), '');
   panel.BLoadLayoutSnippet('Team');
   panel.SetHasClass('IsRight', true);
-  panel.SetHasClass('IsWinner', GAME_RESULT.isWinner);
+  panel.SetHasClass('IsWinner', Game.GetGameWinner() === 2);
 
   const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
   const gameDifficulty = CustomNetTables.GetTableValue('game_difficulty', 'all').difficulty;
@@ -164,37 +166,23 @@ function Snippet_Team(team) {
   var ids = Game.GetPlayerIDsOnTeam(team);
 
   for (var i = 0; i < ids.length; i++) {
-    if (Players.IsValidPlayerID(i) && GAME_RESULT.players[i] != null) {
+    if (Players.IsValidPlayerID(i)) {
       Snippet_Player(ids[i], panel, i + 1);
     }
   }
 }
 
-function OnGameResult(table, key, gameResult) {
-  if (!gameResult || key !== 'player_data') {
-    $.Msg('[EndScreen2] Invalid game result');
-    // FinishGame();
-    return;
-  }
-
-  if (Game.GetGameWinner() === 2) {
-    gameResult.isWinner = true;
-  } else {
-    gameResult.isWinner = false;
-  }
-
+function OnGameResult() {
   $('#EndScreenWindow').visible = true;
   $('#TeamsContainer').RemoveAndDeleteChildren();
-
-  GAME_RESULT = gameResult;
 
   Snippet_Team(2);
   Snippet_Team(3);
 
   var result_label = $('#EndScreenVictory');
 
-  if (GAME_RESULT.isWinner) {
-    $.Msg('[EndScreen2] Victory');
+  $.Msg(`[EndScreen2] winner is ${Game.GetGameWinner()}`);
+  if (Game.GetGameWinner() === 2) {
     result_label.text = $.Localize('#custom_end_screen_victory_message');
     result_label.style.color = '#5ebd51';
   } else {

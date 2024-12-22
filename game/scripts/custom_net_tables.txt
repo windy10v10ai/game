@@ -4,7 +4,6 @@
   [
     // Lua tables
     "player_tome_table",
-    "ending_stats",
     "disable_help",
     "difficulty_choice",
 
@@ -12,6 +11,8 @@
     "game_options",
     "game_difficulty",
 
+    // Panorama/TS tables
+    "ending_stats",
     // TS tables
     "loading_status",
     "ending_status",

@@ -4,11 +4,25 @@ import { LotteryStatusDto } from './dto/lottery-status';
 
 declare global {
   interface CustomNetTableDeclarations {
+    difficulty_choice: {
+      [playerId: string]: { difficulty: number };
+    };
     game_options: {
       game_options: GameOptions;
     };
     game_difficulty: {
       all: { difficulty: number };
+    };
+    ending_stats: {
+      [playerId: string]: {
+        damage: number;
+        damagereceived: number;
+        healing: number;
+        points: number;
+        str: number;
+        agi: number;
+        int: number;
+      };
     };
     loading_status: {
       loading_status: { status: number };

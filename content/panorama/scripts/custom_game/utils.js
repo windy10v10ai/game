@@ -88,6 +88,30 @@ function GetSteamAccountID() {
   return steamId32;
 }
 
+function IsMemberByPlayerId(playerId) {
+  const playerInfo = Game.GetPlayerInfo(playerId);
+  if (!playerInfo) {
+    return false;
+  }
+
+  const steamAccountId = ConvertSteamIdTo32Bit(playerInfo.player_steamid);
+  const member = CustomNetTables.GetTableValue('member_table', steamAccountId);
+  if (member && member.enable) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function IsMember() {
+  const member = GetMember();
+  if (member && member.enable) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function GetMember() {
   return CustomNetTables.GetTableValue('member_table', GetSteamAccountID());
 }

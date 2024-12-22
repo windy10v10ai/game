@@ -1,8 +1,8 @@
-const lockHeroNames = ["dark_seer"];
+const lockHeroNames = ['dark_seer'];
 
 const interval = 0.03;
 
-const random_button = FindDotaHudElement("RandomButton");
+const random_button = FindDotaHudElement('RandomButton');
 let random_pressed = false;
 let member = GetMember();
 let player = GetPlayer();
@@ -18,7 +18,7 @@ function PickLockerLoop() {
 }
 
 function PickRandomHero() {
-  $.Msg("Random hero pressed");
+  $.Msg('Random hero pressed');
   // discard random requests if we've already pressed that or have hero selected
   if (random_pressed || Players.GetSelectedHeroID(Players.GetLocalPlayer()) != -1) return;
   random_pressed = true;
@@ -42,8 +42,8 @@ function PickLocker() {
 }
 
 function unlockHero() {
-  $.Msg("Unlock hero Pick");
-  const pick_button = FindDotaHudElement("LockInButton");
+  $.Msg('Unlock hero Pick');
+  const pick_button = FindDotaHudElement('LockInButton');
   pick_button.enabled = true;
   pick_button.SetAcceptsFocus(true);
   pick_button.BAcceptsInput(true);
@@ -51,12 +51,12 @@ function unlockHero() {
   pick_button.style.brightness = null;
 
   const label = pick_button.GetChild(0);
-  label.text = $.Localize("#DOTA_Hero_Selection_LOCKIN");
+  label.text = $.Localize('#DOTA_Hero_Selection_LOCKIN');
   label.style.fontSize = 20;
 }
 
 function lockSeasonLevelHero() {
-  const pick_button = FindDotaHudElement("LockInButton");
+  const pick_button = FindDotaHudElement('LockInButton');
   pick_button.enabled = false;
   pick_button.SetAcceptsFocus(false);
   pick_button.BAcceptsInput(false);
@@ -64,19 +64,8 @@ function lockSeasonLevelHero() {
   pick_button.style.brightness = 0.2;
 
   const label = pick_button.GetChild(0);
-  label.text = "Locked";
+  label.text = 'Locked';
   label.style.fontSize = 16;
-}
-
-function isMember() {
-  if (!member) {
-    member = GetMember();
-  }
-  if (member && member.enable) {
-    return true;
-  } else {
-    return false;
-  }
 }
 
 function isSeasonLevelBiggerThan(level) {
