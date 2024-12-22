@@ -18,7 +18,7 @@ export class GameEndPlayerDto {
   kills: number;
   deaths: number;
   assists: number;
-  points: number;
+  score: number;
   battlePoints: number;
 
   // 追加项目
