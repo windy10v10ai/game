@@ -116,6 +116,10 @@ export class GameEnd {
     difficulty: number,
     winnerTeamId: DotaTeam,
   ): number {
+    if (player.steamId === 0) {
+      // 电脑不获得积分
+      return 0;
+    }
     const basePoints = player.score + gameTimePoints;
     const multiplier = this.getBattlePointsMultiplier(difficulty);
     const points = basePoints * multiplier;
