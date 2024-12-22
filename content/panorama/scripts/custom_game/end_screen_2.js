@@ -100,7 +100,6 @@ function Snippet_Player(playerId, rootPanel, index) {
 
   // 绘制物品栏
   const items = Game.GetPlayerItems(playerId);
-  $.Msg('items player', playerId, items);
   for (var i = 0; i < 6; i++) {
     var itemPanel = $.CreatePanel(
       'DOTAItemImage',
@@ -113,12 +112,12 @@ function Snippet_Player(playerId, rootPanel, index) {
     }
   }
 
-  const neutralItem = items.neutral_item;
   var itemPanel = $.CreatePanel(
     'DOTAItemImage',
     panel.FindChildTraverse('NeutralItemContainer'),
     '',
   );
+  const neutralItem = items?.neutral_item;
   if (neutralItem) {
     itemPanel.itemname = neutralItem.item_name;
   }
