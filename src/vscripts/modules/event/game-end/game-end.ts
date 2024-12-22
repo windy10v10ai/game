@@ -83,6 +83,17 @@ export class GameEnd {
         winnerTeamId,
       );
       players.push(playerDto);
+
+      // 结算界面数据
+      CustomNetTables.SetTableValue('ending_stats', playerId.toString(), {
+        damage: playerDto.damage,
+        damagereceived: damageTaken,
+        healing: playerDto.healing,
+        points: playerDto.battlePoints,
+        str: hero.GetStrength(),
+        agi: hero.GetAgility(),
+        int: hero.GetIntellect(false),
+      });
     });
 
     const gameEndDto: GameEndDto = {

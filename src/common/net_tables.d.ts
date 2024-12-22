@@ -13,6 +13,17 @@ declare global {
     game_difficulty: {
       all: { difficulty: number };
     };
+    ending_stats: {
+      [playerId: string]: {
+        damage: number;
+        damagereceived: number;
+        healing: number;
+        points: number;
+        str: number;
+        agi: number;
+        int: number;
+      };
+    };
     loading_status: {
       loading_status: { status: number };
     };
