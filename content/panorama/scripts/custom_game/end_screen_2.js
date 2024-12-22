@@ -47,7 +47,7 @@ function Snippet_Player(playerId, rootPanel, index) {
     panel.FindChildTraverse('BotNameScoreboard').visible = true;
   }
 
-  if (playerData.membership) {
+  if (IsMemberByPlayerId(playerId)) {
     panel.AddClass('IsMemberShip');
     const membershipString = $.Localize('#player_member_ship');
     const membershipUrl = GetOpenMemberUrl();

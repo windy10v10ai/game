@@ -223,28 +223,6 @@ function AIGameMode:RefreshGameStatus()
     AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
 end
 
--- 买活时间设定
--- function AIGameMode:OnBuyback(e)
---     local playerId = e.player_id
---     local hEntity = EntIndexToHScript(e.entindex)
---     -- 需要等待一段时间，否则GetBuybackCooldownTime()获取的值是0
---     Timers:CreateTimer(0.5, function()
---         if hEntity:IsRealHero() and hEntity:IsReincarnating() == false then
---             local hHero = hEntity
---             -- 会员买活时间上限设置
---             local memberBuybackCooldownMaximum = 120
---             local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
---             if PlayerController:IsMember(steamAccountID) then
---                 local buybackTime = hHero:GetBuybackCooldownTime()
---                 if buybackTime > memberBuybackCooldownMaximum then
---                     buybackTime = memberBuybackCooldownMaximum
---                 end
---                 hHero:SetBuybackCooldownTime(buybackTime)
---             end
---         end
---     end)
--- end
-
 function AIGameMode:OnLastHit(keys)
     if keys.FirstBlood == 1 then
         local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
@@ -525,7 +503,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
-                local membership = PlayerController:IsMember(steamAccountID)
+                -- local membership = PlayerController:IsMember(steamAccountID)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
                 for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
@@ -546,7 +524,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     steamid = tostring(PlayerResource:GetSteamID(playerID)),
                     steamAccountID = tostring(PlayerResource:GetSteamAccountID(playerID)),
                     teamId = PlayerResource:GetTeam(playerID),
-                    membership = membership,
+                    -- membership = membership,
                     kills = kills or 0,
                     deaths = deaths or 0,
                     assists = assists or 0,

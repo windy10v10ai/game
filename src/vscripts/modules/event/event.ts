@@ -1,4 +1,3 @@
-import { LoadingSetOptions } from './custom/loading-set-options';
 import { EventDotaBuyback } from './event-buyback';
 import { EventEntityKilled } from './event-entity-killed';
 import { EventGameStateChange } from './event-game-state-change';
@@ -11,7 +10,4 @@ export class Event {
   EventGameStateChange: EventGameStateChange = new EventGameStateChange();
   EventPlayerLevelUp: EventPlayerLevelUp = new EventPlayerLevelUp();
   EventDotaBuyback: EventDotaBuyback = new EventDotaBuyback();
-
-  // register custom event
-  loadingSetOptions: LoadingSetOptions = new LoadingSetOptions();
 }
