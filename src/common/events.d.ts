@@ -13,6 +13,7 @@
 
 // To declare an event for use, add it to this table with the type of its data
 interface CustomGameEventDeclarations {
+  choose_difficulty: ChooseDifficultyEventData;
   game_options_change: GameOptionsChangeEventData;
   loading_set_options: LoadingSetOptionsEventData;
   ui_panel_closed: UIPanelClosedEventData;
@@ -24,6 +25,10 @@ interface CustomGameEventDeclarations {
 
 interface CustomGameEventDataBase {
   PlayerID: PlayerID;
+}
+
+interface ChooseDifficultyEventData {
+  difficulty: number;
 }
 
 interface GameOptionsChangeEventData {

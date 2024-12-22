@@ -1,12 +1,13 @@
-import { Analytic } from '../../../api/analytics/analytics';
 import {
   GameEndDto,
   GameEndGameOptionsDto,
   GameEndPlayerDto,
 } from '../../../api/analytics/dto/game-end-dto';
+import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
 import { GameConfig } from '../../GameConfig';
 import { PlayerHelper } from '../../helper/player-helper';
+import { GameEndHelper } from './game-end-helper';
 
 @reloadable
 export class GameEnd {
@@ -14,7 +15,7 @@ export class GameEnd {
     // build game end dto
     const gameEndDto = this.buildGameEndDto(winnerTeamId);
     // send game end dto
-    Analytic.SendGameEndEvent(gameEndDto);
+    Game.PostEndGame(gameEndDto);
   }
 
   private static buildGameEndDto(winnerTeamId: DotaTeam): GameEndDto {
@@ -29,6 +30,9 @@ export class GameEnd {
     };
 
     const gameTime = GameRules.GetGameTime();
+
+    const gameTimePoints = GameEndHelper.GetGameTimePoints(gameTime);
+
     const players: GameEndPlayerDto[] = [];
     PlayerHelper.ForEachPlayer((playerId) => {
       const player = PlayerResource.GetPlayer(playerId);
@@ -63,14 +67,33 @@ export class GameEnd {
         kills: PlayerResource.GetKills(playerId),
         deaths: PlayerResource.GetDeaths(playerId),
         assists: PlayerResource.GetAssists(playerId),
-        points: 0, // TODO: 计算玩家得分
         damage: PlayerResource.GetRawPlayerDamage(playerId),
         damageTaken,
         healing: PlayerResource.GetHealing(playerId),
         lastHits: PlayerResource.GetLastHits(playerId),
         towerKills: PlayerResource.GetTowerKills(playerId),
+        score: 0,
+        battlePoints: 0,
       };
+      playerDto.score = GameEndHelper.CalculatePlayerScore(playerDto);
+      playerDto.battlePoints = this.CalculatePlayerBattlePoints(
+        playerDto,
+        difficulty,
+        gameTimePoints,
+        winnerTeamId,
+      );
       players.push(playerDto);
+
+      // 结算界面数据
+      CustomNetTables.SetTableValue('ending_stats', playerId.toString(), {
+        damage: playerDto.damage,
+        damagereceived: damageTaken,
+        healing: playerDto.healing,
+        points: playerDto.battlePoints,
+        str: hero.GetStrength(),
+        agi: hero.GetAgility(),
+        int: hero.GetIntellect(false),
+      });
     });
 
     const gameEndDto: GameEndDto = {
@@ -79,11 +102,56 @@ export class GameEnd {
       difficulty,
       steamId: 0, // 非玩家单位的事件，固定0
       gameOptions,
-      winnerTeamId: winnerTeamId,
+      winnerTeamId,
       gameTimeMsec: Math.round(gameTime * 1000),
       players,
     };
 
     return gameEndDto;
+  }
+
+  static CalculatePlayerBattlePoints(
+    player: GameEndPlayerDto,
+    gameTimePoints: number,
+    difficulty: number,
+    winnerTeamId: DotaTeam,
+  ): number {
+    if (player.steamId === 0) {
+      // 电脑不获得积分
+      return 0;
+    }
+    const basePoints = player.score + gameTimePoints;
+    const multiplier = this.getBattlePointsMultiplier(difficulty);
+    const points = basePoints * multiplier;
+    if (player.teamId !== winnerTeamId) {
+      // 输了积分减半
+      return Math.round(points * 0.5);
+    }
+    return Math.round(points);
+  }
+
+  // 根据难度获得倍率
+  private static getBattlePointsMultiplier(difficulty: number): number {
+    // 如果是作弊模式，不计算倍率。开发模式无视这条
+    if (GameRules.IsCheatMode() && !IsInToolsMode()) {
+      return 0;
+    }
+
+    switch (difficulty) {
+      case 1:
+        return 1.2;
+      case 2:
+        return 1.4;
+      case 3:
+        return 1.6;
+      case 4:
+        return 1.8;
+      case 5:
+        return 2;
+      case 6:
+        return 2.2;
+      default:
+        return 1;
+    }
   }
 }

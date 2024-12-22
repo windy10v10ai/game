@@ -21,7 +21,6 @@ export class ApiClient {
   public static GAME_START_URL = '/game/start';
   public static ADD_PLAYER_PROPERTY_URL = '/game/addPlayerProperty';
   public static RESET_PLAYER_PROPERTY_URL = '/game/resetPlayerProperty';
-  public static POST_GAME_URL = '/game/end';
 
   private static TIMEOUT_SECONDS = 15;
   private static RETRY_TIMES = 4;

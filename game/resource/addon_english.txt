@@ -293,8 +293,10 @@
 		//			玩家BUFF Player Buff
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_modifier_global_newbie"					"<font color='#87CEEB'>Newbie Protection</font>"
+		"DOTA_Tooltip_modifier_global_newbie"					"<font color='#87CEEB'>Newbie Protection ★★</font>"
 		"DOTA_Tooltip_modifier_global_newbie_Description"		"- Battle level below 5 receive newbie protection<br/>- Additionally gain +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Resistance and +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% Armor."
+		"DOTA_Tooltip_modifier_global_newbie_2"					"<font color='#87CEEB'>Newbie Protection ★</font>"
+		"DOTA_Tooltip_modifier_global_newbie_2_Description"		"- Battle level below 8 receive half newbie protection<br/>- Additionally gain +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed."
 		"DOTA_Tooltip_modifier_global_member"					"<font color='#FFCC66'>★ Membership Buff! ★</font>"
 		"DOTA_Tooltip_modifier_global_member_Description"		"<font color='#FFCC66'>Thank you for your membership!</font><br>As a member, you gain the following bonuses:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>Respawn time reduced by 5 seconds.<br/>Buyback cooldown reduced to 2 minutes.<br/>"
 		// 定制BUFF donnot translate
@@ -1184,9 +1186,8 @@
 
 		// item_excalibur 咖喱棒
 		"DOTA_Tooltip_Ability_item_excalibur"				"Excalibur"
-		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> Base Attack Damage. This item cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures.\n<h1>Passive: The Late king</h1> <font color='#e03e2e'>Excalibur has a 6% chance to drop on death.</font>"
+		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> Base Attack Damage. This item cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures."
 		"DOTA_Tooltip_Ability_item_excalibur_Note0"									"The first hero to pick up a dropped Excalibur and have it in their main inventory becomes the new owner of that Excalibur, and may upgrade it."
-		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"The Excalibur is loyal only to the chosen king and drops randomly."
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_spell_amp"						"%+$spell_amp"
 
