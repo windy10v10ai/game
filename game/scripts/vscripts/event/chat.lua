@@ -191,13 +191,6 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
-        if sChatMsg:find('^-postgame$') then
-            print("[AIGameMode] SendEndGameInfo POST_GAME")
-            local endData = AIGameMode:EndScreenStats(2, true)
-            GameController:SendEndGameInfo(endData)
-            return
-        end
-
         if sChatMsg:find('^-f$') then
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
             LinkLuaModifier("modifier_wtf", "modifiers/test/modifier_wtf.lua",

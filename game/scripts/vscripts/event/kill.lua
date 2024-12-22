@@ -34,16 +34,6 @@ local function RollDrops(hHero)
     end
 end
 
-local function OnFortKilled(winnerTeam)
-    if IsServer() then
-        local endData = AIGameMode:EndScreenStats(winnerTeam, true)
-        -- 作弊模式不发送统计
-        if not AIGameMode:IsInvalidGame() then
-            GameController:SendEndGameInfo(endData)
-        end
-    end
-end
-
 local function RecordBarrackKilled(hEntity)
     local team = hEntity:GetTeamNumber()
     if DOTA_TEAM_GOODGUYS == team then
@@ -269,17 +259,5 @@ function AIGameMode:OnEntityKilled(keys)
     -- on tower killed
     if hEntity:GetClassname() == "npc_dota_tower" then
         RecordTowerKilled(hEntity)
-    end
-
-    if hEntity:GetClassname() == "npc_dota_fort" then
-        print(hEntity:GetUnitName())
-        print(hEntity:GetClassname())
-        local winnerTeam = 1
-        if hEntity:GetUnitName() == "npc_dota_badguys_fort" then
-            winnerTeam = DOTA_TEAM_GOODGUYS
-        else
-            winnerTeam = DOTA_TEAM_BADGUYS
-        end
-        OnFortKilled(winnerTeam)
     end
 end

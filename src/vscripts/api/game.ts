@@ -34,6 +34,7 @@ class EndGameInfo {
 export class Game {
   constructor() {}
 
+  // TODO refactor this function
   public SendEndGameInfo(endData: EndGameInfo) {
     CustomNetTables.SetTableValue('ending_status', 'ending_status', {
       status: 1,

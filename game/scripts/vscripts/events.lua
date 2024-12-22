@@ -503,7 +503,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
             if hero and IsValidEntity(hero) and not hero:IsNull() then
                 local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
-                -- local membership = PlayerController:IsMember(steamAccountID)
                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
                 local damagereceived = 0
                 for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
@@ -524,7 +523,6 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
                     steamid = tostring(PlayerResource:GetSteamID(playerID)),
                     steamAccountID = tostring(PlayerResource:GetSteamAccountID(playerID)),
                     teamId = PlayerResource:GetTeam(playerID),
-                    -- membership = membership,
                     kills = kills or 0,
                     deaths = deaths or 0,
                     assists = assists or 0,
@@ -774,6 +772,7 @@ function AIGameMode:FilterSeasonPointDifficulty(points)
     return points
 end
 
+-- TODO remove
 function AIGameMode:FilterSeasonPoint(points, winnerTeamId)
     if AIGameMode:IsInvalidGame() then
         return 0
@@ -789,6 +788,7 @@ function AIGameMode:FilterSeasonPoint(points, winnerTeamId)
     return math.ceil(points)
 end
 
+-- TODO remove
 function AIGameMode:IsInvalidGame()
     if AIGameMode.DebugMode then
         return false

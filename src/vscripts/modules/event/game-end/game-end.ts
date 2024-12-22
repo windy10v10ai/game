@@ -27,6 +27,7 @@ export class GameEnd {
       playerNumberDire: gameOptionsData.player_number_dire,
       towerPowerPct: gameOptionsData.tower_power_pct,
     };
+    const isRadiantWin = winnerTeamId === DotaTeam.GOODGUYS;
 
     const gameTime = GameRules.GetGameTime();
     const players: GameEndPlayerDto[] = [];
@@ -63,12 +64,13 @@ export class GameEnd {
         kills: PlayerResource.GetKills(playerId),
         deaths: PlayerResource.GetDeaths(playerId),
         assists: PlayerResource.GetAssists(playerId),
-        points: 0, // TODO: 计算玩家得分
         damage: PlayerResource.GetRawPlayerDamage(playerId),
         damageTaken,
         healing: PlayerResource.GetHealing(playerId),
         lastHits: PlayerResource.GetLastHits(playerId),
         towerKills: PlayerResource.GetTowerKills(playerId),
+        points: 0, // TODO: 计算玩家得分
+        battlePoints: 0, // TODO: 计算玩家战斗点
       };
       players.push(playerDto);
     });
