@@ -7,7 +7,7 @@ import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
 import { GameConfig } from '../../GameConfig';
 import { PlayerHelper } from '../../helper/player-helper';
-import { GameEndHelper } from './game-end.helper';
+import { GameEndHelper } from './game-end-helper';
 
 @reloadable
 export class GameEnd {

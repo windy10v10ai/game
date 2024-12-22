@@ -441,7 +441,7 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
     -- local matchID = tostring(GameRules:GetMatchID())
 
     local data = {
-        version = "1.18",
+        -- version = "1.18",
         -- matchID = matchID,
         mapName = GetMapName(),
         players = {},
@@ -453,11 +453,11 @@ function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
         flags = {}
     }
 
-    data.options = {
-        playerGoldXpMultiplier = tostring(self.fPlayerGoldXpMultiplier),
-        botGoldXpMultiplier = tostring(self.fBotGoldXpMultiplier),
-        towerPower = self.iTowerPower .. "%",
-    }
+    -- data.options = {
+    --     playerGoldXpMultiplier = tostring(self.fPlayerGoldXpMultiplier),
+    --     botGoldXpMultiplier = tostring(self.fBotGoldXpMultiplier),
+    --     towerPower = self.iTowerPower .. "%",
+    -- }
     -- send to api server
     data.gameOption = {
         gameDifficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty,

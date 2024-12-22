@@ -1,5 +1,5 @@
 import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
-import { GameEndHelper } from './game-end.helper';
+import { GameEndHelper } from './game-end-helper';
 
 describe('GameEndHelper', () => {
   describe('GameEndHelper.CalculatePlayerScore', () => {
