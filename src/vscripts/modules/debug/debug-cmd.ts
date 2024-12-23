@@ -14,7 +14,7 @@ export enum CMD {
 
   /** 抽奖 */
   LOTTERY = '-lottery',
-  GAME_END = '-gameend',
+  END = '-end',
 
   // ---- 当前英雄相关 ----
   /** 重置当前英雄技能 */

@@ -31,8 +31,6 @@ export class GameEnd {
 
     const gameTime = GameRules.GetGameTime();
 
-    const gameTimePoints = GameEndHelper.GetGameTimePoints(gameTime);
-
     const players: GameEndPlayerDto[] = [];
     PlayerHelper.ForEachPlayer((playerId) => {
       const player = PlayerResource.GetPlayer(playerId);
@@ -79,7 +77,6 @@ export class GameEnd {
       playerDto.battlePoints = this.CalculatePlayerBattlePoints(
         playerDto,
         difficulty,
-        gameTimePoints,
         winnerTeamId,
       );
       players.push(playerDto);
@@ -112,7 +109,6 @@ export class GameEnd {
 
   static CalculatePlayerBattlePoints(
     player: GameEndPlayerDto,
-    gameTimePoints: number,
     difficulty: number,
     winnerTeamId: DotaTeam,
   ): number {
@@ -120,6 +116,7 @@ export class GameEnd {
       // 电脑不获得积分
       return 0;
     }
+    const gameTimePoints = GameEndHelper.GetGameTimePoints(GameRules.GetGameTime());
     const basePoints = player.score + gameTimePoints;
     const multiplier = this.getBattlePointsMultiplier(difficulty);
     const points = basePoints * multiplier;
