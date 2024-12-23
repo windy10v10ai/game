@@ -13,6 +13,7 @@
 
 // To declare an event for use, add it to this table with the type of its data
 interface CustomGameEventDeclarations {
+  choose_difficulty: ChooseDifficultyEventData;
   game_options_change: GameOptionsChangeEventData;
   loading_set_options: LoadingSetOptionsEventData;
   ui_panel_closed: UIPanelClosedEventData;
@@ -26,10 +27,21 @@ interface CustomGameEventDataBase {
   PlayerID: PlayerID;
 }
 
+interface ChooseDifficultyEventData {
+  difficulty: number;
+}
+
 interface GameOptionsChangeEventData {
   multiplier_radiant: number;
   multiplier_dire: number;
+  player_number_radiant: number;
+  player_number_dire: number;
   tower_power_pct: number;
+  respawn_time_pct: number;
+  starting_gold_player: number;
+  starting_gold_bot: number;
+  max_level: number;
+  same_hero_selection: number;
 }
 
 interface LoadingSetOptionsEventData {

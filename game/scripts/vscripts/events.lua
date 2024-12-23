@@ -44,10 +44,10 @@ function AIGameMode:OnGameStateChanged(keys)
             self:PreGameOptions()
         end
     elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
-        self:EndScreenStats(1, false)
+        local gameDifficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty
         -- modifier towers
         local tTowers = Entities:FindAllByClassname("npc_dota_tower")
-        local iTowerLevel = math.max(self.iGameDifficulty, 1)
+        local iTowerLevel = math.max(gameDifficulty, 1)
         for k, v in pairs(tTowers) do
             local towerName = v:GetName()
 
@@ -100,9 +100,6 @@ function AIGameMode:SpawnNeutralCreeps30sec()
 end
 
 function AIGameMode:RefreshGameStatus()
-    -- save player info
-    self:EndScreenStats(1, false)
-
     -- set global state
     local GameTime = GameRules:GetDOTATime(false, false)
     if (GameTime >= ((AIGameMode.botPushMin * 4) * 60)) then
@@ -221,28 +218,6 @@ function AIGameMode:RefreshGameStatus()
     AIGameMode.creepBuffLevelMegaGood = buffLevelMegaGood
     AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
 end
-
--- 买活时间设定
--- function AIGameMode:OnBuyback(e)
---     local playerId = e.player_id
---     local hEntity = EntIndexToHScript(e.entindex)
---     -- 需要等待一段时间，否则GetBuybackCooldownTime()获取的值是0
---     Timers:CreateTimer(0.5, function()
---         if hEntity:IsRealHero() and hEntity:IsReincarnating() == false then
---             local hHero = hEntity
---             -- 会员买活时间上限设置
---             local memberBuybackCooldownMaximum = 120
---             local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
---             if PlayerController:IsMember(steamAccountID) then
---                 local buybackTime = hHero:GetBuybackCooldownTime()
---                 if buybackTime > memberBuybackCooldownMaximum then
---                     buybackTime = memberBuybackCooldownMaximum
---                 end
---                 hHero:SetBuybackCooldownTime(buybackTime)
---             end
---         end
---     end)
--- end
 
 function AIGameMode:OnLastHit(keys)
     if keys.FirstBlood == 1 then
@@ -457,330 +432,326 @@ function AIGameMode:OnPlayerReconnect(keys)
     end
 end
 
-function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
-    local time = GameRules:GetDOTATime(false, true)
-    -- local matchID = tostring(GameRules:GetMatchID())
+-- function AIGameMode:EndScreenStats(winnerTeamId, bTrueEnd)
+--     local time = GameRules:GetDOTATime(false, true)
+--     -- local matchID = tostring(GameRules:GetMatchID())
 
-    local data = {
-        version = "1.18",
-        -- matchID = matchID,
-        mapName = GetMapName(),
-        players = {},
-        options = {},
-        gameOption = {},
-        winnerTeamId = winnerTeamId,
-        isWinner = true,
-        duration = math.floor(time),
-        flags = {}
-    }
+--     local data = {
+--         -- version = "1.18",
+--         -- matchID = matchID,
+--         mapName = GetMapName(),
+--         players = {},
+--         options = {},
+--         gameOption = {},
+--         winnerTeamId = winnerTeamId,
+--         isWinner = true,
+--         duration = math.floor(time),
+--         flags = {}
+--     }
 
-    data.options = {
-        playerGoldXpMultiplier = tostring(self.fPlayerGoldXpMultiplier),
-        botGoldXpMultiplier = tostring(self.fBotGoldXpMultiplier),
-        towerPower = self.iTowerPower .. "%",
-    }
-    -- send to api server
-    data.gameOption = {
-        gameDifficulty = self.iGameDifficulty,
-        playerGoldXpMultiplier = self.fPlayerGoldXpMultiplier,
-        botGoldXpMultiplier = self.fBotGoldXpMultiplier,
-        towerPower = self.iTowerPower,
-    }
+--     -- data.options = {
+--     --     playerGoldXpMultiplier = tostring(self.fPlayerGoldXpMultiplier),
+--     --     botGoldXpMultiplier = tostring(self.fBotGoldXpMultiplier),
+--     --     towerPower = self.iTowerPower .. "%",
+--     -- }
+--     -- send to api server
+--     -- data.gameOption = {
+--     --     gameDifficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty,
+--     --     playerGoldXpMultiplier = self.fPlayerGoldXpMultiplier,
+--     --     botGoldXpMultiplier = self.fBotGoldXpMultiplier,
+--     --     towerPower = self.iTowerPower,
+--     -- }
 
-    local basePoint = 0
-    if time > 2400 then
-        basePoint = 40
-    else
-        basePoint = math.floor(time / 60)
-    end
+--     local basePoint = 0
+--     if time > 2400 then
+--         basePoint = 40
+--     else
+--         basePoint = math.floor(time / 60)
+--     end
 
-    local playerNumber = 0
-    -- 参战率积分
-    local battleParticipationBase = 17
+--     local playerNumber = 0
+--     -- 参战率积分
+--     local battleParticipationBase = 17
 
-    local mostDamagePlayerIdAndDamageList = {}
-    local mostAssistsPlayerIdAndDamageList = {}
+--     local mostDamagePlayerIdAndDamageList = {}
+--     local mostAssistsPlayerIdAndDamageList = {}
 
-    local mostDamageReceivedPlayerID_1 = -1
-    local mostDamageReceived_1 = 0
-    local mostDamageReceivedPlayerID_2 = -1
-    local mostDamageReceived_2 = 0
-    local mostDamageReceivedPlayerID_3 = -1
-    local mostDamageReceived_3 = 0
+--     local mostDamageReceivedPlayerID_1 = -1
+--     local mostDamageReceived_1 = 0
+--     local mostDamageReceivedPlayerID_2 = -1
+--     local mostDamageReceived_2 = 0
+--     local mostDamageReceivedPlayerID_3 = -1
+--     local mostDamageReceived_3 = 0
 
-    local mostHealingPlayerID_1 = -1
-    local mostHealing_1 = 0
-    local mostHealingPlayerID_2 = -1
-    local mostHealing_2 = 0
+--     local mostHealingPlayerID_1 = -1
+--     local mostHealing_1 = 0
+--     local mostHealingPlayerID_2 = -1
+--     local mostHealing_2 = 0
 
-    local mostTowerKillPlayerID_1 = -1
-    local mostTowerKill_1 = 0
-    local mostTowerKillPlayerID_2 = -1
-    local mostTowerKill_2 = 0
+--     local mostTowerKillPlayerID_1 = -1
+--     local mostTowerKill_1 = 0
+--     local mostTowerKillPlayerID_2 = -1
+--     local mostTowerKill_2 = 0
 
-    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-        if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
-            PlayerResource:GetSelectedHeroEntity(playerID) then
-            local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-            if hero and IsValidEntity(hero) and not hero:IsNull() then
-                local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
-                local membership = PlayerController:IsMember(steamAccountID)
-                local memberInfo = PlayerController:GetMember(steamAccountID)
-                local damage = PlayerResource:GetRawPlayerDamage(playerID)
-                local damagereceived = 0
-                for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-                    if PlayerResource:IsValidPlayerID(victimID) and PlayerResource:IsValidPlayer(victimID) and
-                        PlayerResource:GetSelectedHeroEntity(victimID) then
-                        if PlayerResource:GetTeam(victimID) ~= PlayerResource:GetTeam(playerID) then
-                            damagereceived = damagereceived + PlayerResource:GetDamageDoneToHero(victimID, playerID)
-                        end
-                    end
-                end
-                local healing = PlayerResource:GetHealing(playerID)
-                local assists = PlayerResource:GetAssists(playerID)
-                local deaths = PlayerResource:GetDeaths(playerID)
-                local kills = PlayerResource:GetKills(playerID)
-                local towerKills = PlayerResource:GetTowerKills(playerID)
+--     for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+--         if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
+--             PlayerResource:GetSelectedHeroEntity(playerID) then
+--             local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+--             if hero and IsValidEntity(hero) and not hero:IsNull() then
+--                 local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
+--                 local damage = PlayerResource:GetRawPlayerDamage(playerID)
+--                 local damagereceived = 0
+--                 for victimID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+--                     if PlayerResource:IsValidPlayerID(victimID) and PlayerResource:IsValidPlayer(victimID) and
+--                         PlayerResource:GetSelectedHeroEntity(victimID) then
+--                         if PlayerResource:GetTeam(victimID) ~= PlayerResource:GetTeam(playerID) then
+--                             damagereceived = damagereceived + PlayerResource:GetDamageDoneToHero(victimID, playerID)
+--                         end
+--                     end
+--                 end
+--                 local healing = PlayerResource:GetHealing(playerID)
+--                 local assists = PlayerResource:GetAssists(playerID)
+--                 local deaths = PlayerResource:GetDeaths(playerID)
+--                 local kills = PlayerResource:GetKills(playerID)
+--                 local towerKills = PlayerResource:GetTowerKills(playerID)
 
-                local playerInfo = {
-                    steamid = tostring(PlayerResource:GetSteamID(playerID)),
-                    steamAccountID = tostring(PlayerResource:GetSteamAccountID(playerID)),
-                    teamId = PlayerResource:GetTeam(playerID),
-                    membership = membership,
-                    memberInfo = memberInfo,
-                    kills = kills or 0,
-                    deaths = deaths or 0,
-                    assists = assists or 0,
-                    damage = damage or 0,
-                    damagereceived = damagereceived or 0,
-                    heroName = hero:GetUnitName() or "Haachama",
-                    lasthits = PlayerResource:GetLastHits(playerID) or 0,
-                    heroHealing = healing or 0,
-                    points = 0,
-                    str = hero:GetStrength() or 0,
-                    agi = hero:GetAgility() or 0,
-                    int = hero:GetIntellect(false) or 0,
-                    items = {},
-                    isDisconnect = false,
-                }
+--                 local playerInfo = {
+--                     steamid = tostring(PlayerResource:GetSteamID(playerID)),
+--                     steamAccountID = tostring(PlayerResource:GetSteamAccountID(playerID)),
+--                     teamId = PlayerResource:GetTeam(playerID),
+--                     kills = kills or 0,
+--                     deaths = deaths or 0,
+--                     assists = assists or 0,
+--                     damage = damage or 0,
+--                     damagereceived = damagereceived or 0,
+--                     heroName = hero:GetUnitName() or "Haachama",
+--                     lasthits = PlayerResource:GetLastHits(playerID) or 0,
+--                     heroHealing = healing or 0,
+--                     points = 0,
+--                     str = hero:GetStrength() or 0,
+--                     agi = hero:GetAgility() or 0,
+--                     int = hero:GetIntellect(false) or 0,
+--                     items = {},
+--                     isDisconnect = false,
+--                 }
 
-                for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
-                    local item = hero:GetItemInSlot(item_slot)
-                    if item then
-                        playerInfo.items[item_slot] = item:GetAbilityName()
-                    end
-                end
+--                 -- for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
+--                 --     local item = hero:GetItemInSlot(item_slot)
+--                 --     if item then
+--                 --         playerInfo.items[item_slot] = item:GetAbilityName()
+--                 --     end
+--                 -- end
 
-                local hNeutralItem = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-                if hNeutralItem then
-                    playerInfo.items[DOTA_ITEM_NEUTRAL_SLOT] = hNeutralItem:GetAbilityName()
-                end
+--                 -- local hNeutralItem = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+--                 -- if hNeutralItem then
+--                 --     playerInfo.items[DOTA_ITEM_NEUTRAL_SLOT] = hNeutralItem:GetAbilityName()
+--                 -- end
 
-                -- 测试用
-                -- if PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
+--                 -- 测试用
+--                 -- if PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
 
-                if not PlayerResource:IsFakeClient(playerID) then
-                    playerNumber = playerNumber + 1
+--                 if not PlayerResource:IsFakeClient(playerID) then
+--                     playerNumber = playerNumber + 1
 
-                    if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
-                        playerInfo.points = basePoint
-                    else
-                        playerInfo.isDisconnect = true
-                    end
-                    -- 参战积分
-                    local teamKills = GetTeamHeroKills(PlayerResource:GetTeam(playerID))
+--                     if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
+--                         playerInfo.points = basePoint
+--                     else
+--                         playerInfo.isDisconnect = true
+--                     end
+--                     -- 参战积分
+--                     local teamKills = GetTeamHeroKills(PlayerResource:GetTeam(playerID))
 
-                    if teamKills > 0 then
-                        local battleParticipation = math.floor(battleParticipationBase * ((kills + assists) / teamKills))
-                        playerInfo.points = playerInfo.points + battleParticipation
-                    end
+--                     if teamKills > 0 then
+--                         local battleParticipation = math.floor(battleParticipationBase * ((kills + assists) / teamKills))
+--                         playerInfo.points = playerInfo.points + battleParticipation
+--                     end
 
-                    if damage > 0 then
-                        table.insert(mostDamagePlayerIdAndDamageList, { playerID = playerID, damage = damage })
-                    end
-                    if assists > 0 then
-                        table.insert(mostAssistsPlayerIdAndDamageList, { playerID = playerID, assists = assists })
-                    end
+--                     if damage > 0 then
+--                         table.insert(mostDamagePlayerIdAndDamageList, { playerID = playerID, damage = damage })
+--                     end
+--                     if assists > 0 then
+--                         table.insert(mostAssistsPlayerIdAndDamageList, { playerID = playerID, assists = assists })
+--                     end
 
-                    if damagereceived > mostDamageReceived_1 then
-                        mostDamageReceivedPlayerID_3 = mostDamageReceivedPlayerID_2
-                        mostDamageReceived_3 = mostDamageReceived_2
-                        mostDamageReceivedPlayerID_2 = mostDamageReceivedPlayerID_1
-                        mostDamageReceived_2 = mostDamageReceived_1
-                        mostDamageReceivedPlayerID_1 = playerID
-                        mostDamageReceived_1 = damagereceived
-                    elseif damagereceived > mostDamageReceived_2 then
-                        mostDamageReceivedPlayerID_3 = mostDamageReceivedPlayerID_2
-                        mostDamageReceived_3 = mostDamageReceived_2
-                        mostDamageReceivedPlayerID_2 = playerID
-                        mostDamageReceived_2 = damagereceived
-                    elseif damagereceived > mostDamageReceived_3 then
-                        mostDamageReceivedPlayerID_3 = playerID
-                        mostDamageReceived_3 = damagereceived
-                    end
+--                     if damagereceived > mostDamageReceived_1 then
+--                         mostDamageReceivedPlayerID_3 = mostDamageReceivedPlayerID_2
+--                         mostDamageReceived_3 = mostDamageReceived_2
+--                         mostDamageReceivedPlayerID_2 = mostDamageReceivedPlayerID_1
+--                         mostDamageReceived_2 = mostDamageReceived_1
+--                         mostDamageReceivedPlayerID_1 = playerID
+--                         mostDamageReceived_1 = damagereceived
+--                     elseif damagereceived > mostDamageReceived_2 then
+--                         mostDamageReceivedPlayerID_3 = mostDamageReceivedPlayerID_2
+--                         mostDamageReceived_3 = mostDamageReceived_2
+--                         mostDamageReceivedPlayerID_2 = playerID
+--                         mostDamageReceived_2 = damagereceived
+--                     elseif damagereceived > mostDamageReceived_3 then
+--                         mostDamageReceivedPlayerID_3 = playerID
+--                         mostDamageReceived_3 = damagereceived
+--                     end
 
-                    if healing > mostHealing_1 then
-                        mostHealingPlayerID_2 = mostHealingPlayerID_1
-                        mostHealing_2 = mostHealing_1
-                        mostHealingPlayerID_1 = playerID
-                        mostHealing_1 = healing
-                    elseif healing > mostHealing_2 then
-                        mostHealingPlayerID_2 = playerID
-                        mostHealing_2 = healing
-                    end
+--                     if healing > mostHealing_1 then
+--                         mostHealingPlayerID_2 = mostHealingPlayerID_1
+--                         mostHealing_2 = mostHealing_1
+--                         mostHealingPlayerID_1 = playerID
+--                         mostHealing_1 = healing
+--                     elseif healing > mostHealing_2 then
+--                         mostHealingPlayerID_2 = playerID
+--                         mostHealing_2 = healing
+--                     end
 
-                    if towerKills > mostTowerKill_1 then
-                        mostTowerKillPlayerID_2 = mostTowerKillPlayerID_1
-                        mostTowerKill_2 = mostTowerKill_1
-                        mostTowerKillPlayerID_1 = playerID
-                        mostTowerKill_1 = towerKills
-                    elseif towerKills > mostTowerKill_2 then
-                        mostTowerKillPlayerID_2 = playerID
-                        mostTowerKill_2 = towerKills
-                    end
-                end
+--                     if towerKills > mostTowerKill_1 then
+--                         mostTowerKillPlayerID_2 = mostTowerKillPlayerID_1
+--                         mostTowerKill_2 = mostTowerKill_1
+--                         mostTowerKillPlayerID_1 = playerID
+--                         mostTowerKill_1 = towerKills
+--                     elseif towerKills > mostTowerKill_2 then
+--                         mostTowerKillPlayerID_2 = playerID
+--                         mostTowerKill_2 = towerKills
+--                     end
+--                 end
 
-                data.players[playerID] = playerInfo
-            end
-        end
-    end
+--                 data.players[playerID] = playerInfo
+--             end
+--         end
+--     end
 
-    AIGameMode.playerNumber = playerNumber
-    local pointT1 = playerNumber * 1.0
-    local pointT2 = playerNumber * 0.8
-    local pointT3 = playerNumber * 0.6
-    local pointT4 = playerNumber * 0.5
-    local pointT5 = playerNumber * 0.4
-    local pointT6 = playerNumber * 0.3
-    local pointT7 = playerNumber * 0.2
-    local pointT8 = playerNumber * 0.1
+--     AIGameMode.playerNumber = playerNumber
+--     local pointT1 = playerNumber * 1.0
+--     local pointT2 = playerNumber * 0.8
+--     local pointT3 = playerNumber * 0.6
+--     local pointT4 = playerNumber * 0.5
+--     local pointT5 = playerNumber * 0.4
+--     local pointT6 = playerNumber * 0.3
+--     local pointT7 = playerNumber * 0.2
+--     local pointT8 = playerNumber * 0.1
 
-    table.sort(mostDamagePlayerIdAndDamageList, function(a, b)
-        return a.damage > b.damage
-    end)
+--     table.sort(mostDamagePlayerIdAndDamageList, function(a, b)
+--         return a.damage > b.damage
+--     end)
 
-    local damage1 = mostDamagePlayerIdAndDamageList[1]
-    if damage1 then
-        data.players[damage1.playerID].points = data.players[damage1.playerID].points + pointT1
-    end
-    local damage2 = mostDamagePlayerIdAndDamageList[2]
-    if damage2 then
-        data.players[damage2.playerID].points = data.players[damage2.playerID].points + pointT2
-    end
-    local damage3 = mostDamagePlayerIdAndDamageList[3]
-    if damage3 then
-        data.players[damage3.playerID].points = data.players[damage3.playerID].points + pointT3
-    end
-    local damage4 = mostDamagePlayerIdAndDamageList[4]
-    if damage4 then
-        data.players[damage4.playerID].points = data.players[damage4.playerID].points + pointT4
-    end
-    local damage5 = mostDamagePlayerIdAndDamageList[5]
-    if damage5 then
-        data.players[damage5.playerID].points = data.players[damage5.playerID].points + pointT5
-    end
-    local damage6 = mostDamagePlayerIdAndDamageList[6]
-    if damage6 then
-        data.players[damage6.playerID].points = data.players[damage6.playerID].points + pointT6
-    end
-    local damage7 = mostDamagePlayerIdAndDamageList[7]
-    if damage7 then
-        data.players[damage7.playerID].points = data.players[damage7.playerID].points + pointT7
-    end
-    local damage8 = mostDamagePlayerIdAndDamageList[8]
-    if damage8 then
-        data.players[damage8.playerID].points = data.players[damage8.playerID].points + pointT8
-    end
+--     local damage1 = mostDamagePlayerIdAndDamageList[1]
+--     if damage1 then
+--         data.players[damage1.playerID].points = data.players[damage1.playerID].points + pointT1
+--     end
+--     local damage2 = mostDamagePlayerIdAndDamageList[2]
+--     if damage2 then
+--         data.players[damage2.playerID].points = data.players[damage2.playerID].points + pointT2
+--     end
+--     local damage3 = mostDamagePlayerIdAndDamageList[3]
+--     if damage3 then
+--         data.players[damage3.playerID].points = data.players[damage3.playerID].points + pointT3
+--     end
+--     local damage4 = mostDamagePlayerIdAndDamageList[4]
+--     if damage4 then
+--         data.players[damage4.playerID].points = data.players[damage4.playerID].points + pointT4
+--     end
+--     local damage5 = mostDamagePlayerIdAndDamageList[5]
+--     if damage5 then
+--         data.players[damage5.playerID].points = data.players[damage5.playerID].points + pointT5
+--     end
+--     local damage6 = mostDamagePlayerIdAndDamageList[6]
+--     if damage6 then
+--         data.players[damage6.playerID].points = data.players[damage6.playerID].points + pointT6
+--     end
+--     local damage7 = mostDamagePlayerIdAndDamageList[7]
+--     if damage7 then
+--         data.players[damage7.playerID].points = data.players[damage7.playerID].points + pointT7
+--     end
+--     local damage8 = mostDamagePlayerIdAndDamageList[8]
+--     if damage8 then
+--         data.players[damage8.playerID].points = data.players[damage8.playerID].points + pointT8
+--     end
 
-    table.sort(mostAssistsPlayerIdAndDamageList, function(a, b)
-        return a.assists > b.assists
-    end)
-    local assists1 = mostAssistsPlayerIdAndDamageList[1]
-    if assists1 then
-        data.players[assists1.playerID].points = data.players[assists1.playerID].points + pointT1
-    end
-    local assists2 = mostAssistsPlayerIdAndDamageList[2]
-    if assists2 then
-        data.players[assists2.playerID].points = data.players[assists2.playerID].points + pointT2
-    end
-    local assists3 = mostAssistsPlayerIdAndDamageList[3]
-    if assists3 then
-        data.players[assists3.playerID].points = data.players[assists3.playerID].points + pointT3
-    end
-    local assists4 = mostAssistsPlayerIdAndDamageList[4]
-    if assists4 then
-        data.players[assists4.playerID].points = data.players[assists4.playerID].points + pointT4
-    end
-    local assists5 = mostAssistsPlayerIdAndDamageList[5]
-    if assists5 then
-        data.players[assists5.playerID].points = data.players[assists5.playerID].points + pointT5
-    end
-    local assists6 = mostAssistsPlayerIdAndDamageList[6]
-    if assists6 then
-        data.players[assists6.playerID].points = data.players[assists6.playerID].points + pointT6
-    end
-    local assists7 = mostAssistsPlayerIdAndDamageList[7]
-    if assists7 then
-        data.players[assists7.playerID].points = data.players[assists7.playerID].points + pointT7
-    end
-    local assists8 = mostAssistsPlayerIdAndDamageList[8]
-    if assists8 then
-        data.players[assists8.playerID].points = data.players[assists8.playerID].points + pointT8
-    end
+--     table.sort(mostAssistsPlayerIdAndDamageList, function(a, b)
+--         return a.assists > b.assists
+--     end)
+--     local assists1 = mostAssistsPlayerIdAndDamageList[1]
+--     if assists1 then
+--         data.players[assists1.playerID].points = data.players[assists1.playerID].points + pointT1
+--     end
+--     local assists2 = mostAssistsPlayerIdAndDamageList[2]
+--     if assists2 then
+--         data.players[assists2.playerID].points = data.players[assists2.playerID].points + pointT2
+--     end
+--     local assists3 = mostAssistsPlayerIdAndDamageList[3]
+--     if assists3 then
+--         data.players[assists3.playerID].points = data.players[assists3.playerID].points + pointT3
+--     end
+--     local assists4 = mostAssistsPlayerIdAndDamageList[4]
+--     if assists4 then
+--         data.players[assists4.playerID].points = data.players[assists4.playerID].points + pointT4
+--     end
+--     local assists5 = mostAssistsPlayerIdAndDamageList[5]
+--     if assists5 then
+--         data.players[assists5.playerID].points = data.players[assists5.playerID].points + pointT5
+--     end
+--     local assists6 = mostAssistsPlayerIdAndDamageList[6]
+--     if assists6 then
+--         data.players[assists6.playerID].points = data.players[assists6.playerID].points + pointT6
+--     end
+--     local assists7 = mostAssistsPlayerIdAndDamageList[7]
+--     if assists7 then
+--         data.players[assists7.playerID].points = data.players[assists7.playerID].points + pointT7
+--     end
+--     local assists8 = mostAssistsPlayerIdAndDamageList[8]
+--     if assists8 then
+--         data.players[assists8.playerID].points = data.players[assists8.playerID].points + pointT8
+--     end
 
-    if mostDamageReceivedPlayerID_1 ~= -1 then
-        data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + pointT2
-    end
-    if mostDamageReceivedPlayerID_2 ~= -1 then
-        data.players[mostDamageReceivedPlayerID_2].points = data.players[mostDamageReceivedPlayerID_2].points + pointT3
-    end
-    if mostDamageReceivedPlayerID_3 ~= -1 then
-        data.players[mostDamageReceivedPlayerID_3].points = data.players[mostDamageReceivedPlayerID_3].points + pointT4
-    end
+--     if mostDamageReceivedPlayerID_1 ~= -1 then
+--         data.players[mostDamageReceivedPlayerID_1].points = data.players[mostDamageReceivedPlayerID_1].points + pointT2
+--     end
+--     if mostDamageReceivedPlayerID_2 ~= -1 then
+--         data.players[mostDamageReceivedPlayerID_2].points = data.players[mostDamageReceivedPlayerID_2].points + pointT3
+--     end
+--     if mostDamageReceivedPlayerID_3 ~= -1 then
+--         data.players[mostDamageReceivedPlayerID_3].points = data.players[mostDamageReceivedPlayerID_3].points + pointT4
+--     end
 
-    if mostHealingPlayerID_1 ~= -1 then
-        data.players[mostHealingPlayerID_1].points = data.players[mostHealingPlayerID_1].points + pointT2
-    end
-    if mostHealingPlayerID_2 ~= -1 then
-        data.players[mostHealingPlayerID_2].points = data.players[mostHealingPlayerID_2].points + pointT3
-    end
-    if mostTowerKillPlayerID_1 ~= -1 then
-        data.players[mostTowerKillPlayerID_1].points = data.players[mostTowerKillPlayerID_1].points + pointT2
-    end
-    if mostTowerKillPlayerID_2 ~= -1 then
-        data.players[mostTowerKillPlayerID_2].points = data.players[mostTowerKillPlayerID_2].points + pointT3
-    end
+--     if mostHealingPlayerID_1 ~= -1 then
+--         data.players[mostHealingPlayerID_1].points = data.players[mostHealingPlayerID_1].points + pointT2
+--     end
+--     if mostHealingPlayerID_2 ~= -1 then
+--         data.players[mostHealingPlayerID_2].points = data.players[mostHealingPlayerID_2].points + pointT3
+--     end
+--     if mostTowerKillPlayerID_1 ~= -1 then
+--         data.players[mostTowerKillPlayerID_1].points = data.players[mostTowerKillPlayerID_1].points + pointT2
+--     end
+--     if mostTowerKillPlayerID_2 ~= -1 then
+--         data.players[mostTowerKillPlayerID_2].points = data.players[mostTowerKillPlayerID_2].points + pointT3
+--     end
 
-    -- 根据难度积分加倍
-    for _, playerInfo in pairs(data.players) do
-        playerInfo.points = AIGameMode:FilterSeasonPointDifficulty(playerInfo.points)
-    end
+--     -- 根据难度积分加倍
+--     for _, playerInfo in pairs(data.players) do
+--         playerInfo.points = AIGameMode:FilterSeasonPointDifficulty(playerInfo.points)
+--     end
 
-    -- 追加奖励勇士积分 不计算倍率
-    for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-        if PlayerResource:IsValidPlayerID(playerID) and not PlayerResource:IsFakeClient(playerID) then
-            local playerInfo = data.players[playerID]
-            if playerInfo then
-                playerInfo.points = playerInfo.points + AIGameMode.playerBonusSeasonPoint[playerID]
-            end
-        end
-    end
+--     -- 追加奖励勇士积分 不计算倍率
+--     for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+--         if PlayerResource:IsValidPlayerID(playerID) and not PlayerResource:IsFakeClient(playerID) then
+--             local playerInfo = data.players[playerID]
+--             if playerInfo then
+--                 playerInfo.points = playerInfo.points + AIGameMode.playerBonusSeasonPoint[playerID]
+--             end
+--         end
+--     end
 
-    -- 胜负等计算
-    for _, playerInfo in pairs(data.players) do
-        playerInfo.points = AIGameMode:FilterSeasonPoint(playerInfo.points, winnerTeamId)
-    end
+--     -- 胜负等计算
+--     for _, playerInfo in pairs(data.players) do
+--         playerInfo.points = AIGameMode:FilterSeasonPoint(playerInfo.points, winnerTeamId)
+--     end
 
-    local sTable = "ending_stats"
+--     local sTable = "ending_stats"
 
-    CustomNetTables:SetTableValue(sTable, "player_data", data)
+--     CustomNetTables:SetTableValue(sTable, "player_data", data)
 
-    return data
-end
+--     return data
+-- end
 
 function AIGameMode:FilterSeasonPointDifficulty(points)
     -- 根据难度积分加倍
-    local difficulty = self.iGameDifficulty
+    local difficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty
     if difficulty == 1 then
         points = points * 1.2
     elseif difficulty == 2 then
@@ -797,6 +768,7 @@ function AIGameMode:FilterSeasonPointDifficulty(points)
     return points
 end
 
+-- TODO remove
 function AIGameMode:FilterSeasonPoint(points, winnerTeamId)
     if AIGameMode:IsInvalidGame() then
         return 0
@@ -812,6 +784,7 @@ function AIGameMode:FilterSeasonPoint(points, winnerTeamId)
     return math.ceil(points)
 end
 
+-- TODO remove
 function AIGameMode:IsInvalidGame()
     if AIGameMode.DebugMode then
         return false

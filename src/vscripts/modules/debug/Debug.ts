@@ -1,4 +1,5 @@
 import { reloadable } from '../../utils/tstl-utils';
+import { GameEnd } from '../event/game-end/game-end';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { CMD } from './debug-cmd';
@@ -97,6 +98,10 @@ export class Debug {
 
     if (cmd === CMD.LOTTERY) {
       GameRules.Lottery.initLotteryAll();
+    }
+
+    if (cmd === CMD.END) {
+      GameEnd.OnGameEnd(2);
     }
 
     if (cmd === CMD.REFRESH_AI) {

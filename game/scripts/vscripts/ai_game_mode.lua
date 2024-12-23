@@ -16,7 +16,6 @@ require('bot/bot_think_item_build')
 require('bot/bot_think_item_use')
 require('bot/bot_think_ability_use')
 require('bot/bot_think_modifier')
-require('ts_loader')
 require('damage')
 require('voicePlayer/PlayFuncs')
 
@@ -49,7 +48,6 @@ end
 function AIGameMode:InitGlobalVariables()
     -- AI连续死亡记录表
     AIGameMode.BotRecordSuccessiveDeathTable = {}
-    self.iGameDifficulty = 0
 end
 
 function AIGameMode:InitEvents()
@@ -68,12 +66,12 @@ function AIGameMode:InitEvents()
     CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
         return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
     end)
-    CustomGameEventManager:RegisterListener("choose_difficulty", function(_, keys)
-        return AIGameMode:OnChooseDifficulty(keys)
-    end)
-    CustomGameEventManager:RegisterListener("vote_end", function(_, keys)
-        return AIGameMode:CalculateDifficulty(true)
-    end)
+    -- CustomGameEventManager:RegisterListener("choose_difficulty", function(_, keys)
+    --     return AIGameMode:OnChooseDifficulty(keys)
+    -- end)
+    -- CustomGameEventManager:RegisterListener("vote_end", function(_, keys)
+    --     return AIGameMode:CalculateDifficulty(true)
+    -- end)
     -- 共享单位，禁用帮助
     CustomGameEventManager:RegisterListener("set_unit_share_mask", function(_, keys)
         return AIGameMode:SetUnitShareMask(keys)
@@ -205,88 +203,7 @@ function AIGameMode:PreGameOptions()
     end
 end
 
-------------------------------------------------------------------
---                        Gold/XP Filter                        --
-------------------------------------------------------------------
--- GOLD_REASON_FILTER = Set {
---     DOTA_ModifyGold_Unspecified,
---     DOTA_ModifyGold_Death,
---     DOTA_ModifyGold_Buyback,
---     DOTA_ModifyGold_PurchaseConsumable,
---     DOTA_ModifyGold_PurchaseItem,
---     DOTA_ModifyGold_AbandonedRedistribute,
---     DOTA_ModifyGold_SellItem,
---     DOTA_ModifyGold_AbilityCost,
---     DOTA_ModifyGold_CheatCommand,
---     DOTA_ModifyGold_SelectionPenalty,
---     DOTA_ModifyGold_GameTick,
---     -- DOTA_ModifyGold_Building,
---     -- DOTA_ModifyGold_HeroKill,
---     -- DOTA_ModifyGold_CreepKill,
---     -- DOTA_ModifyGold_NeutralKill,
---     -- DOTA_ModifyGold_RoshanKill,
---     -- DOTA_ModifyGold_CourierKill,
---     -- DOTA_ModifyGold_BountyRune,
---     -- DOTA_ModifyGold_SharedGold,
---     -- DOTA_ModifyGold_AbilityGold,
---     -- DOTA_ModifyGold_WardKill,
---     -- DOTA_ModifyGold_CourierKilledByThisPlayer,
--- }
-
--- function AIGameMode:FilterGold(tGoldFilter)
---     local iGold = tGoldFilter["gold"]
---     local iPlayerID = tGoldFilter["player_id_const"]
---     local iReason = tGoldFilter["reason_const"]
-
---     -- 过滤一些不走Filter的reason
---     if GOLD_REASON_FILTER[iReason] then
---         return true
---     end
-
---     -- 通用击杀金钱调整
---     if iReason == DOTA_ModifyGold_HeroKill then
---         if iGold > 2000 then
---             iGold = iGold / 8 + 650
---         elseif iGold > 1200 then
---             iGold = iGold / 4 + 400
---         elseif iGold > 200 then
---             iGold = iGold / 2 + 100
---         else
---             iGold = iGold * 1
---         end
-
---         iGold = iGold * AIGameMode:RewardFilterByKill(iPlayerID)
---     end
-
---     -- 通用金钱系数
---     tGoldFilter["gold"] = math.floor(iGold * self:GetPlayerGoldXpMultiplier(iPlayerID))
-
---     return true
--- end
-
--- function AIGameMode:FilterXP(tXPFilter)
---     local iXP = tXPFilter["experience"]
---     local iPlayerID = tXPFilter["player_id_const"]
---     local iReason = tXPFilter["reason_const"]
-
---     tXPFilter["experience"] = math.floor(iXP * self:GetPlayerGoldXpMultiplier(iPlayerID))
-
---     return true
--- end
-
--- function AIGameMode:RewardFilterByKill(iPlayerID)
---     local playerKill = PlayerResource:GetKills(iPlayerID)
---     local teamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(iPlayerID))
---     local teamCount = PlayerResource:GetPlayerCountForTeam(PlayerResource:GetTeam(iPlayerID))
-
---     local rewardMulti = 1
---     if teamKill < 10 then
---         return rewardMulti
---     end
---     rewardMulti = 1 + (1 / teamCount - playerKill / teamKill) / 2
---     return rewardMulti
--- end
-
+-- FIXME 移除相关调用
 -- 根据playerid获取金钱经验倍率
 function AIGameMode:GetPlayerGoldXpMultiplier(iPlayerID)
     local mul = 1

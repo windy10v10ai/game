@@ -1,22 +1,12 @@
-import { reloadable } from '../utils/tstl-utils';
-import { ApiClient, ApiParameter, HttpMethod } from './api-client';
-
-class EventBaseDto {
-  steamId: number;
-  matchId: string;
-}
-
-class PickDto extends EventBaseDto {
-  name: string;
-  level: number;
-  difficulty: number;
-  version: string;
-}
+import { reloadable } from '../../utils/tstl-utils';
+import { ApiClient, ApiParameter, HttpMethod } from '../api-client';
+import { PickDto } from './dto/pick-ability-dto';
 
 @reloadable
 export class Analytic {
   public static readonly POST_ANALYTICS_PICK_ABILITY_URL = '/analytics/lottery/pick/ability';
   public static readonly POST_ANALYTICS_PICK_ITEM_URL = '/analytics/lottery/pick/item';
+  // public static readonly POST_ANALYTICS_GAME_END_URL = '/analytics/game/end';
 
   public static async SendPickAbilityEvent(pickDto: PickDto) {
     const apiParameter: ApiParameter = {
@@ -43,4 +33,17 @@ export class Analytic {
 
     ApiClient.sendWithRetry(apiParameter);
   }
+
+  // public static async SendGameEndEvent(gameEndDto: GameEndDto) {
+  //   const apiParameter: ApiParameter = {
+  //     method: HttpMethod.POST,
+  //     path: this.POST_ANALYTICS_GAME_END_URL,
+  //     body: gameEndDto,
+  //     successFunc: () => {
+  //       print(`[Analytic] sendGameEndEvent success`);
+  //     },
+  //   };
+
+  //   ApiClient.sendWithRetry(apiParameter);
+  // }
 }

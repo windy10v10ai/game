@@ -177,15 +177,6 @@ export class Player {
     });
   }
 
-  // FIXME 移除lua中的调用
-  public IsMember(steamId: number) {
-    const member = Player.memberList.find((m) => m.steamId === steamId);
-    if (member) {
-      return member.enable;
-    }
-    return false;
-  }
-
   public static IsMemberStatic(steamId: number) {
     const member = Player.memberList.find((m) => m.steamId === steamId);
     if (member) {
@@ -194,29 +185,12 @@ export class Player {
     return false;
   }
 
-  /**
-   * 根据玩家的 Steam ID 判断玩家是否是新手。
-   *
-   * 该方法检查玩家的赛季等级，如果等级小于或等于 5，则返回 true。
-   * 如果在玩家列表中找不到该玩家，则默认返回 true，假设该玩家是新手。
-   *
-   * @param steamId - 要检查的玩家的 Steam ID。
-   * @returns 如果玩家是新手（赛季等级 <= 5）或找不到玩家，则返回 `true`；否则返回 `false`。
-   */
-  public static IsNewbie(steamId: number) {
+  public static GetSeasonLevel(steamId: number) {
     const player = Player.playerList.find((p) => p.id === steamId.toString());
     if (player) {
-      return player.seasonLevel <= 5;
+      return player.seasonLevel;
     }
-    return true;
-  }
-
-  public GetMember(steamId: number) {
-    const member = Player.memberList.find((m) => m.steamId === steamId);
-    if (member) {
-      return member;
-    }
-    return null;
+    return 0;
   }
 
   // 监听JS事件
