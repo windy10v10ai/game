@@ -31,6 +31,7 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
   playerId,
   localPlayerTeamId,
 ) {
+  const isMember = IsMemberByPlayerId(playerId);
   var playerPanelName = '_dynamic_player_' + playerId;
   //	$.Msg( playerPanelName );
   var playerPanel = playersContainer.FindChild(playerPanelName);
@@ -151,17 +152,11 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
       playerPanel.FindChildTraverse('PlayerAvatar').steamid = playerInfo.player_steamid;
     }
 
-    // set member info
-    const member = CustomNetTables.GetTableValue(
-      'member_table',
-      ConvertSteamIdTo32Bit(playerInfo.player_steamid),
-    );
-
-    playerPanel.RemoveClass('IsMemberShip');
-    // $.Msg(playerInfo.player_steamid);
-    // $.Msg(member);
-    if (member && member.enable) {
+    // set member
+    if (isMember) {
       playerPanel.AddClass('IsMemberShip');
+    } else {
+      playerPanel.RemoveClass('IsMemberShip');
     }
   }
 
@@ -195,15 +190,7 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
 
   if (isTeammate) {
     _ScoreboardUpdater_SetTextSafe(playerPanel, 'TeammateGoldAmount', goldValue);
-    playerPanel.RemoveClass('IsMemberShip');
-    // set member info
-    const member = CustomNetTables.GetTableValue(
-      'member_table',
-      ConvertSteamIdTo32Bit(playerInfo.player_steamid),
-    );
-    // $.Msg(playerInfo.player_steamid);
-    // $.Msg(member);
-    if (member && member.enable) {
+    if (isMember) {
       playerPanel.AddClass('IsMemberShip');
       const membershipString = $.Localize('#player_member_ship');
       const membershipUrl = GetOpenMemberUrl();
@@ -220,6 +207,8 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
       membershipIcon.SetPanelEvent('onactivate', () => {
         $.DispatchEvent('ExternalBrowserGoToURL', membershipUrl);
       });
+    } else {
+      playerPanel.RemoveClass('IsMemberShip');
     }
   }
 

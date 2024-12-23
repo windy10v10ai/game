@@ -7135,7 +7135,7 @@
 			}
 			"radius"
 			{
-				"value"				"200"
+				"value"				"150"
 			}
 			"only_creep_allies_damage_pct"
 			{
@@ -8978,7 +8978,7 @@
 				"value"							"2"
 				"special_bonus_facet_furion_ironwood_treant"			"=1 =1 =1 =1"
 			}
-			"treant_duration"				"30"
+			"treant_duration"				"40"
 			"treant_health"
 			{
 				"value"								"750 1000 1250 1500"
@@ -9001,7 +9001,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"				"70"
+				"value"				"60"
 				"special_bonus_unique_furion_6"		"-10"
 			}
 		}

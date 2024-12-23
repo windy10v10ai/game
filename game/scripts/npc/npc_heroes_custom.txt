@@ -525,21 +525,22 @@
 	// 幽鬼
     "npc_dota_hero_spectre"
     {
+		"Ability3"		"axe_counter_helix"
         "Bot"
         {
             "Build"
             {
                 "1"		"spectre_spectral_dagger"
-                "2"		"spectre_dispersion"
+                "2"		"axe_counter_helix"
                 "3"		"spectre_spectral_dagger"
-                "4"		"spectre_dispersion"
+                "4"		"axe_counter_helix"
                 "5"		"spectre_spectral_dagger"
-                "6"		"spectre_dispersion"
+                "6"		"axe_counter_helix"
                 "7"		"spectre_spectral_dagger"
-                "8"		"spectre_dispersion"
+                "8"		"axe_counter_helix"
                 "9"		"spectre_spectral_dagger"
                 "10"		"special_bonus_unique_spectre"
-                "11"		"spectre_dispersion"
+                "11"		"axe_counter_helix"
                 "12"		"spectre_desolate"
                 "13"		"spectre_desolate"
                 "14"		"spectre_desolate"
@@ -621,15 +622,7 @@
 	}
 	"npc_dota_hero_terrorblade"
 	{
-		"Ability1"		"brewmaster_cinder_brew"
-		"Ability2"		"brewmaster_drunken_brawler"
-		"Ability8"		"brewmaster_primal_split_lua"
-		"Ability14"		"special_bonus_unique_terrorblade_metamorphosis_cooldown"
-		"Ability12"		"special_bonus_unique_terrorblade"
-		"Ability16"		"special_bonus_all_stats_20"
-		"AttributeStrengthGain"		"3.0" // 2
-		"AttributeIntelligenceGain"	"2.40000" // 1.6
-		"AttributeAgilityGain"		"7.000000" // 4
+		"AttributeStrengthGain"		"2.5" // 2
 	}
 	"npc_dota_hero_axe"
 	{

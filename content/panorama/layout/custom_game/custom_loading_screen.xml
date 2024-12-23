@@ -36,7 +36,7 @@
 					</Panel>
 					<Panel id="RadiantPlayerNumberMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantPlayerNumberMultiplierTitle" class="GameOptionsLabel" text="#radiant_player_number" />
-						<DropDown id="radiant_player_number_dropdown" class="GameOptionsDropdown">
+						<DropDown id="radiant_player_number_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
 							<Label text="#radiant_player_number_10" id="10"/>
 							<Label text="9" id="9"/>
 							<Label text="8" id="8"/>
@@ -51,7 +51,7 @@
 					</Panel>
 					<Panel id="DirePlayerNumberMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="DirePlayerNumberMultiplierTitle" class="GameOptionsLabel" text="#dire_player_number" />
-						<DropDown id="dire_player_number_dropdown" class="GameOptionsDropdown">
+						<DropDown id="dire_player_number_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
 							<Label text="10" id="10"/>
 							<Label text="9" id="9"/>
 							<Label text="8" id="8"/>
@@ -64,27 +64,6 @@
 							<Label text="1" id="1"/>
 						</DropDown>
 					</Panel>
-					<Label id="GameOptionsPanelBr" text="#addon_option_title_br" />
-					<Panel id="RespawnTimePercentagePanel"	class="GameOptionsSubPanel">
-						<Label id="RespawnTimePercentagePanelTitle" class="GameOptionsLabel" text="#respawn_time_percentage" />
-						<DropDown id="respawn_time_percentage_dropdown" class="GameOptionsDropdown">
-							<Label text="#respawn_time_percentage_slow" id="120"/>
-							<Label text="#respawn_time_percentage_normal" id="100"/>
-							<Label text="#respawn_time_percentage_fast" id="80"/>
-							<Label text="#respawn_time_percentage_0" id="0"/>
-						</DropDown>
-					</Panel>
-					<Panel id="MaxLevelPanel"	class="GameOptionsSubPanel">
-						<Label id="MaxLevelTitle" class="GameOptionsLabel" text="#max_level" />
-						<DropDown id="max_level_dropdown" class="GameOptionsDropdown">
-							<Label text="30" id="30"/>
-							<Label text="50" id="50"/>
-							<Label text="75" id="75"/>
-							<Label text="100" id="100"/>
-							<Label text="200" id="200"/>
-						</DropDown>
-					</Panel>
-
 					<!-- 防御塔增强 -->
 					<Panel id="TowerPowerPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantTowerPowerTitle" class="GameOptionsLabel" text="#tower_power" />
@@ -98,10 +77,32 @@
 						</DropDown>
 					</Panel>
 
+					<Label id="GameOptionsPanelBr" text="#addon_option_title_br" />
+
+					<Panel id="RespawnTimePercentagePanel"	class="GameOptionsSubPanel">
+						<Label id="RespawnTimePercentagePanelTitle" class="GameOptionsLabel" text="#respawn_time_percentage" />
+						<DropDown id="respawn_time_percentage_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
+							<Label text="#respawn_time_percentage_slow" id="120"/>
+							<Label text="#respawn_time_percentage_normal" id="100"/>
+							<Label text="#respawn_time_percentage_fast" id="80"/>
+							<Label text="#respawn_time_percentage_0" id="0"/>
+						</DropDown>
+					</Panel>
+					<Panel id="MaxLevelPanel"	class="GameOptionsSubPanel">
+						<Label id="MaxLevelTitle" class="GameOptionsLabel" text="#max_level" />
+						<DropDown id="max_level_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
+							<Label text="30" id="30"/>
+							<Label text="50" id="50"/>
+							<Label text="75" id="75"/>
+							<Label text="100" id="100"/>
+							<Label text="200" id="200"/>
+						</DropDown>
+					</Panel>
+
 					<!-- 初始金钱 -->
 					<Panel id="StartingGoldPlayerPanel"	class="GameOptionsSubPanel">
 						<Label id="StartingGoldPlayerTitle" class="GameOptionsLabel" text="#starting_gold_player" />
-						<DropDown id="starting_gold_player_dropdown" class="GameOptionsDropdown">
+						<DropDown id="starting_gold_player_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
 							<Label text="1000" id="1000"/>
 							<Label text="3000" id="3000"/>
 							<Label text="5000" id="5000"/>
@@ -109,7 +110,7 @@
 					</Panel>
 					<Panel id="StartingGoldBotPanel"	class="GameOptionsSubPanel">
 						<Label id="StartingGoldBotTitle" class="GameOptionsLabel" text="#starting_gold_bot" />
-						<DropDown id="starting_gold_bot_dropdown" class="GameOptionsDropdown">
+						<DropDown id="starting_gold_bot_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
 							<Label text="1000" id="1000"/>
 							<Label text="3000" id="3000"/>
 							<Label text="5000" id="5000"/>
@@ -118,7 +119,7 @@
 					</Panel>
 					<Panel id="SameHeroSelectionPanel"	class="GameOptionsSubPanel">
 						<Label id="SameHeroSelectionTitle" class="GameOptionsLabel" text="#same_hero_selection" />
-						<ToggleButton checked="true" class="GameOptionsToggle" id="same_hero_selection"/>
+						<ToggleButton checked="true" class="GameOptionsToggle" id="same_hero_selection" oninputsubmit="SendGameOptionsToServer()"/>
 					</Panel>
 				</Panel>
 			</Panel>
