@@ -100,7 +100,7 @@ export class Debug {
       GameRules.Lottery.initLotteryAll();
     }
 
-    if (cmd === CMD.GAME_END) {
+    if (cmd === CMD.END) {
       GameEnd.OnGameEnd(2);
     }
 
