@@ -88,7 +88,6 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.SetDialogVariableInt('assists', Players.GetAssists(playerId));
   panel.SetDialogVariableInt('lasthits', Players.GetLastHits(playerId));
   panel.SetDialogVariableInt('money', Players.GetTotalEarnedGold(playerId));
-  // TODO 使用新game end数据
   panel.SetDialogVariableInt('damage', playerData?.damage ?? 0);
   panel.SetDialogVariableInt('damagereceived', playerData?.damagereceived ?? 0);
   panel.SetDialogVariableInt('heroHealing', playerData?.heroHealing ?? 0);

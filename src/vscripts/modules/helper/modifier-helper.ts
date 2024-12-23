@@ -5,6 +5,7 @@ export class ModifierHelper {
     undefined,
   ) as CDOTA_Item_DataDriven;
 
+  // FIXME 使用单一物品时，set level后之前添加的buff也会变化
   static ITEM_TOWER_MODIFIER: CDOTA_Item_DataDriven = CreateItem(
     'item_tower_modifiers',
     undefined,
