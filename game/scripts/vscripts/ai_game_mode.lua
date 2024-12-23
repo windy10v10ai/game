@@ -176,7 +176,6 @@ function AIGameMode:PreGameOptions()
     self.tower4PushedBad = 0
     self.tower4PushedGood = 0
 
-    self.playerNumber = 1
 
     if self.fBotGoldXpMultiplier <= 3 then
         self.botPushMin = RandomInt(16, 20)
@@ -197,10 +196,10 @@ function AIGameMode:PreGameOptions()
     self.PreGameOptionsSet = true
 
     -- 肉山奖励勇士积分 初始化
-    self.playerBonusSeasonPoint = {}
-    for i = 0, 23 do
-        self.playerBonusSeasonPoint[i] = 0
-    end
+    -- self.playerBonusSeasonPoint = {}
+    -- for i = 0, 23 do
+    --     self.playerBonusSeasonPoint[i] = 0
+    -- end
 end
 
 -- FIXME 移除相关调用
