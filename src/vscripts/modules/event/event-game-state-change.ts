@@ -70,15 +70,8 @@ export class EventGameStateChange {
 
   private addModifierToTowers(building: CDOTA_BaseNPC) {
     // 防御塔攻击
-    let towerPower = GameRules.Option.towerPower;
+    const towerPower = GameRules.Option.towerPower;
 
-    // 1塔最高200%攻击
-    const towerName = building.GetName();
-    if (towerName.includes('tower1')) {
-      if (towerPower > 200) {
-        towerPower = 200;
-      }
-    }
     ModifierHelper.appleTowerModifier(
       building,
       `modifier_tower_power`,
