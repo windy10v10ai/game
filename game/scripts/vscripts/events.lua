@@ -39,6 +39,14 @@ function AIGameMode:OnGameStateChanged(keys)
             self:InitPlayerGold()
         end
     elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+        -- 计算天辉玩家人数
+        self.playerNumber = 0
+        for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+            if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and not PlayerResource:IsFakeClient(playerID) then
+                self.playerNumber = self.playerNumber + 1
+            end
+        end
+
         if not self.PreGameOptionsSet then
             print("[AIGameMode] Setting pre-game options STRATEGY_TIME")
             self:PreGameOptions()
