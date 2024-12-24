@@ -3,22 +3,26 @@ export class BotPower {
   static readonly upgradeInterval = 5;
 
   public static AddBotPower(hero: CDOTA_BaseNPC_Hero): void {
-    if (GameRules.Option.gameDifficulty < 6) {
-      // N6以下不添加
-      return;
+    if (GameRules.Option.gameDifficulty === 5) {
+      // N5添加
+      if (!hero.HasAbility('bot_power_n5')) {
+        hero.AddAbility('bot_power_n5');
+      }
     }
-
-    if (!hero.HasAbility('bot_power')) {
-      hero.AddAbility('bot_power');
+    if (GameRules.Option.gameDifficulty === 6) {
+      // N6添加
+      if (!hero.HasAbility('bot_power_n6')) {
+        hero.AddAbility('bot_power_n6');
+      }
     }
   }
 
   public static LevelUpBotPower(hero: CDOTA_BaseNPC_Hero): void {
-    if (!hero.HasAbility('bot_power')) {
-      return;
+    // find bot_power_n5 or bot_power_n6
+    let ability = hero.FindAbilityByName('bot_power_n5');
+    if (!ability) {
+      ability = hero.FindAbilityByName('bot_power_n6');
     }
-
-    const ability = hero.FindAbilityByName('bot_power');
     if (!ability) {
       return;
     }
