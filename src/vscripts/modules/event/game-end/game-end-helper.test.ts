@@ -60,11 +60,11 @@ describe('GameEndHelper', () => {
         level: 1,
         gold: 0,
         kills: 100,
-        deaths: 20,
-        assists: 80,
-        damage: 1000000,
+        deaths: 5,
+        assists: 120,
+        damage: 2000000,
         damageTaken: 500000,
-        healing: 50000,
+        healing: 200000,
         lastHits: 0,
         towerKills: 3,
         score: 0,
@@ -72,7 +72,31 @@ describe('GameEndHelper', () => {
       };
 
       const score = GameEndHelper.CalculatePlayerScore(player);
-      expect(score).toBe(41);
+      expect(score).toBe(57);
+    });
+
+    it('should calculate score correctly for a player with extra high stats', () => {
+      const player: GameEndPlayerDto = {
+        heroName: 'npc_dota_hero_axe',
+        steamId: 123456,
+        teamId: 2,
+        isDisconnected: false,
+        level: 1,
+        gold: 0,
+        kills: 300,
+        deaths: 0,
+        assists: 10,
+        damage: 100000000,
+        damageTaken: 10000000,
+        healing: 2000000,
+        lastHits: 0,
+        towerKills: 11,
+        score: 0,
+        battlePoints: 0,
+      };
+
+      const score = GameEndHelper.CalculatePlayerScore(player);
+      expect(score).toBe(156);
     });
   });
 

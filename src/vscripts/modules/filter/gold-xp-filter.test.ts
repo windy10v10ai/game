@@ -22,10 +22,22 @@ describe('GoldFilter', () => {
     });
 
     it('should reduce the multiplier correctly when it is greater than 1', () => {
-      expect(goldFilter.filterHeroKillGoldByMultiplier(1.5)).toBe(1.4);
-      expect(goldFilter.filterHeroKillGoldByMultiplier(2)).toBe(1.8);
-      expect(goldFilter.filterHeroKillGoldByMultiplier(6)).toBe(5);
-      expect(goldFilter.filterHeroKillGoldByMultiplier(10)).toBe(8.2);
+      expect(goldFilter.filterHeroKillGoldByMultiplier(1.5)).toBe(1.3);
+      expect(goldFilter.filterHeroKillGoldByMultiplier(2)).toBe(1.6);
+      expect(goldFilter.filterHeroKillGoldByMultiplier(6)).toBe(4);
+      expect(goldFilter.filterHeroKillGoldByMultiplier(10)).toBeCloseTo(6.4, 1);
+    });
+  });
+
+  describe('filterHeroKillGold', () => {
+    it.each([
+      [0, 0],
+      [400, 400],
+      [1600, 1000],
+      [3200, 1400],
+      [6000, 1750],
+    ])('should reduce the gold correctly when the multiplier is %f', (gold, expected) => {
+      expect(goldFilter.filterHeroKillGold(gold)).toBe(expected);
     });
   });
 });
