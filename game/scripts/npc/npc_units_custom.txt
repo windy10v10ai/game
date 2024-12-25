@@ -1,5 +1,6 @@
 #base "npc_units_building.txt"
 #base "npc_units_creep.txt"
+#base "npc_units_neutral.txt"
 
 "DOTAUnits"
 {
