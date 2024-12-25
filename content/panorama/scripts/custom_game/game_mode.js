@@ -210,6 +210,10 @@ function StateChange() {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function SendGameOptionsToServer() {
+  if (!CheckForHostPrivileges()) {
+    return;
+  }
+
   const playerGoldXpMultiplier = $('#player_gold_xp_multiplier_dropdown').GetSelected().id;
   const botGoldXpMultiplier = $('#bot_gold_xp_multiplier_dropdown').GetSelected().id;
   const radiantPlayerNumber = $('#radiant_player_number_dropdown').GetSelected().id;
