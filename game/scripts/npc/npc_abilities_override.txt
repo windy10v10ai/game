@@ -5146,12 +5146,12 @@
 			}
 			"bonus_attack_speed"
 			{
-				"value" "90 140 190 240"
+				"value" "70 110 150 190"
 				"special_bonus_unique_faceless_void" "+160"
 			}
 			"bonus_move_speed"
 			{
-				"value" "50 100 150 200"
+				"value" "60 90 120 150"
 			}
 			"bonus_cast_speed"
 			{
