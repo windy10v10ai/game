@@ -1,0 +1,465 @@
+// 中立生物
+// neutral
+"DOTAUnits"
+{
+	// 远古
+	// Armor x2 Attack x4 Bounty x2 Status x2
+	//=================================================================================
+	// Neutral: Ancient - Black Drake 远古小黑龙
+	//=================================================================================
+	"npc_dota_neutral_black_drake"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"4"			// 2
+		"MagicalResistance"			"50"		// 25
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"80"		// 20
+		"AttackDamageMax"			"88"		// 22
+		"AttackRate"				"1.6"		// 2
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"78"		// 39
+		"BountyGoldMax"				"90"		// 45
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2375"		// 950
+		"StatusHealthRegen"			"1.25"		// 0.5
+
+	}
+	//===============================================================================
+	// Neutral: Ancient - Black Dragon 远古大黑龙
+	//===============================================================================
+	"npc_dota_neutral_black_dragon"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"8"			// 4
+		"MagicalResistance"			"60"		// 30
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"248"		// 62
+		"AttackDamageMax"			"272"		// 68
+		"AttackRate"				"1.6"		// 2
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"248"		// 124
+		"BountyGoldMin"				"156"		// 78
+		"BountyGoldMax"				"164"		// 82
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"5000"		// 2000
+		"StatusHealthRegen"			"5"			// 2
+		"StatusMana"				"1250"		// 500
+		"StatusManaRegen"			"2.5"		// 1
+	}
+
+	//=================================================================================
+	// Neutral: Ancient - Rock Golem 远古岩石傀儡
+	//=================================================================================
+	"npc_dota_neutral_rock_golem"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"8"			// 4
+		"MagicalResistance"			"60"		// 30
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"88"		// 22
+		"AttackDamageMax"			"96"		// 24
+		"AttackRate"				"1.6"		// 2
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"78"		// 39
+		"BountyGoldMax"				"90"		// 45
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"290"		// 270
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"		// 800
+		"StatusHealthRegen"			"1.25"		// 0.5
+		"StatusMana"				"1000"		// 400
+		"StatusManaRegen"			"2.5"		// 1
+	}
+
+	//=================================================================================
+	// Neutral: Ancient - Granite Golem 远古花岗岩傀儡
+	//=================================================================================
+	"npc_dota_neutral_granite_golem"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"16"		// 8
+		"MagicalResistance"			"60"		// 30
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"320"		// 80
+		"AttackDamageMax"			"336"		// 84
+		"AttackRate"				"1.6"		// 2
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"248"		// 124
+		"BountyGoldMin"				"156"		// 78
+		"BountyGoldMax"				"164"		// 82
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"290"		// 270
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"3750"		// 1500
+		"StatusHealthRegen"			"3.75"		// 1.5
+		"StatusMana"				"1500"		// 600
+		"StatusManaRegen"			"3.75"		// 1.5
+	}
+	//=================================================================================
+	// Neutral: Ancient - Big Thunder Lizard 远古雷霆蜥蜴
+	//=================================================================================
+	"npc_dota_neutral_big_thunder_lizard"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"6"			// 3
+		"MagicalResistance"			"60"		// 30
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"240"		// 60
+		"AttackDamageMax"			"260"		// 65
+		"AttackRate"				"1.6"		// 2
+		"BaseAttackSpeed"			"120"		// 100
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"248"		// 124
+		"BountyGoldMin"				"156"		// 78
+		"BountyGoldMax"				"164"		// 82
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"290"		// 270
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"3500"		// 1400
+		"StatusHealthRegen"			"0"			// 0
+		"StatusMana"				"2000"		// 800
+		"StatusManaRegen"			"0"			// 0
+	}
+
+	//=================================================================================
+	// Neutral: Ancient - Small Thunder Lizard 远古小雷霆蜥蜴
+	//=================================================================================
+	"npc_dota_neutral_small_thunder_lizard"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"6"			// 3
+		"MagicalResistance"			"80"		// 50
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"128"		// 32
+		"AttackDamageMax"			"136"		// 34
+		"AttackRate"				"1.6"		// 1.8
+		"BaseAttackSpeed"			"120"		// 100
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"88"		// 44
+		"BountyGoldMax"				"102"		// 51
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"290"		// 270
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"		// 800
+		"StatusHealthRegen"			"1.25"		// 0.5
+		"StatusMana"				"1000"		// 400
+		"StatusManaRegen"			"2.5"		// 1
+	}
+
+	//=================================================================================
+	// Neutral: Pine Cone 远古寒冰萨满
+	//=================================================================================
+	"npc_dota_neutral_ice_shaman"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"6"			// 3
+		"MagicalResistance"			"60"		// 30
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"232"		// 58
+		"AttackDamageMax"			"248"		// 62
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"248"		// 124
+		"BountyGoldMin"				"156"		// 78
+		"BountyGoldMax"				"164"		// 82
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"3750"		// 1500
+		"StatusHealthRegen"			"1.25"		// 0.5
+		"StatusMana"				"1000"		// 400
+		"StatusManaRegen"			"2.5"		// 1
+	}
+
+	//=================================================================================
+	// Neutral: Ancient - Rock Golem 远古寒冰萨满小
+	//=================================================================================
+	"npc_dota_neutral_frostbitten_golem"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"14"		// 7
+		"MagicalResistance"			"60"		// 30
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"116"		// 29
+		"AttackDamageMax"			"124"		// 31
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"78"		// 39
+		"BountyGoldMax"				"90"		// 45
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2250"		// 900
+		"StatusHealthRegen"			"5"			// 2
+	}
+
+	//=================================================================================
+	// Neutral Creeps: 小野怪
+	//=================================================================================
+	"npc_dota_neutral_kobold"
+	{
+		"BountyXP"					"21" //14
+		"BountyGoldMin"				"4"  //3
+		"BountyGoldMax"				"7" //5
+	}
+
+	"npc_dota_neutral_kobold_tunneler"
+	{
+		"BountyXP"					"26"		//17
+		"BountyGoldMin"				"18"		//12
+		"BountyGoldMax"				"21"		//14
+	}
+
+	"npc_dota_neutral_kobold_taskmaster"
+	{
+		"BountyXP"					"45"		//30
+		"BountyGoldMin"				"28"		//19
+		"BountyGoldMax"				"31"		//21
+	}
+
+	"npc_dota_neutral_centaur_outrunner"
+	{
+		"BountyXP"					"48"		//32
+		"BountyGoldMin"				"24"		//16
+		"BountyGoldMax"				"27"		//18
+	}
+
+	"npc_dota_neutral_centaur_khan"
+	{
+		"BountyXP"					"135"		//90
+		"BountyGoldMin"				"81"		//54
+		"BountyGoldMax"				"90"		//60
+	}
+
+	"npc_dota_neutral_fel_beast"
+	{
+		"BountyXP"					"39"		//26
+		"BountyGoldMin"				"24"		//16
+		"BountyGoldMax"				"27"		//18
+	}
+
+	"npc_dota_neutral_polar_furbolg_champion"
+	{
+		"BountyXP"					"99"		//66
+		"BountyGoldMin"				"45"		//30
+		"BountyGoldMax"				"57"		//38
+	}
+
+	"npc_dota_neutral_polar_furbolg_ursa_warrior"
+	{
+		"BountyXP"					"135"		//90
+		"BountyGoldMin"				"93"		//62
+		"BountyGoldMax"				"99"		//66
+	}
+
+	"npc_dota_neutral_warpine_raider"
+	{
+		"BountyXP"					"114"		//76
+		"BountyGoldMin"				"72"		//48
+		"BountyGoldMax"				"75"		//50
+	}
+
+	"npc_dota_neutral_mud_golem"
+	{
+		"BountyXP"					"48"		//32
+		"BountyGoldMin"				"33"		//22
+		"BountyGoldMax"				"36"		//24
+	}
+
+	"npc_dota_neutral_mud_golem_split"
+	{
+		"BountyXP"					"27"		//18
+		"BountyGoldMin"				"9"			//6
+		"BountyGoldMax"				"15"		//10
+	}
+
+	"npc_dota_neutral_mud_golem_split_doom"
+	{
+		"BountyXP"					"27"		//18
+		"BountyGoldMin"				"9"			//6
+		"BountyGoldMax"				"15"		//10
+	}
+
+	"npc_dota_neutral_ogre_mauler"
+	{
+		"BountyXP"					"48"		//32
+		"BountyGoldMin"				"33"		//22
+		"BountyGoldMax"				"39"		//26
+	}
+
+	"npc_dota_neutral_ogre_magi"
+	{
+		"BountyXP"					"72"		//48
+		"BountyGoldMin"				"42"		//28
+		"BountyGoldMax"				"48"		//32
+	}
+
+	"npc_dota_neutral_giant_wolf"
+	{
+		"BountyXP"					"60"		//40
+		"BountyGoldMin"				"27"		//18
+		"BountyGoldMax"				"33"		//22
+	}
+
+	"npc_dota_neutral_alpha_wolf"
+	{
+		"BountyXP"					"90"		//60
+		"BountyGoldMin"				"48"		//32
+		"BountyGoldMax"				"51"		//34
+	}
+
+	"npc_dota_neutral_wildkin"
+	{
+		"BountyXP"					"39"		//26
+		"BountyGoldMin"				"24"		//16
+		"BountyGoldMax"				"27"		//18
+	}
+
+	"npc_dota_neutral_enraged_wildkin"
+	{
+		"BountyXP"					"135"		//90
+		"BountyGoldMin"				"87"		//58
+		"BountyGoldMax"				"96"		//64
+	}
+
+	"npc_dota_neutral_satyr_soulstealer"
+	{
+		"BountyXP"					"69"		//46
+		"BountyGoldMin"				"30"		//20
+		"BountyGoldMax"				"36"		//24
+	}
+
+	"npc_dota_neutral_satyr_hellcaller"
+	{
+		"BountyXP"					"135"		//90
+		"BountyGoldMin"				"90"		//60
+		"BountyGoldMax"				"99"		//66
+	}
+
+	"npc_dota_neutral_gnoll_assassin"
+	{
+		"BountyXP"					"45"		//30
+		"BountyGoldMin"				"24"		//16
+		"BountyGoldMax"				"27"		//18
+	}
+
+	"npc_dota_neutral_ghost"
+	{
+		"BountyXP"					"63"		//42
+		"BountyGoldMin"				"34"		//23
+		"BountyGoldMax"				"37"		//25
+	}
+
+	"npc_dota_wraith_ghost"
+	{
+		"BountyXP"					"21"		//14
+		"BountyGoldMin"				"18"		//12
+		"BountyGoldMax"				"19"		//13
+	}
+
+	"npc_dota_neutral_dark_troll"
+	{
+		"BountyXP"					"63"		//42
+		"BountyGoldMin"				"25"		//17
+		"BountyGoldMax"				"28"		//19
+	}
+
+	"npc_dota_neutral_dark_troll_warlord"
+	{
+		"BountyXP"					"135"		//90
+		"BountyGoldMin"				"60"		//40
+		"BountyGoldMax"				"69"		//46
+	}
+
+	"npc_dota_neutral_satyr_trickster"
+	{
+		"BountyXP"					"36"		//24
+		"BountyGoldMin"				"18"		//12
+		"BountyGoldMax"				"21"		//14
+	}
+
+	"npc_dota_neutral_forest_troll_berserker"
+	{
+		"BountyXP"					"42"		//28
+		"BountyGoldMax"				"27"		//18
+		"BountyGoldMax"				"30"		//20
+	}
+
+	"npc_dota_neutral_forest_troll_high_priest"
+	{
+		"BountyXP"					"42"		//28
+		"BountyGoldMax"				"27"		//18
+		"BountyGoldMax"				"30"		//20
+	}
+
+	"npc_dota_neutral_harpy_scout"
+	{
+		"BountyXP"					"39"		//26
+		"BountyGoldMin"				"21"		//14
+		"BountyGoldMax"				"24"		//16
+	}
+
+	"npc_dota_neutral_harpy_storm"
+	{
+		"BountyXP"					"63"		//42
+		"BountyGoldMin"				"37"		//25
+		"BountyGoldMax"				"40"		//27
+	}
+}
