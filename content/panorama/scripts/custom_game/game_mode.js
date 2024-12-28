@@ -243,7 +243,6 @@ function SendGameOptionsToServer() {
  * 非主机玩家显示游戏选项内容设定
  */
 function ShowGameOptionsChange(_table, key, value) {
-  $.Msg('ShowGameOptionsChange', key, value);
   if (!value) {
     return;
   }
