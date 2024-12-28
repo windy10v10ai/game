@@ -55,49 +55,6 @@ export class GameConfig {
     //     GameRules.SetCustomGameTeamMaxPlayers(team, 1);
     // }
 
-    // 设置自定义英雄每个等级所需经验，这里的经验是升级到这一级所需要的总经验）
-    const xpRequireMap: { [key: number]: number } = {
-      1: 0,
-      2: 200,
-      3: 550,
-      4: 1050,
-      5: 1700,
-      6: 2500,
-      7: 3400,
-      8: 4400,
-      9: 5500,
-      10: 6700,
-      11: 8000,
-      12: 9400,
-      13: 10900,
-      14: 12500,
-      15: 14200,
-      16: 16000,
-      17: 17900,
-      18: 19900,
-      19: 22000,
-      20: 24200,
-      21: 26600,
-      22: 29200,
-      23: 32000,
-      24: 35000,
-      25: 38500,
-      26: 42500,
-      27: 47000,
-      28: 52000,
-      29: 57500,
-      30: 63500,
-    };
-    for (let i = 31; i <= 200; i++) {
-      xpRequireMap[i] = xpRequireMap[i - 1] + i * 200;
-    }
-    GameRules.SetUseCustomHeroXPValues(true);
-    game.SetCustomXPRequiredToReachNextLevel(xpRequireMap);
-    game.SetUseCustomHeroLevels(true); // 是否启用自定义英雄等级
-    // game.SetCustomHeroMaxLevel(50); // 设置自定义英雄最大等级，在options.ts中设置
-    print('[GameConfig] xpRequireMap:');
-    DeepPrintTable(xpRequireMap);
-
     if (IsInToolsMode()) {
       print('[GameConfig] IsInToolsMode set');
       // GameRules.SetCustomGameSetupAutoLaunchDelay(300);

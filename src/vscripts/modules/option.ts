@@ -41,8 +41,6 @@ export class Option {
     this.respawnTimePercentage = keys.respawn_time_pct;
     this.maxLevel = keys.max_level;
     this.sameHeroSelection = keys.same_hero_selection === 1;
-
-    GameRules.GetGameModeEntity().SetCustomHeroMaxLevel(this.maxLevel);
   }
 
   onChooseDifficulty(keys: { difficulty: number } & CustomGameEventDataBase) {
@@ -78,5 +76,52 @@ export class Option {
       CustomNetTables.SetTableValue('game_difficulty', 'all', { difficulty: averageDifficulty });
       this.gameDifficulty = averageDifficulty;
     }
+  }
+
+  public setMaxLevelXPRequire() {
+    // 设置自定义英雄每个等级所需经验，这里的经验是升级到这一级所需要的总经验）
+    const xpRequireMap: { [key: number]: number } = {
+      1: 0,
+      2: 200,
+      3: 550,
+      4: 1050,
+      5: 1700,
+      6: 2500,
+      7: 3400,
+      8: 4400,
+      9: 5500,
+      10: 6700,
+      11: 8000,
+      12: 9400,
+      13: 10900,
+      14: 12500,
+      15: 14200,
+      16: 16000,
+      17: 17900,
+      18: 19900,
+      19: 22000,
+      20: 24200,
+      21: 26600,
+      22: 29200,
+      23: 32000,
+      24: 35000,
+      25: 38500,
+      26: 42500,
+      27: 47000,
+      28: 52000,
+      29: 57500,
+      30: 63500,
+    };
+    // 经验列表不能超过最大等级
+    for (let i = 31; i <= this.maxLevel; i++) {
+      xpRequireMap[i] = xpRequireMap[i - 1] + i * 200;
+    }
+    GameRules.SetUseCustomHeroXPValues(true);
+    const game: CDOTABaseGameMode = GameRules.GetGameModeEntity();
+    game.SetCustomXPRequiredToReachNextLevel(xpRequireMap);
+    game.SetUseCustomHeroLevels(true); // 是否启用自定义英雄等级
+    game.SetCustomHeroMaxLevel(this.maxLevel); // 设置自定义英雄最大等级
+    print('[GameConfig] xpRequireMap:');
+    DeepPrintTable(xpRequireMap);
   }
 }
