@@ -40,12 +40,7 @@ export class GameConfig {
     // game.SetForceRightClickAttackDisabled(true); // 是否禁用右键攻击
     // game.SetHudCombatEventsDisabled(true); // 是否禁用战斗事件（左下角的战斗消息）
     // game.SetCustomGameForceHero(`npc_dota_hero_phoenix`); // 设置强制英雄（会直接跳过英雄选择阶段并直接为所有玩家选择这个英雄）
-    // game.SetUseCustomHeroLevels(true); // 是否启用自定义英雄等级
-    // game.SetCustomHeroMaxLevel(1); // 设置自定义英雄最大等级
-    // game.SetCustomXPRequiredToReachNextLevel({
-    //     // 设置自定义英雄每个等级所需经验，这里的经验是升级到这一级所需要的*总经验）
-    //     1: 0,
-    // });
+
     // game.SetDaynightCycleDisabled(true); // 是否禁用白天黑夜循环
     // game.SetDeathOverlayDisabled(true); // 是否禁用死亡遮罩（灰色的遮罩）
 
@@ -59,6 +54,49 @@ export class GameConfig {
     // for (let team = DotaTeam.CUSTOM_1; team <= DotaTeam.CUSTOM_8; ++team) {
     //     GameRules.SetCustomGameTeamMaxPlayers(team, 1);
     // }
+
+    // 设置自定义英雄每个等级所需经验，这里的经验是升级到这一级所需要的总经验）
+    const xpRequireMap: { [key: number]: number } = {
+      1: 0,
+      2: 180,
+      3: 510,
+      4: 990,
+      5: 1620,
+      6: 2400,
+      7: 3240,
+      8: 4140,
+      9: 5100,
+      10: 6120,
+      11: 7200,
+      12: 8350,
+      13: 9650,
+      14: 11100,
+      15: 12700,
+      16: 14450,
+      17: 16350,
+      18: 18350,
+      19: 20450,
+      20: 22650,
+      21: 25050,
+      22: 27650,
+      23: 30450,
+      24: 33450,
+      25: 36950,
+      26: 40950,
+      27: 45450,
+      28: 50450,
+      29: 55950,
+      30: 61950,
+    };
+    for (let i = 31; i <= 200; i++) {
+      xpRequireMap[i] = xpRequireMap[i - 1] + i * 200;
+    }
+    GameRules.SetUseCustomHeroXPValues(true);
+    game.SetCustomXPRequiredToReachNextLevel(xpRequireMap);
+    game.SetUseCustomHeroLevels(true); // 是否启用自定义英雄等级
+    // game.SetCustomHeroMaxLevel(50); // 设置自定义英雄最大等级，在options.ts中设置
+    print('[GameConfig] xpRequireMap:');
+    DeepPrintTable(xpRequireMap);
 
     if (IsInToolsMode()) {
       print('[GameConfig] IsInToolsMode set');

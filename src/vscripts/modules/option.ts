@@ -41,6 +41,8 @@ export class Option {
     this.respawnTimePercentage = keys.respawn_time_pct;
     this.maxLevel = keys.max_level;
     this.sameHeroSelection = keys.same_hero_selection === 1;
+
+    GameRules.GetGameModeEntity().SetCustomHeroMaxLevel(this.maxLevel);
   }
 
   onChooseDifficulty(keys: { difficulty: number } & CustomGameEventDataBase) {
