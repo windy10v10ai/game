@@ -13,7 +13,7 @@
 			"increase_time"			"120"	// 450
 			"increase_damage"		"6"		// 3
 			"increase_aspd"			"8"		// 5
-			"increase_health"		"80"	// 30
+			"increase_health"		"90"	// 30
 			"increase_armor"		"1"		// 0.5
 			"increase_gold"			"3"		// 1
 			"increase_xp"			"15"	// 5
