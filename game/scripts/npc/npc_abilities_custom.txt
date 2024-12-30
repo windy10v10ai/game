@@ -6,6 +6,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"IsBreakable"					"1"
 		"MaxLevel"						"10"
+		"RequiredLevel"					"5"
+		"LevelsBetweenUpgrades"			"5"
 
 		"AbilityTextureName"			"bot_power"
 
@@ -57,6 +59,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"IsBreakable"					"1"
 		"MaxLevel"						"10"
+		"RequiredLevel"					"5"
+		"LevelsBetweenUpgrades"			"5"
 
 		"AbilityTextureName"			"bot_power"
 

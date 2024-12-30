@@ -133,6 +133,20 @@
 		"StatusHealthRegen"			"50"		// Health regeneration rate.
 	}
 
+	// 假眼
+	"npc_dota_observer_wards"
+	{
+		"BountyXP"					"120"		// 100
+		"BountyGoldMin"				"120"		// 100
+		"BountyGoldMax"				"120"		// 100
+	}
+	// 真眼
+	"npc_dota_sentry_wards"
+	{
+		"BountyXP"					"25"		// 0
+		"BountyGoldMin"				"25"		// 0
+		"BountyGoldMax"				"25"		// 0
+	}
 
 	//=================================================================================
 	// 召唤物
@@ -793,6 +807,7 @@
 
     }
 
+	// 谜团
     "npc_dota_dire_eidolon"
     {
         "include_keys_from" "npc_dota_lesser_eidolon"
@@ -804,13 +819,6 @@
 
         "StatusHealth"				"900"		// 240
         "AttackRange"				"650"		// 500
-    }
-
-    "npc_dota_sentry_wards"
-    {
-        "BountyXP"					"10"			// Experience earn.
-        "BountyGoldMin"				"10"		// Gold earned min.
-        "BountyGoldMax"				"10"		// Gold earned max.
     }
 
     "npc_dota_furion_treant_1"

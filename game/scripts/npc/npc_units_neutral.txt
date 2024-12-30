@@ -251,215 +251,224 @@
 	}
 
 	//=================================================================================
-	// Neutral Creeps: 小野怪
+	// Neutral Creeps: 普通中立生物
+	// Bounty x1.4
 	//=================================================================================
-	"npc_dota_neutral_kobold"
+	// 小野怪
+	//=================================================================================
+	"npc_dota_neutral_kobold" // 狗头人
 	{
-		"BountyXP"					"21" //14
-		"BountyGoldMin"				"4"  //3
-		"BountyGoldMax"				"7" //5
+		"BountyXP"						"20" //14
+		"BountyGoldMin"					"4"  //3
+		"BountyGoldMax"					"7" //5
 	}
 
-	"npc_dota_neutral_kobold_tunneler"
+	"npc_dota_neutral_kobold_tunneler" // 狗头人士兵
 	{
-		"BountyXP"					"26"		//17
-		"BountyGoldMin"				"18"		//12
-		"BountyGoldMax"				"21"		//14
+		"BountyXP"						"24"		//17
+		"BountyGoldMin"					"17"		//12
+		"BountyGoldMax"					"20"		//14
 	}
 
-	"npc_dota_neutral_kobold_taskmaster"
+	"npc_dota_neutral_kobold_taskmaster" // 狗头人长官
 	{
-		"BountyXP"					"45"		//30
-		"BountyGoldMin"				"28"		//19
-		"BountyGoldMax"				"31"		//21
+		"BountyXP"						"42"		//30
+		"BountyGoldMin"					"27"		//19
+		"BountyGoldMax"					"29"		//21
 	}
 
-	"npc_dota_neutral_centaur_outrunner"
+	"npc_dota_neutral_forest_troll_berserker" // 丘陵巨魔狂战士
 	{
-		"BountyXP"					"48"		//32
-		"BountyGoldMin"				"24"		//16
-		"BountyGoldMax"				"27"		//18
+		"BountyXP"						"39"		//28
+		"BountyGoldMax"					"25"		//18
+		"BountyGoldMax"					"28"		//20
 	}
 
-	"npc_dota_neutral_centaur_khan"
+	"npc_dota_neutral_ghost" // 鬼魂
 	{
-		"BountyXP"					"135"		//90
-		"BountyGoldMin"				"81"		//54
-		"BountyGoldMax"				"90"		//60
+		"BountyXP"						"59"		//42
+		"BountyGoldMin"					"32"		//23
+		"BountyGoldMax"					"35"		//25
 	}
 
-	"npc_dota_neutral_fel_beast"
+	// "npc_dota_wraith_ghost" // 怨灵
+	// {
+	// 	"BountyXP"						"20"		//14
+	// 	"BountyGoldMin"					"17"		//12
+	// 	"BountyGoldMax"					"18"		//13
+	// }
+
+	"npc_dota_neutral_fel_beast" // 魔能之魂
 	{
-		"BountyXP"					"39"		//26
-		"BountyGoldMin"				"24"		//16
-		"BountyGoldMax"				"27"		//18
+		"BountyXP"						"36"		//26
+		"BountyGoldMin"					"22"		//16
+		"BountyGoldMax"					"25"		//18
 	}
 
-	"npc_dota_neutral_polar_furbolg_champion"
+	"npc_dota_neutral_gnoll_assassin" // 豺狼人刺客
 	{
-		"BountyXP"					"99"		//66
-		"BountyGoldMin"				"45"		//30
-		"BountyGoldMax"				"57"		//38
+		"BountyXP"						"42"		//30
+		"BountyGoldMin"					"22"		//16
+		"BountyGoldMax"					"25"		//18
 	}
 
-	"npc_dota_neutral_polar_furbolg_ursa_warrior"
+	"npc_dota_neutral_harpy_scout" // 鹰身女妖侦察者
 	{
-		"BountyXP"					"135"		//90
-		"BountyGoldMin"				"93"		//62
-		"BountyGoldMax"				"99"		//66
+		"BountyXP"						"36"		//26
+		"BountyGoldMin"					"20"		//14
+		"BountyGoldMax"					"22"		//16
 	}
 
-	"npc_dota_neutral_warpine_raider"
+	"npc_dota_neutral_harpy_storm" // 鹰身女妖风暴巫师
 	{
-		"BountyXP"					"114"		//76
-		"BountyGoldMin"				"72"		//48
-		"BountyGoldMax"				"75"		//50
+		"BountyXP"						"59"		//42
+		"BountyGoldMin"					"35"		//25
+		"BountyGoldMax"					"38"		//27
 	}
 
-	"npc_dota_neutral_mud_golem"
+	//=================================================================================
+	// 中野怪
+	//=================================================================================
+	"npc_dota_neutral_giant_wolf" // 巨狼
 	{
-		"BountyXP"					"48"		//32
-		"BountyGoldMin"				"33"		//22
-		"BountyGoldMax"				"36"		//24
+		"BountyXP"						"56"		//40
+		"BountyGoldMin"					"25"		//18
+		"BountyGoldMax"					"31"		//22
 	}
 
-	"npc_dota_neutral_mud_golem_split"
+	"npc_dota_neutral_alpha_wolf" // 头狼
 	{
-		"BountyXP"					"27"		//18
-		"BountyGoldMin"				"9"			//6
-		"BountyGoldMax"				"15"		//10
+		"BountyXP"						"84"		//60
+		"BountyGoldMin"					"45"		//32
+		"BountyGoldMax"					"48"		//34
 	}
 
-	"npc_dota_neutral_mud_golem_split_doom"
+	"npc_dota_neutral_mud_golem" // 泥土傀儡
 	{
-		"BountyXP"					"27"		//18
-		"BountyGoldMin"				"9"			//6
-		"BountyGoldMax"				"15"		//10
+		"BountyXP"						"45"		//32
+		"BountyGoldMin"					"31"		//22
+		"BountyGoldMax"					"34"		//24
 	}
 
-	"npc_dota_neutral_ogre_mauler"
+	"npc_dota_neutral_mud_golem_split" // 分裂泥土傀儡
 	{
-		"BountyXP"					"48"		//32
-		"BountyGoldMin"				"33"		//22
-		"BountyGoldMax"				"39"		//26
+		"BountyXP"						"25"		//18
+		"BountyGoldMin"					"8"			//6
+		"BountyGoldMax"					"14"		//10
 	}
 
-	"npc_dota_neutral_ogre_magi"
+	"npc_dota_neutral_mud_golem_split_doom" // 小泥土傀儡
 	{
-		"BountyXP"					"72"		//48
-		"BountyGoldMin"				"42"		//28
-		"BountyGoldMax"				"48"		//32
+		"BountyXP"						"25"		//18
+		"BountyGoldMin"					"8"			//6
+		"BountyGoldMax"					"14"		//10
 	}
 
-	"npc_dota_neutral_giant_wolf"
+	"npc_dota_neutral_ogre_mauler" // 食人魔拳手
 	{
-		"BountyXP"					"60"		//40
-		"BountyGoldMin"				"27"		//18
-		"BountyGoldMax"				"33"		//22
+		"BountyXP"						"45"		//32
+		"BountyGoldMin"					"31"		//22
+		"BountyGoldMax"					"36"		//26
 	}
 
-	"npc_dota_neutral_alpha_wolf"
+	"npc_dota_neutral_ogre_magi" // 食人魔冰霜法师
 	{
-		"BountyXP"					"90"		//60
-		"BountyGoldMin"				"48"		//32
-		"BountyGoldMax"				"51"		//34
+		"BountyXP"						"67"		//48
+		"BountyGoldMin"					"39"		//28
+		"BountyGoldMax"					"45"		//32
 	}
 
-	"npc_dota_neutral_wildkin"
+	//=================================================================================
+	// 大野怪
+	//=================================================================================
+	"npc_dota_neutral_centaur_outrunner" // 半人马猎手
 	{
-		"BountyXP"					"39"		//26
-		"BountyGoldMin"				"24"		//16
-		"BountyGoldMax"				"27"		//18
+		"BountyXP"						"45"		//32
+		"BountyGoldMin"					"22"		//16
+		"BountyGoldMax"					"25"		//18
 	}
 
-	"npc_dota_neutral_enraged_wildkin"
+	"npc_dota_neutral_centaur_khan" // 半人马征服者
 	{
-		"BountyXP"					"135"		//90
-		"BountyGoldMin"				"87"		//58
-		"BountyGoldMax"				"96"		//64
+		"BountyXP"						"126"		//90
+		"BountyGoldMin"					"76"		//54
+		"BountyGoldMax"					"84"		//60
 	}
 
-	"npc_dota_neutral_satyr_soulstealer"
+	"npc_dota_neutral_warpine_raider" // 斗松掠夺者
 	{
-		"BountyXP"					"69"		//46
-		"BountyGoldMin"				"30"		//20
-		"BountyGoldMax"				"36"		//24
+		"BountyXP"						"106"		//76
+		"BountyGoldMin"					"67"		//48
+		"BountyGoldMax"					"70"		//50
 	}
 
-	"npc_dota_neutral_satyr_hellcaller"
+	"npc_dota_neutral_polar_furbolg_champion" // 地狱熊怪
 	{
-		"BountyXP"					"135"		//90
-		"BountyGoldMin"				"90"		//60
-		"BountyGoldMax"				"99"		//66
+		"BountyXP"						"92"		//66
+		"BountyGoldMin"					"42"		//30
+		"BountyGoldMax"					"53"		//38
 	}
 
-	"npc_dota_neutral_gnoll_assassin"
+	"npc_dota_neutral_polar_furbolg_ursa_warrior" // 地狱熊怪粉碎者
 	{
-		"BountyXP"					"45"		//30
-		"BountyGoldMin"				"24"		//16
-		"BountyGoldMax"				"27"		//18
+		"BountyXP"						"126"		//90
+		"BountyGoldMin"					"87"		//62
+		"BountyGoldMax"					"92"		//66
 	}
 
-	"npc_dota_neutral_ghost"
+	"npc_dota_neutral_wildkin" // 枭兽
 	{
-		"BountyXP"					"63"		//42
-		"BountyGoldMin"				"34"		//23
-		"BountyGoldMax"				"37"		//25
+		"BountyXP"						"36"		//26
+		"BountyGoldMin"					"22"		//16
+		"BountyGoldMax"					"25"		//18
 	}
 
-	"npc_dota_wraith_ghost"
+	"npc_dota_neutral_enraged_wildkin" // 枭兽撕裂者
 	{
-		"BountyXP"					"21"		//14
-		"BountyGoldMin"				"18"		//12
-		"BountyGoldMax"				"19"		//13
+		"BountyXP"						"126"		//90
+		"BountyGoldMin"					"81"		//58
+		"BountyGoldMax"					"90"		//64
 	}
 
-	"npc_dota_neutral_dark_troll"
+	"npc_dota_neutral_satyr_soulstealer" // 萨特窃神者
 	{
-		"BountyXP"					"63"		//42
-		"BountyGoldMin"				"25"		//17
-		"BountyGoldMax"				"28"		//19
+		"BountyXP"						"64"		//46
+		"BountyGoldMin"					"28"		//20
+		"BountyGoldMax"					"34"		//24
 	}
 
-	"npc_dota_neutral_dark_troll_warlord"
+	"npc_dota_neutral_satyr_hellcaller" // 萨特苦难使者
 	{
-		"BountyXP"					"135"		//90
-		"BountyGoldMin"				"60"		//40
-		"BountyGoldMax"				"69"		//46
+		"BountyXP"						"126"		//90
+		"BountyGoldMin"					"84"		//60
+		"BountyGoldMax"					"92"		//66
 	}
 
-	"npc_dota_neutral_satyr_trickster"
+	"npc_dota_neutral_satyr_trickster" // 萨特放逐者
 	{
-		"BountyXP"					"36"		//24
-		"BountyGoldMin"				"18"		//12
-		"BountyGoldMax"				"21"		//14
+		"BountyXP"						"34"		//24
+		"BountyGoldMin"					"17"		//12
+		"BountyGoldMax"					"20"		//14
 	}
 
-	"npc_dota_neutral_forest_troll_berserker"
+	"npc_dota_neutral_dark_troll" // 丘陵巨魔
 	{
-		"BountyXP"					"42"		//28
-		"BountyGoldMax"				"27"		//18
-		"BountyGoldMax"				"30"		//20
+		"BountyXP"						"59"		//42
+		"BountyGoldMin"					"24"		//17
+		"BountyGoldMax"					"27"		//19
 	}
 
-	"npc_dota_neutral_forest_troll_high_priest"
+	"npc_dota_neutral_dark_troll_warlord" // 黑暗巨魔召唤法师
 	{
-		"BountyXP"					"42"		//28
-		"BountyGoldMax"				"27"		//18
-		"BountyGoldMax"				"30"		//20
+		"BountyXP"						"126"		//90
+		"BountyGoldMin"					"56"		//40
+		"BountyGoldMax"					"64"		//46
 	}
 
-	"npc_dota_neutral_harpy_scout"
+	"npc_dota_neutral_forest_troll_high_priest" // 丘陵巨魔牧师
 	{
-		"BountyXP"					"39"		//26
-		"BountyGoldMin"				"21"		//14
-		"BountyGoldMax"				"24"		//16
-	}
-
-	"npc_dota_neutral_harpy_storm"
-	{
-		"BountyXP"					"63"		//42
-		"BountyGoldMin"				"37"		//25
-		"BountyGoldMax"				"40"		//27
+		"BountyXP"						"39"		//28
+		"BountyGoldMax"					"25"		//18
+		"BountyGoldMax"					"28"		//20
 	}
 }
