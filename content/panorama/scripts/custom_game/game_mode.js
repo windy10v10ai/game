@@ -208,7 +208,6 @@ function StateChange() {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function SendGameOptionsToServer() {
   if (!CheckForHostPrivileges()) {
     return;
