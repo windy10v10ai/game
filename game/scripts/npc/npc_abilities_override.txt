@@ -2364,8 +2364,7 @@
 			}
 			"bonus_attack_speed_night"
 			{
-				"value"			"40 60 80 100 120"
-				"special_bonus_unique_night_stalker_2"	"+100"
+				"value"			"20 40 60 80 100"
 			}
 			"bonus_status_resist_night"
 			{
@@ -5707,6 +5706,16 @@
 				{
 					"value"			"4 5 6 7 8"
 				}
+		}
+	}
+	// 天命1 跟随分裂箭
+	"medusa_venomed_volley"
+	{
+		"MaxLevel"						"6"
+		"AbilityValues"
+		{
+			"move_slow"				"15 20 25 30 35 40"
+			"attack_slow"			"20 35 50 65 80 95"
 		}
 	}
 	// 秘术异蛇
