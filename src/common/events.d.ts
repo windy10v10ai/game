@@ -42,6 +42,7 @@ interface GameOptionsChangeEventData {
   starting_gold_bot: number;
   max_level: number;
   same_hero_selection: number;
+  enable_player_attribute: number;
 }
 
 interface LoadingSetOptionsEventData {
@@ -57,6 +58,7 @@ interface LoadingSetOptionsEventData {
     starting_gold_bot: string;
     max_level: string;
     same_hero_selection: boolean;
+    enable_player_attribute: boolean;
   };
 }
 

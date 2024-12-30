@@ -38,6 +38,7 @@
 		"starting_gold_player"	"Player Starting Gold"
 		"starting_gold_bot"	"Bot Starting Gold"
 		"same_hero_selection"  "Allow Same Hero Selection"
+		"enable_player_attribute"  "Enable Player Attribute"
 		"hide_chat_team"  "Hide Chat and Team"
 		"show_chat_team"  "Show Chat and Team"
 
@@ -449,9 +450,12 @@
 		// 					Abilities 技能
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_ability_bot_power"						"Bot Salvation"
-		"DOTA_Tooltip_ability_bot_power_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
-		"DOTA_Tooltip_ability_bot_power_Lore"					"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
+		"DOTA_Tooltip_ability_bot_power_n5"						"Bot Salvation N5"
+		"DOTA_Tooltip_ability_bot_power_n5_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
+		"DOTA_Tooltip_ability_bot_power_n5_Lore"				"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
+		"DOTA_Tooltip_ability_bot_power_n6"						"Bot Salvation N6"
+		"DOTA_Tooltip_ability_bot_power_n6_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
+		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
 
 		///////////////////////////////////////////////////
 		//

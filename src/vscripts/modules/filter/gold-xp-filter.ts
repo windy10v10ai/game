@@ -45,15 +45,7 @@ export class GoldXPFilter {
     }
 
     if (reason === ModifyGoldReason.HERO_KILL) {
-      if (gold > 2000) {
-        gold = gold / 8 + 650;
-      } else if (gold > 1200) {
-        gold = gold / 4 + 400;
-      } else if (gold > 200) {
-        gold = gold / 2 + 100;
-      } else {
-        gold = gold * 1;
-      }
+      gold = this.filterHeroKillGold(gold);
 
       gold = gold * this.rewardFilterByKill(playerID);
       mul = this.filterHeroKillGoldByMultiplier(mul);
@@ -62,6 +54,18 @@ export class GoldXPFilter {
     args.gold = Math.floor(gold * mul);
 
     return true;
+  }
+
+  filterHeroKillGold(gold: number): number {
+    if (gold > 3200) {
+      return gold / 8 + 1000;
+    } else if (gold > 1600) {
+      return gold / 4 + 600;
+    } else if (gold > 400) {
+      return gold / 2 + 200;
+    } else {
+      return gold * 1;
+    }
   }
 
   private filterXP(args: ModifyExperienceFilterEvent): boolean {
@@ -122,7 +126,7 @@ export class GoldXPFilter {
     if (mul <= 1) {
       return mul;
     }
-    const reduceRate = 0.8;
+    const reduceRate = 0.6;
     return 1 + (mul - 1) * reduceRate;
   }
 }
