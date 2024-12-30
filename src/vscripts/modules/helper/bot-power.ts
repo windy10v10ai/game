@@ -3,13 +3,13 @@ export class BotPower {
   static readonly upgradeInterval = 5;
 
   public static AddBotPower(hero: CDOTA_BaseNPC_Hero): void {
-    if (GameRules.Option.gameDifficulty === 5) {
+    if (GameRules.Option.direGoldXpMultiplier >= 8) {
       // N5添加
       if (!hero.HasAbility('bot_power_n5')) {
         hero.AddAbility('bot_power_n5');
       }
     }
-    if (GameRules.Option.gameDifficulty === 6) {
+    if (GameRules.Option.direGoldXpMultiplier >= 10) {
       // N6添加
       if (!hero.HasAbility('bot_power_n6')) {
         hero.AddAbility('bot_power_n6');
