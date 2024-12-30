@@ -25,3 +25,19 @@ export function ConvertSteamIdTo32Bit(steamId64: string): string {
 export function GetOpenMemberUrl(): string {
   return $.Localize('#player_member_ship_url') + GetLocalPlayerSteamAccountID();
 }
+
+// 自定义键位绑定
+// export function AddKeyBind(
+//   keyName: string,
+//   keydownCallback?: () => void,
+//   keyupCallback?: () => void,
+// ) {
+//   const command = `${keyName}${Date.now()}`;
+//   Game.CreateCustomKeyBind(command, `+${command}`);
+//   if (keydownCallback) {
+//     Game.AddCommand(`+${command}`, keydownCallback, '', 1 << 32);
+//   }
+//   if (keyupCallback) {
+//     Game.AddCommand(`-${command}`, keyupCallback, '', 1 << 32);
+//   }
+// }

@@ -172,7 +172,7 @@ function InitN5Setting() {
   $('#tower_power_dropdown').SetSelected('300');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
-  $('#starting_gold_bot_dropdown').SetSelected('5000');
+  $('#starting_gold_bot_dropdown').SetSelected('3000');
 }
 function InitN6Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
@@ -181,7 +181,7 @@ function InitN6Setting() {
   $('#tower_power_dropdown').SetSelected('400');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
-  $('#starting_gold_bot_dropdown').SetSelected('10000');
+  $('#starting_gold_bot_dropdown').SetSelected('5000');
 }
 // -------- send to server --------
 // FIXME 用SendGameOptionsToServer替代
