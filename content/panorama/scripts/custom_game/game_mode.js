@@ -78,6 +78,7 @@ function InitSetting() {
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('1000');
   $('#same_hero_selection').checked = true;
+  $('#enable_player_attribute').checked = true;
 
   // 开发模式
   if (Game.IsInToolsMode()) {
@@ -104,6 +105,7 @@ function LockOption() {
   $('#starting_gold_player_dropdown').enabled = false;
   $('#starting_gold_bot_dropdown').enabled = false;
   $('#same_hero_selection').enabled = false;
+  $('#enable_player_attribute').enabled = false;
 }
 
 function UnLockOptionAll() {
@@ -118,6 +120,7 @@ function UnLockOptionAll() {
   $('#starting_gold_player_dropdown').enabled = true;
   $('#starting_gold_bot_dropdown').enabled = true;
   $('#same_hero_selection').enabled = true;
+  $('#enable_player_attribute').enabled = true;
 }
 
 function InitDifficultyCommonSetting() {
@@ -127,6 +130,7 @@ function InitDifficultyCommonSetting() {
   $('#max_level_dropdown').SetSelected('50');
 
   $('#same_hero_selection').checked = true;
+  $('#enable_player_attribute').checked = true;
 }
 
 function InitN1Setting() {
@@ -172,7 +176,7 @@ function InitN5Setting() {
   $('#tower_power_dropdown').SetSelected('300');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
-  $('#starting_gold_bot_dropdown').SetSelected('5000');
+  $('#starting_gold_bot_dropdown').SetSelected('3000');
 }
 function InitN6Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
@@ -181,7 +185,7 @@ function InitN6Setting() {
   $('#tower_power_dropdown').SetSelected('400');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
-  $('#starting_gold_bot_dropdown').SetSelected('10000');
+  $('#starting_gold_bot_dropdown').SetSelected('5000');
 }
 // -------- send to server --------
 // FIXME 用SendGameOptionsToServer替代
@@ -202,13 +206,13 @@ function StateChange() {
         starting_gold_bot: $('#starting_gold_bot_dropdown').GetSelected().id,
         max_level: $('#max_level_dropdown').GetSelected().id,
         same_hero_selection: $('#same_hero_selection').checked,
+        enable_player_attribute: $('#enable_player_attribute').checked,
       },
     });
     SendGameOptionsToServer();
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function SendGameOptionsToServer() {
   if (!CheckForHostPrivileges()) {
     return;
@@ -224,6 +228,7 @@ function SendGameOptionsToServer() {
   const startingGoldBot = $('#starting_gold_bot_dropdown').GetSelected().id;
   const maxLevel = $('#max_level_dropdown').GetSelected().id;
   const sameHeroSelection = $('#same_hero_selection').checked;
+  const enablePlayerAttribute = $('#enable_player_attribute').checked;
 
   GameEvents.SendCustomGameEventToServer('game_options_change', {
     multiplier_radiant: Number(playerGoldXpMultiplier),
@@ -236,6 +241,7 @@ function SendGameOptionsToServer() {
     starting_gold_bot: Number(startingGoldBot),
     max_level: Number(maxLevel),
     same_hero_selection: sameHeroSelection,
+    enable_player_attribute: enablePlayerAttribute,
   });
 }
 
@@ -243,7 +249,6 @@ function SendGameOptionsToServer() {
  * 非主机玩家显示游戏选项内容设定
  */
 function ShowGameOptionsChange(_table, key, value) {
-  $.Msg('ShowGameOptionsChange', key, value);
   if (!value) {
     return;
   }
