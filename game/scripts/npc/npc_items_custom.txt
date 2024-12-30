@@ -4178,9 +4178,9 @@
 		"BaseClass"						"item_bfury"
 		"AbilityTextureName"			"item_bfury_2"
 
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"2.0"
+		"AbilityCooldown"				"3.0"
 
 
 		// Item Info
@@ -4731,9 +4731,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"attack_speed"		"80"	// tooltip, real value  in modifier_item_hand_of_group_stats
-			"self_xp"			"4.0"
-			"self_gold"			"400"
+			"attack_speed"		"100"	// tooltip, real value  in modifier_item_hand_of_group_stats
+			"self_xp"			"3.6"
+			"self_gold"			"360"
 
 			"group_range"		"1800"
 			"group_xp"			"0.8"
@@ -5084,7 +5084,7 @@
     //=================================================================================================================
 	"item_recipe_bfury_ultra"
 	{
-		"ID"                            "9590"
+		"ID"							"9590"
 		"BaseClass"						"item_recipe_bfury"
 		"ItemCost"						"600"
 		"ItemRecipe"					"1"
@@ -5097,11 +5097,19 @@
 
 	"item_bfury_ultra"
 	{
-		"ID"                            "9591"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ID"							"9591"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+
 		"BaseClass"						"item_bfury"
 		"ItemAliases"					"battle fury;bfury;worldbreaker;worldcleaver"
-		"AbilityTextureName"            "bfury_ultra"
+		"AbilityTextureName"			"bfury_ultra"
+
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"2.0"
+
 		"AbilityValues"
 		{
 				"bonus_damage"			"300"

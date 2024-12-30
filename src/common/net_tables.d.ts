@@ -65,4 +65,5 @@ export interface GameOptions {
   starting_gold_bot: number;
   max_level: number;
   same_hero_selection: number;
+  enable_player_attribute: number;
 }

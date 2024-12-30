@@ -154,6 +154,10 @@ export class PropertyController {
 
   // 升级单条属性
   public static LevelupHeroProperty(hero: CDOTA_BaseNPC_Hero, property: PlayerProperty) {
+    if (!GameRules.Option.enablePlayerAttribute) {
+      return;
+    }
+
     const name = property.name;
     const activeLevel = PropertyController.GetPropertyActiveLevel(hero, property);
 

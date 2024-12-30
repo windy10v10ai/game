@@ -7,10 +7,10 @@ export class GameEndHelper {
     const killScore = Math.sqrt(player.kills);
     const deathScore = -Math.sqrt(player.deaths) / 2;
     const assistScore = Math.sqrt(player.assists);
-    const damageScore = Math.sqrt(player.damage) / 100;
-    const damageTakenScore = Math.sqrt(player.damageTaken) / 100;
-    const healingScore = Math.sqrt(player.healing) / 50;
-    const towerKillScore = player.towerKills;
+    const damageScore = Math.min(50, Math.sqrt(player.damage) / 120);
+    const damageTakenScore = Math.min(50, Math.sqrt(player.damageTaken) / 80);
+    const healingScore = Math.min(50, Math.sqrt(player.healing) / 40);
+    const towerKillScore = Math.sqrt(player.towerKills) * 2;
 
     const totalScore =
       killScore +

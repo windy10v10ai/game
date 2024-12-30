@@ -28,7 +28,6 @@ export const abilityTiers: Tier[] = [
       'enchantress_impetus', // 推进
 
       // 被动技能
-      'bristleback_bristleback', // 钢毛后背
       'phantom_assassin_coup_de_grace', // 恩赐解脱
       'templar_assassin_psi_blades', // 灵能之刃
       'dazzle_good_juju', // 善咒
@@ -38,6 +37,7 @@ export const abilityTiers: Tier[] = [
       'medusa_split_shot', // 分裂箭
       'faceless_void_time_lock', // 时间锁定
       'luna_moon_glaive', // 月刃
+      'bristleback_bristleback', // 钢毛后背
     ],
   },
   {
@@ -45,7 +45,6 @@ export const abilityTiers: Tier[] = [
     rate: 20,
     names: [
       // 法球/开关技能
-      'obsidian_destroyer_arcane_orb', // 奥术天球
       'silencer_glaives_of_wisdom', // 智慧之刃
       'ancient_apparition_chilling_touch', // 极寒之触
       'gyrocopter_flak_cannon', // 高射火炮
@@ -74,13 +73,14 @@ export const abilityTiers: Tier[] = [
     rate: 50,
     names: [
       // 法球/开关技能
+      'obsidian_destroyer_arcane_orb', // 奥术天球
       'viper_poison_attack', // 毒性攻击
 
       // 被动技能
+      'weaver_geminate_attack', // 连击
       'centaur_return', // 人马 反伤
       'obsidian_destroyer_equilibrium', // 精华变迁
       'tiny_grow', // 长大
-      'spectre_desolate', // 荒芜
       'monkey_king_jingu_mastery', // 如意棒法
       'spirit_breaker_greater_bash', // 巨力重击
       'antimage_mana_break', // 法力损毁
@@ -95,7 +95,7 @@ export const abilityTiers: Tier[] = [
       'lina_fiery_soul', // 炽魂
       'mars_bulwark', // 护身甲盾
       'lycan_feral_impulse', // 野性驱使
-      'weaver_geminate_attack', // 连击
+      'spectre_desolate', // 荒芜
     ],
   },
   {
@@ -114,7 +114,7 @@ export const abilityTiers: Tier[] = [
       'visage_gravekeepers_cloak', // 陵卫斗篷
       'storm_spirit_overload', // 超负荷
       'life_stealer_ghoul_frenzy', // 尸鬼狂怒
-      // 'venomancer_poison_sting', // 剧毒术士 毒刺
+      'venomancer_poison_sting', // 剧毒术士 毒刺
       'broodmother_incapacitating_bite', // 麻痹之咬
       'shredder_reactive_armor', // 活性活甲
       'viper_corrosive_skin', // 腐蚀皮肤
@@ -127,8 +127,8 @@ export const abilityTiers: Tier[] = [
       'pangolier_lucky_shot', // 幸运一击
       'phantom_lancer_phantom_edge', // 幻影冲锋
       'razor_storm_surge', // 风暴涌动
-      'lich_frost_aura', // 冰霜光环
       'crystal_maiden_brilliance_aura', // 奥术光环 冰女
+      // 'lich_frost_aura', // 冰霜光环
     ],
   },
 ];
