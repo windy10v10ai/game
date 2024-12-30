@@ -122,6 +122,11 @@
 						<Label id="SameHeroSelectionTitle" class="GameOptionsLabel" text="#same_hero_selection" />
 						<ToggleButton checked="true" class="GameOptionsToggle" id="same_hero_selection" oninputsubmit="SendGameOptionsToServer()"/>
 					</Panel>
+					<!-- 添加选项 是否启用玩家属性（Player attribute） -->
+					<Panel id="PlayerAttributePanel"	class="GameOptionsSubPanel">
+						<Label id="PlayerAttributeTitle" class="GameOptionsLabel" text="#enable_player_attribute" />
+						<ToggleButton checked="true" class="GameOptionsToggle" id="enable_player_attribute" oninputsubmit="SendGameOptionsToServer()"/>
+					</Panel>
 				</Panel>
 			</Panel>
 			<!-- 游戏选项显示 START-->

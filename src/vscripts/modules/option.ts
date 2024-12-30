@@ -11,7 +11,8 @@ export class Option {
   startingGoldBot = 1000;
   respawnTimePercentage = 100;
   maxLevel = 50;
-  sameHeroSelection = false;
+  sameHeroSelection = true;
+  enablePlayerAttribute = true;
 
   gameDifficulty = 0;
 
@@ -41,6 +42,7 @@ export class Option {
     this.respawnTimePercentage = keys.respawn_time_pct;
     this.maxLevel = keys.max_level;
     this.sameHeroSelection = keys.same_hero_selection === 1;
+    this.enablePlayerAttribute = keys.enable_player_attribute === 1;
   }
 
   onChooseDifficulty(keys: { difficulty: number } & CustomGameEventDataBase) {

@@ -38,6 +38,7 @@
 		"starting_gold_player"	"玩家初始金钱"
 		"starting_gold_bot"	"电脑初始金钱"
 		"same_hero_selection"  "允许选择相同英雄"
+		"enable_player_attribute"  "启用玩家属性"
 		"hide_chat_team"  "隐藏聊天框"
 		"show_chat_team"  "显示聊天框"
 
