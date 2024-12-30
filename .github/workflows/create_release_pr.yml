@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Release version like v3.00"
+        description: "Release version like v4.00"
         required: true
 
 jobs:
