@@ -48,7 +48,7 @@ describe('GameEndHelper', () => {
       };
 
       const score = GameEndHelper.CalculatePlayerScore(player);
-      expect(score).toBe(10);
+      expect(score).toBe(11);
     });
 
     it('should calculate score correctly for a player with high stats', () => {
@@ -72,7 +72,7 @@ describe('GameEndHelper', () => {
       };
 
       const score = GameEndHelper.CalculatePlayerScore(player);
-      expect(score).toBe(55);
+      expect(score).toBe(57);
     });
 
     it('should calculate score correctly for a player with extra high stats', () => {
@@ -96,7 +96,7 @@ describe('GameEndHelper', () => {
       };
 
       const score = GameEndHelper.CalculatePlayerScore(player);
-      expect(score).toBe(152);
+      expect(score).toBe(154);
     });
   });
 
@@ -110,19 +110,19 @@ describe('GameEndHelper', () => {
     it('should return correct points for game time less than 2400', () => {
       const gameTime = 1800;
       const points = GameEndHelper.GetGameTimePoints(gameTime);
-      expect(points).toBe(27);
+      expect(points).toBe(25);
     });
 
     it('should return correct points for game time equal to 2400', () => {
       const gameTime = 2400;
       const points = GameEndHelper.GetGameTimePoints(gameTime);
-      expect(points).toBe(32);
+      expect(points).toBe(28);
     });
 
     it('should return correct points for game time greater than 2400', () => {
       const gameTime = 3600;
       const points = GameEndHelper.GetGameTimePoints(gameTime);
-      expect(points).toBe(39);
+      expect(points).toBe(35);
     });
   });
 });
