@@ -80,7 +80,12 @@ function Lottery() {
 
   return (
     <Panel style={containerStyle}>
-      <ExpandButton isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
+      <Panel style={{ horizontalAlign: 'center', marginTop: '60px' }}>
+        <ExpandButton
+          textToken={isCollapsed ? '#lottery_expand' : '#lottery_collapsed'}
+          toggleCollapse={toggleCollapse}
+        />
+      </Panel>
       <ContentContainer isCollapsed={isCollapsed} />
     </Panel>
   );

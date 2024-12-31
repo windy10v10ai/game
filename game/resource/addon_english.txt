@@ -178,6 +178,8 @@
 		"lottery_tooltip_item_refresh_picked"					"Item is selected."
 		"lottery_tooltip_item_refresh_not_member"				"Members can reroll items once. Click this button to open the membership page in your browser."
 
+		"key_bind"												"Key Bind"
+		"key_bind_collapsed"									"Collapse"
 		///////////////////////////////////////////////////
 		//
 		//			Member

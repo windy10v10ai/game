@@ -179,6 +179,8 @@
 		"lottery_tooltip_item_refresh_picked"					"物品已选择"
 		"lottery_tooltip_item_refresh_not_member"				"会员每日可刷新一次物品，点击开通会员"
 
+		"key_bind"												"改键"
+		"key_bind_collapsed"									"折叠"
 		///////////////////////////////////////////////////
 		//
 		//			Member

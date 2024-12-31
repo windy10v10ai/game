@@ -1,25 +1,21 @@
 import React from 'react';
 
 interface ExpandButtonProps {
-  isCollapsed: boolean;
+  textToken: string;
   toggleCollapse: () => void;
 }
 
-const ExpandButton: React.FC<ExpandButtonProps> = ({ isCollapsed, toggleCollapse }) => {
+const ExpandButton: React.FC<ExpandButtonProps> = ({ textToken, toggleCollapse }) => {
   const buttonStyle: Partial<VCSSStyleDeclaration> = {
-    horizontalAlign: 'center',
-    marginTop: '60px',
-    padding: '5px', // 内边距
+    padding: '3px', // 内边距
     width: '100px', // 宽度
-    borderRadius: '5px', // 圆角
+    borderRadius: '3px', // 圆角
   };
 
   const labelStyle: Partial<VCSSStyleDeclaration> = {
     horizontalAlign: 'center', // 居中
     fontSize: '20px', // 字体大小
   };
-
-  const textToken = isCollapsed ? '#lottery_expand' : '#lottery_collapsed';
 
   return (
     <Button style={buttonStyle} onactivate={toggleCollapse} className="PlayButton">
