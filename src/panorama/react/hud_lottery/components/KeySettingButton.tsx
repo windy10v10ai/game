@@ -15,65 +15,58 @@ const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
 const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
   const [isActive, setIsActive] = useState(false);
   const [bindKeyText, setBindKeyText] = useState('');
-  const [tempBindKeyText, setTempBindKeyText] = useState('');
   const validKeys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
-  const setTempBindKey = (key: string) => {
-    $.Msg('Set temp key: ', key);
+  const activeKeySetting = (e: Panel) => {
+    if (isActive) {
+      return;
+    }
     setIsActive(true);
 
-    key = key.toUpperCase();
+    // focus on the text entry
+    const textEntry = e.FindChildTraverse('keyBindTextEntry') as TextEntry | null;
+    if (textEntry) {
+      textEntry.text = '';
+      textEntry.SetFocus();
+    }
+  };
+
+  const onTextEntryChange = (textEntry: TextEntry) => {
+    const key = textEntry.text.toUpperCase();
+    if (key === '') {
+      return;
+    }
     if (validKeys.indexOf(key) === -1) {
       $.Msg('Invalid key: ', key);
-      setTempBindKeyText('');
+      textEntry.text = '';
     } else {
-      setTempBindKeyText(key);
+      setBindKeyText(key);
+      setIsActive(false);
+      $.Msg('Set key: ', key);
+      // TODO set key bind
     }
   };
 
-  const setKeyBing = () => {
-    setIsActive(false);
-
-    if (validKeys.indexOf(tempBindKeyText) === -1) {
-      $.Msg('Invalid key: ', tempBindKeyText);
-      setBindKeyText('');
-      setTempBindKeyText('');
-    } else {
-      // TODO 设置按键
-      $.Msg('Set key: ', tempBindKeyText);
-      setBindKeyText(tempBindKeyText);
-    }
-  };
-
-  const textEntryClass = isActive ? ' ActiveArea Actived' : ' ActiveArea';
   const placeholderText = $.Localize('#key_bind_placeholder');
-  const settingText = $.Localize('#key_bind_setting');
 
   return (
     <Panel style={rootPanelStyle} className="BindingRow">
       <DOTAAbilityImage abilityname={abilityname} showtooltip={true} />
-      <Panel
-        className="BindingContainer"
-        onmouseactivate={() => {
-          setIsActive(true);
-        }}
-      >
+      <Panel className="BindingContainer" onmouseactivate={activeKeySetting}>
         <Label
           style={{ visibility: isActive ? 'collapse' : 'visible' }}
           className="BindingText"
-          text={tempBindKeyText}
+          text={bindKeyText}
         />
         <TextEntry
+          id="keyBindTextEntry"
           style={{ visibility: isActive ? 'visible' : 'collapse' }}
-          className={textEntryClass}
+          className={`TextEntryArea ${isActive ? 'Actived' : ''}`}
           placeholder={placeholderText}
           maxchars={1}
-          ontextentrychange={(textEntry) => {
-            setTempBindKey(textEntry.text);
-          }}
+          ontextentrychange={onTextEntryChange}
         />
       </Panel>
-      <Label className="BindingButton" onmouseactivate={setKeyBing} text={settingText} />
     </Panel>
   );
 };

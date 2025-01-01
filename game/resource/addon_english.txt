@@ -181,7 +181,6 @@
 		"key_bind"												"Key Bind"
 		"key_bind_collapsed"									"Collapse"
 		"key_bind_placeholder"									"Hotkey"
-		"key_bind_setting"										"Save"
 		///////////////////////////////////////////////////
 		//
 		//			Member
