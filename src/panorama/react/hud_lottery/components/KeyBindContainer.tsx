@@ -7,14 +7,14 @@ interface KeyBindContainerProps {
 
 const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed }) => {
   const containerStyle: Partial<VCSSStyleDeclaration> = {
-    padding: '30px',
+    // padding: '30px',
     visibility: isCollapsed ? 'collapse' : 'visible',
     flowChildren: 'down',
   };
 
   return (
     <Panel style={containerStyle} className="container">
-      <KeySettingButton abilityname={'brewmaster_fire_permanent_immolation'} bindKey={'F1'} />
+      <KeySettingButton abilityname={'brewmaster_fire_permanent_immolation'} />
     </Panel>
   );
 };

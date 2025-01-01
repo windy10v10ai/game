@@ -181,6 +181,8 @@
 
 		"key_bind"												"改键"
 		"key_bind_collapsed"									"折叠"
+		"key_bind_placeholder"									"快捷键"
+		"key_bind_setting"										"保存"
 		///////////////////////////////////////////////////
 		//
 		//			Member
