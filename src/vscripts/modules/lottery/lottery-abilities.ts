@@ -35,9 +35,9 @@ export const abilityTiers: Tier[] = [
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
       'enchantress_impetus', // 推进
+      'omniknight_hammer_of_purity', // 纯洁之锤
 
       // 被动技能
-      'omniknight_hammer_of_purity', // 纯洁之锤
       'drow_ranger_marksmanship', // 射手天赋
       'phantom_assassin_coup_de_grace', // 恩赐解脱
       'templar_assassin_psi_blades', // 灵能之刃
