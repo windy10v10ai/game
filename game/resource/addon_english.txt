@@ -181,7 +181,8 @@
 		"key_bind"												"Key Bind"
 		"key_bind_collapsed"									"Collapse"
 		"key_bind_placeholder"									"Hotkey"
-		"key_bind_mouseover_tooltop"							"Click to bind a hotkey to this ability."
+		"key_bind_mouseover_tooltop"							"Click to bind a hotkey to this ability. <br>If you meet hotkey conflicts or malfunctions, please try to disconnect and reconnect and then reset."
+		"key_bind_input_err"									"Hotkey conflicts, please try another key"
 		///////////////////////////////////////////////////
 		//
 		//			Member
