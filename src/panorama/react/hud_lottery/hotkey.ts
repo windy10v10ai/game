@@ -22,6 +22,17 @@ function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_
  * @param worldPos
  */
 function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_BEHAVIOR) {
+  if (!Abilities.IsCooldownReady(abilityID)) {
+    GameUI.SendCustomHUDError(
+      'dota_hud_error_ability_in_cooldown',
+      'General.CastFail_AbilityInCooldown',
+    );
+    return;
+  }
+  if (!Abilities.IsOwnersManaEnough(abilityID)) {
+    GameUI.SendCustomHUDError('dota_hud_error_not_enough_mana', 'General.CastFail_NoMana');
+    return;
+  }
   const worldPos = GameUI.GetScreenWorldPosition(GameUI.GetCursorPosition()) ?? undefined;
   if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING)) {
     //矢量施法暂不支持
@@ -33,12 +44,13 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
         DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE;
       const target = GetCursorEntity(abilityID);
       if (target === undefined) {
-        Game.PrepareUnitOrders({
-          OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION,
-          Position: worldPos,
-          AbilityIndex: abilityID,
-          ShowEffects: true,
-        });
+        // Game.PrepareUnitOrders({
+        //   OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION,
+        //   Position: worldPos,
+        //   AbilityIndex: abilityID,
+        //   ShowEffects: true,
+        // });
+        GameUI.SendCustomHUDError('dota_hud_error_no_target', 'General.CastFail_NoTarget');
       } else {
         Game.PrepareUnitOrders({
           OrderType: hasTree
@@ -46,7 +58,7 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
             : dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET,
           TargetIndex: target?.entityIndex ?? -1,
           AbilityIndex: abilityID,
-          ShowEffects: false,
+          ShowEffects: true,
         });
       }
     } else if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT)) {
@@ -80,60 +92,39 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
  * @param aPosition 鼠标位置
  * @returns
  */
-function GetCursorEntity(abilityID: AbilityEntityIndex, aPosition = GameUI.GetCursorPosition()) {
-  const localPlayer = Players.GetLocalPlayer();
-  const playerTeam = Players.GetTeam(localPlayer);
-  const targetType = Abilities.GetAbilityTargetType(abilityID);
-  const hasTree =
-    (targetType & DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE) ===
-    DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE;
-  const targetTeam = Abilities.GetAbilityTargetTeam(abilityID);
+function GetCursorEntity(_abilityID: AbilityEntityIndex, aPosition = GameUI.GetCursorPosition()) {
+  // const localPlayer = Players.GetLocalPlayer();
+  // const playerTeam = Players.GetTeam(localPlayer);
+  // const targetTeam = Abilities.GetAbilityTargetTeam(abilityID);
   //根据屏幕宽度计算判断距离
   const screenWidth = Game.GetScreenWidth();
+  Game.GetScreenHeight();
   const judgeDistance = screenWidth / 20;
   let targets = FindRadiusScreenEntities(aPosition, judgeDistance);
-  if (hasTree) {
-    const trees = Entities.GetAllEntitiesByClassname('ent_dota_tree');
-    trees.forEach((e) => {
-      const exy = GetEntScreenXY(e);
-      const screenLength = ScreenLength(exy, aPosition);
-      if (screenLength < judgeDistance) {
-        targets.push({ entityIndex: e, accurateCollision: false });
-      }
-    });
-    const tempTrees = Entities.GetAllEntitiesByClassname('dota_temp_tree');
-    tempTrees.forEach((e) => {
-      const exy = GetEntScreenXY(e);
-      const screenLength = ScreenLength(exy, aPosition);
-      if (screenLength < judgeDistance) {
-        targets.push({ entityIndex: e, accurateCollision: false });
-      }
-    });
-  }
   //过滤单位
-  targets = targets.filter((e) => {
-    const entIndex = e.entityIndex;
-    const entTeam = Entities.GetTeamNumber(entIndex);
-    //技能目标为任意单位
-    if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_BOTH) {
-      return true;
-    }
-    //技能目标为友方单位
-    if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_FRIENDLY) {
-      //不是友方单位
-      if (entTeam !== playerTeam) {
-        return false;
-      }
-    }
-    //技能目标为敌方单位
-    if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_ENEMY) {
-      //不是敌方单位
-      if (entTeam === playerTeam) {
-        return false;
-      }
-    }
-    return true;
-  });
+  // targets = targets.filter((e) => {
+  //   const entIndex = e.entityIndex;
+  //   const entTeam = Entities.GetTeamNumber(entIndex);
+  //   //技能目标为任意单位
+  //   if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_BOTH) {
+  //     return true;
+  //   }
+  //   //技能目标为友方单位
+  //   if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_FRIENDLY) {
+  //     //不是友方单位
+  //     if (entTeam !== playerTeam) {
+  //       return false;
+  //     }
+  //   }
+  //   //技能目标为敌方单位
+  //   if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_ENEMY) {
+  //     //不是敌方单位
+  //     if (entTeam === playerTeam) {
+  //       return false;
+  //     }
+  //   }
+  //   return true;
+  // });
   //优先精确碰撞的单位
   const targets1 = targets.filter((e) => {
     return e.accurateCollision;
