@@ -13,7 +13,7 @@ export function bindAbilityKey(abilityname: string, key: string, isQuickCast: bo
 }
 
 function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_BEHAVIOR) {
-  return (behavior & judge) == judge;
+  return (behavior & judge) === judge;
 }
 /**
  * 快速施法
@@ -29,10 +29,10 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
     if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET)) {
       const targetType = Abilities.GetAbilityTargetType(abilityID);
       const hasTree =
-        (targetType & DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE) ==
+        (targetType & DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE) ===
         DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE;
       const target = GetCursorEntity(abilityID);
-      if (target == undefined) {
+      if (target === undefined) {
         Game.PrepareUnitOrders({
           OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION,
           Position: worldPos,
@@ -82,15 +82,12 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
  */
 function GetCursorEntity(abilityID: AbilityEntityIndex, aPosition = GameUI.GetCursorPosition()) {
   const localPlayer = Players.GetLocalPlayer();
-  const heroID = Players.GetPlayerHeroEntityIndex(localPlayer);
   const playerTeam = Players.GetTeam(localPlayer);
   const targetType = Abilities.GetAbilityTargetType(abilityID);
   const hasTree =
-    (targetType & DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE) ==
+    (targetType & DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE) ===
     DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE;
-  let targetTeam = Abilities.GetAbilityTargetTeam(abilityID);
-  const targetFlags = Abilities.GetAbilityTargetFlags(abilityID);
-  const abilityName = Abilities.GetAbilityName(abilityID);
+  const targetTeam = Abilities.GetAbilityTargetTeam(abilityID);
   //根据屏幕宽度计算判断距离
   const screenWidth = Game.GetScreenWidth();
   const judgeDistance = screenWidth / 20;
@@ -118,20 +115,20 @@ function GetCursorEntity(abilityID: AbilityEntityIndex, aPosition = GameUI.GetCu
     const entIndex = e.entityIndex;
     const entTeam = Entities.GetTeamNumber(entIndex);
     //技能目标为任意单位
-    if (targetTeam == DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_BOTH) {
+    if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_BOTH) {
       return true;
     }
     //技能目标为友方单位
-    if (targetTeam == DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_FRIENDLY) {
+    if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_FRIENDLY) {
       //不是友方单位
-      if (entTeam != playerTeam) {
+      if (entTeam !== playerTeam) {
         return false;
       }
     }
     //技能目标为敌方单位
-    if (targetTeam == DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_ENEMY) {
+    if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_ENEMY) {
       //不是敌方单位
-      if (entTeam == playerTeam) {
+      if (entTeam === playerTeam) {
         return false;
       }
     }
@@ -145,10 +142,10 @@ function GetCursorEntity(abilityID: AbilityEntityIndex, aPosition = GameUI.GetCu
     return !e.accurateCollision;
   });
   targets = targets1;
-  if (targets1.length == 0) {
+  if (targets1.length === 0) {
     targets = targets2;
   }
-  if (targets.length == 0) {
+  if (targets.length === 0) {
     return undefined;
   }
   targets.sort((a, b) => {
@@ -178,8 +175,8 @@ function FindRadiusScreenEntities(
     for (let j = 0; j <= radius; j += pixel) {
       for (let k = 0; k <= 1; k++) {
         for (let l = 0; l <= 1; l++) {
-          const x = k == 0 ? aPosition[0] + i : aPosition[0] - i;
-          const y = l == 0 ? aPosition[1] + j : aPosition[1] - j;
+          const x = k === 0 ? aPosition[0] + i : aPosition[0] - i;
+          const y = l === 0 ? aPosition[1] + j : aPosition[1] - j;
           const screenEntities = GameUI.FindScreenEntities([x, y]);
           screenEntities.forEach((e) => {
             const exy = GetEntScreenXY(e.entityIndex);
