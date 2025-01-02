@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 interface KeySettingButtonProps {
-  abilityname: string;
+  abilityname?: string;
   // bindKeyText: string;
 }
 
@@ -18,6 +18,7 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
   const validKeys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
   const activeKeySetting = (e: Panel) => {
+    $.DispatchEvent('DOTAHideTextTooltip');
     if (isActive) {
       return;
     }
@@ -42,17 +43,30 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
     } else {
       setBindKeyText(key);
       setIsActive(false);
-      $.Msg('Set key: ', key);
-      // TODO set key bind
+      if (abilityname) {
+        // TODO 设置技能快捷键
+      }
     }
   };
-
-  const placeholderText = $.Localize('#key_bind_placeholder');
 
   return (
     <Panel style={rootPanelStyle} className="BindingRow">
       <DOTAAbilityImage abilityname={abilityname} showtooltip={true} />
-      <Panel className="BindingContainer" onmouseactivate={activeKeySetting}>
+      <Panel
+        className="BindingContainer"
+        onmouseactivate={activeKeySetting}
+        // on mouse over, show the tooltip
+        onmouseover={(e) => {
+          if (isActive) {
+            return;
+          }
+          $.DispatchEvent('DOTAShowTextTooltip', e, $.Localize('#key_bind_mouseover_tooltop'));
+        }}
+        // on mouse out, hide the tooltip
+        onmouseout={() => {
+          $.DispatchEvent('DOTAHideTextTooltip');
+        }}
+      >
         <Label
           style={{ visibility: isActive ? 'collapse' : 'visible' }}
           className="BindingText"
@@ -62,7 +76,7 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
           id="keyBindTextEntry"
           style={{ visibility: isActive ? 'visible' : 'collapse' }}
           className={`TextEntryArea ${isActive ? 'Actived' : ''}`}
-          placeholder={placeholderText}
+          placeholder={$.Localize('#key_bind_placeholder')}
           maxchars={1}
           ontextentrychange={onTextEntryChange}
         />

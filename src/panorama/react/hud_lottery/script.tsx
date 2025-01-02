@@ -7,7 +7,7 @@ import KeyBind from './KeyBind';
 
 function Root() {
   return (
-    <Panel style={{ width: '100%', height: '100%' }}>
+    <Panel style={{ width: '100%', height: '100%' }} hittest={false}>
       <Lottery />
       <KeyBind />
     </Panel>
