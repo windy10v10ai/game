@@ -753,7 +753,7 @@
 			}
 			"quill_release_threshold"
 			{
-				"value"		"300"
+				"value"		"400"
 			}
 			"activation_cooldown"					"16"		// 24
 			"activation_manacost"					"150"		// 100
