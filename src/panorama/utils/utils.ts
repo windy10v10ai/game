@@ -39,7 +39,7 @@ export function AddKeyBind(
 ) {
   const command = `${keyName}${Date.now()}`;
 
-  Game.CreateCustomKeyBind(command, `+${command}`);
+  Game.CreateCustomKeyBind(keyName, `+${command}`);
   if (keydownCallback) {
     Game.AddCommand(`+${command}`, keydownCallback, '', 1 << 32);
   }

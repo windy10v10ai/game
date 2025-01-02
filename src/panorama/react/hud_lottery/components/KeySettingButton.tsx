@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { bindAbilityKey } from '../hotkey';
 
 interface KeySettingButtonProps {
   abilityname?: string;
@@ -14,9 +15,13 @@ const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
 const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
   const [isActive, setIsActive] = useState(false);
   const [bindKeyText, setBindKeyText] = useState('');
-  const validKeys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  // 移除A,S,Q,W,E,R
+  let validKeys = "BCDFGHIJKLMNOPTUVXYZ0123456789`-=[]\\;',./";
 
   const activeKeySetting = (e: Panel) => {
+    if (abilityname === undefined) {
+      return;
+    }
     $.DispatchEvent('DOTAHideTextTooltip');
     if (isActive) {
       return;
@@ -36,15 +41,19 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
     if (key === '') {
       return;
     }
+    if (abilityname === undefined) {
+      return;
+    }
     if (validKeys.indexOf(key) === -1) {
-      $.Msg('Invalid key: ', key);
       textEntry.text = '';
+      $.DispatchEvent('DOTAShowTextTooltip', textEntry, $.Localize('#key_bind_input_err'));
+      $.Schedule(2, () => {
+        $.DispatchEvent('DOTAHideTextTooltip');
+      });
     } else {
       setBindKeyText(key);
       setIsActive(false);
-      if (abilityname) {
-        // TODO 设置技能快捷键
-      }
+      bindAbilityKey(abilityname, key);
     }
   };
 
@@ -56,6 +65,9 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
         onmouseactivate={activeKeySetting}
         // on mouse over, show the tooltip
         onmouseover={(e) => {
+          if (abilityname === undefined) {
+            return;
+          }
           if (isActive) {
             return;
           }
