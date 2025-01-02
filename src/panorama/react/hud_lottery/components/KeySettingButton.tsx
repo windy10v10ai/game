@@ -15,8 +15,8 @@ const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
 const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
   const [isActive, setIsActive] = useState(false);
   const [bindKeyText, setBindKeyText] = useState('');
-  // 移除A,S,Q,W,E,R
-  let validKeys = "BCDFGHIJKLMNOPTUVXYZ0123456789`-=[]\\;',./";
+  // 移除A,S
+  let validKeys = "BCDEFGHIJKLMNOPQRTUVWXYZ0123456789`-=[]\\;',./";
 
   const activeKeySetting = (e: Panel) => {
     if (abilityname === undefined) {
@@ -28,7 +28,6 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
     }
     setIsActive(true);
 
-    // focus on the text entry
     const textEntry = e.FindChildTraverse('keyBindTextEntry') as TextEntry | null;
     if (textEntry) {
       textEntry.text = '';
@@ -53,7 +52,8 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
     } else {
       setBindKeyText(key);
       setIsActive(false);
-      bindAbilityKey(abilityname, key);
+      // TODO 快捷施法
+      bindAbilityKey(abilityname, key, true);
     }
   };
 
