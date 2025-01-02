@@ -74,6 +74,28 @@
 			}
 		}
 	}
+	// 灵魂超度
+	"visage_soul_assumption"
+	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"MaxLevel"						"5"
+		"AbilityManaCost"				"70 80 90 100 110"
+		"AbilityValues"
+		{
+				"soul_base_damage"			"20 30 40 50 60"	// 20
+				"soul_charge_damage"
+				{
+					"value"			"200"	// 70
+				}
+				"stack_limit"				"2 3 4 5 6"
+				"stack_duration"			"12.0"// 6
+				"damage_limit"
+				{
+					"value"			"400"	// 100
+					"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
+				}
+		}
+	}
 	//=================================================================================================================
 	// Brood Mother 育母蜘蛛
 	//=================================================================================================================
@@ -95,6 +117,44 @@
 			{
 				"value"				"4 8 12 16 20" // x2
 			}
+		}
+	}
+	//=================================================================================================================
+	// Dark Seer 黑暗贤者
+	//=================================================================================================================
+	// 离子外壳
+	"dark_seer_ion_shell"
+	{
+		"MaxLevel"						"5"
+		"AbilityManaCost"				"100 110 120 130 140"
+		"AbilityValues"
+		{
+			"damage_per_second"
+			{
+				"value"										"30 50 70 90 110"
+			}
+			"duration"
+			{
+				"value"										"21 24 27 30 33"
+			}
+		}
+	}
+	// 真空
+	"dark_seer_vacuum"
+	{
+		"MaxLevel"						"5"
+		"AbilityCastRange"				"500 550 600 650 700" // 与镖同步
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"60 90 120 150 180"
+
+		"AbilityValues"
+		{
+				"radius"
+				{
+					"value"		"325 400 475 550 625"
+				}
+				"duration"				"0.3 0.4 0.5 0.6 0.7"
+				"damage"				"70 130 190 250 310"
 		}
 	}
 	// ---------------------------------
@@ -8212,8 +8272,6 @@
 	// 叠油
 	"batrider_sticky_napalm"
 	{
-		"LinkedAbility"					"dark_seer_ion_shell"
-		"AbilityDraftPreAbility"		"dark_seer_ion_shell"
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
@@ -8224,25 +8282,6 @@
 			"movement_speed_pct" "-1.5 -3 -4.5 -6 -7.5"
 			"turn_rate_pct"			"-30 -40 -50 -60 -70"
 			"application_damage"	"10 20 30 40 50"	// x2
-		}
-	}
-	// 离子烫（来自黑贤）无敌的叠油离子烫我滴朋友
-	"dark_seer_ion_shell"
-	{
-		"LinkedAbility"					"batrider_sticky_napalm"
-		"AbilityDraftPreAbility"		"batrider_sticky_napalm"
-		"MaxLevel"						"5"
-		"AbilityManaCost"				"100 110 120 130 140"
-		"AbilityValues"
-		{
-			"damage_per_second"
-			{
-				"value"										"30 50 70 90 110"
-			}
-			"duration"
-			{
-				"value"										"21 24 27 30 33"
-			}
 		}
 	}
 	// 燃烧弹
@@ -9071,8 +9110,6 @@
 	// 幻影之拥
 	"grimstroke_ink_creature"
 	{
-		"LinkedAbility"					"visage_soul_assumption"
-		"AbilityDraftPreAbility"		"visage_soul_assumption"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel" "5"
 		"AbilityCooldown"				"26 24 22 20 18"
@@ -9092,30 +9129,6 @@
 					"special_bonus_unique_grimstroke_8" "+100"	// 65
 				}
 				"pop_damage"				"200 280 360 440 520"		// 120 200 280 360
-		}
-	}
-	// 灵魂超度（来自维萨吉）
-	"visage_soul_assumption"
-	{
-		"LinkedAbility"					"grimstroke_ink_creature"
-		"AbilityDraftPreAbility"		"grimstroke_ink_creature"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"MaxLevel"						"5"
-		"AbilityManaCost"				"70 80 90 100 110"
-		"AbilityValues"
-		{
-				"soul_base_damage"			"20 30 40 50 60"	// 20
-				"soul_charge_damage"
-				{
-					"value"			"200"	// 70
-				}
-				"stack_limit"				"2 3 4 5 6"
-				"stack_duration"			"12.0"// 6
-				"damage_limit"
-				{
-					"value"			"400"	// 100
-					"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
-				}
 		}
 	}
 	// 墨涌
@@ -10604,8 +10617,6 @@
 	// 暗影突袭
 	"queenofpain_shadow_strike"
 	{
-		"LinkedAbility"					"dark_seer_vacuum"
-		"AbilityDraftPreAbility"		"dark_seer_vacuum"
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"500 550 600 650 700"
 		"AbilityCooldown"				"16.0 13.0 10.0 7.0 4.0"
@@ -10619,26 +10630,6 @@
 			}
 			"duration_damage"		"20 40 60 80 100"
 			"movement_slow"			"-20 -35 -50 -65 -80"
-		}
-	}
-	// 真空（来自黑贤）
-	"dark_seer_vacuum"
-	{
-		"LinkedAbility"					"queenofpain_shadow_strike"
-		"AbilityDraftPreAbility"		"queenofpain_shadow_strike"
-		"MaxLevel"						"5"
-		"AbilityCastRange"				"500 550 600 650 700" // 与镖同步
-		"AbilityCooldown"				"30"
-		"AbilityManaCost"				"60 90 120 150 180"
-
-		"AbilityValues"
-		{
-				"radius"
-				{
-					"value"		"325 400 475 550 625"
-				}
-				"duration"				"0.3 0.4 0.5 0.6 0.7"
-				"damage"				"70 130 190 250 310"
 		}
 	}
 	// 闪烁

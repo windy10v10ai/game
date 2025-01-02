@@ -76,7 +76,6 @@
 		"Ability2"				"jack_murderer_of_the_misty_night"
 		"Ability3"				"jack_surgery"
 		"Ability4"				"jack_the_mist"
-		"Ability5"				"brewmaster_primal_split_lua"
 		"Ability6"				"jack_maria_the_ripper"
 
 		"Ability10"				"special_bonus_attack_damage_10"
@@ -402,11 +401,6 @@
 		"Ability5"		"abyssal_underlord_dark_rift"
 	}
 
-	"npc_dota_hero_brewmaster"
-	{
-		"Ability4"		"brewmaster_drunken_haze"
-	}
-
 	"npc_dota_hero_centaur"
 	{
 		"Ability10"		"special_bonus_hp_regen_5"
@@ -496,24 +490,10 @@
 		"Ability17"		"special_bonus_unique_night_stalker_301"	// // 暗夜猎影 移动速度 替代大招减CD
 	}
 
-	"npc_dota_hero_keeper_of_the_light"
-	{
-		"Ability6"		"keeper_of_the_light_mana_leak"		// 追加技能 法力流失
-		"Ability19"		"keeper_of_the_light_spirit_form"	// 移动 灵魂形态 不需要快捷键
-	}
-
 	"npc_dota_hero_rubick"
 	{
 		"Ability20"		"rubick_null_field"
 	}
-
-
-	"npc_dota_hero_nyx_assassin"
-	{
-		"Ability5"		"nyx_assassin_mana_burn"
-		"Ability20"		"nyx_assassin_nyxth_sense"
-	}
-
 
 	"npc_dota_hero_monkey_king"
 	{
@@ -615,11 +595,6 @@
 			}
 		}
 	}
-	"npc_dota_hero_antimage"
-	{
-		// "Ability4"		"brewmaster_cinder_brew"
-		// "Ability5"		"brewmaster_drunken_brawler"
-	}
 	"npc_dota_hero_terrorblade"
 	{
 		"AttributeStrengthGain"		"2.5" // 2
@@ -709,11 +684,6 @@
 				"34"		"bane_nightmare"
 			}
 		}
-	}
-	"npc_dota_hero_batrider"
-	{
-		"Ability5"		"dark_seer_ion_shell"
-		"Ability9"		"batrider_smoldering_resin"	// 闷烧树脂 先天技能
 	}
 	"npc_dota_hero_bounty_hunter"
 	{
@@ -1200,11 +1170,6 @@
 				"34"		"furion_teleportation"
 			}
 		}
-	}
-	"npc_dota_hero_grimstroke"
-	{
-		"Ability5"				"visage_soul_assumption"
-		"Ability8"				"grimstroke_return"
 	}
 	"npc_dota_hero_huskar"
 	{
@@ -1706,7 +1671,6 @@
 	}
 	"npc_dota_hero_ogre_magi"
 	{
-		"AttackRate"				"1.6"
 		"AttributeStrengthGain"		"4.7"	// 4.2
 		"AttributeAgilityGain"		"2.0"	// 1.5
 		"Bot"
@@ -1774,7 +1738,6 @@
 	}
 	"npc_dota_hero_omniknight"
 	{
-		//"Ability5"		"omniknight_repel" 加强新版二技能的同时暂时移除老版二技能
 		"Ability5"		"omniknight_angelic_flight"
 		"Bot"
 		{
@@ -1947,10 +1910,6 @@
 				"34"		"pudge_flesh_heap"
 			}
 		}
-	}
-	"npc_dota_hero_queenofpain"
-	{
-		"Ability5"		"dark_seer_vacuum"
 	}
 	"npc_dota_hero_razor"
 	{
