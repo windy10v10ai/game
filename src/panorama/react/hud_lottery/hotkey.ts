@@ -103,7 +103,7 @@ function GetCursorEntity(_abilityID: AbilityEntityIndex, aPosition = GameUI.GetC
   //根据屏幕宽度计算判断距离
   const screenWidth = Game.GetScreenWidth();
   Game.GetScreenHeight();
-  const judgeDistance = screenWidth / 30;
+  const judgeDistance = screenWidth / 20;
   let targets = FindRadiusScreenEntities(aPosition, judgeDistance);
   //过滤单位
   // targets = targets.filter((e) => {
