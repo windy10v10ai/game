@@ -66,7 +66,6 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
     if (bindKeyText === '') {
       return;
     }
-    $.Msg('quickCast', quickCastChanged);
     bindAbilityKey(abilityname, bindKeyText, quickCastChanged);
   };
 
