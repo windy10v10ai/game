@@ -3,13 +3,17 @@ import { AddKeyBind } from '@utils/utils';
 export function bindAbilityKey(abilityname: string, key: string, isQuickCast: boolean) {
   const hero = Players.GetLocalPlayerPortraitUnit();
   const ability = Entities.GetAbilityByName(hero, abilityname);
-  AddKeyBind(key, () => {
-    if (isQuickCast) {
-      QuickCastAbility(ability, Abilities.GetBehavior(ability));
-    } else {
-      Abilities.ExecuteAbility(ability, hero, true);
-    }
-  });
+  AddKeyBind(
+    key,
+    () => {
+      if (isQuickCast) {
+        QuickCastAbility(ability, Abilities.GetBehavior(ability));
+      } else {
+        Abilities.ExecuteAbility(ability, hero, true);
+      }
+    },
+    () => {},
+  );
 }
 
 function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_BEHAVIOR) {
