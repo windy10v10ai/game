@@ -15,8 +15,9 @@ const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
 const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
   const [isActive, setIsActive] = useState(false);
   const [bindKeyText, setBindKeyText] = useState('');
+  const [quickCast, setQuickCast] = useState(false);
   // 移除A,S
-  let validKeys = "BCDEFGHIJKLMNOPQRTUVWXYZ0123456789`-=[]\\;',./";
+  const validKeys = "BCDEFGHIJKLMNOPQRTUVWXYZ0123456789`-=[]\\;',./";
 
   const activeKeySetting = (e: Panel) => {
     if (abilityname === undefined) {
@@ -52,9 +53,21 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
     } else {
       setBindKeyText(key);
       setIsActive(false);
-      // TODO 快捷施法
-      bindAbilityKey(abilityname, key, true);
+      bindAbilityKey(abilityname, key, quickCast);
     }
+  };
+
+  const onQuickCastChange = () => {
+    const quickCastChanged = !quickCast;
+    setQuickCast(quickCastChanged);
+    if (abilityname === undefined) {
+      return;
+    }
+    if (bindKeyText === '') {
+      return;
+    }
+    $.Msg('quickCast', quickCastChanged);
+    bindAbilityKey(abilityname, bindKeyText, quickCastChanged);
   };
 
   return (
@@ -90,6 +103,20 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
           placeholder={$.Localize('#key_bind_placeholder')}
           maxchars={1}
           ontextentrychange={onTextEntryChange}
+        />
+      </Panel>
+      <Panel
+        style={{
+          flowChildren: 'right',
+          width: '100%',
+          marginTop: '2px',
+        }}
+        onactivate={onQuickCastChange}
+      >
+        <ToggleButton style={{ verticalAlign: 'center' }} selected={quickCast} />
+        <Label
+          style={{ fontSize: '12px', verticalAlign: 'center' }}
+          text={$.Localize('#key_bind_quick_cast')}
         />
       </Panel>
     </Panel>

@@ -16,7 +16,7 @@ function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_
   return (behavior & judge) == judge;
 }
 /**
- * 快捷释放技能
+ * 快速施法
  * @param abilityID
  * @param behavior
  * @param worldPos

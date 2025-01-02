@@ -183,6 +183,7 @@
 		"key_bind_placeholder"									"Hotkey"
 		"key_bind_mouseover_tooltop"							"Click to bind a hotkey to this ability. <br>If you meet hotkey conflicts or malfunctions, please try to disconnect and reconnect and then reset."
 		"key_bind_input_err"									"Invalid input, please try another key"
+		"key_bind_quick_cast"									"Quick Cast"
 		///////////////////////////////////////////////////
 		//
 		//			Member
