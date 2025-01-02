@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 interface KeySettingButtonProps {
   abilityname?: string;
-  // bindKeyText: string;
 }
 
 const rootPanelStyle: Partial<VCSSStyleDeclaration> = {

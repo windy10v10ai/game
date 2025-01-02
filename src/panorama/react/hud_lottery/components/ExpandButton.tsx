@@ -7,7 +7,7 @@ interface ExpandButtonProps {
 
 const ExpandButton: React.FC<ExpandButtonProps> = ({ textToken, toggleCollapse }) => {
   const buttonStyle: Partial<VCSSStyleDeclaration> = {
-    padding: '3px', // 内边距
+    padding: '1px', // 内边距
     width: '100px', // 宽度
     borderRadius: '3px', // 圆角
   };
