@@ -179,6 +179,12 @@
 		"lottery_tooltip_item_refresh_picked"					"物品已选择"
 		"lottery_tooltip_item_refresh_not_member"				"会员每日可刷新一次物品，点击开通会员"
 
+		"key_bind"												"改键"
+		"key_bind_collapsed"									"折叠"
+		"key_bind_placeholder"									"快捷键"
+		"key_bind_mouseover_tooltop"							"点击设置快捷键。<br>如遇快捷键冲突、失灵，请尝试断开重连后重新设置。"
+		"key_bind_input_err"									"输入内容不可用，请尝试其他按键"
+		"key_bind_quick_cast"									"快速施法"
 		///////////////////////////////////////////////////
 		//
 		//			Member
