@@ -26,18 +26,41 @@ export function GetOpenMemberUrl(): string {
   return $.Localize('#player_member_ship_url') + GetLocalPlayerSteamAccountID();
 }
 
-// 自定义键位绑定
-// export function AddKeyBind(
-//   keyName: string,
-//   keydownCallback?: () => void,
-//   keyupCallback?: () => void,
-// ) {
-//   const command = `${keyName}${Date.now()}`;
-//   Game.CreateCustomKeyBind(command, `+${command}`);
-//   if (keydownCallback) {
-//     Game.AddCommand(`+${command}`, keydownCallback, '', 1 << 32);
-//   }
-//   if (keyupCallback) {
-//     Game.AddCommand(`-${command}`, keyupCallback, '', 1 << 32);
-//   }
-// }
+/**
+ * 添加自定义键位绑定
+ * @param keyName 键位名称
+ * @param keydownCallback 按下键位时的回调函数
+ * @param keyupCallback 松开键位时的回调函数
+ */
+export function AddKeyBind(
+  keyName: string,
+  keydownCallback?: () => void,
+  keyupCallback?: () => void,
+) {
+  const command = `${keyName}${Date.now()}`;
+
+  Game.CreateCustomKeyBind(keyName, `+${command}`);
+  if (keydownCallback) {
+    Game.AddCommand(`+${command}`, keydownCallback, '', 1 << 32);
+  }
+  if (keyupCallback) {
+    Game.AddCommand(`-${command}`, keyupCallback, '', 1 << 32);
+  }
+}
+
+export function GetDotaHud() {
+  let panel: Panel | null = $.GetContextPanel();
+  while (panel && panel.id !== 'Hud') {
+    panel = panel.GetParent();
+  }
+
+  if (!panel) {
+    throw new Error('Could not find Hud root from panel with id: ' + $.GetContextPanel().id);
+  }
+
+  return panel;
+}
+
+export function FindDotaHudElement(id: string) {
+  return GetDotaHud().FindChildTraverse(id);
+}
