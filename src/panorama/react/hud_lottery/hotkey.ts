@@ -247,6 +247,7 @@ export function saveInputKeyborard(abilityname: string | undefined, key: string)
   if (key === '') {
     return;
   }
+  const text = bindKeyToText(key);
 
   const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
   const portraitUnitID = Players.GetLocalPlayerPortraitUnit();
@@ -272,10 +273,10 @@ export function saveInputKeyborard(abilityname: string | undefined, key: string)
   }
 
   const existingHotkey = findHotkeyTextCustomKey(targetAbilityPanel);
-  if (existingHotkey !== key) {
+  if (existingHotkey !== text) {
     // 改键不同时才处理
     removeCustomHotkey(targetAbilityPanel);
-    showCustomHotkey(targetAbilityPanel, key);
+    showCustomHotkey(targetAbilityPanel, text);
   }
 
   // 移除其他技能的改键（增减技能时，会错位）
@@ -334,4 +335,11 @@ function removeCustomHotkey(abilityPanel: Panel) {
   if (hotKeyLabel) {
     hotKeyLabel.style.visibility = 'visible';
   }
+}
+
+function bindKeyToText(key: string) {
+  if (key === ' ') {
+    return 'SPACE';
+  }
+  return key;
 }

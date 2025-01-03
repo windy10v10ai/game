@@ -17,7 +17,7 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
   const [bindKeyText, setBindKeyText] = useState('');
   const [quickCast, setQuickCast] = useState(false);
   // 移除A,S
-  const validKeys = "BCDEFGHIJKLMNOPQRTUVWXYZ0123456789`-=[]\\;',./";
+  const validKeys = " BCDEFGHIJKLMNOPQRTUVWXYZ0123456789`-=[]\\;',./";
 
   const activeKeySetting = (e: Panel) => {
     if (abilityname === undefined) {
