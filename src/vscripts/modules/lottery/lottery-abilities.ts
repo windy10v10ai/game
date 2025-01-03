@@ -10,8 +10,7 @@ export const abilityTiers: Tier[] = [
     rate: 1,
     names: [
       // 主动技能
-      'lina_laguna_blade', // 神灭斩
-      'lion_finger_of_death', // 死亡一指
+      'enigma_black_hole', // 黑洞
       'juggernaut_omni_slash', // 无敌斩
       'necrolyte_reapers_scythe', // 死神镰刀
 
@@ -28,9 +27,11 @@ export const abilityTiers: Tier[] = [
     rate: 5,
     names: [
       // 主动技能
+      'omniknight_guardian_angel', // 守护天使
       'slark_shadow_dance', // 暗影之舞
       'doom_bringer_doom', // 末日
-      'brewmaster_primal_split_lua', // 元素分离 改
+      'lina_laguna_blade', // 神灭斩
+      'lion_finger_of_death', // 死亡一指
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
@@ -55,9 +56,14 @@ export const abilityTiers: Tier[] = [
     rate: 20,
     names: [
       // 主动技能
+      'brewmaster_primal_split_lua', // 元素分离 改
+      'sniper_assassinate', // 暗杀
+
       'nyx_assassin_mana_burn', // 法力燃烧
       'visage_soul_assumption', // 灵魂超度
-      'antimage_blink', // 闪烁
+      'faceless_void_time_walk', // 时间漫游
+      'pudge_meat_hook', // 肉钩
+      'razor_static_link', // 静电连接
 
       // 法球/开关技能
       'silencer_glaives_of_wisdom', // 智慧之刃
@@ -88,9 +94,16 @@ export const abilityTiers: Tier[] = [
     rate: 50,
     names: [
       // 主动技能
+      'antimage_blink', // 闪烁
       'shadow_shaman_voodoo', // 妖术
-      'dark_seer_ion_shell', // 离子外壳
-      'dark_seer_vacuum', // 真空
+      'earthshaker_fissure', // 沟壑
+      'omniknight_purification', // 洗礼
+      'spirit_breaker_charge_of_darkness', // 暗影冲刺
+      'tusk_ice_shards', // 寒冰碎片
+      'ogre_magi_fireblast', // 火焰爆轰
+      'sniper_shrapnel', // 霰弹雨
+      'mirana_arrow', // 月神之箭
+      'phantom_assassin_stifling_dagger', // 窒碍短匕
 
       // 法球/开关技能
       'viper_poison_attack', // 毒性攻击
@@ -125,7 +138,12 @@ export const abilityTiers: Tier[] = [
       // 主动技能
       'keeper_of_the_light_mana_leak', // 法力流失
       'omniknight_repel', // 咸鱼恩赐
-      'sniper_shrapnel', // 霰弹雨
+      'dark_seer_ion_shell', // 离子外壳
+      'dark_seer_vacuum', // 真空
+      'tusk_snowball', // 雪球
+      'ogre_magi_ignite', // 引燃
+      'shadow_shaman_ether_shock', // 苍穹震击
+      'phantom_assassin_phantom_strike', // 幻影突袭
 
       // 法球/开关技能
       'drow_ranger_frost_arrows', // 霜冻之箭
