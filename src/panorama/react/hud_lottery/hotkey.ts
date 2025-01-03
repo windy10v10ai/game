@@ -240,7 +240,14 @@ function WorldToScreenXY(pos: [number, number, number]): [number, number] {
 /**
  * 把玩家输入的键位显示在技能图标上
  */
-function saveInputKeyborard(abilityname: string, key: string) {
+export function saveInputKeyborard(abilityname: string | undefined, key: string) {
+  if (!abilityname) {
+    return;
+  }
+  if (key === '') {
+    return;
+  }
+
   const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
   const portraitUnitID = Players.GetLocalPlayerPortraitUnit();
   if (portraitUnitID !== heroID) {
@@ -253,54 +260,78 @@ function saveInputKeyborard(abilityname: string, key: string) {
   }
   const abilityPanels = abilities.Children();
 
+  // 查找改键技能面板
+  const targetAbilityPanel = abilityPanels.find((abilityPanel) => {
+    const abilityImage = abilityPanel.FindChildTraverse('AbilityImage') as AbilityImage | null;
+    const currentAbilityName = abilityImage?.abilityname;
+    return abilityname === currentAbilityName;
+  });
+
+  if (!targetAbilityPanel) {
+    return;
+  }
+
+  const existingHotkey = findHotkeyTextCustomKey(targetAbilityPanel);
+  if (existingHotkey !== key) {
+    // 改键不同时才处理
+    removeCustomHotkey(targetAbilityPanel);
+    showCustomHotkey(targetAbilityPanel, key);
+  }
+
+  // 移除其他技能的改键（增减技能时，会错位）
   for (const abilityPanel of abilityPanels) {
     if (abilityPanel.BHasClass('Hidden')) {
       continue;
     }
-
     const abilityImage = abilityPanel.FindChildTraverse('AbilityImage') as AbilityImage | null;
     const currentAbilityName = abilityImage?.abilityname;
     if (abilityname === currentAbilityName) {
-      showCustomHotKey(abilityPanel, key);
-    } else {
-      removeCustomHotKey(abilityPanel);
+      continue;
     }
+    removeCustomHotkey(abilityPanel);
   }
 }
 
-function showCustomHotKey(abilityPanel: Panel, text: string) {
-  const hotkeyContainer = abilityPanel.FindChildTraverse('HotkeyContainer') as Panel | undefined;
-  if (!hotkeyContainer) {
-    return;
+function findHotkeyTextCustomKey(abilityPanel: Panel) {
+  const hotKeyLabelCustom = abilityPanel.FindChildTraverse(`HotkeyTextCustom`) as
+    | LabelPanel
+    | undefined;
+  if (hotKeyLabelCustom) {
+    return hotKeyLabelCustom.text;
   }
-  const hotKey = $.CreatePanel('Panel', hotkeyContainer, `HotKeyCustom`);
-  hotKey.style.minWidth = `14px`;
-  hotKey.style.height = `14px`;
-  hotKey.style.backgroundColor = `#212726`;
-  hotKey.style.borderRadius = `4px`;
-  hotKey.style.border = `1px solid bliack`;
-  hotKey.style.boxShadow = `fill #000000aa 1px 1px 6px 0px`;
-  hotKey.style.align = `left top`;
-  hotKey.style.margin = `91px 0 0 3px`;
-  hotKey.style.zIndex = 14;
-  const hotKeyLabel = $.CreatePanel('Label', hotKey, `HotKeyText`);
-  hotKeyLabel.text = text;
-  hotKeyLabel.style.fontSize = '12px';
-  hotKeyLabel.style.textShadow = '1px 1px 0px 2 #000000';
-  hotKeyLabel.style.margin = '0px 0px -2px 0px';
-  hotKeyLabel.style.horizontalAlign = 'center';
-  hotKeyLabel.style.textAlign = `center`;
-  hotKeyLabel.style.color = `#FFFFFF`;
+  return '';
 }
 
-function removeCustomHotKey(abilityPanel: Panel) {
-  const hotkeyContainer = abilityPanel.FindChildTraverse('HotkeyContainer') as Panel | undefined;
-  if (!hotkeyContainer) {
+function showCustomHotkey(abilityPanel: Panel, text: string) {
+  const hotkey = abilityPanel.FindChildTraverse('Hotkey') as Panel | undefined;
+  if (!hotkey) {
     return;
   }
-  // remove hotkey
-  const hotKey = hotkeyContainer.FindChildTraverse(`HotKeyCustom`);
-  if (hotKey) {
-    hotKey.DeleteAsync(0);
+  hotkey.style.visibility = 'visible';
+
+  const hotKeyLabelCustom = $.CreatePanel('Label', hotkey, `HotkeyTextCustom`);
+  hotKeyLabelCustom.text = text;
+  hotKeyLabelCustom.style.fontSize = '12px';
+  hotKeyLabelCustom.style.textShadow = '1px 1px 0px 2 #000000';
+  hotKeyLabelCustom.style.margin = '0px 0px -2px 0px';
+  hotKeyLabelCustom.style.horizontalAlign = 'center';
+  hotKeyLabelCustom.style.textAlign = `center`;
+  hotKeyLabelCustom.style.color = `#FFFFFF`;
+
+  const hotKeyLabel = abilityPanel.FindChildTraverse('HotkeyText');
+  if (hotKeyLabel) {
+    hotKeyLabel.style.visibility = 'collapse';
+  }
+}
+
+function removeCustomHotkey(abilityPanel: Panel) {
+  const hotKeyLabelCustom = abilityPanel.FindChildTraverse(`HotkeyTextCustom`);
+  if (hotKeyLabelCustom) {
+    hotKeyLabelCustom.DeleteAsync(0);
+  }
+
+  const hotKeyLabel = abilityPanel.FindChildTraverse('HotkeyText');
+  if (hotKeyLabel) {
+    hotKeyLabel.style.visibility = 'visible';
   }
 }
