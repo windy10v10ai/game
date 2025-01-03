@@ -108,38 +108,11 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
  * @returns
  */
 function GetCursorEntity(_abilityID: AbilityEntityIndex, aPosition = GameUI.GetCursorPosition()) {
-  // const localPlayer = Players.GetLocalPlayer();
-  // const playerTeam = Players.GetTeam(localPlayer);
-  // const targetTeam = Abilities.GetAbilityTargetTeam(abilityID);
   //根据屏幕宽度计算判断距离
   const screenWidth = Game.GetScreenWidth();
   Game.GetScreenHeight();
   const judgeDistance = screenWidth / 20;
   let targets = FindRadiusScreenEntities(aPosition, judgeDistance);
-  //过滤单位
-  // targets = targets.filter((e) => {
-  //   const entIndex = e.entityIndex;
-  //   const entTeam = Entities.GetTeamNumber(entIndex);
-  //   //技能目标为任意单位
-  //   if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_BOTH) {
-  //     return true;
-  //   }
-  //   //技能目标为友方单位
-  //   if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_FRIENDLY) {
-  //     //不是友方单位
-  //     if (entTeam !== playerTeam) {
-  //       return false;
-  //     }
-  //   }
-  //   //技能目标为敌方单位
-  //   if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_ENEMY) {
-  //     //不是敌方单位
-  //     if (entTeam === playerTeam) {
-  //       return false;
-  //     }
-  //   }
-  //   return true;
-  // });
   //优先精确碰撞的单位
   const targets1 = targets.filter((e) => {
     return e.accurateCollision;
