@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { bindAbilityKey } from '../hotkey';
+import React, { useEffect, useState } from 'react';
+import { bindAbilityKey, saveInputKeyborard } from '../hotkey';
 
 interface KeySettingButtonProps {
   abilityname?: string;
@@ -17,7 +17,7 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
   const [bindKeyText, setBindKeyText] = useState('');
   const [quickCast, setQuickCast] = useState(false);
   // 移除A,S
-  const validKeys = "BCDEFGHIJKLMNOPQRTUVWXYZ0123456789`-=[]\\;',./";
+  const validKeys = " BCDEFGHIJKLMNOPQRTUVWXYZ0123456789`-=[]\\;',./";
 
   const activeKeySetting = (e: Panel) => {
     if (abilityname === undefined) {
@@ -68,6 +68,16 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
     }
     bindAbilityKey(abilityname, bindKeyText, quickCastChanged);
   };
+
+  useEffect(() => {
+    // 每秒刷新一次改键显示
+    const timer = setInterval(() => {
+      saveInputKeyborard(abilityname, bindKeyText);
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [abilityname, bindKeyText]);
 
   return (
     <Panel style={rootPanelStyle} className="BindingRow">

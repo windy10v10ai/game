@@ -1,15 +1,30 @@
-import { AddKeyBind } from '@utils/utils';
+import { AddKeyBind, FindDotaHudElement } from '@utils/utils';
 
 export function bindAbilityKey(abilityname: string, key: string, isQuickCast: boolean) {
-  const hero = Players.GetLocalPlayerPortraitUnit();
-  const ability = Entities.GetAbilityByName(hero, abilityname);
-  AddKeyBind(key, () => {
-    if (isQuickCast) {
-      QuickCastAbility(ability, Abilities.GetBehavior(ability));
-    } else {
-      Abilities.ExecuteAbility(ability, hero, true);
-    }
-  });
+  const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+  const abilityID = Entities.GetAbilityByName(heroID, abilityname);
+  // 绑定施法
+  AddKeyBind(
+    key,
+    () => {
+      if (isQuickCast) {
+        QuickCastAbility(abilityID, Abilities.GetBehavior(abilityID));
+      } else {
+        Abilities.ExecuteAbility(abilityID, heroID, true);
+      }
+    },
+    () => {},
+  );
+  // ctrl + key 升级技能
+  AddKeyBind(
+    `Ctrl+${key}`,
+    () => {
+      Abilities.AttemptToUpgrade(abilityID);
+    },
+    () => {},
+  );
+
+  saveInputKeyborard(abilityname, key);
 }
 
 function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_BEHAVIOR) {
@@ -22,6 +37,17 @@ function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_
  * @param worldPos
  */
 function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_BEHAVIOR) {
+  if (!Abilities.IsCooldownReady(abilityID)) {
+    GameUI.SendCustomHUDError(
+      'dota_hud_error_ability_in_cooldown',
+      'General.CastFail_AbilityInCooldown',
+    );
+    return;
+  }
+  if (!Abilities.IsOwnersManaEnough(abilityID)) {
+    GameUI.SendCustomHUDError('dota_hud_error_not_enough_mana', 'General.CastFail_NoMana');
+    return;
+  }
   const worldPos = GameUI.GetScreenWorldPosition(GameUI.GetCursorPosition()) ?? undefined;
   if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING)) {
     //矢量施法暂不支持
@@ -33,12 +59,13 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
         DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE;
       const target = GetCursorEntity(abilityID);
       if (target === undefined) {
-        Game.PrepareUnitOrders({
-          OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION,
-          Position: worldPos,
-          AbilityIndex: abilityID,
-          ShowEffects: true,
-        });
+        // Game.PrepareUnitOrders({
+        //   OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION,
+        //   Position: worldPos,
+        //   AbilityIndex: abilityID,
+        //   ShowEffects: true,
+        // });
+        GameUI.SendCustomHUDError('dota_hud_error_no_target', 'General.CastFail_NoTarget');
       } else {
         Game.PrepareUnitOrders({
           OrderType: hasTree
@@ -46,7 +73,7 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
             : dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET,
           TargetIndex: target?.entityIndex ?? -1,
           AbilityIndex: abilityID,
-          ShowEffects: false,
+          ShowEffects: true,
         });
       }
     } else if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT)) {
@@ -80,60 +107,12 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
  * @param aPosition 鼠标位置
  * @returns
  */
-function GetCursorEntity(abilityID: AbilityEntityIndex, aPosition = GameUI.GetCursorPosition()) {
-  const localPlayer = Players.GetLocalPlayer();
-  const playerTeam = Players.GetTeam(localPlayer);
-  const targetType = Abilities.GetAbilityTargetType(abilityID);
-  const hasTree =
-    (targetType & DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE) ===
-    DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE;
-  const targetTeam = Abilities.GetAbilityTargetTeam(abilityID);
+function GetCursorEntity(_abilityID: AbilityEntityIndex, aPosition = GameUI.GetCursorPosition()) {
   //根据屏幕宽度计算判断距离
   const screenWidth = Game.GetScreenWidth();
+  Game.GetScreenHeight();
   const judgeDistance = screenWidth / 20;
   let targets = FindRadiusScreenEntities(aPosition, judgeDistance);
-  if (hasTree) {
-    const trees = Entities.GetAllEntitiesByClassname('ent_dota_tree');
-    trees.forEach((e) => {
-      const exy = GetEntScreenXY(e);
-      const screenLength = ScreenLength(exy, aPosition);
-      if (screenLength < judgeDistance) {
-        targets.push({ entityIndex: e, accurateCollision: false });
-      }
-    });
-    const tempTrees = Entities.GetAllEntitiesByClassname('dota_temp_tree');
-    tempTrees.forEach((e) => {
-      const exy = GetEntScreenXY(e);
-      const screenLength = ScreenLength(exy, aPosition);
-      if (screenLength < judgeDistance) {
-        targets.push({ entityIndex: e, accurateCollision: false });
-      }
-    });
-  }
-  //过滤单位
-  targets = targets.filter((e) => {
-    const entIndex = e.entityIndex;
-    const entTeam = Entities.GetTeamNumber(entIndex);
-    //技能目标为任意单位
-    if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_BOTH) {
-      return true;
-    }
-    //技能目标为友方单位
-    if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_FRIENDLY) {
-      //不是友方单位
-      if (entTeam !== playerTeam) {
-        return false;
-      }
-    }
-    //技能目标为敌方单位
-    if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_ENEMY) {
-      //不是敌方单位
-      if (entTeam === playerTeam) {
-        return false;
-      }
-    }
-    return true;
-  });
   //优先精确碰撞的单位
   const targets1 = targets.filter((e) => {
     return e.accurateCollision;
@@ -167,7 +146,7 @@ function GetCursorEntity(abilityID: AbilityEntityIndex, aPosition = GameUI.GetCu
 function FindRadiusScreenEntities(
   aPosition: [number, number],
   radius = 100,
-  pixel = Math.ceil(radius / 20),
+  pixel = Math.ceil(radius / 2),
 ) {
   const targets: ScreenEntity[] = [];
   //以aPosition为中心，pixel为像素间隔，由内至外获取屏幕上的单位
@@ -229,4 +208,111 @@ function WorldToScreenXY(pos: [number, number, number]): [number, number] {
   if (screenY < 0) screenY = 0;
   if (screenY > Game.GetScreenHeight()) screenY = Game.GetScreenHeight();
   return [screenX, screenY];
+}
+
+/**
+ * 把玩家输入的键位显示在技能图标上
+ */
+export function saveInputKeyborard(abilityname: string | undefined, key: string) {
+  if (!abilityname) {
+    return;
+  }
+  if (key === '') {
+    return;
+  }
+  const text = bindKeyToText(key);
+
+  const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+  const portraitUnitID = Players.GetLocalPlayerPortraitUnit();
+  if (portraitUnitID !== heroID) {
+    return;
+  }
+  //获取技能面板
+  const abilities = FindDotaHudElement(`abilities`);
+  if (!abilities) {
+    return;
+  }
+  const abilityPanels = abilities.Children();
+
+  // 查找改键技能面板
+  const targetAbilityPanel = abilityPanels.find((abilityPanel) => {
+    const abilityImage = abilityPanel.FindChildTraverse('AbilityImage') as AbilityImage | null;
+    const currentAbilityName = abilityImage?.abilityname;
+    return abilityname === currentAbilityName;
+  });
+
+  if (!targetAbilityPanel) {
+    return;
+  }
+
+  const existingHotkey = findHotkeyTextCustomKey(targetAbilityPanel);
+  if (existingHotkey !== text) {
+    // 改键不同时才处理
+    removeCustomHotkey(targetAbilityPanel);
+    showCustomHotkey(targetAbilityPanel, text);
+  }
+
+  // 移除其他技能的改键（增减技能时，会错位）
+  for (const abilityPanel of abilityPanels) {
+    if (abilityPanel.BHasClass('Hidden')) {
+      continue;
+    }
+    const abilityImage = abilityPanel.FindChildTraverse('AbilityImage') as AbilityImage | null;
+    const currentAbilityName = abilityImage?.abilityname;
+    if (abilityname === currentAbilityName) {
+      continue;
+    }
+    removeCustomHotkey(abilityPanel);
+  }
+}
+
+function findHotkeyTextCustomKey(abilityPanel: Panel) {
+  const hotKeyLabelCustom = abilityPanel.FindChildTraverse(`HotkeyTextCustom`) as
+    | LabelPanel
+    | undefined;
+  if (hotKeyLabelCustom) {
+    return hotKeyLabelCustom.text;
+  }
+  return '';
+}
+
+function showCustomHotkey(abilityPanel: Panel, text: string) {
+  const hotkey = abilityPanel.FindChildTraverse('Hotkey') as Panel | undefined;
+  if (!hotkey) {
+    return;
+  }
+  hotkey.style.visibility = 'visible';
+
+  const hotKeyLabelCustom = $.CreatePanel('Label', hotkey, `HotkeyTextCustom`);
+  hotKeyLabelCustom.text = text;
+  hotKeyLabelCustom.style.fontSize = '12px';
+  hotKeyLabelCustom.style.textShadow = '1px 1px 0px 2 #000000';
+  hotKeyLabelCustom.style.margin = '0px 0px -2px 0px';
+  hotKeyLabelCustom.style.horizontalAlign = 'center';
+  hotKeyLabelCustom.style.textAlign = `center`;
+  hotKeyLabelCustom.style.color = `#FFFFFF`;
+
+  const hotKeyLabel = abilityPanel.FindChildTraverse('HotkeyText');
+  if (hotKeyLabel) {
+    hotKeyLabel.style.visibility = 'collapse';
+  }
+}
+
+function removeCustomHotkey(abilityPanel: Panel) {
+  const hotKeyLabelCustom = abilityPanel.FindChildTraverse(`HotkeyTextCustom`);
+  if (hotKeyLabelCustom) {
+    hotKeyLabelCustom.DeleteAsync(0);
+  }
+
+  const hotKeyLabel = abilityPanel.FindChildTraverse('HotkeyText');
+  if (hotKeyLabel) {
+    hotKeyLabel.style.visibility = 'visible';
+  }
+}
+
+function bindKeyToText(key: string) {
+  if (key === ' ') {
+    return 'SPACE';
+  }
+  return key;
 }
