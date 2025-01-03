@@ -8,13 +8,15 @@ interface ExpandButtonProps {
 const ExpandButton: React.FC<ExpandButtonProps> = ({ textToken, toggleCollapse }) => {
   const buttonStyle: Partial<VCSSStyleDeclaration> = {
     padding: '1px', // 内边距
-    width: '100px', // 宽度
+    width: '60px', // 宽度
     borderRadius: '3px', // 圆角
   };
 
   const labelStyle: Partial<VCSSStyleDeclaration> = {
     horizontalAlign: 'center', // 居中
-    fontSize: '20px', // 字体大小
+    fontSize: '16px', // 字体大小
+    // 字体间距
+    letterSpacing: '-1px',
   };
 
   return (
