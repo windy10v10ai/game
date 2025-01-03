@@ -47,3 +47,20 @@ export function AddKeyBind(
     Game.AddCommand(`-${command}`, keyupCallback, '', 1 << 32);
   }
 }
+
+export function GetDotaHud() {
+  let panel: Panel | null = $.GetContextPanel();
+  while (panel && panel.id !== 'Hud') {
+    panel = panel.GetParent();
+  }
+
+  if (!panel) {
+    throw new Error('Could not find Hud root from panel with id: ' + $.GetContextPanel().id);
+  }
+
+  return panel;
+}
+
+export function FindDotaHudElement(id: string) {
+  return GetDotaHud().FindChildTraverse(id);
+}
