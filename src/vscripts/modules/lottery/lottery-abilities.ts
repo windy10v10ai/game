@@ -32,6 +32,8 @@ export const abilityTiers: Tier[] = [
       'doom_bringer_doom', // 末日
       'lina_laguna_blade', // 神灭斩
       'lion_finger_of_death', // 死亡一指
+      'storm_spirit_ball_lightning', // 球状闪电
+      'queenofpain_sonic_wave', // 超声冲击波
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
@@ -58,12 +60,18 @@ export const abilityTiers: Tier[] = [
       // 主动技能
       'brewmaster_primal_split_lua', // 元素分离 改
       'sniper_assassinate', // 暗杀
+      'sandking_epicenter', // 地震
+      'rattletrap_hookshot', // 发射钩爪
+      'skywrath_mage_mystic_flare', // 神秘之耀
+      'bane_fiends_grip', // 魔爪
 
       'nyx_assassin_mana_burn', // 法力燃烧
-      'visage_soul_assumption', // 灵魂超度
       'faceless_void_time_walk', // 时间漫游
       'pudge_meat_hook', // 肉钩
       'razor_static_link', // 静电连接
+      'shredder_whirling_death', // 死亡旋风
+      'bane_brain_sap', // 蚀脑
+      'tinker_laser', // 激光
 
       // 法球/开关技能
       'silencer_glaives_of_wisdom', // 智慧之刃
@@ -102,16 +110,18 @@ export const abilityTiers: Tier[] = [
       'tusk_ice_shards', // 寒冰碎片
       'ogre_magi_fireblast', // 火焰爆轰
       'sniper_shrapnel', // 霰弹雨
-      'mirana_arrow', // 月神之箭
       'phantom_assassin_stifling_dagger', // 窒碍短匕
+      'bounty_hunter_wind_walk', // 暗影步
+      'lina_light_strike_array', // 光击阵
+      'lion_impale', // 裂地尖刺
+      'sandking_burrowstrike', // 穿刺 沙王
+      'skywrath_mage_arcane_bolt', // 奥术鹰隼
 
       // 法球/开关技能
       'viper_poison_attack', // 毒性攻击
 
       // 被动技能
-      'legion_commander_moment_of_courage', // 勇气之霎
       'weaver_geminate_attack', // 连击
-      'centaur_return', // 人马 反伤
       'obsidian_destroyer_equilibrium', // 精华变迁
       'tiny_grow', // 长大
       'monkey_king_jingu_mastery', // 如意棒法
@@ -129,6 +139,7 @@ export const abilityTiers: Tier[] = [
       'mars_bulwark', // 护身甲盾
       'lycan_feral_impulse', // 野性驱使
       'spectre_desolate', // 荒芜
+      'centaur_return', // 人马 反伤
     ],
   },
   {
@@ -144,18 +155,28 @@ export const abilityTiers: Tier[] = [
       'ogre_magi_ignite', // 引燃
       'shadow_shaman_ether_shock', // 苍穹震击
       'phantom_assassin_phantom_strike', // 幻影突袭
+      'mirana_arrow', // 月神之箭
+      'kunkka_torrent', // 洪流
+      'bounty_hunter_shuriken_toss', // 投掷飞镖
+      'lina_dragon_slave', // 龙破斩
+      'visage_soul_assumption', // 灵魂超度
+      'necrolyte_death_pulse', // 死亡脉冲
+      'slardar_slithereen_crush', // 鱼人碎击
+      'rattletrap_rocket_flare', // 照明火箭
+      'skywrath_mage_ancient_seal', // 上古封印
+      'tinker_defense_matrix', // 防御矩阵
 
       // 法球/开关技能
       'drow_ranger_frost_arrows', // 霜冻之箭
-      'jakiro_liquid_fire', // 液态火
-      'jakiro_liquid_ice', // 液态冰
-      'witch_doctor_voodoo_restoration', // 巫毒疗法
+      // 'witch_doctor_voodoo_restoration', // 巫毒疗法
+      // 'jakiro_liquid_fire', // 液态火
+      // 'jakiro_liquid_ice', // 液态冰
       // 'obsidian_destroyer_arcane_orb', // 奥术天球
 
       // 被动技能
+      'legion_commander_moment_of_courage', // 勇气之霎
       'sniper_headshot', // 爆头
       'visage_gravekeepers_cloak', // 陵卫斗篷
-      'storm_spirit_overload', // 超负荷
       'life_stealer_ghoul_frenzy', // 尸鬼狂怒
       'venomancer_poison_sting', // 剧毒术士 毒刺
       'broodmother_incapacitating_bite', // 麻痹之咬
@@ -167,7 +188,8 @@ export const abilityTiers: Tier[] = [
       'razor_storm_surge', // 风暴涌动
       'crystal_maiden_brilliance_aura', // 奥术光环 冰女
       'tidehunter_kraken_shell', // 海妖外壳
-      'alchemist_corrosive_weaponry', // 腐蚀兵械
+      'storm_spirit_overload', // 超负荷
+      // 'alchemist_corrosive_weaponry', // 腐蚀兵械
     ],
   },
 ];
