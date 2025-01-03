@@ -1,19 +1,30 @@
-import { AddKeyBind } from '@utils/utils';
+import { AddKeyBind, FindDotaHudElement } from '@utils/utils';
 
 export function bindAbilityKey(abilityname: string, key: string, isQuickCast: boolean) {
-  const hero = Players.GetLocalPlayerPortraitUnit();
-  const ability = Entities.GetAbilityByName(hero, abilityname);
+  const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+  const abilityID = Entities.GetAbilityByName(heroID, abilityname);
+  // 绑定施法
   AddKeyBind(
     key,
     () => {
       if (isQuickCast) {
-        QuickCastAbility(ability, Abilities.GetBehavior(ability));
+        QuickCastAbility(abilityID, Abilities.GetBehavior(abilityID));
       } else {
-        Abilities.ExecuteAbility(ability, hero, true);
+        Abilities.ExecuteAbility(abilityID, heroID, true);
       }
     },
     () => {},
   );
+  // ctrl + key 升级技能
+  AddKeyBind(
+    `Ctrl+${key}`,
+    () => {
+      Abilities.AttemptToUpgrade(abilityID);
+    },
+    () => {},
+  );
+
+  saveInputKeyborard(abilityname, key);
 }
 
 function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_BEHAVIOR) {
@@ -224,4 +235,72 @@ function WorldToScreenXY(pos: [number, number, number]): [number, number] {
   if (screenY < 0) screenY = 0;
   if (screenY > Game.GetScreenHeight()) screenY = Game.GetScreenHeight();
   return [screenX, screenY];
+}
+
+/**
+ * 把玩家输入的键位显示在技能图标上
+ */
+function saveInputKeyborard(abilityname: string, key: string) {
+  const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+  const portraitUnitID = Players.GetLocalPlayerPortraitUnit();
+  if (portraitUnitID !== heroID) {
+    return;
+  }
+  //获取技能面板
+  const abilities = FindDotaHudElement(`abilities`);
+  if (!abilities) {
+    return;
+  }
+  const abilityPanels = abilities.Children();
+
+  for (const abilityPanel of abilityPanels) {
+    if (abilityPanel.BHasClass('Hidden')) {
+      continue;
+    }
+
+    const abilityImage = abilityPanel.FindChildTraverse('AbilityImage') as AbilityImage | null;
+    const currentAbilityName = abilityImage?.abilityname;
+    if (abilityname === currentAbilityName) {
+      showCustomHotKey(abilityPanel, key);
+    } else {
+      removeCustomHotKey(abilityPanel);
+    }
+  }
+}
+
+function showCustomHotKey(abilityPanel: Panel, text: string) {
+  const hotkeyContainer = abilityPanel.FindChildTraverse('HotkeyContainer') as Panel | undefined;
+  if (!hotkeyContainer) {
+    return;
+  }
+  const hotKey = $.CreatePanel('Panel', hotkeyContainer, `HotKeyCustom`);
+  hotKey.style.minWidth = `14px`;
+  hotKey.style.height = `14px`;
+  hotKey.style.backgroundColor = `#212726`;
+  hotKey.style.borderRadius = `4px`;
+  hotKey.style.border = `1px solid bliack`;
+  hotKey.style.boxShadow = `fill #000000aa 1px 1px 6px 0px`;
+  hotKey.style.align = `left top`;
+  hotKey.style.margin = `91px 0 0 3px`;
+  hotKey.style.zIndex = 14;
+  const hotKeyLabel = $.CreatePanel('Label', hotKey, `HotKeyText`);
+  hotKeyLabel.text = text;
+  hotKeyLabel.style.fontSize = '12px';
+  hotKeyLabel.style.textShadow = '1px 1px 0px 2 #000000';
+  hotKeyLabel.style.margin = '0px 0px -2px 0px';
+  hotKeyLabel.style.horizontalAlign = 'center';
+  hotKeyLabel.style.textAlign = `center`;
+  hotKeyLabel.style.color = `#FFFFFF`;
+}
+
+function removeCustomHotKey(abilityPanel: Panel) {
+  const hotkeyContainer = abilityPanel.FindChildTraverse('HotkeyContainer') as Panel | undefined;
+  if (!hotkeyContainer) {
+    return;
+  }
+  // remove hotkey
+  const hotKey = hotkeyContainer.FindChildTraverse(`HotKeyCustom`);
+  if (hotKey) {
+    hotKey.DeleteAsync(0);
+  }
 }
