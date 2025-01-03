@@ -15,8 +15,7 @@ const ExpandButton: React.FC<ExpandButtonProps> = ({ textToken, toggleCollapse }
   const labelStyle: Partial<VCSSStyleDeclaration> = {
     horizontalAlign: 'center', // 居中
     fontSize: '16px', // 字体大小
-    // 字体间距
-    letterSpacing: '-1px',
+    letterSpacing: '-1px', // 字体间距
   };
 
   return (
