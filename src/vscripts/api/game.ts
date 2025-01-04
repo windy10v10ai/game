@@ -2,7 +2,7 @@ import { GameEndDto } from './analytics/dto/game-end-dto';
 import { ApiClient, HttpMethod } from './api-client';
 
 export class Game {
-  public static POST_GAME_URL = '/game/end/v2';
+  public static POST_GAME_END_URL = '/game/end';
 
   constructor() {}
 
@@ -13,7 +13,7 @@ export class Game {
 
     const apiParameter = {
       method: HttpMethod.POST,
-      path: this.POST_GAME_URL,
+      path: this.POST_GAME_END_URL,
       body: gameEndDto,
       successFunc: (data: string) => {
         CustomNetTables.SetTableValue('ending_status', 'ending_status', {

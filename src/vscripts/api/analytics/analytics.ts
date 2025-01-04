@@ -38,7 +38,7 @@ export class Analytic {
   public static async SendGameEndPickAbilityEvent(pickDto: PickDto) {
     const apiParameter: ApiParameter = {
       method: HttpMethod.POST,
-      path: this.POST_LOTTERY_PICK_ABILITY_URL,
+      path: this.POST_GAME_END_PICK_ABILITY_URL,
       body: pickDto,
       successFunc: () => {
         print(`[Analytic] SendGameEndPickAbilityEvent success`);
@@ -51,7 +51,7 @@ export class Analytic {
   public static async SendGameEndPickItemEvent(pickDto: PickDto) {
     const apiParameter: ApiParameter = {
       method: HttpMethod.POST,
-      path: this.POST_LOTTERY_PICK_ITEM_URL,
+      path: this.POST_GAME_END_PICK_ITEM_URL,
       body: pickDto,
       successFunc: () => {
         print(`[Analytic] SendGameEndPickItemEvent success`);
