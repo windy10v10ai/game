@@ -165,36 +165,41 @@ export class GameEnd {
         const itemName = LotteryStatus.pickItemName;
 
         // SendGameEndPickAbilityEvent
-        const lotteryAbilitiesRaw = CustomNetTables.GetTableValue(
-          'lottery_abilities',
-          steamAccountID,
-        );
-        const abilityLevel =
-          Object.values(lotteryAbilitiesRaw).find((item) => item.name === abilityName)?.level ?? 0;
+        if (abilityName) {
+          const lotteryAbilitiesRaw = CustomNetTables.GetTableValue(
+            'lottery_abilities',
+            steamAccountID,
+          );
+          const abilityLevel =
+            Object.values(lotteryAbilitiesRaw).find((item) => item.name === abilityName)?.level ??
+            0;
 
-        Analytic.SendGameEndPickAbilityEvent({
-          steamId: player.steamId,
-          matchId: gameEndDto.matchId,
-          name: abilityName,
-          level: abilityLevel,
-          difficulty: gameEndDto.difficulty,
-          version: gameEndDto.version,
-          isWin: gameEndDto.winnerTeamId === player.teamId,
-        });
+          Analytic.SendGameEndPickAbilityEvent({
+            steamId: player.steamId,
+            matchId: gameEndDto.matchId,
+            name: abilityName,
+            level: abilityLevel,
+            difficulty: gameEndDto.difficulty,
+            version: gameEndDto.version,
+            isWin: gameEndDto.winnerTeamId === player.teamId,
+          });
+        }
 
         // SendGameEndPickItemEvent
-        const lotteryItemsRaw = CustomNetTables.GetTableValue('lottery_items', steamAccountID);
-        const itemLevel =
-          Object.values(lotteryItemsRaw).find((item) => item.name === itemName)?.level ?? 0;
-        Analytic.SendGameEndPickItemEvent({
-          steamId: player.steamId,
-          matchId: gameEndDto.matchId,
-          name: itemName,
-          level: itemLevel,
-          difficulty: gameEndDto.difficulty,
-          version: gameEndDto.version,
-          isWin: gameEndDto.winnerTeamId === player.teamId,
-        });
+        if (itemName) {
+          const lotteryItemsRaw = CustomNetTables.GetTableValue('lottery_items', steamAccountID);
+          const itemLevel =
+            Object.values(lotteryItemsRaw).find((item) => item.name === itemName)?.level ?? 0;
+          Analytic.SendGameEndPickItemEvent({
+            steamId: player.steamId,
+            matchId: gameEndDto.matchId,
+            name: itemName,
+            level: itemLevel,
+            difficulty: gameEndDto.difficulty,
+            version: gameEndDto.version,
+            isWin: gameEndDto.winnerTeamId === player.teamId,
+          });
+        }
       }
     });
   }
