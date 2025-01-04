@@ -6976,7 +6976,7 @@
 	// 刀光谍影
 	"riki_backstab"
 	{
-		"MaxLevel" "5"
+		"MaxLevel" "4"
 		"AbilityValues"
 		{
 			"fade_delay"					"4 3 2 1.5"
