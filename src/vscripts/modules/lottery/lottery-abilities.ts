@@ -10,6 +10,7 @@ export const abilityTiers: Tier[] = [
     rate: 1,
     names: [
       // 主动技能
+      // 大招
       'enigma_black_hole', // 黑洞
       'necrolyte_reapers_scythe', // 死神镰刀
 
@@ -26,6 +27,7 @@ export const abilityTiers: Tier[] = [
     rate: 5,
     names: [
       // 主动技能
+      // 大招
       'juggernaut_omni_slash', // 无敌斩
       'omniknight_guardian_angel', // 守护天使
       'doom_bringer_doom', // 末日
@@ -59,6 +61,7 @@ export const abilityTiers: Tier[] = [
     rate: 20,
     names: [
       // 主动技能
+      // 大招
       'slark_shadow_dance', // 暗影之舞
       'brewmaster_primal_split_lua', // 元素分离 改
       'sniper_assassinate', // 暗杀
@@ -67,6 +70,7 @@ export const abilityTiers: Tier[] = [
       'bane_fiends_grip', // 魔爪
       'alchemist_chemical_rage', // 化学狂暴
 
+      // 小技能
       'tiny_tree_grab', // 抓树
       'nyx_assassin_mana_burn', // 法力燃烧
       'faceless_void_time_walk', // 时间漫游
@@ -101,11 +105,13 @@ export const abilityTiers: Tier[] = [
   },
   {
     level: 2,
-    rate: 50,
+    rate: 60,
     names: [
       // 主动技能
+      // 大招
       'rattletrap_hookshot', // 发射钩爪
 
+      // 小技能
       'antimage_blink', // 闪烁
       'razor_static_link', // 静电连接
       'bane_brain_sap', // 蚀脑
@@ -154,6 +160,7 @@ export const abilityTiers: Tier[] = [
     rate: 100,
     names: [
       // 主动技能
+      // 小技能
       'tusk_ice_shards', // 寒冰碎片
       'skywrath_mage_arcane_bolt', // 奥术鹰隼
       'omniknight_repel', // 咸鱼恩赐

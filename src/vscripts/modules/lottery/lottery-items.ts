@@ -18,9 +18,9 @@ export const itemTiers: Tier[] = [
       'item_desolator_2', // 寂灭
       'item_mirror_shield', // 神镜盾
       'item_ballista', // 弩炮
-      'item_seer_stone', // 先哲石
       'item_ex_machina', // 机械之心
       'item_pirate_hat', // 海盗帽
+      'item_spell_prism', // 法术棱镜
     ],
   },
   {
@@ -31,14 +31,17 @@ export const itemTiers: Tier[] = [
       'item_dark_part', // 暗影组件
 
       // ---- 中立物品 lv4 ----
-      'item_penta_edged_sword', // 五锋长剑
+      'item_seer_stone', // 先哲石
       'item_panic_button', // 神灯
-      'item_minotaur_horn', // 恶牛角
-      'item_spell_prism', // 法术棱镜
       'item_helm_of_the_undying', // 不死头盔
       'item_woodland_striders', // 丛林鞋
+      'item_ancient_guardian', // 遗迹守护者
+
+      // 未加入中立的物品
+      'item_heavy_blade', // 行巫之祸
+      'item_minotaur_horn', // 恶牛角
+      'item_penta_edged_sword', // 五锋长剑
       'item_princes_knife', // 亲王短刀
-      'item_repair_kit', // 维修器具
     ],
   },
   {
@@ -50,32 +53,40 @@ export const itemTiers: Tier[] = [
       'item_tome_of_knowledge', // 知识之书
 
       // ---- 中立物品 lv3 ----
-      'item_titan_sliver', // 巨神残铁
-      'item_quickening_charm', // 加速护符
-      'item_spider_legs', // 网虫腿
-      'item_horizon', // 视界
+      'item_repair_kit', // 维修器具
       'item_witless_shako', // 无知小帽
       'item_third_eye', // 第三只眼
       'item_the_leveller', // 平世剑
       'item_paladin_sword', // 骑士剑
+      'item_ceremonial_robe', // 祭礼长袍
+      'item_cloak_of_flames', // 火焰斗篷
+
+      // 未加入中立的物品
+      'item_titan_sliver', // 巨神残铁
+      'item_quickening_charm', // 加速护符
+      'item_horizon', // 视界
+      'item_spider_legs', // 网虫腿
     ],
   },
   {
     level: 2,
-    rate: 50,
+    rate: 60,
     names: [
       'item_aghanims_shard', // 阿哈利姆魔晶
-      'item_great_famango', // 大疗伤莲花
 
       // ---- 中立物品 lv2 ----
-      'item_imp_claw', // 魔童之爪
+      'item_orb_of_destruction', // 毁灭灵球
+      'item_grove_bow', // 林野长弓
+      'item_vambrace', // 臂甲
       'item_vampire_fangs', // 吸血鬼獠牙
       'item_mysterious_hat', // 仙灵饰品
-      'item_vambrace', // 臂甲
-      'item_grove_bow', // 林野长弓
-      'item_orb_of_destruction', // 毁灭灵球
-      'item_philosophers_stone', // 贤者石
-      'item_essence_ring', // 精华指环
+
+      // 未加入中立的物品
+      'item_imp_claw', // 魔童之爪
+      'item_misericorde', // 飞贼之刃
+      'item_paintball', // 仙灵榴弹
+      'item_quicksilver_amulet', // 银闪护符
+      'item_dagger_of_ristul', // 瑞斯图尔尖匕
     ],
   },
   {
@@ -89,10 +100,16 @@ export const itemTiers: Tier[] = [
       'item_infused_raindrop', // 凝魂之露
 
       // ---- 中立物品 lv1 ----
+      'item_safety_bubble', // 安全泡泡
+      'item_keen_optic', // 基恩镜片
+      'item_royal_jelly', // 蜂王浆
+      'item_philosophers_stone', // 贤者石
+
+      // 未加入中立的物品
+      'item_essence_ring', // 精华指环
       'item_chipped_vest', // 碎裂背心
       'item_ironwood_tree', // 铁树之木
       'item_iron_talon', // 打野爪
-      'item_keen_optic', // 基恩镜片
       'item_possessed_mask', // 附魂面具
       'item_ring_of_aquila', // 天鹰戒
       'item_poor_mans_shield', // 穷鬼盾
