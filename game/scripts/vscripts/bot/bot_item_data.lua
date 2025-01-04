@@ -953,7 +953,7 @@ tBotItemData.purchaseItemList = {
 		'item_necronomicon_staff',
 		'item_angels_demise', -- 绝刃
 		'item_hallowed_scepter',
-		'item_black_king_bar_2',
+		'item_seer_stone_ai',
 		'item_blue_fantasy', -- 苍蓝幻想
 	},
 	npc_dota_hero_tiny = {
