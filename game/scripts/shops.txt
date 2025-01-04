@@ -89,7 +89,6 @@
 		"item"	"item_ballista_ai"
 		"item"	"item_armlet_light"						// 圣光臂章
 		"item"	"item_armlet_dark"						// 暗影臂章
-		"item"	"item_guardian_greaves_ai"
 	}
 	// 其他
 	"misc"
@@ -135,7 +134,8 @@
 		"item"		"item_havoc_hammer_ai"
 		"item"		"item_apex_ai"
 		"item"		"item_disperser_chaos"			// 混沌散魂剑
-		"item"		"item_soul_ring_2"//混沌魂戒
+		"item"		"item_guardian_greaves_ai"		// 光暗 卫士胫甲
+		// "item"		"item_soul_ring_1"				// 混沌魂戒
 	}
 	// 神秘商店
 	"secretshop"

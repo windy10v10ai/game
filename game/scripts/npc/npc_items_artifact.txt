@@ -840,7 +840,7 @@
 			"bonus_damage"					"90"	//12
 			"count"							"4"		//2
 			"secondary_target_range_bonus"	"250"	//225
-			"proc_bonus_damage"				"200"	//20
+			"proc_bonus_damage"				"80"	//20
 		}
 	}
 	"item_recipe_specialists_array_light_1"
@@ -908,7 +908,7 @@
 			"bonus_damage"					"90"	//12
 			"count"							"4"		//2
 			"secondary_target_range_bonus"	"250"	//225
-			"proc_bonus_damage"				"200"	//20
+			"proc_bonus_damage"				"80"	//20
 		}
 	}
 
