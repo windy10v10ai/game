@@ -953,7 +953,7 @@ tBotItemData.purchaseItemList = {
 		'item_necronomicon_staff',
 		'item_angels_demise', -- 绝刃
 		'item_hallowed_scepter',
-		'item_black_king_bar_2',
+		'item_seer_stone_ai',
 		'item_blue_fantasy', -- 苍蓝幻想
 	},
 	npc_dota_hero_tiny = {
@@ -1332,6 +1332,7 @@ tBotItemData.sellItemList = {
 	npc_dota_hero_tinker = {
 		'item_force_staff_3',
 		'item_dagon_5',
+		'item_aether_lens_2',
 	},
 	npc_dota_hero_tiny = {
 		'item_sange_and_yasha',
@@ -1367,8 +1368,6 @@ tBotItemData.sellItemCommonList = {
 	'item_staff_of_wizardry',    -- 魔力法杖
 	'item_claymore',             -- 大剑
 	'item_mithril_hammer',       -- 秘银锤
-	'item_tiara_of_selemene',    -- 赛莉蒙妮之冠
-	'item_eagle',                -- 鹰歌弓
 
 	-- 消耗品
 	'item_tango_single',
@@ -1427,7 +1426,18 @@ tBotItemData.sellItemCommonList = {
 	'item_sange_and_yasha', -- 散夜对剑
 	'item_heavens_halberd', -- 天堂之戟
 
-	-- 卷轴 主要是本地主机
+	-- 本地主机出装
+	'item_headdress',        -- 恢复头巾
+	'item_tiara_of_selemene', -- 赛莉蒙妮之冠
+	'item_talisman_of_evasion', -- 闪避护符
+	'item_eagle',            -- 鹰歌弓
+	'item_reaver',           -- 掠夺者之斧
+	'item_mystic_staff',     --  神秘法杖
+	'item_relic',            -- 圣者遗物
+
+
+	-- 卷轴
+	'item_recipe_arcane_boots',  -- 奥术鞋
 	'item_recipe_black_king_bar', -- BKB
 	'item_recipe_sheepstick',    -- 邪恶镰刀
 	'item_recipe_mekansm',       -- 梅肯斯姆

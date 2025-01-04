@@ -2058,6 +2058,19 @@
 		"DOTA_Tooltip_Ability_item_specialists_array_dark_1_Lore"					"加强扳机的出色器具，源自一位年迈的刺客闲暇时的想法。"
 		"DOTA_Tooltip_Ability_item_specialists_array_dark_1_Description"					"<h1>被动：破裂攻击</h1>只对远程英雄生效。下次攻击会向攻击范围+%secondary_target_range_bonus%额外距离内%count%个额外目标发射弹道，并且额外造成%proc_bonus_damage%点伤害。不会触发攻击特效。"
 
+		// item_specialists_array_ai 光暗·行家阵列
+		"DOTA_Tooltip_Ability_item_specialists_array_ai"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>行</font><font color='#8A2BE2'>家</font><font color='#00FF00'>阵</font><font color='#8A2BE2'>列</font>"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_all_stats"					"+$all"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_bonus_damage"					"+$damage"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_Lore"					"加强扳机的出色器具，源自一位年迈的刺客闲暇时的想法。"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_Description"					"<h1>被动：破裂攻击</h1>只对远程英雄生效。下次攻击会向攻击范围+%secondary_target_range_bonus%额外距离内%count%个额外目标发射弹道，并且额外造成%proc_bonus_damage%点伤害。不会触发攻击特效。"
+		// item_specialists_array_ai_1 光暗·行家阵列（中立）
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1"				"<font color='#00FF00'>光</font><font color='#8A2BE2'>暗</font>·<font color='#00FF00'>行</font><font color='#8A2BE2'>家</font><font color='#00FF00'>阵</font><font color='#8A2BE2'>列</font>（中立）"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1_all_stats"					"+$all"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1_bonus_damage"					"+$damage"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1_Lore"					"加强扳机的出色器具，源自一位年迈的刺客闲暇时的想法。"
+		"DOTA_Tooltip_Ability_item_specialists_array_ai_1_Description"					"<h1>被动：破裂攻击</h1>只对远程英雄生效。下次攻击会向攻击范围+%secondary_target_range_bonus%额外距离内%count%个额外目标发射弹道，并且额外造成%proc_bonus_damage%点伤害。不会触发攻击特效。"
+
 		// item_timeless_relic_light 圣光·永恒遗物
 		"DOTA_Tooltip_Ability_item_timeless_relic_light"				"<font color='#FFFF00'>圣光·永恒遗物</font>"
 		"DOTA_Tooltip_ability_item_timeless_relic_light_Description"				"提升技能伤害和负面状态的持续时间。"
