@@ -164,7 +164,7 @@
 	//剑灵
 	"npc_dota_hero_abyss_sword"
 	{
-		"override_hero"             "npc_dota_hero_visage"
+		"override_hero" 			"npc_dota_hero_visage"
 		"DisableWearables" 			"1"
 		"Model"						"models/heroes/sword_spirit/npc_dota_hero_sword_spirit.vmdl"
 		"IdleExpression"			"scenes/void_spirit/void_spirit_exp_idle_01.vcd"
@@ -236,23 +236,23 @@
 	//初音未来
 	"Miku"
 	{
-	    "override_hero"       				"npc_dota_hero_meepo"
-	    "Model"               				"models/hatsune_miku/small/s2.vmdl"
-	    "ModelScale"				"0.55000"
+		"override_hero"       				"npc_dota_hero_meepo"
+		"Model"               				"models/hatsune_miku/small/s2.vmdl"
+		"ModelScale"				"0.55000"
 		"LoadoutScale"				"0.55000"
 		"SpectatorLoadoutScale" 	"0.55000"
 		"VersusScale"				"0.55000"
 
 		"DisableWearables" 			"1"
 		"AbilityLayout"				"6"
-		"Ability1"         "miku_hadouken"
-		"Ability2"         "pantsushot"
-		"Ability3"         "liu_kick"
-		"Ability4"         "miku_dance"
-		"Ability5"         "get_down"
-		"Ability6"         "chibi_monster"
-		"Ability7"         "generic_hidden"
-		"Ability22"        "chibi_hit"
+		"Ability1" 		"miku_hadouken"
+		"Ability2" 		"pantsushot"
+		"Ability3" 		"liu_kick"
+		"Ability4" 		"miku_dance"
+		"Ability5" 		"get_down"
+		"Ability6" 		"chibi_monster"
+		"Ability7" 		"generic_hidden"
+		"Ability22"		"chibi_hit"
 
 		"Ability10" 				"special_bonus_unique_miku_101"
 		"Ability11"					"special_bonus_unique_miku_301"
@@ -420,17 +420,17 @@
 
 	"npc_dota_hero_obsidian_destroyer"
 	{
-		"AttackRate"    "1.7"
+		"AttackRate"	"1.7"
 	}
 
 
 	"npc_dota_hero_tinker"
 	{
 		"Ability6"		"tinker_rearm_lua"
-        "Bot"
-        {
-            "Build"
-            {
+		"Bot"
+		{
+			"Build"
+			{
 				"1"		"tinker_laser"
 				"2"		"tinker_march_of_the_machines"
 				"3"		"tinker_laser"
@@ -464,13 +464,13 @@
 				"31"		"tinker_defense_matrix"
 				"32"		"tinker_defense_matrix"
 				"33"		"tinker_defense_matrix"
-            }
+			}
 			"HeroType"		"DOTA_BOT_GANKER | DOTA_BOT_HARD_CARRY"
 			"LaningInfo"
 			{
 				"SoloDesire"		"2"
 			}
-        }
+		}
 	}
 	"npc_dota_hero_pangolier"
 	{
@@ -503,13 +503,13 @@
 	}
 
 	// 幽鬼
-    "npc_dota_hero_spectre"
+	"npc_dota_hero_spectre"
     {
 		"Ability3"		"axe_counter_helix"
-        "Bot"
+		"Bot"
         {
-            "Build"
-            {
+			"Build"
+			{
 				"1"		"spectre_spectral_dagger"
 				"2"		"axe_counter_helix"
 				"3"		"spectre_spectral_dagger"
@@ -543,14 +543,14 @@
 				"31"		"spectre_haunt_single"
 				"32"		"spectre_haunt_single"
 				"33"		"spectre_haunt_single"
-            }
-        }
-    }
+			}
+		}
+	}
 
-    "npc_dota_hero_venomancer"
+	"npc_dota_hero_venomancer"
     {
-        "Ability15"		"special_bonus_unique_venomancer_201"
-    }
+		"Ability15"		"special_bonus_unique_venomancer_201"
+	}
 
 	"npc_dota_hero_abaddon"
 	{
@@ -721,7 +721,7 @@
 				"28"		"special_bonus_unique_bounty_hunter_9"
 				"29"		"special_bonus_unique_bounty_hunter"
 				"30"		"special_bonus_unique_bounty_hunter_jinada_no_cooldown"
-			    "31"		"bounty_hunter_track"
+				"31"		"bounty_hunter_track"
 				"32"		"bounty_hunter_jinada"
 				"33"		"bounty_hunter_wind_walk"
 				"34"		"bounty_hunter_jinada"
