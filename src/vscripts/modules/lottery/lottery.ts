@@ -7,7 +7,7 @@ import { LotteryHelper } from './lottery-helper';
 
 @reloadable
 export class Lottery {
-  readonly randomCountBase = 3;
+  readonly randomCountBase = 4;
 
   constructor() {
     // 启动物品抽奖

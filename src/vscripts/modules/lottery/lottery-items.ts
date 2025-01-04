@@ -7,7 +7,7 @@ import { Tier } from './tier';
 export const itemTiers: Tier[] = [
   {
     level: 5,
-    rate: 0.5,
+    rate: 1,
     names: [
       'item_tome_of_agility', // 敏捷之书
       'item_tome_of_intelligence', // 智力之书
@@ -25,7 +25,7 @@ export const itemTiers: Tier[] = [
   },
   {
     level: 4,
-    rate: 2,
+    rate: 3,
     names: [
       'item_light_part', // 圣光组件
       'item_dark_part', // 暗影组件
@@ -43,8 +43,12 @@ export const itemTiers: Tier[] = [
   },
   {
     level: 3,
-    rate: 15,
+    rate: 20,
     names: [
+      'item_hand_of_midas', // 点金手
+      'item_holy_locket', // 圣洁吊坠
+      'item_tome_of_knowledge', // 知识之书
+
       // ---- 中立物品 lv3 ----
       'item_titan_sliver', // 巨神残铁
       'item_quickening_charm', // 加速护符
@@ -60,11 +64,8 @@ export const itemTiers: Tier[] = [
     level: 2,
     rate: 50,
     names: [
-      'item_hand_of_midas', // 点金手
-      'item_holy_locket', // 圣洁吊坠
       'item_aghanims_shard', // 阿哈利姆魔晶
       'item_great_famango', // 大疗伤莲花
-      'item_tome_of_knowledge', // 知识之书
 
       // ---- 中立物品 lv2 ----
       'item_imp_claw', // 魔童之爪
