@@ -10,8 +10,8 @@ export const abilityTiers: Tier[] = [
     rate: 1,
     names: [
       // 主动技能
+      // 大招
       'enigma_black_hole', // 黑洞
-      'juggernaut_omni_slash', // 无敌斩
       'necrolyte_reapers_scythe', // 死神镰刀
 
       // 法球/开关技能
@@ -27,13 +27,16 @@ export const abilityTiers: Tier[] = [
     rate: 5,
     names: [
       // 主动技能
+      // 大招
+      'juggernaut_omni_slash', // 无敌斩
       'omniknight_guardian_angel', // 守护天使
-      'slark_shadow_dance', // 暗影之舞
       'doom_bringer_doom', // 末日
       'lina_laguna_blade', // 神灭斩
       'lion_finger_of_death', // 死亡一指
       'storm_spirit_ball_lightning', // 球状闪电
       'queenofpain_sonic_wave', // 超声冲击波
+      'winter_wyvern_winters_curse', // 寒冬诅咒
+      'sven_gods_strength', // 神之力量
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
@@ -58,30 +61,31 @@ export const abilityTiers: Tier[] = [
     rate: 20,
     names: [
       // 主动技能
+      // 大招
+      'slark_shadow_dance', // 暗影之舞
       'brewmaster_primal_split_lua', // 元素分离 改
       'sniper_assassinate', // 暗杀
       'sandking_epicenter', // 地震
-      'rattletrap_hookshot', // 发射钩爪
       'skywrath_mage_mystic_flare', // 神秘之耀
       'bane_fiends_grip', // 魔爪
+      'alchemist_chemical_rage', // 化学狂暴
 
+      // 小技能
+      'tiny_tree_grab', // 抓树
       'nyx_assassin_mana_burn', // 法力燃烧
       'faceless_void_time_walk', // 时间漫游
       'pudge_meat_hook', // 肉钩
-      'razor_static_link', // 静电连接
       'shredder_whirling_death', // 死亡旋风
-      'bane_brain_sap', // 蚀脑
       'tinker_laser', // 激光
 
       // 法球/开关技能
       'silencer_glaives_of_wisdom', // 智慧之刃
       'ancient_apparition_chilling_touch', // 极寒之触
       'gyrocopter_flak_cannon', // 高射火炮
+      'winter_wyvern_arctic_burn', // 严寒灼烧
 
       // 被动技能
-      'bristleback_bristleback', // 钢毛后背
       'troll_warlord_fervor', // 热血战魂
-      // 'ogre_magi_multicast', // 多重施法
       'huskar_berserkers_blood', // 狂战士之血
       'slark_essence_shift', // 能量转移
       'chaos_knight_chaos_strike', // 混沌一击
@@ -95,19 +99,26 @@ export const abilityTiers: Tier[] = [
       'necrolyte_heartstopper_aura', // 竭心光环
       'enchantress_untouchable', // 不可侵犯
       'earthshaker_aftershock', // 余震
+      // 'bristleback_bristleback', // 钢毛后背
+      // 'ogre_magi_multicast', // 多重施法
     ],
   },
   {
     level: 2,
-    rate: 50,
+    rate: 60,
     names: [
       // 主动技能
+      // 大招
+      'rattletrap_hookshot', // 发射钩爪
+
+      // 小技能
       'antimage_blink', // 闪烁
+      'razor_static_link', // 静电连接
+      'bane_brain_sap', // 蚀脑
       'shadow_shaman_voodoo', // 妖术
       'earthshaker_fissure', // 沟壑
       'omniknight_purification', // 洗礼
       'spirit_breaker_charge_of_darkness', // 暗影冲刺
-      'tusk_ice_shards', // 寒冰碎片
       'ogre_magi_fireblast', // 火焰爆轰
       'sniper_shrapnel', // 霰弹雨
       'phantom_assassin_stifling_dagger', // 窒碍短匕
@@ -115,7 +126,9 @@ export const abilityTiers: Tier[] = [
       'lina_light_strike_array', // 光击阵
       'lion_impale', // 裂地尖刺
       'sandking_burrowstrike', // 穿刺 沙王
-      'skywrath_mage_arcane_bolt', // 奥术鹰隼
+      'alchemist_acid_spray', // 酸雾
+      'winter_wyvern_cold_embrace', // 极寒之拥 冰箱
+      'sven_storm_bolt', // 风暴之拳 斯温
 
       // 法球/开关技能
       'viper_poison_attack', // 毒性攻击
@@ -147,7 +160,9 @@ export const abilityTiers: Tier[] = [
     rate: 100,
     names: [
       // 主动技能
-      'keeper_of_the_light_mana_leak', // 法力流失
+      // 小技能
+      'tusk_ice_shards', // 寒冰碎片
+      'skywrath_mage_arcane_bolt', // 奥术鹰隼
       'omniknight_repel', // 咸鱼恩赐
       'dark_seer_ion_shell', // 离子外壳
       'dark_seer_vacuum', // 真空
@@ -157,7 +172,6 @@ export const abilityTiers: Tier[] = [
       'phantom_assassin_phantom_strike', // 幻影突袭
       'mirana_arrow', // 月神之箭
       'kunkka_torrent', // 洪流
-      'bounty_hunter_shuriken_toss', // 投掷飞镖
       'lina_dragon_slave', // 龙破斩
       'visage_soul_assumption', // 灵魂超度
       'necrolyte_death_pulse', // 死亡脉冲
@@ -165,6 +179,8 @@ export const abilityTiers: Tier[] = [
       'rattletrap_rocket_flare', // 照明火箭
       'skywrath_mage_ancient_seal', // 上古封印
       'tinker_defense_matrix', // 防御矩阵
+      // 'bounty_hunter_shuriken_toss', // 投掷飞镖
+      // 'keeper_of_the_light_mana_leak', // 法力流失
 
       // 法球/开关技能
       'drow_ranger_frost_arrows', // 霜冻之箭
