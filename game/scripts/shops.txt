@@ -122,8 +122,7 @@
 		"item"		"item_travel_boots"					// 飞鞋
 		"item"		"item_black_king_bar_real"			// 真bkb
 
-		"item"		"item_specialists_array_light"
-		"item"		"item_specialists_array_dark"
+		"item"		"item_specialists_array_ai"
 		"item"		"item_timeless_relic_ai"
 		"item"	    "item_defiant_shell_ai"
 		"item"		"item_ex_machina_light"
