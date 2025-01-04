@@ -6,4 +6,6 @@ export class EventBaseDto {
   difficulty: number;
 
   steamId: number;
+
+  isWin?: boolean;
 }
