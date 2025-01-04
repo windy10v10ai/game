@@ -1,3 +1,4 @@
+import { Analytic } from '../../../api/analytics/analytics';
 import {
   GameEndDto,
   GameEndGameOptionsDto,
@@ -6,6 +7,7 @@ import {
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
 import { GameConfig } from '../../GameConfig';
+import { NetTableHelper } from '../../helper/net-table-helper';
 import { PlayerHelper } from '../../helper/player-helper';
 import { GameEndHelper } from './game-end-helper';
 
@@ -13,12 +15,14 @@ import { GameEndHelper } from './game-end-helper';
 export class GameEnd {
   public static OnGameEnd(winnerTeamId: DotaTeam): void {
     // build game end dto
-    const gameEndDto = this.buildGameEndDto(winnerTeamId);
+    const gameEndDto = this.BuildGameEndDto(winnerTeamId);
     // send game end dto
     Game.PostEndGame(gameEndDto);
+
+    this.SendAnalyticsEvent(gameEndDto);
   }
 
-  private static buildGameEndDto(winnerTeamId: DotaTeam): GameEndDto {
+  private static BuildGameEndDto(winnerTeamId: DotaTeam): GameEndDto {
     const gameOptionsData = CustomNetTables.GetTableValue('game_options', 'game_options');
     const difficulty = CustomNetTables.GetTableValue('game_difficulty', 'all').difficulty;
     const gameOptions: GameEndGameOptionsDto = {
@@ -118,7 +122,7 @@ export class GameEnd {
     }
     const gameTimePoints = GameEndHelper.GetGameTimePoints(GameRules.GetGameTime());
     const basePoints = player.score + gameTimePoints;
-    const multiplier = this.getBattlePointsMultiplier(difficulty);
+    const multiplier = this.GetBattlePointsMultiplier(difficulty);
     const points = basePoints * multiplier;
     if (player.teamId !== winnerTeamId) {
       // 输了积分减半
@@ -128,7 +132,7 @@ export class GameEnd {
   }
 
   // 根据难度获得倍率
-  private static getBattlePointsMultiplier(difficulty: number): number {
+  private static GetBattlePointsMultiplier(difficulty: number): number {
     // 如果是作弊模式，不计算倍率。开发模式无视这条
     if (GameRules.IsCheatMode() && !IsInToolsMode()) {
       return 0;
@@ -150,5 +154,48 @@ export class GameEnd {
       default:
         return 1;
     }
+  }
+
+  private static SendAnalyticsEvent(gameEndDto: GameEndDto) {
+    gameEndDto.players.forEach((player) => {
+      if (player.steamId > 0) {
+        const steamAccountID = player.steamId.toString();
+        const LotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
+        const abilityName = LotteryStatus.pickAbilityName;
+        const itemName = LotteryStatus.pickItemName;
+
+        // SendGameEndPickAbilityEvent
+        const lotteryAbilitiesRaw = CustomNetTables.GetTableValue(
+          'lottery_abilities',
+          steamAccountID,
+        );
+        const abilityLevel =
+          Object.values(lotteryAbilitiesRaw).find((item) => item.name === abilityName)?.level ?? 0;
+
+        Analytic.SendGameEndPickAbilityEvent({
+          steamId: player.steamId,
+          matchId: gameEndDto.matchId,
+          name: abilityName,
+          level: abilityLevel,
+          difficulty: gameEndDto.difficulty,
+          version: gameEndDto.version,
+          isWin: gameEndDto.winnerTeamId === player.teamId,
+        });
+
+        // SendGameEndPickItemEvent
+        const lotteryItemsRaw = CustomNetTables.GetTableValue('lottery_items', steamAccountID);
+        const itemLevel =
+          Object.values(lotteryItemsRaw).find((item) => item.name === itemName)?.level ?? 0;
+        Analytic.SendGameEndPickItemEvent({
+          steamId: player.steamId,
+          matchId: gameEndDto.matchId,
+          name: itemName,
+          level: itemLevel,
+          difficulty: gameEndDto.difficulty,
+          version: gameEndDto.version,
+          isWin: gameEndDto.winnerTeamId === player.teamId,
+        });
+      }
+    });
   }
 }
