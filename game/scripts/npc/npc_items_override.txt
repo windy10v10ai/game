@@ -798,8 +798,6 @@
 			"creep_lifesteal_reduction_pct"	"40" //40
 		}
 	}
-
-	// level 4
 	"item_apex" //极
 	{
 		"AbilityValues"
@@ -808,6 +806,8 @@
 			"primary_stat_universal"	"50"  //25
 		}
 	}
+
+	// level 4
 	"item_specialists_array" //行家阵列
 	{
 		"AbilityCooldown"				"1.5"		//8
@@ -815,9 +815,9 @@
 		{
 			"all_stats"						"30"	//7
 			"bonus_damage"					"90"	//12
-			"count"							"4"		//2
+			"count"							"2"		//2
 			"secondary_target_range_bonus"	"250"	//225
-			"proc_bonus_damage"				"120"	//20
+			"proc_bonus_damage"				"80"	//20
 		}
 	}
 	"item_ascetic_cap" //简朴短帽
