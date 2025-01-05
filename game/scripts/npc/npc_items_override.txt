@@ -19,9 +19,9 @@
 	"item_famango"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"                      "0"
-		"ItemSellable"                  "1"
-		"ItemStackable"                 "1"
+		"ItemCost"              		"0"
+		"ItemSellable"          		"1"
+		"ItemStackable"         		"1"
 		"AbilityValues"
 		{
 				"replenish_amount"		"500"
@@ -30,9 +30,9 @@
 	"item_great_famango"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"                      "0"
-		"ItemSellable"                  "1"
-		"ItemStackable"                 "1"
+		"ItemCost"              		"0"
+		"ItemSellable"          		"1"
+		"ItemStackable"         		"1"
 		"AbilityValues"
 		{
 				"replenish_amount"		"2000"
@@ -41,9 +41,9 @@
 	"item_greater_famango"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"                      "0"
-		"ItemSellable"                  "1"
-		"ItemStackable"                 "1"
+		"ItemCost"              		"0"
+		"ItemSellable"          		"1"
+		"ItemStackable"         		"1"
 		"AbilityValues"
 		{
 				"replenish_amount"		"4000"
@@ -59,8 +59,8 @@
 	"item_recipe_greater_famango"
 	{
 		"ItemCost"						"2000"
-		"ItemPurchasable"               "1"
-		"ItemSellable"                  "1"
+		"ItemPurchasable"       		"1"
+		"ItemSellable"          		"1"
 		"ItemRequirements"
 		{
 			"01"						"item_great_famango"
@@ -84,7 +84,7 @@
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"300"
 		"ItemPurchasable"				"1"
-		"ItemSellable"                  "1"
+		"ItemSellable"          		"1"
 		"AbilityValues"
 		{
 				"health_restore"		"5000"	// 2500
@@ -432,7 +432,7 @@
 	{
 		"AbilityValues"
 		{
-			"hp_regen"			    "20"  //4
+			"hp_regen"				"20"  //4
 			"damage_return_hero"	"60" //30
 			"damage_return_creep"	"40" //20
 		}
@@ -454,7 +454,7 @@
 				"bonus_armor"			"15"	//5
 				"bonus_hp_regen"		"15"	//5
 				"damage_per_sec"		"88"	//22
-				"duration"		        "5"		//3
+				"duration"				"5"		//3
 		}
 	}
 	"item_whisper_of_the_dread" //邪道私语
@@ -682,7 +682,7 @@
 	{
 		"AbilityValues"
 		{
-				"armor"			    "15"  //4
+				"armor"				"15"  //4
 				"magic_resistance"	"30"  //10
 				"damage"			"120" //45
 				"radius"			"450" //375
@@ -794,7 +794,7 @@
 			"bonus_damage"			"40" //16
 			"bonus_lifesteal"		"24" //16
 			"bonus_spell_lifesteal"	"16"  //8
-			"bonus_amp"			    "24" //14
+			"bonus_amp"				"24" //14
 			"creep_lifesteal_reduction_pct"	"40" //40
 		}
 	}
@@ -921,10 +921,10 @@
 		"AbilityValues"
 		{
 			"radius"					"800"	//600
-			"slow_duration"			    "0.4"	//0.2
+			"slow_duration"				"0.4"	//0.2
 			"damage_reset_interval"		"7"		//7
 			"damage_threshold"			"600"	//180
-			"slow"			            "70"	//100
+			"slow"			    		"70"	//100
 			"projectile_speed"			"1000"	//1000
 			"projectile_damage"			"450"	//125
 			"target_count"				"3"		//2
@@ -959,16 +959,16 @@
 		"AbilityValues"
 		{
 			"bonus_movement_speed"	"40"		//25
-			"turn_rate"	            "50"		//50
+			"turn_rate"	    		"50"		//50
 			"bonus_movement_speed_active"	"24"	//18
-			"duration"			    "4.5"		//3.5
+			"duration"				"4.5"		//3.5
 		}
 	}
 	"item_penta_edged_sword" //五锋长剑
 	{
 		"AbilityValues"
 		{
-				"damage"			    "90"  //45
+				"damage"				"90"  //45
 				"melee_attack_range"	"200" //100
 				"maim_chance"			"50"  //25
 				"maim_slow_movement"	"60"  //20
@@ -1012,7 +1012,7 @@
 				"bonus_movement_speed"	"230"  //115
 				"push_length"			"750"  //750
 				"push_duration"			"0.5"  //0.5
-				"hp_regen"			    "90"  //30
+				"hp_regen"				"90"  //30
 		}
 	}
 	"item_desolator_2" //寂灭
@@ -1029,7 +1029,7 @@
 		"AbilityValues"
 		{
 			"reflect_chance"		"100"   //75
-			"all_stats"			    "40"   //10
+			"all_stats"				"40"   //10
 			"block_cooldown"		"9.0" //12
 		}
 	}
@@ -1076,9 +1076,9 @@
 		{
 			"bonus_strength"			"60"	//30
 			"movement_speed"			"90"	//45
-			"model_scale"			    "30"	//50
+			"model_scale"				"30"	//50
 			"pct_str_damage_per_second"	"120"	//100
-			"damage_radius"			    "200"	//100
+			"damage_radius"				"200"	//100
 		}
 	}
 	"item_ex_machina"  //机械之心
@@ -1125,7 +1125,7 @@
 		"AbilityValues"
 		{
 				"bonus_health"			"5000"	//500
-				"heal"		            "5000"	//1250
+				"heal"		    		"5000"	//1250
 				"health_threshold"		"35"	//20
 		}
 	}
@@ -1152,8 +1152,8 @@
 			"bonus_mana_regen"		"20.0" //10
 			"burn_dps_buildings"	"150"   //60
 			"burn_dps_units"		"150"   //60
-			"burn_duration"		    "6"    //6
-			"stun_duration"		    "2.4"  //1.6
+			"burn_duration"			"6"    //6
+			"stun_duration"			"2.4"  //1.6
 			"burn_interval"			"1.0"  //1.0
 			"land_time"				"1"    //1 不能修改，会导致动画消失
 			"impact_radius"
@@ -1161,10 +1161,10 @@
 				"value"			"425"      //315
 				"affected_by_aoe_increase"	"1"
 			}
-			"max_duration"		        "2.5" //2.5
+			"max_duration"				"2.5" //2.5
 			"impact_damage_buildings"	"200"  //75
 			"impact_damage_units"		"400" //150
-			"blink_damage_cooldown"	    "0.1" //3
+			"blink_damage_cooldown"		"0.1" //3
 		}
 	}
 	//其他中立
@@ -1172,8 +1172,8 @@
 	{
 		"AbilityValues"
 		{
-				"bonus_armor"		"18" //6
-				"duration"			"7.5" //5
+				"bonus_armor"		"24" //6
+				"duration"			"3" //5
 		}
 	}
 
@@ -1466,7 +1466,7 @@
 	// 血精石 替换为 血精神石
 	"item_recipe_bloodstone"
 	{
-        "AbilityTextureName" 			"item_recipe_bloodstone_v2"
+		"AbilityTextureName" 			"item_recipe_bloodstone_v2"
 		"ItemCost"						"1200"
 
 		"ItemShopTags"					""
@@ -1774,17 +1774,17 @@
 	}
 
 	// 宝石
-    "item_gem"
-    {
-        "AbilityCastRange"				"600"
+	"item_gem"
+	{
+		"AbilityCastRange"				"600"
 		"ItemSellable"					"0"
-        "ItemStockTime"					"240.0"
-        "AllowedInBackpack"				"1"
-    }
+		"ItemStockTime"					"180.0"
+		"AllowedInBackpack"				"1"
+	}
 
 	// 圣剑
-    "item_rapier"
-    {
-        "AllowedInBackpack"				"1"
-    }
+	"item_rapier"
+	{
+		"AllowedInBackpack"				"1"
+	}
 }
