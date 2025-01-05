@@ -73,7 +73,6 @@ export const abilityTiers: Tier[] = [
       // 小技能
       'tiny_tree_grab', // 抓树
       'nyx_assassin_mana_burn', // 法力燃烧
-      'faceless_void_time_walk', // 时间漫游
       'pudge_meat_hook', // 肉钩
       'shredder_whirling_death', // 死亡旋风
       'tinker_laser', // 激光
