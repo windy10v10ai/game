@@ -1172,8 +1172,8 @@
 	{
 		"AbilityValues"
 		{
-				"bonus_armor"		"18" //6
-				"duration"			"7.5" //5
+				"bonus_armor"		"24" //6
+				"duration"			"3" //5
 		}
 	}
 
