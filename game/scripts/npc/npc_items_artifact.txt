@@ -2319,7 +2319,7 @@
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
 			"status_resistance"		"20"	//10
-			"magic_resistance"		"68"	//10
+			"magic_resistance"		"60"	//10
 		}
 	}
 	"item_recipe_ceremonial_robe_light_1"
@@ -2351,7 +2351,7 @@
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
 			"status_resistance"		"20"	//10
-			"magic_resistance"		"68"	//10
+			"magic_resistance"		"60"	//10
 		}
 	}
 
@@ -2383,7 +2383,7 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"68"	//10
+			"status_resistance"		"60"	//10
 			"magic_resistance"		"20"	//10
 		}
 	}
@@ -2415,7 +2415,7 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"68"	//10
+			"status_resistance"		"60"	//10
 			"magic_resistance"		"20"	//10
 		}
 	}
@@ -2447,8 +2447,8 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"68"	//10
-			"magic_resistance"		"68"	//10
+			"status_resistance"		"60"	//10
+			"magic_resistance"		"60"	//10
 		}
 	}
 	"item_recipe_ceremonial_robe_ai_1"
@@ -2480,8 +2480,8 @@
 		{
 			"bonus_mana"			"900"	//300
 			"aura_radius"			"1200"	//1200
-			"status_resistance"		"68"	//10
-			"magic_resistance"		"68"	//10
+			"status_resistance"		"60"	//10
+			"magic_resistance"		"60"	//10
 		}
 	}
 
