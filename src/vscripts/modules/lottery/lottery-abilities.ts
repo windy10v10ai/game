@@ -165,7 +165,6 @@ export const abilityTiers: Tier[] = [
       'omniknight_repel', // 咸鱼恩赐
       'dark_seer_ion_shell', // 离子外壳
       'dark_seer_vacuum', // 真空
-      'tusk_snowball', // 雪球
       'ogre_magi_ignite', // 引燃
       'shadow_shaman_ether_shock', // 苍穹震击
       'phantom_assassin_phantom_strike', // 幻影突袭
