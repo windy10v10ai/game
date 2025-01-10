@@ -13,6 +13,7 @@ export const abilityTiers: Tier[] = [
       // 大招
       'enigma_black_hole', // 黑洞
       'abaddon_borrowed_time', // 回光返照
+      'juggernaut_omni_slash', // 无敌斩
 
       // 法球/开关技能
       'omniknight_hammer_of_purity', // 纯洁之锤
@@ -20,8 +21,6 @@ export const abilityTiers: Tier[] = [
 
       // 被动技能
       'elder_titan_natural_order', // 自然秩序
-      'juggernaut_omni_slash', // 无敌斩
-      // 'spectre_dispersion', // 折射
     ],
   },
   {
@@ -36,6 +35,9 @@ export const abilityTiers: Tier[] = [
       'storm_spirit_ball_lightning', // 球状闪电
       'queenofpain_sonic_wave', // 超声冲击波
       'sven_gods_strength', // 神之力量
+      'shadow_shaman_mass_serpent_ward', // 群蛇守卫
+      'oracle_false_promise', // 虚妄之诺
+      'witch_doctor_death_ward', // 死亡守卫
 
       // 小技能
       'shredder_whirling_death', // 死亡旋风
@@ -71,11 +73,16 @@ export const abilityTiers: Tier[] = [
       'sandking_epicenter', // 地震
       'bane_fiends_grip', // 魔爪
       'alchemist_chemical_rage', // 化学狂暴
+      'phoenix_supernova', // 超新星
+      'tidehunter_ravage', // 毁灭
+      'weaver_time_lapse', // 时光倒流
 
       // 小技能
       'tiny_tree_grab', // 抓树
       'pudge_meat_hook', // 肉钩
       'shadow_shaman_voodoo', // 妖术
+      'dark_willow_shadow_realm', // 暗影之境
+      'witch_doctor_maledict', // 诅咒
 
       // 法球/开关技能
       'silencer_glaives_of_wisdom', // 智慧之刃
@@ -109,8 +116,10 @@ export const abilityTiers: Tier[] = [
       // 主动技能
       // 大招
       'rattletrap_hookshot', // 发射钩爪
+      'dark_willow_bedlam', // 作祟
 
       // 小技能
+      'legion_commander_press_the_attack', // 强攻
       'tinker_laser', // 激光
       'nyx_assassin_mana_burn', // 法力燃烧
       'skywrath_mage_mystic_flare', // 神秘之耀
@@ -127,6 +136,14 @@ export const abilityTiers: Tier[] = [
       'alchemist_acid_spray', // 酸雾
       'winter_wyvern_cold_embrace', // 极寒之拥 冰箱
       'sven_storm_bolt', // 风暴之拳 斯温
+      'phoenix_icarus_dive', // 凤凰冲击
+      'treant_living_armor', // 活体护甲
+      'legion_commander_overwhelming_odds', // 压倒性优势
+      'oracle_purifying_flames', // 涤罪之焰
+      'oracle_fates_edict', // 命运敕令
+      'dark_willow_bramble_maze', // 荆棘迷宫
+      'dark_willow_cursed_crown', // 诅咒王冠
+      'witch_doctor_paralyzing_cask', // 麻痹药剂
 
       // 法球/开关技能
       'viper_poison_attack', // 毒性攻击
@@ -182,6 +199,7 @@ export const abilityTiers: Tier[] = [
       'tinker_defense_matrix', // 防御矩阵
       // 'bounty_hunter_shuriken_toss', // 投掷飞镖
       // 'keeper_of_the_light_mana_leak', // 法力流失
+      'oracle_fortunes_end', // 气运之末
 
       // 法球/开关技能
       'drow_ranger_frost_arrows', // 霜冻之箭
@@ -205,7 +223,7 @@ export const abilityTiers: Tier[] = [
       'razor_storm_surge', // 风暴涌动
       'crystal_maiden_brilliance_aura', // 奥术光环 冰女
       'tidehunter_kraken_shell', // 海妖外壳
-      // 'alchemist_corrosive_weaponry', // 腐蚀兵械
+      'alchemist_corrosive_weaponry', // 腐蚀兵械
     ],
   },
 ];
