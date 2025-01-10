@@ -3876,15 +3876,15 @@
 	"tidehunter_ravage"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"120"
+		"AbilityCooldown"				"90"
 		"AbilityDamage"					"250 400 550 700"	// 250 350 450
 		"AbilityManaCost"				"125 225 325 425"
 		"AbilityValues"
 		{
 			"duration"
 			{
-				"value"					"2.0 2.2 2.4 2.6"
-				"special_bonus_unique_tidehunter_7"	"+1.0"	// 0.8
+				"value"					"2.0 2.4 2.8 3.2"
+				"special_bonus_unique_tidehunter_7"	"+1.2"	// 0.8
 			}
 		}
 	}
@@ -9634,9 +9634,9 @@
 		"AbilityCooldown"				"40"
 		"AbilityValues"
 		{
-				"on_count"					"8"			// 5
+				"on_count"					"6"			// 5
 				"hit_count"					"14"		// 7
-				"wisp_damage"				"175"		// 75
+				"wisp_damage"				"225"		// 75
 				"off_duration"				"1.0"		// 1.85
 				"on_duration"				"1.0"
 				"off_duration_initial"		"1.0"
