@@ -1,5 +1,6 @@
 import { Player } from '../../api/player';
 import { ModifierHelper } from '../helper/modifier-helper';
+import { PlayerHelper } from '../helper/player-helper';
 import { HeroPick } from '../hero/hero-pick';
 
 export class EventGameStateChange {
@@ -67,6 +68,53 @@ export class EventGameStateChange {
     for (const base of bases) {
       this.addModifierToTowers(base);
     }
+
+    // 设置玩家颜色（修正小地图不显示问题）
+    this.setPlayerColor();
+  }
+
+  private setPlayerColor() {
+    // 每个队伍前五个玩家不设置
+    const skipPlayerCount = 5;
+    let radiantPlayerIndex = 0;
+    let direPlayerIndex = 0;
+
+    const radiantColors = [
+      [135, 206, 250],
+      [255, 127, 80],
+      [255, 0, 255],
+      [0, 255, 0],
+      [255, 215, 0],
+    ];
+    const direColors = [
+      [220, 20, 60],
+      [0, 128, 128],
+      [0, 0, 139],
+      [245, 245, 220],
+      [139, 0, 0],
+    ];
+    PlayerHelper.ForEachPlayer((playerId) => {
+      const player = PlayerResource.GetPlayer(playerId);
+      if (!player) return;
+      let color: number[] | undefined;
+      if (player.GetTeamNumber() === DotaTeam.GOODGUYS) {
+        const colerIndex = radiantPlayerIndex - skipPlayerCount;
+        if (colerIndex >= 0) {
+          color = radiantColors[colerIndex];
+        }
+        radiantPlayerIndex++;
+      } else {
+        const colerIndex = direPlayerIndex - skipPlayerCount;
+        if (colerIndex >= 0) {
+          color = direColors[colerIndex];
+        }
+        direPlayerIndex++;
+      }
+
+      if (!color) return;
+
+      PlayerResource.SetCustomPlayerColor(playerId, color[0], color[1], color[2]);
+    });
   }
 
   private addModifierToTowers(building: CDOTA_BaseNPC) {
