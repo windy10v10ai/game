@@ -78,7 +78,6 @@ export const abilityTiers: Tier[] = [
       'weaver_time_lapse', // 时光倒流
 
       // 小技能
-      'tiny_tree_grab', // 抓树
       'pudge_meat_hook', // 肉钩
       'shadow_shaman_voodoo', // 妖术
       'dark_willow_shadow_realm', // 暗影之境
