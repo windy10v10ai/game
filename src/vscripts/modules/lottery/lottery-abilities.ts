@@ -135,7 +135,6 @@ export const abilityTiers: Tier[] = [
       'alchemist_acid_spray', // 酸雾
       'winter_wyvern_cold_embrace', // 极寒之拥 冰箱
       'sven_storm_bolt', // 风暴之拳 斯温
-      'phoenix_icarus_dive', // 凤凰冲击
       'treant_living_armor', // 活体护甲
       'legion_commander_overwhelming_odds', // 压倒性优势
       'oracle_purifying_flames', // 涤罪之焰
