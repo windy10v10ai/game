@@ -21,7 +21,7 @@ end
 
 local function addTome(k, v)
   -- N6替换
-  if AIGameMode.fBotGoldXpMultiplier >= 8 then
+  if AIGameMode.fBotGoldXpMultiplier >= 10 then
     -- 光暗·秘术铠甲
     replaceItem(v, "item_blade_mail_2", "item_force_field_ai")
 
