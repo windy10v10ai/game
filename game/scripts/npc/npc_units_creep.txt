@@ -312,7 +312,7 @@
 		"AttackDamageMin"			"180"		// 41
 		"AttackDamageMax"			"200"		// 46
 		"AttackRate"				"1"			// 1
-		"BaseAttackSpeed"			"250"
+		"BaseAttackSpeed"			"200"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
