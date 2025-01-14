@@ -408,7 +408,7 @@
 		// Attack
 		"AttackDamageMin"			"200"		// 51
 		"AttackDamageMax"			"240"		// 62
-		"AttackRate"				"2.0"		// 3.0
+		"AttackRate"				"2.5"		// 3.0
 		"BaseAttackSpeed"			"200"		// 100
 		"AttackRange"				"800"
 
@@ -439,7 +439,7 @@
 		// Attack
 		"AttackDamageMin"			"200"		// 51
 		"AttackDamageMax"			"240"		// 62
-		"AttackRate"				"2.0"		// 3.0
+		"AttackRate"				"2.5"		// 3.0
 		"BaseAttackSpeed"			"200"		// 100
 		"AttackRange"				"800"
 
