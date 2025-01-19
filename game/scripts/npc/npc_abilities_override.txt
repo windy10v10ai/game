@@ -8225,7 +8225,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"800 900 1000 1100 1200"
-		"AbilityCooldown"				"24 20 16 12 8"
+		"AbilityCooldown"				"19 16 13 10 7"
 		"AbilityManaCost"				"100 110 120 130 140"
 
 		"AbilityValues"
@@ -8233,7 +8233,8 @@
 			"damage_reduction"	"55 60 65 70 75"
 			"enfeeble_tick_damage"
 			{
-				"value"			"12 18 24 30 36"
+				"value"			"18 27 36 45 54"	// x1.5
+				"special_bonus_unique_bane_10"				"+20"	// x1.5
 			}
 		}
 	}
@@ -8246,11 +8247,15 @@
 		{
 			"brain_sap_damage"
 			{
-				"value"									"90 160 230 300 370"
+				"value"									"90 180 270 360 450"
 			}
 			"AbilityCooldown"
 			{
 				"value"	"15 14 13 12 11"
+			}
+			"shard_secondary_target_heal_pct"
+			{
+				"special_bonus_shard"				"+50"	// 30
 			}
 		}
 	}
@@ -8283,17 +8288,17 @@
 		{
 			"AbilityChannelTime"
 			{
-				"value"					"4 4.5 5 5.5"
-				"special_bonus_unique_bane_3"		"+2.5"
+				"value"					"4 4.25 4.5 4.75"
+				"special_bonus_unique_bane_3"		"+2"
 			}
 			"fiend_grip_damage"
 			{
-				"value"			"100 150 200 250"	// 70 110 150 190
+				"value"			"140 220 300 380"	// x2
 			}
 			"AbilityCooldown"
 			{
 				"value"	"90 80 70 60"
-				"special_bonus_scepter"	"-20"
+				"special_bonus_scepter"	"-30"
 			}
 			"illusion_count"
 			{
