@@ -40,7 +40,7 @@ export class Debug {
     if (!this.DebugEnabled) return;
 
     // add ability by name
-    if (cmd === CMD.ADD_ABILITY) {
+    if (cmd === CMD.ADD_A) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
       const abilityName = args[0];
