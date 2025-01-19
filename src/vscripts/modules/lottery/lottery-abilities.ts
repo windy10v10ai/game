@@ -73,6 +73,7 @@ export const abilityTiers: Tier[] = [
       'tidehunter_ravage', // 毁灭
       'weaver_time_lapse', // 时光倒流
       'tinker_rearm_lua', // 再装填
+      'medusa_stone_gaze', // 石化凝视
 
       // 小技能
       'pudge_meat_hook', // 肉钩
@@ -138,8 +139,8 @@ export const abilityTiers: Tier[] = [
       'witch_doctor_paralyzing_cask', // 麻痹药剂
       'phantom_assassin_phantom_strike', // 幻影突袭
       'slardar_slithereen_crush', // 鱼人碎击
-      'brewmaster_thunder_clap', // 雷霆一击
       'brewmaster_drunken_brawler', // 醉拳
+      'ember_spirit_sleight_of_fist', // 无影拳
 
       // 法球/开关技能
       'viper_poison_attack', // 毒性攻击
@@ -179,6 +180,7 @@ export const abilityTiers: Tier[] = [
       // 大招
       'dark_willow_bedlam', // 作祟
       'chen_hand_of_god', // 上帝之手
+      'techies_land_mines', // 感应地雷
 
       // 小技能
       'winter_wyvern_cold_embrace', // 极寒之拥 冰箱
@@ -202,6 +204,10 @@ export const abilityTiers: Tier[] = [
       'tinker_heat_seeking_missile', // 热导飞弹
       'brewmaster_cinder_brew', // 余烬佳酿
       'chen_penitence', // 赎罪 陈
+      'brewmaster_thunder_clap', // 雷霆一击
+      'medusa_mystic_snake', // 秘术异蛇
+      'drow_ranger_multishot', // 数箭齐发
+      'ember_spirit_searing_chains', // 炎阳索
 
       // 法球/开关技能
       // 'witch_doctor_voodoo_restoration', // 巫毒疗法
