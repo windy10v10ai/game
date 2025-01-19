@@ -2412,7 +2412,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4880,7 +4880,7 @@
 	//=================================================================================================================
 	"item_black_king_bar_real"
 	{
-		"ID"                            "9600"
+		"ID"							"9600"
 		"BaseClass"						"item_minotaur_horn"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"90.0"
@@ -4888,7 +4888,7 @@
 
 		"ItemCost"						"10000"
 		"ItemPurchasable"				"1"
-		"ItemSellable"				    "1"
+		"ItemSellable"					"1"
 		"ItemIsNeutralDrop"				"1"
 		"AbilityTextureName"			"item_black_king_bar_real"
 		"AbilitySharedCooldown"			"bkb"
@@ -4910,7 +4910,7 @@
 		"BaseClass"						"item_datadriven"
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-        "AbilityTextureName" 			"item_recipe_rapier_ultra"
+		"AbilityTextureName" 			"item_recipe_rapier_ultra"
 		"ItemCost"						"7200"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -4929,6 +4929,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9595"
 		"AbilityTextureName"			"item_rapier_ultra"
+		"ItemCost"						"40000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -4968,22 +4969,22 @@
 	}
 
 	//=================================================================================================================
-    // 解放的诅咒圣剑 rapier ultra bot
+    // 解放的诅咒圣剑 rapier ultra
     //=================================================================================================================
 	"item_recipe_rapier_ultra_bot"
 	{
 		"BaseClass"						"item_datadriven"
 		"ID"							"9597"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-        "AbilityTextureName" 			"item_recipe_rapier_ultra"
+		"AbilityTextureName" 			"item_recipe_rapier_ultra"
 		"ItemCost"						"2000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra_bot"
 		"ItemRequirements"
 		{
-			"01"						"item_rapier_ultra;item_dark_part;item_dark_part"
-			"02"						"item_rapier_ultra;item_light_part;item_dark_part"
+			"01"						"item_rapier_ultra;item_light_part;item_dark_part"
+			"02"						"item_rapier_ultra;item_dark_part;item_dark_part"
 			"03"						"item_rapier_ultra;item_light_part;item_light_part"
 		}
 	}
@@ -4993,7 +4994,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9596"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"40000"
+		"ItemCost"						"60000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -5032,7 +5033,7 @@
 		}
 	}
 
-	// ai独立解放剑
+	// ai独立解放剑（玩家不可购买，解决AI卡格子问题）
 	"item_rapier_ultra_bot_1"
 	{
 		"BaseClass"						"item_datadriven"

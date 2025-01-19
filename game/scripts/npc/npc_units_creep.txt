@@ -47,6 +47,25 @@
 
 		"StatusHealth"				"800"		// 550
 	}
+	// 投石车 1.5x
+	"npc_dota_goodguys_siege"
+	{
+		"BaseAttackSpeed"			"130"		// 100
+		"AttackRange"				"800"		// 690
+
+		"BountyXP"					"132"		// 88
+		"BountyGoldMin"				"88"		// 59
+		"BountyGoldMax"				"108"		// 72
+	}
+	"npc_dota_badguys_siege"
+	{
+		"BaseAttackSpeed"			"130"		// 100
+		"AttackRange"				"800"		// 690
+
+		"BountyXP"					"132"		// 88
+		"BountyGoldMin"				"88"		// 59
+		"BountyGoldMax"				"108"		// 72
+	}
 	//=================================================================================
 	// Creeps: 小兵 高级
 	//=================================================================================
@@ -64,7 +83,7 @@
 		"AttackDamageMin"			"120"		// 41
 		"AttackDamageMax"			"140"		// 46
 		"AttackRate"				"1"			// 1
-		"BaseAttackSpeed"			"180"
+		"BaseAttackSpeed"			"160"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -78,8 +97,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1000"		// 475
-		"StatusHealthRegen"			"5"			// 2
+		"StatusHealth"				"950"		// 475
+		"StatusHealthRegen"			"4"			// 2
 	}
 
 	"npc_dota_creep_goodguys_ranged_upgraded"
@@ -96,7 +115,7 @@
 		"AttackDamageMin"			"120"		// 41
 		"AttackDamageMax"			"140"		// 46
 		"AttackRate"				"1"			// 1
-		"BaseAttackSpeed"			"180"
+		"BaseAttackSpeed"			"160"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -110,8 +129,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1000"		// 475
-		"StatusHealthRegen"			"5"			// 2
+		"StatusHealth"				"950"		// 475
+		"StatusHealthRegen"			"4"			// 2
 	}
 
 	"npc_dota_creep_badguys_melee_upgraded"
@@ -128,7 +147,7 @@
 		"AttackDamageMin"			"100"		// 36
 		"AttackDamageMax"			"120"		// 44
 		"AttackRate"				"1"			// 1
-		"BaseAttackSpeed"			"180"
+		"BaseAttackSpeed"			"160"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -142,8 +161,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1200"		// 700
-		"StatusHealthRegen"			"5"			// 0.5
+		"StatusHealth"				"1400"		// 700
+		"StatusHealthRegen"			"1"			// 0.5
 	}
 	"npc_dota_creep_goodguys_melee_upgraded"
 	{
@@ -159,7 +178,7 @@
 		"AttackDamageMin"			"100"		// 36
 		"AttackDamageMax"			"120"		// 44
 		"AttackRate"				"1"			// 1
-		"BaseAttackSpeed"			"180"
+		"BaseAttackSpeed"			"160"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -173,8 +192,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1200"		// 700
-		"StatusHealthRegen"			"5"			// 0.5
+		"StatusHealth"				"1400"		// 700
+		"StatusHealthRegen"			"1"			// 0.5
 	}
 
 	//=================================================================================
@@ -194,8 +213,8 @@
 		"AttackDamageMin"			"140"		// 51
 		"AttackDamageMax"			"160"		// 62
 		"AttackRate"				"2.5"		// 3.0
-		"BaseAttackSpeed"			"180"
-		"AttackRange"				"800"
+		"BaseAttackSpeed"			"160"		// 100
+		"AttackRange"				"800"		// 690
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -209,8 +228,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// 935
-		"StatusHealthRegen"			"5"			// 0
+		"StatusHealth"				"1870"		// 935
 	}
 	"npc_dota_badguys_siege_upgraded"
 	{
@@ -226,8 +244,8 @@
 		"AttackDamageMin"			"140"		// 51
 		"AttackDamageMax"			"160"		// 62
 		"AttackRate"				"2.5"		// 3.0
-		"BaseAttackSpeed"			"180"
-		"AttackRange"				"800"
+		"BaseAttackSpeed"			"160"		// 100
+		"AttackRange"				"800"		// 690
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -241,8 +259,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// 935
-		"StatusHealthRegen"			"5"			// 0
+		"StatusHealth"				"1870"		// 935
 	}
 
 	//=================================================================================
@@ -260,10 +277,10 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"180"		// 41
-		"AttackDamageMax"			"200"		// 46
+		"AttackDamageMin"			"180"		// 46
+		"AttackDamageMax"			"200"		// 51
 		"AttackRate"				"1"			// 1
-		"BaseAttackSpeed"			"250"
+		"BaseAttackSpeed"			"200"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -277,8 +294,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// 475
-		"StatusHealthRegen"			"5"			// 2
+		"StatusHealth"				"950"		// 475
+		"StatusHealthRegen"			"4"			// 2
 	}
 	"npc_dota_creep_goodguys_ranged_upgraded_mega"
 	{
@@ -295,7 +312,7 @@
 		"AttackDamageMin"			"180"		// 41
 		"AttackDamageMax"			"200"		// 46
 		"AttackRate"				"1"			// 1
-		"BaseAttackSpeed"			"250"
+		"BaseAttackSpeed"			"200"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -309,8 +326,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// 475
-		"StatusHealthRegen"			"5"			// 2
+		"StatusHealth"				"950"		// 475
+		"StatusHealthRegen"			"4"			// 2
 	}
 
 	"npc_dota_creep_badguys_melee_upgraded_mega"
@@ -324,10 +341,10 @@
 		"MagicalResistance"			"50"		// 0
 
 		// Attack
-		"AttackDamageMin"			"140"		// 36
-		"AttackDamageMax"			"160"		// 44
+		"AttackDamageMin"			"164"		// 41
+		"AttackDamageMax"			"196"		// 49
 		"AttackRate"				"1"			// 1
-		"BaseAttackSpeed"			"250"
+		"BaseAttackSpeed"			"200"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -341,8 +358,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2400"		// 700
-		"StatusHealthRegen"			"5"			// 0.5
+		"StatusHealth"				"1400"		// 700
+		"StatusHealthRegen"			"1"			// 0.5
 	}
 	"npc_dota_creep_goodguys_melee_upgraded_mega"
 	{
@@ -355,10 +372,10 @@
 		"MagicalResistance"			"50"		// 0
 
 		// Attack
-		"AttackDamageMin"			"140"		// 36
-		"AttackDamageMax"			"160"		// 44
+		"AttackDamageMin"			"164"		// 41
+		"AttackDamageMax"			"196"		// 49
 		"AttackRate"				"1"			// 1
-		"BaseAttackSpeed"			"250"
+		"BaseAttackSpeed"			"200"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -372,8 +389,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2400"		// 700
-		"StatusHealthRegen"			"5"			// 0.5
+		"StatusHealth"				"1400"		// 700
+		"StatusHealthRegen"			"1"			// 0.5
 	}
 	//=================================================================================
 	// Creeps: 小兵 投石车
@@ -391,8 +408,8 @@
 		// Attack
 		"AttackDamageMin"			"200"		// 51
 		"AttackDamageMax"			"240"		// 62
-		"AttackRate"				"2.0"		// 3.0
-		"BaseAttackSpeed"			"250"
+		"AttackRate"				"2.5"		// 3.0
+		"BaseAttackSpeed"			"200"		// 100
 		"AttackRange"				"800"
 
 		// Bounty
@@ -407,8 +424,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// 935
-		"StatusHealthRegen"			"10"		// 0
+		"StatusHealth"				"1870"		// 935
 	}
 	"npc_dota_badguys_siege_upgraded_mega"
 	{
@@ -423,8 +439,8 @@
 		// Attack
 		"AttackDamageMin"			"200"		// 51
 		"AttackDamageMax"			"240"		// 62
-		"AttackRate"				"2.0"		// 3.0
-		"BaseAttackSpeed"			"250"
+		"AttackRate"				"2.5"		// 3.0
+		"BaseAttackSpeed"			"200"		// 100
 		"AttackRange"				"800"
 
 		// Bounty
@@ -439,7 +455,6 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// 935
-		"StatusHealthRegen"			"10"		// 0
+		"StatusHealth"				"1870"		// 935
 	}
 }

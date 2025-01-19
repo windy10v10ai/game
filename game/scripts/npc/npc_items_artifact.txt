@@ -445,6 +445,7 @@
 			"bonus_all_stats"		"777"
 		}
 	}
+	// 神龙赐福·不死
 	"item_recipe_blessing_of_dragon_1"
 	{
 		"BaseClass"						"item_datadriven"
@@ -471,14 +472,15 @@
 		"ItemKillable"					"0"
 		"ItemSellable"				    "0"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
-		"AbilityCooldown"				"0.0"
-        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AbilityCooldown"				"180.0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilityValues"
 		{
 			"bonus_armor"		"0"
-			"duration"			"7200"
+			"duration"			"3600"
 		}
 	}
+	// 神龙赐福·毁灭
 	"item_recipe_blessing_of_dragon_2"
 	{
 		"BaseClass"						"item_datadriven"
@@ -506,7 +508,7 @@
 		"AbilityCooldown"				"180"
 		"ItemCost"						"0"
 		"ItemStackable"					"0"
-		"ItemInitialCharges"			"5"
+		"ItemInitialCharges"			"8"
 		"ItemPermanent"					"0"
 		"IsTempestDoubleClonable"		"0"
 		"ItemPurchasable"				"1"
@@ -523,12 +525,13 @@
 			}
 			"movespeed_slow"		"-100"
 			"bonus_health"			"0"
-			"damage_over_time"		"999999"
+			"damage_over_time"		"0"
 			"impact_damage"			"99999"
 			"tick_rate"				"1"
-			"debuff_duration"		"10"
+			"debuff_duration"		"1"
 		}
 	}
+	// 神龙赐福·时间
 	"item_recipe_blessing_of_dragon_3"
 	{
 		"BaseClass"						"item_datadriven"
@@ -566,6 +569,7 @@
 			"bonus_damage"			"0"
 		}
 	}
+	// 神龙赐福·空间
 	"item_recipe_blessing_of_dragon_4"
 	{
 		"BaseClass"						"item_datadriven"
@@ -657,7 +661,7 @@
 		"ItemInitialStockTime"			"1245"// 20分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"180"
+		"ItemStockTime"					"120"
 
 		"AbilityValues"
 		{
@@ -696,10 +700,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"1245"// 25分钟买
+		"ItemInitialStockTime"			"1245"// 20分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"180"
+		"ItemStockTime"					"120"
 
 		"AbilityValues"
 		{
