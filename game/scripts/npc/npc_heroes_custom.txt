@@ -365,13 +365,13 @@
 		"Ability5"	"yukari_morph"
 		"Ability6"	"yukari_twin_trains"
 		"Ability10"	"special_bonus_unique_yukari_01_stun"
-		"Ability11"	"special_bonus_mp_300"
-		"Ability12"	"special_bonus_unique_thdots_yukari04_stun"
-		"Ability13"	"special_bonus_mana_reduction_9"
-		"Ability14"	"special_bonus_unique_yukari_01_damage"
+		"Ability11"	"special_bonus_mana_reduction_9"
+		"Ability12"	"special_bonus_unique_yukari_01_damage"
+		"Ability13"	"special_bonus_spell_amplify_20"
+		"Ability14"	"special_bonus_unique_thdots_yukari04_stun"
 		"Ability15"	"special_bonus_intelligence_30"
 		"Ability16"	"special_bonus_unique_yukari_tentacles_damage"
-		"Ability17"	"special_bonus_spell_amplify_20"
+		"Ability17"	"special_bonus_cast_range_350"
 
 		"Facets"  ""
 
@@ -2213,11 +2213,6 @@
 				"34"		"skywrath_mage_concussive_shot"
 			}
 		}
-	}
-	"npc_dota_hero_snapfire"
-	{
-		// "Ability7"				"snapfire_mortimer_kisses"
-		// "Ability6"				"chen_penitence"	// 设置此技能会导致先天技能失效
 	}
 	"npc_dota_hero_sniper"
 	{

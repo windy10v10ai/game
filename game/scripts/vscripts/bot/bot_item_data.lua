@@ -1565,8 +1565,6 @@ tBotItemData.wardObserverPostionList = {
 }
 tBotItemData.wardSentryPostionList = {
 
-	-- deward
-
 	-- 天辉
 
 	-- 上路

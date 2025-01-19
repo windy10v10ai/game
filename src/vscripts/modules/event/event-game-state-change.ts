@@ -13,6 +13,7 @@ export class EventGameStateChange {
     if (state === GameState.CUSTOM_GAME_SETUP) {
       Timers.CreateTimer(1, () => {
         Player.LoadPlayerInfo();
+        this.setPlayerColor();
       });
     } else if (state === GameState.GAME_IN_PROGRESS) {
       this.OnGameInProgress();
@@ -69,17 +70,21 @@ export class EventGameStateChange {
       this.addModifierToTowers(base);
     }
 
-    // 设置玩家颜色（修正小地图不显示问题）
     this.setPlayerColor();
   }
 
+  /**
+   * 设置玩家颜色（修正小地图不显示问题）
+   */
   private setPlayerColor() {
-    // 每个队伍前五个玩家不设置
-    const skipPlayerCount = 5;
     let radiantPlayerIndex = 0;
     let direPlayerIndex = 0;
-
     const radiantColors = [
+      [51, 117, 255],
+      [102, 255, 191],
+      [191, 0, 191],
+      [243, 240, 11],
+      [255, 107, 0],
       [135, 206, 250],
       [255, 127, 80],
       [255, 0, 255],
@@ -87,6 +92,11 @@ export class EventGameStateChange {
       [255, 215, 0],
     ];
     const direColors = [
+      [254, 134, 194],
+      [161, 180, 71],
+      [101, 217, 247],
+      [0, 131, 33],
+      [164, 105, 0],
       [220, 20, 60],
       [0, 128, 128],
       [0, 0, 139],
@@ -98,16 +108,10 @@ export class EventGameStateChange {
       if (!player) return;
       let color: number[] | undefined;
       if (player.GetTeamNumber() === DotaTeam.GOODGUYS) {
-        const colerIndex = radiantPlayerIndex - skipPlayerCount;
-        if (colerIndex >= 0) {
-          color = radiantColors[colerIndex];
-        }
+        color = radiantColors[radiantPlayerIndex];
         radiantPlayerIndex++;
       } else {
-        const colerIndex = direPlayerIndex - skipPlayerCount;
-        if (colerIndex >= 0) {
-          color = direColors[colerIndex];
-        }
+        color = direColors[direPlayerIndex];
         direPlayerIndex++;
       }
 
