@@ -1537,10 +1537,10 @@
 	{
 		"ItemInitialCharges"			"2"
 		"ItemStockMax"					"5"
-		"ItemStockTime"					"120.0" // or 150
+		"ItemStockTime"					"150.0" // 420
 		"AbilityValues"
 		{
-			"visibility_radius"		"750"	// 1025
+			"visibility_radius"		"900"	// 1025
 		}
 	}
 
