@@ -523,10 +523,10 @@
 			}
 			"movespeed_slow"		"-100"
 			"bonus_health"			"0"
-			"damage_over_time"		"999999"
+			"damage_over_time"		"0"
 			"impact_damage"			"99999"
 			"tick_rate"				"1"
-			"debuff_duration"		"10"
+			"debuff_duration"		"1"
 		}
 	}
 	"item_recipe_blessing_of_dragon_3"
