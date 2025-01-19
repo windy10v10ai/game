@@ -2015,7 +2015,7 @@
 
 		// item_light_part 圣光组件
 		"DOTA_Tooltip_Ability_item_light_part"					"圣光组件"
-		"DOTA_Tooltip_ability_item_light_part_Description"		"可以用来将装备进行圣光改造。升级后的装备将放在主背包中。"
+		"DOTA_Tooltip_ability_item_light_part_Description"		"可以用来将装备进行圣光改造。升级后的装备将放在主背包中。 \n无法合成时，请尝试从备用背包中移动至主背包或仓库，或扔下再捡起。"
 		"DOTA_Tooltip_Ability_item_light_part_Note0"			"远古有更高概率掉落，爆率随游戏时间而增加。当你拥有更多队友时，肉山会掉落更多组件。"
 		"DOTA_Tooltip_Ability_item_light_part_Lore"				"在白天击杀肉山和中立生物时，有几率随机掉落。"
 		"DOTA_Tooltip_Ability_item_light_part_bonus_damage"		"+$damage"
@@ -2023,7 +2023,7 @@
 
 		// item_dark_part 暗影组件
 		"DOTA_Tooltip_Ability_item_dark_part"					"暗影组件"
-		"DOTA_Tooltip_ability_item_dark_part_Description"		"可以用来将装备进行暗影改造。升级后的装备将放在主背包中。"
+		"DOTA_Tooltip_ability_item_dark_part_Description"		"可以用来将装备进行暗影改造。升级后的装备将放在主背包中。\n无法合成时，请尝试从备用背包中移动至主背包或仓库，或扔下再捡起。"
 		"DOTA_Tooltip_ability_item_dark_part_Note0"				"远古有更高概率掉落，爆率随游戏时间而增加。当你拥有更多队友时，肉山会掉落更多组件。"
 		"DOTA_Tooltip_Ability_item_dark_part_Lore"				"在夜间击杀肉山和中立生物时，有几率随机掉落。"
 		"DOTA_Tooltip_Ability_item_dark_part_bonus_spell_amp"	"%+$spell_amp"
