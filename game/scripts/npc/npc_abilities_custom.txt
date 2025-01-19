@@ -1156,7 +1156,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
-	// 直感
+	// 直感 先天技能
 	"artoria_instinct"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
@@ -1975,7 +1975,7 @@
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
 
-	// 罔两「八云紫的神隐」
+	// 罔两「八云紫的神隐」 先天技能
 	"yukari_moon_portal"
 	{
 		// General
@@ -1987,12 +1987,13 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetFlags"   "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"	"5"
-		"RequiredLevel"	"1"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"				"6"
+		"Innate"						"1"
+		"RequiredLevel"			"1"
 		"LevelsBetweenUpgrades"	"3"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
@@ -2001,10 +2002,10 @@
 		"AbilityCastRange"	"%cast_range"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"36 32 28 24 20"
+		"AbilityCooldown"	"40 36 32 28 24 20"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"100 120 140 160 180"
+		"AbilityManaCost"	"80 100 120 140 160 180"
 
 		"precache"
 		{
@@ -2012,8 +2013,8 @@
 		}
 		"AbilityValues"
 		{
-			"damage"			"80 120 160 200 240"
-			"cast_range"		"800 900 1000 1100 1200"
+			"damage"			"80 120 160 200 240 280"
+			"cast_range"		"700 800 900 1000 1100 1200"
 			"lift_duration"		"2.0"
 			"fall_animation"	"0.2"
 			"lift_animation"	"0.2"
@@ -2189,8 +2190,8 @@
 		"AbilityValues"
 		{
 			"projectile_speed"				"600"
-			"dragon_slave_width_initial"	"300"
-			"dragon_slave_width_end"		"300"
+			"dragon_slave_width_initial"	"350"
+			"dragon_slave_width_end"		"350"
 			"dragon_slave_distance"			"2000"
 
 			"collision_damage"
