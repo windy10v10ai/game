@@ -3,6 +3,43 @@ LinkLuaModifier("modifier_train_1", "heroes/hero_yukari/yukari_twin_trains", LUA
 LinkLuaModifier("modifier_train_2", "heroes/hero_yukari/yukari_twin_trains", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_train_exclusion", "heroes/hero_yukari/yukari_twin_trains", LUA_MODIFIER_MOTION_NONE)
 
+-- 火车碰撞伤害
+local function TrainDamage(ability, target, projectile)
+	if not target then return end
+
+	if target:HasModifier("modifier_train_exclusion") then
+		return
+	end
+
+	local collision_damage = ability:GetSpecialValueFor("collision_damage")
+	-- apply damage
+	local damageTable = {
+		victim = target,
+		attacker = ability:GetCaster(),
+		damage = collision_damage,
+		damage_type = ability:GetAbilityDamageType(),
+		ability = ability, --Optional.
+	}
+	ApplyDamage(damageTable)
+	target:AddNewModifier(
+		ability:GetCaster(),
+		ability,
+		"modifier_stunned",
+		{ duration = ability:GetSpecialValueFor("stun_time") }
+	)
+	target:AddNewModifier(
+		ability:GetCaster(),
+		ability,
+		"modifier_train_exclusion",
+		{ duration = ability:GetSpecialValueFor("stun_time") }
+	)
+
+	-- get direction
+	local direction = ProjectileManager:GetLinearProjectileVelocity(projectile)
+	direction.z = 0
+	direction = direction:Normalized()
+end
+
 function yukari_twin_trains:OnSpellStart()
 	-- unit identifier
 	local caster = self:GetCaster()
@@ -12,8 +49,8 @@ function yukari_twin_trains:OnSpellStart()
 		self.point2                   = self:GetCursorPosition()
 		local projectile_name         = "particles/yukari_twin_train.vpcf"
 		local distance                = (self.point2 - self.point):Length2D()
-		local projectile_distance     = distance * 0.5
-		local projectile_speed        = 600
+		local projectile_distance     = distance * 0.6
+		local projectile_speed        = self:GetSpecialValueFor("projectile_speed")
 		local projectile_start_radius = self:GetSpecialValueFor("dragon_slave_width_initial")
 		local projectile_end_radius   = self:GetSpecialValueFor("dragon_slave_width_end")
 		local delay                   = projectile_distance / projectile_speed + 0.2
@@ -163,35 +200,7 @@ function yukari_twin_trains:PlayEffects2(radius)
 end
 
 function yukari_twin_trains:OnProjectileHitHandle(target, location, projectile)
-	if not target then return end
-
-	local collision_damage = self:GetSpecialValueFor("collision_damage")
-	-- apply damage
-	local damageTable = {
-		victim = target,
-		attacker = self:GetCaster(),
-		damage = collision_damage,
-		damage_type = self:GetAbilityDamageType(),
-		ability = self, --Optional.
-	}
-	ApplyDamage(damageTable)
-	target:AddNewModifier(
-		self:GetCaster(),
-		self,
-		"modifier_stunned",
-		{ duration = self:GetSpecialValueFor("stun_time") }
-	)
-	target:AddNewModifier(
-		self:GetCaster(),
-		self,
-		"modifier_train_exclusion",
-		{ duration = self:GetSpecialValueFor("stun_time") }
-	)
-
-	-- get direction
-	local direction = ProjectileManager:GetLinearProjectileVelocity(projectile)
-	direction.z = 0
-	direction = direction:Normalized()
+	TrainDamage(self, target, projectile)
 end
 
 modifier_train_1 = class({})
@@ -212,7 +221,7 @@ function modifier_train_2:OnCreated(kv)
 	local caster = self:GetParent()
 	local projectile_name = "particles/yukari_train.vpcf"
 	local projectile_distance = 3000
-	local projectile_speed = 600
+	local projectile_speed = self:GetAbility():GetSpecialValueFor("projectile_speed")
 	local projectile_start_radius = 350
 	local projectile_end_radius = 350
 	local point = kv.place
@@ -245,7 +254,7 @@ function modifier_train_2:OnCreated(kv)
 		iVisionTeamNumber = caster:GetTeamNumber(),
 	}
 	ProjectileManager:CreateLinearProjectile(info)
-	local radius = 600
+	local radius = self:GetAbility():GetSpecialValueFor("explosion_radius")
 	local debuffDuration = 1
 	self:PlayEffects1(caster, radius, debuffDuration)
 	self.sound_cast = "ability_yukari_01"
@@ -253,35 +262,7 @@ function modifier_train_2:OnCreated(kv)
 end
 
 function modifier_train_2:OnProjectileHitHandle(target, location, projectile)
-	if not target then return end
-
-	local collision_damage = self:GetSpecialValueFor("collision_damage")
-	-- apply damage
-	local damageTable = {
-		victim = target,
-		attacker = self:GetCaster(),
-		damage = collision_damage,
-		damage_type = self:GetAbilityDamageType(),
-		ability = self, --Optional.
-	}
-	ApplyDamage(damageTable)
-	target:AddNewModifier(
-		self:GetCaster(),
-		self,
-		"modifier_stunned",
-		{ duration = self:GetSpecialValueFor("stun_time") }
-	)
-	target:AddNewModifier(
-		self:GetCaster(),
-		self,
-		"modifier_train_exclusion",
-		{ duration = self:GetSpecialValueFor("stun_time") }
-	)
-
-	-- get direction
-	local direction = ProjectileManager:GetLinearProjectileVelocity(projectile)
-	direction.z = 0
-	direction = direction:Normalized()
+	TrainDamage(self, target, projectile)
 end
 
 function modifier_train_2:PlayEffects1(caster, radius, duration)

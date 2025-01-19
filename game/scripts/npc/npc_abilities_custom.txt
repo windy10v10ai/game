@@ -2188,16 +2188,30 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"dragon_slave_speed"			"600"
-				"dragon_slave_width_initial"	"300"
-				"dragon_slave_width_end"		"300"
-				"dragon_slave_distance"			"2000"
-				// 碰撞伤害
-				"collision_damage"				"100 150 200 250"
-				"stun_time"						"2.0 2.4 2.8 3.2"
+			"projectile_speed"				"600"
+			"dragon_slave_width_initial"	"300"
+			"dragon_slave_width_end"		"300"
+			"dragon_slave_distance"			"2000"
 
-				"explosion_radius"				"600"
-				"explosion_damage"				"200 300 400 500"
+			"collision_damage"
+			{
+				"value"							"100 150 200 250"
+				"CalculateSpellDamageTooltip"	"1"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_PURE"
+			}
+			"stun_time"						"2.0 2.4 2.8 3.2"
+
+			"explosion_radius"
+			{
+				"value"						"600"
+				"affected_by_aoe_increase"	"1"
+			}
+			"explosion_damage"
+			{
+				"value"							"160 240 320 400"
+				"CalculateSpellDamageTooltip"	"1"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_PURE"
+			}
 		}
 	}
 
