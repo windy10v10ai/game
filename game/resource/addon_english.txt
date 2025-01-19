@@ -1027,13 +1027,16 @@
 		"DOTA_Tooltip_modifier_yukari_morph"						"Moon Phase"
 		"DOTA_Tooltip_modifier_yukari_morph_real"					"Moon Phase"
 
-		"DOTA_Tooltip_ability_yukari_train" "Yukari's special: Train"
-		"DOTA_Tooltip_ability_yukari_train_Description" "Summons the train from portal that rides to selected direction. Deals enormous damage to all enemies in the train cars collide."
-		"DOTA_Tooltip_ability_yukari_train_AbilityDamage" "DAMAGE:"
-		"DOTA_Tooltip_ability_yukari_train_Lore" "I like trains."
+		// "DOTA_Tooltip_ability_yukari_train" "Yukari's special: Train"
+		// "DOTA_Tooltip_ability_yukari_train_Description" "Summons the train from portal that rides to selected direction. Deals enormous damage to all enemies in the train cars collide."
+		// "DOTA_Tooltip_ability_yukari_train_AbilityDamage" "DAMAGE:"
+		// "DOTA_Tooltip_ability_yukari_train_Lore" "I like trains."
 		"DOTA_Tooltip_ability_yukari_twin_trains" "Yukari's Special: Double Train"
 		"DOTA_Tooltip_ability_yukari_twin_trains_Description" "Generates one portal, and releases it again within 4 seconds to generate a second portal. Each entrance spawns a train which speeds towards the other. The trains deals massive damage and stun enemies in their path. When the trains collide, they will create a massive explosion that deals additional damage and stuns enemies caught in their wake."
-		"DOTA_Tooltip_ability_yukari_twin_trains_AbilityDamage" "DAMAGE:"
+		"DOTA_Tooltip_ability_yukari_twin_trains_collision_damage"		"COLLISION DAMAGE:"
+		"DOTA_Tooltip_ability_yukari_twin_trains_stun_time"				"COLLISION STUN DURATION:"
+		"DOTA_Tooltip_ability_yukari_twin_trains_explosion_damage"		"EXPLOSION DAMAGE:"
+		"DOTA_Tooltip_ability_yukari_twin_trains_explosion_radius"		"EXPLOSION RADIUS:"
 		"DOTA_Tooltip_ability_yukari_twin_trains_Lore" "What can be better that one train? TWO trains!"
 		"DOTA_Tooltip_ability_ability_yukari_01"	"Aerial Bait Hyperactive High Speed Flying Object"
 		"DOTA_Tooltip_ability_ability_yukari_01_Description"	"Fires an array of damaging projectiles in a spread towards the designated direction. Enemies hit take damage, as well as extra damage based on Yukari's intelligence, and are stunned. The same enemy can be hit multiple times, however subsequent hits deal significantly reduced damage to the same target."
@@ -1048,6 +1051,7 @@
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"BARRAGE DAMAGE PER INTERVAL:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"INTERVAL:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_scepter_Description"	"Add a new skill:「Deep Danmaku Barrier -Transient Dreams-」"
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_stun_duration"	"MAX STUN DURATION:"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
