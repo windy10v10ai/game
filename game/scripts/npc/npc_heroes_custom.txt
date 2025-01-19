@@ -2214,11 +2214,6 @@
 			}
 		}
 	}
-	"npc_dota_hero_snapfire"
-	{
-		// "Ability7"				"snapfire_mortimer_kisses"
-		// "Ability6"				"chen_penitence"	// 设置此技能会导致先天技能失效
-	}
 	"npc_dota_hero_sniper"
 	{
 		// "Ability5"		"sniper_assassinate_upgrade"

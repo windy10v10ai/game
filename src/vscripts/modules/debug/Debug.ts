@@ -39,6 +39,14 @@ export class Debug {
     // commands that only work in debug mode below:
     if (!this.DebugEnabled) return;
 
+    // add ability by name
+    if (cmd === CMD.ADD_ABILITY) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const abilityName = args[0];
+      hero.AddAbility(abilityName);
+    }
+
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
