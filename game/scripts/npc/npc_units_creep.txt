@@ -57,7 +57,7 @@
 		"BountyGoldMin"				"88"		// 59
 		"BountyGoldMax"				"108"		// 72
 	}
-	"npc_dota_creep_goodguys_melee"
+	"npc_dota_badguys_siege"
 	{
 		"BaseAttackSpeed"			"130"		// 100
 		"AttackRange"				"800"		// 690
