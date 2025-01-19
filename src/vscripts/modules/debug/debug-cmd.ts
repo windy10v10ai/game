@@ -23,6 +23,7 @@ export enum CMD {
   GET_SR = '-getSR',
   /** 对英雄造成存粹伤害 */
   DAMAGE_PURE = '-damagePure',
+  ADD_ABILITY = '-addAbility',
 
   // ---- modifier相关 ----
   /**
