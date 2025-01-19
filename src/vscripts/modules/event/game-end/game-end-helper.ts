@@ -4,13 +4,13 @@ import { reloadable } from '../../../utils/tstl-utils';
 @reloadable
 export class GameEndHelper {
   static CalculatePlayerScore(player: GameEndPlayerDto): number {
-    const killScore = Math.sqrt(player.kills) * 1.2;
+    const killScore = Math.sqrt(player.kills) * 1.1;
     const deathScore = -Math.sqrt(player.deaths) * 0.5;
     const assistScore = Math.sqrt(player.assists) * 1.2;
     const damageScore = Math.min(40, Math.sqrt(player.damage) / 160);
     const damageTakenScore = Math.min(40, Math.sqrt(player.damageTaken) / 80);
     const healingScore = Math.min(40, Math.sqrt(player.healing) / 40);
-    const towerKillScore = Math.sqrt(player.towerKills) * 2;
+    const towerKillScore = Math.sqrt(player.towerKills) * 3;
 
     const totalScore =
       killScore +
