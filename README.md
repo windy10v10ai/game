@@ -41,6 +41,14 @@ If you would like to contribute to Windy10v10AI, please see our [contributing gu
 
 1. Install Dota2 and [Dota 2 Workshop Tools](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Installing_and_Launching_Tools).
 2. Install [node.js](https://nodejs.org/). `v22`
+   Recommend install node use [nvm](https://github.com/coreybutler/nvm-windows/releases)
+
+```bash
+# set/update node version
+nvm install $(Get-Content .nvmrc)
+nvm use $(Get-Content .nvmrc)
+```
+
 3. Clone this repository to local. Run `npm install` in the repository root directory. Content and game folder will be linked to dota2 dota_addons directory.
 
 # Develop 开发
