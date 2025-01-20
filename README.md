@@ -2,11 +2,9 @@
 
 This is a PVE Dota2 custom game. 10 Players vs 10 crazy Bots.<br>
 
-这是一个PVE的Dota2的自定义游戏。10位玩家 挑战 10个疯狂的AI。
-
 ## Steam workshop
 
-https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570
+[10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
 
 ## Table of Contents 目录
 
