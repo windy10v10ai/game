@@ -1,25 +1,20 @@
 # Windy10v10AI
 
-This is a PVE Dota2 custom game. 10 Players vs 10 crazy Bots.<br>
+![Build Status](https://github.com/windy10v10ai/game/actions/workflows/ci.yml/badge.svg)
+![](https://img.shields.io/github/release/windy10v10ai/game)
+[![License: MIT](https://img.shields.io/github/license/windy10v10ai/game.svg)](LICENSE)
+[![CodeFactor](https://www.codefactor.io/repository/github/windy10v10ai/game/badge)](https://www.codefactor.io/repository/github/windy10v10ai/game)
+<br>
+[![GitHub issues](https://img.shields.io/github/issues/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/pulls)
+[![GitHub contributors](https://img.shields.io/github/contributors/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/network)
 
-这是一个PVE的Dota2的自定义游戏。10位玩家 挑战 10个疯狂的AI。
+This is a PVE Dota2 custom game project.<br>
+Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
 
-## Steam workshop
-
-https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570
-
-## Table of Contents 目录
-
-1. [Contributing 参与开发](#contributing)
-2. [Get Start 环境配置](#get-start)
-   - [Requirement](#requirement)
-   - [Develop Tool](#develop-tool)
-   - [Install](#install)
-3. [Develop 开发](#develop)
-   - [Dota2 vConsole2 Command](#dota2-vconsole2-command)
-   - [How to compile item png to vtex_c](#how-to-compile-item-png-to-vtex_c)
-
-# Contributing 参与开发
+## Join us
 
 If you would like to contribute to Windy10v10AI, please see our [contributing guidelines](.github/CONTRIBUTING.md).
 
@@ -41,6 +36,14 @@ If you would like to contribute to Windy10v10AI, please see our [contributing gu
 
 1. Install Dota2 and [Dota 2 Workshop Tools](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Installing_and_Launching_Tools).
 2. Install [node.js](https://nodejs.org/). `v22`
+   Recommend install node use [nvm](https://github.com/coreybutler/nvm-windows/releases)
+
+```bash
+# set/update node version
+nvm install $(Get-Content .nvmrc)
+nvm use $(Get-Content .nvmrc)
+```
+
 3. Clone this repository to local. Run `npm install` in the repository root directory. Content and game folder will be linked to dota2 dota_addons directory.
 
 # Develop 开发
@@ -148,3 +151,7 @@ console中有如下报错时，技能特效会消失，需要删除对应的文�
 ```
 Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare_ambient.vpcf_c" (ERROR_BADREQUEST: Code error - bad request)
 ```
+
+<br>
+
+![](https://api.moedog.org/count/@windybirth.readme)
