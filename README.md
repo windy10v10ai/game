@@ -1,10 +1,11 @@
 # Windy10v10AI
 
-This is a PVE Dota2 custom game. 10 Players vs 10 Bots.
+![](https://img.shields.io/github/release/windy10v10ai/game)
+[![CodeFactor](https://www.codefactor.io/repository/github/windy10v10ai/game/badge)](https://www.codefactor.io/repository/github/windy10v10ai/game)
 
-### Game is published on Steam workshop
+## This is a PVE Dota2 custom game. 10 Players vs 10 Bots.
 
-[10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
+Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
 
 ## Join us
 
