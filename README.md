@@ -1,10 +1,17 @@
 # Windy10v10AI
 
+![Build Status](https://github.com/windy10v10ai/game/actions/workflows/ci.yml/badge.svg)
 ![](https://img.shields.io/github/release/windy10v10ai/game)
+[![License: MIT](https://img.shields.io/github/license/windy10v10ai/game.svg)](LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/windy10v10ai/game/badge)](https://www.codefactor.io/repository/github/windy10v10ai/game)
+<br>
+[![GitHub issues](https://img.shields.io/github/issues/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/pulls)
+[![GitHub contributors](https://img.shields.io/github/contributors/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/network)
 
-## This is a PVE Dota2 custom game. 10 Players vs 10 Bots.
-
+This is a PVE Dota2 custom game project.<br>
 Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
 
 ## Join us
@@ -144,3 +151,7 @@ console中有如下报错时，技能特效会消失，需要删除对应的文�
 ```
 Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare_ambient.vpcf_c" (ERROR_BADREQUEST: Code error - bad request)
 ```
+
+<br>
+
+![](https://api.moedog.org/count/@windybirth.readme)
