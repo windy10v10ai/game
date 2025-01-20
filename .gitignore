@@ -26,3 +26,6 @@ game/scripts/vscripts/server/
 game/scripts/vscripts/utils/
 game/scripts/vscripts/modifiers/property
 game/scripts/vscripts/modifiers/global
+
+#忽略
+game\.idea\
