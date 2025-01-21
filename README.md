@@ -1,7 +1,7 @@
 # Windy10v10AI
 
-![Build Status](https://github.com/windy10v10ai/game/actions/workflows/ci.yml/badge.svg)
-![](https://img.shields.io/github/release/windy10v10ai/game)
+[![Build Status](https://github.com/windy10v10ai/game/actions/workflows/ci.yml/badge.svg)](https://github.com/windy10v10ai/game/actions/workflows/ci.yml)
+[![](https://img.shields.io/github/release/windy10v10ai/game)](https://github.com/windy10v10ai/game/releases)
 [![License: MIT](https://img.shields.io/github/license/windy10v10ai/game.svg)](LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/windy10v10ai/game/badge)](https://www.codefactor.io/repository/github/windy10v10ai/game)
 <br>
