@@ -28,7 +28,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2375"		// 950
+		"StatusHealth"				"2850"		// 950
 		"StatusHealthRegen"			"1.25"		// 0.5
 
 	}
@@ -56,9 +56,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"5000"		// 2000
+		"StatusHealth"				"6000"		// 2000
 		"StatusHealthRegen"			"5"			// 2
-		"StatusMana"				"1250"		// 500
+		"StatusMana"				"1500"		// 500
 		"StatusManaRegen"			"2.5"		// 1
 	}
 
@@ -89,9 +89,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// 800
+		"StatusHealth"				"2400"		// 800
 		"StatusHealthRegen"			"1.25"		// 0.5
-		"StatusMana"				"1000"		// 400
+		"StatusMana"				"1200"		// 400
 		"StatusManaRegen"			"2.5"		// 1
 	}
 
@@ -122,9 +122,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3750"		// 1500
+		"StatusHealth"				"4500"		// 1500
 		"StatusHealthRegen"			"3.75"		// 1.5
-		"StatusMana"				"1500"		// 600
+		"StatusMana"				"1800"		// 600
 		"StatusManaRegen"			"3.75"		// 1.5
 	}
 	//=================================================================================
@@ -156,9 +156,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3500"		// 1400
+		"StatusHealth"				"4200"		// 1400
 		"StatusHealthRegen"			"0"			// 0
-		"StatusMana"				"2000"		// 800
+		"StatusMana"				"2400"		// 800
 		"StatusManaRegen"			"0"			// 0
 	}
 
@@ -191,9 +191,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// 800
+		"StatusHealth"				"2400"		// 800
 		"StatusHealthRegen"			"1.25"		// 0.5
-		"StatusMana"				"1000"		// 400
+		"StatusMana"				"1200"		// 400
 		"StatusManaRegen"			"2.5"		// 1
 	}
 
@@ -217,9 +217,9 @@
 		"BountyGoldMax"				"164"		// 82
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3750"		// 1500
+		"StatusHealth"				"4500"		// 1500
 		"StatusHealthRegen"			"1.25"		// 0.5
-		"StatusMana"				"1000"		// 400
+		"StatusMana"				"3000"		// 1000
 		"StatusManaRegen"			"2.5"		// 1
 	}
 
@@ -246,8 +246,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2250"		// 900
+		"StatusHealth"				"2700"		// 900
 		"StatusHealthRegen"			"5"			// 2
+		"StatusMana"				"1200"		// 400
 	}
 
 	//=================================================================================
