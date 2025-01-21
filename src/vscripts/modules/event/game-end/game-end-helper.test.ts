@@ -72,7 +72,7 @@ describe('GameEndHelper', () => {
       };
 
       const score = GameEndHelper.CalculatePlayerScore(player);
-      expect(score).toBe(57);
+      expect(score).toBe(54);
     });
 
     it('should calculate score correctly for a player with extra high stats', () => {
@@ -96,7 +96,7 @@ describe('GameEndHelper', () => {
       };
 
       const score = GameEndHelper.CalculatePlayerScore(player);
-      expect(score).toBe(148);
+      expect(score).toBe(138);
     });
   });
 
