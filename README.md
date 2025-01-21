@@ -1,5 +1,8 @@
 # Windy10v10AI
 
+This is a PVE Dota2 custom game project.<br>
+Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
+
 [![Build Status](https://github.com/windy10v10ai/game/actions/workflows/ci.yml/badge.svg)](https://github.com/windy10v10ai/game/actions/workflows/ci.yml)
 [![](https://img.shields.io/github/release/windy10v10ai/game)](https://github.com/windy10v10ai/game/releases)
 [![License: MIT](https://img.shields.io/github/license/windy10v10ai/game.svg)](LICENSE)
@@ -11,13 +14,14 @@
 [![GitHub stars](https://img.shields.io/github/stars/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/network)
 
-This is a PVE Dota2 custom game project.<br>
-Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
+## Contributors
 
-## Join us
+[![Contributors](https://contrib.rocks/image?repo=windy10v10ai/game)](https://github.com/windy10v10ai/game)
+
+### Join us
 
 If you would like to contribute to Windy10v10AI, please see our [contributing guidelines](.github/CONTRIBUTING.md).
-
+<br>
 如果你想参与Windy10v10AI的开发，请参考我们的[参与指南](.github/CONTRIBUTING.md#参与开发-windy10v10ai)。
 
 # Get Start 环境配置
