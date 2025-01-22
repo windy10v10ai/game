@@ -2011,14 +2011,14 @@
 		// 神器2.0
 		// item_light_part 圣光组件
 		"DOTA_Tooltip_Ability_item_light_part"					"<font color='#FFFF00'>Light</font> Part"
-		"DOTA_Tooltip_ability_item_light_part_Description"		"Can be used to transform items into light-themed upgrades.\nUpgraded items must be used in the main inventory, even if they were once neutral items."
+		"DOTA_Tooltip_ability_item_light_part_Description"		"Can be used to transform items into light-themed upgrades.\nUpgraded items must be used in the main inventory, even if they were once neutral items.\nIf cannot combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_Ability_item_light_part_Note0"			"Ancient creeps are more likely to drop them. Drop chance from all neutral creeps in the game increases over time. Roshan will drop more Parts when you have more teammate."
 		"DOTA_Tooltip_Ability_item_light_part_Lore"				"Drops randomly when killing Roshan and neutral creeps during the day."
 		"DOTA_Tooltip_Ability_item_light_part_bonus_damage"		"+$damage"
 
 		// item_dark_part 暗影组件
 		"DOTA_Tooltip_Ability_item_dark_part"					"<font color='#8A2BE2'>Dark</font> Part"
-		"DOTA_Tooltip_ability_item_dark_part_Description"		"Can be used to transform items into dark-themed upgrades.\nUpgraded items must be used in the main inventory, even if they were once neutral items."
+		"DOTA_Tooltip_ability_item_dark_part_Description"		"Can be used to transform items into dark-themed upgrades.\nUpgraded items must be used in the main inventory, even if they were once neutral items.\nIf cannot combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_ability_item_dark_part_Note0"				"Ancient creeps are more likely to drop them. Drop chance from all neutral creeps in the game increases over time. Roshan will drop more Parts when you have more teammate."
 		"DOTA_Tooltip_Ability_item_dark_part_Lore"				"Drops randomly when killing Roshan and neutral creeps during the night."
 		"DOTA_Tooltip_Ability_item_dark_part_bonus_spell_amp"	"%+$spell_amp"
