@@ -1,3 +1,5 @@
+#base "npc_abilities_new_ability.txt"
+
 "DOTAAbilities"
 {
 	"bot_power_n5"

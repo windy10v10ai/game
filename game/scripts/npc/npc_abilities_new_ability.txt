@@ -1,0 +1,152 @@
+"DOTAAbilities"
+{
+	//迷雾诅咒
+	"abaddon_death_coil2"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/abaddon_death_coil2"
+		"AbilityTextureName"    		"abaddon_death_coil_alliance"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		
+		"AbilityManaCost"				"70 80 90 100"
+		"AbilityCooldown"				"7.5 7 6.5 6"
+		"AbilityCastRange"				"700"
+		
+		"AbilityValues"
+		{
+			"heal"			"80 120 160 200"
+			"radius"		"250"
+			"duration"		"30"
+			"ad"   "0.3"
+		}
+	}
+	//幻影冲锋
+	"abaddon_phantom_charge"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/abaddon_phantom_charge"
+		"AbilityTextureName"    		"phantom_lancer_doppelwalk"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		"AbilityManaCost"				"80 90 100 110"
+		"AbilityCooldown"				"19 18 17 16"
+		
+		"AbilityValues"
+		{
+			"silence_duration"	"2.5 3 3.5 4"
+			"movespeed" "50"
+			"damage"			"50 90 130 170"
+			"ad"	"1.5"
+		}
+	}
+	//被动火雨
+	"abyssal_underlord_firestorm2"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/abyssal_underlord_firestorm2"
+		"AbilityTextureName"    		"medusa_gorgon_grasp"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		"AbilityValues"
+		{
+			"radius"			"400"
+			"base_damage"		"60 90 120 150"
+			"max_damage"		"4 5 6 7"
+			"hit_count"		"4"
+		}
+	}
+	//怨念光环
+	"abyssal_underlord_malice_aura"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/abyssal_underlord_malice_aura"
+		"AbilityTextureName"    		"abyssal_underlord/ti8_immortal_weapon/abyssal_underlord_pit_of_malice_immortal"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		"AbilityValues"
+		{
+			"radius"			"600"
+			"interval"			"5"
+			"duration"			"0.8 0.9 1 1.1"
+			"damage"			"60 100 140 180"
+		}
+	}
+	//冲锋斩
+	"abyssal_underlord_charge_slash"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/abyssal_underlord_charge_slash"
+		"AbilityTextureName"    		"phantom_lancer_phantom_edge"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		
+		"AbilityManaCost"				"80 85 90 95"
+		"AbilityCooldown"				"12 10 8 6"
+		
+		"AbilityValues"
+		{
+			"damage"			"30 60 90 120"
+			"duration"			"1 1.2 1.4 1.6"
+			"ad"				"1 1.3 1.6 2"
+		}
+	}
+	//狂暴药剂
+	"alchemist_berserk_potion2"
+	{
+		"BaseClass"                     "alchemist_berserk_potion"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"IsGrantedByShard"  			"0"
+		"IsOnCastBar"                   "1"
+		
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.2"
+		
+		"AbilityCooldown"				"35"
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+		{
+			"duration"		"15"
+			"attack_speed"	"40 50 60 70"
+			"hp_regen"		"20 40 60 80"
+			"projectile_speed"			"900"
+			"move_speed"			"30 40 50 60"
+			"chemical_rage_cooldown_reduction_pct"
+			{
+				"value"					"0"
+				"special_bonus_facet_alchemist_mixologist"				"=50"
+			}
+		}
+	}
+	//炼金 强化武器
+	"alchemist_enhanced_weaponry"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/alchemist_enhanced_weaponry"
+		"AbilityTextureName"    		"alchemist_enhanced_weaponry"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		
+		"AbilityCooldown"				"22"
+		"AbilityManaCost"				"50"
+		
+		"AbilityValues"
+		{
+			"attack_range"	"50 100 150 200"
+			"duration"		"6"
+		}
+	}
+
+
+}
