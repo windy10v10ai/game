@@ -1,7 +1,10 @@
 # Windy10v10AI
 
-![Build Status](https://github.com/windy10v10ai/game/actions/workflows/ci.yml/badge.svg)
-![](https://img.shields.io/github/release/windy10v10ai/game)
+This is a PVE Dota2 custom game project.<br>
+Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
+
+[![Build Status](https://github.com/windy10v10ai/game/actions/workflows/ci.yml/badge.svg)](https://github.com/windy10v10ai/game/actions/workflows/ci.yml)
+[![](https://img.shields.io/github/release/windy10v10ai/game)](https://github.com/windy10v10ai/game/releases)
 [![License: MIT](https://img.shields.io/github/license/windy10v10ai/game.svg)](LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/windy10v10ai/game/badge)](https://www.codefactor.io/repository/github/windy10v10ai/game)
 <br>
@@ -11,28 +14,29 @@
 [![GitHub stars](https://img.shields.io/github/stars/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/network)
 
-This is a PVE Dota2 custom game project.<br>
-Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
+## Contributors
 
-## Join us
+[![Contributors](https://contrib.rocks/image?repo=windy10v10ai/game)](https://github.com/windy10v10ai/game)
+
+### Join us
 
 If you would like to contribute to Windy10v10AI, please see our [contributing guidelines](.github/CONTRIBUTING.md).
-
+<br>
 如果你想参与Windy10v10AI的开发，请参考我们的[参与指南](.github/CONTRIBUTING.md#参与开发-windy10v10ai)。
 
-# Get Start 环境配置
+# Get Start
 
-## Requirement 环境要求
+## OS Requirement
 
 `Windows 10/11`
 
-## Develop Tool 开发工具
+## Develop Tool
 
 - [Github Desktop](https://desktop.github.com/)
 - [VS Code](https://code.visualstudio.com/)
 - [VRF](https://vrf.steamdb.info/)
 
-## Install 安装
+## Setup
 
 1. Install Dota2 and [Dota 2 Workshop Tools](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Installing_and_Launching_Tools).
 2. Install [node.js](https://nodejs.org/). `v22`
@@ -46,7 +50,7 @@ nvm use $(Get-Content .nvmrc)
 
 3. Clone this repository to local. Run `npm install` in the repository root directory. Content and game folder will be linked to dota2 dota_addons directory.
 
-# Develop 开发
+# Develop
 
 ## Launch Dota2 devTools and build the project
 
@@ -84,7 +88,7 @@ FYI: https://www.reddit.com/r/DotA2/comments/8yymx9/item_icons_mods_dont_work_si
 
 png will be compiled to vtex_c automatically when you run `npm run start`.
 
-## Troubleshooting 故障排除
+## Troubleshooting
 
 This code needs to be on the same hard drive partition as dota2.<br>
 代码需要和dota2在同一块硬盘分区上。
@@ -97,7 +101,7 @@ rm -r ./node_modules
 npm install
 ```
 
-# Documentation 文档
+# Documentation
 
 ## Supported by ModDota template and x-template
 

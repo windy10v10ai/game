@@ -649,7 +649,7 @@
 		{
 			"Build"
 			{
-				"1"		"bane_nightmare"
+				"1"		"bane_enfeeble"
 				"2"		"bane_brain_sap"
 				"3"		"bane_brain_sap"
 				"4"		"bane_nightmare"
@@ -681,7 +681,7 @@
 				"30"		"special_bonus_unique_bane_3"
 				"31"		"bane_fiends_grip"
 				"32"		"bane_brain_sap"
-				"33"		"bane_enfeeble"
+				"33"		"bane_nightmare"
 				"34"		"bane_nightmare"
 			}
 		}
