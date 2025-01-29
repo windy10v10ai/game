@@ -14,7 +14,8 @@ export default function Precache(context: CScriptPrecacheContext) {
   precacheEveryResourceInKV(
     [
       // kv文件路径
-      // 'npc_abilities_custom.txt',
+      'scripts/npc/npc_abilities_custom.txt',
+      'scripts/npc/npc_abilities_custom_new.txt',
     ],
     context,
   );
@@ -40,8 +41,12 @@ export default function Precache(context: CScriptPrecacheContext) {
 // 预载入KV文件中的所有资源
 function precacheEveryResourceInKV(kvFileList: string[], context: CScriptPrecacheContext) {
   kvFileList.forEach((file) => {
-    const kvTable = LoadKeyValues(file);
-    precacheEverythingFromTable(kvTable, context);
+    const kvTable = LoadKeyValues(file) as object | null;
+    if (kvTable) {
+      precacheEverythingFromTable(kvTable, context);
+    } else {
+      print(`[Precache] Error: Failed to load KV file: ${file}`);
+    }
   });
 }
 // 预载入资源列表

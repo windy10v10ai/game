@@ -52,6 +52,11 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
+		"precache"
+		{
+			"particle"				"particles/units/heroes/heroes_underlord/abyssal_underlord_firestorm_wave.vpcf"
+		}
+
 		"AbilityValues"
 		{
 			"radius"			"400"
