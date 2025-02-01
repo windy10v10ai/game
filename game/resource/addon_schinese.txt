@@ -501,7 +501,7 @@
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_Description"					"被动增加近战攻击距离，主动开启后，增加的近战攻击距离翻倍，且每次攻击减速敌人"
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_attack_range"					"近战攻击距离："
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_duration"						"持续时间："
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_move_speed_slow"				"减速移动速度："
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_move_speed_slow"				"%移动速度减缓："
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_slow_duration"				"减速持续时间："
 
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2"								"狂暴药剂"
