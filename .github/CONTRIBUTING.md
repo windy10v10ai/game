@@ -1,8 +1,6 @@
 # Contributing to Windy10v10AI
 
-First off, thanks for taking the time to contribute!
-
-# How Can I Contribute?
+Thanks for taking the time to contribute!
 
 ## Reporting Bugs and Suggesting Enhancements
 
@@ -11,29 +9,28 @@ Use [bug report template](https://github.com/windybirth/windy10v10ai/issues/new/
 
 ## Conmuication
 
-- [Discord](https://discord.com/invite/MfawtDpxks)
+- Join [Discord](https://discord.com/invite/MfawtDpxks)
 
-## Developing
+## Contributing Code
 
-- Ask windy give your access.
+There are two ways to contribute to this project:
 
-### Create a branch
+- Ask windy to become a member of this project, create a branch in this repository, and submit a PR.
+- [Fork this project and submit a PR](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 
-Choose the issue you want to work on and create a branch linked to the issue.
-
-![image](https://github.com/windybirth/windy10v10ai/assets/3445793/c1b2d8d1-b452-4973-b725-a023c3b0d93b)
-
-- Branch name rule: `feature/{issue number}-{branch name}`
+Branch name rule: `feature/{issue number}-{branch name}`
 
 ### Pull Requests
 
 Create a pull request from your branch to develop.
 
+---
+
+---
+
 # 参与开发 Windy10v10AI
 
-首先，感谢您花时间参与Wind10v10AI的开发！
-
-# 我该如何参与？
+感谢您参与Wind10v10AI的开发！
 
 ## 报告BUG和提出建议
 
@@ -42,21 +39,17 @@ Create a pull request from your branch to develop.
 
 ## 沟通
 
-- [QQ](https://qm.qq.com/cgi-bin/qm/qr?k=6yNcbJ0GOuPECq1dmIvsmdj8y7dZBiHs)
+- 加入[QQ群](https://qm.qq.com/cgi-bin/qm/qr?k=6yNcbJ0GOuPECq1dmIvsmdj8y7dZBiHs)
 
-## 开发
+## 提交代码
 
-- 喊windy给你相关权限
-  
-### 创建一个分支
+有两种方式参与开发：
 
-选择你想要处理的issue并创建一个与问题相关的分支。
+- 向windy申请成为项目成员，在这个项目中创建一个分支，然后提交PR。
+- [Fork这个项目，然后提交PR](https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 
-![image](https://github.com/windybirth/windy10v10ai/assets/3445793/c1b2d8d1-b452-4973-b725-a023c3b0d93b)
-
-- 分支命名规则：`feature/{issue number}-{branch name}`
+分支命名规则：`feature/{issue number}-{branch name}`
 
 ### Pull Requests
 
 创建一个 pull request 从你开发的分支到 develop 分支。
-
