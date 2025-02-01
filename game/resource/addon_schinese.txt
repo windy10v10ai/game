@@ -454,7 +454,7 @@
 
 		///////////////////////////////////////////////////
 		//
-		// 					Abilities 技能
+		// 					Abilities 英雄技能
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_ability_bot_power_n5"						"机械救赎 N5"
@@ -463,6 +463,54 @@
 		"DOTA_Tooltip_ability_bot_power_n6"						"机械救赎 N6"
 		"DOTA_Tooltip_ability_bot_power_n6_Description"			"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
 		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了“机械救赎”程序，使它们在关键时刻能够激发潜力，扭转战局。"
+
+		"DOTA_Tooltip_ability_abaddon_phantom_charge"		"幻影冲锋"
+		"DOTA_Tooltip_ability_abaddon_phantom_charge_Description"		"增加移速，免疫减速，下次攻击沉默目标并造成额外伤害。技能释放时制造两个幻象"
+		"DOTA_Tooltip_ability_abaddon_phantom_charge_silence_duration"	"沉默时间："
+		"DOTA_Tooltip_ability_abaddon_phantom_charge_movespeed"		"%移速加成："
+		"DOTA_Tooltip_ability_abaddon_phantom_charge_damage"		"基础伤害："
+		"DOTA_Tooltip_ability_abaddon_phantom_charge_ad"			"攻击力伤害加成倍率："
+
+		"DOTA_Tooltip_ability_abaddon_death_coil2"		"迷雾诅咒"
+		"DOTA_Tooltip_ability_abaddon_death_coil2_Description"		"治疗目标范围内的所有单位，敌方单位会施加一个buff，buff结束时会造成治疗量2倍的伤害，当目标生命值低于buff的伤害时会立即造成伤害"
+		"DOTA_Tooltip_ability_abaddon_death_coil2_heal"		"治疗量："
+		"DOTA_Tooltip_ability_abaddon_death_coil2_radius"	"范围："
+		"DOTA_Tooltip_ability_abaddon_death_coil2_ad"		"攻击力伤害加成倍率："
+		"DOTA_Tooltip_ability_abaddon_death_coil2_duration"	"持续时间："
+
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"		"火雨降临"
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"		"每攻击%hit_count%次，召唤火雨对目标周围的敌方单位造成伤害"
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"		"范围："
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_base_damage"		"基础伤害："
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_max_damage"		"%最大生命值伤害："
+
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura"		"怨念光环"
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_Description"		"在自身光环范围内停留一定时间的敌人会被缠绕，并造成伤害"
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_radius"		"范围："
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_interval"		"触发间隔："
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_duration"		"缠绕时间："
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_damage"		"伤害："
+
+		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash"		"冲锋斩"
+		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_Description"	"向目标快速移动,攻击目标并对扇形区域造成伤害和眩晕"
+		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_damage"		"伤害："
+		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_duration"		"眩晕时间："
+		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_ad"			"攻击力伤害加成倍率："
+
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry"								"强化武器"
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_Description"					"被动增加近战攻击距离，主动开启后，增加的近战攻击距离翻倍，且每次攻击减速敌人"
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_attack_range"					"近战攻击距离："
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_duration"						"持续时间："
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_move_speed_slow"				"%移动速度减缓："
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_slow_duration"				"减速持续时间："
+
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2"								"狂暴药剂"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_Description"					"炼金术士向友军目标扔出一瓶药剂，施加弱驱散效果，并提供攻击速度、移动速度和生命恢复。<br><br>驱散类型：弱驱散"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_Facet_alchemist_mixologist"	"炼金术士处于化学狂暴作用时，冷却时间减少%chemical_rage_cooldown_reduction_pct%%%。"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_attack_speed"				"攻击速度："
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_move_speed"					"移动速度："
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"				    "生命恢复："
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"持续时间："
 
 		///////////////////////////////////////////////////
 		//
@@ -2929,6 +2977,5 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"如果在持续时间结束时没有使用，额外的魔法将会消失。"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
-
 	}
 }

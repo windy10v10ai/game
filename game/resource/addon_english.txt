@@ -453,7 +453,7 @@
 
 		///////////////////////////////////////////////////
 		//
-		// 					Abilities 技能
+		// 					Abilities 英雄技能
 		//
 		///////////////////////////////////////////////////
 		"DOTA_Tooltip_ability_bot_power_n5"						"Bot Salvation N5"
@@ -462,6 +462,55 @@
 		"DOTA_Tooltip_ability_bot_power_n6"						"Bot Salvation N6"
 		"DOTA_Tooltip_ability_bot_power_n6_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
 		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
+
+		//幻影冲锋
+		"DOTA_Tooltip_ability_abaddon_phantom_charge"					"Abaddon Phantom Charge"
+		"DOTA_Tooltip_ability_abaddon_phantom_charge_Description"		"Increase movement speed, immune deceleration, and deal additional damage to silent targets in the next attack. Create two illusions during skill release"
+		"DOTA_Tooltip_ability_abaddon_phantom_charge_silence_duration"	"Silence Duration:"
+		"DOTA_Tooltip_ability_abaddon_phantom_charge_movespeed"			"%Movespeed:"
+		"DOTA_Tooltip_ability_abaddon_phantom_charge_damage"			"Base Damage:"
+		"DOTA_Tooltip_ability_abaddon_phantom_charge_ad"				"Attack Damage Addition Rate:"
+		//迷雾诅咒
+		"DOTA_Tooltip_ability_abaddon_death_coil2"				"Death Damnation"
+		"DOTA_Tooltip_ability_abaddon_death_coil2_Description"	"Treat all units within the target range. Enemy units will apply a buff, which will deal twice the healing damage when the buff ends. When the target's health is lower than the buff's damage, it will immediately deal damage"
+		"DOTA_Tooltip_ability_abaddon_death_coil2_heal"			"Heal:"
+		"DOTA_Tooltip_ability_abaddon_death_coil2_radius"		"Radius:"
+		"DOTA_Tooltip_ability_abaddon_death_coil2_ad"			"Attack Damage Addition Rate:"
+		"DOTA_Tooltip_ability_abaddon_death_coil2_duration"		"Duration:"
+		//火雨降临
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"					"Firestorm Advent"
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"		"Every %hit_count% attacks, summon firestorm to cause damage to enemy units around the target"
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"			"Radius:"
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_base_damage"		"Base Damage:"
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_max_damage"		"%Max Hp Damage:"
+		//怨念光环
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura"				"Malice Aura"
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_Description"	"Enemies that stay within the aura for a certain period of time will be rooted and cause damage."
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_radius"			"Radius:"
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_interval"		"Trigger Interval:"
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_duration"		"Root Duration:"
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_damage"			"Damage:"
+		//冲锋斩
+		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash"				"Underlord Charge Slash"
+		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_Description"	"Move quickly towards the target, attack the target and cause damage and stun in the fan-shaped area"
+		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_damage"		"Base Damage:"
+		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_duration"		"Stunned Duration:"
+		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_ad"			"Attack Damage Addition Rate:"
+		//强化武器
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry"					"Enhanced Weaponry"
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_Description"		"Increases the attack range of melee heroes，After active activation, the increased melee attack distance is doubled, and each attack slows down the enemy"
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_attack_range"		"Melee Attack Range Bonus:"
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_duration"			"Duration:"
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_move_speed_slow"	"%Move Speed Slow:"
+		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_slow_duration"	"Slow Duration:"
+		//狂暴药剂
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2"							"Berserk Potion"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_Description"				"Alchemist throws a potion at an ally, applying a basic dispel and giving them attack speed, movement speed and HP regen.<br><br>DISPEL TYPE: Basic Dispel"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_Facet_alchemist_mixologist"	"While Alchemist is affected by Chemical Rage, cooldown is reduced by %chemical_rage_cooldown_reduction_pct%%%."
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_attack_speed"				"Attack Speed:"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_move_speed"					"Move Speed:"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"					"HP Regen:"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"Duration:"
 
 		///////////////////////////////////////////////////
 		//
