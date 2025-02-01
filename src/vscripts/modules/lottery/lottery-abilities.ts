@@ -104,6 +104,9 @@ export const abilityTiers: Tier[] = [
       'juggernaut_blade_dance', // 剑舞
       'skeleton_king_mortal_strike', // 本命一击
       'monkey_king_jingu_mastery', // 如意棒法
+
+      'abyssal_underlord_firestorm2', // 火雨降临 new
+      'alchemist_enhanced_weaponry', // 强化武器 new
     ],
   },
   {
@@ -120,6 +123,7 @@ export const abilityTiers: Tier[] = [
       'winter_wyvern_winters_curse', // 寒冬诅咒
 
       // 小技能
+      'alchemist_berserk_potion2', // 狂暴药剂 new
       'legion_commander_press_the_attack', // 强攻
       'nyx_assassin_mana_burn', // 法力燃烧
       'skywrath_mage_mystic_flare', // 神秘之耀
@@ -170,6 +174,8 @@ export const abilityTiers: Tier[] = [
       'sniper_headshot', // 爆头
       'tidehunter_kraken_shell', // 海妖外壳
       'venomancer_poison_sting', // 剧毒术士 毒刺
+      'abyssal_underlord_malice_aura', // 怨念光环 new
+      'abyssal_underlord_charge_slash', // 冲锋斩 new
     ],
   },
   {
