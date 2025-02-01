@@ -1,6 +1,7 @@
 /** @noSelfInFile */
 // 导出的预载入方法，用来给addon_game_mode.ts调用
 export default function Precache(context: CScriptPrecacheContext) {
+  print(`[Precache] Start precache...`);
   // 需要预载的所有资源
   precacheResource(
     [
@@ -14,8 +15,8 @@ export default function Precache(context: CScriptPrecacheContext) {
   precacheEveryResourceInKV(
     [
       // kv文件路径
-      'scripts/npc/npc_abilities_custom.txt',
-      'scripts/npc/npc_abilities_custom_new.txt',
+      // 'scripts/npc/npc_abilities_custom.txt',
+      // 'scripts/npc/npc_abilities_custom_new.txt',
     ],
     context,
   );

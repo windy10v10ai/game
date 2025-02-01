@@ -3,10 +3,10 @@
 	//迷雾诅咒
 	"abaddon_death_coil2"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/abaddon_death_coil2"
-		"AbilityTextureName"    		"abaddon_death_coil_alliance"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/abaddon_death_coil2"
+		"AbilityTextureName"			"abaddon_death_coil_alliance"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
@@ -26,10 +26,10 @@
 	//幻影冲锋
 	"abaddon_phantom_charge"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/abaddon_phantom_charge"
-		"AbilityTextureName"    		"phantom_lancer_doppelwalk"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/abaddon_phantom_charge"
+		"AbilityTextureName"			"phantom_lancer_doppelwalk"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"AbilityManaCost"				"80 90 100 110"
@@ -51,11 +51,6 @@
 		"AbilityTextureName"    		"medusa_gorgon_grasp"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		"precache"
-		{
-			"particle"				"particles/units/heroes/heroes_underlord/abyssal_underlord_firestorm_wave.vpcf"
-		}
 
 		"AbilityValues"
 		{
@@ -152,6 +147,4 @@
 			"duration"		"6"
 		}
 	}
-
-
 }
