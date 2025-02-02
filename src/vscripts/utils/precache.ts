@@ -15,6 +15,7 @@ export default function Precache(context: CScriptPrecacheContext) {
   precacheEveryResourceInKV(
     [
       // kv文件路径
+      'scripts/npc/npc_items_custom.txt',
       // 'scripts/npc/npc_abilities_custom.txt',
       // 'scripts/npc/npc_abilities_custom_new.txt',
     ],

@@ -4398,6 +4398,10 @@
 		"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
 		"ItemQuality"					"rare"
 
+		"precache"
+		{
+			"model"		"models/props_gameplay/sheep01.vmdl"
+		}
 		"AbilityValues"
 		{
 			"bonus_intellect"		"60"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
