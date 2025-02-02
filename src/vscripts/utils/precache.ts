@@ -59,14 +59,15 @@ export default function Precache(context: CScriptPrecacheContext) {
       'npc_dota_hero_chaos_knight', // 混沌骑士
       // 'npc_dota_hero_chen', // 陈
       'npc_dota_hero_clinkz', // 克林克兹
-      'npc_dota_hero_crystal_maiden', // 水晶室女
+      // 'npc_dota_hero_crystalmaiden', // 水晶室女
       'npc_dota_hero_dark_seer', // 黑暗贤者
       'npc_dota_hero_dazzle', // 戴泽
       // 'npc_dota_hero_death_prophet', // 死亡先知
       // 'npc_dota_hero_disruptor', // 干扰者
+      // FIXME 音频文件路径不对
       'npc_dota_hero_doom_bringer', // 末日使者
       'npc_dota_hero_dragon_knight', // 龙骑士
-      'npc_dota_hero_drow_ranger', // 卓尔游侠
+      'npc_dota_hero_drowranger', // 卓尔游侠
       'npc_dota_hero_earth_spirit', // 大地之灵
       'npc_dota_hero_earthshaker', // 撼地者
       'npc_dota_hero_elder_titan', // 上古巨神
@@ -100,7 +101,7 @@ export default function Precache(context: CScriptPrecacheContext) {
       // 'npc_dota_hero_naga_siren', // 娜迦海妖
       'npc_dota_hero_necrolyte', // 死灵法师
       'npc_dota_hero_nevermore', // 影魔
-      'npc_dota_hero_night_stalker', // 暗夜魔王
+      // 'npc_dota_hero_nightstalker', // 暗夜魔王
       // 'npc_dota_hero_nyx_assassin', // 司夜刺客
       // 'npc_dota_hero_obsidian_destroyer', // 殁境神蚀者
       // 'npc_dota_hero_ogre_magi', // 食人魔魔法师
@@ -117,19 +118,19 @@ export default function Precache(context: CScriptPrecacheContext) {
       'npc_dota_hero_razor', // 雷泽
       'npc_dota_hero_riki', // 力丸
       'npc_dota_hero_rubick', // 拉比克
-      'npc_dota_hero_sand_king', // 沙王
+      'npc_dota_hero_sandking', // 沙王
       // 'npc_dota_hero_shadow_demon', // 暗影恶魔
-      'npc_dota_hero_shadow_shaman', // 暗影萨满
+      'npc_dota_hero_shadowshaman', // 暗影萨满
       'npc_dota_hero_shredder', // 伐木机
       'npc_dota_hero_silencer', // 沉默术士
-      'npc_dota_hero_skeleton_king', // 骷髅王
+      // 'npc_dota_hero_skeletonking', // 骷髅王
       'npc_dota_hero_skywrath_mage', // 天怒法师
       'npc_dota_hero_slardar', // 斯拉达
       'npc_dota_hero_slark', // 斯拉克
       'npc_dota_hero_sniper', // 狙击手
       'npc_dota_hero_spectre', // 幽鬼
       'npc_dota_hero_spirit_breaker', // 裂魂人
-      'npc_dota_hero_storm_spirit', // 风暴之灵
+      'npc_dota_hero_stormspirit', // 风暴之灵
       'npc_dota_hero_sven', // 斯温
       'npc_dota_hero_techies', // 工程师
       'npc_dota_hero_templar_assassin', // 圣堂刺客
@@ -151,7 +152,7 @@ export default function Precache(context: CScriptPrecacheContext) {
       // 'npc_dota_hero_windrunner', // 风行者
       'npc_dota_hero_winter_wyvern', // 寒冬飞龙
       // 'npc_dota_hero_wisp', // 艾欧
-      'npc_dota_hero_witch_doctor', // 巫医
+      'npc_dota_hero_witchdoctor', // 巫医
       // 'npc_dota_hero_zuus', // 宙斯
       // 'npc_dota_hero_primal_beast', // 獸
       'npc_dota_hero_mars', // 玛尔斯
