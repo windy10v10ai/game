@@ -995,7 +995,7 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_callous',
 		'item_infernal_desolator', -- 绝对破防之刃
 		'item_skadi_2',      -- 大冰眼
-		'item_shivas_guard_2',
+		'item_black_king_bar_2',
 		'item_wasp_despotic',
 		'item_excalibur',
 	},
