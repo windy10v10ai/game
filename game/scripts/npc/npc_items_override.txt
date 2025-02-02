@@ -999,8 +999,8 @@
 	{
 		"AbilityValues"
 		{
-			"debuff_amp"		"30"	// 20
-			"spell_amp"			"30"	// 15
+			"debuff_amp"		"25"	// 20
+			"spell_amp"			"25"	// 15
 		}
 	}
 	"item_force_boots" //原力鞋 推推鞋

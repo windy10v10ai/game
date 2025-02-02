@@ -4269,6 +4269,10 @@
 		"ItemCost"						"8000"
 		"ItemPurchasable"				"1"
 
+		"precache"
+		{
+			"particle"			"particles/act_2/wand_of_the_brine_bubble.vpcf"
+		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -4398,6 +4402,10 @@
 		"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
 		"ItemQuality"					"rare"
 
+		"precache"
+		{
+			"model"		"models/props_gameplay/sheep01.vmdl"
+		}
 		"AbilityValues"
 		{
 			"bonus_intellect"		"60"	// tooltip only, real value in modifier_item_necronomicon_staff_stats

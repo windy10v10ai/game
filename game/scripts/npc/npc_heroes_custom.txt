@@ -1783,8 +1783,6 @@
 	}
 	"npc_dota_hero_oracle"
 	{
-		"Ability5"		"chen_hand_of_god"
-		"Ability9"		"oracle_prognosticate"	// 预言 先天技能
 		"Bot"
 		{
 			"Build"
