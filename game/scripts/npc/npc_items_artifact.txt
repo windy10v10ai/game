@@ -1014,7 +1014,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"debuff_amp"		"60"	// 20
+			"debuff_amp"		"50"	// 20
 			"spell_amp"			"30"	// 15
 		}
 	}
@@ -1074,7 +1074,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"debuff_amp"		"60"	// 20
+			"debuff_amp"		"50"	// 20
 			"spell_amp"			"30"	// 15
 		}
 	}
@@ -1134,7 +1134,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"debuff_amp"		"60"	// 20
+			"debuff_amp"		"50"	// 20
 			"spell_amp"			"60"	// 15
 		}
 	}
@@ -1165,7 +1165,7 @@
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		"AbilityValues"
 		{
-			"debuff_amp"		"60"	// 20
+			"debuff_amp"		"50"	// 20
 			"spell_amp"			"60"	// 15
 		}
 	}

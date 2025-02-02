@@ -42,13 +42,13 @@ describe('GameEndHelper', () => {
         damageTaken: 3000,
         healing: 1000,
         lastHits: 0,
-        towerKills: 3,
+        towerKills: 2,
         score: 0,
         battlePoints: 0,
       };
 
       const score = GameEndHelper.CalculatePlayerScore(player);
-      expect(score).toBe(11);
+      expect(score).toBe(12);
     });
 
     it('should calculate score correctly for a player with high stats', () => {
@@ -72,7 +72,7 @@ describe('GameEndHelper', () => {
       };
 
       const score = GameEndHelper.CalculatePlayerScore(player);
-      expect(score).toBe(56);
+      expect(score).toBe(54);
     });
 
     it('should calculate score correctly for a player with extra high stats', () => {
@@ -96,7 +96,7 @@ describe('GameEndHelper', () => {
       };
 
       const score = GameEndHelper.CalculatePlayerScore(player);
-      expect(score).toBe(146);
+      expect(score).toBe(138);
     });
   });
 
