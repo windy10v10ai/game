@@ -301,11 +301,12 @@
 	}
 	"item_unstable_wand" //豚杆
 	{
-		"AbilityCooldown"				"15" //25
+		"AbilityCooldown"				"15"		//25
 		"AbilityValues"
 		{
-				"duration"		"4"
-				"all_stats"			"10" //5
+				"duration"			"4"
+				"all_stats"			"10"			//5
+				"active_movespeed_pct"		"30"	// 15
 		}
 	}
 	"item_safety_bubble" //安全泡泡
@@ -319,19 +320,19 @@
 	}
 	"item_seeds_of_serenity" //宁静种籽
 	{
-		"AbilityCooldown"				"25.0" //35
-		"AbilityCastRange"				"700"  //350
+		"AbilityCooldown"				"25.0"	//35
+		"AbilityCastRange"				"700"	//350
 		"AbilityValues"
 		{
-			"bonus_health"				"400" //150
-			"bonus_health_regen"		"8"  //4
-			"aura_health_regen"			"20"  //10
+			"bonus_health"				"400"	//150
+			"bonus_health_regen"		"8"		//4
+			"aura_health_regen"			"20"	//10
 			"radius"
 			{
-				"value"			"500"         //400
+				"value"			"500"			//400
 				"affected_by_aoe_increase"	"1"
 			}
-			"duration"					"10"  //14
+			"duration"					"10"	//14
 		}
 	}
 	"item_lance_of_pursuit" //追击矛
@@ -444,6 +445,18 @@
 		{
 			"bonus_attack_speed"		"35"	//20
 			"bonus_armor"				"6"		//4
+		}
+	}
+	"item_ring_of_aquila" //天鹰戒
+	{
+		"AbilityValues"
+		{
+				"bonus_damage"			"9"		// 3
+				"bonus_strength"		"6"		// 3
+				"bonus_agility"			"12"	// 9
+				"bonus_intellect"		"6"		// 3
+				"aura_mana_regen"		"2"		// 1
+				"aura_bonus_armor"		"4"		// 2
 		}
 	}
 	// level 2
@@ -713,17 +726,18 @@
 	}
 	"item_ogre_seal_totem" //食人魔海豹图腾
 	{
-		"AbilityCooldown"				"25.0"		//35
+		"AbilityCooldown"				"30.0"		//35
+		"AbilityManaCost"				"50"		// 25
 		"AbilityValues"
 		{
-			"bonus_strength"			"35"		//12
+			"bonus_strength"			"25"		//12
 			"radius"
 			{
-				"value"				"400"			//275
+				"value"				"350"			//275
 			}
 			"flop_damage"				"350"		//250
-			"slow_duration"				"2.5"		//1.5
-			"max_bounces"				"4"			//2
+			"slow_duration"				"2.0"		//1.5
+			"max_bounces"				"3"			//2
 		}
 	}
 	"item_doubloon" //双面币
