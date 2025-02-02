@@ -4269,6 +4269,10 @@
 		"ItemCost"						"8000"
 		"ItemPurchasable"				"1"
 
+		"precache"
+		{
+			"particle"			"particles/act_2/wand_of_the_brine_bubble.vpcf"
+		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
