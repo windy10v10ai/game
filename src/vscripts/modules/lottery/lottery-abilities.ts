@@ -214,6 +214,7 @@ export const abilityTiers: Tier[] = [
       'axe_berserkers_call', // 狂战士之吼
       'axe_battle_hunger', // 战斗饥渴
       'bloodseeker_blood_bath', // 血祭
+      'shadow_shaman_voodoo', // 妖术
 
       // 法球/开关技能
       // 'witch_doctor_voodoo_restoration', // 巫毒疗法
