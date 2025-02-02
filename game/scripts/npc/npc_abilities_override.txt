@@ -3957,9 +3957,14 @@
 		"AbilityManaCost"				"125 225 325 425"
 		"AbilityValues"
 		{
+			"radius"
+			{
+				"value"		"1500"							// 1250
+				"affected_by_aoe_increase"	"1"
+			}
 			"duration"
 			{
-				"value"					"2.0 2.4 2.8 3.2"
+				"value"					"2.0 2.4 2.8 3.2"	// 2.0 2.2 2.4
 				"special_bonus_unique_tidehunter_7"	"+1.2"	// 0.8
 			}
 		}
