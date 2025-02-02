@@ -254,7 +254,7 @@
 		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_bonus_reset_time"			"重置时间："
 
 		"DOTA_Tooltip_ability_tower_troll_warlord_fervor"				"建筑狂热"
-		"DOTA_Tooltip_ability_tower_troll_wardlord_fervor_Description"			"这座建筑对同一目标的攻击速度会逐渐增加。如果建筑攻击新目标，堆叠将重置为零。多重射击不计算在内。"
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_Description"			"这座建筑对同一目标的攻击速度会逐渐增加。如果建筑攻击新目标，堆叠将重置为零。多重射击不计算在内。"
 		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_attack_speed"			"每层攻击速度："
 		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_max_stacks"			"最大堆叠："
 
