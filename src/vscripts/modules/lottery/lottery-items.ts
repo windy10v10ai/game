@@ -66,17 +66,17 @@ export const itemTiers: Tier[] = [
       'item_martyrs_plate', // 烈士鳞甲
 
       // ---- 中立物品 lv3 ----
-      'item_ancient_guardian', // 遗迹守护者
-      'item_repair_kit', // 维修器具
-      'item_the_leveller', // 平世剑
-      'item_paladin_sword', // 骑士剑
-      'item_ceremonial_robe', // 祭礼长袍
-      'item_cloak_of_flames', // 火焰斗篷
       'item_nemesis_curse', // 天诛之咒
       'item_vindicators_axe', // 正义之斧
       'item_enchanted_quiver', // 魔力箭袋
+      'item_the_leveller', // 平世剑
+      'item_paladin_sword', // 骑士剑
+      'item_cloak_of_flames', // 火焰斗篷
+      'item_ceremonial_robe', // 祭礼长袍
+      'item_psychic_headband', // 通灵头带
       'item_havoc_hammer', // 浩劫巨锤
       'item_ogre_seal_totem', // 食人魔海豹图腾
+      'item_ancient_guardian', // 遗迹守护者
 
       // 未加入中立的物品
       'item_third_eye', // 第三只眼
@@ -94,6 +94,7 @@ export const itemTiers: Tier[] = [
       // ---- 中立物品 lv3 ----
       'item_dandelion_amulet', // 蒲公英护符
       'item_craggy_coat', // 崎岖外衣
+      'item_repair_kit', // 维修器具
 
       // ---- 中立物品 lv2 ----
       'item_orb_of_destruction', // 毁灭灵球
@@ -138,6 +139,10 @@ export const itemTiers: Tier[] = [
       'item_keen_optic', // 基恩镜片
       'item_royal_jelly', // 蜂王浆
       'item_spark_of_courage', // 勇气之光
+      'item_seeds_of_serenity', // 宁静种籽
+      'item_lance_of_pursuit', // 追击矛
+      'item_occult_bracelet', // 玄奥手镯
+      'item_duelist_gloves', // 决斗家手套
 
       // 未加入中立的物品
       'item_essence_ring', // 精华指环
