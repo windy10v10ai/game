@@ -2597,7 +2597,7 @@
 			}
 			"base_damage"
 			{
-				"value"		"55 80 105 130 155"
+				"value"		"55 70 85 100 115"
 			}
 			"bonus_damage"	"55 80 105 130 155"
 		}
@@ -6827,10 +6827,13 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
+			"crit_chance"
+			{
+				"value"			"20"		// 17
+			}
 			"crit_bonus"
 			{
 				"value"		"200 325 450 550"
-				"special_bonus_facet_phantom_assassin_methodical"		"+100"
 			}
 			"attacks_to_proc"
 			{
@@ -8247,7 +8250,7 @@
 	"bane_brain_sap"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"120 130 140 150 160"
+		"AbilityManaCost"				"80 100 120 140 160"
 		"AbilityValues"
 		{
 			"brain_sap_damage"
@@ -12011,19 +12014,19 @@
 		{
 				"damage"
 				{
-					"value"		"90 150 210 270"
-					"special_bonus_unique_witch_doctor_5"	"+90" //45
-					"special_bonus_facet_witch_doctor_cleft_death"	"=60 =95 =130 =165"	//  命石3
+					"value"		"120 190 260 330"					// x2
+					"special_bonus_unique_witch_doctor_5"	"+90"	// 45
+					"special_bonus_facet_witch_doctor_cleft_death"	"=90 =150 =210 =270"	//  命石3
 				}
 				"attack_range_tooltip"
 				{
-					"value"		"600"
-					"special_bonus_unique_witch_doctor_1"	"+150" // 75
+					"value"		"700"								// 600
+					"special_bonus_unique_witch_doctor_1"	"+100"	// 75
 				}
 				"bonus_attack_range"
 				{
 					"value"					"0"
-					"special_bonus_unique_witch_doctor_1"	"+150" // 75
+					"special_bonus_unique_witch_doctor_1"	"+100"	// 75
 				}
 		}
 	}
