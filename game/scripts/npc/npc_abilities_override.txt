@@ -1454,10 +1454,14 @@
 		"AbilityCooldown"				"22.0 18.0 14.0 10.0 6.0"
 		"AbilityValues"
 		{
+				"radius"
+				{
+					"value"	"230"	// 180 NOTE: This radius must match the radius for geomagnetic grip
+				}
 				"rock_damage"
 				{
-					"value"			"120 240 300 420 480"
-					"special_bonus_unique_earth_spirit_6"	"+180"
+					"value"			"180 270 360 450 540"			// x1.5
+					"special_bonus_unique_earth_spirit_6"	"+200"	// x2
 				}
 				"duration"			"2 3 4 5 6"
 		}
@@ -1512,6 +1516,10 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
+				"radius"
+				{
+					"value"		"230"	// 180 NOTE: This radius must match the radius for boulder smash
+				}
 				"rock_damage"			"120 240 300 420 480"
 				"duration"			"2.5 3 3.5 4 5"
 				"AbilityCooldown"
@@ -2589,7 +2597,7 @@
 			}
 			"base_damage"
 			{
-				"value"		"55 80 105 130 155"
+				"value"		"55 70 85 100 115"
 			}
 			"bonus_damage"	"55 80 105 130 155"
 		}
@@ -3949,9 +3957,14 @@
 		"AbilityManaCost"				"125 225 325 425"
 		"AbilityValues"
 		{
+			"radius"
+			{
+				"value"		"1500"							// 1250
+				"affected_by_aoe_increase"	"1"
+			}
 			"duration"
 			{
-				"value"					"2.0 2.4 2.8 3.2"
+				"value"					"2.0 2.4 2.8 3.2"	// 2.0 2.2 2.4
 				"special_bonus_unique_tidehunter_7"	"+1.2"	// 0.8
 			}
 		}
@@ -6814,10 +6827,13 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
+			"crit_chance"
+			{
+				"value"			"20"		// 17
+			}
 			"crit_bonus"
 			{
 				"value"		"200 325 450 550"
-				"special_bonus_facet_phantom_assassin_methodical"		"+100"
 			}
 			"attacks_to_proc"
 			{
@@ -8217,7 +8233,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"800 900 1000 1100 1200"
-		"AbilityCooldown"				"24 20 16 12 8"
+		"AbilityCooldown"				"19 16 13 10 7"
 		"AbilityManaCost"				"100 110 120 130 140"
 
 		"AbilityValues"
@@ -8225,7 +8241,8 @@
 			"damage_reduction"	"55 60 65 70 75"
 			"enfeeble_tick_damage"
 			{
-				"value"			"12 18 24 30 36"
+				"value"			"18 27 36 45 54"	// x1.5
+				"special_bonus_unique_bane_10"				"+20"	// x1.5
 			}
 		}
 	}
@@ -8233,16 +8250,20 @@
 	"bane_brain_sap"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"120 130 140 150 160"
+		"AbilityManaCost"				"80 100 120 140 160"
 		"AbilityValues"
 		{
 			"brain_sap_damage"
 			{
-				"value"									"90 160 230 300 370"
+				"value"									"90 180 270 360 450"
 			}
 			"AbilityCooldown"
 			{
 				"value"	"15 14 13 12 11"
+			}
+			"shard_secondary_target_heal_pct"
+			{
+				"special_bonus_shard"				"+50"	// 30
 			}
 		}
 	}
@@ -8275,17 +8296,17 @@
 		{
 			"AbilityChannelTime"
 			{
-				"value"					"4 4.5 5 5.5"
-				"special_bonus_unique_bane_3"		"+2.5"
+				"value"					"4 4.25 4.5 4.75"
+				"special_bonus_unique_bane_3"		"+2"
 			}
 			"fiend_grip_damage"
 			{
-				"value"			"100 150 200 250"	// 70 110 150 190
+				"value"			"140 220 300 380"	// x2
 			}
 			"AbilityCooldown"
 			{
 				"value"	"90 80 70 60"
-				"special_bonus_scepter"	"-20"
+				"special_bonus_scepter"	"-30"
 			}
 			"illusion_count"
 			{
@@ -9900,7 +9921,7 @@
 			"AbilityCooldown"
 			{
 				"value"						"11 10 9 8 7"
-				"special_bonus_unique_lina_1"		"-3.5"
+				"special_bonus_unique_lina_1"		"-3"	// -3.5
 			}
 		}
 	}
@@ -10036,7 +10057,7 @@
 				"value"			"105 170 235 300 365"
 				"special_bonus_unique_lion_3"	"+130"	// 65
 			}
-			"duration"			"1.4 1.7 2.0 2.5 3.0"
+			"duration"			"1.3 1.6 1.9 2.2 2.5"
 		}
 	}
 	// 变羊
@@ -10535,11 +10556,10 @@
 		"AbilityManaCost"				"100 115 130 145 160"
 		"AbilityValues"
 		{
-				"blast_damage"
-				{
-					"value"	"150 255 360 465 570"	// x1.5
-					"special_bonus_unique_pugna_2" "+160"
-				}
+			"blast_damage"
+			{
+				"value"	"120 195 270 345 420"
+			}
 		}
 	}
 	// 衰老
@@ -10550,13 +10570,12 @@
 		"AbilityCooldown"				"15.0 13.0 11.0 9.0 7.0"
 		"AbilityValues"
 		{
-			"bonus_heal_amp_pct_allies"			"5 10 15 20 25"
+			"bonus_heal_amp_pct_allies"			"10 15 20 25 30"
 			"bonus_spell_damage_pct"
 			{
-				"value"		"-30 -40 -50 -60 -70"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
+				"value"		"-20 -30 -40 -50 -60"
 			}
-			"bonus_movement_speed"		"-30 -40 -50 -60 -70"
+			"bonus_movement_speed"		"-45 -50 -55 -60 -65"
 		}
 	}
 	//幽冥守卫（不能改等级）
@@ -10617,8 +10636,8 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"500 550 600 650 700"
-		"AbilityCooldown"				"16.0 13.0 10.0 7.0 4.0"
-		"AbilityManaCost"				"110 120 130 140 150"
+		"AbilityCooldown"				"16 13 10 7 4"
+		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
 			"strike_damage"
@@ -10627,7 +10646,7 @@
 				"special_bonus_scepter"				"+100"
 			}
 			"duration_damage"		"20 40 60 80 100"
-			"movement_slow"			"-20 -35 -50 -65 -80"
+			"movement_slow"			"-30 -40 -50 -60 -70"
 		}
 	}
 	// 闪烁
@@ -10673,19 +10692,24 @@
 	// 超声冲击波
 	"queenofpain_sonic_wave"
 	{
+		"AbilityCastRange"				"900"	// 700
 		"MaxLevel" "4"
 		"AbilityManaCost"				"250 400 550 700"
 		"AbilityValues"
 		{
+				"distance"
+				{
+					"value"	"1100"	// 900
+				}
 				"damage"
 				{
-					"value"											"350 450 550 650"
+					"value"											"350 500 650 800"
 					"special_bonus_unique_queen_of_pain_7"			"+250"
 				}
 				"AbilityCooldown"
 				{
-					"value"											"110 95 80 65"
-					"special_bonus_unique_queen_of_pain_3"			"-45"
+					"value"											"90 80 70 60"
+					"special_bonus_unique_queen_of_pain_3"			"-40"
 				}
 		}
 	}
@@ -11433,6 +11457,7 @@
 	"tinker_heat_seeking_missile"
 	{
 		"MaxLevel" "5"
+		"AbilityCooldown"				"12"			// 18
 		"AbilityManaCost"				"95 105 115 125 135"
 		"AbilityValues"
 		{
@@ -11914,13 +11939,19 @@
 	"witch_doctor_paralyzing_cask"
 	{
 		"MaxLevel" "5"
+		"AbilityCastRange"				"700"						// 600
 		"AbilityManaCost"				"80 100 120 140 160"
 		"AbilityCooldown"				"20.0 18.0 16.0 14.0 12.0"
 		"AbilityValues"
 		{
+				"base_damage"
+				{
+					"value"					"50 75 100 125 150"		// 50
+					"CalculateSpellDamageTooltip"	"1"
+				}
 				"bounces"
 				{
-					"value"					"3 5 7 9 11"
+					"value"					"4 6 8 10 12"			// +2
 					"special_bonus_unique_witch_doctor_3"			"+3"
 				}
 				"bounce_bonus_damage"
@@ -11983,19 +12014,19 @@
 		{
 				"damage"
 				{
-					"value"		"90 150 210 270"
-					"special_bonus_unique_witch_doctor_5"	"+90" //45
-					"special_bonus_facet_witch_doctor_cleft_death"	"=60 =95 =130 =165"	//  命石3
+					"value"		"120 190 260 330"					// x2
+					"special_bonus_unique_witch_doctor_5"	"+90"	// 45
+					"special_bonus_facet_witch_doctor_cleft_death"	"=90 =150 =210 =270"	//  命石3
 				}
 				"attack_range_tooltip"
 				{
-					"value"		"600"
-					"special_bonus_unique_witch_doctor_1"	"+150" // 75
+					"value"		"700"								// 600
+					"special_bonus_unique_witch_doctor_1"	"+100"	// 75
 				}
 				"bonus_attack_range"
 				{
 					"value"					"0"
-					"special_bonus_unique_witch_doctor_1"	"+150" // 75
+					"special_bonus_unique_witch_doctor_1"	"+100"	// 75
 				}
 		}
 	}

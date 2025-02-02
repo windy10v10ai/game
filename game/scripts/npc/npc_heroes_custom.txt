@@ -161,7 +161,7 @@
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_goku.vsndevts"
 	}
 
-	//剑灵
+	//沉渊之剑
 	"npc_dota_hero_abyss_sword"
 	{
 		"override_hero" 			"npc_dota_hero_visage"
@@ -649,7 +649,7 @@
 		{
 			"Build"
 			{
-				"1"		"bane_nightmare"
+				"1"		"bane_enfeeble"
 				"2"		"bane_brain_sap"
 				"3"		"bane_brain_sap"
 				"4"		"bane_nightmare"
@@ -681,7 +681,7 @@
 				"30"		"special_bonus_unique_bane_3"
 				"31"		"bane_fiends_grip"
 				"32"		"bane_brain_sap"
-				"33"		"bane_enfeeble"
+				"33"		"bane_nightmare"
 				"34"		"bane_nightmare"
 			}
 		}
@@ -1783,8 +1783,6 @@
 	}
 	"npc_dota_hero_oracle"
 	{
-		"Ability5"		"chen_hand_of_god"
-		"Ability9"		"oracle_prognosticate"	// 预言 先天技能
 		"Bot"
 		{
 			"Build"
@@ -2536,6 +2534,7 @@
 
 	"npc_dota_hero_witch_doctor"
 	{
+		"Ability5"		"generic_hidden"	// 移除 驱邪护符
 		"Bot"
 		{
 			"Build"
