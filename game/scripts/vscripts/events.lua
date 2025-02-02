@@ -63,10 +63,7 @@ function AIGameMode:OnGameStateChanged(keys)
             if string.find(towerName, "tower3") or string.find(towerName, "tower4") then
                 v:AddAbility("tower_ursa_fury_swipes"):SetLevel(iTowerLevel)
                 v:AddAbility("tower_shredder_reactive_armor"):SetLevel(iTowerLevel)
-                if v:GetTeamNumber() == DOTA_TEAM_BADGUYS and iTowerLevel > 5 then
-                    v:AddAbility("tower_troll_warlord_fervor"):SetLevel(iTowerLevel)
-                    v:AddAbility("tower_antimage_mana_break"):SetLevel(iTowerLevel)
-                end
+                v:AddAbility("tower_troll_warlord_fervor"):SetLevel(iTowerLevel)
             end
         end
         local fort = Entities:FindAllByClassname("npc_dota_fort")
