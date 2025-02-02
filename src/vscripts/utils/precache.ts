@@ -117,7 +117,7 @@ export default function Precache(context: CScriptPrecacheContext) {
       'npc_dota_hero_razor', // 雷泽
       'npc_dota_hero_riki', // 力丸
       'npc_dota_hero_rubick', // 拉比克
-      'npc_dota_hero_sand_king', // 沙王
+      'npc_dota_hero_sandking', // 沙王
       // 'npc_dota_hero_shadow_demon', // 暗影恶魔
       'npc_dota_hero_shadow_shaman', // 暗影萨满
       'npc_dota_hero_shredder', // 伐木机
