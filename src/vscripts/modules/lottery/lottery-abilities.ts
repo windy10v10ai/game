@@ -69,11 +69,14 @@ export const abilityTiers: Tier[] = [
       'tidehunter_ravage', // 毁灭
       'tinker_rearm_lua', // 再装填
       'medusa_stone_gaze', // 石化凝视
-      'oracle_false_promise', // 虚妄之诺
+      'axe_culling_blade', // 淘汰之刃
+      'bloodseeker_rupture', // 割裂
+      'bounty_hunter_track', // 追踪术
 
       // 小技能
       'pudge_meat_hook', // 肉钩
       'dark_willow_shadow_realm', // 暗影之境
+      'bloodseeker_bloodrage', // 血怒
 
       // 法球/开关技能
       'enchantress_impetus', // 推进
@@ -118,10 +121,11 @@ export const abilityTiers: Tier[] = [
       'sandking_epicenter', // 地震
       'winter_wyvern_winters_curse', // 寒冬诅咒
       'weaver_time_lapse', // 时光倒流
+      'ancient_apparition_ice_blast', // 冰晶爆轰
+      'pangolier_gyroshell', // 地雷滚滚
 
       // 小技能
       'alchemist_berserk_potion2', // 狂暴药剂 new
-      'skywrath_mage_mystic_flare', // 神秘之耀
       'antimage_blink', // 闪烁
       'razor_static_link', // 静电连接
       'spirit_breaker_charge_of_darkness', // 暗影冲刺
@@ -133,10 +137,10 @@ export const abilityTiers: Tier[] = [
       'sven_storm_bolt', // 风暴之拳 斯温
       'treant_living_armor', // 活体护甲
       'legion_commander_overwhelming_odds', // 压倒性优势
-      'oracle_fates_edict', // 命运敕令
       'witch_doctor_paralyzing_cask', // 麻痹药剂
       'ember_spirit_sleight_of_fist', // 无影拳
       'witch_doctor_maledict', // 诅咒
+      'pangolier_swashbuckle', // 虚张声势
 
       // 法球/开关技能
       'viper_poison_attack', // 毒性攻击
@@ -176,8 +180,8 @@ export const abilityTiers: Tier[] = [
     names: [
       // 主动技能
       // 大招
+      'skywrath_mage_mystic_flare', // 神秘之耀
       'witch_doctor_death_ward', // 死亡守卫
-      'chen_hand_of_god', // 上帝之手
       'techies_land_mines', // 感应地雷
 
       // 小技能
@@ -205,27 +209,24 @@ export const abilityTiers: Tier[] = [
       'medusa_mystic_snake', // 秘术异蛇
       'drow_ranger_multishot', // 数箭齐发
       'ember_spirit_searing_chains', // 炎阳索
+      'ancient_apparition_cold_feet', // 寒霜之足
+      'ancient_apparition_ice_vortex', // 冰霜漩涡
+      'axe_berserkers_call', // 狂战士之吼
+      'axe_battle_hunger', // 战斗饥渴
+      'bloodseeker_blood_bath', // 血祭
 
       // 法球/开关技能
       // 'witch_doctor_voodoo_restoration', // 巫毒疗法
-      // 'jakiro_liquid_fire', // 液态火
-      // 'jakiro_liquid_ice', // 液态冰
       // 'obsidian_destroyer_arcane_orb', // 奥术天球
 
       // 被动技能
       'visage_gravekeepers_cloak', // 陵卫斗篷
       'life_stealer_ghoul_frenzy', // 尸鬼狂怒
-      'broodmother_incapacitating_bite', // 麻痹之咬
       'viper_corrosive_skin', // 腐蚀皮肤
       'rubick_null_field', // 失效立场
       'pangolier_lucky_shot', // 幸运一击
       'crystal_maiden_brilliance_aura', // 奥术光环 冰女
       'alchemist_corrosive_weaponry', // 腐蚀兵械
-
-      // 选择率较低 但胜率还可以的技能暂时移除
-      // 'skywrath_mage_ancient_seal', // 上古封印
-      // 'omniknight_purification', // 洗礼
-      // 'tusk_ice_shards', // 寒冰碎片
     ],
   },
 ];
