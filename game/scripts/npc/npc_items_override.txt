@@ -446,6 +446,18 @@
 			"bonus_armor"				"6"		//4
 		}
 	}
+	"item_ring_of_aquila" //天鹰戒
+	{
+		"AbilityValues"
+		{
+				"bonus_damage"			"9"		// 3
+				"bonus_strength"		"6"		// 3
+				"bonus_agility"			"12"	// 9
+				"bonus_intellect"		"6"		// 3
+				"aura_mana_regen"		"2"		// 1
+				"aura_bonus_armor"		"4"		// 2
+		}
+	}
 	// level 2
 	"item_dragon_scale" //炎龙之鳞
 	{
@@ -713,17 +725,18 @@
 	}
 	"item_ogre_seal_totem" //食人魔海豹图腾
 	{
-		"AbilityCooldown"				"25.0"		//35
+		"AbilityCooldown"				"30.0"		//35
+		"AbilityManaCost"				"50"		// 25
 		"AbilityValues"
 		{
-			"bonus_strength"			"35"		//12
+			"bonus_strength"			"25"		//12
 			"radius"
 			{
-				"value"				"400"			//275
+				"value"				"350"			//275
 			}
 			"flop_damage"				"350"		//250
-			"slow_duration"				"2.5"		//1.5
-			"max_bounces"				"4"			//2
+			"slow_duration"				"2.0"		//1.5
+			"max_bounces"				"3"			//2
 		}
 	}
 	"item_doubloon" //双面币
