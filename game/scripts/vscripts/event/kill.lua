@@ -197,17 +197,14 @@ local function HeroKilled(keys)
         elseif GameTime <= 10 * 60 then
             gold = 30
             xp = 60
-        elseif GameTime <= 15 * 60 then
+        else
             gold = 40
             xp = 80
-        else
-            gold = 50
-            xp = 100
         end
 
         -- 击杀者等级加成
         local killerLevel = attacker:GetLevel()
-        gold = gold + killerLevel * 3
+        gold = gold + killerLevel * 4
         xp = xp + killerLevel * 4
 
         if iLevel >= 50 then

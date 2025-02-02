@@ -2534,6 +2534,7 @@
 
 	"npc_dota_hero_witch_doctor"
 	{
+		"Ability5"		"generic_hidden"	// 移除 驱邪护符
 		"Bot"
 		{
 			"Build"
