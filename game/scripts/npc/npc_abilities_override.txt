@@ -9918,7 +9918,7 @@
 			"AbilityCooldown"
 			{
 				"value"						"11 10 9 8 7"
-				"special_bonus_unique_lina_1"		"-3.5"
+				"special_bonus_unique_lina_1"		"-3"	// -3.5
 			}
 		}
 	}
@@ -11454,6 +11454,7 @@
 	"tinker_heat_seeking_missile"
 	{
 		"MaxLevel" "5"
+		"AbilityCooldown"				"12"			// 18
 		"AbilityManaCost"				"95 105 115 125 135"
 		"AbilityValues"
 		{
@@ -11935,13 +11936,19 @@
 	"witch_doctor_paralyzing_cask"
 	{
 		"MaxLevel" "5"
+		"AbilityCastRange"				"700"						// 600
 		"AbilityManaCost"				"80 100 120 140 160"
 		"AbilityCooldown"				"20.0 18.0 16.0 14.0 12.0"
 		"AbilityValues"
 		{
+				"base_damage"
+				{
+					"value"					"50 75 100 125 150"		// 50
+					"CalculateSpellDamageTooltip"	"1"
+				}
 				"bounces"
 				{
-					"value"					"3 5 7 9 11"
+					"value"					"4 6 8 10 12"			// +2
 					"special_bonus_unique_witch_doctor_3"			"+3"
 				}
 				"bounce_bonus_damage"
