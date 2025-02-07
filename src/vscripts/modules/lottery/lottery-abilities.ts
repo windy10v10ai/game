@@ -121,7 +121,6 @@ export const abilityTiers: Tier[] = [
       'sandking_epicenter', // 地震
       'winter_wyvern_winters_curse', // 寒冬诅咒
       'weaver_time_lapse', // 时光倒流
-      'ancient_apparition_ice_blast', // 冰晶爆轰
       'pangolier_gyroshell', // 地雷滚滚
 
       // 小技能
