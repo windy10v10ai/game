@@ -321,6 +321,11 @@ function OnGameDifficultyChoiceChange(table, key, value) {
   OnDifficultyDropDownChanged(difficulty);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function DotaSurvivorActivate() {
+  $.DispatchEvent('DOTAShowCustomGamePage', 3359951052);
+}
+
 (function () {
   $('#radiant_player_number_dropdown').SetSelected('1');
   LockOption();

@@ -68,6 +68,9 @@
 		"respawn_time_percentage_fast"         "Fast"
 		"respawn_time_percentage_0"          "Near-instant"
 
+		// link面板
+		"dota_survivor_button"			"Linkage with: Dota Survivor"
+
 		// 右侧面板
 		"game_difficulty_choice"		"Choose a difficulty"
 		"custom_game_vote"				"Vote Timer"
