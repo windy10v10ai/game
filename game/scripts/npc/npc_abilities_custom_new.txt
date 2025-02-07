@@ -3,6 +3,7 @@
 	//蝙蝠骑士 树脂
 	"batrider_smoldering_resin2"
 	{
+		"MaxLevel"						"5"
 		"BaseClass"                     "batrider_smoldering_resin"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
@@ -10,105 +11,109 @@
 		"Innate"						"0"
 		"AbilityTextureName"    		"clinkz_tar_bomb"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		
+
 		"AbilityValues"
 		{
 			"total_ticks"			"2"
 			"tick_rate"				"1"
-			"tick_attack_damage_pct"		"15 25 35 45"
+			"tick_attack_damage_pct"		"20 30 40 50 60"
 		}
-
 	}
-	
+
+	// 全才
 	"viper_universal_hero"
 	{
-		"BaseClass"                     "special_bonus_unique_viper_5"
+		"BaseClass"						"special_bonus_unique_viper_5"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"    		"quan_cai"
+		"AbilityTextureName"			"quan_cai"
 		"MaxLevel"						"1"
-	
+
 	}
 	//施恩 神之愤怒
 	"sven_wrath_of_god2"
 	{
+		"MaxLevel"						"5"
 		"BaseClass"                     "sven_wrath_of_god"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"4"
 		"DependentOnAbility"			""
-		"AbilityTextureName"    		"sven_storm_bolt_secondary"
+		"AbilityTextureName"			"sven_storm_bolt_secondary"
 
 		"AbilityValues"
 		{
-			"bonus_damage_per_str"				"0.4 0.6 0.8 1"
-			"base_damage_reduction"				"0"
+			"bonus_damage_per_str"				"0.6 0.7 0.8 0.9 1"
+			"base_damage_reduction"				"10 20 30 40 50"
 		}
 	}
 	//拍拍 天生技能 +攻击
 	"ursa_maul2"
 	{
-		"BaseClass"                     "ursa_maul"
+		"MaxLevel"						"5"
+		"BaseClass"						"ursa_maul"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"4"
 		"Innate"						"0"
-		"AbilityTextureName"    		"life_stealer/bloody_ripper_abilityicons/life_stealer_consume"
-		
+		"AbilityTextureName"			"life_stealer/bloody_ripper_abilityicons/life_stealer_consume"
+
 
 		"AbilityValues"
 		{
-			"health_as_damage_pct"	
+			"health_as_damage_pct"
 			{
-				"value"	"1.5 2.5 3.5 4.5"
+				"value"	"1 2 3 4 5"
 			}
 		}
 	}
 	//双头龙 天生一对
 	"jakiro_double_trouble2"
 	{
-		"BaseClass"                     "jakiro_double_trouble"
+		"MaxLevel"						"5"
+		"BaseClass"						"jakiro_double_trouble"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"1"
 		"Innate"						"0"
-		"AbilityTextureName"    		"jakiro_dual_breath"
-		
-		
+		"AbilityTextureName"			"jakiro_dual_breath"
+
 		"AbilityValues"
 		{
 			"second_attack_delay"			"0.2"
-			"attack_damage_reduction"		"50"
+			"attack_damage_reduction"		"50 45 40 35 30"
 		}
 	}
 	//人马 皮糙肉厚
 	"centaur_rawhide2"
 	{
+		"MaxLevel"						"5"
 		"BaseClass"                     "centaur_rawhide"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"4"
 		"Innate"						"0"
 		"AbilityTextureName"    		"pudge/scavenger_dragon_ability/pudge_flesh_heap"
-		
-		
+
+
 		"AbilityValues"
 		{
-			"health_per_upgrade"		"40 60 80 100"
+			"health_per_upgrade"		"20 40 60 80 100"
 			"upgrade_rate"				"60"
 		}
 	}
 	//斧王 一人成军
 	"axe_one_man_army2"
 	{
+		"MaxLevel"						"5"
 		"BaseClass"                     "ability_lua"
 		"ScriptFile"				    "abilities/axe_one_man_army2"
-	
+
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"3"
-		
+
 		"AbilityTextureName"    		"ancient_rock_golem_weakening_aura"
-		
+
 		"AbilityValues"
 		{
-			"armor_pct_as_strength"		"50 75 100"
+			"armor_pct_as_strength"		"50 75 100 125 150"
 			"radius"					"0"
 			"bonus_linger_duration"		"5"
 		}
@@ -118,10 +123,10 @@
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		
+
 		"MaxLevel"						"3"
 		"AbilityCooldown"				"40 35 30"
-		
+
 	}
 	//魔法扰动
 	"antimage_mana_turbulence"
@@ -131,17 +136,17 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"    		"sven/immortal/sven_great_cleave"
-		
+
 		"AbilityManaCost"				"85 95 105 115"
 		"AbilityCooldown"				"20 18 16 14"
-		
+
 		"AbilityValues"
 		{
 			"damage"			"80 120 160 200"
 			"slow_duration"		"1.5"
 			"duration"			"5"
 			"ad"				"0.7"
-			
+
 			"spell_amp"			"30"
 			"mana_cost"			"100"
 			"cd"				"50"
@@ -150,67 +155,70 @@
 	//极寒光环
 	"ancient_apparition_freezing_aura"
 	{
+		"MaxLevel"						"5"
 		"BaseClass"                     "ability_lua"
 		"ScriptFile"				    "abilities/ancient_apparition_freezing_aura"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"    		"freezing_aura"
 		"AbilityCastRange"    			"1200"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		
-		"AbilityManaCost"				"100 110 120 130"
-		"AbilityCooldown"				"42 38 34 30"
-		
+
+		"AbilityManaCost"				"100 110 120 130 140"
+		"AbilityCooldown"				"30"
+
 		"AbilityValues"
 		{
-			"percentage"	"20 30 40 50"
-			"hp_regen"		"10 20 30 40"
-			
+			"percentage"	"20 30 40 50 60"
+			"hp_regen"		"10 20 30 40 50"
+
 			"duration"	"5"
-			"damage"	"40 60 80 100"
+			"damage"	"40 60 80 100 120"
 			"ad"		"0.15"
 		}
 	}
 	//冰霜封印
 	"ancient_apparition_frost_seal"
 	{
+		"MaxLevel"						"5"
 		"BaseClass"                     "ability_lua"
 		"ScriptFile"				    "abilities/ancient_apparition_frost_seal"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"    		"winter_wyvern/immortal/winter_wyvern_cold_embrace"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		
+
 		"AbilityCastRange"				"400"
 		"AbilityManaCost"				"100 110 120 130"
 		"AbilityCooldown"				"25 24 23 22"
-		
+
 		"AbilityValues"
 		{
-			"hp_regen"				"20 30 40 50"
-			"hp_regen_percentage"	"2 3 4 5"
-			"damage"				"120 180 240 300"
+			"hp_regen"				"20 30 40 50 60"
+			"hp_regen_percentage"	"2 3 4 5 6"
+			"damage"				"120 180 240 300 360"
 			"stun_duration"			"2"
 		}
 	}
 	//冰霜法球
 	"ancient_apparition_frost_orb"
 	{
+		"MaxLevel"						"5"
 		"BaseClass"                     "ability_lua"
 		"ScriptFile"				    "abilities/ancient_apparition_frost_orb"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"    		"crystal_maiden_crystal_nova_icecowl"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		
+
 		"AbilityValues"
 		{
 			"radius"		"300"
-			"damage"		"50 80 110 140"
+			"damage"		"50 80 110 140 170"
 			"ad"			"0.5"
 			"attack_count"	"4"
-			"slow_duration"	"0.5 0.6 0.7 0.8"
+			"slow_duration"	"0.5 0.6 0.7 0.8 0.9"
 		}
 	}
-	
-	
+
+
 	//迷雾诅咒
 	"abaddon_death_coil2"
 	{
