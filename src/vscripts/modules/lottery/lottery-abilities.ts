@@ -104,8 +104,14 @@ export const abilityTiers: Tier[] = [
       'nevermore_dark_lord', // 魔王降临
       'brewmaster_drunken_brawler', // 醉拳
 
-      'abyssal_underlord_firestorm2', // 火雨降临 new
-      'alchemist_enhanced_weaponry', // 强化武器 new
+      // 自定义技能
+      'abyssal_underlord_firestorm2', // 火雨降临
+      'alchemist_enhanced_weaponry', // 强化武器
+      'batrider_smoldering_resin2', // 蝙蝠骑士 树脂
+      'viper_universal_hero', // 全才
+      'sven_wrath_of_god2', // 斯文 神之愤怒
+      'ursa_maul2', // 拍拍 天生技能 +攻击
+      'jakiro_double_trouble2', // 双头龙 天生一对
     ],
   },
   {
@@ -121,7 +127,6 @@ export const abilityTiers: Tier[] = [
       'sandking_epicenter', // 地震
       'winter_wyvern_winters_curse', // 寒冬诅咒
       'weaver_time_lapse', // 时光倒流
-      'ancient_apparition_ice_blast', // 冰晶爆轰
       'pangolier_gyroshell', // 地雷滚滚
 
       // 小技能
@@ -170,8 +175,14 @@ export const abilityTiers: Tier[] = [
       'tidehunter_kraken_shell', // 海妖外壳
       'venomancer_poison_sting', // 剧毒术士 毒刺
 
-      'abyssal_underlord_malice_aura', // 怨念光环 new
-      'abyssal_underlord_charge_slash', // 冲锋斩 new
+      // 自定义技能
+      'abyssal_underlord_malice_aura', // 怨念光环
+      'abyssal_underlord_charge_slash', // 冲锋斩
+      'centaur_rawhide2', // 人马 皮糙肉厚
+      'axe_one_man_army2', // 斧王 一人成军
+      'ancient_apparition_freezing_aura', // 极寒光环
+      'ancient_apparition_frost_seal', // 冰霜封印
+      'ancient_apparition_frost_orb', // 冰霜法球
     ],
   },
   {
@@ -228,6 +239,9 @@ export const abilityTiers: Tier[] = [
       'pangolier_lucky_shot', // 幸运一击
       'crystal_maiden_brilliance_aura', // 奥术光环 冰女
       'alchemist_corrosive_weaponry', // 腐蚀兵械
+
+      // 自定义技能
+      'arc_warden_scepter', // 人工神符
     ],
   },
 ];

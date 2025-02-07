@@ -155,6 +155,18 @@
 				</Panel>
 			</Panel>
 			<!-- 游戏选项显示 END-->
+
+			<!-- 联动 按钮 -->
+			<Panel id="LinkButtonContainer" hittest="false">
+				<!--  吸血鬼幸存者 -->
+				<Panel id="DotaSurvivorPanel"	class="GameOptionsSubPanel">
+					<Button id="DotaSurvivorButton" class="ButtonBevel" onactivate="DotaSurvivorActivate()">
+						<Label id="DotaSurvivorButtonLabel" text="#dota_survivor_button" />
+					</Button>
+					<Image id="DotaSurvivorImage" src="file://{images}/custom_game/dota_survivor.png"/>
+				</Panel>
+			</Panel>
+			<!-- 聊天框 -->
 			<Panel id="ChatHideButtonContainer" hittest="false">
 				<Button id="ChatHideButtonHide" class="ChatHideButton" onactivate="HideChatTeamActivate()">
 					<Label id="ChatHideButtonLabelHide" class="ChatHideButtonLabel" text="#hide_chat_team" />

@@ -68,6 +68,9 @@
 		"respawn_time_percentage_fast"         "快速"
 		"respawn_time_percentage_0"          "秒活 (可能卡顿)"
 
+		// link面板
+		"dota_survivor_button"			"全新联动 刀塔幸存者"
+
 		// 右侧面板
 		"game_difficulty_choice"		"选择一个难度"
 		"custom_game_vote"				"投票倒计时"
@@ -254,7 +257,7 @@
 		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_bonus_reset_time"			"重置时间："
 
 		"DOTA_Tooltip_ability_tower_troll_warlord_fervor"				"建筑狂热"
-		"DOTA_Tooltip_ability_tower_troll_wardlord_fervor_Description"			"这座建筑对同一目标的攻击速度会逐渐增加。如果建筑攻击新目标，堆叠将重置为零。多重射击不计算在内。"
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_Description"			"这座建筑对同一目标的攻击速度会逐渐增加。如果建筑攻击新目标，堆叠将重置为零。多重射击不计算在内。"
 		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_attack_speed"			"每层攻击速度："
 		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_max_stacks"			"最大堆叠："
 
@@ -457,12 +460,72 @@
 		// 					Abilities 英雄技能
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_ability_bot_power_n5"						"机械救赎 N5"
-		"DOTA_Tooltip_ability_bot_power_n5_Description"			"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
-		"DOTA_Tooltip_ability_bot_power_n5_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了“机械救赎”程序，使它们在关键时刻能够激发潜力，扭转战局。"
-		"DOTA_Tooltip_ability_bot_power_n6"						"机械救赎 N6"
-		"DOTA_Tooltip_ability_bot_power_n6_Description"			"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
-		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了“机械救赎”程序，使它们在关键时刻能够激发潜力，扭转战局。"
+
+		//神之愤怒
+		"DOTA_Tooltip_ability_viper_universal_hero"						"全才"
+		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"变为全才英雄"
+		//神之愤怒
+		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"神之愤怒"
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"斯温从力量中获得额外攻击力，但是基础攻击力降低。"
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_base_damage_reduction"	"基础攻击力降低："
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_bonus_damage_per_str"	"每点力量额外攻击力："
+		//暴烈之爪
+		"DOTA_Tooltip_ability_ursa_maul2"						"暴烈之爪"
+		"DOTA_Tooltip_ability_ursa_maul2_Description"			"熊战士获得攻击力加成，数值为当前生命值的一定百分比。"
+		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%生命值伤害："
+		"DOTA_Tooltip_modifier_ursa_maul2"						"暴烈之爪"
+		"DOTA_Tooltip_modifier_ursa_maul2_Description"			"攻击力提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点。"
+		//天生一对
+		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"天生一对"
+		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"				"杰奇洛攻击时两个头都会发动攻击，不过每个头造成的伤害减少%attack_damage_reduction%%%。"
+		//皮糙肉厚
+		"DOTA_Tooltip_ability_centaur_rawhide2"							"皮糙肉厚"
+		"DOTA_Tooltip_ability_centaur_rawhide2_Description"				"每%upgrade_rate%秒永久获得%health_per_upgrade%点生命上限。"
+		"DOTA_Tooltip_ability_centaur_rawhide2_bonus_hp_total"			"永久生命上限："
+		//闷烧树脂
+		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"闷烧树脂"
+		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"蝙蝠骑士的攻击会施加一个负面效果，每%tick_rate%秒造成%tick_attack_damage_pct%%%攻击伤害，持续%total_ticks%秒。"
+		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff"				"闷烧树脂"
+		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff_Description"	"蝙蝠骑士的攻击会引起缓慢燃烧。"
+		//一人之军
+		"DOTA_Tooltip_ability_axe_one_man_army2"			"一人之军"
+		"DOTA_Tooltip_ability_axe_one_man_army2_Description"		"获得护甲一定百分比的力量"
+		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"百分比："
+
+		"DOTA_Tooltip_ability_arc_warden_scepter"	"人工神符"
+		"DOTA_Tooltip_ability_arc_warden_scepter_Description"	"创建一个随机神符"
+
+		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"魔法扰动"
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"对扇形区域的敌方单位造成伤害，并施加debuff，降低其技能伤害，增加其魔法消耗,增加其技能cd,并造成%slow_duration%秒减速"
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_damage"	"基础伤害："
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_ad"		"攻击力伤害加成倍率："
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_duration"	"持续时间："
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_spell_amp"	"%技能伤害降低："
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_mana_cost"	"%魔法消耗增加："
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%cd增加："
+
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"冰霜法球"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"每%attack_count%次攻击发射一枚冰霜法球，造成aoe伤害，并减速目标%slow_duration%秒"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"范围："
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"伤害："
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"攻击力伤害加成倍率："
+
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"		"极寒光环"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"减少敌方单位的回复，治疗，吸血效果，降低其生命回复.<br/><br/>主动施法：对周围敌方单位造成伤害和减速，距离自己越近伤害和减速越大"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_percentage"		"%减疗百分比："
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_hp_regen"		"生命恢复减少："
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"最大伤害："
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"攻击力伤害加成倍率："
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"持续时间："
+
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"		"冰霜封印"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"	"眩晕自己4秒，获得50%%减伤，增加生命回复。期间对周围敌方单位造成20%%减速，并将其向自己牵引.结束时对周围造成伤害和眩晕"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"		"基础生命回复："
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"		"%百分比生命回复："
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"		"伤害："
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"眩晕时间："
+
+
 
 		"DOTA_Tooltip_ability_abaddon_phantom_charge"		"幻影冲锋"
 		"DOTA_Tooltip_ability_abaddon_phantom_charge_Description"		"增加移速，免疫减速，下次攻击沉默目标并造成额外伤害。技能释放时制造两个幻象"
@@ -512,6 +575,13 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"				    "生命恢复："
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"持续时间："
 
+
+		"DOTA_Tooltip_ability_bot_power_n5"						"机械救赎 N5"
+		"DOTA_Tooltip_ability_bot_power_n5_Description"			"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
+		"DOTA_Tooltip_ability_bot_power_n5_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了“机械救赎”程序，使它们在关键时刻能够激发潜力，扭转战局。"
+		"DOTA_Tooltip_ability_bot_power_n6"						"机械救赎 N6"
+		"DOTA_Tooltip_ability_bot_power_n6_Description"			"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
+		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了“机械救赎”程序，使它们在关键时刻能够激发潜力，扭转战局。"
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes 英雄
