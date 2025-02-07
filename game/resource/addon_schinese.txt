@@ -68,6 +68,9 @@
 		"respawn_time_percentage_fast"         "快速"
 		"respawn_time_percentage_0"          "秒活 (可能卡顿)"
 
+		// link面板
+		"dota_survivor_button"			"全新联动 刀塔幸存者"
+
 		// 右侧面板
 		"game_difficulty_choice"		"选择一个难度"
 		"custom_game_vote"				"投票倒计时"
