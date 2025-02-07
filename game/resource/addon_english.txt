@@ -459,19 +459,18 @@
 		// 					Abilities 英雄技能
 		//
 		///////////////////////////////////////////////////
-		
-		//神之愤怒
-		"DOTA_Tooltip_ability_viper_universal_hero"						"universal hero"
+//神之愤怒
+		"DOTA_Tooltip_ability_viper_universal_hero"						"Universal Hero"
 		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"become universal hero"
 		//神之愤怒
 		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"Wrath of God"
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"Sven gains additional attack damage from Strength, but has decreased base damage."
-		"DOTA_Tooltip_ability_sven_wrath_of_god2_base_damage_reduction"	"BASE DAMAGE REDUCTION:"
-		"DOTA_Tooltip_ability_sven_wrath_of_god2_bonus_damage_per_str"	"BONUS DAMAGE PER STR:"
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_base_damage_reduction"	"Base Damage Reduction:"
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_bonus_damage_per_str"	"Bonus Damage Per Str:"
 		//暴烈之爪
 		"DOTA_Tooltip_ability_ursa_maul2"						"Maul"
 		"DOTA_Tooltip_ability_ursa_maul2_Description"			"Ursa gains bonus damage equal to a percentage of his Current HP."
-		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%HEALTH AS DAMAGE:"
+		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%Health As Damage:"
 		"DOTA_Tooltip_modifier_ursa_maul2"						"Maul"
 		"DOTA_Tooltip_modifier_ursa_maul2_Description"			"Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
 		//天生一对
@@ -489,42 +488,42 @@
 		//一人之军
 		"DOTA_Tooltip_ability_axe_one_man_army2"						"One Man Army"
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Axe gains Strength based on his armor as long as he's away from his allies."
-		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"percentage："
+		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"percentage:"
 		//人工神符
 		"DOTA_Tooltip_ability_arc_warden_scepter"	"Artificial Rune"
 		"DOTA_Tooltip_ability_arc_warden_scepter_Description"	"Create a random rune"
 		//魔法扰动
-		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"mana_turbulence"
+		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"Mana Turbulence"
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"Causes damage to enemy units in the fan-shaped area and applies a debuff, reducing their skill damage, increasing their mana consumption, increasing their skill CD, and causing a slowdown of %slow_duration% seconds"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_damage"		"base damage："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_ad"			"ad rate："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_duration"	"duration："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_spell_amp"	"%spell_amp reduce："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_mana_cost"	"%mana_cost reduce："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%cd increase："
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_damage"		"Base Damage:"
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_ad"			"Attack Damage Addition Rate:"
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_duration"	"Duration:"
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_spell_amp"	"%Spell Amp Reduce:"
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_mana_cost"	"%Mana Cost Reduce:"
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%Cd Increase:"
 		//冰霜法球
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"frost_orb"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"Frost Orb"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"Every %attack_count% attack launches a frost orb, dealing AOE damage and slowing the target down by %slow_duration% seconds"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"radius："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"damage："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"ad rate："
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"Radius:"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"Damage:"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"Attack Damage Addition Rate:"
 		//极寒光环
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"					"freezing_aura"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"					"Freezing Aura"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"Reduces the enemy unit's recovery, healing, and bloodsucking effects, and reduces its life recovery.<br/><br/>Active casting: causes damage and slows down surrounding enemy units. The closer they are to you, the greater the damage and slowdown."
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_percentage"		"%Reduced Heal："
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_hp_regen"		"hp_regen reduce："
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"max damage："
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate："
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"duration："
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_percentage"		"%Reduced Heal:"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_hp_regen"		"Hp Regen Reduce:"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"Max Damage:"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"Attack Damage Addition Rate:"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Duration:"
 		//冰霜封印
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"frost_seal"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Frost Seal"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Stun yourself for 4 seconds, gain 50%% damage reduction, and increase life recovery. During this period, cause 20%% slowdown to surrounding enemy units and pull them towards you. At the end, cause damage and stun to the surrounding"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"				"hp_regen："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"	"%hp_regen_percentage："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"				"damage："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"stun_duration："
-		
-		
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"				"Hp Regen:"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"	"%Hp Regen Percentage:"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"				"Damage:"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"Stun Duration:"
+
+
 		//幻影冲锋
 		"DOTA_Tooltip_ability_abaddon_phantom_charge"					"Abaddon Phantom Charge"
 		"DOTA_Tooltip_ability_abaddon_phantom_charge_Description"		"Increase movement speed, immune deceleration, and deal additional damage to silent targets in the next attack. Create two illusions during skill release"
@@ -573,7 +572,7 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_move_speed"					"Move Speed:"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"					"HP Regen:"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"Duration:"
-		
+
 		"DOTA_Tooltip_ability_bot_power_n5"						"Bot Salvation N5"
 		"DOTA_Tooltip_ability_bot_power_n5_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
 		"DOTA_Tooltip_ability_bot_power_n5_Lore"				"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
