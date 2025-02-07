@@ -68,6 +68,9 @@
 		"respawn_time_percentage_fast"         "快速"
 		"respawn_time_percentage_0"          "秒活 (可能卡顿)"
 
+		// link面板
+		"dota_survivor_button"			"全新联动 刀塔幸存者"
+
 		// 右侧面板
 		"game_difficulty_choice"		"选择一个难度"
 		"custom_game_vote"				"投票倒计时"
@@ -254,7 +257,7 @@
 		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_bonus_reset_time"			"重置时间："
 
 		"DOTA_Tooltip_ability_tower_troll_warlord_fervor"				"建筑狂热"
-		"DOTA_Tooltip_ability_tower_troll_wardlord_fervor_Description"			"这座建筑对同一目标的攻击速度会逐渐增加。如果建筑攻击新目标，堆叠将重置为零。多重射击不计算在内。"
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_Description"			"这座建筑对同一目标的攻击速度会逐渐增加。如果建筑攻击新目标，堆叠将重置为零。多重射击不计算在内。"
 		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_attack_speed"			"每层攻击速度："
 		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_max_stacks"			"最大堆叠："
 
