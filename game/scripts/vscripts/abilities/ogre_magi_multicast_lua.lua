@@ -36,22 +36,28 @@ function modifier_ogre_magi_multicast_lua:IsPurgable() return false end
 function modifier_ogre_magi_multicast_lua:IsPermanent() return true end
 
 --当施法时
---造成崩溃：斧王大，卡尔-buff，蓝胖的引燃，毒龙大
+--造成崩溃：灵动迅捷，斧王大，蓝胖的引燃，毒龙大
 --特效残留：死亡先知-地穴虫群，锤妹的丢锤子，
 --待确认：军团-压倒性优势-特效残留，黑鸟-奥数天球多重有点op，
 --可能导致英雄消失：SV锤子，死灵法师-魔晶，
 no_support_abilitys = {
-	axe_culling_blade = 1,
-	death_prophet_carrion_swarm = 1,
+	-- 卡尔
+	invoker_quas = 1,
+	invoker_wex = 1,
+	invoker_exort = 1,
+	invoker_invoke = 1,
 	invoker_alacrity = 1,
 	invoker_alacrity_ad = 1,
-	obsidian_destroyer_arcane_orb = 1,
+	axe_culling_blade = 1,
 	ogre_magi_ignite = 1,
 	viper_viper_strike = 1,
+	death_prophet_carrion_swarm = 1,
+	obsidian_destroyer_arcane_orb = 1,
 	ancient_apparition_frost_seal = 1, -- 冰霜封印
 }
 no_support_items = {
 	item_bottle = 1,
+	item_jump_jump_jump = 1,
 	item_fallen_sky = 1,
 }
 no_support_substrings = {
@@ -83,6 +89,10 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 	end
 	-- 不支持持续释放技能
 	if IsAbilityBehavior(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_CHANNELLED) then
+		return nil
+	end
+	-- 不支持消耗品
+	if IsAbilityBehavior(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE) then
 		return nil
 	end
 
