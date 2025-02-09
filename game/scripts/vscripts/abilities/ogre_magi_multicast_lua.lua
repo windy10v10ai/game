@@ -56,16 +56,25 @@ no_support_abilitys = {
 	ancient_apparition_frost_seal = 1, -- 冰霜封印
 }
 no_support_items = {
+	item_clarity = 1,
+	item_blood_grenade = 1, -- 血腥榴弹
+	item_flask = 1,
+	item_dust = 1,
 	item_bottle = 1,
+	item_refresher_shard = 1,
+	item_smoke_of_deceit = 1,
+	item_cheese = 1,
 	item_jump_jump_jump = 1,
 	item_fallen_sky = 1,
 }
 no_support_substrings = {
-	"phoenix",
-	"black_king_bar",
-	"blink",
+	"mango",
+	"item_ward",
+	"item_tango",
 	"tome",
-	"ward",
+	"blink",
+	"black_king_bar",
+	"phoenix",
 }
 
 function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
@@ -77,22 +86,21 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 	local abilityName = ability:GetName()
 	--不支持技能池
 	if no_support_abilitys[abilityName] then
+		print("no_support_abilitys")
 		return nil
 	end
 	if no_support_items[abilityName] then
+		print("no_support_items")
 		return nil
 	end
 	for _, s in ipairs(no_support_substrings) do
 		if string.find(abilityName, s) then
+			print("no_support_substrings")
 			return nil
 		end
 	end
 	-- 不支持持续释放技能
 	if IsAbilityBehavior(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_CHANNELLED) then
-		return nil
-	end
-	-- 不支持消耗品
-	if IsAbilityBehavior(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE) then
 		return nil
 	end
 
