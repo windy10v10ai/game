@@ -402,6 +402,7 @@
 		}
 		"AbilityValues"
 		{
+			"multicast_delay"	"0.6"
 			"multicast_2_times"
 			{
 				"value"		"75"
