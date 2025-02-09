@@ -189,6 +189,13 @@
 		"AbilityManaCost"				"100 110 120 130"
 		"AbilityCooldown"				"25 24 23 22"
 
+		"precache"
+		{
+			"particle"					"particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+			"particle"					"particles/units/heroes/hero_lich/lich_ice_spire_debuff.vpcf"
+			"particle"					"particles/units/heroes/hero_lich/lich_ice_spire_victimb_2.vpcf"
+			"particle"					"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+		}
 		"AbilityValues"
 		{
 			"hp_regen"				"20 30 40 50 60"
