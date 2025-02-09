@@ -573,6 +573,10 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"					"HP Regen:"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"Duration:"
 
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"									"Multicast"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"						"Enables Ogre Magi to cast his abilities and items multiple times with each use."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"								"Despite being largely incapacitated by his IQ, the Ogre Magi's success in battle is attributed to pure skill."
+
 		"DOTA_Tooltip_ability_bot_power_n5"						"Bot Salvation N5"
 		"DOTA_Tooltip_ability_bot_power_n5_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
 		"DOTA_Tooltip_ability_bot_power_n5_Lore"				"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
