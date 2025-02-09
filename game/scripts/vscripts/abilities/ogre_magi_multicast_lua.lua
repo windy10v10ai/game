@@ -104,7 +104,7 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 			"particles/econ/items/ogre_magi/ogre_magi_jackpot/ogre_magi_jackpot_multicast.vpcf",
 			PATTACH_OVERHEAD_FOLLOW,
 			keys.unit)
-		ParticleManager:SetParticleControl(particle, 3, Vector(2, 1, 1))
+		ParticleManager:SetParticleControl(particle, 1, Vector(4, 1, 1))
 		ParticleManager:ReleaseParticleIndex(particle)
 	elseif random_int <= multicast_3_times then
 		ability.multicast = 3
@@ -113,7 +113,7 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 			"particles/econ/items/ogre_magi/ogre_magi_jackpot/ogre_magi_jackpot_multicast.vpcf",
 			PATTACH_OVERHEAD_FOLLOW,
 			keys.unit)
-		ParticleManager:SetParticleControl(particle, 2, Vector(2, 1, 1))
+		ParticleManager:SetParticleControl(particle, 1, Vector(3, 1, 1))
 		ParticleManager:ReleaseParticleIndex(particle)
 	elseif random_int <= multicast_2_times then
 		ability.multicast = 2

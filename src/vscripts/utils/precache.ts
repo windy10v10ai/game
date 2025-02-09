@@ -104,7 +104,7 @@ export default function Precache(context: CScriptPrecacheContext) {
       // 'npc_dota_hero_nightstalker', // 暗夜魔王
       // 'npc_dota_hero_nyx_assassin', // 司夜刺客
       // 'npc_dota_hero_obsidian_destroyer', // 殁境神蚀者
-      // 'npc_dota_hero_ogre_magi', // 食人魔魔法师
+      'npc_dota_hero_ogre_magi', // 食人魔魔法师
       'npc_dota_hero_omniknight', // 全能骑士
       // 'npc_dota_hero_oracle', // 神谕者
       'npc_dota_hero_phantom_assassin', // 幻影刺客
