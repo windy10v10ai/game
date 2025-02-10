@@ -115,6 +115,7 @@ export const itemTiers: Tier[] = [
       'item_quicksilver_amulet', // 银闪护符
       // 'item_paintball', // 仙灵榴弹
       // 'item_dagger_of_ristul', // 瑞斯图尔尖匕
+      'item_greater_faerie_fire', // 高级仙林之火
     ],
   },
   {

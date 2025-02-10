@@ -7814,7 +7814,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"					"special_bonus_undefined"
 	}
-	// 剧毒蛇棒
+	// 瘟疫守卫 剧毒蛇棒
 	"venomancer_plague_ward"
 	{
 		"MaxLevel" "5"
@@ -11951,7 +11951,7 @@
 				}
 				"bounces"
 				{
-					"value"					"4 6 8 10 12"			// +2
+					"value"					"2 4 6 8 10"
 					"special_bonus_unique_witch_doctor_3"			"+3"
 				}
 				"bounce_bonus_damage"

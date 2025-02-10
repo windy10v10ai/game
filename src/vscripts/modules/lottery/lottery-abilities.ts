@@ -112,6 +112,7 @@ export const abilityTiers: Tier[] = [
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'ursa_maul2', // 拍拍 天生技能 +攻击
       'jakiro_double_trouble2', // 双头龙 天生一对
+      'ogre_magi_multicast_lua', // 多重施法
     ],
   },
   {

@@ -103,13 +103,12 @@
 	"axe_one_man_army2"
 	{
 		"MaxLevel"						"5"
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/axe_one_man_army2"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/axe_one_man_army2"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"3"
 
-		"AbilityTextureName"    		"ancient_rock_golem_weakening_aura"
+		"AbilityTextureName"			"ancient_rock_golem_weakening_aura"
 
 		"AbilityValues"
 		{
@@ -190,6 +189,13 @@
 		"AbilityManaCost"				"100 110 120 130"
 		"AbilityCooldown"				"25 24 23 22"
 
+		"precache"
+		{
+			"particle"					"particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+			"particle"					"particles/units/heroes/hero_lich/lich_ice_spire_debuff.vpcf"
+			"particle"					"particles/units/heroes/hero_lich/lich_ice_spire_victimb_2.vpcf"
+			"particle"					"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+		}
 		"AbilityValues"
 		{
 			"hp_regen"				"20 30 40 50 60"
@@ -375,6 +381,42 @@
 			// 降低移速
 			"move_speed_slow"	"20 30 40 50"
 			"slow_duration"		"0.5"
+		}
+	}
+
+	// 多重施法
+	"ogre_magi_multicast_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ogre_magi_multicast_lua"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastAnimation"			"ACT_INVALID"
+		"IsBreakable"					"1"
+
+		"AbilityTextureName"			"ogre_magi_multicast"
+		"precache"
+		{
+			"particle"					"particles/econ/items/ogre_magi/ogre_magi_jackpot/ogre_magi_jackpot_multicast.vpcf"
+		}
+		"AbilityValues"
+		{
+			"multicast_delay"	"0.6"
+			"multicast_2_times"
+			{
+				"value"		"75"
+			}
+
+			"multicast_3_times"
+			{
+				"value"		"0 30 30"
+			}
+
+			"multicast_4_times"
+			{
+				"value"		"0 0 15"
+			}
 		}
 	}
 }
