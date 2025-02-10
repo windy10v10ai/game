@@ -516,6 +516,8 @@
 		"AbilityCastAnimation"			"ACT_INVALID"
 		"IsBreakable"					"1"
 
+		"MaxLevel"						"4"
+
 		"AbilityTextureName"			"ogre_magi_multicast"
 		"precache"
 		{
@@ -526,17 +528,17 @@
 			"multicast_delay"	"0.6"
 			"multicast_2_times"
 			{
-				"value"		"75"
+				"value"		"75 80 85 90"
 			}
 
 			"multicast_3_times"
 			{
-				"value"		"0 30 30"
+				"value"		"0 30 45 60"
 			}
 
 			"multicast_4_times"
 			{
-				"value"		"0 0 15"
+				"value"		"0 0 15 30"
 			}
 		}
 	}
