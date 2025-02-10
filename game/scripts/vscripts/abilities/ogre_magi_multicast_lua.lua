@@ -156,7 +156,13 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 		ability:EndCooldown()
 		-- 充能技能
 		if ability:GetMaxAbilityCharges(ability:GetLevel()) > 0 then
-			ability:SetCurrentAbilityCharges(ability:GetCurrentAbilityCharges() + 1)
+			if ability:IsItem() then
+				print("SetCurrentCharges item")
+				ability:SetCurrentCharges(ability:GetCurrentCharges() + 1)
+			else
+				print("SetCurrentAbilityCharges")
+				ability:SetCurrentAbilityCharges(ability:GetCurrentAbilityCharges() + 1)
+			end
 		end
 		--设置目标
 		keys.unit:SetCursorCastTarget(keys.target)
