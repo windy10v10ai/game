@@ -221,10 +221,8 @@ export const abilityTiers: Tier[] = [
       'medusa_mystic_snake', // 秘术异蛇
       'drow_ranger_multishot', // 数箭齐发
       'ember_spirit_searing_chains', // 炎阳索
-      'ancient_apparition_cold_feet', // 寒霜之足
       'ancient_apparition_ice_vortex', // 冰霜漩涡
       'axe_berserkers_call', // 狂战士之吼
-      'axe_battle_hunger', // 战斗饥渴
       'bloodseeker_blood_bath', // 血祭
       'shadow_shaman_voodoo', // 妖术
 
