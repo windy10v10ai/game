@@ -54,6 +54,8 @@ no_support_abilitys = {
 	death_prophet_carrion_swarm = 1,
 	obsidian_destroyer_arcane_orb = 1,
 	ancient_apparition_frost_seal = 1, -- 冰霜封印
+	vengefulspirit_nether_swap = 1, -- 移形换位
+	terrorblade_sunder = 1,         -- 魂断
 }
 no_support_items = {
 	item_clarity = 1,
