@@ -152,7 +152,9 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 
 	local multicastDelay = self:GetAbility():GetSpecialValueFor("multicast_delay")
 
+	local target = keys.target
 	local pos = ability:GetCursorPosition()
+
 	--设置目标再次施法
 	ability:SetContextThink("think_multicast", function()
 		ability:EndCooldown()
@@ -167,7 +169,20 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 			end
 		end
 		--设置目标
-		keys.unit:SetCursorCastTarget(keys.target)
+
+		-- 指向性技能 向周围随机目标施法
+		if IsAbilityBehavior(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) then
+			local units = FindUnitsInRadius(keys.unit:GetTeamNumber(), pos, nil, ability:GetCastRange(pos, nil),
+				ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(),
+				ability:GetAbilityTargetFlags() + DOTA_UNIT_TARGET_FLAG_CAN_BE_SEEN,
+				FIND_ANY_ORDER, false)
+			if #units > 0 then
+				target = units[RandomInt(1, #units)]
+				pos = target:GetAbsOrigin()
+			end
+		end
+
+		keys.unit:SetCursorCastTarget(target)
 		keys.unit:SetCursorPosition(pos)
 		keys.unit:CastAbilityImmediately(ability, 0)
 		-- 返还魔法
