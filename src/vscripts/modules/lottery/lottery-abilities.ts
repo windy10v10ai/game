@@ -113,6 +113,11 @@ export const abilityTiers: Tier[] = [
       'ursa_maul2', // 拍拍 天生技能 +攻击
       'jakiro_double_trouble2', // 双头龙 天生一对
       'ogre_magi_multicast_lua', // 多重施法
+      'clinkz_burning_barrage2', // 炽烈火雨
+      'crystal_maiden_ice_explosion', // 冰女 冰暴
+      'dark_seer_quick_wit2', // 才思敏捷
+      'dazzle_rain_of_vermin', // 诅咒之雨
+      'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
     ],
   },
   {
