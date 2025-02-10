@@ -1155,7 +1155,6 @@ tBotItemData.sellItemList = {
 
 	},
 	npc_dota_hero_chaos_knight = {
-		'item_armlet',
 		'item_sange_and_yasha',
 		'item_echo_sabre_2',
 	},
@@ -1169,7 +1168,6 @@ tBotItemData.sellItemList = {
 		'item_force_staff',
 	},
 	npc_dota_hero_dragon_knight = {
-		'item_armlet',
 		'item_heavens_halberd',
 		'item_sange_and_yasha',
 		'item_overwhelming_blink',
@@ -1195,7 +1193,6 @@ tBotItemData.sellItemList = {
 		'item_bfury',
 	},
 	npc_dota_hero_kunkka = {
-		'item_armlet',
 		'item_black_king_bar_2',
 		'item_bfury',
 		'item_infernal_desolator', -- 绝对破防之刃
@@ -1315,7 +1312,6 @@ tBotItemData.sellItemList = {
 		'item_rod_of_atos',
 	},
 	npc_dota_hero_skeleton_king = {
-		'item_armlet',
 		'item_heavens_halberd',
 		'item_sange_and_yasha',
 		'item_echo_sabre_2',
@@ -1402,6 +1398,7 @@ tBotItemData.sellItemCommonList = {
 	'item_solar_crest',  -- 炎阳纹章
 	'item_vanguard',     -- 先锋盾
 	'item_basher',       -- 碎骨锤
+	'item_armlet',       -- 臂章
 
 
 	-- 高级道具
@@ -1421,12 +1418,14 @@ tBotItemData.sellItemCommonList = {
 	'item_monkey_king_bar_2', -- 定海神针
 
 	-- 本地主机出装
+	-- 配件
 	'item_headdress',        -- 恢复头巾
 	'item_tiara_of_selemene', -- 赛莉蒙妮之冠
 	'item_talisman_of_evasion', -- 闪避护符
 	'item_eagle',            -- 鹰歌弓
 	'item_reaver',           -- 掠夺者之斧
 	'item_mystic_staff',     --  神秘法杖
+	'item_demon_edge',       -- 恶魔刀锋
 	'item_relic',            -- 圣者遗物
 
 
