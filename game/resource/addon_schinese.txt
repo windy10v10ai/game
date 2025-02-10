@@ -460,7 +460,7 @@
 		// 					Abilities 英雄技能
 		//
 		///////////////////////////////////////////////////
-		
+
 		//神龙之血
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"						"神龙之血"
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"			"神龙的生命之血提升了龙骑士的生命恢复和护甲。每升一级，两个数值都将提升%level_mult%，在古龙形态下还有倍数加成。"
@@ -484,15 +484,15 @@
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"冰爆"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"增加%attack_speed%攻速，攻击有35%概率召唤一个冰爆打击随机区域，造成伤害和1秒减速"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"伤害："
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"ad加成："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"攻击力伤害加成倍率："
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"随机范围："
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"冰爆伤害范围："
 		//诅咒之雨
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"诅咒之雨"
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"对一片区域造成持续伤害，并有12%%概率将其变为小鸡"
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"伤害："
-		
-		
+
+
 		//神之愤怒
 		"DOTA_Tooltip_ability_viper_universal_hero"						"全才"
 		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"变为全才英雄"
