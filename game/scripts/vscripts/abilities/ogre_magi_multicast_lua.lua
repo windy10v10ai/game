@@ -54,10 +54,13 @@ no_support_abilitys = {
 	death_prophet_carrion_swarm = 1,
 	obsidian_destroyer_arcane_orb = 1,
 	ancient_apparition_frost_seal = 1, -- 冰霜封印
+	terrorblade_reflection = 1,     -- 倒影
+	terrorblade_metamorphosis = 1,  -- 魔化
 	vengefulspirit_nether_swap = 1, -- 移形换位
 	terrorblade_sunder = 1,         -- 魂断
 }
 no_support_items = {
+	-- 消耗品
 	item_clarity = 1,
 	item_blood_grenade = 1, -- 血腥榴弹
 	item_flask = 1,
@@ -66,8 +69,16 @@ no_support_items = {
 	item_refresher_shard = 1,
 	item_smoke_of_deceit = 1,
 	item_cheese = 1,
+	item_moon_shard_datadriven = 1,
+	item_ultimate_scepter_2 = 1,
+	item_consumable_gem = 1,
+	item_wings_of_haste = 1,
+	-- 跳刀 影刀
 	item_jump_jump_jump = 1,
 	item_fallen_sky = 1,
+	item_invis_sword = 1,
+	item_silver_edge = 1,
+	item_silver_edge_2 = 1,
 }
 no_support_substrings = {
 	"mango",
@@ -76,6 +87,8 @@ no_support_substrings = {
 	"tome",
 	"blink",
 	"black_king_bar",
+	"item_manta",
+
 	"phoenix",
 }
 
