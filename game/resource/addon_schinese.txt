@@ -460,7 +460,39 @@
 		// 					Abilities 英雄技能
 		//
 		///////////////////////////////////////////////////
-
+		
+		//神龙之血
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"						"神龙之血"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"			"神龙的生命之血提升了龙骑士的生命恢复和护甲。每升一级，两个数值都将提升%level_mult%，在古龙形态下还有倍数加成。"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"		"生命恢复："
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"				"护甲："
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_regen_and_armor_multiplier_during_dragon_form"			"古龙形态倍数："
+		//才思敏捷
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"					"才思敏捷"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"黑暗贤者还能从智力中获得攻击速度。"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_int_to_atkspd"	"每点智力获得攻速："
+		//炽烈火雨
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"炽烈火雨"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"持续施法 - 克林克兹持续朝目标方向射出多支灼热的箭矢，击中所有敌人，造成克林克兹攻击伤害的一定百分比并施加攻击特效，同时敌人会受到焦油炸弹的减速效果。"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Lore"										"其他人很难分辨骷髅弓箭手身边缭绕的劲风到底是来自他心中的火焰还是他出箭的速度。"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Note0"										"攻击距离加成会提升炽烈火雨的长度。"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_abilitychanneltime"						"持续施法时间："
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"								"发射箭矢数量："
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"										"距离："
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%每支箭矢伤害："
+		//冰爆
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"冰爆"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"增加%attack_speed%攻速，攻击有35%概率召唤一个冰爆打击随机区域，造成伤害和1秒减速"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"伤害："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"ad加成："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"随机范围："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"冰爆伤害范围："
+		//诅咒之雨
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"诅咒之雨"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"对一片区域造成持续伤害，并有12%%概率将其变为小鸡"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"伤害："
+		
+		
 		//神之愤怒
 		"DOTA_Tooltip_ability_viper_universal_hero"						"全才"
 		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"变为全才英雄"

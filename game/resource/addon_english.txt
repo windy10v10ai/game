@@ -459,7 +459,40 @@
 		// 					Abilities 英雄技能
 		//
 		///////////////////////////////////////////////////
-//神之愤怒
+		
+		//神龙之血
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"								"Dragon Blood"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"					"The life blood of the Dragon improves Dragon Knight's health regeneration and armor. Amount for both values is increased by %level_mult% per level and is multiplied when in Dragon Form."
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"				"HEALTH REGEN:"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"					"ARMOR:"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_regen_and_armor_multiplier_during_dragon_form"			"DRAGON FORM MULTIPLIER:"
+		//才思敏捷
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"					"Quick Wit"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"Dark Seer also gains Attack Speed from Intelligence."
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_int_to_atkspd"	"gains Attack Speed from each point of Intelligence："
+		//炽烈火雨
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"Burning Barrage"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"CHANNELED - Clinkz channels and shoots multiple piercing arrows in the target direction that hit all enemy units dealing a percentage of Clinkz' attack damage and applying attack modifiers, and dousing enemies with Tar Bomb slow."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Lore"										"It's hard to say whether the blur around the Bone Fletcher is from his flaming heart or his speed with the quiver."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Note0"									"Bonus Attack Range increases the length of Burning Barrage."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_abilitychanneltime"						"CHANNEL TIME:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"								"ARROWS FIRED:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"									"RANGE:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%DAMAGE PER ARROW:"
+		//诅咒之雨
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"rain_of_vermin"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Causes continuous damage to an area, with a 12% chance of turning them into chickens"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"damage："
+		//冰爆
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"ice_explosion"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Increases attack speed by %attack_speed% and has a 35% chance to summon an ice blast to strike a random area, causing damage and slowing down the unit by 1 second."
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"damage："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"ad rate："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"random_radius："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"explosion_radius："
+		
+		
+		//全才
 		"DOTA_Tooltip_ability_viper_universal_hero"						"Universal Hero"
 		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"become universal hero"
 		//神之愤怒

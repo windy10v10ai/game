@@ -1,16 +1,127 @@
 "DOTAAbilities"
 {
+	
+	//炽烈火雨
+	"clinkz_burning_barrage2"
+	{
+		"BaseClass"                     "clinkz_burning_barrage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"IsGrantedByShard"				"0"
+		"MaxLevel"						"5"
+		
+		"AbilityCooldown"				"17"
+		"AbilityCastPoint"				"0.2"
+		"AbilityChannelTime"			"2.0"
+		"AbilityManaCost"				"80"
+		
+		"AbilityValues"
+		{
+			"range"					"800 900 1000 1100 1200"				
+			"damage_pct"			"75 90 105 120 135"
+			
+			"wave_count"			"6"				
+			"projectile_width"		
+			{
+				"value"		"200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"archers_use_barrage"		"0"
+		}
+	}
+	//冰女 冰暴
+	"crystal_maiden_ice_explosion"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/crystal_maiden_ice_explosion"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"    		"crystal_maiden_freezing_field_alt1"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"                      "5"
+		
+		
+		"AbilityValues"
+		{
+			"attack_speed"	"30 60 90 120 150"
+			"damage"		"40 80 120 160 200"
+			"ad"			"1"
+			
+			"random_radius"		"400"
+			"explosion_radius"	"200"
+		}
+	}
+	//才思敏捷
+	"dark_seer_quick_wit2"
+	{
+		"BaseClass"                     "dark_seer_quick_wit"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"5"
+		"AbilityTextureName"    		"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
+		
+		"AbilityValues"
+		{
+			"int_to_atkspd"				"0.5 0.8 1.1 1.4 1.7"
+		}
+	}
+	//诅咒之雨
+	"dazzle_rain_of_vermin"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"IsGrantedByScepter"			"0"
+		"AbilityTextureName"    		"rain_of_vermin"
+		"MaxLevel"						"5"
+		
+		"AbilityCastRange"				"800"
+		"AbilityCooldown"				"30"
+		
+		"AbilityValues"
+		{
+			"interval"	"1"
+			"damage" 	"30 50 70 90 110"
+		}
+	}
+	//龙骑 先天 龙血
+	"dragon_knight_inherited_vigor2"
+	{
+		"BaseClass"                     "dragon_knight_inherited_vigor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"5"
+		"Innate"						"0"
+		"AbilityTextureName"    		"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
+
+		"AbilityValues"
+		{
+			"base_health_regen"
+			{
+				"value"							"10 20 30 40 50"
+				"special_bonus_unique_dragon_knight" "+12"
+				"dynamic_value"					"true"
+			}
+			"base_armor"
+			{
+				"value"							"3 6 9 12 15"
+				"special_bonus_unique_dragon_knight" "+12"
+				"dynamic_value"					"true"
+			}
+			"level_mult"					"1"
+			"regen_and_armor_multiplier_during_dragon_form"
+			{
+				"value"							"1.5"
+			}
+		}
+	}
+	
+	
 	//蝙蝠骑士 树脂
 	"batrider_smoldering_resin2"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"                     "batrider_smoldering_resin"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
-		"MaxLevel"						"4"
 		"Innate"						"0"
 		"AbilityTextureName"    		"clinkz_tar_bomb"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
@@ -33,12 +144,11 @@
 	//施恩 神之愤怒
 	"sven_wrath_of_god2"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"                     "sven_wrath_of_god"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"4"
 		"DependentOnAbility"			""
 		"AbilityTextureName"			"sven_storm_bolt_secondary"
+		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
@@ -49,12 +159,11 @@
 	//拍拍 天生技能 +攻击
 	"ursa_maul2"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"						"ursa_maul"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"4"
 		"Innate"						"0"
 		"AbilityTextureName"			"life_stealer/bloody_ripper_abilityicons/life_stealer_consume"
+		"MaxLevel"						"5"
 
 
 		"AbilityValues"
@@ -68,13 +177,12 @@
 	//双头龙 天生一对
 	"jakiro_double_trouble2"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"						"jakiro_double_trouble"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"1"
 		"Innate"						"0"
 		"AbilityTextureName"			"jakiro_dual_breath"
+		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
@@ -85,13 +193,12 @@
 	//人马 皮糙肉厚
 	"centaur_rawhide2"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"                     "centaur_rawhide"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"4"
 		"Innate"						"0"
 		"AbilityTextureName"    		"pudge/scavenger_dragon_ability/pudge_flesh_heap"
-
+		"MaxLevel"						"5"
+		
 
 		"AbilityValues"
 		{
@@ -102,14 +209,12 @@
 	//斧王 一人成军
 	"axe_one_man_army2"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"                     "ability_lua"
 		"ScriptFile"				    "abilities/axe_one_man_army2"
-
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"3"
-
 		"AbilityTextureName"    		"ancient_rock_golem_weakening_aura"
+		
+		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
@@ -155,13 +260,14 @@
 	//极寒光环
 	"ancient_apparition_freezing_aura"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"                     "ability_lua"
 		"ScriptFile"				    "abilities/ancient_apparition_freezing_aura"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"    		"freezing_aura"
 		"AbilityCastRange"    			"1200"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		"MaxLevel"						"5"
 
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityCooldown"				"30"
@@ -179,13 +285,14 @@
 	//冰霜封印
 	"ancient_apparition_frost_seal"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"                     "ability_lua"
 		"ScriptFile"				    "abilities/ancient_apparition_frost_seal"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"    		"winter_wyvern/immortal/winter_wyvern_cold_embrace"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
+		"MaxLevel"						"5"
+		
 		"AbilityCastRange"				"400"
 		"AbilityManaCost"				"100 110 120 130"
 		"AbilityCooldown"				"25 24 23 22"
@@ -201,12 +308,13 @@
 	//冰霜法球
 	"ancient_apparition_frost_orb"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"                     "ability_lua"
 		"ScriptFile"				    "abilities/ancient_apparition_frost_orb"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"    		"crystal_maiden_crystal_nova_icecowl"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
@@ -222,7 +330,6 @@
 	//迷雾诅咒
 	"abaddon_death_coil2"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/abaddon_death_coil2"
 		"AbilityTextureName"			"abaddon_death_coil_alliance"
@@ -230,6 +337,8 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		
+		"MaxLevel"						"5"
 
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityCooldown"				"8 7.5 7 6.5 6"
@@ -246,12 +355,13 @@
 	//幻影冲锋
 	"abaddon_phantom_charge"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/abaddon_phantom_charge"
 		"AbilityTextureName"			"phantom_lancer_doppelwalk"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		"MaxLevel"						"5"
 
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityCooldown"				"19 18 17 16 15"
@@ -267,12 +377,13 @@
 	//被动火雨
 	"abyssal_underlord_firestorm2"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/abyssal_underlord_firestorm2"
 		"AbilityTextureName"			"medusa_gorgon_grasp"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
@@ -285,12 +396,13 @@
 	//怨念光环
 	"abyssal_underlord_malice_aura"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/abyssal_underlord_malice_aura"
 		"AbilityTextureName"    		"abyssal_underlord/ti8_immortal_weapon/abyssal_underlord_pit_of_malice_immortal"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
@@ -303,7 +415,6 @@
 	//冲锋斩
 	"abyssal_underlord_charge_slash"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/abyssal_underlord_charge_slash"
 		"AbilityTextureName"			"phantom_lancer_phantom_edge"
@@ -311,6 +422,8 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		
+		"MaxLevel"						"5"
 
 		"AbilityCastRange"				"1600"
 		"AbilityManaCost"				"80 90 100 110 120"
@@ -326,7 +439,6 @@
 	//狂暴药剂
 	"alchemist_berserk_potion2"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"						"alchemist_berserk_potion"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -335,6 +447,8 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"IsGrantedByShard"  			"0"
 		"IsOnCastBar"					"1"
+		
+		"MaxLevel"						"5"
 
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.2"
@@ -359,11 +473,12 @@
 	//炼金 强化武器
 	"alchemist_enhanced_weaponry"
 	{
-		"MaxLevel"						"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/alchemist_enhanced_weaponry"
 		"AbilityTextureName"			"alchemist_enhanced_weaponry"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		
+		"MaxLevel"						"5"
 
 		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"50 60 70 80 90"
