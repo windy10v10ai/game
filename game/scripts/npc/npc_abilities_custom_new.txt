@@ -1,27 +1,27 @@
 "DOTAAbilities"
 {
-	
+
 	//炽烈火雨
 	"clinkz_burning_barrage2"
 	{
 		"BaseClass"                     "clinkz_burning_barrage"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"IsGrantedByShard"				"0"
 		"MaxLevel"						"5"
-		
+
 		"AbilityCooldown"				"17"
 		"AbilityCastPoint"				"0.2"
 		"AbilityChannelTime"			"2.0"
 		"AbilityManaCost"				"80"
-		
+
 		"AbilityValues"
 		{
-			"range"					"800 900 1000 1100 1200"				
+			"range"					"800 900 1000 1100 1200"
 			"damage_pct"			"75 90 105 120 135"
-			
-			"wave_count"			"6"				
-			"projectile_width"		
+
+			"wave_count"			"6"
+			"projectile_width"
 			{
 				"value"		"200"
 				"affected_by_aoe_increase"	"1"
@@ -38,14 +38,14 @@
 		"AbilityTextureName"    		"crystal_maiden_freezing_field_alt1"
 		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"                      "5"
-		
-		
+
+
 		"AbilityValues"
 		{
 			"attack_speed"	"30 60 90 120 150"
 			"damage"		"40 80 120 160 200"
 			"ad"			"1"
-			
+
 			"random_radius"		"400"
 			"explosion_radius"	"200"
 		}
@@ -57,7 +57,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"5"
 		"AbilityTextureName"    		"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
-		
+
 		"AbilityValues"
 		{
 			"int_to_atkspd"				"0.5 0.8 1.1 1.4 1.7"
@@ -70,10 +70,10 @@
 		"IsGrantedByScepter"			"0"
 		"AbilityTextureName"    		"rain_of_vermin"
 		"MaxLevel"						"5"
-		
+
 		"AbilityCastRange"				"800"
 		"AbilityCooldown"				"30"
-		
+
 		"AbilityValues"
 		{
 			"interval"	"1"
@@ -110,8 +110,8 @@
 			}
 		}
 	}
-	
-	
+
+
 	//蝙蝠骑士 树脂
 	"batrider_smoldering_resin2"
 	{
@@ -198,7 +198,7 @@
 		"Innate"						"0"
 		"AbilityTextureName"    		"pudge/scavenger_dragon_ability/pudge_flesh_heap"
 		"MaxLevel"						"5"
-		
+
 
 		"AbilityValues"
 		{
@@ -213,7 +213,7 @@
 		"ScriptFile"				    "abilities/axe_one_man_army2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"    		"ancient_rock_golem_weakening_aura"
-		
+
 		"MaxLevel"						"5"
 
 		"AbilityValues"
@@ -266,7 +266,7 @@
 		"AbilityTextureName"    		"freezing_aura"
 		"AbilityCastRange"    			"1200"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		
+
 		"MaxLevel"						"5"
 
 		"AbilityManaCost"				"100 110 120 130 140"
@@ -292,11 +292,18 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"MaxLevel"						"5"
-		
+
 		"AbilityCastRange"				"400"
 		"AbilityManaCost"				"100 110 120 130"
 		"AbilityCooldown"				"25 24 23 22"
 
+		"precache"
+		{
+			"particle"					"particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+			"particle"					"particles/units/heroes/hero_lich/lich_ice_spire_debuff.vpcf"
+			"particle"					"particles/units/heroes/hero_lich/lich_ice_spire_victimb_2.vpcf"
+			"particle"					"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+		}
 		"AbilityValues"
 		{
 			"hp_regen"				"20 30 40 50 60"
@@ -313,7 +320,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"    		"crystal_maiden_crystal_nova_icecowl"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		
+
 		"MaxLevel"						"5"
 
 		"AbilityValues"
@@ -337,7 +344,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		
+
 		"MaxLevel"						"5"
 
 		"AbilityManaCost"				"70 80 90 100 110"
@@ -360,7 +367,7 @@
 		"AbilityTextureName"			"phantom_lancer_doppelwalk"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		
+
 		"MaxLevel"						"5"
 
 		"AbilityManaCost"				"80 90 100 110 120"
@@ -382,7 +389,7 @@
 		"AbilityTextureName"			"medusa_gorgon_grasp"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		
+
 		"MaxLevel"						"5"
 
 		"AbilityValues"
@@ -401,7 +408,7 @@
 		"AbilityTextureName"    		"abyssal_underlord/ti8_immortal_weapon/abyssal_underlord_pit_of_malice_immortal"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		
+
 		"MaxLevel"						"5"
 
 		"AbilityValues"
@@ -422,7 +429,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		
+
 		"MaxLevel"						"5"
 
 		"AbilityCastRange"				"1600"
@@ -447,7 +454,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"IsGrantedByShard"  			"0"
 		"IsOnCastBar"					"1"
-		
+
 		"MaxLevel"						"5"
 
 		"AbilityCastRange"				"800"
@@ -477,7 +484,7 @@
 		"ScriptFile"					"abilities/alchemist_enhanced_weaponry"
 		"AbilityTextureName"			"alchemist_enhanced_weaponry"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		
+
 		"MaxLevel"						"5"
 
 		"AbilityCooldown"				"30"
@@ -490,6 +497,42 @@
 			// 降低移速
 			"move_speed_slow"	"20 30 40 50"
 			"slow_duration"		"0.5"
+		}
+	}
+
+	// 多重施法
+	"ogre_magi_multicast_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ogre_magi_multicast_lua"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastAnimation"			"ACT_INVALID"
+		"IsBreakable"					"1"
+
+		"AbilityTextureName"			"ogre_magi_multicast"
+		"precache"
+		{
+			"particle"					"particles/econ/items/ogre_magi/ogre_magi_jackpot/ogre_magi_jackpot_multicast.vpcf"
+		}
+		"AbilityValues"
+		{
+			"multicast_delay"	"0.6"
+			"multicast_2_times"
+			{
+				"value"		"75"
+			}
+
+			"multicast_3_times"
+			{
+				"value"		"0 30 30"
+			}
+
+			"multicast_4_times"
+			{
+				"value"		"0 0 15"
+			}
 		}
 	}
 }

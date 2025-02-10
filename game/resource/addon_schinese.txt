@@ -607,6 +607,12 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"				    "生命恢复："
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"持续时间："
 
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"									"多重施法"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"						"使食人魔魔法师在单次施法中有概率多次施放同一技能和物品。"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"								"尽管很大程度上受到智商的制约，但食人魔魔法师仍能依靠纯熟的技巧在战斗中取胜。"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"		"%2X施放概率："
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X施放概率："
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X施放概率："
 
 		"DOTA_Tooltip_ability_bot_power_n5"						"机械救赎 N5"
 		"DOTA_Tooltip_ability_bot_power_n5_Description"			"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
