@@ -2275,7 +2275,7 @@
 			"bonus_strength"		"60"
 			"bonus_damage"			"100"
 			"duration"				"12 11 10 9"
-			"max_level"				"5"
+			"max_level"				"4"
 			"model_scale"			"50"     // Percentage over model scale
 			"magic_resist"			"100"
 		}
@@ -5645,7 +5645,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 神器永恒虚灵刀 fixme初版
+	// 神器永恒虚灵刀
 	//=================================================================================================================
 	"item_recipe_ethereal_blade_ultra"
 	{
@@ -5686,7 +5686,7 @@
 				"bonus_mana_regen"		"6"		//3
 				"blast_movement_slow"	"-90"	//-80
 				"duration"				"10"	//4
-				"blast_agility_multiplier"	"3.0"//1.5
+				"blast_agility_multiplier"	"2.0"//1.5
 				"blast_damage_base"			"500"//50
 				"duration_ally"				"4"	//4.0
 				"ethereal_damage_bonus"	"-80"	//-40
