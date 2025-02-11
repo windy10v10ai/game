@@ -695,11 +695,11 @@
 	}
 	"item_enchanted_quiver" //魔力箭袋
 	{
-		"AbilityCooldown"				"1.0"		//4
+		"AbilityCooldown"				"2.0"		//4
 		"AbilityValues"
 		{
 			"bonus_attack_range"	"100"			//75
-			"bonus_damage"	"400"					//250
+			"bonus_damage"			"350"			//250
 			"active_bonus_attack_range"		"350"	//350
 		}
 	}
