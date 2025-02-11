@@ -48,6 +48,7 @@ no_support_abilitys = {
 	invoker_invoke = 1,
 	invoker_alacrity = 1,
 	invoker_alacrity_ad = 1,
+	invoker_forge_spirit = 1,
 	axe_culling_blade = 1,
 	ogre_magi_ignite = 1,
 	viper_viper_strike = 1,
@@ -58,6 +59,7 @@ no_support_abilitys = {
 	terrorblade_metamorphosis = 1,  -- 魔化
 	vengefulspirit_nether_swap = 1, -- 移形换位
 	terrorblade_sunder = 1,         -- 魂断
+	pudge_rot = 1,                  -- 魂断
 }
 no_support_items = {
 	-- 消耗品
