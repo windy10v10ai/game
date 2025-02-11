@@ -894,7 +894,7 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"			"666"
+			"bonus_damage"			"600"
 			"bonus_spell_amp"		"50"
 			"bonus_damage_percent"	"100"
 		}
