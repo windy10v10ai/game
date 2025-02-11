@@ -59,7 +59,8 @@ no_support_abilitys = {
 	terrorblade_metamorphosis = 1,  -- 魔化
 	vengefulspirit_nether_swap = 1, -- 移形换位
 	terrorblade_sunder = 1,         -- 魂断
-	pudge_rot = 1,                  -- 魂断
+	pudge_rot = 1,
+	ursa_overpower = 1,             -- 超强力量
 }
 no_support_items = {
 	-- 消耗品
@@ -75,6 +76,7 @@ no_support_items = {
 	item_ultimate_scepter_2 = 1,
 	item_consumable_gem = 1,
 	item_wings_of_haste = 1,
+	item_candy_candy = 1,
 	-- 跳刀 影刀
 	item_jump_jump_jump = 1,
 	item_fallen_sky = 1,
