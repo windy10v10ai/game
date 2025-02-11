@@ -55,12 +55,15 @@ no_support_abilitys = {
 	death_prophet_carrion_swarm = 1,
 	obsidian_destroyer_arcane_orb = 1,
 	ancient_apparition_frost_seal = 1, -- 冰霜封印
-	terrorblade_reflection = 1,     -- 倒影
-	terrorblade_metamorphosis = 1,  -- 魔化
-	vengefulspirit_nether_swap = 1, -- 移形换位
-	terrorblade_sunder = 1,         -- 魂断
-	pudge_rot = 1,
-	ursa_overpower = 1,             -- 超强力量
+	terrorblade_reflection = 1,       -- 倒影
+	terrorblade_metamorphosis = 1,    -- 魔化
+	vengefulspirit_nether_swap = 1,   -- 移形换位
+	terrorblade_sunder = 1,           -- 魂断
+	pudge_rot = 1,                    -- 腐肉
+	winter_wyvern_arctic_burn = 1,    -- 严寒灼烧
+	kez_switch_weapons = 1,           -- 流派变换 凯
+	faceless_void_time_walk = 1,      -- 时间漫游
+	faceless_void_time_walk_reverse = 1, -- 反时间漫游
 }
 no_support_items = {
 	-- 消耗品
