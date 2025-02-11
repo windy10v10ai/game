@@ -86,6 +86,7 @@ no_support_items = {
 }
 no_support_substrings = {
 	"mango",
+	"faerie_fire",
 	"item_ward",
 	"item_tango",
 	"tome",
