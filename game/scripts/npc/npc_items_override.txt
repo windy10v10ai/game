@@ -602,6 +602,18 @@
 			"health_gain_duration"	"10"	//15
 		}
 	}
+	// 高级仙林之火
+	"item_greater_faerie_fire"
+	{
+		"ItemInitialCharges"			"5"		// 3
+		"AbilityCooldown"				"5.0"	// 10
+		"IsTempestDoubleClonable"		"0"
+		"AbilityValues"
+		{
+				"bonus_damage"			"40"	// 20
+				"hp_restore"			"500"	// 250
+		}
+	}
 	//level 3
 	"item_third_eye"  //第三只眼
 	{
