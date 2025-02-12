@@ -126,6 +126,15 @@
 				"buff_duration"			"30.0"			// 16.0
 		}
 	}
+	// 大药
+	"item_flask"
+	{
+		"AbilityValues"
+		{
+				"buff_duration"			"15"		// 13
+				"health_regen"			"50"		// 30
+		}
+	}
 	// 净化药水
 	"item_clarity"
 	{
@@ -151,7 +160,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"hp_regen"		"1.5"	// 0.4
+				"hp_regen"				"1.5"	// 0.4
 				"replenish_amount"		"250"	// 100
 		}
 	}
@@ -161,7 +170,7 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"10"			// 2
-				"hp_restore"			"425"			// 85
+				"hp_restore"			"350"			// 85
 		}
 	}
 	"item_blood_grenade" //血腥榴弹
@@ -602,6 +611,18 @@
 			"health_gain_duration"	"10"	//15
 		}
 	}
+	// 高级仙林之火
+	"item_greater_faerie_fire"
+	{
+		"ItemInitialCharges"			"5"		// 3
+		"AbilityCooldown"				"5.0"	// 10
+		"IsTempestDoubleClonable"		"0"
+		"AbilityValues"
+		{
+				"bonus_damage"			"40"	// 20
+				"hp_restore"			"600"	// 250
+		}
+	}
 	//level 3
 	"item_third_eye"  //第三只眼
 	{
@@ -674,11 +695,11 @@
 	}
 	"item_enchanted_quiver" //魔力箭袋
 	{
-		"AbilityCooldown"				"1.0"		//4
+		"AbilityCooldown"				"2.0"		//4
 		"AbilityValues"
 		{
 			"bonus_attack_range"	"100"			//75
-			"bonus_damage"	"400"					//250
+			"bonus_damage"			"350"			//250
 			"active_bonus_attack_range"		"350"	//350
 		}
 	}

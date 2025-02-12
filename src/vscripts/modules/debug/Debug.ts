@@ -46,6 +46,15 @@ export class Debug {
       const abilityName = args[0];
       hero.AddAbility(abilityName);
     }
+    if (cmd === CMD.ADD_ABILITY_ALL) {
+      PlayerHelper.ForEachPlayer((playerId) => {
+        if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) return;
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        const abilityName = args[0];
+        hero.AddAbility(abilityName);
+      });
+    }
 
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);

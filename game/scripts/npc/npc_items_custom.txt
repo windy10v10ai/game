@@ -44,6 +44,7 @@
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
 
 		"AbilityCastRange"			"0" // anywhere on the map
+		"IsTempestDoubleClonable"	"0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -147,6 +148,7 @@
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
 
 		"AbilityCastRange"			"0" // anywhere on the map
+		"IsTempestDoubleClonable"	"0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -253,6 +255,7 @@
 		"ScriptFile"				"items/item_consumable_gem"
 
 		"AbilityCastRange"			"0" // anywhere on the map
+		"IsTempestDoubleClonable"	"0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -311,6 +314,7 @@
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
 
 		"AbilityCastRange"			"0" // anywhere on the map
+		"IsTempestDoubleClonable"		"0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -894,7 +898,7 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"			"666"
+			"bonus_damage"			"600"
 			"bonus_spell_amp"		"50"
 			"bonus_damage_percent"	"100"
 		}
@@ -2275,7 +2279,7 @@
 			"bonus_strength"		"60"
 			"bonus_damage"			"100"
 			"duration"				"12 11 10 9"
-			"max_level"				"5"
+			"max_level"				"4"
 			"model_scale"			"50"     // Percentage over model scale
 			"magic_resist"			"100"
 		}
@@ -4647,6 +4651,7 @@
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"120.0"
+		"IsTempestDoubleClonable"		"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4943,6 +4948,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
 
 		"AbilityValues"
 		{
@@ -5645,7 +5651,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 神器永恒虚灵刀 fixme初版
+	// 神器永恒虚灵刀
 	//=================================================================================================================
 	"item_recipe_ethereal_blade_ultra"
 	{
@@ -5686,7 +5692,7 @@
 				"bonus_mana_regen"		"6"		//3
 				"blast_movement_slow"	"-90"	//-80
 				"duration"				"10"	//4
-				"blast_agility_multiplier"	"3.0"//1.5
+				"blast_agility_multiplier"	"2.0"//1.5
 				"blast_damage_base"			"500"//50
 				"duration_ally"				"4"	//4.0
 				"ethereal_damage_bonus"	"-80"	//-40
