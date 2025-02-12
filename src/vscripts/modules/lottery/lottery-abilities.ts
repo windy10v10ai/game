@@ -112,6 +112,12 @@ export const abilityTiers: Tier[] = [
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'ursa_maul2', // 拍拍 天生技能 +攻击
       'jakiro_double_trouble2', // 双头龙 天生一对
+      'ogre_magi_multicast_lua', // 多重施法
+      'clinkz_burning_barrage2', // 炽烈火雨
+      'crystal_maiden_ice_explosion', // 冰女 冰暴
+      'dark_seer_quick_wit2', // 才思敏捷
+      'dazzle_rain_of_vermin', // 诅咒之雨
+      'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
     ],
   },
   {
@@ -220,10 +226,8 @@ export const abilityTiers: Tier[] = [
       'medusa_mystic_snake', // 秘术异蛇
       'drow_ranger_multishot', // 数箭齐发
       'ember_spirit_searing_chains', // 炎阳索
-      'ancient_apparition_cold_feet', // 寒霜之足
       'ancient_apparition_ice_vortex', // 冰霜漩涡
       'axe_berserkers_call', // 狂战士之吼
-      'axe_battle_hunger', // 战斗饥渴
       'bloodseeker_blood_bath', // 血祭
       'shadow_shaman_voodoo', // 妖术
 

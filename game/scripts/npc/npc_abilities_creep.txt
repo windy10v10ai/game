@@ -15,8 +15,8 @@
 			"increase_aspd"			"8"		// 5
 			"increase_health"		"90"	// 30
 			"increase_armor"		"1"		// 0.5
-			"increase_gold"			"3"		// 1
-			"increase_xp"			"12"	// 5
+			"increase_gold"			"2"		// 1
+			"increase_xp"			"10"	// 5
 		}
 	}
 

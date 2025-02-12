@@ -313,7 +313,7 @@
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
 		"DOTA_Tooltip_modifier_player_xianyu"					"<font color='#FFCC66'>★ 咸鱼之王 ★</font>"
-		"DOTA_Tooltip_modifier_player_xianyu_Description"		"<font color='#FFCC66'> 恭喜你遇到了真正的咸鱼之王。<br/>感谢您对游戏的支持与喜爱。<br/>玩家交流QQ群：836436993。</font>"
+		"DOTA_Tooltip_modifier_player_xianyu_Description"		"<font color='#FFCC66'> 恭喜你遇到了真正的咸鱼之王。<br/>感谢您对游戏的支持与喜爱。<br/>玩家交流QQ群:836436993。</font>"
 		"DOTA_Tooltip_modifier_player_mimihua"					"<font color='#FFCC66'>★ 一次性消耗品 ★</font>"
 		"DOTA_Tooltip_modifier_player_mimihua_Description"		"<font color='#FFCC66'> 别想了，你得不到的。</font>"
 		"DOTA_Tooltip_modifier_player_bulangya"					"<font color='#5534A5'>★ 迷城骇兔 ★</font>"
@@ -373,7 +373,7 @@
 		"DOTA_Tooltip_modifier_player_xiayibing"				"<font color='#0096FF'>★ 冰神 ★</font>"
 		"DOTA_Tooltip_modifier_player_xiayibing_Description"	"<font color='#0096FF'> 2009级卡尔亡 </font>"
 		"DOTA_Tooltip_modifier_player_abyss"					"<font color='#55D8C1'>★ 万物塑造之主 ★</font>"
-		"DOTA_Tooltip_modifier_player_abyss_Description"		"<font color='#55D8C1'>掌控元素塑造形体的万物之主。<br>当前已塑造形体：<br>SABER、沉渊之剑、超级赛亚人、开膛手杰克</font>"
+		"DOTA_Tooltip_modifier_player_abyss_Description"		"<font color='#55D8C1'>掌控元素塑造形体的万物之主。<br>当前已塑造形体:<br>SABER、沉渊之剑、超级赛亚人、开膛手杰克</font>"
 		"DOTA_Tooltip_modifier_player_luoshu"					"<font color='#FFCC66'>★ 洛书 ★</font>"
 		"DOTA_Tooltip_modifier_player_luoshu_Description"		"<font color='#FFCC66'> 然而和我洛书有什么关系呢？ </font>"
 		"DOTA_Tooltip_modifier_player_luoshu_2"					"<font color='#FFCC66'>★ 天神下凡 ★</font>"
@@ -459,7 +459,39 @@
 		// 					Abilities 英雄技能
 		//
 		///////////////////////////////////////////////////
-//神之愤怒
+
+		//神龙之血
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"								"Dragon Blood"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"					"The life blood of the Dragon improves Dragon Knight's health regeneration and armor. Amount for both values is increased by %level_mult% per level and is multiplied when in Dragon Form."
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"				"Health Regen:"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"					"Armor:"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_regen_and_armor_multiplier_during_dragon_form"			"Dragon Form Multiplier:"
+		//才思敏捷
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"					"Quick Wit"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"Dark Seer also gains Attack Speed from Intelligence."
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_int_to_atkspd"	"Gains Attack Speed from each point of Intelligence:"
+		//炽烈火雨
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"Burning Barrage"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"CHANNELED - Clinkz channels and shoots multiple piercing arrows in the target direction that hit all enemy units dealing a percentage of Clinkz' attack damage and applying attack modifiers, and dousing enemies with Tar Bomb slow."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Lore"										"It's hard to say whether the blur around the Bone Fletcher is from his flaming heart or his speed with the quiver."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Note0"									"Bonus Attack Range increases the length of Burning Barrage."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_abilitychanneltime"						"Channel Time:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"								"Arrows Fired:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"									"Range:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%Damage per Arrow:"
+		//诅咒之雨
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"Rain of Vermin"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Causes continuous damage to an area, with a 12% chance of turning them into chickens"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"Damage:"
+		//冰爆
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"Ice Explosion"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Increases attack speed by %attack_speed% and has a 35% chance to summon an ice blast to strike a random area, causing damage and slowing down the unit by 1 second."
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"Damage:"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"Attack Damage Addition Rate:"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"Random Radius:"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"Explosion Radius:"
+
+		//全才
 		"DOTA_Tooltip_ability_viper_universal_hero"						"Universal Hero"
 		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"become universal hero"
 		//神之愤怒
@@ -572,6 +604,13 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_move_speed"					"Move Speed:"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"					"HP Regen:"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"Duration:"
+
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"									"Multicast"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"						"Enables Ogre Magi to cast his abilities and items multiple times with each use."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"								"Despite being largely incapacitated by his IQ, the Ogre Magi's success in battle is attributed to pure skill."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"		"%2X CAST CHANCE:"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X CAST CHANCE:"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X CAST CHANCE:"
 
 		"DOTA_Tooltip_ability_bot_power_n5"						"Bot Salvation N5"
 		"DOTA_Tooltip_ability_bot_power_n5_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
