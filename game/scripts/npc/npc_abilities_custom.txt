@@ -481,7 +481,7 @@
 			}
 			"max_stacks"
 			{
-				"value"		"10"
+				"value"		"5"
 				"special_bonus_shard"	"+0"
 			}
 		}
