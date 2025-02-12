@@ -25,6 +25,7 @@ export enum CMD {
   DAMAGE_PURE = '-damagePure',
   /** 添加技能 */
   ADD_ABILITY = '-ab',
+  ADD_ABILITY_ALL = '-aball',
 
   // ---- modifier相关 ----
   /**
