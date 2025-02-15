@@ -505,10 +505,10 @@
 
 	// 幽鬼
 	"npc_dota_hero_spectre"
-    {
-		"Ability3"		"axe_counter_helix"
+	{
+		"Ability3"		"spectre_dispersion2"
 		"Bot"
-        {
+		{
 			"Build"
 			{
 				"1"		"spectre_spectral_dagger"
@@ -2128,44 +2128,46 @@
 	}
 	"npc_dota_hero_skeleton_king"
 	{
-		// skeleton_king_reincarnation 只有3级
+		"Ability2"		"skeleton_king_spectral_blade"
+		"Facets"  ""
 		"Bot"
 		{
 			"Build"
 			{
 				"1"		"skeleton_king_hellfire_blast"
-				"2"		""//TODO 命石技能
+				"2"		"skeleton_king_spectral_blade"
 				"3"		"skeleton_king_hellfire_blast"
 				"4"		"skeleton_king_mortal_strike"
 				"5"		"skeleton_king_hellfire_blast"
 				"6"		"skeleton_king_reincarnation"
 				"7"		"skeleton_king_hellfire_blast"
-				"8"		"skeleton_king_mortal_strike"
-				"9"		"skeleton_king_mortal_strike"
-				"10"		"special_bonus_unique_wraith_king_2"
+				"8"		"skeleton_king_spectral_blade"
+				"9"		"skeleton_king_hellfire_blast"
+				"10"		"special_bonus_unique_wraith_king_3"
 				"11"		"skeleton_king_mortal_strike"
 				"12"		"skeleton_king_reincarnation"
 				"13"		"skeleton_king_mortal_strike"
-				"14"		"skeleton_king_hellfire_blast"
+				"14"		"skeleton_king_mortal_strike"
 				"15"		"special_bonus_unique_wraith_king_11"
 				"16"		""
 				"17"		""
 				"18"		"skeleton_king_reincarnation"
 				"19"		""
-				"20"		"special_bonus_cleave_35"
+				"20"		"special_bonus_attack_speed_60"
 				"21"		""
 				"22"		""
 				"23"		""
 				"24"		""
 				"25"		"special_bonus_unique_wraith_king_4"
 				"26"		"skeleton_king_reincarnation"
-				"27"		"special_bonus_attack_speed_70"
-				"28"		"special_bonus_unique_wraith_king_6"
-				"29"		"special_bonus_unique_wraith_king_5"
+				"27"		"special_bonus_unique_wraith_king_2"
+				"28"		"special_bonus_hp_400"
+				"29"		"special_bonus_cleave_40"
 				"30"		"special_bonus_unique_wraith_king_10"
-				"31"		""
-				"32"		""
-				"33"		""
+				"31"		"skeleton_king_mortal_strike"
+				"32"		"skeleton_king_spectral_blade"
+				"33"		"skeleton_king_spectral_blade"
+				"34"		"skeleton_king_spectral_blade"
 			}
 		}
 	}
