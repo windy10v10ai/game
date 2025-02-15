@@ -1,5 +1,5 @@
 export class GameConfig {
-  public static readonly GAME_VERSION = 'v4.13';
+  public static readonly GAME_VERSION = 'v4.14';
   public static readonly MEMBER_BUYBACK_CD = 120;
   constructor() {
     SendToServerConsole('dota_max_physical_items_purchase_limit 9999'); // 用来解决物品数量限制问题
@@ -12,7 +12,7 @@ export class GameConfig {
     GameRules.SetCustomGameSetupRemainingTime(3); // 游戏设置剩余时间
     // GameRules.SetCustomGameSetupTimeout(3); // 游戏设置阶段超时
     GameRules.SetHeroSelectionTime(45); // 选择英雄阶段的持续时间
-    GameRules.SetHeroSelectPenaltyTime(15); // 选择英雄超时惩罚时间
+    GameRules.SetHeroSelectPenaltyTime(10); // 选择英雄超时惩罚时间
     GameRules.SetStrategyTime(15); // 选完英雄的策略阶段的持续时间
     GameRules.SetShowcaseTime(0); // 选完英雄进游戏前的展示时间
     GameRules.SetPreGameTime(45); // 进入游戏后号角吹响前的准备时间
@@ -61,6 +61,7 @@ export class GameConfig {
       GameRules.SetHeroSelectionTime(5);
       GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(5);
+      GameRules.SetPreGameTime(15); // 进入游戏后号角吹响前的准备时间
     }
   }
 }

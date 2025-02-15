@@ -1,5 +1,123 @@
 "DOTAAbilities"
 {
+	//幽鬼 折射 旧版
+	"spectre_dispersion2"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/spectre_dispersion2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"    		"spectre_dispersion"
+		"MaxLevel"						"5"
+
+		"precache"
+		{
+			"particle"					"particles/econ/items/faceless_void/faceless_void_bracers_of_aeons/fv_bracers_of_aeons_backtrack.vpcf"
+		}
+		"AbilityValues"
+		{
+			"reflexion_chance"	"14 16 18 20 22"
+			"damage_pct"		"60 70 80 90 100"
+		}
+	}
+	//贪婪
+	"alchemist_goblins_greed2"
+	{
+		"BaseClass"                     "alchemist_goblins_greed"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"    		"alchemist_goblins_greed"
+		"Innate"						"0"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"duration"				"40"
+			"bonus_gold"			"2"
+			"bonus_bonus_gold"		"2"
+			"bounty_multiplier"		"2"
+			"bonus_gold_cap"		"16 18 20 22 24"
+			"damage"				"2"
+			"starting_gold_bonus"	"250"
+		}
+	}
+	//普通一拳
+	"dark_seer_normal_punch2"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/dark_seer_normal_punch2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+		"IsGrantedByScepter"			"0"
+		"AbilityTextureName"    		"dark_seer_normal_punch"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"3"
+
+		"AbilityCooldown"				"9"
+
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_dark_seer/dark_seer_attack_normal_punch.vpcf"
+		}
+		"AbilityValues"
+		{
+			"illusion_duration"			"6"
+			"max_stun"					"1.25"
+			"max_damage"				"100 150 200"
+			"ad" 						"1 1.5 2"
+		}
+	}
+	//兽王 战鼓
+	"beastmaster_drums_of_slom2"
+	{
+		"BaseClass"                     "beastmaster_drums_of_slom"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"IsGrantedByScepter"			"0"
+		"IsOnCastBar"                   "1"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"3"
+
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"600"
+				"affected_by_aoe_increase"	"1"
+			}
+			"max_stacks"					"20"
+			"stack_decay_time"				"1.0"
+			"min_drum_hit_interval"			"0.5"
+			"max_drum_hit_interval"			"3"
+
+			"base_damage"
+			{
+				"value"			"65 85 105"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"heal_pct"						"20"
+			"creep_heal_pct"				"5"
+			"aura_radius"
+			{
+				"value"			"1200"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+	}
+	//赏金 妙手空空 技能偷钱
+	"bounty_hunter_cutpurse2"
+	{
+		"BaseClass"                     "bounty_hunter_cutpurse"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"DependentOnAbility"			"1"
+		"MaxLevel"						"5"
+		"Innate"						"0"
+		"AbilityTextureName"    		"bounty_hunter/hunters_hoard/bounty_hunter_track"
+
+		"AbilityValues"
+		{
+			"gold_steal"					"4 8 12 16 20"
+		}
+	}
+
 
 	//炽烈火雨
 	"clinkz_burning_barrage2"
@@ -77,7 +195,7 @@
 		"MaxLevel"						"5"
 
 		"AbilityCastRange"				"800"
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"20"
 
 		"AbilityValues"
 		{
@@ -85,6 +203,7 @@
 			"damage" 	"30 50 70 90 110"
 		}
 	}
+
 	//龙骑 先天 龙血
 	"dragon_knight_inherited_vigor2"
 	{

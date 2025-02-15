@@ -48,16 +48,23 @@ no_support_abilitys = {
 	invoker_invoke = 1,
 	invoker_alacrity = 1,
 	invoker_alacrity_ad = 1,
+	invoker_forge_spirit = 1,
 	axe_culling_blade = 1,
 	ogre_magi_ignite = 1,
 	viper_viper_strike = 1,
 	death_prophet_carrion_swarm = 1,
 	obsidian_destroyer_arcane_orb = 1,
 	ancient_apparition_frost_seal = 1, -- 冰霜封印
-	terrorblade_reflection = 1,     -- 倒影
-	terrorblade_metamorphosis = 1,  -- 魔化
-	vengefulspirit_nether_swap = 1, -- 移形换位
-	terrorblade_sunder = 1,         -- 魂断
+	terrorblade_reflection = 1,       -- 倒影
+	terrorblade_metamorphosis = 1,    -- 魔化
+	vengefulspirit_nether_swap = 1,   -- 移形换位
+	terrorblade_sunder = 1,           -- 魂断
+	pudge_rot = 1,                    -- 腐肉
+	winter_wyvern_arctic_burn = 1,    -- 严寒灼烧
+	kez_switch_weapons = 1,           -- 流派变换 凯
+	faceless_void_time_walk = 1,      -- 时间漫游
+	faceless_void_time_walk_reverse = 1, -- 反时间漫游
+	rubick_spell_steal = 1,           -- 技能窃取
 }
 no_support_items = {
 	-- 消耗品
@@ -73,6 +80,7 @@ no_support_items = {
 	item_ultimate_scepter_2 = 1,
 	item_consumable_gem = 1,
 	item_wings_of_haste = 1,
+	item_candy_candy = 1,
 	-- 跳刀 影刀
 	item_jump_jump_jump = 1,
 	item_fallen_sky = 1,
@@ -82,6 +90,7 @@ no_support_items = {
 }
 no_support_substrings = {
 	"mango",
+	"faerie_fire",
 	"item_ward",
 	"item_tango",
 	"tome",
