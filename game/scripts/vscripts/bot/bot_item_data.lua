@@ -13,11 +13,10 @@ tBotItemData.purchaseItemList = {
 		'item_bracer',
 		'item_bracer',
 		'item_holy_locket',
-		'item_hand_of_group', -- 团队之手
 		'item_vanguard',
 		'item_blade_mail', -- 刃甲
 		'item_echo_sabre',
-		'item_basher',  -- 碎骨锤
+		'item_basher', -- 碎骨锤
 		'item_blink',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
@@ -374,6 +373,7 @@ tBotItemData.purchaseItemList = {
 		'item_arcane_boots',
 		'item_glimmer_cape',
 		'item_force_staff',
+		'item_hand_of_group', -- 团队之手
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_aether_lens_2',
@@ -395,7 +395,7 @@ tBotItemData.purchaseItemList = {
 		'item_wraith_band',
 		'item_power_treads',
 		'item_orb_of_corrosion',
-		'item_mask_of_madness',
+		'item_hand_of_group', -- 团队之手
 		'item_falcon_blade',
 		'item_bfury',
 		'item_wings_of_haste',
@@ -606,8 +606,8 @@ tBotItemData.purchaseItemList = {
 		'item_null_talisman',
 		'item_null_talisman',
 		'item_holy_locket',
-		'item_hand_of_group', -- 团队之手
 		'item_arcane_boots',
+		'item_hand_of_group', -- 团队之手
 		'item_glimmer_cape',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
@@ -1054,6 +1054,7 @@ tBotItemData.purchaseItemList = {
 		'item_maelstrom',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
+		'item_hand_of_group', -- 团队之手
 		'item_desolator',
 		'item_hyperstone',
 		'item_recipe_mjollnir',
@@ -1406,6 +1407,7 @@ tBotItemData.sellItemCommonList = {
 	'item_vanguard',     -- 先锋盾
 	'item_basher',       -- 碎骨锤
 	'item_armlet',       -- 臂章
+	'item_hand_of_midas', -- 点金手
 
 
 	-- 高级道具
@@ -1416,11 +1418,11 @@ tBotItemData.sellItemCommonList = {
 	'item_heart',          -- 龙心
 	'item_bfury',          -- 狂战斧
 	'item_sheepstick',     -- 羊刀
-	'item_hand_of_group',  -- 团队之手
 	'item_phylactery',     -- 灵匣
 	'item_greater_crit',   -- 大炮
 	'item_sange_and_yasha', -- 散夜对剑
 	'item_heavens_halberd', -- 天堂之戟
+	'item_hand_of_group',  -- 团队之手
 
 	'item_monkey_king_bar_2', -- 定海神针
 
