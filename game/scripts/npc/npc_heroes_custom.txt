@@ -505,10 +505,10 @@
 
 	// 幽鬼
 	"npc_dota_hero_spectre"
-    {
-		"Ability3"		"axe_counter_helix"
+	{
+		"Ability3"		"spectre_dispersion2"
 		"Bot"
-        {
+		{
 			"Build"
 			{
 				"1"		"spectre_spectral_dagger"

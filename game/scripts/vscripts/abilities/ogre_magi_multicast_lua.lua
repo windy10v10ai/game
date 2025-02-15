@@ -64,6 +64,7 @@ no_support_abilitys = {
 	kez_switch_weapons = 1,           -- 流派变换 凯
 	faceless_void_time_walk = 1,      -- 时间漫游
 	faceless_void_time_walk_reverse = 1, -- 反时间漫游
+	rubick_spell_steal = 1,           -- 技能窃取
 }
 no_support_items = {
 	-- 消耗品
