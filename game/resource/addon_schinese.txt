@@ -460,26 +460,26 @@
 		// 					Abilities 英雄技能
 		//
 		///////////////////////////////////////////////////
-		
-		
+
+
 		//折射2
-		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射2"
+		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（旧版）"
 		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"受到伤害时有%reflexion_chance%%%概率免疫并反弹伤害"
 		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%伤害反弹百分比："
-		
+
 		//贪魔的贪婪
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"贪魔的贪婪"		
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"贪魔的贪婪"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"炼金术士将敌人的尸体和赏金神符转化成额外的金币。炼金术士每杀死一个单位，就能获得基础额外金钱和附加额外金钱。如果炼金术士在接下来%duration%秒内又杀死了一个单位，获得了黄金，那么他所获得的附加额外金钱将有一定幅度的增加。另外，赏金神符将提供成倍金钱。"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_abilitydraft_note"			"化学狂暴的神杖升级效果在技能征召中已移至贪魔的贪婪。对一名友方英雄使用阿哈利姆神杖可以使他们获得相应的神杖升级效果。而自身拥有神杖后，根据送出的神杖数量将获得额外攻击力和技能增强。"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"							"尽管对付不了一座山，但拉泽尔还是掌握着技术，能转化一些较小的化合物来填满他的荷包。"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"						"连杀限时："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold"					"基础金钱奖励："
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"额外金钱奖励："		
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"额外金钱奖励："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"最高额外金钱："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"赏金神符奖励倍数："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"每层攻击力加成："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"升级金钱奖励："
-		
+
 		//普通一拳
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"普通一拳"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"被动技能。使黑暗贤者下次攻击可以打出目标的复制体,造成伤害和眩晕。"
@@ -505,8 +505,8 @@
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"妙手空空"
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"赏金猎人以敌方英雄为目标施放技能和物品时会偷取金钱。"
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"金钱偷取："
-		
-		
+
+
 		//神龙之血
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"						"神龙之血"
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"			"神龙的生命之血提升了龙骑士的生命恢复和护甲。每升一级，两个数值都将提升%level_mult%，在古龙形态下还有倍数加成。"
