@@ -487,7 +487,7 @@
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"最远击退距离："
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"				"幻象持续时间："
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"基础伤害："
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"ad加成："
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"攻击力伤害加成倍率："
 		//战鼓
 		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2"					"斯洛姆战鼓"
 		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_Lore"				"自然的愤怒是永恒的，而知晓这个秘密的人就能非常轻松地重新激发在斯洛姆衰亡之际雀跃的怒火。"

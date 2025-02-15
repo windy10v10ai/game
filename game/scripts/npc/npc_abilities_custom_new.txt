@@ -34,7 +34,7 @@
 			"bonus_gold"			"2"
 			"bonus_bonus_gold"		"2"
 			"bounty_multiplier"		"2"
-			"bonus_gold_cap"		"18 19 20 21 22"
+			"bonus_gold_cap"		"16 18 20 22 24"
 			"damage"				"2"
 			"starting_gold_bonus"	"250"
 		}
@@ -54,6 +54,10 @@
 
 		"AbilityCooldown"				"9"
 
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_dark_seer/dark_seer_attack_normal_punch.vpcf"
+		}
 		"AbilityValues"
 		{
 			"illusion_duration"			"6"

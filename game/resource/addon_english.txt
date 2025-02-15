@@ -475,7 +475,7 @@
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"EXTRA BONUS GOLD:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"MAX BONUS GOLD PER KILL:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"BOUNTY RUNE MULTIPLIER:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"damage/Stack："
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"Damage/Stack："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"Upgrade Money Reward："
 
 		//普通一拳
@@ -484,8 +484,8 @@
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"STUN DURATION:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"MAX KNOCKBACK DISTANCE:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"				"ILLUSION DURATION:"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"base damage:"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"ad rate："
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"Base Damage:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"Attack Damage Addition Rate:"
 		//战鼓
 		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2"					"Drums of Slom"
 		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_Lore"				"Nature's rage is timeless, and for those who know the secrets, it's easy to stir the echoes of ire that rejoiced in the downfall of Slom."
