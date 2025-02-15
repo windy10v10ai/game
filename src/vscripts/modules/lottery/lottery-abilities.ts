@@ -120,8 +120,8 @@ export const abilityTiers: Tier[] = [
       'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
 
       'spectre_dispersion2', // 幽鬼 折射 旧版
-      'dragon_knight_inherited_vigor2', // 贪婪
-      'dragon_knight_inherited_vigor2', // 普通一拳
+      'alchemist_goblins_greed2', // 贪婪
+      'dark_seer_normal_punch2', // 普通一拳
       'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
     ],
   },
