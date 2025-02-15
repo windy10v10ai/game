@@ -3,6 +3,7 @@ import { DrowRangerAIModifier } from './hero/hero-drow-ranger';
 import { LionAIModifier } from './hero/hero-lion';
 import { LunaAIModifier } from './hero/hero-luna';
 import { MedusaAIModifier } from './hero/hero-medusa';
+import { SkeletonAIModifier } from './hero/hero-skeleton';
 import { SniperAIModifier } from './hero/hero-sniper';
 import { ViperAIModifier } from './hero/hero-viper';
 import { FSA } from './mode/FSA';
@@ -35,6 +36,9 @@ export class AI {
     }
     if (hero.GetUnitName() === 'npc_dota_hero_drow_ranger') {
       return DrowRangerAIModifier.name;
+    }
+    if (hero.GetUnitName() === 'npc_dota_hero_skeleton_king') {
+      return SkeletonAIModifier.name;
     }
 
     return BaseHeroAIModifier.name;

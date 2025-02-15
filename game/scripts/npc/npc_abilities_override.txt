@@ -3319,11 +3319,29 @@
 			"damage"
 			{
 				"value"		"75 90 105 120 135"
+				"special_bonus_unique_wraith_king_3"	"+50%"
 			}
 			"blast_dot_damage"
 			{
 				"value"					"20 40 60 80 100"
+				"special_bonus_unique_wraith_king_3"	"+50%"
 			}
+		}
+	}
+	// 幽魂之剑
+	"skeleton_king_spectral_blade"
+	{
+		"MaxLevel" "5"
+		"AbilityValues"
+		{
+			"cursed_damage"
+			{
+				"value"									"15 30 45 60 75"
+				"DamageTypeTooltip"						"DAMAGE_TYPE_PURE"
+			}
+			"curse_cooldown"							"14 12 10 8 6"
+			"curse_cooldown_creep"						"4"					// 6
+			"curse_delay"								"2"					// 3
 		}
 	}
 	// 本命一击
@@ -3344,7 +3362,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"							"180 150 120 90"
+				"value"							"120 100 80 60"		// 180 150 120
 				"special_bonus_scepter"			"-15"
 			}
 			"shard_skeleton_count"
@@ -3353,20 +3371,6 @@
 				// 命石：绝冥再生时为每名英雄产生的骷髅兵数量
 				"special_bonus_facet_skeleton_king_facet_bone_guard"			"0"
 			}
-		}
-	}
-	// 幽魂之剑
-	"skeleton_king_spectral_blade"
-	{
-		"MaxLevel" "5"
-		"AbilityValues"
-		{
-			"cursed_damage"
-			{
-				"value"									"15 30 45 60 75"
-				"DamageTypeTooltip"						"DAMAGE_TYPE_PURE"
-			}
-			"curse_cooldown"							"20 18 16 14 12"
 		}
 	}
 	// 先天技能 吸血灵魂
