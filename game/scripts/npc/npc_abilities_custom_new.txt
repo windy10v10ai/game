@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-	//幽鬼 折射2
+	//幽鬼 折射 旧版
 	"spectre_dispersion2"
 	{
 		"BaseClass"                     "ability_lua"
@@ -102,7 +102,7 @@
 			}
 		}
 	}
-	//妙手空空
+	//赏金 妙手空空 技能偷钱
 	"bounty_hunter_cutpurse2"
 	{
 		"BaseClass"                     "bounty_hunter_cutpurse"
