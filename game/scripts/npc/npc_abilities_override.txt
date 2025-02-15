@@ -3339,7 +3339,7 @@
 				"value"									"15 30 45 60 75"
 				"DamageTypeTooltip"						"DAMAGE_TYPE_PURE"
 			}
-			"curse_cooldown"							"16 14 12 10 8"
+			"curse_cooldown"							"14 12 10 8 6"
 			"curse_cooldown_creep"						"4"					// 6
 			"curse_delay"								"2"					// 3
 		}

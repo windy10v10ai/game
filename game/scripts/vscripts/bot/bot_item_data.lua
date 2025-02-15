@@ -15,13 +15,14 @@ tBotItemData.purchaseItemList = {
 		'item_holy_locket',
 		'item_hand_of_group', -- 团队之手
 		'item_vanguard',
+		'item_blade_mail', -- 刃甲
 		'item_echo_sabre',
-		'item_basher', -- 碎骨锤
+		'item_basher',  -- 碎骨锤
 		'item_blink',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
-		'item_blade_mail_2',
 		'item_overwhelming_blink',
+		'item_blade_mail_2',
 		'item_ultimate_scepter_2',
 		'item_shivas_guard_2',
 		'item_vladmir_2',
@@ -67,12 +68,13 @@ tBotItemData.purchaseItemList = {
 		'item_power_treads',
 		'item_vanguard',
 		'item_blink',
-		'item_blade_mail_2',
+		'item_blade_mail', -- 刃甲
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_overwhelming_blink',
 		'item_black_king_bar_2',
 		'item_ultimate_scepter_2',
+		'item_blade_mail_2',
 		'item_saint_orb',
 		'item_undying_heart',
 		'item_moon_shard_datadriven',
@@ -88,9 +90,10 @@ tBotItemData.purchaseItemList = {
 		'item_vanguard',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
-		'item_blade_mail_2',
+		'item_blade_mail', -- 刃甲
 		'item_blue_fantasy', -- 苍蓝幻想
 		'item_undying_heart', -- 不朽之心
+		'item_blade_mail_2',
 		-- 'item_saint_orb', -- 圣女白莲
 		'item_ultimate_scepter_2',
 		'item_moon_shard_datadriven',
@@ -174,12 +177,13 @@ tBotItemData.purchaseItemList = {
 		'item_bracer', -- 护腕
 		'item_power_treads',
 		'item_vanguard',
+		'item_blade_mail', -- 刃甲
 		'item_falcon_blade',
 		'item_echo_sabre',
 		'item_wings_of_haste',
-		'item_blade_mail_2',
 		'item_eternal_shroud',
 		'item_aghanims_shard',
+		'item_blade_mail_2',
 		'item_heavens_halberd_v2',
 		'item_insight_armor',
 		'item_ultimate_scepter_2',
@@ -348,11 +352,12 @@ tBotItemData.purchaseItemList = {
 		'item_force_staff',
 		'item_blink',
 		'item_wings_of_haste',
-		'item_blade_mail_2',
+		'item_blade_mail', -- 刃甲
 		'item_heavens_halberd',
 		'item_overwhelming_blink',
 		'item_echo_sabre_2',
 		'item_aghanims_shard',
+		'item_blade_mail_2',
 		'item_shivas_guard_2',
 		'item_ultimate_scepter_2',
 		'item_abyssal_blade_v2',
@@ -719,13 +724,14 @@ tBotItemData.purchaseItemList = {
 		'item_bracer',
 		'item_arcane_boots',
 		'item_vanguard',
+		'item_blade_mail', -- 刃甲
 		'item_wings_of_haste',
 		'item_aghanims_shard',
-		'item_blade_mail_2',
 		'item_blink',
 		'item_eternal_shroud',
 		'item_aether_lens_2',
 		'item_overwhelming_blink',
+		'item_blade_mail_2',
 		'item_ultimate_scepter_2',
 		'item_saint_orb',
 		'item_black_king_bar_2',
@@ -815,13 +821,14 @@ tBotItemData.purchaseItemList = {
 		'item_bracer',
 		'item_holy_locket',
 		'item_arcane_boots',
+		'item_blade_mail', -- 刃甲
 		'item_aether_lens_2',
 		'item_blink',
-		'item_blade_mail_2',
 		'item_saint_orb',
 		'item_shivas_guard_2',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
+		'item_blade_mail_2',
 		'item_ultimate_scepter_2',
 		'item_octarine_core',
 		'item_recipe_arcane_octarine_core',
@@ -1274,7 +1281,6 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_sand_king = {
 		'item_overwhelming_blink',
-		'item_blade_mail_2',
 		'item_saint_orb',
 	},
 	npc_dota_hero_skywrath_mage = {
@@ -1396,6 +1402,7 @@ tBotItemData.sellItemCommonList = {
 	'item_holy_locket',  -- 圣洁吊坠
 	'item_blink',        -- 跳刀
 	'item_solar_crest',  -- 炎阳纹章
+	'item_blade_mail',   -- 刃甲
 	'item_vanguard',     -- 先锋盾
 	'item_basher',       -- 碎骨锤
 	'item_armlet',       -- 臂章
@@ -1471,7 +1478,6 @@ tBotItemData.wardHeroList = Set {
 	'npc_dota_hero_lina',
 	'npc_dota_hero_omniknight',
 	'npc_dota_hero_riki',
-	'npc_dota_hero_sand_king',
 	'npc_dota_hero_windrunner'
 }
 
