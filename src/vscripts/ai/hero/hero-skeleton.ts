@@ -8,11 +8,7 @@ import { BaseHeroAIModifier } from './hero-base';
 export class SkeletonAIModifier extends BaseHeroAIModifier {
   override UseAbilityEnemy(): boolean {
     // 冥火爆击
-    if (
-      ActionAbility.CastAbilityOnFindEnemyHero(this, 'skeleton_king_hellfire_blast', {
-        debug: true,
-      })
-    ) {
+    if (ActionAbility.CastAbilityOnFindEnemyHero(this, 'skeleton_king_hellfire_blast')) {
       return true;
     }
     return false;
