@@ -15,7 +15,11 @@
 		}
 		"AbilityValues"
 		{
-			"reflexion_chance"	"14 16 18 20 22"
+			"reflexion_chance"
+			{
+				"value"		"14 16 18 20 22"
+				"special_bonus_unique_spectre_5"		"+5"
+			}
 			"damage_pct"		"60 70 80 90 100"
 		}
 	}

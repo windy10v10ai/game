@@ -462,9 +462,11 @@
 
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"					"Dispersion (old)"
-		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"When receiving damage, there is a %reflexion_chance%%% chance to be immune and rebound the damage"
-		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%Damage Reflection Percentage："
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"When receiving damage, there is a chance to be immune and rebound the damage"
+		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%Damage Reflection Chance:"
+		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%Damage Reflection Percentage:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Damage is returned as the same damage type."
+		"DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% Dispersion Chance"
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
@@ -476,8 +478,8 @@
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"EXTRA BONUS GOLD:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"MAX BONUS GOLD PER KILL:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"BOUNTY RUNE MULTIPLIER:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"Damage/Stack："
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"Upgrade Money Reward："
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"Damage/Stack:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"Upgrade Money Reward:"
 
 		//普通一拳
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"Normal Punch"
