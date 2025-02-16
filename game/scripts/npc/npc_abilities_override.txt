@@ -4097,6 +4097,15 @@
 			"damage_reduction_per_stack"					"2 3 4 5 6"
 		}
 	}
+	// 不可逾越 先天技能
+	"tiny_insurmountable"
+	{
+		"AbilityValues"
+		{
+			"str_to_slow_resist_pct"			"12"	// 20
+			"str_to_status_resist_pct"			"8"		// 10
+		}
+	}
 	//=================================================================================================================
 	// Ability: Treant Protector 树精卫士/大树
 	//=================================================================================================================
@@ -10622,7 +10631,7 @@
 			"tower_scale"
 			{
 				"value"			"0"
-				"special_bonus_facet_pugna_rewards_of_ruin"		"12"	// 1.25
+				"special_bonus_facet_pugna_rewards_of_ruin"		"10"	// 1.25
 			}
 		}
 	}
@@ -10811,6 +10820,18 @@
 				"value"						"0"
 				"special_bonus_facet_rubick_frugal_filch"	"15 30 45 60"
 			}
+		}
+	}
+	// 力量与魔法 先天技能
+	"rubick_might_and_magus"
+	{
+		"AbilityValues"
+		{
+			"one_tooltip"					"1"
+			"bonus_damage_pct"				"50"		// 75
+			"bonus_damage_pct_tooltip"		"0.5"		// 0.75
+			"magic_resist_pct"				"50"		// 75
+			"magic_resist_pct_tooltip"		"0.5"		// 0.75
 		}
 	}
 	//=================================================================================================================

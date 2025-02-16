@@ -11,11 +11,11 @@ export class GameConfig {
     GameRules.SetCustomGameSetupAutoLaunchDelay(50); // 游戏设置时间
     GameRules.SetCustomGameSetupRemainingTime(3); // 游戏设置剩余时间
     // GameRules.SetCustomGameSetupTimeout(3); // 游戏设置阶段超时
-    GameRules.SetHeroSelectionTime(45); // 选择英雄阶段的持续时间
+    GameRules.SetHeroSelectionTime(50); // 选择英雄阶段的持续时间
     GameRules.SetHeroSelectPenaltyTime(10); // 选择英雄超时惩罚时间
-    GameRules.SetStrategyTime(15); // 选完英雄的策略阶段的持续时间
+    GameRules.SetStrategyTime(10); // 选完英雄的策略阶段的持续时间
     GameRules.SetShowcaseTime(0); // 选完英雄进游戏前的展示时间
-    GameRules.SetPreGameTime(45); // 进入游戏后号角吹响前的准备时间
+    GameRules.SetPreGameTime(60); // 进入游戏后号角吹响前的准备时间
     // GameRules.SetPostGameTime(30); // 游戏结束后时长
     // GameRules.SetSameHeroSelectionEnabled(true); // 是否允许选择相同英雄
     // GameRules.SetStartingGold(0); // 设置初始金钱
@@ -32,7 +32,7 @@ export class GameConfig {
     const game: CDOTABaseGameMode = GameRules.GetGameModeEntity();
     // game.SetRemoveIllusionsOnDeath(true); // 是否在英雄死亡的时候移除幻象
     game.SetFreeCourierModeEnabled(true); // 是否启用免费信使模式
-    game.SetSelectionGoldPenaltyEnabled(false); // 是否启用选择英雄时的金钱惩罚（超时每秒扣钱）
+    game.SetSelectionGoldPenaltyEnabled(true); // 是否启用选择英雄时的金钱惩罚（超时每秒扣钱）
     game.SetLoseGoldOnDeath(false); // 是否在英雄死亡时扣除金钱
     game.SetCustomBuybackCostEnabled(true); // 是否启用自定义买活价格
     // game.SetBuybackEnabled(false); // 是否允许买活
@@ -61,7 +61,7 @@ export class GameConfig {
       GameRules.SetHeroSelectionTime(5);
       GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(5);
-      GameRules.SetPreGameTime(15); // 进入游戏后号角吹响前的准备时间
+      // GameRules.SetPreGameTime(15); // 进入游戏后号角吹响前的准备时间
     }
   }
 }

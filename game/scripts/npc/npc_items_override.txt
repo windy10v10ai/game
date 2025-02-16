@@ -71,7 +71,7 @@
 	{
 		"AbilityValues"
 		{
-				"shield"			"4000"
+				"shield"			"10000"
 				"regen"				"500"
 				"idle"				"2"
 		}
@@ -214,7 +214,7 @@
 	"item_tier1_token"
 	{
 		"ItemCost"						"1000"
-		"ItemInitialStockTime"			"165"
+		"ItemInitialStockTime"			"180"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -224,7 +224,7 @@
 	"item_tier2_token"
 	{
 		"ItemCost"						"2000"
-		"ItemInitialStockTime"			"525"
+		"ItemInitialStockTime"			"540"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -234,7 +234,7 @@
 	"item_tier3_token"
 	{
 		"ItemCost"						"3000"
-		"ItemInitialStockTime"			"885"
+		"ItemInitialStockTime"			"900"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -244,7 +244,7 @@
 	"item_tier4_token"
 	{
 		"ItemCost"						"4000"
-		"ItemInitialStockTime"			"1245"
+		"ItemInitialStockTime"			"1260"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -254,7 +254,7 @@
 	"item_tier5_token"
 	{
 		"ItemCost"						"5000"
-		"ItemInitialStockTime"			"1605"
+		"ItemInitialStockTime"			"1620"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -1227,7 +1227,7 @@
 	}
 	"item_aghanims_shard"
 	{
-		"ItemInitialStockTime"			"225.0"
+		"ItemInitialStockTime"			"240"
 	}
 	"item_refresher"
 	{
@@ -1618,8 +1618,8 @@
 		"ItemPurchasable"				"1"
 		"ItemStockMax"					"5"
 		"ItemStockInitial"				"0"
-		"ItemStockTime"					"180.0"
-		"ItemInitialStockTime"			"225.0"
+		"ItemStockTime"					"180"
+		"ItemInitialStockTime"			"240"
 		"IsObsolete"					"0"
 
 		"AbilityValues"
