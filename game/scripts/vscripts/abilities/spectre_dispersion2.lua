@@ -35,18 +35,27 @@ function modifier_spectre_dispersion2:GetModifierIncomingDamage_Percentage(keys)
 			--特效
 			EmitSoundOn("Hero_Mars.Shield.BlockSmall", self:GetParent())
 			ParticleManager:CreateParticle(
-			"particles/econ/items/faceless_void/faceless_void_bracers_of_aeons/fv_bracers_of_aeons_backtrack.vpcf", 0,
+				"particles/econ/items/faceless_void/faceless_void_bracers_of_aeons/fv_bracers_of_aeons_backtrack.vpcf", 0,
 				self:GetParent())
 
 			--幻象不反弹
 			if self:GetParent():IsRealHero() then
 				--反弹伤害,伤害标签：反弹伤害，不吃技能增强
 				local damage = keys.original_damage * self:GetAbility():GetSpecialValueFor("damage_pct") * 0.01
-				local damageInfo = { victim = keys.attacker, attacker = self:GetParent(), damage = damage, damage_type =
-				keys.damage_type, ability = self:GetAbility(), damage_flags = 16 + 1024 }
+				local damageInfo = {
+					victim = keys.attacker,
+					attacker = self:GetParent(),
+					damage = damage,
+					damage_type =
+						keys.damage_type,
+					ability = self:GetAbility(),
+					damage_flags = 16 + 1024
+				}
 				ApplyDamage(damageInfo)
 			end
 			return -100
+		else
+			return self:GetAbility():GetSpecialValueFor("damage_reduction")
 		end
 	end
 end
