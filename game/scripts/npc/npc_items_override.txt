@@ -71,7 +71,7 @@
 	{
 		"AbilityValues"
 		{
-				"shield"			"4000"
+				"shield"			"10000"
 				"regen"				"500"
 				"idle"				"2"
 		}
