@@ -1227,7 +1227,7 @@
 	}
 	"item_aghanims_shard"
 	{
-		"ItemInitialStockTime"			"270"
+		"ItemInitialStockTime"			"240"
 	}
 	"item_refresher"
 	{
@@ -1619,7 +1619,7 @@
 		"ItemStockMax"					"5"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"180"
-		"ItemInitialStockTime"			"270"
+		"ItemInitialStockTime"			"240"
 		"IsObsolete"					"0"
 
 		"AbilityValues"
