@@ -11,7 +11,7 @@ export class GameConfig {
     GameRules.SetCustomGameSetupAutoLaunchDelay(50); // 游戏设置时间
     GameRules.SetCustomGameSetupRemainingTime(3); // 游戏设置剩余时间
     // GameRules.SetCustomGameSetupTimeout(3); // 游戏设置阶段超时
-    GameRules.SetHeroSelectionTime(45); // 选择英雄阶段的持续时间
+    GameRules.SetHeroSelectionTime(50); // 选择英雄阶段的持续时间
     GameRules.SetHeroSelectPenaltyTime(10); // 选择英雄超时惩罚时间
     GameRules.SetStrategyTime(10); // 选完英雄的策略阶段的持续时间
     GameRules.SetShowcaseTime(0); // 选完英雄进游戏前的展示时间
@@ -61,7 +61,7 @@ export class GameConfig {
       GameRules.SetHeroSelectionTime(5);
       GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(5);
-      GameRules.SetPreGameTime(15); // 进入游戏后号角吹响前的准备时间
+      // GameRules.SetPreGameTime(15); // 进入游戏后号角吹响前的准备时间
     }
   }
 }
