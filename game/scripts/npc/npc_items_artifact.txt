@@ -4615,8 +4615,8 @@
 			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"20"	//5
 			"self_armor"				"20"	//5
-			"self_mres"					"30"	//20
-			"bonus_aoe_mres"			"30"	//20
+			"self_mres"					"40"	//20
+			"bonus_aoe_mres"			"40"	//20
 			"active_reflection_pct"		"40"	//40
 		}
 	}
@@ -4685,8 +4685,8 @@
 			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"20"	//5
 			"self_armor"				"20"	//5
-			"self_mres"					"30"	//20
-			"bonus_aoe_mres"			"30"	//20
+			"self_mres"					"40"	//20
+			"bonus_aoe_mres"			"40"	//20
 			"active_reflection_pct"		"40"	//40
 		}
 	}
@@ -4755,8 +4755,8 @@
 			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"20"	//5
 			"self_armor"				"20"	//5
-			"self_mres"					"30"	//20
-			"bonus_aoe_mres"			"30"	//20
+			"self_mres"					"40"	//20
+			"bonus_aoe_mres"			"40"	//20
 			"active_reflection_pct"		"60"	//40
 		}
 	}
@@ -4791,8 +4791,8 @@
 			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"20"	//5
 			"self_armor"				"20"	//5
-			"self_mres"					"30"	//20
-			"bonus_aoe_mres"			"30"	//20
+			"self_mres"					"40"	//20
+			"bonus_aoe_mres"			"40"	//20
 			"active_reflection_pct"		"60"	//40
 		}
 	}

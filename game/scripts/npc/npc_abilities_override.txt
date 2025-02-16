@@ -3990,18 +3990,12 @@
 	// 山崩
 	"tiny_avalanche"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"22 20 18 16 14"
-		"AbilityManaCost"				"95 110 125 140 155"
+		// 最大4级，之后技能特效无法正常显示
 		"AbilityValues"
 		{
-				"radius"
-				{
-					"value"			"325 340 355 370 385"
-				}
 				"avalanche_damage"
 				{
-					"value"				"160 240 320 400 480"	// 80 160 240 320 加强法系
+					"value"				"160 240 320 400"		// 80 160 240 320 加强法系
 					"special_bonus_unique_tiny"			"+120"	// 70
 				}
 		}
