@@ -658,7 +658,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"945"// 15分钟买
+		"ItemInitialStockTime"			"960"// 15分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -700,7 +700,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"945"// 15分钟买
+		"ItemInitialStockTime"			"960"// 15分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -730,9 +730,9 @@
 	"item_exchange"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "10998"
+		"ID"							"10998"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_exchange"
+		"AbilityTextureName"			"item_exchange"
 		"ItemCost"						"2000"
 		"ItemIsNeutralDrop"				"0"
 		"ItemShopTags"					""
@@ -740,9 +740,9 @@
 		"ItemAliases"					""
 		"ItemPurchasable"				"1"
 		"ItemKillable"					"0"
-		"ItemSellable"				    "1"
+		"ItemSellable"					"1"
         "ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"          "30"
+		"ItemInitialStockTime"			"60"
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"30"

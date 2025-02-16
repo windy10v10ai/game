@@ -464,9 +464,12 @@
 
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（旧版）"
-		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"受到伤害时有%reflexion_chance%%%概率免疫并反弹伤害"
+		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"折射未触发时，也将提供%damage_reduction%%%伤害减免。"
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"受到伤害时有概率免疫并反弹伤害"
+		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%反弹概率："
 		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%伤害反弹百分比："
 		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"折射的伤害与原伤害类型相同。"
+		"DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% 折射概率"
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"贪魔的贪婪"
