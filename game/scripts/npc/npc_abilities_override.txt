@@ -10631,7 +10631,7 @@
 			"tower_scale"
 			{
 				"value"			"0"
-				"special_bonus_facet_pugna_rewards_of_ruin"		"12"	// 1.25
+				"special_bonus_facet_pugna_rewards_of_ruin"		"10"	// 1.25
 			}
 		}
 	}
