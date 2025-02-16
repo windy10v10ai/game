@@ -11,7 +11,7 @@ end
 modifier_spectre_dispersion2 = class({})
 LinkLuaModifier("modifier_spectre_dispersion2", "abilities/spectre_dispersion2", LUA_MODIFIER_MOTION_NONE)
 -- 隐藏
-function  modifier_spectre_dispersion2:IsHidden()return true end
+function  modifier_spectre_dispersion2:IsHidden()return false end
 -- 无法驱散
 function  modifier_spectre_dispersion2:IsPurgable()return false end
 --函数声明
@@ -22,23 +22,41 @@ function modifier_spectre_dispersion2:DeclareFunctions()
 	}
 	return funcs
 end
-
 --减伤
 function  modifier_spectre_dispersion2:GetModifierIncomingDamage_Percentage(keys)
-	--最小触发伤害20
-	if IsServer() and keys.target==self:GetParent() and keys.original_damage>=20 then
+	--最小触发伤害10
+	if IsServer() and keys.target==self:GetParent() and keys.original_damage>=10 then
 		
 		if RandomInt(1,100)<=self:GetAbility():GetSpecialValueFor("reflexion_chance") then
 			--特效
 			EmitSoundOn( "Hero_Mars.Shield.BlockSmall", self:GetParent() )
 			ParticleManager:CreateParticle("particles/econ/items/faceless_void/faceless_void_bracers_of_aeons/fv_bracers_of_aeons_backtrack.vpcf",0,self:GetParent())
-
+			
+			self:IncrementStackCount()
+			
 			--幻象不反弹
 			if self:GetParent():IsRealHero() then
 				--反弹伤害,伤害标签：反弹伤害，不吃技能增强
 				local damage = keys.original_damage*self:GetAbility():GetSpecialValueFor("damage_pct")*0.01
 				local damageInfo ={victim = keys.attacker,attacker = self:GetParent(),damage = damage,damage_type = keys.damage_type,ability = self:GetAbility(),damage_flags=16+1024}
 				ApplyDamage( damageInfo )
+				
+				--触发反击螺旋
+				if self:GetStackCount()>=self:GetAbility():GetSpecialValueFor("trigger_count") then
+					self:SetStackCount(0)
+					--搜寻单位
+					local caster = self:GetCaster()
+					local units = FindUnitsInRadius(caster:GetTeamNumber(),caster:GetOrigin(),nil,275,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_BASIC+1,48,FIND_ANY_ORDER,false)
+					for k,v in pairs(units)do
+						--造成伤害
+						local damageInfo ={victim = v,attacker = caster,damage = self:GetAbility():GetSpecialValueFor("damage"),damage_type = DAMAGE_TYPE_PURE,ability = self:GetAbility()}
+						ApplyDamage( damageInfo )
+					end
+					--特效
+					EmitSoundOn( "Hero_Axe.CounterHelix", self:GetParent() )
+					ParticleManager:CreateParticle("particles/econ/items/axe/axe_weapon_bloodchaser/axe_attack_blur_counterhelix_bloodchaser.vpcf",0,self:GetParent())
+					
+				end
 			end
 			return -100
 		end
