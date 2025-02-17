@@ -65,6 +65,7 @@ no_support_abilitys = {
 	faceless_void_time_walk = 1,      -- 时间漫游
 	faceless_void_time_walk_reverse = 1, -- 反时间漫游
 	rubick_spell_steal = 1,           -- 技能窃取
+	magnataur_skewer = 1,             -- 巨角冲撞
 }
 no_support_items = {
 	-- 消耗品
@@ -81,6 +82,7 @@ no_support_items = {
 	item_consumable_gem = 1,
 	item_wings_of_haste = 1,
 	item_candy_candy = 1,
+	item_repair_kit = 1,
 	-- 跳刀 影刀
 	item_jump_jump_jump = 1,
 	item_fallen_sky = 1,
@@ -97,6 +99,8 @@ no_support_substrings = {
 	"blink",
 	"black_king_bar",
 	"item_manta",
+	"item_force_staff",
+	"item_seer_stone",
 
 	"phoenix",
 }

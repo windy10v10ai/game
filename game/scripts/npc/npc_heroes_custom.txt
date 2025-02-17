@@ -2323,9 +2323,9 @@
 				"8"		"tiny_avalanche"
 				"9"		"tiny_toss"
 				"10"		"special_bonus_strength_10"
-				"11"		"tiny_avalanche"
+				"11"		"tiny_toss"
 				"12"		"tiny_grow"
-				"13"		"tiny_toss"
+				"13"		"tiny_tree_grab"
 				"14"		"tiny_tree_grab"
 				"15"		"special_bonus_unique_tiny"
 				"16"		"tiny_tree_grab"
@@ -2346,7 +2346,7 @@
 				"31"		"tiny_grow"
 				"32"		"tiny_tree_grab"
 				"33"		"tiny_tree_grab"
-				"34"		"tiny_tree_grab"
+				"34"		""
 			}
 		}
 	}
