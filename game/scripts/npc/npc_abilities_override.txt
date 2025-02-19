@@ -338,7 +338,7 @@
 			{
 				"value"								"90 80 70 60"
 			}
-			"hp_threshold"							"600 1200 1800 2400"
+			"hp_threshold"							"600 1500 3000 5000"
 			"duration"								"3.5 4.0 4.5 5.0"
 			"duration_scepter"
 			{
