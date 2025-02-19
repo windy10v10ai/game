@@ -9,7 +9,7 @@
 	{
 		"1"
 		{
-			"start_time"			"1:00"
+			"start_time"			"0:00"
 			"trinket_options"		"4"
 			"enhancement_options"	"4"
 			"craft_cost"			"5"
@@ -17,11 +17,11 @@
 
 			"items"
 			{
-				"item_trusty_shovel"			  	"1"
-				"item_occult_bracelet"				"1"
-				"item_unstable_wand"				"1"
+				"item_trusty_shovel"				"1"	//可靠铁铲
+				"item_occult_bracelet"				"1"	//玄奥手镯
+				"item_unstable_wand"				"1"	//豚杆
 				"item_mana_draught"					"1"
-				"item_polliwog_charm"			  	"1"
+				"item_polliwog_charm"				"1"
 				"item_spark_of_courage"				"1"
 				"item_rippers_lash"					"1"
 				"item_orb_of_destruction"			"1"
