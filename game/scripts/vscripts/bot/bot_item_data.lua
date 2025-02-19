@@ -607,7 +607,6 @@ tBotItemData.purchaseItemList = {
 		'item_null_talisman',
 		'item_holy_locket',
 		'item_arcane_boots',
-		'item_hand_of_group', -- 团队之手
 		'item_glimmer_cape',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
@@ -634,7 +633,6 @@ tBotItemData.purchaseItemList = {
 		'item_orb_of_corrosion',
 		'item_glimmer_cape',
 		'item_force_staff',
-		'item_hand_of_group', -- 团队之手
 		'item_wings_of_haste',
 		'item_blink',
 		'item_aghanims_shard',

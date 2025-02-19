@@ -1815,6 +1815,7 @@
 		"ItemSellable"					"0"
 		"ItemStockTime"					"180.0"
 		"AllowedInBackpack"				"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 	}
 
 	// 圣剑
