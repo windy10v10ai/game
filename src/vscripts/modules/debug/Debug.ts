@@ -55,6 +55,13 @@ export class Debug {
         hero.AddAbility(abilityName);
       });
     }
+    if (cmd === CMD.RM_ITEM) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const itemName = args[0];
+      const item = hero.FindItemInInventory(itemName);
+      UTIL_RemoveImmediate(item);
+    }
 
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
