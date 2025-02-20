@@ -80,7 +80,7 @@ function modifier_bot_think_strategy:OnIntervalThink()
 
 	BotThink:ThinkSell(hHero)
 	BotThink:ThinkPurchase(hHero)
-	BotThink:ThinkPurchaseNeutral(hHero, GameTime)
+	-- BotThink:ThinkPurchaseNeutral(hHero, GameTime)
 	BotThink:ThinkConsumeItem(hHero)
 
 	BotThink:PutWardObserver(hHero)
