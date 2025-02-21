@@ -98,7 +98,7 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_jump_jump_jump',
 		'item_shivas_guard_2', -- 雅典娜之守护
-		'item_paladin_sword_ai',
+		'item_satanic_2', -- 骑士剑换其他回血或减伤
 	},
 	npc_dota_hero_bane = {
 		'item_magic_wand',
@@ -190,7 +190,7 @@ tBotItemData.purchaseItemList = {
 		'item_undying_heart',
 		-- 'item_bloodstone',
 		'item_moon_shard_datadriven',
-		'item_paladin_sword_ai',
+		'item_sange_and_yasha_1', -- 骑士剑换其他回血或减伤
 	},
 	npc_dota_hero_chaos_knight = {
 		'item_magic_wand',
@@ -315,8 +315,8 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_callous',
 		'item_jump_jump_jump',
 		'item_excalibur',
-		'item_paladin_sword_ai',
-		'item_defiant_shell_ai',
+		'item_satanic_2', -- 骑士剑换撒旦
+		'item_vladmir_2', -- 甲壳换看情况
 	},
 	npc_dota_hero_drow_ranger = {
 		'item_magic_wand',
@@ -339,7 +339,7 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_despotic',
 		-- 'item_satanic_2',
 		'item_excalibur',
-		'item_paladin_sword_ai',
+		'item_satanic_2', -- 骑士剑换撒旦
 		'item_apex_light',
 	},
 	npc_dota_hero_earthshaker = {
@@ -410,7 +410,7 @@ tBotItemData.purchaseItemList = {
 		'item_blue_fantasy', -- 苍蓝幻想
 		'item_abyssal_blade_v2',
 		'item_moon_shard_datadriven',
-		'item_seer_stone_ai',
+		'item_bfury_ultra', -- 剑圣先手用先哲，看着换
 		'item_jump_jump_jump',
 		'item_excalibur',
 	},
@@ -534,7 +534,7 @@ tBotItemData.purchaseItemList = {
 		'item_skadi_2',      -- 大冰眼
 		'item_wasp_despotic',
 		-- 'item_satanic_2',
-		'item_paladin_sword_ai',
+		'item_satanic_2', -- 骑士剑换撒旦
 		'item_excalibur',
 		'item_apex_light',
 	},
@@ -551,9 +551,9 @@ tBotItemData.purchaseItemList = {
 		'item_hurricane_pike_2',
 		'item_wasp_callous',
 		'item_ultimate_scepter_2',
-		'item_skadi_2', -- 大冰眼
+		'item_skadi_2',    -- 大冰眼
 		'item_black_king_bar_2',
-		'item_mind_breaker_ai',
+		'item_abyssal_blade_v2', -- 换类似智灭恶心人装备
 		'item_wasp_despotic',
 		'item_excalibur',
 		'item_refresh_core',
@@ -598,7 +598,7 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_callous',
 		'item_wasp_despotic',
 		'item_excalibur',
-		'item_paladin_sword_ai',
+		'item_satanic_2', -- 骑士剑换撒旦
 	},
 	npc_dota_hero_necrolyte = {
 		'item_magic_wand',
@@ -622,7 +622,7 @@ tBotItemData.purchaseItemList = {
 		'item_recipe_refresh_core',
 		'item_necronomicon_staff',
 		-- 'item_sacred_six_vein',
-		'item_paladin_sword_ai',
+		'item_kaya_and_sange_1', -- 骑士剑换回血
 	},
 	npc_dota_hero_ogre_magi = {
 		'item_magic_wand',
@@ -711,7 +711,7 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_abyssal_blade_v2',
 		-- 'item_satanic_2',
-		'item_paladin_sword_ai',
+		'item_satanic_2', -- 骑士剑换撒旦
 		'item_excalibur',
 		'item_refresh_core',
 	},
@@ -786,7 +786,7 @@ tBotItemData.purchaseItemList = {
 		'item_abyssal_blade_v2',
 		-- 'item_satanic_2',
 		'item_excalibur',
-		'item_paladin_sword_ai',
+		'item_satanic_2', -- 骑士剑换撒旦
 		'item_refresh_core',
 	},
 	npc_dota_hero_shadow_shaman = {
@@ -883,7 +883,7 @@ tBotItemData.purchaseItemList = {
 		'item_angels_demise',
 		'item_shotgun_v2',
 		'item_excalibur',
-		'item_paladin_sword_ai',
+		'item_satanic_2', -- 骑士剑换撒旦
 	},
 	npc_dota_hero_sven = {
 		'item_magic_wand',
@@ -957,10 +957,10 @@ tBotItemData.purchaseItemList = {
 		'item_arcane_blink',
 		'item_ultimate_scepter_2',
 		'item_necronomicon_staff',
-		'item_angels_demise', -- 绝刃
+		'item_angels_demise',  -- 绝刃
 		'item_hallowed_scepter',
-		'item_seer_stone_ai',
-		'item_blue_fantasy', -- 苍蓝幻想
+		'item_ethereal_blade_ultra', -- 先哲换其他施法距离
+		'item_blue_fantasy',   -- 苍蓝幻想
 	},
 	npc_dota_hero_tiny = {
 		'item_magic_wand',
@@ -1025,7 +1025,7 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_despotic',
 		'item_excalibur',
 		'item_refresh_core',
-		'item_apex_ai',
+		'item_skadi_2', -- 极换其他属性或功能
 	},
 	npc_dota_hero_warlock = {
 		'item_magic_wand',
@@ -1221,7 +1221,7 @@ tBotItemData.sellItemList = {
 	npc_dota_hero_medusa = {
 		'item_mask_of_madness',
 		'item_hurricane_pike_2',
-		'item_mind_breaker_ai',
+		'item_abyssal_blade_v2', -- 美杜莎的智灭卖掉
 	},
 	npc_dota_hero_meepo = {
 		'item_wraith_band',
@@ -1629,172 +1629,172 @@ tBotItemData.wardSentryPostionList = {
 	Vector(6342, 1735, 0),
 	Vector(6318, -1038),
 }
--- purchase neutral item in order
-tBotItemData.addNeutralItemList = {
-	npc_dota_hero_abaddon = {
-		'item_mirror_shield',
-	},
-	npc_dota_hero_arc_warden = {
-		'item_ballista',
-	},
-	npc_dota_hero_axe = {
-		'item_timeless_relic_ai_1',
-	},
-	npc_dota_hero_spectre = {
-		'item_apex_ai_1',
-	},
-	npc_dota_hero_bane = {
-		'item_seer_stone_ai_1',
-	},
-	npc_dota_hero_bounty_hunter = {
-		'item_ceremonial_robe_ai_1',
-	},
-	npc_dota_hero_bloodseeker = {
-		'item_giants_ring',
-	},
-	npc_dota_hero_bristleback = {
-		'item_giants_ring',
-	},
-	npc_dota_hero_chaos_knight = {
-		'item_unwavering_condition',
-	},
-	npc_dota_hero_crystal_maiden = {
-		'item_timeless_relic_ai_1',
-	},
-	npc_dota_hero_dazzle = {
-		'item_spell_prism',
-	},
-	npc_dota_hero_death_prophet = {
-		'item_demonicon',
-	},
-	npc_dota_hero_dragon_knight = {
-		'item_apex_dark_1',
-	},
-	npc_dota_hero_drow_ranger = {
-		'item_ballista_ai_1',
-	},
-	npc_dota_hero_earthshaker = {
-		'item_timeless_relic_ai_1',
-	},
-	npc_dota_hero_jakiro = {
-		'item_demonicon',
-	},
-	npc_dota_hero_juggernaut = {
-		'item_apex_light_1',
-	},
-	npc_dota_hero_kunkka = {
-		'item_timeless_relic_ai_1',
-	},
-	npc_dota_hero_lich = {
-		'item_seer_stone_ai_1',
-	},
-	npc_dota_hero_lina = {
-		'item_seer_stone_ai_1',
-	},
-	npc_dota_hero_lion = {
-		'item_timeless_relic_ai_1',
-	},
-	npc_dota_hero_luna = {
-		'item_ballista_ai_1',
-	},
-	npc_dota_hero_medusa = {
-		'item_ballista_ai_1',
-	},
-	npc_dota_hero_meepo = {
-		'item_apex_ai_1',
-	},
-	npc_dota_hero_nevermore = {
-		'item_desolator_2',
-	},
-	npc_dota_hero_necrolyte = {
-		'item_apex_ai_1',
-	},
-	npc_dota_hero_ogre_magi = {
-		'item_seer_stone_ai_1',
-	},
-	npc_dota_hero_omniknight = {
-		'item_ceremonial_robe_ai_1',
-	},
-	npc_dota_hero_oracle = {
-		'item_spell_prism',
-	},
-	npc_dota_hero_phantom_assassin = {
-		'item_desolator_2',
-	},
-	npc_dota_hero_pudge = {
-		'item_giants_ring',
-	},
-	npc_dota_hero_razor = {
-		'item_spell_prism',
-	},
-	npc_dota_hero_riki = {
-		'item_apex_light_1',
-	},
-	npc_dota_hero_sand_king = {
-		'item_ceremonial_robe_ai_1',
-	},
-	npc_dota_hero_shadow_shaman = {
-		'item_seer_stone_ai_1',
-	},
-	npc_dota_hero_skywrath_mage = {
-		'item_seer_stone_ai_1',
-	},
-	npc_dota_hero_sniper = {
-		'item_ballista_ai_1',
-	},
-	npc_dota_hero_sven = {
-		'item_pirate_hat_custom',
-	},
-	npc_dota_hero_tidehunter = {
-		'item_mirror_shield',
-	},
-	npc_dota_hero_tinker = {
-		'item_psychic_headband_ai_1',
-	},
-	npc_dota_hero_tiny = {
-		'item_ceremonial_robe_ai_1',
-	},
-	npc_dota_hero_vengefulspirit = {
-		'item_desolator_2',
-	},
-	npc_dota_hero_viper = {
-		'item_ballista_ai_1',
-	},
-	npc_dota_hero_warlock = {
-		'item_demonicon',
-	},
-	npc_dota_hero_windrunner = {
-		'item_mirror_shield',
-	},
-	npc_dota_hero_witch_doctor = {
-		'item_spy_gadget',
-	},
-	npc_dota_hero_skeleton_king = {
-		'item_defiant_shell_ai_1',
-	},
-	npc_dota_hero_zuus = {
-		'item_psychic_headband_ai_1',
-	},
-}
+-- -- purchase neutral item in order
+-- tBotItemData.addNeutralItemList = {
+-- 	npc_dota_hero_abaddon = {
+-- 		'item_mirror_shield',
+-- 	},
+-- 	npc_dota_hero_arc_warden = {
+-- 		'item_ballista',
+-- 	},
+-- 	npc_dota_hero_axe = {
+-- 		'item_timeless_relic_ai_1',
+-- 	},
+-- 	npc_dota_hero_spectre = {
+-- 		'item_apex_ai_1',
+-- 	},
+-- 	npc_dota_hero_bane = {
+-- 		'item_seer_stone_ai_1',
+-- 	},
+-- 	npc_dota_hero_bounty_hunter = {
+-- 		'item_ceremonial_robe_ai_1',
+-- 	},
+-- 	npc_dota_hero_bloodseeker = {
+-- 		'item_giants_ring',
+-- 	},
+-- 	npc_dota_hero_bristleback = {
+-- 		'item_giants_ring',
+-- 	},
+-- 	npc_dota_hero_chaos_knight = {
+-- 		'item_unwavering_condition',
+-- 	},
+-- 	npc_dota_hero_crystal_maiden = {
+-- 		'item_timeless_relic_ai_1',
+-- 	},
+-- 	npc_dota_hero_dazzle = {
+-- 		'item_spell_prism',
+-- 	},
+-- 	npc_dota_hero_death_prophet = {
+-- 		'item_demonicon',
+-- 	},
+-- 	npc_dota_hero_dragon_knight = {
+-- 		'item_apex_dark_1',
+-- 	},
+-- 	npc_dota_hero_drow_ranger = {
+-- 		'item_ballista_ai_1',
+-- 	},
+-- 	npc_dota_hero_earthshaker = {
+-- 		'item_timeless_relic_ai_1',
+-- 	},
+-- 	npc_dota_hero_jakiro = {
+-- 		'item_demonicon',
+-- 	},
+-- 	npc_dota_hero_juggernaut = {
+-- 		'item_apex_light_1',
+-- 	},
+-- 	npc_dota_hero_kunkka = {
+-- 		'item_timeless_relic_ai_1',
+-- 	},
+-- 	npc_dota_hero_lich = {
+-- 		'item_seer_stone_ai_1',
+-- 	},
+-- 	npc_dota_hero_lina = {
+-- 		'item_seer_stone_ai_1',
+-- 	},
+-- 	npc_dota_hero_lion = {
+-- 		'item_timeless_relic_ai_1',
+-- 	},
+-- 	npc_dota_hero_luna = {
+-- 		'item_ballista_ai_1',
+-- 	},
+-- 	npc_dota_hero_medusa = {
+-- 		'item_ballista_ai_1',
+-- 	},
+-- 	npc_dota_hero_meepo = {
+-- 		'item_apex_ai_1',
+-- 	},
+-- 	npc_dota_hero_nevermore = {
+-- 		'item_desolator_2',
+-- 	},
+-- 	npc_dota_hero_necrolyte = {
+-- 		'item_apex_ai_1',
+-- 	},
+-- 	npc_dota_hero_ogre_magi = {
+-- 		'item_seer_stone_ai_1',
+-- 	},
+-- 	npc_dota_hero_omniknight = {
+-- 		'item_ceremonial_robe_ai_1',
+-- 	},
+-- 	npc_dota_hero_oracle = {
+-- 		'item_spell_prism',
+-- 	},
+-- 	npc_dota_hero_phantom_assassin = {
+-- 		'item_desolator_2',
+-- 	},
+-- 	npc_dota_hero_pudge = {
+-- 		'item_giants_ring',
+-- 	},
+-- 	npc_dota_hero_razor = {
+-- 		'item_spell_prism',
+-- 	},
+-- 	npc_dota_hero_riki = {
+-- 		'item_apex_light_1',
+-- 	},
+-- 	npc_dota_hero_sand_king = {
+-- 		'item_ceremonial_robe_ai_1',
+-- 	},
+-- 	npc_dota_hero_shadow_shaman = {
+-- 		'item_seer_stone_ai_1',
+-- 	},
+-- 	npc_dota_hero_skywrath_mage = {
+-- 		'item_seer_stone_ai_1',
+-- 	},
+-- 	npc_dota_hero_sniper = {
+-- 		'item_ballista_ai_1',
+-- 	},
+-- 	npc_dota_hero_sven = {
+-- 		'item_pirate_hat_custom',
+-- 	},
+-- 	npc_dota_hero_tidehunter = {
+-- 		'item_mirror_shield',
+-- 	},
+-- 	npc_dota_hero_tinker = {
+-- 		'item_psychic_headband_ai_1',
+-- 	},
+-- 	npc_dota_hero_tiny = {
+-- 		'item_ceremonial_robe_ai_1',
+-- 	},
+-- 	npc_dota_hero_vengefulspirit = {
+-- 		'item_desolator_2',
+-- 	},
+-- 	npc_dota_hero_viper = {
+-- 		'item_ballista_ai_1',
+-- 	},
+-- 	npc_dota_hero_warlock = {
+-- 		'item_demonicon',
+-- 	},
+-- 	npc_dota_hero_windrunner = {
+-- 		'item_mirror_shield',
+-- 	},
+-- 	npc_dota_hero_witch_doctor = {
+-- 		'item_spy_gadget',
+-- 	},
+-- 	npc_dota_hero_skeleton_king = {
+-- 		'item_defiant_shell_ai_1',
+-- 	},
+-- 	npc_dota_hero_zuus = {
+-- 		'item_psychic_headband_ai_1',
+-- 	},
+-- }
 
--- default x1
-tBotItemData.addNeutralItemMultiTimeMap = {
-	x1 = {
-		2000, -- 33min
-	},
-	x4 = {
-		1800, -- 30min
-	},
-	x6 = {
-		1600, -- 26min
-	},
-	x8 = {
-		1400, -- 23min
-	},
-	x10 = {
-		1200, -- 20min
-	},
-	x20 = {
-		1000, -- 16min
-	},
-}
+-- -- default x1
+-- tBotItemData.addNeutralItemMultiTimeMap = {
+-- 	x1 = {
+-- 		2000, -- 33min
+-- 	},
+-- 	x4 = {
+-- 		1800, -- 30min
+-- 	},
+-- 	x6 = {
+-- 		1600, -- 26min
+-- 	},
+-- 	x8 = {
+-- 		1400, -- 23min
+-- 	},
+-- 	x10 = {
+-- 		1200, -- 20min
+-- 	},
+-- 	x20 = {
+-- 		1000, -- 16min
+-- 	},
+-- }
