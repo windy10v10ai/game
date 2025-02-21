@@ -1924,13 +1924,6 @@
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_cooldown"				"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_refresh_core_Lore"					"At the core of spellcraft are spectrums only the very gifted can sense."
 
-		// item_black_king_bar_real 真·黑黄杖
-		"DOTA_Tooltip_Ability_item_black_king_bar_real"			                "True Black King Bar <font color='#4d4dff'>(Neutral)</font>"
-		"DOTA_Tooltip_ability_item_black_king_bar_real_Description"					"<h1>Active: Spell Immunity</h1>Become completely immune to most negative effects and spells.<br><br>Duration:%duration%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
-		"DOTA_Tooltip_ability_item_black_king_bar_real_Note0"				"Grants original Spell Immunity. Unlike Debuff Immunity, this completely prevents spells that don't ignore Debuff Immunity from targeting you entirely, which may include allied spells that may benefit you, and may dispel buffs and other beneficial effects. User discretion is advised."
-		"DOTA_Tooltip_ability_item_black_king_bar_real_Lore"						"The Real Black King Bar is back. Fight hunger, be yourself, and be a real man. For 10 seconds."
-		"DOTA_Tooltip_ability_item_black_king_bar_real_bonus_strength"				"+$str"
-
 		// item_rapier_ultra 诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra"                        "<font color='#e03e2e'>Cursed</font> Rapier"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by Mars. Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> bonus base attack damage. Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures.\n<h1>Passive: <font color='#e03e2e'>Price of power</font></h1>Great power always comes with a price. <font color='#e03e2e'>This item has a %ruin_chance_tooltip%%% to be completely destroyed on death.</font>"
