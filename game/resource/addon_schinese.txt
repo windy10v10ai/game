@@ -1273,10 +1273,6 @@
 		// 					Items 物品
 		//
 		// /////////////////////////////////////////////////////////////////////////////
-
-		// item_travel_boots 飞鞋
-		"DOTA_Tooltip_Ability_item_travel_boots"				"远行鞋（中立物品）"
-
 		// bag_of_gold
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"金袋"
 		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"勇士积分"
@@ -1629,7 +1625,7 @@
 		"DOTA_Tooltip_modifier_item_silver_edge_2_windwalk_Description"	"隐身，移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，而且可以穿过单位。破隐一击将造成%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT%点额外伤害，同时禁用被动技能。"
 
 		// item_black_king_bar_2 黑皇杖2
-		"DOTA_Tooltip_Ability_item_black_king_bar_2"			"天神杖"
+		"DOTA_Tooltip_Ability_item_black_king_bar_2"				"天神杖"
 		"DOTA_Tooltip_Ability_item_recipe_black_king_bar_2"			"图纸（天神杖）"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>主动：天神下凡</h1>获得减益免疫状态。提供%magic_resist%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。<br><br>持续时间：%duration%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Lore"							"山丘之王的锤子年久失修，锤头掉了只剩一个锤柄，凑合能用。"
@@ -1798,16 +1794,13 @@
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Lore"					"你问我闪现是什么？唔…我是铁血刀斯林，震怒！"
 
 		// item_gungir_2 大缚灵索
-		"DOTA_Tooltip_ability_item_gungir_2"						"风暴之锤"
-		"DOTA_Tooltip_ability_item_gungir_2_Description"						"<h1>主动：闪电风暴</h1>缠绕目标%radius%范围内所有敌人，持续%duration%秒，并造成%active_damage%点伤害。<br><br>施法距离：%abilitycastrange%\n\n<h1>被动：连环闪电</h1>攻击有%chain_chance%%%几率释放一道连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避。对幻象造成%illusion_multiplier_pct%%%伤害。"
+		"DOTA_Tooltip_ability_item_gungir_2"								"风暴之锤"
+		"DOTA_Tooltip_ability_item_gungir_2_Description"					"<h1>主动：闪电风暴</h1>缠绕目标%radius_tooltip%范围内所有敌人，持续%duration%秒，并造成%active_damage%点伤害。"
 		"DOTA_Tooltip_ability_item_gungir_2_Lore"							"警告：侦测到天气控制机。闪电风暴准备就绪。"
-		"DOTA_Tooltip_ability_item_gungir_2_bonus_damage"					"+$damage"
-		"DOTA_Tooltip_ability_item_gungir_2_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_gungir_2_bonus_aoe"						"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_gungir_2_bonus_intellect"				"+$int"
 		"DOTA_Tooltip_ability_item_gungir_2_bonus_hp"						"+$health"
-
-		"DOTA_Tooltip_modifier_gungir_2_debuff"			    			"闪电风暴"
-		"DOTA_Tooltip_modifier_gungir_2_debuff_Description"				"被缠绕时无法移动。"
+		"DOTA_Tooltip_Ability_item_gungir_2_bonus_mana"						"+$mana"
 
 		"DOTA_Tooltip_Ability_item_satanic_2"				"真红·撒旦之邪力"
 		"DOTA_Tooltip_ability_item_satanic_2_Description"							"<h1>主动：不洁狂热</h1>吸血效果提升至%unholy_lifesteal_total_tooltip%%%，持续%unholy_duration%秒。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：吸血</h1>攻击者每次攻击都将根据造成伤害的一定百分比回复生命值。攻击非英雄单位的吸血效果降低%creep_lifesteal_reduction_pct%%%。"

@@ -110,8 +110,8 @@ export class EventEntityKilled {
           this.dropItemChanceRoshan,
         );
 
-        // 神器组件掉落，掉落数量 1 ~ (2 ~ 5) 的随机数
-        const maxDropCount = Math.ceil(Player.GetPlayerCount() / 3) + 1;
+        // 神器组件掉落，掉落数量 1 ~ 3 的随机数
+        const maxDropCount = Math.floor(Player.GetPlayerCount() / 4);
         const dropCount = RandomInt(1, maxDropCount);
         print(`[EventEntityKilled] OnCreepKilled dropCount is ${dropCount}`);
         for (let i = 0; i < dropCount; i++) {
