@@ -199,19 +199,19 @@
 		"item"		"item_vanguard"			// 先锋盾
 		"item"		"item_solar_crest"		// 炎阳纹章
 		"item"		"item_aeon_pendant"		// 大盘子（咸鱼之王）
-		"item"		"item_blade_mail_2"		// 刃甲
-		"item"		"item_eternal_shroud"	// 永恒布衣
+		"item"		"item_blade_mail_2"		// 刃甲2
+		"item"		"item_eternal_shroud"	// 永世法衣
 		"item"		"item_crimson_guard"	// 赤红甲
 		"item"		"item_insight_armor"
 		"item"		"item_saint_orb"
-		"item"		"item_black_king_bar_2"	// 变态兵法
+		"item"		"item_black_king_bar_2"	// 天神杖
 		"item"		"item_heavens_halberd_v2"
 		"item"		"item_manta_2"
 		"item"		"item_sphere_2"
-		"item"		"item_shivas_guard_2"	// 希瓦的守护
+		"item"		"item_shivas_guard_2"	// 雅典娜的守护
 		"item"		"item_undying_heart"
 		"item"		"item_vladmir_2"
-		"item"		"item_bloodstone"		// 血精石
+		"item"		"item_bloodstone"		// 血精神石
 	}
 	// Level 5 - 兵刃
 	"weapons"
@@ -225,19 +225,19 @@
 		"item"		"item_revenants_brooch"		// 英灵胸针
 		// "item"		"item_disperser"
 		"item"		"item_angels_demise"
-		"item"		"item_radiance_2"			// 大辉耀
-		"item"		"item_silver_edge_2"		// 大隐刀
+		"item"		"item_radiance_2"			// 圣焰之光 大辉耀
+		"item"		"item_silver_edge_2"		// 无敌之刃 大隐刀
 		"item"		"item_abyssal_blade_v2"		// 一闪
 		"item"		"item_bfury_ultra"			// 救世狂战
 
 		"item"		"item_shotgun_v2"			// 霰弹枪
 		"item"		"item_hurricane_pike_2"		// 黄金魔龙枪
-		"item"		"item_monkey_king_bar_2"	// 大金箍棒
+		"item"		"item_monkey_king_bar_2"	// 定海神针
 		"item"		"item_bloodthorn_ultra"		// 大血棘
 
 		"item"		"item_infernal_desolator"	// 绝对破防之刃
-		"item"		"item_wasp_golden"
-		"item"		"item_excalibur"
+		"item"		"item_wasp_golden"			// 黄金大核荣耀
+		"item"		"item_excalibur"			// EX咖喱棒
 		"item"		"item_rapier_ultra"			// 诅咒圣剑
 	}
 
