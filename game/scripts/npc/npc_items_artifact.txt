@@ -658,7 +658,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"945"// 15分钟买
+		"ItemInitialStockTime"			"960"// 15分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -700,7 +700,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"945"// 15分钟买
+		"ItemInitialStockTime"			"960"// 15分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"5"
 		"ItemStockTime"					"120"
@@ -727,55 +727,55 @@
 	}
 
 	//中立转换器
-	"item_exchange"
-	{
-		"BaseClass"						"item_datadriven"
-		"ID"						    "10998"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_exchange"
-		"ItemCost"						"2000"
-		"ItemIsNeutralDrop"				"0"
-		"ItemShopTags"					""
-		"ItemQuality"					""
-		"ItemAliases"					""
-		"ItemPurchasable"				"1"
-		"ItemKillable"					"0"
-		"ItemSellable"				    "1"
-        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"          "30"
-		"ItemStockInitial"				"0"
-		"ItemStockMax"					"5"
-		"ItemStockTime"					"30"
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"0"
-		}
-		"Modifiers"
-		{
-			"modifier_item_exchange"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
+	// "item_exchange"
+	// {
+	// 	"BaseClass"						"item_datadriven"
+	// 	"ID"							"10998"
+	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	// 	"AbilityTextureName"			"item_exchange"
+	// 	"ItemCost"						"2000"
+	// 	"ItemIsNeutralDrop"				"0"
+	// 	"ItemShopTags"					""
+	// 	"ItemQuality"					""
+	// 	"ItemAliases"					""
+	// 	"ItemPurchasable"				"1"
+	// 	"ItemKillable"					"0"
+	// 	"ItemSellable"					"1"
+    //     "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+	// 	"ItemInitialStockTime"			"60"
+	// 	"ItemStockInitial"				"0"
+	// 	"ItemStockMax"					"5"
+	// 	"ItemStockTime"					"30"
+	// 	"AbilityValues"
+	// 	{
+	// 		"bonus_all_stats"		"0"
+	// 	}
+	// 	"Modifiers"
+	// 	{
+	// 		"modifier_item_exchange"
+	// 		{
+	// 			"Passive"				"1"
+	// 			"IsHidden"				"1"
+	// 			"RemoveOnDeath"			"0"
 
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"items/item_exchange"
-						"Function"			"OnDragonBallPicked"
-					}
-				}
-			}
-		}
-	}
+	// 			"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+	// 			"Properties"
+	// 			{
+	// 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+	// 				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+	// 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+	// 			}
+	// 			"OnCreated"
+	// 			{
+	// 				"RunScript"
+	// 				{
+	// 					"ScriptFile"		"items/item_exchange"
+	// 					"Function"			"OnDragonBallPicked"
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 
 	//=================================================================================================================
 	// 光暗行家阵列
@@ -4615,8 +4615,8 @@
 			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"20"	//5
 			"self_armor"				"20"	//5
-			"self_mres"					"30"	//20
-			"bonus_aoe_mres"			"30"	//20
+			"self_mres"					"40"	//20
+			"bonus_aoe_mres"			"40"	//20
 			"active_reflection_pct"		"40"	//40
 		}
 	}
@@ -4685,8 +4685,8 @@
 			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"20"	//5
 			"self_armor"				"20"	//5
-			"self_mres"					"30"	//20
-			"bonus_aoe_mres"			"30"	//20
+			"self_mres"					"40"	//20
+			"bonus_aoe_mres"			"40"	//20
 			"active_reflection_pct"		"40"	//40
 		}
 	}
@@ -4755,8 +4755,8 @@
 			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"20"	//5
 			"self_armor"				"20"	//5
-			"self_mres"					"30"	//20
-			"bonus_aoe_mres"			"30"	//20
+			"self_mres"					"40"	//20
+			"bonus_aoe_mres"			"40"	//20
 			"active_reflection_pct"		"60"	//40
 		}
 	}
@@ -4791,8 +4791,8 @@
 			"bonus_aoe_radius"			"1200"	//1200
 			"bonus_aoe_armor"			"20"	//5
 			"self_armor"				"20"	//5
-			"self_mres"					"30"	//20
-			"bonus_aoe_mres"			"30"	//20
+			"self_mres"					"40"	//20
+			"bonus_aoe_mres"			"40"	//20
 			"active_reflection_pct"		"60"	//40
 		}
 	}
