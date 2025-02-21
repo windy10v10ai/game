@@ -949,9 +949,8 @@
 	{
 		"AbilityValues"
 		{
-			"max_slow_res"				"200"	//100
-			"hero_reduction"			"-20"	//20
-			"hero_check_radius"			"600"	//300
+			"max_slow_res"				"100"	//100
+			"hero_reduction"			"0"	//20
 		}
 	}
 	"item_pirate_hat" //海盗帽
@@ -961,7 +960,7 @@
 			"gold_steal_base"			"450"	//150
 			"gold_steal_kill"			"450"	//150
 			"gold_steal_range"			"2400"	//1200
-			"gold_loss_reduction"		"150"	//100
+			"gold_loss_reduction"		"100"	//100
 		}
 	}
 

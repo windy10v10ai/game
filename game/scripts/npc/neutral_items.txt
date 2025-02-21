@@ -149,7 +149,7 @@
 				"item_minotaur_horn"				"1" //恶牛角
 				"item_spider_legs"					"1" //网虫腿
 				"item_panic_button"					"1" //神妙明灯
-				"item_unrelenting_eye"				"1" //不屈之眼
+				// "item_unrelenting_eye"			"1" //不屈之眼
 				"item_pirate_hat"					"1" //海盗帽
 			}
 
