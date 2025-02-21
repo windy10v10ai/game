@@ -2864,6 +2864,11 @@
 			{
 				"value"						"100 175 250 325"
 			}
+			"bonus_aoe_duration"
+			{
+				"value"							"0"
+				"special_bonus_facet_primal_beast_ferocity"	"+10"	// 20 削弱持续时间，防止无限叠BUFF
+			}
 			"bonus_damage_per_hit"				"20 40 60 80"
 		}
 	}
