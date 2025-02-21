@@ -4042,7 +4042,7 @@
 		"AbilityCastRange"				"1100"
 		"AbilityCastPoint"				"0.0"
 
-		"AbilityManaCost"				"400"
+		"AbilityManaCost"				"300"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -5656,15 +5656,15 @@
 				"bonus_agility"			"20"	//8
 				"bonus_strength"		"20"	//8
 				"bonus_intellect"		"20"	//8
-				"bonus_mana"			"500"	//300
+				"bonus_mana"			"600"	//300
 				"bonus_cast_range"		"300"	//250
 				"bonus_mana_regen"		"6"		//3
 				"blast_movement_slow"	"-90"	//-80
-				"duration"				"10"	//4
+				"duration"				"6"		//4
 				"blast_agility_multiplier"	"2.0"//1.5
-				"blast_damage_base"			"500"//50
+				"blast_damage_base"			"200"//50
 				"duration_ally"				"4"	//4.0
-				"ethereal_damage_bonus"	"-80"	//-40
+				"ethereal_damage_bonus"	"-60"	//-40
 				"projectile_speed"	"2000"		//1400
 		}
 	}
