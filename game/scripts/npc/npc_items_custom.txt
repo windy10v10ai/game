@@ -4057,24 +4057,22 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"60"
-				"bonus_attack_speed"	"120"
-				"chain_chance"			"35"
-				"chain_damage"			"360"
-				"chain_strikes"			"12"
-				"chain_radius"			"750"
-				"chain_delay"			"0.15"
-				"chain_cooldown"		"0.1"
-				"bonus_intellect"		"30"
-				"bonus_hp"				"600"
-				"duration"				"2.0"
-				"radius"
-				{
-					"value"		"450"
-					"affected_by_aoe_increase"	"1"
-				}
-				"active_damage"			"450"
-				"illusion_multiplier_pct"	"150"
+			"bonus_aoe"					"75"			// If changing this, change radius_tooltip
+			"bonus_hp"					"900"			// 450
+			"bonus_intellect"			"30"			// 15
+			"bonus_mana"				"400"			// 200
+			"radius"
+			{
+				"value"						"375"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
+				"affected_by_aoe_increase"	"1"
+			}
+			"radius_tooltip"
+			{
+				"value"						"450"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
+				"affected_by_aoe_increase"	"1"
+			}
+			"active_damage"			"450"
+			"duration"				"2.0"
 		}
 	}
 
