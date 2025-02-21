@@ -211,56 +211,6 @@
 				"tp_cooldown"			"30" // cd与回城卷轴同步
 		}
 	}
-	"item_tier1_token"
-	{
-		"ItemCost"						"1000"
-		"ItemInitialStockTime"			"180"
-		"ItemStockInitial"				"0"
-		"ItemStockMax"					"5"
-		"ItemStockTime"					"120"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-	}
-	"item_tier2_token"
-	{
-		"ItemCost"						"2000"
-		"ItemInitialStockTime"			"540"
-		"ItemStockInitial"				"0"
-		"ItemStockMax"					"5"
-		"ItemStockTime"					"120"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-	}
-	"item_tier3_token"
-	{
-		"ItemCost"						"3000"
-		"ItemInitialStockTime"			"900"
-		"ItemStockInitial"				"0"
-		"ItemStockMax"					"5"
-		"ItemStockTime"					"120"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-	}
-	"item_tier4_token"
-	{
-		"ItemCost"						"4000"
-		"ItemInitialStockTime"			"1260"
-		"ItemStockInitial"				"0"
-		"ItemStockMax"					"5"
-		"ItemStockTime"					"120"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-	}
-	"item_tier5_token"
-	{
-		"ItemCost"						"5000"
-		"ItemInitialStockTime"			"1620"
-		"ItemStockInitial"				"0"
-		"ItemStockMax"					"5"
-		"ItemStockTime"					"120"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"0"
-	}
 	// 肉山的战旗 旗帜
 	"item_roshans_banner"
 	{
