@@ -736,56 +736,56 @@
 	//=================================================================================================================
 	// Recipe: Dagon 大根 红杖
 	//=================================================================================================================
-	"item_recipe_dagon"
-	{
-		"ItemCost"						"2100"
-		"ItemShopTags"					""
-	}
-	"item_dagon"
-	{
-		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilityValues"
-		{
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"160 240 320 400 480"
-		}
-	}
-	"item_dagon_2"
-	{
-		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilityValues"
-		{
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"160 240 320 400 480"
-		}
-	}
-	"item_dagon_3"
-	{
-		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilityValues"
-		{
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"160 240 320 400 480"
-		}
-	}
-	"item_dagon_4"
-	{
-		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilityValues"
-		{
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"160 240 320 400 480"
-		}
-	}
-	"item_dagon_5"
-	{
-		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilityValues"
-		{
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"160 240 320 400 480"
-		}
-	}
+	// "item_recipe_dagon"
+	// {
+	// 	"ItemCost"						"2100"
+	// 	"ItemShopTags"					""
+	// }
+	// "item_dagon"
+	// {
+	// 	"AbilityManaCost"				"160 240 320 400 480"
+	// 	"AbilityValues"
+	// 	{
+	// 		"damage"				"600 750 900 1050 1200"
+	// 		"mana_cost_tooltip"		"160 240 320 400 480"
+	// 	}
+	// }
+	// "item_dagon_2"
+	// {
+	// 	"AbilityManaCost"				"160 240 320 400 480"
+	// 	"AbilityValues"
+	// 	{
+	// 		"damage"				"600 750 900 1050 1200"
+	// 		"mana_cost_tooltip"		"160 240 320 400 480"
+	// 	}
+	// }
+	// "item_dagon_3"
+	// {
+	// 	"AbilityManaCost"				"160 240 320 400 480"
+	// 	"AbilityValues"
+	// 	{
+	// 		"damage"				"600 750 900 1050 1200"
+	// 		"mana_cost_tooltip"		"160 240 320 400 480"
+	// 	}
+	// }
+	// "item_dagon_4"
+	// {
+	// 	"AbilityManaCost"				"160 240 320 400 480"
+	// 	"AbilityValues"
+	// 	{
+	// 		"damage"				"600 750 900 1050 1200"
+	// 		"mana_cost_tooltip"		"160 240 320 400 480"
+	// 	}
+	// }
+	// "item_dagon_5"
+	// {
+	// 	"AbilityManaCost"				"160 240 320 400 480"
+	// 	"AbilityValues"
+	// 	{
+	// 		"damage"				"600 750 900 1050 1200"
+	// 		"mana_cost_tooltip"		"160 240 320 400 480"
+	// 	}
+	// }
 
 	// 长盾
 	"item_pavise"

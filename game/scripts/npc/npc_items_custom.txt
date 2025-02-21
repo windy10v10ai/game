@@ -4010,7 +4010,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1550"
+		"ItemCost"						"1600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4019,7 +4019,7 @@
 		"ItemResult"					"item_gungir_2"
 		"ItemRequirements"
 		{
-			"01"						"item_gungir;item_mjollnir"
+			"01"						"item_gungir;item_dagon_5"
 		}
 	}
 	"item_gungir_2"
@@ -4038,15 +4038,15 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"18"
-		"AbilityCastRange"				"1100"
+		"AbilityCooldown"				"27"
+		"AbilityCastRange"				"1000"	// 1100
 		"AbilityCastPoint"				"0.0"
 
-		"AbilityManaCost"				"300"
+		"AbilityManaCost"				"600"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"12600"
+		"ItemCost"						"13600"
 		"ItemShopTags"					"damage;attack_speed;unique"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"gleipnir;gliepnir;glaypnir"
@@ -4063,15 +4063,19 @@
 			"bonus_mana"				"400"			// 200
 			"radius"
 			{
-				"value"						"375"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
+				"value"						"325"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
 				"affected_by_aoe_increase"	"1"
 			}
 			"radius_tooltip"
 			{
-				"value"						"450"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
+				"value"						"400"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
 				"affected_by_aoe_increase"	"1"
 			}
-			"active_damage"			"450"
+			"active_damage"
+			{
+				"value"							"800"
+				"CalculateSpellDamageTooltip"	"1"
+			}
 			"duration"				"2.0"
 		}
 	}
