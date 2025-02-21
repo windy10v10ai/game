@@ -5590,7 +5590,7 @@
 				"bonus_all_stats"			"15"	//5
 				"disarm_range"				"10.0"	//4
 				"disarm_melee"				"6.0"	//3
-				"block_chance"				"100"	//60
+				"block_chance"				"90"	//60
 				"block_damage_melee"		"120"	//60
 				"block_damage_ranged"		"60"	//30
 		}
