@@ -23,6 +23,7 @@ local function addTome(k, v)
   -- N6替换
   if AIGameMode.fBotGoldXpMultiplier >= 10 then
     -- 秘术铠甲(群体刃甲)
+    -- FIXME 等待物品实装
     -- replaceItem(v, "item_blade_mail_2", "item_force_field_common")
 
     -- 诅咒圣剑
