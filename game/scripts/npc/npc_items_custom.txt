@@ -270,7 +270,7 @@
 		"AbilityValues"
 		{
 			"radius"				"900"
-			"duration_minutes"		"7"
+			"duration_minutes"		"9"
 		}
 	}
 	//=================================================================================================================
@@ -867,7 +867,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5800"
+		"ItemCost"						"8800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4646,10 +4646,10 @@
 		"ItemPurchasable"				"1"
 		"ItemStackable"					"1"
 		"ItemSellable"					"0"
-		"ItemInitialCharges"			"3"
+		"ItemInitialCharges"			"2"
 		"ItemPermanent"					"0"
 		"ItemStockInitial"				"1"
-		"ItemStockMax"					"3"
+		"ItemStockMax"					"2"
 		"ItemStockTime"					"120.0"
 		"IsTempestDoubleClonable"		"0"
 
@@ -4897,15 +4897,13 @@
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"7200"
+		"ItemCost"						"6200"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra"
 		"ItemRequirements"
 		{
-			"01"						"item_excalibur;item_light_part;item_dark_part"
-			"02"						"item_excalibur;item_dark_part;item_dark_part"
-			"03"						"item_excalibur;item_light_part;item_light_part"
+			"01"						"item_excalibur;item_dark_part"
 		}
 	}
 
@@ -4964,15 +4962,13 @@
 		"ID"							"9597"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"2000"
+		"ItemCost"						"8000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra_bot"
 		"ItemRequirements"
 		{
-			"01"						"item_rapier_ultra;item_light_part;item_dark_part"
-			"02"						"item_rapier_ultra;item_dark_part;item_dark_part"
-			"03"						"item_rapier_ultra;item_light_part;item_light_part"
+			"01"						"item_rapier_ultra;item_light_part"
 		}
 	}
 	"item_rapier_ultra_bot"
