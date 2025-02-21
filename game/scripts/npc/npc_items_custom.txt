@@ -3813,7 +3813,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1000"
+		"ItemCost"						"1100"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3822,7 +3822,7 @@
 		"ItemResult"					"item_shotgun"
 		"ItemRequirements"
 		{
-			"01"						"item_mithril_hammer;item_blitz_knuckles;item_blitz_knuckles"
+			"01"						"item_mithril_hammer;item_blitz_knuckles;item_javelin"
 		}
 	}
 	//=================================================================================================================
@@ -3841,7 +3841,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"7000"
+		"ItemCost"						"4600"
 		"ItemShopTags"					"damage;attack_speed"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"shotgun;double barrel;double-barrel"
@@ -3853,8 +3853,8 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"25" 	// tooltip, real value in modifier_item_shotgun_stats
-				"attack_speed"			"70" 	// tooltip, real value in modifier_item_shotgun_stats
-				"attack_radius"			"200"
+				"attack_speed"			"40" 	// tooltip, real value in modifier_item_shotgun_stats
+				"attack_radius"			"300"
 				"attack_percent"		"30"
 		}
 	}
@@ -3873,7 +3873,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1650"
+		"ItemCost"						"0"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3882,7 +3882,7 @@
 		"ItemResult"					"item_shotgun_v2"
 		"ItemRequirements"
 		{
-			"01"						"item_shotgun;item_maelstrom"
+			"01"						"item_shotgun;item_mjollnir"
 		}
 	}
 	// =================================================================================================================
@@ -3897,7 +3897,7 @@
 		"AbilityTextureName" 			"shotgun_v2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_shotgun_v2"
+		"ScriptFile"					"items/item_shotgun_v2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3913,9 +3913,9 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"50" 	// tooltip, real value in modifier_item_shotgun_v2_stats
-				"attack_speed"			"70" 	// tooltip, real value in modifier_item_shotgun_v2_stats
-				"attack_radius"			"200"
-				"attack_percent"		"50"
+				"attack_speed"			"130" 	// tooltip, real value in modifier_item_shotgun_v2_stats
+				"attack_radius"			"300"
+				"attack_percent"		"60"
 		}
 	}
 
