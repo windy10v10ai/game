@@ -2226,10 +2226,6 @@
 		"DOTA_Tooltip_Ability_item_dark_part_Lore"				"在夜间击杀肉山和中立生物时，有几率随机掉落。"
 		"DOTA_Tooltip_Ability_item_dark_part_bonus_spell_amp"	"%+$spell_amp"
 
-		// // item_exchange 光暗装备转换器
-		// "DOTA_Tooltip_Ability_item_exchange"				"光暗装备的中立转换器"
-		// "DOTA_Tooltip_ability_item_exchange_Description"	"光暗装备的中立转换器，可以将光暗装备转为中立装备，使之能够装备在中立装备栏。"
-
 		// item_armlet_light 圣光·臂章
 		"DOTA_Tooltip_ability_item_armlet_light"				"<font color='#FFFF00'>圣光·臂章</font>"
 		"DOTA_Tooltip_ability_item_armlet_light_Description"							"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量、+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"

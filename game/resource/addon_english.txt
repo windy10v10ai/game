@@ -2220,10 +2220,6 @@
 		"DOTA_Tooltip_Ability_item_dark_part_Lore"				"Drops randomly when killing Roshan and neutral creeps during the night."
 		"DOTA_Tooltip_Ability_item_dark_part_bonus_spell_amp"	"%+$spell_amp"
 
-		// // item_exchange 光暗装备转换器
-		// "DOTA_Tooltip_Ability_item_exchange"				"Light/Dark Neutral Converter"
-		// "DOTA_Tooltip_ability_item_exchange_Description"	"Item converter for light and dark equipment, allowing them to be equipped in the neutral equipment slot."
-
 		// item_armlet_light 圣光·臂章
 		"DOTA_Tooltip_ability_item_armlet_light"				"<font color='#FFFF00'>Light</font> Armlet of Mordiggian"
 		"DOTA_Tooltip_ability_item_armlet_light_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."

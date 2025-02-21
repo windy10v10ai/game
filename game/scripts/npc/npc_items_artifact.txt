@@ -726,57 +726,6 @@
 		}
 	}
 
-	//中立转换器
-	// "item_exchange"
-	// {
-	// 	"BaseClass"						"item_datadriven"
-	// 	"ID"							"10998"
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	// 	"AbilityTextureName"			"item_exchange"
-	// 	"ItemCost"						"2000"
-	// 	"ItemIsNeutralDrop"				"0"
-	// 	"ItemShopTags"					""
-	// 	"ItemQuality"					""
-	// 	"ItemAliases"					""
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemKillable"					"0"
-	// 	"ItemSellable"					"1"
-    //     "ItemShareability"				"ITEM_FULLY_SHAREABLE"
-	// 	"ItemInitialStockTime"			"60"
-	// 	"ItemStockInitial"				"0"
-	// 	"ItemStockMax"					"5"
-	// 	"ItemStockTime"					"30"
-	// 	"AbilityValues"
-	// 	{
-	// 		"bonus_all_stats"		"0"
-	// 	}
-	// 	"Modifiers"
-	// 	{
-	// 		"modifier_item_exchange"
-	// 		{
-	// 			"Passive"				"1"
-	// 			"IsHidden"				"1"
-	// 			"RemoveOnDeath"			"0"
-
-	// 			"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-	// 			"Properties"
-	// 			{
-	// 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
-	// 				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
-	// 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
-	// 			}
-	// 			"OnCreated"
-	// 			{
-	// 				"RunScript"
-	// 				{
-	// 					"ScriptFile"		"items/item_exchange"
-	// 					"Function"			"OnDragonBallPicked"
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
-
 	// 光暗臂章
 	"item_recipe_armlet_light"
 	{
