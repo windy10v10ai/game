@@ -1,4 +1,5 @@
 #base "npc_items_override.txt"
+#base "npc_items_override_neutral.txt"
 #base "npc_abilities_creep.txt"
 
 "DOTAAbilities"
@@ -338,7 +339,7 @@
 			{
 				"value"								"90 80 70 60"
 			}
-			"hp_threshold"							"600 1200 1800 2400"
+			"hp_threshold"							"600 1500 3000 5000"
 			"duration"								"3.5 4.0 4.5 5.0"
 			"duration_scepter"
 			{
@@ -2863,6 +2864,11 @@
 			{
 				"value"						"100 175 250 325"
 			}
+			"bonus_aoe_duration"
+			{
+				"value"							"0"
+				"special_bonus_facet_primal_beast_ferocity"	"+10"	// 20 削弱持续时间，防止无限叠BUFF
+			}
 			"bonus_damage_per_hit"				"20 40 60 80"
 		}
 	}
@@ -3990,18 +3996,12 @@
 	// 山崩
 	"tiny_avalanche"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"22 20 18 16 14"
-		"AbilityManaCost"				"95 110 125 140 155"
+		// 最大4级，之后技能特效无法正常显示
 		"AbilityValues"
 		{
-				"radius"
-				{
-					"value"			"325 340 355 370 385"
-				}
 				"avalanche_damage"
 				{
-					"value"				"160 240 320 400 480"	// 80 160 240 320 加强法系
+					"value"				"160 240 320 400"		// 80 160 240 320 加强法系
 					"special_bonus_unique_tiny"			"+120"	// 70
 				}
 		}
@@ -4101,6 +4101,15 @@
 		"AbilityValues"
 		{
 			"damage_reduction_per_stack"					"2 3 4 5 6"
+		}
+	}
+	// 不可逾越 先天技能
+	"tiny_insurmountable"
+	{
+		"AbilityValues"
+		{
+			"str_to_slow_resist_pct"			"12"	// 20
+			"str_to_status_resist_pct"			"8"		// 10
 		}
 	}
 	//=================================================================================================================
@@ -5233,7 +5242,7 @@
 				"bonus_attack_speed"
 				{
 					"value" "40"
-					"special_bonus_unique_faceless_void" "+120"
+					"special_bonus_unique_faceless_void" "+160"
 				}
 		}
 	}
@@ -5242,20 +5251,19 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.1"	// 0.35
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"120"
 		"AbilityManaCost"				"150 225 300 375"
 		"AbilityValues"
 		{
 			"radius"
 			{
-				"value"		"1800"	// 900
+				"value"		"1500"	// 700
 				"affected_by_aoe_increase"	"1"
 				"special_bonus_unique_faceless_void_2" "+400"
 			}
 			"duration"
 			{
-				"value"			"5 6 7 8"
+				"duration"				"3.75 4.25 4.75 5.25"
 			}
 			"vision_radius"
 			{
@@ -5264,24 +5272,24 @@
 			}
 			"bonus_attack_speed"
 			{
-				"value" "70 110 150 190"
+				"value" "40"
 				"special_bonus_unique_faceless_void" "+160"
 			}
 			"bonus_move_speed"
 			{
-				"value" "60 90 120 150"
+				"value" "60 70 80 90"
 			}
 			"bonus_cast_speed"
 			{
-				"value" "40 60 80 100"
+				"value" "60 70 80 90"
 			}
 			"bonus_turn_speed"
 			{
-				"value" "40 60 80 100"
+				"value" "60 70 80 90"
 			}
 			"bonus_projectile_speed"
 			{
-				"value" "50 60 70 80"
+				"value" "40 50 60 70"
 			}
 		}
 	}
@@ -10628,7 +10636,7 @@
 			"tower_scale"
 			{
 				"value"			"0"
-				"special_bonus_facet_pugna_rewards_of_ruin"		"12"	// 1.25
+				"special_bonus_facet_pugna_rewards_of_ruin"		"10"	// 1.25
 			}
 		}
 	}
@@ -10817,6 +10825,18 @@
 				"value"						"0"
 				"special_bonus_facet_rubick_frugal_filch"	"15 30 45 60"
 			}
+		}
+	}
+	// 力量与魔法 先天技能
+	"rubick_might_and_magus"
+	{
+		"AbilityValues"
+		{
+			"one_tooltip"					"1"
+			"bonus_damage_pct"				"50"		// 75
+			"bonus_damage_pct_tooltip"		"0.5"		// 0.75
+			"magic_resist_pct"				"50"		// 75
+			"magic_resist_pct_tooltip"		"0.5"		// 0.75
 		}
 	}
 	//=================================================================================================================

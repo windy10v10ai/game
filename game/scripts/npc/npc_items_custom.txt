@@ -5556,7 +5556,7 @@
 	"item_recipe_heavens_halberd_2"
 	{
 		"BaseClass"						"item_recipe_heavens_halberd"
-		"ItemCost"						"3000"
+		"ItemCost"						"2500"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_heavens_halberd_2"
 		"ItemRequirements"
@@ -5585,12 +5585,14 @@
 		"AbilityTextureName"			"heavens_halberd_2"
 		"AbilityValues"
 		{
-				"bonus_evasion"				"60"	//25
-				"bonus_strength"			"60"	//20
-				"disarm_range"				"10.0"	//5
+				"bonus_health"				"600"	//275
+				"bonus_health_regen"		"20"	//6
+				"bonus_all_stats"			"15"	//5
+				"disarm_range"				"10.0"	//4
 				"disarm_melee"				"6.0"	//3
-				"slow_resistance"			"60"	//25
-				"hp_regen_amp"				"60"	//25
+				"block_chance"				"90"	//60
+				"block_damage_melee"		"120"	//60
+				"block_damage_ranged"		"60"	//30
 		}
 	}
 	//=================================================================================================================

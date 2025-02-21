@@ -14,3 +14,5 @@ Pull Type从进到远
 - 修改内容
   - Camp Type: Ancient
   - Pull Type: Normal -> Just Enough
+
+<!-- TODO 更新7.38地图 -->

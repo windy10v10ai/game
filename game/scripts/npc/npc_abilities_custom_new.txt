@@ -3,11 +3,12 @@
 	//幽鬼 折射 旧版
 	"spectre_dispersion2"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/spectre_dispersion2"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/spectre_dispersion2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"    		"spectre_dispersion"
+		"AbilityTextureName"			"spectre_dispersion"
 		"MaxLevel"						"5"
+		"HasShardUpgrade"				"1"
 
 		"precache"
 		{
@@ -15,16 +16,25 @@
 		}
 		"AbilityValues"
 		{
-			"reflexion_chance"	"14 16 18 20 22"
+			"reflexion_chance"
+			{
+				"value"		"14 16 18 20 22"
+				"special_bonus_unique_spectre_5"		"+5"
+			}
 			"damage_pct"		"60 70 80 90 100"
+			"damage_reduction"
+			{
+				"value"				"0"
+				"special_bonus_shard"				"+10"
+			}
 		}
 	}
 	//贪婪
 	"alchemist_goblins_greed2"
 	{
-		"BaseClass"                     "alchemist_goblins_greed"
+		"BaseClass"						"alchemist_goblins_greed"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"    		"alchemist_goblins_greed"
+		"AbilityTextureName"			"alchemist_goblins_greed"
 		"Innate"						"0"
 		"MaxLevel"						"5"
 
@@ -43,7 +53,7 @@
 	"dark_seer_normal_punch2"
 	{
 		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/dark_seer_normal_punch2"
+		"ScriptFile"					"abilities/dark_seer_normal_punch2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
 		"IsGrantedByScepter"			"0"
