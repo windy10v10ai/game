@@ -98,7 +98,7 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_jump_jump_jump',
 		'item_shivas_guard_2', -- 雅典娜之守护
-		'item_paladin_sword_ai',
+		'item_paladin_sword_ai', -- 换其他回血或减伤
 	},
 	npc_dota_hero_bane = {
 		'item_magic_wand',
@@ -190,7 +190,7 @@ tBotItemData.purchaseItemList = {
 		'item_undying_heart',
 		-- 'item_bloodstone',
 		'item_moon_shard_datadriven',
-		'item_paladin_sword_ai',
+		'item_paladin_sword_ai', -- 换其他回血或减伤
 	},
 	npc_dota_hero_chaos_knight = {
 		'item_magic_wand',
@@ -315,8 +315,8 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_callous',
 		'item_jump_jump_jump',
 		'item_excalibur',
-		'item_paladin_sword_ai',
-		'item_defiant_shell_ai',
+		'item_paladin_sword_ai', -- 换撒旦
+		'item_defiant_shell_ai', -- 换看情况
 	},
 	npc_dota_hero_drow_ranger = {
 		'item_magic_wand',
@@ -339,7 +339,7 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_despotic',
 		-- 'item_satanic_2',
 		'item_excalibur',
-		'item_paladin_sword_ai',
+		'item_paladin_sword_ai', -- 换撒旦
 		'item_apex_light',
 	},
 	npc_dota_hero_earthshaker = {
@@ -410,7 +410,7 @@ tBotItemData.purchaseItemList = {
 		'item_blue_fantasy', -- 苍蓝幻想
 		'item_abyssal_blade_v2',
 		'item_moon_shard_datadriven',
-		'item_seer_stone_ai',
+		'item_seer_stone_ai', -- 换施法距离装备
 		'item_jump_jump_jump',
 		'item_excalibur',
 	},
@@ -534,7 +534,7 @@ tBotItemData.purchaseItemList = {
 		'item_skadi_2',      -- 大冰眼
 		'item_wasp_despotic',
 		-- 'item_satanic_2',
-		'item_paladin_sword_ai',
+		'item_paladin_sword_ai', -- 换撒旦
 		'item_excalibur',
 		'item_apex_light',
 	},
@@ -551,9 +551,9 @@ tBotItemData.purchaseItemList = {
 		'item_hurricane_pike_2',
 		'item_wasp_callous',
 		'item_ultimate_scepter_2',
-		'item_skadi_2', -- 大冰眼
+		'item_skadi_2',   -- 大冰眼
 		'item_black_king_bar_2',
-		'item_mind_breaker_ai',
+		'item_mind_breaker_ai', -- 换类似智灭恶心人装备
 		'item_wasp_despotic',
 		'item_excalibur',
 		'item_refresh_core',
@@ -598,7 +598,7 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_callous',
 		'item_wasp_despotic',
 		'item_excalibur',
-		'item_paladin_sword_ai',
+		'item_paladin_sword_ai', -- 换撒旦
 	},
 	npc_dota_hero_necrolyte = {
 		'item_magic_wand',
@@ -622,7 +622,7 @@ tBotItemData.purchaseItemList = {
 		'item_recipe_refresh_core',
 		'item_necronomicon_staff',
 		-- 'item_sacred_six_vein',
-		'item_paladin_sword_ai',
+		'item_paladin_sword_ai', -- 换法术吸血
 	},
 	npc_dota_hero_ogre_magi = {
 		'item_magic_wand',
@@ -711,7 +711,7 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_abyssal_blade_v2',
 		-- 'item_satanic_2',
-		'item_paladin_sword_ai',
+		'item_paladin_sword_ai', -- 换撒旦
 		'item_excalibur',
 		'item_refresh_core',
 	},
@@ -786,7 +786,7 @@ tBotItemData.purchaseItemList = {
 		'item_abyssal_blade_v2',
 		-- 'item_satanic_2',
 		'item_excalibur',
-		'item_paladin_sword_ai',
+		'item_paladin_sword_ai', -- 换撒旦
 		'item_refresh_core',
 	},
 	npc_dota_hero_shadow_shaman = {
@@ -883,7 +883,7 @@ tBotItemData.purchaseItemList = {
 		'item_angels_demise',
 		'item_shotgun_v2',
 		'item_excalibur',
-		'item_paladin_sword_ai',
+		'item_paladin_sword_ai', -- 换撒旦
 	},
 	npc_dota_hero_sven = {
 		'item_magic_wand',
@@ -959,7 +959,7 @@ tBotItemData.purchaseItemList = {
 		'item_necronomicon_staff',
 		'item_angels_demise', -- 绝刃
 		'item_hallowed_scepter',
-		'item_seer_stone_ai',
+		'item_seer_stone_ai', -- 换其他施法距离
 		'item_blue_fantasy', -- 苍蓝幻想
 	},
 	npc_dota_hero_tiny = {
@@ -1025,7 +1025,7 @@ tBotItemData.purchaseItemList = {
 		'item_wasp_despotic',
 		'item_excalibur',
 		'item_refresh_core',
-		'item_apex_ai',
+		'item_apex_ai', -- 换其他属性或功能
 	},
 	npc_dota_hero_warlock = {
 		'item_magic_wand',
@@ -1221,7 +1221,7 @@ tBotItemData.sellItemList = {
 	npc_dota_hero_medusa = {
 		'item_mask_of_madness',
 		'item_hurricane_pike_2',
-		'item_mind_breaker_ai',
+		'item_mind_breaker_ai', -- 美杜莎的智灭卖掉
 	},
 	npc_dota_hero_meepo = {
 		'item_wraith_band',

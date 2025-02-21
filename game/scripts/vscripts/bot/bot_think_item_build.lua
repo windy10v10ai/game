@@ -22,8 +22,8 @@ end
 local function addTome(k, v)
   -- N6替换
   if AIGameMode.fBotGoldXpMultiplier >= 10 then
-    -- 光暗·秘术铠甲
-    replaceItem(v, "item_blade_mail_2", "item_force_field_ai")
+    -- 秘术铠甲(群体刃甲)
+    replaceItem(v, "item_blade_mail_2", "item_force_field_common")
 
     -- 诅咒圣剑
     replaceItem(v, "item_excalibur", "item_rapier_ultra_bot_1")
