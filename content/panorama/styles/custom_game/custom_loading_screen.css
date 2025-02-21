@@ -16,7 +16,7 @@
 }
 
 #game_options_container {
-  width: 400px;
+  width: 450px;
   height: 76%;
   background-color: gradient(
     linear,
@@ -104,7 +104,7 @@
 
 #ChatHideButtonContainer {
   height: 32px;
-  width: 200px;
+  width: 260px;
   vertical-align: bottom;
   margin-bottom: 20px;
 }
@@ -154,7 +154,7 @@
 
 #display_options_container {
   margin-top: 20px;
-  margin-left: 400px;
+  margin-left: 450px;
   padding-left: 20px;
   height: 200px;
   flow-children: right;

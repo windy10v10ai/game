@@ -55,6 +55,13 @@ export class Debug {
         hero.AddAbility(abilityName);
       });
     }
+    if (cmd === CMD.RM_ITEM) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const itemName = args[0];
+      const item = hero.FindItemInInventory(itemName);
+      UTIL_RemoveImmediate(item);
+    }
 
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
@@ -83,8 +90,8 @@ export class Debug {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
       // 获得金钱经验技能升满
-      hero.SetGold(99999, false);
-      hero.AddExperience(100000, ModifyXpReason.UNSPECIFIED, false, true);
+      hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
+      hero.AddExperience(99999, ModifyXpReason.UNSPECIFIED, false, true);
       // refresh teleport
       hero.GetItemInSlot(15)?.EndCooldown();
     }
@@ -95,8 +102,8 @@ export class Debug {
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
         if (!hero) return;
         // 获得金钱经验技能升满
-        hero.SetGold(40000, false);
-        hero.AddExperience(40000, ModifyXpReason.UNSPECIFIED, false, true);
+        hero.ModifyGold(50000, false, ModifyGoldReason.UNSPECIFIED);
+        hero.AddExperience(50000, ModifyXpReason.UNSPECIFIED, false, true);
       });
     }
 
