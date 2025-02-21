@@ -5642,11 +5642,11 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"FightRecapLevel"				"1"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityCastRange"				"1000"	//800
+		"AbilityCastRange"				"900"	//800
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"12.0"	//22
+		"AbilityCooldown"				"16.0"	//22
 		"AbilitySharedCooldown"			"ethereal"
-		"AbilityManaCost"				"500"	//100
+		"AbilityManaCost"				"400"	//100
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
