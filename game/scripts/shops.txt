@@ -181,16 +181,15 @@
 		"item"		"item_witch_blade"			// 巫师之刃
 		"item"		"item_wind_waker"			// 风之杖
 		"item"		"item_rod_of_atos"			// 阿托斯之棒
-		"item"		"item_dagon_5"
+		"item"		"item_dagon_5"				// 达贡之神力
 		"item"		"item_orchid"				// 紫怨
  		"item"		"item_phylactery"			// 灵匣
-		"item"		"item_ultimate_scepter_2"	// 阿哈利姆神杖
-		"item"		"item_arcane_octarine_core"
+		"item"		"item_ultimate_scepter_2"	// 真·阿哈利姆神杖
+		"item"		"item_gungir_2"				// 风暴之锤
+		"item"		"item_arcane_octarine_core"	// 奥术之心
 		"item"		"item_refresh_core"			// 刷新球
-		// "item"		"item_sheepstick"
-		"item"		"item_gungir_2"
-		"item"		"item_hallowed_scepter"
-		"item"		"item_necronomicon_staff"
+		"item"		"item_hallowed_scepter"		// 仙云法杖
+		"item"		"item_necronomicon_staff"	// 死灵法杖
 	}
 
 	// Level 4 - Purple Recipes 防具
