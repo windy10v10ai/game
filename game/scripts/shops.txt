@@ -45,7 +45,6 @@
 		"item"		"item_diadem"
 		"item"		"item_light_part"					// 圣光组件
 		"item"		"item_dark_part"					// 暗影组件
-		"item"		"item_exchange"						// 中立转换器
 	}
 	// 装备
 	"weapons_armor"
@@ -147,12 +146,6 @@
 		"item"		"item_radar_of_dragon"
 		"item"		"item_recipe_greater_famango"
 		"item"		"item_mysterious_hat_unrefined"	// 仙灵次品
-
-		"item"		"item_tier1_token"
-		"item"		"item_tier2_token"
-		"item"		"item_tier3_token"
-		"item"		"item_tier4_token"
-		"item"		"item_tier5_token"
 	}
 
 	// ------------------------------------------
