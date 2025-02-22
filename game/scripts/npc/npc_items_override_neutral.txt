@@ -4,7 +4,8 @@
 	// Custom item Override 中立物品
 	//=================================================================================================================
 	// level 1
-	"item_trusty_shovel" //可靠铁铲
+	//可靠铁铲
+	"item_trusty_shovel"
 	{
 		"AbilityCooldown"				"30.0"	//60
 
@@ -16,7 +17,8 @@
 			"kobold_duration"		"40"		//60
 		}
 	}
-	"item_occult_bracelet" //玄奥手镯
+	//玄奥手镯
+	"item_occult_bracelet"
 	{
 		"AbilityValues"
 		{
@@ -25,7 +27,8 @@
 			"stack_duration"			"10"	//5
 		}
 	}
-	"item_unstable_wand" //豚杆
+	//豚杆
+	"item_unstable_wand"
 	{
 		"AbilityCooldown"				"12.5"	//25
 		"AbilityValues"
@@ -34,10 +37,11 @@
 				"active_movespeed_pct"	"30"	// 15
 		}
 	}
-	"item_mana_draught" //魔力药水
+	//魔力药水
+	"item_mana_draught"
 	{
 		"AbilityCooldown"				"20" //40
-		"AbilityCastRange"				"0" //650，0=无限
+		"AbilityCastRange"				"1200" //650，0=无限
 		"AbilityValues"
 		{
 			"mana_restore"				"180" //60
@@ -46,7 +50,8 @@
 			"water_acceleration"		"100" //30
 		}
 	}
-	"item_polliwog_charm" //蝌蚪护符
+	//蝌蚪护符
+	"item_polliwog_charm"
 	{
 		"AbilityCooldown"				"25" //45
 		"AbilityManaCost"				"40" //40
@@ -58,7 +63,8 @@
 			"duration"					"10" //10
 		}
 	}
-	"item_spark_of_courage" //勇气之光
+	//勇气之光
+	"item_spark_of_courage"
 	{
 		"AbilityValues"
 		{
@@ -67,7 +73,8 @@
 			"health_pct"		"50"  //50
 		}
 	}
-	"item_rippers_lash" //撕裂之鞭
+	//撕裂之鞭
+	"item_rippers_lash"
 	{
 		"AbilityCooldown"				"15" //30
 		"AbilityCastRange"				"0" //700
@@ -79,7 +86,8 @@
 			"duration"					"8" //10
 		}
 	}
-	"item_orb_of_destruction" //毁灭灵球
+	//毁灭灵球
+	"item_orb_of_destruction"
 	{
 		"AbilityValues"
 		{
@@ -91,7 +99,8 @@
 	}
 
 	//other
-	"item_arcane_ring" //小秘法 奥术指环
+	//小秘法 奥术指环
+	"item_arcane_ring"
 	{
 		"AbilityCooldown"				"30.0"	//60
 		"AbilityValues"
@@ -101,7 +110,8 @@
 				"mana_restore"			"250"	//65
 		}
 	}
-	"item_mysterious_hat" //仙灵饰品
+	//仙灵饰品
+	"item_mysterious_hat"
 	{
 		"AbilityValues"
 		{
@@ -110,7 +120,8 @@
 				"manacost_reduction"	"10"			// 5
 		}
 	}
-	"item_safety_bubble" //安全泡泡
+	//安全泡泡
+	"item_safety_bubble"
 	{
 		"AbilityValues"
 		{
@@ -119,7 +130,8 @@
 			"bonus_hp_regen"	"5" 	//2
 		}
 	}
-	"item_seeds_of_serenity" //宁静种籽
+	//宁静种籽
+	"item_seeds_of_serenity"
 	{
 		"AbilityCooldown"				"25.0"	//35
 		"AbilityCastRange"				"700"	//350
@@ -136,7 +148,8 @@
 			"duration"					"10"	//14
 		}
 	}
-	"item_lance_of_pursuit" //追击矛
+	//追击矛
+	"item_lance_of_pursuit"
 	{
 		"AbilityValues"
 		{
@@ -149,7 +162,8 @@
 				"slow_pct_ranged"		"16"   //8
 		}
 	}
-	"item_duelist_gloves" //决斗家手套
+	//决斗家手套
+	"item_duelist_gloves"
 	{
 		"AbilityValues"
 		{
@@ -157,7 +171,8 @@
 			"bonus_damage"			"36"   //12
 		}
 	}
-	"item_broom_handle" //扫帚柄
+	//扫帚柄
+	"item_broom_handle"
 	{
 		"AbilityValues"
 		{
@@ -166,7 +181,8 @@
 				"bonus_armor"		"8" //4
 		}
 	}
-	"item_royal_jelly" //蜂王浆
+	//蜂王浆
+	"item_royal_jelly"
 	{
 		"AbilityCastRange"				"1500" //300
 		"AbilityChargeRestoreTime"		"4"    //8
@@ -181,7 +197,8 @@
 				"regen_duration"		"8"  //8
 		}
 	}
-	"item_faded_broach" //暗淡胸针
+	//暗淡胸针
+	"item_faded_broach"
 	{
 		"AbilityValues"
 		{
@@ -189,7 +206,8 @@
 				"bonus_movement_speed"	"45"   //15
 		}
 	}
-	"item_ironwood_tree" //铁树之木
+	//铁树之木
+	"item_ironwood_tree"
 	{
 		"AbilityCastRange"				"1200"  //800
 		"AbilityCooldown"				"6.0" //15
@@ -199,7 +217,8 @@
 				"tree_duration"		"30" //20
 		}
 	}
-	"item_poor_mans_shield" //穷鬼盾
+	//穷鬼盾
+	"item_poor_mans_shield"
 	{
 		"AbilityValues"
 		{
@@ -210,7 +229,8 @@
 				"block_chance_hero"		"100"	// 100
 		}
 	}
-	"item_chipped_vest" //碎裂背心
+	//碎裂背心
+	"item_chipped_vest"
 	{
 		"AbilityValues"
 		{
@@ -219,7 +239,8 @@
 			"damage_return_creep"	"40" //20
 		}
 	}
-	"item_ring_of_aquila" //天鹰戒
+	//天鹰戒
+	"item_ring_of_aquila"
 	{
 		"AbilityValues"
 		{
@@ -234,7 +255,8 @@
 
 
 	// level 2
-	"item_essence_ring"  //精华指环
+	//精华指环
+	"item_essence_ring"
 	{
 		"AbilityCooldown"				"10"  //25
 		"AbilityManaCost"				"400"   //150
@@ -246,7 +268,8 @@
 			"health_gain_duration"	"10"	//15
 		}
 	}
-	"item_iron_talon" //打野爪
+	//打野爪
+	"item_iron_talon"
 	{
 		"AbilityCooldown"				"10.0"	//20
 		"AbilityValues"
@@ -259,7 +282,8 @@
 			"alternative_cooldown"			"2" //4
 		}
 	}
-	"item_gossamer_cape" //蛛丝斗篷
+	//蛛丝斗篷
+	"item_gossamer_cape"
 	{
 		"AbilityCooldown"				"1.2"		//6
 		"AbilityValues"
@@ -267,7 +291,8 @@
 			"movement_speed"			"0"   //0
 		}
 	}
-	"item_searing_signet" //炽热纹章
+	//炽热纹章
+	"item_searing_signet"
 	{
 		"AbilityValues"
 		{
@@ -277,7 +302,8 @@
 			"burn_tickrate"				".5" //.25
 		}
 	}
-	"item_misericorde" //飞贼之刃
+	//飞贼之刃
+	"item_misericorde"
 	{
 		"AbilityValues"
 		{
@@ -287,7 +313,8 @@
 			"aspd"					"0" //0
 		}
 	}
-	"item_pogo_stick" //杂技玩具
+	//杂技玩具
+	"item_pogo_stick"
 	{
 		"AbilityCooldown"				"6.0" //15
 		"AbilityValues"
@@ -300,7 +327,8 @@
 	}
 
 	//other
-	"item_dragon_scale" //炎龙之鳞
+	//炎龙之鳞
+	"item_dragon_scale"
 	{
 		"AbilityValues"
 		{
@@ -310,14 +338,16 @@
 				"duration"				"5"		//3
 		}
 	}
-	"item_pupils_gift" //学徒之礼
+	//学徒之礼
+	"item_pupils_gift"
 	{
 		"AbilityValues"
 		{
 				"secondary_stats"			"45" //15
 		}
 	}
-	"item_bullwhip" //凌厉长鞭
+	//凌厉长鞭
+	"item_bullwhip"
 	{
 		"AbilityCooldown"				"7" //11
 		"AbilityValues"
@@ -328,7 +358,8 @@
 				"speed"			"36"				//18
 		}
 	}
-	"item_eye_of_the_vizier" //齐维尔之眼
+	//齐维尔之眼
+	"item_eye_of_the_vizier"
 	{
 		"AbilityValues"
 		{
@@ -337,7 +368,8 @@
 			"bonus_mana_regen"					"3.0" //1.25
 		}
 	}
-	"item_light_collector" //集光器
+	//集光器
+	"item_light_collector"
 	{
 		"AbilityCooldown"				"12" //30
 		"AbilityValues"
@@ -353,7 +385,8 @@
 			"miss_rate"					"50"		//30
 		}
 	}
-	"item_philosophers_stone" //贤者石
+	//贤者石
+	"item_philosophers_stone"
 	{
 		"ItemInitialCharges"			"1200"
 		"AbilityValues"
@@ -365,7 +398,8 @@
 				"charges_tooltip"		"1200"	// 2分钟
 		}
 	}
-	"item_vampire_fangs" //吸血鬼獠牙
+	//吸血鬼獠牙
+	"item_vampire_fangs"
 	{
 		"AbilityValues"
 		{
@@ -375,7 +409,8 @@
 			"creep_lifesteal_reduction_pct"	"40"
 		}
 	}
-	"item_vambrace" //臂甲
+	//臂甲
+	"item_vambrace"
 	{
 		"AbilityValues"
 		{
@@ -386,7 +421,8 @@
 				"bonus_attack_speed"		"30"	//15
 		}
 	}
-	"item_imp_claw" //魔童之爪 暴击爪
+	//魔童之爪 暴击爪
+	"item_imp_claw"
 	{
 		"AbilityCooldown"				"1.0" //4
 		"AbilityValues"
@@ -394,7 +430,8 @@
 				"crit_multiplier"			"160"	// 130
 		}
 	}
-	"item_grove_bow" //林野长弓
+	//林野长弓
+	"item_grove_bow"
 	{
 		"AbilityValues"
 		{
@@ -403,7 +440,7 @@
 			"magic_resistance_reduction"		"20"	// 15
 		}
 	}
-	// 高级仙林之火
+	//高级仙林之火
 	"item_greater_faerie_fire"
 	{
 		"ItemInitialCharges"			"5"		// 3
@@ -418,7 +455,8 @@
 
 
 	//level 3
-	"item_serrated_shiv" //锯齿短刀
+	//锯齿短刀
+	"item_serrated_shiv"
 	{
 		"AbilityCooldown"				"0.5" //1.0
 		"AbilityValues"
@@ -428,7 +466,8 @@
 			"hp_dmg_rosh"			"800" //200
 		}
 	}
-	"item_nemesis_curse" //天珠之咒
+	//天珠之咒
+	"item_nemesis_curse"
 	{
 		"AbilityValues"
 		{
@@ -438,7 +477,8 @@
 			"bonus_damage"			"0"	//0
 		}
 	}
-	"item_gale_guard" //烈风护体
+	//烈风护体
+	"item_gale_guard"
 	{
 		"AbilityCooldown"				"15.0" //30
 		"AbilityValues"
@@ -449,7 +489,8 @@
 			"slow_resist"				"50" //50
 		}
 	}
-	"item_gunpowder_gauntlets" //火焰手套
+	//火焰手套
+	"item_gunpowder_gauntlets"
 	{
 		"AbilityCooldown"				"0.1" //6
 		"AbilityValues"
@@ -463,7 +504,8 @@
 			"splash_pct"			"50" //50
 		}
 	}
-	"item_whisper_of_the_dread" //邪道私语
+	//邪道私语
+	"item_whisper_of_the_dread"
 	{
 		"AbilityValues"
 		{
@@ -472,7 +514,8 @@
 			"bonus_mana"			"0" //0
 		}
 	}
-	"item_ninja_gear" //忍者用具 单人雾
+	//忍者用具 单人雾
+	"item_ninja_gear"
 	{
 		"AbilityCooldown"				"30.0" //60
 		"AbilityValues"
@@ -487,7 +530,8 @@
 	}
 
 	//other
-	"item_third_eye"  //第三只眼
+	//第三只眼
+	"item_third_eye"
 	{
 		"AbilityValues"
 		{
@@ -496,7 +540,8 @@
 			"bonus_all_stats"			"14"	//7
 		}
 	}
-	"item_witless_shako" //无知小帽 脑瘫帽
+	//无知小帽 脑瘫帽
+	"item_witless_shako"
 	{
 		"AbilityValues"
 		{
@@ -504,7 +549,8 @@
 			"max_mana"			"900"	//400
 		}
 	}
-	"item_repair_kit"  //维修器具
+	//维修器具
+	"item_repair_kit"
 	{
 		"ItemInitialCharges"			"6"		//3
 		"AbilityCooldown"				"60.0"	//60
@@ -517,7 +563,8 @@
 				"hp_regen"		"50" //25
 		}
 	}
-	"item_quickening_charm" //加速护符
+	//加速护符
+	"item_quickening_charm"
 	{
 		"AbilityValues"
 		{
@@ -525,7 +572,8 @@
 			"bonus_health_regen"		"20" //10
 		}
 	}
-	"item_defiant_shell" //不羁甲壳
+	//不羁甲壳
+	"item_defiant_shell"
 	{
 		"AbilityValues"
 		{
@@ -534,7 +582,8 @@
 			"counter_cooldown"			"3.0" //5
 		}
 	}
-	"item_craggy_coat" //崎岖外衣
+	//崎岖外衣
+	"item_craggy_coat"
 	{
 		"AbilityCooldown"				"12" //12
 		"AbilityValues"
@@ -546,7 +595,8 @@
 				"bonus_health"			"600"//150
 		}
 	}
-	"item_enchanted_quiver" //魔力箭袋
+	//魔力箭袋
+	"item_enchanted_quiver"
 	{
 		"AbilityCooldown"				"2.0"		//4
 		"AbilityValues"
@@ -556,7 +606,8 @@
 			"active_bonus_attack_range"		"350"	//350
 		}
 	}
-	"item_elven_tunic" //精灵外衣
+	//精灵外衣
+	"item_elven_tunic"
 	{
 		"AbilityValues"
 		{
@@ -565,7 +616,8 @@
 				"movment"			"14"		//7
 		}
 	}
-	"item_cloak_of_flames" //火焰斗篷
+	//火焰斗篷
+	"item_cloak_of_flames"
 	{
 		"AbilityValues"
 		{
@@ -576,7 +628,8 @@
 				"damage_illusions"	"80" //30
 		}
 	}
-	"item_psychic_headband" //通灵头带
+	//通灵头带
+	"item_psychic_headband"
 	{
 		"AbilityCastRange"				"900"	//600
 		"AbilityCooldown"				"10.0"	//20
@@ -588,7 +641,8 @@
 			"push_duration"			"0.3"	//0.3
 		}
 	}
-	"item_doubloon" //双面币
+	//双面币
+	"item_doubloon"
 	{
 		"AbilityCooldown"	"0.5" //5
 		"AbilityValues"
@@ -598,7 +652,8 @@
 			"bonus_mana_regen"					"7.5" //2.5
 		}
 	}
-	"item_vindicators_axe" //正义之斧
+	//正义之斧
+	"item_vindicators_axe"
 	{
 		"AbilityValues"
 		{
@@ -608,7 +663,8 @@
 			"bonus_slow_resist"		"70"	//20
 		}
 	}
-	"item_dandelion_amulet" //蒲公英护符
+	//蒲公英护符
+	"item_dandelion_amulet"
 	{
 		"AbilityCooldown"				"6" //12
 		"AbilityValues"
@@ -619,7 +675,8 @@
 			"min_damage"			"200"	//75
 		}
 	}
-	"item_havoc_hammer" //浩劫巨锤
+	//浩劫巨锤
+	"item_havoc_hammer"
 	{
 		"AbilityCooldown"				"8.0"	//10
 		"AbilityValues"
@@ -640,7 +697,8 @@
 				"nuke_str_dmg"		"1.5"          //1.5
 		}
 	}
-	"item_titan_sliver" //巨神残铁
+	//巨神残铁
+	"item_titan_sliver"
 	{
 		"AbilityValues"
 		{
@@ -649,7 +707,8 @@
 				"status_resistance"			"22"		// 10
 		}
 	}
-	"item_paladin_sword" //骑士剑
+	//骑士剑
+	"item_paladin_sword"
 	{
 		"AbilityValues"
 		{
@@ -660,7 +719,8 @@
 			"creep_lifesteal_reduction_pct"	"40" //40
 		}
 	}
-	"item_apex" //极
+	//极
+	"item_apex"
 	{
 		"AbilityValues"
 		{
@@ -671,7 +731,8 @@
 
 
 	// level 4
-	"item_ogre_seal_totem" //食人魔海豹图腾
+	//食人魔海豹图腾
+	"item_ogre_seal_totem"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastPoint"				"0.0" //0.3
@@ -691,7 +752,8 @@
 	        "max_bounces"				"4" //2
 		}
 	}
-	"item_crippling_crossbow" //致残之弩
+	//致残之弩
+	"item_crippling_crossbow"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCooldown"				"4" //12
@@ -706,7 +768,8 @@
 			"projectile_speed"			"2100" //1400
 		}
 	}
-	"item_magnifying_monocle" //放大单片镜
+	//放大单片镜
+	"item_magnifying_monocle"
 	{
 		"AbilityValues"
 		{
@@ -716,7 +779,8 @@
 			"damage_threshold"			"100" //25
 		}
 	}
-	"item_ceremonial_robe" //祭礼长袍
+	//祭礼长袍
+	"item_ceremonial_robe"
 	{
 		"AbilityValues"
 		{
@@ -728,7 +792,8 @@
 			"magic_resistance"			"40" //10
 		}
 	}
-	"item_mind_breaker" //智灭
+	//智灭
+	"item_mind_breaker"
 	{
 		"AbilityCooldown"		"4.0"  //12
 		"AbilityValues"
@@ -736,7 +801,8 @@
 				"duration"		"3.0"  //2
 		}
 	}
-	"item_pyrrhic_cloak"	//皮洛士斗篷
+	//皮洛士斗篷
+	"item_pyrrhic_cloak"
 	{
 		"AbilityCooldown"				"20"	//40
 		"AbilityCastRange"				"1200"	//800
@@ -748,7 +814,8 @@
 	}
 
 	//other
-	"item_specialists_array" //行家阵列
+	//行家阵列
+	"item_specialists_array"
 	{
 		"AbilityCooldown"				"1.5"		//8
 		"AbilityValues"
@@ -760,7 +827,8 @@
 			"proc_bonus_damage"				"80"	//20
 		}
 	}
-	"item_ascetic_cap" //简朴短帽
+	//简朴短帽
+	"item_ascetic_cap"
 	{
 		"AbilityCooldown"		"25.0"  //25
 		"AbilityValues"
@@ -772,7 +840,8 @@
 			"hp_regen"		"25"		//20
 		}
 	}
-	"item_avianas_feather" //艾维娜之羽
+	//艾维娜之羽
+	"item_avianas_feather"
 	{
 		"AbilityValues"
 		{
@@ -781,7 +850,8 @@
 			"flight_threshold"	"90"	//30
 		}
 	}
-	"item_spy_gadget" //望远镜
+	//望远镜
+	"item_spy_gadget"
 	{
 		"AbilityValues"
 		{
@@ -790,7 +860,8 @@
 			"cast_range"	"175"  //125
 		}
 	}
-	"item_trickster_cloak" //欺诈师斗篷
+	//欺诈师斗篷
+	"item_trickster_cloak"
 	{
 		"AbilityCooldown"				"25.0" //25
 		"AbilityValues"
@@ -800,7 +871,8 @@
 				"duration"			"8"  //6
 		}
 	}
-	"item_stormcrafter" //风暴宝器
+	//风暴宝器
+	"item_stormcrafter"
 	{
 		"AbilityCooldown"				"2"  //3
 		"AbilityValues"
@@ -815,7 +887,8 @@
 			"passive_movement_bonus""75"	//35
 		}
 	}
-	"item_ancient_guardian" //遗迹守护者
+	//遗迹守护者
+	"item_ancient_guardian"
 	{
 		"AbilityValues"
 		{
@@ -824,7 +897,8 @@
 			"radius"				"2000"  //2000
 		}
 	}
-	"item_the_leveller"	//平世剑
+	//平世剑
+	"item_the_leveller"
 	{
 		"AbilityValues"
 		{
@@ -833,7 +907,8 @@
 				"demolish"			"30"	//25
 		}
 	}
-	"item_rattlecage" //回响之笼
+	//回响之笼
+	"item_rattlecage"
 	{
 		"AbilityValues"
 		{
@@ -848,7 +923,8 @@
 			"bonus_armor"				"24"	//12
 		}
 	}
-	"item_martyrs_plate" //烈士鳞甲
+	//烈士鳞甲
+	"item_martyrs_plate"
 	{
 		"AbilityCooldown"				"30"
 		"AbilityValues"
@@ -860,7 +936,8 @@
 			"hp_regen"					"20"   //5
 		}
 	}
-	"item_princes_knife" //亲妈短刀 亲王短刀
+	//亲妈短刀 亲王短刀
+	"item_princes_knife"
 	{
 		"AbilityCooldown"				"7.5" //10
 		"AbilityValues"
@@ -870,7 +947,8 @@
 				"projectile_bonus"	"60"   //60
 		}
 	}
-	"item_penta_edged_sword" //五锋长剑
+	//五锋长剑
+	"item_penta_edged_sword"
 	{
 		"AbilityValues"
 		{
@@ -882,7 +960,8 @@
 				"maim_duration"			"3"   //3
 		}
 	}
-	"item_spell_prism" //法术棱镜
+	//法术棱镜
+	"item_spell_prism"
 	{
 		"AbilityValues"
 		{
@@ -894,7 +973,8 @@
 
 
 	// level 5
-	"item_desolator_2" //寂灭
+	//寂灭
+	"item_desolator_2"
 	{
 		"AbilityValues"
 		{
@@ -902,7 +982,8 @@
 				"corruption_duration"	"10.0" //7
 		}
 	}
-	"item_fallen_sky" //天崩
+	//天崩
+	"item_fallen_sky"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastRange"				"1800"	//1200
@@ -917,7 +998,8 @@
 			"blink_damage_cooldown"	"0.1"	//3.0
 		}
 	}
-	"item_minotaur_horn" //恶牛角
+	//恶牛角
+	"item_minotaur_horn"
 	{
 		"AbilityValues"
 		{
@@ -926,7 +1008,8 @@
 			"model_scale"		"0"	//40
 		}
 	}
-	"item_spider_legs" //网虫腿
+	//网虫腿
+	"item_spider_legs"
 	{
 		"AbilityCooldown"				"30.0" //20
 		"AbilityValues"
@@ -936,7 +1019,8 @@
 			"duration"			"20" //10
 		}
 	}
-	"item_panic_button" //神妙明灯
+	//神妙明灯
+	"item_panic_button"
 	{
 		"AbilityCooldown"				"25.0"	//75
 		"AbilityValues"
@@ -945,7 +1029,8 @@
 				"health_threshold"		"40"	//20
 		}
 	}
-	"item_unrelenting_eye" //不屈之眼
+	//不屈之眼
+	"item_unrelenting_eye"
 	{
 		"AbilityValues"
 		{
@@ -953,7 +1038,8 @@
 			"hero_reduction"			"5"		//20
 		}
 	}
-	"item_pirate_hat" //海盗帽
+	//海盗帽
+	"item_pirate_hat"
 	{
 		"AbilityValues"
 		{
@@ -965,7 +1051,8 @@
 	}
 
 	//other
-	"item_timeless_relic" //永恒遗物
+	//永恒遗物
+	"item_timeless_relic"
 	{
 		"AbilityValues"
 		{
@@ -973,7 +1060,8 @@
 			"spell_amp"			"25"	// 15
 		}
 	}
-	"item_force_boots" //原力鞋 推推鞋
+	//原力鞋 推推鞋
+	"item_force_boots"
 	{
 		"AbilityCastRange"				"1500" //750
 		"AbilityCooldown"				"4.0"  //8
@@ -985,7 +1073,8 @@
 				"hp_regen"				"90"  //30
 		}
 	}
-	"item_mirror_shield" //神镜盾
+	//神镜盾
+	"item_mirror_shield"
 	{
 		"AbilityValues"
 		{
@@ -994,7 +1083,8 @@
 			"block_cooldown"		"9.0" //12
 		}
 	}
-	"item_book_of_shadows" //暗影邪典
+	//暗影邪典
+	"item_book_of_shadows"
 	{
 		"AbilityCastRange"				"1400" //700
 		"AbilityCooldown"				"6.0"  //8
@@ -1005,7 +1095,8 @@
 			"duration"			"4"   //4
 		}
 	}
-	"item_ballista" //弩炮
+	//弩炮
+	"item_ballista"
 	{
 		"AbilityValues"
 		{
@@ -1015,7 +1106,8 @@
 			"bonus_damage"				"75"  //50
 		}
 	}
-	"item_seer_stone" //先哲之石
+	//先哲之石
+	"item_seer_stone"
 	{
 		"AbilityCooldown"				"30"  //60
 		"AbilityValues"
@@ -1031,7 +1123,8 @@
 			"duration"			"9"  //6
 		}
 	}
-	"item_giants_ring" //巨人之戒
+	//巨人之戒
+	"item_giants_ring"
 	{
 		"AbilityValues"
 		{
@@ -1042,7 +1135,8 @@
 			"damage_radius"				"200"	//100
 		}
 	}
-	"item_ex_machina"  //机械之心
+	//机械之心
+	"item_ex_machina"
 	{
 		"AbilityCooldown"				"25.0" //25
 		"AbilityManaCost"				"450"  //350
@@ -1051,7 +1145,8 @@
 				"bonus_armor"			"30"   //20
 		}
 	}
-	"item_force_field"  //秘术师铠甲
+	//秘术师铠甲
+	"item_force_field"
 	{
 		"AbilityCooldown"				"18"  //20
 		"AbilityValues"
@@ -1063,7 +1158,8 @@
 			"active_reflection_pct"		"40"	//40
 		}
 	}
-	"item_unwavering_condition" //坚毅之件
+	//坚毅之件
+	"item_unwavering_condition"
 	{
 		"AbilityValues"
 		{
@@ -1071,7 +1167,8 @@
 			"magic_resist"			"95"    //95
 		}
 	}
-	"item_woodland_striders" //丛林靴
+	//丛林靴
+	"item_woodland_striders"
 	{
 		"AbilityCooldown"				"60.0" //20
 		"AbilityValues"
@@ -1082,8 +1179,8 @@
 				"tree_duration"		"10"      //15
 		}
 	}
-	//其他中立
-	"item_helm_of_the_undying"  //不朽尸王头盔
+	//不朽尸王头盔
+	"item_helm_of_the_undying"
 	{
 		"AbilityValues"
 		{
