@@ -325,7 +325,7 @@ DOTAHUDShop.ShowSecretShop #SecretShopButton:hover {
 #ItemsArea {
   width: 100%;
   height: 100%;
-  overflow: clip clip;
+  overflow: clip;
 }
 
 #ItemBuildContainer {
@@ -726,7 +726,7 @@ DOTAHUDShop.ShowSecretShop #SecretShopButton:hover {
 #CustomShopTitle {
   text-transform: uppercase;
   font-size: 14px;
-  padding: 5px 5px 3px 5px;
+  padding: 5px 5px 3px;
   letter-spacing: 1px;
   text-shadow: 0px 2px 12px 2 black;
   visibility: collapse;
@@ -841,7 +841,7 @@ DOTAHUDShopTextEntry {
   border: 1px solid baseBorder;
   width: 352px;
   height: 36px;
-  padding: 5px 7px 3px 7px;
+  padding: 5px 7px 3px;
   background-color: gradient(linear, 0% 0%, 0% 100%, from(#111111ff), to(#222222ff));
   color: white;
   font-size: 20px;
@@ -1243,7 +1243,7 @@ DOTAHUDShop.ShopHotkeyMode:not(.DOTA_SHOP_CATEGORY_NONE) #GridRowHotkeys {
   width: 100%;
   /* NOTE 修改了此处 */
   /* padding: 8px 8px; */
-  padding: 2px 2px;
+  padding: 2px;
   padding-right: 5px;
   border-brush: gradient(
     linear,
@@ -2130,7 +2130,7 @@ DOTAHUDShop.ShopHotkeyMode:not(.DOTA_SHOP_CATEGORY_NONE) #GridRowHotkeys {
 .TeamNeutralItem #ShopItem {
   width: 50px;
   height: width-percentage(72.7%);
-  margin: 0px 6px 5px 6px;
+  margin: 0px 6px 5px;
   box-shadow: 0px 0px 12px #0009;
   border: 1px solid #333333;
 }
