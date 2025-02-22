@@ -62,6 +62,16 @@ export class Debug {
       const item = hero.FindItemInInventory(itemName);
       UTIL_RemoveImmediate(item);
     }
+    if (cmd === CMD.REPLACE_ITEM) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const itemName = args[0];
+      const item = hero.FindItemInInventory(itemName);
+      if (item) {
+        UTIL_RemoveImmediate(item);
+      }
+      hero.AddItemByName(itemName);
+    }
 
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);

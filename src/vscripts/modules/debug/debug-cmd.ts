@@ -27,6 +27,7 @@ export enum CMD {
   ADD_ABILITY = '-ab',
   ADD_ABILITY_ALL = '-aball',
   RM_ITEM = '-rmitem', // 移除物品
+  REPLACE_ITEM = '-ri', // 替换物品
 
   // ---- modifier相关 ----
   /**
