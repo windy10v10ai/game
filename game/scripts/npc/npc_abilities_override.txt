@@ -5263,7 +5263,7 @@
 			}
 			"duration"
 			{
-				"duration"				"3.75 4.25 4.75 5.25"
+				"value"				"3.75 4.25 4.75 5.25"
 			}
 			"vision_radius"
 			{
