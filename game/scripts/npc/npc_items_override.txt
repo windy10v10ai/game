@@ -338,15 +338,16 @@
     //=================================================================================================================
 	"item_recipe_revenants_brooch"
 	{
-		"ItemCost"						"4100"
+		"ItemCost"						"0" //为神器降价
 	}
 	"item_revenants_brooch"
 	{
 		"AbilityValues"
 		{
-				"bonus_damage"			"120"			// 70
-				"spell_lifesteal"		"35"			// 20
-				"manacost_per_hit"		"60"			// 50
+			"bonus_damage"			"35"	//35
+			"spell_lifesteal"		"16"	//16
+			"crit_chance"			"30"	//30
+			"crit_multiplier"		"80"	//80
 		}
 	}
 	//=================================================================================================================
