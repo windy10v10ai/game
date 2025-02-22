@@ -7,19 +7,21 @@ export function bindAbilityKey(abilityname: string, key: string, isQuickCast: bo
   AddKeyBind(
     key,
     () => {
-      if (isQuickCast) {
-        QuickCastAbility(abilityID, Abilities.GetBehavior(abilityID));
+      if (GameUI.IsControlDown() === true) {
+        // ctrl升级
+        Abilities.AttemptToUpgrade(abilityID);
+      } else if (GameUI.IsAltDown() === true) {
+        // alt切换自动施法,待实现
+        // console.log('Alt is down');
+        // console.log('IsAutocast:', Abilities.IsAutocast(abilityID));
+        // console.log('GetAutoCastState:', Abilities.GetAutoCastState(abilityID));
       } else {
-        Abilities.ExecuteAbility(abilityID, heroID, true);
+        if (isQuickCast) {
+          QuickCastAbility(abilityID, Abilities.GetBehavior(abilityID));
+        } else {
+          Abilities.ExecuteAbility(abilityID, heroID, true);
+        }
       }
-    },
-    () => {},
-  );
-  // ctrl + key 升级技能
-  AddKeyBind(
-    `Ctrl+${key}`,
-    () => {
-      Abilities.AttemptToUpgrade(abilityID);
     },
     () => {},
   );
