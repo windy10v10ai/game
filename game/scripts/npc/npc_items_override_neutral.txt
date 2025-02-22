@@ -94,7 +94,7 @@
 	{
 		"AbilityValues"
 		{
-			"mana_regen"				"1.5"	//0.4
+			"mana_regen"				"2.0"	//0.4
 			"stack_limit"				"10"	//5
 			"stack_duration"			"10"	//5
 		}
@@ -140,8 +140,8 @@
 	{
 		"AbilityValues"
 		{
-			"damage"			"25"			//10
-			"armor"				"12"			//5
+			"damage"			"40"			//10
+			"armor"				"20"			//5
 			"health_pct"		"50"			//50
 		}
 	}
@@ -153,65 +153,9 @@
 		"AbilityValues"
 		{
 			"thorn_area"				"400"	//200
-			"bonus_damage_hero"			"30"	//12
-			"bonus_damage_creep"		"10"	//4
+			"bonus_damage_hero"			"36"	//12
+			"bonus_damage_creep"		"12"	//4
 			"duration"					"8"		//10
-		}
-	}
-
-	// 额外
-	//安全泡泡
-	"item_safety_bubble"
-	{
-		"AbilityValues"
-		{
-			"shield"	"500"			//100
-			"restore_time"			"5"	//8
-		}
-	}
-	//追击矛
-	"item_lance_of_pursuit"
-	{
-		"AbilityValues"
-		{
-				"slow_duration"			"2"		//2
-				"backstab_damage"		"75"	//15
-				"backstab_angle"		"120"	//90
-				"slow_pct_melee"		"24"	//16
-				"slow_pct_ranged"		"16"	//8
-		}
-	}
-	//蜂王浆
-	"item_royal_jelly"
-	{
-		"AbilityCastRange"				"1500"	//300
-		"AbilityChargeRestoreTime"		"4"		//8
-		"AbilityValues"
-		{
-				"bonus_health"			"0"		//50
-				"bonus_mana"			"0"		//50
-				"max_charges"			"10"	//10
-				"use_cooldown"			"10"	//12
-				"health_regen"			"6.0"	//2.5
-				"mana_regen"			"3.0"	//1.25
-				"regen_duration"		"8"		//8
-		}
-	}
-
-	//=================================================================================================================
-	// level 2
-	//=================================================================================================================
-	//精华指环
-	"item_essence_ring"
-	{
-		"AbilityCooldown"				"10"  //25
-		"AbilityManaCost"				"400"   //150
-		"AbilityValues"
-		{
-			"bonus_int"			"0"		//0
-			"mp_regen"		"0"			//0
-			"health_gain"		"1200"		//240
-			"health_gain_duration"	"10"	//15
 		}
 	}
 	//打野爪
@@ -226,6 +170,64 @@
 			"creep_damage_pct"				"80" //80
 			"bonus_armor"					"0" //0
 			"alternative_cooldown"			"2" //4
+		}
+	}
+	//安全泡泡
+	"item_safety_bubble"
+	{
+		"AbilityValues"
+		{
+			"shield"	"500"			//100
+			"restore_time"			"4"	//8
+		}
+	}
+	//追击矛
+	"item_lance_of_pursuit"
+	{
+		"AbilityValues"
+		{
+				"slow_duration"			"2"		//2
+				"backstab_damage"		"75"	//15
+				"backstab_angle"		"120"	//90
+				"slow_pct_melee"		"24"	//16
+				"slow_pct_ranged"		"16"	//8
+		}
+	}
+	//穷鬼盾
+	"item_poor_mans_shield"
+	{
+		"AbilityValues"
+		{
+				"damage_block_melee"	"90"	// 30
+				"damage_block_ranged"	"60"	// 20
+				"block_chance"			"80"	// 50
+				"block_chance_hero"		"100"	// 100
+		}
+	}
+	//碎裂背心
+	"item_chipped_vest"
+	{
+		"AbilityValues"
+		{
+			"hp_regen"				"0"			//4
+			"damage_return_hero"	"90"		//30
+			"damage_return_creep"	"60"		//20
+		}
+	}
+	//=================================================================================================================
+	// level 2
+	//=================================================================================================================
+	//精华指环
+	"item_essence_ring"
+	{
+		"AbilityCooldown"				"10"  //25
+		"AbilityManaCost"				"400"   //150
+		"AbilityValues"
+		{
+			"bonus_int"			"0"		//0
+			"mp_regen"		"0"			//0
+			"health_gain"		"1200"		//240
+			"health_gain_duration"	"10"	//15
 		}
 	}
 	//蛛丝斗篷
@@ -282,9 +284,22 @@
 			"duration"				"4"		// 5
 		}
 	}
-
-
-	// 额外
+	//蜂王浆
+	"item_royal_jelly"
+	{
+		"AbilityCastRange"				"1500"	//300
+		"AbilityChargeRestoreTime"		"4"		//8
+		"AbilityValues"
+		{
+				"bonus_health"			"0"		//50
+				"bonus_mana"			"0"		//50
+				"max_charges"			"10"	//10
+				"use_cooldown"			"10"	//12
+				"health_regen"			"6.0"	//2.5
+				"mana_regen"			"3.0"	//1.25
+				"regen_duration"		"8"		//8
+		}
+	}
 	// 奥术指环 小秘法
 	"item_arcane_ring"
 	{
@@ -295,28 +310,37 @@
 				"mana_restore_pct"		"3"		//3
 		}
 	}
-	//穷鬼盾
-	"item_poor_mans_shield"
+	//不屈之眼
+	"item_unrelenting_eye"
 	{
 		"AbilityValues"
 		{
-				"damage_block_melee"	"60"	// 30
-				"damage_block_ranged"	"40"	// 20
-				"block_chance"			"80"	// 50
-				"block_chance_hero"		"100"	// 100
+			"max_slow_res"				"100"	//100
+			"hero_reduction"			"5"		//20
 		}
 	}
-	//碎裂背心
-	"item_chipped_vest"
+	//海盗帽
+	"item_pirate_hat"
 	{
 		"AbilityValues"
 		{
-			"hp_regen"				"0"			//4
-			"damage_return_hero"	"60"		//30
-			"damage_return_creep"	"40"		//20
+			"gold_steal_base"			"150"	//150
+			"gold_steal_kill"			"150"	//150
+			"gold_steal_range"			"1800"	//1200
+			"gold_loss_reduction"		"100"	//100
+		}
+	}
+	//决斗家手套
+	"item_duelist_gloves"
+	{
+		"AbilityValues"
+		{
+			"bonus_attack_speed"	"120"		//20
+			"bonus_damage"			"0"			//12
 		}
 	}
 
+	//抽奖遗老
 	//炎龙之鳞
 	"item_dragon_scale"
 	{
@@ -534,25 +558,47 @@
 			"secondary_application_radius"		"0" //0
 		}
 	}
-
-	//网虫腿
-	"item_spider_legs"
+	//行家阵列
+	"item_specialists_array"
 	{
+		"AbilityCooldown"				"1.5"		//8
 		"AbilityValues"
 		{
-			"turn_rate"	"100" 					//50
-			"bonus_movement_speed_active"	"30"	//20
+			"count"							"3"		//2
+			"secondary_target_range_bonus"	"300"	//225
+			"proc_bonus_damage"				"80"	//10
 		}
 	}
-
-	// 额外
-	//决斗家手套
-	"item_duelist_gloves"
+	//皮洛士斗篷
+	"item_pyrrhic_cloak"
 	{
+		"AbilityCooldown"				"20"	//40
+		"AbilityCastRange"				"1200"	//800
 		"AbilityValues"
 		{
-			"bonus_attack_speed"	"80"		//20
-			"bonus_damage"			"0"			//12
+			"damage_pct"				"100"	//60
+			"damage_time"				"10"	//6
+		}
+	}
+	//食人魔海豹图腾
+	"item_ogre_seal_totem"
+	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastPoint"				"0.0" //0.3
+		"AbilityCooldown"				"20.0" //40.0
+		"AbilityValues"
+		{
+			"movement_turn_rate"		"50" //75
+			"leap_distance"				"300" //400
+			"leap_speed"				"1200.0" //800
+			"leap_acceleration"			"2000.0" //1250
+			"radius"
+			{
+				"value"				"350" //275
+			}
+			"flop_damage"				"300" //250
+			"slow_duration"				"3.0" //1.5
+			"max_bounces"				"4" //2
 		}
 	}
 	//欺诈师斗篷
@@ -564,7 +610,38 @@
 				"duration"			"6"			//6
 		}
 	}
+	//风暴宝器
+	"item_stormcrafter"
+	{
+		"AbilityCooldown"				"2"  //3
+		"AbilityValues"
+		{
+			"range"			"1200"	//700
+			"damage"		"400"	//200
+			"interval"		"1.5"		//3
+			"slow"			"60"	//40
+			"slow_duration"			"0.6"	//0.4
+			"bonus_mana_regen"		"0"		//4
+			"max_targets"			"3"		//2
+			"passive_movement_bonus""0"	//35
+		}
+	}
+	//五锋长剑
+	"item_penta_edged_sword"
+	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityValues"
+		{
+				"damage"				"0"  //45
+				"melee_attack_range"	"200" //100
+				"maim_chance"			"50"  //25
+				"maim_slow_movement"	"60"  //20
+				"maim_slow_attack"		"200"  //60
+				"maim_duration"			"3"   //3
+		}
+	}
 
+	//抽奖遗老
 	//无知小帽 脑瘫帽
 	"item_witless_shako"
 	{
@@ -727,27 +804,6 @@
 	//=================================================================================================================
 	// level 4
 	//=================================================================================================================
-	//食人魔海豹图腾
-	"item_ogre_seal_totem"
-	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastPoint"				"0.0" //0.3
-		"AbilityCooldown"				"20.0" //40.0
-		"AbilityValues"
-		{
-			"movement_turn_rate"		"50" //75
-			"leap_distance"				"300" //400
-			"leap_speed"				"1200.0" //800
-			"leap_acceleration"			"2000.0" //1250
-			"radius"
-			{
-				"value"				"350" //275
-			}
-			"flop_damage"				"300" //250
-			"slow_duration"				"3.0" //1.5
-			"max_bounces"				"4" //2
-		}
-	}
 	//致残之弩
 	"item_crippling_crossbow"
 	{
@@ -797,41 +853,13 @@
 				"duration"		"3.0"  //2
 		}
 	}
-	//皮洛士斗篷
-	"item_pyrrhic_cloak"
+	//网虫腿
+	"item_spider_legs"
 	{
-		"AbilityCooldown"				"20"	//40
-		"AbilityCastRange"				"1200"	//800
 		"AbilityValues"
 		{
-			"damage_pct"				"100"	//60
-			"damage_time"				"10"	//6
-		}
-	}
-
-	// 额外
-	//原力鞋 推推鞋
-	"item_force_boots"
-	{
-		"AbilityCastRange"				"1500"	//750
-		"AbilityCooldown"				"4.0"	//8
-		"AbilityValues"
-		{
-				"bonus_movement_speed"	"0"		//115
-				"push_length"			"750"	//750
-				"push_duration"			"0.5"	//0.5
-				"hp_regen"				"0"		//30
-		}
-	}
-	//暗影邪典
-	"item_book_of_shadows"
-	{
-		"AbilityCastRange"				"1400"	//700
-		"AbilityCooldown"				"8.0"	//8
-		"AbilityValues"
-		{
-			"night_vision"		"0"				//400
-			"duration"			"4"				//4
+			"turn_rate"	"100" 					//50
+			"bonus_movement_speed_active"	"30"	//20
 		}
 	}
 	//先哲之石
@@ -860,6 +888,53 @@
 				"duration"			"2.5"		//1.5
 				"movespeed"			"100"		//140
 				"projectile_bonus"	"0"			//60
+		}
+	}
+	//浩劫巨锤
+	"item_havoc_hammer"
+	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCooldown"				"8.0"		//10
+		"AbilityValues"
+		{
+				"bonus_damage"			"0"			//16
+				"bonus_strength"		"0"			//16
+				"range"
+				{
+					"value"						"600"	//400
+					"affected_by_aoe_increase"	"1"
+				}
+				"slow"		"60"					//50
+				"slow_duration"		"3"				//3
+				"pull_distance"				"200"	//100
+				"nuke_base_dmg"		"350"			//175
+				"nuke_str_dmg"		"1.5"			//1.5
+		}
+	}
+
+	//抽奖遗老
+	//原力鞋 推推鞋
+	"item_force_boots"
+	{
+		"AbilityCastRange"				"1500"	//750
+		"AbilityCooldown"				"4.0"	//8
+		"AbilityValues"
+		{
+				"bonus_movement_speed"	"0"		//115
+				"push_length"			"750"	//750
+				"push_duration"			"0.5"	//0.5
+				"hp_regen"				"0"		//30
+		}
+	}
+	//暗影邪典
+	"item_book_of_shadows"
+	{
+		"AbilityCastRange"				"1400"	//700
+		"AbilityCooldown"				"8.0"	//8
+		"AbilityValues"
+		{
+			"night_vision"		"0"				//400
+			"duration"			"4"				//4
 		}
 	}
 
@@ -894,22 +969,6 @@
 			"scan_cooldown_reduction"	"90"  //50
 			"attack_range"	"175"  //125
 			"cast_range"	"175"  //125
-		}
-	}
-	//风暴宝器
-	"item_stormcrafter"
-	{
-		"AbilityCooldown"				"2"  //3
-		"AbilityValues"
-		{
-			"range"			"1200"	//700
-			"damage"		"400"	//200
-			"interval"		"2"		//3
-			"slow"			"60"	//40
-			"slow_duration"			"0.6"	//0.4
-			"bonus_mana_regen"		"8"		//4
-			"max_targets"			"3"		//2
-			"passive_movement_bonus""75"	//35
 		}
 	}
 	//遗迹守护者
@@ -961,20 +1020,6 @@
 			"hp_regen"					"0"		//7
 		}
 	}
-	//五锋长剑
-	"item_penta_edged_sword"
-	{
-		"AbilityValues"
-		{
-				"damage"				"90"  //45
-				"melee_attack_range"	"200" //100
-				"maim_chance"			"50"  //25
-				"maim_slow_movement"	"60"  //20
-				"maim_slow_attack"		"200"  //60
-				"maim_duration"			"3"   //3
-		}
-	}
-
 
 	//=================================================================================================================
 	// level 5
@@ -1022,40 +1067,6 @@
 				"health_threshold"		"40"	//20
 		}
 	}
-	//不屈之眼
-	"item_unrelenting_eye"
-	{
-		"AbilityValues"
-		{
-			"max_slow_res"				"100"	//100
-			"hero_reduction"			"5"		//20
-		}
-	}
-	//海盗帽
-	"item_pirate_hat"
-	{
-		"AbilityValues"
-		{
-			"gold_steal_base"			"350"	//150
-			"gold_steal_kill"			"450"	//150
-			"gold_steal_range"			"2400"	//1200
-			"gold_loss_reduction"		"100"	//100
-		}
-	}
-
-	// 额外
-	//行家阵列
-	"item_specialists_array"
-	{
-		"AbilityCooldown"				"1.5"		//8
-		"AbilityValues"
-		{
-			"count"							"3"		//2
-			"secondary_target_range_bonus"	"300"	//225
-			"proc_bonus_damage"				"80"	//10
-		}
-	}
-
 	//神镜盾
 	"item_mirror_shield"
 	{
@@ -1073,7 +1084,7 @@
 			"attack_range_bonus"		"0"		//250
 			"knockback_distance"		"20"	//50
 			"knockback_duration"		"0.1"	//0.2
-			"bonus_damage"				"100"	//50
+			"bonus_damage"				"150"	//50
 		}
 	}
 	//巨人之戒
@@ -1096,6 +1107,8 @@
 		"AbilityCooldown"				"25.0"		//60
 		"AbilityManaCost"				"450"		//350
 	}
+
+	//别有他用
 	//秘术师铠甲
 	"item_force_field"
 	{
@@ -1105,26 +1118,6 @@
 			"bonus_aoe_armor"			"10"	//4
 			"bonus_aoe_mres"			"20"	//8
 			"active_reflection_pct"		"30"	//25
-		}
-	}
-	//浩劫巨锤
-	"item_havoc_hammer"
-	{
-		"AbilityCooldown"				"8.0"		//10
-		"AbilityValues"
-		{
-				"bonus_damage"			"0"			//16
-				"bonus_strength"		"0"			//16
-				"range"
-				{
-					"value"						"450"	//400
-					"affected_by_aoe_increase"	"1"
-				}
-				"slow"		"60"					//50
-				"slow_duration"		"3"				//3
-				"pull_distance"				"100"	//100
-				"nuke_base_dmg"		"350"			//175
-				"nuke_str_dmg"		"1.5"			//1.5
 		}
 	}
 }
