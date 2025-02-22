@@ -62,11 +62,22 @@ export class Debug {
       const item = hero.FindItemInInventory(itemName);
       UTIL_RemoveImmediate(item);
     }
-    if (cmd === CMD.REPLACE_ITEM) {
+    if (cmd === CMD.REPLACE_NEUTRAL_ITEM) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
       // FIXME DOTA_ITEM_NEUTRAL_ACTIVE_SLOT
       const item = hero.GetItemInSlot(16);
+      if (item) {
+        UTIL_RemoveImmediate(item);
+      }
+      const itemName = args[0];
+      hero.AddItemByName(itemName);
+    }
+    if (cmd === CMD.REPLACE_ENHANCE_ITEM) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      // FIXME DOTA_ITEM_NEUTRAL_ACTIVE_SLOT
+      const item = hero.GetItemInSlot(17);
       if (item) {
         UTIL_RemoveImmediate(item);
       }
