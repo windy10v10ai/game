@@ -94,8 +94,8 @@
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"bonus_cooldown"			"10 16"			//10
-			"bonus_health_regen"		"10 20"			//10
+			"bonus_cooldown"			"6 12"			//10
+			"bonus_health_regen"		"6 12"			//10
 		}
 	}
 	//仙灵饰品
@@ -118,8 +118,8 @@
 		"AbilityValues"
 		{
 				"bonus_cooldown"		"20"			//12
-				"bonus_all_stats"		"20"			//5
-				"mana_regen"			"6"				//2
+				"bonus_all_stats"		"15"			//5
+				"mana_regen"			"5"				//2
 		}
 	}
 }

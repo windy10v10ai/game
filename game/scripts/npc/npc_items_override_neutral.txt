@@ -32,6 +32,17 @@
 		}
 	}
 
+
+	//第三只眼
+	"item_third_eye"
+	{
+		"AbilityValues"
+		{
+			"truesight_radius"			"900"	//500
+			"bonus_vision"				"0"		//300
+			"bonus_all_stats"			"0"		//7
+		}
+	}
 	//坚毅之件
 	"item_unwavering_condition"
 	{
@@ -544,17 +555,16 @@
 			"bonus_damage"			"0"			//12
 		}
 	}
-
-	//第三只眼
-	"item_third_eye"
+	//欺诈师斗篷
+	"item_trickster_cloak"
 	{
+		"AbilityCooldown"				"20.0"	//25
 		"AbilityValues"
 		{
-			"truesight_radius"			"900"	//500
-			"bonus_vision"				"400"	//300
-			"bonus_all_stats"			"14"	//7
+				"duration"			"6"			//6
 		}
 	}
+
 	//无知小帽 脑瘫帽
 	"item_witless_shako"
 	{
@@ -679,28 +689,6 @@
 			"mana"					"600"	//300
 			"magic_block"			"1200"	//300
 			"min_damage"			"200"	//75
-		}
-	}
-	//浩劫巨锤
-	"item_havoc_hammer"
-	{
-		"AbilityCooldown"				"8.0"	//10
-		"AbilityValues"
-		{
-				"bonus_damage"			"35" //16
-				"bonus_strength"		"35" //16
-				"range"
-				{
-					"value"						"450" //400
-					"affected_by_aoe_increase"	"1"
-				}
-				"slow"		"60"                   //50
-				"slow_duration"		"3"            //3
-				"angle"						"360"  //360
-				"knockback_duration"		"0.2"  //0.2
-				"pull_distance"				"100"  //100
-				"nuke_base_dmg"		"350"          //175
-				"nuke_str_dmg"		"1.5"          //1.5
 		}
 	}
 	//巨神残铁
@@ -863,6 +851,17 @@
 			"duration"			"9"				//6
 		}
 	}
+	//亲王短刀
+	"item_princes_knife"
+	{
+		"AbilityCooldown"				"8"		//10
+		"AbilityValues"
+		{
+				"duration"			"2.5"		//1.5
+				"movespeed"			"100"		//140
+				"projectile_bonus"	"0"			//60
+		}
+	}
 
 	//简朴短帽
 	"item_ascetic_cap"
@@ -895,17 +894,6 @@
 			"scan_cooldown_reduction"	"90"  //50
 			"attack_range"	"175"  //125
 			"cast_range"	"175"  //125
-		}
-	}
-	//欺诈师斗篷
-	"item_trickster_cloak"
-	{
-		"AbilityCooldown"				"25.0" //25
-		"AbilityValues"
-		{
-				"evasion"			"30" //17
-				"magic_resistance"	"30" //17
-				"duration"			"8"  //6
 		}
 	}
 	//风暴宝器
@@ -966,22 +954,11 @@
 		"AbilityCooldown"				"30"
 		"AbilityValues"
 		{
-			"duration"					"10"   //10
-			"magic_resist"				"40"   //25
-			"damage_redirection"		"50"  //25
-			"aura_radius"				"1200" //900
-			"hp_regen"					"20"   //5
-		}
-	}
-	//亲妈短刀 亲王短刀
-	"item_princes_knife"
-	{
-		"AbilityCooldown"				"7.5" //10
-		"AbilityValues"
-		{
-				"duration"			"2.5"  //1.5
-				"movespeed"			"100"  //140
-				"projectile_bonus"	"60"   //60
+			"duration"					"10"	//10
+			"magic_resist"				"0"		//25
+			"damage_redirection"		"0"		//25
+			"aura_radius"				"1200"	//900
+			"hp_regen"					"0"		//7
 		}
 	}
 	//五锋长剑
@@ -1128,6 +1105,26 @@
 			"bonus_aoe_armor"			"10"	//4
 			"bonus_aoe_mres"			"20"	//8
 			"active_reflection_pct"		"30"	//25
+		}
+	}
+	//浩劫巨锤
+	"item_havoc_hammer"
+	{
+		"AbilityCooldown"				"8.0"		//10
+		"AbilityValues"
+		{
+				"bonus_damage"			"0"			//16
+				"bonus_strength"		"0"			//16
+				"range"
+				{
+					"value"						"450"	//400
+					"affected_by_aoe_increase"	"1"
+				}
+				"slow"		"60"					//50
+				"slow_duration"		"3"				//3
+				"pull_distance"				"100"	//100
+				"nuke_base_dmg"		"350"			//175
+				"nuke_str_dmg"		"1.5"			//1.5
 		}
 	}
 }
