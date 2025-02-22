@@ -4643,7 +4643,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3000"
+		"ItemCost"						"6000"
 		"ItemAliases"					"diana candy"
 		"ItemPurchasable"				"1"
 		"ItemStackable"					"1"
@@ -4652,12 +4652,12 @@
 		"ItemPermanent"					"0"
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"2"
-		"ItemStockTime"					"120.0"
+		"ItemStockTime"					"180.0"
 		"IsTempestDoubleClonable"		"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.0"
+		"AbilityCooldown"				"120.0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
