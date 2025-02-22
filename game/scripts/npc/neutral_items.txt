@@ -29,7 +29,7 @@
 				"item_iron_talon"					"1"		// 寒铁钢爪
 				// 额外添加
 				"item_lance_of_pursuit"				"1"		// 追击矛
-				"item_duelist_gloves"				"1"		// 决斗家手套
+				"item_poor_mans_shield"				"1"		// 穷鬼盾
 			}
 
 			"enhancements"
@@ -64,13 +64,13 @@
 
 				// 级别移动
 				"item_orb_of_destruction"			"1"		// 毁灭灵球
-				"item_enhancement_wise"				"2"		// 睿智 每分钟经验
 
 
 				// 额外添加
+				"item_royal_jelly"					"1"		// 蜂王浆
 				"item_arcane_ring"					"1"		// 奥术指环
 				"item_seeds_of_serenity"			"1"		// 宁静种籽
-
+				"item_chipped_vest"					"1"		// 碎裂背心
 			}
 
 			"enhancements"
@@ -87,7 +87,9 @@
 				"item_enhancement_vampiric"			"1"		// 吸血鬼 双吸血
 
 				// 额外添加
+				"item_enhancement_wise"				"2"		// 睿智 每分钟经验
 				"item_broom_handle"					"1"		// 扫帚柄
+				"item_quickening_charm"				"1"		// 加速护符
 			}
 		}
 
@@ -107,10 +109,11 @@
 				"item_gunpowder_gauntlets"			"1"		// 火药手套
 				"item_whisper_of_the_dread"			"1"		// 邪道私语
 				"item_ninja_gear"					"1"		// 忍者用具
+				"item_duelist_gloves"				"1"		// 决斗家手套
 
 				// 级别移动
-				"item_demonicon"					"1"		// 冥灵书 原本是5级
 				"item_unrelenting_eye"				"1"		// 不屈之眼 原本是5级
+				"item_spider_legs"					"1"		// 网虫腿 原本是5级
 			}
 
 			"enhancements"
@@ -125,6 +128,7 @@
 				"item_enhancement_vampiric"			"2"		// 吸血鬼 双吸血
 
 				// 额外添加
+				"item_quickening_charm"				"2"		// 加速护符
 				"item_mysterious_hat"				"1"		// 仙灵饰品
 			}
 		}
@@ -145,6 +149,11 @@
 				"item_ceremonial_robe"				"1"		// 祭礼长袍
 				"item_mind_breaker"					"1"		// 智灭
 				"item_pyrrhic_cloak"				"1"		// 皮洛士斗篷
+				// 级别移动
+				"item_demonicon"					"1"		// 冥灵书 原本是5级
+				// 额外添加
+				"item_book_of_shadows"				"1"		// 暗影邪典
+				"item_seer_stone"					"1"		// 先哲之石
 			}
 
 			"enhancements"
@@ -163,6 +172,7 @@
 
 				// 级别移动
 				"item_enhancement_fleetfooted"		"1"		// 捷足 移速
+				"item_enhancement_feverish"			"1"		// 狂热 冷却减少 蓝耗增加
 
 				// 额外添加
 				"item_mysterious_hat"				"2"		// 仙灵饰品
@@ -183,9 +193,16 @@
 				"item_desolator_2"					"1"		// 寂灭
 				"item_fallen_sky"					"1"		// 天崩
 				"item_minotaur_horn"				"1"		// 恶牛角
-				"item_spider_legs"					"1"		// 网虫腿
 				"item_panic_button"					"1"		// 神妙明灯
 				"item_pirate_hat"					"1"		// 海盗帽
+
+				// 额外添加
+				"item_specialists_array"			"1"		// 行家阵列
+				"item_mirror_shield"				"1"		// 神镜盾
+				"item_ballista"						"1"		// 弩炮
+				"item_giants_ring"					"1"		// 巨人之戒
+				"item_ex_machina"					"1"		// 机械之心
+				"item_force_field"					"1"		// 秘术师铠甲
 			}
 
 			"enhancements"
@@ -194,7 +211,6 @@
 				"item_enhancement_titanic"			"2"		// 巨神 基础攻击状态抗性
 				"item_enhancement_crude"			"2"		// 粗暴 减速抗性攻击间隔减智力
 
-				"item_enhancement_feverish"			"1"		// 狂热 冷却增加蓝耗
 				"item_enhancement_audacious"		"1"		// 冒险 攻速魔法攻击伤害增加承伤
 				"item_enhancement_evolved"			"1"		// 进化 主属性
 				"item_enhancement_boundless"		"1"		// 无边 攻击距离施法距离
@@ -203,6 +219,7 @@
 				"item_enhancement_vampiric"			"4"		// 吸血鬼 双吸血
 				// 额外添加
 				"item_mysterious_hat"				"3"		// 仙灵饰品
+				"item_spell_prism"					"1"		// 法术棱镜
 			}
 		}
 	}
