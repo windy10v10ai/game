@@ -89,29 +89,8 @@
 			"duration"					"8"		//10
 		}
 	}
-	//毁灭灵球
-	"item_orb_of_destruction"
-	{
-		"AbilityValues"
-		{
-			"armor_reduction"		"4"		// 2
-			"slow_melee"			"25"	// 10
-			"slow_range"			"12"	// 5
-			"duration"				"4"		// 5
-		}
-	}
 
-	// other
-	// 奥术指环 小秘法
-	"item_arcane_ring"
-	{
-		"AbilityCooldown"				"30.0"	//60
-		"AbilityValues"
-		{
-				"mana_restore"			"90"	//30
-				"mana_restore_pct"		"3"		//3
-		}
-	}
+	// 额外
 	//安全泡泡
 	"item_safety_bubble"
 	{
@@ -119,25 +98,6 @@
 		{
 			"shield"	"500"			//100
 			"restore_time"			"5"	//8
-			"bonus_hp_regen"	"5" 	//2
-		}
-	}
-	//宁静种籽
-	"item_seeds_of_serenity"
-	{
-		"AbilityCooldown"				"25.0"	//35
-		"AbilityCastRange"				"700"	//350
-		"AbilityValues"
-		{
-			"bonus_health"				"400"	//150
-			"bonus_health_regen"		"8"		//4
-			"aura_health_regen"			"20"	//10
-			"radius"
-			{
-				"value"			"500"			//400
-				"affected_by_aoe_increase"	"1"
-			}
-			"duration"					"10"	//14
 		}
 	}
 	//追击矛
@@ -145,13 +105,11 @@
 	{
 		"AbilityValues"
 		{
-				"bonus_mana"			"600" //200
-				"bonus_strength"		"10"   //0
-				"slow_duration"			"2"   //2
-				"backstab_damage"		"75"  //15
-				"backstab_angle"		"120"  //90
-				"slow_pct_melee"		"24"  //16
-				"slow_pct_ranged"		"16"   //8
+				"slow_duration"			"2"		//2
+				"backstab_damage"		"75"	//15
+				"backstab_angle"		"120"	//90
+				"slow_pct_melee"		"24"	//16
+				"slow_pct_ranged"		"16"	//8
 		}
 	}
 	//决斗家手套
@@ -159,18 +117,8 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_attack_speed"	"60"   //20
-			"bonus_damage"			"36"   //12
-		}
-	}
-	//扫帚柄
-	"item_broom_handle"
-	{
-		"AbilityValues"
-		{
-				"melee_attack_range"			"100" //50
-				"bonus_damage"		"20" //8
-				"bonus_armor"		"8" //4
+			"bonus_attack_speed"	"60"	//20
+			"bonus_damage"			"0"		//12
 		}
 	}
 	//蜂王浆
@@ -319,8 +267,30 @@
 			"bonus_mana"		"0" //0
 		}
 	}
+	//毁灭灵球
+	"item_orb_of_destruction"
+	{
+		"AbilityValues"
+		{
+			"armor_reduction"		"6"		// 2
+			"slow_melee"			"25"	// 10
+			"slow_range"			"12"	// 5
+			"duration"				"4"		// 5
+		}
+	}
 
-	//other
+
+	// 额外
+	// 奥术指环 小秘法
+	"item_arcane_ring"
+	{
+		"AbilityCooldown"				"30.0"	//60
+		"AbilityValues"
+		{
+				"mana_restore"			"150"	//30
+				"mana_restore_pct"		"3"		//3
+		}
+	}
 	//炎龙之鳞
 	"item_dragon_scale"
 	{
@@ -446,6 +416,21 @@
 				"hp_restore"			"600"	// 250
 		}
 	}
+	//宁静种籽
+	"item_seeds_of_serenity"
+	{
+		"AbilityCastRange"				"700"	//350
+		"AbilityValues"
+		{
+			"aura_health_regen"			"20"	//10
+			"radius"
+			{
+				"value"			"500"			//400
+				"affected_by_aoe_increase"	"1"
+			}
+			"duration"					"10"	//8
+		}
+	}
 
 	//=================================================================================================================
 	// level 3
@@ -556,15 +541,6 @@
 				"heal_percent"	"50" //40
 				"armor_bonus"	"30" //10
 				"hp_regen"		"50" //25
-		}
-	}
-	//加速护符
-	"item_quickening_charm"
-	{
-		"AbilityValues"
-		{
-			"bonus_cooldown"			"16" //10
-			"bonus_health_regen"		"20" //10
 		}
 	}
 	//不羁甲壳

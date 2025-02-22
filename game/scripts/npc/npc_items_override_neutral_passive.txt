@@ -4,6 +4,53 @@
 	// Neutral item passive Override 中立物品附魔
 	//=================================================================================================================
 
+	//扫帚柄
+	"item_broom_handle"
+	{
+		"ItemIsNeutralPassiveDrop"		"1"
+		"AbilityValues"
+		{
+				"melee_attack_range"			"50"	//50
+				"bonus_damage"		"10"				//8
+				"bonus_armor"		"5"					//4
+		}
+	}
+
+	// 睿智 每分钟经验
+	"item_enhancement_wise"
+	{
+		"MaxLevel"						"2"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_xpm"					"300 600"
+		}
+	}
+
+	//加速护符
+	"item_quickening_charm"
+	{
+		"ItemIsNeutralPassiveDrop"		"1"
+		"AbilityValues"
+		{
+			"bonus_cooldown"			"16" //10
+			"bonus_health_regen"		"20" //10
+		}
+	}
+	//=================================================================================================================
+	// level 5 最高级别
+	//=================================================================================================================
+	// 进化 主属性
+	"item_enhancement_evolved"
+	{
+		"AbilityValues"
+		{
+			"primary_stat"			 	"80"			// 40
+			"primary_stat_universal"	"48"			// 24
+		}
+	}
 	//仙灵饰品
 	"item_mysterious_hat"
 	{
@@ -16,14 +63,16 @@
 				"manacost_reduction"	"10 15 20"		// 5
 		}
 	}
-
-	// 进化 主属性
-	"item_enhancement_evolved"
+	// 吸血鬼 双吸血
+	"item_enhancement_vampiric"
 	{
+		"MaxLevel"						"4"
 		"AbilityValues"
 		{
-			"primary_stat"			 	"80"			// 40
-			"primary_stat_universal"	"48"			// 24
+			"attack_lifesteal"				"12 16 20 24"
+			"spell_lifesteal"				"8 12 16 20"
+			"attack_damage"					"10 15 20 25"
+			"vision_loss"					"0"
 		}
 	}
 }

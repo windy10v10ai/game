@@ -12,7 +12,7 @@
 			"start_time"			"0:00"
 			"trinket_options"		"5"
 			"enhancement_options"	"5"
-			"craft_cost"			"5"
+			"craft_cost"			"4"
 			"xp_bonus"				"0"
 
 			"items"
@@ -24,10 +24,12 @@
 				"item_polliwog_charm"				"1"		// 蝌蚪护符
 				"item_spark_of_courage"				"1"		// 勇气之光
 				"item_rippers_lash"					"1"		// 撕裂之鞭
-				"item_orb_of_destruction"			"1"		// 毁灭灵球
 
+				// 级别移动
+				"item_iron_talon"					"1"		// 寒铁钢爪
 				// 额外添加
-				"item_arcane_ring"					"1"		// 奥术指环
+				"item_lance_of_pursuit"				"1"		// 追击矛
+				"item_duelist_gloves"				"1"		// 决斗家手套
 			}
 
 			"enhancements"
@@ -38,9 +40,9 @@
 				"item_enhancement_tough"			"1"		// 坚强 攻击
 				"item_enhancement_quickened"		"1"		// 迅速 移速
 
-				// 等级移动
+				// 级别移动
 				"item_enhancement_greedy"			"1"		// 贪婪 工资蓝量减攻击
-				// 额外添加
+				"item_enhancement_wise"				"1"		// 睿智 每分钟经验
 			}
 		}
 
@@ -49,17 +51,26 @@
 			"start_time"			"6:00"
 			"trinket_options"		"5"
 			"enhancement_options"	"5"
-			"craft_cost"			"10"
+			"craft_cost"			"8"
 			"xp_bonus"				"0"
 
 			"items"
 			{
 				"item_essence_ring"					"1"		// 精华指环
-				"item_iron_talon"					"1"		// 寒铁钢爪
 				"item_gossamer_cape"				"1"		// 蛛丝斗篷
 				"item_searing_signet"				"1"		// 炽热纹章
 				"item_misericorde"					"1"		// 飞贼之刃
 				"item_pogo_stick"					"1"		// 杂技玩具
+
+				// 级别移动
+				"item_orb_of_destruction"			"1"		// 毁灭灵球
+				"item_enhancement_wise"				"2"		// 睿智 每分钟经验
+
+
+				// 额外添加
+				"item_arcane_ring"					"1"		// 奥术指环
+				"item_seeds_of_serenity"			"1"		// 宁静种籽
+
 			}
 
 			"enhancements"
@@ -74,6 +85,9 @@
 				"item_enhancement_vast"				"1"		// 高远 攻击距离
 				"item_enhancement_greedy"			"2"		// 贪婪 工资蓝量减攻击
 				"item_enhancement_vampiric"			"1"		// 吸血鬼 双吸血
+
+				// 额外添加
+				"item_broom_handle"					"1"		// 扫帚柄
 			}
 		}
 
@@ -82,7 +96,7 @@
 			"start_time"			"12:00"
 			"trinket_options"		"5"
 			"enhancement_options"	"5"
-			"craft_cost"			"10"
+			"craft_cost"			"12"
 			"xp_bonus"				"0"
 
 			"items"
@@ -94,7 +108,7 @@
 				"item_whisper_of_the_dread"			"1"		// 邪道私语
 				"item_ninja_gear"					"1"		// 忍者用具
 
-				// 等级移动
+				// 级别移动
 				"item_demonicon"					"1"		// 冥灵书 原本是5级
 				"item_unrelenting_eye"				"1"		// 不屈之眼 原本是5级
 			}
@@ -120,7 +134,7 @@
 			"start_time"			"18:00"
 			"trinket_options"		"5"
 			"enhancement_options"	"5"
-			"craft_cost"			"10"
+			"craft_cost"			"16"
 			"xp_bonus"				"0"
 
 			"items"
@@ -147,8 +161,8 @@
 				"item_enhancement_titanic"			"1"		// 巨神 基础攻击状态抗性
 				"item_enhancement_crude"			"1"		// 粗暴 减速抗性攻击间隔减智力
 
-				// 等级移动
-				"item_enhancement_wise"				"1"		// 睿智 每分钟经验 原本是5级
+				// 级别移动
+				"item_enhancement_fleetfooted"		"1"		// 捷足 移速
 
 				// 额外添加
 				"item_mysterious_hat"				"2"		// 仙灵饰品
@@ -160,8 +174,8 @@
 			"start_time"			"24:00"
 			"trinket_options"		"5"
 			"enhancement_options"	"5"
-			"craft_cost"			"10"
-			"recraft_cost"			"10"
+			"craft_cost"			"20"
+			"recraft_cost"			"5"
 			"xp_bonus"				"0"
 
 			"items"
@@ -181,11 +195,12 @@
 				"item_enhancement_crude"			"2"		// 粗暴 减速抗性攻击间隔减智力
 
 				"item_enhancement_feverish"			"1"		// 狂热 冷却增加蓝耗
-				"item_enhancement_fleetfooted"		"1"		// 捷足 移速
 				"item_enhancement_audacious"		"1"		// 冒险 攻速魔法攻击伤害增加承伤
 				"item_enhancement_evolved"			"1"		// 进化 主属性
 				"item_enhancement_boundless"		"1"		// 无边 攻击距离施法距离
 
+				// 级别移动
+				"item_enhancement_vampiric"			"4"		// 吸血鬼 双吸血
 				// 额外添加
 				"item_mysterious_hat"				"3"		// 仙灵饰品
 			}
