@@ -950,7 +950,7 @@
 		"AbilityValues"
 		{
 			"max_slow_res"				"100"	//100
-			"hero_reduction"			"0"	//20
+			"hero_reduction"			"5"		//20
 		}
 	}
 	"item_pirate_hat" //海盗帽
