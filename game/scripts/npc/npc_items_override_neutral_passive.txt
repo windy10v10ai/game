@@ -8,7 +8,8 @@
 	{
 		"AbilityValues"
 		{
-			"mana_regen"				"2 4 6 8"		// x2
+			"mana_regen"				"5 10 25 40"	// 各级别按时间对标装备取一半左右：出门3k小件 6分钟两中大件 12分钟三件半毕业 18分钟五神 24分钟全神带书
+			"magic_res"					"0 10 25 30"	// 同上
 		}
 	}
 	// 壮实 血量回血
@@ -16,7 +17,8 @@
 	{
 		"AbilityValues"
 		{
-			"health_bonus"			"250 350 450 550" // x2
+			"health_bonus"			"500 1000 1500 2000"	//同上
+			"health_regen"			"5 15 20 25"	//同上
 		}
 	}
 	// 警觉 攻速夜视
@@ -24,19 +26,29 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_attack_speed"		"10 20 30 40"	// 10 15 20 25
+			"bonus_attack_speed"		"20 70 120 200"	//同上，极易贬值
+			"bonus_night_vision"	"100 200 300 400"	//不可替代，无法装备衡量
 		}
 	}
-	// 睿智 每分钟经验
+	// 睿智 每分钟经验 1&2级
 	"item_enhancement_wise"
 	{
 		"MaxLevel"						"2"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_xpm"					"300 600"
+			"bonus_xpm"					"300 600"	// n-1级升到n级所需经验为150n+50，从1升到n总经验为200n+75n(n-1)=75n^2+125n,当前刷野最快纪录7分钟25级即7分钟5w（1.5倍率）
+		}
+	}
+	// 贪婪 工资蓝量减攻击
+	"item_enhancement_greedy"
+	{
+		"ItemInitialCharges"			"750"
+		"MaxLevel"						"2"
+		"AbilityValues"
+		{
+			"bonus_gpm"			"150 300"
+			"bonus_mana"		"400 600"
+			"bonus_damage"		"-75 -150"	// 暂无版本数据，看着填
 		}
 	}
 	// 坚强 攻击护甲
@@ -44,8 +56,8 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_damage"				"5 10 15 20"	// 5 8 11 14
-			"armor"						"0 5 10 15"		// 0 4 7 10
+			"bonus_damage"				"10 40 70 100"	//同上
+			"armor"						"5 30 45 50"	//同上
 		}
 	}
 
@@ -55,14 +67,12 @@
 		"MaxLevel"						"4"
 		"AbilityValues"
 		{
-			"attack_lifesteal"				"12 16 20 24"
-			"spell_lifesteal"				"8 12 16 20"
-			"attack_damage"					"10 15 20 25"
-			"vision_loss"					"0"
+			"attack_lifesteal"				"12 20 40 50"
+			"spell_lifesteal"				"8 15 30 40"
 		}
 	}
 
-	// 进化 主属性
+	// 进化 主属性 3级
 	"item_enhancement_evolved"
 	{
 		"AbilityValues"
@@ -71,7 +81,101 @@
 			"primary_stat_universal"	"48"			// 24
 		}
 	}
-
+	// 高远 所有攻击距离 2&3级
+	"item_enhancement_vast"
+	{
+		"AbilityValues"
+		{
+			"attack_range"						"80 120"
+		}
+	}
+	// 迅速 移速蓝量
+	"item_enhancement_quickened"
+	{
+		"AbilityValues"
+		{
+			"movement_speed"			"40 70 100 150"
+			"max_mana"					"200 400 600 800"
+		}
+	}
+	// 冒险 攻速魔法攻击伤害增加承伤 5级
+	"item_enhancement_audacious"
+	{
+		"AbilityValues"
+		{
+			"attack_speed"				"300"
+			"magic_damage"				"360"
+			"incoming_damage"			"15"
+		}
+	}
+	// 捷足 移速 4级
+	"item_enhancement_fleetfooted"
+	{
+		"AbilityValues"
+		{
+			"movespeed"					"250"
+		}
+	}
+	// 粗暴 减速抗性攻击间隔减智力 4&5级
+	"item_enhancement_crude"
+	{
+		"AbilityValues"
+		{
+			"slow_resistance"			"25 50"
+			"bat_reduce"				"15 30"
+			"intelligence_pct"			"-15 -30"
+		}
+	}
+	// 无边 攻击距离施法距离 4&5级
+	"item_enhancement_boundless"
+	{
+		"MaxLevel"						"2"
+		"AbilityValues"
+		{
+			"bonus_attack_range"		"150 250"
+			"bonus_cast_range"			"300 450"
+		}
+	}
+	// 永恒 负面时间技能增强 4&5级
+	"item_enhancement_timeless"
+	{
+		"AbilityValues"
+		{
+			"debuff_amp"		"20 35"
+			"spell_amp"			"30 60"
+		}
+	}
+	// 犀利 施法距离回蓝最大魔法 2&3级
+	"item_enhancement_keen_eyed"
+	{
+		"AbilityValues"
+		{
+			"cast_range_bonus"					"125 250"
+			"bonus_mana_regen"					"15 30"
+			"mana_reduction_pct"				"10 20"
+		}
+	}
+	// 巨神 基础攻击状态抗性 4&5级
+	"item_enhancement_titanic"
+	{
+		"AbilityValues"
+		{
+			"base_attack_damage"		"20 40"
+			//"magic_resistance"		"12 16"
+			"status_resistance"			"15 30"
+			//"attack_speed"			"-25"
+		}
+	}
+	// // 狂热 冷却减少 蓝耗增加 4级 暂不动
+	// "item_enhancement_feverish"
+	// {
+	// 	"MaxLevel"						"2"
+	// 	"AbilityValues"
+	// 	{
+	// 		"cooldown_reduction"		"15"
+	// 		"cost_increase"				"10"
+	// 	}
+	// }
 	//=================================================================================================================
 	// 额外添加
 	//=================================================================================================================

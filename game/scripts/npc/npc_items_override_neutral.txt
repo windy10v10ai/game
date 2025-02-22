@@ -276,12 +276,13 @@
 	//毁灭灵球
 	"item_orb_of_destruction"
 	{
+		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"armor_reduction"		"6"		// 2
-			"slow_melee"			"25"	// 10
-			"slow_range"			"12"	// 5
-			"duration"				"4"		// 5
+			"armor_reduction"		"6 12"		// 2
+			"slow_melee"			"25 50"	// 10
+			"slow_range"			"12 24"	// 5
+			"duration"				"4 8"		// 5
 		}
 	}
 	//蜂王浆
