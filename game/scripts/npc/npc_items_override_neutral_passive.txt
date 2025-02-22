@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Neutral item passive Override 中立物品附魔
+	//=================================================================================================================
+
+	//仙灵饰品
+	"item_mysterious_hat"
+	{
+		"ItemIsNeutralPassiveDrop"		"1"
+		"MaxLevel"						"3"
+		"AbilityValues"
+		{
+				"bonus_health"			"200 400 600"	// 50
+				"spell_amp"				"10 15 20"		// 5
+				"manacost_reduction"	"10 15 20"		// 5
+		}
+	}
+
+	// 进化 主属性
+	"item_enhancement_evolved"
+	{
+		"AbilityValues"
+		{
+			"primary_stat"			 	"80"			// 40
+			"primary_stat_universal"	"48"			// 24
+		}
+	}
+}
