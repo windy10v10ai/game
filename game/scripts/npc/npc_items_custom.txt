@@ -4643,7 +4643,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"9000"
+		"ItemCost"						"6000"
 		"ItemAliases"					"diana candy"
 		"ItemPurchasable"				"1"
 		"ItemStackable"					"1"
