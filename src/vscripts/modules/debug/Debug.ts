@@ -65,11 +65,12 @@ export class Debug {
     if (cmd === CMD.REPLACE_ITEM) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
-      const itemName = args[0];
-      const item = hero.FindItemInInventory(itemName);
+      // FIXME DOTA_ITEM_NEUTRAL_ACTIVE_SLOT
+      const item = hero.GetItemInSlot(16);
       if (item) {
         UTIL_RemoveImmediate(item);
       }
+      const itemName = args[0];
       hero.AddItemByName(itemName);
     }
 
