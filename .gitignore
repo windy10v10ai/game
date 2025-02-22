@@ -13,7 +13,7 @@ game/maps/dota.vpk
 game/panorama_debugger.cfg
 game/panorama/layout/custom_game/
 game/panorama/scripts/custom_game/
-game/panorama/styles/custom_game/
+game/panorama/styles/
 game/panorama/images/heroes/**/*.vxml_c
 game/panorama/images/custom_game/lottery
 

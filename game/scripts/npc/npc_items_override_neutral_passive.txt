@@ -1,0 +1,125 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Neutral item passive Override 中立物品附魔
+	//=================================================================================================================
+	// 神秘 回蓝魔抗
+	"item_enhancement_mystical"
+	{
+		"AbilityValues"
+		{
+			"mana_regen"				"2 4 6 8"		// x2
+		}
+	}
+	// 壮实 血量回血
+	"item_enhancement_brawny"
+	{
+		"AbilityValues"
+		{
+			"health_bonus"			"250 350 450 550" // x2
+		}
+	}
+	// 警觉 攻速夜视
+	"item_enhancement_alert"
+	{
+		"AbilityValues"
+		{
+			"bonus_attack_speed"		"10 20 30 40"	// 10 15 20 25
+		}
+	}
+	// 睿智 每分钟经验
+	"item_enhancement_wise"
+	{
+		"MaxLevel"						"2"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_xpm"					"300 600"
+		}
+	}
+	// 坚强 攻击护甲
+	"item_enhancement_tough"
+	{
+		"AbilityValues"
+		{
+			"bonus_damage"				"5 10 15 20"	// 5 8 11 14
+			"armor"						"0 5 10 15"		// 0 4 7 10
+		}
+	}
+
+	// 吸血鬼 双吸血
+	"item_enhancement_vampiric"
+	{
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"attack_lifesteal"				"12 16 20 24"
+			"spell_lifesteal"				"8 12 16 20"
+			"attack_damage"					"10 15 20 25"
+			"vision_loss"					"0"
+		}
+	}
+
+	// 进化 主属性
+	"item_enhancement_evolved"
+	{
+		"AbilityValues"
+		{
+			"primary_stat"			 	"80"			// 40
+			"primary_stat_universal"	"48"			// 24
+		}
+	}
+
+	//=================================================================================================================
+	// 额外添加
+	//=================================================================================================================
+
+	//扫帚柄
+	"item_broom_handle"
+	{
+		"ItemIsNeutralPassiveDrop"		"1"
+		"AbilityValues"
+		{
+				"melee_attack_range"			"50"	//50
+				"bonus_damage"		"10"				//8
+				"bonus_armor"		"5"					//4
+		}
+	}
+	// 加速护符
+	"item_quickening_charm"
+	{
+		"ItemIsNeutralPassiveDrop"		"1"
+		"MaxLevel"						"2"
+		"AbilityValues"
+		{
+			"bonus_cooldown"			"6 12"			//10
+			"bonus_health_regen"		"6 12"			//10
+		}
+	}
+	//仙灵饰品
+	"item_mysterious_hat"
+	{
+		"ItemIsNeutralPassiveDrop"		"1"
+		"MaxLevel"						"2"
+		"AbilityValues"
+		{
+				"bonus_health"			"250 500"		// 50
+				"spell_amp"				"10 20"			// 5
+				"manacost_reduction"	"10 20"			// 5
+		}
+	}
+	//法术棱镜
+	"item_spell_prism"
+	{
+		"ItemIsNeutralPassiveDrop"		"1"
+		"MaxLevel"						"1"
+		"AbilityValues"
+		{
+				"bonus_cooldown"		"20"			//12
+				"bonus_all_stats"		"15"			//5
+				"mana_regen"			"5"				//2
+		}
+	}
+}
