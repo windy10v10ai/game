@@ -486,7 +486,7 @@
 		"AbilityValues"
 		{
 				"blink_range"			"1800"	//1400
-				"blink_damage_cooldown"	"0.1"	//3.0
+				"blink_damage_cooldown"	"0.2"	//3.0
 				"blink_range_clamp"		"1600"	//960
 				"bonus_intellect"		"50"	//25
 				"heal_amount"			"400"	//200
