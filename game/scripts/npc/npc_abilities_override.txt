@@ -11009,7 +11009,6 @@
 				"damage"
 				{
 					"value"		"140 200 260 320 380"
-				"special_bonus_unique_shadow_shaman_3" "+400"
 				}
 		}
 	}
@@ -11058,36 +11057,52 @@
 		"MaxLevel" "3"
 		"RequiredLevel"					"8"
 		"LevelsBetweenUpgrades"			"8"
-		"AbilityCooldown"				"140"
+		"AbilityCooldown"				"120"
 		"AbilityValues"
 		{
 			"ward_count"
 			{
-				"value"							"3"
+				"value"							"4"
 			}
 			"bonus_damage"
 			{
-				"special_bonus_unique_shadow_shaman_4" "+30"	// 20
+				"value"							"0"
+				"special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"50"
 			}
 			"mega_ward_multiplier_tooltip"
 			{
 				"value"						"0"
-				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"=3"	// =ward_count
+				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"=4"	// =ward_count
 			}
 			"mega_ward_health_tooltip"
 			{
-				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"=3"	// =ward_count
+				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"=4"	// =ward_count
 			}
 		}
+	}
+	// 自定义天赋
+	"special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 	}
 	// 禽戏 先天技能
 	"shadow_shaman_fowl_play"
 	{
-		"AbilityCooldown"				"90"	// 120
+		"AbilityCooldown"				"60"	// 120
 
 		"AbilityValues"
 		{
-			"damage_reduction_duration"	"1.0" // 0.75
+			"damage_reduction_duration"
+			{
+				"value"					"1"
+				"special_bonus_shard"	"+2"	// .5
+			}
+			"invuln_duration"
+			{
+				"special_bonus_shard"	"1"		// .1
+			}
 		}
 	}
 	//=================================================================================================================

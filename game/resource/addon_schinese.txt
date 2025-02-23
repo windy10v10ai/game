@@ -457,10 +457,9 @@
 
 		///////////////////////////////////////////////////
 		//
-		// 					Abilities 英雄技能
+		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
-
 
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（旧版）"
@@ -672,10 +671,9 @@
 		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了“机械救赎”程序，使它们在关键时刻能够激发潜力，扭转战局。"
 		///////////////////////////////////////////////////
 		//
-		// 					Heroes 英雄
+		// 					Heroes 原版英雄
 		//
 		///////////////////////////////////////////////////
-		// 原版英雄
 		// 火枪暗杀
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"暗杀（旧版）"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
@@ -785,6 +783,9 @@
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_slow_duration"				"<font color=\"#662375\">减速持续时间</font>："
 
 		"DOTA_Tooltip_modifier_brewmaster_primal_split_lua_duration"					"元素分离"
+
+		// 暗影撒嘛
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"+{s:bonus_bonus_damage}% 守卫攻击力"
 
 		///////////////////////////////////////////////////
 		//
