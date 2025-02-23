@@ -89,6 +89,7 @@ no_support_items = {
 	item_invis_sword = 1,
 	item_silver_edge = 1,
 	item_silver_edge_2 = 1,
+	item_demonicon = 1, -- 死灵书
 }
 no_support_substrings = {
 	"mango",
