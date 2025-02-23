@@ -18,17 +18,17 @@ const itemStyle = {
 const getBoxColor = (level: number) => {
   switch (level) {
     case 1:
-      return colors.grey;
+      return colors.tier1;
     case 2:
-      return colors.blue;
+      return colors.tier2;
     case 3:
-      return colors.purple;
+      return colors.tier3;
     case 4:
-      return colors.gold;
+      return colors.tier4;
     case 5:
-      return colors.orange;
+      return colors.tier5;
     default:
-      return colors.grey;
+      return colors.tier1;
   }
 };
 

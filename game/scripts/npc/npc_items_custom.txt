@@ -3854,7 +3854,11 @@
 		{
 				"bonus_damage"			"25" 	// tooltip, real value in modifier_item_shotgun_stats
 				"attack_speed"			"40" 	// tooltip, real value in modifier_item_shotgun_stats
-				"attack_radius"			"300"
+				"attack_radius"
+				{
+					"value"		"350"
+					"affected_by_aoe_increase"	"1"
+				}
 				"attack_percent"		"30"
 		}
 	}
@@ -3914,7 +3918,11 @@
 		{
 				"bonus_damage"			"50" 	// tooltip, real value in modifier_item_shotgun_v2_stats
 				"attack_speed"			"130" 	// tooltip, real value in modifier_item_shotgun_v2_stats
-				"attack_radius"			"300"
+				"attack_radius"
+				{
+					"value"		"350"
+					"affected_by_aoe_increase"	"1"
+				}
 				"attack_percent"		"60"
 		}
 	}
@@ -4158,7 +4166,7 @@
 		"AbilityTextureName"			"item_recipe_bfury_2"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2700"
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4203,7 +4211,7 @@
 
 		"AbilityValues"
 		{
-				"bonus_damage"			"120"
+				"bonus_damage"			"100"
 				"bonus_health_regen"	"15"
 				"bonus_mana_regen"		"5"
 				"cleave_damage_percent"	"80"
@@ -5098,7 +5106,7 @@
 
 		"AbilityValues"
 		{
-				"bonus_damage"			"300"
+				"bonus_damage"			"200"
 				"bonus_health_regen"	"30"
 				"bonus_mana_regen"		"10"
 				"cleave_damage_percent"	"100"
@@ -5714,6 +5722,71 @@
 			"bonus_movement_speed"	"120"	//65
 			"bonus_health_regen"	"50"	//15
 			"bonus_ms_duration"		"3"		//1.5
+		}
+	}
+	//=================================================================================================================
+	// 神器魔武双修&大胸针
+	//=================================================================================================================
+	"item_recipe_revenants_brooch_2"
+	{
+		"BaseClass"						"item_recipe_revenants_brooch"
+		"ItemCost"						"0"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_revenants_brooch_2"
+		"ItemRequirements"
+		{
+			"01"						"item_revenants_brooch;item_greater_crit"
+		}
+	}
+	"item_revenants_brooch_2"
+	{
+		"BaseClass"						"item_revenants_brooch"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"ItemShopTags"					"int;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"staff;misery;sm"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"AbilityValues"
+		{
+			"bonus_damage"			"90"
+			"spell_lifesteal"		"30"
+			"crit_chance"			"30"
+			"crit_multiplier"		"150"
+		}
+	}
+	"item_recipe_revenants_brooch_ultra"
+	{
+		"BaseClass"						"item_recipe_revenants_brooch"
+		"ItemCost"						"0"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_revenants_brooch_ultra"
+		"ItemRequirements"
+		{
+			"01"						"item_revenants_brooch_2;item_revenants_brooch_2;item_light_part"
+			"02"						"item_revenants_brooch_2;item_revenants_brooch_2;item_dark_part"
+		}
+	}
+	"item_revenants_brooch_ultra"
+	{
+		"BaseClass"						"item_revenants_brooch"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"ItemShopTags"					"int;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"staff;misery;sm"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"			"250"
+			"spell_lifesteal"		"60"
+			"crit_chance"			"50"
+			"crit_multiplier"		"250"
 		}
 	}
 }

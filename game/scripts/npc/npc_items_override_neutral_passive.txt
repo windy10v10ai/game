@@ -8,7 +8,8 @@
 	{
 		"AbilityValues"
 		{
-			"mana_regen"				"2 4 6 8"		// x2
+			"mana_regen"				"3 6 9 12"		// x3
+			"magic_res"					"0 10 25 30"	// 0 10 16 22
 		}
 	}
 	// 壮实 血量回血
@@ -16,7 +17,8 @@
 	{
 		"AbilityValues"
 		{
-			"health_bonus"			"250 350 450 550" // x2
+			"health_bonus"			"300 600 900 1200"	// 125 175 225 275
+			"health_regen"			"6 12 18 24"		// 0 4 8 12
 		}
 	}
 	// 警觉 攻速夜视
@@ -24,19 +26,28 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_attack_speed"		"10 20 30 40"	// 10 15 20 25
+			"bonus_attack_speed"	"20 40 60 80"		// 10 15 20 25
+			"bonus_night_vision"	"75 150 225 300"	// 0 150 225 300
 		}
 	}
-	// 睿智 每分钟经验
+	// 睿智 每分钟经验 1&2级
 	"item_enhancement_wise"
 	{
 		"MaxLevel"						"2"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_xpm"					"300 600"
+			"bonus_xpm"					"300 600"	// n-1级升到n级所需经验为150n+50，从1升到n总经验为200n+75n(n-1)=75n^2+125n,当前刷野最快纪录7分钟25级即7分钟5w（1.5倍率）
+		}
+	}
+	// 贪婪 工资蓝量减攻击
+	"item_enhancement_greedy"
+	{
+		"MaxLevel"						"2"
+		"AbilityValues"
+		{
+			"bonus_gpm"			"300 600"			// 75 100
+			"bonus_mana"		"300 600"			// 200 250
+			"bonus_damage"		"-75 -150"			// -30 -60
 		}
 	}
 	// 坚强 攻击护甲
@@ -44,34 +55,115 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_damage"				"5 10 15 20"	// 5 8 11 14
-			"armor"						"0 5 10 15"		// 0 4 7 10
+			"bonus_damage"				"20 30 40 50"	// 5 8 11 14
+			"armor"						"5 10 15 20"	// 0 4 7 10
+		}
+	}
+	// 迅速 移速（可叠加）蓝量
+	"item_enhancement_quickened"
+	{
+		"AbilityValues"
+		{
+			"movement_speed"			"30 50 70 90"		// 15 20 25 30
+			"max_mana"					"200 400 600 800"	// 0 100 160 220
 		}
 	}
 
 	// 吸血鬼 双吸血
 	"item_enhancement_vampiric"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel"						"3"
 		"AbilityValues"
 		{
-			"attack_lifesteal"				"12 16 20 24"
-			"spell_lifesteal"				"8 12 16 20"
-			"attack_damage"					"10 15 20 25"
-			"vision_loss"					"0"
+			"attack_lifesteal"				"12 20 28"	// 12 16 20
+			"spell_lifesteal"				"8 16 24"	// 8 12 16
 		}
 	}
 
-	// 进化 主属性
+	// 进化 主属性 3级
 	"item_enhancement_evolved"
+	{
+		"MaxLevel"						"3"
+		"AbilityValues"
+		{
+			"primary_stat"			 	"40 80 160"			// 40
+			"primary_stat_universal"	"24 48 96"			// 24
+		}
+	}
+	// 高远 所有攻击距离 2&3级
+	"item_enhancement_vast"
 	{
 		"AbilityValues"
 		{
-			"primary_stat"			 	"80"			// 40
-			"primary_stat_universal"	"48"			// 24
+			"attack_range"						"80 120"	// 60 90
 		}
 	}
-
+	// 犀利 施法距离回蓝最大魔法 2&3级
+	"item_enhancement_keen_eyed"
+	{
+		"AbilityValues"
+		{
+			"cast_range_bonus"					"125 175"	// 125 135
+			"bonus_mana_regen"					"3 6"		// 1 1.5
+			"mana_reduction_pct"				"10 20"		// 15
+		}
+	}
+	// 冒险 攻速魔法攻击伤害增加承伤 5级
+	"item_enhancement_audacious"
+	{
+		"AbilityValues"
+		{
+			"attack_speed"				"300"				// 100
+			"magic_damage"				"240"				// 80
+			"incoming_damage"			"15"				// 10
+		}
+	}
+	// 捷足 移速（可叠加） 5级
+	"item_enhancement_fleetfooted"
+	{
+		"AbilityValues"
+		{
+			"movespeed"					"230"				// 115
+		}
+	}
+	// 粗暴 减速抗性攻击间隔减智力 4&5级
+	"item_enhancement_crude"
+	{
+		"AbilityValues"
+		{
+			"slow_resistance"			"25 50"				// 20 30
+			"bat_reduce"				"15 30"				// 12 18
+			"intelligence_pct"			"-15 -30"			// -15
+		}
+	}
+	// 无边 攻击距离施法距离 4&5级
+	"item_enhancement_boundless"
+	{
+		"MaxLevel"						"2"
+		"AbilityValues"
+		{
+			"bonus_attack_range"		"150 250"			// 150
+			"bonus_cast_range"			"300 450"			// 350
+		}
+	}
+	// 永恒 负面时间技能增强 4&5级
+	"item_enhancement_timeless"
+	{
+		"AbilityValues"
+		{
+			"debuff_amp"		"15 30"						// 10 15
+			"spell_amp"			"30 45"						// 10 20
+		}
+	}
+	// 巨神 基础攻击状态抗性 4&5级
+	"item_enhancement_titanic"
+	{
+		"AbilityValues"
+		{
+			"base_attack_damage"		"20 40"				// 15 25
+			"status_resistance"			"15 30"				// 10 15
+		}
+	}
 	//=================================================================================================================
 	// 额外添加
 	//=================================================================================================================
@@ -118,8 +210,19 @@
 		"AbilityValues"
 		{
 				"bonus_cooldown"		"20"			//12
-				"bonus_all_stats"		"15"			//5
-				"mana_regen"			"5"				//2
+				"bonus_all_stats"		"16"			//5
+				"mana_regen"			"8"				//2
+		}
+	}
+	//骑士剑
+	"item_paladin_sword"
+	{
+		"ItemIsNeutralPassiveDrop"		"1"
+		"AbilityValues"
+		{
+			"bonus_damage"			"80"			//16
+			"bonus_lifesteal"		"40"			//16
+			"bonus_spell_lifesteal"	"30"			//8
 		}
 	}
 }

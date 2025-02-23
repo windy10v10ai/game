@@ -2092,6 +2092,23 @@
 		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow"				"虚灵之刃减速"
 		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow_Description"	"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。"
 
+		// 大胸针&神器魔武双修
+		"DOTA_Tooltip_Ability_item_revenants_brooch_2"			"白金英灵胸针"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_2_Description"				"<h1>被动：幻影暴击</h1>每次攻击都有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_2_Note0"						"对于其他来源的致命一击也被视为致命一击效果。"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_2_Note1"						"攻击建筑物时不会触发幻影暴击。"
+		"DOTA_Tooltip_ability_item_revenants_brooch_2_Lore"						"这枚受到诅咒的白金胸针属于一位堕落的卫士，她永远都在生死之界徘徊。"
+		"DOTA_Tooltip_ability_item_revenants_brooch_2_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_revenants_brooch_2_spell_lifesteal"		"%+$spell_lifesteal"
+
+		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"			"<font color='#e03e2e'>神器·魔武双修</font>"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Description"				"<h1>被动：</h1>每次攻击都有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note0"						"对于其他来源的致命一击也被视为致命一击效果。"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note1"						"攻击建筑物时不会触发幻影暴击。"
+		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_Lore"						"你说得对，但这就是数值怪的力量"
+		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
+
 		// 力量跳2
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2"                            "泰森闪光"
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Description"			    "<h1>主动：泰森闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后，%radius%范围内所有敌人受到%damage_base% + %damage_pct_instant%%%力量值的瞬时伤害，并且额外持续受到总计为%damage_pct_over_time%%%力量值的伤害，被减缓%movement_slow%%%移动速度，降低%attack_slow%攻击速度，持续%duration%秒。<br><br>受到来自敌方英雄或肉山的攻击时，盛势闪光将在%blink_damage_cooldown%秒内无法使用。"
