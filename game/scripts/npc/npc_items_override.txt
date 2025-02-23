@@ -19,9 +19,9 @@
 	"item_famango"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"              		"0"
-		"ItemSellable"          		"1"
-		"ItemStackable"         		"1"
+		"ItemCost"						"0"
+		"ItemSellable"					"1"
+		"ItemStackable"					"1"
 		"AbilityValues"
 		{
 				"replenish_amount"		"500"
@@ -30,9 +30,9 @@
 	"item_great_famango"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"              		"0"
-		"ItemSellable"          		"1"
-		"ItemStackable"         		"1"
+		"ItemCost"						"0"
+		"ItemSellable"					"1"
+		"ItemStackable"					"1"
 		"AbilityValues"
 		{
 				"replenish_amount"		"2000"
@@ -59,8 +59,8 @@
 	"item_recipe_greater_famango"
 	{
 		"ItemCost"						"2000"
-		"ItemPurchasable"       		"1"
-		"ItemSellable"          		"1"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemRequirements"
 		{
 			"01"						"item_great_famango"
@@ -74,6 +74,7 @@
 				"shield"			"10000"
 				"regen"				"500"
 				"idle"				"2"
+				"duration"			"10"			// 5
 		}
 	}
 	"item_cheese"
@@ -84,11 +85,11 @@
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"300"
 		"ItemPurchasable"				"1"
-		"ItemSellable"          		"1"
+		"ItemSellable"					"1"
 		"AbilityValues"
 		{
-				"health_restore"		"5000"	// 2500
-				"mana_restore"			"3000"	// 1500
+				"health_restore"		"10000"	// 2500
+				"mana_restore"			"5000"	// 1500
 		}
 	}
 
@@ -204,8 +205,6 @@
 	}
 	"item_travel_boots" // 飞鞋
 	{
-		"ItemIsNeutralDrop"				"1" // 改到中立格子
-		"ItemSellable"					"0"
 		"AbilityValues"
 		{
 				"tp_cooldown"			"30" // cd与回城卷轴同步
@@ -274,14 +273,14 @@
 	//=================================================================================================================
 	"item_phylactery"
 	{
-		"AbilityCooldown"				"2"		// 6
+		"AbilityCooldown"				"3.0"	// 12
 		"ItemCost"						"6000"
 		"AbilityValues"
 		{
-			"bonus_health"		"500"			// 200
-			"bonus_mana"		"500"			// 200
-			"bonus_all_stats"	"20"			// 7
-			"bonus_spell_damage"		"600"	// 150
+			"bonus_health"		"400"			// 200
+			"bonus_mana"		"400"			// 200
+			"bonus_all_stats"	"16"			// 7
+			"bonus_spell_damage"		"450"	// 150
 		}
 	}
 	//=================================================================================================================
@@ -290,28 +289,17 @@
 	"item_recipe_angels_demise"
 	{
 		"ItemCost"						"2500"
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_angels_demise"
-		"ItemRequirements"
-		{
-			"01"						"item_phylactery;item_greater_crit"
-		}
 	}
 	"item_angels_demise"
 	{
-		"AbilityCooldown"				"2.0"	// 6
+		"AbilityCooldown"				"3.0"	// 12
 		"AbilityValues"
 		{
-			"bonus_damage"			"100"		// 50
-			"crit_chance"			"30"		// 30
-			"spell_crit_multiplier"		"60"	// 60
-			"spell_crit_flat"			"600"	// 150
-			"crit_multiplier"		"250"		// 160
-			"tooltip_crit_damage"	"150"		// 60
-
-			"bonus_health"		"600"			// 200
-			"bonus_mana"		"600"			// 200
-			"bonus_all_stats"	"25"			// 8
+			"bonus_health"				"600"	// 200
+			"bonus_mana"				"600"	// 200
+			"bonus_all_stats"			"25"	// 8
+			"slow"						"50"	// 30
+			"bonus_spell_damage"		"900"	// 250
 		}
 	}
 	//=================================================================================================================
@@ -351,15 +339,16 @@
     //=================================================================================================================
 	"item_recipe_revenants_brooch"
 	{
-		"ItemCost"						"4100"
+		"ItemCost"						"0" //为神器降价
 	}
 	"item_revenants_brooch"
 	{
 		"AbilityValues"
 		{
-				"bonus_damage"			"120"			// 70
-				"spell_lifesteal"		"35"			// 20
-				"manacost_per_hit"		"60"			// 50
+			"bonus_damage"			"35"	//35
+			"spell_lifesteal"		"16"	//16
+			"crit_chance"			"30"	//30
+			"crit_multiplier"		"80"	//80
 		}
 	}
 	//=================================================================================================================
@@ -499,7 +488,7 @@
 		"AbilityValues"
 		{
 				"blink_range"			"1800"	//1400
-				"blink_damage_cooldown"	"0.1"	//3.0
+				"blink_damage_cooldown"	"0.2"	//3.0
 				"blink_range_clamp"		"1600"	//960
 				"bonus_intellect"		"50"	//25
 				"heal_amount"			"400"	//200
@@ -749,56 +738,56 @@
 	//=================================================================================================================
 	// Recipe: Dagon 大根 红杖
 	//=================================================================================================================
-	"item_recipe_dagon"
-	{
-		"ItemCost"						"2100"
-		"ItemShopTags"					""
-	}
-	"item_dagon"
-	{
-		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilityValues"
-		{
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"160 240 320 400 480"
-		}
-	}
-	"item_dagon_2"
-	{
-		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilityValues"
-		{
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"160 240 320 400 480"
-		}
-	}
-	"item_dagon_3"
-	{
-		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilityValues"
-		{
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"160 240 320 400 480"
-		}
-	}
-	"item_dagon_4"
-	{
-		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilityValues"
-		{
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"160 240 320 400 480"
-		}
-	}
-	"item_dagon_5"
-	{
-		"AbilityManaCost"				"160 240 320 400 480"
-		"AbilityValues"
-		{
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"160 240 320 400 480"
-		}
-	}
+	// "item_recipe_dagon"
+	// {
+	// 	"ItemCost"						"2100"
+	// 	"ItemShopTags"					""
+	// }
+	// "item_dagon"
+	// {
+	// 	"AbilityManaCost"				"160 240 320 400 480"
+	// 	"AbilityValues"
+	// 	{
+	// 		"damage"				"600 750 900 1050 1200"
+	// 		"mana_cost_tooltip"		"160 240 320 400 480"
+	// 	}
+	// }
+	// "item_dagon_2"
+	// {
+	// 	"AbilityManaCost"				"160 240 320 400 480"
+	// 	"AbilityValues"
+	// 	{
+	// 		"damage"				"600 750 900 1050 1200"
+	// 		"mana_cost_tooltip"		"160 240 320 400 480"
+	// 	}
+	// }
+	// "item_dagon_3"
+	// {
+	// 	"AbilityManaCost"				"160 240 320 400 480"
+	// 	"AbilityValues"
+	// 	{
+	// 		"damage"				"600 750 900 1050 1200"
+	// 		"mana_cost_tooltip"		"160 240 320 400 480"
+	// 	}
+	// }
+	// "item_dagon_4"
+	// {
+	// 	"AbilityManaCost"				"160 240 320 400 480"
+	// 	"AbilityValues"
+	// 	{
+	// 		"damage"				"600 750 900 1050 1200"
+	// 		"mana_cost_tooltip"		"160 240 320 400 480"
+	// 	}
+	// }
+	// "item_dagon_5"
+	// {
+	// 	"AbilityManaCost"				"160 240 320 400 480"
+	// 	"AbilityValues"
+	// 	{
+	// 		"damage"				"600 750 900 1050 1200"
+	// 		"mana_cost_tooltip"		"160 240 320 400 480"
+	// 	}
+	// }
 
 	// 长盾
 	"item_pavise"
