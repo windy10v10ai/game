@@ -3854,7 +3854,11 @@
 		{
 				"bonus_damage"			"25" 	// tooltip, real value in modifier_item_shotgun_stats
 				"attack_speed"			"40" 	// tooltip, real value in modifier_item_shotgun_stats
-				"attack_radius"			"300"
+				"attack_radius"
+				{
+					"value"		"350"
+					"affected_by_aoe_increase"	"1"
+				}
 				"attack_percent"		"30"
 		}
 	}
@@ -3914,7 +3918,11 @@
 		{
 				"bonus_damage"			"50" 	// tooltip, real value in modifier_item_shotgun_v2_stats
 				"attack_speed"			"130" 	// tooltip, real value in modifier_item_shotgun_v2_stats
-				"attack_radius"			"300"
+				"attack_radius"
+				{
+					"value"		"350"
+					"affected_by_aoe_increase"	"1"
+				}
 				"attack_percent"		"60"
 		}
 	}
