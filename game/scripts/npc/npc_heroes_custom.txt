@@ -909,7 +909,6 @@
 	}
 	"npc_dota_hero_dazzle"
 	{
-		// "Ability4"		"dazzle_weave"
 		"Ability5"		"dazzle_good_juju"
 		"Bot"
 		{
