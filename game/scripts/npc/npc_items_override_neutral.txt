@@ -210,8 +210,8 @@
 	//精华指环
 	"item_essence_ring"
 	{
-		"AbilityCooldown"				"10"  //25
-		"AbilityManaCost"				"400"   //150
+		"AbilityCooldown"				"10"	//25
+		"AbilityManaCost"				"400"	//150
 		"AbilityValues"
 		{
 			"bonus_int"			"0"		//0
@@ -223,21 +223,17 @@
 	//蛛丝斗篷
 	"item_gossamer_cape"
 	{
-		"AbilityCooldown"				"1.2"		//6
-		"AbilityValues"
-		{
-			"movement_speed"			"0"   //0
-		}
+		"AbilityCooldown"				"1.0"		//6
 	}
 	//炽热纹章
 	"item_searing_signet"
 	{
 		"AbilityValues"
 		{
-			"damage_threshold"			"200" //40
-			"burn_damage"				"300" //75
-			"burn_duration"				"2.5" //5
-			"burn_tickrate"				".5" //.25
+			"damage_threshold"			"120"		//40
+			"burn_damage"				"250"		//75
+			"burn_duration"				"2.5"		//5
+			"burn_tickrate"				".25"		//.25
 		}
 	}
 	//飞贼之刃
@@ -245,22 +241,19 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_damage"			"6" //3
-			"missing_hp"			"1" //5
-			"damage"				"0" //0
-			"aspd"					"0" //0
+			"bonus_damage"			"6"				//3
+			"missing_hp"			"2"				//5
 		}
 	}
 	//杂技玩具
 	"item_pogo_stick"
 	{
-		"AbilityCooldown"				"6.0" //15
+		"AbilityCooldown"				"6.0"		//15
 		"AbilityValues"
 		{
-			"leap_distance"			"450" //300
-			"leap_speed"			"1950.0" //1300
-			"leap_acceleration"		"30000.0" //20000
-			"bonus_mana"		"0" //0
+			"leap_distance"			"450"			//300
+			"leap_speed"			"1950.0"		//1300
+			"leap_acceleration"		"30000.0"		//20000
 		}
 	}
 	//毁灭灵球

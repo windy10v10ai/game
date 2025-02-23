@@ -103,9 +103,9 @@
 	{
 		"AbilityValues"
 		{
-			"cast_range_bonus"					"125 250"
-			"bonus_mana_regen"					"15 30"
-			"mana_reduction_pct"				"10 20"
+			"cast_range_bonus"					"125 175"	// 125 135
+			"bonus_mana_regen"					"3 6"		// 1 1.5
+			"mana_reduction_pct"				"10 20"		// 15
 		}
 	}
 	// 冒险 攻速魔法攻击伤害增加承伤 5级

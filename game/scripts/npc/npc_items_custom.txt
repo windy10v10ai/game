@@ -5764,7 +5764,8 @@
 		"ItemResult"					"item_revenants_brooch_ultra"
 		"ItemRequirements"
 		{
-			"01"						"item_revenants_brooch_2;item_revenants_brooch_2;item_revenants_brooch_2"
+			"01"						"item_revenants_brooch_2;item_revenants_brooch_2;item_light_part"
+			"02"						"item_revenants_brooch_2;item_revenants_brooch_2;item_dark_part"
 		}
 	}
 	"item_revenants_brooch_ultra"
