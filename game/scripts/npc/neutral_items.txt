@@ -91,8 +91,10 @@
 				"item_enhancement_greedy"			"2"		// 贪婪 工资蓝量减攻击
 				"item_enhancement_vampiric"			"1"		// 吸血鬼 双吸血
 
-				// 额外添加
+				// 级别移动
 				"item_enhancement_wise"				"2"		// 睿智 每分钟经验
+				// 额外添加
+				"item_quickening_charm"				"2"		// 加速护符
 			}
 		}
 
@@ -133,10 +135,11 @@
 				"item_enhancement_keen_eyed"		"2"		// 犀利 施法距离回蓝最大魔法
 				"item_enhancement_vast"				"2"		// 高远 攻击距离
 				"item_enhancement_vampiric"			"2"		// 吸血鬼 双吸血
-				"item_enhancement_evolved"			"1"		// 进化 主属性
 
+				// 级别移动
+				"item_enhancement_feverish"			"1"		// 狂热 冷却减少 蓝耗增加 原本是5级
+				"item_enhancement_evolved"			"1"		// 进化 主属性
 				// 额外添加
-				"item_quickening_charm"				"2"		// 加速护符
 			}
 		}
 
@@ -168,7 +171,7 @@
 				"item_enhancement_mystical"			"4"		// 神秘 回蓝魔抗
 				"item_enhancement_brawny"			"4"		// 壮实 血量回血
 				"item_enhancement_alert"			"4"		// 警觉 攻速夜视
-				// "item_enhancement_tough"			"4"		// 坚强 攻击护甲
+				"item_enhancement_tough"			"4"		// 坚强 攻击护甲
 				"item_enhancement_quickened"		"4"		// 迅速 移速蓝量
 
 				"item_enhancement_vampiric"			"3"		// 吸血鬼 双吸血
@@ -178,9 +181,9 @@
 				"item_enhancement_crude"			"1"		// 粗暴 减速抗性攻击间隔减智力
 
 				// 级别移动
-				"item_enhancement_fleetfooted"		"1"		// 捷足 移速
-				"item_enhancement_feverish"			"1"		// 狂热 冷却减少 蓝耗增加
 				"item_enhancement_boundless"		"1"		// 无边 攻击距离施法距离
+				"item_enhancement_evolved"			"2"		// 进化 主属性
+
 
 				// 额外添加
 				"item_mysterious_hat"				"1"		// 仙灵饰品
@@ -217,7 +220,10 @@
 				"item_enhancement_titanic"			"2"		// 巨神 基础攻击状态抗性
 				"item_enhancement_crude"			"2"		// 粗暴 减速抗性攻击间隔减智力
 
+
+				"item_enhancement_fleetfooted"		"1"		// 捷足 移速
 				"item_enhancement_audacious"		"1"		// 冒险 攻速魔法攻击伤害增加承伤
+				"item_enhancement_evolved"			"3"		// 进化 主属性
 				"item_enhancement_boundless"		"2"		// 无边 攻击距离施法距离
 
 				// 级别移动
