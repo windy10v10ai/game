@@ -100,12 +100,9 @@ export const itemTiers: Tier[] = [
       'item_orb_of_destruction', // 毁灭灵球
       'item_grove_bow', // 林野长弓
       'item_vambrace', // 臂甲
-      'item_vampire_fangs', // 吸血鬼獠牙
-      'item_mysterious_hat', // 仙灵饰品
       'item_defiant_shell', // 不羁甲壳
 
       // ---- 中立物品 lv1 ----
-      'item_philosophers_stone', // 贤者石
       // 未加入中立的物品
       'item_quickening_charm', // 加速护符
       'item_spider_legs', // 网虫腿
