@@ -204,27 +204,6 @@
 				"slow_pct_ranged"		"16"	//8
 		}
 	}
-	//穷鬼盾
-	"item_poor_mans_shield"
-	{
-		"AbilityValues"
-		{
-				"damage_block_melee"	"60"	// 30
-				"damage_block_ranged"	"40"	// 20
-				"block_chance"			"80"	// 50
-				"block_chance_hero"		"100"	// 100
-		}
-	}
-	//碎裂背心
-	"item_chipped_vest"
-	{
-		"AbilityValues"
-		{
-			"hp_regen"				"0"			//4
-			"damage_return_hero"	"60"		//30
-			"damage_return_creep"	"40"		//20
-		}
-	}
 	//=================================================================================================================
 	// level 2
 	//=================================================================================================================
@@ -319,6 +298,27 @@
 		{
 				"mana_restore"			"150"	//30
 				"mana_restore_pct"		"3"		//3
+		}
+	}
+	//穷鬼盾
+	"item_poor_mans_shield"
+	{
+		"AbilityValues"
+		{
+				"damage_block_melee"	"90"	// 30
+				"damage_block_ranged"	"60"	// 20
+				"block_chance"			"80"	// 50
+				"block_chance_hero"		"100"	// 100
+		}
+	}
+	//碎裂背心
+	"item_chipped_vest"
+	{
+		"AbilityValues"
+		{
+			"hp_regen"				"0"			//4
+			"damage_return_hero"	"90"		//30
+			"damage_return_creep"	"60"		//20
 		}
 	}
 	//不屈之眼
