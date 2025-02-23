@@ -5,7 +5,7 @@
 	//=================================================================================================================
 
 	//=================================================================================================================
-	// level 0 不在中立物品池
+	// level 0 不在中立物品池 抽奖遗老
 	//=================================================================================================================
 	//铁树之木
 	"item_ironwood_tree"
@@ -71,6 +71,17 @@
 		{
 				"bonus_armor"		"24" //6
 				"duration"			"3" //5
+		}
+	}
+	//炎龙之鳞
+	"item_dragon_scale"
+	{
+		"AbilityValues"
+		{
+				"bonus_armor"			"15"	//5
+				"bonus_hp_regen"		"15"	//5
+				"damage_per_sec"		"88"	//22
+				"duration"				"5"		//3
 		}
 	}
 	//=================================================================================================================
@@ -140,8 +151,8 @@
 	{
 		"AbilityValues"
 		{
-			"damage"			"40"			//10
-			"armor"				"20"			//5
+			"damage"			"30"			//10
+			"armor"				"15"			//5
 			"health_pct"		"50"			//50
 		}
 	}
@@ -198,8 +209,8 @@
 	{
 		"AbilityValues"
 		{
-				"damage_block_melee"	"90"	// 30
-				"damage_block_ranged"	"60"	// 20
+				"damage_block_melee"	"60"	// 30
+				"damage_block_ranged"	"40"	// 20
 				"block_chance"			"80"	// 50
 				"block_chance_hero"		"100"	// 100
 		}
@@ -210,8 +221,8 @@
 		"AbilityValues"
 		{
 			"hp_regen"				"0"			//4
-			"damage_return_hero"	"90"		//30
-			"damage_return_creep"	"60"		//20
+			"damage_return_hero"	"60"		//30
+			"damage_return_creep"	"40"		//20
 		}
 	}
 	//=================================================================================================================
@@ -276,13 +287,12 @@
 	//毁灭灵球
 	"item_orb_of_destruction"
 	{
-		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"armor_reduction"		"6 12"		// 2
-			"slow_melee"			"25 50"	// 10
-			"slow_range"			"12 24"	// 5
-			"duration"				"4 8"		// 5
+			"armor_reduction"		"6"		// 2
+			"slow_melee"			"25"	// 10
+			"slow_range"			"12"	// 5
+			"duration"				"4"		// 5
 		}
 	}
 	//蜂王浆
@@ -336,23 +346,11 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_attack_speed"	"120"		//20
+			"bonus_attack_speed"	"80"		//20
 			"bonus_damage"			"0"			//12
 		}
 	}
 
-	//抽奖遗老
-	//炎龙之鳞
-	"item_dragon_scale"
-	{
-		"AbilityValues"
-		{
-				"bonus_armor"			"15"	//5
-				"bonus_hp_regen"		"15"	//5
-				"damage_per_sec"		"88"	//22
-				"duration"				"5"		//3
-		}
-	}
 	//学徒之礼
 	"item_pupils_gift"
 	{
