@@ -16,7 +16,6 @@ export const itemTiers: Tier[] = [
       'item_fallen_sky', // 天崩
       'item_ex_machina', // 机械之心
       'item_desolator_2', // 寂灭
-      'item_spell_prism', // 法术棱镜
       'item_ballista', // 弩炮
       'item_mirror_shield', // 神镜盾
       'item_force_field', // 秘术师铠甲
@@ -24,6 +23,8 @@ export const itemTiers: Tier[] = [
       'item_unwavering_condition', // 坚毅之件
       'item_panic_button', // 神妙明灯
       'item_nemesis_curse', // 天诛之咒
+      'item_havoc_hammer', // 浩劫巨锤
+      'item_specialists_array', // 行家阵列
     ],
   },
   {
@@ -34,15 +35,14 @@ export const itemTiers: Tier[] = [
       'item_force_boots', // 原力鞋
       'item_seer_stone', // 先哲石
       'item_woodland_striders', // 丛林鞋
-      'item_pirate_hat', // 海盗帽
       'item_mind_breaker', // 智灭
-      'item_specialists_array', // 行家阵列
       'item_ascetic_cap', // 简朴短帽
       'item_avianas_feather', // 艾维娜之羽
       'item_ninja_gear', // 忍者用具
       'item_spy_gadget', // 望远镜
       'item_trickster_cloak', // 欺诈师斗篷
       'item_book_of_shadows', // 暗影邪典
+      'item_spider_legs', // 网虫腿
 
       // 未加入中立的物品
       'item_heavy_blade', // 行巫之祸
@@ -67,14 +67,13 @@ export const itemTiers: Tier[] = [
       'item_cloak_of_flames', // 火焰斗篷
       'item_ceremonial_robe', // 祭礼长袍
       'item_psychic_headband', // 通灵头带
-      'item_havoc_hammer', // 浩劫巨锤
       'item_ogre_seal_totem', // 食人魔海豹图腾
       'item_ancient_guardian', // 遗迹守护者
 
+      'item_pirate_hat', // 海盗帽
       // 未加入中立的物品
       'item_third_eye', // 第三只眼
       'item_princes_knife', // 亲王短刀
-      'item_helm_of_the_undying', // 不死头盔
     ],
   },
   {
@@ -93,11 +92,12 @@ export const itemTiers: Tier[] = [
       'item_grove_bow', // 林野长弓
       'item_vambrace', // 臂甲
       'item_defiant_shell', // 不羁甲壳
+      'item_duelist_gloves', // 决斗家手套
+      'item_whisper_of_the_dread', // 邪道私语
 
       // ---- 中立物品 lv1 ----
       // 未加入中立的物品
       'item_quickening_charm', // 加速护符
-      'item_spider_legs', // 网虫腿
       'item_horizon', // 视界
       'item_imp_claw', // 魔童之爪
       'item_misericorde', // 飞贼之刃
@@ -105,6 +105,7 @@ export const itemTiers: Tier[] = [
       // 'item_paintball', // 仙灵榴弹
       // 'item_dagger_of_ristul', // 瑞斯图尔尖匕
       'item_greater_faerie_fire', // 高级仙林之火
+      'item_helm_of_the_undying', // 不朽头盔
     ],
   },
   {
@@ -117,7 +118,6 @@ export const itemTiers: Tier[] = [
 
       // ---- 中立物品 lv2 ----
       'item_dragon_scale', // 炎龙之鳞
-      'item_whisper_of_the_dread', // 邪道私语
       'item_bullwhip', // 凌厉长鞭
       'item_eye_of_the_vizier', // 维齐尔之眼
       'item_gossamer_cape', // 蛛丝斗篷
@@ -125,13 +125,11 @@ export const itemTiers: Tier[] = [
 
       // ---- 中立物品 lv1 ----
       'item_safety_bubble', // 安全泡泡
-      'item_keen_optic', // 基恩镜片
       'item_royal_jelly', // 蜂王浆
       'item_spark_of_courage', // 勇气之光
       'item_seeds_of_serenity', // 宁静种籽
       'item_lance_of_pursuit', // 追击矛
       'item_occult_bracelet', // 玄奥手镯
-      'item_duelist_gloves', // 决斗家手套
 
       // 未加入中立的物品
       'item_essence_ring', // 精华指环
