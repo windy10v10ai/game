@@ -873,6 +873,6 @@
 	"npc_dota_lantern"
 	{
 		"VisionDaytimeRange"		"1200"		// 800
-		"VisionNighttimeRange"		"600"		// 800
+		"VisionNighttimeRange"		"800"		// 800
 	}
 }
