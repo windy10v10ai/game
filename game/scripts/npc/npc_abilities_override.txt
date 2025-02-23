@@ -9381,6 +9381,15 @@
 				"value"					"60"	// 100
 				"RequiresScepter"		"1"
 			}
+			"create_forged_spirit_on_hero_damage"
+			{
+				"value"											"0"
+				"special_bonus_facet_invoker_exort_focus"
+				{
+					"value"						"0"
+					"special_bonus_shard"		"+0"	// 移除魔晶产生熔炉精灵的效果
+				}
+			}
 		}
 	}
 	// 熔炉精灵
@@ -9388,9 +9397,30 @@
 	{
 		"AbilityValues"
 		{
-			"spirit_attack_speed"
+			"spirit_damage"
 			{
-				"special_bonus_unique_invoker_11" "+100"	// 50
+				"value"			"40 80 120 160 200 240 280 320 360 400"
+				"levelkey"		"exortlevel"
+			}
+			"spirit_armor"
+			{
+				"value"			"2 4 6 8 10 12 14 16 18 20"
+				"levelkey"		"exortlevel"
+			}
+			"spirit_hp"
+			{	"value"			"400 800 1200 1600 2000 2400 2800 3200 3600 4000"
+				"levelkey"		"quaslevel"
+			}
+			// 减少数量 缓解卡顿
+			"extra_spirit_count_quas"
+			{
+				"value" 				"1"
+				"levelkey"		"quaslevel"
+			}
+			"extra_spirit_count_exort"
+			{
+				"value" 				"1"
+				"levelkey"		"exortlevel"
 			}
 		}
 	}
