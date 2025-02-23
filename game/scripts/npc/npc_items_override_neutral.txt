@@ -520,19 +520,19 @@
 			"slow_resist"				"50" //50
 		}
 	}
-	//火焰手套
+	//火药手套
 	"item_gunpowder_gauntlets"
 	{
-		"AbilityCooldown"				"0.1" //6
+		"AbilityCooldown"				"1"		//6
 		"AbilityValues"
 		{
-			"bonus_damage"			"240" //120
+			"bonus_damage"			"240"		//120
 			"splash_radius"
 			{
-				"value"				"500" //250
+				"value"				"300"		//250
 				"affected_by_aoe_increase" "1"
 			}
-			"splash_pct"			"50" //50
+			"splash_pct"			"50"		//50
 		}
 	}
 	//邪道私语
@@ -826,10 +826,10 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_attack_range"		"250" //100
-			"bonus_cast_range"			"300" //125
+			"bonus_attack_range"		"200" //100
+			"bonus_cast_range"			"250" //125
 			"damage_disable"			"6" //3
-			"damage_threshold"			"100" //25
+			"damage_threshold"			"400" //25
 		}
 	}
 	//祭礼长袍
