@@ -7,7 +7,7 @@
 
 	"neutral_tiers"
 	{
-		"1"//8-12件 12
+		"1"//8件
 		{
 			"start_time"			"0:00"
 			"trinket_options"		"5"
@@ -108,20 +108,16 @@
 
 			"items"
 			{
-				"item_serrated_shiv"				"1"		// 锯齿短刀
-				"item_nemesis_curse"				"1"		// 天诛之咒
 				"item_gale_guard"					"1"		// 烈风护体
-				"item_gunpowder_gauntlets"			"1"		// 火药手套
 				"item_whisper_of_the_dread"			"1"		// 邪道私语
 				"item_ninja_gear"					"1"		// 忍者用具
 
 				// 级别移动
 				"item_pyrrhic_cloak"				"1"		// 皮洛士斗篷
 				"item_ogre_seal_totem"				"1"		// 食人魔海豹图腾
+				"item_mind_breaker"					"1"		// 智灭 原本是4级
 				// 额外添加
 				"item_trickster_cloak"				"1"		// 欺诈师斗篷
-				"item_specialists_array"			"1"		// 行家阵列
-				"item_stormcrafter"					"1"		// 风暴宝器
 				"item_penta_edged_sword"			"1"		// 五锋长剑
 			}
 
@@ -155,15 +151,16 @@
 			{
 				"item_crippling_crossbow"			"1"		// 致残之弩
 				"item_magnifying_monocle"			"1"		// 放大单片镜
-				"item_ceremonial_robe"				"1"		// 祭礼长袍
-				"item_mind_breaker"					"1"		// 智灭
 				// 级别移动
 				"item_spider_legs"					"1"		// 网虫腿 原本是5级
+				"item_gunpowder_gauntlets"			"1"		// 火药手套 原本是3级
+				"item_serrated_shiv"				"1"		// 锯齿短刀 原本是3级
+
 				// 额外添加
 				// "item_book_of_shadows"				"1"		// 暗影邪典
 				"item_seer_stone"					"1"		// 先哲之石
 				"item_princes_knife"				"1"		// 亲王短刀
-				"item_havoc_hammer"					"1"		// 浩劫巨锤
+				"item_stormcrafter"					"1"		// 风暴宝器
 			}
 
 			"enhancements"
@@ -206,12 +203,20 @@
 				"item_minotaur_horn"				"1"		// 恶牛角
 				"item_panic_button"					"1"		// 神妙明灯
 
+				// 级别移动
+				"item_nemesis_curse"				"1"		// 天诛之咒 原本是3级
+				"item_ceremonial_robe"				"1"		// 祭礼长袍 原本是4级
+
 				// 额外添加
 				"item_mirror_shield"				"1"		// 神镜盾
 				"item_ballista"						"1"		// 弩炮
 				"item_giants_ring"					"1"		// 巨人之戒
 				"item_ex_machina"					"1"		// 机械之心
 				// "item_force_field"					"1"		// 秘术师铠甲
+
+				"item_havoc_hammer"					"1"		// 浩劫巨锤
+				"item_specialists_array"			"1"		// 行家阵列
+
 			}
 
 			"enhancements"
@@ -227,10 +232,11 @@
 				"item_enhancement_boundless"		"2"		// 无边 攻击距离施法距离
 
 				// 级别移动
-				"item_enhancement_vampiric"			"4"		// 吸血鬼 双吸血
+
 				// 额外添加
 				"item_mysterious_hat"				"2"		// 仙灵饰品
 				"item_spell_prism"					"1"		// 法术棱镜
+				"item_paladin_sword"				"1"		// 骑士剑
 			}
 		}
 	}

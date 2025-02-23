@@ -72,11 +72,11 @@
 	// 吸血鬼 双吸血
 	"item_enhancement_vampiric"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel"						"3"
 		"AbilityValues"
 		{
-			"attack_lifesteal"				"12 20 28 46"	// 12 16 20 24
-			"spell_lifesteal"				"8 16 24 40"	// 8 12 16 20
+			"attack_lifesteal"				"12 20 28"	// 12 16 20
+			"spell_lifesteal"				"8 16 24"	// 8 12 16
 		}
 	}
 
@@ -212,6 +212,17 @@
 				"bonus_cooldown"		"20"			//12
 				"bonus_all_stats"		"16"			//5
 				"mana_regen"			"8"				//2
+		}
+	}
+	//骑士剑
+	"item_paladin_sword"
+	{
+		"ItemIsNeutralPassiveDrop"		"1"
+		"AbilityValues"
+		{
+			"bonus_damage"			"80"			//16
+			"bonus_lifesteal"		"40"			//16
+			"bonus_spell_lifesteal"	"30"			//8
 		}
 	}
 }

@@ -19,9 +19,9 @@
 	"item_famango"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"              		"0"
-		"ItemSellable"          		"1"
-		"ItemStackable"         		"1"
+		"ItemCost"						"0"
+		"ItemSellable"					"1"
+		"ItemStackable"					"1"
 		"AbilityValues"
 		{
 				"replenish_amount"		"500"
@@ -30,9 +30,9 @@
 	"item_great_famango"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"              		"0"
-		"ItemSellable"          		"1"
-		"ItemStackable"         		"1"
+		"ItemCost"						"0"
+		"ItemSellable"					"1"
+		"ItemStackable"					"1"
 		"AbilityValues"
 		{
 				"replenish_amount"		"2000"
@@ -59,8 +59,8 @@
 	"item_recipe_greater_famango"
 	{
 		"ItemCost"						"2000"
-		"ItemPurchasable"       		"1"
-		"ItemSellable"          		"1"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
 		"ItemRequirements"
 		{
 			"01"						"item_great_famango"
@@ -74,6 +74,7 @@
 				"shield"			"10000"
 				"regen"				"500"
 				"idle"				"2"
+				"duration"			"10"			// 5
 		}
 	}
 	"item_cheese"
@@ -84,11 +85,11 @@
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"300"
 		"ItemPurchasable"				"1"
-		"ItemSellable"          		"1"
+		"ItemSellable"					"1"
 		"AbilityValues"
 		{
-				"health_restore"		"5000"	// 2500
-				"mana_restore"			"3000"	// 1500
+				"health_restore"		"10000"	// 2500
+				"mana_restore"			"5000"	// 1500
 		}
 	}
 
