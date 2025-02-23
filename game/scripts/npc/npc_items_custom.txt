@@ -5743,7 +5743,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"90"
-			"spell_lifesteal"		"40"
+			"spell_lifesteal"		"30"
 			"crit_chance"			"30"
 			"crit_multiplier"		"150"
 		}
@@ -5775,9 +5775,9 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"250"
-			"spell_lifesteal"		"100"
+			"spell_lifesteal"		"60"
 			"crit_chance"			"50"
-			"crit_multiplier"		"300"
+			"crit_multiplier"		"250"
 		}
 	}
 }
