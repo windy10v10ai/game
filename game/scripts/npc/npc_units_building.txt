@@ -872,8 +872,6 @@
 	//=================================================================================
 	"npc_dota_lantern"
 	{
-		"MinimapIconSize"			"160"		// 200
-
 		"VisionDaytimeRange"		"1200"		// 800
 		"VisionNighttimeRange"		"600"		// 800
 	}

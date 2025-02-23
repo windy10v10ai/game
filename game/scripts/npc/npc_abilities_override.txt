@@ -2,6 +2,7 @@
 #base "npc_items_override_neutral.txt"
 #base "npc_items_override_neutral_passive.txt"
 #base "npc_abilities_creep.txt"
+#base "npc_abilities_override_global.txt"
 
 "DOTAAbilities"
 {
