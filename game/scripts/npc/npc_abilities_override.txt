@@ -8677,33 +8677,20 @@
 			}
 		}
 	}
-	// 邪能
-	"dazzle_bad_juju"
-	{
-		"MaxLevel" "4"
-		"LinkedAbility"					"dazzle_good_juju"
-		"AbilityDraftPreAbility"		"dazzle_good_juju"
-		"AbilityHealthCost"				"75 100 125 150"
-		"AbilityValues"
-		{
-			"cooldown_reduction"			"4 5 6 7"
-			"mana_cost_increase_pct"		"20"	// 40
-		}
-	}
 	// 善咒
 	"dazzle_good_juju"
 	{
-		"MaxLevel" "4"
-		"LinkedAbility"					"dazzle_bad_juju"
-		"AbilityDraftPreAbility"		"dazzle_bad_juju"
-		"HasScepterUpgrade"				"1"
-		"AbilityCastPoint"				"0.25"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCastRange"				"250"
+		"LinkedAbility"					"dazzle_nothl_projection"
+		"AbilityDraftPreAbility"		"dazzle_nothl_projection"
 		"AbilityValues"
 		{
-				"cooldown_reduction"		"1.25 1.5 1.75 2.0"
+				"cooldown_reduction"		"1 1.25 1.5"
 		}
+	}
+	"dazzle_nothl_projection"
+	{
+		"LinkedAbility"					"dazzle_good_juju"
+		"AbilityDraftPreAbility"		"dazzle_good_juju"
 	}
 	//=================================================================================================================
 	// Ability: Death Prophet 死亡先知
