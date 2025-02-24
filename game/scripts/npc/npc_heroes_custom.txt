@@ -2491,7 +2491,7 @@
 	}
 	"npc_dota_hero_warlock"
 	{
-		"Ability4"		"generic_hidden"	// 移除 邪术召唤
+		"Ability4"		"generic_hidden"	// 移除 邪术召唤 防止卡顿
 		"Bot"
 		{
 			"Build"

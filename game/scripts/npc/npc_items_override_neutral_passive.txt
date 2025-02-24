@@ -197,8 +197,8 @@
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-				"bonus_health"			"250 500"		// 50
-				"spell_amp"				"10 20"			// 5
+				"bonus_health"			"300 600"		// 50
+				"spell_amp"				"20 40"			// 5
 				"manacost_reduction"	"10 20"			// 5
 		}
 	}
@@ -223,6 +223,28 @@
 			"bonus_damage"			"80"			//16
 			"bonus_lifesteal"		"40"			//16
 			"bonus_spell_lifesteal"	"30"			//8
+		}
+	}
+	// 迷踪 闪避移速
+	"item_neutral_tabi"
+	{
+		"AbilityValues"
+		{
+			"attack_speed"				"0"			// 0
+			"evasion"					"40"		// 35
+			"movespeed"					"75"		// 25
+		}
+	}
+	//通灵头带
+	"item_psychic_headband"
+	{
+		"ItemIsNeutralPassiveDrop"		"1"
+		"AbilityValues"
+		{
+			"intelligence_pct"		"30"	//15
+			"cast_range"			"250"	//100
+			"push_length"			"0"		//400
+			"push_duration"			"0.3"	//0.3
 		}
 	}
 }
