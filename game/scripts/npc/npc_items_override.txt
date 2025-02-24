@@ -500,7 +500,7 @@
 	"item_recipe_bloodstone"
 	{
 		"AbilityTextureName" 			"item_recipe_bloodstone_v2"
-		"ItemCost"						"1200"
+		"ItemCost"						"200"
 
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -516,7 +516,7 @@
 		"AbilityTextureName"			"item_bloodstone_v2"
 		"AbilityValues"
 		{
-			"bonus_aoe"				"150"	// 75
+			"bonus_aoe"				"100"	// 75
 			"bonus_health"			"1200"	// 450
 			"bonus_mana"			"1200"	// 450
 			"bonus_mp_regen"		"6"		// 3

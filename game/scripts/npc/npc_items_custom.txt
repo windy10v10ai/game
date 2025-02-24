@@ -4018,7 +4018,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1600"
+		"ItemCost"						"600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4065,13 +4065,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_aoe"					"75"			// If changing this, change radius_tooltip
+			"bonus_aoe"					"100"			// If changing this, change radius_tooltip
 			"bonus_hp"					"900"			// 450
 			"bonus_intellect"			"30"			// 15
 			"bonus_mana"				"400"			// 200
 			"radius"
 			{
-				"value"						"325"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
+				"value"						"300"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
 				"affected_by_aoe_increase"	"1"
 			}
 			"radius_tooltip"
