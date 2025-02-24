@@ -11,7 +11,7 @@ export interface CastCoindition {
     /**
      * 敌人数量
      */
-    count: NumberRange;
+    count?: NumberRange;
   };
   self?: {
     unitCondition?: UnitCondition;
@@ -40,7 +40,7 @@ export interface AbilityCoindition {
    */
   level?: NumberRange;
   /**
-   * 技能剩余次数大于等于该值
+   * 技能剩余次数
    */
   charges?: NumberRange;
 }
