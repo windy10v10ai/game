@@ -92,7 +92,7 @@ export function FilterTargetWithCondition(
  *
  * @param unit - 要检查的单位
  * @param unitCondition - 可选的条件，用于检查单位
- * @returns 如果单位满足所有指定条件，则返回 `true`，否则返回 `false`
+ * @returns 如果单位检测失败，则返回 `true`，否则返回 `false`
  */
 export function CheckUnitConditionFailure(
   unit: CDOTA_BaseNPC,
@@ -116,6 +116,31 @@ export function CheckUnitConditionFailure(
     return true;
   }
   if (unitCondition.noModifier && unit.HasModifier(unitCondition.noModifier)) {
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * 检查技能是否满足指定条件
+ *
+ * @param ability - 要检查的技能
+ * @param abilityCoindition - 可选的条件，用于检查技能
+ * @returns 如果技能检测失败，则返回 `true`，否则返回 `false`
+ */
+export function CheckAbilityConditionFailure(
+  ability: CDOTABaseAbility,
+  abilityCoindition?: AbilityCoindition,
+): boolean {
+  if (!abilityCoindition) {
+    return false;
+  }
+
+  if (CheckNumberRangeFailure(ability.GetLevel(), abilityCoindition.level)) {
+    return true;
+  }
+  if (CheckNumberRangeFailure(ability.GetCurrentAbilityCharges(), abilityCoindition.charges)) {
     return true;
   }
 
