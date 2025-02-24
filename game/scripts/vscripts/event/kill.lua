@@ -205,7 +205,7 @@ local function HeroKilled(keys)
         -- 击杀者等级加成
         local killerLevel = attacker:GetLevel()
         gold = gold + killerLevel * 4
-        xp = xp + killerLevel * 4
+        xp = xp + killerLevel * 3
 
         if iLevel >= 50 then
             xp = 0

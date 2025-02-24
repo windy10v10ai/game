@@ -516,10 +516,11 @@
 		"AbilityTextureName"			"item_bloodstone_v2"
 		"AbilityValues"
 		{
-				"bonus_aoe"				"150"
-				"bonus_health"			"1200"
-				"bonus_mana"			"1200"
-				"spell_lifesteal"		"30"	// 20
+			"bonus_aoe"				"150"	// 75
+			"bonus_health"			"1200"	// 450
+			"bonus_mana"			"1200"	// 450
+			"bonus_mp_regen"		"6"		// 3
+			"spell_lifesteal"		"30"	// 20
 		}
 	}
 	// 以太卷轴
