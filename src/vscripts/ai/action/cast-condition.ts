@@ -5,13 +5,13 @@ export interface CastCoindition {
   target?: {
     unitCondition?: UnitCondition;
     /**
-     * 敌人搜索范围
-     */
-    range?: number;
-    /**
      * 敌人数量
      */
-    count?: NumberRange;
+    count?: NumberRange; // changed to optional
+    /**
+     * 敌人搜索范围，不指定时，默认按照技能施法范围
+     */
+    range?: number;
   };
   self?: {
     unitCondition?: UnitCondition;
