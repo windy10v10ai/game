@@ -130,13 +130,14 @@ export class Debug {
     }
 
     if (cmd === CMD.L_ALL) {
-      // loop 35 times time 1s
-      for (let i = 0; i < 35; i++) {
-        Timers.CreateTimer(i, () => {
+      for (let i = 0; i < 30; i++) {
+        Timers.CreateTimer(3, () => {
           PlayerHelper.ForEachPlayer((playerId) => {
             const hero = PlayerResource.GetSelectedHeroEntity(playerId);
             if (!hero) return;
+            // 升级 加钱
             hero.HeroLevelUp(true);
+            hero.ModifyGold(5000, false, ModifyGoldReason.UNSPECIFIED);
           });
         });
       }
