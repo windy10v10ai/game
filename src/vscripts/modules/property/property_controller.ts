@@ -39,7 +39,13 @@ export class PropertyController {
    * value: data-driven modifier name
    */
   private static propertyDataDrivenModifierMap = new Map<string, string>();
+  private static PLAYER_MODIFER_DATA_DRIVEN_ITEM: CDOTA_Item_DataDriven;
+
   private static bnusSkillPointsAdded = new Map<number, number>();
+
+  // 每N级加点一次
+  public static HERO_LEVEL_PER_POINT = 2;
+
   constructor() {
     print('PropertyController init');
     PropertyController.propertyLuaModiferMap.set(property_cooldown_percentage.name, 4);
@@ -108,9 +114,6 @@ export class PropertyController {
     'property_spell_lifesteal',
   ];
 
-  // 每N级加点一次
-  public static HERO_LEVEL_PER_POINT = 2;
-
   // 重置属性
   public static RemoveAllPlayerProperty(steamAccountId: number) {
     const hero = PlayerHelper.FindHeroBySteeamAccountId(steamAccountId);
@@ -163,7 +166,7 @@ export class PropertyController {
 
     // 设置额外技能点
     if (name === 'property_skill_points_bonus') {
-      PropertyController.setBonusSkillPoints(hero, property, activeLevel);
+      PropertyController.SetBonusSkillPoints(hero, property, activeLevel);
       return;
     }
 
@@ -194,12 +197,12 @@ export class PropertyController {
         property.name,
       );
       if (dataDrivenModifierName) {
-        this.refreshDataDrivenPlayerProperty(hero, dataDrivenModifierName, activeLevel);
+        this.RefreshDataDrivenPlayerProperty(hero, dataDrivenModifierName, activeLevel);
       }
     }
   }
 
-  private static setBonusSkillPoints(
+  private static SetBonusSkillPoints(
     hero: CDOTA_BaseNPC_Hero,
     property: PlayerProperty,
     activeLevel: number,
@@ -216,7 +219,7 @@ export class PropertyController {
     PropertyController.bnusSkillPointsAdded.set(steamId, shoudAddSP);
   }
 
-  private static refreshDataDrivenPlayerProperty(
+  private static RefreshDataDrivenPlayerProperty(
     hero: CDOTA_BaseNPC_Hero,
     modifierName: string,
     level: number,
@@ -235,14 +238,15 @@ export class PropertyController {
       hero.RemoveModifierByName(modifierName);
     }
 
-    const dataDrivenItem = CreateItem(
-      'item_player_modifiers',
-      undefined,
-      undefined,
-    ) as CDOTA_Item_DataDriven;
-    dataDrivenItem.ApplyDataDrivenModifier(hero, hero, modifierName, {
+    if (!this.PLAYER_MODIFER_DATA_DRIVEN_ITEM) {
+      this.PLAYER_MODIFER_DATA_DRIVEN_ITEM = CreateItem(
+        'item_player_modifiers',
+        undefined,
+        undefined,
+      ) as CDOTA_Item_DataDriven;
+    }
+    this.PLAYER_MODIFER_DATA_DRIVEN_ITEM.ApplyDataDrivenModifier(hero, hero, modifierName, {
       duration: -1,
     });
-    UTIL_RemoveImmediate(dataDrivenItem);
   }
 }

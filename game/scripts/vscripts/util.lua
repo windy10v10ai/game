@@ -265,6 +265,13 @@ function SelectEveryValidPlayerDoFunc(func)
 	end
 end
 
+--------------------------------------------------------------------------------
+-- DataDrive modifier
+--------------------------------------------------------------------------------
+if not _G.GLOBAL_APPLY_MODIFIERS_ITEM then
+	_G.GLOBAL_APPLY_MODIFIERS_ITEM = CreateItem("item_apply_modifiers", nil, nil)
+end
+
 function RefreshItemDataDrivenModifier(item, modifier)
 	local caster = item:GetCaster()
 	local itemName = item:GetName()
@@ -285,14 +292,9 @@ function RefreshItemDataDrivenModifier(item, modifier)
 		print("modifierCount: " .. modifierCount)
 
 		if itemCount > modifierCount then
-			-- add modifier
-			local statsModifier = CreateItem("item_apply_modifiers", nil, nil)
 			for i = 1, itemCount - modifierCount do
-				statsModifier:ApplyDataDrivenModifier(caster, caster, modifier, {})
+				GLOBAL_APPLY_MODIFIERS_ITEM:ApplyDataDrivenModifier(caster, caster, modifier, {})
 			end
-			-- Cleanup
-			UTIL_RemoveImmediate(statsModifier)
-			statsModifier = nil
 		end
 
 		if itemCount < modifierCount then
@@ -304,10 +306,8 @@ function RefreshItemDataDrivenModifier(item, modifier)
 	end)
 end
 
-function ApplyItemDataDrivenModifier(target, dataDrivenItemName, modifierName, modifierTable)
-	local item = CreateItem(dataDrivenItemName, nil, nil)
-	item:ApplyDataDrivenModifier(target, target, modifierName, modifierTable)
-	UTIL_RemoveImmediate(item)
+function ApplyItemDataDrivenModifier(target, modifierName, modifierTable)
+	GLOBAL_APPLY_MODIFIERS_ITEM:ApplyDataDrivenModifier(target, target, modifierName, modifierTable)
 end
 
 function IsHumanPlayer(playerID)
