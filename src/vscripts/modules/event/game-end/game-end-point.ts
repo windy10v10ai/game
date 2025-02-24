@@ -2,7 +2,7 @@ import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { reloadable } from '../../../utils/tstl-utils';
 
 @reloadable
-export class GameEndHelper {
+export class GameEndPoint {
   static CalculatePlayerScore(player: GameEndPlayerDto): number {
     const killScore = Math.sqrt(player.kills) * 1.2;
     const deathScore = -Math.sqrt(player.deaths) * 0.5;

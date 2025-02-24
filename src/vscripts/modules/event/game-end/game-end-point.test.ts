@@ -1,8 +1,8 @@
 import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
-import { GameEndHelper } from './game-end-helper';
+import { GameEndPoint } from './game-end-point';
 
-describe('GameEndHelper', () => {
-  describe('GameEndHelper.CalculatePlayerScore', () => {
+describe('GameEndPoint', () => {
+  describe('GameEndPoint.CalculatePlayerScore', () => {
     it('should calculate score correctly for a player with no stats', () => {
       const player: GameEndPlayerDto = {
         heroName: 'npc_dota_hero_axe',
@@ -23,7 +23,7 @@ describe('GameEndHelper', () => {
         battlePoints: 0,
       };
 
-      const score = GameEndHelper.CalculatePlayerScore(player);
+      const score = GameEndPoint.CalculatePlayerScore(player);
       expect(score).toBe(0);
     });
 
@@ -47,7 +47,7 @@ describe('GameEndHelper', () => {
         battlePoints: 0,
       };
 
-      const score = GameEndHelper.CalculatePlayerScore(player);
+      const score = GameEndPoint.CalculatePlayerScore(player);
       expect(score).toBe(12);
     });
 
@@ -71,7 +71,7 @@ describe('GameEndHelper', () => {
         battlePoints: 0,
       };
 
-      const score = GameEndHelper.CalculatePlayerScore(player);
+      const score = GameEndPoint.CalculatePlayerScore(player);
       expect(score).toBe(54);
     });
 
@@ -95,33 +95,33 @@ describe('GameEndHelper', () => {
         battlePoints: 0,
       };
 
-      const score = GameEndHelper.CalculatePlayerScore(player);
+      const score = GameEndPoint.CalculatePlayerScore(player);
       expect(score).toBe(138);
     });
   });
 
-  describe('GameEndHelper.GetGameTimePoints', () => {
+  describe('GameEndPoint.GetGameTimePoints', () => {
     it('should return correct points for game time equal to 0', () => {
       const gameTime = 0;
-      const points = GameEndHelper.GetGameTimePoints(gameTime);
+      const points = GameEndPoint.GetGameTimePoints(gameTime);
       expect(points).toBe(0);
     });
 
     it('should return correct points for game time less than 2400', () => {
       const gameTime = 1800;
-      const points = GameEndHelper.GetGameTimePoints(gameTime);
+      const points = GameEndPoint.GetGameTimePoints(gameTime);
       expect(points).toBe(22);
     });
 
     it('should return correct points for game time equal to 2400', () => {
       const gameTime = 2400;
-      const points = GameEndHelper.GetGameTimePoints(gameTime);
+      const points = GameEndPoint.GetGameTimePoints(gameTime);
       expect(points).toBe(25);
     });
 
     it('should return correct points for game time greater than 2400', () => {
       const gameTime = 3600;
-      const points = GameEndHelper.GetGameTimePoints(gameTime);
+      const points = GameEndPoint.GetGameTimePoints(gameTime);
       expect(points).toBe(31);
     });
   });
