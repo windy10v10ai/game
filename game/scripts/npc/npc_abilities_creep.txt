@@ -29,7 +29,7 @@
 		{
 				"bonus_building_damage"		"200"			// 150
 				"incoming_hero_damage_penalty"		"-60"	// -50
-				"incoming_basic_damage_penalty"		"30"	// -30
+				"incoming_basic_damage_penalty"		"20"	// -30
 				"incoming_controlled_unit_penalty"	"-40"	// -40
 		}
 	}

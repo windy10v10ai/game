@@ -273,7 +273,7 @@
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor"				"建筑反应护甲"
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_Description"		"这座建筑每次被攻击时会获得额外的护甲和生命恢复。英雄攻击计为%stacks_per_hero_attack%次攻击。"
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_armor"		"额外护甲："
-		"DOTA_Tooltip_ability_tower_shredder_bonus_hp_regen"				"额外生命恢复："
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_hp_regen"		"额外生命恢复："
 		"DOTA_Tooltip_ability_tower_shredder_stack_duration"				"堆叠持续时间："
 
 		"DOTA_Tooltip_ability_tower_headshot"				"建筑爆头"
