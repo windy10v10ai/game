@@ -36,7 +36,7 @@ export class DrowRangerAIModifier extends BaseHeroAIModifier {
     // 数箭齐发
     if (
       ActionAbility.CastAbilityOnFindEnemyCreep(this, 'drow_ranger_multishot', {
-        target: { range: attackRange * 1.75 - 200, count: 3 },
+        target: { range: attackRange * 1.75 - 200, count: { gte: 3 } },
       })
     ) {
       return true;

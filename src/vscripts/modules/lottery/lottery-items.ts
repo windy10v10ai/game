@@ -119,7 +119,6 @@ export const itemTiers: Tier[] = [
       // ---- 中立物品 lv2 ----
       'item_dragon_scale', // 炎龙之鳞
       'item_bullwhip', // 凌厉长鞭
-      'item_eye_of_the_vizier', // 维齐尔之眼
       'item_gossamer_cape', // 蛛丝斗篷
       'item_light_collector', // 集光器
 

@@ -9,7 +9,7 @@ export class LunaAIModifier extends BaseHeroAIModifier {
     if (
       ActionAbility.CastAbilityOnFindEnemyHero(this, 'luna_lunar_orbit', {
         target: { range: 200 },
-        self: { healthPercentLessThan: 95 },
+        self: { unitCondition: { healthPercent: { lte: 95 } } },
       })
     ) {
       return true;

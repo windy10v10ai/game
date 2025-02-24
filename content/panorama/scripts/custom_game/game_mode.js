@@ -67,7 +67,7 @@ function ShowChatTeamActivate() {
 // -------- Game Setting --------
 
 function InitSetting() {
-  $('#player_gold_xp_multiplier_dropdown').SetSelected('1');
+  $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('5');
   $('#dire_player_number_dropdown').SetSelected('10');
 

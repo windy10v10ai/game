@@ -551,9 +551,8 @@ tBotItemData.purchaseItemList = {
 		'item_hurricane_pike_2',
 		'item_wasp_callous',
 		'item_ultimate_scepter_2',
-		'item_skadi_2',    -- 大冰眼
+		'item_skadi_2', -- 大冰眼
 		'item_black_king_bar_2',
-		'item_abyssal_blade_v2', -- 换类似智灭恶心人装备
 		'item_wasp_despotic',
 		'item_excalibur',
 		'item_refresh_core',

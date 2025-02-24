@@ -9,7 +9,7 @@ import { reloadable } from '../../../utils/tstl-utils';
 import { GameConfig } from '../../GameConfig';
 import { NetTableHelper } from '../../helper/net-table-helper';
 import { PlayerHelper } from '../../helper/player-helper';
-import { GameEndHelper } from './game-end-helper';
+import { GameEndPoint } from './game-end-point';
 
 @reloadable
 export class GameEnd {
@@ -77,7 +77,7 @@ export class GameEnd {
         score: 0,
         battlePoints: 0,
       };
-      playerDto.score = GameEndHelper.CalculatePlayerScore(playerDto);
+      playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
       playerDto.battlePoints = this.CalculatePlayerBattlePoints(
         playerDto,
         difficulty,
@@ -120,7 +120,7 @@ export class GameEnd {
       // 电脑不获得积分
       return 0;
     }
-    const gameTimePoints = GameEndHelper.GetGameTimePoints(GameRules.GetGameTime());
+    const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime());
     const basePoints = player.score + gameTimePoints;
     const multiplier = this.GetBattlePointsMultiplier(difficulty);
     const points = basePoints * multiplier;
