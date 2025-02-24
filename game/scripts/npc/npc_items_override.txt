@@ -599,6 +599,11 @@
 		"ItemStockMax"					"20"
 		"ItemStockInitial"				"3"
 		"ItemStockTime"					"45"	// 70.0
+		"AbilityValues"
+		{
+			"lifetime"								"480"	// 420
+			"duration_minutes_tooltip"				"8"		// 7
+		}
 	}
 	"item_ward_dispenser"
 	{
