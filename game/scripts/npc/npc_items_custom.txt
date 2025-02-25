@@ -4018,7 +4018,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1600"
+		"ItemCost"						"600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4065,13 +4065,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_aoe"					"75"			// If changing this, change radius_tooltip
+			"bonus_aoe"					"100"			// If changing this, change radius_tooltip
 			"bonus_hp"					"900"			// 450
 			"bonus_intellect"			"30"			// 15
 			"bonus_mana"				"400"			// 200
 			"radius"
 			{
-				"value"						"325"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
+				"value"						"300"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
 				"affected_by_aoe_increase"	"1"
 			}
 			"radius_tooltip"
@@ -4789,6 +4789,7 @@
 			"01"						"item_voodoo_mask;item_soul_booster;item_void_stone"
         }
     }
+	// 迷你血精石
     "item_bloodstone_v2"
     {
         // General
@@ -4822,13 +4823,14 @@
         //-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_aoe"				"75"
-				"bonus_health"			"500"
-				"bonus_mana"			"500"
-				// "spell_lifesteal"		"30"
-				"buff_duration"			"6"
-				"lifesteal_multiplier"	"2.5"
-				"hp_cost"				"0"
+			"bonus_aoe"				"75"
+			"bonus_health"			"500"
+			"bonus_mana"			"500"
+			"bonus_mp_regen"		"3"
+			// "spell_lifesteal"		"30"
+			"buff_duration"			"6"
+			"lifesteal_multiplier"	"2.5"
+			"hp_cost"				"0"
 		}
     }
 

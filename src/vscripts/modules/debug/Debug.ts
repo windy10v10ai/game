@@ -265,6 +265,20 @@ export class Debug {
         damage_flags: DamageFlag.NONE,
       });
     }
+    // 晕眩
+    if (cmd === CMD.STUN) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const duration = Number(args[0] || 5);
+      hero.AddNewModifier(hero, undefined, 'modifier_stunned', { duration });
+    }
+    // 沉默
+    if (cmd === CMD.SILENCE) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const duration = Number(args[0] || 5);
+      hero.AddNewModifier(hero, undefined, 'modifier_silence', { duration });
+    }
   }
 
   log(message: string) {
