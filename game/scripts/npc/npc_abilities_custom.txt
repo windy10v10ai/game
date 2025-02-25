@@ -1688,6 +1688,7 @@
 		}
 	}
 
+	// 界王拳
 	"goku_kaioken"
 	{
 		"BaseClass"					"ability_lua"

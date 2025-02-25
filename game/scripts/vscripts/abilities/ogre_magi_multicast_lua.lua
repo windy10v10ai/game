@@ -66,6 +66,8 @@ no_support_abilitys = {
 	faceless_void_time_walk_reverse = 1, -- 反时间漫游
 	rubick_spell_steal = 1,           -- 技能窃取
 	magnataur_skewer = 1,             -- 巨角冲撞
+	ember_spirit_sleight_of_fist = 1, -- 无影拳
+	goku_kaioken = 1,                 -- 界王拳
 }
 no_support_items = {
 	-- 消耗品
@@ -101,6 +103,7 @@ no_support_substrings = {
 	"black_king_bar",
 	"item_manta",
 	"item_force_staff",
+	"item_hurricane_pike",
 	"item_seer_stone",
 
 	"phoenix",
