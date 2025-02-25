@@ -187,7 +187,10 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 
 	--设置目标再次施法
 	ability:SetContextThink("think_multicast", function()
-		ability:EndCooldown()
+		if IsHeroUncontrollable(keys.unit) then
+			return nil
+		end
+
 		-- 充能技能
 		if ability:GetMaxAbilityCharges(ability:GetLevel()) > 0 then
 			if ability:IsItem() then
@@ -212,6 +215,7 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 			end
 		end
 
+		ability:EndCooldown()
 		keys.unit:SetCursorCastTarget(target)
 		keys.unit:SetCursorPosition(pos)
 		keys.unit:CastAbilityImmediately(ability, 0)
