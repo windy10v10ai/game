@@ -96,7 +96,7 @@ export class EventEntityKilled {
 
   private dropItemChanceRoshan = 100;
   private dropItemChanceAncient = 1.0;
-  private dropItemChanceNeutral = 0.15;
+  private dropItemChanceNeutral = 0.2;
 
   private onCreepKilled(creep: CDOTA_BaseNPC, attacker: CDOTA_BaseNPC | undefined): void {
     const creepName = creep.GetName();
@@ -147,7 +147,7 @@ export class EventEntityKilled {
           this.dropItemChanceAncient,
         );
 
-        this.dropParts(creep);
+        this.dropParts(creep, this.dropItemChanceAncient);
       }
     } else if (creep.IsNeutralUnitType()) {
       // 击杀中立单位
@@ -158,7 +158,7 @@ export class EventEntityKilled {
           this.dropItemChanceNeutral,
         );
 
-        this.dropParts(creep);
+        this.dropParts(creep, this.dropItemChanceNeutral);
       }
     }
   }
