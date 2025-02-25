@@ -110,6 +110,20 @@
 	//=================================================================================================================
 	// Roshan 肉山
 	//=================================================================================================================
+
+	// 复仇咆哮
+	"roshan_revengeroar"
+	{
+		"AbilityCooldown"				"15.0"		// 20.0
+		"AbilityValues"
+		{
+			"damage"			"500"				// 50
+			"damage_pct"		"50"				// 25
+			"duration"			"8"					// 8
+			"damage_growth"		"100"				// 10
+			"disarm_duration"	"4"					// 2
+		}
+	}
 	// Slam 震击
 	"roshan_slam"
 	{
@@ -137,19 +151,39 @@
 			}
 		}
 	}
-	// 复仇咆哮
-	"roshan_revengeroar"
+	// Roshan: Bash 重击
+	"roshan_bash"
 	{
-		"AbilityCooldown"				"15.0"		// 20.0
 		"AbilityValues"
 		{
-			"damage"			"150"				// 50
-			"damage_pct"		"25"				// 25
-			"duration"			"8"					// 8
-			"damage_growth"		"30"				// 10
+			"bonus_damage"
+			{
+				"value" "150"					// 50
+			}
+			"stun_duration"
+			{
+				"value" "2.5"					// 1.65
+			}
 		}
 	}
-
+	// Roshan: Grab+Throw 扔出
+	"roshan_grab_and_throw"
+	{
+		"AbilityCastRange"				"600"		// 300
+		"AbilityCooldown"				"1"
+		"AbilityValues"
+		{
+			"cast_range"				"600"		// 300
+			"damage"					"500"		// 200
+			"damage_per_combo"			"500"		// 100
+			"damage_growth_curr_hp_pct"
+			{
+				"value"		"1"						// 0.5
+			}
+			// stun duration upon landing from throw
+			"stun_duration"				"3.0"		// 1.0
+		}
+	}
 	//=================================================================================================================
 	// Creep Neutral Abilities 中立单位技能
 	//=================================================================================================================
