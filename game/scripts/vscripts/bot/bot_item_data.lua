@@ -801,10 +801,11 @@ tBotItemData.purchaseItemList = {
 		'item_blink',
 		'item_ultimate_scepter_2',
 		'item_aeon_pendant',
-		'item_aether_lens_2',
+		'item_orb_of_the_brine', -- 苍洋魔珠
 		'item_octarine_core',
 		'item_recipe_arcane_octarine_core',
 		'item_refresher',
+		'item_aether_lens_2',
 		'item_black_king_bar_2',
 		'item_arcane_blink', -- 大智力跳
 		'item_necronomicon_staff',

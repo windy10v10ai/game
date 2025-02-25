@@ -651,10 +651,15 @@
 	{
 		"AbilityValues"
 		{
-			"starting_gold_bonus"	// 天命1
+			"starting_gold_bonus"	// 天命1 初始金钱
 			{
 				"value"				"0"
 				"special_bonus_facet_alchemist_seed_money"	"=1000"	// 250
+			}
+			"gpm_increase_per_stack"	// 天命3 分红
+			{
+				"value"										"0"
+				"special_bonus_facet_alchemist_dividends"	"+300"	// +75
 			}
 		}
 	}
@@ -8680,17 +8685,26 @@
 	// 善咒
 	"dazzle_good_juju"
 	{
-		"LinkedAbility"					"dazzle_nothl_projection"
-		"AbilityDraftPreAbility"		"dazzle_nothl_projection"
+		"MaxLevel" "4"
+		"LinkedAbility"					"dazzle_bad_juju"
+		"AbilityDraftPreAbility"		"dazzle_bad_juju"
 		"AbilityValues"
 		{
-				"cooldown_reduction"		"1 1.25 1.5"
+				"cooldown_reduction"		"1 1.25 1.5 1.75"
 		}
 	}
-	"dazzle_nothl_projection"
+	// 邪能
+	"dazzle_bad_juju"
 	{
+		"MaxLevel" "4"
 		"LinkedAbility"					"dazzle_good_juju"
 		"AbilityDraftPreAbility"		"dazzle_good_juju"
+		"AbilityHealthCost"				"75 100 125 150"
+		"AbilityValues"
+		{
+			"cooldown_reduction"			"4 5 6 7"
+			"mana_cost_increase_pct"		"20"	// 40
+		}
 	}
 	//=================================================================================================================
 	// Ability: Death Prophet 死亡先知
@@ -9077,23 +9091,23 @@
 			"treant_duration"				"40"
 			"treant_health"
 			{
-				"value"								"750 1000 1250 1500"
-				"special_bonus_facet_furion_ironwood_treant"				"+100%"
+				"value"								"1000 1500 2000 2500"
+				"special_bonus_facet_furion_ironwood_treant"				"+50%"
 			}
 			"treant_damage_min"
 			{
 				"value"					"50 100 150 200"
-				"special_bonus_facet_furion_ironwood_treant"				"+100%"
+				"special_bonus_facet_furion_ironwood_treant"				"+50%"
 			}
 			"treant_damage_max"
 			{
 				"value"					"50 100 150 200"
-				"special_bonus_facet_furion_ironwood_treant"				"+100%"
+				"special_bonus_facet_furion_ironwood_treant"				"+50%"
 			}
 			"treant_movespeed"
 			{
 				"value"						"300 320 340 360"
-				"special_bonus_facet_furion_ironwood_treant"						"+50"
+				"special_bonus_facet_furion_ironwood_treant"				"+50"
 			}
 			"AbilityCooldown"
 			{
@@ -11067,6 +11081,16 @@
 				"value"							"0"
 				"special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"50"
 			}
+			"hits_to_destroy_tooltip"
+			{
+				"value"						"4"						// 2
+				"special_bonus_unique_shadow_shaman_1"		"50%"	// 50%
+			}
+			"ward_health"
+			{
+				"value"						"8"						// 4
+				"special_bonus_unique_shadow_shaman_1"		"+4"	// +2
+			}
 			"mega_ward_multiplier_tooltip"
 			{
 				"value"						"0"
@@ -11723,7 +11747,7 @@
 			"minor_imp_duration"		"0.0"	// 移除魔童
 		}
 	}
-	// 混乱之雨
+	// 混乱之雨 地狱火
 	"warlock_rain_of_chaos"
 	{
 		"MaxLevel" "4"
@@ -11769,18 +11793,18 @@
 			}
 			"bonus_magic_resistance"
 			{
-				"value"			"10"
-				"special_bonus_unique_warlock_1"		"+75"
+				"value"			"0"
+				"special_bonus_unique_warlock_1"		"+90"		// 80
 			}
 			"bonus_armor"
 			{
 				"value"			"0"
-				"special_bonus_unique_warlock_2"		"+75"
+				"special_bonus_unique_warlock_2"		"+75"		// 20
 			}
 			"tooltip_golem_armor"
 			{
 				"value"			"10 15 20 25"
-				"special_bonus_unique_warlock_2"		"+75"
+				"special_bonus_unique_warlock_2"		"+75"		// 20
 			}
 			"bonus_slow_resistance"			"80"
 			"tooltip_manahealthboost"

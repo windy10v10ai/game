@@ -66,6 +66,8 @@ no_support_abilitys = {
 	faceless_void_time_walk_reverse = 1, -- 反时间漫游
 	rubick_spell_steal = 1,           -- 技能窃取
 	magnataur_skewer = 1,             -- 巨角冲撞
+	ember_spirit_sleight_of_fist = 1, -- 无影拳
+	goku_kaioken = 1,                 -- 界王拳
 }
 no_support_items = {
 	-- 消耗品
@@ -101,6 +103,7 @@ no_support_substrings = {
 	"black_king_bar",
 	"item_manta",
 	"item_force_staff",
+	"item_hurricane_pike",
 	"item_seer_stone",
 
 	"phoenix",
@@ -184,7 +187,10 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 
 	--设置目标再次施法
 	ability:SetContextThink("think_multicast", function()
-		ability:EndCooldown()
+		if IsHeroUncontrollable(keys.unit) then
+			return nil
+		end
+
 		-- 充能技能
 		if ability:GetMaxAbilityCharges(ability:GetLevel()) > 0 then
 			if ability:IsItem() then
@@ -209,6 +215,7 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 			end
 		end
 
+		ability:EndCooldown()
 		keys.unit:SetCursorCastTarget(target)
 		keys.unit:SetCursorPosition(pos)
 		keys.unit:CastAbilityImmediately(ability, 0)

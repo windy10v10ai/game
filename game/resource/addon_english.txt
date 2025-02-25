@@ -1898,13 +1898,15 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
 
 		// item_bloodstone_v2 血精神石
-		"DOTA_Tooltip_ability_item_bloodstone"							"Godness Bloodstone"
-		"DOTA_Tooltip_ability_item_bloodstone_v2"						"Mini Bloodstone"
+		"DOTA_Tooltip_ability_item_bloodstone"										"Godness Bloodstone"
+		"DOTA_Tooltip_ability_item_bloodstone_bonus_aoe"							"+$aoe_bonus"
+		"DOTA_Tooltip_ability_item_bloodstone_v2"									"Mini Bloodstone"
 		// "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>Active: Bloodpact</h1> Increases Godness Bloodstone's Spell Lifesteal by %lifesteal_multiplier%x and also converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"It's like a Bloodstone except one-eighth the size!"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_aoe"							"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
+		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mp_regen"					"+$mana_regen"
 		// "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
 		"DOTA_Tooltip_modifier_item_bloodstone_v2_amp"					"Bloodpact"
 

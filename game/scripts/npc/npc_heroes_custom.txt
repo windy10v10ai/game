@@ -910,6 +910,8 @@
 	"npc_dota_hero_dazzle"
 	{
 		"Ability5"		"dazzle_good_juju"
+		"Ability6"		"dazzle_bad_juju"		// 移除 虚无投影 因为会出现卡死bug
+		"Ability7"		"generic_hidden"
 		"Bot"
 		{
 			"Build"
@@ -2491,7 +2493,7 @@
 	}
 	"npc_dota_hero_warlock"
 	{
-		"Ability4"		"generic_hidden"	// 移除 邪术召唤
+		"Ability4"		"generic_hidden"	// 移除 邪术召唤 防止卡顿
 		"Bot"
 		{
 			"Build"
