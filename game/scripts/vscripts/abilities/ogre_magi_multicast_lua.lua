@@ -68,6 +68,8 @@ no_support_abilitys = {
 	magnataur_skewer = 1,             -- 巨角冲撞
 	ember_spirit_sleight_of_fist = 1, -- 无影拳
 	goku_kaioken = 1,                 -- 界王拳
+	doom_bringer_doom = 1,            -- 末日
+	tusk_snowball = 1,                -- 雪球
 }
 no_support_items = {
 	-- 消耗品
