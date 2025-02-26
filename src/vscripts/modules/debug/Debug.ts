@@ -65,8 +65,7 @@ export class Debug {
     if (cmd === CMD.REPLACE_NEUTRAL_ITEM) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
-      // FIXME DOTA_ITEM_NEUTRAL_ACTIVE_SLOT
-      const item = hero.GetItemInSlot(16);
+      const item = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
       if (item) {
         UTIL_RemoveImmediate(item);
       }
@@ -76,8 +75,7 @@ export class Debug {
     if (cmd === CMD.REPLACE_ENHANCE_ITEM) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
-      // FIXME DOTA_ITEM_NEUTRAL_ACTIVE_SLOT
-      const item = hero.GetItemInSlot(17);
+      const item = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
       if (item) {
         UTIL_RemoveImmediate(item);
       }
