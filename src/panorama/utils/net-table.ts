@@ -2,21 +2,23 @@ import { LotteryStatusDto } from '../../common/dto/lottery-status';
 import { MemberDto } from '../../vscripts/api/player';
 
 const lotteryStatusTable = 'lottery_status';
-function TransLotteryStatusData(data: NetworkedData<LotteryStatusDto>): LotteryStatusDto {
+function Transdata(data: NetworkedData<LotteryStatusDto>): LotteryStatusDto {
   return {
-    pickItemName: data.pickItemName,
-    pickAbilityName: data.pickAbilityName,
-    isItemRefreshed: Boolean(data.isItemRefreshed),
-    isAbilityRefreshed: Boolean(data.isAbilityRefreshed),
+    activeAbilityName: data.activeAbilityName,
+    activeAbilityLevel: data.activeAbilityLevel,
+    isActiveAbilityRefreshed: Boolean(data.isActiveAbilityRefreshed),
+    passiveAbilityName: data.passiveAbilityName,
+    passiveAbilityLevel: data.passiveAbilityLevel,
+    isPassiveAbilityRefreshed: Boolean(data.isPassiveAbilityRefreshed),
   };
 }
 export function GetLotteryStatus(steamAccountID: string): LotteryStatusDto | null {
-  const lotteryStatusData = CustomNetTables.GetTableValue(lotteryStatusTable, steamAccountID);
-  if (!lotteryStatusData) {
+  const data = CustomNetTables.GetTableValue(lotteryStatusTable, steamAccountID);
+  if (!data) {
     return null;
   }
 
-  return TransLotteryStatusData(lotteryStatusData);
+  return Transdata(data);
 }
 export function SubscribeLotteryStatus(
   steamAccountID: string,
@@ -24,7 +26,7 @@ export function SubscribeLotteryStatus(
 ) {
   return CustomNetTables.SubscribeNetTableListener(lotteryStatusTable, (_tableName, key, value) => {
     if (key === steamAccountID && value) {
-      callback(TransLotteryStatusData(value));
+      callback(Transdata(value));
     }
   });
 }

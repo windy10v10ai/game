@@ -65,8 +65,7 @@ export class Debug {
     if (cmd === CMD.REPLACE_NEUTRAL_ITEM) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
-      // FIXME DOTA_ITEM_NEUTRAL_ACTIVE_SLOT
-      const item = hero.GetItemInSlot(16);
+      const item = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
       if (item) {
         UTIL_RemoveImmediate(item);
       }
@@ -76,8 +75,7 @@ export class Debug {
     if (cmd === CMD.REPLACE_ENHANCE_ITEM) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
-      // FIXME DOTA_ITEM_NEUTRAL_ACTIVE_SLOT
-      const item = hero.GetItemInSlot(17);
+      const item = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
       if (item) {
         UTIL_RemoveImmediate(item);
       }
@@ -130,13 +128,14 @@ export class Debug {
     }
 
     if (cmd === CMD.L_ALL) {
-      // loop 35 times time 1s
-      for (let i = 0; i < 35; i++) {
-        Timers.CreateTimer(i, () => {
+      for (let i = 0; i < 30; i++) {
+        Timers.CreateTimer(3, () => {
           PlayerHelper.ForEachPlayer((playerId) => {
             const hero = PlayerResource.GetSelectedHeroEntity(playerId);
             if (!hero) return;
+            // 升级 加钱
             hero.HeroLevelUp(true);
+            hero.ModifyGold(5000, false, ModifyGoldReason.UNSPECIFIED);
           });
         });
       }
@@ -263,6 +262,20 @@ export class Debug {
         ability: undefined,
         damage_flags: DamageFlag.NONE,
       });
+    }
+    // 晕眩
+    if (cmd === CMD.STUN) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const duration = Number(args[0] || 5);
+      hero.AddNewModifier(hero, undefined, 'modifier_stunned', { duration });
+    }
+    // 沉默
+    if (cmd === CMD.SILENCE) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const duration = Number(args[0] || 5);
+      hero.AddNewModifier(hero, undefined, 'modifier_silence', { duration });
     }
   }
 

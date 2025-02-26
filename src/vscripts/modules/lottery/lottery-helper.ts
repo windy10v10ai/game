@@ -1,6 +1,4 @@
 import { LotteryDto } from '../../../common/dto/lottery';
-import { abilityTiers } from './lottery-abilities';
-import { itemTiers } from './lottery-items';
 import { Tier } from './tier';
 
 export class LotteryHelper {
@@ -22,38 +20,13 @@ export class LotteryHelper {
     return { name, level };
   }
 
-  private static getRandomLotteryDtos(
-    tiers: Tier[],
-    count: number,
-    defaultName: string,
-    executedNames: string[] = [],
-  ): LotteryDto[] {
-    const lotteryResults: LotteryDto[] = [];
-    const maxAttempts = 10; // 最大尝试次数，避免无限循环
-    for (let i = 0; i < count; i++) {
-      let lotteryDto = { name: defaultName, level: 1 };
-      let attempts = 0;
-      do {
-        lotteryDto = this.getRandomLotteryDto(tiers);
-        attempts++;
-      } while (executedNames.includes(lotteryDto.name) && attempts < maxAttempts);
-      lotteryResults.push(lotteryDto);
-      executedNames.push(lotteryDto.name);
-    }
-    return lotteryResults;
-  }
-
-  static getRandomItems(count: number, executedNames: string[] = []): LotteryDto[] {
-    const defaultName = 'item_branches';
-    return this.getRandomLotteryDtos(itemTiers, count, defaultName, executedNames);
-  }
-
   static getRandomAbilities(
+    tiers: Tier[],
     count: number,
     currentHero: CDOTA_BaseNPC_Hero | undefined,
     executedNames: string[] = [],
   ): LotteryDto[] {
-    // 获取英雄的技能
+    // 排除英雄的重复技能
     if (currentHero) {
       for (let i = 0; i < currentHero.GetAbilityCount(); i++) {
         const ability = currentHero.GetAbilityByIndex(i);
@@ -63,7 +36,18 @@ export class LotteryHelper {
       }
     }
 
-    const defaultName = 'earthshaker_aftershock';
-    return this.getRandomLotteryDtos(abilityTiers, count, defaultName, executedNames);
+    const lotteryResults: LotteryDto[] = [];
+    const maxAttempts = 10; // 最大尝试次数，避免无限循环
+    for (let i = 0; i < count; i++) {
+      let lotteryDto = { name: 'earthshaker_aftershock', level: 1 };
+      let attempts = 0;
+      do {
+        lotteryDto = this.getRandomLotteryDto(tiers);
+        attempts++;
+      } while (executedNames.includes(lotteryDto.name) && attempts < maxAttempts);
+      lotteryResults.push(lotteryDto);
+      executedNames.push(lotteryDto.name);
+    }
+    return lotteryResults;
   }
 }

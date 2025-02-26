@@ -503,7 +503,8 @@
 			"slow_duration"			"0.2"
 		}
 	}
-	"tower_shredder_reactive_armor" // 高地塔、四塔和基地加入活性护甲
+	// 基地活性护甲
+	"tower_shredder_reactive_armor"
 	{
 		"MaxLevel"						"6"
 		"BaseClass"     				"shredder_reactive_armor"
@@ -511,10 +512,10 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityValues"
 		{
-			"bonus_armor"				"1 2 3 4 5 10"
+			"bonus_armor"				"1 2 3 4 5 6"
 			"bonus_hp_regen"
 			{
-				"value"					"1 2 3 4 5 10"
+				"value"					"1 2 3 4 5 6"
 			}
 			"stack_limit"
 			{
@@ -526,7 +527,7 @@
 			}
 			"stacks_per_hero_attack"
 			{
-				"value"				"1 1 1 2 2 2" // 有利于高伤害攻击次数少短时间拆掉，不利于分身等手段的长时间一直磨
+				"value"				"1"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -1687,6 +1688,7 @@
 		}
 	}
 
+	// 界王拳
 	"goku_kaioken"
 	{
 		"BaseClass"					"ability_lua"

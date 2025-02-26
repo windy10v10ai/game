@@ -20,8 +20,8 @@
     "player_table",
     "leader_board",
     "point_info",
-    "lottery_items",
-    "lottery_abilities",
+    "lottery_active_abilities",
+    "lottery_passive_abilities",
     "lottery_status",
   ]
 }

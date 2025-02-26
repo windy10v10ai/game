@@ -17,7 +17,7 @@ export class LionAIModifier extends BaseHeroAIModifier {
     // 死亡一指
     if (
       ActionAbility.CastAbilityOnFindEnemyHero(this, 'lion_finger_of_death', {
-        target: { healthPercentLessThan: 95 },
+        target: { unitCondition: { healthPercent: { lte: 95 } } },
       })
     ) {
       return true;
@@ -34,7 +34,7 @@ export class LionAIModifier extends BaseHeroAIModifier {
     // 裂地尖刺
     if (
       ActionAbility.CastAbilityOnFindEnemyCreep(this, 'lion_impale', {
-        ability: { level: 4 },
+        ability: { level: { gte: 4 } },
       })
     ) {
       return true;

@@ -1,11 +1,11 @@
 import React from 'react';
-import { ItemOrAbility } from './LotteryRow';
 import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
 import { MemberDto } from '../../../../vscripts/api/player';
 import { GetOpenMemberUrl } from '@utils/utils';
+import { AbilityItemType } from '../../../../common/dto/lottery';
 
 interface RefreshButtonProps {
-  type: ItemOrAbility;
+  type: AbilityItemType;
   lotteryStatus: LotteryStatusDto | null;
   member: MemberDto | null;
 }
@@ -22,35 +22,32 @@ const imageStyle: Partial<VCSSStyleDeclaration> = {
 };
 
 const getTooltipTextToken = (
-  type: ItemOrAbility,
+  type: AbilityItemType,
   isMember: boolean | undefined,
   isRefreshed: boolean | undefined,
   pickedName: string | undefined,
 ) => {
   if (!isMember) {
-    return type === 'item'
-      ? '#lottery_tooltip_item_refresh_not_member'
-      : '#lottery_tooltip_ability_refresh_not_member';
+    return '#lottery_tooltip_ability_refresh_not_member';
   }
   if (isRefreshed) {
-    return type === 'item'
-      ? '#lottery_tooltip_item_refresh_used'
-      : '#lottery_tooltip_ability_refresh_used';
+    return '#lottery_tooltip_ability_refresh_used';
   }
   if (pickedName) {
-    return type === 'item'
-      ? '#lottery_tooltip_item_refresh_picked'
-      : '#lottery_tooltip_ability_refresh_picked';
+    return '#lottery_tooltip_ability_refresh_picked';
   }
-  return type === 'item' ? '#lottery_tooltip_item_refresh' : '#lottery_tooltip_ability_refresh';
+  return '#lottery_tooltip_ability_refresh';
 };
 
 const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, member }) => {
   // 根据会员 抽选状态判断是否禁用
   const isMember = member?.enable;
   const isRefreshed =
-    type === 'item' ? lotteryStatus?.isItemRefreshed : lotteryStatus?.isAbilityRefreshed;
-  const pickedName = type === 'item' ? lotteryStatus?.pickItemName : lotteryStatus?.pickAbilityName;
+    type === 'abilityActive'
+      ? lotteryStatus?.isActiveAbilityRefreshed
+      : lotteryStatus?.isPassiveAbilityRefreshed;
+  const pickedName =
+    type === 'abilityActive' ? lotteryStatus?.activeAbilityName : lotteryStatus?.passiveAbilityName;
   const enabled = isMember && !isRefreshed && !pickedName;
   const imageSrc = enabled
     ? 'file://{images}/custom_game/lottery/icon_rerolltoken.png'
@@ -61,7 +58,7 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, memb
   const tooltipText = $.Localize(tooltipTextToken);
 
   // 刷新事件
-  const refreshEventName = type === 'item' ? 'lottery_refresh_item' : 'lottery_refresh_ability';
+  const refreshEventName = 'lottery_refresh_ability';
 
   const handleButtonClick = () => {
     if (!isMember) {
@@ -72,7 +69,7 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, memb
       return;
     }
     GameEvents.SendCustomGameEventToServer(refreshEventName, {
-      PlayerID: Game.GetLocalPlayerID(),
+      type,
     });
   };
   return (
