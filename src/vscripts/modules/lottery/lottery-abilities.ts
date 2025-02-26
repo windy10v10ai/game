@@ -15,12 +15,6 @@ export const abilityTiersActive: Tier[] = [
 
       // 法球/开关技能
       'omniknight_hammer_of_purity', // 纯洁之锤
-
-      // 被动技能
-      'abaddon_borrowed_time', // 回光返照
-      'elder_titan_natural_order', // 自然秩序
-      'templar_assassin_psi_blades', // 灵能之刃
-      'dazzle_good_juju', // 善咒
     ],
   },
   {
@@ -37,17 +31,6 @@ export const abilityTiersActive: Tier[] = [
       'gyrocopter_flak_cannon', // 高射火炮
       'medusa_split_shot', // 分裂箭
       'winter_wyvern_arctic_burn', // 严寒灼烧
-
-      // 被动技能
-      'phantom_assassin_coup_de_grace', // 恩赐解脱
-      'muerta_gunslinger', // 神枪在手
-      'sven_great_cleave', // 巨力挥舞
-      'ursa_fury_swipes', // 怒意狂击
-      'faceless_void_time_lock', // 时间锁定
-      'luna_moon_glaive', // 月刃
-      'slardar_bash', // 深海重击
-      'juggernaut_blade_dance', // 剑舞
-      'slark_essence_shift', // 能量转移
     ],
   },
   {
@@ -83,26 +66,6 @@ export const abilityTiersActive: Tier[] = [
       'doom_bringer_infernal_blade', // 阎刃
       'silencer_glaives_of_wisdom', // 智慧之刃
       'ancient_apparition_chilling_touch', // 极寒之触
-
-      // 被动技能
-      'drow_ranger_marksmanship', // 射手天赋
-      'kunkka_tidebringer', // 潮汐使者 水刀
-      'rubick_arcane_supremacy', // 奥术至尊
-      'troll_warlord_fervor', // 热血战魂
-      'huskar_berserkers_blood', // 狂战士之血
-      'chaos_knight_chaos_strike', // 混沌一击
-      'axe_counter_helix', // 反击螺旋
-      'bloodseeker_thirst', // 焦渴
-      'riki_permanent_invisibility', // 永久隐身（旧版）
-      'vengefulspirit_command_aura', // 复仇光环
-      'necrolyte_heartstopper_aura', // 竭心光环
-      'enchantress_untouchable', // 不可侵犯
-      'earthshaker_aftershock', // 余震
-      'skeleton_king_mortal_strike', // 本命一击
-      'monkey_king_jingu_mastery', // 如意棒法
-      'centaur_return', // 人马 反伤
-      'nevermore_dark_lord', // 魔王降临
-      'brewmaster_drunken_brawler', // 醉拳
 
       // 自定义技能
       'abyssal_underlord_firestorm2', // 火雨降临
@@ -162,30 +125,6 @@ export const abilityTiersActive: Tier[] = [
       'viper_poison_attack', // 毒性攻击
       'drow_ranger_frost_arrows', // 霜冻之箭
 
-      // 被动技能
-      'legion_commander_moment_of_courage', // 勇气之霎
-      'weaver_geminate_attack', // 连击
-      'obsidian_destroyer_equilibrium', // 精华变迁
-      'tiny_grow', // 长大
-      'spirit_breaker_greater_bash', // 巨力重击
-      'antimage_mana_break', // 法力损毁
-      'bounty_hunter_jinada', // 忍术
-      'abaddon_frostmourne', // 魔霭诅咒
-      'abyssal_underlord_atrophy_aura', // 衰退光环
-      'night_stalker_hunter_in_the_night', // 暗夜猎影
-      'dawnbreaker_luminosity', // 熠熠生辉
-      'lina_fiery_soul', // 炽魂
-      'mars_bulwark', // 护身甲盾
-      'lycan_feral_impulse', // 野性驱使
-      'spectre_desolate', // 荒芜
-      'storm_spirit_overload', // 超负荷
-      'shredder_reactive_armor', // 活性活甲
-      'brewmaster_fire_phase', // 永久相位
-      'razor_storm_surge', // 风暴涌动
-      'sniper_headshot', // 爆头
-      'tidehunter_kraken_shell', // 海妖外壳
-      'venomancer_poison_sting', // 剧毒术士 毒刺
-
       // 自定义技能
       'abyssal_underlord_malice_aura', // 怨念光环
       'abyssal_underlord_charge_slash', // 冲锋斩
@@ -240,6 +179,98 @@ export const abilityTiersActive: Tier[] = [
       // 'witch_doctor_voodoo_restoration', // 巫毒疗法
       // 'obsidian_destroyer_arcane_orb', // 奥术天球
 
+      // 自定义技能
+      'arc_warden_scepter', // 人工神符
+    ],
+  },
+];
+
+export const abilityTiersPassive: Tier[] = [
+  {
+    level: 5,
+    rate: 1,
+    names: [
+      // 被动技能
+      'abaddon_borrowed_time', // 回光返照
+      'elder_titan_natural_order', // 自然秩序
+      'templar_assassin_psi_blades', // 灵能之刃
+      'dazzle_good_juju', // 善咒
+    ],
+  },
+  {
+    level: 4,
+    rate: 5,
+    names: [
+      // 被动技能
+      'phantom_assassin_coup_de_grace', // 恩赐解脱
+      'muerta_gunslinger', // 神枪在手
+      'sven_great_cleave', // 巨力挥舞
+      'ursa_fury_swipes', // 怒意狂击
+      'faceless_void_time_lock', // 时间锁定
+      'luna_moon_glaive', // 月刃
+      'slardar_bash', // 深海重击
+      'juggernaut_blade_dance', // 剑舞
+      'slark_essence_shift', // 能量转移
+    ],
+  },
+  {
+    level: 3,
+    rate: 20,
+    names: [
+      // 被动技能
+      'drow_ranger_marksmanship', // 射手天赋
+      'kunkka_tidebringer', // 潮汐使者 水刀
+      'rubick_arcane_supremacy', // 奥术至尊
+      'troll_warlord_fervor', // 热血战魂
+      'huskar_berserkers_blood', // 狂战士之血
+      'chaos_knight_chaos_strike', // 混沌一击
+      'axe_counter_helix', // 反击螺旋
+      'bloodseeker_thirst', // 焦渴
+      'riki_permanent_invisibility', // 永久隐身（旧版）
+      'vengefulspirit_command_aura', // 复仇光环
+      'necrolyte_heartstopper_aura', // 竭心光环
+      'enchantress_untouchable', // 不可侵犯
+      'earthshaker_aftershock', // 余震
+      'skeleton_king_mortal_strike', // 本命一击
+      'monkey_king_jingu_mastery', // 如意棒法
+      'centaur_return', // 人马 反伤
+      'nevermore_dark_lord', // 魔王降临
+      'brewmaster_drunken_brawler', // 醉拳
+    ],
+  },
+  {
+    level: 2,
+    rate: 60,
+    names: [
+      // 被动技能
+      'legion_commander_moment_of_courage', // 勇气之霎
+      'weaver_geminate_attack', // 连击
+      'obsidian_destroyer_equilibrium', // 精华变迁
+      'tiny_grow', // 长大
+      'spirit_breaker_greater_bash', // 巨力重击
+      'antimage_mana_break', // 法力损毁
+      'bounty_hunter_jinada', // 忍术
+      'abaddon_frostmourne', // 魔霭诅咒
+      'abyssal_underlord_atrophy_aura', // 衰退光环
+      'night_stalker_hunter_in_the_night', // 暗夜猎影
+      'dawnbreaker_luminosity', // 熠熠生辉
+      'lina_fiery_soul', // 炽魂
+      'mars_bulwark', // 护身甲盾
+      'lycan_feral_impulse', // 野性驱使
+      'spectre_desolate', // 荒芜
+      'storm_spirit_overload', // 超负荷
+      'shredder_reactive_armor', // 活性活甲
+      'brewmaster_fire_phase', // 永久相位
+      'razor_storm_surge', // 风暴涌动
+      'sniper_headshot', // 爆头
+      'tidehunter_kraken_shell', // 海妖外壳
+      'venomancer_poison_sting', // 剧毒术士 毒刺
+    ],
+  },
+  {
+    level: 1,
+    rate: 100,
+    names: [
       // 被动技能
       'visage_gravekeepers_cloak', // 陵卫斗篷
       'life_stealer_ghoul_frenzy', // 尸鬼狂怒
@@ -254,6 +285,3 @@ export const abilityTiersActive: Tier[] = [
     ],
   },
 ];
-
-// TODO 移动技能到被动技能
-export const abilityTiersPassive: Tier[] = [];
