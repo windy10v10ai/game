@@ -173,10 +173,6 @@
 		"lottery_tooltip_ability_refresh_used"					"Способности изменены"
 		"lottery_tooltip_ability_refresh_picked"				"Способность выбрана"
 		"lottery_tooltip_ability_refresh_not_member"			"Поддержавшие разработчика могут изменить способности один раз. Нажмите на эту кнопку, чтобы открыть страницу поддержки в браузере"
-		"lottery_tooltip_item_refresh"							"Изменить бонусный предмет"
-		"lottery_tooltip_item_refresh_used"						"Предметы изменены"
-		"lottery_tooltip_item_refresh_picked"					"Предмет выбран"
-		"lottery_tooltip_item_refresh_not_member"				"Поддержавшие разработчика могут изменить способности один раз. Нажмите на эту кнопку, чтобы открыть страницу поддержки в браузере"
 
 		"key_bind"												"Бинды"
 		"key_bind_collapsed"									"Закрыть"

@@ -175,11 +175,7 @@
 		"lottery_tooltip_ability_refresh"						"点击刷新技能"
 		"lottery_tooltip_ability_refresh_used"					"技能已刷新"
 		"lottery_tooltip_ability_refresh_picked"				"技能已选择"
-		"lottery_tooltip_ability_refresh_not_member"			"会员每日可刷新一次技能，点击开通会员"
-		"lottery_tooltip_item_refresh"							"点击刷新物品"
-		"lottery_tooltip_item_refresh_used"						"物品已刷新"
-		"lottery_tooltip_item_refresh_picked"					"物品已选择"
-		"lottery_tooltip_item_refresh_not_member"				"会员每日可刷新一次物品，点击开通会员"
+		"lottery_tooltip_ability_refresh_not_member"			"会员可刷新一次技能，点击开通会员"
 
 		"key_bind"												"改键"
 		"key_bind_collapsed"									"折叠"

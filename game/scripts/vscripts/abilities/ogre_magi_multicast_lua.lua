@@ -70,6 +70,7 @@ no_support_abilitys = {
 	goku_kaioken = 1,                 -- 界王拳
 	doom_bringer_doom = 1,            -- 末日
 	tusk_snowball = 1,                -- 雪球
+	tiny_tree_channel = 1,            -- 树木连掷
 }
 no_support_items = {
 	-- 消耗品

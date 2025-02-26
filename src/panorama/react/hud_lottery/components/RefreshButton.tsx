@@ -27,25 +27,16 @@ const getTooltipTextToken = (
   isRefreshed: boolean | undefined,
   pickedName: string | undefined,
 ) => {
-  // FIXME 画面确认
   if (!isMember) {
-    return type === 'abilityActive'
-      ? '#lottery_tooltip_ability_refresh_not_member'
-      : '#lottery_tooltip_ability_refresh_not_member';
+    return '#lottery_tooltip_ability_refresh_not_member';
   }
   if (isRefreshed) {
-    return type === 'abilityActive'
-      ? '#lottery_tooltip_ability_refresh_used'
-      : '#lottery_tooltip_ability_refresh_used';
+    return '#lottery_tooltip_ability_refresh_used';
   }
   if (pickedName) {
-    return type === 'abilityActive'
-      ? '#lottery_tooltip_ability_refresh_picked'
-      : '#lottery_tooltip_ability_refresh_picked';
+    return '#lottery_tooltip_ability_refresh_picked';
   }
-  return type === 'abilityActive'
-    ? '#lottery_tooltip_ability_refresh'
-    : '#lottery_tooltip_ability_refresh';
+  return '#lottery_tooltip_ability_refresh';
 };
 
 const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, member }) => {
