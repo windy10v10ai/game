@@ -161,40 +161,30 @@ export class GameEnd {
       if (player.steamId > 0) {
         const steamAccountID = player.steamId.toString();
         const LotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
-        const abilityName = LotteryStatus.pickAbilityName;
-        const itemName = LotteryStatus.pickItemName;
+        const activeAbilityName = LotteryStatus.activeAbilityName;
+        const passiveAbilityName = LotteryStatus.passiveAbilityName;
 
         // SendGameEndPickAbilityEvent
-        if (abilityName) {
-          const lotteryAbilitiesRaw = CustomNetTables.GetTableValue(
-            'lottery_abilities',
-            steamAccountID,
-          );
-          const abilityLevel =
-            Object.values(lotteryAbilitiesRaw).find((item) => item.name === abilityName)?.level ??
-            0;
-
+        if (activeAbilityName) {
           Analytic.SendGameEndPickAbilityEvent({
             steamId: player.steamId,
             matchId: gameEndDto.matchId,
-            name: abilityName,
-            level: abilityLevel,
+            name: activeAbilityName,
+            type: 'abilityActive',
+            level: LotteryStatus.activeAbilityLevel ?? 0,
             difficulty: gameEndDto.difficulty,
             version: gameEndDto.version,
             isWin: gameEndDto.winnerTeamId === player.teamId,
           });
         }
 
-        // SendGameEndPickItemEvent
-        if (itemName) {
-          const lotteryItemsRaw = CustomNetTables.GetTableValue('lottery_items', steamAccountID);
-          const itemLevel =
-            Object.values(lotteryItemsRaw).find((item) => item.name === itemName)?.level ?? 0;
-          Analytic.SendGameEndPickItemEvent({
+        if (passiveAbilityName) {
+          Analytic.SendGameEndPickAbilityEvent({
             steamId: player.steamId,
             matchId: gameEndDto.matchId,
-            name: itemName,
-            level: itemLevel,
+            name: passiveAbilityName,
+            type: 'abilityPassive',
+            level: LotteryStatus.passiveAbilityLevel ?? 0,
             difficulty: gameEndDto.difficulty,
             version: gameEndDto.version,
             isWin: gameEndDto.winnerTeamId === player.teamId,
