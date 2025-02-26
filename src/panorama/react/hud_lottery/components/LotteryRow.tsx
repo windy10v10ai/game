@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import LotteryAbilityItem from './LotteryAbilityItem';
-import { LotteryDto } from '../../../../common/dto/lottery';
+import { AbilityItemType, LotteryDto } from '../../../../common/dto/lottery';
 import RefreshButton from './RefreshButton';
 import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
 import {
@@ -12,10 +12,8 @@ import {
 } from '@utils/net-table';
 import { MemberDto } from '../../../../vscripts/api/player';
 
-export type ItemOrAbility = 'item' | 'ability';
-
 interface LotteryRowProps {
-  type: ItemOrAbility;
+  type: AbilityItemType;
 }
 
 const rowStyle: Partial<VCSSStyleDeclaration> = {
@@ -38,7 +36,8 @@ const titleStyle: Partial<VCSSStyleDeclaration> = {
 
 const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
   // 初始化 从nettable中获取数据
-  const lotteryDataTableName = type === 'item' ? 'lottery_items' : 'lottery_abilities';
+  const lotteryDataTableName =
+    type === 'abilityActive' ? 'lottery_active_abilities' : 'lottery_passive_abilities';
   const steamAccountId = GetLocalPlayerSteamAccountID();
   const getLotteryData = () => {
     const rawData = CustomNetTables.GetTableValue(lotteryDataTableName, steamAccountId);
@@ -80,8 +79,10 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
   }, [lotteryDataTableName, steamAccountId]);
 
   // 标题
-  const titleToken = type === 'item' ? '#lottery_item_title' : '#lottery_ability_title';
-  const pickedName = type === 'item' ? lotteryStatus?.pickItemName : lotteryStatus?.pickAbilityName;
+  const titleToken =
+    type === 'abilityActive' ? '#lottery_ability1_title' : '#lottery_ability2_title';
+  const pickedName =
+    type === 'abilityActive' ? lotteryStatus?.activeAbilityName : lotteryStatus?.passiveAbilityName;
 
   return (
     <Panel style={rowStyle}>

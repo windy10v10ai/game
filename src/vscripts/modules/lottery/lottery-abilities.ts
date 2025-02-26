@@ -4,7 +4,7 @@ import { Tier } from './tier';
  * 技能抽选概率，Tier 5-1
  * 确保概率从低到高排列
  */
-export const abilityTiers: Tier[] = [
+export const abilityTiersActive: Tier[] = [
   {
     level: 5,
     rate: 1,
@@ -254,3 +254,6 @@ export const abilityTiers: Tier[] = [
     ],
   },
 ];
+
+// TODO 移动技能到被动技能
+export const abilityTiersPassive: Tier[] = [];
