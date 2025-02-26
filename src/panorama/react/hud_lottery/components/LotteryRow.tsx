@@ -18,7 +18,7 @@ interface LotteryRowProps {
 
 const rowStyle: Partial<VCSSStyleDeclaration> = {
   // 位置
-  padding: '10px',
+  padding: '5px',
   horizontalAlign: 'center',
   verticalAlign: 'center',
   flowChildren: 'down',
