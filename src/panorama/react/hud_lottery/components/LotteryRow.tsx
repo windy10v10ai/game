@@ -80,7 +80,7 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
 
   // 标题
   const titleToken =
-    type === 'abilityActive' ? '#lottery_ability1_title' : '#lottery_ability2_title';
+    type === 'abilityActive' ? '#lottery_active_ability_title' : '#lottery_passive_ability_title';
   const pickedName =
     type === 'abilityActive' ? lotteryStatus?.activeAbilityName : lotteryStatus?.passiveAbilityName;
 
