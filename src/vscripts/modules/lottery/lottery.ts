@@ -3,6 +3,7 @@ import { reloadable } from '../../utils/tstl-utils';
 import { GameConfig } from '../GameConfig';
 import { NetTableHelper } from '../helper/net-table-helper';
 import { PlayerHelper } from '../helper/player-helper';
+import { abilityTiersActive, abilityTiersPassive } from './lottery-abilities';
 import { LotteryHelper } from './lottery-helper';
 
 @reloadable
@@ -32,14 +33,6 @@ export class Lottery {
     CustomGameEventManager.RegisterListener('lottery_refresh_ability', (userId, event) => {
       this.refreshAbility(userId, event);
     });
-    // 玩家选择物品
-    CustomGameEventManager.RegisterListener('lottery_pick_item', (userId, event) => {
-      this.pickItem(userId, event);
-    });
-    // 玩家刷新物品
-    CustomGameEventManager.RegisterListener('lottery_refresh_item', (userId, event) => {
-      this.refreshItem(userId, event);
-    });
   }
 
   initLotteryAll() {
@@ -53,94 +46,53 @@ export class Lottery {
   }
 
   initLottery(playerId: PlayerID) {
-    this.randomItemForPlayer(playerId);
-    this.randomAbilityForPlayer(playerId);
+    this.randomAbilityForPlayer(playerId, true);
+    this.randomAbilityForPlayer(playerId, false);
 
     CustomNetTables.SetTableValue(
       'lottery_status',
       PlayerResource.GetSteamAccountID(playerId).toString(),
-      { isItemRefreshed: false, isAbilityRefreshed: false },
+      {
+        isActiveAbilityRefreshed: false,
+        isPassiveAbilityRefreshed: false,
+      },
     );
   }
 
-  // ---- 随机抽选 ----
-  randomItemForPlayer(playerId: PlayerID) {
+  // ---- 随机技能 ----
+  randomAbilityForPlayer(playerId: PlayerID, isActive: boolean) {
+    const abilityTable = isActive ? 'lottery_active_abilities' : 'lottery_passive_abilities';
+    const abilityTiers = isActive ? abilityTiersActive : abilityTiersPassive;
     // 排除刷新前抽取的
     const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
-    const lotteryItemsRaw = CustomNetTables.GetTableValue('lottery_items', steamAccountID);
-    const executedNames = !!lotteryItemsRaw
-      ? Object.values(lotteryItemsRaw).map((item) => item.name)
-      : [];
-    const itemLotteryResults = LotteryHelper.getRandomItems(this.randomCountBase, executedNames);
-
-    CustomNetTables.SetTableValue(
-      'lottery_items',
-      PlayerResource.GetSteamAccountID(playerId).toString(),
-      itemLotteryResults,
-    );
-  }
-
-  randomAbilityForPlayer(playerId: PlayerID) {
-    // 排除刷新前抽取的
-    const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
-    const lotteryAbilitiesRaw = CustomNetTables.GetTableValue('lottery_abilities', steamAccountID);
+    const lotteryAbilitiesRaw = CustomNetTables.GetTableValue(abilityTable, steamAccountID);
     const executedNames = !!lotteryAbilitiesRaw
       ? Object.values(lotteryAbilitiesRaw).map((item) => item.name)
       : [];
+
+    // 随机技能
     const hero = PlayerResource.GetSelectedHeroEntity(playerId);
     const abilityLotteryResults = LotteryHelper.getRandomAbilities(
+      abilityTiers,
       this.randomCountBase,
       hero,
       executedNames,
     );
 
-    CustomNetTables.SetTableValue(
-      'lottery_abilities',
-      PlayerResource.GetSteamAccountID(playerId).toString(),
-      abilityLotteryResults,
-    );
+    CustomNetTables.SetTableValue(abilityTable, steamAccountID, abilityLotteryResults);
   }
 
-  // ---- 玩家选择 ----
-  pickItem(userId: EntityIndex, event: LotteryPickEventData & CustomGameEventDataBase) {
-    const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
-    const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
-    if (lotteryStatus.pickItemName) {
-      print('已经抽取过物品');
-      return;
-    }
-
-    // 添加物品
-    const hero = PlayerResource.GetSelectedHeroEntity(event.PlayerID);
-    if (!hero) {
-      return;
-    }
-    hero.AddItemByName(event.name);
-
-    // 记录选择的物品
-    lotteryStatus.pickItemName = event.name;
-    CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
-
-    // 发送分析事件
-    const lotteryItemsRaw = CustomNetTables.GetTableValue('lottery_items', steamAccountID);
-    const level =
-      Object.values(lotteryItemsRaw).find((item) => item.name === event.name)?.level ?? 0;
-
-    Analytic.SendPickItemEvent({
-      steamId: PlayerResource.GetSteamAccountID(event.PlayerID),
-      matchId: GameRules.Script_GetMatchID().toString(),
-      name: event.name,
-      level,
-      difficulty: GameRules.Option.gameDifficulty,
-      version: GameConfig.GAME_VERSION,
-    });
-  }
-
+  // ---- 选择 ----
   pickAbility(userId: EntityIndex, event: LotteryPickEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
-    if (lotteryStatus.pickAbilityName) {
-      print('已经抽取过技能');
+    const abilityType = event.type;
+    if (lotteryStatus.activeAbilityName && abilityType === 'abilityActive') {
+      print('已经抽取过主动技能');
+      return;
+    }
+    if (lotteryStatus.passiveAbilityName && abilityType === 'abilityPassive') {
+      print('已经抽取过被动技能');
       return;
     }
 
@@ -152,53 +104,48 @@ export class Lottery {
     hero.AddAbility(event.name);
 
     // 记录选择的技能
-    lotteryStatus.pickAbilityName = event.name;
+    if (abilityType === 'abilityActive') {
+      lotteryStatus.activeAbilityName = event.name;
+      lotteryStatus.activeAbilityLevel = event.level;
+    } else {
+      lotteryStatus.passiveAbilityName = event.name;
+      lotteryStatus.passiveAbilityLevel = event.level;
+    }
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
 
     // 发送分析事件
-    const lotteryAbilitiesRaw = CustomNetTables.GetTableValue('lottery_abilities', steamAccountID);
-    const level =
-      Object.values(lotteryAbilitiesRaw).find((item) => item.name === event.name)?.level ?? 0;
-
     Analytic.SendPickAbilityEvent({
       steamId: PlayerResource.GetSteamAccountID(event.PlayerID),
       matchId: GameRules.Script_GetMatchID().toString(),
       name: event.name,
-      level,
+      type: abilityType,
+      level: event.level,
       difficulty: GameRules.Option.gameDifficulty,
       version: GameConfig.GAME_VERSION,
     });
   }
 
-  // ---- 玩家刷新 ----
-  refreshItem(userId: EntityIndex, event: LotteryRefreshEventData & CustomGameEventDataBase) {
-    const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
-    const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
-    if (lotteryStatus.isItemRefreshed || lotteryStatus.pickItemName) {
-      print('已经刷新/抽取过物品');
-      return;
-    }
-    const member = NetTableHelper.GetMember(steamAccountID);
-    if (!member.enable) {
-      print('非会员不能刷新物品');
-      return;
-    }
-
-    // 刷新物品
-    this.randomItemForPlayer(event.PlayerID);
-
-    // 记录刷新状态
-    lotteryStatus.isItemRefreshed = true;
-    CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
-  }
-
+  // ---- 刷新 ----
   refreshAbility(userId: EntityIndex, event: LotteryRefreshEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
-    if (lotteryStatus.isAbilityRefreshed || lotteryStatus.pickAbilityName) {
-      print('已经刷新/抽取过技能');
+    if (event.type !== 'abilityActive' && event.type !== 'abilityPassive') {
+      print('刷新技能类型错误');
       return;
     }
+    if (event.type === 'abilityActive') {
+      if (lotteryStatus.isActiveAbilityRefreshed || lotteryStatus.activeAbilityName) {
+        print('已经刷新/抽取过主动技能');
+        return;
+      }
+    }
+    if (event.type === 'abilityPassive') {
+      if (lotteryStatus.isPassiveAbilityRefreshed || lotteryStatus.passiveAbilityName) {
+        print('已经刷新/抽取过被动技能');
+        return;
+      }
+    }
+
     const member = NetTableHelper.GetMember(steamAccountID);
     if (!member.enable) {
       print('非会员不能刷新物品');
@@ -206,10 +153,14 @@ export class Lottery {
     }
 
     // 刷新技能
-    this.randomAbilityForPlayer(event.PlayerID);
+    this.randomAbilityForPlayer(event.PlayerID, event.type === 'abilityActive');
 
     // 记录刷新状态
-    lotteryStatus.isAbilityRefreshed = true;
+    if (event.type === 'abilityActive') {
+      lotteryStatus.isActiveAbilityRefreshed = true;
+    } else {
+      lotteryStatus.isPassiveAbilityRefreshed = true;
+    }
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
   }
 }

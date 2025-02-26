@@ -17,9 +17,7 @@ interface CustomGameEventDeclarations {
   game_options_change: GameOptionsChangeEventData;
   loading_set_options: LoadingSetOptionsEventData;
   ui_panel_closed: UIPanelClosedEventData;
-  lottery_pick_item: LotteryPickEventData;
   lottery_pick_ability: LotteryPickEventData;
-  lottery_refresh_item: LotteryRefreshEventData;
   lottery_refresh_ability: LotteryRefreshEventData;
 }
 
@@ -67,6 +65,10 @@ interface UIPanelClosedEventData {}
 
 interface LotteryPickEventData {
   name: string;
+  type: string;
+  level: number;
 }
 
-interface LotteryRefreshEventData {}
+interface LotteryRefreshEventData {
+  type: string;
+}
