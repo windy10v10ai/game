@@ -13,8 +13,11 @@ export const abilityTiersActive: Tier[] = [
       // 大招
       'enigma_black_hole', // 黑洞
 
+      // 小技能
+      'gyrocopter_flak_cannon', // 高射火炮
       // 法球/开关技能
-      'omniknight_hammer_of_purity', // 纯洁之锤
+      'medusa_split_shot', // 分裂箭
+      'winter_wyvern_arctic_burn', // 严寒灼烧
     ],
   },
   {
@@ -23,14 +26,13 @@ export const abilityTiersActive: Tier[] = [
     names: [
       // 主动技能
       // 大招
+      'dazzle_good_juju', // 善咒
       'juggernaut_omni_slash', // 无敌斩
       'doom_bringer_doom', // 末日
       'sven_gods_strength', // 神之力量
 
       // 法球/开关技能
-      'gyrocopter_flak_cannon', // 高射火炮
-      'medusa_split_shot', // 分裂箭
-      'winter_wyvern_arctic_burn', // 严寒灼烧
+      'omniknight_hammer_of_purity', // 纯洁之锤
     ],
   },
   {
@@ -95,8 +97,6 @@ export const abilityTiersActive: Tier[] = [
       // 主动技能
       // 大招
       'lina_laguna_blade', // 神灭斩
-      'rattletrap_hookshot', // 发射钩爪
-      'bane_fiends_grip', // 魔爪
       'omniknight_guardian_angel', // 守护天使
       'sandking_epicenter', // 地震
       'winter_wyvern_winters_curse', // 寒冬诅咒
@@ -104,9 +104,8 @@ export const abilityTiersActive: Tier[] = [
       'pangolier_gyroshell', // 地雷滚滚
 
       // 小技能
-      'alchemist_berserk_potion2', // 狂暴药剂 new
+      // 'alchemist_berserk_potion2', // 狂暴药剂 new
       'antimage_blink', // 闪烁
-      'razor_static_link', // 静电连接
       'spirit_breaker_charge_of_darkness', // 暗影冲刺
       'sniper_shrapnel', // 霰弹雨
       'bounty_hunter_wind_walk', // 暗影步
@@ -115,11 +114,9 @@ export const abilityTiersActive: Tier[] = [
       'alchemist_acid_spray', // 酸雾
       'sven_storm_bolt', // 风暴之拳 斯温
       'treant_living_armor', // 活体护甲
-      'legion_commander_overwhelming_odds', // 压倒性优势
       'witch_doctor_paralyzing_cask', // 麻痹药剂
       'ember_spirit_sleight_of_fist', // 无影拳
       'witch_doctor_maledict', // 诅咒
-      'pangolier_swashbuckle', // 虚张声势
 
       // 法球/开关技能
       'viper_poison_attack', // 毒性攻击
@@ -147,29 +144,22 @@ export const abilityTiersActive: Tier[] = [
 
       // 小技能
       'phantom_assassin_phantom_strike', // 幻影突袭
-      'legion_commander_press_the_attack', // 强攻
-      'bane_brain_sap', // 蚀脑
       'slardar_slithereen_crush', // 鱼人碎击
-      'winter_wyvern_cold_embrace', // 极寒之拥 冰箱
       'tinker_laser', // 激光
       'earthshaker_fissure', // 沟壑
       'phantom_assassin_stifling_dagger', // 窒碍短匕
       'dark_willow_bramble_maze', // 荆棘迷宫
       'lina_light_strike_array', // 光击阵
-      'skywrath_mage_arcane_bolt', // 奥术鹰隼
       'omniknight_repel', // 咸鱼恩赐
       'dark_seer_ion_shell', // 离子外壳
       'dark_seer_vacuum', // 真空
       'mirana_arrow', // 月神之箭
       'kunkka_torrent', // 洪流
       'lina_dragon_slave', // 龙破斩
-      'visage_soul_assumption', // 灵魂超度
       'rattletrap_rocket_flare', // 照明火箭
-      'tinker_defense_matrix', // 防御矩阵
       'tinker_heat_seeking_missile', // 热导飞弹
       'medusa_mystic_snake', // 秘术异蛇
       'drow_ranger_multishot', // 数箭齐发
-      'ember_spirit_searing_chains', // 炎阳索
       'ancient_apparition_ice_vortex', // 冰霜漩涡
       'axe_berserkers_call', // 狂战士之吼
       'bloodseeker_blood_bath', // 血祭
@@ -193,8 +183,10 @@ export const abilityTiersPassive: Tier[] = [
       // 被动技能
       'abaddon_borrowed_time', // 回光返照
       'elder_titan_natural_order', // 自然秩序
-      'templar_assassin_psi_blades', // 灵能之刃
-      'dazzle_good_juju', // 善咒
+      'muerta_gunslinger', // 神枪在手
+      'slark_essence_shift', // 能量转移
+      'phantom_assassin_coup_de_grace', // 恩赐解脱
+      'sven_great_cleave', // 巨力挥舞
     ],
   },
   {
@@ -202,15 +194,12 @@ export const abilityTiersPassive: Tier[] = [
     rate: 5,
     names: [
       // 被动技能
-      'phantom_assassin_coup_de_grace', // 恩赐解脱
-      'muerta_gunslinger', // 神枪在手
-      'sven_great_cleave', // 巨力挥舞
+      'templar_assassin_psi_blades', // 灵能之刃
       'ursa_fury_swipes', // 怒意狂击
       'faceless_void_time_lock', // 时间锁定
       'luna_moon_glaive', // 月刃
       'slardar_bash', // 深海重击
       'juggernaut_blade_dance', // 剑舞
-      'slark_essence_shift', // 能量转移
     ],
   },
   {

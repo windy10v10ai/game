@@ -7265,7 +7265,7 @@
 			}
 			"radius"
 			{
-				"value"				"150"
+				"value"				"0"						// 400 触发范围
 			}
 			"only_creep_allies_damage_pct"
 			{
