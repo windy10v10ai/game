@@ -66,7 +66,7 @@ export const heroNameListParticles = [
   // 'npc_dota_hero_oracle', // 神谕者
   'npc_dota_hero_phantom_assassin', // 幻影刺客
   'npc_dota_hero_phantom_lancer', // 幻影长矛手
-  'npc_dota_hero_phoenix', // 凤凰
+  // 'npc_dota_hero_phoenix', // 凤凰
   // 'npc_dota_hero_puck', // 帕克
   'npc_dota_hero_pudge', // 帕吉
   // 'npc_dota_hero_pugna', // 帕格纳
@@ -256,6 +256,6 @@ export const heroNameListSound = [
 export const abilityModelNameList = [
   'models/heroes/witchdoctor/witchdoctor_ward.vmdl', // 巫医守卫
   'models/heroes/techies/fx_techiesfx_mine.vmdl', // 感应地雷
-  'models/heroes/phoenix/phoenix_egg.vmdl', // 超新星
+  // 'models/heroes/phoenix/phoenix_egg.vmdl', // 超新星
   'models/heroes/mars/mars_soldier.vmdl', // 护身甲盾
 ];
