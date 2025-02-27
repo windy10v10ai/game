@@ -4843,7 +4843,7 @@
 		"AbilityCooldown"				"6 5 4 3"
 		"AbilityValues"
 		{
-				"target_damage_amp"	"6 12 18 24"
+				"target_damage_amp"	"8 12 16 20"
 				"bonus_gold_self"
 				{
 					"value"		"130 225 320 415"
@@ -4853,7 +4853,7 @@
 					"value"		"80 160 240 320"	// x2
 				}
 				"gold_steal"			"0.3 0.4 0.5 0.6"
-				"bonus_move_speed_pct"	"16 20 24 28"
+				"bonus_move_speed_pct"	"12 16 20 24"
 		}
 	}
 	// 妙手空空
@@ -7265,7 +7265,7 @@
 			}
 			"radius"
 			{
-				"value"				"150"
+				"value"				"0"						// 400 触发范围
 			}
 			"only_creep_allies_damage_pct"
 			{
