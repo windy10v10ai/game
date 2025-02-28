@@ -102,6 +102,7 @@ export const abilityTiersActive: Tier[] = [
       'lina_light_strike_array', // 光击阵
       'slardar_slithereen_crush', // 鱼人碎击
       'omniknight_repel', // 咸鱼恩赐
+      'mars_bulwark', // 护身甲盾
 
       // 法球/开关技能
       'viper_poison_attack', // 毒性攻击
@@ -111,6 +112,7 @@ export const abilityTiersActive: Tier[] = [
       // 'alchemist_berserk_potion2', // 狂暴药剂 new
       'ancient_apparition_frost_seal', // 冰霜封印
       'abyssal_underlord_charge_slash', // 冲锋斩
+      'arc_warden_scepter', // 人工神符
     ],
   },
   {
@@ -235,7 +237,6 @@ export const abilityTiersPassive: Tier[] = [
       'huskar_berserkers_blood', // 狂战士之血
       'legion_commander_moment_of_courage', // 勇气之霎
       'abyssal_underlord_atrophy_aura', // 衰退光环
-      'mars_bulwark', // 护身甲盾
       'obsidian_destroyer_equilibrium', // 精华变迁
       'spirit_breaker_greater_bash', // 巨力重击
       'antimage_mana_break', // 法力损毁
@@ -277,7 +278,6 @@ export const abilityTiersPassive: Tier[] = [
       'spectre_dispersion2', // 幽鬼 折射 旧版
       'centaur_rawhide2', // 人马 皮糙肉厚
       'axe_one_man_army2', // 斧王 一人成军
-      'arc_warden_scepter', // 人工神符
     ],
   },
 ];
