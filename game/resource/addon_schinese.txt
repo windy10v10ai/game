@@ -169,18 +169,13 @@
 		///////////////////////////////////////////////////
 		"lottery_expand"										"展开"
 		"lottery_collapsed"										"折叠"
-		"lottery_ability_title"									"选择一个技能"
-		"lottery_ability_title"									"选择一个技能"
-		"lottery_item_title"									"选择一个物品"
+		"lottery_active_ability_title"							"选择一个主动技能"
+		"lottery_passive_ability_title"							"选择一个被动技能"
 
 		"lottery_tooltip_ability_refresh"						"点击刷新技能"
 		"lottery_tooltip_ability_refresh_used"					"技能已刷新"
 		"lottery_tooltip_ability_refresh_picked"				"技能已选择"
-		"lottery_tooltip_ability_refresh_not_member"			"会员每日可刷新一次技能，点击开通会员"
-		"lottery_tooltip_item_refresh"							"点击刷新物品"
-		"lottery_tooltip_item_refresh_used"						"物品已刷新"
-		"lottery_tooltip_item_refresh_picked"					"物品已选择"
-		"lottery_tooltip_item_refresh_not_member"				"会员每日可刷新一次物品，点击开通会员"
+		"lottery_tooltip_ability_refresh_not_member"			"会员可刷新一次技能，点击开通会员"
 
 		"key_bind"												"改键"
 		"key_bind_collapsed"									"折叠"
@@ -273,7 +268,7 @@
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor"				"建筑反应护甲"
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_Description"		"这座建筑每次被攻击时会获得额外的护甲和生命恢复。英雄攻击计为%stacks_per_hero_attack%次攻击。"
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_armor"		"额外护甲："
-		"DOTA_Tooltip_ability_tower_shredder_bonus_hp_regen"				"额外生命恢复："
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_hp_regen"		"额外生命恢复："
 		"DOTA_Tooltip_ability_tower_shredder_stack_duration"				"堆叠持续时间："
 
 		"DOTA_Tooltip_ability_tower_headshot"				"建筑爆头"
@@ -457,10 +452,9 @@
 
 		///////////////////////////////////////////////////
 		//
-		// 					Abilities 英雄技能
+		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
-
 
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（旧版）"
@@ -672,10 +666,9 @@
 		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了“机械救赎”程序，使它们在关键时刻能够激发潜力，扭转战局。"
 		///////////////////////////////////////////////////
 		//
-		// 					Heroes 英雄
+		// 					Heroes 原版英雄
 		//
 		///////////////////////////////////////////////////
-		// 原版英雄
 		// 火枪暗杀
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"暗杀（旧版）"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
@@ -785,6 +778,9 @@
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_slow_duration"				"<font color=\"#662375\">减速持续时间</font>："
 
 		"DOTA_Tooltip_modifier_brewmaster_primal_split_lua_duration"					"元素分离"
+
+		// 暗影撒嘛
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"+{s:bonus_bonus_damage}% 守卫攻击力"
 
 		///////////////////////////////////////////////////
 		//
@@ -1898,13 +1894,15 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"获得的金钱经验，享有倍率加成！"
 
 	    // item_bloodstone_v2 血精神石
-	    "DOTA_Tooltip_ability_item_bloodstone"							"血精神石"
-	    "DOTA_Tooltip_ability_item_bloodstone_v2"						"迷你血精石"
+	    "DOTA_Tooltip_ability_item_bloodstone"										"血精神石"
+		"DOTA_Tooltip_ability_item_bloodstone_bonus_aoe"							"+$aoe_bonus"
+	    "DOTA_Tooltip_ability_item_bloodstone_v2"									"迷你血精石"
 	    // "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"这块魔石使人能够从魔法中吸取鲜血..."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_aoe"							"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
+		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mp_regen"					"+$mana_regen"
 		// "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
 		"DOTA_Tooltip_modifier_item_bloodstone_v2_amp"					"血之契约"
 

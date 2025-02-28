@@ -43,11 +43,10 @@
 				// 级别移动
 				"item_enhancement_greedy"			"1"		// 贪婪 工资蓝量减攻击
 				"item_enhancement_wise"				"1"		// 睿智 每分钟经验
-				"item_quickening_charm"				"1"		// 加速护符
 			}
 		}
 
-		"2"//8-12件 12
+		"2"//8件
 		{
 			"start_time"			"6:00"
 			"trinket_options"		"5"
@@ -58,16 +57,13 @@
 			"items"
 			{
 				"item_essence_ring"					"1"		// 精华指环
-				"item_gossamer_cape"				"1"		// 蛛丝斗篷
+				// "item_gossamer_cape"				"1"		// 蛛丝斗篷
 				"item_searing_signet"				"1"		// 炽热纹章
 				"item_misericorde"					"1"		// 飞贼之刃
 				// "item_pogo_stick"					"1"		// 杂技玩具
 
 				// 级别移动
 				"item_orb_of_destruction"			"1"		// 毁灭灵球
-				"item_demonicon"					"1"		// 冥灵书
-				"item_unrelenting_eye"				"1"		// 不屈之眼 原本是5级
-				"item_pirate_hat"					"1"		// 海盗帽
 
 				// 额外添加
 				"item_royal_jelly"					"1"		// 蜂王浆
@@ -85,20 +81,20 @@
 				"item_enhancement_alert"			"2"		// 警觉 攻速夜视
 				"item_enhancement_tough"			"2"		// 坚强 攻击护甲
 				"item_enhancement_quickened"		"2"		// 迅速 移速蓝量
+				"item_enhancement_greedy"			"2"		// 贪婪 工资蓝量减攻击
+				// 级别移动
+				"item_enhancement_wise"				"2"		// 睿智 每分钟经验
 
 				"item_enhancement_keen_eyed"		"1"		// 犀利 施法距离回蓝最大魔法
 				"item_enhancement_vast"				"1"		// 高远 攻击距离
-				"item_enhancement_greedy"			"2"		// 贪婪 工资蓝量减攻击
 				"item_enhancement_vampiric"			"1"		// 吸血鬼 双吸血
 
-				// 级别移动
-				"item_enhancement_wise"				"2"		// 睿智 每分钟经验
 				// 额外添加
-				"item_quickening_charm"				"2"		// 加速护符
+				"item_quickening_charm"				"1"		// 加速护符
 			}
 		}
 
-		"3"//8-12件 10
+		"3"//8件
 		{
 			"start_time"			"12:00"
 			"trinket_options"		"5"
@@ -116,6 +112,11 @@
 				"item_pyrrhic_cloak"				"1"		// 皮洛士斗篷
 				"item_ogre_seal_totem"				"1"		// 食人魔海豹图腾
 				"item_mind_breaker"					"1"		// 智灭 原本是4级
+				"item_demonicon"					"1"		// 冥灵书
+				"item_unrelenting_eye"				"1"		// 不屈之眼 原本是5级
+				"item_pirate_hat"					"1"		// 海盗帽 原本是5级
+				"item_spider_legs"					"1"		// 网虫腿 原本是5级
+
 				// 额外添加
 				"item_trickster_cloak"				"1"		// 欺诈师斗篷
 				"item_penta_edged_sword"			"1"		// 五锋长剑
@@ -136,6 +137,7 @@
 				"item_enhancement_feverish"			"1"		// 狂热 冷却减少 蓝耗增加 原本是5级
 				"item_enhancement_evolved"			"1"		// 进化 主属性
 				// 额外添加
+				"item_quickening_charm"				"2"		// 加速护符
 			}
 		}
 
@@ -150,17 +152,17 @@
 			"items"
 			{
 				"item_crippling_crossbow"			"1"		// 致残之弩
-				"item_magnifying_monocle"			"1"		// 放大单片镜
 				// 级别移动
-				"item_spider_legs"					"1"		// 网虫腿 原本是5级
 				"item_gunpowder_gauntlets"			"1"		// 火药手套 原本是3级
-				"item_serrated_shiv"				"1"		// 锯齿短刀 原本是3级
+				"item_fallen_sky"					"1"		// 天崩 原本是5级
+				"item_panic_button"					"1"		// 神妙明灯 原本是5级
 
 				// 额外添加
 				// "item_book_of_shadows"				"1"		// 暗影邪典
 				"item_seer_stone"					"1"		// 先哲之石
 				"item_princes_knife"				"1"		// 亲王短刀
 				"item_stormcrafter"					"1"		// 风暴宝器
+				"item_repair_kit"					"1"		// 维修器具
 			}
 
 			"enhancements"
@@ -183,11 +185,12 @@
 
 
 				// 额外添加
-				"item_mysterious_hat"				"1"		// 仙灵饰品
+				// "item_mysterious_hat"				"1"		// 仙灵饰品
+				"item_neutral_tabi"					"1"		// 迷踪 闪避移速
 			}
 		}
 
-		"5"//4-8件 8
+		"5"//12件
 		{
 			"start_time"			"24:00"
 			"trinket_options"		"5"
@@ -199,13 +202,13 @@
 			"items"
 			{
 				"item_desolator_2"					"1"		// 寂灭
-				"item_fallen_sky"					"1"		// 天崩
 				"item_minotaur_horn"				"1"		// 恶牛角
-				"item_panic_button"					"1"		// 神妙明灯
 
 				// 级别移动
 				"item_nemesis_curse"				"1"		// 天诛之咒 原本是3级
 				"item_ceremonial_robe"				"1"		// 祭礼长袍 原本是4级
+				"item_magnifying_monocle"			"1"		// 放大单片镜 原本是4级
+				"item_serrated_shiv"				"1"		// 锯齿短刀 原本是3级
 
 				// 额外添加
 				"item_mirror_shield"				"1"		// 神镜盾
@@ -237,6 +240,7 @@
 				"item_mysterious_hat"				"2"		// 仙灵饰品
 				"item_spell_prism"					"1"		// 法术棱镜
 				"item_paladin_sword"				"1"		// 骑士剑
+				"item_psychic_headband"				"1"		// 通灵头带
 			}
 		}
 	}

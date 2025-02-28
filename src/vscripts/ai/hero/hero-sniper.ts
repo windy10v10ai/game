@@ -28,8 +28,8 @@ export class SniperAIModifier extends BaseHeroAIModifier {
     // 霰弹雨
     if (
       ActionAbility.CastAbilityOnFindEnemyCreep(this, 'sniper_shrapnel', {
-        target: { noModifier: 'modifier_sniper_shrapnel_slow' },
-        ability: { charges: 3 },
+        target: { unitCondition: { noModifier: 'modifier_sniper_shrapnel_slow' } },
+        ability: { charges: { gte: 3 } },
       })
     ) {
       return true;

@@ -66,7 +66,7 @@ export class EventEntityKilled {
       respawnTime -= 5;
     }
 
-    // 复活时间限制
+    // 复活时间范围限制
     respawnTime = Math.max(this.respawnTimeMin, Math.min(this.respawnTimeMax, respawnTime));
 
     hero.SetTimeUntilRespawn(respawnTime);
@@ -96,7 +96,7 @@ export class EventEntityKilled {
 
   private dropItemChanceRoshan = 100;
   private dropItemChanceAncient = 1.0;
-  private dropItemChanceNeutral = 0.15;
+  private dropItemChanceNeutral = 0.2;
 
   private onCreepKilled(creep: CDOTA_BaseNPC, attacker: CDOTA_BaseNPC | undefined): void {
     const creepName = creep.GetName();
@@ -147,7 +147,7 @@ export class EventEntityKilled {
           this.dropItemChanceAncient,
         );
 
-        this.dropParts(creep);
+        this.dropParts(creep, this.dropItemChanceAncient);
       }
     } else if (creep.IsNeutralUnitType()) {
       // 击杀中立单位
@@ -158,33 +158,20 @@ export class EventEntityKilled {
           this.dropItemChanceNeutral,
         );
 
-        this.dropParts(creep);
+        this.dropParts(creep, this.dropItemChanceNeutral);
       }
     }
   }
 
-  private dropParts(creep: CDOTA_BaseNPC): void {
-    // 组件掉落概率随游戏时长而增加
-    const dotaTime = GameRules.GetDOTATime(false, false);
-    let dropItemChanceCreepArtifactPart = 0;
-    if (dotaTime < 600) {
-      dropItemChanceCreepArtifactPart = 0.5;
-    } else if (dotaTime < 1200) {
-      dropItemChanceCreepArtifactPart = 1;
-    } else if (dotaTime < 1800) {
-      dropItemChanceCreepArtifactPart = 1.5;
-    } else {
-      dropItemChanceCreepArtifactPart = 2;
-    }
-
+  private dropParts(creep: CDOTA_BaseNPC, chance = 1): void {
     // 获取白天夜晚
     const isDaytime = GameRules.IsDaytime();
     if (isDaytime) {
       // 白天掉落圣光组件
-      this.dropItem(creep, [this.itemLightPartName], dropItemChanceCreepArtifactPart);
+      this.dropItem(creep, [this.itemLightPartName], chance);
     } else {
       // 夜晚掉落暗影组件
-      this.dropItem(creep, [this.itemDarkPartName], dropItemChanceCreepArtifactPart);
+      this.dropItem(creep, [this.itemDarkPartName], chance);
     }
   }
 

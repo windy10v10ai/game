@@ -71,16 +71,16 @@
 	{
 		"AbilityValues"
 		{
-				"shield"			"10000"
-				"regen"				"500"
-				"idle"				"2"
-				"duration"			"10"			// 5
+				"shield"			"20000"
+				"regen"				"1000"
+				"idle"				"1"
+				"duration"			"30"			// 5
 		}
 	}
 	"item_cheese"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"						"4000"	// 1000
+		"ItemCost"						"4000"		// 1000
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"300"
@@ -88,8 +88,8 @@
 		"ItemSellable"					"1"
 		"AbilityValues"
 		{
-				"health_restore"		"10000"	// 2500
-				"mana_restore"			"5000"	// 1500
+				"health_restore"		"10000"		// 2500
+				"mana_restore"			"5000"		// 1500
 		}
 	}
 
@@ -108,23 +108,23 @@
 		"ItemStackable"					"1"
 		"AbilityValues"
 		{
-				"mana_regen"			"3.0"	// 0.8
-				"magic_damage_block"	"600"	// 120
-				"min_damage"			"120"	// 75
-				"initial_charges"		"8"		// 6
+				"mana_regen"			"3.0"		// 0.8
+				"magic_damage_block"	"600"		// 120
+				"min_damage"			"120"		// 75
+				"initial_charges"		"8"			// 6
 		}
 	}
 	// 树之祭祀
 	"item_tango"
 	{
-		"ItemCost"						"100"			// 90
+		"ItemCost"						"100"		// 90
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"health_regen"			"12.0"			// 7.0
-				"buff_duration"			"30.0"			// 16.0
+				"health_regen"			"12.0"		// 7.0
+				"buff_duration"			"30.0"		// 16.0
 		}
 	}
 	// 大药
@@ -500,7 +500,7 @@
 	"item_recipe_bloodstone"
 	{
 		"AbilityTextureName" 			"item_recipe_bloodstone_v2"
-		"ItemCost"						"1200"
+		"ItemCost"						"200"
 
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -516,10 +516,11 @@
 		"AbilityTextureName"			"item_bloodstone_v2"
 		"AbilityValues"
 		{
-				"bonus_aoe"				"150"
-				"bonus_health"			"1200"
-				"bonus_mana"			"1200"
-				"spell_lifesteal"		"30"	// 20
+			"bonus_aoe"				"100"	// 75
+			"bonus_health"			"1200"	// 450
+			"bonus_mana"			"1200"	// 450
+			"bonus_mp_regen"		"6"		// 3
+			"spell_lifesteal"		"30"	// 20
 		}
 	}
 	// 以太卷轴
@@ -599,6 +600,11 @@
 		"ItemStockMax"					"20"
 		"ItemStockInitial"				"3"
 		"ItemStockTime"					"45"	// 70.0
+		"AbilityValues"
+		{
+			"lifetime"								"480"	// 420
+			"duration_minutes_tooltip"				"8"		// 7
+		}
 	}
 	"item_ward_dispenser"
 	{
