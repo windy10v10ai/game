@@ -40,83 +40,95 @@ function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_
  * @param worldPos
  */
 function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_BEHAVIOR) {
+  if (!isAbilityReady(abilityID)) return;
+
+  const worldPos = GameUI.GetScreenWorldPosition(GameUI.GetCursorPosition()) ?? undefined;
+  const abilityName = Abilities.GetAbilityName(abilityID);
+
+  if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING)) {
+    return; //矢量施法暂不支持
+  }
+
+  if (
+    IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) &&
+    !notTargetAbilityNames.includes(abilityName)
+  ) {
+    castUnitTargetAbility(abilityID, behavior);
+  } else if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT)) {
+    castPointTargetAbility(abilityID, worldPos);
+  } else if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_NO_TARGET)) {
+    castNoTargetAbility(abilityID, behavior);
+  }
+}
+
+function isAbilityReady(abilityID: AbilityEntityIndex): boolean {
   if (Abilities.GetLevel(abilityID) === 0) {
     GameUI.SendCustomHUDError('dota_hud_error_ability_not_learned', 'General.CastFail_NotLearned');
-    return;
+    return false;
   }
   if (!Abilities.IsCooldownReady(abilityID)) {
     GameUI.SendCustomHUDError(
       'dota_hud_error_ability_in_cooldown',
       'General.CastFail_AbilityInCooldown',
     );
-    return;
+    return false;
   }
   if (!Abilities.IsOwnersManaEnough(abilityID)) {
     GameUI.SendCustomHUDError('dota_hud_error_not_enough_mana', 'General.CastFail_NoMana');
-    return;
+    return false;
   }
-  const worldPos = GameUI.GetScreenWorldPosition(GameUI.GetCursorPosition()) ?? undefined;
-  const abilityName = Abilities.GetAbilityName(abilityID);
-  if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING)) {
-    //矢量施法暂不支持
-    return;
-  }
-  if (
-    IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) &&
-    !notTargetAbilityNames.includes(abilityName)
-  ) {
-    const targetType = Abilities.GetAbilityTargetType(abilityID);
-    const hasTree =
-      (targetType & DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE) ===
-      DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE;
-    const target = GetCursorEntity(abilityID);
-    if (target === undefined) {
-      // if not point and not no target
-      if (
-        !IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT) &&
-        !IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_NO_TARGET)
-      ) {
-        GameUI.SendCustomHUDError('dota_hud_error_no_target', 'General.CastFail_NoTarget');
-        return;
-      }
-    } else {
-      Game.PrepareUnitOrders({
-        OrderType: hasTree
-          ? dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET_TREE
-          : dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET,
-        TargetIndex: target?.entityIndex ?? -1,
-        AbilityIndex: abilityID,
-        ShowEffects: true,
-      });
+  return true;
+}
+
+function castUnitTargetAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_BEHAVIOR) {
+  const targetType = Abilities.GetAbilityTargetType(abilityID);
+  const hasTree =
+    (targetType & DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE) ===
+    DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE;
+  const target = GetCursorEntity(abilityID);
+
+  if (target === undefined) {
+    if (
+      !IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT) &&
+      !IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_NO_TARGET)
+    ) {
+      GameUI.SendCustomHUDError('dota_hud_error_no_target', 'General.CastFail_NoTarget');
       return;
     }
-  }
-  if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT)) {
+  } else {
     Game.PrepareUnitOrders({
-      OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION,
-      Position: worldPos,
+      OrderType: hasTree
+        ? dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET_TREE
+        : dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET,
+      TargetIndex: target?.entityIndex ?? -1,
       AbilityIndex: abilityID,
       ShowEffects: true,
     });
-    return;
   }
-  if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_NO_TARGET)) {
-    if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_TOGGLE)) {
-      Game.PrepareUnitOrders({
-        OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TOGGLE,
-        AbilityIndex: abilityID,
-        ShowEffects: true,
-      });
-      return;
-    } else {
-      Game.PrepareUnitOrders({
-        OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_NO_TARGET,
-        AbilityIndex: abilityID,
-        ShowEffects: true,
-      });
-      return;
-    }
-  }
+}
+
+function castPointTargetAbility(
+  abilityID: AbilityEntityIndex,
+  worldPos: [number, number, number] | undefined,
+) {
+  Game.PrepareUnitOrders({
+    OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION,
+    Position: worldPos,
+    AbilityIndex: abilityID,
+    ShowEffects: true,
+  });
+}
+
+function castNoTargetAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_BEHAVIOR) {
+  const orderType = IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_TOGGLE)
+    ? dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TOGGLE
+    : dotaunitorder_t.DOTA_UNIT_ORDER_CAST_NO_TARGET;
+
+  Game.PrepareUnitOrders({
+    OrderType: orderType,
+    AbilityIndex: abilityID,
+    ShowEffects: true,
+  });
 }
 
 /**
