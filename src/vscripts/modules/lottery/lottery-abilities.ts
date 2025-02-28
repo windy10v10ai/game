@@ -112,7 +112,6 @@ export const abilityTiersActive: Tier[] = [
       // 'alchemist_berserk_potion2', // 狂暴药剂 new
       'ancient_apparition_frost_seal', // 冰霜封印
       'abyssal_underlord_charge_slash', // 冲锋斩
-      'arc_warden_scepter', // 人工神符
     ],
   },
   {
