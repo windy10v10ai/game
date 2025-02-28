@@ -53,8 +53,9 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
     IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) &&
     !notTargetAbilityNames.includes(abilityName)
   ) {
-    castUnitTargetAbility(abilityID, behavior);
-  } else if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT)) {
+    if (castUnitTargetAbility(abilityID, behavior)) return;
+  }
+  if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT)) {
     castPointTargetAbility(abilityID, worldPos);
   } else if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_NO_TARGET)) {
     castNoTargetAbility(abilityID, behavior);
@@ -80,7 +81,10 @@ function isAbilityReady(abilityID: AbilityEntityIndex): boolean {
   return true;
 }
 
-function castUnitTargetAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_BEHAVIOR) {
+function castUnitTargetAbility(
+  abilityID: AbilityEntityIndex,
+  behavior: DOTA_ABILITY_BEHAVIOR,
+): boolean {
   const targetType = Abilities.GetAbilityTargetType(abilityID);
   const hasTree =
     (targetType & DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE) ===
@@ -93,7 +97,7 @@ function castUnitTargetAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABI
       !IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_NO_TARGET)
     ) {
       GameUI.SendCustomHUDError('dota_hud_error_no_target', 'General.CastFail_NoTarget');
-      return;
+      return false;
     }
   } else {
     Game.PrepareUnitOrders({
@@ -104,7 +108,9 @@ function castUnitTargetAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABI
       AbilityIndex: abilityID,
       ShowEffects: true,
     });
+    return true;
   }
+  return false;
 }
 
 function castPointTargetAbility(
