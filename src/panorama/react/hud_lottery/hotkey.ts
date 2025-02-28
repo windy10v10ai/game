@@ -97,20 +97,19 @@ function castUnitTargetAbility(
       !IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_NO_TARGET)
     ) {
       GameUI.SendCustomHUDError('dota_hud_error_no_target', 'General.CastFail_NoTarget');
-      return false;
+      return true; // 仅对目标释放的技能，不进行后续施法判定
     }
-  } else {
-    Game.PrepareUnitOrders({
-      OrderType: hasTree
-        ? dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET_TREE
-        : dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET,
-      TargetIndex: target?.entityIndex ?? -1,
-      AbilityIndex: abilityID,
-      ShowEffects: true,
-    });
-    return true;
+    return false;
   }
-  return false;
+  Game.PrepareUnitOrders({
+    OrderType: hasTree
+      ? dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET_TREE
+      : dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET,
+    TargetIndex: target?.entityIndex ?? -1,
+    AbilityIndex: abilityID,
+    ShowEffects: true,
+  });
+  return true;
 }
 
 function castPointTargetAbility(
