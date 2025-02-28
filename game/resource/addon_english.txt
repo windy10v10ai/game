@@ -169,17 +169,13 @@
 		///////////////////////////////////////////////////
 		"lottery_expand"										"Expand"
 		"lottery_collapsed"										"Collapse"
-		"lottery_item_title"									"Select a bonus item"
-		"lottery_ability_title"									"Select a bonus ability"
+		"lottery_active_ability_title"							"Select a active ability"
+		"lottery_passive_ability_title"							"Select a passive ability"
 
 		"lottery_tooltip_ability_refresh"						"Click to reroll bonus abilities."
 		"lottery_tooltip_ability_refresh_used"					"Ability is rerolled."
 		"lottery_tooltip_ability_refresh_picked"				"Ability is selected."
-		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll abilities once. Click this button to open the membership page in your browser."
-		"lottery_tooltip_item_refresh"							"Click to reroll bonus items."
-		"lottery_tooltip_item_refresh_used"						"Item is rerolled."
-		"lottery_tooltip_item_refresh_picked"					"Item is selected."
-		"lottery_tooltip_item_refresh_not_member"				"Members can reroll items once. Click this button to open the membership page in your browser."
+		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll once. Click this button to open the membership page in your browser."
 
 		"key_bind"												"Key Bind"
 		"key_bind_collapsed"									"Collapse"
@@ -456,7 +452,7 @@
 
 		///////////////////////////////////////////////////
 		//
-		// 					Abilities 英雄技能
+		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
 
@@ -669,10 +665,9 @@
 
 		///////////////////////////////////////////////////
 		//
-		// 					Heroes 英雄
+		// 					Heroes 原版英雄
 		//
 		///////////////////////////////////////////////////
-		// 原版英雄
 		// 火枪暗杀
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"Assassinate (old)"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
@@ -782,6 +777,9 @@
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_slow_duration"				"<font color=\"#662375\">SLOW DURATION</font>:"
 
 		"DOTA_Tooltip_modifier_brewmaster_primal_split_lua_duration"					"Primal Split"
+
+		// 暗影撒嘛
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"+{s:bonus_bonus_damage}% Ward Attack Damage"
 
 		///////////////////////////////////////////////////
 		//
@@ -1896,13 +1894,15 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
 
 		// item_bloodstone_v2 血精神石
-		"DOTA_Tooltip_ability_item_bloodstone"							"Godness Bloodstone"
-		"DOTA_Tooltip_ability_item_bloodstone_v2"						"Mini Bloodstone"
+		"DOTA_Tooltip_ability_item_bloodstone"										"Godness Bloodstone"
+		"DOTA_Tooltip_ability_item_bloodstone_bonus_aoe"							"+$aoe_bonus"
+		"DOTA_Tooltip_ability_item_bloodstone_v2"									"Mini Bloodstone"
 		// "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>Active: Bloodpact</h1> Increases Godness Bloodstone's Spell Lifesteal by %lifesteal_multiplier%x and also converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"It's like a Bloodstone except one-eighth the size!"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_aoe"							"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
+		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mp_regen"					"+$mana_regen"
 		// "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
 		"DOTA_Tooltip_modifier_item_bloodstone_v2_amp"					"Bloodpact"
 

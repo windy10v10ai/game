@@ -1,12 +1,11 @@
 import React from 'react';
 import { colors } from '@utils/colors';
-
-export type AbilityOrItem = 'ability' | 'item';
+import { AbilityItemType } from '../../../../common/dto/lottery';
 
 interface LotteryAbilityItemProps {
   level: number;
   name: string;
-  type: AbilityOrItem;
+  type: AbilityItemType;
   pickedName: string | undefined;
 }
 const itemStyle = {
@@ -44,8 +43,11 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({
   };
 
   const handleClick = () => {
-    const eventName = type === 'item' ? 'lottery_pick_item' : 'lottery_pick_ability';
-    GameEvents.SendCustomGameEventToServer(eventName, { name });
+    GameEvents.SendCustomGameEventToServer('lottery_pick_ability', {
+      name,
+      type,
+      level,
+    });
   };
 
   const showtooltip = true;
@@ -58,21 +60,12 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({
 
   return (
     <Panel style={itemStyle} onactivate={handleClick}>
-      {type === 'item' ? (
-        <DOTAItemImage
-          itemname={name}
-          style={imageStyle}
-          showtooltip={showtooltip}
-          className={className}
-        />
-      ) : (
-        <DOTAAbilityImage
-          abilityname={name}
-          style={imageStyle}
-          showtooltip={showtooltip}
-          className={className}
-        />
-      )}
+      <DOTAAbilityImage
+        abilityname={name}
+        style={imageStyle}
+        showtooltip={showtooltip}
+        className={className}
+      />
     </Panel>
   );
 };

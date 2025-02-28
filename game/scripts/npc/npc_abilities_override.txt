@@ -340,7 +340,7 @@
 			{
 				"value"								"90 80 70 60"
 			}
-			"hp_threshold"							"600 1500 3000 5000"
+			"hp_threshold"							"1000 2000 4000 8000"
 			"duration"								"3.5 4.0 4.5 5.0"
 			"duration_scepter"
 			{
@@ -651,10 +651,15 @@
 	{
 		"AbilityValues"
 		{
-			"starting_gold_bonus"	// 天命1
+			"starting_gold_bonus"	// 天命1 初始金钱
 			{
 				"value"				"0"
 				"special_bonus_facet_alchemist_seed_money"	"=1000"	// 250
+			}
+			"gpm_increase_per_stack"	// 天命3 分红
+			{
+				"value"										"0"
+				"special_bonus_facet_alchemist_dividends"	"+300"	// +75
 			}
 		}
 	}
@@ -4838,7 +4843,7 @@
 		"AbilityCooldown"				"6 5 4 3"
 		"AbilityValues"
 		{
-				"target_damage_amp"	"6 12 18 24"
+				"target_damage_amp"	"8 12 16 20"
 				"bonus_gold_self"
 				{
 					"value"		"130 225 320 415"
@@ -4848,7 +4853,7 @@
 					"value"		"80 160 240 320"	// x2
 				}
 				"gold_steal"			"0.3 0.4 0.5 0.6"
-				"bonus_move_speed_pct"	"16 20 24 28"
+				"bonus_move_speed_pct"	"12 16 20 24"
 		}
 	}
 	// 妙手空空
@@ -7260,7 +7265,7 @@
 			}
 			"radius"
 			{
-				"value"				"150"
+				"value"				"0"						// 400 触发范围
 			}
 			"only_creep_allies_damage_pct"
 			{
@@ -8680,17 +8685,26 @@
 	// 善咒
 	"dazzle_good_juju"
 	{
-		"LinkedAbility"					"dazzle_nothl_projection"
-		"AbilityDraftPreAbility"		"dazzle_nothl_projection"
+		"MaxLevel" "4"
+		"LinkedAbility"					"dazzle_bad_juju"
+		"AbilityDraftPreAbility"		"dazzle_bad_juju"
 		"AbilityValues"
 		{
-				"cooldown_reduction"		"1 1.25 1.5"
+				"cooldown_reduction"		"1 1.25 1.5 1.75"
 		}
 	}
-	"dazzle_nothl_projection"
+	// 邪能
+	"dazzle_bad_juju"
 	{
+		"MaxLevel" "4"
 		"LinkedAbility"					"dazzle_good_juju"
 		"AbilityDraftPreAbility"		"dazzle_good_juju"
+		"AbilityHealthCost"				"75 100 125 150"
+		"AbilityValues"
+		{
+			"cooldown_reduction"			"4 5 6 7"
+			"mana_cost_increase_pct"		"20"	// 40
+		}
 	}
 	//=================================================================================================================
 	// Ability: Death Prophet 死亡先知
@@ -9077,23 +9091,23 @@
 			"treant_duration"				"40"
 			"treant_health"
 			{
-				"value"								"750 1000 1250 1500"
-				"special_bonus_facet_furion_ironwood_treant"				"+100%"
+				"value"								"1000 1500 2000 2500"
+				"special_bonus_facet_furion_ironwood_treant"				"+50%"
 			}
 			"treant_damage_min"
 			{
 				"value"					"50 100 150 200"
-				"special_bonus_facet_furion_ironwood_treant"				"+100%"
+				"special_bonus_facet_furion_ironwood_treant"				"+50%"
 			}
 			"treant_damage_max"
 			{
 				"value"					"50 100 150 200"
-				"special_bonus_facet_furion_ironwood_treant"				"+100%"
+				"special_bonus_facet_furion_ironwood_treant"				"+50%"
 			}
 			"treant_movespeed"
 			{
 				"value"						"300 320 340 360"
-				"special_bonus_facet_furion_ironwood_treant"						"+50"
+				"special_bonus_facet_furion_ironwood_treant"				"+50"
 			}
 			"AbilityCooldown"
 			{
@@ -9726,6 +9740,11 @@
 				{
 					"value"	"135 160 185 210 235"
 				}
+				"shard_max_count"
+				{
+					"value"			"2"					// 3
+					"RequiresShard"					"1"
+				}
 		}
 	}
 	// 恶魔敕令
@@ -9792,6 +9811,14 @@
 		"AbilityValues"
 		{
 			"mana_pct_per_hit"				"10 14 18 22 26"
+		}
+	}
+	// 先天技能
+	"leshrac_defilement"
+	{
+		"AbilityValues"
+		{
+			"aoe_per_int"				"0.5"			// 0.7
 		}
 	}
 	//=================================================================================================================
@@ -10996,7 +11023,6 @@
 				"damage"
 				{
 					"value"		"140 200 260 320 380"
-				"special_bonus_unique_shadow_shaman_3" "+400"
 				}
 		}
 	}
@@ -11043,38 +11069,62 @@
 	"shadow_shaman_mass_serpent_ward"
 	{
 		"MaxLevel" "3"
-		"RequiredLevel"					"8"
-		"LevelsBetweenUpgrades"			"8"
-		"AbilityCooldown"				"140"
+		"AbilityCooldown"				"120"
 		"AbilityValues"
 		{
 			"ward_count"
 			{
-				"value"							"3"
+				"value"							"4"
 			}
 			"bonus_damage"
 			{
-				"special_bonus_unique_shadow_shaman_4" "+30"	// 20
+				"value"							"0"
+				"special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"50"
+			}
+			"hits_to_destroy_tooltip"
+			{
+				"value"						"4"						// 2
+				"special_bonus_unique_shadow_shaman_1"		"50%"	// 50%
+			}
+			"ward_health"
+			{
+				"value"						"8"						// 4
+				"special_bonus_unique_shadow_shaman_1"		"+4"	// +2
 			}
 			"mega_ward_multiplier_tooltip"
 			{
 				"value"						"0"
-				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"=3"	// =ward_count
+				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"=4"	// =ward_count
 			}
 			"mega_ward_health_tooltip"
 			{
-				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"=3"	// =ward_count
+				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"=4"	// =ward_count
 			}
 		}
+	}
+	// 自定义天赋
+	"special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 	}
 	// 禽戏 先天技能
 	"shadow_shaman_fowl_play"
 	{
-		"AbilityCooldown"				"90"	// 120
+		"AbilityCooldown"				"60"	// 120
 
 		"AbilityValues"
 		{
-			"damage_reduction_duration"	"1.0" // 0.75
+			"damage_reduction_duration"
+			{
+				"value"					"1"
+				"special_bonus_shard"	"+2"	// .5
+			}
+			"invuln_duration"
+			{
+				"special_bonus_shard"	"1"		// .1
+			}
 		}
 	}
 	//=================================================================================================================
@@ -11697,7 +11747,7 @@
 			"minor_imp_duration"		"0.0"	// 移除魔童
 		}
 	}
-	// 混乱之雨
+	// 混乱之雨 地狱火
 	"warlock_rain_of_chaos"
 	{
 		"MaxLevel" "4"
@@ -11743,18 +11793,18 @@
 			}
 			"bonus_magic_resistance"
 			{
-				"value"			"10"
-				"special_bonus_unique_warlock_1"		"+75"
+				"value"			"0"
+				"special_bonus_unique_warlock_1"		"+90"		// 80
 			}
 			"bonus_armor"
 			{
 				"value"			"0"
-				"special_bonus_unique_warlock_2"		"+75"
+				"special_bonus_unique_warlock_2"		"+75"		// 20
 			}
 			"tooltip_golem_armor"
 			{
 				"value"			"10 15 20 25"
-				"special_bonus_unique_warlock_2"		"+75"
+				"special_bonus_unique_warlock_2"		"+75"		// 20
 			}
 			"bonus_slow_resistance"			"80"
 			"tooltip_manahealthboost"

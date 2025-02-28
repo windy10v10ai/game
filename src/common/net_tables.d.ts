@@ -42,10 +42,10 @@ declare global {
     point_info: {
       [steamAccountID: string]: PointInfoDto[];
     };
-    lottery_items: {
+    lottery_active_abilities: {
       [steamAccountID: string]: LotteryDto[];
     };
-    lottery_abilities: {
+    lottery_passive_abilities: {
       [steamAccountID: string]: LotteryDto[];
     };
     lottery_status: {
