@@ -31,7 +31,6 @@ export function bindAbilityKey(abilityname: string, key: string, isQuickCast: bo
 }
 
 function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_BEHAVIOR) {
-  console.log(`behavior:${behavior},judge:${judge} (behavior & judge)`, behavior & judge);
   return (behavior & judge) === judge;
 }
 /**
@@ -66,7 +65,6 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
     IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) &&
     !notTargetAbilityNames.includes(abilityName)
   ) {
-    console.log('DOTA_ABILITY_BEHAVIOR_UNIT_TARGET');
     const targetType = Abilities.GetAbilityTargetType(abilityID);
     const hasTree =
       (targetType & DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE) ===
@@ -94,7 +92,6 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
     }
   }
   if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_POINT)) {
-    console.log('DOTA_ABILITY_BEHAVIOR_POINT');
     Game.PrepareUnitOrders({
       OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION,
       Position: worldPos,
