@@ -1,5 +1,6 @@
 import { AddKeyBind, FindDotaHudElement } from '@utils/utils';
 
+const notTargetAbilityNames = ['earthshaker_enchant_totem'];
 export function bindAbilityKey(abilityname: string, key: string, isQuickCast: boolean) {
   const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
   const abilityID = Entities.GetAbilityByName(heroID, abilityname);
@@ -30,6 +31,7 @@ export function bindAbilityKey(abilityname: string, key: string, isQuickCast: bo
 }
 
 function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_BEHAVIOR) {
+  console.log(`behavior:${behavior},judge:${judge} (behavior & judge)`, behavior & judge);
   return (behavior & judge) === judge;
 }
 /**
@@ -55,10 +57,14 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
     return;
   }
   const worldPos = GameUI.GetScreenWorldPosition(GameUI.GetCursorPosition()) ?? undefined;
+  const abilityName = Abilities.GetAbilityName(abilityID);
   if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING)) {
     //矢量施法暂不支持
   } else {
-    if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET)) {
+    if (
+      IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) &&
+      !notTargetAbilityNames.includes(abilityName)
+    ) {
       console.log('DOTA_ABILITY_BEHAVIOR_UNIT_TARGET');
       const targetType = Abilities.GetAbilityTargetType(abilityID);
       const hasTree =
