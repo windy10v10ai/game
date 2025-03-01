@@ -156,6 +156,17 @@
 			</Panel>
 			<!-- 游戏选项显示 END-->
 
+			<Panel id="QQDiscordContainer" >
+				<Panel id="QQDiscordPanel">
+					<Panel id="QQPanel" class="QQDiscordSubPanel">
+						<Image id="QQQRCodeImage" src="file://{images}/custom_game/qq_QRcode.png"/>
+					</Panel>
+					<Panel id="DiscordPanel" class="QQDiscordSubPanel">
+						<Image id="DiscordQRCodeImage" src="file://{images}/custom_game/discord_QRcode.png"/>
+					</Panel>
+				</Panel>
+			</Panel>
+
 			<!-- 联动 按钮 -->
 			<Panel id="LinkButtonContainer" hittest="false">
 				<!--  吸血鬼幸存者 -->
