@@ -70,6 +70,8 @@
 
 		// link面板
 		"dota_survivor_button"			"全新联动 刀塔幸存者"
+		"join_qq"						"点击加群"
+		"join_discord"					"点击加入Discord"
 
 		// 右侧面板
 		"game_difficulty_choice"		"选择一个难度"
