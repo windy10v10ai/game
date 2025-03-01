@@ -60,7 +60,7 @@
 		{
 				"bonus_attack_speed"			"240"// 现在一个振奋宝石是60
 				"bonus_night_vision"			"400"
-				"consumed_bonus_attack_speed"	"60"	// tooltip only
+				"consumed_bonus_attack_speed"	"80"	// tooltip only
 				"consumed_bonus_night_vision"	"200"	// tooltip only
 				"consumed_bonus_day_vision"		"200"	// tooltip only
 		}
@@ -103,7 +103,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"60"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"80"
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"200"
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION"				"200"
 				}
