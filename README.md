@@ -75,13 +75,10 @@ script_reload
 host_timescale <float>
 ```
 
-### How to compile item png to vtex_c (Deprecated)
-
-Create item XML file in dota 2 content folder then run `tool/compile_item_png.bat`
-
-FYI: https://www.reddit.com/r/DotA2/comments/8yymx9/item_icons_mods_dont_work_since_one_of_latest/
-
 ### How to compile png to vtex_c (Recommended) 如何编译图片png文件
+
+If a PNG is referenced within an XML file, it will be compiled automatically. For standalone XML files, use the following method to compile.
+如果png在xml中被引用了，则会自动编译。对于独立的xml文件，采用以下方式编译。
 
 1. Add png file to [`content/panorama/images`](/content/panorama/images) folder.
 2. Add image to [`content/panorama/layout/custom_game/images.xml`](/content/panorama/layout/custom_game/images.xml) file.
