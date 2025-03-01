@@ -191,6 +191,7 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 	--设置目标再次施法
 	ability:SetContextThink("think_multicast", function()
 		if IsHeroUncontrollable(keys.unit) then
+			ability.multicast = nil
 			return nil
 		end
 
