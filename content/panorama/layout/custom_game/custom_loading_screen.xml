@@ -159,10 +159,10 @@
 			<Panel id="QQDiscordContainer" >
 				<Panel id="QQDiscordPanel">
 					<Panel id="QQPanel" class="QQDiscordSubPanel">
-						<Image id="QQQRCodeImage" src="file://{images}/custom_game/qq_QRcode.png"/>
+						<Image id="QQQRCodeImage" src="file://{images}/custom_game/qq_qr_code.png"/>
 					</Panel>
 					<Panel id="DiscordPanel" class="QQDiscordSubPanel">
-						<Image id="DiscordQRCodeImage" src="file://{images}/custom_game/discord_QRcode.png"/>
+						<Image id="DiscordQRCodeImage" src="file://{images}/custom_game/discord_qr_code.png"/>
 					</Panel>
 				</Panel>
 			</Panel>
