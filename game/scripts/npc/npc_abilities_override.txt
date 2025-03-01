@@ -1375,7 +1375,7 @@
 			}
 		}
 	}
-	// 图腾
+	// 强化图腾
 	"earthshaker_enchant_totem"
 	{
 		"MaxLevel" "5"

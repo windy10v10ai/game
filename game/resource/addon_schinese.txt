@@ -302,7 +302,7 @@
 		"DOTA_Tooltip_modifier_global_newbie"						"<font color='#87CEEB'>新手保护 ★★</font>"
 		"DOTA_Tooltip_modifier_global_newbie_Description"			"- 勇士等级 5 级以内获得新手保护<br/>- 额外获得 +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲"
 		"DOTA_Tooltip_modifier_global_newbie_2"						"<font color='#87CEEB'>新手保护 ★</font>"
-		"DOTA_Tooltip_modifier_global_newbie_2_Description"			"- 勇士等级 8 级以内获得半新手保护<br/>- 额外获得 +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度"
+		"DOTA_Tooltip_modifier_global_newbie_2_Description"			"- 勇士等级 8 级以内获得半新手保护<br/>- 额外获得 +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲"
 		"DOTA_Tooltip_modifier_global_member"						"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
 		"DOTA_Tooltip_modifier_global_member_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/>"
 		// 定制BUFF
