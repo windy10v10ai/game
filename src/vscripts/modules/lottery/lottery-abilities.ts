@@ -59,6 +59,9 @@ export const abilityTiersActive: Tier[] = [
       'axe_culling_blade', // 淘汰之刃
       'bloodseeker_rupture', // 割裂
       'tidehunter_ravage', // 毁灭
+      'faceless_void_time_zone', // 逆转时空
+      'silencer_global_silence', // 全领域禁默
+      'earthshaker_echo_slam', // 回音击
 
       // 小技能
       'dark_willow_shadow_realm', // 暗影之境
@@ -89,6 +92,9 @@ export const abilityTiersActive: Tier[] = [
       'queenofpain_sonic_wave', // 超声冲击波
       'witch_doctor_death_ward', // 死亡守卫
       'skywrath_mage_mystic_flare', // 神秘之耀
+      'kunkka_ghostship', // 幽灵船
+      'slardar_amplify_damage', // 侵蚀雾霭 点灯
+      'legion_commander_duel', // 决斗
 
       // 小技能
       'pudge_meat_hook', // 肉钩
@@ -103,6 +109,7 @@ export const abilityTiersActive: Tier[] = [
       'slardar_slithereen_crush', // 鱼人碎击
       'omniknight_repel', // 咸鱼恩赐
       'mars_bulwark', // 护身甲盾
+      'earthshaker_enchant_totem', // 强化图腾
 
       // 法球/开关技能
       'viper_poison_attack', // 毒性攻击
