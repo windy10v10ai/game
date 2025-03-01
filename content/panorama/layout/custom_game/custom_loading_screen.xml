@@ -154,8 +154,8 @@
 					</Panel>
 				</Panel>
 			</Panel>
-			<!-- 游戏选项显示 END-->
 
+			<!-- QQ Discord 二维码 -->
 			<Panel id="QQDiscordContainer" >
 				<Panel id="QQDiscordPanel">
 					<Panel id="QQPanel" class="QQDiscordSubPanel">
@@ -171,7 +171,7 @@
 			<Panel id="LinkButtonContainer" hittest="false">
 				<!--  吸血鬼幸存者 -->
 				<Panel id="DotaSurvivorPanel"	class="GameOptionsSubPanel">
-					<Button id="DotaSurvivorButton" class="ButtonBevel" onactivate="DotaSurvivorActivate()">
+					<Button id="DotaSurvivorButton" class="ButtonBevel">
 						<Label id="DotaSurvivorButtonLabel" text="#dota_survivor_button" />
 					</Button>
 					<Image id="DotaSurvivorImage" src="file://{images}/custom_game/dota_survivor.png"/>
