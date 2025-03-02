@@ -1,80 +1,66 @@
-
-.flowDown{
-
-	width: 100%;
-	flow-children: down;
+.flowDown {
+  width: 100%;
+  flow-children: down;
 }
-.flowRight{
-	width: 100%;
-	flow-children: right;
+.flowRight {
+  width: 100%;
+  flow-children: right;
 }
-
 
 #TimerLabelVote {
-	color: #a9aaaa;
-	font-size: 16px;
-	text-transform: uppercase;
-	horizontal-align: center;
-	visibility: collapse;
+  color: #a9aaaa;
+  font-size: 16px;
+  text-transform: uppercase;
+  horizontal-align: center;
+  visibility: collapse;
 }
 
-#DifficultyContainer
-{
-	width: 100%;
+#DifficultyContainer {
+  width: 100%;
 }
-#DifficultyList
-{
-	width: 100%;
-	padding: 5px;
+#DifficultyList {
+  width: 100%;
+  padding: 5px;
 }
-.selectTitle
-{
-	margin: 5px;
-	font-size: 26px;
+.selectTitle {
+  margin: 5px;
+  font-size: 26px;
 }
-.difficultyChoice
-{
-	margin: 2px;
-	height: 30px;
-	width: 18%;
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #4b4b4bcc ), to( #2c2c2ccc ) );
-	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
-	border: 1px solid #000000;
+.difficultyChoice {
+  margin: 2px;
+  height: 30px;
+  width: 18%;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#4b4b4bcc), to(#2c2c2ccc));
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+  border: 1px solid #000000;
 }
-.difficultyChoice.longer{
-	width: 46%;
+.difficultyChoice.longer {
+  width: 46%;
 }
-.difficultyChoice.selected
-{
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #838383cc ), to( #2c2c2ccc ) );
+.difficultyChoice.selected {
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#838383cc), to(#2c2c2ccc));
 }
-.difficultyText
-{
-	font-size: 18px;
-	horizontal-align: center;
-	vertical-align: center;
-	text-align: center;
+.difficultyText {
+  font-size: 18px;
+  horizontal-align: center;
+  vertical-align: center;
+  text-align: center;
 }
-.deactivated .difficultyText
-{
-	color: #a9aaaa;
+.deactivated .difficultyText {
+  color: #a9aaaa;
 }
-#TeamsContainer
-{
-	width: 100%;
-	padding: 10px;
+#TeamsContainer {
+  width: 100%;
+  padding: 10px;
 }
-#GameLoadingStatus
-{
-	flow-children: down;
-	padding: 20px;
-	min-height: 100px;
+#GameLoadingStatus {
+  flow-children: down;
+  padding: 20px;
+  min-height: 100px;
 }
-#GameLoadingStatusText
-{
-	font-size: 18px;
+#GameLoadingStatusText {
+  font-size: 18px;
 }
-#UnassignedPlayersContainer
-{
-	visibility: collapse;
+#UnassignedPlayersContainer {
+  visibility: collapse;
 }
