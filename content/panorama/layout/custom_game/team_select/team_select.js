@@ -296,7 +296,7 @@ function SetDifficultyByMapName() {
       button.AddClass('deactivated');
     }
     // 直接选择N6难度
-    // OnChooseDifficulty(6);
+    OnChooseDifficulty(6);
   } else {
     const button = $('#DifficultyN6');
     button.enabled = false;
@@ -358,8 +358,7 @@ function OnGameDifficultyChoiceChange(table, key, value) {
   }
   g_DifficultyChosen = true;
   if (difficulty !== 0) {
-    // FIXME: 为了测试，这里设置为5秒
-    Game.SetRemainingSetupTime(500);
+    Game.SetRemainingSetupTime(5);
   }
 
   for (let i = 0; i <= 6; i++) {
