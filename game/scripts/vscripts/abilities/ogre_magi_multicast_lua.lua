@@ -71,6 +71,8 @@ no_support_abilitys = {
 	doom_bringer_doom = 1,            -- 末日
 	tusk_snowball = 1,                -- 雪球
 	tiny_tree_channel = 1,            -- 树木连掷
+	shredder_chakram = 1,             -- 锯齿飞轮
+	shredder_twisted_chakram = 1,     -- 锯齿飞轮
 }
 no_support_items = {
 	-- 消耗品

@@ -48,3 +48,10 @@ game/maps/dota.vpk (自己编译的地图文件)
 合并后的文件命名为dota.vpk，替换game/maps/dota.vpk文件
 
 如果在 addoninfo.txt 中设置了多个地图，按照其中地图名重新命名vpk文件
+
+## N6地图
+
+- 重命名dota.vmap为n6.vmap
+- 勾选Create minimap，build
+
+注意 由于内部路径名发生变化，无法替换地图特效
