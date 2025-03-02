@@ -323,7 +323,7 @@ function OnChooseDifficulty(difficulty) {
   // mapDisplayName 是 n6的时候，difficulty可以选择6
   // 其他情况下不能选择6
   if (mapDisplayName !== 'n6' && difficulty === 6) {
-    $.Msg('This map can not choose difficulty 6');
+    $.Msg('This map cannot choose difficulty 6');
     return;
   }
   if (mapDisplayName === 'n6' && difficulty !== 6) {
