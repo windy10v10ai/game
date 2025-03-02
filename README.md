@@ -34,7 +34,7 @@ If you would like to contribute to Windy10v10AI, please see our [contributing gu
 
 - [Github Desktop](https://desktop.github.com/)
 - [VS Code](https://code.visualstudio.com/)
-- [VRF](https://vrf.steamdb.info/)
+- [Source 2 Viewer](https://valveresourceformat.github.io/)
 
 ## Setup
 
