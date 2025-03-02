@@ -3,8 +3,8 @@
 	"Language"		"english"
 	"Tokens"
 	{
-		"addon_game_name"		"Dota 10v10 AI Custom by Windy"
-		"DOTA_GameMode_15"		"Dota 10v10 AI Custom by Windy"
+		"addon_game_name"		"Dota 10v10 AI by Windy"
+		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
 		"DOTA_SHARD"			"Battle Points"
 
 		// /////////////////////////////////////////////////////////////////////////////
@@ -70,10 +70,14 @@
 
 		// link面板
 		"dota_survivor_button"			"Linkage with: Dota Survivor"
+		"join_qq"						"Click to join QQ"
+		"join_discord"					"Click to join Discord"
 
 		// 右侧面板
 		"game_difficulty_choice"		"Choose a difficulty"
 		"custom_game_vote"				"Vote Timer"
+		"map_n6_warning"				"When using the N6 map, only the N6 difficulty can be chosen. <br>To play other difficulties, please select the [Dota] map before starting game."
+		"map_dota_warning"				"When using the Dota map, the N6 difficulty cannot be chosen. <br>To play on N6 difficulty, please select the [N6] map before starting game."
 
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
 		"loading_status_2"				"Player data loaded successfully!"
@@ -302,7 +306,7 @@
 		"DOTA_Tooltip_modifier_global_newbie"					"<font color='#87CEEB'>Newbie Protection ★★</font>"
 		"DOTA_Tooltip_modifier_global_newbie_Description"		"- Battle level below 5 receive newbie protection<br/>- Additionally gain +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Resistance and +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% Armor."
 		"DOTA_Tooltip_modifier_global_newbie_2"					"<font color='#87CEEB'>Newbie Protection ★</font>"
-		"DOTA_Tooltip_modifier_global_newbie_2_Description"		"- Battle level below 8 receive half newbie protection<br/>- Additionally gain +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed."
+		"DOTA_Tooltip_modifier_global_newbie_2_Description"		"- Battle level below 8 receive half newbie protection<br/>- Additionally gain +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Resistance and +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% Armor."
 		"DOTA_Tooltip_modifier_global_member"					"<font color='#FFCC66'>★ Membership Buff! ★</font>"
 		"DOTA_Tooltip_modifier_global_member_Description"		"<font color='#FFCC66'>Thank you for your membership!</font><br>As a member, you gain the following bonuses:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>Respawn time reduced by 5 seconds.<br/>Buyback cooldown reduced to 2 minutes.<br/>"
 		// 定制BUFF donnot translate

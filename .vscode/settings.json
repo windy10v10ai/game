@@ -43,5 +43,6 @@
     "editor.semanticHighlighting.enabled": true,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "sumneko.lua"
-  }
+  },
+  "githubPullRequests.ignoredPullRequestBranches": ["develop"]
 }

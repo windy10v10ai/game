@@ -71,6 +71,8 @@ no_support_abilitys = {
 	doom_bringer_doom = 1,            -- 末日
 	tusk_snowball = 1,                -- 雪球
 	tiny_tree_channel = 1,            -- 树木连掷
+	shredder_chakram = 1,             -- 锯齿飞轮
+	shredder_twisted_chakram = 1,     -- 锯齿飞轮
 }
 no_support_items = {
 	-- 消耗品
@@ -191,6 +193,7 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 	--设置目标再次施法
 	ability:SetContextThink("think_multicast", function()
 		if IsHeroUncontrollable(keys.unit) then
+			ability.multicast = nil
 			return nil
 		end
 

@@ -53,26 +53,6 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
-        -- player info all
-        if sChatMsg:find('^-player info all$') then
-            for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-                if PlayerResource:IsValidPlayerID(playerID) and
-                    PlayerResource:IsValidPlayer(playerID) and
-                    PlayerResource:GetSelectedHeroEntity(playerID) then
-                    if PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
-                        local hero = PlayerResource:GetSelectedHeroEntity(
-                            playerID)
-                        local playerName =
-                            PlayerResource:GetPlayerName(playerID)
-                        local heroName = hero:GetUnitName()
-                        Printf("玩家:" .. playerName .. " playerID:" ..
-                            playerID .. " 英雄:" .. heroName)
-                    end
-                end
-            end
-            return
-        end
-
         if sChatMsg:find('^-item all .+') then
             local item = sChatMsg:sub(11)
             Printf("开发者:" .. developerSteamAccountID[steamAccountID] ..
@@ -165,31 +145,6 @@ function AIGameMode:OnPlayerChat(event)
         if sChatMsg:find('^-hploss$') then
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
             hHero:SetHealth(hHero:GetHealth() * 0.1)
-            return
-        end
-
-        if sChatMsg:find('^-f$') then
-            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-            LinkLuaModifier("modifier_wtf", "modifiers/test/modifier_wtf.lua",
-                LUA_MODIFIER_MOTION_NONE)
-            if hHero:HasModifier("modifier_wtf") then
-                hHero:RemoveModifierByName("modifier_wtf")
-            else
-                hHero:AddNewModifier(hHero, nil, "modifier_wtf",
-                    { duration = 3600 })
-            end
-            return
-        end
-
-        if sChatMsg:find('^-cg$') then
-            local totalMemory = collectgarbage("count");
-            Printf("内存占用: " .. math.floor(totalMemory) .. " kb")
-            return
-        end
-        if sChatMsg:find('^-cg .+') then
-            local opt = sChatMsg:sub(5)
-            local result = collectgarbage(opt);
-            Printf(result)
             return
         end
     end

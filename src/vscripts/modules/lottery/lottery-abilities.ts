@@ -59,6 +59,9 @@ export const abilityTiersActive: Tier[] = [
       'axe_culling_blade', // 淘汰之刃
       'bloodseeker_rupture', // 割裂
       'tidehunter_ravage', // 毁灭
+      'faceless_void_time_zone', // 逆转时空
+      'silencer_global_silence', // 全领域禁默
+      'earthshaker_echo_slam', // 回音击
 
       // 小技能
       'dark_willow_shadow_realm', // 暗影之境
@@ -89,6 +92,9 @@ export const abilityTiersActive: Tier[] = [
       'queenofpain_sonic_wave', // 超声冲击波
       'witch_doctor_death_ward', // 死亡守卫
       'skywrath_mage_mystic_flare', // 神秘之耀
+      'kunkka_ghostship', // 幽灵船
+      'slardar_amplify_damage', // 侵蚀雾霭 点灯
+      'legion_commander_duel', // 决斗
 
       // 小技能
       'pudge_meat_hook', // 肉钩
@@ -102,6 +108,8 @@ export const abilityTiersActive: Tier[] = [
       'lina_light_strike_array', // 光击阵
       'slardar_slithereen_crush', // 鱼人碎击
       'omniknight_repel', // 咸鱼恩赐
+      'mars_bulwark', // 护身甲盾
+      'earthshaker_enchant_totem', // 强化图腾
 
       // 法球/开关技能
       'viper_poison_attack', // 毒性攻击
@@ -110,7 +118,7 @@ export const abilityTiersActive: Tier[] = [
       // 自定义技能
       // 'alchemist_berserk_potion2', // 狂暴药剂 new
       'ancient_apparition_frost_seal', // 冰霜封印
-      'abyssal_underlord_charge_slash', // 冲锋斩
+      // 'abyssal_underlord_charge_slash', // 冲锋斩
     ],
   },
   {
@@ -235,7 +243,6 @@ export const abilityTiersPassive: Tier[] = [
       'huskar_berserkers_blood', // 狂战士之血
       'legion_commander_moment_of_courage', // 勇气之霎
       'abyssal_underlord_atrophy_aura', // 衰退光环
-      'mars_bulwark', // 护身甲盾
       'obsidian_destroyer_equilibrium', // 精华变迁
       'spirit_breaker_greater_bash', // 巨力重击
       'antimage_mana_break', // 法力损毁
@@ -277,7 +284,6 @@ export const abilityTiersPassive: Tier[] = [
       'spectre_dispersion2', // 幽鬼 折射 旧版
       'centaur_rawhide2', // 人马 皮糙肉厚
       'axe_one_man_army2', // 斧王 一人成军
-      'arc_warden_scepter', // 人工神符
     ],
   },
 ];
