@@ -351,7 +351,7 @@ function OnChooseDifficulty(difficulty) {
 /**
  * 难度选择结束后，加快倒计时
  */
-function OnGameDifficultyChoiceChange(table, key, value) {
+function OnGameDifficultyChoiceChange(_table, key, value) {
   const difficulty = value.difficulty;
   if (key !== 'all') {
     return;
@@ -363,11 +363,13 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 
   for (let i = 0; i <= 6; i++) {
     const button = $('#DifficultyN' + i);
+    button.enabled = false;
     button.AddClass('stopHover');
     if (i === difficulty) {
+      button.AddClass('selected');
       continue;
     }
-    button.enabled = false;
+    button.RemoveClass('selected');
     button.AddClass('deactivated');
   }
 }
