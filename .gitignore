@@ -5,9 +5,12 @@ node_modules
 # react output
 content/panorama/layout/custom_game/react
 
+# development output
 game/*.bin
 game/resource/custom_game_whitelist.txt
-game/maps/dota.vpk
+
+# Dota2 auto compiled output
+game/materials/overviews/
 
 # panorama auto compiled output
 game/panorama_debugger.cfg
