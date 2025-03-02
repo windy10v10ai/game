@@ -3,8 +3,8 @@
 	"Language"		"schinese"
 	"Tokens"
 	{
-		"addon_game_name"		"Dota 10v10 AI Custom by Windy"
-		"DOTA_GameMode_15"		"Dota 10v10 AI Custom by Windy"
+		"addon_game_name"		"Dota 10v10 AI by Windy"
+		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
 		"DOTA_SHARD"			"勇士积分"
 
 		// /////////////////////////////////////////////////////////////////////////////
@@ -70,10 +70,14 @@
 
 		// link面板
 		"dota_survivor_button"			"全新联动 刀塔幸存者"
+		"join_qq"						"点击加群"
+		"join_discord"					"点击加入Discord"
 
 		// 右侧面板
 		"game_difficulty_choice"		"选择一个难度"
 		"custom_game_vote"				"投票倒计时"
+		"map_n6_warning"				"在使用N6地图时只能选择N6难度。<br>想进行其他难度时，请在游戏开始前选择 [Dota] 地图"
+		"map_dota_warning"				"在使用Dota地图时不能选择N6难度。<br>想进行N6难度时，请在游戏开始前选择 [N6] 地图"
 
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
 		"loading_status_2"				"玩家数据加载成功！"
@@ -302,7 +306,7 @@
 		"DOTA_Tooltip_modifier_global_newbie"						"<font color='#87CEEB'>新手保护 ★★</font>"
 		"DOTA_Tooltip_modifier_global_newbie_Description"			"- 勇士等级 5 级以内获得新手保护<br/>- 额外获得 +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲"
 		"DOTA_Tooltip_modifier_global_newbie_2"						"<font color='#87CEEB'>新手保护 ★</font>"
-		"DOTA_Tooltip_modifier_global_newbie_2_Description"			"- 勇士等级 8 级以内获得半新手保护<br/>- 额外获得 +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度"
+		"DOTA_Tooltip_modifier_global_newbie_2_Description"			"- 勇士等级 8 级以内获得半新手保护<br/>- 额外获得 +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲"
 		"DOTA_Tooltip_modifier_global_member"						"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
 		"DOTA_Tooltip_modifier_global_member_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/>"
 		// 定制BUFF

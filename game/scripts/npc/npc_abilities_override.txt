@@ -340,7 +340,7 @@
 			{
 				"value"								"90 80 70 60"
 			}
-			"hp_threshold"							"1000 2000 4000 8000"
+			"hp_threshold"							"1000 2000 4000 6000"
 			"duration"								"3.5 4.0 4.5 5.0"
 			"duration_scepter"
 			{
@@ -1375,7 +1375,7 @@
 			}
 		}
 	}
-	// 图腾
+	// 强化图腾
 	"earthshaker_enchant_totem"
 	{
 		"MaxLevel" "5"
@@ -8976,7 +8976,7 @@
 	{
 		"AbilityValues"
 		{
-				"damage_threshold"				"900"	// 350
+				"damage_threshold"				"9000"	// 350
 		}
 	}
 	// 午夜凋零

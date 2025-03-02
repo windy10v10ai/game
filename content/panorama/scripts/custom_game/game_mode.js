@@ -321,9 +321,38 @@ function OnGameDifficultyChoiceChange(table, key, value) {
   OnDifficultyDropDownChanged(difficulty);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function DotaSurvivorActivate() {
-  $.DispatchEvent('DOTAShowCustomGamePage', 3359951052);
+function DispatchDotaSurvivor() {
+  const button = $('#DotaSurvivorButton');
+  button.SetPanelEvent('onactivate', () => {
+    $.DispatchEvent('DOTAShowCustomGamePage', 3359951052);
+  });
+}
+function DispatchQQ() {
+  const button = $('#QQPanel');
+  button.SetPanelEvent('onactivate', () => {
+    $.DispatchEvent(
+      'ExternalBrowserGoToURL',
+      'https://qm.qq.com/cgi-bin/qm/qr?k=6yNcbJ0GOuPECq1dmIvsmdj8y7dZBiHs',
+    );
+  });
+  button.SetPanelEvent('onmouseover', () => {
+    $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#join_qq'));
+  });
+  button.SetPanelEvent('onmouseout', () => {
+    $.DispatchEvent('DOTAHideTextTooltip');
+  });
+}
+function DispatchDiscord() {
+  const button = $('#DiscordPanel');
+  button.SetPanelEvent('onactivate', () => {
+    $.DispatchEvent('ExternalBrowserGoToURL', 'https://discord.gg/PhXyPfCQg5');
+  });
+  button.SetPanelEvent('onmouseover', () => {
+    $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#join_discord'));
+  });
+  button.SetPanelEvent('onmouseout', () => {
+    $.DispatchEvent('DOTAHideTextTooltip');
+  });
 }
 
 (function () {
@@ -335,6 +364,10 @@ function DotaSurvivorActivate() {
   // 初始化游戏难度
   CustomNetTables.GetTableValue('game_options', 'game_options', ShowGameOptionsChange);
   CustomNetTables.GetTableValue('game_difficulty', 'all', OnGameDifficultyChoiceChange);
+  // 链接按钮
+  DispatchDotaSurvivor();
+  DispatchQQ();
+  DispatchDiscord();
 })();
 
 GameEvents.Subscribe('player_connect_full', InitializeUI);
