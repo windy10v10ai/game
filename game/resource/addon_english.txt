@@ -70,6 +70,8 @@
 
 		// link面板
 		"dota_survivor_button"			"Linkage with: Dota Survivor"
+		"join_qq"						"Click to join QQ"
+		"join_discord"					"Click to join Discord"
 
 		// 右侧面板
 		"game_difficulty_choice"		"Choose a difficulty"
