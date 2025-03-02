@@ -254,19 +254,60 @@ function UpdateTimer() {
   }
 }
 
+//--------------------------------------------------------------------------------------------------
+// 以下为自定义部分
+//--------------------------------------------------------------------------------------------------
+
+/**
+ * 加载文本显示
+ */
 function OnGameLoadingStatusChange(table, key, value) {
   if (value) {
     const status = value.status;
     $('#GameLoadingStatusText').text = $.Localize('#loading_status_' + status);
-    if (status == 1) {
+    if (status === 1) {
       $('#GameLoadingStatusText').style.color = '#FD841F';
     }
-    if (status == 2) {
+    if (status === 2) {
       $('#GameLoadingStatusText').style.color = '#5DA7DB';
     }
-    if (status == 3) {
+    if (status === 3) {
       $('#GameLoadingStatusText').style.color = '#E14D2A';
     }
+  }
+}
+
+/**
+ * 根据地图名字，设置难度选择
+ */
+function SetDifficultyByMapName() {
+  const mapDisplayName = Game.GetMapInfo().map_display_name;
+  if (mapDisplayName === 'n6') {
+    for (let i = 0; i <= 5; i++) {
+      const button = $('#DifficultyN' + i);
+      button.enabled = false;
+      button.SetPanelEvent('onmouseover', () => {
+        $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#map_n6_warning'));
+      });
+      button.SetPanelEvent('onmouseout', () => {
+        $.DispatchEvent('DOTAHideTextTooltip');
+      });
+      button.AddClass('stopHover');
+      button.AddClass('deactivated');
+    }
+    // 直接选择N6难度
+    // OnChooseDifficulty(6);
+  } else {
+    const button = $('#DifficultyN6');
+    button.enabled = false;
+    button.SetPanelEvent('onmouseover', () => {
+      $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#map_dota_warning'));
+    });
+    button.SetPanelEvent('onmouseout', () => {
+      $.DispatchEvent('DOTAHideTextTooltip');
+    });
+    button.AddClass('stopHover');
+    button.AddClass('deactivated');
   }
 }
 
@@ -274,7 +315,22 @@ function OnGameLoadingStatusChange(table, key, value) {
  * 难度选择
  * @param {*} difficulty
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function OnChooseDifficulty(difficulty) {
+  // get map name
+  const mapDisplayName = Game.GetMapInfo().map_display_name;
+
+  // mapDisplayName 是 n6的时候，difficulty可以选择6
+  // 其他情况下不能选择6
+  if (mapDisplayName !== 'n6' && difficulty === 6) {
+    $.Msg('This map can not choose difficulty 6');
+    return;
+  }
+  if (mapDisplayName === 'n6' && difficulty !== 6) {
+    $.Msg('This map must choose difficulty 6');
+    return;
+  }
+
   if (g_DifficultyChosen) {
     return;
   }
@@ -292,17 +348,29 @@ function OnChooseDifficulty(difficulty) {
   });
 }
 
+/**
+ * 难度选择结束后，加快倒计时
+ */
 function OnGameDifficultyChoiceChange(table, key, value) {
   const difficulty = value.difficulty;
-  if (key != 'all') {
+  if (key !== 'all') {
     return;
   }
   g_DifficultyChosen = true;
-  if (difficulty != 0) {
-    Game.SetRemainingSetupTime(11);
+  if (difficulty !== 0) {
+    // FIXME: 为了测试，这里设置为5秒
+    Game.SetRemainingSetupTime(500);
   }
 
-  $('#DifficultyContainer').AddClass('deactivated');
+  for (let i = 0; i <= 6; i++) {
+    const button = $('#DifficultyN' + i);
+    button.AddClass('stopHover');
+    if (i === difficulty) {
+      continue;
+    }
+    button.enabled = false;
+    button.AddClass('deactivated');
+  }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -335,7 +403,7 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 
   for (var teamId of allTeamIDs) {
     // IF not good team, skip
-    if (teamId != 2) continue;
+    if (teamId !== 2) continue;
     var teamNode = $.CreatePanel('Panel', teamsListRootNode, '');
     teamNode.AddClass('team_' + teamId); // team_1, etc.
     teamNode.SetAttributeInt('team_id', teamId);
@@ -375,4 +443,7 @@ function OnGameDifficultyChoiceChange(table, key, value) {
     CustomNetTables.GetTableValue('loading_status', 'loading_status'),
   );
   CustomNetTables.SubscribeNetTableListener('game_difficulty', OnGameDifficultyChoiceChange);
+
+  // 根据地图名字，设置难度选择
+  SetDifficultyByMapName();
 })();
