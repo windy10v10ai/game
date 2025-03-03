@@ -358,7 +358,7 @@ function OnGameDifficultyChoiceChange(_table, key, value) {
   }
   g_DifficultyChosen = true;
   if (difficulty !== 0) {
-    Game.SetRemainingSetupTime(5);
+    Game.SetRemainingSetupTime(10);
   }
 
   for (let i = 0; i <= 6; i++) {
