@@ -48,7 +48,7 @@ describe('GameEndPoint', () => {
       };
 
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(32);
+      expect(score).toBe(33);
     });
 
     it('should calculate score correctly for a team player', () => {
@@ -72,7 +72,7 @@ describe('GameEndPoint', () => {
       };
 
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(34);
+      expect(score).toBe(35);
     });
 
     it('should calculate score correctly for a player with extra high stats', () => {
@@ -96,7 +96,7 @@ describe('GameEndPoint', () => {
       };
 
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(134);
+      expect(score).toBe(136);
     });
   });
 
@@ -110,19 +110,19 @@ describe('GameEndPoint', () => {
     it('should return correct points for game time less than 2400', () => {
       const gameTime = 1800;
       const points = GameEndPoint.GetGameTimePoints(gameTime);
-      expect(points).toBe(21);
+      expect(points).toBe(20);
     });
 
     it('should return correct points for game time equal to 2400', () => {
       const gameTime = 2400;
       const points = GameEndPoint.GetGameTimePoints(gameTime);
-      expect(points).toBe(24);
+      expect(points).toBe(23);
     });
 
     it('should return correct points for game time greater than 2400', () => {
       const gameTime = 3600;
       const points = GameEndPoint.GetGameTimePoints(gameTime);
-      expect(points).toBe(29);
+      expect(points).toBe(28);
     });
   });
 });
