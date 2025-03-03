@@ -702,6 +702,8 @@
 
 		// 茶神
 		"npc_dota_hero_techies"					"茶神"
+		// 撼地者
+		"npc_dota_hero_earthshaker"					"宇智波牛神"
 
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"治疗："

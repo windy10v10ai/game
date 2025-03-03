@@ -701,6 +701,8 @@
 
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"
+		// 撼地者
+		"npc_dota_hero_earthshaker"					"Earthshaker"
 
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"COOKIE HEAL:"

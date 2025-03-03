@@ -10892,10 +10892,26 @@
 		"AbilityValues"
 		{
 			"one_tooltip"					"1"
-			"bonus_damage_pct"				"50"		// 75
-			"bonus_damage_pct_tooltip"		"0.5"		// 0.75
-			"magic_resist_pct"				"50"		// 75
-			"magic_resist_pct_tooltip"		"0.5"		// 0.75
+			"bonus_damage_pct"
+			{
+				"value"									"50"		// 75
+				"special_bonus_unique_rubick_2" 		"+25"
+			}
+			"bonus_damage_pct_tooltip"
+			{
+				"value"									"0.5"		// 0.75
+				"special_bonus_unique_rubick_2" 		"+0.25"
+			}
+			"magic_resist_pct"
+			{
+				"value"									"50"		// 75
+				"special_bonus_unique_rubick_2" 		"+25"
+			}
+			"magic_resist_pct_tooltip"
+			{
+				"value"									"0.5"		// 0.75
+				"special_bonus_unique_rubick_2" 		"+0.25"
+			}
 		}
 	}
 	//=================================================================================================================
