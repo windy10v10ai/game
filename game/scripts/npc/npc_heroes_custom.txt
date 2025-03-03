@@ -2131,6 +2131,9 @@
 	"npc_dota_hero_skeleton_king"
 	{
 		"Ability2"		"skeleton_king_spectral_blade"
+
+		"Ability11"		"special_bonus_unique_skeleton_king_spectral_blade_damage"	// 替换命石天赋
+		"Ability15"		"special_bonus_unique_wraith_king_3"						// 替换命石天赋
 		"Facets"  ""
 		"Bot"
 		{
