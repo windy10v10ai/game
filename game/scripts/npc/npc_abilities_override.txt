@@ -3346,21 +3346,35 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
+			"cursed_damage_pct"
+			{
+				"value"										"50"
+				"special_bonus_unique_skeleton_king_spectral_blade_damage"	"+15"
+			}
 			"cursed_damage"
 			{
 				"value"									"15 30 45 60 75"
-				"DamageTypeTooltip"						"DAMAGE_TYPE_PURE"
+				"special_bonus_unique_skeleton_king_spectral_blade_damage"	"+25"
 			}
-			"curse_cooldown"							"14 12 10 8 6"
-			"curse_cooldown_creep"						"4"					// 6
+			"curse_cooldown"							"12 10 8 6 4"
+			"curse_cooldown_creep"						"3"					// 6
 			"curse_delay"								"2"					// 3
 		}
+	}
+	// 自定义天赋 幽魂之剑伤害
+	"special_bonus_unique_skeleton_king_spectral_blade_damage"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" "special_bonus_base"
 	}
 	// 本命一击
 	"skeleton_king_mortal_strike"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"6.0 5.5 5 4.5 4"
+		"AbilityCooldown"				"5 4.5 4 3.5 3"
 		"AbilityValues"
 		{
 			"crit_mult"					"150 200 250 300 350"
