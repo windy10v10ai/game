@@ -197,6 +197,12 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 			return nil
 		end
 
+		-- 英雄持续施法时 不触发多重
+		if keys.unit:IsChanneling() then
+			ability.multicast = nil
+			return nil
+		end
+
 		-- 充能技能
 		if ability:GetMaxAbilityCharges(ability:GetLevel()) > 0 then
 			if ability:IsItem() then
