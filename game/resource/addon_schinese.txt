@@ -702,6 +702,8 @@
 
 		// 茶神
 		"npc_dota_hero_techies"					"茶神"
+		// 撼地者
+		"npc_dota_hero_earthshaker"					"宇智波牛神"
 
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"治疗："
@@ -783,8 +785,11 @@
 
 		"DOTA_Tooltip_modifier_brewmaster_primal_split_lua_duration"					"元素分离"
 
-		// 暗影撒嘛
+		// 暗影萨满
 		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"+{s:bonus_bonus_damage}% 守卫攻击力"
+
+		// 骷髅王
+		"DOTA_Tooltip_ability_special_bonus_unique_skeleton_king_spectral_blade_damage"			"+{s:bonus_cursed_damage}/{s:bonus_cursed_damage_pct}% 幽魂之剑基础伤害/诅咒伤害"
 
 		///////////////////////////////////////////////////
 		//
