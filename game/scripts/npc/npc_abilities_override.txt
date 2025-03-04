@@ -10797,22 +10797,20 @@
 			"lift_duration"
 			{
 				"value"			"0.95 1.2 1.45 1.7 1.95"
-				"special_bonus_unique_rubick_7" "+0.4"
-			}
-			"radius"
-			{
-				"value"	"300 325 350 375 400"
-				"affected_by_aoe_increase"	"1"
+				"special_bonus_unique_rubick_7" "+0.5"
 			}
 			"stun_duration"
 			{
 				"value"		"0.9 1.1 1.3 1.5 1.7"
-				"special_bonus_unique_rubick_7" "+0.4"
+				"special_bonus_unique_rubick_7" "+0.5"
+			}
+			"radius"
+			{
+				"value"	"300 325 350 375 400"
 			}
 			"AbilityCooldown"
 			{
-				"value"		"24 22 20 18 16"
-				"special_bonus_unique_rubick_4"			"-4"
+				"value"		"23 21 19 17 15"
 			}
 		}
 	}
@@ -10874,15 +10872,15 @@
 		"AbilityCooldown"				"16 12 8 4"
 		"AbilityValues"
 		{
-			"stolen_debuff_amp"				"10 20 30 40"
+			"stolen_debuff_amp"				"15 30 45 60"
 			"duration"
 			{
-				"value"						"150.0 200.0 250.0 300.0"
+				"value"						"180 240 300 360"
 			}
 			"stolen_mana_reduction"
 			{
 				"value"						"0"
-				"special_bonus_facet_rubick_frugal_filch"	"15 30 45 60"
+				"special_bonus_facet_rubick_frugal_filch"	"50 60 70 80"
 			}
 		}
 	}
@@ -11041,7 +11039,7 @@
 	"shadow_shaman_ether_shock"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"800"		// 600
 		"AbilityCooldown"				"14 12 10 8 6"
 		"AbilityManaCost"				"90 105 120 135 155"
 		"AbilityValues"
@@ -11060,7 +11058,7 @@
 	"shadow_shaman_voodoo"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"800"
+		"AbilityCastRange"				"750"		// 550
 		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityManaCost"				"130 150 170 190 210"
 		"AbilityValues"
@@ -11072,12 +11070,16 @@
 	"shadow_shaman_shackles"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"650"
 		"AbilityChannelTime"			"2.4 3.0 3.6 4.2 4.8"
 		"AbilityCooldown"				"14 13 12 11 10"
 		"AbilityManaCost"				"125 140 155 170 185"
 		"AbilityValues"
 		{
+			"AbilityCastRange"
+			{
+				"value"					"600"		// 450
+				"special_bonus_scepter" "+200"		// 150
+			}
 			"total_damage"
 			{
 				"value"					"70 140 210 280 350"
