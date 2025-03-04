@@ -334,6 +334,10 @@ function showCustomHotkey(abilityPanel: Panel, text: string) {
 }
 
 function removeCustomHotkey(abilityPanel: Panel) {
+  const hotkey = abilityPanel.FindChildTraverse('Hotkey') as Panel | undefined;
+  if (hotkey) {
+    hotkey.style.visibility = null;
+  }
   const hotKeyLabelCustom = abilityPanel.FindChildTraverse(`HotkeyTextCustom`);
   if (hotKeyLabelCustom) {
     hotKeyLabelCustom.DeleteAsync(0);

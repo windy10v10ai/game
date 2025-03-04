@@ -60,7 +60,7 @@ export class GameConfig {
       print('[GameConfig] IsInToolsMode set');
       GameRules.SetCustomGameSetupAutoLaunchDelay(5);
       GameRules.SetHeroSelectionTime(15);
-      GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
+      // GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       // GameRules.SetStrategyTime(5);
       // GameRules.SetPreGameTime(15); // 进入游戏后号角吹响前的准备时间
     }
