@@ -1353,6 +1353,7 @@ tBotItemData.sellItemCommonList = {
 	'item_quelling_blade',       -- 补刀斧
 	'item_blades_of_attack',     -- 攻击之爪
 	'item_chainmail',            -- 锁子甲
+	'item_lifesteal',            -- 吸血面具
 	'item_ogre_axe',             -- 食人魔之斧
 	'item_blade_of_alacrity',    -- 欢欣之刃
 	'item_staff_of_wizardry',    -- 魔力法杖
@@ -1418,6 +1419,10 @@ tBotItemData.sellItemCommonList = {
 	'item_sange_and_yasha', -- 散夜对剑
 	'item_heavens_halberd', -- 天堂之戟
 	'item_hand_of_group',  -- 团队之手
+
+	'item_manta',          -- 幻影斧
+	'item_butterfly',      -- 蝴蝶
+	'item_radiance',       -- 辉耀
 
 	'item_monkey_king_bar_2', -- 定海神针
 

@@ -537,13 +537,14 @@
 				"24"		""
 				"25"		"special_bonus_unique_spectre_5"
 				"26"		""
-				"27"		"special_bonus_unique_spectre_desolate_radius"
+				"27"		"special_bonus_hp_regen_5"
 				"28"		"special_bonus_unique_spectre_2"
 				"29"		"special_bonus_hp_350"
 				"30"		"special_bonus_unique_spectre_4"
 				"31"		"spectre_haunt_single"
 				"32"		"spectre_haunt_single"
 				"33"		"spectre_haunt_single"
+				"34"		"spectre_haunt_single"
 			}
 		}
 	}
@@ -600,6 +601,7 @@
 	{
 		"AttributeStrengthGain"		"2.5" // 2
 	}
+	// 斧王
 	"npc_dota_hero_axe"
 	{
 		"Bot"
@@ -633,8 +635,8 @@
 				"25"		"special_bonus_unique_axe_2"
 				"26"		""
 				"27"		"special_bonus_unique_axe_culling_blade_speed_duration"
-				"28"		"special_bonus_unique_axe_4"
-				"29"		"special_bonus_unique_axe_3"
+				"28"		"special_bonus_unique_axe_7"
+				"29"		"special_bonus_unique_axe_4"
 				"30"		"special_bonus_unique_axe"
 				"31"		"axe_culling_blade"
 				"32"		"axe_battle_hunger"
@@ -686,6 +688,7 @@
 			}
 		}
 	}
+	// 赏金猎人
 	"npc_dota_hero_bounty_hunter"
 	{
 		"Bot"
@@ -716,7 +719,7 @@
 				"22"		""
 				"23"		""
 				"24"		""
-				"25"		"special_bonus_unique_bounty_hunter_7"
+				"25"		"special_bonus_unique_bounty_hunter_2"
 				"26"		""
 				"27"		"special_bonus_unique_bounty_hunter_4"
 				"28"		"special_bonus_unique_bounty_hunter_9"
@@ -765,7 +768,7 @@
 				"26"		""
 				"27"		"special_bonus_unique_bloodseeker_6"
 				"28"		"special_bonus_unique_bloodseeker_2"
-				"29"		"special_bonus_spell_lifesteal_15"
+				"29"		"special_bonus_unique_bloodseeker"
 				"30"		"special_bonus_cleave_60"
 				"31"		"bloodseeker_blood_bath"
 				"32"		"bloodseeker_blood_bath"
@@ -1076,7 +1079,7 @@
 				"25"		"special_bonus_unique_drow_ranger_8"
 				"26"		""
 				"27"		"special_bonus_unique_drow_ranger_2"
-				"28"		"special_bonus_lifesteal_20"
+				"28"		"special_bonus_attack_range_75"
 				"29"		"special_bonus_unique_drow_ranger_1"
 				"30"		"special_bonus_unique_drow_ranger_3"
 				"31"		"drow_ranger_marksmanship"
