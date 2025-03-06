@@ -2115,6 +2115,13 @@
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
 
+		// 神器刃甲（秘术师铠甲）（天地同寿）
+		"DOTA_Tooltip_Ability_item_force_field_ultra"			"<font color='#e03e2e'>Artifact: Force Field</font>"
+		"DOTA_Tooltip_Ability_item_force_field_ultra_Description"		"<h1>Active: Mega Shield</h1> Force Field Aura Grants %active_reflection_pct%%% Damage Reflection for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants +%bonus_aoe_armor% armor and +%bonus_aoe_mres%%% Magic Resistance to all other allies within %bonus_aoe_radius% radius."
+		"DOTA_Tooltip_Ability_item_force_field_ultra_Lore"		"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
+		"DOTA_Tooltip_ability_item_force_field_ultra_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_force_field_ultra_bonus_armor"						"+$armor"
+
 		// 力量跳2
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2"                            "Tyson's Flash"
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Description"			    "<h1>Active: Tyson's Flash</h1>Teleport to a target point up to %blink_range% units away.<br><br>After teleportation, all enemies in a %radius% AoE take damage equal to %damage_base% + %damage_pct_instant%%% of your strength and an additional %damage_pct_over_time%%% over time, and have %movement_slow%%% movement speed slow and %attack_slow% attack speed slow for %duration% seconds. <br><br>Overwhelming Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."

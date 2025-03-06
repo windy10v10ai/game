@@ -514,6 +514,45 @@
 				"active_reflection_pct"			"100"
 		}
 	}
+	//=================================================================================================================
+	//  神刃甲
+	//=================================================================================================================
+	"item_recipe_force_field_ultra"
+	{
+		"ID"							"19031"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_force_field_ultra"
+		"ItemRequirements"
+		{
+			"01"						"item_blade_mail_2;item_blade_mail_2"
+		}
+	}
+	"item_force_field_ultra"
+	{
+		"BaseClass"						"item_force_field"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityCooldown"				"20"
+		"AbilityValues"
+		{
+			"bonus_aoe_radius"
+			{
+				"value"		"1800"
+				"affected_by_aoe_increase"	"1"
+			}
+			"bonus_aoe_armor"			"30"
+			"self_armor"				"30"
+			"self_mres"					"15"
+			"bonus_aoe_mres"			"15"
+			"active_reflection_pct"		"100"
+		}
+	}
 
 	//=================================================================================================================
 	// Recipe: Radiance2 辉耀2

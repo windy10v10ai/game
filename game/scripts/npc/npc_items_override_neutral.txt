@@ -563,6 +563,8 @@
 		{
 			"max_slow_res"				"100"	//100
 			"hero_reduction"			"5"		//20
+			"status_res_pct_increase_per_hero"	"20"	//10
+			"hero_check_radius"			"600"	//300
 		}
 	}
 	//海盗帽
@@ -905,9 +907,9 @@
 		"AbilityCooldown"				"0.5"	//1.0
 		"AbilityValues"
 		{
-			"proc_chance"			"60"		//20
+			"proc_chance"			"40"		//20
 			"hp_dmg"				"10"		//10
-			"hp_dmg_rosh"			"600"		//200
+			"hp_dmg_rosh"			"400"		//200
 		}
 	}
 	//天崩
@@ -1010,12 +1012,32 @@
 	//弩炮
 	"item_ballista"
 	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 			"attack_range_bonus"		"0"		//250
-			"knockback_distance"		"20"	//50
-			"knockback_duration"		"0.1"	//0.2
-			"bonus_damage"				"150"	//50
+			"knockback_distance"		"10"	//50
+			"knockback_duration"		"0.2"	//0.2
+			"bonus_damage"				"80"	//50
+		}
+	}
+	//弩炮·改
+	"item_ballista_dmg"
+	{
+		"BaseClass"						"item_ballista"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"ItemCost"						"0"
+		"ItemIsNeutralActiveDrop"				"1"
+		"ItemPurchasable"				"0"
+		"ItemSellable"				"0"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityValues"
+		{
+				"attack_range_bonus"		"0"
+				"knockback_distance"			"0"
+				"knockback_duration"		"0.0"
+				"bonus_damage"		"250"
 		}
 	}
 	//巨人之戒
@@ -1063,7 +1085,7 @@
 	{
 		"AbilityValues"
 		{
-			"debuff_self"	"16"			//8
+			"debuff_self"	"10"			//8
 			"debuff_enemy"	"30"			//12
 		}
 	}

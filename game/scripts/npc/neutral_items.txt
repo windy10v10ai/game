@@ -112,14 +112,14 @@
 				"item_pyrrhic_cloak"				"1"		// 皮洛士斗篷
 				"item_ogre_seal_totem"				"1"		// 食人魔海豹图腾
 				"item_mind_breaker"					"1"		// 智灭 原本是4级
-				"item_demonicon"					"1"		// 冥灵书
-				"item_unrelenting_eye"				"1"		// 不屈之眼 原本是5级
+				"item_serrated_shiv"				"1"		// 锯齿短刀 原本是3级
 				"item_pirate_hat"					"1"		// 海盗帽 原本是5级
 				"item_spider_legs"					"1"		// 网虫腿 原本是5级
 
 				// 额外添加
 				"item_trickster_cloak"				"1"		// 欺诈师斗篷
 				"item_penta_edged_sword"			"1"		// 五锋长剑
+				"item_havoc_hammer"					"1"		// 浩劫巨锤
 			}
 
 			"enhancements"
@@ -208,16 +208,15 @@
 				"item_nemesis_curse"				"1"		// 天诛之咒 原本是3级
 				"item_ceremonial_robe"				"1"		// 祭礼长袍 原本是4级
 				"item_magnifying_monocle"			"1"		// 放大单片镜 原本是4级
-				"item_serrated_shiv"				"1"		// 锯齿短刀 原本是3级
+				"item_unrelenting_eye"				"1"		// 不屈之眼 原本是5级
 
 				// 额外添加
 				"item_mirror_shield"				"1"		// 神镜盾
 				"item_ballista"						"1"		// 弩炮
+				"item_ballista_dmg"					"1"		// 弩炮·改
 				"item_giants_ring"					"1"		// 巨人之戒
 				"item_ex_machina"					"1"		// 机械之心
-				// "item_force_field"					"1"		// 秘术师铠甲
 
-				"item_havoc_hammer"					"1"		// 浩劫巨锤
 				"item_specialists_array"			"1"		// 行家阵列
 
 			}
