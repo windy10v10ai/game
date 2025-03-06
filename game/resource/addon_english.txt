@@ -1785,7 +1785,7 @@
 
 		// item_shotgun_v2
 		"DOTA_Tooltip_ability_item_shotgun_v2"                                "Bullet-Filled Shotgun"
-		"DOTA_Tooltip_ability_item_shotgun_v2_Description"                    "<h1>Passive: Greater Scatterblast (Ranged only)</h1>Attacks deal %attack_percent%%% splash damage in a %attack_radius% radius of the attack unit.<br>Scatterblast cannot stack with itself, has a 0.1s built-in cooldown, and the splash damage is magical."
+		"DOTA_Tooltip_ability_item_shotgun_v2_Description"                    "<h1>Passive: Greater Scatterblast (Ranged only)</h1>Attacks deal %attack_percent%%% splash damage in a %attack_radius% radius of the attack unit.<br>Scatterblast cannot stack with itself, and the splash damage is pure."
 		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"           "+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"           "+$damage"
 		"DOTA_Tooltip_ability_item_shotgun_v2_lore"                           "Aim? What's that?"
