@@ -2281,6 +2281,7 @@
 		"Ability3"		"spirit_breaker_empowering_haste"
 		"Ability9"		"spirit_breaker_greater_bash"	// 巨力重击 被动不需要快捷键
 	}
+	// 斯温
 	"npc_dota_hero_sven"
 	{
 		"Bot"
@@ -2313,7 +2314,7 @@
 				"24"		""
 				"25"		"special_bonus_unique_sven_4"
 				"26"		""
-				"27"		"special_bonus_attack_speed_15"
+				"27"		"special_bonus_unique_sven"
 				"28"		"special_bonus_unique_sven_8"
 				"29"		"special_bonus_unique_sven_7"
 				"30"		"special_bonus_unique_sven_2"
@@ -2324,6 +2325,7 @@
 			}
 		}
 	}
+	// 小小
 	"npc_dota_hero_tiny"
 	{
 		"Bot"
@@ -2339,7 +2341,7 @@
 				"7"		"tiny_toss"
 				"8"		"tiny_avalanche"
 				"9"		"tiny_toss"
-				"10"		"special_bonus_strength_10"
+				"10"		"special_bonus_unique_tiny_4"
 				"11"		"tiny_toss"
 				"12"		"tiny_grow"
 				"13"		"tiny_tree_grab"
@@ -2356,8 +2358,8 @@
 				"24"		""
 				"25"		"special_bonus_unique_tiny_2"
 				"26"		""
-				"27"		"special_bonus_movement_speed_20"
-				"28"		"special_bonus_status_resistance_10"
+				"27"		"special_bonus_strength_8"
+				"28"		"special_bonus_unique_tiny_6"
 				"29"		"special_bonus_unique_tiny_7"
 				"30"		"special_bonus_unique_tiny_3"
 				"31"		"tiny_grow"
@@ -2420,6 +2422,7 @@
 			}
 		}
 	}
+	// 冥界亚龙 毒龙
 	"npc_dota_hero_viper"
 	{
 		"Bot"
@@ -2445,16 +2448,16 @@
 				"17"		""
 				"18"		"viper_viper_strike"
 				"19"		""
-				"20"		"special_bonus_unique_viper_7"
+				"20"		"special_bonus_unique_viper_2"
 				"21"		""
 				"22"		""
 				"23"		""
 				"24"		""
-				"25"		"special_bonus_unique_viper_5"
+				"25"		"special_bonus_unique_viper_nethertoxin_radius"
 				"26"		""
 				"27"		"special_bonus_unique_viper_1"
 				"28"		"special_bonus_unique_viper_3"
-				"29"		"special_bonus_unique_viper_2"
+				"29"		"special_bonus_unique_viper_predator_damage"
 				"30"		"special_bonus_unique_viper_8"
 				"31"		"viper_viper_strike"
 				"32"		"viper_corrosive_skin"
@@ -2463,6 +2466,7 @@
 			}
 		}
 	}
+	// 风行
 	"npc_dota_hero_windrunner"
 	{
 		"Bot"
@@ -2478,7 +2482,7 @@
 				"7"		"windrunner_powershot"
 				"8"		"windrunner_shackleshot"
 				"9"		"windrunner_shackleshot"
-				"10"		"special_bonus_unique_windranger"
+				"10"		"special_bonus_unique_windranger_powershot_slow"
 				"11"		"windrunner_shackleshot"
 				"12"		"windrunner_focusfire"
 				"13"		"windrunner_windrun"
@@ -2551,6 +2555,7 @@
 		}
 	}
 
+	// 巫医
 	"npc_dota_hero_witch_doctor"
 	{
 		"Ability5"		"generic_hidden"	// 移除 驱邪护符
@@ -2584,8 +2589,8 @@
 				"24"		""
 				"25"		"special_bonus_unique_witch_doctor_5"
 				"26"		""
-				"27"		"special_bonus_unique_witch_doctor_6"
-				"28"		"special_bonus_hp_300"
+				"27"		"special_bonus_hp_200"
+				"28"		"special_bonus_unique_witch_doctor_6"
 				"29"		"special_bonus_unique_witch_doctor_7"
 				"30"		"special_bonus_unique_witch_doctor_2"
 				"31"		"witch_doctor_death_ward"

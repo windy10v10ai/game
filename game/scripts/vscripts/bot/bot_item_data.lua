@@ -877,7 +877,6 @@ tBotItemData.purchaseItemList = {
 		'item_hurricane_pike_2',
 		'item_infernal_desolator', -- 绝对破防之刃
 		'item_black_king_bar_2',
-		'item_angels_demise',
 		'item_shotgun_v2',
 		'item_excalibur',
 		'item_satanic_2', -- 骑士剑换撒旦
@@ -1409,24 +1408,27 @@ tBotItemData.sellItemCommonList = {
 
 	-- 高级道具
 	'item_ultimate_scepter', -- A杖
-	'item_desolator',      -- 黯灭
+	'item_desolator',     -- 黯灭
 	'item_black_king_bar', -- BKB
-	'item_pipe',           -- 笛子
-	'item_heart',          -- 龙心
-	'item_bfury',          -- 狂战斧
-	'item_sheepstick',     -- 羊刀
-	'item_phylactery',     -- 灵匣
-	'item_greater_crit',   -- 大炮
+	'item_pipe',          -- 笛子
+	'item_heart',         -- 龙心
+	'item_bfury',         -- 狂战斧
+	'item_sheepstick',    -- 羊刀
+	'item_phylactery',    -- 灵匣
+	'item_greater_crit',  -- 大炮
 	'item_sange_and_yasha', -- 散夜对剑
 	'item_heavens_halberd', -- 天堂之戟
-	'item_hand_of_group',  -- 团队之手
+	'item_hand_of_group', -- 团队之手
 
-	'item_shivas_guard',   -- 希瓦的守护
-	'item_manta',          -- 幻影斧
-	'item_butterfly',      -- 蝴蝶
-	'item_radiance',       -- 辉耀
-	'item_satanic',        -- 撒旦
+	'item_shivas_guard',  -- 希瓦的守护
+	'item_manta',         -- 幻影斧
+	'item_butterfly',     -- 蝴蝶
+	'item_radiance',      -- 辉耀
+	'item_satanic',       -- 撒旦
+	'item_monkey_king_bar', -- 金箍棒
+	'item_mjollnir',      -- 雷神之锤
 
+	-- 终极道具
 	'item_monkey_king_bar_2', -- 定海神针
 
 	-- 本地主机出装
@@ -1437,16 +1439,19 @@ tBotItemData.sellItemCommonList = {
 	'item_robe',             -- 法师长袍
 	'item_void_stone',       -- 虚无宝石
 	'item_soul_ring',        -- 灵魂之戒
+	'item_ring_of_tarrasque', -- 恐鳌之戒
 	'item_headdress',        -- 恢复头巾
 	'item_tiara_of_selemene', -- 赛莉蒙妮之冠
 	'item_point_booster',    -- 精气之球
 	'item_talisman_of_evasion', -- 闪避护符
+	'item_platemail',        -- 板甲
 	'item_hyperstone',       -- 振奋宝石
 	'item_eagle',            -- 鹰歌弓
 	'item_reaver',           -- 掠夺者之斧
 	'item_mystic_staff',     --  神秘法杖
 	'item_demon_edge',       -- 恶魔刀锋
 	'item_relic',            -- 圣者遗物
+	'item_disperser',        -- 散魂剑
 
 
 	-- 卷轴
@@ -1455,6 +1460,7 @@ tBotItemData.sellItemCommonList = {
 	'item_recipe_cyclone',       -- Eul的神圣法杖
 	'item_recipe_basher',        -- 碎颅锤
 	'item_recipe_black_king_bar', -- BKB
+	'item_recipe_shivas_guard',  -- 希瓦的守护
 	'item_recipe_sheepstick',    -- 邪恶镰刀
 	'item_recipe_mekansm',       -- 梅肯斯姆
 	'item_recipe_abyssal_blade', -- 深渊
