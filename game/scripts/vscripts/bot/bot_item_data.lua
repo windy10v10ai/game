@@ -360,7 +360,6 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_abyssal_blade_v2',
 		'item_undying_heart',
-		'item_moon_shard_datadriven',
 		'item_jump_jump_jump',
 		'item_refresh_core',
 	},
@@ -409,7 +408,6 @@ tBotItemData.purchaseItemList = {
 		-- 'item_adi_king_plus',
 		'item_blue_fantasy', -- 苍蓝幻想
 		'item_abyssal_blade_v2',
-		'item_moon_shard_datadriven',
 		'item_bfury_ultra', -- 剑圣先手用先哲，看着换
 		'item_jump_jump_jump',
 		'item_excalibur',
@@ -431,10 +429,10 @@ tBotItemData.purchaseItemList = {
 		'item_vladmir',
 		'item_assault',
 		'item_recipe_vladmir_2',
+		'item_moon_shard_datadriven',
 		'item_abyssal_blade_v2',
 		'item_infernal_desolator', -- 绝对破防之刃
 		'item_silver_edge_2',
-		'item_moon_shard_datadriven',
 		'item_wasp_despotic',
 		'item_wasp_callous',
 		'item_bloodstone',
@@ -838,7 +836,6 @@ tBotItemData.purchaseItemList = {
 		'item_recipe_refresh_core',
 		'item_moon_shard_datadriven',
 		'item_jump_jump_jump',
-		'item_necronomicon_staff',
 	},
 	npc_dota_hero_skywrath_mage = {
 		'item_tango',
@@ -1375,7 +1372,7 @@ tBotItemData.sellItemCommonList = {
 	-- 初级道具
 	'item_quelling_blade_2_datadriven', -- 毒瘤之刃
 	'item_boots',                    -- 草鞋
-	'item_crown',                    -- 王冠
+
 	'item_bracer',                   -- 护腕
 	'item_null_talisman',            -- 挂件
 	'item_wraith_band',              -- 系带
@@ -1407,6 +1404,7 @@ tBotItemData.sellItemCommonList = {
 	'item_armlet',       -- 臂章
 	'item_hand_of_midas', -- 点金手
 	'item_aether_lens',  -- 以太透镜
+	'item_dragon_lance', -- 魔龙枪
 
 
 	-- 高级道具
@@ -1423,6 +1421,7 @@ tBotItemData.sellItemCommonList = {
 	'item_heavens_halberd', -- 天堂之戟
 	'item_hand_of_group',  -- 团队之手
 
+	'item_shivas_guard',   -- 希瓦的守护
 	'item_manta',          -- 幻影斧
 	'item_butterfly',      -- 蝴蝶
 	'item_radiance',       -- 辉耀
@@ -1432,8 +1431,15 @@ tBotItemData.sellItemCommonList = {
 
 	-- 本地主机出装
 	-- 配件
+	'item_crown',            -- 王冠
+	'item_belt_of_strength', -- 力量腰带
+	'item_boots_of_elves',   -- 精灵布带
+	'item_robe',             -- 法师长袍
+	'item_void_stone',       -- 虚无宝石
+	'item_soul_ring',        -- 灵魂之戒
 	'item_headdress',        -- 恢复头巾
 	'item_tiara_of_selemene', -- 赛莉蒙妮之冠
+	'item_point_booster',    -- 精气之球
 	'item_talisman_of_evasion', -- 闪避护符
 	'item_hyperstone',       -- 振奋宝石
 	'item_eagle',            -- 鹰歌弓
@@ -1445,12 +1451,15 @@ tBotItemData.sellItemCommonList = {
 
 	-- 卷轴
 	'item_recipe_arcane_boots',  -- 奥术鞋
+	'item_recipe_ancient_janggo', -- 韧鼓
+	'item_recipe_cyclone',       -- Eul的神圣法杖
+	'item_recipe_basher',        -- 碎颅锤
 	'item_recipe_black_king_bar', -- BKB
 	'item_recipe_sheepstick',    -- 邪恶镰刀
 	'item_recipe_mekansm',       -- 梅肯斯姆
-	'item_recipe_abyssal_blade', -- 深渊卷轴
-	'item_recipe_guardian_greaves', -- 卫士胫甲卷轴
-	'item_recipe_assault',       -- 强袭胸甲卷轴
+	'item_recipe_abyssal_blade', -- 深渊
+	'item_recipe_guardian_greaves', -- 卫士胫甲
+	'item_recipe_assault',       -- 强袭胸甲
 }
 
 -- Consume items
