@@ -347,5 +347,14 @@ function IsHumanPlayer(playerID)
 end
 
 function IsAbilityBehavior(behavior, judge)
+	-- Convert userdata to number if necessary
+	if type(behavior) ~= "number" then
+		behavior = tonumber(tostring(behavior))
+	end
+
+	if not behavior then
+		return false
+	end
+
 	return bit.band(behavior, judge) == judge
 end
