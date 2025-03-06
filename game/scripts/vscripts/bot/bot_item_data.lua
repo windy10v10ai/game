@@ -137,7 +137,6 @@ tBotItemData.purchaseItemList = {
 		'item_blue_fantasy', -- 苍蓝幻想
 		'item_ultimate_scepter_2',
 		'item_wasp_callous',
-		'item_abyssal_blade', -- 可以与一闪叠加，分开作用几乎永晕
 		'item_abyssal_blade_v2',
 		'item_wasp_despotic',
 		'item_excalibur',
@@ -779,11 +778,11 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_blue_fantasy', -- 苍蓝幻想
 		'item_moon_shard_datadriven',
-		'item_angels_demise',
 		'item_abyssal_blade_v2',
 		-- 'item_satanic_2',
+		'item_sange_and_yasha_1', -- 神器散夜
 		'item_excalibur',
-		'item_satanic_2', -- 骑士剑换撒旦
+		'item_satanic_2',   -- 骑士剑换撒旦
 		'item_refresh_core',
 	},
 	npc_dota_hero_shadow_shaman = {
@@ -800,10 +799,10 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_aeon_pendant',
 		'item_orb_of_the_brine', -- 苍洋魔珠
+		'item_aether_lens_2',
 		'item_octarine_core',
 		'item_recipe_arcane_octarine_core',
 		'item_refresher',
-		'item_aether_lens_2',
 		'item_black_king_bar_2',
 		'item_arcane_blink', -- 大智力跳
 		'item_necronomicon_staff',
@@ -1012,7 +1011,7 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_sange_and_yasha',
-		'item_hurricane_pike_2',
+		'item_hurricane_pike_2', -- 黄金魔龙枪
 		'item_ultimate_scepter_2',
 		'item_monkey_king_bar_2',
 		-- 'item_shotgun_v2',
@@ -1053,11 +1052,10 @@ tBotItemData.purchaseItemList = {
 		'item_hyperstone',
 		'item_recipe_mjollnir',
 		'item_monkey_king_bar',
-		'item_javelin',
-		'item_javelin',
-		'item_recipe_monkey_king_bar_2',
-		'item_wasp_despotic',
+		'item_hurricane_pike_2', -- 黄金魔龙枪
 		'item_black_king_bar_2',
+		'item_wasp_despotic',
+		'item_monkey_king_bar_2',
 		'item_infernal_desolator', -- 绝对破防之刃
 		'item_ultimate_scepter_2',
 		'item_skadi_2',      -- 大冰眼
@@ -1078,12 +1076,9 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_orb_of_the_brine',
 		'item_sheepstick',
-		'item_octarine_core',
-		'item_recipe_arcane_octarine_core',
 		'item_black_king_bar_2',
 		'item_gungir_2',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_hallowed_scepter',
 		'item_necronomicon_staff',
 	},
@@ -1310,6 +1305,7 @@ tBotItemData.sellItemList = {
 	npc_dota_hero_witch_doctor = {
 		'item_arcane_boots',
 		'item_rod_of_atos',
+		'item_aether_lens_2',
 	},
 	npc_dota_hero_skeleton_king = {
 		'item_heavens_halberd',
@@ -1427,6 +1423,7 @@ tBotItemData.sellItemCommonList = {
 	'item_satanic',       -- 撒旦
 	'item_monkey_king_bar', -- 金箍棒
 	'item_mjollnir',      -- 雷神之锤
+	'item_abyssal_blade', -- 深渊之刃
 
 	-- 终极道具
 	'item_monkey_king_bar_2', -- 定海神针
@@ -1437,6 +1434,7 @@ tBotItemData.sellItemCommonList = {
 	'item_belt_of_strength', -- 力量腰带
 	'item_boots_of_elves',   -- 精灵布带
 	'item_robe',             -- 法师长袍
+	'item_gloves',           -- 加速手套
 	'item_void_stone',       -- 虚无宝石
 	'item_soul_ring',        -- 灵魂之戒
 	'item_ring_of_tarrasque', -- 恐鳌之戒
@@ -1463,6 +1461,7 @@ tBotItemData.sellItemCommonList = {
 	'item_recipe_shivas_guard',  -- 希瓦的守护
 	'item_recipe_sheepstick',    -- 邪恶镰刀
 	'item_recipe_mekansm',       -- 梅肯斯姆
+	'item_recipe_lesser_crit',   -- 水晶剑
 	'item_recipe_abyssal_blade', -- 深渊
 	'item_recipe_guardian_greaves', -- 卫士胫甲
 	'item_recipe_assault',       -- 强袭胸甲
