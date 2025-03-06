@@ -383,6 +383,7 @@ tBotItemData.purchaseItemList = {
 		'item_shivas_guard_2',
 		'item_refresher',
 		'item_recipe_refresh_core',
+		'item_gungir_2', -- 风暴之锤
 		'item_hallowed_scepter',
 		'item_necronomicon_staff',
 	},
@@ -452,6 +453,7 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_aether_lens_2',
+		'item_aeon_pendant', -- 大盘子（咸鱼之王）
 		'item_ultimate_scepter_2',
 		'item_sheepstick',
 		'item_octarine_core',
@@ -1404,6 +1406,7 @@ tBotItemData.sellItemCommonList = {
 	'item_basher',       -- 碎骨锤
 	'item_armlet',       -- 臂章
 	'item_hand_of_midas', -- 点金手
+	'item_aether_lens',  -- 以太透镜
 
 
 	-- 高级道具
@@ -1423,6 +1426,7 @@ tBotItemData.sellItemCommonList = {
 	'item_manta',          -- 幻影斧
 	'item_butterfly',      -- 蝴蝶
 	'item_radiance',       -- 辉耀
+	'item_satanic',        -- 撒旦
 
 	'item_monkey_king_bar_2', -- 定海神针
 
@@ -1431,6 +1435,7 @@ tBotItemData.sellItemCommonList = {
 	'item_headdress',        -- 恢复头巾
 	'item_tiara_of_selemene', -- 赛莉蒙妮之冠
 	'item_talisman_of_evasion', -- 闪避护符
+	'item_hyperstone',       -- 振奋宝石
 	'item_eagle',            -- 鹰歌弓
 	'item_reaver',           -- 掠夺者之斧
 	'item_mystic_staff',     --  神秘法杖
@@ -1445,6 +1450,7 @@ tBotItemData.sellItemCommonList = {
 	'item_recipe_mekansm',       -- 梅肯斯姆
 	'item_recipe_abyssal_blade', -- 深渊卷轴
 	'item_recipe_guardian_greaves', -- 卫士胫甲卷轴
+	'item_recipe_assault',       -- 强袭胸甲卷轴
 }
 
 -- Consume items
