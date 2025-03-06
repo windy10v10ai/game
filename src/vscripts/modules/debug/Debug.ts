@@ -122,8 +122,8 @@ export class Debug {
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
         if (!hero) return;
         // 获得金钱经验技能升满
-        hero.ModifyGold(50000, false, ModifyGoldReason.UNSPECIFIED);
-        hero.AddExperience(50000, ModifyXpReason.UNSPECIFIED, false, true);
+        hero.ModifyGold(60000, false, ModifyGoldReason.UNSPECIFIED);
+        hero.AddExperience(60000, ModifyXpReason.UNSPECIFIED, false, true);
       });
     }
 
