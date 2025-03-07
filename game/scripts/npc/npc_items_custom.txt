@@ -2339,7 +2339,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3100"
+		"ItemCost"						"1700"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2348,7 +2348,7 @@
 		"ItemResult"					"item_dodo_desolator"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator;item_demon_edge"
+			"01"						"item_desolator;item_relic"
 		}
 	}
 	"item_dodo_desolator"
@@ -2397,7 +2397,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3200"
+		"ItemCost"						"3600"
 		"ItemShopTags"					""
 
 		// Recipe
