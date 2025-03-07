@@ -324,12 +324,12 @@
 	"item_wind_waker"
 	{
 		"AbilityCastRange"				"900"			// 550
-		"AbilityCooldown"				"11.0"			// 13
+		"AbilityCooldown"				"10.0"			// 13
 		"AbilityValues"
 		{
-				"bonus_movement_speed"	"50"			// 30
-				"bonus_mana_regen"		"5.0"			// 3
-				"bonus_intellect"		"45"			// 35
+				"bonus_movement_speed"	"60"			// 30
+				"bonus_mana_regen"		"9.0"			// 3
+				"bonus_intellect"		"60"			// 35
 				"tooltip_drop_damage"	"150"			// 50
 				"tornado_speed"			"540"			// 360
 		}
@@ -422,25 +422,25 @@
 	{
 		"ItemRequirements"
 		{
-			"01"						"item_echo_sabre_2;item_diadem;item_diadem"
+			"01"						"item_echo_sabre_2;item_diadem"
 		}
 	}
 	"item_harpoon"
 	{
-		"AbilityCastRange"				"1000"
+		"AbilityCastRange"				"1275"
 		"AbilityCooldown"				"8.0"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 			"bonus_damage"			"50"
 			"bonus_strength"		"40"
-			"bonus_agility"			"15"
-			"bonus_intellect"		"15"
+			"bonus_agility"			"20"
+			"bonus_intellect"		"20"
 			"bonus_mana_regen"		"2.0"
 
-			"passive_cooldown"		"2"
+			"passive_cooldown"		"1.5"
 			"movement_slow"			"100"
-			"slow_duration"			"1.5"
+			"slow_duration"			"1.0"
 		}
 	}
 	//绿杖
@@ -449,8 +449,8 @@
 		"AbilityCooldown"				"20.0"
 		"AbilityValues"
 		{
-				"bonus_all_stats"		"5"
-				"duration"				"6.0"
+				"bonus_all_stats"		"10"
+				"duration"				"8.0"
 				"extra_spell_damage_percent"	"-20"
 		}
 	}
@@ -742,65 +742,95 @@
 	}
 
 	//=================================================================================================================
-	// Recipe: Dagon 大根 红杖
+	// Dagon 大根 红杖
 	//=================================================================================================================
-	// "item_recipe_dagon"
-	// {
-	// 	"ItemCost"						"2100"
-	// 	"ItemShopTags"					""
-	// }
-	// "item_dagon"
-	// {
-	// 	"AbilityManaCost"				"160 240 320 400 480"
-	// 	"AbilityValues"
-	// 	{
-	// 		"damage"				"600 750 900 1050 1200"
-	// 		"mana_cost_tooltip"		"160 240 320 400 480"
-	// 	}
-	// }
-	// "item_dagon_2"
-	// {
-	// 	"AbilityManaCost"				"160 240 320 400 480"
-	// 	"AbilityValues"
-	// 	{
-	// 		"damage"				"600 750 900 1050 1200"
-	// 		"mana_cost_tooltip"		"160 240 320 400 480"
-	// 	}
-	// }
-	// "item_dagon_3"
-	// {
-	// 	"AbilityManaCost"				"160 240 320 400 480"
-	// 	"AbilityValues"
-	// 	{
-	// 		"damage"				"600 750 900 1050 1200"
-	// 		"mana_cost_tooltip"		"160 240 320 400 480"
-	// 	}
-	// }
-	// "item_dagon_4"
-	// {
-	// 	"AbilityManaCost"				"160 240 320 400 480"
-	// 	"AbilityValues"
-	// 	{
-	// 		"damage"				"600 750 900 1050 1200"
-	// 		"mana_cost_tooltip"		"160 240 320 400 480"
-	// 	}
-	// }
-	// "item_dagon_5"
-	// {
-	// 	"AbilityManaCost"				"160 240 320 400 480"
-	// 	"AbilityValues"
-	// 	{
-	// 		"damage"				"600 750 900 1050 1200"
-	// 		"mana_cost_tooltip"		"160 240 320 400 480"
-	// 	}
-	// }
+	"item_dagon"
+	{
+		"AbilityCooldown"				"22 19 16 13 10"
+		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityValues"
+		{
+			"bonus_int"		"15 20 25 30 35"
+			"bonus_str"		"15 20 25 30 35"
+			"bonus_agi"		"15 20 25 30 35"
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"100 200 300 400 500"
+			"passive_spell_lifesteal"			"20 25 30 35 40"
+			"dagon_spell_lifesteal"				"100"
+		}
+	}
+
+	"item_dagon_2"
+	{
+		"AbilityCooldown"				"22 19 16 13 10"
+		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityValues"
+		{
+			"bonus_int"		"15 20 25 30 35"
+			"bonus_str"		"15 20 25 30 35"
+			"bonus_agi"		"15 20 25 30 35"
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"100 200 300 400 500"
+			"passive_spell_lifesteal"			"20 25 30 35 40"
+			"dagon_spell_lifesteal"				"100"
+		}
+	}
+
+	"item_dagon_3"
+	{
+		"AbilityCooldown"				"22 19 16 13 10"
+		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityValues"
+		{
+			"bonus_int"		"15 20 25 30 35"
+			"bonus_str"		"15 20 25 30 35"
+			"bonus_agi"		"15 20 25 30 35"
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"100 200 300 400 500"
+			"passive_spell_lifesteal"			"20 25 30 35 40"
+			"dagon_spell_lifesteal"				"100"
+		}
+	}
+
+	"item_dagon_4"
+	{
+		"AbilityCooldown"				"22 19 16 13 10"
+		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityValues"
+		{
+			"bonus_int"		"15 20 25 30 35"
+			"bonus_str"		"15 20 25 30 35"
+			"bonus_agi"		"15 20 25 30 35"
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"100 200 300 400 500"
+			"passive_spell_lifesteal"			"20 25 30 35 40"
+			"dagon_spell_lifesteal"				"100"
+		}
+	}
+
+	"item_dagon_5"
+	{
+		"AbilityCooldown"				"22 19 16 13 10"
+		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityValues"
+		{
+			"bonus_int"		"15 20 25 30 35"
+			"bonus_str"		"15 20 25 30 35"
+			"bonus_agi"		"15 20 25 30 35"
+			"damage"				"600 750 900 1050 1200"
+			"mana_cost_tooltip"		"100 200 300 400 500"
+			"passive_spell_lifesteal"			"20 25 30 35 40"
+			"dagon_spell_lifesteal"				"100"
+		}
+	}
 
 	// 长盾
 	"item_pavise"
 	{
 		"AbilityValues"
 		{
-			"absorb_amount"				"600"	// 300
+			"duration"				"10"			// 5
+			"absorb_amount"			"1000"		// 250
 		}
 	}
 	// 炎阳纹章
@@ -808,7 +838,8 @@
 	{
 		"AbilityValues"
 		{
-			"absorb_amount"			"800"	// 400
+			"duration"				"10"		// 7
+			"absorb_amount"			"1400"	// 350
 		}
 	}
 

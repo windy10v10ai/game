@@ -1416,7 +1416,7 @@
 
 		// item_excalibur 咖喱棒
 		"DOTA_Tooltip_Ability_item_excalibur"				"EX咖喱棒"
-		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成，不能出售或销毁。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。"
+		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成，不能出售或销毁。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。</font> \n<h1>被动：可塑性</h1>能够使用暗影组件进行诅咒强化"
 		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"咖喱棒效忠于被选中的王者。"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_spell_amp"						"%+$spell_amp"
@@ -1779,18 +1779,22 @@
 		"DOTA_Tooltip_ability_item_wasp_golden_crit_multiplier"			"%致命一击伤害:"
 
 		// item_shotgun 霰弹枪
- 		"DOTA_Tooltip_ability_item_shotgun"                     "双管霰弹枪"
-		"DOTA_Tooltip_ability_item_shotgun_Description"         "<h1>被动: 霰弹</h1>仅限远程：在%attack_radius%半径内造成%attack_percent%%%溅射伤害（物理）。<br/>霰弹特效无法叠加，拥有0.1s内置冷却。"
-		"DOTA_Tooltip_ability_item_shotgun_attack_speed"           "+$attack"
-		"DOTA_Tooltip_ability_item_shotgun_bonus_damage"           "+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_lore"                "嗵！嗵！"
+ 		"DOTA_Tooltip_ability_item_shotgun"								"双管霰弹枪"
+		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>被动: 霰弹</h1>仅限远程：对攻击目标周围的敌人造成溅射伤害。<br/>霰弹特效无法叠加，拥有0.1s内置冷却。"
+		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_shotgun_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_shotgun_attack_radius"				"溅射范围:"
+		"DOTA_Tooltip_ability_item_shotgun_attack_percent"				"%溅射伤害:"
+		"DOTA_Tooltip_ability_item_shotgun_lore"						"嗵！嗵！"
 
 		// item_shotgun_v2
-		"DOTA_Tooltip_ability_item_shotgun_v2"                  "三管霰弹枪"
-		"DOTA_Tooltip_ability_item_shotgun_v2_Description"      "<h1>被动: 霰弹</h1>仅限远程：在%attack_radius%半径内造成%attack_percent%%%溅射伤害（魔法）。<br/>霰弹特效无法叠加，拥有0.1s内置冷却。"
-		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"           "+$attack"
-		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"           "+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_v2_lore"             "嗵！嗵！嗵！"
+		"DOTA_Tooltip_ability_item_shotgun_v2"							"三管霰弹枪"
+		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>被动: 霰弹</h1>仅限远程：对攻击目标周围的敌人造成溅射伤害。<br/>霰弹特效无法叠加，拥有0.1s内置冷却。"
+		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_shotgun_v2_attack_radius"			"溅射范围:"
+		"DOTA_Tooltip_ability_item_shotgun_v2_attack_percent"			"%溅射伤害:"
+		"DOTA_Tooltip_ability_item_shotgun_v2_lore"						"嗵！嗵！嗵！"
 
 		// item_jump_jump_jump 跳刀3
 		"DOTA_Tooltip_ability_item_jump_jump_jump"						"跳！跳！跳！刀"
@@ -1928,7 +1932,7 @@
 
 		// item_rapier_ultra 诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra"                        "<font color='#e03e2e'>诅咒圣剑</font>"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成，不能出售或销毁。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。\n<h1>被动：<font color='#e03e2e'>力量的代价</font></h1>过于强大力量总会有它的代价。<br><font color='#e03e2e'>死亡有%ruin_chance_tooltip%%%概率摧毁。</font> \n<h1>被动：可塑性</h1>能够通过任意两个光暗组件进行升级"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成，不能出售或销毁。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。\n<h1>被动：<font color='#e03e2e'>力量的代价</font></h1>过于强大力量总会有它的代价。<br><font color='#e03e2e'>死亡有%ruin_chance_tooltip%%%概率摧毁。</font> \n<h1>被动：可塑性</h1>能够使用圣光组件进行解放"
 		"DOTA_Tooltip_ability_item_rapier_ultra_Lore"					"死亡摧毁。"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
@@ -2115,6 +2119,32 @@
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_Lore"						"你说得对，但这就是数值怪的力量"
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
+
+		// 神器刃甲（秘术师铠甲）（天地同寿）
+		"DOTA_Tooltip_Ability_item_force_field_ultra"			"<font color='#e03e2e'>神器·天地同寿甲</font>"
+		"DOTA_Tooltip_Ability_item_force_field_ultra_Description"		"<h1>主动：天地同寿</h1>盾护光环提供%active_reflection_pct%%%伤害反弹，持续5秒。\n\n<h1>被动：缩壳</h1> 向%bonus_aoe_radius%范围内所有友军提供+%bonus_aoe_armor%点护甲和+%bonus_aoe_mres%%%魔法抗性。"
+		"DOTA_Tooltip_Ability_item_force_field_ultra_Lore"		"群体天地同寿，小子。"
+		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
+		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"+$damage"
+
+		// 神器 一瞬千击
+		"DOTA_Tooltip_Ability_item_dagon_ultra"									"<font color='#e03e2e'>神器·一瞬千击</font>"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>主动：看我手速</h1> 释放爆发性的魔法伤害冲击敌方目标单位。造成伤害的%dagon_spell_lifesteal%%%可以治疗施法者。<br><br>伤害：%damage%<br>魔法消耗：%mana_cost_tooltip%"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"									"手速越快，伤害越高，只要你有蓝"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"									"立刻消灭幻象。"
+		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$spell_lifesteal"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_int"						"+$int"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_str"						"+$str"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_agi"						"+$agi"
+
+		// 神器 法师泳衣
+		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"			"<font color='#e03e2e'>神器·法师泳衣</font>"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"    		"<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n\n<h1>被动：潜水服</h1>装备的英雄每受到%stack_threshold%点技能伤害，就会获得一层持续%stack_duration%秒的叠加效果，最多为%max_stacks%层。每层效果会使法师泳衣的魔法抗性提升%stack_resist%%%。"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"		"在法师堆中畅泳吧！"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_spell_resist"		"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"				"+$str"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"				"+$armor"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"		"+$health"
 
 		// 力量跳2
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2"                            "泰森闪光"
@@ -2303,11 +2333,17 @@
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"
 
 		// 混沌魂戒
-		"DOTA_Tooltip_Ability_item_soul_ring_1"				"<font color='#FF4500'>混沌·魂戒</font>"
+		"DOTA_Tooltip_Ability_item_soul_ring_1"				"<font color='#FF4500'>混沌·魂戒（娱乐道具）</font>"
 		"DOTA_Tooltip_ability_item_soul_ring_1_Description"						"<h1>主动：献身</h1> 消耗%AbilityHealthCost%点生命值来暂时获取%mana_gain%点魔法值。持续%duration%秒。<br><br>如果获得魔法后超过了自身的魔法上限，多出来的魔法会加入上限，并优先被使用。"
 		"DOTA_Tooltip_ability_item_soul_ring_1_Lore"								"一枚能吞噬佩带者灵魂的戒指。"
 		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"如果在持续时间结束时没有使用，额外的魔法将会消失。"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
+
+		//弩炮·改
+		"DOTA_Tooltip_Ability_item_ballista_dmg"		"弩炮·改"
+		"DOTA_Tooltip_Ability_item_ballista_dmg_Description"			"<h1>被动：击不退</h1>改良版失去了击退能力，但是能造成更高的%bonus_damage%点纯粹伤害。"
+		"DOTA_Tooltip_Ability_item_ballista_dmg_Lore"					"伟大的76把暗弩炮带了回来。"
+		"DOTA_Tooltip_Ability_item_ballista_dmg_attack_range_bonus"		"+$attack_range"
 	}
 }
