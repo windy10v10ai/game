@@ -3853,7 +3853,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1100"
+		"ItemCost"						"1000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3876,8 +3876,11 @@
 		"BaseClass"						"item_lua"
 		"AbilityTextureName" 			"shotgun"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_shotgun"
+		"ScriptFile"					"items/item_shotgun"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3888,18 +3891,26 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequiresCharges"			"0"
 
+		"precache"
+		{
+			"particle"			"particles/custom/shrapnel.vpcf"
+		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"25" 	// tooltip, real value in modifier_item_shotgun_stats
-				"attack_speed"			"40" 	// tooltip, real value in modifier_item_shotgun_stats
-				"attack_radius"
-				{
-					"value"		"350"
-					"affected_by_aoe_increase"	"1"
-				}
-				"attack_percent"		"30"
+			"bonus_damage"			"25" 	// tooltip, real value in modifier_item_shotgun_stats
+			"attack_speed"			"40" 	// tooltip, real value in modifier_item_shotgun_stats
+			"attack_radius"
+			{
+				"value"		"350"
+				"affected_by_aoe_increase"	"1"
+			}
+			"attack_percent"
+			{
+				"value"				"40"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
+			}
 		}
 	}
 
@@ -3940,30 +3951,41 @@
 		"BaseClass"						"item_lua"
 		"AbilityTextureName" 			"shotgun_v2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
 		"ScriptFile"					"items/item_shotgun_v2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"9200"
+		"ItemCost"						"10000"
 		"ItemShopTags"					"damage;attack_speed"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"shotgun;triple barrel;triple-barrel;bullet filled shotgun;bullet-filled shotgun"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequiresCharges"			"0"
 
+		"precache"
+		{
+			"particle"			"particles/custom/shrapnel.vpcf"
+		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"50" 	// tooltip, real value in modifier_item_shotgun_v2_stats
-				"attack_speed"			"130" 	// tooltip, real value in modifier_item_shotgun_v2_stats
-				"attack_radius"
-				{
-					"value"		"450"
-					"affected_by_aoe_increase"	"1"
-				}
-				"attack_percent"		"45"
+			"bonus_damage"			"50" 	// tooltip, real value in modifier_item_shotgun_v2_stats
+			"attack_speed"			"130" 	// tooltip, real value in modifier_item_shotgun_v2_stats
+			"attack_radius"
+			{
+				"value"		"350"
+				"affected_by_aoe_increase"	"1"
+			}
+			"attack_percent"
+			{
+				"value"				"60"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
+			}
 		}
 	}
 

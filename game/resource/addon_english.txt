@@ -1777,18 +1777,23 @@
 		"DOTA_Tooltip_modifier_item_soul_active_Description"				"Evasion, movement speed, and critical chance increased, but critical damage decreased."
 
 		// item_shotgun 霰弹枪
-		"DOTA_Tooltip_ability_item_shotgun"                                  "Double-Barrel"
-    	"DOTA_Tooltip_ability_item_shotgun_Description"                      "<h1>Passive: Scatterblast (Ranged Only)</h1>Attacks deal %attack_percent%%% splash damage in a %attack_radius% radius of the attacked unit.<br>Scatterblast cannot stack with itself and has 0.1s internal cooldown."
-		"DOTA_Tooltip_ability_item_shotgun_attack_speed"           "+$attack"
-		"DOTA_Tooltip_ability_item_shotgun_bonus_damage"           "+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_lore"                             "Bang! Bang!"
+		"DOTA_Tooltip_ability_item_shotgun"								"Double-Barrel"
+		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>Passive: Scatterblast (Ranged Only)</h1>Deals splash damage to enemies around the attack target.<br>Scatterblast cannot stack with itself and has a 0.1s internal cooldown."
+		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_shotgun_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_shotgun_attack_radius"				"Splash Radius:"
+		"DOTA_Tooltip_ability_item_shotgun_attack_percent"				"% Splash Damage:"
+		"DOTA_Tooltip_ability_item_shotgun_lore"						"Bang! Bang!"
 
 		// item_shotgun_v2
-		"DOTA_Tooltip_ability_item_shotgun_v2"                                "Bullet-Filled Shotgun"
-		"DOTA_Tooltip_ability_item_shotgun_v2_Description"                    "<h1>Passive: Greater Scatterblast (Ranged only)</h1>Attacks deal %attack_percent%%% splash damage in a %attack_radius% radius of the attack unit.<br>Scatterblast cannot stack with itself, and the splash damage is pure."
-		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"           "+$attack"
-		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"           "+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_v2_lore"                           "Aim? What's that?"
+		"DOTA_Tooltip_ability_item_shotgun_v2"							"Bullet-Filled Shotgun"
+		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>Passive: Greater Scatterblast (Ranged only)</h1>Deals splash damage to enemies around the attack target.<br>Scatterblast cannot stack with itself and has a 0.1s internal cooldown."
+		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_shotgun_v2_attack_radius"			"Splash Radius:"
+		"DOTA_Tooltip_ability_item_shotgun_v2_attack_percent"			"% Splash Damage:"
+		"DOTA_Tooltip_ability_item_shotgun_v2_lore"						"Aim? What's that?"
 
 		// item_jump_jump_jump 跳刀3
 		"DOTA_Tooltip_ability_item_jump_jump_jump"						"Jump! Jump! Jump!"
