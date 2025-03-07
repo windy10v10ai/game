@@ -8,14 +8,18 @@ function item_shotgun:GetIntrinsicModifierName()
 	return "modifier_item_shotgun"
 end
 
-
-
 if modifier_item_shotgun == nil then modifier_item_shotgun = class({}) end
 
 function modifier_item_shotgun:IsDebuff() return false end
+
 function modifier_item_shotgun:IsHidden() return true end
+
 function modifier_item_shotgun:IsPurgable() return false end
-function modifier_item_shotgun:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+
+function modifier_item_shotgun:GetAttributes()
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE +
+		MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
 
 function modifier_item_shotgun:OnCreated()
 	self.stats_modifier_name = "modifier_item_shotgun_stats"
@@ -58,32 +62,38 @@ function modifier_item_shotgun:GetModifierProcAttack_Feedback(keys)
 
 	local ability = self:GetAbility()
 	local target_loc = keys.target:GetAbsOrigin()
-	local damage = keys.original_damage  * self.attack_percent * 0.01
+	local actual_damage = CalculateActualDamage(keys, keys.target)
+	local damage = actual_damage * self.attack_percent / 100
 
 	local blast_pfx = ParticleManager:CreateParticle("particles/custom/shrapnel.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(blast_pfx, 0, target_loc)
 	ParticleManager:ReleaseParticleIndex(blast_pfx)
 
-	local enemies = FindUnitsInRadius(keys.attacker:GetTeamNumber(), target_loc, nil, self.attack_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(keys.attacker:GetTeamNumber(), target_loc, nil, self.attack_radius,
+		ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), DOTA_UNIT_TARGET_FLAG_NONE,
+		FIND_ANY_ORDER, false)
 	for _, enemy in pairs(enemies) do
 		if enemy ~= keys.target then
 			ApplyDamage({
-				victim 			= enemy,
-				attacker 		= keys.attacker,
-				damage 			= damage,
-				damage_type 	= DAMAGE_TYPE_PHYSICAL,
-				damage_flags 	= DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
-				ability 		= ability,
+				victim       = enemy,
+				attacker     = keys.attacker,
+				damage       = damage,
+				damage_type  = ability:GetAbilityDamageType(),
+				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+				ability      = ability,
 			})
 		end
 	end
 
-	keys.attacker:AddNewModifier(keys.attacker, self:GetAbility(), "modifier_item_shotgun_cooldown", {duration = 0})
+	keys.attacker:AddNewModifier(keys.attacker, self:GetAbility(), "modifier_item_shotgun_cooldown", { duration = 0.1 })
 end
 
 if modifier_item_shotgun_cooldown == nil then modifier_item_shotgun_cooldown = class({}) end
 
 function modifier_item_shotgun_cooldown:IsDebuff() return false end
+
 function modifier_item_shotgun_cooldown:IsHidden() return true end
+
 function modifier_item_shotgun_cooldown:IsPurgable() return false end
+
 function modifier_item_shotgun_cooldown:RemoveOnDeath() return true end
