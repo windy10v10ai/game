@@ -2103,13 +2103,6 @@
 		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow"				"虚灵之刃减速"
 		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow_Description"	"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。"
 
-		// 神器刃甲（秘术师铠甲）（天地同寿）
-		"DOTA_Tooltip_Ability_item_force_field_ultra"			"<font color='#e03e2e'>神器·天地同寿甲</font>"
-		"DOTA_Tooltip_Ability_item_force_field_ultra_Description"		"<h1>主动：天地同寿</h1>盾护光环提供%active_reflection_pct%%%伤害反弹，持续5秒。\n\n<h1>被动：缩壳</h1> 向%bonus_aoe_radius%范围内所有友军提供+%bonus_aoe_armor%点护甲和+%bonus_aoe_mres%%%魔法抗性。"
-		"DOTA_Tooltip_Ability_item_force_field_ultra_Lore"		"群体天地同寿，小子。"
-		"DOTA_Tooltip_ability_item_force_field_ultra_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_item_force_field_ultra_bonus_armor"						"+$armor"
-
 		// 大胸针&神器魔武双修
 		"DOTA_Tooltip_Ability_item_revenants_brooch_2"			"白金英灵胸针"
 		"DOTA_Tooltip_Ability_item_revenants_brooch_2_Description"				"<h1>被动：幻影暴击</h1>每次攻击都有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。"
@@ -2126,6 +2119,13 @@
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_Lore"						"你说得对，但这就是数值怪的力量"
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
+
+		// 神器刃甲（秘术师铠甲）（天地同寿）
+		"DOTA_Tooltip_Ability_item_force_field_ultra"			"<font color='#e03e2e'>神器·天地同寿甲</font>"
+		"DOTA_Tooltip_Ability_item_force_field_ultra_Description"		"<h1>主动：天地同寿</h1>盾护光环提供%active_reflection_pct%%%伤害反弹，持续5秒。\n\n<h1>被动：缩壳</h1> 向%bonus_aoe_radius%范围内所有友军提供+%bonus_aoe_armor%点护甲和+%bonus_aoe_mres%%%魔法抗性。"
+		"DOTA_Tooltip_Ability_item_force_field_ultra_Lore"		"群体天地同寿，小子。"
+		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
+		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"+$damage"
 
 		// 神器 一瞬千击
 		"DOTA_Tooltip_Ability_item_dagon_ultra"									"<font color='#e03e2e'>神器·一瞬千击</font>"

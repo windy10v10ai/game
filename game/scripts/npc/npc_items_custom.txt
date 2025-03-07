@@ -483,8 +483,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"9032"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"					"item_blade_mail"
-		"AbilityTextureName"		"item_blade_mail_2"
+		"BaseClass"						"item_blade_mail"
+		"AbilityTextureName"			"item_blade_mail_2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
 		// Stats
@@ -512,45 +512,6 @@
 				"passive_reflection_constant"			"80"
 				"passive_reflection_pct"			"25"
 				"active_reflection_pct"			"100"
-		}
-	}
-	//=================================================================================================================
-	//  神刃甲
-	//=================================================================================================================
-	"item_recipe_force_field_ultra"
-	{
-		"ID"							"19031"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"						"item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"1000"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_force_field_ultra"
-		"ItemRequirements"
-		{
-			"01"						"item_blade_mail_2;item_blade_mail_2"
-		}
-	}
-	"item_force_field_ultra"
-	{
-		"BaseClass"						"item_force_field"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"1"
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
-		"AbilityCooldown"				"20"
-		"AbilityValues"
-		{
-			"bonus_aoe_radius"
-			{
-				"value"		"1800"
-				"affected_by_aoe_increase"	"1"
-			}
-			"bonus_aoe_armor"			"30"
-			"self_armor"				"30"
-			"self_mres"					"15"
-			"bonus_aoe_mres"			"15"
-			"active_reflection_pct"		"100"
 		}
 	}
 
@@ -4127,7 +4088,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_aoe"					"200"			// If changing this, change radius_tooltip
+			"bonus_aoe"					"150"			// If changing this, change radius_tooltip
 			"bonus_hp"					"900"			// 450
 			"bonus_intellect"			"30"			// 15
 			"bonus_mana"				"400"			// 200
@@ -4138,7 +4099,7 @@
 			}
 			"radius_tooltip"
 			{
-				"value"						"500"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
+				"value"						"450"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
 				"affected_by_aoe_increase"	"1"
 			}
 			"active_damage"
@@ -4164,7 +4125,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
+		"ItemCost"						"1900"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5576,11 +5537,11 @@
 		"SuggestLategame"				"1"
 		"AbilityValues"
 		{
-				"bonus_strength"		"90"	//10
-				"bonus_agility"			"180"	//26
-				"bonus_intellect"		"90"	//10
-				"bonus_attack_speed"	"150"	//15
-				"bonus_movement_speed"	"60"	//10
+				"bonus_strength"		"75"	//10
+				"bonus_agility"			"120"	//26
+				"bonus_intellect"		"75"	//10
+				"bonus_attack_speed"	"100"	//15
+				"bonus_movement_speed"	"45"	//10
 				"images_count"			"0"		//2 移除幻象
 				"illusion_duration"			"0"	//18
 				"images_do_damage_percent_melee"	"-67"//-67
@@ -5633,7 +5594,7 @@
 				"bonus_all_stats"			"15"	//5
 				"disarm_range"				"10.0"	//4
 				"disarm_melee"				"6.0"	//3
-				"block_chance"				"100"	//60
+				"block_chance"				"90"	//60
 				"block_damage_melee"		"300"	//60
 				"block_damage_ranged"		"150"	//30
 		}
@@ -5701,7 +5662,7 @@
 	"item_recipe_ethereal_blade_ultra"
 	{
 		"BaseClass"						"item_recipe_ethereal_blade"
-		"ItemCost"						"0"
+		"ItemCost"						"1100"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_ethereal_blade_ultra"
@@ -5877,18 +5838,18 @@
 		"FightRecapLevel"				"1"
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"2500"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"1000"
 		"AbilityValues"
 		{
-			"bonus_int"		"70"
-			"bonus_str"		"70"
-			"bonus_agi"		"70"
+			"bonus_int"		"60"
+			"bonus_str"		"60"
+			"bonus_agi"		"60"
 			"damage"				"1600"
 			"damage_delay"				"0"
 			"mana_cost_tooltip"		"2500"
 			"int_damage"		"0"
-			"passive_spell_lifesteal"			"80"
+			"passive_spell_lifesteal"			"60"
 			"dagon_spell_lifesteal"				"200"
 		}
 	}

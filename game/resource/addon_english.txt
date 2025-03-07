@@ -2124,8 +2124,27 @@
 		"DOTA_Tooltip_Ability_item_force_field_ultra"			"<font color='#e03e2e'>Artifact: Force Field</font>"
 		"DOTA_Tooltip_Ability_item_force_field_ultra_Description"		"<h1>Active: Mega Shield</h1> Force Field Aura Grants %active_reflection_pct%%% Damage Reflection for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants +%bonus_aoe_armor% armor and +%bonus_aoe_mres%%% Magic Resistance to all other allies within %bonus_aoe_radius% radius."
 		"DOTA_Tooltip_Ability_item_force_field_ultra_Lore"		"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
-		"DOTA_Tooltip_ability_item_force_field_ultra_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_item_force_field_ultra_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
+		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"+$damage"
+
+		// 神器 一瞬千击
+		"DOTA_Tooltip_Ability_item_dagon_ultra"									"<font color='#e03e2e'>Artifact: Thousand Strikes</font>"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Active: Watch My Speed</h1> Unleashes a burst of magical damage at an enemy target unit. Heals the caster for %dagon_spell_lifesteal%%% of the damage dealt.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"									"The faster your hands, the higher the damage, as long as you have mana."
+		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"									"Instantly destroys illusions."
+		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$spell_lifesteal"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_int"						"+$int"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_str"						"+$str"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_agi"						"+$agi"
+
+		// 神器 法师泳衣
+		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"			"<font color='#e03e2e'>Artifact: Swimagicostume</font>"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"    		"<h1>Passive: Swimming</h1> Converts %mana_restore_pct%%% of the pre-reduction spell damage taken from enemies into mana.\n\n<h1>Passive: Diving Suit</h1> The equipped hero gains a stack for every %stack_threshold% spell damage taken, lasting %stack_duration% seconds, up to a maximum of %max_stacks% stacks. Each stack increases the Mage Swimsuit's magic resistance by %stack_resist%%."
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"		"Swim freely among the mages!"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_spell_resist"		"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"				"+$str"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"				"+$armor"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"		"+$health"
 
 		// 力量跳2
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2"                            "Tyson's Flash"
@@ -2335,5 +2354,10 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
 
+		//弩炮·改
+		"DOTA_Tooltip_Ability_item_ballista_dmg"		"Ballista Mk II"
+		"DOTA_Tooltip_Ability_item_ballista_dmg_Description"			"<h1>Passive: No Knockback</h1>The improved version has lost its knockback ability, but can deal higher %bonus_damage% pure damage."
+		"DOTA_Tooltip_Ability_item_ballista_dmg_Lore"					"The great 76 brought back the dark ballista."
+		"DOTA_Tooltip_Ability_item_ballista_dmg_attack_range_bonus"		"+$attack_range"
 	}
 }

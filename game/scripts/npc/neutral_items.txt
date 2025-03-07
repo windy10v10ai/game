@@ -109,17 +109,13 @@
 				"item_ninja_gear"					"1"		// 忍者用具
 
 				// 级别移动
-				"item_pyrrhic_cloak"				"1"		// 皮洛士斗篷
-				"item_ogre_seal_totem"				"1"		// 食人魔海豹图腾
+				"item_ogre_seal_totem"				"1"		// 食人魔海豹图腾 原本是4级
 				"item_mind_breaker"					"1"		// 智灭 原本是4级
-				"item_serrated_shiv"				"1"		// 锯齿短刀 原本是3级
-				"item_pirate_hat"					"1"		// 海盗帽 原本是5级
 				"item_spider_legs"					"1"		// 网虫腿 原本是5级
 
 				// 额外添加
 				"item_trickster_cloak"				"1"		// 欺诈师斗篷
 				"item_penta_edged_sword"			"1"		// 五锋长剑
-				"item_havoc_hammer"					"1"		// 浩劫巨锤
 			}
 
 			"enhancements"
@@ -141,7 +137,7 @@
 			}
 		}
 
-		"4"//4-8件 8
+		"4"//12件
 		{
 			"start_time"			"18:00"
 			"trinket_options"		"5"
@@ -152,10 +148,14 @@
 			"items"
 			{
 				"item_crippling_crossbow"			"1"		// 致残之弩
+				"item_pyrrhic_cloak"				"1"		// 皮洛士斗篷
 				// 级别移动
 				"item_gunpowder_gauntlets"			"1"		// 火药手套 原本是3级
 				"item_fallen_sky"					"1"		// 天崩 原本是5级
 				"item_panic_button"					"1"		// 神妙明灯 原本是5级
+				"item_serrated_shiv"				"1"		// 锯齿短刀 原本是3级
+				"item_havoc_hammer"					"1"		// 浩劫巨锤
+				"item_pirate_hat"					"1"		// 海盗帽 原本是5级
 
 				// 额外添加
 				// "item_book_of_shadows"				"1"		// 暗影邪典
