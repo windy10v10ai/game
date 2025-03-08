@@ -73,6 +73,8 @@ no_support_abilitys = {
 	tiny_tree_channel = 1,            -- 树木连掷
 	shredder_chakram = 1,             -- 锯齿飞轮
 	shredder_twisted_chakram = 1,     -- 锯齿飞轮
+	yukari_moon_portal = 1,           -- 八云紫 3技能
+	yukari_twin_trains = 1,           -- 八云紫 大招
 }
 no_support_items = {
 	-- 消耗品
@@ -193,6 +195,12 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 	--设置目标再次施法
 	ability:SetContextThink("think_multicast", function()
 		if IsHeroUncontrollable(keys.unit) then
+			ability.multicast = nil
+			return nil
+		end
+
+		-- 英雄持续施法时 不触发多重
+		if keys.unit:IsChanneling() then
 			ability.multicast = nil
 			return nil
 		end
