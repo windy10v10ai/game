@@ -1084,6 +1084,44 @@
 		}
 	}
 	//=================================================================================================================
+	// 神胸针 魔武双修
+	//=================================================================================================================
+	"item_recipe_revenants_brooch_ultra"
+	{
+		"BaseClass"						"item_recipe_revenants_brooch"
+		"ItemCost"						"0"
+		"ItemRecipe"					"1"
+		"AbilityTextureName"			"item_recipe_revenants_brooch_ultra"
+		"ItemResult"					"item_revenants_brooch_ultra"
+		"ItemRequirements"
+		{
+			"01"						"item_revenants_brooch_2;item_revenants_brooch_2;item_light_part"
+			"02"						"item_revenants_brooch_2;item_revenants_brooch_2;item_dark_part"
+		}
+	}
+	"item_revenants_brooch_ultra"
+	{
+		"BaseClass"						"item_revenants_brooch"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"ItemShopTags"					"int;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"staff;misery;sm"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"AbilityTextureName"			"item_revenants_brooch_ultra"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"			"250"
+			"spell_lifesteal"		"60"
+			"crit_chance"			"50"
+			"crit_multiplier"		"250"
+		}
+	}
+	//=================================================================================================================
 	// 神器一瞬千击
 	//=================================================================================================================
 	"item_recipe_dagon_ultra"
@@ -1109,8 +1147,8 @@
 		"FightRecapLevel"				"1"
 		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1"
-		"AbilityManaCost"				"1000"
+		"AbilityCooldown"				"0.4"
+		"AbilityManaCost"				"1600"
 		"AbilityValues"
 		{
 			"bonus_int"		"60"
@@ -1118,10 +1156,10 @@
 			"bonus_agi"		"60"
 			"damage"				"1600"
 			"damage_delay"				"0"
-			"mana_cost_tooltip"		"1000"
+			"mana_cost_tooltip"		"1600"
 			"int_damage"		"0"
-			"passive_spell_lifesteal"			"60"
-			"dagon_spell_lifesteal"				"200"
+			"passive_spell_lifesteal"			"40"
+			"dagon_spell_lifesteal"				"100"
 		}
 	}
 }
