@@ -958,6 +958,7 @@
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_disperser_chaos"
+		"AbilityTextureName"			"item_recipe_disperser_chaos"
 		"ItemRequirements"
 		{
 			"01"						"item_disperser;item_diffusal_blade"
@@ -986,6 +987,7 @@
 		"UpgradeRecipe"					"item_recipe_diffusal_blade"
 		"ShouldBeSuggested"				"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_disperser_chaos"
 		"AbilityValues"
 		{
 			"bonus_agility"			"80"

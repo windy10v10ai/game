@@ -5285,6 +5285,7 @@
 		"AbilitySharedCooldown"			"blink"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"AbilityTextureName"			"item_overwhelming_blink_2"
 		"AbilityValues"
 		{
 				"blink_range"			"1600"	//1200
@@ -5320,6 +5321,7 @@
 		"AbilitySharedCooldown"			"blink"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"AbilityTextureName"			"item_swift_blink_2"
 		"AbilityValues"
 		{
 				"blink_range"			"1600"	//1200
@@ -5350,6 +5352,7 @@
 		"ItemAliases"					"blink dagger"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"AbilityTextureName"			"item_arcane_blink"
 		"AbilityValues"
 		{
 				"blink_range"			"1400"
@@ -5369,6 +5372,7 @@
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_arcane_blink_2"
+		"AbilityTextureName"			"item_recipe_arcane_blink"
 		"ItemRequirements"
 		{
 			"01"						"item_blink*;item_mystic_staff"
@@ -5382,6 +5386,7 @@
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_swift_blink_2"
+		"AbilityTextureName"			"item_recipe_swift_blink_2"
 		"ItemRequirements"
 		{
 			"01"						"item_swift_blink;item_swift_blink"
@@ -5395,6 +5400,7 @@
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_overwhelming_blink_2"
+		"AbilityTextureName"			"item_recipe_overwhelming_blink_2"
 		"ItemRequirements"
 		{
 			"01"						"item_overwhelming_blink;item_overwhelming_blink"
@@ -5410,6 +5416,7 @@
 		"ItemCost"						"0"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_kaya_and_sange_1"
+		"AbilityTextureName"			"item_recipe_kaya_and_sange_1"
 		"ItemRequirements"
 		{
 			"01"						"item_kaya_and_sange;item_kaya_and_sange;item_reaver;item_mystic_staff"
@@ -5423,6 +5430,7 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SuggestLategame"				"1"
+		"AbilityTextureName"			"item_kaya_and_sange_1"
 		"AbilityValues"
 		{
 				"bonus_strength"		"80"
@@ -5445,6 +5453,7 @@
 		"ItemCost"						"0"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sange_and_yasha_1"
+		"AbilityTextureName"			"item_recipe_sange_and_yasha_1"
 		"ItemRequirements"
 		{
 			"01"						"item_sange_and_yasha;item_sange_and_yasha;item_reaver;item_eagle"
@@ -5458,6 +5467,7 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SuggestLategame"				"1"
+		"AbilityTextureName"			"item_sange_and_yasha_1"
 		"AbilityValues"
 		{
 				"bonus_strength"		"80"	// 16
@@ -5479,6 +5489,7 @@
 		"ItemCost"						"0"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_yasha_and_kaya_1"
+		"AbilityTextureName"			"item_recipe_yasha_and_kaya_1"
 		"ItemRequirements"
 		{
 			"01"						"item_yasha_and_kaya;item_yasha_and_kaya;item_eagle;item_mystic_staff"
@@ -5492,6 +5503,7 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SuggestLategame"				"1"
+		"AbilityTextureName"			"item_yasha_and_kaya_1"
 		"AbilityValues"
 		{
 				"bonus_agility"			"80"
