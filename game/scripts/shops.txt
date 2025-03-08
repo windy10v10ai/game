@@ -95,7 +95,6 @@
 		"item"		"item_ring_of_health"
 		"item"		"item_void_stone"			// 虚无宝石
 
-		"item"		"item_travel_boots"			// 飞鞋
 		"item"		"item_hyperstone"			// 振奋宝石
 		"item"		"item_ultimate_orb"
 		"item"		"item_demon_edge"
@@ -116,11 +115,11 @@
 		"item"		"item_recipe_greater_famango"
 		"item"		"item_armlet_light"			// 圣光臂章
 		"item"		"item_armlet_dark"			// 暗影臂章
-		"item"		"item_disperser_chaos"		// 混沌散魂剑
 		"item"		"item_guardian_greaves_ai"	// 光暗 卫士胫甲
-		"item"		"item_soul_ring_1"			// 混沌魂戒
 		"item"		"item_force_field_ultra"	// 天地同寿甲
 		"item"		"item_dagon_ultra"			// 一瞬千击
+		"item"		"item_mjollnir"				// 大电锤
+		"item"		"item_dragon_lance"			// 魔龙枪
 	}
 
 	// ------------------------------------------
@@ -131,7 +130,7 @@
 		"item"		"item_null_talisman"		// 空灵挂件
 		"item"		"item_wraith_band"			// 怨灵系带
 		"item"		"item_bracer"				// 护腕
-		"item"		"item_soul_ring"			// 灵魂之戒
+		"item"		"item_soul_ring_1"			// 灵魂之戒
 		"item"		"item_orb_of_corrosion"		// 腐蚀之球
 		"item"		"item_falcon_blade"			// 猎鹰战刃
 		"item"		"item_power_treads"			// 动力鞋
@@ -145,7 +144,7 @@
 		"item"		"item_wings_of_haste"
 		"item"		"item_moon_shard_datadriven"
 		"item"		"item_consumable_gem"		// 幻影宝石
-		"item"		"item_ethereal_blade_ultra"	// 永恒虚灵刀
+		"item"		"item_travel_boots"			// 飞鞋
 	}
 
 	// Level 2 - Blue Recipes 辅助
@@ -164,7 +163,7 @@
 		"item"		"item_vladmir"				// 祭品
 		"item"		"item_wraith_pact"
 		"item"		"item_spirit_vessel"		// 魂之灵瓮
-		"item"		"item_meteor_hammer_2"
+		"item"		"item_meteor_hammer_2"		// 星落
 		"item"		"item_pipe"					// 洞察烟斗
 		"item"		"item_guardian_greaves"		// 卫士胫甲
 		"item"		"item_boots_of_bearing_2"
@@ -197,16 +196,17 @@
 	// Level 4 - Purple Recipes 防具
 	"defense"
 	{
-		"item"		"item_vanguard"			// 先锋盾
+		//"item"		"item_vanguard"			// 先锋盾
+		"item"		"item_heavens_halberd_v2"
 		"item"		"item_solar_crest"		// 炎阳纹章
 		"item"		"item_aeon_pendant"		// 大盘子（咸鱼之王）
 		"item"		"item_blade_mail_2"		// 刃甲2
-		"item"		"item_eternal_shroud"	// 永世法衣
+		"item"		"item_eternal_shroud_ultra"	// 永世法衣
 		"item"		"item_crimson_guard"	// 赤红甲
 		"item"		"item_insight_armor"
 		"item"		"item_saint_orb"
 		"item"		"item_black_king_bar_2"	// 天神杖
-		"item"		"item_heavens_halberd_v2"
+		"item"		"item_hurricane_pike_2"		// 黄金魔龙枪
 		"item"		"item_manta_2"
 		"item"		"item_sphere_2"
 		"item"		"item_shivas_guard_2"	// 雅典娜的守护
@@ -217,27 +217,27 @@
 	// Level 5 - 兵刃
 	"weapons"
 	{
-		"item"		"item_basher"				// 碎颅锤
-		"item"		"item_nullifier"			// 否决
-		"item"		"item_greater_crit"			// 大炮
+		"item"		"item_lesser_crit"			// 水晶剑
 		"item"		"item_armlet_pro_max"		// 小鸡臂章
-		"item"		"item_echo_sabre_2"			// 回音战刃
-		"item"		"item_harpoon"				// 鱼叉
-		"item"		"item_revenants_brooch"		// 英灵胸针
-		// "item"		"item_disperser"
-		"item"		"item_angels_demise"
-		"item"		"item_radiance_2"			// 圣焰之光 大辉耀
+		"item"		"item_basher"				// 碎颅锤
 		"item"		"item_silver_edge_2"		// 无敌之刃 大隐刀
-		"item"		"item_abyssal_blade_v2"		// 一闪
+		"item"		"item_infernal_desolator"	// 绝对破防之刃
 		"item"		"item_bfury_ultra"			// 救世狂战
+		"item"		"item_ethereal_blade_ultra"	// 永恒虚灵刀
+		"item"		"item_harpoon"				// 鱼叉
+		"item"		"item_nullifier"			// 否决
+		"item"		"item_monkey_king_bar_2"	// 定海神针
+		"item"		"item_wasp_golden"			// 黄金大核荣耀
+		"item"		"item_radiance_2"			// 圣焰之光 大辉耀
+		"item"		"item_revenants_brooch_ultra"		// 神英灵胸针
+		"item"		"item_angels_demise"
+		"item"		"item_disperser_chaos"		// 混沌散魂
 
 		"item"		"item_shotgun_v2"			// 霰弹枪
-		"item"		"item_hurricane_pike_2"		// 黄金魔龙枪
-		"item"		"item_monkey_king_bar_2"	// 定海神针
+		"item"		"item_abyssal_blade_v2"		// 一闪
+
 		"item"		"item_bloodthorn_ultra"		// 大血棘
 
-		"item"		"item_infernal_desolator"	// 绝对破防之刃
-		"item"		"item_wasp_golden"			// 黄金大核荣耀
 		"item"		"item_excalibur"			// EX咖喱棒
 		"item"		"item_rapier_ultra"			// 诅咒圣剑
 	}
