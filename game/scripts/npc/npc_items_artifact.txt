@@ -658,10 +658,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"1260"	// 20分钟买
+		"ItemInitialStockTime"			"960"	// 15分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"180"
+		"ItemStockTime"					"300"
 
 		"AbilityValues"
 		{
@@ -700,10 +700,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"1260"	// 20分钟买
+		"ItemInitialStockTime"			"960"	// 15分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"180"
+		"ItemStockTime"					"300"
 
 		"AbilityValues"
 		{
@@ -1058,7 +1058,6 @@
 		"ItemRequirements"
 		{
 			"01"						"item_blade_mail_2;item_light_part"
-			"02"						"item_blade_mail_2;item_dark_part"
 		}
 	}
 	"item_force_field_ultra"
@@ -1082,6 +1081,46 @@
 			"bonus_aoe_armor"			"20"
 			"bonus_aoe_mres"			"20"
 			"active_reflection_pct"		"50"
+		}
+	}
+	//=================================================================================================================
+	// 神器一瞬千击
+	//=================================================================================================================
+	"item_recipe_dagon_ultra"
+	{
+		"BaseClass"						"item_recipe_dagon_5"
+		"ItemCost"						"550"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_dagon_ultra"
+		"ItemRequirements"
+		{
+			"01"						"item_dagon_5;item_dark_part"
+		}
+	}
+	"item_dagon_ultra"
+	{
+		"BaseClass"						"item_dagon_5"
+		"AbilityTextureName"			"item_dagon_ultra"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"1000"
+		"AbilityValues"
+		{
+			"bonus_int"		"60"
+			"bonus_str"		"60"
+			"bonus_agi"		"60"
+			"damage"				"1600"
+			"damage_delay"				"0"
+			"mana_cost_tooltip"		"1000"
+			"int_damage"		"0"
+			"passive_spell_lifesteal"			"60"
+			"dagon_spell_lifesteal"				"200"
 		}
 	}
 }

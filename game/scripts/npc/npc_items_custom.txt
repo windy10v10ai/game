@@ -5432,7 +5432,7 @@
 				"spell_amp"				"30"		// 12
 				"hp_regen_amp"			"50"		// 25
 				"spell_lifesteal_amp"	"50"		// 25
-				"manacost_reduction"	"50"		// 25
+				"manacost_reduction"	"40"		// 25
 		}
 	}
 
@@ -5812,45 +5812,6 @@
 			"spell_lifesteal"		"60"
 			"crit_chance"			"50"
 			"crit_multiplier"		"250"
-		}
-	}
-	//=================================================================================================================
-	// 神器一瞬千击
-	//=================================================================================================================
-	"item_recipe_dagon_ultra"
-	{
-		"BaseClass"						"item_recipe_dagon_5"
-		"ItemCost"						"4550"
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_dagon_ultra"
-		"ItemRequirements"
-		{
-			"01"						"item_dagon_5"
-		}
-	}
-	"item_dagon_ultra"
-	{
-		"BaseClass"						"item_dagon_5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1"
-		"AbilityManaCost"				"1000"
-		"AbilityValues"
-		{
-			"bonus_int"		"60"
-			"bonus_str"		"60"
-			"bonus_agi"		"60"
-			"damage"				"1600"
-			"damage_delay"				"0"
-			"mana_cost_tooltip"		"2500"
-			"int_damage"		"0"
-			"passive_spell_lifesteal"			"60"
-			"dagon_spell_lifesteal"				"200"
 		}
 	}
 	//=================================================================================================================
