@@ -5427,12 +5427,12 @@
 		{
 				"bonus_strength"		"80"
 				"bonus_intellect"			"80"
-				"slow_resistance"			"50"
-				"mana_regen_multiplier"		"100" // 50
-				"spell_amp"				"30" // 12
-				"hp_regen_amp"			"50" // 25
-				"spell_lifesteal_amp"	"50" // 25
-				"manacost_reduction"	"50" // 25
+				"slow_resistance"			"50"	// 25
+				"mana_regen_multiplier"		"100"	// 50
+				"spell_amp"				"30"		// 12
+				"hp_regen_amp"			"50"		// 25
+				"spell_lifesteal_amp"	"50"		// 25
+				"manacost_reduction"	"50"		// 25
 		}
 	}
 
@@ -5460,13 +5460,13 @@
 		"SuggestLategame"				"1"
 		"AbilityValues"
 		{
-				"bonus_strength"		"80"
-				"bonus_agility"			"80"
-				"status_resistance"		"50" // 25
-				"bonus_attack_speed"	"60" // 20
+				"bonus_strength"		"80"	// 16
+				"bonus_agility"			"80"	// 16
+				"status_resistance"		"40"	// 20
+				"bonus_attack_speed"	"60"	// 20
 				"movement_speed_percent_bonus"	"30" // 12
-				"hp_regen_amp"			"50" // 25
-				"slow_resistance"		"50" // 25
+				"hp_regen_amp"			"50"	// 25
+				"slow_resistance"		"50"	// 25
 		}
 	}
 
@@ -5560,7 +5560,7 @@
 	"item_recipe_heavens_halberd_2"
 	{
 		"BaseClass"						"item_recipe_heavens_halberd"
-		"ItemCost"						"300"
+		"ItemCost"						"1300"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_heavens_halberd_2"
 		"ItemRequirements"
@@ -5590,13 +5590,13 @@
 		"AbilityValues"
 		{
 				"bonus_health"				"1000"	//275
-				"bonus_health_regen"		"20"	//6
+				"bonus_health_regen"		"18"	//6
 				"bonus_all_stats"			"15"	//5
-				"disarm_range"				"10.0"	//4
+				"disarm_range"				"8.0"	//4
 				"disarm_melee"				"6.0"	//3
 				"block_chance"				"90"	//60
-				"block_damage_melee"		"300"	//60
-				"block_damage_ranged"		"150"	//30
+				"block_damage_melee"		"200"	//60
+				"block_damage_ranged"		"100"	//30
 		}
 	}
 	//=================================================================================================================
