@@ -658,10 +658,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"1260"	// 20分钟买
+		"ItemInitialStockTime"			"960"	// 15分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"180"
+		"ItemStockTime"					"300"
 
 		"AbilityValues"
 		{
@@ -700,10 +700,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"1260"	// 20分钟买
+		"ItemInitialStockTime"			"960"	// 15分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"180"
+		"ItemStockTime"					"300"
 
 		"AbilityValues"
 		{
@@ -1023,8 +1023,8 @@
 	{
 		"BaseClass"						"item_soul_ring"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityCooldown"				"8.0"
-		"AbilityHealthCost"				"2000"
+		"AbilityCooldown"				"2.0"
+		"AbilityHealthCost"				"6000"
 		"ItemShopTags"					"regen_health;boost_mana"
 		"ItemQuality"					"common"
 		"ItemAliases"					"soul ring"
@@ -1039,6 +1039,89 @@
 				"bonus_armor"			"10"
 				"mana_gain"				"2000"
 				"duration"				"10"
+		}
+	}
+
+	//=================================================================================================================
+	//  神刃甲 天地同寿甲
+	//=================================================================================================================
+	"item_recipe_force_field_ultra"
+	{
+		"ID"							"19031"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe_force_field_ultra"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"ItemCost"						"3000"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_force_field_ultra"
+		"ItemRequirements"
+		{
+			"01"						"item_blade_mail_2;item_light_part"
+		}
+	}
+	"item_force_field_ultra"
+	{
+		"BaseClass"						"item_force_field"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"150"
+		"AbilityValues"
+		{
+			"bonus_aoe_radius"
+			{
+				"value"		"1200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"self_armor"				"40"
+			"self_mres"					"20"
+			"bonus_aoe_armor"			"20"
+			"bonus_aoe_mres"			"20"
+			"active_reflection_pct"		"50"
+		}
+	}
+	//=================================================================================================================
+	// 神器一瞬千击
+	//=================================================================================================================
+	"item_recipe_dagon_ultra"
+	{
+		"BaseClass"						"item_recipe_dagon_5"
+		"AbilityTextureName"			"item_recipe_dagon_ultra"
+		"ItemCost"						"550"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_dagon_ultra"
+		"ItemRequirements"
+		{
+			"01"						"item_dagon_5;item_dark_part"
+		}
+	}
+	"item_dagon_ultra"
+	{
+		"BaseClass"						"item_dagon_5"
+		"AbilityTextureName"			"item_dagon_ultra"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"1000"
+		"AbilityValues"
+		{
+			"bonus_int"		"60"
+			"bonus_str"		"60"
+			"bonus_agi"		"60"
+			"damage"				"1600"
+			"damage_delay"				"0"
+			"mana_cost_tooltip"		"1000"
+			"int_damage"		"0"
+			"passive_spell_lifesteal"			"60"
+			"dagon_spell_lifesteal"				"200"
 		}
 	}
 }

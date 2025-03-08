@@ -164,9 +164,9 @@ function BotItemThink:UseActiveItem(hHero)
         end
     end
 
-    -- 秘术师铠甲(群体刃甲)
+    -- 天地同寿甲(秘术铠甲 群体刃甲)
     if hHero:GetHealthPercent() < 99 then
-        if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_force_field_common") then
+        if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_force_field_ultra") then
             return true
         end
     end

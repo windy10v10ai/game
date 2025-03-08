@@ -27,7 +27,7 @@ describe('GameEndPoint', () => {
       expect(score).toBe(0);
     });
 
-    it('should calculate score correctly for a player with some stats', () => {
+    it('should calculate score correctly for a single player', () => {
       const player: GameEndPlayerDto = {
         heroName: 'npc_dota_hero_axe',
         steamId: 123456,
@@ -35,12 +35,36 @@ describe('GameEndPoint', () => {
         isDisconnected: false,
         level: 1,
         gold: 0,
-        kills: 10,
+        kills: 120,
         deaths: 5,
-        assists: 8,
-        damage: 5000,
-        damageTaken: 3000,
+        assists: 0,
+        damage: 2000000,
+        damageTaken: 100000,
         healing: 1000,
+        lastHits: 0,
+        towerKills: 9,
+        score: 0,
+        battlePoints: 0,
+      };
+
+      const score = GameEndPoint.CalculatePlayerScore(player);
+      expect(score).toBe(35);
+    });
+
+    it('should calculate score correctly for a team player', () => {
+      const player: GameEndPlayerDto = {
+        heroName: 'npc_dota_hero_axe',
+        steamId: 123456,
+        teamId: 2,
+        isDisconnected: false,
+        level: 1,
+        gold: 0,
+        kills: 50,
+        deaths: 10,
+        assists: 100,
+        damage: 1000000,
+        damageTaken: 100000,
+        healing: 20000,
         lastHits: 0,
         towerKills: 2,
         score: 0,
@@ -48,31 +72,7 @@ describe('GameEndPoint', () => {
       };
 
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(12);
-    });
-
-    it('should calculate score correctly for a player with high stats', () => {
-      const player: GameEndPlayerDto = {
-        heroName: 'npc_dota_hero_axe',
-        steamId: 123456,
-        teamId: 2,
-        isDisconnected: false,
-        level: 1,
-        gold: 0,
-        kills: 100,
-        deaths: 5,
-        assists: 120,
-        damage: 2000000,
-        damageTaken: 500000,
-        healing: 200000,
-        lastHits: 0,
-        towerKills: 3,
-        score: 0,
-        battlePoints: 0,
-      };
-
-      const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(52);
+      expect(score).toBe(36);
     });
 
     it('should calculate score correctly for a player with extra high stats', () => {
@@ -96,7 +96,7 @@ describe('GameEndPoint', () => {
       };
 
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(134);
+      expect(score).toBe(138);
     });
   });
 
@@ -110,19 +110,19 @@ describe('GameEndPoint', () => {
     it('should return correct points for game time less than 2400', () => {
       const gameTime = 1800;
       const points = GameEndPoint.GetGameTimePoints(gameTime);
-      expect(points).toBe(21);
+      expect(points).toBe(19);
     });
 
     it('should return correct points for game time equal to 2400', () => {
       const gameTime = 2400;
       const points = GameEndPoint.GetGameTimePoints(gameTime);
-      expect(points).toBe(24);
+      expect(points).toBe(22);
     });
 
     it('should return correct points for game time greater than 2400', () => {
       const gameTime = 3600;
       const points = GameEndPoint.GetGameTimePoints(gameTime);
-      expect(points).toBe(29);
+      expect(points).toBe(27);
     });
   });
 });
