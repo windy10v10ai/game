@@ -2125,7 +2125,7 @@
 		"DOTA_Tooltip_Ability_item_force_field_ultra_Description"		"<h1>Active: Mega Shield</h1> Force Field Aura Grants %active_reflection_pct%%% Damage Reflection for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants +%bonus_aoe_armor% armor and +%bonus_aoe_mres%%% Magic Resistance to all other allies within %bonus_aoe_radius% radius."
 		"DOTA_Tooltip_Ability_item_force_field_ultra_Lore"		"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
-		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"+$damage"
+		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"%+$spell_resist"
 
 		// 神器 一瞬千击
 		"DOTA_Tooltip_Ability_item_dagon_ultra"									"<font color='#e03e2e'>Artifact: Thousand Strikes</font>"

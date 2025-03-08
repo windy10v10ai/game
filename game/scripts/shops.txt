@@ -120,6 +120,7 @@
 		"item"		"item_guardian_greaves_ai"	// 光暗 卫士胫甲
 		"item"		"item_soul_ring_1"			// 混沌魂戒
 		"item"		"item_force_field_ultra"	// 天地同寿甲
+		"item"		"item_dagon_ultra"			// 一瞬千击
 	}
 
 	// ------------------------------------------
