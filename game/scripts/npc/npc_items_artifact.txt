@@ -1089,6 +1089,7 @@
 	"item_recipe_dagon_ultra"
 	{
 		"BaseClass"						"item_recipe_dagon_5"
+		"AbilityTextureName"			"item_recipe_dagon_ultra"
 		"ItemCost"						"550"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_dagon_ultra"
