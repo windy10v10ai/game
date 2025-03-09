@@ -102,7 +102,6 @@
 		"item"		"item_reaver"				// 掠夺者之斧
 		"item"		"item_eagle"				// 鹰歌弓
 		"item"		"item_relic"				// 神秘法球
-		"item"		"item_mjollnir"				// 大电锤
 		"item"		"item_dragon_lance"			// 魔龙枪
 
 	}
@@ -183,11 +182,12 @@
 		"item"		"item_rod_of_atos"			// 阿托斯之棒
 		"item"		"item_dagon_ultra"			// 达贡之神力 一瞬千击
 		// "item"		"item_orchid"				// 紫怨
-		"item"		"item_ultimate_scepter_2"	// 真·阿哈利姆神杖
-		"item"		"item_angels_demise"		// 绝刃
-		"item"		"item_ethereal_blade_ultra"	// 永恒虚灵刀
-		"item"		"item_gungir_2"				// 风暴之锤
 		"item"		"item_arcane_octarine_core"	// 奥术之心
+		"item"		"item_angels_demise"		// 绝刃
+		"item"		"item_ultimate_scepter_2"	// 真·阿哈利姆神杖
+		"item"		"item_ethereal_blade_ultra"	// 永恒虚灵刀
+
+		"item"		"item_gungir_2"				// 风暴之锤
 		"item"		"item_refresh_core"			// 刷新球
 		"item"		"item_hallowed_scepter"		// 仙云法杖
 		"item"		"item_necronomicon_staff"	// 死灵法杖
