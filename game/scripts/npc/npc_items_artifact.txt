@@ -924,6 +924,7 @@
 		"ItemAlertable"					"1"
 		"ShouldBeSuggested"				"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_guardian_greaves_ai"
 		"AbilityValues"
 		{
 			"bonus_movement"		"200"
@@ -1086,19 +1087,52 @@
 		}
 	}
 	//=================================================================================================================
+	// 大胸针 胸针2
+	//=================================================================================================================
+	"item_recipe_revenants_brooch_2"
+	{
+		"BaseClass"						"item_recipe_revenants_brooch"
+		"ItemCost"						"300"
+		"ItemRecipe"					"1"
+		"AbilityTextureName"			"item_recipe_revenants_brooch_2"
+		"ItemResult"					"item_revenants_brooch_2"
+		"ItemRequirements"
+		{
+			"01"						"item_revenants_brooch;item_light_part"
+		}
+	}
+	"item_revenants_brooch_2"
+	{
+		"BaseClass"						"item_revenants_brooch"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"ItemShopTags"					"int;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"staff;misery;sm"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"AbilityTextureName"			"item_revenants_brooch_2"
+		"AbilityValues"
+		{
+			"bonus_damage"			"120"
+			"spell_lifesteal"		"30"
+			"crit_chance"			"35"
+			"crit_multiplier"		"160"
+		}
+	}
+	//=================================================================================================================
 	// 神胸针 魔武双修
 	//=================================================================================================================
 	"item_recipe_revenants_brooch_ultra"
 	{
 		"BaseClass"						"item_recipe_revenants_brooch"
-		"ItemCost"						"0"
+		"ItemCost"						"1000"
 		"ItemRecipe"					"1"
 		"AbilityTextureName"			"item_recipe_revenants_brooch_ultra"
 		"ItemResult"					"item_revenants_brooch_ultra"
 		"ItemRequirements"
 		{
-			"01"						"item_revenants_brooch_2;item_revenants_brooch_2;item_light_part"
-			"02"						"item_revenants_brooch_2;item_revenants_brooch_2;item_dark_part"
+			"01"						"item_revenants_brooch_2;item_dark_part"
 		}
 	}
 	"item_revenants_brooch_ultra"
@@ -1119,8 +1153,8 @@
 		{
 			"bonus_damage"			"250"
 			"spell_lifesteal"		"60"
-			"crit_chance"			"50"
-			"crit_multiplier"		"250"
+			"crit_chance"			"40"
+			"crit_multiplier"		"240"
 		}
 	}
 	//=================================================================================================================
