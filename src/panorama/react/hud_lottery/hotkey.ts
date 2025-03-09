@@ -11,17 +11,19 @@ export function bindAbilityKey(abilityname: string, key: string, isQuickCast: bo
       if (GameUI.IsControlDown() === true) {
         // ctrl升级
         Abilities.AttemptToUpgrade(abilityID);
-      } else if (GameUI.IsAltDown() === true) {
-        // alt切换自动施法,待实现
-        // console.log('Alt is down');
-        // console.log('IsAutocast:', Abilities.IsAutocast(abilityID));
-        // console.log('GetAutoCastState:', Abilities.GetAutoCastState(abilityID));
-      } else {
-        if (isQuickCast) {
-          QuickCastAbility(abilityID, Abilities.GetBehavior(abilityID));
-        } else {
-          Abilities.ExecuteAbility(abilityID, heroID, true);
+        return;
+      }
+      if (GameUI.IsAltDown() === true) {
+        // alt切换自动施法
+        const castSuccess = castAbilityWhenAltDown(abilityID, Abilities.GetBehavior(abilityID));
+        if (castSuccess) {
+          return;
         }
+      }
+      if (isQuickCast) {
+        QuickCastAbility(abilityID, Abilities.GetBehavior(abilityID));
+      } else {
+        Abilities.ExecuteAbility(abilityID, heroID, true);
       }
     },
     () => {},
@@ -33,6 +35,45 @@ export function bindAbilityKey(abilityname: string, key: string, isQuickCast: bo
 function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_BEHAVIOR) {
   return (behavior & judge) === judge;
 }
+
+/**
+ * 按住Alt键时，切换自动施法，对自己施法
+ */
+function castAbilityWhenAltDown(
+  abilityID: AbilityEntityIndex,
+  behavior: DOTA_ABILITY_BEHAVIOR,
+): boolean {
+  // 切换自动施法
+  if (Abilities.IsAutocast(abilityID)) {
+    Game.PrepareUnitOrders({
+      OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TOGGLE_AUTO,
+      TargetIndex: Players.GetLocalPlayerPortraitUnit(),
+      AbilityIndex: abilityID,
+      ShowEffects: true,
+    });
+    return true;
+  }
+
+  // 对自身施法
+  if (IsAbilityBehavior(behavior, DOTA_ABILITY_BEHAVIOR.DOTA_ABILITY_BEHAVIOR_UNIT_TARGET)) {
+    const targetTeam = Abilities.GetAbilityTargetTeam(abilityID);
+    if (
+      targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_FRIENDLY ||
+      targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_BOTH
+    ) {
+      Game.PrepareUnitOrders({
+        OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET,
+        TargetIndex: Players.GetLocalPlayerPortraitUnit(),
+        AbilityIndex: abilityID,
+        ShowEffects: true,
+      });
+      return true;
+    }
+  }
+
+  return false;
+}
+
 /**
  * 快速施法
  * @param abilityID
