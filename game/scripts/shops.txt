@@ -119,7 +119,6 @@
 		"item"		"item_armlet_dark"			// 暗影臂章
 		"item"		"item_guardian_greaves_ai"	// 光暗 卫士胫甲
 		"item"		"item_force_field_ultra"	// 天地同寿甲
-		"item"		"item_dagon_ultra"			// 一瞬千击
 	}
 
 	// ------------------------------------------
@@ -182,17 +181,16 @@
 		"item"		"item_witch_blade"			// 巫师之刃
 		"item"		"item_wind_waker"			// 风之杖
 		"item"		"item_rod_of_atos"			// 阿托斯之棒
-		"item"		"item_dagon_5"				// 达贡之神力
-		"item"		"item_orchid"				// 紫怨
- 		// "item"		"item_phylactery"			// 灵匣
-		"item"		"item_angels_demise"		// 绝刃
+		"item"		"item_dagon_ultra"			// 达贡之神力 一瞬千击
+		// "item"		"item_orchid"				// 紫怨
 		"item"		"item_ultimate_scepter_2"	// 真·阿哈利姆神杖
+		"item"		"item_angels_demise"		// 绝刃
+		"item"		"item_ethereal_blade_ultra"	// 永恒虚灵刀
 		"item"		"item_gungir_2"				// 风暴之锤
 		"item"		"item_arcane_octarine_core"	// 奥术之心
 		"item"		"item_refresh_core"			// 刷新球
 		"item"		"item_hallowed_scepter"		// 仙云法杖
 		"item"		"item_necronomicon_staff"	// 死灵法杖
-		"item"		"item_ethereal_blade_ultra"	// 永恒虚灵刀
 	}
 
 	// Level 4 - Purple Recipes 防具
@@ -223,20 +221,22 @@
 		"item"		"item_basher"				// 碎颅锤
 		"item"		"item_armlet_pro_max"		// 小鸡臂章
 		"item"		"item_silver_edge_2"		// 无敌之刃 大隐刀
-		"item"		"item_harpoon"				// 鱼叉
+		"item"		"item_echo_sabre_2"			// 音速战刃
 		"item"		"item_nullifier"			// 否决
+		"item"		"item_harpoon"				// 鱼叉
 		"item"		"item_disperser_chaos"		// 混沌散魂
-		"item"		"item_bfury_ultra"			// 救世狂战
 
 		"item"		"item_bloodthorn_ultra"		// 大血棘
 		"item"		"item_abyssal_blade_v2"		// 一闪
 		"item"		"item_monkey_king_bar_2"	// 定海神针
+		"item"		"item_bfury_ultra"			// 救世狂战
+
 		"item"		"item_infernal_desolator"	// 绝对破防之刃
-		"item"		"item_revenants_brooch_ultra"		// 神英灵胸针
 		"item"		"item_blue_fantasy"			// 苍蓝幻想
-		"item"		"item_hurricane_pike_2"		// 黄金魔龙枪
+		"item"		"item_revenants_brooch_ultra"		// 神英灵胸针
 		"item"		"item_wasp_golden"			// 黄金大核荣耀
 
+		"item"		"item_hurricane_pike_2"		// 黄金魔龙枪
 		"item"		"item_shotgun_v2"			// 霰弹枪
 
 		"item"		"item_excalibur"			// EX咖喱棒
@@ -250,10 +250,10 @@
  		"item"		"item_yasha"				// 夜叉
  		"item"		"item_kaya"					// 慧光
  		// "item"		"item_maelstrom"
- 		// "item"		"item_mjollnir"				// 大电锤
  		// "item"		"item_diffusal_blade"
  		"item"		"item_mage_slayer"			// 法师克星
 		"item"		"item_heavens_halberd_2"	// 天堂之戟
+ 		"item"		"item_mjollnir"				// 大电锤
  		"item"		"item_satanic_2"			// 撒旦之邪力
  		"item"		"item_skadi_2"				// 斯嘉蒂之眼
  		"item"		"item_kaya_and_sange_1"		// 散慧对剑

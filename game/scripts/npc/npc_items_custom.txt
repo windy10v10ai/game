@@ -3872,6 +3872,7 @@
 				"value"				"40"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
 			}
+			"internal_cooldown"		"0.05"
 		}
 	}
 
@@ -3947,6 +3948,7 @@
 				"value"				"60"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
 			}
+			"internal_cooldown"		"0.05"
 		}
 	}
 
