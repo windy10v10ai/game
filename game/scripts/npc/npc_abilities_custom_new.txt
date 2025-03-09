@@ -647,7 +647,7 @@
 
 		"MaxLevel"						"4"
 
-		"AbilityTextureName"			"ogre_magi_multicast"
+		"AbilityTextureName"			"ogre_magi_multicast_lua"
 		"precache"
 		{
 			"particle"					"particles/econ/items/ogre_magi/ogre_magi_jackpot/ogre_magi_jackpot_multicast.vpcf"

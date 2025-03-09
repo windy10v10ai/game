@@ -469,6 +469,7 @@
 		"ItemCost"						"0"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_arcane_blink"
+		"AbilityTextureName"			"item_recipe_arcane_blink_2"
 		"ItemRequirements"
 		{
 			"01"						"item_arcane_blink_2;item_arcane_blink_2"
@@ -485,10 +486,11 @@
 		"AbilitySharedCooldown"			"blink"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"AbilityTextureName"			"item_arcane_blink_2"
 		"AbilityValues"
 		{
 				"blink_range"			"1800"	//1400
-				"blink_damage_cooldown"	"0.2"	//3.0
+				"blink_damage_cooldown"	"0.1"	//3.0
 				"blink_range_clamp"		"1600"	//960
 				"bonus_intellect"		"50"	//25
 				"heal_amount"			"400"	//200

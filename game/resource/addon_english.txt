@@ -653,9 +653,10 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"					"HP Regen:"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"Duration:"
 
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"									"Multicast"
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"						"Enables Ogre Magi to cast his abilities and items multiple times with each use."
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"								"Despite being largely incapacitated by his IQ, the Ogre Magi's success in battle is attributed to pure skill."
+		// 多重施法
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"Multicast MK2"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"Enables hero to cast his abilities and items multiple times with each use, each multicast has a %multicast_delay% second interval."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"						"Can trigger most abilities and items, channel ability won't trigger multiple casting."
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"		"%2X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X CAST CHANCE:"
@@ -1778,7 +1779,7 @@
 
 		// item_shotgun 霰弹枪
 		"DOTA_Tooltip_ability_item_shotgun"								"Double-Barrel"
-		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>Passive: Scatterblast (Ranged Only)</h1>Deals splash damage to enemies around the attack target.<br>Scatterblast cannot stack with itself and has a 0.1s internal cooldown."
+		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>Passive: Scatterblast (Ranged Only)</h1>Deals splash damage to enemies around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
 		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_shotgun_attack_radius"				"Splash Radius:"
@@ -1787,7 +1788,7 @@
 
 		// item_shotgun_v2
 		"DOTA_Tooltip_ability_item_shotgun_v2"							"Bullet-Filled Shotgun"
-		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>Passive: Greater Scatterblast (Ranged only)</h1>Deals splash damage to enemies around the attack target.<br>Scatterblast cannot stack with itself and has a 0.1s internal cooldown."
+		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>Passive: Greater Scatterblast (Ranged only)</h1>Deals splash damage to enemies around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
 		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"				"+$damage"
