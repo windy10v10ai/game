@@ -3872,6 +3872,7 @@
 				"value"				"40"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
 			}
+			"internal_cooldown"		"0.05"
 		}
 	}
 
@@ -3947,6 +3948,7 @@
 				"value"				"60"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
 			}
+			"internal_cooldown"		"0.05"
 		}
 	}
 
@@ -5285,6 +5287,7 @@
 		"AbilitySharedCooldown"			"blink"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"AbilityTextureName"			"item_overwhelming_blink_2"
 		"AbilityValues"
 		{
 				"blink_range"			"1600"	//1200
@@ -5320,6 +5323,7 @@
 		"AbilitySharedCooldown"			"blink"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"AbilityTextureName"			"item_swift_blink_2"
 		"AbilityValues"
 		{
 				"blink_range"			"1600"	//1200
@@ -5350,6 +5354,7 @@
 		"ItemAliases"					"blink dagger"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"AbilityTextureName"			"item_arcane_blink"
 		"AbilityValues"
 		{
 				"blink_range"			"1400"
@@ -5369,6 +5374,7 @@
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_arcane_blink_2"
+		"AbilityTextureName"			"item_recipe_arcane_blink"
 		"ItemRequirements"
 		{
 			"01"						"item_blink*;item_mystic_staff"
@@ -5382,6 +5388,7 @@
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_swift_blink_2"
+		"AbilityTextureName"			"item_recipe_swift_blink_2"
 		"ItemRequirements"
 		{
 			"01"						"item_swift_blink;item_swift_blink"
@@ -5395,6 +5402,7 @@
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_overwhelming_blink_2"
+		"AbilityTextureName"			"item_recipe_overwhelming_blink_2"
 		"ItemRequirements"
 		{
 			"01"						"item_overwhelming_blink;item_overwhelming_blink"
@@ -5410,6 +5418,7 @@
 		"ItemCost"						"0"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_kaya_and_sange_1"
+		"AbilityTextureName"			"item_recipe_kaya_and_sange_1"
 		"ItemRequirements"
 		{
 			"01"						"item_kaya_and_sange;item_kaya_and_sange;item_reaver;item_mystic_staff"
@@ -5423,6 +5432,7 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SuggestLategame"				"1"
+		"AbilityTextureName"			"item_kaya_and_sange_1"
 		"AbilityValues"
 		{
 				"bonus_strength"		"80"
@@ -5445,6 +5455,7 @@
 		"ItemCost"						"0"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sange_and_yasha_1"
+		"AbilityTextureName"			"item_recipe_sange_and_yasha_1"
 		"ItemRequirements"
 		{
 			"01"						"item_sange_and_yasha;item_sange_and_yasha;item_reaver;item_eagle"
@@ -5458,6 +5469,7 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SuggestLategame"				"1"
+		"AbilityTextureName"			"item_sange_and_yasha_1"
 		"AbilityValues"
 		{
 				"bonus_strength"		"80"	// 16
@@ -5479,6 +5491,7 @@
 		"ItemCost"						"0"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_yasha_and_kaya_1"
+		"AbilityTextureName"			"item_recipe_yasha_and_kaya_1"
 		"ItemRequirements"
 		{
 			"01"						"item_yasha_and_kaya;item_yasha_and_kaya;item_eagle;item_mystic_staff"
@@ -5492,6 +5505,7 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SuggestLategame"				"1"
+		"AbilityTextureName"			"item_yasha_and_kaya_1"
 		"AbilityValues"
 		{
 				"bonus_agility"			"80"
@@ -5750,71 +5764,6 @@
 		}
 	}
 	//=================================================================================================================
-	// 神器魔武双修&大胸针
-	//=================================================================================================================
-	"item_recipe_revenants_brooch_2"
-	{
-		"BaseClass"						"item_recipe_revenants_brooch"
-		"ItemCost"						"0"
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_revenants_brooch_2"
-		"ItemRequirements"
-		{
-			"01"						"item_revenants_brooch;item_greater_crit"
-		}
-	}
-	"item_revenants_brooch_2"
-	{
-		"BaseClass"						"item_revenants_brooch"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"ItemShopTags"					"int;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"staff;misery;sm"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SuggestLategame"				"1"
-		"AbilityValues"
-		{
-			"bonus_damage"			"90"
-			"spell_lifesteal"		"30"
-			"crit_chance"			"30"
-			"crit_multiplier"		"150"
-		}
-	}
-	"item_recipe_revenants_brooch_ultra"
-	{
-		"BaseClass"						"item_recipe_revenants_brooch"
-		"ItemCost"						"0"
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_revenants_brooch_ultra"
-		"ItemRequirements"
-		{
-			"01"						"item_revenants_brooch_2;item_revenants_brooch_2;item_light_part"
-			"02"						"item_revenants_brooch_2;item_revenants_brooch_2;item_dark_part"
-		}
-	}
-	"item_revenants_brooch_ultra"
-	{
-		"BaseClass"						"item_revenants_brooch"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"ItemShopTags"					"int;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"staff;misery;sm"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SuggestLategame"				"1"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"bonus_damage"			"250"
-			"spell_lifesteal"		"60"
-			"crit_chance"			"50"
-			"crit_multiplier"		"250"
-		}
-	}
-	//=================================================================================================================
 	// 神器法师泳衣
 	//=================================================================================================================
 	"item_recipe_eternal_shroud_ultra"
@@ -5823,6 +5772,7 @@
 		"ItemCost"						"2600"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
+		"AbilityTextureName"			"item_recipe_eternal_shroud_ultra"
 		"ItemResult"					"item_eternal_shroud_ultra"
 		"ItemRequirements"
 		{
@@ -5833,6 +5783,7 @@
 	"item_eternal_shroud_ultra"
 	{
 		"BaseClass"						"item_eternal_shroud"
+		"AbilityTextureName"			"item_eternal_shroud_ultra"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SuggestLategame"				"1"
 		"AbilityValues"
