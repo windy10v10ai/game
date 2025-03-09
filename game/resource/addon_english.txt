@@ -653,9 +653,10 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"					"HP Regen:"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"Duration:"
 
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"									"Multicast"
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"						"Enables Ogre Magi to cast his abilities and items multiple times with each use."
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"								"Despite being largely incapacitated by his IQ, the Ogre Magi's success in battle is attributed to pure skill."
+		// 多重施法
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"Multicast MK2"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"Enables hero to cast his abilities and items multiple times with each use, each multicast has a %multicast_delay% second interval."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"						"Can trigger most abilities and items, channel ability won't trigger multiple casting."
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"		"%2X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X CAST CHANCE:"

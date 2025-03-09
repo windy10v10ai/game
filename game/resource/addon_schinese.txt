@@ -655,9 +655,10 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"				    "生命恢复："
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"持续时间："
 
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"									"多重施法"
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"						"使食人魔魔法师在单次施法中有概率多次施放同一技能和物品。"
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"								"尽管很大程度上受到智商的制约，但食人魔魔法师仍能依靠纯熟的技巧在战斗中取胜。"
+		// 多重施法
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"多重施法（改）"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"使英雄在单次施法中有概率多次施放同一技能和物品，多重施法间隔为%multicast_delay%秒。"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"						"可以触发绝大多数的技能和物品，持续施法不会触发多重施法。"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"		"%2X施放概率："
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X施放概率："
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X施放概率："
