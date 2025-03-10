@@ -45,7 +45,7 @@
 
 #lbName {
   horizontal-align: center;
-  font-size: 35px;
+  font-size: 32px;
   color: #daa520ff;
   text-decoration: underline;
   text-shadow: 2px 2px 8px 3 black;
@@ -96,11 +96,11 @@
 }
 
 .rk {
-  width: 150px;
+  width: 120px;
 }
 
 .nm {
-  width: 450px;
+  width: 480px;
 }
 
 .pts {
@@ -112,14 +112,14 @@
 }
 
 #Players {
-  padding-top: 20px;
+  /* padding-top: 20px; */
   flow-children: down;
   overflow: squish scroll;
 }
 
 .Player {
   width: 800px;
-  height: 50px;
+  height: 60px;
   flow-children: right;
   /* margin-bottom: 10px; */
   border-radius: 10px;
@@ -149,8 +149,8 @@
 }
 
 .rankPanel {
-  width: 30px;
-  margin: 15px;
+  width: 60px;
+  margin: 10px 20px;
 }
 
 .rankLabel {
