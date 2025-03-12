@@ -5,6 +5,8 @@
 		<include src="s2r://panorama/layout/custom_game/board/boards.css" />
 	</styles>
 	<scripts>
+		<include src="file://{resources}/scripts/custom_game/long.js" />
+		<include src="file://{resources}/scripts/custom_game/utils.js" />
 		<include src="s2r://panorama/layout/custom_game/board/boards.js" />
 	</scripts>
 	<snippets>
@@ -19,32 +21,24 @@
 				<Panel class="namePanel" id="PlayerName">
 					<DOTAUserName id="PlayerNameDisplay" />
 				</Panel>
-				<!-- <Panel class="pointPanel" id="PlayerPoint">
-					<Label class="pointLabel" text="{s:PlayerPoint}" />
-				</Panel>
-				<Panel class="winPanel" id="PlayerWin">
-					<Label class="winLabel" text="{s:PlayerWin}" />
-				</Panel>
-				<Panel class="lossPanel" id="PlayerLoss">
-					<Label class="lossLabel" text="{s:PlayerLoss}" />
-				</Panel> -->
 			</Panel>
 		</snippet>
 	</snippets>
 	<Panel class="UpperPanel" hittest="false">
 		<Panel class="LeaderboardMain" id="BoardContainer">
-			<Label id="lbName" text="#leaderboard_title" />
-			<Button id="CloseLB" onactivate="ToggleLB()" />
+			<Panel class="TitleBar">
+				<Label id="lbName" text="#leaderboard_title" />
+				<Button id="CloseLB" onactivate="ToggleLB()" />
+			</Panel>
 			<Panel id="Boardlist">
 				<Panel id="FieldDesc">
 					<Label class="FieldLabel rk" id="lbPlayerRank" text="#leaderboard_rank" />
 					<Label class="FieldLabel nm" id="lbPlayerName" text="#leaderboard_name" />
-					<!-- <Label class="FieldLabel pts" id="lbPlayerPoints" text="Points" />
-					<Label class="FieldLabel wn" id="lbPlayerWins" text="Win" />
-					<Label class="FieldLabel ls" id="lbPlayerLosses" text="Loss" /> -->
 				</Panel>
 				<Panel id="Players" />
 			</Panel>
+			<Panel class="line" />
+			<Panel id="CurrentPlayer" />
 		</Panel>
 	</Panel>
 </root>

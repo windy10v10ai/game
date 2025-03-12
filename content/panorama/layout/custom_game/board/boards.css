@@ -15,6 +15,7 @@
   height: 76%;
   horizontal-align: left;
   vertical-align: top;
+  flow-children: down;
 
   background-color: gradient(
     linear,
@@ -43,7 +44,15 @@
   width: 44%;
 }
 
+/* 添加顶部标题栏的样式 */
+.TitleBar {
+  width: 100%;
+  height: 50px;
+  horizontal-align: center;
+}
+
 #lbName {
+  vertical-align: center;
   horizontal-align: center;
   font-size: 32px;
   color: #daa520ff;
@@ -56,13 +65,13 @@
   height: 35px;
   background-image: url("s2r://panorama/images/x_close_png.vtex");
   background-size: 100% 100%;
-  horizontal-align: right;
   background-repeat: no-repeat;
   background-position: center;
-  vertical-align: top;
   wash-color: #d94848;
   opacity: 0.5;
   z-index: 2;
+  vertical-align: center;
+  horizontal-align: right;
   transition-property: opacity, width, height;
   transition-delay: 0s;
   transition-duration: 0.2s;
@@ -76,9 +85,9 @@
 }
 
 #Boardlist {
-  padding: 5px;
-  padding-top: 55px;
+  /* padding: 5px; */
   flow-children: down;
+  height: 83%;
 }
 
 #FieldDesc {
@@ -89,14 +98,14 @@
 .FieldLabel {
   font-size: 26px;
   letter-spacing: 0.8px;
-  width: 120px;
   color: white;
   text-shadow: 2px 2px 8px 2 black;
   horizontal-align: center;
+  margin: 5px 15px;
 }
 
 .rk {
-  width: 120px;
+  width: 80px;
 }
 
 .nm {
@@ -115,6 +124,20 @@
   /* padding-top: 20px; */
   flow-children: down;
   overflow: squish scroll;
+}
+
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: #daa520ff;
+  margin: 5px 0;
+}
+
+#CurrentPlayer {
+  width: 100%;
+  height: 60px;
+  flow-children: right;
+  border-radius: 10px;
 }
 
 .Player {
@@ -149,7 +172,7 @@
 }
 
 .rankPanel {
-  width: 60px;
+  width: 80px;
   margin: 10px 20px;
 }
 

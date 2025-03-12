@@ -13,7 +13,10 @@ function AddPlayer(rank, id) {
   // panel.SetDialogVariable('PlayerWin', win);
   // panel.SetDialogVariable('PlayerLoss', loss);
 }
-//AddLbButton()
+
+/**
+ * 添加排行榜按钮
+ */
 function AddLbButton() {
   const container = $.GetContextPanel()
     .GetParent()
@@ -42,7 +45,7 @@ function AddLbButton() {
 
 function ToggleLB() {
   const state = $('#BoardContainer');
-  if (state.style.opacity == '0.0' || state.style.opacity == null) {
+  if (state.style.opacity === '0.0' || state.style.opacity == null) {
     Game.EmitSound('ui.match_open');
     state.style.transitionDuration = '0s';
     state.style.transform = 'translateX(-400px) translateY(-150px)';
@@ -63,7 +66,24 @@ function CollapseLB() {
   $('#BoardContainer').style.visibility = 'collapse';
 }
 
+function AddCurrentPlayerRank(rank, id) {
+  $('#CurrentPlayer').RemoveAndDeleteChildren();
+  // 在新创建的面板中添加当前玩家信息
+  const panel = $.CreatePanel('Panel', $('#CurrentPlayer'), '');
+  panel.BLoadLayoutSnippet('Player');
+  panel.AddClass('CurrentPlayerPanel');
+
+  if (rank) {
+    panel.SetDialogVariable('PlayerRank', rank);
+  } else {
+    panel.SetDialogVariable('PlayerRank', '1000+');
+  }
+  panel.FindChildTraverse('PlayerImageDisplay').accountid = id;
+  panel.FindChildTraverse('PlayerNameDisplay').accountid = id;
+}
+
 function OnDataLoaded() {
+  console.log('OnDataLoaded');
   const data = CustomNetTables.GetTableValue('leader_board', 'top100SteamIds');
 
   if (data == null) {
@@ -72,9 +92,16 @@ function OnDataLoaded() {
   }
   $.Schedule(0.5, AddLbButton);
 
+  // clear Players
+  $('#Players').RemoveAndDeleteChildren();
   for (const index in data) {
     AddPlayer(index, data[index]);
   }
+
+  // TODO impl read current player
+  // const currentPlayerData = CustomNetTables.GetTableValue('leader_board', 'currentPlayerRank');
+  const currentPlayerRank = undefined;
+  AddCurrentPlayerRank(currentPlayerRank, GetSteamAccountID());
 }
 
 (function () {
