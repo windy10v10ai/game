@@ -28,9 +28,7 @@ export class Ranking {
   }
 
   private static LoadRankingSuccess(data: string) {
-    print(`[Ranking] LoadRanking callback data ${data}`);
     const playerRanking = json.decode(data)[0] as PlayerRanking;
-    DeepPrintTable(playerRanking);
     Ranking.SaveRankingToNetTable(playerRanking);
   }
 

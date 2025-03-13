@@ -92,9 +92,7 @@ export class Player {
   }
 
   private static InitSuccess(data: string) {
-    print(`[Player] Init callback data ${data}`);
     const gameStart = json.decode(data)[0] as GameStart;
-    DeepPrintTable(gameStart);
     Player.memberList = gameStart.members;
     Player.playerList = gameStart.players;
     Player.pointInfoList = gameStart.pointInfo;
