@@ -1,4 +1,5 @@
 import { Player } from '../../api/player';
+import { Ranking } from '../../api/ranking';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroPick } from '../hero/hero-pick';
@@ -12,17 +13,23 @@ export class EventGameStateChange {
     const state = GameRules.State_Get();
     if (state === GameState.CUSTOM_GAME_SETUP) {
       Timers.CreateTimer(1, () => {
+        // 加载开局信息
         Player.LoadPlayerInfo();
+        // 设置玩家颜色
         this.setPlayerColor();
       });
-    } else if (state === GameState.GAME_IN_PROGRESS) {
-      this.OnGameInProgress();
+      // 加载排行榜信息 略微延迟
+      Timers.CreateTimer(10, () => {
+        Ranking.LoadRankingInfo();
+      });
     } else if (state === GameState.HERO_SELECTION) {
       this.OnHeroSelection();
     } else if (state === GameState.STRATEGY_TIME) {
       this.OnStrategyTime();
     } else if (state === GameState.PRE_GAME) {
       this.OnPreGame();
+    } else if (state === GameState.GAME_IN_PROGRESS) {
+      this.OnGameInProgress();
     }
   }
 
