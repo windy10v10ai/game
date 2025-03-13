@@ -76,36 +76,61 @@ function AddCurrentPlayerRank(rank, id) {
   if (rank) {
     panel.SetDialogVariable('PlayerRank', rank);
   } else {
-    panel.SetDialogVariable('PlayerRank', '1000+');
+    panel.SetDialogVariable('PlayerRank', 'N/A');
   }
   panel.FindChildTraverse('PlayerImageDisplay').accountid = id;
   panel.FindChildTraverse('PlayerNameDisplay').accountid = id;
 }
 
 function OnDataLoaded() {
-  console.log('OnDataLoaded');
-  const data = CustomNetTables.GetTableValue('leader_board', 'top100SteamIds');
+  const topSteamIds = CustomNetTables.GetTableValue('ranking_table', 'topSteamIds');
 
-  if (data == null) {
+  if (topSteamIds == null) {
     $.Schedule(0.5, OnDataLoaded);
     return;
   }
   $.Schedule(0.5, AddLbButton);
 
-  // clear Players
+  let currentPlayerRank = undefined;
   $('#Players').RemoveAndDeleteChildren();
-  for (const index in data) {
-    AddPlayer(index, data[index]);
+  for (const index in topSteamIds) {
+    // 显示前500名玩家
+    if (index <= 500) {
+      AddPlayer(index, topSteamIds[index]);
+    }
+    // 获取当前玩家排名
+    if (topSteamIds[index] === GetSteamAccountID()) {
+      currentPlayerRank = index;
+    }
+  }
+  // 每日排名未更新，但是玩家分数超过1000名时显示500+
+  if (!currentPlayerRank) {
+    currentPlayerRank = '500+';
   }
 
-  // TODO impl read current player
-  // const currentPlayerData = CustomNetTables.GetTableValue('leader_board', 'currentPlayerRank');
-  const currentPlayerRank = undefined;
+  // 如果玩家分数比前1000名玩家低，则显示1000+, 以此类推
+  const playerScore = GetPlayer()?.seasonPointTotal || 0;
+  const rankScores = CustomNetTables.GetTableValue('ranking_table', 'rankScores');
+  if (playerScore < rankScores?.top1000) {
+    currentPlayerRank = '1000+';
+  }
+  if (playerScore < rankScores?.top2000) {
+    currentPlayerRank = '2000+';
+  }
+  if (playerScore < rankScores?.top3000) {
+    currentPlayerRank = '3000+';
+  }
+  if (playerScore < rankScores?.top4000) {
+    currentPlayerRank = '4000+';
+  }
+  if (playerScore < rankScores?.top5000) {
+    currentPlayerRank = '5000+';
+  }
+
   AddCurrentPlayerRank(currentPlayerRank, GetSteamAccountID());
 }
 
 (function () {
-  // CustomNetTables.SubscribeNetTableListener("leader_board", OnDataLoaded);
   $.Schedule(0.1, LeaderboardSetup);
 })();
 

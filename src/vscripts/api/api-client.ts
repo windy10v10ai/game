@@ -18,9 +18,9 @@ export interface ApiParameter {
 }
 
 export class ApiClient {
-  public static GAME_START_URL = '/game/start';
-  public static ADD_PLAYER_PROPERTY_URL = '/game/addPlayerProperty';
-  public static RESET_PLAYER_PROPERTY_URL = '/game/resetPlayerProperty';
+  public static readonly GAME_START_URL = '/game/start';
+  public static readonly ADD_PLAYER_PROPERTY_URL = '/game/addPlayerProperty';
+  public static readonly RESET_PLAYER_PROPERTY_URL = '/game/resetPlayerProperty';
 
   private static TIMEOUT_SECONDS = 15;
   private static RETRY_TIMES = 4;

@@ -47,7 +47,6 @@ export class PointInfoDto {
 class GameStart {
   members!: MemberDto[];
   players!: PlayerDto[];
-  top100SteamIds!: string[];
   pointInfo!: PointInfoDto[];
 }
 
@@ -99,9 +98,6 @@ export class Player {
     Player.memberList = gameStart.members;
     Player.playerList = gameStart.players;
     Player.pointInfoList = gameStart.pointInfo;
-    const top100SteamIds = gameStart.top100SteamIds;
-
-    CustomNetTables.SetTableValue('leader_board', 'top100SteamIds', top100SteamIds);
 
     // set member to member table
     Player.savePlayerToNetTable();
