@@ -18,8 +18,9 @@
     "ending_status",
     "member_table",
     "player_table",
-    "leader_board",
-    "point_info",
+    "ranking_table",  // 排行榜
+    "point_info",   // 游戏加载时获取积分信息
+    // 抽选相关
     "lottery_active_abilities",
     "lottery_passive_abilities",
     "lottery_status",
