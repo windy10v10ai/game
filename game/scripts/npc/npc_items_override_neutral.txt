@@ -1032,6 +1032,7 @@
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"0"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityTextureName"			"item_ballista_dark"
 		"AbilityValues"
 		{
 				"attack_range_bonus"		"0"
