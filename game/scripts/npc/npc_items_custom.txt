@@ -5652,8 +5652,8 @@
 				"mana_regen_multiplier"	"150"	//50
 				"spell_lifesteal_amp"	"60"	//24
 
-				"burn_dps_buildings"	"50"	//50
-				"burn_dps_units"		"200"	//50
+				"burn_dps_buildings"	"60"	//50
+				"burn_dps_units"		"150"	//50
 				"burn_slow"			"50"		//20
 				"burn_duration"		"6"			//6
 				"stun_duration"		"1.0"		//0.5
@@ -5665,8 +5665,8 @@
 					"affected_by_aoe_increase"	"1"
 				}
 				"max_duration"		"1.5"			//2
-				"impact_damage_buildings"	"100"	//90
-				"impact_damage_units"		"500"	//130
+				"impact_damage_buildings"	"120"	//90
+				"impact_damage_units"		"400"	//130
 				"enemy_particles_visible"		"0"
 		}
 	}
@@ -5788,15 +5788,14 @@
 		"SuggestLategame"				"1"
 		"AbilityValues"
 		{
-			"bonus_spell_resist"					"35"//20
-			"bonus_strength"						"40"//10
-			"bonus_health"							"1000"//250
-			"stack_threshold"						"500"//300
-			"stack_duration"						"10"//5
-			"stack_resist"							"5.5"//3.5
-			"mana_restore_pct"						"40"//20
-			"max_stacks"							"10"//6
-
+			"bonus_spell_resist"					"40"	//20
+			"bonus_strength"						"30"	//10
+			"bonus_health"							"1000"	//250
+			"stack_threshold"						"500"	//300
+			"stack_duration"						"10"	//5
+			"stack_resist"							"4.0"	//3.5
+			"mana_restore_pct"						"40"	//20
+			"max_stacks"							"10"	//6
 		}
 	}
 }
