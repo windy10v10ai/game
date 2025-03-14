@@ -26,6 +26,7 @@ function modifier_item_shotgun:OnCreated()
 	local ability = self:GetAbility()
 	self.attack_radius = ability:GetSpecialValueFor("attack_radius")
 	self.attack_percent = ability:GetSpecialValueFor("attack_percent")
+	self.internal_cooldown = ability:GetSpecialValueFor("internal_cooldown")
 
 	if not IsServer() then return end
 
@@ -85,7 +86,8 @@ function modifier_item_shotgun:GetModifierProcAttack_Feedback(keys)
 		end
 	end
 
-	keys.attacker:AddNewModifier(keys.attacker, self:GetAbility(), "modifier_item_shotgun_cooldown", { duration = 0.1 })
+	keys.attacker:AddNewModifier(keys.attacker, self:GetAbility(), "modifier_item_shotgun_cooldown",
+		{ duration = self.internal_cooldown })
 end
 
 if modifier_item_shotgun_cooldown == nil then modifier_item_shotgun_cooldown = class({}) end
