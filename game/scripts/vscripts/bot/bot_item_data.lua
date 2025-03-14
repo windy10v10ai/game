@@ -30,35 +30,6 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_jump_jump_jump',
 	},
-	npc_dota_hero_arc_warden = {
-		'item_wings_of_haste',
-		'item_lesser_crit',
-		'item_maelstrom',
-		'item_rod_of_atos',
-		'item_recipe_gungir',
-		'item_butterfly',
-		'item_octarine_core',
-		'item_aether_lens_2',
-		'item_recipe_wasp_callous',
-		'item_black_king_bar',
-		'item_mjollnir',
-		'item_recipe_gungir_2',
-		'item_recipe_arcane_octarine_core',
-		'item_monkey_king_bar',
-		'item_javelin',
-		'item_javelin',
-		'item_recipe_monkey_king_bar_2',
-		'item_recipe_ultimate_scepter_2',
-		'item_sheepstick',
-		'item_black_king_bar_2',
-		'item_wasp_despotic',
-		'item_refresher',
-		'item_recipe_refresh_core',
-		'item_ethereal_blade',
-		'item_null_talisman',
-		'item_recipe_necronomicon_staff',
-		'item_excalibur',
-	},
 	npc_dota_hero_axe = {
 		'item_magic_wand',
 		'item_boots',
@@ -114,11 +85,8 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_aeon_pendant',
 		'item_gungir_2',
-		'item_octarine_core',
-		'item_recipe_arcane_octarine_core',
 		'item_necronomicon_staff',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_hallowed_scepter',
 		'item_shivas_guard_2',
 	},
@@ -149,11 +117,9 @@ tBotItemData.purchaseItemList = {
 		'item_power_treads',
 		'item_orb_of_corrosion',
 		'item_vanguard', -- 先锋盾
-		'item_maelstrom', -- 电锤
 		'item_wings_of_haste',
 		'item_basher', -- 碎骨锤
-		'item_hyperstone',
-		'item_recipe_mjollnir',
+		'item_mjollnir',
 		'item_echo_sabre_2',
 		'item_sange_and_yasha',
 		'item_aghanims_shard',
@@ -231,13 +197,10 @@ tBotItemData.purchaseItemList = {
 		'item_sheepstick',
 		'item_black_king_bar',
 		'item_ultimate_scepter_2',
-		'item_octarine_core',
 		-- 最终装备
-		'item_recipe_arcane_octarine_core',
 		'item_black_king_bar_2',
 		'item_aeon_pendant',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_necronomicon_staff',
 		'item_hallowed_scepter',
 	},
@@ -254,19 +217,16 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_orb_of_the_brine',
+		'item_aether_lens_2',
 		'item_sheepstick',
 
 		-- 最终装备
-		'item_aether_lens_2',
-		'item_octarine_core',
-		'item_recipe_arcane_octarine_core',
 		'item_aeon_pendant',
 
 		'item_dagon_5',
 		'item_necronomicon_staff',
 		'item_gungir_2',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_ultimate_scepter_2',
 		'item_hallowed_scepter',
 	},
@@ -280,15 +240,12 @@ tBotItemData.purchaseItemList = {
 		'item_force_staff',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
+		'item_aether_lens_2',
 		'item_aeon_pendant',
 		'item_shivas_guard_2',
 		'item_sheepstick',
-		'item_aether_lens_2',
-		'item_octarine_core',
-		'item_recipe_arcane_octarine_core',
 		'item_ultimate_scepter_2',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_necronomicon_staff',
 		'item_hallowed_scepter',
 		'item_sacred_six_vein',
@@ -328,13 +285,12 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_hurricane_pike_2',
-		'item_ultimate_scepter_2',
 		'item_butterfly',
+		'item_ultimate_scepter_2',
 		-- 'item_silver_edge_2',
 		'item_infernal_desolator', -- 绝对破防之刃
 		'item_black_king_bar_2',
-		'item_lesser_crit',
-		'item_recipe_wasp_callous',
+		'item_wasp_callous',
 		'item_wasp_despotic',
 		-- 'item_satanic_2',
 		'item_excalibur',
@@ -354,7 +310,7 @@ tBotItemData.purchaseItemList = {
 		'item_overwhelming_blink',
 		'item_echo_sabre_2',
 		'item_aghanims_shard',
-		'item_blade_mail_2',
+		'item_eternal_shroud_ultra', -- 法师泳衣
 		'item_shivas_guard_2',
 		'item_ultimate_scepter_2',
 		'item_abyssal_blade_v2',
@@ -375,12 +331,9 @@ tBotItemData.purchaseItemList = {
 		'item_aghanims_shard',
 		'item_aether_lens_2',
 		'item_ultimate_scepter_2',
-		'item_octarine_core',
-		'item_recipe_arcane_octarine_core',
 		'item_dagon_5',
 		'item_shivas_guard_2',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_gungir_2', -- 风暴之锤
 		'item_hallowed_scepter',
 		'item_necronomicon_staff',
@@ -425,9 +378,7 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_greater_crit',
 		'item_black_king_bar_2',
-		'item_vladmir',
-		'item_assault',
-		'item_recipe_vladmir_2',
+		'item_vladmir_2',
 		'item_moon_shard_datadriven',
 		'item_abyssal_blade_v2',
 		'item_infernal_desolator', -- 绝对破防之刃
@@ -453,12 +404,9 @@ tBotItemData.purchaseItemList = {
 		'item_aeon_pendant', -- 大盘子（咸鱼之王）
 		'item_ultimate_scepter_2',
 		'item_sheepstick',
-		'item_octarine_core',
-		'item_recipe_arcane_octarine_core',
 		'item_gungir_2',
 		'item_shivas_guard_2',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_hallowed_scepter',
 		'item_necronomicon_staff',
 	},
@@ -475,14 +423,11 @@ tBotItemData.purchaseItemList = {
 		'item_aghanims_shard',
 		'item_ultimate_scepter_2',
 		'item_aether_lens_2',
-		'item_octarine_core',
 		'item_sacred_trident',
-		'item_recipe_arcane_octarine_core',
 		'item_gungir_2',
 		'item_hallowed_scepter',
 		'item_necronomicon_staff',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_shivas_guard_2',
 		'item_sacred_trident',
 	},
@@ -501,15 +446,13 @@ tBotItemData.purchaseItemList = {
 		'item_aether_lens_2', -- 以太之镜2
 		'item_phylactery', -- 灵匣
 		'item_ultimate_scepter_2',
-		'item_octarine_core',
-		'item_recipe_arcane_octarine_core',
 		'item_dagon_5',
 
 		'item_arcane_blink',
 		'item_gungir_2',
 		'item_angels_demise', -- 绝刃
 		'item_necronomicon_staff',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_hallowed_scepter',
 		'item_refresher',
 	},
@@ -608,14 +551,10 @@ tBotItemData.purchaseItemList = {
 		'item_aghanims_shard',
 		'item_ultimate_scepter_2',
 		'item_sheepstick',
-		'item_octarine_core',
-		'item_aether_lens_2',
-		'item_recipe_arcane_octarine_core',
 		'item_shivas_guard_2',
 		'item_undying_heart',
 		'item_saint_orb',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_necronomicon_staff',
 		-- 'item_sacred_six_vein',
 		'item_kaya_and_sange_1', -- 骑士剑换回血
@@ -632,14 +571,11 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_blink',
 		'item_aghanims_shard',
-		'item_ultimate_scepter_2',
 		'item_aether_lens_2',
-		'item_octarine_core',
-		'item_recipe_arcane_octarine_core',
+		'item_ultimate_scepter_2',
 		'item_arcane_blink',
 		'item_abyssal_blade_v2',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_necronomicon_staff',
 		'item_angels_demise', -- 绝刃
 		'item_blue_fantasy', -- 苍蓝幻想
@@ -658,12 +594,9 @@ tBotItemData.purchaseItemList = {
 		'item_aeon_pendant',
 		'item_ultimate_scepter_2',
 		'item_octarine_core',
-		'item_aether_lens_2',
-		'item_recipe_arcane_octarine_core',
 		'item_saint_orb',
 		'item_insight_armor',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_heavens_halberd_v2',
 	},
 	npc_dota_hero_oracle = {
@@ -680,11 +613,9 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_gungir_2',
 		'item_aeon_pendant',
-		'item_arcane_octarine_core',
 		'item_shivas_guard_2',
 		'item_necronomicon_staff',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 	},
 	npc_dota_hero_phantom_assassin = {
 		-- 出门装
@@ -725,7 +656,7 @@ tBotItemData.purchaseItemList = {
 		'item_eternal_shroud',
 		'item_aether_lens_2',
 		'item_overwhelming_blink',
-		'item_blade_mail_2',
+		'item_eternal_shroud_ultra', -- 法师泳衣
 		'item_ultimate_scepter_2',
 		'item_saint_orb',
 		'item_black_king_bar_2',
@@ -795,18 +726,15 @@ tBotItemData.purchaseItemList = {
 		'item_force_staff',
 		'item_aghanims_shard',
 		'item_wings_of_haste',
+		'item_aether_lens_2',
 		'item_blink',
 		'item_ultimate_scepter_2',
 		'item_aeon_pendant',
 		'item_orb_of_the_brine', -- 苍洋魔珠
-		'item_aether_lens_2',
-		'item_octarine_core',
-		'item_recipe_arcane_octarine_core',
-		'item_refresher',
 		'item_black_king_bar_2',
 		'item_arcane_blink', -- 大智力跳
 		'item_necronomicon_staff',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 	},
 	npc_dota_hero_sand_king = {
 		'item_magic_wand',
@@ -825,14 +753,11 @@ tBotItemData.purchaseItemList = {
 		'item_aghanims_shard',
 		'item_blade_mail_2',
 		'item_ultimate_scepter_2',
-		'item_octarine_core',
-		'item_recipe_arcane_octarine_core',
 		'item_black_king_bar_2',
 		'item_overwhelming_blink',
 		'item_undying_heart',
 		'item_sheepstick',
-		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_moon_shard_datadriven',
 		'item_jump_jump_jump',
 	},
@@ -854,11 +779,10 @@ tBotItemData.purchaseItemList = {
 		'item_sacred_trident',
 		'item_angels_demise', -- 绝刃
 		'item_sacred_trident',
-		'item_arcane_octarine_core',
 		'item_hallowed_scepter',
 		'item_necronomicon_staff',
 		'item_refresher',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_bloodstone',
 	},
 	npc_dota_hero_sniper = {
@@ -941,11 +865,7 @@ tBotItemData.purchaseItemList = {
 		'item_blink',
 		'item_aether_lens_2',
 		'item_aghanims_shard',
-		'item_dagon',
-		'item_recipe_dagon',
-		'item_recipe_dagon',
-		'item_recipe_dagon',
-		'item_recipe_dagon',
+		'item_dagon_5',
 		'item_phylactery', -- 灵匣
 		'item_wings_of_haste',
 		'item_sheepstick',
@@ -1034,23 +954,18 @@ tBotItemData.purchaseItemList = {
 		'item_orb_of_the_brine',
 		'item_ultimate_scepter_2',
 		'item_sheepstick',
-		'item_arcane_octarine_core',
 		'item_dagon_5',
 		'item_hallowed_scepter',
-		'item_refresher',
 		'item_shivas_guard_2',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 	},
 	npc_dota_hero_windrunner = {
 		'item_magic_wand',
 		'item_boots',
-		'item_maelstrom',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_hand_of_group', -- 团队之手
 		'item_desolator',
-		'item_hyperstone',
-		'item_recipe_mjollnir',
 		'item_monkey_king_bar',
 		'item_hurricane_pike_2', -- 黄金魔龙枪
 		'item_black_king_bar_2',
@@ -1093,12 +1008,9 @@ tBotItemData.purchaseItemList = {
 		'item_aether_lens_2',
 		'item_wings_of_haste',
 		'item_ultimate_scepter_2',
-		'item_octarine_core',
-		'item_recipe_arcane_octarine_core',
 		'item_angels_demise',
-		'item_refresher',
 		'item_hallowed_scepter',
-		'item_recipe_refresh_core',
+		'item_refresh_core',
 		'item_gungir_2',
 		'item_necronomicon_staff',
 		'item_excalibur',
@@ -1135,7 +1047,6 @@ tBotItemData.sellItemList = {
 
 		-- local
 		'item_mithril_hammer',
-		'item_recipe_black_king_bar',
 		'item_desolator',
 	},
 	npc_dota_hero_bloodseeker = {
@@ -1144,7 +1055,6 @@ tBotItemData.sellItemList = {
 		'item_mjollnir',
 		-- local
 		'item_mithril_hammer',
-		'item_recipe_black_king_bar',
 	},
 	npc_dota_hero_bristleback = {
 		'item_echo_sabre_2',
@@ -1200,8 +1110,6 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_lion = {
 		'item_dagon_5',
-		-- local
-		'item_recipe_dagon',
 	},
 	npc_dota_hero_luna = {
 		'item_wraith_band',
@@ -1330,29 +1238,27 @@ tBotItemData.sellItemList = {
 tBotItemData.sellItemCommonList = {
 
 	-- 基础配件
-	'item_orb_of_venom',         -- 淬毒之珠
-	'item_slippers',             -- 敏捷便靴
-	'item_mantle',               -- 智力斗篷
-	'item_gauntlets',            -- 力量手套
-	'item_circlet',              -- 圆环
-	'item_ring_of_protection',   -- 守护指环
-	'item_sobi_mask',            --贤者面罩
-	'item_branches',             -- 铁树枝干
-	'item_magic_stick',          -- 魔棒
-	'item_recipe_magic_wand',    -- 魔棒卷轴
-	'item_magic_wand',           -- 魔杖
-	'item_wind_lace',            -- 风灵之纹
-	'item_recipe_ring_of_basilius', -- 王者之戒卷轴
-	'item_ring_of_basilius',     -- 王者之戒
-	'item_quelling_blade',       -- 补刀斧
-	'item_blades_of_attack',     -- 攻击之爪
-	'item_chainmail',            -- 锁子甲
-	'item_lifesteal',            -- 吸血面具
-	'item_ogre_axe',             -- 食人魔之斧
-	'item_blade_of_alacrity',    -- 欢欣之刃
-	'item_staff_of_wizardry',    -- 魔力法杖
-	'item_claymore',             -- 大剑
-	'item_mithril_hammer',       -- 秘银锤
+	'item_orb_of_venom',    -- 淬毒之珠
+	'item_slippers',        -- 敏捷便靴
+	'item_mantle',          -- 智力斗篷
+	'item_gauntlets',       -- 力量手套
+	'item_circlet',         -- 圆环
+	'item_ring_of_protection', -- 守护指环
+	'item_sobi_mask',       --贤者面罩
+	'item_branches',        -- 铁树枝干
+	'item_magic_stick',     -- 魔棒
+	'item_magic_wand',      -- 魔杖
+	'item_wind_lace',       -- 风灵之纹
+	'item_ring_of_basilius', -- 王者之戒
+	'item_quelling_blade',  -- 补刀斧
+	'item_blades_of_attack', -- 攻击之爪
+	'item_chainmail',       -- 锁子甲
+	'item_lifesteal',       -- 吸血面具
+	'item_ogre_axe',        -- 食人魔之斧
+	'item_blade_of_alacrity', -- 欢欣之刃
+	'item_staff_of_wizardry', -- 魔力法杖
+	'item_claymore',        -- 大剑
+	'item_mithril_hammer',  -- 秘银锤
 
 	-- 消耗品
 	'item_tango_single',
@@ -1400,6 +1306,7 @@ tBotItemData.sellItemCommonList = {
 	'item_hand_of_midas', -- 点金手
 	'item_aether_lens',  -- 以太透镜
 	'item_dragon_lance', -- 魔龙枪
+	'item_aether_lens_2', -- 以太透镜2
 
 
 	-- 高级道具

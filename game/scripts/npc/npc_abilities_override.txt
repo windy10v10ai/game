@@ -4097,15 +4097,14 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-				"bonus_armor"				"10 17 24 31"
+				"bonus_armor"				"10 20 30 40"
 				"bonus_damage"
 				{
 					"value"					"60 120 180 240"
 				}
 				"attack_speed_reduction"
 				{
-					"value"		"-40"	// 30
-					"special_bonus_unique_tiny_6" "+20"	// 8 完全体数值不变，破坏前期物理小小节奏，变相加强法系
+					"value"		"-20"	// 30
 				}
 				"toss_bonus_damage"
 				{
