@@ -264,14 +264,24 @@ end
 -- return true if sell
 local function SellItemFromTable(hHero, iPurchaseTable)
   for k, vName in ipairs(iPurchaseTable) do
-    local iCost = math.floor(GetItemCost(vName) / 2)
     local sellItem = BotThink:FindItemByNameIncludeStash(hHero, vName)
     if sellItem then
-      -- hHero:RemoveItem(sellItem)
+      local iCost = math.floor(GetItemCost(vName) / 2)
       UTIL_RemoveImmediate(sellItem)
       PlayerResource:ModifyGold(hHero:GetPlayerID(), iCost, true, DOTA_ModifyGold_SellItem)
       return true
     end
+  end
+  return false
+end
+
+local function SellItem(hHero, vName)
+  local sellItem = BotThink:FindItemByNameIncludeStash(hHero, vName)
+  if sellItem then
+    local iCost = math.floor(GetItemCost(vName) / 2)
+    UTIL_RemoveImmediate(sellItem)
+    PlayerResource:ModifyGold(hHero:GetPlayerID(), iCost, true, DOTA_ModifyGold_SellItem)
+    return true
   end
   return false
 end
@@ -340,6 +350,24 @@ function BotThink:ThinkSell(hHero)
   local iItemCount = hHero:GetNumItemsInInventory()
   if iItemCount <= 7 then
     return
+  end
+
+  -- 如果有魔晶 并且有魔晶buff 则出售
+  local shardName = "item_aghanims_shard"
+  local sellItem = BotThink:FindItemByNameIncludeStash(hHero, shardName)
+  if sellItem and hHero:HasModifier("modifier_item_aghanims_shard") then
+    SellItem(hHero, shardName)
+  end
+
+  -- 如果物品名称包含recipt 则出售
+  for i = 0, 8 do
+    local hItem = hHero:GetItemInSlot(i)
+    if hItem then
+      local itemName = hItem:GetName()
+      if string.find(itemName, "recipe") then
+        SellItem(hHero, itemName)
+      end
+    end
   end
 
   local sellItemCommonList = tBotItemData.sellItemCommonList
