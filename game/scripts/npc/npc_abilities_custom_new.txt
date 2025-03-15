@@ -1,5 +1,131 @@
 "DOTAAbilities"
 {
+	//猛犸 顶
+	"magnataur_horn_toss2"
+	{
+		"BaseClass"						"magnataur_horn_toss"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"IsGrantedByScepter"			"0"
+		"MaxLevel"						"5"
+
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_magnataur/magnataur_horn_toss.vpcf"
+			"particle"					"particles/units/heroes/hero_magnataur/magnataur_horn_toss_debuff.vpcf"
+			"particle"					"particles/units/heroes/hero_magnataur/magnataur_horn_toss_debuff_flash.vpcf"
+			"particle"					"particles/units/heroes/hero_magnataur/magnataur_horn_toss_glow.vpcf"
+			"particle"					"particles/units/heroes/hero_magnataur/magnataur_horn_toss_horn_explode.vpcf"
+			"particle"					"particles/units/heroes/hero_magnataur/magnataur_horn_toss_land.vpcf"
+			"particle"					"particles/units/heroes/hero_magnataur/magnataur_horn_toss_land_rings.vpcf"
+		}
+
+		"AbilityManaCost"				"100"
+		"AbilityCooldown"				"16 14 12 10 8"
+
+		"AbilityValues"
+		{
+			"damage"		"100 150 200 250 300"
+			"radius"
+			{
+				"value"			"325"
+				"affected_by_aoe_increase"	"1"
+			}
+			"air_duration"		"0.6"
+			"air_height"		"300"
+			"slow_duration"		"2"
+			"pull_offset"		"75"
+			"destination_offset"		"175"
+			"pull_angle"				"230"
+			"horn_toss_slow_pct"		"100"
+			"stun_duration"		"0.75"
+		}
+	}
+	//火女 飞
+	"lina_flame_cloak2"
+	{
+		"BaseClass"						"lina_flame_cloak"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"IsGrantedByScepter"			"0"
+		"MaxLevel"						"5"
+
+		"AbilityCooldown"				"25"
+		"AbilityManaCost"				"50 75 100 125 150"
+
+		"AbilityValues"
+		{
+			"flame_cloak_duration"				"8"
+			"magic_resistance"					"15 20 25 30 35"
+			"spell_amp"							"10 20 30 40 50"
+			"visualzdelta"						"100"
+			"zchangespeed"						"350"
+		}
+	}
+
+	//虚空 回到过去
+	"faceless_void_backtrack2"
+	{
+		"BaseClass"						"faceless_void_backtrack"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"5"
+
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_faceless_void/faceless_void_backtrack.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"dodge_chance_pct"		"10 15 20 25 30"
+		}
+	}
+	//小鹿 跳
+	"enchantress_bunny_hop2"
+	{
+		"BaseClass"						"enchantress_bunny_hop"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"enchantress_bunny_hop"
+		"IsGrantedByShard"			"0"
+		"IsOnCastBar"			"1"
+		"MaxLevel"		"5"
+
+		"AbilityCooldown"				"13 11 9 7 5"
+		"AbilityManaCost"				"50"
+
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_enchantress/ench_sproink.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"hop_distance"				"500"
+			"hop_duration"				"0.4"
+			"hop_height"				"150"
+			"attack_targets"			"2"
+			"bonus_attack_range"		"200"
+		}
+	}
+	//人马 不屈
+	"centaur_sturdy"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/centaur_sturdy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"centaur/berserkers_edge/centaur_double_edge"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"status"					"15 20 25 30 35"
+			"strength"					"10 20 30 40 50"
+		}
+	}
 	//幽鬼 折射 旧版
 	"spectre_dispersion2"
 	{

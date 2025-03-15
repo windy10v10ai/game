@@ -460,6 +460,35 @@
 		//
 		///////////////////////////////////////////////////
 
+		//长角抛物
+		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend %air_duration% seconds in the air, and are stunned while in the air and an additional amount of time after landing."
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_air_duration"			        "AIR DURATION:"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_damage"   			        "DAMAGE:"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_stun_duration"   			        "STUN DURATION:"
+		//虚空  回到过去
+		"DOTA_Tooltip_ability_faceless_void_backtrack2"				"backtrack"
+		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"Faceless Void has %backtrack_per_level%%% chance per level to dodge each instance of damage he receives."
+		//腾焰斗篷
+		"DOTA_Tooltip_ability_lina_flame_cloak2"											"Flame Cloak"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"									"A natural defense equally suited to keeping anything from unwanted sisters to snarling hellbeasts at bay."
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"								"Grants Lina unobstructed movement and increases her spell damage and magic resistance. Grants max fiery soul stacks on activation."
+		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"DURATION:"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%SPELL AMP:"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%MAGIC RESISTANCE:"
+		//跃动
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2"									"Sproink"
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Description"						"Leaps backward, dodges incoming projectiles, and launches an Impetus attack on the %attack_targets% furthest enemy units within Enchantress' attack range + %bonus_attack_range%."
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Lore"							    "Sproink is as Sproink does."
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_hop_distance"						"LEAP DISTANCE:"
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_attack_targets"						"TARGETS:"
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_bonus_attack_range"					"BONUS RANGE:"
+		//人马 不屈
+		"DOTA_Tooltip_ability_centaur_sturdy"							"sturdy"
+		"DOTA_Tooltip_ability_centaur_sturdy_Description"				"Increase state resistance and strength"
+		"DOTA_Tooltip_ability_centaur_sturdy_strength"					"strength:"
+		"DOTA_Tooltip_ability_centaur_sturdy_status"					"state resistance:"
+
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"					"Dispersion (old)"
 		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"Dispersion will also provide %damage_reduction%%% damage reduction when not reflected."

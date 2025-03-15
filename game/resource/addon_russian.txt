@@ -297,6 +297,116 @@
 		//
 		///////////////////////////////////////////////////
 
+		//长角抛物
+		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "Герой перебрасывает врагов через себя, нанося им урон. Они летят %air_duration% сек. и оглушаются во время полёта и по приземлении."
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_air_duration"			        "ДЛИТЕЛЬНОСТЬ ПОЛЁТА:"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_damage"   			        "УРОН:"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_stun_duration"   			        "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		//虚空  回到过去
+		"DOTA_Tooltip_ability_faceless_void_backtrack2"				"backtrack"
+		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"%backtrack_per_level%%% шанс избежать урона"
+		//腾焰斗篷
+		"DOTA_Tooltip_ability_lina_flame_cloak2"											"Flame Cloak"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"									"Врождённая защита от настырных сестёр и зубастых тварей."
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"								"Дарует герою беспрепятственное передвижение. Увеличивает его урон от заклинаний и сопротивление магии. Применение даёт владельцу максимум эффектов способности Fiery Soul."
+		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%ДОП. УРОН ОТ ЗАКЛИНАНИЙ:"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%СОПРОТИВЛЕНИЕ МАГИИ:"
+		//跃动
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2"									"Sproink"
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Description"						"Герой отскакивает назад, уворачиваясь от летящих в него снарядов, и запускает копья с эффектом Impetus в самых отдалённых врагов в радиусе своей атаки + %bonus_attack_range%. Число целей: %attack_targets%."
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Lore"							    "Вот так прыг да скок."
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_hop_distance"						"ДАЛЬНОСТЬ СКАЧКА:"
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_attack_targets"						"ЧИСЛО ЦЕЛЕЙ:"
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_bonus_attack_range"					"ДОП. ДАЛЬНОСТЬ АТАКИ:"
+
+		//人马 不屈
+		"DOTA_Tooltip_ability_centaur_sturdy"                            "sturdy"
+        "DOTA_Tooltip_ability_centaur_sturdy_Description"                "Увеличивает сопротивление эффектам и силу. "
+        "DOTA_Tooltip_ability_centaur_sturdy_strength"                    "Сила: "
+        "DOTA_Tooltip_ability_centaur_sturdy_status"                    "Сопротивление эффектам: "
+		//折射2
+		"DOTA_Tooltip_ability_spectre_dispersion2"					"dispersion(old)"
+		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"Dispersion также предоставляет %damage_reduction%%% снижения урона, когда урон не отражается."
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"При получении урона есть %reflexion_chance%%% шанс стать невосприимчивым и отразить урон."
+		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%Шанс отражения урона:"
+		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%Процент отражения повреждений："
+		"DOTA_Tooltip_ability_spectre_dispersion2_damage"			"Дополнительный ущерб："
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Преломленное повреждение имеет тот же тип, что и первоначальное повреждение."
+
+		//贪魔的贪婪
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"Позволяет синтезировать больше золота из врагов и рун. Дополнительное золото за убийство существ состоит из начального бонуса и нарастающего, который увеличивается с каждым существом, убитым в течение %duration% сек. после предыдущего. Также способность умножает золото от рун богатства."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_abilitydraft_note"			"В этом режиме возможность расплавить Aghanim's Scepter, чтобы передать союзному герою все его улучшения, привязана к способности Greevil's Greed, а не Chemical Rage. Сам предмет дарует герою дополнительный урон от атак и заклинаний за каждый расплавленный для союзников Aghanim's Scepter."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"							"Пускай эксперимент с горой и не удался, зато структуры поменьше Раззил легко обращает в звонкую монету."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"						"МАКС. ИНТЕРВАЛ УБИЙСТВ:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold"					"НАЧАЛЬНЫЙ БОНУС:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"НАРАСТАЮЩИЙ БОНУС:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"МАКСИМУМ ДОП. ЗОЛОТА:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"МНОЖИТЕЛЬ РУН БОГАТСТВА:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"Бонус атаки за слой："
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"Улучшение денежного вознаграждения："
+
+		//普通一拳
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"Normal Punch"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Следующая атака по вражескому герою не промахнётся, создаст его копию от способности Wall of Replica, нанесёт дополнительный урон, а также оглушит и оттолкнёт его. Сила эффекта зависит от того, какое расстояние владелец способности преодолел за %recent_duration% сек. до атаки. Максимальный эффект достигается при расстоянии в %max_distance%."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"МАКС. ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"МАКС. ДАЛЬНОСТЬ ТОЛЧКА:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"					"ВРЕМЯ ЖИЗНИ КОПИИ:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"МАКСИМАЛЬНЫЙ УРОН:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"ad ставка："
+		//战鼓
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2"					"Drums of Slom"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_Lore"				"Ярость природы безвременна, и посвящённым в её секреты несложно пробудить эхо гнева, возликовавшего при крахе Слома."
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_Description"			"Когда владелец способности или его существа неподалёку атакуют, он бьёт в барабан, нанося урон врагам вокруг и излечивая владельца и его существ на долю от нанесённого урона. Каждая совершённая атака уменьшает интервал между ударами — вплоть до %min_drum_hit_interval% сек. после %max_stacks% атак. Если атаки не происходят, интервал постепенно возрастает.<br><br>Применение способности Primal Roar считается за 10/15/20 атак в зависимости от её уровня."
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_max_drum_hit_interval"	"МАКСИМАЛЬНЫЙ ИНТЕРВАЛ:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_min_drum_hit_interval"	"МИНИМАЛЬНЫЙ ИНТЕРВАЛ:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_max_stacks"				"АТАК ДЛЯ МИНИМАЛЬНОГО ИНТЕРВАЛА:"
+
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_base_damage"			"УРОН ОТ УДАРА:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_radius"					"РАДИУС:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_heal_pct"					"%ЛЕЧЕНИЕ ОТ УРОНА ГЕРОЯМ:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_creep_heal_pct"					"%ЛЕЧЕНИЕ ОТ УРОНА КРИПАМ:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_stop"				"Остановить Drums of Slom"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_stop_Description"	"Прервать применение способности Drums of Slom"
+		//妙手空空
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"Cutpurse"
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Герой крадёт золото у вражеских героев, ставших целью его способности или предмета."
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"ПОХИЩЕНИЕ ЗОЛОТА:"
+
+
+		//神龙之血
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"								"Dragon Blood"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"					"Текущая в жилах героя кровь дракона усиливает его восстановление здоровья и броню. Эти бонусы увеличиваются на %level_mult% за каждый уровень героя и умножаются в облике дракона."
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"			"ВОССТАНОВЛЕНИЕ ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"					"БРОНЯ:"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_regen_and_armor_multiplier_during_dragon_form"			"МНОЖИТЕЛЬ В ОБЛИКЕ ДРАКОНА:"
+		//才思敏捷
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"				"Quick Wit"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"	"Интеллект также увеличивает скорость атаки этого героя."
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Note0"		"Каждая единица интеллекта увеличивает скорость атаки героя на %int_to_atkspd%."
+		//炽烈火雨
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"Burning Barrage"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"ПРЕРЫВАЕМАЯ — герой выпускает залп стрел в выбранном направлении. Они пролетают сквозь всех врагов на пути, нанося им долю от обычного урона, а также накладывая эффекты атаки и замедление от способности Tar Bomb."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Lore"										"Трудно сказать, вызвано ли дрожание воздуха вокруг костяного лучника жаром его раскалённого сердца или скоростью, с которой он достаёт стрелы из колчана."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Note0"										"Дальность применения способности увеличивается с дальностью атаки."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_abilitychanneltime"						"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"								"ЧИСЛО СТРЕЛ:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"										"ДАЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%УРОН ОТ АТАКИ:"
+		//冰爆
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"ice_explosion"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Увеличивает скорость атаки на %attack_speed% и имеет 35% шанс вызвать ледяной взрыв, который поразит случайную область, нанося урон и замедляя игрока на 1 секунду."
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"повреждать："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"ad ставка："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"Случайный диапазон："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"Диапазон повреждений от ледяного взрыва："
+		//诅咒之雨
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"dazzle_rain_of_vermin"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Наносит постоянный урон области, с вероятностью 12% превращая ее в цыплят."
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"повреждать："
+
 		//全才
 		"DOTA_Tooltip_ability_viper_universal_hero"						"Универсальный атрибут"
 		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"Сменить атрибут на универсальный"

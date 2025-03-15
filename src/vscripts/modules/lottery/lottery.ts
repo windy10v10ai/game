@@ -1,6 +1,4 @@
-import { Analytic } from '../../api/analytics/analytics';
 import { reloadable } from '../../utils/tstl-utils';
-import { GameConfig } from '../GameConfig';
 import { NetTableHelper } from '../helper/net-table-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { abilityTiersActive, abilityTiersPassive } from './lottery-abilities';
@@ -114,15 +112,15 @@ export class Lottery {
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
 
     // 发送分析事件
-    Analytic.SendPickAbilityEvent({
-      steamId: PlayerResource.GetSteamAccountID(event.PlayerID),
-      matchId: GameRules.Script_GetMatchID().toString(),
-      name: event.name,
-      type: abilityType,
-      level: event.level,
-      difficulty: GameRules.Option.gameDifficulty,
-      version: GameConfig.GAME_VERSION,
-    });
+    // Analytic.SendPickAbilityEvent({
+    //   steamId: PlayerResource.GetSteamAccountID(event.PlayerID),
+    //   matchId: GameRules.Script_GetMatchID().toString(),
+    //   name: event.name,
+    //   type: abilityType,
+    //   level: event.level,
+    //   difficulty: GameRules.Option.gameDifficulty,
+    //   version: GameConfig.GAME_VERSION,
+    // });
   }
 
   // ---- 刷新 ----
