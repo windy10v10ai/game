@@ -1,5 +1,8 @@
 name: Create Release PR
 on:
+  push:
+    branches:
+      - develop
   workflow_dispatch:
     inputs:
       version:
@@ -54,51 +57,48 @@ jobs:
           git fetch origin develop:develop
           git reset --hard develop
 
-      - name: Print version
-        run: 'echo "Version: ${{ steps.version.outputs.version }}"'
+      - name: Check if PR exist_pr_number
+        id: check_pr
+        run: |
+          pr_number=$(gh pr list --base main --head develop --json number -q '.[0].number')
+          echo exist_pr_number=$pr_number >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Check if PR exist_pr_number
-      #   id: check_pr
-      #   run: |
-      #     pr_number=$(gh pr list --base main --head develop --json number -q '.[0].number')
-      #     echo exist_pr_number=$pr_number >> $GITHUB_OUTPUT
-      #   env:
-      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Pull Request
+        id: cpr
+        if: steps.check_pr.outputs.exists == ''
+        uses: peter-evans/create-pull-request@v7
+        with:
+          title: ${{ steps.version.outputs.version }}
+          body: |
+            ## Checklist
 
-      # - name: Create Pull Request
-      #   id: cpr
-      #   if: steps.check_pr.outputs.exists == ''
-      #   uses: peter-evans/create-pull-request@v7
-      #   with:
-      #     title: ${{ steps.version.outputs.version }}
-      #     body: |
-      #       ## Checklist
+            - [ ] 更新游戏版本号
 
-      #       - [ ] 更新游戏版本号
+            ## Release Note
 
-      #       ## Release Note
+            [b]游戏性更新 ${{ steps.version.outputs.version }}[/b]
 
-      #       [b]游戏性更新 ${{ steps.version.outputs.version }}[/b]
+            修正一些bug和平衡性改动。
 
-      #       修正一些bug和平衡性改动。
+            [b]Gameplay update ${{ steps.version.outputs.version }}[/b]
 
-      #       [b]Gameplay update ${{ steps.version.outputs.version }}[/b]
+            Fixed some bugs and balance.
+          branch: develop
+          base: main
+          reviewers: windybirth
+          labels: release
+          draft: true
 
-      #       Fixed some bugs and balance.
-      #     branch: develop
-      #     base: main
-      #     reviewers: windybirth
-      #     labels: release
-      #     draft: true
+      - name: Ready Pull Request
+        run: gh pr ready ${{ steps.cpr.outputs.pull-request-number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.WINDY_PR_PAT }}
 
-      # - name: Ready Pull Request
-      #   run: gh pr ready ${{ steps.cpr.outputs.pull-request-number }}
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.WINDY_PR_PAT }}
-
-      # - name: Enable Pull Request Automerge
-      #   uses: peter-evans/enable-pull-request-automerge@v3
-      #   with:
-      #     token: ${{ secrets.WINDY_PR_PAT }}
-      #     pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-      #     merge-method: merge
+      - name: Enable Pull Request Automerge
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.WINDY_PR_PAT }}
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: merge
