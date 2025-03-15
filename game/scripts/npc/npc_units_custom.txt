@@ -1,5 +1,6 @@
 #base "npc_units_building.txt"
 #base "npc_units_creep.txt"
+#base "npc_units_neutral.txt"
 
 "DOTAUnits"
 {
@@ -132,6 +133,20 @@
 		"StatusHealthRegen"			"50"		// Health regeneration rate.
 	}
 
+	// 假眼
+	"npc_dota_observer_wards"
+	{
+		"BountyXP"					"150"		// 100
+		"BountyGoldMin"				"150"		// 100
+		"BountyGoldMax"				"150"		// 100
+	}
+	// 真眼
+	"npc_dota_sentry_wards"
+	{
+		"BountyXP"					"50"		// 0
+		"BountyGoldMin"				"50"		// 0
+		"BountyGoldMax"				"50"		// 0
+	}
 
 	//=================================================================================
 	// 召唤物
@@ -475,8 +490,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"250"			// 50
-		"AttackDamageMax"			"250"			// 50
+		"AttackDamageMin"			"200"			// 50
+		"AttackDamageMax"			"200"			// 50
 		"AttackRate"				"1.0"			// 1.5
 	}
 
@@ -486,8 +501,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"500"			// 85
-		"AttackDamageMax"			"500"			// 85
+		"AttackDamageMin"			"400"			// 85
+		"AttackDamageMax"			"400"			// 85
 		"AttackRate"				"1.0"			// 1.5
 	}
 
@@ -497,8 +512,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"800"			// 120
-		"AttackDamageMax"			"800"			// 120
+		"AttackDamageMin"			"600"			// 120
+		"AttackDamageMax"			"600"			// 120
 		"AttackRate"				"1.0"			// 1.5
 	}
 
@@ -792,6 +807,7 @@
 
     }
 
+	// 谜团
     "npc_dota_dire_eidolon"
     {
         "include_keys_from" "npc_dota_lesser_eidolon"
@@ -803,13 +819,6 @@
 
         "StatusHealth"				"900"		// 240
         "AttackRange"				"650"		// 500
-    }
-
-    "npc_dota_sentry_wards"
-    {
-        "BountyXP"					"10"			// Experience earn.
-        "BountyGoldMin"				"10"		// Gold earned min.
-        "BountyGoldMax"				"10"		// Gold earned max.
     }
 
     "npc_dota_furion_treant_1"

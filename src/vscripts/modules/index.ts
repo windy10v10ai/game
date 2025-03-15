@@ -1,4 +1,5 @@
 import { AI } from '../ai/AI';
+import { Player } from '../api/player';
 import { GameConfig } from './GameConfig';
 import { Debug } from './debug/Debug';
 import { Event } from './event/event';
@@ -33,6 +34,8 @@ export function ActivateModules() {
     new PropertyController();
 
     new GoldXPFilter();
+
+    new Player();
   }
 
   if (GameRules.AI == null) GameRules.AI = new AI();

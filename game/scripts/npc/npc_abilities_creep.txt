@@ -10,13 +10,13 @@
 		"AbilityValues"
 		{
 			"max_level"				"60"	// 30
-			"increase_time"			"150"	// 450
+			"increase_time"			"120"	// 450
 			"increase_damage"		"6"		// 3
-			"increase_aspd"			"8"		// 5
-			"increase_health"		"80"	// 30
+			"increase_aspd"			"10"	// 5
+			"increase_health"		"60"	// 30
 			"increase_armor"		"1"		// 0.5
-			"increase_gold"			"5"		// 1
-			"increase_xp"			"12"	// 5
+			"increase_gold"			"2"		// 1
+			"increase_xp"			"10"	// 5
 		}
 	}
 
@@ -29,7 +29,7 @@
 		{
 				"bonus_building_damage"		"200"			// 150
 				"incoming_hero_damage_penalty"		"-60"	// -50
-				"incoming_basic_damage_penalty"		"30"	// -30
+				"incoming_basic_damage_penalty"		"20"	// -30
 				"incoming_controlled_unit_penalty"	"-40"	// -40
 		}
 	}
@@ -47,7 +47,7 @@
 			}
 			"regen_rate"
 			{
-				"value" "5000"	// 90
+				"value" "9000"	// 90
 			}
 		}
 	}
@@ -64,14 +64,66 @@
 			}
 			"regen_rate"
 			{
-				"value" "5000"	// 90
+				"value" "9000"	// 90
 			}
 		}
 	}
 
 	//=================================================================================================================
+	// Ability: Ability Capture 激活前哨
+	//=================================================================================================================
+	"ability_capture"
+	{
+		"AbilityCastRange"				"300"		// 300
+		"AbilityValues"
+		{
+				"base_capture_time"			"3.0"	// 6.0
+				"ally_exponent"				"0.5"	// 1.0
+		}
+	}
+	//=================================================================================================================
+	// Ability: Ability Capture 激活观察者
+	//=================================================================================================================
+	"ability_lamp_use"
+	{
+		"AbilityCastRange"				"300"	// 300
+		"AbilityChannelTime"			"1.0"		// 1.5
+
+		"AbilityValues"
+		{
+			"active_duration"		"600"		// 420
+			"inactive_duration"		"120"		// 120
+			"duration"				"600"		// 420
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Twin Gate Portal Warp 双生之门传送
+	//=================================================================================================================
+	"twin_gate_portal_warp"
+	{
+		"AbilityChannelTime"			"2.0"	// 4.0
+		"AbilityManaCost"				"75"
+	}
+
+
+	//=================================================================================================================
 	// Roshan 肉山
 	//=================================================================================================================
+
+	// 复仇咆哮
+	"roshan_revengeroar"
+	{
+		"AbilityCooldown"				"15.0"		// 20.0
+		"AbilityValues"
+		{
+			"damage"			"500"				// 50
+			"damage_pct"		"50"				// 25
+			"duration"			"8"					// 8
+			"damage_growth"		"100"				// 10
+			"disarm_duration"	"4"					// 2
+		}
+	}
 	// Slam 震击
 	"roshan_slam"
 	{
@@ -99,19 +151,39 @@
 			}
 		}
 	}
-	// 复仇咆哮
-	"roshan_revengeroar"
+	// Roshan: Bash 重击
+	"roshan_bash"
 	{
-		"AbilityCooldown"				"15.0"		// 20.0
 		"AbilityValues"
 		{
-			"damage"			"150"				// 50
-			"damage_pct"		"25"				// 25
-			"duration"			"8"					// 8
-			"damage_growth"		"30"				// 10
+			"bonus_damage"
+			{
+				"value" "150"					// 50
+			}
+			"stun_duration"
+			{
+				"value" "2.0"					// 1.65
+			}
 		}
 	}
-
+	// Roshan: Grab+Throw 扔出
+	"roshan_grab_and_throw"
+	{
+		"AbilityCastRange"				"600"		// 300
+		"AbilityCooldown"				"1"
+		"AbilityValues"
+		{
+			"cast_range"				"600"		// 300
+			"damage"					"500"		// 200
+			"damage_per_combo"			"500"		// 100
+			"damage_growth_curr_hp_pct"
+			{
+				"value"		"1"						// 0.5
+			}
+			// stun duration upon landing from throw
+			"stun_duration"				"3.0"		// 1.0
+		}
+	}
 	//=================================================================================================================
 	// Creep Neutral Abilities 中立单位技能
 	//=================================================================================================================

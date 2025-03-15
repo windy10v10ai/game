@@ -53,26 +53,6 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
-        -- player info all
-        if sChatMsg:find('^-player info all$') then
-            for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-                if PlayerResource:IsValidPlayerID(playerID) and
-                    PlayerResource:IsValidPlayer(playerID) and
-                    PlayerResource:GetSelectedHeroEntity(playerID) then
-                    if PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
-                        local hero = PlayerResource:GetSelectedHeroEntity(
-                            playerID)
-                        local playerName =
-                            PlayerResource:GetPlayerName(playerID)
-                        local heroName = hero:GetUnitName()
-                        Printf("玩家:" .. playerName .. " playerID:" ..
-                            playerID .. " 英雄:" .. heroName)
-                    end
-                end
-            end
-            return
-        end
-
         if sChatMsg:find('^-item all .+') then
             local item = sChatMsg:sub(11)
             Printf("开发者:" .. developerSteamAccountID[steamAccountID] ..
@@ -136,29 +116,6 @@ function AIGameMode:OnPlayerChat(event)
             return
         end
 
-        if sChatMsg:find('^-add datadriven modifier all .+') then
-            local modifier = sChatMsg:sub(30)
-            Printf("开发者:" .. developerSteamAccountID[steamAccountID] ..
-                " 给所有人添加modifier:" .. modifier)
-            -- give all player item
-            removeAllPlayerModifiers()
-            local tAllHeroes = FindUnitsInRadius(DOTA_TEAM_NOTEAM,
-                Vector(0, 0, 0), nil, 99999,
-                DOTA_UNIT_TARGET_TEAM_BOTH,
-                DOTA_UNIT_TARGET_HERO,
-                DOTA_UNIT_TARGET_FLAG_NONE,
-                FIND_ANY_ORDER, false)
-            for _, hero in pairs(tAllHeroes) do
-                -- loop 100 times
-                local modifierItem = CreateItem("item_player_modifiers", nil,
-                    nil)
-                modifierItem:ApplyDataDrivenModifier(hero, hero, modifier,
-                    { duration = -1 })
-                UTIL_RemoveImmediate(modifierItem)
-            end
-            return
-        end
-
         -- remove all modifier
         if sChatMsg:find('^-remove player modifier') then
             Printf("开发者:" .. developerSteamAccountID[steamAccountID] ..
@@ -188,38 +145,6 @@ function AIGameMode:OnPlayerChat(event)
         if sChatMsg:find('^-hploss$') then
             local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
             hHero:SetHealth(hHero:GetHealth() * 0.1)
-            return
-        end
-
-        if sChatMsg:find('^-postgame$') then
-            print("[AIGameMode] SendEndGameInfo POST_GAME")
-            local endData = AIGameMode:EndScreenStats(2, true)
-            GameController:SendEndGameInfo(endData)
-            return
-        end
-
-        if sChatMsg:find('^-f$') then
-            local hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-            LinkLuaModifier("modifier_wtf", "modifiers/test/modifier_wtf.lua",
-                LUA_MODIFIER_MOTION_NONE)
-            if hHero:HasModifier("modifier_wtf") then
-                hHero:RemoveModifierByName("modifier_wtf")
-            else
-                hHero:AddNewModifier(hHero, nil, "modifier_wtf",
-                    { duration = 3600 })
-            end
-            return
-        end
-
-        if sChatMsg:find('^-cg$') then
-            local totalMemory = collectgarbage("count");
-            Printf("内存占用: " .. math.floor(totalMemory) .. " kb")
-            return
-        end
-        if sChatMsg:find('^-cg .+') then
-            local opt = sChatMsg:sub(5)
-            local result = collectgarbage(opt);
-            Printf(result)
             return
         end
     end

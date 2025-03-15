@@ -178,7 +178,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"80"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"100"
 				}
 			}
 			"modifier_item_shotgun_stats"
@@ -191,7 +191,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"25"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"70"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"40"
 				}
 			}
 			"modifier_item_shotgun_v2_stats"
@@ -204,7 +204,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"50"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"70"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"130"
 				}
 			}
 			// 阿迪王
@@ -930,6 +930,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"100"
 				}
 			}
+			// 会员BUFF
 			"modifier_global_member"
 			{
 				"Passive"				"1"
@@ -945,6 +946,38 @@
 					"MODIFIER_PROPERTY_MANA_BONUS"					"200"
 				}
 			}
+			// 新手BUFF
+			"modifier_global_newbie"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"RemoveOnDeath"			"0"
+				"TextureName"			"newbie"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"100"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"500"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"20"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"10"
+				}
+			}
+			"modifier_global_newbie_2"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"RemoveOnDeath"			"0"
+				"TextureName"			"newbie"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"50"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"250"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"10"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"5"
+				}
+			}
+			// 近战BUFF
 			"modifier_global_melee_resistance"
 			{
 				"Passive"				"1"

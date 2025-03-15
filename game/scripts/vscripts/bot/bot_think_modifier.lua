@@ -25,7 +25,7 @@ function modifier_bot_think_item_use:OnIntervalThink()
 	if not self then return end
 
 	local hHero = self:GetParent()
-	if BotThink:IsControllable(hHero) then return end
+	if IsHeroUncontrollable(hHero) then return end
 
 	-- if ability is , do nothing
 	local hAbility1 = hHero:GetAbilityByIndex(0)
@@ -76,11 +76,11 @@ function modifier_bot_think_strategy:OnIntervalThink()
 
 	BotThink:AddMoney(hHero)
 
-	if BotThink:IsControllable(hHero) then return end
+	if IsHeroUncontrollable(hHero) then return end
 
 	BotThink:ThinkSell(hHero)
 	BotThink:ThinkPurchase(hHero)
-	BotThink:ThinkPurchaseNeutral(hHero, GameTime)
+	-- BotThink:ThinkPurchaseNeutral(hHero, GameTime)
 	BotThink:ThinkConsumeItem(hHero)
 
 	BotThink:PutWardObserver(hHero)
@@ -112,7 +112,7 @@ function modifier_bot_think_ward:OnIntervalThink()
 
 	local hHero = self:GetParent()
 	if hHero:IsNull() then return end
-	if BotThink:IsControllable(hHero) then return end
+	if IsHeroUncontrollable(hHero) then return end
 
 	BotThink:AddWardItem(hHero)
 end

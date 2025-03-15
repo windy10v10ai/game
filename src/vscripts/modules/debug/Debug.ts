@@ -1,4 +1,5 @@
 import { reloadable } from '../../utils/tstl-utils';
+import { GameEnd } from '../event/game-end/game-end';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { CMD } from './debug-cmd';
@@ -38,6 +39,50 @@ export class Debug {
     // commands that only work in debug mode below:
     if (!this.DebugEnabled) return;
 
+    // add ability by name
+    if (cmd === CMD.ADD_ABILITY) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const abilityName = args[0];
+      hero.AddAbility(abilityName);
+    }
+    if (cmd === CMD.ADD_ABILITY_ALL) {
+      PlayerHelper.ForEachPlayer((playerId) => {
+        if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) return;
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        const abilityName = args[0];
+        hero.AddAbility(abilityName);
+      });
+    }
+    if (cmd === CMD.RM_ITEM) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const itemName = args[0];
+      const item = hero.FindItemInInventory(itemName);
+      UTIL_RemoveImmediate(item);
+    }
+    if (cmd === CMD.REPLACE_NEUTRAL_ITEM) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const item = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
+      if (item) {
+        UTIL_RemoveImmediate(item);
+      }
+      const itemName = args[0];
+      hero.AddItemByName(itemName);
+    }
+    if (cmd === CMD.REPLACE_ENHANCE_ITEM) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const item = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
+      if (item) {
+        UTIL_RemoveImmediate(item);
+      }
+      const itemName = args[0];
+      hero.AddItemByName(itemName);
+    }
+
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
@@ -65,8 +110,8 @@ export class Debug {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
       // 获得金钱经验技能升满
-      hero.SetGold(99999, false);
-      hero.AddExperience(100000, ModifyXpReason.UNSPECIFIED, false, true);
+      hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
+      hero.AddExperience(99999, ModifyXpReason.UNSPECIFIED, false, true);
       // refresh teleport
       hero.GetItemInSlot(15)?.EndCooldown();
     }
@@ -77,19 +122,20 @@ export class Debug {
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
         if (!hero) return;
         // 获得金钱经验技能升满
-        hero.SetGold(40000, false);
-        hero.AddExperience(40000, ModifyXpReason.UNSPECIFIED, false, true);
+        hero.ModifyGold(60000, false, ModifyGoldReason.UNSPECIFIED);
+        hero.AddExperience(60000, ModifyXpReason.UNSPECIFIED, false, true);
       });
     }
 
     if (cmd === CMD.L_ALL) {
-      // loop 35 times time 1s
-      for (let i = 0; i < 35; i++) {
-        Timers.CreateTimer(i, () => {
+      for (let i = 0; i < 30; i++) {
+        Timers.CreateTimer(i * 3, () => {
           PlayerHelper.ForEachPlayer((playerId) => {
             const hero = PlayerResource.GetSelectedHeroEntity(playerId);
             if (!hero) return;
+            // 升级 加钱
             hero.HeroLevelUp(true);
+            hero.ModifyGold(5000, false, ModifyGoldReason.UNSPECIFIED);
           });
         });
       }
@@ -97,6 +143,10 @@ export class Debug {
 
     if (cmd === CMD.LOTTERY) {
       GameRules.Lottery.initLotteryAll();
+    }
+
+    if (cmd === CMD.END) {
+      GameEnd.OnGameEnd(2);
     }
 
     if (cmd === CMD.REFRESH_AI) {
@@ -212,6 +262,20 @@ export class Debug {
         ability: undefined,
         damage_flags: DamageFlag.NONE,
       });
+    }
+    // 晕眩
+    if (cmd === CMD.STUN) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const duration = Number(args[0] || 5);
+      hero.AddNewModifier(hero, undefined, 'modifier_stunned', { duration });
+    }
+    // 沉默
+    if (cmd === CMD.SILENCE) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const duration = Number(args[0] || 5);
+      hero.AddNewModifier(hero, undefined, 'modifier_silence', { duration });
     }
   }
 

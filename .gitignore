@@ -5,15 +5,18 @@ node_modules
 # react output
 content/panorama/layout/custom_game/react
 
+# development output
 game/*.bin
 game/resource/custom_game_whitelist.txt
-game/maps/dota.vpk
+
+# Dota2 auto compiled output
+game/materials/overviews/
 
 # panorama auto compiled output
 game/panorama_debugger.cfg
 game/panorama/layout/custom_game/
 game/panorama/scripts/custom_game/
-game/panorama/styles/custom_game/
+game/panorama/styles/
 game/panorama/images/heroes/**/*.vxml_c
 game/panorama/images/custom_game/lottery
 
@@ -26,3 +29,6 @@ game/scripts/vscripts/server/
 game/scripts/vscripts/utils/
 game/scripts/vscripts/modifiers/property
 game/scripts/vscripts/modifiers/global
+
+#忽略
+game/.idea/

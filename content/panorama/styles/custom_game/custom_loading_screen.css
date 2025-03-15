@@ -16,7 +16,7 @@
 }
 
 #game_options_container {
-  width: 400px;
+  width: 450px;
   height: 76%;
   background-color: gradient(
     linear,
@@ -79,9 +79,51 @@
   horizontal-align: right;
 }
 
+#QQDiscordContainer {
+  width: 500px;
+  vertical-align: bottom;
+  margin-bottom: 60px;
+}
+
+#QQDiscordPanel,
+#QQPanel,
+#DiscordPanel {
+  flow-children: right;
+  margin: 0px 12px;
+}
+
+#QQQRCodeImage,
+#DiscordQRCodeImage {
+  width: 200px;
+  height: 260px;
+}
+
+#LinkButtonContainer {
+  width: 400px;
+  height: 250px;
+  vertical-align: bottom;
+  horizontal-align: center;
+  margin-bottom: 120px;
+}
+
+#DotaSurvivorPanel {
+  flow-children: down;
+
+  border-radius: 5px;
+  color: white;
+  box-shadow: 0px 2px 2px 1px #3c20da44;
+}
+#DotaSurvivorButton {
+  width: 100%;
+}
+
+#DotaSurvivorImage {
+  width: 100%;
+}
+
 #ChatHideButtonContainer {
   height: 32px;
-  width: 200px;
+  width: 260px;
   vertical-align: bottom;
   margin-bottom: 20px;
 }
@@ -131,7 +173,7 @@
 
 #display_options_container {
   margin-top: 20px;
-  margin-left: 400px;
+  margin-left: 450px;
   padding-left: 20px;
   height: 200px;
   flow-children: right;

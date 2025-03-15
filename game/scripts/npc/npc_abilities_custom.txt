@@ -1,11 +1,68 @@
+#base "npc_abilities_custom_new.txt"
+
 "DOTAAbilities"
 {
-	"bot_power"
+	"bot_power_n5"
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"IsBreakable"					"1"
 		"MaxLevel"						"10"
+		"RequiredLevel"					"5"
+		"LevelsBetweenUpgrades"			"5"
+
+		"AbilityTextureName"			"bot_power"
+
+		"AbilityValues"
+		{
+			// 攻击
+			"bonus_damage"				"5 10 15 20 25 30 35 40 45 50"
+			"bonus_attack_speed"		"5 10 15 20 25 30 35 40 45 50"
+			// 技能
+			"bonus_spell_amplify"		"5 10 15 20 25 30 35 40 45 50"
+			"bonus_cooldown"			"2 4 6 8 10 12 14 16 18 20"
+			// 防御
+			"bonus_move_speed"			"10 20 30 40 50 60 70 80 90 100"
+			// "bonus_armor"				"2 4 6 8 10 12 14 16 18 20"
+			// "bonus_magic_resistance"	"2 4 6 8 10 12 14 16 18 20"
+			// 全属性
+			// "bonus_attributes"			"5 10 15 20 25 30 35 40 45 50"
+		}
+
+		"Modifiers"
+		{
+			"modifier_bot_power"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"RemoveOnDeath"				"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%bonus_spell_amplify"
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"			"%bonus_cooldown"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_move_speed"
+					// "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
+					// "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_magic_resistance"
+					// "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_attributes"
+					// "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_attributes"
+					// "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_attributes"
+				}
+			}
+		}
+	}
+	"bot_power_n6"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"IsBreakable"					"1"
+		"MaxLevel"						"10"
+		"RequiredLevel"					"5"
+		"LevelsBetweenUpgrades"			"5"
 
 		"AbilityTextureName"			"bot_power"
 
@@ -16,13 +73,13 @@
 			"bonus_attack_speed"		"10 20 30 40 50 60 70 80 90 100"
 			// 技能
 			"bonus_spell_amplify"		"5 10 15 20 25 30 35 40 45 50"
-			"bonus_cooldown"			"12 14 16 18 20 22 24 26 28 30"
+			"bonus_cooldown"			"3 6 9 12 15 18 21 24 27 30"
 			// 防御
 			"bonus_move_speed"			"10 20 30 40 50 60 70 80 90 100"
-			"bonus_armor"				"2 4 6 8 10 12 14 16 18 20"
+			"bonus_armor"				"4 8 12 16 20 24 28 32 36 40"
 			"bonus_magic_resistance"	"5 10 15 20 25 30 35 40 45 50"
 			// 全属性
-			"bonus_attributes"			"5 10 15 20 25 30 35 40 45 50"
+			"bonus_attributes"			"10 20 30 40 50 60 70 80 90 100"
 		}
 
 		"Modifiers"
@@ -408,8 +465,7 @@
 				"bonus_reset_time_roshan"		"15"
 				"damage_per_stack"
 				{
-					"value"					"12 14 16 18 20 30"
-					"LinkedSpecialBonus"			"special_bonus_unique_ursa"
+					"value"						"5 10 15 20 25 30"
 				}
 		}
 	}
@@ -421,12 +477,11 @@
 		{
 			"attack_speed"
 			{
-				"value"		"10 14 18 22 26 30"
-				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_5"
+				"value"		"5 10 15 20 25 30"
 			}
 			"max_stacks"
 			{
-				"value"		"10"
+				"value"		"5"
 				"special_bonus_shard"	"+0"
 			}
 		}
@@ -448,7 +503,8 @@
 			"slow_duration"			"0.2"
 		}
 	}
-	"tower_shredder_reactive_armor" // 高地塔、四塔和基地加入活性护甲
+	// 基地活性护甲
+	"tower_shredder_reactive_armor"
 	{
 		"MaxLevel"						"6"
 		"BaseClass"     				"shredder_reactive_armor"
@@ -456,10 +512,10 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityValues"
 		{
-			"bonus_armor"				"1 2 3 4 5 10"
+			"bonus_armor"				"1 2 3 4 5 6"
 			"bonus_hp_regen"
 			{
-				"value"					"1 2 3 4 5 10"
+				"value"					"1 2 3 4 5 6"
 			}
 			"stack_limit"
 			{
@@ -471,7 +527,7 @@
 			}
 			"stacks_per_hero_attack"
 			{
-				"value"				"1 1 1 2 2 2" // 有利于高伤害攻击次数少短时间拆掉，不利于分身等手段的长时间一直磨
+				"value"				"1"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -1101,7 +1157,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
-	// 直感
+	// 直感 先天技能
 	"artoria_instinct"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
@@ -1585,8 +1641,8 @@
 			"manacost_pre_second"	"50 75 100 125 150"
 			"damage_per_second"
 			{
-				"value"					"100 175 250 325 400"
-				"special_bonus_unique_goku_1"	"+100"
+				"value"					"80 160 240 320 400"
+				"special_bonus_unique_goku_1"	"+80"
 			}
 			"dmg_tick"				"0.1"
 			"super_saiyan_damage_multiple"		"1.5"
@@ -1632,6 +1688,7 @@
 		}
 	}
 
+	// 界王拳
 	"goku_kaioken"
 	{
 		"BaseClass"					"ability_lua"
@@ -1805,22 +1862,22 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"ability_yukari_01"
 	{
-		"BaseClass"	"ability_lua"
+		"BaseClass"				"ability_lua"
 		"AbilityTextureName"	"yukari_01"
-		"ScriptFile"	"heroes/hero_yukari/yukari01"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
+		"ScriptFile"			"heroes/hero_yukari/yukari01"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"		"5"
-		"AbilityCastPoint"	"0.1"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"				"5"
+		"AbilityCastPoint"		"0.1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate"	"1.5"
-		"AbilityCooldown"	"9"
-		"AbilityManaCost"	"80 100 120 160 180"
-		"AbilityCastRange"	"%cast_range"
+		"AbilityCooldown"		"9"
+		"AbilityManaCost"		"80 100 120 160 180"
+		"AbilityCastRange"		"%cast_range"
 		"precache"
 		{
 			"particle"	"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
@@ -1831,12 +1888,12 @@
 		{
 			"damage"
 			{
-				"value"						"100 200 300 400 500"
+				"value"						"100 180 260 340 420"
 				"special_bonus_unique_yukari_01_damage"	"+100"
 			}
 			"stun_duration"
 			{
-				"value"						"0.7"
+				"value"						"1.2"
 				"special_bonus_unique_yukari_01_stun" "+0.8"
 			}
 			"speed"			"1200"
@@ -1864,6 +1921,7 @@
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
 
+	// 静观其变之眼
 	"yukari_tentacles"
 	{
 		"BaseClass"				"ability_lua"
@@ -1886,8 +1944,11 @@
 		"AbilityCooldown"	"20 19 18 17 16"
 		"AbilityManaCost"	"100 120 140 160 180"
 		"AbilityCastRange"	"1200"
-		// Damage
-		// -------------------------------------------------------------------------------------------------------------
+
+		"precache"
+		{
+			"particle"	"particles/yukari_tentacles_base.vpcf"
+		}
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -1897,9 +1958,13 @@
 				"value"						"50 100 150 200 250"
 				"special_bonus_unique_yukari_tentacles_damage"	"+50"
 			}
-			"radius"	"400"
+			"radius"
+			{
+				"value"						"400"
+				"affected_by_aoe_increase"	"1"
+			}
 			"duration"	"4"
-			"root"		"-40"
+			"root"		"-30 -40 -50 -60 -70"
 			"tick_rate"	"0.5"
 			"intelligence_per_second"	"0.2"
 		}
@@ -1912,23 +1977,25 @@
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
 
+	// 罔两「八云紫的神隐」 先天技能
 	"yukari_moon_portal"
 	{
 		// General
 		// -------------------------------------------------------------------------------------------------------------
-		"BaseClass"	"ability_lua"
+		"BaseClass"				"ability_lua"
 		"AbilityTextureName"	"yukari_1"
-		"ScriptFile"	"heroes/hero_yukari/yukari_moon_portal"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"ScriptFile"			"heroes/hero_yukari/yukari_moon_portal"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetFlags"   "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"	"5"
-		"RequiredLevel"	"1"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"				"6"
+		"Innate"						"1"
+		"RequiredLevel"			"1"
 		"LevelsBetweenUpgrades"	"3"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
@@ -1937,22 +2004,26 @@
 		"AbilityCastRange"	"%cast_range"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"36 32 28 24 20"
+		"AbilityCooldown"	"40 36 32 28 24 20"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"100 120 140 160 180"
+		"AbilityManaCost"	"80 100 120 140 160 180"
 
+		"precache"
+		{
+			"particle"	"particles/generic_gameplay/generic_silenced.vpcf"
+		}
 		"AbilityValues"
 		{
-			"damage"	"80 120 160 200 240"
-			"cast_range"	"800 900 1000 1100 1200"
-			"lift_duration"	"2.0"
+			"damage"			"80 120 160 200 240 280"
+			"cast_range"		"700 800 900 1000 1100 1200"
+			"lift_duration"		"2.0"
 			"fall_animation"	"0.2"
 			"lift_animation"	"0.2"
-			"max_height"	"600"
+			"max_height"		"600"
 		}
 	}
-	// 「深弹幕结界 -梦幻泡影-」
+	// 「深弹幕结界 -梦幻泡影-」 A杖技能
 	"ability_thdots_yukari04"
 	{
 		"BaseClass"	"ability_datadriven"
@@ -2016,12 +2087,12 @@
 			"barrage_fire_interval"	"0.1"
 			"barrage_damage"	"200"
 			"barrage_radius"	"750"
-			"ex_damage"	"25"
+			"ex_damage"			"50"
 			"wanbaochui_radius"	"750"
-			"int_bonus"	"4"
+			"int_bonus"			"4"
 			"stun_duration"
 			{
-				"value"				"1"
+				"value"				"2"
 				"special_bonus_unique_thdots_yukari04_stun"	"+1"
 			}
 		}
@@ -2035,17 +2106,16 @@
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
 
+	// 月相
 	"yukari_morph"
 	{
-		"BaseClass"	"ability_lua"
+		"BaseClass"				"ability_lua"
 		"AbilityTextureName"	"yukari_4"
-		"ScriptFile"	"heroes/hero_yukari/yukari_morph"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ScriptFile"			"heroes/hero_yukari/yukari_morph"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		// "AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"	"1"
 		"RequiredLevel"	"30"
@@ -2053,8 +2123,8 @@
 		"AbilityCastPoint"	"0.3"
 		"AbilityCastAnimation"	"ACT_DOTA_IDLE"
 		// "AbilityChannelTime"					"5.0"
-		"AbilityCooldown"	"150"
-		"AbilityManaCost"	"150"
+		"AbilityCooldown"		"120"
+		"AbilityManaCost"		"150"
 		// "AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
 		"precache"
 		{
@@ -2063,11 +2133,11 @@
 		"AbilityValues"
 		{
 				"zenitsu_flash_upgrade_distance"	"0"
-				"magic"	"50"
-				"amp"	"40"
-				"as"	"120"
+				"magic"			"50"
+				"amp"			"50"
+				"as"			"120"
 				"zenitsu_hear_upgrade_flash_charges"	"0 0 2"
-				"bonus_movespeed"	"50"
+				"bonus_movespeed"	"60"
 				"projectile_avoid_chance"	"40"
 				"turn_rate"	"1"
 				"awake_mana"	"0"
@@ -2077,54 +2147,74 @@
 		"IsGrantedByShard"	"1"
 	}
 
+	// 「无人废线车辆炸弹」
 	"yukari_twin_trains"
 	{
 		// Ability Technical Aspect
 		// base script folder	: scripts/vscripts
 		// base texture folder	: resource/flash3/images/spellicons
 		// -------------------------------------------------------------------------------------------------------------
-		"BaseClass"	"ability_lua"
+		"BaseClass"				"ability_lua"
 		"AbilityTextureName"	"yukari_5"
-		"ScriptFile"	"heroes/hero_yukari/yukari_twin_trains"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+		"ScriptFile"			"heroes/hero_yukari/yukari_twin_trains"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"	"1"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"		"1"
 		// Ability General
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"	"4"// 大招
-		"RequiredLevel"	"6"
+		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"				"4"// 大招
+		"RequiredLevel"			"6"
 		"LevelsBetweenUpgrades"	"5"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"		"0.1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
 		// Ability Resource
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"100"
-		"AbilityManaCost"	"200 300 400 500"
-		"AbilityDuration"	"0.6875 0.6875 0.6875 0.6875"
-		// Damage
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"		"275 350 425 500"
+		"AbilityCooldown"	"90"
+		"AbilityManaCost"	"200 250 300 350"
+		"AbilityDuration"	"0.6875"
 		// Ability Casting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"	"2000"
 		"precache"
 		{
 			"particle"	"particles/yukari_train.vpcf"
+			"particle"	"particles/yukari_twin_train.vpcf"
+			"particle"	"particles/yukari_twin_train_explosion.vpcf"
+			"particle"	"particles/yukari_portal228.vpcf"
+			"particle"	"particles/yukari_portal3.vpcf"
 		}
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"dragon_slave_speed"	"600"
-				"dragon_slave_width_initial"	"300"
-				"dragon_slave_width_end"	"300"
-				"dragon_slave_distance"	"2000"
-				"fixed_duration"	"1"
-				"stun_time"	"1.5 1.8 2.1 2.4"
+			"projectile_speed"				"600"
+			"dragon_slave_width_initial"	"350"
+			"dragon_slave_width_end"		"350"
+			"dragon_slave_distance"			"2000"
+
+			"collision_damage"
+			{
+				"value"							"100 150 200 250"
+				"CalculateSpellDamageTooltip"	"1"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_PURE"
+			}
+			"stun_time"						"2.0 2.4 2.8 3.2"
+
+			"explosion_radius"
+			{
+				"value"						"600"
+				"affected_by_aoe_increase"	"1"
+			}
+			"explosion_damage"
+			{
+				"value"							"160 240 320 400"
+				"CalculateSpellDamageTooltip"	"1"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_PURE"
+			}
 		}
 	}
 
@@ -2716,7 +2806,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8 7 6"
+		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"150 200 250"
 	}
 	//=================================================================================================================

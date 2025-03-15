@@ -1,0 +1,47 @@
+<root>
+    <styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/shared_scoreboard_styles.css" />
+        <include src="file://{resources}/layout/custom_game/flyout_scoreboard/multiteam_flyout_scoreboard.css" />
+    </styles>
+	<scripts>
+		<include src="file://{resources}/layout/custom_game/flyout_scoreboard/multiteam_flyout_scoreboard_player.js" />
+	</scripts>
+	<Panel class="PlayerRow">
+		<Panel id="PlayerRowContainer">
+			<Panel class="PlayerHeader">
+				<Panel id="PlayerMemberShip"/>
+				<DOTAAvatarImage id="PlayerAvatar"/>
+				<Panel id="Hero" class="ScoreCol_Hero ScoreboardPanel">
+					<Image id="HeroIcon" heroimagestyle="landscape" scaling="stretch-to-fit-preserve-aspect" />
+				</Panel>
+				<Panel id="PlayerDetailsContainer" class="ScoreCol_PlayerDetails ScoreboardPanel">
+					<Panel id="PlayerAndHeroName">
+						<Label id="PlayerName" text="xxxxx" />
+						<Label id="HeroNameAndDescription" text="#custom_scoreboard_hero_name_and_desc" />
+					</Panel>
+					<Label id="TeammateGoldAmount" text="999" />
+					<Button id="MuteButton" onactivate="ToggleMute();" />
+				</Panel>
+			</Panel>
+
+			<Panel id="KillsContainer" class="ScoreCol_Kills ScoreboardPanel">
+				<Label id="Kills" text="999" />
+			</Panel>
+			<Panel id="DeathsContainer" class="ScoreCol_Deaths ScoreboardPanel">
+				<Label id="Deaths" text="999" />
+			</Panel>
+			<Panel id="AssistsContainer" class="ScoreCol_Assists ScoreboardPanel">
+				<Label id="Assists" text="999" />
+			</Panel>
+			<Panel class="ScoreCol_Buttons ScoreboardPanel">
+				<!-- <Button id="BtnMuteVoice" onactivate="ToggleMute();" onmouseover="ShowToolTipMute();" onmouseout="HideToolTips();"/> -->
+				<Button id="BtnShareUnit" onactivate="ToggleShareUnit();" onmouseover="ShowToolTipShareUnit();" onmouseout="HideToolTips();"/>
+				<Button id="BtnShareHero" onactivate="ToggleShareHero();" onmouseover="ShowToolTipShareHero();" onmouseout="HideToolTips();"/>
+				<Button id="BtnDisableHelp" onactivate="ToggleDisableHelp();" onmouseover="ShowToolTipDisableHelp();" onmouseout="HideToolTips();"/>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>
+
+

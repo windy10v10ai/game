@@ -1,52 +1,5 @@
 'use strict';
 
-/** 下拉框事件 */
-function OnDifficultyDropDownChanged(difficulty) {
-  const optionValue = '';
-  const optionId = difficulty;
-  if (optionId === 0) {
-    UnLockOptionAll();
-    InitSetting();
-  } else {
-    InitDifficultyCommonSetting();
-    if (optionId === 1) {
-      InitN1Setting();
-    } else if (optionId === 2) {
-      InitN2Setting();
-    } else if (optionId === 3) {
-      InitN3Setting();
-    } else if (optionId === 4) {
-      InitN4Setting();
-    } else if (optionId === 5) {
-      InitN5Setting();
-    } else if (optionId === 6) {
-      InitN6Setting();
-    }
-    LockOption();
-  }
-  GameEvents.SendCustomGameEventToServer('game_options_change', {
-    optionName: 'game_difficulty_dropdown',
-    optionValue,
-    optionId,
-  });
-}
-function OnDropDownChanged(option) {
-  const optionValue = $('#' + option).GetSelected().text;
-  const optionId = $('#' + option).GetSelected().id;
-  GameEvents.SendCustomGameEventToServer('game_options_change', {
-    optionName: option,
-    optionValue,
-    optionId,
-  });
-}
-
-/** 事件初期化 */
-function GameEventsIniti() {
-  OnDropDownChanged('player_gold_xp_multiplier_dropdown');
-  OnDropDownChanged('bot_gold_xp_multiplier_dropdown');
-  OnDropDownChanged('tower_power_dropdown');
-}
-
 function CheckForHostPrivileges() {
   var player_info = Game.GetLocalPlayerInfo();
   if (!player_info) {
@@ -67,11 +20,10 @@ function InitializeUI(keys) {
   } else if (is_host) {
     $('#game_options_container').style.visibility = 'visible';
     $('#ChatHideButtonHide').visible = true;
-    GameEventsIniti();
   } else {
     $('#ChatHideButtonHide').visible = true;
   }
-  // Hides battlecuck crap
+
   var hit_test_blocker = $.GetContextPanel()
     .GetParent()
     .FindChild('SidebarAndBattleCupLayoutContainer');
@@ -112,8 +64,10 @@ function ShowChatTeamActivate() {
   });
 }
 
+// -------- Game Setting --------
+
 function InitSetting() {
-  $('#player_gold_xp_multiplier_dropdown').SetSelected('1');
+  $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('5');
   $('#dire_player_number_dropdown').SetSelected('10');
 
@@ -124,16 +78,15 @@ function InitSetting() {
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('1000');
   $('#same_hero_selection').checked = true;
-  // $("#fast_courier").checked = true;
-  $('#radiant_bot_same_multi').checked = true;
+  $('#enable_player_attribute').checked = true;
 
   // 开发模式
   if (Game.IsInToolsMode()) {
-    $('#player_gold_xp_multiplier_dropdown').SetSelected('1');
-    $('#bot_gold_xp_multiplier_dropdown').SetSelected('1');
-    $('#radiant_player_number_dropdown').SetSelected('1');
-    $('#dire_player_number_dropdown').SetSelected('1');
-    $('#starting_gold_bot_dropdown').SetSelected('1000');
+    $('#player_gold_xp_multiplier_dropdown').SetSelected('2');
+    $('#bot_gold_xp_multiplier_dropdown').SetSelected('2');
+    $('#radiant_player_number_dropdown').SetSelected('5');
+    $('#dire_player_number_dropdown').SetSelected('5');
+    $('#starting_gold_bot_dropdown').SetSelected('5000');
     $('#tower_power_dropdown').SetSelected('300');
   }
 }
@@ -152,8 +105,7 @@ function LockOption() {
   $('#starting_gold_player_dropdown').enabled = false;
   $('#starting_gold_bot_dropdown').enabled = false;
   $('#same_hero_selection').enabled = false;
-  // $("#fast_courier").enabled = false;
-  $('#radiant_bot_same_multi').enabled = false;
+  $('#enable_player_attribute').enabled = false;
 }
 
 function UnLockOptionAll() {
@@ -168,8 +120,7 @@ function UnLockOptionAll() {
   $('#starting_gold_player_dropdown').enabled = true;
   $('#starting_gold_bot_dropdown').enabled = true;
   $('#same_hero_selection').enabled = true;
-  // $("#fast_courier").enabled = true;
-  $('#radiant_bot_same_multi').enabled = true;
+  $('#enable_player_attribute').enabled = true;
 }
 
 function InitDifficultyCommonSetting() {
@@ -179,8 +130,7 @@ function InitDifficultyCommonSetting() {
   $('#max_level_dropdown').SetSelected('50');
 
   $('#same_hero_selection').checked = true;
-  // $("#fast_courier").checked = true;
-  $('#radiant_bot_same_multi').checked = true;
+  $('#enable_player_attribute').checked = true;
 }
 
 function InitN1Setting() {
@@ -226,7 +176,7 @@ function InitN5Setting() {
   $('#tower_power_dropdown').SetSelected('300');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
-  $('#starting_gold_bot_dropdown').SetSelected('5000');
+  $('#starting_gold_bot_dropdown').SetSelected('3000');
 }
 function InitN6Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
@@ -235,9 +185,10 @@ function InitN6Setting() {
   $('#tower_power_dropdown').SetSelected('400');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
-  $('#starting_gold_bot_dropdown').SetSelected('10000');
+  $('#starting_gold_bot_dropdown').SetSelected('5000');
 }
 // -------- send to server --------
+// FIXME 用SendGameOptionsToServer替代
 function StateChange() {
   if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP)) {
     $('#display_options_container').style.visibility = 'visible';
@@ -255,32 +206,84 @@ function StateChange() {
         starting_gold_bot: $('#starting_gold_bot_dropdown').GetSelected().id,
         max_level: $('#max_level_dropdown').GetSelected().id,
         same_hero_selection: $('#same_hero_selection').checked,
-        // fast_courier: $("#fast_courier").checked,
-        radiant_bot_same_multi: $('#radiant_bot_same_multi').checked,
+        enable_player_attribute: $('#enable_player_attribute').checked,
       },
     });
+    SendGameOptionsToServer();
   }
+}
+
+function SendGameOptionsToServer() {
+  if (!CheckForHostPrivileges()) {
+    return;
+  }
+
+  const playerGoldXpMultiplier = $('#player_gold_xp_multiplier_dropdown').GetSelected().id;
+  const botGoldXpMultiplier = $('#bot_gold_xp_multiplier_dropdown').GetSelected().id;
+  const radiantPlayerNumber = $('#radiant_player_number_dropdown').GetSelected().id;
+  const direPlayerNumber = $('#dire_player_number_dropdown').GetSelected().id;
+  const towerPower = $('#tower_power_dropdown').GetSelected().id;
+  const respawnTimePercentage = $('#respawn_time_percentage_dropdown').GetSelected().id;
+  const startingGoldPlayer = $('#starting_gold_player_dropdown').GetSelected().id;
+  const startingGoldBot = $('#starting_gold_bot_dropdown').GetSelected().id;
+  const maxLevel = $('#max_level_dropdown').GetSelected().id;
+  const sameHeroSelection = $('#same_hero_selection').checked;
+  const enablePlayerAttribute = $('#enable_player_attribute').checked;
+
+  GameEvents.SendCustomGameEventToServer('game_options_change', {
+    multiplier_radiant: Number(playerGoldXpMultiplier),
+    multiplier_dire: Number(botGoldXpMultiplier),
+    player_number_radiant: Number(radiantPlayerNumber),
+    player_number_dire: Number(direPlayerNumber),
+    tower_power_pct: Number(towerPower),
+    respawn_time_pct: Number(respawnTimePercentage),
+    starting_gold_player: Number(startingGoldPlayer),
+    starting_gold_bot: Number(startingGoldBot),
+    max_level: Number(maxLevel),
+    same_hero_selection: sameHeroSelection,
+    enable_player_attribute: enablePlayerAttribute,
+  });
 }
 
 /**
  * 非主机玩家显示游戏选项内容设定
  */
-function OnGameOptionsChange() {
-  var gameOptions = CustomNetTables.GetTableValue('game_options_table', 'game_option');
-
-  $('#DisplayOptionsPlayerGoldXp').text =
-    gameOptions.player_gold_xp_multiplier_dropdown.optionValue;
-  $('#DisplayOptionsBotGoldXp').text = gameOptions.bot_gold_xp_multiplier_dropdown.optionValue;
-  $('#DisplayOptionsTowerPower').text = gameOptions.tower_power_dropdown.optionValue;
-
-  let iDifficulty = 0;
-  if (gameOptions.game_difficulty_dropdown) {
-    iDifficulty = gameOptions.game_difficulty_dropdown.optionId;
+function ShowGameOptionsChange(_table, key, value) {
+  if (!value) {
+    return;
   }
-  $('#DisplayGameDifficulty').text = $.Localize('#game_difficulty_n' + iDifficulty);
+
+  $('#DisplayOptionsPlayerGoldXp').text = value.multiplier_radiant.toFixed(1).replace(/\.0+$/, '');
+  $('#DisplayOptionsBotGoldXp').text = value.multiplier_dire.toFixed(1).replace(/\.0+$/, '');
+  $('#DisplayOptionsTowerPower').text = `${value.tower_power_pct}%`;
+}
+
+function OnDifficultyDropDownChanged(difficulty) {
+  $('#DisplayGameDifficulty').text = $.Localize('#game_difficulty_n' + difficulty);
+  const optionId = difficulty;
+  if (optionId === 0) {
+    UnLockOptionAll();
+    InitSetting();
+  } else {
+    InitDifficultyCommonSetting();
+    if (optionId === 1) {
+      InitN1Setting();
+    } else if (optionId === 2) {
+      InitN2Setting();
+    } else if (optionId === 3) {
+      InitN3Setting();
+    } else if (optionId === 4) {
+      InitN4Setting();
+    } else if (optionId === 5) {
+      InitN5Setting();
+    } else if (optionId === 6) {
+      InitN6Setting();
+    }
+    LockOption();
+  }
 
   let seasonPointMulti = '1.0';
-  switch (+iDifficulty) {
+  switch (+difficulty) {
     case 1:
       seasonPointMulti = '1.2';
       break;
@@ -307,6 +310,10 @@ function OnGameOptionsChange() {
 }
 
 function OnGameDifficultyChoiceChange(table, key, value) {
+  $.Msg('OnGameDifficultyChoiceChange', key, value);
+  if (!value) {
+    return;
+  }
   const difficulty = value.difficulty;
   if (key !== 'all') {
     return;
@@ -314,12 +321,53 @@ function OnGameDifficultyChoiceChange(table, key, value) {
   OnDifficultyDropDownChanged(difficulty);
 }
 
+function DispatchDotaSurvivor() {
+  const button = $('#DotaSurvivorButton');
+  button.SetPanelEvent('onactivate', () => {
+    $.DispatchEvent('DOTAShowCustomGamePage', 3359951052);
+  });
+}
+function DispatchQQ() {
+  const button = $('#QQPanel');
+  button.SetPanelEvent('onactivate', () => {
+    $.DispatchEvent(
+      'ExternalBrowserGoToURL',
+      'https://qm.qq.com/cgi-bin/qm/qr?k=6yNcbJ0GOuPECq1dmIvsmdj8y7dZBiHs',
+    );
+  });
+  button.SetPanelEvent('onmouseover', () => {
+    $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#join_qq'));
+  });
+  button.SetPanelEvent('onmouseout', () => {
+    $.DispatchEvent('DOTAHideTextTooltip');
+  });
+}
+function DispatchDiscord() {
+  const button = $('#DiscordPanel');
+  button.SetPanelEvent('onactivate', () => {
+    $.DispatchEvent('ExternalBrowserGoToURL', 'https://discord.gg/PhXyPfCQg5');
+  });
+  button.SetPanelEvent('onmouseover', () => {
+    $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#join_discord'));
+  });
+  button.SetPanelEvent('onmouseout', () => {
+    $.DispatchEvent('DOTAHideTextTooltip');
+  });
+}
+
 (function () {
   $('#radiant_player_number_dropdown').SetSelected('1');
   LockOption();
   // 游戏选择项目table监听
-  CustomNetTables.SubscribeNetTableListener('game_options_table', OnGameOptionsChange);
+  CustomNetTables.SubscribeNetTableListener('game_options', ShowGameOptionsChange);
   CustomNetTables.SubscribeNetTableListener('game_difficulty', OnGameDifficultyChoiceChange);
+  // 初始化游戏难度
+  CustomNetTables.GetTableValue('game_options', 'game_options', ShowGameOptionsChange);
+  CustomNetTables.GetTableValue('game_difficulty', 'all', OnGameDifficultyChoiceChange);
+  // 链接按钮
+  DispatchDotaSurvivor();
+  DispatchQQ();
+  DispatchDiscord();
 })();
 
 GameEvents.Subscribe('player_connect_full', InitializeUI);

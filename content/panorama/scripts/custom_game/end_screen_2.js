@@ -5,19 +5,18 @@
  */
 
 var imagefile = {
-  npc_dota_hero_meepo: "file://{images}/heroes/npc_dota_hero_meepo_custom.png",
+  npc_dota_hero_meepo: 'file://{images}/heroes/npc_dota_hero_meepo_custom.png',
   // npc_dota_hero_juggernaut: "file://{images}/heroes/npc_dota_hero_juggernaut_custom.png",
-  npc_dota_hero_techies: "file://{images}/heroes/npc_dota_hero_techies_custom.png",
-  npc_dota_hero_broodmother: "file://{images}/heroes/npc_dota_hero_broodmother_custom.png",
-  npc_dota_hero_visage: "file://{images}/heroes/npc_dota_hero_visage_custom.png",
-  npc_dota_hero_chen: "file://{images}/heroes/npc_dota_hero_chen_custom.png",
-  npc_dota_hero_pangolier: "file://{images}/heroes/npc_dota_hero_pangolier_custom.png",
-  npc_dota_hero_phantom_lancer: "file://{images}/heroes/npc_dota_hero_phantom_lancer_custom.png",
-  npc_dota_hero_brewmaster: "file://{images}/heroes/npc_dota_hero_brewmaster_custom.png",
-  npc_dota_hero_dark_seer: "file://{images}/heroes/npc_dota_hero_dark_seer_custom.png",
+  npc_dota_hero_techies: 'file://{images}/heroes/npc_dota_hero_techies_custom.png',
+  npc_dota_hero_broodmother: 'file://{images}/heroes/npc_dota_hero_broodmother_custom.png',
+  npc_dota_hero_visage: 'file://{images}/heroes/npc_dota_hero_visage_custom.png',
+  npc_dota_hero_chen: 'file://{images}/heroes/npc_dota_hero_chen_custom.png',
+  npc_dota_hero_pangolier: 'file://{images}/heroes/npc_dota_hero_pangolier_custom.png',
+  npc_dota_hero_phantom_lancer: 'file://{images}/heroes/npc_dota_hero_phantom_lancer_custom.png',
+  npc_dota_hero_brewmaster: 'file://{images}/heroes/npc_dota_hero_brewmaster_custom.png',
+  npc_dota_hero_dark_seer: 'file://{images}/heroes/npc_dota_hero_dark_seer_custom.png',
 };
 
-var GAME_RESULT = {};
 var _ = GameUI.CustomUIConfig()._;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -32,92 +31,94 @@ function FinishGame() {
  * @param {Panel} rootPanel Panel that will be parent for that player
  */
 function Snippet_Player(playerId, rootPanel, index) {
-  var panel = $.CreatePanel("Panel", rootPanel, "");
-  panel.BLoadLayoutSnippet("Player");
-  panel.SetHasClass("IsLocalPlayer", playerId === Game.GetLocalPlayerID());
+  var panel = $.CreatePanel('Panel', rootPanel, '');
+  panel.BLoadLayoutSnippet('Player');
+  panel.SetHasClass('IsLocalPlayer', playerId === Game.GetLocalPlayerID());
 
-  var playerData = GAME_RESULT.players[playerId];
+  var playerData = CustomNetTables.GetTableValue('ending_stats', playerId.toString());
   var playerInfo = Game.GetPlayerInfo(playerId);
-  if (playerInfo.player_steamid && playerInfo.player_steamid !== "0") {
-    panel.FindChildTraverse("PlayerAvatar").steamid = playerInfo.player_steamid;
-    panel.FindChildTraverse("PlayerNameScoreboard").steamid = playerInfo.player_steamid;
+  if (playerInfo.player_steamid && playerInfo.player_steamid !== '0') {
+    panel.FindChildTraverse('PlayerAvatar').steamid = playerInfo.player_steamid;
+    panel.FindChildTraverse('PlayerNameScoreboard').steamid = playerInfo.player_steamid;
   } else {
-    panel.FindChildTraverse("PlayerAvatar").steamid = playerInfo.player_steamid;
-    panel.FindChildTraverse("PlayerNameScoreboard").visible = false;
-    panel.FindChildTraverse("BotNameScoreboard").visible = true;
+    panel.FindChildTraverse('PlayerAvatar').steamid = playerInfo.player_steamid;
+    panel.FindChildTraverse('PlayerNameScoreboard').visible = false;
+    panel.FindChildTraverse('BotNameScoreboard').visible = true;
   }
 
-  if (playerData.membership) {
-    panel.AddClass("IsMemberShip");
-    const membershipString = $.Localize("#player_member_ship");
+  if (IsMemberByPlayerId(playerId)) {
+    panel.AddClass('IsMemberShip');
+    const membershipString = $.Localize('#player_member_ship');
     const membershipUrl = GetOpenMemberUrl();
 
-    const membershipIcon = panel.FindChildTraverse("PlayerMemberShip");
+    const membershipIcon = panel.FindChildTraverse('PlayerMemberShip');
 
-    membershipIcon.SetPanelEvent("onmouseover", () => {
-      $.DispatchEvent("DOTAShowTextTooltip", membershipIcon, membershipString);
+    membershipIcon.SetPanelEvent('onmouseover', () => {
+      $.DispatchEvent('DOTAShowTextTooltip', membershipIcon, membershipString);
     });
-    membershipIcon.SetPanelEvent("onmouseout", () => {
-      $.DispatchEvent("DOTAHideTextTooltip");
+    membershipIcon.SetPanelEvent('onmouseout', () => {
+      $.DispatchEvent('DOTAHideTextTooltip');
     });
 
-    membershipIcon.SetPanelEvent("onactivate", () => {
-      $.DispatchEvent("ExternalBrowserGoToURL", membershipUrl);
+    membershipIcon.SetPanelEvent('onactivate', () => {
+      $.DispatchEvent('ExternalBrowserGoToURL', membershipUrl);
     });
   }
 
   panel.index = index; // For backwards compatibility
-  panel.style.animationDelay = index * 0.3 + "s";
+  panel.style.animationDelay = index * 0.3 + 's';
   $.Schedule(index * 0.3, function () {
     try {
-      panel.AddClass("AnimationEnd");
-    } catch (e) {}
+      panel.AddClass('AnimationEnd');
+    } catch {}
   });
 
-  if (imagefile[playerData.heroName]) {
-    panel.FindChildTraverse("HeroIcon").SetImage(imagefile[playerData.heroName]);
+  const heroName = Players.GetPlayerSelectedHero(playerId);
+
+  if (imagefile[heroName]) {
+    panel.FindChildTraverse('HeroIcon').SetImage(imagefile[heroName]);
   } else {
-    panel
-      .FindChildTraverse("HeroIcon")
-      .SetImage("file://{images}/heroes/" + playerData.heroName + ".png");
+    panel.FindChildTraverse('HeroIcon').SetImage('file://{images}/heroes/' + heroName + '.png');
   }
-  panel.SetDialogVariableInt("hero_level", Players.GetLevel(playerId));
-  panel.SetDialogVariable("hero_name", $.Localize("#" + playerData.heroName));
+  panel.SetDialogVariableInt('hero_level', Players.GetLevel(playerId));
+  panel.SetDialogVariable('hero_name', $.Localize('#' + heroName));
 
-  panel.SetDialogVariableInt("kills", Players.GetKills(playerId));
-  panel.SetDialogVariableInt("deaths", Players.GetDeaths(playerId));
-  panel.SetDialogVariableInt("assists", Players.GetAssists(playerId));
-  panel.SetDialogVariableInt("lasthits", Players.GetLastHits(playerId));
-  panel.SetDialogVariableInt("money", Players.GetTotalEarnedGold(playerId));
-  panel.SetDialogVariableInt("damage", playerData.damage);
-  panel.SetDialogVariableInt("damagereceived", playerData.damagereceived);
-  panel.SetDialogVariableInt("heroHealing", playerData.heroHealing);
-  panel.SetDialogVariableInt("points", playerData.points);
+  panel.SetDialogVariableInt('kills', Players.GetKills(playerId));
+  panel.SetDialogVariableInt('deaths', Players.GetDeaths(playerId));
+  panel.SetDialogVariableInt('assists', Players.GetAssists(playerId));
+  panel.SetDialogVariableInt('lasthits', Players.GetLastHits(playerId));
+  panel.SetDialogVariableInt('money', Players.GetTotalEarnedGold(playerId));
+  panel.SetDialogVariableInt('damage', playerData?.damage ?? 0);
+  panel.SetDialogVariableInt('damagereceived', playerData?.damagereceived ?? 0);
+  panel.SetDialogVariableInt('heroHealing', playerData?.healing ?? 0);
+  panel.SetDialogVariableInt('points', playerData?.points ?? 0);
 
-  panel.SetDialogVariableInt("strength", playerData.str);
-  panel.SetDialogVariableInt("agility", playerData.agi);
-  panel.SetDialogVariableInt("intellect", playerData.int);
+  panel.SetDialogVariableInt('strength', playerData?.str ?? 0);
+  panel.SetDialogVariableInt('agility', playerData?.agi ?? 0);
+  panel.SetDialogVariableInt('intellect', playerData?.int ?? 0);
 
+  // 绘制物品栏
+  const items = Game.GetPlayerItems(playerId);
   for (var i = 0; i < 6; i++) {
-    var item = playerData.items[i];
     var itemPanel = $.CreatePanel(
-      "DOTAItemImage",
-      panel.FindChildTraverse(i >= 6 ? "BackpackItemsContainer" : "ItemsContainer"),
-      "",
+      'DOTAItemImage',
+      panel.FindChildTraverse(i >= 6 ? 'BackpackItemsContainer' : 'ItemsContainer'),
+      '',
     );
+    var item = items?.inventory[i];
     if (item) {
-      itemPanel.itemname = item;
+      itemPanel.itemname = item.item_name;
     }
   }
 
-  var neutral = playerData.items[16];
   var itemPanel = $.CreatePanel(
-    "DOTAItemImage",
-    panel.FindChildTraverse("NeutralItemContainer"),
-    "",
+    'DOTAItemImage',
+    panel.FindChildTraverse('NeutralItemContainer'),
+    '',
   );
-  if (neutral) {
-    itemPanel.itemname = neutral;
+  const neutralItem = items?.neutral_item;
+  if (neutralItem) {
+    itemPanel.itemname = neutralItem.item_name;
   }
 }
 
@@ -127,93 +128,81 @@ function Snippet_Player(playerId, rootPanel, index) {
  * @param {Number} team Team Index
  */
 function Snippet_Team(team) {
-  var panel = $.CreatePanel("Panel", $("#TeamsContainer"), "");
-  panel.BLoadLayoutSnippet("Team");
-  panel.SetHasClass("IsRight", true);
-  panel.SetHasClass("IsWinner", GAME_RESULT.isWinner);
+  var panel = $.CreatePanel('Panel', $('#TeamsContainer'), '');
+  panel.BLoadLayoutSnippet('Team');
+  panel.SetHasClass('IsRight', true);
+  panel.SetHasClass('IsWinner', Game.GetGameWinner() === 2);
 
-  const gameOptions = CustomNetTables.GetTableValue("game_options_table", "game_option");
-  const gameDifficulty = gameOptions.game_difficulty_dropdown.optionId;
+  const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
+  const gameDifficulty = CustomNetTables.GetTableValue('game_difficulty', 'all').difficulty;
   if (team === 2) {
-    const goldXpMultiplierPanel = panel.FindChildTraverse("GoldXpMultiplier");
+    const goldXpMultiplierPanel = panel.FindChildTraverse('GoldXpMultiplier');
     if (gameDifficulty > 0) {
-      goldXpMultiplierPanel.text = $.Localize("#game_difficulty_title") + ` N${gameDifficulty}`;
-      goldXpMultiplierPanel.style.marginTop = "8px";
-      goldXpMultiplierPanel.style.fontSize = "26px";
+      goldXpMultiplierPanel.text = $.Localize('#game_difficulty_title') + ` N${gameDifficulty}`;
+      goldXpMultiplierPanel.style.marginTop = '8px';
+      goldXpMultiplierPanel.style.fontSize = '26px';
     } else {
-      panel.FindChildTraverse("GoldXpMultiplier").text =
-        $.Localize("#player_multiplier") + ": x" + GAME_RESULT.options.playerGoldXpMultiplier;
-      panel.FindChildTraverse("TowerPower").text =
-        $.Localize("#tower_power") + ": " + GAME_RESULT.options.towerPower;
+      panel.FindChildTraverse('GoldXpMultiplier').text =
+        $.Localize('#player_multiplier') +
+        `: x${gameOptions.multiplier_radiant.toFixed(1).replace(/\.0+$/, '')}`;
+      panel.FindChildTraverse('TowerPower').text =
+        $.Localize('#tower_power') + `: ${gameOptions.tower_power_pct}%`;
     }
   } else {
     if (gameDifficulty > 0) {
       //
     } else {
-      panel.FindChildTraverse("GoldXpMultiplier").text =
-        $.Localize("#bot_multiplier") + `: x${GAME_RESULT.options.botGoldXpMultiplier}`;
-      panel.FindChildTraverse("TowerPower").text =
-        $.Localize("#tower_power") + ": " + GAME_RESULT.options.towerPower;
+      panel.FindChildTraverse('GoldXpMultiplier').text =
+        $.Localize('#player_multiplier') +
+        `: x${gameOptions.multiplier_dire.toFixed(1).replace(/\.0+$/, '')}`;
+      panel.FindChildTraverse('TowerPower').text =
+        $.Localize('#tower_power') + `: ${gameOptions.tower_power_pct}%`;
     }
   }
   const teamDetails = Game.GetTeamDetails(team);
-  panel.FindChildTraverse("TeamScore").text = teamDetails.team_score;
+  panel.FindChildTraverse('TeamScore').text = teamDetails.team_score;
 
   var ids = Game.GetPlayerIDsOnTeam(team);
 
   for (var i = 0; i < ids.length; i++) {
-    if (Players.IsValidPlayerID(i) && GAME_RESULT.players[i] != null) {
+    if (Players.IsValidPlayerID(i)) {
       Snippet_Player(ids[i], panel, i + 1);
     }
   }
 }
 
-function OnGameResult(table, key, gameResult) {
-  if (!gameResult || key !== "player_data") {
-    $.Msg("[EndScreen2] Invalid game result");
-    // FinishGame();
-    return;
-  }
-
-  if (Game.GetGameWinner() === 2) {
-    gameResult.isWinner = true;
-  } else {
-    gameResult.isWinner = false;
-  }
-
-  $("#EndScreenWindow").visible = true;
-  $("#TeamsContainer").RemoveAndDeleteChildren();
-
-  GAME_RESULT = gameResult;
+function OnGameResult() {
+  $('#EndScreenWindow').visible = true;
+  $('#TeamsContainer').RemoveAndDeleteChildren();
 
   Snippet_Team(2);
   Snippet_Team(3);
 
-  var result_label = $("#EndScreenVictory");
+  var result_label = $('#EndScreenVictory');
 
-  if (GAME_RESULT.isWinner) {
-    $.Msg("[EndScreen2] Victory");
-    result_label.text = $.Localize("#custom_end_screen_victory_message");
-    result_label.style.color = "#5ebd51";
+  $.Msg(`[EndScreen2] winner is ${Game.GetGameWinner()}`);
+  if (Game.GetGameWinner() === 2) {
+    result_label.text = $.Localize('#custom_end_screen_victory_message');
+    result_label.style.color = '#5ebd51';
   } else {
-    result_label.text = $.Localize("#custom_end_screen_lose_message");
-    result_label.style.color = "#d14343";
+    result_label.text = $.Localize('#custom_end_screen_lose_message');
+    result_label.style.color = '#d14343';
   }
-  var game_time = $("#GameTime");
+  var game_time = $('#GameTime');
   var timerValue = Game.GetDOTATime(false, true);
 
   if (timerValue > 0) {
     var min = Math.floor(timerValue / 60);
     var sec = Math.floor(timerValue % 60);
 
-    var timerText = "";
+    var timerText = '';
 
-    timerText += min < 10 ? 0 : "";
+    timerText += min < 10 ? 0 : '';
     timerText += min;
-    timerText += ":";
-    timerText += sec < 10 ? 0 : "";
+    timerText += ':';
+    timerText += sec < 10 ? 0 : '';
     timerText += sec;
-    game_time.text = $.Localize("#DOTA_Lobby_Settings_Scenario_GameTime") + " " + timerText;
+    game_time.text = $.Localize('#DOTA_Lobby_Settings_Scenario_GameTime') + ' ' + timerText;
   }
 }
 
@@ -237,16 +226,16 @@ function OnGameResult(table, key, gameResult) {
 // }
 
 (function () {
-  $.Msg("CustomGameEndScreen2.js loaded");
+  $.Msg('CustomGameEndScreen2.js loaded');
   GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ENDGAME, false);
-  find_hud_element("GameEndContainer").visible = false;
+  find_hud_element('GameEndContainer').visible = false;
 
-  $.GetContextPanel().RemoveClass("FadeOut");
+  $.GetContextPanel().RemoveClass('FadeOut');
   // disable the close button
   // $("#CloseButton").enabled = false;
   // $("#GameEndingStatusText").style.color = "#ffffff";
 
-  CustomNetTables.SubscribeNetTableListener("ending_stats", OnGameResult);
+  CustomNetTables.SubscribeNetTableListener('ending_stats', OnGameResult);
   // CustomNetTables.SubscribeNetTableListener("ending_status", OnGameEndingStatusChange);
-  OnGameResult(null, "player_data", CustomNetTables.GetTableValue("ending_stats", "player_data"));
+  OnGameResult(null, 'player_data', CustomNetTables.GetTableValue('ending_stats', 'player_data'));
 })();

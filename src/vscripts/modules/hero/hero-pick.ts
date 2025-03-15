@@ -65,7 +65,8 @@ export class HeroPick {
       print('[ERROR] nameList is empty');
       return 'npc_dota_hero_nevermore';
     }
-    const i = math.random(0, nameList.length - 1);
+    // 开发模式英雄顺序固定
+    const i = IsInToolsMode() ? 0 : RandomInt(0, nameList.length - 1);
     const name = nameList[i];
     nameList.splice(i, 1);
     return name;

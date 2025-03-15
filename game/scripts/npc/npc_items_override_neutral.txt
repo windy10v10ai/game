@@ -1,0 +1,1093 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Neutral item active 中立物品宝物
+	//=================================================================================================================
+
+	//=================================================================================================================
+	// level 0 不在中立物品池 抽奖遗老
+	//=================================================================================================================
+	//铁树之木
+	"item_ironwood_tree"
+	{
+		"AbilityCastRange"				"1200"	//800
+		"AbilityCooldown"				"6.0"	//15
+		"AbilityValues"
+		{
+				"bonus_all_stats"	"10"		//5
+				"tree_duration"		"30"		//20
+		}
+	}
+	//天鹰戒
+	"item_ring_of_aquila"
+	{
+		"AbilityValues"
+		{
+				"bonus_damage"			"9"		// 3
+				"bonus_strength"		"6"		// 3
+				"bonus_agility"			"12"	// 9
+				"bonus_intellect"		"6"		// 3
+				"aura_mana_regen"		"2"		// 1
+				"aura_bonus_armor"		"4"		// 2
+		}
+	}
+	// 战争重锤 伤害 减价
+	"item_warhammer"
+	{
+		"AbilityValues"
+		{
+				"bonus_strength"			"10"
+				"armor_reduction"			"3"
+				"duration"			"6"
+				"damage"			"75"
+		}
+	}
+
+	//第三只眼
+	"item_third_eye"
+	{
+		"AbilityValues"
+		{
+			"truesight_radius"			"900"	//500
+			"bonus_vision"				"0"		//300
+			"bonus_all_stats"			"0"		//7
+		}
+	}
+	//坚毅之件
+	"item_unwavering_condition"
+	{
+		"AbilityValues"
+		{
+			"max_health"			"9000"		//1500
+			"magic_resist"			"95"		//95
+		}
+	}
+	//丛林靴
+	"item_woodland_striders"
+	{
+		"AbilityCooldown"				"60.0"	//20
+		"AbilityValues"
+		{
+				"bonus_movement_speed"	"250"	//140
+				"bonus_hp_regen"	"180"		//60
+				"active_duration"		"3"		//3
+				"tree_duration"		"10"		//15
+		}
+	}
+	//不朽尸王头盔
+	"item_helm_of_the_undying"
+	{
+		"AbilityValues"
+		{
+				"bonus_armor"		"24" //6
+				"duration"			"3" //5
+		}
+	}
+	//炎龙之鳞
+	"item_dragon_scale"
+	{
+		"AbilityValues"
+		{
+				"bonus_armor"			"15"	//5
+				"bonus_hp_regen"		"15"	//5
+				"damage_per_sec"		"88"	//22
+				"duration"				"5"		//3
+		}
+	}
+	//凌厉长鞭
+	"item_bullwhip"
+	{
+		"AbilityCooldown"				"7" //11
+		"AbilityValues"
+		{
+				"bonus_health_regen"			"6"	//2.75
+				"bonus_mana_regen"			"4"		//2
+				"duration"			"5"				//4
+				"speed"			"36"				//18
+		}
+	}
+
+	//无知小帽 脑瘫帽
+	"item_witless_shako"
+	{
+		"AbilityValues"
+		{
+			"max_health"		"4200"	//1350
+			"max_mana"			"900"	//400
+		}
+	}
+	//不羁甲壳
+	"item_defiant_shell"
+	{
+		"AbilityValues"
+		{
+			"bonus_armor"				"14" //7
+			"all_stats"					"14" //7
+			"counter_cooldown"			"3.0" //5
+		}
+	}
+	//崎岖外衣
+	"item_craggy_coat"
+	{
+		"AbilityCooldown"				"12" //12
+		"AbilityValues"
+		{
+				"armor_bonus"			"16"  //8
+				"move_speed"			"50" //30
+				"active_armor"			"44" //12
+				"active_duration"		"8"  //8
+				"bonus_health"			"600"//150
+		}
+	}
+	//魔力箭袋
+	"item_enchanted_quiver"
+	{
+		"AbilityCooldown"				"2.0"		//4
+		"AbilityValues"
+		{
+			"bonus_attack_range"	"100"			//75
+			"bonus_damage"			"350"			//250
+			"active_bonus_attack_range"		"350"	//350
+		}
+	}
+	//精灵外衣
+	"item_elven_tunic"
+	{
+		"AbilityValues"
+		{
+				"attack_speed"			"52"	//26
+				"evasion"			"24"		//16
+				"movment"			"14"		//7
+		}
+	}
+	//火焰斗篷
+	"item_cloak_of_flames"
+	{
+		"AbilityValues"
+		{
+				"armor"				"15"  //4
+				"magic_resistance"	"30"  //10
+				"damage"			"120" //45
+				"radius"			"450" //375
+				"damage_illusions"	"80" //30
+		}
+	}
+	//双面币
+	"item_doubloon"
+	{
+		"AbilityCooldown"	"0.5" //5
+		"AbilityValues"
+		{
+			"conversion_pct"					"60"  //20
+			"bonus_health_regen"				"25"   //5
+			"bonus_mana_regen"					"7.5" //2.5
+		}
+	}
+	//正义之斧
+	"item_vindicators_axe"
+	{
+		"AbilityValues"
+		{
+			"bonus_attack_speed"	"60"	//35
+			"bonus_damage"			"100"	//30
+			"bonus_armor"			"40"	//20
+			"bonus_slow_resist"		"70"	//20
+		}
+	}
+	//蒲公英护符
+	"item_dandelion_amulet"
+	{
+		"AbilityCooldown"				"6" //12
+		"AbilityValues"
+		{
+			"move_speed"			"50"	//25
+			"mana"					"600"	//300
+			"magic_block"			"1200"	//300
+			"min_damage"			"200"	//75
+		}
+	}
+	//原力鞋 推推鞋
+	"item_force_boots"
+	{
+		"AbilityCastRange"				"1500"	//750
+		"AbilityCooldown"				"4.0"	//8
+		"AbilityValues"
+		{
+				"bonus_movement_speed"	"0"		//115
+				"push_length"			"750"	//750
+				"push_duration"			"0.5"	//0.5
+				"hp_regen"				"0"		//30
+		}
+	}
+	//暗影邪典
+	"item_book_of_shadows"
+	{
+		"AbilityCastRange"				"1400"	//700
+		"AbilityCooldown"				"8.0"	//8
+		"AbilityValues"
+		{
+			"night_vision"		"0"				//400
+			"duration"			"4"				//4
+		}
+	}
+
+	//简朴短帽
+	"item_ascetic_cap"
+	{
+		"AbilityCooldown"		"25.0"  //25
+		"AbilityValues"
+		{
+			"status_resistance"	"40"	//40
+			"slow_resistance"	"40"	//40
+			"bonus_health"		"2000"	//250
+			"duration"		"5"			//5
+			"hp_regen"		"25"		//20
+		}
+	}
+	//艾维娜之羽
+	"item_avianas_feather"
+	{
+		"AbilityValues"
+		{
+			"evasion"	"40"			//25
+			"move_speed"	"60"		//30
+			"flight_threshold"	"90"	//30
+		}
+	}
+	//望远镜
+	"item_spy_gadget"
+	{
+		"AbilityValues"
+		{
+			"scan_cooldown_reduction"	"90"  //50
+			"attack_range"	"175"  //125
+			"cast_range"	"175"  //125
+		}
+	}
+	//遗迹守护者
+	"item_ancient_guardian"
+	{
+		"AbilityValues"
+		{
+			"extra_bonus_damage"	"500"    //50
+			"bonus_damage"			"100"    //50
+			"radius"				"2000"  //2000
+		}
+	}
+	//平世剑
+	"item_the_leveller"
+	{
+		"AbilityValues"
+		{
+				"bonus_attack_speed""80"	//40
+				"bonus_armor"		"20"	//5
+				"demolish"			"30"	//25
+		}
+	}
+	//回响之笼
+	"item_rattlecage"
+	{
+		"AbilityValues"
+		{
+			"radius"					"800"	//600
+			"slow_duration"				"0.4"	//0.2
+			"damage_reset_interval"		"7"		//7
+			"damage_threshold"			"600"	//180
+			"slow"			    		"70"	//100
+			"projectile_speed"			"1000"	//1000
+			"projectile_damage"			"450"	//125
+			"target_count"				"3"		//2
+			"bonus_armor"				"24"	//12
+		}
+	}
+	//烈士鳞甲
+	"item_martyrs_plate"
+	{
+		"AbilityCooldown"				"30"
+		"AbilityValues"
+		{
+			"duration"					"10"	//10
+			"magic_resist"				"0"		//25
+			"damage_redirection"		"0"		//25
+			"aura_radius"				"1200"	//900
+			"hp_regen"					"0"		//7
+		}
+	}
+
+	//别有他用
+	//秘术师铠甲
+	"item_force_field"
+	{
+		"AbilityCooldown"				"25"	//35
+		"AbilityValues"
+		{
+			"bonus_aoe_armor"			"10"	//4
+			"bonus_aoe_mres"			"20"	//8
+			"active_reflection_pct"		"30"	//25
+		}
+	}
+	//=================================================================================================================
+	// level 1
+	//=================================================================================================================
+	//可靠铁铲
+	"item_trusty_shovel"
+	{
+		"AbilityCooldown"				"30.0"	//60
+
+		// chance_bounty_rune + chance_other_item * 3 = 100
+		"AbilityValues"
+		{
+			"chance_bounty_rune"	"40"		//16
+			"chance_other_item"		"20"		//28
+			"kobold_duration"		"40"		//60
+		}
+	}
+	//玄奥手镯
+	"item_occult_bracelet"
+	{
+		"AbilityValues"
+		{
+			"mana_regen"				"2.0"	//0.4
+			"stack_limit"				"10"	//5
+			"stack_duration"			"10"	//5
+		}
+	}
+	//豚杆
+	"item_unstable_wand"
+	{
+		"AbilityCooldown"				"12"	//25
+		"AbilityValues"
+		{
+				"duration"				"2"		//4
+				"active_movespeed_pct"	"30"	// 15
+		}
+	}
+	//魔力药水
+	"item_mana_draught"
+	{
+		"AbilityCooldown"				"20"	//40
+		"AbilityCastRange"				"1200"	//650，0=无限
+		"AbilityValues"
+		{
+			"mana_restore"				"180"	//60
+			"mana_restore_pct"			"4"		//2
+			"heal_duration"				"4"		//6
+			"water_acceleration"		"100"	//30
+		}
+	}
+	//蝌蚪护符
+	"item_polliwog_charm"
+	{
+		"AbilityCooldown"				"25"	//45
+		"AbilityManaCost"				"40"	//40
+		"AbilityCastRange"				"1600"	//1000
+		"AbilityValues"
+		{
+			"regen_boost"				"40"	//8 参考原版大药30regen&13s总回390
+			"water_movespeed"			"20"	//10
+			"duration"					"10"	//10
+		}
+	}
+	//勇气之光
+	"item_spark_of_courage"
+	{
+		"AbilityValues"
+		{
+			"damage"			"30"			//10
+			"armor"				"15"			//5
+			"health_pct"		"50"			//50
+		}
+	}
+	//撕裂之鞭
+	"item_rippers_lash"
+	{
+		"AbilityCooldown"				"15"	//30
+		"AbilityCastRange"				"1400"	//700
+		"AbilityValues"
+		{
+			"thorn_area"				"400"	//200
+			"bonus_damage_hero"			"36"	//12
+			"bonus_damage_creep"		"12"	//4
+			"duration"					"8"		//10
+		}
+	}
+	//打野爪
+	"item_iron_talon"
+	{
+		"AbilityCooldown"				"10.0"	//20
+		"AbilityValues"
+		{
+			"bonus_attack_speed"			"0" //0
+			"quelling_range_tooltip"		"350" //350
+			"cast_range_ward"				"450" //450
+			"creep_damage_pct"				"80" //80
+			"bonus_armor"					"0" //0
+			"alternative_cooldown"			"2" //4
+		}
+	}
+	//安全泡泡
+	"item_safety_bubble"
+	{
+		"AbilityValues"
+		{
+			"shield"	"500"			//100
+			"restore_time"			"4"	//8
+		}
+	}
+	//追击矛
+	"item_lance_of_pursuit"
+	{
+		"AbilityValues"
+		{
+				"slow_duration"			"2"		//2
+				"backstab_damage"		"75"	//15
+				"backstab_angle"		"120"	//90
+				"slow_pct_melee"		"24"	//16
+				"slow_pct_ranged"		"16"	//8
+		}
+	}
+	//=================================================================================================================
+	// level 2
+	//=================================================================================================================
+	//精华指环
+	"item_essence_ring"
+	{
+		"AbilityCooldown"				"10"	//25
+		"AbilityManaCost"				"400"	//150
+		"AbilityValues"
+		{
+			"bonus_int"			"0"		//0
+			"mp_regen"		"0"			//0
+			"health_gain"		"1200"		//240
+			"health_gain_duration"	"10"	//15
+		}
+	}
+	//蛛丝斗篷
+	"item_gossamer_cape"
+	{
+		"AbilityCooldown"				"1.0"		//6
+	}
+	//炽热纹章
+	"item_searing_signet"
+	{
+		"AbilityValues"
+		{
+			"damage_threshold"			"120"		//40
+			"burn_damage"				"250"		//75
+			"burn_duration"				"2.5"		//5
+			"burn_tickrate"				".25"		//.25
+		}
+	}
+	//飞贼之刃
+	"item_misericorde"
+	{
+		"AbilityValues"
+		{
+			"bonus_damage"			"6"				//3
+			"missing_hp"			"2"				//5
+		}
+	}
+	//杂技玩具
+	"item_pogo_stick"
+	{
+		"AbilityCooldown"				"6.0"		//15
+		"AbilityValues"
+		{
+			"leap_distance"			"450"			//300
+			"leap_speed"			"1950.0"		//1300
+			"leap_acceleration"		"30000.0"		//20000
+		}
+	}
+	//毁灭灵球
+	"item_orb_of_destruction"
+	{
+		"AbilityValues"
+		{
+			"armor_reduction"		"6"		// 2
+			"slow_melee"			"25"	// 10
+			"slow_range"			"12"	// 5
+			"duration"				"4"		// 5
+		}
+	}
+	//蜂王浆
+	"item_royal_jelly"
+	{
+		"AbilityCastRange"				"1500"	//300
+		"AbilityChargeRestoreTime"		"4"		//8
+		"AbilityValues"
+		{
+				"bonus_health"			"0"		//50
+				"bonus_mana"			"0"		//50
+				"max_charges"			"10"	//10
+				"use_cooldown"			"10"	//12
+				"health_regen"			"6.0"	//2.5
+				"mana_regen"			"3.0"	//1.25
+				"regen_duration"		"8"		//8
+		}
+	}
+	// 奥术指环 小秘法
+	"item_arcane_ring"
+	{
+		"AbilityCooldown"				"30.0"	//60
+		"AbilityValues"
+		{
+				"mana_restore"			"150"	//30
+				"mana_restore_pct"		"3"		//3
+		}
+	}
+	//穷鬼盾
+	"item_poor_mans_shield"
+	{
+		"AbilityValues"
+		{
+				"damage_block_melee"	"90"	// 30
+				"damage_block_ranged"	"60"	// 20
+				"block_chance"			"80"	// 50
+				"block_chance_hero"		"100"	// 100
+		}
+	}
+	//碎裂背心
+	"item_chipped_vest"
+	{
+		"AbilityValues"
+		{
+			"hp_regen"				"0"			//4
+			"damage_return_hero"	"90"		//30
+			"damage_return_creep"	"60"		//20
+		}
+	}
+	//不屈之眼
+	"item_unrelenting_eye"
+	{
+		"AbilityValues"
+		{
+			"max_slow_res"				"100"	//100
+			"hero_reduction"			"5"		//20
+			"status_res_pct_increase_per_hero"	"15"	//10
+			"hero_check_radius"			"600"	//300
+		}
+	}
+	//海盗帽
+	"item_pirate_hat"
+	{
+		"AbilityValues"
+		{
+			"gold_steal_base"			"200"	//150
+			"gold_steal_kill"			"250"	//150
+			"gold_steal_range"			"1800"	//1200
+			"gold_loss_reduction"		"100"	//100
+		}
+	}
+	//决斗家手套
+	"item_duelist_gloves"
+	{
+		"AbilityValues"
+		{
+			"bonus_attack_speed"	"80"		//20
+			"bonus_damage"			"0"			//12
+		}
+	}
+	//齐维尔之眼
+	"item_eye_of_the_vizier"
+	{
+		"AbilityValues"
+		{
+			"cast_range_bonus"					"175"  //125
+			"mana_reduction_pct"				"30"   //15
+			"bonus_mana_regen"					"3.0" //1.25
+		}
+	}
+	//集光器
+	"item_light_collector"
+	{
+		"AbilityCooldown"				"12" //30
+		"AbilityValues"
+		{
+			"health_regen"			"20"		//10
+			"mana_regen"			"12"		//6
+			"radius"					"300"	//200
+			"tree_destruction_radius"
+			{
+				"value"						"600"	//325
+				"affected_by_aoe_increase"	"1"		//1
+			}
+			"miss_rate"					"50"		//30
+		}
+	}
+	//贤者石
+	"item_philosophers_stone"
+	{
+		"ItemInitialCharges"			"1200"
+		"AbilityValues"
+		{
+				"bonus_gpm"			"600"	//75
+				"bonus_mana"		"300"	//200
+				"bonus_damage"		"-90"	//-30
+				"gold_on_expire"		"1000"	// 收金钱倍率影响
+				"charges_tooltip"		"1200"	// 2分钟
+		}
+	}
+	//吸血鬼獠牙
+	"item_vampire_fangs"
+	{
+		"AbilityValues"
+		{
+			"attack_lifesteal"			"30"		// 15
+			"spell_lifesteal"			"20"		// 10
+			"night_vision"			"450"			// 300
+			"creep_lifesteal_reduction_pct"	"40"
+		}
+	}
+	//臂甲
+	"item_vambrace"
+	{
+		"AbilityValues"
+		{
+				"bonus_primary_stat"		"16"	//10
+				"bonus_secondary_stat"		"6"		//4
+				"bonus_spell_amp"			"16"	//8
+				"bonus_magic_resistance"	"16"	//10
+				"bonus_attack_speed"		"30"	//15
+		}
+	}
+	//魔童之爪 暴击爪
+	"item_imp_claw"
+	{
+		"AbilityCooldown"				"1.0" //4
+		"AbilityValues"
+		{
+				"crit_multiplier"			"160"	// 130
+		}
+	}
+	//林野长弓
+	"item_grove_bow"
+	{
+		"AbilityValues"
+		{
+			"attack_range_bonus"			"75"		// 75
+			"attack_speed_bonus"			"50"		// 20
+			"magic_resistance_reduction"		"20"	// 15
+		}
+	}
+	//高级仙林之火
+	"item_greater_faerie_fire"
+	{
+		"ItemInitialCharges"			"5"		// 3
+		"AbilityCooldown"				"5.0"	// 10
+		"IsTempestDoubleClonable"		"0"
+		"AbilityValues"
+		{
+				"bonus_damage"			"40"	// 20
+				"hp_restore"			"600"	// 250
+		}
+	}
+	//宁静种籽
+	"item_seeds_of_serenity"
+	{
+		"AbilityCastRange"				"700"	//350
+		"AbilityValues"
+		{
+			"aura_health_regen"			"20"	//10
+			"radius"
+			{
+				"value"			"500"			//400
+				"affected_by_aoe_increase"	"1"
+			}
+			"duration"					"10"	//8
+		}
+	}
+
+	//=================================================================================================================
+	// level 3
+	//=================================================================================================================
+	//烈风护体
+	"item_gale_guard"
+	{
+		"AbilityCooldown"				"20.0"	//30
+		"AbilityValues"
+		{
+			"barrier_duration"			"10"	//10
+			"barrier_amount"			"3000"	//400
+			"barrier_pct"				"60"	//75
+			"slow_resist"				"50"	//50
+		}
+	}
+	//火药手套
+	"item_gunpowder_gauntlets"
+	{
+		"AbilityCooldown"				"1"		//6
+		"AbilityValues"
+		{
+			"bonus_damage"			"240"		//120
+			"splash_radius"
+			{
+				"value"				"300"		//250
+				"affected_by_aoe_increase" "1"
+			}
+			"splash_pct"			"50"		//50
+		}
+	}
+	//邪道私语
+	"item_whisper_of_the_dread"
+	{
+		"AbilityValues"
+		{
+			"vision_penalty"		"15"		//15
+			"bonus_spell_damage"	"40"		//10
+			"bonus_mana"			"0"			//0
+		}
+	}
+	//忍者用具 单人雾
+	"item_ninja_gear"
+	{
+		"AbilityCooldown"				"30.0" //60
+		"AbilityValues"
+		{
+			"bonus_agility"			"0" //0
+			"passive_movement_bonus"		"0" //0
+			"visibility_radius"		"600" //1025
+			"duration"				"20.0" //15
+			"bonus_movement_speed"		"25" //15
+			"secondary_application_radius"		"0" //0
+		}
+	}
+	//皮洛士斗篷
+	"item_pyrrhic_cloak"
+	{
+		"AbilityCooldown"				"20"	//40
+		"AbilityCastRange"				"1200"	//800
+		"AbilityValues"
+		{
+			"damage_pct"				"100"	//60
+			"damage_time"				"8"		//6
+		}
+	}
+	//食人魔海豹图腾
+	"item_ogre_seal_totem"
+	{
+		"AbilityCooldown"				"20.0"		//40.0
+		"AbilityManaCost"				"50"		//25
+		"AbilityValues"
+		{
+			"movement_turn_rate"		"50"		//75
+			"leap_distance"				"300"		//400
+			"leap_speed"				"1200.0"	//800
+			"leap_acceleration"			"1500.0"	//1250
+			"radius"
+			{
+				"value"				"350"			//275
+			}
+			"flop_damage"				"300"		//250
+			"slow_duration"				"3.0"		//1.5
+			"max_bounces"				"4"			//2
+		}
+	}
+	//欺诈师斗篷
+	"item_trickster_cloak"
+	{
+		"AbilityCooldown"				"20.0"	//25
+		"AbilityValues"
+		{
+				"duration"			"6"			//6
+		}
+	}
+	//风暴宝器
+	"item_stormcrafter"
+	{
+		"AbilityCooldown"				"1.5"	//3
+		"AbilityValues"
+		{
+			"range"			"1200"			//700
+			"damage"		"400"			//200
+			"interval"		"1.5"			//3
+			"slow"			"60"			//40
+			"slow_duration"			"0.6"	//0.4
+			"bonus_mana_regen"		"0"		//4
+			"max_targets"			"3"		//2
+			"passive_movement_bonus""0"		//35
+		}
+	}
+	//五锋长剑
+	"item_penta_edged_sword"
+	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityValues"
+		{
+				"damage"				"0"			//45
+				"melee_attack_range"	"0"			//100
+				"maim_chance"			"50"		//25
+				"maim_slow_movement"	"60"		//20
+				"maim_slow_attack"		"200"		//60
+				"maim_duration"			"3"			//3
+		}
+	}
+	//智灭
+	"item_mind_breaker"
+	{
+		"AbilityCooldown"		"4.0"				//12
+		"AbilityValues"
+		{
+				"duration"		"3.0"				//2
+		}
+	}
+
+
+
+	//=================================================================================================================
+	// level 4
+	//=================================================================================================================
+	//致残之弩
+	"item_crippling_crossbow"
+	{
+		"AbilityCooldown"				"6"			//12
+		"AbilityManaCost"				"150"		//75
+		"AbilityCastRange"				"1200"		//600
+		"AbilityValues"
+		{
+			"slow_pct"					"100"		//80
+			"heal_reduce"				"80"		//40
+			"duration"					"6"			//4
+			"damage"					"300"		//75
+			// "projectile_speed"			"2100"		//1400
+		}
+	}
+	//祭礼长袍
+	"item_ceremonial_robe"
+	{
+		"AbilityValues"
+		{
+			"aura_radius"
+			{
+				"value"			"1800"				//1200
+			}
+			"status_resistance"			"60"		//10
+			"magic_resistance"			"60"		//10
+		}
+	}
+	//网虫腿
+	"item_spider_legs"
+	{
+		"AbilityValues"
+		{
+			"turn_rate"	"100" 					//50
+			"bonus_movement_speed_active"	"30"	//20
+		}
+	}
+	//先哲之石
+	"item_seer_stone"
+	{
+		"AbilityCooldown"				"30"	//60
+		"AbilityValues"
+		{
+			"cast_range_bonus"		"0"			//350
+			"vision_bonus"			"0"			//350
+			"mana_regen"			"0"			//10
+			"radius"
+			{
+				"value"		"1200"				//800
+				"affected_by_aoe_increase"	"1"
+			}
+			"duration"			"9"				//6
+		}
+	}
+	//亲王短刀
+	"item_princes_knife"
+	{
+		"AbilityCooldown"				"8"		//10
+		"AbilityValues"
+		{
+				"duration"			"2.5"		//1.5
+				"movespeed"			"100"		//140
+				"projectile_bonus"	"0"			//60
+		}
+	}
+	//锯齿短刀
+	"item_serrated_shiv"
+	{
+		"AbilityCooldown"				"0.5"	//1.0
+		"AbilityValues"
+		{
+			"proc_chance"			"40"		//20
+			"hp_dmg"				"10"		//10
+			"hp_dmg_rosh"			"600"		//200
+		}
+	}
+	//天崩
+	"item_fallen_sky"
+	{
+		"AbilityCastRange"				"1600"	//1200
+		"AbilityCooldown"				"12.0"	//15
+		"AbilityValues"
+		{
+			"impact_damage_buildings"	"150"	// 75
+			"impact_damage_units"		"150"	// 150
+			"burn_dps_buildings"	"120"		// 60
+			"burn_dps_units"		"120"		// 60
+			"stun_duration"		"2.2"			//1.6
+			"impact_radius"
+			{
+				"value"			"400"			//315
+			}
+			"blink_damage_cooldown"	"0.2"		//3.0
+		}
+	}
+	//神妙明灯
+	"item_panic_button"
+	{
+		"AbilityCooldown"				"25.0"	//75
+		"AbilityValues"
+		{
+				"heal"					"8000"	//1500
+				"health_threshold"		"50"	//20
+		}
+	}
+	//维修器具
+	"item_repair_kit"
+	{
+		"ItemInitialCharges"			"5"		//3
+		"AbilityCastRange"				"900"	//600
+		"AbilityValues"
+		{
+				"duration"		"20"	//30
+				"heal_percent"	"50"	//40
+				"armor_bonus"	"50"	//10
+				"hp_regen"		"0"		//25
+		}
+	}
+
+	//=================================================================================================================
+	// level 5
+	//=================================================================================================================
+	//寂灭
+	"item_desolator_2"
+	{
+		"AbilityValues"
+		{
+				"corruption_armor"		"-30"	//-13
+				"corruption_duration"	"10.0"	//7
+		}
+	}
+	//恶牛角
+	"item_minotaur_horn"
+	{
+		"AbilityValues"
+		{
+			"duration"			"6"				//2
+			"magic_resist"		"80"			//50
+		}
+	}
+	//放大单片镜
+	"item_magnifying_monocle"
+	{
+		"AbilityValues"
+		{
+			"bonus_attack_range"		"200" //100
+			"bonus_cast_range"			"250" //125
+			"damage_disable"			"6" //3
+			"damage_threshold"			"400" //25
+		}
+	}
+
+	//行家阵列
+	"item_specialists_array"
+	{
+		"AbilityCooldown"				"0.5"		//8
+		"AbilityValues"
+		{
+			"count"							"3"		//2
+			"secondary_target_range_bonus"	"350"	//225
+			"proc_bonus_damage"				"100"	//10
+		}
+	}
+
+	//神镜盾
+	"item_mirror_shield"
+	{
+		"AbilityValues"
+		{
+			"reflect_chance"		"100"		//75
+			"block_cooldown"		"6.0"		//12
+		}
+	}
+	//弩炮
+	"item_ballista"
+	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityValues"
+		{
+			"attack_range_bonus"		"0"		//250
+			"knockback_distance"		"10"	//50
+			"knockback_duration"		"0.2"	//0.2
+			"bonus_damage"				"80"	//50
+		}
+	}
+	//弩炮·改
+	"item_ballista_dmg"
+	{
+		"BaseClass"						"item_ballista"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"ItemCost"						"0"
+		"ItemIsNeutralActiveDrop"				"1"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"AbilityTextureName"			"item_ballista_dark"
+		"AbilityValues"
+		{
+				"attack_range_bonus"		"0"
+				"knockback_distance"			"0"
+				"knockback_duration"		"0.0"
+				"bonus_damage"			"250"
+		}
+	}
+	//巨人之戒
+	"item_giants_ring"
+	{
+		"AbilityValues"
+		{
+				"model_scale"				"30"	//60
+				"pct_str_damage_per_second"	"120"	//100
+				"damage_radius"
+				{
+					"value"		"160"				// 100
+					"affected_by_aoe_increase"	"1"
+				}
+		}
+	}
+	//机械之心
+	"item_ex_machina"
+	{
+		"AbilityCooldown"				"25.0"		//60
+		"AbilityManaCost"				"450"		//350
+	}
+
+	//浩劫巨锤
+	"item_havoc_hammer"
+	{
+		"AbilityCooldown"				"8.0"		//10
+		"AbilityValues"
+		{
+				"bonus_damage"			"0"			//16
+				"bonus_strength"		"0"			//16
+				"range"
+				{
+					"value"						"600"	//400
+					"affected_by_aoe_increase"	"1"
+				}
+				"slow"		"60"					//50
+				"slow_duration"		"3"				//3
+				"nuke_base_dmg"		"450"			//175
+				"nuke_str_dmg"		"2"				//1.5
+		}
+	}
+	//天诛之咒
+	"item_nemesis_curse"
+	{
+		"AbilityValues"
+		{
+			"debuff_self"	"10"			//8
+			"debuff_enemy"	"30"			//12
+		}
+	}
+}

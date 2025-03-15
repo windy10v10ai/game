@@ -1,14 +1,14 @@
 var imagefile = {
-  npc_dota_hero_meepo: "file://{images}/heroes/npc_dota_hero_meepo_custom.png",
+  npc_dota_hero_meepo: 'file://{images}/heroes/npc_dota_hero_meepo_custom.png',
   // npc_dota_hero_juggernaut: "file://{images}/heroes/npc_dota_hero_juggernaut_custom.png",
-  npc_dota_hero_techies: "file://{images}/heroes/npc_dota_hero_techies_custom.png",
-  npc_dota_hero_broodmother: "file://{images}/heroes/npc_dota_hero_broodmother_custom.png",
-  npc_dota_hero_visage: "file://{images}/heroes/npc_dota_hero_visage_custom.png",
-  npc_dota_hero_chen: "file://{images}/heroes/npc_dota_hero_chen_custom.png",
-  npc_dota_hero_pangolier: "file://{images}/heroes/npc_dota_hero_pangolier_custom.png",
-  npc_dota_hero_phantom_lancer: "file://{images}/heroes/npc_dota_hero_phantom_lancer_custom.png",
-  npc_dota_hero_brewmaster: "file://{images}/heroes/npc_dota_hero_brewmaster_custom.png",
-  npc_dota_hero_dark_seer: "file://{images}/heroes/npc_dota_hero_dark_seer_custom.png",
+  npc_dota_hero_techies: 'file://{images}/heroes/npc_dota_hero_techies_custom.png',
+  npc_dota_hero_broodmother: 'file://{images}/heroes/npc_dota_hero_broodmother_custom.png',
+  npc_dota_hero_visage: 'file://{images}/heroes/npc_dota_hero_visage_custom.png',
+  npc_dota_hero_chen: 'file://{images}/heroes/npc_dota_hero_chen_custom.png',
+  npc_dota_hero_pangolier: 'file://{images}/heroes/npc_dota_hero_pangolier_custom.png',
+  npc_dota_hero_phantom_lancer: 'file://{images}/heroes/npc_dota_hero_phantom_lancer_custom.png',
+  npc_dota_hero_brewmaster: 'file://{images}/heroes/npc_dota_hero_brewmaster_custom.png',
+  npc_dota_hero_dark_seer: 'file://{images}/heroes/npc_dota_hero_dark_seer_custom.png',
 };
 
 function LoopSwapInGameIcons() {
@@ -48,12 +48,12 @@ function SwapTopBarIcons() {
   }
 
   if (!radianttopbar)
-    radianttopbar = topmostpanel.FindChildTraverse("TopBarRadiantPlayersContainer");
-  if (!diretopbar) diretopbar = topmostpanel.FindChildTraverse("TopBarDirePlayersContainer");
+    radianttopbar = topmostpanel.FindChildTraverse('TopBarRadiantPlayersContainer');
+  if (!diretopbar) diretopbar = topmostpanel.FindChildTraverse('TopBarDirePlayersContainer');
 
   var heroimages = [];
-  heroimages = FindPanels(radianttopbar, "DOTAHeroImage", heroimages, 0);
-  heroimages = FindPanels(diretopbar, "DOTAHeroImage", heroimages, 0);
+  heroimages = FindPanels(radianttopbar, 'DOTAHeroImage', heroimages, 0);
+  heroimages = FindPanels(diretopbar, 'DOTAHeroImage', heroimages, 0);
 
   for (var i = 0; i < heroimages.length; i++) {
     ReplaceIcon(heroimages[i]);
@@ -71,12 +71,12 @@ function SwapScoreboardIcons() {
   }
 
   if (!radiantscoreboard)
-    radiantscoreboard = topmostpanel.FindChildTraverse("RadiantTeamContainer");
-  if (!direscoreboard) direscoreboard = topmostpanel.FindChildTraverse("DireTeamContainer");
+    radiantscoreboard = topmostpanel.FindChildTraverse('RadiantTeamContainer');
+  if (!direscoreboard) direscoreboard = topmostpanel.FindChildTraverse('DireTeamContainer');
 
   var heroimages = [];
-  heroimages = FindPanels(radiantscoreboard, "DOTAHeroImage", heroimages, 0);
-  heroimages = FindPanels(direscoreboard, "DOTAHeroImage", heroimages, 0);
+  heroimages = FindPanels(radiantscoreboard, 'DOTAHeroImage', heroimages, 0);
+  heroimages = FindPanels(direscoreboard, 'DOTAHeroImage', heroimages, 0);
   for (var i = 0; i < heroimages.length; i++) {
     ReplaceIcon(heroimages[i]);
   }
@@ -92,12 +92,12 @@ function SwapPreGameIcons() {
     }
   }
 
-  if (!radiantpregame) radiantpregame = topmostpanel.FindChildTraverse("RadiantTeamPlayers");
-  if (!direpregame) direpregame = topmostpanel.FindChildTraverse("DireTeamPlayers");
+  if (!radiantpregame) radiantpregame = topmostpanel.FindChildTraverse('RadiantTeamPlayers');
+  if (!direpregame) direpregame = topmostpanel.FindChildTraverse('DireTeamPlayers');
 
   var heroimages = [];
-  heroimages = FindPanels(radiantpregame, "DOTAHeroImage", heroimages, 0);
-  heroimages = FindPanels(direpregame, "DOTAHeroImage", heroimages, 0);
+  heroimages = FindPanels(radiantpregame, 'DOTAHeroImage', heroimages, 0);
+  heroimages = FindPanels(direpregame, 'DOTAHeroImage', heroimages, 0);
 
   for (var i = 0; i < heroimages.length; i++) {
     ReplaceIcon(heroimages[i]);
@@ -114,14 +114,14 @@ function SwapSpectatorIcons() {
   }
 
   if (!playerrows) {
-    playerrows = topmostpanel.FindChildTraverse("spectator_game_stats");
+    playerrows = topmostpanel.FindChildTraverse('spectator_game_stats');
     if (!playerrows) return;
-    playerrows = playerrows.FindChildTraverse("PlayerRows");
+    playerrows = playerrows.FindChildTraverse('PlayerRows');
     if (!playerrows) return;
   }
 
   var heroimages = [];
-  heroimages = FindPanels(playerrows, "DOTAHeroImage", heroimages, 0);
+  heroimages = FindPanels(playerrows, 'DOTAHeroImage', heroimages, 0);
 
   for (var i = 0; i < heroimages.length; i++) {
     ReplaceIcon(heroimages[i]);
@@ -145,7 +145,7 @@ function FindPanels(parent, name, ret, level) {
 }
 
 function ReplaceIcon(heroimage) {
-  var heroname = "npc_dota_hero_" + heroimage.heroname;
+  var heroname = 'npc_dota_hero_' + heroimage.heroname;
 
   if (imagefile[heroname]) {
     heroimage.SetImage(imagefile[heroname]);
@@ -209,19 +209,19 @@ function SwapChatIcons() {
     }
   }
 
-  if (!chat) chat = topmostpanel.FindChildTraverse("ChatLinesPanel");
+  if (!chat) chat = topmostpanel.FindChildTraverse('ChatLinesPanel');
 
   var images = [];
-  images = FindPanels(chat, "Image", images, 0);
+  images = FindPanels(chat, 'Image', images, 0);
 
   for (var i in images) {
     var image = images[i];
 
-    if (!image.BHasClass("HeroIcon")) continue;
+    if (!image.BHasClass('HeroIcon')) continue;
 
-    if (image.FindChild("HeroImageOverlay")) continue;
+    if (image.FindChild('HeroImageOverlay')) continue;
 
-    var text = image.GetParent().text.split(":")[0];
+    var text = image.GetParent().text.split(':')[0];
     var player;
     for (var j in playernames) {
       if (text.indexOf(j) != -1) {
@@ -254,7 +254,7 @@ function SwapChatIcons() {
 }
 
 (function () {
-  GameEvents.Subscribe("game_rules_state_change", function () {
+  GameEvents.Subscribe('game_rules_state_change', function () {
     if (Game.GameStateIsBefore(DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME)) return;
     SwapInGameIcons();
     SwapSpectatorIcons();

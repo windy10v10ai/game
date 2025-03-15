@@ -1,3 +1,4 @@
+import { reloadable } from '../../utils/tstl-utils';
 import { BaseHeroAIModifier } from '../hero/hero-base';
 import { ModeAttack } from './mode-attack';
 import { ModeBase } from './mode-base';
@@ -7,6 +8,7 @@ import { ModePush } from './mode-push';
 import { ModeRetreat } from './mode-retreat';
 import { ModeRune } from './mode-rune';
 
+@reloadable
 export class FSA {
   // 切换模式的阈值
   public static readonly MODE_SWITCH_THRESHOLD = 0.5;
@@ -26,7 +28,6 @@ export class FSA {
     let desireMode: ModeEnum | undefined;
     for (const mode of this.ModeList) {
       const desire = mode.GetDesire(heroAI);
-      // print(`[FSA] hero ${heroAI.GetHero().GetUnitName()} desire for ${mode.mode} is ${desire}`);
       if (desire > maxDesire) {
         maxDesire = desire;
         desireMode = mode.mode;
@@ -35,7 +36,7 @@ export class FSA {
 
     if (maxDesire >= FSA.MODE_SWITCH_THRESHOLD) {
       if (desireMode !== currentMode) {
-        print(`[AI] hero ${heroAI.GetHero().GetUnitName()} desire to switch mode to ${desireMode}`);
+        // print(`[AI] hero ${heroAI.GetHero().GetUnitName()} desire to switch mode to ${desireMode}`);
       }
       return desireMode!;
     } else {

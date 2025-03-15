@@ -34,16 +34,6 @@ local function RollDrops(hHero)
     end
 end
 
-local function OnFortKilled(winnerTeam)
-    if IsServer() then
-        local endData = AIGameMode:EndScreenStats(winnerTeam, true)
-        -- 作弊模式不发送统计
-        if not AIGameMode:IsInvalidGame() then
-            GameController:SendEndGameInfo(endData)
-        end
-    end
-end
-
 local function RecordBarrackKilled(hEntity)
     local team = hEntity:GetTeamNumber()
     if DOTA_TEAM_GOODGUYS == team then
@@ -152,32 +142,6 @@ local function HeroKilled(keys)
     local iLevel = hHero:GetLevel()
     local GameTime = GameRules:GetDOTATime(false, false)
 
-    -- local fRespawnTime = 0
-    ---- 复活时间逻辑
-    -- if iLevel <= 50 then
-    --     fRespawnTime = math.ceil(tDOTARespawnTime[iLevel] * AIGameMode.iRespawnTimePercentage / 100.0)
-    -- else
-    --     fRespawnTime = math.ceil((iLevel / 4 + 52) * AIGameMode.iRespawnTimePercentage / 100.0)
-    -- end
-
-    -- -- NEC大招
-    -- if hHero:FindModifierByName('modifier_necrolyte_reapers_scythe') then
-    --     fRespawnTime = fRespawnTime +
-    --         hHero:FindModifierByName('modifier_necrolyte_reapers_scythe'):GetAbility():GetLevel() * 6
-    -- end
-
-    -- -- 会员减少5s复活时间
-    -- if PlayerController:IsMember(PlayerResource:GetSteamAccountID(playerId)) then
-    --     fRespawnTime = fRespawnTime - 5
-    -- end
-
-    -- -- 复活时间至少1s
-    -- if fRespawnTime < 1 then
-    --     fRespawnTime = 1
-    -- end
-
-    -- hHero:SetTimeUntilRespawn(fRespawnTime)
-
     -- 玩家团队奖励逻辑
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
         -- 前期增长慢，电脑等级较高时，增长快
@@ -220,8 +184,7 @@ local function HeroKilled(keys)
     -- AI连死补偿
     -- AI 50级后不再补偿
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) and
-        AIGameMode.BotRecordSuccessiveDeathTable[playerId] and AIGameMode.BotRecordSuccessiveDeathTable[playerId] >= 3 and
-        iLevel < 50 then
+        AIGameMode.BotRecordSuccessiveDeathTable[playerId] and AIGameMode.BotRecordSuccessiveDeathTable[playerId] >= 3 then
         -- 补偿的金钱和经验 设计上不应该超过AI通过击杀玩家获得的
         local deathCount = AIGameMode.BotRecordSuccessiveDeathTable[playerId]
         local gold = 0
@@ -232,20 +195,21 @@ local function HeroKilled(keys)
             gold = 20
             xp = 40
         elseif GameTime <= 10 * 60 then
-            gold = 40
+            gold = 30
             xp = 60
-        elseif GameTime <= 15 * 60 then
-            gold = 60
-            xp = 80
         else
-            gold = 80
-            xp = 120
+            gold = 40
+            xp = 80
         end
 
         -- 击杀者等级加成
         local killerLevel = attacker:GetLevel()
-        gold = gold + killerLevel * 1
-        xp = xp + killerLevel * 2
+        gold = gold + killerLevel * 6
+        xp = xp + killerLevel * 4
+
+        if iLevel >= 50 then
+            xp = 0
+        end
 
         -- 连死次数补正
         local extraFactor = math.max(1, deathCount - 2)
@@ -295,17 +259,5 @@ function AIGameMode:OnEntityKilled(keys)
     -- on tower killed
     if hEntity:GetClassname() == "npc_dota_tower" then
         RecordTowerKilled(hEntity)
-    end
-
-    if hEntity:GetClassname() == "npc_dota_fort" then
-        print(hEntity:GetUnitName())
-        print(hEntity:GetClassname())
-        local winnerTeam = 1
-        if hEntity:GetUnitName() == "npc_dota_badguys_fort" then
-            winnerTeam = DOTA_TEAM_GOODGUYS
-        else
-            winnerTeam = DOTA_TEAM_BADGUYS
-        end
-        OnFortKilled(winnerTeam)
     end
 end

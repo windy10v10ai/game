@@ -136,6 +136,7 @@
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
+		"MagicalResistance"			"10"		// 0
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -158,6 +159,7 @@
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
+		"MagicalResistance"			"10"		// 0
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -180,6 +182,7 @@
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
+		"MagicalResistance"			"10"		// 0
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -202,6 +205,7 @@
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
+		"MagicalResistance"			"10"		// 0
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -224,6 +228,7 @@
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
+		"MagicalResistance"			"10"		// 0
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -246,6 +251,7 @@
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
+		"MagicalResistance"			"10"		// 0
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -265,7 +271,7 @@
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"ArmorPhysical"				"40"		// 16
-		"MagicalResistance"			"10"		// 0
+		"MagicalResistance"			"20"		// 0
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -283,7 +289,7 @@
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"ArmorPhysical"				"40"		// 16
-		"MagicalResistance"			"10"		// 0
+		"MagicalResistance"			"20"		// 0
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -301,7 +307,7 @@
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"ArmorPhysical"				"40"		// 16
-		"MagicalResistance"			"10"		// 0
+		"MagicalResistance"			"20"		// 0
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -319,7 +325,7 @@
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"ArmorPhysical"				"40"		// 16
-		"MagicalResistance"			"10"		// 0
+		"MagicalResistance"			"20"		// 0
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -337,7 +343,7 @@
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"ArmorPhysical"				"40"		// 16
-		"MagicalResistance"			"10"		// 0
+		"MagicalResistance"			"20"		// 0
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -355,7 +361,7 @@
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"ArmorPhysical"				"40"		// 16
-		"MagicalResistance"			"10"		// 0
+		"MagicalResistance"			"20"		// 0
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -375,7 +381,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"50"		// 15
-		"MagicalResistance"			"0"			// Magical protection.
+		"MagicalResistance"			"20"		// 0
 
 		// Attack
 		//----------------------------------------------------------------
@@ -407,7 +413,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"50"		// 15
-		"MagicalResistance"			"0"			// Magical protection.
+		"MagicalResistance"			"20"		// 0
 
 		// Attack
 		//----------------------------------------------------------------
@@ -439,7 +445,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"50"		// 15
-		"MagicalResistance"			"0"			// Magical protection.
+		"MagicalResistance"			"20"		// 0
 
 		// Attack
 		//----------------------------------------------------------------
@@ -472,7 +478,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"50"		// 15
-		"MagicalResistance"			"0"			// Magical protection.
+		"MagicalResistance"			"20"		// 0
 
 		// Attack
 		//----------------------------------------------------------------
@@ -504,7 +510,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"50"		// 15
-		"MagicalResistance"			"0"			// Magical protection.
+		"MagicalResistance"			"20"		// 0
 
 		// Attack
 		//----------------------------------------------------------------
@@ -536,7 +542,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"50"		// 15
-		"MagicalResistance"			"0"			// Magical protection.
+		"MagicalResistance"			"20"		// 0
 
 		// Attack
 		//----------------------------------------------------------------
@@ -571,7 +577,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 9
-		"MagicalResistance"			"0"			// Magical protection.
+		"MagicalResistance"			"20"		// 0
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -602,7 +608,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 9
-		"MagicalResistance"			"0"			// Magical protection.
+		"MagicalResistance"			"20"		// 0
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -633,7 +639,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 9
-		"MagicalResistance"			"0"			// Magical protection.
+		"MagicalResistance"			"20"		// 0
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -666,7 +672,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 9
-		"MagicalResistance"			"0"			// Magical protection.
+		"MagicalResistance"			"20"		// 0
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -697,7 +703,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 9
-		"MagicalResistance"			"0"			// Magical protection.
+		"MagicalResistance"			"20"		// 0
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -728,7 +734,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 9
-		"MagicalResistance"			"0"			// Magical protection.
+		"MagicalResistance"			"20"		// 0
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -810,7 +816,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"20000"			// 4500
+		"StatusHealth"				"25000"			// 4500
 		"StatusHealthRegen"			"20"			// 12
 	}
 	//=================================================================================
@@ -838,7 +844,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"20000"			// 4500
+		"StatusHealth"				"25000"			// 4500
 		"StatusHealthRegen"			"20"			// 12
 	}
 	//=================================================================================
@@ -859,5 +865,14 @@
 		"AttackAcquisitionRange"	"1400"		// 1200
 		"AttackRange"				"1400"		// 1200
 		"ProjectileSpeed"			"2100"		// 1400
+	}
+
+	//=================================================================================
+	// 观察者
+	//=================================================================================
+	"npc_dota_lantern"
+	{
+		"VisionDaytimeRange"		"1200"		// 800
+		"VisionNighttimeRange"		"800"		// 800
 	}
 }

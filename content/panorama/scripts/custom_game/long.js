@@ -100,7 +100,7 @@ function Long(low, high, unsigned) {
  */
 Long.prototype.__isLong__;
 
-Object.defineProperty(Long.prototype, "__isLong__", { value: true });
+Object.defineProperty(Long.prototype, '__isLong__', { value: true });
 
 /**
  * @function
@@ -109,7 +109,7 @@ Object.defineProperty(Long.prototype, "__isLong__", { value: true });
  * @inner
  */
 function isLong(obj) {
-  return (obj && obj["__isLong__"]) === true;
+  return (obj && obj['__isLong__']) === true;
 }
 
 /**
@@ -250,21 +250,21 @@ var pow_dbl = Math.pow; // Used 4 times (4*8 to 15+4)
  * @inner
  */
 function fromString(str, unsigned, radix) {
-  if (str.length === 0) throw Error("empty string");
-  if (typeof unsigned === "number") {
+  if (str.length === 0) throw Error('empty string');
+  if (typeof unsigned === 'number') {
     // For goog.math.long compatibility
     radix = unsigned;
     unsigned = false;
   } else {
     unsigned = !!unsigned;
   }
-  if (str === "NaN" || str === "Infinity" || str === "+Infinity" || str === "-Infinity")
+  if (str === 'NaN' || str === 'Infinity' || str === '+Infinity' || str === '-Infinity')
     return unsigned ? UZERO : ZERO;
   radix = radix || 10;
-  if (radix < 2 || 36 < radix) throw RangeError("radix");
+  if (radix < 2 || 36 < radix) throw RangeError('radix');
 
   var p;
-  if ((p = str.indexOf("-")) > 0) throw Error("interior hyphen");
+  if ((p = str.indexOf('-')) > 0) throw Error('interior hyphen');
   else if (p === 0) {
     return fromString(str.substring(1), unsigned, radix).neg();
   }
@@ -307,10 +307,10 @@ Long.fromString = fromString;
  * @inner
  */
 function fromValue(val, unsigned) {
-  if (typeof val === "number") return fromNumber(val, unsigned);
-  if (typeof val === "string") return fromString(val, unsigned);
+  if (typeof val === 'number') return fromNumber(val, unsigned);
+  if (typeof val === 'string') return fromString(val, unsigned);
   // Throws for non-objects, converts non-instanceof Long:
-  return fromBits(val.low, val.high, typeof unsigned === "boolean" ? unsigned : val.unsigned);
+  return fromBits(val.low, val.high, typeof unsigned === 'boolean' ? unsigned : val.unsigned);
 }
 
 /**
@@ -498,8 +498,8 @@ LongPrototype.toNumber = function toNumber() {
  */
 LongPrototype.toString = function toString(radix) {
   radix = radix || 10;
-  if (radix < 2 || 36 < radix) throw RangeError("radix");
-  if (this.isZero()) return "0";
+  if (radix < 2 || 36 < radix) throw RangeError('radix');
+  if (this.isZero()) return '0';
   if (this.isNegative()) {
     // Unsigned Longs are never negative
     if (this.eq(MIN_VALUE)) {
@@ -509,14 +509,14 @@ LongPrototype.toString = function toString(radix) {
         div = this.div(radixLong),
         rem1 = div.mul(radixLong).sub(this);
       return div.toString(radix) + rem1.toInt().toString(radix);
-    } else return "-" + this.neg().toString(radix);
+    } else return '-' + this.neg().toString(radix);
   }
 
   // Do several (6) digits each time through the loop, so as to
   // minimize the calls to the very expensive emulated div.
   var radixToPower = fromNumber(pow_dbl(radix, 6), this.unsigned),
     rem = this;
-  var result = "";
+  var result = '';
   while (true) {
     var remDiv = rem.div(radixToPower),
       intval = rem.sub(remDiv.mul(radixToPower)).toInt() >>> 0,
@@ -524,8 +524,8 @@ LongPrototype.toString = function toString(radix) {
     rem = remDiv;
     if (rem.isZero()) return digits + result;
     else {
-      while (digits.length < 6) digits = "0" + digits;
-      result = "" + digits + result;
+      while (digits.length < 6) digits = '0' + digits;
+      result = '' + digits + result;
     }
   }
 };
@@ -885,8 +885,8 @@ LongPrototype.multiply = function multiply(multiplier) {
 
   // use wasm support if present
   if (wasm) {
-    var low = wasm["mul"](this.low, this.high, multiplier.low, multiplier.high);
-    return fromBits(low, wasm["get_high"](), this.unsigned);
+    var low = wasm['mul'](this.low, this.high, multiplier.low, multiplier.high);
+    return fromBits(low, wasm['get_high'](), this.unsigned);
   }
 
   if (multiplier.isZero()) return this.unsigned ? UZERO : ZERO;
@@ -959,7 +959,7 @@ LongPrototype.mul = LongPrototype.multiply;
  */
 LongPrototype.divide = function divide(divisor) {
   if (!isLong(divisor)) divisor = fromValue(divisor);
-  if (divisor.isZero()) throw Error("division by zero");
+  if (divisor.isZero()) throw Error('division by zero');
 
   // use wasm support if present
   if (wasm) {
@@ -970,13 +970,13 @@ LongPrototype.divide = function divide(divisor) {
       // be consistent with non-wasm code path
       return this;
     }
-    var low = (this.unsigned ? wasm["div_u"] : wasm["div_s"])(
+    var low = (this.unsigned ? wasm['div_u'] : wasm['div_s'])(
       this.low,
       this.high,
       divisor.low,
       divisor.high,
     );
-    return fromBits(low, wasm["get_high"](), this.unsigned);
+    return fromBits(low, wasm['get_high'](), this.unsigned);
   }
 
   if (this.isZero()) return this.unsigned ? UZERO : ZERO;
@@ -1071,13 +1071,13 @@ LongPrototype.modulo = function modulo(divisor) {
 
   // use wasm support if present
   if (wasm) {
-    var low = (this.unsigned ? wasm["rem_u"] : wasm["rem_s"])(
+    var low = (this.unsigned ? wasm['rem_u'] : wasm['rem_s'])(
       this.low,
       this.high,
       divisor.low,
       divisor.high,
     );
-    return fromBits(low, wasm["get_high"](), this.unsigned);
+    return fromBits(low, wasm['get_high'](), this.unsigned);
   }
 
   return this.sub(this.div(divisor).mul(divisor));

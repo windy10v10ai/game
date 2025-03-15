@@ -15,52 +15,5 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
     self.iStartingGoldPlayer = tonumber(args.game_options.starting_gold_player)
     self.iStartingGoldBot = tonumber(args.game_options.starting_gold_bot)
     self.bSameHeroSelection = args.game_options.same_hero_selection
-    if args.game_options.radiant_bot_same_multi == 1 or args.game_options.radiant_bot_same_multi == "1" then
-        self.bRadiantBotSameMulti = true
-    else
-        self.bRadiantBotSameMulti = false
-    end
     self:PreGameOptions()
-end
-
-function AIGameMode:OnGameOptionChange(keys)
-    local optionName = keys.optionName
-    local optionValue = keys.optionValue
-    local optionId = keys.optionId
-    -- 对应的游戏选择项目设定
-    GameRules.GameOption[optionName] = { optionValue = optionValue, optionId = optionId }
-    CustomNetTables:SetTableValue('game_options_table', 'game_option', GameRules.GameOption)
-end
-
-function AIGameMode:OnChooseDifficulty(keys)
-    local playerId = keys.PlayerID
-    local difficulty = keys.difficulty
-    CustomNetTables:SetTableValue('difficulty_choice', tostring(playerId), { difficulty = difficulty })
-
-    AIGameMode:CalculateDifficulty(false)
-end
-
-function AIGameMode:CalculateDifficulty(force)
-    local playerCount = 0
-    local playerChosen = 0
-    local averageDifficulty = 0
-    for i = 0, DOTA_MAX_TEAM_PLAYERS do
-        if PlayerResource:GetConnectionState(i) ~= DOTA_CONNECTION_STATE_UNKNOWN then
-            playerCount = playerCount + 1
-            local difficultyChosen = CustomNetTables:GetTableValue('difficulty_choice', tostring(i))
-            if difficultyChosen then
-                playerChosen = playerChosen + 1
-                averageDifficulty = averageDifficulty + difficultyChosen.difficulty
-            end
-        end
-    end
-    if playerChosen ~= 0 then
-        averageDifficulty = averageDifficulty / playerChosen
-        -- 四舍五入 FIXME 如果难度偏高 改成人数相同时优先选择低难度 + 0.4
-        averageDifficulty = math.floor(averageDifficulty + 0.5)
-    end
-    if force or playerChosen >= playerCount then
-        CustomNetTables:SetTableValue('game_difficulty', 'all', { difficulty = averageDifficulty })
-        AIGameMode.iGameDifficulty = tonumber(averageDifficulty)
-    end
 end

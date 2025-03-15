@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // Global list of panels representing each of the teams
 var g_TeamPanels = [];
@@ -73,17 +73,17 @@ function FindOrCreatePanelForPlayer(playerId, parent) {
   for (var i = 0; i < g_PlayerPanels.length; ++i) {
     var playerPanel = g_PlayerPanels[i];
 
-    if (playerPanel && playerPanel.GetAttributeInt("player_id", -1) == playerId) {
+    if (playerPanel && playerPanel.GetAttributeInt('player_id', -1) == playerId) {
       playerPanel.SetParent(parent);
       return playerPanel;
     }
   }
 
   // Create a new player panel for the specified player id if an existing one was not found
-  var newPlayerPanel = $.CreatePanel("Panel", parent, "player_root");
-  newPlayerPanel.SetAttributeInt("player_id", playerId);
+  var newPlayerPanel = $.CreatePanel('Panel', parent, 'player_root');
+  newPlayerPanel.SetAttributeInt('player_id', playerId);
   newPlayerPanel.BLoadLayout(
-    "file://{resources}/layout/custom_game/team_select/team_select_player.xml",
+    'file://{resources}/layout/custom_game/team_select/team_select_player.xml',
     false,
     false,
   );
@@ -98,13 +98,13 @@ function FindOrCreatePanelForPlayer(playerId, parent) {
 // Find player slot n in the specified team panel
 //--------------------------------------------------------------------------------------------------
 function FindPlayerSlotInTeamPanel(teamPanel, playerSlot) {
-  var playerListNode = teamPanel.FindChildInLayoutFile("PlayerList");
+  var playerListNode = teamPanel.FindChildInLayoutFile('PlayerList');
   if (playerListNode == null) return null;
 
   var nNumChildren = playerListNode.GetChildCount();
   for (var i = 0; i < nNumChildren; ++i) {
     var panel = playerListNode.GetChild(i);
-    if (panel.GetAttributeInt("player_slot", -1) == playerSlot) {
+    if (panel.GetAttributeInt('player_slot', -1) == playerSlot) {
       return panel;
     }
   }
@@ -118,7 +118,7 @@ function FindPlayerSlotInTeamPanel(teamPanel, playerSlot) {
 //--------------------------------------------------------------------------------------------------
 function UpdateTeamPanel(teamPanel) {
   // Get the id of team this panel is displaying
-  var teamId = teamPanel.GetAttributeInt("team_id", -1);
+  var teamId = teamPanel.GetAttributeInt('team_id', -1);
   if (teamId <= 0) return;
 
   // Add all of the players currently assigned to the team
@@ -135,9 +135,9 @@ function UpdateTeamPanel(teamPanel) {
   for (var i = teamPlayers.length; i < nNumPlayerSlots; ++i) {
     var playerSlot = FindPlayerSlotInTeamPanel(teamPanel, i);
     if (playerSlot.GetChildCount() == 0) {
-      var empty_slot = $.CreatePanel("Panel", playerSlot, "player_root");
+      var empty_slot = $.CreatePanel('Panel', playerSlot, 'player_root');
       empty_slot.BLoadLayout(
-        "s2r://panorama/layout/custom_game/team_select_empty_slot.xml",
+        's2r://panorama/layout/custom_game/team_select_empty_slot.xml',
         false,
         false,
       );
@@ -145,13 +145,13 @@ function UpdateTeamPanel(teamPanel) {
   }
 
   // Change the display state of the panel to indicate the team is full
-  teamPanel.SetHasClass("team_is_full", teamPlayers.length === teamDetails.team_max_players);
+  teamPanel.SetHasClass('team_is_full', teamPlayers.length === teamDetails.team_max_players);
 
   // If the local player is on this team change team panel to indicate this
   var localPlayerInfo = Game.GetLocalPlayerInfo();
   if (localPlayerInfo) {
     var localPlayerIsOnTeam = localPlayerInfo.player_team_id === teamId;
-    teamPanel.SetHasClass("local_player_on_this_team", localPlayerIsOnTeam);
+    teamPanel.SetHasClass('local_player_on_this_team', localPlayerIsOnTeam);
   }
 }
 
@@ -160,7 +160,7 @@ function UpdateTeamPanel(teamPanel) {
 // player team assignments
 //--------------------------------------------------------------------------------------------------
 function OnTeamPlayerListChanged() {
-  var unassignedPlayersContainerNode = $("#UnassignedPlayersContainer");
+  var unassignedPlayersContainerNode = $('#UnassignedPlayersContainer');
   if (unassignedPlayersContainerNode === null) return;
 
   // Move all existing player panels back to the unassigned player list
@@ -184,8 +184,8 @@ function OnTeamPlayerListChanged() {
   }
 
   // Set the class on the panel to indicate if there are any unassigned players
-  $("#GameAndPlayersRoot").SetHasClass("unassigned_players", unassignedPlayers.length != 0);
-  $("#GameAndPlayersRoot").SetHasClass("no_unassigned_players", unassignedPlayers.length == 0);
+  $('#GameAndPlayersRoot').SetHasClass('unassigned_players', unassignedPlayers.length != 0);
+  $('#GameAndPlayersRoot').SetHasClass('no_unassigned_players', unassignedPlayers.length == 0);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -199,7 +199,7 @@ function CheckForHostPrivileges() {
   // Set the "player_has_host_privileges" class on the panel, this can be used
   // to have some sub-panels on display or be enabled for the host player.
   $.GetContextPanel().SetHasClass(
-    "player_has_host_privileges",
+    'player_has_host_privileges',
     playerInfo.player_has_host_privileges,
   );
 }
@@ -212,39 +212,39 @@ function UpdateTimer() {
   var transitionTime = Game.GetStateTransitionTime();
 
   if (g_DifficultyChosen) {
-    $("#LockAndStartButton").enabled = true;
-    $("#CancelAndUnlockButton").enabled = true;
+    $('#LockAndStartButton').enabled = true;
+    $('#CancelAndUnlockButton').enabled = true;
     CheckForHostPrivileges();
     if (transitionTime >= 0) {
-      $("#StartGameCountdownTimer").SetDialogVariableInt(
-        "countdown_timer_seconds",
+      $('#StartGameCountdownTimer').SetDialogVariableInt(
+        'countdown_timer_seconds',
         Math.max(0, Math.floor(transitionTime - gameTime)),
       );
-      $("#StartGameCountdownTimer").SetHasClass("countdown_active", true);
-      $("#StartGameCountdownTimer").SetHasClass("countdown_inactive", false);
+      $('#StartGameCountdownTimer').SetHasClass('countdown_active', true);
+      $('#StartGameCountdownTimer').SetHasClass('countdown_inactive', false);
     } else {
-      $("#StartGameCountdownTimer").SetHasClass("countdown_active", false);
-      $("#StartGameCountdownTimer").SetHasClass("countdown_inactive", true);
+      $('#StartGameCountdownTimer').SetHasClass('countdown_active', false);
+      $('#StartGameCountdownTimer').SetHasClass('countdown_inactive', true);
     }
 
     var autoLaunch = Game.GetAutoLaunchEnabled();
-    $("#StartGameCountdownTimer").SetHasClass("auto_start", autoLaunch);
-    $("#StartGameCountdownTimer").SetHasClass("forced_start", autoLaunch == false);
-    $("#TimerLabelVote").visible = false;
+    $('#StartGameCountdownTimer').SetHasClass('auto_start', autoLaunch);
+    $('#StartGameCountdownTimer').SetHasClass('forced_start', autoLaunch == false);
+    $('#TimerLabelVote').visible = false;
 
     // Allow the ui to update its state based on team selection being locked or unlocked
-    $.GetContextPanel().SetHasClass("teams_locked", Game.GetTeamSelectionLocked());
-    $.GetContextPanel().SetHasClass("teams_unlocked", Game.GetTeamSelectionLocked() == false);
+    $.GetContextPanel().SetHasClass('teams_locked', Game.GetTeamSelectionLocked());
+    $.GetContextPanel().SetHasClass('teams_unlocked', Game.GetTeamSelectionLocked() == false);
   } else {
     const voteTime = Math.max(0, Math.floor(transitionTime - gameTime - 30));
-    $("#LockAndStartButton").enabled = false;
-    $("#CancelAndUnlockButton").enabled = false;
-    $("#TimerLabelVote").visible = true;
+    $('#LockAndStartButton').enabled = false;
+    $('#CancelAndUnlockButton').enabled = false;
+    $('#TimerLabelVote').visible = true;
     if (transitionTime >= 0) {
       if (voteTime > 0) {
-        $("#StartGameCountdownTimer").SetDialogVariableInt("countdown_timer_seconds", voteTime);
+        $('#StartGameCountdownTimer').SetDialogVariableInt('countdown_timer_seconds', voteTime);
       } else {
-        GameEvents.SendCustomGameEventToServer("vote_end", {});
+        GameEvents.SendCustomGameEventToServer('vote_end', {});
       }
     }
   }
@@ -254,19 +254,60 @@ function UpdateTimer() {
   }
 }
 
+//--------------------------------------------------------------------------------------------------
+// 以下为自定义部分
+//--------------------------------------------------------------------------------------------------
+
+/**
+ * 加载文本显示
+ */
 function OnGameLoadingStatusChange(table, key, value) {
   if (value) {
     const status = value.status;
-    $("#GameLoadingStatusText").text = $.Localize("#loading_status_" + status);
-    if (status == 1) {
-      $("#GameLoadingStatusText").style.color = "#FD841F";
+    $('#GameLoadingStatusText').text = $.Localize('#loading_status_' + status);
+    if (status === 1) {
+      $('#GameLoadingStatusText').style.color = '#FD841F';
     }
-    if (status == 2) {
-      $("#GameLoadingStatusText").style.color = "#5DA7DB";
+    if (status === 2) {
+      $('#GameLoadingStatusText').style.color = '#5DA7DB';
     }
-    if (status == 3) {
-      $("#GameLoadingStatusText").style.color = "#E14D2A";
+    if (status === 3) {
+      $('#GameLoadingStatusText').style.color = '#E14D2A';
     }
+  }
+}
+
+/**
+ * 根据地图名字，设置难度选择
+ */
+function SetDifficultyByMapName() {
+  const mapDisplayName = Game.GetMapInfo().map_display_name;
+  if (mapDisplayName === 'n6') {
+    for (let i = 0; i <= 5; i++) {
+      const button = $('#DifficultyN' + i);
+      button.enabled = false;
+      button.SetPanelEvent('onmouseover', () => {
+        $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#map_n6_warning'));
+      });
+      button.SetPanelEvent('onmouseout', () => {
+        $.DispatchEvent('DOTAHideTextTooltip');
+      });
+      button.AddClass('stopHover');
+      button.AddClass('deactivated');
+    }
+    // 直接选择N6难度
+    OnChooseDifficulty(6);
+  } else {
+    const button = $('#DifficultyN6');
+    button.enabled = false;
+    button.SetPanelEvent('onmouseover', () => {
+      $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#map_dota_warning'));
+    });
+    button.SetPanelEvent('onmouseout', () => {
+      $.DispatchEvent('DOTAHideTextTooltip');
+    });
+    button.AddClass('stopHover');
+    button.AddClass('deactivated');
   }
 }
 
@@ -274,35 +315,63 @@ function OnGameLoadingStatusChange(table, key, value) {
  * 难度选择
  * @param {*} difficulty
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function OnChooseDifficulty(difficulty) {
+  // get map name
+  const mapDisplayName = Game.GetMapInfo().map_display_name;
+
+  // mapDisplayName 是 n6的时候，difficulty可以选择6
+  // 其他情况下不能选择6
+  if (mapDisplayName !== 'n6' && difficulty === 6) {
+    $.Msg('This map cannot choose difficulty 6');
+    return;
+  }
+  if (mapDisplayName === 'n6' && difficulty !== 6) {
+    $.Msg('This map must choose difficulty 6');
+    return;
+  }
+
   if (g_DifficultyChosen) {
     return;
   }
   // remove all selected class
   for (let i = 0; i <= 6; i++) {
-    $("#DifficultyN" + i).RemoveClass("selected");
+    $('#DifficultyN' + i).RemoveClass('selected');
   }
   // get this button
-  const button = $("#DifficultyN" + difficulty);
+  const button = $('#DifficultyN' + difficulty);
   // add selected class
-  button.AddClass("selected");
+  button.AddClass('selected');
   // send difficulty to server
-  GameEvents.SendCustomGameEventToServer("choose_difficulty", {
+  GameEvents.SendCustomGameEventToServer('choose_difficulty', {
     difficulty: difficulty,
   });
 }
 
-function OnGameDifficultyChoiceChange(table, key, value) {
+/**
+ * 难度选择结束后，加快倒计时
+ */
+function OnGameDifficultyChoiceChange(_table, key, value) {
   const difficulty = value.difficulty;
-  if (key != "all") {
+  if (key !== 'all') {
     return;
   }
   g_DifficultyChosen = true;
-  if (difficulty != 0) {
-    Game.SetRemainingSetupTime(11);
+  if (difficulty !== 0) {
+    Game.SetRemainingSetupTime(10);
   }
 
-  $("#DifficultyContainer").AddClass("deactivated");
+  for (let i = 0; i <= 6; i++) {
+    const button = $('#DifficultyN' + i);
+    button.enabled = false;
+    button.AddClass('stopHover');
+    if (i === difficulty) {
+      button.AddClass('selected');
+      continue;
+    }
+    button.RemoveClass('selected');
+    button.AddClass('deactivated');
+  }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -323,8 +392,8 @@ function OnGameDifficultyChoiceChange(table, key, value) {
     }
   }
 
-  $("#TeamSelectContainer").SetAcceptsFocus(true); // Prevents the chat window from taking focus by default
-  var teamsListRootNode = $("#TeamsListRoot");
+  $('#TeamSelectContainer').SetAcceptsFocus(true); // Prevents the chat window from taking focus by default
+  var teamsListRootNode = $('#TeamsListRoot');
 
   // Construct the panels for each team
   var allTeamIDs = Game.GetAllTeamIDs();
@@ -335,12 +404,12 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 
   for (var teamId of allTeamIDs) {
     // IF not good team, skip
-    if (teamId != 2) continue;
-    var teamNode = $.CreatePanel("Panel", teamsListRootNode, "");
-    teamNode.AddClass("team_" + teamId); // team_1, etc.
-    teamNode.SetAttributeInt("team_id", teamId);
+    if (teamId !== 2) continue;
+    var teamNode = $.CreatePanel('Panel', teamsListRootNode, '');
+    teamNode.AddClass('team_' + teamId); // team_1, etc.
+    teamNode.SetAttributeInt('team_id', teamId);
     teamNode.BLoadLayout(
-      "file://{resources}/layout/custom_game/team_select_team.xml",
+      'file://{resources}/layout/custom_game/team_select_team.xml',
       false,
       false,
     );
@@ -357,22 +426,25 @@ function OnGameDifficultyChoiceChange(table, key, value) {
   OnTeamPlayerListChanged();
 
   var mapInfo = Game.GetMapInfo();
-  $("#MapInfo").SetDialogVariable("map_name", mapInfo.map_display_name);
+  $('#MapInfo').SetDialogVariable('map_name', mapInfo.map_display_name);
   // Start updating the timer, this function will schedule itself to be called periodically
   UpdateTimer();
 
   // Register a listener for the event which is brodcast when the team assignment of a player is actually assigned
-  $.RegisterForUnhandledEvent("DOTAGame_TeamPlayerListChanged", OnTeamPlayerListChanged);
+  $.RegisterForUnhandledEvent('DOTAGame_TeamPlayerListChanged', OnTeamPlayerListChanged);
 
   // Register a listener for the event which is broadcast whenever a player attempts to pick a team
   // $.RegisterForUnhandledEvent( "DOTAGame_PlayerSelectedCustomTeam", OnPlayerSelectedTeam );
 
   // 游戏数据加载状态监听
-  CustomNetTables.SubscribeNetTableListener("loading_status", OnGameLoadingStatusChange);
+  CustomNetTables.SubscribeNetTableListener('loading_status', OnGameLoadingStatusChange);
   OnGameLoadingStatusChange(
     null,
-    "loading_status",
-    CustomNetTables.GetTableValue("loading_status", "loading_status"),
+    'loading_status',
+    CustomNetTables.GetTableValue('loading_status', 'loading_status'),
   );
-  CustomNetTables.SubscribeNetTableListener("game_difficulty", OnGameDifficultyChoiceChange);
+  CustomNetTables.SubscribeNetTableListener('game_difficulty', OnGameDifficultyChoiceChange);
+
+  // 根据地图名字，设置难度选择
+  SetDifficultyByMapName();
 })();

@@ -39,7 +39,7 @@ export class PlayerHelper {
   }
 
   static ForEachPlayer(callback: (playerId: PlayerID) => void) {
-    for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
+    for (let i = 0; i < DOTA_MAX_TEAM_PLAYERS; i++) {
       if (PlayerResource.IsValidPlayer(i)) {
         callback(i);
       }
@@ -47,7 +47,7 @@ export class PlayerHelper {
   }
 
   static FindHeroBySteeamAccountId(steamAccountId: number): CDOTA_BaseNPC_Hero | undefined {
-    for (let i = 0; i < PlayerResource.GetPlayerCount(); i++) {
+    for (let i = 0; i < DOTA_MAX_TEAM_PLAYERS; i++) {
       if (PlayerResource.IsValidPlayer(i)) {
         const player = PlayerResource.GetPlayer(i);
         if (player) {
@@ -62,5 +62,15 @@ export class PlayerHelper {
 
   static IsGoodTeamPlayer(playerId: PlayerID): boolean {
     return PlayerResource.GetTeam(playerId) === DotaTeam.GOODGUYS;
+  }
+
+  static GetHumamPlayerCount(): number {
+    let count = 0;
+    this.ForEachPlayer((playerId) => {
+      if (this.IsHumanPlayerByPlayerId(playerId)) {
+        count++;
+      }
+    });
+    return count;
   }
 }

@@ -47,7 +47,6 @@ export class PointInfoDto {
 class GameStart {
   members!: MemberDto[];
   players!: PlayerDto[];
-  top100SteamIds!: string[];
   pointInfo!: PointInfoDto[];
 }
 
@@ -93,15 +92,10 @@ export class Player {
   }
 
   private static InitSuccess(data: string) {
-    print(`[Player] Init callback data ${data}`);
     const gameStart = json.decode(data)[0] as GameStart;
-    DeepPrintTable(gameStart);
     Player.memberList = gameStart.members;
     Player.playerList = gameStart.players;
     Player.pointInfoList = gameStart.pointInfo;
-    const top100SteamIds = gameStart.top100SteamIds;
-
-    CustomNetTables.SetTableValue('leader_board', 'top100SteamIds', top100SteamIds);
 
     // set member to member table
     Player.savePlayerToNetTable();
@@ -177,15 +171,6 @@ export class Player {
     });
   }
 
-  // FIXME 移除lua中的调用
-  public IsMember(steamId: number) {
-    const member = Player.memberList.find((m) => m.steamId === steamId);
-    if (member) {
-      return member.enable;
-    }
-    return false;
-  }
-
   public static IsMemberStatic(steamId: number) {
     const member = Player.memberList.find((m) => m.steamId === steamId);
     if (member) {
@@ -194,12 +179,12 @@ export class Player {
     return false;
   }
 
-  public GetMember(steamId: number) {
-    const member = Player.memberList.find((m) => m.steamId === steamId);
-    if (member) {
-      return member;
+  public static GetSeasonLevel(steamId: number) {
+    const player = Player.playerList.find((p) => p.id === steamId.toString());
+    if (player) {
+      return player.seasonLevel;
     }
-    return null;
+    return 0;
   }
 
   // 监听JS事件

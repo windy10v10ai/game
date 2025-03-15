@@ -1,0 +1,475 @@
+"lang"
+{
+	"Language"		"Russian"
+	"Tokens"
+	{
+		"addon_game_name"		"Dota 10v10 AI by Windy"
+		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
+		"DOTA_SHARD"			"Battle Points"
+
+		// /////////////////////////////////////////////////////////////////////////////
+		//
+		// 					Options
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+		"addon_option_title"	"Game Options"
+		"addon_option_title_br"	""
+
+		"game_difficulty_voting"	"Голосование"
+		"game_difficulty_title"	"Сложность"
+		"game_difficulty_n0"	"Кастомная"
+		"game_difficulty_n1"	"N1"
+		"game_difficulty_n2"	"N2"
+		"game_difficulty_n3"	"N3"
+		"game_difficulty_n4"	"N4"
+		"game_difficulty_n5"	"N5"
+		"game_difficulty_n6"	"N6 (Нечестная)"
+
+		"player_gold_xp_multiplier"	"Золото/уровня Мульти Radiant"
+		"bot_gold_xp_multiplier"	"Золото/уровня Мульти Dire"
+
+		"radiant_player_number"		"Количество игроков Radiant"
+		"dire_player_number"		"Количество игроков Dire"
+		"confirm_game_options"		"Подтведить и скрыть настройки"
+		"show_game_options"			"Показать настройки"
+		"respawn_time_percentage"	"Время возрождения"
+		"max_level"					"Максимальный уровень"
+		"tower_power"				"Усиление башен"
+		"starting_gold_player"		"Стартовое золото игроков"
+		"starting_gold_bot"			"Стартовое золото ботов"
+		"same_hero_selection"		"Разрешить выбор одинаковых героев"
+		"enable_player_attribute"	"Enable Player Attribute"
+		"hide_chat_team"			"Скрыть командный чат"
+		"show_chat_team"			"Показать командный чат"
+
+		"bots_multiplier_1"		"1   (Новичкам)"
+		"bots_multiplier_1_25"	"1.25 (Новичкам)"
+		"bots_multiplier_1_5"	"1.5 (Новичкам)"
+		"bots_multiplier_2"		"2   (Легко)"
+		"bots_multiplier_3"		"3   (Нормально)"
+		"bots_multiplier_4"		"4   (Сложно)"
+		"bots_multiplier_5"		"5   (Невозможно)"
+		"bots_multiplier_6"		"6   (Легендарно)"
+		"bots_multiplier_10"	"10  (Ад)"
+
+		"player_gold_xp_multiplier_1"               "1"
+		"player_gold_xp_multiplier_1_1"             "1.1"
+		"player_gold_xp_multiplier_1_2"				"1.2"
+		"player_gold_xp_multiplier_1_3"				"1.3"
+		"player_gold_xp_multiplier_1_5"             "1.5"
+		"player_gold_xp_multiplier_2"               "2"
+		"player_gold_xp_multiplier_5"               "5"
+
+		"radiant_player_number_1"		"1  (Легко)"
+		"radiant_player_number_10"		"10 (Сложно)"
+
+		"respawn_time_percentage_slow"		"Медленно"
+		"respawn_time_percentage_normal"	"Нормально"
+		"respawn_time_percentage_fast"		"Быстро"
+		"respawn_time_percentage_0"			"Почти мгновенно"
+
+		// 右侧面板
+		"game_difficulty_choice"		"Выберите сложность"
+		"custom_game_vote"				"Таймер голосования"
+
+		"loading_status_1"				"Данные игрока загружаются. Пожалуйста, дождитесь окончания загрузки перед стартом"
+		"loading_status_2"				"Данные игрока успешно загружены!"
+		"loading_status_3"				"Не удалось загрузить данные игрока! Это может произойти по нескольким причинам, например, игра размещена на локальном сервере, серверы данных недоступны или если вы в роли наблюдателя"
+
+		// /////////////////////////////////////////////////////////////////////////////
+		//
+		//            Scoreboard/End Screen
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+		"scoreboard_tool_tip_mute_player"	"Заглушить"
+		"scoreboard_tool_tip_share_unit"	"Сущ-ва"
+		"scoreboard_tool_tip_share_hero"	"Герой"
+		"scoreboard_tool_tip_disable_help"	"Отключить помощь"
+		"scoreboard_tool_tip_actived"		"Активировать"
+
+		"custom_end_screen_victory_message"	"Победа Radiant!"
+		"custom_end_screen_lose_message"	"Победа Dire!"
+
+		"player_multiplier"	"Player Multiplier"
+		"bot_multiplier"	"Bot Multiplier"
+
+		"ending_status_1"				"Пожалуйста, не завершайте игру во время загрузки игровых данных."
+		"ending_status_2"				"Игровые данные успешно загружены!"
+		"ending_status_3"				"Ошибка загрузки игровых данных! Возможные причины: включены читы или игра запущена на локальном сервере."
+		///////////////////////////////////////////////////
+		//
+		//            Data panel
+		//
+		///////////////////////////////////////////////////
+		"data_panel_button"				"Меню"
+		"data_panel_member_point"		"Member Points"
+		"data_panel_season_point"		"Battle Points"
+		"data_panel_property_point"		"Attribute Points (Доступно/Всего)"
+
+		"data_panel_data_button"		"Инфо"
+		"data_panel_property_button"	"Атрибуты"
+		"data_panel_property_list"		"Добавить"
+		"data_panel_property_reset"		"Сбросить"
+
+		"data_panel_season_level"		"Battle - уровень"
+		"data_panel_season_level_tooltip"		"Повышение уровня за Battle Points даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>100</font> за каждый уровень."
+		"data_panel_member_level"		"Member - уровень"
+		"data_panel_member_level_tooltip"		"Повышение уровня за Member Points даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>50</font> за каждый уровень."
+		"data_panel_level_progress"		"Уровень"
+		"data_panel_link_rule"			"Правила очков и атрибутов"
+		"data_panel_member_point_rule_url"		"https://afdian.com/p/8d1e8ac8682711ed984b52540025c377"
+
+		"reset_property_use_season_point"		"Сбросить Attribute Points за {seasonPoint} Battle Points"
+		"reset_property_use_member_point"		"Сбросить Attribute Points за 1000 Member Points"
+
+		"data_panel_player_property_label"		"Тратьте Attribute Points для улучшения героя — улучшения постоянные и сохраняются из игры в игру."
+		"data_panel_player_property_label_2"		"Очки нельзя тратить на локальном сервере — играйте на выделенном сервере от Valve, чтобы использовать и получать бонусы от улучшений."
+		"data_panel_player_property_label_3"		"Один уровень атрибута будет давать эффект каждые 2 уровня героя, если не указано иначе."
+		"data_panel_player_property_label_3_tooltip"		"Герой получает эффект на уровнях 2, 4, 6, 8, 10, 12, 14 и 16, вплоть до максимального уровня. Например, если вы вложили 2 уровня в увеличение дальности заклинаний (+50), все ваши герои получат +25 на 2 уровне и +50 на 4 уровне."
+
+		"data_panel_player_property_cooldown_percentage"		"Перезарядка (%)"
+		"data_panel_player_property_cast_range_bonus_stacking"	"Дальность применения"
+		"data_panel_player_property_spell_amplify_percentage"	"Урон от заклинаний (%)"
+		"data_panel_player_property_status_resistance_stacking"	"Сопротивление эффектам (%)"
+		"data_panel_player_property_evasion_constant"			"Уклонение (%)"
+		"data_panel_player_property_magical_resistance_bonus"	"Сопротивление магии (%)"
+		"data_panel_player_property_incoming_damage_percentage"	"Сопротивление урону (%)"
+		"data_panel_player_property_attack_range_bonus"			"Дальность атаки (Дальники)"
+		"data_panel_player_property_physical_armor_bonus"		"Physical Armor"
+		"data_panel_player_property_preattack_bonus_damage"		"Урон от атаки"
+		"data_panel_player_property_attackspeed_bonus_constant"	"Скорость атаки"
+		"data_panel_player_property_stats_strength_bonus"		"Сила"
+		"data_panel_player_property_stats_agility_bonus"		"Ловкость"
+		"data_panel_player_property_stats_intellect_bonus"		"Интелект"
+		"data_panel_player_property_health_regen_percentage"	"Макс. регенерация здоровья (%)"
+		"data_panel_player_property_mana_regen_total_percentage"	"Макс. регенерация маны (%)"
+		"data_panel_player_property_lifesteal"					"Вампиризм (%)"
+		"data_panel_player_property_spell_lifesteal"			"Маг. вампиризм (%)"
+		"data_panel_player_property_movespeed_bonus_constant"	"Скорость передвижения"
+		"data_panel_player_property_ignore_movespeed_limit"		"Unlimited Movement Speed"
+		"data_panel_player_property_cannot_miss"				"True Strike"
+		"data_panel_player_property_skill_points_bonus"			"Бонусные очки прокачки"
+
+		"data_panel_player_property_tooltip"					"Герой будет получать этот эффект каждые 2 уровня, вплоть до максимального уровня."
+		"data_panel_player_property_skill_points_bonus_tooltip"	"Герой будет получать этот эффект каждые 4 уровня, вплоть до максимального уровня."
+		"data_panel_player_property_except_tooltip"				"Герой получает этот эффект на 1-м уровне."
+
+		"data_panel_player_property_value"				"Value"
+		"data_panel_player_property_level"				"Уровень"
+		"data_panel_player_property_level_up"			"Повысить уровень"
+		"data_panel_player_property_level_up_X"			"Повысить уровень за X очков"
+
+		///////////////////////////////////////////////////
+		//
+		//			Lottery Item/Ability
+		//
+		///////////////////////////////////////////////////
+		"lottery_expand"										"Expand"
+		"lottery_collapsed"										"Collapse"
+		"lottery_active_ability_title"							"Выберите активную способность"
+		"lottery_passive_ability_title"							"Выберите пассивную способность"
+
+		"lottery_tooltip_ability_refresh"						"Изменить бонусную способность"
+		"lottery_tooltip_ability_refresh_used"					"Способности изменены"
+		"lottery_tooltip_ability_refresh_picked"				"Способность выбрана"
+		"lottery_tooltip_ability_refresh_not_member"			"Поддержавшие разработчика могут изменить способности один раз. Нажмите на эту кнопку, чтобы открыть страницу поддержки в браузере"
+
+		"key_bind"												"Бинды"
+		"key_bind_collapsed"									"Закрыть"
+		"key_bind_placeholder"									"Клавиша"
+		"key_bind_mouseover_tooltop"							"Назначить клавишу для использования способности<br>Если у вас возникли конфликты или сбои в работе горячих клавиш, попробуйте отключиться и снова подключиться, а затем добавить бинд ещё раз"
+		"key_bind_input_err"									"Неверный ввод, попробуйте другой бинд"
+		"key_bind_quick_cast"									"Быстрое применение"
+		///////////////////////////////////////////////////
+		//
+		//			Member
+		//
+		///////////////////////////////////////////////////
+		"player_member_button"			"Спасибо за поддержку!<br/>Приемущества подписки:<br/>Время возрождения снижено на 5 секунд<br/>Перезарядку выкупа уменьшена до 2 минут<br/>Изменение бонусных предметов и прособностей.<br/>100 Membership points каждый день.<br/>  Подписка действительна до {expireDate}."
+		"player_member_button_expire"	"Спасибо за поддержку!<br/>Ваша подписка истекла с {expireDate}. Нажмите эту кнопку, чтобы продлить подписку"
+		"player_member_ship"			"Нажмите, чтобы активации подписки"
+		"player_member_ship_url"		"https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
+		"player_member_null"			"Информация о подписке не получена. Пожалуйста, перезагрузите игру...ы"
+
+		///////////////////////////////////////////////////
+		//
+		//			Leaderboard
+		//
+		///////////////////////////////////////////////////
+		"leaderboard_title"				"Таблица лидеров"
+		"leaderboard_rank"				"Ранг"
+		"leaderboard_name"				"Имя"
+
+		///////////////////////////////////////////////////
+		//
+		//			pointInfo
+		//
+		///////////////////////////////////////////////////
+		"point_header_text"				"Уведомление"
+
+		///////////////////////////////////////////////////
+		//
+		//			Creep / Tower
+		//
+		///////////////////////////////////////////////////
+		"DOTA_Tooltip_modifier_tower_power"					"Building Power"
+		"DOTA_Tooltip_modifier_tower_power_Description"		"Урон атаки и максимальное здоровье этого строения увеличены на %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%.<br>Эта постройка также имеет дополнительные %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% восстановления здоровья"
+
+		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonus"
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Сопростивление магии героев ближнего боя увеличено на %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%"
+
+		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
+		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"Бонус к урону"
+		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%Бонус к снижению урона: "
+
+		"DOTA_Tooltip_ability_creep_buff_upgraded"						"Super Creep Buff"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"Бонусный урон: "
+		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"Бонусная броня: "
+		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%Бонус к снижению урона: "
+
+		"DOTA_Tooltip_ability_creep_buff_mega"							"Mega Creep Buff"
+		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"Бонусный урон: "
+		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"Бонусная броня: "
+		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%Бонус к снижению урона: "
+
+		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%Бонусный урон не героям: "
+
+		"DOTA_Tooltip_ability_tower_armor_aura"						"Armor Aura"
+		"DOTA_Tooltip_ability_tower_armor_aura_Description"				"Дает %bonus_armor% бонусной брони всем союзным героям поблизости."
+		"DOTA_Tooltip_ability_tower_magical_armor_aura"					"Magical Resistance Aura"
+		"DOTA_Tooltip_ability_tower_magical_armor_aura_Description"			"Дает %bonus_magical_armor%%% сопротивления магии всем союзным героям поблизости."
+
+		"DOTA_Tooltip_ability_tower_split_shot"						"Structure Split Shot"
+		"DOTA_Tooltip_ability_tower_split_shot_Description"				"Это строение может поражать несколько целей при каждой атаке. Стакается с мультишотом Glyph of Fortification"
+		"DOTA_Tooltip_ability_tower_split_shot_arrow_count"				"Доп. выстрелы: "
+
+		"DOTA_Tooltip_ability_tower_ursa_fury_swipes"					"Structure Fury Swipes"
+		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_Description"			"Эта структура наносит больше урона при каждой последующей атаке по одной и той же цели."
+		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_damage_per_stack"			"Урон за эффект: "
+		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_bonus_reset_time"			"Длительность эффекта: "
+
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor"				"Structure Fervor"
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_Description"			"Это строение увеличивает скорость атаки атакую одну и ту же цель. Если строение атакует новую цель, стаки обнуляются "
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_attack_speed"			"Доп. скорость атаки за эффект: "
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_max_stacks"			"Максимум эффектов: "
+
+		"DOTA_Tooltip_ability_tower_antimage_mana_break"				"Structure Mana Break"
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_Description"			"Это строение сжигает ману цели при каждой атаке и наносит дополнительный урон, равный проценту от сожженной маны"
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_attack_speed"			"Скорость атаки за эффект: "
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_percent_damage_per_burn"	"%Мана в урон: "
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit"			"Сжигание маны за удар: "
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit_pct"		"%Макс. сжигание маны за удар: "
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_move_slow"			"%Замедление при отсутствии маны: "
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_slow_duration"			"Длительность замедления: "
+
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor"				"Structure Reactive Armor"
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_Description"		"Это строение получает дополнительную броню и регенерацию здоровья каждый раз, когда его атакуют. Атаки героев считаюся за %stacks_per_hero_attack%"
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_armor"		"Бонусная броня: "
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_hp_regen"		"Бонусный реген. здоровья: "
+		"DOTA_Tooltip_ability_tower_shredder_stack_duration"				"Длительность эффекта: "
+
+		"DOTA_Tooltip_ability_tower_headshot"						"Structure Mini-Bash"
+		"DOTA_Tooltip_ability_tower_headshot_Description"				"При атаке это сооружение имеет шанс замедлить скорость передвижения и атаки врагов на %slow%%% на короткий промежуток времени, а также оттолкнуть их"
+		"DOTA_Tooltip_ability_tower_headshot_proc_chance"				"%Шанс срабатывания: "
+		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"			"Дастанция отбрасывания: "
+		"DOTA_Tooltip_ability_tower_headshot_slow_duration"				"Длительность замедления: "
+
+		"DOTA_Tooltip_ability_fountain_hp_aura"						"Fountain HP Aura"
+		"DOTA_Tooltip_ability_fountain_hp_aura_Description"				"Повышает здоровье близлежащих союзников"
+		"DOTA_Tooltip_ability_fountain_hp_aura_bonus_hp"				"Бонус здоровья в процентах: "
+		"DOTA_Tooltip_ability_fountain_hp_aura_radius"					"Радиус:"
+		///////////////////////////////////////////////////
+		//
+		//            itembuilds
+		//
+		///////////////////////////////////////////////////
+		"dota_item_build_windy_consumables_items"	"10v10 Consumable Items"
+		"dota_item_build_windy_physical_core_items"	"10v10 Physical Carry Items"
+		"dota_item_build_windy_magical_core_items"	"10v10 Magical Nuker Items"
+		"dota_item_build_windy_support_items"		"10v10 Supporting Items"
+		"dota_item_build_windy_defense_items"		"10v10 Defensive Items"
+		"dota_item_build_windy_melee_items"		"10v10 Melee Items"
+		"dota_item_build_windy_range_items"		"10v10 Ranged Items"
+
+		///////////////////////////////////////////////////
+		//
+		// 					Abilities 英雄技能
+		//
+		///////////////////////////////////////////////////
+
+		//长角抛物
+		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "Герой перебрасывает врагов через себя, нанося им урон. Они летят %air_duration% сек. и оглушаются во время полёта и по приземлении."
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_air_duration"			        "ДЛИТЕЛЬНОСТЬ ПОЛЁТА:"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_damage"   			        "УРОН:"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_stun_duration"   			        "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		//虚空  回到过去
+		"DOTA_Tooltip_ability_faceless_void_backtrack2"				"backtrack"
+		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"%backtrack_per_level%%% шанс избежать урона"
+		//腾焰斗篷
+		"DOTA_Tooltip_ability_lina_flame_cloak2"											"Flame Cloak"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"									"Врождённая защита от настырных сестёр и зубастых тварей."
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"								"Дарует герою беспрепятственное передвижение. Увеличивает его урон от заклинаний и сопротивление магии. Применение даёт владельцу максимум эффектов способности Fiery Soul."
+		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%ДОП. УРОН ОТ ЗАКЛИНАНИЙ:"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%СОПРОТИВЛЕНИЕ МАГИИ:"
+		//跃动
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2"									"Sproink"
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Description"						"Герой отскакивает назад, уворачиваясь от летящих в него снарядов, и запускает копья с эффектом Impetus в самых отдалённых врагов в радиусе своей атаки + %bonus_attack_range%. Число целей: %attack_targets%."
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Lore"							    "Вот так прыг да скок."
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_hop_distance"						"ДАЛЬНОСТЬ СКАЧКА:"
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_attack_targets"						"ЧИСЛО ЦЕЛЕЙ:"
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_bonus_attack_range"					"ДОП. ДАЛЬНОСТЬ АТАКИ:"
+
+		//人马 不屈
+		"DOTA_Tooltip_ability_centaur_sturdy"                            "sturdy"
+        "DOTA_Tooltip_ability_centaur_sturdy_Description"                "Увеличивает сопротивление эффектам и силу. "
+        "DOTA_Tooltip_ability_centaur_sturdy_strength"                    "Сила: "
+        "DOTA_Tooltip_ability_centaur_sturdy_status"                    "Сопротивление эффектам: "
+		//折射2
+		"DOTA_Tooltip_ability_spectre_dispersion2"					"dispersion(old)"
+		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"Dispersion также предоставляет %damage_reduction%%% снижения урона, когда урон не отражается."
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"При получении урона есть %reflexion_chance%%% шанс стать невосприимчивым и отразить урон."
+		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%Шанс отражения урона:"
+		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%Процент отражения повреждений："
+		"DOTA_Tooltip_ability_spectre_dispersion2_damage"			"Дополнительный ущерб："
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Преломленное повреждение имеет тот же тип, что и первоначальное повреждение."
+
+		//贪魔的贪婪
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"Позволяет синтезировать больше золота из врагов и рун. Дополнительное золото за убийство существ состоит из начального бонуса и нарастающего, который увеличивается с каждым существом, убитым в течение %duration% сек. после предыдущего. Также способность умножает золото от рун богатства."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_abilitydraft_note"			"В этом режиме возможность расплавить Aghanim's Scepter, чтобы передать союзному герою все его улучшения, привязана к способности Greevil's Greed, а не Chemical Rage. Сам предмет дарует герою дополнительный урон от атак и заклинаний за каждый расплавленный для союзников Aghanim's Scepter."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"							"Пускай эксперимент с горой и не удался, зато структуры поменьше Раззил легко обращает в звонкую монету."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"						"МАКС. ИНТЕРВАЛ УБИЙСТВ:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold"					"НАЧАЛЬНЫЙ БОНУС:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"НАРАСТАЮЩИЙ БОНУС:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"МАКСИМУМ ДОП. ЗОЛОТА:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"МНОЖИТЕЛЬ РУН БОГАТСТВА:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"Бонус атаки за слой："
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"Улучшение денежного вознаграждения："
+
+		//普通一拳
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"Normal Punch"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Следующая атака по вражескому герою не промахнётся, создаст его копию от способности Wall of Replica, нанесёт дополнительный урон, а также оглушит и оттолкнёт его. Сила эффекта зависит от того, какое расстояние владелец способности преодолел за %recent_duration% сек. до атаки. Максимальный эффект достигается при расстоянии в %max_distance%."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"МАКС. ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"МАКС. ДАЛЬНОСТЬ ТОЛЧКА:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"					"ВРЕМЯ ЖИЗНИ КОПИИ:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"МАКСИМАЛЬНЫЙ УРОН:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"ad ставка："
+		//战鼓
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2"					"Drums of Slom"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_Lore"				"Ярость природы безвременна, и посвящённым в её секреты несложно пробудить эхо гнева, возликовавшего при крахе Слома."
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_Description"			"Когда владелец способности или его существа неподалёку атакуют, он бьёт в барабан, нанося урон врагам вокруг и излечивая владельца и его существ на долю от нанесённого урона. Каждая совершённая атака уменьшает интервал между ударами — вплоть до %min_drum_hit_interval% сек. после %max_stacks% атак. Если атаки не происходят, интервал постепенно возрастает.<br><br>Применение способности Primal Roar считается за 10/15/20 атак в зависимости от её уровня."
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_max_drum_hit_interval"	"МАКСИМАЛЬНЫЙ ИНТЕРВАЛ:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_min_drum_hit_interval"	"МИНИМАЛЬНЫЙ ИНТЕРВАЛ:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_max_stacks"				"АТАК ДЛЯ МИНИМАЛЬНОГО ИНТЕРВАЛА:"
+
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_base_damage"			"УРОН ОТ УДАРА:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_radius"					"РАДИУС:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_heal_pct"					"%ЛЕЧЕНИЕ ОТ УРОНА ГЕРОЯМ:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_creep_heal_pct"					"%ЛЕЧЕНИЕ ОТ УРОНА КРИПАМ:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_stop"				"Остановить Drums of Slom"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_stop_Description"	"Прервать применение способности Drums of Slom"
+		//妙手空空
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"Cutpurse"
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Герой крадёт золото у вражеских героев, ставших целью его способности или предмета."
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"ПОХИЩЕНИЕ ЗОЛОТА:"
+
+
+		//神龙之血
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"								"Dragon Blood"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"					"Текущая в жилах героя кровь дракона усиливает его восстановление здоровья и броню. Эти бонусы увеличиваются на %level_mult% за каждый уровень героя и умножаются в облике дракона."
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"			"ВОССТАНОВЛЕНИЕ ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"					"БРОНЯ:"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_regen_and_armor_multiplier_during_dragon_form"			"МНОЖИТЕЛЬ В ОБЛИКЕ ДРАКОНА:"
+		//才思敏捷
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"				"Quick Wit"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"	"Интеллект также увеличивает скорость атаки этого героя."
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Note0"		"Каждая единица интеллекта увеличивает скорость атаки героя на %int_to_atkspd%."
+		//炽烈火雨
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"Burning Barrage"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"ПРЕРЫВАЕМАЯ — герой выпускает залп стрел в выбранном направлении. Они пролетают сквозь всех врагов на пути, нанося им долю от обычного урона, а также накладывая эффекты атаки и замедление от способности Tar Bomb."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Lore"										"Трудно сказать, вызвано ли дрожание воздуха вокруг костяного лучника жаром его раскалённого сердца или скоростью, с которой он достаёт стрелы из колчана."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Note0"										"Дальность применения способности увеличивается с дальностью атаки."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_abilitychanneltime"						"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"								"ЧИСЛО СТРЕЛ:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"										"ДАЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%УРОН ОТ АТАКИ:"
+		//冰爆
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"ice_explosion"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Увеличивает скорость атаки на %attack_speed% и имеет 35% шанс вызвать ледяной взрыв, который поразит случайную область, нанося урон и замедляя игрока на 1 секунду."
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"повреждать："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"ad ставка："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"Случайный диапазон："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"Диапазон повреждений от ледяного взрыва："
+		//诅咒之雨
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"dazzle_rain_of_vermin"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Наносит постоянный урон области, с вероятностью 12% превращая ее в цыплят."
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"повреждать："
+
+		//全才
+		"DOTA_Tooltip_ability_viper_universal_hero"						"Универсальный атрибут"
+		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"Сменить атрибут на универсальный"
+		//神之愤怒
+		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"Wrath of God"
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"Sven получает дополнительный урон от силы, но его базовый урон уменьшается."
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_base_damage_reduction"	"Снижение базового урона: "
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_bonus_damage_per_str"	"Бонусный урон за силу: "
+		//暴烈之爪
+		"DOTA_Tooltip_ability_ursa_maul2"						"Maul"
+		"DOTA_Tooltip_ability_ursa_maul2_Description"			"Ursa получает бонусный урон, равный проценту от его текущего здоровья"
+		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%Здоровье в урон:"
+		"DOTA_Tooltip_modifier_ursa_maul2"						"Maul"
+		"DOTA_Tooltip_modifier_ursa_maul2_Description"			"Урон увеличен на %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
+		//天生一对
+		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
+		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Герой атакует обеими головами одновременно, но каждая атака наносит на %attack_damage_reduction%%% меньше урона."
+		//皮糙肉厚
+		"DOTA_Tooltip_ability_centaur_rawhide2"							"Rawhide"
+		"DOTA_Tooltip_ability_centaur_rawhide2_Description"				"Получает %health_per_upgrade% здоровья каждые %upgrade_rate% секунд"
+		"DOTA_Tooltip_ability_centaur_rawhide2_bonus_hp_total"			"Максимум здоровья: "
+		//闷烧树脂
+		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
+		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			" Атаки Batrider накладывают дебафф, который наносит %tick_attack_damage_pct%%% урон от атаки каждые %tick_rate% секунды"
+		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff"				"Smoldering Resin"
+		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff_Description"	"Медленно горит от атак Batrider"
+		//一人之军
+		"DOTA_Tooltip_ability_axe_one_man_army2"						"One Man Army"
+		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Когда рядом с героем нет союзников, его сила увеличивается на долю от показателя брони."
+		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"Сила в броню %： "
+		//人工神符
+		"DOTA_Tooltip_ability_arc_warden_scepter"	"Artificial Rune"
+		"DOTA_Tooltip_ability_arc_warden_scepter_Description"	"Создает случайную руну"
+		//魔法扰动
+		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"Mana Turbulence"
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"Наносит урон вражеским юнитам в конусной области и накладывает дебафф, снижающий урон от заклинаний, увеличивающий расход маны, повышающий перезарядку умений и вызывающий замедление на %slow_duration% секунд"
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_damage"		"Баровый урон： "
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_ad"			"Коэф. от урона героя： "
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_duration"	"Длительность： "
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_spell_amp"	"%Снижение урона заклинаний： "
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_mana_cost"	"%Увеличение затрат маны： "
+		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%Увеличение перезарядки： "
+		//冰霜法球
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"Frost orb"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"Каждые %attack_count% запускает морозную сферу, наносящую урон по области и замедляющую цель на %slow_duration% секунд"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"Радиус： "
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"Урон： "
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"Коэф. от урона героя："
+		//极寒光环
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"					"Freezing aura"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"Снижает восстановление здоровья, вампиризм и лечение врага.<br/><br/>Активно: Наносит урон и замедляет окружающих врагов. Чем ближе они к герою, тем больше урон и замедление."
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_percentage"		"%Снижение лечения： "
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_hp_regen"		"Снижение восстановления здоровья： "
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"Макс. урон： "
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
+		//冰霜封印
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Frost Seal"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Оглушите себя на 4 секунды получив снижение урона на 50%% и увеличив восстановления здоровья. В течение этого времени замедляет врагов на 20%% и притягивает их к себе. В конце нанесит урон и оглушиает окружающих врагов"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"				"Восстановление здоровья： "
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"	"%Востановление здоровья процент： "
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"				"Урон： "
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"Длительность оглушения： "
+
+	}
+}

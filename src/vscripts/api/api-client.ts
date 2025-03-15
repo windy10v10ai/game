@@ -18,18 +18,15 @@ export interface ApiParameter {
 }
 
 export class ApiClient {
-  public static GAME_START_URL = '/game/start';
-  public static ADD_PLAYER_PROPERTY_URL = '/game/addPlayerProperty';
-  public static RESET_PLAYER_PROPERTY_URL = '/game/resetPlayerProperty';
-  public static POST_GAME_URL = '/game/end';
+  public static readonly GAME_START_URL = '/game/start';
+  public static readonly ADD_PLAYER_PROPERTY_URL = '/game/addPlayerProperty';
+  public static readonly RESET_PLAYER_PROPERTY_URL = '/game/resetPlayerProperty';
 
   private static TIMEOUT_SECONDS = 15;
   private static RETRY_TIMES = 4;
 
   private static HOST_NAME: string = (() => {
-    return IsInToolsMode()
-      ? 'http://localhost:5001/windy10v10ai/asia-northeast1/admin/api'
-      : 'https://windy10v10ai.web.app/api';
+    return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.web.app/api';
   })();
   // private static HOST_NAME: string = "https://windy10v10ai.web.app/api";
 
