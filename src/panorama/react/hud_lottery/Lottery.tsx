@@ -42,7 +42,7 @@ const getIsVisible = (lotteryStatus: LotteryStatusDto | null) => {
     return false;
   }
 
-  if (lotteryStatus.pickAbilityName && lotteryStatus.pickItemName) {
+  if (lotteryStatus.activeAbilityName && lotteryStatus.passiveAbilityName) {
     return false;
   }
 

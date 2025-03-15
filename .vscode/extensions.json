@@ -6,6 +6,8 @@
     "bigciba.dota2-tools",
     "donjayamanne.git-extension-pack",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "gruntfuggly.todo-tree",
+    "orta.vscode-jest"
   ]
 }

@@ -3,8 +3,8 @@
 	"Language"		"Russian"
 	"Tokens"
 	{
-		"addon_game_name"		"Dota 10v10 AI Custom by Windy"
-		"DOTA_GameMode_15"		"Dota 10v10 AI Custom by Windy"
+		"addon_game_name"		"Dota 10v10 AI by Windy"
+		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
 		"DOTA_SHARD"			"Battle Points"
 
 		// /////////////////////////////////////////////////////////////////////////////
@@ -166,17 +166,13 @@
 		///////////////////////////////////////////////////
 		"lottery_expand"										"Expand"
 		"lottery_collapsed"										"Collapse"
-		"lottery_item_title"									"Получить бонусный предмет"
-		"lottery_ability_title"									"Получить бонусную способность"
+		"lottery_active_ability_title"							"Выберите активную способность"
+		"lottery_passive_ability_title"							"Выберите пассивную способность"
 
 		"lottery_tooltip_ability_refresh"						"Изменить бонусную способность"
 		"lottery_tooltip_ability_refresh_used"					"Способности изменены"
 		"lottery_tooltip_ability_refresh_picked"				"Способность выбрана"
 		"lottery_tooltip_ability_refresh_not_member"			"Поддержавшие разработчика могут изменить способности один раз. Нажмите на эту кнопку, чтобы открыть страницу поддержки в браузере"
-		"lottery_tooltip_item_refresh"							"Изменить бонусный предмет"
-		"lottery_tooltip_item_refresh_used"						"Предметы изменены"
-		"lottery_tooltip_item_refresh_picked"					"Предмет выбран"
-		"lottery_tooltip_item_refresh_not_member"				"Поддержавшие разработчика могут изменить способности один раз. Нажмите на эту кнопку, чтобы открыть страницу поддержки в браузере"
 
 		"key_bind"												"Бинды"
 		"key_bind_collapsed"									"Закрыть"

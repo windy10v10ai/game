@@ -265,6 +265,44 @@ function SelectEveryValidPlayerDoFunc(func)
 	end
 end
 
+--------------------------------------------------------------------------------
+-- Hero
+--------------------------------------------------------------------------------
+function IsHeroUncontrollable(hHero)
+	if hHero:IsNull() then return true end
+	-- if hero is dead, do nothing
+	if hHero:IsAlive() == false then return true end
+	-- 眩晕
+	if hHero:IsStunned() then return true end
+	-- 变羊
+	if hHero:IsHexed() then return true end
+	-- 噩梦
+	if hHero:IsNightmared() then return true end
+	-- 虚空大
+	if hHero:IsFrozen() then return true end
+	-- 禁用物品
+	if hHero:IsMuted() then return true end
+
+
+	-- 战吼，决斗，冰龙大
+	if hHero:HasModifier("modifier_axe_berserkers_call") or hHero:HasModifier("modifier_legion_commander_duel") or hHero:HasModifier("modifier_winter_wyvern_winters_curse") then return true end
+
+	-- 哈斯卡 A杖大
+	if hHero:HasModifier("modifier_huskar_life_break_taunt") then return true end
+
+	-- TP
+	if hHero:HasModifier("modifier_teleporting") then return true end
+
+	return false
+end
+
+--------------------------------------------------------------------------------
+-- DataDrive modifier
+--------------------------------------------------------------------------------
+if not _G.GLOBAL_APPLY_MODIFIERS_ITEM then
+	_G.GLOBAL_APPLY_MODIFIERS_ITEM = CreateItem("item_apply_modifiers", nil, nil)
+end
+
 function RefreshItemDataDrivenModifier(item, modifier)
 	local caster = item:GetCaster()
 	local itemName = item:GetName()
@@ -285,14 +323,9 @@ function RefreshItemDataDrivenModifier(item, modifier)
 		print("modifierCount: " .. modifierCount)
 
 		if itemCount > modifierCount then
-			-- add modifier
-			local statsModifier = CreateItem("item_apply_modifiers", nil, nil)
 			for i = 1, itemCount - modifierCount do
-				statsModifier:ApplyDataDrivenModifier(caster, caster, modifier, {})
+				GLOBAL_APPLY_MODIFIERS_ITEM:ApplyDataDrivenModifier(caster, caster, modifier, {})
 			end
-			-- Cleanup
-			UTIL_RemoveImmediate(statsModifier)
-			statsModifier = nil
 		end
 
 		if itemCount < modifierCount then
@@ -304,10 +337,8 @@ function RefreshItemDataDrivenModifier(item, modifier)
 	end)
 end
 
-function ApplyItemDataDrivenModifier(target, dataDrivenItemName, modifierName, modifierTable)
-	local item = CreateItem(dataDrivenItemName, nil, nil)
-	item:ApplyDataDrivenModifier(target, target, modifierName, modifierTable)
-	UTIL_RemoveImmediate(item)
+function ApplyItemDataDrivenModifier(target, modifierName, modifierTable)
+	GLOBAL_APPLY_MODIFIERS_ITEM:ApplyDataDrivenModifier(target, target, modifierName, modifierTable)
 end
 
 function IsHumanPlayer(playerID)
@@ -316,5 +347,14 @@ function IsHumanPlayer(playerID)
 end
 
 function IsAbilityBehavior(behavior, judge)
+	-- Convert userdata to number if necessary
+	if type(behavior) ~= "number" then
+		behavior = tonumber(tostring(behavior))
+	end
+
+	if not behavior then
+		return false
+	end
+
 	return bit.band(behavior, judge) == judge
 end

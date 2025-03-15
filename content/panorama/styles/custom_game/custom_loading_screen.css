@@ -79,6 +79,25 @@
   horizontal-align: right;
 }
 
+#QQDiscordContainer {
+  width: 500px;
+  vertical-align: bottom;
+  margin-bottom: 60px;
+}
+
+#QQDiscordPanel,
+#QQPanel,
+#DiscordPanel {
+  flow-children: right;
+  margin: 0px 12px;
+}
+
+#QQQRCodeImage,
+#DiscordQRCodeImage {
+  width: 200px;
+  height: 260px;
+}
+
 #LinkButtonContainer {
   width: 400px;
   height: 250px;

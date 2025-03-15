@@ -23,9 +23,14 @@ export enum CMD {
   GET_SR = '-getSR',
   /** 对英雄造成存粹伤害 */
   DAMAGE_PURE = '-damagePure',
+  STUN = '-stun',
+  SILENCE = '-silence',
   /** 添加技能 */
   ADD_ABILITY = '-ab',
   ADD_ABILITY_ALL = '-aball',
+  RM_ITEM = '-rmitem', // 移除物品
+  REPLACE_NEUTRAL_ITEM = '-rn', // 替换中立物品
+  REPLACE_ENHANCE_ITEM = '-re', // 替换附魔物品
 
   // ---- modifier相关 ----
   /**

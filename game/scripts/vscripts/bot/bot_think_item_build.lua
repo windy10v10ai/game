@@ -22,8 +22,8 @@ end
 local function addTome(k, v)
   -- N6替换
   if AIGameMode.fBotGoldXpMultiplier >= 10 then
-    -- 光暗·秘术铠甲
-    replaceItem(v, "item_blade_mail_2", "item_force_field_ai")
+    -- 天地同寿甲(秘术铠甲 群体刃甲)
+    replaceItem(v, "item_blade_mail_2", "item_force_field_ultra")
 
     -- 诅咒圣剑
     replaceItem(v, "item_excalibur", "item_rapier_ultra_bot_1")
@@ -191,10 +191,11 @@ function BotThink:GetCooldownTotal(hHero)
       iCooldownTotal = iCooldownTotal + hItem:GetCooldownTimeRemaining()
     end
   end
-  local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  if itemNeutral then
-    iCooldownTotal = iCooldownTotal + itemNeutral:GetCooldownTimeRemaining()
-  end
+  -- TODO fix Parameter type mismatch GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  -- local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  -- if itemNeutral then
+  --   iCooldownTotal = iCooldownTotal + itemNeutral:GetCooldownTimeRemaining()
+  -- end
   return iCooldownTotal
 end
 
@@ -263,10 +264,9 @@ end
 -- return true if sell
 local function SellItemFromTable(hHero, iPurchaseTable)
   for k, vName in ipairs(iPurchaseTable) do
-    local iCost = math.floor(GetItemCost(vName) / 2)
     local sellItem = BotThink:FindItemByNameIncludeStash(hHero, vName)
     if sellItem then
-      -- hHero:RemoveItem(sellItem)
+      local iCost = math.floor(GetItemCost(vName) / 2)
       UTIL_RemoveImmediate(sellItem)
       PlayerResource:ModifyGold(hHero:GetPlayerID(), iCost, true, DOTA_ModifyGold_SellItem)
       return true
@@ -275,36 +275,20 @@ local function SellItemFromTable(hHero, iPurchaseTable)
   return false
 end
 
+local function SellItem(hHero, vName)
+  local sellItem = BotThink:FindItemByNameIncludeStash(hHero, vName)
+  if sellItem then
+    local iCost = math.floor(GetItemCost(vName) / 2)
+    UTIL_RemoveImmediate(sellItem)
+    PlayerResource:ModifyGold(hHero:GetPlayerID(), iCost, true, DOTA_ModifyGold_SellItem)
+    return true
+  end
+  return false
+end
+
 --------------------
 -- Item Think
 --------------------
-function BotThink:IsControllable(hHero)
-  if hHero:IsNull() then return true end
-  -- if hero is dead, do nothing
-  if hHero:IsAlive() == false then return true end
-  -- 眩晕
-  if hHero:IsStunned() then return true end
-  -- 变羊
-  if hHero:IsHexed() then return true end
-  -- 噩梦
-  if hHero:IsNightmared() then return true end
-  -- 虚空大
-  if hHero:IsFrozen() then return true end
-  -- 禁用物品
-  if hHero:IsMuted() then return true end
-
-
-  -- 战吼，决斗，冰龙大
-  if hHero:HasModifier("modifier_axe_berserkers_call") or hHero:HasModifier("modifier_legion_commander_duel") or hHero:HasModifier("modifier_winter_wyvern_winters_curse") then return true end
-
-  -- 哈斯卡 A杖大
-  if hHero:HasModifier("modifier_huskar_life_break_taunt") then return true end
-
-  -- TP
-  if hHero:HasModifier("modifier_teleporting") then return true end
-
-  return false
-end
 
 -- 物品购买
 function BotThink:ThinkPurchase(hHero)
@@ -314,50 +298,51 @@ function BotThink:ThinkPurchase(hHero)
   BuyItemIfGoldEnough(hHero, iPurchaseTable)
 end
 
-function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
-  -- if hHero has neutral token
-  local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  if itemNeutral then
-    if string.find(itemNeutral:GetName(), "item_tier") then
-      -- remove item
-      -- hHero:RemoveItem(itemNeutral)
-      UTIL_RemoveImmediate(itemNeutral)
-      return
-    end
-    -- if owner not self, remove
-    if itemNeutral:GetPurchaser() ~= hHero then
-      -- hHero:RemoveItem(itemNeutral)
-      UTIL_RemoveImmediate(itemNeutral)
-      return
-    end
-  end
+-- TODO fix Parameter type mismatch GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+-- function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
+--   -- if hHero has neutral token
+--   local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+--   if itemNeutral then
+--     if string.find(itemNeutral:GetName(), "item_tier") then
+--       -- remove item
+--       -- hHero:RemoveItem(itemNeutral)
+--       UTIL_RemoveImmediate(itemNeutral)
+--       return
+--     end
+--     -- if owner not self, remove
+--     if itemNeutral:GetPurchaser() ~= hHero then
+--       -- hHero:RemoveItem(itemNeutral)
+--       UTIL_RemoveImmediate(itemNeutral)
+--       return
+--     end
+--   end
 
-  local iHeroName = hHero:GetName()
+--   local iHeroName = hHero:GetName()
 
-  local multiIndex = "x1"
-  if AIGameMode.fBotGoldXpMultiplier < 4 then
-    multiIndex = "x1"
-  elseif AIGameMode.fBotGoldXpMultiplier <= 4 then
-    multiIndex = "x4"
-  elseif AIGameMode.fBotGoldXpMultiplier <= 6 then
-    multiIndex = "x6"
-  elseif AIGameMode.fBotGoldXpMultiplier <= 8 then
-    multiIndex = "x8"
-  elseif AIGameMode.fBotGoldXpMultiplier <= 10 then
-    multiIndex = "x10"
-  else
-    multiIndex = "x20"
-  end
+--   local multiIndex = "x1"
+--   if AIGameMode.fBotGoldXpMultiplier < 4 then
+--     multiIndex = "x1"
+--   elseif AIGameMode.fBotGoldXpMultiplier <= 4 then
+--     multiIndex = "x4"
+--   elseif AIGameMode.fBotGoldXpMultiplier <= 6 then
+--     multiIndex = "x6"
+--   elseif AIGameMode.fBotGoldXpMultiplier <= 8 then
+--     multiIndex = "x8"
+--   elseif AIGameMode.fBotGoldXpMultiplier <= 10 then
+--     multiIndex = "x10"
+--   else
+--     multiIndex = "x20"
+--   end
 
-  local addNeutralItemTime = tBotItemData.addNeutralItemMultiTimeMap[multiIndex] or
-      tBotItemData.addNeutralItemMultiTimeMap["x1"]
+--   local addNeutralItemTime = tBotItemData.addNeutralItemMultiTimeMap[multiIndex] or
+--       tBotItemData.addNeutralItemMultiTimeMap["x1"]
 
-  if (GameTime > addNeutralItemTime[1]) then
-    local iPurchaseTable = tBotItemData.addNeutralItemList[iHeroName]
-    BuyItemIfGoldEnough(hHero, iPurchaseTable)
-    return true
-  end
-end
+--   if (GameTime > addNeutralItemTime[1]) then
+--     local iPurchaseTable = tBotItemData.addNeutralItemList[iHeroName]
+--     BuyItemIfGoldEnough(hHero, iPurchaseTable)
+--     return true
+--   end
+-- end
 
 -- 物品出售
 function BotThink:ThinkSell(hHero)
@@ -365,6 +350,24 @@ function BotThink:ThinkSell(hHero)
   local iItemCount = hHero:GetNumItemsInInventory()
   if iItemCount <= 7 then
     return
+  end
+
+  -- 如果有魔晶 并且有魔晶buff 则出售
+  local shardName = "item_aghanims_shard"
+  local sellItem = BotThink:FindItemByNameIncludeStash(hHero, shardName)
+  if sellItem and hHero:HasModifier("modifier_item_aghanims_shard") then
+    SellItem(hHero, shardName)
+  end
+
+  -- 如果物品名称包含recipt 则出售
+  for i = 0, 8 do
+    local hItem = hHero:GetItemInSlot(i)
+    if hItem then
+      local itemName = hItem:GetName()
+      if string.find(itemName, "recipe") then
+        SellItem(hHero, itemName)
+      end
+    end
   end
 
   local sellItemCommonList = tBotItemData.sellItemCommonList

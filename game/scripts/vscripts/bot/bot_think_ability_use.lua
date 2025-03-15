@@ -107,8 +107,6 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_OgreMagi(hHero)
 	elseif sHeroName == "npc_dota_hero_omniknight" then
 		self:ThinkUseAbility_Omniknight(hHero)
-	elseif sHeroName == "npc_dota_hero_shadow_shaman" then
-		self:ThinkUseAbility_ShadowShaman(hHero)
 	elseif sHeroName == "npc_dota_hero_abaddon" then
 		self:ThinkUseAbility_Abaddon(hHero)
 	elseif sHeroName == "npc_dota_hero_meepo" then
@@ -295,29 +293,6 @@ function BotAbilityThink:ThinkUseAbility_OgreMagi(hHero)
 			return true
 		end
 	end
-end
-
-function BotAbilityThink:ThinkUseAbility_ShadowShaman(hHero)
-	local hAbility1 = hHero:GetAbilityByIndex(0)
-	local hAbility2 = hHero:GetAbilityByIndex(1)
-	local hAbility3 = hHero:GetAbilityByIndex(2)
-	local hAbility4 = hHero:GetAbilityByIndex(3)
-	local hAbility6 = hHero:GetAbilityByIndex(5)
-	if self:CastAbilityOnEnemyTarget(hHero, hAbility2) then return true end
-	if self:CastAbilityOnEnemyTarget(hHero, hAbility1) then return true end
-	if self:CastAbilityOnEnemyPostion(hHero, hAbility6) then return true end
-
-	if hAbility4:IsFullyCastable() then
-		local iRange = GetFullCastRange(hHero, hAbility4)
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		if #tAllHeroes > 0 then
-			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin() - hHero:GetOrigin(), hAbility4,
-				hHero:GetPlayerOwnerID())
-			return true
-		end
-	end
-
-	if self:CastAbilityOnEnemyTarget(hHero, hAbility3) then return true end
 end
 
 function BotAbilityThink:ThinkUseAbility_Abaddon(hHero)

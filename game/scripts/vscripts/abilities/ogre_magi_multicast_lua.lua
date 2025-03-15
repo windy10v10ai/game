@@ -65,6 +65,16 @@ no_support_abilitys = {
 	faceless_void_time_walk = 1,      -- 时间漫游
 	faceless_void_time_walk_reverse = 1, -- 反时间漫游
 	rubick_spell_steal = 1,           -- 技能窃取
+	magnataur_skewer = 1,             -- 巨角冲撞
+	ember_spirit_sleight_of_fist = 1, -- 无影拳
+	goku_kaioken = 1,                 -- 界王拳
+	doom_bringer_doom = 1,            -- 末日
+	tusk_snowball = 1,                -- 雪球
+	tiny_tree_channel = 1,            -- 树木连掷
+	shredder_chakram = 1,             -- 锯齿飞轮
+	shredder_twisted_chakram = 1,     -- 锯齿飞轮
+	yukari_moon_portal = 1,           -- 八云紫 3技能
+	yukari_twin_trains = 1,           -- 八云紫 大招
 }
 no_support_items = {
 	-- 消耗品
@@ -81,12 +91,15 @@ no_support_items = {
 	item_consumable_gem = 1,
 	item_wings_of_haste = 1,
 	item_candy_candy = 1,
+	item_repair_kit = 1,
 	-- 跳刀 影刀
 	item_jump_jump_jump = 1,
 	item_fallen_sky = 1,
 	item_invis_sword = 1,
 	item_silver_edge = 1,
 	item_silver_edge_2 = 1,
+	item_demonicon = 1, -- 死灵书
+	item_power_treads = 1, -- 动力鞋
 }
 no_support_substrings = {
 	"mango",
@@ -97,6 +110,9 @@ no_support_substrings = {
 	"blink",
 	"black_king_bar",
 	"item_manta",
+	"item_force_staff",
+	"item_hurricane_pike",
+	"item_seer_stone",
 
 	"phoenix",
 }
@@ -179,7 +195,17 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 
 	--设置目标再次施法
 	ability:SetContextThink("think_multicast", function()
-		ability:EndCooldown()
+		if IsHeroUncontrollable(keys.unit) then
+			ability.multicast = nil
+			return nil
+		end
+
+		-- 英雄持续施法时 不触发多重
+		if keys.unit:IsChanneling() then
+			ability.multicast = nil
+			return nil
+		end
+
 		-- 充能技能
 		if ability:GetMaxAbilityCharges(ability:GetLevel()) > 0 then
 			if ability:IsItem() then
@@ -204,6 +230,7 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 			end
 		end
 
+		ability:EndCooldown()
 		keys.unit:SetCursorCastTarget(target)
 		keys.unit:SetCursorPosition(pos)
 		keys.unit:CastAbilityImmediately(ability, 0)

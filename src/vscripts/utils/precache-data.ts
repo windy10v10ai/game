@@ -6,7 +6,6 @@ export const heroNameListParticles = [
   'npc_dota_hero_antimage', // 敌法师
   // 'npc_dota_hero_arc_warden', // 天穹守望者
   'npc_dota_hero_axe', // 斧王
-  'npc_dota_hero_bane', // 祸乱之源
   // 'npc_dota_hero_batrider', // 蝙蝠骑士
   // 'npc_dota_hero_beastmaster', // 兽王
   'npc_dota_hero_bloodseeker', // 血魔
@@ -23,7 +22,6 @@ export const heroNameListParticles = [
   'npc_dota_hero_dazzle', // 戴泽
   // 'npc_dota_hero_death_prophet', // 死亡先知
   // 'npc_dota_hero_disruptor', // 干扰者
-  // FIXME 音频文件路径不对
   'npc_dota_hero_doom_bringer', // 末日使者
   'npc_dota_hero_dragon_knight', // 龙骑士
   'npc_dota_hero_drowranger', // 卓尔游侠
@@ -42,7 +40,7 @@ export const heroNameListParticles = [
   'npc_dota_hero_juggernaut', // 主宰
   // 'npc_dota_hero_keeper_of_the_light', // 光之守卫
   'npc_dota_hero_kunkka', // 昆卡
-  'npc_dota_hero_legion_commander', // 军团指挥官
+  // 'npc_dota_hero_legion_commander', // 军团指挥官
   // 'npc_dota_hero_leshrac', // 拉席克
   // 'npc_dota_hero_lich', // 巫妖
   'npc_dota_hero_life_stealer', // 噬魂鬼
@@ -68,7 +66,7 @@ export const heroNameListParticles = [
   // 'npc_dota_hero_oracle', // 神谕者
   'npc_dota_hero_phantom_assassin', // 幻影刺客
   'npc_dota_hero_phantom_lancer', // 幻影长矛手
-  'npc_dota_hero_phoenix', // 凤凰
+  // 'npc_dota_hero_phoenix', // 凤凰
   // 'npc_dota_hero_puck', // 帕克
   'npc_dota_hero_pudge', // 帕吉
   // 'npc_dota_hero_pugna', // 帕格纳
@@ -258,6 +256,6 @@ export const heroNameListSound = [
 export const abilityModelNameList = [
   'models/heroes/witchdoctor/witchdoctor_ward.vmdl', // 巫医守卫
   'models/heroes/techies/fx_techiesfx_mine.vmdl', // 感应地雷
-  'models/heroes/phoenix/phoenix_egg.vmdl', // 超新星
+  // 'models/heroes/phoenix/phoenix_egg.vmdl', // 超新星
   'models/heroes/mars/mars_soldier.vmdl', // 护身甲盾
 ];

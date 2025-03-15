@@ -36,16 +36,23 @@ declare global {
     player_table: {
       [steamAccountID: string]: PlayerDto;
     };
-    leader_board: {
-      top100SteamIds: string[];
+    ranking_table: {
+      topSteamIds: string[];
+      rankScores: {
+        top1000: number;
+        top2000: number;
+        top3000: number;
+        top4000: number;
+        top5000: number;
+      };
     };
     point_info: {
       [steamAccountID: string]: PointInfoDto[];
     };
-    lottery_items: {
+    lottery_active_abilities: {
       [steamAccountID: string]: LotteryDto[];
     };
-    lottery_abilities: {
+    lottery_passive_abilities: {
       [steamAccountID: string]: LotteryDto[];
     };
     lottery_status: {
