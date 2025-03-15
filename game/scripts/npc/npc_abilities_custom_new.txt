@@ -22,7 +22,6 @@
 			"particle"					"particles/units/heroes/hero_magnataur/magnataur_horn_toss_horn_explode.vpcf"
 			"particle"					"particles/units/heroes/hero_magnataur/magnataur_horn_toss_land.vpcf"
 			"particle"					"particles/units/heroes/hero_magnataur/magnataur_horn_toss_land_rings.vpcf"
-			"particle"					"particles/units/heroes/hero_magnataur/magnataur_skewer_horn.vpcf"
 		}
 
 		"AbilityManaCost"				"100"
@@ -49,20 +48,20 @@
 	//火女 飞
 	"lina_flame_cloak2"
 	{
-		"BaseClass"                     "lina_flame_cloak"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"IsGrantedByScepter"				"0"
-		"MaxLevel"							"5"
+		"BaseClass"						"lina_flame_cloak"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"IsGrantedByScepter"			"0"
+		"MaxLevel"						"5"
 
 		"AbilityCooldown"				"25"
-		"AbilityManaCost"				"50"
-
+		"AbilityManaCost"				"50 75 100 125 150"
 
 		"AbilityValues"
 		{
 			"flame_cloak_duration"				"8"
 			"magic_resistance"					"15 20 25 30 35"
-			"spell_amp"							"15 20 25 30 35"
+			"spell_amp"							"10 20 30 40 50"
 			"visualzdelta"						"100"
 			"zchangespeed"						"350"
 		}
@@ -71,7 +70,7 @@
 	//虚空 回到过去
 	"faceless_void_backtrack2"
 	{
-		"BaseClass"                     "faceless_void_backtrack"
+		"BaseClass"						"faceless_void_backtrack"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"5"
 
@@ -88,9 +87,9 @@
 	//小鹿 跳
 	"enchantress_bunny_hop2"
 	{
-		"BaseClass"                     "enchantress_bunny_hop"
+		"BaseClass"						"enchantress_bunny_hop"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"    		"enchantress_bunny_hop"
+		"AbilityTextureName"			"enchantress_bunny_hop"
 		"IsGrantedByShard"			"0"
 		"IsOnCastBar"			"1"
 		"MaxLevel"		"5"
@@ -115,10 +114,10 @@
 	//人马 不屈
 	"centaur_sturdy"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/centaur_sturdy"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/centaur_sturdy"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"    		"centaur/berserkers_edge/centaur_double_edge"
+		"AbilityTextureName"			"centaur/berserkers_edge/centaur_double_edge"
 		"MaxLevel"						"5"
 
 		"AbilityValues"
