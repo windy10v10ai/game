@@ -460,6 +460,35 @@
 		//
 		///////////////////////////////////////////////////
 
+		//长角抛物
+		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "长角抛物"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "马格纳斯顶起前方的敌人，将其甩在身后。敌人受到伤害，滞空%air_duration%秒并处于眩晕状态，而且落地后还会眩晕一段时间。"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_air_duration"			        "滞空时间："
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_damage"   			        "伤害："
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_stun_duration"   			        "眩晕时间："
+		//虚空  回到过去
+		"DOTA_Tooltip_ability_faceless_void_backtrack2"				"回到过去"
+		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"%dodge_chance_pct%%%概率躲避伤害"
+		//腾焰斗篷
+		"DOTA_Tooltip_ability_lina_flame_cloak2"											"腾焰斗篷"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"									"一道天然的屏障，不论是拦住讨厌的姐妹还是可怕的野兽都能轻松做到。"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"								"使莉娜获得顺畅的移动状态，并且提升技能伤害和魔法抗性。开启时获得炽魂的最高叠加层数。"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"持续时间："
+		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%技能增强："
+		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%魔法抗性："
+		//跃动
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2"									"跃动"
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Description"						"向后跳跃，躲避多种飞行过程中的攻击和技能弹道，并向魅惑魔女的攻击距离+%bonus_attack_range%范围内最远的%attack_targets%个敌方单位发动一次附有推进的攻击。"
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Lore"							    "跃动就是活跃灵动。"
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_hop_distance"						"跳跃距离："
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_attack_targets"						"目标数："
+		"DOTA_Tooltip_ability_enchantress_bunny_hop2_bonus_attack_range"					"攻击距离加成："
+		//人马 不屈
+		"DOTA_Tooltip_ability_centaur_sturdy"							"不屈"
+		"DOTA_Tooltip_ability_centaur_sturdy_Description"				"增加自身状态抗性和力量"
+		"DOTA_Tooltip_ability_centaur_sturdy_strength"					"力量:"
+		"DOTA_Tooltip_ability_centaur_sturdy_status"					"状态抗性:"
+
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（旧版）"
 		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"折射未触发时，也将提供%damage_reduction%%%伤害减免。"
