@@ -296,8 +296,7 @@
 		// 					Abilities 英雄技能
 		//
 		///////////////////////////////////////////////////
-		
-		
+
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
 		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "Герой перебрасывает врагов через себя, нанося им урон. Они летят %air_duration% сек. и оглушаются во время полёта и по приземлении."
@@ -311,7 +310,7 @@
 		"DOTA_Tooltip_ability_lina_flame_cloak2"											"Flame Cloak"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"									"Врождённая защита от настырных сестёр и зубастых тварей."
 		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"								"Дарует герою беспрепятственное передвижение. Увеличивает его урон от заклинаний и сопротивление магии. Применение даёт владельцу максимум эффектов способности Fiery Soul."
-		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"ДЛИТЕЛЬНОСТЬ:" 
+		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%ДОП. УРОН ОТ ЗАКЛИНАНИЙ:"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%СОПРОТИВЛЕНИЕ МАГИИ:"
 		//跃动
@@ -321,7 +320,7 @@
 		"DOTA_Tooltip_ability_enchantress_bunny_hop2_hop_distance"						"ДАЛЬНОСТЬ СКАЧКА:"
 		"DOTA_Tooltip_ability_enchantress_bunny_hop2_attack_targets"						"ЧИСЛО ЦЕЛЕЙ:"
 		"DOTA_Tooltip_ability_enchantress_bunny_hop2_bonus_attack_range"					"ДОП. ДАЛЬНОСТЬ АТАКИ:"
-		
+
 		//人马 不屈
 		"DOTA_Tooltip_ability_centaur_sturdy"                            "sturdy"
         "DOTA_Tooltip_ability_centaur_sturdy_Description"                "Увеличивает сопротивление эффектам и силу. "
@@ -329,19 +328,21 @@
         "DOTA_Tooltip_ability_centaur_sturdy_status"                    "Сопротивление эффектам: "
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"					"dispersion(old)"
-		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"При получении урона есть %reflexion_chance%%% шанс стать невосприимчивым и отразить урон. Каждый раз, когда он вызывает %trigger_count%, он также наносит дополнительный урон врагам в радиусе 275 ярдов."
+		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"Dispersion также предоставляет %damage_reduction%%% снижения урона, когда урон не отражается."
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"При получении урона есть %reflexion_chance%%% шанс стать невосприимчивым и отразить урон."
+		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%Шанс отражения урона:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%Процент отражения повреждений："
 		"DOTA_Tooltip_ability_spectre_dispersion2_damage"			"Дополнительный ущерб："
 		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Преломленное повреждение имеет тот же тип, что и первоначальное повреждение."
 
 		//贪魔的贪婪
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"		
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"Позволяет синтезировать больше золота из врагов и рун. Дополнительное золото за убийство существ состоит из начального бонуса и нарастающего, который увеличивается с каждым существом, убитым в течение %duration% сек. после предыдущего. Также способность умножает золото от рун богатства."
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_abilitydraft_note"			"В этом режиме возможность расплавить Aghanim's Scepter, чтобы передать союзному герою все его улучшения, привязана к способности Greevil's Greed, а не Chemical Rage. Сам предмет дарует герою дополнительный урон от атак и заклинаний за каждый расплавленный для союзников Aghanim's Scepter."
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"							"Пускай эксперимент с горой и не удался, зато структуры поменьше Раззил легко обращает в звонкую монету."
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"						"МАКС. ИНТЕРВАЛ УБИЙСТВ:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold"					"НАЧАЛЬНЫЙ БОНУС:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"НАРАСТАЮЩИЙ БОНУС:"		
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"НАРАСТАЮЩИЙ БОНУС:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"МАКСИМУМ ДОП. ЗОЛОТА:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"МНОЖИТЕЛЬ РУН БОГАТСТВА:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"Бонус атаки за слой："
@@ -405,7 +406,7 @@
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"dazzle_rain_of_vermin"
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Наносит постоянный урон области, с вероятностью 12% превращая ее в цыплят."
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"повреждать："
-		
+
 		//全才
 		"DOTA_Tooltip_ability_viper_universal_hero"						"Универсальный атрибут"
 		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"Сменить атрибут на универсальный"
