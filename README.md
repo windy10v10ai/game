@@ -3,7 +3,7 @@
 This is a PVE Dota2 custom game project.<br>
 Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
 
-[![Build Status](https://github.com/windy10v10ai/game/actions/workflows/ci.yml/badge.svg)](https://github.com/windy10v10ai/game/actions/workflows/ci.yml)
+[![Build Status](https://github.com/windy10v10ai/game/actions/workflows/test.yml/badge.svg)](https://github.com/windy10v10ai/game/actions/workflows/test.yml)
 [![](https://img.shields.io/github/release/windy10v10ai/game)](https://github.com/windy10v10ai/game/releases)
 [![License: MIT](https://img.shields.io/github/license/windy10v10ai/game.svg)](LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/windy10v10ai/game/badge)](https://www.codefactor.io/repository/github/windy10v10ai/game)
