@@ -1,5 +1,5 @@
 import { AI } from '../ai/AI';
-import { Analytic } from '../api/analytics/analytics';
+import { Analytics } from '../api/analytics/analytics';
 import { Player } from '../api/player';
 import { GameConfig } from './GameConfig';
 import { Debug } from './debug/Debug';
@@ -16,7 +16,7 @@ declare global {
     GameConfig: GameConfig;
     Option: Option;
     Lottery: Lottery;
-    Analytic: Analytic;
+    Analytic: Analytics;
   }
 }
 
@@ -48,5 +48,5 @@ export function ActivateModules() {
 
   if (GameRules.Lottery == null) GameRules.Lottery = new Lottery();
 
-  if (GameRules.Analytic == null) GameRules.Analytic = new Analytic();
+  if (GameRules.Analytic == null) GameRules.Analytic = new Analytics();
 }
