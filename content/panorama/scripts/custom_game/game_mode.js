@@ -324,12 +324,33 @@ function OnGameDifficultyChoiceChange(table, key, value) {
   OnDifficultyDropDownChanged(difficulty);
 }
 
+// -------- 链接按钮 --------
+function DispatchLinkPanel() {
+  if (Math.random() > 0.5) {
+    $('#DotaSurvivorPanel').visible = true;
+    $('#OMGAIPanel').visible = false;
+    DispatchDotaSurvivor();
+  } else {
+    $('#DotaSurvivorPanel').visible = false;
+    $('#OMGAIPanel').visible = true;
+    DispatchOMGAI();
+  }
+}
+
 function DispatchDotaSurvivor() {
   const button = $('#DotaSurvivorButton');
   button.SetPanelEvent('onactivate', () => {
     $.DispatchEvent('DOTAShowCustomGamePage', 3359951052);
   });
 }
+
+function DispatchOMGAI() {
+  const button = $('#OMGAIButton');
+  button.SetPanelEvent('onactivate', () => {
+    $.DispatchEvent('DOTAShowCustomGamePage', 3443994455);
+  });
+}
+
 function DispatchQQ() {
   const button = $('#QQPanel');
   button.SetPanelEvent('onactivate', () => {
@@ -373,7 +394,7 @@ function SendPlayerLanguage() {
   CustomNetTables.GetTableValue('game_options', 'game_options', ShowGameOptionsChange);
   CustomNetTables.GetTableValue('game_difficulty', 'all', OnGameDifficultyChoiceChange);
   // 链接按钮
-  DispatchDotaSurvivor();
+  DispatchLinkPanel();
   DispatchQQ();
   DispatchDiscord();
 })();
