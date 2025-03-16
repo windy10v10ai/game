@@ -70,6 +70,7 @@
 
 		// link面板
 		"dota_survivor_button"			"Linkage with: Dota Survivor"
+		"omg_ai_button"					"Linkage with: OMG AI"
 		"join_qq"						"Click to join QQ"
 		"join_discord"					"Click to join Discord"
 

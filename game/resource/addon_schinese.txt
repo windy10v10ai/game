@@ -70,6 +70,7 @@
 
 		// link面板
 		"dota_survivor_button"			"全新联动 刀塔幸存者"
+		"omg_ai_button"					"全新联动 OMG AI"
 		"join_qq"						"点击加群"
 		"join_discord"					"点击加入Discord"
 
