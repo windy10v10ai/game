@@ -7,10 +7,9 @@
     "types": ["@moddota/dota-lua-types/normalized", "jest"],
     "plugins": [{ "transform": "@moddota/dota-lua-types/transformer" }],
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "experimentalDecorators": true,
     "noImplicitReturns": true,
-    // FIXME: 严格模式开启后，会有很多报错，需要逐个修复
-    // "strict": true
     "strictNullChecks": true,
     "strictPropertyInitialization": false,
     "strict": false
