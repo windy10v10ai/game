@@ -1026,8 +1026,8 @@
 	{
 		"BaseClass"						"item_soul_ring"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityCooldown"				"2.0"
-		"AbilityHealthCost"				"6000"
+		"AbilityCooldown"				"6.0"
+		"AbilityHealthCost"				"3000"
 		"ItemShopTags"					"regen_health;boost_mana"
 		"ItemQuality"					"common"
 		"ItemAliases"					"soul ring"
@@ -1038,10 +1038,10 @@
 		"WorldDropSound"				"Item.DropRingWorld"
 		"AbilityValues"
 		{
-				"bonus_strength"		"30"
-				"bonus_armor"			"10"
-				"mana_gain"				"2000"
-				"duration"				"10"
+				"bonus_strength"		"35"
+				"bonus_armor"			"15"
+				"mana_gain"				"3000"
+				"duration"				"20"
 		}
 	}
 
