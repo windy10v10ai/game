@@ -5271,18 +5271,18 @@
 		"MaxLevel" "4"
 		"AbilityCastRange"				"1000"
 		"AbilityCooldown"				"120"
-		"AbilityManaCost"				"150 225 300 375"
+		"AbilityManaCost"				"125 200 275 350"
 		"AbilityValues"
 		{
 			"radius"
 			{
-				"value"		"1500"	// 700
+				"value"		"1400"	// 700
 				"affected_by_aoe_increase"	"1"
 				"special_bonus_unique_faceless_void_2" "+400"
 			}
 			"duration"
 			{
-				"value"				"3.75 4.25 4.75 5.25"
+				"value"				"3.5 4.0 4.5 5.0"
 			}
 			"vision_radius"
 			{
@@ -10861,6 +10861,13 @@
 		{
 			"cast_range"				"60 120 180 240 300"
 			"spell_amp"					"11 16 21 26 31"
+
+			// 奥术积累
+			"aoe_bonus_duration"
+			{
+				"value"					"0"
+				"special_bonus_facet_rubick_arcane_accumulation"	"+10"		// +20
+			}
 		}
 	}
 	// 技能窃取
@@ -11572,7 +11579,11 @@
 			"laser_damage"
 			{
 				"value" "75 150 225 300 375"
-				"special_bonus_unique_tinker" "+125"	// 40
+				"special_bonus_unique_tinker" "+125"	// 50
+			}
+			"scepter_reduction_pct"
+			{
+				"value"		"10"						// 15 防止多次叠加 最大血量变负数
 			}
 		}
 	}

@@ -16,7 +16,8 @@ interface CustomGameEventDeclarations {
   choose_difficulty: ChooseDifficultyEventData;
   game_options_change: GameOptionsChangeEventData;
   loading_set_options: LoadingSetOptionsEventData;
-  ui_panel_closed: UIPanelClosedEventData;
+  player_language: PlayerLanguageEventData;
+
   lottery_pick_ability: LotteryPickEventData;
   lottery_refresh_ability: LotteryRefreshEventData;
 }
@@ -60,8 +61,9 @@ interface LoadingSetOptionsEventData {
   };
 }
 
-// This event has no data
-interface UIPanelClosedEventData {}
+interface PlayerLanguageEventData {
+  language: string;
+}
 
 interface LotteryPickEventData {
   name: string;

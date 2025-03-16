@@ -1996,7 +1996,7 @@
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"				"<font color='#e03e2e'>变态辣</font>"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"                      "<h1>主动：灵魂撕裂</h1>使目标沉默%silence_duration%秒，沉默结束后其间所受伤害的%silence_damage_percent%%%将以额外魔法伤害的形式结算。<br><br>所有对目标发动的攻击会额外造成%proc_damage%点伤害，并且拥有克敌机先效果。<br><br>施法距离：%abilitycastrange%\n\n<h1>被动：穿刺</h1>每次攻击有%proc_chance%%%几率无视闪避并造成额外%proc_damage%点魔法伤害。"
+		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"                      "<h1>主动：灵魂撕裂</h1>使目标沉默%silence_duration%秒，沉默结束后其间所受伤害的%silence_damage_percent%%%将以额外魔法伤害的形式结算。<br><br>英雄/非英雄对目标发动攻击会分别额外造成%proc_damage_heroes% / %proc_damage_creeps%点伤害。另外，自身和控制单位对目标发动的所有攻击都拥有克敌机先效果。\n\n<h1>被动：穿刺</h1>每次攻击有%proc_chance%%%几率无视闪避并造成额外%passive_proc_damage%点魔法伤害。"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Lore"                             "辣死你辣死你"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_intellect"                  "+$int"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_attack_speed"               "+$attack"

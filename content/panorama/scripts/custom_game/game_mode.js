@@ -191,7 +191,10 @@ function InitN6Setting() {
 // FIXME 用SendGameOptionsToServer替代
 function StateChange() {
   if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP)) {
+    // 游戏选项显示（全体玩家）
     $('#display_options_container').style.visibility = 'visible';
+    // 统计玩家语言
+    SendPlayerLanguage();
   } else if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
     GameEvents.SendCustomGameEventToServer('loading_set_options', {
       host_privilege: CheckForHostPrivileges(),
@@ -353,6 +356,11 @@ function DispatchDiscord() {
   button.SetPanelEvent('onmouseout', () => {
     $.DispatchEvent('DOTAHideTextTooltip');
   });
+}
+
+function SendPlayerLanguage() {
+  const language = $.Language();
+  GameEvents.SendCustomGameEventToServer('player_language', { language });
 }
 
 (function () {

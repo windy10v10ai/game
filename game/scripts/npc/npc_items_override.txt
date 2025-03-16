@@ -314,7 +314,6 @@
 		{
 				"bonus_intellect"			"20"
 				"bonus_mana_regen"			"5"
-				"silence_damage_percent"	"80"
 				"bonus_damage"				"20"
 		}
 	}
