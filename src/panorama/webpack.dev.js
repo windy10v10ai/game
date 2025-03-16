@@ -1,5 +1,4 @@
 const path = require('path');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { PanoramaTargetPlugin } = require('webpack-panorama-x');
 
 /** @type {import('webpack').Configuration} */
@@ -50,7 +49,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
-        options: { transpileOnly: true },
+        options: { transpileOnly: false, configFile: path.resolve(__dirname, 'tsconfig.json') },
       },
       {
         test: /\.js?$|\.jsx?$/,
@@ -88,10 +87,11 @@ module.exports = {
 
   plugins: [
     new PanoramaTargetPlugin(),
-    new ForkTsCheckerWebpackPlugin({
-      typescript: {
-        configFile: path.resolve(__dirname, 'tsconfig.json'),
-      },
-    }),
+    // ForkTsCheckerWebpackPlugin 和最新版的typescript有冲突，暂时不使用，改用ts-loader进行类型检查
+    // new ForkTsCheckerWebpackPlugin({
+    //   typescript: {
+    //     configFile: path.resolve(__dirname, 'tsconfig.json'),
+    //   },
+    // }),
   ],
 };
