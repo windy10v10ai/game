@@ -1998,7 +1998,7 @@
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"				"<font color='#F74042'>Ultra</font> Bloodthorn"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"                      "<h1>Active: Soul Tear</h1>Silences the target for %silence_duration% seconds. After the silence ends, %silence_damage_percent%%% of the damage taken during the silence will be dealt as additional magic damage.<br><br>All attacks against the target deal an additional %proc_damage% damage and have True Strike.<br><br>Cast Range: %abilitycastrange%\n\n<h1>Passive: Pierce</h1>Each attack has a %proc_chance%%% chance to ignore evasion and deal %proc_damage% additional magic damage."
+		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"                      "<h1>Active: Soul Rend</h1> Silences a target for %silence_duration% seconds. At the end of the silence, an additional %silence_damage_percent%%% of all damage taken during the silence will be dealt to the target as magical damage.<br><br>All attacks on the silenced target will deal additional damage equal to %proc_damage_heroes% if the attacker is a hero, and %proc_damage_creeps%, if the attacker is a creep. Provides True Strike for your attacks and attacks from your controlled units against the silenced target.\n\n<h1>Passive: Pierce</h1>Grants each attack a %proc_chance%%% chance to pierce through evasion and deal %passive_proc_damage% bonus magical damage."
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Lore"                             "So Spiiicey Ninja Kiwi!"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_intellect"                  "+$int"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_attack_speed"               "+$attack"

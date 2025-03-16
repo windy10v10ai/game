@@ -1092,13 +1092,13 @@
 	"item_recipe_revenants_brooch_2"
 	{
 		"BaseClass"						"item_recipe_revenants_brooch"
-		"ItemCost"						"300"
+		"ItemCost"						"600"
 		"ItemRecipe"					"1"
 		"AbilityTextureName"			"item_recipe_revenants_brooch_2"
 		"ItemResult"					"item_revenants_brooch_2"
 		"ItemRequirements"
 		{
-			"01"						"item_revenants_brooch;item_light_part"
+			"01"						"item_revenants_brooch;item_revenants_brooch"
 		}
 	}
 	"item_revenants_brooch_2"
@@ -1114,7 +1114,7 @@
 		"AbilityTextureName"			"item_revenants_brooch_2"
 		"AbilityValues"
 		{
-			"bonus_damage"			"120"
+			"bonus_damage"			"90"
 			"spell_lifesteal"		"30"
 			"crit_chance"			"35"
 			"crit_multiplier"		"160"
@@ -1126,7 +1126,7 @@
 	"item_recipe_revenants_brooch_ultra"
 	{
 		"BaseClass"						"item_recipe_revenants_brooch"
-		"ItemCost"						"1000"
+		"ItemCost"						"2000"
 		"ItemRecipe"					"1"
 		"AbilityTextureName"			"item_recipe_revenants_brooch_ultra"
 		"ItemResult"					"item_revenants_brooch_ultra"
@@ -1151,10 +1151,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"250"
-			"spell_lifesteal"		"60"
-			"crit_chance"			"40"
-			"crit_multiplier"		"240"
+			"bonus_damage"			"200"
+			"spell_lifesteal"		"50"
+			"crit_chance"			"35"
+			"crit_multiplier"		"260"
 		}
 	}
 	//=================================================================================================================
@@ -1183,7 +1183,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0.4"
+		"AbilityCooldown"				"1"
 		"AbilityManaCost"				"1600"
 		"AbilityValues"
 		{
