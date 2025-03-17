@@ -189,8 +189,7 @@ export class property_lifesteal extends PropertyBaseModifier {
   }
 
   OnTakeDamage(event: ModifierInstanceEvent): void {
-    // @ts-expect-error @todo 定义lua的TsLifeStealOnAttackLanded类型
-    TsLifeStealOnAttackLanded(event, this.value, this.GetParent(), this);
+    TsLifeStealOnAttackLanded(event, this.value, this.GetParent());
   }
 }
 
@@ -201,8 +200,7 @@ export class property_spell_lifesteal extends PropertyBaseModifier {
   }
 
   OnTakeDamage(event: ModifierInstanceEvent): void {
-    // @ts-expect-error @todo 定义lua的TsLifeStealOnAttackLanded类型
-    TsSpellLifeSteal(event, this, this.value);
+    TsSpellLifeSteal(event, this.value, this.GetParent());
   }
 }
 

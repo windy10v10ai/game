@@ -1,0 +1,174 @@
+/**
+ * 吸血相关的工具函数
+ */
+
+/** 判断目标是否可以触发吸血效果 */
+function canLifestealFromTarget(target: CDOTA_BaseNPC, isAttack: boolean): boolean {
+  if (!target) return false;
+  if (target.IsBuilding()) return false; // 建筑
+  // 幻象不触发技能吸血，但是可以触发攻击吸血
+  if (!isAttack && target.IsIllusion()) return false;
+  if (target.IsInvulnerable()) return false; // 无敌单位
+  if (target.IsOther()) return false; // 信使等其他单位
+  if (target.IsWard()) return false; // 守卫
+  if (target.IsCourier()) return false; // 信使
+  return true;
+}
+
+/** 判断伤害是否可以触发吸血效果
+ * @param damageEvent 伤害事件
+ * @param isAttack 是否是攻击
+ * @returns 是否可以触发吸血效果
+ */
+function canLifestealFromDamage(damageEvent: ModifierInstanceEvent, isAttack: boolean): boolean {
+  // 反弹的伤害不触发
+  if ((damageEvent.damage_flags & DamageFlag.REFLECTION) === DamageFlag.REFLECTION) return false;
+  // 移除生命值而不是造成直接伤害的技能不触发
+  if ((damageEvent.damage_flags & DamageFlag.HPLOSS) === DamageFlag.HPLOSS) return false;
+  // 不能触发攻击特效的攻击不触发 次级攻击 如分裂箭、月刃
+  if (
+    (damageEvent.damage_flags & DamageFlag.SECONDARY_PROJECTILE_ATTACK) ===
+    DamageFlag.SECONDARY_PROJECTILE_ATTACK
+  )
+    return false;
+  if (!isAttack) {
+    // 技能吸血时，NO_SPELL_AMPLIFICATION
+    if (
+      (damageEvent.damage_flags & DamageFlag.NO_SPELL_AMPLIFICATION) ===
+      DamageFlag.NO_SPELL_AMPLIFICATION
+    )
+      return false;
+  }
+  return true;
+}
+
+/** 计算实际吸血量 */
+function calculateLifesteal(
+  damage: number,
+  lifeStealPercent: number,
+  isHeroTarget: boolean,
+  isSpellLifesteal: boolean,
+): number {
+  let finalLifesteal = damage * (lifeStealPercent / 100);
+
+  // 非英雄目标降低吸血效果
+  if (!isHeroTarget) {
+    finalLifesteal *= isSpellLifesteal ? 0.2 : 0.6; // 技能吸血降低80%，普通吸血降低40%
+  }
+
+  return finalLifesteal;
+}
+
+/** 处理攻击吸血 */
+function handleAttackLifesteal(
+  event: ModifierInstanceEvent,
+  lifeStealPercent: number,
+  owner: CDOTA_BaseNPC,
+): void {
+  const attacker = event.attacker;
+  const target = event.unit;
+  const ability = event.inflictor;
+  // FIXME 判定是否是攻击吸血
+  // if (event.inflictor) return;
+  // FIXME 判定attacker是否是ability拥有者
+  // if (attacker !== ability.GetCaster()) return;
+
+  // 自身或友军造成的任意伤害 不触发
+  if (attacker.GetTeam() === owner.GetTeam()) return;
+
+  if (!canLifestealFromDamage(event, true)) return;
+
+  if (!canLifestealFromTarget(target, true)) return;
+
+  // 只有物理伤害可以触发攻击吸血
+  if (event.damage_type !== DamageTypes.PHYSICAL) return;
+
+  const heal = calculateLifesteal(event.damage, lifeStealPercent, target.IsHero(), false);
+  if (heal <= 0) return;
+
+  // FIXME 确认区别
+  // owner.HealWithParams(heal, ability, true, true, owner, false);
+  owner.Heal(heal, ability);
+
+  // 吸血特效
+  const particleId = ParticleManager.CreateParticle(
+    'particles/generic_gameplay/generic_lifesteal.vpcf',
+    ParticleAttachment.ABSORIGIN_FOLLOW,
+    owner,
+  );
+  // FIXME 特效SetParticleControl
+  // ParticleManager.SetParticleControl(particleId, 0, target.GetAbsOrigin());
+  ParticleManager.ReleaseParticleIndex(particleId);
+}
+
+/** 处理技能吸血 */
+function handleSpellLifesteal(
+  event: ModifierInstanceEvent,
+  lifeStealPercent: number,
+  owner: CDOTA_BaseNPC,
+): void {
+  const attacker = event.attacker;
+  const target = event.unit;
+  const ability = event.inflictor;
+  // FIXME 判定是否是技能吸血
+  // if (!event.inflictor) return;
+
+  // 自身或友军造成的任意伤害 不触发
+  if (attacker.GetTeam() === owner.GetTeam()) return;
+
+  if (!canLifestealFromDamage(event, false)) return;
+
+  if (!canLifestealFromTarget(target, false)) return;
+
+  // 纯粹伤害不触发技能吸血
+  if (event.damage_type === DamageTypes.PURE) return;
+
+  // 如果是物理伤害，必须是技能造成的
+  if (event.damage_type === DamageTypes.PHYSICAL && !event.inflictor) return;
+
+  const heal = calculateLifesteal(event.damage, lifeStealPercent, target.IsHero(), true);
+  if (heal <= 0) return;
+
+  owner.Heal(heal, ability);
+
+  // 技能吸血特效
+  const particleId = ParticleManager.CreateParticle(
+    'particles/items3_fx/octarine_core_lifesteal.vpcf',
+    ParticleAttachment.ABSORIGIN_FOLLOW,
+    owner,
+  );
+  ParticleManager.ReleaseParticleIndex(particleId);
+}
+
+// 导出全局函数供Lua使用
+declare global {
+  function TsLifeStealOnAttackLanded(
+    event: ModifierInstanceEvent,
+    lifeStealPercent: number,
+    owner: CDOTA_BaseNPC,
+  ): void;
+  function TsSpellLifeSteal(
+    event: ModifierInstanceEvent,
+    lifeStealPercent: number,
+    owner: CDOTA_BaseNPC,
+  ): void;
+}
+
+// 实现全局函数
+_G.TsLifeStealOnAttackLanded = (
+  event: ModifierInstanceEvent,
+  lifeStealPercent: number,
+  owner: CDOTA_BaseNPC,
+) => {
+  handleAttackLifesteal(event, lifeStealPercent, owner);
+};
+
+_G.TsSpellLifeSteal = (
+  event: ModifierInstanceEvent,
+  lifeStealPercent: number,
+  owner: CDOTA_BaseNPC,
+) => {
+  handleSpellLifesteal(event, lifeStealPercent, owner);
+};
+
+export {};
