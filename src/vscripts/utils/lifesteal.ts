@@ -25,7 +25,7 @@ function canLifestealFromDamage(damageEvent: ModifierInstanceEvent, isAttack: bo
   if ((damageEvent.damage_flags & DamageFlag.REFLECTION) === DamageFlag.REFLECTION) return false;
   // 移除生命值而不是造成直接伤害的技能不触发
   if ((damageEvent.damage_flags & DamageFlag.HPLOSS) === DamageFlag.HPLOSS) return false;
-  // 不能触发攻击特效的攻击不触发 次级攻击 如分裂箭、月刃
+  // 不能触发攻击特效的攻击不触发 次级攻击 如分裂、月刃
   if (
     (damageEvent.damage_flags & DamageFlag.SECONDARY_PROJECTILE_ATTACK) ===
     DamageFlag.SECONDARY_PROJECTILE_ATTACK
@@ -59,46 +59,61 @@ function calculateLifesteal(
   return finalLifesteal;
 }
 
+/** 应用吸血效果和特效 */
+function applyLifesteal(
+  owner: CDOTA_BaseNPC,
+  heal: number,
+  ability: CDOTABaseAbility | undefined,
+  isSpellLifesteal: boolean,
+): void {
+  if (heal <= 0) return;
+
+  // FIXME 删除
+  print(`${isSpellLifesteal ? '技能' : '攻击'}吸血: heal=${heal}`);
+
+  // FIXME 确认吸血增强是否需要修改
+  // owner.HealWithParams(heal, ability, true, true, owner, false);
+  owner.Heal(heal, ability);
+
+  // 吸血特效
+  const particleId = ParticleManager.CreateParticle(
+    isSpellLifesteal
+      ? 'particles/items3_fx/octarine_core_lifesteal.vpcf'
+      : 'particles/generic_gameplay/generic_lifesteal.vpcf',
+    ParticleAttachment.ABSORIGIN_FOLLOW,
+    owner,
+  );
+  ParticleManager.ReleaseParticleIndex(particleId);
+}
+
 /** 处理攻击吸血 */
 function handleAttackLifesteal(
   event: ModifierInstanceEvent,
   lifeStealPercent: number,
   owner: CDOTA_BaseNPC,
 ): void {
+  // 判定attacker是否是owner
   const attacker = event.attacker;
-  const target = event.unit;
-  const ability = event.inflictor;
-  // FIXME 判定是否是攻击吸血
-  // if (event.inflictor) return;
-  // FIXME 判定attacker是否是ability拥有者
-  // if (attacker !== ability.GetCaster()) return;
+  if (attacker !== owner) return;
 
-  // 自身或友军造成的任意伤害 不触发
-  if (attacker.GetTeam() === owner.GetTeam()) return;
+  // 判定是否是普通攻击
+  const ability = event.inflictor;
+  if (event.inflictor) return;
+
+  // 普通攻击只有物理伤害触发攻击吸血，魔法伤害触发技能吸血，存粹伤害不触发
+  if (event.damage_type !== DamageTypes.PHYSICAL) return;
+
+  // 目标是自身或友军造成的任意伤害 不触发
+  const target = event.unit;
+  if (target.GetTeam() === owner.GetTeam()) return;
 
   if (!canLifestealFromDamage(event, true)) return;
 
   if (!canLifestealFromTarget(target, true)) return;
 
-  // 只有物理伤害可以触发攻击吸血
-  if (event.damage_type !== DamageTypes.PHYSICAL) return;
-
   const heal = calculateLifesteal(event.damage, lifeStealPercent, target.IsHero(), false);
-  if (heal <= 0) return;
 
-  // FIXME 确认区别
-  // owner.HealWithParams(heal, ability, true, true, owner, false);
-  owner.Heal(heal, ability);
-
-  // 吸血特效
-  const particleId = ParticleManager.CreateParticle(
-    'particles/generic_gameplay/generic_lifesteal.vpcf',
-    ParticleAttachment.ABSORIGIN_FOLLOW,
-    owner,
-  );
-  // FIXME 特效SetParticleControl
-  // ParticleManager.SetParticleControl(particleId, 0, target.GetAbsOrigin());
-  ParticleManager.ReleaseParticleIndex(particleId);
+  applyLifesteal(owner, heal, ability, false);
 }
 
 /** 处理技能吸血 */
@@ -107,37 +122,28 @@ function handleSpellLifesteal(
   lifeStealPercent: number,
   owner: CDOTA_BaseNPC,
 ): void {
+  // 判定attacker是否是owner
   const attacker = event.attacker;
-  const target = event.unit;
-  const ability = event.inflictor;
-  // FIXME 判定是否是技能吸血
-  // if (!event.inflictor) return;
+  if (attacker !== owner) return;
 
-  // 自身或友军造成的任意伤害 不触发
-  if (attacker.GetTeam() === owner.GetTeam()) return;
+  // 纯粹伤害不触发技能吸血
+  if (event.damage_type === DamageTypes.PURE) return;
+
+  // 判定是否是普通攻击
+  const ability = event.inflictor;
+  // 普通攻击造成的物理伤害不触发技能吸血
+  if (!ability && event.damage_type === DamageTypes.PHYSICAL) return;
+
+  // 目标是自身或友军造成的任意伤害 不触发
+  const target = event.unit;
+  if (target.GetTeam() === owner.GetTeam()) return;
 
   if (!canLifestealFromDamage(event, false)) return;
 
   if (!canLifestealFromTarget(target, false)) return;
 
-  // 纯粹伤害不触发技能吸血
-  if (event.damage_type === DamageTypes.PURE) return;
-
-  // 如果是物理伤害，必须是技能造成的
-  if (event.damage_type === DamageTypes.PHYSICAL && !event.inflictor) return;
-
   const heal = calculateLifesteal(event.damage, lifeStealPercent, target.IsHero(), true);
-  if (heal <= 0) return;
-
-  owner.Heal(heal, ability);
-
-  // 技能吸血特效
-  const particleId = ParticleManager.CreateParticle(
-    'particles/items3_fx/octarine_core_lifesteal.vpcf',
-    ParticleAttachment.ABSORIGIN_FOLLOW,
-    owner,
-  );
-  ParticleManager.ReleaseParticleIndex(particleId);
+  applyLifesteal(owner, heal, ability, true);
 }
 
 // 导出全局函数供Lua使用
