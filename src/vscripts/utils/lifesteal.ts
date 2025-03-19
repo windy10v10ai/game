@@ -71,9 +71,7 @@ function applyLifesteal(
   // FIXME 删除
   print(`${isSpellLifesteal ? '技能' : '攻击'}吸血: heal=${heal}`);
 
-  // FIXME 确认吸血增强是否需要修改
-  // owner.HealWithParams(heal, ability, true, true, owner, false);
-  owner.Heal(heal, ability);
+  owner.HealWithParams(heal, ability ?? {}, true, true, owner, isSpellLifesteal);
 
   // 吸血特效
   const particleId = ParticleManager.CreateParticle(
