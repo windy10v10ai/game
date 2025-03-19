@@ -121,40 +121,7 @@ function SetMember(list)
 	return set
 end
 
-function TsLifeStealOnAttackLanded(_, params, iLifeSteal, hHero, hAbility)
-	LifeStealOnTakeDamage(params, iLifeSteal, hHero, hAbility)
-end
-
-function LifeStealOnTakeDamage(params, iLifeSteal, hHero, hAbility)
-	if IsServer() then
-		local attacker = params.attacker
-		if params.inflictor then
-			return
-		end
-
-		if attacker == hHero then
-			local hTarget = params.unit
-			if attacker:IsBuilding() or attacker:IsIllusion() then
-				return
-			end
-			if hTarget:IsBuilding() or hTarget:IsIllusion() or (hTarget:GetTeam() == attacker:GetTeam()) then
-				return
-			end
-			local actual_damage = params.damage
-			local iHeal = actual_damage * iLifeSteal * 0.01
-			attacker:HealWithParams(iHeal, hAbility, true, true, attacker, false)
-
-			-- Printf("攻击吸血: "..iHeal)
-			-- effect
-			local lifesteal_pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",
-				PATTACH_ABSORIGIN_FOLLOW, attacker)
-			ParticleManager:SetParticleControl(lifesteal_pfx, 0, attacker:GetAbsOrigin())
-			ParticleManager:ReleaseParticleIndex(lifesteal_pfx)
-		end
-	end
-end
-
--- FIXME
+-- TODO 删除
 function LifeStealOnAttackLanded(params, iLifeSteal, hHero, hAbility)
 	if IsServer() then
 		local attacker = params.attacker
@@ -178,10 +145,6 @@ function LifeStealOnAttackLanded(params, iLifeSteal, hHero, hAbility)
 			ParticleManager:ReleaseParticleIndex(lifesteal_pfx)
 		end
 	end
-end
-
-function TsSpellLifeSteal(_, keys, hAbility, ilifeSteal)
-	SpellLifeSteal(keys, hAbility, ilifeSteal)
 end
 
 function SpellLifeSteal(keys, hAbility, ilifeSteal)
@@ -246,9 +209,6 @@ function GetFullCastRange(hHero, hAbility)
 end
 
 function GetBuyBackCost(playerId)
-	-- local hHero = PlayerResource:GetSelectedHeroEntity(playerId)
-	-- local level = hHero:GetLevel()
-
 	local iNetWorth = PlayerResource:GetNetWorth(playerId)
 	local cost = math.floor(200 + iNetWorth / 20)
 	cost = math.min(cost, 50000)
