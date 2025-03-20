@@ -541,10 +541,6 @@
 			"01"						"item_radiance;item_talisman_of_evasion"
 		}
 	}
-
-	//=================================================================================================================
-	// Radiance2
-	//=================================================================================================================
 	"item_radiance_2"
 	{
 		// General
@@ -573,7 +569,12 @@
 				"upgrade_day_vision"	"400"
 				"evasion"				"30"
 				"blind_pct"				"30"
-				"aura_radius"			"700"
+				"aura_radius"
+				{
+					"value"		"700"
+					"affected_by_aoe_increase"	"1"
+				}
+				"illusion_multiplier_pct"	"150"
 		}
 	}
 

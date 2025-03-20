@@ -145,9 +145,10 @@ tBotItemData.purchaseItemList = {
 		'item_falcon_blade',
 		'item_echo_sabre',
 		'item_wings_of_haste',
-		'item_eternal_shroud',
-		'item_aghanims_shard',
 		'item_blade_mail_2',
+		'item_radiance_2', -- 大辉耀 圣焰之光
+		'item_eternal_shroud', -- 大天堂 无锋战戟
+		'item_aghanims_shard',
 		'item_heavens_halberd_v2',
 		'item_insight_armor',
 		'item_ultimate_scepter_2',
@@ -155,7 +156,7 @@ tBotItemData.purchaseItemList = {
 		'item_undying_heart',
 		-- 'item_bloodstone',
 		'item_moon_shard_datadriven',
-		'item_sange_and_yasha_1', -- 骑士剑换其他回血或减伤
+		'item_sange_and_yasha_1', -- 神器·散夜对剑
 	},
 	npc_dota_hero_chaos_knight = {
 		'item_magic_wand',
@@ -549,6 +550,7 @@ tBotItemData.purchaseItemList = {
 		'item_glimmer_cape',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
+		'item_radiance_2', -- 大辉耀 圣焰之光
 		'item_ultimate_scepter_2',
 		'item_sheepstick',
 		'item_shivas_guard_2',
@@ -591,6 +593,7 @@ tBotItemData.purchaseItemList = {
 		'item_orb_of_the_brine',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
+		'item_radiance_2', -- 大辉耀 圣焰之光
 		'item_aeon_pendant',
 		'item_ultimate_scepter_2',
 		'item_octarine_core',
@@ -653,7 +656,8 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_blink',
-		'item_eternal_shroud',
+		'item_radiance_2', -- 大辉耀 圣焰之光
+		'item_eternal_shroud', -- 大天堂 无锋战戟
 		'item_aether_lens_2',
 		'item_overwhelming_blink',
 		'item_ultimate_scepter_2',
@@ -710,7 +714,7 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_abyssal_blade_v2',
 		-- 'item_satanic_2',
-		'item_sange_and_yasha_1', -- 神器散夜
+		'item_sange_and_yasha_1', -- 神器·散夜对剑
 		'item_excalibur',
 		'item_satanic_2',   -- 骑士剑换撒旦
 		'item_refresh_core',
@@ -1057,7 +1061,7 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_bristleback = {
 		'item_echo_sabre_2',
-		'item_eternal_shroud',
+		'item_eternal_shroud', -- 大天堂 无锋战戟
 
 	},
 	npc_dota_hero_chaos_knight = {
@@ -1149,7 +1153,7 @@ tBotItemData.sellItemList = {
 		'item_echo_sabre_2',
 	},
 	npc_dota_hero_pudge = {
-		'item_eternal_shroud',
+		'item_eternal_shroud', -- 大天堂 无锋战戟
 		'item_overwhelming_blink',
 	},
 	npc_dota_hero_razor = {
@@ -1372,6 +1376,7 @@ tBotItemData.sellItemCommonList = {
 	'item_harpoon',       -- 鱼叉
 
 	-- 终极道具 6k~10k
+	'item_radiance_2',        -- 大辉耀 圣焰之光
 	'item_arcane_octarine_core', -- 奥术之心（大玲珑心）
 	'item_monkey_king_bar_2', -- 定海神针
 }
