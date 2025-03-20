@@ -121,25 +121,6 @@ function SetMember(list)
 	return set
 end
 
-function SpellLifeSteal(keys, hAbility, ilifeSteal)
-	local hParent = hAbility:GetParent()
-	if keys.attacker == hParent and keys.inflictor and IsEnemy(keys.attacker, keys.unit) and
-		bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION and
-		bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) ~= DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL then
-		local iHeal = keys.damage * (ilifeSteal / 100)
-
-		if keys.unit:IsCreep() then
-			iHeal = iHeal / 5
-		end
-
-		-- Printf("法术吸血: "..iHeal)
-		hParent:HealWithParams(iHeal, hAbility:GetAbility(), false, true, hParent, true)
-		local pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf",
-			PATTACH_ABSORIGIN_FOLLOW, hParent)
-		ParticleManager:ReleaseParticleIndex(pfx)
-	end
-end
-
 -- 计算实际造成的伤害
 function CalculateActualDamage(damage, target)
 	local target_armor = target:GetPhysicalArmorValue(false)
@@ -228,6 +209,7 @@ end
 --------------------------------------------------------------------------------
 -- DataDrive modifier
 --------------------------------------------------------------------------------
+-- FIXME 删除
 if not _G.GLOBAL_APPLY_MODIFIERS_ITEM then
 	_G.GLOBAL_APPLY_MODIFIERS_ITEM = CreateItem("item_apply_modifiers", nil, nil)
 end
