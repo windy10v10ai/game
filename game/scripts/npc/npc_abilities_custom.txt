@@ -19,10 +19,10 @@
 			"bonus_damage"				"5 10 15 20 25 30 35 40 45 50"
 			"bonus_attack_speed"		"5 10 15 20 25 30 35 40 45 50"
 			// 技能
-			"bonus_spell_amplify"		"5 10 15 20 25 30 35 40 45 50"
+			"bonus_spell_amplify"		"2 4 6 8 10 12 14 16 18 20"
 			"bonus_cooldown"			"2 4 6 8 10 12 14 16 18 20"
 			// 防御
-			"bonus_move_speed"			"10 20 30 40 50 60 70 80 90 100"
+			"bonus_move_speed"			"5 10 15 20 25 30 35 40 45 50"
 			// "bonus_armor"				"2 4 6 8 10 12 14 16 18 20"
 			// "bonus_magic_resistance"	"2 4 6 8 10 12 14 16 18 20"
 			// 全属性
