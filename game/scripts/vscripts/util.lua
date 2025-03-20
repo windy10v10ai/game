@@ -121,32 +121,6 @@ function SetMember(list)
 	return set
 end
 
--- TODO 删除
-function LifeStealOnAttackLanded(params, iLifeSteal, hHero, hAbility)
-	if IsServer() then
-		local attacker = params.attacker
-
-		if attacker == hHero then
-			local hTarget = params.target
-			if attacker:IsBuilding() or attacker:IsIllusion() then
-				return
-			end
-			if hTarget:IsBuilding() or hTarget:IsIllusion() or (hTarget:GetTeam() == attacker:GetTeam()) then
-				return
-			end
-			local actual_damage = CalculateActualDamage(params, hTarget)
-			local iHeal = actual_damage * iLifeSteal * 0.01
-			attacker:HealWithParams(iHeal, hAbility, true, true, attacker, false)
-
-			-- effect
-			local lifesteal_pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",
-				PATTACH_ABSORIGIN_FOLLOW, attacker)
-			ParticleManager:SetParticleControl(lifesteal_pfx, 0, attacker:GetAbsOrigin())
-			ParticleManager:ReleaseParticleIndex(lifesteal_pfx)
-		end
-	end
-end
-
 function SpellLifeSteal(keys, hAbility, ilifeSteal)
 	local hParent = hAbility:GetParent()
 	if keys.attacker == hParent and keys.inflictor and IsEnemy(keys.attacker, keys.unit) and
@@ -167,13 +141,8 @@ function SpellLifeSteal(keys, hAbility, ilifeSteal)
 end
 
 -- 计算实际造成的伤害
-function CalculateActualDamage(keys, target)
-	local damage = keys.damage
-	local damage_type = keys.damage_type
-
-	-- print("damage: "..damage)
+function CalculateActualDamage(damage, target)
 	local target_armor = target:GetPhysicalArmorValue(false)
-	-- print("target_armor: "..target_armor)
 	damage = damage * (1 - target_armor * 0.06 / (1 + math.abs(target_armor) * 0.06))
 
 	-- print("damage after reduction: "..damage)
