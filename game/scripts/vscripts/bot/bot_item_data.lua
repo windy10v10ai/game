@@ -17,7 +17,7 @@ tBotItemData.purchaseItemList = {
 		'item_blade_mail', -- 刃甲
 		'item_echo_sabre',
 		'item_basher', -- 碎骨锤
-		'item_blink',
+		'item_radiance_2', -- 大辉耀 圣焰之光
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_overwhelming_blink',
@@ -145,8 +145,8 @@ tBotItemData.purchaseItemList = {
 		'item_falcon_blade',
 		'item_echo_sabre',
 		'item_wings_of_haste',
-		'item_blade_mail_2',
 		'item_radiance_2', -- 大辉耀 圣焰之光
+		'item_blade_mail_2',
 		'item_eternal_shroud', -- 大天堂 无锋战戟
 		'item_aghanims_shard',
 		'item_heavens_halberd_v2',
@@ -589,7 +589,6 @@ tBotItemData.purchaseItemList = {
 		'item_arcane_boots',
 		'item_vanguard',
 		'item_glimmer_cape',
-		'item_echo_sabre_2',
 		'item_orb_of_the_brine',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
@@ -655,11 +654,10 @@ tBotItemData.purchaseItemList = {
 		'item_blade_mail', -- 刃甲
 		'item_wings_of_haste',
 		'item_aghanims_shard',
-		'item_blink',
 		'item_radiance_2', -- 大辉耀 圣焰之光
-		'item_eternal_shroud', -- 大天堂 无锋战戟
 		'item_aether_lens_2',
 		'item_overwhelming_blink',
+		'item_eternal_shroud', -- 大天堂 无锋战戟
 		'item_ultimate_scepter_2',
 		'item_saint_orb',
 		'item_black_king_bar_2',
