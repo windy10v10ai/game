@@ -1,9 +1,4 @@
-import {
-  BaseItem,
-  BaseModifier,
-  registerAbility,
-  registerModifier,
-} from '../../utils/dota_ts_adapter';
+import { BaseItem, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
 import { BaseItemModifier } from './base_item_modifier';
 
 @registerAbility('item_heavens_halberd_v2')
@@ -68,7 +63,7 @@ export class ItemHeavensHalberdV2 extends BaseItem {
 
       enemy.AddNewModifier(enemy, this, 'modifier_knockback', knockback);
       const finalDur = dur * (1 - enemy.GetStatusResistance());
-      enemy.AddNewModifier(enemy, this, 'modifier_item_heavens_halberd_v2_debuff', {
+      enemy.AddNewModifier(enemy, this, 'modifier_heavens_halberd_debuff', {
         duration: finalDur,
       });
     }
@@ -135,9 +130,14 @@ export class ModifierItemHeavensHalberdV2 extends BaseItemModifier {
           this.StartIntervalThink(this.cd);
 
           const duration = this.disarm * (1 - event.target.GetStatusResistance());
-          event.target.AddNewModifier(this.GetParent(), this.ability, 'modifier_disarmed', {
-            duration: duration,
-          });
+          event.target.AddNewModifier(
+            this.GetParent(),
+            this.ability,
+            'modifier_heavens_halberd_debuff',
+            {
+              duration: duration,
+            },
+          );
         }
       }
     }
@@ -178,46 +178,5 @@ export class ModifierItemHeavensHalberdV2 extends BaseItemModifier {
 
   GetModifierMagicalResistanceBonus(): number {
     return this.spellResist;
-  }
-}
-
-@registerModifier('modifier_item_heavens_halberd_v2_debuff')
-export class ModifierItemHeavensHalberdV2Debuff extends BaseModifier {
-  GetTexture(): string {
-    return 'item_heavens_halberd';
-  }
-
-  IsDebuff(): boolean {
-    return true;
-  }
-
-  IsHidden(): boolean {
-    return false;
-  }
-
-  IsPurgable(): boolean {
-    return false;
-  }
-
-  IsPurgeException(): boolean {
-    return false;
-  }
-
-  GetEffectAttachType(): ParticleAttachment {
-    return ParticleAttachment.OVERHEAD_FOLLOW;
-  }
-
-  GetEffectName(): string {
-    return 'particles/generic_gameplay/generic_disarm.vpcf';
-  }
-
-  RemoveOnDeath(): boolean {
-    return true;
-  }
-
-  CheckState(): { [key: number]: boolean } {
-    return {
-      [ModifierState.DISARMED]: true,
-    };
   }
 }

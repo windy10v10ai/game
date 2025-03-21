@@ -2689,9 +2689,9 @@
 			"status_resistance"		"20"
 			"spell_resist"			"30"
 			"knockback_range"		"450"
-			"knockback_distance"    "150"
-			"spell_lifesteal"       "20"
-			"mana_re"               "7.6"
+			"knockback_distance"	"150"
+			"spell_lifesteal"		"20"
+			"mana_re"				"7.6"
 		}
 	}
 
