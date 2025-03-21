@@ -1724,7 +1724,7 @@
 
 		// item_heavens_halberd_v2 天堂2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"Heaven's Lament"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Heaven's Rage</h1>Disarm all enemy units within %knockback_range% of yourself and knocks them all back.<br>Disarm Duration: %disarm_con%s + your current strength / %disarm_con_per_str% seconds. Max duration is %disarm_con_max% seconds.\n<h1>Passive: Heaven's Wrath</h1>Attacks have a %attch%%% chance of disarming the target. This effect can only be triggered once every 5 seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Heaven's Rage</h1>Disarm all enemy units within %knockback_range% of yourself and knocks them all back.<br>Disarm Duration: %disarm_con_base%s + your current strength / %disarm_con_per_str% seconds. Max duration is %disarm_con_max% seconds.\n<h1>Passive: Heaven's Wrath</h1>Attacks have a %attch%%% chance of disarming the target. This effect can only be triggered once every 5 seconds."
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_Lore"							"Behold: Heaven's Arsenal!"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"

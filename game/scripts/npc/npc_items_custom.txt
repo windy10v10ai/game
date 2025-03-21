@@ -2655,7 +2655,7 @@
 		"ID"							"3045"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"item_heavens_halberd_v2"
-		"ScriptFile"					"items/item_heavens_halberd_v2"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ScriptFile"					"items/ts_items/item_heavens_halberd_v2"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 
 		// Stats
@@ -2680,7 +2680,7 @@
 		{
 			"bonus_evasion"			"30"
 			"bonus_strength"		"50"	// tooltip, real value in item_heavens_halberd_v2_bonus_strength
-			"disarm_con"			"2"
+			"disarm_con_base"		"2"
 			"disarm_con_per_str"	"300"
 			"disarm_con_max"		"4"
 			"hp_regen_amp"			"30"
@@ -2689,9 +2689,9 @@
 			"status_resistance"		"20"
 			"spell_resist"			"30"
 			"knockback_range"		"450"
-			"knockback_distance"    "150"
-			"spell_lifesteal"       "20"
-			"mana_re"               "7.6"
+			"knockback_distance"	"150"
+			"spell_lifesteal"		"20"
+			"mana_re"				"7.6"
 		}
 	}
 

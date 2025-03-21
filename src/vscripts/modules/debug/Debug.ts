@@ -83,6 +83,34 @@ export class Debug {
       hero.AddItemByName(itemName);
     }
 
+    if (cmd === CMD.REPLACE_ITEM_ALL) {
+      const itemName = args[0];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        for (let i = 0; i < 6; i++) {
+          const item = hero.GetItemInSlot(i);
+          if (item) {
+            UTIL_RemoveImmediate(item);
+          }
+          hero.AddItemByName(itemName);
+        }
+      });
+    }
+
+    if (cmd === CMD.REMOVE_ITEM_ALL) {
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        for (let i = 0; i < 6; i++) {
+          const item = hero.GetItemInSlot(i);
+          if (item) {
+            UTIL_RemoveImmediate(item);
+          }
+        }
+      });
+    }
+
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
@@ -242,6 +270,11 @@ export class Debug {
         }
       }
     }
+    if (cmd === CMD.REFRESH_BUYBACK) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      hero.SetBuybackCooldownTime(0);
+    }
     // 获取状态抗性
     if (cmd === CMD.GET_SR) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
@@ -262,6 +295,12 @@ export class Debug {
         ability: undefined,
         damage_flags: DamageFlag.NONE,
       });
+    }
+    // 减少生命值
+    if (cmd === CMD.HP_LOSS) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      hero.SetHealth(hero.GetHealth() * 0.1);
     }
     // 晕眩
     if (cmd === CMD.STUN) {

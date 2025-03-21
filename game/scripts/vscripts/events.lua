@@ -1,7 +1,6 @@
 require('modifiers/player/enable_player_modifier')
 require('event/js_event')
 require('event/creep')
-require('event/chat')
 require('event/kill')
 
 

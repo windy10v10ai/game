@@ -57,13 +57,13 @@ function modifier_item_saint_orb_passive:OnCreated()
 	self.mp_re = ab:GetSpecialValueFor("mana_re")
 	self.heal_bonus = ab:GetSpecialValueFor("heal_bonus")
 	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 	end
 end
 
 function modifier_item_saint_orb_passive:OnDestroy()
 	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 	end
 end
 
