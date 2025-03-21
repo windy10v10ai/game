@@ -937,7 +937,7 @@
 			"aura_health_regen_bonus"	"200"
 			"aura_mana_regen_bonus"	"60"
 			"aura_armor_bonus"		"40"
-			"aura_bonus_threshold"	"100"
+			"aura_bonus_threshold"	"75"
 			"replenish_health"		"3000"
 			"replenish_mana"		"1500"
 			"replenish_radius"
