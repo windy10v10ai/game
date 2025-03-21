@@ -477,13 +477,6 @@
 		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"持续时间："
 		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%技能增强："
 		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%魔法抗性："
-		//跃动
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2"									"跃动"
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Description"						"向后跳跃，躲避多种飞行过程中的攻击和技能弹道，并向魅惑魔女的攻击距离+%bonus_attack_range%范围内最远的%attack_targets%个敌方单位发动一次附有推进的攻击。"
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Lore"							    "跃动就是活跃灵动。"
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_hop_distance"						"跳跃距离："
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_attack_targets"						"目标数："
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_bonus_attack_range"					"攻击距离加成："
 		//人马 不屈
 		"DOTA_Tooltip_ability_centaur_sturdy"							"不屈"
 		"DOTA_Tooltip_ability_centaur_sturdy_Description"				"增加自身状态抗性和力量"
@@ -663,12 +656,6 @@
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_interval"		"触发间隔："
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_duration"		"缠绕时间："
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_damage"		"伤害："
-
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash"		"冲锋斩"
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_Description"	"向目标快速移动,攻击目标并对扇形区域造成伤害和眩晕"
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_damage"		"伤害："
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_duration"		"眩晕时间："
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_ad"			"攻击力伤害加成倍率："
 
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry"								"强化武器"
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_Description"					"被动增加近战攻击距离，主动开启后，增加的近战攻击距离翻倍，且每次攻击减速敌人"
