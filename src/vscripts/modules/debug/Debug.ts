@@ -268,6 +268,11 @@ export class Debug {
         }
       }
     }
+    if (cmd === CMD.REFRESH_BUYBACK) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      hero.SetBuybackCooldownTime(0);
+    }
     // 获取状态抗性
     if (cmd === CMD.GET_SR) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
@@ -288,6 +293,12 @@ export class Debug {
         ability: undefined,
         damage_flags: DamageFlag.NONE,
       });
+    }
+    // 减少生命值
+    if (cmd === CMD.HP_LOSS) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      hero.SetHealth(hero.GetHealth() * 0.1);
     }
     // 晕眩
     if (cmd === CMD.STUN) {
