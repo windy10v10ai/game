@@ -84,8 +84,8 @@ function InitSetting() {
   if (Game.IsInToolsMode()) {
     $('#player_gold_xp_multiplier_dropdown').SetSelected('2');
     $('#bot_gold_xp_multiplier_dropdown').SetSelected('2');
-    $('#radiant_player_number_dropdown').SetSelected('5');
-    $('#dire_player_number_dropdown').SetSelected('5');
+    $('#radiant_player_number_dropdown').SetSelected('10');
+    $('#dire_player_number_dropdown').SetSelected('10');
     $('#starting_gold_bot_dropdown').SetSelected('5000');
     $('#tower_power_dropdown').SetSelected('300');
   }
@@ -191,7 +191,10 @@ function InitN6Setting() {
 // FIXME 用SendGameOptionsToServer替代
 function StateChange() {
   if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP)) {
+    // 游戏选项显示（全体玩家）
     $('#display_options_container').style.visibility = 'visible';
+    // 统计玩家语言
+    SendPlayerLanguage();
   } else if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
     GameEvents.SendCustomGameEventToServer('loading_set_options', {
       host_privilege: CheckForHostPrivileges(),
@@ -321,12 +324,33 @@ function OnGameDifficultyChoiceChange(table, key, value) {
   OnDifficultyDropDownChanged(difficulty);
 }
 
+// -------- 链接按钮 --------
+function DispatchLinkPanel() {
+  if (Math.random() > 0.5) {
+    $('#DotaSurvivorPanel').visible = true;
+    $('#OMGAIPanel').visible = false;
+    DispatchDotaSurvivor();
+  } else {
+    $('#DotaSurvivorPanel').visible = false;
+    $('#OMGAIPanel').visible = true;
+    DispatchOMGAI();
+  }
+}
+
 function DispatchDotaSurvivor() {
   const button = $('#DotaSurvivorButton');
   button.SetPanelEvent('onactivate', () => {
     $.DispatchEvent('DOTAShowCustomGamePage', 3359951052);
   });
 }
+
+function DispatchOMGAI() {
+  const button = $('#OMGAIButton');
+  button.SetPanelEvent('onactivate', () => {
+    $.DispatchEvent('DOTAShowCustomGamePage', 3443994455);
+  });
+}
+
 function DispatchQQ() {
   const button = $('#QQPanel');
   button.SetPanelEvent('onactivate', () => {
@@ -355,6 +379,11 @@ function DispatchDiscord() {
   });
 }
 
+function SendPlayerLanguage() {
+  const language = $.Language();
+  GameEvents.SendCustomGameEventToServer('player_language', { language });
+}
+
 (function () {
   $('#radiant_player_number_dropdown').SetSelected('1');
   LockOption();
@@ -365,7 +394,7 @@ function DispatchDiscord() {
   CustomNetTables.GetTableValue('game_options', 'game_options', ShowGameOptionsChange);
   CustomNetTables.GetTableValue('game_difficulty', 'all', OnGameDifficultyChoiceChange);
   // 链接按钮
-  DispatchDotaSurvivor();
+  DispatchLinkPanel();
   DispatchQQ();
   DispatchDiscord();
 })();

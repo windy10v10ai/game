@@ -88,7 +88,7 @@ function modifier_item_blue_fantasy:OnCreated()
     self.mana_base = self.ability:GetSpecialValueFor("mana_base")
     self.dam = 0
     if IsServer() then
-        RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
         for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
             mod:GetAbility():SetSecondaryCharges(_)
         end
@@ -97,7 +97,7 @@ end
 
 function modifier_item_blue_fantasy:OnDestroy()
     if IsServer() then
-        RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
         for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
             mod:GetAbility():SetSecondaryCharges(_)
         end

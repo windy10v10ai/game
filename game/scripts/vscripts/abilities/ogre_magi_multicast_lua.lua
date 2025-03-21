@@ -75,6 +75,7 @@ no_support_abilitys = {
 	shredder_twisted_chakram = 1,     -- 锯齿飞轮
 	yukari_moon_portal = 1,           -- 八云紫 3技能
 	yukari_twin_trains = 1,           -- 八云紫 大招
+	storm_spirit_ball_lightning = 1,  --  球状闪电
 }
 no_support_items = {
 	-- 消耗品

@@ -21,14 +21,16 @@ game/panorama/images/heroes/**/*.vxml_c
 game/panorama/images/custom_game/lottery
 
 # tstl output
+game/scripts/vscripts/lualib_bundle.lua
 game/scripts/vscripts/addon_game_mode.lua
 game/scripts/vscripts/ai/
 game/scripts/vscripts/api/
+game/scripts/vscripts/items/ts_items
+game/scripts/vscripts/modifiers/property
+game/scripts/vscripts/modifiers/global
 game/scripts/vscripts/modules/
 game/scripts/vscripts/server/
 game/scripts/vscripts/utils/
-game/scripts/vscripts/modifiers/property
-game/scripts/vscripts/modifiers/global
 
 #忽略
 game/.idea/

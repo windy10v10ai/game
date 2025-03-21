@@ -70,6 +70,7 @@
 
 		// link面板
 		"dota_survivor_button"			"全新联动 刀塔幸存者"
+		"omg_ai_button"					"全新联动 OMG AI"
 		"join_qq"						"点击加群"
 		"join_discord"					"点击加入Discord"
 
@@ -460,6 +461,28 @@
 		//
 		///////////////////////////////////////////////////
 
+		//长角抛物
+		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "长角抛物"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "马格纳斯顶起前方的敌人，将其甩在身后。敌人受到伤害，滞空%air_duration%秒并处于眩晕状态，而且落地后还会眩晕一段时间。"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_air_duration"			        "滞空时间："
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_damage"   			        "伤害："
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_stun_duration"   			        "眩晕时间："
+		//虚空  回到过去
+		"DOTA_Tooltip_ability_faceless_void_backtrack2"				"回到过去"
+		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"%dodge_chance_pct%%%概率躲避伤害"
+		//腾焰斗篷
+		"DOTA_Tooltip_ability_lina_flame_cloak2"											"腾焰斗篷"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"									"一道天然的屏障，不论是拦住讨厌的姐妹还是可怕的野兽都能轻松做到。"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"								"使莉娜获得顺畅的移动状态，并且提升技能伤害和魔法抗性。开启时获得炽魂的最高叠加层数。"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"持续时间："
+		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%技能增强："
+		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%魔法抗性："
+		//人马 不屈
+		"DOTA_Tooltip_ability_centaur_sturdy"							"不屈"
+		"DOTA_Tooltip_ability_centaur_sturdy_Description"				"增加自身状态抗性和力量"
+		"DOTA_Tooltip_ability_centaur_sturdy_strength"					"力量:"
+		"DOTA_Tooltip_ability_centaur_sturdy_status"					"状态抗性:"
+
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（旧版）"
 		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"折射未触发时，也将提供%damage_reduction%%%伤害减免。"
@@ -633,12 +656,6 @@
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_interval"		"触发间隔："
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_duration"		"缠绕时间："
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_damage"		"伤害："
-
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash"		"冲锋斩"
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_Description"	"向目标快速移动,攻击目标并对扇形区域造成伤害和眩晕"
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_damage"		"伤害："
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_duration"		"眩晕时间："
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_ad"			"攻击力伤害加成倍率："
 
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry"								"强化武器"
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_Description"					"被动增加近战攻击距离，主动开启后，增加的近战攻击距离翻倍，且每次攻击减速敌人"
@@ -1376,7 +1393,7 @@
 
 		// item_radiance_2
 		"DOTA_Tooltip_Ability_item_radiance_2"				"圣焰之光"
-		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害，并且物理攻击有%blind_pct%%%几率不会命中。幻象每秒造成%aura_damage_illusions%点魔法伤害。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害，并且使他们物理攻击有%blind_pct%%%几率不会命中。对幻象造成%illusion_multiplier_pct%%%伤害。幻象每秒造成%aura_damage_illusions%点魔法伤害。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_radiance_2_Lore"								"一把神圣的武器，剑身的耀眼光芒能将敌人化为灰烬。"
 		"DOTA_Tooltip_ability_item_radiance_2_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_radiance_2_evasion"							"%+$evasion"
@@ -1703,7 +1720,7 @@
 
 		// item_heavens_halberd_v2 天堂2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"无锋战戟"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1><font color='#FFFF00'>主动：天堂冲击</font></h1>以自身为中心对%knockback_range%范围内单位进行缴械，并产生击退效果，击退%knockback_distance%码，缴械持续时间：%disarm_con%+英雄当前力量/%disarm_con_per_str%秒,最长为%disarm_con_max%秒。\n<h1><font color='#FFFF00'>被动：以战止战</font></h1>普攻有%attch%%%概率对目标缴械%disarm%秒，每5秒可以触发一次。"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1><font color='#FFFF00'>主动：天堂冲击</font></h1>以自身为中心对%knockback_range%范围内单位进行缴械，并产生击退效果，击退%knockback_distance%码，缴械持续时间：%disarm_con_base%+英雄当前力量/%disarm_con_per_str%秒,最长为%disarm_con_max%秒。\n<h1><font color='#FFFF00'>被动：以战止战</font></h1>普攻有%attch%%%概率对目标缴械%disarm%秒，每5秒可以触发一次。"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+状态抗性"
@@ -1967,7 +1984,7 @@
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"				"<font color='#e03e2e'>变态辣</font>"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"                      "<h1>主动：灵魂撕裂</h1>使目标沉默%silence_duration%秒，沉默结束后其间所受伤害的%silence_damage_percent%%%将以额外魔法伤害的形式结算。<br><br>所有对目标发动的攻击会额外造成%proc_damage%点伤害，并且拥有克敌机先效果。<br><br>施法距离：%abilitycastrange%\n\n<h1>被动：穿刺</h1>每次攻击有%proc_chance%%%几率无视闪避并造成额外%proc_damage%点魔法伤害。"
+		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"                      "<h1>主动：灵魂撕裂</h1>使目标沉默%silence_duration%秒，沉默结束后其间所受伤害的%silence_damage_percent%%%将以额外魔法伤害的形式结算。<br><br>英雄/非英雄对目标发动攻击会分别额外造成%proc_damage_heroes% / %proc_damage_creeps%点伤害。另外，自身和控制单位对目标发动的所有攻击都拥有克敌机先效果。\n\n<h1>被动：穿刺</h1>每次攻击有%proc_chance%%%几率无视闪避并造成额外%passive_proc_damage%点魔法伤害。"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Lore"                             "辣死你辣死你"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_intellect"                  "+$int"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_attack_speed"               "+$attack"

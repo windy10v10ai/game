@@ -541,10 +541,6 @@
 			"01"						"item_radiance;item_talisman_of_evasion"
 		}
 	}
-
-	//=================================================================================================================
-	// Radiance2
-	//=================================================================================================================
 	"item_radiance_2"
 	{
 		// General
@@ -573,7 +569,12 @@
 				"upgrade_day_vision"	"400"
 				"evasion"				"30"
 				"blind_pct"				"30"
-				"aura_radius"			"700"
+				"aura_radius"
+				{
+					"value"		"700"
+					"affected_by_aoe_increase"	"1"
+				}
+				"illusion_multiplier_pct"	"150"
 		}
 	}
 
@@ -2617,7 +2618,7 @@
 	}
 
 	//=================================================================================================================
-	// recipe heavens halberd v2 大天堂
+	// recipe heavens halberd v2 大天堂 无锋战戟
 	//=================================================================================================================
 	"item_recipe_heavens_halberd_v2"
 	{
@@ -2654,7 +2655,7 @@
 		"ID"							"3045"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"item_heavens_halberd_v2"
-		"ScriptFile"					"items/item_heavens_halberd_v2"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ScriptFile"					"items/ts_items/item_heavens_halberd_v2"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 
 		// Stats
@@ -2679,7 +2680,7 @@
 		{
 			"bonus_evasion"			"30"
 			"bonus_strength"		"50"	// tooltip, real value in item_heavens_halberd_v2_bonus_strength
-			"disarm_con"			"2"
+			"disarm_con_base"		"2"
 			"disarm_con_per_str"	"300"
 			"disarm_con_max"		"4"
 			"hp_regen_amp"			"30"
@@ -2688,9 +2689,9 @@
 			"status_resistance"		"20"
 			"spell_resist"			"30"
 			"knockback_range"		"450"
-			"knockback_distance"    "150"
-			"spell_lifesteal"       "20"
-			"mana_re"               "7.6"
+			"knockback_distance"	"150"
+			"spell_lifesteal"		"20"
+			"mana_re"				"7.6"
 		}
 	}
 
@@ -5161,11 +5162,12 @@
 	"item_recipe_bloodthorn_ultra"
 	{
 		"BaseClass"						"item_recipe_bloodthorn"
-		"ID"						    "9611"
+		"ID"							"9611"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"0"
+		"ItemCost"						"450"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bloodthorn_ultra"
+		"AbilityTextureName"			"item_recipe_bloodthorn_ultra"
 		"ItemRequirements"
 		{
 			"01"						"item_bloodthorn;item_orchid"
@@ -5174,28 +5176,31 @@
 	"item_bloodthorn_ultra"
 	{
 		"BaseClass"						"item_bloodthorn"
-		"ID"						    "9612"
+		"ID"							"9612"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
 		"AbilityCastRange"				"1200"
 		"AbilityCooldown"				"15.0"
 		"AbilitySharedCooldown"			"orchid"
+
 		"AbilityManaCost"				"300"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		"AbilityTextureName"			"bloodthorn_ultra"
 		"AbilityValues"
 		{
-				"bonus_intellect"			"60"
-				"bonus_attack_speed"		"200"
+				"bonus_intellect"			"30"
+				"bonus_attack_speed"		"160"
 				"bonus_mana_regen"			"10"
-				"bonus_health_regen"		"16"
+				"bonus_health_regen"		"15"
 				"silence_duration"			"5"
-				"silence_damage_percent"	"150"	// 120
-				"bonus_damage"				"60"
+				"silence_damage_percent"	"120"
+				"bonus_damage"				"30"
 				"duration"					"6"
 				"spell_amp_debuff"			"70"
 				"proc_damage_heroes"				"100"

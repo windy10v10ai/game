@@ -170,11 +170,18 @@
 			<!-- 联动 按钮 -->
 			<Panel id="LinkButtonContainer" hittest="false">
 				<!--  吸血鬼幸存者 -->
-				<Panel id="DotaSurvivorPanel"	class="GameOptionsSubPanel">
-					<Button id="DotaSurvivorButton" class="ButtonBevel">
+				<Panel id="DotaSurvivorPanel" class="LinkPanel GameOptionsSubPanel">
+					<Button id="DotaSurvivorButton" class="LinkButton ButtonBevel">
 						<Label id="DotaSurvivorButtonLabel" text="#dota_survivor_button" />
 					</Button>
-					<Image id="DotaSurvivorImage" src="file://{images}/custom_game/dota_survivor.png"/>
+					<Image id="DotaSurvivorImage" class="LinkImg" src="file://{images}/custom_game/dota_survivor.png"/>
+				</Panel>
+				<!--  OMG AI for wind -->
+				<Panel id="OMGAIPanel" class="LinkPanel GameOptionsSubPanel">
+					<Button id="OMGAIButton" class="LinkButton ButtonBevel">
+						<Label id="OMGAILabel" text="#omg_ai_button" />
+					</Button>
+					<Image id="OMGAIImage" class="LinkImg" src="file://{images}/custom_game/omg_ai.png"/>
 				</Panel>
 			</Panel>
 			<!-- 聊天框 -->

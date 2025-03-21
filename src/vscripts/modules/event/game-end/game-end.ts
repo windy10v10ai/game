@@ -1,4 +1,4 @@
-import { Analytic } from '../../../api/analytics/analytics';
+import { Analytics } from '../../../api/analytics/analytics';
 import {
   GameEndDto,
   GameEndGameOptionsDto,
@@ -166,7 +166,7 @@ export class GameEnd {
 
         // SendGameEndPickAbilityEvent
         if (activeAbilityName) {
-          Analytic.SendGameEndPickAbilityEvent({
+          Analytics.SendGameEndPickAbilityEvent({
             steamId: player.steamId,
             matchId: gameEndDto.matchId,
             name: activeAbilityName,
@@ -179,7 +179,7 @@ export class GameEnd {
         }
 
         if (passiveAbilityName) {
-          Analytic.SendGameEndPickAbilityEvent({
+          Analytics.SendGameEndPickAbilityEvent({
             steamId: player.steamId,
             matchId: gameEndDto.matchId,
             name: passiveAbilityName,
