@@ -121,59 +121,9 @@ function SetMember(list)
 	return set
 end
 
--- TODO 删除
-function LifeStealOnAttackLanded(params, iLifeSteal, hHero, hAbility)
-	if IsServer() then
-		local attacker = params.attacker
-
-		if attacker == hHero then
-			local hTarget = params.target
-			if attacker:IsBuilding() or attacker:IsIllusion() then
-				return
-			end
-			if hTarget:IsBuilding() or hTarget:IsIllusion() or (hTarget:GetTeam() == attacker:GetTeam()) then
-				return
-			end
-			local actual_damage = CalculateActualDamage(params, hTarget)
-			local iHeal = actual_damage * iLifeSteal * 0.01
-			attacker:HealWithParams(iHeal, hAbility, true, true, attacker, false)
-
-			-- effect
-			local lifesteal_pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",
-				PATTACH_ABSORIGIN_FOLLOW, attacker)
-			ParticleManager:SetParticleControl(lifesteal_pfx, 0, attacker:GetAbsOrigin())
-			ParticleManager:ReleaseParticleIndex(lifesteal_pfx)
-		end
-	end
-end
-
-function SpellLifeSteal(keys, hAbility, ilifeSteal)
-	local hParent = hAbility:GetParent()
-	if keys.attacker == hParent and keys.inflictor and IsEnemy(keys.attacker, keys.unit) and
-		bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION and
-		bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) ~= DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL then
-		local iHeal = keys.damage * (ilifeSteal / 100)
-
-		if keys.unit:IsCreep() then
-			iHeal = iHeal / 5
-		end
-
-		-- Printf("法术吸血: "..iHeal)
-		hParent:HealWithParams(iHeal, hAbility:GetAbility(), false, true, hParent, true)
-		local pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf",
-			PATTACH_ABSORIGIN_FOLLOW, hParent)
-		ParticleManager:ReleaseParticleIndex(pfx)
-	end
-end
-
 -- 计算实际造成的伤害
-function CalculateActualDamage(keys, target)
-	local damage = keys.damage
-	local damage_type = keys.damage_type
-
-	-- print("damage: "..damage)
+function CalculateActualDamage(damage, target)
 	local target_armor = target:GetPhysicalArmorValue(false)
-	-- print("target_armor: "..target_armor)
 	damage = damage * (1 - target_armor * 0.06 / (1 + math.abs(target_armor) * 0.06))
 
 	-- print("damage after reduction: "..damage)
@@ -254,51 +204,6 @@ function IsHeroUncontrollable(hHero)
 	if hHero:HasModifier("modifier_teleporting") then return true end
 
 	return false
-end
-
---------------------------------------------------------------------------------
--- DataDrive modifier
---------------------------------------------------------------------------------
-if not _G.GLOBAL_APPLY_MODIFIERS_ITEM then
-	_G.GLOBAL_APPLY_MODIFIERS_ITEM = CreateItem("item_apply_modifiers", nil, nil)
-end
-
-function RefreshItemDataDrivenModifier(item, modifier)
-	local caster = item:GetCaster()
-	local itemName = item:GetName()
-	Timers:CreateTimer(0.1, function()
-		print("Add DataDriven Modifier " .. modifier)
-		-- get how many item caster has
-		local itemCount = 0
-		for i = 0, 5 do
-			local itemInSlot = caster:GetItemInSlot(i)
-			if itemInSlot and itemInSlot:GetName() == itemName then
-				itemCount = itemCount + 1
-			end
-		end
-		local modifiers = caster:FindAllModifiersByName(modifier)
-		local modifierCount = #modifiers
-
-		print("itemCount: " .. itemCount)
-		print("modifierCount: " .. modifierCount)
-
-		if itemCount > modifierCount then
-			for i = 1, itemCount - modifierCount do
-				GLOBAL_APPLY_MODIFIERS_ITEM:ApplyDataDrivenModifier(caster, caster, modifier, {})
-			end
-		end
-
-		if itemCount < modifierCount then
-			-- remove modifier
-			for i = 1, modifierCount - itemCount do
-				modifiers[i]:Destroy()
-			end
-		end
-	end)
-end
-
-function ApplyItemDataDrivenModifier(target, modifierName, modifierTable)
-	GLOBAL_APPLY_MODIFIERS_ITEM:ApplyDataDrivenModifier(target, target, modifierName, modifierTable)
 end
 
 function IsHumanPlayer(playerID)

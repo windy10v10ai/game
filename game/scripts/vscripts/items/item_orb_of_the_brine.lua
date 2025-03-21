@@ -63,13 +63,13 @@ function modifier_item_orb_of_the_brine:OnCreated(kv)
 	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
 	self.heal_increase = self:GetAbility():GetSpecialValueFor("heal_increase")
 	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 	end
 end
 
 function modifier_item_orb_of_the_brine:OnDestroy()
 	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 	end
 end
 
@@ -141,13 +141,13 @@ end
 function modifier_item_orb_of_the_brine_bubble:CheckState()
 	local state = {}
 	if IsServer() then
-		state[MODIFIER_STATE_SILENCED]       = true
-		state[MODIFIER_STATE_MUTED]          = true
-		state[MODIFIER_STATE_DISARMED]       = true
-		state[MODIFIER_STATE_OUT_OF_GAME]    = true
-		state[MODIFIER_STATE_MAGIC_IMMUNE]   = true
-		state[MODIFIER_STATE_INVULNERABLE]   = true
-		state[MODIFIER_STATE_UNSELECTABLE]   = true
+		state[MODIFIER_STATE_SILENCED]     = true
+		state[MODIFIER_STATE_MUTED]        = true
+		state[MODIFIER_STATE_DISARMED]     = true
+		state[MODIFIER_STATE_OUT_OF_GAME]  = true
+		state[MODIFIER_STATE_MAGIC_IMMUNE] = true
+		state[MODIFIER_STATE_INVULNERABLE] = true
+		state[MODIFIER_STATE_UNSELECTABLE] = true
 	end
 
 	return state

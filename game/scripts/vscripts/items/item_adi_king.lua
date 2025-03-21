@@ -96,7 +96,7 @@ function modifier_item_adi_king:OnRefresh(keys)
     self.stats_modifier_name = "modifier_item_adi_king_stats"
 
     if IsServer() then
-        RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
         for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
             mod:GetAbility():SetSecondaryCharges(_)
         end
@@ -105,7 +105,7 @@ end
 
 function modifier_item_adi_king:OnDestroy()
     if IsServer() then
-        RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
         for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
             mod:GetAbility():SetSecondaryCharges(_)
         end

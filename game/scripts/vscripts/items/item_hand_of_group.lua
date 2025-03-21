@@ -89,7 +89,7 @@ end
 function modifier_item_hand_of_group_pa:OnCreated()
     self.stats_modifier_name = "modifier_item_hand_of_group_stats"
     if IsServer() then
-        RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 
         -- 刷新充能点数
         local current_item = self:GetAbility()
@@ -108,6 +108,6 @@ end
 
 function modifier_item_hand_of_group_pa:OnDestroy()
     if IsServer() then
-        RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end

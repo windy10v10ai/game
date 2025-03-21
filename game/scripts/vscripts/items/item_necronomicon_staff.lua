@@ -81,13 +81,13 @@ function modifier_item_necronomicon_staff:OnCreated(params)
 	self.sheep_duration = self.ability:GetSpecialValueFor("sheep_duration")
 	self.tooltip_range = self.ability:GetSpecialValueFor("tooltip_range")
 	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 	end
 end
 
 function modifier_item_necronomicon_staff:OnDestroy()
 	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 	end
 end
 
