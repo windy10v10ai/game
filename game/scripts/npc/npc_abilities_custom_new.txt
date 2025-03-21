@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-	//猛犸 顶
+	// 猛犸 长角抛物
 	"magnataur_horn_toss2"
 	{
 		"BaseClass"						"magnataur_horn_toss"
@@ -42,10 +42,10 @@
 			"destination_offset"		"175"
 			"pull_angle"				"230"
 			"horn_toss_slow_pct"		"100"
-			"stun_duration"		"0.75"
+			"stun_duration"		"0.6 0.75 0.9 1.05 1.2"
 		}
 	}
-	//火女 飞
+	// 火女 腾焰斗篷
 	"lina_flame_cloak2"
 	{
 		"BaseClass"						"lina_flame_cloak"
@@ -81,34 +81,7 @@
 
 		"AbilityValues"
 		{
-			"dodge_chance_pct"		"10 15 20 25 30"
-		}
-	}
-	//小鹿 跳
-	"enchantress_bunny_hop2"
-	{
-		"BaseClass"						"enchantress_bunny_hop"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"enchantress_bunny_hop"
-		"IsGrantedByShard"			"0"
-		"IsOnCastBar"			"1"
-		"MaxLevel"		"5"
-
-		"AbilityCooldown"				"13 11 9 7 5"
-		"AbilityManaCost"				"50"
-
-		"precache"
-		{
-			"particle"					"particles/units/heroes/hero_enchantress/ench_sproink.vpcf"
-		}
-
-		"AbilityValues"
-		{
-			"hop_distance"				"500"
-			"hop_duration"				"0.4"
-			"hop_height"				"150"
-			"attack_targets"			"2"
-			"bonus_attack_range"		"200"
+			"dodge_chance_pct"		"12 15 18 21 24"
 		}
 	}
 	//人马 不屈
@@ -122,7 +95,7 @@
 
 		"AbilityValues"
 		{
-			"status"					"15 20 25 30 35"
+			"status"					"10 15 20 25 30"
 			"strength"					"10 20 30 40 50"
 		}
 	}
@@ -144,14 +117,14 @@
 		{
 			"reflexion_chance"
 			{
-				"value"		"14 16 18 20 22"
+				"value"		"16 18 20 22 24"
 				"special_bonus_unique_spectre_5"		"+5"
 			}
-			"damage_pct"		"60 70 80 90 100"
+			"damage_pct"		"60 80 100 120 140"
 			"damage_reduction"
 			{
 				"value"				"0"
-				"special_bonus_shard"				"+16"
+				"special_bonus_shard"				"+20"
 			}
 		}
 	}
@@ -679,30 +652,6 @@
 			"damage"			"60 100 140 180 220"
 		}
 	}
-	//冲锋斩
-	"abyssal_underlord_charge_slash"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/abyssal_underlord_charge_slash"
-		"AbilityTextureName"			"phantom_lancer_phantom_edge"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-
-		"MaxLevel"						"5"
-
-		"AbilityCastRange"				"1600"
-		"AbilityManaCost"				"80 90 100 110 120"
-		"AbilityCooldown"				"14 12 10 8 6"
-
-		"AbilityValues"
-		{
-			"damage"			"30 60 90 120 150"
-			"duration"			"1 1.2 1.4 1.6 1.8"
-			"ad"				"1 1.2 1.4 1.6 1.8"
-		}
-	}
 	//狂暴药剂
 	"alchemist_berserk_potion2"
 	{
@@ -755,7 +704,7 @@
 			"attack_range"	"50 75 100 125 150"
 			"duration"		"6"
 			// 降低移速
-			"move_speed_slow"	"20 30 40 50"
+			"move_speed_slow"	"20 30 40 50 60"
 			"slow_duration"		"0.5"
 		}
 	}
