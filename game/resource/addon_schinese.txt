@@ -664,12 +664,6 @@
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_duration"		"缠绕时间："
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_damage"		"伤害："
 
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash"		"冲锋斩"
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_Description"	"向目标快速移动,攻击目标并对扇形区域造成伤害和眩晕"
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_damage"		"伤害："
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_duration"		"眩晕时间："
-		"DOTA_Tooltip_ability_abyssal_underlord_charge_slash_ad"			"攻击力伤害加成倍率："
-
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry"								"强化武器"
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_Description"					"被动增加近战攻击距离，主动开启后，增加的近战攻击距离翻倍，且每次攻击减速敌人"
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_attack_range"					"近战攻击距离："
