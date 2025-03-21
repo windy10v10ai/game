@@ -83,6 +83,32 @@ export class Debug {
       hero.AddItemByName(itemName);
     }
 
+    if (cmd === CMD.REPLACE_ITEM_ALL) {
+      const itemName = args[0];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        for (let i = 0; i < 6; i++) {
+          const item = hero.GetItemInSlot(i);
+          if (item) {
+            UTIL_RemoveImmediate(item);
+          }
+          hero.AddItemByName(itemName);
+        }
+      });
+    }
+
+    if (cmd === CMD.REMOVE_ITEM_ALL) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      for (let i = 0; i < 6; i++) {
+        const item = hero.GetItemInSlot(i);
+        if (item) {
+          UTIL_RemoveImmediate(item);
+        }
+      }
+    }
+
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;

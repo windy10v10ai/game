@@ -25,23 +25,24 @@ export enum CMD {
   DAMAGE_PURE = '-damagePure',
   STUN = '-stun',
   SILENCE = '-silence',
-  /** 添加技能 */
+
+  // ---- ability ----
   ADD_ABILITY = '-ab',
   ADD_ABILITY_ALL = '-aball',
+
+  // ---- item ----
   RM_ITEM = '-rmitem', // 移除物品
   REPLACE_NEUTRAL_ITEM = '-rn', // 替换中立物品
   REPLACE_ENHANCE_ITEM = '-re', // 替换附魔物品
+  REPLACE_ITEM_ALL = '-rpiall', // 替换所有物品
+  REMOVE_ITEM_ALL = '-rmiall', // 移除所有物品
 
   // ---- modifier相关 ----
-  /**
-   * 添加modifier
-   * @param modifier名称
-   */
-  ADD_MODIFIER = '-addModifier', // 添加指定modifier
-  REMOVE_MODIFIER = '-removeModifier', // 移除指定modifier
-  ADD_MODIFIER_All_100 = '-addModifierAll100', // 添加指定modifier
-  ADD_DATADRIVE_MODIFIER_All_100 = '-addDataDriveModifierAll100', // 添加指定modifier
-  REMOVE_MODIFIER_ALL_100 = '-removeModifierAll100', // 移除指定modifier
+  ADD_MODIFIER = '-am', // 添加指定modifier
+  REMOVE_MODIFIER = '-rm', // 移除指定modifier
+  ADD_MODIFIER_All_100 = '-amall', // 添加指定modifier
+  ADD_DATADRIVE_MODIFIER_All_100 = '-amdall', // 添加指定modifier
+  REMOVE_MODIFIER_ALL_100 = '-rmmall', // 移除指定modifier
 
   GET_KEY_V3 = '-get_key_v3', // 获取key
 }
