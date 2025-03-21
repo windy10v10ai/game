@@ -313,14 +313,6 @@
 		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%ДОП. УРОН ОТ ЗАКЛИНАНИЙ:"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%СОПРОТИВЛЕНИЕ МАГИИ:"
-		//跃动
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2"									"Sproink"
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Description"						"Герой отскакивает назад, уворачиваясь от летящих в него снарядов, и запускает копья с эффектом Impetus в самых отдалённых врагов в радиусе своей атаки + %bonus_attack_range%. Число целей: %attack_targets%."
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Lore"							    "Вот так прыг да скок."
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_hop_distance"						"ДАЛЬНОСТЬ СКАЧКА:"
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_attack_targets"						"ЧИСЛО ЦЕЛЕЙ:"
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_bonus_attack_range"					"ДОП. ДАЛЬНОСТЬ АТАКИ:"
-
 		//人马 不屈
 		"DOTA_Tooltip_ability_centaur_sturdy"                            "sturdy"
         "DOTA_Tooltip_ability_centaur_sturdy_Description"                "Увеличивает сопротивление эффектам и силу. "

@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-	//猛犸 顶
+	// 猛犸 长角抛物
 	"magnataur_horn_toss2"
 	{
 		"BaseClass"						"magnataur_horn_toss"
@@ -42,10 +42,10 @@
 			"destination_offset"		"175"
 			"pull_angle"				"230"
 			"horn_toss_slow_pct"		"100"
-			"stun_duration"		"0.75"
+			"stun_duration"		"0.6 0.75 0.9 1.05 1.2"
 		}
 	}
-	//火女 飞
+	// 火女 腾焰斗篷
 	"lina_flame_cloak2"
 	{
 		"BaseClass"						"lina_flame_cloak"
@@ -81,34 +81,7 @@
 
 		"AbilityValues"
 		{
-			"dodge_chance_pct"		"10 15 20 25 30"
-		}
-	}
-	//小鹿 跳
-	"enchantress_bunny_hop2"
-	{
-		"BaseClass"						"enchantress_bunny_hop"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"enchantress_bunny_hop"
-		"IsGrantedByShard"			"0"
-		"IsOnCastBar"			"1"
-		"MaxLevel"		"5"
-
-		"AbilityCooldown"				"13 11 9 7 5"
-		"AbilityManaCost"				"50"
-
-		"precache"
-		{
-			"particle"					"particles/units/heroes/hero_enchantress/ench_sproink.vpcf"
-		}
-
-		"AbilityValues"
-		{
-			"hop_distance"				"500"
-			"hop_duration"				"0.4"
-			"hop_height"				"150"
-			"attack_targets"			"2"
-			"bonus_attack_range"		"200"
+			"dodge_chance_pct"		"12 15 18 21 24"
 		}
 	}
 	//人马 不屈
@@ -122,7 +95,7 @@
 
 		"AbilityValues"
 		{
-			"status"					"15 20 25 30 35"
+			"status"					"10 15 20 25 30"
 			"strength"					"10 20 30 40 50"
 		}
 	}

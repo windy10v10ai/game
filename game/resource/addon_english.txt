@@ -477,13 +477,6 @@
 		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"DURATION:"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%SPELL AMP:"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%MAGIC RESISTANCE:"
-		//跃动
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2"									"Sproink"
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Description"						"Leaps backward, dodges incoming projectiles, and launches an Impetus attack on the %attack_targets% furthest enemy units within Enchantress' attack range + %bonus_attack_range%."
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_Lore"							    "Sproink is as Sproink does."
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_hop_distance"						"LEAP DISTANCE:"
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_attack_targets"						"TARGETS:"
-		"DOTA_Tooltip_ability_enchantress_bunny_hop2_bonus_attack_range"					"BONUS RANGE:"
 		//人马 不屈
 		"DOTA_Tooltip_ability_centaur_sturdy"							"sturdy"
 		"DOTA_Tooltip_ability_centaur_sturdy_Description"				"Increase state resistance and strength"

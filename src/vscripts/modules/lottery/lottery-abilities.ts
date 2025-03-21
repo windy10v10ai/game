@@ -77,6 +77,7 @@ export const abilityTiersActive: Tier[] = [
       'dazzle_rain_of_vermin', // 诅咒之雨
       'clinkz_burning_barrage2', // 炽烈火雨
       'ancient_apparition_freezing_aura', // 极寒光环
+      'magnataur_horn_toss2', // 猛犸 长角抛物
     ],
   },
   {
@@ -111,6 +112,11 @@ export const abilityTiersActive: Tier[] = [
 
       // 法球/开关技能
       'drow_ranger_frost_arrows', // 霜冻之箭
+
+      // 自定义技能
+      'lina_flame_cloak2', // 火女 腾焰斗篷
+      'faceless_void_backtrack2', // 虚空 回到过去
+      'centaur_sturdy', // 人马 不屈
     ],
   },
   {
