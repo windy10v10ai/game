@@ -1,5 +1,6 @@
 item_heavens_halberd_v2 = class({})
 
+-- TODO 删除
 LinkLuaModifier("modifier_item_heavens_halberd_v2", "items/item_heavens_halberd_v2.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_heavens_halberd_v2_debuff", "items/item_heavens_halberd_v2.lua", LUA_MODIFIER_MOTION_NONE)
 function item_heavens_halberd_v2:GetIntrinsicModifierName()
@@ -17,7 +18,7 @@ function item_heavens_halberd_v2:OnSpellStart()
     ParticleManager:ReleaseParticleIndex(particle)
     caster:StartGesture(ACT_DOTA_TELEPORT_END)
 
-    local dur1 = self:GetSpecialValueFor("disarm_con")
+    local dur1 = self:GetSpecialValueFor("disarm_con_base")
     local dur2PerStr = self:GetSpecialValueFor("disarm_con_per_str")
     local durMax = self:GetSpecialValueFor("disarm_con_max")
     local dur2 = caster:GetStrength() / dur2PerStr
@@ -104,13 +105,13 @@ function modifier_item_heavens_halberd_v2:OnCreated()
         self.mp_re = self.ability:GetSpecialValueFor("mana_re")
     end
     if IsServer() then
-        RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
 
 function modifier_item_heavens_halberd_v2:OnDestroy()
     if IsServer() then
-        RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
 
