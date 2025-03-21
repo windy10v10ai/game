@@ -206,52 +206,6 @@ function IsHeroUncontrollable(hHero)
 	return false
 end
 
---------------------------------------------------------------------------------
--- DataDrive modifier
---------------------------------------------------------------------------------
--- FIXME 删除
-if not _G.GLOBAL_APPLY_MODIFIERS_ITEM then
-	_G.GLOBAL_APPLY_MODIFIERS_ITEM = CreateItem("item_apply_modifiers", nil, nil)
-end
-
-function RefreshItemDataDrivenModifier(item, modifier)
-	local caster = item:GetCaster()
-	local itemName = item:GetName()
-	Timers:CreateTimer(0.1, function()
-		print("Add DataDriven Modifier " .. modifier)
-		-- get how many item caster has
-		local itemCount = 0
-		for i = 0, 5 do
-			local itemInSlot = caster:GetItemInSlot(i)
-			if itemInSlot and itemInSlot:GetName() == itemName then
-				itemCount = itemCount + 1
-			end
-		end
-		local modifiers = caster:FindAllModifiersByName(modifier)
-		local modifierCount = #modifiers
-
-		print("itemCount: " .. itemCount)
-		print("modifierCount: " .. modifierCount)
-
-		if itemCount > modifierCount then
-			for i = 1, itemCount - modifierCount do
-				GLOBAL_APPLY_MODIFIERS_ITEM:ApplyDataDrivenModifier(caster, caster, modifier, {})
-			end
-		end
-
-		if itemCount < modifierCount then
-			-- remove modifier
-			for i = 1, modifierCount - itemCount do
-				modifiers[i]:Destroy()
-			end
-		end
-	end)
-end
-
-function ApplyItemDataDrivenModifier(target, modifierName, modifierTable)
-	GLOBAL_APPLY_MODIFIERS_ITEM:ApplyDataDrivenModifier(target, target, modifierName, modifierTable)
-end
-
 function IsHumanPlayer(playerID)
 	local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
 	return steamAccountID ~= 0

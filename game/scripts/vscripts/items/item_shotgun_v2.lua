@@ -29,7 +29,7 @@ function modifier_item_shotgun_v2:OnCreated()
 	self.internal_cooldown = ability:GetSpecialValueFor("internal_cooldown")
 	if not IsServer() then return end
 
-	RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
 	end
@@ -38,7 +38,7 @@ end
 function modifier_item_shotgun_v2:OnDestroy()
 	if not IsServer() then return end
 
-	RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
 	end

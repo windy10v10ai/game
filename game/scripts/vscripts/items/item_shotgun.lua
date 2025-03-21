@@ -30,7 +30,7 @@ function modifier_item_shotgun:OnCreated()
 
 	if not IsServer() then return end
 
-	RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
 	end
@@ -39,7 +39,7 @@ end
 function modifier_item_shotgun:OnDestroy()
 	if not IsServer() then return end
 
-	RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
 	end
