@@ -94,6 +94,7 @@ export const abilityTiersActive: Tier[] = [
       'kunkka_ghostship', // 幽灵船
       'slardar_amplify_damage', // 侵蚀雾霭 点灯
       'pangolier_gyroshell', // 地雷滚滚
+      'pudge_dismember', // 屠夫 肢解
 
       // 小技能
       'pudge_meat_hook', // 肉钩
@@ -109,6 +110,9 @@ export const abilityTiersActive: Tier[] = [
       'mars_bulwark', // 护身甲盾
       'earthshaker_enchant_totem', // 强化图腾
       'witch_doctor_paralyzing_cask', // 麻痹药剂
+      'pudge_flesh_heap', // 屠夫 肉盾
+      'templar_assassin_refraction', // 圣堂刺客 折光
+      'templar_assassin_meld', // 圣堂刺客 隐匿
 
       // 法球/开关技能
       'drow_ranger_frost_arrows', // 霜冻之箭
@@ -221,6 +225,10 @@ export const abilityTiersPassive: Tier[] = [
       'brewmaster_fire_phase', // 永久相位
       'juggernaut_blade_dance', // 剑舞
 
+      // 单位技能
+      'black_drake_magic_amplification_aura', // 黑龙 魔法增强光环
+      'frostbitten_golem_time_warp_aura', // 萨满 时间扭曲光环
+
       // 自定义技能
       'alchemist_enhanced_weaponry', // 强化武器
       'jakiro_double_trouble2', // 双头龙 天生一对
@@ -243,6 +251,10 @@ export const abilityTiersPassive: Tier[] = [
       'antimage_mana_break', // 法力损毁
       'abaddon_frostmourne', // 魔霭诅咒
       'sniper_headshot', // 爆头
+
+      // 单位技能
+      'kobold_tunneler_prospecting', // 狗头人 淘金光环
+      'kobold_taskmaster_speed_aura', // 狗头人 速度光环
 
       // 自定义技能
       'batrider_smoldering_resin2', // 蝙蝠骑士 树脂
