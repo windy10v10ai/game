@@ -1,10 +1,13 @@
 name: Create Release PR
 on:
+  push:
+    branches:
+      - develop
   workflow_dispatch:
     inputs:
       version:
-        description: "Release version like v4.00"
-        required: true
+        description: "Release version like v4.00 (optional, will auto-increment if not provided)"
+        required: false
 
 jobs:
   create_pull_request:
@@ -14,6 +17,40 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 0 # Need full history for tags
+
+      - name: Determine version
+        id: version
+        run: |
+          if [ -z "${{ github.event.inputs.version }}" ]; then
+            # Fetch all tags
+            git fetch --tags
+
+            # Get latest tag with format vX.NN
+            latest_tag=$(git tag -l "v*.*" | sort -V | tail -n 1)
+
+            if [ -z "$latest_tag" ]; then
+              # No tags exist, start with v1.00
+              new_version="v1.00"
+            else
+              # Extract major and minor version
+              major=$(echo $latest_tag | sed 's/v\([0-9]*\)\..*/\1/')
+              minor=$(echo $latest_tag | sed 's/v[0-9]*\.\([0-9]*\)/\1/')
+
+              # Increment minor version
+              minor=$((10#$minor + 1))
+
+              # Format with leading zero if needed
+              if [ $minor -lt 10 ]; then
+                new_version="v${major}.0${minor}"
+              else
+                new_version="v${major}.${minor}"
+              fi
+            fi
+            echo "version=$new_version" >> $GITHUB_OUTPUT
+          else
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          fi
 
       - name: Reset promotion branch
         run: |
@@ -23,17 +60,17 @@ jobs:
       - name: Check if PR exist_pr_number
         id: check_pr
         run: |
-          pr_number=$(gh pr list --base main --head develop --json number -q '.[0].number')
-          echo exist_pr_number=$pr_number >> $GITHUB_OUTPUT
+          pr_exists=$(gh pr list --base main --head develop --json number -q '.[0].number')
+          echo pr_exists=$pr_exists >> $GITHUB_OUTPUT
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Pull Request
         id: cpr
-        if: steps.check_pr.outputs.exists == ''
+        if: steps.check_pr.outputs.pr_exists == ''
         uses: peter-evans/create-pull-request@v7
         with:
-          title: ${{ github.event.inputs.version }}
+          title: ${{ steps.version.outputs.version }}
           body: |
             ## Checklist
 
@@ -41,11 +78,11 @@ jobs:
 
             ## Release Note
 
-            [b]游戏性更新 ${{ github.event.inputs.version }}[/b]
+            [b]游戏性更新 ${{ steps.version.outputs.version }}[/b]
 
             修正一些bug和平衡性改动。
 
-            [b]Gameplay update ${{ github.event.inputs.version }}[/b]
+            [b]Gameplay update ${{ steps.version.outputs.version }}[/b]
 
             Fixed some bugs and balance.
           branch: develop
@@ -55,11 +92,13 @@ jobs:
           draft: true
 
       - name: Ready Pull Request
+        if: steps.check_pr.outputs.pr_exists == ''
         run: gh pr ready ${{ steps.cpr.outputs.pull-request-number }}
         env:
           GITHUB_TOKEN: ${{ secrets.WINDY_PR_PAT }}
 
       - name: Enable Pull Request Automerge
+        if: steps.check_pr.outputs.pr_exists == ''
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: ${{ secrets.WINDY_PR_PAT }}

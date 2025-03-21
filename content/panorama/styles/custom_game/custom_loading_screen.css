@@ -106,18 +106,18 @@
   margin-bottom: 120px;
 }
 
-#DotaSurvivorPanel {
+.LinkPanel {
   flow-children: down;
 
   border-radius: 5px;
   color: white;
   box-shadow: 0px 2px 2px 1px #3c20da44;
 }
-#DotaSurvivorButton {
+.LinkButton {
   width: 100%;
 }
 
-#DotaSurvivorImage {
+.LinkImg {
   width: 100%;
 }
 

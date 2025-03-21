@@ -132,7 +132,7 @@ export class EventGameStateChange {
     // 防御塔攻击
     const towerPower = GameRules.Option.towerPower;
 
-    ModifierHelper.appleTowerModifier(
+    ModifierHelper.applyTowerModifier(
       building,
       `modifier_tower_power`,
       this.getTowerLevel(towerPower),

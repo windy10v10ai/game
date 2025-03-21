@@ -40,7 +40,7 @@ function modifier_item_hallowed_scepter:OnCreated()
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
 	end
-	RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 end
 
 function modifier_item_hallowed_scepter:OnDestroy()
@@ -49,7 +49,7 @@ function modifier_item_hallowed_scepter:OnDestroy()
 	for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 		mod:GetAbility():SetSecondaryCharges(_)
 	end
-	RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+	RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 end
 
 function modifier_item_hallowed_scepter:DeclareFunctions()
