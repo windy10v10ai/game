@@ -226,7 +226,7 @@ export const abilityTiersPassive: Tier[] = [
       'juggernaut_blade_dance', // 剑舞
 
       // 单位技能
-      'black_drake_magic_amplification_aura', // 黑龙 魔法增强光环
+      'black_drake_magic_amplification_aura', // 黑蜉蝣 魔法增强光环
       'frostbitten_golem_time_warp_aura', // 萨满 时间扭曲光环
 
       // 自定义技能
