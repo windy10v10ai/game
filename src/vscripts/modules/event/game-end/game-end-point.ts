@@ -24,7 +24,7 @@ export class GameEndPoint {
     return Math.round(totalScore);
   }
 
-  static IsPlayerAFK(player: GameEndPlayerDto, teamKills: number): boolean {
+  static checkIfPlayerIsAfk(player: GameEndPlayerDto, teamKills: number): boolean {
     // 如果玩家断开连接，直接判定为挂机
     if (player.isDisconnected) {
       return true;

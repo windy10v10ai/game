@@ -121,7 +121,7 @@ export class GameEnd {
       return 0;
     }
     const teamKills = PlayerResource.GetTeamKills(player.teamId);
-    const isAFK = GameEndPoint.IsPlayerAFK(player, teamKills);
+    const isAFK = GameEndPoint.checkIfPlayerIsAfk(player, teamKills);
     const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime(), isAFK);
     const basePoints = player.score + gameTimePoints;
     const multiplier = this.GetBattlePointsMultiplier(difficulty);

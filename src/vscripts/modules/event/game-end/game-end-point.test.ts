@@ -93,14 +93,14 @@ describe('GameEndPoint', () => {
     });
   });
 
-  describe('GameEndPoint.IsPlayerAFK', () => {
+  describe('GameEndPoint.checkIfPlayerIsAfk', () => {
     it('总击杀为0的玩家不应该被判定为挂机', () => {
       const player = createBasePlayer({
         kills: 0,
         deaths: 0,
         assists: 0,
       });
-      const isAFK = GameEndPoint.IsPlayerAFK(player, 0);
+      const isAFK = GameEndPoint.checkIfPlayerIsAfk(player, 0);
       expect(isAFK).toBe(false);
     });
 
@@ -114,7 +114,7 @@ describe('GameEndPoint', () => {
         damageTaken: 5000,
         healing: 1000,
       });
-      const isAFK = GameEndPoint.IsPlayerAFK(player, 100);
+      const isAFK = GameEndPoint.checkIfPlayerIsAfk(player, 100);
       expect(isAFK).toBe(true);
     });
 
@@ -127,7 +127,7 @@ describe('GameEndPoint', () => {
         damageTaken: 500,
         healing: 100,
       });
-      const isAFK = GameEndPoint.IsPlayerAFK(player, 100); // 总击杀100，玩家参与5次，参战率5%
+      const isAFK = GameEndPoint.checkIfPlayerIsAfk(player, 100); // 总击杀100，玩家参与5次，参战率5%
       expect(isAFK).toBe(true);
     });
 
@@ -140,7 +140,7 @@ describe('GameEndPoint', () => {
         damageTaken: 8000,
         healing: 2000,
       });
-      const isAFK = GameEndPoint.IsPlayerAFK(player, 100); // 总击杀100，玩家参与43次，参战率43%
+      const isAFK = GameEndPoint.checkIfPlayerIsAfk(player, 100); // 总击杀100，玩家参与43次，参战率43%
       expect(isAFK).toBe(false);
     });
 
@@ -153,7 +153,7 @@ describe('GameEndPoint', () => {
         damageTaken: 3000,
         healing: 500,
       });
-      const isAFK = GameEndPoint.IsPlayerAFK(player, 100); // 总击杀100，玩家参与10次，参战率10%
+      const isAFK = GameEndPoint.checkIfPlayerIsAfk(player, 100); // 总击杀100，玩家参与10次，参战率10%
       expect(isAFK).toBe(false);
     });
   });
