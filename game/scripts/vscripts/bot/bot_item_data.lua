@@ -17,7 +17,7 @@ tBotItemData.purchaseItemList = {
 		'item_blade_mail', -- 刃甲
 		'item_echo_sabre',
 		'item_basher', -- 碎骨锤
-		'item_blink',
+		'item_radiance_2', -- 大辉耀 圣焰之光
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_overwhelming_blink',
@@ -145,9 +145,10 @@ tBotItemData.purchaseItemList = {
 		'item_falcon_blade',
 		'item_echo_sabre',
 		'item_wings_of_haste',
-		'item_eternal_shroud',
-		'item_aghanims_shard',
+		'item_radiance_2', -- 大辉耀 圣焰之光
 		'item_blade_mail_2',
+		'item_eternal_shroud', -- 大天堂 无锋战戟
+		'item_aghanims_shard',
 		'item_heavens_halberd_v2',
 		'item_insight_armor',
 		'item_ultimate_scepter_2',
@@ -155,7 +156,7 @@ tBotItemData.purchaseItemList = {
 		'item_undying_heart',
 		-- 'item_bloodstone',
 		'item_moon_shard_datadriven',
-		'item_sange_and_yasha_1', -- 骑士剑换其他回血或减伤
+		'item_sange_and_yasha_1', -- 神器·散夜对剑
 	},
 	npc_dota_hero_chaos_knight = {
 		'item_magic_wand',
@@ -549,6 +550,7 @@ tBotItemData.purchaseItemList = {
 		'item_glimmer_cape',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
+		'item_radiance_2', -- 大辉耀 圣焰之光
 		'item_ultimate_scepter_2',
 		'item_sheepstick',
 		'item_shivas_guard_2',
@@ -587,10 +589,10 @@ tBotItemData.purchaseItemList = {
 		'item_arcane_boots',
 		'item_vanguard',
 		'item_glimmer_cape',
-		'item_echo_sabre_2',
 		'item_orb_of_the_brine',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
+		'item_radiance_2', -- 大辉耀 圣焰之光
 		'item_aeon_pendant',
 		'item_ultimate_scepter_2',
 		'item_octarine_core',
@@ -604,9 +606,9 @@ tBotItemData.purchaseItemList = {
 		'item_boots',
 		'item_holy_locket',
 		'item_arcane_boots',
+		'item_rod_of_atos', -- 阿托斯之棍
 		'item_glimmer_cape',
 		'item_force_staff',
-		'item_rod_of_atos',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_orb_of_the_brine',
@@ -652,11 +654,10 @@ tBotItemData.purchaseItemList = {
 		'item_blade_mail', -- 刃甲
 		'item_wings_of_haste',
 		'item_aghanims_shard',
-		'item_blink',
-		'item_eternal_shroud',
+		'item_radiance_2', -- 大辉耀 圣焰之光
 		'item_aether_lens_2',
 		'item_overwhelming_blink',
-		'item_eternal_shroud_ultra', -- 法师泳衣
+		'item_eternal_shroud', -- 大天堂 无锋战戟
 		'item_ultimate_scepter_2',
 		'item_saint_orb',
 		'item_black_king_bar_2',
@@ -711,10 +712,9 @@ tBotItemData.purchaseItemList = {
 		'item_moon_shard_datadriven',
 		'item_abyssal_blade_v2',
 		-- 'item_satanic_2',
-		'item_sange_and_yasha_1', -- 神器散夜
+		'item_sange_and_yasha_1', -- 神器·散夜对剑
 		'item_excalibur',
 		'item_satanic_2',   -- 骑士剑换撒旦
-		'item_refresh_core',
 	},
 	npc_dota_hero_shadow_shaman = {
 		'item_magic_wand',
@@ -770,10 +770,10 @@ tBotItemData.purchaseItemList = {
 		'item_null_talisman',
 		'item_null_talisman',
 		'item_arcane_boots',
+		'item_rod_of_atos', -- 阿托斯之棍
 		'item_glimmer_cape',
 		'item_force_staff',
 		'item_wings_of_haste',
-		'item_rod_of_atos',
 		'item_aghanims_shard',
 		'item_ultimate_scepter_2',
 		'item_sacred_trident',
@@ -958,6 +958,7 @@ tBotItemData.purchaseItemList = {
 		'item_hallowed_scepter',
 		'item_shivas_guard_2',
 		'item_refresh_core',
+		'item_guardian_greaves_ai', -- 光暗卫士径甲
 	},
 	npc_dota_hero_windrunner = {
 		'item_magic_wand',
@@ -1058,7 +1059,7 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_bristleback = {
 		'item_echo_sabre_2',
-		'item_eternal_shroud',
+		'item_eternal_shroud', -- 大天堂 无锋战戟
 
 	},
 	npc_dota_hero_chaos_knight = {
@@ -1144,14 +1145,13 @@ tBotItemData.sellItemList = {
 		'item_echo_sabre_2',
 	},
 	npc_dota_hero_oracle = {
-		'item_rod_of_atos',
 	},
 	npc_dota_hero_phantom_assassin = {
 		'item_wraith_band',
 		'item_echo_sabre_2',
 	},
 	npc_dota_hero_pudge = {
-		'item_eternal_shroud',
+		'item_eternal_shroud', -- 大天堂 无锋战戟
 		'item_overwhelming_blink',
 	},
 	npc_dota_hero_razor = {
@@ -1166,7 +1166,6 @@ tBotItemData.sellItemList = {
 		'item_echo_sabre_2',
 		'item_bfury',
 		'item_greater_crit',
-		'item_infernal_desolator', -- 绝对破防之刃
 	},
 	npc_dota_hero_shadow_shaman = {
 		'item_magic_wand',
@@ -1181,15 +1180,12 @@ tBotItemData.sellItemList = {
 		'item_saint_orb',
 	},
 	npc_dota_hero_skywrath_mage = {
-		'item_rod_of_atos',
 	},
 	npc_dota_hero_sniper = {
-		'item_mask_of_madness',
 		'item_sange_and_yasha',
 		'item_maelstrom',
 	},
 	npc_dota_hero_sven = {
-		'item_mask_of_madness',
 		'item_sange_and_yasha',
 		'item_echo_sabre_2',
 	},
@@ -1212,7 +1208,6 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_witch_doctor = {
 		'item_arcane_boots',
-		'item_rod_of_atos',
 		'item_aether_lens_2',
 	},
 	npc_dota_hero_skeleton_king = {
@@ -1223,7 +1218,6 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_tinker = {
 		'item_force_staff_3',
-		'item_dagon_5',
 		'item_aether_lens_2',
 	},
 	npc_dota_hero_tiny = {
@@ -1253,7 +1247,9 @@ tBotItemData.sellItemCommonList = {
 	'item_quelling_blade',  -- 补刀斧
 	'item_blades_of_attack', -- 攻击之爪
 	'item_chainmail',       -- 锁子甲
+	'item_helm_of_iron_will', -- 铁意头盔
 	'item_lifesteal',       -- 吸血面具
+	'item_voodoo_mask',     -- 巫毒面具
 	'item_ogre_axe',        -- 食人魔之斧
 	'item_blade_of_alacrity', -- 欢欣之刃
 	'item_staff_of_wizardry', -- 魔力法杖
@@ -1270,7 +1266,34 @@ tBotItemData.sellItemCommonList = {
 	'item_flask',
 	'item_bottle',
 
-	-- 初级道具
+	-- 配件
+	'item_fluffy_hat',       -- 毛毛帽
+	'item_crown',            -- 王冠
+	'item_diadem',           -- 宝冕
+	'item_belt_of_strength', -- 力量腰带
+	'item_boots_of_elves',   -- 精灵布带
+	'item_robe',             -- 法师长袍
+	'item_gloves',           -- 加速手套
+	'item_void_stone',       -- 虚无宝石
+	'item_soul_ring',        -- 灵魂之戒
+	'item_ring_of_tarrasque', -- 恐鳌之戒
+	'item_headdress',        -- 恢复头巾
+	'item_tiara_of_selemene', -- 赛莉蒙妮之冠
+	'item_point_booster',    -- 精气之球
+	'item_cornucopia',       -- 丰饶之环
+	'item_talisman_of_evasion', -- 闪避护符
+	'item_broadsword',       -- 阔剑
+	'item_platemail',        -- 板甲
+	'item_hyperstone',       -- 振奋宝石
+	'item_eagle',            -- 鹰歌弓
+	'item_reaver',           -- 掠夺者之斧
+	'item_mystic_staff',     --  神秘法杖
+	'item_demon_edge',       -- 恶魔刀锋
+	'item_relic',            -- 圣者遗物
+	'item_disperser',        -- 散魂剑
+	'item_soul_booster',     -- 振魂石
+
+	-- 初级道具 <1.5k
 	'item_quelling_blade_2_datadriven', -- 毒瘤之刃
 	'item_boots',                    -- 草鞋
 
@@ -1287,21 +1310,30 @@ tBotItemData.sellItemCommonList = {
 	'item_tranquil_boots',           -- 绿鞋
 	'item_oblivion_staff',           -- 空明杖
 
-	-- 中级道具
+
+	-- 中级道具 1.5k~3k
+	'item_travel_boots', -- 远行鞋
+	'item_ghost',        -- 幽魂权杖
+	'item_mask_of_madness', -- 疯狂面具
 	'item_ancient_janggo', -- 韧鼓
 	'item_veil_of_discord', -- 纷争
 	'item_cyclone',      -- 吹风
+	'item_mekansm',      -- 梅肯斯姆
 	'item_falcon_blade', -- 猎鹰战刃
 	'item_echo_sabre',   -- 回音刃
 	'item_force_staff',  -- 推推棒
 	'item_glimmer_cape', -- 微光
-	'item_echo_sabre_2', -- 音速战刃
+	'item_rod_of_atos',  -- 阿托斯之棍
+
+	'item_kaya',         -- 慧光
+	'item_sange',        -- 散华
+	'item_yasha',        -- 夜叉
 	'item_holy_locket',  -- 圣洁吊坠
 	'item_blink',        -- 跳刀
 	'item_solar_crest',  -- 炎阳纹章
 	'item_blade_mail',   -- 刃甲
 	'item_vanguard',     -- 先锋盾
-	'item_basher',       -- 碎骨锤
+	'item_basher',       -- 碎颅锤
 	'item_armlet',       -- 臂章
 	'item_hand_of_midas', -- 点金手
 	'item_aether_lens',  -- 以太透镜
@@ -1309,7 +1341,7 @@ tBotItemData.sellItemCommonList = {
 	'item_aether_lens_2', -- 以太透镜2
 
 
-	-- 高级道具
+	-- 高级道具 3k~6k
 	'item_ultimate_scepter', -- A杖
 	'item_desolator',     -- 黯灭
 	'item_black_king_bar', -- BKB
@@ -1317,61 +1349,37 @@ tBotItemData.sellItemCommonList = {
 	'item_heart',         -- 龙心
 	'item_bfury',         -- 狂战斧
 	'item_sheepstick',    -- 羊刀
-	'item_phylactery',    -- 灵匣
 	'item_greater_crit',  -- 大炮
 	'item_sange_and_yasha', -- 散夜对剑
 	'item_heavens_halberd', -- 天堂之戟
+	'item_hurricane_pike', -- 飓风长戟
+
+	'item_echo_sabre_2',  -- 音速战刃
 	'item_hand_of_group', -- 团队之手
 
+	'item_guardian_greaves', -- 卫士胫甲
+	'item_assault',       -- 强袭胸甲
 	'item_shivas_guard',  -- 希瓦的守护
 	'item_manta',         -- 幻影斧
 	'item_butterfly',     -- 蝴蝶
 	'item_radiance',      -- 辉耀
 	'item_satanic',       -- 撒旦
+	'item_dagon_5',       -- 达贡之神力（5级）
+	'item_ethereal_blade', -- 虚灵之刃
 	'item_monkey_king_bar', -- 金箍棒
 	'item_mjollnir',      -- 雷神之锤
+	'item_octarine_core', -- 玲珑心
+	'item_refresher',     -- 刷新球
+	'item_silver_edge',   -- 白银之锋
+	'item_phylactery',    -- 灵匣
 	'item_abyssal_blade', -- 深渊之刃
+	'item_harpoon',       -- 鱼叉
+	'item_rapier',        -- 圣剑
 
-	-- 终极道具
+	-- 终极道具 6k~10k
+	'item_radiance_2',        -- 大辉耀 圣焰之光
+	'item_arcane_octarine_core', -- 奥术之心（大玲珑心）
 	'item_monkey_king_bar_2', -- 定海神针
-
-	-- 本地主机出装
-	-- 配件
-	'item_crown',            -- 王冠
-	'item_belt_of_strength', -- 力量腰带
-	'item_boots_of_elves',   -- 精灵布带
-	'item_robe',             -- 法师长袍
-	'item_gloves',           -- 加速手套
-	'item_void_stone',       -- 虚无宝石
-	'item_soul_ring',        -- 灵魂之戒
-	'item_ring_of_tarrasque', -- 恐鳌之戒
-	'item_headdress',        -- 恢复头巾
-	'item_tiara_of_selemene', -- 赛莉蒙妮之冠
-	'item_point_booster',    -- 精气之球
-	'item_talisman_of_evasion', -- 闪避护符
-	'item_platemail',        -- 板甲
-	'item_hyperstone',       -- 振奋宝石
-	'item_eagle',            -- 鹰歌弓
-	'item_reaver',           -- 掠夺者之斧
-	'item_mystic_staff',     --  神秘法杖
-	'item_demon_edge',       -- 恶魔刀锋
-	'item_relic',            -- 圣者遗物
-	'item_disperser',        -- 散魂剑
-
-
-	-- 卷轴
-	'item_recipe_arcane_boots',  -- 奥术鞋
-	'item_recipe_ancient_janggo', -- 韧鼓
-	'item_recipe_cyclone',       -- Eul的神圣法杖
-	'item_recipe_basher',        -- 碎颅锤
-	'item_recipe_black_king_bar', -- BKB
-	'item_recipe_shivas_guard',  -- 希瓦的守护
-	'item_recipe_sheepstick',    -- 邪恶镰刀
-	'item_recipe_mekansm',       -- 梅肯斯姆
-	'item_recipe_lesser_crit',   -- 水晶剑
-	'item_recipe_abyssal_blade', -- 深渊
-	'item_recipe_guardian_greaves', -- 卫士胫甲
-	'item_recipe_assault',       -- 强袭胸甲
 }
 
 -- Consume items

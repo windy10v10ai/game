@@ -83,7 +83,7 @@ function modifier_item_jump_jump_jump:OnRefresh(keys)
 	self.blink_damage_cooldown = ability:GetSpecialValueFor("blink_damage_cooldown")
 
 	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 			mod:GetAbility():SetSecondaryCharges(_)
 		end
@@ -92,7 +92,7 @@ end
 
 function modifier_item_jump_jump_jump:OnDestroy()
 	if IsServer() then
-		RefreshItemDataDrivenModifier(self:GetAbility(), self.stats_modifier_name)
+		RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
 			mod:GetAbility():SetSecondaryCharges(_)
 		end

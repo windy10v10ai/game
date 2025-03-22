@@ -132,7 +132,7 @@ export class EventGameStateChange {
     // 防御塔攻击
     const towerPower = GameRules.Option.towerPower;
 
-    ModifierHelper.appleTowerModifier(
+    ModifierHelper.applyTowerModifier(
       building,
       `modifier_tower_power`,
       this.getTowerLevel(towerPower),
@@ -156,8 +156,10 @@ export class EventGameStateChange {
       return 4;
     } else if (percent <= 300) {
       return 5;
-    } else if (percent <= 400) {
+    } else if (percent <= 350) {
       return 6;
+    } else if (percent <= 400) {
+      return 7;
     }
     return 1;
   }
