@@ -121,17 +121,15 @@ export class GameEnd {
       return 0;
     }
     const teamKills = PlayerResource.GetTeamKills(player.teamId);
-    const isAFK = GameEndPoint.checkIfPlayerIsAfk(player, teamKills);
-    const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime(), isAFK);
-    const basePoints = player.score + gameTimePoints;
+    const timeMultiplier = GameEndPoint.GetTimePointsMultiplierByIsAfk(player, teamKills);
+    const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime());
+    const basePoints = player.score + gameTimePoints * timeMultiplier;
     const multiplier = this.GetBattlePointsMultiplier(difficulty);
     const points = basePoints * multiplier;
-    if (player.teamId !== winnerTeamId) {
-      // 输了积分减半
-      return Math.round(points * 0.5);
-    }
-    // 分数不会为负数
-    return Math.max(0, Math.round(points));
+    // 输了积分减半
+    const winMultiplier = player.teamId === winnerTeamId ? 1 : 0.5;
+    // 积分为整数，且不会为负数
+    return Math.max(0, Math.round(points * winMultiplier));
   }
 
   // 根据难度获得倍率
