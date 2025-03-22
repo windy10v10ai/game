@@ -24,7 +24,30 @@ export class GameEndPoint {
     return Math.round(totalScore);
   }
 
-  static GetGameTimePoints(gameTime: number): number {
+  static checkIfPlayerIsAfk(player: GameEndPlayerDto, teamKills: number): boolean {
+    // 如果玩家断开连接，直接判定为挂机
+    if (player.isDisconnected) {
+      return true;
+    }
+
+    if (teamKills <= 0) {
+      return false;
+    }
+
+    // 计算总战斗参与次数（击杀+助攻）
+    const totalEngagements = player.kills + player.assists;
+
+    // 计算参战率
+    const participationRate = totalEngagements / teamKills;
+
+    // 如果参战率低于0.1（10%），判定为挂机
+    return participationRate < 0.1;
+  }
+
+  static GetGameTimePoints(gameTime: number, isAFK: boolean): number {
+    if (isAFK) {
+      return 0;
+    }
     const min = gameTime / 60;
     const points = Math.sqrt(min) * 3;
     return Math.round(points);
