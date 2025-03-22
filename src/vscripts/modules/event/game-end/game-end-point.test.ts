@@ -94,6 +94,16 @@ describe('GameEndPoint', () => {
   });
 
   describe('GameEndPoint.IsPlayerAFK', () => {
+    it('总击杀为0的玩家不应该被判定为挂机', () => {
+      const player = createBasePlayer({
+        kills: 0,
+        deaths: 0,
+        assists: 0,
+      });
+      const isAFK = GameEndPoint.IsPlayerAFK(player, 0);
+      expect(isAFK).toBe(false);
+    });
+
     it('断开连接的玩家应该被判定为挂机', () => {
       const player = createBasePlayer({
         isDisconnected: true,

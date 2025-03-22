@@ -30,6 +30,10 @@ export class GameEndPoint {
       return true;
     }
 
+    if (teamKills <= 0) {
+      return false;
+    }
+
     // 计算总战斗参与次数（击杀+助攻）
     const totalEngagements = player.kills + player.assists;
 

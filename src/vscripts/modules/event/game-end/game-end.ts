@@ -130,7 +130,8 @@ export class GameEnd {
       // 输了积分减半
       return Math.round(points * 0.5);
     }
-    return Math.round(points);
+    // 分数不会为负数
+    return Math.max(0, Math.round(points));
   }
 
   // 根据难度获得倍率
