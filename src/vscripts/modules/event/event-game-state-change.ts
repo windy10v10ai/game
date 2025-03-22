@@ -156,8 +156,10 @@ export class EventGameStateChange {
       return 4;
     } else if (percent <= 300) {
       return 5;
-    } else if (percent <= 400) {
+    } else if (percent <= 350) {
       return 6;
+    } else if (percent <= 400) {
+      return 7;
     }
     return 1;
   }

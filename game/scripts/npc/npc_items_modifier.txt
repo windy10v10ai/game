@@ -906,7 +906,7 @@
 
 	"item_global_modifiers"
 	{
-		"ID"							"3002"
+		"ID"							"3003"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -993,7 +993,7 @@
 
 	"item_tower_modifiers"
 	{
-		"ID"							"3002"
+		"ID"							"3004"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -1002,11 +1002,11 @@
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"0"
 
-		"MaxUpgradeLevel"				"6"
+		"MaxUpgradeLevel"				"7"
 		"AbilityValues"
 		{
-			"base_damage_outgoing_percentage"		"0 50 100 150 200 300"
-			"health_regen_constant"					"0 5 10 15 20 30"
+			"base_damage_outgoing_percentage"		"0 50 100 150 200 250 300"
+			"health_regen_constant"					"0 5 10 15 20 25 30"
 		}
 		"Modifiers"
 		{
