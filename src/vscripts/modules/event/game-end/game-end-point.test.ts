@@ -54,7 +54,7 @@ describe('GameEndPoint', () => {
         towerKills: 2,
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(39);
+      expect(score).toBe(38);
     });
 
     it('应该正确计算超高数据玩家的分数', () => {
@@ -74,17 +74,17 @@ describe('GameEndPoint', () => {
   describe('GameEndPoint.GetGameTimePoints', () => {
     it('10分钟游戏应该获得9分', () => {
       const points = GameEndPoint.GetGameTimePoints(600); // 10分钟
-      expect(points).toBe(9);
+      expect(points).toBe(10);
     });
 
     it('30分钟游戏应该获得16分', () => {
       const points = GameEndPoint.GetGameTimePoints(1800); // 30分钟
-      expect(points).toBe(16);
+      expect(points).toBe(18);
     });
 
     it('60分钟游戏应该获得23分', () => {
       const points = GameEndPoint.GetGameTimePoints(3600); // 60分钟
-      expect(points).toBe(23);
+      expect(points).toBe(25);
     });
   });
 

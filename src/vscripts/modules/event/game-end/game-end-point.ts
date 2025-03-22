@@ -6,7 +6,7 @@ export class GameEndPoint {
   static CalculatePlayerScore(player: GameEndPlayerDto): number {
     const killScore = Math.sqrt(player.kills) * 1.3;
     const deathScore = -Math.sqrt(player.deaths) * 0.7;
-    const assistScore = Math.sqrt(player.assists) * 1.5;
+    const assistScore = Math.sqrt(player.assists) * 1.4;
     const damageScore = Math.min(40, Math.sqrt(player.damage) / 200);
     const damageTakenScore = Math.min(40, Math.sqrt(player.damageTaken) / 100);
     const healingScore = Math.min(40, Math.sqrt(player.healing) / 50);
@@ -50,7 +50,7 @@ export class GameEndPoint {
 
   static GetGameTimePoints(gameTime: number): number {
     const min = gameTime / 60;
-    const points = Math.sqrt(min) * 3;
+    const points = Math.sqrt(min) * 3.2;
     return Math.round(points);
   }
 }
