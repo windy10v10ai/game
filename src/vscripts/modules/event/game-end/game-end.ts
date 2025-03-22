@@ -120,7 +120,9 @@ export class GameEnd {
       // 电脑不获得积分
       return 0;
     }
-    const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime());
+    const teamKills = PlayerResource.GetTeamKills(player.teamId);
+    const isAFK = GameEndPoint.checkIfPlayerIsAfk(player, teamKills);
+    const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime(), isAFK);
     const basePoints = player.score + gameTimePoints;
     const multiplier = this.GetBattlePointsMultiplier(difficulty);
     const points = basePoints * multiplier;
@@ -128,7 +130,8 @@ export class GameEnd {
       // 输了积分减半
       return Math.round(points * 0.5);
     }
-    return Math.round(points);
+    // 分数不会为负数
+    return Math.max(0, Math.round(points));
   }
 
   // 根据难度获得倍率
