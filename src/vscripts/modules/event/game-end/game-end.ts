@@ -120,7 +120,9 @@ export class GameEnd {
       // 电脑不获得积分
       return 0;
     }
-    const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime());
+    const teamKills = PlayerResource.GetTeamKills(player.teamId);
+    const isAFK = GameEndPoint.IsPlayerAFK(player, teamKills);
+    const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime(), isAFK);
     const basePoints = player.score + gameTimePoints;
     const multiplier = this.GetBattlePointsMultiplier(difficulty);
     const points = basePoints * multiplier;
