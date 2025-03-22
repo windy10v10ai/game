@@ -715,7 +715,6 @@ tBotItemData.purchaseItemList = {
 		'item_sange_and_yasha_1', -- 神器·散夜对剑
 		'item_excalibur',
 		'item_satanic_2',   -- 骑士剑换撒旦
-		'item_refresh_core',
 	},
 	npc_dota_hero_shadow_shaman = {
 		'item_magic_wand',
@@ -959,6 +958,7 @@ tBotItemData.purchaseItemList = {
 		'item_hallowed_scepter',
 		'item_shivas_guard_2',
 		'item_refresh_core',
+		'item_guardian_greaves_ai', -- 光暗卫士径甲
 	},
 	npc_dota_hero_windrunner = {
 		'item_magic_wand',
@@ -1166,7 +1166,6 @@ tBotItemData.sellItemList = {
 		'item_echo_sabre_2',
 		'item_bfury',
 		'item_greater_crit',
-		'item_infernal_desolator', -- 绝对破防之刃
 	},
 	npc_dota_hero_shadow_shaman = {
 		'item_magic_wand',
@@ -1269,7 +1268,8 @@ tBotItemData.sellItemCommonList = {
 
 	-- 配件
 	'item_fluffy_hat',       -- 毛毛帽
-	'item_crown',            -- 宝冠
+	'item_crown',            -- 王冠
+	'item_diadem',           -- 宝冕
 	'item_belt_of_strength', -- 力量腰带
 	'item_boots_of_elves',   -- 精灵布带
 	'item_robe',             -- 法师长袍
@@ -1280,6 +1280,7 @@ tBotItemData.sellItemCommonList = {
 	'item_headdress',        -- 恢复头巾
 	'item_tiara_of_selemene', -- 赛莉蒙妮之冠
 	'item_point_booster',    -- 精气之球
+	'item_cornucopia',       -- 丰饶之环
 	'item_talisman_of_evasion', -- 闪避护符
 	'item_broadsword',       -- 阔剑
 	'item_platemail',        -- 板甲
@@ -1290,6 +1291,7 @@ tBotItemData.sellItemCommonList = {
 	'item_demon_edge',       -- 恶魔刀锋
 	'item_relic',            -- 圣者遗物
 	'item_disperser',        -- 散魂剑
+	'item_soul_booster',     -- 振魂石
 
 	-- 初级道具 <1.5k
 	'item_quelling_blade_2_datadriven', -- 毒瘤之刃
@@ -1372,6 +1374,7 @@ tBotItemData.sellItemCommonList = {
 	'item_phylactery',    -- 灵匣
 	'item_abyssal_blade', -- 深渊之刃
 	'item_harpoon',       -- 鱼叉
+	'item_rapier',        -- 圣剑
 
 	-- 终极道具 6k~10k
 	'item_radiance_2',        -- 大辉耀 圣焰之光
