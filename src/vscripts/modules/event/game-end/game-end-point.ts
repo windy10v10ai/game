@@ -24,7 +24,7 @@ export class GameEndPoint {
     return Math.round(totalScore);
   }
 
-  static GetTimePointsMultiplierByIsAfk(player: GameEndPlayerDto, teamKills: number): number {
+  static GetParticipationRateMultiplier(player: GameEndPlayerDto, teamKills: number): number {
     if (teamKills <= 0) {
       return 1;
     }

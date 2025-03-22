@@ -121,11 +121,11 @@ export class GameEnd {
       return 0;
     }
     const teamKills = PlayerResource.GetTeamKills(player.teamId);
-    const timeMultiplier = GameEndPoint.GetTimePointsMultiplierByIsAfk(player, teamKills);
-    const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime());
-    const basePoints = player.score + gameTimePoints * timeMultiplier;
-    const multiplier = this.GetBattlePointsMultiplier(difficulty);
-    const points = basePoints * multiplier;
+    const timeMultiplier = GameEndPoint.GetParticipationRateMultiplier(player, teamKills);
+    const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime()) * timeMultiplier;
+    const basePoints = player.score + gameTimePoints;
+    const difficultyMultiplier = this.GetDifficultyMultiplier(difficulty);
+    const points = basePoints * difficultyMultiplier;
     // 输了积分减半
     const winMultiplier = player.teamId === winnerTeamId ? 1 : 0.5;
     // 积分为整数，且不会为负数
@@ -133,7 +133,7 @@ export class GameEnd {
   }
 
   // 根据难度获得倍率
-  private static GetBattlePointsMultiplier(difficulty: number): number {
+  private static GetDifficultyMultiplier(difficulty: number): number {
     // 如果是作弊模式，不计算倍率。开发模式无视这条
     if (GameRules.IsCheatMode() && !IsInToolsMode()) {
       return 0;

@@ -88,14 +88,14 @@ describe('GameEndPoint', () => {
     });
   });
 
-  describe('GameEndPoint.GetTimePointsMultiplierByIsAfk', () => {
+  describe('GameEndPoint.GetParticipationRateMultiplier', () => {
     it('团队杀为0的情况获得完整时间分', () => {
       const player = createBasePlayer({
         kills: 0,
         deaths: 0,
         assists: 0,
       });
-      const multiplier = GameEndPoint.GetTimePointsMultiplierByIsAfk(player, 0);
+      const multiplier = GameEndPoint.GetParticipationRateMultiplier(player, 0);
       expect(multiplier).toBe(1);
     });
 
@@ -105,7 +105,7 @@ describe('GameEndPoint', () => {
         deaths: 1,
         assists: 2,
       });
-      const multiplier = GameEndPoint.GetTimePointsMultiplierByIsAfk(player, 100); // 总击杀100，玩家参与3次，参战率3%
+      const multiplier = GameEndPoint.GetParticipationRateMultiplier(player, 100); // 总击杀100，玩家参与3次，参战率3%
       expect(multiplier).toBe(0);
     });
 
@@ -115,7 +115,7 @@ describe('GameEndPoint', () => {
         deaths: 1,
         assists: 7,
       });
-      const multiplier = GameEndPoint.GetTimePointsMultiplierByIsAfk(player, 100); // 总击杀100，玩家参与10次，参战率10%
+      const multiplier = GameEndPoint.GetParticipationRateMultiplier(player, 100); // 总击杀100，玩家参与10次，参战率10%
       expect(multiplier).toBe(0.5);
     });
 
@@ -125,7 +125,7 @@ describe('GameEndPoint', () => {
         deaths: 1,
         assists: 5,
       });
-      const multiplier = GameEndPoint.GetTimePointsMultiplierByIsAfk(player, 100); // 总击杀100，玩家参与10次，参战率10%
+      const multiplier = GameEndPoint.GetParticipationRateMultiplier(player, 100); // 总击杀100，玩家参与10次，参战率10%
       expect(multiplier).toBe(1);
     });
 
@@ -135,7 +135,7 @@ describe('GameEndPoint', () => {
         deaths: 8,
         assists: 50,
       });
-      const multiplier = GameEndPoint.GetTimePointsMultiplierByIsAfk(player, 100); // 总击杀100，玩家参与43次，参战率43%
+      const multiplier = GameEndPoint.GetParticipationRateMultiplier(player, 100); // 总击杀100，玩家参与43次，参战率43%
       expect(multiplier).toBe(1);
     });
   });
