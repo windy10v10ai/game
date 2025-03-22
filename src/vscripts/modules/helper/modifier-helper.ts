@@ -39,10 +39,6 @@ export class ModifierHelper {
       const modifiers = caster.FindAllModifiersByName(modifierName);
       const modifierCount = modifiers.length;
 
-      // FIXME 删除
-      print('itemCount: ' + itemCount);
-      print('modifierCount: ' + modifierCount);
-
       if (itemCount > modifierCount) {
         for (let i = 0; i < itemCount - modifierCount; i++) {
           this.GLOBAL_APPLY_MODIFIERS_ITEM.ApplyDataDrivenModifier(
