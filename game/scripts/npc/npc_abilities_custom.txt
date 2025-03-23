@@ -2799,14 +2799,14 @@
 
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.1"
 		"AbilityChannelTime"			"2.4 1.6 0.8"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
+		"AbilityCooldown"				"1"
 		"AbilityManaCost"				"150 200 250"
 	}
 	//=================================================================================================================

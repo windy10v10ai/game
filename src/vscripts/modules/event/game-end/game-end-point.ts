@@ -5,7 +5,7 @@ import { reloadable } from '../../../utils/tstl-utils';
 export class GameEndPoint {
   static CalculatePlayerScore(player: GameEndPlayerDto): number {
     const killScore = Math.sqrt(player.kills) * 1.3;
-    const deathScore = -Math.sqrt(player.deaths) * 0.7;
+    const deathScore = -Math.sqrt(player.deaths) * 0.6;
     const assistScore = Math.sqrt(player.assists) * 1.4;
     const damageScore = Math.min(40, Math.sqrt(player.damage) / 200);
     const damageTakenScore = Math.min(40, Math.sqrt(player.damageTaken) / 100);
