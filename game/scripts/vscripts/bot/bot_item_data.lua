@@ -958,7 +958,7 @@ tBotItemData.purchaseItemList = {
 		'item_hallowed_scepter',
 		'item_shivas_guard_2',
 		'item_refresh_core',
-		'item_guardian_greaves_ai', -- 光暗卫士径甲
+		'item_guardian_greaves_artifact', -- 光暗卫士径甲
 	},
 	npc_dota_hero_windrunner = {
 		'item_magic_wand',
