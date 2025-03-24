@@ -119,8 +119,9 @@
 		"Ability1"   				"goku_kamehameha"
 		"Ability2"   				"goku_tp"
 		"Ability3"   				"goku_kaioken"
-		"Ability4"   				"goku_spirit_bomb"
-		"Ability6"   				"goku_super_saiyan"
+		"Ability4"   				"ability_hidden"
+		// "Ability4"   				"goku_spirit_bomb"	FIXME 无法正常释放 暂时移除
+		"Ability6"					"goku_super_saiyan"
 		"Ability10"					 "special_bonus_unique_goku_5"	// 龟派气功光波长度
 		"Ability11"					 "special_bonus_spell_amplify_10"	// 龟派气功强驱散
 

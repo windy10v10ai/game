@@ -19,6 +19,7 @@
 		"AttackDamageMax"			"100"		// 92
 		"AttackRate"				"0.9"		// 1
 		"ArmorPhysical"				"20"		// 12
+		"MagicalResistance"			"10"		// 0
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
 		"BountyGoldMin"				"200"		// Gold earned min.
@@ -38,6 +39,7 @@
 		"AttackDamageMax"			"100"		// 92
 		"AttackRate"				"0.9"		// 1
 		"ArmorPhysical"				"20"		// 12
+		"MagicalResistance"			"10"		// 0
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
 		"BountyGoldMin"				"200"		// Gold earned min.
@@ -57,6 +59,7 @@
 		"AttackDamageMax"			"100"		// 92
 		"AttackRate"				"0.9"		// 1
 		"ArmorPhysical"				"20"		// 12
+		"MagicalResistance"			"10"		// 0
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
 		"BountyGoldMin"				"200"		// Gold earned min.
@@ -76,6 +79,7 @@
 		"AttackDamageMax"			"100"		// 92
 		"AttackRate"				"0.9"		// 1
 		"ArmorPhysical"				"20"		// 12
+		"MagicalResistance"			"10"		// 0
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
 		"BountyGoldMin"				"200"		// Gold earned min.
@@ -95,6 +99,7 @@
 		"AttackDamageMax"			"100"		// 92
 		"AttackRate"				"0.9"		// 1
 		"ArmorPhysical"				"20"		// 12
+		"MagicalResistance"			"10"		// 0
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
 		"BountyGoldMin"				"200"		// Gold earned min.
@@ -114,6 +119,7 @@
 		"AttackDamageMax"			"100"		// 92
 		"AttackRate"				"0.9"		// 1
 		"ArmorPhysical"				"20"		// 12
+		"MagicalResistance"			"10"		// 0
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"700"		// Range within a target can be attacked.
 		"BountyGoldMin"				"200"		// Gold earned min.
@@ -136,7 +142,7 @@
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
-		"MagicalResistance"			"10"		// 0
+		"MagicalResistance"			"20"		// 10
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -159,7 +165,7 @@
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
-		"MagicalResistance"			"10"		// 0
+		"MagicalResistance"			"20"		// 10
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -182,7 +188,7 @@
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
-		"MagicalResistance"			"10"		// 0
+		"MagicalResistance"			"20"		// 10
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -205,7 +211,7 @@
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
-		"MagicalResistance"			"10"		// 0
+		"MagicalResistance"			"20"		// 10
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -228,7 +234,7 @@
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
-		"MagicalResistance"			"10"		// 0
+		"MagicalResistance"			"20"		// 10
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -251,7 +257,7 @@
 		"AttackDamageMax"			"180"	// 174
 		"AttackRate"				"0.9"	// 0.9
 		"ArmorPhysical"				"30"	// 16
-		"MagicalResistance"			"10"		// 0
+		"MagicalResistance"			"20"		// 10
 		"AttackAcquisitionRange"	"900"		// Range within a target can be acquired.
 		"AttackRange"				"900"		// Range within a target can be attacked.
 
@@ -271,7 +277,7 @@
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"ArmorPhysical"				"40"		// 16
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -289,7 +295,7 @@
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"ArmorPhysical"				"40"		// 16
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -307,7 +313,7 @@
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"ArmorPhysical"				"40"		// 16
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -325,7 +331,7 @@
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"ArmorPhysical"				"40"		// 16
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -343,7 +349,7 @@
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"ArmorPhysical"				"40"		// 16
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -361,7 +367,7 @@
 		"AttackDamageMax"			"210"		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"ArmorPhysical"				"40"		// 16
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 
 		"AttackAcquisitionRange"	"700"		// 700
 		"AttackRange"				"700"		// 700
@@ -381,7 +387,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"50"		// 15
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 
 		// Attack
 		//----------------------------------------------------------------
@@ -413,7 +419,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"50"		// 15
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 
 		// Attack
 		//----------------------------------------------------------------
@@ -445,7 +451,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"50"		// 15
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 
 		// Attack
 		//----------------------------------------------------------------
@@ -478,7 +484,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"50"		// 15
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 
 		// Attack
 		//----------------------------------------------------------------
@@ -510,7 +516,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"50"		// 15
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 
 		// Attack
 		//----------------------------------------------------------------
@@ -542,7 +548,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"50"		// 15
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 
 		// Attack
 		//----------------------------------------------------------------
@@ -577,7 +583,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 9
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -608,7 +614,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 9
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -639,7 +645,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 9
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -672,7 +678,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 9
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -703,7 +709,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 9
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -734,7 +740,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 9
-		"MagicalResistance"			"20"		// 0
+		"MagicalResistance"			"30"		// 20
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -772,7 +778,7 @@
 		// Status
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"60"		// 21
-		"MagicalResistance"			"30"		// 0
+		"MagicalResistance"			"40"		// 30
 		"StatusHealth"				"10000"		// 2600
 		"StatusHealthRegen"			"10"		// 0
 	}
@@ -787,7 +793,7 @@
 		// Status
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"60"		// 21
-		"MagicalResistance"			"30"		// 0
+		"MagicalResistance"			"40"		// 30
 		"StatusHealth"				"10000"		// 2600
 		"StatusHealthRegen"			"10"		// 0
 	}
@@ -799,7 +805,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"60"		// 13
-		"MagicalResistance"			"40"		// 0
+		"MagicalResistance"			"50"		// 40
 
 		// Attack
 		//----------------------------------------------------------------
@@ -816,7 +822,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"25000"			// 4500
+		"StatusHealth"				"24000"			// 4500
 		"StatusHealthRegen"			"20"			// 12
 	}
 	//=================================================================================
@@ -827,7 +833,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"60"		// 13
-		"MagicalResistance"			"40"		// 0
+		"MagicalResistance"			"50"		// 40
 
 		// Attack
 		//----------------------------------------------------------------
@@ -844,7 +850,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"25000"			// 4500
+		"StatusHealth"				"24000"			// 4500
 		"StatusHealthRegen"			"20"			// 12
 	}
 	//=================================================================================

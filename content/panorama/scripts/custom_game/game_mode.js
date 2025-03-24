@@ -84,8 +84,8 @@ function InitSetting() {
   if (Game.IsInToolsMode()) {
     $('#player_gold_xp_multiplier_dropdown').SetSelected('2');
     $('#bot_gold_xp_multiplier_dropdown').SetSelected('2');
-    $('#radiant_player_number_dropdown').SetSelected('10');
-    $('#dire_player_number_dropdown').SetSelected('10');
+    $('#radiant_player_number_dropdown').SetSelected('3');
+    $('#dire_player_number_dropdown').SetSelected('3');
     $('#starting_gold_bot_dropdown').SetSelected('5000');
     $('#tower_power_dropdown').SetSelected('300');
   }
@@ -182,7 +182,7 @@ function InitN6Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
 
-  $('#tower_power_dropdown').SetSelected('400');
+  $('#tower_power_dropdown').SetSelected('350');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('5000');
