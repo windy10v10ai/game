@@ -1652,7 +1652,7 @@
 			"super_saiyan_length"			"12000"
 			"AbilityCharges"
 			{
-				"value"		"0"
+				"value"		"1"
 				"special_bonus_shard"		"=2"
 			}
 			"AbilityCooldown"
