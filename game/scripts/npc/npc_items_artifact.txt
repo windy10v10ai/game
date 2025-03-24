@@ -658,10 +658,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"960"	// 15分钟买
+		"ItemInitialStockTime"			"1020"	// 16分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"300"
+		"ItemStockTime"					"240"
 
 		"AbilityValues"
 		{
@@ -700,10 +700,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"960"	// 15分钟买
+		"ItemInitialStockTime"			"1020"	// 16分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"300"
+		"ItemStockTime"					"240"
 
 		"AbilityValues"
 		{
@@ -800,71 +800,24 @@
 		}
 	}
 
-	// 光暗卫士径甲
-	"item_recipe_guardian_greaves_light"
+	// 神器卫士径甲
+	"item_recipe_guardian_greaves_artifact"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "11049"
-		"ItemCost"                      "0"
+		"ID"							"13051"
+		"ItemCost"						"6850"
 		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_guardian_greaves_light"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_guardian_greaves_artifact"
+		"AbilityTextureName"			"item_recipe_guardian_greaves_artifact"
 		"ItemRequirements"
 		{
-			"01"                        "item_guardian_greaves;item_light_part"
+			"01"						"item_guardian_greaves;item_light_part"
 		}
 	}
-	"item_guardian_greaves_light"
+	"item_guardian_greaves_artifact"
 	{
-		"BaseClass"                     "item_guardian_greaves"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"30"
-		"AbilityManaCost"				"0"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemAlertable"					"1"
-		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_guardian_greaves_light"
-		"AbilityValues"
-		{
-			"bonus_movement"		"200"
-			"bonus_armor"			"40"
-			"mana_regen"			"20"
-			"aura_health_regen"		"50"
-			"aura_armor"			"20"
-			"aura_mana_regen"		"30"
-			"aura_radius"			"1800"
-			"aura_health_regen_bonus"	"150"
-			"aura_mana_regen_bonus"	"60"
-			"aura_armor_bonus"		"40"
-			"aura_bonus_threshold"	"75"
-			"replenish_health"		"1000"
-			"replenish_mana"		"500"
-			"replenish_radius"
-			{
-				"value"		"1800"
-				"affected_by_aoe_increase"	"1"
-			}
-			"max_health_pct_heal_amount"		"8"
-		}
-	}
-	"item_recipe_guardian_greaves_dark"
-	{
-		"BaseClass"						"item_datadriven"
-		"ID"						    "11050"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_guardian_greaves_dark"
-		"ItemRequirements"
-		{
-			"01"                        "item_guardian_greaves;item_dark_part"
-		}
-	}
-	"item_guardian_greaves_dark"
-	{
-		"BaseClass"                     "item_guardian_greaves"
+		"BaseClass"						"item_guardian_greaves"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"1"
 		"AbilityCooldown"				"20"
@@ -873,58 +826,7 @@
 		"ItemAlertable"					"1"
 		"ShouldBeSuggested"				"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_guardian_greaves_dark"
-		"AbilityValues"
-		{
-			"bonus_movement"		"100"
-			"bonus_armor"			"20"
-			"mana_regen"			"10"
-			"aura_health_regen"		"25"
-			"aura_armor"			"10"
-			"aura_mana_regen"		"15"
-			"aura_radius"			"900"
-			"aura_health_regen_bonus"	"50"
-			"aura_mana_regen_bonus"	"30"
-			"aura_armor_bonus"		"20"
-			"aura_bonus_threshold"	"25"
-			"replenish_health"		"2000"
-			"replenish_mana"		"1000"
-			"replenish_radius"
-			{
-				"value"		"900"
-				"affected_by_aoe_increase"	"1"
-			}
-			"max_health_pct_heal_amount"		"3"
-		}
-	}
-	"item_recipe_guardian_greaves_ai"
-	{
-		"BaseClass"						"item_datadriven"
-		"ID"						    "13051"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"					"item_guardian_greaves_ai"
-		"ItemRequirements"
-		{
-			"01"                        "item_guardian_greaves_light;item_dark_part"
-			"02"						"item_guardian_greaves_dark;item_light_part"
-			"03"                        "item_guardian_greaves_light;item_light_part"
-			"04"                        "item_guardian_greaves_dark;item_dark_part"
-		}
-	}
-	"item_guardian_greaves_ai"
-	{
-		"BaseClass"                     "item_guardian_greaves"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"20"
-		"AbilityManaCost"				"0"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemAlertable"					"1"
-		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_guardian_greaves_ai"
+		"AbilityTextureName"			"item_guardian_greaves_artifact"
 		"AbilityValues"
 		{
 			"bonus_movement"		"200"
@@ -937,7 +839,7 @@
 			"aura_health_regen_bonus"	"200"
 			"aura_mana_regen_bonus"	"60"
 			"aura_armor_bonus"		"40"
-			"aura_bonus_threshold"	"100"
+			"aura_bonus_threshold"	"75"
 			"replenish_health"		"3000"
 			"replenish_mana"		"1500"
 			"replenish_radius"
@@ -952,9 +854,9 @@
 	// 混沌散魂剑
 	"item_recipe_disperser_chaos"
 	{
-		"BaseClass"					"item_datadriven"
-		"ID"						"11047"
-		"ItemCost"					"0"
+		"BaseClass"						"item_datadriven"
+		"ID"							"11047"
+		"ItemCost"						"0"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"

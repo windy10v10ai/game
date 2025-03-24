@@ -2,127 +2,141 @@ import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { GameEndPoint } from './game-end-point';
 
 describe('GameEndPoint', () => {
-  describe('GameEndPoint.CalculatePlayerScore', () => {
-    it('should calculate score correctly for a player with no stats', () => {
-      const player: GameEndPlayerDto = {
-        heroName: 'npc_dota_hero_axe',
-        steamId: 123456,
-        teamId: 2,
-        isDisconnected: false,
-        level: 1,
-        gold: 0,
-        kills: 0,
-        deaths: 0,
-        assists: 0,
-        damage: 0,
-        damageTaken: 0,
-        healing: 0,
-        lastHits: 0,
-        towerKills: 0,
-        score: 0,
-        battlePoints: 0,
-      };
+  // 创建基础玩家数据
+  const createBasePlayer = (overrides: Partial<GameEndPlayerDto> = {}): GameEndPlayerDto => ({
+    heroName: 'npc_dota_hero_axe',
+    steamId: 123456,
+    teamId: 2,
+    isDisconnected: false,
+    level: 1,
+    gold: 0,
+    kills: 0,
+    deaths: 0,
+    assists: 0,
+    damage: 0,
+    damageTaken: 0,
+    healing: 0,
+    lastHits: 0,
+    towerKills: 0,
+    score: 0,
+    battlePoints: 0,
+    ...overrides,
+  });
 
+  describe('GameEndPoint.CalculatePlayerScore', () => {
+    it('应该正确计算无数据玩家的分数', () => {
+      const player = createBasePlayer();
       const score = GameEndPoint.CalculatePlayerScore(player);
       expect(score).toBe(0);
     });
 
-    it('should calculate score correctly for a single player', () => {
-      const player: GameEndPlayerDto = {
-        heroName: 'npc_dota_hero_axe',
-        steamId: 123456,
-        teamId: 2,
-        isDisconnected: false,
-        level: 1,
-        gold: 0,
+    it('应该正确计算单人玩家的分数', () => {
+      const player = createBasePlayer({
         kills: 120,
         deaths: 5,
-        assists: 0,
         damage: 2000000,
         damageTaken: 100000,
         healing: 1000,
-        lastHits: 0,
         towerKills: 9,
-        score: 0,
-        battlePoints: 0,
-      };
-
+      });
       const score = GameEndPoint.CalculatePlayerScore(player);
       expect(score).toBe(36);
     });
 
-    it('should calculate score correctly for a team player', () => {
-      const player: GameEndPlayerDto = {
-        heroName: 'npc_dota_hero_axe',
-        steamId: 123456,
-        teamId: 2,
-        isDisconnected: false,
-        level: 1,
-        gold: 0,
+    it('应该正确计算团队玩家的分数', () => {
+      const player = createBasePlayer({
         kills: 50,
         deaths: 10,
         assists: 100,
         damage: 1000000,
         damageTaken: 100000,
         healing: 20000,
-        lastHits: 0,
         towerKills: 2,
-        score: 0,
-        battlePoints: 0,
-      };
-
+      });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(39);
+      expect(score).toBe(38);
     });
 
-    it('should calculate score correctly for a player with extra high stats', () => {
-      const player: GameEndPlayerDto = {
-        heroName: 'npc_dota_hero_axe',
-        steamId: 123456,
-        teamId: 2,
-        isDisconnected: false,
-        level: 1,
-        gold: 0,
+    it('应该正确计算超高数据玩家的分数', () => {
+      const player = createBasePlayer({
         kills: 300,
-        deaths: 0,
         assists: 10,
         damage: 100000000,
         damageTaken: 10000000,
         healing: 2000000,
-        lastHits: 0,
         towerKills: 11,
-        score: 0,
-        battlePoints: 0,
-      };
-
+      });
       const score = GameEndPoint.CalculatePlayerScore(player);
       expect(score).toBe(140);
     });
   });
 
   describe('GameEndPoint.GetGameTimePoints', () => {
-    it('should return correct points for game time equal to 0', () => {
-      const gameTime = 0;
-      const points = GameEndPoint.GetGameTimePoints(gameTime);
-      expect(points).toBe(0);
+    it('10分钟游戏应该获得9分', () => {
+      const points = GameEndPoint.GetGameTimePoints(600); // 10分钟
+      expect(points).toBe(10);
     });
 
-    it('should return correct points for game time is 30 minutes', () => {
-      const gameTime = 1800;
-      const points = GameEndPoint.GetGameTimePoints(gameTime);
-      expect(points).toBe(16);
+    it('30分钟游戏应该获得16分', () => {
+      const points = GameEndPoint.GetGameTimePoints(1800); // 30分钟
+      expect(points).toBe(18);
     });
 
-    it('should return correct points for game time is 40 minutes', () => {
-      const gameTime = 2400;
-      const points = GameEndPoint.GetGameTimePoints(gameTime);
-      expect(points).toBe(19);
+    it('60分钟游戏应该获得23分', () => {
+      const points = GameEndPoint.GetGameTimePoints(3600); // 60分钟
+      expect(points).toBe(25);
+    });
+  });
+
+  describe('GameEndPoint.GetParticipationRateMultiplier', () => {
+    it('团队杀为0的情况获得完整时间分', () => {
+      const player = createBasePlayer({
+        kills: 0,
+        deaths: 0,
+        assists: 0,
+      });
+      const multiplier = GameEndPoint.GetParticipationRateMultiplier(player, 0);
+      expect(multiplier).toBe(1);
     });
 
-    it('should return correct points for game time is 60 minutes', () => {
-      const gameTime = 3600;
-      const points = GameEndPoint.GetGameTimePoints(gameTime);
-      expect(points).toBe(23);
+    it('参战率低于5%的玩家应该获得0分', () => {
+      const player = createBasePlayer({
+        kills: 2,
+        deaths: 1,
+        assists: 2,
+      });
+      const multiplier = GameEndPoint.GetParticipationRateMultiplier(player, 100); // 总击杀100，玩家参与3次，参战率3%
+      expect(multiplier).toBe(0);
+    });
+
+    it('参战率低于10%的玩家应该获得一半时间分', () => {
+      const player = createBasePlayer({
+        kills: 2,
+        deaths: 1,
+        assists: 7,
+      });
+      const multiplier = GameEndPoint.GetParticipationRateMultiplier(player, 100); // 总击杀100，玩家参与10次，参战率10%
+      expect(multiplier).toBe(0.5);
+    });
+
+    it('参战率正好等于10%的玩家应该获得完整时间分', () => {
+      const player = createBasePlayer({
+        kills: 5,
+        deaths: 1,
+        assists: 5,
+      });
+      const multiplier = GameEndPoint.GetParticipationRateMultiplier(player, 100); // 总击杀100，玩家参与10次，参战率10%
+      expect(multiplier).toBe(1);
+    });
+
+    it('参战率高于10%的玩家应该获得完整时间分', () => {
+      const player = createBasePlayer({
+        kills: 20,
+        deaths: 8,
+        assists: 50,
+      });
+      const multiplier = GameEndPoint.GetParticipationRateMultiplier(player, 100); // 总击杀100，玩家参与43次，参战率43%
+      expect(multiplier).toBe(1);
     });
   });
 });

@@ -119,8 +119,6 @@ export const abilityTiersActive: Tier[] = [
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
-      'faceless_void_backtrack2', // 虚空 回到过去
-      'centaur_sturdy', // 人马 不屈
     ],
   },
   {
@@ -264,6 +262,8 @@ export const abilityTiersPassive: Tier[] = [
       'alchemist_goblins_greed2', // 贪婪
       'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
       'dark_seer_quick_wit2', // 才思敏捷
+      'centaur_sturdy', // 人马 不屈
+      'faceless_void_backtrack2', // 虚空 回到过去
     ],
   },
   {

@@ -1151,6 +1151,7 @@
 		"DOTA_Tooltip_Ability_goku_kamehameha" 								"Kame Hame Ha!!!"
 		"DOTA_Tooltip_ability_goku_kamehameha_description" 					"CHANNELED - Goku concentrates all the energy in his body and releases it together. He emits a light wave and causes damage to the enemy in the straight line within the duration.\n<h1>Super Saiyan mode:</h1>Distance increases to %super_saiyan_length% and its damage is multiplied by %super_saiyan_damage_multiple%x, but an additional %super_saiyan_mana_percent%%% max mana is consumed per second."
 		"DOTA_Tooltip_ability_goku_kamehameha_Lore" 						"A unique skill created by the tortoise Fairy"
+		"DOTA_Tooltip_ability_goku_kamehameha_shard_description"			"Kame Hame Ha!!! becomes a chargeable ability, with %AbilityCharges% charges."
 		"DOTA_Tooltip_ability_goku_kamehameha_channel" 						"DURATION:"
 		"DOTA_Tooltip_ability_goku_kamehameha_length" 						"LIGHT WAVE LENGTH:"
 		"DOTA_Tooltip_ability_goku_kamehameha_width" 					 	"LIGHT WAVE WIDTH:"
@@ -2138,23 +2139,6 @@
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
 
-		// 神器刃甲（秘术师铠甲）（天地同寿）
-		"DOTA_Tooltip_Ability_item_force_field_ultra"			"<font color='#e03e2e'>Artifact: Force Field</font>"
-		"DOTA_Tooltip_Ability_item_force_field_ultra_Description"		"<h1>Active: Mega Shield</h1> Force Field Aura Grants %active_reflection_pct%%% Damage Reflection for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants +%bonus_aoe_armor% armor and +%bonus_aoe_mres%%% Magic Resistance to all other allies within %bonus_aoe_radius% radius."
-		"DOTA_Tooltip_Ability_item_force_field_ultra_Lore"		"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
-		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
-		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"%+$spell_resist"
-
-		// 神器 一瞬千击
-		"DOTA_Tooltip_Ability_item_dagon_ultra"									"<font color='#e03e2e'>Artifact: Thousand Strikes</font>"
-		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Active: Watch My Speed</h1> Unleashes a burst of magical damage at an enemy target unit. Heals the caster for %dagon_spell_lifesteal%%% of the damage dealt.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%"
-		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"									"The faster your hands, the higher the damage, as long as you have mana."
-		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"									"Instantly destroys illusions."
-		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$spell_lifesteal"
-		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_int"						"+$int"
-		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_str"						"+$str"
-		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_agi"						"+$agi"
-
 		// 神器 法师泳衣
 		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"			"<font color='#e03e2e'>Artifact: Swimagicostume</font>"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"    		"<h1>Passive: Swimming</h1> Converts %mana_restore_pct%%% of the pre-reduction spell damage taken from enemies into mana.\n\n<h1>Passive: Diving Suit</h1> The equipped hero gains a stack for every %stack_threshold% spell damage taken, lasting %stack_duration% seconds, up to a maximum of %max_stacks% stacks. Each stack increases the Mage Swimsuit's magic resistance by %stack_resist%%."
@@ -2314,48 +2298,31 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
 
-		// item_guardian_greaves_light 圣光·卫士胫甲
-		"DOTA_Tooltip_ability_item_guardian_greaves_light"				"<font color='#FFFF00'>Light</font> Guardian Greaves"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_bonus_movement"			"+$move_speed"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_bonus_mana"				"+$mana"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_bonus_mres"				"%+$spell_resist"
+		// item_guardian_greaves_artifact 神器·卫士胫甲
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact"						"<font color='#FFFF00'>Artifact</font> Guardian Greaves"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_mana_regen"				"+$mana_regen"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mres"				"%+$spell_resist"
 
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1"				"<font color='#FFFF00'>Light</font> Guardian Greaves <font color='#4d4dff'>(Neutral)</font>"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_movement"			"+$move_speed"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_mana"				"+$mana"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_light_1_bonus_mres"				"%+$spell_resist"
+		// 神器刃甲（秘术师铠甲）（天地同寿）
+		"DOTA_Tooltip_Ability_item_force_field_ultra"						"<font color='#FFFF00'>Artifact: Force Field</font>"
+		"DOTA_Tooltip_Ability_item_force_field_ultra_Description"			"<h1>Active: Mega Shield</h1> Force Field Aura Grants %active_reflection_pct%%% Damage Reflection for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants +%bonus_aoe_armor% armor and +%bonus_aoe_mres%%% Magic Resistance to all other allies within %bonus_aoe_radius% radius."
+		"DOTA_Tooltip_Ability_item_force_field_ultra_Lore"					"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
+		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
+		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"%+$spell_resist"
 
-		// item_guardian_greaves_dark 暗影·卫士胫甲
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark"				"<font color='#8A2BE2'>Dark</font> Guardian Greaves"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_movement"			"+$move_speed"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_mana"				"+$mana"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_bonus_mres"				"%+$spell_resist"
-
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1"				"<font color='#8A2BE2'>Dark</font> Guardian Greaves <font color='#4d4dff'>(Neutral)</font>"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_movement"			"+$move_speed"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_mana"				"+$mana"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_dark_1_bonus_mres"				"%+$spell_resist"
-
-		// item_guardian_greaves_ai 光暗·卫士胫甲
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai"				"<font color='#00FF00'>Perfect</font> Guardian Greaves"
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_movement"			"+$move_speed"
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_mana"				"+$mana"
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_ai_bonus_mres"				"%+$spell_resist"
+		// 神器 一瞬千击
+		"DOTA_Tooltip_Ability_item_dagon_ultra"									"<font color='#e03e2e'>Artifact: Thousand Strikes</font>"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Active: Watch My Speed</h1> Unleashes a burst of magical damage at an enemy target unit. Heals the caster for %dagon_spell_lifesteal%%% of the damage dealt.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"									"The faster your hands, the higher the damage, as long as you have mana."
+		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"									"Instantly destroys illusions."
+		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$spell_lifesteal"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_int"						"+$int"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_str"						"+$str"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_agi"						"+$agi"
 
 		// item_disperser_chaos 混沌·散魂剑
 		"DOTA_Tooltip_ability_item_disperser_chaos"				"<font color='#80FFF4'>Chaotic</font> Disperser</font>"
