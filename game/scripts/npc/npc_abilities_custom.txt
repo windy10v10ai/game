@@ -1649,6 +1649,14 @@
 			"super_saiyan_mana_percent"		"12"
 			"super_saiyan_length"			"12000"
 		}
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/custom/goku/goku_kamehameha_lase_energy_storager.vpcf"
+			"particle"					"particles/custom/goku/goku_kamehameha_laser.vpcf"
+		}
 	}
 
 	"goku_tp"
@@ -1686,13 +1694,23 @@
 			}
 			"bonus_movespeed"				"20 25 30 35 40"
 		}
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/custom/goku/goku_tp_statue_super_saiyan.vpcf"
+			"particle"					"particles/custom/goku/goku_tp_statue.vpcf"
+			"particle"					"particles/custom/goku/goku_tp_statue_color_super_saiyan.vpcf"
+			"particle"					"particles/custom/goku/goku_tp_statue_color.vpcf"
+		}
 	}
 
 	// 界王拳
 	"goku_kaioken"
 	{
 		"BaseClass"					"ability_lua"
-		"ScriptFile"				"heroes/hero_goku/goku_kaioken.lua"
+		"ScriptFile"				"heroes/hero_goku/goku_kaioken"
 		"AbilityTextureName"        "custom/goku/goku_kaioken"
 		"FightRecapLevel"				"1"
 		"MaxLevel"						"5"
@@ -1717,8 +1735,23 @@
 			"super_saiyan_radius"			"400"
 			"super_saiyan_cooldown"			"14"
 		}
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/custom/goku/goku_kaioken_active_model.vpcf"
+			"particle"					"particles/custom/goku/goku_kaioken_active_cast_ring.vpcf"
+			"particle"					"particles/custom/goku/goku_kaioken_active_targetted_marker.vpcf"
+			"particle"					"particles/custom/goku/goku_kaioken_active_trail.vpcf"
+			"particle"					"particles/custom/goku/children/goku_kaioken_active_trail.vpcf"
+			"particle"					"particles/custom/goku/goku_kaioken_trigger_super_saiyan.vpcf"
+			"particle"					"particles/custom/goku/goku_kaioken_trigger.vpcf"
+			"particle"					"particles/econ/items/drow/drow_ti6_gold/drow_ti6_silence_gold_arrow_hit.vpcf"
+		}
 	}
 
+	// 超级赛亚人
 	"goku_super_saiyan"
 	{
 		// Ability Technical Aspect
@@ -1764,8 +1797,17 @@
 				"special_bonus_unique_goku_7"	"+6"
 			}
 		}
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"model"						"models/heroes/goku/npc_dota_hero_goku_super_saiyan.vmdl"
+		}
 	}
 
+	// FIXME 无法正常释放 暂时移除
+	// 元气弹
 	"goku_spirit_bomb"
 	{
 		// Ability Technical Aspect
