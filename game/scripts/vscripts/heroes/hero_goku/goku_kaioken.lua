@@ -9,7 +9,7 @@ modifier_goku_kaioken_active = modifier_goku_kaioken_active or class({})
 
 function goku_kaioken:GetBehavior()
     if self:GetCaster():HasModifier("modifier_goku_super_saiyan") then
-        return DOTA_ABILITY_BEHAVIOR_POINT
+        return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES
     else
         return self.BaseClass.GetBehavior(self)
     end

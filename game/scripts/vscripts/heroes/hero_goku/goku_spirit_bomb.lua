@@ -1,14 +1,13 @@
-LinkLuaModifier( "modifier_goku_spirit_bomb_stun", "heroes/hero_goku/goku_spirit_bomb", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_goku_spirit_bomb_stun", "heroes/hero_goku/goku_spirit_bomb", LUA_MODIFIER_MOTION_NONE)
 goku_spirit_bomb = goku_spirit_bomb or class({})
 modifier_goku_spirit_bomb_stun = modifier_goku_spirit_bomb_stun or class({})
 
 -- LinkLuaModifier( "modifier_goku_genkidama", "modifiers/hero_goku/modifier_goku_genkidama", LUA_MODIFIER_MOTION_NONE )
 function goku_spirit_bomb:Spawn()
-    if self:GetLevel() == 0 then
-        self:SetLevel(1)
-    end
+	if self:GetLevel() == 0 then
+		self:SetLevel(1)
+	end
 end
-
 
 function goku_spirit_bomb:GetAbilityTextureName()
 	if self:GetCaster():HasModifier("modifier_goku_super_saiyan") then
@@ -18,11 +17,9 @@ function goku_spirit_bomb:GetAbilityTextureName()
 	end
 end
 
-
 function goku_spirit_bomb:GetChannelTime()
-    return self:GetSpecialValueFor("channel")
+	return self:GetSpecialValueFor("channel")
 end
-
 
 function goku_spirit_bomb:OnInventoryContentsChanged()
 	if IsServer() then
@@ -88,16 +85,17 @@ function goku_spirit_bomb:OnSpellStart()
 		ability = self
 	}
 
-	self.tick =  self.radius_max / self:GetChannelTime()
-	self.particle_bomb = ParticleManager:CreateParticle("particles/custom/goku/goku_spirit_bomb.vpcf", PATTACH_WORLDORIGIN, caster)
-	ParticleManager:SetParticleControl(self.particle_bomb,0,caster:GetAbsOrigin() + Vector(0,0,self.height))
-	ParticleManager:SetParticleControl(self.particle_bomb,1,Vector(0,0,0))
-	ParticleManager:SetParticleControl(self.particle_bomb,2,Vector(0,0,0))
-	ParticleManager:SetParticleControl(self.particle_bomb,61,Vector(255,255,255))
+	self.tick = self.radius_max / self:GetChannelTime()
+	self.particle_bomb = ParticleManager:CreateParticle("particles/custom/goku/goku_spirit_bomb.vpcf",
+		PATTACH_WORLDORIGIN, caster)
+	ParticleManager:SetParticleControl(self.particle_bomb, 0, caster:GetAbsOrigin() + Vector(0, 0, self.height))
+	ParticleManager:SetParticleControl(self.particle_bomb, 1, Vector(0, 0, 0))
+	ParticleManager:SetParticleControl(self.particle_bomb, 2, Vector(0, 0, 0))
+	ParticleManager:SetParticleControl(self.particle_bomb, 61, Vector(255, 255, 255))
 	if caster:HasModifier("modifier_goku_super_saiyan") then
-		ParticleManager:SetParticleControl(self.particle_bomb,60,Vector(255,255,0))
+		ParticleManager:SetParticleControl(self.particle_bomb, 60, Vector(255, 255, 0))
 	else
-		ParticleManager:SetParticleControl(self.particle_bomb,60,Vector(0,255,255))
+		ParticleManager:SetParticleControl(self.particle_bomb, 60, Vector(0, 255, 255))
 	end
 
 	caster:EmitSound("goku.4")
@@ -110,17 +108,16 @@ function goku_spirit_bomb:OnChannelThink(interval)
 	self.visibler:SetAbsOrigin(caster:GetAbsOrigin())
 	self.visibler:SetDayTimeVisionRange(visionRange)
 	self.visibler:SetNightTimeVisionRange(visionRange)
-	ParticleManager:SetParticleControl(self.particle_bomb,0,caster:GetAbsOrigin() + Vector(0,0,self.height))
-	ParticleManager:SetParticleControl(self.particle_bomb,1,Vector(self.effctRadius,0,0))
-	ParticleManager:SetParticleControl(self.particle_bomb,2,Vector(self.effctRadius,0,0))
+	ParticleManager:SetParticleControl(self.particle_bomb, 0, caster:GetAbsOrigin() + Vector(0, 0, self.height))
+	ParticleManager:SetParticleControl(self.particle_bomb, 1, Vector(self.effctRadius, 0, 0))
+	ParticleManager:SetParticleControl(self.particle_bomb, 2, Vector(self.effctRadius, 0, 0))
 end
-
 
 function goku_spirit_bomb:OnChannelFinish(interrupted)
 	local caster = self:GetCaster()
 	if not interrupted then
 		self.effctRadius = self.radius_max
-		ParticleManager:SetParticleControl(self.particle_bomb,1,Vector(self.effctRadius,0,0))
+		ParticleManager:SetParticleControl(self.particle_bomb, 1, Vector(self.effctRadius, 0, 0))
 	end
 
 
@@ -130,9 +127,9 @@ function goku_spirit_bomb:OnChannelFinish(interrupted)
 		self.damagetable.damage = self.damage_max * (self.effctRadius / self.radius_max)
 	end
 
-	ParticleManager:SetParticleControl(self.particle_bomb,2,Vector(0,0,0))
+	ParticleManager:SetParticleControl(self.particle_bomb, 2, Vector(0, 0, 0))
 
-	local origin = caster:GetAbsOrigin() + Vector(0,0,self.height)
+	local origin = caster:GetAbsOrigin() + Vector(0, 0, self.height)
 
 	self.wisp = CreateUnitByName(
 		"dummy_unit",
@@ -146,37 +143,37 @@ function goku_spirit_bomb:OnChannelFinish(interrupted)
 
 
 	caster:StartGesture(ACT_DOTA_CAST_ABILITY_2)
-	caster:AddNewModifier(caster,self,"modifier_goku_spirit_bomb_stun",{duration = 0.4})
-	self.wisp:SetContextThink("CreateSpiritBombProjectile",function ()
+	caster:AddNewModifier(caster, self, "modifier_goku_spirit_bomb_stun", { duration = 0.4 })
+	self.wisp:SetContextThink("CreateSpiritBombProjectile", function()
 		local projectileInfo =
 		{
-				Ability				= self,
-				vSourceLoc			= origin,
-				Target 				= self.wisp,
-				iMoveSpeed		 	= self.speed,
-				bVisibleToEnemies 	= true,
-				bDrawsOnMinimap		= false,
-				iVisionRadius		= self.effctRadius,
-				iVisionTeamNumber	= caster:GetTeamNumber(),
-				ExtraData =
-				{
-					particle_bomb = self.particle_bomb,
-					radius = self.effctRadius,
-					visibler = self.visibler:GetEntityIndex()
-				}
+			Ability           = self,
+			vSourceLoc        = origin,
+			Target            = self.wisp,
+			iMoveSpeed        = self.speed,
+			bVisibleToEnemies = true,
+			bDrawsOnMinimap   = false,
+			iVisionRadius     = self.effctRadius,
+			iVisionTeamNumber = caster:GetTeamNumber(),
+			ExtraData         =
+			{
+				particle_bomb = self.particle_bomb,
+				radius = self.effctRadius,
+				visibler = self.visibler:GetEntityIndex()
+			}
 		}
 		ProjectileManager:CreateTrackingProjectile(projectileInfo)
-	end,0.4)
+	end, 0.4)
 end
 
-function goku_spirit_bomb:OnProjectileThink_ExtraData(location,extraData)
+function goku_spirit_bomb:OnProjectileThink_ExtraData(location, extraData)
 	local visibler = EntIndexToHScript(extraData.visibler)
 	local particle_bomb = extraData.particle_bomb
-	ParticleManager:SetParticleControl(particle_bomb,0,location)
+	ParticleManager:SetParticleControl(particle_bomb, 0, location)
 	visibler:SetAbsOrigin(location)
 end
 
-function goku_spirit_bomb:OnProjectileHit_ExtraData(target,location,extraData)
+function goku_spirit_bomb:OnProjectileHit_ExtraData(target, location, extraData)
 	local caster = self:GetCaster()
 	local particle_bomb = extraData.particle_bomb
 	local radius = extraData.radius
@@ -202,13 +199,14 @@ function goku_spirit_bomb:OnProjectileHit_ExtraData(target,location,extraData)
 		ApplyDamage(self.damagetable)
 	end
 
-	ParticleManager:DestroyParticle(particle_bomb,false)
+	ParticleManager:DestroyParticle(particle_bomb, false)
 	ParticleManager:ReleaseParticleIndex(particle_bomb)
 end
 
-
 function modifier_goku_spirit_bomb_stun:IsPurge() return false end
+
 function modifier_goku_spirit_bomb_stun:IsHidden() return true end
+
 function modifier_goku_spirit_bomb_stun:CheckState()
-	return {[MODIFIER_STATE_STUNNED] = true}
+	return { [MODIFIER_STATE_STUNNED] = true }
 end
