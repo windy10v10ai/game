@@ -1250,6 +1250,7 @@
 		}
 	}
 
+	// 誓约胜利之剑
 	"artoria_excalibur"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
@@ -1261,7 +1262,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		// "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3_END"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"custom/artoria/artoria_excalibur"
@@ -1274,7 +1275,6 @@
 		"AbilityCastRange"				"%range"
 		"AbilityCastPoint"				"0.6"
 		"AbilityChannelTime"			"3.0"
-		"AbilityCooldown"				"75.0"
 		"AbilityManaCost"				"300 450 600"
 
 		// Precache		//------------------------------------------------------------------------------------------------------------
@@ -1315,6 +1315,7 @@
 			}
 		}
 	}
+	// 隐藏宝具：誓约胜利之剑-宣誓胜利
 	"artoria_ultimate_excalibur"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
@@ -1326,7 +1327,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		// "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3_END"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"custom/artoria/artoria_ultimate_excalibur"
