@@ -1151,6 +1151,7 @@
 		"DOTA_Tooltip_Ability_goku_kamehameha" 								"Kame Hame Ha!!!"
 		"DOTA_Tooltip_ability_goku_kamehameha_description" 					"CHANNELED - Goku concentrates all the energy in his body and releases it together. He emits a light wave and causes damage to the enemy in the straight line within the duration.\n<h1>Super Saiyan mode:</h1>Distance increases to %super_saiyan_length% and its damage is multiplied by %super_saiyan_damage_multiple%x, but an additional %super_saiyan_mana_percent%%% max mana is consumed per second."
 		"DOTA_Tooltip_ability_goku_kamehameha_Lore" 						"A unique skill created by the tortoise Fairy"
+		"DOTA_Tooltip_ability_goku_kamehameha_shard_description"			"Kame Hame Ha!!! becomes a chargeable ability, with %AbilityCharges% charges."
 		"DOTA_Tooltip_ability_goku_kamehameha_channel" 						"DURATION:"
 		"DOTA_Tooltip_ability_goku_kamehameha_length" 						"LIGHT WAVE LENGTH:"
 		"DOTA_Tooltip_ability_goku_kamehameha_width" 					 	"LIGHT WAVE WIDTH:"
