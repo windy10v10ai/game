@@ -1645,9 +1645,9 @@
 				"special_bonus_unique_goku_1"	"+80"
 			}
 			"dmg_tick"				"0.1"
-			"super_saiyan_damage_multiple"		"1.5"
-			"super_saiyan_mana_percent"		"16"
-			"super_saiyan_length"			"15000"
+			"super_saiyan_damage_multiple"		"1.2"
+			"super_saiyan_mana_percent"		"12"
+			"super_saiyan_length"			"12000"
 		}
 	}
 
