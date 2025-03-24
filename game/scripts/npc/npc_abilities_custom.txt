@@ -1609,6 +1609,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"HasShardUpgrade"				"1"
 		"HasScepterUpgrade"				"1"
 
 		// Ability Casting
@@ -1644,10 +1645,24 @@
 				"value"					"80 160 240 320 400"
 				"special_bonus_unique_goku_1"	"+80"
 			}
-			"dmg_tick"				"0.1"
-			"super_saiyan_damage_multiple"		"1.2"
+			"dmg_tick"						"0.1"
+			"super_saiyan_damage_multiple"	"1.2"
 			"super_saiyan_mana_percent"		"12"
 			"super_saiyan_length"			"12000"
+			"AbilityCharges"
+			{
+				"value"		"0"
+				"special_bonus_shard"		"=2"
+			}
+			"AbilityCooldown"
+			{
+				"value"						"16"
+				"special_bonus_shard"		"=0"
+			}
+			"AbilityChargeRestoreTime"
+			{
+				"value"						"16"
+			}
 		}
 
 		// Precache

@@ -3,11 +3,6 @@ goku_kamehameha = goku_kamehameha or class({})
 --------------------------------------------------------------------------------
 -- Ability Start
 
--- 拥有魔晶石时，修改为充能技能
--- function goku_kamehameha:GetMaxAbilityCharges()
--- 	return self:GetSpecialValueFor("AbilityCharges")
--- end
-
 function goku_kamehameha:GetAbilityDamageType()
 	if self:GetCaster():HasScepter() then
 		return DAMAGE_TYPE_PURE
