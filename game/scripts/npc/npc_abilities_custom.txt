@@ -1669,8 +1669,8 @@
 		"ScriptFile"					"heroes/hero_goku/goku_tp"
 		"AbilityTextureName" 			"custom/goku/goku_tp"
 		"FightRecapLevel"				"1"
-		"MaxLevel"						"5"
-
+		"MaxLevel"						"6"
+		"Innate"						"1"
 
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1680,8 +1680,8 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 19 18 17 16"
-		"AbilityManaCost"				"80 100 120 140 160"
+		"AbilityCooldown"				"20 19 18 17 16 15"
+		"AbilityManaCost"				"80 100 120 140 160 180"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1692,7 +1692,7 @@
 				"value"					"3"
 				"special_bonus_unique_goku_2"	"+1"
 			}
-			"bonus_movespeed"				"20 25 30 35 40"
+			"bonus_movespeed"				"15 20 25 30 35 40"
 		}
 
 		// Precache
@@ -1709,17 +1709,17 @@
 	// 界王拳
 	"goku_kaioken"
 	{
-		"BaseClass"					"ability_lua"
-		"ScriptFile"				"heroes/hero_goku/goku_kaioken"
-		"AbilityTextureName"        "custom/goku/goku_kaioken"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_goku/goku_kaioken"
+		"AbilityTextureName"			"custom/goku/goku_kaioken"
 		"FightRecapLevel"				"1"
 		"MaxLevel"						"5"
 
-		"SpellDispellableType"		"SPELL_DISPELLABLE_NO"
-		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 		"AbilityValues"
 		{
