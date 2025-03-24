@@ -1,5 +1,101 @@
 "DOTAAbilities"
 {
+	//飞机 侧翼机炮2
+	"side_gunner2"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/side_gunner2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"    		"gyrocopter_skyhigh_flak_cannon"
+		"MaxLevel"						"5"
+		
+		"AbilityValues"
+		{
+			"cool_down"   "1.2 1.1 1 0.9 0.8"
+		}
+	}
+	//时间漫游
+	"faceless_void_time_walk2"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/faceless_void_time_walk2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"    		"faceless_void_time_walk"
+		"MaxLevel"						"5"
+		
+		"AbilityCooldown"				"14 12 10 8 6"
+		"AbilityCastRange"				"650 700 750 800 900"
+		"AbilityCastPoint"				"0.3"
+	}
+	//精准光环
+	"drow_ranger_trueshot2"
+	{
+		"BaseClass"                     "drow_ranger_trueshot"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+		"AbilityTextureName"    		"drow_ranger_trueshot"
+		"MaxLevel"						"5"
+		
+		"AbilityValues"
+		{
+			"radius"						
+			{
+				"value"			"1200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"trueshot_agi_bonus_base"			"4 8 12 16 18"
+			"trueshot_agi_bonus_per_level"		"1"
+			"trueshot_agi_bonus_allies_pct"		"50"
+			"agi_bonus_pct_tooltip"
+			{
+				"dynamic_value"						"true"
+			}
+		}
+		
+	}
+	//酒仙 醉拳
+	"brewmaster_drunken_boxing"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/brewmaster_drunken_boxing"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityTextureName"    		"brewmaster_drunken_brawler_crit"
+		"MaxLevel"						"5"
+		
+		"AbilityCooldown"			"22"
+		"AbilityManaCost"			"80"
+		
+		"AbilityValues"
+		{
+			"miss"		"15 20 25 30 35"
+			"damage"	"200 230 250 270 300"
+			"duration"	"5"
+		}
+	}
+	//血魔 血雾
+	"bloodseeker_blood_mist2"
+	{
+		"BaseClass"     					"ability_lua"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"ScriptFile"				    	"abilities/bloodseeker_blood_mist2"
+		"AbilityTextureName"    			"bloodseeker_blood_mist"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"					"450"
+		
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_bloodseeker/bloodseeker_scepter_blood_mist_aoe.vpcf"
+		}
+		
+		"AbilityType"						"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"							"5"
+		
+		"AbilityValues"
+		{
+			"damage"					"3 4 5 6 7"
+		}
+	}
 	// 猛犸 长角抛物
 	"magnataur_horn_toss2"
 	{
