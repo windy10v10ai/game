@@ -285,8 +285,7 @@
 		"VisionNighttimeRange"		"1000"
 
 		"SoundSet"					"Hero_Miku"
-		// TODO change path to soundevents
-		"GameSoundsFile"			"soundevents/hatsune_miku.vsndevts"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_miku.vsndevts"
 		"VoiceFile"					"soundevents/voscripts/game_sounds_vo_miku.vsndevts"
 	}
 
