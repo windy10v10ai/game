@@ -1,0 +1,5542 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+
+{
+    m_SoundEvents =
+    [
+
+        {
+            m_SoundName = "meepo_meepo_spawn_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/spawn.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_spawn_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/spawn2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_spawn_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/spawn3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_spawn_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/spawn.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_spawn_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/spawn2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_begin_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/spawn.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_begin_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/spawn.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_firstblood_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move01.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move02.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move03.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move04.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move05.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move06.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move07.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_10"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_11"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_12"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_13"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_14"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move9.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_15"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move10.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_16"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move11.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_17"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move12.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_18"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move13.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_19"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move17.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_20"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move18.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_21"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move19.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_22"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move01.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_23"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move02.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_24"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move03.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_25"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move04.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_26"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move05.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_27"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move06.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_28"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move07.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_29"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_30"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_31"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_32"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_33"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_34"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_35"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_36"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move9.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_move_37"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move10.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack9.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_10"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_11"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_12"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_13"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_14"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_15"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_16"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_17"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_18"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack9.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_19"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_attack_20"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/attack2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_cast_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_cast_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_cast_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_earthbind_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_earthbind_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_earthbind_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_earthbind_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_earthbind_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_earthbind_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_earthbind_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_earthbind_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_poof_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_poof_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_poof_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_poof_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_poof_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_poof_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_poof_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_poof_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_10"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_11"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_12"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_13"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_14"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_15"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_16"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_17"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_18"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_19"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_20"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_21"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_22"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_23"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_24"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_25"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_26"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_27"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_28"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_divided_29"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_failure_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_failure_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_failure_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_10"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_11"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_12"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_13"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_14"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_levelup_15"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/level2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill9.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_10"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill10.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_11"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill11.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_12"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_13"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_14"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_15"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_16"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_17"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_18"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_19"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_20"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill9.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_21"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill10.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_22"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill11.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_23"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_kill_24"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_10"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_11"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_12"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_13"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_14"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_15"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_16"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rival_17"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_ally_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_ally_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_ally_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_ally_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_ally_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_ally_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lasthit_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lasthit_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lasthit_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lasthit_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lasthit_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lasthit_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lasthit_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lasthit_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lasthit_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lasthit_10"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_10"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_11"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_12"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_13"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_death_14"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_fastres_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_respawn_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/respawn1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_respawn_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/respawn2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_respawn_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/respawn3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_respawn_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/respawn4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_respawn_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/respawn5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_respawn_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/respawn1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_respawn_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/respawn2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_respawn_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/respawn3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_respawn_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/respawn4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_respawn_10"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/respawn5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_respawn_11"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/respawn1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_purch_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_purch_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_purch_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_purch_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_purch_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_blink_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_blink_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_scepter_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/shenzhang.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_scepter_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/shenzhang.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_scepter_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/shenzhang.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_scepter_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/shenzhang.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_scepter_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/shenzhang.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_scepter_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/shenzhang.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_items_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_items_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_items_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_items_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_items_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_items_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_items_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_bottle_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bottle.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_bottle_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bottle.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_bottle_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bottle.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lane_missing_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lane_missing_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lane_missing_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_10"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_11"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_12"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_13"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_14"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_15"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_16"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_17"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_18"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_19"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_20"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_deny_21"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/deny1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lose_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lose_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lose_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lose_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lose_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_lose_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/death1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_win_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_win_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill5.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_win_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill6.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_win_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill8.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_win_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill9.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_immort_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/dun.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_immort_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/dun.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_immort_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/dun.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_haste_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/test.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_haste_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/test.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_doubdam_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_doubdam_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/bubing7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_regen_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_regen_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/kill7.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_illus_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move13.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_illus_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/move13.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_invis_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/yinshen.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_invis_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/yinshen.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_drop_common"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_drop_medium"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_drop_rare_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_drop_rare_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_notyet_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_notyet_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_notyet_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_notyet_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_notyet_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_notyet_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_notyet_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_notyet_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_notyet_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_nomana_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_nomana_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_nomana_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_nomana_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_nomana_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_nomana_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_nomana_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_nomana_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_nomana_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/cooldown.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_thanks_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/thank.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_thanks_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/thank.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_thanks_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/thank.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_thanks_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/thank.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_underattack_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_underattack_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_underattack_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_underattack_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_underattack_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_underattack_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_underattack_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_inthebag_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/inthebag.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_inthebag_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/inthebag.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_shiwiz_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_crumwiz_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rare_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/rare1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rare_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/rare2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rare_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/rare3.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_rare_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/rare4.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_pain_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_pain_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_pain_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_pain_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_pain_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_pain_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_pain_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_pain_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_10"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_11"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_12"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_13"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_14"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_15"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt1.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_16"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/hurt2.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_17"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_anger_18"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_happy_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_happy_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_happy_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_happy_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_happy_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_happy_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_happy_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_laugh_01"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_laugh_02"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_laugh_03"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_laugh_04"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_laugh_05"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_laugh_06"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_laugh_07"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_laugh_08"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_laugh_09"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+
+        {
+            m_SoundName = "meepo_meepo_laugh_10"
+            m_GameData = ""
+            m_OperatorsKV = "<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+    type = \"dota_update_vo_switch\"
+    vsnd_files =
+    [
+        \"sounds/vo/incubator/null.vsnd\",
+    ]
+    volume = \"1.000000\"
+    pitch = \"1.000000\"
+}"
+        },
+    ]
+}
