@@ -600,31 +600,31 @@
 		"MaxLevel"						"9"
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityBehavior"   			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-        "BaseClass"     				"ability_datadriven"
-        "AbilityTextureName"			"item_hand_of_midas"
+		"AbilityBehavior"   			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"     				"ability_datadriven"
+		"AbilityTextureName"			"item_hand_of_midas"
 
-        "IsOnCastBar"   				"0"
+		"IsOnCastBar"   				"0"
 
-        "OnOwnerDied"
+		"OnOwnerDied"
         {
 			"CreateThinker"
 			{
-				"ModifierName"          "gold_bag_thinker"
+				"ModifierName"  		"gold_bag_thinker"
 				"Target"
 				{
     				"Center"    "CASTER"
     				"Flags"     "DOTA_UNIT_TARGET_FLAG_DEAD"
 				}
 			}
-        }
+    	}
 
-        "Modifiers"
+		"Modifiers"
         {
 			"gold_bag_thinker"
 			{
 				"Duration"  			"%duration"
-				"ThinkInterval"         "%think_interval"
+				"ThinkInterval" 		"%think_interval"
 				"OnIntervalThink"
 				{
     				"CreateItem"
@@ -633,29 +633,29 @@
         				{
             				"Center"    "TARGET"
         				}
-        				"ItemName"          "item_bag_of_gold"
-        				"ItemCount"         "1"
+        				"ItemName"  		"item_bag_of_gold"
+        				"ItemCount" 		"1"
         				"SpawnRadius"       "75"
         				"ItemChargeCount"   "%gold_value"
-        				"AutoUse"           "1"
+        				"AutoUse"   		"1"
         				"LaunchHeight"      "300"
         				"LaunchDistance"    "?50 200"
         				"LaunchDuration"    "0.5"
     				}
 				}
 			}
-        }
+    	}
 
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityValues"
+		"AbilityValues"
         {
 				"gold_value"			"0"
 				"duration"  			"0.2 0.3 0.4 0.6 0.9 1.2 1.6 2.0 2.4"	 // 2 3 4 6 9 12 16 20 24
-				"think_interval"        "0.1"
-        }
-    }
+				"think_interval"		"0.1"
+    	}
+	}
 
 	// 掉落勇士积分
     // "generic_season_point_bag_fountain"
@@ -671,23 +671,23 @@
 
     //     "OnOwnerDied"
     //     {
-    //         "CreateThinker"
+    // 		"CreateThinker"
     //         {
-    // 			"ModifierName"          "gold_bag_thinker"
+    // 			"ModifierName"  		"gold_bag_thinker"
     // 			"Target"
     // 			{
     // 				"Center"    "CASTER"
     // 				"Flags"     "DOTA_UNIT_TARGET_FLAG_DEAD"
     // 			}
-    //         }
-    //     }
+    //     	}
+    // 	}
 
     //     "Modifiers"
     //     {
-    //         "gold_bag_thinker"
+    // 		"gold_bag_thinker"
     //         {
     // 			"Duration"  			"%duration"
-    // 			"ThinkInterval"         "%think_interval"
+    // 			"ThinkInterval" 		"%think_interval"
     // 			"OnIntervalThink"
     // 			{
     // 				"CreateItem"
@@ -696,18 +696,18 @@
     //     				{
     //         				"Center"    "TARGET"
     //     				}
-    //     				"ItemName"          "item_bag_of_season_point"
-    //     				"ItemCount"         "1"
+    //     				"ItemName"  		"item_bag_of_season_point"
+    //     				"ItemCount" 		"1"
     //     				"SpawnRadius"       "75"
     //     				"ItemChargeCount"   "%gold_value"
-    //     				"AutoUse"           "1"
+    //     				"AutoUse"   		"1"
     //     				"LaunchHeight"      "300"
     //     				"LaunchDistance"    "?50 200"
     //     				"LaunchDuration"    "0.5"
     // 				}
     // 			}
-    //         }
-    //     }
+    //     	}
+    // 	}
 
 
     //     // Special
@@ -716,13 +716,14 @@
     //     {
     // 			"gold_value"			"0"
     // 			"duration"  			"0.4 0.6 0.8 1.2 1.8 2.4 3.0 3.6 4.0"	 // 4 6 8 12 18 24 30 36 40
-    // 			"think_interval"        "0.1"
-    //     }
+    // 			"think_interval"		"0.1"
+    // 	}
     // }
 	//==============================================================================
     //Hatsune_Miku
     //==============================================================================
-    "miku_hadouken"
+	// Popipo
+	"miku_hadouken"
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_miku/miku_hadouken"
@@ -733,11 +734,12 @@
 
 		"precache"
 		{
-			// "soundfile"	"soundevents/Hatsune_miku.vsndevts"
-		    "particle"	"particles/hadouken1.vpcf"
-		    "particle"	"particles/hadouken2.vpcf"
-		    "particle"	"particles/hadouken3.vpcf"
-		    "particle"	"particles/hadouken4.vpcf"
+			"particle"	"particles/miku_hadouken_calne.vpcf"
+			"particle"	"particles/miku_hadouken.vpcf"
+			"particle"	"particles/hadouken1.vpcf"
+			"particle"	"particles/hadouken2.vpcf"
+			"particle"	"particles/hadouken3.vpcf"
+			"particle"	"particles/hadouken4.vpcf"
 		}
 
 		// Ability General
@@ -810,13 +812,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"crit_chance"				"35"
-				"crit_bonus"
-				{
-					"value"					"150 180 210 240 270 300"
-					"special_bonus_unique_miku_201"	"+70"
-				}
-				"stun_duration"				"0.35"
+			"crit_chance"				"35"
+			"crit_bonus"
+			{
+				"value"					"150 180 210 240 270 300"
+				"special_bonus_unique_miku_201"	"+70"
+			}
+			"stun_duration"				"0.35"
+		}
+		"precache"
+		{
+			"particle"					"particles/miku_huya_calne.vpcf"
+			"particle"					"particles/miku_huya.vpcf"
 		}
 	}
 	"special_bonus_unique_miku_201"
@@ -825,6 +832,7 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}
+	// 初音飞踢
 	"liu_kick"
 	{
 		"MaxLevel"						"5"
@@ -872,19 +880,25 @@
 			"damage"						"120 180 240 300 380"
 			"stun_duration"					"1.2 1.3 1.4 1.5 1.6"
 		}
+		"precache"
+		{
+			"particle"	"particles/calne_kick_trail.vpcf"
+			"particle"	"particles/miku_3_calne_exp.vpcf"
+			"particle"	"particles/miku_3_exp.vpcf"
+		}
 	}
 	"special_bonus_unique_miku_301"
-    {
-        "BaseClass"					"special_bonus_undefined"
-        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    }
-    "special_bonus_unique_miku_302"
-    {
-        "BaseClass"					"special_bonus_undefined"
-        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    }
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
+	"special_bonus_unique_miku_302"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
 	"miku_dance"
 	{
 		// Ability Technical Aspect
@@ -901,6 +915,8 @@
 		"precache"
 		{
 			"particle"	"particles/naga_siren_song_aura1.vpcf"
+			"particle"	"particles/miku_song_aura_calne.vpcf"
+			"particle"	"particles/miku_song_aura.vpcf"
 		}
 
 		// Ability General
@@ -916,7 +932,7 @@
 	    "AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.3"
 		"AbilityChannelTime"			"120"
-		"AbilityCastAnimation"          "ACT_DOTA_CHANNEL_ABILITY_4"
+		"AbilityCastAnimation"  		"ACT_DOTA_CHANNEL_ABILITY_4"
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
@@ -936,8 +952,8 @@
 				"dance_damage"			"450"
 				"stun_duration"			"1.0"
 				"damage_reduction"		"-80"
-	    }
-    }
+		}
+	}
 	"chibi_monster"
 	{
 		"BaseClass"								"ability_lua"
@@ -964,7 +980,7 @@
 		"LevelsBetweenUpgrades"					"8"
 
 
-		"AbilityCastAnimation"          "ACT_DOTA_IDLE"
+		"AbilityCastAnimation"  		"ACT_DOTA_IDLE"
 		"AbilityValues"
 		{
 			"hp"						"1000 2000 3000"
@@ -977,7 +993,10 @@
 		}
 		"precache"
 		{
-			"model"	"models/hatsune_miku/chibi2.vmdl"
+			"model"						"models/hatsune_miku/chibi2.vmdl"
+			"particle"					"particles/calne_miku_activation_flash.vpcf"
+			"particle"					"particles/chibi_monster_calne.vpcf"
+			"particle"					"particles/chibi_monster.vpcf"
 		}
 	}
 	"chibi_hit"
@@ -1013,7 +1032,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"150 225 300"
-		"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_5"
+		"AbilityCastAnimation"  		"ACT_DOTA_CAST_ABILITY_5"
 
 		// Damage
 		//-------------------------------------------------------------------------------------------------------------
@@ -1026,6 +1045,12 @@
 				"stun_duration"			"1.6 2.0 2.4"
 				"dragon_cast_range"		"400"
 				"projectile_speed"		"1600"
+		}
+		"precache"
+		{
+			"particle"	"particles/chibi_hit_calne.vpcf"
+			"particle"	"particles/chibi_hit.vpcf"
+			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_dragon_tail_dragonform_proj.vpcf"
 		}
 	}
 	"get_down"
@@ -1044,6 +1069,8 @@
 		"precache"
 		{
 			"particle"	"particles/naga_siren_song_aura1.vpcf"
+			"particle"	"particles/get_down_calne.vpcf"
+			"particle"	"particles/get_down.vpcf"
 		}
 
 		// Ability General
@@ -1059,7 +1086,7 @@
 		"AbilityCastRange"				"550"
 		"AbilityCastPoint"				"0"
 		"AbilityChannelTime"			"33"
-		"AbilityCastAnimation"          "ACT_DOTA_CHANNEL_ABILITY_5"
+		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_5"
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
@@ -2564,7 +2591,7 @@
 				"value"						"0"
 				"special_bonus_unique_sword_master_3"	"+3"
 			}
-         }
+     	}
 	}
 
 	"sword_master_tap"
@@ -2579,8 +2606,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-        "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
-        "AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastPoint"				"0.3"
 
 		"AbilityValues"
 		{
@@ -2594,8 +2621,8 @@
 				"value"						"0"
 				"special_bonus_unique_sword_master_4"	"+4"
 			}
-        }
-    }
+    	}
+	}
 
 	"sword_master_chop"
 	{
@@ -2756,17 +2783,17 @@
 		"AbilityTextureName"			"custom/sword_master/sword_master_arbiter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityCastAnimation" 			"NULL"
-        "LevelsBetweenUpgrades"			"6"
-        "RequiredLevel"					"0"
+		"LevelsBetweenUpgrades"			"6"
+		"RequiredLevel"					"0"
 
-        "HasShardUpgrade"			"1"
+		"HasShardUpgrade"			"1"
 		"HasScepterUpgrade"			"1"
-        "AbilityValues"
+		"AbilityValues"
 		{
 			"charge_restore"				"10"
 			"max_charges"
 			{
-				"value"			        "3"
+				"value"					"3"
 				"special_bonus_shard"	"+1"
 			}
 			"lv3_charge_regen"				"1"
@@ -2977,33 +3004,33 @@
 	// 大圣
 	"spectre_ursa_enrage"
 	{
-        "BaseClass"     "ability_lua"
-        "AbilityTextureName"	"monkey_king_wukongs_command"
-        "ScriptFile"	"heroes/hero_spectre/spectre_ursa_enrage"
+		"BaseClass"     "ability_lua"
+		"AbilityTextureName"	"monkey_king_wukongs_command"
+		"ScriptFile"	"heroes/hero_spectre/spectre_ursa_enrage"
 
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-        "FightRecapLevel"				"1"
-        "RequiredLevel"					"6"
-        "LevelsBetweenUpgrades"	        "6"
-        "AbilitySound"					"Hero_MonkeyKing.FurArmy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"6"
+		"AbilitySound"					"Hero_MonkeyKing.FurArmy"
 
-        "LinkedAbility"					"spectre_haunt"
+		"LinkedAbility"					"spectre_haunt"
 
-        "AbilityCastPoint"				"0.1"
-        "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-        "AbilityCastGestureSlot"		"DEFAULT"
-        "AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastRange"				"0"
 
-        "MaxLevel" "4"
-        "AbilityCooldown"				"50"
-        "AbilityManaCost"				"150 200 250 300"
+		"MaxLevel" "4"
+		"AbilityCooldown"				"50"
+		"AbilityManaCost"				"150 200 250 300"
 
-        "HasScepterUpgrade"			"0"
+		"HasScepterUpgrade"			"0"
 
-        "AbilityValues"
+		"AbilityValues"
         {
 			"damage_reduction"			"-50 -60 -70 -80"
 			"duration"
