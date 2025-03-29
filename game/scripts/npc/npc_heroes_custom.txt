@@ -283,6 +283,9 @@
 		"AttackDamageMax"			"35"
 		"VisionDaytimeRange"		"1800"
 		"VisionNighttimeRange"		"1000"
+
+		// "SoundSet"		"Hero_Miku"
+ 		// "VoiceFile"		"soundevents/voscripts/game_sounds_vo_miku.vsndevts"
 	}
 
 	// saber
