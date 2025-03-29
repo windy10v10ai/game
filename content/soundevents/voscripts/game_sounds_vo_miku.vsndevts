@@ -54,7 +54,7 @@
         type = "dota_update_vo_switch"
         volume = 1.000000
         pitch = 1.000000
-        vsnd_files = "sounds/vo/miku/miku_perfect.vsnd"
+        vsnd_files = "sounds/vo/miku/miku_firstblood_perfect.vsnd"
     }
 	meepo_meepo_move_01 =
 	{
@@ -89,14 +89,14 @@
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/miku/miku_move_hai.vsnd"
+		vsnd_files = "sounds/vo/miku/miku_move_hokaniiru.vsnd"
 	}
 	meepo_meepo_move_06 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/miku/miku_move_okarimono.vsnd"
+		vsnd_files = "sounds/vo/miku/miku_move_01.vsnd"
 	}
 	meepo_meepo_move_07 =
 	{
@@ -110,7 +110,7 @@
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/miku/miku_move_hai.vsnd"
+		vsnd_files = "sounds/vo/miku/miku_move_01.vsnd"
 	}
 	meepo_meepo_move_09 =
 	{
@@ -124,14 +124,14 @@
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/miku/miku_move_01.vsnd"
+		vsnd_files = "sounds/vo/miku/miku_move_okarimono.vsnd"
 	}
 	meepo_meepo_move_11 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_files = "sounds/vo/miku/miku_move_okarimono.vsnd"
 	}
 	meepo_meepo_move_12 =
 	{
@@ -460,528 +460,462 @@
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_cast_01.vsnd"
-		vsnd_duration = 1.227755
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_cast_02 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_cast_02.vsnd"
-		vsnd_duration = 1.671837
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_cast_03 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_cast_03.vsnd"
-		vsnd_duration = 0.992653
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_earthbind_01 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_earthbind_01.vsnd"
-		vsnd_duration = 1.018775
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_earthbind_02 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_earthbind_02.vsnd"
-		vsnd_duration = 0.835918
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_earthbind_03 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_earthbind_03.vsnd"
-		vsnd_duration = 0.783673
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_earthbind_04 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_earthbind_04.vsnd"
-		vsnd_duration = 0.992653
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_earthbind_05 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_earthbind_05.vsnd"
-		vsnd_duration = 1.280000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_earthbind_06 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_earthbind_06.vsnd"
-		vsnd_duration = 0.966531
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_earthbind_07 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_earthbind_07.vsnd"
-		vsnd_duration = 0.757551
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_earthbind_08 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_earthbind_08.vsnd"
-		vsnd_duration = 0.731429
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_poof_01 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_poof_01.vsnd"
-		vsnd_duration = 0.522449
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_poof_02 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_poof_02.vsnd"
-		vsnd_duration = 0.470204
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_poof_03 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_poof_03.vsnd"
-		vsnd_duration = 0.888163
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_poof_04 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_poof_04.vsnd"
-		vsnd_duration = 0.731429
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_poof_05 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_poof_05.vsnd"
-		vsnd_duration = 0.626939
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_poof_06 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_poof_06.vsnd"
-		vsnd_duration = 0.653061
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_poof_07 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_poof_07.vsnd"
-		vsnd_duration = 0.940408
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_poof_08 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_poof_08.vsnd"
-		vsnd_duration = 1.018775
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_01 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_01.vsnd"
-		vsnd_duration = 0.835918
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_02 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_02.vsnd"
-		vsnd_duration = 0.757551
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_03 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_03.vsnd"
-		vsnd_duration = 0.809796
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_04 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_04.vsnd"
-		vsnd_duration = 0.940408
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_05 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_05.vsnd"
-		vsnd_duration = 0.731429
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_06 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_06.vsnd"
-		vsnd_duration = 0.809796
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_07 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_07.vsnd"
-		vsnd_duration = 0.809796
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_08 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_08.vsnd"
-		vsnd_duration = 0.679184
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_09 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_09.vsnd"
-		vsnd_duration = 0.600816
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_10 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_10.vsnd"
-		vsnd_duration = 0.600816
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_11 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_11.vsnd"
-		vsnd_duration = 0.679184
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_12 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_12.vsnd"
-		vsnd_duration = 0.626939
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_13 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_13.vsnd"
-		vsnd_duration = 0.757551
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_14 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_14.vsnd"
-		vsnd_duration = 0.731429
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_15 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_15.vsnd"
-		vsnd_duration = 0.862041
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_16 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_16.vsnd"
-		vsnd_duration = 0.966531
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_17 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_17.vsnd"
-		vsnd_duration = 1.280000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_18 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_18.vsnd"
-		vsnd_duration = 1.567347
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_19 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_19.vsnd"
-		vsnd_duration = 0.940408
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_20 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_20.vsnd"
-		vsnd_duration = 1.018775
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_21 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_21.vsnd"
-		vsnd_duration = 7.523265
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_22 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_22.vsnd"
-		vsnd_duration = 10.527347
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_23 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_23.vsnd"
-		vsnd_duration = 1.462857
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_24 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_24.vsnd"
-		vsnd_duration = 1.697959
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_25 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_25.vsnd"
-		vsnd_duration = 1.619592
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_26 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_26.vsnd"
-		vsnd_duration = 1.619592
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_27 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_27.vsnd"
-		vsnd_duration = 1.671837
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_28 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_28.vsnd"
-		vsnd_duration = 0.783673
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_divided_29 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_divided_29.vsnd"
-		vsnd_duration = 0.914286
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_failure_01 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_failure_01.vsnd"
-		vsnd_duration = 1.149388
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_failure_02 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_failure_02.vsnd"
-		vsnd_duration = 1.253878
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_failure_03 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_failure_03.vsnd"
-		vsnd_duration = 1.593469
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_01 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_01.vsnd"
-		vsnd_duration = 1.018775
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_02 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_02.vsnd"
-		vsnd_duration = 1.541224
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_03 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_03.vsnd"
-		vsnd_duration = 1.985306
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_04 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_04.vsnd"
-		vsnd_duration = 1.724082
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_05 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_05.vsnd"
-		vsnd_duration = 1.175510
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_06 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_06.vsnd"
-		vsnd_duration = 1.253878
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_07 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_07.vsnd"
-		vsnd_duration = 1.123265
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_08 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_08.vsnd"
-		vsnd_duration = 1.724082
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_09 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_09.vsnd"
-		vsnd_duration = 1.593469
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_10 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_10.vsnd"
-		vsnd_duration = 1.854694
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_11 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_11.vsnd"
-		vsnd_duration = 2.272653
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_12 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_12.vsnd"
-		vsnd_duration = 2.011429
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_13 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_13.vsnd"
-		vsnd_duration = 3.422041
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_14 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_14.vsnd"
-		vsnd_duration = 2.220408
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_levelup_15 =
 	{
 		type = "dota_update_vo_switch"
 		volume = 1.000000
 		pitch = 1.000000
-		vsnd_files = "sounds/vo/meepo/meepo_levelup_15.vsnd"
-		vsnd_duration = 2.690612
+		vsnd_files = "sounds/vo/miku/null.vsnd"
 	}
 	meepo_meepo_kill_01 =
 	{
