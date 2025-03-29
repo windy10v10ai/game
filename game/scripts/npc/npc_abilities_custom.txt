@@ -784,23 +784,19 @@
 		}
 	}
 	"special_bonus_unique_miku_101"
-    {
-        "BaseClass"					"special_bonus_undefined"
-        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    }
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	}
 	"pantsushot"
 	{
-		"MaxLevel"      				"5"
-		// Ability Technical Aspect
-		// base script folder	: scripts/vscripts
-		// base texture folder	: resource/flash3/images/spellicons
-		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_miku/pantsushot.lua"
+		"ScriptFile"					"heroes/hero_miku/pantsushot"
 		"AbilityTextureName"			"hatsune_2"
 		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"2.0 1.6 1.2 1.0 0.8"
+		"MaxLevel"						"6"
+		"Innate"						"1"
 
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
@@ -808,17 +804,18 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
+		"AbilityCooldown"				"2.0 1.8 1.6 1.4 1.2 1.0"
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"crit_chance"				"30"
+				"crit_chance"				"35"
 				"crit_bonus"
 				{
-					"value"					"160 190 220 250 280"
+					"value"					"150 180 210 240 270 300"
 					"special_bonus_unique_miku_201"	"+70"
 				}
-				"cooldown"					"2.0 1.6 1.2 1.0 0.8"
 				"stun_duration"				"0.35"
 		}
 	}

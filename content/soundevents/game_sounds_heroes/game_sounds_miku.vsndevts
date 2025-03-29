@@ -99,11 +99,11 @@
 		[
 			"sounds/miku_1_alt.vsnd",
 		]
-		volume = "1.000000"
+		volume = "0.800000"
 		pitch_rand_min = "-0.050000"
 		pitch_rand_max = "0.050000"
 		pitch = "1.000000"
-		soundlevel = "100.000000"
+		soundlevel = "80.000000"
 		distance_max = "1600.000000"
 		event_type = "1.000000"
 	}
@@ -115,11 +115,11 @@
 			"sounds/miku/arcana_sounds/popi_2.vsnd",
 			"sounds/miku/arcana_sounds/popi_3.vsnd",
 		]
-		volume = "1.000000"
+		volume = "0.800000"
 		pitch_rand_min = "-0.050000"
 		pitch_rand_max = "0.050000"
 		pitch = "1.000000"
-		soundlevel = "100.000000"
+		soundlevel = "80.000000"
 		distance_max = "1600.000000"
 		event_type = "1.000000"
 	}
