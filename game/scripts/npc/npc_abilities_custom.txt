@@ -724,11 +724,6 @@
     //==============================================================================
     "miku_hadouken"
 	{
-
-		// Ability Technical Aspect
-	    // base script folder	: scripts/vscripts
-	    // base texture folder	: resource/flash3/images/spellicons
-	    //-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_miku/miku_hadouken"
 		"AbilityTextureName"			"hatsune_1"
@@ -738,7 +733,7 @@
 
 		"precache"
 		{
-			"soundfile"	"soundevents/Hatsune_miku.vsndevts"
+			// "soundfile"	"soundevents/Hatsune_miku.vsndevts"
 		    "particle"	"particles/hadouken1.vpcf"
 		    "particle"	"particles/hadouken2.vpcf"
 		    "particle"	"particles/hadouken3.vpcf"

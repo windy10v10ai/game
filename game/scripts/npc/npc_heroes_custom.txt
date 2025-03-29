@@ -284,8 +284,10 @@
 		"VisionDaytimeRange"		"1800"
 		"VisionNighttimeRange"		"1000"
 
-		// "SoundSet"		"Hero_Miku"
- 		// "VoiceFile"		"soundevents/voscripts/game_sounds_vo_miku.vsndevts"
+		"SoundSet"					"Hero_Miku"
+		// TODO change path to soundevents
+		"GameSoundsFile"			"soundevents/hatsune_miku.vsndevts"
+		"VoiceFile"					"soundevents/voscripts/game_sounds_vo_miku.vsndevts"
 	}
 
 	// saber
