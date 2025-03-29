@@ -978,6 +978,10 @@
 			"proc"						"400"
 			"fixed_duration"			"45"
 		}
+		"precache"
+		{
+			"model"	"models/hatsune_miku/chibi2.vmdl"
+		}
 	}
 	"chibi_hit"
 	{
