@@ -513,7 +513,6 @@ tBotItemData.purchaseItemList = {
 		'item_black_king_bar_2',
 		'item_infernal_desolator', -- 绝对破防之刃
 		'item_wasp_callous',
-		'item_moon_shard_datadriven',
 		'item_abyssal_blade_v2',
 		'item_wasp_despotic',
 		'item_jump_jump_jump',
