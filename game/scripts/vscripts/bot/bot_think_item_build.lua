@@ -34,7 +34,7 @@ local function addTome(k, v)
 
   local amount = 0
   if AIGameMode.fBotGoldXpMultiplier >= 10 then
-    amount = 15
+    amount = 150
   elseif AIGameMode.fBotGoldXpMultiplier >= 8 then
     amount = 10
   elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
@@ -48,8 +48,10 @@ local function addTome(k, v)
   end
   for i = 1, amount do
     table.insert(v, "item_tome_of_strength")
-    table.insert(v, "item_tome_of_agility")
     -- 最大吃N本智力书，防止魔抗溢出
+    if i < 20 then
+      table.insert(v, "item_tome_of_agility")
+    end
     if i < 8 then
       table.insert(v, "item_tome_of_intelligence")
     end

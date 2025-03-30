@@ -213,6 +213,7 @@
 				// 额外添加
 				"item_mirror_shield"				"1"		// 神镜盾
 				"item_ballista"						"1"		// 弩炮
+				"item_imp_claw"						"1"		// 力量法则碎片
 				"item_giants_ring"					"1"		// 巨人之戒
 				"item_ex_machina"					"1"		// 机械之心
 

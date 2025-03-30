@@ -95,8 +95,8 @@ export class EventEntityKilled {
   ];
 
   private dropItemChanceRoshan = 100;
-  private dropItemChanceAncient = 1.0;
-  private dropItemChanceNeutral = 0.2;
+  private dropItemChanceAncient = 2.0;
+  private dropItemChanceNeutral = 0.4;
 
   private onCreepKilled(creep: CDOTA_BaseNPC, attacker: CDOTA_BaseNPC | undefined): void {
     const creepName = creep.GetName();
@@ -111,7 +111,7 @@ export class EventEntityKilled {
         );
 
         // 神器组件掉落，掉落数量 1 ~ 3 的随机数
-        const maxDropCount = Math.floor(Player.GetPlayerCount() / 4);
+        const maxDropCount = Math.floor(Player.GetPlayerCount() / 2);
         const dropCount = RandomInt(1, maxDropCount);
         print(`[EventEntityKilled] OnCreepKilled dropCount is ${dropCount}`);
         for (let i = 0; i < dropCount; i++) {

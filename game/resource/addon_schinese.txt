@@ -460,7 +460,7 @@
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
-		
+
 		//血魔 血雾
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"血雾"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"血魔将自己的鲜血撒向一片区域，伤害自身的同时对敌人造成伤害"
@@ -484,7 +484,7 @@
 		//侧翼机炮2
 		"DOTA_Tooltip_ability_side_gunner2"        				"侧翼机炮2"
 		"DOTA_Tooltip_ability_side_gunner2_Description"        	"每%cool_down%秒对700码内最近的目标进行1次攻击"
-		
+
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "长角抛物"
 		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "马格纳斯顶起前方的敌人，将其甩在身后。敌人受到伤害，滞空%air_duration%秒并处于眩晕状态，而且落地后还会眩晕一段时间。"
@@ -2181,6 +2181,82 @@
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"				"+$armor"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"		"+$health"
+
+		// item_black_king_bar_ultra 永恒黑黄杖
+		"DOTA_Tooltip_Ability_item_black_king_bar_ultra"			"<font color='#e03e2e'>神器·永恒黑黄杖</font>"
+		"DOTA_Tooltip_ability_item_black_king_bar_ultra_Description"				"<h1>主动：永久天神下凡</h1>获得减益免疫状态。同时-%magic_resist%%%魔法抗性，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。<br><br>持续时间：%duration%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span> \n<h1>被动：力量的代价</h1>过于强大力量总会有它的代价，至于是什么，这不重要，重要的是你无敌了。"
+		"DOTA_Tooltip_ability_item_black_king_bar_ultra_Lore"						"那么代价是什么呢？"
+		"DOTA_Tooltip_ability_item_black_king_bar_ultra_Note0"						"死亡摧毁。"
+		"DOTA_Tooltip_ability_item_black_king_bar_ultra_Note1"						"来，和老子打！"
+		"DOTA_Tooltip_ability_item_black_king_bar_ultra_bonus_strength"				"+$str"
+		"DOTA_Tooltip_ability_item_black_king_bar_ultra_bonus_damage"				"+$damage"
+
+        // item_glimmer_cape_ultra 隐形斗篷
+		"DOTA_Tooltip_Ability_item_glimmer_cape_ultra"				"<font color='#e03e2e'>神器·隐形斗篷</font>"
+		"DOTA_Tooltip_ability_item_glimmer_cape_ultra_Description"						"<h1>主动:隐身老六</h1> 经过%initial_fade_delay%秒延迟后，自身或者友方目标单位进入隐身状态， 获得%active_movement_speed%%%移动速度加成和可以吸收最多%barrier_block%点伤害的魔法护盾。持续%duration%秒。<br><br>施法距离：%abilitycastrange%<br><br>可以在持续施法时施放。"
+		"DOTA_Tooltip_ability_item_glimmer_cape_ultra_movement_speed"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_glimmer_cape_ultra_bonus_magical_armor"			"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_glimmer_cape_ultra_Lore"					"隐形科技的巅峰之作"
+		"DOTA_Tooltip_modifier_item_glimmer_cape_ultra_fade"					"隐形斗篷"
+		"DOTA_Tooltip_modifier_item_glimmer_cape_ultra_fade_Description"		"吸收魔法伤害。移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%%%。"
+
+        // 大炮2
+		"DOTA_Tooltip_ability_item_greater_crit_2"                              "合金大炮"
+		"DOTA_Tooltip_ability_item_greater_crit_2_Description"					"<h1>被动：致命一击</h1>普通攻击有%crit_chance%%%几率造成%crit_multiplier%%%伤害。"
+		"DOTA_Tooltip_ability_item_greater_crit_2_Note0" 						"致命一击对建筑无效。"
+		"DOTA_Tooltip_ability_item_greater_crit_2_Lore"							"双持威力，更上一层楼"
+		"DOTA_Tooltip_ability_item_greater_crit_2_bonus_damage"					"+$damage"
+
+        // 蝴蝶2
+		"DOTA_Tooltip_ability_item_butterfly_2"                                     "迅敏蝴蝶"
+		"DOTA_Tooltip_ability_item_butterfly_2_Note0"								"与其他闪避效果为非线性叠加。"
+		"DOTA_Tooltip_ability_item_butterfly_2_Lore"								"只有最强大最老练的战士才能携带蝴蝶，但它也提供无可比拟的战斗灵活力作为回报。"
+		"DOTA_Tooltip_ability_item_butterfly_2_bonus_agility"						"+$agi"
+		"DOTA_Tooltip_ability_item_butterfly_2_bonus_evasion"						"%+$evasion"
+		"DOTA_Tooltip_ability_item_butterfly_2_bonus_attack_speed_pct"				"%+$attack_pct"
+		"DOTA_Tooltip_ability_item_butterfly_2_bonus_damage"				"+$damage"
+
+        //  item_shivas_guard_ultra 零度之甲
+		"DOTA_Tooltip_Ability_item_shivas_guard_ultra"				"<font color='#e03e2e'>神器·零度之甲</font>"
+		"DOTA_Tooltip_ability_item_shivas_guard_ultra_Description"					"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，使敌人受到的技能伤害增加%spell_amp%%%，持续%resist_debuff_duration%秒，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。对幻象造成%illusion_multiplier_pct%%%伤害。<br><br>作用范围：%blast_radius%\n\n<h1>被动：霜冷光环</h1>降低敌人%aura_attack_speed%攻击速度，和%hp_regen_degen_aura%%%所有治疗、恢复和吸血效果。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_shivas_guard_ultra_Lore"							"据说曾经属于某位女神，至今仍保持大部分神力。"
+		"DOTA_Tooltip_ability_item_shivas_guard_ultra_Note0"							"极寒冲击的扩张速度为%blast_speed%，最大半径为%blast_radius%。"
+		"DOTA_Tooltip_ability_item_shivas_guard_ultra_Note1"							"极寒冲击将以施放者为中心。"
+		"DOTA_Tooltip_ability_item_shivas_guard_ultra_Note2" 							"多个霜冷光环效果不会叠加。"
+		"DOTA_Tooltip_ability_item_shivas_guard_ultra_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_shivas_guard_ultra_bonus_agility"					"+$agi"
+		"DOTA_Tooltip_ability_item_shivas_guard_ultra_bonus_strength"					"+$str"
+		"DOTA_Tooltip_ability_item_shivas_guard_ultra_bonus_armor"					"+$armor"
+		"DOTA_Tooltip_ability_item_shivas_guard_ultra_bonus_hp_regen"					"+$hp_regen"
+
+		"DOTA_Tooltip_Ability_item_assault_2"				"强袭2"
+		"DOTA_Tooltip_ability_item_assault_2_Description"							"<h1>被动：强袭光环</h1>附近友军单位和建筑提升%aura_attack_speed%攻击速度和%aura_positive_armor%点护甲，削弱附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_assault_2_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_assault_2_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_Ability_item_assault_3"				"强袭3"
+		"DOTA_Tooltip_ability_item_assault_3_Description"							"<h1>被动：强袭光环</h1>附近友军单位和建筑提升%aura_attack_speed%攻击速度和%aura_positive_armor%点护甲，削弱附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_assault_3_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_assault_3_bonus_armor"							"+$armor"
+
+        // item_sphere_ultra 抗魔法球
+		"DOTA_Tooltip_ability_item_sphere_ultra"                         "<font color='#e03e2e'>神器·抗魔法球</font>"
+		"DOTA_Tooltip_ability_item_sphere_ultra_Description"				"<h1>被动：法术抵挡</h1>每%block_cooldown%秒被动抵挡一次大部分指向性法术。\n<h1>主动：抵抗转移</h1>将抵挡状态暂时转移给一个友方单位，持续%block_cooldown%秒。<br><br>施法距离：%abilitycastrange%"
+		"DOTA_Tooltip_ability_item_sphere_ultra_Lore"					"就你叫tk是吧？"
+		"DOTA_Tooltip_ability_item_sphere_ultra_bonus_all_stats"						"+$all"
+		"DOTA_Tooltip_ability_item_sphere_ultra_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_sphere_ultra_bonus_mana_regen"						"+$mana_regen"
+		"DOTA_Tooltip_Ability_item_sphere_ultra_Note0"					"别问，问就是耍赖。"
+
+		// item_refresher_shard 时间法则碎片
+		"DOTA_Tooltip_Ability_item_refresher_shard"						"<font color='#e03e2e'>神器·时间法则碎片</font>"
+		"DOTA_Tooltip_ability_item_refresher_shard_Description"			"<h1>主动：时间本源</h1>重置所有物品和技能的冷却时间。\n<h1>被动：法则碎片特性</h1>可堆叠，属性无法叠加。"
+		"DOTA_Tooltip_ability_item_refresher_shard_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_ability_item_refresher_shard_bonus_mana_regen"		"+$mana_regen"
+		"DOTA_Tooltip_ability_item_refresher_shard_bonus_health_regen"	"+$hp_regen"
+		"DOTA_Tooltip_ability_item_refresher_shard_Lore"					"你们打团费蓝，我打团费钱。"
+		"DOTA_Tooltip_Ability_item_refresher_shard_Note0"					"sorry啊，有钱真的可以为所欲为的。"
+
+		"DOTA_Tooltip_Ability_item_imp_claw"		"力量法则碎片"
 
 		// 力量跳2
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2"                            "泰森闪光"

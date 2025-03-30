@@ -658,10 +658,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"1020"	// 16分钟买
+		"ItemInitialStockTime"			"420"	// 16分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"240"
+		"ItemStockTime"					"30"
 
 		"AbilityValues"
 		{
@@ -700,10 +700,10 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"1020"	// 16分钟买
+		"ItemInitialStockTime"			"420"	// 16分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"240"
+		"ItemStockTime"					"30"
 
 		"AbilityValues"
 		{
@@ -1083,18 +1083,18 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1"
-		"AbilityManaCost"				"1600"
+		"AbilityCooldown"				"0.1"
+		"AbilityManaCost"				"1500"
 		"AbilityValues"
 		{
 			"bonus_int"		"60"
 			"bonus_str"		"60"
 			"bonus_agi"		"60"
-			"damage"				"1600"
+			"damage"				"3000"
 			"damage_delay"				"0"
-			"mana_cost_tooltip"		"1600"
+			"mana_cost_tooltip"		"1500"
 			"int_damage"		"0"
 			"passive_spell_lifesteal"			"40"
 			"dagon_spell_lifesteal"				"100"

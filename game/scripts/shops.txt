@@ -13,7 +13,8 @@
 		"item"		"item_flask"				// 治疗药膏
 		"item"		"item_tango"				// 仙灵之火
 		"item"		"item_blood_grenade"
-		"item"		"item_dust"					// 显影之尘
+		// "item"		"item_dust"					// 显影之尘
+		"item"		"item_refresher_shard"		// 时间法则
 		"item"		"item_bottle"				// 魔瓶
 		"item"		"item_candy_candy"
 
@@ -174,7 +175,7 @@
 	"magics"
 	{
 		"item"		"item_veil_of_discord_2"	// 纷争面纱
-		"item"		"item_glimmer_cape"			// 微光披风
+		"item"		"item_glimmer_cape_ultra"			// 微光披风
 		"item"		"item_force_staff_3"		// 原力法杖
 		"item"		"item_aether_lens_2"		// 以太透镜
 		"item"		"item_witch_blade"			// 巫师之刃
@@ -202,14 +203,15 @@
 		"item"		"item_aeon_pendant"		// 大盘子（咸鱼之王）
 		"item"		"item_blade_mail_2"		// 刃甲2
 		"item"		"item_eternal_shroud_ultra"	// 永世法衣
-		"item"		"item_crimson_guard"	// 赤红甲
+		// "item"		"item_crimson_guard"	// 赤红甲
+		"item"		"item_assault_3"			// 强袭3
 		"item"		"item_insight_armor"
 		"item"		"item_saint_orb"
-		"item"		"item_black_king_bar_2"	// 天神杖
+		"item"		"item_black_king_bar_ultra"	// 天神杖
 		"item"		"item_radiance_2"			// 圣焰之光 大辉耀
 		"item"		"item_manta_2"
-		"item"		"item_sphere_2"
-		"item"		"item_shivas_guard_2"	// 雅典娜的守护
+		"item"		"item_sphere_ultra"
+		"item"		"item_shivas_guard_ultra"	// 雅典娜的守护
 		"item"		"item_undying_heart"
 		"item"		"item_vladmir_2"
 		"item"		"item_bloodstone"		// 血精神石

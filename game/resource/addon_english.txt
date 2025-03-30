@@ -460,7 +460,7 @@
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
-		
+
 		//侧翼机炮
 		"DOTA_Tooltip_ability_side_gunner2"        				"side_gunner2"
 		"DOTA_Tooltip_ability_side_gunner2_Description"        	"Attack the nearest target within 700 range every %cool_down% seconds"
@@ -484,7 +484,7 @@
 		//时间漫游
 		"DOTA_Tooltip_ability_faceless_void_time_walk2"									"Time Walk"
 		"DOTA_Tooltip_ability_faceless_void_time_walk2_Description"						"Rushes to a target location while backtracking any damage taken the last 2 seconds."
-		
+
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
 		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend %air_duration% seconds in the air, and are stunned while in the air and an additional amount of time after landing."
