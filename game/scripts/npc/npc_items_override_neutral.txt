@@ -53,15 +53,6 @@
 			"bonus_all_stats"			"0"		//7
 		}
 	}
-	//坚毅之件
-	"item_unwavering_condition"
-	{
-		"AbilityValues"
-		{
-			"max_health"			"9000"		//1500
-			"magic_resist"			"95"		//95
-		}
-	}
 	//丛林靴
 	"item_woodland_striders"
 	{
@@ -314,7 +305,6 @@
 		}
 	}
 
-	//别有他用
 	//秘术师铠甲
 	"item_force_field"
 	{
@@ -332,7 +322,7 @@
 	//可靠铁铲
 	"item_trusty_shovel"
 	{
-		"AbilityCooldown"				"30.0"	//60
+		"AbilityCooldown"				"20.0"	//60
 
 		// chance_bounty_rune + chance_other_item * 3 = 100
 		"AbilityValues"
@@ -366,7 +356,7 @@
 	"item_mana_draught"
 	{
 		"AbilityCooldown"				"30"	//60
-		"AbilityCastRange"				"1200"	//650，0=无限
+		"AbilityCastRange"				"1200"	//650
 		"AbilityValues"
 		{
 			"mana_restore"				"180"	//60
@@ -430,7 +420,7 @@
 		"AbilityValues"
 		{
 			"shield"	"500"			//100
-			"restore_time"			"4"	//8
+			"restore_time"			"6"	//8
 		}
 	}
 	//追击矛
@@ -471,10 +461,9 @@
 	{
 		"AbilityValues"
 		{
-			"damage_threshold"			"120"		//40
-			"burn_damage"				"250"		//75
-			"burn_duration"				"2.5"		//5
-			"burn_tickrate"				".25"		//.25
+			"damage_threshold"			"100"		//40
+			"burn_damage"				"200"		//72
+			"burn_duration"				"3"			//6
 		}
 	}
 	//飞贼之刃
@@ -483,7 +472,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"6"				//3
-			"missing_hp"			"2"				//5
+			"missing_hp"			"3"				//5
 		}
 	}
 	//杂技玩具
@@ -561,9 +550,9 @@
 		"AbilityValues"
 		{
 			"max_slow_res"				"100"	//100
-			"hero_reduction"			"5"		//20
-			"status_res_pct_increase_per_hero"	"15"	//10
-			"hero_check_radius"			"600"	//300
+			"hero_reduction"			"6"		//20
+			"status_res_pct_increase_per_hero"	"10"	//10
+			"hero_check_radius"			"600"	//600
 		}
 	}
 	//海盗帽
@@ -573,8 +562,6 @@
 		{
 			"gold_steal_base"			"200"	//150
 			"gold_steal_kill"			"250"	//150
-			"gold_steal_range"			"1800"	//1200
-			"gold_loss_reduction"		"100"	//100
 		}
 	}
 	//决斗家手套
@@ -823,7 +810,7 @@
 	//智灭
 	"item_mind_breaker"
 	{
-		"AbilityCooldown"		"4.0"				//12
+		"AbilityCooldown"		"6.0"				//16
 		"AbilityValues"
 		{
 				"duration"		"3.0"				//2
@@ -839,11 +826,11 @@
 	"item_crippling_crossbow"
 	{
 		"AbilityCooldown"				"6"			//12
-		"AbilityManaCost"				"150"		//75
+		"AbilityManaCost"				"150"		//50
 		"AbilityCastRange"				"1200"		//600
 		"AbilityValues"
 		{
-			"slow_pct"					"100"		//80
+			"slow_pct"					"90"		//80
 			"heal_reduce"				"80"		//40
 			"duration"					"6"			//4
 			"damage"					"300"		//75
@@ -1065,7 +1052,7 @@
 	{
 		"AbilityValues"
 		{
-			"debuff_self"	"10"			//8
+			"debuff_self"	"10"			//6
 			"debuff_enemy"	"30"			//12
 		}
 	}
