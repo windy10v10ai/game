@@ -1012,9 +1012,10 @@
 		"DOTA_Tooltip_ability_pantsushot_Lore"						"Nyanyanyanyanyanyanya!"
 
 		"DOTA_Tooltip_ability_liu_kick"								"Liu-kick"
-		"DOTA_Tooltip_ability_liu_kick_Description"					"Miku leaps from her feet to the target enemy. Any enemies in a %radius% radius suffer magical damage, knockback, stun and an instant attack from Miku. This attack has True Strike and can proc attack modifiers."
+		"DOTA_Tooltip_ability_liu_kick_Description"					"Miku leaps from her feet to the target enemy. Any enemies in radius suffer magical damage, knockback, stun and an instant attack from Miku. This attack has True Strike and can proc attack modifiers."
 		"DOTA_Tooltip_ability_liu_kick_damage"						"DAMAGE:"
 		"DOTA_Tooltip_ability_liu_kick_range"						"CAST RANGE:"
+		"DOTA_Tooltip_ability_liu_kick_radius"						"RADIUS:"
 		"DOTA_Tooltip_ability_liu_kick_stun_duration"				"STUN DURATION (CHIBI):"
 		"DOTA_Tooltip_ability_liu_kick_Lore"						"Miku~miku~Kick! Who would reject her exquisite and fragrant foot!? -- It was a hentai named BM's last word before he got one-shotted by Liu-kick."
 

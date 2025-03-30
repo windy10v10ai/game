@@ -1016,9 +1016,10 @@
 		"DOTA_Tooltip_ability_pantsushot_Lore"						"Nyanyanyanyanyanyanya!"
 
 		"DOTA_Tooltip_ability_liu_kick"								"初音飞踢"
-		"DOTA_Tooltip_ability_liu_kick_Description"					"踢向目标将其击退，对其与周围%radius%范围内敌人造成一定的魔法伤害，并附加一次普通攻击。<br/>变身时对敌人造成眩晕。"
-		"DOTA_Tooltip_ability_liu_kick_damage"						"伤害:"
-		"DOTA_Tooltip_ability_liu_kick_range"						"施法距离:"
+		"DOTA_Tooltip_ability_liu_kick_Description"					"踢向目标将其击退，对其与周围范围内敌人造成一定的魔法伤害，并附加一次普通攻击。<br/>变身时对敌人造成眩晕。"
+		"DOTA_Tooltip_ability_liu_kick_damage"						"伤害："
+		"DOTA_Tooltip_ability_liu_kick_range"						"施法距离："
+		"DOTA_Tooltip_ability_liu_kick_radius"						"伤害范围："
 		"DOTA_Tooltip_ability_liu_kick_stun_duration"				"变身时眩晕时间:"
 		"DOTA_Tooltip_ability_liu_kick_Lore"						"把你mikumiku掉！"
 
@@ -1035,8 +1036,8 @@
 		"DOTA_Tooltip_ability_get_down_Lore"						"这样一来就满足了吗？"
 		"DOTA_Tooltip_ability_get_down_scepter_description"			"获得新技能 <font color='#FFFFFF'>GET DOWN</font>。<br/>初音未来的秘密舞蹈，对周围敌人造成伤害。技能等级随着 <font color='#FFFFFF'>甩葱形态</font> 增加。"
 
-		"DOTA_Tooltip_ability_chibi_monster"						"甩葱形态"
-		"DOTA_Tooltip_ability_chibi_monster_Description"			"初音变身成甩葱形态，获得额外的属性和技能。<br/>变身时增加技能蔬菜汁Popipo的伤害。"
+		"DOTA_Tooltip_ability_chibi_monster"						"Q版初音未来"
+		"DOTA_Tooltip_ability_chibi_monster_Description"			"初音变身成Q版形态，获得额外的属性和技能。<br/>变身时增加技能蔬菜汁Popipo的伤害，初音飞踢附加眩晕效果。"
 		"DOTA_Tooltip_ability_chibi_monster_damage"					"增加攻击力:"
 		"DOTA_Tooltip_ability_chibi_monster_agility"				"获得敏捷:"
 		"DOTA_Tooltip_ability_chibi_monster_hp"						"获得血量:"
