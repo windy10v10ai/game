@@ -36,7 +36,7 @@
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"bonus_xpm"					"300 600"	// n-1级升到n级所需经验为150n+50，从1升到n总经验为200n+75n(n-1)=75n^2+125n,当前刷野最快纪录7分钟25级即7分钟5w（1.5倍率）
+			"bonus_xpm"					"400 800"	// n-1级升到n级所需经验为150n+50，从1升到n总经验为200n+75n(n-1)=75n^2+125n,当前刷野最快纪录7分钟25级即7分钟5w（1.5倍率）
 		}
 	}
 	// 贪婪 工资蓝量减攻击
@@ -45,9 +45,9 @@
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"bonus_gpm"			"300 600"			// 75 100
+			"bonus_gpm"			"450 900"			// 75 100
 			"bonus_mana"		"300 600"			// 200 250
-			"bonus_damage"		"-75 -150"			// -30 -60
+			"bonus_damage"		"-30 -60"			// -30 -60
 		}
 	}
 	// 坚强 攻击护甲
@@ -55,7 +55,7 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_damage"				"20 30 40 50"	// 5 8 11 14
+			"bonus_damage"				"15 30 45 60"	// 7 10 13 17
 			"armor"						"5 10 15 20"	// 0 4 7 10
 		}
 	}
@@ -95,7 +95,7 @@
 	{
 		"AbilityValues"
 		{
-			"attack_range"						"80 120"	// 60 90
+			"attack_range"						"80 120"	// 75 110
 		}
 	}
 	// 犀利 施法距离回蓝最大魔法 2&3级
@@ -105,7 +105,7 @@
 		{
 			"cast_range_bonus"					"125 175"	// 125 135
 			"bonus_mana_regen"					"3 6"		// 1 1.5
-			"mana_reduction_pct"				"10 20"		// 15
+			"mana_reduction_pct"				"10 15"		// 10
 		}
 	}
 	// 冒险 攻速魔法攻击伤害增加承伤 5级
@@ -133,7 +133,7 @@
 		{
 			"slow_resistance"			"25 50"				// 20 30
 			"bat_reduce"				"15 30"				// 12 18
-			"intelligence_pct"			"-15 -30"			// -15
+			"intelligence_pct"			"-8 -15"			// -8
 		}
 	}
 	// 无边 攻击距离施法距离 4&5级
@@ -152,7 +152,7 @@
 		"AbilityValues"
 		{
 			"debuff_amp"		"15 30"						// 10 15
-			"spell_amp"			"30 45"						// 10 20
+			"spell_amp"			"30 60"						// 8 16
 		}
 	}
 	// 巨神 基础攻击状态抗性 4&5级
@@ -160,7 +160,7 @@
 	{
 		"AbilityValues"
 		{
-			"base_attack_damage"		"20 40"				// 15 25
+			"base_attack_damage"		"20 40"				// 10 20
 			"status_resistance"			"15 30"				// 10 15
 		}
 	}
