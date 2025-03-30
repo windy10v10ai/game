@@ -7,7 +7,7 @@
 
 使用Hammer编辑打开dota.vmap进行编辑
 
-## 中立生物
+## 编辑中立生物
 
 ### 提升地图外围中立生物营地的等级
 
@@ -23,6 +23,12 @@ Pull Type从进到远
 - 修改内容
   - Camp Type: Ancient
   - Min/Max spawn type 设置成和其他远古一致
+  - Kobolds (E), Ogres (M), Centaurs (H), Drakes (A) - (Normal Gamerules)
+  - Ghosts (E), Centaurs (M), Wildkin (H), Prowlers (A)
+
+## 编译地图
+
+在Hammer中按F9，选择Build。
 
 ## 替换地图特效（不朽庭院地图为例）
 
@@ -47,9 +53,9 @@ game/maps/dota.vpk (自己编译的地图文件)
 
 合并后的文件命名为dota.vpk，替换game/maps/dota.vpk文件
 
-如果在 addoninfo.txt 中设置了多个地图，按照其中地图名重新命名vpk文件
+如果在 addoninfo.txt 中设置了多个地图，按照以下方法制作相应的vpk文件
 
-## N6地图
+### N6地图
 
 - 重命名dota.vmap为n6.vmap
 - 勾选Create minimap，build
