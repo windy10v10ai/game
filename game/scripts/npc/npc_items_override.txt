@@ -71,8 +71,8 @@
 	{
 		"AbilityValues"
 		{
-				"shield"			"20000"
-				"regen"				"1000"
+				"shield"			"80000"
+				"regen"				"10000"
 				"idle"				"1"
 				"duration"			"30"			// 5
 		}
@@ -123,7 +123,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"health_regen"			"12.0"		// 7.0
+				"health_regen"			"50.0"		// 7.0
 				"buff_duration"			"30.0"		// 16.0
 		}
 	}
@@ -133,7 +133,8 @@
 		"AbilityValues"
 		{
 				"buff_duration"			"26"		// 13
-				"health_regen"			"3000"		// 30
+				"health_regen"			"1000"		// 30
+				"break_on_hero_damage"	"0"
 		}
 	}
 	// 净化药水
@@ -143,7 +144,7 @@
 		"ItemStockInitial"				"8"
 		"AbilityValues"
 		{
-				"mana_regen"			"12"			// 6
+				"mana_regen"			"120"			// 6
 				"buff_duration"			"25"			// 25
 		}
 	}
@@ -152,7 +153,8 @@
 	{
 		"ItemCost"						"100"			// 65
 
-		"ItemStackableMax"				"99"
+		"ItemStackableMax"				"99999"
+		"ItemStockTime"					"1"
 
 		"ItemStockMax"					"99"
 		"ItemStockInitial"				"10"
@@ -171,7 +173,7 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"50"			// 2
-				"hp_restore"			"350"			// 85
+				"hp_restore"			"1000"			// 85
 		}
 	}
 	"item_blood_grenade" //血腥榴弹
@@ -181,13 +183,13 @@
 
 		"ItemStackableMax"				"5"				// 2
 		"ItemStockInitial"				"5"				// 2
-		"ItemStockTime"					"120"			// 180
+		"ItemStockTime"					"30"			// 180
 		"AbilityValues"
 		{
-			"bonus_health"			"250"				// 50
+			"bonus_health"			"500"				// 50
 
-			"damage_over_time"		"45"				// 15
-			"impact_damage"			"150"				// 50
+			"damage_over_time"		"150"				// 15
+			"impact_damage"			"250"				// 50
 		}
 	}
 	"item_bottle" //魔瓶
@@ -196,13 +198,14 @@
 		"ItemInitialCharges"			"5"				// 3
 		"AbilityValues"
 		{
-				"health_restore"		"240"			// 110
-				"mana_restore"			"130"			// 60
+				"health_restore"		"550"			// 110
+				"mana_restore"			"300"			// 60
 				"restore_time"			"3.5"			// 2.7
 				"max_charges"			"5"				// 3
 				"rune_expire_time"		"120.0"			// 90
 				"health_restore_pct"	"5"
-				"mana_restore_pct"		"4"
+				"mana_restore_pct"		"8"
+				"break_on_hero_damage"	"0"
 		}
 	}
 	"item_travel_boots" // 飞鞋
