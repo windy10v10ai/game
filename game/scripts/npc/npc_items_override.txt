@@ -132,8 +132,8 @@
 	{
 		"AbilityValues"
 		{
-				"buff_duration"			"15"		// 13
-				"health_regen"			"50"		// 30
+				"buff_duration"			"26"		// 13
+				"health_regen"			"3000"		// 30
 		}
 	}
 	// 净化药水
@@ -150,27 +150,27 @@
 	// 芒果
 	"item_enchanted_mango"
 	{
-		"ItemCost"						"130"			// 65
+		"ItemCost"						"100"			// 65
 
-		"ItemStackableMax"				"6"
+		"ItemStackableMax"				"99"
 
-		"ItemStockMax"					"8"
-		"ItemStockInitial"				"8"
+		"ItemStockMax"					"99"
+		"ItemStockInitial"				"10"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"hp_regen"				"1.5"	// 0.4
+				"hp_regen"				"4.0"	// 0.4
 				"replenish_amount"		"250"	// 100
 		}
 	}
 	"item_faerie_fire" //仙灵之火
 	{
-		"ItemCost"						"130"			// 65
+		"ItemCost"						"100"			// 65
 		"AbilityValues"
 		{
-				"bonus_damage"			"10"			// 2
+				"bonus_damage"			"50"			// 2
 				"hp_restore"			"350"			// 85
 		}
 	}
@@ -179,8 +179,8 @@
 		"ItemCost"						"80"			// 50
 		"AbilityHealthCost"				"150"			// 50
 
-		"ItemStackableMax"				"3"				// 2
-		"ItemStockInitial"				"3"				// 2
+		"ItemStackableMax"				"5"				// 2
+		"ItemStockInitial"				"5"				// 2
 		"ItemStockTime"					"120"			// 180
 		"AbilityValues"
 		{
@@ -201,6 +201,8 @@
 				"restore_time"			"3.5"			// 2.7
 				"max_charges"			"5"				// 3
 				"rune_expire_time"		"120.0"			// 90
+				"health_restore_pct"	"5"
+				"mana_restore_pct"		"4"
 		}
 	}
 	"item_travel_boots" // 飞鞋

@@ -5860,7 +5860,7 @@
 		"ItemQuality"					"consumable"
 		"ItemPurchasable"				"1"
 		"ItemStackable"					"1"
-		"ItemStockMax"					"3"
+		"ItemStockMax"					"5"
 		"ItemStockInitial"				"1"
 		"ItemStockTime"					"90"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
