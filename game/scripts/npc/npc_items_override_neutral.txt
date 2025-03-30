@@ -639,11 +639,11 @@
 	//魔童之爪 暴击爪
 	"item_imp_claw"
 	{
-		"AbilityCooldown"				"60" //4
+		"AbilityCooldown"				"40" //4
 		"AbilityTextureName"    			"item_power"
 		"AbilityValues"
 		{
-				"crit_multiplier"			"7600"	// 130
+				"crit_multiplier"			"76000"	// 130
 		}
 	}
 	//林野长弓
@@ -1004,8 +1004,8 @@
 		{
 			"attack_range_bonus"		"0"		//250
 			"knockback_distance"		"10"	//50
-			"knockback_duration"		"0.1"	//0.2
-			"bonus_damage"				"250"	//50
+			"knockback_duration"		"0.2"	//0.2
+			"bonus_damage"				"500"	//50
 		}
 	}
 	//巨人之戒

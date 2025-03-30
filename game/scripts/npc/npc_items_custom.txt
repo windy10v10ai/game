@@ -5014,10 +5014,10 @@
 		"AbilityTextureName"			"item_rapier_ultra"
 		"ItemCost"						"60000"
 
-		"ItemDroppable"					"0"
+		"ItemDroppable"					"1"
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
-		"AllowedInBackpack"				"0"
+		"AllowedInBackpack"				"1"
 
 		"AbilityValues"
 		{

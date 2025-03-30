@@ -49,10 +49,10 @@ local function addTome(k, v)
   for i = 1, amount do
     table.insert(v, "item_tome_of_strength")
     -- 最大吃N本智力书，防止魔抗溢出
-    if i < 20 then
+    if i < 9 then
       table.insert(v, "item_tome_of_agility")
     end
-    if i < 8 then
+    if i < 6 then
       table.insert(v, "item_tome_of_intelligence")
     end
   end
