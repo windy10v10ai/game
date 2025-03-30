@@ -460,7 +460,31 @@
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
-
+		
+		//血魔 血雾
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"血雾"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"血魔将自己的鲜血撒向一片区域，伤害自身的同时对敌人造成伤害"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%每秒生命消耗/伤害："
+		//醉拳
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"醉拳"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss%%%概率闪避和暴击,主动激动后，获得30%%移速加成,闪避和攻击概率翻3倍"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%暴击伤害:"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"持续时间："
+		//精准光环
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"精准光环"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"卓尔游侠根据她自身的当前敏捷和英雄等级获得敏捷加成。附近远程英雄获得%trueshot_agi_bonus_allies_pct%%%敏捷加成。"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Lore"								"崔希丝在卓尔族森林中独处的时光让她有时间教导其他弓箭手如何提高弓技。"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_base"				"%基础敏捷加成："
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%每级敏捷加成："
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%总敏捷加成："
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"作用范围："
+		//时间漫游
+		"DOTA_Tooltip_ability_faceless_void_time_walk2"									"时间漫游"
+		"DOTA_Tooltip_ability_faceless_void_time_walk2_Description"						"冲到目标位置，并取消最近2秒内受到的任何伤害。"
+		//侧翼机炮2
+		"DOTA_Tooltip_ability_side_gunner2"        				"侧翼机炮2"
+		"DOTA_Tooltip_ability_side_gunner2_Description"        	"每%cool_down%秒对700码内最近的目标进行1次攻击"
+		
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "长角抛物"
 		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "马格纳斯顶起前方的敌人，将其甩在身后。敌人受到伤害，滞空%air_duration%秒并处于眩晕状态，而且落地后还会眩晕一段时间。"
