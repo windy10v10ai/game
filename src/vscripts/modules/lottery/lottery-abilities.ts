@@ -1,13 +1,12 @@
 import { Tier } from './tier';
 
 /**
- * 技能抽选概率，Tier 5-1
+ * 技能列表，Tier 5-1
  * 确保概率从低到高排列
  */
 export const abilityTiersActive: Tier[] = [
   {
     level: 5,
-    rate: 1,
     names: [
       // 主动技能
       // 大招
@@ -25,7 +24,6 @@ export const abilityTiersActive: Tier[] = [
   },
   {
     level: 4,
-    rate: 5,
     names: [
       // 5级候补
       'bounty_hunter_track', // 追踪术
@@ -46,7 +44,6 @@ export const abilityTiersActive: Tier[] = [
   },
   {
     level: 3,
-    rate: 20,
     names: [
       // 主动技能
       // 大招
@@ -82,7 +79,6 @@ export const abilityTiersActive: Tier[] = [
   },
   {
     level: 2,
-    rate: 60,
     names: [
       // 主动技能
       // 大招
@@ -123,7 +119,6 @@ export const abilityTiersActive: Tier[] = [
   },
   {
     level: 1,
-    rate: 100,
     names: [
       // 主动技能
       // 大招
@@ -168,7 +163,6 @@ export const abilityTiersActive: Tier[] = [
 export const abilityTiersPassive: Tier[] = [
   {
     level: 5,
-    rate: 1,
     names: [
       // 被动技能
       'elder_titan_natural_order', // 自然秩序
@@ -180,7 +174,6 @@ export const abilityTiersPassive: Tier[] = [
   },
   {
     level: 4,
-    rate: 5,
     names: [
       // 被动技能
       'centaur_return', // 人马 反伤
@@ -205,7 +198,6 @@ export const abilityTiersPassive: Tier[] = [
   },
   {
     level: 3,
-    rate: 20,
     names: [
       // 被动技能
       'nevermore_dark_lord', // 魔王降临
@@ -237,7 +229,6 @@ export const abilityTiersPassive: Tier[] = [
   },
   {
     level: 2,
-    rate: 60,
     names: [
       // 被动技能
       'skeleton_king_mortal_strike', // 本命一击
@@ -268,7 +259,6 @@ export const abilityTiersPassive: Tier[] = [
   },
   {
     level: 1,
-    rate: 100,
     names: [
       // 被动技能
       'bounty_hunter_jinada', // 忍术

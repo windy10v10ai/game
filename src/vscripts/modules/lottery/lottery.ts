@@ -7,6 +7,7 @@ import { LotteryHelper } from './lottery-helper';
 @reloadable
 export class Lottery {
   readonly randomCountBase = 4;
+  readonly randomCountExtra = 2;
 
   constructor() {
     // 启动物品抽奖
@@ -76,6 +77,19 @@ export class Lottery {
       hero,
       executedNames,
     );
+
+    // TODO: 检查是否是高级会员，如果是则添加额外技能
+    const member = NetTableHelper.GetMember(steamAccountID);
+    if (member.enable) {
+      const extraAbilities = LotteryHelper.getRandomAbilities(
+        abilityTiers,
+        this.randomCountExtra,
+        hero,
+        executedNames,
+        true, // 使用高级别技能
+      );
+      abilityLotteryResults.push(...extraAbilities);
+    }
 
     CustomNetTables.SetTableValue(abilityTable, steamAccountID, abilityLotteryResults);
   }
