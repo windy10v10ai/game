@@ -179,13 +179,13 @@ function InitN5Setting() {
   $('#starting_gold_bot_dropdown').SetSelected('3000');
 }
 function InitN6Setting() {
-  $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
+  $('#player_gold_xp_multiplier_dropdown').SetSelected('2');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('100');
 
-  $('#tower_power_dropdown').SetSelected('350');
+  $('#tower_power_dropdown').SetSelected('400');
 
-  $('#starting_gold_player_dropdown').SetSelected('3000');
-  $('#starting_gold_bot_dropdown').SetSelected('5000');
+  $('#starting_gold_player_dropdown').SetSelected('5000');
+  $('#starting_gold_bot_dropdown').SetSelected('10000');
 }
 // -------- send to server --------
 // FIXME 用SendGameOptionsToServer替代
@@ -303,7 +303,7 @@ function OnDifficultyDropDownChanged(difficulty) {
       seasonPointMulti = '2.0';
       break;
     case 6:
-      seasonPointMulti = '2.2';
+      seasonPointMulti = '3.3';
       break;
     default:
       seasonPointMulti = '1.0';

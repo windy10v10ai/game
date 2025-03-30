@@ -804,14 +804,14 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"60"		// 13
+		"ArmorPhysical"				"130"		// 13
 		"MagicalResistance"			"50"		// 40
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"480"			// Damage range min.
-		"AttackDamageMax"			"520"			// Damage range max.
+		"AttackDamageMin"			"1500"			// Damage range min.
+		"AttackDamageMax"			"2000"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.8"			// Speed of attack.
 		// "AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
@@ -822,8 +822,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"24000"			// 4500
-		"StatusHealthRegen"			"20"			// 12
+		"StatusHealth"				"250000"			// 4500
+		"StatusHealthRegen"			"200"			// 12
 	}
 	//=================================================================================
 	// Creeps: Bad Guys Fort
@@ -832,14 +832,14 @@
 	{
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"60"		// 13
+		"ArmorPhysical"				"130"		// 13
 		"MagicalResistance"			"50"		// 40
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"480"			// Damage range min.
-		"AttackDamageMax"			"520"			// Damage range max.
+		"AttackDamageMin"			"1500"			// Damage range min.
+		"AttackDamageMax"			"2000"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.8"			// Speed of attack.
 		// "AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
@@ -850,8 +850,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"24000"			// 4500
-		"StatusHealthRegen"			"20"			// 12
+		"StatusHealth"				"250000"			// 4500
+		"StatusHealthRegen"			"200"			// 12
 	}
 	//=================================================================================
 	// 泉水
@@ -859,17 +859,17 @@
 	"dota_fountain"
 	{
 		// Abilities
-		"Ability2"					"tower_headshot"			// none
+		// "Ability2"					"tower_headshot"			// none
 		"Ability3"					"tower_ursa_fury_swipes"
 		"Ability4"					"tower_antimage_mana_break"
 
 		"Ability6"					"fountain_hp_aura"
 
-		"AttackDamageMin"			"390"		// 290
-		"AttackDamageMax"			"410"		// 310
+		"AttackDamageMin"			"2000"		// 290
+		"AttackDamageMax"			"2500"		// 310
 		"AttackRate"				"0.04"		// 0.15
 		"AttackAcquisitionRange"	"1400"		// 1200
-		"AttackRange"				"1400"		// 1200
+		"AttackRange"				"1600"		// 1200
 		"ProjectileSpeed"			"2100"		// 1400
 	}
 

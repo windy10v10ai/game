@@ -687,15 +687,15 @@
 
 			"AbilityValues"
 			{
-					"bonus_attack_speed"	"40"
-					"bonus_armor"			"20"
+					"bonus_attack_speed"	"60"
+					"bonus_armor"			"40"
 					"mana_regen_aura"		"6"
 					"damage_aura"			"20"
 					"vampiric_aura"			"25"
 					"aura_radius"			"900"
-					"aura_positive_armor"	"10"
+					"aura_positive_armor"	"20"
 					"aura_attack_speed"		"60"
-					"aura_negative_armor"	"-10"
+					"aura_negative_armor"	"-20"
 			}
 
 			"Modifiers"
@@ -5553,11 +5553,11 @@
 		"SuggestLategame"				"1"
 		"AbilityValues"
 		{
-				"bonus_strength"		"200"	//10
-				"bonus_agility"			"520"	//26
-				"bonus_intellect"		"200"	//10
+				"bonus_strength"		"150"	//10
+				"bonus_agility"			"400"	//26
+				"bonus_intellect"		"150"	//10
 				"bonus_attack_speed"	"100"	//15
-				"bonus_movement_speed"	"100"	//10
+				"bonus_movement_speed"	"80"	//10
 				"images_count"			"0"		//2 移除幻象
 				"illusion_duration"			"0"	//18
 				"images_do_damage_percent_melee"	"-67"//-67
@@ -5666,7 +5666,7 @@
 					"value"		"500"
 					"affected_by_aoe_increase"	"1"
 				}
-				"max_duration"		"2.0"			//2
+				"max_duration"		"1.5"			//2
 				"impact_damage_buildings"	"120"	//90
 				"impact_damage_units"		"400"	//130
 				"enemy_particles_visible"		"0"
@@ -6110,7 +6110,7 @@
 			"aura_radius"			"1200"
 			"aura_attack_speed"		"120"
 			"aura_positive_armor"	"20"
-			"aura_negative_armor"	"-40"
+			"aura_negative_armor"	"-30"
 		}
 	}
 
@@ -6124,7 +6124,7 @@
 		"ItemResult"					"item_assault_3"
 		"ItemRequirements"
 		{
-			"01"						"item_assault_2;item_assault"
+			"01"						"item_assault_2;item_assault_2"
 		}
 	}
 
