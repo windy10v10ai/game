@@ -858,10 +858,6 @@
 
 		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_3"
 
-		"precache"
-		{
-		}
-
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -874,7 +870,11 @@
 				"value" "800"
 				"special_bonus_unique_miku_302" "+200"
 			}
-			"radius"						"300"
+			"radius"
+			{
+				"value"						"300"
+				"affected_by_aoe_increase"	"1"
+			}
 			"range_knockback"				"300"
 			"speed"							"1600"
 			"damage"						"120 180 240 300 380"
@@ -927,9 +927,9 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 
-	    // Ability Casting
-	    //-------------------------------------------------------------------------------------------------------------
-	    "AbilityCastRange"				"600"
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"%dance_radius"
 		"AbilityCastPoint"				"0.3"
 		"AbilityChannelTime"			"120"
 		"AbilityCastAnimation"  		"ACT_DOTA_CHANNEL_ABILITY_4"
@@ -946,14 +946,70 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"attack_interval"		"2"
-				"dance_radius"			"600"
-				"ability_duration"		"120"
-				"dance_damage"			"450"
-				"stun_duration"			"1.0"
-				"damage_reduction"		"-80"
+			"attack_interval"		"2"
+			"dance_radius"
+			{
+				"value"						"600"
+				"affected_by_aoe_increase"	"1"
+			}
+			"ability_duration"		"120"
+			"dance_damage"			"450"
+			"stun_duration"			"1.0"
+			"damage_reduction"		"-80"
 		}
 	}
+	// A杖技能
+	"get_down"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_miku/get_down"
+		"AbilityTextureName"			"hatsune_6"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"3"
+		"LevelsBetweenUpgrades"			"99"
+		"HasScepterUpgrade"				"1"
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"%dance_radius"
+		"AbilityCastPoint"				"0"
+		"AbilityChannelTime"			"33"
+		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_5"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"200 300 400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"attack_interval"		"0.9 0.7 0.5"
+			"dance_radius"
+			{
+				"value"						"600"
+				"affected_by_aoe_increase"	"1"
+			}
+			"ability_duration"		"33"
+			"dance_damage"			"200 300 400"
+		}
+		"precache"
+		{
+			"particle"					"particles/naga_siren_song_aura1.vpcf"
+			"particle"					"particles/get_down_calne.vpcf"
+			"particle"					"particles/get_down.vpcf"
+		}
+	}
+
 	"chibi_monster"
 	{
 		"BaseClass"								"ability_lua"
@@ -1051,59 +1107,6 @@
 			"particle"	"particles/chibi_hit_calne.vpcf"
 			"particle"	"particles/chibi_hit.vpcf"
 			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_dragon_tail_dragonform_proj.vpcf"
-		}
-	}
-	"get_down"
-	{
-		// Ability Technical Aspect
-		// base script folder	: scripts/vscripts
-		// base texture folder	: resource/flash3/images/spellicons
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_miku/get_down"
-		"AbilityTextureName"			"hatsune_6"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"3"
-		"LevelsBetweenUpgrades"			"99"
-		"HasScepterUpgrade"				"1"
-		"precache"
-		{
-			"particle"	"particles/naga_siren_song_aura1.vpcf"
-			"particle"	"particles/get_down_calne.vpcf"
-			"particle"	"particles/get_down.vpcf"
-		}
-
-		// Ability General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-
-		// Ability Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"550"
-		"AbilityCastPoint"				"0"
-		"AbilityChannelTime"			"33"
-		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_5"
-
-		// Ability Resource
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60"
-		"AbilityManaCost"				"200 300 400"
-
-		// Damage
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"attack_interval"		"0.9 0.7 0.5"
-				"dance_radius"			"600"
-				"ability_duration"		"33"
-				"dance_damage"			"200 300 400"
 		}
 	}
 
