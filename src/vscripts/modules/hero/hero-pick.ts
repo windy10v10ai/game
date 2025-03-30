@@ -115,7 +115,7 @@ export class HeroPick {
     'npc_dota_hero_lion',
     'npc_dota_hero_luna',
     'npc_dota_hero_medusa',
-    // "npc_dota_hero_meepo",
+    'npc_dota_hero_meepo',
     'npc_dota_hero_necrolyte',
     'npc_dota_hero_nevermore',
     'npc_dota_hero_ogre_magi',

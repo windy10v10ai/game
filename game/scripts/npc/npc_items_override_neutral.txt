@@ -53,15 +53,6 @@
 			"bonus_all_stats"			"0"		//7
 		}
 	}
-	//坚毅之件
-	"item_unwavering_condition"
-	{
-		"AbilityValues"
-		{
-			"max_health"			"9000"		//1500
-			"magic_resist"			"95"		//95
-		}
-	}
 	//丛林靴
 	"item_woodland_striders"
 	{
@@ -314,7 +305,6 @@
 		}
 	}
 
-	//别有他用
 	//秘术师铠甲
 	"item_force_field"
 	{
@@ -332,7 +322,7 @@
 	//可靠铁铲
 	"item_trusty_shovel"
 	{
-		"AbilityCooldown"				"30.0"	//60
+		"AbilityCooldown"				"20.0"	//60
 
 		// chance_bounty_rune + chance_other_item * 3 = 100
 		"AbilityValues"
@@ -365,21 +355,20 @@
 	//魔力药水
 	"item_mana_draught"
 	{
-		"AbilityCooldown"				"20"	//40
-		"AbilityCastRange"				"1200"	//650，0=无限
+		"AbilityCooldown"				"30"	//60
+		"AbilityCastRange"				"1200"	//650
 		"AbilityValues"
 		{
 			"mana_restore"				"180"	//60
-			"mana_restore_pct"			"4"		//2
+			"mana_restore_pct"			"3"		//2
 			"heal_duration"				"4"		//6
-			"water_acceleration"		"100"	//30
+			"water_acceleration"		"50"	//30
 		}
 	}
 	//蝌蚪护符
 	"item_polliwog_charm"
 	{
 		"AbilityCooldown"				"25"	//45
-		"AbilityManaCost"				"40"	//40
 		"AbilityCastRange"				"1600"	//1000
 		"AbilityValues"
 		{
@@ -406,7 +395,7 @@
 		"AbilityValues"
 		{
 			"thorn_area"				"400"	//200
-			"bonus_damage_hero"			"36"	//12
+			"bonus_damage_hero"			"48"	//16
 			"bonus_damage_creep"		"12"	//4
 			"duration"					"8"		//10
 		}
@@ -417,12 +406,12 @@
 		"AbilityCooldown"				"10.0"	//20
 		"AbilityValues"
 		{
-			"bonus_attack_speed"			"0" //0
-			"quelling_range_tooltip"		"350" //350
-			"cast_range_ward"				"450" //450
-			"creep_damage_pct"				"80" //80
-			"bonus_armor"					"0" //0
-			"alternative_cooldown"			"2" //4
+			"bonus_attack_speed"			"0"		//0
+			"quelling_range_tooltip"		"350"	//350
+			"cast_range_ward"				"450"	//450
+			"creep_damage_pct"				"60"	//80
+			"bonus_armor"					"0"		//0
+			"alternative_cooldown"			"2"		//4
 		}
 	}
 	//安全泡泡
@@ -431,7 +420,7 @@
 		"AbilityValues"
 		{
 			"shield"	"500"			//100
-			"restore_time"			"4"	//8
+			"restore_time"			"6"	//8
 		}
 	}
 	//追击矛
@@ -472,10 +461,9 @@
 	{
 		"AbilityValues"
 		{
-			"damage_threshold"			"120"		//40
-			"burn_damage"				"250"		//75
-			"burn_duration"				"2.5"		//5
-			"burn_tickrate"				".25"		//.25
+			"damage_threshold"			"100"		//40
+			"burn_damage"				"200"		//72
+			"burn_duration"				"3"			//6
 		}
 	}
 	//飞贼之刃
@@ -484,7 +472,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"6"				//3
-			"missing_hp"			"2"				//5
+			"missing_hp"			"3"				//5
 		}
 	}
 	//杂技玩具
@@ -504,9 +492,9 @@
 		"AbilityValues"
 		{
 			"armor_reduction"		"6"		// 2
-			"slow_melee"			"25"	// 10
-			"slow_range"			"12"	// 5
-			"duration"				"4"		// 5
+			"slow_melee"			"20"	// 8
+			"slow_range"			"10"	// 4
+			"duration"				"4"		// 3
 		}
 	}
 	//蜂王浆
@@ -562,9 +550,9 @@
 		"AbilityValues"
 		{
 			"max_slow_res"				"100"	//100
-			"hero_reduction"			"5"		//20
-			"status_res_pct_increase_per_hero"	"15"	//10
-			"hero_check_radius"			"600"	//300
+			"hero_reduction"			"6"		//20
+			"status_res_pct_increase_per_hero"	"10"	//10
+			"hero_check_radius"			"600"	//600
 		}
 	}
 	//海盗帽
@@ -574,8 +562,6 @@
 		{
 			"gold_steal_base"			"200"	//150
 			"gold_steal_kill"			"250"	//150
-			"gold_steal_range"			"1800"	//1200
-			"gold_loss_reduction"		"100"	//100
 		}
 	}
 	//决斗家手套
@@ -824,7 +810,7 @@
 	//智灭
 	"item_mind_breaker"
 	{
-		"AbilityCooldown"		"4.0"				//12
+		"AbilityCooldown"		"6.0"				//16
 		"AbilityValues"
 		{
 				"duration"		"3.0"				//2
@@ -840,11 +826,11 @@
 	"item_crippling_crossbow"
 	{
 		"AbilityCooldown"				"6"			//12
-		"AbilityManaCost"				"150"		//75
+		"AbilityManaCost"				"150"		//50
 		"AbilityCastRange"				"1200"		//600
 		"AbilityValues"
 		{
-			"slow_pct"					"100"		//80
+			"slow_pct"					"90"		//80
 			"heal_reduce"				"80"		//40
 			"duration"					"6"			//4
 			"damage"					"300"		//75
@@ -1017,28 +1003,8 @@
 		{
 			"attack_range_bonus"		"0"		//250
 			"knockback_distance"		"10"	//50
-			"knockback_duration"		"0.2"	//0.2
-			"bonus_damage"				"80"	//50
-		}
-	}
-	//弩炮·改
-	"item_ballista_dmg"
-	{
-		"BaseClass"						"item_ballista"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"ItemCost"						"0"
-		"ItemIsNeutralActiveDrop"				"1"
-		"ItemPurchasable"				"0"
-		"ItemSellable"					"0"
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
-		"AbilityTextureName"			"item_ballista_dark"
-		"AbilityValues"
-		{
-				"attack_range_bonus"		"0"
-				"knockback_distance"			"0"
-				"knockback_duration"		"0.0"
-				"bonus_damage"			"250"
+			"knockback_duration"		"0.1"	//0.2
+			"bonus_damage"				"250"	//50
 		}
 	}
 	//巨人之戒
@@ -1086,7 +1052,7 @@
 	{
 		"AbilityValues"
 		{
-			"debuff_self"	"10"			//8
+			"debuff_self"	"10"			//6
 			"debuff_enemy"	"30"			//12
 		}
 	}
