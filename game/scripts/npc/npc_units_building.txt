@@ -769,8 +769,8 @@
 	//=========================================================
 	"npc_dota_goodguys_tower4"
 	{
-		"AttackDamageMin"			"240" 		// 170
-		"AttackDamageMax"			"260" 		// 174
+		"AttackDamageMin"			"500" 		// 170
+		"AttackDamageMax"			"550" 		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"AttackAcquisitionRange"	"800"		// 700
 		"AttackRange"				"800"		// 700
@@ -779,13 +779,13 @@
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"60"		// 21
 		"MagicalResistance"			"40"		// 30
-		"StatusHealth"				"10000"		// 2600
+		"StatusHealth"				"50000"		// 2600
 		"StatusHealthRegen"			"10"		// 0
 	}
 	"npc_dota_badguys_tower4"
 	{
-		"AttackDamageMin"			"240" 		// 170
-		"AttackDamageMax"			"260" 		// 174
+		"AttackDamageMin"			"500" 		// 170
+		"AttackDamageMax"			"550" 		// 174
 		"AttackRate"				"0.9"		// 0.9
 		"AttackAcquisitionRange"	"800"		// 700
 		"AttackRange"				"800"		// 700
@@ -794,7 +794,7 @@
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"60"		// 21
 		"MagicalResistance"			"40"		// 30
-		"StatusHealth"				"10000"		// 2600
+		"StatusHealth"				"50000"		// 2600
 		"StatusHealthRegen"			"10"		// 0
 	}
 	//=================================================================================
@@ -810,8 +810,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"1500"			// Damage range min.
-		"AttackDamageMax"			"2000"			// Damage range max.
+		"AttackDamageMin"			"1000"			// Damage range min.
+		"AttackDamageMax"			"1200"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.8"			// Speed of attack.
 		// "AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
@@ -822,7 +822,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"250000"			// 4500
+		"StatusHealth"				"200000"			// 4500
 		"StatusHealthRegen"			"200"			// 12
 	}
 	//=================================================================================
@@ -838,8 +838,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"1500"			// Damage range min.
-		"AttackDamageMax"			"2000"			// Damage range max.
+		"AttackDamageMin"			"1000"			// Damage range min.
+		"AttackDamageMax"			"1200"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.8"			// Speed of attack.
 		// "AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
@@ -850,7 +850,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"250000"			// 4500
+		"StatusHealth"				"200000"			// 4500
 		"StatusHealthRegen"			"200"			// 12
 	}
 	//=================================================================================
@@ -865,8 +865,8 @@
 
 		"Ability6"					"fountain_hp_aura"
 
-		"AttackDamageMin"			"2000"		// 290
-		"AttackDamageMax"			"2500"		// 310
+		"AttackDamageMin"			"1500"		// 290
+		"AttackDamageMax"			"1600"		// 310
 		"AttackRate"				"0.04"		// 0.15
 		"AttackAcquisitionRange"	"1400"		// 1200
 		"AttackRange"				"1600"		// 1200
