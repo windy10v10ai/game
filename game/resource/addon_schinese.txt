@@ -1052,7 +1052,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_miku_301"		"-{s:bonus_AbilityCooldown}s 初音飞踢 冷却时间"
 		"DOTA_Tooltip_ability_special_bonus_unique_miku_302"		"+{s:bonus_AbilityCastRange} 初音飞踢 施法距离"
 
-			// 八云紫
+		// 八云紫
 		"npc_dota_hero_phantom_lancer"	"八云紫"
 		"DOTA_Tooltip_ability_special_bonus_unique_yukari_01_damage"	"+{s:bonus_damage} 空饵「狂躁高速飞行物体」伤害"
 		"DOTA_Tooltip_ability_special_bonus_unique_yukari_01_stun"		"+{s:bonus_stun_duration}s 空饵「狂躁高速飞行物体」眩晕时间"
