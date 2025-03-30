@@ -365,21 +365,20 @@
 	//魔力药水
 	"item_mana_draught"
 	{
-		"AbilityCooldown"				"20"	//40
+		"AbilityCooldown"				"30"	//60
 		"AbilityCastRange"				"1200"	//650，0=无限
 		"AbilityValues"
 		{
 			"mana_restore"				"180"	//60
-			"mana_restore_pct"			"4"		//2
+			"mana_restore_pct"			"3"		//2
 			"heal_duration"				"4"		//6
-			"water_acceleration"		"100"	//30
+			"water_acceleration"		"50"	//30
 		}
 	}
 	//蝌蚪护符
 	"item_polliwog_charm"
 	{
 		"AbilityCooldown"				"25"	//45
-		"AbilityManaCost"				"40"	//40
 		"AbilityCastRange"				"1600"	//1000
 		"AbilityValues"
 		{
@@ -406,7 +405,7 @@
 		"AbilityValues"
 		{
 			"thorn_area"				"400"	//200
-			"bonus_damage_hero"			"36"	//12
+			"bonus_damage_hero"			"48"	//16
 			"bonus_damage_creep"		"12"	//4
 			"duration"					"8"		//10
 		}
@@ -417,12 +416,12 @@
 		"AbilityCooldown"				"10.0"	//20
 		"AbilityValues"
 		{
-			"bonus_attack_speed"			"0" //0
-			"quelling_range_tooltip"		"350" //350
-			"cast_range_ward"				"450" //450
-			"creep_damage_pct"				"80" //80
-			"bonus_armor"					"0" //0
-			"alternative_cooldown"			"2" //4
+			"bonus_attack_speed"			"0"		//0
+			"quelling_range_tooltip"		"350"	//350
+			"cast_range_ward"				"450"	//450
+			"creep_damage_pct"				"60"	//80
+			"bonus_armor"					"0"		//0
+			"alternative_cooldown"			"2"		//4
 		}
 	}
 	//安全泡泡
@@ -504,9 +503,9 @@
 		"AbilityValues"
 		{
 			"armor_reduction"		"6"		// 2
-			"slow_melee"			"25"	// 10
-			"slow_range"			"12"	// 5
-			"duration"				"4"		// 5
+			"slow_melee"			"20"	// 8
+			"slow_range"			"10"	// 4
+			"duration"				"4"		// 3
 		}
 	}
 	//蜂王浆
@@ -1017,28 +1016,8 @@
 		{
 			"attack_range_bonus"		"0"		//250
 			"knockback_distance"		"10"	//50
-			"knockback_duration"		"0.2"	//0.2
-			"bonus_damage"				"80"	//50
-		}
-	}
-	//弩炮·改
-	"item_ballista_dmg"
-	{
-		"BaseClass"						"item_ballista"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"ItemCost"						"0"
-		"ItemIsNeutralActiveDrop"				"1"
-		"ItemPurchasable"				"0"
-		"ItemSellable"					"0"
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
-		"AbilityTextureName"			"item_ballista_dark"
-		"AbilityValues"
-		{
-				"attack_range_bonus"		"0"
-				"knockback_distance"			"0"
-				"knockback_duration"		"0.0"
-				"bonus_damage"			"250"
+			"knockback_duration"		"0.1"	//0.2
+			"bonus_damage"				"250"	//50
 		}
 	}
 	//巨人之戒

@@ -2345,11 +2345,5 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"If this mana is not used before the duration ends, the extra mana is lost."
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
-
-		//弩炮·改
-		"DOTA_Tooltip_Ability_item_ballista_dmg"		"Ballista Mk II"
-		"DOTA_Tooltip_Ability_item_ballista_dmg_Description"			"<h1>Passive: No Knockback</h1>The improved version has lost its knockback ability, but can deal higher %bonus_damage% pure damage."
-		"DOTA_Tooltip_Ability_item_ballista_dmg_Lore"					"The great 76 brought back the dark ballista."
-		"DOTA_Tooltip_Ability_item_ballista_dmg_attack_range_bonus"		"+$attack_range"
 	}
 }
