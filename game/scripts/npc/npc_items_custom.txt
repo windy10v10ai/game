@@ -5161,7 +5161,7 @@
 		"BaseClass"						"item_recipe_bloodthorn"
 		"ID"							"9611"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"150"
+		"ItemCost"						"0"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bloodthorn_ultra"
 		"AbilityTextureName"			"item_recipe_bloodthorn_ultra"
