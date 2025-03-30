@@ -1038,7 +1038,7 @@
 		"DOTA_Tooltip_ability_chibi_monster_hp"						"BONUS HEALTH:"
 		"DOTA_Tooltip_ability_chibi_monster_fixed_duration"			"DURATION:"
 
-		"DOTA_Tooltip_modifier_chibi_monster"						"Chibi Miku!!!"
+		"DOTA_Tooltip_modifier_chibi_monster"						"Chibi Miku"
 		"DOTA_Tooltip_modifier_chibi_monster_description"			"Transformed into a chibi version of yourself! Gaining %dMODIFIER_PROPERTY_HEALTH_BONUS% bonus health, %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility, and %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage. Some of your abilities have also been improved."
 
 		"DOTA_Tooltip_ability_chibi_hit"							"CHIBI STRIKE"

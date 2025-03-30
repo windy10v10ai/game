@@ -1042,6 +1042,9 @@
 		"DOTA_Tooltip_ability_chibi_monster_hp"						"获得血量:"
 		"DOTA_Tooltip_ability_chibi_monster_fixed_duration"			"持续时间:"
 
+		"DOTA_Tooltip_modifier_chibi_monster"						"Q版初音未来"
+		"DOTA_Tooltip_modifier_chibi_monster_description"			"变身成Q版初音未来！获得%dMODIFIER_PROPERTY_HEALTH_BONUS%点生命值，%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%点敏捷，以及%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点攻击力。部分技能也得到了增强。"
+
 		"DOTA_Tooltip_ability_chibi_hit"							"葱击"
 		"DOTA_Tooltip_ability_chibi_hit_Description"				"对目标敌人造成毁灭性打击，对他们造成巨大伤害，并且击晕。"
 		"DOTA_Tooltip_ability_chibi_hit_AbilityDamage"				"伤害:"
