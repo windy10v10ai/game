@@ -479,7 +479,7 @@
 		"AbilityTextureName"			"item_bloodstone_v2"
 		"AbilityValues"
 		{
-			"bonus_aoe"				"100"	// 75
+			"bonus_aoe"				"120"	// 75
 			"bonus_health"			"1200"	// 450
 			"bonus_mana"			"1200"	// 450
 			"bonus_mp_regen"		"6"		// 3

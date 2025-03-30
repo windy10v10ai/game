@@ -1028,7 +1028,7 @@
 	"item_recipe_revenants_brooch_ultra"
 	{
 		"BaseClass"						"item_recipe_revenants_brooch"
-		"ItemCost"						"2000"
+		"ItemCost"						"1400"
 		"ItemRecipe"					"1"
 		"AbilityTextureName"			"item_recipe_revenants_brooch_ultra"
 		"ItemResult"					"item_revenants_brooch_ultra"
