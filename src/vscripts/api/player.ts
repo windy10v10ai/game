@@ -184,6 +184,20 @@ export class Player {
     return false;
   }
 
+  public static GetMemberLevel(steamId: number) {
+    const member = Player.memberList.find((m) => m.steamId === steamId);
+    // 如果会员不存在，则返回0
+    if (!member) {
+      return 0;
+    }
+    // 如果会员失效，则返回0
+    if (!member.enable) {
+      return 0;
+    }
+    // 如果会员有效，则返回会员等级
+    return member.level;
+  }
+
   public static GetSeasonLevel(steamId: number) {
     const player = Player.playerList.find((p) => p.id === steamId.toString());
     if (player) {

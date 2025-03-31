@@ -928,13 +928,29 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"100"
 				}
 			}
-			// 会员BUFF
-			"modifier_global_member"
+			// 普通会员BUFF
+			"modifier_global_member_normal"
 			{
 				"Passive"				"1"
 				"IsHidden"				"0"
 				"RemoveOnDeath"			"0"
-				"TextureName"			"member"
+				"TextureName"			"member_normal"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"10"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"5"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"300"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"200"
+				}
+			}
+			// 高级会员BUFF
+			"modifier_global_member_premium"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"RemoveOnDeath"			"0"
+				"TextureName"			"member_premium"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
 				{
