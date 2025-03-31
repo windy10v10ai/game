@@ -7490,7 +7490,7 @@
 				}
 				"attack_spill_width"
 				{
-					"value"		"30"
+					"value"		"45"
 					"affected_by_aoe_increase"	"1"
 				}
 				"attack_spill_pct"			"70 75 80 85 90"

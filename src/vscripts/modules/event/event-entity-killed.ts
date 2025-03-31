@@ -80,6 +80,7 @@ export class EventEntityKilled {
   // 神器碎片
   private itemLightPartName = 'item_light_part';
   private itemDarkPartName = 'item_dark_part';
+  private itemFoolPartName = 'item_black_king_bar_fool';
 
   private dropItemChanceRoshanArtifactPart = 100;
 
@@ -119,9 +120,11 @@ export class EventEntityKilled {
           if (isDaytime) {
             // 白天掉落圣光组件
             this.dropItem(creep, [this.itemLightPartName], this.dropItemChanceRoshanArtifactPart);
+            this.dropItem(creep, [this.itemFoolPartName], this.dropItemChanceRoshanArtifactPart);
           } else {
             // 夜晚掉落暗影组件
             this.dropItem(creep, [this.itemDarkPartName], this.dropItemChanceRoshanArtifactPart);
+            this.dropItem(creep, [this.itemFoolPartName], this.dropItemChanceRoshanArtifactPart);
           }
         }
       } else {
