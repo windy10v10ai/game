@@ -193,11 +193,11 @@
 		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button"		"Thank you for your membership!<br/>Member Benefits:<br/>Respawn time is reduced to 5 seconds.<br/>Buyback cooldown is reduced to 2 minutes.<br/>You may reroll the bonus starting abitites and items once.<br/>Gain 100 membership points for playing every day.<br/> Membership is valid until {expireDate}."
+		"player_member_button_normal"		"Thank you for your support! You are <font color='#FFCC66'>Normal Member</font><br/>Normal Member Benefits:<br/>Respawn time is reduced to 5 seconds.<br/>Buyback cooldown is reduced to 2 minutes.<br/>You can reroll both active and passive abilities once at the start of the game.<br/>Gain 100 membership points for playing every day.<br/> Membership is valid until {expireDate}."
+		"player_member_button_premium"		"Thank you for your support! You are <font color='#FFCC66'>Premium Member</font><br/>Premium Member Benefits:<br/>Respawn time is reduced to 5 seconds.<br/>Buyback cooldown is reduced to 2 minutes.<br/>You can reroll both active and passive abilities once at the start of the game.<br/><font color='#FFCC66'>Ability draft is upgraded to 1 out of 6 choices, with an increased chance of higher-tier abilities appearing.</font><br/>Gain 100 membership points for playing every day.<br/> Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired as of {expireDate}. Click this button to renew."
-		"player_member_ship"			"Click to enable your membership."
-		"player_member_ship_url"		"https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
-		"player_member_null"			"Membership information failed to load. Please reload the game."
+		"player_member_ship"				"Click to enable your membership."
+		"player_member_null"				"Membership information failed to load. Please reload the game."
 
 		///////////////////////////////////////////////////
 		//
@@ -460,7 +460,7 @@
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
-		
+
 		//侧翼机炮
 		"DOTA_Tooltip_ability_side_gunner2"        				"side_gunner2"
 		"DOTA_Tooltip_ability_side_gunner2_Description"        	"Attack the nearest target within 700 range every %cool_down% seconds"
@@ -484,7 +484,7 @@
 		//时间漫游
 		"DOTA_Tooltip_ability_faceless_void_time_walk2"									"Time Walk"
 		"DOTA_Tooltip_ability_faceless_void_time_walk2_Description"						"Rushes to a target location while backtracking any damage taken the last 2 seconds."
-		
+
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
 		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend %air_duration% seconds in the air, and are stunned while in the air and an additional amount of time after landing."
