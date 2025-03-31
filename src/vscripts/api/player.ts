@@ -3,8 +3,8 @@ import { PropertyController } from '../modules/property/property_controller';
 import { ApiClient, HttpMethod } from './api-client';
 
 export enum MemberLevel {
-  NORMAL = 'normal',
-  PREMIUM = 'premium',
+  NORMAL = 1,
+  PREMIUM = 2,
 }
 export class MemberDto {
   steamId!: number;

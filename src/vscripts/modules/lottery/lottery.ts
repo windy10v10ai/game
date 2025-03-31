@@ -1,3 +1,4 @@
+import { MemberLevel } from '../../api/player';
 import { reloadable } from '../../utils/tstl-utils';
 import { NetTableHelper } from '../helper/net-table-helper';
 import { PlayerHelper } from '../helper/player-helper';
@@ -78,9 +79,8 @@ export class Lottery {
       executedNames,
     );
 
-    // TODO: 检查是否是高级会员，如果是则添加额外技能
     const member = NetTableHelper.GetMember(steamAccountID);
-    if (member.enable) {
+    if (member.enable && member.level >= MemberLevel.PREMIUM) {
       const extraAbilities = LotteryHelper.getRandomAbilities(
         abilityTiers,
         this.randomCountExtra,
