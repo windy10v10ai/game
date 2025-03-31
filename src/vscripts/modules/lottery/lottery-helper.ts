@@ -6,7 +6,7 @@ export class LotteryHelper {
   private static readonly BASE_TIER_RATES = [1, 5, 20, 60, 100];
 
   // 高级会员概率设置（5-1级）
-  private static readonly PREMIUM_TIER_RATES = [1, 10, 30, 60, 100];
+  private static readonly PREMIUM_TIER_RATES = [5, 20, 60, 100, 100];
 
   private static getRandomTier(tiers: Tier[]): Tier {
     const random = RandomInt(1, 100);
@@ -23,7 +23,6 @@ export class LotteryHelper {
 
   private static getRandomHighTier(tiers: Tier[]): Tier {
     const random = RandomInt(1, 100);
-
     // 根据概率选择等级
     for (let i = 0; i < this.PREMIUM_TIER_RATES.length; i++) {
       if (random <= this.PREMIUM_TIER_RATES[i]) {
@@ -36,7 +35,6 @@ export class LotteryHelper {
 
   private static getRandomLotteryDto(tiers: Tier[], isHighTier: boolean = false): LotteryDto {
     const tier = isHighTier ? this.getRandomHighTier(tiers) : this.getRandomTier(tiers);
-    print(`tier: ${tier.level}`);
     const name = tier.names[Math.floor(Math.random() * tier.names.length)];
     const level = tier.level;
     return { name, level };
