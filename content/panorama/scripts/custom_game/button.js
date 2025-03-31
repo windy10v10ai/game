@@ -83,18 +83,19 @@ function LoadMemberButton(member) {
       $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl());
     });
 
-    let sString = $.Localize('#player_member_button');
+    let sString = $.Localize('#player_member_button_normal');
     if (member.enable) {
+      if (member.level === 1) {
+        sString = $.Localize('#player_member_button_normal');
+      } else {
+        sString = $.Localize('#player_member_button_premium');
+      }
       hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown.png')`;
     } else {
       sString = $.Localize('#player_member_button_expire');
       hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown_grey.png')`;
 
       hMemberButton.style.backgroundSize = '100% 100%';
-
-      hMemberButton.SetPanelEvent('onmouseover', () => {
-        $.DispatchEvent('DOTAShowTextTooltip', hMemberButton, sString);
-      });
 
       hMemberButton.SetPanelEvent('onmouseout', () => {
         $.DispatchEvent('DOTAHideTextTooltip');
