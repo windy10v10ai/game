@@ -2,10 +2,15 @@ import { PlayerHelper } from '../modules/helper/player-helper';
 import { PropertyController } from '../modules/property/property_controller';
 import { ApiClient, HttpMethod } from './api-client';
 
+export enum MemberLevel {
+  NORMAL = 'normal',
+  PREMIUM = 'premium',
+}
 export class MemberDto {
   steamId!: number;
   enable!: boolean;
   expireDateString!: string;
+  level!: MemberLevel;
 }
 
 export class PlayerProperty {
