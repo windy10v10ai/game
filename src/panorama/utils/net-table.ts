@@ -37,6 +37,7 @@ function TransMemberData(data: NetworkedData<MemberDto>): MemberDto {
     steamId: data.steamId,
     enable: Boolean(data.enable),
     expireDateString: data.expireDateString,
+    level: data.level,
   };
 }
 export function GetMember(steamAccountID: string): MemberDto | null {

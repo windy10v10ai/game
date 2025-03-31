@@ -23,7 +23,15 @@ export function ConvertSteamIdTo32Bit(steamId64: string): string {
 }
 
 export function GetOpenMemberUrl(): string {
-  return $.Localize('#player_member_ship_url') + GetLocalPlayerSteamAccountID();
+  // const urlNormal =
+  //   'https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark=';
+  const urlPremium =
+    'https://afdian.com/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=';
+  return urlPremium + GetLocalPlayerSteamAccountID();
+  // const member = GetMember(GetLocalPlayerSteamAccountID());
+  // if (member && member.level === 2) {
+  // }
+  // return urlNormal + GetLocalPlayerSteamAccountID();
 }
 
 /**

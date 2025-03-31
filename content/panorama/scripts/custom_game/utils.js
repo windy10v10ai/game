@@ -129,7 +129,16 @@ function SubscribePlayer(callbackFunction) {
 }
 
 function GetOpenMemberUrl() {
-  return $.Localize('#player_member_ship_url') + GetSteamAccountID();
+  // const urlNormal =
+  //   'https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark=';
+  // const member = GetMember();
+  // // if member level is 2 return premium url
+  // if (member && member.level === 2) {
+  // }
+  // return urlNormal + GetSteamAccountID();
+  const urlPremium =
+    'https://afdian.com/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=';
+  return urlPremium + GetSteamAccountID();
 }
 
 var useChineseDateFormat = $.Language() === 'schinese' || $.Language() === 'tchinese';
