@@ -1,5 +1,3 @@
-import { GetMember } from './net-table';
-
 /**
  * 获取当前玩家的 Steam 账号 ID
  * @returns Steam 账号 ID
@@ -25,15 +23,15 @@ export function ConvertSteamIdTo32Bit(steamId64: string): string {
 }
 
 export function GetOpenMemberUrl(): string {
-  const urlNormal =
-    'https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark=';
+  // const urlNormal =
+  //   'https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark=';
   const urlPremium =
     'https://afdian.com/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=';
-  const member = GetMember(GetLocalPlayerSteamAccountID());
-  if (member && member.level === 2) {
-    return urlPremium + GetLocalPlayerSteamAccountID();
-  }
-  return urlNormal + GetLocalPlayerSteamAccountID();
+  return urlPremium + GetLocalPlayerSteamAccountID();
+  // const member = GetMember(GetLocalPlayerSteamAccountID());
+  // if (member && member.level === 2) {
+  // }
+  // return urlNormal + GetLocalPlayerSteamAccountID();
 }
 
 /**
