@@ -2184,6 +2184,11 @@
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"				"+$armor"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"		"+$health"
 
+		// 力量法则碎片
+		"DOTA_Tooltip_Ability_item_imp_claw"				"力量法则碎片"
+		"DOTA_Tooltip_ability_item_imp_claw_Description"	"<h1>被动：归海一刀</h1>使下一次攻击必定暴击，造成%crit_multiplier%%%伤害。"
+		"DOTA_Tooltip_ability_item_imp_claw_Lore"			"游龙当归海，海不迎我自来也。"
+
 		// 力量跳2
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2"                            "泰森闪光"
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Description"			    "<h1>主动：泰森闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后，%radius%范围内所有敌人受到%damage_base% + %damage_pct_instant%%%力量值的瞬时伤害，并且额外持续受到总计为%damage_pct_over_time%%%力量值的伤害，被减缓%movement_slow%%%移动速度，降低%attack_slow%攻击速度，持续%duration%秒。<br><br>受到来自敌方英雄或肉山的攻击时，盛势闪光将在%blink_damage_cooldown%秒内无法使用。"

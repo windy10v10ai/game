@@ -639,10 +639,11 @@
 	//魔童之爪 暴击爪
 	"item_imp_claw"
 	{
-		"AbilityCooldown"				"1.0" //4
+		"AbilityCooldown"				"60.0" //4
+		"AbilityTextureName"			"item_power"
 		"AbilityValues"
 		{
-				"crit_multiplier"			"160"	// 130
+				"crit_multiplier"			"7600"	// 130
 		}
 	}
 	//林野长弓
