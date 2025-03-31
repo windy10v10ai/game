@@ -193,10 +193,10 @@
 		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button"			"感谢您的支持！<br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的技能和物品可刷新一次<br/> - 每日登陆获得100会员积分<br/> 会员有效期：{expireDate}"
+		"player_member_button_normal"			"感谢您的支持！您现在是 <font color='#FFCC66'>普通会员</font><br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的主动/被动技能各可刷新一次<br/> - 每日登陆获得100会员积分<br/> 会员有效期：{expireDate}"
+		"player_member_button_premium"			"感谢您的支持！您现在是 <font color='#FFCC66'>高级会员</font><br/>高级会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的主动/被动技能各可刷新一次<br/> - 每日登陆获得100会员积分<br/><font color='#FFCC66'> - 开局技能升级为 6选1，并提升高级技能出现概率</font><br/> 会员有效期：{expireDate}"
 		"player_member_button_expire"	"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 		"player_member_ship"			"点击开通会员"
-		"player_member_ship_url"		"https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
 		"player_member_null"			"会员信息获取失败，请重新加载游戏。"
 
 		///////////////////////////////////////////////////
@@ -308,8 +308,10 @@
 		"DOTA_Tooltip_modifier_global_newbie_Description"			"- 勇士等级 5 级以内获得新手保护<br/>- 额外获得 +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲"
 		"DOTA_Tooltip_modifier_global_newbie_2"						"<font color='#87CEEB'>新手保护 ★</font>"
 		"DOTA_Tooltip_modifier_global_newbie_2_Description"			"- 勇士等级 8 级以内获得半新手保护<br/>- 额外获得 +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲"
-		"DOTA_Tooltip_modifier_global_member"						"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
-		"DOTA_Tooltip_modifier_global_member_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/>"
+		"DOTA_Tooltip_modifier_global_member_normal"						"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
+		"DOTA_Tooltip_modifier_global_member_normal_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的主动/被动技能各可刷新一次<br/> - 每日登陆获得100会员积分<br/>"
+		"DOTA_Tooltip_modifier_global_member_premium"						"<font color='#FFCC66'>★ 高级会员BUFF ★</font>"
+		"DOTA_Tooltip_modifier_global_member_premium_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的主动/被动技能各可刷新一次<br/> - 每日登陆获得100会员积分<br/><font color='#FFCC66'> - 开局技能升级为 6选1，并提升高级技能出现概率</font><br/>"
 		// 定制BUFF
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
@@ -460,7 +462,7 @@
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
-		
+
 		//血魔 血雾
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"血雾"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"血魔将自己的鲜血撒向一片区域，伤害自身的同时对敌人造成伤害"
@@ -484,7 +486,7 @@
 		//侧翼机炮2
 		"DOTA_Tooltip_ability_side_gunner2"        				"侧翼机炮2"
 		"DOTA_Tooltip_ability_side_gunner2_Description"        	"每%cool_down%秒对700码内最近的目标进行1次攻击"
-		
+
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "长角抛物"
 		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "马格纳斯顶起前方的敌人，将其甩在身后。敌人受到伤害，滞空%air_duration%秒并处于眩晕状态，而且落地后还会眩晕一段时间。"
