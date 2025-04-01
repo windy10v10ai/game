@@ -1110,7 +1110,7 @@
 		"BaseClass"						"item_black_king_bar"
 		"AbilityTextureName"			"item_black_king_bar_ultra"
 		"AbilitySharedCooldown"			"bkb"
-		"AbilityCooldown"				"0.1"
+		"AbilityCooldown"				"1"	// 和持续时间一致
 		"ItemCost"						"4100"
 		"AbilityManaCost"				"300"
 		"ItemPurchasable"				"0"
