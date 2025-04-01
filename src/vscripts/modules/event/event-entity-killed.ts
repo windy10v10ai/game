@@ -80,6 +80,7 @@ export class EventEntityKilled {
   // 神器碎片
   private itemLightPartName = 'item_light_part';
   private itemDarkPartName = 'item_dark_part';
+  private itemFoolPartName = 'item_black_king_bar_fool';
 
   private dropItemChanceRoshanArtifactPart = 100;
 
@@ -123,6 +124,8 @@ export class EventEntityKilled {
             // 夜晚掉落暗影组件
             this.dropItem(creep, [this.itemDarkPartName], this.dropItemChanceRoshanArtifactPart);
           }
+          // 愚人节活动
+          this.dropItem(creep, [this.itemFoolPartName], this.dropItemChanceRoshanArtifactPart);
         }
       } else {
         print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);

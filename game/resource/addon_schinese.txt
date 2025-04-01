@@ -2184,6 +2184,11 @@
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"				"+$armor"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"		"+$health"
 
+		// 力量法则碎片
+		"DOTA_Tooltip_Ability_item_imp_claw"				"力量法则碎片"
+		"DOTA_Tooltip_ability_item_imp_claw_Description"	"<h1>被动：归海一刀</h1>使下一次攻击必定暴击，造成%crit_multiplier%%%伤害。"
+		"DOTA_Tooltip_ability_item_imp_claw_Lore"			"游龙当归海，海不迎我自来也。"
+
 		// 力量跳2
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2"                            "泰森闪光"
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Description"			    "<h1>主动：泰森闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后，%radius%范围内所有敌人受到%damage_base% + %damage_pct_instant%%%力量值的瞬时伤害，并且额外持续受到总计为%damage_pct_over_time%%%力量值的伤害，被减缓%movement_slow%%%移动速度，降低%attack_slow%攻击速度，持续%duration%秒。<br><br>受到来自敌方英雄或肉山的攻击时，盛势闪光将在%blink_damage_cooldown%秒内无法使用。"
@@ -2376,5 +2381,30 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"如果在持续时间结束时没有使用，额外的魔法将会消失。"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
+
+		// FIXME 无法释放待修正
+		// 逆转时空（选技用）
+		"DOTA_Tooltip_Facet_faceless_void_time_zone_new"								"逆转时空·改"
+		"DOTA_Tooltip_Facet_faceless_void_time_zone_new_Description"					"虚空假面可以施放<b color='white'>逆转时空</b>，大幅降低区域内敌人的速度，并且使友军加速。"
+
+		"DOTA_Tooltip_ability_faceless_void_time_zone_new"								"逆转时空·改"
+		"DOTA_Tooltip_ability_faceless_void_time_zone_new_Description"					"在时空中创造一个遮罩，改变其中所有单位的移动、攻击、施法、弹道和转身速度。友军的速度提升，冷却加快。敌人的速度降低，技能和物品的冷却全部冻结。时间膨胀的负面状态持续时间在逆转时空内不会变少。"
+		"DOTA_Tooltip_ability_faceless_void_time_zone_new_radius"						"作用范围："
+		"DOTA_Tooltip_ability_faceless_void_time_zone_new_bonus_attack_speed"			"攻击速度操控："
+		"DOTA_Tooltip_ability_faceless_void_time_zone_new_bonus_move_speed"				"%移动速度操控："
+		"DOTA_Tooltip_ability_faceless_void_time_zone_new_bonus_cast_speed"				"%施法速度操控："
+		"DOTA_Tooltip_ability_faceless_void_time_zone_new_bonus_turn_speed"				"%转身速度操控："
+		"DOTA_Tooltip_ability_faceless_void_time_zone_new_bonus_projectile_speed"		"%弹道速度操控："
+		"DOTA_Tooltip_ability_faceless_void_time_zone_new_duration"						"持续时间："
+		"DOTA_Tooltip_ability_faceless_void_time_zone_new_cooldown_acceleration"		"%冷却速度加快："
+
+		// item_black_king_bar_fool 愚人节黑皇
+		"DOTA_Tooltip_Ability_item_black_king_bar_fool"				"<font color='#FF4500'>黑皇杖（愚人节特供）</font>"
+		"DOTA_Tooltip_ability_item_black_king_bar_fool_Description"					"<h1>主动：爱</h1>获得减益免疫状态。提供%magic_resist%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。<br><br>持续时间：%duration%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		"DOTA_Tooltip_ability_item_black_king_bar_fool_Lore"						"一秒也是爱，别管其他的"
+		"DOTA_Tooltip_ability_item_black_king_bar_fool_Note0"						"小伙子看看你的魔抗"
+		"DOTA_Tooltip_ability_item_black_king_bar_fool_Note1"						"小伙子看看你的蓝量"
+		"DOTA_Tooltip_ability_item_black_king_bar_fool_bonus_strength"				"+$str"
+		"DOTA_Tooltip_ability_item_black_king_bar_fool_bonus_damage"					"+$damage"
 	}
 }
