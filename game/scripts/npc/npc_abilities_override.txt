@@ -11687,7 +11687,7 @@
 			}
 			"scepter_reduction_pct"
 			{
-				"value"		"10"						// 15 防止多次叠加 最大血量变负数
+				"special_bonus_scepter"		"10"		// 13 防止多次叠加 最大血量变负数
 			}
 		}
 	}
