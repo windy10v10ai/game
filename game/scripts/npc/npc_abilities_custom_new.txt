@@ -1,5 +1,62 @@
 "DOTAAbilities"
 {
+	// FIXME 无法释放待修正
+	// 逆转时空（选技用）
+	"faceless_void_time_zone_new"
+	{
+		"BaseClass"						"faceless_void_time_zone"
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.35 0.35 0.35 0.35"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"125 200 275 350"
+		"AbilityModifierSupportBonus"		"50"
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"1400"
+				"affected_by_aoe_increase"	"1"
+				"special_bonus_unique_faceless_void_2" "+400"
+			}
+			"duration"
+			{
+				"value"			"3.75 4.25 4.75 5.25"
+			}
+			"vision_radius"
+			{
+				"value"	"1350"
+				"affected_by_aoe_increase"	"1"
+			}
+			"bonus_attack_speed"
+			{
+				"value"									"120"
+				"special_bonus_unique_faceless_void"	"+180"
+			}
+			"bonus_move_speed"
+			{
+				"value" "50 55 60 65"
+			}
+			"bonus_cast_speed"
+			{
+				"value" "50 55 60 65"
+			}
+			"bonus_turn_speed"
+			{
+				"value" "50 55 60 65"
+			}
+			"bonus_projectile_speed"
+			{
+				"value" "50 55 60 65"
+			}
+			"yaw"				"45"
+			"cooldown_acceleration"
+			{
+				"value"				"300"
+			}
+		}
+	}
 	//飞机 侧翼机炮2
 	"side_gunner2"
 	{
@@ -8,7 +65,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"    		"gyrocopter_skyhigh_flak_cannon"
 		"MaxLevel"						"5"
-		
+
 		"AbilityValues"
 		{
 			"cool_down"   "1.2 1.1 1 0.9 0.8"
@@ -22,7 +79,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityTextureName"    		"faceless_void_time_walk"
 		"MaxLevel"						"5"
-		
+
 		"AbilityCooldown"				"14 12 10 8 6"
 		"AbilityCastRange"				"650 700 750 800 900"
 		"AbilityCastPoint"				"0.3"
@@ -36,10 +93,10 @@
 		"IsOnCastBar"					"1"
 		"AbilityTextureName"    		"drow_ranger_trueshot"
 		"MaxLevel"						"5"
-		
+
 		"AbilityValues"
 		{
-			"radius"						
+			"radius"
 			{
 				"value"			"1200"
 				"affected_by_aoe_increase"	"1"
@@ -52,7 +109,7 @@
 				"dynamic_value"						"true"
 			}
 		}
-		
+
 	}
 	//酒仙 醉拳
 	"brewmaster_drunken_boxing"
@@ -62,10 +119,10 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityTextureName"    		"brewmaster_drunken_brawler_crit"
 		"MaxLevel"						"5"
-		
+
 		"AbilityCooldown"			"22"
 		"AbilityManaCost"			"80"
-		
+
 		"AbilityValues"
 		{
 			"miss"		"15 20 25 30 35"
@@ -82,15 +139,15 @@
 		"AbilityTextureName"    			"bloodseeker_blood_mist"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"					"450"
-		
+
 		"precache"
 		{
 			"particle"					"particles/units/heroes/hero_bloodseeker/bloodseeker_scepter_blood_mist_aoe.vpcf"
 		}
-		
+
 		"AbilityType"						"DOTA_ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"							"5"
-		
+
 		"AbilityValues"
 		{
 			"damage"					"3 4 5 6 7"
@@ -319,7 +376,7 @@
 
 		"AbilityValues"
 		{
-			"gold_steal"					"4 8 12 16 20"
+			"gold_steal"					"2 4 6 8 10"
 		}
 	}
 
