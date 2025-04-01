@@ -23,15 +23,17 @@ export function ConvertSteamIdTo32Bit(steamId64: string): string {
 }
 
 export function GetOpenMemberUrl(): string {
-  // const urlNormal =
+  // const afdianUrlNormal =
   //   'https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark=';
-  const urlPremium =
+
+  const afdianUrlPremium =
     'https://afdian.com/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=';
-  return urlPremium + GetLocalPlayerSteamAccountID();
-  // const member = GetMember(GetLocalPlayerSteamAccountID());
-  // if (member && member.level === 2) {
-  // }
-  // return urlNormal + GetLocalPlayerSteamAccountID();
+  const kofiUrl = 'https://ko-fi.com/post/Membership-Z8Z01CDJLU';
+  if ($.Language() === 'schinese' || $.Language() === 'tchinese') {
+    return afdianUrlPremium + GetLocalPlayerSteamAccountID();
+  } else {
+    return kofiUrl;
+  }
 }
 
 /**
