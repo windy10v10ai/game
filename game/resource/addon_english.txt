@@ -125,7 +125,7 @@
 		"data_panel_member_level_tooltip"		"Level up using Member Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>50</font> for each level up."
 		"data_panel_level_progress"		"Level Progress"
 		"data_panel_link_rule"			"Points and Attribute Rule"
-		"data_panel_member_point_rule_url"		"https://afdian.com/p/8d1e8ac8682711ed984b52540025c377"
+		"data_panel_member_point_rule_url"		"https://ko-fi.com/post/Points-and-Attribute-Rules-S6S01CTP83"
 
 		"reset_property_use_season_point"		"Reset Attribute Points for {seasonPoint} Battle Points"
 		"reset_property_use_member_point"		"Reset Attribute Points for 1000 Member Points"
