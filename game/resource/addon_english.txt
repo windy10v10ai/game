@@ -2181,6 +2181,11 @@
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"				"+$armor"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"		"+$health"
 
+		// 力量法则碎片
+		"DOTA_Tooltip_Ability_item_imp_claw"				"Power Law Fragment"
+		"DOTA_Tooltip_ability_item_imp_claw_Description"	"<h1>Passive: Return to the Sea</h1>The next attack will critically strike for %crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_imp_claw_Lore"			"The dragon's scales are as vast as the sea."
+
 		// 力量跳2
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2"                            "Tyson's Flash"
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Description"			    "<h1>Active: Tyson's Flash</h1>Teleport to a target point up to %blink_range% units away.<br><br>After teleportation, all enemies in a %radius% AoE take damage equal to %damage_base% + %damage_pct_instant%%% of your strength and an additional %damage_pct_over_time%%% over time, and have %movement_slow%%% movement speed slow and %attack_slow% attack speed slow for %duration% seconds. <br><br>Overwhelming Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
@@ -2371,5 +2376,13 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"If this mana is not used before the duration ends, the extra mana is lost."
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
+
+		// item_black_king_bar_fool 愚人节黑皇
+		"DOTA_Tooltip_Ability_item_black_king_bar_fool"				"<font color='#FF4500'>Black King Bar（Fool's Day）</font>"
+		"DOTA_Tooltip_ability_item_black_king_bar_fool_Description"					"<h1>Active: Fool's Love</h1> Applies a basic dispel. Grants -%magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect. <br><br>Duration: %duration% <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_black_king_bar_fool_Note0"						"look at your migic resistance dude"
+		"DOTA_Tooltip_ability_item_black_king_bar_fool_Note1"						"then look at your mana"
+		"DOTA_Tooltip_ability_item_black_king_bar_fool_bonus_strength"				"+$str"
+		"DOTA_Tooltip_ability_item_black_king_bar_fool_bonus_damage"				"+$damage"
 	}
 }
