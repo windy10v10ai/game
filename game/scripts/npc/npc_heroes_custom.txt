@@ -916,10 +916,6 @@
 			}
 		}
 	}
-	"npc_dota_hero_faceless_void"
-	{
-		"Ability8"		"faceless_void_time_zone_new"
-	}
 	"npc_dota_hero_dazzle"
 	{
 		"Ability5"		"dazzle_good_juju"
