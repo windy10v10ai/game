@@ -2382,12 +2382,13 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
 
-		// FIXME 无法释放待修正
+		// 逆转时空（英雄身上）改名
+		"DOTA_Tooltip_ability_faceless_void_time_zone"								"逆转时空·改"
 		// 逆转时空（选技用）
-		"DOTA_Tooltip_Facet_faceless_void_time_zone_new"								"逆转时空·改"
+		"DOTA_Tooltip_Facet_faceless_void_time_zone_new"								"逆转时空"
 		"DOTA_Tooltip_Facet_faceless_void_time_zone_new_Description"					"虚空假面可以施放<b color='white'>逆转时空</b>，大幅降低区域内敌人的速度，并且使友军加速。"
 
-		"DOTA_Tooltip_ability_faceless_void_time_zone_new"								"逆转时空·改"
+		"DOTA_Tooltip_ability_faceless_void_time_zone_new"								"逆转时空"
 		"DOTA_Tooltip_ability_faceless_void_time_zone_new_Description"					"在时空中创造一个遮罩，改变其中所有单位的移动、攻击、施法、弹道和转身速度。友军的速度提升，冷却加快。敌人的速度降低，技能和物品的冷却全部冻结。时间膨胀的负面状态持续时间在逆转时空内不会变少。"
 		"DOTA_Tooltip_ability_faceless_void_time_zone_new_radius"						"作用范围："
 		"DOTA_Tooltip_ability_faceless_void_time_zone_new_bonus_attack_speed"			"攻击速度操控："
@@ -2397,14 +2398,5 @@
 		"DOTA_Tooltip_ability_faceless_void_time_zone_new_bonus_projectile_speed"		"%弹道速度操控："
 		"DOTA_Tooltip_ability_faceless_void_time_zone_new_duration"						"持续时间："
 		"DOTA_Tooltip_ability_faceless_void_time_zone_new_cooldown_acceleration"		"%冷却速度加快："
-
-		// item_black_king_bar_fool 愚人节黑皇
-		"DOTA_Tooltip_Ability_item_black_king_bar_fool"				"<font color='#FF4500'>黑皇杖（愚人节特供）</font>"
-		"DOTA_Tooltip_ability_item_black_king_bar_fool_Description"					"<h1>主动：爱</h1>获得减益免疫状态。提供%magic_resist%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。<br><br>持续时间：%duration%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
-		"DOTA_Tooltip_ability_item_black_king_bar_fool_Lore"						"一秒也是爱，别管其他的"
-		"DOTA_Tooltip_ability_item_black_king_bar_fool_Note0"						"小伙子看看你的魔抗"
-		"DOTA_Tooltip_ability_item_black_king_bar_fool_Note1"						"小伙子看看你的蓝量"
-		"DOTA_Tooltip_ability_item_black_king_bar_fool_bonus_strength"				"+$str"
-		"DOTA_Tooltip_ability_item_black_king_bar_fool_bonus_damage"					"+$damage"
 	}
 }
