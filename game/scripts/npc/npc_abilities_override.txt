@@ -5292,13 +5292,13 @@
 				}
 		}
 	}
-	// 逆转时空（命石2）
+	// 逆转时空（命石2 老版）
 	"faceless_void_time_zone"
 	{
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"1400"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCooldown"				"120"
+		"AbilityCooldown"				"90"
 		"AbilityManaCost"				"125 200 275 350"
 		"AbilityModifierSupportBonus"		"50"
 		"AbilityValues"
@@ -5311,7 +5311,7 @@
 			}
 			"duration"
 			{
-				"value"			"3.75 4.25 4.75 5.25"
+				"value"			"4 6 8 10"
 			}
 			"vision_radius"
 			{
@@ -5342,7 +5342,7 @@
 			"yaw"				"45"
 			"cooldown_acceleration"
 			{
-				"value"				"300"
+				"value"				"100"
 			}
 		}
 	}
