@@ -5353,18 +5353,26 @@
 	"gyrocopter_rocket_barrage"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"7 6.5 6 5.5 5"
+		"AbilityCooldown"				"5.5"
 		"AbilityValues"
 		{
+			"rockets_per_second"		"20"
+			"rocket_interval"			"0.05"
+			"barrage_duration"			"1.5" //总伤害不变，防止无限叠移速
 			"rocket_damage"
 			{
 				"value"				"12 24 36 48 60"	// 8 14 20 26
 				"special_bonus_unique_gyrocopter_3"		"+20"
 			}
+			"bonus_movespeed_duration"
+			{
+				"value"		"0"
+				"special_bonus_facet_gyrocopter_afterburner"			"=1.5"	//防止无限叠移速
+			}
 			"bonus_movement_speed_per_hit"
 			{
 				"value"			"0 0 0 0 0"
-				"special_bonus_facet_gyrocopter_afterburner"			"=1 =2 =3 =4 =5"
+				"special_bonus_facet_gyrocopter_afterburner"			"=3 =6 =9 =12 =15"
 			}
 		}
 	}
@@ -5412,7 +5420,7 @@
 			"AbilityCooldown"
 			{
 				"value"									"26 24 22 20 18"
-				"special_bonus_unique_gyrocopter_1"		"-5"
+				"special_bonus_unique_gyrocopter_1"		"-6"
 			}
 			"max_attacks"
 			{
@@ -5421,7 +5429,7 @@
 			}
 			"sidegunner_fire_rate"
 			{
-				"value"								"1.3 1.25 1.2 1.15 1.1"
+				"value"								"1.3 1.2 1.1 1.0 0.9"
 				"RequiresScepter"					"1"
 			}
 		}
@@ -5431,6 +5439,7 @@
 	{
 		"MaxLevel" "4"
 		"AbilityManaCost"				"150 200 250 300"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
@@ -8423,11 +8432,25 @@
 			"application_damage"	"10 20 30 40 50"	// x2
 		}
 	}
+	// 先天闷烧树脂
+	"batrider_smoldering_resin"
+	{
+		"AbilityValues"
+		{
+			"total_ticks"
+			{
+				"value"		"4" //持续ticks*tickrate秒 原2*1
+				"special_bonus_unique_batrider_smoldering_resin_ticks"	"+8" //20级右边天赋
+			}
+			"tick_rate"				"0.5" //1
+			"tick_attack_damage_pct"		"30" //20
+		}
+
+	}
 	// 燃烧弹
 	"batrider_flamebreak"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"21 19 17 15 13"
 		"AbilityManaCost"				"110 115 120 125 130"
 		"AbilityValues"
 		{
@@ -8443,6 +8466,16 @@
 			"damage_duration"
 			{
 				"value"		"2 3 4 5 6"
+			}
+			"napalm_stacks"
+			{
+				"value"				"1"
+				"special_bonus_unique_batrider_2"	"+3"
+			}
+			"AbilityCooldown"
+			{
+				"value"	 "22 19 16 13 10"
+				"special_bonus_unique_batrider_5"	"-6"
 			}
 			"slow"	"15 20 25 30 35"
 		}
@@ -8467,7 +8500,7 @@
 		"AbilityManaCost"				"150 175 200 225"
 		"AbilityValues"
 		{
-			"duration"				"2.25 2.75 3.25 3.75"
+			"duration"				"2.75 3.25 3.75 4.25"
 			"damage"
 			{
 				"value"			"200 350 500 650"
@@ -11886,44 +11919,44 @@
 			"stun_delay"				"0.5"
 			"number_of_golems_scepter"
 			{
-				"value"	"2"
+				"value"	"1"
 				"RequiresScepter"		"1"
 			}
 			"golem_hp_scepter"
 			{
-				"value"			"1500 3000 4500 6000"
+				"value"			"3000 6000 9000 12000"
 				"RequiresScepter"		"1"
 			}
 			"golem_dmg_scepter"
 			{
-				"value"				"100 150 200 250"
+				"value"				"200 300 400 500"
 				"RequiresScepter"		"1"
 			}
 			"golem_gold_bounty_scepter"
 			{
-				"value"					"100 150 200 250"
+				"value"					"200 300 400 500"
 				"RequiresScepter"		"1"
 			}
 			"bonus_magic_resistance"
 			{
 				"value"			"0"
-				"special_bonus_unique_warlock_1"		"+90"		// 80
+				"special_bonus_unique_warlock_1"		"+80"		// 80
 			}
 			"bonus_armor"
 			{
 				"value"			"0"
-				"special_bonus_unique_warlock_2"		"+75"		// 20
+				"special_bonus_unique_warlock_2"		"+60"		// 20
 			}
 			"tooltip_golem_armor"
 			{
 				"value"			"10 15 20 25"
-				"special_bonus_unique_warlock_2"		"+75"		// 20
+				"special_bonus_unique_warlock_2"		"+60"		// 20
 			}
 			"bonus_slow_resistance"			"80"
 			"tooltip_manahealthboost"
 			{
 				"value"			"0"
-				"special_bonus_facet_warlock_golem"			"+100"	// 90
+				"special_bonus_facet_warlock_golem"			"+90"	// 90
 			}
 		}
 	}
@@ -11935,11 +11968,11 @@
 		{
 			"damage"
 			{
-				"value" "40 50 60 70"
+				"value" "45 50 55 60"
 			}
 			"radius"
 			{
-				"value" "300 350 400 450"
+				"value" "300"
 				"affected_by_aoe_increase"	"1"
 			}
 		}
@@ -11952,15 +11985,15 @@
 		{
 			"aura_radius"
 			{
-				"value"		"450"
+				"value"		"300"
 				"affected_by_aoe_increase"	"1"
 			}
-			"aura_damage"				"30 50 70 90"
-			"tick_interval"				"0.25"	// 0.5
+			"aura_damage"				"30 40 50 60"
+			"tick_interval"				"0.5"	// 0.5
 			"manahealthboost"
 			{
 				"value"					"0"
-				"special_bonus_facet_warlock_golem" "+100"	// 90
+				"special_bonus_facet_warlock_golem" "+90"	// 90
 			}
 			"manaboost_scale_mult"		".05"	// .25 模型变大速度
 		}
