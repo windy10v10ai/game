@@ -2376,13 +2376,5 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"If this mana is not used before the duration ends, the extra mana is lost."
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
-
-		// item_black_king_bar_fool 愚人节黑皇
-		"DOTA_Tooltip_Ability_item_black_king_bar_fool"				"<font color='#FF4500'>Black King Bar（Fool's Day）</font>"
-		"DOTA_Tooltip_ability_item_black_king_bar_fool_Description"					"<h1>Active: Fool's Love</h1> Applies a basic dispel. Grants -%magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect. <br><br>Duration: %duration% <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
-		"DOTA_Tooltip_ability_item_black_king_bar_fool_Note0"						"look at your migic resistance dude"
-		"DOTA_Tooltip_ability_item_black_king_bar_fool_Note1"						"then look at your mana"
-		"DOTA_Tooltip_ability_item_black_king_bar_fool_bonus_strength"				"+$str"
-		"DOTA_Tooltip_ability_item_black_king_bar_fool_bonus_damage"				"+$damage"
 	}
 }
