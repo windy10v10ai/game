@@ -1100,31 +1100,4 @@
 			"dagon_spell_lifesteal"				"100"
 		}
 	}
-	// 愚人节bkb
-	"item_black_king_bar_fool"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"13035"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"BaseClass"						"item_black_king_bar"
-		"AbilityTextureName"			"item_black_king_bar_ultra"
-		"AbilitySharedCooldown"			"bkb"
-		"AbilityCooldown"				"1"	// 和持续时间一致
-		"ItemCost"						"4100"
-		"AbilityManaCost"				"300"
-		"ItemPurchasable"				"0"
-		"ItemSellable"					"0"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"AbilityValues"
-		{
-			"bonus_strength"		"41"
-			"bonus_damage"			"41"
-			"duration"				"1"
-			"max_level"				"1"
-			"model_scale"			"-80"     // Percentage over model scale
-			"magic_resist"			"-100"
-		}
-	}
 }
