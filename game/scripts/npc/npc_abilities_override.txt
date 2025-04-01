@@ -5342,7 +5342,7 @@
 			"yaw"				"45"
 			"cooldown_acceleration"
 			{
-				"value"				"100"
+				"value"				"150"
 			}
 		}
 	}
@@ -5356,9 +5356,9 @@
 		"AbilityCooldown"				"5.5"
 		"AbilityValues"
 		{
-			"rockets_per_second"		"20"
-			"rocket_interval"			"0.05"
-			"barrage_duration"			"1.5" //总伤害不变，防止无限叠移速
+			"rockets_per_second"		"20"			// 10
+			"rocket_interval"			"0.05"			// 0.1
+			"barrage_duration"			"1.5" 			// 3 总伤害不变，防止无限叠移速
 			"rocket_damage"
 			{
 				"value"				"12 24 36 48 60"	// 8 14 20 26
@@ -8439,11 +8439,11 @@
 		{
 			"total_ticks"
 			{
-				"value"		"4" //持续ticks*tickrate秒 原2*1
-				"special_bonus_unique_batrider_smoldering_resin_ticks"	"+8" //20级右边天赋
+				"value"		"4" // 2 持续ticks*tickrate秒 原2*1
+				"special_bonus_unique_batrider_smoldering_resin_ticks"	"+8" // +4 20级右边天赋
 			}
-			"tick_rate"				"0.5" //1
-			"tick_attack_damage_pct"		"30" //20
+			"tick_rate"				"0.5" 			//1
+			"tick_attack_damage_pct"		"30"	//20
 		}
 
 	}
@@ -8475,7 +8475,6 @@
 			"AbilityCooldown"
 			{
 				"value"	 "22 19 16 13 10"
-				"special_bonus_unique_batrider_5"	"-6"
 			}
 			"slow"	"15 20 25 30 35"
 		}
@@ -11970,11 +11969,6 @@
 			{
 				"value" "45 50 55 60"
 			}
-			"radius"
-			{
-				"value" "300"
-				"affected_by_aoe_increase"	"1"
-			}
 		}
 	}
 	// 永恒献祭
@@ -11983,19 +11977,14 @@
 		"Maxlevel"						"4"
 		"AbilityValues"
 		{
-			"aura_radius"
-			{
-				"value"		"300"
-				"affected_by_aoe_increase"	"1"
-			}
 			"aura_damage"				"30 40 50 60"
 			"tick_interval"				"0.5"	// 0.5
 			"manahealthboost"
 			{
 				"value"					"0"
-				"special_bonus_facet_warlock_golem" "+90"	// 90
+				"special_bonus_facet_warlock_golem" "+80"	// 90
 			}
-			"manaboost_scale_mult"		".05"	// .25 模型变大速度
+			"manaboost_scale_mult"		".02"	// .25 模型变大速度
 		}
 	}
 	//=================================================================================================================

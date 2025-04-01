@@ -12,8 +12,8 @@
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_FacelessVoid.Chronosphere"
 		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.35 0.35 0.35"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastPoint"				"0.35"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityCooldown"				"120"
 		"AbilityManaCost"				"125 200 275 350"
 		"AbilityModifierSupportBonus"		"50"
@@ -21,7 +21,7 @@
 		{
 			"radius"
 			{
-				"value"		"700"
+				"value"		"1000"
 				"affected_by_aoe_increase"	"1"
 				"special_bonus_unique_faceless_void_2" "+400"
 			}
@@ -31,7 +31,7 @@
 			}
 			"vision_radius"
 			{
-				"value"	"1350"
+				"value"	"1000"
 				"affected_by_aoe_increase"	"1"
 			}
 			"bonus_attack_speed"
