@@ -636,16 +636,6 @@
 				"bonus_attack_speed"		"30"	//15
 		}
 	}
-	//魔童之爪 暴击爪
-	"item_imp_claw"
-	{
-		"AbilityCooldown"				"60.0" //4
-		"AbilityTextureName"			"item_power"
-		"AbilityValues"
-		{
-				"crit_multiplier"			"7600"	// 130
-		}
-	}
 	//林野长弓
 	"item_grove_bow"
 	{
@@ -1055,6 +1045,16 @@
 		{
 			"debuff_self"	"10"			//6
 			"debuff_enemy"	"30"			//12
+		}
+	}
+	// 力量法则碎片 原 魔童之爪 暴击爪
+	"item_imp_claw"
+	{
+		"AbilityCooldown"				"60.0" //4
+		"AbilityTextureName"			"item_power"
+		"AbilityValues"
+		{
+				"crit_multiplier"			"7600"	// 130
 		}
 	}
 }

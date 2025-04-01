@@ -120,12 +120,12 @@ export class EventEntityKilled {
           if (isDaytime) {
             // 白天掉落圣光组件
             this.dropItem(creep, [this.itemLightPartName], this.dropItemChanceRoshanArtifactPart);
-            this.dropItem(creep, [this.itemFoolPartName], this.dropItemChanceRoshanArtifactPart);
           } else {
             // 夜晚掉落暗影组件
             this.dropItem(creep, [this.itemDarkPartName], this.dropItemChanceRoshanArtifactPart);
-            this.dropItem(creep, [this.itemFoolPartName], this.dropItemChanceRoshanArtifactPart);
           }
+          // 愚人节活动
+          this.dropItem(creep, [this.itemFoolPartName], this.dropItemChanceRoshanArtifactPart);
         }
       } else {
         print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);

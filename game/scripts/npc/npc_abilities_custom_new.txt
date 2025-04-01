@@ -1,5 +1,62 @@
 "DOTAAbilities"
 {
+	// FIXME 无法释放待修正
+	// 逆转时空（选技用）
+	"faceless_void_time_zone_new"
+	{
+		"BaseClass"						"faceless_void_time_zone"
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.35 0.35 0.35 0.35"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"125 200 275 350"
+		"AbilityModifierSupportBonus"		"50"
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"1400"
+				"affected_by_aoe_increase"	"1"
+				"special_bonus_unique_faceless_void_2" "+400"
+			}
+			"duration"
+			{
+				"value"			"3.75 4.25 4.75 5.25"
+			}
+			"vision_radius"
+			{
+				"value"	"1350"
+				"affected_by_aoe_increase"	"1"
+			}
+			"bonus_attack_speed"
+			{
+				"value"									"120"
+				"special_bonus_unique_faceless_void"	"+180"
+			}
+			"bonus_move_speed"
+			{
+				"value" "50 55 60 65"
+			}
+			"bonus_cast_speed"
+			{
+				"value" "50 55 60 65"
+			}
+			"bonus_turn_speed"
+			{
+				"value" "50 55 60 65"
+			}
+			"bonus_projectile_speed"
+			{
+				"value" "50 55 60 65"
+			}
+			"yaw"				"45"
+			"cooldown_acceleration"
+			{
+				"value"				"300"
+			}
+		}
+	}
 	//飞机 侧翼机炮2
 	"side_gunner2"
 	{

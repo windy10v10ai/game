@@ -2615,7 +2615,6 @@
 		"MaxLevel" "5"
 		"AbilityManaCost"				"80 95 110 125 140"
 		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0.0"
 		"AbilityValues"
 		{
 				"heal"
@@ -4859,7 +4858,7 @@
 				"damage_reduction_pct"
 				{
 					"value"										"0"
-					"special_bonus_unique_bounty_hunter_9"		"+40"
+					"special_bonus_unique_bounty_hunter_9"		"+40"	// 30
 				}
 		}
 	}
@@ -4872,19 +4871,18 @@
 	"bounty_hunter_track"
 	{
 		"MaxLevel" "4"
-		"AbilityCastPoint"				"0.3 0.2 0.1 0.0"
 		"AbilityCooldown"				"6 5 4 3"
 		"AbilityValues"
 		{
 				"target_damage_amp"	"8 12 16 20"
 				"bonus_gold_self"
 				{
-					"value"		"400 500 600 700"
+					"value"		"200 400 600 800"
 					"special_bonus_unique_bounty_hunter_3"	"+100"
 				}
 				"bonus_gold"
 				{
-					"value"		"200 300 400 500"
+					"value"		"100 200 300 400"
 					"special_bonus_unique_bounty_hunter_3"	"+100"
 				}
 				"gold_steal"			"0.3 0.4 0.5 0.6"
@@ -5235,7 +5233,6 @@
 	"faceless_void_time_dilation"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastPoint"				"0.0"
 		"MaxLevel" "5"
 		"AbilityCooldown"				"24 22 20 18 16"
 		"AbilityManaCost"				"60 70 80 90 100"
@@ -5278,7 +5275,7 @@
 	"faceless_void_chronosphere"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"120"
 		"AbilityManaCost"				"150 225 300 375"
 		"AbilityValues"
 		{
@@ -5295,68 +5292,11 @@
 				}
 		}
 	}
-	// 逆转时空（命石2 本体用老版）
+	// 逆转时空（命石2）
 	"faceless_void_time_zone"
 	{
-		"Maxlevel"						"4"
-		"AbilityCastRange"				"2000"
-		"AbilityCastPoint"				"0.3 0.2 0.1 0.0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCooldown"				"90"
-		"AbilityManaCost"				"125 200 275 350"
-		"AbilityModifierSupportBonus"		"50"
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"2000"
-				"affected_by_aoe_increase"	"1"
-				"special_bonus_unique_faceless_void_2" "+400"
-			}
-			"duration"
-			{
-				"value"			"5.5 7 8.5 10"
-			}
-			"vision_radius"
-			{
-				"value"	"1200"
-				"affected_by_aoe_increase"	"1"
-			}
-			"bonus_attack_speed"
-			{
-				"value"									"120"
-				"special_bonus_unique_faceless_void"	"+180"
-			}
-			"bonus_move_speed"
-			{
-				"value" "50 60 70 80"
-			}
-			"bonus_cast_speed"
-			{
-				"value" "50 60 70 80"
-			}
-			"bonus_turn_speed"
-			{
-				"value" "50 60 70 80"
-			}
-			"bonus_projectile_speed"
-			{
-				"value" "50 60 70 80"
-			}
-			"yaw"				"45"
-			"cooldown_acceleration"
-			{
-				"value"				"100"
-			}
-		}
-	}
-	// 逆转时空（选技用原版）
-	"faceless_void_time_zone_new"
-	{
-		"BaseClass"						"faceless_void_time_zone"
-		"Maxlevel"						"4"
-		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.35 0.35 0.35 0.35"
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"1400"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityCooldown"				"120"
 		"AbilityManaCost"				"125 200 275 350"
@@ -5365,7 +5305,7 @@
 		{
 			"radius"
 			{
-				"value"		"700"
+				"value"		"1400"	// 700
 				"affected_by_aoe_increase"	"1"
 				"special_bonus_unique_faceless_void_2" "+400"
 			}
@@ -5375,7 +5315,7 @@
 			}
 			"vision_radius"
 			{
-				"value"	"675"
+				"value"	"1350"	// 675
 				"affected_by_aoe_increase"	"1"
 			}
 			"bonus_attack_speed"
@@ -5385,24 +5325,24 @@
 			}
 			"bonus_move_speed"
 			{
-				"value" "50 55 60 65"
+				"value" "50 60 70 80"
 			}
 			"bonus_cast_speed"
 			{
-				"value" "50 55 60 65"
+				"value" "50 60 70 80"
 			}
 			"bonus_turn_speed"
 			{
-				"value" "50 55 60 65"
+				"value" "50 60 70 80"
 			}
 			"bonus_projectile_speed"
 			{
-				"value" "50 55 60 65"
+				"value" "50 60 70 80"
 			}
 			"yaw"				"45"
 			"cooldown_acceleration"
 			{
-				"value"				"400"
+				"value"				"300"
 			}
 		}
 	}
@@ -7490,7 +7430,7 @@
 				}
 				"attack_spill_width"
 				{
-					"value"		"45"
+					"value"		"60"	// 90
 					"affected_by_aoe_increase"	"1"
 				}
 				"attack_spill_pct"			"70 75 80 85 90"
@@ -7527,7 +7467,7 @@
 	"templar_assassin_trap_teleport"
 	{
 		"MaxLevel" "4"
-		"AbilityChannelTime"			"2.0 1.8 1.6 1.4 1.2"
+		"AbilityChannelTime"			"2.0 1.8 1.6 1.4"
 	}
 	//=================================================================================================================
 	// Ability: Terrorblade 恐怖利刃/TB
@@ -7576,8 +7516,8 @@
 			{
 				"value"				"55 65 75 85 95"
 			}
-			"illusion_incoming_damage"			"-75.0"
-			"illusion_incoming_damage_total_tooltip"			"25.0"
+			"illusion_incoming_damage"			"-50.0"
+			"illusion_incoming_damage_total_tooltip"			"50.0"
 		}
 	}
 	// 魔化
@@ -7590,7 +7530,7 @@
 			{
 				"value"				"35 40 45 50 55"
 			}
-			"base_attack_time"		"1.4"
+			"base_attack_time"		"1.4"					// 1.5
 			"bonus_range"			"300 400 500 550 600"
 			"tooltip_attack_range"			"450 550 650 700 750"
 			"bonus_damage"			"60 90 120 150 180"
@@ -7609,7 +7549,7 @@
 		"AbilityCastRange"				"900 1100 1300 1500"	// 475
 		"AbilityValues"
 		{
-			"hit_point_minimum_pct"		"30 50 70 90"
+				"hit_point_minimum_pct"		"35 30 25 20"
 		}
 	}
 	// 魂断冷却
@@ -7703,7 +7643,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"			"70"
+				"value"			"90 80 70 60"
 			}
 			"lifesteal"			"40 60 80 100"
 			"attack_speed"			"140 170 200 230"
@@ -7723,26 +7663,14 @@
 		"AbilityDamage"					"75 125 175 225 275"
 		"AbilityValues"
 		{
-			"shock_radius"
-			{
-				"value"		"385"
-				"affected_by_aoe_increase"	"1"
-				"special_bonus_unique_ursa_2"			"+400"
-			}
 			"movement_slow"				"-22 -28 -34 -40 -50"
-			"hop_distance"
-			{
-				"value"		"250"
-			}
-			"hop_duration"				"0.25"
-			"hop_height"				"83"
 			"shard_enrage_duration"
 			{
-				"special_bonus_shard"				"1.4"
+				"special_bonus_shard"				"1.2"		// 1.4
 			}
 			"fury_swipe_stacks_on_hit"
 			{
-				"special_bonus_unique_ursa_earthshock_furyswipes"			"+4"
+				"special_bonus_unique_ursa_earthshock_furyswipes"			"+4"	// +2
 			}
 			"AbilityCooldown"
 			{
@@ -7766,12 +7694,11 @@
 		"MaxLevel" "5"
 		"AbilityCooldown"				"12 11 10 9 8"
 		"AbilityManaCost"				"20 30 40 50 60"
-		"AbilityCastPoint"				"0.3 0.2 0.1 0.05 0.0"
 		"AbilityValues"
 		{
 				"max_attacks"
 				{
-					"value"			"4 5 6 7 8"
+					"value"			"3 5 7 9 11"
 					"special_bonus_unique_ursa_7" "+6"
 				}
 				"slow_resist"			"10 20 30 40 50"
@@ -7791,7 +7718,7 @@
 				"bonus_reset_time_roshan"		"20"
 				"damage_per_stack"
 				{
-					"value"					"15 25 35 50 65"
+					"value"					"13 21 29 37 45"
 					"special_bonus_unique_ursa" "+15"
 				}
 		}
@@ -7808,11 +7735,11 @@
 				"value"					"60 50 40 30"
 				"special_bonus_scepter"	"=30 =26 =22 =18"
 			}
-			"damage_reduction"			"30"
+			"damage_reduction"			"60"		// 80
 			"status_resistance"
 			{
-				"value"							"60"
-				"special_bonus_unique_ursa_8"			"+30"
+				"value"							"60"		// 50
+				"special_bonus_unique_ursa_8"			"+30" 		// +20
 			}
 			"duration"
 			{
@@ -7827,7 +7754,7 @@
 			"damage_increase_duration"
 			{
 				"value"									"0"
-				"special_bonus_facet_ursa_grudge_bearer"	"=0"	// 5
+				"special_bonus_facet_ursa_grudge_bearer"	"=1"	// 5
 			}
 		}
 	}
@@ -7837,7 +7764,7 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"debuff_amp"				"10 30 50 70 90"
+			"debuff_amp"				"14 18 22 26 30"	// 14 16 18 20
 		}
 	}
 	//=================================================================================================================
@@ -10420,7 +10347,7 @@
 			{
 				"value"										"9 10 11 12 13"
 			}
-			"mana_cost_percentage"							"40"	// 20
+			"mana_cost_percentage"							"30"	// 20
 		}
 	}
 	// 星体禁锢
@@ -10443,7 +10370,8 @@
 			}
 			"mana_capacity_steal"
 			{
-				"value"										"8 10 12 14 16"
+				"value"										"11 11 12 13 15"	// 16 19 22 25
+				"special_bonus_unique_outworld_devourer_2"	"+5"				// +8
 			}
 		}
 	}
@@ -10453,18 +10381,18 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"proc_chance"	"25"
+			"proc_chance"	"25"		// 30
 			"mana_restore"	"35 40 45 50 55"
 		}
 		"mana_increase"
 		{
 			"value"		"0"
-			"special_bonus_facet_obsidian_destroyer_obsidian_decimator"	"6"
+			"special_bonus_facet_obsidian_destroyer_obsidian_decimator"	"6"		// 5
 		}
 		"mana_increase_duration"
 		{
 			"value"		"0"
-			"special_bonus_facet_obsidian_destroyer_obsidian_decimator"	"15"
+			"special_bonus_facet_obsidian_destroyer_obsidian_decimator"	"15"	// 10
 		}
 	}
 	// 神智之蚀

@@ -1110,10 +1110,11 @@
 		"BaseClass"						"item_black_king_bar"
 		"AbilityTextureName"			"item_black_king_bar_ultra"
 		"AbilitySharedCooldown"			"bkb"
-		"AbilityCooldown"				"0"
+		"AbilityCooldown"				"0.1"
 		"ItemCost"						"4100"
 		"AbilityManaCost"				"300"
-		"ItemSellable"					"1"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"AbilityValues"
