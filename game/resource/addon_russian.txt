@@ -185,10 +185,11 @@
 		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button"			"Спасибо за поддержку!<br/>Приемущества подписки:<br/>Время возрождения снижено на 5 секунд<br/>Перезарядку выкупа уменьшена до 2 минут<br/>Изменение бонусных предметов и прособностей.<br/>100 Membership points каждый день.<br/>  Подписка действительна до {expireDate}."
+		"player_member_button_normal"			"Спасибо за поддержку!Теперь вы <font color='#FFCC66'>обычный участник</font><br/>Приемущества подписки:<br/>Время возрождения снижено на 5 секунд<br/>Перезарядку выкупа уменьшена до 2 минут<br/>Вы можете перебросить как активные, так и пассивные способности один раз в начале игры.<br/>100 Membership points каждый день.<br/>  Подписка действительна до {expireDate}."
+		"player_member_button_premium"			"Спасибо за поддержку!Теперь вы <font color='#FFCC66'>Премиум-участник</font><br/>Приемущества подписки:<br/>Время возрождения снижено на 5 секунд<br/>Перезарядку выкупа уменьшена до 2 минут<br/>Вы можете перебросить как активные, так и пассивные способности один раз в начале игры.<br/>100 Membership points каждый день.<br/><font color='#FFCC66'>Выбор способностей улучшен до 1 из 6 вариантов, при этом увеличивается вероятность появления способностей более высокого уровня.</font><br/>  Подписка действительна до {expireDate}."
+
 		"player_member_button_expire"	"Спасибо за поддержку!<br/>Ваша подписка истекла с {expireDate}. Нажмите эту кнопку, чтобы продлить подписку"
 		"player_member_ship"			"Нажмите, чтобы активации подписки"
-		"player_member_ship_url"		"https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
 		"player_member_null"			"Информация о подписке не получена. Пожалуйста, перезагрузите игру...ы"
 
 		///////////////////////////////////////////////////
@@ -296,6 +297,30 @@
 		// 					Abilities 英雄技能
 		//
 		///////////////////////////////////////////////////
+
+		//侧翼机炮
+		"DOTA_Tooltip_ability_side_gunner2"        				"side gunner 2"
+		"DOTA_Tooltip_ability_side_gunner2_Description"        	"Каждые %cool_down% секунды герой атакует случайную ближайшую цель в радиусе 700"
+		//血魔 血雾
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"blood mist"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Пока способность активна, герой разбрызгивает вокруг свою кровь, теряя здоровье, но нанося задетым врагам урон и замедляя их"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%Урон / потеря здоровья в секунду: "
+		//醉拳
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"Drunken Boxing"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss% %% шанс уклонения и нанести критический урон. После активации эффекта скорость передвижения увеличивается на 30%, а шанс уклонения и критической атаки утраивается"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%Критический урон: "
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"Длительность： "
+		//精准光环
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"Precision Aura"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"Даёт владельцу дополнительную ловкость, зависящую от его уровня и от текущего показателя ловкости. Герои дальнего боя неподалёку получают %trueshot_agi_bonus_allies_pct%%% от бонуса."
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Lore"								"Коротая своё одиночество в бесконечных тренировках, Траксекс научилась передавать толику своего мастерства любому лучнику."
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_base"				"%БАЗОВЫЙ БОНУС К ЛОВКОСТИ:"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%БОНУС К ЛОВКОСТИ ЗА УРОВЕНЬ:"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%СУММАРНЫЙ БОНУС К ЛОВКОСТИ:"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"РАДИУС:"
+		//时间漫游
+		"DOTA_Tooltip_ability_faceless_void_time_walk2"									"Time Walk"
+		"DOTA_Tooltip_ability_faceless_void_time_walk2_Description"						"Совершает рывок к указанной точке и восстанавливает здоровье, потерянное за последние 2 секунды."
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"

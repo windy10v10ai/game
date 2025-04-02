@@ -347,7 +347,7 @@ function DispatchDotaSurvivor() {
 function DispatchOMGAI() {
   const button = $('#OMGAIButton');
   button.SetPanelEvent('onactivate', () => {
-    $.DispatchEvent('DOTAShowCustomGamePage', 3443994455);
+    $.DispatchEvent('DOTAShowCustomGamePage', 2841790376);
   });
 }
 

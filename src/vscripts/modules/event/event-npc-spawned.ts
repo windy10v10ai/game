@@ -1,4 +1,4 @@
-import { Player } from '../../api/player';
+import { MemberLevel, Player } from '../../api/player';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { BotPower } from '../helper/bot-power';
 import { ModifierHelper } from '../helper/modifier-helper';
@@ -68,8 +68,11 @@ export class EventNpcSpawned {
     if (PlayerHelper.IsHumanPlayer(hero)) {
       // 设置会员
       const steamAccountId = PlayerResource.GetSteamAccountID(hero.GetPlayerID());
-      if (Player.IsMemberStatic(steamAccountId)) {
-        ModifierHelper.applyGlobalModifier(hero, 'modifier_global_member');
+      const memberLevel = Player.GetMemberLevel(steamAccountId);
+      if (memberLevel === MemberLevel.NORMAL) {
+        ModifierHelper.applyGlobalModifier(hero, 'modifier_global_member_normal');
+      } else if (memberLevel === MemberLevel.PREMIUM) {
+        ModifierHelper.applyGlobalModifier(hero, 'modifier_global_member_premium');
       }
       // 设置新手BUFF
       const playerSeasonLevel = Player.GetSeasonLevel(steamAccountId);

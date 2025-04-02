@@ -1,3 +1,4 @@
+import { MemberLevel } from '../../api/player';
 import { reloadable } from '../../utils/tstl-utils';
 import { NetTableHelper } from '../helper/net-table-helper';
 import { PlayerHelper } from '../helper/player-helper';
@@ -7,6 +8,7 @@ import { LotteryHelper } from './lottery-helper';
 @reloadable
 export class Lottery {
   readonly randomCountBase = 4;
+  readonly randomCountExtra = 2;
 
   constructor() {
     // 启动物品抽奖
@@ -76,6 +78,18 @@ export class Lottery {
       hero,
       executedNames,
     );
+
+    const member = NetTableHelper.GetMember(steamAccountID);
+    if (member.enable && member.level >= MemberLevel.PREMIUM) {
+      const extraAbilities = LotteryHelper.getRandomAbilities(
+        abilityTiers,
+        this.randomCountExtra,
+        hero,
+        executedNames,
+        true, // 使用高级别技能
+      );
+      abilityLotteryResults.push(...extraAbilities);
+    }
 
     CustomNetTables.SetTableValue(abilityTable, steamAccountID, abilityLotteryResults);
   }
