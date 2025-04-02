@@ -125,7 +125,7 @@
 		"data_panel_member_level_tooltip"		"Level up using Member Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>50</font> for each level up."
 		"data_panel_level_progress"		"Level Progress"
 		"data_panel_link_rule"			"Points and Attribute Rule"
-		"data_panel_member_point_rule_url"		"https://afdian.com/p/8d1e8ac8682711ed984b52540025c377"
+		"data_panel_member_point_rule_url"		"https://ko-fi.com/post/Points-and-Attribute-Rules-S6S01CTP83"
 
 		"reset_property_use_season_point"		"Reset Attribute Points for {seasonPoint} Battle Points"
 		"reset_property_use_member_point"		"Reset Attribute Points for 1000 Member Points"
@@ -193,11 +193,11 @@
 		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button"		"Thank you for your membership!<br/>Member Benefits:<br/>Respawn time is reduced to 5 seconds.<br/>Buyback cooldown is reduced to 2 minutes.<br/>You may reroll the bonus starting abitites and items once.<br/>Gain 100 membership points for playing every day.<br/> Membership is valid until {expireDate}."
+		"player_member_button_normal"		"Thank you for your support! You are <font color='#FFCC66'>Normal Member</font><br/>Normal Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 membership points for playing every day.<br/> Membership is valid until {expireDate}."
+		"player_member_button_premium"		"Thank you for your support! You are <font color='#FFCC66'>Premium Member</font><br/>Premium Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 membership points for playing every day.<br/><font color='#FFCC66'>- Ability draft is upgraded to 1 out of 6 choices, the 2 extra abilities have a higher chance of being high-tier.</font><br/> Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired as of {expireDate}. Click this button to renew."
-		"player_member_ship"			"Click to enable your membership."
-		"player_member_ship_url"		"https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark="
-		"player_member_null"			"Membership information failed to load. Please reload the game."
+		"player_member_ship"				"Click to enable your membership."
+		"player_member_null"				"Membership information failed to load. Please reload the game."
 
 		///////////////////////////////////////////////////
 		//
@@ -308,8 +308,10 @@
 		"DOTA_Tooltip_modifier_global_newbie_Description"		"- Battle level below 5 receive newbie protection<br/>- Additionally gain +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Resistance and +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% Armor."
 		"DOTA_Tooltip_modifier_global_newbie_2"					"<font color='#87CEEB'>Newbie Protection ★</font>"
 		"DOTA_Tooltip_modifier_global_newbie_2_Description"		"- Battle level below 8 receive half newbie protection<br/>- Additionally gain +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Resistance and +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% Armor."
-		"DOTA_Tooltip_modifier_global_member"					"<font color='#FFCC66'>★ Membership Buff! ★</font>"
-		"DOTA_Tooltip_modifier_global_member_Description"		"<font color='#FFCC66'>Thank you for your membership!</font><br>As a member, you gain the following bonuses:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>Respawn time reduced by 5 seconds.<br/>Buyback cooldown reduced to 2 minutes.<br/>"
+		"DOTA_Tooltip_modifier_global_member_normal"					"<font color='#FFCC66'>★ Membership Buff! ★</font>"
+		"DOTA_Tooltip_modifier_global_member_normal_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 membership points every day.<br/>"
+		"DOTA_Tooltip_modifier_global_member_premium"					"<font color='#FFCC66'>★ Premium Membership Buff! ★</font>"
+		"DOTA_Tooltip_modifier_global_member_premium_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 membership points every day.<br/><font color='#FFCC66'>- Ability draft is upgraded to 1 out of 6 choices, the 2 extra abilities have a higher chance of being high-tier.</font><br/>"
 		// 定制BUFF donnot translate
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
@@ -460,6 +462,30 @@
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
+
+		//侧翼机炮
+		"DOTA_Tooltip_ability_side_gunner2"        				"side_gunner2"
+		"DOTA_Tooltip_ability_side_gunner2_Description"        	"Attack the nearest target within 700 range every %cool_down% seconds"
+		//血魔 血雾
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"blood mist"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Bloodseeker sprays his blood continuously in the area around him, losing health to damage and slow his enemies."
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%HP PER SECOND COST/DAMAGE:"
+		//醉拳
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"drunken_boxing"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss% %% chance of dodge and critical hit. After active excitement, gain 30%% movement speed bonus, dodge and attack probability tripled"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%Critical Damage:"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"duration："
+		//精准光环
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"Precision Aura"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"Grants Drow bonus agility based on Drow's current agility and level. Nearby ranged heroes received %trueshot_agi_bonus_allies_pct%%% of the bonus agility."
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Lore"								"Traxex' time spent alone in the forests of her Drow home has allowed her to teach other archers how to improve their bow skills."
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_base"				"%AGILITY BASE BONUS:"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%AGILITY BONUS PER LEVEL:"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%TOTAL AGILITY BONUS:"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"RADIUS:"
+		//时间漫游
+		"DOTA_Tooltip_ability_faceless_void_time_walk2"									"Time Walk"
+		"DOTA_Tooltip_ability_faceless_void_time_walk2_Description"						"Rushes to a target location while backtracking any damage taken the last 2 seconds."
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
@@ -2154,6 +2180,11 @@
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"				"+$armor"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"		"+$health"
+
+		// 力量法则碎片
+		"DOTA_Tooltip_Ability_item_imp_claw"				"Power Law Fragment"
+		"DOTA_Tooltip_ability_item_imp_claw_Description"	"<h1>Passive: Return to the Sea</h1>The next attack will critically strike for %crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_imp_claw_Lore"			"The dragon's scales are as vast as the sea."
 
 		// 力量跳2
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2"                            "Tyson's Flash"
