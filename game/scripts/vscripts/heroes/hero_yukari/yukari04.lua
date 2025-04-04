@@ -193,7 +193,7 @@ function Yukari04_OnSpellStart(keys)
 							damage = intdamage,
 							damage_type = DAMAGE_TYPE_MAGICAL,
 						}
-						UnitDamageTarget(damage_table)
+						ApplyDamage(damage_table)
 						v:AddNewModifier(caster, self, "modifier_stunned",
 							{ Duration = ability:GetSpecialValueFor("stun_duration") })
 					end
@@ -246,7 +246,7 @@ function Yukari04_OnSpellStart(keys)
 						damage_type = keys.ability:GetAbilityDamageType(),
 						damage_flags = keys.ability:GetAbilityTargetFlags()
 					}
-					UnitDamageTarget(damage_table)
+					ApplyDamage(damage_table)
 				end
 			else
 				return nil
@@ -270,6 +270,6 @@ function Yukari04_OnProjectileHitUnit(keys)
 			damage_type = keys.ability:GetAbilityDamageType(),
 			damage_flags = keys.ability:GetAbilityTargetFlags()
 		}
-		UnitDamageTarget(damage_table)
+		ApplyDamage(damage_table)
 	end
 end
