@@ -3,16 +3,6 @@ require('event/js_event')
 require('event/creep')
 require('event/kill')
 
-
-function AIGameMode:ArrayShuffle(array)
-    local size = #array
-    for i = size, 1, -1 do
-        local rand = math.random(size)
-        array[i], array[rand] = array[rand], array[i]
-    end
-    return array
-end
-
 function AIGameMode:InitPlayerGold()
     if self.PreGameOptionsSet then
         print("[AIGameMode] InitPlayerGold")
