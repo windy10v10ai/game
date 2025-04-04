@@ -53,23 +53,16 @@ function AIGameMode:InitEvents()
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(AIGameMode, "OnGameStateChanged"), self)
     ListenToGameEvent("dota_player_gained_level", Dynamic_Wrap(AIGameMode, "OnPlayerLevelUp"), self)
     ListenToGameEvent("npc_spawned", Dynamic_Wrap(AIGameMode, "OnNPCSpawned"), self)
-    ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(AIGameMode, "OnPickHeroSpawn"), self)
     ListenToGameEvent("entity_killed", Dynamic_Wrap(AIGameMode, "OnEntityKilled"), self)
     ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(AIGameMode, "OnItemPickedUp"), self)
-    ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
-    -- ListenToGameEvent("dota_buyback", Dynamic_Wrap(AIGameMode, 'OnBuyback'), self)
-    ListenToGameEvent("last_hit", Dynamic_Wrap(AIGameMode, 'OnLastHit'), self)
+    -- ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
+    -- ListenToGameEvent("last_hit", Dynamic_Wrap(AIGameMode, 'OnLastHit'), self)
+    -- ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(AIGameMode, "OnPickHeroSpawn"), self)
 
     -- 游戏选项事件
     CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
         return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
     end)
-    -- CustomGameEventManager:RegisterListener("choose_difficulty", function(_, keys)
-    --     return AIGameMode:OnChooseDifficulty(keys)
-    -- end)
-    -- CustomGameEventManager:RegisterListener("vote_end", function(_, keys)
-    --     return AIGameMode:CalculateDifficulty(true)
-    -- end)
     -- 共享单位，禁用帮助
     CustomGameEventManager:RegisterListener("set_unit_share_mask", function(_, keys)
         return AIGameMode:SetUnitShareMask(keys)
@@ -122,21 +115,6 @@ function AIGameMode:PreGameOptions()
     if self.bSameHeroSelection == 1 then
         GameRules:SetSameHeroSelectionEnabled(true)
     end
-
-    -- if self.iMaxLevel ~= 30 then
-    --     local tLevelRequire = { 0, 180, 510, 990, 1620, 2400, 3240, 4140, 5100, 6120, 7200, 8350, 9650, 11100, 12700,
-    --         14450, 16350, 18350, 20450, 22650, 25050, 27650, 30450, 33450, 36950, 40950, 45450,
-    --         50450, 55950, 61950 } -- value fixed
-    --     local iRequireLevel = tLevelRequire[30]
-    --     for i = 31, self.iMaxLevel do
-    --         iRequireLevel = iRequireLevel + i * 200
-    --         table.insert(tLevelRequire, iRequireLevel)
-    --     end
-    --     GameRules:SetUseCustomHeroXPValues(true)
-    --     gameMode:SetUseCustomHeroLevels(true)
-    --     gameMode:SetCustomHeroMaxLevel(self.iMaxLevel)
-    --     gameMode:SetCustomXPRequiredToReachNextLevel(tLevelRequire)
-    -- end
 
     self.sumTowerPower = AIGameMode.iTowerPower
     self.creepBuffLevel = 0
@@ -192,12 +170,6 @@ function AIGameMode:PreGameOptions()
     BotThink:SetTome()
 
     self.PreGameOptionsSet = true
-
-    -- 肉山奖励勇士积分 初始化
-    -- self.playerBonusSeasonPoint = {}
-    -- for i = 0, 23 do
-    --     self.playerBonusSeasonPoint[i] = 0
-    -- end
 end
 
 -- FIXME 移除相关调用
