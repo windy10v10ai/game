@@ -16,13 +16,30 @@ export class EventPlayerLevelUp {
       return;
     }
 
+    this.UpdatePlayerProperty(hero);
+    this.SetDeathXP(hero, keys.level);
+  }
+
+  private UpdatePlayerProperty(hero: CDOTA_BaseNPC_Hero): void {
     if (PlayerHelper.IsHumanPlayer(hero)) {
-      // 更新玩家属性
       print(`[Event] OnPlayerLevelUp SetPlayerProperty ${hero.GetUnitName()}`);
       Player.SetPlayerProperty(hero);
     }
     if (PlayerHelper.IsBotPlayer(hero)) {
       BotPower.LevelUpBotPower(hero);
     }
+  }
+
+  private SetDeathXP(hero: CDOTA_BaseNPC_Hero, level: number): void {
+    Timers.CreateTimer(0.5, () => {
+      if (hero.IsNull()) {
+        return;
+      }
+      if (level <= 30) {
+        hero.SetCustomDeathXP(40 + hero.GetCurrentXP() * 0.08);
+      } else {
+        hero.SetCustomDeathXP(3000 + hero.GetCurrentXP() * 0.03);
+      }
+    });
   }
 }
