@@ -133,6 +133,7 @@ export class EventNpcSpawned {
       // 机器人
       // delay 1s 后启用AI
       Timers.CreateTimer(1, () => {
+        hero.SetBotDifficulty(4);
         GameRules.AI.EnableAI(hero);
         BotPower.AddBotPower(hero);
       });
