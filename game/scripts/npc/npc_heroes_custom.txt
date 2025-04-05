@@ -605,7 +605,7 @@
 	"npc_dota_hero_terrorblade"
 	{
 		"AttributeStrengthGain"		"4" // 2.5
-		"AttributeAgilityGain"		"10.0"	// 4
+		"AttributeAgilityGain"		"8.0"	// 4
 	}
 	// 斧王
 	"npc_dota_hero_axe"

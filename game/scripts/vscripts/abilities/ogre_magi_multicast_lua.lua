@@ -76,6 +76,8 @@ no_support_abilitys = {
 	yukari_moon_portal = 1,           -- 八云紫 3技能
 	yukari_twin_trains = 1,           -- 八云紫 大招
 	storm_spirit_ball_lightning = 1,  --  球状闪电
+	phantom_assassin_phantom_strike = 1, --  幻影突袭
+	earthshaker_enchant_totem = 1,    --  强化图腾
 }
 no_support_items = {
 	-- 消耗品
