@@ -37,14 +37,36 @@ export class HeroPick {
       }
     });
 
+    const player = PlayerResource.GetPlayer(0) as CDOTAPlayerController;
+    const facetId = 1;
     for (let i = 0; i < direBotNumberNumber; i++) {
-      const name = HeroPick.GetHeroName(nameList);
-      Tutorial.AddBot(name, '', 'unfair', false);
+      const heroName = HeroPick.GetHeroName(nameList);
+      if (i === 0) {
+        // 第一个bot使用教程，不然所有bot都不会动
+        Tutorial.AddBot(heroName, '', 'unfair', false);
+      } else {
+        DebugCreateHeroWithVariant(
+          player,
+          heroName,
+          facetId,
+          DotaTeam.BADGUYS,
+          false,
+          (_hero: CDOTA_BaseNPC_Hero) => {},
+        );
+      }
     }
 
     for (let i = 0; i < radiantBotNumber; i++) {
-      const name = HeroPick.GetHeroName(nameList);
-      Tutorial.AddBot(name, '', 'unfair', true);
+      const heroName = HeroPick.GetHeroName(nameList);
+
+      DebugCreateHeroWithVariant(
+        player,
+        heroName,
+        facetId,
+        DotaTeam.GOODGUYS,
+        false,
+        (_hero: CDOTA_BaseNPC_Hero) => {},
+      );
     }
 
     GameRules.GetGameModeEntity().SetBotThinkingEnabled(true);
