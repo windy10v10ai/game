@@ -330,23 +330,6 @@ function AIGameMode:OnNPCSpawned(keys)
     end
 end
 
-function AIGameMode:OnPlayerLevelUp(keys)
-    local iEntIndex = PlayerResource:GetPlayer(keys.PlayerID):GetAssignedHero():entindex()
-    local iLevel = keys.level
-    -- Set DeathXP 击杀经验
-    Timers:CreateTimer(0.5, function()
-        local hEntity = EntIndexToHScript(iEntIndex)
-        if hEntity:IsNull() then
-            return
-        end
-        if iLevel <= 30 then
-            hEntity:SetCustomDeathXP(40 + hEntity:GetCurrentXP() * 0.08)
-        else
-            hEntity:SetCustomDeathXP(3000 + hEntity:GetCurrentXP() * 0.03)
-        end
-    end)
-end
-
 function AIGameMode:OnItemPickedUp(event)
     -- if not courier
     if not event.HeroEntityIndex then
