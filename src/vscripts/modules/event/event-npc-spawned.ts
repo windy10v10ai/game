@@ -69,13 +69,28 @@ export class EventNpcSpawned {
 
     print(`[EventNpcSpawned] SetHeroSpawnPoint ${hero.GetName()} ${hero.GetAbsOrigin()}`);
 
-    // 检验英雄是否在基地，否则0.1s后重新设置
     Timers.CreateTimer(0.1, () => {
+      // 检验英雄是否在基地，否则重新设置
       const posBase =
         hero.GetTeam() === DotaTeam.GOODGUYS ? ActionMove.posRadiantBase : ActionMove.posDireBase;
-      // 计算pos和posBase的距离
       const isInBase = hero.IsPositionInRange(posBase, 1500);
       if (!isInBase) {
+        this.SetHeroSpawnPoint(hero);
+      }
+      // 如果与其他英雄碰撞，则重新设置
+      const units = FindUnitsInRadius(
+        hero.GetTeam(),
+        hero.GetAbsOrigin(),
+        undefined,
+        32,
+        UnitTargetTeam.BOTH,
+        UnitTargetType.HERO,
+        UnitTargetFlags.NONE,
+        FindOrder.ANY,
+        false,
+      );
+      // 排除当前英雄，有其他英雄则重新设置
+      if (units.length > 1) {
         this.SetHeroSpawnPoint(hero);
       }
     });

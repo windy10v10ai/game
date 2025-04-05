@@ -2,7 +2,7 @@ import { HeroUtil } from '../hero/hero-util';
 
 export class ActionMove {
   static readonly posRadiantBase: Vector = Vector(-7050, -6550, 384);
-  static readonly posDireBase: Vector = Vector(6950, 6300, 384);
+  static readonly posDireBase: Vector = Vector(6950, 6320, 384);
   static MoveHero(hero: CDOTA_BaseNPC_Hero, pos: Vector) {
     hero.MoveToPosition(pos);
   }
