@@ -41,21 +41,23 @@ export class HeroPick {
     const facetId = 1;
     for (let i = 0; i < direBotNumberNumber; i++) {
       const heroName = HeroPick.GetHeroName(nameList);
-      // Tutorial.AddBot(heroName, '', 'unfair', false);
-
-      DebugCreateHeroWithVariant(
-        player,
-        heroName,
-        facetId,
-        DotaTeam.BADGUYS,
-        false,
-        (_hero: CDOTA_BaseNPC_Hero) => {},
-      );
+      if (i === 0) {
+        // 第一个bot使用教程，不然所有bot都不会动
+        Tutorial.AddBot(heroName, '', 'unfair', false);
+      } else {
+        DebugCreateHeroWithVariant(
+          player,
+          heroName,
+          facetId,
+          DotaTeam.BADGUYS,
+          false,
+          (_hero: CDOTA_BaseNPC_Hero) => {},
+        );
+      }
     }
 
     for (let i = 0; i < radiantBotNumber; i++) {
       const heroName = HeroPick.GetHeroName(nameList);
-      // Tutorial.AddBot(heroName, '', 'unfair', true);
 
       DebugCreateHeroWithVariant(
         player,
