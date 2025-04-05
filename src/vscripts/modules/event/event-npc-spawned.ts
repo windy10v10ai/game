@@ -1,3 +1,4 @@
+import { ActionMove } from '../../ai/action/action-move';
 import { MemberLevel, Player } from '../../api/player';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { BotPower } from '../helper/bot-power';
@@ -26,7 +27,7 @@ export class EventNpcSpawned {
   // 单位出生
   public OnNpcSpawned(keys: GameEventProvidedProperties & NpcSpawnedEvent): void {
     if (GameRules.State_Get() < GameState.PRE_GAME) {
-      Timers.CreateTimer(1, () => {
+      Timers.CreateTimer(0.3, () => {
         this.OnNpcSpawned(keys);
       });
       return;
@@ -52,8 +53,37 @@ export class EventNpcSpawned {
     }
   }
 
+  // 设置英雄出生点，DebugCreateHeroWithVariant创造的 bot出生点在地图中央，需要移动到泉水
+  private SetHeroSpawnPoint(hero: CDOTA_BaseNPC_Hero): void {
+    if (PlayerHelper.IsHumanPlayer(hero)) {
+      print(`[EventNpcSpawned] SetHeroSpawnPoint human player ${hero.GetName()}`);
+      return;
+    }
+
+    const posBase =
+      hero.GetTeam() === DotaTeam.GOODGUYS ? ActionMove.posRadiantBase : ActionMove.posDireBase;
+
+    // 随机附近
+    const pos = posBase.__add(RandomVector(250));
+    hero.SetAbsOrigin(pos);
+
+    print(`[EventNpcSpawned] SetHeroSpawnPoint ${hero.GetName()} ${hero.GetAbsOrigin()}`);
+
+    // 检验英雄是否在基地，否则0.1s后重新设置
+    Timers.CreateTimer(0.1, () => {
+      const posBase =
+        hero.GetTeam() === DotaTeam.GOODGUYS ? ActionMove.posRadiantBase : ActionMove.posDireBase;
+      // 计算pos和posBase的距离
+      const isInBase = hero.IsPositionInRange(posBase, 1500);
+      if (!isInBase) {
+        this.SetHeroSpawnPoint(hero);
+      }
+    });
+  }
+
   // 英雄出生
   private OnRealHeroSpawned(hero: CDOTA_BaseNPC_Hero): void {
+    this.SetHeroSpawnPoint(hero);
     // 近战buff
     if (
       hero.GetAttackCapability() === UnitAttackCapability.MELEE_ATTACK ||
@@ -86,8 +116,11 @@ export class EventNpcSpawned {
     }
     if (PlayerHelper.IsBotPlayer(hero)) {
       // 机器人
-      GameRules.AI.EnableAI(hero);
-      BotPower.AddBotPower(hero);
+      // delay 1s 后启用AI
+      Timers.CreateTimer(1, () => {
+        GameRules.AI.EnableAI(hero);
+        BotPower.AddBotPower(hero);
+      });
     }
   }
 
