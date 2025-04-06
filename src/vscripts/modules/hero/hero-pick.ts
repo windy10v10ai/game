@@ -117,7 +117,6 @@ export class HeroPick {
     //"npc_dota_hero_shredder",
     //"npc_dota_hero_razor", // 在泉水站着完全不动
     //"npc_dota_hero_tidehunter", // 在泉水站着完全不动
-    'npc_dota_hero_tinker',
     'npc_dota_hero_abaddon',
     'npc_dota_hero_axe',
     'npc_dota_hero_bane',
@@ -154,6 +153,7 @@ export class HeroPick {
     'npc_dota_hero_sniper',
     'npc_dota_hero_spectre',
     'npc_dota_hero_sven',
+    'npc_dota_hero_tinker',
     'npc_dota_hero_tiny',
     'npc_dota_hero_vengefulspirit',
     'npc_dota_hero_viper',
