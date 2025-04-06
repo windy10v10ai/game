@@ -1,9 +1,25 @@
 export class HeroFacetConfig {
   // 英雄名称到facetID列表的映射
   private static readonly heroFacetMap: Map<string, number[]> = new Map([
-    ['npc_dota_hero_tinker', [1, 2]], // 修补匠
-    ['npc_dota_hero_abaddon', [1, 2]], // 亚巴顿
-    ['npc_dota_hero_axe', [1, 2]], // 斧王
+    ['npc_dota_hero_tinker', [1, 2]],
+    ['npc_dota_hero_abaddon', [1, 2]],
+    ['npc_dota_hero_axe', [1, 2]],
+    ['npc_dota_hero_bane', [1, 2]],
+    ['npc_dota_hero_bounty_hunter', [1, 2]],
+    ['npc_dota_hero_bristleback', [2, 3]],
+    ['npc_dota_hero_chaos_knight', [2, 3, 4]],
+    ['npc_dota_hero_crystal_maiden', [3, 4]],
+    ['npc_dota_hero_dazzle', [1, 2]],
+    ['npc_dota_hero_death_prophet', [2, 3]],
+    ['npc_dota_hero_dragon_knight', [1, 2]],
+    ['npc_dota_hero_drow_ranger', [1, 2]],
+    ['npc_dota_hero_earthshaker', [1, 2]],
+    ['npc_dota_hero_jakiro', [3, 4]],
+    ['npc_dota_hero_juggernaut', [1, 2]],
+    ['npc_dota_hero_kunkka', [1, 2]],
+    ['npc_dota_hero_lich', [1, 2]],
+    ['npc_dota_hero_lina', [1, 2]],
+
     // ... 其他英雄配置
   ]);
 
