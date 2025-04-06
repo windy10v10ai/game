@@ -1,3 +1,4 @@
+import { ActionMove } from '../../ai/action/action-move';
 import { MemberLevel, Player } from '../../api/player';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { BotPower } from '../helper/bot-power';
@@ -6,6 +7,8 @@ import { PlayerHelper } from '../helper/player-helper';
 
 export class EventNpcSpawned {
   private roshanLevelBase = 0;
+  private heroSpawnRetryCount = 0;
+  private readonly MAX_SPAWN_RETRY = 100;
   // abiliti name list of roshan
   private roshanLevelupBaseAbilities = [
     'tidehunter_kraken_shell',
@@ -26,7 +29,7 @@ export class EventNpcSpawned {
   // 单位出生
   public OnNpcSpawned(keys: GameEventProvidedProperties & NpcSpawnedEvent): void {
     if (GameRules.State_Get() < GameState.PRE_GAME) {
-      Timers.CreateTimer(1, () => {
+      Timers.CreateTimer(0.3, () => {
         this.OnNpcSpawned(keys);
       });
       return;
@@ -52,8 +55,60 @@ export class EventNpcSpawned {
     }
   }
 
+  // 设置英雄出生点，DebugCreateHeroWithVariant创造的 bot出生点在地图中央，需要移动到泉水
+  private SetHeroSpawnPoint(hero: CDOTA_BaseNPC_Hero): void {
+    if (PlayerHelper.IsHumanPlayer(hero)) {
+      print(`[EventNpcSpawned] SetHeroSpawnPoint human player ${hero.GetName()}`);
+      return;
+    }
+
+    // 检查重试次数
+    if (this.heroSpawnRetryCount >= this.MAX_SPAWN_RETRY) {
+      print(`[EventNpcSpawned] SetHeroSpawnPoint reached max retry count for ${hero.GetName()}`);
+      return;
+    }
+
+    this.heroSpawnRetryCount++;
+
+    const posBase =
+      hero.GetTeam() === DotaTeam.GOODGUYS ? ActionMove.posRadiantBase : ActionMove.posDireBase;
+
+    // 随机附近
+    const pos = posBase.__add(RandomVector(250));
+    hero.SetAbsOrigin(pos);
+
+    Timers.CreateTimer(0.1, () => {
+      // 检验英雄是否在基地，否则重新设置
+      const posBase =
+        hero.GetTeam() === DotaTeam.GOODGUYS ? ActionMove.posRadiantBase : ActionMove.posDireBase;
+      const isInBase = hero.IsPositionInRange(posBase, 1500);
+      if (!isInBase) {
+        this.SetHeroSpawnPoint(hero);
+        return;
+      }
+      // 如果与其他英雄碰撞，则重新设置
+      const units = FindUnitsInRadius(
+        hero.GetTeam(),
+        hero.GetAbsOrigin(),
+        undefined,
+        32,
+        UnitTargetTeam.BOTH,
+        UnitTargetType.HERO,
+        UnitTargetFlags.NONE,
+        FindOrder.ANY,
+        false,
+      );
+      // 排除当前英雄，有其他英雄则重新设置
+      if (units.length > 1) {
+        this.SetHeroSpawnPoint(hero);
+        return;
+      }
+    });
+  }
+
   // 英雄出生
   private OnRealHeroSpawned(hero: CDOTA_BaseNPC_Hero): void {
+    this.SetHeroSpawnPoint(hero);
     // 近战buff
     if (
       hero.GetAttackCapability() === UnitAttackCapability.MELEE_ATTACK ||
@@ -86,8 +141,13 @@ export class EventNpcSpawned {
     }
     if (PlayerHelper.IsBotPlayer(hero)) {
       // 机器人
-      GameRules.AI.EnableAI(hero);
-      BotPower.AddBotPower(hero);
+      // delay 1s 后启用AI
+      Timers.CreateTimer(1, () => {
+        // 设置bot难度 0~4
+        hero.SetBotDifficulty(4);
+        GameRules.AI.EnableAI(hero);
+        BotPower.AddBotPower(hero);
+      });
     }
   }
 

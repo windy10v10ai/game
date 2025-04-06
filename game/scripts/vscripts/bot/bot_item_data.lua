@@ -185,6 +185,7 @@ tBotItemData.purchaseItemList = {
 		'item_magic_wand',
 		'item_boots',
 		'item_null_talisman', -- 挂件
+		'item_rod_of_atos', -- 阿托斯之棍
 		'item_null_talisman', -- 挂件
 		-- 过度
 		'item_glimmer_cape',
@@ -323,6 +324,7 @@ tBotItemData.purchaseItemList = {
 		'item_magic_wand',
 		'item_boots',
 		'item_null_talisman',
+		'item_rod_of_atos', -- 阿托斯之棍
 		'item_null_talisman',
 		'item_arcane_boots',
 		'item_glimmer_cape',
@@ -394,6 +396,7 @@ tBotItemData.purchaseItemList = {
 		'item_magic_wand',
 		'item_boots',
 		'item_null_talisman',
+		'item_rod_of_atos', -- 阿托斯之棍
 		'item_null_talisman',
 		'item_arcane_boots',
 		'item_null_talisman',
@@ -415,6 +418,7 @@ tBotItemData.purchaseItemList = {
 		'item_magic_wand',
 		'item_boots',
 		'item_null_talisman',
+		'item_rod_of_atos', -- 阿托斯之棍
 		'item_null_talisman',
 		'item_arcane_boots',
 		'item_glimmer_cape',
@@ -436,6 +440,7 @@ tBotItemData.purchaseItemList = {
 		'item_magic_wand',
 		'item_boots',
 		'item_null_talisman',
+		'item_rod_of_atos', -- 阿托斯之棍
 		'item_null_talisman',
 		'item_arcane_boots',
 		'item_glimmer_cape',
@@ -648,6 +653,7 @@ tBotItemData.purchaseItemList = {
 		'item_boots',
 		'item_bracer',
 		'item_bracer',
+		'item_rod_of_atos', -- 阿托斯之棍
 		'item_arcane_boots',
 		'item_vanguard',
 		'item_blade_mail', -- 刃甲
