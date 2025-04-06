@@ -16,6 +16,7 @@ export class HeroFacetConfig {
   static getRandomFacetId(heroName: string): number {
     const facetIds = this.getHeroFacetIds(heroName);
     const randomIndex = Math.floor(Math.random() * facetIds.length);
-    return facetIds[randomIndex];
+    const selectedFacetId = facetIds[randomIndex];
+    return selectedFacetId;
   }
 }
