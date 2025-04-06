@@ -38,6 +38,15 @@ export class HeroFacetConfig {
     ['npc_dota_hero_spectre', [1, 2]],
     ['npc_dota_hero_sven', [1, 2]],
     ['npc_dota_hero_tinker', [1, 2]],
+    ['npc_dota_hero_tiny', [1, 2]],
+    ['npc_dota_hero_vengefulspirit', [1, 2]],
+    ['npc_dota_hero_viper', [1, 2]],
+    ['npc_dota_hero_warlock', [1, 2]],
+    ['npc_dota_hero_windrunner', [4, 5]],
+    ['npc_dota_hero_witch_doctor', [1, 3]],
+    ['npc_dota_hero_skeleton_king', [1, 2]],
+    ['npc_dota_hero_zuus', [1, 2]],
+
     // ... 其他英雄配置
   ]);
 
