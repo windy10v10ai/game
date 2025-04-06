@@ -1,4 +1,5 @@
 import { PlayerHelper } from '../helper/player-helper';
+import { HeroFacetConfig } from './hero-facet-config';
 
 export class HeroPick {
   static PickHumanHeroes() {
@@ -38,9 +39,9 @@ export class HeroPick {
     });
 
     const player = PlayerResource.GetPlayer(0) as CDOTAPlayerController;
-    const facetId = 1;
     for (let i = 0; i < direBotNumberNumber; i++) {
       const heroName = HeroPick.GetHeroName(nameList);
+      const facetId = HeroFacetConfig.getRandomFacetId(heroName);
       if (i === 0) {
         // 第一个bot使用教程，不然所有bot都不会动
         Tutorial.AddBot(heroName, '', 'unfair', false);
@@ -58,6 +59,7 @@ export class HeroPick {
 
     for (let i = 0; i < radiantBotNumber; i++) {
       const heroName = HeroPick.GetHeroName(nameList);
+      const facetId = HeroFacetConfig.getRandomFacetId(heroName);
 
       DebugCreateHeroWithVariant(
         player,
