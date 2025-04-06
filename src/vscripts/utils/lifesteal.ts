@@ -68,9 +68,6 @@ function applyLifesteal(
 ): void {
   if (heal <= 0) return;
 
-  // FIXME 删除
-  print(`${isSpellLifesteal ? '技能' : '攻击'}吸血: heal=${heal}`);
-
   owner.HealWithParams(heal, ability ?? {}, true, true, owner, isSpellLifesteal);
 
   // 吸血特效

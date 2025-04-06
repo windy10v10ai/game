@@ -7504,7 +7504,6 @@
 	"terrorblade_conjure_image"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"30"
 		"AbilityValues"
 		{
 			"illusion_duration"
@@ -7515,6 +7514,11 @@
 			{
 				"value"		"-60 -50 -40 -30 -20"
 			}
+			"AbilityCooldown"
+			{
+				"value"									"24"		// 16
+				"special_bonus_unique_terrorblade_4"	"-4"		// -2
+			}
 
 			"illusion_outgoing_tooltip"
 			{
@@ -7524,8 +7528,8 @@
 			{
 				"value"				"55 65 75 85 95"
 			}
-			"illusion_incoming_damage"			"-50.0"
-			"illusion_incoming_damage_total_tooltip"			"50.0"
+			"illusion_incoming_damage"			"0.0"				// 150.0
+			"illusion_incoming_damage_total_tooltip"			"100.0"	// 250.0
 		}
 	}
 	// 魔化

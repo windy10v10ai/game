@@ -108,7 +108,7 @@ function ability_yukari_01:OnProjectileHitHandle(hTarget, vLocation, iProjectile
 			attacker = caster,
 			ability = ability
 		}
-		damage_dealt = UnitDamageTarget(damageTable)
+		damage_dealt = ApplyDamage(damageTable)
 		if count < 1 then
 			target:AddNewModifier(caster, self, "modifier_stunned",
 				{ Duration = self:GetSpecialValueFor("stun_duration") })

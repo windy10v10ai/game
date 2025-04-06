@@ -76,6 +76,7 @@ export class GameEnd {
         towerKills: PlayerResource.GetTowerKills(playerId),
         score: 0,
         battlePoints: 0,
+        facetId: hero.GetHeroFacetID(),
       };
       playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
       playerDto.battlePoints = this.CalculatePlayerBattlePoints(

@@ -24,7 +24,7 @@ export class Analytics {
     ListenToGameEvent(
       'game_rules_state_change',
       () => {
-        if (GameRules.State_Get() === GameState.HERO_SELECTION) {
+        if (GameRules.State_Get() === GameState.GAME_IN_PROGRESS) {
           Analytics.SendUserLanguageStatistics();
         }
       },

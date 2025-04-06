@@ -41,9 +41,9 @@
 	"item_greater_famango"
 	{
 		"AbilityCooldown"				"0"
-		"ItemCost"              		"0"
-		"ItemSellable"          		"1"
-		"ItemStackable"         		"1"
+		"ItemCost"						"0"
+		"ItemSellable"					"1"
+		"ItemStackable"					"1"
 		"AbilityValues"
 		{
 				"replenish_amount"		"4000"
@@ -69,6 +69,8 @@
 	// 美味护盾
 	"item_royale_with_cheese"
 	{
+		"ItemCost"						"20000"
+		"ItemSellable"					"0"
 		"AbilityValues"
 		{
 				"shield"			"20000"
@@ -99,7 +101,7 @@
 	"item_infused_raindrop"
 	{
 		"AbilityCooldown"				"1.0"
-		"ItemCost"						"650"
+		"ItemCost"						"675"		// 225
 		"ItemStockInitial"				"5"
 		"ItemStockMax"					"8"
 		"ItemStockTime"					"60"
@@ -111,20 +113,20 @@
 				"mana_regen"			"3.0"		// 0.8
 				"magic_damage_block"	"600"		// 120
 				"min_damage"			"120"		// 75
-				"initial_charges"		"8"			// 6
+				"initial_charges"		"9"			// 6
 		}
 	}
 	// 树之祭祀
 	"item_tango"
 	{
-		"ItemCost"						"100"		// 90
+		"ItemCost"						"120"		// 90
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"health_regen"			"12.0"		// 7.0
-				"buff_duration"			"30.0"		// 16.0
+				"health_regen"			"14.0"		// 7.0
+				"buff_duration"			"24.0"		// 16.0
 		}
 	}
 	// 大药
@@ -150,7 +152,7 @@
 	// 芒果
 	"item_enchanted_mango"
 	{
-		"ItemCost"						"130"			// 65
+		"ItemCost"						"260"			// 65
 
 		"ItemStackableMax"				"6"
 
@@ -161,30 +163,31 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"hp_regen"				"1.5"	// 0.4
-				"replenish_amount"		"250"	// 100
+				"hp_regen"				"3.2"	// 0.4
+				"replenish_amount"		"600"	// 100
 		}
 	}
 	"item_faerie_fire" //仙灵之火
 	{
-		"ItemCost"						"130"			// 65
+		"ItemCost"						"260"			// 65
 		"AbilityValues"
 		{
-				"bonus_damage"			"10"			// 2
-				"hp_restore"			"350"			// 85
+				"bonus_damage"			"16"			// 2
+				"hp_restore"			"680"			// 85
 		}
 	}
 	"item_blood_grenade" //血腥榴弹
 	{
-		"ItemCost"						"80"			// 50
-		"AbilityHealthCost"				"150"			// 50
+		"ItemCost"						"100"			// 50
+		"AbilityHealthCost"				"200"			// 75
+		"AbilityCastRange"				"1100"			// 900
 
 		"ItemStackableMax"				"3"				// 2
 		"ItemStockInitial"				"3"				// 2
 		"ItemStockTime"					"120"			// 180
 		"AbilityValues"
 		{
-			"bonus_health"			"250"				// 50
+			"bonus_health"			"200"				// 50
 
 			"damage_over_time"		"45"				// 15
 			"impact_damage"			"150"				// 50
@@ -192,12 +195,12 @@
 	}
 	"item_bottle" //魔瓶
 	{
-		"ItemCost"						"800"
+		"ItemCost"						"900"			// 675
 		"ItemInitialCharges"			"5"				// 3
 		"AbilityValues"
 		{
-				"health_restore"		"240"			// 110
-				"mana_restore"			"130"			// 60
+				"health_restore"		"330"			// 110
+				"mana_restore"			"180"			// 60
 				"restore_time"			"3.5"			// 2.7
 				"max_charges"			"5"				// 3
 				"rune_expire_time"		"120.0"			// 90
