@@ -20,6 +20,7 @@ describe('GameEndPoint', () => {
     towerKills: 0,
     score: 0,
     battlePoints: 0,
+    facetId: 1,
     ...overrides,
   });
 

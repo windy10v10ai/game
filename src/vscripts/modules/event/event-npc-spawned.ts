@@ -7,6 +7,8 @@ import { PlayerHelper } from '../helper/player-helper';
 
 export class EventNpcSpawned {
   private roshanLevelBase = 0;
+  private heroSpawnRetryCount = 0;
+  private readonly MAX_SPAWN_RETRY = 100;
   // abiliti name list of roshan
   private roshanLevelupBaseAbilities = [
     'tidehunter_kraken_shell',
@@ -60,14 +62,20 @@ export class EventNpcSpawned {
       return;
     }
 
+    // 检查重试次数
+    if (this.heroSpawnRetryCount >= this.MAX_SPAWN_RETRY) {
+      print(`[EventNpcSpawned] SetHeroSpawnPoint reached max retry count for ${hero.GetName()}`);
+      return;
+    }
+
+    this.heroSpawnRetryCount++;
+
     const posBase =
       hero.GetTeam() === DotaTeam.GOODGUYS ? ActionMove.posRadiantBase : ActionMove.posDireBase;
 
     // 随机附近
     const pos = posBase.__add(RandomVector(250));
     hero.SetAbsOrigin(pos);
-
-    print(`[EventNpcSpawned] SetHeroSpawnPoint ${hero.GetName()} ${hero.GetAbsOrigin()}`);
 
     Timers.CreateTimer(0.1, () => {
       // 检验英雄是否在基地，否则重新设置
@@ -76,6 +84,7 @@ export class EventNpcSpawned {
       const isInBase = hero.IsPositionInRange(posBase, 1500);
       if (!isInBase) {
         this.SetHeroSpawnPoint(hero);
+        return;
       }
       // 如果与其他英雄碰撞，则重新设置
       const units = FindUnitsInRadius(
@@ -92,6 +101,7 @@ export class EventNpcSpawned {
       // 排除当前英雄，有其他英雄则重新设置
       if (units.length > 1) {
         this.SetHeroSpawnPoint(hero);
+        return;
       }
     });
   }
