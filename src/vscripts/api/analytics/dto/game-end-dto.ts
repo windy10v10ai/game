@@ -27,6 +27,7 @@ export class GameEndPlayerDto {
   lastHits: number;
   healing: number;
   towerKills: number;
+  facetId: number;
 }
 
 export class GameEndDto extends EventBaseDto {
