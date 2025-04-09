@@ -151,7 +151,7 @@ export class EventNpcSpawned {
       });
 
       // bot在家待机一会在出门，防止出门在符点送人头
-      const moveTime = 30;
+      const moveTime = 35;
       if (hero.GetTeam() === DotaTeam.BADGUYS) {
         hero.AddNewModifier(hero, undefined, 'modifier_rooted', {
           duration: GameConfig.PRE_GAME_TIME - moveTime,
