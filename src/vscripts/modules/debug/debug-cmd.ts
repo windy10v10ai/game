@@ -27,6 +27,7 @@ export enum CMD {
   HP_LOSS = '-hploss',
   STUN = '-stun',
   SILENCE = '-silence',
+  ROOT = '-root',
 
   // ---- ability ----
   ADD_ABILITY = '-ab',
