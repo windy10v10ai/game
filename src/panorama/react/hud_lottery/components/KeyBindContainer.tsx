@@ -29,6 +29,7 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed }) => {
 
   return (
     <Panel style={containerStyle} className="container">
+      <KeySettingButton abilityname={lotteryStatus?.passiveAbilityName} />
       <KeySettingButton abilityname={lotteryStatus?.activeAbilityName} />
     </Panel>
   );
