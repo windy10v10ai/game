@@ -316,6 +316,13 @@ export class Debug {
       const duration = Number(args[0] || 5);
       hero.AddNewModifier(hero, undefined, 'modifier_silence', { duration });
     }
+    // 缠绕
+    if (cmd === CMD.ROOT) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const duration = Number(args[0] || 5);
+      hero.AddNewModifier(hero, undefined, 'modifier_rooted', { duration });
+    }
   }
 
   log(message: string) {
