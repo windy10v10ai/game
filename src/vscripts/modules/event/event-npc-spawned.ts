@@ -1,6 +1,7 @@
 import { ActionMove } from '../../ai/action/action-move';
 import { MemberLevel, Player } from '../../api/player';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
+import { GameConfig } from '../GameConfig';
 import { BotPower } from '../helper/bot-power';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
@@ -148,6 +149,14 @@ export class EventNpcSpawned {
         GameRules.AI.EnableAI(hero);
         BotPower.AddBotPower(hero);
       });
+
+      // bot在家待机一会在出门，防止出门在符点送人头
+      const moveTime = 30;
+      if (hero.GetTeam() === DotaTeam.BADGUYS) {
+        hero.AddNewModifier(hero, undefined, 'modifier_rooted', {
+          duration: GameConfig.PRE_GAME_TIME - moveTime,
+        });
+      }
     }
   }
 
