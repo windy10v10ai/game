@@ -1,8 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { bindAbilityKey, saveInputKeyborard } from '../hotkey';
+import React, { useState } from 'react';
+import { bindAbilityKey } from '../hotkey';
+import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
+
+interface BindKeyTextArray {
+  activeAbilityKey: string;
+  passiveAbilityKey: string;
+}
 
 interface KeySettingButtonProps {
   abilityname?: string;
+  bindKeyTextArray: BindKeyTextArray;
+  setBindKeyTextArray: React.Dispatch<React.SetStateAction<BindKeyTextArray>>;
+  lotteryStatus: LotteryStatusDto | null;
 }
 
 const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
@@ -12,7 +21,12 @@ const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
   borderRadius: '3px', // 圆角
 };
 
-const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
+const KeySettingButton: React.FC<KeySettingButtonProps> = ({
+  abilityname,
+  bindKeyTextArray,
+  setBindKeyTextArray,
+  lotteryStatus,
+}) => {
   const [isActive, setIsActive] = useState(false);
   const [bindKeyText, setBindKeyText] = useState('');
   const [quickCast, setQuickCast] = useState(false);
@@ -54,6 +68,13 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
       setBindKeyText(key);
       setIsActive(false);
       bindAbilityKey(abilityname, key, quickCast);
+      const tmpBindKeyTextArray = { ...bindKeyTextArray };
+      if (abilityname === lotteryStatus?.activeAbilityName) {
+        tmpBindKeyTextArray.activeAbilityKey = key;
+      } else if (abilityname === lotteryStatus?.passiveAbilityName) {
+        tmpBindKeyTextArray.passiveAbilityKey = key;
+      }
+      setBindKeyTextArray(tmpBindKeyTextArray);
     }
   };
 
@@ -68,16 +89,6 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
     }
     bindAbilityKey(abilityname, bindKeyText, quickCastChanged);
   };
-
-  useEffect(() => {
-    // 每秒刷新一次改键显示
-    const timer = setInterval(() => {
-      saveInputKeyborard(abilityname, bindKeyText);
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, [abilityname, bindKeyText]);
 
   return (
     <Panel style={rootPanelStyle} className="BindingRow">
