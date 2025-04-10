@@ -6,7 +6,6 @@ import { ModeEnum } from './mode-enum';
 import { ModeLaning } from './mode-laning';
 import { ModePush } from './mode-push';
 import { ModeRetreat } from './mode-retreat';
-import { ModeRune } from './mode-rune';
 
 @reloadable
 export class FSA {
@@ -18,7 +17,6 @@ export class FSA {
     this.ModeList.push(new ModeLaning());
     this.ModeList.push(new ModeAttack());
     this.ModeList.push(new ModeRetreat());
-    this.ModeList.push(new ModeRune());
     this.ModeList.push(new ModePush());
   }
 

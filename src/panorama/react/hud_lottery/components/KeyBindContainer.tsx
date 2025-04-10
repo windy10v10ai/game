@@ -3,6 +3,7 @@ import KeySettingButton from './KeySettingButton';
 import { GetLotteryStatus, SubscribeLotteryStatus } from '@utils/net-table';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
+import { saveInputKeyborard } from '../hotkey';
 
 interface KeyBindContainerProps {
   isCollapsed: boolean;
@@ -17,6 +18,8 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed }) => {
   const [lotteryStatus, setLotteryStatus] = useState<LotteryStatusDto | null>(
     GetLotteryStatus(steamAccountId),
   );
+  const [activeAbilityKey, setActiveAbilityKey] = useState('');
+  const [passiveAbilityKey, setPassiveAbilityKey] = useState('');
   // 监听nettable数据变化
   useEffect(() => {
     const statusListenerId = SubscribeLotteryStatus(steamAccountId, (data) => {
@@ -27,9 +30,33 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed }) => {
     };
   }, [steamAccountId]);
 
+  useEffect(() => {
+    // 每秒刷新一次改键显示
+    const timer = setInterval(() => {
+      saveInputKeyborard(
+        lotteryStatus?.activeAbilityName,
+        activeAbilityKey,
+        lotteryStatus?.passiveAbilityName,
+        passiveAbilityKey,
+      );
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [lotteryStatus, activeAbilityKey, passiveAbilityKey]);
+
   return (
     <Panel style={containerStyle} className="container">
-      <KeySettingButton abilityname={lotteryStatus?.activeAbilityName} />
+      <KeySettingButton
+        abilityname={lotteryStatus?.activeAbilityName}
+        bindKeyText={activeAbilityKey}
+        setBindKeyText={setActiveAbilityKey}
+      />
+      <KeySettingButton
+        abilityname={lotteryStatus?.passiveAbilityName}
+        bindKeyText={passiveAbilityKey}
+        setBindKeyText={setPassiveAbilityKey}
+      />
     </Panel>
   );
 };
