@@ -620,6 +620,12 @@
 		"DOTA_Tooltip_ability_axe_one_man_army2"			"一人之军"
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"		"获得护甲一定百分比的力量"
 		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"百分比："
+		//墓碑改说明
+		"DOTA_Tooltip_ability_undying_tombstone"						"墓碑·改（不生成小僵尸）"
+		//骨隐步改说明
+		"DOTA_Tooltip_ability_clinkz_wind_walk"											"骨隐步·改（无守卫）"
+		//死亡契约改说明
+		"DOTA_Tooltip_ability_clinkz_death_pact"										"死亡契约·改（无守卫）"
 
 		"DOTA_Tooltip_ability_arc_warden_scepter"	"人工神符"
 		"DOTA_Tooltip_ability_arc_warden_scepter_Description"	"创建一个随机神符"
