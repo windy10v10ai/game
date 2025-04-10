@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { bindAbilityKey, saveInputKeyborard } from '../hotkey';
+import React, { useState } from 'react';
+import { bindAbilityKey } from '../hotkey';
 
 interface KeySettingButtonProps {
   abilityname?: string;
+  bindKeyText: string;
+  setBindKeyText: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
@@ -12,9 +14,12 @@ const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
   borderRadius: '3px', // 圆角
 };
 
-const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
+const KeySettingButton: React.FC<KeySettingButtonProps> = ({
+  abilityname,
+  bindKeyText,
+  setBindKeyText,
+}) => {
   const [isActive, setIsActive] = useState(false);
-  const [bindKeyText, setBindKeyText] = useState('');
   const [quickCast, setQuickCast] = useState(false);
   // 移除A,S
   const validKeys = " BCDEFGHIJKLMNOPQRTUVWXYZ0123456789`-=[]\\;',./";
@@ -68,16 +73,6 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({ abilityname }) => {
     }
     bindAbilityKey(abilityname, bindKeyText, quickCastChanged);
   };
-
-  useEffect(() => {
-    // 每秒刷新一次改键显示
-    const timer = setInterval(() => {
-      saveInputKeyborard(abilityname, bindKeyText);
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, [abilityname, bindKeyText]);
 
   return (
     <Panel style={rootPanelStyle} className="BindingRow">

@@ -28,8 +28,6 @@ export function bindAbilityKey(abilityname: string, key: string, isQuickCast: bo
     },
     () => {},
   );
-
-  saveInputKeyborard(abilityname, key);
 }
 
 function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_BEHAVIOR) {
@@ -289,14 +287,20 @@ function WorldToScreenXY(pos: [number, number, number]): [number, number] {
 /**
  * 把玩家输入的键位显示在技能图标上
  */
-export function saveInputKeyborard(abilityname: string | undefined, key: string) {
-  if (!abilityname) {
+export function saveInputKeyborard(
+  activeAbilityname: string | undefined,
+  activeKey: string = '',
+  passiveAbilityname: string | undefined,
+  passiveKey: string = '',
+) {
+  if (!activeAbilityname && !passiveAbilityname) {
     return;
   }
-  if (key === '') {
+  if (activeKey === '' && passiveKey === '') {
     return;
   }
-  const text = bindKeyToText(key);
+  const activeKeyText = bindKeyToText(activeKey);
+  const passiveKeyText = bindKeyToText(passiveKey);
 
   const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
   const portraitUnitID = Players.GetLocalPlayerPortraitUnit();
@@ -310,6 +314,28 @@ export function saveInputKeyborard(abilityname: string | undefined, key: string)
   }
   const abilityPanels = abilities.Children();
 
+  if (activeAbilityname) {
+    setCurrentHotkey(activeAbilityname, activeKeyText, abilityPanels);
+  }
+  if (passiveAbilityname) {
+    setCurrentHotkey(passiveAbilityname, passiveKeyText, abilityPanels);
+  }
+
+  // 移除其他技能的改键（增减技能时，会错位）
+  for (const abilityPanel of abilityPanels) {
+    if (abilityPanel.BHasClass('Hidden')) {
+      continue;
+    }
+    const abilityImage = abilityPanel.FindChildTraverse('AbilityImage') as AbilityImage | null;
+    const currentAbilityName = abilityImage?.abilityname;
+    if (activeAbilityname === currentAbilityName || passiveAbilityname === currentAbilityName) {
+      continue;
+    }
+    removeCustomHotkey(abilityPanel);
+  }
+}
+
+function setCurrentHotkey(abilityname: string, text: string, abilityPanels: Panel[]) {
   // 查找改键技能面板
   const targetAbilityPanel = abilityPanels.find((abilityPanel) => {
     const abilityImage = abilityPanel.FindChildTraverse('AbilityImage') as AbilityImage | null;
@@ -326,19 +352,6 @@ export function saveInputKeyborard(abilityname: string | undefined, key: string)
     // 改键不同时才处理
     removeCustomHotkey(targetAbilityPanel);
     showCustomHotkey(targetAbilityPanel, text);
-  }
-
-  // 移除其他技能的改键（增减技能时，会错位）
-  for (const abilityPanel of abilityPanels) {
-    if (abilityPanel.BHasClass('Hidden')) {
-      continue;
-    }
-    const abilityImage = abilityPanel.FindChildTraverse('AbilityImage') as AbilityImage | null;
-    const currentAbilityName = abilityImage?.abilityname;
-    if (abilityname === currentAbilityName) {
-      continue;
-    }
-    removeCustomHotkey(abilityPanel);
   }
 }
 
