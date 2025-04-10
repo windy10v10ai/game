@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
 import { bindAbilityKey } from '../hotkey';
-import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
-
-interface BindKeyTextArray {
-  activeAbilityKey: string;
-  passiveAbilityKey: string;
-}
 
 interface KeySettingButtonProps {
   abilityname?: string;
-  bindKeyTextArray: BindKeyTextArray;
-  setBindKeyTextArray: React.Dispatch<React.SetStateAction<BindKeyTextArray>>;
-  lotteryStatus: LotteryStatusDto | null;
+  bindKeyText: string;
+  setBindKeyText: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
@@ -23,12 +16,10 @@ const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
 
 const KeySettingButton: React.FC<KeySettingButtonProps> = ({
   abilityname,
-  bindKeyTextArray,
-  setBindKeyTextArray,
-  lotteryStatus,
+  bindKeyText,
+  setBindKeyText,
 }) => {
   const [isActive, setIsActive] = useState(false);
-  const [bindKeyText, setBindKeyText] = useState('');
   const [quickCast, setQuickCast] = useState(false);
   // 移除A,S
   const validKeys = " BCDEFGHIJKLMNOPQRTUVWXYZ0123456789`-=[]\\;',./";
@@ -68,13 +59,6 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({
       setBindKeyText(key);
       setIsActive(false);
       bindAbilityKey(abilityname, key, quickCast);
-      const tmpBindKeyTextArray = { ...bindKeyTextArray };
-      if (abilityname === lotteryStatus?.activeAbilityName) {
-        tmpBindKeyTextArray.activeAbilityKey = key;
-      } else if (abilityname === lotteryStatus?.passiveAbilityName) {
-        tmpBindKeyTextArray.passiveAbilityKey = key;
-      }
-      setBindKeyTextArray(tmpBindKeyTextArray);
     }
   };
 

@@ -9,11 +9,6 @@ interface KeyBindContainerProps {
   isCollapsed: boolean;
 }
 
-interface BindKeyTextArray {
-  activeAbilityKey: string;
-  passiveAbilityKey: string;
-}
-
 const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed }) => {
   const containerStyle: Partial<VCSSStyleDeclaration> = {
     visibility: isCollapsed ? 'collapse' : 'visible',
@@ -23,11 +18,8 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed }) => {
   const [lotteryStatus, setLotteryStatus] = useState<LotteryStatusDto | null>(
     GetLotteryStatus(steamAccountId),
   );
-  const [bindKeyTextArray, setBindKeyTextArray] = useState<BindKeyTextArray>({
-    activeAbilityKey: '',
-    passiveAbilityKey: '',
-  });
-  console.log('KeyBindContainer bindKeyTextArray:', bindKeyTextArray);
+  const [activeAbilityKey, setActiveAbilityKey] = useState('');
+  const [passiveAbilityKey, setPassiveAbilityKey] = useState('');
   // 监听nettable数据变化
   useEffect(() => {
     const statusListenerId = SubscribeLotteryStatus(steamAccountId, (data) => {
@@ -43,29 +35,27 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed }) => {
     const timer = setInterval(() => {
       saveInputKeyborard(
         lotteryStatus?.activeAbilityName,
-        bindKeyTextArray.activeAbilityKey,
+        activeAbilityKey,
         lotteryStatus?.passiveAbilityName,
-        bindKeyTextArray.passiveAbilityKey,
+        passiveAbilityKey,
       );
     }, 1000);
     return () => {
       clearInterval(timer);
     };
-  }, [lotteryStatus, bindKeyTextArray]);
+  }, [lotteryStatus, activeAbilityKey, passiveAbilityKey]);
 
   return (
     <Panel style={containerStyle} className="container">
       <KeySettingButton
-        abilityname={lotteryStatus?.passiveAbilityName}
-        bindKeyTextArray={bindKeyTextArray}
-        setBindKeyTextArray={setBindKeyTextArray}
-        lotteryStatus={lotteryStatus}
+        abilityname={lotteryStatus?.activeAbilityName}
+        bindKeyText={activeAbilityKey}
+        setBindKeyText={setActiveAbilityKey}
       />
       <KeySettingButton
-        abilityname={lotteryStatus?.activeAbilityName}
-        bindKeyTextArray={bindKeyTextArray}
-        setBindKeyTextArray={setBindKeyTextArray}
-        lotteryStatus={lotteryStatus}
+        abilityname={lotteryStatus?.passiveAbilityName}
+        bindKeyText={passiveAbilityKey}
+        setBindKeyText={setPassiveAbilityKey}
       />
     </Panel>
   );
