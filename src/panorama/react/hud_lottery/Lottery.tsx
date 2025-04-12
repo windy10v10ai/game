@@ -3,7 +3,7 @@ import 'panorama-polyfill-x/lib/timers';
 
 import { useEffect, useState } from 'react';
 import ExpandButton from './components/ExpandButton';
-import ContentContainer from './components/ContentContainer';
+import LotteryContainer from './components/LotteryContainer';
 import { LotteryStatusDto } from '../../../common/dto/lottery-status';
 import { GetLotteryStatus, SubscribeLotteryStatus } from '@utils/net-table';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
@@ -86,7 +86,7 @@ function Lottery() {
           toggleCollapse={toggleCollapse}
         />
       </Panel>
-      <ContentContainer isCollapsed={isCollapsed} />
+      <LotteryContainer isCollapsed={isCollapsed} />
     </Panel>
   );
 }
