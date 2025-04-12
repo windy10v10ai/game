@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import KeySettingButton from './KeySettingButton';
 import KeyBindRemember from './KeyBindRemember';
-import { GetLotteryStatus, SubscribeLotteryStatus } from '@utils/net-table';
+import { GetLotteryStatus, GetPlayer, SubscribeLotteryStatus } from '@utils/net-table';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
 import { saveInputKeyborard } from '../hotkey';
@@ -11,6 +11,14 @@ interface KeyBindContainerProps {
 }
 
 const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed }) => {
+  const playerSetting = GetPlayer(GetLocalPlayerSteamAccountID())?.playerSetting ?? {
+    isRememberAbilityKey: true,
+    activeAbilityKey: '',
+    passiveAbilityKey: '',
+    activeAbilityQuickCast: false,
+    passiveAbilityQuickCast: false,
+  };
+
   const containerStyle: Partial<VCSSStyleDeclaration> = {
     visibility: isCollapsed ? 'collapse' : 'visible',
     flowChildren: 'down',
@@ -19,9 +27,17 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed }) => {
   const [lotteryStatus, setLotteryStatus] = useState<LotteryStatusDto | null>(
     GetLotteryStatus(steamAccountId),
   );
-  const [activeAbilityKey, setActiveAbilityKey] = useState('');
-  const [passiveAbilityKey, setPassiveAbilityKey] = useState('');
-  const [isRememberAbilityKey, setIsRememberAbilityKey] = useState(true);
+  const [activeAbilityKey, setActiveAbilityKey] = useState(playerSetting.activeAbilityKey);
+  const [passiveAbilityKey, setPassiveAbilityKey] = useState(playerSetting.passiveAbilityKey);
+  const [activeAbilityQuickCast, setActiveAbilityQuickCast] = useState(
+    playerSetting.activeAbilityQuickCast,
+  );
+  const [passiveAbilityQuickCast, setPassiveAbilityQuickCast] = useState(
+    playerSetting.passiveAbilityQuickCast,
+  );
+  const [isRememberAbilityKey, setIsRememberAbilityKey] = useState(
+    playerSetting.isRememberAbilityKey,
+  );
   // 监听nettable数据变化
   useEffect(() => {
     const statusListenerId = SubscribeLotteryStatus(steamAccountId, (data) => {
@@ -53,11 +69,15 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed }) => {
         abilityname={lotteryStatus?.activeAbilityName}
         bindKeyText={activeAbilityKey}
         setBindKeyText={setActiveAbilityKey}
+        quickCast={activeAbilityQuickCast}
+        setQuickCast={setActiveAbilityQuickCast}
       />
       <KeySettingButton
         abilityname={lotteryStatus?.passiveAbilityName}
         bindKeyText={passiveAbilityKey}
         setBindKeyText={setPassiveAbilityKey}
+        quickCast={passiveAbilityQuickCast}
+        setQuickCast={setPassiveAbilityQuickCast}
       />
       <KeyBindRemember
         isRememberAbilityKey={isRememberAbilityKey}

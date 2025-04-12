@@ -18,6 +18,14 @@ export class PlayerProperty {
   name!: string;
   level!: number;
 }
+export class PlayerSetting {
+  id: string;
+  isRememberAbilityKey: boolean;
+  activeAbilityKey: string;
+  passiveAbilityKey: string;
+  activeAbilityQuickCast: boolean;
+  passiveAbilityQuickCast: boolean;
+}
 
 export class PlayerDto {
   id!: string;
@@ -37,6 +45,7 @@ export class PlayerDto {
   totalLevel: number;
   useableLevel: number;
   properties: PlayerProperty[];
+  playerSetting: PlayerSetting;
 }
 export class PointInfoDto {
   steamId!: number;
