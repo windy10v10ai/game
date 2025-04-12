@@ -5,7 +5,7 @@ interface ContentPanelProps {
   isCollapsed: boolean;
 }
 
-const ContentContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
+const LotteryContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
   const containerStyle: Partial<VCSSStyleDeclaration> = {
     // 位置
     marginTop: '120px',
@@ -29,4 +29,4 @@ const ContentContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
   );
 };
 
-export default ContentContainer;
+export default LotteryContainer;

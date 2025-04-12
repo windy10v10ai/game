@@ -143,6 +143,10 @@ Panorama UI with webpack, TypeScript and React.
 - **[game/*]:** 会和 `dota 2 beta/game/dota_addons/your_addon_name` 同步更新
 - **[content/*]:** 会和 `dota 2 beta/content/dota_addons/your_addon_name` 同步更新
 
+## Data Flow
+
+![Data Flow](docs/drawio/dataflow.png)
+
 # 维护指南
 
 ## Console报错

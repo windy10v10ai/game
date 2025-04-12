@@ -18,6 +18,13 @@ export class PlayerProperty {
   name!: string;
   level!: number;
 }
+export class PlayerSetting {
+  isRememberAbilityKey: boolean;
+  activeAbilityKey: string;
+  passiveAbilityKey: string;
+  activeAbilityQuickCast: boolean;
+  passiveAbilityQuickCast: boolean;
+}
 
 export class PlayerDto {
   id!: string;
@@ -37,6 +44,7 @@ export class PlayerDto {
   totalLevel: number;
   useableLevel: number;
   properties: PlayerProperty[];
+  playerSetting: PlayerSetting;
 }
 export class PointInfoDto {
   steamId!: number;
@@ -62,7 +70,22 @@ export class Player {
   public static pointInfoList: PointInfoDto[] = [];
   private static playerCount = 0;
   constructor() {
-    this.RegisterListener();
+    // 监听JS事件
+    // 玩家属性升级
+    CustomGameEventManager.RegisterListener<{ name: string; level: string }>(
+      'player_property_levelup',
+      (_, event) => this.onPlayerPropertyLevelup(event),
+    );
+    // 玩家属性重置
+    CustomGameEventManager.RegisterListener<{ useMemberPoint: number }>(
+      'player_property_reset',
+      (_, event) => this.onPlayerPropertyReset(event),
+    );
+    // 发送快捷键设置
+    CustomGameEventManager.RegisterListener<SaveBindAbilityKeyEventData>(
+      'save_bind_ability_key',
+      (_, event) => this.SendBindAbilityKey(event),
+    );
   }
 
   public static GetPlayerCount(): number {
@@ -206,20 +229,6 @@ export class Player {
     return 0;
   }
 
-  // 监听JS事件
-  public RegisterListener() {
-    // 玩家属性升级
-    CustomGameEventManager.RegisterListener<{ name: string; level: string }>(
-      'player_property_levelup',
-      (_, event) => this.onPlayerPropertyLevelup(event),
-    );
-    // 玩家属性重置
-    CustomGameEventManager.RegisterListener<{ useMemberPoint: number }>(
-      'player_property_reset',
-      (_, event) => this.onPlayerPropertyReset(event),
-    );
-  }
-
   public onPlayerPropertyLevelup(event: { PlayerID: PlayerID; name: string; level: string }) {
     const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
 
@@ -298,5 +307,25 @@ export class Player {
       Player.playerList.push(player);
     }
     CustomNetTables.SetTableValue('player_table', player.id, player);
+  }
+
+  // 发送快捷键设置
+  private SendBindAbilityKey(
+    event: NetworkedData<SaveBindAbilityKeyEventData & { PlayerID: PlayerID }>,
+  ) {
+    const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
+    const playerSetting: PlayerSetting = {
+      isRememberAbilityKey: event.isRememberAbilityKey === 1,
+      activeAbilityKey: event.activeAbilityKey,
+      passiveAbilityKey: event.passiveAbilityKey,
+      activeAbilityQuickCast: event.activeAbilityQuickCast === 1,
+      passiveAbilityQuickCast: event.passiveAbilityQuickCast === 1,
+    };
+
+    ApiClient.sendWithRetry({
+      method: HttpMethod.PUT,
+      path: `/player/${steamId}/setting`,
+      body: playerSetting,
+    });
   }
 }
