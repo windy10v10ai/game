@@ -737,10 +737,10 @@
 
 		"DOTA_Tooltip_ability_bot_power_n5"						"机械救赎 N5"
 		"DOTA_Tooltip_ability_bot_power_n5_Description"			"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
-		"DOTA_Tooltip_ability_bot_power_n5_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了"机械救赎"程序，使它们在关键时刻能够激发潜力，扭转战局。"
+		"DOTA_Tooltip_ability_bot_power_n5_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了 机械救赎 程序，使它们在关键时刻能够激发潜力，扭转战局。"
 		"DOTA_Tooltip_ability_bot_power_n6"						"机械救赎 N6"
 		"DOTA_Tooltip_ability_bot_power_n6_Description"			"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
-		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了"机械救赎"程序，使它们在关键时刻能够激发潜力，扭转战局。"
+		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了 机械救赎 程序，使它们在关键时刻能够激发潜力，扭转战局。"
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
