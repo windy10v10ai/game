@@ -68,7 +68,6 @@ function TransPlayerData(data: NetworkedData<PlayerDto>): PlayerDto {
     useableLevel: data.useableLevel,
     properties: Object.values(data.properties),
     playerSetting: {
-      id: data.playerSetting.id,
       isRememberAbilityKey: Boolean(data.playerSetting.isRememberAbilityKey),
       activeAbilityKey: data.playerSetting.activeAbilityKey,
       passiveAbilityKey: data.playerSetting.passiveAbilityKey,

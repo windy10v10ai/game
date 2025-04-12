@@ -63,6 +63,23 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed }) => {
     };
   }, [lotteryStatus, activeAbilityKey, passiveAbilityKey, isRememberAbilityKey]);
 
+  // 发送快捷键设置到服务器端进行保存
+  useEffect(() => {
+    GameEvents.SendCustomGameEventToServer('save_bind_ability_key', {
+      isRememberAbilityKey,
+      activeAbilityKey,
+      passiveAbilityKey,
+      activeAbilityQuickCast,
+      passiveAbilityQuickCast,
+    });
+  }, [
+    isRememberAbilityKey,
+    activeAbilityKey,
+    passiveAbilityKey,
+    activeAbilityQuickCast,
+    passiveAbilityQuickCast,
+  ]);
+
   return (
     <Panel style={containerStyle} className="container">
       <KeySettingButton
