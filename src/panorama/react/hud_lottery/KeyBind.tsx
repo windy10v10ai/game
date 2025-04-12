@@ -4,6 +4,7 @@ import 'panorama-polyfill-x/lib/timers';
 import { useState } from 'react';
 import ExpandButton from './components/ExpandButton';
 import KeyBindContainer from './components/KeyBindContainer';
+import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 
 const containerStyle: Partial<VCSSStyleDeclaration> = {
   flowChildren: 'down',
@@ -17,6 +18,12 @@ function KeyBind() {
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
   };
+
+  // 获取玩家steamId，如果获取失败，则为观战，不显示
+  const steamAccountId = GetLocalPlayerSteamAccountID();
+  if (!steamAccountId) {
+    return null;
+  }
 
   return (
     <Panel style={containerStyle}>
