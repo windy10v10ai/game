@@ -348,8 +348,8 @@
 		"DOTA_Tooltip_modifier_player_adolphzero"				"<font color='#FFCC66'>★ 在下千里马 ★</font>"
 		"DOTA_Tooltip_modifier_player_adolphzero_Description"	"<font color='#FFCC66'> 还好老子跑得快 </font>"
 		"DOTA_Tooltip_modifier_player_j3e9"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
-		"DOTA_Tooltip_modifier_player_xin"					"<font color='#FFCC66'>★ 鲨鱼辣椒 ★</font>"
-		"DOTA_Tooltip_modifier_player_xin_Description"		"<font color='#FFCC66'> 鲨鱼辣椒不吃辣~ </font>"
+		"DOTA_Tooltip_modifier_player_xin"						"<font color='#FFCC66'>★ 鲨鱼辣椒 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_Description"			"<font color='#FFCC66'> 鲨鱼辣椒不吃辣~ </font>"
 		"DOTA_Tooltip_modifier_player_xin_2"					"<font color='#FFCC66'>★ 蝎子莱莱 ★</font>"
 		"DOTA_Tooltip_modifier_player_xin_2_Description"		"<font color='#FFCC66'>★ 尊贵的心悦1会员福利 ★</font>"
 		"DOTA_Tooltip_modifier_player_xin_3"					"<font color='#FFCC66'>★ 蜘蛛侦探 ★</font>"
@@ -990,7 +990,7 @@
 
 		"DOTA_Tooltip_ability_jack_surgery"														"外科手术"
 		"DOTA_Tooltip_ability_jack_surgery_description"											"被杰克攻击的敌人将会获得解体效果，每层解体都会降低敌人的治疗，生命恢复，攻击吸血和技能吸血\n每个敌人身上最大解体层数为%max_count%，当达到最大层数时，敌人将受到破坏效果\n敌人失去的属性将会附加给杰克"
-		"DOTA_Tooltip_ability_jack_surgery_Lore"												"可以使用沾满血的手术刀为Master以及自己治疗。开膛手杰克的牺牲者是以"摘除特定脏器"这种需要解剖学知识的方式被杀的。"
+		"DOTA_Tooltip_ability_jack_surgery_Lore"												"可以使用沾满血的手术刀为Master以及自己治疗。开膛手杰克的牺牲者是以摘除特定脏器这种需要解剖学知识的方式被杀的。"
 		"DOTA_Tooltip_ability_jack_surgery_duration"											"持续时间："
 		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%每层治疗/恢复/吸血降低："
 		// "DOTA_Tooltip_ability_jack_surgery_regen_down"											"%每层生命恢复降低："
@@ -999,14 +999,14 @@
 
 		"DOTA_Tooltip_ability_jack_the_mist"													"暗夜雾都"
 		"DOTA_Tooltip_ability_jack_the_mist_description"										"主动使用可以立刻变成夜晚，并使杰克身边始终围绕着迷雾，在迷雾中的敌人将会受到和雾夜凶杀中的迷雾一样的效果。"
-		"DOTA_Tooltip_ability_jack_the_mist_Lore"												"工业革命以后，被大量排出的庞大煤烟，于1950年代成为硫酸雾在伦敦引起了大灾害。"暗黑雾都"就是重现出那团"死之雾"的宝具。"
+		"DOTA_Tooltip_ability_jack_the_mist_Lore"												"工业革命以后，被大量排出的庞大煤烟，于1950年代成为硫酸雾在伦敦引起了大灾害。暗黑雾都就是重现出那团死之雾的宝具。"
 		// "DOTA_Tooltip_ability_jack_the_mist_radius_normal"										"默认迷雾范围："
 		"DOTA_Tooltip_ability_jack_the_mist_radius_active"										"激活迷雾范围："
 		"DOTA_Tooltip_ability_jack_the_mist_duration"											"持续时间："
 
 		"DOTA_Tooltip_ability_jack_maria_the_ripper"											"解体圣母"
 		"DOTA_Tooltip_ability_jack_maria_the_ripper_description"								"杰克闪烁至敌人身后，眩晕目标一段时间，如果目标身上有解体效果，则在%attack_duration%秒内对其进行基于解体次数的攻击，在此期间自身处于不可被真视的隐身状态"
-		"DOTA_Tooltip_ability_jack_maria_the_ripper_Lore"										"“当时伦敦贫民街据说有八万名之多的娼妇们，以生活为由所斩杀扔掉的，连娼妇都成不了的孩子们”的怨念，发挥出凶恶的效果。"
+		"DOTA_Tooltip_ability_jack_maria_the_ripper_Lore"										"当时伦敦贫民街据说有八万名之多的娼妇们，以生活为由所斩杀扔掉的，连娼妇都成不了的孩子们的怨念，发挥出凶恶的效果。"
 		"DOTA_Tooltip_ability_jack_maria_the_ripper_stun_duration"								"眩晕时间："
 		"DOTA_Tooltip_ability_jack_maria_the_ripper_attacktimes_count"							"每层解体提供攻击次数："
 
