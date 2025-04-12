@@ -188,6 +188,7 @@
 		"key_bind_mouseover_tooltop"							"点击设置快捷键。<br>如遇快捷键冲突、失灵，请尝试断开重连后重新设置。"
 		"key_bind_input_err"									"输入内容不可用，请尝试其他按键"
 		"key_bind_quick_cast"									"快速施法"
+		"key_bind_remember"										"记忆改键"
 		///////////////////////////////////////////////////
 		//
 		//			Member
@@ -347,8 +348,8 @@
 		"DOTA_Tooltip_modifier_player_adolphzero"				"<font color='#FFCC66'>★ 在下千里马 ★</font>"
 		"DOTA_Tooltip_modifier_player_adolphzero_Description"	"<font color='#FFCC66'> 还好老子跑得快 </font>"
 		"DOTA_Tooltip_modifier_player_j3e9"						"<font color='#FFCC66'>★ 专属定制称号 ★</font>"
-		"DOTA_Tooltip_modifier_player_xin"						"<font color='#FFCC66'>★ 鲨鱼辣椒 ★</font>"
-		"DOTA_Tooltip_modifier_player_xin_Description"			"<font color='#FFCC66'> 鲨鱼辣椒不吃辣~ </font>"
+		"DOTA_Tooltip_modifier_player_xin"					"<font color='#FFCC66'>★ 鲨鱼辣椒 ★</font>"
+		"DOTA_Tooltip_modifier_player_xin_Description"		"<font color='#FFCC66'> 鲨鱼辣椒不吃辣~ </font>"
 		"DOTA_Tooltip_modifier_player_xin_2"					"<font color='#FFCC66'>★ 蝎子莱莱 ★</font>"
 		"DOTA_Tooltip_modifier_player_xin_2_Description"		"<font color='#FFCC66'>★ 尊贵的心悦1会员福利 ★</font>"
 		"DOTA_Tooltip_modifier_player_xin_3"					"<font color='#FFCC66'>★ 蜘蛛侦探 ★</font>"
@@ -708,10 +709,10 @@
 
 		"DOTA_Tooltip_ability_bot_power_n5"						"机械救赎 N5"
 		"DOTA_Tooltip_ability_bot_power_n5_Description"			"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
-		"DOTA_Tooltip_ability_bot_power_n5_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了“机械救赎”程序，使它们在关键时刻能够激发潜力，扭转战局。"
+		"DOTA_Tooltip_ability_bot_power_n5_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了"机械救赎"程序，使它们在关键时刻能够激发潜力，扭转战局。"
 		"DOTA_Tooltip_ability_bot_power_n6"						"机械救赎 N6"
 		"DOTA_Tooltip_ability_bot_power_n6_Description"			"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
-		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了“机械救赎”程序，使它们在关键时刻能够激发潜力，扭转战局。"
+		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了"机械救赎"程序，使它们在关键时刻能够激发潜力，扭转战局。"
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes 原版英雄
@@ -981,7 +982,7 @@
 
 		"DOTA_Tooltip_ability_jack_surgery"														"外科手术"
 		"DOTA_Tooltip_ability_jack_surgery_description"											"被杰克攻击的敌人将会获得解体效果，每层解体都会降低敌人的治疗，生命恢复，攻击吸血和技能吸血\n每个敌人身上最大解体层数为%max_count%，当达到最大层数时，敌人将受到破坏效果\n敌人失去的属性将会附加给杰克"
-		"DOTA_Tooltip_ability_jack_surgery_Lore"												"可以使用沾满血的手术刀为Master以及自己治疗。开膛手杰克的牺牲者是以“摘除特定脏器”这种需要解剖学知识的方式被杀的。"
+		"DOTA_Tooltip_ability_jack_surgery_Lore"												"可以使用沾满血的手术刀为Master以及自己治疗。开膛手杰克的牺牲者是以"摘除特定脏器"这种需要解剖学知识的方式被杀的。"
 		"DOTA_Tooltip_ability_jack_surgery_duration"											"持续时间："
 		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%每层治疗/恢复/吸血降低："
 		// "DOTA_Tooltip_ability_jack_surgery_regen_down"											"%每层生命恢复降低："
@@ -990,7 +991,7 @@
 
 		"DOTA_Tooltip_ability_jack_the_mist"													"暗夜雾都"
 		"DOTA_Tooltip_ability_jack_the_mist_description"										"主动使用可以立刻变成夜晚，并使杰克身边始终围绕着迷雾，在迷雾中的敌人将会受到和雾夜凶杀中的迷雾一样的效果。"
-		"DOTA_Tooltip_ability_jack_the_mist_Lore"												"工业革命以后，开始被大量排出的庞大煤烟，于1950年代成为硫酸雾在伦敦引起了大灾害。“暗黑雾都”就是重现出那团“死之雾”的宝具。"
+		"DOTA_Tooltip_ability_jack_the_mist_Lore"												"工业革命以后，被大量排出的庞大煤烟，于1950年代成为硫酸雾在伦敦引起了大灾害。"暗黑雾都"就是重现出那团"死之雾"的宝具。"
 		// "DOTA_Tooltip_ability_jack_the_mist_radius_normal"										"默认迷雾范围："
 		"DOTA_Tooltip_ability_jack_the_mist_radius_active"										"激活迷雾范围："
 		"DOTA_Tooltip_ability_jack_the_mist_duration"											"持续时间："

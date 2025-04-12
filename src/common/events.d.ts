@@ -20,6 +20,7 @@ interface CustomGameEventDeclarations {
 
   lottery_pick_ability: LotteryPickEventData;
   lottery_refresh_ability: LotteryRefreshEventData;
+  save_bind_ability_key: SaveBindAbilityKeyEventData;
 }
 
 interface CustomGameEventDataBase {
@@ -73,4 +74,12 @@ interface LotteryPickEventData {
 
 interface LotteryRefreshEventData {
   type: string;
+}
+
+interface SaveBindAbilityKeyEventData {
+  isRememberAbilityKey: boolean;
+  activeAbilityKey: string;
+  passiveAbilityKey: string;
+  activeAbilityQuickCast: boolean;
+  passiveAbilityQuickCast: boolean;
 }

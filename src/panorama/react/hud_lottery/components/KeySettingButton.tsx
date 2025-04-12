@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { bindAbilityKey } from '../hotkey';
 
 interface KeySettingButtonProps {
   abilityname?: string;
   bindKeyText: string;
   setBindKeyText: React.Dispatch<React.SetStateAction<string>>;
+  quickCast: boolean;
+  setQuickCast: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
@@ -14,20 +16,18 @@ const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
   borderRadius: '3px', // 圆角
 };
 
-const KeySettingButton: React.FC<KeySettingButtonProps> = ({
+const KeySettingButton = ({
   abilityname,
   bindKeyText,
   setBindKeyText,
-}) => {
+  quickCast,
+  setQuickCast,
+}: KeySettingButtonProps): React.ReactElement => {
   const [isActive, setIsActive] = useState(false);
-  const [quickCast, setQuickCast] = useState(false);
   // 移除A,S
   const validKeys = " BCDEFGHIJKLMNOPQRTUVWXYZ0123456789`-=[]\\;',./";
 
   const activeKeySetting = (e: Panel) => {
-    if (abilityname === undefined) {
-      return;
-    }
     $.DispatchEvent('DOTAHideTextTooltip');
     if (isActive) {
       return;
@@ -46,9 +46,6 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({
     if (key === '') {
       return;
     }
-    if (abilityname === undefined) {
-      return;
-    }
     if (validKeys.indexOf(key) === -1) {
       textEntry.text = '';
       $.DispatchEvent('DOTAShowTextTooltip', textEntry, $.Localize('#key_bind_input_err'));
@@ -58,21 +55,24 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({
     } else {
       setBindKeyText(key);
       setIsActive(false);
-      bindAbilityKey(abilityname, key, quickCast);
     }
   };
 
   const onQuickCastChange = () => {
     const quickCastChanged = !quickCast;
     setQuickCast(quickCastChanged);
+  };
+
+  useEffect(() => {
+    // 当ability和bindKeyText都存在时，设置快捷键
     if (abilityname === undefined) {
       return;
     }
     if (bindKeyText === '') {
       return;
     }
-    bindAbilityKey(abilityname, bindKeyText, quickCastChanged);
-  };
+    bindAbilityKey(abilityname, bindKeyText, quickCast);
+  }, [abilityname, bindKeyText, quickCast]);
 
   return (
     <Panel style={rootPanelStyle} className="BindingRow">
@@ -82,9 +82,6 @@ const KeySettingButton: React.FC<KeySettingButtonProps> = ({
         onmouseactivate={activeKeySetting}
         // on mouse over, show the tooltip
         onmouseover={(e) => {
-          if (abilityname === undefined) {
-            return;
-          }
           if (isActive) {
             return;
           }

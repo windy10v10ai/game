@@ -11,7 +11,7 @@ export class HeroFacetConfig {
     ['npc_dota_hero_crystal_maiden', [3, 4]],
     ['npc_dota_hero_dazzle', [1, 2]],
     ['npc_dota_hero_death_prophet', [2, 3]],
-    ['npc_dota_hero_dragon_knight', [1, 2]],
+    ['npc_dota_hero_dragon_knight', [1, 2, 3]],
     ['npc_dota_hero_drow_ranger', [1, 2]],
     ['npc_dota_hero_earthshaker', [1, 2]],
     ['npc_dota_hero_jakiro', [3, 4]],
