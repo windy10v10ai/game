@@ -324,7 +324,7 @@ export class Player {
 
     ApiClient.sendWithRetry({
       method: HttpMethod.PUT,
-      path: `/players/${steamId}/setting`,
+      path: `/player/${steamId}/setting`,
       body: playerSetting,
     });
   }
