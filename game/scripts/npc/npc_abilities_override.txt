@@ -11006,10 +11006,9 @@
 				"value"		"2500"
 				"affected_by_aoe_increase"		"1"
 			}
-			"mana_restore_pct_from_creep"		"7.5"
-			"mana_restore_pct_from_hero"		"45"
+			"mana_restore_pct_from_creep"		"7.5"	// 2.5
+			"mana_restore_pct_from_hero"		"45"	// 15
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 	//=================================================================================================================
 	// Ability: Lina 莉娜/火女
@@ -11123,10 +11122,6 @@
 				"value"								"70 60 50 40"
 				"special_bonus_unique_lina_6"		"-20"
 			}
-			"supercharge_duration"
-			{
-				"special_bonus_facet_lina_supercharge"			"+5"
-			}
 			"supercharge_stacks"
 			{
 				"value"						"0 0 0"
@@ -11145,48 +11140,20 @@
 			}
 		}
 	}
-	// 慢热 命石2
-	"lina_slow_burn"
-	{
-		"AbilityValues"
-		{
-			"impact_damage_pct"
-			{
-				"special_bonus_facet_lina_dot"		"0.9"
-			}
-			"damage_penalty_tooltip"				"90"		// show as int on tooltip
-
-			"burn_percent"							"36"
-			"burn_percent_tooltip"								// used for other skills' tooltips in LinkedSpecialBonus			= impact_damage_pct * burn_percent / 100
-			{
-				"special_bonus_facet_lina_dot" "0.22"
-			}
-
-			"burn_percent_tooltip_damage"			"50"		// burn_percent_tooltip * duration
-			"total_damage_tooltip"					"140"		// damage_penalty_tooltip + impact_damage_pct * burn_percent * duration
-
-			"burn_duration"
-			{
-				"special_bonus_facet_lina_dot"		"3"
-			}
-
-		}
-	}
 	// 燎火 先天技能
 	"lina_combustion"
 	{
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
+			"damage_threshold"			"275"		// 175
 			"damage"
 			{
 				"value"							"10 30 50 70 90"
-				"special_bonus_unique_lina_7"	"+60%"
 			}
 			"damage_illusions"
 			{
 				"value"							"10 15 20 25 30"
-				"special_bonus_unique_lina_7"	"+60%"
 			}
 		}
 	}
@@ -11370,7 +11337,7 @@
 			{
 				"value"										"9 10 11 12 13"
 			}
-			"mana_cost_percentage"							"35"	// 20
+			"mana_cost_percentage"							"30"	// 20
 		}
 	}
 	// 星体禁锢
@@ -11404,18 +11371,13 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"proc_chance"	"15 20 25 30 35"		// 30
+			"proc_chance"	"22 24 26 28 30"		// 30
 			"mana_restore"	"35"
-		}
-		"mana_increase"
-		{
-			"value"		"0"
-			"special_bonus_facet_obsidian_destroyer_obsidian_decimator"	"3"		// 5
-		}
-		"mana_increase_duration"
-		{
-			"value"		"0"
-			"special_bonus_facet_obsidian_destroyer_obsidian_decimator"	"15"	// 10
+			"mana_increase"
+			{
+				"value"		"0"
+				"special_bonus_facet_obsidian_destroyer_obsidian_decimator"	"3"		// 5
+			}
 		}
 	}
 	// 神智之蚀
@@ -11626,7 +11588,7 @@
 	{
 		"AbilityValues"
 		{
-			"spell_amplification"		"2.0"
+			"spell_amplification"		"2.0"		// 1.0
 		}
 	}
 	// 命石2 预言家疗伤
@@ -11634,7 +11596,7 @@
 	{
 		"AbilityValues"
 		{
-			"heal_amplification"		"1.5"
+			"heal_amplification"		"1.5"		// 0.75
 		}
 	}
 	//=================================================================================================================
@@ -11744,18 +11706,18 @@
 	{
 		"AbilityValues"
 		{
-			"mana_restore_base"				"100"
-			"hp_restore_base"				"100"
+			"mana_restore_base"				"100"		// 10
+			"hp_restore_base"				"100"		// 10
 
 			"mana_restore_pct"
 			{
-				"value"						"5"
+				"value"						"3"			// 2
 			}
 			"hp_restore_pct"
 			{
-				"value"						"5"
+				"value"						"3"			// 2
 			}
-			"dodged_spell_multiplier"		"6"
+			"dodged_spell_multiplier"		"6"			// 3.5
 
 		}
 	}
@@ -11821,7 +11783,8 @@
 			"ally_healing"
 			{
 				"value"					"240 420 600 780"// 120 210 300 390
-			}"shard_damage_pct_from_ward"
+			}
+			"shard_damage_pct_from_ward"
 			{
 				"special_bonus_shard"			"80"
 			}
@@ -11929,18 +11892,8 @@
 	{
 		"AbilityValues"
 		{
-			"spell_lifesteal"			"5.0"
-			"close_radius"
-			{
-				"value"		"450"
-				"affected_by_aoe_increase"	"1"
-			}
-			"max_radius"
-			{
-				"value"	"900"
-				"affected_by_aoe_increase"	"1"
-			}
-			"spell_lifesteal_close"		"50.0"
+			"spell_lifesteal"			"5.0"		// 2.0
+			"spell_lifesteal_close"		"30.0"		// 14.0
 		}
 	}
 	// 受虐成狂 命石1
@@ -11948,9 +11901,9 @@
 	{
 		"AbilityValues"
 		{
-			"spell_amplification"			"70"
+			"spell_amplification"			"70"		// 14
 			"spell_amplification_per_level"	"0.0"
-			"damage_reflected_to_self"		"35.0"
+			"damage_reflected_to_self"		"35.0"		// 27.0
 		}
 	}
 	// 束手束脚 命石2
@@ -11958,10 +11911,10 @@
 	{
 		"AbilityValues"
 		{
-			"spell_reflect_pct"			"35.0"
+			"spell_reflect_pct"			"25.0"			// 15.0
 			"radius"
 			{
-				"value"			"900" // 1200
+				"value"			"900"					// 1200
 				"affected_by_aoe_increase"	"1"
 			}
 		}
@@ -12005,12 +11958,6 @@
 		"AbilityValues"
 		{
 			"damage"					"100 175 250 325 400"
-			"jump_damage_reduction_pct"
-			{
-				"value"			"6"	// 6
-				"CalculateSpellDamageTooltip"	"0"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
-			}
 			"attack_damage_reduction"
 			{
 				"value"			"7 14 21 28 35"
@@ -12022,27 +11969,27 @@
 	// 奥术光环/失效立场 （追加技能）
 	"rubick_null_field"
 	{
-		"MaxLevel" "4"
+		"MaxLevel" "5"
 		"LinkedAbility"					"rubick_arcane_supremacy"
 		"AbilityDraftPreAbility"		"rubick_arcane_supremacy"
 		"AbilityValues"
 		{
 			"magic_damage_reduction_pct"
 			{
-				"value" "10 14 18 22"
+				"value" "10 14 18 22 26"
 			}
 		}
 	}
 	// 奥术至尊
 	"rubick_arcane_supremacy"
 	{
-		"MaxLevel" "4"
+		"MaxLevel" "5"
 		"LinkedAbility"					"rubick_null_field"
 		"AbilityDraftPreAbility"		"rubick_null_field"
 		"AbilityValues"
 		{
-			"cast_range"				"60 120 180 240"
-			"spell_amp"					"11 16 21 26"
+			"cast_range"				"60 120 180 240 300"
+			"spell_amp"					"11 16 21 26 31"
 
 			// 奥术积累
 			"aoe_bonus_duration"
@@ -12218,8 +12165,8 @@
 	{
 		"AbilityValues"
 		{
-			"stack"			"3"
-			"duration"		"12"
+			"stack"			"3"			// 2
+			"duration"		"12"		// 8
 		}
 	}
 	//=================================================================================================================
@@ -12282,12 +12229,7 @@
 			}
 			"scepter_shock_interval"
 			{
-				"special_bonus_scepter"						"0.3"
-			}
-			"shard_ward_count" // fixme 现版本没有这一段，不知道有没有用
-			{
-				"value"					"1"
-				"RequiresShard"			"1"
+				"special_bonus_scepter"						"0.6"		// 0.9
 			}
 		}
 	}
@@ -12582,7 +12524,7 @@
 				}
 				"radius_scepter"
 				{
-					"special_bonus_scepter"		"625"
+					"special_bonus_scepter"		"625"			// 475
 					"affected_by_aoe_increase"	"1"
 				}
 		}
@@ -12596,7 +12538,6 @@
 		{
 			"overload_damage"
 			{
-				// "var_type"						"FIELD_INTEGER" // fixme 没有get到含义
 				"value"			"40 80 120 160 200"
 			}
 			"shard_activation_charges"
@@ -12628,12 +12569,12 @@
 	// 球状闪电
 	"storm_spirit_ball_lightning"
 	{
-		"MaxLevel" "5"
-		"AbilityDamage"					"8 12 16 24 32"
+		"MaxLevel" "4"
+		"AbilityDamage"					"8 12 16 24"
 		"AbilityValues"
 		{
 				"ball_lightning_initial_mana_percentage"		"3.5"
-				"ball_lightning_move_speed"			"1400 1850 2300 2750 3200"
+				"ball_lightning_move_speed"			"1400 1850 2300 2750"
 		}
 	}
 	// 球状闪电残影距离（减少单位降低卡顿）
@@ -12707,7 +12648,7 @@
 			}
 			"radius"
 			{
-				"value"	"600"// 400
+				"value"		"600"// 400
 				"affected_by_aoe_increase"	"1"
 			}
 			"damage"
@@ -12753,8 +12694,8 @@
 		{
 			"aura_radius"
 			{
-				"value"					"600"
-				"special_bonus_scepter"	"+1000"
+				"value"					"600"		// 500
+				"special_bonus_scepter"	"+600"		// +500
 				"affected_by_aoe_increase"	"1"
 			}
 
@@ -12763,26 +12704,10 @@
 				"value"					"30.0"
 			}
 
-			"lifetime"
-			{
-				"value"					"60"
-				"special_bonus_scepter" "+180"
-			}
-			"minefield_duration"		"10"
 			"trigger_radius"
 			{
-				"value"	"400"
+				"value"	"300"						// 200
 				"affected_by_aoe_increase"	"1"
-			}
-			"scepter_move_damage"
-			{
-				"special_bonus_scepter"					"300"
-			}
-
-
-			"scepter_move_amt"
-			{
-				"special_bonus_scepter"					"100"
 			}
 			"bonus_mine_damage_pct"		"30"
 		}
@@ -12995,7 +12920,7 @@
 	{
 		"AbilityValues"
 		{
-			"secondary_stat_bonus_pct"	"50"
+			"secondary_stat_bonus_pct"	"50"			// 25
 		}
 	}
 	// 25右天赋暴击
@@ -13005,7 +12930,7 @@
 		{
 			"value"
 			{
-				"value" "140" // 限时强化+100
+				"value" "240"							// 140
 				"ad_linked_abilities" "void_spirit_astral_step"
 			}
 		}
@@ -13345,17 +13270,13 @@
 				"special_bonus_unique_winter_wyvern_5" "+40"	// 25
 				}
 				"heal_percentage"	"2.25 3 3.75 4.5 5.25"
-				"can_target_buildings"
-				{
-					"special_bonus_facet_winter_wyvern_winterproof"	"=1"
-				}
 				"damage_buff_pct"
 				{
-					"special_bonus_facet_winter_wyvern_winterproof"	"=100"
+					"special_bonus_facet_winter_wyvern_winterproof"	"=100"		// 60
 				}
 				"damage_buff_duration"
 				{
-					"special_bonus_facet_winter_wyvern_winterproof"	"=20.0"
+					"special_bonus_facet_winter_wyvern_winterproof"	"=10.0"		// 6
 				}
 		}
 	}
@@ -13545,12 +13466,12 @@
 			"damage"
 			{
 				"value"							"300 475 650 825"
-				"special_bonus_unique_zeus_4"		"+275"	// 150
+				"special_bonus_unique_zeus_4"		"+175"	// 75
 			}
 			"grow_kill_amp"
 			{
 				"value"						"0"
-				"special_bonus_facet_zuus_divine_rampage"	"50"
+				"special_bonus_facet_zuus_divine_rampage"	"30"	// 25
 			}
 		}
 	}
@@ -13777,10 +13698,8 @@
 	"ringmaster_spotlight"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastPoint"				"0.0"
+		"AbilityCastPoint"				"0.2"	// 0.5
 		"AbilityCastRange"				"2000"
-		"AbilityCooldown"				"20"
-		"AbilityDuration"				"8"
 		"AbilityValues"
 		{
 			"radius"
@@ -13797,13 +13716,10 @@
 	{
 		"AbilityValues"
 		{
-			"leap_distance"			"600"
-			"leap_speed"			"2000.0"
-			"leap_acceleration"		"10000.0"
-			"fart_cloud_duration"					"4.5"
-			"fart_cloud_slow"						"-50.0"
-			"fart_cloud_aura_linger_duration"		"1.0"
-			"fart_cloud_radius"						"400"
+			"leap_distance"			"600"						// 400
+			"fart_cloud_duration"					"4.5"		// 3
+			"fart_cloud_slow"						"-50.0"		// -30
+			"fart_cloud_radius"						"400"		// 200
 		}
 	}
 	// 强力水 命石1
@@ -13812,8 +13728,8 @@
 		"AbilityCastRange"				"1200"
 		"AbilityValues"
 		{
-			"strength_bonus_base"		"50.0"
-			"strength_bonus_per_level"	"10.0"
+			"strength_bonus_base"		"50.0"				// 5
+			"strength_bonus_per_level"	"5.0"				// 1
 		}
 	}
 	// 独轮车 命石2
@@ -13984,14 +13900,7 @@
 	// 隼影 命石2 跟随大招
 	"kez_shadowhawk_passive"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"						"4"
-		"DependentOnAbility"			"kez_ravens_veil"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"						"5"
 		"AbilityValues"
 		{
 			"mark_trigger_cd_reduction"			"20 30 40 50 60"

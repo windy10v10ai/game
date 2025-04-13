@@ -1353,7 +1353,6 @@
 	}
 	"npc_dota_hero_lich"
 	{
-		"Ability5"		"lich_frost_armor"
 		"Ability7"		"lich_frost_aura"
 		"Bot"
 		{
