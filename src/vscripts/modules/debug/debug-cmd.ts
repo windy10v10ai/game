@@ -17,6 +17,7 @@ export enum CMD {
   END = '-end',
 
   // ---- 当前英雄相关 ----
+  REPLACE_HERO = '-rh', // 替换当前英雄
   /** 重置当前英雄技能 */
   RESET_ABILITY = '-resetAbility',
   REFRESH_BUYBACK = '-refreshBuyback',
@@ -27,6 +28,7 @@ export enum CMD {
   HP_LOSS = '-hploss',
   STUN = '-stun',
   SILENCE = '-silence',
+  ROOT = '-root',
 
   // ---- ability ----
   ADD_ABILITY = '-ab',

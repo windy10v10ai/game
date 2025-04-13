@@ -259,6 +259,12 @@ export class Debug {
         }
       });
     }
+    if (cmd === CMD.REPLACE_HERO) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const heroName = args[0];
+      PlayerResource.ReplaceHeroWith(hero.GetPlayerID(), heroName, 0, 0);
+    }
 
     if (cmd === CMD.RESET_ABILITY) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
@@ -315,6 +321,13 @@ export class Debug {
       if (!hero) return;
       const duration = Number(args[0] || 5);
       hero.AddNewModifier(hero, undefined, 'modifier_silence', { duration });
+    }
+    // 缠绕
+    if (cmd === CMD.ROOT) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const duration = Number(args[0] || 5);
+      hero.AddNewModifier(hero, undefined, 'modifier_rooted', { duration });
     }
   }
 

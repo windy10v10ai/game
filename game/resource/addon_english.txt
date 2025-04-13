@@ -188,6 +188,7 @@
 		"key_bind_mouseover_tooltop"							"Click to bind a hotkey to this ability. <br>If you meet hotkey conflicts or malfunctions, please try to disconnect and reconnect and then reset."
 		"key_bind_input_err"									"Invalid input, please try another key"
 		"key_bind_quick_cast"									"Quick Cast"
+		"key_bind_remember"										"Save Key"
 		///////////////////////////////////////////////////
 		//
 		//			Member
@@ -619,8 +620,8 @@
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Axe gains Strength based on his armor as long as he's away from his allies."
 		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"percentage:"
 		//人工神符
-		"DOTA_Tooltip_ability_arc_warden_scepter"	"Artificial Rune"
-		"DOTA_Tooltip_ability_arc_warden_scepter_Description"	"Create a random rune"
+		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Artificial Rune"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Create a random rune"
 		//魔法扰动
 		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"Mana Turbulence"
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"Causes damage to enemy units in the fan-shaped area and applies a debuff, reducing their skill damage, increasing their mana consumption, increasing their skill CD, and causing a slowdown of %slow_duration% seconds"
@@ -704,18 +705,6 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X CAST CHANCE:"
 
-		"DOTA_Tooltip_ability_bot_power_n5"						"Bot Salvation N5"
-		"DOTA_Tooltip_ability_bot_power_n5_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
-		"DOTA_Tooltip_ability_bot_power_n5_Lore"				"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
-		"DOTA_Tooltip_ability_bot_power_n6"						"Bot Salvation N6"
-		"DOTA_Tooltip_ability_bot_power_n6_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
-		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
-
-		///////////////////////////////////////////////////
-		//
-		// 					Heroes 原版英雄
-		//
-		///////////////////////////////////////////////////
 		// 火枪暗杀
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"Assassinate (old)"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
@@ -743,6 +732,26 @@
 		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"Army of Chaos"
 		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"Multiple shadow clones are imbued within you! They will attack when you do with a cooldown."
 
+
+		"DOTA_Tooltip_ability_bot_power_n5"						"Bot Salvation N5"
+		"DOTA_Tooltip_ability_bot_power_n5_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
+		"DOTA_Tooltip_ability_bot_power_n5_Lore"				"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
+		"DOTA_Tooltip_ability_bot_power_n6"						"Bot Salvation N6"
+		"DOTA_Tooltip_ability_bot_power_n6_Description"			"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
+		"DOTA_Tooltip_ability_bot_power_n6_Lore"				"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
+		///////////////////////////////////////////////////
+		//
+		// 					Heroes Override 原版英雄技能
+		//
+		///////////////////////////////////////////////////
+		//墓碑改说明
+		// "DOTA_Tooltip_ability_undying_tombstone"						"墓碑·改（不生成小僵尸）"
+		"DOTA_Tooltip_ability_undying_tombstone"						"Tombstone·MK2(No Zombie)"
+		//骨隐步改说明
+		"DOTA_Tooltip_ability_clinkz_wind_walk"											"Skeleton Walk·MK2(No Skeleton Archers)"
+		//死亡契约改说明
+		"DOTA_Tooltip_ability_clinkz_death_pact"										"Death Pact·MK2(No Skeleton Archers)"
+
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"
 		// 撼地者
@@ -750,9 +759,6 @@
 
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"COOKIE HEAL:"
-
-		// 谜团
-		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"					"Black Hole deals additional damage equivalent to 3%% of the unit's Max Health per second."
 
 		// 全能骑士
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"

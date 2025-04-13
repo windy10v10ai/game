@@ -22,7 +22,6 @@ export class Ranking {
       path: Ranking.PLAYER_RANKING_URL,
       successFunc: Ranking.LoadRankingSuccess,
       failureFunc: Ranking.LoadRankingFailure,
-      retryTimes: 6,
       timeoutSeconds: 30,
     });
   }
