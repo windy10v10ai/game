@@ -326,6 +326,15 @@ export class Player {
       method: HttpMethod.PUT,
       path: `/player/${steamId}/setting`,
       body: playerSetting,
+      successFunc: (data: string) => {
+        const playerSetting = json.decode(data)[0] as PlayerSetting;
+        // update Player
+        const player = Player.playerList.find((p) => p.id === steamId.toString());
+        if (player) {
+          player.playerSetting = playerSetting;
+        }
+        Player.savePlayerToNetTable();
+      },
     });
   }
 }
