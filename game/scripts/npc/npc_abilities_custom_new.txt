@@ -615,13 +615,30 @@
 		}
 	}
 	//人工神符
-	"arc_warden_scepter"
+	"arc_warden_scepter2"
 	{
+		"BaseClass"						"arc_warden_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-
 		"MaxLevel"						"3"
+
+		"AbilityCastPoint"				"0.15"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+
 		"AbilityCooldown"				"40 35 30"
+		"AbilityManaCost"				"100"
+		"AbilityValues"
+		{
+			"tooltip_scepter_cooldown"
+			{
+				"special_bonus_scepter"	"60"
+			}
+			"tooltip_scepter_manacost"
+			{
+				"special_bonus_scepter" "100"
+			}
+		}
 
 	}
 	//魔法扰动

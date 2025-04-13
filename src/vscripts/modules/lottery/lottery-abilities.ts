@@ -153,7 +153,7 @@ export const abilityTiersActive: Tier[] = [
       'enchantress_impetus', // 推进
 
       // 自定义技能
-      'arc_warden_scepter', // 人工神符
+      'arc_warden_scepter2', // 人工神符
       'alchemist_berserk_potion2', // 狂暴药剂 new
       'ancient_apparition_frost_seal', // 冰霜封印
     ],
