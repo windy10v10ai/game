@@ -80,6 +80,8 @@ no_support_abilitys = {
 	earthshaker_enchant_totem = 1,    --  强化图腾
 	wisp_tether = 1,                  -- 羁绊
 	dawnbreaker_celestial_hammer = 1, -- 上界重锤
+	nyx_assassin_burrow = 1,          -- 钻地
+	nyx_assassin_unburrow = 1,        -- 现身
 }
 no_support_items = {
 	-- 消耗品
