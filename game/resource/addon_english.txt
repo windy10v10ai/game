@@ -620,8 +620,8 @@
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Axe gains Strength based on his armor as long as he's away from his allies."
 		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"percentage:"
 		//人工神符
-		"DOTA_Tooltip_ability_arc_warden_scepter"	"Artificial Rune"
-		"DOTA_Tooltip_ability_arc_warden_scepter_Description"	"Create a random rune"
+		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Artificial Rune"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Create a random rune"
 		//魔法扰动
 		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"Mana Turbulence"
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"Causes damage to enemy units in the fan-shaped area and applies a debuff, reducing their skill damage, increasing their mana consumption, increasing their skill CD, and causing a slowdown of %slow_duration% seconds"
