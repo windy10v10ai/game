@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import KeySettingButton from './KeySettingButton';
 import KeyBindRemember from './KeyBindRemember';
 import { GetLotteryStatus, SubscribeLotteryStatus } from '@utils/net-table';
@@ -32,6 +32,8 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
   const [isRememberAbilityKey, setIsRememberAbilityKey] = useState(
     playerSetting.isRememberAbilityKey,
   );
+  const isFirstRender = useRef(true);
+
   // 监听nettable数据变化
   useEffect(() => {
     const statusListenerId = SubscribeLotteryStatus(steamAccountId, (data) => {
@@ -43,7 +45,11 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
   }, [steamAccountId]);
 
   useEffect(() => {
-    // 发送快捷键设置到服务器端进行保存
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
     GameEvents.SendCustomGameEventToServer('save_bind_ability_key', {
       isRememberAbilityKey,
       activeAbilityKey,
@@ -51,6 +57,15 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
       activeAbilityQuickCast,
       passiveAbilityQuickCast,
     });
+  }, [
+    isRememberAbilityKey,
+    activeAbilityKey,
+    passiveAbilityKey,
+    activeAbilityQuickCast,
+    passiveAbilityQuickCast,
+  ]);
+
+  useEffect(() => {
     // 每秒刷新一次改键显示
     const timer = setInterval(() => {
       saveInputKeyborard(
@@ -65,7 +80,6 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
     };
   }, [
     lotteryStatus,
-    isRememberAbilityKey,
     activeAbilityKey,
     passiveAbilityKey,
     activeAbilityQuickCast,
