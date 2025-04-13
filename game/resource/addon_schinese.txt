@@ -622,8 +622,8 @@
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"		"获得护甲一定百分比的力量"
 		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"百分比："
 
-		"DOTA_Tooltip_ability_arc_warden_scepter"	"人工神符"
-		"DOTA_Tooltip_ability_arc_warden_scepter_Description"	"创建一个随机神符"
+		"DOTA_Tooltip_ability_arc_warden_scepter2"	"人工神符"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"创建一个随机神符"
 
 		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"魔法扰动"
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"对扇形区域的敌方单位造成伤害，并施加debuff，降低其技能伤害，增加其魔法消耗,增加其技能cd,并造成%slow_duration%秒减速"

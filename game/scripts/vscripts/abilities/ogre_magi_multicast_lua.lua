@@ -79,6 +79,7 @@ no_support_abilitys = {
 	phantom_assassin_phantom_strike = 1, --  幻影突袭
 	earthshaker_enchant_totem = 1,    --  强化图腾
 	wisp_tether = 1,                  -- 羁绊
+	dawnbreaker_celestial_hammer = 1, -- 上界重锤
 }
 no_support_items = {
 	-- 消耗品
