@@ -11,7 +11,7 @@ export interface ApiParameter {
   path: string;
   querys?: { [key: string]: string };
   body?: object;
-  successFunc?: (data: string) => void;
+  successFunc: (data: string) => void;
   failureFunc?: (data: string) => void;
   retryTimes?: number;
   timeoutSeconds?: number;
@@ -92,9 +92,7 @@ export class ApiClient {
         // if 20X
         print(`[ApiClient] return with status code: ${result.StatusCode}`);
         if (result.StatusCode >= 200 && result.StatusCode < 300) {
-          if (apiParameter.successFunc) {
-            apiParameter.successFunc(result.Body);
-          }
+          apiParameter.successFunc(result.Body);
         } else if (result.StatusCode === 401) {
           if (apiParameter.failureFunc) {
             apiParameter.failureFunc(result.Body);
