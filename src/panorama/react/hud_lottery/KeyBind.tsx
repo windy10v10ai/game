@@ -21,7 +21,7 @@ function KeyBind() {
   };
 
   const playerSetting = GetPlayer(GetLocalPlayerSteamAccountID())?.playerSetting ?? {
-    isRememberAbilityKey: true,
+    isRememberAbilityKey: false,
     activeAbilityKey: '',
     passiveAbilityKey: '',
     activeAbilityQuickCast: false,
