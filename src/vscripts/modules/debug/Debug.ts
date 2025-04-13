@@ -259,6 +259,12 @@ export class Debug {
         }
       });
     }
+    if (cmd === CMD.REPLACE_HERO) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const heroName = args[0];
+      PlayerResource.ReplaceHeroWith(hero.GetPlayerID(), heroName, 0, 0);
+    }
 
     if (cmd === CMD.RESET_ABILITY) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
