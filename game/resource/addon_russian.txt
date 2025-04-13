@@ -455,8 +455,8 @@
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Когда рядом с героем нет союзников, его сила увеличивается на долю от показателя брони."
 		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"Сила в броню %： "
 		//人工神符
-		"DOTA_Tooltip_ability_arc_warden_scepter"	"Artificial Rune"
-		"DOTA_Tooltip_ability_arc_warden_scepter_Description"	"Создает случайную руну"
+		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Artificial Rune"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Создает случайную руну"
 		//魔法扰动
 		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"Mana Turbulence"
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"Наносит урон вражеским юнитам в конусной области и накладывает дебафф, снижающий урон от заклинаний, увеличивающий расход маны, повышающий перезарядку умений и вызывающий замедление на %slow_duration% секунд"

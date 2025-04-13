@@ -22,8 +22,8 @@ export class ApiClient {
   public static readonly ADD_PLAYER_PROPERTY_URL = '/game/addPlayerProperty';
   public static readonly RESET_PLAYER_PROPERTY_URL = '/game/resetPlayerProperty';
 
-  private static TIMEOUT_SECONDS = 15;
-  private static RETRY_TIMES = 4;
+  private static TIMEOUT_SECONDS = 10;
+  private static RETRY_TIMES = 3;
 
   private static HOST_NAME: string = (() => {
     return IsInToolsMode() ? 'http://192.168.0.2:5000/api' : 'https://windy10v10ai.web.app/api';
