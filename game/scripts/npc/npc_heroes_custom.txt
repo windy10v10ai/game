@@ -508,6 +508,28 @@
 		"Ability17"		"special_bonus_unique_spectre_401"
 	}
 
+	"npc_dota_hero_enigma"
+	{
+		"Facets"
+		{
+			"enigma_fragment"
+			{
+				"Icon"				"summons"
+				"Color"				"Purple"
+				"GradientID"		"0"
+				"Deprecated"		"true"		// 禁用 分割图像
+
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"enigma_splitting_image"
+					}
+				}
+			}
+		}
+	}
+
 	// 幽鬼
 	"npc_dota_hero_spectre"
 	{

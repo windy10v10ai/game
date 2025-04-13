@@ -760,9 +760,6 @@
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"COOKIE HEAL:"
 
-		// 谜团
-		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"					"Black Hole deals additional damage equivalent to 3%% of the unit's Max Health per second."
-
 		// 全能骑士
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"Increases the target's movement speed and health regeneration, and grants flying movement, allowing them to move over any terrain."
