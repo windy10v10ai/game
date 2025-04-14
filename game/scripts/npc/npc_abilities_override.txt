@@ -9880,11 +9880,13 @@
 	"enchantress_impetus"
 	{
 		"MaxLevel" "5"
+		"AbilityCooldown"				"6 4 2 1 0"
+		"AbilityManaCost"				"25"			// 50
 		"AbilityValues"
 		{
 			"distance_damage_pct"
 			{
-				"value"			"10 14 18 22 26"
+				"value"			"12 14 16 18 20"
 				"special_bonus_unique_enchantress_4"	"+10"
 			}
 			"distance_cap"			"3500"
