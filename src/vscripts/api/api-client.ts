@@ -26,7 +26,7 @@ export class ApiClient {
   private static RETRY_TIMES = 3;
 
   private static HOST_NAME: string = (() => {
-    return IsInToolsMode() ? 'http://192.168.0.2:5000/api' : 'https://windy10v10ai.web.app/api';
+    return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.web.app/api';
   })();
   // private static HOST_NAME: string = "https://windy10v10ai.web.app/api";
 
