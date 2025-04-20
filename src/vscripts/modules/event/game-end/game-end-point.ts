@@ -83,25 +83,31 @@ export class GameEndPoint {
   }
 
   public static GetCustomModeMultiplier(option: Option): number {
-    // if radiantGoldXpMultiplier >= 2, x0.5, >=5 x0.25
-    // if direGoldXpMultiplier >= 10, x2, >=20 x2.2
-    // x direPlayerNumber / 10
-    // if respawnTimePercentage <= 0, x0.5
     let multiplier = 1;
-    if (option.radiantGoldXpMultiplier >= 2) {
-      multiplier *= 0.5;
-    } else if (option.radiantGoldXpMultiplier >= 5) {
-      multiplier *= 0.25;
+    if (option.radiantGoldXpMultiplier >= 5) {
+      multiplier *= 0.3;
+    } else if (option.radiantGoldXpMultiplier >= 2) {
+      multiplier *= 0.6;
     }
     if (option.direGoldXpMultiplier >= 10) {
       multiplier *= 2;
-    } else if (option.direGoldXpMultiplier >= 20) {
-      multiplier *= 2.2;
+    } else if (option.direGoldXpMultiplier >= 5) {
+      multiplier *= 1.5;
     }
+
     multiplier *= option.direPlayerNumber / 10;
     if (option.respawnTimePercentage <= 0) {
-      multiplier *= 0.5;
+      multiplier *= 0.6;
     }
-    return multiplier;
+    // 防御塔倍率低于100时
+    if (option.towerPower <= 100) {
+      multiplier *= 0.6;
+    } else if (option.towerPower <= 150) {
+      multiplier *= 0.8;
+    } else if (option.towerPower >= 300) {
+      multiplier *= 1.1;
+    }
+    // 小数点1位
+    return Math.round(multiplier * 10) / 10;
   }
 }
