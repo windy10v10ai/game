@@ -256,9 +256,16 @@ function ShowGameOptionsChange(_table, key, value) {
     return;
   }
 
-  $('#DisplayOptionsPlayerGoldXp').text = value.multiplier_radiant.toFixed(1).replace(/\.0+$/, '');
-  $('#DisplayOptionsBotGoldXp').text = value.multiplier_dire.toFixed(1).replace(/\.0+$/, '');
-  $('#DisplayOptionsTowerPower').text = `${value.tower_power_pct}%`;
+  if (key === 'game_options') {
+    $('#DisplayOptionsPlayerGoldXp').text = value.multiplier_radiant
+      .toFixed(1)
+      .replace(/\.0+$/, '');
+    $('#DisplayOptionsBotGoldXp').text = value.multiplier_dire.toFixed(1).replace(/\.0+$/, '');
+    $('#DisplayOptionsTowerPower').text = `${value.tower_power_pct}%`;
+  } else if (key === 'point_multiplier') {
+    $('#DisplaySeasonPointMulti').text =
+      'x' + value.point_multiplier.toFixed(1).replace(/\.0+$/, '');
+  }
 }
 
 function OnDifficultyDropDownChanged(difficulty) {
@@ -284,32 +291,6 @@ function OnDifficultyDropDownChanged(difficulty) {
     }
     LockOption();
   }
-
-  let seasonPointMulti = '1.0';
-  switch (+difficulty) {
-    case 1:
-      seasonPointMulti = '1.2';
-      break;
-    case 2:
-      seasonPointMulti = '1.4';
-      break;
-    case 3:
-      seasonPointMulti = '1.6';
-      break;
-    case 4:
-      seasonPointMulti = '1.8';
-      break;
-    case 5:
-      seasonPointMulti = '2.0';
-      break;
-    case 6:
-      seasonPointMulti = '2.2';
-      break;
-    default:
-      seasonPointMulti = '1.0';
-      break;
-  }
-  $('#DisplaySeasonPointMulti').text = 'x' + seasonPointMulti;
 }
 
 function OnGameDifficultyChoiceChange(table, key, value) {
