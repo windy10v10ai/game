@@ -1,3 +1,4 @@
+import { ApiClient } from '../api/api-client';
 import { GameEndPoint } from './event/game-end/game-end-point';
 import { PlayerHelper } from './helper/player-helper';
 
@@ -45,7 +46,11 @@ export class Option {
     this.enablePlayerAttribute = keys.enable_player_attribute === 1;
     CustomNetTables.SetTableValue('game_options', 'game_options', keys);
     CustomNetTables.SetTableValue('game_options', 'point_multiplier', {
-      point_multiplier: GameEndPoint.GetCustomModeMultiplier(this),
+      point_multiplier: GameEndPoint.GetDifficultyMultiplier(
+        this.gameDifficulty,
+        ApiClient.IsLocalhost(),
+        this,
+      ),
     });
   }
 
