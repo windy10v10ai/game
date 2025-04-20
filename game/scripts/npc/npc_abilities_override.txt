@@ -1234,7 +1234,7 @@
 	"dawnbreaker_fire_wreath"
 	{
 		"MaxLevel" "5"
-		"AbilityCastPoint"				"0.1 0.1 0.1 0.1 0.0"
+		"AbilityCastPoint"				"0.1"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -1291,7 +1291,7 @@
 			"cooldown_reduction"
 			{
 				"value"									"0"
-				"special_bonus_facet_dawnbreaker_solar_charged"		"2.5" // fixme 1.5太弱，如果2.5强了就改成2.0
+				"special_bonus_facet_dawnbreaker_solar_charged"		"2.0"
 			}
 		}
 	}
