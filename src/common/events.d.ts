@@ -15,7 +15,7 @@
 interface CustomGameEventDeclarations {
   choose_difficulty: ChooseDifficultyEventData;
   game_options_change: GameOptionsChangeEventData;
-  loading_set_options: LoadingSetOptionsEventData;
+  loading_set_options: LoadingSetOptionsEventData; // 仅在lua中使用，在js中使用game_options_change
   player_language: PlayerLanguageEventData;
 
   lottery_pick_ability: LotteryPickEventData;
