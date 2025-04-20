@@ -10144,7 +10144,7 @@
 	{
 		"Maxlevel"						"5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCooldown"				"11 9 7 5 3"
+		"AbilityCooldown"				"13 11 9 7 5"
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
@@ -10155,20 +10155,20 @@
 				}
 				"bonus_damage_per_target"
 				{
-					"value"	"50 60 70 80 90"
-					"special_bonus_facet_grimstroke_fine_art"	"+20 +30 +40 +50 +60"
+					"value"	"40 50 60 70 80"
+					"special_bonus_facet_grimstroke_fine_art"	"+10 +20 +30 +40 +50"
 					"special_bonus_unique_grimstroke_2" "+100%"
 				}
 				"movement_slow_pct"		"50 60 70 80 90"
 				"AbilityCastRange"
 				{
 					"value"									"1800"
-					"special_bonus_unique_grimstroke_3"		"+100%"
+					"special_bonus_unique_grimstroke_3"		"+80%"
 				}
 				"projectile_speed"
 				{
 					"value"						"2400"
-					"special_bonus_unique_grimstroke_3"		"+100%"
+					"special_bonus_unique_grimstroke_3"		"+80%"
 				}
 		}
 	}
