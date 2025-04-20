@@ -37,6 +37,11 @@ export class ApiClient {
     return GetDedicatedServerKeyV3(keyVersion);
   }
 
+  public static IsLocalhost() {
+    const apiKey = this.GetServerAuthKey();
+    return apiKey === ApiClient.LOCAL_APIKEY && !IsInToolsMode();
+  }
+
   public static async send(
     apiParameter: ApiParameter,
     callbackFunc: (result: CScriptHTTPResponse) => void,
@@ -56,11 +61,7 @@ export class ApiClient {
     const apiKey = this.GetServerAuthKey();
 
     // 本地主机只发送开局请求
-    if (
-      apiKey === ApiClient.LOCAL_APIKEY &&
-      !IsInToolsMode() &&
-      path !== ApiClient.GAME_START_URL
-    ) {
+    if (this.IsLocalhost() && path !== ApiClient.GAME_START_URL) {
       callbackFunc({
         StatusCode: 401,
         Body: ApiClient.LOCAL_APIKEY,

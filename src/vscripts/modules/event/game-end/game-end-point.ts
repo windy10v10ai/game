@@ -1,5 +1,6 @@
 import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { reloadable } from '../../../utils/tstl-utils';
+import { Option } from '../../option';
 
 @reloadable
 export class GameEndPoint {
@@ -52,5 +53,55 @@ export class GameEndPoint {
     const min = gameTime / 60;
     const points = Math.sqrt(min) * 3;
     return Math.round(points);
+  }
+
+  static GetDifficultyMultiplier(difficulty: number, isLocalhost: boolean, option: Option): number {
+    // 如果是作弊模式，不计算倍率。开发模式无视这条
+    if (!IsInToolsMode()) {
+      if (GameRules.IsCheatMode() || isLocalhost) {
+        return 0;
+      }
+    }
+
+    switch (difficulty) {
+      case 1:
+        return 1.2;
+      case 2:
+        return 1.4;
+      case 3:
+        return 1.6;
+      case 4:
+        return 1.8;
+      case 5:
+        return 2;
+      case 6:
+        return 2.2;
+      default:
+        // 自定义模式
+        return this.GetCustomModeMultiplier(option);
+    }
+  }
+
+  public static GetCustomModeMultiplier(option: Option): number {
+    // if radiantGoldXpMultiplier >= 2, x0.5, >=5 x0.25
+    // if direGoldXpMultiplier >= 10, x2, >=20 x2.2
+    // x direPlayerNumber / 10
+    // if respawnTimePercentage <= 0, x0.5
+    let multiplier = 1;
+    if (option.radiantGoldXpMultiplier >= 2) {
+      multiplier *= 0.5;
+    } else if (option.radiantGoldXpMultiplier >= 5) {
+      multiplier *= 0.25;
+    }
+    if (option.direGoldXpMultiplier >= 10) {
+      multiplier *= 2;
+    } else if (option.direGoldXpMultiplier >= 20) {
+      multiplier *= 2.2;
+    }
+    multiplier *= option.direPlayerNumber / 10;
+    if (option.respawnTimePercentage <= 0) {
+      multiplier *= 0.5;
+    }
+    return multiplier;
   }
 }
