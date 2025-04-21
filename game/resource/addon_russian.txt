@@ -117,7 +117,6 @@
 		"data_panel_member_level_tooltip"		"Повышение уровня за Member Points даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>50</font> за каждый уровень."
 		"data_panel_level_progress"		"Уровень"
 		"data_panel_link_rule"			"Правила очков и атрибутов"
-		"data_panel_member_point_rule_url"		"https://afdian.com/p/8d1e8ac8682711ed984b52540025c377"
 
 		"reset_property_use_season_point"		"Сбросить Attribute Points за {seasonPoint} Battle Points"
 		"reset_property_use_member_point"		"Сбросить Attribute Points за 1000 Member Points"
@@ -156,8 +155,6 @@
 
 		"data_panel_player_property_value"				"Value"
 		"data_panel_player_property_level"				"Уровень"
-		"data_panel_player_property_level_up"			"Повысить уровень"
-		"data_panel_player_property_level_up_X"			"Повысить уровень за X очков"
 
 		///////////////////////////////////////////////////
 		//
