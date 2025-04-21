@@ -580,6 +580,7 @@
 	// 血色外衣
 	"axe_coat_of_blood"
 	{
+		"Maxlevel"			"5"
 		"AbilityValues"
 		{
 			"armor_per_kill"						"0.4 0.6 0.8 1.0 1.2"
@@ -1005,7 +1006,8 @@
 			{
 				"value"		"400"
 			}
-			"activation_cooldown"					"16"		// 24
+			"activation_spray_interval"				"0.15"
+			"activation_cooldown"					"30"		// 24
 			"activation_manacost"					"150"		// 100
 			"activation_num_quill_sprays"			"6"			// 5
 		}
@@ -1046,6 +1048,11 @@
 			{
 				"value"				"0"
 				"special_bonus_facet_bristleback_seeing_red"				"4 5 6 7"
+			}
+			"active_view_angle_restriction"
+			{
+				"value"				"0"
+				"special_bonus_facet_bristleback_seeing_red"				"270"
 			}
 		}
 	}
@@ -1227,11 +1234,12 @@
 	"dawnbreaker_fire_wreath"
 	{
 		"MaxLevel" "5"
+		"AbilityCastPoint"				"0.1"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"					"17 15 13 11 9"	// 17 15 13 11
+				"value"					"16 14 12 10 8"	// 17 15 13 11
 				"special_bonus_unique_dawnbreaker_fire_wreath_cooldown"			"-4"
 			}
 			"swipe_damage"
@@ -1283,7 +1291,7 @@
 			"cooldown_reduction"
 			{
 				"value"									"0"
-				"special_bonus_facet_dawnbreaker_solar_charged"		"1.5"
+				"special_bonus_facet_dawnbreaker_solar_charged"		"2.0"
 			}
 		}
 	}
@@ -1662,6 +1670,7 @@
 	// 踢
 	"earth_spirit_boulder_smash"
 	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
@@ -1732,6 +1741,7 @@
 	// 拉
 	"earth_spirit_geomagnetic_grip"
 	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
@@ -2724,7 +2734,7 @@
 		{
 			"charges_per_flurry"	"8 12 15 18"	//5
 			"flurry_bonus_attack_speed"	"700 975 1325 1600"
-			"time_between_flurries"	"1.3"	// 1.5
+			"time_between_flurries"	"1.0"	// 1.5
 			"pulse_damage"
 			{
 				"value"			"50 100 150 200"
@@ -3164,7 +3174,7 @@
 	"phoenix_supernova"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"60"
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
@@ -3600,6 +3610,7 @@
 	// 死亡旋风
 	"shredder_whirling_death"
 	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" // fixme 强了就不无视魔免，再想别的办法
 		"MaxLevel" "5"
 		"AbilityCooldown"				"6"
 		"AbilityValues"
@@ -3613,12 +3624,12 @@
 				"stat_loss_pct"
 				{
 					"value"			"13 13.5 14 14.5 15"
-					"special_bonus_unique_timbersaw_5"	"+3"
+					"special_bonus_unique_timbersaw_5"	"+5"
 				}
 				"stat_loss_univ"
 				{
 					"value"			"5 5.5 6 6.5 7"
-					"special_bonus_unique_timbersaw_5"	"+3"
+					"special_bonus_unique_timbersaw_5"	"+5"
 				}
 				"duration"
 				{
@@ -3709,7 +3720,7 @@
 		{
 				"pass_damage"
 				{
-					"value"						"200 250 300"
+					"value"						"300 350 400"
 				}
 				"damage_per_second"
 				{
@@ -3726,7 +3737,7 @@
 		"AbilityManaCost"				"140 180 220"
 		"AbilityValues"
 		{
-				"damage"				"200 250 300"
+				"damage"				"300 350 400"
 		}
 	}
 	// 暴露疗法 跟随大招等级
@@ -3757,10 +3768,12 @@
 			"damage"
 			{
 				"value"		"75 90 105 120 135"
+				"special_bonus_unique_wraith_king_3"	"+50%"
 			}
 			"blast_dot_damage"
 			{
 				"value"					"20 40 60 80 100"
+				"special_bonus_unique_wraith_king_3"	"+50%"
 			}
 		}
 	}
@@ -6030,8 +6043,7 @@
 			}
 			"sidegunner_fire_rate"
 			{
-				"value"								"1.3 1.2 1.1 1.0 0.9"
-				"RequiresScepter"					"1"
+				"special_bonus_scepter"		"1.3 1.2 1.1 1.0 0.9"
 			}
 		}
 	}
@@ -6643,6 +6655,7 @@
 	// 月神之箭 射箭
 	"mirana_arrow"
 	{
+		"Maxlevel"						"5"
 		"AbilityCastRange"				"4500"
 		"AbilityCastPoint"				"0.2"	// 0.5
 		"AbilityDamage"					"60 150 240 330 420"
@@ -6718,8 +6731,8 @@
 			}
 			"damage"
 			{
-				"value"			"75 150 225 300 375"
-				"special_bonus_unique_mirana_7"	"+275"	// +250
+				"value"			"150 250 350 400 450"
+				"special_bonus_unique_mirana_7"	"+350"	// +250
 			}
 		}
 	}
@@ -6757,7 +6770,8 @@
 				"counter_duration"			"7 8 9 10 11"
 				"required_hits"
 				{
-					"value"			"3"
+					"value"			"2"
+					"special_bonus_unique_monkey_king_11"	"-1"
 				}
 				"bonus_damage"
 				{
@@ -6832,7 +6846,7 @@
 			}
 		}
 	}
-	// 变体打击敏捷（实际包含力量打击）
+	// 变体打击敏捷（实际包含力量打击）fixme无视魔免后现在力水像个怪物，暂时发现的人不多
 	"morphling_adaptive_strike_agi"
 	{
 		"MaxLevel" "5"
@@ -6907,7 +6921,7 @@
 	{
 		"AbilityValues"
 		{
-			"agi_per_one_spell_amp"			"3"			// 4
+			"agi_per_one_spell_amp"			"3"			// fixme可能是力水怪物的原因之一，暂时发现的人不多
 			"one_percent_tooltip"			"1"
 		}
 	}
@@ -7832,7 +7846,7 @@
 				"value" 				"40 60 80 100 120"
 				"special_bonus_unique_riki_2" "+80"		// +50
 			}
-			"damage_pct"	"60"						// 40
+			"damage_pct"	"80"						// 40
 			"creep_agility_multiplier"
 			{
 				"value"			"1"
@@ -7840,7 +7854,7 @@
 			}
 			"cooldown_reduction_per_creep_kill"
 			{
-				"special_bonus_facet_riki_exterminator"	"=1.25"
+				"special_bonus_facet_riki_exterminator"	"=2.0"
 			}
 		}
 	}
@@ -9373,7 +9387,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"										"12 11 10 9 8"
+				"value"										"11 10 9 8 7"
 			}
 			"AbilityManaCost"				"115 135 155 175 195"
 			"movespeed_slow"				"-20 -30 -40 -50 -60"
@@ -9463,7 +9477,7 @@
 			"shard_self_movement_speed_slow_pct"
 			{
 				"value"						"0"
-				"special_bonus_scepter"		"-50"// -75
+				"special_bonus_scepter"		"-35"// -75
 				"RequiresScepter"				"1"
 			}
 			// 命石1
@@ -9880,11 +9894,13 @@
 	"enchantress_impetus"
 	{
 		"MaxLevel" "5"
+		"AbilityCooldown"				"6 4 2 1 0"
+		"AbilityManaCost"				"25"			// 50
 		"AbilityValues"
 		{
 			"distance_damage_pct"
 			{
-				"value"			"10 14 18 22 26"
+				"value"			"12 14 16 18 20"
 				"special_bonus_unique_enchantress_4"	"+10"
 			}
 			"distance_cap"			"3500"
@@ -10128,7 +10144,7 @@
 	{
 		"Maxlevel"						"5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCooldown"				"11 9 7 5 3"
+		"AbilityCooldown"				"13 11 9 7 5"
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
@@ -10139,20 +10155,20 @@
 				}
 				"bonus_damage_per_target"
 				{
-					"value"	"50 60 70 80 90"
-					"special_bonus_facet_grimstroke_fine_art"	"+20 +30 +40 +50 +60"
+					"value"	"40 50 60 70 80"
+					"special_bonus_facet_grimstroke_fine_art"	"+10 +20 +30 +40 +50"
 					"special_bonus_unique_grimstroke_2" "+100%"
 				}
 				"movement_slow_pct"		"50 60 70 80 90"
 				"AbilityCastRange"
 				{
 					"value"									"1800"
-					"special_bonus_unique_grimstroke_3"		"+100%"
+					"special_bonus_unique_grimstroke_3"		"+80%"
 				}
 				"projectile_speed"
 				{
 					"value"						"2400"
-					"special_bonus_unique_grimstroke_3"		"+100%"
+					"special_bonus_unique_grimstroke_3"		"+80%"
 				}
 		}
 	}
@@ -10475,7 +10491,7 @@
 	// 元素祈唤
 	"invoker_invoke"
 	{
-		"AbilityCooldown"				"2.5"	// 7
+		"AbilityCooldown"				"1.7"	// 7
 		"AbilityValues"
 		{
 			"cooldown_reduction_per_orb"	"0.5"
@@ -10845,6 +10861,7 @@
 	// 时光滋养 命石1 跟随大招升级
 	"leshrac_chronoptic_nourishment"
 	{
+		"Maxlevel"							"5"
 		"AbilityValues"
 		{
 			"mana_pct_per_hit"				"14 21 28 35 42"
@@ -11613,14 +11630,15 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastPoint"				"0.0"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityManaCost"				"90 100 110 120 130"
 		"AbilityValues"
 		{
 			"max_distance"				"3500"
 			"orb_speed"
 			{
-				"value"					"750"
-				"special_bonus_facet_puck_curveball"			"+250"
+				"value"					"800"
+				"special_bonus_facet_puck_curveball"			"+400"
 			}
 			"damage"
 			{
@@ -11629,7 +11647,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"								"11 10 9 8 7"
+				"value"								"10 9 8 7 6"
 			}
 			"vector_reticle_distance"
 			{
@@ -11642,7 +11660,7 @@
 	"puck_waning_rift"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"16 15 14 13 12"
+		"AbilityCooldown"				"14 13 12 11 10"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
@@ -11687,7 +11705,7 @@
 	"puck_dream_coil"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"60"
+		"AbilityCooldown"				"45"
 		"AbilityManaCost"				"100 150 200 250"
 		"AbilityValues"
 		{
@@ -13667,6 +13685,21 @@
 			"bleed_creep_dps"			"100 150 200 250 300"
 			"dagger_width"				"150"	// 130
 			"dagger_vision"				"300"	// 200
+			"bleed_duration"
+			{
+				"value"		"3.5"
+				"special_bonus_unique_ringmaster_dagger_bleed_and_slow_duration"	"+2.5"
+			}
+			"slow_duration"
+			{
+				"value"		"1.0"
+				"special_bonus_unique_ringmaster_dagger_bleed_and_slow_duration"	"+2.5"
+			}
+			"dagger_pass_through"
+			{
+				"value"		"1"
+				"special_bonus_unique_ringmaster_dagger_penetrates"	"+2"
+			}
 		}
 	}
 	// 奇观轮
@@ -13696,8 +13729,7 @@
 			"wheel_stun"			"2.75 3.0 3.25 3.5"
 			"aura_damage"			"100 150 200 250"	// x2
 			"explosion_damage"		"300 450 600 750"
-			"knockback_radius"			"300"
-			"knockback_distance"		"300"
+			"knockback_radius"			"200"
 		}
 	}
 	// 聚光灯 魔晶技能
@@ -13743,8 +13775,8 @@
 	{
 		"AbilityValues"
 		{
-			"mount_cast_point"			"0.5"
-			"mount_duration"			"10.0"
+			"mount_cast_point"			"0.0"
+			"mount_duration"			"15.0"
 			"tree_impact_speed_divisor" "4.0"
 			"max_speed"					"900"
 			"acceleration"				"600"

@@ -9,6 +9,9 @@ declare global {
     };
     game_options: {
       game_options: GameOptions;
+      point_multiplier: {
+        point_multiplier: number;
+      };
     };
     game_difficulty: {
       all: { difficulty: number };

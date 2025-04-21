@@ -1,3 +1,5 @@
+import { ApiClient } from '../api/api-client';
+import { GameEndPoint } from './event/game-end/game-end-point';
 import { PlayerHelper } from './helper/player-helper';
 
 export class Option {
@@ -31,7 +33,6 @@ export class Option {
   }
 
   onGameOptionChange(keys: GameOptionsChangeEventData & CustomGameEventDataBase) {
-    CustomNetTables.SetTableValue('game_options', 'game_options', keys);
     this.radiantGoldXpMultiplier = keys.multiplier_radiant;
     this.direGoldXpMultiplier = keys.multiplier_dire;
     this.radiantPlayerNumber = keys.player_number_radiant;
@@ -43,6 +44,14 @@ export class Option {
     this.maxLevel = keys.max_level;
     this.sameHeroSelection = keys.same_hero_selection === 1;
     this.enablePlayerAttribute = keys.enable_player_attribute === 1;
+    CustomNetTables.SetTableValue('game_options', 'game_options', keys);
+    CustomNetTables.SetTableValue('game_options', 'point_multiplier', {
+      point_multiplier: GameEndPoint.GetDifficultyMultiplier(
+        this.gameDifficulty,
+        ApiClient.IsLocalhost(),
+        this,
+      ),
+    });
   }
 
   onChooseDifficulty(keys: { difficulty: number } & CustomGameEventDataBase) {

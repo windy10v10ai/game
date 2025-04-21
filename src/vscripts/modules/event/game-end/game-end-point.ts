@@ -1,16 +1,17 @@
 import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { reloadable } from '../../../utils/tstl-utils';
+import { Option } from '../../option';
 
 @reloadable
 export class GameEndPoint {
   static CalculatePlayerScore(player: GameEndPlayerDto): number {
-    const killScore = Math.sqrt(player.kills) * 1.4;
+    const killScore = Math.sqrt(player.kills) * 1.5;
     const deathScore = -Math.sqrt(player.deaths) * 0.6;
-    const assistScore = Math.sqrt(player.assists) * 1.4;
+    const assistScore = Math.sqrt(player.assists) * 1.5;
     const damageScore = Math.min(40, Math.sqrt(player.damage) / 200);
     const damageTakenScore = Math.min(40, Math.sqrt(player.damageTaken) / 100);
     const healingScore = Math.min(40, Math.sqrt(player.healing) / 50);
-    const towerKillScore = Math.sqrt(player.towerKills) * 4;
+    const towerKillScore = Math.sqrt(player.towerKills) * 3.5;
 
     const totalScore =
       killScore +
@@ -52,5 +53,61 @@ export class GameEndPoint {
     const min = gameTime / 60;
     const points = Math.sqrt(min) * 3;
     return Math.round(points);
+  }
+
+  static GetDifficultyMultiplier(difficulty: number, isLocalhost: boolean, option: Option): number {
+    // 如果是作弊模式，不计算倍率。开发模式无视这条
+    if (!IsInToolsMode()) {
+      if (GameRules.IsCheatMode() || isLocalhost) {
+        return 0;
+      }
+    }
+
+    switch (difficulty) {
+      case 1:
+        return 1.2;
+      case 2:
+        return 1.4;
+      case 3:
+        return 1.6;
+      case 4:
+        return 1.8;
+      case 5:
+        return 2;
+      case 6:
+        return 2.2;
+      default:
+        // 自定义模式
+        return this.GetCustomModeMultiplier(option);
+    }
+  }
+
+  public static GetCustomModeMultiplier(option: Option): number {
+    let multiplier = 1;
+    if (option.radiantGoldXpMultiplier >= 5) {
+      multiplier *= 0.3;
+    } else if (option.radiantGoldXpMultiplier >= 2) {
+      multiplier *= 0.6;
+    }
+    if (option.direGoldXpMultiplier >= 10) {
+      multiplier *= 2;
+    } else if (option.direGoldXpMultiplier >= 5) {
+      multiplier *= 1.5;
+    }
+
+    multiplier *= option.direPlayerNumber / 10;
+    if (option.respawnTimePercentage <= 0) {
+      multiplier *= 0.6;
+    }
+    // 防御塔倍率低于100时
+    if (option.towerPower <= 100) {
+      multiplier *= 0.6;
+    } else if (option.towerPower <= 150) {
+      multiplier *= 0.8;
+    } else if (option.towerPower >= 300) {
+      multiplier *= 1.1;
+    }
+    // 小数点1位
+    return Math.round(multiplier * 10) / 10;
   }
 }

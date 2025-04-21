@@ -226,7 +226,7 @@ function BotAbilityThink:ThinkUseAbility_Zuus(hHero)
 	end
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
 		if hAbility4:IsFullyCastable() then
-			local iRange = 3000
+			local iRange = 2000
 			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange,
 				DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO,
 				DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_FARTHEST, false)

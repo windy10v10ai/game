@@ -46,9 +46,7 @@ export class EventGameStateChange {
   private OnStrategyTime(): void {
     GameRules.Option.setMaxLevelXPRequire();
     HeroPick.PickHumanHeroes();
-    Timers.CreateTimer(1, () => {
-      HeroPick.PickBotHeroes();
-    });
+    HeroPick.PickBotHeroes();
   }
 
   /**
