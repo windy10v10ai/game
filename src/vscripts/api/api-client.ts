@@ -93,6 +93,7 @@ export class ApiClient {
         // if 20X
         print(`[ApiClient] return with status code: ${result.StatusCode}`);
         if (result.StatusCode >= 200 && result.StatusCode < 300) {
+          print(`[ApiClient] success: ${result.Body}`);
           apiParameter.successFunc(result.Body);
         } else if (result.StatusCode === 401) {
           if (apiParameter.failureFunc) {
