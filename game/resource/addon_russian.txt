@@ -111,9 +111,9 @@
 		"data_panel_property_list"		"Добавить"
 		"data_panel_property_reset"		"Сбросить"
 
-		"data_panel_season_level"		"Battle - уровень"
+		// "data_panel_season_level"		"Battle - уровень"
 		"data_panel_season_level_tooltip"		"Повышение уровня за Battle Points даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>100</font> за каждый уровень."
-		"data_panel_member_level"		"Member - уровень"
+		// "data_panel_member_level"		"Member - уровень"
 		"data_panel_member_level_tooltip"		"Повышение уровня за Member Points даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>50</font> за каждый уровень."
 		"data_panel_level_progress"		"Уровень"
 		"data_panel_link_rule"			"Правила очков и атрибутов"
