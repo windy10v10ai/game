@@ -165,7 +165,7 @@
 		"data_panel_player_property_value"				"Value"
 		"data_panel_player_property_level"				"Level"
 		"data_panel_player_property_level_up"			"Level Up"
-		"data_panel_player_property_level_up_X"			"Level Up with X Points"
+		"data_panel_player_property_level_up_X"			"Level Up use X Points"
 
 		///////////////////////////////////////////////////
 		//
