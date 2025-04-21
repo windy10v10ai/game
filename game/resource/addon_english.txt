@@ -5,7 +5,7 @@
 	{
 		"addon_game_name"		"Dota 10v10 AI by Windy"
 		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
-		"DOTA_SHARD"			"Battle Points"
+		"DOTA_SHARD"			"Battle Experience"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -110,8 +110,8 @@
 		//
 		///////////////////////////////////////////////////
 		"data_panel_button"				"Home"
-		"data_panel_member_point"		"Member Points"
-		"data_panel_season_point"		"Battle Points"
+		"data_panel_member_point"		"Member Experience"
+		"data_panel_season_point"		"Battle Experience"
 		"data_panel_property_point"		"Attribute Points (Available/Total)"
 
 		"data_panel_data_button"		"Data"
@@ -120,15 +120,15 @@
 		"data_panel_property_reset"		"Reset"
 
 		"data_panel_season_level"		"Battle Level"
-		"data_panel_season_level_tooltip"		"Level up using Battle Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>100</font> for each level up."
+		"data_panel_season_level_tooltip"		"Level up with Battle Experience. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>100</font> for each level up."
 		"data_panel_member_level"		"Member Level"
-		"data_panel_member_level_tooltip"		"Level up using Member Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>50</font> for each level up."
+		"data_panel_member_level_tooltip"		"Level up with Member Experience. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>50</font> for each level up."
 		"data_panel_level_progress"		"Level Progress"
 		"data_panel_link_rule"			"Points and Attribute Rule"
 		"data_panel_member_point_rule_url"		"https://ko-fi.com/post/Points-and-Attribute-Rules-S6S01CTP83"
 
-		"reset_property_use_season_point"		"Reset Attribute Points for {seasonPoint} Battle Points"
-		"reset_property_use_member_point"		"Reset Attribute Points for 1000 Member Points"
+		"reset_property_use_season_point"		"Reset Attribute Points use {seasonPoint} Battle Experience"
+		"reset_property_use_member_point"		"Reset Attribute Points use 1000 Member Experience"
 
 		"data_panel_player_property_label"		"Spend Attribute Points to upgrade your hero. Upgrades are permanent and persist between games."
 		"data_panel_player_property_label_2"		"Points cannot be spent on local host. Please play on a dedicated server to spend and benefit from upgrades."
@@ -194,8 +194,8 @@
 		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button_normal"		"Thank you for your support! You are <font color='#FFCC66'>Normal Member</font><br/>Normal Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 membership points for playing every day.<br/> Membership is valid until {expireDate}."
-		"player_member_button_premium"		"Thank you for your support! You are <font color='#FFCC66'>Premium Member</font><br/>Premium Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 membership points for playing every day.<br/><font color='#FFCC66'>- Ability draft is upgraded to 1 out of 6 choices, the 2 extra abilities have a higher chance of being high-tier.</font><br/> Membership is valid until {expireDate}."
+		"player_member_button_normal"		"Thank you for your support! You are <font color='#FFCC66'>Normal Member</font><br/>Normal Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/> Membership is valid until {expireDate}."
+		"player_member_button_premium"		"Thank you for your support! You are <font color='#FFCC66'>Premium Member</font><br/>Premium Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/><font color='#FFCC66'>- Ability draft is upgraded to 1 out of 6 choices, the 2 extra abilities have a higher chance of being high-tier.</font><br/> Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired as of {expireDate}. Click this button to renew."
 		"player_member_ship"				"Click to enable your membership."
 		"player_member_null"				"Membership information failed to load. Please reload the game."
@@ -310,9 +310,9 @@
 		"DOTA_Tooltip_modifier_global_newbie_2"					"<font color='#87CEEB'>Newbie Protection ★</font>"
 		"DOTA_Tooltip_modifier_global_newbie_2_Description"		"- Battle level below 8 receive half newbie protection<br/>- Additionally gain +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Resistance and +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% Armor."
 		"DOTA_Tooltip_modifier_global_member_normal"					"<font color='#FFCC66'>★ Membership Buff! ★</font>"
-		"DOTA_Tooltip_modifier_global_member_normal_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 membership points every day.<br/>"
+		"DOTA_Tooltip_modifier_global_member_normal_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/>"
 		"DOTA_Tooltip_modifier_global_member_premium"					"<font color='#FFCC66'>★ Premium Membership Buff! ★</font>"
-		"DOTA_Tooltip_modifier_global_member_premium_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 membership points every day.<br/><font color='#FFCC66'>- Ability draft is upgraded to 1 out of 6 choices, the 2 extra abilities have a higher chance of being high-tier.</font><br/>"
+		"DOTA_Tooltip_modifier_global_member_premium_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/><font color='#FFCC66'>- Ability draft is upgraded to 1 out of 6 choices, the 2 extra abilities have a higher chance of being high-tier.</font><br/>"
 		// 定制BUFF donnot translate
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
@@ -1331,7 +1331,7 @@
 		// /////////////////////////////////////////////////////////////////////////////
 		// bag_of_gold
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"Bag of Gold"
-		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"Battle Points"
+		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"Battle Experience"
 
 		// Tomes
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"Tome of Strength"

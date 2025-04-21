@@ -5,7 +5,7 @@
 	{
 		"addon_game_name"		"Dota 10v10 AI by Windy"
 		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
-		"DOTA_SHARD"			"勇士积分"
+		"DOTA_SHARD"			"勇士经验"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -110,8 +110,8 @@
 		//
 		///////////////////////////////////////////////////
 		"data_panel_button"				"主页"
-		"data_panel_member_point"		"会员积分"
-		"data_panel_season_point"		"勇士积分"
+		"data_panel_member_point"		"会员经验"
+		"data_panel_season_point"		"勇士经验"
 		"data_panel_property_point"		"属性点 (可用/总数)"
 
 		"data_panel_data_button"		"数据"
@@ -120,15 +120,15 @@
 		"data_panel_property_reset"		"重置属性"
 
 		"data_panel_season_level"		"勇士等级"
-		"data_panel_season_level_tooltip"		"通过勇士积分提升等级，每升一级即可获得1点属性点<br>可在<font color='#E8C07D'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>100</font>点。"
+		"data_panel_season_level_tooltip"		"通过勇士经验提升等级，每升一级即可获得1点属性点<br>可在<font color='#E8C07D'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需经验增加<font color='#E8C07D'>100</font>点。"
 		"data_panel_member_level"		"会员等级"
-		"data_panel_member_level_tooltip"		"通过会员积分提升等级，每升一级即可获得1点属性点<br>可在<font color='#E8C07D'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需积分增加<font color='#E8C07D'>50</font>点。"
+		"data_panel_member_level_tooltip"		"通过会员经验提升等级，每升一级即可获得1点属性点<br>可在<font color='#E8C07D'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需经验增加<font color='#E8C07D'>50</font>点。"
 		"data_panel_level_progress"		"升级进度"
-		"data_panel_link_rule"			"积分属性规则说明"
+		"data_panel_link_rule"			"经验属性规则说明"
 		"data_panel_member_point_rule_url"		"https://afdian.com/p/24140a48680511ed9d3852540025c377"
 
-		"reset_property_use_season_point"		"消耗{seasonPoint}勇士积分重置"
-		"reset_property_use_member_point"		"消耗1000会员积分重置"
+		"reset_property_use_season_point"		"消耗{seasonPoint}勇士经验重置"
+		"reset_property_use_member_point"		"消耗1000会员经验重置"
 
 		"data_panel_player_property_label"		"使用属性点增强英雄，升级后属性及时生效。"
 		"data_panel_player_property_label_2"		"本地主机无法加点，请使用服务器主机进行游戏。"
@@ -194,8 +194,8 @@
 		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button_normal"			"感谢您的支持！您现在是 <font color='#FFCC66'>普通会员</font><br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员积分<br/> 会员有效期：{expireDate}"
-		"player_member_button_premium"			"感谢您的支持！您现在是 <font color='#FFCC66'>高级会员</font><br/>高级会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员积分<br/><font color='#FFCC66'> - 开局技能升级为 6选1，新增的 2 个技能中有更高概率出现 高级技能</font><br/> 会员有效期：{expireDate}"
+		"player_member_button_normal"			"感谢您的支持！您现在是 <font color='#FFCC66'>普通会员</font><br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/> 会员有效期：{expireDate}"
+		"player_member_button_premium"			"感谢您的支持！您现在是 <font color='#FFCC66'>高级会员</font><br/>高级会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/><font color='#FFCC66'> - 开局技能升级为 6选1，新增的 2 个技能中有更高概率出现 高级技能</font><br/> 会员有效期：{expireDate}"
 		"player_member_button_expire"	"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 		"player_member_ship"			"点击开通会员"
 		"player_member_null"			"会员信息获取失败，请重新加载游戏。"
@@ -310,9 +310,9 @@
 		"DOTA_Tooltip_modifier_global_newbie_2"						"<font color='#87CEEB'>新手保护 ★</font>"
 		"DOTA_Tooltip_modifier_global_newbie_2_Description"			"- 勇士等级 8 级以内获得半新手保护<br/>- 额外获得 +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲"
 		"DOTA_Tooltip_modifier_global_member_normal"						"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
-		"DOTA_Tooltip_modifier_global_member_normal_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员积分<br/>"
+		"DOTA_Tooltip_modifier_global_member_normal_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/>"
 		"DOTA_Tooltip_modifier_global_member_premium"						"<font color='#FFCC66'>★ 高级会员BUFF ★</font>"
-		"DOTA_Tooltip_modifier_global_member_premium_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员积分<br/><font color='#FFCC66'> - 开局技能升级为 6选1，新增的 2 个技能中有更高概率出现 高级技能</font><br/>"
+		"DOTA_Tooltip_modifier_global_member_premium_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/><font color='#FFCC66'> - 开局技能升级为 6选1，新增的 2 个技能中有更高概率出现 高级技能</font><br/>"
 		// 定制BUFF
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_windy"					"<font color='#0AA1DD'>★ Windy ★</font>"
@@ -1343,7 +1343,7 @@
 		// /////////////////////////////////////////////////////////////////////////////
 		// bag_of_gold
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"金袋"
-		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"勇士积分"
+		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"勇士经验"
 
 		// Tomes
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"力量之书"
