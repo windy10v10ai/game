@@ -4,6 +4,7 @@ import {
   GameEndGameOptionsDto,
   GameEndPlayerDto,
 } from '../../../api/analytics/dto/game-end-dto';
+import { ApiClient } from '../../../api/api-client';
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
 import { GameConfig } from '../../GameConfig';
@@ -34,6 +35,11 @@ export class GameEnd {
     };
 
     const gameTime = GameRules.GetGameTime();
+    const difficultyMultiplier = GameEndPoint.GetDifficultyMultiplier(
+      difficulty,
+      ApiClient.IsLocalhost(),
+      GameRules.Option,
+    );
 
     const players: GameEndPlayerDto[] = [];
     PlayerHelper.ForEachPlayer((playerId) => {
@@ -81,7 +87,7 @@ export class GameEnd {
       playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
       playerDto.battlePoints = this.CalculatePlayerBattlePoints(
         playerDto,
-        difficulty,
+        difficultyMultiplier,
         winnerTeamId,
       );
       players.push(playerDto);
@@ -114,7 +120,7 @@ export class GameEnd {
 
   static CalculatePlayerBattlePoints(
     player: GameEndPlayerDto,
-    difficulty: number,
+    difficultyMultiplier: number,
     winnerTeamId: DotaTeam,
   ): number {
     if (player.steamId === 0) {
@@ -125,37 +131,11 @@ export class GameEnd {
     const timeMultiplier = GameEndPoint.GetParticipationRateMultiplier(player, teamKills);
     const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime()) * timeMultiplier;
     const basePoints = player.score + gameTimePoints;
-    const difficultyMultiplier = this.GetDifficultyMultiplier(difficulty);
     const points = basePoints * difficultyMultiplier;
     // 输了积分减半
     const winMultiplier = player.teamId === winnerTeamId ? 1 : 0.5;
     // 积分为整数，且不会为负数
     return Math.max(0, Math.round(points * winMultiplier));
-  }
-
-  // 根据难度获得倍率
-  private static GetDifficultyMultiplier(difficulty: number): number {
-    // 如果是作弊模式，不计算倍率。开发模式无视这条
-    if (GameRules.IsCheatMode() && !IsInToolsMode()) {
-      return 0;
-    }
-
-    switch (difficulty) {
-      case 1:
-        return 1.2;
-      case 2:
-        return 1.4;
-      case 3:
-        return 1.6;
-      case 4:
-        return 1.8;
-      case 5:
-        return 2;
-      case 6:
-        return 2.2;
-      default:
-        return 1;
-    }
   }
 
   private static SendAnalyticsEvent(gameEndDto: GameEndDto) {
