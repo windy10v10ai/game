@@ -29,7 +29,7 @@ export class BaseHeroAIModifier extends BaseModifier {
 
   // 当前状态
   public gameTime: number = 0;
-  public mode: ModeEnum = ModeEnum.RUNE;
+  public mode: ModeEnum = ModeEnum.LANING;
 
   // 技能
   protected ability_1: CDOTABaseAbility | undefined;
@@ -167,9 +167,6 @@ export class BaseHeroAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   ActionMode(): void {
     switch (this.mode) {
-      case ModeEnum.RUNE:
-        this.ActionRune();
-        break;
       case ModeEnum.ATTACK:
         this.ActionAttack();
         break;
@@ -185,30 +182,6 @@ export class BaseHeroAIModifier extends BaseModifier {
       default:
         print(`[AI] HeroBase ThinkMode ${this.hero.GetUnitName()} mode ${this.mode} not found`);
         break;
-    }
-  }
-
-  ActionRune(): void {
-    if (this.hero.GetTeamNumber() === DotaTeam.GOODGUYS) {
-      return;
-    }
-
-    // 出高低就 返回基地
-    const teamBuildings = ActionFind.FindTeamBuildingsInvulnerable(this.hero, 800);
-    for (const building of teamBuildings) {
-      const buildingName = building.GetUnitName();
-      if (
-        buildingName.includes('tower1') ||
-        buildingName.includes('tower2') ||
-        buildingName.includes('tower3')
-      ) {
-        // print(`[AI] HeroBase ThinkRune ${this.hero.GetUnitName()} 返回基地`);
-        const item = this.hero.FindItemInInventory('item_tpscroll');
-        if (item) {
-          item.EndCooldown();
-        }
-        ActionItem.UseItemOnPosition(this.hero, 'item_tpscroll', Vector(6671, 5951, 384));
-      }
     }
   }
 

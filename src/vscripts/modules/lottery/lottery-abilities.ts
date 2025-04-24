@@ -13,7 +13,7 @@ export const abilityTiersActive: Tier[] = [
       'enigma_black_hole', // 黑洞
       'abaddon_borrowed_time', // 回光返照
       'dazzle_good_juju', // 善咒
-      'faceless_void_time_zone', // 逆转时空
+      'faceless_void_time_zone_new', // 逆转时空
 
       // 小技能
       'gyrocopter_flak_cannon', // 高射火炮
@@ -153,7 +153,7 @@ export const abilityTiersActive: Tier[] = [
       'enchantress_impetus', // 推进
 
       // 自定义技能
-      'arc_warden_scepter', // 人工神符
+      'arc_warden_scepter2', // 人工神符
       'alchemist_berserk_potion2', // 狂暴药剂 new
       'ancient_apparition_frost_seal', // 冰霜封印
     ],
