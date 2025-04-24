@@ -1,6 +1,7 @@
 export class GameConfig {
-  public static readonly GAME_VERSION = 'v4.24';
+  public static readonly GAME_VERSION = 'v4.31';
   public static readonly MEMBER_BUYBACK_CD = 120;
+  public static readonly PRE_GAME_TIME = 60;
   constructor() {
     SendToServerConsole('dota_max_physical_items_purchase_limit 9999'); // 用来解决物品数量限制问题
 
@@ -15,7 +16,7 @@ export class GameConfig {
     GameRules.SetHeroSelectPenaltyTime(10); // 选择英雄超时惩罚时间
     GameRules.SetStrategyTime(10); // 选完英雄的策略阶段的持续时间
     GameRules.SetShowcaseTime(0); // 选完英雄进游戏前的展示时间
-    GameRules.SetPreGameTime(60); // 进入游戏后号角吹响前的准备时间
+    GameRules.SetPreGameTime(GameConfig.PRE_GAME_TIME); // 进入游戏后号角吹响前的准备时间
     // GameRules.SetPostGameTime(30); // 游戏结束后时长
     // GameRules.SetSameHeroSelectionEnabled(true); // 是否允许选择相同英雄
     // GameRules.SetStartingGold(0); // 设置初始金钱

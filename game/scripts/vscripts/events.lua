@@ -3,16 +3,6 @@ require('event/js_event')
 require('event/creep')
 require('event/kill')
 
-
-function AIGameMode:ArrayShuffle(array)
-    local size = #array
-    for i = size, 1, -1 do
-        local rand = math.random(size)
-        array[i], array[rand] = array[rand], array[i]
-    end
-    return array
-end
-
 function AIGameMode:InitPlayerGold()
     if self.PreGameOptionsSet then
         print("[AIGameMode] InitPlayerGold")
@@ -223,22 +213,22 @@ function AIGameMode:RefreshGameStatus()
     AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
 end
 
-function AIGameMode:OnLastHit(keys)
-    if keys.FirstBlood == 1 then
-        local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
-        if hero and hero:HasAbility("Hero_vo_player") then
-            hero:PlayVoiceAllPlayerIgnoreCooldown(hero:GetName() .. ".vo.FirstBlood")
-        end
-    end
-end
+-- function AIGameMode:OnLastHit(keys)
+--     if keys.FirstBlood == 1 then
+--         local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
+--         if hero and hero:HasAbility("Hero_vo_player") then
+--             hero:PlayVoiceAllPlayerIgnoreCooldown(hero:GetName() .. ".vo.FirstBlood")
+--         end
+--     end
+-- end
 
-function AIGameMode:OnPickHeroSpawn(keys)
-    local heroname = keys.hero
-    local hero = EntIndexToHScript(keys.heroindex)
-    if hero:HasAbility("Hero_vo_player") then
-        hero:PlayVoiceIgnoreCooldown(heroname .. ".vo.Spawn")
-    end
-end
+-- function AIGameMode:OnPickHeroSpawn(keys)
+--     local heroname = keys.hero
+--     local hero = EntIndexToHScript(keys.heroindex)
+--     if hero:HasAbility("Hero_vo_player") then
+--         hero:PlayVoiceIgnoreCooldown(heroname .. ".vo.Spawn")
+--     end
+-- end
 
 function AIGameMode:OnNPCSpawned(keys)
     if GameRules:State_Get() < DOTA_GAMERULES_STATE_PRE_GAME then
@@ -340,23 +330,6 @@ function AIGameMode:OnNPCSpawned(keys)
     end
 end
 
-function AIGameMode:OnPlayerLevelUp(keys)
-    local iEntIndex = PlayerResource:GetPlayer(keys.PlayerID):GetAssignedHero():entindex()
-    local iLevel = keys.level
-    -- Set DeathXP 击杀经验
-    Timers:CreateTimer(0.5, function()
-        local hEntity = EntIndexToHScript(iEntIndex)
-        if hEntity:IsNull() then
-            return
-        end
-        if iLevel <= 30 then
-            hEntity:SetCustomDeathXP(40 + hEntity:GetCurrentXP() * 0.08)
-        else
-            hEntity:SetCustomDeathXP(3000 + hEntity:GetCurrentXP() * 0.03)
-        end
-    end)
-end
-
 function AIGameMode:OnItemPickedUp(event)
     -- if not courier
     if not event.HeroEntityIndex then
@@ -394,47 +367,47 @@ function AIGameMode:SetUnitShareMask(data)
     end
 end
 
-function AIGameMode:OnPlayerReconnect(keys)
-    local playerID = keys.PlayerID
-    if not self.tHumanPlayerList[playerID] then
-        DisconnectClient(playerID, true)
-        return
-    end
-    local new_state = GameRules:State_Get()
-    if new_state > DOTA_GAMERULES_STATE_HERO_SELECTION then
-        if PlayerResource:IsValidPlayer(playerID) then
-            if PlayerResource:HasSelectedHero(playerID) or PlayerResource:HasRandomed(playerID) then
-                -- This playerID already had a hero before disconnect
-            else
-                if not PlayerResource:IsBroadcaster(playerID) then
-                    local hPlayer = PlayerResource:GetPlayer(playerID)
-                    hPlayer:MakeRandomHeroSelection()
-                    PlayerResource:SetHasRandomed(playerID)
+-- function AIGameMode:OnPlayerReconnect(keys)
+--     local playerID = keys.PlayerID
+--     if not self.tHumanPlayerList[playerID] then
+--         DisconnectClient(playerID, true)
+--         return
+--     end
+--     local new_state = GameRules:State_Get()
+--     if new_state > DOTA_GAMERULES_STATE_HERO_SELECTION then
+--         if PlayerResource:IsValidPlayer(playerID) then
+--             if PlayerResource:HasSelectedHero(playerID) or PlayerResource:HasRandomed(playerID) then
+--                 -- This playerID already had a hero before disconnect
+--             else
+--                 if not PlayerResource:IsBroadcaster(playerID) then
+--                     local hPlayer = PlayerResource:GetPlayer(playerID)
+--                     hPlayer:MakeRandomHeroSelection()
+--                     PlayerResource:SetHasRandomed(playerID)
 
-                    if new_state > DOTA_GAMERULES_STATE_WAIT_FOR_MAP_TO_LOAD then
-                        local hHero = PlayerResource:GetSelectedHeroEntity(playerID)
-                        if hHero then
-                            print("hHero:RemoveSelf()")
-                            hHero:RemoveSelf()
-                        end
-                        local pszHeroClass = PlayerResource:GetSelectedHeroName(playerID)
-                        local hTeam = PlayerResource:GetTeam(playerID)
-                        local vPositions = nil
-                        if hTeam == DOTA_TEAM_GOODGUYS then
-                            vPositions = Vector(-6900, -6400, 384)
-                        else
-                            vPositions = Vector(7000, 6150, 384)
-                        end
-                        local hHero = CreateUnitByName(pszHeroClass, vPositions, true, nil, nil, hTeam)
-                        hHero:SetControllableByPlayer(playerID, true)
-                        hPlayer:SetAssignedHeroEntity(hHero)
-                        hPlayer:SpawnCourierAtPosition(vPositions)
-                    end
-                end
-            end
-        end
-    end
-end
+--                     if new_state > DOTA_GAMERULES_STATE_WAIT_FOR_MAP_TO_LOAD then
+--                         local hHero = PlayerResource:GetSelectedHeroEntity(playerID)
+--                         if hHero then
+--                             print("hHero:RemoveSelf()")
+--                             hHero:RemoveSelf()
+--                         end
+--                         local pszHeroClass = PlayerResource:GetSelectedHeroName(playerID)
+--                         local hTeam = PlayerResource:GetTeam(playerID)
+--                         local vPositions = nil
+--                         if hTeam == DOTA_TEAM_GOODGUYS then
+--                             vPositions = Vector(-6900, -6400, 384)
+--                         else
+--                             vPositions = Vector(7000, 6150, 384)
+--                         end
+--                         local hHero = CreateUnitByName(pszHeroClass, vPositions, true, nil, nil, hTeam)
+--                         hHero:SetControllableByPlayer(playerID, true)
+--                         hPlayer:SetAssignedHeroEntity(hHero)
+--                         hPlayer:SpawnCourierAtPosition(vPositions)
+--                     end
+--                 end
+--             end
+--         end
+--     end
+-- end
 
 function AIGameMode:FilterSeasonPointDifficulty(points)
     -- 根据难度积分加倍

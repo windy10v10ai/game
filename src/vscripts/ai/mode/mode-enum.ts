@@ -18,10 +18,6 @@ export enum ModeEnum {
   //   SECRET_SHOP = 5,
   //   SIDE_SHOP = 6,
   /**
-   * 吃符
-   */
-  RUNE = 'RUNE',
-  /**
    * 推线
    */
   PUSH = 'PUSH',

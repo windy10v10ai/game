@@ -1,5 +1,10 @@
 import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
+import { Option } from '../../option';
 import { GameEndPoint } from './game-end-point';
+
+export function IsInToolsMode(): boolean {
+  return true;
+}
 
 describe('GameEndPoint', () => {
   // 创建基础玩家数据
@@ -20,6 +25,7 @@ describe('GameEndPoint', () => {
     towerKills: 0,
     score: 0,
     battlePoints: 0,
+    facetId: 1,
     ...overrides,
   });
 
@@ -54,7 +60,7 @@ describe('GameEndPoint', () => {
         towerKills: 2,
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(38);
+      expect(score).toBe(40);
     });
 
     it('应该正确计算超高数据玩家的分数', () => {
@@ -67,24 +73,24 @@ describe('GameEndPoint', () => {
         towerKills: 11,
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(140);
+      expect(score).toBe(142);
     });
   });
 
   describe('GameEndPoint.GetGameTimePoints', () => {
-    it('10分钟游戏应该获得9分', () => {
+    it('10分钟游戏得分', () => {
       const points = GameEndPoint.GetGameTimePoints(600); // 10分钟
-      expect(points).toBe(10);
+      expect(points).toBe(9);
     });
 
-    it('30分钟游戏应该获得16分', () => {
+    it('30分钟游戏得分', () => {
       const points = GameEndPoint.GetGameTimePoints(1800); // 30分钟
-      expect(points).toBe(18);
+      expect(points).toBe(16);
     });
 
-    it('60分钟游戏应该获得23分', () => {
+    it('60分钟游戏得分', () => {
       const points = GameEndPoint.GetGameTimePoints(3600); // 60分钟
-      expect(points).toBe(25);
+      expect(points).toBe(23);
     });
   });
 
@@ -137,6 +143,106 @@ describe('GameEndPoint', () => {
       });
       const multiplier = GameEndPoint.GetParticipationRateMultiplier(player, 100); // 总击杀100，玩家参与43次，参战率43%
       expect(multiplier).toBe(1);
+    });
+  });
+
+  describe('GameEndPoint.GetCustomModeMultiplier', () => {
+    // build default option
+    const defaultOption = {
+      radiantGoldXpMultiplier: 1,
+      direGoldXpMultiplier: 1,
+      radiantPlayerNumber: 10,
+      direPlayerNumber: 10,
+      towerPower: 200,
+      startingGoldPlayer: 1000,
+      startingGoldBot: 1000,
+      respawnTimePercentage: 100,
+      maxLevel: 50,
+      sameHeroSelection: true,
+      enablePlayerAttribute: true,
+      gameDifficulty: 0,
+    } as Option;
+    it('默认选项应该返回1', () => {
+      const option = defaultOption;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(1);
+    });
+
+    it('天辉金钱经验倍率>=2时应该返回0.6', () => {
+      const option = { ...defaultOption, radiantGoldXpMultiplier: 2 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(0.6);
+    });
+
+    it('天辉金钱经验倍率>=5时应该返回0.25', () => {
+      const option = { ...defaultOption, radiantGoldXpMultiplier: 5 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(0.3);
+    });
+
+    it('夜魇金钱经验倍率>=10时应该返回2', () => {
+      const option = { ...defaultOption, direGoldXpMultiplier: 10 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(2);
+    });
+
+    it('夜魇金钱经验倍率>=5时应该返回1.5', () => {
+      const option = { ...defaultOption, direGoldXpMultiplier: 5 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(1.5);
+    });
+
+    it('夜魇玩家数量为5时应该返回0.5', () => {
+      const option = { ...defaultOption, direPlayerNumber: 5 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(0.5);
+    });
+
+    it('复活时间百分比<=0时应该返回0.5', () => {
+      const option = { ...defaultOption, respawnTimePercentage: 0 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(0.6);
+    });
+
+    it('防御塔倍率<=100时应该返回0.6', () => {
+      const option = { ...defaultOption, towerPower: 100 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(0.6);
+    });
+
+    it('防御塔倍率<=150时应该返回0.8', () => {
+      const option = { ...defaultOption, towerPower: 150 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(0.8);
+    });
+
+    it('防御塔倍率>=300时应该返回', () => {
+      const option = { ...defaultOption, towerPower: 300 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(1.1);
+    });
+
+    it('正常玩家多个条件组合', () => {
+      const option = {
+        ...defaultOption,
+        radiantGoldXpMultiplier: 1.5,
+        direGoldXpMultiplier: 10,
+        towerPower: 300,
+      } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(2.2);
+    });
+
+    it('刷分玩家倍率', () => {
+      const option = {
+        ...defaultOption,
+        radiantGoldXpMultiplier: 5,
+        direGoldXpMultiplier: 10,
+        direPlayerNumber: 5,
+        towerPower: 150,
+      } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(0.2);
     });
   });
 });

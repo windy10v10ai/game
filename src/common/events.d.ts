@@ -15,11 +15,12 @@
 interface CustomGameEventDeclarations {
   choose_difficulty: ChooseDifficultyEventData;
   game_options_change: GameOptionsChangeEventData;
-  loading_set_options: LoadingSetOptionsEventData;
+  loading_set_options: LoadingSetOptionsEventData; // 仅在lua中使用，在js中使用game_options_change
   player_language: PlayerLanguageEventData;
 
   lottery_pick_ability: LotteryPickEventData;
   lottery_refresh_ability: LotteryRefreshEventData;
+  save_bind_ability_key: SaveBindAbilityKeyEventData;
 }
 
 interface CustomGameEventDataBase {
@@ -73,4 +74,12 @@ interface LotteryPickEventData {
 
 interface LotteryRefreshEventData {
   type: string;
+}
+
+interface SaveBindAbilityKeyEventData {
+  isRememberAbilityKey: boolean;
+  activeAbilityKey: string;
+  passiveAbilityKey: string;
+  activeAbilityQuickCast: boolean;
+  passiveAbilityQuickCast: boolean;
 }

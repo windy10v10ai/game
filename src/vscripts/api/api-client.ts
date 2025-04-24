@@ -22,11 +22,11 @@ export class ApiClient {
   public static readonly ADD_PLAYER_PROPERTY_URL = '/game/addPlayerProperty';
   public static readonly RESET_PLAYER_PROPERTY_URL = '/game/resetPlayerProperty';
 
-  private static TIMEOUT_SECONDS = 15;
-  private static RETRY_TIMES = 4;
+  private static TIMEOUT_SECONDS = 10;
+  private static RETRY_TIMES = 3;
 
   private static HOST_NAME: string = (() => {
-    return IsInToolsMode() ? 'http://192.168.0.2:5000/api' : 'https://windy10v10ai.web.app/api';
+    return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.web.app/api';
   })();
   // private static HOST_NAME: string = "https://windy10v10ai.web.app/api";
 
@@ -35,6 +35,11 @@ export class ApiClient {
   public static GetServerAuthKey() {
     const keyVersion = 'v2';
     return GetDedicatedServerKeyV3(keyVersion);
+  }
+
+  public static IsLocalhost() {
+    const apiKey = this.GetServerAuthKey();
+    return apiKey === ApiClient.LOCAL_APIKEY && !IsInToolsMode();
   }
 
   public static async send(
@@ -56,11 +61,7 @@ export class ApiClient {
     const apiKey = this.GetServerAuthKey();
 
     // 本地主机只发送开局请求
-    if (
-      apiKey === ApiClient.LOCAL_APIKEY &&
-      !IsInToolsMode() &&
-      path !== ApiClient.GAME_START_URL
-    ) {
+    if (this.IsLocalhost() && path !== ApiClient.GAME_START_URL) {
       callbackFunc({
         StatusCode: 401,
         Body: ApiClient.LOCAL_APIKEY,
@@ -92,6 +93,7 @@ export class ApiClient {
         // if 20X
         print(`[ApiClient] return with status code: ${result.StatusCode}`);
         if (result.StatusCode >= 200 && result.StatusCode < 300) {
+          print(`[ApiClient] success: ${result.Body}`);
           apiParameter.successFunc(result.Body);
         } else if (result.StatusCode === 401) {
           if (apiParameter.failureFunc) {
