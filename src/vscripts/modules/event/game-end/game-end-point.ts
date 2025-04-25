@@ -120,7 +120,8 @@ export class GameEndPoint {
     if (multiplier > 1.5) {
       if (option.startingGoldPlayer >= 5000) {
         multiplier -= 0.1;
-      } else if (option.startingGoldBot <= 2000) {
+      }
+      if (option.startingGoldBot <= 2000) {
         multiplier -= 0.1;
       }
     }
