@@ -149,13 +149,13 @@ describe('GameEndPoint', () => {
   describe('GameEndPoint.GetCustomModeMultiplier', () => {
     // build default option
     const defaultOption = {
-      radiantGoldXpMultiplier: 1,
-      direGoldXpMultiplier: 1,
+      radiantGoldXpMultiplier: 1.5,
+      direGoldXpMultiplier: 2,
       radiantPlayerNumber: 10,
       direPlayerNumber: 10,
       towerPower: 200,
-      startingGoldPlayer: 1000,
-      startingGoldBot: 1000,
+      startingGoldPlayer: 3000,
+      startingGoldBot: 3000,
       respawnTimePercentage: 100,
       maxLevel: 50,
       sameHeroSelection: true,
@@ -168,25 +168,37 @@ describe('GameEndPoint', () => {
       expect(multiplier).toBe(1);
     });
 
-    it('天辉金钱经验倍率>=2时应该返回0.6', () => {
+    it('天辉金钱经验倍率=1.2', () => {
+      const option = { ...defaultOption, radiantGoldXpMultiplier: 1.2 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(1.1);
+    });
+
+    it('天辉金钱经验倍率>=2时', () => {
       const option = { ...defaultOption, radiantGoldXpMultiplier: 2 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(0.6);
+      expect(multiplier).toBe(0.5);
     });
 
-    it('天辉金钱经验倍率>=5时应该返回0.25', () => {
+    it('天辉金钱经验倍率>=5时', () => {
       const option = { ...defaultOption, radiantGoldXpMultiplier: 5 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(0.3);
+      expect(multiplier).toBe(0.2);
     });
 
-    it('夜魇金钱经验倍率>=10时应该返回2', () => {
+    it('夜魇金钱经验倍率>=20时', () => {
+      const option = { ...defaultOption, direGoldXpMultiplier: 20 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(2.2);
+    });
+
+    it('夜魇金钱经验倍率>=10时', () => {
       const option = { ...defaultOption, direGoldXpMultiplier: 10 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
       expect(multiplier).toBe(2);
     });
 
-    it('夜魇金钱经验倍率>=5时应该返回1.5', () => {
+    it('夜魇金钱经验倍率>=5时', () => {
       const option = { ...defaultOption, direGoldXpMultiplier: 5 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
       expect(multiplier).toBe(1.5);
@@ -201,36 +213,68 @@ describe('GameEndPoint', () => {
     it('复活时间百分比<=0时应该返回0.5', () => {
       const option = { ...defaultOption, respawnTimePercentage: 0 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(0.6);
+      expect(multiplier).toBe(0.5);
     });
 
-    it('防御塔倍率<=100时应该返回0.6', () => {
+    it('防御塔倍率<=100时', () => {
       const option = { ...defaultOption, towerPower: 100 } as Option;
-      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(0.6);
-    });
-
-    it('防御塔倍率<=150时应该返回0.8', () => {
-      const option = { ...defaultOption, towerPower: 150 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
       expect(multiplier).toBe(0.8);
     });
 
-    it('防御塔倍率>=300时应该返回', () => {
-      const option = { ...defaultOption, towerPower: 300 } as Option;
+    it('防御塔倍率<=150时', () => {
+      const option = { ...defaultOption, towerPower: 150 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(1.1);
+      expect(multiplier).toBe(0.9);
     });
 
-    it('正常玩家多个条件组合', () => {
+    it('不启用玩家属性应该返回1.2', () => {
+      const option = { ...defaultOption, enablePlayerAttribute: false } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(1.2);
+    });
+
+    it('玩家金钱>=5000时应该-0.1', () => {
+      const option = {
+        ...defaultOption,
+        direGoldXpMultiplier: 10,
+        startingGoldPlayer: 5000,
+      } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(1.9);
+    });
+
+    it('电脑金钱<=1000时应该-0.1', () => {
+      const option = {
+        ...defaultOption,
+        direGoldXpMultiplier: 10,
+        startingGoldBot: 1000,
+      } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(1.9);
+    });
+
+    it('N6难度多个条件组合', () => {
       const option = {
         ...defaultOption,
         radiantGoldXpMultiplier: 1.5,
         direGoldXpMultiplier: 10,
-        towerPower: 300,
+        towerPower: 350,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(2.2);
+      expect(multiplier).toBe(2.1);
+    });
+
+    it('最高难度倍率', () => {
+      const option = {
+        ...defaultOption,
+        radiantGoldXpMultiplier: 1,
+        direGoldXpMultiplier: 20,
+        towerPower: 400,
+        enablePlayerAttribute: false,
+      } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(2.7);
     });
 
     it('刷分玩家倍率', () => {

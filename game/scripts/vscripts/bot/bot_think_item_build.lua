@@ -515,7 +515,7 @@ end
 
 -- 加钱
 function BotThink:AddMoney(hHero)
-  local iAddBase = AIGameMode.playerNumber + 4
+  local iAddBase = AIGameMode.playerNumber + 5
   local GameTime = GameRules:GetDOTATime(false, false)
   local totalGold = PlayerResource:GetTotalEarnedGold(hHero:GetPlayerID())
 
