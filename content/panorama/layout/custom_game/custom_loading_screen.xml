@@ -119,14 +119,15 @@
 							<Label text="10000" id="10000"/>
 						</DropDown>
 					</Panel>
+					<!-- 是否允许重复英雄 -->
 					<Panel id="SameHeroSelectionPanel"	class="GameOptionsSubPanel">
 						<Label id="SameHeroSelectionTitle" class="GameOptionsLabel" text="#same_hero_selection" />
-						<ToggleButton checked="true" class="GameOptionsToggle" id="same_hero_selection" oninputsubmit="SendGameOptionsToServer()"/>
+						<ToggleButton checked="true" class="GameOptionsToggle" id="same_hero_selection" onactivate="SendGameOptionsToServer()"/>
 					</Panel>
-					<!-- 添加选项 是否启用玩家属性（Player attribute） -->
+					<!-- 是否启用玩家属性（Player attribute） -->
 					<Panel id="PlayerAttributePanel"	class="GameOptionsSubPanel">
 						<Label id="PlayerAttributeTitle" class="GameOptionsLabel" text="#enable_player_attribute" />
-						<ToggleButton checked="true" class="GameOptionsToggle" id="enable_player_attribute" oninputsubmit="SendGameOptionsToServer()"/>
+						<ToggleButton checked="true" class="GameOptionsToggle" id="enable_player_attribute" onactivate="SendGameOptionsToServer()"/>
 					</Panel>
 				</Panel>
 			</Panel>
