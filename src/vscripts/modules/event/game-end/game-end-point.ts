@@ -88,7 +88,7 @@ export class GameEndPoint {
       multiplier *= 0.2;
     } else if (option.radiantGoldXpMultiplier >= 2) {
       multiplier *= 0.5;
-    } else if (option.radiantGoldXpMultiplier <= 1.2) {
+    } else if (option.radiantGoldXpMultiplier < 1.3) {
       multiplier *= 1.1;
     }
 
