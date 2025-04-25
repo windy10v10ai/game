@@ -94,7 +94,7 @@ export class GameEndPoint {
     } else if (option.direGoldXpMultiplier >= 10) {
       multiplier *= 2.0;
     } else if (option.direGoldXpMultiplier >= 5) {
-      multiplier *= 1.6;
+      multiplier *= 1.5;
     }
 
     // 禁用玩家属性

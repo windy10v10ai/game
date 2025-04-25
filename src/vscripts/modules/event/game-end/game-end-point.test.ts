@@ -195,7 +195,7 @@ describe('GameEndPoint', () => {
     it('夜魇金钱经验倍率>=5时', () => {
       const option = { ...defaultOption, direGoldXpMultiplier: 5 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(1.6);
+      expect(multiplier).toBe(1.5);
     });
 
     it('夜魇玩家数量为5时应该返回0.5', () => {
