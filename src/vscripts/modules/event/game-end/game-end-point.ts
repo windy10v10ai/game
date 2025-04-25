@@ -85,27 +85,44 @@ export class GameEndPoint {
   public static GetCustomModeMultiplier(option: Option): number {
     let multiplier = 1;
     if (option.radiantGoldXpMultiplier >= 5) {
-      multiplier *= 0.3;
+      multiplier *= 0.2;
     } else if (option.radiantGoldXpMultiplier >= 2) {
-      multiplier *= 0.6;
+      multiplier *= 0.5;
     }
-    if (option.direGoldXpMultiplier >= 10) {
-      multiplier *= 2;
+    if (option.direGoldXpMultiplier >= 20) {
+      multiplier *= 2.2;
+    } else if (option.direGoldXpMultiplier >= 10) {
+      multiplier *= 2.0;
     } else if (option.direGoldXpMultiplier >= 5) {
-      multiplier *= 1.5;
+      multiplier *= 1.6;
+    }
+
+    // 禁用玩家属性
+    if (!option.enablePlayerAttribute) {
+      multiplier += 0.2;
+    }
+
+    // 防御塔倍率
+    if (option.towerPower <= 100) {
+      multiplier -= 0.2;
+    } else if (option.towerPower <= 150) {
+      multiplier -= 0.1;
+    } else if (option.towerPower >= 300) {
+      multiplier += 0.1;
     }
 
     multiplier *= option.direPlayerNumber / 10;
     if (option.respawnTimePercentage <= 0) {
-      multiplier *= 0.6;
+      multiplier *= 0.5;
     }
-    // 防御塔倍率低于100时
-    if (option.towerPower <= 100) {
-      multiplier *= 0.6;
-    } else if (option.towerPower <= 150) {
-      multiplier *= 0.8;
-    } else if (option.towerPower >= 300) {
-      multiplier *= 1.1;
+
+    // 倍率大于1时，玩家金钱高于等于5000时，倍率加-0.1
+    if (multiplier > 1.5) {
+      if (option.startingGoldPlayer >= 5000) {
+        multiplier -= 0.1;
+      } else if (option.startingGoldBot <= 2000) {
+        multiplier -= 0.1;
+      }
     }
     // 小数点1位
     return Math.round(multiplier * 10) / 10;
