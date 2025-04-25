@@ -149,8 +149,8 @@ describe('GameEndPoint', () => {
   describe('GameEndPoint.GetCustomModeMultiplier', () => {
     // build default option
     const defaultOption = {
-      radiantGoldXpMultiplier: 1,
-      direGoldXpMultiplier: 1,
+      radiantGoldXpMultiplier: 1.5,
+      direGoldXpMultiplier: 2,
       radiantPlayerNumber: 10,
       direPlayerNumber: 10,
       towerPower: 200,
@@ -166,6 +166,12 @@ describe('GameEndPoint', () => {
       const option = defaultOption;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
       expect(multiplier).toBe(1);
+    });
+
+    it('天辉金钱经验倍率=1.2', () => {
+      const option = { ...defaultOption, radiantGoldXpMultiplier: 1.2 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(1.1);
     });
 
     it('天辉金钱经验倍率>=2时', () => {
@@ -238,11 +244,11 @@ describe('GameEndPoint', () => {
       expect(multiplier).toBe(1.9);
     });
 
-    it('电脑金钱<=2000时应该-0.1', () => {
+    it('电脑金钱<=1000时应该-0.1', () => {
       const option = {
         ...defaultOption,
         direGoldXpMultiplier: 10,
-        startingGoldBot: 2000,
+        startingGoldBot: 1000,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
       expect(multiplier).toBe(1.9);
@@ -262,13 +268,13 @@ describe('GameEndPoint', () => {
     it('最高难度倍率', () => {
       const option = {
         ...defaultOption,
-        radiantGoldXpMultiplier: 1.5,
+        radiantGoldXpMultiplier: 1,
         direGoldXpMultiplier: 20,
         towerPower: 400,
         enablePlayerAttribute: false,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(2.5);
+      expect(multiplier).toBe(2.7);
     });
 
     it('刷分玩家倍率', () => {
