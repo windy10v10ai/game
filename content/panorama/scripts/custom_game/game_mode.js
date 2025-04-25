@@ -76,7 +76,7 @@ function InitSetting() {
   $('#tower_power_dropdown').SetSelected('300');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
-  $('#starting_gold_bot_dropdown').SetSelected('1000');
+  $('#starting_gold_bot_dropdown').SetSelected('3000');
   $('#same_hero_selection').checked = true;
   $('#enable_player_attribute').checked = true;
 
