@@ -1,9 +1,9 @@
 import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
-import { BaseHeroAIModifier } from './hero-base';
+import { BotBaseAIModifier } from './bot-base';
 
 @registerModifier()
-export class MedusaAIModifier extends BaseHeroAIModifier {
+export class MedusaAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     // 秘术异蛇
     if (ActionAbility.CastAbilityOnFindEnemyHero(this, 'medusa_mystic_snake')) {

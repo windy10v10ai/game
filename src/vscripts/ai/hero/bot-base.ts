@@ -7,7 +7,7 @@ import { ModeEnum } from '../mode/mode-enum';
 import { HeroUtil } from './hero-util';
 
 @registerModifier()
-export class BaseHeroAIModifier extends BaseModifier {
+export class BotBaseAIModifier extends BaseModifier {
   protected readonly ThinkInterval: number = 0.3;
   protected readonly ThinkIntervalTool: number = 0.3;
 
@@ -66,7 +66,7 @@ export class BaseHeroAIModifier extends BaseModifier {
     }
   }
 
-  Think(): void {
+  OnIntervalThink(): void {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
     this.gameTime = GameRules.GetDOTATime(false, false);
     if (this.StopAction()) {
@@ -84,7 +84,14 @@ export class BaseHeroAIModifier extends BaseModifier {
       // print(`[AI] HeroBase Think break 正在施法中 ${this.hero.GetUnitName()}`);
       return;
     }
-    this.ActionMode();
+    if (this.ActionMode()) {
+      return;
+    }
+
+    // build item
+    if (this.UseItemSelf()) {
+      return;
+    }
   }
 
   // ---------------------------------------------------------
@@ -321,6 +328,41 @@ export class BaseHeroAIModifier extends BaseModifier {
   }
 
   // ---------------------------------------------------------
+  // Build Item
+  // ---------------------------------------------------------
+  BuildItem(): boolean {
+    if (this.ConsumeItem()) {
+      return true;
+    }
+    if (this.SellItem()) {
+      return true;
+    }
+    if (this.PurchaseItem()) {
+      return true;
+    }
+    if (this.PickNeutralItem()) {
+      return true;
+    }
+    return false;
+  }
+
+  PurchaseItem(): boolean {
+    return false;
+  }
+
+  PickNeutralItem(): boolean {
+    return false;
+  }
+
+  SellItem(): boolean {
+    return false;
+  }
+
+  ConsumeItem(): boolean {
+    return false;
+  }
+
+  // ---------------------------------------------------------
   // Check
   // ---------------------------------------------------------
   IsInAbilityPhase(): boolean {
@@ -439,10 +481,6 @@ export class BaseHeroAIModifier extends BaseModifier {
     Timers.CreateTimer(delay, () => {
       this.Init();
     });
-  }
-
-  OnIntervalThink(): void {
-    this.Think();
   }
 
   IsPurgable(): boolean {
