@@ -165,62 +165,60 @@ export class BaseHeroAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   // Action Mode
   // ---------------------------------------------------------
-  ActionMode(): void {
+  ActionMode(): boolean {
     switch (this.mode) {
       case ModeEnum.ATTACK:
-        this.ActionAttack();
-        break;
+        return this.ActionAttack();
       case ModeEnum.LANING:
-        this.ActionLaning();
-        break;
+        return this.ActionLaning();
       case ModeEnum.PUSH:
-        this.ActionPush();
-        break;
+        return this.ActionPush();
       case ModeEnum.RETREAT:
-        this.ActionRetreat();
-        break;
+        return this.ActionRetreat();
       default:
         print(`[AI] HeroBase ThinkMode ${this.hero.GetUnitName()} mode ${this.mode} not found`);
-        break;
+        return false;
     }
   }
 
-  ActionLaning(): void {
+  ActionLaning(): boolean {
     if (this.CastSelf()) {
-      return;
+      return true;
     }
     if (this.CastEnemy()) {
-      return;
+      return true;
     }
     if (this.CastTeam()) {
-      return;
+      return true;
     }
     if (this.CastCreep()) {
-      return;
+      return true;
     }
+    return false;
   }
 
-  ActionAttack(): void {
+  ActionAttack(): boolean {
     if (this.CastSelf()) {
-      return;
+      return true;
     }
     if (this.CastEnemy()) {
-      return;
+      return true;
     }
     if (this.CastTeam()) {
-      return;
+      return true;
     }
     if (this.CastCreep()) {
-      return;
+      return true;
     }
+    return false;
   }
 
-  ActionRetreat(): void {
+  ActionRetreat(): boolean {
     if (this.CastSelf()) {
-      return;
+      return true;
     }
     if (this.CastTeam()) {
-      return;
+      return true;
     }
 
     // 撤离动作持续
@@ -228,12 +226,13 @@ export class BaseHeroAIModifier extends BaseModifier {
     if (enemyTower) {
       this.continueActionEndTime = this.gameTime + this.continueActionTime;
       this.ThinkRetreatGetAwayFromTower();
-      return;
+      return true;
     }
 
     if (this.CastEnemy()) {
-      return;
+      return true;
     }
+    return false;
   }
 
   ThinkRetreatGetAwayFromTower(): void {
@@ -258,23 +257,24 @@ export class BaseHeroAIModifier extends BaseModifier {
     }
   }
 
-  ActionPush(): void {
+  ActionPush(): boolean {
     if (this.CastSelf()) {
-      return;
+      return true;
     }
     if (this.CastEnemy()) {
-      return;
+      return true;
     }
     if (this.CastTeam()) {
-      return;
+      return true;
     }
     // 推塔
     if (this.ForceAttackTower()) {
-      return;
+      return true;
     }
     if (this.CastCreep()) {
-      return;
+      return true;
     }
+    return false;
   }
 
   // 强制A塔
