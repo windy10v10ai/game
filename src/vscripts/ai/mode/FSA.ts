@@ -1,5 +1,5 @@
 import { reloadable } from '../../utils/tstl-utils';
-import { BaseHeroAIModifier } from '../hero/hero-base';
+import { BotBaseAIModifier } from '../hero/bot-base';
 import { ModeAttack } from './mode-attack';
 import { ModeBase } from './mode-base';
 import { ModeEnum } from './mode-enum';
@@ -20,7 +20,7 @@ export class FSA {
     this.ModeList.push(new ModePush());
   }
 
-  GetMode(heroAI: BaseHeroAIModifier): ModeEnum {
+  GetMode(heroAI: BotBaseAIModifier): ModeEnum {
     const currentMode = heroAI.mode;
     let maxDesire = 0;
     let desireMode: ModeEnum | undefined;

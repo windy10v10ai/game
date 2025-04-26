@@ -1,4 +1,4 @@
-import { BaseHeroAIModifier } from './hero/hero-base';
+import { BotBaseAIModifier } from './hero/bot-base';
 import { DrowRangerAIModifier } from './hero/hero-drow-ranger';
 import { LionAIModifier } from './hero/hero-lion';
 import { LunaAIModifier } from './hero/hero-luna';
@@ -45,7 +45,7 @@ export class AI {
       return ShadowShamanAIModifier.name;
     }
 
-    return BaseHeroAIModifier.name;
+    return BotBaseAIModifier.name;
   }
 
   private appleAIModifier(hero: CDOTA_BaseNPC_Hero, modifierName: string) {
