@@ -1,6 +1,7 @@
 // 中立物品配置接口
 export interface NeutralItemConfig {
   name: string; // 物品名称
+  level: number; // 物品等级
   weight?: number; // 权重(用于概率计算，默认为1)
 }
 
@@ -39,50 +40,132 @@ export class NeutralItemManager {
     return {
       1: {
         items: [
-          { name: 'item_trusty_shovel' },
-          { name: 'item_occult_bracelet' },
-          { name: 'item_mana_draught' },
-          { name: 'item_polliwog_charm' },
-          { name: 'item_spark_of_courage' },
-          { name: 'item_rippers_lash' },
-          { name: 'item_iron_talon' },
-          { name: 'item_safety_bubble' },
+          { name: 'item_trusty_shovel', level: 1 },
+          { name: 'item_occult_bracelet', level: 1 },
+          { name: 'item_mana_draught', level: 1 },
+          { name: 'item_polliwog_charm', level: 1 },
+          { name: 'item_spark_of_courage', level: 1 },
+          { name: 'item_rippers_lash', level: 1 },
+          { name: 'item_iron_talon', level: 1 },
+          { name: 'item_safety_bubble', level: 1 },
         ],
         enhancements: [
-          { name: 'item_enhancement_mystical' },
-          { name: 'item_enhancement_brawny' },
-          { name: 'item_enhancement_alert' },
-          { name: 'item_enhancement_tough' },
-          { name: 'item_enhancement_quickened' },
-          { name: 'item_enhancement_greedy' },
-          { name: 'item_enhancement_wise' },
+          { name: 'item_enhancement_mystical', level: 1 },
+          { name: 'item_enhancement_brawny', level: 1 },
+          { name: 'item_enhancement_alert', level: 1 },
+          { name: 'item_enhancement_tough', level: 1 },
+          { name: 'item_enhancement_quickened', level: 1 },
+          { name: 'item_enhancement_greedy', level: 1 },
+          { name: 'item_enhancement_wise', level: 1 },
         ],
       },
       2: {
         items: [
-          { name: 'item_essence_ring' },
-          { name: 'item_searing_signet' },
-          { name: 'item_misericorde' },
-          { name: 'item_orb_of_destruction' },
-          { name: 'item_royal_jelly' },
-          { name: 'item_arcane_ring' },
-          { name: 'item_poor_mans_shield' },
-          { name: 'item_chipped_vest' },
+          { name: 'item_essence_ring', level: 1 },
+          { name: 'item_searing_signet', level: 1 },
+          { name: 'item_misericorde', level: 1 },
+          { name: 'item_orb_of_destruction', level: 1 },
+          { name: 'item_royal_jelly', level: 1 },
+          { name: 'item_arcane_ring', level: 1 },
+          { name: 'item_poor_mans_shield', level: 1 },
+          { name: 'item_chipped_vest', level: 1 },
         ],
         enhancements: [
-          { name: 'item_enhancement_mystical' },
-          { name: 'item_enhancement_brawny' },
-          { name: 'item_enhancement_alert' },
-          { name: 'item_enhancement_tough' },
-          { name: 'item_enhancement_quickened' },
-          { name: 'item_enhancement_greedy' },
-          { name: 'item_enhancement_wise' },
-          { name: 'item_enhancement_keen_eyed' },
-          { name: 'item_enhancement_vast' },
-          { name: 'item_enhancement_vampiric' },
+          { name: 'item_enhancement_mystical', level: 2 },
+          { name: 'item_enhancement_brawny', level: 2 },
+          { name: 'item_enhancement_alert', level: 2 },
+          { name: 'item_enhancement_tough', level: 2 },
+          { name: 'item_enhancement_quickened', level: 2 },
+          { name: 'item_enhancement_greedy', level: 2 },
+          { name: 'item_enhancement_wise', level: 2 },
+          { name: 'item_enhancement_keen_eyed', level: 1 },
+          { name: 'item_enhancement_vast', level: 1 },
+          { name: 'item_enhancement_vampiric', level: 1 },
         ],
       },
-      // ... 其他tier的配置
+      3: {
+        items: [
+          { name: 'item_gale_guard', level: 1 },
+          { name: 'item_whisper_of_the_dread', level: 1 },
+          { name: 'item_ninja_gear', level: 1 },
+          { name: 'item_ogre_seal_totem', level: 1 },
+          { name: 'item_mind_breaker', level: 1 },
+          { name: 'item_spider_legs', level: 1 },
+          { name: 'item_trickster_cloak', level: 1 },
+          { name: 'item_penta_edged_sword', level: 1 },
+        ],
+        enhancements: [
+          { name: 'item_enhancement_mystical', level: 3 },
+          { name: 'item_enhancement_brawny', level: 3 },
+          { name: 'item_enhancement_alert', level: 3 },
+          { name: 'item_enhancement_tough', level: 3 },
+          { name: 'item_enhancement_quickened', level: 3 },
+          { name: 'item_enhancement_keen_eyed', level: 2 },
+          { name: 'item_enhancement_vast', level: 2 },
+          { name: 'item_enhancement_vampiric', level: 2 },
+          { name: 'item_enhancement_feverish', level: 1 },
+          { name: 'item_enhancement_evolved', level: 1 },
+        ],
+      },
+      4: {
+        items: [
+          { name: 'item_crippling_crossbow', level: 1 },
+          { name: 'item_pyrrhic_cloak', level: 1 },
+          { name: 'item_gunpowder_gauntlets', level: 1 },
+          { name: 'item_fallen_sky', level: 1 },
+          { name: 'item_panic_button', level: 1 },
+          { name: 'item_serrated_shiv', level: 1 },
+          { name: 'item_havoc_hammer', level: 1 },
+          { name: 'item_pirate_hat', level: 1 },
+          { name: 'item_seer_stone', level: 1 },
+          { name: 'item_princes_knife', level: 1 },
+          { name: 'item_stormcrafter', level: 1 },
+          { name: 'item_repair_kit', level: 1 },
+        ],
+        enhancements: [
+          { name: 'item_enhancement_mystical', level: 4 },
+          { name: 'item_enhancement_brawny', level: 4 },
+          { name: 'item_enhancement_alert', level: 4 },
+          { name: 'item_enhancement_tough', level: 4 },
+          { name: 'item_enhancement_quickened', level: 4 },
+          { name: 'item_enhancement_vampiric', level: 3 },
+          { name: 'item_enhancement_timeless', level: 1 },
+          { name: 'item_enhancement_titanic', level: 1 },
+          { name: 'item_enhancement_crude', level: 1 },
+          { name: 'item_enhancement_boundless', level: 1 },
+          { name: 'item_enhancement_evolved', level: 2 },
+          { name: 'item_neutral_tabi', level: 1 },
+        ],
+      },
+      5: {
+        items: [
+          { name: 'item_desolator_2', level: 1 },
+          { name: 'item_minotaur_horn', level: 1 },
+          { name: 'item_nemesis_curse', level: 1 },
+          { name: 'item_ceremonial_robe', level: 1 },
+          { name: 'item_magnifying_monocle', level: 1 },
+          { name: 'item_unrelenting_eye', level: 1 },
+          { name: 'item_mirror_shield', level: 1 },
+          { name: 'item_ballista', level: 1 },
+          { name: 'item_imp_claw', level: 1 },
+          { name: 'item_giants_ring', level: 1 },
+          { name: 'item_ex_machina', level: 1 },
+          { name: 'item_specialists_array', level: 1 },
+        ],
+        enhancements: [
+          { name: 'item_enhancement_timeless', level: 2 },
+          { name: 'item_enhancement_titanic', level: 2 },
+          { name: 'item_enhancement_crude', level: 2 },
+          { name: 'item_enhancement_fleetfooted', level: 1 },
+          { name: 'item_enhancement_audacious', level: 1 },
+          { name: 'item_enhancement_evolved', level: 3 },
+          { name: 'item_enhancement_boundless', level: 2 },
+          { name: 'item_mysterious_hat', level: 2 },
+          { name: 'item_spell_prism', level: 1 },
+          { name: 'item_paladin_sword', level: 1 },
+          { name: 'item_psychic_headband', level: 1 },
+        ],
+      },
     };
   }
 
@@ -100,29 +183,29 @@ export class NeutralItemManager {
   }
 
   // 获取指定tier的物品名
-  public static GetRandomTierItemName(
+  public static GetRandomTierItem(
     tier: number,
     neutralItemConfig: Record<number, NeutralTierConfig>,
-  ): string | undefined {
+  ): NeutralItemConfig | undefined {
     const items = neutralItemConfig[tier]?.items || [];
     if (items.length === 0) return undefined;
 
-    return this.SelectRandomItemName(items);
+    return this.SelectRandomItem(items);
   }
 
   // 获取指定tier的增强名
   public static GetRandomTierEnhancements(
     tier: number,
     neutralItemConfig: Record<number, NeutralTierConfig>,
-  ): string | undefined {
+  ): NeutralItemConfig | undefined {
     const enhancements = neutralItemConfig[tier]?.enhancements || [];
     if (enhancements.length === 0) return undefined;
 
-    return this.SelectRandomItemName(enhancements);
+    return this.SelectRandomItem(enhancements);
   }
 
   // 根据权重随机选择物品
-  public static SelectRandomItemName(items: NeutralItemConfig[]): string | undefined {
+  public static SelectRandomItem(items: NeutralItemConfig[]): NeutralItemConfig | undefined {
     if (items.length === 0) return undefined;
 
     const totalWeight = items.reduce((sum, item) => sum + (item.weight || 1), 0);
@@ -131,10 +214,10 @@ export class NeutralItemManager {
     for (const item of items) {
       random -= item.weight || 1;
       if (random <= 0) {
-        return item.name;
+        return item;
       }
     }
 
-    return items[0].name;
+    return items[0];
   }
 }

@@ -365,20 +365,17 @@ export class BotBaseAIModifier extends BaseModifier {
     );
 
     const neutralItemConfig = this.getNeutralItemConfig();
-    const selectedItemName = NeutralItemManager.GetRandomTierItemName(
-      targetTier,
-      neutralItemConfig,
-    );
-    if (!selectedItemName) {
+    const selectedItem = NeutralItemManager.GetRandomTierItem(targetTier, neutralItemConfig);
+    if (!selectedItem) {
       print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立物品`);
       return false;
     }
 
-    const selectedEnhancementName = NeutralItemManager.GetRandomTierEnhancements(
+    const selectedEnhancement = NeutralItemManager.GetRandomTierEnhancements(
       targetTier,
       neutralItemConfig,
     );
-    if (!selectedEnhancementName) {
+    if (!selectedEnhancement) {
       print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立增强`);
       return false;
     }
@@ -393,11 +390,11 @@ export class BotBaseAIModifier extends BaseModifier {
       UTIL_RemoveImmediate(oldEnhancement);
     }
 
-    this.hero.AddItemByName(selectedItemName);
-    this.hero.AddItemByName(selectedEnhancementName);
+    this.hero.AddItemByName(selectedItem.name).SetLevel(selectedItem.level);
+    this.hero.AddItemByName(selectedEnhancement.name).SetLevel(selectedEnhancement.level);
     this.neutralItemTier = targetTier;
     print(
-      `[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 选取中立物品 ${selectedItemName} 和 中立增强 ${selectedEnhancementName}`,
+      `[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 选取中立物品 ${selectedItem} 和 中立增强 ${selectedEnhancement}`,
     );
     return true;
   }
