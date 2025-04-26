@@ -3,6 +3,7 @@ import { ActionAttack } from '../action/action-attack';
 import { ActionFind } from '../action/action-find';
 import { ActionItem } from '../action/action-item';
 import { ActionMove } from '../action/action-move';
+import { NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { ModeEnum } from '../mode/mode-enum';
 import { HeroUtil } from './hero-util';
 
@@ -40,6 +41,10 @@ export class BotBaseAIModifier extends BaseModifier {
   protected ability_utli: CDOTABaseAbility | undefined;
 
   // 物品
+  private neutralItemTier: number = 0;
+  protected getNeutralItemConfig(): Record<number, NeutralTierConfig> {
+    return NeutralItemManager.GetDefaultConfig();
+  }
 
   protected heroState = {
     currentHealth: 0,
@@ -88,8 +93,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return;
     }
 
-    // build item
-    if (this.UseItemSelf()) {
+    if (this.BuildItem()) {
       return;
     }
   }
@@ -351,7 +355,51 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   PickNeutralItem(): boolean {
-    return false;
+    const targetTier = NeutralItemManager.GetTargetTier();
+    if (targetTier <= this.neutralItemTier) {
+      return false;
+    }
+
+    print(
+      `[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 选取中立物品 tier ${targetTier}`,
+    );
+
+    const neutralItemConfig = this.getNeutralItemConfig();
+    const selectedItemName = NeutralItemManager.GetRandomTierItemName(
+      targetTier,
+      neutralItemConfig,
+    );
+    if (!selectedItemName) {
+      print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立物品`);
+      return false;
+    }
+
+    const selectedEnhancementName = NeutralItemManager.GetRandomTierEnhancements(
+      targetTier,
+      neutralItemConfig,
+    );
+    if (!selectedEnhancementName) {
+      print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立增强`);
+      return false;
+    }
+
+    // 移除当前中立物品
+    const oldItem = this.hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
+    if (oldItem) {
+      UTIL_RemoveImmediate(oldItem);
+    }
+    const oldEnhancement = this.hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
+    if (oldEnhancement) {
+      UTIL_RemoveImmediate(oldEnhancement);
+    }
+
+    this.hero.AddItemByName(selectedItemName);
+    this.hero.AddItemByName(selectedEnhancementName);
+    this.neutralItemTier = targetTier;
+    print(
+      `[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 选取中立物品 ${selectedItemName} 和 中立增强 ${selectedEnhancementName}`,
+    );
+    return true;
   }
 
   SellItem(): boolean {
