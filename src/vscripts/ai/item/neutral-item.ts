@@ -175,11 +175,11 @@ export class NeutralItemManager {
     const startTimes = this.GetTierStartTimes();
 
     for (let i = startTimes.length - 1; i >= 0; i--) {
-      if (gameTime >= startTimes[i]) {
+      if (gameTime > startTimes[i]) {
         return i + 1;
       }
     }
-    return 1;
+    return 0;
   }
 
   // 获取指定tier的物品名
