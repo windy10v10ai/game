@@ -40,7 +40,7 @@ export class NeutralItemManager {
     return {
       1: {
         items: [
-          { name: 'item_trusty_shovel', level: 1 },
+          // { name: 'item_trusty_shovel', level: 1 }, // 可靠铁铲 电脑挖了后不会拾取道具
           { name: 'item_occult_bracelet', level: 1 },
           { name: 'item_mana_draught', level: 1 },
           { name: 'item_polliwog_charm', level: 1 },

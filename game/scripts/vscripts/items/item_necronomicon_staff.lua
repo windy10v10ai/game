@@ -146,7 +146,7 @@ function modifier_item_necronomicon_staff_debuff:OnCreated(params)
 	self.blast_int_bonus = 0
 	self.blast_int_percent = self:GetAbility():GetSpecialValueFor("blast_int_percent")
 	if self:GetParent():IsHero() then
-		self.blast_int_bonus = self:GetParent():GetIntellect(false) * self.blast_int_percent * 0.01
+		self.blast_int_bonus = self:GetParent():GetIntellect(true) * self.blast_int_percent * 0.01
 	end
 
 	local model_list = { "models/props_gameplay/pig.vmdl", "models/props_gameplay/sheep01.vmdl" }
