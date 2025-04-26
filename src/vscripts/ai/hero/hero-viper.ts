@@ -1,9 +1,9 @@
 import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
-import { BaseHeroAIModifier } from './hero-base';
+import { BotBaseAIModifier } from './bot-base';
 
 @registerModifier()
-export class ViperAIModifier extends BaseHeroAIModifier {
+export class ViperAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     // 幽冥剧毒
     if (

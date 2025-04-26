@@ -179,7 +179,7 @@
 				"bonus_armor"		"5"					//4
 		}
 	}
-	// 加速护符
+	// 加速护符 炸弹人天命bug暂时移除
 	"item_quickening_charm"
 	{
 		"ItemIsNeutralPassiveDrop"		"1"

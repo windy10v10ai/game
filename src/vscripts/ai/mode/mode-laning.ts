@@ -1,11 +1,11 @@
-import { BaseHeroAIModifier } from '../hero/hero-base';
+import { BotBaseAIModifier } from '../hero/bot-base';
 import { ModeBase } from './mode-base';
 import { ModeEnum } from './mode-enum';
 
 export class ModeLaning extends ModeBase {
   mode: ModeEnum = ModeEnum.LANING;
 
-  GetDesire(heroAI: BaseHeroAIModifier): number {
+  GetDesire(heroAI: BotBaseAIModifier): number {
     let desire = 0;
     if (heroAI.GetHero().GetLevel() < heroAI.PushLevel) {
       desire += 0.55;
