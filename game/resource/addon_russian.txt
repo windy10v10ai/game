@@ -3,10 +3,6 @@
 	"Language"		"Russian"
 	"Tokens"
 	{
-		"addon_game_name"		"Dota 10v10 AI by Windy"
-		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
-		"DOTA_SHARD"			"Battle Points"
-
 		// /////////////////////////////////////////////////////////////////////////////
 		//
 		// 					Options
@@ -102,8 +98,6 @@
 		//
 		///////////////////////////////////////////////////
 		"data_panel_button"				"Меню"
-		"data_panel_member_point"		"Member Points"
-		"data_panel_season_point"		"Battle Points"
 		"data_panel_property_point"		"Attribute Points (Доступно/Всего)"
 
 		"data_panel_data_button"		"Инфо"
@@ -111,16 +105,15 @@
 		"data_panel_property_list"		"Добавить"
 		"data_panel_property_reset"		"Сбросить"
 
-		"data_panel_season_level"		"Battle - уровень"
-		"data_panel_season_level_tooltip"		"Повышение уровня за Battle Points даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>100</font> за каждый уровень."
-		"data_panel_member_level"		"Member - уровень"
-		"data_panel_member_level_tooltip"		"Повышение уровня за Member Points даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>50</font> за каждый уровень."
+		// "data_panel_season_level"		"Battle - уровень"
+		"data_panel_season_level_tooltip"		"Повышение уровня за Battle Experience даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>100</font> за каждый уровень."
+		// "data_panel_member_level"		"Member - уровень"
+		"data_panel_member_level_tooltip"		"Повышение уровня за Member Experience даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>50</font> за каждый уровень."
 		"data_panel_level_progress"		"Уровень"
-		"data_panel_link_rule"			"Правила очков и атрибутов"
-		"data_panel_member_point_rule_url"		"https://afdian.com/p/8d1e8ac8682711ed984b52540025c377"
+		"data_panel_link_rule"			"Правила опыта и атрибутов"
 
-		"reset_property_use_season_point"		"Сбросить Attribute Points за {seasonPoint} Battle Points"
-		"reset_property_use_member_point"		"Сбросить Attribute Points за 1000 Member Points"
+		"reset_property_use_season_point"		"Сбросить Attribute Points за {seasonPoint} Battle Experience"
+		"reset_property_use_member_point"		"Сбросить Attribute Points за 1000 Member Experience"
 
 		"data_panel_player_property_label"		"Тратьте Attribute Points для улучшения героя — улучшения постоянные и сохраняются из игры в игру."
 		"data_panel_player_property_label_2"		"Очки нельзя тратить на локальном сервере — играйте на выделенном сервере от Valve, чтобы использовать и получать бонусы от улучшений."
@@ -156,8 +149,6 @@
 
 		"data_panel_player_property_value"				"Value"
 		"data_panel_player_property_level"				"Уровень"
-		"data_panel_player_property_level_up"			"Повысить уровень"
-		"data_panel_player_property_level_up_X"			"Повысить уровень за X очков"
 
 		///////////////////////////////////////////////////
 		//
@@ -185,8 +176,8 @@
 		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button_normal"			"Спасибо за поддержку!Теперь вы <font color='#FFCC66'>обычный участник</font><br/>Приемущества подписки:<br/>Время возрождения снижено на 5 секунд<br/>Перезарядку выкупа уменьшена до 2 минут<br/>Вы можете перебросить как активные, так и пассивные способности один раз в начале игры.<br/>100 Membership points каждый день.<br/>  Подписка действительна до {expireDate}."
-		"player_member_button_premium"			"Спасибо за поддержку!Теперь вы <font color='#FFCC66'>Премиум-участник</font><br/>Приемущества подписки:<br/>Время возрождения снижено на 5 секунд<br/>Перезарядку выкупа уменьшена до 2 минут<br/>Вы можете перебросить как активные, так и пассивные способности один раз в начале игры.<br/>100 Membership points каждый день.<br/><font color='#FFCC66'>Выбор способностей улучшен до 1 из 6 вариантов, при этом увеличивается вероятность появления способностей более высокого уровня.</font><br/>  Подписка действительна до {expireDate}."
+		"player_member_button_normal"			"Спасибо за поддержку!Теперь вы <font color='#FFCC66'>обычный участник</font><br/>Приемущества подписки:<br/>Время возрождения снижено на 5 секунд<br/>Перезарядку выкупа уменьшена до 2 минут<br/>Вы можете перебросить как активные, так и пассивные способности один раз в начале игры.<br/>100 Member Experience каждый день.<br/>  Подписка действительна до {expireDate}."
+		"player_member_button_premium"			"Спасибо за поддержку!Теперь вы <font color='#FFCC66'>Премиум-участник</font><br/>Приемущества подписки:<br/>Время возрождения снижено на 5 секунд<br/>Перезарядку выкупа уменьшена до 2 минут<br/>Вы можете перебросить как активные, так и пассивные способности один раз в начале игры.<br/>100 Member Experience каждый день.<br/><font color='#FFCC66'>Выбор способностей улучшен до 1 из 6 вариантов, при этом увеличивается вероятность появления способностей более высокого уровня.</font><br/>  Подписка действительна до {expireDate}."
 
 		"player_member_button_expire"	"Спасибо за поддержку!<br/>Ваша подписка истекла с {expireDate}. Нажмите эту кнопку, чтобы продлить подписку"
 		"player_member_ship"			"Нажмите, чтобы активации подписки"

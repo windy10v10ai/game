@@ -1,9 +1,9 @@
 import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
-import { BaseHeroAIModifier } from './hero-base';
+import { BotBaseAIModifier } from './bot-base';
 
 @registerModifier()
-export class ShadowShamanAIModifier extends BaseHeroAIModifier {
+export class ShadowShamanAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     // 妖术
     if (ActionAbility.CastAbilityOnFindEnemyHero(this, 'shadow_shaman_voodoo')) {

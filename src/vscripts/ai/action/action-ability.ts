@@ -1,4 +1,4 @@
-import { BaseHeroAIModifier } from '../hero/hero-base';
+import { BotBaseAIModifier } from '../hero/bot-base';
 import { ActionFind } from './action-find';
 import {
   CastCoindition,
@@ -10,7 +10,7 @@ import {
 
 export class ActionAbility {
   static CastAbilityOnFindEnemyHero(
-    ai: BaseHeroAIModifier,
+    ai: BotBaseAIModifier,
     abilityName: string,
     condition?: CastCoindition,
   ): boolean {
@@ -18,7 +18,7 @@ export class ActionAbility {
   }
 
   static CastAbilityOnFindEnemyCreep(
-    ai: BaseHeroAIModifier,
+    ai: BotBaseAIModifier,
     abilityName: string,
     condition?: CastCoindition,
   ): boolean {
@@ -47,7 +47,7 @@ export class ActionAbility {
   }
 
   protected static CastAbilityOnFindEnemy(
-    ai: BaseHeroAIModifier,
+    ai: BotBaseAIModifier,
     abilityName: string,
     condition: CastCoindition | undefined,
     typeFilter: UnitTargetType,

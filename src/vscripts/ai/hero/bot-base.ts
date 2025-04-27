@@ -3,11 +3,12 @@ import { ActionAttack } from '../action/action-attack';
 import { ActionFind } from '../action/action-find';
 import { ActionItem } from '../action/action-item';
 import { ActionMove } from '../action/action-move';
+import { NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { ModeEnum } from '../mode/mode-enum';
 import { HeroUtil } from './hero-util';
 
 @registerModifier()
-export class BaseHeroAIModifier extends BaseModifier {
+export class BotBaseAIModifier extends BaseModifier {
   protected readonly ThinkInterval: number = 0.3;
   protected readonly ThinkIntervalTool: number = 0.3;
 
@@ -40,6 +41,10 @@ export class BaseHeroAIModifier extends BaseModifier {
   protected ability_utli: CDOTABaseAbility | undefined;
 
   // 物品
+  private neutralItemTier: number = 0;
+  protected getNeutralItemConfig(): Record<number, NeutralTierConfig> {
+    return NeutralItemManager.GetDefaultConfig();
+  }
 
   protected heroState = {
     currentHealth: 0,
@@ -66,7 +71,7 @@ export class BaseHeroAIModifier extends BaseModifier {
     }
   }
 
-  Think(): void {
+  OnIntervalThink(): void {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
     this.gameTime = GameRules.GetDOTATime(false, false);
     if (this.StopAction()) {
@@ -84,7 +89,13 @@ export class BaseHeroAIModifier extends BaseModifier {
       // print(`[AI] HeroBase Think break 正在施法中 ${this.hero.GetUnitName()}`);
       return;
     }
-    this.ActionMode();
+    if (this.ActionMode()) {
+      return;
+    }
+
+    if (this.BuildItem()) {
+      return;
+    }
   }
 
   // ---------------------------------------------------------
@@ -165,62 +176,60 @@ export class BaseHeroAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   // Action Mode
   // ---------------------------------------------------------
-  ActionMode(): void {
+  ActionMode(): boolean {
     switch (this.mode) {
       case ModeEnum.ATTACK:
-        this.ActionAttack();
-        break;
+        return this.ActionAttack();
       case ModeEnum.LANING:
-        this.ActionLaning();
-        break;
+        return this.ActionLaning();
       case ModeEnum.PUSH:
-        this.ActionPush();
-        break;
+        return this.ActionPush();
       case ModeEnum.RETREAT:
-        this.ActionRetreat();
-        break;
+        return this.ActionRetreat();
       default:
         print(`[AI] HeroBase ThinkMode ${this.hero.GetUnitName()} mode ${this.mode} not found`);
-        break;
+        return false;
     }
   }
 
-  ActionLaning(): void {
+  ActionLaning(): boolean {
     if (this.CastSelf()) {
-      return;
+      return true;
     }
     if (this.CastEnemy()) {
-      return;
+      return true;
     }
     if (this.CastTeam()) {
-      return;
+      return true;
     }
     if (this.CastCreep()) {
-      return;
+      return true;
     }
+    return false;
   }
 
-  ActionAttack(): void {
+  ActionAttack(): boolean {
     if (this.CastSelf()) {
-      return;
+      return true;
     }
     if (this.CastEnemy()) {
-      return;
+      return true;
     }
     if (this.CastTeam()) {
-      return;
+      return true;
     }
     if (this.CastCreep()) {
-      return;
+      return true;
     }
+    return false;
   }
 
-  ActionRetreat(): void {
+  ActionRetreat(): boolean {
     if (this.CastSelf()) {
-      return;
+      return true;
     }
     if (this.CastTeam()) {
-      return;
+      return true;
     }
 
     // 撤离动作持续
@@ -228,12 +237,13 @@ export class BaseHeroAIModifier extends BaseModifier {
     if (enemyTower) {
       this.continueActionEndTime = this.gameTime + this.continueActionTime;
       this.ThinkRetreatGetAwayFromTower();
-      return;
+      return true;
     }
 
     if (this.CastEnemy()) {
-      return;
+      return true;
     }
+    return false;
   }
 
   ThinkRetreatGetAwayFromTower(): void {
@@ -258,23 +268,24 @@ export class BaseHeroAIModifier extends BaseModifier {
     }
   }
 
-  ActionPush(): void {
+  ActionPush(): boolean {
     if (this.CastSelf()) {
-      return;
+      return true;
     }
     if (this.CastEnemy()) {
-      return;
+      return true;
     }
     if (this.CastTeam()) {
-      return;
+      return true;
     }
     // 推塔
     if (this.ForceAttackTower()) {
-      return;
+      return true;
     }
     if (this.CastCreep()) {
-      return;
+      return true;
     }
+    return false;
   }
 
   // 强制A塔
@@ -317,6 +328,79 @@ export class BaseHeroAIModifier extends BaseModifier {
       return true;
     }
 
+    return false;
+  }
+
+  // ---------------------------------------------------------
+  // Build Item
+  // ---------------------------------------------------------
+  BuildItem(): boolean {
+    if (this.ConsumeItem()) {
+      return true;
+    }
+    if (this.SellItem()) {
+      return true;
+    }
+    if (this.PurchaseItem()) {
+      return true;
+    }
+    if (this.PickNeutralItem()) {
+      return true;
+    }
+    return false;
+  }
+
+  PurchaseItem(): boolean {
+    return false;
+  }
+
+  PickNeutralItem(): boolean {
+    const targetTier = NeutralItemManager.GetTargetTier();
+    if (targetTier <= this.neutralItemTier) {
+      return false;
+    }
+
+    const neutralItemConfig = this.getNeutralItemConfig();
+    const selectedItem = NeutralItemManager.GetRandomTierItem(targetTier, neutralItemConfig);
+    if (!selectedItem) {
+      print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立物品`);
+      return false;
+    }
+
+    const selectedEnhancement = NeutralItemManager.GetRandomTierEnhancements(
+      targetTier,
+      neutralItemConfig,
+    );
+    if (!selectedEnhancement) {
+      print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立增强`);
+      return false;
+    }
+
+    print(
+      `[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 选取中立物品 ${selectedItem.name} 和 中立增强 ${selectedEnhancement.name}`,
+    );
+
+    // 移除当前中立物品
+    const oldItem = this.hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
+    if (oldItem) {
+      UTIL_RemoveImmediate(oldItem);
+    }
+    const oldEnhancement = this.hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
+    if (oldEnhancement) {
+      UTIL_RemoveImmediate(oldEnhancement);
+    }
+
+    this.hero.AddItemByName(selectedItem.name).SetLevel(selectedItem.level);
+    this.hero.AddItemByName(selectedEnhancement.name).SetLevel(selectedEnhancement.level);
+    this.neutralItemTier = targetTier;
+    return true;
+  }
+
+  SellItem(): boolean {
+    return false;
+  }
+
+  ConsumeItem(): boolean {
     return false;
   }
 
@@ -439,10 +523,6 @@ export class BaseHeroAIModifier extends BaseModifier {
     Timers.CreateTimer(delay, () => {
       this.Init();
     });
-  }
-
-  OnIntervalThink(): void {
-    this.Think();
   }
 
   IsPurgable(): boolean {

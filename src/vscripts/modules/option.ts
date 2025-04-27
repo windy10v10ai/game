@@ -132,7 +132,7 @@ export class Option {
     game.SetCustomXPRequiredToReachNextLevel(xpRequireMap);
     game.SetUseCustomHeroLevels(true); // 是否启用自定义英雄等级
     game.SetCustomHeroMaxLevel(this.maxLevel); // 设置自定义英雄最大等级
-    print('[GameConfig] xpRequireMap:');
-    DeepPrintTable(xpRequireMap);
+    // print('[GameConfig] xpRequireMap:');
+    // DeepPrintTable(xpRequireMap);
   }
 }

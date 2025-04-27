@@ -1,4 +1,4 @@
-import { BaseHeroAIModifier } from '../hero/hero-base';
+import { BotBaseAIModifier } from '../hero/bot-base';
 import { HeroUtil } from '../hero/hero-util';
 import { ModeBase } from './mode-base';
 import { ModeEnum } from './mode-enum';
@@ -6,7 +6,7 @@ import { ModeEnum } from './mode-enum';
 export class ModeRetreat extends ModeBase {
   mode: ModeEnum = ModeEnum.RETREAT;
 
-  GetDesire(heroAI: BaseHeroAIModifier): number {
+  GetDesire(heroAI: BotBaseAIModifier): number {
     let desire = 0;
     if (heroAI.mode === ModeEnum.RETREAT) {
       desire += 0.4;
@@ -64,7 +64,7 @@ export class ModeRetreat extends ModeBase {
     return desire;
   }
 
-  GetIncreaseDesireNearTower(heroAI: BaseHeroAIModifier, tower: CDOTA_BaseNPC): number {
+  GetIncreaseDesireNearTower(heroAI: BotBaseAIModifier, tower: CDOTA_BaseNPC): number {
     let desire = 0;
     const distanceThanRange = HeroUtil.GetDistanceToAttackRange(tower, heroAI.GetHero());
 

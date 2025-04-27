@@ -1,3 +1,4 @@
+// 中立物品，修改后需要同时维护src/vscripts/ai/item/neutral-item.ts的GetDefaultConfig
 "neutral_items"
 {
 	"madstone_limits"
@@ -88,9 +89,6 @@
 				"item_enhancement_keen_eyed"		"1"		// 犀利 施法距离回蓝最大魔法
 				"item_enhancement_vast"				"1"		// 高远 攻击距离
 				"item_enhancement_vampiric"			"1"		// 吸血鬼 双吸血
-
-				// 额外添加
-				"item_quickening_charm"				"1"		// 加速护符
 			}
 		}
 
@@ -132,8 +130,6 @@
 				// 级别移动
 				"item_enhancement_feverish"			"1"		// 狂热 冷却减少 蓝耗增加 原本是5级
 				"item_enhancement_evolved"			"1"		// 进化 主属性
-				// 额外添加
-				"item_quickening_charm"				"2"		// 加速护符
 			}
 		}
 
@@ -174,7 +170,6 @@
 				"item_enhancement_quickened"		"4"		// 迅速 移速蓝量
 
 				"item_enhancement_vampiric"			"3"		// 吸血鬼 双吸血
-
 				"item_enhancement_timeless"			"1"		// 永恒 负面时间技能增强
 				"item_enhancement_titanic"			"1"		// 巨神 基础攻击状态抗性
 				"item_enhancement_crude"			"1"		// 粗暴 减速抗性攻击间隔减智力
