@@ -15,24 +15,33 @@ export interface NeutralTierConfig {
 export class NeutralItemManager {
   // 获取各tier开始时间
   private static GetTierStartTimes(): number[] {
+    const baseTimeMin = [0, 6, 12, 18, 24];
     const multiplier = GameRules.Option.direGoldXpMultiplier;
+
+    let addTimeMin = [0, 0, 0, 0, 0];
     // 根据multiplier计算tier开始时间
-    if (multiplier >= 10) {
+    if (multiplier >= 20) {
       // 立刻获取中立物品
-      return [0, 360, 720, 1080, 1440];
-    } else if (multiplier >= 8) {
+      addTimeMin = [0, 0, 0, 0, 0];
+    } else if (multiplier >= 10) {
       //延后1分钟
-      return [60, 420, 780, 1140, 1500];
-    } else if (multiplier >= 6) {
+      addTimeMin = [1, 1, 1, 1, 1];
+    } else if (multiplier >= 8) {
       //延后2分钟
-      return [120, 480, 840, 1200, 1560];
-    } else if (multiplier >= 4) {
+      addTimeMin = [2, 2, 2, 2, 3];
+    } else if (multiplier >= 6) {
       //延后3分钟
-      return [180, 540, 900, 1260, 1620];
+      addTimeMin = [3, 3, 3, 4, 5];
+    } else if (multiplier >= 4) {
+      //延后4分钟
+      addTimeMin = [4, 4, 5, 6, 7];
     } else {
       // 延后5分钟
-      return [300, 660, 1020, 1380, 1740];
+      addTimeMin = [5, 6, 7, 8, 9];
     }
+
+    const baseTime = baseTimeMin.map((time, index) => time * 60 + addTimeMin[index] * 60);
+    return baseTime;
   }
 
   // 获取默认配置
