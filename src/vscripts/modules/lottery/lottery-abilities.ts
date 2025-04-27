@@ -147,6 +147,7 @@ export const abilityTiersActive: Tier[] = [
       'bloodseeker_blood_bath', // 血祭
       'shadow_shaman_voodoo', // 妖术
       'dark_willow_bramble_maze', // 荆棘迷宫
+      'lich_frost_armor', // 霜冻护甲
 
       // 法球/开关技能
       'enchantress_impetus', // 推进

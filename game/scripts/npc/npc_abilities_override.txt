@@ -6,6 +6,20 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
+	// 旧版技能
+	//=================================================================================================================
+	// 霜冻护甲
+	"lich_frost_armor"
+	{
+		"MaxLevel" "5"
+		"AbilityValues"
+		{
+			"armor_bonus"			"8 12 16 20 24"	// x2
+			"slow_movement_speed"	"-8 -16 -24 -32 -40"
+			"slow_attack_speed"		"-16 -32 -48 -64 -80" // x2
+		}
+	}
+	//=================================================================================================================
 	// HERO ABILITIES 英雄技能
 	//=================================================================================================================
 	// 幻影冲锋（来自猴子）
@@ -10930,27 +10944,12 @@
 			"mana_drain"		"10 15 20 25 30"
 		}
 	}
-	// 霜冻护甲
-	"lich_frost_armor"
-	{
-		"MaxLevel" "5"
-		"LinkedAbility"					"lich_frost_shield"
-		"AbilityDraftPreAbility"		"lich_frost_shield"
-		"AbilityValues"
-		{
-			"armor_bonus"			"4 6 8 10 12"
-			"slow_movement_speed"	"-8 -16 -24 -32 -40"
-			"slow_attack_speed"		"-8 -16 -24 -32 -40"
-		}
-	}
 	// 冰霜魔盾
 	"lich_frost_shield"
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"35 30 25 20 15"
 		"AbilityManaCost"				"100 110 120 130 140"
-		"LinkedAbility"					"lich_frost_armor"
-		"AbilityDraftPreAbility"		"lich_frost_armor"
 		"AbilityValues"
 		{
 			"damage_reduction"
