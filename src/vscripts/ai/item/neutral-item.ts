@@ -25,19 +25,19 @@ export class NeutralItemManager {
       addTimeMin = [0, 0, 0, 0, 0];
     } else if (multiplier >= 10) {
       //延后1分钟
-      addTimeMin = [1, 1, 1, 1, 1];
+      addTimeMin = [1, 1, 1, 1, 2];
     } else if (multiplier >= 8) {
       //延后2分钟
-      addTimeMin = [2, 2, 2, 2, 3];
+      addTimeMin = [2, 2, 2, 3, 4];
     } else if (multiplier >= 6) {
       //延后3分钟
-      addTimeMin = [3, 3, 3, 4, 5];
+      addTimeMin = [3, 3, 4, 5, 6];
     } else if (multiplier >= 4) {
       //延后4分钟
-      addTimeMin = [4, 4, 5, 6, 7];
+      addTimeMin = [4, 5, 6, 7, 8];
     } else {
-      // 延后5分钟
-      addTimeMin = [5, 6, 7, 8, 9];
+      // 延后6分钟
+      addTimeMin = [6, 7, 8, 9, 10];
     }
 
     const baseTime = baseTimeMin.map((time, index) => time * 60 + addTimeMin[index] * 60);
