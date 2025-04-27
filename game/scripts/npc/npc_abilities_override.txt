@@ -5140,7 +5140,6 @@
 	"antimage_mana_void"
 	{
 		"MaxLevel" "4"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityManaCost"				"100 200 300 400"
 		"AbilityValues"
 		{
@@ -5152,11 +5151,11 @@
 			"mana_void_damage_per_mana"
 			{
 				"value"				"0.8 0.95 1.1 1.25"
-				"special_bonus_unique_antimage_6"	"+0.25"
+				"special_bonus_unique_antimage_6"	"+0.15"
 			}
 			"bonus_attack_damage"
 			{
-				"value"								"30 60 90 120"
+				"special_bonus_facet_antimage_mana_thirst"	"40 90 140 190"	// x2
 			}
 		}
 	}
