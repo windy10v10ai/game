@@ -73,7 +73,6 @@ export const abilityTiersActive: Tier[] = [
       // 自定义技能
       'clinkz_burning_barrage2', // 炽烈火雨
       'ancient_apparition_freezing_aura', // 极寒光环
-      'magnataur_horn_toss2', // 猛犸 长角抛物
     ],
   },
   {
@@ -114,6 +113,7 @@ export const abilityTiersActive: Tier[] = [
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
       'dazzle_rain_of_vermin', // 诅咒之雨
+      'magnataur_horn_toss2', // 猛犸 长角抛物
     ],
   },
   {

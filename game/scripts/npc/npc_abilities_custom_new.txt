@@ -183,7 +183,7 @@
 		}
 
 		"AbilityManaCost"				"100"
-		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityCooldown"				"16 15 14 13 12"
 
 		"AbilityValues"
 		{
@@ -200,7 +200,7 @@
 			"destination_offset"		"175"
 			"pull_angle"				"230"
 			"horn_toss_slow_pct"		"100"
-			"stun_duration"		"0.6 0.75 0.9 1.05 1.2"
+			"stun_duration"		"0.6 0.7 0.8 0.9 1"
 		}
 	}
 	// 火女 腾焰斗篷
