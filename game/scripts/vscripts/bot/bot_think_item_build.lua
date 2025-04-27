@@ -296,52 +296,6 @@ function BotThink:ThinkPurchase(hHero)
   BuyItemIfGoldEnough(hHero, iPurchaseTable)
 end
 
--- TODO fix Parameter type mismatch GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
--- function BotThink:ThinkPurchaseNeutral(hHero, GameTime)
---   -- if hHero has neutral token
---   local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
---   if itemNeutral then
---     if string.find(itemNeutral:GetName(), "item_tier") then
---       -- remove item
---       -- hHero:RemoveItem(itemNeutral)
---       UTIL_RemoveImmediate(itemNeutral)
---       return
---     end
---     -- if owner not self, remove
---     if itemNeutral:GetPurchaser() ~= hHero then
---       -- hHero:RemoveItem(itemNeutral)
---       UTIL_RemoveImmediate(itemNeutral)
---       return
---     end
---   end
-
---   local iHeroName = hHero:GetName()
-
---   local multiIndex = "x1"
---   if AIGameMode.fBotGoldXpMultiplier < 4 then
---     multiIndex = "x1"
---   elseif AIGameMode.fBotGoldXpMultiplier <= 4 then
---     multiIndex = "x4"
---   elseif AIGameMode.fBotGoldXpMultiplier <= 6 then
---     multiIndex = "x6"
---   elseif AIGameMode.fBotGoldXpMultiplier <= 8 then
---     multiIndex = "x8"
---   elseif AIGameMode.fBotGoldXpMultiplier <= 10 then
---     multiIndex = "x10"
---   else
---     multiIndex = "x20"
---   end
-
---   local addNeutralItemTime = tBotItemData.addNeutralItemMultiTimeMap[multiIndex] or
---       tBotItemData.addNeutralItemMultiTimeMap["x1"]
-
---   if (GameTime > addNeutralItemTime[1]) then
---     local iPurchaseTable = tBotItemData.addNeutralItemList[iHeroName]
---     BuyItemIfGoldEnough(hHero, iPurchaseTable)
---     return true
---   end
--- end
-
 -- 物品出售
 function BotThink:ThinkSell(hHero)
   local iHeroName = hHero:GetName()
@@ -515,7 +469,7 @@ end
 
 -- 加钱
 function BotThink:AddMoney(hHero)
-  local iAddBase = AIGameMode.playerNumber + 4
+  local iAddBase = AIGameMode.playerNumber + 5
   local GameTime = GameRules:GetDOTATime(false, false)
   local totalGold = PlayerResource:GetTotalEarnedGold(hHero:GetPlayerID())
 

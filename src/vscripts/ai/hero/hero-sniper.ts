@@ -1,9 +1,9 @@
 import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
-import { BaseHeroAIModifier } from './hero-base';
+import { BotBaseAIModifier } from './bot-base';
 
 @registerModifier()
-export class SniperAIModifier extends BaseHeroAIModifier {
+export class SniperAIModifier extends BotBaseAIModifier {
   protected override FindHeroRadius: number = 3000;
 
   override UseAbilityEnemy(): boolean {

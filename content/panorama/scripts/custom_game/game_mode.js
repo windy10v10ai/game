@@ -67,6 +67,8 @@ function ShowChatTeamActivate() {
 // -------- Game Setting --------
 
 function InitSetting() {
+  $('#same_hero_selection').checked = true;
+  $('#enable_player_attribute').checked = true;
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('5');
   $('#dire_player_number_dropdown').SetSelected('10');
@@ -76,9 +78,7 @@ function InitSetting() {
   $('#tower_power_dropdown').SetSelected('300');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
-  $('#starting_gold_bot_dropdown').SetSelected('1000');
-  $('#same_hero_selection').checked = true;
-  $('#enable_player_attribute').checked = true;
+  $('#starting_gold_bot_dropdown').SetSelected('3000');
 
   // 开发模式
   if (Game.IsInToolsMode()) {

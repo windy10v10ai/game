@@ -1,4 +1,4 @@
-import { BaseHeroAIModifier } from '../hero/hero-base';
+import { BotBaseAIModifier } from '../hero/bot-base';
 import { HeroUtil } from '../hero/hero-util';
 import { ModeBase } from './mode-base';
 import { ModeEnum } from './mode-enum';
@@ -6,7 +6,7 @@ import { ModeEnum } from './mode-enum';
 export class ModeAttack extends ModeBase {
   mode: ModeEnum = ModeEnum.ATTACK;
 
-  GetDesire(heroAI: BaseHeroAIModifier): number {
+  GetDesire(heroAI: BotBaseAIModifier): number {
     let desire = 0;
 
     if (heroAI.mode === ModeEnum.RETREAT) {
@@ -31,7 +31,7 @@ export class ModeAttack extends ModeBase {
     return desire;
   }
 
-  HasEnemyNotNearTower(heroAI: BaseHeroAIModifier): boolean {
+  HasEnemyNotNearTower(heroAI: BotBaseAIModifier): boolean {
     const nearestHero = heroAI.FindNearestEnemyHero();
     if (!nearestHero) {
       return false;

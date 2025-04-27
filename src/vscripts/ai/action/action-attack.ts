@@ -5,10 +5,9 @@ export class ActionAttack {
     if (!target) {
       return false;
     }
-    // if target in attack range
+    // if target in attack range perform attack order
     if (HeroUtil.IsInAttackRange(hero, target)) {
-      // perform attack order
-      print(`[AI] Attack ${hero.GetUnitName()} to ${target.GetUnitName()}`);
+      // print(`[AI] Attack ${hero.GetUnitName()} to ${target.GetUnitName()}`);
 
       ExecuteOrderFromTable({
         OrderType: UnitOrder.ATTACK_TARGET,
