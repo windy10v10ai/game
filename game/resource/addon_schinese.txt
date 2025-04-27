@@ -579,7 +579,7 @@
 		"DOTA_Tooltip_ability_centaur_sturdy"							"不屈"
 		"DOTA_Tooltip_ability_centaur_sturdy_Description"				"增加自身状态抗性和力量"
 		"DOTA_Tooltip_ability_centaur_sturdy_strength"					"力量:"
-		"DOTA_Tooltip_ability_centaur_sturdy_status"					"状态抗性:"
+		"DOTA_Tooltip_ability_centaur_sturdy_status"					"%状态抗性:"
 
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（旧版）"
@@ -679,10 +679,6 @@
 		//天生一对
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"天生一对"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"				"杰奇洛攻击时两个头都会发动攻击，不过每个头造成的伤害减少%attack_damage_reduction%%%。"
-		//皮糙肉厚
-		"DOTA_Tooltip_ability_centaur_rawhide2"							"皮糙肉厚"
-		"DOTA_Tooltip_ability_centaur_rawhide2_Description"				"每%upgrade_rate%秒永久获得%health_per_upgrade%点生命上限。"
-		"DOTA_Tooltip_ability_centaur_rawhide2_bonus_hp_total"			"永久生命上限："
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"闷烧树脂"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"蝙蝠骑士的攻击会施加一个负面效果，每%tick_rate%秒造成%tick_attack_damage_pct%%%攻击伤害，持续%total_ticks%秒。"
@@ -691,7 +687,7 @@
 		//一人之军
 		"DOTA_Tooltip_ability_axe_one_man_army2"			"一人之军"
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"		"获得护甲一定百分比的力量"
-		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"百分比："
+		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%护甲力量加成："
 
 		"DOTA_Tooltip_ability_arc_warden_scepter2"	"人工神符"
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"创建一个随机神符"
@@ -706,7 +702,7 @@
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%cd增加："
 
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"冰霜法球"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"每%attack_count%次攻击发射一枚冰霜法球，造成aoe伤害，并减速目标%slow_duration%秒"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"每%attack_count%次攻击发射一枚冰霜法球，造成范围伤害，并减速目标%slow_duration%秒"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"范围："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"伤害："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"攻击力伤害加成倍率："

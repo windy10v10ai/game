@@ -581,35 +581,19 @@
 			"attack_damage_reduction"		"50 45 40 35 30"
 		}
 	}
-	//人马 皮糙肉厚
-	"centaur_rawhide2"
-	{
-		"BaseClass"                     "centaur_rawhide"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"AbilityTextureName"    		"pudge/scavenger_dragon_ability/pudge_flesh_heap"
-		"MaxLevel"						"5"
-
-
-		"AbilityValues"
-		{
-			"health_per_upgrade"		"20 40 60 80 100"
-			"upgrade_rate"				"60"
-		}
-	}
 	//斧王 一人成军
 	"axe_one_man_army2"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/axe_one_man_army2"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/axe_one_man_army2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"    		"ancient_rock_golem_weakening_aura"
+		"AbilityTextureName"			"ancient_rock_golem_weakening_aura"
 
 		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
-			"armor_pct_as_strength"		"50 75 100 125 150"
+			"armor_pct_as_strength"		"60 70 80 90 100"
 			"radius"					"0"
 			"bonus_linger_duration"		"5"
 		}
@@ -723,21 +707,21 @@
 	//冰霜法球
 	"ancient_apparition_frost_orb"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/ancient_apparition_frost_orb"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ancient_apparition_frost_orb"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"    		"crystal_maiden_crystal_nova_icecowl"
+		"AbilityTextureName"			"crystal_maiden_crystal_nova_icecowl"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
-			"radius"		"300"
-			"damage"		"50 80 110 140 170"
-			"ad"			"0.5"
-			"attack_count"	"4"
-			"slow_duration"	"0.5 0.6 0.7 0.8 0.9"
+			"radius"					"300"
+			"damage"					"50 80 110 140 170"
+			"ad"						"0.4"
+			"attack_count"				"4"
+			"slow_duration"				"0.5 0.6 0.7 0.8 0.9"
 		}
 	}
 

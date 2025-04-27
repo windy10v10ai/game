@@ -178,14 +178,12 @@ export const abilityTiersPassive: Tier[] = [
       'centaur_return', // 人马 反伤
       'earthshaker_aftershock', // 余震
       'sven_great_cleave', // 巨力挥舞
-      'ursa_fury_swipes', // 怒意狂击
       'faceless_void_time_lock', // 时间锁定
       'luna_moon_glaive', // 月刃
       'slardar_bash', // 深海重击
       'shredder_reactive_armor', // 活性活甲
       'dawnbreaker_luminosity', // 熠熠生辉
       'chaos_knight_chaos_strike', // 混沌一击
-      'vengefulspirit_command_aura', // 复仇光环
       'axe_counter_helix', // 反击螺旋
 
       // 自定义技能
@@ -193,12 +191,15 @@ export const abilityTiersPassive: Tier[] = [
       'viper_universal_hero', // 全才
       'ogre_magi_multicast_lua', // 多重施法
       'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
+      'jakiro_double_trouble2', // 双头龙 天生一对
     ],
   },
   {
     level: 3,
     names: [
       // 被动技能
+      'ursa_fury_swipes', // 怒意狂击
+      'vengefulspirit_command_aura', // 复仇光环
       'nevermore_dark_lord', // 魔王降临
       'drow_ranger_marksmanship', // 射手天赋
       'kunkka_tidebringer', // 潮汐使者 水刀
@@ -207,9 +208,7 @@ export const abilityTiersPassive: Tier[] = [
       'riki_permanent_invisibility', // 永久隐身（旧版）
       'necrolyte_heartstopper_aura', // 竭心光环
       'enchantress_untouchable', // 不可侵犯
-      'monkey_king_jingu_mastery', // 如意棒法
       'weaver_geminate_attack', // 连击
-      'lina_fiery_soul', // 炽魂
       'spectre_desolate', // 荒芜
       'brewmaster_fire_phase', // 永久相位
       'juggernaut_blade_dance', // 剑舞
@@ -220,25 +219,26 @@ export const abilityTiersPassive: Tier[] = [
 
       // 自定义技能
       'alchemist_enhanced_weaponry', // 强化武器
-      'jakiro_double_trouble2', // 双头龙 天生一对
       'abyssal_underlord_firestorm2', // 火雨降临
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'sven_wrath_of_god2', // 斯文 神之愤怒
+      'centaur_sturdy', // 人马 不屈
+      'ancient_apparition_frost_orb', // 冰霜法球
     ],
   },
   {
     level: 2,
     names: [
       // 被动技能
+      'lina_fiery_soul', // 炽魂
+      'monkey_king_jingu_mastery', // 如意棒法
       'skeleton_king_mortal_strike', // 本命一击
       'huskar_berserkers_blood', // 狂战士之血
       'legion_commander_moment_of_courage', // 勇气之霎
       'abyssal_underlord_atrophy_aura', // 衰退光环
       'obsidian_destroyer_equilibrium', // 精华变迁
       'spirit_breaker_greater_bash', // 巨力重击
-      'antimage_mana_break', // 法力损毁
       'abaddon_frostmourne', // 魔霭诅咒
-      'sniper_headshot', // 爆头
 
       // 单位技能
       'kobold_tunneler_prospecting', // 狗头人 淘金光环
@@ -248,18 +248,19 @@ export const abilityTiersPassive: Tier[] = [
       'batrider_smoldering_resin2', // 蝙蝠骑士 树脂
       'ursa_maul2', // 拍拍 天生技能 +攻击
       'abyssal_underlord_malice_aura', // 怨念光环
-      'ancient_apparition_frost_orb', // 冰霜法球
       'alchemist_goblins_greed2', // 贪婪
       'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
       'dark_seer_quick_wit2', // 才思敏捷
-      'centaur_sturdy', // 人马 不屈
       'faceless_void_backtrack2', // 虚空 回到过去
+      'axe_one_man_army2', // 斧王 一人成军
     ],
   },
   {
     level: 1,
     names: [
       // 被动技能
+      'antimage_mana_break', // 法力损毁
+      'sniper_headshot', // 爆头
       'bounty_hunter_jinada', // 忍术
       'lycan_feral_impulse', // 野性驱使
       'razor_storm_surge', // 风暴涌动
@@ -276,8 +277,6 @@ export const abilityTiersPassive: Tier[] = [
 
       // 自定义技能
       'spectre_dispersion2', // 幽鬼 折射 旧版
-      'centaur_rawhide2', // 人马 皮糙肉厚
-      'axe_one_man_army2', // 斧王 一人成军
     ],
   },
 ];

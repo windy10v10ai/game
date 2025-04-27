@@ -98,7 +98,7 @@
 		"MaxLevel"						"1"
 		"AbilityValues"
 		{
-			"status_resistance"				"35"
+			"status_resistance"				"30"	// 30
 		}
 	}
 	//=================================================================================================================
@@ -591,7 +591,7 @@
 	{
 		"AbilityValues"
 		{
-			"armor_pct_as_strength"			"40"	// 100
+			"armor_pct_as_strength"			"80"	// 100
 			"radius"					"150"		// 700
 		}
 	}

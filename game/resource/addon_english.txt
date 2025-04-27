@@ -579,7 +579,7 @@
 		"DOTA_Tooltip_ability_centaur_sturdy"							"sturdy"
 		"DOTA_Tooltip_ability_centaur_sturdy_Description"				"Increase state resistance and strength"
 		"DOTA_Tooltip_ability_centaur_sturdy_strength"					"strength:"
-		"DOTA_Tooltip_ability_centaur_sturdy_status"					"state resistance:"
+		"DOTA_Tooltip_ability_centaur_sturdy_status"					"%state resistance:"
 
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"					"Dispersion (old)"
@@ -677,10 +677,6 @@
 		//天生一对
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Jakiro's attacks launch an attack from each head, but deal %attack_damage_reduction%%% less damage each."
-		//皮糙肉厚
-		"DOTA_Tooltip_ability_centaur_rawhide2"							"Rawhide"
-		"DOTA_Tooltip_ability_centaur_rawhide2_Description"				"Permanently gain %health_per_upgrade% max health every %upgrade_rate%s."
-		"DOTA_Tooltip_ability_centaur_rawhide2_bonus_hp_total"			"PERMANENT MAX HP:"
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"Batrider's attacks apply a debuff that deals %tick_attack_damage_pct%%% of the attack damage every %tick_rate%s for %total_ticks%s."
@@ -689,7 +685,7 @@
 		//一人之军
 		"DOTA_Tooltip_ability_axe_one_man_army2"						"One Man Army"
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Axe gains Strength based on his armor as long as he's away from his allies."
-		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"percentage:"
+		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%Armor Strength Bonus:"
 		//人工神符
 		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Artificial Rune"
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Create a random rune"

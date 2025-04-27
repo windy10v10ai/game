@@ -333,7 +333,7 @@
 		"DOTA_Tooltip_ability_centaur_sturdy"                            "sturdy"
         "DOTA_Tooltip_ability_centaur_sturdy_Description"                "Увеличивает сопротивление эффектам и силу. "
         "DOTA_Tooltip_ability_centaur_sturdy_strength"                    "Сила: "
-        "DOTA_Tooltip_ability_centaur_sturdy_status"                    "Сопротивление эффектам: "
+        "DOTA_Tooltip_ability_centaur_sturdy_status"                    "%Сопротивление эффектам: "
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"					"dispersion(old)"
 		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"Dispersion также предоставляет %damage_reduction%%% снижения урона, когда урон не отражается."
@@ -432,10 +432,6 @@
 		//天生一对
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Герой атакует обеими головами одновременно, но каждая атака наносит на %attack_damage_reduction%%% меньше урона."
-		//皮糙肉厚
-		"DOTA_Tooltip_ability_centaur_rawhide2"							"Rawhide"
-		"DOTA_Tooltip_ability_centaur_rawhide2_Description"				"Получает %health_per_upgrade% здоровья каждые %upgrade_rate% секунд"
-		"DOTA_Tooltip_ability_centaur_rawhide2_bonus_hp_total"			"Максимум здоровья: "
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			" Атаки Batrider накладывают дебафф, который наносит %tick_attack_damage_pct%%% урон от атаки каждые %tick_rate% секунды"
@@ -444,7 +440,7 @@
 		//一人之军
 		"DOTA_Tooltip_ability_axe_one_man_army2"						"One Man Army"
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Когда рядом с героем нет союзников, его сила увеличивается на долю от показателя брони."
-		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"Сила в броню %： "
+		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%Бонус прочности брони:"
 		//人工神符
 		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Artificial Rune"
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Создает случайную руну"
