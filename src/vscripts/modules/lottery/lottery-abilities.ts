@@ -11,8 +11,6 @@ export const abilityTiersActive: Tier[] = [
       // 主动技能
       // 大招
       'enigma_black_hole', // 黑洞
-      'abaddon_borrowed_time', // 回光返照
-      'dazzle_good_juju', // 善咒
       'faceless_void_time_zone_new', // 逆转时空
 
       // 小技能
@@ -25,21 +23,22 @@ export const abilityTiersActive: Tier[] = [
   {
     level: 4,
     names: [
-      // 5级候补
-      'bounty_hunter_track', // 追踪术
       // 主动技能
       // 大招
+      'bounty_hunter_track', // 追踪术
       'juggernaut_omni_slash', // 无敌斩
       'doom_bringer_doom', // 末日
       'sven_gods_strength', // 神之力量
-      'axe_culling_blade', // 淘汰之刃
+      'alchemist_chemical_rage', // 化学狂暴
+      'legion_commander_duel', // 决斗
+      'abaddon_borrowed_time', // 回光返照
+      'dazzle_good_juju', // 善咒
 
       // 小技能
       'ember_spirit_sleight_of_fist', // 无影拳
 
       // 法球/开关技能
       'omniknight_hammer_of_purity', // 纯洁之锤
-      'silencer_glaives_of_wisdom', // 智慧之刃
     ],
   },
   {
@@ -53,25 +52,25 @@ export const abilityTiersActive: Tier[] = [
       'storm_spirit_ball_lightning', // 球状闪电
       'slark_shadow_dance', // 暗影之舞
       'brewmaster_primal_split_lua', // 元素分离 改
-      'alchemist_chemical_rage', // 化学狂暴
       'medusa_stone_gaze', // 石化凝视
       'bloodseeker_rupture', // 割裂
       'tidehunter_ravage', // 毁灭
       'silencer_global_silence', // 全领域禁默
-      'earthshaker_echo_slam', // 回音击
-      'legion_commander_duel', // 决斗
+      'axe_culling_blade', // 淘汰之刃
 
       // 小技能
       'dark_willow_shadow_realm', // 暗影之境
       'dark_seer_vacuum', // 真空
+      'mars_bulwark', // 护身甲盾
+      'sandking_burrowstrike', // 穿刺 沙王
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
       'ancient_apparition_chilling_touch', // 极寒之触
       'viper_poison_attack', // 毒性攻击
+      'silencer_glaives_of_wisdom', // 智慧之刃
 
       // 自定义技能
-      'dazzle_rain_of_vermin', // 诅咒之雨
       'clinkz_burning_barrage2', // 炽烈火雨
       'ancient_apparition_freezing_aura', // 极寒光环
       'magnataur_horn_toss2', // 猛犸 长角抛物
@@ -83,7 +82,6 @@ export const abilityTiersActive: Tier[] = [
       // 主动技能
       // 大招
       'tinker_rearm_lua', // 再装填
-      'omniknight_guardian_angel', // 守护天使
       'winter_wyvern_winters_curse', // 寒冬诅咒
       'weaver_time_lapse', // 时光倒流
       'witch_doctor_death_ward', // 死亡守卫
@@ -91,30 +89,31 @@ export const abilityTiersActive: Tier[] = [
       'slardar_amplify_damage', // 侵蚀雾霭 点灯
       'pangolier_gyroshell', // 地雷滚滚
       'pudge_dismember', // 屠夫 肢解
+      'earthshaker_echo_slam', // 回音击
 
       // 小技能
       'pudge_meat_hook', // 肉钩
       'sniper_shrapnel', // 霰弹雨
       'lion_impale', // 裂地尖刺
-      'sandking_burrowstrike', // 穿刺 沙王
       'sven_storm_bolt', // 风暴之拳 斯温
-      'dark_willow_bramble_maze', // 荆棘迷宫
       'kunkka_torrent', // 洪流
       'lina_light_strike_array', // 光击阵
       'slardar_slithereen_crush', // 鱼人碎击
       'omniknight_repel', // 咸鱼恩赐
-      'mars_bulwark', // 护身甲盾
       'earthshaker_enchant_totem', // 强化图腾
       'witch_doctor_paralyzing_cask', // 麻痹药剂
       'pudge_flesh_heap', // 屠夫 肉盾
       'templar_assassin_refraction', // 圣堂刺客 折光
       'templar_assassin_meld', // 圣堂刺客 隐匿
+      'phantom_assassin_phantom_strike', // 幻影突袭
+      'spirit_breaker_charge_of_darkness', // 暗影冲刺
 
       // 法球/开关技能
       'drow_ranger_frost_arrows', // 霜冻之箭
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
+      'dazzle_rain_of_vermin', // 诅咒之雨
     ],
   },
   {
@@ -126,18 +125,17 @@ export const abilityTiersActive: Tier[] = [
       'sniper_assassinate', // 暗杀
       'queenofpain_sonic_wave', // 超声冲击波
       'skywrath_mage_mystic_flare', // 神秘之耀
+      'omniknight_guardian_angel', // 守护天使
 
       // 小技能
       'bloodseeker_bloodrage', // 血怒
       'bounty_hunter_wind_walk', // 暗影步
       'tidehunter_kraken_shell', // 海妖外壳
       'antimage_blink', // 闪烁
-      'spirit_breaker_charge_of_darkness', // 暗影冲刺
       'earthshaker_fissure', // 沟壑
       'alchemist_acid_spray', // 酸雾
       'treant_living_armor', // 活体护甲
       'witch_doctor_maledict', // 诅咒
-      'phantom_assassin_phantom_strike', // 幻影突袭
       'phantom_assassin_stifling_dagger', // 窒碍短匕
       'dark_seer_ion_shell', // 离子外壳
       'mirana_arrow', // 月神之箭
@@ -148,6 +146,7 @@ export const abilityTiersActive: Tier[] = [
       'axe_berserkers_call', // 狂战士之吼
       'bloodseeker_blood_bath', // 血祭
       'shadow_shaman_voodoo', // 妖术
+      'dark_willow_bramble_maze', // 荆棘迷宫
 
       // 法球/开关技能
       'enchantress_impetus', // 推进
