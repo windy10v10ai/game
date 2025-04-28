@@ -539,6 +539,7 @@
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"血雾"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"血魔将自己的鲜血撒向一片区域，伤害自身的同时对敌人造成伤害"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%每秒生命消耗/伤害："
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"范围："
 		//醉拳
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"醉拳"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss%%%概率闪避和暴击,主动激动后，获得30%%移速加成,闪避和攻击概率翻3倍"
@@ -552,12 +553,6 @@
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%每级敏捷加成："
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%总敏捷加成："
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"作用范围："
-		//时间漫游
-		"DOTA_Tooltip_ability_faceless_void_time_walk2"									"时间漫游"
-		"DOTA_Tooltip_ability_faceless_void_time_walk2_Description"						"冲到目标位置，并取消最近2秒内受到的任何伤害。"
-		//侧翼机炮2
-		"DOTA_Tooltip_ability_side_gunner2"        				"侧翼机炮2"
-		"DOTA_Tooltip_ability_side_gunner2_Description"        	"每%cool_down%秒对700码内最近的目标进行1次攻击"
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "长角抛物"
@@ -579,7 +574,7 @@
 		"DOTA_Tooltip_ability_centaur_sturdy"							"不屈"
 		"DOTA_Tooltip_ability_centaur_sturdy_Description"				"增加自身状态抗性和力量"
 		"DOTA_Tooltip_ability_centaur_sturdy_strength"					"力量:"
-		"DOTA_Tooltip_ability_centaur_sturdy_status"					"状态抗性:"
+		"DOTA_Tooltip_ability_centaur_sturdy_status"					"%状态抗性:"
 
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（旧版）"
@@ -660,6 +655,10 @@
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"诅咒之雨"
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"对一片区域造成持续伤害，并有12%%概率将其变为小鸡"
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"伤害："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_duration"		"持续时间："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_radius"			"范围："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%概率："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"变形持续时间："
 
 
 		//神之愤怒
@@ -679,10 +678,6 @@
 		//天生一对
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"天生一对"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"				"杰奇洛攻击时两个头都会发动攻击，不过每个头造成的伤害减少%attack_damage_reduction%%%。"
-		//皮糙肉厚
-		"DOTA_Tooltip_ability_centaur_rawhide2"							"皮糙肉厚"
-		"DOTA_Tooltip_ability_centaur_rawhide2_Description"				"每%upgrade_rate%秒永久获得%health_per_upgrade%点生命上限。"
-		"DOTA_Tooltip_ability_centaur_rawhide2_bonus_hp_total"			"永久生命上限："
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"闷烧树脂"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"蝙蝠骑士的攻击会施加一个负面效果，每%tick_rate%秒造成%tick_attack_damage_pct%%%攻击伤害，持续%total_ticks%秒。"
@@ -691,7 +686,7 @@
 		//一人之军
 		"DOTA_Tooltip_ability_axe_one_man_army2"			"一人之军"
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"		"获得护甲一定百分比的力量"
-		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"百分比："
+		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%护甲力量加成："
 
 		"DOTA_Tooltip_ability_arc_warden_scepter2"	"人工神符"
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"创建一个随机神符"
@@ -706,7 +701,7 @@
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%cd增加："
 
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"冰霜法球"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"每%attack_count%次攻击发射一枚冰霜法球，造成aoe伤害，并减速目标%slow_duration%秒"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"每%attack_count%次攻击发射一枚冰霜法球，造成范围伤害，并减速目标%slow_duration%秒"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"范围："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"伤害："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"攻击力伤害加成倍率："
@@ -720,12 +715,12 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"持续时间："
 
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"		"冰霜封印"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"	"眩晕自己4秒，获得50%%减伤，增加生命回复。期间对周围敌方单位造成20%%减速，并将其向自己牵引.结束时对周围造成伤害和眩晕"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"	"眩晕自己4秒，获得%damage_reduction%%%减伤，增加生命回复。期间对周围敌方单位造成20%%减速，并将其向自己牵引。结束时对周围造成伤害和眩晕。"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"		"基础生命回复："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"		"%百分比生命回复："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"		"伤害："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"眩晕时间："
-
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_radius"		"范围："
 
 
 		"DOTA_Tooltip_ability_abaddon_phantom_charge"		"幻影冲锋"
@@ -747,6 +742,7 @@
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"		"范围："
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_base_damage"		"基础伤害："
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_max_damage"		"%最大生命值伤害："
+		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"		"火雨降临"
 
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura"		"怨念光环"
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_Description"		"在自身光环范围内停留一定时间的敌人会被缠绕，并造成伤害"
@@ -888,7 +884,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% 暗夜猎影移动速度"
 
 		// 酒仙
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"元素分离"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"元素分离·改"
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Lore"							"没有人清楚曼吉克斯是否注意到自己和自然之间强大的连结，因为这总是发生在他醉得不省人事之时。"
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Description"					"酒仙这下NB了，获得四种拳法的效果。"
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_shard_Description"			"提升元素分离的持续时间。"
@@ -2458,22 +2454,5 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"如果在持续时间结束时没有使用，额外的魔法将会消失。"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
-
-		// 逆转时空（英雄身上）改名
-		"DOTA_Tooltip_ability_faceless_void_time_zone"								"逆转时空·改"
-		// 逆转时空（选技用）
-		"DOTA_Tooltip_Facet_faceless_void_time_zone_new"								"逆转时空"
-		"DOTA_Tooltip_Facet_faceless_void_time_zone_new_Description"					"虚空假面可以施放<b color='white'>逆转时空</b>，大幅降低区域内敌人的速度，并且使友军加速。"
-
-		"DOTA_Tooltip_ability_faceless_void_time_zone_new"								"逆转时空"
-		"DOTA_Tooltip_ability_faceless_void_time_zone_new_Description"					"在时空中创造一个遮罩，改变其中所有单位的移动、攻击、施法、弹道和转身速度。友军的速度提升，冷却加快。敌人的速度降低，技能和物品的冷却全部冻结。时间膨胀的负面状态持续时间在逆转时空内不会变少。"
-		"DOTA_Tooltip_ability_faceless_void_time_zone_new_radius"						"作用范围："
-		"DOTA_Tooltip_ability_faceless_void_time_zone_new_bonus_attack_speed"			"攻击速度操控："
-		"DOTA_Tooltip_ability_faceless_void_time_zone_new_bonus_move_speed"				"%移动速度操控："
-		"DOTA_Tooltip_ability_faceless_void_time_zone_new_bonus_cast_speed"				"%施法速度操控："
-		"DOTA_Tooltip_ability_faceless_void_time_zone_new_bonus_turn_speed"				"%转身速度操控："
-		"DOTA_Tooltip_ability_faceless_void_time_zone_new_bonus_projectile_speed"		"%弹道速度操控："
-		"DOTA_Tooltip_ability_faceless_void_time_zone_new_duration"						"持续时间："
-		"DOTA_Tooltip_ability_faceless_void_time_zone_new_cooldown_acceleration"		"%冷却速度加快："
 	}
 }

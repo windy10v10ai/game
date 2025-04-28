@@ -535,13 +535,11 @@
 		//
 		///////////////////////////////////////////////////
 
-		//侧翼机炮
-		"DOTA_Tooltip_ability_side_gunner2"        				"side_gunner2"
-		"DOTA_Tooltip_ability_side_gunner2_Description"        	"Attack the nearest target within 700 range every %cool_down% seconds"
 		//血魔 血雾
-		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"blood mist"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"Blood Mist"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Bloodseeker sprays his blood continuously in the area around him, losing health to damage and slow his enemies."
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%HP PER SECOND COST/DAMAGE:"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"Radius:"
 		//醉拳
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"drunken_boxing"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss% %% chance of dodge and critical hit. After active excitement, gain 30%% movement speed bonus, dodge and attack probability tripled"
@@ -555,9 +553,6 @@
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%AGILITY BONUS PER LEVEL:"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%TOTAL AGILITY BONUS:"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"RADIUS:"
-		//时间漫游
-		"DOTA_Tooltip_ability_faceless_void_time_walk2"									"Time Walk"
-		"DOTA_Tooltip_ability_faceless_void_time_walk2_Description"						"Rushes to a target location while backtracking any damage taken the last 2 seconds."
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
@@ -579,7 +574,7 @@
 		"DOTA_Tooltip_ability_centaur_sturdy"							"sturdy"
 		"DOTA_Tooltip_ability_centaur_sturdy_Description"				"Increase state resistance and strength"
 		"DOTA_Tooltip_ability_centaur_sturdy_strength"					"strength:"
-		"DOTA_Tooltip_ability_centaur_sturdy_status"					"state resistance:"
+		"DOTA_Tooltip_ability_centaur_sturdy_status"					"%state resistance:"
 
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"					"Dispersion (old)"
@@ -648,10 +643,6 @@
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"								"Arrows Fired:"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"									"Range:"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%Damage per Arrow:"
-		//诅咒之雨
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"Rain of Vermin"
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Causes continuous damage to an area, with a 12% chance of turning them into chickens"
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"Damage:"
 		//冰爆
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"Ice Explosion"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Increases attack speed by %attack_speed% and has a 35% chance to summon an ice blast to strike a random area, causing damage and slowing down the unit by 1 second."
@@ -659,6 +650,14 @@
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"Attack Damage Addition Rate:"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"Random Radius:"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"Explosion Radius:"
+		//诅咒之雨
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"Rain of Vermin"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Causes continuous damage to an area, with a 12% chance of turning them into chickens"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"Damage:"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_duration"		"Duration:"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_radius"			"Radius:"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%Chance:"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"Hex Duration:"
 
 		//全才
 		"DOTA_Tooltip_ability_viper_universal_hero"						"Universal Hero"
@@ -677,10 +676,6 @@
 		//天生一对
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Jakiro's attacks launch an attack from each head, but deal %attack_damage_reduction%%% less damage each."
-		//皮糙肉厚
-		"DOTA_Tooltip_ability_centaur_rawhide2"							"Rawhide"
-		"DOTA_Tooltip_ability_centaur_rawhide2_Description"				"Permanently gain %health_per_upgrade% max health every %upgrade_rate%s."
-		"DOTA_Tooltip_ability_centaur_rawhide2_bonus_hp_total"			"PERMANENT MAX HP:"
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"Batrider's attacks apply a debuff that deals %tick_attack_damage_pct%%% of the attack damage every %tick_rate%s for %total_ticks%s."
@@ -689,7 +684,7 @@
 		//一人之军
 		"DOTA_Tooltip_ability_axe_one_man_army2"						"One Man Army"
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Axe gains Strength based on his armor as long as he's away from his allies."
-		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"percentage:"
+		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%Armor Strength Bonus:"
 		//人工神符
 		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Artificial Rune"
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Create a random rune"
@@ -718,11 +713,12 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Duration:"
 		//冰霜封印
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Frost Seal"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Stun yourself for 4 seconds, gain 50%% damage reduction, and increase life recovery. During this period, cause 20%% slowdown to surrounding enemy units and pull them towards you. At the end, cause damage and stun to the surrounding"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Stun yourself for 4 seconds, gain %damage_reduction%%% damage reduction, and increase life recovery. During this period, cause 20%% slowdown to surrounding enemy units and pull them towards you. At the end, cause damage and stun to the surrounding"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"				"Hp Regen:"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"	"%Hp Regen Percentage:"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"				"Damage:"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"Stun Duration:"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_radius"				"Radius:"
 
 
 		//幻影冲锋
@@ -745,6 +741,7 @@
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"			"Radius:"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_base_damage"		"Base Damage:"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_max_damage"		"%Max Hp Damage:"
+		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"		"Firestorm Advent"
 		//怨念光环
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura"				"Malice Aura"
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_Description"	"Enemies that stay within the aura for a certain period of time will be rooted and cause damage."
@@ -887,7 +884,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% Hunter In The Night Move Speed"
 
 		// 酒仙
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"Primal Split"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"Primal Split MK2"
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Lore"							"It isn't clear whether Mangix is consciously aware of his potent bond with nature, as it often occurs in the midst of a drunken stupor."
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Description"					"Brewmaster is now awesome, gaining the effects of four different fighting styles."
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_shard_Description"			"Increases Primal Split duration."
