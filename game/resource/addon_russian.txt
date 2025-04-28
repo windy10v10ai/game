@@ -467,11 +467,12 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
 		//冰霜封印
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Frost Seal"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Оглушите себя на 4 секунды получив снижение урона на 50%% и увеличив восстановления здоровья. В течение этого времени замедляет врагов на 20%% и притягивает их к себе. В конце нанесит урон и оглушиает окружающих врагов"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Оглушите себя на 4 секунды получив снижение урона на %damage_reduction%%% и увеличив восстановления здоровья. В течение этого времени замедляет врагов на 20%% и притягивает их к себе. В конце нанесит урон и оглушиает окружающих врагов"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"				"Восстановление здоровья： "
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"	"%Востановление здоровья процент： "
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"				"Урон： "
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"Длительность оглушения： "
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_radius"				"Радиус： "
 
 	}
 }

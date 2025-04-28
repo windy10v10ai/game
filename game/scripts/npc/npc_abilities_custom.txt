@@ -934,7 +934,7 @@
 
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"%dance_radius"
+		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.3"
 		"AbilityChannelTime"			"120"
 		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_4"
@@ -988,7 +988,7 @@
 
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"%dance_radius"
+		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0"
 		"AbilityChannelTime"			"33"
 		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_5"

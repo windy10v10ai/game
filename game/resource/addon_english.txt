@@ -712,11 +712,12 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Duration:"
 		//冰霜封印
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Frost Seal"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Stun yourself for 4 seconds, gain 50%% damage reduction, and increase life recovery. During this period, cause 20%% slowdown to surrounding enemy units and pull them towards you. At the end, cause damage and stun to the surrounding"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Stun yourself for 4 seconds, gain %damage_reduction%%% damage reduction, and increase life recovery. During this period, cause 20%% slowdown to surrounding enemy units and pull them towards you. At the end, cause damage and stun to the surrounding"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"				"Hp Regen:"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"	"%Hp Regen Percentage:"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"				"Damage:"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"Stun Duration:"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_radius"				"Radius:"
 
 
 		//幻影冲锋
@@ -882,7 +883,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% Hunter In The Night Move Speed"
 
 		// 酒仙
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"Primal Split"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"Primal Split MK2"
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Lore"							"It isn't clear whether Mangix is consciously aware of his potent bond with nature, as it often occurs in the midst of a drunken stupor."
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Description"					"Brewmaster is now awesome, gaining the effects of four different fighting styles."
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_shard_Description"			"Increases Primal Split duration."

@@ -27,7 +27,7 @@
 		}
 
 	}
-	//酒仙 醉拳
+	//酒仙 醉拳 未使用
 	"brewmaster_drunken_boxing"
 	{
 		"BaseClass"                     "ability_lua"
@@ -560,7 +560,7 @@
 		}
 
 	}
-	//魔法扰动
+	//魔法扰动 未使用
 	"antimage_mana_turbulence"
 	{
 		"BaseClass"                     "ability_lua"
@@ -612,15 +612,16 @@
 	//冰霜封印
 	"ancient_apparition_frost_seal"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/ancient_apparition_frost_seal"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ancient_apparition_frost_seal"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"    		"winter_wyvern/immortal/winter_wyvern_cold_embrace"
+		"AbilityTextureName"			"winter_wyvern/immortal/winter_wyvern_cold_embrace"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"MaxLevel"						"5"
 
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"600"
 		"AbilityManaCost"				"100 110 120 130"
 		"AbilityCooldown"				"25 24 23 22"
 
@@ -635,8 +636,18 @@
 		{
 			"hp_regen"				"20 30 40 50 60"
 			"hp_regen_percentage"	"2 3 4 5 6"
-			"damage"				"120 180 240 300 360"
+			"damage"
+			{
+				"value"				"120 180 240 300 360"
+				"CalculateSpellDamageTooltip"	"1"
+			}
 			"stun_duration"			"2"
+			"radius"
+			{
+				"value"				"600"
+				"affected_by_aoe_increase"	"1"
+			}
+			"damage_reduction"			"80"
 		}
 	}
 	//冰霜法球
@@ -686,7 +697,7 @@
 			"ad"			"0.3"
 		}
 	}
-	//幻影冲锋
+	//幻影冲锋  未使用
 	"abaddon_phantom_charge"
 	{
 		"BaseClass"						"ability_lua"

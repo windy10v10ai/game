@@ -714,12 +714,12 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"持续时间："
 
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"		"冰霜封印"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"	"眩晕自己4秒，获得50%%减伤，增加生命回复。期间对周围敌方单位造成20%%减速，并将其向自己牵引.结束时对周围造成伤害和眩晕"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"	"眩晕自己4秒，获得%damage_reduction%%%减伤，增加生命回复。期间对周围敌方单位造成20%%减速，并将其向自己牵引。结束时对周围造成伤害和眩晕。"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"		"基础生命回复："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"		"%百分比生命回复："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"		"伤害："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"眩晕时间："
-
+		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_radius"		"范围："
 
 
 		"DOTA_Tooltip_ability_abaddon_phantom_charge"		"幻影冲锋"
@@ -883,7 +883,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% 暗夜猎影移动速度"
 
 		// 酒仙
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"元素分离"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"元素分离·改"
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Lore"							"没有人清楚曼吉克斯是否注意到自己和自然之间强大的连结，因为这总是发生在他醉得不省人事之时。"
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Description"					"酒仙这下NB了，获得四种拳法的效果。"
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_shard_Description"			"提升元素分离的持续时间。"
