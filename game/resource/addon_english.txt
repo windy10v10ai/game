@@ -642,10 +642,6 @@
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"								"Arrows Fired:"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"									"Range:"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%Damage per Arrow:"
-		//诅咒之雨
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"Rain of Vermin"
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Causes continuous damage to an area, with a 12% chance of turning them into chickens"
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"Damage:"
 		//冰爆
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"Ice Explosion"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Increases attack speed by %attack_speed% and has a 35% chance to summon an ice blast to strike a random area, causing damage and slowing down the unit by 1 second."
@@ -653,6 +649,14 @@
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"Attack Damage Addition Rate:"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"Random Radius:"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"Explosion Radius:"
+		//诅咒之雨
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"Rain of Vermin"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Causes continuous damage to an area, with a 12% chance of turning them into chickens"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"Damage:"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_duration"		"Duration:"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_radius"			"Radius:"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%Chance:"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"Hex Duration:"
 
 		//全才
 		"DOTA_Tooltip_ability_viper_universal_hero"						"Universal Hero"

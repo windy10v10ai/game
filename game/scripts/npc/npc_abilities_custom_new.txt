@@ -300,7 +300,7 @@
 	//炽烈火雨
 	"clinkz_burning_barrage2"
 	{
-		"BaseClass"                     "clinkz_burning_barrage"
+		"BaseClass"						"clinkz_burning_barrage"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"IsGrantedByShard"				"0"
@@ -369,16 +369,40 @@
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"IsGrantedByScepter"			"0"
-		"AbilityTextureName"    		"rain_of_vermin"
+		"AbilityTextureName"			"rain_of_vermin"
 		"MaxLevel"						"5"
 
 		"AbilityCastRange"				"800"
-		"AbilityCooldown"				"20"
+		"AbilityCooldown"				"20 19 18 17 16"		// 30
+		"AbilityManaCost"				"110 120 130 140 150"		// 150
 
 		"AbilityValues"
 		{
-			"interval"	"1"
-			"damage" 	"30 50 70 90 110"
+			"duration"
+			{
+				"value" "5"		// 7
+			}
+			"interval"
+			{
+				"value" "1"		// 0.5
+			}
+			"radius"
+			{
+				"value" "500"	// 650
+				"affected_by_aoe_increase"	"1"
+			}
+			"hex_chance"
+			{
+				"value" "20 24 28 32 36"		// 12
+			}
+			"hex_duration"
+			{
+				"value" "1.2 1.4 1.6 1.8 2"		// 1
+			}
+			"damage"
+			{
+				"value" "50 75 100 125 150"	// 125
+			}
 		}
 	}
 

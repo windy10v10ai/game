@@ -408,6 +408,10 @@
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"dazzle_rain_of_vermin"
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Наносит постоянный урон области, с вероятностью 12% превращая ее в цыплят."
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"повреждать："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_duration"		"Длительность："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_radius"			"Радиус："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%Шанс："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"Длительность трансформации："
 
 		//全才
 		"DOTA_Tooltip_ability_viper_universal_hero"						"Универсальный атрибут"

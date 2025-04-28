@@ -654,6 +654,10 @@
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"诅咒之雨"
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"对一片区域造成持续伤害，并有12%%概率将其变为小鸡"
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"伤害："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_duration"		"持续时间："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_radius"			"范围："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%概率："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"变形持续时间："
 
 
 		//神之愤怒
