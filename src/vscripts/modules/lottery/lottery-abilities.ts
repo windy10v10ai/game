@@ -176,7 +176,6 @@ export const abilityTiersPassive: Tier[] = [
     level: 4,
     names: [
       // 被动技能
-      'centaur_return', // 人马 反伤
       'earthshaker_aftershock', // 余震
       'sven_great_cleave', // 巨力挥舞
       'faceless_void_time_lock', // 时间锁定
@@ -193,12 +192,14 @@ export const abilityTiersPassive: Tier[] = [
       'ogre_magi_multicast_lua', // 多重施法
       'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
       'jakiro_double_trouble2', // 双头龙 天生一对
+      'drow_ranger_trueshot2', // 精准光环
     ],
   },
   {
     level: 3,
     names: [
       // 被动技能
+      'centaur_return', // 人马 反伤
       'ursa_fury_swipes', // 怒意狂击
       'vengefulspirit_command_aura', // 复仇光环
       'nevermore_dark_lord', // 魔王降临
