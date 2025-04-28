@@ -4,7 +4,7 @@ export class GameConfig {
   public static readonly PRE_GAME_TIME = 60;
   // 英雄击杀经验系数
   public static readonly LOW_LEVEL_BASE_XP = 60;
-  public static readonly LOW_LEVEL_XP_FACTOR = 0.075;
+  public static readonly LOW_LEVEL_XP_FACTOR = 0.072;
   public static readonly LEVEL_THRESHOLD = 30;
   public static readonly HIGH_LEVEL_BASE_XP = 3000;
   public static readonly HIGH_LEVEL_XP_FACTOR = 0.03;
@@ -72,5 +72,53 @@ export class GameConfig {
       // GameRules.SetStrategyTime(5);
       // GameRules.SetPreGameTime(15); // 进入游戏后号角吹响前的准备时间
     }
+  }
+
+  public static SetMaxLevelXPRequire() {
+    // 设置自定义英雄每个等级所需经验，这里的经验是升级到这一级所需要的总经验）
+    const xpRequireMap: { [key: number]: number } = {
+      1: 0,
+      2: 230,
+      3: 600,
+      4: 1100,
+      5: 1750,
+      6: 2550,
+      7: 3500,
+      8: 4600,
+      9: 5800,
+      10: 7100,
+      11: 8500,
+      12: 10000,
+      13: 11600,
+      14: 13300,
+      15: 15100,
+      16: 17000,
+      17: 19000,
+      18: 21100,
+      19: 23300,
+      20: 25600,
+      21: 28100,
+      22: 30850,
+      23: 33850,
+      24: 37100,
+      25: 40600,
+      26: 44600,
+      27: 49100,
+      28: 54100,
+      29: 59600,
+      30: 65600,
+    };
+    // 经验列表不能超过最大等级
+    const maxLevel = GameRules.Option.maxLevel;
+    for (let i = 31; i <= maxLevel; i++) {
+      xpRequireMap[i] = xpRequireMap[i - 1] + i * 200;
+    }
+    GameRules.SetUseCustomHeroXPValues(true);
+    const game: CDOTABaseGameMode = GameRules.GetGameModeEntity();
+    game.SetCustomXPRequiredToReachNextLevel(xpRequireMap);
+    game.SetUseCustomHeroLevels(true); // 是否启用自定义英雄等级
+    game.SetCustomHeroMaxLevel(maxLevel); // 设置自定义英雄最大等级
+    // print('[GameConfig] xpRequireMap:');
+    // DeepPrintTable(xpRequireMap);
   }
 }
