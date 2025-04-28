@@ -713,7 +713,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/abyssal_underlord_firestorm2"
-		"AbilityTextureName"			"medusa_gorgon_grasp"
+		"AbilityTextureName"			"underlord/ul_2021_immortal_head_ability_icon/ul_2021_immortal_crimson_dark_rift_cancel"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
@@ -721,10 +721,26 @@
 
 		"AbilityValues"
 		{
-			"radius"			"400"
-			"base_damage"		"30 60 90 120 150"
-			"max_damage"		"3 4 5 6 7"
+			"radius"
+			{
+				"value"		"400"
+				"affected_by_aoe_increase"	"1"
+			}
+			"base_damage"
+			{
+				"value"		"30 60 90 120 150"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"max_damage"
+			{
+				"value"		"2 3 4 5 6"
+				"CalculateSpellDamageTooltip"	"1"
+			}
 			"hit_count"		"4"
+		}
+		"precache"
+		{
+			"particle"					"particles/units/heroes/heroes_underlord/abyssal_underlord_firestorm_wave.vpcf"
 		}
 	}
 	//怨念光环
@@ -732,18 +748,26 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/abyssal_underlord_malice_aura"
-		"AbilityTextureName"    		"abyssal_underlord/ti8_immortal_weapon/abyssal_underlord_pit_of_malice_immortal"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"abyssal_underlord/ti8_immortal_weapon/abyssal_underlord_pit_of_malice_immortal"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
-			"radius"			"600"
-			"interval"			"5"
+			"radius"
+			{
+				"value"		"600"
+				"affected_by_aoe_increase"	"1"
+			}
+			"interval"			"4"
 			"duration"			"0.8 0.9 1 1.1 1.2"
-			"damage"			"60 100 140 180 220"
+			"damage"
+			{
+				"value"		"60 100 140 180 220"
+				"CalculateSpellDamageTooltip"	"1"
+			}
 		}
 	}
 	//狂暴药剂

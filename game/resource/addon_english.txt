@@ -739,6 +739,7 @@
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"			"Radius:"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_base_damage"		"Base Damage:"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_max_damage"		"%Max Hp Damage:"
+		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"		"Firestorm Advent"
 		//怨念光环
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura"				"Malice Aura"
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_Description"	"Enemies that stay within the aura for a certain period of time will be rooted and cause damage."

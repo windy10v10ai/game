@@ -741,6 +741,7 @@
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"		"范围："
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_base_damage"		"基础伤害："
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_max_damage"		"%最大生命值伤害："
+		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"		"火雨降临"
 
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura"		"怨念光环"
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_Description"		"在自身光环范围内停留一定时间的敌人会被缠绕，并造成伤害"
