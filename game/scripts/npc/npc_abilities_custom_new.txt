@@ -1,19 +1,5 @@
 "DOTAAbilities"
 {
-	//飞机 侧翼机炮2
-	"side_gunner2"
-	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/side_gunner2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"    		"gyrocopter_skyhigh_flak_cannon"
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"cool_down"   "1.2 1.1 1 0.9 0.8"
-		}
-	}
 	//时间漫游
 	"faceless_void_time_walk2"
 	{
@@ -30,11 +16,11 @@
 	//精准光环
 	"drow_ranger_trueshot2"
 	{
-		"BaseClass"                     "drow_ranger_trueshot"
+		"BaseClass"						"drow_ranger_trueshot"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
-		"AbilityTextureName"    		"drow_ranger_trueshot"
+		"AbilityTextureName"			"drow_ranger_trueshot"
 		"MaxLevel"						"5"
 
 		"AbilityValues"
@@ -473,7 +459,7 @@
 	//施恩 神之愤怒
 	"sven_wrath_of_god2"
 	{
-		"BaseClass"                     "sven_wrath_of_god"
+		"BaseClass"						"sven_wrath_of_god"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"DependentOnAbility"			""
 		"AbilityTextureName"			"sven_storm_bolt_secondary"

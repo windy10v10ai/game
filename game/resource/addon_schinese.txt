@@ -555,9 +555,6 @@
 		//时间漫游
 		"DOTA_Tooltip_ability_faceless_void_time_walk2"									"时间漫游"
 		"DOTA_Tooltip_ability_faceless_void_time_walk2_Description"						"冲到目标位置，并取消最近2秒内受到的任何伤害。"
-		//侧翼机炮2
-		"DOTA_Tooltip_ability_side_gunner2"        				"侧翼机炮2"
-		"DOTA_Tooltip_ability_side_gunner2_Description"        	"每%cool_down%秒对700码内最近的目标进行1次攻击"
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "长角抛物"
