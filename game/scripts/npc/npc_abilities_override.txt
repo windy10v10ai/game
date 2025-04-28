@@ -7967,6 +7967,10 @@
 				"value"					"20 35 50 65 80"
 				"special_bonus_unique_slark_4" "+40"		// +35
 			}
+			"steal_radius"
+			{
+				"value"		"1500"							// 300
+			}
 		}
 	}
 	// 梭子鱼
