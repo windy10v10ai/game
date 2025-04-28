@@ -10172,7 +10172,7 @@
 				}
 				"bonus_damage_per_target"
 				{
-					"value"	"40 50 60 70 80"
+					"value"	"30 40 50 60 70"
 					"special_bonus_facet_grimstroke_fine_art"	"+10 +20 +30 +40 +50"
 					"special_bonus_unique_grimstroke_2" "+100%"
 				}
