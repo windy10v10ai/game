@@ -2,6 +2,13 @@ export class GameConfig {
   public static readonly GAME_VERSION = 'v4.32';
   public static readonly MEMBER_BUYBACK_CD = 120;
   public static readonly PRE_GAME_TIME = 60;
+  // 英雄击杀经验系数
+  public static readonly LOW_LEVEL_BASE_XP = 60;
+  public static readonly LOW_LEVEL_XP_FACTOR = 0.075;
+  public static readonly LEVEL_THRESHOLD = 30;
+  public static readonly HIGH_LEVEL_BASE_XP = 3000;
+  public static readonly HIGH_LEVEL_XP_FACTOR = 0.03;
+
   constructor() {
     SendToServerConsole('dota_max_physical_items_purchase_limit 9999'); // 用来解决物品数量限制问题
 
