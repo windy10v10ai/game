@@ -552,9 +552,6 @@
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%AGILITY BONUS PER LEVEL:"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%TOTAL AGILITY BONUS:"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"RADIUS:"
-		//时间漫游
-		"DOTA_Tooltip_ability_faceless_void_time_walk2"									"Time Walk"
-		"DOTA_Tooltip_ability_faceless_void_time_walk2_Description"						"Rushes to a target location while backtracking any damage taken the last 2 seconds."
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"

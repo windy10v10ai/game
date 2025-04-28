@@ -306,9 +306,6 @@
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%БОНУС К ЛОВКОСТИ ЗА УРОВЕНЬ:"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%СУММАРНЫЙ БОНУС К ЛОВКОСТИ:"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"РАДИУС:"
-		//时间漫游
-		"DOTA_Tooltip_ability_faceless_void_time_walk2"									"Time Walk"
-		"DOTA_Tooltip_ability_faceless_void_time_walk2_Description"						"Совершает рывок к указанной точке и восстанавливает здоровье, потерянное за последние 2 секунды."
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"

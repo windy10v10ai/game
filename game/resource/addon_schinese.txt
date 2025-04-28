@@ -552,9 +552,6 @@
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%每级敏捷加成："
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%总敏捷加成："
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"作用范围："
-		//时间漫游
-		"DOTA_Tooltip_ability_faceless_void_time_walk2"									"时间漫游"
-		"DOTA_Tooltip_ability_faceless_void_time_walk2_Description"						"冲到目标位置，并取消最近2秒内受到的任何伤害。"
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "长角抛物"
