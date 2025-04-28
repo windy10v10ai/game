@@ -49,11 +49,12 @@
 	//血魔 血雾
 	"bloodseeker_blood_mist2"
 	{
-		"BaseClass"     					"ability_lua"
+		"BaseClass"							"ability_lua"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"ScriptFile"				    	"abilities/bloodseeker_blood_mist2"
-		"AbilityTextureName"    			"bloodseeker_blood_mist"
+		"ScriptFile"						"abilities/bloodseeker_blood_mist2"
+		"AbilityTextureName"				"bloodseeker_blood_mist"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityCastRange"					"450"
 
 		"precache"
@@ -66,7 +67,12 @@
 
 		"AbilityValues"
 		{
-			"damage"					"3 4 5 6 7"
+			"radius"
+			{
+				"value"		"450"
+				"affected_by_aoe_increase"	"1"
+			}
+			"damage"					"4 5 6 7 8"
 		}
 	}
 	// 猛犸 长角抛物

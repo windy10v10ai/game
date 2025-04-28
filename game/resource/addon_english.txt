@@ -536,9 +536,10 @@
 		///////////////////////////////////////////////////
 
 		//血魔 血雾
-		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"blood mist"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"Blood Mist"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Bloodseeker sprays his blood continuously in the area around him, losing health to damage and slow his enemies."
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%HP PER SECOND COST/DAMAGE:"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"Radius:"
 		//醉拳
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"drunken_boxing"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss% %% chance of dodge and critical hit. After active excitement, gain 30%% movement speed bonus, dodge and attack probability tripled"

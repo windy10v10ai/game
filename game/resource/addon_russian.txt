@@ -293,6 +293,7 @@
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"blood mist"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Пока способность активна, герой разбрызгивает вокруг свою кровь, теряя здоровье, но нанося задетым врагам урон и замедляя их"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%Урон / потеря здоровья в секунду: "
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"Радиус:"
 		//醉拳
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"Drunken Boxing"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss% %% шанс уклонения и нанести критический урон. После активации эффекта скорость передвижения увеличивается на 30%, а шанс уклонения и критической атаки утраивается"

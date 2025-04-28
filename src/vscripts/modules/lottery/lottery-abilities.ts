@@ -114,6 +114,7 @@ export const abilityTiersActive: Tier[] = [
       'lina_flame_cloak2', // 火女 腾焰斗篷
       'dazzle_rain_of_vermin', // 诅咒之雨
       'magnataur_horn_toss2', // 猛犸 长角抛物
+      'bloodseeker_blood_mist2', // 血魔 血雾
     ],
   },
   {

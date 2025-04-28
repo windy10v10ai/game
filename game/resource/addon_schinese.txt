@@ -539,6 +539,7 @@
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"血雾"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"血魔将自己的鲜血撒向一片区域，伤害自身的同时对敌人造成伤害"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%每秒生命消耗/伤害："
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"范围："
 		//醉拳
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"醉拳"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss%%%概率闪避和暴击,主动激动后，获得30%%移速加成,闪避和攻击概率翻3倍"
