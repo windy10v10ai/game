@@ -11,7 +11,7 @@ export const abilityTiersActive: Tier[] = [
       // 主动技能
       // 大招
       'enigma_black_hole', // 黑洞
-      'faceless_void_time_zone_new', // 逆转时空
+      'faceless_void_time_zone', // 逆转时空
 
       // 小技能
       'gyrocopter_flak_cannon', // 高射火炮
