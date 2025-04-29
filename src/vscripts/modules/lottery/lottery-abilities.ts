@@ -51,6 +51,7 @@ export const abilityTiersActive: Tier[] = [
       'tidehunter_ravage', // 毁灭
       'silencer_global_silence', // 全领域禁默
       'axe_culling_blade', // 淘汰之刃
+      'centaur_stampede', // 奔袭冲撞
 
       // 小技能
       'dark_willow_shadow_realm', // 暗影之境
@@ -96,6 +97,10 @@ export const abilityTiersActive: Tier[] = [
       'spirit_breaker_charge_of_darkness', // 暗影冲刺
       'weaver_shukuchi', // 缩地
       'antimage_counterspell', // 法术反制
+      'centaur_double_edge', // 双刃剑
+      'centaur_hoof_stomp', // 战争践踏
+      'chaos_knight_chaos_bolt', // 混乱之箭
+      'chaos_knight_reality_rift', // 实相裂隙
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
