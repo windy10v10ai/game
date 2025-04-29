@@ -1,21 +1,11 @@
 import { Player } from '../../api/player';
 import { reloadable } from '../../utils/tstl-utils';
+import { GameConfig } from '../GameConfig';
 import { BotPower } from '../helper/bot-power';
 import { PlayerHelper } from '../helper/player-helper';
 
 @reloadable
 export class EventPlayerLevelUp {
-  /** 低等级经验系数 */
-  private static readonly LOW_LEVEL_XP_FACTOR = 0.075;
-  /** 高等级经验系数 */
-  private static readonly HIGH_LEVEL_XP_FACTOR = 0.03;
-  /** 低等级基础经验值 */
-  private static readonly LOW_LEVEL_BASE_XP = 60;
-  /** 高等级基础经验值 */
-  private static readonly HIGH_LEVEL_BASE_XP = 3000;
-  /** 等级阈值，用于区分高低等级 */
-  private static readonly LEVEL_THRESHOLD = 30;
-
   constructor() {
     ListenToGameEvent('dota_player_gained_level', (keys) => this.OnPlayerLevelUp(keys), this);
   }
@@ -56,17 +46,15 @@ export class EventPlayerLevelUp {
       if (hero.IsNull()) {
         return;
       }
-      if (level <= EventPlayerLevelUp.LEVEL_THRESHOLD) {
+      if (level <= GameConfig.LEVEL_THRESHOLD) {
         // 低等级经验值 = 基础值 + 当前经验值 * 系数
         hero.SetCustomDeathXP(
-          EventPlayerLevelUp.LOW_LEVEL_BASE_XP +
-            hero.GetCurrentXP() * EventPlayerLevelUp.LOW_LEVEL_XP_FACTOR,
+          GameConfig.LOW_LEVEL_BASE_XP + hero.GetCurrentXP() * GameConfig.LOW_LEVEL_XP_FACTOR,
         );
       } else {
         // 高等级经验值 = 基础值 + 当前经验值 * 系数
         hero.SetCustomDeathXP(
-          EventPlayerLevelUp.HIGH_LEVEL_BASE_XP +
-            hero.GetCurrentXP() * EventPlayerLevelUp.HIGH_LEVEL_XP_FACTOR,
+          GameConfig.HIGH_LEVEL_BASE_XP + hero.GetCurrentXP() * GameConfig.HIGH_LEVEL_XP_FACTOR,
         );
       }
     });

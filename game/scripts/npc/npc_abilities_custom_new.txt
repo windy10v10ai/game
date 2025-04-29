@@ -1,102 +1,32 @@
 "DOTAAbilities"
 {
-	// 逆转时空（选技用）
-	"faceless_void_time_zone_new"
+	// 大肆污染 拉席克
+	"leshrac_defilement2"
 	{
-		"BaseClass"						"faceless_void_time_zone"
-		"MaxLevel"						"4"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_FacelessVoid.Chronosphere"
-		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.35"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCooldown"				"120"
-		"AbilityManaCost"				"125 200 275 350"
-		"AbilityModifierSupportBonus"		"50"
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"1000"
-				"affected_by_aoe_increase"	"1"
-				"special_bonus_unique_faceless_void_2" "+400"
-			}
-			"duration"
-			{
-				"value"			"3.75 4.25 4.75 5.25"
-			}
-			"vision_radius"
-			{
-				"value"	"1000"
-				"affected_by_aoe_increase"	"1"
-			}
-			"bonus_attack_speed"
-			{
-				"value"									"120"
-				"special_bonus_unique_faceless_void"	"+180"
-			}
-			"bonus_move_speed"
-			{
-				"value" "50 55 60 65"
-			}
-			"bonus_cast_speed"
-			{
-				"value" "50 55 60 65"
-			}
-			"bonus_turn_speed"
-			{
-				"value" "50 55 60 65"
-			}
-			"bonus_projectile_speed"
-			{
-				"value" "50 55 60 65"
-			}
-			"yaw"				"45"
-			"cooldown_acceleration"
-			{
-				"value"				"300"
-			}
-		}
-	}
-	//飞机 侧翼机炮2
-	"side_gunner2"
-	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/side_gunner2"
+		"BaseClass"						"leshrac_defilement"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"    		"gyrocopter_skyhigh_flak_cannon"
-		"MaxLevel"						"5"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+		"AbilityTextureName"			"twin_gate_portal_warp"
+		// "AbilityTextureName"			"miniboss_minion_deflecting_shield"
+		// "AbilityTextureName"			"miniboss_radiance"
+		"MaxLevel"						"1"
 
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"cool_down"   "1.2 1.1 1 0.9 0.8"
+			"aoe_per_int"				"0.4"
 		}
-	}
-	//时间漫游
-	"faceless_void_time_walk2"
-	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/faceless_void_time_walk2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityTextureName"    		"faceless_void_time_walk"
-		"MaxLevel"						"5"
-
-		"AbilityCooldown"				"14 12 10 8 6"
-		"AbilityCastRange"				"650 700 750 800 900"
-		"AbilityCastPoint"				"0.3"
 	}
 	//精准光环
 	"drow_ranger_trueshot2"
 	{
-		"BaseClass"                     "drow_ranger_trueshot"
+		"BaseClass"						"drow_ranger_trueshot"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
-		"AbilityTextureName"    		"drow_ranger_trueshot"
+		"AbilityTextureName"			"drow_ranger_trueshot"
 		"MaxLevel"						"5"
 
 		"AbilityValues"
@@ -116,7 +46,7 @@
 		}
 
 	}
-	//酒仙 醉拳
+	//酒仙 醉拳 未使用
 	"brewmaster_drunken_boxing"
 	{
 		"BaseClass"                     "ability_lua"
@@ -138,11 +68,12 @@
 	//血魔 血雾
 	"bloodseeker_blood_mist2"
 	{
-		"BaseClass"     					"ability_lua"
+		"BaseClass"							"ability_lua"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"ScriptFile"				    	"abilities/bloodseeker_blood_mist2"
-		"AbilityTextureName"    			"bloodseeker_blood_mist"
+		"ScriptFile"						"abilities/bloodseeker_blood_mist2"
+		"AbilityTextureName"				"bloodseeker_blood_mist"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityCastRange"					"450"
 
 		"precache"
@@ -155,7 +86,12 @@
 
 		"AbilityValues"
 		{
-			"damage"					"3 4 5 6 7"
+			"radius"
+			{
+				"value"		"450"
+				"affected_by_aoe_increase"	"1"
+			}
+			"damage"					"4 5 6 7 8"
 		}
 	}
 	// 猛犸 长角抛物
@@ -183,7 +119,7 @@
 		}
 
 		"AbilityManaCost"				"100"
-		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityCooldown"				"16 15 14 13 12"
 
 		"AbilityValues"
 		{
@@ -200,7 +136,7 @@
 			"destination_offset"		"175"
 			"pull_angle"				"230"
 			"horn_toss_slow_pct"		"100"
-			"stun_duration"		"0.6 0.75 0.9 1.05 1.2"
+			"stun_duration"		"0.6 0.7 0.8 0.9 1"
 		}
 	}
 	// 火女 腾焰斗篷
@@ -278,7 +214,7 @@
 				"value"		"16 18 20 22 24"
 				"special_bonus_unique_spectre_5"		"+5"
 			}
-			"damage_pct"		"60 80 100 120 140"
+			"damage_pct"		"80 90 100 110 120"
 			"damage_reduction"
 			{
 				"value"				"0"
@@ -372,16 +308,16 @@
 	//赏金 妙手空空 技能偷钱
 	"bounty_hunter_cutpurse2"
 	{
-		"BaseClass"                     "bounty_hunter_cutpurse"
+		"BaseClass"						"bounty_hunter_cutpurse"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"DependentOnAbility"			"1"
 		"MaxLevel"						"5"
 		"Innate"						"0"
-		"AbilityTextureName"    		"bounty_hunter/hunters_hoard/bounty_hunter_track"
+		"AbilityTextureName"			"bounty_hunter/hunters_hoard/bounty_hunter_track"
 
 		"AbilityValues"
 		{
-			"gold_steal"					"2 4 6 8 10"
+			"gold_steal"					"4 6 8 10 12"
 		}
 	}
 
@@ -389,7 +325,7 @@
 	//炽烈火雨
 	"clinkz_burning_barrage2"
 	{
-		"BaseClass"                     "clinkz_burning_barrage"
+		"BaseClass"						"clinkz_burning_barrage"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"IsGrantedByShard"				"0"
@@ -443,10 +379,10 @@
 	//才思敏捷
 	"dark_seer_quick_wit2"
 	{
-		"BaseClass"                     "dark_seer_quick_wit"
+		"BaseClass"						"dark_seer_quick_wit"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"5"
-		"AbilityTextureName"    		"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
+		"AbilityTextureName"			"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
 
 		"AbilityValues"
 		{
@@ -458,16 +394,40 @@
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"IsGrantedByScepter"			"0"
-		"AbilityTextureName"    		"rain_of_vermin"
+		"AbilityTextureName"			"rain_of_vermin"
 		"MaxLevel"						"5"
 
 		"AbilityCastRange"				"800"
-		"AbilityCooldown"				"20"
+		"AbilityCooldown"				"20 19 18 17 16"		// 30
+		"AbilityManaCost"				"110 120 130 140 150"		// 150
 
 		"AbilityValues"
 		{
-			"interval"	"1"
-			"damage" 	"30 50 70 90 110"
+			"duration"
+			{
+				"value" "5"		// 7
+			}
+			"interval"
+			{
+				"value" "1"		// 0.5
+			}
+			"radius"
+			{
+				"value" "500"	// 650
+				"affected_by_aoe_increase"	"1"
+			}
+			"hex_chance"
+			{
+				"value" "20 24 28 32 36"		// 12
+			}
+			"hex_duration"
+			{
+				"value" "1.2 1.4 1.6 1.8 2"		// 1
+			}
+			"damage"
+			{
+				"value" "50 75 100 125 150"	// 125
+			}
 		}
 	}
 
@@ -535,7 +495,7 @@
 	//施恩 神之愤怒
 	"sven_wrath_of_god2"
 	{
-		"BaseClass"                     "sven_wrath_of_god"
+		"BaseClass"						"sven_wrath_of_god"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"DependentOnAbility"			""
 		"AbilityTextureName"			"sven_storm_bolt_secondary"
@@ -581,35 +541,19 @@
 			"attack_damage_reduction"		"50 45 40 35 30"
 		}
 	}
-	//人马 皮糙肉厚
-	"centaur_rawhide2"
-	{
-		"BaseClass"                     "centaur_rawhide"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"AbilityTextureName"    		"pudge/scavenger_dragon_ability/pudge_flesh_heap"
-		"MaxLevel"						"5"
-
-
-		"AbilityValues"
-		{
-			"health_per_upgrade"		"20 40 60 80 100"
-			"upgrade_rate"				"60"
-		}
-	}
 	//斧王 一人成军
 	"axe_one_man_army2"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/axe_one_man_army2"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/axe_one_man_army2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"    		"ancient_rock_golem_weakening_aura"
+		"AbilityTextureName"			"ancient_rock_golem_weakening_aura"
 
 		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
-			"armor_pct_as_strength"		"50 75 100 125 150"
+			"armor_pct_as_strength"		"60 70 80 90 100"
 			"radius"					"0"
 			"bonus_linger_duration"		"5"
 		}
@@ -641,7 +585,7 @@
 		}
 
 	}
-	//魔法扰动
+	//魔法扰动 未使用
 	"antimage_mana_turbulence"
 	{
 		"BaseClass"                     "ability_lua"
@@ -693,15 +637,16 @@
 	//冰霜封印
 	"ancient_apparition_frost_seal"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/ancient_apparition_frost_seal"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ancient_apparition_frost_seal"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"    		"winter_wyvern/immortal/winter_wyvern_cold_embrace"
+		"AbilityTextureName"			"winter_wyvern/immortal/winter_wyvern_cold_embrace"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"MaxLevel"						"5"
 
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"600"
 		"AbilityManaCost"				"100 110 120 130"
 		"AbilityCooldown"				"25 24 23 22"
 
@@ -716,28 +661,38 @@
 		{
 			"hp_regen"				"20 30 40 50 60"
 			"hp_regen_percentage"	"2 3 4 5 6"
-			"damage"				"120 180 240 300 360"
+			"damage"
+			{
+				"value"				"120 180 240 300 360"
+				"CalculateSpellDamageTooltip"	"1"
+			}
 			"stun_duration"			"2"
+			"radius"
+			{
+				"value"				"600"
+				"affected_by_aoe_increase"	"1"
+			}
+			"damage_reduction"			"80"
 		}
 	}
 	//冰霜法球
 	"ancient_apparition_frost_orb"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/ancient_apparition_frost_orb"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ancient_apparition_frost_orb"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"    		"crystal_maiden_crystal_nova_icecowl"
+		"AbilityTextureName"			"crystal_maiden_crystal_nova_icecowl"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
-			"radius"		"300"
-			"damage"		"50 80 110 140 170"
-			"ad"			"0.5"
-			"attack_count"	"4"
-			"slow_duration"	"0.5 0.6 0.7 0.8 0.9"
+			"radius"					"300"
+			"damage"					"50 80 110 140 170"
+			"ad"						"0.4"
+			"attack_count"				"4"
+			"slow_duration"				"0.5 0.6 0.7 0.8 0.9"
 		}
 	}
 
@@ -767,7 +722,7 @@
 			"ad"			"0.3"
 		}
 	}
-	//幻影冲锋
+	//幻影冲锋  未使用
 	"abaddon_phantom_charge"
 	{
 		"BaseClass"						"ability_lua"
@@ -794,7 +749,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/abyssal_underlord_firestorm2"
-		"AbilityTextureName"			"medusa_gorgon_grasp"
+		"AbilityTextureName"			"underlord/ul_2021_immortal_head_ability_icon/ul_2021_immortal_crimson_dark_rift_cancel"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
@@ -802,10 +757,26 @@
 
 		"AbilityValues"
 		{
-			"radius"			"400"
-			"base_damage"		"30 60 90 120 150"
-			"max_damage"		"3 4 5 6 7"
+			"radius"
+			{
+				"value"		"400"
+				"affected_by_aoe_increase"	"1"
+			}
+			"base_damage"
+			{
+				"value"		"30 60 90 120 150"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"max_damage"
+			{
+				"value"		"2 3 4 5 6"
+				"CalculateSpellDamageTooltip"	"1"
+			}
 			"hit_count"		"4"
+		}
+		"precache"
+		{
+			"particle"					"particles/units/heroes/heroes_underlord/abyssal_underlord_firestorm_wave.vpcf"
 		}
 	}
 	//怨念光环
@@ -813,18 +784,26 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/abyssal_underlord_malice_aura"
-		"AbilityTextureName"    		"abyssal_underlord/ti8_immortal_weapon/abyssal_underlord_pit_of_malice_immortal"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"abyssal_underlord/ti8_immortal_weapon/abyssal_underlord_pit_of_malice_immortal"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
-			"radius"			"600"
-			"interval"			"5"
+			"radius"
+			{
+				"value"		"600"
+				"affected_by_aoe_increase"	"1"
+			}
+			"interval"			"4"
 			"duration"			"0.8 0.9 1 1.1 1.2"
-			"damage"			"60 100 140 180 220"
+			"damage"
+			{
+				"value"		"60 100 140 180 220"
+				"CalculateSpellDamageTooltip"	"1"
+			}
 		}
 	}
 	//狂暴药剂

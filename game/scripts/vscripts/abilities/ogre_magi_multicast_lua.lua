@@ -82,6 +82,7 @@ no_support_abilitys = {
 	dawnbreaker_celestial_hammer = 1, -- 上界重锤
 	nyx_assassin_burrow = 1,          -- 钻地
 	nyx_assassin_unburrow = 1,        -- 现身
+	ancient_apparition_ice_blast = 1, -- 冰晶爆轰
 }
 no_support_items = {
 	-- 消耗品

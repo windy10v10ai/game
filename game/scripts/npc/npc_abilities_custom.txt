@@ -761,7 +761,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70 90 110 130 150"
+		"AbilityManaCost"				"60 70 80 90 100"
 
 		// Damage
 		//-------------------------------------------------------------------------------------------------------------
@@ -781,12 +781,12 @@
 			"fixed_duration"			"1"
 			"damage"
 			{
-				"value"					"120 180 240 300 360"
+				"value"					"100 150 200 250 300"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"damage_calne"
 			{
-				"value"					"240 320 400 480 560"
+				"value"					"150 225 300 375 450"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"shard_stun"				"1.6"
@@ -860,7 +860,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.3"
-		"AbilityManaCost"				"80 100 120 140 160"
+		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 
 		"AbilityValues"
@@ -873,7 +873,7 @@
 			"AbilityCastRange"
 			{
 				"value" "800"
-				"special_bonus_unique_miku_302"	"+200"
+				"special_bonus_unique_miku_302"	"+150"
 			}
 			"radius"
 			{
@@ -934,7 +934,7 @@
 
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"%dance_radius"
+		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.3"
 		"AbilityChannelTime"			"120"
 		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_4"
@@ -988,7 +988,7 @@
 
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"%dance_radius"
+		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0"
 		"AbilityChannelTime"			"33"
 		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_5"
