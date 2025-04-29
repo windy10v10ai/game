@@ -60,6 +60,7 @@ export const abilityTiersActive: Tier[] = [
       'sandking_burrowstrike', // 穿刺 沙王
 
       // 自定义技能
+      'imba_chaos_knight_phantasm', // 混沌之军
       'clinkz_burning_barrage2', // 炽烈火雨
       'ancient_apparition_freezing_aura', // 极寒光环
     ],
