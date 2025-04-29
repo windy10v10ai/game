@@ -534,7 +534,10 @@
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
-
+		// 大肆污染
+		"DOTA_Tooltip_ability_leshrac_defilement2"										"大肆污染"
+		"DOTA_Tooltip_ability_leshrac_defilement2_description"							"拉席克的每点智力都会提供作用范围加成。"
+		"DOTA_Tooltip_ability_leshrac_defilement2_aoe_per_int"							"每点智力作用范围加成："
 		//血魔 血雾
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"血雾"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"血魔将自己的鲜血撒向一片区域，伤害自身的同时对敌人造成伤害"

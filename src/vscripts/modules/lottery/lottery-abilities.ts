@@ -194,6 +194,7 @@ export const abilityTiersPassive: Tier[] = [
       'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
       'jakiro_double_trouble2', // 双头龙 天生一对
       'drow_ranger_trueshot2', // 精准光环
+      'leshrac_defilement2', // 大肆污染 拉席克
     ],
   },
   {
@@ -242,6 +243,7 @@ export const abilityTiersPassive: Tier[] = [
       'obsidian_destroyer_equilibrium', // 精华变迁
       'spirit_breaker_greater_bash', // 巨力重击
       'abaddon_frostmourne', // 魔霭诅咒
+      'tiny_grow', // 长大
 
       // 单位技能
       'kobold_tunneler_prospecting', // 狗头人 淘金光环
@@ -252,23 +254,20 @@ export const abilityTiersPassive: Tier[] = [
       'ursa_maul2', // 拍拍 天生技能 +攻击
       'abyssal_underlord_malice_aura', // 怨念光环
       'alchemist_goblins_greed2', // 贪婪
-      'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
-      'dark_seer_quick_wit2', // 才思敏捷
-      'faceless_void_backtrack2', // 虚空 回到过去
       'axe_one_man_army2', // 斧王 一人成军
+      'spectre_dispersion2', // 幽鬼 折射 旧版
     ],
   },
   {
     level: 1,
     names: [
       // 被动技能
+      'lycan_feral_impulse', // 野性驱使
       'antimage_mana_break', // 法力损毁
       'sniper_headshot', // 爆头
       'bounty_hunter_jinada', // 忍术
-      'lycan_feral_impulse', // 野性驱使
       'razor_storm_surge', // 风暴涌动
       'venomancer_poison_sting', // 剧毒术士 毒刺
-      'tiny_grow', // 长大
       'night_stalker_hunter_in_the_night', // 暗夜猎影
       'troll_warlord_fervor', // 热血战魂
       'visage_gravekeepers_cloak', // 陵卫斗篷
@@ -279,7 +278,9 @@ export const abilityTiersPassive: Tier[] = [
       'crystal_maiden_brilliance_aura', // 奥术光环 冰女
 
       // 自定义技能
-      'spectre_dispersion2', // 幽鬼 折射 旧版
+      'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
+      'dark_seer_quick_wit2', // 才思敏捷
+      'faceless_void_backtrack2', // 虚空 回到过去
     ],
   },
 ];

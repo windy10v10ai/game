@@ -534,7 +534,10 @@
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
-
+		// 大肆污染
+		"DOTA_Tooltip_ability_leshrac_defilement2"										"Defilement"
+		"DOTA_Tooltip_ability_leshrac_defilement2_description"							"Leshrac gains AoE per intelligence."
+		"DOTA_Tooltip_ability_leshrac_defilement2_aoe_per_int"							"AOE PER INTELLIGENCE:"
 		//血魔 血雾
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"Blood Mist"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Bloodseeker sprays his blood continuously in the area around him, losing health to damage and slow his enemies."
