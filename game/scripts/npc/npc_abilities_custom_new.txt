@@ -1,5 +1,24 @@
 "DOTAAbilities"
 {
+	// 大肆污染 拉席克
+	"leshrac_defilement2"
+	{
+		"BaseClass"						"leshrac_defilement"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+		"AbilityTextureName"			"twin_gate_portal_warp"
+		// "AbilityTextureName"			"miniboss_minion_deflecting_shield"
+		// "AbilityTextureName"			"miniboss_radiance"
+		"MaxLevel"						"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"aoe_per_int"				"0.4"
+		}
+	}
 	//精准光环
 	"drow_ranger_trueshot2"
 	{
@@ -195,7 +214,7 @@
 				"value"		"16 18 20 22 24"
 				"special_bonus_unique_spectre_5"		"+5"
 			}
-			"damage_pct"		"60 80 100 120 140"
+			"damage_pct"		"80 90 100 110 120"
 			"damage_reduction"
 			{
 				"value"				"0"
@@ -289,16 +308,16 @@
 	//赏金 妙手空空 技能偷钱
 	"bounty_hunter_cutpurse2"
 	{
-		"BaseClass"                     "bounty_hunter_cutpurse"
+		"BaseClass"						"bounty_hunter_cutpurse"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"DependentOnAbility"			"1"
 		"MaxLevel"						"5"
 		"Innate"						"0"
-		"AbilityTextureName"    		"bounty_hunter/hunters_hoard/bounty_hunter_track"
+		"AbilityTextureName"			"bounty_hunter/hunters_hoard/bounty_hunter_track"
 
 		"AbilityValues"
 		{
-			"gold_steal"					"2 4 6 8 10"
+			"gold_steal"					"4 6 8 10 12"
 		}
 	}
 
@@ -360,10 +379,10 @@
 	//才思敏捷
 	"dark_seer_quick_wit2"
 	{
-		"BaseClass"                     "dark_seer_quick_wit"
+		"BaseClass"						"dark_seer_quick_wit"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"5"
-		"AbilityTextureName"    		"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
+		"AbilityTextureName"			"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
 
 		"AbilityValues"
 		{

@@ -10,7 +10,7 @@ export const heroNameListParticles = [
   // 'npc_dota_hero_beastmaster', // 兽王
   'npc_dota_hero_bloodseeker', // 血魔
   'npc_dota_hero_bounty_hunter', // 赏金猎人
-  'npc_dota_hero_brewmaster', // 酒仙
+  // 'npc_dota_hero_brewmaster', // 酒仙
   // 'npc_dota_hero_bristleback', // 钢背兽
   // 'npc_dota_hero_broodmother', // 育母蜘蛛
   'npc_dota_hero_centaur', // 半人马战行者
