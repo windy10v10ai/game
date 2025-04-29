@@ -12,12 +12,10 @@ export const abilityTiersActive: Tier[] = [
       // 大招
       'enigma_black_hole', // 黑洞
       'faceless_void_time_zone', // 逆转时空
+      'abaddon_borrowed_time', // 回光返照
 
       // 小技能
       'gyrocopter_flak_cannon', // 高射火炮
-      // 法球/开关技能
-      'medusa_split_shot', // 分裂箭
-      'winter_wyvern_arctic_burn', // 严寒灼烧
     ],
   },
   {
@@ -31,14 +29,10 @@ export const abilityTiersActive: Tier[] = [
       'sven_gods_strength', // 神之力量
       'alchemist_chemical_rage', // 化学狂暴
       'legion_commander_duel', // 决斗
-      'abaddon_borrowed_time', // 回光返照
       'dazzle_good_juju', // 善咒
 
       // 小技能
       'ember_spirit_sleight_of_fist', // 无影拳
-
-      // 法球/开关技能
-      'omniknight_hammer_of_purity', // 纯洁之锤
     ],
   },
   {
@@ -63,12 +57,6 @@ export const abilityTiersActive: Tier[] = [
       'dark_seer_vacuum', // 真空
       'mars_bulwark', // 护身甲盾
       'sandking_burrowstrike', // 穿刺 沙王
-
-      // 法球/开关技能
-      'doom_bringer_infernal_blade', // 阎刃
-      'ancient_apparition_chilling_touch', // 极寒之触
-      'viper_poison_attack', // 毒性攻击
-      'silencer_glaives_of_wisdom', // 智慧之刃
 
       // 自定义技能
       'clinkz_burning_barrage2', // 炽烈火雨
@@ -106,9 +94,7 @@ export const abilityTiersActive: Tier[] = [
       'templar_assassin_meld', // 圣堂刺客 隐匿
       'phantom_assassin_phantom_strike', // 幻影突袭
       'spirit_breaker_charge_of_darkness', // 暗影冲刺
-
-      // 法球/开关技能
-      'drow_ranger_frost_arrows', // 霜冻之箭
+      'weaver_shukuchi', // 缩地
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
@@ -150,9 +136,6 @@ export const abilityTiersActive: Tier[] = [
       'dark_willow_bramble_maze', // 荆棘迷宫
       'lich_frost_armor', // 霜冻护甲
 
-      // 法球/开关技能
-      'enchantress_impetus', // 推进
-
       // 自定义技能
       'arc_warden_scepter2', // 人工神符
       'alchemist_berserk_potion2', // 狂暴药剂 new
@@ -169,14 +152,17 @@ export const abilityTiersPassive: Tier[] = [
       'elder_titan_natural_order', // 自然秩序
       'muerta_gunslinger', // 神枪在手
       'slark_essence_shift', // 能量转移
-      'phantom_assassin_coup_de_grace', // 恩赐解脱
       'templar_assassin_psi_blades', // 灵能之刃
+      // 法球/开关技能
+      'medusa_split_shot', // 分裂箭
+      'winter_wyvern_arctic_burn', // 严寒灼烧
     ],
   },
   {
     level: 4,
     names: [
       // 被动技能
+      'phantom_assassin_coup_de_grace', // 恩赐解脱
       'earthshaker_aftershock', // 余震
       'sven_great_cleave', // 巨力挥舞
       'faceless_void_time_lock', // 时间锁定
@@ -184,12 +170,13 @@ export const abilityTiersPassive: Tier[] = [
       'slardar_bash', // 深海重击
       'shredder_reactive_armor', // 活性活甲
       'dawnbreaker_luminosity', // 熠熠生辉
-      'chaos_knight_chaos_strike', // 混沌一击
       'axe_counter_helix', // 反击螺旋
+
+      // 法球/开关技能
+      'omniknight_hammer_of_purity', // 纯洁之锤
 
       // 自定义技能
       'dark_seer_normal_punch2', // 普通一拳
-      'viper_universal_hero', // 全才
       'ogre_magi_multicast_lua', // 多重施法
       'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
       'jakiro_double_trouble2', // 双头龙 天生一对
@@ -201,17 +188,15 @@ export const abilityTiersPassive: Tier[] = [
     level: 3,
     names: [
       // 被动技能
+      'chaos_knight_chaos_strike', // 混沌一击
       'centaur_return', // 人马 反伤
       'ursa_fury_swipes', // 怒意狂击
       'vengefulspirit_command_aura', // 复仇光环
       'nevermore_dark_lord', // 魔王降临
       'drow_ranger_marksmanship', // 射手天赋
       'kunkka_tidebringer', // 潮汐使者 水刀
-      'rubick_arcane_supremacy', // 奥术至尊
-      'bloodseeker_thirst', // 焦渴
       'riki_permanent_invisibility', // 永久隐身（旧版）
       'necrolyte_heartstopper_aura', // 竭心光环
-      'enchantress_untouchable', // 不可侵犯
       'weaver_geminate_attack', // 连击
       'spectre_desolate', // 荒芜
       'brewmaster_fire_phase', // 永久相位
@@ -221,7 +206,14 @@ export const abilityTiersPassive: Tier[] = [
       'black_drake_magic_amplification_aura', // 黑蜉蝣 魔法增强光环
       'frostbitten_golem_time_warp_aura', // 萨满 时间扭曲光环
 
+      // 法球/开关技能
+      'doom_bringer_infernal_blade', // 阎刃
+      'ancient_apparition_chilling_touch', // 极寒之触
+      'viper_poison_attack', // 毒性攻击
+      'silencer_glaives_of_wisdom', // 智慧之刃
+
       // 自定义技能
+      'viper_universal_hero', // 全才
       'alchemist_enhanced_weaponry', // 强化武器
       'abyssal_underlord_firestorm2', // 火雨降临
       'crystal_maiden_ice_explosion', // 冰女 冰暴
@@ -234,6 +226,9 @@ export const abilityTiersPassive: Tier[] = [
     level: 2,
     names: [
       // 被动技能
+      'bloodseeker_thirst', // 焦渴
+      'rubick_arcane_supremacy', // 奥术至尊
+      'enchantress_untouchable', // 不可侵犯
       'lina_fiery_soul', // 炽魂
       'monkey_king_jingu_mastery', // 如意棒法
       'skeleton_king_mortal_strike', // 本命一击
@@ -241,7 +236,6 @@ export const abilityTiersPassive: Tier[] = [
       'legion_commander_moment_of_courage', // 勇气之霎
       'abyssal_underlord_atrophy_aura', // 衰退光环
       'obsidian_destroyer_equilibrium', // 精华变迁
-      'spirit_breaker_greater_bash', // 巨力重击
       'abaddon_frostmourne', // 魔霭诅咒
       'tiny_grow', // 长大
 
@@ -249,8 +243,10 @@ export const abilityTiersPassive: Tier[] = [
       'kobold_tunneler_prospecting', // 狗头人 淘金光环
       'kobold_taskmaster_speed_aura', // 狗头人 速度光环
 
+      // 法球/开关技能
+      'drow_ranger_frost_arrows', // 霜冻之箭
+
       // 自定义技能
-      'batrider_smoldering_resin2', // 蝙蝠骑士 树脂
       'ursa_maul2', // 拍拍 天生技能 +攻击
       'abyssal_underlord_malice_aura', // 怨念光环
       'alchemist_goblins_greed2', // 贪婪
@@ -262,6 +258,7 @@ export const abilityTiersPassive: Tier[] = [
     level: 1,
     names: [
       // 被动技能
+      'spirit_breaker_greater_bash', // 巨力重击
       'lycan_feral_impulse', // 野性驱使
       'antimage_mana_break', // 法力损毁
       'sniper_headshot', // 爆头
@@ -277,7 +274,11 @@ export const abilityTiersPassive: Tier[] = [
       'pangolier_lucky_shot', // 幸运一击
       'crystal_maiden_brilliance_aura', // 奥术光环 冰女
 
+      // 法球/开关技能
+      'enchantress_impetus', // 推进
+
       // 自定义技能
+      'batrider_smoldering_resin2', // 蝙蝠骑士 树脂
       'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
       'dark_seer_quick_wit2', // 才思敏捷
       'faceless_void_backtrack2', // 虚空 回到过去
