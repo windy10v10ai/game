@@ -34,10 +34,10 @@ export class NeutralItemManager {
       addTimeMin = [3, 3, 4, 5, 6];
     } else if (multiplier >= 4) {
       //延后4分钟
-      addTimeMin = [4, 5, 6, 7, 8];
+      addTimeMin = [4, 5, 6, 7, 9];
     } else {
       // 延后6分钟
-      addTimeMin = [6, 7, 8, 9, 10];
+      addTimeMin = [6, 7, 8, 9, 12];
     }
 
     const baseTime = baseTimeMin.map((time, index) => time * 60 + addTimeMin[index] * 60);
