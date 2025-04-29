@@ -95,6 +95,7 @@ export const abilityTiersActive: Tier[] = [
       'phantom_assassin_phantom_strike', // 幻影突袭
       'spirit_breaker_charge_of_darkness', // 暗影冲刺
       'weaver_shukuchi', // 缩地
+      'antimage_counterspell', // 法术反制
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
@@ -135,6 +136,8 @@ export const abilityTiersActive: Tier[] = [
       'shadow_shaman_voodoo', // 妖术
       'dark_willow_bramble_maze', // 荆棘迷宫
       'lich_frost_armor', // 霜冻护甲
+      'abaddon_death_coil', // 死亡缠绕
+      'abaddon_aphotic_shield', // 无光之盾
 
       // 自定义技能
       'arc_warden_scepter2', // 人工神符
