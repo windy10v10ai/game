@@ -162,7 +162,7 @@ function InitN3Setting() {
 }
 function InitN4Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('6');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('5');
 
   $('#tower_power_dropdown').SetSelected('250');
 
@@ -171,7 +171,7 @@ function InitN4Setting() {
 }
 function InitN5Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('8');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('7');
 
   $('#tower_power_dropdown').SetSelected('300');
 
@@ -180,7 +180,7 @@ function InitN5Setting() {
 }
 function InitN6Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('9');
 
   $('#tower_power_dropdown').SetSelected('350');
 

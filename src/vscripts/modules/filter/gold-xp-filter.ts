@@ -126,7 +126,7 @@ export class GoldXPFilter {
     if (mul <= 1) {
       return mul;
     }
-    const reduceRate = 0.6;
+    const reduceRate = 0.5;
     return 1 + (mul - 1) * reduceRate;
   }
 }

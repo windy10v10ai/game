@@ -1,5 +1,6 @@
 import { Player } from '../../api/player';
 import { Ranking } from '../../api/ranking';
+import { GameConfig } from '../GameConfig';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroPick } from '../hero/hero-pick';
@@ -44,7 +45,7 @@ export class EventGameStateChange {
    * 策略时间
    */
   private OnStrategyTime(): void {
-    GameRules.Option.setMaxLevelXPRequire();
+    GameConfig.SetMaxLevelXPRequire();
     HeroPick.PickHumanHeroes();
     HeroPick.PickBotHeroes();
   }

@@ -19,7 +19,7 @@ export default function Precache(context: CScriptPrecacheContext) {
     [
       // kv文件路径
       'scripts/npc/npc_items_custom.txt',
-      // 'scripts/npc/npc_abilities_custom.txt', 英雄技能会自动加载
+      'scripts/npc/npc_abilities_custom.txt',
       'scripts/npc/npc_abilities_custom_new.txt',
     ],
     context,
