@@ -9687,8 +9687,8 @@
 		"AbilityHealthCost"				"75 100 125 150"
 		"AbilityValues"
 		{
-			"cooldown_reduction"			"4 5 6 7"
-			"mana_cost_increase_pct"		"20"	// 40
+			"cooldown_reduction"			"3 4 5 6"	// 4 5 6
+			"mana_cost_increase_pct"		"30"		// 40
 		}
 	}
 	//=================================================================================================================
