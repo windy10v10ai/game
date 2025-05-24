@@ -188,7 +188,7 @@
 
 				// 额外添加
 				// "item_mysterious_hat"				"1"		// 仙灵饰品
-				"item_neutral_tabi"					"1"		// 迷踪 闪避移速
+				// "item_neutral_tabi"					"1"		// 迷踪 闪避移速
 			}
 		}
 
