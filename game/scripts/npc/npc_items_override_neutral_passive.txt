@@ -10,6 +10,7 @@
 		{
 			"mana_regen"				"3 6 9 12"		// x3
 			"magic_res"					"0 10 25 30"	// 0 10 16 22
+			"bonus_cast_range"			"25 50 75 100"	// 0 0 0 100
 		}
 	}
 	// 壮实 血量回血
@@ -17,8 +18,9 @@
 	{
 		"AbilityValues"
 		{
-			"health_bonus"			"300 600 900 1200"	// 125 175 225 275
+			"health_bonus"			"200 400 600 800"	// 110 150 190 230
 			"health_regen"			"5 10 15 20"		// 0 4 8 12
+			"slow_resist"			"0 10 20 30"		// 0 0 0 25
 		}
 	}
 	// 警觉 攻速夜视
@@ -26,8 +28,9 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_attack_speed"	"20 40 60 80"		// 10 15 20 25
+			"bonus_attack_speed"	"15 30 45 60"		// 10 17 24 31
 			"bonus_night_vision"	"75 150 225 300"	// 0 150 225 300
+			"bonus_attack_range"	"25 50 75 100"		// 0 0 0 100
 		}
 	}
 	// 睿智 每分钟经验 1&2级
@@ -37,6 +40,7 @@
 		"AbilityValues"
 		{
 			"bonus_xpm"					"400 800"	// n-1级升到n级所需经验为150n+50，从1升到n总经验为200n+75n(n-1)=75n^2+125n,当前刷野最快纪录7分钟25级即7分钟5w（1.5倍率）
+			"max_mana_pct"				"10 20"		// 15
 		}
 	}
 	// 贪婪 工资蓝量减攻击
@@ -45,7 +49,7 @@
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"bonus_gpm"			"450 900"			// 75 100
+			"bonus_gpm"			"600 1000"			// 75 100
 			"bonus_mana"		"300 600"			// 200 250
 			"bonus_damage"		"-30 -60"			// -30 -60
 		}
@@ -55,8 +59,9 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_damage"				"15 30 45 60"	// 7 10 13 17
-			"armor"						"5 10 15 20"	// 0 4 7 10
+			"bonus_damage"				"10 20 30 40"	// 7 10 13 16
+			"armor"						"5 10 15 20"	// 0 4 6 8
+			"knockback_resist"			"10 20 30 40"	// 0 0 0 40
 		}
 	}
 	// 迅速 移速（可叠加）蓝量
@@ -77,6 +82,7 @@
 		{
 			"attack_lifesteal"				"12 20 28"	// 12 16 20
 			"spell_lifesteal"				"8 16 24"	// 8 12 16
+			"bonus_night_vision"			"0 100 200"	// 0 0 200
 		}
 	}
 
@@ -131,7 +137,7 @@
 	{
 		"AbilityValues"
 		{
-			"slow_resistance"			"25 50"				// 20 30
+			"health_restoration"		"25 50"				// 20 30
 			"bat_reduce"				"15 30"				// 12 18
 			"intelligence_pct"			"-8 -15"			// -8
 		}
@@ -220,7 +226,7 @@
 		"ItemIsNeutralPassiveDrop"		"1"
 		"AbilityValues"
 		{
-			"bonus_damage"			"80"			//16
+			"bonus_damage"			"120"			//16
 			"bonus_lifesteal"		"40"			//16
 			"bonus_spell_lifesteal"	"30"			//8
 		}
@@ -233,18 +239,6 @@
 			"attack_speed"				"0"			// 0
 			"evasion"					"40"		// 35
 			"movespeed"					"75"		// 25
-		}
-	}
-	//通灵头带
-	"item_psychic_headband"
-	{
-		"ItemIsNeutralPassiveDrop"		"1"
-		"AbilityValues"
-		{
-			"intelligence_pct"		"30"	//15
-			"cast_range"			"250"	//100
-			"push_length"			"0"		//400
-			"push_duration"			"0.3"	//0.3
 		}
 	}
 }
