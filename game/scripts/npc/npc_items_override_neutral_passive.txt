@@ -235,16 +235,4 @@
 			"movespeed"					"75"		// 25
 		}
 	}
-	//通灵头带
-	"item_psychic_headband"
-	{
-		"ItemIsNeutralPassiveDrop"		"1"
-		"AbilityValues"
-		{
-			"intelligence_pct"		"30"	//15
-			"cast_range"			"250"	//100
-			"push_length"			"0"		//400
-			"push_duration"			"0.3"	//0.3
-		}
-	}
 }

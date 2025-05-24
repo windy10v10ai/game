@@ -51,12 +51,14 @@ export class NeutralItemManager {
         items: [
           // { name: 'item_trusty_shovel', level: 1 }, // 可靠铁铲 电脑挖了后不会拾取道具
           { name: 'item_occult_bracelet', level: 1 },
-          { name: 'item_mana_draught', level: 1 },
           { name: 'item_polliwog_charm', level: 1 },
           { name: 'item_spark_of_courage', level: 1 },
-          { name: 'item_rippers_lash', level: 1 },
-          { name: 'item_iron_talon', level: 1 },
+          // { name: 'item_rippers_lash', level: 1 },
           { name: 'item_safety_bubble', level: 1 },
+          // { name: 'item_dormant_curio', level: 1 }, // 休眠珍品
+          { name: 'item_kobold_cup', level: 1 }, // 狗头人酒杯
+          { name: 'item_sisters_shroud', level: 1 }, // 魅影之衣
+          { name: 'item_royal_jelly', level: 1 },
         ],
         enhancements: [
           { name: 'item_enhancement_mystical', level: 1 },
@@ -74,10 +76,10 @@ export class NeutralItemManager {
           { name: 'item_searing_signet', level: 1 },
           { name: 'item_misericorde', level: 1 },
           { name: 'item_orb_of_destruction', level: 1 },
-          { name: 'item_royal_jelly', level: 1 },
           { name: 'item_arcane_ring', level: 1 },
           { name: 'item_poor_mans_shield', level: 1 },
           { name: 'item_chipped_vest', level: 1 },
+          { name: 'item_mana_draught', level: 1 },
         ],
         enhancements: [
           { name: 'item_enhancement_mystical', level: 2 },
@@ -96,9 +98,11 @@ export class NeutralItemManager {
         items: [
           { name: 'item_gale_guard', level: 1 },
           { name: 'item_whisper_of_the_dread', level: 1 },
-          { name: 'item_ninja_gear', level: 1 },
-          { name: 'item_ogre_seal_totem', level: 1 },
-          { name: 'item_mind_breaker', level: 1 },
+          // { name: 'item_ninja_gear', level: 1 },
+          { name: 'item_jidi_pollen_bag', level: 1 },
+          { name: 'item_psychic_headband', level: 1 },
+          { name: 'item_gunpowder_gauntlets', level: 1 },
+          // { name: 'item_ogre_seal_totem', level: 1 },
           { name: 'item_spider_legs', level: 1 },
           { name: 'item_trickster_cloak', level: 1 },
           { name: 'item_penta_edged_sword', level: 1 },
@@ -120,16 +124,16 @@ export class NeutralItemManager {
         items: [
           { name: 'item_crippling_crossbow', level: 1 },
           { name: 'item_pyrrhic_cloak', level: 1 },
-          { name: 'item_gunpowder_gauntlets', level: 1 },
           { name: 'item_fallen_sky', level: 1 },
           { name: 'item_panic_button', level: 1 },
           { name: 'item_serrated_shiv', level: 1 },
           { name: 'item_havoc_hammer', level: 1 },
-          { name: 'item_pirate_hat', level: 1 },
           { name: 'item_seer_stone', level: 1 },
           { name: 'item_princes_knife', level: 1 },
           { name: 'item_stormcrafter', level: 1 },
           { name: 'item_repair_kit', level: 1 },
+          { name: 'item_giant_maul', level: 1 },
+          { name: 'item_outworld_staff', level: 1 },
         ],
         enhancements: [
           { name: 'item_enhancement_mystical', level: 4 },
@@ -150,10 +154,13 @@ export class NeutralItemManager {
         items: [
           { name: 'item_desolator_2', level: 1 },
           { name: 'item_minotaur_horn', level: 1 },
+          { name: 'item_divine_regalia', level: 1 }, // 天赐华冠
+          { name: 'item_helm_of_the_undying', level: 1 }, // 不朽尸王的头盔
           { name: 'item_nemesis_curse', level: 1 },
           { name: 'item_ceremonial_robe', level: 1 },
           { name: 'item_magnifying_monocle', level: 1 },
           { name: 'item_unrelenting_eye', level: 1 },
+          { name: 'item_dezun_bloodrite', level: 1 },
           { name: 'item_mirror_shield', level: 1 },
           { name: 'item_ballista', level: 1 },
           { name: 'item_imp_claw', level: 1 },
@@ -172,7 +179,6 @@ export class NeutralItemManager {
           { name: 'item_mysterious_hat', level: 2 },
           { name: 'item_spell_prism', level: 1 },
           { name: 'item_paladin_sword', level: 1 },
-          { name: 'item_psychic_headband', level: 1 },
         ],
       },
     };
