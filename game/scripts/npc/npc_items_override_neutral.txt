@@ -65,15 +65,6 @@
 				"tree_duration"		"10"		//15
 		}
 	}
-	//不朽尸王头盔
-	"item_helm_of_the_undying"
-	{
-		"AbilityValues"
-		{
-				"bonus_armor"		"24" //6
-				"duration"			"3" //5
-		}
-	}
 	//炎龙之鳞
 	"item_dragon_scale"
 	{
@@ -355,14 +346,12 @@
 	//魔力药水
 	"item_mana_draught"
 	{
-		"AbilityCooldown"				"30"	//60
+		"AbilityCooldown"				"40"	//60
 		"AbilityCastRange"				"1200"	//650
 		"AbilityValues"
 		{
 			"mana_restore"				"180"	//60
-			"mana_restore_pct"			"3"		//2
 			"heal_duration"				"4"		//6
-			"water_acceleration"		"50"	//30
 		}
 	}
 	//蝌蚪护符
@@ -435,6 +424,27 @@
 				"slow_pct_ranged"		"16"	//8
 		}
 	}
+	//狗头人酒杯
+	"item_kobold_cup"
+	{
+		"AbilityCooldown"				"30"	// 40
+		"AbilityManaCost"				"50"	// 40
+		"AbilityValues"
+		{
+			"movespeed_pct"				"20"	// 10
+		}
+	}
+	//魅影之衣
+	"item_sisters_shroud"
+	{
+		"AbilityValues"
+		{
+			"hp_threshold"				"60"	// 50
+			"evasion_max"				"200"
+			"evasion_loss"				"30"	// 75
+			"max_duration"				"10"	// 8
+		}
+	}
 	//=================================================================================================================
 	// level 2
 	//=================================================================================================================
@@ -447,7 +457,11 @@
 		{
 			"bonus_int"			"0"		//0
 			"mp_regen"		"0"			//0
-			"health_gain"		"1200"		//240
+			"health_gain"
+			{
+				"value"				"1200"	//240
+				"apply_curio_bonus"	"1"
+			}
 			"health_gain_duration"	"10"	//15
 		}
 	}
@@ -462,7 +476,11 @@
 		"AbilityValues"
 		{
 			"damage_threshold"			"100"		//40
-			"burn_damage"				"200"		//72
+			"burn_damage"
+			{
+				"value"					"200"		//72
+				"apply_curio_bonus"		"1"
+			}
 			"burn_duration"				"3"			//6
 		}
 	}
@@ -471,8 +489,12 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_damage"			"6"				//3
-			"missing_hp"			"3"				//5
+			"bonus_damage"
+			{
+				"value"				"6"			// 3
+				"apply_curio_bonus"		"1"
+			}
+			"missing_hp"			"3"				//7
 		}
 	}
 	//杂技玩具
@@ -528,10 +550,18 @@
 	{
 		"AbilityValues"
 		{
-				"damage_block_melee"	"90"	// 30
-				"damage_block_ranged"	"60"	// 20
-				"block_chance"			"80"	// 50
-				"block_chance_hero"		"100"	// 100
+			"damage_block_melee"
+			{
+				"value"				"90"		// 30
+				"apply_curio_bonus"		"1"
+			}
+			"damage_block_ranged"
+			{
+				"value"				"60"		// 20
+				"apply_curio_bonus"		"1"
+			}
+			"block_chance"			"80"	// 50
+			"block_chance_hero"		"100"	// 100
 		}
 	}
 	//碎裂背心
@@ -549,19 +579,9 @@
 	{
 		"AbilityValues"
 		{
-			"max_slow_res"				"100"	//100
 			"hero_reduction"			"6"		//20
 			"status_res_pct_increase_per_hero"	"10"	//10
 			"hero_check_radius"			"600"	//600
-		}
-	}
-	//海盗帽
-	"item_pirate_hat"
-	{
-		"AbilityValues"
-		{
-			"gold_steal_base"			"200"	//150
-			"gold_steal_kill"			"250"	//150
 		}
 	}
 	//决斗家手套
@@ -684,7 +704,11 @@
 		"AbilityValues"
 		{
 			"barrier_duration"			"10"	//10
-			"barrier_amount"			"3000"	//400
+			"barrier_amount"
+			{
+				"value"					"2500"	//250
+				"apply_curio_bonus"		"1"
+			}
 			"barrier_pct"				"60"	//75
 			"slow_resist"				"50"	//50
 		}
@@ -695,7 +719,11 @@
 		"AbilityCooldown"				"1"		//6
 		"AbilityValues"
 		{
-			"bonus_damage"			"240"		//120
+			"bonus_damage"
+			{
+				"value"				"240"		//120
+				"apply_curio_bonus"		"1"
+			}
 			"splash_radius"
 			{
 				"value"				"300"		//250
@@ -709,9 +737,11 @@
 	{
 		"AbilityValues"
 		{
-			"vision_penalty"		"15"		//15
-			"bonus_spell_damage"	"40"		//10
-			"bonus_mana"			"0"			//0
+			"bonus_spell_damage"
+			{
+				"value"				"30"		//10
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//忍者用具 单人雾
@@ -735,7 +765,6 @@
 		"AbilityCastRange"				"1200"	//800
 		"AbilityValues"
 		{
-			"damage_pct"				"100"	//60
 			"damage_time"				"8"		//6
 		}
 	}
@@ -807,7 +836,15 @@
 				"duration"		"3.0"				//2
 		}
 	}
-
+	//基迪花粉袋
+	"item_jidi_pollen_bag"
+	{
+		"AbilityCooldown"				"30"		//45
+		"AbilityValues"
+		{
+			"health_regen_loss"			"50"		//20
+		}
+	}
 
 
 	//=================================================================================================================
@@ -821,11 +858,13 @@
 		"AbilityCastRange"				"1200"		//600
 		"AbilityValues"
 		{
-			"slow_pct"					"90"		//80
-			"heal_reduce"				"80"		//40
+			"heal_reduce"
+			{
+				"value"					"60"		//40
+				"apply_curio_bonus"		"1"
+			}
 			"duration"					"6"			//4
 			"damage"					"300"		//75
-			// "projectile_speed"			"2100"		//1400
 		}
 	}
 	//祭礼长袍
@@ -847,7 +886,11 @@
 		"AbilityValues"
 		{
 			"turn_rate"	"100" 					//50
-			"bonus_movement_speed_active"	"30"	//20
+			"bonus_movement_speed_active"
+			{
+				"value"			"30"				//20
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//先哲之石
@@ -885,8 +928,16 @@
 		"AbilityValues"
 		{
 			"proc_chance"			"40"		//20
-			"hp_dmg"				"10"		//10
-			"hp_dmg_rosh"			"600"		//200
+			"hp_dmg"
+			{
+				"value"				"10"		//8
+				"apply_curio_bonus"		"1"
+			}
+			"hp_dmg_rosh"
+			{
+				"value"					"600"		//200
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//天崩
@@ -896,10 +947,26 @@
 		"AbilityCooldown"				"12.0"	//15
 		"AbilityValues"
 		{
-			"impact_damage_buildings"	"150"	// 75
-			"impact_damage_units"		"150"	// 150
-			"burn_dps_buildings"	"120"		// 60
-			"burn_dps_units"		"120"		// 60
+			"burn_dps_buildings"
+			{
+				"value"				"100"		// 60
+				"apply_curio_bonus"		"1"
+			}
+			"burn_dps_units"
+			{
+				"value"				"100"		// 60
+				"apply_curio_bonus"		"1"
+			}
+			"impact_damage_buildings"
+			{
+				"value"					"150"		// 75
+				"apply_curio_bonus"		"1"
+			}
+			"impact_damage_units"
+			{
+				"value"					"200"		// 150
+				"apply_curio_bonus"		"1"
+			}
 			"stun_duration"		"2.2"			//1.6
 			"impact_radius"
 			{
@@ -931,7 +998,34 @@
 				"hp_regen"		"0"		//25
 		}
 	}
-
+	//德尊血式
+	"item_dezun_bloodrite"
+	{
+		"AbilityValues"
+		{
+			"health_pct"				"50"	// 35
+			"aoe_pct"
+			{
+				"value"					"20"		//15
+				"apply_curio_bonus"		"1"
+			}
+		}
+	}
+	//巨人之槌
+	"item_giant_maul"
+	{
+		"AbilityValues"
+		{
+			"crit_multiplier"
+			{
+				"value"					"250"	// 150
+				"apply_curio_bonus"		"1"
+			}
+			"movespeed_slow"			"20"	// 10
+			"attack_slow"				"60"	// 15
+			"cast_slow"					"40"	// 20
+		}
+	}
 	//=================================================================================================================
 	// level 5
 	//=================================================================================================================
@@ -940,7 +1034,11 @@
 	{
 		"AbilityValues"
 		{
-				"corruption_armor"		"-30"	//-13
+				"corruption_armor"
+				{
+					"value"				"-30"			//-13
+					"apply_curio_bonus"		"1"
+				}
 				"corruption_duration"	"10.0"	//7
 		}
 	}
@@ -949,7 +1047,11 @@
 	{
 		"AbilityValues"
 		{
-			"duration"			"6"				//2
+			"duration"
+			{
+				"value"			"6"				//2
+				"apply_curio_bonus"		"1"
+			}
 			"magic_resist"		"80"			//50
 		}
 	}
@@ -958,10 +1060,25 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_attack_range"		"200" //100
-			"bonus_cast_range"			"250" //125
-			"damage_disable"			"6" //3
-			"damage_threshold"			"400" //25
+			"bonus_attack_range"
+			{
+				"value"					"200"	//100
+				"apply_curio_bonus"		"1"
+			}
+			"bonus_cast_range"
+			{
+				"value"					"250"	// 125
+				"apply_curio_bonus"		"1"
+			}
+			"damage_threshold"			"400"	//250
+		}
+	}
+	//不朽尸王头盔
+	"item_helm_of_the_undying"
+	{
+		"AbilityValues"
+		{
+			"bonus_kill_duration"	"2"		// 5
 		}
 	}
 
