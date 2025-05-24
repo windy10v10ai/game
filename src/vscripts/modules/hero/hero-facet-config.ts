@@ -13,7 +13,7 @@ export class HeroFacetConfig {
     ['npc_dota_hero_death_prophet', [2, 3]],
     ['npc_dota_hero_dragon_knight', [1, 2, 3]],
     ['npc_dota_hero_drow_ranger', [1, 2]],
-    ['npc_dota_hero_earthshaker', [1, 2]],
+    ['npc_dota_hero_earthshaker', [1, 3]],
     ['npc_dota_hero_jakiro', [3, 4]],
     ['npc_dota_hero_juggernaut', [1, 2]],
     ['npc_dota_hero_kunkka', [1, 2]],
@@ -46,8 +46,6 @@ export class HeroFacetConfig {
     ['npc_dota_hero_witch_doctor', [3, 4]],
     ['npc_dota_hero_skeleton_king', [1, 2]],
     ['npc_dota_hero_zuus', [1, 2]],
-
-    // ... 其他英雄配置
   ]);
 
   // 获取英雄可用的facetID列表
