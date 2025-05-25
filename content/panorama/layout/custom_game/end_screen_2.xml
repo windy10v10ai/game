@@ -86,7 +86,7 @@
 				<Panel id="EndingPanel">
 					<Panel id="EndingPanelTop">
 						<Label id="GameTime" text="#DOTA_Lobby_Settings_Scenario_GameTime" />
-						<TextButton id="CloseButton" class="ButtonBevel" onactivate="FinishGame()" text="#CustomEndScreenClose" />
+						<TextButton id="CloseButton" class="ButtonBevel" onactivate="FinishGame()" text="#dota_safe_leave_game" />
 					</Panel>
 					<!-- <Label id="GameEndingStatusText" text="#ending_status_1" /> -->
 				</Panel>

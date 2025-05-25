@@ -6,7 +6,7 @@ export class modifier_fort_think extends BaseModifier {
   private gameEndTriggered: boolean = false;
   private gameEndTimer?: string;
   private gameEndThresholdHealth: number = 1;
-  private gameEndDelay: number = 10; // FIXME 测试用，正式环境改为3秒
+  private gameEndDelay: number = 3;
 
   IsHidden(): boolean {
     return true;
@@ -71,6 +71,7 @@ export class modifier_fort_think extends BaseModifier {
     // 调用游戏结束逻辑
     GameEnd.OnGameEnd(winnerTeamId);
 
+    PauseGame(true);
     // 10秒后杀死modifier的所有者
     this.gameEndTimer = Timers.CreateTimer(this.gameEndDelay, () => {
       const parent = this.GetParent();
