@@ -5,7 +5,8 @@ import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 export class modifier_fort_think extends BaseModifier {
   private gameEndTriggered: boolean = false;
   private gameEndTimer?: string;
-  private gameEndThresholdHealth: number = 5000;
+  private gameEndThresholdHealth: number = 1;
+  private gameEndDelay: number = 10; // FIXME 测试用，正式环境改为3秒
 
   IsHidden(): boolean {
     return true;
@@ -39,10 +40,6 @@ export class modifier_fort_think extends BaseModifier {
     return 1;
   }
 
-  OnCreated(): void {
-    print('OnCreated modifier_fort_think', this.GetParent().GetUnitName());
-  }
-
   OnTakeDamage(event: ModifierInstanceEvent): void {
     // 检查是否是当前modifier的所有者受到伤害
     const parent = this.GetParent();
@@ -50,7 +47,6 @@ export class modifier_fort_think extends BaseModifier {
       return;
     }
 
-    print('OnTakeDamage', event.unit, event.unit.GetHealth());
     // 检查HP是否小于等于阈值
     if (parent && parent.GetHealth() <= this.gameEndThresholdHealth) {
       // 确定获胜队伍（受到伤害的单位所在队伍的敌对队伍获胜）
@@ -75,14 +71,12 @@ export class modifier_fort_think extends BaseModifier {
     // 调用游戏结束逻辑
     GameEnd.OnGameEnd(winnerTeamId);
 
-    // 游戏暂停
-    PauseGame(true);
-
     // 10秒后杀死modifier的所有者
-    this.gameEndTimer = Timers.CreateTimer(10.0, () => {
+    this.gameEndTimer = Timers.CreateTimer(this.gameEndDelay, () => {
       const parent = this.GetParent();
-      if (parent && IsValidEntity(parent) && parent.IsAlive()) {
-        parent.Kill(undefined, parent);
+      if (parent && IsValidEntity(parent)) {
+        print('Kill', parent.GetUnitName());
+        parent.ForceKill(false);
       }
       return undefined;
     });

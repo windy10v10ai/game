@@ -21,6 +21,7 @@ var _ = GameUI.CustomUIConfig()._;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FinishGame() {
+  Game.LeaveCurrentGame();
   Game.FinishGame();
 }
 

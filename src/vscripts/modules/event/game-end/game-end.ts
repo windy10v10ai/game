@@ -14,7 +14,15 @@ import { GameEndPoint } from './game-end-point';
 
 @reloadable
 export class GameEnd {
+  private static gameEndTriggered: boolean = false;
+
   public static OnGameEnd(winnerTeamId: DotaTeam): void {
+    if (this.gameEndTriggered) {
+      return;
+    }
+    this.gameEndTriggered = true;
+
+    print(`[GameEnd] OnGameEnd ${winnerTeamId}`);
     // build game end dto
     const gameEndDto = this.BuildGameEndDto(winnerTeamId);
     // send game end dto
