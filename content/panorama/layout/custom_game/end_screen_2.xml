@@ -79,8 +79,8 @@
 			</Panel>
 		</snippet>
 	</snippets>
-	<Panel class="EndScreenBase">
-		<Panel id="EndScreenWindow">
+	<Panel class="EndScreenBase" hittest="false">
+		<Panel id="EndScreenWindow" hittest="false">
 			<Panel id="MatchResultBlock">
 				<Label id="EndScreenVictory" text="" />
 				<Panel id="EndingPanel">

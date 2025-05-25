@@ -93,7 +93,7 @@ export class GameEnd {
       players.push(playerDto);
 
       // 结算界面数据
-      CustomNetTables.SetTableValue('ending_stats', playerId.toString(), {
+      CustomNetTables.SetTableValue('player_stats', playerId.toString(), {
         damage: playerDto.damage,
         damagereceived: damageTaken,
         healing: playerDto.healing,

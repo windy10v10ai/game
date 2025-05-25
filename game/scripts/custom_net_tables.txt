@@ -12,7 +12,7 @@
     "game_difficulty",
 
     // Panorama/TS tables
-    "ending_stats",
+    "player_stats",
     // TS tables
     "loading_status",
     "ending_status",

@@ -16,7 +16,7 @@ declare global {
     game_difficulty: {
       all: { difficulty: number };
     };
-    ending_stats: {
+    player_stats: {
       [playerId: string]: {
         damage: number;
         damagereceived: number;
