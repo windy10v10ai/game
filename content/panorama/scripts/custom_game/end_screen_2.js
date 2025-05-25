@@ -21,6 +21,7 @@ var _ = GameUI.CustomUIConfig()._;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FinishGame() {
+  Game.LeaveCurrentGame();
   Game.FinishGame();
 }
 
@@ -35,7 +36,7 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.BLoadLayoutSnippet('Player');
   panel.SetHasClass('IsLocalPlayer', playerId === Game.GetLocalPlayerID());
 
-  var playerData = CustomNetTables.GetTableValue('ending_stats', playerId.toString());
+  var playerData = CustomNetTables.GetTableValue('player_stats', playerId.toString());
   var playerInfo = Game.GetPlayerInfo(playerId);
   if (playerInfo.player_steamid && playerInfo.player_steamid !== '0') {
     panel.FindChildTraverse('PlayerAvatar').steamid = playerInfo.player_steamid;
@@ -171,7 +172,11 @@ function Snippet_Team(team) {
   }
 }
 
-function OnGameResult() {
+function OnGameResult(_table, key, value) {
+  if (!value?.status || value.status < 1) {
+    return;
+  }
+
   $('#EndScreenWindow').visible = true;
   $('#TeamsContainer').RemoveAndDeleteChildren();
 
@@ -235,7 +240,8 @@ function OnGameResult() {
   // $("#CloseButton").enabled = false;
   // $("#GameEndingStatusText").style.color = "#ffffff";
 
-  CustomNetTables.SubscribeNetTableListener('ending_stats', OnGameResult);
+  $('#EndScreenWindow').visible = false;
+  CustomNetTables.SubscribeNetTableListener('ending_status', OnGameResult);
   // CustomNetTables.SubscribeNetTableListener("ending_status", OnGameEndingStatusChange);
-  OnGameResult(null, 'player_data', CustomNetTables.GetTableValue('ending_stats', 'player_data'));
+  OnGameResult(null, null, CustomNetTables.GetTableValue('ending_status', 'ending_status'));
 })();
