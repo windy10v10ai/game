@@ -1,5 +1,6 @@
 import { Player } from '../../api/player';
 import { Ranking } from '../../api/ranking';
+import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { GameConfig } from '../GameConfig';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
@@ -76,6 +77,7 @@ export class EventGameStateChange {
     const bases = Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[];
     for (const base of bases) {
       this.addModifierToTowers(base);
+      base.AddNewModifier(base, undefined, modifier_fort_think.name, {});
     }
 
     this.setPlayerColor();
