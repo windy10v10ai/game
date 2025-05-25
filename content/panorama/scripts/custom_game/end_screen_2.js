@@ -172,8 +172,7 @@ function Snippet_Team(team) {
 }
 
 function OnGameResult(_table, key, value) {
-  $.Msg('OnGameResult', _table, key, value);
-  if (!value.status || value.status < 1) {
+  if (!value?.status || value.status < 1) {
     return;
   }
 
