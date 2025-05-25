@@ -16,15 +16,15 @@ export class Game {
       path: this.POST_GAME_END_URL,
       body: gameEndDto,
       successFunc: (data: string) => {
-        CustomNetTables.SetTableValue('ending_status', 'ending_status', {
-          status: 2,
-        });
+        // CustomNetTables.SetTableValue('ending_status', 'ending_status', {
+        //   status: 2,
+        // });
         print(`[Game] end game callback data ${data}`);
       },
       failureFunc: (data: string) => {
-        CustomNetTables.SetTableValue('ending_status', 'ending_status', {
-          status: 3,
-        });
+        // CustomNetTables.SetTableValue('ending_status', 'ending_status', {
+        //   status: 3,
+        // });
         print(`[Game] end game callback data ${data}`);
       },
     };

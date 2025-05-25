@@ -117,10 +117,9 @@
 		"AbilityCooldown"				"15.0"		// 20.0
 		"AbilityValues"
 		{
-			"damage"			"500"				// 50
+			"damage"			"400"				// 50
 			"damage_pct"		"50"				// 25
-			"duration"			"8"					// 8
-			"damage_growth"		"100"				// 10
+			"damage_growth"		"80"				// 10
 			"disarm_duration"	"4"					// 2
 		}
 	}
@@ -131,19 +130,15 @@
 		{
 			"radius"
 			{
-				"value" "450"
-			}
-			"slow_duration_hero"
-			{
-				"value" "3"
+				"value" "450"	// 350
 			}
 			"slow_amount"
 			{
-				"value" "80"
+				"value" "80"	// 50
 			}
 			"damage"
 			{
-				"value" "300"
+				"value" "300"	// 70
 			}
 			"damage_growth"
 			{

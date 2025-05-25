@@ -849,9 +849,17 @@
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"COOKIE HEAL:"
 
 		// 全能骑士
+		"DOTA_Tooltip_ability_omniknight_repel"											"Repel"
+		"DOTA_Tooltip_ability_omniknight_repel_Description"								"Creates a holy barrier around an ally, increasing the target's status resistance, strength, and health regeneration.\n\nDispel Type: Strong Dispel"
+		"DOTA_Tooltip_ability_omniknight_repel_Lore"									"When facing the Abyss of Sacrifice, Purist's resistance to magic was tested and proven."
+		"DOTA_Tooltip_ability_omniknight_repel_duration"								"Duration:"
+		"DOTA_Tooltip_ability_omniknight_repel_status_resistance"						"Status Resistance:"
+		"DOTA_Tooltip_ability_omniknight_repel_bonus_str"								"Strength Bonus:"
+		"DOTA_Tooltip_ability_omniknight_repel_hp_regen"								"Health Regeneration:"
+
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"Increases the target's movement speed and health regeneration, and grants flying movement, allowing them to move over any terrain."
-		"DOTA_Tooltip_ability_omniknight_angelic_flight_Note0"			"Angelic Flight does not grant targets the ability to path over some player-made obstacles, such as Kinetic Field/Fence and Arena of Blood."
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_Note0"				"Angelic Flight does not grant targets the ability to path over some player-made obstacles, such as Kinetic Field/Fence and Arena of Blood."
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"				"'Forward without fear, my friends!'"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"			"DURATION:"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"		"%MOVEMENT SPEED:"
@@ -927,6 +935,21 @@
 
 		// 骷髅王
 		"DOTA_Tooltip_ability_special_bonus_unique_skeleton_king_spectral_blade_damage"			"+{s:bonus_cursed_damage}/{s:bonus_cursed_damage_pct}% Spectral Blade Base Damage/Curse Damage"
+
+		// 拉比克
+		"DOTA_Tooltip_ability_rubick_null_field"								"Null Field"
+		"DOTA_Tooltip_ability_rubick_null_field_Description"					"Rubick's mastery of the arcane affects the perception of nearby enemies, reducing their magic resistance. Can toggle between defensive and offensive modes, choosing to reduce enemy magic resistance or increase ally magic resistance."
+		"DOTA_Tooltip_ability_rubick_null_field_Lore"							"Not every magus can become a Grand Magus..."
+		"DOTA_Tooltip_ability_rubick_null_field_Note0"							"Stacks with other magic resistance increasing items and abilities."
+		"DOTA_Tooltip_ability_rubick_null_field_magic_damage_reduction_pct"		"Magic Resistance Bonus:"
+		"DOTA_Tooltip_ability_rubick_null_field_radius"							"Radius:"
+
+		// 戴泽
+		"DOTA_Tooltip_ability_dazzle_good_juju"											"Good Juju"
+		"DOTA_Tooltip_ability_dazzle_good_juju_Description"								"Dazzle's mastery of the arcane affects the perception of nearby enemies, reducing their magic resistance. Can toggle between defensive and offensive modes, choosing to reduce enemy magic resistance or increase ally magic resistance."
+		"DOTA_Tooltip_ability_dazzle_good_juju_scepter_Description"						"Good Juju reduces all item cooldowns by %item_cooldown_reduction%%%, and has an active effect that can be cast on an ally to refresh their item cooldowns."
+		"DOTA_Tooltip_ability_dazzle_good_juju_Lore"									"Each incantation from the Nothl Realm allows him to further permeate the surroundings of the mortal world."
+		"DOTA_Tooltip_ability_dazzle_good_juju_cooldown_reduction"						"Cooldown Reduction Per Cast:"
 
 		///////////////////////////////////////////////////
 		//
