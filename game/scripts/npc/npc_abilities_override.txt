@@ -9306,7 +9306,6 @@
 			"damage"
 			{
 				"value"	"2.5 5 7.5 10 12.5 15"
-				"special_bonus_unique_batrider_4"	"+5"	// 10
 			}
 			"movement_speed_pct"	"-.75 -1.5 -2.25 -3 -3.75 -4.5"
 			"turn_rate_pct"				"-20 -30 -40 -50 -60 -70"
@@ -9371,8 +9370,8 @@
 			}
 			"napalm_stacks"
 			{
-				"value"				"1"
-				"special_bonus_unique_batrider_2"	"+3"
+				"value"				"0"
+				"special_bonus_unique_batrider_2"	"+6"	// 4
 			}
 			"AbilityCooldown"
 			{
@@ -9391,6 +9390,14 @@
 			"damage_per_second"
 			{
 				"value"			"50 75 100 125 150"
+			}
+			"movement_speed_pct_total"
+			{
+				"special_bonus_facet_batrider_buff_on_displacement"		"=25 =30 =35 =40 =45"
+			}
+			"spell_amplification_total"
+			{
+				"special_bonus_facet_batrider_buff_on_displacement"		"=20 =25 =30 =35 =40"
 			}
 		}
 	}
