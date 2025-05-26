@@ -951,6 +951,10 @@
 		"DOTA_Tooltip_ability_dazzle_good_juju_Lore"									"Each incantation from the Nothl Realm allows him to further permeate the surroundings of the mortal world."
 		"DOTA_Tooltip_ability_dazzle_good_juju_cooldown_reduction"						"Cooldown Reduction Per Cast:"
 
+		// 蝙蝠骑士
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_shard_description"					"Increases the stack limit of Sticky Napalm.<br><br>Sticky Napalm deals damage to structures."
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_max_stacks"						"Sticky Napalm Max Stacks:"
+
 		///////////////////////////////////////////////////
 		//
 		// 自定义英雄 Custom Heroes

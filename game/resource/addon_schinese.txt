@@ -951,6 +951,10 @@
 		"DOTA_Tooltip_ability_dazzle_good_juju_Lore"									"虚无之境的每一次咒术都使其能进一步渗透尘世的周遭。"
 		"DOTA_Tooltip_ability_dazzle_good_juju_cooldown_reduction"						"每次施法减少冷却时间："
 
+		// 蝙蝠骑士
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_shard_description"					"增加粘性燃油叠加上限。<br><br>粘性燃油会对建筑造成伤害。"
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_max_stacks"						"粘性燃油叠加上限："
+
 		///////////////////////////////////////////////////
 		//
 		// 自定义英雄 Custom Heroes
