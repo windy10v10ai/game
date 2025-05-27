@@ -849,9 +849,17 @@
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"治疗："
 
 		// 全能骑士
-		"DOTA_Tooltip_ability_omniknight_repel"			"咸鱼恩赐"
+		"DOTA_Tooltip_ability_omniknight_repel"											"咸鱼恩赐"
+		"DOTA_Tooltip_ability_omniknight_repel_Description"								"创造出一个神圣屏障环绕友军，提升目标的状态抗性，力量和生命恢复。\n\n驱散类型：强驱散"
+		"DOTA_Tooltip_ability_omniknight_repel_Lore"									"当面对着牺牲之渊时，普利斯特对魔法的适应力得到了测试和证实。"
+		"DOTA_Tooltip_ability_omniknight_repel_duration"								"持续时间："
+		"DOTA_Tooltip_ability_omniknight_repel_status_resistance"						"%状态抗性："
+		"DOTA_Tooltip_ability_omniknight_repel_bonus_str"								"力量加成："
+		"DOTA_Tooltip_ability_omniknight_repel_hp_regen"								"生命恢复："
+
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"奶飞天"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"全能骑士召唤出咸鱼之王的替身使者，提升目标的移动速度和生命恢复，并且使目标飞行。"
+		"DOTA_Tooltip_ability_omniknight_angelic_flight_Note0"				"奶飞天不会使目标获得穿过某些玩家建造的障碍物的能力，例如动能场/围栏和竞技场。"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_Lore"				"你被奶了，你飞天了，快去送。"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_duration"			"持续时间："
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_movement_speed"		"%移动速度："
@@ -927,6 +935,21 @@
 
 		// 骷髅王
 		"DOTA_Tooltip_ability_special_bonus_unique_skeleton_king_spectral_blade_damage"			"+{s:bonus_cursed_damage}/{s:bonus_cursed_damage_pct}% 幽魂之剑基础伤害/诅咒伤害"
+
+		// 拉比克
+		"DOTA_Tooltip_ability_rubick_null_field"								"失效力场"
+		"DOTA_Tooltip_ability_rubick_null_field_Description"					"拉比克对奥术的精通能够影响周围敌人的感知，降低他们的魔法抗性。可以在防御和进攻之间切换，选择降低敌人的魔法抗性或提升队友的魔法抗性。"
+		"DOTA_Tooltip_ability_rubick_null_field_Lore"							"不是每一个魔导师都能成为大魔导师……"
+		"DOTA_Tooltip_ability_rubick_null_field_Note0"							"与其他提高魔法抗性的物品和技能叠加。"
+		"DOTA_Tooltip_ability_rubick_null_field_magic_damage_reduction_pct"		"%魔法抗性加成："
+		"DOTA_Tooltip_ability_rubick_null_field_radius"							"作用范围："
+
+		// 戴泽
+		"DOTA_Tooltip_ability_dazzle_good_juju"											"善咒"
+		"DOTA_Tooltip_ability_dazzle_good_juju_Description"								"戴泽每次施放技能后，其他所有冷却中的技能都会减少冷却时间。"
+		"DOTA_Tooltip_ability_dazzle_good_juju_scepter_Description"						"善咒使所有物品的冷却时间减少%item_cooldown_reduction%%%，并且具有主动效果，可以对一名友军施放，刷新其物品冷却时间。"
+		"DOTA_Tooltip_ability_dazzle_good_juju_Lore"									"虚无之境的每一次咒术都使其能进一步渗透尘世的周遭。"
+		"DOTA_Tooltip_ability_dazzle_good_juju_cooldown_reduction"						"每次施法减少冷却时间："
 
 		///////////////////////////////////////////////////
 		//
