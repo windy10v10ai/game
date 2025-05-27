@@ -4,13 +4,12 @@
 		<include src="file://{resources}/scripts/custom_game/replaceHeroImage.js"/>
 	</scripts>
 	<styles>
-        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
-		<include src="file://{resources}/styles/hud/dota_hud_shop.css" />
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 	</styles>
 
 
 	<Panel>
-		<CustomUIElement type="GameSetup"				layoutfile="file://{resources}/layout/custom_game/team_select/team_select.xml" />
+		<CustomUIElement type="GameSetup"			layoutfile="file://{resources}/layout/custom_game/team_select/team_select.xml" />
 		<!-- <CustomUIElement type="HeroSelection"		layoutfile="file://{resources}/layout/custom_game/pick_locker/pick_locker.xml" /> -->
 		<CustomUIElement type="HeroSelection"		layoutfile="file://{resources}/layout/custom_game/multiteam_hero_select_overlay.xml" />
 		<CustomUIElement type="FlyoutScoreboard"	layoutfile="file://{resources}/layout/custom_game/flyout_scoreboard/multiteam_flyout_scoreboard.xml" />
@@ -18,6 +17,7 @@
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/button.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/battlepass.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/point_info/point_info.xml" />
+		<CustomUIElement type="Hud" 				layoutfile="file://{resources}/layout/custom_game/end_screen_2.xml" />
 		<CustomUIElement type="EndScreen" 			layoutfile="file://{resources}/layout/custom_game/end_screen_2.xml" />
 		<!-- Layout of paranoma-react -->
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/react/hud_lottery/layout.xml" />

@@ -4968,11 +4968,11 @@
 		"AbilityDuration"				"10.0"
 		"AbilityValues"
 		{
-			"creep_damage"				"30 60 90 120 150" // cdx3→dmgx3
+			"creep_damage"				"36 54 72 90 120"	// 12 18 24 30
 			"hero_damage"
 			{
-				"value"				"90 150 210 270 330" // cdx3→dmgx3
-				"special_bonus_unique_wisp"		"+330"
+				"value"				"60 100 210 270 330"	// 30 50 70 90
+				"special_bonus_unique_wisp"		"+180"		// +60
 			}
 			"revolution_time"			"10.0 10.0 10.0 10.0 10.0"
 			"max_range"
@@ -4988,7 +4988,7 @@
 			"scepter_slow_pct"
 			{
 				"value"			"0"
-				"special_bonus_scepter"			"+100"	// 15
+				"special_bonus_scepter"			"+100"	// 25
 			}
 			"hit_radius"
 			{
@@ -8697,7 +8697,12 @@
 			"create_wards"
 			{
 				"value"					"0"
-				"special_bonus_unique_venomancer_gale_plagueward"		"+0"
+				"special_bonus_facet_venomancer_plague_carrier"		"+0"	// 卡顿 移除
+			}
+			"num_created_wards_tooltip"
+			{
+				"value"												"0"
+				"special_bonus_facet_venomancer_plague_carrier"		"+0"	// 卡顿 移除
 			}
 			"AbilityCooldown"
 			{
@@ -8763,19 +8768,19 @@
 				"value"							"20 30 40 50 60"
 				"special_bonus_unique_venomancer" "x2.5"
 			}
-			"threshold"
-			{
-				"value"							"300 450 600 750 900"
-				"special_bonus_unique_venomancer" "x2.5"
-			}
-			"threshold_max_hp_pct"
-			{
-				"special_bonus_facet_venomancer_plague_carrier"
-				{
-					"value"							"1.5 2 2.5 3 3.5"
-					"special_bonus_unique_venomancer" "x2.5"
-				}
-			}
+			// "threshold"
+			// {
+			// 	"value"							"300 450 600 750 900"
+			// 	"special_bonus_unique_venomancer" "x2.5"
+			// }
+			// "threshold_max_hp_pct"
+			// {
+			// 	"special_bonus_facet_venomancer_plague_carrier"
+			// 	{
+			// 		"value"							"1.5 2 2.5 3 3.5"
+			// 		"special_bonus_unique_venomancer" "x2.5"
+			// 	}
+			// }
 		}
 	}
 	// 恶性瘟疫
@@ -9687,8 +9692,8 @@
 		"AbilityHealthCost"				"75 100 125 150"
 		"AbilityValues"
 		{
-			"cooldown_reduction"			"4 5 6 7"
-			"mana_cost_increase_pct"		"20"	// 40
+			"cooldown_reduction"			"3 4 5 6"	// 4 5 6
+			"mana_cost_increase_pct"		"30"		// 40
 		}
 	}
 	//=================================================================================================================
@@ -12274,22 +12279,34 @@
 			}
 			"hits_to_destroy_tooltip"
 			{
-				"value"						"4"						// 2
-				"special_bonus_unique_shadow_shaman_1"		"50%"	// 50%
+				"value"														"4"		// 2
+				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"=0"
+			}
+			"hits_to_destroy_mega_ward_tooltip"
+			{
+				"value"														"0"
+				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"=40"
+				"special_bonus_unique_shadow_shaman_1"						"50%"
 			}
 			"ward_health"
 			{
 				"value"						"8"						// 4
 				"special_bonus_unique_shadow_shaman_1"		"+4"	// +2
 			}
-			"mega_ward_multiplier_tooltip"
+			"mega_ward_multiplier_damage"
 			{
 				"value"						"0"
 				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"=4"	// =ward_count
 			}
-			"mega_ward_health_tooltip"
+			"mega_ward_multiplier_health"
 			{
+				"value"						"0"
 				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"=4"	// =ward_count
+			}
+			"ward_damage_tooltip"
+			{
+				"value"														"200 400 600"
+				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"x4"
 			}
 		}
 	}

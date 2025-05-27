@@ -40,11 +40,11 @@
 					<Panel id="RadiantPlayerNumberMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="RadiantPlayerNumberMultiplierTitle" class="GameOptionsLabel" text="#radiant_player_number" />
 						<DropDown id="radiant_player_number_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
-							<Label text="#radiant_player_number_10" id="10"/>
+							<!-- <Label text="#radiant_player_number_10" id="10"/>
 							<Label text="9" id="9"/>
 							<Label text="8" id="8"/>
 							<Label text="7" id="7"/>
-							<Label text="6" id="6"/>
+							<Label text="6" id="6"/> -->
 							<Label text="5" id="5"/>
 							<Label text="4" id="4"/>
 							<Label text="3" id="3"/>

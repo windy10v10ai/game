@@ -1,6 +1,5 @@
 import { Player } from '../../api/player';
 import { PlayerHelper } from '../helper/player-helper';
-import { GameEnd } from './game-end/game-end';
 
 export class EventEntityKilled {
   constructor() {
@@ -18,8 +17,6 @@ export class EventEntityKilled {
       this.onHeroKilled(killedUnit as CDOTA_BaseNPC_Hero, attacker);
     } else if (killedUnit.IsCreep()) {
       this.onCreepKilled(killedUnit, attacker);
-    } else if (killedUnit.IsBuilding()) {
-      this.onBuildingKilled(killedUnit);
     }
   }
 
@@ -202,21 +199,5 @@ export class EventEntityKilled {
       return dropItemList.filter((v, i) => i !== itemIndex);
     }
     return dropItemList;
-  }
-
-  //--------------------------------------------------------------------------------------------------------
-  // 建筑击杀
-  //--------------------------------------------------------------------------------------------------------
-  private onBuildingKilled(building: CDOTA_BaseNPC): void {
-    // if fort
-    if (building.GetUnitName() === 'npc_dota_badguys_fort') {
-      // good guys win
-      print(`[EventEntityKilled] onBuildingKilled good guys win`);
-      GameEnd.OnGameEnd(DotaTeam.GOODGUYS);
-    } else if (building.GetUnitName() === 'npc_dota_goodguys_fort') {
-      // bad guys win
-      print(`[EventEntityKilled] onBuildingKilled bad guys win`);
-      GameEnd.OnGameEnd(DotaTeam.BADGUYS);
-    }
   }
 }
