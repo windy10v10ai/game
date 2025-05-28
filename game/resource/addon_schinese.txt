@@ -904,6 +904,16 @@
 
 		// 巫妖
 		"DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} 连环霜冻弹跳次数"
+		"DOTA_Tooltip_ability_lich_frost_armor"											"霜冻护甲"
+		"DOTA_Tooltip_ability_lich_frost_armor_Description"								"为一个友方单位或建筑物制造一层寒冰护甲，增加护甲值并减速对其发动攻击的敌方单位。持续%abilityduration%秒。"
+		"DOTA_Tooltip_ability_lich_frost_armor_Lore"									"原本是为了在中埋伏自卫时打造的，现在巫妖也能为他人施加这个强力的冰霜护体魔咒。"
+		"DOTA_Tooltip_ability_lich_frost_armor_Note0"									"如果开启自动施放，巫妖将对附近受到攻击的友方单位施放该技能。"
+		"DOTA_Tooltip_ability_lich_frost_armor_armor_bonus"								"友军护甲提升："
+		"DOTA_Tooltip_ability_lich_frost_armor_slow_movement_speed"						"%敌军移动速度减缓："
+		"DOTA_Tooltip_ability_lich_frost_armor_slow_attack_speed"						"敌军攻击速度降低："
+		"DOTA_Tooltip_ability_lich_frost_armor_slow_duration"							"减速持续时间："
+		"DOTA_Tooltip_modifier_lich_frost_armor"				"霜冻护甲"
+		"DOTA_Tooltip_modifier_lich_frost_armor_Description"	"提升%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点护甲并且减速攻击的敌人。"
 
 		// Alchemist 炼金术士
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"额外生命值："
@@ -954,6 +964,19 @@
 		// 蝙蝠骑士
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_shard_description"					"增加粘性燃油叠加上限。<br><br>粘性燃油会对建筑造成伤害。"
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_max_stacks"						"粘性燃油叠加上限："
+
+		// 哈斯卡
+		"DOTA_Tooltip_ability_huskar_inner_vitality"									"活血术"
+		"DOTA_Tooltip_ability_huskar_inner_vitality_Description"						"激发友方单位的恢复力，基于其基础属性治疗目标。如果目标血量低于35%%，则恢复速度提高。持续%abilityduration%秒。"
+		"DOTA_Tooltip_ability_huskar_inner_vitality_Lore"								"虽然哈斯卡很少用魔法，不过从戴泽还有德尊牧师那里学来的这个强化术，在他严重受伤时经常被使用。"
+		"DOTA_Tooltip_ability_huskar_inner_vitality_Note0"								"每秒都会检测生命的百分比，并对回复效果进行相应调整。"
+		"DOTA_Tooltip_ability_huskar_inner_vitality_Note1"								"可以对减益免疫单位施放。"
+		"DOTA_Tooltip_ability_huskar_inner_vitality_heal"								"生命恢复："
+		"DOTA_Tooltip_ability_huskar_inner_vitality_tooltip_attrib_bonus"				"%属性治疗加成："
+		"DOTA_Tooltip_ability_huskar_inner_vitality_tooltip_hurt_attrib_bonus"			"%低血量治疗加成："
+		"DOTA_Tooltip_ability_huskar_inner_vitality_health_cost"						"生命消耗："
+		"DOTA_Tooltip_modifier_huskar_inner_vitality"					"活血术"
+		"DOTA_Tooltip_modifier_huskar_inner_vitality_Description"		"每秒恢复%fMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点生命值。"
 
 		///////////////////////////////////////////////////
 		//
