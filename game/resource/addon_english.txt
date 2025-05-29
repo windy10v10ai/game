@@ -77,8 +77,8 @@
 		// 右侧面板
 		"game_difficulty_choice"		"Choose a difficulty"
 		"custom_game_vote"				"Vote Timer"
-		"map_n6_warning"				"When using the N6 map, only the N6 difficulty can be chosen. <br>To play other difficulties, please select the [Dota] map before starting game."
-		"map_dota_warning"				"When using the Dota map, the N6 difficulty cannot be chosen. <br>To play on N6 difficulty, please select the [N6] map before starting game."
+		"map_custom_warning"			"When using the Custom map, only the Custom difficulty can be chosen. <br>To play other difficulties, please select the [Dota] map before starting game."
+		"map_dota_warning"				"When using the Dota map, the Custom difficulty cannot be chosen. <br>To play on Custom difficulty, please select the [Custom] map before starting game."
 
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
 		"loading_status_2"				"Player data loaded successfully!"
@@ -904,6 +904,16 @@
 
 		// 巫妖
 		"DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} Chain Frost Bounces"
+		"DOTA_Tooltip_ability_lich_frost_armor"											"Ice Armor"
+		"DOTA_Tooltip_ability_lich_frost_armor_Description"								"Creates a shield around the target friendly unit or building, which adds armor and slows attacking units. Lasts %abilityduration% seconds."
+		"DOTA_Tooltip_ability_lich_frost_armor_Lore"									"Originally crafted during his ambush for self-defense, the Lich is capable of enchanting others with a formidable defense of frost magic."
+		"DOTA_Tooltip_ability_lich_frost_armor_Note0"									"If autocast is activated, Lich will cast this spell on nearby allies who are attacked."
+		"DOTA_Tooltip_ability_lich_frost_armor_armor_bonus"								"ALLY ARMOR BONUS:"
+		"DOTA_Tooltip_ability_lich_frost_armor_slow_movement_speed"						"%ENEMY MOVE SLOW:"
+		"DOTA_Tooltip_ability_lich_frost_armor_slow_attack_speed"						"ENEMY ATTACK SLOW:"
+		"DOTA_Tooltip_ability_lich_frost_armor_slow_duration"							"SLOW DURATION:"
+		"DOTA_Tooltip_modifier_lich_frost_armor"				"Ice Armor"
+		"DOTA_Tooltip_modifier_lich_frost_armor_Description"	"Adds %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and slows attacking units."
 
 		// Alchemist 炼金术士
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"HEALTH BONUS:"
@@ -950,6 +960,23 @@
 		"DOTA_Tooltip_ability_dazzle_good_juju_scepter_Description"						"Good Juju reduces all item cooldowns by %item_cooldown_reduction%%%, and has an active effect that can be cast on an ally to refresh their item cooldowns."
 		"DOTA_Tooltip_ability_dazzle_good_juju_Lore"									"Each incantation from the Nothl Realm allows him to further permeate the surroundings of the mortal world."
 		"DOTA_Tooltip_ability_dazzle_good_juju_cooldown_reduction"						"Cooldown Reduction Per Cast:"
+
+		// 蝙蝠骑士
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_shard_description"					"Increases the stack limit of Sticky Napalm.<br><br>Sticky Napalm deals damage to structures."
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_max_stacks"						"Sticky Napalm Max Stacks:"
+
+		// 哈斯卡
+		"DOTA_Tooltip_ability_huskar_inner_vitality"									"Inner Vitality"
+		"DOTA_Tooltip_ability_huskar_inner_vitality_Description"						"Unlocks the regenerative power of a friendly unit, with healing based upon its primary attribute. If the target is below 35%, it will heal faster.  Lasts %abilityduration% seconds."
+		"DOTA_Tooltip_ability_huskar_inner_vitality_Lore"								"While Huskar has little use for magic, this minor enchantment was learned from the Dazzle and the Dezun priests, to be used in times of great injury."
+		"DOTA_Tooltip_ability_huskar_inner_vitality_Note0"								"The HP percentage is checked every second and the regeneration adjusted accordingly."
+		"DOTA_Tooltip_ability_huskar_inner_vitality_Note1"								"Can be cast on Spell Immune units."
+		"DOTA_Tooltip_ability_huskar_inner_vitality_heal"								"HEALTH REGEN:"
+		"DOTA_Tooltip_ability_huskar_inner_vitality_tooltip_attrib_bonus"				"%BONUS FROM ATTRIBUTE:"
+		"DOTA_Tooltip_ability_huskar_inner_vitality_tooltip_hurt_attrib_bonus"			"%BONUS WHEN HURT:"
+		"DOTA_Tooltip_ability_huskar_inner_vitality_health_cost"						"HEALTH COST:"
+		"DOTA_Tooltip_modifier_huskar_inner_vitality"					"Inner Vitality"
+		"DOTA_Tooltip_modifier_huskar_inner_vitality_Description"		"Restoring %fMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health a second."
 
 		///////////////////////////////////////////////////
 		//

@@ -55,9 +55,9 @@ game/maps/dota.vpk (自己编译的地图文件)
 
 如果在 addoninfo.txt 中设置了多个地图，按照以下方法制作相应的vpk文件
 
-### N6地图
+### 自定义模式地图
 
-- 重命名dota.vmap为n6.vmap
-- 第一次编译时，需要勾选Create minimap，build，根据需要修正content\materials\overviews\n6.png
+- 重命名dota.vmap为custom.vmap
+- 第一次编译时，需要勾选Create minimap，build，根据需要修正content\materials\overviews\custom.png
 
 注意 由于内部路径名发生变化，无法替换地图特效
