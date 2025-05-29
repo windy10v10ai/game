@@ -282,12 +282,12 @@ function OnGameLoadingStatusChange(table, key, value) {
  */
 function SetDifficultyByMapName() {
   const mapDisplayName = Game.GetMapInfo().map_display_name;
-  if (mapDisplayName === 'n6') {
-    for (let i = 0; i <= 5; i++) {
+  if (mapDisplayName === 'custom') {
+    for (let i = 1; i <= 6; i++) {
       const button = $('#DifficultyN' + i);
       button.enabled = false;
       button.SetPanelEvent('onmouseover', () => {
-        $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#map_n6_warning'));
+        $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#map_custom_warning'));
       });
       button.SetPanelEvent('onmouseout', () => {
         $.DispatchEvent('DOTAHideTextTooltip');
@@ -295,10 +295,10 @@ function SetDifficultyByMapName() {
       button.AddClass('stopHover');
       button.AddClass('deactivated');
     }
-    // 直接选择N6难度
-    OnChooseDifficulty(6);
+    // 直接选择自定义难度
+    OnChooseDifficulty(0);
   } else {
-    const button = $('#DifficultyN6');
+    const button = $('#DifficultyN0');
     button.enabled = false;
     button.SetPanelEvent('onmouseover', () => {
       $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#map_dota_warning'));
@@ -320,14 +320,14 @@ function OnChooseDifficulty(difficulty) {
   // get map name
   const mapDisplayName = Game.GetMapInfo().map_display_name;
 
-  // mapDisplayName 是 n6的时候，difficulty可以选择6
-  // 其他情况下不能选择6
-  if (mapDisplayName !== 'n6' && difficulty === 6) {
-    $.Msg('This map cannot choose difficulty 6');
+  // mapDisplayName 不是 custom的时候，difficulty不能选择0
+  if (mapDisplayName !== 'custom' && difficulty === 0) {
+    $.Msg('This map cannot choose difficulty 0');
     return;
   }
-  if (mapDisplayName === 'n6' && difficulty !== 6) {
-    $.Msg('This map must choose difficulty 6');
+  // mapDisplayName 是 custom的时候，difficulty只能选择0
+  if (mapDisplayName === 'custom' && difficulty !== 0) {
+    $.Msg('This map must choose difficulty 0');
     return;
   }
 
