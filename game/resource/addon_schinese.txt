@@ -77,8 +77,8 @@
 		// 右侧面板
 		"game_difficulty_choice"		"选择一个难度"
 		"custom_game_vote"				"投票倒计时"
-		"map_n6_warning"				"在使用N6地图时只能选择N6难度。<br>想进行其他难度时，请在游戏开始前选择 [Dota] 地图"
-		"map_dota_warning"				"在使用Dota地图时不能选择N6难度。<br>想进行N6难度时，请在游戏开始前选择 [N6] 地图"
+		"map_custom_warning"			"在使用Custom地图时只能选择自定义难度。<br>想进行其他难度时，请在游戏开始前选择 [Dota] 地图"
+		"map_dota_warning"				"在使用Dota地图时不能选择自定义难度。<br>想进行自定义难度时，请在游戏开始前选择 [Custom] 地图"
 
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
 		"loading_status_2"				"玩家数据加载成功！"
