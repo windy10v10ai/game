@@ -5764,12 +5764,12 @@
 		}
 	}
 	//=================================================================================================================
-	// 神器法师泳衣
+	// 法师泳衣
 	//=================================================================================================================
 	"item_recipe_eternal_shroud_ultra"
 	{
 		"BaseClass"						"item_recipe_eternal_shroud"
-		"ItemCost"						"2600"
+		"ItemCost"						"2200"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"AbilityTextureName"			"item_recipe_eternal_shroud_ultra"
@@ -5791,11 +5791,11 @@
 			"bonus_spell_resist"					"40"	//20
 			"bonus_strength"						"30"	//10
 			"bonus_health"							"1000"	//250
-			"stack_threshold"						"500"	//300
-			"stack_duration"						"10"	//5
+			"stack_threshold"						"600"	//300
+			"stack_duration"						"8"		//5
 			"stack_resist"							"4.0"	//3.5
-			"mana_restore_pct"						"40"	//20
-			"max_stacks"							"10"	//6
+			"mana_restore_pct"						"50"	//25
+			"max_stacks"							"8"		//6
 		}
 	}
 }

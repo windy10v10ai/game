@@ -2313,14 +2313,14 @@
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
 
-		// 神器 法师泳衣
-		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"			"<font color='#e03e2e'>神器·法师泳衣</font>"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"    		"<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n\n<h1>被动：潜水服</h1>装备的英雄每受到%stack_threshold%点技能伤害，就会获得一层持续%stack_duration%秒的叠加效果，最多为%max_stacks%层。每层效果会使法师泳衣的魔法抗性提升%stack_resist%%%。"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"		"在法师堆中畅泳吧！"
+		// 法师泳衣
+		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"						"法师泳衣"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"			"<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n\n<h1>被动：潜水服</h1>装备的英雄每受到%stack_threshold%点技能伤害，就会获得一层持续%stack_duration%秒的叠加效果，最多为%max_stacks%层。每层效果会使法师泳衣的魔法抗性提升%stack_resist%%%。"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"					"在法师堆中畅泳吧！"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_spell_resist"		"%+$spell_resist"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"				"+$str"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"				"+$armor"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"		"+$health"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"			"+$str"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"			"+$health"
 
 		// 力量法则碎片
 		"DOTA_Tooltip_Ability_item_imp_claw"				"力量法则碎片"

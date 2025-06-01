@@ -2311,14 +2311,14 @@
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
 
-		// 神器 法师泳衣
-		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"			"<font color='#e03e2e'>Artifact: Swimagicostume</font>"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"    		"<h1>Passive: Swimming</h1> Converts %mana_restore_pct%%% of the pre-reduction spell damage taken from enemies into mana.\n\n<h1>Passive: Diving Suit</h1> The equipped hero gains a stack for every %stack_threshold% spell damage taken, lasting %stack_duration% seconds, up to a maximum of %max_stacks% stacks. Each stack increases the Mage Swimsuit's magic resistance by %stack_resist%%."
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"		"Swim freely among the mages!"
+		// 法师泳衣
+		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"						"Swimagicostume"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"			"<h1>Passive: Swimming</h1> Converts %mana_restore_pct%%% of the pre-reduction spell damage taken from enemies into mana.\n\n<h1>Passive: Diving Suit</h1> The equipped hero gains a stack for every %stack_threshold% spell damage taken, lasting %stack_duration% seconds, up to a maximum of %max_stacks% stacks. Each stack increases the Mage Swimsuit's magic resistance by %stack_resist%%."
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"					"Swim freely among the mages!"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_spell_resist"		"%+$spell_resist"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"				"+$str"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"				"+$armor"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"		"+$health"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"			"+$str"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"			"+$health"
 
 		// 力量法则碎片
 		"DOTA_Tooltip_Ability_item_imp_claw"				"Power Law Fragment"
