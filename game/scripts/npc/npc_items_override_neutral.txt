@@ -842,7 +842,7 @@
 		"AbilityCooldown"				"30"		//45
 		"AbilityValues"
 		{
-			"health_regen_loss"			"50"		//20
+			"health_regen_loss"			"50"		//30
 		}
 	}
 
@@ -1006,7 +1006,7 @@
 			"health_pct"				"50"	// 35
 			"aoe_pct"
 			{
-				"value"					"20"		//15
+				"value"					"16"		//12
 				"apply_curio_bonus"		"1"
 			}
 		}
@@ -1067,7 +1067,7 @@
 			}
 			"bonus_cast_range"
 			{
-				"value"					"250"	// 125
+				"value"					"200"	// 100
 				"apply_curio_bonus"		"1"
 			}
 			"damage_threshold"			"400"	//250
@@ -1076,6 +1076,7 @@
 	//不朽尸王头盔
 	"item_helm_of_the_undying"
 	{
+		"AbilityCooldown"				"60"	// 100
 		"AbilityValues"
 		{
 			"bonus_kill_duration"	"2"		// 5

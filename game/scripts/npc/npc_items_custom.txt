@@ -1995,15 +1995,16 @@
 
 		"AbilityValues"
 		{
-				"bonus_all_stats"		"60"
+				"bonus_all_stats"		"80"
 				"bonus_health"			"600"
 				"bonus_mana"			"600"
-				"cold_slow_melee"		"-75"
-				"cold_attack_slow_melee"	"-70"
+				"cold_slow_melee"		"-60"
+				"cold_attack_slow_melee"	"-60"
 				"cold_slow_ranged"	"-75"
-				"cold_attack_slow_ranged"	"-70"
+				"cold_attack_slow_ranged"	"-60"
 				"cold_duration"	"4.0"
-				"heal_reduction"	"80"
+				"restoration_reduction" "70"	// 40
+				"heal_reduction"	"70"		// 40
 		}
 	}
 
@@ -2463,7 +2464,6 @@
 			"bonus_attack_speed"	"33"
 			"movement_speed_percent_bonus"				"12"
 			"hp_regen_amp"			"30"
-			"spell_lifesteal_amp"	"30"
 			"mana_regen_multiplier"	"60"
 			"spell_amp"				"18"
 			"magic_damage_attack"	"33"
@@ -2526,7 +2526,6 @@
 			"bonus_attack_speed"	"66"
 			"movement_speed_percent_bonus"				"18"
 			"hp_regen_amp"			"60"
-			"spell_lifesteal_amp"	"60"
 			"mana_regen_multiplier"	"90"
 			"spell_amp"				"36"
 			"magic_damage_attack"	"66"
@@ -3653,7 +3652,7 @@
 					"affected_by_aoe_increase"	"1"
 				}
 				"blast_speed"			"500"
-				"hp_regen_degen_aura"	"40"
+				"restoration_reduction_aura"	"40"	// 25
 				"illusion_multiplier_pct"	"150"
 				"spell_amp"			"40"
 				"resist_debuff_duration"	"16.0"
@@ -5301,12 +5300,12 @@
 					"value"	"1200"				// 800
 					"affected_by_aoe_increase"	"1"
 				}
-				"movement_slow"		"80"//50
-				"attack_slow"		"100"//50
-				"duration"		"6"//6
-				"damage_base"			"200"//100
-				"damage_pct_instant"		"100"//50
-				"damage_pct_over_time"		"200"//100
+				"movement_slow"		"80"			//50
+				"attack_slow"		"100"			//50
+				"duration"		"6"					//6
+				"damage_base"			"200"		//100
+				"damage_pct_instant"		"100"	//50
+				"damage_pct_over_time"		"200"	//100
 		}
 	}
 
@@ -5361,10 +5360,12 @@
 		{
 				"blink_range"			"1400"
 				"blink_damage_cooldown"	"3.0"
-				"blink_range_clamp"		"960"
+				"blink_range_clamp"		"1120"
 				"bonus_intellect"		"25"
-				"heal_amount"			"200"
+				"heal_amount"			"250"
 				"mana_amount"			"100"
+				"debuff_amp"			"0"
+				"duration"				"0"
 
 		}
 	}
@@ -5443,7 +5444,6 @@
 				"mana_regen_multiplier"		"100"	// 50
 				"spell_amp"				"30"		// 12
 				"hp_regen_amp"			"50"		// 25
-				"spell_lifesteal_amp"	"50"		// 25
 				"manacost_reduction"	"40"		// 25
 		}
 	}
@@ -5516,7 +5516,6 @@
 				"mana_regen_multiplier"	"100" // 50
 				"movement_speed_percent_bonus"	"30" // 12
 				"spell_amp"				"30" // 12
-				"spell_lifesteal_amp"	"50" // 25
 				"cast_speed_pct"		"50" // 25
 		}
 	}
@@ -5652,7 +5651,6 @@
 				"bonus_intellect"		"60"	//24
 				"spell_amp"				"30"	//10
 				"mana_regen_multiplier"	"150"	//50
-				"spell_lifesteal_amp"	"60"	//24
 
 				"burn_dps_buildings"	"60"	//50
 				"burn_dps_units"		"150"	//50
@@ -5663,7 +5661,7 @@
 				"land_time"				".5"	//0.5
 				"impact_radius"
 				{
-					"value"		"500"
+					"value"		"450"			// 400
 					"affected_by_aoe_increase"	"1"
 				}
 				"max_duration"		"1.5"			//2
@@ -5766,12 +5764,12 @@
 		}
 	}
 	//=================================================================================================================
-	// 神器法师泳衣
+	// 法师泳衣
 	//=================================================================================================================
 	"item_recipe_eternal_shroud_ultra"
 	{
 		"BaseClass"						"item_recipe_eternal_shroud"
-		"ItemCost"						"2600"
+		"ItemCost"						"2200"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"AbilityTextureName"			"item_recipe_eternal_shroud_ultra"
@@ -5793,11 +5791,11 @@
 			"bonus_spell_resist"					"40"	//20
 			"bonus_strength"						"30"	//10
 			"bonus_health"							"1000"	//250
-			"stack_threshold"						"500"	//300
-			"stack_duration"						"10"	//5
+			"stack_threshold"						"600"	//300
+			"stack_duration"						"8"		//5
 			"stack_resist"							"4.0"	//3.5
-			"mana_restore_pct"						"40"	//20
-			"max_stacks"							"10"	//6
+			"mana_restore_pct"						"50"	//25
+			"max_stacks"							"8"		//6
 		}
 	}
 }

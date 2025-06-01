@@ -78,7 +78,10 @@ export class Option {
         }
       }
     });
-    if (playerChosen !== 0) {
+    if (playerChosen === 0) {
+      // 如果没有人选择难度，则默认选择1
+      averageDifficulty = 1;
+    } else {
       averageDifficulty = averageDifficulty / playerChosen;
       // 四舍五入 FIXME 如果难度偏高 改成人数相同时优先选择低难度 + 0.4
       averageDifficulty = Math.floor(averageDifficulty + 0.5);

@@ -2,5 +2,5 @@
 {
 	"Shader"	"ui.vfx"
 	"F_TRANSLUCENT"	"0"
-	"Texture"	"materials/overviews/n6.png"
+	"Texture"	"materials/overviews/custom.png"
 }
