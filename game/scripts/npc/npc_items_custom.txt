@@ -1995,15 +1995,16 @@
 
 		"AbilityValues"
 		{
-				"bonus_all_stats"		"60"
+				"bonus_all_stats"		"80"
 				"bonus_health"			"600"
 				"bonus_mana"			"600"
-				"cold_slow_melee"		"-75"
-				"cold_attack_slow_melee"	"-70"
+				"cold_slow_melee"		"-60"
+				"cold_attack_slow_melee"	"-60"
 				"cold_slow_ranged"	"-75"
-				"cold_attack_slow_ranged"	"-70"
+				"cold_attack_slow_ranged"	"-60"
 				"cold_duration"	"4.0"
-				"heal_reduction"	"80"
+				"restoration_reduction" "70"	// 40
+				"heal_reduction"	"70"		// 40
 		}
 	}
 

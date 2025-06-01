@@ -1766,11 +1766,11 @@
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range_Description"	"可以无视射程限制攻击目标。"
 
 		// item_skadi_2 冰眼2
-		"DOTA_Tooltip_Ability_item_skadi_2"				"粘妈之眼"
-		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>被动：霜冻攻击</h1>攻击附带霜冻效果，可以降低敌人的移动速度和攻击速度，对敌方远程目标将减缓%cold_slow_ranged%%%移动速度，降低%cold_attack_slow_ranged%%%攻击速度。对敌方近战目标将减缓%cold_slow_melee%%%移动速度，降低%cold_attack_slow_melee%%%攻击速度。另外所有治疗、吸血和恢复效果降低%heal_reduction%%%。持续%cold_duration%秒。"
-		"DOTA_Tooltip_ability_item_skadi_2_Lore"									"极度罕见的古物，可以粘住网络喷子的妈妈。"
+		"DOTA_Tooltip_Ability_item_skadi_2"										"粘妈之眼"
+		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>被动：霜冻攻击</h1>攻击对敌方远程目标会减缓%cold_slow_ranged%%%移动速度，对敌方近战目标会减缓%cold_slow_melee%%%移动速度。攻击还会降低敌人%cold_attack_slow_melee%%%攻击速度。另外生命回复降低%restoration_reduction%%%，受到的治疗效果降低%heal_reduction%%%。持续%cold_duration%秒。"
+		"DOTA_Tooltip_ability_item_skadi_2_Lore"								"极度罕见的古物，可以粘住网络喷子的妈妈。"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_all_stats"						"+$all"
-		"DOTA_Tooltip_ability_item_skadi_2_bonus_health"							"+$health"
+		"DOTA_Tooltip_ability_item_skadi_2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_mana"							"+$mana"
 
 		// item_echo_sabre_2 回音刀2
@@ -1869,7 +1869,7 @@
 		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_Ability_item_sacred_trident_movement_speed_percent_bonus"	"%+$move_speed"
 		"DOTA_Tooltip_Ability_item_sacred_trident_status_resistance"					"%+状态抗性"
-		"DOTA_Tooltip_Ability_item_sacred_trident_hp_regen_amp"							"%+生命恢复和吸血增强"
+		"DOTA_Tooltip_Ability_item_sacred_trident_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_Ability_item_sacred_trident_magic_damage_attack"				"+魔法伤害攻击"
 		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									"传说是古希腊神话中海神波塞冬的象征物和武器，目前广泛用于渔民捕鱼。"
 
@@ -1884,7 +1884,7 @@
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_movement_speed_percent_bonus"	"%+$move_speed"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_status_resistance"					"%+状态抗性"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_hp_regen_amp"							"%+生命恢复和吸血增强"
+		"DOTA_Tooltip_Ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_magic_damage_attack"				"+魔法伤害攻击"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"凌波微步（移速）以及北冥神功（抗性），都是大理皇室段誉的武门绝学。本质上也不过是两把鱼叉而已。"
 
@@ -2199,7 +2199,7 @@
 		"DOTA_Tooltip_ability_item_sange_and_yasha_1_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_ability_item_sange_and_yasha_1_movement_speed_percent_bonus"	"%+$move_speed"
 		"DOTA_Tooltip_ability_item_sange_and_yasha_1_status_resistance"					"%+状态抗性"
-		"DOTA_Tooltip_ability_item_sange_and_yasha_1_hp_regen_amp"							"%+生命恢复和吸血增强"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_ability_item_sange_and_yasha_1_slow_resistance"							"%+减速抗性"
 
 		// item_kaya_and_sange_1 神散慧
@@ -2211,7 +2211,7 @@
 		"DOTA_Tooltip_ability_item_kaya_and_sange_1_spell_amp"					"%+技能增强"
 		"DOTA_Tooltip_ability_item_kaya_and_sange_1_mana_regen_multiplier"				"%+魔法恢复增强"
 		"DOTA_Tooltip_ability_item_kaya_and_sange_1_slow_resistance"					"%+减速抗性"
-		"DOTA_Tooltip_ability_item_kaya_and_sange_1_hp_regen_amp"							"%+生命恢复和吸血增强"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_ability_item_kaya_and_sange_1_manacost_reduction"				"%+魔法消耗/魔法损失降低"
 
 		// item_yasha_and_kaya_1 神慧夜
