@@ -1766,11 +1766,11 @@
 		"DOTA_Tooltip_modifier_item_hurricane_pike_2_range_Description"	"可以无视射程限制攻击目标。"
 
 		// item_skadi_2 冰眼2
-		"DOTA_Tooltip_Ability_item_skadi_2"				"粘妈之眼"
-		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>被动：霜冻攻击</h1>攻击附带霜冻效果，可以降低敌人的移动速度和攻击速度，对敌方远程目标将减缓%cold_slow_ranged%%%移动速度，降低%cold_attack_slow_ranged%%%攻击速度。对敌方近战目标将减缓%cold_slow_melee%%%移动速度，降低%cold_attack_slow_melee%%%攻击速度。另外所有治疗、吸血和恢复效果降低%heal_reduction%%%。持续%cold_duration%秒。"
-		"DOTA_Tooltip_ability_item_skadi_2_Lore"									"极度罕见的古物，可以粘住网络喷子的妈妈。"
+		"DOTA_Tooltip_Ability_item_skadi_2"										"粘妈之眼"
+		"DOTA_Tooltip_ability_item_skadi_2_Description"							"<h1>被动：霜冻攻击</h1>攻击对敌方远程目标会减缓%cold_slow_ranged%%%移动速度，对敌方近战目标会减缓%cold_slow_melee%%%移动速度。攻击还会降低敌人%cold_attack_slow_melee%%%攻击速度。另外生命回复降低%restoration_reduction%%%，受到的治疗效果降低%heal_reduction%%%。持续%cold_duration%秒。"
+		"DOTA_Tooltip_ability_item_skadi_2_Lore"								"极度罕见的古物，可以粘住网络喷子的妈妈。"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_all_stats"						"+$all"
-		"DOTA_Tooltip_ability_item_skadi_2_bonus_health"							"+$health"
+		"DOTA_Tooltip_ability_item_skadi_2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_mana"							"+$mana"
 
 		// item_echo_sabre_2 回音刀2
@@ -1785,7 +1785,7 @@
 
 		//  shivas_guard_2 西瓦2
 		"DOTA_Tooltip_Ability_item_shivas_guard_2"				"雅典娜的守护"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，使敌人受到的技能伤害增加%spell_amp%%%，持续%resist_debuff_duration%秒，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。对幻象造成%illusion_multiplier_pct%%%伤害。<br><br>作用范围：%blast_radius%\n\n<h1>被动：霜冷光环</h1>降低敌人%aura_attack_speed%攻击速度，和%hp_regen_degen_aura%%%所有治疗、恢复和吸血效果。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，使敌人受到的技能伤害增加%spell_amp%%%，持续%resist_debuff_duration%秒，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。对幻象造成%illusion_multiplier_pct%%%伤害。<br><br>作用范围：%blast_radius%\n\n<h1>被动：霜冷光环</h1>降低所有敌人%aura_attack_speed%攻击速度，%restoration_reduction_aura%%%生命回复和获得的治疗效果。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Lore"							"据说曾经属于某位女神希瓦，但是被宙斯送给雅典娜当玩具的后保留至今。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note0"							"极寒冲击的扩张速度为%blast_speed%，最大半径为%blast_radius%。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note1"							"极寒冲击将以施放者为中心。"
@@ -1869,9 +1869,8 @@
 		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_Ability_item_sacred_trident_movement_speed_percent_bonus"	"%+$move_speed"
 		"DOTA_Tooltip_Ability_item_sacred_trident_status_resistance"					"%+状态抗性"
-		"DOTA_Tooltip_Ability_item_sacred_trident_hp_regen_amp"							"%+生命恢复和吸血增强"
+		"DOTA_Tooltip_Ability_item_sacred_trident_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_Ability_item_sacred_trident_magic_damage_attack"				"+魔法伤害攻击"
-		"DOTA_Tooltip_Ability_item_sacred_trident_spell_lifesteal_amp"				"%+技能吸血增强"
 		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									"传说是古希腊神话中海神波塞冬的象征物和武器，目前广泛用于渔民捕鱼。"
 
 		// item_six_vein 六脉神剑
@@ -1885,9 +1884,8 @@
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_movement_speed_percent_bonus"	"%+$move_speed"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_status_resistance"					"%+状态抗性"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_hp_regen_amp"							"%+生命恢复和吸血增强"
+		"DOTA_Tooltip_Ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_magic_damage_attack"				"+魔法伤害攻击"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_lifesteal_amp"				"%+技能吸血增强"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"凌波微步（移速）以及北冥神功（抗性），都是大理皇室段誉的武门绝学。本质上也不过是两把鱼叉而已。"
 
 		// item_abyssal_blade_v2 一闪
@@ -2201,7 +2199,7 @@
 		"DOTA_Tooltip_ability_item_sange_and_yasha_1_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_ability_item_sange_and_yasha_1_movement_speed_percent_bonus"	"%+$move_speed"
 		"DOTA_Tooltip_ability_item_sange_and_yasha_1_status_resistance"					"%+状态抗性"
-		"DOTA_Tooltip_ability_item_sange_and_yasha_1_hp_regen_amp"							"%+生命恢复和吸血增强"
+		"DOTA_Tooltip_ability_item_sange_and_yasha_1_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_ability_item_sange_and_yasha_1_slow_resistance"							"%+减速抗性"
 
 		// item_kaya_and_sange_1 神散慧
@@ -2213,8 +2211,7 @@
 		"DOTA_Tooltip_ability_item_kaya_and_sange_1_spell_amp"					"%+技能增强"
 		"DOTA_Tooltip_ability_item_kaya_and_sange_1_mana_regen_multiplier"				"%+魔法恢复增强"
 		"DOTA_Tooltip_ability_item_kaya_and_sange_1_slow_resistance"					"%+减速抗性"
-		"DOTA_Tooltip_ability_item_kaya_and_sange_1_hp_regen_amp"							"%+生命恢复和吸血增强"
-		"DOTA_Tooltip_ability_item_kaya_and_sange_1_spell_lifesteal_amp"				"%+技能吸血增强"
+		"DOTA_Tooltip_ability_item_kaya_and_sange_1_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_ability_item_kaya_and_sange_1_manacost_reduction"				"%+魔法消耗/魔法损失降低"
 
 		// item_yasha_and_kaya_1 神慧夜
@@ -2226,7 +2223,6 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_agility"							"+$agi"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
-		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_spell_lifesteal_amp"				"%+技能吸血增强"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+施法速度加成"
 
 		// 神器除你武器
@@ -2264,7 +2260,6 @@
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_bonus_intellect"					"+$int"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_spell_amp"						"%+技能增强"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_mana_regen_multiplier"				"%+魔法恢复增强"
-		"DOTA_Tooltip_ability_item_meteor_hammer_2_spell_lifesteal_amp"				"%+技能吸血增强"
 		"DOTA_Tooltip_modifier_item_meteor_hammer_2_burn"						"陨星锤烧灼"
 		"DOTA_Tooltip_modifier_item_meteor_hammer_2_burn_Description"			"被减速，持续受到%dMODIFIER_PROPERTY_TOOLTIP%点伤害，伤害间隔为%dMODIFIER_PROPERTY_TOOLTIP2%秒。"
 
@@ -2318,14 +2313,14 @@
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
 
-		// 神器 法师泳衣
-		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"			"<font color='#e03e2e'>神器·法师泳衣</font>"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"    		"<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n\n<h1>被动：潜水服</h1>装备的英雄每受到%stack_threshold%点技能伤害，就会获得一层持续%stack_duration%秒的叠加效果，最多为%max_stacks%层。每层效果会使法师泳衣的魔法抗性提升%stack_resist%%%。"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"		"在法师堆中畅泳吧！"
+		// 法师泳衣
+		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"						"法师泳衣"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"			"<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n\n<h1>被动：潜水服</h1>装备的英雄每受到%stack_threshold%点技能伤害，就会获得一层持续%stack_duration%秒的叠加效果，最多为%max_stacks%层。每层效果会使法师泳衣的魔法抗性提升%stack_resist%%%。"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"					"在法师堆中畅泳吧！"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_spell_resist"		"%+$spell_resist"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"				"+$str"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"				"+$armor"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"		"+$health"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"			"+$str"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"			"+$health"
 
 		// 力量法则碎片
 		"DOTA_Tooltip_Ability_item_imp_claw"				"力量法则碎片"
