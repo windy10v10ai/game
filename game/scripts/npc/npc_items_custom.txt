@@ -3652,7 +3652,7 @@
 					"affected_by_aoe_increase"	"1"
 				}
 				"blast_speed"			"500"
-				"hp_regen_degen_aura"	"40"
+				"restoration_reduction_aura"	"40"	// 25
 				"illusion_multiplier_pct"	"150"
 				"spell_amp"			"40"
 				"resist_debuff_duration"	"16.0"
