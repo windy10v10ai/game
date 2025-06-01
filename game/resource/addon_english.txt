@@ -1859,7 +1859,6 @@
 		"DOTA_Tooltip_Ability_item_sacred_trident_status_resistance"					"%+Status Resistance"
 		"DOTA_Tooltip_Ability_item_sacred_trident_hp_regen_amp"							"%+Health Regen and Lifesteal Amp"
 		"DOTA_Tooltip_Ability_item_sacred_trident_magic_damage_attack"				"+Magic Attack Damage"
-		"DOTA_Tooltip_Ability_item_sacred_trident_spell_lifesteal_amp"				"%+Spell Lifesteal Amplification"
 
 		"DOTA_Tooltip_ability_item_sacred_trident_Lore"						"The three mythical blades that were never seen all together in harmony, now combined as one."
 
@@ -1876,7 +1875,6 @@
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_status_resistance"					"%+Status Resistance"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_hp_regen_amp"							"%+Health Regen and Lifesteal Amp"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_magic_damage_attack"				"+Magic Attack Damage"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_lifesteal_amp"				"%+Spell Lifesteal Amplification"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"					"It would be insane to find a pair of each of the three swords of legends and combine them all, but the power found in them all would be unmatched..."
 
 		// item_abyssal_blade_v2 一闪
@@ -2213,7 +2211,6 @@
 		"DOTA_Tooltip_ability_item_kaya_and_sange_1_mana_regen_multiplier"				"%+Mana Regen Amplification"
 		"DOTA_Tooltip_ability_item_kaya_and_sange_1_slow_resistance"					"%+Slow Resistance"
 		"DOTA_Tooltip_ability_item_kaya_and_sange_1_hp_regen_amp"							"%+Health Regen and Lifesteal Amp"
-		"DOTA_Tooltip_ability_item_kaya_and_sange_1_spell_lifesteal_amp"				"%+Spell Lifesteal Amplification"
 		"DOTA_Tooltip_ability_item_kaya_and_sange_1_manacost_reduction"				"%+Mana Cost/Mana Loss Reduction"
 
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1"							"<font color='#80f0ff'>Ultra</font> Yasha and Kaya"
@@ -2224,7 +2221,6 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_agility"							"+$agi"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
-		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_spell_lifesteal_amp"				"%+Spell Lifesteal Amplification"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+Cast Speed Bonus"
 
 		// 神器除你武器
@@ -2262,7 +2258,6 @@
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_bonus_intellect"					"+$int"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_spell_amp"						"%+ Spell Amplification"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_mana_regen_multiplier"				"%+ Mana Regeneration Amplification"
-		"DOTA_Tooltip_ability_item_meteor_hammer_2_spell_lifesteal_amp"				"%+ Spell Lifesteal Amplification"
 		"DOTA_Tooltip_modifier_item_meteor_hammer_2_burn"						"Meteor Hammer Burn"
 		"DOTA_Tooltip_modifier_item_meteor_hammer_2_burn_Description"			"Slowed and taking %dMODIFIER_PROPERTY_TOOLTIP% damage every %dMODIFIER_PROPERTY_TOOLTIP2% seconds."
 
