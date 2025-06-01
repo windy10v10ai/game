@@ -5301,12 +5301,12 @@
 					"value"	"1200"				// 800
 					"affected_by_aoe_increase"	"1"
 				}
-				"movement_slow"		"80"//50
-				"attack_slow"		"100"//50
-				"duration"		"6"//6
-				"damage_base"			"200"//100
-				"damage_pct_instant"		"100"//50
-				"damage_pct_over_time"		"200"//100
+				"movement_slow"		"80"			//50
+				"attack_slow"		"100"			//50
+				"duration"		"6"					//6
+				"damage_base"			"200"		//100
+				"damage_pct_instant"		"100"	//50
+				"damage_pct_over_time"		"200"	//100
 		}
 	}
 
@@ -5361,10 +5361,12 @@
 		{
 				"blink_range"			"1400"
 				"blink_damage_cooldown"	"3.0"
-				"blink_range_clamp"		"960"
+				"blink_range_clamp"		"1120"
 				"bonus_intellect"		"25"
-				"heal_amount"			"200"
+				"heal_amount"			"250"
 				"mana_amount"			"100"
+				"debuff_amp"			"0"
+				"duration"				"0"
 
 		}
 	}
