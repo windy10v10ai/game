@@ -51,7 +51,7 @@
 		{
 			"bonus_gpm"			"600 1000"			// 75 100
 			"bonus_mana"		"300 600"			// 200 250
-			"bonus_damage"		"-30 -60"			// -30 -60
+			"bonus_damage"		"-20 -40"			// -30 -60
 		}
 	}
 	// 坚强 攻击护甲
@@ -137,9 +137,9 @@
 	{
 		"AbilityValues"
 		{
-			"health_restoration"		"25 50"				// 20 30
-			"bat_reduce"				"15 30"				// 12 18
-			"intelligence_pct"			"-8 -15"			// -8
+			"health_restoration"		"35 60"				// 30 40
+			"bat_reduce"				"18 30"				// 12 18
+			"intelligence_pct"			"-5 -10"			// -5
 		}
 	}
 	// 无边 攻击距离施法距离 4&5级
