@@ -309,7 +309,6 @@
 		"item"		"item_ward_observer"
 		"item"		"item_ward_sentry"
 		"item"		"item_blood_grenade"		// 血腥榴弹
-		"item"		"item_infused_raindrop"		// 凝魂之露
 		"item"		"item_bottle"				// 魔瓶
 		// "item"		"item_branches"
 		// "item"		"item_gauntlets"
@@ -323,10 +322,10 @@
 		"item"		"item_fluffy_hat"
 		"item"		"item_blight_stone"
 		"item"		"item_orb_of_venom"
-		"item"		"item_orb_of_corrosion"		// 腐蚀之球
+		"item"		"item_orb_of_corrosion"		// 腐蚀之珠
 		"item"		"item_wind_lace"
-		// "item"		"item_magic_stick"
-		"item"		"item_magic_wand"			// 魔棒
+		// "item"		"item_magic_stick"		// 魔棒
+		"item"		"item_magic_wand"			// 魔杖
 		// "item"		"item_sobi_mask"
 		// "item"		"item_ring_of_regen"
 		"item"		"item_boots"
@@ -345,6 +344,42 @@
 		"item"		"veil_of_discord"			// 纷争面纱
 		"item"		"item_echo_sabre"			// 回音战刃
 		"item"		"item_holy_locket"			// 圣洁吊坠
+		"item"		"item_hand_of_midas"		// 迈达斯之手
+	}
+
+	"pregame_consumables"
+	{
+		"item"		"item_tango"
+		"item"		"item_faerie_fire"
+		"item"		"item_flask"
+		"item"		"item_dust"
+
+		"item"		"item_clarity"
+		"item"		"item_enchanted_mango"
+		"item"		"item_magic_wand"			// 魔杖
+		"item"		"item_holy_locket"			// 圣洁吊坠
+
+		"item"		"item_infused_raindrop"		// 凝魂之露
+		"item"		"item_bottle"				// 魔瓶
+		"item"		"item_quelling_blade_2_datadriven"	// 毒瘤之刃
+		"item"		"item_orb_of_corrosion"		// 腐蚀之珠
+	}
+
+	"pregame_attributes"
+	{
+		"item"		"item_bracer"				// 护腕
+		"item"		"item_wraith_band"			// 怨灵细带
+		"item"		"item_null_talisman"		// 空灵挂件
+		"item"		"item_pavise"				// 长盾
+
+		"item"		"item_arcane_boots"			// 秘法鞋
+		"item"		"item_power_treads"			// 动力鞋
+		"item"		"item_phase_boots"			// 相位鞋
+		"item"		"item_force_staff"			// 原力法杖
+
+		"item"		"item_glimmer_cape"			// 微光披风
+		"item"		"item_falcon_blade"			// 猎鹰战刃
+		"item"		"item_echo_sabre"			// 回音战刃
 		"item"		"item_hand_of_midas"		// 迈达斯之手
 	}
 }
