@@ -60,13 +60,14 @@ nvm use $(Get-Content .nvmrc)
 npm run start
 ```
 
-## Optional Command
+## VConsole Command
 
-> Run in Dota2 Console
+> Run in Dota2 VConsole
 
 ```bash
 # launch/relaunch custom game
 dota_launch_custom_game windy10v10ai dota
+dota_launch_custom_game windy10v10ai custom
 # show game end panel
 dota_custom_ui_debug_panel 7
 # reload lua
