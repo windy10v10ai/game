@@ -274,13 +274,11 @@
 	//=================================================================================================================
 	// Ability: Abaddon 亚巴顿
 	//=================================================================================================================
-	// 死亡缠绕
+	// 迷雾缠绕 死亡缠绕
 	"abaddon_death_coil"
 	{
 		"MaxLevel" "5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES_ENEMIES_YES"
-		"AbilityCastRange"				"800"	//625
-		"AbilityCooldown"				"5.0"
+		"AbilityCooldown"				"7.0 6.5 6.0 5.5 5.0"
 		"AbilityValues"
 		{
 			"target_damage"
@@ -296,8 +294,12 @@
 			"effect_radius"
 			{
 				"value"				"0"
-				"special_bonus_unique_abaddon_4"	"+600"
-				"affected_by_aoe_increase"	"1"
+				"special_bonus_unique_abaddon_4"	"+500"
+			}
+			"damage_percentage_on_perform_attack"
+			{
+				"value"										"0"
+				"special_bonus_facet_abaddon_mists_of_fate"	"=40 =60 =80 =100 =120"
 			}
 		}
 	}
@@ -313,19 +315,16 @@
 			"AbilityCooldown"
 			{
 				"value"				"12 10 8 6 4"
-				"special_bonus_facet_abaddon_mephitic_shroud" "+2"
 			}
 			"damage_absorb"
 			{
 				"value"			"120 160 200 240 280"
-				"special_bonus_facet_abaddon_mephitic_shroud"		"=240 =300 =360 =440 =500"
 				"special_bonus_unique_abaddon"		"+220"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
 			"regen"
 			{
 				"value"			"0"
-				"special_bonus_unique_abaddon_7"		"+60"
+				"special_bonus_unique_abaddon_7"		"+30"	// 12
 			}
 		}
 	}
@@ -334,13 +333,12 @@
 	{
 		"AbilityValues"
 		{
-			"hp_threshold_pct"		"80.0"
+			"hp_threshold_pct"		"60.0"
 			"heal_reduction_pct"
 			{
 				"value"				"40"
 				"special_bonus_unique_abaddon_6"		"+20"
 			}
-			"duration"				"5.0"
 		}
 	}
 	// 魔霭诅咒
@@ -3727,23 +3725,23 @@
 			}
 			"shield_per_sec"
 			{
-				"value"  		"200"// 100 相当于无法被减治疗只能被否决的回血
+				"value"  		"200"// 100
 			}
 			"shield_per_sec_per_enemy"
 			{
-				"value"  		"150"// 75 相当于无法被减治疗只能被否决的回血
+				"value"  		"150"// 75
 			}
 			"max_shield"
 			{
-				"value"		"2400"// 800 十个人
+				"value"		"2400"// 800
 
 			}
 		}
 	}
-	// 锯齿飞轮 疑似4级有贴图bug
+	// 锯齿飞轮
 	"shredder_chakram"
 	{
-		// "MaxLevel" "4"
+		// "MaxLevel" "4" 疑似4级有贴图bug
 		"AbilityManaCost"				"140 180 220"
 		"AbilityValues"
 		{
@@ -3758,10 +3756,10 @@
 				"mana_per_second"		"22 30 38"
 		}
 	}
-	// 锯齿旋轮 疑似4级有贴图bug
+	// 锯齿旋轮
 	"shredder_twisted_chakram"
 	{
-		// "MaxLevel" "4"
+		// "MaxLevel" "4" 疑似4级有贴图bug
 		"AbilityCooldown"				"16 12 8"
 		"AbilityManaCost"				"140 180 220"
 		"AbilityValues"
@@ -3772,10 +3770,9 @@
 	// 暴露疗法 跟随大招等级
 	"shredder_exposure_therapy"
 	{
-		"MaxLevel"						"4"
 		"AbilityValues"
 		{
-			"mana_restore"					"15 20 25 30"
+			"mana_restore"					"8 12 16 20"
 		}
 	}
 
