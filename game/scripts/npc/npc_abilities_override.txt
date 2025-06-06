@@ -13853,15 +13853,7 @@
 	//=================================================================================================================
 	// Kez: Echo Slash 凯
 	//=================================================================================================================
-	"kez_switch_weapons"
-	{
-		"MaxLevel"	"5"
-		"AbilityValues"
-		{
-			"katana_base_attack_time"							"1.7"
-			"scepter_cooldown_timer"							"5"
-		}
-	}
+	// 回音重斩
 	"kez_echo_slash"
 	{
 		"MaxLevel"	"5"
@@ -13875,10 +13867,11 @@
 			}
 			"echo_hero_damage"
 			{
-				"value"													"25 45 65 85 105"
+				"value"													"20 40 60 80 100"
 			}
 		}
 	}
+	// 制敌爪钩
 	"kez_grappling_claw"
 	{
 		"MaxLevel"	"5"
@@ -13890,21 +13883,19 @@
 			"lifesteal_pct"					"65 85 105 125 145"
 		}
 	}
+	// 影武长刀
 	"kez_kazurai_katana"
 	{
 		"MaxLevel"	"5"
 		"AbilityValues"
 		{
-			"katana_base_attack_time"						"1.7"
-			"katana_bleed_duration"							"5.0 6.0 7.0 8.0 9.0"
 			"katana_bleed_attack_damage_pct"
 			{
 				"value"															"7 8 9 10 11"
-				"special_bonus_unique_kez_kazura_katana_bleed_damage"			"+7.0"
 			}
-			"heal_reduction_pct"												"40 45 50 55 60"
 		}
 	}
+	// 猛禽之舞
 	"kez_raptor_dance"
 	{
 		"MaxLevel"	"4"
@@ -13916,17 +13907,17 @@
 				"value"		"45 40 35 30"
 			}
 
-			"strikes"												"2 3 4 5"
 			"base_damage"
 			{
-				"value"				 "200"	// 75
+				"value" 				"30 60 90 120"
 			}
 			"max_health_damage_pct"
 			{
-				"value"				 "5"	// 4
+				"value"				 "4"	// 3
 			}
 		}
 	}
+	// 天隼冲击
 	"kez_falcon_rush"
 	{
 		"MaxLevel"	"5"
@@ -13934,51 +13925,63 @@
 		"AbilityManaCost"				"85 90 95 100 105"
 		"AbilityValues"
 		{
-			"base_attack_rate_katana"		"1.5 1.4 1.3 1.2 1.1"
-			"base_attack_rate_sai"			"1.3 1.2 1.1 1.0 0.9"
+			"echo_damage"
+			{
+				"value"						"45 55 65 75 85"
+			}
+			"slow_resist"					"15 30 45 60 75"
+			"base_attack_rate"				"1.3 1.2 1.1 1.0 0.9"
+			"base_attack_rate_katana_tooltip"		"1.5 1.4 1.3 1.2 1.1"
 			"attack_speed_factor"		"6 8 10 12 14"
 		}
 	}
+	// 利爪飞掷
 	"kez_talon_toss"
 	{
 		"MaxLevel"	"5"
-		"AbilityCooldown"				"12 10 8 6 4"
+		"AbilityCooldown"				"13 11 9 7 5"
 		"AbilityValues"
 		{
 			"damage"
 			{
 				"value"					"75 150 225 300 375"	// 75 125 175 225
 			}
-			"silence_duration"			"1.75 2.0 2.25 2.5 2.75"
+			"silence_duration"			"2.0 2.25 2.5 2.75 3.0"
 		}
 	}
+	// 翔影之钗
 	"kez_shodo_sai"
 	{
 		"MaxLevel"	"5"
 		"AbilityManaCost"				"30 20 10 0 0"
-		"AbilityCooldown"				"12 9 6 3 0"
+		"AbilityCooldown"				"20 16 12 8 4"
 		"AbilityValues"
 		{
 			"base_crit_pct"
 			{
 				"value"												"140 160 180 200 220"
-				"special_bonus_unique_kez_mark_damage"				"+80"
 			}
-			// Parry below here
-			"parry_bonus_crit"										"25 50 75 100 125"
+			"parry_bonus_crit"
+			{
+				"value"												"20"	//4
+			}
 		}
 	}
+	// 渡鸦之纱
 	"kez_ravens_veil"
 	{
 		"MaxLevel"	"4"
-		"AbilityManaCost"			   "100 125 150 175"
+		"AbilityManaCost"				"100 125 150 175"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"		"40 32 24 16"
+				"value"		"40 35 30 25"
 			}
-			"buff_duration"											"7 8 9 10"
+			"buff_duration"
+			{
+				"value"												"7 8 9 10"
+			}
 			"bonus_ms"												"15 25 35 45"
 		}
 	}
@@ -13988,8 +13991,7 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"mark_trigger_cd_reduction"			"20 30 40 50 60"
-			"invis_bonus_crit"				"40 60 80 100 120"
+			"invis_bonus_crit"					"30 45 60 75 90"
 		}
 	}
 }
