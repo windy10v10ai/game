@@ -6048,17 +6048,16 @@
 	"gyrocopter_flak_cannon"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"40 50 60 70 80"
+		"AbilityManaCost"				"50 60 70 80 90"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"					"26 24 22 20 18"
-				"special_bonus_unique_gyrocopter_1"		"-6"
+				"value"					"28 26 24 22 20"
 			}
 			"max_attacks"
 			{
-				"value"					"6 7 8 9 10"	// +2
+				"value"					"5 6 7 8 9"	// +1
 				"special_bonus_unique_gyrocopter_2"			"+5"	// 3
 			}
 			"sidegunner_fire_rate"
@@ -6082,7 +6081,7 @@
 				}
 				"damage"
 				{
-					"value"					"500 850 1200 1550"	// 250 425 600
+					"value"					"400 680 960 1240"	// 250 425 600
 				}
 		}
 	}
