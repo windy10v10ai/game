@@ -5512,7 +5512,7 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"gold_steal"					"2 4 6 8 10"
+			"gold_steal"					"4 8 12 16 20"
 		}
 	}
 	//=================================================================================================================
@@ -6236,17 +6236,16 @@
 	"juggernaut_blade_fury"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"120 110 100 90 80"
+		"AbilityManaCost"				"105 110 115 120 125"
 		"AbilityValues"
 		{
-			"blade_fury_damage_per_tick"
+			"blade_fury_damage"
 			{
-				"value"				"40 45 50 55 60"
+				"value"		"80 110 140 170 200"
 			}
 			"AbilityCooldown"
 			{
-				"value"					"36 30 24 18 15"
-				"special_bonus_unique_juggernaut_blade_fury_cooldown"		"-4"
+				"value"					"33 30 26 22 18"
 			}
 		}
 	}
@@ -6254,13 +6253,11 @@
 	"juggernaut_healing_ward"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"60.0 55.0 50.0 45.0 40.0"
-		"AbilityManaCost"				"140 130 120 110 100"
 		"AbilityValues"
 		{
 				"healing_ward_heal_amount"
 				{
-					"value"			"2 3 4 5 6"
+					"value"			"3 3.5 4 4.5 5"
 				}
 				"healing_ward_aura_radius"
 				{
@@ -6290,7 +6287,6 @@
 			"duration"
 			{
 				"value"						"3.0 3.3 3.6 4.0"
-				"special_bonus_unique_juggernaut_omnislash_duration"			"+1"
 			}
 		}
 	}
