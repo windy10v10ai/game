@@ -2350,6 +2350,19 @@
 			}
 		}
 	}
+	// 迎难而战
+	"legion_commander_outfight_them"
+	{
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"heal_bonus_pct"
+			{
+				"value"						"30 40 50 60 70"
+			}
+		}
+	}
 	//=================================================================================================================
 	// Ability: Life Stealer 噬魂鬼 小狗
 	//=================================================================================================================
@@ -2997,7 +3010,6 @@
 	"omniknight_hammer_of_purity"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"30 35 40 45 50"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -3008,7 +3020,8 @@
 			{
 				"value"		"55 70 85 100 115"
 			}
-			"bonus_damage"	"55 80 105 130 155"
+			"bonus_damage"	"25 50 75 100 125"
+			"attack_range_bonus"		"125"	// 75
 		}
 	}
 	// 洗礼
@@ -3425,7 +3438,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Rattletrap 发条地精
+	// Ability: Rattletrap 发条技师
 	//=================================================================================================================
 	// 弹幕冲击
 	"rattletrap_battery_assault"
@@ -3455,6 +3468,7 @@
 			"mana_burn"
 			{
 				"value"				"100 160 220 280 340"	// x2
+				"special_bonus_unique_clockwerk_2"	"+160"	// 70
 			}
 			"attacks_to_destroy"
 			{
@@ -3478,7 +3492,6 @@
 			"damage"
 			{
 				"value"		"160 240 320 400 480"	// x2
-				"special_bonus_unique_clockwerk_flare_damage"	"+150"
 			}
 			"AbilityCooldown"
 			{
@@ -3870,8 +3883,7 @@
 		{
 			"vampiric_aura"
 			{
-				"value"									"16 24 32 40 48"
-				"special_bonus_unique_wraith_king_2"	"+22"		// +10
+				"value"									"10 20 30 40 50"
 			}
 			"duration"
 			{
@@ -8918,7 +8930,7 @@
 				"special_bonus_unique_viper_2"	"+120"
 			}
 			"bonus_movement_speed"	"-60 -70 -80 -90"
-			"bonus_attack_speed"	"-80 -120 -160 -200"
+			"bonus_attack_speed"	"-100 -140 -180 -220"
 			"AbilityCooldown"
 			{
 				"value"				"55 45 35 25"
@@ -13564,7 +13576,6 @@
 				"damage_health_pct"
 				{
 					"value"								"2.5 3.0 3.5 4.0 4.5"
-					"special_bonus_unique_zeus_static_field_dmg"		"+1"
 				}
 				"damage_health_pct_max_close"
 				{
