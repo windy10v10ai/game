@@ -4981,10 +4981,9 @@
 			"creep_damage"				"36 54 72 90 120"	// 12 18 24 30
 			"hero_damage"
 			{
-				"value"				"60 100 210 270 330"	// 30 50 70 90
-				"special_bonus_unique_wisp"		"+180"		// +60
+				"value"				"60 100 140 180 220"	// 30 50 70 90
+				"special_bonus_unique_wisp"		"+120"		// +60
 			}
-			"revolution_time"			"10.0 10.0 10.0 10.0 10.0"
 			"max_range"
 			{
 					"value"		"850"
@@ -5005,7 +5004,6 @@
 				"value"		"200"						// 150
 				"affected_by_aoe_increase"	"1"
 			}
-			"spirit_duration"			"10.0"
 			"scepter_slow_duration"
 			{
 				"value"			"0"
@@ -5017,8 +5015,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"				"40.0"
-				"special_bonus_scepter"			"-25%"
+				"value"				"20.0"
 			}
 		}
 	}
