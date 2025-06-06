@@ -1540,8 +1540,8 @@
 	"earthshaker_fissure"
 	{
 		"MaxLevel" "5"
-		"AbilityCastPoint"				"0.39"	// 0.69
-		"AbilityManaCost"				"120 130 140 150 160"
+		"AbilityCastPoint"				"0.3"	// 0.69
+		"AbilityManaCost"				"120 125 130 135 140"
 		"AbilityValues"
 		{
 			"fissure_duration"			"6.5"
@@ -1554,7 +1554,6 @@
 			"AbilityCooldown"
 			{
 				"value"			"18 17 16 15 14"
-				"special_bonus_shard"		"-2"
 			}
 		}
 	}
@@ -1602,10 +1601,6 @@
 		"AbilityDuration"				"0.8 1.0 1.2 1.4 1.6"
 		"AbilityValues"
 		{
-				"aftershock_range"
-				{
-					"value"		"400"	// 350
-				}
 				"aftershock_damage"
 				{
 					"value"		"140 200 260 320 380"	// x2
@@ -1623,13 +1618,12 @@
 		{
 				"echo_slam_echo_damage"
 				{
-					"value"				"130 170 210 250"
-				"special_bonus_unique_earthshaker_2" "+100"	// 50
+					"value"				"90 120 150 180"
 				}
 				"echo_slam_initial_damage"		"200 280 360 440"	// x2
 				"AbilityCooldown"
 				{
-					"value"										"120.0 110.0 100.0 90.0"
+					"value"										"90.0"
 					"special_bonus_unique_earthshaker_echo_cd"	"-50%"
 				}
 		}
@@ -8424,7 +8418,7 @@
 			"maim_attack_slow"				"8 16 24 32 40"	//note:currently unused in code, just tooltips.
 			"maim_damage"
 			{
-				"value"					"5 10 15 20 25"
+				"value"					"10 15 20 25 30"
 			}
 		}
 	}
