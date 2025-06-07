@@ -1,5 +1,5 @@
 export class GameConfig {
-  public static readonly GAME_VERSION = 'v4.35';
+  public static readonly GAME_VERSION = 'v4.36';
   public static readonly MEMBER_BUYBACK_CD = 120;
   public static readonly PRE_GAME_TIME = 60;
   // 英雄击杀经验系数
@@ -66,8 +66,8 @@ export class GameConfig {
 
     if (IsInToolsMode()) {
       print('[GameConfig] IsInToolsMode set');
-      // GameRules.SetCustomGameSetupAutoLaunchDelay(5);
-      GameRules.SetHeroSelectionTime(15);
+      GameRules.SetCustomGameSetupAutoLaunchDelay(5);
+      // GameRules.SetHeroSelectionTime(15);
       // GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       // GameRules.SetStrategyTime(5);
       // GameRules.SetPreGameTime(15); // 进入游戏后号角吹响前的准备时间
