@@ -9669,7 +9669,6 @@
 	"dazzle_shallow_grave"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"600 700 800 900 1000"
 		"AbilityCooldown"				"36 32 28 24 20"
 		"AbilityManaCost"				"120 130 140 150 160"
 		"AbilityValues"
@@ -9713,8 +9712,8 @@
 	"dazzle_good_juju"
 	{
 		"MaxLevel" "4"
-		"LinkedAbility"					"dazzle_bad_juju"
-		"AbilityDraftPreAbility"		"dazzle_bad_juju"
+		"LinkedAbility"					"dazzle_nothl_projection"
+		"AbilityDraftPreAbility"		"dazzle_nothl_projection"
 		"AbilityValues"
 		{
 				"cooldown_reduction"		"1 1.25 1.5 1.75"
@@ -9726,11 +9725,23 @@
 		"MaxLevel" "4"
 		"LinkedAbility"					"dazzle_good_juju"
 		"AbilityDraftPreAbility"		"dazzle_good_juju"
+		"AbilityCooldown"				"6"
 		"AbilityHealthCost"				"75 100 125 150"
 		"AbilityValues"
 		{
 			"cooldown_reduction"			"3 4 5 6"	// 4 5 6
-			"mana_cost_increase_pct"		"30"		// 40
+		}
+	}
+	// 编织
+	"dazzle_innate_weave"
+	{
+		"MaxLevel" "5"
+		"AbilityValues"
+		{
+			"armor_change"
+			{
+				"value"									"0.5 0.75 1.0 1.25 1.5"
+			}
 		}
 	}
 	//=================================================================================================================
