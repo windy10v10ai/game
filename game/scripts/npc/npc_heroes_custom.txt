@@ -973,7 +973,7 @@
 				"25"		"special_bonus_unique_dazzle_1"
 				"26"		""
 				"27"		"special_bonus_mp_regen_175"
-				"28"		"special_bonus_attack_speed_90"
+				"28"		"special_bonus_unique_dazzle_nothl_projection_duration"
 				"29"		"special_bonus_unique_dazzle_shallow_grave_cooldown"
 				"30"		"special_bonus_unique_dazzle_4"
 				"31"		"dazzle_good_juju"
