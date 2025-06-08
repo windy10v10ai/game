@@ -78,13 +78,17 @@ jobs:
 
             ## Release Note
 
+            ```
             [b]游戏性更新 ${{ steps.version.outputs.version }}[/b]
 
             修正一些bug和平衡性改动。
+            ```
 
+            ```
             [b]Gameplay update ${{ steps.version.outputs.version }}[/b]
 
             Fixed some bugs and balance.
+            ```
           branch: develop
           base: main
           reviewers: windybirth
