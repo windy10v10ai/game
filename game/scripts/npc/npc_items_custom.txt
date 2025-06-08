@@ -4961,7 +4961,7 @@
 			"bonus_spell_amp"		"100"
 			"bonus_damage_percent"	"100"
 
-			"ruin_chance_tooltip"	"66"
+			"ruin_chance_tooltip"	"33"
 		}
 		"Modifiers"
 		{
