@@ -12943,21 +12943,19 @@
 	"void_spirit_aether_remnant"
 	{
 		"MaxLevel" "5"
-		// "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" //限时强化用
 		"AbilityManaCost"				"75 80 85 90 95"
 		"AbilityValues"
 		{
 			"impact_damage"
 			{
-				"value"			"80 130 180 230 280"
-				"special_bonus_unique_void_spirit_2"	"+80"
+				"value"			"90 140 190 240 290"
+				"special_bonus_unique_void_spirit_2"	"+110"	// +60
 			}
-			"pull_duration"			"1.2 1.4 1.6 1.8 2.0"
+			"pull_duration"			"1.0 1.2 1.4 1.6 1.8"
 			"pull_destination"		"44 50 56 62 68"
 			"AbilityCooldown"
 			{
 				"value"							"17.0 15.0 13.0 11.0 9.0"
-				"special_bonus_shard"			"-2"
 			}
 		}
 	}
@@ -12997,7 +12995,6 @@
 	"void_spirit_resonant_pulse"
 	{
 		"MaxLevel" "5"
-		// "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" //限时强化用
 		"AbilityManaCost"				"115 120 125 130 135"
 		"AbilityValues"
 		{
@@ -13012,21 +13009,23 @@
 				}
 				"damage"
 				{
-					"value"			"120 210 300 390 480"
-					"special_bonus_unique_void_spirit_4"	"+210"
+					"value"			"120 220 320 420 520"	// x2
+					"special_bonus_unique_void_spirit_4"	"+180"	// +40
 				}
 				"base_absorb_amount"
 				{
-					"value"			"160 240 320 400 480"
+					"value"			"100 200 300 400 500"	// x4
+					"special_bonus_unique_void_spirit_resonant_pulse_barrier"			"+50%"	// +20%
 				}
 				"absorb_per_hero_hit"
 				{
-					"value"												"90 130 170 210 250"	// x2
-					"special_bonus_facet_void_spirit_sanctuary"			"+20 +40 +60 +80 +100"
+					"value"												"70 100 130 160 190"	// x2
+					"special_bonus_facet_void_spirit_sanctuary"			"+30 +40 +50 +60 +70"
+					"special_bonus_unique_void_spirit_resonant_pulse_barrier"			"+50%"	// +20%
 				}
 				"max_charges"
 				{
-					"special_bonus_scepter"		"2 2 2 2 3" // 限时强化再+1
+					"special_bonus_scepter"		"2 2 2 2 3" // 2
 				}
 		}
 	}
