@@ -974,12 +974,11 @@
 	// 鼻涕
 	"bristleback_viscous_nasal_goo"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel" "5"
 		"AbilityManaCost"				"12 16 20 24 28"
 		"AbilityValues"
 		{
-			"base_armor"			"2 2 3 3 3"
+			"base_armor"			"1.5 2 2.5 3 3.5"
 			"armor_per_stack"
 			{
 				"value"		"1.5 2.0 2.5 3.0 3.5"
@@ -5844,12 +5843,10 @@
 			"range"
 			{
 				"value"			"650 700 750 800 850"
-				"special_bonus_shard"		"+150"
 			}
 			"AbilityCooldown"
 			{
 				"value"										"22 18 14 10 6"
-				"special_bonus_unique_faceless_void_5"		"-1"
 			}
 		}
 	}
@@ -5891,7 +5888,7 @@
 			"damage_per_stack"
 			{
 				"value"				"14 18 22 26 30"	// x2
-				"special_bonus_unique_faceless_void_6" "+20"
+				"special_bonus_unique_faceless_void_6" "+20"		// +9
 			}
 		}
 	}
@@ -7794,15 +7791,6 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	}
-	// 雷电交加 命石2
-	"razor_dynamo"
-	{
-		"AbilityValues"
-		{
-			"spell_amp_damage_divisor"	"15"		// 20
-			"spell_amp_mult"			"1"
-		}
-	}
 	//=================================================================================================================
 	// Ability: Riki 力丸/隐刺/SA
 	//=================================================================================================================
@@ -9612,7 +9600,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"24 22 20 18 16"
+				"value"					"20 19 18 17 16"
 			}
 			"damage"						"120 200 280 360 440"
 		}
@@ -9676,7 +9664,6 @@
 	"dazzle_shallow_grave"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"600 700 800 900 1000"
 		"AbilityCooldown"				"36 32 28 24 20"
 		"AbilityManaCost"				"120 130 140 150 160"
 		"AbilityValues"
@@ -9720,8 +9707,8 @@
 	"dazzle_good_juju"
 	{
 		"MaxLevel" "4"
-		"LinkedAbility"					"dazzle_bad_juju"
-		"AbilityDraftPreAbility"		"dazzle_bad_juju"
+		"LinkedAbility"					"dazzle_nothl_projection"
+		"AbilityDraftPreAbility"		"dazzle_nothl_projection"
 		"AbilityValues"
 		{
 				"cooldown_reduction"		"1 1.25 1.5 1.75"
@@ -9731,13 +9718,38 @@
 	"dazzle_bad_juju"
 	{
 		"MaxLevel" "4"
-		"LinkedAbility"					"dazzle_good_juju"
-		"AbilityDraftPreAbility"		"dazzle_good_juju"
+		"AbilityCooldown"				"6"
 		"AbilityHealthCost"				"75 100 125 150"
 		"AbilityValues"
 		{
 			"cooldown_reduction"			"3 4 5 6"	// 4 5 6
-			"mana_cost_increase_pct"		"30"		// 40
+		}
+	}
+	"dazzle_nothl_projection"
+	{
+		"MaxLevel" "4"
+		"LinkedAbility"					"dazzle_good_juju"
+		"AbilityDraftPreAbility"		"dazzle_good_juju"
+		"AbilityCooldown"				"70 60 50 40"
+		"AbilityManaCost"				"100 150 200 250"
+
+		"AbilityValues"
+		{
+			"poison_touch_hex"			"1.4 1.6 1.8 2.0"
+			"shallow_grave_heal"		"225 300 375 450"
+			"shadow_wave_cdr"			"30 40 50 60"
+		}
+	}
+	// 编织
+	"dazzle_innate_weave"
+	{
+		"MaxLevel" "5"
+		"AbilityValues"
+		{
+			"armor_change"
+			{
+				"value"									"0.5 0.75 1.0 1.25 1.5"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -10076,7 +10088,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Ability: Furion 先知
+	// Ability: Furion 自然先知
 	//=================================================================================================================
 	// 框
 	"furion_sprout"
@@ -10084,23 +10096,18 @@
 		"MaxLevel" "5"
 		"AbilityCastRange"				"625 700 775 850 925"
 		"AbilityCooldown"				"12 11 10 9 8"
-		"AbilityManaCost"				"70 90 110 130 150"
+		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
 			"duration"						"2.0 2.5 3 3.5 4"
 			"sprout_damage"
 			{
-				"value"		"70 140 210 280 350"
+				"value"															"70 135 200 265 330"
 			}
 			"sprout_heal_per_second"
 			{
 				"value"						"0"
-				"special_bonus_facet_furion_soothing_saplings"	"=40 =80 =120 =160 =200"	// x2
-			}
-			"building_healing_pct"
-			{
-				"value"				"0"
-				"special_bonus_facet_furion_soothing_saplings"		"+150"
+				"special_bonus_facet_furion_soothing_saplings"	"=42 =78 =114 =150 =186"	// x3
 			}
 		}
 	}
@@ -10197,6 +10204,25 @@
 				"value"		"600 700 800 900 1000"
 				"affected_by_aoe_increase"	"1"
 			}
+		}
+	}
+	// 自然先富
+	"furion_natures_profit"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+
+		"AbilityValues"
+		{
+			"tree_duration"					"5"
+			"min_throw_range"				"200"
+			"max_throw_range"				"300"
+			"hero_level_gold_multiplier"			"5.0"	// 2.0
 		}
 	}
 	//=================================================================================================================
@@ -11510,9 +11536,8 @@
 			"burn_damage"
 			{
 				"value"				"20 30 40 50 60"
-				"special_bonus_unique_ogre_magi_4" "+25"	// 15
+				"special_bonus_unique_ogre_magi_4" "+20"	// 12
 			}
-			"slow_movement_speed_pct"		"-20 -23 -26 -29 -32"
 		}
 	}
 	// 嗜血术
@@ -12914,21 +12939,19 @@
 	"void_spirit_aether_remnant"
 	{
 		"MaxLevel" "5"
-		// "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" //限时强化用
 		"AbilityManaCost"				"75 80 85 90 95"
 		"AbilityValues"
 		{
 			"impact_damage"
 			{
-				"value"			"80 130 180 230 280"
-				"special_bonus_unique_void_spirit_2"	"+80"
+				"value"			"90 140 190 240 290"
+				"special_bonus_unique_void_spirit_2"	"+110"	// +60
 			}
-			"pull_duration"			"1.2 1.4 1.6 1.8 2.0"
+			"pull_duration"			"1.0 1.2 1.4 1.6 1.8"
 			"pull_destination"		"44 50 56 62 68"
 			"AbilityCooldown"
 			{
 				"value"							"17.0 15.0 13.0 11.0 9.0"
-				"special_bonus_shard"			"-2"
 			}
 		}
 	}
@@ -12968,7 +12991,6 @@
 	"void_spirit_resonant_pulse"
 	{
 		"MaxLevel" "5"
-		// "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" //限时强化用
 		"AbilityManaCost"				"115 120 125 130 135"
 		"AbilityValues"
 		{
@@ -12983,21 +13005,23 @@
 				}
 				"damage"
 				{
-					"value"			"120 210 300 390 480"
-					"special_bonus_unique_void_spirit_4"	"+210"
+					"value"			"120 220 320 420 520"	// x2
+					"special_bonus_unique_void_spirit_4"	"+180"	// +40
 				}
 				"base_absorb_amount"
 				{
-					"value"			"160 240 320 400 480"
+					"value"			"100 200 300 400 500"	// x4
+					"special_bonus_unique_void_spirit_resonant_pulse_barrier"			"+50%"	// +20%
 				}
 				"absorb_per_hero_hit"
 				{
-					"value"												"90 130 170 210 250"	// x2
-					"special_bonus_facet_void_spirit_sanctuary"			"+20 +40 +60 +80 +100"
+					"value"												"70 100 130 160 190"	// x2
+					"special_bonus_facet_void_spirit_sanctuary"			"+30 +40 +50 +60 +70"
+					"special_bonus_unique_void_spirit_resonant_pulse_barrier"			"+50%"	// +20%
 				}
 				"max_charges"
 				{
-					"special_bonus_scepter"		"2 2 2 2 3" // 限时强化再+1
+					"special_bonus_scepter"		"2 2 2 2 3" // 2
 				}
 		}
 	}
@@ -13192,7 +13216,6 @@
 		"AbilityCooldown"				"20"
 		"AbilityValues"
 		{
-			"duration"			"4"
 			"wind_strength"		"350"
 		}
 	}
@@ -13216,13 +13239,9 @@
 			{
 				"special_bonus_facet_windrunner_tangled"	"20 40 60 80 100"
 			}
-			"bonus_damage_per_other_pct"
-			{
-				"special_bonus_facet_windrunner_tangled"	"50"
-			}
 			"damage_buff_duration"
 			{
-				"special_bonus_facet_windrunner_tangled"	"12"
+				"special_bonus_facet_windrunner_tangled"	"6"
 			}
 		}
 	}
@@ -13284,7 +13303,7 @@
 			}
 			"focusfire_damage_reduction"
 			{
-				"value"						"-30"
+				"value"						"-25"
 				"special_bonus_unique_windranger_8"		"+15" // 10
 			}
 		}

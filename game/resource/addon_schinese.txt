@@ -961,6 +961,15 @@
 		"DOTA_Tooltip_ability_dazzle_good_juju_Lore"									"虚无之境的每一次咒术都使其能进一步渗透尘世的周遭。"
 		"DOTA_Tooltip_ability_dazzle_good_juju_cooldown_reduction"						"每次施法减少冷却时间："
 
+		"DOTA_Tooltip_ability_dazzle_bad_juju"											"邪能"
+		"DOTA_Tooltip_ability_dazzle_bad_juju_Description"								"减少其他所有技能的剩余冷却时间。施放邪能会暂时增加生命消耗。"
+		"DOTA_Tooltip_ability_dazzle_bad_juju_Lore"										"虚无之境的每一次咒术都使其能进一步渗透尘世的周遭。"
+		"DOTA_Tooltip_ability_dazzle_bad_juju_duration"									"持续时间："
+		"DOTA_Tooltip_ability_dazzle_bad_juju_cooldown_reduction"						"技能冷却时间减少："
+		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_pct"					"%每次施法增加生命消耗："
+		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_duration"				"生命消耗增加持续时间："
+		"DOTA_Tooltip_ability_dazzle_bad_juju_scepter_Description"						"编织也会减少物品的冷却时间。"
+
 		// 蝙蝠骑士
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_shard_description"					"增加粘性燃油叠加上限。<br><br>粘性燃油会对建筑造成伤害。"
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_max_stacks"						"粘性燃油叠加上限："
