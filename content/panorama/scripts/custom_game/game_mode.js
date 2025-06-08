@@ -96,6 +96,7 @@ function InitSetting() {
 function LockOption() {
   $('#player_gold_xp_multiplier_dropdown').enabled = false;
   $('#bot_gold_xp_multiplier_dropdown').enabled = false;
+  $('#radiant_player_number_dropdown').enabled = false;
   $('#dire_player_number_dropdown').enabled = false;
 
   $('#respawn_time_percentage_dropdown').enabled = false;
@@ -111,6 +112,7 @@ function LockOption() {
 function UnLockOptionAll() {
   $('#player_gold_xp_multiplier_dropdown').enabled = true;
   $('#bot_gold_xp_multiplier_dropdown').enabled = true;
+  $('#radiant_player_number_dropdown').enabled = true;
   $('#dire_player_number_dropdown').enabled = true;
 
   $('#respawn_time_percentage_dropdown').enabled = true;
