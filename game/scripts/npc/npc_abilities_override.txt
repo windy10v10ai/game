@@ -592,7 +592,7 @@
 	// 血色外衣
 	"axe_coat_of_blood"
 	{
-		"Maxlevel"			"5"
+		"MaxLevel"			"5"
 		"AbilityValues"
 		{
 			"armor_per_kill"						"0.4 0.6 0.8 1.0 1.2"
@@ -4351,7 +4351,7 @@
 	// 酒友（命石2）
 	"tusk_drinking_buddies"
 	{
-		"Maxlevel"						"5"
+		"MaxLevel"						"5"
 		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityValues"
 		{
@@ -4365,7 +4365,7 @@
 	// 严寒（先天）跟随大招等级
 	"tusk_bitter_chill"
 	{
-		"Maxlevel"			"5"
+		"MaxLevel"			"5"
 		"AbilityValues"
 		{
 			"radius"
@@ -6668,7 +6668,7 @@
 	// 月神之箭 射箭
 	"mirana_arrow"
 	{
-		"Maxlevel"						"5"
+		"MaxLevel"						"5"
 		"AbilityCastRange"				"4500"
 		"AbilityCastPoint"				"0.2"	// 0.5
 		"AbilityDamage"					"60 150 240 330 420"
@@ -7299,7 +7299,7 @@
 	// 灵魂盛宴
 	"nevermore_frenzy"
 	{
-		"Maxlevel"						"5"
+		"MaxLevel"						"5"
 		"AbilityValues"
 		{
 			"bonus_attack_speed"
@@ -10674,7 +10674,7 @@
 	// 法力流失
 	"keeper_of_the_light_mana_leak"
 	{
-		"Maxlevel"						"5"
+		"MaxLevel"						"5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"// 无视魔免
 		"AbilityCooldown"				"16 14 12 10 8"
 		"AbilityCastRange"				"400 500 600 700 800"
@@ -10693,7 +10693,7 @@
 	// 炎阳之缚
 	"keeper_of_the_light_radiant_bind"
 	{
-		"Maxlevel"						"4"
+		"MaxLevel"						"4"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"// 无视魔免
 		"AbilityCastRange"				"1000"
 		"AbilityValues"
@@ -10704,7 +10704,7 @@
 	// 查克拉
 	"keeper_of_the_light_chakra_magic"
 	{
-		"Maxlevel"						"5"
+		"MaxLevel"						"5"
 		"AbilityCastRange"				"900 1000 1100 1200 1300"
 		"AbilityCastPoint"				"0.3 0.2 0.1 0.1 0.0"
 		"AbilityValues"
@@ -10754,7 +10754,7 @@
 	// 召回
 	"keeper_of_the_light_recall"
 	{
-		"Maxlevel"								"4"
+		"MaxLevel"								"4"
 		"AbilityValues"
 		{
 			"teleport_delay"
@@ -10780,7 +10780,7 @@
 	// 致盲之光
 	"keeper_of_the_light_blinding_light"
 	{
-		"Maxlevel"						"5"
+		"MaxLevel"						"5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastRange"				"400 500 600 700 800"
 		"AbilityManaCost"				"120 130 140 150 160"
@@ -10906,7 +10906,7 @@
 	// 时光滋养 命石1 跟随大招升级
 	"leshrac_chronoptic_nourishment"
 	{
-		"Maxlevel"							"5"
+		"MaxLevel"							"5"
 		"AbilityValues"
 		{
 			"mana_pct_per_hit"				"14 21 28 35 42"
@@ -10973,7 +10973,10 @@
 				"special_bonus_unique_lich_2" "+0.4"	// +0.3
 			}
 			"destination"		"30 35 40 45 50"
-			"mana_drain"		"10 15 20 25 30"
+			"damage"
+			{
+				"special_bonus_facet_lich_cryophobia"		"10 15 20 25 30"
+			}
 		}
 	}
 	// 冰霜魔盾
@@ -11013,7 +11016,7 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCooldown"				"75 70 65 60"
-		"AbilityManaCost"				"300 420 540 660"
+		"AbilityManaCost"				"150 300 450 600"	// 180 300 420
 		"AbilityValues"
 		{
 			"damage"
@@ -11023,13 +11026,11 @@
 			"bonus_jump_damage"
 			{
 				"value"			"15 20 25 30"
-				"CalculateSpellDamageTooltip" "1"
 			}
 			"jumps"					"10 15 20 25"
 			"jump_range"
 			{
-				"value"			"800" // 600
-				"affected_by_aoe_increase"	"1"
+				"value"			"800"			// 550
 			}
 			"bonus_jumps_per_hero_killed"
 			{
@@ -11041,11 +11042,6 @@
 				"value"											"0"
 				"special_bonus_facet_lich_growing_cold"			"+2" // 1
 			}
-			"frostbound_duration"
-			{
-				"value"							"0"
-				"special_bonus_facet_lich_frostbound"			"=2 =3 =4 =5"
-			}
 		}
 	}
 	// 死亡充能 先天
@@ -11056,11 +11052,10 @@
 		{
 			"radius"
 			{
-				"value"		"2500"
-				"affected_by_aoe_increase"		"1"
+				"value"		"2000"				// 1500
 			}
-			"mana_restore_pct_from_creep"		"7.5"	// 2.5
-			"mana_restore_pct_from_hero"		"45"	// 15
+			"mana_restore_pct_from_creep"		"5"		// 2.5
+			"mana_restore_pct_from_hero"		"50"	// 25
 		}
 	}
 	//=================================================================================================================
@@ -11721,7 +11716,7 @@
 	// 相位转移
 	"puck_phase_shift"
 	{
-		"Maxlevel"						"5"
+		"MaxLevel"						"5"
 		"AbilityChannelTime"			"1 1.5 2.0 2.5 3.0"
 		"AbilityValues"
 		{
@@ -13136,7 +13131,7 @@
 	// 火焰之拳
 	"warlock_golem_flaming_fists"
 	{
-		"Maxlevel"				"4"
+		"MaxLevel"				"4"
 		"AbilityValues"
 		{
 			"damage"
@@ -13148,7 +13143,7 @@
 	// 永恒献祭
 	"warlock_golem_permanent_immolation"
 	{
-		"Maxlevel"						"4"
+		"MaxLevel"						"4"
 		"AbilityValues"
 		{
 			"aura_damage"				"30 40 50 60"
@@ -13365,18 +13360,16 @@
 		{
 				"base_damage"
 				{
-					"value"					"50 75 100 125 150"		// 50
-					"CalculateSpellDamageTooltip"	"1"
+					"value"					"55 70 85 100 115"		// 55 70 85 100
 				}
 				"bounces"
 				{
-					"value"					"2 4 6 8 10"
+					"value"					"3 4 5 6 7"
 					"special_bonus_unique_witch_doctor_3"			"+3"
 				}
 				"bounce_bonus_damage"
 				{
-					"CalculateSpellDamageTooltip"	"1"
-					"special_bonus_facet_witch_doctor_headhunter"	"+50"	// 30 命石1
+					"value"							"50"			// 20
 				}
 		}
 	}
