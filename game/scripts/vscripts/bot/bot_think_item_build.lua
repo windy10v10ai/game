@@ -20,11 +20,12 @@ local function replaceItem(v, oldItemName, newItemName)
 end
 
 local function addTome(k, v)
-  -- N6替换
+  -- 高难度替换
   if AIGameMode.fBotGoldXpMultiplier >= 10 then
     -- 天地同寿甲(秘术铠甲 群体刃甲)
     replaceItem(v, "item_blade_mail_2", "item_force_field_ultra")
-
+  end
+  if AIGameMode.fBotGoldXpMultiplier >= 9 then
     -- 诅咒圣剑
     replaceItem(v, "item_excalibur", "item_rapier_ultra_bot_1")
   end
@@ -34,17 +35,17 @@ local function addTome(k, v)
 
   local amount = 0
   if AIGameMode.fBotGoldXpMultiplier >= 10 then
-    amount = 15
+    amount = 20
   elseif AIGameMode.fBotGoldXpMultiplier >= 8 then
-    amount = 10
+    amount = 15
   elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
-    amount = 8
+    amount = 12
   elseif AIGameMode.fBotGoldXpMultiplier >= 4 then
-    amount = 6
+    amount = 9
   elseif AIGameMode.fBotGoldXpMultiplier >= 3 then
-    amount = 4
+    amount = 6
   elseif AIGameMode.fBotGoldXpMultiplier >= 2 then
-    amount = 2
+    amount = 3
   end
   for i = 1, amount do
     table.insert(v, "item_tome_of_strength")
