@@ -13302,7 +13302,7 @@
 	"winter_wyvern_splinter_blast"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"105 120 135 150 165"
+		"AbilityManaCost"				"105 115 125 135 145"
 		"AbilityValues"
 		{
 			"bonus_movespeed"		"-28 -32 -36 -40 -44"
@@ -13310,7 +13310,7 @@
 			"damage"
 			{
 				"value"		"80 160 240 320 400"
-				"special_bonus_unique_winter_wyvern_7" "+150"
+				"special_bonus_unique_winter_wyvern_7" "+150"	// 100
 			}
 		}
 	}
@@ -13347,7 +13347,7 @@
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
-				"damage_reduction"	"50"	// 100 不会收到敌人伤害 改成伤害减半
+				"damage_reduction"	"60"	// 100 不会收到敌人伤害 改成伤害降低
 				"max_duration"	"4 5 6 7"
 		}
 	}
