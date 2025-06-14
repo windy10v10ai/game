@@ -7188,12 +7188,7 @@
 				"movement_speed_debuff"
 				{
 					"value"											"0 0 0 0 0"
-					"special_bonus_facet_nevermore_shadowmire"		"=5 =6 =7 =8 =9"
-				}
-				"attack_speed_debuff"
-				{
-					"value"											"0 0 0 0 0"
-					"special_bonus_facet_nevermore_shadowmire"		"=5 =6 =7 =8 =9"
+					"special_bonus_facet_nevermore_shadowmire"		"=6 =8 =10 =12 =14"
 				}
 		}
 	}
@@ -7220,12 +7215,7 @@
 				"movement_speed_debuff"
 				{
 					"value"											"0 0 0 0 0"
-					"special_bonus_facet_nevermore_shadowmire"		"=5 =6 =7 =8 =9"
-				}
-				"attack_speed_debuff"
-				{
-					"value"											"0 0 0 0 0"
-					"special_bonus_facet_nevermore_shadowmire"		"=5 =6 =7 =8 =9"
+					"special_bonus_facet_nevermore_shadowmire"		"=6 =8 =10 =12 =14"
 				}
 		}
 	}
@@ -7252,12 +7242,7 @@
 				"movement_speed_debuff"
 				{
 					"value"											"0 0 0 0 0"
-					"special_bonus_facet_nevermore_shadowmire"		"=5 =6 =7 =8 =9"
-				}
-				"attack_speed_debuff"
-				{
-					"value"											"0 0 0 0 0"
-					"special_bonus_facet_nevermore_shadowmire"		"=5 =6 =7 =8 =9"
+					"special_bonus_facet_nevermore_shadowmire"		"=6 =8 =10 =12 =14"
 				}
 		}
 	}
@@ -7300,11 +7285,16 @@
 	"nevermore_frenzy"
 	{
 		"MaxLevel"						"5"
+		"AbilityManaCost"				"60 65 70 75 80"
 		"AbilityValues"
 		{
 			"bonus_attack_speed"
 			{
-				"value"			"30 60 90 120 150"
+				"value"			"40 55 70 85 100"
+			}
+			"bonus_move_speed"
+			{
+				"value"			"5 7 9 11 13"
 			}
 			"cast_speed_pct"
 			{
@@ -7316,7 +7306,7 @@
 				"value"													"0"
 				"special_bonus_unique_nevermore_frenzy_castspeed"		"=160" // =140
 			}
-			"soul_cost"				"5 4 3 2 1"		// 5
+			"soul_cost"				"5 5 4 4 3"		// 5
 		}
 	}
 	// 魂之挽歌
@@ -8133,7 +8123,7 @@
 			}
 			"radius"
 			{
-				"value"				"0"						// 400 触发范围
+				"value"				"0"						// 350 触发范围
 			}
 			"only_creep_allies_damage_pct"
 			{
@@ -8161,7 +8151,7 @@
 		"AbilityManaCost"				"600"
 		"AbilityValues"
 		{
-				"duration"					"4.0"
+				"duration"					"4.0"		// 6.0
 		}
 	}
 	// 如影随形 鬼影重重单体
@@ -8172,7 +8162,7 @@
 		"AbilityManaCost"				"150 250 350 450"
 		"AbilityValues"
 		{
-				"duration"					"5.0"
+				"duration"					"5.0"		// 6.0
 				"illusion_damage_outgoing"	"-60 -40 -20 0"
 				"tooltip_outgoing"	"60 80 100 120"
 		}
@@ -8286,12 +8276,11 @@
 		{
 				"AbilityManaCost"
 				{
-					"value"		"70 80 90 100"	// x2
+					"value"		"60 65 70 75 80"
 				}
 				"AbilityCooldown"
 				{
-					"value"		"44"
-					"special_bonus_unique_terrorblade_2" "-4"
+					"value"		"40"
 				}
 				"illusion_duration"
 				{
@@ -8344,7 +8333,7 @@
 			"base_attack_time"		"1.4"					// 1.5
 			"bonus_range"			"300 400 500 550 600"
 			"tooltip_attack_range"			"450 550 650 700 750"
-			"bonus_damage"			"60 90 120 150 180"
+			"bonus_damage"			"20 40 60 80 100"
 			"AbilityCooldown"
 			{
 				"value"				"120 115 110 105 100"
@@ -10942,16 +10931,11 @@
 				}
 		}
 	}
-	// 时光滋养 命石1 跟随大招升级
+	// 时光滋养 命石1
 	"leshrac_chronoptic_nourishment"
 	{
-		"MaxLevel"							"5"
-		"AbilityValues"
-		{
-			"mana_pct_per_hit"				"14 21 28 35 42"
-		}
 	}
-	// 先天技能
+	// 大肆污染 先天技能
 	"leshrac_defilement"
 	{
 		"AbilityValues"
