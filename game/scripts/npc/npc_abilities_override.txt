@@ -4552,8 +4552,8 @@
 		{
 				"avalanche_damage"
 				{
-					"value"				"160 240 320 400"		// 80 160 240 320 加强法系
-					"special_bonus_unique_tiny"			"+120"	// 70
+					"value"				"120 240 360 480"		// 100 190 280 370 加强
+					"special_bonus_unique_tiny"			"+120"	// 100
 				}
 		}
 	}
@@ -4561,34 +4561,34 @@
 	"tiny_toss"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"1000 1100 1200 1300 1400"
-		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityCastRange"				"800 900 1000 1100 1200"
+		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityManaCost"				"110 125 140 155 170"
 		"AbilityValues"
 		{
 			"toss_damage"
 			{
-				"value"				"160 240 320 400 480"	// 80 160 240 320 加强法系
+				"value"				"180 270 360 450 540"	// 90 180 270 360 +90
 			}
 			"radius"
 			{
 				"value"		"275"
-				"special_bonus_facet_tiny_crash_landing"				"=700" // =450 命石1
+				"special_bonus_facet_tiny_crash_landing"				"=700"		// =400 +300
 			}
 			"land_movement_slow"
 			{
 				"value"						"0"
-				"special_bonus_facet_tiny_crash_landing"				"30 40 50 60 70" // x2 命石1
+				"special_bonus_facet_tiny_crash_landing"				"40 50 60 70 80"	// 20 25 30 35 x2
 			}
 			"land_attack_slow"
 			{
 				"value"						"0"
-				"special_bonus_facet_tiny_crash_landing"				"20 40 60 80 100" // x2 命石1
+				"special_bonus_facet_tiny_crash_landing"				"30 50 70 90 110"	// 15 25 35 45 x2
 			}
 			"bonus_land_damage_pct"
 			{
 				"value"						"0"
-				"special_bonus_facet_tiny_crash_landing"				"40 50 60 70 80" // x2 命石1
+				"special_bonus_facet_tiny_crash_landing"				"40"		// 20 x2
 			}
 		}
 	}
@@ -4607,20 +4607,20 @@
 			{
 				"value"							"30 40 50 60 70"
 			}
-			"splash_pct"				"40 55 70 85 100"
+			"splash_pct"				"60 70 80 90 100"
 		}
 	}
 	// 树木连掷
 	"tiny_tree_channel"
 	{
-		"AbilityCastRange"				"1500" // 1200
+		"AbilityCastRange"				"1500"		// 1200 +300
 		"AbilityValues"
 		{
-			"speed"		"1200.0"	// 1000
+			"speed"		"1200.0"	// 1000 +200
+			"range"		"1500"		// 1200 +300
 			"tree_grab_radius"
 			{
-				"value"		"900" // 700
-				"affected_by_aoe_increase"	"1"
+				"value"		"900"		// 700 +200
 			}
 		}
 	}
@@ -4630,21 +4630,21 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-				"bonus_armor"				"10 20 30 40"
+				"bonus_armor"				"10 20 30 40"		// 5 10 15 x2
 				"bonus_damage"
 				{
-					"value"					"60 120 180 240"
+					"value"					"110 220 330 440"		// 55 110 165 x2
 				}
 				"attack_speed_reduction"
 				{
-					"value"		"-20"						// 30
-					"special_bonus_unique_tiny_6" "+10"		// +8
+					"value"		"-20"						// -35 +15
+					"special_bonus_unique_tiny_6" "+10"		// +8 +2
 				}
 				"toss_bonus_damage"
 				{
-					"value"					"50 175 300 425"
+					"value"					"100 350 600 850"		// 50 175 300 x2
 				}
-				"move_speed"		"10 20 30 40"
+				"move_speed"		"30 60 90 120"		// 15 x2
 		}
 	}
 	// 崎岖外表（先天随大招升级）
@@ -4661,8 +4661,8 @@
 	{
 		"AbilityValues"
 		{
-			"str_to_slow_resist_pct"			"12"	// 20
-			"str_to_status_resist_pct"			"8"		// 10
+			"str_to_slow_resist_pct"			"12"	// 20 -8
+			"str_to_status_resist_pct"			"8"		// 10 -2
 		}
 	}
 	//=================================================================================================================
