@@ -1,0 +1,26 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+当编辑npc_abilities_override文件时遵循以下要求。
+
+以原版（npc_data_hero_xxx）文件为基础进行override。
+当原版移不存在此kv时，从override文件中移除。
+
+value的数值有多个时，根据MaxLevel的数字，决定设置多少个数值，多增加的数值保持等差数据。
+
+当override的基础数值与原版不一致时，备注的是之前版本的数值，参照实际value和备注的区别，保持增强或削弱的倍率，或者差值。
+如果override的备注中写了+多少，x多少时，同步时对数值进行相应的加减。
+如果override的数值与备注的数值存在差值时，同步时候保持此差值。
+
+对于AbilityCooldown或者百分比（pct）数值，在确保最高等级的数值和原版一致的前提下，适当调整1级的数值，或减少每一级的差值，使得每一级的数值都是整数。
+尽量保持tab的缩进一致，value，备注的缩进尽量一致。
+
+基础等级的数值和原版一致，只添加额外等级数值，不需要备注原版数值。
+
+对于只有一个数值的技能，除非数值和原版不一致，否则移除。
+除非有单独改动，移除没有改动的kv，不需要复制下列kv。
+
+special_bonus_xxx
+affected_by_aoe_increase
