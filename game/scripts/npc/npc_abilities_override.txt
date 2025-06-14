@@ -8183,33 +8183,33 @@
 			"instances"
 			{
 				"value"						"4 6 8 10 12"
-			}
-			"bonus_damage"
-			{
-				"value"						"25 45 65 85 105"
-				"special_bonus_unique_templar_assassin_refraction_damage"		"+45"
+				"special_bonus_unique_templar_assassin"		"+8"	// +4
 			}
 			"shield_per_instance"
 			{
-				"value"						"20 30 40 50 60"
+				"value"						"100"		// 30
+			}
+			"bonus_damage"
+			{
+				"value"						"15 30 45 60 75"
 			}
 		}
 	}
 	// 隐匿
 	"templar_assassin_meld"
 	{
-		"MaxLevel" "5"
+		"MaxLevel"						"5"
 		"AbilityCooldown"				"12 10 8 6 4"
 		"AbilityManaCost"				"35 40 45 50 55"
 		"AbilityValues"
 		{
 			"bonus_damage"
 			{
-				"value" "70 140 210 280 350"
+				"value" "55 105 155 205 255"
 			}
 			"bonus_armor"
 			{
-				"value" "-6 -8 -10 -12 -14"
+				"value" "-3 -5 -7 -9 -11"
 			}
 			"bash_duration"
 			{
@@ -8234,54 +8234,41 @@
 		{
 				"bonus_attack_range"
 				{
-					"value"		"130 180 230 280 330"
-					"special_bonus_unique_templar_assassin_8"	"+120"
+					"value"		"100 150 200 250 300"		// +50
 				}
 				"attack_spill_range"
 				{
-					"value"							"400 450 500 550 600"
-					"special_bonus_unique_templar_assassin_8"	"+100"
+					"value"							"400 500 600 700 800"
 				}
-				"attack_spill_width"
-				{
-					"value"		"60"	// 90
-					"affected_by_aoe_increase"	"1"
-				}
-				"attack_spill_pct"			"70 75 80 85 90"
-				"spill_movement_slow_pct"
-				{
-					"special_bonus_facet_templar_assassin_voidblades"	"10 15 20 25 30"
-				}
+				"attack_spill_pct"			"60 70 80 90 100"
 		}
 	}
 	// 灵能陷阱
 	"templar_assassin_psionic_trap"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"9.0 7.0 5.0 3.0"
+		"AbilityCooldown"				"11.0 9.0 7.0 5.0"
 		"AbilityValues"
 		{
 			"max_traps"
 			{
-				"value"		"3 4 5 6"
-				"special_bonus_shard"		"+1"
+				"value"		"5 8 11 14"
 			}
 			"trap_bonus_damage"
 			{
-				"value"		"275 325 375 425"
-				"special_bonus_scepter"	"+100"
+				"value"		"225 300 375 450"
 			}
 		}
 	}
+	// 触发陷阱
 	"templar_assassin_trap"
 	{
-		"MaxLevel" "4"
+		"MaxLevel" "4" //保持和灵能陷阱一致
 	}
 	// 灵能投射
 	"templar_assassin_trap_teleport"
 	{
 		"MaxLevel" "4"
-		"AbilityChannelTime"			"2.0 1.8 1.6 1.4"
 	}
 	//=================================================================================================================
 	// Ability: Terrorblade 恐怖利刃/TB
