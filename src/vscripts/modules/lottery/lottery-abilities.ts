@@ -52,6 +52,7 @@ export const abilityTiersActive: Tier[] = [
       'silencer_global_silence', // 全领域禁默
       'axe_culling_blade', // 淘汰之刃
       'centaur_stampede', // 奔袭冲撞
+      'dazzle_bad_juju', // 邪能
 
       // 小技能
       'dark_willow_shadow_realm', // 暗影之境

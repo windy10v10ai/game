@@ -961,6 +961,16 @@
 		"DOTA_Tooltip_ability_dazzle_good_juju_Lore"									"Each incantation from the Nothl Realm allows him to further permeate the surroundings of the mortal world."
 		"DOTA_Tooltip_ability_dazzle_good_juju_cooldown_reduction"						"Cooldown Reduction Per Cast:"
 
+		"DOTA_Tooltip_ability_dazzle_bad_juju"											"Bad Juju"
+		"DOTA_Tooltip_ability_dazzle_bad_juju_Description"								"Decreases the remaining cooldown of all other abilities. Casting Bad Juju temporarily increases its health cost."
+		"DOTA_Tooltip_ability_dazzle_bad_juju_Lore"										"Each invocation of the Nothl realm helps it further permeate the surroundings of our own."
+		"DOTA_Tooltip_ability_dazzle_bad_juju_duration"									"DURATION:"
+		"DOTA_Tooltip_ability_dazzle_bad_juju_cooldown_reduction"						"COOLDOWN REDUCTION ABILITIES:"
+		//"DOTA_Tooltip_ability_dazzle_bad_juju_cooldown_reduction_items"					"COOLDOWN REDUCTION ITEMS:"
+		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_pct"					"%HEALTH COST INCREASE PER CAST:"
+		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_duration"				"HEALTH COST INCREASE DURATION:"
+		"DOTA_Tooltip_ability_dazzle_bad_juju_scepter_Description"						"Weave also reduces item cooldowns."
+
 		// 蝙蝠骑士
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_shard_description"					"Increases the stack limit of Sticky Napalm.<br><br>Sticky Napalm deals damage to structures."
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_max_stacks"						"Sticky Napalm Max Stacks:"
