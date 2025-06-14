@@ -7569,7 +7569,6 @@
 	// 刀扇
 	"phantom_assassin_fan_of_knives"
 	{
-		"AbilityCastPoint"				"0.0"
 	}
 	// 窒碍短匕
 	"phantom_assassin_stifling_dagger"
@@ -7617,7 +7616,6 @@
 	"phantom_assassin_blur"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"60 55 50 45 40"
 		"AbilityCastRange"				"625 550 475 400 325"
 		"AbilityValues"
 		{
@@ -7625,6 +7623,23 @@
 			"radius"				"625 550 475 400 325"
 			"fade_duration"			"0.4 0.6 0.8 1.0 1.2"
 			"active_movespeed_bonus"				"4 6 8 10 12"
+			"AbilityCooldown"
+			{
+				"value"					"60 55 50 45 40"
+			}
+		}
+	}
+	// 飘忽不定
+	"phantom_assassin_immaterial"
+	{
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"evasion"
+			{
+				"value"				"20 30 40 50 60"
+			}
 		}
 	}
 	// 恩赐解脱
