@@ -9864,7 +9864,7 @@
 			"AbilityCooldown"
 			{
 				"value"					"22 20 18 16 14"
-				"special_bonus_unique_disruptor_2"				"-2"	// 削弱防止无限框
+				"special_bonus_unique_disruptor_2"				"-1"	// 削弱防止无限框
 			}
 			"duration"
 			{
@@ -9901,6 +9901,30 @@
 		"AbilityValues"
 		{
 				"damage_max"				"200 275 350 425"
+		}
+	}
+	// 电磁排斥
+	"disruptor_electromagnetic_repulsion"
+	{
+		"AbilityValues"
+		{
+			"current_hp_as_damage"
+			{
+				"special_bonus_facet_disruptor_conduit"										"=20"				// 10
+			}
+			"manual_cooldown"
+			{
+				"special_bonus_facet_disruptor_conduit"										"24 20 16 12 8"		// 26 20 14 8
+			}
+			"AbilityManaCost"
+			{
+				"special_bonus_facet_disruptor_conduit"										"=150"				// 50
+			}
+			"max_level"
+			{
+				"value"								"1"
+				"special_bonus_facet_disruptor_conduit"										"=5"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -11791,7 +11815,7 @@
 	"pugna_decrepify"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"550 650 750 850 950" // 475 550 625 700
+		"AbilityCastRange"				"550 600 650 700 750"
 		"AbilityCooldown"				"15.0 13.0 11.0 9.0 7.0"
 		"AbilityValues"
 		{
@@ -11848,7 +11872,7 @@
 			"tower_scale"
 			{
 				"value"			"0"
-				"special_bonus_facet_pugna_rewards_of_ruin"		"10"	// 1.25
+				"special_bonus_facet_pugna_rewards_of_ruin"		"10"	// 1.5
 			}
 		}
 	}
