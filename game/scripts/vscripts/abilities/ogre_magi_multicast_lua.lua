@@ -134,16 +134,16 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 	local abilityName = ability:GetName()
 	--不支持技能池
 	if no_support_abilitys[abilityName] then
-		print("no_support_abilitys")
+		print("no_support_abilitys" .. abilityName)
 		return nil
 	end
 	if no_support_items[abilityName] then
-		print("no_support_items")
+		print("no_support_items" .. abilityName)
 		return nil
 	end
 	for _, s in ipairs(no_support_substrings) do
 		if string.find(abilityName, s) then
-			print("no_support_substrings")
+			print("no_support_substrings" .. abilityName)
 			return nil
 		end
 	end
@@ -203,6 +203,10 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 
 	--设置目标再次施法
 	ability:SetContextThink("think_multicast", function()
+		-- 记忆当前cursor position target
+		local cursorPositionBeforeCast = keys.unit:GetCursorPosition()
+		local cursorTargetBeforeCast = keys.unit:GetCursorTarget()
+
 		if IsHeroUncontrollable(keys.unit) then
 			ability.multicast = nil
 			return nil
@@ -217,10 +221,8 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 		-- 充能技能
 		if ability:GetMaxAbilityCharges(ability:GetLevel()) > 0 then
 			if ability:IsItem() then
-				print("SetCurrentCharges item")
 				ability:SetCurrentCharges(ability:GetCurrentCharges() + 1)
 			else
-				print("SetCurrentAbilityCharges")
 				ability:SetCurrentAbilityCharges(ability:GetCurrentAbilityCharges() + 1)
 			end
 		end
@@ -238,12 +240,17 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 			end
 		end
 
+		-- 施法
 		ability:EndCooldown()
 		keys.unit:SetCursorCastTarget(target)
 		keys.unit:SetCursorPosition(pos)
 		keys.unit:CastAbilityImmediately(ability, 0)
+		-- 施法结束后
 		-- 返还魔法
 		keys.unit:GiveMana(ability:GetManaCost(-1))
+		-- 还原cursor position target
+		keys.unit:SetCursorPosition(cursorPositionBeforeCast)
+		keys.unit:SetCursorCastTarget(cursorTargetBeforeCast)
 
 		ability.multicast = ability.multicast - 1
 		if ability.multicast <= 1 then
