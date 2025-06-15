@@ -988,6 +988,18 @@
 		"DOTA_Tooltip_modifier_huskar_inner_vitality"					"Inner Vitality"
 		"DOTA_Tooltip_modifier_huskar_inner_vitality_Description"		"Restoring %fMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health a second."
 
+		// 力丸
+		"DOTA_Tooltip_ability_riki_permanent_invisibility"								"Permanent Invisibility"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Description"					"Riki fades into the shadows, becoming invisible. When Riki attacks, he becomes visible. Grants bonus movement speed"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Lore"							"Riki comes for you."
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note0"						"Riki won't auto attack enemies while invisible."
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note1"						"Illusions of Riki will play Backstab animations, but not deal any bonus damage."
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note2"						"Bonus damage from Backstab can't be evaded."
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_fade_delay"					"FADE DELAY:"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_movement_speed"				"MOVEMENT SPEED:"
+
+		// 树精卫士
+		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"Increase Overgrowth Range"
 		///////////////////////////////////////////////////
 		//
 		// 自定义英雄 Custom Heroes

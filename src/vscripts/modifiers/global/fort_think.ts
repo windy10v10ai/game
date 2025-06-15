@@ -71,8 +71,8 @@ export class modifier_fort_think extends BaseModifier {
     // 调用游戏结束逻辑
     GameEnd.OnGameEnd(winnerTeamId);
 
-    PauseGame(true);
-    // 10秒后杀死modifier的所有者
+    // PauseGame(true);
+    // 等待一会杀死modifier的所有者，结束游戏
     this.gameEndTimer = Timers.CreateTimer(this.gameEndDelay, () => {
       const parent = this.GetParent();
       if (parent && IsValidEntity(parent)) {
