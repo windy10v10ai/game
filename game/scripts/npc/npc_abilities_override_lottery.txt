@@ -1,0 +1,13 @@
+"DOTAAbilities"
+{
+	// 力丸 永久隐身
+	"riki_permanent_invisibility"
+	{
+		"MaxLevel"						"4"
+		"AbilityValues"
+		{
+			"fade_delay"					"4 3 2 1"
+			"movement_speed"				"20 40 60 80"
+		}
+	}
+}

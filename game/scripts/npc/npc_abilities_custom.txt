@@ -1,4 +1,4 @@
-#base "npc_abilities_custom_new.txt"
+#base "npc_abilities_custom_lottery.txt"
 
 "DOTAAbilities"
 {
