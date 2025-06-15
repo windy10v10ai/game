@@ -4719,19 +4719,19 @@
 	"treant_living_armor"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"30 25 20 15 10"
-		"AbilityManaCost"				"40 45 50 55 60"
+		"AbilityCooldown"				"35 30 25 20 15"
+		"AbilityManaCost"				"40 50 60 70 80"	// 40 45 50 55
 		"AbilityValues"
 		{
 			"heal_per_second"
 			{
-				"value"		"40 60 80 100 120" // 3 4 5 6
-				"special_bonus_unique_treant_8"			"+40"	// 2
+				"value"		"30 40 50 60 70" // x10
+				"special_bonus_unique_treant_8"			"+20"	// 2 x10
 			}
 			"bonus_armor"
 			{
-				"value"		"8 12 16 20 24" // 4 6 8 10
-				"special_bonus_unique_treant_13"			"+16" // 8
+				"value"		"16 24 32 40 48" // x4
+				"special_bonus_unique_treant_13"			"+32" // 8 x4
 			}
 			"duration"			"15"		// 缩短时间控制总治疗量
 		}
@@ -4741,12 +4741,13 @@
 	{
 		"MaxLevel" "4"
 		"AbilityManaCost"				"200 250 300 350"
+		"HasScepterUpgrade"				"1"
 		"AbilityValues"
 		{
 				"duration"						"3 4 5 6" // 3 4 5
 				"radius"
 				{
-					"value"		"1000" // 800
+					"special_bonus_scepter"		"+800"
 				}
 				"eyes_radius"
 				{
@@ -4754,55 +4755,24 @@
 				}
 				"damage"
 				{
-					"value"					"85 120 155 190" // 85
-					"CalculateSpellDamageTooltip"	"1"
+					"value"					"85 120 155 190"	// 85
 				}
 				"AbilityCooldown"
 				{
-					"value"						"110 100 90 80" // 120 110 100
-					"special_bonus_unique_treant_14"	"-40" // -35
+					"value"						"110 100 90 80"	// 110 100 90
 				}
 		}
 	}
-	// 树眼 被替代
+	// 树眼 卡顿 被移除
 	"treant_eyes_in_the_forest"
 	{
-		"AbilityCharges"				"2"
-		"AbilityChargeRestoreTime"		"240.0"
-		"AbilityManaCost"				"500"
-		"AbilityValues"
-		{
-			"vision_aoe"
-			{
-				"value"		"1600"
-				"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
-				"RequiresScepter"				"1"
-				"affected_by_aoe_increase"	"1"
-			}
-			"overgrowth_aoe"
-			{
-				"value"			"0"
-				"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
-				"RequiresScepter"				"1"
-				"affected_by_aoe_increase"	"1"
-			}
-			"tree_respawn_seconds"
-			{
-				"value"		"10"
-				"RequiresScepter"				"1"
-			}
-		}
 	}
 	//原生力量（命石1）
 	"treant_innate_attack_damage"
 	{
 		"AbilityValues"
 		{
-			"attack_damage_per_level"
-			{
-				"value"						"0"
-				"special_bonus_facet_treant_primeval_power"	"+15" // x50=750，满级裸装总攻击<1000
-			}
+			"attack_damage_per_level"		"12"		// 6
 		}
 	}
 	// 自然蔽护
@@ -4815,20 +4785,17 @@
 				"value"			"100" // 200
 				"affected_by_aoe_increase"	"1"
 			}
-			"grace_time"				"1.25" // 0.75 显形和攻击后渐隐延迟
-			"cooldown_time"				"0.3" // 3
+			"grace_time"				"1.25"	// 0.75 显形和攻击后渐隐延迟
+			"cooldown_time"				"0.5"	// 2.75 不受到伤害获得树木穿行
 			"attack_damage_pct"
 			{
 				"special_bonus_shard"			"150"		// 75
-				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 			}
-			"shard_cooldown"	// 缠绕冷却时间
+			"shard_cooldown"
 			{
-				"value"					"3" // 10
-				"RequiresShard"						"1"
+				"special_bonus_shard"			"5"			// 10
 			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
 	// Ability: Undying 不朽尸王

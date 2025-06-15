@@ -998,6 +998,8 @@
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_fade_delay"					"FADE DELAY:"
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_movement_speed"				"MOVEMENT SPEED:"
 
+		// 树精卫士
+		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"Increase Overgrowth Range"
 		///////////////////////////////////////////////////
 		//
 		// 自定义英雄 Custom Heroes
