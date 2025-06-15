@@ -987,6 +987,18 @@
 		"DOTA_Tooltip_modifier_huskar_inner_vitality"					"活血术"
 		"DOTA_Tooltip_modifier_huskar_inner_vitality_Description"		"每秒恢复%fMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点生命值。"
 
+		// 力丸
+		"DOTA_Tooltip_ability_riki_permanent_invisibility"								"永久隐身"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Description"					"力丸遁入阴影，保持隐身状态。主动攻击敌人，力丸将会显形。获得额外移动速度。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Lore"							"力丸来找你了。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note0"						"力丸在隐身时不会自动攻击敌人。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note1"						"力丸的幻象也会有背刺的动作，但是不会造成额外伤害。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note2"						"背刺的额外伤害无法闪避。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_fade_delay"					"渐隐时间："
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_movement_speed"				"移动速度："
+
+		// 树精卫士
+		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"增加疯狂生长作用范围"
 		///////////////////////////////////////////////////
 		//
 		// 自定义英雄 Custom Heroes
