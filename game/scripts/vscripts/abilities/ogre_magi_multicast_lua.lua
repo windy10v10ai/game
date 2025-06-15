@@ -205,7 +205,6 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 	ability:SetContextThink("think_multicast", function()
 		-- 记忆当前cursor position target
 		local cursorPositionBeforeCast = keys.unit:GetCursorPosition()
-		local cursorTargetBeforeCast = keys.unit:GetCursorTarget()
 
 		if IsHeroUncontrollable(keys.unit) then
 			ability.multicast = nil
@@ -250,7 +249,6 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 		keys.unit:GiveMana(ability:GetManaCost(-1))
 		-- 还原cursor position target
 		keys.unit:SetCursorPosition(cursorPositionBeforeCast)
-		keys.unit:SetCursorCastTarget(cursorTargetBeforeCast)
 
 		ability.multicast = ability.multicast - 1
 		if ability.multicast <= 1 then
