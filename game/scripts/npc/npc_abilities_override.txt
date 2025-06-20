@@ -2,6 +2,7 @@
 #base "npc_items_override_neutral.txt"
 #base "npc_items_override_neutral_passive.txt"
 #base "npc_abilities_creep.txt"
+#base "npc_abilities_override_lottery.txt"
 
 "DOTAAbilities"
 {
@@ -1832,7 +1833,7 @@
 	//=================================================================================================================
 	// Ability: Elder Titan 上古巨神/大牛
 	//=================================================================================================================
-	// 踩
+	// 回音重踏 踩
 	"elder_titan_echo_stomp"
 	{
 		"MaxLevel" "5"
@@ -1854,7 +1855,7 @@
 			}
 		}
 	}
-	// 魂踩
+	// 回音重踏 魂踩
 	"elder_titan_echo_stomp_spirit"
 	{
 		"MaxLevel" "5"
@@ -1880,7 +1881,7 @@
 			}
 		}
 	}
-	// 放魂
+	// 灵体游魂 放魂
 	"elder_titan_ancestral_spirit"
 	{
 		"MaxLevel" "5"
@@ -2307,7 +2308,7 @@
 	// 强攻提供{s:value}秒 减益免疫
 	"special_bonus_unique_legion_commander_8"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 		"ad_linked_abilities"			"legion_commander_press_the_attack"
@@ -2979,7 +2980,7 @@
 	// 暗夜猎影 移动速度
 	"special_bonus_unique_night_stalker_301"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
@@ -3845,7 +3846,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass" "special_bonus_base"
 	}
@@ -4399,18 +4400,10 @@
 					"value"				"200 250 300 350"
 				"special_bonus_unique_tusk" "+75"
 				}
-		}
-	}
-	// 普攻触发神拳天赋
-	"special_bonus_unique_tusk_4"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "15" // 12
-				"ad_linked_abilities" "tusk_walrus_punch"
-			}
+				"proc_chance"	// 普攻触发海象神拳 天赋
+				{
+					"special_bonus_unique_tusk_4"	"15"	// 12
+				}
 		}
 	}
 	// 海象飞踢
@@ -4718,19 +4711,19 @@
 	"treant_living_armor"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"30 25 20 15 10"
-		"AbilityManaCost"				"40 45 50 55 60"
+		"AbilityCooldown"				"35 30 25 20 15"
+		"AbilityManaCost"				"40 50 60 70 80"	// 40 45 50 55
 		"AbilityValues"
 		{
 			"heal_per_second"
 			{
-				"value"		"40 60 80 100 120" // 3 4 5 6
-				"special_bonus_unique_treant_8"			"+40"	// 2
+				"value"		"30 40 50 60 70" // x10
+				"special_bonus_unique_treant_8"			"+20"	// 2 x10
 			}
 			"bonus_armor"
 			{
-				"value"		"8 12 16 20 24" // 4 6 8 10
-				"special_bonus_unique_treant_13"			"+16" // 8
+				"value"		"16 24 32 40 48" // x4
+				"special_bonus_unique_treant_13"			"+32" // 8 x4
 			}
 			"duration"			"15"		// 缩短时间控制总治疗量
 		}
@@ -4740,12 +4733,13 @@
 	{
 		"MaxLevel" "4"
 		"AbilityManaCost"				"200 250 300 350"
+		"HasScepterUpgrade"				"1"
 		"AbilityValues"
 		{
 				"duration"						"3 4 5 6" // 3 4 5
 				"radius"
 				{
-					"value"		"1000" // 800
+					"special_bonus_scepter"		"+800"
 				}
 				"eyes_radius"
 				{
@@ -4753,55 +4747,24 @@
 				}
 				"damage"
 				{
-					"value"					"85 120 155 190" // 85
-					"CalculateSpellDamageTooltip"	"1"
+					"value"					"85 120 155 190"	// 85
 				}
 				"AbilityCooldown"
 				{
-					"value"						"110 100 90 80" // 120 110 100
-					"special_bonus_unique_treant_14"	"-40" // -35
+					"value"						"110 100 90 80"	// 110 100 90
 				}
 		}
 	}
-	// 树眼 被替代
+	// 树眼 卡顿 被移除
 	"treant_eyes_in_the_forest"
 	{
-		"AbilityCharges"				"2"
-		"AbilityChargeRestoreTime"		"240.0"
-		"AbilityManaCost"				"500"
-		"AbilityValues"
-		{
-			"vision_aoe"
-			{
-				"value"		"1600"
-				"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
-				"RequiresScepter"				"1"
-				"affected_by_aoe_increase"	"1"
-			}
-			"overgrowth_aoe"
-			{
-				"value"			"0"
-				"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
-				"RequiresScepter"				"1"
-				"affected_by_aoe_increase"	"1"
-			}
-			"tree_respawn_seconds"
-			{
-				"value"		"10"
-				"RequiresScepter"				"1"
-			}
-		}
 	}
 	//原生力量（命石1）
 	"treant_innate_attack_damage"
 	{
 		"AbilityValues"
 		{
-			"attack_damage_per_level"
-			{
-				"value"						"0"
-				"special_bonus_facet_treant_primeval_power"	"+15" // x50=750，满级裸装总攻击<1000
-			}
+			"attack_damage_per_level"		"12"		// 6
 		}
 	}
 	// 自然蔽护
@@ -4814,20 +4777,17 @@
 				"value"			"100" // 200
 				"affected_by_aoe_increase"	"1"
 			}
-			"grace_time"				"1.25" // 0.75 显形和攻击后渐隐延迟
-			"cooldown_time"				"0.3" // 3
+			"grace_time"				"1.25"	// 0.75 显形和攻击后渐隐延迟
+			"cooldown_time"				"0.5"	// 2.75 不受到伤害获得树木穿行
 			"attack_damage_pct"
 			{
 				"special_bonus_shard"			"150"		// 75
-				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 			}
-			"shard_cooldown"	// 缠绕冷却时间
+			"shard_cooldown"
 			{
-				"value"					"3" // 10
-				"RequiresShard"						"1"
+				"special_bonus_shard"			"5"			// 10
 			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
 	// Ability: Undying 不朽尸王
@@ -6117,17 +6077,9 @@
 				"value"			"4 5 6 7 8" // 2 3 4 5
 				"special_bonus_unique_hoodwink_acorn_shot_bounces" "+2"	// +1
 			}
-		}
-	}
-	// 栗子点数天赋
-	"special_bonus_unique_hoodwink_acorn_shot_charges"
-	{
-		"AbilityValues"
-		{
-			"value"
+			"AbilityCharges"
 			{
-				"value" "3"
-				"ad_linked_abilities" "hoodwink_acorn_shot"
+				"special_bonus_unique_hoodwink_acorn_shot_charges"	"3"		// 2
 			}
 		}
 	}
@@ -7705,7 +7657,7 @@
 	"special_bonus_unique_razor_101"
 	{
 		"BaseClass"					"special_bonus_undefined"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}
 	// 静电连接
@@ -7788,13 +7740,13 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_razor_402"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	//=================================================================================================================
 	// Ability: Riki 力丸/隐刺/SA
@@ -8361,18 +8313,6 @@
 			"hit_point_minimum_pct"		"35 30 25 20"
 		}
 	}
-	// 魂断冷却
-	"special_bonus_unique_terrorblade"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "25"
-				"ad_linked_abilities" "terrorblade_sunder"
-			}
-		}
-	}
 	//=================================================================================================================
 	// Ability: Troll Warlord 巨魔战将
 	//=================================================================================================================
@@ -8712,7 +8652,7 @@
 	}
 	"special_bonus_unique_venomancer_201"
 	{
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"					"special_bonus_undefined"
 	}
@@ -10665,7 +10605,7 @@
 			}
 			"bonus_instance_damage_from_other_abilities"
 			{
-				"value"		"15 20 25 30 35"
+				"value"		"10 15 20 25 30"
 			}
 		}
 	}
@@ -10686,7 +10626,6 @@
 				"value"							"8.0"	// 10
 				"special_bonus_scepter"			"+4.0"
 			}
-			"linger_duration"			"1"	// 2
 		}
 	}
 	//=================================================================================================================
@@ -11122,7 +11061,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
@@ -12367,7 +12306,7 @@
 	// 自定义天赋
 	"special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
@@ -12667,30 +12606,10 @@
 		{
 				"ball_lightning_initial_mana_percentage"		"3.5"
 				"ball_lightning_move_speed"			"1400 1850 2300 2750"
-		}
-	}
-	// 球状闪电残影距离（减少单位降低卡顿）
-	"special_bonus_unique_storm_spirit_4"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "800"	// 500
-				"ad_linked_abilities" "storm_spirit_ball_lightning && storm_spirit_static_remnant"
-			}
-		}
-	}
-	// 超负荷弹射天赋
-	"special_bonus_unique_storm_spirit_7"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "3"	// 2
-				"ad_linked_abilities" "storm_spirit_overload"
-			}
+				"auto_remnant_interval"	// 球状闪电残影距离（减少单位降低卡顿）
+				{
+					"special_bonus_unique_storm_spirit_4"		"800"		// 450
+				}
 		}
 	}
 	// 通电 看我回蓝（先天）
@@ -12945,29 +12864,6 @@
 		"AbilityDamage"					"100 200 300 400 500"
 		"AbilityManaCost"				"100 110 120 130 140"
 	}
-	// 太虚之径
-	"void_spirit_astral_step"
-	{
-		"MaxLevel" "4"
-		"AbilityValues"
-		{
-				"radius"
-				{
-					"value"	"200"	// 170
-					"affected_by_aoe_increase"	"1"
-				}
-				"AbilityChargeRestoreTime"
-				{
-					"value"			"24 21 18 15"
-				}
-				"max_travel_distance"	"1200 1600 2000 2400"
-				"pop_damage"
-				{
-					"value"					"250 350 450 550"
-				}
-				"movement_slow_pct"		"50 60 70 80"
-		}
-	}
 	// 共鸣脉冲
 	"void_spirit_resonant_pulse"
 	{
@@ -13006,24 +12902,39 @@
 				}
 		}
 	}
+	// 太虚之径
+	"void_spirit_astral_step"
+	{
+		"MaxLevel" "4"
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"	"200"	// 170
+				"affected_by_aoe_increase"	"1"
+			}
+			"AbilityChargeRestoreTime"
+			{
+				"value"			"24 21 18 15"
+			}
+			"max_travel_distance"	"1200 1600 2000 2400"
+			"pop_damage"
+			{
+				"value"					"250 350 450 550"
+			}
+			"movement_slow_pct"		"50 60 70 80"
+			"crit_damage"
+			{
+				"special_bonus_unique_void_spirit_8"	"240"	// 140
+			}
+		}
+	}
 	// 先天 内在优势
 	"void_spirit_intrinsic_edge"
 	{
 		"AbilityValues"
 		{
 			"secondary_stat_bonus_pct"	"50"			// 25
-		}
-	}
-	// 25右天赋暴击
-	"special_bonus_unique_void_spirit_8"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "240"							// 140
-				"ad_linked_abilities" "void_spirit_astral_step"
-			}
 		}
 	}
 	//=================================================================================================================

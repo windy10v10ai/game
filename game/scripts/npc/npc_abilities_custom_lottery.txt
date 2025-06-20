@@ -68,21 +68,22 @@
 	//血魔 血雾
 	"bloodseeker_blood_mist2"
 	{
+		"MaxLevel"							"5"
 		"BaseClass"							"ability_lua"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"ScriptFile"						"abilities/bloodseeker_blood_mist2"
 		"AbilityTextureName"				"bloodseeker_blood_mist"
+		"ScriptFile"						"abilities/bloodseeker_blood_mist2"
+
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityType"						"ABILITY_TYPE_BASIC"
+
 		"AbilityCastRange"					"450"
 
 		"precache"
 		{
 			"particle"					"particles/units/heroes/hero_bloodseeker/bloodseeker_scepter_blood_mist_aoe.vpcf"
 		}
-
-		"AbilityType"						"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"							"5"
 
 		"AbilityValues"
 		{
@@ -252,7 +253,7 @@
 		"IsGrantedByScepter"			"0"
 		"AbilityTextureName"    		"dark_seer_normal_punch"
 
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"						"3"
 
 		"AbilityCooldown"				"9"
@@ -267,42 +268,6 @@
 			"max_stun"					"1.25"
 			"max_damage"				"100 150 200"
 			"ad" 						"1 1.5 2"
-		}
-	}
-	//兽王 战鼓
-	"beastmaster_drums_of_slom2"
-	{
-		"BaseClass"                     "beastmaster_drums_of_slom"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"IsGrantedByScepter"			"0"
-		"IsOnCastBar"                   "1"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"3"
-
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"600"
-				"affected_by_aoe_increase"	"1"
-			}
-			"max_stacks"					"20"
-			"stack_decay_time"				"1.0"
-			"min_drum_hit_interval"			"0.5"
-			"max_drum_hit_interval"			"3"
-
-			"base_damage"
-			{
-				"value"			"65 85 105"
-				"CalculateSpellDamageTooltip" "1"
-			}
-			"heal_pct"						"20"
-			"creep_heal_pct"				"5"
-			"aura_radius"
-			{
-				"value"			"1200"
-				"affected_by_aoe_increase"	"1"
-			}
 		}
 	}
 	//赏金 妙手空空 技能偷钱
@@ -338,8 +303,8 @@
 
 		"AbilityValues"
 		{
-			"range"					"800 900 1000 1100 1200"
-			"damage_pct"			"75 90 105 120 135"
+			"range"					"800 850 900 950 1000"
+			"damage_pct"			"75 85 95 105 115"
 
 			"wave_count"			"6"
 			"projectile_width"
@@ -486,7 +451,7 @@
 	"viper_universal_hero"
 	{
 		"BaseClass"						"special_bonus_unique_viper_5"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"quan_cai"
 		"MaxLevel"						"1"
@@ -563,7 +528,7 @@
 	{
 		"BaseClass"						"arc_warden_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"						"3"
 
 		"AbilityCastPoint"				"0.15"
@@ -840,7 +805,7 @@
 			}
 		}
 	}
-	//炼金 强化武器
+	//炼金 强化武器 选择率过低暂时移除
 	"alchemist_enhanced_weaponry"
 	{
 		"BaseClass"						"ability_lua"
@@ -870,7 +835,7 @@
 		"ScriptFile"					"abilities/ogre_magi_multicast_lua"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityCastAnimation"			"ACT_INVALID"
 		"IsBreakable"					"1"
 
