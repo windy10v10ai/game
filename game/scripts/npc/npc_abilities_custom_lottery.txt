@@ -76,7 +76,7 @@
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityType"						"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"						"ABILITY_TYPE_BASIC"
 
 		"AbilityCastRange"					"450"
 
@@ -253,7 +253,7 @@
 		"IsGrantedByScepter"			"0"
 		"AbilityTextureName"    		"dark_seer_normal_punch"
 
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"						"3"
 
 		"AbilityCooldown"				"9"
@@ -451,7 +451,7 @@
 	"viper_universal_hero"
 	{
 		"BaseClass"						"special_bonus_unique_viper_5"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"quan_cai"
 		"MaxLevel"						"1"
@@ -528,7 +528,7 @@
 	{
 		"BaseClass"						"arc_warden_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"						"3"
 
 		"AbilityCastPoint"				"0.15"
@@ -835,7 +835,7 @@
 		"ScriptFile"					"abilities/ogre_magi_multicast_lua"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityCastAnimation"			"ACT_INVALID"
 		"IsBreakable"					"1"
 
