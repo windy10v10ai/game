@@ -586,7 +586,7 @@
 		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%Damage Reflection Chance:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%Damage Reflection Percentage:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Damage is returned as the same damage type."
-		"DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% Dispersion Chance"
+		// "DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% Dispersion Chance"
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
@@ -609,19 +609,6 @@
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"				"ILLUSION DURATION:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"Base Damage:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"Attack Damage Addition Rate:"
-		//战鼓
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2"					"Drums of Slom"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_Lore"				"Nature's rage is timeless, and for those who know the secrets, it's easy to stir the echoes of ire that rejoiced in the downfall of Slom."
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_Description"			"Attacks from Beastmaster or a nearby unit he controls will cause him bang his drum, dealing damage to nearby units and  healing Beastmaster and units under his control for a portion of the damage dealt. Every attack decreases the interval between drum hits down to a minimum of %min_drum_hit_interval%s between hits after %max_stacks% attacks. If no attacks are made, the intervals gradually increase.<br><br>Using Primal Roar counts as 10/15/20 attacks, based on the current level of Primal Roar."
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_max_drum_hit_interval"	"LONGEST DRUM INTERVAL:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_min_drum_hit_interval"	"SHORTEST DRUM INTERVAL:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_max_stacks"				"ATTACKS FOR SHORTEST INTERVAL:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_base_damage"			"DRUM HIT DAMAGE:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_radius"					"DAMAGE RADIUS:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_heal_pct"					"%HEAL FROM HEROES:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_creep_heal_pct"					"%HEAL FROM CREEPS:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_stop"				"Drums of Slom Cancel"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_stop_Description"	"Cancels Drums of Slom ability"
 		//妙手空空
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"Cutpurse"
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Bounty Hunter steals gold when targeting enemy heroes with his abilities or items."
