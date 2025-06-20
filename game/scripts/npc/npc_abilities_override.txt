@@ -4400,18 +4400,10 @@
 					"value"				"200 250 300 350"
 				"special_bonus_unique_tusk" "+75"
 				}
-		}
-	}
-	// 普攻触发神拳天赋
-	"special_bonus_unique_tusk_4"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "15" // 12
-				"ad_linked_abilities" "tusk_walrus_punch"
-			}
+				"proc_chance"	// 普攻触发海象神拳 天赋
+				{
+					"special_bonus_unique_tusk_4"	"15"	// 12
+				}
 		}
 	}
 	// 海象飞踢
@@ -8319,18 +8311,6 @@
 		"AbilityValues"
 		{
 			"hit_point_minimum_pct"		"35 30 25 20"
-		}
-	}
-	// 魂断冷却
-	"special_bonus_unique_terrorblade"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "25"
-				"ad_linked_abilities" "terrorblade_sunder"
-			}
 		}
 	}
 	//=================================================================================================================
@@ -12904,29 +12884,6 @@
 		"AbilityDamage"					"100 200 300 400 500"
 		"AbilityManaCost"				"100 110 120 130 140"
 	}
-	// 太虚之径
-	"void_spirit_astral_step"
-	{
-		"MaxLevel" "4"
-		"AbilityValues"
-		{
-				"radius"
-				{
-					"value"	"200"	// 170
-					"affected_by_aoe_increase"	"1"
-				}
-				"AbilityChargeRestoreTime"
-				{
-					"value"			"24 21 18 15"
-				}
-				"max_travel_distance"	"1200 1600 2000 2400"
-				"pop_damage"
-				{
-					"value"					"250 350 450 550"
-				}
-				"movement_slow_pct"		"50 60 70 80"
-		}
-	}
 	// 共鸣脉冲
 	"void_spirit_resonant_pulse"
 	{
@@ -12965,24 +12922,39 @@
 				}
 		}
 	}
+	// 太虚之径
+	"void_spirit_astral_step"
+	{
+		"MaxLevel" "4"
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"	"200"	// 170
+				"affected_by_aoe_increase"	"1"
+			}
+			"AbilityChargeRestoreTime"
+			{
+				"value"			"24 21 18 15"
+			}
+			"max_travel_distance"	"1200 1600 2000 2400"
+			"pop_damage"
+			{
+				"value"					"250 350 450 550"
+			}
+			"movement_slow_pct"		"50 60 70 80"
+			"crit_damage"
+			{
+				"special_bonus_unique_void_spirit_8"	"240"	// 140
+			}
+		}
+	}
 	// 先天 内在优势
 	"void_spirit_intrinsic_edge"
 	{
 		"AbilityValues"
 		{
 			"secondary_stat_bonus_pct"	"50"			// 25
-		}
-	}
-	// 25右天赋暴击
-	"special_bonus_unique_void_spirit_8"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "240"							// 140
-				"ad_linked_abilities" "void_spirit_astral_step"
-			}
 		}
 	}
 	//=================================================================================================================
