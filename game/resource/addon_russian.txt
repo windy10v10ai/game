@@ -359,20 +359,6 @@
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"					"ВРЕМЯ ЖИЗНИ КОПИИ:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"МАКСИМАЛЬНЫЙ УРОН:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"ad ставка："
-		//战鼓
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2"					"Drums of Slom"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_Lore"				"Ярость природы безвременна, и посвящённым в её секреты несложно пробудить эхо гнева, возликовавшего при крахе Слома."
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_Description"			"Когда владелец способности или его существа неподалёку атакуют, он бьёт в барабан, нанося урон врагам вокруг и излечивая владельца и его существ на долю от нанесённого урона. Каждая совершённая атака уменьшает интервал между ударами — вплоть до %min_drum_hit_interval% сек. после %max_stacks% атак. Если атаки не происходят, интервал постепенно возрастает.<br><br>Применение способности Primal Roar считается за 10/15/20 атак в зависимости от её уровня."
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_max_drum_hit_interval"	"МАКСИМАЛЬНЫЙ ИНТЕРВАЛ:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_min_drum_hit_interval"	"МИНИМАЛЬНЫЙ ИНТЕРВАЛ:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_max_stacks"				"АТАК ДЛЯ МИНИМАЛЬНОГО ИНТЕРВАЛА:"
-
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_base_damage"			"УРОН ОТ УДАРА:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_radius"					"РАДИУС:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_heal_pct"					"%ЛЕЧЕНИЕ ОТ УРОНА ГЕРОЯМ:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_creep_heal_pct"					"%ЛЕЧЕНИЕ ОТ УРОНА КРИПАМ:"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_stop"				"Остановить Drums of Slom"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_stop_Description"	"Прервать применение способности Drums of Slom"
 		//妙手空空
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"Cutpurse"
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Герой крадёт золото у вражеских героев, ставших целью его способности или предмета."

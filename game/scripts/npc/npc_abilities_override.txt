@@ -2308,7 +2308,7 @@
 	// 强攻提供{s:value}秒 减益免疫
 	"special_bonus_unique_legion_commander_8"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 		"ad_linked_abilities"			"legion_commander_press_the_attack"
@@ -2980,7 +2980,7 @@
 	// 暗夜猎影 移动速度
 	"special_bonus_unique_night_stalker_301"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
@@ -3846,7 +3846,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass" "special_bonus_base"
 	}
@@ -4400,18 +4400,10 @@
 					"value"				"200 250 300 350"
 				"special_bonus_unique_tusk" "+75"
 				}
-		}
-	}
-	// 普攻触发神拳天赋
-	"special_bonus_unique_tusk_4"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "15" // 12
-				"ad_linked_abilities" "tusk_walrus_punch"
-			}
+				"proc_chance"	// 普攻触发海象神拳 天赋
+				{
+					"special_bonus_unique_tusk_4"	"15"	// 12
+				}
 		}
 	}
 	// 海象飞踢
@@ -6085,17 +6077,9 @@
 				"value"			"4 5 6 7 8" // 2 3 4 5
 				"special_bonus_unique_hoodwink_acorn_shot_bounces" "+2"	// +1
 			}
-		}
-	}
-	// 栗子点数天赋
-	"special_bonus_unique_hoodwink_acorn_shot_charges"
-	{
-		"AbilityValues"
-		{
-			"value"
+			"AbilityCharges"
 			{
-				"value" "3"
-				"ad_linked_abilities" "hoodwink_acorn_shot"
+				"special_bonus_unique_hoodwink_acorn_shot_charges"	"3"		// 2
 			}
 		}
 	}
@@ -7673,7 +7657,7 @@
 	"special_bonus_unique_razor_101"
 	{
 		"BaseClass"					"special_bonus_undefined"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}
 	// 静电连接
@@ -7756,13 +7740,13 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_razor_402"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	//=================================================================================================================
 	// Ability: Riki 力丸/隐刺/SA
@@ -8329,18 +8313,6 @@
 			"hit_point_minimum_pct"		"35 30 25 20"
 		}
 	}
-	// 魂断冷却
-	"special_bonus_unique_terrorblade"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "25"
-				"ad_linked_abilities" "terrorblade_sunder"
-			}
-		}
-	}
 	//=================================================================================================================
 	// Ability: Troll Warlord 巨魔战将
 	//=================================================================================================================
@@ -8680,7 +8652,7 @@
 	}
 	"special_bonus_unique_venomancer_201"
 	{
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"					"special_bonus_undefined"
 	}
@@ -11089,7 +11061,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
@@ -12334,7 +12306,7 @@
 	// 自定义天赋
 	"special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
@@ -12634,30 +12606,10 @@
 		{
 				"ball_lightning_initial_mana_percentage"		"3.5"
 				"ball_lightning_move_speed"			"1400 1850 2300 2750"
-		}
-	}
-	// 球状闪电残影距离（减少单位降低卡顿）
-	"special_bonus_unique_storm_spirit_4"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "800"	// 500
-				"ad_linked_abilities" "storm_spirit_ball_lightning && storm_spirit_static_remnant"
-			}
-		}
-	}
-	// 超负荷弹射天赋
-	"special_bonus_unique_storm_spirit_7"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "3"	// 2
-				"ad_linked_abilities" "storm_spirit_overload"
-			}
+				"auto_remnant_interval"	// 球状闪电残影距离（减少单位降低卡顿）
+				{
+					"special_bonus_unique_storm_spirit_4"		"800"		// 450
+				}
 		}
 	}
 	// 通电 看我回蓝（先天）
@@ -12912,29 +12864,6 @@
 		"AbilityDamage"					"100 200 300 400 500"
 		"AbilityManaCost"				"100 110 120 130 140"
 	}
-	// 太虚之径
-	"void_spirit_astral_step"
-	{
-		"MaxLevel" "4"
-		"AbilityValues"
-		{
-				"radius"
-				{
-					"value"	"200"	// 170
-					"affected_by_aoe_increase"	"1"
-				}
-				"AbilityChargeRestoreTime"
-				{
-					"value"			"24 21 18 15"
-				}
-				"max_travel_distance"	"1200 1600 2000 2400"
-				"pop_damage"
-				{
-					"value"					"250 350 450 550"
-				}
-				"movement_slow_pct"		"50 60 70 80"
-		}
-	}
 	// 共鸣脉冲
 	"void_spirit_resonant_pulse"
 	{
@@ -12973,24 +12902,39 @@
 				}
 		}
 	}
+	// 太虚之径
+	"void_spirit_astral_step"
+	{
+		"MaxLevel" "4"
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"	"200"	// 170
+				"affected_by_aoe_increase"	"1"
+			}
+			"AbilityChargeRestoreTime"
+			{
+				"value"			"24 21 18 15"
+			}
+			"max_travel_distance"	"1200 1600 2000 2400"
+			"pop_damage"
+			{
+				"value"					"250 350 450 550"
+			}
+			"movement_slow_pct"		"50 60 70 80"
+			"crit_damage"
+			{
+				"special_bonus_unique_void_spirit_8"	"240"	// 140
+			}
+		}
+	}
 	// 先天 内在优势
 	"void_spirit_intrinsic_edge"
 	{
 		"AbilityValues"
 		{
 			"secondary_stat_bonus_pct"	"50"			// 25
-		}
-	}
-	// 25右天赋暴击
-	"special_bonus_unique_void_spirit_8"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "240"							// 140
-				"ad_linked_abilities" "void_spirit_astral_step"
-			}
 		}
 	}
 	//=================================================================================================================
