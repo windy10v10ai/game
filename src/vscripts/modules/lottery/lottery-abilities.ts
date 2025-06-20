@@ -29,7 +29,6 @@ export const abilityTiersActive: Tier[] = [
       'sven_gods_strength', // 神之力量
       'alchemist_chemical_rage', // 化学狂暴
       'legion_commander_duel', // 决斗
-      'dazzle_good_juju', // 善咒
 
       // 小技能
       'ember_spirit_sleight_of_fist', // 无影拳
@@ -181,6 +180,7 @@ export const abilityTiersPassive: Tier[] = [
       'shredder_reactive_armor', // 活性活甲
       'dawnbreaker_luminosity', // 熠熠生辉
       'axe_counter_helix', // 反击螺旋
+      'dazzle_good_juju', // 善咒
 
       // 法球/开关技能
       'omniknight_hammer_of_purity', // 纯洁之锤
