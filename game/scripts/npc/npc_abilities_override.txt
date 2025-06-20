@@ -6085,17 +6085,9 @@
 				"value"			"4 5 6 7 8" // 2 3 4 5
 				"special_bonus_unique_hoodwink_acorn_shot_bounces" "+2"	// +1
 			}
-		}
-	}
-	// 栗子点数天赋
-	"special_bonus_unique_hoodwink_acorn_shot_charges"
-	{
-		"AbilityValues"
-		{
-			"value"
+			"AbilityCharges"
 			{
-				"value" "3"
-				"ad_linked_abilities" "hoodwink_acorn_shot"
+				"special_bonus_unique_hoodwink_acorn_shot_charges"	"3"		// 2
 			}
 		}
 	}
